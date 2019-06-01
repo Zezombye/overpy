@@ -1,5 +1,91 @@
 "use strict";
 
+
+//Gets the name of a workshop function.
+function getName(content) {
+	
+	if (content === undefined) {
+		error("Trying to get name of undefined function");
+	}
+	
+	var bracketPos = getBracketPositions(content);
+	
+	if (bracketPos.length == 2) {
+		var name = content.substring(0, bracketPos[0]);
+	} else {
+		var name = content;
+	}
+	
+	return name.replace(/\s/g, "");
+}
+
+//Returns "player" if the instruction represents an array of players, else the name of the instruction.
+//Note: you must only pass the name of the instruction to this function.
+function getPlayerVarName(content) {
+	if (isSinglePlayerInstruction(content)) {
+		return decompile(content);
+	} else {
+		return "player";
+	}
+}
+
+//Checks if the (python) instruction represents only a player.
+//Used to differenciate player and player[].
+//Note: you must only pass the name to this function.
+function isSinglePlayerInstruction(content) {
+	
+	content = topy(getName(content), valueKw);
+	
+	debug("Checking if '"+content+"' is a single player instruction");
+	
+	var playerInstructions = [
+		"attacker",
+		"getClosestPlayer",
+		"eventPlayer",
+		"getFarthestPlayer",
+		"_firstOf",
+		"_lastOf",
+		"getPlayerCarryingFlag",
+		"getPlayerClosestToReticle",
+		"_randomValueInArray",
+		"victim",
+		"_currentArrayElement",
+	];
+	
+	if (playerInstructions.indexOf(content) > -1) {
+		return true;
+	}
+	return false;
+}
+
+//Same as isSinglePlayerInstruction, but for player arrays.
+//However, note that these functions aren't mutually exclusive;
+//if one of them returns false, the other one will not necessarily return true.
+//This is because variables can hold a player and a player array, and we can't know which.
+function isPlayerArrayInstruction(content) {
+	
+	content = topy(getName(content), valueKw);
+	
+	debug("Checking if '"+content+"' is a player array instruction");
+	
+	var playerArrayInstructions = [
+		"getDeadPlayers",
+		"getLivingPlayers",
+		"getAllPlayers",
+		"getPlayersNotOnObjective",
+		"getPlayersOnObjective",
+		"getPlayersInSlot",
+		"getPlayersInViewAngle",
+		"getPlayersOnHero",
+		"getPlayersInRadius",
+	];
+	
+	if (playerArrayInstructions.indexOf(content) > -1) {
+		return true;
+	}
+	return false;
+}
+
 //Returns 4 spaces per tab level.
 function tabLevel(nbTabs) {
 	var result = "";
@@ -74,6 +160,7 @@ function splitStrOnDelimiter(content, delimiter) {
 	var bracketPosCheckIndex = 0;
 	var delimiterPos = [-delimiter.length];
 	var currentPositionIsString = false;
+	var currentStrDelimiter = "";
 	
 	for (var i = 0; i < content.length; i++) {
 		//Check if the current index is in parentheses
@@ -81,9 +168,11 @@ function splitStrOnDelimiter(content, delimiter) {
 			i = bracketPos[bracketPosCheckIndex+1];
 			bracketPosCheckIndex += 2;
 			
-		} else if (content.charAt(i) == '"' || content.charAt(i) == '\'') {
+		} else if (!currentPositionIsString && (content.charAt(i) == '"' || content.charAt(i) == '\'')) {
 			currentPositionIsString = !currentPositionIsString;
-			
+			currentStrDelimiter = content.charAt(i);
+		} else if (content.charAt(i) === currentStrDelimiter) {
+			currentPositionIsString = !currentPositionIsString;
 		} else if (content.charAt(i) == '\\') {
 			i++;
 		} else if (!currentPositionIsString && content.startsWith(delimiter, i)) {
@@ -113,6 +202,7 @@ function getBracketPositions(content) {
 	var bracketsPos = []
 	var bracketsLevel = 0;
 	var currentPositionIsString = false;
+	var currentStrDelimiter = "";
 	for (var i = 0; i < content.length; i++) {
 		if (!currentPositionIsString && startsWithParenthesis(content.substring(i))) {
 			bracketsLevel++;
@@ -126,7 +216,10 @@ function getBracketPositions(content) {
 			} else if (bracketsLevel < 0) {
 				error("brackets level below 0!");
 			}
-		} else if (content.charAt(i) == '"' || content.charAt(i) == '\'') {
+		} else if (!currentPositionIsString && (content.charAt(i) == '"' || content.charAt(i) == '\'')) {
+			currentPositionIsString = !currentPositionIsString;
+			currentStrDelimiter = content.charAt(i);
+		} else if (content.charAt(i) === currentStrDelimiter) {
 			currentPositionIsString = !currentPositionIsString;
 		} else if (content.charAt(i) == '\\') {
 			i++;
@@ -155,5 +248,6 @@ function error(str) {
 }
 
 function debug(str) {
+	return;
 	console.log("DEBUG: "+str);
 }
