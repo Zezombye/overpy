@@ -13,15 +13,21 @@ var ruleKw = [
 [["@Rule"], [
 	"rule",
 ]],
+[["@Event"], [
+	"event",
+]],
+[["_conditions"], [
+	"conditions",
+]],
+[["_actions"], [
+	"actions",
+]],
 ];
 
 //Event keywords
 var eventKw = [
 
 //The "event" keyword itself
-[["@Event"], [
-	"event",
-]],
 [["global"], [
 	"ongoing-global",
 ]],
@@ -107,14 +113,29 @@ var actionKw = [
 [["_&allowButton"], [
 	"allowButton",
 ]],
-[["impulse"], [
+[["_&applyImpulse"], [
 	"applyImpulse",
 ]],
 [["bigMessage"], [
 	"bigMessage",
 ]],
+[["_chaseGlobalVariableAtRate"], [
+	"chaseGlobalVariableAtRate",
+]],
+[["_chaseGlobalVariableOverTime"], [
+	"chaseGlobalVariableOverTime",
+]],
+[["_chasePlayerVariableAtRate"], [
+	"chasePlayerVariableAtRate",
+]],
+[["_chasePlayerVariableOverTime"], [
+	"chasePlayerVariableOverTime",
+]],
 [["_&clearStatusEffect"], [
 	"clearStatus",
+]],
+[["_&communicate"], [
+	"communicate",
 ]],
 [["createEffect"], [
 	"createEffect",
@@ -122,8 +143,17 @@ var actionKw = [
 [["createIcon"], [
 	"createIcon",
 ]],
+[["createInWorldText"], [
+	"createIn-WorldText",
+]],
 [["hudText"], [
 	"createHudText",
+]],
+[["damage"], [
+	"damage",
+]],
+[["declareTeamVictory"], [
+	"declareTeamVictory",
 ]],
 [["declarePlayerVictory"], [
 	"declarePlayerVictory",
@@ -137,14 +167,41 @@ var actionKw = [
 [["destroyAllIcons()"], [
 	"destroyAllIcons",
 ]],
+[["destroyEffect"], [
+	"destroyEffect",
+]],
+[["destroyHudText"], [
+	"destroyHudText",
+]],
+[["destroyInWorldText"], [
+	"destroyIn-WorldText",
+]],
 [["disableGamemodeCompletion()"], [
 	"disableBuilt-inGamemodeCompletion",
+]],
+[["_&disableRespawn"], [
+	"disableBuilt-inGamemodeRespawning",
+]],
+[["_&disableDeathSpectateAllPlayers"], [
+	"disableDeathSpectateAllPlayers",
+]],
+[["_&disableDeathSpectateTargetHud"], [
+	"disableDeathSpectateTargetHud",
 ]],
 [["_&disallowButton"], [
 	"disallowButton",
 ]],
+[["enableGamemodeCompletion()"], [
+	"enableBuilt-inGamemodeCompletion",
+]],
+[["_&enableRespawn"], [
+	"enableBuilt-inGamemodeRespawning",
+]],
 [["goToAssembleHeroes()"], [
 	"goToAssembleHeroes",
+]],
+[["heal"], [
+	"heal",
 ]],
 [["kill"], [
 	"kill",
@@ -155,6 +212,12 @@ var actionKw = [
 [["_loopIf"], [
 	"loopIf",
 ]],
+[["_loopIfConditionIsFalse"], [
+	"loopIfConditionIsFalse",
+]],
+[["_loopIfConditionIsTrue"], [
+	"loopIfConditionIsTrue",
+]],
 [["_modifyGlobalVar"], [
 	"modifyGlobalVariable",
 ]],
@@ -163,6 +226,12 @@ var actionKw = [
 ]],
 [["_modifyPlayerVar"], [
 	"modifyPlayerVariable",
+]],
+[["pauseMatchTime()"], [
+	"pauseMatchTime",
+]],
+[["playEffect"], [
+	"playEffect",
 ]],
 [["_&forceButtonPress"], [
 	"pressButton",
@@ -176,11 +245,38 @@ var actionKw = [
 [["_&resurrect"], [
 	"resurrect",
 ]],
+[["_&setAbility1Enabled"], [
+	"setAbility1Enabled",
+]],
+[["_&setAbility2Enabled"], [
+	"setAbility2Enabled",
+]],
+[["_&setAimSpeed"], [
+	"setAimSpeed",
+]],
+[["_&setCamera"], [
+	"startCamera",
+]],
+[["_&setDamageDealt"], [
+	"setDamageDealt",
+]],
+[["_&setFacing"], [
+	"setFacing",
+]],
 [["_setGlobalVar"], [
 	"setGlobalVariable",
 ]],
+[["_&setGravity"], [
+	"setGravity",
+]],
+[["_&setHealingDealt"], [
+	"setHealingDealt",
+]],
 [["setMatchTime"], [
 	"setMatchTime",
+]],
+[["_&setMaxHealth"], [
+	"setMaxHealth",
 ]],
 [["_&setMoveSpeed"], [
 	"setMoveSpeed",
@@ -188,14 +284,32 @@ var actionKw = [
 [["_setPlayerVar"], [
 	"setPlayerVariable",
 ]],
+[["_setPlayerVarAtIndex"], [
+	"setPlayerVariableAtIndex",
+]],
+[["_&setPrimaryFireEnabled"], [
+	"setPrimaryFireEnabled",
+]],
 [["_&setProjectileGravity"], [
 	"setProjectileGravity",
 ]],
 [["_&setProjectileSpeed"], [
 	"setProjectileSpeed",
 ]],
+[["_&setSecondaryFireEnabled"], [
+	"setSecondaryFireEnabled",
+]],
+[["setSlowMotion"], [
+	"setSlowMotion",
+]],
 [["_&setStatusEffect"], [
 	"setStatus",
+]],
+[["_&setUltCharge"], [
+	"setUltimateCharge",
+]],
+[["_&setUltEnabled"], [
+	"setUltimateAbilityEnabled",
 ]],
 [["_skip"], [
 	"skip",
@@ -203,25 +317,55 @@ var actionKw = [
 [["_skipIf"], [
 	"skipIf",
 ]],
+[["smallMessage"], [
+	"smallMessage",
+]],
+[["_&startAcceleration"], [
+	"startAccelerating",
+]],
 [["startDamageModification"], [
 	"startDamageModification",
+]],
+[["_&startDoT"], [
+	"startDamageOverTime",
 ]],
 [["_&startForcingHero"], [
 	"startForcingPlayerToBeHero",
 ]],
+[["_&startForcingButton"], [
+	"startHoldingButton",
+]],
+[["_&stopAcceleration"], [
+	"stopAccelerating",
+]],
 [["stopAllDamageModifications"], [
 	"stopAllDamageModifications",
+]],
+[["_&stopAllDoT"], [
+	"stopAllDamageOverTime",
 ]],
 [["_&stopAllHoT"], [
 	"stopAllHealOverTime",
 ]],
+[["_&stopCamera"], [
+	"stopCamera",
+]],
+[["_stopChasingPlayerVariable"], [
+	"stopChasingPlayerVariable",
+]],
 [["_&stopForcingCurrentHero"], [
 	"stopForcingPlayerToBeHero",
+]],
+[["_&stopForcingButton"], [
+	"stopHoldingButton",
 ]],
 [["_&teleportTo"], [
 	"teleport",
 ]],
-[["wait"], [
+[["unpauseMatchTime()"], [
+	"unpauseMatchTime",
+]],
+[["_wait"], [
 	"wait",
 ]],
 
@@ -239,8 +383,17 @@ var valueFuncKw = [
 [["_and"], [
 	"and",
 ]],
+[["angleDifference"], [
+	"angleDifference",
+]],
 [["attacker"], [
 	"attacker",
+]],
+[["getAllDeadPlayers"], [
+	"allDeadPlayers",
+]],
+[["getAllLivingPlayers"], [
+	"allLivingPlayers",
 ]],
 [["getAllPlayers"], [
 	"allPlayers",
@@ -254,17 +407,32 @@ var valueFuncKw = [
 [["_compare"], [
 	"compare",
 ]],
-[["_currentArrayElement"], [
-	"currentArrayElement",
+[["cos"], [
+	"cosineFromRadians",
+]],
+[["cosDeg"], [
+	"cosineFromDegrees",
 ]],
 [["len"], [
 	"countOf",
+]],
+[["_currentArrayElement"], [
+	"currentArrayElement",
+]],
+[["directionTowards"], [
+	"directionTowards",
 ]],
 [["distance"], [
 	"distanceBetween",
 ]],
 [["_divide"], [
 	"divide",
+]],
+[["dotProduct"], [
+	"dotProduct",
+]],
+[["Vector.DOWN"], [
+	"down",
 ]],
 [["_emptyArray"], [
 	"emptyArray",
@@ -274,6 +442,12 @@ var valueFuncKw = [
 ]],
 [["eventPlayer"], [
 	"eventPlayer",
+]],
+[["_&getEyePosition"], [
+	"eyePosition",
+]],
+[["_&getFacingDirection"], [
+	"facingDirectionOf",
 ]],
 [["_filteredArray"], [
 	"filteredArray",
@@ -287,6 +461,9 @@ var valueFuncKw = [
 [["_&hasStatusEffect"], [
 	"hasStatus",
 ]],
+[["_&getHealth"], [
+	"health",
+]],
 [["_hero"], [
 	"hero",
 ]],
@@ -296,8 +473,23 @@ var valueFuncKw = [
 [["_&getCurrentHero"], [
 	"heroOf",
 ]],
+[["horizontalAngleFromDirection"], [
+	"horizontalAngleFromDirection",
+]],
+[["horizontalAngleTowards"], [
+	"horizontalAngleTowards",
+]],
+[["_&getHorizontalFacingAngle"], [
+	"HorizontalFacingAngleOf",
+]],
 [["_&getHorizontalSpeed"], [
 	"horizontalSpeedOf",
+]],
+[["_&isAlive"], [
+	"isAlive",
+]],
+[["isAssemblingHeroes()"], [
+	"isAssemblingHeroes",
 ]],
 [["_&isCommunicating"], [
 	"isCommunicating",
@@ -305,23 +497,65 @@ var valueFuncKw = [
 [["_&isCrouching"], [
 	"isCrouching",
 ]],
+[["_&isFiringPrimaryFire"], [
+	"isFiringPrimary",
+]],
+[["_&isFiringSecondaryFire"], [
+	"isFiringSecondary",
+]],
 [["_&isHoldingButton"], [
 	"isButtonHeld",
 ]],
-[["_&isUsingShift"], [
+[["_&isInAir"], [
+	"isInAir",
+]],
+[["_isInLineOfSight"], [
+	"isInLineOfSight",
+]],
+[["_&isInViewAngle"], [
+	"isInViewAngle",
+]],
+[["_&isOnGround"], [
+	"isOnGround",
+]],
+[["_&isUsingAbility1"], [
 	"isUsingAbility1",
 ]],
-[["_&isUsingE"], [
+[["_&isUsingAbility2"], [
 	"isUsingAbility2",
 ]],
 [["isGameInProgress()"], [
 	"isGameInProgress",
 ]],
-[["getMatchTime()"], [
-	"matchTime",
+[["_isTrueForAny"], [
+	"isTrueForAny",
+]],
+[["getLastCreatedEntity()"], [
+	"lastCreatedEntity",
+]],
+[["getLastDoT()"], [
+	"lastDamageOverTimeId",
+]],
+[["getLastCreatedText()"], [
+	"lastTextId",
 ]],
 [["_lastOf"], [
 	"lastOf",
+]],
+[["Vector.LEFT"], [
+	"left",
+]],
+[["getMatchTime()"], [
+	"matchTime",
+]],
+[["max"], [
+	"max",
+]],
+[["_&getMaxHealth"], [
+	"maxHealth",
+]],
+[["min"], [
+	"min",
 ]],
 [["_multiply"], [
 	"multiply",
@@ -329,8 +563,23 @@ var valueFuncKw = [
 [["nearestWalkablePosition"], [
 	"nearestWalkablePosition",
 ]],
+[["normalize"], [
+	"normalize",
+]],
 [["not "], [
 	"not",
+]],
+[["getNumberOfDeadPlayers"], [
+	"numberOfDeadPlayers",
+]],
+[["getNumberOfLivingPlayers"], [
+	"numberOfLivingPlayers",
+]],
+[["getNumberOfPlayers"], [
+	"numberOfPlayers",
+]],
+[["getOppositeTeam"], [
+	"oppositeTeamOf",
 ]],
 [["_or"], [
 	"or",
@@ -344,11 +593,26 @@ var valueFuncKw = [
 [["_&getPosition"], [
 	"positionOf",
 ]],
+[["_raiseToPower"], [
+	"raiseToPower",
+]],
 [["random.randint"], [
 	"randomInteger",
 ]],
 [["random.shuffle"], [
 	"randomizedArray",
+]],
+[["random.uniform"], [
+	"randomReal",
+]],
+[["random.choice"], [
+	"randomValueInArray",
+]],
+[["_raycastHitPosition"], [
+	"raycastHitPosition",
+]],
+[["Vector.RIGHT"], [
+	"right",
 ]],
 [["round"], [
 	"roundToInteger",
@@ -356,8 +620,14 @@ var valueFuncKw = [
 [["_&getScore"], [
 	"scoreOf",
 ]],
+[["sinDeg"], [
+	"sineFromDegrees",
+]],
 [["_sortedArray"], [
 	"sortedArray",
+]],
+[["sqrt"], [
+	"squareRoot",
 ]],
 [["_string"], [
 	"string",
@@ -365,17 +635,29 @@ var valueFuncKw = [
 [["_subtract"], [
 	"subtract",
 ]],
+[["_&getTeam"], [
+	"teamOf",
+]],
+[["Vector.UP"], [
+	"up",
+]],
 [["_valueInArray"], [
 	"valueInArray",
 ]],
 [["vectorTowards"], [
 	"vectorTowards",
 ]],
-[["vector"], [
+[["vect"], [
 	"vector",
 ]],
 [["_&getVelocity"], [
 	"velocityOf",
+]],
+[["verticalAngleTowards"], [
+	"verticalAngleTowards",
+]],
+[["_&getVerticalFacingAngle"], [
+	"verticalFacingAngleOf",
 ]],
 [["victim"], [
 	"victim",
@@ -509,6 +791,9 @@ var roundKw = [
 [["ROUND_UP"], [
 	"up",
 ]],
+[["ROUND_DOWN"], [
+	"down",
+]],
 
 ];
 
@@ -629,6 +914,41 @@ var effectKw = [
 
 ];
 
+var playEffectKw = [
+
+[["Effect.BAD_EXPLOSION"], [
+    "badexplosion",
+]],
+[["Effect.BAD_PICKUP_EFFECT"], [
+    "badpickupeffect",
+]],
+[["Effect.BUFF_EXPLOSION_SOUND"], [
+    "buffexplosionsound",
+]],
+[["Effect.BUFF_IMPACT_SOUND"], [
+    "buffimpactsound",
+]],
+[["Effect.DEBUFF_IMPACT_SOUND"], [
+    "debuffimpactsound",
+]],
+[["Effect.EXPLOSION_SOUND"], [
+    "explosionsound",
+]],
+[["Effect.GOOD_EXPLOSION"], [
+    "goodexplosion",
+]],
+[["Effect.GOOD_PICKUP_EFFECT"], [
+    "goodpickupeffect",
+]],
+[["Effect.RING_EXPLOSION"], [
+    "ringexplosion",
+]],
+[["Effect.RING_EXPLOSION_SOUND"], [
+    "ringexplosionsound",
+]],
+
+];
+
 var iconKw = [
 
 [["Icon.ARROW_DOWN"], [
@@ -744,20 +1064,35 @@ var iconKw = [
 
 var reevaluationKw = [
 
-[["RECEIVERS_DAMAGERS_AND_DMGPERCENT"], [
+[["Reeval.DIRECTION_RATE_AND_MAX_SPEED"], [
+	"directionRateAndMaxSpeed",
+]],
+[["Reeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT"], [
 	"receiversDamagersAndDamagePercent",
 ]],
-[["VISIBILITY"], [
+[["Reeval.VISIBILITY"], [
 	"visibleTo",
 ]],
-[["VISIBILITY_AND_POSITION"], [
+[["Reeval.VISIBILITY_AND_POSITION"], [
 	"visibleToAndPosition",
 ]],
-[["VISIBILITY_AND_STRING"], [
+[["Reeval.VISIBILITY_AND_STRING"], [
 	"visibleToAndString",
 ]],
-[["VISIBILITY_POSITION_AND_RADIUS"], [
+[["Reeval.VISIBILITY_POSITION_AND_RADIUS"], [
 	"visibleToPositionAndRadius",
+]],
+[["Reeval.VISIBILITY_POSITION_AND_STRING"], [
+	"visibleToPositionAndString",
+]],
+[["Reeval.DESTINATION_AND_RATE"], [
+	"destinationAndRate",
+]],
+[["Reeval.DESTINATION_AND_DURATION"], [
+	"destinationAndDuration",
+]],
+[["Reeval.NONE"], [
+	"none",
 ]],
 
 ];
@@ -853,6 +1188,15 @@ var losCheckKw = [
 [["LosCheck.SURFACES_AND_ENEMY_BARRIERS"], [
     "surfacesandenemybarriers",
 ]],
+[["LosCheck.BLOCKED_BY_ENEMY_BARRIERS"], [
+    "enemyBarriersBlockLos",
+]],
+[["LosCheck.BLOCKED_BY_ALL_BARRIERS"], [
+    "allBarriersBlockLos",
+]],
+[["LosCheck.PASS_THROUGH_BARRIERS"], [
+    "barriersDoNotBlockLos",
+]],
 
 ];
 
@@ -938,6 +1282,17 @@ var commsKw = [
 
 ];
 
+var clipKw = [
+
+[["Clip.SURFACES"], [
+	"clipAgainstSurfaces",
+]],
+[["Clip.NONE"], [
+	"doNotClip",
+]],
+
+];
+
 //This is not a keyword list like the others (used for translation).
 //Rather, it is a list of keywords that can be integrated into strings (eg: hero names, team names, numbers, etc).
 var stringKw = [];
@@ -946,7 +1301,7 @@ for (var i = 0; i < heroKw.length; i++) {
 }
 
 //A constant is defined as anything that isn't a function (or variable).
-var constantKw = heroKw.concat(boolKw).concat(roundKw).concat(operationKw).concat(visibleToKw).concat(teamKw).concat(positionKw).concat(colorKw).concat(reevaluationKw).concat(waitKw).concat(effectKw).concat(iconKw).concat(relativeKw).concat(impulseKw).concat(buttonKw).concat(transformationKw).concat(losCheckKw).concat(statusKw).concat(commsKw);
+var constantKw = heroKw.concat(boolKw).concat(roundKw).concat(operationKw).concat(visibleToKw).concat(teamKw).concat(positionKw).concat(colorKw).concat(reevaluationKw).concat(waitKw).concat(effectKw).concat(iconKw).concat(relativeKw).concat(impulseKw).concat(buttonKw).concat(transformationKw).concat(losCheckKw).concat(statusKw).concat(commsKw).concat(playEffectKw).concat(clipKw);
 
 
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
