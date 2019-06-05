@@ -72,6 +72,8 @@ function isPlayerArrayInstruction(content) {
 		"getDeadPlayers",
 		"getLivingPlayers",
 		"getAllPlayers",
+		"getAllLivingPlayers",
+		"getAllDeadPlayers",
 		"getPlayersNotOnObjective",
 		"getPlayersOnObjective",
 		"getPlayersInSlot",
@@ -109,6 +111,8 @@ function translate(keyword, toWorkshop, keywordArray) {
 	
 	//Check for numbers
 	if (!isNaN(keyword)) {
+		//Convert to int then to string to remove unnecessary 0s.
+		keyword = Number(keyword).toString();
 		return keyword;
 	}
 	
@@ -248,6 +252,6 @@ function error(str) {
 }
 
 function debug(str) {
-	return;
+	//return;
 	console.log("DEBUG: "+str);
 }

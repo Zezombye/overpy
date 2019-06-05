@@ -21,6 +21,41 @@ var lastLoop = -1;
 //Should be the empty array at the beginning and end of each rule; if not, throws an error.
 var currentArrayElementNames = [];
 
+/*var counter = 0;
+var counter2 = 0;*/
+/*for (var h = 0; h < testvalues.length; h++) {
+	var isIn = false;
+	for (var i = 0; i < valueKw.length; i++) {
+		for (var j = 0; j < valueKw[i][1].length; j++) {
+			if (valueKw[i][1][j].toLowerCase() === testvalues[h]["name"].replace(/\s/, "").toLowerCase()) {
+				isIn = true;
+			}
+		}
+	}
+	if (isIn) {
+		counter++;
+	} else {
+		counter2++;
+	}
+}*/
+/*for (var h = 0; h < testactions.length; h++) {
+	var isIn = false;
+	for (var i = 0; i < actionKw.length; i++) {
+		for (var j = 0; j < actionKw[i][1].length; j++) {
+			if (actionKw[i][1][j].toLowerCase() === testactions[h]["name"].replace(/\s/, "").toLowerCase()) {
+				isIn = true;
+			}
+		}
+	}
+	if (isIn) {
+		counter++;
+	} else {
+		counter2++;
+	}
+}
+console.log(counter);
+console.log(counter2);*/
+
 console.log(decompileAllRules(input));
 
 function decompileAllRules(content) {
@@ -33,10 +68,9 @@ function decompileAllRules(content) {
 	
 	var result = "";
 	
-	console.log(bracketPos.length);
-	console.log(bracketPos);
-	for (var i = 0; i < bracketPos.length-1; i += 4) {
-		console.log(i);
+	//for (var i = 0; i < bracketPos.length-1; i += 4) {
+	for (var i = 160; i < 200; i += 4) {
+		if (i >= bracketPos.length-1) break;
 		result += decompileRule(content.substring(bracketPos[i]+1, bracketPos[i+4]+1));
 	}
 	
@@ -69,45 +103,50 @@ function decompileRule(content) {
 	
 	var ruleContent = content.substring(bracketPos[2]+1, bracketPos[3]);
 	
-	var bracketPos2 = getBracketPositions(ruleContent);
-	//console.log(ruleContent);
+	var bracketPos2 = [-1].concat(getBracketPositions(ruleContent));
 	
-	if (topy(ruleContent.substring(0, bracketPos2[0]), eventKw) !== "@Event") {
-		error("Rule "+ruleName+" has no 'event' field");
+	var eventInst = [];
+ 	var conditions = [];
+	var actions = [];
+	
+	for (var i = 0; i < bracketPos2.length-2; i += 2) {
+		var fieldName = topy(ruleContent.substring(bracketPos2[i]+1, bracketPos2[i+1]), ruleKw);
+		if (fieldName === "@Event") {
+			eventInst = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+		} else if (fieldName === "_conditions") {
+			conditions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+		} else if (fieldName === "_actions") {
+			actions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+		} else {
+			error("Unknown field name "+fieldName+" in rule "+ruleName);
+		}
 	}
 	
-	//First pair is event
-	var eventContent = ruleContent.substring(bracketPos2[0]+1, bracketPos2[1]);
-	var eventInst = splitInstructions(eventContent);
-	
-	result += "@Event "+topy(eventInst[0], eventKw)+"\n";
-	if (eventInst.length > 1) {
-		//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
-		if (topy(eventInst[1], eventKw) !== "all") {
-			result += "@Team "+topy(eventInst[1], eventKw)+"\n";
-		}
-		
-		//Parse the 3rd event instruction
-		//Detect if it is a slot or hero
-		var eventInst3 = topy(eventInst[2], eventKw.concat(heroKw))
-		if (eventInst3 !== "all") {
-			if (eventInst3.startsWith("slot")) {
-				result += "@Slot "+eventInst3.replace("slot", "")+"\n";
-			} else {
-				//We assume it is a hero
-				result += "@Hero "+eventInst3 + "\n";
+	//Parse events
+	if (eventInst.length > 0) {
+		result += "@Event "+topy(eventInst[0], eventKw)+"\n";
+		if (eventInst.length > 1) {
+			//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
+			if (topy(eventInst[1], eventKw) !== "all") {
+				result += "@Team "+topy(eventInst[1], eventKw)+"\n";
+			}
+			
+			//Parse the 3rd event instruction
+			//Detect if it is a slot or hero
+			var eventInst3 = topy(eventInst[2], eventKw.concat(heroKw))
+			if (eventInst3 !== "all") {
+				if (eventInst3.startsWith("slot")) {
+					result += "@Slot "+eventInst3.replace("slot", "")+"\n";
+				} else {
+					//We assume it is a hero
+					result += "@Hero "+eventInst3 + "\n";
+				}
 			}
 		}
 	}
 	
-	var actions = [];
-	var hasConditions = false;
-	
-	if (bracketPos2.length == 6) {
-		//There is a "condition" field; parse it
-		hasConditions = true;
-		actions = splitInstructions(ruleContent.substring(bracketPos2[4]+1, bracketPos2[5]));
-		var conditions = splitInstructions(ruleContent.substring(bracketPos2[2]+1, bracketPos2[3]));
+	//Parse conditions
+	if (conditions.length > 0) {
 		
 		result += "if ";
 		var condStrs = [];
@@ -120,52 +159,50 @@ function decompileRule(content) {
 			}
 			condStrs.push(currentCond);
 		}
+		var condStr = condStrs.join(") and (");
 		
 		//This happens if everything is true
-		if (condStrs === []) {
-			condStrs.push("true");
+		if (condStr === "") {
+			condStr = "true";
 		}
-		result += "(" + condStrs.join(") and (")+")";
+		result += "(" + condStr +")";
 		
 		result += ":\n"
-		
-	} else {
-		//No condition field
-		hasConditions = false;
-		actions = splitInstructions(ruleContent.substring(bracketPos2[2]+1, bracketPos2[3]));
-	}
-	
-	if (hasConditions) {
 		nbTabs = 1;
 	}
-	
-	//Detect the last loop to know where to place the "until"
-	for (var i = 0; i < actions.length; i++) {
-		if (topy(getName(actions[i]), actionKw).startsWith("_loop")) {
-			//It is a loop; update the loop position
-			lastLoop = i;
-		}
-	}
-	
-	//If a loop was detected, add the "do:" and increment the indentation level.
-	if (lastLoop >= 0) {
-		result += tabLevel(nbTabs)+"do:\n";
-		nbTabs++;
-	}
 		
-	for (var i = 0; i < actions.length; i++) {
-		if (i == lastLoop) {
-			nbTabs--;
+	//Parse actions
+	if (actions.length > 0) {
+		//Detect the last loop to know where to place the "while"
+		for (var i = 0; i < actions.length; i++) {
+			if (topy(getName(actions[i]), actionKw).startsWith("_loop")) {
+				//It is a loop; update the loop position
+				lastLoop = i;
+			}
 		}
-		result += tabLevel(nbTabs) + decompileAction(actions[i], i) + "\n";
+		
+		//If a loop was detected, add the "do:" and increment the indentation level.
+		if (lastLoop >= 0) {
+			result += tabLevel(nbTabs)+"do:\n";
+			nbTabs++;
+		}
+			
+		for (var i = 0; i < actions.length; i++) {
+			if (i == lastLoop) {
+				nbTabs--;
+			}
+			result += tabLevel(nbTabs) + decompileAction(actions[i], i) + "\n";
+		}
+		
+		//Add the remaining gotos (caused eg. by a skip 50 in a rule with 10 actions).
+		for (var i = 0; i < decompilerGotos.length; i++) {
+			if (decompilerGotos[i] > 0) {
+				result += tabLevel(nbTabs)+"lbl_"+i+":\n";
+			}
+		}
+	
 	}
 	
-	//Add the remaining gotos (caused eg. by a skip 50 in a rule with 10 actions).
-	for (var i = 0; i < decompilerGotos.length; i++) {
-		if (decompilerGotos[i] > 0) {
-			result += tabLevel(nbTabs)+"lbl_"+i+":\n";
-		}
-	}
 	
 	return result;
 	
@@ -233,16 +270,16 @@ function decompileCondition(operand1, operator, operand2) {
 		}
 	}
 	
-	result += operands[0];
 	if (operands[0] !== "" && operands[1] !== "") {
-		result += " "+operator+" ";
+		result += "("+operands[0]+") "+operator+" ("+operands[1]+")";
+	} else if (operands[0] !== "") {
+		result += operands[0];
+	} else if (operands[1] !== "") {
+		result += operands[1];
+	} else {
+		result += "true";
 	}
-	result += operands[1];
 	
-	//Can happen in case of "true == true".
-	if (result === "") {
-		result = "true";
-	}
 	if (isOneOperandFalse) {
 		result = "not ("+result+")";
 	}
@@ -330,10 +367,39 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	if (name === "_arraySlice") {
 		return decompile(args[0]) + ".slice(" + decompile(args[1]) + ", " + decompile(args[2])+")";
 	}
+	
+	//Chase global variable at rate
+	if (name === "_chaseGlobalVariableAtRate") {
+		
+		return "chase("+decompile(args[0])+", "+decompile(args[1])+", rate="+decompile(args[2])+", "+decompile(args[3])+")";
+	}
+	
+	//Chase global variable over time
+	if (name === "_chaseGlobalVariableOverTime") {
+		
+		return "chase("+decompile(args[0])+", "+decompile(args[1])+", duration="+decompile(args[2])+", "+decompile(args[3])+")";
+	}
+	
+	//Chase player variable at rate
+	if (name === "_chasePlayerVariableAtRate") {
+		
+		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, rate={arg2}, {arg3})", args[0], args.slice(1), true)
+		
+		return result;
+	}
+	
+	//Chase player variable over time
+	if (name === "_chasePlayerVariableOverTime") {
+		
+		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, duration={arg2}, {arg3})", args[0], args.slice(1), true)
+		
+		return result;
+	}
 		
 	//Compare
 	if (name === "_compare") {
-		return "("+decompile(args[0]) + ") " + args[1].trim() + " (" + decompile(args[2])+")";
+		return decompileCondition(args[0], args[1].trim(), args[2]);
+		//return "("+decompile(args[0]) + ") " + args[1].trim() + " (" + decompile(args[2])+")";
 	}
 	
 	//Current array element
@@ -372,7 +438,7 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 		return result;
 	}
 	
-	//Get global variable
+	//Global variable
 	if (name === "_globalVar") {
 		return decompile(args[0]);
 	}
@@ -380,6 +446,28 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	//Hero
 	if (name === "_hero") {
 		return decompile(args[0], heroKw);
+	}
+	
+	//Is in line of sight
+	if (name === "_isInLineOfSight") {
+		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", los="+decompile(args[2])+").hasLoS()";
+	}
+	
+	//Is true for any
+	if (name === "_isTrueForAny") {
+		
+		if (isPlayerArrayInstruction(args[0])) {
+			var varName = "player";
+		} else {
+			var varName = "i";
+		}
+		
+		debug("Pushing currentArrayElementName "+varName);
+		currentArrayElementNames.push(varName);
+		
+		var result = "any(["+decompile(args[1])+" for "+varName+" in "+decompile(args[0])+"])";
+		currentArrayElementNames.pop();
+		return result;
 	}
 	
 	//Last of
@@ -390,7 +478,7 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	//Loop
 	if (name === "_loop") {
 		if (isLastLoop) {
-			return "until true";
+			return "while true";
 		} else {
 			return "continue";
 		}
@@ -399,9 +487,31 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	//Loop if
 	if (name === "_loopIf") {
 		if (isLastLoop) {
-			return "until "+decompile(args[0]);
+			return "while "+decompile(args[0]);
 		} else {
 			var result = "if "+decompile(args[0])+":\n";
+			result += tabLevel(nbTabs+1)+"continue";
+			return result;
+		}
+	}
+	
+	//Loop if condition is false
+	if (name === "_loopIfConditionIsFalse") {
+		if (isLastLoop) {
+			return "while RULE_CONDITION == false";
+		} else {
+			var result = "if RULE_CONDITION == false:\n";
+			result += tabLevel(nbTabs+1)+"continue";
+			return result;
+		}
+	}
+	
+	//Loop if condition is true
+	if (name === "_loopIfConditionIsTrue") {
+		if (isLastLoop) {
+			return "while RULE_CONDITION == true";
+		} else {
+			var result = "if RULE_CONDITION == true:\n";
 			result += tabLevel(nbTabs+1)+"continue";
 			return result;
 		}
@@ -431,7 +541,7 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 		return "("+decompile(args[0])+") or ("+decompile(args[1])+")";
 	}
 	
-	//Get player variable
+	//Player variable
 	if (name === "_playerVar") {
 		if (isSinglePlayerInstruction(args[0])) {
 			return decompile(args[0])+"."+decompile(args[1]);
@@ -440,7 +550,23 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 		}
 	}
 	
+	//Raise to power
+	if (name === "_raiseToPower") {
+		return "("+decompile(args[0])+") ** ("+decompile(args[1])+")";
+	}
 	
+	//Raycast hit position
+	if (name === "_raycastHitPosition") {
+		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getHitPosition()";
+	}
+	
+	//Round
+	if (name === "round") {
+		//Not really a special function, but we must handle it here
+		//to make the difference between "up" (round up) and "up" (the vector up).
+		//Same for "down".
+		return "round("+decompile(args[0])+", "+decompile(args[1], roundKw)+")";
+	}
 	
 	//Set global var
 	if (name === "_setGlobalVar") {
@@ -449,7 +575,17 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	
 	//Set player var
 	if (name === "_setPlayerVar") {
-		return decompilePlayerFunction("{player}.{args} = {value}", args[0], [args[1]], args[2]);
+		return decompilePlayerFunction("{player}.{arg0} = {arg1}", args[0], args.slice(1), true);
+	}
+	
+	//Set player var at index
+	if (name === "_setPlayerVarAtIndex") {
+		return decompilePlayerFunction("{player}.{arg0}[{arg1}] = {arg2}", args[0], args.slice(1), true);
+	}
+	
+	//Stop chasing player variable
+	if (name === "_stopChasingPlayerVariable") {
+		return decompilePlayerFunction("stopChasingVariable({player}.{args})", args[0], args.slice(1));
 	}
 					
 	//Subtract
@@ -489,7 +625,7 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 		return result;
 	}
 	
-	//Filtered array
+	//Sorted array
 	if (name === "_sortedArray") {
 		
 		if (isPlayerArrayInstruction(args[0])) {
@@ -513,6 +649,13 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	
 	//String
 	if (name === "_string") {
+		
+		//Blizzard likes making parsing difficult apparently,
+		//cause the "reevaluation on string" used with hud is the same as the "string" function.
+		
+		if (args.length == 0) {
+			return "Reeval.STRING";
+		}
 				
 		var [str, format] = decompileString(args[0], args[1], args[2], args[3], strDepth);
 				
@@ -530,6 +673,17 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	//Value in array
 	if (name === "_valueInArray") {
 		return decompile(args[0])+"["+decompile(args[1])+"]";
+	}
+	
+	//Wait
+	if (name === "_wait") {
+		var arg2 = decompile(args[1]);
+		if (arg2 === "Wait.IGNORE_CONDITION") {
+			return "wait("+decompile(args[0])+")";
+		}
+		else {
+			return "wait("+decompile(args[0])+", behavior="+arg2+")";
+		}
 	}
 	
 	//X/Y/Z component of
@@ -627,7 +781,8 @@ function decompileGenericPlayerFunction(name, args) {
 
 //Automatically generates a for loop for player function, if that player function takes an array as argument.
 //The content is a python translation and must contain {player} and {args} to replace strings by the args.
-function decompilePlayerFunction(content, player, args, value=undefined) {
+//If separateArgs = true, {arg0}, {arg1} etc must be provided instead of {args}.
+function decompilePlayerFunction(content, player, args, separateArgs=false) {
 	
 	if (isSinglePlayerInstruction(player)) {
 		var result = content.replace("\{player\}", decompile(player))
@@ -638,16 +793,19 @@ function decompilePlayerFunction(content, player, args, value=undefined) {
 	}
 	
 	//Parse arguments
-	var argsStr = "";
-	for (var i = 0; i < args.length; i++) {
-		argsStr += decompile(args[i]);
-		if (i < args.length-1) {
-			argsStr += ", ";
+	if (!separateArgs) {
+		var argsStr = "";
+		for (var i = 0; i < args.length; i++) {
+			argsStr += decompile(args[i]);
+			if (i < args.length-1) {
+				argsStr += ", ";
+			}
 		}
-	}
-	result = result.replace("\{args\}", argsStr)
-	if (value !== undefined) {
-		result = result.replace("\{value\}", decompile(value))
+		result = result.replace("\{args\}", argsStr)
+	} else {
+		for (var i = 0; i < args.length; i++) {
+			result = result.replace("\{arg"+i+"\}", decompile(args[i]))
+		}
 	}
 	
 	return result;
@@ -665,6 +823,13 @@ function decompileModifyVar(variable, operation, value) {
 			return variable+"++";
 		} else {
 			return variable+" += "+value;
+		}
+	} else if (operation === "_subtract") {
+		//Handle special "--" case
+		if (!isNaN(value) && parseInt(value) == 1) {
+			return variable+"--";
+		} else {
+			return variable+" -= "+value;
 		}
 	} else {
 		error("Unhandled operation "+operation);
