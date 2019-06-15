@@ -266,6 +266,9 @@ var actionKw = [
 [["_setGlobalVar"], [
 	"setGlobalVariable",
 ]],
+[["_setGlobalVarAtIndex"], [
+	"setGlobalVariableAtIndex",
+]],
 [["_&setGravity"], [
 	"setGravity",
 ]],
@@ -332,6 +335,9 @@ var actionKw = [
 [["_&startForcingHero"], [
 	"startForcingPlayerToBeHero",
 ]],
+[["_&startHoT"], [
+	"startHealOverTime",
+]],
 [["_&startForcingButton"], [
 	"startHoldingButton",
 ]],
@@ -352,6 +358,9 @@ var actionKw = [
 ]],
 [["_stopChasingPlayerVariable"], [
 	"stopChasingPlayerVariable",
+]],
+[["stopDoT"], [
+	"stopDamageOverTime",
 ]],
 [["_&stopForcingCurrentHero"], [
 	"stopForcingPlayerToBeHero",
@@ -1293,6 +1302,173 @@ var clipKw = [
 
 ];
 
+//Global variables, used to convert to names during decompilation.
+var globalVarKw = [
+
+[["A"], [
+    "A",
+]],
+[["B"], [
+    "B",
+]],
+[["C"], [
+    "C",
+]],
+[["D"], [
+    "D",
+]],
+[["E"], [
+    "E",
+]],
+[["F"], [
+    "F",
+]],
+[["G"], [
+    "G",
+]],
+[["H"], [
+    "H",
+]],
+[["I"], [
+    "I",
+]],
+[["J"], [
+    "J",
+]],
+[["K"], [
+    "K",
+]],
+[["L"], [
+    "L",
+]],
+[["M"], [
+    "M",
+]],
+[["N"], [
+    "N",
+]],
+[["O"], [
+    "O",
+]],
+[["P"], [
+    "P",
+]],
+[["Q"], [
+    "Q",
+]],
+[["R"], [
+    "R",
+]],
+[["S"], [
+    "S",
+]],
+[["T"], [
+    "T",
+]],
+[["U"], [
+    "U",
+]],
+[["V"], [
+    "V",
+]],
+[["W"], [
+    "W",
+]],
+[["X"], [
+    "X",
+]],
+[["Y"], [
+    "Y",
+]],
+[["Z"], [
+    "Z",
+]],
+
+];
+
+var playerVarKw = [
+
+[["A"], [
+    "A",
+]],
+[["B"], [
+    "B",
+]],
+[["C"], [
+    "C",
+]],
+[["D"], [
+    "D",
+]],
+[["E"], [
+    "E",
+]],
+[["F"], [
+    "F",
+]],
+[["G"], [
+    "G",
+]],
+[["H"], [
+    "H",
+]],
+[["I"], [
+    "I",
+]],
+[["J"], [
+    "J",
+]],
+[["K"], [
+    "K",
+]],
+[["L"], [
+    "L",
+]],
+[["M"], [
+    "M",
+]],
+[["N"], [
+    "N",
+]],
+[["O"], [
+    "O",
+]],
+[["P"], [
+    "P",
+]],
+[["Q"], [
+    "Q",
+]],
+[["R"], [
+    "R",
+]],
+[["S"], [
+    "S",
+]],
+[["T"], [
+    "T",
+]],
+[["U"], [
+    "U",
+]],
+[["V"], [
+    "V",
+]],
+[["W"], [
+    "W",
+]],
+[["X"], [
+    "X",
+]],
+[["Y"], [
+    "Y",
+]],
+[["Z"], [
+    "Z",
+]],
+
+];
+
 //This is not a keyword list like the others (used for translation).
 //Rather, it is a list of keywords that can be integrated into strings (eg: hero names, team names, numbers, etc).
 var stringKw = [];
@@ -1305,4 +1481,4 @@ var constantKw = heroKw.concat(boolKw).concat(roundKw).concat(operationKw).conca
 
 
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
-var valueKw = valueFuncKw.concat(constantKw).concat(heroKw);
+var valueKw = valueFuncKw.concat(constantKw);
