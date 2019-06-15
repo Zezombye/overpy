@@ -1,7 +1,31 @@
 "use strict";
 
+//Replaces variables A-Z with the provided names (for decompilation).
+//Also returns "#define name var" for each name.
+function loadVariableNames(names, varKw) {
+	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	var result = "";
+	for (const [key,value] of Object.entries(names)) {
+		var index = alphabet.indexOf(key.toUpperCase());
+		if (index < 0) {
+			error("Illegal variable "+key);
+		} else {
+			varKw[index][0][0] = value;
+			result += "#!define "+value+" "+key.toUpperCase()+"\n";
+		}
+	}
+	return result;
+}
 
-//Gets the name of a workshop function.
+//Resets variable names to A-Z.
+function resetVarNames(varKw) {
+	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	for (var i = 0; i < alphabet.length; i++) {
+		varKw[i][0][0] = alphabet[i];
+	}
+}
+
+//Gets the name of a function.
 function getName(content) {
 	
 	if (content === undefined) {
@@ -103,10 +127,13 @@ function translate(keyword, toWorkshop, keywordArray) {
 	
 	keyword = keyword.toLowerCase().replace(/\s/g, "");
 	debug("Translating keyword '"+keyword+"'");
-	
+
 	//Check for variable; those don't get translated
 	if (keyword.length == 1 && keyword[0] >= 'a' && keyword[0] <= 'z') {
-		return keyword.toUpperCase();
+		//During decompilation, the globalVarKw or playerVarKw must be used
+		if (toWorkshop) {
+			return keyword.toUpperCase();
+		}
 	}
 	
 	//Check for numbers
@@ -246,12 +273,24 @@ function startsWithParenthesis(content) {
 	return false;
 }
 
+//Performs a regex replace, but not within strings or comments.
+//Used for macros.
+function replaceNotInStr(text, replacement) {
+	
+}
+
 //Logging stuff
 function error(str) {
-	throw new Error("ERROR: "+str);
+	
+	var error = "ERROR: ";
+	if (currentLine > 0) {
+		error += "line "+currentLine+", col "+currentCol+": ";
+	}
+	
+	throw new Error(error+str);
 }
 
 function debug(str) {
-	//return;
-	console.log("DEBUG: "+str);
+	return;
+	//console.log("DEBUG: "+str);
 }
