@@ -1,26 +1,25 @@
+#owo\
+rezare
+
 values = [
-                "ACKNOWLEDGE",
-                "EMOTE DOWN",
-                "EMOTE LEFT",
-                "EMOTE RIGHT",
-                "EMOTE UP",
-                "GROUP UP",
-                "HELLO",
-                "NEED HEALING",
-                "THANKS",
-                "ULTIMATE STATUS",
-                "VOICE LINE DOWN",
-                "VOICE LINE LEFT",
-                "VOICE LINE RIGHT",
-                "VOICE LINE UP"
+                "BAD EXPLOSION",
+                "BAD PICKUP EFFECT",
+                "BUFF EXPLOSION SOUND",
+                "BUFF IMPACT SOUND",
+                "DEBUFF IMPACT SOUND",
+                "EXPLOSION SOUND",
+                "GOOD EXPLOSION",
+                "GOOD PICKUP EFFECT",
+                "RING EXPLOSION",
+                "RING EXPLOSION SOUND"
 ]
 
 result = ""
-for i in values:
-	result += '''[["Comms.{}"], [
+for i in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+	result += '''[["{}"], [
     "{}",
 ]],
-'''.format(i.replace(" ", "_").replace(":", ""), i.replace(" ", "").lower())
+'''.format(i.replace(" ", "_").replace(":", ""), i.replace(" ", ""))
 
 
 print(result)
