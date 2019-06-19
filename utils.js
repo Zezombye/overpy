@@ -1,5 +1,18 @@
 "use strict";
 
+//Returns true if the given line is an instruction (eg not empty line, label, etc).
+function lineIsInstruction(line) {
+	line = line.trim();
+	if (line.isEmpty()) {
+		return false;
+		
+	//Test for label
+	} else if (line.endsWith(':') && !line.startsWith("if")) {
+		return false;
+	}
+	return true;
+}
+
 //Replaces variables A-Z with the provided names (for decompilation).
 //Also returns "#define name var" for each name.
 function loadVariableNames(names, varKw) {
@@ -146,10 +159,8 @@ function translate(keyword, toWorkshop, keywordArray) {
 	for (var i = 0; i < keywordArray.length; i++) {
 				
 		if (toWorkshop) {
-			for (var j = 0; j < keywordArray[i][0].length; j++) {
-				if (keywordArray[i][0][j].toLowerCase() === keyword) {
-					return keywordArray[i][1][0];
-				}
+			if (keywordArray[i][0][0].toLowerCase() === keyword) {
+				return keywordArray[i][1][currentLanguage];
 			}
 		} else {
 			for (var j = 0; j < keywordArray[i][1].length; j++) {
@@ -229,7 +240,7 @@ function splitStrOnDelimiter(content, delimiter) {
 
 //This function returns the index of each first-level opening and closing brackets/parentheses.
 //Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].
-function getBracketPositions(content) {
+function getBracketPositions(content, returnFirstPair=false) {
 	var bracketsPos = []
 	var bracketsLevel = 0;
 	var currentPositionIsString = false;
@@ -244,8 +255,11 @@ function getBracketPositions(content) {
 			bracketsLevel--;
 			if (bracketsLevel == 0) {
 				bracketsPos.push(i);
+				if (returnFirstPair) {
+					break;
+				}
 			} else if (bracketsLevel < 0) {
-				error("brackets level below 0!");
+				error("Brackets level below 0! (missing opening bracket)");
 			}
 		} else if (!currentPositionIsString && (content.charAt(i) == '"' || content.charAt(i) == '\'')) {
 			currentPositionIsString = !currentPositionIsString;
@@ -256,10 +270,8 @@ function getBracketPositions(content) {
 			i++;
 		}
 	}
-	//This should take care of unmatched brackets at the end
-	while (bracketsLevel > 0) {
-		bracketsPos.push(content.length);
-		bracketsLevel--;
+	if (bracketsLevel > 0) {
+		error("Brackets level above 0! (missing closing bracket)");
 	}
 	
 	return bracketsPos;
@@ -273,24 +285,34 @@ function startsWithParenthesis(content) {
 	return false;
 }
 
-//Performs a regex replace, but not within strings or comments.
-//Used for macros.
-function replaceNotInStr(text, replacement) {
-	
+//Returns true if c is [A-Za-z\d_].
+function isVarChar(c) {
+	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_';
+}
+
+//Returns the indent, assuming 1 indent = 4 spaces.
+function getIndent(content) {
+	var indent = 0;
+	var i = 0;
+	while (content.startsWith("    ", i)) {
+		indent++;
+		i += 4;
+	}
+	return indent;
 }
 
 //Logging stuff
 function error(str) {
 	
 	var error = "ERROR: ";
-	if (currentLine > 0) {
-		error += "line "+currentLine+", col "+currentCol+": ";
+	if (currentLineNb !== undefined && currentLineNb > 0) {
+		error += "line "+currentLineNb+", col "+currentColNb+": ";
 	}
 	
 	throw new Error(error+str);
 }
 
 function debug(str) {
-	return;
-	//console.log("DEBUG: "+str);
+	//return;
+	console.log("DEBUG: "+str);
 }
