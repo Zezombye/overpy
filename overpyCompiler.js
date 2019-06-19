@@ -15,7 +15,7 @@ function compile(content) {
 	
 	var result = "";
 	//for (var i = 0; i < rules.length; i++) {
-	for (var i = 0; i < 1; i++) {
+	for (var i = 21; i < 23; i++) {
 		result += compileRule(rules[i]);
 	}
 	console.log(rules);
@@ -122,7 +122,7 @@ function compileRule(rule) {
 			//If without indentation = (rule) condition
 			if (rule.lines[i].startsWith("if ")) {
 				result += tabLevel(1)+tows("_conditions", ruleKw)+" {\n";
-				result += tabLevel(2)+parse(rule.lines[i]);
+				result += parseRuleCondition(rule.lines[i]);
 				result += tabLevel(1)+"}\n\n";
 			} else {
 				if (!isInActions) {
@@ -167,6 +167,71 @@ function parse(content) {
 
 function parseRuleCondition(content) {
 	
+	debug("Parsing rule condition(s) '"+content+"'");
+	
+	var [endLineNb, endColNb, content] = content.trimAdjustNb();
+	var result="";
+	
+	if (!content.endsWith(":")) {
+		error("If statement doesn't end with ':'");
+	}
+	
+	content = content.substring("if ".length, content.length-1);
+	var tempArr = content.trimAdjustNb();
+	endLineNb += tempArr[0];
+	endColNb += tempArr[1]+':'.length;
+	content = tempArr[2];
+	
+	//If there is any "or" in the condition, there is only one instruction.
+	var orOperands = splitStrOnDelimiter(content, " or ");
+	
+	if (orOperands.length > 1) {
+		debug("Condition contains 'or'");
+		result += tabLevel(2)+parse(content);
+	} else {
+		var andOperands = splitStrOnDelimiter(content, " and ");
+		
+		for (var i = 0; i < andOperands.length; i++) {
+			
+			debug("Parsing condition '"+andOperands[i]+"'");
+			
+			result += tabLevel(2);
+			
+			var comparisonOperators = ["==", "!=", "<=", ">=", "<", ">"];
+			var comparisonOperands;
+			var hasComparisonOperand = false;
+			
+			for (var j = 0; j < comparisonOperators.length; j++) {
+				comparisonOperands = splitStrOnDelimiter(andOperands[i], comparisonOperators[j]);
+				if (comparisonOperands.length > 1) {
+					if (comparisonOperands.length != 2) {
+						error("Chained comparisons are not allowed (eg: a == b == c)");
+					}
+					result += parse(comparisonOperands[0]);
+					currentColNb += comparisonOperators[j].length;
+					result += " "+comparisonOperators[j]+" "+parse(comparisonOperands[1]);
+					hasComparisonOperand = true;
+					break;
+				}
+			}
+			
+			if (!hasComparisonOperand) {
+				if (andOperands[i].startsWith("not ")) {
+					currentColNb += "not ".length;
+					result += parse(content.substring("not ".length)) + " == "+tows("false", boolKw);
+				} else {
+					result += parse(content) + " == "+tows("true", boolKw);
+				}
+			}
+			
+			result += ";\n";
+		}
+	}
+	
+	currentLineNb += endLineNb;
+	currentColNb += endColNb;
+	
+	return result;
 }
 
 /*

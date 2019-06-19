@@ -25,9 +25,9 @@ var operatorPrecedenceStack = [];
 
 //Operator precedence, from lowest to highest.
 var operatorPrecedence = {
-	"or":1,
-	"and":2,
-	"not":3,
+	" or ":1,
+	" and ":2,
+	" not ":3,
 	"==":4,
 	"!=":4,
 	"<=":4,
@@ -44,3 +44,30 @@ var operatorPrecedence = {
 	"%":7,
 	"**":8,
 };
+
+//Trims the string and adjusts line+col nb from the whitespace trimmed at the beginning.
+//Returns the line+col nb adjustment from the whitespace trimmed at the end.
+String.prototype.trimAdjustNb = function() {
+	var endLineNb = 0;
+	var endColNb = 0;
+	var i = 0;
+	for (; i < this.length && (this[i] === ' ' || this[i] === '\n'); i++) {
+		currentColNb++;
+		if (this[i] === '\n') {
+			currentLineNb++;
+			currentColNb = 1;
+		}
+	}
+	
+	for (i = this.length-1; this[i] === ' ' || this[i] === '\n'; i--);
+	
+	for (; i < this.length; i++) {
+		endColNb++;
+		if (this[i] === '\n') {
+			endLineNb++;
+			endColNb = 1;
+		}
+	}
+		
+	return [endLineNb, endColNb, this.trim()]
+}
