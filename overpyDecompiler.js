@@ -949,7 +949,11 @@ function decompileOperator(operand1, operator, operand2) {
 	if (operator === "not") {
 		return "not "+operands[0];
 	} else {
-		return operands[0] + " "+operator+" "+operands[1];
+		if (operator === "or" || operator === "and") {
+			return operands[0]+operator+operands[1];
+		} else {
+			return operands[0] + " "+operator+" "+operands[1];
+		}
 	}
 	
 }
