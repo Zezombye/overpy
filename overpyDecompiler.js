@@ -1,27 +1,6 @@
 "use strict";
 //OverPy Decompiler (Workshop -> OverPy)
 
-var teststr = "3*(4*(')'))+(4*5)";
-
-//Global variable used for "skip ifs", to keep track of where the skip if ends.
-//Is reset at each rule.
-var decompilerGotos = []
-
-//Global variable used for the number of tabs.
-//Is reset at each rule.
-var nbTabs = 0;
-
-//Global variable used to mark the action number of the last loop in the rule.
-//Is reset at each rule.
-var lastLoop = -1;
-
-//Global variable used to keep track of each name for the current array element.
-//Should be the empty array at the beginning and end of each rule; if not, throws an error.
-var currentArrayElementNames = [];
-
-//Global variable used to keep track of operator precedence.
-//Is reset at each action and rule condition.
-var operatorPrecedenceStack = [];
 
 /*var counter = 0;
 var counter2 = 0;*/
@@ -57,6 +36,8 @@ var counter2 = 0;*/
 }
 console.log(counter);
 console.log(counter2);*/
+
+//console.log(decompileAllRules(decompileTest));
 
 /*console.log(decompileAllRules(decompileTest, {
 	"a":"currentSectionWalls",
@@ -596,6 +577,11 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 		return decompilePlayerFunction(result, args[0], []);
 	}
 	
+	//Modulo
+	if (name === "_modulo") {
+		return decompileOperator(args[0], "%", args[1]);
+	}
+	
 	//Multiply
 	if (name === "_multiply") {
 		return decompileOperator(args[0], "*", args[1]);
@@ -626,11 +612,17 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	}
 	
 	//Round
-	if (name === "round") {
-		//Not really a special function, but we must handle it here
-		//to make the difference between "up" (round up) and "up" (the vector up).
-		//Same for "down".
-		return "round("+decompile(args[0])+", "+decompile(args[1], roundKw)+")";
+	if (name === "_round") {
+		var roundType = decompile(args[1], roundKw);
+		if (roundType === "_roundUp") {
+			return "ceil("+decompile(args[0])+")";
+		} else if (roundType === "_roundDown") {
+			return "floor("+decompile(args[0])+")";
+		} else if (roundType === "_roundToNearest") {
+			return "round("+decompile(args[0])+")";
+		} else {
+			error("Unknown round type "+roundType);
+		}
 	}
 	
 	//Set global var
@@ -922,24 +914,7 @@ function decompileModifyVar(variable, operation, value) {
 //function has another operand with lower precedence, it needs parentheses.
 function decompileOperator(operand1, operator, operand2) {
 	
-	//Operator precedence, from lowest to highest.
-	var operatorPrecedence = {
-		"or":1,
-		"and":2,
-		"not":3,
-		"==":4,
-		"!=":4,
-		"<=":4,
-		">=":4,
-		">":4,
-		"<":4,
-		"+":5,
-		"-":5,
-		"*":6,
-		"/":6,
-		"%":6,
-		"**":7,
-	};
+
 	
 	operatorPrecedenceStack.push(operatorPrecedence[operator]);
 	var currentPrecedenceIndex = operatorPrecedenceStack.length-1;

@@ -9,6 +9,25 @@
 //OverPy keywords beginning with "_" aren't actually keywords; they signal to the parser that it isn't a simple keyword replacement.
 //For example, the "set global variable(var, value)" is replaced by "var = value".
 
+//Array of languages. As of now, only English is supported. This is only used during compilation.
+var languages = [
+	"en",
+	
+	//Not supported yet!
+	"fr",
+	"es",
+	"it",
+	"ru",
+	"pl",
+	"de",
+	"pt",
+	"ja",
+	"kr",
+	"zh",
+]
+
+var currentLanguage = languages.indexOf("en");
+
 var ruleKw = [
 [["@Rule"], [
 	"rule",
@@ -27,7 +46,6 @@ var ruleKw = [
 //Event keywords
 var eventKw = [
 
-//The "event" keyword itself
 [["global"], [
 	"ongoing-global",
 ]],
@@ -566,6 +584,9 @@ var valueFuncKw = [
 [["min"], [
 	"min",
 ]],
+[["_modulo"], [
+	"modulo",
+]],
 [["_multiply"], [
 	"multiply",
 ]],
@@ -623,7 +644,7 @@ var valueFuncKw = [
 [["Vector.RIGHT"], [
 	"right",
 ]],
-[["round"], [
+[["_round"], [
 	"roundToInteger",
 ]],
 [["_&getScore"], [
@@ -797,11 +818,14 @@ var boolKw = [
 
 var roundKw = [
 
-[["ROUND_UP"], [
+[["roundUp"], [
 	"up",
 ]],
-[["ROUND_DOWN"], [
+[["_roundDown"], [
 	"down",
+]],
+[["_roundToNearest"], [
+	"toNearest",
 ]],
 
 ];

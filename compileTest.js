@@ -22,12 +22,12 @@ compileTest = `
 #!define walls W
 #!define zombieHero Z
 
-#!define testMacroFunc(a, b_9owo3,c)     sectionData.append(vect(0, 6, 15))\
-    sectionData.append(vect(1, 6, b_9owo3))\\
-    sectionData.append(vect(7, 5, b_9owo3))\\
-    sectionData.append(vect(12, 6, b_9owo3))\\
+#!define testMacroFunc(a, b_9owo3,c)     sectionData.append(vect(0, 6, 15))\\
+    sectionData.append(vect(a, 6, b_9owo3))\\
+    sectionData.append(vect(7, 5, |b_9owo3))\\
+    sectionData.append(vect(12, 6, ab_9owo3))\\
     sectionData.append(vect(18, 5, 15))\\
-    sectionData.append(vect(23, 2, b_9owo3))\\
+    sectionData.append(vect(23, 2, b_9owo3_))\\
     sectionData.append(vect(25, 0, 10))
 
 
@@ -48,7 +48,8 @@ mapId = round(nearestWalkablePosition(vect(100, 100, 100)).x, ROUND_UP)
 @Rule "kings row"
 @Event global
 if mapId == 17:
-    sectionData = []
+    sectionData \\
+	= []
     testMacroFunc(1, 20, 3)
     lateTps = []
     lateTps.append(vect(62.73, #some comment
@@ -125,7 +126,7 @@ if mapId == 17:
     tpDests.append(vect(-102.94, 2.24, -8.07))
     tpDests.append(vect(-102.94, 2.24, -8.07))
 
-
+`;`
 @Rule "blizz world"
 @Event global
 if mapId == 54:
