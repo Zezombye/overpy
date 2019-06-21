@@ -45,6 +45,26 @@ var operatorPrecedence = {
 	"**":8,
 };
 
+//Python operators, from lowest to highest precedence.
+var pyOperators = [
+	" or ",
+	" and ",
+	" not ",
+	" in ",
+	"==",
+	"!=",
+	"<=",
+	">=",
+	">",
+	"<",
+	"+",
+	"-",
+	"*",
+	"/",
+	"%",
+	"**",
+];
+
 //Trims the string and adjusts line+col nb from the whitespace trimmed at the beginning.
 //Returns the line+col nb adjustment from the whitespace trimmed at the end.
 String.prototype.trimAdjustNb = function() {

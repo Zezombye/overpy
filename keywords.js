@@ -479,6 +479,9 @@ var valueFuncKw = [
 [["_filteredArray"], [
 	"filteredArray",
 ]],
+[["_firstOf"], [
+	"firstOf",
+]],
 [["_globalVar"], [
 	"globalVariable",
 ]],
@@ -511,6 +514,9 @@ var valueFuncKw = [
 ]],
 [["_&getHorizontalSpeed"], [
 	"horizontalSpeedOf",
+]],
+[["_indexOfArrayValue"], [
+	"indexOfArrayValue",
 ]],
 [["_&isAlive"], [
 	"isAlive",
