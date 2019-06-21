@@ -287,7 +287,7 @@ function startsWithParenthesis(content) {
 
 //Returns true if c is [A-Za-z\d_].
 function isVarChar(c) {
-	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_';
+	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_' || c === '@';
 }
 
 //Returns the indent, assuming 1 indent = 4 spaces.

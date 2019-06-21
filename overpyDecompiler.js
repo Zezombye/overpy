@@ -401,11 +401,28 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	
 	//Append to array
 	if (name === "_appendToArray") {
-		return decompileOperator(args[0], "+", args[1]);
+		
+		//Check for optimization: [].append(123).append(456) -> [123, 456]
+		//Only done if we append a literal number to a literal array.
+		
+		var decompiledArg0 = decompile(args[0]);
+		var decompiledArg1 = decompile(args[1]);
+		
+		if (decompiledArg0.startsWith('[') && decompiledArg0.endsWith(']') && !isNaN(decompiledArg1)) {
+			var result = decompiledArg0.substring(0, decompiledArg0.length-1);
+			if (decompiledArg0 !== "[]") {
+				result += ", ";
+			}
+			result += decompiledArg1+"]";
+			return result;
+		} else {
+			return decompiledArg0+".append("+decompiledArg1+")";
+		}
 	}
 	
 	//Array contains
 	if (name === "_arrayContains") {
+		
 		return decompile(args[1])+" in "+decompile(args[0]);
 	}
 	
@@ -484,6 +501,11 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 		return result;
 	}
 	
+	//First of
+	if (name === "_firstOf") {
+		return decompile(args[0])+"[0]";
+	}
+	
 	//Global variable
 	if (name === "_globalVar") {
 		return decompile(args[0], globalVarKw);
@@ -492,6 +514,11 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	//Hero
 	if (name === "_hero") {
 		return decompile(args[0], heroKw);
+	}
+	
+	//Index of array value
+	if (name === "_indexOfArrayValue") {
+		return decompile(args[0])+".index("+decompile(args[1])+")";
 	}
 	
 	//Is in line of sight
@@ -613,7 +640,7 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	
 	//Round
 	if (name === "_round") {
-		var roundType = decompile(args[1], roundKw);
+		var roundType = topy(args[1], roundKw);
 		if (roundType === "_roundUp") {
 			return "ceil("+decompile(args[0])+")";
 		} else if (roundType === "_roundDown") {

@@ -126,7 +126,7 @@ if mapId == 17:
     tpDests.append(vect(-102.94, 2.24, -8.07))
     tpDests.append(vect(-102.94, 2.24, -8.07))
 
-
+`;`
 @Rule "blizz world"
 @Event global
 if mapId == 54:

@@ -12,10 +12,11 @@ console.log("Time: "+(t1-t0)+"ms");
 function compile(content) {
 	
 	var rules = splitRules(content);
+	console.log(rules);
 	
 	var result = "";
-	//for (var i = 0; i < rules.length; i++) {
-	for (var i = 21; i < 23; i++) {
+	for (var i = 0; i < rules.length; i++) {
+	//for (var i = 21; i < 23; i++) {
 		result += compileRule(rules[i]);
 	}
 	console.log(rules);
@@ -258,7 +259,7 @@ function splitRules(content) {
 	var macros = [];
 	
 	var isInSpecial = false;
-	var isInString = false;
+	//var isInString = false;
 	var currentStrDelimiter = "";
 	var isInLineComment = false;
 	var isInStrComment = false;
@@ -267,9 +268,11 @@ function splitRules(content) {
 	var bracketsLevel = 0;
 	var isInRule = false;
 	var currentRule = {};
-	var currentRuleLine = "";
+	var currentRuleLine = [];
+	//var currentToken = {"text":""};
 	var currentMacro = {};
 	var isBackslashed = false;
+	var isInTextToken = false;
 	
 	//"Timer" used for end of special zones (eg: the end of a multiline string is 3 characters long).
 	var timer = 0;
@@ -282,9 +285,21 @@ function splitRules(content) {
 	currentLineNb = 1;
 	currentColNb = 1;
 	
+	function addToken(text) {
+		
+		//currentToken.lineNb = currentLineNb;
+		//currentToken.colNb = currentColNb;
+		currentRuleLine.push({
+			"lineNb":currentLineNb,
+			"colNb":currentColNb,
+			"text":text
+		});
+		//currentToken = {"text":""};
+	}
+	
 	for (var i = 0; i < content.length; i++) {
 		
-		isInSpecial = (isInString || isInLineComment || isInStrComment || isInMacro);
+		isInSpecial = (isInLineComment || isInStrComment || isInMacro);
 		
 		
 		if (macroTimer === 0) {
@@ -317,14 +332,11 @@ function splitRules(content) {
 			if (isInLineComment) {
 				isInLineComment = false;
 				
-			//Test for potentially unclosed string
-			} else if (isInString) {
-				error("Unclosed string");
 			
 			//Do not end the instruction if there is a line break inside a function, or the line is backslashed.
 			} else if (bracketsLevel === 0 && isInRule && !isBackslashed) {
 				currentRule.lines.push(currentRuleLine);
-				currentRuleLine = "";
+				currentRuleLine = [];
 				
 			}
 			if (macroTimer === 0) {
@@ -332,16 +344,18 @@ function splitRules(content) {
 				currentColNb = 1;
 			}
 			
-		} else if (!isInString && !isInStrComment && !isInMacro && !isInLineComment) {
+		} else if (!isInStrComment && !isInMacro && !isInLineComment) {
 			
 			if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
 				bracketsLevel++;
+				addToken(content[i]);
 				
 			} else if (content[i] === ')' || content[i] === ']' || content[i] === '}') {
 				bracketsLevel--;
 				if (bracketsLevel < 0) {
 					error("Brackets level below 0");
 				}
+				addToken(content[i]);
 				
 			} else if (content.startsWith("#!", i)) {
 				if (!isInRule) {
@@ -365,28 +379,29 @@ function splitRules(content) {
 				isInStrComment = true;
 				currentStrCommentDelimiter = '"""';
 				
-			} else if (content[i] === '"') {
-				isInString = true;
-				currentStrDelimiter = '"';
+			} else if (content[i] === '"' || content[i] === '\'') {
+				currentStrDelimiter = content[i];
+				//Get to the end of the string
+				var j = i;
+				for (; j < content.length && !(!isBackslashed && content[i] === currentStrDelimiter); j++) {
+					
+					//Test for potentially unclosed string
+					if (!isBackslashed && content[j] === '\n') {
+						error("Unclosed string");
+					}
 				
-			} else if (content[i] === '\'') {
-				isInString = true;
-				currentStrDelimiter = '\'';
-				
-			} else if (content.startsWith("@Rule ", i)) {
-				isInRule = true;
-				rules.push(currentRule);
-				currentRule = {
-					"lineStart":currentLineNb,
-					"lines":[]
-				};
-				currentRuleLine = "";
-			
-			} else if (!isInRule) {
-				error("Found code outside a rule : "+content[i]);
-				
-			//Test each macro
+						
+					if (content[j] === '\\') {
+						isBackslashed = true;
+					} else {
+						isBackslashed = false;
+					}
+				}
+				addToken(content.substring(i, j));
+				i += j-1;
+								
 			} else {
+				//Test each macro
 				for (var j = 0; j < macros.length; j++) {
 					if (content.startsWith(macros[j].name, i)) {
 						
@@ -424,13 +439,35 @@ function splitRules(content) {
 						j = 0;
 					}
 				}
+				
+				//Get token
+				var j = i;
+				for (; j < content.length && content[j].isVarChar; j++);
+				
+				if (j > i) {
+					if (content.substring(i, j) === "@Rule") {
+						isInRule = true;
+						rules.push(currentRule);
+						currentRule = {
+							"lineStart":currentLineNb,
+							"lines":[]
+						};
+						currentRuleLine = [];
+					} else if (!isInRule) {
+						error("Found code outside a rule : "+content[i]);
+					}
+					
+					
+					addToken(content.substring(i, j))
+					i += j-1;
+				}
+				
+				
+				
 			}
 			
 		} else if (isInStrComment && content.startsWith(currentStrCommentDelimiter, i)) {
 			timer = 3;
-			
-		} else if (isInString && content[i] === currentStrDelimiter && !isBackslashed) {
-			isInString = false;
 			
 		}
 		
@@ -441,20 +478,8 @@ function splitRules(content) {
 			isBackslashed = false;
 		}
 		
-		if (!isInStrComment && !isInLineComment 
-				&& !(isBackslashed && content[i+1] === '\n') || content[i] === '\n') {
-			if (isInRule) {
-				if (content[i] === '\t') {
-					currentRuleLine += "    ";
-					currentColNb += 3;
-				} else {
-					if (!(content[i] === '\n' && currentRuleLine.length === 0)) {
-						currentRuleLine += content[i];
-					}
-				}
-			} else if (isInMacro) {
-				currentMacro.content += content[i];
-			}
+		if (isInMacro) {
+			currentMacro.content += content[i];
 		}
 	}
 	
