@@ -239,11 +239,17 @@ var actionKw = [
 [["_modifyGlobalVar"], [
 	"modifyGlobalVariable",
 ]],
+[["_modifyGlobalVarAtIndex"], [
+	"modifyGlobalVariableAtIndex",
+]],
 [["_&addToScore"], [
 	"modifyPlayerScore",
 ]],
 [["_modifyPlayerVar"], [
 	"modifyPlayerVariable",
+]],
+[["_modifyPlayerVarAtIndex"], [
+	"modifyPlayerVariableAtIndex",
 ]],
 [["pauseMatchTime()"], [
 	"pauseMatchTime",
@@ -409,6 +415,9 @@ var valueFuncKw = [
 ]],
 [["_and"], [
 	"and",
+]],
+[["_appendToArray"], [
+	"appendToArray",
 ]],
 [["angleDifference"], [
 	"angleDifference",
@@ -824,7 +833,7 @@ var boolKw = [
 
 var roundKw = [
 
-[["roundUp"], [
+[["_roundUp"], [
 	"up",
 ]],
 [["_roundDown"], [
@@ -851,8 +860,14 @@ var visibleToKw = [
 
 var teamKw = [
 
-[["TEAM_ALL"], [
+[["Team.ALL"], [
 	"allTeams",
+]],
+[["Team.1"], [
+	"team1",
+]],
+[["Team.2"], [
+	"team2",
 ]],
 
 ];
@@ -1512,3 +1527,5 @@ var constantKw = heroKw.concat(boolKw).concat(roundKw).concat(operationKw).conca
 
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
 var valueKw = valueFuncKw.concat(constantKw);
+
+var funcKw = actionKw.concat(valueFuncKw);
