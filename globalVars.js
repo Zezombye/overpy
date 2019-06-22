@@ -16,7 +16,7 @@ var nbTabs = 0;
 var lastLoop = -1;
 
 //Global variable used to keep track of each name for the current array element.
-//Should be the empty array at the beginning and end of each rule; if not, throws an error. (for decompilation)
+//Should be the empty array at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
 var currentArrayElementNames = [];
 
 //Global variable used to keep track of operator precedence.
@@ -47,10 +47,19 @@ var operatorPrecedence = {
 
 //Python operators, from lowest to highest precedence.
 var pyOperators = [
-	" or ",
-	" and ",
-	" not ",
-	" in ",
+	"=",
+	"+=",
+	"-=",
+	"*=",
+	"/=",
+	"%=",
+	"**=",
+	"++",
+	"--",
+	"or",
+	"and",
+	"not",
+	"in",
 	"==",
 	"!=",
 	"<=",
@@ -64,30 +73,3 @@ var pyOperators = [
 	"%",
 	"**",
 ];
-
-//Trims the string and adjusts line+col nb from the whitespace trimmed at the beginning.
-//Returns the line+col nb adjustment from the whitespace trimmed at the end.
-String.prototype.trimAdjustNb = function() {
-	var endLineNb = 0;
-	var endColNb = 0;
-	var i = 0;
-	for (; i < this.length && (this[i] === ' ' || this[i] === '\n'); i++) {
-		currentColNb++;
-		if (this[i] === '\n') {
-			currentLineNb++;
-			currentColNb = 1;
-		}
-	}
-	
-	for (i = this.length-1; this[i] === ' ' || this[i] === '\n'; i--);
-	
-	for (; i < this.length; i++) {
-		endColNb++;
-		if (this[i] === '\n') {
-			endLineNb++;
-			endColNb = 1;
-		}
-	}
-		
-	return [endLineNb, endColNb, this.trim()]
-}

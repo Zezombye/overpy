@@ -11,15 +11,14 @@ console.log("Time: "+(t1-t0)+"ms");
 
 function compile(content) {
 	
-	var rules = splitRules(content);
+	var rules = tokenize(content);
 	console.log(rules);
 	
 	var result = "";
-	for (var i = 0; i < rules.length; i++) {
-	//for (var i = 21; i < 23; i++) {
+	//for (var i = 0; i < rules.length; i++) {
+	for (var i = 12; i < 16; i++) {
 		result += compileRule(rules[i]);
 	}
-	console.log(rules);
 	return result;
 }
 
@@ -41,14 +40,19 @@ function Macro(text, replacement, args) {
 function compileRule(rule) {
 	
 	currentLineNb = rule.lineStart;
+	currentColNb = 1;
 	var result = "";
 	
-	//The first line should always start with @Rule.
-	if (!rule.lines[0].startsWith("@Rule ")) {
-		error("Lexer broke");
+	if (currentArrayElementNames.length !== 0) {
+		error("Current array element names length isn't 0");
 	}
 	
-	result += tows("@Rule", ruleKw)+" ("+rule.lines[0].substring("@Rule ".length)+") {\n";
+	//The first line should always start with @Rule.
+	if (rule.lines[0].tokens[0].text !== "@Rule") {
+		error("Lexer broke (rule not starting with '@Rule'?)");
+	}
+	
+	result += tows("@Rule", ruleKw)+" ("+rule.lines[0].tokens[1].text+") {\n";
 	result += tabLevel(1)+tows("@Event", ruleKw)+" {\n";
 	
 	var isInEvent = true;
@@ -57,31 +61,30 @@ function compileRule(rule) {
 	var isEventPlayerDefined = false;
 	
 	for (var i = 1; i < rule.lines.length; i++) {
-				
-		currentLineNb++;
-		currentColNb = 1;
 		
-		if (rule.lines[i].trim() === "") {
+		if (rule.lines[i].tokens.length === 0) {
 			continue;
 		}
+		currentLineNb = rule.lines[i].tokens[0].lineNb;
+		currentColNb = rule.lines[i].tokens[0].colNb;
 		
 		
-		if (rule.lines[i].startsWith("@")) {
+		if (rule.lines[i].tokens[0].text.startsWith("@")) {
 			if (!isInEvent) {
 				error("Annotation found after code");
 			} else {
-				if (rule.lines[i].startsWith("@Event ")) {
-					result += tabLevel(2)+tows(rule.lines[i].substring("@Event ".length), eventKw)+";\n";
+				if (rule.lines[i].tokens[0].text === "@Event") {
+					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw)+";\n";
 					
-				} else if (rule.lines[i].startsWith("@Team ")) {
+				} else if (rule.lines[i].tokens[0].text === "@Team") {
 					if (isEventTeamDefined) {
 						error("Event team defined twice");
 					}
 					
 					isEventTeamDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].substring("@Team ".length), eventKw);
+					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw);
 					
-				} else if (rule.lines[i].startsWith("@Hero ")) {
+				} else if (rule.lines[i].tokens[0].text === "@Hero") {
 					if (isEventPlayerDefined) {
 						error("Event player defined twice");
 					}
@@ -90,9 +93,9 @@ function compileRule(rule) {
 						isEventTeamDefined = true;
 					}
 					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].substring("@Hero ".length), eventKw);
+					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw);
 					
-				} else if (rule.lines[i].startsWith("@Slot ")) {
+				} else if (rule.lines[i].tokens[0].text === "@Slot") {
 					if (isEventPlayerDefined) {
 						error("Event player defined twice");
 					}
@@ -102,7 +105,7 @@ function compileRule(rule) {
 					}
 					
 					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].substring("@Slot ".length), eventKw);
+					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw);
 					
 				} else {
 					error("Unknown annotation");
@@ -121,9 +124,9 @@ function compileRule(rule) {
 			}
 			
 			//If without indentation = (rule) condition
-			if (rule.lines[i].startsWith("if ")) {
+			if (rule.lines[i].tokens[0].text === "if" && rule.lines[i].indentLevel === 0) {
 				result += tabLevel(1)+tows("_conditions", ruleKw)+" {\n";
-				result += parseRuleCondition(rule.lines[i]);
+				result += parseRuleCondition(rule.lines[i].tokens);
 				result += tabLevel(1)+"}\n\n";
 			} else {
 				if (!isInActions) {
@@ -131,7 +134,7 @@ function compileRule(rule) {
 					isInActions = true;
 				}
 				
-				result += tabLevel(2)+parse(rule.lines[i]);
+				result += tabLevel(2)+parse(rule.lines[i].tokens, {"isWholeInstruction":true});
 				result += ";\n";
 			}
 			
@@ -154,47 +157,352 @@ function compileRule(rule) {
 /*
 The main parse function.
 */
-function parse(content) {
+function parse(content, parseArgs={}) {
 	
 	if (content === undefined) {
-		error("Content is undefined");
+		error("Content is undefined (parser broke)");
+	} else if (content.length === 0) {
+		error("Content is empty (parser broke)");
 	}
 	
+	currentLineNb = content[0].lineNb;
+	currentColNb = content[0].colNb;
+	
+	debug("Parsing '"+dispTokens(content)+"'");
+	
 	//Parse operators
+	for (var i = 0; i < pyOperators.length; i++) {
+		var operands = splitTokens(content, pyOperators[i], false);
+		if (operands.length === 2) {
+			//The operator is present; parse it
+			
+			if (pyOperators[i] === "=") {
+				return parseAssignment(operands[0], operands[1], false);
+			} else if (pyOperators[i] === "or") {
+				return tows("_or", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+			} else if (pyOperators[i] === "and") {
+				return tows("_and", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+			} else if (pyOperators[i] === "not") {
+				return tows("_not", valueFuncKw)+"("+parse(operands[1])+")";
+			} else if (pyOperators[i] === "==" || pyOperators[i] === '!=' || pyOperators[i] === '<=' || pyOperators[i] === '>=' || pyOperators[i] === '<' || pyOperators[i] === '>' ) {
+				var pyOperator = pyOperators[i];
+				if (parseArgs.reverseCondition === true) pyOperator = reverseOperator(pyOperator);
+				return tows("_compare", valueFuncKw)+"("+parse(operands[0])+", "+pyOperator+", "+parse(operands[1])+")";
+			} else if (pyOperators[i] === "+") {
+				return tows("_add", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+			} else if (pyOperators[i] === "-") {
+				
+				//Check for unary operator
+				if (operands[0].length === 0 || pyOperators.indexOf(operands[0][operands[0].length-1].text) >= 0) {
+					//Do nothing; parse it later
+					continue;
+				} else {
+					return tows("_subtract", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+				}
+				return tows("_not", valueFuncKw)+"("+parse(operands[1])+")";
+			} else {
+				error("Unhandled operator "+pyOperators[i]);
+			}
+			
+			break;
+			
+		}
+	}
+	
+	//Check for literal number
+	var nbTest = dispTokens(content).replace(/ /g, "")
+	if (!isNaN(nbTest)) {
+		return nbTest;
+	}
+	
+	//Check for global variable
+	if (content.length === 1 && content[0].text.length === 1 && content[0].text >= 'A' && content[0].text <= 'Z') {
+		return tows("_globalVar", valueFuncKw)+"("+content[0].text+")";
+	}
+	
+	//Check for "." operator, which has the highest precedence.
+	//It must be parsed from right to left.
+	var operands = splitTokens(content, ".", false, true);
+	if (operands.length === 2) {
+		return parseMember(operands[1], operands[0], parseArgs);
+	}
+	
+	//Parse array
+	if (content[content.length-1].text === ']') {
+		var bracketPos = getTokenBracketPos(content);
+		
+		if (bracketPos.length === 2 && bracketPos[0] === 0) {
+			
+			return parseLiteralArray(content);
+		} else {
+			return parseArrayMembership(content.slice(0, bracketPos[bracketPos.length-2]), content.slice(bracketPos[bracketPos.length-2]+1, content.length-1));
+		}
+	}
+	
+	//Check for parentheses
+	if (content[0].text === '(') {
+		return parse(content.slice(1, content.length-1));
+	}
+	
+	//Parse args and name of function.
+	var name = content[0].text;
+	var args = [];
+	if (content.length > 1) {
+		if (content[1].text === '(') {
+			args = splitTokens(content.slice(2, content.length-1), ",");
+		} else if (content[1].text === '[') {
+			return parseArrayMembership(content);
+		}
+	} else {
+		
+		//Check for booleans
+		if (name === "true" || name === "false" || name === "null") {
+			return tows(name, boolKw);
+		} else if (name.startsWith('"') || name.startsWith("'")) {
+			return parseString(name);
+		}
+		
+		return tows(name, funcKw);
+	}
+	
+	console.log(args);
+	var str = "args: "
+	for (var i = 0; i < args.length; i++) {
+		str += "'"+dispTokens(args[i])+"'";
+		if (i < args.length-1) {
+			str += ", ";
+		}
+	}
+	debug(str);
 	
 	
+	
+	//Special functions
+	
+	if (name === "ceil") {
+		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", roundKw)+")";
+	}
+	
+	if (name === "floor") {
+		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", roundKw)+")";
+	}
+	
+	if (name === "round") {
+		if (args.length !== 1) {
+			error("round() only takes one argument, you maybe meant to use ceil() or floor().");
+		} else {
+			return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundToNearest", roundKw)+")";
+		}
+	}
+	
+	//Handle functions with no arguments
+	if (args.length === 0) {
+		return tows(name+"()", funcKw);
+	}
+	
+	//Default case (not a special function).
+	var result = tows(name, funcKw)+"(";
+	for (var i = 0; i < args.length; i++) {
+		result += parse(args[i]);
+		if (i < args.length-1) {
+			result += ", ";
+		}
+	}
+	result += ")";
+	return result;
 	
 }
 
+//Parses string
+function parseString(content) {
+	return '"TODO"';
+}
+
+//Parses membership (the "." operator).
+function parseMember(object, member, parseArgs={}) {
+	
+	//debug("Parsing member "+dispTokens(member)+" of object "+dispTokens(object));
+	
+	var name = member[0].text;
+	//debug("name = "+name);
+	var args = [];
+	if (member.length > 1 && member[1].text === '(') {
+		args = splitTokens(member.slice(2, member.length-1), ",");
+	}
+	
+	if (name === "append") {
+		if (parseArgs.isWholeInstruction === true) {
+			
+			return parseAssignment(object, args[0], true, "_appendToArray");
+			
+		} else {
+			return tows("_appendToArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
+		}
+		
+	} else if (object[0].text === "Color") {
+		return tows("Color."+name, colorKw);
+		
+	} else if (object[0].text === "Hero") {
+		return tows("_hero", valueFuncKw)+"("+tows("Hero."+name, heroKw)+")";
+		
+	} else if (name === "index") {
+		return tows("_indexOfArrayValue", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
+		
+	} else if (object[0].text === "Team") {
+		return tows("Team."+name, teamKw);
+		
+	} else if (object[0].text === "Reeval") {
+		return tows("Reeval."+name, reevaluationKw);
+		
+	} else if (object[0].text === "Vector") {
+		return tows("Vector."+name, valueFuncKw);
+		
+	} else if (name === "x") {
+		return tows("_xComponentOf", valueFuncKw)+"("+parse(object)+")";
+	} else {
+		error("Unhandled member ", member);
+	}
+	
+	error("This shouldn't happen");
+	
+}
+
+//Parses an assignment of value to variable.
+//Determines the function to use for modify/set global/player variable (at index).
+function parseAssignment(variable, value, modify, modifyArg=null) {
+	
+	debug("Parsing assignment of "+dispTokens(value)+" to "+dispTokens(variable));
+	
+	var func = "";
+	if (modify) {
+		func += "modify";
+	} else {
+		func += "set";
+	}
+	
+	var result = "";
+	
+	if (variable.length === 1) {
+		result += tows("_"+func+"GlobalVar", actionKw)+"("+variable[0].text+", ";
+		
+	} else {
+		//Check for dot; if it is present, it can only be a player variable
+		var operands = splitTokens(variable, ".", false, true);
+		if (operands.length === 2) {
+			
+			//Check for array
+			if (operands[1].length > 1 && operands[1][1].text === '[') {
+				result += tows("_"+func+"PlayerVarAtIndex", actionKw)
+						+"("+parse(operands[0])+", "+operands[1][0].text+", "
+						+parse(operands[1].slice(2, operands[1].length-1))+", ";
+			} else {
+				if (operands[1].length > 1) {
+					error("Unauthorised player variable", operands[1]);
+				}
+				result += tows("_"+func+"PlayerVar", actionKw)+"("+parse(operands[0])+", "+operands[1][0].text+", ";
+			}
+			
+		} else {
+			if (variable[1].text === '[') {
+				result += tows("_"+func+"GlobalVarAtIndex", actionKw)+"("+variable[0].text+", "+parse(variable.slice(2, variable.length-1))+", ";
+			} else {
+				error("Unauthorized global variable", variable);
+			}
+		}
+	}
+	
+	if (modify) {
+		result += tows(modifyArg, operationKw)+", ";
+	}
+	
+	result += parse(value)+")";
+	return result;
+}
+
+//Parses an array index such as A[1].
+function parseArrayMembership(array, membership) {
+	
+	//[0] -> first of
+	if (membership.length === 1 && membership[0].text === '0') {
+		return tows("_firstOf", valueFuncKw)+"("+parse(array)+")";
+		
+	//[-1] -> last of
+	} else if (membership.length === 2 && membership[0].text === '-' && membership[1].text === '1') {
+		return tows("_lastOf", valueFuncKw)+"("+parse(array)+")";
+		
+	} else {
+		return tows("_valueInArray", valueFuncKw)+"("+parse(array)+", "+parse(membership)+")";
+	}
+	
+	
+	error("This shouldn't happen");
+	
+}
+
+//Parses a literal array such as [1,2,3] or [i for i in x if cond].
+function parseLiteralArray(content) {
+	
+	if (content[0].text === '[' && content[1].text === ']') {
+		return tows("_emptyArray", valueFuncKw);
+	} else {
+		//check for "in" keyword
+		//format is "var for var in array if condition"
+		var inOperands = splitTokens(content.slice(1, content.length-1), "in");
+		if (inOperands.length === 2) {
+			if (inOperands[0].length !== 3 || inOperands[0][1].text !== "for" || inOperands[0][0].text !== inOperands[0][2].text) {
+				error("Malformed 'x for x in y'");
+			} else {
+				var ifOperands = splitTokens(inOperands[1], "if");
+				if (ifOperands.length !== 2) {
+					error("For loop must include condition");
+				} else {
+					currentArrayElementNames.push(inOperands[0][0].text);
+					var result =  tows("_filteredArray", valueFuncKw)+"("+parse(ifOperands[0])+", "+parse(ifOperands[1])+")";
+					currentArrayElementNames.pop();
+					return result;
+				}
+			}
+		} else {
+			var args = splitTokens(content.slice(1, content.length-1), ",");
+			var appendFunc = tows("_appendToArray", valueFuncKw);
+			var result = tows("_emptyArray", valueFuncKw);
+			for (var i = 0; i < args.length; i++) {
+				result = appendFunc+"("+result+", "+parse(args[i])+")";
+			}
+			return result;
+		}
+	}
+	
+	error("This shouldn't happen");
+	
+}
+
+//Parses a rule condition; expects a token list.
 function parseRuleCondition(content) {
 	
-	debug("Parsing rule condition(s) '"+content+"'");
+	console.log(content);
+	debug("Parsing rule condition(s) '"+dispTokens(content)+"'");
 	
-	var [endLineNb, endColNb, content] = content.trimAdjustNb();
-	var result="";
+	var result = "";
 	
-	if (!content.endsWith(":")) {
+	if (content[content.length-1].text !== ":") {
 		error("If statement doesn't end with ':'");
 	}
 	
-	content = content.substring("if ".length, content.length-1);
-	var tempArr = content.trimAdjustNb();
-	endLineNb += tempArr[0];
-	endColNb += tempArr[1]+':'.length;
-	content = tempArr[2];
+	content = content.slice(1, content.length-1);
 	
 	//If there is any "or" in the condition, there is only one instruction.
-	var orOperands = splitStrOnDelimiter(content, " or ");
+	var orOperands = splitTokens(content, "or");
 	
 	if (orOperands.length > 1) {
 		debug("Condition contains 'or'");
 		result += tabLevel(2)+parse(content);
 	} else {
-		var andOperands = splitStrOnDelimiter(content, " and ");
+		var andOperands = splitTokens(content, " and ");
 		
 		for (var i = 0; i < andOperands.length; i++) {
 			
-			debug("Parsing condition '"+andOperands[i]+"'");
+			debug("Parsing condition '"+dispTokens(andOperands[i])+"'");
 			
 			result += tabLevel(2);
 			
@@ -203,7 +511,7 @@ function parseRuleCondition(content) {
 			var hasComparisonOperand = false;
 			
 			for (var j = 0; j < comparisonOperators.length; j++) {
-				comparisonOperands = splitStrOnDelimiter(andOperands[i], comparisonOperators[j]);
+				comparisonOperands = splitTokens(andOperands[i], comparisonOperators[j]);
 				if (comparisonOperands.length > 1) {
 					if (comparisonOperands.length != 2) {
 						error("Chained comparisons are not allowed (eg: a == b == c)");
@@ -217,9 +525,8 @@ function parseRuleCondition(content) {
 			}
 			
 			if (!hasComparisonOperand) {
-				if (andOperands[i].startsWith("not ")) {
-					currentColNb += "not ".length;
-					result += parse(content.substring("not ".length)) + " == "+tows("false", boolKw);
+				if (andOperands[i].text === "not") {
+					result += parse(content.slice(1)) + " == "+tows("false", boolKw);
 				} else {
 					result += parse(content) + " == "+tows("true", boolKw);
 				}
@@ -228,9 +535,6 @@ function parseRuleCondition(content) {
 			result += ";\n";
 		}
 	}
-	
-	currentLineNb += endLineNb;
-	currentColNb += endColNb;
 	
 	return result;
 }
@@ -250,10 +554,45 @@ function(y)
 
 While we're at it, this function also automatically removes comments,
 and splits rules as well as macros.
-It also resolves macros.
+It also resolves macros, and tokenizes.
 */
 
-function splitRules(content) {
+function tokenize(content) {
+	
+	if (!content.endsWith('\n')) {
+		content += '\n';
+	}
+	
+	//Not the full list of tokens; namely, brackets aren't in this list.
+	//Sorted by longest first, for greediness.
+	var tokens = [
+		"==",
+		"!=",
+		"<=",
+		">=",
+		"+=",
+		"-=",
+		"*=",
+		"/=",
+		"%=",
+		"**=",
+		"<",
+		">",
+		"=",
+		"++",
+		"--",
+		"+",
+		"-",
+		",",
+		"/",
+		"%",
+		"**",
+		"*",
+		".",
+		":",
+		"\\",
+	];
+	
 	
 	var rules = [];
 	var macros = [];
@@ -268,7 +607,7 @@ function splitRules(content) {
 	var bracketsLevel = 0;
 	var isInRule = false;
 	var currentRule = {};
-	var currentRuleLine = [];
+	var currentRuleLine = {};
 	//var currentToken = {"text":""};
 	var currentMacro = {};
 	var isBackslashed = false;
@@ -283,36 +622,63 @@ function splitRules(content) {
 	var macroLines = 0;
 	
 	currentLineNb = 1;
-	currentColNb = 1;
+	currentColNb = 0;
+	
+	var i = 0;
 	
 	function addToken(text) {
 		
-		//currentToken.lineNb = currentLineNb;
-		//currentToken.colNb = currentColNb;
-		currentRuleLine.push({
+		if (text.length === 0) {
+			error("Token is empty, lexer broke");
+		}
+		
+		//debug("Adding token '"+text+"' at "+currentLineNb+":"+currentColNb);
+		
+		currentRuleLine.tokens.push({
 			"lineNb":currentLineNb,
 			"colNb":currentColNb,
 			"text":text
 		});
-		//currentToken = {"text":""};
+		
+		i += text.length-1;
+		currentColNb += text.length-1;
 	}
 	
-	for (var i = 0; i < content.length; i++) {
+	function newRuleLine() {
+		
+		if (currentRuleLine.tokens !== undefined && currentRuleLine.tokens.length > 0) {
+			currentRule.lines.push(currentRuleLine);
+		}
+		
+		currentRuleLine = {
+			"indentLevel":0,
+			"tokens":[]
+		};
+	}
+	
+	newRuleLine();
+		
+	for (i = 0; i < content.length; i++) {
+		
+		//console.log(i);
+		//await sleep(5);
 		
 		isInSpecial = (isInLineComment || isInStrComment || isInMacro);
 		
+		
+		if (macroTimer > 0) {
+			macroTimer--;
+			if (macroTimer === 0) {
+				//debug("macro lines = "+macroLines+", macro cols = "+macroCols);
+				currentLineNb += macroLines;
+				currentColNb = macroCols;
+			}
+		}
 		
 		if (macroTimer === 0) {
 			currentColNb++;
 		}
 		
-		if (macroTimer > 0) {
-			macroTimer--;
-			if (macroTimer === 0) {
-				currentLineNb += macroLines;
-				currentColNb = macroCols;
-			}
-		}
 		
 		if (timer > 0) {
 			timer--;
@@ -335,18 +701,28 @@ function splitRules(content) {
 			
 			//Do not end the instruction if there is a line break inside a function, or the line is backslashed.
 			} else if (bracketsLevel === 0 && isInRule && !isBackslashed) {
-				currentRule.lines.push(currentRuleLine);
-				currentRuleLine = [];
+				newRuleLine();
 				
 			}
 			if (macroTimer === 0) {
 				currentLineNb++;
-				currentColNb = 1;
+				currentColNb = 0;
 			}
 			
 		} else if (!isInStrComment && !isInMacro && !isInLineComment) {
 			
-			if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
+			if (content.startsWith("    ", i) && currentRuleLine.tokens.length === 0) {
+				currentRuleLine.indentLevel++;
+				currentColNb += "    ".length-1;
+			} else if (content.startsWith("\t", i)) {
+				if (currentRuleLine.tokens.length === 0) {
+					currentRuleLine.indentLevel++;
+				}
+			} else if (content[i] === ' ') {
+				//do nothing
+			} else if (content[i] === '\\') {
+				//do nothing
+			} else if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
 				bracketsLevel++;
 				addToken(content[i]);
 				
@@ -382,8 +758,8 @@ function splitRules(content) {
 			} else if (content[i] === '"' || content[i] === '\'') {
 				currentStrDelimiter = content[i];
 				//Get to the end of the string
-				var j = i;
-				for (; j < content.length && !(!isBackslashed && content[i] === currentStrDelimiter); j++) {
+				var j = i+1;
+				for (; j < content.length && !isBackslashed && content[j] !== currentStrDelimiter; j++) {
 					
 					//Test for potentially unclosed string
 					if (!isBackslashed && content[j] === '\n') {
@@ -397,8 +773,14 @@ function splitRules(content) {
 						isBackslashed = false;
 					}
 				}
-				addToken(content.substring(i, j));
-				i += j-1;
+				
+				j += 1; //account for closing delimiter
+				
+				if (j > i) {
+					addToken(content.substring(i, j));
+				} else {
+					error("Failed to parse string '"+content.substring(i, j)+"' (malformed string?)");
+				}
 								
 			} else {
 				//Test each macro
@@ -431,7 +813,7 @@ function splitRules(content) {
 								macroCols = text.length;
 							}
 						}
-						macroTimer += text.length;
+						macroTimer += replacement.length;
 						
 						//debug("Text: "+text);
 						//debug("Replacement: "+replacement);
@@ -442,7 +824,7 @@ function splitRules(content) {
 				
 				//Get token
 				var j = i;
-				for (; j < content.length && content[j].isVarChar; j++);
+				for (; j < content.length && isVarChar(content[j]); j++);
 				
 				if (j > i) {
 					if (content.substring(i, j) === "@Rule") {
@@ -452,14 +834,26 @@ function splitRules(content) {
 							"lineStart":currentLineNb,
 							"lines":[]
 						};
-						currentRuleLine = [];
+						newRuleLine();
 					} else if (!isInRule) {
 						error("Found code outside a rule : "+content[i]);
+					}					
+					addToken(content.substring(i, j))
+				} else {
+					
+					var hasTokenBeenFound = false;
+					//Test each remaining token
+					for (var h = 0; h < tokens.length; h++) {
+						if (content.startsWith(tokens[h], i)) {
+							addToken(content.substring(i, i+tokens[h].length));
+							hasTokenBeenFound = true;
+							break;
+						}
 					}
 					
-					
-					addToken(content.substring(i, j))
-					i += j-1;
+					if (!hasTokenBeenFound) {
+						error("Unknown token '"+content[i]+"'");
+					}
 				}
 				
 				
