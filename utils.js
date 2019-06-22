@@ -1,5 +1,18 @@
 "use strict";
 
+//Reverses the comparison operator.
+function reverseOperator(content) {
+	if (content === "==") return "!=";
+	else if (content === '!=') return "==";
+	else if (content === '<=') return ">";
+	else if (content === '>=') return "<";
+	else if (content === '<') return ">=";
+	else if (content === '>') return "<=";
+	else {
+		error("Cannot reverse operator "+content);
+	}
+}
+
 //Returns true if the given line is an instruction (eg not empty line, label, etc).
 function lineIsInstruction(line) {
 	line = line.trim();
@@ -138,16 +151,27 @@ function tabLevel(nbTabs) {
 //Translates a keyword to the other language.
 function translate(keyword, toWorkshop, keywordArray) {
 	
-	keyword = keyword.toLowerCase().replace(/\s/g, "");
+	if (!toWorkshop) {
+		keyword = keyword.toLowerCase().replace(/\s/g, "");
+	}
 	debug("Translating keyword '"+keyword+"'");
-
+	
+	//Check for current array element
+	if (toWorkshop) {
+		for (var i = 0; i < currentArrayElementNames.length; i++) {
+			if (keyword === currentArrayElementNames[i]) {
+				return translate("_currentArrayElement", true, valueFuncKw);
+			}
+		}
+	}
+	
 	//Check for variable; those don't get translated
-	if (keyword.length == 1 && keyword[0] >= 'a' && keyword[0] <= 'z') {
+	/*if (keyword.length == 1 && keyword[0] >= 'a' && keyword[0] <= 'z') {
 		//During decompilation, the globalVarKw or playerVarKw must be used
 		if (toWorkshop) {
 			return keyword.toUpperCase();
 		}
-	}
+	}*/
 	
 	//Check for numbers
 	if (!isNaN(keyword)) {
@@ -159,9 +183,11 @@ function translate(keyword, toWorkshop, keywordArray) {
 	for (var i = 0; i < keywordArray.length; i++) {
 				
 		if (toWorkshop) {
-			if (keywordArray[i][0][0].toLowerCase() === keyword) {
-				return keywordArray[i][1][currentLanguage];
-			}
+			//for (var j = 0; j < keywordArray[i][0].length; j++) {
+				if (keywordArray[i][0][0] === keyword) {
+					return keywordArray[i][1][currentLanguage];
+				}
+			//}
 		} else {
 			for (var j = 0; j < keywordArray[i][1].length; j++) {
 				if (keywordArray[i][1][j].toLowerCase() === keyword) {
@@ -179,7 +205,15 @@ function topy(keyword, keywordArray) {
 	return translate(keyword, false, keywordArray);
 }
 function tows(keyword, keywordArray) {
-	return translate(keyword, true, keywordArray);
+	
+	//Check if a token was passed, or a string
+	if (typeof keyword === "object") {
+		currentLineNb = keyword.lineNb;
+		currentColNb = keyword.colNb;
+		return translate(keyword.text, true, keywordArray);
+	} else {
+		return translate(keyword, true, keywordArray);
+	}
 }
 
 //Returns an array of workshop instructions (delimited by a semicolon).
@@ -237,6 +271,63 @@ function splitStrOnDelimiter(content, delimiter) {
 	return result;
 }
 
+//Same as splitStrOnDelimiter but for a token list.
+//If getAllTokens = false, this will only split on the first occurrence of the token.
+function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
+	
+	var result = [];
+	var bracketsLevel = 0;
+	
+	if (rtl) {
+		var start = tokens.length-1;
+		var end = -1;
+		var step = -1;
+		var latestDelimiterPos = tokens.length;
+	} else {
+		var start = 0;
+		var end = tokens.length;
+		var step = 1;
+		var latestDelimiterPos = -1;
+	}
+	
+	//debug("Splitting tokens '"+dispTokens(tokens)+"' on "+str);
+	
+	for (var i = start; i != end; i+=step) {
+		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
+			bracketsLevel += step;
+		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
+			bracketsLevel -= step;
+		} else if (tokens[i].text === str && bracketsLevel === 0) {
+			if (rtl) {
+				result.push(tokens.slice(i+1, latestDelimiterPos));
+			} else {
+				result.push(tokens.slice(latestDelimiterPos+1, i));
+			}
+			latestDelimiterPos = i;
+			if (!getAllTokens) {
+				break;
+			}
+		}
+	}
+	
+	if (bracketsLevel !== 0) {
+		error("Lexer broke (bracket level not equal to 0)");
+	}
+	
+	if (rtl) {
+		result.push(tokens.slice(end+1, latestDelimiterPos));
+	} else {
+		result.push(tokens.slice(latestDelimiterPos+1, end));
+	}
+	
+	if (result[0].length === 0) {
+		return [];
+	} else {
+		return result;
+	}
+	
+}
+
 
 //This function returns the index of each first-level opening and closing brackets/parentheses.
 //Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].
@@ -277,6 +368,35 @@ function getBracketPositions(content, returnFirstPair=false) {
 	return bracketsPos;
 }
 
+//Same as getBracketPositions but for tokens.
+function getTokenBracketPos(tokens, returnFirstPair=false) {
+	var bracketsPos = []
+	var bracketsLevel = 0;
+	var currentPositionIsString = false;
+	var currentStrDelimiter = "";
+	for (var i = 0; i < tokens.length; i++) {
+		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
+			bracketsLevel++;
+			if (bracketsLevel == 1) {
+				bracketsPos.push(i);
+			}
+		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
+			bracketsLevel--;
+			if (bracketsLevel === 0) {
+				bracketsPos.push(i);
+				if (returnFirstPair) {
+					break;
+				}
+			}
+		} 
+	}
+	if (bracketsLevel > 0) {
+		error("Brackets level above 0! (missing closing bracket)");
+	}
+	
+	return bracketsPos;
+}
+
 //Returns true if the given string starts with a parenthesis (or a bracket/curly bracket).
 function startsWithParenthesis(content) {
 	if (content[0] == '(' || content[0] == '[' || content[0] == '{') {
@@ -301,18 +421,56 @@ function getIndent(content) {
 	return indent;
 }
 
+//Converts a token list, or a token object to string.
+function dispTokens(content) {
+	if (content instanceof Array) {
+		var result = "";
+		for (var i = 0; i < content.length; i++) {
+			result += content[i].text;
+			if (i < content.length-1) {
+				result += " ";
+			}
+		}
+		return result;
+	} else if (typeof content === "string") {
+		return content;
+	} else if (typeof content === "object") {
+		if (content.text === undefined) {
+			error("Object is not a token or token list");
+		} else {
+			return content.text;
+		}
+	} else {
+		error("Undefined content "+content);
+	}
+}
+
 //Logging stuff
-function error(str) {
+function error(str, token) {
+	
+	if (token !== undefined) {
+		currentLineNb = token.lineNb;
+		currentColNb = token.colNb;
+	}
 	
 	var error = "ERROR: ";
 	if (currentLineNb !== undefined && currentLineNb > 0) {
 		error += "line "+currentLineNb+", col "+currentColNb+": ";
 	}
+	error += str;
+	if (token !== undefined) {
+		error += "'"+dispTokens(token)+"'";
+	}
 	
-	throw new Error(error+str);
+	throw new Error(error);
 }
 
-function debug(str) {
+function debug(str, arg) {
 	//return;
 	console.log("DEBUG: "+str);
+}
+
+//ty stackoverflow
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
