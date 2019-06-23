@@ -611,7 +611,7 @@ var valueFuncKw = [
 [["normalize"], [
 	"normalize",
 ]],
-[["not "], [
+[["not"], [
 	"not",
 ]],
 [["getNumberOfDeadPlayers"], [
@@ -847,8 +847,38 @@ var roundKw = [
 
 var operationKw = [
 
+[["_add"], [
+    "add",
+]],
 [["_appendToArray"], [
-	"appendToArray",
+    "appendtoarray",
+]],
+[["_divide"], [
+    "divide",
+]],
+[["_max"], [
+    "max",
+]],
+[["_min"], [
+    "min",
+]],
+[["_modulo"], [
+    "modulo",
+]],
+[["_multiply"], [
+    "multiply",
+]],
+[["_raiseToPower"], [
+    "raisetopower",
+]],
+[["_removeFromArrayByIndex"], [
+    "removefromarraybyindex",
+]],
+[["_removeFromArrayByValue"], [
+    "removefromarraybyvalue",
+]],
+[["_subtract"], [
+    "subtract",
 ]],
 
 ];
@@ -1121,6 +1151,12 @@ var reevaluationKw = [
 [["Reeval.DIRECTION_RATE_AND_MAX_SPEED"], [
 	"directionRateAndMaxSpeed",
 ]],
+[["Reeval.NONE"], [
+	"none",
+]],
+[["Reeval.STRING"], [
+	"string",
+]],
 [["Reeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT"], [
 	"receiversDamagersAndDamagePercent",
 ]],
@@ -1145,18 +1181,15 @@ var reevaluationKw = [
 [["Reeval.DESTINATION_AND_DURATION"], [
 	"destinationAndDuration",
 ]],
-[["Reeval.NONE"], [
-	"none",
-]],
 
 ];
 
 var relativeKw = [
 
-[["RELATIVE_TO_PLAYER"], [
+[["Relativity.TO_PLAYER"], [
 	"toPlayer",
 ]],
-[["RELATIVE_TO_WORLD"], [
+[["Relativity.TO_WORLD"], [
 	"toWorld",
 ]],
 
@@ -1164,10 +1197,10 @@ var relativeKw = [
 
 var impulseKw = [
 
-[["CANCEL_CONTRARY_MOTION"], [
+[["Impulse.CANCEL_CONTRARY_MOTION"], [
 	"cancelContraryMotion",
 ]],
-[["INCORPORATE_CONTRARY_MOTION"], [
+[["Impulse.INCORPORATE_CONTRARY_MOTION"], [
 	"incorporateContraryMotion",
 ]],
 

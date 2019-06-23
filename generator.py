@@ -1,25 +1,24 @@
-#owo\
-rezare
 
 values = [
-                "BAD EXPLOSION",
-                "BAD PICKUP EFFECT",
-                "BUFF EXPLOSION SOUND",
-                "BUFF IMPACT SOUND",
-                "DEBUFF IMPACT SOUND",
-                "EXPLOSION SOUND",
-                "GOOD EXPLOSION",
-                "GOOD PICKUP EFFECT",
-                "RING EXPLOSION",
-                "RING EXPLOSION SOUND"
+                "ADD",
+                "APPEND TO ARRAY",
+                "DIVIDE",
+                "MAX",
+                "MIN",
+                "MODULO",
+                "MULTIPLY",
+                "RAISE TO POWER",
+                "REMOVE FROM ARRAY BY INDEX",
+                "REMOVE FROM ARRAY BY VALUE",
+                "SUBTRACT"
 ]
 
 result = ""
-for i in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+for i in values:
 	result += '''[["{}"], [
     "{}",
 ]],
-'''.format(i.replace(" ", "_").replace(":", ""), i.replace(" ", ""))
+'''.format("_"+i.lower().replace(" ", "_").replace(":", ""), i.lower().replace(" ", ""))
 
 
 print(result)

@@ -19,15 +19,22 @@ var lastLoop = -1;
 //Should be the empty array at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
 var currentArrayElementNames = [];
 
+//Dictionary used for for loops.
+//Should be empty at the beginning and end of each rule. (for compilation)
+var forLoopVariables = {};
+
+//Timer for for loop variables; when it is reached, delete the corresponding variable.
+var forLoopTimers = [];
+
 //Global variable used to keep track of operator precedence.
 //Is reset at each action and rule condition. (for decompilation)
 var operatorPrecedenceStack = [];
 
 //Operator precedence, from lowest to highest.
 var operatorPrecedence = {
-	" or ":1,
-	" and ":2,
-	" not ":3,
+	"or":1,
+	"and":2,
+	"not":3,
 	"==":4,
 	"!=":4,
 	"<=":4,

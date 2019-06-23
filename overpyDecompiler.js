@@ -255,10 +255,10 @@ function decompileAction(content, actionNb) {
 	}
 	
 	if (actionNb == lastLoop) {
-		result += decompile(content, actionKw, 0, true);
+		result += decompile(content, actionKw, {"isLastLoop":true});
 	} else {
 		
-		result += decompile(content, actionKw, 0, false);
+		result += decompile(content, actionKw, 0, {"isLastLoop":false});
 	}
 	return result;
 }
@@ -331,7 +331,7 @@ function decompileCondition(operand1, operator, operand2) {
 }
 
 //Main parser function for workshop -> overpy.
-function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) {
+function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	if (keywordArray === undefined) {
 		error("KeywordArray is undefined");
@@ -364,6 +364,10 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	}
 	name = topy(name.toLowerCase().replace(/\s/g, ""), keywordArray);
 	
+	if (name !== "_compare" && decompileArgs.invertCondition === true) {
+		return parseOperator(content, "not", null);
+	}
+	
 	var args = [];
 	if (hasArgs) {
 		var args = getArgs(content.substring(bracketPos[0]+1, bracketPos[1]));
@@ -383,7 +387,7 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	
 	//Abort if
 	if (name === "_abortIf") {
-		result = "if " + decompile(args[0]) + ":\n";	
+		result = "if " + decompile(args[0]) + ":\n";
 		result += tabLevel(nbTabs+1) + "return";
 		
 		return result;
@@ -461,7 +465,13 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 		
 	//Compare
 	if (name === "_compare") {
-		return decompileCondition(args[0], args[1].trim(), args[2]);
+		
+		var op = args[1].trim();
+		if (decompileArgs.invertCondition === true) {
+			op = reverseOperator(op);
+		}
+		
+		return decompileCondition(args[0], op, args[2]);
 		//return "("+decompile(args[0]) + ") " + args[1].trim() + " (" + decompile(args[2])+")";
 	}
 	
@@ -550,7 +560,7 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 			
 	//Loop
 	if (name === "_loop") {
-		if (isLastLoop) {
+		if (decompileArgs.isLastLoop) {
 			return "while true";
 		} else {
 			return "continue";
@@ -559,7 +569,7 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	
 	//Loop if
 	if (name === "_loopIf") {
-		if (isLastLoop) {
+		if (decompileArgs.isLastLoop) {
 			return "while "+decompile(args[0]);
 		} else {
 			var result = "if "+decompile(args[0])+":\n";
@@ -570,7 +580,7 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	
 	//Loop if condition is false
 	if (name === "_loopIfConditionIsFalse") {
-		if (isLastLoop) {
+		if (decompileArgs.isLastLoop) {
 			return "while RULE_CONDITION == false";
 		} else {
 			var result = "if RULE_CONDITION == false:\n";
@@ -581,7 +591,7 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 	
 	//Loop if condition is true
 	if (name === "_loopIfConditionIsTrue") {
-		if (isLastLoop) {
+		if (decompileArgs.isLastLoop) {
 			return "while RULE_CONDITION == true";
 		} else {
 			var result = "if RULE_CONDITION == true:\n";
@@ -746,9 +756,9 @@ function decompile(content, keywordArray=valueKw, strDepth=0, isLastLoop=false) 
 			return "Reeval.STRING";
 		}
 				
-		var [str, format] = decompileString(args[0], args[1], args[2], args[3], strDepth);
+		var [str, format] = decompileString(args[0], args[1], args[2], args[3], decompileArgs.strDepth);
 				
-		if (strDepth != 0) {
+		if (decompileArgs.strDepth !== 0 && decompileArgs.strDepth !== undefined) {
 			return [str, format];
 		}
 		
@@ -818,7 +828,7 @@ function decompileString(content, arg1, arg2, arg3, strDepth) {
 		//Check if the string result must be put in the format array
 		var isInFormat = true;
 		
-		var decompiledArg = decompile(args[i], valueKw, 1);
+		var decompiledArg = decompile(args[i], valueKw, {"strDepth":1});
 		
 		//Skip nulls
 		if (decompiledArg === "null") {
@@ -976,11 +986,7 @@ function decompileOperator(operand1, operator, operand2) {
 	if (operator === "not") {
 		return "not "+operands[0];
 	} else {
-		if (operator === "or" || operator === "and") {
-			return operands[0]+operator+operands[1];
-		} else {
-			return operands[0] + " "+operator+" "+operands[1];
-		}
+		return operands[0] + " "+operator+" "+operands[1];
 	}
 	
 }
