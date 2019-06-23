@@ -13,16 +13,18 @@ function reverseOperator(content) {
 	}
 }
 
-//Returns true if the given line is an instruction (eg not empty line, label, etc).
-function lineIsInstruction(line) {
-	line = line.trim();
-	if (line.isEmpty()) {
-		return false;
-		
-	//Test for label
-	} else if (line.endsWith(':') && !line.startsWith("if")) {
+//Returns true if the given token array is an instruction (not goto/label).
+function lineIsInstruction(line, previousLineIsIf) {
+	if (line[line.length-1].text === ':' && line[0].text !== "if" && line[0].text !== "for") {
 		return false;
 	}
+	if (line[0].text === "for") {
+		return false;
+	}
+	if (previousLineIsIf && (line[0].text === "goto" || line[0].text === "return")) {
+		return false;
+	}
+	
 	return true;
 }
 
@@ -466,8 +468,8 @@ function error(str, token) {
 }
 
 function debug(str, arg) {
-	//return;
-	console.log("DEBUG: "+str);
+	return;
+	//console.log("DEBUG: "+str);
 }
 
 //ty stackoverflow
