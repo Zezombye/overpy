@@ -1,6 +1,38 @@
 <!--stfu firefox -->
 <meta charset="utf-8">
 
+<style>
+textarea {
+	resize: vertical;
+}
+</style>
+
+<center>
+	<a href="https://github.com/Zezombye/overpy"><h1>OverPy v0.3 language demo by Zezombye</h1></a>
+	<h1><button onclick="demoAddText();">Add example text</button></h1>
+	
+	<div id="workshop-text" style="float:left; width:33%;">
+		<p>Workshop text</p>
+		<button onclick="demoDecompile()">Decompile</button>
+		<textarea id="workshop-textarea" onkeyup="getTextareaLineNumber(this, 'workshop');" onmouseup="this.onkeyup();" rows="20" style="width:100%;" wrap="off"></textarea> 
+		<p style="float:left;">line <span id="workshop-textarea-line-number"></span>, col <span id="workshop-textarea-col-number"></span></p>
+	</div>
+	
+	<div id="overpy-text" style="float:left; width:33%;">
+		<p>OverPy text</p>
+		<button onclick="demoCompile()">Compile</button>
+		<textarea id="overpy-textarea" onkeyup="getTextareaLineNumber(this, 'overpy');" onmouseup="this.onkeyup();" rows="20" style="width:100%;" wrap="off"></textarea> 
+		<p style="float:left;">line <span id="overpy-textarea-line-number"></span>, col <span id="overpy-textarea-col-number"></span></p>
+	</div>
+	
+	<div id="compiled-text" style="float:right; width:34%;">
+		<p>Compiled text</p>
+		<button onclick="compareOutputs()">Compare</button>
+		<textarea id="compiled-textarea" onkeyup="getTextareaLineNumber(this, 'compiled');" onmouseup="this.onkeyup();" rows="20" style="width:100%;" wrap="off"></textarea> 
+		<p style="float:left;">line <span id="compiled-textarea-line-number"></span>, col <span id="compiled-textarea-col-number"></span></p>
+	</div>
+</center>
+
 <script src="globalVars.js"></script>
 <script src="decompileTest.js"></script>
 <script src="compileTest.js"></script>
@@ -9,3 +41,144 @@
 <script src="utils.js"></script>
 <script src="overpyDecompiler.js"></script>
 <script src="overpyCompiler.js"></script>
+
+<script>
+
+var demoGlobalVars = {};
+var demoPlayerVars = {};
+
+function getTextareaLineNumber(textarea, name) {
+	
+	textarea.value = textarea.value.replace(/\t/g, "    ");
+	
+	document.getElementById(name+"-textarea-line-number").innerHTML = textarea.value.substr(0, textarea.selectionStart).split("\n").length;
+	document.getElementById(name+"-textarea-col-number").innerHTML = textarea.selectionStart - textarea.value.substr(0, textarea.selectionStart).lastIndexOf("\n");
+}
+
+function demoDecompile() {
+	
+	var str = "";
+	try {
+		str = decompileAllRules(document.getElementById("workshop-textarea").value, demoGlobalVars, demoPlayerVars);
+	} catch (Error) {
+		console.log(Error);
+		str = "An error occurred (press F12)";
+	}
+	document.getElementById("overpy-textarea").value = str;
+}
+
+function demoCompile() {
+	
+	var str = "";
+	try {
+		str = compile(document.getElementById("overpy-textarea").value);
+	} catch (Error) {
+		console.log(Error);
+		str = "An error occurred (press F12)";
+	}
+	document.getElementById("compiled-textarea").value = str;
+}
+
+function demoAddText() {
+	demoGlobalVars = {
+		"a":"currentSectionWalls",
+		"b":"tpStarts",
+		"c":"tpDests",
+		"d":"deathplaneY",
+		"e":"roundWinners",
+		"f":"mapId",
+		"g":"hasFirstInfectionPassed",
+		"i":"sectionLoopIndex",
+		"j":"level",
+		"l":"lateTps",
+		"m":"sectionRadiuses",
+		"n":"currentSection",
+		"o":"firstInfectionLoopIndex",
+		"p":"matchTime",
+		"q":"countdownProgress",
+		"r":"roundProgress",
+		"s":"sectionData",
+		"t":"triggers",
+		"w":"walls",
+		"z":"zombieHero",
+	};
+	demoPlayerVars = {
+		b:"fastFireCountdown",
+		c:"tempPos",
+		f:"hasWonRound",
+		j:"wallLoopIndex",
+		l:"wasFirstZombieLastRound",
+		z:"team",
+	}
+	
+	document.getElementById("workshop-textarea").value = decompileTest;
+	document.getElementById("overpy-textarea").value = "";
+	document.getElementById("compiled-textarea").value = "";
+	
+}
+
+function compareOutputs() {
+	var workshopOutput = document.getElementById("workshop-textarea").value;
+	
+	//Numbers are annoying
+	for (var i = 0; i < workshopOutput.length; i++) {
+		if (workshopOutput[i] >= '0' && workshopOutput[i] <= '9') {
+			var j = i;
+			for (; (workshopOutput[j] >= '0' && workshopOutput[j] <= '9') || workshopOutput[j] === '.'; j++);
+			
+			//console.log(workshopOutput.substring(i, j));
+			
+			workshopOutput = workshopOutput.substring(0,i)+Number(workshopOutput.substring(i, j)).toString()+workshopOutput.substring(j);
+			i += Number(workshopOutput.substring(i, j)).toString().length+1;
+		}
+	}
+	
+	document.getElementById("workshop-textarea").value = workshopOutput;
+	
+	workshopOutput = workshopOutput.toLowerCase().replace(/\s/g, "")
+	
+	var compiledOutput = document.getElementById("compiled-textarea").value.toLowerCase().replace(/\s/g, "");
+	var workshopDiffOffset = -1;
+	var compiledDiffOffset = -1;
+	for (var i = 0; i < compiledOutput.length; i++) {
+		if (workshopOutput[i] !== compiledOutput[i]) {
+			workshopDiffOffset = i;
+			compiledDiffOffset = i;
+			console.log("Difference found: '"+workshopOutput[i]+"' vs '"+compiledOutput[i]+"'");
+			break;
+		}
+	}
+	
+	if (workshopDiffOffset === -1) {
+		alert("No differences found");
+		return;
+	}
+	
+	for (var i = 0; i < workshopDiffOffset+1; i++) {
+		if (/\s/.test(document.getElementById("workshop-textarea").value[i])) {
+			workshopDiffOffset++;
+		}
+	}
+	workshopDiffOffset--;
+	var workshopText = document.getElementById("workshop-textarea").value;
+	var lineEndBefore = workshopText.substring(0, workshopDiffOffset).lastIndexOf('\n');
+	var lineEndAfter = workshopDiffOffset+workshopText.substring(workshopDiffOffset).indexOf('\n');
+	console.log(workshopText.substring(lineEndBefore+1, lineEndAfter));
+	console.log(" ".repeat(workshopDiffOffset-lineEndBefore)+"^"); 
+	document.getElementById("workshop-textarea").selectionEnd = workshopDiffOffset;
+	
+	for (var i = 0; i < compiledDiffOffset+1; i++) {
+		if (/\s/.test(document.getElementById("compiled-textarea").value[i])) {
+			compiledDiffOffset++;
+		}
+	}
+	compiledDiffOffset--;
+	var compiledText = document.getElementById("compiled-textarea").value;
+	lineEndBefore = compiledText.substring(0, compiledDiffOffset).lastIndexOf('\n');
+	lineEndAfter = compiledDiffOffset+compiledText.substring(compiledDiffOffset).indexOf('\n');
+	console.log(compiledText.substring(lineEndBefore+1, lineEndAfter));
+	console.log(" ".repeat(compiledDiffOffset-lineEndBefore)+"^"); 
+	document.getElementById("compiled-textarea").selectionEnd = compiledDiffOffset;
+	
+}
+</script>

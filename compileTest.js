@@ -635,11 +635,11 @@ if true:
             goto lbl_0
         if distance(vect(eventPlayer.getPosition().x, 0, eventPlayer.getPosition().z), vect(currentSectionWalls[eventPlayer.wallLoopIndex].x, 0, currentSectionWalls[eventPlayer.wallLoopIndex].z)) > 4.5:
             goto lbl_1
-        eventPlayer.applyImpulse(vect(0, 1, 0), 1, RELATIVE_TO_PLAYER, CANCEL_CONTRARY_MOTION)
-        eventPlayer.applyImpulse(vect(vectorTowards(currentSectionWalls[eventPlayer.wallLoopIndex], eventPlayer.getPosition()).x, 0, vectorTowards(currentSectionWalls[eventPlayer.wallLoopIndex], eventPlayer.getPosition()).z), 2.5 + eventPlayer.getHorizontalSpeed() * 1.5, RELATIVE_TO_WORLD, CANCEL_CONTRARY_MOTION)
+        eventPlayer.applyImpulse(vect(0, 1, 0), 1, Relativity.TO_PLAYER, Impulse.CANCEL_CONTRARY_MOTION)
+        eventPlayer.applyImpulse(vect(vectorTowards(currentSectionWalls[eventPlayer.wallLoopIndex], eventPlayer.getPosition()).x, 0, vectorTowards(currentSectionWalls[eventPlayer.wallLoopIndex], eventPlayer.getPosition()).z), 2.5 + eventPlayer.getHorizontalSpeed() * 1.5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
         if true:
             goto lbl_2
-        eventPlayer.applyImpulse(eventPlayer.getVelocity() / vect(abs(eventPlayer.getVelocity().x), abs(eventPlayer.getVelocity().y), abs(eventPlayer.getVelocity().z)), -10, RELATIVE_TO_WORLD, CANCEL_CONTRARY_MOTION)
+        eventPlayer.applyImpulse(eventPlayer.getVelocity() / vect(abs(eventPlayer.getVelocity().x), abs(eventPlayer.getVelocity().y), abs(eventPlayer.getVelocity().z)), -10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
         lbl_0:
         lbl_1:
         lbl_2:
@@ -724,12 +724,12 @@ if roundProgress == 3:
     while firstInfectionLoopIndex < 10
     if len([player for player in getAllPlayers(Team.ALL) if player.hasSpawned()]) <= 10:
         goto lbl_0
-    for player in random.shuffle([player for player in getAllPlayers(Team.ALL) if player.hasSpawned()andplayer.wasFirstZombieLastRound == 0]).slice(0, 2):
+    for player in random.shuffle([player for player in getAllPlayers(Team.ALL) if player.hasSpawned() and player.wasFirstZombieLastRound == 0]).slice(0, 2):
         player.team = 1
     lbl_0:
     if len([player for player in getAllPlayers(Team.ALL) if player.hasSpawned()]) > 10:
         goto lbl_1
-    for player in random.shuffle([player for player in getAllPlayers(Team.ALL) if player.hasSpawned()andplayer.wasFirstZombieLastRound == 0]).slice(0, 1):
+    for player in random.shuffle([player for player in getAllPlayers(Team.ALL) if player.hasSpawned() and player.wasFirstZombieLastRound == 0]).slice(0, 1):
         player.team = 1
     lbl_1:
     for player in [player for player in getAllPlayers(Team.ALL) if player.team == 1]:
@@ -794,9 +794,9 @@ if isGameInProgress():
 if attacker.team != victim.team and victim.team == 1:
     if random.randint(1, 4) != 1:
         goto lbl_0
-    victim.applyImpulse(vect(0, 1, 0), 1.5, RELATIVE_TO_PLAYER, CANCEL_CONTRARY_MOTION)
+    victim.applyImpulse(vect(0, 1, 0), 1.5, Relativity.TO_PLAYER, Impulse.CANCEL_CONTRARY_MOTION)
     lbl_0:
-    victim.applyImpulse(vect(vectorTowards(attacker.getPosition(), victim.getPosition()).x, 0, vectorTowards(attacker.getPosition(), victim.getPosition()).z), eventDamage * 0.9, RELATIVE_TO_WORLD, CANCEL_CONTRARY_MOTION)
+    victim.applyImpulse(vect(vectorTowards(attacker.getPosition(), victim.getPosition()).x, 0, vectorTowards(attacker.getPosition(), victim.getPosition()).z), eventDamage * 0.9, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
 
 
 @Rule "tp dest"
