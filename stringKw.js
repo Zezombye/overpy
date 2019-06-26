@@ -1,8 +1,11 @@
-var normalStrKw = [
-
+var emptyStrKw = [
 [[""], [
     "",
 ]],
+]
+
+var normalStrKw = [
+
 [["!"], [
     "!",
 ]],
@@ -1714,7 +1717,8 @@ var normalStrKw = [
     "Zones",
 ]],
 
-];
+//Reverse alphabetical order to match longest first on tokenization.
+].reverse();
 
 var prefixStrKw = [
 
@@ -1724,11 +1728,11 @@ var prefixStrKw = [
 [["-> {0}"], [
     "-> {0}",
 ]],
-[["<- {0}"], [
-    "<- {0}",
-]],
 [["<-> {0}"], [
     "<-> {0}",
+]],
+[["<- {0}"], [
+    "<- {0}",
 ]],
 [["Round {0}"], [
     "Round {0}",
@@ -1740,29 +1744,29 @@ var postfixStrKw = [
 [["{0} ->"], [
     "{0} ->",
 ]],
-[["{0} <-"], [
-    "{0} <-",
-]],
 [["{0} <->"], [
     "{0} <->",
 ]],
-[["{0} M"], [
-    "{0} M",
+[["{0} <-"], [
+    "{0} <-",
 ]],
 [["{0} M/S"], [
     "{0} M/S",
 ]],
+[["{0} M"], [
+    "{0} M",
+]],
 [["{0} Sec"], [
     "{0} Sec",
 ]],
-[["{0}!"], [
-    "{0}!",
+[["{0}!!!"], [
+    "{0}!!!",
 ]],
 [["{0}!!"], [
     "{0}!!",
 ]],
-[["{0}!!!"], [
-    "{0}!!!",
+[["{0}!"], [
+    "{0}!",
 ]],
 [["{0}%"], [
     "{0}%",
@@ -1770,23 +1774,24 @@ var postfixStrKw = [
 [["{0}:"], [
     "{0}:",
 ]],
-[["{0}?"], [
-    "{0}?",
+[["{0}???"], [
+    "{0}???",
 ]],
 [["{0}??"], [
     "{0}??",
 ]],
-[["{0}???"], [
-    "{0}???",
+[["{0}?"], [
+    "{0}?",
 ]],
 ];
 
 var binaryStrKw = [
-[["{0} - {1}"], [
-    "{0} - {1}",
-]],
+
 [["{0} -> {1}"], [
     "{0} -> {1}",
+]],
+[["{0} - {1}"], [
+    "{0} - {1}",
 ]],
 [["{0} != {1}"], [
     "{0} != {1}",
@@ -1797,35 +1802,32 @@ var binaryStrKw = [
 [["{0} / {1}"], [
     "{0} / {1}",
 ]],
-[["{0} {1}"], [
-    "{0} {1}",
-]],
 [["{0} + {1}"], [
     "{0} + {1}",
-]],
-[["{0} <- {1}"], [
-    "{0} <- {1}",
 ]],
 [["{0} <-> {1}"], [
     "{0} <-> {1}",
 ]],
-[["{0} < {1}"], [
-    "{0} < {1}",
+[["{0} <- {1}"], [
+    "{0} <- {1}",
 ]],
 [["{0} <= {1}"], [
     "{0} <= {1}",
 ]],
-[["{0} = {1}"], [
-    "{0} = {1}",
+[["{0} < {1}"], [
+    "{0} < {1}",
 ]],
 [["{0} == {1}"], [
     "{0} == {1}",
 ]],
-[["{0} > {1}"], [
-    "{0} > {1}",
+[["{0} = {1}"], [
+    "{0} = {1}",
 ]],
 [["{0} >= {1}"], [
     "{0} >= {1}",
+]],
+[["{0} > {1}"], [
+    "{0} > {1}",
 ]],
 [["{0} And {1}"], [
     "{0} And {1}",
@@ -1842,17 +1844,20 @@ var binaryStrKw = [
 [["{0}:{1}"], [
     "{0}:{1}",
 ]],
+[["{0} {1}"], [
+    "{0} {1}",
+]],
 ];
 
 var ternaryStrKw = [
 [["{0} - {1} - {2}"], [
     "{0} - {1} - {2}",
 ]],
-[["{0} {1} {2}"], [
-    "{0} {1} {2}",
-]],
 [["{0} : {1} : {2}"], [
     "{0} : {1} : {2}",
+]],
+[["{0} {1} {2}"], [
+    "{0} {1} {2}",
 ]],
 [["{0}, {1}, And {2}"], [
     "{0}, {1}, And {2}",
@@ -1874,4 +1879,47 @@ var surroundStrKw = [
 ]],
 ];
 
-var stringKw = normalStrKw.concat(prefixStrKw).concat(postfixStrKw).concat(binaryStrKw).concat(ternaryStrKw).concat(surroundStrKw);
+var stringKw = normalStrKw.concat(prefixStrKw).concat(postfixStrKw).concat(binaryStrKw).concat(ternaryStrKw).concat(surroundStrKw).concat(emptyStrKw);
+
+var strTokens = [];
+
+//Generate string tokens
+//normal strings
+for (var j = 0; j < normalStrKw.length; j++) {
+	strTokens.push(normalStrKw[j][0][0].toLowerCase());
+}
+
+//prefix strings
+for (var j = 0; j < prefixStrKw.length; j++) {
+	strTokens.push(prefixStrKw[j][0][0].substring(0, prefixStrKw[j][0][0].indexOf("{0}")).toLowerCase());
+}
+
+//postfix strings
+for (var j = 0; j < postfixStrKw.length; j++) {
+	strTokens.push(postfixStrKw[j][0][0].substring("{0}".length).toLowerCase());
+}
+
+//binary strings
+for (var j = 0; j < binaryStrKw.length; j++) {
+	strTokens.push(binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase());
+}
+
+//ternary strings
+for (var j = 0; j < ternaryStrKw.length; j++) {
+	strTokens.push(ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase());
+	strTokens.push(ternaryStrKw[j][0][0].substring("{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase());
+}
+
+//surround strings
+for (var j = 0; j < surroundStrKw.length; j++) {
+	strTokens.push(surroundStrKw[j][0][0][0].toLowerCase())
+	strTokens.push(surroundStrKw[j][0][0][surroundStrKw[j][0][0].length-1].toLowerCase())
+}
+
+//heroes
+for (var j = 0; j < heroKw.length; j++) {
+	strTokens.push(heroKw[j][0][0].toLowerCase());
+}
+
+//Sort reverse alphabetical order for greediness
+strTokens = strTokens.sort().reverse();
