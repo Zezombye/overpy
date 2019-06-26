@@ -49,7 +49,7 @@ function test() {
     let testCases = [ { str: "213 round", args: [] }, { str: "you 123", args: [] }, { str: "round 123", args: [] }, { str: "you lose", args: [] }, 
             { str: "you lose you", args: [] }, { str: "yes yes", args: [] }, { str: "(12)", args: [] }, { str: "((12 (22 (42))))"}, 
             { str: "69 -> 43", args: [] }, { str: "time ugh, up you loser: you lose", args: [] }, { str: "(12)", args: [] }, 
-            { str: "(12)", args: [] }, { str: "First Level - 12 - (69)", args: []}, { str: "(#First Level, 12)"}, 
+            { str: "first level first level first level", args: [] }, { str: "First Level - 12 - (69)", args: []}, { str: "(#First Level, 12)"}, 
             { str: "(#First Level, Torbjörn, 123.4, {})", args: ["playersInSlot(0)"] }, 
             { str: "(#First Level : Torbjörn: 123.4, {})", args: ["playersInSlot(0)"] }, 
             { str: "(#First Level: you and lose)", args: [] } ];

@@ -1,5 +1,41 @@
 "use strict";
 
+//Used for string parsing; splits an array of strings on one or two strings.
+//Eg: splitStrTokens(["owo", "uwu", "owo"], "uwu") will return [["owo"], ["owo"]].
+function splitStrTokens(tokens, str1, str2) {
+	
+	var str1Index = -1;
+	var str2Index = -1;
+	
+	var i;
+	for (i = 0; i < tokens.length; i++) {
+		if (tokens[i] === str1) {
+			str1Index = i;
+			break;
+		}
+	}
+	
+	if (str2 !== undefined) {
+		for (; i < tokens.length; i++) {
+			if (tokens[i] === str2) {
+				str2Index = i;
+				break;
+			}
+		}
+	}
+	
+	debug("str1Index = "+str1Index+", str2Index = "+str2Index);
+	
+	if (str1Index === -1) {
+		return tokens;
+	} else if (str2Index === -1) {
+		return [tokens.slice(0, str1Index), tokens.slice(str1Index+1)]
+	} else {
+		return [tokens.slice(0, str1Index), tokens.slice(str1Index+1, str2Index), tokens.slice(str2Index+1)]
+	}
+	
+}
+
 //Reverses the comparison operator.
 function reverseOperator(content) {
 	if (content === "==") return "!=";
@@ -468,8 +504,8 @@ function error(str, token) {
 }
 
 function debug(str, arg) {
-	return;
-	//console.log("DEBUG: "+str);
+	//return;
+	console.log("DEBUG: "+str);
 }
 
 //ty stackoverflow
