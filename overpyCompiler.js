@@ -511,7 +511,7 @@ function parse(content, parseArgs={}) {
 		if (name === "true" || name === "false" || name === "null") {
 			return tows(name, boolKw);
 		} else if (name.startsWith('"') || name.startsWith("'")) {
-			return parseString(name);
+			return parseString(tokenizeString(name));
 		}
 		
 		return tows(name, funcKw);
@@ -597,8 +597,39 @@ function parse(content, parseArgs={}) {
 
 //Parses string
 function parseString(content, args=[]) {
-	return '"TODO"';
+	if (!content instanceof Array) {
+		error("Content must be list of str");
+	}
+	
+	//Test ternary string
+	for (var j = 0; j < ternaryStrKw.length; j++) {
+		var token1 = ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
+		var token2 = ternaryStrKw[j][0][0].substring("{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase();
+		var tokens = splitStrTokens(content, token1, token2);
+		if (tokens.length === 3) {
+			return tows("_string", valueFuncKw)+"("+tows(ternaryStrKw[j][0][0], ternaryStrKw)+", "+parse(tokens[0])+", "+parse(tokens[1])+", "+parse(tokens[2])+")";
+		}
+	}
+	
+	//Test binary strings
+	for (var j = 0; j < binaryStrKw.length; j++) {
+		var token1 = binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
+		var tokens = splitStrTokens(content, token1);
+		if (tokens.length === 2) {
+			return tows("_string", valueFuncKw)+"("+tows(binaryStrKw[j][0][0], binaryStrKw)+", "+parse(tokens[0])+", "+parse(tokens[1])+", "+tows("null", boolKw)+")";
+		}
+	}
+	
+	//Test binary strings
+	for (var j = 0; j < binaryStrKw.length; j++) {
+		var token1 = binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
+		var tokens = splitStrTokens(content, token1);
+		if (tokens.length === 2) {
+			return tows("_string", valueFuncKw)+"("+tows(binaryStrKw[j][0][0], binaryStrKw)+", "+parse(tokens[0])+", "+parse(tokens[1])+", "+tows("null", boolKw)+")";
+		}
+	}
 }
+
 
 //Parses membership (the "." operator).
 function parseMember(object, member, parseArgs={}) {
@@ -635,7 +666,7 @@ function parseMember(object, member, parseArgs={}) {
 		return tows("Effect."+name, effectKw);
 		
 	} else if (name === "format") {
-		return parseString(object[0].text, args);
+		return parseString(tokenizeString(object[0].text), args);
 		
 	} else if (object[0].text === "Hero") {
 		return tows("_hero", valueFuncKw)+"("+tows("Hero."+name, heroKw)+")";
@@ -1293,4 +1324,138 @@ function parseMacro(macro) {
 	
 	return macro;
 	
+}
+
+//Tokenizes string
+function tokenizeString(str) {
+	
+	var tokenList = []
+	var originalColNb = currentColNb;
+	
+	str = str.toLowerCase();
+	
+	for (var i = 0; i < str.length; i++) {
+		
+		currentColNb = originalColNb+i;
+		var currentToken = "";
+		var hasTokenBeenFound = false;
+		
+		/*//Test normal strings
+		for (var j = 0; j < normalStrKw.length && !hasTokenBeenFound; j++) {
+			var tokenTest = normalStrKw[j][0][0].toLowerCase();
+			if (str.startsWith(tokenTest, i)) {
+				currentToken = tokenTest;
+				hasTokenBeenFound = true;
+				break;
+			}
+		}
+		
+		//Test prefix strings
+		for (var j = 0; j < prefixStrKw.length && !hasTokenBeenFound; j++) {
+			var tokenTest = prefixStrKw[j][0][0].substring(0, prefixStrKw[j][0][0].indexOf("{0}")).toLowerCase();
+			if (str.startsWith(tokenTest, i)) {
+				currentToken = tokenTest;
+				hasTokenBeenFound = true;
+				break;
+			}
+		}
+		
+		//Test postfix strings
+		for (var j = 0; j < postfixStrKw.length && !hasTokenBeenFound; j++) {
+			var tokenTest = postfixStrKw[j][0][0].substring("{0}".length).toLowerCase();
+			if (str.startsWith(tokenTest, i)) {
+				currentToken = tokenTest;
+				hasTokenBeenFound = true;
+				break;
+			}
+		}
+		
+		//Test binary strings
+		for (var j = 0; j < binaryStrKw.length && !hasTokenBeenFound; j++) {
+			var tokenTest = binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
+			if (str.startsWith(tokenTest, i)) {
+				currentToken = tokenTest;
+				hasTokenBeenFound = true;
+				break;
+			}
+		}
+		
+		//Test ternary strings
+		for (var j = 0; j < ternaryStrKw.length && !hasTokenBeenFound; j++) {
+			var tokenTest = ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
+			var tokenTest2 = ternaryStrKw[j][0][0].substring("{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase();
+			if (str.startsWith(tokenTest, i)) {
+				currentToken = tokenTest;
+				hasTokenBeenFound = true;
+				break;
+			} else if (str.startsWith(tokenTest2)) {
+				currentToken = tokenTest2;
+				hasTokenBeenFound = true;
+				break;
+			} 
+		}
+		
+		//Test surround strings
+		for (var j = 0; j < surroundStrKw.length && !hasTokenBeenFound; j++) {
+			var tokenTest = surroundStrKw[j][0][0][0].toLowerCase()
+			var tokenTest2 = surroundStrKw[j][0][0][surroundStrKw[j][0][0].length-1].toLowerCase()
+			if (str.startsWith(tokenTest, i)) {
+				currentToken = tokenTest;
+				hasTokenBeenFound = true;
+				break;
+			} else if (str.startsWith(tokenTest2)) {
+				currentToken = tokenTest2;
+				hasTokenBeenFound = true;
+				break;
+			} 
+		}
+		
+		//Test heroes
+		for (var j = 0; j < heroKw.length && !hasTokenBeenFound; j++) {
+			var tokenTest = heroKw[j][0][0].toLowerCase();
+			if (str.startsWith(tokenTest, i)) {
+				currentToken = "_h"+tokenTest;
+				hasTokenBeenFound = true;
+				break;
+			}
+		}*/
+		
+		//Test tokens
+		for (var j = 0; j < strTokens.length; j++) {
+			if (str.startsWith(strTokens[j], i)) {
+				currentToken = strTokens[j];
+				hasTokenBeenFound = true;
+				break;
+			}
+		}
+		
+		if (!hasTokenBeenFound) {
+			//Test numbers
+			var j = i;
+			for (; (str[j] >= '0' && str[j] <= '9') || str[j] === '.' || str[j] === '-'; j++);
+			
+			if (j !== i) {
+				currentToken = str.substring(i, j);
+				hasTokenBeenFound = true;
+			}
+		}
+		
+		//Test for formatting
+		if (!hasTokenBeenFound) {
+			if (str.startsWith("{}", i)) {
+				currentToken = "{}";
+				hasTokenBeenFound = true;
+			}
+		}
+		
+		if (!hasTokenBeenFound) {
+			error("No string translation found");
+		}
+		
+		tokenList.push(currentToken);
+		i += currentToken.length-1;
+		
+	}
+	
+	return tokenList;
 }
