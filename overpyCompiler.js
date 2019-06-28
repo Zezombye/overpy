@@ -511,7 +511,8 @@ function parse(content, parseArgs={}) {
 		if (name === "true" || name === "false" || name === "null") {
 			return tows(name, boolKw);
 		} else if (name.startsWith('"') || name.startsWith("'")) {
-			return parseString(tokenizeString(name));
+			return parseString(tokenizeString(name.substring(1, name.length-1)));
+			//error("owo");
 		}
 		
 		return tows(name, funcKw);
@@ -601,33 +602,137 @@ function parseString(content, args=[]) {
 		error("Content must be list of str");
 	}
 	
+	var matchStr;
+	var tokens;
+	var hasMatchBeenFound = false;
+	
+	debug("Parsing string '"+content+"' with args '"+args+"'");
+	
 	//Test ternary string
 	for (var j = 0; j < ternaryStrKw.length; j++) {
 		var token1 = ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
-		var token2 = ternaryStrKw[j][0][0].substring("{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase();
-		var tokens = splitStrTokens(content, token1, token2);
+		var token2 = ternaryStrKw[j][0][0].substring(ternaryStrKw[j][0][0].indexOf("{1}")+"{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase();
+		tokens = splitStrTokens(content, token1, token2);
 		if (tokens.length === 3) {
-			return tows("_string", valueFuncKw)+"("+tows(ternaryStrKw[j][0][0], ternaryStrKw)+", "+parse(tokens[0])+", "+parse(tokens[1])+", "+parse(tokens[2])+")";
+			hasMatchBeenFound = true;
+			matchStr = tows(ternaryStrKw[j][0][0], ternaryStrKw);
+			break;
 		}
+		tokens = []
 	}
 	
 	//Test binary strings
-	for (var j = 0; j < binaryStrKw.length; j++) {
+	for (var j = 0; j < binaryStrKw.length && !hasMatchBeenFound; j++) {
 		var token1 = binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
 		var tokens = splitStrTokens(content, token1);
 		if (tokens.length === 2) {
-			return tows("_string", valueFuncKw)+"("+tows(binaryStrKw[j][0][0], binaryStrKw)+", "+parse(tokens[0])+", "+parse(tokens[1])+", "+tows("null", boolKw)+")";
+			hasMatchBeenFound = true;
+			matchStr = tows(binaryStrKw[j][0][0], binaryStrKw);
+			break;
+		}
+		tokens = []
+	}
+	
+	//Test prefix strings
+	for (var j = 0; j < prefixStrKw.length && !hasMatchBeenFound; j++) {
+		var token1 = prefixStrKw[j][0][0].substring(0, prefixStrKw[j][0][0].indexOf("{0}")).toLowerCase();
+		if (content[0] === token1) {
+			hasMatchBeenFound = true;
+			matchStr = tows(prefixStrKw[j][0][0], prefixStrKw);
+			tokens.push(splitStrTokens(content, token1)[1]);
+			break;
+		}
+		tokens = []
+	}
+	
+	//Test postfix strings
+	for (var j = 0; j < postfixStrKw.length && !hasMatchBeenFound; j++) {
+		var token1 = postfixStrKw[j][0][0].substring("{0}".length).toLowerCase();
+		if (content[content.length-1] === token1) {
+			hasMatchBeenFound = true;
+			matchStr = tows(postfixStrKw[j][0][0], postfixStrKw);
+			tokens.push(splitStrTokens(content, token1)[0]);
+			break;
+		}
+		tokens = []
+	}
+	
+	//Test surround strings
+	for (var j = 0; j < surroundStrKw.length && !hasMatchBeenFound; j++) {
+		var token1 = surroundStrKw[j][0][0].substring(0, surroundStrKw[j][0][0].indexOf("{0}")).toLowerCase();
+		var token2 = surroundStrKw[j][0][0].substring(surroundStrKw[j][0][0].indexOf("{0}"), surroundStrKw[j][0][0].indexOf("{0}")+"{0}".length).toLowerCase();
+		if (content[0] === token1 && content[content.length-1] === token2) {
+			hasMatchBeenFound = true;
+			matchStr = tows(surroundStrKw[j][0][0], surroundStrKw);
+			//Note: it is assumed all surround strings have a length of only 1 character for each side.
+			tokens.push(content.slice(1, content.length-1));
+			break;
+		}
+		tokens = []
+	}
+	
+	//Test normal strings
+	if (content.length === 1) {
+		for (var j = 0; j < normalStrKw.length && !hasMatchBeenFound; j++) {
+			var token1 = normalStrKw[j][0][0].toLowerCase();
+			if (content[0] === token1) {
+				hasMatchBeenFound = true;
+				matchStr = token1;
+				break;
+			}
+		}
+		
+		//Test for empty string
+		if (!hasMatchBeenFound && content[0] === "") {
+			hasMatchBeenFound = true;
+			matchStr = "";
 		}
 	}
 	
-	//Test binary strings
-	for (var j = 0; j < binaryStrKw.length; j++) {
-		var token1 = binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
-		var tokens = splitStrTokens(content, token1);
-		if (tokens.length === 2) {
-			return tows("_string", valueFuncKw)+"("+tows(binaryStrKw[j][0][0], binaryStrKw)+", "+parse(tokens[0])+", "+parse(tokens[1])+", "+tows("null", boolKw)+")";
+	//Test if no token (probably not a string)
+	if (tokens.length === 0) {
+		if (content.length !== 1) {
+			error("Parser broke I guess? (content = '"+content+"')");
+		}
+		
+		if (content[0].startsWith("_h")) {
+			return tows("_hero", valueFuncKw)+"("+tows(content[0].substring(2), heroKw)+")";
+		} else if (!isNaN(content[0])) {
+			return parse(content[0]);
+		} else if (content[0] === "{}") {
+			if (args.length !== 1) {
+				error("Parser broke (args length isn't 1)");
+			}
+			return parse(args[0]);
 		}
 	}
+	
+	var result = tows("_string", valueFuncKw)+"(\""+matchStr+'"';
+	debug("tokens = ")
+	console.log(tokens);
+	
+	if (tokens.length > 0) {
+		var nbFormat1 = tokens[0].filter(function(owo){return owo === "{}";}).length;
+		result += ", "+parseString(tokens[0], args.slice(0, nbFormat1))
+	} else {
+		result += ", "+tows("null", boolKw);
+	}
+	if (tokens.length > 1) {
+		var nbFormat2 = tokens[1].filter(function(owo){return owo === "{}";}).length;
+		result += ", "+parseString(tokens[1], args.slice(0, nbFormat2))
+	} else {
+		result += ", "+tows("null", boolKw);
+	}
+	if (tokens.length > 2) {
+		var nbFormat3 = tokens[2].filter(function(owo){return owo === "{}";}).length;
+		result += ", "+parseString(tokens[2], args.slice(0, nbFormat3))
+	} else {
+		result += ", "+tows("null", boolKw);
+	}
+	
+	result += ")";
+	return result;
+	
 }
 
 
@@ -666,7 +771,7 @@ function parseMember(object, member, parseArgs={}) {
 		return tows("Effect."+name, effectKw);
 		
 	} else if (name === "format") {
-		return parseString(tokenizeString(object[0].text), args);
+		return parseString(tokenizeString(object[0].text.substring(1, object[0].text.length-1)), args);
 		
 	} else if (object[0].text === "Hero") {
 		return tows("_hero", valueFuncKw)+"("+tows("Hero."+name, heroKw)+")";
@@ -1332,6 +1437,8 @@ function tokenizeString(str) {
 	var tokenList = []
 	var originalColNb = currentColNb;
 	
+	debug("Tokenizing string '"+str+"'");
+	
 	str = str.toLowerCase();
 	
 	for (var i = 0; i < str.length; i++) {
@@ -1339,86 +1446,6 @@ function tokenizeString(str) {
 		currentColNb = originalColNb+i;
 		var currentToken = "";
 		var hasTokenBeenFound = false;
-		
-		/*//Test normal strings
-		for (var j = 0; j < normalStrKw.length && !hasTokenBeenFound; j++) {
-			var tokenTest = normalStrKw[j][0][0].toLowerCase();
-			if (str.startsWith(tokenTest, i)) {
-				currentToken = tokenTest;
-				hasTokenBeenFound = true;
-				break;
-			}
-		}
-		
-		//Test prefix strings
-		for (var j = 0; j < prefixStrKw.length && !hasTokenBeenFound; j++) {
-			var tokenTest = prefixStrKw[j][0][0].substring(0, prefixStrKw[j][0][0].indexOf("{0}")).toLowerCase();
-			if (str.startsWith(tokenTest, i)) {
-				currentToken = tokenTest;
-				hasTokenBeenFound = true;
-				break;
-			}
-		}
-		
-		//Test postfix strings
-		for (var j = 0; j < postfixStrKw.length && !hasTokenBeenFound; j++) {
-			var tokenTest = postfixStrKw[j][0][0].substring("{0}".length).toLowerCase();
-			if (str.startsWith(tokenTest, i)) {
-				currentToken = tokenTest;
-				hasTokenBeenFound = true;
-				break;
-			}
-		}
-		
-		//Test binary strings
-		for (var j = 0; j < binaryStrKw.length && !hasTokenBeenFound; j++) {
-			var tokenTest = binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
-			if (str.startsWith(tokenTest, i)) {
-				currentToken = tokenTest;
-				hasTokenBeenFound = true;
-				break;
-			}
-		}
-		
-		//Test ternary strings
-		for (var j = 0; j < ternaryStrKw.length && !hasTokenBeenFound; j++) {
-			var tokenTest = ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
-			var tokenTest2 = ternaryStrKw[j][0][0].substring("{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase();
-			if (str.startsWith(tokenTest, i)) {
-				currentToken = tokenTest;
-				hasTokenBeenFound = true;
-				break;
-			} else if (str.startsWith(tokenTest2)) {
-				currentToken = tokenTest2;
-				hasTokenBeenFound = true;
-				break;
-			} 
-		}
-		
-		//Test surround strings
-		for (var j = 0; j < surroundStrKw.length && !hasTokenBeenFound; j++) {
-			var tokenTest = surroundStrKw[j][0][0][0].toLowerCase()
-			var tokenTest2 = surroundStrKw[j][0][0][surroundStrKw[j][0][0].length-1].toLowerCase()
-			if (str.startsWith(tokenTest, i)) {
-				currentToken = tokenTest;
-				hasTokenBeenFound = true;
-				break;
-			} else if (str.startsWith(tokenTest2)) {
-				currentToken = tokenTest2;
-				hasTokenBeenFound = true;
-				break;
-			} 
-		}
-		
-		//Test heroes
-		for (var j = 0; j < heroKw.length && !hasTokenBeenFound; j++) {
-			var tokenTest = heroKw[j][0][0].toLowerCase();
-			if (str.startsWith(tokenTest, i)) {
-				currentToken = "_h"+tokenTest;
-				hasTokenBeenFound = true;
-				break;
-			}
-		}*/
 		
 		//Test tokens
 		for (var j = 0; j < strTokens.length; j++) {
