@@ -7,7 +7,11 @@ function splitStrTokens(tokens, str1, str2) {
 	var str1Index = -1;
 	var str2Index = -1;
 	
-	debug("Splitting str tokens '"+tokens+"' on '"+str1+"' and '"+str2+"'");
+	if (str2 !== undefined) {
+		debug("Splitting str tokens '"+tokens+"' on '"+str1+"' and '"+str2+"'");
+	} else {
+		debug("Splitting str tokens '"+tokens+"' on '"+str1+"'");
+	}
 	
 	var i;
 	for (i = 0; i < tokens.length; i++) {
@@ -28,7 +32,7 @@ function splitStrTokens(tokens, str1, str2) {
 		}
 	}
 	
-	debug("str1Index = "+str1Index+", str2Index = "+str2Index);
+	//debug("str1Index = "+str1Index+", str2Index = "+str2Index);
 	
 	if (str1Index === -1) {
 		return [tokens];

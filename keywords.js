@@ -194,11 +194,17 @@ var actionKw = [
 [["destroyInWorldText"], [
 	"destroyIn-WorldText",
 ]],
+[["disableAnnouncer()"], [
+	"disableBuilt-inGamemodeAnnouncer",
+]],
 [["disableGamemodeCompletion()"], [
 	"disableBuilt-inGamemodeCompletion",
 ]],
 [["_&disableRespawn"], [
 	"disableBuilt-inGamemodeRespawning",
+]],
+[["disableScoring()"], [
+	"disableBuilt-inGamemodeScoring",
 ]],
 [["_&disableDeathSpectateAllPlayers"], [
 	"disableDeathSpectateAllPlayers",
@@ -209,8 +215,14 @@ var actionKw = [
 [["_&disallowButton"], [
 	"disallowButton",
 ]],
+[["enableAnnouncer()"], [
+	"enableBuilt-inGamemodeAnnouncer",
+]],
 [["enableGamemodeCompletion()"], [
 	"enableBuilt-inGamemodeCompletion",
+]],
+[["enableScoring()"], [
+	"enableBuilt-inGamemodeScoring",
 ]],
 [["_&enableRespawn"], [
 	"enableBuilt-inGamemodeRespawning",
@@ -250,6 +262,9 @@ var actionKw = [
 ]],
 [["_modifyPlayerVarAtIndex"], [
 	"modifyPlayerVariableAtIndex",
+]],
+[["addToScore"], [
+	"modifyTeamScore",
 ]],
 [["pauseMatchTime()"], [
 	"pauseMatchTime",
@@ -331,6 +346,9 @@ var actionKw = [
 ]],
 [["_&setStatusEffect"], [
 	"setStatus",
+]],
+[["setScore"], [
+	"setTeamScore",
 ]],
 [["_&setUltCharge"], [
 	"setUltimateCharge",
@@ -512,6 +530,9 @@ var valueFuncKw = [
 [["_&getCurrentHero"], [
 	"heroOf",
 ]],
+[["_&getNbDeaths"], [
+	"numberOfDeaths",
+]],
 [["horizontalAngleFromDirection"], [
 	"horizontalAngleFromDirection",
 ]],
@@ -554,6 +575,9 @@ var valueFuncKw = [
 [["_isInLineOfSight"], [
 	"isInLineOfSight",
 ]],
+[["isInSetup()"], [
+	"isInSetup",
+]],
 [["_&isInViewAngle"], [
 	"isInViewAngle",
 ]],
@@ -568,6 +592,9 @@ var valueFuncKw = [
 ]],
 [["isGameInProgress()"], [
 	"isGameInProgress",
+]],
+[["_isTrueForAll"], [
+	"isTrueForAll",
 ]],
 [["_isTrueForAny"], [
 	"isTrueForAny",
@@ -632,6 +659,9 @@ var valueFuncKw = [
 [["_playerVar"], [
 	"playerVariable",
 ]],
+[["playersInSlot"], [
+	"playersInSlot",
+]],
 [["getPlayersInRadius"], [
 	"playersWithinRadius",
 ]],
@@ -667,6 +697,9 @@ var valueFuncKw = [
 ]],
 [["sinDeg"], [
 	"sineFromDegrees",
+]],
+[["sin"], [
+	"sineFromRadians",
 ]],
 [["_sortedArray"], [
 	"sortedArray",
