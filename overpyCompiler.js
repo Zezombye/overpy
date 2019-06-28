@@ -116,11 +116,11 @@ function compileRule(rule) {
 						error("Event player defined twice");
 					}
 					if (!isEventTeamDefined) {
-						result += tabLevel(2)+tows("all", eventKw)+";\n"+tabLevel(2);
+						result += tabLevel(2)+tows("all", eventKw)+";\n";
 						isEventTeamDefined = true;
 					}
 					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw);
+					result += tabLevel(2)+tows("Hero."+rule.lines[i].tokens[1].text.toUpperCase(), heroKw)+";\n";
 					
 				} else if (rule.lines[i].tokens[0].text === "@Slot") {
 					if (isEventPlayerDefined) {
@@ -366,7 +366,7 @@ function compileRule(rule) {
 		
 	}
 	
-	if (isInActions) {
+	if (isInActions || isInEvent) {
 		//End actions
 		result += tabLevel(1)+"}\n";
 	}
@@ -413,6 +413,18 @@ function parse(content, parseArgs={}) {
 				var pyOperator = pyOperators[i];
 				if (parseArgs.invertCondition === true) pyOperator = reverseOperator(pyOperator);
 				return tows("_compare", valueFuncKw)+"("+parse(operands[0])+", "+pyOperator+", "+parse(operands[1])+")";
+			} else if (pyOperators[i] === "+=") {
+				return parseAssignment(operands[0], operands[1], true, "_add");
+			} else if (pyOperators[i] === "-=") {
+				return parseAssignment(operands[0], operands[1], true, "_subtract");
+			} else if (pyOperators[i] === "*=") {
+				return parseAssignment(operands[0], operands[1], true, "_multiply");
+			} else if (pyOperators[i] === "/=") {
+				return parseAssignment(operands[0], operands[1], true, "_divide");
+			} else if (pyOperators[i] === "%=") {
+				return parseAssignment(operands[0], operands[1], true, "_modulo");
+			} else if (pyOperators[i] === "**=") {
+				return parseAssignment(operands[0], operands[1], true, "_raiseToPower");
 			} else if (pyOperators[i] === "++") {
 				return parseAssignment(operands[0], [{"lineNb":-1, "colNb":-1,"text":"1"}], true, "_add");
 			} else if (pyOperators[i] === "--") {
@@ -506,7 +518,6 @@ function parse(content, parseArgs={}) {
 			return parseArrayMembership(content);
 		}
 	} else {
-		
 		//Check for booleans
 		if (name === "true" || name === "false" || name === "null") {
 			return tows(name, boolKw);
@@ -535,6 +546,36 @@ function parse(content, parseArgs={}) {
 		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundUp", roundKw)+")";
 	}
 	
+	if (name === "chase") {
+		
+		var funcName = "_chase";
+		var result = "";
+		
+		//Check for dot; if it is present, it can only be a player variable
+		var operands = splitTokens(args[0], ".", false, true);
+		if (operands.length === 2) {
+			funcName += "PlayerVariable";
+			result += parse(operands[1])+", "+operands[0][0].text;
+		} else {
+			funcName += "GlobalVariable";
+			result += parse(args[0]);
+		}
+		
+		if (args.length !== 4) {
+			error("Chase function must have 4 arguments");
+		} else if ((args[2][0].text !== "rate" && args[2][0].text !== "duration") || args[2][1].text !== "=") {
+			error("3rd argument of chase must be 'rate = xxxx' or 'duration = xxxx'");
+		}
+		
+		if (args[2][0].text === "rate") {
+			funcName += "AtRate";
+		} else {
+			funcName += "OverTime";
+		}
+		
+		return tows(funcName, actionKw)+"("+result+", "+parse(args[1])+", "+parse(args[2].slice(2))+", "+parse(args[3])+")";
+	}
+	
 	if (name === "floor") {
 		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", roundKw)+")";
 	}
@@ -544,6 +585,36 @@ function parse(content, parseArgs={}) {
 			error("round() only takes one argument, you maybe meant to use ceil() or floor().");
 		} else {
 			return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundToNearest", roundKw)+")";
+		}
+	}
+	
+	if (name === "raycast") {
+		if (parseArgs.raycastType === undefined) {
+			error("Raycast function must be followed by a member (eg. getHitPosition)");
+		}
+		
+		if (parseArgs.raycastType === "getHitPosition") {
+			var result = tows("_raycastHitPosition", valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+", ";
+			
+			if (args[2][0].text !== "include" || args[2][1].text !== "=") {
+				error("3rd arg for raycast hit position must be 'include = xxxx'");
+			} else if (args[3][0].text !== "exclude" || args[2][1].text !== "=") {
+				error("4th arg for raycast hit position must be 'exclude = xxxx'");
+			} else if (args[4][0].text !== "includePlayerObjects" || args[2][1].text !== "=") {
+				error("5th arg for raycast hit position must be 'includePlayerObjects = xxxx'");
+			}
+			
+			result += parse(args[2].slice(2))+", "+parse(args[3].slice(2))+", "+parse(args[4].slice(2))+")";
+			return result;
+		} else if (parseArgs.raycastType === "hasLoS") {
+			var result = tows("_isInLineOfSight", valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+", ";
+			if (args[2][0].text !== "los" || args[2][1].text !== "=") {
+				error("3rd arg for line of sight check must be 'los = LosCheck.xxxx'");
+			} 
+			result += parse(args[2].slice(2))+")";
+			return result;
+		} else {
+			error("Unknown raycast member '"+parseArgs.raycastType+"'");
 		}
 	}
 	
@@ -567,12 +638,16 @@ function parse(content, parseArgs={}) {
 		}
 	}
 	
+	
 	if (name === "wait") {
 		var result = tows("_wait", actionKw)+"("+parse(args[0])+", ";
 		if (args.length === 1) {
 			result += tows("Wait.IGNORE_CONDITION", waitKw)
 		} else {
-			result += parse(args[1]);
+			if (args[1][0].text !== "behavior" || args[1][1].text !== "=") {
+				error("2nd argument of wait() must be 'behavior=Wait.XXXX'");
+			}
+			result += parse(args[1].slice(2));
 		}
 		result += ")";
 		return result;
@@ -606,7 +681,7 @@ function parseString(content, args=[]) {
 	var tokens;
 	var hasMatchBeenFound = false;
 	
-	debug("Parsing string '"+content+"' with args '"+args+"'");
+	debug("Parsing string '"+content+"' with args '"+JSON.stringify(args)+"'");
 	
 	//Test ternary string
 	for (var j = 0; j < ternaryStrKw.length; j++) {
@@ -681,18 +756,18 @@ function parseString(content, args=[]) {
 				break;
 			}
 		}
-		
-		//Test for empty string
-		if (!hasMatchBeenFound && content[0] === "") {
-			hasMatchBeenFound = true;
-			matchStr = "";
-		}
+	}
+	
+	//Test for empty string
+	if (!hasMatchBeenFound && (content.length === 0 || content[0] === "")) {
+		hasMatchBeenFound = true;
+		matchStr = "";
 	}
 	
 	//Test if no token (probably not a string)
-	if (tokens.length === 0) {
+	if (tokens.length === 0 && !hasMatchBeenFound) {
 		if (content.length !== 1) {
-			error("Parser broke I guess? (content = '"+content+"')");
+			error("Parser broke I guess? (content = '"+JSON.stringify(content)+"')");
 		}
 		
 		if (content[0].startsWith("_h")) {
@@ -719,13 +794,13 @@ function parseString(content, args=[]) {
 	}
 	if (tokens.length > 1) {
 		var nbFormat2 = tokens[1].filter(function(owo){return owo === "{}";}).length;
-		result += ", "+parseString(tokens[1], args.slice(0, nbFormat2))
+		result += ", "+parseString(tokens[1], args.slice(nbFormat1, nbFormat2))
 	} else {
 		result += ", "+tows("null", boolKw);
 	}
 	if (tokens.length > 2) {
 		var nbFormat3 = tokens[2].filter(function(owo){return owo === "{}";}).length;
-		result += ", "+parseString(tokens[2], args.slice(0, nbFormat3))
+		result += ", "+parseString(tokens[2], args.slice(nbFormat2, nbFormat3))
 	} else {
 		result += ", "+tows("null", boolKw);
 	}
@@ -761,6 +836,9 @@ function parseMember(object, member, parseArgs={}) {
 	} else if (object[0].text === "Button") {
 		return tows("Button."+name, buttonKw);
 		
+	} else if (object[0].text === "Clip") {
+		return tows("Clip."+name, clipKw);
+		
 	} else if (object[0].text === "Color") {
 		return tows("Color."+name, colorKw);
 		
@@ -768,10 +846,16 @@ function parseMember(object, member, parseArgs={}) {
 		return tows("Comms."+name, commsKw);
 		
 	} else if (object[0].text === "Effect") {
-		return tows("Effect."+name, effectKw);
+		return tows("Effect."+name, effectKw.concat(playEffectKw));
 		
 	} else if (name === "format") {
 		return parseString(tokenizeString(object[0].text.substring(1, object[0].text.length-1)), args);
+		
+	} else if (name === "getHitPosition") {
+		return parse(object, {raycastType:"getHitPosition"});
+		
+	} else if (name === "hasLoS") {
+		return parse(object, {raycastType:"hasLoS"});
 		
 	} else if (object[0].text === "Hero") {
 		return tows("_hero", valueFuncKw)+"("+tows("Hero."+name, heroKw)+")";
@@ -818,6 +902,9 @@ function parseMember(object, member, parseArgs={}) {
 		
 	} else if (object[0].text === "Vector") {
 		return tows("Vector."+name, valueFuncKw);
+		
+	} else if (object[0].text === "Wait") {
+		return tows("Wait."+name, waitKw);
 		
 	} else if (name === "x") {
 		return tows("_xComponentOf", valueFuncKw)+"("+parse(object)+")";
@@ -1012,7 +1099,7 @@ function parseRuleCondition(content) {
 			}
 			
 			if (!hasComparisonOperand) {
-				if (andOperands[i].text === "not") {
+				if (andOperands[i][0].text === "not") {
 					result += parse(andOperands[i].slice(1)) + " == "+tows("false", boolKw);
 				} else {
 					result += parse(andOperands[i]) + " == "+tows("true", boolKw);

@@ -168,7 +168,7 @@ function decompileRule(content) {
 					result += "@Slot "+eventInst3.replace("slot", "")+"\n";
 				} else {
 					//We assume it is a hero
-					result += "@Hero "+eventInst3 + "\n";
+					result += "@Hero "+eventInst3.substring("HERO.".length).toLowerCase() + "\n";
 				}
 			}
 		}
@@ -534,6 +534,23 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Is in line of sight
 	if (name === "_isInLineOfSight") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", los="+decompile(args[2])+").hasLoS()";
+	}
+	
+	//Is true for all
+	if (name === "_isTrueForAll") {
+		
+		if (isPlayerArrayInstruction(args[0])) {
+			var varName = "player";
+		} else {
+			var varName = "i";
+		}
+		
+		debug("Pushing currentArrayElementName "+varName);
+		currentArrayElementNames.push(varName);
+		
+		var result = "all(["+decompile(args[1])+" for "+varName+" in "+decompile(args[0])+"])";
+		currentArrayElementNames.pop();
+		return result;
 	}
 	
 	//Is true for any
