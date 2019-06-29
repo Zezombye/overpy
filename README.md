@@ -47,16 +47,16 @@ In most cases, the function names are just the english function names in camelCa
 
 Macros are done with the preprocessor keyword "define". For example:
 
-`#!define currentSectionWalls A
+`#!define currentSectionWalls A  
 #!define wasFirstZombieLastRound L`
 
 Function macros are supported as well:
 
-`#!define setUsefulVars(x)     hasFirstInfectionPassed = x\
-    currentSection = x\
-    firstInfectionLoopIndex = x\
-    countdownProgress = x\
-    roundWinners = x`
+`#!define setUsefulVars(x)     hasFirstInfectionPassed = x\  
+    currentSection = x\  
+    firstInfectionLoopIndex = x\  
+    countdownProgress = x\  
+    roundWinners = x`  
     
 Note the usage of the backslashed lines.
 
