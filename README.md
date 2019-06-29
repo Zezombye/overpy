@@ -1,7 +1,7 @@
 # overpy
 High-level language for the Overwatch Workshop with support for compilation and decompilation.
 
-#Demo page
+# Demo page
 
 ![owo](https://i.imgur.com/zCP6TYF.png)
 
@@ -19,6 +19,23 @@ The third part is the output for compilation. It has a "compare" button you can 
 
 If you get "An error has occurred", you must open the developer console (F12 on Firefox, Ctrl+Shift+J in Chrome) to check the error. Please report to me any error you find! Note: your browser may freeze for a few seconds on decompilation/compilation (due to the amount of debug messages printed to the console).
 
-#OverPy Syntax
+# OverPy Syntax
 
-//todo
+The syntax is Python, except:
+- True/False/None have been replaced by true/false/null
+- The ++ and -- operators have been added (same effect as +=1 and -=1)
+- The modulo operator has higher precedence than the multiplication/division operator.
+
+Rule metadata (name of the rule and event) is defined with annotations:
+
+- `@Rule "name of the rule"`: the title of the rule.
+- `@Event global`: the event of the rule (here "global"). Events can be: global, eachPlayer, playerTookDamage, playerDealtDamage, playerDealtFinalBlow, playerDied, playerEarnedElimination.
+- `@Team all`: the team targeted by this rule (can be omitted). Valid values are: all, 1, 2
+- `@Slot 11`: the slots targeted by this rule (can be omitted). Valid values are 0-11.
+- `@Hero widowmaker`: the heroes targeted by this rule (can be omitted).
+
+Other than that, it's just plain old Python. I suggest to run the demo to get a better understanding of the syntax.
+
+# Macros
+
+
