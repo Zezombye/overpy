@@ -63,7 +63,7 @@ function demoDecompile() {
 		str = decompileAllRules(document.getElementById("workshop-textarea").value, demoGlobalVars, demoPlayerVars);
 	} catch (Error) {
 		console.log(Error);
-		str = "An error occurred (press F12)";
+		str = "An error occurred. Press F12 (Firefox) or Ctrl+Shift+J (Chrome)";
 	}
 	document.getElementById("overpy-textarea").value = str;
 }
@@ -75,7 +75,7 @@ function demoCompile() {
 		str = compile(document.getElementById("overpy-textarea").value);
 	} catch (Error) {
 		console.log(Error);
-		str = "An error occurred (press F12)";
+		str = "An error occurred. Press F12 (Firefox) or Ctrl+Shift+J (Chrome)";
 	}
 	document.getElementById("compiled-textarea").value = str;
 }

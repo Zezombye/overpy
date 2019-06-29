@@ -30,6 +30,9 @@ var forLoopTimers = [];
 //Is reset at each action and rule condition. (for decompilation)
 var operatorPrecedenceStack = [];
 
+//Arguments of the format() function for strings.
+var formatArgs = [];
+
 //Operator precedence, from lowest to highest.
 var operatorPrecedence = {
 	"or":1,
