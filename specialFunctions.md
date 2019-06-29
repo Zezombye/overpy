@@ -79,10 +79,6 @@ The same applies for other operations (eg subtract -> `-=`, append to array -> `
 
 `player.addToScore(score)`
 
-# Modify Team Score(all teams, score)
-
-`Team.ALL.addToScore(score)`
-
 # Press Button(player, interact)
 
 `player.pressButton(Button.INTERACT)`
@@ -102,10 +98,6 @@ The same applies for other operations (eg subtract -> `-=`, append to array -> `
 # Set Status (player, burning)
 
 `player.setStatusEffect(Status.BURNING)`
-
-# Set Team Score (All Teams, score)
-
-`Team.ALL.setScore(score)`
 
 # Set Ultimate Charge(player, charge)
 
