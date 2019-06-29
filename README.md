@@ -9,7 +9,7 @@ Join the EloHell discord for feedback: https://discord.gg/zwF7KQm #highlevel-scr
 
 ![owo](https://i.imgur.com/zCP6TYF.png)
 
-The demo page is accessible at <url> and is divided in 3 parts.
+The demo page is accessible at url and is divided in 3 parts.
 
 The first part is the input for decompilation; this is where you paste your workshop code. Click on the "decompile" button to convert it to OverPy. Alternatively, click on the "add example text" button to input my Zombie Escape code. Note that the "add example text" will also hardcode names for some variables (refresh to get rid of that).
 
