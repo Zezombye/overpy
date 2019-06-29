@@ -1,13 +1,17 @@
 # overpy
 High-level language for the Overwatch Workshop with support for compilation and decompilation.
 
+The philosophy behind this language is "what would the workshop be like if it was coded in Python?" As such, this language aims to be as Python-like as reasonably possible.
+
+Join the EloHell discord for feedback: https://discord.gg/zwF7KQm #highlevel-scripting
+
 # Demo page
 
 ![owo](https://i.imgur.com/zCP6TYF.png)
 
 The demo page is accessible at <url> and is divided in 3 parts.
 
-The first part is the input for decompilation; this is where you paste your workshop code. Click on the "decompile" button to convert it to OverPy. Alternatively, click on the "add example text" button to input my Zombie Escape code.
+The first part is the input for decompilation; this is where you paste your workshop code. Click on the "decompile" button to convert it to OverPy. Alternatively, click on the "add example text" button to input my Zombie Escape code. Note that the "add example text" will also hardcode names for some variables (refresh to get rid of that).
 
 The second part is the input for compilation (and the output for decompilation); it is OverPy code (don't hesitate to copy-paste it into another window, as my front-end skills aren't that great and I didn't manage to make it so you can resize horizontally the textarea). Click on the "compile" button to convert it back into the Workshop script.
 
@@ -24,7 +28,8 @@ If you get "An error has occurred", you must open the developer console (F12 on 
 The syntax is Python, except:
 - True/False/None have been replaced by true/false/null
 - The ++ and -- operators have been added (same effect as +=1 and -=1)
-- The modulo operator has higher precedence than the multiplication/division operator.
+- The modulo operator has higher precedence than the multiplication/division operator
+- The "while" loop has been replaced by "do: ... while x".
 
 Rule metadata (name of the rule and event) is defined with annotations:
 
@@ -36,6 +41,32 @@ Rule metadata (name of the rule and event) is defined with annotations:
 
 Other than that, it's just plain old Python. I suggest to run the demo to get a better understanding of the syntax.
 
+In most cases, the function names are just the english function names in camelCase, eg: Create Hud Text() -> createHudText(). Else, see the list of special functions "specialFunctions.md".
+
 # Macros
 
+Macros are done with the preprocessor keyword "define". For example:
 
+`#!define currentSectionWalls A
+#!define wasFirstZombieLastRound L`
+
+Function macros are supported as well:
+
+`#!define setUsefulVars(x)     hasFirstInfectionPassed = x\
+    currentSection = x\
+    firstInfectionLoopIndex = x\
+    countdownProgress = x\
+    roundWinners = x`
+    
+Note the usage of the backslashed lines.
+
+A planned feature is script macros, meaning you would be able to do this:
+
+`#!define createEffects(nbEffects) __script__("createEffects", nbEffects)`
+
+with createEffects being a script that returns `nbEffects` createEffect instructions.
+
+# Things that should work but that I haven't tested thoroughly
+
+- Literal arrays: `var = [1,2,3]`
+- If/else (without a return or goto just after, and obviously ignoring the rule conditions)
