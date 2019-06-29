@@ -382,7 +382,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//They begin by "_&".
 	
 	if (name.startsWith("_&")) {
-		return decompileGenericPlayerFunction(name.substring(2), args);
+		return decompileGenericPlayerFunction(name.substring(2), args, keywordArray === actionKw ? true : false);
 	}
 	
 	//Abort if
@@ -396,6 +396,40 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Add
 	if (name === "_add") {
 		return decompileOperator(args[0], "+", args[1]);
+	}
+	
+	//Is true for all
+	if (name === "all") {
+		
+		if (isPlayerArrayInstruction(args[0])) {
+			var varName = "player";
+		} else {
+			var varName = "i";
+		}
+		
+		debug("Pushing currentArrayElementName "+varName);
+		currentArrayElementNames.push(varName);
+		
+		var result = "all(["+decompile(args[1])+" for "+varName+" in "+decompile(args[0])+"])";
+		currentArrayElementNames.pop();
+		return result;
+	}
+	
+	//Is true for any
+	if (name === "any") {
+		
+		if (isPlayerArrayInstruction(args[0])) {
+			var varName = "player";
+		} else {
+			var varName = "i";
+		}
+		
+		debug("Pushing currentArrayElementName "+varName);
+		currentArrayElementNames.push(varName);
+		
+		var result = "any(["+decompile(args[1])+" for "+varName+" in "+decompile(args[0])+"])";
+		currentArrayElementNames.pop();
+		return result;
 	}
 	
 	//And
@@ -516,6 +550,21 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		return decompile(args[0])+"[0]";
 	}
 	
+	//Raycast hit normal
+	if (name === "_getNormal") {
+		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getNormal()";
+	}
+	
+	//Raycast hit position
+	if (name === "_getHitPosition") {
+		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getHitPosition()";
+	}
+	
+	//Raycast hit player
+	if (name === "_getPlayerHit") {
+		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getPlayerHit()";
+	}
+	
 	//Global variable
 	if (name === "_globalVar") {
 		return decompile(args[0], globalVarKw);
@@ -534,40 +583,6 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Is in line of sight
 	if (name === "_isInLineOfSight") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", los="+decompile(args[2])+").hasLoS()";
-	}
-	
-	//Is true for all
-	if (name === "_isTrueForAll") {
-		
-		if (isPlayerArrayInstruction(args[0])) {
-			var varName = "player";
-		} else {
-			var varName = "i";
-		}
-		
-		debug("Pushing currentArrayElementName "+varName);
-		currentArrayElementNames.push(varName);
-		
-		var result = "all(["+decompile(args[1])+" for "+varName+" in "+decompile(args[0])+"])";
-		currentArrayElementNames.pop();
-		return result;
-	}
-	
-	//Is true for any
-	if (name === "_isTrueForAny") {
-		
-		if (isPlayerArrayInstruction(args[0])) {
-			var varName = "player";
-		} else {
-			var varName = "i";
-		}
-		
-		debug("Pushing currentArrayElementName "+varName);
-		currentArrayElementNames.push(varName);
-		
-		var result = "any(["+decompile(args[1])+" for "+varName+" in "+decompile(args[0])+"])";
-		currentArrayElementNames.pop();
-		return result;
 	}
 	
 	//Last of
@@ -598,9 +613,9 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Loop if condition is false
 	if (name === "_loopIfConditionIsFalse") {
 		if (decompileArgs.isLastLoop) {
-			return "while RULE_CONDITION == false";
+			return "while not RULE_CONDITION";
 		} else {
-			var result = "if RULE_CONDITION == false:\n";
+			var result = "if not RULE_CONDITION:\n";
 			result += tabLevel(nbTabs+1)+"continue";
 			return result;
 		}
@@ -609,9 +624,9 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Loop if condition is true
 	if (name === "_loopIfConditionIsTrue") {
 		if (decompileArgs.isLastLoop) {
-			return "while RULE_CONDITION == true";
+			return "while RULE_CONDITION";
 		} else {
-			var result = "if RULE_CONDITION == true:\n";
+			var result = "if RULE_CONDITION:\n";
 			result += tabLevel(nbTabs+1)+"continue";
 			return result;
 		}
@@ -660,10 +675,6 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		return decompileOperator(args[0], "**", args[1]);
 	}
 	
-	//Raycast hit position
-	if (name === "_raycastHitPosition") {
-		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getHitPosition()";
-	}
 	
 	//Round
 	if (name === "_round") {
@@ -785,6 +796,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		}
 		return result;
 	}
+	
+	//Team Has Hero
+	if (name === "_teamHasHero") {
+		return "teamHasHero("+decompile(args[1])+", "+decompile(args[0])+")";
+	}
 			
 	//Value in array
 	if (name === "_valueInArray") {
@@ -894,22 +910,33 @@ function decompileString(content, arg1, arg2, arg3, strDepth) {
 
 //Function for the player functions, eg set projectile speed, has status, etc.
 //There were so many of them, it was polluting the special functions table.
-function decompileGenericPlayerFunction(name, args) {
-	return decompilePlayerFunction("{player}."+name+"({args})", args[0], args.slice(1));
+function decompileGenericPlayerFunction(name, args, isAction) {
+	if (isAction === undefined) {
+		error("isAction is undefined");
+	}
+	return decompilePlayerFunction("{player}."+name+"({args})", args[0], args.slice(1), false, isAction);
 }
 
 //Automatically generates a for loop for player function, if that player function takes an array as argument.
 //The content is a python translation and must contain {player} and {args} to replace strings by the args.
 //If separateArgs = true, {arg0}, {arg1} etc must be provided instead of {args}.
-function decompilePlayerFunction(content, player, args, separateArgs=false) {
+function decompilePlayerFunction(content, player, args, separateArgs=false, isAction=true) {
+	
+	var result = "";
+	
 	
 	if (isSinglePlayerInstruction(player)) {
-		var result = content.replace("\{player\}", decompile(player))
+		result += content.replace("\{player\}", decompile(player))
 		
 	} else {
-		var result = "for player in "+decompile(player)+":\n";
-		result += tabLevel(nbTabs+1)+content.replace("\{player\}", "player")
+		if (isAction) {
+			result += "for player in "+decompile(player)+":\n";
+			result += tabLevel(nbTabs+1)+content.replace("\{player\}", "player")
+		} else {
+			result += "["+content.replace("\{player\}", "player")+" for player in "+decompile(player)+"]";
+		}
 	}
+	
 	
 	//Parse arguments
 	if (!separateArgs) {

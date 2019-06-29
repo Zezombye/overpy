@@ -263,7 +263,7 @@ var actionKw = [
 [["_modifyPlayerVarAtIndex"], [
 	"modifyPlayerVariableAtIndex",
 ]],
-[["addToScore"], [
+[["addToTeamScore"], [
 	"modifyTeamScore",
 ]],
 [["pauseMatchTime()"], [
@@ -347,7 +347,7 @@ var actionKw = [
 [["_&setStatusEffect"], [
 	"setStatus",
 ]],
-[["setScore"], [
+[["setTeamScore"], [
 	"setTeamScore",
 ]],
 [["_&setUltCharge"], [
@@ -398,6 +398,9 @@ var actionKw = [
 [["_&stopCamera"], [
 	"stopCamera",
 ]],
+[["_stopChasingGlobalVariable"], [
+	"stopChasingGlobalVariable",
+]],
 [["_stopChasingPlayerVariable"], [
 	"stopChasingPlayerVariable",
 ]],
@@ -410,7 +413,10 @@ var actionKw = [
 [["_&stopForcingButton"], [
 	"stopHoldingButton",
 ]],
-[["_&teleportTo"], [
+[["stopHoT"], [
+	"stopHealOverTime",
+]],
+[["_&teleport"], [
 	"teleport",
 ]],
 [["unpauseMatchTime()"], [
@@ -554,11 +560,17 @@ var valueFuncKw = [
 [["isAssemblingHeroes()"], [
 	"isAssemblingHeroes",
 ]],
+[["_&isHoldingButton"], [
+	"isButtonHeld",
+]],
 [["_&isCommunicating"], [
 	"isCommunicating",
 ]],
 [["_&isCrouching"], [
 	"isCrouching",
+]],
+[["_&isDead"], [
+	"isDead",
 ]],
 [["_&isFiringPrimaryFire"], [
 	"isFiringPrimary",
@@ -566,8 +578,8 @@ var valueFuncKw = [
 [["_&isFiringSecondaryFire"], [
 	"isFiringSecondary",
 ]],
-[["_&isHoldingButton"], [
-	"isButtonHeld",
+[["_teamHasHero"], [
+	"isHeroBeingPlayed",
 ]],
 [["_&isInAir"], [
 	"isInAir",
@@ -593,10 +605,10 @@ var valueFuncKw = [
 [["isGameInProgress()"], [
 	"isGameInProgress",
 ]],
-[["_isTrueForAll"], [
+[["all"], [
 	"isTrueForAll",
 ]],
-[["_isTrueForAny"], [
+[["any"], [
 	"isTrueForAny",
 ]],
 [["getLastCreatedEntity()"], [
@@ -659,7 +671,7 @@ var valueFuncKw = [
 [["_playerVar"], [
 	"playerVariable",
 ]],
-[["playersInSlot"], [
+[["getPlayersInSlot"], [
 	"playersInSlot",
 ]],
 [["getPlayersInRadius"], [
@@ -683,7 +695,13 @@ var valueFuncKw = [
 [["random.choice"], [
 	"randomValueInArray",
 ]],
-[["_raycastHitPosition"], [
+[["_getNormal"], [
+	"raycastHitNormal",
+]],
+[["_getPlayerHit"], [
+	"raycastHitPlayer",
+]],
+[["_getHitPosition"], [
 	"raycastHitPosition",
 ]],
 [["Vector.RIGHT"], [
@@ -701,6 +719,9 @@ var valueFuncKw = [
 [["sin"], [
 	"sineFromRadians",
 ]],
+[["_&getSlot"], [
+	"slotOf",
+]],
 [["_sortedArray"], [
 	"sortedArray",
 ]],
@@ -715,6 +736,9 @@ var valueFuncKw = [
 ]],
 [["_&getTeam"], [
 	"teamOf",
+]],
+[["teamScore"], [
+	"teamScore",
 ]],
 [["Vector.UP"], [
 	"up",

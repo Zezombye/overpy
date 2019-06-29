@@ -68,8 +68,6 @@ function compileRule(rule) {
 	var isEventPlayerDefined = false;
 	
 	for (var i = 1; i < rule.lines.length+1; i++) {
-		
-		
 		//Check for loop var timer
 		//console.log(forLoopTimers);
 		//console.log(i);
@@ -284,7 +282,6 @@ function compileRule(rule) {
 					}
 					forLoopVariables[forVarName] = inOperands[1];
 					//Check amount of lines
-					var nbForLines = 0;
 					var forIndent = rule.lines[i].indentLevel;
 					var j = i+1;
 					for (; j < rule.lines.length && rule.lines[j].indentLevel > forIndent; j++);
@@ -301,16 +298,9 @@ function compileRule(rule) {
 						result += tows("_loop", actionKw);
 					} else {
 						if (rule.lines[i].tokens[1].text === "RULE_CONDITION") {
-							if (rule.lines[i].tokens[2].text !== "==" || rule.lines[i].tokens.length !== 4) {
-								error("Condition must be in format 'RULE_CONDITION == false/true'");
-							}
-							if (rule.lines[i].tokens[3].text === "true") {
-								result += tows("_loopIfConditionIsTrue", actionKw);
-							} else if (rule.lines[i].tokens[3].text === "false") {
-								result += tows("_loopIfConditionIsFalse", actionKw);
-							} else {
-								error("Condition must be in format 'RULE_CONDITION == false/true'");
-							}
+							result += tows("_loopIfConditionIsTrue", actionKw);
+						} else if (rule.lines[i].tokens[1].text === "not" && rule.lines[i].tokens[2].text === "RULE_CONDITION") {
+							result += tows("_loopIfConditionIsFalse", actionKw);
 						} else {
 							result += tows("_loopIf", actionKw)+"("+parse(rule.lines[i].tokens.slice(1))+")";
 						}
@@ -522,6 +512,7 @@ function parse(content, parseArgs={}) {
 		if (name === "true" || name === "false" || name === "null") {
 			return tows(name, boolKw);
 		} else if (name.startsWith('"') || name.startsWith("'")) {
+			formatArgs = [];
 			return parseString(tokenizeString(name.substring(1, name.length-1)));
 			//error("owo");
 		}
@@ -593,15 +584,15 @@ function parse(content, parseArgs={}) {
 			error("Raycast function must be followed by a member (eg. getHitPosition)");
 		}
 		
-		if (parseArgs.raycastType === "getHitPosition") {
-			var result = tows("_raycastHitPosition", valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+", ";
+		if (parseArgs.raycastType === "getHitPosition" || parseArgs.raycastType === "getPlayerHit" || parseArgs.raycastType === "getNormal") {
+			var result = tows("_"+parseArgs.raycastType, valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+", ";
 			
 			if (args[2][0].text !== "include" || args[2][1].text !== "=") {
-				error("3rd arg for raycast hit position must be 'include = xxxx'");
+				error("3rd arg for this raycast must be 'include = xxxx'");
 			} else if (args[3][0].text !== "exclude" || args[2][1].text !== "=") {
-				error("4th arg for raycast hit position must be 'exclude = xxxx'");
+				error("4th arg for this raycast must be 'exclude = xxxx'");
 			} else if (args[4][0].text !== "includePlayerObjects" || args[2][1].text !== "=") {
-				error("5th arg for raycast hit position must be 'includePlayerObjects = xxxx'");
+				error("5th arg for this raycast must be 'includePlayerObjects = xxxx'");
 			}
 			
 			result += parse(args[2].slice(2))+", "+parse(args[3].slice(2))+", "+parse(args[4].slice(2))+")";
@@ -638,6 +629,28 @@ function parse(content, parseArgs={}) {
 		}
 	}
 	
+	if (name === "stopChasingVariable") {
+		
+		var funcName = "_stopChasing";
+		var result = "";
+		
+		//Check for dot; if it is present, it can only be a player variable
+		var operands = splitTokens(args[0], ".", false, true);
+		if (operands.length === 2) {
+			funcName += "PlayerVariable";
+			result += parse(operands[1])+", "+operands[0][0].text;
+		} else {
+			funcName += "GlobalVariable";
+			result += parse(args[0]);
+		}
+		
+		return tows(funcName, actionKw)+"("+result+")";
+	}
+	
+	if (name === "teamHasHero") {
+		return tows("_teamHasHero", valueFuncKw)+"("+parse(args[1])+", "+parse(args[0])+")";
+	}
+	
 	
 	if (name === "wait") {
 		var result = tows("_wait", actionKw)+"("+parse(args[0])+", ";
@@ -672,7 +685,7 @@ function parse(content, parseArgs={}) {
 }
 
 //Parses string
-function parseString(content, args=[]) {
+function parseString(content) {
 	if (!content instanceof Array) {
 		error("Content must be list of str");
 	}
@@ -681,7 +694,7 @@ function parseString(content, args=[]) {
 	var tokens;
 	var hasMatchBeenFound = false;
 	
-	debug("Parsing string '"+content+"' with args '"+JSON.stringify(args)+"'");
+	debug("Parsing string '"+content+"'");
 	
 	//Test ternary string
 	for (var j = 0; j < ternaryStrKw.length; j++) {
@@ -775,10 +788,13 @@ function parseString(content, args=[]) {
 		} else if (!isNaN(content[0])) {
 			return parse(content[0]);
 		} else if (content[0] === "{}") {
-			if (args.length !== 1) {
-				error("Parser broke (args length isn't 1)");
+			if (formatArgs.length === 0) {
+				error("Too few arguments supplied for string");
 			}
-			return parse(args[0]);
+			var result = parse(formatArgs[0]);
+			formatArgs.shift();
+			return result;
+			
 		}
 	}
 	
@@ -787,20 +803,17 @@ function parseString(content, args=[]) {
 	console.log(tokens);
 	
 	if (tokens.length > 0) {
-		var nbFormat1 = tokens[0].filter(function(owo){return owo === "{}";}).length;
-		result += ", "+parseString(tokens[0], args.slice(0, nbFormat1))
+		result += ", "+parseString(tokens[0]);
 	} else {
 		result += ", "+tows("null", boolKw);
 	}
 	if (tokens.length > 1) {
-		var nbFormat2 = tokens[1].filter(function(owo){return owo === "{}";}).length;
-		result += ", "+parseString(tokens[1], args.slice(nbFormat1, nbFormat2))
+		result += ", "+parseString(tokens[1]);
 	} else {
 		result += ", "+tows("null", boolKw);
 	}
 	if (tokens.length > 2) {
-		var nbFormat3 = tokens[2].filter(function(owo){return owo === "{}";}).length;
-		result += ", "+parseString(tokens[2], args.slice(nbFormat2, nbFormat3))
+		result += ", "+parseString(tokens[2]);
 	} else {
 		result += ", "+tows("null", boolKw);
 	}
@@ -849,10 +862,19 @@ function parseMember(object, member, parseArgs={}) {
 		return tows("Effect."+name, effectKw.concat(playEffectKw));
 		
 	} else if (name === "format") {
-		return parseString(tokenizeString(object[0].text.substring(1, object[0].text.length-1)), args);
+		formatArgs = args;
+		var result = parseString(tokenizeString(object[0].text.substring(1, object[0].text.length-1)));
+		formatArgs = [];
+		return result;
 		
 	} else if (name === "getHitPosition") {
 		return parse(object, {raycastType:"getHitPosition"});
+		
+	} else if (name === "getNormal") {
+		return parse(object, {raycastType:"getNormal"});
+		
+	} else if (name === "getPlayerHit") {
+		return parse(object, {raycastType:"getPlayerHit"});
 		
 	} else if (name === "hasLoS") {
 		return parse(object, {raycastType:"hasLoS"});
@@ -1019,23 +1041,38 @@ function parseLiteralArray(content) {
 		//format is "var for var in array if condition"
 		var inOperands = splitTokens(content.slice(1, content.length-1), "in");
 		if (inOperands.length === 2) {
-			if (inOperands[0].length !== 3 || inOperands[0][1].text !== "for" || inOperands[0][0].text !== inOperands[0][2].text) {
-				error("Malformed 'x for x in y'");
-			} else {
-				var ifOperands = splitTokens(inOperands[1], "if");
-				if (ifOperands.length !== 2) {
-					error("For loop must include condition");
-				} else {
-					
-					debug("Parsing 'x for x in y if z', x='"+inOperands[0][0].text+"', y='"+dispTokens(ifOperands[0])+"', z='"+dispTokens(ifOperands[1])+"'");
-					
-					currentArrayElementNames.push(inOperands[0][0].text);
-					var result = tows("_filteredArray", valueFuncKw)+"("+parse(ifOperands[0])+", "+parse(ifOperands[1])+")";
-					currentArrayElementNames.pop();
-					return result;
+			var ifOperands = splitTokens(inOperands[1], "if");
+			if (ifOperands.length !== 2) {
+				//Not a filtered array (eg: [player.C for player in playersInRadius()])
+				var forOperands = splitTokens(inOperands[0], "for");
+				if (forOperands.length !== 2) {
+					error("Malformed 'x for y in z'");
 				}
+				var forVarName = forOperands[1][0].text;
+				if (forLoopVariables[forVarName] !== undefined) {
+					error("Variable "+forVarName+" is already used");
+				}
+				forLoopVariables[forVarName] = inOperands[1];
+				
+				var result = parse(forOperands[0]);
+				delete forLoopVariables[forVarName];
+				return result;
+				
+			} else {
+				//Filtered array
+				if (inOperands[0].length !== 3 || inOperands[0][1].text !== "for" || inOperands[0][0].text !== inOperands[0][2].text) {
+					error("Malformed 'x for x in y'");
+				}
+				debug("Parsing 'x for x in y if z', x='"+inOperands[0][0].text+"', y='"+dispTokens(ifOperands[0])+"', z='"+dispTokens(ifOperands[1])+"'");
+				
+				currentArrayElementNames.push(inOperands[0][0].text);
+				var result = tows("_filteredArray", valueFuncKw)+"("+parse(ifOperands[0])+", "+parse(ifOperands[1])+")";
+				currentArrayElementNames.pop();
+				return result;
 			}
 		} else {
+			
+			//Literal array with only values ([1,2,3])
 			var args = splitTokens(content.slice(1, content.length-1), ",");
 			var appendFunc = tows("_appendToArray", valueFuncKw);
 			var result = tows("_emptyArray", valueFuncKw);
