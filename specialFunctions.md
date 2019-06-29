@@ -25,8 +25,6 @@ For "At Rate", it will be:
 For "Over Time", it will be:
 `chase(var, destination, duration=xxx, Reeval.XXXX)`
 
-Note that, if the first argument is a player variable, the "reevaluation" argument must be omitted.
-
 # Clear Status (player)
 
 `player.clearStatusEffect()`
