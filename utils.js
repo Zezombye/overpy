@@ -1,3 +1,20 @@
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 "use strict";
 
 //Used for string parsing; splits an array of strings on one or two strings.
@@ -59,13 +76,15 @@ function reverseOperator(content) {
 
 //Returns true if the given token array is an instruction (not goto/label).
 function lineIsInstruction(line, previousLineIsIf) {
+	
+	//Check for label
 	if (line[line.length-1].text === ':' && line[0].text !== "if" && line[0].text !== "for") {
 		return false;
 	}
 	if (line[0].text === "for") {
 		return false;
 	}
-	if (previousLineIsIf && (line[0].text === "goto" || line[0].text === "return")) {
+	if (previousLineIsIf && (line[0].text === "goto" || line[0].text === "return" || line[0].text === "continue")) {
 		return false;
 	}
 	
@@ -232,14 +251,6 @@ function translate(keyword, toWorkshop, keywordArray) {
 		}
 	}
 	
-	//Check for variable; those don't get translated
-	/*if (keyword.length == 1 && keyword[0] >= 'a' && keyword[0] <= 'z') {
-		//During decompilation, the globalVarKw or playerVarKw must be used
-		if (toWorkshop) {
-			return keyword.toUpperCase();
-		}
-	}*/
-	
 	//Check for numbers
 	if (!isNaN(keyword)) {
 		//Convert to int then to string to remove unnecessary 0s.
@@ -257,7 +268,7 @@ function translate(keyword, toWorkshop, keywordArray) {
 			//}
 		} else {
 			for (var j = 0; j < keywordArray[i][1].length; j++) {
-				if (keywordArray[i][1][j].toLowerCase() === keyword) {
+				if (keywordArray[i][1][j].toLowerCase().replace(/\s/g, "") === keyword) {
 					return keywordArray[i][0][0];
 				}
 			}
@@ -386,8 +397,8 @@ function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
 	} else {
 		result.push(tokens.slice(latestDelimiterPos+1, end));
 	}
-	
-	if (result[0].length === 0) {
+		
+	if (result[0].length === 0 && result.length === 1) {
 		return [];
 	} else {
 		return result;

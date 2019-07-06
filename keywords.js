@@ -1,3 +1,20 @@
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 "use strict";
 
 //List of workshop "keywords" (conditions, values, actions).
@@ -191,6 +208,9 @@ var actionKw = [
 [["destroyHudText"], [
 	"destroyHudText",
 ]],
+[["destroyIcon"], [
+	"destroyIcon",
+]],
 [["destroyInWorldText"], [
 	"destroyIn-WorldText",
 ]],
@@ -207,16 +227,22 @@ var actionKw = [
 	"disableBuilt-inGamemodeScoring",
 ]],
 [["_&disableDeathSpectateAllPlayers"], [
-	"disableDeathSpectateAllPlayers",
+	"disable DeathSpectateAllPlayers",
 ]],
 [["_&disableDeathSpectateTargetHud"], [
-	"disableDeathSpectateTargetHud",
+	"disable DeathSpectateTargetHud",
 ]],
 [["_&disallowButton"], [
 	"disallowButton",
 ]],
 [["enableAnnouncer()"], [
 	"enableBuilt-inGamemodeAnnouncer",
+]],
+[["_&enableDeathSpectateAllPlayers"], [
+	"enableDeathSpectateAllPlayers",
+]],
+[["_&enableDeathSpectateTargetHud"], [
+	"enableDeathSpectateTargetHud",
 ]],
 [["enableGamemodeCompletion()"], [
 	"enableBuilt-inGamemodeCompletion",
@@ -296,11 +322,17 @@ var actionKw = [
 [["_&setCamera"], [
 	"startCamera",
 ]],
+[["_&startFacing"], [
+	"startFacing",
+]],
 [["_&setDamageDealt"], [
 	"setDamageDealt",
 ]],
 [["_&setFacing"], [
 	"setFacing",
+]],
+[["_&setInvisibility"], [
+	"setInvisible",
 ]],
 [["_setGlobalVar"], [
 	"setGlobalVariable",
@@ -407,6 +439,9 @@ var actionKw = [
 [["stopDoT"], [
 	"stopDamageOverTime",
 ]],
+[["_&stopFacing"], [
+	"stopFacing",
+]],
 [["_&stopForcingCurrentHero"], [
 	"stopForcingPlayerToBeHero",
 ]],
@@ -464,6 +499,9 @@ var valueFuncKw = [
 [["_arraySlice"], [
 	"arraySlice",
 ]],
+[["_&getClosestPlayer"], [
+	"closestPlayerTo",
+]],
 [["_compare"], [
 	"compare",
 ]],
@@ -502,6 +540,9 @@ var valueFuncKw = [
 ]],
 [["eventPlayer"], [
 	"eventPlayer",
+]],
+[["eventWasCriticalHit"], [
+	"eventWasCriticalHit",
 ]],
 [["_&getEyePosition"], [
 	"eyePosition",
@@ -605,10 +646,10 @@ var valueFuncKw = [
 [["isGameInProgress()"], [
 	"isGameInProgress",
 ]],
-[["all"], [
+[["_all"], [
 	"isTrueForAll",
 ]],
-[["any"], [
+[["_any"], [
 	"isTrueForAny",
 ]],
 [["getLastCreatedEntity()"], [
@@ -739,6 +780,9 @@ var valueFuncKw = [
 ]],
 [["teamScore"], [
 	"teamScore",
+]],
+[["_&getUltCharge"], [
+	"ultimateChargePercent",
 ]],
 [["Vector.UP"], [
 	"up",
@@ -1205,6 +1249,9 @@ var iconKw = [
 
 var reevaluationKw = [
 
+[["Reeval.DIRECTION_AND_TURN_RATE"], [
+	"directionAndTurnRate",
+]],
 [["Reeval.DIRECTION_RATE_AND_MAX_SPEED"], [
 	"directionRateAndMaxSpeed",
 ]],
@@ -1433,6 +1480,20 @@ var clipKw = [
 ]],
 [["Clip.NONE"], [
 	"doNotClip",
+]],
+
+];
+
+var invisKw = [
+
+[["Invis.ALL"], [
+	"all",
+]],
+[["Invis.ENEMIES"], [
+	"enemies",
+]],
+[["Invis.NONE"], [
+	"none",
 ]],
 
 ];
