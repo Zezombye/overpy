@@ -1,3 +1,20 @@
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 "use strict";
 //OverPy Decompiler (Workshop -> OverPy)
 
@@ -399,7 +416,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Is true for all
-	if (name === "all") {
+	if (name === "_all") {
 		
 		if (isPlayerArrayInstruction(args[0])) {
 			var varName = "player";
@@ -416,7 +433,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Is true for any
-	if (name === "any") {
+	if (name === "_any") {
 		
 		if (isPlayerArrayInstruction(args[0])) {
 			var varName = "player";
@@ -472,13 +489,13 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Chase global variable at rate
 	if (name === "_chaseGlobalVariableAtRate") {
 		
-		return "chase("+decompile(args[0])+", "+decompile(args[1])+", rate="+decompile(args[2])+", "+decompile(args[3])+")";
+		return "chase("+decompile(args[0], globalVarKw)+", "+decompile(args[1])+", rate="+decompile(args[2])+", "+decompile(args[3])+")";
 	}
 	
 	//Chase global variable over time
 	if (name === "_chaseGlobalVariableOverTime") {
 		
-		return "chase("+decompile(args[0])+", "+decompile(args[1])+", duration="+decompile(args[2])+", "+decompile(args[3])+")";
+		return "chase("+decompile(args[0], globalVarKw)+", "+decompile(args[1])+", duration="+decompile(args[2])+", "+decompile(args[3])+")";
 	}
 	
 	//Chase player variable at rate
@@ -666,7 +683,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		if (isSinglePlayerInstruction(args[0])) {
 			return decompile(args[0])+"."+decompile(args[1], playerVarKw);
 		} else {
-			return "[player."+decompile(args[1], playerVarKw)+" for player in "+decompile(args[0])+"]";
+			if (isInNormalForLoop) {
+				return "[player2."+decompile(args[1], playerVarKw)+" for player2 in "+decompile(args[0])+"]";
+			} else {
+				return "[player."+decompile(args[1], playerVarKw)+" for player in "+decompile(args[0])+"]";
+			}
 		}
 	}
 	
@@ -708,6 +729,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Set player var at index
 	if (name === "_setPlayerVarAtIndex") {
 		return decompilePlayerFunction("{player}.{arg0}[{arg1}] = {arg2}", args[0], args.slice(1), true);
+	}
+	
+	//Stop chasing player variable
+	if (name === "_stopChasingGlobalVariable") {
+		return "stopChasingVariable("+args[0]+")";
 	}
 	
 	//Stop chasing player variable
@@ -923,6 +949,8 @@ function decompileGenericPlayerFunction(name, args, isAction) {
 function decompilePlayerFunction(content, player, args, separateArgs=false, isAction=true) {
 	
 	var result = "";
+	//You think this is long? You aint seen Java classes
+	var hasNormalForLoopBeenSetInThisFunction = false;
 	
 	
 	if (isSinglePlayerInstruction(player)) {
@@ -932,8 +960,14 @@ function decompilePlayerFunction(content, player, args, separateArgs=false, isAc
 		if (isAction) {
 			result += "for player in "+decompile(player)+":\n";
 			result += tabLevel(nbTabs+1)+content.replace("\{player\}", "player")
+			isInNormalForLoop = true;
+			hasNormalForLoopBeenSetInThisFunction = true;
 		} else {
-			result += "["+content.replace("\{player\}", "player")+" for player in "+decompile(player)+"]";
+			if (isInNormalForLoop) {
+				result += "["+content.replace("\{player\}", "player2")+" for player2 in "+decompile(player)+"]";
+			} else {
+				result += "["+content.replace("\{player\}", "player")+" for player in "+decompile(player)+"]";
+			}
 		}
 	}
 	
@@ -961,7 +995,9 @@ function decompilePlayerFunction(content, player, args, separateArgs=false, isAc
 			}
 		}
 	}
-	
+	if (hasNormalForLoopBeenSetInThisFunction) {
+		isInNormalForLoop = false;
+	}
 	return result;
 }
 
