@@ -1,3 +1,20 @@
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 "use strict";
 //OverPy Compiler (OverPy -> Workshop)
 
@@ -56,6 +73,8 @@ function compileRule(rule) {
 	//The first line should always start with @Rule.
 	if (rule.lines[0].tokens[0].text !== "@Rule") {
 		error("Lexer broke (rule not starting with '@Rule'?)");
+	} else if (rule.lines[0].tokens.length !== 2) {
+		error("Malformed rule declaration (found "+rule.lines[0].tokens.length+") tokens");
 	}
 	
 	result += tows("@Rule", ruleKw)+" ("+rule.lines[0].tokens[1].text+") {\n";
@@ -148,8 +167,16 @@ function compileRule(rule) {
 				result += tabLevel(1)+"}\n\n";
 			}
 			
+			var areAllLinesAfterCurrentLineIndented = true;
+			//Check if all of the lines have indent level non-0
+			for (var j = i+1; j < rule.lines.length; j++) {
+				if (rule.lines[j].indentLevel === 0) {
+					areAllLinesAfterCurrentLineIndented = false;
+					break;
+				}
+			}
 			//If without indentation = (rule) condition
-			if (rule.lines[i].tokens[0].text === "if" && rule.lines[i].indentLevel === 0) {
+			if (rule.lines[i].tokens[0].text === "if" && rule.lines[i].indentLevel === 0 && areAllLinesAfterCurrentLineIndented) {
 				result += tabLevel(1)+tows("_conditions", ruleKw)+" {\n";
 				result += parseRuleCondition(rule.lines[i].tokens);
 				result += tabLevel(1)+"}\n\n";
@@ -180,6 +207,7 @@ function compileRule(rule) {
 					var skipIfOffset;
 					var hasGoto = false;
 					var hasAbort = false;
+					var hasContinue = false;
 					var condition = "(" + parse(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), {"isWholeInstruction":true, "invertCondition":true});
 					
 					//Check if there is a goto
@@ -219,6 +247,9 @@ function compileRule(rule) {
 					} else if (rule.lines[i+1].tokens[0].text === "return") {
 						isSkipIf = false;
 						hasAbort = true;
+					} else if (rule.lines[i+1].tokens[0].text === "continue") {
+						isSkipIf = false;
+						hasContinue = true;
 					} else {
 						
 						//Check how much instructions there is after the "if" (do not count gotos or lbls)
@@ -252,6 +283,8 @@ function compileRule(rule) {
 					result += tabLevel(2);
 					if (isSkipIf) {
 						result += tows("_skipIf", actionKw);
+					} else if (hasContinue) {
+						result += tows("_loopIf", actionKw);
 					} else {
 						result += tows("_abortIf", actionKw);
 					}
@@ -260,7 +293,7 @@ function compileRule(rule) {
 						result += ", "+skipIfOffset;
 					}
 					result += ");\n";
-					if (hasGoto || hasAbort) {
+					if (hasGoto || hasAbort || hasContinue) {
 						i++;
 					}
 					
@@ -270,7 +303,7 @@ function compileRule(rule) {
 						error("For instruction must end with ':'");
 					}
 					
-					var inOperands = splitTokens(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), "in");
+					var inOperands = splitTokens(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), "in", false);
 					if (inOperands.length !== 2) {
 						error("For instruction must contain 'in'");
 					} else if (inOperands[0].length !== 1) {
@@ -396,7 +429,7 @@ function parse(content, parseArgs={}) {
 			} else if (pyOperators[i] === "and") {
 				return tows("_and", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 			} else if (pyOperators[i] === "not") {
-				return tows("_not", valueFuncKw)+"("+parse(operands[1])+")";
+				return tows("not", valueFuncKw)+"("+parse(operands[1])+")";
 			} else if (pyOperators[i] === "in") {
 				return tows("_arrayContains", valueFuncKw)+"("+parse(operands[1])+", "+parse(operands[0])+")";
 			} else if (pyOperators[i] === "==" || pyOperators[i] === '!=' || pyOperators[i] === '<=' || pyOperators[i] === '>=' || pyOperators[i] === '<' || pyOperators[i] === '>' ) {
@@ -474,12 +507,6 @@ function parse(content, parseArgs={}) {
 		return tows("_globalVar", valueFuncKw)+"("+content[0].text+")";
 	}
 	
-	//Check for "." operator, which has the highest precedence.
-	//It must be parsed from right to left.
-	var operands = splitTokens(content, ".", false, true);
-	if (operands.length === 2) {
-		return parseMember(operands[1], operands[0], parseArgs);
-	}
 	
 	//Parse array
 	if (content[content.length-1].text === ']') {
@@ -491,6 +518,14 @@ function parse(content, parseArgs={}) {
 		} else {
 			return parseArrayMembership(content.slice(0, bracketPos[bracketPos.length-2]), content.slice(bracketPos[bracketPos.length-2]+1, content.length-1));
 		}
+	}
+	
+	
+	//Check for "." operator, which has the highest precedence.
+	//It must be parsed from right to left.
+	var operands = splitTokens(content, ".", false, true);
+	if (operands.length === 2) {
+		return parseMember(operands[1], operands[0], parseArgs);
 	}
 	
 	//Check for parentheses
@@ -533,6 +568,30 @@ function parse(content, parseArgs={}) {
 	
 	//Special functions
 	
+	if (name === "all" || name === "any") {
+		var result = tows("_"+name, valueFuncKw)+"(";
+		
+		if (args[0][0].text !== "[" || args[0][args[0].length-1].text !== "]") {
+			error(name+" function must have [x == y for x in z] as argument (no literal array found)")
+		}
+		
+		var forArgs = splitTokens(args[0].slice(1, args[0].length-1), "for");
+		if (forArgs.length !== 2) {
+			error(name+" function must have [x == y for x in z] as argument (no 'for' found)")
+		}
+		
+		var inArgs = splitTokens(forArgs[1], "in", false);
+		if (inArgs.length !== 2) {
+			error(name+" function must have [x == y for x in z] as argument (no 'in' found)")
+		}
+		result += parse(inArgs[1]) + ", ";
+		currentArrayElementNames.push(inArgs[0][0].text);
+		result += parse(forArgs[0])
+		currentArrayElementNames.pop();
+		result += ")";
+		return result;
+	}
+	
 	if (name === "ceil") {
 		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundUp", roundKw)+")";
 	}
@@ -549,7 +608,7 @@ function parse(content, parseArgs={}) {
 			result += parse(operands[1])+", "+operands[0][0].text;
 		} else {
 			funcName += "GlobalVariable";
-			result += parse(args[0]);
+			result += args[0][0].text;
 		}
 		
 		if (args.length !== 4) {
@@ -641,7 +700,7 @@ function parse(content, parseArgs={}) {
 			result += parse(operands[1])+", "+operands[0][0].text;
 		} else {
 			funcName += "GlobalVariable";
-			result += parse(args[0]);
+			result += args[0][0].text;
 		}
 		
 		return tows(funcName, actionKw)+"("+result+")";
@@ -748,7 +807,8 @@ function parseString(content) {
 	//Test surround strings
 	for (var j = 0; j < surroundStrKw.length && !hasMatchBeenFound; j++) {
 		var token1 = surroundStrKw[j][0][0].substring(0, surroundStrKw[j][0][0].indexOf("{0}")).toLowerCase();
-		var token2 = surroundStrKw[j][0][0].substring(surroundStrKw[j][0][0].indexOf("{0}"), surroundStrKw[j][0][0].indexOf("{0}")+"{0}".length).toLowerCase();
+		var token2 = surroundStrKw[j][0][0].substring(surroundStrKw[j][0][0].indexOf("{0}")+"{0}".length).toLowerCase();
+		debug("Testing str match on '"+token1+"{0}"+token2+"'");
 		if (content[0] === token1 && content[content.length-1] === token2) {
 			hasMatchBeenFound = true;
 			matchStr = tows(surroundStrKw[j][0][0], surroundStrKw);
@@ -898,10 +958,12 @@ function parseMember(object, member, parseArgs={}) {
 		return tows("Position."+name, positionKw);
 		
 	} else if (object[0].text === "random" && object.length === 1) {
-		if (name === "randint") {
+		if (name === "randint" || name === "uniform") {
 			return tows("random."+name, valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+")";
-		} else {
+		} else if (name === "shuffle" || name === "choice") {
 			return tows("random."+name, valueFuncKw)+"("+parse(args[0])+")";
+		} else {
+			error("Unhandled member 'random."+name+"'");
 		}
 		
 	} else if (object[0].text === "Reeval") {
@@ -978,13 +1040,15 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 		var operands = splitTokens(variable, ".", false, true);
 		if (operands.length === 2) {
 			
+			console.log(operands);
+			
 			//Check for array
-			if (operands[1].length > 1 && operands[1][1].text === '[') {
+			if (operands[0].length > 1 && operands[0][1].text === '[') {
 				result += tows("_"+func+"PlayerVarAtIndex", actionKw)
-						+"("+parse(operands[1])+"; "+operands[0][0].text+", "
-						+parse(operands[1].slice(2, operands[1].length-1))+", ";
+						+"("+parse(operands[1])+", "+operands[0][0].text+", "
+						+parse(operands[0].slice(2, operands[0].length-1))+", ";
 			} else {
-				if (operands[1].length > 1) {
+				if (operands[0].length > 1) {
 					error("Unauthorised player variable", operands[1]);
 				}
 				result += tows("_"+func+"PlayerVar", actionKw)+"("+parse(operands[1])+", "+operands[0][0].text+", ";
@@ -1039,7 +1103,7 @@ function parseLiteralArray(content) {
 	} else {
 		//check for "in" keyword
 		//format is "var for var in array if condition"
-		var inOperands = splitTokens(content.slice(1, content.length-1), "in");
+		var inOperands = splitTokens(content.slice(1, content.length-1), "in", false);
 		if (inOperands.length === 2) {
 			var ifOperands = splitTokens(inOperands[1], "if");
 			if (ifOperands.length !== 2) {
@@ -1370,19 +1434,24 @@ function tokenize(content) {
 				currentStrDelimiter = content[i];
 				//Get to the end of the string
 				var j = i+1;
-				for (; j < content.length && !isBackslashed && content[j] !== currentStrDelimiter; j++) {
+				for (; j < content.length; j++) {
 					
 					//Test for potentially unclosed string
 					if (!isBackslashed && content[j] === '\n') {
 						error("Unclosed string");
 					}
-				
+					
+					if (!isBackslashed && content[j] === currentStrDelimiter) {
+						break;
+					}
 						
 					if (content[j] === '\\') {
 						isBackslashed = true;
 					} else {
 						isBackslashed = false;
 					}
+					
+					
 				}
 				
 				j += 1; //account for closing delimiter
