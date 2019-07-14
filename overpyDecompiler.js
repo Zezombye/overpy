@@ -402,9 +402,29 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		return decompileGenericPlayerFunction(name.substring(2), args, keywordArray === actionKw ? true : false);
 	}
 	
+	//Functions beginning with "_!" have their arguments swapped (assuming there are only 2 arguments).
+	if (name.startsWith("_!")) {
+		if (args.length !== 2) {
+			error("Argument length for swapped function must be 2");
+		}
+		return name.substring("_!".length)+"("+decompile(args[1])+", "+decompile(args[0])+")";
+	}
+	
 	//Abort if
 	if (name === "_abortIf") {
 		result = "if " + decompile(args[0]) + ":\n";
+		result += tabLevel(nbTabs+1) + "return";
+		
+		return result;
+	}
+	
+	//Abort if condition is false/true
+	if (name === "_abortIfConditionIsFalse" || name === "_abortIfConditionIsTrue") {
+		result = "if ";
+		if (name === "_abortIfConditionIsFalse") {
+			result += "not ";
+		}
+		result += "RULE_CONDITION:\n";
 		result += tabLevel(nbTabs+1) + "return";
 		
 		return result;
@@ -581,7 +601,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	if (name === "_getPlayerHit") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getPlayerHit()";
 	}
-	
+		
 	//Global variable
 	if (name === "_globalVar") {
 		return decompile(args[0], globalVarKw);
@@ -694,6 +714,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Raise to power
 	if (name === "_raiseToPower") {
 		return decompileOperator(args[0], "**", args[1]);
+	}
+	
+	//Remove from array
+	if (name === "_removeFromArray") {
+		return decompile(args[0])+".exclude("+decompile(args[1])+")";
 	}
 	
 	
@@ -822,12 +847,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		}
 		return result;
 	}
-	
-	//Team Has Hero
-	if (name === "_teamHasHero") {
-		return "teamHasHero("+decompile(args[1])+", "+decompile(args[0])+")";
-	}
-			
+				
 	//Value in array
 	if (name === "_valueInArray") {
 		return decompile(args[0])+"["+decompile(args[1])+"]";
@@ -882,7 +902,19 @@ function decompileString(content, arg1, arg2, arg3, strDepth) {
 	var format = [];
 	var args = [arg1, arg2, arg3];
 	
-	for (var i = 0; i < args.length; i++) {
+	var nbArgs = 0;
+	if (content.indexOf("{0}") > -1) nbArgs++;
+	if (content.indexOf("{1}") > -1) nbArgs++;
+	if (content.indexOf("{2}") > -1) nbArgs++;
+	
+	//debug("Parsing string '"+content+"' with nbargs = "+nbArgs);
+	
+	//Remove additional quotes
+	if (result.startsWith('"') && result.endsWith('"')) {
+		result = topy(result.substring(1, result.length-1), stringKw);
+	}
+	
+	for (var i = 0; i < nbArgs; i++) {
 		
 		//Check if the string result must be put in the format array
 		var isInFormat = true;
@@ -890,9 +922,9 @@ function decompileString(content, arg1, arg2, arg3, strDepth) {
 		var decompiledArg = decompile(args[i], valueKw, {"strDepth":1});
 		
 		//Skip nulls
-		if (decompiledArg === "null") {
+		/*if (decompiledArg === "null") {
 			continue;
-		}
+		}*/
 		
 		if (decompiledArg.constructor !== Array) {
 			decompiledArg = [decompiledArg];
@@ -925,10 +957,7 @@ function decompileString(content, arg1, arg2, arg3, strDepth) {
 		}
 	}
 		
-	//Remove additional quotes
-	if (result.startsWith('"') && result.endsWith('"')) {
-		result = result.substring(1, result.length-1);
-	}
+	
 	debug("Format = "+format+", arg = "+decompiledArg);
 	return [result, format];
 	
@@ -949,7 +978,6 @@ function decompileGenericPlayerFunction(name, args, isAction) {
 function decompilePlayerFunction(content, player, args, separateArgs=false, isAction=true) {
 	
 	var result = "";
-	//You think this is long? You aint seen Java classes
 	var hasNormalForLoopBeenSetInThisFunction = false;
 	
 	
@@ -1004,7 +1032,7 @@ function decompilePlayerFunction(content, player, args, separateArgs=false, isAc
 //Function used for "modify player variable" and "modify global variable".
 //Note: arguments passed to this function must already be decompiled.
 function decompileModifyVar(variable, operation, value) {
-	operation = topy(operation, valueKw);
+	operation = topy(operation, operationKw);
 	if (operation === "_appendToArray") {
 		return variable+".append("+value+")";
 	} else if (operation === "_add") {
@@ -1021,6 +1049,22 @@ function decompileModifyVar(variable, operation, value) {
 		} else {
 			return variable+" -= "+value;
 		}
+	} else if (operation === "_multiply") {
+		return variable+" *= "+value;
+	} else if (operation === "_divide") {
+		return variable+" /= "+value;
+	} else if (operation === "_modulo") {
+		return variable+" %= "+value;
+	} else if (operation === "_raiseToPower") {
+		return variable+" **= "+value;
+	} else if (operation === "_min") {
+		return variable+" min= "+value;
+	} else if (operation === "_max") {
+		return variable+" max= "+value;
+	} else if (operation === "_removeFromArrayByIndex") {
+		return "del "+variable+"["+value+"]";
+	} else if (operation === "_removeFromArrayByValue") {
+		return variable+".remove("+value+")";
 	} else {
 		error("Unhandled operation "+operation);
 	}

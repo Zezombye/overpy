@@ -23,6 +23,7 @@ function splitStrTokens(tokens, str1, str2) {
 	
 	var str1Index = -1;
 	var str2Index = -1;
+	var bracketLevel = 0;
 	
 	if (str2 !== undefined) {
 		debug("Splitting str tokens '"+tokens+"' on '"+str1+"' and '"+str2+"'");
@@ -32,9 +33,13 @@ function splitStrTokens(tokens, str1, str2) {
 	
 	var i;
 	for (i = 0; i < tokens.length; i++) {
-		if (tokens[i] === str1) {
+		if (tokens[i] === str1 && bracketLevel === 0) {
 			str1Index = i;
 			break;
+		} else if (tokens[i] === "(" || tokens[i] === "¡" || tokens[i] === "¿") {
+			bracketLevel++;
+		} else if ((tokens[i] === ")" || tokens[i] === "!" || tokens[i] === "?") && bracketLevel > 0) {
+			bracketLevel--;
 		}
 	}
 	
@@ -42,9 +47,13 @@ function splitStrTokens(tokens, str1, str2) {
 	
 	if (str2 !== undefined) {
 		for (; i < tokens.length; i++) {
-			if (tokens[i] === str2) {
+			if (tokens[i] === str2 && bracketLevel === 0) {
 				str2Index = i;
 				break;
+			} else if (tokens[i] === "(" || tokens[i] === "¡" || tokens[i] === "¿") {
+				bracketLevel++;
+			} else if ((tokens[i] === ")" || tokens[i] === "!" || tokens[i] === "?") && bracketLevel > 0) {
+				bracketLevel--;
 			}
 		}
 	}
@@ -238,9 +247,13 @@ function tabLevel(nbTabs) {
 function translate(keyword, toWorkshop, keywordArray) {
 	
 	if (!toWorkshop) {
-		keyword = keyword.toLowerCase().replace(/\s/g, "");
+		keyword = keyword.toLowerCase();
+		if (keywordArray !== stringKw) {
+			keyword = keyword.replace(/\s/g, "");
+		}
 	}
 	debug("Translating keyword '"+keyword+"'");
+	debug(keywordArray === stringKw);
 	
 	//Check for current array element
 	if (toWorkshop) {
@@ -251,12 +264,7 @@ function translate(keyword, toWorkshop, keywordArray) {
 		}
 	}
 	
-	//Check for numbers
-	if (!isNaN(keyword)) {
-		//Convert to int then to string to remove unnecessary 0s.
-		keyword = Number(keyword).toString();
-		return keyword;
-	}
+	
 	
 	for (var i = 0; i < keywordArray.length; i++) {
 				
@@ -268,12 +276,19 @@ function translate(keyword, toWorkshop, keywordArray) {
 			//}
 		} else {
 			for (var j = 0; j < keywordArray[i][1].length; j++) {
-				if (keywordArray[i][1][j].toLowerCase().replace(/\s/g, "") === keyword) {
+				if (keywordArray[i][1][j].toLowerCase() === keyword) {
 					return keywordArray[i][0][0];
 				}
 			}
 		}
 		
+	}
+	
+	//Check for numbers
+	if (!isNaN(keyword)) {
+		//Convert to int then to string to remove unnecessary 0s.
+		keyword = Number(keyword).toString();
+		return keyword;
 	}
 	
 	error("No match found for keyword '"+keyword+"'");	

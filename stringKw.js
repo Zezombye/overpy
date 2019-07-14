@@ -1916,16 +1916,17 @@ for (var j = 0; j < postfixStrKw.length; j++) {
 	strTokens.push(postfixStrKw[j][0][0].substring("{0}".length).toLowerCase());
 }
 
+//ternary strings
+for (var j = 0; j < ternaryStrKw.length; j++) {
+	strTokens.push(ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase());
+	strTokens.push(ternaryStrKw[j][0][0].substring(ternaryStrKw[j][0][0].indexOf("{1}")+"{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase());
+}
+
 //binary strings
 for (var j = 0; j < binaryStrKw.length; j++) {
 	strTokens.push(binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase());
 }
 
-//ternary strings
-for (var j = 0; j < ternaryStrKw.length; j++) {
-	strTokens.push(ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase());
-	strTokens.push(ternaryStrKw[j][0][0].substring("{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase());
-}
 
 //surround strings
 for (var j = 0; j < surroundStrKw.length; j++) {
