@@ -106,19 +106,20 @@ function compileRule(rule) {
 		}
 		
 		currentLineNb = rule.lines[i].tokens[0].lineNb;
-		currentColNb = rule.lines[i].tokens[0].colNb;
-		
-		
-		
-		
+		currentColNb = rule.lines[i].tokens[0].colNb;		
 		
 		if (rule.lines[i].tokens[0].text.startsWith("@")) {
 			if (!isInEvent) {
 				error("Annotation found after code");
 			} else {
 				if (rule.lines[i].tokens[0].text === "@Event") {
-					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw)+";\n";
-					eventType = rule.lines[i].tokens[1].text;
+					if (rule.lines.length === 2) {
+						result += tabLevel(2)+tows("global", eventKw)+";\n";
+						eventType = "global";
+					} else {
+						result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw)+";\n";
+						eventType = rule.lines[i].tokens[1].text;
+					}
 					
 				} else if (rule.lines[i].tokens[0].text === "@Team") {
 					if (isEventTeamDefined) {
@@ -126,7 +127,7 @@ function compileRule(rule) {
 					}
 					
 					isEventTeamDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw);
+					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw)+";\n";
 					
 				} else if (rule.lines[i].tokens[0].text === "@Hero") {
 					if (isEventPlayerDefined) {
@@ -149,7 +150,7 @@ function compileRule(rule) {
 					}
 					
 					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw);
+					result += tabLevel(2)+tows("slot"+rule.lines[i].tokens[1].text, eventKw)+";\n";
 					
 				} else {
 					error("Unknown annotation");
@@ -203,12 +204,14 @@ function compileRule(rule) {
 					}
 					
 					var isSkipIf = true;
+					var isConditionTrueCheck = false;
+					var isConditionFalseCheck = false;
 					var invertCondition = false;
 					var skipIfOffset;
 					var hasGoto = false;
 					var hasAbort = false;
 					var hasContinue = false;
-					var condition = "(" + parse(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), {"isWholeInstruction":true, "invertCondition":true});
+					//var condition = "(" + parse(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), {"isWholeInstruction":true, "invertCondition":true});
 					
 					//Check if there is a goto
 					if (rule.lines[i+1].tokens[0].text === "goto") {
@@ -247,9 +250,22 @@ function compileRule(rule) {
 					} else if (rule.lines[i+1].tokens[0].text === "return") {
 						isSkipIf = false;
 						hasAbort = true;
+						
+						if (rule.lines[i].tokens[1].text === "RULE_CONDITION" && rule.lines[i].tokens.length === 3) {
+							isConditionTrueCheck = true;
+						} else if (rule.lines[i].tokens[1].text === "not" && rule.lines[i].tokens[2].text === "RULE_CONDITION" && rule.lines[i].tokens.length === 4) {
+							isConditionFalseCheck = true;
+						}
+						
 					} else if (rule.lines[i+1].tokens[0].text === "continue") {
 						isSkipIf = false;
 						hasContinue = true;
+						
+						if (rule.lines[i].tokens[1].text === "RULE_CONDITION" && rule.lines[i].tokens.length === 3) {
+							isConditionTrueCheck = true;
+						} else if (rule.lines[i].tokens[1].text === "not" && rule.lines[i].tokens[2].text === "RULE_CONDITION" && rule.lines[i].tokens.length === 4) {
+							isConditionFalseCheck = true;
+						}
 					} else {
 						
 						//Check how much instructions there is after the "if" (do not count gotos or lbls)
@@ -283,12 +299,29 @@ function compileRule(rule) {
 					result += tabLevel(2);
 					if (isSkipIf) {
 						result += tows("_skipIf", actionKw);
+					} else if (isConditionTrueCheck) {
+						if (hasAbort) {
+							result += tows("_abortIfConditionIsTrue", actionKw);
+						} else if (hasContinue) {
+							result += tows("_loopIfConditionIsTrue", actionKw);
+						}
+					} else if (isConditionFalseCheck) {
+						if (hasAbort) {
+							result += tows("_abortIfConditionIsFalse", actionKw);
+						} else if (hasContinue) {
+							result += tows("_loopIfConditionIsFalse", actionKw);
+						}
 					} else if (hasContinue) {
 						result += tows("_loopIf", actionKw);
-					} else {
+					} else if (hasAbort) {
 						result += tows("_abortIf", actionKw);
+					} else {
+						error("weird if");
 					}
-					result += "("+ parse(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), {"isWholeInstruction":true, "invertCondition":invertCondition});
+					result += "(";
+					if (!isConditionTrueCheck && !isConditionFalseCheck) {
+						result += parse(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), {"isWholeInstruction":true, "invertCondition":invertCondition});
+					}
 					if (isSkipIf) {
 						result += ", "+skipIfOffset;
 					}
@@ -375,6 +408,24 @@ function compileRule(rule) {
 					}
 					result += tabLevel(2)+tows("_skip", actionKw)+"("+skipOffset+");\n";
 					
+				//Check for del
+				} else if (rule.lines[i].tokens[0].text === 'del') {
+					
+					if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text !== ']') {
+						error("Del keyword must be followed by an array membership");
+					}
+					
+					var bracketPos = getTokenBracketPos(rule.lines[i].tokens);
+					
+					var variable = rule.lines[i].tokens.slice(1, bracketPos[bracketPos.length-2])
+					var member = rule.lines[i].tokens.slice(bracketPos[bracketPos.length-2]+1, rule.lines[i].tokens.length-1)
+					
+					debug("Parsing del keyword with var = '"+dispTokens(variable)+"' and member = '"+dispTokens(member)+"'");
+					
+					result += tabLevel(2);
+					result += parseAssignment(variable, member, true, "_removeFromArrayByIndex");
+					result += ";\n";
+					
 				} else if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text === ':') {
 					continue;
 				} else {
@@ -383,10 +434,7 @@ function compileRule(rule) {
 					result += ";\n";
 				}
 			}
-			
 		}
-		
-		
 	}
 	
 	if (isInActions || isInEvent) {
@@ -448,20 +496,22 @@ function parse(content, parseArgs={}) {
 				return parseAssignment(operands[0], operands[1], true, "_modulo");
 			} else if (pyOperators[i] === "**=") {
 				return parseAssignment(operands[0], operands[1], true, "_raiseToPower");
+			} else if (pyOperators[i] === "min=") {
+				return parseAssignment(operands[0], operands[1], true, "_min");
+			} else if (pyOperators[i] === "max=") {
+				return parseAssignment(operands[0], operands[1], true, "_max");
 			} else if (pyOperators[i] === "++") {
 				return parseAssignment(operands[0], [{"lineNb":-1, "colNb":-1,"text":"1"}], true, "_add");
 			} else if (pyOperators[i] === "--") {
 				return parseAssignment(operands[0], [{"lineNb":-1, "colNb":-1,"text":"1"}], true, "_subtract");
-			} else if (pyOperators[i] === "*") {
-				return tows("_multiply", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 			} else if (pyOperators[i] === "/") {
 				return tows("_divide", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+			} else if (pyOperators[i] === "*") {
+				return tows("_multiply", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 			} else if (pyOperators[i] === "%") {
 				return tows("_modulo", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 			} else if (pyOperators[i] === "**") {
 				return tows("_raiseToPower", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
-			} else if (pyOperators[i] === "+") {
-				return tows("_add", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 			} else if (pyOperators[i] === "-") {
 				
 				//Check for unary operator
@@ -472,6 +522,8 @@ function parse(content, parseArgs={}) {
 					return tows("_subtract", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 				}
 				return tows("_not", valueFuncKw)+"("+parse(operands[1])+")";
+			} else if (pyOperators[i] === "+") {
+				return tows("_add", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 			} else {
 				error("Unhandled operator "+pyOperators[i]);
 			}
@@ -706,8 +758,8 @@ function parse(content, parseArgs={}) {
 		return tows(funcName, actionKw)+"("+result+")";
 	}
 	
-	if (name === "teamHasHero") {
-		return tows("_teamHasHero", valueFuncKw)+"("+parse(args[1])+", "+parse(args[0])+")";
+	if (name === "teamHasHero" || name === "getPlayersOnHero" || name === "getNumberOfHeroes") {
+		return tows("_!"+name, valueFuncKw)+"("+parse(args[1])+", "+parse(args[0])+")";
 	}
 	
 	
@@ -750,13 +802,28 @@ function parseString(content) {
 	}
 	
 	var matchStr;
-	var tokens;
+	var tokens = [];
 	var hasMatchBeenFound = false;
 	
 	debug("Parsing string '"+content+"'");
 	
+	//Test surround strings
+	for (var j = 0; j < surroundStrKw.length && !hasMatchBeenFound; j++) {
+		var token1 = surroundStrKw[j][0][0].substring(0, surroundStrKw[j][0][0].indexOf("{0}")).toLowerCase();
+		var token2 = surroundStrKw[j][0][0].substring(surroundStrKw[j][0][0].indexOf("{0}")+"{0}".length).toLowerCase();
+		debug("Testing str match on '"+token1+"{0}"+token2+"'");
+		if (content[0] === token1 && content[content.length-1] === token2) {
+			hasMatchBeenFound = true;
+			matchStr = tows(surroundStrKw[j][0][0], surroundStrKw);
+			//Note: it is assumed all surround strings have a length of only 1 character for each side.
+			tokens.push(content.slice(1, content.length-1));
+			break;
+		}
+		tokens = []
+	}
+	
 	//Test ternary string
-	for (var j = 0; j < ternaryStrKw.length; j++) {
+	for (var j = 0; j < ternaryStrKw.length && !hasMatchBeenFound; j++) {
 		var token1 = ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
 		var token2 = ternaryStrKw[j][0][0].substring(ternaryStrKw[j][0][0].indexOf("{1}")+"{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase();
 		tokens = splitStrTokens(content, token1, token2);
@@ -804,20 +871,6 @@ function parseString(content) {
 		tokens = []
 	}
 	
-	//Test surround strings
-	for (var j = 0; j < surroundStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = surroundStrKw[j][0][0].substring(0, surroundStrKw[j][0][0].indexOf("{0}")).toLowerCase();
-		var token2 = surroundStrKw[j][0][0].substring(surroundStrKw[j][0][0].indexOf("{0}")+"{0}".length).toLowerCase();
-		debug("Testing str match on '"+token1+"{0}"+token2+"'");
-		if (content[0] === token1 && content[content.length-1] === token2) {
-			hasMatchBeenFound = true;
-			matchStr = tows(surroundStrKw[j][0][0], surroundStrKw);
-			//Note: it is assumed all surround strings have a length of only 1 character for each side.
-			tokens.push(content.slice(1, content.length-1));
-			break;
-		}
-		tokens = []
-	}
 	
 	//Test normal strings
 	if (content.length === 1) {
@@ -921,6 +974,9 @@ function parseMember(object, member, parseArgs={}) {
 	} else if (object[0].text === "Effect") {
 		return tows("Effect."+name, effectKw.concat(playEffectKw));
 		
+	} else if (name === "exclude") {
+		return tows("_removeFromArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
+		
 	} else if (name === "format") {
 		formatArgs = args;
 		var result = parseString(tokenizeString(object[0].text.substring(1, object[0].text.length-1)));
@@ -948,6 +1004,9 @@ function parseMember(object, member, parseArgs={}) {
 	} else if (object[0].text === "Impulse") {
 		return tows("Impulse."+name, impulseKw);
 		
+	} else if (object[0].text === "Invis") {
+		return tows("Invis."+name, invisKw);
+		
 	} else if (name === "index") {
 		return tows("_indexOfArrayValue", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
 		
@@ -971,6 +1030,9 @@ function parseMember(object, member, parseArgs={}) {
 		
 	} else if (object[0].text === "Relativity") {
 		return tows("Relativity."+name, relativeKw);
+		
+	} else if (name === "remove") {
+		return parseAssignment(object, args[0], true, "_removeFromArrayByValue");
 		
 	} else if (name === "slice") {
 		return tows("_arraySlice", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+", "+parse(args[1])+")";
@@ -1517,7 +1579,12 @@ function tokenize(content) {
 						newRuleLine();
 					} else if (!isInRule) {
 						error("Found code outside a rule : "+content[i]);
-					}					
+					}
+					
+					//Handle the special case of min= and max= operators
+					if ((content.substring(i,j) === "min" || content.substring(i,j) === "max") && content[i+"min".length] === '=') {
+						j++;
+					}
 					addToken(content.substring(i, j))
 				} else {
 					
@@ -1669,7 +1736,9 @@ function tokenizeString(str) {
 		}
 		
 		if (!hasTokenBeenFound) {
-			error("No string translation found");
+			var j = i+1;
+			for (; str[j] >= 'a' && str[j] <= 'z'; j++);
+			error("No string translation found for '"+str.substring(i, j)+"'");
 		}
 		
 		tokenList.push(currentToken);
