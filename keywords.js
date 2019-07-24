@@ -313,6 +313,9 @@ var actionKw = [
 [["playEffect"], [
 	"playEffect",
 ]],
+[["_&preloadHero"], [
+	"preloadHero",
+]],
 [["_&forceButtonPress"], [
 	"pressButton",
 ]],
@@ -508,6 +511,12 @@ var valueFuncKw = [
 [["_and"], [
 	"and",
 ]],
+[["getAllHeroes()"], [
+	"allHeroes",
+]],
+[["_&getAllowedHeroes"], [
+	"allowedHeroes",
+]],
 [["_&getAltitude"], [
 	"altitudeOf",
 ]],
@@ -694,6 +703,9 @@ var valueFuncKw = [
 [["isInSetup()"], [
 	"isInSetup",
 ]],
+[["isInSuddenDeath()"], [
+	"isCtfModeInSuddenDeath",
+]],
 [["_&isInSpawnRoom"], [
 	"isInSpawnRoom",
 ]],
@@ -744,6 +756,9 @@ var valueFuncKw = [
 ]],
 [["Vector.LEFT"], [
 	"left",
+]],
+[["localVector"], [
+	"localVectorOf",
 ]],
 [["getMatchTime()"], [
 	"matchTime",

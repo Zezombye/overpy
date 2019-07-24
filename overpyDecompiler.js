@@ -993,6 +993,8 @@ function decompilePlayerFunction(content, player, args, separateArgs=false, isAc
 		} else {
 			if (isInNormalForLoop) {
 				result += "["+content.replace("\{player\}", "player2")+" for player2 in "+decompile(player)+"]";
+			} else if (currentArrayElementNames.indexOf("player") > -1) {
+				result += "["+content.replace("\{player\}", "player3")+" for player3 in "+decompile(player)+"]";
 			} else {
 				result += "["+content.replace("\{player\}", "player")+" for player in "+decompile(player)+"]";
 			}
