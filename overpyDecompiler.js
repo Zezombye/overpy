@@ -152,17 +152,19 @@ function decompileRule(content) {
 	var bracketPos2 = [-1].concat(getBracketPositions(ruleContent));
 	
 	var eventInst = [];
- 	var conditions = [];
-	var actions = [];
+ 	var conditions = "";
+	var actions = "";
 	
 	for (var i = 0; i < bracketPos2.length-2; i += 2) {
 		var fieldName = topy(ruleContent.substring(bracketPos2[i]+1, bracketPos2[i+1]), ruleKw);
 		if (fieldName === "@Event") {
 			eventInst = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
 		} else if (fieldName === "_conditions") {
-			conditions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+			//conditions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+			conditions = "conditions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
 		} else if (fieldName === "_actions") {
-			actions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+			//actions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+			actions = "actions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
 		} else {
 			error("Unknown field name "+fieldName+" in rule "+ruleName);
 		}
@@ -192,67 +194,85 @@ function decompileRule(content) {
 	}
 	
 	//Parse conditions
-	if (conditions.length > 0) {
-		
-		result += "if ";
-		var condStrs = [];
-		for (var i = 0; i < conditions.length; i++) {
-			
-			var currentCond = decompileRuleCondition(conditions[i]);
-			//Check for and-ing with true
-			if (currentCond === "true") {
-				continue;
-			}
-			
-			if (operatorPrecedenceStack[0] < 2) {
-				currentCond = "("+currentCond+")";
-			}
-			condStrs.push(currentCond);
-		}
-		var condStr = condStrs.join(" and ");
-		
-		//This happens if everything is true
-		if (condStr === "") {
-			condStr = "true";
-		}
-		result += condStr;
-		
-		result += ":\n"
-		nbTabs = 1;
+	if (conditions !== "") {
+		result += decompileConditions(conditions);
 	}
 		
 	//Parse actions
-	if (actions.length > 0) {
-		//Detect the last loop to know where to place the "while"
-		for (var i = 0; i < actions.length; i++) {
-			if (topy(getName(actions[i]), actionKw).startsWith("_loop")) {
-				//It is a loop; update the loop position
-				lastLoop = i;
-			}
-		}
-		
-		//If a loop was detected, add the "do:" and increment the indentation level.
-		if (lastLoop >= 0) {
-			result += tabLevel(nbTabs)+"do:\n";
-			nbTabs++;
-		}
-			
-		for (var i = 0; i < actions.length; i++) {
-			if (i == lastLoop) {
-				nbTabs--;
-			}
-			result += tabLevel(nbTabs) + decompileAction(actions[i], i) + "\n";
-		}
-		
-		//Add the remaining gotos (caused eg. by a skip 50 in a rule with 10 actions).
-		for (var i = 0; i < decompilerGotos.length; i++) {
-			if (decompilerGotos[i] > 0) {
-				result += tabLevel(nbTabs)+"lbl_"+i+":\n";
-			}
-		}
-	
+	if (actions !== "") {
+		result += decompileActions(actions);
 	}
 	return result+"\n\n";
+}
+
+function decompileConditions(content) {
+	
+	var conditions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")));
+	
+	var result = "";
+	result += "if ";
+	var condStrs = [];
+	for (var i = 0; i < conditions.length; i++) {
+		
+		var currentCond = decompileRuleCondition(conditions[i]);
+		//Check for and-ing with true
+		if (currentCond === "true") {
+			continue;
+		}
+		
+		if (operatorPrecedenceStack[0] < 2) {
+			currentCond = "("+currentCond+")";
+		}
+		condStrs.push(currentCond);
+	}
+	var condStr = condStrs.join(" and ");
+	
+	//This happens if everything is true
+	if (condStr === "") {
+		condStr = "true";
+	}
+	result += condStr;
+	
+	result += ":\n"
+	nbTabs = 1;
+	
+	return result;
+}
+
+function decompileActions(content) {
+	
+	var result = "";
+	var actions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")));
+	
+	//Detect the last loop to know where to place the "while"
+	for (var i = 0; i < actions.length; i++) {
+		if (topy(getName(actions[i]), actionKw).startsWith("_loop")) {
+			//It is a loop; update the loop position
+			lastLoop = i;
+		}
+	}
+	
+	//If a loop was detected, add the "do:" and increment the indentation level.
+	if (lastLoop >= 0) {
+		result += tabLevel(nbTabs)+"do:\n";
+		nbTabs++;
+	}
+		
+	for (var i = 0; i < actions.length; i++) {
+		if (i == lastLoop) {
+			nbTabs--;
+		}
+		result += tabLevel(nbTabs) + decompileAction(actions[i], i) + "\n";
+	}
+
+	//Add the remaining gotos (caused eg. by a skip 50 in a rule with 10 actions).
+	for (var i = 0; i < decompilerGotos.length; i++) {
+		if (decompilerGotos[i] > 0) {
+			result += tabLevel(nbTabs)+"lbl_"+i+":\n";
+		}
+	}
+	
+	return result;
 }
 
 function decompileAction(content, actionNb) {
