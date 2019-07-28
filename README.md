@@ -5,6 +5,10 @@ The philosophy behind this language is "what would the workshop be like if it wa
 
 Join the EloHell discord for feedback: https://discord.gg/zwF7KQm #highlevel-scripting
 
+Discord operators can add my decompiler bot by clicking on this link: https://discordapp.com/oauth2/authorize?client_id=604665521102782467&scope=bot
+
+If someone posts workshop code, the bot will reply with the decompiled version (which is more readable).
+
 # Demo page
 
 ![owo](https://i.imgur.com/zCP6TYF.png)
