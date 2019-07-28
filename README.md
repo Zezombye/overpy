@@ -9,7 +9,9 @@ Join the EloHell discord for feedback: https://discord.gg/zwF7KQm #highlevel-scr
 
 ![owo](https://i.imgur.com/zCP6TYF.png)
 
-The demo page is accessible at url and is divided in 3 parts.
+To access the demo page, simply clone the repository (or download the zip) then open demo.html with your browser.
+
+The demo page is divided in 3 parts.
 
 The first part is the input for decompilation; this is where you paste your workshop code. Click on the "decompile" button to convert it to OverPy. Alternatively, click on the "add example text" button to input my Zombie Escape code. Note that the "add example text" will also hardcode names for some variables (refresh to get rid of that).
 
@@ -41,7 +43,7 @@ Rule metadata (name of the rule and event) is defined with annotations:
 
 Other than that, it's just plain old Python. I suggest to run the demo to get a better understanding of the syntax.
 
-In most cases, the function names are just the english function names in camelCase, eg: Create Hud Text() -> createHudText(). Else, see the list of special functions "specialFunctions.md".
+In most cases, the function names are just the english function names in camelCase, eg: Create Hud Text() -> createHudText(). Else, see the function reference "FUNCTIONS.md".
 
 # Macros
 
