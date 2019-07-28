@@ -181,23 +181,29 @@ var actionKw = [
 [["createEffect"], [
 	"createEffect",
 ]],
+[["hudText"], [
+	"createHudText",
+]],
 [["createIcon"], [
 	"createIcon",
 ]],
 [["createInWorldText"], [
 	"createIn-WorldText",
 ]],
-[["hudText"], [
-	"createHudText",
-]],
 [["damage"], [
 	"damage",
 ]],
-[["declareTeamVictory"], [
-	"declareTeamVictory",
+[["declareDraw"], [
+	"declareMatchDraw",
 ]],
 [["declarePlayerVictory"], [
 	"declarePlayerVictory",
+]],
+[["declareRoundVictory"], [
+	"declareRoundVictory",
+]],
+[["declareTeamVictory"], [
+	"declareTeamVictory",
 ]],
 [["destroyAllEffects()"], [
 	"destroyAllEffects",
@@ -256,11 +262,11 @@ var actionKw = [
 [["enableMusic()"], [
 	"enableBuilt-inGamemodeMusic",
 ]],
-[["enableScoring()"], [
-	"enableBuilt-inGamemodeScoring",
-]],
 [["_&enableRespawn"], [
 	"enableBuilt-inGamemodeRespawning",
+]],
+[["enableScoring()"], [
+	"enableBuilt-inGamemodeScoring",
 ]],
 [["_&enableDeathSpectateAllPlayers"], [
 	"enableDeathSpectateAllPlayers",
@@ -337,12 +343,6 @@ var actionKw = [
 [["_&setAimSpeed"], [
 	"setAimSpeed",
 ]],
-[["_&setCamera"], [
-	"startCamera",
-]],
-[["_&startFacing"], [
-	"startFacing",
-]],
 [["_&setDamageDealt"], [
 	"setDamageDealt",
 ]],
@@ -351,9 +351,6 @@ var actionKw = [
 ]],
 [["_&setFacing"], [
 	"setFacing",
-]],
-[["_&setInvisibility"], [
-	"setInvisible",
 ]],
 [["_setGlobalVar"], [
 	"setGlobalVariable",
@@ -367,6 +364,12 @@ var actionKw = [
 [["_&setHealingDealt"], [
 	"setHealingDealt",
 ]],
+[["_&setHealingReceived"], [
+	"setHealingReceived",
+]],
+[["_&setInvisibility"], [
+	"setInvisible",
+]],
 [["setMatchTime"], [
 	"setMatchTime",
 ]],
@@ -375,6 +378,9 @@ var actionKw = [
 ]],
 [["_&setMoveSpeed"], [
 	"setMoveSpeed",
+]],
+[["setObjectiveDescription"], [
+	"setObjectiveDescription",
 ]],
 [["_&setAllowedHeroes"], [
 	"setPlayerAllowedHeroes",
@@ -412,11 +418,11 @@ var actionKw = [
 [["setTeamScore"], [
 	"setTeamScore",
 ]],
-[["_&setUltCharge"], [
-	"setUltimateCharge",
-]],
 [["_&setUltEnabled"], [
 	"setUltimateAbilityEnabled",
+]],
+[["_&setUltCharge"], [
+	"setUltimateCharge",
 ]],
 [["_skip"], [
 	"skip",
@@ -430,14 +436,23 @@ var actionKw = [
 [["_&startAcceleration"], [
 	"startAccelerating",
 ]],
+[["_&setCamera"], [
+	"startCamera",
+]],
 [["startDamageModification"], [
 	"startDamageModification",
 ]],
 [["_&startDoT"], [
 	"startDamageOverTime",
 ]],
+[["_&startFacing"], [
+	"startFacing",
+]],
 [["_&startForcingHero"], [
 	"startForcingPlayerToBeHero",
+]],
+[["startForcingSpawn"], [
+	"startForcingSpawnRoom",
 ]],
 [["_&startForcingThrottle"], [
 	"startForcingThrottle",
@@ -469,6 +484,9 @@ var actionKw = [
 [["_stopChasingPlayerVariable"], [
 	"stopChasingPlayerVariable",
 ]],
+[["stopDamageModification"], [
+	"stopDamageModification",
+]],
 [["stopDoT"], [
 	"stopDamageOverTime",
 ]],
@@ -478,14 +496,17 @@ var actionKw = [
 [["_&stopForcingCurrentHero"], [
 	"stopForcingPlayerToBeHero",
 ]],
+[["stopForcingSpawn"], [
+	"stopForcingSpawnRoom",
+]],
 [["_&stopForcingThrottle"], [
 	"stopForcingThrottle",
 ]],
-[["_&stopForcingButton"], [
-	"stopHoldingButton",
-]],
 [["stopHoT"], [
 	"stopHealOverTime",
+]],
+[["_&stopForcingButton"], [
+	"stopHoldingButton",
 ]],
 [["_&teleport"], [
 	"teleport",
@@ -508,41 +529,47 @@ var valueFuncKw = [
 [["_add"], [
 	"add",
 ]],
-[["_and"], [
-	"and",
+[["getDeadPlayers"], [
+	"allDeadPlayers",
 ]],
 [["getAllHeroes()"], [
 	"allHeroes",
 ]],
+[["getLivingPlayers"], [
+	"allLivingPlayers",
+]],
 [["_&getAllowedHeroes"], [
 	"allowedHeroes",
+]],
+[["getPlayers"], [
+	"allPlayers",
+]],
+[["getPlayersNotOnObjective"], [
+	"allPlayersNotOnObjective",
+]],
+[["getPlayersOnObjective"], [
+	"allPlayersOnObjective",
 ]],
 [["_&getAltitude"], [
 	"altitudeOf",
 ]],
-[["_appendToArray"], [
-	"appendToArray",
+[["_and"], [
+	"and",
 ]],
 [["angleDifference"], [
 	"angleDifference",
 ]],
-[["attacker"], [
-	"attacker",
-]],
-[["getAllDeadPlayers"], [
-	"allDeadPlayers",
-]],
-[["getAllLivingPlayers"], [
-	"allLivingPlayers",
-]],
-[["getAllPlayers"], [
-	"allPlayers",
+[["_appendToArray"], [
+	"appendToArray",
 ]],
 [["_arrayContains"], [
 	"arrayContains",
 ]],
 [["_arraySlice"], [
 	"arraySlice",
+]],
+[["attacker"], [
+	"attacker",
 ]],
 [["Vector.BACKWARD"], [
 	"backward",
@@ -553,14 +580,23 @@ var valueFuncKw = [
 [["_compare"], [
 	"compare",
 ]],
-[["cos"], [
-	"cosineFromRadians",
+[["getControlScorePercentage"], [
+	"controlModeScoringPercentage",
+]],
+[["getControlScoringTeam"], [
+	"controlModeScoringTeam",
 ]],
 [["cosDeg"], [
 	"cosineFromDegrees",
 ]],
+[["cos"], [
+	"cosineFromRadians",
+]],
 [["len"], [
 	"countOf",
+]],
+[["crossProduct"], [
+	"crossProduct",
 ]],
 [["_currentArrayElement"], [
 	"currentArrayElement",
@@ -604,11 +640,17 @@ var valueFuncKw = [
 [["_&getFacingDirection"], [
 	"facingDirectionOf",
 ]],
+[["getFarthestPlayer"], [
+	"farthestPlayerFrom",
+]],
 [["_filteredArray"], [
 	"filteredArray",
 ]],
 [["_firstOf"], [
 	"firstOf",
+]],
+[["getFlagPosition"], [
+	"flagPosition",
 ]],
 [["Vector.FORWARD"], [
 	"forward",
@@ -625,6 +667,9 @@ var valueFuncKw = [
 [["_&getHealth"], [
 	"health",
 ]],
+[["_&getHealthPercent"], [
+	"healthPercent",
+]],
 [["_hero"], [
 	"hero",
 ]],
@@ -634,12 +679,6 @@ var valueFuncKw = [
 [["_&getCurrentHero"], [
 	"heroOf",
 ]],
-[["horizontalAngleOfDirection"], [
-	"horizontalAngleFromDirection",
-]],
-[["_&getNbDeaths"], [
-	"numberOfDeaths",
-]],
 [["horizontalAngleFromDirection"], [
 	"horizontalAngleFromDirection",
 ]],
@@ -647,7 +686,7 @@ var valueFuncKw = [
 	"horizontalAngleTowards",
 ]],
 [["_&getHorizontalFacingAngle"], [
-	"HorizontalFacingAngleOf",
+	"horizontalFacingAngleOf",
 ]],
 [["_&getHorizontalSpeed"], [
 	"horizontalSpeedOf",
@@ -679,8 +718,14 @@ var valueFuncKw = [
 [["_&isCommunicatingVoiceline"], [
 	"isCommunicatingAnyVoiceline",
 ]],
+[["isControlPointLocked()"], [
+	"isControlModePointLocked",
+]],
 [["_&isCrouching"], [
 	"isCrouching",
+]],
+[["isInSuddenDeath()"], [
+	"isCtfModeInSuddenDeath",
 ]],
 [["_&isDead"], [
 	"isDead",
@@ -690,6 +735,15 @@ var valueFuncKw = [
 ]],
 [["_&isFiringSecondaryFire"], [
 	"isFiringSecondary",
+]],
+[["isFlagAtBase"], [
+	"isFlagAtBase",
+]],
+[["isFlagBeingCarried"], [
+	"isFlagBeingCarried",
+]],
+[["isGameInProgress()"], [
+	"isGameInProgress",
 ]],
 [["_!teamHasHero"], [
 	"isHeroBeingPlayed",
@@ -703,9 +757,6 @@ var valueFuncKw = [
 [["isInSetup()"], [
 	"isInSetup",
 ]],
-[["isInSuddenDeath()"], [
-	"isCtfModeInSuddenDeath",
-]],
 [["_&isInSpawnRoom"], [
 	"isInSpawnRoom",
 ]],
@@ -718,11 +769,35 @@ var valueFuncKw = [
 [["_&isMoving"], [
 	"isMoving",
 ]],
+[["isObjectiveComplete"], [
+	"isObjectiveComplete",
+]],
 [["_&isOnGround"], [
 	"isOnGround",
 ]],
+[["_&isOnObjective"], [
+	"isOnObjective",
+]],
 [["_&isOnWall"], [
 	"isOnWall",
+]],
+[["_&isOnFire"], [
+	"isPortraitOnFire",
+]],
+[["_&isStanding"], [
+	"isStanding",
+]],
+[["isTeamOnDefense"], [
+	"isTeamOnDefense",
+]],
+[["isTeamOnOffense"], [
+	"isTeamOnOffense",
+]],
+[["_all"], [
+	"isTrueForAll",
+]],
+[["_any"], [
+	"isTrueForAny",
 ]],
 [["_&isUsingAbility1"], [
 	"isUsingAbility1",
@@ -733,32 +808,35 @@ var valueFuncKw = [
 [["_&isUsingUltimate"], [
 	"isUsingUltimate",
 ]],
-[["isGameInProgress()"], [
-	"isGameInProgress",
-]],
-[["_all"], [
-	"isTrueForAll",
-]],
-[["_any"], [
-	"isTrueForAny",
+[["isWaitingForPlayers()"], [
+	"isWaitingForPlayers",
 ]],
 [["getLastCreatedEntity()"], [
 	"lastCreatedEntity",
 ]],
+[["getLastDamageModification()"], [
+	"lastDamageModificationId",
+]],
 [["getLastDoT()"], [
 	"lastDamageOverTimeId",
 ]],
-[["getLastCreatedText()"], [
-	"lastTextId",
+[["getLastHoT()"], [
+	"lastHealOverTimeId",
 ]],
 [["_lastOf"], [
 	"lastOf",
+]],
+[["getLastCreatedText()"], [
+	"lastTextId",
 ]],
 [["Vector.LEFT"], [
 	"left",
 ]],
 [["localVector"], [
 	"localVectorOf",
+]],
+[["getMatchRound()"], [
+	"matchRound",
 ]],
 [["getMatchTime()"], [
 	"matchTime",
@@ -790,14 +868,29 @@ var valueFuncKw = [
 [["getNumberOfDeadPlayers"], [
 	"numberOfDeadPlayers",
 ]],
-[["getNumberOfLivingPlayers"], [
-	"numberOfLivingPlayers",
+[["_&getNumberOfDeaths"], [
+	"numberOfDeaths",
+]],
+[["_&getNumberOfElims"], [
+	"numberOfEliminations",
+]],
+[["_&getNumberOfFinalBlows"], [
+	"numberOfFinalBlows",
 ]],
 [["_!getNumberOfHeroes"], [
 	"numberOfHeroes",
 ]],
+[["getNumberOfLivingPlayers"], [
+	"numberOfLivingPlayers",
+]],
 [["getNumberOfPlayers"], [
 	"numberOfPlayers",
+]],
+[["getNumberOfPlayersOnObjective"], [
+	"numberOfPlayersOnObjective",
+]],
+[["getCurrentObjective"], [
+	"objectiveIndex",
 ]],
 [["getObjectivePosition"], [
 	"objectivePosition",
@@ -808,11 +901,17 @@ var valueFuncKw = [
 [["_or"], [
 	"or",
 ]],
+[["getPayloadPosition"], [
+	"payloadPosition",
+]],
+[["getPayloadProgressPercentage"], [
+	"payloadProgressPercentage",
+]],
+[["getFlagCarrier"], [
+	"playerCarryingFlag",
+]],
 [["_&getPlayerClosestToReticle"], [
 	"playerClosestToReticle",
-]],
-[["_playerVar"], [
-	"playerVariable",
 ]],
 [["getPlayersInSlot"], [
 	"playersInSlot",
@@ -825,6 +924,12 @@ var valueFuncKw = [
 ]],
 [["getPlayersInRadius"], [
 	"playersWithinRadius",
+]],
+[["_playerVar"], [
+	"playerVariable",
+]],
+[["getCapturePercentage"], [
+	"pointCapturePercentage",
 ]],
 [["_&getPosition"], [
 	"positionOf",
@@ -880,6 +985,9 @@ var valueFuncKw = [
 [["_&getSpeed"], [
 	"speedOf",
 ]],
+[["_&getSpeedInDirection"], [
+	"speedOfInDirection",
+]],
 [["sqrt"], [
 	"squareRoot",
 ]],
@@ -910,11 +1018,11 @@ var valueFuncKw = [
 [["_valueInArray"], [
 	"valueInArray",
 ]],
-[["vectorTowards"], [
-	"vectorTowards",
-]],
 [["vect"], [
 	"vector",
+]],
+[["vectorTowards"], [
+	"vectorTowards",
 ]],
 [["_&getVelocity"], [
 	"velocityOf",
