@@ -1,4 +1,4 @@
-# overpy
+# OverPy
 High-level language for the Overwatch Workshop with support for compilation and decompilation.
 
 The philosophy behind this language is "what would the workshop be like if it was coded in Python?" As such, this language aims to be as Python-like as reasonably possible.
