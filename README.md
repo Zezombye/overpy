@@ -11,7 +11,7 @@ If someone posts workshop code, the bot will reply with the decompiled version (
 
 # Demo page
 
-![owo](https://i.imgur.com/zCP6TYF.png)
+![owo](https://i.imgur.com/MGru5kS.png)
 
 To access the demo page, simply clone the repository (or download the zip) then open demo.html with your browser.
 
