@@ -546,7 +546,8 @@ function error(str, token) {
 		currentColNb = token.colNb;
 	}
 	
-	var error = "ERROR: ";
+	//var error = "ERROR: ";
+	var error = "";
 	if (currentLineNb !== undefined && currentLineNb > 0) {
 		error += "line "+currentLineNb+", col "+currentColNb+": ";
 	}
