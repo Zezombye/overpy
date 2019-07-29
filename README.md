@@ -11,7 +11,7 @@ If someone posts workshop code, the bot will reply with the decompiled version (
 
 # Demo page
 
-[Try it out here](https://ayykamp.github.io/overpy/demo)
+[Try it out here!](https://zezombye.github.io/overpy/demo)
 
 ![owo](https://i.imgur.com/MGru5kS.png)
 
