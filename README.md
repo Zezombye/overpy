@@ -40,7 +40,7 @@ The syntax is Python, except:
 Rule metadata (name of the rule and event) is defined with annotations:
 
 - `@Rule "name of the rule"`: the title of the rule.
-- `@Event global`: the event of the rule (here "global"). Events can be: global, eachPlayer, playerTookDamage, playerDealtDamage, playerDealtFinalBlow, playerDied, playerEarnedElimination.
+- `@Event global`: the event of the rule (here "global"). Events can be: global, eachPlayer, playerTookDamage, playerDealtDamage, playerDealtFinalBlow, playerDied, playerEarnedElimination, playerDealtHealing, playerReceivedHealing, playerJoined, playerLeft.
 - `@Team all`: the team targeted by this rule (can be omitted). Valid values are: all, 1, 2
 - `@Slot 11`: the slots targeted by this rule (can be omitted). Valid values are 0-11.
 - `@Hero widowmaker`: the heroes targeted by this rule (can be omitted).
