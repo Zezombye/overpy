@@ -74,6 +74,12 @@ var normalStrKw = [
 [["Ally"], [
     "Ally",
 ]],
+[["Ammunition"], [
+    "Ammunition",
+]],
+[["Angle"], [
+    "Angle",
+]],
 [["Attack"], [
     "Attack",
 ]],
@@ -121,6 +127,30 @@ var normalStrKw = [
 ]],
 [["Better"], [
     "Better",
+]],
+[["Bid"], [
+    "Bid",
+]],
+[["Bids"], [
+    "Bids",
+]],
+[["Block"], [
+    "Block",
+]],
+[["Blocked"], [
+    "Blocked",
+]],
+[["Blocking"], [
+    "Blocking",
+]],
+[["Blue"], [
+    "Blue",
+]],
+[["Bonus"], [
+    "Bonus",
+]],
+[["Bonuses"], [
+    "Bonuses",
 ]],
 [["Boss"], [
     "Boss",
@@ -173,6 +203,9 @@ var normalStrKw = [
 [["Challenge Accepted"], [
     "Challenge Accepted",
 ]],
+[["Charisma"], [
+    "Charisma",
+]],
 [["Chase"], [
     "Chase",
 ]],
@@ -194,6 +227,15 @@ var normalStrKw = [
 [["Clouds"], [
     "Clouds",
 ]],
+[["Club"], [
+    "Club",
+]],
+[["Clubs"], [
+    "Clubs",
+]],
+[["Combo"], [
+    "Combo",
+]],
 [["Come Here"], [
     "Come Here",
 ]],
@@ -211,6 +253,9 @@ var normalStrKw = [
 ]],
 [["Connecting"], [
     "Connecting",
+]],
+[["Constitution"], [
+    "Constitution",
 ]],
 [["Control Point"], [
     "Control Point",
@@ -341,6 +386,21 @@ var normalStrKw = [
 [["Dead"], [
     "Dead",
 ]],
+[["Deal"], [
+    "Deal",
+]],
+[["Dealing"], [
+    "Dealing",
+]],
+[["Dealt"], [
+    "Dealt",
+]],
+[["Deck"], [
+    "Deck",
+]],
+[["Decks"], [
+    "Decks",
+]],
 [["Defeat"], [
     "Defeat",
 ]],
@@ -353,6 +413,9 @@ var normalStrKw = [
 [["Defending"], [
     "Defending",
 ]],
+[["Defence"], [
+    "Defence",
+]],
 [["Deliver"], [
     "Deliver",
 ]],
@@ -361,6 +424,9 @@ var normalStrKw = [
 ]],
 [["Delivering"], [
     "Delivering",
+]],
+[["Depth"], [
+    "Depth",
 ]],
 [["Destabilize"], [
     "Destabilize",
@@ -380,8 +446,35 @@ var normalStrKw = [
 [["Destroying"], [
     "Destroying",
 ]],
+[["Detect"], [
+    "Detect",
+]],
+[["Detected"], [
+    "Detected",
+]],
+[["Detecting"], [
+    "Detecting",
+]],
+[["Dexterity"], [
+    "Dexterity",
+]],
+[["Diamond"], [
+    "Diamond",
+]],
+[["Diamonds"], [
+    "Diamonds",
+]],
 [["Die"], [
     "Die",
+]],
+[["Discard"], [
+    "Discard",
+]],
+[["Discarded"], [
+    "Discarded",
+]],
+[["Discarding"], [
+    "Discarding",
 ]],
 [["Disconnect"], [
     "Disconnect",
@@ -427,6 +520,12 @@ var normalStrKw = [
 ]],
 [["Draw"], [
     "Draw",
+]],
+[["Drawing"], [
+    "Drawing",
+]],
+[["Drawn"], [
+    "Drawn",
 ]],
 [["Drop"], [
     "Drop",
@@ -482,8 +581,20 @@ var normalStrKw = [
 [["Exit"], [
     "Exit",
 ]],
+[["Experience"], [
+    "Experience",
+]],
 [["Extreme"], [
     "Extreme",
+]],
+[["Face"], [
+    "Face",
+]],
+[["Faces"], [
+    "Faces",
+]],
+[["Facing"], [
+    "Facing",
 ]],
 [["Failed"], [
     "Failed",
@@ -626,6 +737,15 @@ var normalStrKw = [
 [["Flying"], [
     "Flying",
 ]],
+[["Fold"], [
+    "Fold",
+]],
+[["Folded"], [
+    "Folded",
+]],
+[["Folding"], [
+    "Folding",
+]],
 [["Form"], [
     "Form",
 ]],
@@ -683,6 +803,9 @@ var normalStrKw = [
 [["Goodbye"], [
     "Goodbye",
 ]],
+[["Green"], [
+    "Green",
+]],
 [["Guilty"], [
     "Guilty",
 ]],
@@ -694,6 +817,12 @@ var normalStrKw = [
 ]],
 [["Hacking"], [
     "Hacking",
+]],
+[["Hand"], [
+    "Hand",
+]],
+[["Hands"], [
+    "Hands",
 ]],
 [["Heal"], [
     "Heal",
@@ -709,6 +838,15 @@ var normalStrKw = [
 ]],
 [["Healing"], [
     "Healing",
+]],
+[["Heart"], [
+    "Heart",
+]],
+[["Hearts"], [
+    "Hearts",
+]],
+[["Height"], [
+    "Height",
 ]],
 [["Hello"], [
     "Hello",
@@ -739,6 +877,12 @@ var normalStrKw = [
 ]],
 [["High Scores"], [
     "High Scores",
+]],
+[["Hit"], [
+    "Hit",
+]],
+[["Hitting"], [
+    "Hitting",
 ]],
 [["Hmmm"], [
     "Hmmm",
@@ -775,6 +919,9 @@ var normalStrKw = [
 ]],
 [["In View"], [
     "In View",
+]],
+[["Income"], [
+    "Income",
 ]],
 [["Incoming"], [
     "Incoming",
@@ -857,6 +1004,12 @@ var normalStrKw = [
 [["Inside"], [
     "Inside",
 ]],
+[["Intelligence"], [
+    "Intelligence",
+]],
+[["Interact"], [
+    "Interact",
+]],
 [["Invisible"], [
     "Invisible",
 ]],
@@ -890,6 +1043,9 @@ var normalStrKw = [
 [["Killstreak"], [
     "Killstreak",
 ]],
+[["Killstreak"], [
+    "Killstreak",
+]],
 [["Killstreaks"], [
     "Killstreaks",
 ]],
@@ -911,6 +1067,12 @@ var normalStrKw = [
 [["Level"], [
     "Level",
 ]],
+[["Level Down"], [
+    "Level Down",
+]],
+[["Level Up"], [
+    "Level Up",
+]],
 [["Levels"], [
     "Levels",
 ]],
@@ -931,6 +1093,9 @@ var normalStrKw = [
 ]],
 [["Loading"], [
     "Loading",
+]],
+[["Location"], [
+    "Location",
 ]],
 [["Lock"], [
     "Lock",
@@ -965,9 +1130,6 @@ var normalStrKw = [
 [["Mission"], [
     "Mission",
 ]],
-[["Mission"], [
-    "Mission",
-]],
 [["Mission Aborted"], [
     "Mission Aborted",
 ]],
@@ -985,6 +1147,12 @@ var normalStrKw = [
 ]],
 [["Money"], [
     "Money",
+]],
+[["Monster"], [
+    "Monster",
+]],
+[["Monsters"], [
+    "Monsters",
 ]],
 [["More"], [
     "More",
@@ -1166,6 +1334,12 @@ var normalStrKw = [
 [["Overtime"], [
     "Overtime",
 ]],
+[["Participant"], [
+    "Participant",
+]],
+[["Participants"], [
+    "Participants",
+]],
 [["Payload"], [
     "Payload",
 ]],
@@ -1187,8 +1361,17 @@ var normalStrKw = [
 [["Picking"], [
     "Picking",
 ]],
-[["Player"], [
-    "Player",
+[["Pile"], [
+    "Pile",
+]],
+[["Piles"], [
+    "Piles",
+]],
+[["Play"], [
+    "Play",
+]],
+[["Played"], [
+    "Played",
 ]],
 [["Player"], [
     "Player",
@@ -1196,8 +1379,8 @@ var normalStrKw = [
 [["Players"], [
     "Players",
 ]],
-[["Players"], [
-    "Players",
+[["Playing"], [
+    "Playing",
 ]],
 [["Point"], [
     "Point",
@@ -1211,6 +1394,12 @@ var normalStrKw = [
 [["Points Lost"], [
     "Points Lost",
 ]],
+[["Position"], [
+    "Position",
+]],
+[["Power"], [
+    "Power",
+]],
 [["Power-Up"], [
     "Power-Up",
 ]],
@@ -1219,6 +1408,15 @@ var normalStrKw = [
 ]],
 [["Price"], [
     "Price",
+]],
+[["Primary Fire"], [
+    "Primary Fire",
+]],
+[["Projectile"], [
+    "Projectile",
+]],
+[["Projectiles"], [
+    "Projectiles",
 ]],
 [["Protect"], [
     "Protect",
@@ -1237,6 +1435,9 @@ var normalStrKw = [
 ]],
 [["Purifying"], [
     "Purifying",
+]],
+[["Purple"], [
+    "Purple",
 ]],
 [["Raise"], [
     "Raise",
@@ -1268,8 +1469,17 @@ var normalStrKw = [
 [["Rank F"], [
     "Rank F",
 ]],
-[["Rank G"], [
-    "Rank G",
+[["Rank S"], [
+    "Rank S",
+]],
+[["Reach"], [
+    "Reach",
+]],
+[["Reached"], [
+    "Reached",
+]],
+[["Reaching"], [
+    "Reaching",
 ]],
 [["Ready"], [
     "Ready",
@@ -1289,6 +1499,9 @@ var normalStrKw = [
 [["Recovering"], [
     "Recovering",
 ]],
+[["Red"], [
+    "Red",
+]],
 [["Remain"], [
     "Remain",
 ]],
@@ -1303,6 +1516,12 @@ var normalStrKw = [
 ]],
 [["Rescuing"], [
     "Rescuing",
+]],
+[["Resource"], [
+    "Resource",
+]],
+[["Resources"], [
+    "Resources",
 ]],
 [["Resurrect"], [
     "Resurrect",
@@ -1361,6 +1580,9 @@ var normalStrKw = [
 [["Scores"], [
     "Scores",
 ]],
+[["Secondary Fire"], [
+    "Secondary Fire",
+]],
 [["Secure"], [
     "Secure",
 ]],
@@ -1370,11 +1592,29 @@ var normalStrKw = [
 [["Securing"], [
     "Securing",
 ]],
+[["Select"], [
+    "Select",
+]],
+[["Selected"], [
+    "Selected",
+]],
+[["Selecting"], [
+    "Selecting",
+]],
 [["Sell"], [
     "Sell",
 ]],
 [["Selling"], [
     "Selling",
+]],
+[["Server Load"], [
+    "Server Load",
+]],
+[["Server Load Average"], [
+    "Server Load Average",
+]],
+[["Server Load Peak"], [
+    "Server Load Peak",
 ]],
 [["Sever"], [
     "Sever",
@@ -1388,11 +1628,32 @@ var normalStrKw = [
 [["Severing"], [
     "Severing",
 ]],
+[["Shop"], [
+    "Shop",
+]],
+[["Shops"], [
+    "Shops",
+]],
+[["Shuffle"], [
+    "Shuffle",
+]],
+[["Shuffled"], [
+    "Shuffled",
+]],
 [["Sink"], [
     "Sink",
 ]],
 [["Sinking"], [
     "Sinking",
+]],
+[["Skip"], [
+    "Skip",
+]],
+[["Skipped"], [
+    "Skipped",
+]],
+[["Skipping"], [
+    "Skipping",
 ]],
 [["Sleep"], [
     "Sleep",
@@ -1427,6 +1688,12 @@ var normalStrKw = [
 [["Southwest"], [
     "Southwest",
 ]],
+[["Spade"], [
+    "Spade",
+]],
+[["Spades"], [
+    "Spades",
+]],
 [["Sparkles"], [
     "Sparkles",
 ]],
@@ -1438,6 +1705,12 @@ var normalStrKw = [
 ]],
 [["Spawning"], [
     "Spawning",
+]],
+[["Speed"], [
+    "Speed",
+]],
+[["Speeds"], [
+    "Speeds",
 ]],
 [["Sphere"], [
     "Sphere",
@@ -1475,8 +1748,17 @@ var normalStrKw = [
 [["Status"], [
     "Status",
 ]],
+[["Stay"], [
+    "Stay",
+]],
 [["Stay Away"], [
     "Stay Away",
+]],
+[["Stayed"], [
+    "Stayed",
+]],
+[["Staying"], [
+    "Staying",
 ]],
 [["Stop"], [
     "Stop",
@@ -1486,6 +1768,9 @@ var normalStrKw = [
 ]],
 [["Stopping"], [
     "Stopping",
+]],
+[["Strength"], [
+    "Strength",
 ]],
 [["Stun"], [
     "Stun",
@@ -1691,11 +1976,20 @@ var normalStrKw = [
 [["Warning"], [
     "Warning",
 ]],
+[["Welcome"], [
+    "Welcome",
+]],
 [["Well Played"], [
     "Well Played",
 ]],
 [["West"], [
     "West",
+]],
+[["White"], [
+    "White",
+]],
+[["Wild"], [
+    "Wild",
 ]],
 [["Win"], [
     "Win",
@@ -1709,11 +2003,20 @@ var normalStrKw = [
 [["Wins"], [
     "Wins",
 ]],
+[["Wisdom"], [
+    "Wisdom",
+]],
 [["Worse"], [
     "Worse",
 ]],
+[["Worst"], [
+    "Worst",
+]],
 [["Wow"], [
     "Wow",
+]],
+[["Yellow"], [
+    "Yellow",
 ]],
 [["Yes"], [
     "Yes",
