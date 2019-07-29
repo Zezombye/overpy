@@ -11,6 +11,8 @@ If someone posts workshop code, the bot will reply with the decompiled version (
 
 # Demo page
 
+[Try it out here](https://ayykamp.github.io/overpy/demo)
+
 ![owo](https://i.imgur.com/MGru5kS.png)
 
 To access the demo page, simply clone the repository (or download the zip) then open demo.html with your browser.
