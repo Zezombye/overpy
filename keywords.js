@@ -84,6 +84,18 @@ var eventKw = [
 [["playerEarnedElimination"], [
 	"playerEarnedElimination",
 ]],
+[["playerDealtHealing"], [
+	"playerDealtHealing",
+]],
+[["playerReceivedHealing"], [
+	"playerReceivedHealing",
+]],
+[["playerJoined"], [
+	"playerJoinedMatch",
+]],
+[["playerLeft"], [
+	"playerLeftMatch",
+]],
 //Team All
 [["all"], [
 	"all",
@@ -463,6 +475,9 @@ var actionKw = [
 [["_&startForcingButton"], [
 	"startHoldingButton",
 ]],
+[["_&startTransformingThrottle"], [
+	"startTransformingThrottle",
+]],
 [["_&stopAcceleration"], [
 	"stopAccelerating",
 ]],
@@ -507,6 +522,9 @@ var actionKw = [
 ]],
 [["_&stopForcingButton"], [
 	"stopHoldingButton",
+]],
+[["_&stopTransformingThrottle"], [
+	"stopTransformingThrottle",
 ]],
 [["_&teleport"], [
 	"teleport",
@@ -628,6 +646,9 @@ var valueFuncKw = [
 [["eventDamage"], [
 	"eventDamage",
 ]],
+[["eventHealing"], [
+	"eventHealing",
+]],
 [["eventPlayer"], [
 	"eventPlayer",
 ]],
@@ -664,11 +685,17 @@ var valueFuncKw = [
 [["_&hasStatusEffect"], [
 	"hasStatus",
 ]],
+[["healee"], [
+	"healee",
+]],
+[["healer"], [
+	"healer",
+]],
 [["_&getHealth"], [
 	"health",
 ]],
-[["_&getHealthPercent"], [
-	"healthPercent",
+[["_&getNormalizedHealth"], [
+	"normalizedHealth",
 ]],
 [["_hero"], [
 	"hero",
@@ -678,6 +705,9 @@ var valueFuncKw = [
 ]],
 [["_&getCurrentHero"], [
 	"heroOf",
+]],
+[["hostPlayer"], [
+	"hostPlayer",
 ]],
 [["horizontalAngleFromDirection"], [
 	"horizontalAngleFromDirection",
@@ -969,6 +999,15 @@ var valueFuncKw = [
 ]],
 [["_&getScore"], [
 	"scoreOf",
+]],
+[["getServerLoad()"], [
+	"serverLoad",
+]],
+[["getAverageServerLoad()"], [
+	"serverLoadAverage",
+]],
+[["getPeakServerLoad()"], [
+	"serverLoadPeak",
 ]],
 [["sinDeg"], [
 	"sineFromDegrees",
