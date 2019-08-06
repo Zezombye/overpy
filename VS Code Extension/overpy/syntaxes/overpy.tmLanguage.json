@@ -1,0 +1,104 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "OverPy",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},{
+			"include": "#strings"
+		},{
+			"include": "#comments"
+		},{
+			"include": "#string-comments-quotes"
+		},{
+			"include": "#string-comments-apos"
+		},{
+			"include": "#macros"
+		},{
+			"include": "#invalid"
+		},{
+			"include": "#enums"
+		},{
+			"include": "#classes"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.overpy",
+					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda)\\b"
+				},{
+					"name": "keyword.other.overpy",
+					"match": "\\b(and|or|not|in)\\b|((\\+|\\-|\\*\\*|\\/|\\%|\\*|<|>)=?)|(\\=)|\\.|((min|max|\\!)\\=)"
+				},{
+					"name": "variable.parameter",
+					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|healee|healer|hostPlayer|loc|RULE_CONDITION)\\b"
+				},{
+					"name": "constant.numeric",
+					"match": "\\@(Rule|Event|Slot|Hero)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.overpy",
+			"begin": "\"(?!\"\")",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.overpy",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign",
+					"match": "#[^!].*$"
+				}
+			]
+		},
+		"macros": {
+			"name": "support.class",
+			"begin": "#!define",
+			"end": "(?<!\\\\)\\n"
+			
+		},
+		"string-comments-apos": {
+			"begin": "'''",
+			"end": "'''",
+			"name": "comment.block"
+		},
+		"string-comments-quotes": {
+			"begin": "\"\"\"",
+			"end": "\"\"\"",
+			"name": "comment.block"
+		},
+		"invalid": {
+			"patterns": [
+				{
+					"name": "invalid.illegal",
+					"match": "\\b(False|True|None)\\b"
+				}
+			]
+		},
+		"enums": {
+			"patterns": [
+				{
+					"name": "variable.other",
+					"match": "\\b[A-Z_]+\\b"
+				}
+			]
+		},
+		"classes": {
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\b[A-Z][a-z_]+\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.opy"
+}
