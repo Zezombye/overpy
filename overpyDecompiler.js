@@ -694,11 +694,25 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		return decompileModifyVar(decompile(args[0], globalVarKw), args[1], decompile(args[2]));
 	}
 	
+	//Modify global var at index
+	if (name === "_modifyGlobalVarAtIndex") {
+		return decompileModifyVar(decompile(args[0], globalVarKw), args[2], decompile(args[3]), decompile(args[1]));
+	}
+	
 	//Modify player var
 	if (name === "_modifyPlayerVar") {
 		
 		var playerVarName = getPlayerVarName(args[0]);
 		var result = decompileModifyVar(playerVarName+"."+decompile(args[1], playerVarKw), args[2], decompile(args[3]))
+		
+		return decompilePlayerFunction(result, args[0], []);
+	}
+	
+	//Modify player var at index
+	if (name === "_modifyPlayerVarAtIndex") {
+		
+		var playerVarName = getPlayerVarName(args[0]);
+		var result = decompileModifyVar(playerVarName+"."+decompile(args[1], playerVarKw), args[3], decompile(args[4]), decompile(args[2]))
 		
 		return decompilePlayerFunction(result, args[0], []);
 	}
@@ -1053,7 +1067,10 @@ function decompilePlayerFunction(content, player, args, separateArgs=false, isAc
 
 //Function used for "modify player variable" and "modify global variable".
 //Note: arguments passed to this function must already be decompiled.
-function decompileModifyVar(variable, operation, value) {
+function decompileModifyVar(variable, operation, value, index) {
+	if (index !== undefined) {
+		variable += "["+index+"]";
+	}
 	operation = topy(operation, operationKw);
 	if (operation === "_appendToArray") {
 		return variable+".append("+value+")";

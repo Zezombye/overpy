@@ -694,9 +694,6 @@ var valueFuncKw = [
 [["_&getHealth"], [
 	"health",
 ]],
-[["_&getNormalizedHealth"], [
-	"normalizedHealth",
-]],
 [["_hero"], [
 	"hero",
 ]],
@@ -705,9 +702,6 @@ var valueFuncKw = [
 ]],
 [["_&getCurrentHero"], [
 	"heroOf",
-]],
-[["hostPlayer"], [
-	"hostPlayer",
 ]],
 [["horizontalAngleFromDirection"], [
 	"horizontalAngleFromDirection",
@@ -720,6 +714,9 @@ var valueFuncKw = [
 ]],
 [["_&getHorizontalSpeed"], [
 	"horizontalSpeedOf",
+]],
+[["hostPlayer"], [
+	"hostPlayer",
 ]],
 [["_indexOfArrayValue"], [
 	"indexOfArrayValue",
@@ -891,6 +888,9 @@ var valueFuncKw = [
 ]],
 [["normalize"], [
 	"normalize",
+]],
+[["_&getNormalizedHealth"], [
+	"normalizedHealth",
 ]],
 [["not"], [
 	"not",
@@ -1157,6 +1157,9 @@ var heroKw = [
 ]],
 [["Hero.ROADHOG"], [
     "roadhog",
+]],
+[["Hero.SIGMA"], [
+    "sigma",
 ]],
 [["Hero.SOLDIER"], [
     "soldier:76",
