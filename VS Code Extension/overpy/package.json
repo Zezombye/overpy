@@ -6,6 +6,10 @@
     "engines": {
         "vscode": "^1.36.0"
     },
+	"main": "./extension.js",
+	"activationEvents": [
+		"onLanguage:overpy"
+	],
     "categories": [
         "Programming Languages"
     ],
