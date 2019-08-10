@@ -3,7 +3,11 @@
 	"name": "OverPy",
 	"patterns": [
 		{
+			"include": "#numbers"
+		},{
 			"include": "#keywords"
+		},{
+			"include": "#labels"
 		},{
 			"include": "#strings"
 		},{
@@ -22,21 +26,55 @@
 			"include": "#classes"
 		}
 	],
+
+	"//":"Note: two more colors are possible with 'unused function name' and 'unused variable name'.",
+
 	"repository": {
 		"keywords": {
 			"patterns": [
 				{
 					"name": "keyword.control.overpy",
-					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda)\\b"
+					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|del)\\b"
 				},{
 					"name": "keyword.other.overpy",
 					"match": "\\b(and|or|not|in)\\b|((\\+|\\-|\\*\\*|\\/|\\%|\\*|<|>)=?)|(\\=)|\\.|((min|max|\\!)\\=)"
 				},{
-					"name": "variable.parameter",
-					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|healee|healer|hostPlayer|loc|RULE_CONDITION)\\b"
+					"name": "variable.other",
+					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|healee|healer|hostPlayer|loc|RULE_CONDITION|[A-Z])\\b"
 				},{
 					"name": "constant.numeric",
-					"match": "\\@(Rule|Event|Slot|Hero)\\b"
+					"match": "\\@(Rule|Event|Team|Slot|Hero)\\b"
+				},{
+					"name": "entity.name.function",
+					"match": "(?<=\\@Event )(global|eachPlayer|playerTookDamage|playerDealtDamage|playerDealtFinalBlow|playerDied|playerEarnedElimination|playerDealtHealing|playerReceivedHealing|playerJoined|playerLeft)\\b"
+				},{
+					"name": "entity.name.function",
+					"match": "(?<=\\@Team )(all|1|2)\\b"
+				},{
+					"name": "entity.name.function",
+					"match": "(?<=\\@Slot )(\\d|10|11)\\b"
+				},{
+					"name": "entity.name.function",
+					"match": "(?<=\\@Hero )(ana|ashe|baptiste|bastion|brigitte|dva|doomfist|genji|hanzo|junkrat|lucio|mccree|mei|mercy|moira|orisa|pharah|reaper|reinhardt|roadhog|sigma|soldier|sombra|symmetra|torbjorn|tracer|widowmaker|winston|hammond|zarya|zenyatta)\\b"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "[+-]?(\\d*\\.)?\\d+"
+				}
+			]
+		},
+		"labels": {
+			"patterns": [
+				{
+					"name": "support.class",
+					"match": "^[ \\t]*(?!(do|else|elif))[A-Za-z\\d_]+(?=:)"
+				},{
+					"name": "support.class",
+					"match": "(?<=goto )[A-Za-z\\d_]+"
 				}
 			]
 		},
@@ -79,14 +117,14 @@
 			"patterns": [
 				{
 					"name": "invalid.illegal",
-					"match": "\\b(False|True|None)\\b"
+					"match": "\\b(False|True|None|Null|class|finally|is|try|def|from|nonlocal|with|as|yield|assert|import|pass|break|except|raise)\\b"
 				}
 			]
 		},
 		"enums": {
 			"patterns": [
 				{
-					"name": "variable.other",
+					"name": "entity.name.function",
 					"match": "\\b[A-Z_]+\\b"
 				}
 			]
