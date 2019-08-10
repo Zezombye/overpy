@@ -1349,7 +1349,7 @@ var effectKw = [
 [["Effect.ORB"], [
     "orb",
 ]],
-[["Effect.PICK-UP_SOUND"], [
+[["Effect.PICKUP_SOUND"], [
     "pick-upsound",
 ]],
 [["Effect.RING"], [
@@ -1543,6 +1543,9 @@ var reevaluationKw = [
 ]],
 [["Reeval.STRING"], [
 	"string",
+]],
+[["Reeval.RECEIVERS_AND_DAMAGERS"], [
+	"receiversAndDamagers",
 ]],
 [["Reeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT"], [
 	"receiversDamagersAndDamagePercent",
