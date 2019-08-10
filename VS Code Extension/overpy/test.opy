@@ -7,18 +7,8 @@ N = true
 F = -1
 """ zearaze """
 
-#owo
-#!uwu
-ORISA
-'''azer
-
-azer
-
-'''
-
-#!macro\
-multiline
-owo
+hudText(Visibility.OWO, "test", "azer", "reaz", azer, 0, header_color, subheader_color, text_color, reevaluation)
+o
 
 @Rule "CONFIG: C = NUMBER OF ROUNDS, O = MIN. PLAYERS, P = PREPARATION TIME,  T = MATCH TIME (SECONDS), U = DISPLAY ALIVE PLAYERS"
 @Event global
@@ -336,7 +326,6 @@ if eventPlayer.isHoldingButton(Button.ABILITY_1) and not eventPlayer.isCrouching
 @Event eachPlayer
 if (not(eventPlayer.isHoldingButton(Button.ABILITY_1)) or eventPlayer.A == -100 or eventPlayer.isCrouching()):
     eventPlayer.setMoveSpeed(100)
-
 
 @Rule "(SPRINT) SHOW STAMINA"
 @Event eachPlayer
