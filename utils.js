@@ -558,8 +558,8 @@ function error(str, token) {
 }
 
 function debug(str, arg) {
-	//return;
-	console.log("DEBUG: "+str);
+	return;
+	//console.log("DEBUG: "+str);
 }
 
 //ty stackoverflow
