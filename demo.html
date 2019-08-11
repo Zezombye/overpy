@@ -58,15 +58,73 @@ textarea {
 <script src="utils.js"></script>
 <script src="overpyDecompiler.js"></script>
 <script src="overpyCompiler.js"></script>
-
+<script src="actions.js"></script>
+<script src="values.js"></script>
 
 <!--<script>
 
 //generate doc
 "use strict";
 
-var result = "Workshop function | OverPy function\n";
-result +=    "----------------- | ---------------\n";
+var functionsThatAreValues = [
+	"abort",
+	"attacker",
+	"backward",
+	"down",
+	"eventDamage",
+	"eventPlayer",
+	"healee",
+	"healer",
+	"forward",
+	"left",
+	"not",
+	"right",
+	"up",
+	"victim",
+]
+
+var result = [];
+var funcList = actionKw.concat(valueFuncKw);
+var owwsDoc = actionList.concat(valuesList);
+
+for (var i = 0; i < funcList.length; i++) {
+	
+	var ws = funcList[i][1][0];
+	ws = ws.replace(/ /g, "").toLowerCase();
+	
+	if (functionsThatAreValues.indexOf(ws) > -1) {
+		continue;
+	}
+	var py = funcList[i][0][0];
+	if (py.startsWith("_") && !py.startsWith("_&")) {
+		continue;
+	}
+	py = py.replace("()", "");
+	py = py.replace("_&", "");
+	
+	//Search for doc
+	for (var j = 0; j < owwsDoc.length; j++) {
+		if (owwsDoc[j]["name"].replace(/ /g, "").toLowerCase() === ws) {
+			owwsDoc[j]["name"] = py;
+			result.push(owwsDoc[j]);
+		}
+	}
+	
+}
+
+
+console.log(JSON.stringify(result, null, 4));
+
+</script>-->
+
+<!--<script>
+
+//generate github doc
+"use strict";
+
+//var result = "Workshop function | OverPy function\n";
+//result +=    "----------------- | ---------------\n";
+var result = "";
 var funcList = actionKw.concat(valueFuncKw);
 
 function compare(a,b) {
@@ -84,6 +142,8 @@ var functionsThatAreValues = [
 	"down",
 	"eventDamage",
 	"eventPlayer",
+	"healee",
+	"healer",
 	"forward",
 	"left",
 	"not",
@@ -107,7 +167,7 @@ for (var i = 0; i < funcList.length; i++) {
 		py = "<player>."+py.substring(2);
 	} else if (py.startsWith("_!")) {
 		ws += "(hero, team)";
-		py = py.substring(2)+"(team, hero)";
+		//py = py.substring(2)+"(team, hero)";
 	} else if (py.startsWith("_")) {
 		py = "(special function)";
 		couldNotBeAFunction = true;
@@ -121,7 +181,11 @@ for (var i = 0; i < funcList.length; i++) {
 		//ws += "()";
 	}
 
-	result += ws+" | "+py+"\n";
+	//result += ws+" | "+py+"\n";
+	
+	if (py.endsWith("()") && py.indexOf(".") > -1) {
+		result += '"'+py.substring(py.indexOf(".")+1)+"\",";
+	}
 }
 console.log(result);
 

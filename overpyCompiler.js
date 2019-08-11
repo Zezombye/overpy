@@ -25,7 +25,9 @@
 
 function compile(content) {
 	
-	var t0 = performance.now();
+	if (typeof window !== "undefined") {
+		var t0 = performance.now();
+	}
 	var rules = tokenize(content);
 	//console.log(rules);
 	
@@ -34,8 +36,10 @@ function compile(content) {
 	//for (var i = 26; i < 28; i++) {
 		result += compileRule(rules[i]);
 	}
-	var t1 = performance.now();
-	console.log("Compilation time: "+(t1-t0)+"ms");
+	if (typeof window !== "undefined") {
+		var t1 = performance.now();
+		console.log("Compilation time: "+(t1-t0)+"ms");
+	}
 	return result;
 }
 
@@ -912,8 +916,8 @@ function parseString(content) {
 	}
 	
 	var result = tows("_string", valueFuncKw)+"(\""+matchStr+'"';
-	debug("tokens = ")
-	console.log(tokens);
+	//debug("tokens = ")
+	//console.log(tokens);
 	
 	if (tokens.length > 0) {
 		result += ", "+parseString(tokens[0]);
@@ -1102,7 +1106,7 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 		var operands = splitTokens(variable, ".", false, true);
 		if (operands.length === 2) {
 			
-			console.log(operands);
+			//console.log(operands);
 			
 			//Check for array
 			if (operands[0].length > 1 && operands[0][1].text === '[') {
@@ -1598,7 +1602,7 @@ function tokenize(content) {
 						}
 					}
 					
-					if (!hasTokenBeenFound) {
+					if (!hasTokenBeenFound && content[i] !== '\r') {
 						error("Unknown token '"+content[i]+"'");
 					}
 				}
@@ -1626,8 +1630,8 @@ function tokenize(content) {
 	
 	rules.push(currentRule);
 	
-	console.log("macros = ");
-	console.log(macros);
+	//console.log("macros = ");
+	//console.log(macros);
 	
 	return rules.slice(1)
 	

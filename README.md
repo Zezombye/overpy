@@ -78,7 +78,26 @@ A planned feature is script macros, meaning you would be able to do this:
 
 with createEffects being a script that returns `nbEffects` createEffect instructions.
 
-# Things that should work but that I haven't tested thoroughly
+# Todo list/known issues
 
-- Literal arrays: `var = [1,2,3]`
-- If/else (without a return or goto just after, and obviously ignoring the rule conditions)
+##VS Code Extension:
+
+- Fix the bug with snippet and tab stops (https://www.reddit.com/r/vscode/comments/cotiql/autocompletion_does_not_trigger_within_tab_stops/)
+- Give a proper icon to the "compile" button
+- Hide the icon if the user is not on an .opy file
+- Add missing documentation for functions
+- Add macros to autocomplete on save
+
+##Decompiler:
+
+- Handle "disabled" keyword
+- Handle comments
+- Detect if/else based on gotos
+
+##Compiler:
+
+- Throw an error if "Disable Death Spectate" is used as it is impossible to import it (ow bug)
+- Add else/elif
+- Test multiline comments more thoroughly
+- Add script macros
+- Throw an error if eventPlayer is used in a global rule (or similarly for attacker/victim/healer/healee)

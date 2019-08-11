@@ -1,0 +1,69 @@
+{
+    "name": "overpy",
+    "displayName": "OverPy",
+    "description": "description too",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.36.0"
+    },
+    "main": "./extension.js",
+    "activationEvents": [
+        "onLanguage:overpy",
+        "onCommand:extension.decompile"
+    ],
+    "categories": [
+        "Programming Languages"
+    ],
+    "dependencies": {
+        "copy-paste": "^1.3.0"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "overpy",
+                "aliases": [
+                    "OverPy",
+                    "overpy"
+                ],
+                "extensions": [
+                    ".opy"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "overpy",
+                "scopeName": "source.opy",
+                "path": "./syntaxes/overpy.tmLanguage.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "extension.compile",
+                "title": "Compile (OverPy -> Workshop)",
+                "category": "OverPy",
+                "icon": {
+                    "light": "/img/index.svg",
+                    "dark": "/img/index.svg"
+                }
+            },{
+                "command": "extension.decompile",
+                "title": "Decompile (Workshop -> OverPy)",
+                "category": "OverPy",
+                "icon": {
+                    "light": "/img/index.svg",
+                    "dark": "/img/index.svg"
+                }
+            }
+        ],
+        "menus": {
+            "editor/title": [
+                {
+                    "command": "extension.compile",
+                    "group": "navigation@6"
+                }
+            ]
+        }
+    }
+}
