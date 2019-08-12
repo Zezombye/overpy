@@ -60,6 +60,7 @@
         "menus": {
             "editor/title": [
                 {
+                    "when": "resourceLangId == overpy",
                     "command": "extension.compile",
                     "group": "navigation@6"
                 }
