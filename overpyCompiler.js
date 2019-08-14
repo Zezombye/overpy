@@ -181,7 +181,7 @@ function compileRule(rule) {
 				}
 			}
 			//If without indentation = (rule) condition
-			if (rule.lines[i].tokens[0].text === "if" && rule.lines[i].indentLevel === 0 && areAllLinesAfterCurrentLineIndented) {
+			if (rule.lines[i].tokens[0].text === "if" && rule.lines[i].indentLevel === 0 && areAllLinesAfterCurrentLineIndented && !isInActions) {
 				result += tabLevel(1)+tows("_conditions", ruleKw)+" {\n";
 				result += parseRuleCondition(rule.lines[i].tokens);
 				result += tabLevel(1)+"}\n\n";
