@@ -62,6 +62,8 @@ function compileRule(rule) {
 	
 	currentLineNb = rule.lineStart;
 	currentColNb = 1;
+
+	var ifIndentStack = [];
 	var result = "";
 	
 	if (currentArrayElementNames.length !== 0) {
@@ -200,11 +202,27 @@ function compileRule(rule) {
 					result += tabLevel(1)+tows("_actions", ruleKw)+" {\n";
 					isInActions = true;
 				}
+
+				
+				var lastIfIndent = null;
+				if (ifIndentStack[ifIndentStack.length - 1] >= rule.lines[i].indentLevel) {
+					lastIfIndent = ifIndentStack.pop()
+				}
 				
 				//Check for "if"
-				if (rule.lines[i].tokens[0].text === "if" || rule.lines[i].tokens[0].text === "else") {
+				if (rule.lines[i].tokens[0].text === "if" || rule.lines[i].tokens[0].text === "elif" || rule.lines[i].tokens[0].text === "else") {
 					if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text !== ':') {
-						error("If statement must end with ':'");
+						error("If/else/elif statements must end with ':'");
+					}
+
+					// Ensure `else` and `elif` always follow an `if or another `elif`
+					if (rule.lines[i].tokens[0].text !== "if" && lastIfIndent === null) {
+						error("Found " + rule.lines[i].tokens[0].text + " statement without matching if");
+					}
+
+					// Track the current if-indent level only for `if` and `elif`
+					if (rule.lines[i].tokens[0].text !== "else") {
+						ifIndentStack.push(rule.lines[i].indentLevel)
 					}
 					
 					var hasCondition = rule.lines[i].tokens[0].text !== "else";
@@ -213,7 +231,6 @@ function compileRule(rule) {
 					var isConditionFalseCheck = false;
 					var invertCondition = false;
 					var skipIfOffset;
-					var skipIfEndOffset;
 					var hasGoto = false;
 					var hasAbort = false;
 					var hasContinue = false;
@@ -234,9 +251,10 @@ function compileRule(rule) {
 							var label = rule.lines[i+1].tokens[1].text;
 							var labelOffset = 0;
 							var foundLabel = false;
-							for (var j = i+1; j < rule.lines.length; j++) {
-								if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if" || (rule.lines[j-1].tokens[0].text === "else" && j === i+1))) {
-									labelOffset++;
+							for (var j = i+2; j < rule.lines.length; j++) {
+								var lineInfo = getLineInstructionLengthInfo(rule.lines, j)
+								if (lineInfo.instruction + lineInfo.precedingSkip) {
+									labelOffset += lineInfo.instruction + lineInfo.precedingSkip
 								} else if (rule.lines[j].tokens[0].text === label) {
 									foundLabel = true;
 									if (rule.lines[j].tokens.length !== 2 || rule.lines[j].tokens[1].text !== ':') {
@@ -278,15 +296,14 @@ function compileRule(rule) {
 						var nbInstructionsIf = 0;
 						var ifIndent = rule.lines[i].indentLevel;
 						var reachedEndOfRule = true;
-						var j = i+1;
-						for (; j < rule.lines.length; j++) {
+						for (var j = i+1; j < rule.lines.length; j++) {
 							if (rule.lines[j].indentLevel > ifIndent) {
-								if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if" || rule.lines[j-1].tokens[0].text === "else")) {
-									nbInstructionsIf++;
-								}
+								var lineInfo = getLineInstructionLengthInfo(rule.lines, j)
+								nbInstructionsIf += lineInfo.instruction + lineInfo.precedingSkip
 							} else {
-								if (rule.lines[j].indentLevel === ifIndent && rule.lines[j].tokens[0].text === "else") {
-									nbInstructionsIf++;
+								if (rule.lines[j].indentLevel === ifIndent && (rule.lines[j].tokens[0].text === "else" || rule.lines[j].tokens[0].text === "elif")) {
+									var lineInfo = getLineInstructionLengthInfo(rule.lines, j)
+									nbInstructionsIf += lineInfo.precedingSkip
 								}
 								reachedEndOfRule = false;
 								break;
@@ -305,17 +322,15 @@ function compileRule(rule) {
 						}
 					}
 
-					if (rule.lines[i].tokens[0].text === "else") {
-						//Check how much instructions there is after the "if" (do not count gotos or lbls)
-						var nbInstructionsIf = 0;
+					var curLineInfo = getLineInstructionLengthInfo(rule.lines, i)
+					if (
+						rule.lines[i].tokens[0].text !== "if" && curLineInfo.precedingSkip) {
+						var nbInstructionsIf = curLineInfo.instruction;
 						var ifIndent = rule.lines[i].indentLevel;
 						for (var j = i+1; j < rule.lines.length; j++) {
-							if (rule.lines[j].indentLevel > ifIndent) {
-								if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if")) {
-									nbInstructionsIf++;
-								}
-							} else if (rule.lines[j].indentLevel === ifIndent && rule.lines[j].tokens[0].text === "else") {
-									nbInstructionsIf++;
+							if (rule.lines[j].indentLevel > ifIndent || (rule.lines[j].indentLevel === ifIndent && (rule.lines[j].tokens[0].text === "else" || rule.lines[j].tokens[0].text === "elif"))) {
+								var lineInfo = getLineInstructionLengthInfo(rule.lines, j)
+								nbInstructionsIf += lineInfo.instruction + lineInfo.precedingSkip
 							} else {
 								break;
 							}
@@ -326,45 +341,61 @@ function compileRule(rule) {
 						result += ");\n";
 					}
 
-					var skip = false;
+					var preventOutput = false;
+					var hasArgs = true
 
-					result += tabLevel(2);
+					var ifResult = "";
+
+					ifResult += tabLevel(2);
+					
 					if (isSkipIf) {
 						if (hasCondition || (!hasCondition && hasGoto)) {
-							result += tows("_skipIf", actionKw);
+							ifResult += tows(hasCondition ? "_skipIf" : "_skip", actionKw);
 						} else {
-							skip = true;
+							preventOutput = true;
 						}
 					} else if (isConditionTrueCheck) {
 						if (hasAbort) {
-							result += tows("_abortIfConditionIsTrue", actionKw);
+							ifResult += tows("_abortIfConditionIsTrue", actionKw);
 						} else if (hasContinue) {
-							result += tows("_loopIfConditionIsTrue", actionKw);
+							ifResult += tows("_loopIfConditionIsTrue", actionKw);
 						}
 					} else if (isConditionFalseCheck) {
 						if (hasAbort) {
-							result += tows("_abortIfConditionIsFalse", actionKw);
+							ifResult += tows("_abortIfConditionIsFalse", actionKw);
 						} else if (hasContinue) {
-							result += tows("_loopIfConditionIsFalse", actionKw);
+							ifResult += tows("_loopIfConditionIsFalse", actionKw);
 						}
 					} else if (hasContinue) {
-						result += tows("_loopIf", actionKw);
+						ifResult += tows(hasCondition ? "_loopIf" : "_loop", actionKw);
+						hasArgs = hasCondition
 					} else if (hasAbort) {
-						result += tows("_abortIf", actionKw);
+						ifResult += tows(hasCondition ? "_abortIf" : "return", actionKw);
+						hasArgs = hasCondition
 					} else {
 						error("weird if");
 					}
-					if (!skip) {
-						result += "(";
+
+					if (hasArgs) {
+						ifResult += "(";
+
 						if (hasCondition && !isConditionTrueCheck && !isConditionFalseCheck) {
-							result += parse(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), {"isWholeInstruction":true, "invertCondition":invertCondition});
+							ifResult += parse(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), {"isWholeInstruction":true, "invertCondition":invertCondition});
 						}
 						if (isSkipIf) {
-							result += ", "+skipIfOffset;
+							if (hasCondition) {
+								ifResult += ", "
+							}
+							ifResult += skipIfOffset;
 						}
-						result += ");\n";
-					} else {
-						result += "\n" //---
+
+						ifResult += ")"
+					}
+
+					ifResult += ";\n";
+					
+					if (!preventOutput) {
+						result += ifResult
 					}
 					if (hasGoto || hasAbort || hasContinue) {
 						i++;
@@ -431,8 +462,9 @@ function compileRule(rule) {
 						var labelOffset = 0;
 						var foundLabel = false;
 						for (var j = i+1; j < rule.lines.length; j++) {
-							if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if")) {
-								labelOffset++;
+							var lineInfo = getLineInstructionLengthInfo(rule.lines, j)
+							if (lineInfo.instruction + lineInfo.precedingSkip) {
+								labelOffset += lineInfo.instruction + lineInfo.precedingSkip
 							} else if (rule.lines[j].tokens[0].text === label) {
 								foundLabel = true;
 								if (rule.lines[j].tokens.length !== 2 || rule.lines[j].tokens[1].text !== ':') {
