@@ -1652,7 +1652,7 @@ function resolveMacro(macro, args=[]) {
 		for (var i = 0; i < result.length; i++) {
 			for (var j = 0; j < macro.args.length; j++) {
 				if (result.startsWith(macro.args[j], i)) {
-					if ((i > 0 && !isVarChar(result[i-1])) && (i < result.length-1 && !isVarChar(result[i+macro.args[j].length]))) {
+					if ((i <= 0 || !isVarChar(result[i-1])) && (i >= result.length - 1 || !isVarChar(result[i+macro.args[j].length]))) {
 						result = result.substring(0, i)+args[j]+result.substring(i+macro.args[j].length);
 					}
 				}
