@@ -202,16 +202,18 @@ function compileRule(rule) {
 				}
 				
 				//Check for "if"
-				if (rule.lines[i].tokens[0].text === "if") {
+				if (rule.lines[i].tokens[0].text === "if" || rule.lines[i].tokens[0].text === "else") {
 					if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text !== ':') {
 						error("If statement must end with ':'");
 					}
 					
+					var hasCondition = rule.lines[i].tokens[0].text !== "else";
 					var isSkipIf = true;
 					var isConditionTrueCheck = false;
 					var isConditionFalseCheck = false;
 					var invertCondition = false;
 					var skipIfOffset;
+					var skipIfEndOffset;
 					var hasGoto = false;
 					var hasAbort = false;
 					var hasContinue = false;
@@ -233,7 +235,7 @@ function compileRule(rule) {
 							var labelOffset = 0;
 							var foundLabel = false;
 							for (var j = i+1; j < rule.lines.length; j++) {
-								if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if")) {
+								if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if" || (rule.lines[j-1].tokens[0].text === "else" && j === i+1))) {
 									labelOffset++;
 								} else if (rule.lines[j].tokens[0].text === label) {
 									foundLabel = true;
@@ -279,10 +281,13 @@ function compileRule(rule) {
 						var j = i+1;
 						for (; j < rule.lines.length; j++) {
 							if (rule.lines[j].indentLevel > ifIndent) {
-								if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if")) {
+								if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if" || rule.lines[j-1].tokens[0].text === "else")) {
 									nbInstructionsIf++;
 								}
 							} else {
+								if (rule.lines[j].indentLevel === ifIndent && rule.lines[j].tokens[0].text === "else") {
+									nbInstructionsIf++;
+								}
 								reachedEndOfRule = false;
 								break;
 							}
@@ -299,10 +304,37 @@ function compileRule(rule) {
 							invertCondition = true;
 						}
 					}
-					
+
+					if (rule.lines[i].tokens[0].text === "else") {
+						//Check how much instructions there is after the "if" (do not count gotos or lbls)
+						var nbInstructionsIf = 0;
+						var ifIndent = rule.lines[i].indentLevel;
+						for (var j = i+1; j < rule.lines.length; j++) {
+							if (rule.lines[j].indentLevel > ifIndent) {
+								if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if")) {
+									nbInstructionsIf++;
+								}
+							} else if (rule.lines[j].indentLevel === ifIndent && rule.lines[j].tokens[0].text === "else") {
+									nbInstructionsIf++;
+							} else {
+								break;
+							}
+						}
+						result += tabLevel(2);
+						result += tows("_skip", actionKw) + "(";
+						result += nbInstructionsIf;
+						result += ");\n";
+					}
+
+					var skip = false;
+
 					result += tabLevel(2);
 					if (isSkipIf) {
-						result += tows("_skipIf", actionKw);
+						if (hasCondition || (!hasCondition && hasGoto)) {
+							result += tows("_skipIf", actionKw);
+						} else {
+							skip = true;
+						}
 					} else if (isConditionTrueCheck) {
 						if (hasAbort) {
 							result += tows("_abortIfConditionIsTrue", actionKw);
@@ -322,14 +354,18 @@ function compileRule(rule) {
 					} else {
 						error("weird if");
 					}
-					result += "(";
-					if (!isConditionTrueCheck && !isConditionFalseCheck) {
-						result += parse(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), {"isWholeInstruction":true, "invertCondition":invertCondition});
+					if (!skip) {
+						result += "(";
+						if (hasCondition && !isConditionTrueCheck && !isConditionFalseCheck) {
+							result += parse(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), {"isWholeInstruction":true, "invertCondition":invertCondition});
+						}
+						if (isSkipIf) {
+							result += ", "+skipIfOffset;
+						}
+						result += ");\n";
+					} else {
+						result += "\n" //---
 					}
-					if (isSkipIf) {
-						result += ", "+skipIfOffset;
-					}
-					result += ");\n";
 					if (hasGoto || hasAbort || hasContinue) {
 						i++;
 					}

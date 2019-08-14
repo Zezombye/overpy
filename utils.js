@@ -87,7 +87,7 @@ function reverseOperator(content) {
 function lineIsInstruction(line, previousLineIsIf) {
 	
 	//Check for label
-	if (line[line.length-1].text === ':' && line[0].text !== "if" && line[0].text !== "for") {
+	if (line[line.length-1].text === ':' && line[0].text !== "if" && line[0].text !== "for" && line[0].text !== "else") {
 		return false;
 	}
 	if (line[0].text === "for") {
