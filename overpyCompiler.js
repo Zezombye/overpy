@@ -275,7 +275,6 @@ function compileRule(rule) {
 						//Check how much instructions there is after the "if" (do not count gotos or lbls)
 						var nbInstructionsIf = 0;
 						var ifIndent = rule.lines[i].indentLevel;
-						var reachedEndOfRule = true;
 						var j = i+1;
 						for (; j < rule.lines.length; j++) {
 							if (rule.lines[j].indentLevel > ifIndent) {
@@ -283,21 +282,17 @@ function compileRule(rule) {
 									nbInstructionsIf++;
 								}
 							} else {
-								reachedEndOfRule = false;
 								break;
 							}
 						}
 						
-						if (reachedEndOfRule) {
-							isSkipIf = false;
-							invertCondition = true;
-						} else {
-							skipIfOffset = nbInstructionsIf;
-							if (skipIfOffset <= 0) {
-								error("If instruction must have at least one sub-instruction");
-							}
-							invertCondition = true;
+						skipIfOffset = nbInstructionsIf;
+
+						if (skipIfOffset <= 0) {
+							error("If instruction must have at least one sub-instruction");
 						}
+						
+						invertCondition = true;
 					}
 					
 					result += tabLevel(2);
