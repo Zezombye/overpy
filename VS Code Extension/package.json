@@ -1,11 +1,21 @@
 {
     "name": "overpy",
+    "publisher": "Zezombye",
     "displayName": "OverPy",
-    "description": "description too",
+    "repository": "https://github.com/Zezombye/overpy",
+    "description": "(BETA) High-level language for the Overwatch Workshop, with decompilation and compilation.",
     "version": "0.0.1",
+    "readme": "README.md",
     "engines": {
         "vscode": "^1.36.0"
     },
+    "keywords": [
+        "overpy",
+        "overwatch",
+        "workshop",
+        "ow",
+        "owws"
+    ],
     "main": "./extension.js",
     "activationEvents": [
         "onLanguage:overpy",
