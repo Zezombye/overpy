@@ -80,6 +80,7 @@ Enable Death Spectate All Players | \<player\>.enableDeathSpectateAllPlayers()
 Enable Death Spectate Target Hud | \<player\>.enableDeathSpectateTargetHud()
 Entity Exists | entityExists()
 Event Damage | eventDamage
+Event Healing | eventHealing
 Event Player | eventPlayer
 Event Was Critical Hit | eventWasCriticalHit()
 Eye Position | \<player\>.getEyePosition()
@@ -94,11 +95,14 @@ Go To Assemble Heroes | goToAssembleHeroes()
 Has Spawned | \<player\>.hasSpawned()
 Has Status | \<player\>.hasStatusEffect()
 Heal | heal()
+Healee | healee
+Healer | healer
 Health | \<player\>.getHealth()
 Health Percent | \<player\>.getHealthPercent()
 Hero | \<The hero constant, ex: Hero.ANA\>
 Hero Icon String | heroIcon()
 Hero Of | \<player\>.getCurrentHero()
+Host Player | hostPlayer
 Horizontal Angle From Direction | horizontalAngleFromDirection()
 Horizontal Angle Towards | horizontalAngleTowards()
 Horizontal Facing Angle Of | \<player\>.getHorizontalFacingAngle()
@@ -214,6 +218,9 @@ Resurrect | \<player\>.resurrect()
 Right | Vector.RIGHT
 Round To Integer(number, roundType) | ceil(number) if roundType == "up", floor(number) if roundType == "down", round(number) if roundType == "to nearest"
 Score Of | \<player\>.getScore()
+Server Load | getServerLoad()
+Server Load Average | getAverageServerLoad()
+Server Load Peak | getPeakServerLoad()
 Set Ability1 Enabled | \<player\>.setAbility1Enabled()
 Set Ability2 Enabled | \<player\>.setAbility2Enabled()
 Set Aim Speed | \<player\>.setAimSpeed()
@@ -264,6 +271,7 @@ Start Forcing Spawn Room | startForcingSpawn()
 Start Forcing Throttle | \<player\>.startForcingThrottle()
 Start Heal Over Time | \<player\>.startHoT()
 Start Holding Button | \<player\>.startForcingButton()
+Start Transforming Throttle | \<player\>.startTransformingThrottle()
 Stop Accelerating | \<player\>.stopAcceleration()
 Stop All Damage Modifications | stopAllDamageModifications()
 Stop All Damage Over Time | \<player\>.stopAllDoT()
@@ -279,6 +287,7 @@ Stop Forcing Spawn Room | stopForcingSpawn()
 Stop Forcing Throttle | \<player\>.stopForcingThrottle()
 Stop Heal Over Time | stopHoT()
 Stop Holding Button | \<player\>.stopForcingButton()
+Stop Transforming Throttle | \<player\>.stopTransformingThrottle()
 String | "string constants, numbers and heroes {}".format(\<everything else\>)
 Subtract(a, b) | a - b
 Team Of | \<player\>.getTeam()

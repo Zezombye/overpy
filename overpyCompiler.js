@@ -364,6 +364,12 @@ function compileRule(rule) {
 				//Check for "while"
 				} else if (rule.lines[i].tokens[0].text === "while") {
 					result += tabLevel(2);
+					if (rule.lines[i].tokens.length === 1) {
+						error("While what?");
+					}
+					if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text === ":") {
+						error("While statement must not end by a colon");
+					}
 					if (rule.lines[i].tokens[1].text === "true" && rule.lines[i].tokens.length === 2) {
 						result += tows("_loop", actionKw);
 					} else {
