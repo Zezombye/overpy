@@ -290,6 +290,7 @@ function compileRule(rule) {
 						
 						if (reachedEndOfRule) {
 							isSkipIf = false;
+							hasAbort = true;
 							invertCondition = true;
 						} else {
 							skipIfOffset = nbInstructionsIf;
