@@ -297,6 +297,12 @@ var actionKw = [
 [["_&communicate"], [
 	"communicate",
 ]],
+[["createBeam"], [
+	"createBeamEffect",
+]],
+[["createDummy"], [
+	"createDummyBot",
+]],
 [["createEffect"], [
 	"createEffect",
 ]],
@@ -324,6 +330,9 @@ var actionKw = [
 [["declareTeamVictory"], [
 	"declareTeamVictory",
 ]],
+[["destroyAllDummies()"], [
+	"destroyAllDummyBots",
+]],
 [["destroyAllEffects()"], [
 	"destroyAllEffects",
 ]],
@@ -335,6 +344,9 @@ var actionKw = [
 ]],
 [["destroyAllInWorldText()"], [
 	"destroyAllIn-WorldText",
+]],
+[["destroyDummy"], [
+	"destroyDummyBot",
 ]],
 [["destroyEffect"], [
 	"destroyEffect",
@@ -582,6 +594,9 @@ var actionKw = [
 [["_&startForcingButton"], [
 	"startHoldingButton",
 ]],
+[["_&startThrottleInDirection"], [
+	"startThrottleInDirection",
+]],
 [["_&startTransformingThrottle"], [
 	"startTransformingThrottle",
 ]],
@@ -629,6 +644,9 @@ var actionKw = [
 ]],
 [["_&stopForcingButton"], [
 	"stopHoldingButton",
+]],
+[["_&stopThrottleInDirection"], [
+	"stopThrottleInDirection",
 ]],
 [["_&stopTransformingThrottle"], [
 	"stopTransformingThrottle",
@@ -1633,6 +1651,9 @@ var reevaluationKw = [
 [["Reeval.DESTINATION_AND_DURATION"], [
 	"destinationAndDuration",
 ]],
+[["Reeval.DIRECTION_AND_MAGNITUDE"], [
+	"directionAndMagnitude",
+]],
 [["Reeval.DIRECTION_AND_TURN_RATE"], [
 	"directionAndTurnRate",
 ]],
@@ -1885,6 +1906,32 @@ var invisKw = [
 
 ];
 
+
+var beamKw = [
+
+[["Beam.GOOD"], [
+	"goodBeam",
+]],
+[["Beam.BAD"], [
+	"badBeam",
+]],
+[["Beam.GRAPPLE"], [
+	"grappleBeam",
+]],
+
+];
+
+var throttleKw = [
+
+[["Throttle.REPLACE_EXISTING_THROTTLE"], [
+	"replaceExistingThrottle",
+]],
+[["Throttle.ADD_TO_EXISTING_THROTTLE"], [
+	"addToExistingThrottle",
+]],
+
+];
+
 //Global variables, used to convert to names during decompilation.
 var globalVarKw = [
 
@@ -2060,7 +2107,7 @@ for (var i = 0; i < heroKw.length; i++) {
 }
 
 //A constant is defined as anything that isn't a function (or variable).
-var constantKw = heroKw.concat(boolKw).concat(roundKw).concat(operationKw).concat(teamKw).concat(positionKw).concat(colorKw).concat(reevaluationKw).concat(waitKw).concat(effectKw).concat(iconKw).concat(relativeKw).concat(impulseKw).concat(buttonKw).concat(transformationKw).concat(losCheckKw).concat(statusKw).concat(commsKw).concat(playEffectKw).concat(clipKw).concat(invisKw);
+var constantKw = heroKw.concat(boolKw).concat(roundKw).concat(operationKw).concat(teamKw).concat(positionKw).concat(colorKw).concat(reevaluationKw).concat(waitKw).concat(effectKw).concat(iconKw).concat(relativeKw).concat(impulseKw).concat(buttonKw).concat(transformationKw).concat(losCheckKw).concat(statusKw).concat(commsKw).concat(playEffectKw).concat(clipKw).concat(invisKw).concat(beamKw).concat(throttleKw);
 
 
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
@@ -4872,8 +4919,8 @@ function error(str, token) {
 }
 
 function debug(str, arg) {
-	return;
-	//console.log("DEBUG: "+str);
+	//return;
+	console.log("DEBUG: "+str);
 }
 
 //ty stackoverflow
@@ -6218,7 +6265,7 @@ function compileRule(rule) {
 				}
 			}
 			//If without indentation = (rule) condition
-			if (rule.lines[i].tokens[0].text === "if" && rule.lines[i].indentLevel === 0 && areAllLinesAfterCurrentLineIndented) {
+			if (rule.lines[i].tokens[0].text === "if" && rule.lines[i].indentLevel === 0 && areAllLinesAfterCurrentLineIndented && !isInActions) {
 				result += tabLevel(1)+tows("_conditions", ruleKw)+" {\n";
 				result += parseRuleCondition(rule.lines[i].tokens);
 				result += tabLevel(1)+"}\n\n";
@@ -6327,6 +6374,7 @@ function compileRule(rule) {
 						
 						if (reachedEndOfRule) {
 							isSkipIf = false;
+							hasAbort = true;
 							invertCondition = true;
 						} else {
 							skipIfOffset = nbInstructionsIf;
@@ -6401,6 +6449,12 @@ function compileRule(rule) {
 				//Check for "while"
 				} else if (rule.lines[i].tokens[0].text === "while") {
 					result += tabLevel(2);
+					if (rule.lines[i].tokens.length === 1) {
+						error("While what?");
+					}
+					if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text === ":") {
+						error("While statement must not end by a colon");
+					}
 					if (rule.lines[i].tokens[1].text === "true" && rule.lines[i].tokens.length === 2) {
 						result += tows("_loop", actionKw);
 					} else {
@@ -6999,6 +7053,9 @@ function parseMember(object, member, parseArgs={}) {
 		} else {
 			return tows("_appendToArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
 		}
+		
+	} else if (object[0].text === "Beam") {
+		return tows("Beam."+name, beamKw);
 		
 	} else if (object[0].text === "Button") {
 		return tows("Button."+name, buttonKw);
@@ -7685,19 +7742,11 @@ function resolveMacro(macro, args=[]) {
 		var result = macro.replacement;
 		//debug("result 1 = "+result);
 		
-		//No lookbehinds; no other way than to manually loop...
-		for (var i = 0; i < result.length; i++) {
-			for (var j = 0; j < macro.args.length; j++) {
-				if (result.startsWith(macro.args[j], i)) {
-					if ((i > 0 && !isVarChar(result[i-1])) && (i < result.length-1 && !isVarChar(result[i+macro.args[j].length]))) {
-						result = result.substring(0, i)+args[j]+result.substring(i+macro.args[j].length);
-					}
-				}
-			}
+		//Replace macro argument names with their values
+		for (var i = 0; i < macro.args.length; i++) {
+			result = result.replace(new RegExp("\\b"+macro.args[i]+"\\b", 'g'), args[i])
 		}
-		for (var i = 0; i < macro.args; i++) {
-			result = result.replace(new RegExp("^(?!\\w).+"+macro.args[i]+"(?!\\w)", 'g'), args[i]);
-		}
+		
 		//debug("result 2 = "+result);
 		result = result.replace(new RegExp("\\\\\\n", 'g'), '\n');
 		//debug("result 3 = "+result);

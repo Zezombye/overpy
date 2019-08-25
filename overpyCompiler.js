@@ -970,6 +970,9 @@ function parseMember(object, member, parseArgs={}) {
 			return tows("_appendToArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
 		}
 		
+	} else if (object[0].text === "Beam") {
+		return tows("Beam."+name, beamKw);
+		
 	} else if (object[0].text === "Button") {
 		return tows("Button."+name, buttonKw);
 		

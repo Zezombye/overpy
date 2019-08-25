@@ -190,6 +190,12 @@ var actionKw = [
 [["_&communicate"], [
 	"communicate",
 ]],
+[["createBeam"], [
+	"createBeamEffect",
+]],
+[["createDummy"], [
+	"createDummyBot",
+]],
 [["createEffect"], [
 	"createEffect",
 ]],
@@ -217,6 +223,9 @@ var actionKw = [
 [["declareTeamVictory"], [
 	"declareTeamVictory",
 ]],
+[["destroyAllDummies()"], [
+	"destroyAllDummyBots",
+]],
 [["destroyAllEffects()"], [
 	"destroyAllEffects",
 ]],
@@ -228,6 +237,9 @@ var actionKw = [
 ]],
 [["destroyAllInWorldText()"], [
 	"destroyAllIn-WorldText",
+]],
+[["destroyDummy"], [
+	"destroyDummyBot",
 ]],
 [["destroyEffect"], [
 	"destroyEffect",
@@ -475,6 +487,9 @@ var actionKw = [
 [["_&startForcingButton"], [
 	"startHoldingButton",
 ]],
+[["_&startThrottleInDirection"], [
+	"startThrottleInDirection",
+]],
 [["_&startTransformingThrottle"], [
 	"startTransformingThrottle",
 ]],
@@ -522,6 +537,9 @@ var actionKw = [
 ]],
 [["_&stopForcingButton"], [
 	"stopHoldingButton",
+]],
+[["_&stopThrottleInDirection"], [
+	"stopThrottleInDirection",
 ]],
 [["_&stopTransformingThrottle"], [
 	"stopTransformingThrottle",
@@ -1526,6 +1544,9 @@ var reevaluationKw = [
 [["Reeval.DESTINATION_AND_DURATION"], [
 	"destinationAndDuration",
 ]],
+[["Reeval.DIRECTION_AND_MAGNITUDE"], [
+	"directionAndMagnitude",
+]],
 [["Reeval.DIRECTION_AND_TURN_RATE"], [
 	"directionAndTurnRate",
 ]],
@@ -1778,6 +1799,32 @@ var invisKw = [
 
 ];
 
+
+var beamKw = [
+
+[["Beam.GOOD"], [
+	"goodBeam",
+]],
+[["Beam.BAD"], [
+	"badBeam",
+]],
+[["Beam.GRAPPLE"], [
+	"grappleBeam",
+]],
+
+];
+
+var throttleKw = [
+
+[["Throttle.REPLACE_EXISTING_THROTTLE"], [
+	"replaceExistingThrottle",
+]],
+[["Throttle.ADD_TO_EXISTING_THROTTLE"], [
+	"addToExistingThrottle",
+]],
+
+];
+
 //Global variables, used to convert to names during decompilation.
 var globalVarKw = [
 
@@ -1953,7 +2000,7 @@ for (var i = 0; i < heroKw.length; i++) {
 }
 
 //A constant is defined as anything that isn't a function (or variable).
-var constantKw = heroKw.concat(boolKw).concat(roundKw).concat(operationKw).concat(teamKw).concat(positionKw).concat(colorKw).concat(reevaluationKw).concat(waitKw).concat(effectKw).concat(iconKw).concat(relativeKw).concat(impulseKw).concat(buttonKw).concat(transformationKw).concat(losCheckKw).concat(statusKw).concat(commsKw).concat(playEffectKw).concat(clipKw).concat(invisKw);
+var constantKw = heroKw.concat(boolKw).concat(roundKw).concat(operationKw).concat(teamKw).concat(positionKw).concat(colorKw).concat(reevaluationKw).concat(waitKw).concat(effectKw).concat(iconKw).concat(relativeKw).concat(impulseKw).concat(buttonKw).concat(transformationKw).concat(losCheckKw).concat(statusKw).concat(commsKw).concat(playEffectKw).concat(clipKw).concat(invisKw).concat(beamKw).concat(throttleKw);
 
 
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
