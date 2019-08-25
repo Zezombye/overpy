@@ -4095,7 +4095,7 @@ function getConstValues() {
         if (!result.hasOwnProperty(constType.opy)) {
             result[constType.opy] = [];
         }
-        result[constType.opy] = result[constType.opy].concat(constType.values);
+        result[constType.opy] = result[constType.opy].concat(constType.values.map(x => x.replace(/ /g, '_')));
     }
 
     //Remove duplicates
