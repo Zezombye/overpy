@@ -124,4259 +124,9 @@ var pyOperators = [
 
 "use strict";
 
-//List of workshop "keywords" (conditions, values, actions).
-//Each keyword set is an array containing arrays containing 2 arrays.
-//The first array is the OverPy keywords, the second array is the Workshop keywords.
-//The keywords are sorted by the english workshop keyword (with the exception of the event keywords).
-//Note: each workshop keyword MUST be with no spaces!
-
-//OverPy keywords beginning with "_" aren't actually keywords; they signal to the parser that it isn't a simple keyword replacement.
-//For example, the "set global variable(var, value)" is replaced by "var = value".
-
-//Array of languages. As of now, only English is supported. This is only used during compilation.
-var languages = [
-	"en",
-	
-	//Not supported yet!
-	"fr",
-	"es",
-	"it",
-	"ru",
-	"pl",
-	"de",
-	"pt",
-	"ja",
-	"kr",
-	"zh",
-]
-
-var currentLanguage = languages.indexOf("en");
-
-var ruleKw = [
-[["@Rule"], [
-	"rule",
-]],
-[["@Event"], [
-	"event",
-]],
-[["_conditions"], [
-	"conditions",
-]],
-[["_actions"], [
-	"actions",
-]],
-];
-
-//Event keywords
-var eventKw = [
-
-[["global"], [
-	"ongoing-global",
-]],
-[["eachPlayer"], [
-	"ongoing-eachplayer",
-]],
-[["playerTookDamage"], [
-	"playerTookDamage",
-]],
-[["playerDealtDamage"], [
-	"playerDealtDamage",
-]],
-[["playerDealtFinalBlow"], [
-	"playerDealtFinalBlow",
-]],
-[["playerDied"], [
-	"playerDied",
-]],
-[["playerEarnedElimination"], [
-	"playerEarnedElimination",
-]],
-[["playerDealtHealing"], [
-	"playerDealtHealing",
-]],
-[["playerReceivedHealing"], [
-	"playerReceivedHealing",
-]],
-[["playerJoined"], [
-	"playerJoinedMatch",
-]],
-[["playerLeft"], [
-	"playerLeftMatch",
-]],
-//Team All
-[["all"], [
-	"all",
-]],
-//Team 1
-[["1"], [
-	"team1",
-]],
-//Team 2
-[["2"], [
-	"team2",
-]],
-//Slots
-[["slot0"], [
-    "slot0",
-]],
-[["slot1"], [
-    "slot1",
-]],
-[["slot2"], [
-    "slot2",
-]],
-[["slot3"], [
-    "slot3",
-]],
-[["slot4"], [
-    "slot4",
-]],
-[["slot5"], [
-    "slot5",
-]],
-[["slot6"], [
-    "slot6",
-]],
-[["slot7"], [
-    "slot7",
-]],
-[["slot8"], [
-    "slot8",
-]],
-[["slot9"], [
-    "slot9",
-]],
-[["slot10"], [
-    "slot10",
-]],
-[["slot11"], [
-    "slot11",
-]],
-
-];
-
-//Action keywords. An action is defined as a function that does not return a value.
-var actionKw = [
-
-[["return"], [
-	"abort",
-]],
-[["_abortIf"], [
-	"abortIf",
-]],
-[["_abortIfConditionIsFalse"], [
-	"abortIfConditionIsFalse",
-]],
-[["_abortIfConditionIsTrue"], [
-	"abortIfConditionIsTrue",
-]],
-[["_&allowButton"], [
-	"allowButton",
-]],
-[["_&applyImpulse"], [
-	"applyImpulse",
-]],
-[["bigMessage"], [
-	"bigMessage",
-]],
-[["_chaseGlobalVariableAtRate"], [
-	"chaseGlobalVariableAtRate",
-]],
-[["_chaseGlobalVariableOverTime"], [
-	"chaseGlobalVariableOverTime",
-]],
-[["_chasePlayerVariableAtRate"], [
-	"chasePlayerVariableAtRate",
-]],
-[["_chasePlayerVariableOverTime"], [
-	"chasePlayerVariableOverTime",
-]],
-[["_&clearStatusEffect"], [
-	"clearStatus",
-]],
-[["_&communicate"], [
-	"communicate",
-]],
-[["createBeam"], [
-	"createBeamEffect",
-]],
-[["createDummy"], [
-	"createDummyBot",
-]],
-[["createEffect"], [
-	"createEffect",
-]],
-[["hudText"], [
-	"createHudText",
-]],
-[["createIcon"], [
-	"createIcon",
-]],
-[["createInWorldText"], [
-	"createIn-WorldText",
-]],
-[["damage"], [
-	"damage",
-]],
-[["declareDraw"], [
-	"declareMatchDraw",
-]],
-[["declarePlayerVictory"], [
-	"declarePlayerVictory",
-]],
-[["declareRoundVictory"], [
-	"declareRoundVictory",
-]],
-[["declareTeamVictory"], [
-	"declareTeamVictory",
-]],
-[["destroyAllDummies()"], [
-	"destroyAllDummyBots",
-]],
-[["destroyAllEffects()"], [
-	"destroyAllEffects",
-]],
-[["destroyAllHudTexts()"], [
-	"destroyAllHudText",
-]],
-[["destroyAllIcons()"], [
-	"destroyAllIcons",
-]],
-[["destroyAllInWorldText()"], [
-	"destroyAllIn-WorldText",
-]],
-[["destroyDummy"], [
-	"destroyDummyBot",
-]],
-[["destroyEffect"], [
-	"destroyEffect",
-]],
-[["destroyHudText"], [
-	"destroyHudText",
-]],
-[["destroyIcon"], [
-	"destroyIcon",
-]],
-[["destroyInWorldText"], [
-	"destroyIn-WorldText",
-]],
-[["disableAnnouncer()"], [
-	"disableBuilt-inGamemodeAnnouncer",
-]],
-[["disableGamemodeCompletion()"], [
-	"disableBuilt-inGamemodeCompletion",
-]],
-[["disableMusic()"], [
-	"disableBuilt-inGamemodeMusic",
-]],
-[["_&disableRespawn"], [
-	"disableBuilt-inGamemodeRespawning",
-]],
-[["disableScoring()"], [
-	"disableBuilt-inGamemodeScoring",
-]],
-[["_&disableDeathSpectateAllPlayers"], [
-	"disableDeathSpectateAllPlayers",
-]],
-[["_&disableDeathSpectateTargetHud"], [
-	"disableDeathSpectateTargetHud",
-]],
-[["_&disallowButton"], [
-	"disallowButton",
-]],
-[["enableAnnouncer()"], [
-	"enableBuilt-inGamemodeAnnouncer",
-]],
-[["enableGamemodeCompletion()"], [
-	"enableBuilt-inGamemodeCompletion",
-]],
-[["enableMusic()"], [
-	"enableBuilt-inGamemodeMusic",
-]],
-[["_&enableRespawn"], [
-	"enableBuilt-inGamemodeRespawning",
-]],
-[["enableScoring()"], [
-	"enableBuilt-inGamemodeScoring",
-]],
-[["_&enableDeathSpectateAllPlayers"], [
-	"enableDeathSpectateAllPlayers",
-]],
-[["_&enableDeathSpectateTargetHud"], [
-	"enableDeathSpectateTargetHud",
-]],
-[["goToAssembleHeroes()"], [
-	"goToAssembleHeroes",
-]],
-[["heal"], [
-	"heal",
-]],
-[["kill"], [
-	"kill",
-]],
-[["_loop"], [
-	"loop",
-]],
-[["_loopIf"], [
-	"loopIf",
-]],
-[["_loopIfConditionIsFalse"], [
-	"loopIfConditionIsFalse",
-]],
-[["_loopIfConditionIsTrue"], [
-	"loopIfConditionIsTrue",
-]],
-[["_modifyGlobalVar"], [
-	"modifyGlobalVariable",
-]],
-[["_modifyGlobalVarAtIndex"], [
-	"modifyGlobalVariableAtIndex",
-]],
-[["_&addToScore"], [
-	"modifyPlayerScore",
-]],
-[["_modifyPlayerVar"], [
-	"modifyPlayerVariable",
-]],
-[["_modifyPlayerVarAtIndex"], [
-	"modifyPlayerVariableAtIndex",
-]],
-[["addToTeamScore"], [
-	"modifyTeamScore",
-]],
-[["pauseMatchTime()"], [
-	"pauseMatchTime",
-]],
-[["playEffect"], [
-	"playEffect",
-]],
-[["_&preloadHero"], [
-	"preloadHero",
-]],
-[["_&forceButtonPress"], [
-	"pressButton",
-]],
-[["_&resetHeroAvailability"], [
-	"resetPlayerHeroAvailability",
-]],
-[["_&respawn"], [
-	"respawn",
-]],
-[["_&resurrect"], [
-	"resurrect",
-]],
-[["_&setAbility1Enabled"], [
-	"setAbility1Enabled",
-]],
-[["_&setAbility2Enabled"], [
-	"setAbility2Enabled",
-]],
-[["_&setAimSpeed"], [
-	"setAimSpeed",
-]],
-[["_&setDamageDealt"], [
-	"setDamageDealt",
-]],
-[["_&setDamageReceived"], [
-	"setDamageReceived",
-]],
-[["_&setFacing"], [
-	"setFacing",
-]],
-[["_setGlobalVar"], [
-	"setGlobalVariable",
-]],
-[["_setGlobalVarAtIndex"], [
-	"setGlobalVariableAtIndex",
-]],
-[["_&setGravity"], [
-	"setGravity",
-]],
-[["_&setHealingDealt"], [
-	"setHealingDealt",
-]],
-[["_&setHealingReceived"], [
-	"setHealingReceived",
-]],
-[["_&setInvisibility"], [
-	"setInvisible",
-]],
-[["setMatchTime"], [
-	"setMatchTime",
-]],
-[["_&setMaxHealth"], [
-	"setMaxHealth",
-]],
-[["_&setMoveSpeed"], [
-	"setMoveSpeed",
-]],
-[["setObjectiveDescription"], [
-	"setObjectiveDescription",
-]],
-[["_&setAllowedHeroes"], [
-	"setPlayerAllowedHeroes",
-]],
-[["_&setScore"], [
-	"setPlayerScore",
-]],
-[["_setPlayerVar"], [
-	"setPlayerVariable",
-]],
-[["_setPlayerVarAtIndex"], [
-	"setPlayerVariableAtIndex",
-]],
-[["_&setPrimaryFireEnabled"], [
-	"setPrimaryFireEnabled",
-]],
-[["_&setProjectileGravity"], [
-	"setProjectileGravity",
-]],
-[["_&setProjectileSpeed"], [
-	"setProjectileSpeed",
-]],
-[["_&setRespawnTime"], [
-	"setRespawnMaxTime",
-]],
-[["_&setSecondaryFireEnabled"], [
-	"setSecondaryFireEnabled",
-]],
-[["setSlowMotion"], [
-	"setSlowMotion",
-]],
-[["_&setStatusEffect"], [
-	"setStatus",
-]],
-[["setTeamScore"], [
-	"setTeamScore",
-]],
-[["_&setUltEnabled"], [
-	"setUltimateAbilityEnabled",
-]],
-[["_&setUltCharge"], [
-	"setUltimateCharge",
-]],
-[["_skip"], [
-	"skip",
-]],
-[["_skipIf"], [
-	"skipIf",
-]],
-[["smallMessage"], [
-	"smallMessage",
-]],
-[["_&startAcceleration"], [
-	"startAccelerating",
-]],
-[["_&setCamera"], [
-	"startCamera",
-]],
-[["startDamageModification"], [
-	"startDamageModification",
-]],
-[["_&startDoT"], [
-	"startDamageOverTime",
-]],
-[["_&startFacing"], [
-	"startFacing",
-]],
-[["_&startForcingHero"], [
-	"startForcingPlayerToBeHero",
-]],
-[["startForcingSpawn"], [
-	"startForcingSpawnRoom",
-]],
-[["_&startForcingThrottle"], [
-	"startForcingThrottle",
-]],
-[["_&startHoT"], [
-	"startHealOverTime",
-]],
-[["_&startForcingButton"], [
-	"startHoldingButton",
-]],
-[["_&startThrottleInDirection"], [
-	"startThrottleInDirection",
-]],
-[["_&startTransformingThrottle"], [
-	"startTransformingThrottle",
-]],
-[["_&stopAcceleration"], [
-	"stopAccelerating",
-]],
-[["stopAllDamageModifications"], [
-	"stopAllDamageModifications",
-]],
-[["_&stopAllDoT"], [
-	"stopAllDamageOverTime",
-]],
-[["_&stopAllHoT"], [
-	"stopAllHealOverTime",
-]],
-[["_&stopCamera"], [
-	"stopCamera",
-]],
-[["_stopChasingGlobalVariable"], [
-	"stopChasingGlobalVariable",
-]],
-[["_stopChasingPlayerVariable"], [
-	"stopChasingPlayerVariable",
-]],
-[["stopDamageModification"], [
-	"stopDamageModification",
-]],
-[["stopDoT"], [
-	"stopDamageOverTime",
-]],
-[["_&stopFacing"], [
-	"stopFacing",
-]],
-[["_&stopForcingCurrentHero"], [
-	"stopForcingPlayerToBeHero",
-]],
-[["stopForcingSpawn"], [
-	"stopForcingSpawnRoom",
-]],
-[["_&stopForcingThrottle"], [
-	"stopForcingThrottle",
-]],
-[["stopHoT"], [
-	"stopHealOverTime",
-]],
-[["_&stopForcingButton"], [
-	"stopHoldingButton",
-]],
-[["_&stopThrottleInDirection"], [
-	"stopThrottleInDirection",
-]],
-[["_&stopTransformingThrottle"], [
-	"stopTransformingThrottle",
-]],
-[["_&teleport"], [
-	"teleport",
-]],
-[["unpauseMatchTime()"], [
-	"unpauseMatchTime",
-]],
-[["_wait"], [
-	"wait",
-]],
-
-];
-
-//A value function is defined as a function that returns a value.
-var valueFuncKw = [
-
-[["abs"], [
-	"absoluteValue",
-]],
-[["_add"], [
-	"add",
-]],
-[["getDeadPlayers"], [
-	"allDeadPlayers",
-]],
-[["getAllHeroes()"], [
-	"allHeroes",
-]],
-[["getLivingPlayers"], [
-	"allLivingPlayers",
-]],
-[["_&getAllowedHeroes"], [
-	"allowedHeroes",
-]],
-[["getPlayers"], [
-	"allPlayers",
-]],
-[["getPlayersNotOnObjective"], [
-	"allPlayersNotOnObjective",
-]],
-[["getPlayersOnObjective"], [
-	"allPlayersOnObjective",
-]],
-[["_&getAltitude"], [
-	"altitudeOf",
-]],
-[["_and"], [
-	"and",
-]],
-[["angleDifference"], [
-	"angleDifference",
-]],
-[["_appendToArray"], [
-	"appendToArray",
-]],
-[["_arrayContains"], [
-	"arrayContains",
-]],
-[["_arraySlice"], [
-	"arraySlice",
-]],
-[["attacker"], [
-	"attacker",
-]],
-[["Vector.BACKWARD"], [
-	"backward",
-]],
-[["_&getClosestPlayer"], [
-	"closestPlayerTo",
-]],
-[["_compare"], [
-	"compare",
-]],
-[["getControlScorePercentage"], [
-	"controlModeScoringPercentage",
-]],
-[["getControlScoringTeam"], [
-	"controlModeScoringTeam",
-]],
-[["cosDeg"], [
-	"cosineFromDegrees",
-]],
-[["cos"], [
-	"cosineFromRadians",
-]],
-[["len"], [
-	"countOf",
-]],
-[["crossProduct"], [
-	"crossProduct",
-]],
-[["_currentArrayElement"], [
-	"currentArrayElement",
-]],
-[["angleToDirection"], [
-	"directionFromAngles",
-]],
-[["directionTowards"], [
-	"directionTowards",
-]],
-[["distance"], [
-	"distanceBetween",
-]],
-[["_divide"], [
-	"divide",
-]],
-[["dotProduct"], [
-	"dotProduct",
-]],
-[["Vector.DOWN"], [
-	"down",
-]],
-[["_emptyArray"], [
-	"emptyArray",
-]],
-[["entityExists"], [
-	"entityExists",
-]],
-[["eventDamage"], [
-	"eventDamage",
-]],
-[["eventHealing"], [
-	"eventHealing",
-]],
-[["eventPlayer"], [
-	"eventPlayer",
-]],
-[["eventWasCriticalHit"], [
-	"eventWasCriticalHit",
-]],
-[["_&getEyePosition"], [
-	"eyePosition",
-]],
-[["_&getFacingDirection"], [
-	"facingDirectionOf",
-]],
-[["getFarthestPlayer"], [
-	"farthestPlayerFrom",
-]],
-[["_filteredArray"], [
-	"filteredArray",
-]],
-[["_firstOf"], [
-	"firstOf",
-]],
-[["getFlagPosition"], [
-	"flagPosition",
-]],
-[["Vector.FORWARD"], [
-	"forward",
-]],
-[["_globalVar"], [
-	"globalVariable",
-]],
-[["_&hasSpawned"], [
-	"hasSpawned",
-]],
-[["_&hasStatusEffect"], [
-	"hasStatus",
-]],
-[["healee"], [
-	"healee",
-]],
-[["healer"], [
-	"healer",
-]],
-[["_&getHealth"], [
-	"health",
-]],
-[["_hero"], [
-	"hero",
-]],
-[["heroIcon"], [
-	"heroIconString",
-]],
-[["_&getCurrentHero"], [
-	"heroOf",
-]],
-[["horizontalAngleFromDirection"], [
-	"horizontalAngleFromDirection",
-]],
-[["horizontalAngleTowards"], [
-	"horizontalAngleTowards",
-]],
-[["_&getHorizontalFacingAngle"], [
-	"horizontalFacingAngleOf",
-]],
-[["_&getHorizontalSpeed"], [
-	"horizontalSpeedOf",
-]],
-[["hostPlayer"], [
-	"hostPlayer",
-]],
-[["_indexOfArrayValue"], [
-	"indexOfArrayValue",
-]],
-[["_&isAlive"], [
-	"isAlive",
-]],
-[["isAssemblingHeroes()"], [
-	"isAssemblingHeroes",
-]],
-[["isMatchBetweenRounds()"], [
-	"isBetweenRounds",
-]],
-[["_&isHoldingButton"], [
-	"isButtonHeld",
-]],
-[["_&isCommunicating"], [
-	"isCommunicating",
-]],
-[["_&isCommunicatingAnything"], [
-	"isCommunicatingAny",
-]],
-[["_&isCommunicatingEmote"], [
-	"isCommunicatingAnyEmote",
-]],
-[["_&isCommunicatingVoiceline"], [
-	"isCommunicatingAnyVoiceline",
-]],
-[["isControlPointLocked()"], [
-	"isControlModePointLocked",
-]],
-[["_&isCrouching"], [
-	"isCrouching",
-]],
-[["isInSuddenDeath()"], [
-	"isCtfModeInSuddenDeath",
-]],
-[["_&isDead"], [
-	"isDead",
-]],
-[["_&isFiringPrimaryFire"], [
-	"isFiringPrimary",
-]],
-[["_&isFiringSecondaryFire"], [
-	"isFiringSecondary",
-]],
-[["isFlagAtBase"], [
-	"isFlagAtBase",
-]],
-[["isFlagBeingCarried"], [
-	"isFlagBeingCarried",
-]],
-[["isGameInProgress()"], [
-	"isGameInProgress",
-]],
-[["_!teamHasHero"], [
-	"isHeroBeingPlayed",
-]],
-[["_&isInAir"], [
-	"isInAir",
-]],
-[["_isInLineOfSight"], [
-	"isInLineOfSight",
-]],
-[["isInSetup()"], [
-	"isInSetup",
-]],
-[["_&isInSpawnRoom"], [
-	"isInSpawnRoom",
-]],
-[["_&isInViewAngle"], [
-	"isInViewAngle",
-]],
-[["isMatchComplete()"], [
-	"isMatchComplete",
-]],
-[["_&isMoving"], [
-	"isMoving",
-]],
-[["isObjectiveComplete"], [
-	"isObjectiveComplete",
-]],
-[["_&isOnGround"], [
-	"isOnGround",
-]],
-[["_&isOnObjective"], [
-	"isOnObjective",
-]],
-[["_&isOnWall"], [
-	"isOnWall",
-]],
-[["_&isOnFire"], [
-	"isPortraitOnFire",
-]],
-[["_&isStanding"], [
-	"isStanding",
-]],
-[["isTeamOnDefense"], [
-	"isTeamOnDefense",
-]],
-[["isTeamOnOffense"], [
-	"isTeamOnOffense",
-]],
-[["_all"], [
-	"isTrueForAll",
-]],
-[["_any"], [
-	"isTrueForAny",
-]],
-[["_&isUsingAbility1"], [
-	"isUsingAbility1",
-]],
-[["_&isUsingAbility2"], [
-	"isUsingAbility2",
-]],
-[["_&isUsingUltimate"], [
-	"isUsingUltimate",
-]],
-[["isWaitingForPlayers()"], [
-	"isWaitingForPlayers",
-]],
-[["getLastCreatedEntity()"], [
-	"lastCreatedEntity",
-]],
-[["getLastDamageModification()"], [
-	"lastDamageModificationId",
-]],
-[["getLastDoT()"], [
-	"lastDamageOverTimeId",
-]],
-[["getLastHoT()"], [
-	"lastHealOverTimeId",
-]],
-[["_lastOf"], [
-	"lastOf",
-]],
-[["getLastCreatedText()"], [
-	"lastTextId",
-]],
-[["Vector.LEFT"], [
-	"left",
-]],
-[["localVector"], [
-	"localVectorOf",
-]],
-[["getMatchRound()"], [
-	"matchRound",
-]],
-[["getMatchTime()"], [
-	"matchTime",
-]],
-[["max"], [
-	"max",
-]],
-[["_&getMaxHealth"], [
-	"maxHealth",
-]],
-[["min"], [
-	"min",
-]],
-[["_modulo"], [
-	"modulo",
-]],
-[["_multiply"], [
-	"multiply",
-]],
-[["nearestWalkablePosition"], [
-	"nearestWalkablePosition",
-]],
-[["normalize"], [
-	"normalize",
-]],
-[["_&getNormalizedHealth"], [
-	"normalizedHealth",
-]],
-[["not"], [
-	"not",
-]],
-[["getNumberOfDeadPlayers"], [
-	"numberOfDeadPlayers",
-]],
-[["_&getNumberOfDeaths"], [
-	"numberOfDeaths",
-]],
-[["_&getNumberOfElims"], [
-	"numberOfEliminations",
-]],
-[["_&getNumberOfFinalBlows"], [
-	"numberOfFinalBlows",
-]],
-[["_!getNumberOfHeroes"], [
-	"numberOfHeroes",
-]],
-[["getNumberOfLivingPlayers"], [
-	"numberOfLivingPlayers",
-]],
-[["getNumberOfPlayers"], [
-	"numberOfPlayers",
-]],
-[["getNumberOfPlayersOnObjective"], [
-	"numberOfPlayersOnObjective",
-]],
-[["getCurrentObjective"], [
-	"objectiveIndex",
-]],
-[["getObjectivePosition"], [
-	"objectivePosition",
-]],
-[["getOppositeTeam"], [
-	"oppositeTeamOf",
-]],
-[["_or"], [
-	"or",
-]],
-[["getPayloadPosition"], [
-	"payloadPosition",
-]],
-[["getPayloadProgressPercentage"], [
-	"payloadProgressPercentage",
-]],
-[["getFlagCarrier"], [
-	"playerCarryingFlag",
-]],
-[["_&getPlayerClosestToReticle"], [
-	"playerClosestToReticle",
-]],
-[["getPlayersInSlot"], [
-	"playersInSlot",
-]],
-[["_&getPlayersInViewAngle"], [
-	"playersInViewAngle",
-]],
-[["_!getPlayersOnHero"], [
-	"playersOnHero",
-]],
-[["getPlayersInRadius"], [
-	"playersWithinRadius",
-]],
-[["_playerVar"], [
-	"playerVariable",
-]],
-[["getCapturePercentage"], [
-	"pointCapturePercentage",
-]],
-[["_&getPosition"], [
-	"positionOf",
-]],
-[["_raiseToPower"], [
-	"raiseToPower",
-]],
-[["random.randint"], [
-	"randomInteger",
-]],
-[["random.shuffle"], [
-	"randomizedArray",
-]],
-[["random.uniform"], [
-	"randomReal",
-]],
-[["random.choice"], [
-	"randomValueInArray",
-]],
-[["_getNormal"], [
-	"raycastHitNormal",
-]],
-[["_getPlayerHit"], [
-	"raycastHitPlayer",
-]],
-[["_getHitPosition"], [
-	"raycastHitPosition",
-]],
-[["_removeFromArray"], [
-	"removeFromArray",
-]],
-[["Vector.RIGHT"], [
-	"right",
-]],
-[["_round"], [
-	"roundToInteger",
-]],
-[["_&getScore"], [
-	"scoreOf",
-]],
-[["getServerLoad()"], [
-	"serverLoad",
-]],
-[["getAverageServerLoad()"], [
-	"serverLoadAverage",
-]],
-[["getPeakServerLoad()"], [
-	"serverLoadPeak",
-]],
-[["sinDeg"], [
-	"sineFromDegrees",
-]],
-[["sin"], [
-	"sineFromRadians",
-]],
-[["_&getSlot"], [
-	"slotOf",
-]],
-[["_sortedArray"], [
-	"sortedArray",
-]],
-[["_&getSpeed"], [
-	"speedOf",
-]],
-[["_&getSpeedInDirection"], [
-	"speedOfInDirection",
-]],
-[["sqrt"], [
-	"squareRoot",
-]],
-[["_string"], [
-	"string",
-]],
-[["_subtract"], [
-	"subtract",
-]],
-[["_&getTeam"], [
-	"teamOf",
-]],
-[["teamScore"], [
-	"teamScore",
-]],
-[["_&getThrottle"], [
-	"throttleOf",
-]],
-[["getTotalTimeElapsed"], [
-	"totalTimeElapsed",
-]],
-[["_&getUltCharge"], [
-	"ultimateChargePercent",
-]],
-[["Vector.UP"], [
-	"up",
-]],
-[["_valueInArray"], [
-	"valueInArray",
-]],
-[["vect"], [
-	"vector",
-]],
-[["vectorTowards"], [
-	"vectorTowards",
-]],
-[["_&getVelocity"], [
-	"velocityOf",
-]],
-[["verticalAngleOfDirection"], [
-	"verticalAngleFromDirection",
-]],
-[["verticalAngleTowards"], [
-	"verticalAngleTowards",
-]],
-[["_&getVerticalFacingAngle"], [
-	"verticalFacingAngleOf",
-]],
-[["_&getVerticalSpeed"], [
-	"verticalSpeedOf",
-]],
-[["victim"], [
-	"victim",
-]],
-[["worldVector"], [
-	"worldVectorOf",
-]],
-[["_xComponentOf"], [
-	"xComponentOf",
-]],
-[["_yComponentOf"], [
-	"yComponentOf",
-]],
-[["_zComponentOf"], [
-	"zComponentOf",
-]],
-
-];
-
-var heroKw = [
-
-[["Hero.ANA"], [
-    "ana",
-]],
-[["Hero.ASHE"], [
-    "ashe",
-]],
-[["Hero.BAPTISTE"], [
-    "baptiste",
-]],
-[["Hero.BASTION"], [
-    "bastion",
-]],
-[["Hero.BRIGITTE"], [
-    "brigitte",
-]],
-[["Hero.DVA"], [
-    "d.va",
-]],
-[["Hero.DOOMFIST"], [
-    "doomfist",
-]],
-[["Hero.GENJI"], [
-    "genji",
-]],
-[["Hero.HANZO"], [
-    "hanzo",
-]],
-[["Hero.JUNKRAT"], [
-    "junkrat",
-]],
-[["Hero.LUCIO"], [
-    "lúcio",
-]],
-[["Hero.MCCREE"], [
-    "mccree",
-]],
-[["Hero.MEI"], [
-    "mei",
-]],
-[["Hero.MERCY"], [
-    "mercy",
-]],
-[["Hero.MOIRA"], [
-    "moira",
-]],
-[["Hero.ORISA"], [
-    "orisa",
-]],
-[["Hero.PHARAH"], [
-    "pharah",
-]],
-[["Hero.REAPER"], [
-    "reaper",
-]],
-[["Hero.REINHARDT"], [
-    "reinhardt",
-]],
-[["Hero.ROADHOG"], [
-    "roadhog",
-]],
-[["Hero.SIGMA"], [
-    "sigma",
-]],
-[["Hero.SOLDIER"], [
-    "soldier:76",
-]],
-[["Hero.SOMBRA"], [
-    "sombra",
-]],
-[["Hero.SYMMETRA"], [
-    "symmetra",
-]],
-[["Hero.TORBJORN"], [
-    "torbjörn",
-]],
-[["Hero.TRACER"], [
-    "tracer",
-]],
-[["Hero.WIDOWMAKER"], [
-    "widowmaker",
-]],
-[["Hero.WINSTON"], [
-    "winston",
-]],
-[["Hero.HAMMOND"], [
-    "wreckingball",
-]],
-[["Hero.ZARYA"], [
-    "zarya",
-]],
-[["Hero.ZENYATTA"], [
-    "zenyatta",
-]],
-
-];
-
-var boolKw = [
-
-[["false"], [
-	"false",
-]],
-[["null"], [
-	"null",
-]],
-[["true"], [
-	"true",
-]],
-
-];
-
-var roundKw = [
-
-[["_roundUp"], [
-	"up",
-]],
-[["_roundDown"], [
-	"down",
-]],
-[["_roundToNearest"], [
-	"toNearest",
-]],
-
-];
-
-var operationKw = [
-
-[["_add"], [
-    "add",
-]],
-[["_appendToArray"], [
-    "appendtoarray",
-]],
-[["_divide"], [
-    "divide",
-]],
-[["_max"], [
-    "max",
-]],
-[["_min"], [
-    "min",
-]],
-[["_modulo"], [
-    "modulo",
-]],
-[["_multiply"], [
-    "multiply",
-]],
-[["_raiseToPower"], [
-    "raisetopower",
-]],
-[["_removeFromArrayByIndex"], [
-    "removefromarraybyindex",
-]],
-[["_removeFromArrayByValue"], [
-    "removefromarraybyvalue",
-]],
-[["_subtract"], [
-    "subtract",
-]],
-
-];
-
-var teamKw = [
-
-[["Team.ALL"], [
-	"allTeams",
-]],
-[["Team.1"], [
-	"team1",
-]],
-[["Team.2"], [
-	"team2",
-]],
-
-];
-
-var positionKw = [
-
-[["Position.LEFT"], [
-	"left",
-]],
-[["Position.TOP"], [
-	"top",
-]],
-[["Position.RIGHT"], [
-	"right",
-]],
-
-];
-
-var colorKw = [
-
-[["Color.BLUE"], [
-	"blue",
-]],
-[["Color.GREEN"], [
-	"green",
-]],
-[["Color.PURPLE"], [
-	"purple",
-]],
-[["Color.RED"], [
-	"red",
-]],
-[["Color.TEAM_1"], [
-	"team1",
-]],
-[["Color.TEAM_2"], [
-	"team2",
-]],
-[["Color.WHITE"], [
-	"white",
-]],
-[["Color.YELLOW"], [
-	"yellow",
-]],
-
-];
-
-var effectKw = [
-
-[["Effect.BAD_AURA"], [
-    "badaura",
-]],
-[["Effect.BAD_AURA_SOUND"], [
-    "badaurasound",
-]],
-[["Effect.BEACON_SOUND"], [
-    "beaconsound",
-]],
-[["Effect.CLOUD"], [
-    "cloud",
-]],
-[["Effect.DECAL_SOUND"], [
-    "decalsound",
-]],
-[["Effect.ENERGY_SOUND"], [
-    "energysound",
-]],
-[["Effect.GOOD_AURA"], [
-    "goodaura",
-]],
-[["Effect.GOOD_AURA_SOUND"], [
-    "goodaurasound",
-]],
-[["Effect.LIGHT_SHAFT"], [
-    "lightshaft",
-]],
-[["Effect.ORB"], [
-    "orb",
-]],
-[["Effect.PICKUP_SOUND"], [
-    "pick-upsound",
-]],
-[["Effect.RING"], [
-    "ring",
-]],
-[["Effect.SMOKE_SOUND"], [
-    "smokesound",
-]],
-[["Effect.SPARKLES"], [
-    "sparkles",
-]],
-[["Effect.SPARKLES_SOUND"], [
-    "sparklessound",
-]],
-[["Effect.SPHERE"], [
-    "sphere",
-]],
-
-];
-
-var playEffectKw = [
-
-[["Effect.BAD_EXPLOSION"], [
-    "badexplosion",
-]],
-[["Effect.BAD_PICKUP_EFFECT"], [
-    "badpickupeffect",
-]],
-[["Effect.BUFF_EXPLOSION_SOUND"], [
-    "buffexplosionsound",
-]],
-[["Effect.BUFF_IMPACT_SOUND"], [
-    "buffimpactsound",
-]],
-[["Effect.DEBUFF_IMPACT_SOUND"], [
-    "debuffimpactsound",
-]],
-[["Effect.EXPLOSION_SOUND"], [
-    "explosionsound",
-]],
-[["Effect.GOOD_EXPLOSION"], [
-    "goodexplosion",
-]],
-[["Effect.GOOD_PICKUP_EFFECT"], [
-    "goodpickupeffect",
-]],
-[["Effect.RING_EXPLOSION"], [
-    "ringexplosion",
-]],
-[["Effect.RING_EXPLOSION_SOUND"], [
-    "ringexplosionsound",
-]],
-
-];
-
-var iconKw = [
-
-[["Icon.ARROW_DOWN"], [
-    "arrow:down",
-]],
-[["Icon.ARROW_LEFT"], [
-    "arrow:left",
-]],
-[["Icon.ARROW_RIGHT"], [
-    "arrow:right",
-]],
-[["Icon.ARROW_UP"], [
-    "arrow:up",
-]],
-[["Icon.ASTERISK"], [
-    "asterisk",
-]],
-[["Icon.BOLT"], [
-    "bolt",
-]],
-[["Icon.CHECKMARK"], [
-    "checkmark",
-]],
-[["Icon.CIRCLE"], [
-    "circle",
-]],
-[["Icon.CLUB"], [
-    "club",
-]],
-[["Icon.DIAMOND"], [
-    "diamond",
-]],
-[["Icon.DIZZY"], [
-    "dizzy",
-]],
-[["Icon.EXCLAMATION_MARK"], [
-    "exclamationmark",
-]],
-[["Icon.EYE"], [
-    "eye",
-]],
-[["Icon.FIRE"], [
-    "fire",
-]],
-[["Icon.FLAG"], [
-    "flag",
-]],
-[["Icon.HALO"], [
-    "halo",
-]],
-[["Icon.HAPPY"], [
-    "happy",
-]],
-[["Icon.HEART"], [
-    "heart",
-]],
-[["Icon.MOON"], [
-    "moon",
-]],
-[["Icon.NO"], [
-    "no",
-]],
-[["Icon.PLUS"], [
-    "plus",
-]],
-[["Icon.POISON"], [
-    "poison",
-]],
-[["Icon.POISON_2"], [
-    "poison2",
-]],
-[["Icon.QUESTION_MARK"], [
-    "questionmark",
-]],
-[["Icon.RADIOACTIVE"], [
-    "radioactive",
-]],
-[["Icon.RECYCLE"], [
-    "recycle",
-]],
-[["Icon.RING_THICK"], [
-    "ringthick",
-]],
-[["Icon.RING_THIN"], [
-    "ringthin",
-]],
-[["Icon.SAD"], [
-    "sad",
-]],
-[["Icon.SKULL"], [
-    "skull",
-]],
-[["Icon.SPADE"], [
-    "spade",
-]],
-[["Icon.SPIRAL"], [
-    "spiral",
-]],
-[["Icon.STOP"], [
-    "stop",
-]],
-[["Icon.TRASHCAN"], [
-    "trashcan",
-]],
-[["Icon.WARNING"], [
-    "warning",
-]],
-[["Icon.CROSS"], [
-    "x",
-]],
-
-];
-
-var reevaluationKw = [
-
-[["Reeval.DESTINATION_AND_RATE"], [
-	"destinationAndRate",
-]],
-[["Reeval.DESTINATION_AND_DURATION"], [
-	"destinationAndDuration",
-]],
-[["Reeval.DIRECTION_AND_MAGNITUDE"], [
-	"directionAndMagnitude",
-]],
-[["Reeval.DIRECTION_AND_TURN_RATE"], [
-	"directionAndTurnRate",
-]],
-[["Reeval.DIRECTION_RATE_AND_MAX_SPEED"], [
-	"directionRateAndMaxSpeed",
-]],
-[["Reeval.POSITION"], [
-	"position",
-]],
-[["Reeval.POSITION_AND_RADIUS"], [
-	"positionAndRadius",
-]],
-[["Reeval.NONE"], [
-	"none",
-]],
-[["Reeval.STRING"], [
-	"string",
-]],
-[["Reeval.RECEIVERS_AND_DAMAGERS"], [
-	"receiversAndDamagers",
-]],
-[["Reeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT"], [
-	"receiversDamagersAndDamagePercent",
-]],
-[["Reeval.VISIBILITY"], [
-	"visibleTo",
-]],
-[["Reeval.VISIBILITY_AND_POSITION"], [
-	"visibleToAndPosition",
-]],
-[["Reeval.VISIBILITY_AND_STRING"], [
-	"visibleToAndString",
-]],
-[["Reeval.VISIBILITY_POSITION_AND_RADIUS"], [
-	"visibleToPositionAndRadius",
-]],
-[["Reeval.VISIBILITY_POSITION_AND_STRING"], [
-	"visibleToPositionAndString",
-]],
-
-];
-
-var relativeKw = [
-
-[["Relativity.TO_PLAYER"], [
-	"toPlayer",
-]],
-[["Relativity.TO_WORLD"], [
-	"toWorld",
-]],
-
-];
-
-var impulseKw = [
-
-[["Impulse.CANCEL_CONTRARY_MOTION"], [
-	"cancelContraryMotion",
-]],
-[["Impulse.INCORPORATE_CONTRARY_MOTION"], [
-	"incorporateContraryMotion",
-]],
-
-];
-
-var buttonKw = [
-
-[["Button.ABILITY_1"], [
-    "ability1",
-]],
-[["Button.ABILITY_2"], [
-    "ability2",
-]],
-[["Button.CROUCH"], [
-    "crouch",
-]],
-[["Button.INTERACT"], [
-    "interact",
-]],
-[["Button.JUMP"], [
-    "jump",
-]],
-[["Button.PRIMARY_FIRE"], [
-    "primaryfire",
-]],
-[["Button.SECONDARY_FIRE"], [
-    "secondaryfire",
-]],
-[["Button.ULTIMATE"], [
-    "ultimate",
-]],
-
-];
-
-
-var waitKw = [
-
-[["Wait.ABORT_WHEN_FALSE"], [
-	"abortWhenFalse",
-]],
-[["Wait.IGNORE_CONDITION"], [
-	"ignoreCondition",
-]],
-[["Wait.RESTART_WHEN_TRUE"], [
-	"restartWhenTrue",
-]],
-
-];
-
-var transformationKw = [
-
-[["Transform.ROTATION"], [
-	"rotation",
-]],
-[["Transform.ROTATION_AND_TRANSLATION"], [
-	"rotationAndTranslation",
-]],
-
-];
-
-var losCheckKw = [
-
-[["LosCheck.OFF"], [
-    "off",
-]],
-[["LosCheck.SURFACES"], [
-    "surfaces",
-]],
-[["LosCheck.SURFACES_AND_ALL_BARRIERS"], [
-    "surfacesandallbarriers",
-]],
-[["LosCheck.SURFACES_AND_ENEMY_BARRIERS"], [
-    "surfacesandenemybarriers",
-]],
-[["LosCheck.BLOCKED_BY_ENEMY_BARRIERS"], [
-    "enemyBarriersBlockLos",
-]],
-[["LosCheck.BLOCKED_BY_ALL_BARRIERS"], [
-    "allBarriersBlockLos",
-]],
-[["LosCheck.PASS_THROUGH_BARRIERS"], [
-    "barriersDoNotBlockLos",
-]],
-
-];
-
-var statusKw = [
-
-[["Status.ASLEEP"], [
-    "asleep",
-]],
-[["Status.BURNING"], [
-    "burning",
-]],
-[["Status.FROZEN"], [
-    "frozen",
-]],
-[["Status.HACKED"], [
-    "hacked",
-]],
-[["Status.INVINCIBLE"], [
-    "invincible",
-]],
-[["Status.KNOCKED_DOWN"], [
-    "knockeddown",
-]],
-[["Status.PHASED_OUT"], [
-    "phasedout",
-]],
-[["Status.ROOTED"], [
-    "rooted",
-]],
-[["Status.STUNNED"], [
-    "stunned",
-]],
-[["Status.UNKILLABLE"], [
-    "unkillable",
-]],
-
-];
-
-var commsKw = [
-
-[["Comms.ACKNOWLEDGE"], [
-    "acknowledge",
-]],
-[["Comms.EMOTE_DOWN"], [
-    "emotedown",
-]],
-[["Comms.EMOTE_LEFT"], [
-    "emoteleft",
-]],
-[["Comms.EMOTE_RIGHT"], [
-    "emoteright",
-]],
-[["Comms.EMOTE_UP"], [
-    "emoteup",
-]],
-[["Comms.GROUP_UP"], [
-    "groupup",
-]],
-[["Comms.HELLO"], [
-    "hello",
-]],
-[["Comms.NEED_HEALING"], [
-    "needhealing",
-]],
-[["Comms.THANKS"], [
-    "thanks",
-]],
-[["Comms.ULTIMATE_STATUS"], [
-    "ultimatestatus",
-]],
-[["Comms.VOICE_LINE_DOWN"], [
-    "voicelinedown",
-]],
-[["Comms.VOICE_LINE_LEFT"], [
-    "voicelineleft",
-]],
-[["Comms.VOICE_LINE_RIGHT"], [
-    "voicelineright",
-]],
-[["Comms.VOICE_LINE_UP"], [
-    "voicelineup",
-]],
-
-];
-
-var clipKw = [
-
-[["Clip.SURFACES"], [
-	"clipAgainstSurfaces",
-]],
-[["Clip.NONE"], [
-	"doNotClip",
-]],
-
-];
-
-var invisKw = [
-
-[["Invis.ALL"], [
-	"all",
-]],
-[["Invis.ENEMIES"], [
-	"enemies",
-]],
-[["Invis.NONE"], [
-	"none",
-]],
-
-];
-
-
-var beamKw = [
-
-[["Beam.GOOD"], [
-	"goodBeam",
-]],
-[["Beam.BAD"], [
-	"badBeam",
-]],
-[["Beam.GRAPPLE"], [
-	"grappleBeam",
-]],
-
-];
-
-var throttleKw = [
-
-[["Throttle.REPLACE_EXISTING_THROTTLE"], [
-	"replaceExistingThrottle",
-]],
-[["Throttle.ADD_TO_EXISTING_THROTTLE"], [
-	"addToExistingThrottle",
-]],
-
-];
-
-//Global variables, used to convert to names during decompilation.
-var globalVarKw = [
-
-[["A"], [
-    "A",
-]],
-[["B"], [
-    "B",
-]],
-[["C"], [
-    "C",
-]],
-[["D"], [
-    "D",
-]],
-[["E"], [
-    "E",
-]],
-[["F"], [
-    "F",
-]],
-[["G"], [
-    "G",
-]],
-[["H"], [
-    "H",
-]],
-[["I"], [
-    "I",
-]],
-[["J"], [
-    "J",
-]],
-[["K"], [
-    "K",
-]],
-[["L"], [
-    "L",
-]],
-[["M"], [
-    "M",
-]],
-[["N"], [
-    "N",
-]],
-[["O"], [
-    "O",
-]],
-[["P"], [
-    "P",
-]],
-[["Q"], [
-    "Q",
-]],
-[["R"], [
-    "R",
-]],
-[["S"], [
-    "S",
-]],
-[["T"], [
-    "T",
-]],
-[["U"], [
-    "U",
-]],
-[["V"], [
-    "V",
-]],
-[["W"], [
-    "W",
-]],
-[["X"], [
-    "X",
-]],
-[["Y"], [
-    "Y",
-]],
-[["Z"], [
-    "Z",
-]],
-
-];
-
-var playerVarKw = [
-
-[["A"], [
-    "A",
-]],
-[["B"], [
-    "B",
-]],
-[["C"], [
-    "C",
-]],
-[["D"], [
-    "D",
-]],
-[["E"], [
-    "E",
-]],
-[["F"], [
-    "F",
-]],
-[["G"], [
-    "G",
-]],
-[["H"], [
-    "H",
-]],
-[["I"], [
-    "I",
-]],
-[["J"], [
-    "J",
-]],
-[["K"], [
-    "K",
-]],
-[["L"], [
-    "L",
-]],
-[["M"], [
-    "M",
-]],
-[["N"], [
-    "N",
-]],
-[["O"], [
-    "O",
-]],
-[["P"], [
-    "P",
-]],
-[["Q"], [
-    "Q",
-]],
-[["R"], [
-    "R",
-]],
-[["S"], [
-    "S",
-]],
-[["T"], [
-    "T",
-]],
-[["U"], [
-    "U",
-]],
-[["V"], [
-    "V",
-]],
-[["W"], [
-    "W",
-]],
-[["X"], [
-    "X",
-]],
-[["Y"], [
-    "Y",
-]],
-[["Z"], [
-    "Z",
-]],
-
-];
-
-//This is not a keyword list like the others (used for translation).
-//Rather, it is a list of keywords that can be integrated into strings (eg: hero names, team names, numbers, etc).
-var stringKw = [];
-for (var i = 0; i < heroKw.length; i++) {
-	stringKw.push(heroKw[i][0][0]);
+function getConstantKw(type) {
+	return constantValues[type].values;
 }
-
-//A constant is defined as anything that isn't a function (or variable).
-var constantKw = heroKw.concat(boolKw).concat(roundKw).concat(operationKw).concat(teamKw).concat(positionKw).concat(colorKw).concat(reevaluationKw).concat(waitKw).concat(effectKw).concat(iconKw).concat(relativeKw).concat(impulseKw).concat(buttonKw).concat(transformationKw).concat(losCheckKw).concat(statusKw).concat(commsKw).concat(playEffectKw).concat(clipKw).concat(invisKw).concat(beamKw).concat(throttleKw);
-
-
-//A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
-var valueKw = valueFuncKw.concat(constantKw);
-
-var funcKw = actionKw.concat(valueFuncKw);/* 
- * This file is part of OverPy (https://github.com/Zezombye/overpy).
- * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
- * the Free Software Foundation, version 3.
- *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License 
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
-var emptyStrKw = [
-[[""], [
-    "",
-]],
-]
-
-var normalStrKw = [
-
-[["!"], [
-    "!",
-]],
-[["!!"], [
-    "!!",
-]],
-[["!!!"], [
-    "!!!",
-]],
-[["*"], [
-    "*",
-]],
-[["----------"], [
-    "----------",
-]],
-[["..."], [
-    "...",
-]],
-[["?"], [
-    "?",
-]],
-[["??"], [
-    "??",
-]],
-[["???"], [
-    "???",
-]],
-[["Abilities"], [
-    "Abilities",
-]],
-[["Ability"], [
-    "Ability",
-]],
-[["Ability 1"], [
-    "Ability 1",
-]],
-[["Ability 2"], [
-    "Ability 2",
-]],
-[["Alert"], [
-    "Alert",
-]],
-[["Alive"], [
-    "Alive",
-]],
-[["Allies"], [
-    "Allies",
-]],
-[["Ally"], [
-    "Ally",
-]],
-[["Ammunition"], [
-    "Ammunition",
-]],
-[["Angle"], [
-    "Angle",
-]],
-[["Attack"], [
-    "Attack",
-]],
-[["Attacked"], [
-    "Attacked",
-]],
-[["Attacking"], [
-    "Attacking",
-]],
-[["Attempt"], [
-    "Attempt",
-]],
-[["Attempts"], [
-    "Attempts",
-]],
-[["Average"], [
-    "Average",
-]],
-[["Avoid"], [
-    "Avoid",
-]],
-[["Avoided"], [
-    "Avoided",
-]],
-[["Avoiding"], [
-    "Avoiding",
-]],
-[["Backward"], [
-    "Backward",
-]],
-[["Bad"], [
-    "Bad",
-]],
-[["Ban"], [
-    "Ban",
-]],
-[["Banned"], [
-    "Banned",
-]],
-[["Banning"], [
-    "Banning",
-]],
-[["Best"], [
-    "Best",
-]],
-[["Better"], [
-    "Better",
-]],
-[["Bid"], [
-    "Bid",
-]],
-[["Bids"], [
-    "Bids",
-]],
-[["Block"], [
-    "Block",
-]],
-[["Blocked"], [
-    "Blocked",
-]],
-[["Blocking"], [
-    "Blocking",
-]],
-[["Blue"], [
-    "Blue",
-]],
-[["Bonus"], [
-    "Bonus",
-]],
-[["Bonuses"], [
-    "Bonuses",
-]],
-[["Boss"], [
-    "Boss",
-]],
-[["Bosses"], [
-    "Bosses",
-]],
-[["Bought"], [
-    "Bought",
-]],
-[["Build"], [
-    "Build",
-]],
-[["Building"], [
-    "Building",
-]],
-[["Built"], [
-    "Built",
-]],
-[["Burn"], [
-    "Burn",
-]],
-[["Burning"], [
-    "Burning",
-]],
-[["Burnt"], [
-    "Burnt",
-]],
-[["Buy"], [
-    "Buy",
-]],
-[["Buying"], [
-    "Buying",
-]],
-[["Capture"], [
-    "Capture",
-]],
-[["Captured"], [
-    "Captured",
-]],
-[["Capturing"], [
-    "Capturing",
-]],
-[["Caution"], [
-    "Caution",
-]],
-[["Center"], [
-    "Center",
-]],
-[["Challenge Accepted"], [
-    "Challenge Accepted",
-]],
-[["Charisma"], [
-    "Charisma",
-]],
-[["Chase"], [
-    "Chase",
-]],
-[["Chased"], [
-    "Chased",
-]],
-[["Chasing"], [
-    "Chasing",
-]],
-[["Checkpoint"], [
-    "Checkpoint",
-]],
-[["Checkpoints"], [
-    "Checkpoints",
-]],
-[["Cloud"], [
-    "Cloud",
-]],
-[["Clouds"], [
-    "Clouds",
-]],
-[["Club"], [
-    "Club",
-]],
-[["Clubs"], [
-    "Clubs",
-]],
-[["Combo"], [
-    "Combo",
-]],
-[["Come Here"], [
-    "Come Here",
-]],
-[["Condition"], [
-    "Condition",
-]],
-[["Congratulations"], [
-    "Congratulations",
-]],
-[["Connect"], [
-    "Connect",
-]],
-[["Connected"], [
-    "Connected",
-]],
-[["Connecting"], [
-    "Connecting",
-]],
-[["Constitution"], [
-    "Constitution",
-]],
-[["Control Point"], [
-    "Control Point",
-]],
-[["Control Points"], [
-    "Control Points",
-]],
-[["Cooldown"], [
-    "Cooldown",
-]],
-[["Cooldowns"], [
-    "Cooldowns",
-]],
-[["Corrupt"], [
-    "Corrupt",
-]],
-[["Corrupted"], [
-    "Corrupted",
-]],
-[["Corrupting"], [
-    "Corrupting",
-]],
-[["Credit"], [
-    "Credit",
-]],
-[["Credits"], [
-    "Credits",
-]],
-[["Critical"], [
-    "Critical",
-]],
-[["Crouch"], [
-    "Crouch",
-]],
-[["Crouched"], [
-    "Crouched",
-]],
-[["Crouching"], [
-    "Crouching",
-]],
-[["Current"], [
-    "Current",
-]],
-[["Current Allies"], [
-    "Current Allies",
-]],
-[["Current Ally"], [
-    "Current Ally",
-]],
-[["Current Attempt"], [
-    "Current Attempt",
-]],
-[["Current Checkpoint"], [
-    "Current Checkpoint",
-]],
-[["Current Enemies"], [
-    "Current Enemies",
-]],
-[["Current Enemy"], [
-    "Current Enemy",
-]],
-[["Current Form"], [
-    "Current Form",
-]],
-[["Current Game"], [
-    "Current Game",
-]],
-[["Current Hero"], [
-    "Current Hero",
-]],
-[["Current Heroes"], [
-    "Current Heroes",
-]],
-[["Current Hostage"], [
-    "Current Hostage",
-]],
-[["Current Hostages"], [
-    "Current Hostages",
-]],
-[["Current Level"], [
-    "Current Level",
-]],
-[["Current Mission"], [
-    "Current Mission",
-]],
-[["Current Object"], [
-    "Current Object",
-]],
-[["Current Objective"], [
-    "Current Objective",
-]],
-[["Current Objects"], [
-    "Current Objects",
-]],
-[["Current Phase"], [
-    "Current Phase",
-]],
-[["Current Player"], [
-    "Current Player",
-]],
-[["Current Players"], [
-    "Current Players",
-]],
-[["Current Round"], [
-    "Current Round",
-]],
-[["Current Target"], [
-    "Current Target",
-]],
-[["Current Targets"], [
-    "Current Targets",
-]],
-[["Current Upgrade"], [
-    "Current Upgrade",
-]],
-[["Damage"], [
-    "Damage",
-]],
-[["Damaged"], [
-    "Damaged",
-]],
-[["Damaging"], [
-    "Damaging",
-]],
-[["Danger"], [
-    "Danger",
-]],
-[["Dead"], [
-    "Dead",
-]],
-[["Deal"], [
-    "Deal",
-]],
-[["Dealing"], [
-    "Dealing",
-]],
-[["Dealt"], [
-    "Dealt",
-]],
-[["Deck"], [
-    "Deck",
-]],
-[["Decks"], [
-    "Decks",
-]],
-[["Defeat"], [
-    "Defeat",
-]],
-[["Defend"], [
-    "Defend",
-]],
-[["Defended"], [
-    "Defended",
-]],
-[["Defending"], [
-    "Defending",
-]],
-[["Defence"], [
-    "Defence",
-]],
-[["Deliver"], [
-    "Deliver",
-]],
-[["Delivered"], [
-    "Delivered",
-]],
-[["Delivering"], [
-    "Delivering",
-]],
-[["Depth"], [
-    "Depth",
-]],
-[["Destabilize"], [
-    "Destabilize",
-]],
-[["Destabilized"], [
-    "Destabilized",
-]],
-[["Destabilizing"], [
-    "Destabilizing",
-]],
-[["Destroy"], [
-    "Destroy",
-]],
-[["Destroyed"], [
-    "Destroyed",
-]],
-[["Destroying"], [
-    "Destroying",
-]],
-[["Detect"], [
-    "Detect",
-]],
-[["Detected"], [
-    "Detected",
-]],
-[["Detecting"], [
-    "Detecting",
-]],
-[["Dexterity"], [
-    "Dexterity",
-]],
-[["Diamond"], [
-    "Diamond",
-]],
-[["Diamonds"], [
-    "Diamonds",
-]],
-[["Die"], [
-    "Die",
-]],
-[["Discard"], [
-    "Discard",
-]],
-[["Discarded"], [
-    "Discarded",
-]],
-[["Discarding"], [
-    "Discarding",
-]],
-[["Disconnect"], [
-    "Disconnect",
-]],
-[["Disconnected"], [
-    "Disconnected",
-]],
-[["Disconnecting"], [
-    "Disconnecting",
-]],
-[["Distance"], [
-    "Distance",
-]],
-[["Distances"], [
-    "Distances",
-]],
-[["Dodge"], [
-    "Dodge",
-]],
-[["Dodged"], [
-    "Dodged",
-]],
-[["Dodging"], [
-    "Dodging",
-]],
-[["Dome"], [
-    "Dome",
-]],
-[["Domes"], [
-    "Domes",
-]],
-[["Down"], [
-    "Down",
-]],
-[["Download"], [
-    "Download",
-]],
-[["Downloaded"], [
-    "Downloaded",
-]],
-[["Downloading"], [
-    "Downloading",
-]],
-[["Draw"], [
-    "Draw",
-]],
-[["Drawing"], [
-    "Drawing",
-]],
-[["Drawn"], [
-    "Drawn",
-]],
-[["Drop"], [
-    "Drop",
-]],
-[["Dropped"], [
-    "Dropped",
-]],
-[["Dropping"], [
-    "Dropping",
-]],
-[["Dying"], [
-    "Dying",
-]],
-[["East"], [
-    "East",
-]],
-[["Eliminate"], [
-    "Eliminate",
-]],
-[["Eliminated"], [
-    "Eliminated",
-]],
-[["Eliminating"], [
-    "Eliminating",
-]],
-[["Elimination"], [
-    "Elimination",
-]],
-[["Eliminations"], [
-    "Eliminations",
-]],
-[["Enemies"], [
-    "Enemies",
-]],
-[["Enemy"], [
-    "Enemy",
-]],
-[["Entrance"], [
-    "Entrance",
-]],
-[["Escort"], [
-    "Escort",
-]],
-[["Escorted"], [
-    "Escorted",
-]],
-[["Escorting"], [
-    "Escorting",
-]],
-[["Excellent"], [
-    "Excellent",
-]],
-[["Exit"], [
-    "Exit",
-]],
-[["Experience"], [
-    "Experience",
-]],
-[["Extreme"], [
-    "Extreme",
-]],
-[["Face"], [
-    "Face",
-]],
-[["Faces"], [
-    "Faces",
-]],
-[["Facing"], [
-    "Facing",
-]],
-[["Failed"], [
-    "Failed",
-]],
-[["Failing"], [
-    "Failing",
-]],
-[["Failure"], [
-    "Failure",
-]],
-[["Fall"], [
-    "Fall",
-]],
-[["Fallen"], [
-    "Fallen",
-]],
-[["Falling"], [
-    "Falling",
-]],
-[["Far"], [
-    "Far",
-]],
-[["Fast"], [
-    "Fast",
-]],
-[["Faster"], [
-    "Faster",
-]],
-[["Fastest"], [
-    "Fastest",
-]],
-[["Fault"], [
-    "Fault",
-]],
-[["Faults"], [
-    "Faults",
-]],
-[["Final"], [
-    "Final",
-]],
-[["Final Allies"], [
-    "Final Allies",
-]],
-[["Final Ally"], [
-    "Final Ally",
-]],
-[["Final Attempt"], [
-    "Final Attempt",
-]],
-[["Final Checkpoint"], [
-    "Final Checkpoint",
-]],
-[["Final Enemies"], [
-    "Final Enemies",
-]],
-[["Final Enemy"], [
-    "Final Enemy",
-]],
-[["Final Form"], [
-    "Final Form",
-]],
-[["Final Game"], [
-    "Final Game",
-]],
-[["Final Hero"], [
-    "Final Hero",
-]],
-[["Final Heroes"], [
-    "Final Heroes",
-]],
-[["Final Hostage"], [
-    "Final Hostage",
-]],
-[["Final Hostages"], [
-    "Final Hostages",
-]],
-[["Final Item"], [
-    "Final Item",
-]],
-[["Final Level"], [
-    "Final Level",
-]],
-[["Final Mission"], [
-    "Final Mission",
-]],
-[["Final Object"], [
-    "Final Object",
-]],
-[["Final Objective"], [
-    "Final Objective",
-]],
-[["Final Objects"], [
-    "Final Objects",
-]],
-[["Final Phase"], [
-    "Final Phase",
-]],
-[["Final Player"], [
-    "Final Player",
-]],
-[["Final Players"], [
-    "Final Players",
-]],
-[["Final Round"], [
-    "Final Round",
-]],
-[["Final Target"], [
-    "Final Target",
-]],
-[["Final Targets"], [
-    "Final Targets",
-]],
-[["Final Time"], [
-    "Final Time",
-]],
-[["Final Upgrade"], [
-    "Final Upgrade",
-]],
-[["Find"], [
-    "Find",
-]],
-[["Finding"], [
-    "Finding",
-]],
-[["Finish"], [
-    "Finish",
-]],
-[["Finished"], [
-    "Finished",
-]],
-[["Finishing"], [
-    "Finishing",
-]],
-[["Flown"], [
-    "Flown",
-]],
-[["Fly"], [
-    "Fly",
-]],
-[["Flying"], [
-    "Flying",
-]],
-[["Fold"], [
-    "Fold",
-]],
-[["Folded"], [
-    "Folded",
-]],
-[["Folding"], [
-    "Folding",
-]],
-[["Form"], [
-    "Form",
-]],
-[["Forms"], [
-    "Forms",
-]],
-[["Forward"], [
-    "Forward",
-]],
-[["Found"], [
-    "Found",
-]],
-[["Freeze"], [
-    "Freeze",
-]],
-[["Freezing"], [
-    "Freezing",
-]],
-[["Frozen"], [
-    "Frozen",
-]],
-[["Game"], [
-    "Game",
-]],
-[["Games"], [
-    "Games",
-]],
-[["Games Lost"], [
-    "Games Lost",
-]],
-[["Games Won"], [
-    "Games Won",
-]],
-[["Gg"], [
-    "Gg",
-]],
-[["Go"], [
-    "Go",
-]],
-[["Goal"], [
-    "Goal",
-]],
-[["Goals"], [
-    "Goals",
-]],
-[["Going"], [
-    "Going",
-]],
-[["Good"], [
-    "Good",
-]],
-[["Good Luck"], [
-    "Good Luck",
-]],
-[["Goodbye"], [
-    "Goodbye",
-]],
-[["Green"], [
-    "Green",
-]],
-[["Guilty"], [
-    "Guilty",
-]],
-[["Hack"], [
-    "Hack",
-]],
-[["Hacked"], [
-    "Hacked",
-]],
-[["Hacking"], [
-    "Hacking",
-]],
-[["Hand"], [
-    "Hand",
-]],
-[["Hands"], [
-    "Hands",
-]],
-[["Heal"], [
-    "Heal",
-]],
-[["Healed"], [
-    "Healed",
-]],
-[["Healer"], [
-    "Healer",
-]],
-[["Healers"], [
-    "Healers",
-]],
-[["Healing"], [
-    "Healing",
-]],
-[["Heart"], [
-    "Heart",
-]],
-[["Hearts"], [
-    "Hearts",
-]],
-[["Height"], [
-    "Height",
-]],
-[["Hello"], [
-    "Hello",
-]],
-[["Help"], [
-    "Help",
-]],
-[["Here"], [
-    "Here",
-]],
-[["Hero"], [
-    "Hero",
-]],
-[["Heroes"], [
-    "Heroes",
-]],
-[["Hidden"], [
-    "Hidden",
-]],
-[["Hide"], [
-    "Hide",
-]],
-[["Hiding"], [
-    "Hiding",
-]],
-[["High Score"], [
-    "High Score",
-]],
-[["High Scores"], [
-    "High Scores",
-]],
-[["Hit"], [
-    "Hit",
-]],
-[["Hitting"], [
-    "Hitting",
-]],
-[["Hmmm"], [
-    "Hmmm",
-]],
-[["Hostage"], [
-    "Hostage",
-]],
-[["Hostages"], [
-    "Hostages",
-]],
-[["Huh"], [
-    "Huh",
-]],
-[["Hunt"], [
-    "Hunt",
-]],
-[["Hunted"], [
-    "Hunted",
-]],
-[["Hunter"], [
-    "Hunter",
-]],
-[["Hunters"], [
-    "Hunters",
-]],
-[["Hunting"], [
-    "Hunting",
-]],
-[["I Give Up"], [
-    "I Give Up",
-]],
-[["I Tried"], [
-    "I Tried",
-]],
-[["In View"], [
-    "In View",
-]],
-[["Income"], [
-    "Income",
-]],
-[["Incoming"], [
-    "Incoming",
-]],
-[["Initial"], [
-    "Initial",
-]],
-[["Initial Allies"], [
-    "Initial Allies",
-]],
-[["Initial Ally"], [
-    "Initial Ally",
-]],
-[["Initial Attempt"], [
-    "Initial Attempt",
-]],
-[["Initial Checkpoint"], [
-    "Initial Checkpoint",
-]],
-[["Initial Enemies"], [
-    "Initial Enemies",
-]],
-[["Initial Enemy"], [
-    "Initial Enemy",
-]],
-[["Initial Form"], [
-    "Initial Form",
-]],
-[["Initial Game"], [
-    "Initial Game",
-]],
-[["Initial Hero"], [
-    "Initial Hero",
-]],
-[["Initial Heroes"], [
-    "Initial Heroes",
-]],
-[["Initial Hostage"], [
-    "Initial Hostage",
-]],
-[["Initial Level"], [
-    "Initial Level",
-]],
-[["Initial Mission"], [
-    "Initial Mission",
-]],
-[["Initial Object"], [
-    "Initial Object",
-]],
-[["Initial Objective"], [
-    "Initial Objective",
-]],
-[["Initial Objects"], [
-    "Initial Objects",
-]],
-[["Initial Phase"], [
-    "Initial Phase",
-]],
-[["Initial Player"], [
-    "Initial Player",
-]],
-[["Initial Players"], [
-    "Initial Players",
-]],
-[["Initial Round"], [
-    "Initial Round",
-]],
-[["Initial Target"], [
-    "Initial Target",
-]],
-[["Initial Targets"], [
-    "Initial Targets",
-]],
-[["Initial Upgrade"], [
-    "Initial Upgrade",
-]],
-[["Innocent"], [
-    "Innocent",
-]],
-[["Inside"], [
-    "Inside",
-]],
-[["Intelligence"], [
-    "Intelligence",
-]],
-[["Interact"], [
-    "Interact",
-]],
-[["Invisible"], [
-    "Invisible",
-]],
-[["Item"], [
-    "Item",
-]],
-[["Items"], [
-    "Items",
-]],
-[["Join"], [
-    "Join",
-]],
-[["Joined"], [
-    "Joined",
-]],
-[["Joining"], [
-    "Joining",
-]],
-[["Jump"], [
-    "Jump",
-]],
-[["Jumping"], [
-    "Jumping",
-]],
-[["Kill"], [
-    "Kill",
-]],
-[["Kills"], [
-    "Kills",
-]],
-[["Killstreak"], [
-    "Killstreak",
-]],
-[["Killstreak"], [
-    "Killstreak",
-]],
-[["Killstreaks"], [
-    "Killstreaks",
-]],
-[["Leader"], [
-    "Leader",
-]],
-[["Leaders"], [
-    "Leaders",
-]],
-[["Least"], [
-    "Least",
-]],
-[["Left"], [
-    "Left",
-]],
-[["Less"], [
-    "Less",
-]],
-[["Level"], [
-    "Level",
-]],
-[["Level Down"], [
-    "Level Down",
-]],
-[["Level Up"], [
-    "Level Up",
-]],
-[["Levels"], [
-    "Levels",
-]],
-[["Life"], [
-    "Life",
-]],
-[["Limited"], [
-    "Limited",
-]],
-[["Lives"], [
-    "Lives",
-]],
-[["Load"], [
-    "Load",
-]],
-[["Loaded"], [
-    "Loaded",
-]],
-[["Loading"], [
-    "Loading",
-]],
-[["Location"], [
-    "Location",
-]],
-[["Lock"], [
-    "Lock",
-]],
-[["Locked"], [
-    "Locked",
-]],
-[["Locking"], [
-    "Locking",
-]],
-[["Loser"], [
-    "Loser",
-]],
-[["Losers"], [
-    "Losers",
-]],
-[["Loss"], [
-    "Loss",
-]],
-[["Losses"], [
-    "Losses",
-]],
-[["Max"], [
-    "Max",
-]],
-[["Mild"], [
-    "Mild",
-]],
-[["Min"], [
-    "Min",
-]],
-[["Mission"], [
-    "Mission",
-]],
-[["Mission Aborted"], [
-    "Mission Aborted",
-]],
-[["Mission Accomplished"], [
-    "Mission Accomplished",
-]],
-[["Mission Failed"], [
-    "Mission Failed",
-]],
-[["Missions"], [
-    "Missions",
-]],
-[["Moderate"], [
-    "Moderate",
-]],
-[["Money"], [
-    "Money",
-]],
-[["Monster"], [
-    "Monster",
-]],
-[["Monsters"], [
-    "Monsters",
-]],
-[["More"], [
-    "More",
-]],
-[["Most"], [
-    "Most",
-]],
-[["My Mistake"], [
-    "My Mistake",
-]],
-[["Near"], [
-    "Near",
-]],
-[["New High Score"], [
-    "New High Score",
-]],
-[["New Record"], [
-    "New Record",
-]],
-[["Next"], [
-    "Next",
-]],
-[["Next Allies"], [
-    "Next Allies",
-]],
-[["Next Ally"], [
-    "Next Ally",
-]],
-[["Next Attempt"], [
-    "Next Attempt",
-]],
-[["Next Checkpoint"], [
-    "Next Checkpoint",
-]],
-[["Next Enemies"], [
-    "Next Enemies",
-]],
-[["Next Enemy"], [
-    "Next Enemy",
-]],
-[["Next Form"], [
-    "Next Form",
-]],
-[["Next Game"], [
-    "Next Game",
-]],
-[["Next Hero"], [
-    "Next Hero",
-]],
-[["Next Heroes"], [
-    "Next Heroes",
-]],
-[["Next Hostage"], [
-    "Next Hostage",
-]],
-[["Next Hostages"], [
-    "Next Hostages",
-]],
-[["Next Level"], [
-    "Next Level",
-]],
-[["Next Mission"], [
-    "Next Mission",
-]],
-[["Next Object"], [
-    "Next Object",
-]],
-[["Next Objective"], [
-    "Next Objective",
-]],
-[["Next Objects"], [
-    "Next Objects",
-]],
-[["Next Phase"], [
-    "Next Phase",
-]],
-[["Next Player"], [
-    "Next Player",
-]],
-[["Next Players"], [
-    "Next Players",
-]],
-[["Next Round"], [
-    "Next Round",
-]],
-[["Next Target"], [
-    "Next Target",
-]],
-[["Next Targets"], [
-    "Next Targets",
-]],
-[["Next Upgrade"], [
-    "Next Upgrade",
-]],
-[["Nice Try"], [
-    "Nice Try",
-]],
-[["No"], [
-    "No",
-]],
-[["No Thanks"], [
-    "No Thanks",
-]],
-[["None"], [
-    "None",
-]],
-[["Normal"], [
-    "Normal",
-]],
-[["North"], [
-    "North",
-]],
-[["Northeast"], [
-    "Northeast",
-]],
-[["Northwest"], [
-    "Northwest",
-]],
-[["Not Today"], [
-    "Not Today",
-]],
-[["Object"], [
-    "Object",
-]],
-[["Objective"], [
-    "Objective",
-]],
-[["Objectives"], [
-    "Objectives",
-]],
-[["Objects"], [
-    "Objects",
-]],
-[["Obtain"], [
-    "Obtain",
-]],
-[["Obtained"], [
-    "Obtained",
-]],
-[["Obtaining"], [
-    "Obtaining",
-]],
-[["Off"], [
-    "Off",
-]],
-[["On"], [
-    "On",
-]],
-[["Oof"], [
-    "Oof",
-]],
-[["Oops"], [
-    "Oops",
-]],
-[["Optimal"], [
-    "Optimal",
-]],
-[["Optimize"], [
-    "Optimize",
-]],
-[["Optimized"], [
-    "Optimized",
-]],
-[["Optimizing"], [
-    "Optimizing",
-]],
-[["Out Of View"], [
-    "Out Of View",
-]],
-[["Outgoing"], [
-    "Outgoing",
-]],
-[["Outside"], [
-    "Outside",
-]],
-[["Over"], [
-    "Over",
-]],
-[["Overtime"], [
-    "Overtime",
-]],
-[["Participant"], [
-    "Participant",
-]],
-[["Participants"], [
-    "Participants",
-]],
-[["Payload"], [
-    "Payload",
-]],
-[["Payloads"], [
-    "Payloads",
-]],
-[["Phase"], [
-    "Phase",
-]],
-[["Phases"], [
-    "Phases",
-]],
-[["Pick"], [
-    "Pick",
-]],
-[["Picked"], [
-    "Picked",
-]],
-[["Picking"], [
-    "Picking",
-]],
-[["Pile"], [
-    "Pile",
-]],
-[["Piles"], [
-    "Piles",
-]],
-[["Play"], [
-    "Play",
-]],
-[["Played"], [
-    "Played",
-]],
-[["Player"], [
-    "Player",
-]],
-[["Players"], [
-    "Players",
-]],
-[["Playing"], [
-    "Playing",
-]],
-[["Point"], [
-    "Point",
-]],
-[["Points"], [
-    "Points",
-]],
-[["Points Earned"], [
-    "Points Earned",
-]],
-[["Points Lost"], [
-    "Points Lost",
-]],
-[["Position"], [
-    "Position",
-]],
-[["Power"], [
-    "Power",
-]],
-[["Power-Up"], [
-    "Power-Up",
-]],
-[["Power-Ups"], [
-    "Power-Ups",
-]],
-[["Price"], [
-    "Price",
-]],
-[["Primary Fire"], [
-    "Primary Fire",
-]],
-[["Projectile"], [
-    "Projectile",
-]],
-[["Projectiles"], [
-    "Projectiles",
-]],
-[["Protect"], [
-    "Protect",
-]],
-[["Protected"], [
-    "Protected",
-]],
-[["Protecting"], [
-    "Protecting",
-]],
-[["Purified"], [
-    "Purified",
-]],
-[["Purify"], [
-    "Purify",
-]],
-[["Purifying"], [
-    "Purifying",
-]],
-[["Purple"], [
-    "Purple",
-]],
-[["Raise"], [
-    "Raise",
-]],
-[["Raised"], [
-    "Raised",
-]],
-[["Raising"], [
-    "Raising",
-]],
-[["Rank"], [
-    "Rank",
-]],
-[["Rank A"], [
-    "Rank A",
-]],
-[["Rank B"], [
-    "Rank B",
-]],
-[["Rank C"], [
-    "Rank C",
-]],
-[["Rank D"], [
-    "Rank D",
-]],
-[["Rank E"], [
-    "Rank E",
-]],
-[["Rank F"], [
-    "Rank F",
-]],
-[["Rank S"], [
-    "Rank S",
-]],
-[["Reach"], [
-    "Reach",
-]],
-[["Reached"], [
-    "Reached",
-]],
-[["Reaching"], [
-    "Reaching",
-]],
-[["Ready"], [
-    "Ready",
-]],
-[["Record"], [
-    "Record",
-]],
-[["Records"], [
-    "Records",
-]],
-[["Recover"], [
-    "Recover",
-]],
-[["Recovered"], [
-    "Recovered",
-]],
-[["Recovering"], [
-    "Recovering",
-]],
-[["Red"], [
-    "Red",
-]],
-[["Remain"], [
-    "Remain",
-]],
-[["Remaining"], [
-    "Remaining",
-]],
-[["Rescue"], [
-    "Rescue",
-]],
-[["Rescued"], [
-    "Rescued",
-]],
-[["Rescuing"], [
-    "Rescuing",
-]],
-[["Resource"], [
-    "Resource",
-]],
-[["Resources"], [
-    "Resources",
-]],
-[["Resurrect"], [
-    "Resurrect",
-]],
-[["Resurrected"], [
-    "Resurrected",
-]],
-[["Resurrecting"], [
-    "Resurrecting",
-]],
-[["Reveal"], [
-    "Reveal",
-]],
-[["Revealed"], [
-    "Revealed",
-]],
-[["Revealing"], [
-    "Revealing",
-]],
-[["Right"], [
-    "Right",
-]],
-[["Round"], [
-    "Round",
-]],
-[["Rounds"], [
-    "Rounds",
-]],
-[["Rounds Lost"], [
-    "Rounds Lost",
-]],
-[["Rounds Won"], [
-    "Rounds Won",
-]],
-[["Run"], [
-    "Run",
-]],
-[["Running"], [
-    "Running",
-]],
-[["Safe"], [
-    "Safe",
-]],
-[["Save"], [
-    "Save",
-]],
-[["Saved"], [
-    "Saved",
-]],
-[["Saving"], [
-    "Saving",
-]],
-[["Score"], [
-    "Score",
-]],
-[["Scores"], [
-    "Scores",
-]],
-[["Secondary Fire"], [
-    "Secondary Fire",
-]],
-[["Secure"], [
-    "Secure",
-]],
-[["Secured"], [
-    "Secured",
-]],
-[["Securing"], [
-    "Securing",
-]],
-[["Select"], [
-    "Select",
-]],
-[["Selected"], [
-    "Selected",
-]],
-[["Selecting"], [
-    "Selecting",
-]],
-[["Sell"], [
-    "Sell",
-]],
-[["Selling"], [
-    "Selling",
-]],
-[["Server Load"], [
-    "Server Load",
-]],
-[["Server Load Average"], [
-    "Server Load Average",
-]],
-[["Server Load Peak"], [
-    "Server Load Peak",
-]],
-[["Sever"], [
-    "Sever",
-]],
-[["Severe"], [
-    "Severe",
-]],
-[["Severed"], [
-    "Severed",
-]],
-[["Severing"], [
-    "Severing",
-]],
-[["Shop"], [
-    "Shop",
-]],
-[["Shops"], [
-    "Shops",
-]],
-[["Shuffle"], [
-    "Shuffle",
-]],
-[["Shuffled"], [
-    "Shuffled",
-]],
-[["Sink"], [
-    "Sink",
-]],
-[["Sinking"], [
-    "Sinking",
-]],
-[["Skip"], [
-    "Skip",
-]],
-[["Skipped"], [
-    "Skipped",
-]],
-[["Skipping"], [
-    "Skipping",
-]],
-[["Sleep"], [
-    "Sleep",
-]],
-[["Sleeping"], [
-    "Sleeping",
-]],
-[["Slept"], [
-    "Slept",
-]],
-[["Slow"], [
-    "Slow",
-]],
-[["Slower"], [
-    "Slower",
-]],
-[["Slowest"], [
-    "Slowest",
-]],
-[["Sold"], [
-    "Sold",
-]],
-[["Sorry"], [
-    "Sorry",
-]],
-[["South"], [
-    "South",
-]],
-[["Southeast"], [
-    "Southeast",
-]],
-[["Southwest"], [
-    "Southwest",
-]],
-[["Spade"], [
-    "Spade",
-]],
-[["Spades"], [
-    "Spades",
-]],
-[["Sparkles"], [
-    "Sparkles",
-]],
-[["Spawn"], [
-    "Spawn",
-]],
-[["Spawned"], [
-    "Spawned",
-]],
-[["Spawning"], [
-    "Spawning",
-]],
-[["Speed"], [
-    "Speed",
-]],
-[["Speeds"], [
-    "Speeds",
-]],
-[["Sphere"], [
-    "Sphere",
-]],
-[["Spheres"], [
-    "Spheres",
-]],
-[["Stabilize"], [
-    "Stabilize",
-]],
-[["Stabilized"], [
-    "Stabilized",
-]],
-[["Stabilizing"], [
-    "Stabilizing",
-]],
-[["Stable"], [
-    "Stable",
-]],
-[["Star"], [
-    "Star",
-]],
-[["Stars"], [
-    "Stars",
-]],
-[["Start"], [
-    "Start",
-]],
-[["Started"], [
-    "Started",
-]],
-[["Starting"], [
-    "Starting",
-]],
-[["Status"], [
-    "Status",
-]],
-[["Stay"], [
-    "Stay",
-]],
-[["Stay Away"], [
-    "Stay Away",
-]],
-[["Stayed"], [
-    "Stayed",
-]],
-[["Staying"], [
-    "Staying",
-]],
-[["Stop"], [
-    "Stop",
-]],
-[["Stopped"], [
-    "Stopped",
-]],
-[["Stopping"], [
-    "Stopping",
-]],
-[["Strength"], [
-    "Strength",
-]],
-[["Stun"], [
-    "Stun",
-]],
-[["Stunned"], [
-    "Stunned",
-]],
-[["Stunning"], [
-    "Stunning",
-]],
-[["Suboptimal"], [
-    "Suboptimal",
-]],
-[["Success"], [
-    "Success",
-]],
-[["Sudden Death"], [
-    "Sudden Death",
-]],
-[["Sunk"], [
-    "Sunk",
-]],
-[["Superb"], [
-    "Superb",
-]],
-[["Survive"], [
-    "Survive",
-]],
-[["Survived"], [
-    "Survived",
-]],
-[["Surviving"], [
-    "Surviving",
-]],
-[["Target"], [
-    "Target",
-]],
-[["Targets"], [
-    "Targets",
-]],
-[["Team"], [
-    "Team",
-]],
-[["Teammate"], [
-    "Teammate",
-]],
-[["Teammates"], [
-    "Teammates",
-]],
-[["Teams"], [
-    "Teams",
-]],
-[["Terrible"], [
-    "Terrible",
-]],
-[["Thank You"], [
-    "Thank You",
-]],
-[["Thanks"], [
-    "Thanks",
-]],
-[["That Was Awesome"], [
-    "That Was Awesome",
-]],
-[["Threat"], [
-    "Threat",
-]],
-[["Threat Level"], [
-    "Threat Level",
-]],
-[["Threat Levels"], [
-    "Threat Levels",
-]],
-[["Threats"], [
-    "Threats",
-]],
-[["Tiebreaker"], [
-    "Tiebreaker",
-]],
-[["Time"], [
-    "Time",
-]],
-[["Times"], [
-    "Times",
-]],
-[["Total"], [
-    "Total",
-]],
-[["Trade"], [
-    "Trade",
-]],
-[["Traded"], [
-    "Traded",
-]],
-[["Trading"], [
-    "Trading",
-]],
-[["Traitor"], [
-    "Traitor",
-]],
-[["Traitors"], [
-    "Traitors",
-]],
-[["Transfer"], [
-    "Transfer",
-]],
-[["Transferred"], [
-    "Transferred",
-]],
-[["Transferring"], [
-    "Transferring",
-]],
-[["Try Again"], [
-    "Try Again",
-]],
-[["Turret"], [
-    "Turret",
-]],
-[["Turrets"], [
-    "Turrets",
-]],
-[["Ugh"], [
-    "Ugh",
-]],
-[["Ultimate Ability"], [
-    "Ultimate Ability",
-]],
-[["Under"], [
-    "Under",
-]],
-[["Unknown"], [
-    "Unknown",
-]],
-[["Unlimited"], [
-    "Unlimited",
-]],
-[["Unlock"], [
-    "Unlock",
-]],
-[["Unlocked"], [
-    "Unlocked",
-]],
-[["Unlocking"], [
-    "Unlocking",
-]],
-[["Unsafe"], [
-    "Unsafe",
-]],
-[["Unstable"], [
-    "Unstable",
-]],
-[["Up"], [
-    "Up",
-]],
-[["Upgrade"], [
-    "Upgrade",
-]],
-[["Upgrades"], [
-    "Upgrades",
-]],
-[["Upload"], [
-    "Upload",
-]],
-[["Uploaded"], [
-    "Uploaded",
-]],
-[["Uploading"], [
-    "Uploading",
-]],
-[["Use Ability 1"], [
-    "Use Ability 1",
-]],
-[["Use Ability 2"], [
-    "Use Ability 2",
-]],
-[["Use Ultimate Ability"], [
-    "Use Ultimate Ability",
-]],
-[["Victory"], [
-    "Victory",
-]],
-[["Visible"], [
-    "Visible",
-]],
-[["Vortex"], [
-    "Vortex",
-]],
-[["Vortices"], [
-    "Vortices",
-]],
-[["Wait"], [
-    "Wait",
-]],
-[["Waiting"], [
-    "Waiting",
-]],
-[["Wall"], [
-    "Wall",
-]],
-[["Walls"], [
-    "Walls",
-]],
-[["Warning"], [
-    "Warning",
-]],
-[["Welcome"], [
-    "Welcome",
-]],
-[["Well Played"], [
-    "Well Played",
-]],
-[["West"], [
-    "West",
-]],
-[["White"], [
-    "White",
-]],
-[["Wild"], [
-    "Wild",
-]],
-[["Win"], [
-    "Win",
-]],
-[["Winner"], [
-    "Winner",
-]],
-[["Winners"], [
-    "Winners",
-]],
-[["Wins"], [
-    "Wins",
-]],
-[["Wisdom"], [
-    "Wisdom",
-]],
-[["Worse"], [
-    "Worse",
-]],
-[["Worst"], [
-    "Worst",
-]],
-[["Wow"], [
-    "Wow",
-]],
-[["Yellow"], [
-    "Yellow",
-]],
-[["Yes"], [
-    "Yes",
-]],
-[["You"], [
-    "You",
-]],
-[["You Lose"], [
-    "You Lose",
-]],
-[["You Win"], [
-    "You Win",
-]],
-[["Zone"], [
-    "Zone",
-]],
-[["Zones"], [
-    "Zones",
-]],
-
-//Reverse alphabetical order to match longest first on tokenization.
-].reverse();
-
-var prefixStrKw = [
-
-[["#{0}"], [
-    "#{0}",
-]],
-[["-> {0}"], [
-    "-> {0}",
-]],
-[["<-> {0}"], [
-    "<-> {0}",
-]],
-[["<- {0}"], [
-    "<- {0}",
-]],
-[["Round {0}"], [
-    "Round {0}",
-]],
-
-];
-
-var postfixStrKw = [
-[["{0} ->"], [
-    "{0} ->",
-]],
-[["{0} <->"], [
-    "{0} <->",
-]],
-[["{0} <-"], [
-    "{0} <-",
-]],
-[["{0} M/S"], [
-    "{0} M/S",
-]],
-[["{0} M"], [
-    "{0} M",
-]],
-[["{0} Sec"], [
-    "{0} Sec",
-]],
-[["{0}!!!"], [
-    "{0}!!!",
-]],
-[["{0}!!"], [
-    "{0}!!",
-]],
-[["{0}!"], [
-    "{0}!",
-]],
-[["{0}%"], [
-    "{0}%",
-]],
-[["{0}:"], [
-    "{0}:",
-]],
-[["{0}???"], [
-    "{0}???",
-]],
-[["{0}??"], [
-    "{0}??",
-]],
-[["{0}?"], [
-    "{0}?",
-]],
-];
-
-var binaryStrKw = [
-
-[["{0} -> {1}"], [
-    "{0} -> {1}",
-]],
-[["{0} - {1}"], [
-    "{0} - {1}",
-]],
-[["{0} != {1}"], [
-    "{0} != {1}",
-]],
-[["{0} * {1}"], [
-    "{0} * {1}",
-]],
-[["{0} / {1}"], [
-    "{0} / {1}",
-]],
-[["{0} + {1}"], [
-    "{0} + {1}",
-]],
-[["{0} <-> {1}"], [
-    "{0} <-> {1}",
-]],
-[["{0} <- {1}"], [
-    "{0} <- {1}",
-]],
-[["{0} <= {1}"], [
-    "{0} <= {1}",
-]],
-[["{0} < {1}"], [
-    "{0} < {1}",
-]],
-[["{0} == {1}"], [
-    "{0} == {1}",
-]],
-[["{0} = {1}"], [
-    "{0} = {1}",
-]],
-[["{0} >= {1}"], [
-    "{0} >= {1}",
-]],
-[["{0} > {1}"], [
-    "{0} > {1}",
-]],
-[["{0} And {1}"], [
-    "{0} And {1}",
-]],
-[["{0} Vs {1}"], [
-    "{0} Vs {1}",
-]],
-[["{0}, {1}"], [
-    "{0}, {1}",
-]],
-[["{0}: {1}"], [
-    "{0}: {1}",
-]],
-[["{0}:{1}"], [
-    "{0}:{1}",
-]],
-[["{0} {1}"], [
-    "{0} {1}",
-]],
-];
-
-var ternaryStrKw = [
-[["{0} - {1} - {2}"], [
-    "{0} - {1} - {2}",
-]],
-[["{0} : {1} : {2}"], [
-    "{0} : {1} : {2}",
-]],
-[["{0} {1} {2}"], [
-    "{0} {1} {2}",
-]],
-[["{0}, {1}, And {2}"], [
-    "{0}, {1}, And {2}",
-]],
-[["{0}: {1} And {2}"], [
-    "{0}: {1} And {2}",
-]],
-];
-
-var surroundStrKw = [
-[["({0})"], [
-    "({0})",
-]],
-[["¡{0}!"], [
-    "¡{0}!",
-]],
-[["¿{0}?"], [
-    "¿{0}?",
-]],
-];
-
-var stringKw = normalStrKw.concat(prefixStrKw).concat(postfixStrKw).concat(binaryStrKw).concat(ternaryStrKw).concat(surroundStrKw).concat(emptyStrKw);
-
-var strTokens = [];
-
-//Generate string tokens
-//normal strings
-for (var j = 0; j < normalStrKw.length; j++) {
-	strTokens.push(normalStrKw[j][0][0].toLowerCase());
-}
-
-//prefix strings
-for (var j = 0; j < prefixStrKw.length; j++) {
-	strTokens.push(prefixStrKw[j][0][0].substring(0, prefixStrKw[j][0][0].indexOf("{0}")).toLowerCase());
-}
-
-//postfix strings
-for (var j = 0; j < postfixStrKw.length; j++) {
-	strTokens.push(postfixStrKw[j][0][0].substring("{0}".length).toLowerCase());
-}
-
-//ternary strings
-for (var j = 0; j < ternaryStrKw.length; j++) {
-	strTokens.push(ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase());
-	strTokens.push(ternaryStrKw[j][0][0].substring(ternaryStrKw[j][0][0].indexOf("{1}")+"{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase());
-}
-
-//binary strings
-for (var j = 0; j < binaryStrKw.length; j++) {
-	strTokens.push(binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase());
-}
-
-
-//surround strings
-for (var j = 0; j < surroundStrKw.length; j++) {
-	strTokens.push(surroundStrKw[j][0][0][0].toLowerCase())
-	strTokens.push(surroundStrKw[j][0][0][surroundStrKw[j][0][0].length-1].toLowerCase())
-}
-
-//heroes
-for (var j = 0; j < heroKw.length; j++) {
-	strTokens.push(heroKw[j][0][0].toLowerCase());
-}
-
-//Sort reverse alphabetical order for greediness
-strTokens = strTokens.sort().reverse();
-/* 
- * This file is part of OverPy (https://github.com/Zezombye/overpy).
- * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
- * the Free Software Foundation, version 3.
- *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License 
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
-"use strict";
 
 //Used for string parsing; splits an array of strings on one or two strings.
 //Eg: splitStrTokens(["owo", "uwu", "owo"], "uwu") will return [["owo"], ["owo"]].
@@ -4471,7 +221,7 @@ function loadVariableNames(names, varKw) {
 		if (index < 0) {
 			error("Illegal variable "+key);
 		} else {
-			varKw[index][0][0] = value;
+			varKw[index].opy = value;
 			result += "#!define "+value+" "+key.toUpperCase()+"\n";
 		}
 	}
@@ -4482,7 +232,7 @@ function loadVariableNames(names, varKw) {
 function resetVarNames(varKw) {
 	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	for (var i = 0; i < alphabet.length; i++) {
-		varKw[i][0][0] = alphabet[i];
+		varKw[i].opy = alphabet[i];
 	}
 }
 
@@ -4622,22 +372,16 @@ function translate(keyword, toWorkshop, keywordArray) {
 			}
 		}
 	}
-	
-	
-	
+
 	for (var i = 0; i < keywordArray.length; i++) {
 				
 		if (toWorkshop) {
-			//for (var j = 0; j < keywordArray[i][0].length; j++) {
-				if (keywordArray[i][0][0] === keyword) {
-					return keywordArray[i][1][currentLanguage];
-				}
-			//}
+			if (keywordArray[i].opy === keyword) {
+				return keywordArray[i][currentLanguage];
+			}
 		} else {
-			for (var j = 0; j < keywordArray[i][1].length; j++) {
-				if (keywordArray[i][1][j].toLowerCase() === keyword) {
-					return keywordArray[i][0][0];
-				}
+			if (keywordArray[i][currentLanguage].toLowerCase() === keyword) {
+				return keywordArray[i].opy;
 			}
 		}
 		
@@ -4857,7 +601,7 @@ function startsWithParenthesis(content) {
 	return false;
 }
 
-//Returns true if c is [A-Za-z\d_].
+//Returns true if c is [A-Za-z\d_@].
 function isVarChar(c) {
 	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_' || c === '@';
 }
@@ -4926,7 +670,10 @@ function debug(str, arg) {
 //ty stackoverflow
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
-}/* 
+}
+
+
+/* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
  * 
@@ -5109,7 +856,7 @@ function decompileRule(content) {
 			
 			//Parse the 3rd event instruction
 			//Detect if it is a slot or hero
-			var eventInst3 = topy(eventInst[2], eventKw.concat(heroKw))
+			var eventInst3 = topy(eventInst[2], eventKw.concat(getConstantKw("HERO CONSTANT")))
 			if (eventInst3 !== "all") {
 				if (eventInst3.startsWith("slot")) {
 					result += "@Slot "+eventInst3.replace("slot", "")+"\n";
@@ -5347,7 +1094,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//They begin by "_&".
 	
 	if (name.startsWith("_&")) {
-		return decompileGenericPlayerFunction(name.substring(2), args, keywordArray === actionKw ? true : false);
+		return decompileGenericPlayerFunction(name.substring("_&".length), args, keywordArray === actionKw ? true : false);
 	}
 	
 	//Functions beginning with "_!" have their arguments swapped (assuming there are only 2 arguments).
@@ -5549,6 +1296,16 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	if (name === "_getPlayerHit") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getPlayerHit()";
 	}
+
+	//All Players
+	if (name === "getPlayers") {
+		var team = decompile(args[0], getConstantKw("TEAM CONSTANT"));
+		if (team === "Team.ALL") {
+			return "getAllPlayers()";
+		} else {
+			return "getPlayers("+team+")";
+		}
+	}
 		
 	//Global variable
 	if (name === "_globalVar") {
@@ -5557,7 +1314,44 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		
 	//Hero
 	if (name === "_hero") {
-		return decompile(args[0], heroKw);
+		return decompile(args[0], getConstantKw("HERO CONSTANT"));
+	}
+
+	//Hud text
+	if (name === "_hudText") {
+		var header = decompile(args[1]);
+		var subheader = decompile(args[2]);
+		var subtext = decompile(args[3]);
+		var specVisibility = "";
+		if (args.length > 11) {
+			specVisibility = decompile(args[10], getConstantKw("SPECTATOR VISIBILITY"));
+			if (specVisibility === "SpecVisibility.DEFAULT") {
+				specVisibility = "";
+			} else {
+				specVisibility = ", "+specVisibility;
+			}
+		}
+		var funcName = "";
+		var texts = "";
+		var colors = "";
+		if (subheader === "null" && subtext === "null") {
+			funcName = "hudHeader";
+			texts = header;
+			colors = decompile(args[6]);
+		} else if (header === "null" && subtext === "null") {
+			funcName = "hudSubheader";
+			texts = subheader;
+			colors = decompile(args[7]);
+		} else if (subheader === "null" && subheader === "null") {
+			funcName = "hudSubtext";
+			texts = subtext;
+			colors = decompile(args[8]);
+		} else {
+			funcName = "hudText";
+			texts = header+", "+subheader+", "+subtext;
+			colors = decompile(args[6])+", "+decompile(args[7])+", "+decompile(args[8]);
+		}
+		return funcName+"("+decompile(args[0])+", "+texts+", "+decompile(args[4], getConstantKw("HUD LOCATION"))+", "+decompile(args[5])+", "+colors+", "+decompile(args[9])+specVisibility+")";
 	}
 	
 	//Index of array value
@@ -5686,7 +1480,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Round
 	if (name === "_round") {
-		var roundType = topy(args[1], roundKw);
+		var roundType = topy(args[1], getConstantKw("ROUNDING TYPE"));
 		if (roundType === "_roundUp") {
 			return "ceil("+decompile(args[0])+")";
 		} else if (roundType === "_roundDown") {
@@ -5822,7 +1616,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 			return "wait("+decompile(args[0])+")";
 		}
 		else {
-			return "wait("+decompile(args[0])+", behavior="+arg2+")";
+			return "wait("+decompile(args[0])+", "+arg2+")";
 		}
 	}
 	
@@ -5999,7 +1793,7 @@ function decompileModifyVar(variable, operation, value, index) {
 	if (index !== undefined) {
 		variable += "["+index+"]";
 	}
-	operation = topy(operation, operationKw);
+	operation = topy(operation, getConstantKw("OPERATION"));
 	if (operation === "_appendToArray") {
 		return variable+".append("+value+")";
 	} else if (operation === "_add") {
@@ -6114,7 +1908,7 @@ function compile(content) {
 	}
 	var rules = tokenize(content);
 	//console.log(rules);
-	
+
 	var result = "";
 	for (var i = 0; i < rules.length; i++) {
 	//for (var i = 26; i < 28; i++) {
@@ -6226,7 +2020,7 @@ function compileRule(rule) {
 						isEventTeamDefined = true;
 					}
 					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows("Hero."+rule.lines[i].tokens[1].text.toUpperCase(), heroKw)+";\n";
+					result += tabLevel(2)+tows("Hero."+rule.lines[i].tokens[1].text.toUpperCase(), getConstantKw("HERO CONSTANT"))+";\n";
 					
 				} else if (rule.lines[i].tokens[0].text === "@Slot") {
 					if (isEventPlayerDefined) {
@@ -6690,10 +2484,7 @@ function parse(content, parseArgs={}) {
 			return parseArrayMembership(content);
 		}
 	} else {
-		//Check for booleans
-		if (name === "true" || name === "false" || name === "null") {
-			return tows(name, boolKw);
-		} else if (name.startsWith('"') || name.startsWith("'")) {
+		if (name.startsWith('"') || name.startsWith("'")) {
 			formatArgs = [];
 			return parseString(tokenizeString(name.substring(1, name.length-1)));
 			//error("owo");
@@ -6740,7 +2531,7 @@ function parse(content, parseArgs={}) {
 	}
 	
 	if (name === "ceil") {
-		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundUp", roundKw)+")";
+		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundUp", getConstantKw("ROUNDING TYPE"))+")";
 	}
 	
 	if (name === "chase") {
@@ -6774,14 +2565,67 @@ function parse(content, parseArgs={}) {
 	}
 	
 	if (name === "floor") {
-		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", roundKw)+")";
+		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", getConstantKw("ROUNDING TYPE"))+")";
+	}
+
+	if (name === "hudHeader" || name === "hudText" || name === "hudSubheader" || name === "hudSubtext") {
+		if (name !== "hudText" && (args.length < 6 || args.length > 7)) {
+			error("Function "+name+" takes 6 or 7 arguments, received "+args.length);
+		} else if (name === "hudText" && (args.length < 10 || args.length > 11)) {
+			error("Function "+name+" takes 9 or 10 arguments, received "+args.length);
+		}
+		var defaultColor = [
+			{text: "Color"},
+			{text: "."},
+			{text: "WHITE"}
+		];
+		var wsnull = [{
+			text: "null",
+		}]
+		if (name === "hudHeader") {
+			args.splice(2, 0, wsnull);
+			args.splice(3, 0, wsnull);
+
+			args.splice(7, 0, defaultColor);
+			args.splice(8, 0, defaultColor);
+		} else if (name === "hudSubheader") {
+			args.splice(1, 0, wsnull);
+			args.splice(3, 0, wsnull);
+
+			args.splice(6, 0, defaultColor);
+			args.splice(8, 0, defaultColor);
+		} else if (name === "hudHeader") {
+			args.splice(1, 0, wsnull);
+			args.splice(2, 0, wsnull);
+
+			args.splice(6, 0, defaultColor);
+			args.splice(7, 0, defaultColor);
+		}
+		if (args.length === 10) {
+			//Add the spectator visibility
+			args.push([
+				{text: "SpecVisibility"},
+				{text: "."},
+				{text: "DEFAULT"},
+			])
+		}
+		name = "_hudText";
+		//go on to treat it as a normal function
+	}
+
+	if (name === "getAllPlayers") {
+		return tows("getPlayers", valueFuncKw)+"("+parse([
+			{"text": "Team"},
+			{"text": "."},
+			{"text": "ALL"},
+		])+")";
 	}
 	
 	if (name === "round") {
 		if (args.length !== 1) {
 			error("round() only takes one argument, you maybe meant to use ceil() or floor().");
 		} else {
-			return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundToNearest", roundKw)+")";
+			return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundToNearest", getConstantKw("ROUNDING TYPE"))+")";
 		}
 	}
 	
@@ -6861,12 +2705,9 @@ function parse(content, parseArgs={}) {
 	if (name === "wait") {
 		var result = tows("_wait", actionKw)+"("+parse(args[0])+", ";
 		if (args.length === 1) {
-			result += tows("Wait.IGNORE_CONDITION", waitKw)
+			result += tows("Wait.IGNORE_CONDITION", getConstantKw("WAIT BEHAVIOR"))
 		} else {
-			if (args[1][0].text !== "behavior" || args[1][1].text !== "=") {
-				error("2nd argument of wait() must be 'behavior=Wait.XXXX'");
-			}
-			result += parse(args[1].slice(2));
+			result += parse(args[1]);
 		}
 		result += ")";
 		return result;
@@ -6904,12 +2745,12 @@ function parseString(content) {
 	
 	//Test surround strings
 	for (var j = 0; j < surroundStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = surroundStrKw[j][0][0].substring(0, surroundStrKw[j][0][0].indexOf("{0}")).toLowerCase();
-		var token2 = surroundStrKw[j][0][0].substring(surroundStrKw[j][0][0].indexOf("{0}")+"{0}".length).toLowerCase();
+		var token1 = surroundStrKw[j].opy.substring(0, surroundStrKw[j].opy.indexOf("{0}")).toLowerCase();
+		var token2 = surroundStrKw[j].opy.substring(surroundStrKw[j].opy.indexOf("{0}")+"{0}".length).toLowerCase();
 		debug("Testing str match on '"+token1+"{0}"+token2+"'");
 		if (content[0] === token1 && content[content.length-1] === token2) {
 			hasMatchBeenFound = true;
-			matchStr = tows(surroundStrKw[j][0][0], surroundStrKw);
+			matchStr = tows(surroundStrKw[j].opy, surroundStrKw);
 			//Note: it is assumed all surround strings have a length of only 1 character for each side.
 			tokens.push(content.slice(1, content.length-1));
 			break;
@@ -6919,12 +2760,12 @@ function parseString(content) {
 	
 	//Test ternary string
 	for (var j = 0; j < ternaryStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
-		var token2 = ternaryStrKw[j][0][0].substring(ternaryStrKw[j][0][0].indexOf("{1}")+"{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase();
+		var token1 = ternaryStrKw[j].opy.substring("{0}".length, ternaryStrKw[j].opy.indexOf("{1}")).toLowerCase();
+		var token2 = ternaryStrKw[j].opy.substring(ternaryStrKw[j].opy.indexOf("{1}")+"{1}".length, ternaryStrKw[j].opy.indexOf("{2}")).toLowerCase();
 		tokens = splitStrTokens(content, token1, token2);
 		if (tokens.length === 3) {
 			hasMatchBeenFound = true;
-			matchStr = tows(ternaryStrKw[j][0][0], ternaryStrKw);
+			matchStr = tows(ternaryStrKw[j].opy, ternaryStrKw);
 			break;
 		}
 		tokens = []
@@ -6932,11 +2773,11 @@ function parseString(content) {
 	
 	//Test binary strings
 	for (var j = 0; j < binaryStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
+		var token1 = binaryStrKw[j].opy.substring("{0}".length, binaryStrKw[j].opy.indexOf("{1}")).toLowerCase();
 		var tokens = splitStrTokens(content, token1);
 		if (tokens.length === 2) {
 			hasMatchBeenFound = true;
-			matchStr = tows(binaryStrKw[j][0][0], binaryStrKw);
+			matchStr = tows(binaryStrKw[j].opy, binaryStrKw);
 			break;
 		}
 		tokens = []
@@ -6944,10 +2785,10 @@ function parseString(content) {
 	
 	//Test prefix strings
 	for (var j = 0; j < prefixStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = prefixStrKw[j][0][0].substring(0, prefixStrKw[j][0][0].indexOf("{0}")).toLowerCase();
+		var token1 = prefixStrKw[j].opy.substring(0, prefixStrKw[j].opy.indexOf("{0}")).toLowerCase();
 		if (content[0] === token1) {
 			hasMatchBeenFound = true;
-			matchStr = tows(prefixStrKw[j][0][0], prefixStrKw);
+			matchStr = tows(prefixStrKw[j].opy, prefixStrKw);
 			tokens.push(splitStrTokens(content, token1)[1]);
 			break;
 		}
@@ -6956,10 +2797,10 @@ function parseString(content) {
 	
 	//Test postfix strings
 	for (var j = 0; j < postfixStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = postfixStrKw[j][0][0].substring("{0}".length).toLowerCase();
+		var token1 = postfixStrKw[j].opy.substring("{0}".length).toLowerCase();
 		if (content[content.length-1] === token1) {
 			hasMatchBeenFound = true;
-			matchStr = tows(postfixStrKw[j][0][0], postfixStrKw);
+			matchStr = tows(postfixStrKw[j].opy, postfixStrKw);
 			tokens.push(splitStrTokens(content, token1)[0]);
 			break;
 		}
@@ -6970,7 +2811,7 @@ function parseString(content) {
 	//Test normal strings
 	if (content.length === 1) {
 		for (var j = 0; j < normalStrKw.length && !hasMatchBeenFound; j++) {
-			var token1 = normalStrKw[j][0][0].toLowerCase();
+			var token1 = normalStrKw[j].opy.toLowerCase();
 			if (content[0] === token1) {
 				hasMatchBeenFound = true;
 				matchStr = token1;
@@ -6992,7 +2833,7 @@ function parseString(content) {
 		}
 		
 		if (content[0].startsWith("_h")) {
-			return tows("_hero", valueFuncKw)+"("+tows(content[0].substring(2), heroKw)+")";
+			return tows("_hero", valueFuncKw)+"("+tows("Hero."+content[0].substring(2).toUpperCase(), getConstantKw("HERO CONSTANT"))+")";
 		} else if (!isNaN(content[0])) {
 			return parse(content[0]);
 		} else if (content[0] === "{}") {
@@ -7013,17 +2854,17 @@ function parseString(content) {
 	if (tokens.length > 0) {
 		result += ", "+parseString(tokens[0]);
 	} else {
-		result += ", "+tows("null", boolKw);
+		result += ", "+tows("null", valueFuncKw);
 	}
 	if (tokens.length > 1) {
 		result += ", "+parseString(tokens[1]);
 	} else {
-		result += ", "+tows("null", boolKw);
+		result += ", "+tows("null", valueFuncKw);
 	}
 	if (tokens.length > 2) {
 		result += ", "+parseString(tokens[2]);
 	} else {
-		result += ", "+tows("null", boolKw);
+		result += ", "+tows("null", valueFuncKw);
 	}
 	
 	result += ")";
@@ -7046,6 +2887,9 @@ function parseMember(object, member, parseArgs={}) {
 	
 	if (name.length === 1 && name >= 'A' && name <= 'Z') {
 		return tows("_playerVar", valueFuncKw)+"("+parse(object)+", "+name+")";
+	} else if (["Beam", "Button", "Clip", "Color", "Comms", "Effect", "Icon", "Impulse", "Invis", "LosCheck", "Position", "Reeval", "Relativity", "SpecVisibility", "Status", "Team", "Throttle", "Transform", "Wait"].indexOf(object[0].text) >= 0) {
+		return tows(object[0].text+"."+name, constantKw)
+
 	} else if (name === "append") {
 		if (parseArgs.isWholeInstruction === true) {
 			return parseAssignment(object, args[0], true, "_appendToArray");
@@ -7053,24 +2897,6 @@ function parseMember(object, member, parseArgs={}) {
 		} else {
 			return tows("_appendToArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
 		}
-		
-	} else if (object[0].text === "Beam") {
-		return tows("Beam."+name, beamKw);
-		
-	} else if (object[0].text === "Button") {
-		return tows("Button."+name, buttonKw);
-		
-	} else if (object[0].text === "Clip") {
-		return tows("Clip."+name, clipKw);
-		
-	} else if (object[0].text === "Color") {
-		return tows("Color."+name, colorKw);
-		
-	} else if (object[0].text === "Comms") {
-		return tows("Comms."+name, commsKw);
-		
-	} else if (object[0].text === "Effect") {
-		return tows("Effect."+name, effectKw.concat(playEffectKw));
 		
 	} else if (name === "exclude") {
 		return tows("_removeFromArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
@@ -7094,25 +2920,10 @@ function parseMember(object, member, parseArgs={}) {
 		return parse(object, {raycastType:"hasLoS"});
 		
 	} else if (object[0].text === "Hero") {
-		return tows("_hero", valueFuncKw)+"("+tows("Hero."+name, heroKw)+")";
-		
-	} else if (object[0].text === "Icon") {
-		return tows("Icon."+name, iconKw);
-		
-	} else if (object[0].text === "Impulse") {
-		return tows("Impulse."+name, impulseKw);
-		
-	} else if (object[0].text === "Invis") {
-		return tows("Invis."+name, invisKw);
+		return tows("_hero", valueFuncKw)+"("+tows("Hero."+name, getConstantKw("HERO CONSTANT"))+")";
 		
 	} else if (name === "index") {
 		return tows("_indexOfArrayValue", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
-		
-	} else if (object[0].text === "LosCheck") {
-		return tows("LosCheck."+name, losCheckKw);
-		
-	} else if (object[0].text === "Position") {
-		return tows("Position."+name, positionKw);
 		
 	} else if (object[0].text === "random" && object.length === 1) {
 		if (name === "randint" || name === "uniform") {
@@ -7123,32 +2934,14 @@ function parseMember(object, member, parseArgs={}) {
 			error("Unhandled member 'random."+name+"'");
 		}
 		
-	} else if (object[0].text === "Reeval") {
-		return tows("Reeval."+name, reevaluationKw);
-		
-	} else if (object[0].text === "Relativity") {
-		return tows("Relativity."+name, relativeKw);
-		
 	} else if (name === "remove") {
 		return parseAssignment(object, args[0], true, "_removeFromArrayByValue");
 		
 	} else if (name === "slice") {
 		return tows("_arraySlice", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+", "+parse(args[1])+")";
 		
-	} else if (object[0].text === "Status") {
-		return tows("Status."+name, statusKw);
-		
-	} else if (object[0].text === "Team") {
-		return tows("Team."+name, teamKw);
-		
-	} else if (object[0].text === "Transform") {
-		return tows("Transform."+name, transformationKw);
-		
 	} else if (object[0].text === "Vector") {
 		return tows("Vector."+name, valueFuncKw);
-		
-	} else if (object[0].text === "Wait") {
-		return tows("Wait."+name, waitKw);
 		
 	} else if (name === "x") {
 		return tows("_xComponentOf", valueFuncKw)+"("+parse(object)+")";
@@ -7224,7 +3017,7 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 	}
 	
 	if (modify) {
-		result += tows(modifyArg, operationKw)+", ";
+		result += tows(modifyArg, getConstantKw("OPERATION"))+", ";
 	}
 	
 	result += parse(value)+")";
@@ -7361,9 +3154,9 @@ function parseRuleCondition(content) {
 			
 			if (!hasComparisonOperand) {
 				if (andOperands[i][0].text === "not") {
-					result += parse(andOperands[i].slice(1)) + " == "+tows("false", boolKw);
+					result += parse(andOperands[i].slice(1)) + " == "+tows("false", valueFuncKw);
 				} else {
-					result += parse(andOperands[i]) + " == "+tows("true", boolKw);
+					result += parse(andOperands[i]) + " == "+tows("true", valueFuncKw);
 				}
 			}
 			
@@ -7659,6 +3452,7 @@ function tokenize(content) {
 						//debug("Replacement: "+replacement);
 						
 						j = 0;
+						continue;
 					}
 				}
 				
@@ -7824,7 +3618,19 @@ function tokenizeString(str) {
 				hasTokenBeenFound = true;
 			}
 		}
-		
+
+		//Test for heroes
+		if (!hasTokenBeenFound) {
+			for (var hero of getConstantKw("HERO CONSTANT")) {
+				var heroName = hero.opy.substring("Hero.".length).toLowerCase();
+				console.log(heroName);
+				if (str.startsWith(heroName, i)) {
+					currentToken = "_h"+heroName;
+					hasTokenBeenFound = true;
+				}
+			}
+		}
+				
 		if (!hasTokenBeenFound) {
 			var j = i+1;
 			for (; str[j] >= 'a' && str[j] <= 'z'; j++);
@@ -7838,6 +3644,9675 @@ function tokenizeString(str) {
 	
 	return tokenList;
 }
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+var actionKw = [
+    {
+        "opy": "return",
+        "en": "abort",
+        "description": "Stops execution of the action list.",
+        "args": []
+    },
+    {
+        "opy": "_abortIf",
+        "en": "abortIf",
+        "description": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
+        "args": [
+            {
+                "name": "CONDITION",
+                "description": "Specifies whether the execution is stopped.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            }
+        ]
+    },
+    {
+        "opy": "_abortIfConditionIsFalse",
+        "en": "abortIfConditionIsFalse",
+        "description": "Stops execution of the action list if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
+        "args": []
+    },
+    {
+        "opy": "_abortIfConditionIsTrue",
+        "en": "abortIfConditionIsTrue",
+        "description": "Stops execution of the action list if all conditions in the condition list are true. If any are false, execution continues with the next action.",
+        "args": []
+    },
+    {
+        "opy": "_&allowButton",
+        "en": "allowButton",
+        "description": "Undoes the effect of the disallow button action for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose button is being reenabled.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "BUTTON",
+                "description": "The logical button that is being reenabled.",
+                "type": "BUTTON",
+                "default": "PRIMARY FIRE"
+            }
+        ]
+    },
+    {
+        "opy": "_&applyImpulse",
+        "en": "applyImpulse",
+        "description": "Applies an instantaneous change in velocity to the movement of one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose velocity will be changed.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "DIRECTION",
+                "description": "The unit direction in which the impulse will be applied. This value is normalized internally.",
+                "type": "DIRECTION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "SPEED",
+                "description": "The magnitude of the change to the velocities of the player or players.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "RELATIVE",
+                "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
+                "type": "RELATIVE",
+                "default": "TO WORLD"
+            },
+            {
+                "name": "MOTION",
+                "description": "Specifies whether existing velocity that is counter to direction should first be cancelled out before applying the impulse.",
+                "type": "MOTION",
+                "default": "CANCEL CONTRARY MOTION"
+            }
+        ]
+    },
+    {
+        "opy": "bigMessage",
+        "en": "bigMessage",
+        "description": "Displays a large message above the reticle that is visible to specific players.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the message.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "HEADER",
+                "description": "The message to be displayed.",
+                "type": "ANY",
+                "default": "STRING"
+            }
+        ]
+    },
+    {
+        "opy": "_chaseGlobalVariableAtRate",
+        "en": "chaseGlobalVariableAtRate",
+        "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which global variable to modify gradually.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "DESTINATION",
+                "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+                "type": "ANY",
+                "default": "NUMBER"
+            },
+            {
+                "name": "RATE",
+                "description": "The amount of change that will happen to the variable's value each second.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "CHASE RATE REEVALUATION",
+                "default": "DESTINATION AND RATE"
+            }
+        ]
+    },
+    {
+        "opy": "_chaseGlobalVariableOverTime",
+        "en": "chaseGlobalVariableOverTime",
+        "description": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which global variable to modify gradually.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "DESTINATION",
+                "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+                "type": "ANY",
+                "default": "NUMBER"
+            },
+            {
+                "name": "DURATION",
+                "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "CHASE TIME REEVALUATION",
+                "default": "DESTINATION AND DURATION"
+            }
+        ]
+    },
+    {
+        "opy": "_chasePlayerVariableAtRate",
+        "en": "chasePlayerVariableAtRate",
+        "description": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which of the player's variables to modify gradually.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "DESTINATION",
+                "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+                "type": "ANY",
+                "default": "NUMBER"
+            },
+            {
+                "name": "RATE",
+                "description": "The amount of change that will happen to the variable's value each second.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_chasePlayerVariableOverTime",
+        "en": "chasePlayerVariableOverTime",
+        "description": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which of the player's variables to modify gradually.",
+                "type": "VARIABLE",
+                "default": "VARIABLE"
+            },
+            {
+                "name": "DESTINATION",
+                "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+                "type": "ANY",
+                "default": "NUMBER"
+            },
+            {
+                "name": "DURATION",
+                "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&clearStatusEffect",
+        "en": "clearStatus",
+        "description": "Clears a status that was applied from a set status action from one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players from whom the status will be removed.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "STATUS",
+                "description": "The status to be removed from the player or players.",
+                "type": "STATUS",
+                "default": "HACKED"
+            }
+        ]
+    },
+    {
+        "opy": "_&communicate",
+        "en": "communicate",
+        "description": "Causes one or more players to use an emote, voice line, or other equipped communication.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players to perform the communication.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "TYPE",
+                "description": "The type of communication.",
+                "type": "COMMUNICATE",
+                "default": "VOICE LINE UP"
+            }
+        ]
+    },
+    {
+        "opy": "createBeam",
+        "en": "createBeamEffect",
+        "description": "Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will be able to see the effect.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "TYPE",
+                "description": "The type of effect to be created.",
+                "type": "BEAM EFFECT",
+                "default": "GOOD BEAM"
+            },
+            {
+                "name": "START POSITION",
+                "description": "The effect's start position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
+                "type": "POSITION",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "END POSITION",
+                "description": "The effect's end position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
+                "type": "POSITION",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "COLOR",
+                "description": "The color of the beam to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Only the \"good\" and \"bad\" beam effects can have color applied.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs.",
+                "type": "EFFECT REEVALUATION",
+                "default": "VISIBLE TO, POSITION, AND RADIUS"
+            }
+        ]
+    },
+    {
+        "opy": "createDummy",
+        "en": "createDummyBot",
+        "description": "Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing workshop actions.",
+        "args": [
+            {
+                "name": "HERO",
+                "description": "The hero that the bot will be. If more than one hero is provided, one will be chosen at random.",
+                "type": "HERO",
+                "default": "HERO"
+            },
+            {
+                "name": "TEAM",
+                "description": "The team on which to create the bot. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
+                "type": "TEAM",
+                "default": "TEAM"
+            },
+            {
+                "name": "SLOT",
+                "description": "The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "POSITION",
+                "description": "The initial position where the bot will appear.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "FACING",
+                "description": "The initial direction that the bot will face.",
+                "type": "DIRECTION",
+                "default": "VECTOR"
+            },
+        ]
+    },
+    {
+        "opy": "createEffect",
+        "en": "createEffect",
+        "description": "Creates an in-world effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will be able to see the effect.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "TYPE",
+                "description": "The type of effect to be created.",
+                "type": "CREATE EFFECT",
+                "default": "SPHERE"
+            },
+            {
+                "name": "COLOR",
+                "description": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "POSITION",
+                "description": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "RADIUS",
+                "description": "The radius of this effect.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "type": "EFFECT REEVALUATION",
+                "default": "VISIBLE TO, POSITION, AND RADIUS"
+            }
+        ]
+    },
+    {
+        "opy": "_hudText",
+        "en": "createHudText",
+        "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the hud text.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "HEADER",
+                "description": "The text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "STRING"
+            },
+            {
+                "name": "SUBHEADER",
+                "description": "The subheader text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "TEXT",
+                "description": "The body text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "LOCATION",
+                "description": "The location on the screen where the text will appear.",
+                "type": "HUD LOCATION",
+                "default": "LEFT"
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "HEADER COLOR",
+                "description": "The color of the header.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "SUBHEADER COLOR",
+                "description": "The color of the subheader.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "TEXT COLOR",
+                "description": "The color of the text.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "type": "HUD TEXT REEVALUATION",
+                "default": "VISIBLE TO AND STRING"
+            },
+            {
+                "name": "SPECTATORS",
+                "description": "Whether spectators can see the text or not.",
+                "type": "SPECTATOR VISIBILITY",
+                "default": "DEFAULT VISIBILITY"
+            }
+        ]
+    },
+    {
+        "opy": "createIcon",
+        "en": "createIcon",
+        "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will be able to see the icon.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "POSITION",
+                "description": "The icon's position. If this value is a player, then the icon will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "ICON",
+                "description": "The icon to be created.",
+                "type": "ICON",
+                "default": "ARROW: DOWN"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. The icon will keep asking for and using new values from reevaluated inputs.",
+                "type": "ICON REEVALUATION",
+                "default": "VISIBLE TO AND POSITION"
+            },
+            {
+                "name": "ICON COLOR",
+                "description": "The color of the icon to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "SHOW WHEN OFFSCREEN",
+                "description": "Should this icon appear even when it is behind you?",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "createInWorldText",
+        "en": "createIn-worldText",
+        "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the in-world text.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "HEADER",
+                "description": "The text to be displayed.",
+                "type": "ANY",
+                "default": "STRING"
+            },
+            {
+                "name": "POSITION",
+                "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "SCALE",
+                "description": "The text's scale.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "CLIPPING",
+                "description": "Specifies whether the text can be seen through walls or is instead clipped.",
+                "type": "WORLD TEXT CLIPPING",
+                "default": "CLIP AGAINST SURFACES"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+                "type": "WORLD TEXT REEVALUATION",
+                "default": "VISIBLE TO, POSITION, AND STRING"
+            },
+            {
+                "name": "TEXT COLOR",
+                "description": "Specifies the color of the in-world text to use.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "SPECTATORS",
+                "description": "Whether spectators can see the text or not.",
+                "type": "SPECTATOR VISIBILITY",
+                "default": "DEFAULT VISIBILITY"
+            }
+        ]
+    },
+    {
+        "opy": "damage",
+        "en": "damage",
+        "description": "Applies instantaneous damage to one or more players, possibly killing the players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will receive damage.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "DAMAGER",
+                "description": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit.",
+                "type": "PLAYER",
+                "default": "NULL"
+            },
+            {
+                "name": "AMOUNT",
+                "description": "The amount of damage to apply. This amount may be modified by buffs, debuffs, or armor.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "declareDraw",
+        "en": "declareMatchDraw",
+        "description": "Instantly ends the match in a draw. This action has no effect in free-for-all modes.",
+        "args": []
+    },
+    {
+        "opy": "declarePlayerVictory",
+        "en": "declarePlayerVictory",
+        "description": "Instantly ends the match with the specific player as the winner. This action only has an effect in free-for-all modes.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The winning player.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "declareRoundVictory",
+        "en": "declareRoundVictory",
+        "description": "Declare a team as the current round winner. This only works in the control and elimination game modes",
+        "args": [
+            {
+                "name": "ROUND WINNING TEAM",
+                "description": "Round winning team",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "declareTeamVictory",
+        "en": "declareTeamVictory",
+        "description": "Instantly ends the match with the specified team as the winner. This action has no effect in free-for-all modes.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The winning team.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "destroyAllDummies()",
+        "en": "destroyAllDummyBots",
+        "description": "Removes all dummy bots from the match.",
+        "args": []
+    },
+    {
+        "opy": "destroyAllEffects()",
+        "en": "destroyAllEffects",
+        "description": "Destroys all effect entities created by create effect.",
+        "args": []
+    },
+    {
+        "opy": "destroyAllHudTexts()",
+        "en": "destroyAllHudText",
+        "description": "Destroys all hud text that was created by the create hud text action.",
+        "args": []
+    },
+    {
+        "opy": "destroyAllIcons()",
+        "en": "destroyAllIcons",
+        "description": "Destroys all icon entities created by create icon.",
+        "args": []
+    },
+    {
+        "opy": "destroyAllInWorldText()",
+        "en": "destroyAllIn-worldText",
+        "description": "Destroys all in-world text created by create in-world text.",
+        "args": []
+    },
+    {
+        "opy": "destroyDummy",
+        "en": "destroyDummyBot",
+        "description": "Removes the specified dummy bot from the match.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team to remove the dummy bot from. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
+                "type": "TEAM",
+                "default": "TEAM"
+            },{
+                "name": "SLOT",
+                "description": "The slot to remove the dummy bot from.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "destroyEffect",
+        "en": "destroyEffect",
+        "description": "Destroys an effect entity that was created by create effect.",
+        "args": [
+            {
+                "name": "ENTITY",
+                "description": "Specifies which effect entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
+                "type": "PLAYER",
+                "default": "LAST CREATED ENTITY"
+            }
+        ]
+    },
+    {
+        "opy": "destroyHudText",
+        "en": "destroyHudText",
+        "description": "Destroys hud text that was created by create hud text.",
+        "args": [
+            {
+                "name": "TEXT ID",
+                "description": "Specifies which hud text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
+                "type": "NUMBER",
+                "default": "LAST TEXT ID"
+            }
+        ]
+    },
+    {
+        "opy": "destroyIcon",
+        "en": "destroyIcon",
+        "description": "Destroys an icon entity that was created by create icon.",
+        "args": [
+            {
+                "name": "ENTITY",
+                "description": "Specifies which icon entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
+                "type": "PLAYER",
+                "default": "LAST CREATED ENTITY"
+            }
+        ]
+    },
+    {
+        "opy": "destroyInWorldText",
+        "en": "destroyIn-worldText",
+        "description": "Destroys in-world text that was created by create in-world text.",
+        "args": [
+            {
+                "name": "TEXT ID",
+                "description": "Specifies which in-world text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
+                "type": "NUMBER",
+                "default": "LAST TEXT ID"
+            }
+        ]
+    },
+    {
+        "opy": "disableAnnouncer()",
+        "en": "disableBuilt-inGamemodeAnnouncer",
+        "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
+        "args": []
+    },
+    {
+        "opy": "disableGamemodeCompletion()",
+        "en": "disableBuilt-inGamemodeCompletion",
+        "description": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands.",
+        "args": []
+    },
+    {
+        "opy": "disableMusic()",
+        "en": "disableBuilt-inGamemodeMusic",
+        "description": "Disables all game mode music until reenabled or the match ends.",
+        "args": []
+    },
+    {
+        "opy": "_&disableRespawn",
+        "en": "disableBuilt-inGamemodeRespawning",
+        "description": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands.",
+        "args": [
+            {
+                "name": "PLAYERS",
+                "description": "The player or players whose respawning is affected.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "disableScoring()",
+        "en": "disableBuilt-inGamemodeScoring",
+        "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
+        "args": []
+    },
+    {
+        "opy": "_&disableDeathSpectateAllPlayers",
+        "en": "disableDeathSpectateAllPlayers",
+        "description": "Undoes the effect of the enable death spectate all players action for or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose default death spectate behavior is restored.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&disableDeathSpectateTargetHud",
+        "en": "disableDeathSpectateTargetHud",
+        "description": "Undoes the effect of the enable death spectate target hud action for or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will revert to seeing their own hud while death spectating.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&disallowButton",
+        "en": "disallowButton",
+        "description": "Disables a logical button for one or more players such that pressing it has no effect.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose button is being disabled.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "BUTTON",
+                "description": "The logical button that is being disabled.",
+                "type": "BUTTON",
+                "default": "PRIMARY FIRE"
+            }
+        ]
+    },
+    {
+        "opy": "enableAnnouncer()",
+        "en": "enableBuilt-inGamemodeAnnouncer",
+        "description": "Undoes the effect of the disable built-in game mode announcer action.",
+        "args": []
+    },
+    {
+        "opy": "enableGamemodeCompletion()",
+        "en": "enableBuilt-inGamemodeCompletion",
+        "description": "Undoes the effect of the disable built-in game mode completion action.",
+        "args": []
+    },
+    {
+        "opy": "enableMusic()",
+        "en": "enableBuilt-inGamemodeMusic",
+        "description": "Undoes the effect of the disable built-in game mode music action.",
+        "args": []
+    },
+    {
+        "opy": "_&enableRespawn",
+        "en": "enableBuilt-inGamemodeRespawning",
+        "description": "Undoes the effect of the disable built-in game mode respawning action for one or more players.",
+        "args": [
+            {
+                "name": "PLAYERS",
+                "description": "The player or players whose respawning is affected.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "enableScoring()",
+        "en": "enableBuilt-inGamemodeScoring",
+        "description": "Undoes the effect of the disable built-in game mode scoring action.",
+        "args": []
+    },
+    {
+        "opy": "_&enableDeathSpectateAllPlayers",
+        "en": "enableDeathSpectateAllPlayers",
+        "description": "Allows one or more players to spectate all players when dead, as opposed to only allies.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will be allowed to spectate all players.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&enableDeathSpectateTargetHud",
+        "en": "enableDeathSpectateTargetHud",
+        "description": "Causes one or more players to see their spectate target's hud instead of their own while death spectating.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will begin seeing their spectate targets hud while death spectating.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "goToAssembleHeroes()",
+        "en": "goToAssembleHeroes",
+        "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
+        "args": []
+    },
+    {
+        "opy": "heal",
+        "en": "heal",
+        "description": "Provides an instantaneous heal to one or more players. This heal will not resurrect dead players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose health will be restored.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "HEALER",
+                "description": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit.",
+                "type": "PLAYER",
+                "default": "NULL"
+            },
+            {
+                "name": "AMOUNT",
+                "description": "The amount of healing to apply. This amount may be modified by buff or debuffs. Healing is capped by each player's max health.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "kill",
+        "en": "kill",
+        "description": "Instantly kills one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will be killed.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "KILLER",
+                "description": "The player who will receive credit for the kill. A killer of null indicates no player will receive credit.",
+                "type": "PLAYER",
+                "default": "NULL"
+            }
+        ]
+    },
+    {
+        "opy": "_loop",
+        "en": "loop",
+        "description": "Restarts the action list from the beginning. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
+        "args": []
+    },
+    {
+        "opy": "_loopIf",
+        "en": "loopIf",
+        "description": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
+        "args": [
+            {
+                "name": "CONDITION",
+                "description": "Specifies whether the loop will occur.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            }
+        ]
+    },
+    {
+        "opy": "_loopIfConditionIsFalse",
+        "en": "loopIfConditionIsFalse",
+        "description": "Restarts the action list from the beginning if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
+        "args": []
+    },
+    {
+        "opy": "_loopIfConditionIsTrue",
+        "en": "loopIfConditionIsTrue",
+        "description": "Restarts the action list from the beginning if every condition in the condition list is true. If any are false, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
+        "args": []
+    },
+    {
+        "opy": "_modifyGlobalVar",
+        "en": "modifyGlobalVariable",
+        "description": "Modifies the value of a global variable, which is a variable that belongs to the game itself.",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "The global variable to modify.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "OPERATION",
+                "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
+                "type": "OPERATION",
+                "default": "ADD"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_modifyGlobalVarAtIndex",
+        "en": "modifyGlobalVariableAtIndex",
+        "description": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself.",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "The global variable to modify.",
+                "type": "VARIABLE",
+                "default": "A"
+            },{
+                "name": "INDEX",
+                "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "OPERATION",
+                "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
+                "type": "OPERATION",
+                "default": "ADD"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&addToScore",
+        "en": "modifyPlayerScore",
+        "description": "Modifies the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose score will change.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "SCORE",
+                "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_modifyPlayerVar",
+        "en": "modifyPlayerVariable",
+        "description": "Modifies the value of a player variable, which is a variable that belongs to a specific player.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which of the player's variables to modify.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "OPERATION",
+                "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
+                "type": "OPERATION",
+                "default": "ADD"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_modifyPlayerVarAtIndex",
+        "en": "modifyPlayerVariableAtIndex",
+        "description": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which of the player's variables to modify.",
+                "type": "VARIABLE",
+                "default": "A"
+            },{
+                "name": "INDEX",
+                "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "OPERATION",
+                "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
+                "type": "OPERATION",
+                "default": "ADD"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "addToTeamScore",
+        "en": "modifyTeamScore",
+        "description": "Modifies the score of one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team or teams whose score will be changed.",
+                "type": "TEAM",
+                "default": "TEAM"
+            },
+            {
+                "name": "SCORE",
+                "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "pauseMatchTime()",
+        "en": "pauseMatchTime",
+        "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
+        "args": []
+    },
+    {
+        "opy": "playEffect",
+        "en": "playEffect",
+        "description": "Plays an effect at a position in the world. The lifetime of this effect is short, so it does not need to be updated or destroyed.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will be able to see the effect.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "TYPE",
+                "description": "The type of effect to be created.",
+                "type": "PLAY EFFECT",
+                "default": "GOOD EXPLOSION"
+            },
+            {
+                "name": "COLOR",
+                "description": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "POSITION",
+                "description": "The effect's position. If this value is a player, then the effect will play at the player's position. Otherwise, the value is interpreted as a position in the world.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "RADIUS",
+                "description": "The effect's radius in meters.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&preloadHero",
+        "en": "preloadHero",
+        "description": "Preemptively loads the specified hero or heroes into memory using the skins of the specified player or players, available memory permitting. Useful whenever rapid hero changing is possible and the next hero is known.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will begin preloading a hero or heroes. Only one preload hero action will be active at a time for a given player.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "HERO",
+                "description": "The hero or heroes to begin preloading for the specified player or players. When multiple heroes are specified in an array, the heroes towards the beginning of the array are prioritized.",
+                "type": "HERO",
+                "default": "HERO"
+            }
+        ]
+    },
+    {
+        "opy": "_&forceButtonPress",
+        "en": "pressButton",
+        "description": "Forces one or more players to press a button virtually for a single frame.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players for whom the virtual button input will be forced.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "BUTTON",
+                "description": "The button to be pressed.",
+                "type": "BUTTON",
+                "default": "PRIMARY FIRE"
+            }
+        ]
+    },
+    {
+        "opy": "_&resetHeroAvailability",
+        "en": "resetPlayerHeroAvailability",
+        "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose hero list is being reset.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&respawn",
+        "en": "respawn",
+        "description": "Respawns one or more players at an appropriate spawn location with full health, even if they were already alive.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players to respawn.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&resurrect",
+        "en": "resurrect",
+        "description": "Instantly resurrects one or more players at the location they died with no transition.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will be resurrected.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setAbility1Enabled",
+        "en": "setAbility1Enabled",
+        "description": "Enables or disables ability 1 for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose access to ability 1 is affected.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ENABLED",
+                "description": "Specifies whether the player or players are able to use ability 1. Expects a boolean value such as true, false, or compare.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "_&setAbility2Enabled",
+        "en": "setAbility2Enabled",
+        "description": "Enables or disables ability 2 for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose access to ability 2 is affected.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ENABLED",
+                "description": "Specifies whether the player or players are able to use ability 2. Expects a boolean value such as true, false, or compare.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "_&setAimSpeed",
+        "en": "setAimSpeed",
+        "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose aim speed will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "TURN SPEED PERCENT",
+                "description": "The percentage of normal aim speed to which the player or players will set their aim speed.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setDamageDealt",
+        "en": "setDamageDealt",
+        "description": "Sets the damage dealt of one or more players to a percentage of their raw damage dealt.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose damage dealt will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "DAMAGE DEALT PERCENT",
+                "description": "The percentage of raw damage dealt to which the player or players will set their damage dealt.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setDamageReceived",
+        "en": "setDamageReceived",
+        "description": "Sets the damage received of one or more players to a percentage of their raw damage received.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose damage received will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "DAMAGE RECEIVED PERCENT",
+                "description": "The percentage of raw damage received to which the player or players will set their damage received.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setFacing",
+        "en": "setFacing",
+        "description": "Sets the facing of one or more players to the specified direction.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose facing will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "DIRECTION",
+                "description": "The unit direction in which the player or players will face. This value is normalized internally.",
+                "type": "DIRECTION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "RELATIVE",
+                "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
+                "type": "RELATIVE",
+                "default": "TO WORLD"
+            }
+        ]
+    },
+    {
+        "opy": "_setGlobalVar",
+        "en": "setGlobalVariable",
+        "description": "Stores a value into a global variable, which is a variable that belongs to the game itself.",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which global variable to store the value into.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value that will be stored.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_setGlobalVarAtIndex",
+        "en": "setGlobalVariableAtIndex",
+        "description": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index.",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which global variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "INDEX",
+                "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value that will be stored into the array.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setGravity",
+        "en": "setGravity",
+        "description": "Sets the movement gravity for one or more players to a percentage regular movement gravity.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose movement gravity will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "GRAVITY PERCENT",
+                "description": "The percentage of regular movement gravity to which the player or players will set their personal movement gravity.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setHealingDealt",
+        "en": "setHealingDealt",
+        "description": "Sets the healing dealt of one or more players to a percentage of their raw healing dealt.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose healing dealt will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "HEALING DEALT PERCENT",
+                "description": "",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setHealingReceived",
+        "en": "setHealingReceived",
+        "description": "Sets the healing received of one or more players to a percentage of their raw healing received.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose healing received will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "HEALING RECEIVED PERCENT",
+                "description": "The percentage of raw healing received to which the player or players will set their healing received.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setInvisibility",
+        "en": "setInvisible",
+        "description": "Causes one or more players to become invisible to either all other players or just enemies.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will become invisible.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "INVISIBLE TO",
+                "description": "Specifies for whom the player or players will be invisible.",
+                "type": "INVISIBLE TO",
+                "default": "ALL"
+            }
+        ]
+    },
+    {
+        "opy": "setMatchTime",
+        "en": "setMatchTime",
+        "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
+        "args": [
+            {
+                "name": "TIME",
+                "description": "The match time in seconds.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setMaxHealth",
+        "en": "setMaxHealth",
+        "description": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose max health will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "HEALTH PERCENT",
+                "description": "The percentage of raw max health to which the player or players will set their max health.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setMoveSpeed",
+        "en": "setMoveSpeed",
+        "description": "Sets the move speed of one or more players to a percentage of their raw move speed.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose move speed will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "MOVE SPEED PERCENT",
+                "description": "The percentage of raw move speed to which the player or players will set their move speed.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "setObjectiveDescription",
+        "en": "setObjectiveDescription",
+        "description": "Sets the text at the top center of the screen that normally describes the objective to a message visible to specific players.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the message.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "HEADER",
+                "description": "The message to be displayed.",
+                "type": "ANY",
+                "default": "STRING"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. The message will keep asking for and using new values from reevaluated inputs.",
+                "type": "OBJECTIVE DESCRIPTION REEVALUATION",
+                "default": "VISIBLE TO AND STRING"
+            }
+        ]
+    },
+    {
+        "opy": "_&setAllowedHeroes",
+        "en": "setPlayerAllowedHeroes",
+        "description": "Sets the list of heroes available to one or more players. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose hero list is being set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "HERO",
+                "description": "The hero or heroes that will be available. If no heroes are provided, the action has no effect.",
+                "type": "HERO",
+                "default": "HERO"
+            }
+        ]
+    },
+    {
+        "opy": "_&setScore",
+        "en": "setPlayerScore",
+        "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose score will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "SCORE",
+                "description": "The score that will be set.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_setPlayerVar",
+        "en": "setPlayerVariable",
+        "description": "Stores a value into a player variable, which is a variable that belongs to a specific player.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose variable will be set. If multiple players are provided, each of their variables will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which of the player's variables to store the value into.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value that will be stored.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_setPlayerVarAtIndex",
+        "en": "setPlayerVariableAtIndex",
+        "description": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which player variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "INDEX",
+                "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value that will be stored into the array.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setPrimaryFireEnabled",
+        "en": "setPrimaryFireEnabled",
+        "description": "Enables or disables primary fire for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose access to primary fire is affected.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ENABLED",
+                "description": "Specifies whether the player or players are able to use primary fire. Expects a boolean value such as true, false, or compare.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "_&setProjectileGravity",
+        "en": "setProjectileGravity",
+        "description": "Sets the projectile gravity for one or more players to a percentage of regular projectile gravity.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose projectile gravity will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "PROJECTILE GRAVITY PERCENT",
+                "description": "The percentage of regular projectile gravity to which the player or players will set their personal projectile gravity.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setProjectileSpeed",
+        "en": "setProjectileSpeed",
+        "description": "Iets the projectile speed for one or more players to a percentage of projectile speed.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose projectile speed will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "PROJECTILE SPEED PERCENT",
+                "description": "The percentage of regular projectile speed to which the player or players will set their personal projectile speed.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setRespawnTime",
+        "en": "setRespawnMaxTime",
+        "description": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose respawn max time is being defined.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "TIME",
+                "description": "The duration between death and respawn in seconds.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setSecondaryFireEnabled",
+        "en": "setSecondaryFireEnabled",
+        "description": "Enables or disables secondary fire for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose access to secondary fire is affected.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ENABLED",
+                "description": "Specifies whether the player or players are able to use secondary fire. Expects a boolean value such as true, false, or compare.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "setSlowMotion",
+        "en": "setSlowMotion",
+        "description": "Sets the simulation rate for the entire game, including all players, projectiles, effects, and game mode logic.",
+        "args": [
+            {
+                "name": "SPEED PERCENT",
+                "description": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setStatusEffect",
+        "en": "setStatus",
+        "description": "Applies a status to one or more players. This status will remain in effect for the specified duration or until it is cleared by the clear status action.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players to whom the status will be applied.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ASSISTER",
+                "description": "Specifies a player to be awarded assist credit should the affected player or players be killed while the status is in effect. An assister of null indicates no player will receive credit.",
+                "type": "PLAYER",
+                "default": "NULL"
+            },
+            {
+                "name": "STATUS",
+                "description": "The status to be applied to the player or players. These behave similarly to statuses applied from hero abilities.",
+                "type": "STATUS",
+                "default": "HACKED"
+            },
+            {
+                "name": "DURATION",
+                "description": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 9999.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "setTeamScore",
+        "en": "setTeamScore",
+        "description": "Sets the score for one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team or teams whose score will be set.",
+                "type": "TEAM",
+                "default": "TEAM"
+            },
+            {
+                "name": "SCORE",
+                "description": "The score that will be set.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setUltEnabled",
+        "en": "setUltimateAbilityEnabled",
+        "description": "Enables or disables the ultimate ability of one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose access to their ultimate ability is affected.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ENABLED",
+                "description": "Specifies whether the player or players are able to use their ultimate ability. Expects a boolean value such as true, false, or compare.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "_&setUltCharge",
+        "en": "setUltimateCharge",
+        "description": "Sets the ultimate charge for one or more players as a percentage of maximum charge.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose ultimate charge will be set.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "CHARGE PERCENT",
+                "description": "The percentage of maximum charge.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_skip",
+        "en": "skip",
+        "description": "Skips execution of a certain number of actions in the action list.",
+        "args": [
+            {
+                "name": "NUMBER OF ACTIONS",
+                "description": "The number of actions to skip, not including this action.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_skipIf",
+        "en": "skipIf",
+        "description": "Skips execution of a certain number of actions in the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
+        "args": [
+            {
+                "name": "CONDITION",
+                "description": "Specifies whether the skip occurs.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            },
+            {
+                "name": "NUMBER OF ACTIONS",
+                "description": "The number of actions to skip, not including this action.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "smallMessage",
+        "en": "smallMessage",
+        "description": "Displays a small message beneath the reticle that is visible to specific players.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the message.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "HEADER",
+                "description": "The message to be displayed.",
+                "type": "ANY",
+                "default": "STRING"
+            }
+        ]
+    },
+    {
+        "opy": "_&startAcceleration",
+        "en": "startAccelerating",
+        "description": "Starts accelerating one or more players in a specified direction.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players that will begin accelerating.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "DIRECTION",
+                "description": "The unit direction in which the acceleration will be applied. This value is normalized internally.",
+                "type": "DIRECTION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "RATE",
+                "description": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity and/or surface friction.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "MAX SPEED",
+                "description": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&setCamera",
+        "en": "startCamera",
+        "description": "Places your camera at a location, facing a direction.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose cameras will be placed at the location.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "EYE POSITION",
+                "description": "The position of the camera. Reevaluates continuously.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "LOOK AT POSITION",
+                "description": "Where the camera looks at. Reevaluates continuously.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "BLEND SPEED",
+                "description": "How fast to blend the camera speed as positions change. 0 means do not blend at all, and just change positions instantly.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "startDamageModification",
+        "en": "startDamageModification",
+        "description": "Starts modifying how much damage one or more receivers will receive from one or more damagers. A reference to this damage modification can be obtained from the last damage modification id value. This action will fail if too many damage modifications have been started.",
+        "args": [
+            {
+                "name": "RECEIVERS",
+                "description": "The player or players whose incoming damage will be modified (when attacked by the damagers).",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "DAMAGERS",
+                "description": "The player or players whose outgoing damage will be modified (when attacking the receivers).",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "DAMAGE PERCENT",
+                "description": "The percentage of damage that will apply to receivers when attacked by damagers.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "DAMAGE MODIFICATION REEVALUATION",
+                "default": "RECEIVERS, DAMAGERS, AND DAMAGE PERCENT"
+            }
+        ]
+    },
+    {
+        "opy": "_&startDoT",
+        "en": "startDamageOverTime",
+        "description": "Starts an instance of damage over time. This dot will persist for the specified duration or until stopped by script. To obtain a reference to this dot, use the last damage over time id value.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "One or more players who will receive the damage over time.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "DAMAGER",
+                "description": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit.",
+                "type": "PLAYER",
+                "default": "NULL"
+            },
+            {
+                "name": "DURATION",
+                "description": "The duration of the damage over time in seconds. To have a dot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "DAMAGE PER SECOND",
+                "description": "The damage per second for the damage over time.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&startFacing",
+        "en": "startFacing",
+        "description": "Starts turning one or more players to face the specified direction.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will start turning.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "DIRECTION",
+                "description": "The unit direction in which the player or players will eventually face. This value is normalized internally.",
+                "type": "DIRECTION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "TURN RATE",
+                "description": "The turn rate in degrees per second.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "RELATIVE",
+                "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
+                "type": "RELATIVE",
+                "default": "TO WORLD"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "FACING REEVALUATION",
+                "default": "DIRECTION AND TURN RATE"
+            }
+        ]
+    },
+    {
+        "opy": "_&startForcingHero",
+        "en": "startForcingPlayerToBeHero",
+        "description": "Starts forcing one or more players to be a specific hero and, if necessary, respawns them immediately in their current location. This will be the only hero available to the player or players until the stop forcing player to be hero action is executed.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will be forced to be a specific hero.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "HERO",
+                "description": "The hero that the player or players will be forced to be.",
+                "type": "HERO",
+                "default": "HERO"
+            }
+        ]
+    },
+    {
+        "opy": "startForcingSpawn",
+        "en": "startForcingSpawnRoom",
+        "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team whose spawn room will be forced.",
+                "type": "TEAM",
+                "default": "TEAM"
+            },
+            {
+                "name": "ROOM",
+                "description": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&startForcingThrottle",
+        "en": "startForcingThrottle",
+        "description": "Defines minimum and maximum movement input values for one or more players, possibly forcing or preventing movement.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose movement will be forced or limited.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "MIN FORWARD",
+                "description": "Sets the minimum run forward amount. 0 allows the player or players to stop while 1 forces full forward movement.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "MAX FORWARD",
+                "description": "Sets the maximum run forward amount. 0 prevents the player or players from moving forward while 1 allows full forward movement.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "MIN BACKWARD",
+                "description": "Sets the minimum run backward amount. 0 allows the player or players to stop while 1 forces full backward movement.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "MAX BACKWARD",
+                "description": "Sets the maximum run backward amount. 0 prevents the player or players from moving backward while 1 allows full backward movement.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "MIN SIDEWAYS",
+                "description": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "MAX SIDEWAYS",
+                "description": "Sets the maximum run sideways amount. 0 prevents the player or players from moving SIDEWAYS while 1 allows full sideways movement.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&startHoT",
+        "en": "startHealOverTime",
+        "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "One or more players who will receive the heal over time.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "HEALER",
+                "description": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit.",
+                "type": "PLAYER",
+                "default": "NULL"
+            },
+            {
+                "name": "DURATION",
+                "description": "The duration of the heal over time in seconds. To have a hot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "HEALING PER SECOND",
+                "description": "The healing per second for the heal over time.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&startForcingButton",
+        "en": "startHoldingButton",
+        "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who are holding a button virtually.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "BUTTON",
+                "description": "The logical button that is being held virtually.",
+                "type": "BUTTON",
+                "default": "PRIMARY FIRE"
+            }
+        ]
+    },
+    {
+        "opy": "_&startThrottleInDirection",
+        "en": "startThrottleInDirection",
+        "description": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose throttle will be set or added to.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "DIRECTION",
+                "description": "The unit direction in which the throttle will be set or added to. This value is normalized internally.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            },
+            {
+                "name": "MAGNITUDE",
+                "description": "The amount of throttle (or change to throttle). A value of 1 denotes full throttle.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "RELATIVE",
+                "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
+                "type": "RELATIVE",
+                "default": "TO WORLD"
+            },
+            {
+                "name": "BEHAVIOR",
+                "description": "Specifies whether preexisting throttle is replaced or added to.",
+                "type": "THROTTLE BEHAVIOR",
+                "default": "REPLACE EXISTING THROTTLE"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This aciton will keep asking for and using new values from reevaluated inputs.",
+                "type": "THROTTLE REEVALUATION",
+                "default": "DIRECTION AND MAGNITUDE"
+            }
+        ]
+    },
+    {
+        "opy": "_&startTransformingThrottle",
+        "en": "startTransformingThrottle",
+        "description": "Starts transforming (scaling and rotating) the throttle (directional input control) of a player or players. Cancels any existing start transforming throttle behavior.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose throttle will be transformed.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "X AXIS SCALAR",
+                "description": "The player or players will have their throttle X axis (left to right) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "Y AXIS SCALAR",
+                "description": "The player or players will have their throttle Y axis (front to back) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "RELATIVE DIRECTION",
+                "description": "After the axis scalars are applied, the player or players will have their throttle transformed so that it is relative to this unit direction vector. For example, to make the throttle camera relative, provide the direction that the camera is facing. This value is evaluated continuously (meaning it updates every frame) and normalized internally.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "_&stopAcceleration",
+        "en": "stopAccelerating",
+        "description": "Stops the acceleration started by the start accelerating action for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will stop accelerating.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "stopAllDamageModifications",
+        "en": "stopAllDamageModifications",
+        "description": "Stops all damage modifications that were started using the start damage modification action.",
+        "args": []
+    },
+    {
+        "opy": "_&stopAllDoT",
+        "en": "stopAllDamageOverTime",
+        "description": "Stops all damage over time started by start damage over time for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose scripted damage over time will stop.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&stopAllHoT",
+        "en": "stopAllHealOverTime",
+        "description": "Stops all heal over time started by start heal over time for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose scripted heal over time will stop.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&stopCamera",
+        "en": "stopCamera",
+        "description": "None",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose cameras will be put back to the default view.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_stopChasingGlobalVariable",
+        "en": "stopChasingGlobalVariable",
+        "description": "Stops an in-progress chase of a global variable, leaving it at its current value.",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which global variable to stop modifying.",
+                "type": "VARIABLE",
+                "default": "A"
+            }
+        ]
+    },
+    {
+        "opy": "_stopChasingPlayerVariable",
+        "en": "stopChasingPlayerVariable",
+        "description": "Stops an in-progress chase of a player variable, leaving it at its current value.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose variable will stop changing. If multiple players are provided, each of their variables will stop changing.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which of the player's variables to stop modifying.",
+                "type": "VARIABLE",
+                "default": "A"
+            }
+        ]
+    },
+    {
+        "opy": "stopDamageModification",
+        "en": "stopDamageModification",
+        "description": "Stops a damage modification that was started by the start damage modification action.",
+        "args": [
+            {
+                "name": "DAMAGE MODIFICATION",
+                "description": "Specifies which damage modification instance to stop. This id may be last damage modification id or a variable into which last damage modification id was earlier stored.",
+                "type": "NUMBER",
+                "default": "LAST DAMAGE MODIFICATION ID"
+            }
+        ]
+    },
+    {
+        "opy": "stopDoT",
+        "en": "stopDamageOverTime",
+        "description": "Stops an instance of damage over time started by the start damage over time action.",
+        "args": [
+            {
+                "name": "DAMAGE OVER TIME ID",
+                "description": "Specifies which damage over time instance to stop. This id may be last damage over time id or a variable into which last damage over time id was earlier stored.",
+                "type": "NUMBER",
+                "default": "LAST DAMAGE OVER TIME ID"
+            }
+        ]
+    },
+    {
+        "opy": "_&stopFacing",
+        "en": "stopFacing",
+        "description": "Stops the turning started by the start facing action for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will stop turning.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&stopForcingCurrentHero",
+        "en": "stopForcingPlayerToBeHero",
+        "description": "Stops forcing one or more players to be a specific hero. This will not respawn the player or players, but it will restore their hero availability the next time they go to select a hero.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who will no longer be forced to be a specific hero.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "stopForcingSpawn",
+        "en": "stopForcingSpawnRoom",
+        "description": "Undoes the effect of the start forcing spawn room action for the specified team.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team that will resume using their normal spawn room.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_&stopForcingThrottle",
+        "en": "stopForcingThrottle",
+        "description": "Undoes the effect of the start forcing throttle action for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose movement input will be restored.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "stopHoT",
+        "en": "stopHealOverTime",
+        "description": "Stops an instance of heal over time started by the start heal over time action.",
+        "args": [
+            {
+                "name": "HEAL OVER TIME ID",
+                "description": "Specifies which heal over time instance to stop. This id may be last heal over time id or a variable into which last heal over time id was earlier stored.",
+                "type": "NUMBER",
+                "default": "PLAYER VARIABLE"
+            }
+        ]
+    },
+    {
+        "opy": "_&stopForcingButton",
+        "en": "stopHoldingButton",
+        "description": "Undoes the effect of the start holding button action for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players who are no longer holding a button virtually.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "BUTTON",
+                "description": "The logical button that is no longer being held virtually.",
+                "type": "BUTTON",
+                "default": "PRIMARY FIRE"
+            }
+        ]
+    },
+    {
+        "opy": "_&stopThrottleInDirection",
+        "en": "stopThrottleInDirection",
+        "description": "Cancels the behavior caused by start throttle in direction.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose default throttle control will be restored.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&stopTransformingThrottle",
+        "en": "stopTransformingThrottle",
+        "description": "Stops the throttle transform started by start transforming throttle for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose throttle will stop being transformed.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&teleport",
+        "en": "teleport",
+        "description": "Teleports one or more players to the specified position.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players to teleport.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "POSITION",
+                "description": "The position to which the player or players will teleport. If a player is provided, the position of the player is used.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "unpauseMatchTime()",
+        "en": "unpauseMatchTime",
+        "description": "Unpauses the match time.",
+        "args": []
+    },
+    {
+        "opy": "_wait",
+        "en": "wait",
+        "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
+        "args": [
+            {
+                "name": "TIME",
+                "description": "The duration of the pause.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "WAIT BEHAVIOR",
+                "description": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart.",
+                "type": "WAIT BEHAVIOR",
+                "default": "IGNORE CONDITION"
+            }
+        ]
+    }
+];
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+var valueFuncKw = [
+    {
+        "opy": "abs",
+        "en": "absoluteValue",
+        "description": "The absolute value of the specified value.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The real number value whose absolute value will be computed.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_add",
+        "en": "add",
+        "description": "The sum of two numbers or vectors.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The left-hand operand. May be any value that results in a number or a vector.",
+                "type": "ANY",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "description": "The right-hand operand. May be any value that results in a number or a vector.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "getDeadPlayers",
+        "en": "allDeadPlayers",
+        "description": "An array containing all dead players on a team or in the match.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team or teams from which players may come.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "getAllHeroes()",
+        "en": "allHeroes",
+        "description": "The array of all heroes in overwatch.",
+        "args": []
+    },
+    {
+        "opy": "getLivingPlayers",
+        "en": "allLivingPlayers",
+        "description": "An array containing all living players on a team or in the match.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team or teams from which players may come.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "getPlayers",
+        "en": "allPlayers",
+        "description": "An array containing all players on a team or in the match.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team or teams from which players may come.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "getPlayersNotOnObjective",
+        "en": "allPlayersNotOnObjective",
+        "description": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match).",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team or teams from which players may come.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "getPlayersOnObjective",
+        "en": "allPlayersOnObjective",
+        "description": "An array containing all players occupying a payload or control point (either on a team or in the match).",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team or teams from which players may come.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_&getAllowedHeroes",
+        "en": "allowedHeroes",
+        "description": "The array of heroes from which the specified player is currently allowed to select.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose allowed heroes to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&getAltitude",
+        "en": "altitudeOf",
+        "description": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose altitude to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_and",
+        "en": "and",
+        "description": "Whether both of the two inputs are true (or equivalent to true).",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            },
+            {
+                "name": "VALUE",
+                "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "angleDifference",
+        "en": "angleDifference",
+        "description": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative.",
+        "args": [
+            {
+                "name": "ANGLE",
+                "description": "One of the two angles between which to measure the resulting angle.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "ANGLE",
+                "description": "One of the two angles between which to measure the resulting angle.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_appendToArray",
+        "en": "appendToArray",
+        "description": "A copy of an array with one or more values appended to the end.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array to which to append.",
+                "type": "ANY",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_arrayContains",
+        "en": "arrayContains",
+        "description": "Whether the specified array contains the specified value.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array in which to search for the specified value.",
+                "type": "ANY",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value for which to search.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_arraySlice",
+        "en": "arraySlice",
+        "description": "A copy of the specified array containing only values from a specified index range.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array from which to make a copy.",
+                "type": "ANY",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "START INDEX",
+                "description": "The first index of the range.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "COUNT",
+                "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "attacker",
+        "en": "attacker",
+        "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
+        "args": []
+    },
+    {
+        "opy": "Vector.BACKWARD",
+        "en": "backward",
+        "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
+        "args": []
+    },
+    {
+        "opy": "_&getClosestPlayer",
+        "en": "closestPlayerTo",
+        "description": "The player closest to a position, optionally restricted by team.",
+        "args": [
+            {
+                "name": "CENTER",
+                "description": "The position from which to measure proximity.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams from which the closest player will come.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_compare",
+        "en": "compare",
+        "description": "Whether the comparison of the two inputs is true.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
+                "type": "ANY",
+                "default": "NUMBER"
+            },
+            {
+                "name": "COMPARISON",
+                "description": "",
+                "type": "COMPARE OPERATOR",
+                "default": "=="
+            },
+            {
+                "name": "VALUE",
+                "description": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "getControlScorePercentage",
+        "en": "controlModeScoringPercentage",
+        "description": "The score percentage for the specified team in control mode.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team whose score percentage to acquire.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "getControlScoringTeam",
+        "en": "controlModeScoringTeam",
+        "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
+        "args": []
+    },
+    {
+        "opy": "cosDeg",
+        "en": "cosineFromDegrees",
+        "description": "Cosine of the specified angle in degrees.",
+        "args": [
+            {
+                "name": "ANGLE",
+                "description": "Angle in degrees.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "cos",
+        "en": "cosineFromRadians",
+        "description": "Cosine of the specified angle in radians.",
+        "args": [
+            {
+                "name": "ANGLE",
+                "description": "Angle in radians.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "len",
+        "en": "countOf",
+        "description": "The number of elements in the specified array.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array whose elements will be counted.",
+                "type": "ANY",
+                "default": "GLOBAL VARIABLE"
+            }
+        ]
+    },
+    {
+        "opy": "crossProduct",
+        "en": "crossProduct",
+        "description": "The cross product of the specified values. (Left cross up equals forward.)",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The left-hand-side vector operand of the cross product.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            },
+            {
+                "name": "VALUE",
+                "description": "The right-hand-side vector operand of the cross product.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "_currentArrayElement",
+        "en": "currentArrayElement",
+        "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
+        "args": []
+    },
+    {
+        "opy": "angleToDirection",
+        "en": "directionFromAngles",
+        "description": "The unit-length direction vector corresponding to the specified angles.",
+        "args": [
+            {
+                "name": "HORIZONTAL ANGLE",
+                "description": "The horizontal angle in degrees used to construct the resulting vector.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VERTICAL ANGLE",
+                "description": "The vertical angle in degrees used to construct the resulting vector.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "directionTowards",
+        "en": "directionTowards",
+        "description": "The unit-length direction vector from one position to another.",
+        "args": [
+            {
+                "name": "START POS",
+                "description": "The position from which the resulting direction vector will point.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "END POS",
+                "description": "The position to which the resulting direction vector will point.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "distance",
+        "en": "distanceBetween",
+        "description": "The distance between two positions in meters.",
+        "args": [
+            {
+                "name": "START POS",
+                "description": "One of the two positions used in the distance measurement.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "END POS",
+                "description": "One of the two positions used in the distance measurement.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "_divide",
+        "en": "divide",
+        "description": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The left-hand operand. May be any value that results in a number or a vector.",
+                "type": "ANY",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "description": "The right-hand operand. May be any value that results in a number or a vector.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "dotProduct",
+        "en": "dotProduct",
+        "description": "The dot product of the specified values.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "One of two vector operands of the dot product.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            },
+            {
+                "name": "VALUE",
+                "description": "One of two vector operands of the dot product.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "Vector.DOWN",
+        "en": "down",
+        "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
+        "args": []
+    },
+    {
+        "opy": "_emptyArray",
+        "en": "emptyArray",
+        "description": "An array with no elements.",
+        "args": []
+    },
+    {
+        "opy": "entityExists",
+        "en": "entityExists",
+        "description": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed.",
+        "args": [
+            {
+                "name": "ENTITY",
+                "description": "The player, icon entity, or effect entity whose existence to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "eventDamage",
+        "en": "eventDamage",
+        "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
+        "args": []
+    },
+    {
+        "opy": "eventHealing",
+        "en": "eventHealing",
+        "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
+        "args": []
+    },
+    {
+        "opy": "eventPlayer",
+        "en": "eventPlayer",
+        "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
+        "args": []
+    },
+    {
+        "opy": "eventWasCriticalHit",
+        "en": "eventWasCriticalHit",
+        "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
+        "args": []
+    },
+    {
+        "opy": "_&getEyePosition",
+        "en": "eyePosition",
+        "description": "The position of a player's first person view (used for aiming)",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The position of a player's first person view (used for aiming)",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&getFacingDirection",
+        "en": "facingDirectionOf",
+        "description": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose facing direction to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "false",
+        "en": "false",
+        "description": "The boolean value of false.",
+        "args": []
+    },
+    {
+        "opy": "getFarthestPlayer",
+        "en": "farthestPlayerFrom",
+        "description": "The player farthest from a position, optionally restricted by team.",
+        "args": [
+            {
+                "name": "CENTER",
+                "description": "The position from which to measure distance.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams from which the farthest player will come.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_filteredArray",
+        "en": "filteredArray",
+        "description": "A copy of the specified array with any values that do not match the specified condition removed.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array whose copy will be filtered.",
+                "type": "ANY",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "CONDITION",
+                "description": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            }
+        ]
+    },
+    {
+        "opy": "_firstOf",
+        "en": "firstOf",
+        "description": "The value at the start of the specified array. Results in 0 if the specified array is empty.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array from which the value is acquired.",
+                "type": "ANY",
+                "default": "GLOBAL VARIABLE"
+            }
+        ]
+    },
+    {
+        "opy": "getFlagPosition",
+        "en": "flagPosition",
+        "description": "The position of a specific team's flag in capture the flag.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team whose flag position to acquire.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "Vector.FORWARD",
+        "en": "forward",
+        "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
+        "args": []
+    },
+    {
+        "opy": "_globalVar",
+        "en": "globalVariable",
+        "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "The variable whose value to acquire.",
+                "type": "VARIABLE",
+                "default": "A"
+            }
+        ]
+    },
+    {
+        "opy": "_&hasSpawned",
+        "en": "hasSpawned",
+        "description": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet.",
+        "args": [
+            {
+                "name": "ENTITY",
+                "description": "The player, icon entity, or effect entity whose presence in world to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&hasStatusEffect",
+        "en": "hasStatus",
+        "description": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "STATUS",
+                "description": "The status to check for.",
+                "type": "STATUS",
+                "default": "HACKED"
+            }
+        ]
+    },
+    {
+        "opy": "healee",
+        "en": "healee",
+        "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
+        "args": []
+    },
+    {
+        "opy": "healer",
+        "en": "healer",
+        "description": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player.",
+        "args": []
+    },
+    {
+        "opy": "_&getHealth",
+        "en": "health",
+        "description": "The current health of a player, including armor and shields.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose health to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&getNormalizedHealth",
+        "en": "normalizedHealth",
+        "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose normalized health to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_hero",
+        "en": "hero",
+        "description": "A hero constant.",
+        "args": [
+            {
+                "name": "HERO",
+                "description": "A hero constant.",
+                "type": "HERO CONSTANT",
+                "default": "ANA"
+            }
+        ]
+    },
+    {
+        "opy": "heroIcon",
+        "en": "heroIconString",
+        "description": "Converts a hero parameter into a string that shows up as an icon.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The hero that will be converted to an icon.",
+                "type": "HERO",
+                "default": "HERO"
+            }
+        ]
+    },
+    {
+        "opy": "_&getCurrentHero",
+        "en": "heroOf",
+        "description": "The current hero of a player.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose hero to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "horizontalAngleFromDirection",
+        "en": "horizontalAngleFromDirection",
+        "description": "The horizontal angle in degrees corresponding to the specified direction vector.",
+        "args": [
+            {
+                "name": "DIRECTION",
+                "description": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "horizontalAngleTowards",
+        "en": "horizontalAngleTowards",
+        "description": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player from whose current facing the angle begins.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "POSITION",
+                "description": "The position in the world where the angle ends.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "_&getHorizontalFacingAngle",
+        "en": "horizontalFacingAngleOf",
+        "description": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180).",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose horizontal facing angle to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&getHorizontalSpeed",
+        "en": "horizontalSpeedOf",
+        "description": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose horizontal speed to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "hostPlayer",
+        "en": "hostPlayer",
+        "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
+        "args": []
+    },
+    {
+        "opy": "_indexOfArrayValue",
+        "en": "indexOfArrayValue",
+        "description": "The index of a value within an array or -1 if no such value can be found.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array in which to search for the specified value.",
+                "type": "ANY",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value for which to search.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isAlive",
+        "en": "isAlive",
+        "description": "Whether a player is alive.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose life to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "isAssemblingHeroes()",
+        "en": "isAssemblingHeroes",
+        "description": "Whether the match is currently in its assemble heroes phase.",
+        "args": []
+    },
+    {
+        "opy": "isMatchBetweenRounds()",
+        "en": "isBetweenRounds",
+        "description": "Whether the match is between rounds.",
+        "args": []
+    },
+    {
+        "opy": "_&isHoldingButton",
+        "en": "isButtonHeld",
+        "description": "Whether a player is holding a specific button.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose button to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "BUTTON",
+                "description": "The button to check.",
+                "type": "BUTTON",
+                "default": "PRIMARY FIRE"
+            }
+        ]
+    },
+    {
+        "opy": "_&isCommunicating",
+        "en": "isCommunicating",
+        "description": "Whether a player is using a specific communication type (such as emoting, using a voice line, etc.).",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose communication status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "TYPE",
+                "description": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds.",
+                "type": "COMMUNICATE",
+                "default": "VOICE LINE UP"
+            }
+        ]
+    },
+    {
+        "opy": "_&isCommunicatingAnything",
+        "en": "isCommunicatingAny",
+        "description": "Whether a player is using any communication type (such as emoting, using a voice line, etc.).",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose communication status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isCommunicatingEmote",
+        "en": "isCommunicatingAnyEmote",
+        "description": "Whether a player is using an emote.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose emoting status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isCommunicatingVoiceline",
+        "en": "isCommunicatingAnyVoiceline",
+        "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose voice line status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "isControlPointLocked()",
+        "en": "isControlModePointLocked",
+        "description": "Whether the point is locked in control mode.",
+        "args": []
+    },
+    {
+        "opy": "_&isCrouching",
+        "en": "isCrouching",
+        "description": "Whether a player is crouching.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose crouching status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "isInSuddenDeath()",
+        "en": "isCtfModeInSuddenDeath",
+        "description": "Whether the current game of capture the flag is in sudden death.",
+        "args": []
+    },
+    {
+        "opy": "_&isDead",
+        "en": "isDead",
+        "description": "Whether a player is dead.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose death to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isDummy",
+        "en": "isDummyBot",
+        "description": "Whether a player is a dummy bot.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "Player to consider.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isFiringPrimaryFire",
+        "en": "isFiringPrimary",
+        "description": "Whether the specified player's primary weapon attack is being used.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose primary weapon attack usage to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isFiringSecondaryFire",
+        "en": "isFiringSecondary",
+        "description": "Whether the specified player's secondary weapon attack is being used.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose secondary weapon attack usage to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "isFlagAtBase",
+        "en": "isFlagAtBase",
+        "description": "Whether a specific team's flag is at its base in capture the flag.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team whose flag to check.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "isFlagBeingCarried",
+        "en": "isFlagBeingCarried",
+        "description": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team whose flag to check.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "isGameInProgress()",
+        "en": "isGameInProgress",
+        "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
+        "args": []
+    },
+    {
+        "opy": "_!teamHasHero",
+        "en": "isHeroBeingPlayed",
+        "description": "Whether a specific hero is being played (either on a team or in the match).",
+        "args": [
+            {
+                "name": "HERO",
+                "description": "The hero to check for play.",
+                "type": "HERO",
+                "default": "HERO"
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams on which to check for the hero being played.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_&isInAir",
+        "en": "isInAir",
+        "description": "Whether a player is airborne.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose airborne status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_isInLineOfSight",
+        "en": "isInLineOfSight",
+        "description": "Whether two positions have line of sight with each other.",
+        "args": [
+            {
+                "name": "START POS",
+                "description": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "END POS",
+                "description": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "BARRIERS",
+                "description": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used.",
+                "type": "BARRIERS LOS",
+                "default": "BARRIERS DO NOT BLOCK LOS"
+            }
+        ]
+    },
+    {
+        "opy": "isInSetup()",
+        "en": "isInSetup",
+        "description": "Whether the match is currently in its setup phase.",
+        "args": []
+    },
+    {
+        "opy": "_&isInSpawnRoom",
+        "en": "isInSpawnRoom",
+        "description": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes).",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose spawn room status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isInViewAngle",
+        "en": "isInViewAngle",
+        "description": "Whether a location is within view of a player.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose view to use for the check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "LOCATION",
+                "description": "The location to test if it's within view.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "VIEW ANGLE",
+                "description": "The view angle to compare against in degrees.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "isMatchComplete()",
+        "en": "isMatchComplete",
+        "description": "Whether the match has finished.",
+        "args": []
+    },
+    {
+        "opy": "_&isMoving",
+        "en": "isMoving",
+        "description": "Whether a player is moving (defined as having a nonzero current speed).",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose moving status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "isObjectiveComplete",
+        "en": "isObjectiveComplete",
+        "description": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or assault/escort.",
+        "args": [
+            {
+                "name": "NUMBER",
+                "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isOnGround",
+        "en": "isOnGround",
+        "description": "Whether a player is on the ground (or other walkable surface).",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose ground status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isOnObjective",
+        "en": "isOnObjective",
+        "description": "Whether a specific player is currently occupying a payload or capture point.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose objective status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isOnWall",
+        "en": "isOnWall",
+        "description": "Whether a player is on a wall (climbing or riding).",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose wall status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isOnFire",
+        "en": "isPortraitOnFire",
+        "description": "Whether a specific player's portrait is on fire.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose portrait to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isStanding",
+        "en": "isStanding",
+        "description": "Whether a player is standing (defined as both not moving and not in the air).",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose standing status to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "isTeamOnDefense",
+        "en": "isTeamOnDefense",
+        "description": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or assault/escort.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team whose role to check.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "isTeamOnOffense",
+        "en": "isTeamOnOffense",
+        "description": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or assault/escort.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team whose role to check.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_all",
+        "en": "isTrueForAll",
+        "description": "Whether the specified condition evaluates to true for every value in the specified array.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array whose values will be considered.",
+                "type": "ANY",
+                "default": "GLOBAL VARIABLE"
+            },
+            {
+                "name": "CONDITION",
+                "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            }
+        ]
+    },
+    {
+        "opy": "_any",
+        "en": "isTrueForAny",
+        "description": "Whether the specified condition evaluates to true for any value in the specified array.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array whose values will be considered.",
+                "type": "ANY",
+                "default": "GLOBAL VARIABLE"
+            },
+            {
+                "name": "CONDITION",
+                "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            }
+        ]
+    },
+    {
+        "opy": "_&isUsingAbility1",
+        "en": "isUsingAbility1",
+        "description": "Whether the specified player is using ability 1.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose ability 1 usage to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isUsingAbility2",
+        "en": "isUsingAbility2",
+        "description": "Whether the specified player is using ability 2.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose ability 2 usage to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&isUsingUltimate",
+        "en": "isUsingUltimate",
+        "description": "Whether a player is using an ultimate ability.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose ultimate ability usage to check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "isWaitingForPlayers()",
+        "en": "isWaitingForPlayers",
+        "description": "Whether the match is waiting for players to join before starting.",
+        "args": []
+    },
+    {
+        "opy": "getLastCreatedEntity()",
+        "en": "lastCreatedEntity",
+        "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
+        "args": []
+    },
+    {
+        "opy": "getLastDamageModification()",
+        "en": "lastDamageModificationId",
+        "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
+        "args": []
+    },
+    {
+        "opy": "getLastDoT()",
+        "en": "lastDamageOverTimeId",
+        "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
+        "args": []
+    },
+    {
+        "opy": "getLastHoT()",
+        "en": "lastHealOverTimeId",
+        "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
+        "args": []
+    },
+    {
+        "opy": "_lastOf",
+        "en": "lastOf",
+        "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array from which the value is acquired.",
+                "type": "ANY",
+                "default": "GLOBAL VARIABLE"
+            }
+        ]
+    },
+    {
+        "opy": "getLastCreatedText()",
+        "en": "lastTextId",
+        "description": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action.",
+        "args": []
+    },
+    {
+        "opy": "Vector.LEFT",
+        "en": "left",
+        "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
+        "args": []
+    },
+    {
+        "opy": "localVector",
+        "en": "localVectorOf",
+        "description": "The vector in local coordinates corresponding to the provided vector in world coordinates.",
+        "args": [
+            {
+                "name": "WORLD VECTOR",
+                "description": "The vector in world coordinates that will be converted to local coordinates.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "RELATIVE PLAYER",
+                "description": "The player to whom the resulting vector will be relative.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "TRANSFORMATION",
+                "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
+                "type": "TRANSFORMATION",
+                "default": "ROTATION"
+            }
+        ]
+    },
+    {
+        "opy": "getMatchRound()",
+        "en": "matchRound",
+        "description": "The current round of the match, counting up from 1.",
+        "args": []
+    },
+    {
+        "opy": "getMatchTime()",
+        "en": "matchTime",
+        "description": "The amount of time in seconds remaining in the current game mode phase.",
+        "args": []
+    },
+    {
+        "opy": "max",
+        "en": "max",
+        "description": "The greater of two numbers.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The left-hand operand. May be any value that results in a number.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "description": "The right-hand operand. May be any value that results in a number.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&getMaxHealth",
+        "en": "maxHealth",
+        "description": "The max health of a player, including armor and shields.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose max health to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "min",
+        "en": "min",
+        "description": "The lesser of two numbers.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The left-hand operand. May be any value that results in a number.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "description": "The right-hand operand. May be any value that results in a number.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_modulo",
+        "en": "modulo",
+        "description": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The left-hand operand. May be any value that results in a number.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "description": "The right-hand operand. May be any value that results in a number.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_multiply",
+        "en": "multiply",
+        "description": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The left-hand operand. May be any value that results in a number or a vector.",
+                "type": "ANY",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "description": "The right-hand operand. May be any value that results in a number or a vector.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "nearestWalkablePosition",
+        "en": "nearestWalkablePosition",
+        "description": "The position closest to the specified position that can be stood on and is accessible from a spawn point.",
+        "args": [
+            {
+                "name": "POSITION",
+                "description": "The position from which to search for the nearest walkable position.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "normalize",
+        "en": "normalize",
+        "description": "The unit-length normalization of a vector.",
+        "args": [
+            {
+                "name": "VECTOR",
+                "description": "The vector to normalize.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "not",
+        "en": "not",
+        "description": "Whether the input is false (or equivalent to false).",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "null",
+        "en": "null",
+        "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
+        "args": []
+    },
+    {
+        "opy": "getNumberOfDeadPlayers",
+        "en": "numberOfDeadPlayers",
+        "description": "The number of dead players on a team or in the match.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team or teams on which to count players.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_&getNumberOfDeaths",
+        "en": "numberOfDeaths",
+        "description": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose death count to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&getNumberOfElims",
+        "en": "numberOfEliminations",
+        "description": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose elimination count to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&getNumberOfFinalBlows",
+        "en": "numberOfFinalBlows",
+        "description": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose final blow count to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_!getNumberOfHeroes",
+        "en": "numberOfHeroes",
+        "description": "The number of players playing a specific hero on a team or in the match.",
+        "args": [
+            {
+                "name": "HERO",
+                "description": "The hero to check for play.",
+                "type": "HERO",
+                "default": "HERO"
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams on which to check for the hero being played.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "getNumberOfLivingPlayers",
+        "en": "numberOfLivingPlayers",
+        "description": "The number of living players on a team or in the match.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team or teams on which to count players.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "getNumberOfPlayers",
+        "en": "numberOfPlayers",
+        "description": "The number of players on a team or in the match.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team or teams on which to count players.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "getNumberOfPlayersOnObjective",
+        "en": "numberOfPlayersOnObjective",
+        "description": "The number of players occupying a payload or control point (either on a team or in the match).",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team or teams on which to count players.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "getCurrentObjective",
+        "en": "objectiveIndex",
+        "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
+        "args": []
+    },
+    {
+        "opy": "getObjectivePosition",
+        "en": "objectivePosition",
+        "description": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, assault/escort, escort, and control.",
+        "args": [
+            {
+                "name": "NUMBER",
+                "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "getOppositeTeam",
+        "en": "oppositeTeamOf",
+        "description": "The team opposite the specified team.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team whose opposite to acquire. If all, the result will be all.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_or",
+        "en": "or",
+        "description": "Whether either of the two inputs are true (or equivalent to true).",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            },
+            {
+                "name": "VALUE",
+                "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "getPayloadPosition",
+        "en": "payloadPosition",
+        "description": "The position in the world of the active payload.",
+        "args": []
+    },
+    {
+        "opy": "getPayloadProgressPercentage",
+        "en": "payloadProgressPercentage",
+        "description": "The current progress towards the destination for the active payload (expressed as a percentage).",
+        "args": []
+    },
+    {
+        "opy": "getFlagCarrier",
+        "en": "playerCarryingFlag",
+        "description": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team whose flag to check.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_&getPlayerClosestToReticle",
+        "en": "playerClosestToReticle",
+        "description": "The player closest to the reticle of the specified player, optionally restricted by team.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player from whose reticle to search for the closest player.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams on which to search for the closest player.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_playerVar",
+        "en": "playerVariable",
+        "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose variable value to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "VARIABLE",
+                "description": "The variable whose value to acquire.",
+                "type": "VARIABLE",
+                "default": "A"
+            }
+        ]
+    },
+    {
+        "opy": "getPlayersInSlot",
+        "en": "playersInSlot",
+        "description": "The player or array of players who occupy a specific slot in the game.",
+        "args": [
+            {
+                "name": "SLOT",
+                "description": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams from which to acquire a player or players.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_&getPlayersInViewAngle",
+        "en": "playersInViewAngle",
+        "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose view to use for the check.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams on which to consider players.",
+                "type": "TEAM",
+                "default": "TEAM"
+            },
+            {
+                "name": "VIEW ANGLE",
+                "description": "The view angle to compare against in degrees.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_!getPlayersOnHero",
+        "en": "playersOnHero",
+        "description": "The array of players playing a specific hero on a team or in the match.",
+        "args": [
+            {
+                "name": "HERO",
+                "description": "The hero to check for play.",
+                "type": "HERO",
+                "default": "HERO"
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams on which to check for the hero being played.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "getPlayersInRadius",
+        "en": "playersWithinRadius",
+        "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.",
+        "args": [
+            {
+                "name": "CENTER",
+                "description": "The center position from which to measure distance.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "RADIUS",
+                "description": "The radius in meters inside which players must be in order to be included in the resulting array.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams to which a player must belong to be included in the resulting array.",
+                "type": "TEAM",
+                "default": "TEAM"
+            },
+            {
+                "name": "LOS CHECK",
+                "description": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array.",
+                "type": "LOS CHECK",
+                "default": "OFF"
+            }
+        ]
+    },
+    {
+        "opy": "getCapturePercentage",
+        "en": "pointCapturePercentage",
+        "description": "The current progress towards capture for the active control point (expressed as a percentage).",
+        "args": []
+    },
+    {
+        "opy": "_&getPosition",
+        "en": "positionOf",
+        "description": "The current position of a player as a vector.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose position to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_raiseToPower",
+        "en": "raiseToPower",
+        "description": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The left-hand operand. May be any value that results in a number.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "description": "The right-hand operand. May be any value that results in a number.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "random.randint",
+        "en": "randomInteger",
+        "description": "A random integer between the specified min and max, inclusive.",
+        "args": [
+            {
+                "name": "MIN",
+                "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "MAX",
+                "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "random.uniform",
+        "en": "randomReal",
+        "description": "A random real number between the specified min and max.",
+        "args": [
+            {
+                "name": "MIN",
+                "description": "The smallest real number allowed.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "MAX",
+                "description": "The largest real number allowed.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "random.choice",
+        "en": "randomValueInArray",
+        "description": "A random value from the specified array.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
+                "type": "ANY",
+                "default": "GLOBAL VARIABLE"
+            }
+        ]
+    },
+    {
+        "opy": "random.shuffle",
+        "en": "randomizedArray",
+        "description": "A copy of the specified array with the values in a random order.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array whose copy will be randomized.",
+                "type": "ANY",
+                "default": "GLOBAL VARIABLE"
+            }
+        ]
+    },
+    {
+        "opy": "_getNormal",
+        "en": "raycastHitNormal",
+        "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
+        "args": [
+            {
+                "name": "START POS",
+                "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "END POS",
+                "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "PLAYERS TO INCLUDE",
+                "description": "Which players can be hit by this ray cast.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "PLAYERS TO EXCLUDE",
+                "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "INCLUDE PLAYER OWNED OBJECTS",
+                "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "_getPlayerHit",
+        "en": "raycastHitPlayer",
+        "description": "The player hit by the ray cast (or null if no player is hit).",
+        "args": [
+            {
+                "name": "START POS",
+                "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "END POS",
+                "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "PLAYERS TO INCLUDE",
+                "description": "Which players can be hit by this ray cast.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "PLAYERS TO EXCLUDE",
+                "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "INCLUDE PLAYER OWNED OBJECTS",
+                "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "_getHitPosition",
+        "en": "raycastHitPosition",
+        "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
+        "args": [
+            {
+                "name": "START POS",
+                "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "END POS",
+                "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "PLAYERS TO INCLUDE",
+                "description": "Which players can be hit by this ray cast.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "PLAYERS TO EXCLUDE",
+                "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "INCLUDE PLAYER OWNED OBJECTS",
+                "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },
+    {
+        "opy": "_removeFromArray",
+        "en": "removeFromArray",
+        "description": "A copy of an array with one or more values removed (if found).",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array from which to remove values.",
+                "type": "ANY",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "VALUE",
+                "description": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "Vector.RIGHT",
+        "en": "right",
+        "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
+        "args": []
+    },
+    {
+        "opy": "_round",
+        "en": "roundToInteger",
+        "description": "The integer to which the specified value rounds.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The real number to round.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "ROUNDING TYPE",
+                "description": "Determines the direction in which the value will be rounded.",
+                "type": "ROUNDING TYPE",
+                "default": "UP"
+            }
+        ]
+    },
+    {
+        "opy": "_&getScore",
+        "en": "scoreOf",
+        "description": "The current score of a player. Results in 0 if the game mode is not free-for-all.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose score to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "getServerLoad()",
+        "en": "serverLoad",
+        "description": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
+        "args": []
+    },
+    {
+        "opy": "getAverageServerLoad()",
+        "en": "serverLoadAverage",
+        "description": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
+        "args": []
+    },
+    {
+        "opy": "getPeakServerLoad()",
+        "en": "serverLoadPeak",
+        "description": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
+        "args": []
+    },
+    {
+        "opy": "sinDeg",
+        "en": "sineFromDegrees",
+        "description": "Sine of the specified angle in degrees.",
+        "args": [
+            {
+                "name": "ANGLE",
+                "description": "Angle in degrees.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "sin",
+        "en": "sineFromRadians",
+        "description": "Sine of the specified angle in radians.",
+        "args": [
+            {
+                "name": "ANGLE",
+                "description": "Angle in radians.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&getSlot",
+        "en": "slotOf",
+        "description": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose slot number to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_sortedArray",
+        "en": "sortedArray",
+        "description": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array whose copy will be sorted.",
+                "type": "ANY",
+                "default": "GLOBAL VARIABLE"
+            },
+            {
+                "name": "VALUE RANK",
+                "description": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered.",
+                "type": "NUMBER",
+                "default": "CURRENT ARRAY ELEMENT"
+            }
+        ]
+    },
+    {
+        "opy": "_&getSpeed",
+        "en": "speedOf",
+        "description": "The current speed of a player in meters per second.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose speed to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&getSpeedInDirection",
+        "en": "speedOfInDirection",
+        "description": "The current speed of a player in a specific direction in meters per second.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose speed to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "DIRECTION",
+                "description": "The direction of travel in which to measure the player's speed.",
+                "type": "DIRECTION",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "sqrt",
+        "en": "squareRoot",
+        "description": "The square root of the specified value.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The real number value whose square root will be computed. Negative values result in zero.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_string",
+        "en": "string",
+        "description": "Text formed from a selection of strings and specified values.",
+        "args": [
+            {
+                "name": "STRING",
+                "description": "",
+                "type": "STRING CONSTANT",
+                "default": "HELLO"
+            },
+            {
+                "name": "{0}",
+                "description": "The value that will be converted to text and used to replace {0}.",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "{1}",
+                "description": "The value that will be converted to text and used to replace {1}.",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "{2}",
+                "description": "The value that will be converted to text and used to replace {2}.",
+                "type": "ANY",
+                "default": "NULL"
+            }
+        ]
+    },
+    {
+        "opy": "_subtract",
+        "en": "subtract",
+        "description": "The difference between two numbers or vectors.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The left-hand operand. May be any value that results in a number or a vector.",
+                "type": "ANY",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "description": "The right-hand operand. May be any value that results in a number or a vector.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "_&getTeam",
+        "en": "teamOf",
+        "description": "The team of a player. If the game mode is free-for-all, the team is considered to be all.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose team to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "teamScore",
+        "en": "teamScore",
+        "description": "The current score for the specified team. Results in 0 in free-for-all game modes.",
+        "args": [
+            {
+                "name": "TEAM",
+                "description": "The team whose score to acquire.",
+                "type": "TEAM",
+                "default": "TEAM"
+            }
+        ]
+    },
+    {
+        "opy": "_&getThrottle",
+        "en": "throttleOf",
+        "description": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward).",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose directional input to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "getTotalTimeElapsed",
+        "en": "totalTimeElapsed",
+        "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
+        "args": []
+    },
+    {
+        "opy": "true",
+        "en": "true",
+        "description": "The boolean value of true.",
+        "args": []
+    },
+    {
+        "opy": "_&getUltCharge",
+        "en": "ultimateChargePercent",
+        "description": "The current ultimate ability charge percentage of a player.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose ultimate charge percentage to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "Vector.UP",
+        "en": "up",
+        "description": "Shorthand for the directional vector(0, l, 0), which points upward.",
+        "args": []
+    },
+    {
+        "opy": "_valueInArray",
+        "en": "valueInArray",
+        "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array whose element to acquire.",
+                "type": "ANY",
+                "default": "GLOBAL VARIABLE"
+            },
+            {
+                "name": "INDEX",
+                "description": "The index of the element to acquire.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "vect",
+        "en": "vector",
+        "description": "A vector composed of three real numbers (x, y, z) where x is left, y is up, and z is forward. Vectors are used for position, direction, and velocity.",
+        "args": [
+            {
+                "name": "X",
+                "description": "The x value of the vector.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "Y",
+                "description": "The y value of the vector.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "Z",
+                "description": "The z value of the vector.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "vectorTowards",
+        "en": "vectorTowards",
+        "description": "The displacement vector from one position to another.",
+        "args": [
+            {
+                "name": "START POS",
+                "description": "The position from which the resulting displacement vector begins.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "END POS",
+                "description": "The position at which the resulting displacement vector ends.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "_&getVelocity",
+        "en": "velocityOf",
+        "description": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose velocity to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "verticalAngleOfDirection",
+        "en": "verticalAngleFromDirection",
+        "description": "The vertical angle in degrees corresponding to the specified direction vector.",
+        "args": [
+            {
+                "name": "DIRECTION",
+                "description": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "verticalAngleTowards",
+        "en": "verticalAngleTowards",
+        "description": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player from whose current facing the angle begins.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "POSITION",
+                "description": "The position in the world where the angle ends.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "_&getVerticalFacingAngle",
+        "en": "verticalFacingAngleOf",
+        "description": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose vertical facing angle to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "_&getVerticalSpeed",
+        "en": "verticalSpeedOf",
+        "description": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose vertical speed to acquire.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            }
+        ]
+    },
+    {
+        "opy": "victim",
+        "en": "victim",
+        "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
+        "args": []
+    },
+    {
+        "opy": "worldVector",
+        "en": "worldVectorOf",
+        "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
+        "args": [
+            {
+                "name": "LOCAL VECTOR",
+                "description": "The vector in local coordinates that will be converted to world coordinates.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            },
+            {
+                "name": "RELATIVE PLAYER",
+                "description": "The player to whom the local vector is relative.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "TRANSFORMATION",
+                "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
+                "type": "TRANSFORMATION",
+                "default": "ROTATION"
+            }
+        ]
+    },
+    {
+        "opy": "_xComponentOf",
+        "en": "xComponentOf",
+        "description": "The x component of the specified vector, usually representing a leftward amount.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The vector from which to acquire the x component.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "_yComponentOf",
+        "en": "yComponentOf",
+        "description": "The y component of the specified vector, usually representing an upward amount.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The vector from which to acquire the y component.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            }
+        ]
+    },
+    {
+        "opy": "_zComponentOf",
+        "en": "zComponentOf",
+        "description": "The z component of the specified vector, usually representing a forward amount.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The vector from which to acquire the z component.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            }
+        ]
+    }
+];
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+var constantValues = {
+    "TRANSFORMATION": {
+        "opy": "Transform",
+        "values": [
+            {
+                "opy": "Transform.ROTATION",
+                "en": "Rotation"
+            },
+            {
+                "opy": "Transform.ROTATION_AND_TRANSLATION",
+                "en": "RotationAndTranslation"
+            }
+        ]
+    },
+    "INVISIBLE TO": {
+        "opy": "Invis",
+        "values": [
+            {
+                "opy": "Invis.ALL",
+                "en": "All"
+            },
+            {
+                "opy": "Invis.ENEMIES",
+                "en": "Enemies"
+            },
+            {
+                "opy": "Invis.NONE",
+                "en": "None"
+            }
+        ]
+    },
+    "COLOR": {
+        "opy": "Color",
+        "values": [
+            {
+                "opy": "Color.AQUA",
+                "en": "Aqua"
+            },
+            {
+                "opy": "Color.BLUE",
+                "en": "Blue"
+            },
+            {
+                "opy": "Color.GREEN",
+                "en": "Green"
+            },
+            {
+                "opy": "Color.LIME_GREEN",
+                "en": "Limegreen"
+            },
+            {
+                "opy": "Color.ORANGE",
+                "en": "Orange"
+            },
+            {
+                "opy": "Color.PURPLE",
+                "en": "Purple"
+            },
+            {
+                "opy": "Color.RED",
+                "en": "Red"
+            },
+            {
+                "opy": "Color.SKY_BLUE",
+                "en": "Skyblue"
+            },
+            {
+                "opy": "Color.TEAM_1",
+                "en": "Team1"
+            },
+            {
+                "opy": "Color.TEAM_2",
+                "en": "Team2"
+            },
+            {
+                "opy": "Color.TURQUOISE",
+                "en": "Turquoise"
+            },
+            {
+                "opy": "Color.WHITE",
+                "en": "White"
+            },
+            {
+                "opy": "Color.YELLOW",
+                "en": "Yellow"
+            }
+        ]
+    },
+    "BUTTON": {
+        "opy": "Button",
+        "values": [
+            {
+                "opy": "Button.ABILITY_1",
+                "en": "Ability1"
+            },
+            {
+                "opy": "Button.ABILITY_2",
+                "en": "Ability2"
+            },
+            {
+                "opy": "Button.CROUCH",
+                "en": "Crouch"
+            },
+            {
+                "opy": "Button.INTERACT",
+                "en": "Interact"
+            },
+            {
+                "opy": "Button.JUMP",
+                "en": "Jump"
+            },
+            {
+                "opy": "Button.PRIMARY_FIRE",
+                "en": "PrimaryFire"
+            },
+            {
+                "opy": "Button.SECONDARY_FIRE",
+                "en": "SecondaryFire"
+            },
+            {
+                "opy": "Button.ULTIMATE",
+                "en": "Ultimate"
+            }
+        ]
+    },
+    "OPERATION": {
+        "values": [
+            {
+                "opy": "_add",
+                "en": "Add"
+            },
+            {
+                "opy": "_appendToArray",
+                "en": "AppendToArray"
+            },
+            {
+                "opy": "_divide",
+                "en": "Divide"
+            },
+            {
+                "opy": "_max",
+                "en": "Max"
+            },
+            {
+                "opy": "_min",
+                "en": "Min"
+            },
+            {
+                "opy": "_modulo",
+                "en": "Modulo"
+            },
+            {
+                "opy": "_multiply",
+                "en": "Multiply"
+            },
+            {
+                "opy": "_raiseToPower",
+                "en": "RaiseToPower"
+            },
+            {
+                "opy": "_removeFromArrayByIndex",
+                "en": "RemoveFromArrayByIndex"
+            },
+            {
+                "opy": "_removeFromArrayByValue",
+                "en": "RemoveFromArrayByValue"
+            },
+            {
+                "opy": "_subtract",
+                "en": "Subtract"
+            }
+        ]
+    },
+    "TEAM CONSTANT": {
+        "opy": "Team",
+        "values": [
+            {
+                "opy": "Team.ALL",
+                "en": "AllTeams"
+            },
+            {
+                "opy": "Team.1",
+                "en": "Team1"
+            },
+            {
+                "opy": "Team.2",
+                "en": "Team2"
+            }
+        ]
+    },
+    "HERO CONSTANT": {
+        "opy": "Hero",
+        "values": [
+            {
+                "opy": "Hero.ANA",
+                "en": "Ana"
+            },
+            {
+                "opy": "Hero.ASHE",
+                "en": "Ashe"
+            },
+            {
+                "opy": "Hero.BAPTISTE",
+                "en": "Baptiste"
+            },
+            {
+                "opy": "Hero.BASTION",
+                "en": "Bastion"
+            },
+            {
+                "opy": "Hero.BRIGITTE",
+                "en": "Brigitte"
+            },
+            {
+                "opy": "Hero.DVA",
+                "en": "D.va"
+            },
+            {
+                "opy": "Hero.DOOMFIST",
+                "en": "Doomfist"
+            },
+            {
+                "opy": "Hero.GENJI",
+                "en": "Genji"
+            },
+            {
+                "opy": "Hero.HANZO",
+                "en": "Hanzo"
+            },
+            {
+                "opy": "Hero.JUNKRAT",
+                "en": "Junkrat"
+            },
+            {
+                "opy": "Hero.LUCIO",
+                "en": "Lúcio"
+            },
+            {
+                "opy": "Hero.MCCREE",
+                "en": "Mccree"
+            },
+            {
+                "opy": "Hero.MEI",
+                "en": "Mei"
+            },
+            {
+                "opy": "Hero.MERCY",
+                "en": "Mercy"
+            },
+            {
+                "opy": "Hero.MOIRA",
+                "en": "Moira"
+            },
+            {
+                "opy": "Hero.ORISA",
+                "en": "Orisa"
+            },
+            {
+                "opy": "Hero.PHARAH",
+                "en": "Pharah"
+            },
+            {
+                "opy": "Hero.REAPER",
+                "en": "Reaper"
+            },
+            {
+                "opy": "Hero.REINHARDT",
+                "en": "Reinhardt"
+            },
+            {
+                "opy": "Hero.ROADHOG",
+                "en": "Roadhog"
+            },
+            {
+                "opy": "Hero.SIGMA",
+                "en": "Sigma"
+            },
+            {
+                "opy": "Hero.SOLDIER",
+                "en": "Soldier:76"
+            },
+            {
+                "opy": "Hero.SOMBRA",
+                "en": "Sombra"
+            },
+            {
+                "opy": "Hero.SYMMETRA",
+                "en": "Symmetra"
+            },
+            {
+                "opy": "Hero.TORBJORN",
+                "en": "Torbjörn"
+            },
+            {
+                "opy": "Hero.TRACER",
+                "en": "Tracer"
+            },
+            {
+                "opy": "Hero.WIDOWMAKER",
+                "en": "Widowmaker"
+            },
+            {
+                "opy": "Hero.WINSTON",
+                "en": "Winston"
+            },
+            {
+                "opy": "Hero.HAMMOND",
+                "en": "WreckingBall"
+            },
+            {
+                "opy": "Hero.ZARYA",
+                "en": "Zarya"
+            },
+            {
+                "opy": "Hero.ZENYATTA",
+                "en": "Zenyatta"
+            }
+        ]
+    },
+    "VARIABLE": {
+        "values": [
+            {
+                "opy": "A",
+                "en": "A"
+            },
+            {
+                "opy": "B",
+                "en": "B"
+            },
+            {
+                "opy": "C",
+                "en": "C"
+            },
+            {
+                "opy": "D",
+                "en": "D"
+            },
+            {
+                "opy": "E",
+                "en": "E"
+            },
+            {
+                "opy": "F",
+                "en": "F"
+            },
+            {
+                "opy": "G",
+                "en": "G"
+            },
+            {
+                "opy": "H",
+                "en": "H"
+            },
+            {
+                "opy": "I",
+                "en": "I"
+            },
+            {
+                "opy": "J",
+                "en": "J"
+            },
+            {
+                "opy": "K",
+                "en": "K"
+            },
+            {
+                "opy": "L",
+                "en": "L"
+            },
+            {
+                "opy": "M",
+                "en": "M"
+            },
+            {
+                "opy": "N",
+                "en": "N"
+            },
+            {
+                "opy": "O",
+                "en": "O"
+            },
+            {
+                "opy": "P",
+                "en": "P"
+            },
+            {
+                "opy": "Q",
+                "en": "Q"
+            },
+            {
+                "opy": "R",
+                "en": "R"
+            },
+            {
+                "opy": "S",
+                "en": "S"
+            },
+            {
+                "opy": "T",
+                "en": "T"
+            },
+            {
+                "opy": "U",
+                "en": "U"
+            },
+            {
+                "opy": "V",
+                "en": "V"
+            },
+            {
+                "opy": "W",
+                "en": "W"
+            },
+            {
+                "opy": "X",
+                "en": "X"
+            },
+            {
+                "opy": "Y",
+                "en": "Y"
+            },
+            {
+                "opy": "Z",
+                "en": "Z"
+            }
+        ]
+    },
+    "PLAY EFFECT": {
+        "opy": "Effect",
+        "values": [
+            {
+                "opy": "Effect.BAD_EXPLOSION",
+                "en": "BadExplosion"
+            },
+            {
+                "opy": "Effect.BAD_PICKUP_EFFECT",
+                "en": "BadPickupEffect"
+            },
+            {
+                "opy": "Effect.BUFF_EXPLOSION_SOUND",
+                "en": "BuffExplosionSound"
+            },
+            {
+                "opy": "Effect.BUFF_IMPACT_SOUND",
+                "en": "BuffImpactSound"
+            },
+            {
+                "opy": "Effect.DEBUFF_IMPACT_SOUND",
+                "en": "DebuffImpactSound"
+            },
+            {
+                "opy": "Effect.EXPLOSION_SOUND",
+                "en": "ExplosionSound"
+            },
+            {
+                "opy": "Effect.GOOD_EXPLOSION",
+                "en": "GoodExplosion"
+            },
+            {
+                "opy": "Effect.GOOD_PICKUP_EFFECT",
+                "en": "GoodPickupEffect"
+            },
+            {
+                "opy": "Effect.RING_EXPLOSION",
+                "en": "RingExplosion"
+            },
+            {
+                "opy": "Effect.RING_EXPLOSION_SOUND",
+                "en": "RingExplosionSound"
+            }
+        ]
+    },
+    "CREATE EFFECT": {
+        "opy": "Effect",
+        "values": [
+            {
+                "opy": "Effect.BAD_AURA",
+                "en": "BadAura"
+            },
+            {
+                "opy": "Effect.BAD_AURA_SOUND",
+                "en": "BadAuraSound"
+            },
+            {
+                "opy": "Effect.BEACON_SOUND",
+                "en": "BeaconSound"
+            },
+            {
+                "opy": "Effect.CLOUD",
+                "en": "Cloud"
+            },
+            {
+                "opy": "Effect.DECAL_SOUND",
+                "en": "DecalSound"
+            },
+            {
+                "opy": "Effect.ENERGY_SOUND",
+                "en": "EnergySound"
+            },
+            {
+                "opy": "Effect.GOOD_AURA",
+                "en": "GoodAura"
+            },
+            {
+                "opy": "Effect.GOOD_AURA_SOUND",
+                "en": "GoodAuraSound"
+            },
+            {
+                "opy": "Effect.LIGHT_SHAFT",
+                "en": "LightShaft"
+            },
+            {
+                "opy": "Effect.ORB",
+                "en": "Orb"
+            },
+            {
+                "opy": "Effect.PICKUP_SOUND",
+                "en": "Pick-upSound"
+            },
+            {
+                "opy": "Effect.RING",
+                "en": "Ring"
+            },
+            {
+                "opy": "Effect.SMOKE_SOUND",
+                "en": "SmokeSound"
+            },
+            {
+                "opy": "Effect.SPARKLES",
+                "en": "Sparkles"
+            },
+            {
+                "opy": "Effect.SPARKLES_SOUND",
+                "en": "SparklesSound"
+            },
+            {
+                "opy": "Effect.SPHERE",
+                "en": "Sphere"
+            }
+        ]
+    },
+    "COMMUNICATE": {
+        "opy": "Comms",
+        "values": [
+            {
+                "opy": "Comms.ACKNOWLEDGE",
+                "en": "Acknowledge"
+            },
+            {
+                "opy": "Comms.EMOTE_DOWN",
+                "en": "EmoteDown"
+            },
+            {
+                "opy": "Comms.EMOTE_LEFT",
+                "en": "EmoteLeft"
+            },
+            {
+                "opy": "Comms.EMOTE_RIGHT",
+                "en": "EmoteRight"
+            },
+            {
+                "opy": "Comms.EMOTE_UP",
+                "en": "EmoteUp"
+            },
+            {
+                "opy": "Comms.GROUP_UP",
+                "en": "GroupUp"
+            },
+            {
+                "opy": "Comms.HELLO",
+                "en": "Hello"
+            },
+            {
+                "opy": "Comms.NEED_HEALING",
+                "en": "NeedHealing"
+            },
+            {
+                "opy": "Comms.THANKS",
+                "en": "Thanks"
+            },
+            {
+                "opy": "Comms.ULTIMATE_STATUS",
+                "en": "UltimateStatus"
+            },
+            {
+                "opy": "Comms.VOICE_LINE_DOWN",
+                "en": "VoiceLineDown"
+            },
+            {
+                "opy": "Comms.VOICE_LINE_LEFT",
+                "en": "VoiceLineLeft"
+            },
+            {
+                "opy": "Comms.VOICE_LINE_RIGHT",
+                "en": "VoiceLineRight"
+            },
+            {
+                "opy": "Comms.VOICE_LINE_UP",
+                "en": "VoiceLineUp"
+            }
+        ]
+    },
+    "ICON": {
+        "opy": "Icon",
+        "values": [
+            {
+                "opy": "Icon.ARROW_DOWN",
+                "en": "Arrow:Down"
+            },
+            {
+                "opy": "Icon.ARROW_LEFT",
+                "en": "Arrow:Left"
+            },
+            {
+                "opy": "Icon.ARROW_RIGHT",
+                "en": "Arrow:Right"
+            },
+            {
+                "opy": "Icon.ARROW_UP",
+                "en": "Arrow:Up"
+            },
+            {
+                "opy": "Icon.ASTERISK",
+                "en": "Asterisk"
+            },
+            {
+                "opy": "Icon.BOLT",
+                "en": "Bolt"
+            },
+            {
+                "opy": "Icon.CHECKMARK",
+                "en": "Checkmark"
+            },
+            {
+                "opy": "Icon.CIRCLE",
+                "en": "Circle"
+            },
+            {
+                "opy": "Icon.CLUB",
+                "en": "Club"
+            },
+            {
+                "opy": "Icon.DIAMOND",
+                "en": "Diamond"
+            },
+            {
+                "opy": "Icon.DIZZY",
+                "en": "Dizzy"
+            },
+            {
+                "opy": "Icon.EXCLAMATION_MARK",
+                "en": "ExclamationMark"
+            },
+            {
+                "opy": "Icon.EYE",
+                "en": "Eye"
+            },
+            {
+                "opy": "Icon.FIRE",
+                "en": "Fire"
+            },
+            {
+                "opy": "Icon.FLAG",
+                "en": "Flag"
+            },
+            {
+                "opy": "Icon.HALO",
+                "en": "Halo"
+            },
+            {
+                "opy": "Icon.HAPPY",
+                "en": "Happy"
+            },
+            {
+                "opy": "Icon.HEART",
+                "en": "Heart"
+            },
+            {
+                "opy": "Icon.MOON",
+                "en": "Moon"
+            },
+            {
+                "opy": "Icon.NO",
+                "en": "No"
+            },
+            {
+                "opy": "Icon.PLUS",
+                "en": "Plus"
+            },
+            {
+                "opy": "Icon.POISON",
+                "en": "Poison"
+            },
+            {
+                "opy": "Icon.POISON_2",
+                "en": "Poison2"
+            },
+            {
+                "opy": "Icon.QUESTION_MARK",
+                "en": "QuestionMark"
+            },
+            {
+                "opy": "Icon.RADIOACTIVE",
+                "en": "Radioactive"
+            },
+            {
+                "opy": "Icon.RECYCLE",
+                "en": "Recycle"
+            },
+            {
+                "opy": "Icon.RING_THICK",
+                "en": "RingThick"
+            },
+            {
+                "opy": "Icon.RING_THIN",
+                "en": "RingThin"
+            },
+            {
+                "opy": "Icon.SAD",
+                "en": "Sad"
+            },
+            {
+                "opy": "Icon.SKULL",
+                "en": "Skull"
+            },
+            {
+                "opy": "Icon.SPADE",
+                "en": "Spade"
+            },
+            {
+                "opy": "Icon.SPIRAL",
+                "en": "Spiral"
+            },
+            {
+                "opy": "Icon.STOP",
+                "en": "Stop"
+            },
+            {
+                "opy": "Icon.TRASHCAN",
+                "en": "Trashcan"
+            },
+            {
+                "opy": "Icon.WARNING",
+                "en": "Warning"
+            },
+            {
+                "opy": "Icon.CROSS",
+                "en": "X"
+            }
+        ]
+    },
+    "RELATIVE": {
+        "opy": "Relativity",
+        "values": [
+            {
+                "opy": "Relativity.TO_PLAYER",
+                "en": "ToPlayer"
+            },
+            {
+                "opy": "Relativity.TO_WORLD",
+                "en": "ToWorld"
+            }
+        ]
+    },
+    "MOTION": {
+        "opy": "Impulse",
+        "values": [
+            {
+                "opy": "Impulse.CANCEL_CONTRARY_MOTION",
+                "en": "CancelContraryMotion"
+            },
+            {
+                "opy": "Impulse.INCORPORATE_CONTRARY_MOTION",
+                "en": "IncorporateContraryMotion"
+            }
+        ]
+    },
+    "ROUNDING TYPE": {
+        "values": [
+            {
+                "opy": "_roundUp",
+                "en": "Up"
+            },
+            {
+                "opy": "_roundDown",
+                "en": "Down"
+            },
+            {
+                "opy": "_roundToNearest",
+                "en": "ToNearest"
+            }
+        ]
+    },
+    "LOS CHECK": {
+        "opy": "LosCheck",
+        "values": [
+            {
+                "opy": "LosCheck.OFF",
+                "en": "Off"
+            },
+            {
+                "opy": "LosCheck.SURFACES",
+                "en": "Surfaces"
+            },
+            {
+                "opy": "LosCheck.SURFACES_AND_ALL_BARRIERS",
+                "en": "SurfacesAndAllBarriers"
+            },
+            {
+                "opy": "LosCheck.SURFACES_AND_ENEMY_BARRIERS",
+                "en": "SurfacesAndEnemyBarriers"
+            }
+        ]
+    },
+    "WORLD TEXT CLIPPING": {
+        "opy": "Clip",
+        "values": [
+            {
+                "opy": "Clip.SURFACES",
+                "en": "ClipAgainstSurfaces"
+            },
+            {
+                "opy": "Clip.NONE",
+                "en": "DoNotClip"
+            }
+        ]
+    },
+    "HUD LOCATION": {
+        "opy": "Position",
+        "values": [
+            {
+                "opy": "Position.LEFT",
+                "en": "Left"
+            },
+            {
+                "opy": "Position.TOP",
+                "en": "Top"
+            },
+            {
+                "opy": "Position.RIGHT",
+                "en": "Right"
+            }
+        ]
+    },
+    "ICON REEVALUATION": {
+        "opy": "Reeval",
+        "values": [
+            {
+                "opy": "Reeval.POSITION",
+                "en": "Position"
+            },
+            {
+                "opy": "Reeval.NONE",
+                "en": "None"
+            },
+            {
+                "opy": "Reeval.VISIBILITY",
+                "en": "VisibleTo"
+            },
+            {
+                "opy": "Reeval.VISIBILITY_AND_POSITION",
+                "en": "VisibleToAndPosition"
+            }
+        ]
+    },
+    "EFFECT REEVALUATION": {
+        "opy": "Reeval",
+        "values": [
+            {
+                "opy": "Reeval.POSITION_AND_RADIUS",
+                "en": "PositionAndRadius"
+            },
+            {
+                "opy": "Reeval.NONE",
+                "en": "None"
+            },
+            {
+                "opy": "Reeval.VISIBILITY",
+                "en": "VisibleTo"
+            },
+            {
+                "opy": "Reeval.VISIBILITY_POSITION_AND_RADIUS",
+                "en": "VisibleToPositionAndRadius"
+            }
+        ]
+    },
+    "HUD TEXT REEVALUATION": {
+        "opy": "Reeval",
+        "values": [
+            {
+                "opy": "Reeval.STRING",
+                "en": "String"
+            },
+            {
+                "opy": "Reeval.VISIBILITY_AND_STRING",
+                "en": "VisibleToAndString"
+            }
+        ]
+    },
+    "WORLD TEXT REEVALUATION": {
+        "opy": "Reeval",
+        "values": [
+            {
+                "opy": "Reeval.STRING",
+                "en": "String"
+            },
+            {
+                "opy": "Reeval.VISIBILITY_AND_STRING",
+                "en": "VisibleToAndString"
+            },
+            {
+                "opy": "Reeval.VISIBILITY_POSITION_AND_STRING",
+                "en": "VisibleToPositionAndString"
+            }
+        ]
+    },
+    "CHASE RATE REEVALUATION": {
+        "opy": "Reeval",
+        "values": [
+            {
+                "opy": "Reeval.DESTINATION_AND_RATE",
+                "en": "DestinationAndRate"
+            },
+            {
+                "opy": "Reeval.NONE",
+                "en": "None"
+            }
+        ]
+    },
+    "CHASE TIME REEVALUATION": {
+        "opy": "Reeval",
+        "values": [
+            {
+                "opy": "Reeval.DESTINATION_AND_DURATION",
+                "en": "DestinationAndDuration"
+            },
+            {
+                "opy": "Reeval.NONE",
+                "en": "None"
+            }
+        ]
+    },
+    "OBJECTIVE DESCRIPTION REEVALUATION": {
+        "opy": "Reeval",
+        "values": [
+            {
+                "opy": "Reeval.STRING",
+                "en": "String"
+            },
+            {
+                "opy": "Reeval.VISIBILITY_AND_STRING",
+                "en": "VisibleToAndString"
+            }
+        ]
+    },
+    "DAMAGE MODIFICATION REEVALUATION": {
+        "opy": "Reeval",
+        "values": [
+            {
+                "opy": "Reeval.NONE",
+                "en": "None"
+            },
+            {
+                "opy": "Reeval.RECEIVERS_AND_DAMAGERS",
+                "en": "ReceiversAndDamagers"
+            },
+            {
+                "opy": "Reeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT",
+                "en": "ReceiversDamagersAndDamagePercent"
+            }
+        ]
+    },
+    "FACING REEVALUATION": {
+        "opy": "Reeval",
+        "values": [
+            {
+                "opy": "Reeval.DIRECTION_AND_TURN_RATE",
+                "en": "DirectionAndTurnRate"
+            },
+            {
+                "opy": "Reeval.NONE",
+                "en": "None"
+            }
+        ]
+    },
+    "WAIT BEHAVIOR": {
+        "opy": "Wait",
+        "values": [
+            {
+                "opy": "Wait.ABORT_WHEN_FALSE",
+                "en": "AbortWhenFalse"
+            },
+            {
+                "opy": "Wait.IGNORE_CONDITION",
+                "en": "IgnoreCondition"
+            },
+            {
+                "opy": "Wait.RESTART_WHEN_TRUE",
+                "en": "RestartWhenTrue"
+            }
+        ]
+    },
+    "BARRIERS LOS": {
+        "opy": "LosCheck",
+        "values": [
+            {
+                "opy": "LosCheck.BLOCKED_BY_ENEMY_BARRIERS",
+                "en": "EnemyBarriersBlockLos"
+            },
+            {
+                "opy": "LosCheck.BLOCKED_BY_ALL_BARRIERS",
+                "en": "AllBarriersBlockLos"
+            },
+            {
+                "opy": "LosCheck.PASS_THROUGH_BARRIERS",
+                "en": "BarriersDoNotBlockLos"
+            }
+        ]
+    },
+    "STATUS": {
+        "opy": "Status",
+        "values": [
+            {
+                "opy": "Status.ASLEEP",
+                "en": "Asleep"
+            },
+            {
+                "opy": "Status.BURNING",
+                "en": "Burning"
+            },
+            {
+                "opy": "Status.FROZEN",
+                "en": "Frozen"
+            },
+            {
+                "opy": "Status.HACKED",
+                "en": "Hacked"
+            },
+            {
+                "opy": "Status.INVINCIBLE",
+                "en": "Invincible"
+            },
+            {
+                "opy": "Status.KNOCKED_DOWN",
+                "en": "KnockedDown"
+            },
+            {
+                "opy": "Status.PHASED_OUT",
+                "en": "PhasedOut"
+            },
+            {
+                "opy": "Status.ROOTED",
+                "en": "Rooted"
+            },
+            {
+                "opy": "Status.STUNNED",
+                "en": "Stunned"
+            },
+            {
+                "opy": "Status.UNKILLABLE",
+                "en": "Unkillable"
+            }
+        ]
+    },
+    "SPECTATOR VISIBILITY": {
+        "opy": "SpecVisibility",
+        "values": [
+            {
+                "opy": "SpecVisibility.DEFAULT",
+                "en": "Defaultvisibility"
+            },
+            {
+                "opy": "SpecVisibility.ALWAYS",
+                "en": "Visiblealways"
+            },
+            {
+                "opy": "SpecVisibility.NEVER",
+                "en": "Visiblenever"
+            }
+        ]
+    },
+    "BEAM EFFECT": {
+        "opy": "Beam",
+        "values": [
+            {
+                "opy": "Beam.BAD",
+                "en": "Badbeam"
+            },
+            {
+                "opy": "Beam.GOOD",
+                "en": "Goodbeam"
+            },
+            {
+                "opy": "Beam.GRAPPLE",
+                "en": "Grapplebeam"
+            }
+        ]
+    },
+    "THROTTLE BEHAVIOR": {
+        "opy": "Throttle",
+        "values": [
+            {
+                "opy": "Throttle.REPLACE_EXISTING",
+                "en": "Replaceexistingthrottle"
+            },
+            {
+                "opy": "Throttle.ADD_TO_EXISTING",
+                "en": "Addtoexistingthrottle"
+            }
+        ]
+    },
+    "THROTTLE REEVALUATION": {
+        "opy": "Reeval",
+        "values": [
+            {
+                "opy": "Reeval.DIRECTION_AND_MAGNITUDE",
+                "en": "Directionandmagnitude"
+            },
+            {
+                "opy": "Reeval.NONE",
+                "en": "None"
+            }
+        ]
+    }
+};
+
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+//List of workshop "keywords" (conditions, values, actions).
+//Each keyword set is an array containing arrays containing 2 arrays.
+//The first array is the OverPy keywords, the second array is the Workshop keywords.
+//The keywords are sorted by the english workshop keyword (with the exception of the event keywords).
+//Note: each workshop keyword MUST be with no spaces!
+
+//OverPy keywords beginning with "_" aren't actually keywords; they signal to the parser that it isn't a simple keyword replacement.
+//For example, the "set global variable(var, value)" is replaced by "var = value".
+
+//Array of languages. As of now, only English is supported.
+var languages = [
+	"en",
+	
+	//Not supported yet!
+	"fr",
+	"es",
+	"it",
+	"ru",
+	"pl",
+	"de",
+	"pt",
+	"ja",
+	"kr",
+	"zh",
+]
+
+var currentLanguage = "en";
+
+var ruleKw = [
+    {
+        "opy": "@Rule",
+        "en": "rule"
+    },
+    {
+        "opy": "@Event",
+        "en": "event"
+    },
+    {
+        "opy": "_conditions",
+        "en": "conditions"
+    },
+    {
+        "opy": "_actions",
+        "en": "actions"
+    }
+];
+
+//Event keywords
+var eventKw = [
+    {
+        "opy": "global",
+        "en": "ongoing-global"
+    },
+    {
+        "opy": "eachPlayer",
+        "en": "ongoing-eachplayer"
+    },
+    {
+        "opy": "playerTookDamage",
+        "en": "playerTookDamage"
+    },
+    {
+        "opy": "playerDealtDamage",
+        "en": "playerDealtDamage"
+    },
+    {
+        "opy": "playerDealtFinalBlow",
+        "en": "playerDealtFinalBlow"
+    },
+    {
+        "opy": "playerDied",
+        "en": "playerDied"
+    },
+    {
+        "opy": "playerEarnedElimination",
+        "en": "playerEarnedElimination"
+    },
+    {
+        "opy": "playerDealtHealing",
+        "en": "playerDealtHealing"
+    },
+    {
+        "opy": "playerReceivedHealing",
+        "en": "playerReceivedHealing"
+    },
+    {
+        "opy": "playerJoined",
+        "en": "playerJoinedMatch"
+    },
+    {
+        "opy": "playerLeft",
+        "en": "playerLeftMatch"
+    },
+    {
+        "opy": "all",
+        "en": "all"
+    },
+    {
+        "opy": "1",
+        "en": "team1"
+    },
+    {
+        "opy": "2",
+        "en": "team2"
+    },
+    {
+        "opy": "slot0",
+        "en": "slot0"
+    },
+    {
+        "opy": "slot1",
+        "en": "slot1"
+    },
+    {
+        "opy": "slot2",
+        "en": "slot2"
+    },
+    {
+        "opy": "slot3",
+        "en": "slot3"
+    },
+    {
+        "opy": "slot4",
+        "en": "slot4"
+    },
+    {
+        "opy": "slot5",
+        "en": "slot5"
+    },
+    {
+        "opy": "slot6",
+        "en": "slot6"
+    },
+    {
+        "opy": "slot7",
+        "en": "slot7"
+    },
+    {
+        "opy": "slot8",
+        "en": "slot8"
+    },
+    {
+        "opy": "slot9",
+        "en": "slot9"
+    },
+    {
+        "opy": "slot10",
+        "en": "slot10"
+    },
+    {
+        "opy": "slot11",
+        "en": "slot11"
+    }
+];
+
+//Global variables, used to convert to names during decompilation.
+var globalVarKw = [
+    {
+        "opy": "A",
+        "en": "A"
+    },
+    {
+        "opy": "B",
+        "en": "B"
+    },
+    {
+        "opy": "C",
+        "en": "C"
+    },
+    {
+        "opy": "D",
+        "en": "D"
+    },
+    {
+        "opy": "E",
+        "en": "E"
+    },
+    {
+        "opy": "F",
+        "en": "F"
+    },
+    {
+        "opy": "G",
+        "en": "G"
+    },
+    {
+        "opy": "H",
+        "en": "H"
+    },
+    {
+        "opy": "I",
+        "en": "I"
+    },
+    {
+        "opy": "J",
+        "en": "J"
+    },
+    {
+        "opy": "K",
+        "en": "K"
+    },
+    {
+        "opy": "L",
+        "en": "L"
+    },
+    {
+        "opy": "M",
+        "en": "M"
+    },
+    {
+        "opy": "N",
+        "en": "N"
+    },
+    {
+        "opy": "O",
+        "en": "O"
+    },
+    {
+        "opy": "P",
+        "en": "P"
+    },
+    {
+        "opy": "Q",
+        "en": "Q"
+    },
+    {
+        "opy": "R",
+        "en": "R"
+    },
+    {
+        "opy": "S",
+        "en": "S"
+    },
+    {
+        "opy": "T",
+        "en": "T"
+    },
+    {
+        "opy": "U",
+        "en": "U"
+    },
+    {
+        "opy": "V",
+        "en": "V"
+    },
+    {
+        "opy": "W",
+        "en": "W"
+    },
+    {
+        "opy": "X",
+        "en": "X"
+    },
+    {
+        "opy": "Y",
+        "en": "Y"
+    },
+    {
+        "opy": "Z",
+        "en": "Z"
+    }
+];
+
+var playerVarKw = [
+    {
+        "opy": "A",
+        "en": "A"
+    },
+    {
+        "opy": "B",
+        "en": "B"
+    },
+    {
+        "opy": "C",
+        "en": "C"
+    },
+    {
+        "opy": "D",
+        "en": "D"
+    },
+    {
+        "opy": "E",
+        "en": "E"
+    },
+    {
+        "opy": "F",
+        "en": "F"
+    },
+    {
+        "opy": "G",
+        "en": "G"
+    },
+    {
+        "opy": "H",
+        "en": "H"
+    },
+    {
+        "opy": "I",
+        "en": "I"
+    },
+    {
+        "opy": "J",
+        "en": "J"
+    },
+    {
+        "opy": "K",
+        "en": "K"
+    },
+    {
+        "opy": "L",
+        "en": "L"
+    },
+    {
+        "opy": "M",
+        "en": "M"
+    },
+    {
+        "opy": "N",
+        "en": "N"
+    },
+    {
+        "opy": "O",
+        "en": "O"
+    },
+    {
+        "opy": "P",
+        "en": "P"
+    },
+    {
+        "opy": "Q",
+        "en": "Q"
+    },
+    {
+        "opy": "R",
+        "en": "R"
+    },
+    {
+        "opy": "S",
+        "en": "S"
+    },
+    {
+        "opy": "T",
+        "en": "T"
+    },
+    {
+        "opy": "U",
+        "en": "U"
+    },
+    {
+        "opy": "V",
+        "en": "V"
+    },
+    {
+        "opy": "W",
+        "en": "W"
+    },
+    {
+        "opy": "X",
+        "en": "X"
+    },
+    {
+        "opy": "Y",
+        "en": "Y"
+    },
+    {
+        "opy": "Z",
+        "en": "Z"
+    }
+];
+
+var constantKw = [];
+for (var constant of Object.keys(constantValues)) {
+	constantKw = constantKw.concat(constantValues[constant].values);
+}
+
+//A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
+var valueKw = valueFuncKw.concat(constantKw);
+
+var funcKw = actionKw.concat(valueFuncKw);/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+var emptyStrKw = [
+    {
+        "opy": "",
+        "en": ""
+    }
+];
+
+var normalStrKw = [
+    {
+        "opy": "Zones",
+        "en": "Zones"
+    },
+    {
+        "opy": "Zone",
+        "en": "Zone"
+    },
+    {
+        "opy": "You Win",
+        "en": "You Win"
+    },
+    {
+        "opy": "You Lose",
+        "en": "You Lose"
+    },
+    {
+        "opy": "You",
+        "en": "You"
+    },
+    {
+        "opy": "Yes",
+        "en": "Yes"
+    },
+    {
+        "opy": "Yellow",
+        "en": "Yellow"
+    },
+    {
+        "opy": "Wow",
+        "en": "Wow"
+    },
+    {
+        "opy": "Worst",
+        "en": "Worst"
+    },
+    {
+        "opy": "Worse",
+        "en": "Worse"
+    },
+    {
+        "opy": "Wisdom",
+        "en": "Wisdom"
+    },
+    {
+        "opy": "Wins",
+        "en": "Wins"
+    },
+    {
+        "opy": "Winners",
+        "en": "Winners"
+    },
+    {
+        "opy": "Winner",
+        "en": "Winner"
+    },
+    {
+        "opy": "Win",
+        "en": "Win"
+    },
+    {
+        "opy": "Wild",
+        "en": "Wild"
+    },
+    {
+        "opy": "White",
+        "en": "White"
+    },
+    {
+        "opy": "West",
+        "en": "West"
+    },
+    {
+        "opy": "Well Played",
+        "en": "Well Played"
+    },
+    {
+        "opy": "Welcome",
+        "en": "Welcome"
+    },
+    {
+        "opy": "Warning",
+        "en": "Warning"
+    },
+    {
+        "opy": "Walls",
+        "en": "Walls"
+    },
+    {
+        "opy": "Wall",
+        "en": "Wall"
+    },
+    {
+        "opy": "Waiting",
+        "en": "Waiting"
+    },
+    {
+        "opy": "Wait",
+        "en": "Wait"
+    },
+    {
+        "opy": "Vortices",
+        "en": "Vortices"
+    },
+    {
+        "opy": "Vortex",
+        "en": "Vortex"
+    },
+    {
+        "opy": "Visible",
+        "en": "Visible"
+    },
+    {
+        "opy": "Victory",
+        "en": "Victory"
+    },
+    {
+        "opy": "Use Ultimate Ability",
+        "en": "Use Ultimate Ability"
+    },
+    {
+        "opy": "Use Ability 2",
+        "en": "Use Ability 2"
+    },
+    {
+        "opy": "Use Ability 1",
+        "en": "Use Ability 1"
+    },
+    {
+        "opy": "Uploading",
+        "en": "Uploading"
+    },
+    {
+        "opy": "Uploaded",
+        "en": "Uploaded"
+    },
+    {
+        "opy": "Upload",
+        "en": "Upload"
+    },
+    {
+        "opy": "Upgrades",
+        "en": "Upgrades"
+    },
+    {
+        "opy": "Upgrade",
+        "en": "Upgrade"
+    },
+    {
+        "opy": "Up",
+        "en": "Up"
+    },
+    {
+        "opy": "Unstable",
+        "en": "Unstable"
+    },
+    {
+        "opy": "Unsafe",
+        "en": "Unsafe"
+    },
+    {
+        "opy": "Unlocking",
+        "en": "Unlocking"
+    },
+    {
+        "opy": "Unlocked",
+        "en": "Unlocked"
+    },
+    {
+        "opy": "Unlock",
+        "en": "Unlock"
+    },
+    {
+        "opy": "Unlimited",
+        "en": "Unlimited"
+    },
+    {
+        "opy": "Unknown",
+        "en": "Unknown"
+    },
+    {
+        "opy": "Under",
+        "en": "Under"
+    },
+    {
+        "opy": "Ultimate Ability",
+        "en": "Ultimate Ability"
+    },
+    {
+        "opy": "Ugh",
+        "en": "Ugh"
+    },
+    {
+        "opy": "Turrets",
+        "en": "Turrets"
+    },
+    {
+        "opy": "Turret",
+        "en": "Turret"
+    },
+    {
+        "opy": "Try Again",
+        "en": "Try Again"
+    },
+    {
+        "opy": "Transferring",
+        "en": "Transferring"
+    },
+    {
+        "opy": "Transferred",
+        "en": "Transferred"
+    },
+    {
+        "opy": "Transfer",
+        "en": "Transfer"
+    },
+    {
+        "opy": "Traitors",
+        "en": "Traitors"
+    },
+    {
+        "opy": "Traitor",
+        "en": "Traitor"
+    },
+    {
+        "opy": "Trading",
+        "en": "Trading"
+    },
+    {
+        "opy": "Traded",
+        "en": "Traded"
+    },
+    {
+        "opy": "Trade",
+        "en": "Trade"
+    },
+    {
+        "opy": "Total",
+        "en": "Total"
+    },
+    {
+        "opy": "Times",
+        "en": "Times"
+    },
+    {
+        "opy": "Time",
+        "en": "Time"
+    },
+    {
+        "opy": "Tiebreaker",
+        "en": "Tiebreaker"
+    },
+    {
+        "opy": "Threats",
+        "en": "Threats"
+    },
+    {
+        "opy": "Threat Levels",
+        "en": "Threat Levels"
+    },
+    {
+        "opy": "Threat Level",
+        "en": "Threat Level"
+    },
+    {
+        "opy": "Threat",
+        "en": "Threat"
+    },
+    {
+        "opy": "That Was Awesome",
+        "en": "That Was Awesome"
+    },
+    {
+        "opy": "Thanks",
+        "en": "Thanks"
+    },
+    {
+        "opy": "Thank You",
+        "en": "Thank You"
+    },
+    {
+        "opy": "Terrible",
+        "en": "Terrible"
+    },
+    {
+        "opy": "Teams",
+        "en": "Teams"
+    },
+    {
+        "opy": "Teammates",
+        "en": "Teammates"
+    },
+    {
+        "opy": "Teammate",
+        "en": "Teammate"
+    },
+    {
+        "opy": "Team",
+        "en": "Team"
+    },
+    {
+        "opy": "Targets",
+        "en": "Targets"
+    },
+    {
+        "opy": "Target",
+        "en": "Target"
+    },
+    {
+        "opy": "Surviving",
+        "en": "Surviving"
+    },
+    {
+        "opy": "Survived",
+        "en": "Survived"
+    },
+    {
+        "opy": "Survive",
+        "en": "Survive"
+    },
+    {
+        "opy": "Superb",
+        "en": "Superb"
+    },
+    {
+        "opy": "Sunk",
+        "en": "Sunk"
+    },
+    {
+        "opy": "Sudden Death",
+        "en": "Sudden Death"
+    },
+    {
+        "opy": "Success",
+        "en": "Success"
+    },
+    {
+        "opy": "Suboptimal",
+        "en": "Suboptimal"
+    },
+    {
+        "opy": "Stunning",
+        "en": "Stunning"
+    },
+    {
+        "opy": "Stunned",
+        "en": "Stunned"
+    },
+    {
+        "opy": "Stun",
+        "en": "Stun"
+    },
+    {
+        "opy": "Strength",
+        "en": "Strength"
+    },
+    {
+        "opy": "Stopping",
+        "en": "Stopping"
+    },
+    {
+        "opy": "Stopped",
+        "en": "Stopped"
+    },
+    {
+        "opy": "Stop",
+        "en": "Stop"
+    },
+    {
+        "opy": "Staying",
+        "en": "Staying"
+    },
+    {
+        "opy": "Stayed",
+        "en": "Stayed"
+    },
+    {
+        "opy": "Stay Away",
+        "en": "Stay Away"
+    },
+    {
+        "opy": "Stay",
+        "en": "Stay"
+    },
+    {
+        "opy": "Status",
+        "en": "Status"
+    },
+    {
+        "opy": "Starting",
+        "en": "Starting"
+    },
+    {
+        "opy": "Started",
+        "en": "Started"
+    },
+    {
+        "opy": "Start",
+        "en": "Start"
+    },
+    {
+        "opy": "Stars",
+        "en": "Stars"
+    },
+    {
+        "opy": "Star",
+        "en": "Star"
+    },
+    {
+        "opy": "Stable",
+        "en": "Stable"
+    },
+    {
+        "opy": "Stabilizing",
+        "en": "Stabilizing"
+    },
+    {
+        "opy": "Stabilized",
+        "en": "Stabilized"
+    },
+    {
+        "opy": "Stabilize",
+        "en": "Stabilize"
+    },
+    {
+        "opy": "Spheres",
+        "en": "Spheres"
+    },
+    {
+        "opy": "Sphere",
+        "en": "Sphere"
+    },
+    {
+        "opy": "Speeds",
+        "en": "Speeds"
+    },
+    {
+        "opy": "Speed",
+        "en": "Speed"
+    },
+    {
+        "opy": "Spawning",
+        "en": "Spawning"
+    },
+    {
+        "opy": "Spawned",
+        "en": "Spawned"
+    },
+    {
+        "opy": "Spawn",
+        "en": "Spawn"
+    },
+    {
+        "opy": "Sparkles",
+        "en": "Sparkles"
+    },
+    {
+        "opy": "Spades",
+        "en": "Spades"
+    },
+    {
+        "opy": "Spade",
+        "en": "Spade"
+    },
+    {
+        "opy": "Southwest",
+        "en": "Southwest"
+    },
+    {
+        "opy": "Southeast",
+        "en": "Southeast"
+    },
+    {
+        "opy": "South",
+        "en": "South"
+    },
+    {
+        "opy": "Sorry",
+        "en": "Sorry"
+    },
+    {
+        "opy": "Sold",
+        "en": "Sold"
+    },
+    {
+        "opy": "Slowest",
+        "en": "Slowest"
+    },
+    {
+        "opy": "Slower",
+        "en": "Slower"
+    },
+    {
+        "opy": "Slow",
+        "en": "Slow"
+    },
+    {
+        "opy": "Slept",
+        "en": "Slept"
+    },
+    {
+        "opy": "Sleeping",
+        "en": "Sleeping"
+    },
+    {
+        "opy": "Sleep",
+        "en": "Sleep"
+    },
+    {
+        "opy": "Skipping",
+        "en": "Skipping"
+    },
+    {
+        "opy": "Skipped",
+        "en": "Skipped"
+    },
+    {
+        "opy": "Skip",
+        "en": "Skip"
+    },
+    {
+        "opy": "Sinking",
+        "en": "Sinking"
+    },
+    {
+        "opy": "Sink",
+        "en": "Sink"
+    },
+    {
+        "opy": "Shuffled",
+        "en": "Shuffled"
+    },
+    {
+        "opy": "Shuffle",
+        "en": "Shuffle"
+    },
+    {
+        "opy": "Shops",
+        "en": "Shops"
+    },
+    {
+        "opy": "Shop",
+        "en": "Shop"
+    },
+    {
+        "opy": "Severing",
+        "en": "Severing"
+    },
+    {
+        "opy": "Severed",
+        "en": "Severed"
+    },
+    {
+        "opy": "Severe",
+        "en": "Severe"
+    },
+    {
+        "opy": "Sever",
+        "en": "Sever"
+    },
+    {
+        "opy": "Server Load Peak",
+        "en": "Server Load Peak"
+    },
+    {
+        "opy": "Server Load Average",
+        "en": "Server Load Average"
+    },
+    {
+        "opy": "Server Load",
+        "en": "Server Load"
+    },
+    {
+        "opy": "Selling",
+        "en": "Selling"
+    },
+    {
+        "opy": "Sell",
+        "en": "Sell"
+    },
+    {
+        "opy": "Selecting",
+        "en": "Selecting"
+    },
+    {
+        "opy": "Selected",
+        "en": "Selected"
+    },
+    {
+        "opy": "Select",
+        "en": "Select"
+    },
+    {
+        "opy": "Securing",
+        "en": "Securing"
+    },
+    {
+        "opy": "Secured",
+        "en": "Secured"
+    },
+    {
+        "opy": "Secure",
+        "en": "Secure"
+    },
+    {
+        "opy": "Secondary Fire",
+        "en": "Secondary Fire"
+    },
+    {
+        "opy": "Scores",
+        "en": "Scores"
+    },
+    {
+        "opy": "Score",
+        "en": "Score"
+    },
+    {
+        "opy": "Saving",
+        "en": "Saving"
+    },
+    {
+        "opy": "Saved",
+        "en": "Saved"
+    },
+    {
+        "opy": "Save",
+        "en": "Save"
+    },
+    {
+        "opy": "Safe",
+        "en": "Safe"
+    },
+    {
+        "opy": "Running",
+        "en": "Running"
+    },
+    {
+        "opy": "Run",
+        "en": "Run"
+    },
+    {
+        "opy": "Rounds Won",
+        "en": "Rounds Won"
+    },
+    {
+        "opy": "Rounds Lost",
+        "en": "Rounds Lost"
+    },
+    {
+        "opy": "Rounds",
+        "en": "Rounds"
+    },
+    {
+        "opy": "Round",
+        "en": "Round"
+    },
+    {
+        "opy": "Right",
+        "en": "Right"
+    },
+    {
+        "opy": "Revealing",
+        "en": "Revealing"
+    },
+    {
+        "opy": "Revealed",
+        "en": "Revealed"
+    },
+    {
+        "opy": "Reveal",
+        "en": "Reveal"
+    },
+    {
+        "opy": "Resurrecting",
+        "en": "Resurrecting"
+    },
+    {
+        "opy": "Resurrected",
+        "en": "Resurrected"
+    },
+    {
+        "opy": "Resurrect",
+        "en": "Resurrect"
+    },
+    {
+        "opy": "Resources",
+        "en": "Resources"
+    },
+    {
+        "opy": "Resource",
+        "en": "Resource"
+    },
+    {
+        "opy": "Rescuing",
+        "en": "Rescuing"
+    },
+    {
+        "opy": "Rescued",
+        "en": "Rescued"
+    },
+    {
+        "opy": "Rescue",
+        "en": "Rescue"
+    },
+    {
+        "opy": "Remaining",
+        "en": "Remaining"
+    },
+    {
+        "opy": "Remain",
+        "en": "Remain"
+    },
+    {
+        "opy": "Red",
+        "en": "Red"
+    },
+    {
+        "opy": "Recovering",
+        "en": "Recovering"
+    },
+    {
+        "opy": "Recovered",
+        "en": "Recovered"
+    },
+    {
+        "opy": "Recover",
+        "en": "Recover"
+    },
+    {
+        "opy": "Records",
+        "en": "Records"
+    },
+    {
+        "opy": "Record",
+        "en": "Record"
+    },
+    {
+        "opy": "Ready",
+        "en": "Ready"
+    },
+    {
+        "opy": "Reaching",
+        "en": "Reaching"
+    },
+    {
+        "opy": "Reached",
+        "en": "Reached"
+    },
+    {
+        "opy": "Reach",
+        "en": "Reach"
+    },
+    {
+        "opy": "Rank S",
+        "en": "Rank S"
+    },
+    {
+        "opy": "Rank F",
+        "en": "Rank F"
+    },
+    {
+        "opy": "Rank E",
+        "en": "Rank E"
+    },
+    {
+        "opy": "Rank D",
+        "en": "Rank D"
+    },
+    {
+        "opy": "Rank C",
+        "en": "Rank C"
+    },
+    {
+        "opy": "Rank B",
+        "en": "Rank B"
+    },
+    {
+        "opy": "Rank A",
+        "en": "Rank A"
+    },
+    {
+        "opy": "Rank",
+        "en": "Rank"
+    },
+    {
+        "opy": "Raising",
+        "en": "Raising"
+    },
+    {
+        "opy": "Raised",
+        "en": "Raised"
+    },
+    {
+        "opy": "Raise",
+        "en": "Raise"
+    },
+    {
+        "opy": "Purple",
+        "en": "Purple"
+    },
+    {
+        "opy": "Purifying",
+        "en": "Purifying"
+    },
+    {
+        "opy": "Purify",
+        "en": "Purify"
+    },
+    {
+        "opy": "Purified",
+        "en": "Purified"
+    },
+    {
+        "opy": "Protecting",
+        "en": "Protecting"
+    },
+    {
+        "opy": "Protected",
+        "en": "Protected"
+    },
+    {
+        "opy": "Protect",
+        "en": "Protect"
+    },
+    {
+        "opy": "Projectiles",
+        "en": "Projectiles"
+    },
+    {
+        "opy": "Projectile",
+        "en": "Projectile"
+    },
+    {
+        "opy": "Primary Fire",
+        "en": "Primary Fire"
+    },
+    {
+        "opy": "Price",
+        "en": "Price"
+    },
+    {
+        "opy": "Power-Ups",
+        "en": "Power-Ups"
+    },
+    {
+        "opy": "Power-Up",
+        "en": "Power-Up"
+    },
+    {
+        "opy": "Power",
+        "en": "Power"
+    },
+    {
+        "opy": "Position",
+        "en": "Position"
+    },
+    {
+        "opy": "Points Lost",
+        "en": "Points Lost"
+    },
+    {
+        "opy": "Points Earned",
+        "en": "Points Earned"
+    },
+    {
+        "opy": "Points",
+        "en": "Points"
+    },
+    {
+        "opy": "Point",
+        "en": "Point"
+    },
+    {
+        "opy": "Playing",
+        "en": "Playing"
+    },
+    {
+        "opy": "Players",
+        "en": "Players"
+    },
+    {
+        "opy": "Player",
+        "en": "Player"
+    },
+    {
+        "opy": "Played",
+        "en": "Played"
+    },
+    {
+        "opy": "Play",
+        "en": "Play"
+    },
+    {
+        "opy": "Piles",
+        "en": "Piles"
+    },
+    {
+        "opy": "Pile",
+        "en": "Pile"
+    },
+    {
+        "opy": "Picking",
+        "en": "Picking"
+    },
+    {
+        "opy": "Picked",
+        "en": "Picked"
+    },
+    {
+        "opy": "Pick",
+        "en": "Pick"
+    },
+    {
+        "opy": "Phases",
+        "en": "Phases"
+    },
+    {
+        "opy": "Phase",
+        "en": "Phase"
+    },
+    {
+        "opy": "Payloads",
+        "en": "Payloads"
+    },
+    {
+        "opy": "Payload",
+        "en": "Payload"
+    },
+    {
+        "opy": "Participants",
+        "en": "Participants"
+    },
+    {
+        "opy": "Participant",
+        "en": "Participant"
+    },
+    {
+        "opy": "Overtime",
+        "en": "Overtime"
+    },
+    {
+        "opy": "Over",
+        "en": "Over"
+    },
+    {
+        "opy": "Outside",
+        "en": "Outside"
+    },
+    {
+        "opy": "Outgoing",
+        "en": "Outgoing"
+    },
+    {
+        "opy": "Out Of View",
+        "en": "Out Of View"
+    },
+    {
+        "opy": "Optimizing",
+        "en": "Optimizing"
+    },
+    {
+        "opy": "Optimized",
+        "en": "Optimized"
+    },
+    {
+        "opy": "Optimize",
+        "en": "Optimize"
+    },
+    {
+        "opy": "Optimal",
+        "en": "Optimal"
+    },
+    {
+        "opy": "Oops",
+        "en": "Oops"
+    },
+    {
+        "opy": "Oof",
+        "en": "Oof"
+    },
+    {
+        "opy": "On",
+        "en": "On"
+    },
+    {
+        "opy": "Off",
+        "en": "Off"
+    },
+    {
+        "opy": "Obtaining",
+        "en": "Obtaining"
+    },
+    {
+        "opy": "Obtained",
+        "en": "Obtained"
+    },
+    {
+        "opy": "Obtain",
+        "en": "Obtain"
+    },
+    {
+        "opy": "Objects",
+        "en": "Objects"
+    },
+    {
+        "opy": "Objectives",
+        "en": "Objectives"
+    },
+    {
+        "opy": "Objective",
+        "en": "Objective"
+    },
+    {
+        "opy": "Object",
+        "en": "Object"
+    },
+    {
+        "opy": "Not Today",
+        "en": "Not Today"
+    },
+    {
+        "opy": "Northwest",
+        "en": "Northwest"
+    },
+    {
+        "opy": "Northeast",
+        "en": "Northeast"
+    },
+    {
+        "opy": "North",
+        "en": "North"
+    },
+    {
+        "opy": "Normal",
+        "en": "Normal"
+    },
+    {
+        "opy": "None",
+        "en": "None"
+    },
+    {
+        "opy": "No Thanks",
+        "en": "No Thanks"
+    },
+    {
+        "opy": "No",
+        "en": "No"
+    },
+    {
+        "opy": "Nice Try",
+        "en": "Nice Try"
+    },
+    {
+        "opy": "Next Upgrade",
+        "en": "Next Upgrade"
+    },
+    {
+        "opy": "Next Targets",
+        "en": "Next Targets"
+    },
+    {
+        "opy": "Next Target",
+        "en": "Next Target"
+    },
+    {
+        "opy": "Next Round",
+        "en": "Next Round"
+    },
+    {
+        "opy": "Next Players",
+        "en": "Next Players"
+    },
+    {
+        "opy": "Next Player",
+        "en": "Next Player"
+    },
+    {
+        "opy": "Next Phase",
+        "en": "Next Phase"
+    },
+    {
+        "opy": "Next Objects",
+        "en": "Next Objects"
+    },
+    {
+        "opy": "Next Objective",
+        "en": "Next Objective"
+    },
+    {
+        "opy": "Next Object",
+        "en": "Next Object"
+    },
+    {
+        "opy": "Next Mission",
+        "en": "Next Mission"
+    },
+    {
+        "opy": "Next Level",
+        "en": "Next Level"
+    },
+    {
+        "opy": "Next Hostages",
+        "en": "Next Hostages"
+    },
+    {
+        "opy": "Next Hostage",
+        "en": "Next Hostage"
+    },
+    {
+        "opy": "Next Heroes",
+        "en": "Next Heroes"
+    },
+    {
+        "opy": "Next Hero",
+        "en": "Next Hero"
+    },
+    {
+        "opy": "Next Game",
+        "en": "Next Game"
+    },
+    {
+        "opy": "Next Form",
+        "en": "Next Form"
+    },
+    {
+        "opy": "Next Enemy",
+        "en": "Next Enemy"
+    },
+    {
+        "opy": "Next Enemies",
+        "en": "Next Enemies"
+    },
+    {
+        "opy": "Next Checkpoint",
+        "en": "Next Checkpoint"
+    },
+    {
+        "opy": "Next Attempt",
+        "en": "Next Attempt"
+    },
+    {
+        "opy": "Next Ally",
+        "en": "Next Ally"
+    },
+    {
+        "opy": "Next Allies",
+        "en": "Next Allies"
+    },
+    {
+        "opy": "Next",
+        "en": "Next"
+    },
+    {
+        "opy": "New Record",
+        "en": "New Record"
+    },
+    {
+        "opy": "New High Score",
+        "en": "New High Score"
+    },
+    {
+        "opy": "Near",
+        "en": "Near"
+    },
+    {
+        "opy": "My Mistake",
+        "en": "My Mistake"
+    },
+    {
+        "opy": "Most",
+        "en": "Most"
+    },
+    {
+        "opy": "More",
+        "en": "More"
+    },
+    {
+        "opy": "Monsters",
+        "en": "Monsters"
+    },
+    {
+        "opy": "Monster",
+        "en": "Monster"
+    },
+    {
+        "opy": "Money",
+        "en": "Money"
+    },
+    {
+        "opy": "Moderate",
+        "en": "Moderate"
+    },
+    {
+        "opy": "Missions",
+        "en": "Missions"
+    },
+    {
+        "opy": "Mission Failed",
+        "en": "Mission Failed"
+    },
+    {
+        "opy": "Mission Accomplished",
+        "en": "Mission Accomplished"
+    },
+    {
+        "opy": "Mission Aborted",
+        "en": "Mission Aborted"
+    },
+    {
+        "opy": "Mission",
+        "en": "Mission"
+    },
+    {
+        "opy": "Min",
+        "en": "Min"
+    },
+    {
+        "opy": "Mild",
+        "en": "Mild"
+    },
+    {
+        "opy": "Max",
+        "en": "Max"
+    },
+    {
+        "opy": "Losses",
+        "en": "Losses"
+    },
+    {
+        "opy": "Loss",
+        "en": "Loss"
+    },
+    {
+        "opy": "Losers",
+        "en": "Losers"
+    },
+    {
+        "opy": "Loser",
+        "en": "Loser"
+    },
+    {
+        "opy": "Locking",
+        "en": "Locking"
+    },
+    {
+        "opy": "Locked",
+        "en": "Locked"
+    },
+    {
+        "opy": "Lock",
+        "en": "Lock"
+    },
+    {
+        "opy": "Location",
+        "en": "Location"
+    },
+    {
+        "opy": "Loading",
+        "en": "Loading"
+    },
+    {
+        "opy": "Loaded",
+        "en": "Loaded"
+    },
+    {
+        "opy": "Load",
+        "en": "Load"
+    },
+    {
+        "opy": "Lives",
+        "en": "Lives"
+    },
+    {
+        "opy": "Limited",
+        "en": "Limited"
+    },
+    {
+        "opy": "Life",
+        "en": "Life"
+    },
+    {
+        "opy": "Levels",
+        "en": "Levels"
+    },
+    {
+        "opy": "Level Up",
+        "en": "Level Up"
+    },
+    {
+        "opy": "Level Down",
+        "en": "Level Down"
+    },
+    {
+        "opy": "Level",
+        "en": "Level"
+    },
+    {
+        "opy": "Less",
+        "en": "Less"
+    },
+    {
+        "opy": "Left",
+        "en": "Left"
+    },
+    {
+        "opy": "Least",
+        "en": "Least"
+    },
+    {
+        "opy": "Leaders",
+        "en": "Leaders"
+    },
+    {
+        "opy": "Leader",
+        "en": "Leader"
+    },
+    {
+        "opy": "Killstreaks",
+        "en": "Killstreaks"
+    },
+    {
+        "opy": "Killstreak",
+        "en": "Killstreak"
+    },
+    {
+        "opy": "Killstreak",
+        "en": "Killstreak"
+    },
+    {
+        "opy": "Kills",
+        "en": "Kills"
+    },
+    {
+        "opy": "Kill",
+        "en": "Kill"
+    },
+    {
+        "opy": "Jumping",
+        "en": "Jumping"
+    },
+    {
+        "opy": "Jump",
+        "en": "Jump"
+    },
+    {
+        "opy": "Joining",
+        "en": "Joining"
+    },
+    {
+        "opy": "Joined",
+        "en": "Joined"
+    },
+    {
+        "opy": "Join",
+        "en": "Join"
+    },
+    {
+        "opy": "Items",
+        "en": "Items"
+    },
+    {
+        "opy": "Item",
+        "en": "Item"
+    },
+    {
+        "opy": "Invisible",
+        "en": "Invisible"
+    },
+    {
+        "opy": "Interact",
+        "en": "Interact"
+    },
+    {
+        "opy": "Intelligence",
+        "en": "Intelligence"
+    },
+    {
+        "opy": "Inside",
+        "en": "Inside"
+    },
+    {
+        "opy": "Innocent",
+        "en": "Innocent"
+    },
+    {
+        "opy": "Initial Upgrade",
+        "en": "Initial Upgrade"
+    },
+    {
+        "opy": "Initial Targets",
+        "en": "Initial Targets"
+    },
+    {
+        "opy": "Initial Target",
+        "en": "Initial Target"
+    },
+    {
+        "opy": "Initial Round",
+        "en": "Initial Round"
+    },
+    {
+        "opy": "Initial Players",
+        "en": "Initial Players"
+    },
+    {
+        "opy": "Initial Player",
+        "en": "Initial Player"
+    },
+    {
+        "opy": "Initial Phase",
+        "en": "Initial Phase"
+    },
+    {
+        "opy": "Initial Objects",
+        "en": "Initial Objects"
+    },
+    {
+        "opy": "Initial Objective",
+        "en": "Initial Objective"
+    },
+    {
+        "opy": "Initial Object",
+        "en": "Initial Object"
+    },
+    {
+        "opy": "Initial Mission",
+        "en": "Initial Mission"
+    },
+    {
+        "opy": "Initial Level",
+        "en": "Initial Level"
+    },
+    {
+        "opy": "Initial Hostage",
+        "en": "Initial Hostage"
+    },
+    {
+        "opy": "Initial Heroes",
+        "en": "Initial Heroes"
+    },
+    {
+        "opy": "Initial Hero",
+        "en": "Initial Hero"
+    },
+    {
+        "opy": "Initial Game",
+        "en": "Initial Game"
+    },
+    {
+        "opy": "Initial Form",
+        "en": "Initial Form"
+    },
+    {
+        "opy": "Initial Enemy",
+        "en": "Initial Enemy"
+    },
+    {
+        "opy": "Initial Enemies",
+        "en": "Initial Enemies"
+    },
+    {
+        "opy": "Initial Checkpoint",
+        "en": "Initial Checkpoint"
+    },
+    {
+        "opy": "Initial Attempt",
+        "en": "Initial Attempt"
+    },
+    {
+        "opy": "Initial Ally",
+        "en": "Initial Ally"
+    },
+    {
+        "opy": "Initial Allies",
+        "en": "Initial Allies"
+    },
+    {
+        "opy": "Initial",
+        "en": "Initial"
+    },
+    {
+        "opy": "Incoming",
+        "en": "Incoming"
+    },
+    {
+        "opy": "Income",
+        "en": "Income"
+    },
+    {
+        "opy": "In View",
+        "en": "In View"
+    },
+    {
+        "opy": "I Tried",
+        "en": "I Tried"
+    },
+    {
+        "opy": "I Give Up",
+        "en": "I Give Up"
+    },
+    {
+        "opy": "Hunting",
+        "en": "Hunting"
+    },
+    {
+        "opy": "Hunters",
+        "en": "Hunters"
+    },
+    {
+        "opy": "Hunter",
+        "en": "Hunter"
+    },
+    {
+        "opy": "Hunted",
+        "en": "Hunted"
+    },
+    {
+        "opy": "Hunt",
+        "en": "Hunt"
+    },
+    {
+        "opy": "Huh",
+        "en": "Huh"
+    },
+    {
+        "opy": "Hostages",
+        "en": "Hostages"
+    },
+    {
+        "opy": "Hostage",
+        "en": "Hostage"
+    },
+    {
+        "opy": "Hmmm",
+        "en": "Hmmm"
+    },
+    {
+        "opy": "Hitting",
+        "en": "Hitting"
+    },
+    {
+        "opy": "Hit",
+        "en": "Hit"
+    },
+    {
+        "opy": "High Scores",
+        "en": "High Scores"
+    },
+    {
+        "opy": "High Score",
+        "en": "High Score"
+    },
+    {
+        "opy": "Hiding",
+        "en": "Hiding"
+    },
+    {
+        "opy": "Hide",
+        "en": "Hide"
+    },
+    {
+        "opy": "Hidden",
+        "en": "Hidden"
+    },
+    {
+        "opy": "Heroes",
+        "en": "Heroes"
+    },
+    {
+        "opy": "Hero",
+        "en": "Hero"
+    },
+    {
+        "opy": "Here",
+        "en": "Here"
+    },
+    {
+        "opy": "Help",
+        "en": "Help"
+    },
+    {
+        "opy": "Hello",
+        "en": "Hello"
+    },
+    {
+        "opy": "Height",
+        "en": "Height"
+    },
+    {
+        "opy": "Hearts",
+        "en": "Hearts"
+    },
+    {
+        "opy": "Heart",
+        "en": "Heart"
+    },
+    {
+        "opy": "Healing",
+        "en": "Healing"
+    },
+    {
+        "opy": "Healers",
+        "en": "Healers"
+    },
+    {
+        "opy": "Healer",
+        "en": "Healer"
+    },
+    {
+        "opy": "Healed",
+        "en": "Healed"
+    },
+    {
+        "opy": "Heal",
+        "en": "Heal"
+    },
+    {
+        "opy": "Hands",
+        "en": "Hands"
+    },
+    {
+        "opy": "Hand",
+        "en": "Hand"
+    },
+    {
+        "opy": "Hacking",
+        "en": "Hacking"
+    },
+    {
+        "opy": "Hacked",
+        "en": "Hacked"
+    },
+    {
+        "opy": "Hack",
+        "en": "Hack"
+    },
+    {
+        "opy": "Guilty",
+        "en": "Guilty"
+    },
+    {
+        "opy": "Green",
+        "en": "Green"
+    },
+    {
+        "opy": "Goodbye",
+        "en": "Goodbye"
+    },
+    {
+        "opy": "Good Luck",
+        "en": "Good Luck"
+    },
+    {
+        "opy": "Good",
+        "en": "Good"
+    },
+    {
+        "opy": "Going",
+        "en": "Going"
+    },
+    {
+        "opy": "Goals",
+        "en": "Goals"
+    },
+    {
+        "opy": "Goal",
+        "en": "Goal"
+    },
+    {
+        "opy": "Go",
+        "en": "Go"
+    },
+    {
+        "opy": "Gg",
+        "en": "Gg"
+    },
+    {
+        "opy": "Games Won",
+        "en": "Games Won"
+    },
+    {
+        "opy": "Games Lost",
+        "en": "Games Lost"
+    },
+    {
+        "opy": "Games",
+        "en": "Games"
+    },
+    {
+        "opy": "Game",
+        "en": "Game"
+    },
+    {
+        "opy": "Frozen",
+        "en": "Frozen"
+    },
+    {
+        "opy": "Freezing",
+        "en": "Freezing"
+    },
+    {
+        "opy": "Freeze",
+        "en": "Freeze"
+    },
+    {
+        "opy": "Found",
+        "en": "Found"
+    },
+    {
+        "opy": "Forward",
+        "en": "Forward"
+    },
+    {
+        "opy": "Forms",
+        "en": "Forms"
+    },
+    {
+        "opy": "Form",
+        "en": "Form"
+    },
+    {
+        "opy": "Folding",
+        "en": "Folding"
+    },
+    {
+        "opy": "Folded",
+        "en": "Folded"
+    },
+    {
+        "opy": "Fold",
+        "en": "Fold"
+    },
+    {
+        "opy": "Flying",
+        "en": "Flying"
+    },
+    {
+        "opy": "Fly",
+        "en": "Fly"
+    },
+    {
+        "opy": "Flown",
+        "en": "Flown"
+    },
+    {
+        "opy": "Finishing",
+        "en": "Finishing"
+    },
+    {
+        "opy": "Finished",
+        "en": "Finished"
+    },
+    {
+        "opy": "Finish",
+        "en": "Finish"
+    },
+    {
+        "opy": "Finding",
+        "en": "Finding"
+    },
+    {
+        "opy": "Find",
+        "en": "Find"
+    },
+    {
+        "opy": "Final Upgrade",
+        "en": "Final Upgrade"
+    },
+    {
+        "opy": "Final Time",
+        "en": "Final Time"
+    },
+    {
+        "opy": "Final Targets",
+        "en": "Final Targets"
+    },
+    {
+        "opy": "Final Target",
+        "en": "Final Target"
+    },
+    {
+        "opy": "Final Round",
+        "en": "Final Round"
+    },
+    {
+        "opy": "Final Players",
+        "en": "Final Players"
+    },
+    {
+        "opy": "Final Player",
+        "en": "Final Player"
+    },
+    {
+        "opy": "Final Phase",
+        "en": "Final Phase"
+    },
+    {
+        "opy": "Final Objects",
+        "en": "Final Objects"
+    },
+    {
+        "opy": "Final Objective",
+        "en": "Final Objective"
+    },
+    {
+        "opy": "Final Object",
+        "en": "Final Object"
+    },
+    {
+        "opy": "Final Mission",
+        "en": "Final Mission"
+    },
+    {
+        "opy": "Final Level",
+        "en": "Final Level"
+    },
+    {
+        "opy": "Final Item",
+        "en": "Final Item"
+    },
+    {
+        "opy": "Final Hostages",
+        "en": "Final Hostages"
+    },
+    {
+        "opy": "Final Hostage",
+        "en": "Final Hostage"
+    },
+    {
+        "opy": "Final Heroes",
+        "en": "Final Heroes"
+    },
+    {
+        "opy": "Final Hero",
+        "en": "Final Hero"
+    },
+    {
+        "opy": "Final Game",
+        "en": "Final Game"
+    },
+    {
+        "opy": "Final Form",
+        "en": "Final Form"
+    },
+    {
+        "opy": "Final Enemy",
+        "en": "Final Enemy"
+    },
+    {
+        "opy": "Final Enemies",
+        "en": "Final Enemies"
+    },
+    {
+        "opy": "Final Checkpoint",
+        "en": "Final Checkpoint"
+    },
+    {
+        "opy": "Final Attempt",
+        "en": "Final Attempt"
+    },
+    {
+        "opy": "Final Ally",
+        "en": "Final Ally"
+    },
+    {
+        "opy": "Final Allies",
+        "en": "Final Allies"
+    },
+    {
+        "opy": "Final",
+        "en": "Final"
+    },
+    {
+        "opy": "Faults",
+        "en": "Faults"
+    },
+    {
+        "opy": "Fault",
+        "en": "Fault"
+    },
+    {
+        "opy": "Fastest",
+        "en": "Fastest"
+    },
+    {
+        "opy": "Faster",
+        "en": "Faster"
+    },
+    {
+        "opy": "Fast",
+        "en": "Fast"
+    },
+    {
+        "opy": "Far",
+        "en": "Far"
+    },
+    {
+        "opy": "Falling",
+        "en": "Falling"
+    },
+    {
+        "opy": "Fallen",
+        "en": "Fallen"
+    },
+    {
+        "opy": "Fall",
+        "en": "Fall"
+    },
+    {
+        "opy": "Failure",
+        "en": "Failure"
+    },
+    {
+        "opy": "Failing",
+        "en": "Failing"
+    },
+    {
+        "opy": "Failed",
+        "en": "Failed"
+    },
+    {
+        "opy": "Facing",
+        "en": "Facing"
+    },
+    {
+        "opy": "Faces",
+        "en": "Faces"
+    },
+    {
+        "opy": "Face",
+        "en": "Face"
+    },
+    {
+        "opy": "Extreme",
+        "en": "Extreme"
+    },
+    {
+        "opy": "Experience",
+        "en": "Experience"
+    },
+    {
+        "opy": "Exit",
+        "en": "Exit"
+    },
+    {
+        "opy": "Excellent",
+        "en": "Excellent"
+    },
+    {
+        "opy": "Escorting",
+        "en": "Escorting"
+    },
+    {
+        "opy": "Escorted",
+        "en": "Escorted"
+    },
+    {
+        "opy": "Escort",
+        "en": "Escort"
+    },
+    {
+        "opy": "Entrance",
+        "en": "Entrance"
+    },
+    {
+        "opy": "Enemy",
+        "en": "Enemy"
+    },
+    {
+        "opy": "Enemies",
+        "en": "Enemies"
+    },
+    {
+        "opy": "Eliminations",
+        "en": "Eliminations"
+    },
+    {
+        "opy": "Elimination",
+        "en": "Elimination"
+    },
+    {
+        "opy": "Eliminating",
+        "en": "Eliminating"
+    },
+    {
+        "opy": "Eliminated",
+        "en": "Eliminated"
+    },
+    {
+        "opy": "Eliminate",
+        "en": "Eliminate"
+    },
+    {
+        "opy": "East",
+        "en": "East"
+    },
+    {
+        "opy": "Dying",
+        "en": "Dying"
+    },
+    {
+        "opy": "Dropping",
+        "en": "Dropping"
+    },
+    {
+        "opy": "Dropped",
+        "en": "Dropped"
+    },
+    {
+        "opy": "Drop",
+        "en": "Drop"
+    },
+    {
+        "opy": "Drawn",
+        "en": "Drawn"
+    },
+    {
+        "opy": "Drawing",
+        "en": "Drawing"
+    },
+    {
+        "opy": "Draw",
+        "en": "Draw"
+    },
+    {
+        "opy": "Downloading",
+        "en": "Downloading"
+    },
+    {
+        "opy": "Downloaded",
+        "en": "Downloaded"
+    },
+    {
+        "opy": "Download",
+        "en": "Download"
+    },
+    {
+        "opy": "Down",
+        "en": "Down"
+    },
+    {
+        "opy": "Domes",
+        "en": "Domes"
+    },
+    {
+        "opy": "Dome",
+        "en": "Dome"
+    },
+    {
+        "opy": "Dodging",
+        "en": "Dodging"
+    },
+    {
+        "opy": "Dodged",
+        "en": "Dodged"
+    },
+    {
+        "opy": "Dodge",
+        "en": "Dodge"
+    },
+    {
+        "opy": "Distances",
+        "en": "Distances"
+    },
+    {
+        "opy": "Distance",
+        "en": "Distance"
+    },
+    {
+        "opy": "Disconnecting",
+        "en": "Disconnecting"
+    },
+    {
+        "opy": "Disconnected",
+        "en": "Disconnected"
+    },
+    {
+        "opy": "Disconnect",
+        "en": "Disconnect"
+    },
+    {
+        "opy": "Discarding",
+        "en": "Discarding"
+    },
+    {
+        "opy": "Discarded",
+        "en": "Discarded"
+    },
+    {
+        "opy": "Discard",
+        "en": "Discard"
+    },
+    {
+        "opy": "Die",
+        "en": "Die"
+    },
+    {
+        "opy": "Diamonds",
+        "en": "Diamonds"
+    },
+    {
+        "opy": "Diamond",
+        "en": "Diamond"
+    },
+    {
+        "opy": "Dexterity",
+        "en": "Dexterity"
+    },
+    {
+        "opy": "Detecting",
+        "en": "Detecting"
+    },
+    {
+        "opy": "Detected",
+        "en": "Detected"
+    },
+    {
+        "opy": "Detect",
+        "en": "Detect"
+    },
+    {
+        "opy": "Destroying",
+        "en": "Destroying"
+    },
+    {
+        "opy": "Destroyed",
+        "en": "Destroyed"
+    },
+    {
+        "opy": "Destroy",
+        "en": "Destroy"
+    },
+    {
+        "opy": "Destabilizing",
+        "en": "Destabilizing"
+    },
+    {
+        "opy": "Destabilized",
+        "en": "Destabilized"
+    },
+    {
+        "opy": "Destabilize",
+        "en": "Destabilize"
+    },
+    {
+        "opy": "Depth",
+        "en": "Depth"
+    },
+    {
+        "opy": "Delivering",
+        "en": "Delivering"
+    },
+    {
+        "opy": "Delivered",
+        "en": "Delivered"
+    },
+    {
+        "opy": "Deliver",
+        "en": "Deliver"
+    },
+    {
+        "opy": "Defence",
+        "en": "Defence"
+    },
+    {
+        "opy": "Defending",
+        "en": "Defending"
+    },
+    {
+        "opy": "Defended",
+        "en": "Defended"
+    },
+    {
+        "opy": "Defend",
+        "en": "Defend"
+    },
+    {
+        "opy": "Defeat",
+        "en": "Defeat"
+    },
+    {
+        "opy": "Decks",
+        "en": "Decks"
+    },
+    {
+        "opy": "Deck",
+        "en": "Deck"
+    },
+    {
+        "opy": "Dealt",
+        "en": "Dealt"
+    },
+    {
+        "opy": "Dealing",
+        "en": "Dealing"
+    },
+    {
+        "opy": "Deal",
+        "en": "Deal"
+    },
+    {
+        "opy": "Dead",
+        "en": "Dead"
+    },
+    {
+        "opy": "Danger",
+        "en": "Danger"
+    },
+    {
+        "opy": "Damaging",
+        "en": "Damaging"
+    },
+    {
+        "opy": "Damaged",
+        "en": "Damaged"
+    },
+    {
+        "opy": "Damage",
+        "en": "Damage"
+    },
+    {
+        "opy": "Current Upgrade",
+        "en": "Current Upgrade"
+    },
+    {
+        "opy": "Current Targets",
+        "en": "Current Targets"
+    },
+    {
+        "opy": "Current Target",
+        "en": "Current Target"
+    },
+    {
+        "opy": "Current Round",
+        "en": "Current Round"
+    },
+    {
+        "opy": "Current Players",
+        "en": "Current Players"
+    },
+    {
+        "opy": "Current Player",
+        "en": "Current Player"
+    },
+    {
+        "opy": "Current Phase",
+        "en": "Current Phase"
+    },
+    {
+        "opy": "Current Objects",
+        "en": "Current Objects"
+    },
+    {
+        "opy": "Current Objective",
+        "en": "Current Objective"
+    },
+    {
+        "opy": "Current Object",
+        "en": "Current Object"
+    },
+    {
+        "opy": "Current Mission",
+        "en": "Current Mission"
+    },
+    {
+        "opy": "Current Level",
+        "en": "Current Level"
+    },
+    {
+        "opy": "Current Hostages",
+        "en": "Current Hostages"
+    },
+    {
+        "opy": "Current Hostage",
+        "en": "Current Hostage"
+    },
+    {
+        "opy": "Current Heroes",
+        "en": "Current Heroes"
+    },
+    {
+        "opy": "Current Hero",
+        "en": "Current Hero"
+    },
+    {
+        "opy": "Current Game",
+        "en": "Current Game"
+    },
+    {
+        "opy": "Current Form",
+        "en": "Current Form"
+    },
+    {
+        "opy": "Current Enemy",
+        "en": "Current Enemy"
+    },
+    {
+        "opy": "Current Enemies",
+        "en": "Current Enemies"
+    },
+    {
+        "opy": "Current Checkpoint",
+        "en": "Current Checkpoint"
+    },
+    {
+        "opy": "Current Attempt",
+        "en": "Current Attempt"
+    },
+    {
+        "opy": "Current Ally",
+        "en": "Current Ally"
+    },
+    {
+        "opy": "Current Allies",
+        "en": "Current Allies"
+    },
+    {
+        "opy": "Current",
+        "en": "Current"
+    },
+    {
+        "opy": "Crouching",
+        "en": "Crouching"
+    },
+    {
+        "opy": "Crouched",
+        "en": "Crouched"
+    },
+    {
+        "opy": "Crouch",
+        "en": "Crouch"
+    },
+    {
+        "opy": "Critical",
+        "en": "Critical"
+    },
+    {
+        "opy": "Credits",
+        "en": "Credits"
+    },
+    {
+        "opy": "Credit",
+        "en": "Credit"
+    },
+    {
+        "opy": "Corrupting",
+        "en": "Corrupting"
+    },
+    {
+        "opy": "Corrupted",
+        "en": "Corrupted"
+    },
+    {
+        "opy": "Corrupt",
+        "en": "Corrupt"
+    },
+    {
+        "opy": "Cooldowns",
+        "en": "Cooldowns"
+    },
+    {
+        "opy": "Cooldown",
+        "en": "Cooldown"
+    },
+    {
+        "opy": "Control Points",
+        "en": "Control Points"
+    },
+    {
+        "opy": "Control Point",
+        "en": "Control Point"
+    },
+    {
+        "opy": "Constitution",
+        "en": "Constitution"
+    },
+    {
+        "opy": "Connecting",
+        "en": "Connecting"
+    },
+    {
+        "opy": "Connected",
+        "en": "Connected"
+    },
+    {
+        "opy": "Connect",
+        "en": "Connect"
+    },
+    {
+        "opy": "Congratulations",
+        "en": "Congratulations"
+    },
+    {
+        "opy": "Condition",
+        "en": "Condition"
+    },
+    {
+        "opy": "Come Here",
+        "en": "Come Here"
+    },
+    {
+        "opy": "Combo",
+        "en": "Combo"
+    },
+    {
+        "opy": "Clubs",
+        "en": "Clubs"
+    },
+    {
+        "opy": "Club",
+        "en": "Club"
+    },
+    {
+        "opy": "Clouds",
+        "en": "Clouds"
+    },
+    {
+        "opy": "Cloud",
+        "en": "Cloud"
+    },
+    {
+        "opy": "Checkpoints",
+        "en": "Checkpoints"
+    },
+    {
+        "opy": "Checkpoint",
+        "en": "Checkpoint"
+    },
+    {
+        "opy": "Chasing",
+        "en": "Chasing"
+    },
+    {
+        "opy": "Chased",
+        "en": "Chased"
+    },
+    {
+        "opy": "Chase",
+        "en": "Chase"
+    },
+    {
+        "opy": "Charisma",
+        "en": "Charisma"
+    },
+    {
+        "opy": "Challenge Accepted",
+        "en": "Challenge Accepted"
+    },
+    {
+        "opy": "Center",
+        "en": "Center"
+    },
+    {
+        "opy": "Caution",
+        "en": "Caution"
+    },
+    {
+        "opy": "Capturing",
+        "en": "Capturing"
+    },
+    {
+        "opy": "Captured",
+        "en": "Captured"
+    },
+    {
+        "opy": "Capture",
+        "en": "Capture"
+    },
+    {
+        "opy": "Buying",
+        "en": "Buying"
+    },
+    {
+        "opy": "Buy",
+        "en": "Buy"
+    },
+    {
+        "opy": "Burnt",
+        "en": "Burnt"
+    },
+    {
+        "opy": "Burning",
+        "en": "Burning"
+    },
+    {
+        "opy": "Burn",
+        "en": "Burn"
+    },
+    {
+        "opy": "Built",
+        "en": "Built"
+    },
+    {
+        "opy": "Building",
+        "en": "Building"
+    },
+    {
+        "opy": "Build",
+        "en": "Build"
+    },
+    {
+        "opy": "Bought",
+        "en": "Bought"
+    },
+    {
+        "opy": "Bosses",
+        "en": "Bosses"
+    },
+    {
+        "opy": "Boss",
+        "en": "Boss"
+    },
+    {
+        "opy": "Bonuses",
+        "en": "Bonuses"
+    },
+    {
+        "opy": "Bonus",
+        "en": "Bonus"
+    },
+    {
+        "opy": "Blue",
+        "en": "Blue"
+    },
+    {
+        "opy": "Blocking",
+        "en": "Blocking"
+    },
+    {
+        "opy": "Blocked",
+        "en": "Blocked"
+    },
+    {
+        "opy": "Block",
+        "en": "Block"
+    },
+    {
+        "opy": "Bids",
+        "en": "Bids"
+    },
+    {
+        "opy": "Bid",
+        "en": "Bid"
+    },
+    {
+        "opy": "Better",
+        "en": "Better"
+    },
+    {
+        "opy": "Best",
+        "en": "Best"
+    },
+    {
+        "opy": "Banning",
+        "en": "Banning"
+    },
+    {
+        "opy": "Banned",
+        "en": "Banned"
+    },
+    {
+        "opy": "Ban",
+        "en": "Ban"
+    },
+    {
+        "opy": "Bad",
+        "en": "Bad"
+    },
+    {
+        "opy": "Backward",
+        "en": "Backward"
+    },
+    {
+        "opy": "Avoiding",
+        "en": "Avoiding"
+    },
+    {
+        "opy": "Avoided",
+        "en": "Avoided"
+    },
+    {
+        "opy": "Avoid",
+        "en": "Avoid"
+    },
+    {
+        "opy": "Average",
+        "en": "Average"
+    },
+    {
+        "opy": "Attempts",
+        "en": "Attempts"
+    },
+    {
+        "opy": "Attempt",
+        "en": "Attempt"
+    },
+    {
+        "opy": "Attacking",
+        "en": "Attacking"
+    },
+    {
+        "opy": "Attacked",
+        "en": "Attacked"
+    },
+    {
+        "opy": "Attack",
+        "en": "Attack"
+    },
+    {
+        "opy": "Angle",
+        "en": "Angle"
+    },
+    {
+        "opy": "Ammunition",
+        "en": "Ammunition"
+    },
+    {
+        "opy": "Ally",
+        "en": "Ally"
+    },
+    {
+        "opy": "Allies",
+        "en": "Allies"
+    },
+    {
+        "opy": "Alive",
+        "en": "Alive"
+    },
+    {
+        "opy": "Alert",
+        "en": "Alert"
+    },
+    {
+        "opy": "Ability 2",
+        "en": "Ability 2"
+    },
+    {
+        "opy": "Ability 1",
+        "en": "Ability 1"
+    },
+    {
+        "opy": "Ability",
+        "en": "Ability"
+    },
+    {
+        "opy": "Abilities",
+        "en": "Abilities"
+    },
+    {
+        "opy": "???",
+        "en": "???"
+    },
+    {
+        "opy": "??",
+        "en": "??"
+    },
+    {
+        "opy": "?",
+        "en": "?"
+    },
+    {
+        "opy": "...",
+        "en": "..."
+    },
+    {
+        "opy": "----------",
+        "en": "----------"
+    },
+    {
+        "opy": "*",
+        "en": "*"
+    },
+    {
+        "opy": "!!!",
+        "en": "!!!"
+    },
+    {
+        "opy": "!!",
+        "en": "!!"
+    },
+    {
+        "opy": "!",
+        "en": "!"
+    }
+];
+
+var prefixStrKw = [
+    {
+        "opy": "#{0}",
+        "en": "#{0}"
+    },
+    {
+        "opy": "-> {0}",
+        "en": "-> {0}"
+    },
+    {
+        "opy": "<-> {0}",
+        "en": "<-> {0}"
+    },
+    {
+        "opy": "<- {0}",
+        "en": "<- {0}"
+    },
+    {
+        "opy": "Round {0}",
+        "en": "Round {0}"
+    }
+];
+
+var postfixStrKw = [
+    {
+        "opy": "{0} ->",
+        "en": "{0} ->"
+    },
+    {
+        "opy": "{0} <->",
+        "en": "{0} <->"
+    },
+    {
+        "opy": "{0} <-",
+        "en": "{0} <-"
+    },
+    {
+        "opy": "{0} M/S",
+        "en": "{0} M/S"
+    },
+    {
+        "opy": "{0} M",
+        "en": "{0} M"
+    },
+    {
+        "opy": "{0} Sec",
+        "en": "{0} Sec"
+    },
+    {
+        "opy": "{0}!!!",
+        "en": "{0}!!!"
+    },
+    {
+        "opy": "{0}!!",
+        "en": "{0}!!"
+    },
+    {
+        "opy": "{0}!",
+        "en": "{0}!"
+    },
+    {
+        "opy": "{0}%",
+        "en": "{0}%"
+    },
+    {
+        "opy": "{0}:",
+        "en": "{0}:"
+    },
+    {
+        "opy": "{0}???",
+        "en": "{0}???"
+    },
+    {
+        "opy": "{0}??",
+        "en": "{0}??"
+    },
+    {
+        "opy": "{0}?",
+        "en": "{0}?"
+    }
+];
+
+var binaryStrKw = [
+    {
+        "opy": "{0} -> {1}",
+        "en": "{0} -> {1}"
+    },
+    {
+        "opy": "{0} - {1}",
+        "en": "{0} - {1}"
+    },
+    {
+        "opy": "{0} != {1}",
+        "en": "{0} != {1}"
+    },
+    {
+        "opy": "{0} * {1}",
+        "en": "{0} * {1}"
+    },
+    {
+        "opy": "{0} / {1}",
+        "en": "{0} / {1}"
+    },
+    {
+        "opy": "{0} + {1}",
+        "en": "{0} + {1}"
+    },
+    {
+        "opy": "{0} <-> {1}",
+        "en": "{0} <-> {1}"
+    },
+    {
+        "opy": "{0} <- {1}",
+        "en": "{0} <- {1}"
+    },
+    {
+        "opy": "{0} <= {1}",
+        "en": "{0} <= {1}"
+    },
+    {
+        "opy": "{0} < {1}",
+        "en": "{0} < {1}"
+    },
+    {
+        "opy": "{0} == {1}",
+        "en": "{0} == {1}"
+    },
+    {
+        "opy": "{0} = {1}",
+        "en": "{0} = {1}"
+    },
+    {
+        "opy": "{0} >= {1}",
+        "en": "{0} >= {1}"
+    },
+    {
+        "opy": "{0} > {1}",
+        "en": "{0} > {1}"
+    },
+    {
+        "opy": "{0} And {1}",
+        "en": "{0} And {1}"
+    },
+    {
+        "opy": "{0} Vs {1}",
+        "en": "{0} Vs {1}"
+    },
+    {
+        "opy": "{0}, {1}",
+        "en": "{0}, {1}"
+    },
+    {
+        "opy": "{0}: {1}",
+        "en": "{0}: {1}"
+    },
+    {
+        "opy": "{0}:{1}",
+        "en": "{0}:{1}"
+    },
+    {
+        "opy": "{0} {1}",
+        "en": "{0} {1}"
+    }
+];
+
+var ternaryStrKw = [
+    {
+        "opy": "{0} - {1} - {2}",
+        "en": "{0} - {1} - {2}"
+    },
+    {
+        "opy": "{0} : {1} : {2}",
+        "en": "{0} : {1} : {2}"
+    },
+    {
+        "opy": "{0} {1} {2}",
+        "en": "{0} {1} {2}"
+    },
+    {
+        "opy": "{0}, {1}, And {2}",
+        "en": "{0}, {1}, And {2}"
+    },
+    {
+        "opy": "{0}: {1} And {2}",
+        "en": "{0}: {1} And {2}"
+    }
+];
+
+var surroundStrKw = [
+    {
+        "opy": "({0})",
+        "en": "({0})"
+    },
+    {
+        "opy": "¡{0}!",
+        "en": "¡{0}!"
+    },
+    {
+        "opy": "¿{0}?",
+        "en": "¿{0}?"
+    }
+];
+
+var stringKw = normalStrKw.concat(prefixStrKw).concat(postfixStrKw).concat(binaryStrKw).concat(ternaryStrKw).concat(surroundStrKw).concat(emptyStrKw);
+
+/*for (var hero of getConstantKw("HERO CONSTANT")) {
+	stringKw.push(hero.opy);
+}*/
+
+var strTokens = [];
+
+//Generate string tokens
+//normal strings
+for (var j = 0; j < normalStrKw.length; j++) {
+	strTokens.push(normalStrKw[j].opy.toLowerCase());
+}
+
+//prefix strings
+for (var j = 0; j < prefixStrKw.length; j++) {
+	strTokens.push(prefixStrKw[j].opy.substring(0, prefixStrKw[j].opy.indexOf("{0}")).toLowerCase());
+}
+
+//postfix strings
+for (var j = 0; j < postfixStrKw.length; j++) {
+	strTokens.push(postfixStrKw[j].opy.substring("{0}".length).toLowerCase());
+}
+
+//ternary strings
+for (var j = 0; j < ternaryStrKw.length; j++) {
+	strTokens.push(ternaryStrKw[j].opy.substring("{0}".length, ternaryStrKw[j].opy.indexOf("{1}")).toLowerCase());
+	strTokens.push(ternaryStrKw[j].opy.substring(ternaryStrKw[j].opy.indexOf("{1}")+"{1}".length, ternaryStrKw[j].opy.indexOf("{2}")).toLowerCase());
+}
+
+//binary strings
+for (var j = 0; j < binaryStrKw.length; j++) {
+	strTokens.push(binaryStrKw[j].opy.substring("{0}".length, binaryStrKw[j].opy.indexOf("{1}")).toLowerCase());
+}
+
+
+//surround strings
+for (var j = 0; j < surroundStrKw.length; j++) {
+	strTokens.push(surroundStrKw[j].opy[0].toLowerCase())
+	strTokens.push(surroundStrKw[j].opy[surroundStrKw[j].opy.length-1].toLowerCase())
+}
+
+//heroes
+for (var hero of getConstantKw("HERO CONSTANT")) {
+	strTokens.push(hero.opy.toLowerCase().substring("Hero.".length));
+}
+
+//Sort reverse alphabetical order for greediness
+strTokens = strTokens.sort().reverse();
 
 module.exports = {
 	decompileAllRules: decompileAllRules,

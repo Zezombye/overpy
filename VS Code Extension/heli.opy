@@ -16,7 +16,7 @@
 #!define rotation Z
 #!define ROTATION_SPEED 29
 
-#!define heliBlade(start, end) createBeam(getPlayers(Team.ALL), Beam.GRAPPLE, start, end, Color.PURPLE, Reeval.VISIBILITY_POSITION_AND_RADIUS)
+#!define heliBlade(start, end) createBeam(getPlayers(Team.ALL), Beam.GRAPPLE, start, end, Color.AQUA, Reeval.VISIBILITY_POSITION_AND_RADIUS)
 
 @Rule "tp to arena"
 @Event eachPlayer

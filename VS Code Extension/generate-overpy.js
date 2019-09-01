@@ -3,11 +3,14 @@ const fs = require("fs");
 //import overpy files
 overpyFiles = [
 	"globalVars.js",
-	"keywords.js",
-	"stringKw.js",
 	"utils.js",
 	"overpyDecompiler.js",
 	"overpyCompiler.js",
+	"actions.js",
+	"values.js",
+	"constants.js",
+	"keywords.js",
+	"stringKw.js",
 ];
 
 var overpyCode = "";
