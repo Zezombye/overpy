@@ -22,6 +22,17 @@
 textarea {
 	resize: vertical;
 }
+
+body, textarea {
+	color: #CCCCCC;
+	background-color: #222222;
+	scrollbar-color: #CCCCCC #222222;
+}
+
+a {
+	color: lightblue;
+}
+
 </style>
 
 <center>
@@ -53,13 +64,14 @@ textarea {
 <script src="globalVars.js"></script>
 <script src="decompileTest.js"></script>
 <script src="compileTest.js"></script>
-<script src="keywords.js"></script>
-<script src="stringKw.js"></script>
 <script src="utils.js"></script>
 <script src="overpyDecompiler.js"></script>
 <script src="overpyCompiler.js"></script>
 <script src="actions.js"></script>
 <script src="values.js"></script>
+<script src="constants.js"></script>
+<script src="keywords.js"></script>
+<script src="stringKw.js"></script>
 
 <!--<script>
 
@@ -233,17 +245,41 @@ console.log("implemented: "+counter);
 console.log("unimplemented: "+counter2);
 */
 
-for (var i = 0; i < actionKw.length-1; i++) {
+/*for (var i = 0; i < actionKw.length-1; i++) {
 	if (actionKw[i][1][0].toLowerCase() >= actionKw[i+1][1][0].toLowerCase()) {
 		console.log("Messed up alphabetical order for "+actionKw[i+1][1][0]);
 	}
-}
+}*/
 
-for (var i = 0; i < valueFuncKw.length-1; i++) {
+/*for (var i = 0; i < valueFuncKw.length-1; i++) {
 	if (valueFuncKw[i][1][0].toLowerCase() >= valueFuncKw[i+1][1][0].toLowerCase()) {
 		console.log("Messed up alphabetical order for "+valueFuncKw[i+1][1][0]);
 	}
+}*/
+
+</script>
+
+
+<script>
+"use strict";
+
+/*var result = [];
+
+for (var kw of surroundStrKw) {
+	result.push({
+		opy: kw[0][0],
+		en: kw[1][0],
+	})
 }
+
+console.log(JSON.stringify(result, null, 4));*/
+
+/*for (var constant of Object.keys(constantKw)) {
+	for (var value of constantKw[constant].values) {
+		value.en = value.en.split(" ").map(x => x[0].toUpperCase()+x.substring(1).toLowerCase()).join("").replace(/ /g, "");
+	}
+}
+console.log(JSON.stringify(constantKw, null, 4));*/
 
 </script>
 
