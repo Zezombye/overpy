@@ -1,4 +1,4 @@
-# OverPy v1.1
+# OverPy v1.2
 High-level language for the Overwatch Workshop with support for compilation and decompilation.
 
 The philosophy behind this language is "what would the workshop be like if it was coded in Python?" As such, this language aims to be as Python-like as reasonably possible.
@@ -84,7 +84,6 @@ with createEffects being a script that returns `nbEffects` createEffect instruct
 
 - Fix the bug with snippet and tab stops (https://www.reddit.com/r/vscode/comments/cotiql/autocompletion_does_not_trigger_within_tab_stops/)
 - Give a proper icon to the "compile" button
-- Hide the icon if the user is not on an .opy file
 - Add missing documentation for functions
 - Add macros to autocomplete on save
 
