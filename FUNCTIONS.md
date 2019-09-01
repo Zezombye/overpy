@@ -307,7 +307,7 @@ Vertical Angle Towards | verticalAngleTowards()
 Vertical Facing Angle Of | \<player\>.getVerticalFacingAngle()
 Vertical Speed Of | \<player\>.getVerticalSpeed()
 Victim | victim
-Wait(seconds, behavior) | wait(seconds) if behavior == "ignore condition", else wait(seconds, behavior=behavior)
+Wait(seconds, behavior) | wait(seconds) if behavior == "ignore condition", else wait(seconds, behavior)
 World Vector Of | worldVector()
 X Component Of(vector) | vector.x
 Y Component Of(vector) | vector.y

@@ -30,7 +30,7 @@ function compile(content) {
 	}
 	var rules = tokenize(content);
 	//console.log(rules);
-	
+
 	var result = "";
 	for (var i = 0; i < rules.length; i++) {
 	//for (var i = 26; i < 28; i++) {
@@ -142,7 +142,7 @@ function compileRule(rule) {
 						isEventTeamDefined = true;
 					}
 					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows("Hero."+rule.lines[i].tokens[1].text.toUpperCase(), heroKw)+";\n";
+					result += tabLevel(2)+tows("Hero."+rule.lines[i].tokens[1].text.toUpperCase(), getConstantKw("HERO CONSTANT"))+";\n";
 					
 				} else if (rule.lines[i].tokens[0].text === "@Slot") {
 					if (isEventPlayerDefined) {
@@ -606,10 +606,7 @@ function parse(content, parseArgs={}) {
 			return parseArrayMembership(content);
 		}
 	} else {
-		//Check for booleans
-		if (name === "true" || name === "false" || name === "null") {
-			return tows(name, boolKw);
-		} else if (name.startsWith('"') || name.startsWith("'")) {
+		if (name.startsWith('"') || name.startsWith("'")) {
 			formatArgs = [];
 			return parseString(tokenizeString(name.substring(1, name.length-1)));
 			//error("owo");
@@ -656,7 +653,7 @@ function parse(content, parseArgs={}) {
 	}
 	
 	if (name === "ceil") {
-		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundUp", roundKw)+")";
+		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundUp", getConstantKw("ROUNDING TYPE"))+")";
 	}
 	
 	if (name === "chase") {
@@ -690,14 +687,67 @@ function parse(content, parseArgs={}) {
 	}
 	
 	if (name === "floor") {
-		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", roundKw)+")";
+		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", getConstantKw("ROUNDING TYPE"))+")";
+	}
+
+	if (name === "hudHeader" || name === "hudText" || name === "hudSubheader" || name === "hudSubtext") {
+		if (name !== "hudText" && (args.length < 6 || args.length > 7)) {
+			error("Function "+name+" takes 6 or 7 arguments, received "+args.length);
+		} else if (name === "hudText" && (args.length < 10 || args.length > 11)) {
+			error("Function "+name+" takes 9 or 10 arguments, received "+args.length);
+		}
+		var defaultColor = [
+			{text: "Color"},
+			{text: "."},
+			{text: "WHITE"}
+		];
+		var wsnull = [{
+			text: "null",
+		}]
+		if (name === "hudHeader") {
+			args.splice(2, 0, wsnull);
+			args.splice(3, 0, wsnull);
+
+			args.splice(7, 0, defaultColor);
+			args.splice(8, 0, defaultColor);
+		} else if (name === "hudSubheader") {
+			args.splice(1, 0, wsnull);
+			args.splice(3, 0, wsnull);
+
+			args.splice(6, 0, defaultColor);
+			args.splice(8, 0, defaultColor);
+		} else if (name === "hudHeader") {
+			args.splice(1, 0, wsnull);
+			args.splice(2, 0, wsnull);
+
+			args.splice(6, 0, defaultColor);
+			args.splice(7, 0, defaultColor);
+		}
+		if (args.length === 10) {
+			//Add the spectator visibility
+			args.push([
+				{text: "SpecVisibility"},
+				{text: "."},
+				{text: "DEFAULT"},
+			])
+		}
+		name = "_hudText";
+		//go on to treat it as a normal function
+	}
+
+	if (name === "getAllPlayers") {
+		return tows("getPlayers", valueFuncKw)+"("+parse([
+			{"text": "Team"},
+			{"text": "."},
+			{"text": "ALL"},
+		])+")";
 	}
 	
 	if (name === "round") {
 		if (args.length !== 1) {
 			error("round() only takes one argument, you maybe meant to use ceil() or floor().");
 		} else {
-			return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundToNearest", roundKw)+")";
+			return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundToNearest", getConstantKw("ROUNDING TYPE"))+")";
 		}
 	}
 	
@@ -777,12 +827,9 @@ function parse(content, parseArgs={}) {
 	if (name === "wait") {
 		var result = tows("_wait", actionKw)+"("+parse(args[0])+", ";
 		if (args.length === 1) {
-			result += tows("Wait.IGNORE_CONDITION", waitKw)
+			result += tows("Wait.IGNORE_CONDITION", getConstantKw("WAIT BEHAVIOR"))
 		} else {
-			if (args[1][0].text !== "behavior" || args[1][1].text !== "=") {
-				error("2nd argument of wait() must be 'behavior=Wait.XXXX'");
-			}
-			result += parse(args[1].slice(2));
+			result += parse(args[1]);
 		}
 		result += ")";
 		return result;
@@ -820,12 +867,12 @@ function parseString(content) {
 	
 	//Test surround strings
 	for (var j = 0; j < surroundStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = surroundStrKw[j][0][0].substring(0, surroundStrKw[j][0][0].indexOf("{0}")).toLowerCase();
-		var token2 = surroundStrKw[j][0][0].substring(surroundStrKw[j][0][0].indexOf("{0}")+"{0}".length).toLowerCase();
+		var token1 = surroundStrKw[j].opy.substring(0, surroundStrKw[j].opy.indexOf("{0}")).toLowerCase();
+		var token2 = surroundStrKw[j].opy.substring(surroundStrKw[j].opy.indexOf("{0}")+"{0}".length).toLowerCase();
 		debug("Testing str match on '"+token1+"{0}"+token2+"'");
 		if (content[0] === token1 && content[content.length-1] === token2) {
 			hasMatchBeenFound = true;
-			matchStr = tows(surroundStrKw[j][0][0], surroundStrKw);
+			matchStr = tows(surroundStrKw[j].opy, surroundStrKw);
 			//Note: it is assumed all surround strings have a length of only 1 character for each side.
 			tokens.push(content.slice(1, content.length-1));
 			break;
@@ -835,12 +882,12 @@ function parseString(content) {
 	
 	//Test ternary string
 	for (var j = 0; j < ternaryStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
-		var token2 = ternaryStrKw[j][0][0].substring(ternaryStrKw[j][0][0].indexOf("{1}")+"{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase();
+		var token1 = ternaryStrKw[j].opy.substring("{0}".length, ternaryStrKw[j].opy.indexOf("{1}")).toLowerCase();
+		var token2 = ternaryStrKw[j].opy.substring(ternaryStrKw[j].opy.indexOf("{1}")+"{1}".length, ternaryStrKw[j].opy.indexOf("{2}")).toLowerCase();
 		tokens = splitStrTokens(content, token1, token2);
 		if (tokens.length === 3) {
 			hasMatchBeenFound = true;
-			matchStr = tows(ternaryStrKw[j][0][0], ternaryStrKw);
+			matchStr = tows(ternaryStrKw[j].opy, ternaryStrKw);
 			break;
 		}
 		tokens = []
@@ -848,11 +895,11 @@ function parseString(content) {
 	
 	//Test binary strings
 	for (var j = 0; j < binaryStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase();
+		var token1 = binaryStrKw[j].opy.substring("{0}".length, binaryStrKw[j].opy.indexOf("{1}")).toLowerCase();
 		var tokens = splitStrTokens(content, token1);
 		if (tokens.length === 2) {
 			hasMatchBeenFound = true;
-			matchStr = tows(binaryStrKw[j][0][0], binaryStrKw);
+			matchStr = tows(binaryStrKw[j].opy, binaryStrKw);
 			break;
 		}
 		tokens = []
@@ -860,10 +907,10 @@ function parseString(content) {
 	
 	//Test prefix strings
 	for (var j = 0; j < prefixStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = prefixStrKw[j][0][0].substring(0, prefixStrKw[j][0][0].indexOf("{0}")).toLowerCase();
+		var token1 = prefixStrKw[j].opy.substring(0, prefixStrKw[j].opy.indexOf("{0}")).toLowerCase();
 		if (content[0] === token1) {
 			hasMatchBeenFound = true;
-			matchStr = tows(prefixStrKw[j][0][0], prefixStrKw);
+			matchStr = tows(prefixStrKw[j].opy, prefixStrKw);
 			tokens.push(splitStrTokens(content, token1)[1]);
 			break;
 		}
@@ -872,10 +919,10 @@ function parseString(content) {
 	
 	//Test postfix strings
 	for (var j = 0; j < postfixStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = postfixStrKw[j][0][0].substring("{0}".length).toLowerCase();
+		var token1 = postfixStrKw[j].opy.substring("{0}".length).toLowerCase();
 		if (content[content.length-1] === token1) {
 			hasMatchBeenFound = true;
-			matchStr = tows(postfixStrKw[j][0][0], postfixStrKw);
+			matchStr = tows(postfixStrKw[j].opy, postfixStrKw);
 			tokens.push(splitStrTokens(content, token1)[0]);
 			break;
 		}
@@ -886,7 +933,7 @@ function parseString(content) {
 	//Test normal strings
 	if (content.length === 1) {
 		for (var j = 0; j < normalStrKw.length && !hasMatchBeenFound; j++) {
-			var token1 = normalStrKw[j][0][0].toLowerCase();
+			var token1 = normalStrKw[j].opy.toLowerCase();
 			if (content[0] === token1) {
 				hasMatchBeenFound = true;
 				matchStr = token1;
@@ -908,7 +955,7 @@ function parseString(content) {
 		}
 		
 		if (content[0].startsWith("_h")) {
-			return tows("_hero", valueFuncKw)+"("+tows(content[0].substring(2), heroKw)+")";
+			return tows("_hero", valueFuncKw)+"("+tows("Hero."+content[0].substring(2).toUpperCase(), getConstantKw("HERO CONSTANT"))+")";
 		} else if (!isNaN(content[0])) {
 			return parse(content[0]);
 		} else if (content[0] === "{}") {
@@ -929,17 +976,17 @@ function parseString(content) {
 	if (tokens.length > 0) {
 		result += ", "+parseString(tokens[0]);
 	} else {
-		result += ", "+tows("null", boolKw);
+		result += ", "+tows("null", valueFuncKw);
 	}
 	if (tokens.length > 1) {
 		result += ", "+parseString(tokens[1]);
 	} else {
-		result += ", "+tows("null", boolKw);
+		result += ", "+tows("null", valueFuncKw);
 	}
 	if (tokens.length > 2) {
 		result += ", "+parseString(tokens[2]);
 	} else {
-		result += ", "+tows("null", boolKw);
+		result += ", "+tows("null", valueFuncKw);
 	}
 	
 	result += ")";
@@ -962,6 +1009,9 @@ function parseMember(object, member, parseArgs={}) {
 	
 	if (name.length === 1 && name >= 'A' && name <= 'Z') {
 		return tows("_playerVar", valueFuncKw)+"("+parse(object)+", "+name+")";
+	} else if (["Beam", "Button", "Clip", "Color", "Comms", "Effect", "Icon", "Impulse", "Invis", "LosCheck", "Position", "Reeval", "Relativity", "SpecVisibility", "Status", "Team", "Throttle", "Transform", "Wait"].indexOf(object[0].text) >= 0) {
+		return tows(object[0].text+"."+name, constantKw)
+
 	} else if (name === "append") {
 		if (parseArgs.isWholeInstruction === true) {
 			return parseAssignment(object, args[0], true, "_appendToArray");
@@ -969,24 +1019,6 @@ function parseMember(object, member, parseArgs={}) {
 		} else {
 			return tows("_appendToArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
 		}
-		
-	} else if (object[0].text === "Beam") {
-		return tows("Beam."+name, beamKw);
-		
-	} else if (object[0].text === "Button") {
-		return tows("Button."+name, buttonKw);
-		
-	} else if (object[0].text === "Clip") {
-		return tows("Clip."+name, clipKw);
-		
-	} else if (object[0].text === "Color") {
-		return tows("Color."+name, colorKw);
-		
-	} else if (object[0].text === "Comms") {
-		return tows("Comms."+name, commsKw);
-		
-	} else if (object[0].text === "Effect") {
-		return tows("Effect."+name, effectKw.concat(playEffectKw));
 		
 	} else if (name === "exclude") {
 		return tows("_removeFromArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
@@ -1010,25 +1042,10 @@ function parseMember(object, member, parseArgs={}) {
 		return parse(object, {raycastType:"hasLoS"});
 		
 	} else if (object[0].text === "Hero") {
-		return tows("_hero", valueFuncKw)+"("+tows("Hero."+name, heroKw)+")";
-		
-	} else if (object[0].text === "Icon") {
-		return tows("Icon."+name, iconKw);
-		
-	} else if (object[0].text === "Impulse") {
-		return tows("Impulse."+name, impulseKw);
-		
-	} else if (object[0].text === "Invis") {
-		return tows("Invis."+name, invisKw);
+		return tows("_hero", valueFuncKw)+"("+tows("Hero."+name, getConstantKw("HERO CONSTANT"))+")";
 		
 	} else if (name === "index") {
 		return tows("_indexOfArrayValue", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
-		
-	} else if (object[0].text === "LosCheck") {
-		return tows("LosCheck."+name, losCheckKw);
-		
-	} else if (object[0].text === "Position") {
-		return tows("Position."+name, positionKw);
 		
 	} else if (object[0].text === "random" && object.length === 1) {
 		if (name === "randint" || name === "uniform") {
@@ -1039,32 +1056,14 @@ function parseMember(object, member, parseArgs={}) {
 			error("Unhandled member 'random."+name+"'");
 		}
 		
-	} else if (object[0].text === "Reeval") {
-		return tows("Reeval."+name, reevaluationKw);
-		
-	} else if (object[0].text === "Relativity") {
-		return tows("Relativity."+name, relativeKw);
-		
 	} else if (name === "remove") {
 		return parseAssignment(object, args[0], true, "_removeFromArrayByValue");
 		
 	} else if (name === "slice") {
 		return tows("_arraySlice", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+", "+parse(args[1])+")";
 		
-	} else if (object[0].text === "Status") {
-		return tows("Status."+name, statusKw);
-		
-	} else if (object[0].text === "Team") {
-		return tows("Team."+name, teamKw);
-		
-	} else if (object[0].text === "Transform") {
-		return tows("Transform."+name, transformationKw);
-		
 	} else if (object[0].text === "Vector") {
 		return tows("Vector."+name, valueFuncKw);
-		
-	} else if (object[0].text === "Wait") {
-		return tows("Wait."+name, waitKw);
 		
 	} else if (name === "x") {
 		return tows("_xComponentOf", valueFuncKw)+"("+parse(object)+")";
@@ -1140,7 +1139,7 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 	}
 	
 	if (modify) {
-		result += tows(modifyArg, operationKw)+", ";
+		result += tows(modifyArg, getConstantKw("OPERATION"))+", ";
 	}
 	
 	result += parse(value)+")";
@@ -1277,9 +1276,9 @@ function parseRuleCondition(content) {
 			
 			if (!hasComparisonOperand) {
 				if (andOperands[i][0].text === "not") {
-					result += parse(andOperands[i].slice(1)) + " == "+tows("false", boolKw);
+					result += parse(andOperands[i].slice(1)) + " == "+tows("false", valueFuncKw);
 				} else {
-					result += parse(andOperands[i]) + " == "+tows("true", boolKw);
+					result += parse(andOperands[i]) + " == "+tows("true", valueFuncKw);
 				}
 			}
 			
@@ -1575,6 +1574,7 @@ function tokenize(content) {
 						//debug("Replacement: "+replacement);
 						
 						j = 0;
+						continue;
 					}
 				}
 				
@@ -1740,7 +1740,19 @@ function tokenizeString(str) {
 				hasTokenBeenFound = true;
 			}
 		}
-		
+
+		//Test for heroes
+		if (!hasTokenBeenFound) {
+			for (var hero of getConstantKw("HERO CONSTANT")) {
+				var heroName = hero.opy.substring("Hero.".length).toLowerCase();
+				console.log(heroName);
+				if (str.startsWith(heroName, i)) {
+					currentToken = "_h"+heroName;
+					hasTokenBeenFound = true;
+				}
+			}
+		}
+				
 		if (!hasTokenBeenFound) {
 			var j = i+1;
 			for (; str[j] >= 'a' && str[j] <= 'z'; j++);
