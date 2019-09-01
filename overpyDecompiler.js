@@ -181,7 +181,7 @@ function decompileRule(content) {
 			
 			//Parse the 3rd event instruction
 			//Detect if it is a slot or hero
-			var eventInst3 = topy(eventInst[2], eventKw.concat(heroKw))
+			var eventInst3 = topy(eventInst[2], eventKw.concat(getConstantKw("HERO CONSTANT")))
 			if (eventInst3 !== "all") {
 				if (eventInst3.startsWith("slot")) {
 					result += "@Slot "+eventInst3.replace("slot", "")+"\n";
@@ -419,7 +419,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//They begin by "_&".
 	
 	if (name.startsWith("_&")) {
-		return decompileGenericPlayerFunction(name.substring(2), args, keywordArray === actionKw ? true : false);
+		return decompileGenericPlayerFunction(name.substring("_&".length), args, keywordArray === actionKw ? true : false);
 	}
 	
 	//Functions beginning with "_!" have their arguments swapped (assuming there are only 2 arguments).
@@ -621,6 +621,16 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	if (name === "_getPlayerHit") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getPlayerHit()";
 	}
+
+	//All Players
+	if (name === "getPlayers") {
+		var team = decompile(args[0], getConstantKw("TEAM CONSTANT"));
+		if (team === "Team.ALL") {
+			return "getAllPlayers()";
+		} else {
+			return "getPlayers("+team+")";
+		}
+	}
 		
 	//Global variable
 	if (name === "_globalVar") {
@@ -629,7 +639,44 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		
 	//Hero
 	if (name === "_hero") {
-		return decompile(args[0], heroKw);
+		return decompile(args[0], getConstantKw("HERO CONSTANT"));
+	}
+
+	//Hud text
+	if (name === "_hudText") {
+		var header = decompile(args[1]);
+		var subheader = decompile(args[2]);
+		var subtext = decompile(args[3]);
+		var specVisibility = "";
+		if (args.length > 11) {
+			specVisibility = decompile(args[10], getConstantKw("SPECTATOR VISIBILITY"));
+			if (specVisibility === "SpecVisibility.DEFAULT") {
+				specVisibility = "";
+			} else {
+				specVisibility = ", "+specVisibility;
+			}
+		}
+		var funcName = "";
+		var texts = "";
+		var colors = "";
+		if (subheader === "null" && subtext === "null") {
+			funcName = "hudHeader";
+			texts = header;
+			colors = decompile(args[6]);
+		} else if (header === "null" && subtext === "null") {
+			funcName = "hudSubheader";
+			texts = subheader;
+			colors = decompile(args[7]);
+		} else if (subheader === "null" && subheader === "null") {
+			funcName = "hudSubtext";
+			texts = subtext;
+			colors = decompile(args[8]);
+		} else {
+			funcName = "hudText";
+			texts = header+", "+subheader+", "+subtext;
+			colors = decompile(args[6])+", "+decompile(args[7])+", "+decompile(args[8]);
+		}
+		return funcName+"("+decompile(args[0])+", "+texts+", "+decompile(args[4], getConstantKw("HUD LOCATION"))+", "+decompile(args[5])+", "+colors+", "+decompile(args[9])+specVisibility+")";
 	}
 	
 	//Index of array value
@@ -758,7 +805,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Round
 	if (name === "_round") {
-		var roundType = topy(args[1], roundKw);
+		var roundType = topy(args[1], getConstantKw("ROUNDING TYPE"));
 		if (roundType === "_roundUp") {
 			return "ceil("+decompile(args[0])+")";
 		} else if (roundType === "_roundDown") {
@@ -894,7 +941,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 			return "wait("+decompile(args[0])+")";
 		}
 		else {
-			return "wait("+decompile(args[0])+", behavior="+arg2+")";
+			return "wait("+decompile(args[0])+", "+arg2+")";
 		}
 	}
 	
@@ -1071,7 +1118,7 @@ function decompileModifyVar(variable, operation, value, index) {
 	if (index !== undefined) {
 		variable += "["+index+"]";
 	}
-	operation = topy(operation, operationKw);
+	operation = topy(operation, getConstantKw("OPERATION"));
 	if (operation === "_appendToArray") {
 		return variable+".append("+value+")";
 	} else if (operation === "_add") {

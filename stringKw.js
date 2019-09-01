@@ -16,2230 +16,2947 @@
  */
 
 var emptyStrKw = [
-[[""], [
-    "",
-]],
-]
+    {
+        "opy": "",
+        "en": ""
+    }
+];
 
 var normalStrKw = [
-
-[["!"], [
-    "!",
-]],
-[["!!"], [
-    "!!",
-]],
-[["!!!"], [
-    "!!!",
-]],
-[["*"], [
-    "*",
-]],
-[["----------"], [
-    "----------",
-]],
-[["..."], [
-    "...",
-]],
-[["?"], [
-    "?",
-]],
-[["??"], [
-    "??",
-]],
-[["???"], [
-    "???",
-]],
-[["Abilities"], [
-    "Abilities",
-]],
-[["Ability"], [
-    "Ability",
-]],
-[["Ability 1"], [
-    "Ability 1",
-]],
-[["Ability 2"], [
-    "Ability 2",
-]],
-[["Alert"], [
-    "Alert",
-]],
-[["Alive"], [
-    "Alive",
-]],
-[["Allies"], [
-    "Allies",
-]],
-[["Ally"], [
-    "Ally",
-]],
-[["Ammunition"], [
-    "Ammunition",
-]],
-[["Angle"], [
-    "Angle",
-]],
-[["Attack"], [
-    "Attack",
-]],
-[["Attacked"], [
-    "Attacked",
-]],
-[["Attacking"], [
-    "Attacking",
-]],
-[["Attempt"], [
-    "Attempt",
-]],
-[["Attempts"], [
-    "Attempts",
-]],
-[["Average"], [
-    "Average",
-]],
-[["Avoid"], [
-    "Avoid",
-]],
-[["Avoided"], [
-    "Avoided",
-]],
-[["Avoiding"], [
-    "Avoiding",
-]],
-[["Backward"], [
-    "Backward",
-]],
-[["Bad"], [
-    "Bad",
-]],
-[["Ban"], [
-    "Ban",
-]],
-[["Banned"], [
-    "Banned",
-]],
-[["Banning"], [
-    "Banning",
-]],
-[["Best"], [
-    "Best",
-]],
-[["Better"], [
-    "Better",
-]],
-[["Bid"], [
-    "Bid",
-]],
-[["Bids"], [
-    "Bids",
-]],
-[["Block"], [
-    "Block",
-]],
-[["Blocked"], [
-    "Blocked",
-]],
-[["Blocking"], [
-    "Blocking",
-]],
-[["Blue"], [
-    "Blue",
-]],
-[["Bonus"], [
-    "Bonus",
-]],
-[["Bonuses"], [
-    "Bonuses",
-]],
-[["Boss"], [
-    "Boss",
-]],
-[["Bosses"], [
-    "Bosses",
-]],
-[["Bought"], [
-    "Bought",
-]],
-[["Build"], [
-    "Build",
-]],
-[["Building"], [
-    "Building",
-]],
-[["Built"], [
-    "Built",
-]],
-[["Burn"], [
-    "Burn",
-]],
-[["Burning"], [
-    "Burning",
-]],
-[["Burnt"], [
-    "Burnt",
-]],
-[["Buy"], [
-    "Buy",
-]],
-[["Buying"], [
-    "Buying",
-]],
-[["Capture"], [
-    "Capture",
-]],
-[["Captured"], [
-    "Captured",
-]],
-[["Capturing"], [
-    "Capturing",
-]],
-[["Caution"], [
-    "Caution",
-]],
-[["Center"], [
-    "Center",
-]],
-[["Challenge Accepted"], [
-    "Challenge Accepted",
-]],
-[["Charisma"], [
-    "Charisma",
-]],
-[["Chase"], [
-    "Chase",
-]],
-[["Chased"], [
-    "Chased",
-]],
-[["Chasing"], [
-    "Chasing",
-]],
-[["Checkpoint"], [
-    "Checkpoint",
-]],
-[["Checkpoints"], [
-    "Checkpoints",
-]],
-[["Cloud"], [
-    "Cloud",
-]],
-[["Clouds"], [
-    "Clouds",
-]],
-[["Club"], [
-    "Club",
-]],
-[["Clubs"], [
-    "Clubs",
-]],
-[["Combo"], [
-    "Combo",
-]],
-[["Come Here"], [
-    "Come Here",
-]],
-[["Condition"], [
-    "Condition",
-]],
-[["Congratulations"], [
-    "Congratulations",
-]],
-[["Connect"], [
-    "Connect",
-]],
-[["Connected"], [
-    "Connected",
-]],
-[["Connecting"], [
-    "Connecting",
-]],
-[["Constitution"], [
-    "Constitution",
-]],
-[["Control Point"], [
-    "Control Point",
-]],
-[["Control Points"], [
-    "Control Points",
-]],
-[["Cooldown"], [
-    "Cooldown",
-]],
-[["Cooldowns"], [
-    "Cooldowns",
-]],
-[["Corrupt"], [
-    "Corrupt",
-]],
-[["Corrupted"], [
-    "Corrupted",
-]],
-[["Corrupting"], [
-    "Corrupting",
-]],
-[["Credit"], [
-    "Credit",
-]],
-[["Credits"], [
-    "Credits",
-]],
-[["Critical"], [
-    "Critical",
-]],
-[["Crouch"], [
-    "Crouch",
-]],
-[["Crouched"], [
-    "Crouched",
-]],
-[["Crouching"], [
-    "Crouching",
-]],
-[["Current"], [
-    "Current",
-]],
-[["Current Allies"], [
-    "Current Allies",
-]],
-[["Current Ally"], [
-    "Current Ally",
-]],
-[["Current Attempt"], [
-    "Current Attempt",
-]],
-[["Current Checkpoint"], [
-    "Current Checkpoint",
-]],
-[["Current Enemies"], [
-    "Current Enemies",
-]],
-[["Current Enemy"], [
-    "Current Enemy",
-]],
-[["Current Form"], [
-    "Current Form",
-]],
-[["Current Game"], [
-    "Current Game",
-]],
-[["Current Hero"], [
-    "Current Hero",
-]],
-[["Current Heroes"], [
-    "Current Heroes",
-]],
-[["Current Hostage"], [
-    "Current Hostage",
-]],
-[["Current Hostages"], [
-    "Current Hostages",
-]],
-[["Current Level"], [
-    "Current Level",
-]],
-[["Current Mission"], [
-    "Current Mission",
-]],
-[["Current Object"], [
-    "Current Object",
-]],
-[["Current Objective"], [
-    "Current Objective",
-]],
-[["Current Objects"], [
-    "Current Objects",
-]],
-[["Current Phase"], [
-    "Current Phase",
-]],
-[["Current Player"], [
-    "Current Player",
-]],
-[["Current Players"], [
-    "Current Players",
-]],
-[["Current Round"], [
-    "Current Round",
-]],
-[["Current Target"], [
-    "Current Target",
-]],
-[["Current Targets"], [
-    "Current Targets",
-]],
-[["Current Upgrade"], [
-    "Current Upgrade",
-]],
-[["Damage"], [
-    "Damage",
-]],
-[["Damaged"], [
-    "Damaged",
-]],
-[["Damaging"], [
-    "Damaging",
-]],
-[["Danger"], [
-    "Danger",
-]],
-[["Dead"], [
-    "Dead",
-]],
-[["Deal"], [
-    "Deal",
-]],
-[["Dealing"], [
-    "Dealing",
-]],
-[["Dealt"], [
-    "Dealt",
-]],
-[["Deck"], [
-    "Deck",
-]],
-[["Decks"], [
-    "Decks",
-]],
-[["Defeat"], [
-    "Defeat",
-]],
-[["Defend"], [
-    "Defend",
-]],
-[["Defended"], [
-    "Defended",
-]],
-[["Defending"], [
-    "Defending",
-]],
-[["Defence"], [
-    "Defence",
-]],
-[["Deliver"], [
-    "Deliver",
-]],
-[["Delivered"], [
-    "Delivered",
-]],
-[["Delivering"], [
-    "Delivering",
-]],
-[["Depth"], [
-    "Depth",
-]],
-[["Destabilize"], [
-    "Destabilize",
-]],
-[["Destabilized"], [
-    "Destabilized",
-]],
-[["Destabilizing"], [
-    "Destabilizing",
-]],
-[["Destroy"], [
-    "Destroy",
-]],
-[["Destroyed"], [
-    "Destroyed",
-]],
-[["Destroying"], [
-    "Destroying",
-]],
-[["Detect"], [
-    "Detect",
-]],
-[["Detected"], [
-    "Detected",
-]],
-[["Detecting"], [
-    "Detecting",
-]],
-[["Dexterity"], [
-    "Dexterity",
-]],
-[["Diamond"], [
-    "Diamond",
-]],
-[["Diamonds"], [
-    "Diamonds",
-]],
-[["Die"], [
-    "Die",
-]],
-[["Discard"], [
-    "Discard",
-]],
-[["Discarded"], [
-    "Discarded",
-]],
-[["Discarding"], [
-    "Discarding",
-]],
-[["Disconnect"], [
-    "Disconnect",
-]],
-[["Disconnected"], [
-    "Disconnected",
-]],
-[["Disconnecting"], [
-    "Disconnecting",
-]],
-[["Distance"], [
-    "Distance",
-]],
-[["Distances"], [
-    "Distances",
-]],
-[["Dodge"], [
-    "Dodge",
-]],
-[["Dodged"], [
-    "Dodged",
-]],
-[["Dodging"], [
-    "Dodging",
-]],
-[["Dome"], [
-    "Dome",
-]],
-[["Domes"], [
-    "Domes",
-]],
-[["Down"], [
-    "Down",
-]],
-[["Download"], [
-    "Download",
-]],
-[["Downloaded"], [
-    "Downloaded",
-]],
-[["Downloading"], [
-    "Downloading",
-]],
-[["Draw"], [
-    "Draw",
-]],
-[["Drawing"], [
-    "Drawing",
-]],
-[["Drawn"], [
-    "Drawn",
-]],
-[["Drop"], [
-    "Drop",
-]],
-[["Dropped"], [
-    "Dropped",
-]],
-[["Dropping"], [
-    "Dropping",
-]],
-[["Dying"], [
-    "Dying",
-]],
-[["East"], [
-    "East",
-]],
-[["Eliminate"], [
-    "Eliminate",
-]],
-[["Eliminated"], [
-    "Eliminated",
-]],
-[["Eliminating"], [
-    "Eliminating",
-]],
-[["Elimination"], [
-    "Elimination",
-]],
-[["Eliminations"], [
-    "Eliminations",
-]],
-[["Enemies"], [
-    "Enemies",
-]],
-[["Enemy"], [
-    "Enemy",
-]],
-[["Entrance"], [
-    "Entrance",
-]],
-[["Escort"], [
-    "Escort",
-]],
-[["Escorted"], [
-    "Escorted",
-]],
-[["Escorting"], [
-    "Escorting",
-]],
-[["Excellent"], [
-    "Excellent",
-]],
-[["Exit"], [
-    "Exit",
-]],
-[["Experience"], [
-    "Experience",
-]],
-[["Extreme"], [
-    "Extreme",
-]],
-[["Face"], [
-    "Face",
-]],
-[["Faces"], [
-    "Faces",
-]],
-[["Facing"], [
-    "Facing",
-]],
-[["Failed"], [
-    "Failed",
-]],
-[["Failing"], [
-    "Failing",
-]],
-[["Failure"], [
-    "Failure",
-]],
-[["Fall"], [
-    "Fall",
-]],
-[["Fallen"], [
-    "Fallen",
-]],
-[["Falling"], [
-    "Falling",
-]],
-[["Far"], [
-    "Far",
-]],
-[["Fast"], [
-    "Fast",
-]],
-[["Faster"], [
-    "Faster",
-]],
-[["Fastest"], [
-    "Fastest",
-]],
-[["Fault"], [
-    "Fault",
-]],
-[["Faults"], [
-    "Faults",
-]],
-[["Final"], [
-    "Final",
-]],
-[["Final Allies"], [
-    "Final Allies",
-]],
-[["Final Ally"], [
-    "Final Ally",
-]],
-[["Final Attempt"], [
-    "Final Attempt",
-]],
-[["Final Checkpoint"], [
-    "Final Checkpoint",
-]],
-[["Final Enemies"], [
-    "Final Enemies",
-]],
-[["Final Enemy"], [
-    "Final Enemy",
-]],
-[["Final Form"], [
-    "Final Form",
-]],
-[["Final Game"], [
-    "Final Game",
-]],
-[["Final Hero"], [
-    "Final Hero",
-]],
-[["Final Heroes"], [
-    "Final Heroes",
-]],
-[["Final Hostage"], [
-    "Final Hostage",
-]],
-[["Final Hostages"], [
-    "Final Hostages",
-]],
-[["Final Item"], [
-    "Final Item",
-]],
-[["Final Level"], [
-    "Final Level",
-]],
-[["Final Mission"], [
-    "Final Mission",
-]],
-[["Final Object"], [
-    "Final Object",
-]],
-[["Final Objective"], [
-    "Final Objective",
-]],
-[["Final Objects"], [
-    "Final Objects",
-]],
-[["Final Phase"], [
-    "Final Phase",
-]],
-[["Final Player"], [
-    "Final Player",
-]],
-[["Final Players"], [
-    "Final Players",
-]],
-[["Final Round"], [
-    "Final Round",
-]],
-[["Final Target"], [
-    "Final Target",
-]],
-[["Final Targets"], [
-    "Final Targets",
-]],
-[["Final Time"], [
-    "Final Time",
-]],
-[["Final Upgrade"], [
-    "Final Upgrade",
-]],
-[["Find"], [
-    "Find",
-]],
-[["Finding"], [
-    "Finding",
-]],
-[["Finish"], [
-    "Finish",
-]],
-[["Finished"], [
-    "Finished",
-]],
-[["Finishing"], [
-    "Finishing",
-]],
-[["Flown"], [
-    "Flown",
-]],
-[["Fly"], [
-    "Fly",
-]],
-[["Flying"], [
-    "Flying",
-]],
-[["Fold"], [
-    "Fold",
-]],
-[["Folded"], [
-    "Folded",
-]],
-[["Folding"], [
-    "Folding",
-]],
-[["Form"], [
-    "Form",
-]],
-[["Forms"], [
-    "Forms",
-]],
-[["Forward"], [
-    "Forward",
-]],
-[["Found"], [
-    "Found",
-]],
-[["Freeze"], [
-    "Freeze",
-]],
-[["Freezing"], [
-    "Freezing",
-]],
-[["Frozen"], [
-    "Frozen",
-]],
-[["Game"], [
-    "Game",
-]],
-[["Games"], [
-    "Games",
-]],
-[["Games Lost"], [
-    "Games Lost",
-]],
-[["Games Won"], [
-    "Games Won",
-]],
-[["Gg"], [
-    "Gg",
-]],
-[["Go"], [
-    "Go",
-]],
-[["Goal"], [
-    "Goal",
-]],
-[["Goals"], [
-    "Goals",
-]],
-[["Going"], [
-    "Going",
-]],
-[["Good"], [
-    "Good",
-]],
-[["Good Luck"], [
-    "Good Luck",
-]],
-[["Goodbye"], [
-    "Goodbye",
-]],
-[["Green"], [
-    "Green",
-]],
-[["Guilty"], [
-    "Guilty",
-]],
-[["Hack"], [
-    "Hack",
-]],
-[["Hacked"], [
-    "Hacked",
-]],
-[["Hacking"], [
-    "Hacking",
-]],
-[["Hand"], [
-    "Hand",
-]],
-[["Hands"], [
-    "Hands",
-]],
-[["Heal"], [
-    "Heal",
-]],
-[["Healed"], [
-    "Healed",
-]],
-[["Healer"], [
-    "Healer",
-]],
-[["Healers"], [
-    "Healers",
-]],
-[["Healing"], [
-    "Healing",
-]],
-[["Heart"], [
-    "Heart",
-]],
-[["Hearts"], [
-    "Hearts",
-]],
-[["Height"], [
-    "Height",
-]],
-[["Hello"], [
-    "Hello",
-]],
-[["Help"], [
-    "Help",
-]],
-[["Here"], [
-    "Here",
-]],
-[["Hero"], [
-    "Hero",
-]],
-[["Heroes"], [
-    "Heroes",
-]],
-[["Hidden"], [
-    "Hidden",
-]],
-[["Hide"], [
-    "Hide",
-]],
-[["Hiding"], [
-    "Hiding",
-]],
-[["High Score"], [
-    "High Score",
-]],
-[["High Scores"], [
-    "High Scores",
-]],
-[["Hit"], [
-    "Hit",
-]],
-[["Hitting"], [
-    "Hitting",
-]],
-[["Hmmm"], [
-    "Hmmm",
-]],
-[["Hostage"], [
-    "Hostage",
-]],
-[["Hostages"], [
-    "Hostages",
-]],
-[["Huh"], [
-    "Huh",
-]],
-[["Hunt"], [
-    "Hunt",
-]],
-[["Hunted"], [
-    "Hunted",
-]],
-[["Hunter"], [
-    "Hunter",
-]],
-[["Hunters"], [
-    "Hunters",
-]],
-[["Hunting"], [
-    "Hunting",
-]],
-[["I Give Up"], [
-    "I Give Up",
-]],
-[["I Tried"], [
-    "I Tried",
-]],
-[["In View"], [
-    "In View",
-]],
-[["Income"], [
-    "Income",
-]],
-[["Incoming"], [
-    "Incoming",
-]],
-[["Initial"], [
-    "Initial",
-]],
-[["Initial Allies"], [
-    "Initial Allies",
-]],
-[["Initial Ally"], [
-    "Initial Ally",
-]],
-[["Initial Attempt"], [
-    "Initial Attempt",
-]],
-[["Initial Checkpoint"], [
-    "Initial Checkpoint",
-]],
-[["Initial Enemies"], [
-    "Initial Enemies",
-]],
-[["Initial Enemy"], [
-    "Initial Enemy",
-]],
-[["Initial Form"], [
-    "Initial Form",
-]],
-[["Initial Game"], [
-    "Initial Game",
-]],
-[["Initial Hero"], [
-    "Initial Hero",
-]],
-[["Initial Heroes"], [
-    "Initial Heroes",
-]],
-[["Initial Hostage"], [
-    "Initial Hostage",
-]],
-[["Initial Level"], [
-    "Initial Level",
-]],
-[["Initial Mission"], [
-    "Initial Mission",
-]],
-[["Initial Object"], [
-    "Initial Object",
-]],
-[["Initial Objective"], [
-    "Initial Objective",
-]],
-[["Initial Objects"], [
-    "Initial Objects",
-]],
-[["Initial Phase"], [
-    "Initial Phase",
-]],
-[["Initial Player"], [
-    "Initial Player",
-]],
-[["Initial Players"], [
-    "Initial Players",
-]],
-[["Initial Round"], [
-    "Initial Round",
-]],
-[["Initial Target"], [
-    "Initial Target",
-]],
-[["Initial Targets"], [
-    "Initial Targets",
-]],
-[["Initial Upgrade"], [
-    "Initial Upgrade",
-]],
-[["Innocent"], [
-    "Innocent",
-]],
-[["Inside"], [
-    "Inside",
-]],
-[["Intelligence"], [
-    "Intelligence",
-]],
-[["Interact"], [
-    "Interact",
-]],
-[["Invisible"], [
-    "Invisible",
-]],
-[["Item"], [
-    "Item",
-]],
-[["Items"], [
-    "Items",
-]],
-[["Join"], [
-    "Join",
-]],
-[["Joined"], [
-    "Joined",
-]],
-[["Joining"], [
-    "Joining",
-]],
-[["Jump"], [
-    "Jump",
-]],
-[["Jumping"], [
-    "Jumping",
-]],
-[["Kill"], [
-    "Kill",
-]],
-[["Kills"], [
-    "Kills",
-]],
-[["Killstreak"], [
-    "Killstreak",
-]],
-[["Killstreak"], [
-    "Killstreak",
-]],
-[["Killstreaks"], [
-    "Killstreaks",
-]],
-[["Leader"], [
-    "Leader",
-]],
-[["Leaders"], [
-    "Leaders",
-]],
-[["Least"], [
-    "Least",
-]],
-[["Left"], [
-    "Left",
-]],
-[["Less"], [
-    "Less",
-]],
-[["Level"], [
-    "Level",
-]],
-[["Level Down"], [
-    "Level Down",
-]],
-[["Level Up"], [
-    "Level Up",
-]],
-[["Levels"], [
-    "Levels",
-]],
-[["Life"], [
-    "Life",
-]],
-[["Limited"], [
-    "Limited",
-]],
-[["Lives"], [
-    "Lives",
-]],
-[["Load"], [
-    "Load",
-]],
-[["Loaded"], [
-    "Loaded",
-]],
-[["Loading"], [
-    "Loading",
-]],
-[["Location"], [
-    "Location",
-]],
-[["Lock"], [
-    "Lock",
-]],
-[["Locked"], [
-    "Locked",
-]],
-[["Locking"], [
-    "Locking",
-]],
-[["Loser"], [
-    "Loser",
-]],
-[["Losers"], [
-    "Losers",
-]],
-[["Loss"], [
-    "Loss",
-]],
-[["Losses"], [
-    "Losses",
-]],
-[["Max"], [
-    "Max",
-]],
-[["Mild"], [
-    "Mild",
-]],
-[["Min"], [
-    "Min",
-]],
-[["Mission"], [
-    "Mission",
-]],
-[["Mission Aborted"], [
-    "Mission Aborted",
-]],
-[["Mission Accomplished"], [
-    "Mission Accomplished",
-]],
-[["Mission Failed"], [
-    "Mission Failed",
-]],
-[["Missions"], [
-    "Missions",
-]],
-[["Moderate"], [
-    "Moderate",
-]],
-[["Money"], [
-    "Money",
-]],
-[["Monster"], [
-    "Monster",
-]],
-[["Monsters"], [
-    "Monsters",
-]],
-[["More"], [
-    "More",
-]],
-[["Most"], [
-    "Most",
-]],
-[["My Mistake"], [
-    "My Mistake",
-]],
-[["Near"], [
-    "Near",
-]],
-[["New High Score"], [
-    "New High Score",
-]],
-[["New Record"], [
-    "New Record",
-]],
-[["Next"], [
-    "Next",
-]],
-[["Next Allies"], [
-    "Next Allies",
-]],
-[["Next Ally"], [
-    "Next Ally",
-]],
-[["Next Attempt"], [
-    "Next Attempt",
-]],
-[["Next Checkpoint"], [
-    "Next Checkpoint",
-]],
-[["Next Enemies"], [
-    "Next Enemies",
-]],
-[["Next Enemy"], [
-    "Next Enemy",
-]],
-[["Next Form"], [
-    "Next Form",
-]],
-[["Next Game"], [
-    "Next Game",
-]],
-[["Next Hero"], [
-    "Next Hero",
-]],
-[["Next Heroes"], [
-    "Next Heroes",
-]],
-[["Next Hostage"], [
-    "Next Hostage",
-]],
-[["Next Hostages"], [
-    "Next Hostages",
-]],
-[["Next Level"], [
-    "Next Level",
-]],
-[["Next Mission"], [
-    "Next Mission",
-]],
-[["Next Object"], [
-    "Next Object",
-]],
-[["Next Objective"], [
-    "Next Objective",
-]],
-[["Next Objects"], [
-    "Next Objects",
-]],
-[["Next Phase"], [
-    "Next Phase",
-]],
-[["Next Player"], [
-    "Next Player",
-]],
-[["Next Players"], [
-    "Next Players",
-]],
-[["Next Round"], [
-    "Next Round",
-]],
-[["Next Target"], [
-    "Next Target",
-]],
-[["Next Targets"], [
-    "Next Targets",
-]],
-[["Next Upgrade"], [
-    "Next Upgrade",
-]],
-[["Nice Try"], [
-    "Nice Try",
-]],
-[["No"], [
-    "No",
-]],
-[["No Thanks"], [
-    "No Thanks",
-]],
-[["None"], [
-    "None",
-]],
-[["Normal"], [
-    "Normal",
-]],
-[["North"], [
-    "North",
-]],
-[["Northeast"], [
-    "Northeast",
-]],
-[["Northwest"], [
-    "Northwest",
-]],
-[["Not Today"], [
-    "Not Today",
-]],
-[["Object"], [
-    "Object",
-]],
-[["Objective"], [
-    "Objective",
-]],
-[["Objectives"], [
-    "Objectives",
-]],
-[["Objects"], [
-    "Objects",
-]],
-[["Obtain"], [
-    "Obtain",
-]],
-[["Obtained"], [
-    "Obtained",
-]],
-[["Obtaining"], [
-    "Obtaining",
-]],
-[["Off"], [
-    "Off",
-]],
-[["On"], [
-    "On",
-]],
-[["Oof"], [
-    "Oof",
-]],
-[["Oops"], [
-    "Oops",
-]],
-[["Optimal"], [
-    "Optimal",
-]],
-[["Optimize"], [
-    "Optimize",
-]],
-[["Optimized"], [
-    "Optimized",
-]],
-[["Optimizing"], [
-    "Optimizing",
-]],
-[["Out Of View"], [
-    "Out Of View",
-]],
-[["Outgoing"], [
-    "Outgoing",
-]],
-[["Outside"], [
-    "Outside",
-]],
-[["Over"], [
-    "Over",
-]],
-[["Overtime"], [
-    "Overtime",
-]],
-[["Participant"], [
-    "Participant",
-]],
-[["Participants"], [
-    "Participants",
-]],
-[["Payload"], [
-    "Payload",
-]],
-[["Payloads"], [
-    "Payloads",
-]],
-[["Phase"], [
-    "Phase",
-]],
-[["Phases"], [
-    "Phases",
-]],
-[["Pick"], [
-    "Pick",
-]],
-[["Picked"], [
-    "Picked",
-]],
-[["Picking"], [
-    "Picking",
-]],
-[["Pile"], [
-    "Pile",
-]],
-[["Piles"], [
-    "Piles",
-]],
-[["Play"], [
-    "Play",
-]],
-[["Played"], [
-    "Played",
-]],
-[["Player"], [
-    "Player",
-]],
-[["Players"], [
-    "Players",
-]],
-[["Playing"], [
-    "Playing",
-]],
-[["Point"], [
-    "Point",
-]],
-[["Points"], [
-    "Points",
-]],
-[["Points Earned"], [
-    "Points Earned",
-]],
-[["Points Lost"], [
-    "Points Lost",
-]],
-[["Position"], [
-    "Position",
-]],
-[["Power"], [
-    "Power",
-]],
-[["Power-Up"], [
-    "Power-Up",
-]],
-[["Power-Ups"], [
-    "Power-Ups",
-]],
-[["Price"], [
-    "Price",
-]],
-[["Primary Fire"], [
-    "Primary Fire",
-]],
-[["Projectile"], [
-    "Projectile",
-]],
-[["Projectiles"], [
-    "Projectiles",
-]],
-[["Protect"], [
-    "Protect",
-]],
-[["Protected"], [
-    "Protected",
-]],
-[["Protecting"], [
-    "Protecting",
-]],
-[["Purified"], [
-    "Purified",
-]],
-[["Purify"], [
-    "Purify",
-]],
-[["Purifying"], [
-    "Purifying",
-]],
-[["Purple"], [
-    "Purple",
-]],
-[["Raise"], [
-    "Raise",
-]],
-[["Raised"], [
-    "Raised",
-]],
-[["Raising"], [
-    "Raising",
-]],
-[["Rank"], [
-    "Rank",
-]],
-[["Rank A"], [
-    "Rank A",
-]],
-[["Rank B"], [
-    "Rank B",
-]],
-[["Rank C"], [
-    "Rank C",
-]],
-[["Rank D"], [
-    "Rank D",
-]],
-[["Rank E"], [
-    "Rank E",
-]],
-[["Rank F"], [
-    "Rank F",
-]],
-[["Rank S"], [
-    "Rank S",
-]],
-[["Reach"], [
-    "Reach",
-]],
-[["Reached"], [
-    "Reached",
-]],
-[["Reaching"], [
-    "Reaching",
-]],
-[["Ready"], [
-    "Ready",
-]],
-[["Record"], [
-    "Record",
-]],
-[["Records"], [
-    "Records",
-]],
-[["Recover"], [
-    "Recover",
-]],
-[["Recovered"], [
-    "Recovered",
-]],
-[["Recovering"], [
-    "Recovering",
-]],
-[["Red"], [
-    "Red",
-]],
-[["Remain"], [
-    "Remain",
-]],
-[["Remaining"], [
-    "Remaining",
-]],
-[["Rescue"], [
-    "Rescue",
-]],
-[["Rescued"], [
-    "Rescued",
-]],
-[["Rescuing"], [
-    "Rescuing",
-]],
-[["Resource"], [
-    "Resource",
-]],
-[["Resources"], [
-    "Resources",
-]],
-[["Resurrect"], [
-    "Resurrect",
-]],
-[["Resurrected"], [
-    "Resurrected",
-]],
-[["Resurrecting"], [
-    "Resurrecting",
-]],
-[["Reveal"], [
-    "Reveal",
-]],
-[["Revealed"], [
-    "Revealed",
-]],
-[["Revealing"], [
-    "Revealing",
-]],
-[["Right"], [
-    "Right",
-]],
-[["Round"], [
-    "Round",
-]],
-[["Rounds"], [
-    "Rounds",
-]],
-[["Rounds Lost"], [
-    "Rounds Lost",
-]],
-[["Rounds Won"], [
-    "Rounds Won",
-]],
-[["Run"], [
-    "Run",
-]],
-[["Running"], [
-    "Running",
-]],
-[["Safe"], [
-    "Safe",
-]],
-[["Save"], [
-    "Save",
-]],
-[["Saved"], [
-    "Saved",
-]],
-[["Saving"], [
-    "Saving",
-]],
-[["Score"], [
-    "Score",
-]],
-[["Scores"], [
-    "Scores",
-]],
-[["Secondary Fire"], [
-    "Secondary Fire",
-]],
-[["Secure"], [
-    "Secure",
-]],
-[["Secured"], [
-    "Secured",
-]],
-[["Securing"], [
-    "Securing",
-]],
-[["Select"], [
-    "Select",
-]],
-[["Selected"], [
-    "Selected",
-]],
-[["Selecting"], [
-    "Selecting",
-]],
-[["Sell"], [
-    "Sell",
-]],
-[["Selling"], [
-    "Selling",
-]],
-[["Server Load"], [
-    "Server Load",
-]],
-[["Server Load Average"], [
-    "Server Load Average",
-]],
-[["Server Load Peak"], [
-    "Server Load Peak",
-]],
-[["Sever"], [
-    "Sever",
-]],
-[["Severe"], [
-    "Severe",
-]],
-[["Severed"], [
-    "Severed",
-]],
-[["Severing"], [
-    "Severing",
-]],
-[["Shop"], [
-    "Shop",
-]],
-[["Shops"], [
-    "Shops",
-]],
-[["Shuffle"], [
-    "Shuffle",
-]],
-[["Shuffled"], [
-    "Shuffled",
-]],
-[["Sink"], [
-    "Sink",
-]],
-[["Sinking"], [
-    "Sinking",
-]],
-[["Skip"], [
-    "Skip",
-]],
-[["Skipped"], [
-    "Skipped",
-]],
-[["Skipping"], [
-    "Skipping",
-]],
-[["Sleep"], [
-    "Sleep",
-]],
-[["Sleeping"], [
-    "Sleeping",
-]],
-[["Slept"], [
-    "Slept",
-]],
-[["Slow"], [
-    "Slow",
-]],
-[["Slower"], [
-    "Slower",
-]],
-[["Slowest"], [
-    "Slowest",
-]],
-[["Sold"], [
-    "Sold",
-]],
-[["Sorry"], [
-    "Sorry",
-]],
-[["South"], [
-    "South",
-]],
-[["Southeast"], [
-    "Southeast",
-]],
-[["Southwest"], [
-    "Southwest",
-]],
-[["Spade"], [
-    "Spade",
-]],
-[["Spades"], [
-    "Spades",
-]],
-[["Sparkles"], [
-    "Sparkles",
-]],
-[["Spawn"], [
-    "Spawn",
-]],
-[["Spawned"], [
-    "Spawned",
-]],
-[["Spawning"], [
-    "Spawning",
-]],
-[["Speed"], [
-    "Speed",
-]],
-[["Speeds"], [
-    "Speeds",
-]],
-[["Sphere"], [
-    "Sphere",
-]],
-[["Spheres"], [
-    "Spheres",
-]],
-[["Stabilize"], [
-    "Stabilize",
-]],
-[["Stabilized"], [
-    "Stabilized",
-]],
-[["Stabilizing"], [
-    "Stabilizing",
-]],
-[["Stable"], [
-    "Stable",
-]],
-[["Star"], [
-    "Star",
-]],
-[["Stars"], [
-    "Stars",
-]],
-[["Start"], [
-    "Start",
-]],
-[["Started"], [
-    "Started",
-]],
-[["Starting"], [
-    "Starting",
-]],
-[["Status"], [
-    "Status",
-]],
-[["Stay"], [
-    "Stay",
-]],
-[["Stay Away"], [
-    "Stay Away",
-]],
-[["Stayed"], [
-    "Stayed",
-]],
-[["Staying"], [
-    "Staying",
-]],
-[["Stop"], [
-    "Stop",
-]],
-[["Stopped"], [
-    "Stopped",
-]],
-[["Stopping"], [
-    "Stopping",
-]],
-[["Strength"], [
-    "Strength",
-]],
-[["Stun"], [
-    "Stun",
-]],
-[["Stunned"], [
-    "Stunned",
-]],
-[["Stunning"], [
-    "Stunning",
-]],
-[["Suboptimal"], [
-    "Suboptimal",
-]],
-[["Success"], [
-    "Success",
-]],
-[["Sudden Death"], [
-    "Sudden Death",
-]],
-[["Sunk"], [
-    "Sunk",
-]],
-[["Superb"], [
-    "Superb",
-]],
-[["Survive"], [
-    "Survive",
-]],
-[["Survived"], [
-    "Survived",
-]],
-[["Surviving"], [
-    "Surviving",
-]],
-[["Target"], [
-    "Target",
-]],
-[["Targets"], [
-    "Targets",
-]],
-[["Team"], [
-    "Team",
-]],
-[["Teammate"], [
-    "Teammate",
-]],
-[["Teammates"], [
-    "Teammates",
-]],
-[["Teams"], [
-    "Teams",
-]],
-[["Terrible"], [
-    "Terrible",
-]],
-[["Thank You"], [
-    "Thank You",
-]],
-[["Thanks"], [
-    "Thanks",
-]],
-[["That Was Awesome"], [
-    "That Was Awesome",
-]],
-[["Threat"], [
-    "Threat",
-]],
-[["Threat Level"], [
-    "Threat Level",
-]],
-[["Threat Levels"], [
-    "Threat Levels",
-]],
-[["Threats"], [
-    "Threats",
-]],
-[["Tiebreaker"], [
-    "Tiebreaker",
-]],
-[["Time"], [
-    "Time",
-]],
-[["Times"], [
-    "Times",
-]],
-[["Total"], [
-    "Total",
-]],
-[["Trade"], [
-    "Trade",
-]],
-[["Traded"], [
-    "Traded",
-]],
-[["Trading"], [
-    "Trading",
-]],
-[["Traitor"], [
-    "Traitor",
-]],
-[["Traitors"], [
-    "Traitors",
-]],
-[["Transfer"], [
-    "Transfer",
-]],
-[["Transferred"], [
-    "Transferred",
-]],
-[["Transferring"], [
-    "Transferring",
-]],
-[["Try Again"], [
-    "Try Again",
-]],
-[["Turret"], [
-    "Turret",
-]],
-[["Turrets"], [
-    "Turrets",
-]],
-[["Ugh"], [
-    "Ugh",
-]],
-[["Ultimate Ability"], [
-    "Ultimate Ability",
-]],
-[["Under"], [
-    "Under",
-]],
-[["Unknown"], [
-    "Unknown",
-]],
-[["Unlimited"], [
-    "Unlimited",
-]],
-[["Unlock"], [
-    "Unlock",
-]],
-[["Unlocked"], [
-    "Unlocked",
-]],
-[["Unlocking"], [
-    "Unlocking",
-]],
-[["Unsafe"], [
-    "Unsafe",
-]],
-[["Unstable"], [
-    "Unstable",
-]],
-[["Up"], [
-    "Up",
-]],
-[["Upgrade"], [
-    "Upgrade",
-]],
-[["Upgrades"], [
-    "Upgrades",
-]],
-[["Upload"], [
-    "Upload",
-]],
-[["Uploaded"], [
-    "Uploaded",
-]],
-[["Uploading"], [
-    "Uploading",
-]],
-[["Use Ability 1"], [
-    "Use Ability 1",
-]],
-[["Use Ability 2"], [
-    "Use Ability 2",
-]],
-[["Use Ultimate Ability"], [
-    "Use Ultimate Ability",
-]],
-[["Victory"], [
-    "Victory",
-]],
-[["Visible"], [
-    "Visible",
-]],
-[["Vortex"], [
-    "Vortex",
-]],
-[["Vortices"], [
-    "Vortices",
-]],
-[["Wait"], [
-    "Wait",
-]],
-[["Waiting"], [
-    "Waiting",
-]],
-[["Wall"], [
-    "Wall",
-]],
-[["Walls"], [
-    "Walls",
-]],
-[["Warning"], [
-    "Warning",
-]],
-[["Welcome"], [
-    "Welcome",
-]],
-[["Well Played"], [
-    "Well Played",
-]],
-[["West"], [
-    "West",
-]],
-[["White"], [
-    "White",
-]],
-[["Wild"], [
-    "Wild",
-]],
-[["Win"], [
-    "Win",
-]],
-[["Winner"], [
-    "Winner",
-]],
-[["Winners"], [
-    "Winners",
-]],
-[["Wins"], [
-    "Wins",
-]],
-[["Wisdom"], [
-    "Wisdom",
-]],
-[["Worse"], [
-    "Worse",
-]],
-[["Worst"], [
-    "Worst",
-]],
-[["Wow"], [
-    "Wow",
-]],
-[["Yellow"], [
-    "Yellow",
-]],
-[["Yes"], [
-    "Yes",
-]],
-[["You"], [
-    "You",
-]],
-[["You Lose"], [
-    "You Lose",
-]],
-[["You Win"], [
-    "You Win",
-]],
-[["Zone"], [
-    "Zone",
-]],
-[["Zones"], [
-    "Zones",
-]],
-
-//Reverse alphabetical order to match longest first on tokenization.
-].reverse();
+    {
+        "opy": "Zones",
+        "en": "Zones"
+    },
+    {
+        "opy": "Zone",
+        "en": "Zone"
+    },
+    {
+        "opy": "You Win",
+        "en": "You Win"
+    },
+    {
+        "opy": "You Lose",
+        "en": "You Lose"
+    },
+    {
+        "opy": "You",
+        "en": "You"
+    },
+    {
+        "opy": "Yes",
+        "en": "Yes"
+    },
+    {
+        "opy": "Yellow",
+        "en": "Yellow"
+    },
+    {
+        "opy": "Wow",
+        "en": "Wow"
+    },
+    {
+        "opy": "Worst",
+        "en": "Worst"
+    },
+    {
+        "opy": "Worse",
+        "en": "Worse"
+    },
+    {
+        "opy": "Wisdom",
+        "en": "Wisdom"
+    },
+    {
+        "opy": "Wins",
+        "en": "Wins"
+    },
+    {
+        "opy": "Winners",
+        "en": "Winners"
+    },
+    {
+        "opy": "Winner",
+        "en": "Winner"
+    },
+    {
+        "opy": "Win",
+        "en": "Win"
+    },
+    {
+        "opy": "Wild",
+        "en": "Wild"
+    },
+    {
+        "opy": "White",
+        "en": "White"
+    },
+    {
+        "opy": "West",
+        "en": "West"
+    },
+    {
+        "opy": "Well Played",
+        "en": "Well Played"
+    },
+    {
+        "opy": "Welcome",
+        "en": "Welcome"
+    },
+    {
+        "opy": "Warning",
+        "en": "Warning"
+    },
+    {
+        "opy": "Walls",
+        "en": "Walls"
+    },
+    {
+        "opy": "Wall",
+        "en": "Wall"
+    },
+    {
+        "opy": "Waiting",
+        "en": "Waiting"
+    },
+    {
+        "opy": "Wait",
+        "en": "Wait"
+    },
+    {
+        "opy": "Vortices",
+        "en": "Vortices"
+    },
+    {
+        "opy": "Vortex",
+        "en": "Vortex"
+    },
+    {
+        "opy": "Visible",
+        "en": "Visible"
+    },
+    {
+        "opy": "Victory",
+        "en": "Victory"
+    },
+    {
+        "opy": "Use Ultimate Ability",
+        "en": "Use Ultimate Ability"
+    },
+    {
+        "opy": "Use Ability 2",
+        "en": "Use Ability 2"
+    },
+    {
+        "opy": "Use Ability 1",
+        "en": "Use Ability 1"
+    },
+    {
+        "opy": "Uploading",
+        "en": "Uploading"
+    },
+    {
+        "opy": "Uploaded",
+        "en": "Uploaded"
+    },
+    {
+        "opy": "Upload",
+        "en": "Upload"
+    },
+    {
+        "opy": "Upgrades",
+        "en": "Upgrades"
+    },
+    {
+        "opy": "Upgrade",
+        "en": "Upgrade"
+    },
+    {
+        "opy": "Up",
+        "en": "Up"
+    },
+    {
+        "opy": "Unstable",
+        "en": "Unstable"
+    },
+    {
+        "opy": "Unsafe",
+        "en": "Unsafe"
+    },
+    {
+        "opy": "Unlocking",
+        "en": "Unlocking"
+    },
+    {
+        "opy": "Unlocked",
+        "en": "Unlocked"
+    },
+    {
+        "opy": "Unlock",
+        "en": "Unlock"
+    },
+    {
+        "opy": "Unlimited",
+        "en": "Unlimited"
+    },
+    {
+        "opy": "Unknown",
+        "en": "Unknown"
+    },
+    {
+        "opy": "Under",
+        "en": "Under"
+    },
+    {
+        "opy": "Ultimate Ability",
+        "en": "Ultimate Ability"
+    },
+    {
+        "opy": "Ugh",
+        "en": "Ugh"
+    },
+    {
+        "opy": "Turrets",
+        "en": "Turrets"
+    },
+    {
+        "opy": "Turret",
+        "en": "Turret"
+    },
+    {
+        "opy": "Try Again",
+        "en": "Try Again"
+    },
+    {
+        "opy": "Transferring",
+        "en": "Transferring"
+    },
+    {
+        "opy": "Transferred",
+        "en": "Transferred"
+    },
+    {
+        "opy": "Transfer",
+        "en": "Transfer"
+    },
+    {
+        "opy": "Traitors",
+        "en": "Traitors"
+    },
+    {
+        "opy": "Traitor",
+        "en": "Traitor"
+    },
+    {
+        "opy": "Trading",
+        "en": "Trading"
+    },
+    {
+        "opy": "Traded",
+        "en": "Traded"
+    },
+    {
+        "opy": "Trade",
+        "en": "Trade"
+    },
+    {
+        "opy": "Total",
+        "en": "Total"
+    },
+    {
+        "opy": "Times",
+        "en": "Times"
+    },
+    {
+        "opy": "Time",
+        "en": "Time"
+    },
+    {
+        "opy": "Tiebreaker",
+        "en": "Tiebreaker"
+    },
+    {
+        "opy": "Threats",
+        "en": "Threats"
+    },
+    {
+        "opy": "Threat Levels",
+        "en": "Threat Levels"
+    },
+    {
+        "opy": "Threat Level",
+        "en": "Threat Level"
+    },
+    {
+        "opy": "Threat",
+        "en": "Threat"
+    },
+    {
+        "opy": "That Was Awesome",
+        "en": "That Was Awesome"
+    },
+    {
+        "opy": "Thanks",
+        "en": "Thanks"
+    },
+    {
+        "opy": "Thank You",
+        "en": "Thank You"
+    },
+    {
+        "opy": "Terrible",
+        "en": "Terrible"
+    },
+    {
+        "opy": "Teams",
+        "en": "Teams"
+    },
+    {
+        "opy": "Teammates",
+        "en": "Teammates"
+    },
+    {
+        "opy": "Teammate",
+        "en": "Teammate"
+    },
+    {
+        "opy": "Team",
+        "en": "Team"
+    },
+    {
+        "opy": "Targets",
+        "en": "Targets"
+    },
+    {
+        "opy": "Target",
+        "en": "Target"
+    },
+    {
+        "opy": "Surviving",
+        "en": "Surviving"
+    },
+    {
+        "opy": "Survived",
+        "en": "Survived"
+    },
+    {
+        "opy": "Survive",
+        "en": "Survive"
+    },
+    {
+        "opy": "Superb",
+        "en": "Superb"
+    },
+    {
+        "opy": "Sunk",
+        "en": "Sunk"
+    },
+    {
+        "opy": "Sudden Death",
+        "en": "Sudden Death"
+    },
+    {
+        "opy": "Success",
+        "en": "Success"
+    },
+    {
+        "opy": "Suboptimal",
+        "en": "Suboptimal"
+    },
+    {
+        "opy": "Stunning",
+        "en": "Stunning"
+    },
+    {
+        "opy": "Stunned",
+        "en": "Stunned"
+    },
+    {
+        "opy": "Stun",
+        "en": "Stun"
+    },
+    {
+        "opy": "Strength",
+        "en": "Strength"
+    },
+    {
+        "opy": "Stopping",
+        "en": "Stopping"
+    },
+    {
+        "opy": "Stopped",
+        "en": "Stopped"
+    },
+    {
+        "opy": "Stop",
+        "en": "Stop"
+    },
+    {
+        "opy": "Staying",
+        "en": "Staying"
+    },
+    {
+        "opy": "Stayed",
+        "en": "Stayed"
+    },
+    {
+        "opy": "Stay Away",
+        "en": "Stay Away"
+    },
+    {
+        "opy": "Stay",
+        "en": "Stay"
+    },
+    {
+        "opy": "Status",
+        "en": "Status"
+    },
+    {
+        "opy": "Starting",
+        "en": "Starting"
+    },
+    {
+        "opy": "Started",
+        "en": "Started"
+    },
+    {
+        "opy": "Start",
+        "en": "Start"
+    },
+    {
+        "opy": "Stars",
+        "en": "Stars"
+    },
+    {
+        "opy": "Star",
+        "en": "Star"
+    },
+    {
+        "opy": "Stable",
+        "en": "Stable"
+    },
+    {
+        "opy": "Stabilizing",
+        "en": "Stabilizing"
+    },
+    {
+        "opy": "Stabilized",
+        "en": "Stabilized"
+    },
+    {
+        "opy": "Stabilize",
+        "en": "Stabilize"
+    },
+    {
+        "opy": "Spheres",
+        "en": "Spheres"
+    },
+    {
+        "opy": "Sphere",
+        "en": "Sphere"
+    },
+    {
+        "opy": "Speeds",
+        "en": "Speeds"
+    },
+    {
+        "opy": "Speed",
+        "en": "Speed"
+    },
+    {
+        "opy": "Spawning",
+        "en": "Spawning"
+    },
+    {
+        "opy": "Spawned",
+        "en": "Spawned"
+    },
+    {
+        "opy": "Spawn",
+        "en": "Spawn"
+    },
+    {
+        "opy": "Sparkles",
+        "en": "Sparkles"
+    },
+    {
+        "opy": "Spades",
+        "en": "Spades"
+    },
+    {
+        "opy": "Spade",
+        "en": "Spade"
+    },
+    {
+        "opy": "Southwest",
+        "en": "Southwest"
+    },
+    {
+        "opy": "Southeast",
+        "en": "Southeast"
+    },
+    {
+        "opy": "South",
+        "en": "South"
+    },
+    {
+        "opy": "Sorry",
+        "en": "Sorry"
+    },
+    {
+        "opy": "Sold",
+        "en": "Sold"
+    },
+    {
+        "opy": "Slowest",
+        "en": "Slowest"
+    },
+    {
+        "opy": "Slower",
+        "en": "Slower"
+    },
+    {
+        "opy": "Slow",
+        "en": "Slow"
+    },
+    {
+        "opy": "Slept",
+        "en": "Slept"
+    },
+    {
+        "opy": "Sleeping",
+        "en": "Sleeping"
+    },
+    {
+        "opy": "Sleep",
+        "en": "Sleep"
+    },
+    {
+        "opy": "Skipping",
+        "en": "Skipping"
+    },
+    {
+        "opy": "Skipped",
+        "en": "Skipped"
+    },
+    {
+        "opy": "Skip",
+        "en": "Skip"
+    },
+    {
+        "opy": "Sinking",
+        "en": "Sinking"
+    },
+    {
+        "opy": "Sink",
+        "en": "Sink"
+    },
+    {
+        "opy": "Shuffled",
+        "en": "Shuffled"
+    },
+    {
+        "opy": "Shuffle",
+        "en": "Shuffle"
+    },
+    {
+        "opy": "Shops",
+        "en": "Shops"
+    },
+    {
+        "opy": "Shop",
+        "en": "Shop"
+    },
+    {
+        "opy": "Severing",
+        "en": "Severing"
+    },
+    {
+        "opy": "Severed",
+        "en": "Severed"
+    },
+    {
+        "opy": "Severe",
+        "en": "Severe"
+    },
+    {
+        "opy": "Sever",
+        "en": "Sever"
+    },
+    {
+        "opy": "Server Load Peak",
+        "en": "Server Load Peak"
+    },
+    {
+        "opy": "Server Load Average",
+        "en": "Server Load Average"
+    },
+    {
+        "opy": "Server Load",
+        "en": "Server Load"
+    },
+    {
+        "opy": "Selling",
+        "en": "Selling"
+    },
+    {
+        "opy": "Sell",
+        "en": "Sell"
+    },
+    {
+        "opy": "Selecting",
+        "en": "Selecting"
+    },
+    {
+        "opy": "Selected",
+        "en": "Selected"
+    },
+    {
+        "opy": "Select",
+        "en": "Select"
+    },
+    {
+        "opy": "Securing",
+        "en": "Securing"
+    },
+    {
+        "opy": "Secured",
+        "en": "Secured"
+    },
+    {
+        "opy": "Secure",
+        "en": "Secure"
+    },
+    {
+        "opy": "Secondary Fire",
+        "en": "Secondary Fire"
+    },
+    {
+        "opy": "Scores",
+        "en": "Scores"
+    },
+    {
+        "opy": "Score",
+        "en": "Score"
+    },
+    {
+        "opy": "Saving",
+        "en": "Saving"
+    },
+    {
+        "opy": "Saved",
+        "en": "Saved"
+    },
+    {
+        "opy": "Save",
+        "en": "Save"
+    },
+    {
+        "opy": "Safe",
+        "en": "Safe"
+    },
+    {
+        "opy": "Running",
+        "en": "Running"
+    },
+    {
+        "opy": "Run",
+        "en": "Run"
+    },
+    {
+        "opy": "Rounds Won",
+        "en": "Rounds Won"
+    },
+    {
+        "opy": "Rounds Lost",
+        "en": "Rounds Lost"
+    },
+    {
+        "opy": "Rounds",
+        "en": "Rounds"
+    },
+    {
+        "opy": "Round",
+        "en": "Round"
+    },
+    {
+        "opy": "Right",
+        "en": "Right"
+    },
+    {
+        "opy": "Revealing",
+        "en": "Revealing"
+    },
+    {
+        "opy": "Revealed",
+        "en": "Revealed"
+    },
+    {
+        "opy": "Reveal",
+        "en": "Reveal"
+    },
+    {
+        "opy": "Resurrecting",
+        "en": "Resurrecting"
+    },
+    {
+        "opy": "Resurrected",
+        "en": "Resurrected"
+    },
+    {
+        "opy": "Resurrect",
+        "en": "Resurrect"
+    },
+    {
+        "opy": "Resources",
+        "en": "Resources"
+    },
+    {
+        "opy": "Resource",
+        "en": "Resource"
+    },
+    {
+        "opy": "Rescuing",
+        "en": "Rescuing"
+    },
+    {
+        "opy": "Rescued",
+        "en": "Rescued"
+    },
+    {
+        "opy": "Rescue",
+        "en": "Rescue"
+    },
+    {
+        "opy": "Remaining",
+        "en": "Remaining"
+    },
+    {
+        "opy": "Remain",
+        "en": "Remain"
+    },
+    {
+        "opy": "Red",
+        "en": "Red"
+    },
+    {
+        "opy": "Recovering",
+        "en": "Recovering"
+    },
+    {
+        "opy": "Recovered",
+        "en": "Recovered"
+    },
+    {
+        "opy": "Recover",
+        "en": "Recover"
+    },
+    {
+        "opy": "Records",
+        "en": "Records"
+    },
+    {
+        "opy": "Record",
+        "en": "Record"
+    },
+    {
+        "opy": "Ready",
+        "en": "Ready"
+    },
+    {
+        "opy": "Reaching",
+        "en": "Reaching"
+    },
+    {
+        "opy": "Reached",
+        "en": "Reached"
+    },
+    {
+        "opy": "Reach",
+        "en": "Reach"
+    },
+    {
+        "opy": "Rank S",
+        "en": "Rank S"
+    },
+    {
+        "opy": "Rank F",
+        "en": "Rank F"
+    },
+    {
+        "opy": "Rank E",
+        "en": "Rank E"
+    },
+    {
+        "opy": "Rank D",
+        "en": "Rank D"
+    },
+    {
+        "opy": "Rank C",
+        "en": "Rank C"
+    },
+    {
+        "opy": "Rank B",
+        "en": "Rank B"
+    },
+    {
+        "opy": "Rank A",
+        "en": "Rank A"
+    },
+    {
+        "opy": "Rank",
+        "en": "Rank"
+    },
+    {
+        "opy": "Raising",
+        "en": "Raising"
+    },
+    {
+        "opy": "Raised",
+        "en": "Raised"
+    },
+    {
+        "opy": "Raise",
+        "en": "Raise"
+    },
+    {
+        "opy": "Purple",
+        "en": "Purple"
+    },
+    {
+        "opy": "Purifying",
+        "en": "Purifying"
+    },
+    {
+        "opy": "Purify",
+        "en": "Purify"
+    },
+    {
+        "opy": "Purified",
+        "en": "Purified"
+    },
+    {
+        "opy": "Protecting",
+        "en": "Protecting"
+    },
+    {
+        "opy": "Protected",
+        "en": "Protected"
+    },
+    {
+        "opy": "Protect",
+        "en": "Protect"
+    },
+    {
+        "opy": "Projectiles",
+        "en": "Projectiles"
+    },
+    {
+        "opy": "Projectile",
+        "en": "Projectile"
+    },
+    {
+        "opy": "Primary Fire",
+        "en": "Primary Fire"
+    },
+    {
+        "opy": "Price",
+        "en": "Price"
+    },
+    {
+        "opy": "Power-Ups",
+        "en": "Power-Ups"
+    },
+    {
+        "opy": "Power-Up",
+        "en": "Power-Up"
+    },
+    {
+        "opy": "Power",
+        "en": "Power"
+    },
+    {
+        "opy": "Position",
+        "en": "Position"
+    },
+    {
+        "opy": "Points Lost",
+        "en": "Points Lost"
+    },
+    {
+        "opy": "Points Earned",
+        "en": "Points Earned"
+    },
+    {
+        "opy": "Points",
+        "en": "Points"
+    },
+    {
+        "opy": "Point",
+        "en": "Point"
+    },
+    {
+        "opy": "Playing",
+        "en": "Playing"
+    },
+    {
+        "opy": "Players",
+        "en": "Players"
+    },
+    {
+        "opy": "Player",
+        "en": "Player"
+    },
+    {
+        "opy": "Played",
+        "en": "Played"
+    },
+    {
+        "opy": "Play",
+        "en": "Play"
+    },
+    {
+        "opy": "Piles",
+        "en": "Piles"
+    },
+    {
+        "opy": "Pile",
+        "en": "Pile"
+    },
+    {
+        "opy": "Picking",
+        "en": "Picking"
+    },
+    {
+        "opy": "Picked",
+        "en": "Picked"
+    },
+    {
+        "opy": "Pick",
+        "en": "Pick"
+    },
+    {
+        "opy": "Phases",
+        "en": "Phases"
+    },
+    {
+        "opy": "Phase",
+        "en": "Phase"
+    },
+    {
+        "opy": "Payloads",
+        "en": "Payloads"
+    },
+    {
+        "opy": "Payload",
+        "en": "Payload"
+    },
+    {
+        "opy": "Participants",
+        "en": "Participants"
+    },
+    {
+        "opy": "Participant",
+        "en": "Participant"
+    },
+    {
+        "opy": "Overtime",
+        "en": "Overtime"
+    },
+    {
+        "opy": "Over",
+        "en": "Over"
+    },
+    {
+        "opy": "Outside",
+        "en": "Outside"
+    },
+    {
+        "opy": "Outgoing",
+        "en": "Outgoing"
+    },
+    {
+        "opy": "Out Of View",
+        "en": "Out Of View"
+    },
+    {
+        "opy": "Optimizing",
+        "en": "Optimizing"
+    },
+    {
+        "opy": "Optimized",
+        "en": "Optimized"
+    },
+    {
+        "opy": "Optimize",
+        "en": "Optimize"
+    },
+    {
+        "opy": "Optimal",
+        "en": "Optimal"
+    },
+    {
+        "opy": "Oops",
+        "en": "Oops"
+    },
+    {
+        "opy": "Oof",
+        "en": "Oof"
+    },
+    {
+        "opy": "On",
+        "en": "On"
+    },
+    {
+        "opy": "Off",
+        "en": "Off"
+    },
+    {
+        "opy": "Obtaining",
+        "en": "Obtaining"
+    },
+    {
+        "opy": "Obtained",
+        "en": "Obtained"
+    },
+    {
+        "opy": "Obtain",
+        "en": "Obtain"
+    },
+    {
+        "opy": "Objects",
+        "en": "Objects"
+    },
+    {
+        "opy": "Objectives",
+        "en": "Objectives"
+    },
+    {
+        "opy": "Objective",
+        "en": "Objective"
+    },
+    {
+        "opy": "Object",
+        "en": "Object"
+    },
+    {
+        "opy": "Not Today",
+        "en": "Not Today"
+    },
+    {
+        "opy": "Northwest",
+        "en": "Northwest"
+    },
+    {
+        "opy": "Northeast",
+        "en": "Northeast"
+    },
+    {
+        "opy": "North",
+        "en": "North"
+    },
+    {
+        "opy": "Normal",
+        "en": "Normal"
+    },
+    {
+        "opy": "None",
+        "en": "None"
+    },
+    {
+        "opy": "No Thanks",
+        "en": "No Thanks"
+    },
+    {
+        "opy": "No",
+        "en": "No"
+    },
+    {
+        "opy": "Nice Try",
+        "en": "Nice Try"
+    },
+    {
+        "opy": "Next Upgrade",
+        "en": "Next Upgrade"
+    },
+    {
+        "opy": "Next Targets",
+        "en": "Next Targets"
+    },
+    {
+        "opy": "Next Target",
+        "en": "Next Target"
+    },
+    {
+        "opy": "Next Round",
+        "en": "Next Round"
+    },
+    {
+        "opy": "Next Players",
+        "en": "Next Players"
+    },
+    {
+        "opy": "Next Player",
+        "en": "Next Player"
+    },
+    {
+        "opy": "Next Phase",
+        "en": "Next Phase"
+    },
+    {
+        "opy": "Next Objects",
+        "en": "Next Objects"
+    },
+    {
+        "opy": "Next Objective",
+        "en": "Next Objective"
+    },
+    {
+        "opy": "Next Object",
+        "en": "Next Object"
+    },
+    {
+        "opy": "Next Mission",
+        "en": "Next Mission"
+    },
+    {
+        "opy": "Next Level",
+        "en": "Next Level"
+    },
+    {
+        "opy": "Next Hostages",
+        "en": "Next Hostages"
+    },
+    {
+        "opy": "Next Hostage",
+        "en": "Next Hostage"
+    },
+    {
+        "opy": "Next Heroes",
+        "en": "Next Heroes"
+    },
+    {
+        "opy": "Next Hero",
+        "en": "Next Hero"
+    },
+    {
+        "opy": "Next Game",
+        "en": "Next Game"
+    },
+    {
+        "opy": "Next Form",
+        "en": "Next Form"
+    },
+    {
+        "opy": "Next Enemy",
+        "en": "Next Enemy"
+    },
+    {
+        "opy": "Next Enemies",
+        "en": "Next Enemies"
+    },
+    {
+        "opy": "Next Checkpoint",
+        "en": "Next Checkpoint"
+    },
+    {
+        "opy": "Next Attempt",
+        "en": "Next Attempt"
+    },
+    {
+        "opy": "Next Ally",
+        "en": "Next Ally"
+    },
+    {
+        "opy": "Next Allies",
+        "en": "Next Allies"
+    },
+    {
+        "opy": "Next",
+        "en": "Next"
+    },
+    {
+        "opy": "New Record",
+        "en": "New Record"
+    },
+    {
+        "opy": "New High Score",
+        "en": "New High Score"
+    },
+    {
+        "opy": "Near",
+        "en": "Near"
+    },
+    {
+        "opy": "My Mistake",
+        "en": "My Mistake"
+    },
+    {
+        "opy": "Most",
+        "en": "Most"
+    },
+    {
+        "opy": "More",
+        "en": "More"
+    },
+    {
+        "opy": "Monsters",
+        "en": "Monsters"
+    },
+    {
+        "opy": "Monster",
+        "en": "Monster"
+    },
+    {
+        "opy": "Money",
+        "en": "Money"
+    },
+    {
+        "opy": "Moderate",
+        "en": "Moderate"
+    },
+    {
+        "opy": "Missions",
+        "en": "Missions"
+    },
+    {
+        "opy": "Mission Failed",
+        "en": "Mission Failed"
+    },
+    {
+        "opy": "Mission Accomplished",
+        "en": "Mission Accomplished"
+    },
+    {
+        "opy": "Mission Aborted",
+        "en": "Mission Aborted"
+    },
+    {
+        "opy": "Mission",
+        "en": "Mission"
+    },
+    {
+        "opy": "Min",
+        "en": "Min"
+    },
+    {
+        "opy": "Mild",
+        "en": "Mild"
+    },
+    {
+        "opy": "Max",
+        "en": "Max"
+    },
+    {
+        "opy": "Losses",
+        "en": "Losses"
+    },
+    {
+        "opy": "Loss",
+        "en": "Loss"
+    },
+    {
+        "opy": "Losers",
+        "en": "Losers"
+    },
+    {
+        "opy": "Loser",
+        "en": "Loser"
+    },
+    {
+        "opy": "Locking",
+        "en": "Locking"
+    },
+    {
+        "opy": "Locked",
+        "en": "Locked"
+    },
+    {
+        "opy": "Lock",
+        "en": "Lock"
+    },
+    {
+        "opy": "Location",
+        "en": "Location"
+    },
+    {
+        "opy": "Loading",
+        "en": "Loading"
+    },
+    {
+        "opy": "Loaded",
+        "en": "Loaded"
+    },
+    {
+        "opy": "Load",
+        "en": "Load"
+    },
+    {
+        "opy": "Lives",
+        "en": "Lives"
+    },
+    {
+        "opy": "Limited",
+        "en": "Limited"
+    },
+    {
+        "opy": "Life",
+        "en": "Life"
+    },
+    {
+        "opy": "Levels",
+        "en": "Levels"
+    },
+    {
+        "opy": "Level Up",
+        "en": "Level Up"
+    },
+    {
+        "opy": "Level Down",
+        "en": "Level Down"
+    },
+    {
+        "opy": "Level",
+        "en": "Level"
+    },
+    {
+        "opy": "Less",
+        "en": "Less"
+    },
+    {
+        "opy": "Left",
+        "en": "Left"
+    },
+    {
+        "opy": "Least",
+        "en": "Least"
+    },
+    {
+        "opy": "Leaders",
+        "en": "Leaders"
+    },
+    {
+        "opy": "Leader",
+        "en": "Leader"
+    },
+    {
+        "opy": "Killstreaks",
+        "en": "Killstreaks"
+    },
+    {
+        "opy": "Killstreak",
+        "en": "Killstreak"
+    },
+    {
+        "opy": "Killstreak",
+        "en": "Killstreak"
+    },
+    {
+        "opy": "Kills",
+        "en": "Kills"
+    },
+    {
+        "opy": "Kill",
+        "en": "Kill"
+    },
+    {
+        "opy": "Jumping",
+        "en": "Jumping"
+    },
+    {
+        "opy": "Jump",
+        "en": "Jump"
+    },
+    {
+        "opy": "Joining",
+        "en": "Joining"
+    },
+    {
+        "opy": "Joined",
+        "en": "Joined"
+    },
+    {
+        "opy": "Join",
+        "en": "Join"
+    },
+    {
+        "opy": "Items",
+        "en": "Items"
+    },
+    {
+        "opy": "Item",
+        "en": "Item"
+    },
+    {
+        "opy": "Invisible",
+        "en": "Invisible"
+    },
+    {
+        "opy": "Interact",
+        "en": "Interact"
+    },
+    {
+        "opy": "Intelligence",
+        "en": "Intelligence"
+    },
+    {
+        "opy": "Inside",
+        "en": "Inside"
+    },
+    {
+        "opy": "Innocent",
+        "en": "Innocent"
+    },
+    {
+        "opy": "Initial Upgrade",
+        "en": "Initial Upgrade"
+    },
+    {
+        "opy": "Initial Targets",
+        "en": "Initial Targets"
+    },
+    {
+        "opy": "Initial Target",
+        "en": "Initial Target"
+    },
+    {
+        "opy": "Initial Round",
+        "en": "Initial Round"
+    },
+    {
+        "opy": "Initial Players",
+        "en": "Initial Players"
+    },
+    {
+        "opy": "Initial Player",
+        "en": "Initial Player"
+    },
+    {
+        "opy": "Initial Phase",
+        "en": "Initial Phase"
+    },
+    {
+        "opy": "Initial Objects",
+        "en": "Initial Objects"
+    },
+    {
+        "opy": "Initial Objective",
+        "en": "Initial Objective"
+    },
+    {
+        "opy": "Initial Object",
+        "en": "Initial Object"
+    },
+    {
+        "opy": "Initial Mission",
+        "en": "Initial Mission"
+    },
+    {
+        "opy": "Initial Level",
+        "en": "Initial Level"
+    },
+    {
+        "opy": "Initial Hostage",
+        "en": "Initial Hostage"
+    },
+    {
+        "opy": "Initial Heroes",
+        "en": "Initial Heroes"
+    },
+    {
+        "opy": "Initial Hero",
+        "en": "Initial Hero"
+    },
+    {
+        "opy": "Initial Game",
+        "en": "Initial Game"
+    },
+    {
+        "opy": "Initial Form",
+        "en": "Initial Form"
+    },
+    {
+        "opy": "Initial Enemy",
+        "en": "Initial Enemy"
+    },
+    {
+        "opy": "Initial Enemies",
+        "en": "Initial Enemies"
+    },
+    {
+        "opy": "Initial Checkpoint",
+        "en": "Initial Checkpoint"
+    },
+    {
+        "opy": "Initial Attempt",
+        "en": "Initial Attempt"
+    },
+    {
+        "opy": "Initial Ally",
+        "en": "Initial Ally"
+    },
+    {
+        "opy": "Initial Allies",
+        "en": "Initial Allies"
+    },
+    {
+        "opy": "Initial",
+        "en": "Initial"
+    },
+    {
+        "opy": "Incoming",
+        "en": "Incoming"
+    },
+    {
+        "opy": "Income",
+        "en": "Income"
+    },
+    {
+        "opy": "In View",
+        "en": "In View"
+    },
+    {
+        "opy": "I Tried",
+        "en": "I Tried"
+    },
+    {
+        "opy": "I Give Up",
+        "en": "I Give Up"
+    },
+    {
+        "opy": "Hunting",
+        "en": "Hunting"
+    },
+    {
+        "opy": "Hunters",
+        "en": "Hunters"
+    },
+    {
+        "opy": "Hunter",
+        "en": "Hunter"
+    },
+    {
+        "opy": "Hunted",
+        "en": "Hunted"
+    },
+    {
+        "opy": "Hunt",
+        "en": "Hunt"
+    },
+    {
+        "opy": "Huh",
+        "en": "Huh"
+    },
+    {
+        "opy": "Hostages",
+        "en": "Hostages"
+    },
+    {
+        "opy": "Hostage",
+        "en": "Hostage"
+    },
+    {
+        "opy": "Hmmm",
+        "en": "Hmmm"
+    },
+    {
+        "opy": "Hitting",
+        "en": "Hitting"
+    },
+    {
+        "opy": "Hit",
+        "en": "Hit"
+    },
+    {
+        "opy": "High Scores",
+        "en": "High Scores"
+    },
+    {
+        "opy": "High Score",
+        "en": "High Score"
+    },
+    {
+        "opy": "Hiding",
+        "en": "Hiding"
+    },
+    {
+        "opy": "Hide",
+        "en": "Hide"
+    },
+    {
+        "opy": "Hidden",
+        "en": "Hidden"
+    },
+    {
+        "opy": "Heroes",
+        "en": "Heroes"
+    },
+    {
+        "opy": "Hero",
+        "en": "Hero"
+    },
+    {
+        "opy": "Here",
+        "en": "Here"
+    },
+    {
+        "opy": "Help",
+        "en": "Help"
+    },
+    {
+        "opy": "Hello",
+        "en": "Hello"
+    },
+    {
+        "opy": "Height",
+        "en": "Height"
+    },
+    {
+        "opy": "Hearts",
+        "en": "Hearts"
+    },
+    {
+        "opy": "Heart",
+        "en": "Heart"
+    },
+    {
+        "opy": "Healing",
+        "en": "Healing"
+    },
+    {
+        "opy": "Healers",
+        "en": "Healers"
+    },
+    {
+        "opy": "Healer",
+        "en": "Healer"
+    },
+    {
+        "opy": "Healed",
+        "en": "Healed"
+    },
+    {
+        "opy": "Heal",
+        "en": "Heal"
+    },
+    {
+        "opy": "Hands",
+        "en": "Hands"
+    },
+    {
+        "opy": "Hand",
+        "en": "Hand"
+    },
+    {
+        "opy": "Hacking",
+        "en": "Hacking"
+    },
+    {
+        "opy": "Hacked",
+        "en": "Hacked"
+    },
+    {
+        "opy": "Hack",
+        "en": "Hack"
+    },
+    {
+        "opy": "Guilty",
+        "en": "Guilty"
+    },
+    {
+        "opy": "Green",
+        "en": "Green"
+    },
+    {
+        "opy": "Goodbye",
+        "en": "Goodbye"
+    },
+    {
+        "opy": "Good Luck",
+        "en": "Good Luck"
+    },
+    {
+        "opy": "Good",
+        "en": "Good"
+    },
+    {
+        "opy": "Going",
+        "en": "Going"
+    },
+    {
+        "opy": "Goals",
+        "en": "Goals"
+    },
+    {
+        "opy": "Goal",
+        "en": "Goal"
+    },
+    {
+        "opy": "Go",
+        "en": "Go"
+    },
+    {
+        "opy": "Gg",
+        "en": "Gg"
+    },
+    {
+        "opy": "Games Won",
+        "en": "Games Won"
+    },
+    {
+        "opy": "Games Lost",
+        "en": "Games Lost"
+    },
+    {
+        "opy": "Games",
+        "en": "Games"
+    },
+    {
+        "opy": "Game",
+        "en": "Game"
+    },
+    {
+        "opy": "Frozen",
+        "en": "Frozen"
+    },
+    {
+        "opy": "Freezing",
+        "en": "Freezing"
+    },
+    {
+        "opy": "Freeze",
+        "en": "Freeze"
+    },
+    {
+        "opy": "Found",
+        "en": "Found"
+    },
+    {
+        "opy": "Forward",
+        "en": "Forward"
+    },
+    {
+        "opy": "Forms",
+        "en": "Forms"
+    },
+    {
+        "opy": "Form",
+        "en": "Form"
+    },
+    {
+        "opy": "Folding",
+        "en": "Folding"
+    },
+    {
+        "opy": "Folded",
+        "en": "Folded"
+    },
+    {
+        "opy": "Fold",
+        "en": "Fold"
+    },
+    {
+        "opy": "Flying",
+        "en": "Flying"
+    },
+    {
+        "opy": "Fly",
+        "en": "Fly"
+    },
+    {
+        "opy": "Flown",
+        "en": "Flown"
+    },
+    {
+        "opy": "Finishing",
+        "en": "Finishing"
+    },
+    {
+        "opy": "Finished",
+        "en": "Finished"
+    },
+    {
+        "opy": "Finish",
+        "en": "Finish"
+    },
+    {
+        "opy": "Finding",
+        "en": "Finding"
+    },
+    {
+        "opy": "Find",
+        "en": "Find"
+    },
+    {
+        "opy": "Final Upgrade",
+        "en": "Final Upgrade"
+    },
+    {
+        "opy": "Final Time",
+        "en": "Final Time"
+    },
+    {
+        "opy": "Final Targets",
+        "en": "Final Targets"
+    },
+    {
+        "opy": "Final Target",
+        "en": "Final Target"
+    },
+    {
+        "opy": "Final Round",
+        "en": "Final Round"
+    },
+    {
+        "opy": "Final Players",
+        "en": "Final Players"
+    },
+    {
+        "opy": "Final Player",
+        "en": "Final Player"
+    },
+    {
+        "opy": "Final Phase",
+        "en": "Final Phase"
+    },
+    {
+        "opy": "Final Objects",
+        "en": "Final Objects"
+    },
+    {
+        "opy": "Final Objective",
+        "en": "Final Objective"
+    },
+    {
+        "opy": "Final Object",
+        "en": "Final Object"
+    },
+    {
+        "opy": "Final Mission",
+        "en": "Final Mission"
+    },
+    {
+        "opy": "Final Level",
+        "en": "Final Level"
+    },
+    {
+        "opy": "Final Item",
+        "en": "Final Item"
+    },
+    {
+        "opy": "Final Hostages",
+        "en": "Final Hostages"
+    },
+    {
+        "opy": "Final Hostage",
+        "en": "Final Hostage"
+    },
+    {
+        "opy": "Final Heroes",
+        "en": "Final Heroes"
+    },
+    {
+        "opy": "Final Hero",
+        "en": "Final Hero"
+    },
+    {
+        "opy": "Final Game",
+        "en": "Final Game"
+    },
+    {
+        "opy": "Final Form",
+        "en": "Final Form"
+    },
+    {
+        "opy": "Final Enemy",
+        "en": "Final Enemy"
+    },
+    {
+        "opy": "Final Enemies",
+        "en": "Final Enemies"
+    },
+    {
+        "opy": "Final Checkpoint",
+        "en": "Final Checkpoint"
+    },
+    {
+        "opy": "Final Attempt",
+        "en": "Final Attempt"
+    },
+    {
+        "opy": "Final Ally",
+        "en": "Final Ally"
+    },
+    {
+        "opy": "Final Allies",
+        "en": "Final Allies"
+    },
+    {
+        "opy": "Final",
+        "en": "Final"
+    },
+    {
+        "opy": "Faults",
+        "en": "Faults"
+    },
+    {
+        "opy": "Fault",
+        "en": "Fault"
+    },
+    {
+        "opy": "Fastest",
+        "en": "Fastest"
+    },
+    {
+        "opy": "Faster",
+        "en": "Faster"
+    },
+    {
+        "opy": "Fast",
+        "en": "Fast"
+    },
+    {
+        "opy": "Far",
+        "en": "Far"
+    },
+    {
+        "opy": "Falling",
+        "en": "Falling"
+    },
+    {
+        "opy": "Fallen",
+        "en": "Fallen"
+    },
+    {
+        "opy": "Fall",
+        "en": "Fall"
+    },
+    {
+        "opy": "Failure",
+        "en": "Failure"
+    },
+    {
+        "opy": "Failing",
+        "en": "Failing"
+    },
+    {
+        "opy": "Failed",
+        "en": "Failed"
+    },
+    {
+        "opy": "Facing",
+        "en": "Facing"
+    },
+    {
+        "opy": "Faces",
+        "en": "Faces"
+    },
+    {
+        "opy": "Face",
+        "en": "Face"
+    },
+    {
+        "opy": "Extreme",
+        "en": "Extreme"
+    },
+    {
+        "opy": "Experience",
+        "en": "Experience"
+    },
+    {
+        "opy": "Exit",
+        "en": "Exit"
+    },
+    {
+        "opy": "Excellent",
+        "en": "Excellent"
+    },
+    {
+        "opy": "Escorting",
+        "en": "Escorting"
+    },
+    {
+        "opy": "Escorted",
+        "en": "Escorted"
+    },
+    {
+        "opy": "Escort",
+        "en": "Escort"
+    },
+    {
+        "opy": "Entrance",
+        "en": "Entrance"
+    },
+    {
+        "opy": "Enemy",
+        "en": "Enemy"
+    },
+    {
+        "opy": "Enemies",
+        "en": "Enemies"
+    },
+    {
+        "opy": "Eliminations",
+        "en": "Eliminations"
+    },
+    {
+        "opy": "Elimination",
+        "en": "Elimination"
+    },
+    {
+        "opy": "Eliminating",
+        "en": "Eliminating"
+    },
+    {
+        "opy": "Eliminated",
+        "en": "Eliminated"
+    },
+    {
+        "opy": "Eliminate",
+        "en": "Eliminate"
+    },
+    {
+        "opy": "East",
+        "en": "East"
+    },
+    {
+        "opy": "Dying",
+        "en": "Dying"
+    },
+    {
+        "opy": "Dropping",
+        "en": "Dropping"
+    },
+    {
+        "opy": "Dropped",
+        "en": "Dropped"
+    },
+    {
+        "opy": "Drop",
+        "en": "Drop"
+    },
+    {
+        "opy": "Drawn",
+        "en": "Drawn"
+    },
+    {
+        "opy": "Drawing",
+        "en": "Drawing"
+    },
+    {
+        "opy": "Draw",
+        "en": "Draw"
+    },
+    {
+        "opy": "Downloading",
+        "en": "Downloading"
+    },
+    {
+        "opy": "Downloaded",
+        "en": "Downloaded"
+    },
+    {
+        "opy": "Download",
+        "en": "Download"
+    },
+    {
+        "opy": "Down",
+        "en": "Down"
+    },
+    {
+        "opy": "Domes",
+        "en": "Domes"
+    },
+    {
+        "opy": "Dome",
+        "en": "Dome"
+    },
+    {
+        "opy": "Dodging",
+        "en": "Dodging"
+    },
+    {
+        "opy": "Dodged",
+        "en": "Dodged"
+    },
+    {
+        "opy": "Dodge",
+        "en": "Dodge"
+    },
+    {
+        "opy": "Distances",
+        "en": "Distances"
+    },
+    {
+        "opy": "Distance",
+        "en": "Distance"
+    },
+    {
+        "opy": "Disconnecting",
+        "en": "Disconnecting"
+    },
+    {
+        "opy": "Disconnected",
+        "en": "Disconnected"
+    },
+    {
+        "opy": "Disconnect",
+        "en": "Disconnect"
+    },
+    {
+        "opy": "Discarding",
+        "en": "Discarding"
+    },
+    {
+        "opy": "Discarded",
+        "en": "Discarded"
+    },
+    {
+        "opy": "Discard",
+        "en": "Discard"
+    },
+    {
+        "opy": "Die",
+        "en": "Die"
+    },
+    {
+        "opy": "Diamonds",
+        "en": "Diamonds"
+    },
+    {
+        "opy": "Diamond",
+        "en": "Diamond"
+    },
+    {
+        "opy": "Dexterity",
+        "en": "Dexterity"
+    },
+    {
+        "opy": "Detecting",
+        "en": "Detecting"
+    },
+    {
+        "opy": "Detected",
+        "en": "Detected"
+    },
+    {
+        "opy": "Detect",
+        "en": "Detect"
+    },
+    {
+        "opy": "Destroying",
+        "en": "Destroying"
+    },
+    {
+        "opy": "Destroyed",
+        "en": "Destroyed"
+    },
+    {
+        "opy": "Destroy",
+        "en": "Destroy"
+    },
+    {
+        "opy": "Destabilizing",
+        "en": "Destabilizing"
+    },
+    {
+        "opy": "Destabilized",
+        "en": "Destabilized"
+    },
+    {
+        "opy": "Destabilize",
+        "en": "Destabilize"
+    },
+    {
+        "opy": "Depth",
+        "en": "Depth"
+    },
+    {
+        "opy": "Delivering",
+        "en": "Delivering"
+    },
+    {
+        "opy": "Delivered",
+        "en": "Delivered"
+    },
+    {
+        "opy": "Deliver",
+        "en": "Deliver"
+    },
+    {
+        "opy": "Defence",
+        "en": "Defence"
+    },
+    {
+        "opy": "Defending",
+        "en": "Defending"
+    },
+    {
+        "opy": "Defended",
+        "en": "Defended"
+    },
+    {
+        "opy": "Defend",
+        "en": "Defend"
+    },
+    {
+        "opy": "Defeat",
+        "en": "Defeat"
+    },
+    {
+        "opy": "Decks",
+        "en": "Decks"
+    },
+    {
+        "opy": "Deck",
+        "en": "Deck"
+    },
+    {
+        "opy": "Dealt",
+        "en": "Dealt"
+    },
+    {
+        "opy": "Dealing",
+        "en": "Dealing"
+    },
+    {
+        "opy": "Deal",
+        "en": "Deal"
+    },
+    {
+        "opy": "Dead",
+        "en": "Dead"
+    },
+    {
+        "opy": "Danger",
+        "en": "Danger"
+    },
+    {
+        "opy": "Damaging",
+        "en": "Damaging"
+    },
+    {
+        "opy": "Damaged",
+        "en": "Damaged"
+    },
+    {
+        "opy": "Damage",
+        "en": "Damage"
+    },
+    {
+        "opy": "Current Upgrade",
+        "en": "Current Upgrade"
+    },
+    {
+        "opy": "Current Targets",
+        "en": "Current Targets"
+    },
+    {
+        "opy": "Current Target",
+        "en": "Current Target"
+    },
+    {
+        "opy": "Current Round",
+        "en": "Current Round"
+    },
+    {
+        "opy": "Current Players",
+        "en": "Current Players"
+    },
+    {
+        "opy": "Current Player",
+        "en": "Current Player"
+    },
+    {
+        "opy": "Current Phase",
+        "en": "Current Phase"
+    },
+    {
+        "opy": "Current Objects",
+        "en": "Current Objects"
+    },
+    {
+        "opy": "Current Objective",
+        "en": "Current Objective"
+    },
+    {
+        "opy": "Current Object",
+        "en": "Current Object"
+    },
+    {
+        "opy": "Current Mission",
+        "en": "Current Mission"
+    },
+    {
+        "opy": "Current Level",
+        "en": "Current Level"
+    },
+    {
+        "opy": "Current Hostages",
+        "en": "Current Hostages"
+    },
+    {
+        "opy": "Current Hostage",
+        "en": "Current Hostage"
+    },
+    {
+        "opy": "Current Heroes",
+        "en": "Current Heroes"
+    },
+    {
+        "opy": "Current Hero",
+        "en": "Current Hero"
+    },
+    {
+        "opy": "Current Game",
+        "en": "Current Game"
+    },
+    {
+        "opy": "Current Form",
+        "en": "Current Form"
+    },
+    {
+        "opy": "Current Enemy",
+        "en": "Current Enemy"
+    },
+    {
+        "opy": "Current Enemies",
+        "en": "Current Enemies"
+    },
+    {
+        "opy": "Current Checkpoint",
+        "en": "Current Checkpoint"
+    },
+    {
+        "opy": "Current Attempt",
+        "en": "Current Attempt"
+    },
+    {
+        "opy": "Current Ally",
+        "en": "Current Ally"
+    },
+    {
+        "opy": "Current Allies",
+        "en": "Current Allies"
+    },
+    {
+        "opy": "Current",
+        "en": "Current"
+    },
+    {
+        "opy": "Crouching",
+        "en": "Crouching"
+    },
+    {
+        "opy": "Crouched",
+        "en": "Crouched"
+    },
+    {
+        "opy": "Crouch",
+        "en": "Crouch"
+    },
+    {
+        "opy": "Critical",
+        "en": "Critical"
+    },
+    {
+        "opy": "Credits",
+        "en": "Credits"
+    },
+    {
+        "opy": "Credit",
+        "en": "Credit"
+    },
+    {
+        "opy": "Corrupting",
+        "en": "Corrupting"
+    },
+    {
+        "opy": "Corrupted",
+        "en": "Corrupted"
+    },
+    {
+        "opy": "Corrupt",
+        "en": "Corrupt"
+    },
+    {
+        "opy": "Cooldowns",
+        "en": "Cooldowns"
+    },
+    {
+        "opy": "Cooldown",
+        "en": "Cooldown"
+    },
+    {
+        "opy": "Control Points",
+        "en": "Control Points"
+    },
+    {
+        "opy": "Control Point",
+        "en": "Control Point"
+    },
+    {
+        "opy": "Constitution",
+        "en": "Constitution"
+    },
+    {
+        "opy": "Connecting",
+        "en": "Connecting"
+    },
+    {
+        "opy": "Connected",
+        "en": "Connected"
+    },
+    {
+        "opy": "Connect",
+        "en": "Connect"
+    },
+    {
+        "opy": "Congratulations",
+        "en": "Congratulations"
+    },
+    {
+        "opy": "Condition",
+        "en": "Condition"
+    },
+    {
+        "opy": "Come Here",
+        "en": "Come Here"
+    },
+    {
+        "opy": "Combo",
+        "en": "Combo"
+    },
+    {
+        "opy": "Clubs",
+        "en": "Clubs"
+    },
+    {
+        "opy": "Club",
+        "en": "Club"
+    },
+    {
+        "opy": "Clouds",
+        "en": "Clouds"
+    },
+    {
+        "opy": "Cloud",
+        "en": "Cloud"
+    },
+    {
+        "opy": "Checkpoints",
+        "en": "Checkpoints"
+    },
+    {
+        "opy": "Checkpoint",
+        "en": "Checkpoint"
+    },
+    {
+        "opy": "Chasing",
+        "en": "Chasing"
+    },
+    {
+        "opy": "Chased",
+        "en": "Chased"
+    },
+    {
+        "opy": "Chase",
+        "en": "Chase"
+    },
+    {
+        "opy": "Charisma",
+        "en": "Charisma"
+    },
+    {
+        "opy": "Challenge Accepted",
+        "en": "Challenge Accepted"
+    },
+    {
+        "opy": "Center",
+        "en": "Center"
+    },
+    {
+        "opy": "Caution",
+        "en": "Caution"
+    },
+    {
+        "opy": "Capturing",
+        "en": "Capturing"
+    },
+    {
+        "opy": "Captured",
+        "en": "Captured"
+    },
+    {
+        "opy": "Capture",
+        "en": "Capture"
+    },
+    {
+        "opy": "Buying",
+        "en": "Buying"
+    },
+    {
+        "opy": "Buy",
+        "en": "Buy"
+    },
+    {
+        "opy": "Burnt",
+        "en": "Burnt"
+    },
+    {
+        "opy": "Burning",
+        "en": "Burning"
+    },
+    {
+        "opy": "Burn",
+        "en": "Burn"
+    },
+    {
+        "opy": "Built",
+        "en": "Built"
+    },
+    {
+        "opy": "Building",
+        "en": "Building"
+    },
+    {
+        "opy": "Build",
+        "en": "Build"
+    },
+    {
+        "opy": "Bought",
+        "en": "Bought"
+    },
+    {
+        "opy": "Bosses",
+        "en": "Bosses"
+    },
+    {
+        "opy": "Boss",
+        "en": "Boss"
+    },
+    {
+        "opy": "Bonuses",
+        "en": "Bonuses"
+    },
+    {
+        "opy": "Bonus",
+        "en": "Bonus"
+    },
+    {
+        "opy": "Blue",
+        "en": "Blue"
+    },
+    {
+        "opy": "Blocking",
+        "en": "Blocking"
+    },
+    {
+        "opy": "Blocked",
+        "en": "Blocked"
+    },
+    {
+        "opy": "Block",
+        "en": "Block"
+    },
+    {
+        "opy": "Bids",
+        "en": "Bids"
+    },
+    {
+        "opy": "Bid",
+        "en": "Bid"
+    },
+    {
+        "opy": "Better",
+        "en": "Better"
+    },
+    {
+        "opy": "Best",
+        "en": "Best"
+    },
+    {
+        "opy": "Banning",
+        "en": "Banning"
+    },
+    {
+        "opy": "Banned",
+        "en": "Banned"
+    },
+    {
+        "opy": "Ban",
+        "en": "Ban"
+    },
+    {
+        "opy": "Bad",
+        "en": "Bad"
+    },
+    {
+        "opy": "Backward",
+        "en": "Backward"
+    },
+    {
+        "opy": "Avoiding",
+        "en": "Avoiding"
+    },
+    {
+        "opy": "Avoided",
+        "en": "Avoided"
+    },
+    {
+        "opy": "Avoid",
+        "en": "Avoid"
+    },
+    {
+        "opy": "Average",
+        "en": "Average"
+    },
+    {
+        "opy": "Attempts",
+        "en": "Attempts"
+    },
+    {
+        "opy": "Attempt",
+        "en": "Attempt"
+    },
+    {
+        "opy": "Attacking",
+        "en": "Attacking"
+    },
+    {
+        "opy": "Attacked",
+        "en": "Attacked"
+    },
+    {
+        "opy": "Attack",
+        "en": "Attack"
+    },
+    {
+        "opy": "Angle",
+        "en": "Angle"
+    },
+    {
+        "opy": "Ammunition",
+        "en": "Ammunition"
+    },
+    {
+        "opy": "Ally",
+        "en": "Ally"
+    },
+    {
+        "opy": "Allies",
+        "en": "Allies"
+    },
+    {
+        "opy": "Alive",
+        "en": "Alive"
+    },
+    {
+        "opy": "Alert",
+        "en": "Alert"
+    },
+    {
+        "opy": "Ability 2",
+        "en": "Ability 2"
+    },
+    {
+        "opy": "Ability 1",
+        "en": "Ability 1"
+    },
+    {
+        "opy": "Ability",
+        "en": "Ability"
+    },
+    {
+        "opy": "Abilities",
+        "en": "Abilities"
+    },
+    {
+        "opy": "???",
+        "en": "???"
+    },
+    {
+        "opy": "??",
+        "en": "??"
+    },
+    {
+        "opy": "?",
+        "en": "?"
+    },
+    {
+        "opy": "...",
+        "en": "..."
+    },
+    {
+        "opy": "----------",
+        "en": "----------"
+    },
+    {
+        "opy": "*",
+        "en": "*"
+    },
+    {
+        "opy": "!!!",
+        "en": "!!!"
+    },
+    {
+        "opy": "!!",
+        "en": "!!"
+    },
+    {
+        "opy": "!",
+        "en": "!"
+    }
+];
 
 var prefixStrKw = [
-
-[["#{0}"], [
-    "#{0}",
-]],
-[["-> {0}"], [
-    "-> {0}",
-]],
-[["<-> {0}"], [
-    "<-> {0}",
-]],
-[["<- {0}"], [
-    "<- {0}",
-]],
-[["Round {0}"], [
-    "Round {0}",
-]],
-
+    {
+        "opy": "#{0}",
+        "en": "#{0}"
+    },
+    {
+        "opy": "-> {0}",
+        "en": "-> {0}"
+    },
+    {
+        "opy": "<-> {0}",
+        "en": "<-> {0}"
+    },
+    {
+        "opy": "<- {0}",
+        "en": "<- {0}"
+    },
+    {
+        "opy": "Round {0}",
+        "en": "Round {0}"
+    }
 ];
 
 var postfixStrKw = [
-[["{0} ->"], [
-    "{0} ->",
-]],
-[["{0} <->"], [
-    "{0} <->",
-]],
-[["{0} <-"], [
-    "{0} <-",
-]],
-[["{0} M/S"], [
-    "{0} M/S",
-]],
-[["{0} M"], [
-    "{0} M",
-]],
-[["{0} Sec"], [
-    "{0} Sec",
-]],
-[["{0}!!!"], [
-    "{0}!!!",
-]],
-[["{0}!!"], [
-    "{0}!!",
-]],
-[["{0}!"], [
-    "{0}!",
-]],
-[["{0}%"], [
-    "{0}%",
-]],
-[["{0}:"], [
-    "{0}:",
-]],
-[["{0}???"], [
-    "{0}???",
-]],
-[["{0}??"], [
-    "{0}??",
-]],
-[["{0}?"], [
-    "{0}?",
-]],
+    {
+        "opy": "{0} ->",
+        "en": "{0} ->"
+    },
+    {
+        "opy": "{0} <->",
+        "en": "{0} <->"
+    },
+    {
+        "opy": "{0} <-",
+        "en": "{0} <-"
+    },
+    {
+        "opy": "{0} M/S",
+        "en": "{0} M/S"
+    },
+    {
+        "opy": "{0} M",
+        "en": "{0} M"
+    },
+    {
+        "opy": "{0} Sec",
+        "en": "{0} Sec"
+    },
+    {
+        "opy": "{0}!!!",
+        "en": "{0}!!!"
+    },
+    {
+        "opy": "{0}!!",
+        "en": "{0}!!"
+    },
+    {
+        "opy": "{0}!",
+        "en": "{0}!"
+    },
+    {
+        "opy": "{0}%",
+        "en": "{0}%"
+    },
+    {
+        "opy": "{0}:",
+        "en": "{0}:"
+    },
+    {
+        "opy": "{0}???",
+        "en": "{0}???"
+    },
+    {
+        "opy": "{0}??",
+        "en": "{0}??"
+    },
+    {
+        "opy": "{0}?",
+        "en": "{0}?"
+    }
 ];
 
 var binaryStrKw = [
-
-[["{0} -> {1}"], [
-    "{0} -> {1}",
-]],
-[["{0} - {1}"], [
-    "{0} - {1}",
-]],
-[["{0} != {1}"], [
-    "{0} != {1}",
-]],
-[["{0} * {1}"], [
-    "{0} * {1}",
-]],
-[["{0} / {1}"], [
-    "{0} / {1}",
-]],
-[["{0} + {1}"], [
-    "{0} + {1}",
-]],
-[["{0} <-> {1}"], [
-    "{0} <-> {1}",
-]],
-[["{0} <- {1}"], [
-    "{0} <- {1}",
-]],
-[["{0} <= {1}"], [
-    "{0} <= {1}",
-]],
-[["{0} < {1}"], [
-    "{0} < {1}",
-]],
-[["{0} == {1}"], [
-    "{0} == {1}",
-]],
-[["{0} = {1}"], [
-    "{0} = {1}",
-]],
-[["{0} >= {1}"], [
-    "{0} >= {1}",
-]],
-[["{0} > {1}"], [
-    "{0} > {1}",
-]],
-[["{0} And {1}"], [
-    "{0} And {1}",
-]],
-[["{0} Vs {1}"], [
-    "{0} Vs {1}",
-]],
-[["{0}, {1}"], [
-    "{0}, {1}",
-]],
-[["{0}: {1}"], [
-    "{0}: {1}",
-]],
-[["{0}:{1}"], [
-    "{0}:{1}",
-]],
-[["{0} {1}"], [
-    "{0} {1}",
-]],
+    {
+        "opy": "{0} -> {1}",
+        "en": "{0} -> {1}"
+    },
+    {
+        "opy": "{0} - {1}",
+        "en": "{0} - {1}"
+    },
+    {
+        "opy": "{0} != {1}",
+        "en": "{0} != {1}"
+    },
+    {
+        "opy": "{0} * {1}",
+        "en": "{0} * {1}"
+    },
+    {
+        "opy": "{0} / {1}",
+        "en": "{0} / {1}"
+    },
+    {
+        "opy": "{0} + {1}",
+        "en": "{0} + {1}"
+    },
+    {
+        "opy": "{0} <-> {1}",
+        "en": "{0} <-> {1}"
+    },
+    {
+        "opy": "{0} <- {1}",
+        "en": "{0} <- {1}"
+    },
+    {
+        "opy": "{0} <= {1}",
+        "en": "{0} <= {1}"
+    },
+    {
+        "opy": "{0} < {1}",
+        "en": "{0} < {1}"
+    },
+    {
+        "opy": "{0} == {1}",
+        "en": "{0} == {1}"
+    },
+    {
+        "opy": "{0} = {1}",
+        "en": "{0} = {1}"
+    },
+    {
+        "opy": "{0} >= {1}",
+        "en": "{0} >= {1}"
+    },
+    {
+        "opy": "{0} > {1}",
+        "en": "{0} > {1}"
+    },
+    {
+        "opy": "{0} And {1}",
+        "en": "{0} And {1}"
+    },
+    {
+        "opy": "{0} Vs {1}",
+        "en": "{0} Vs {1}"
+    },
+    {
+        "opy": "{0}, {1}",
+        "en": "{0}, {1}"
+    },
+    {
+        "opy": "{0}: {1}",
+        "en": "{0}: {1}"
+    },
+    {
+        "opy": "{0}:{1}",
+        "en": "{0}:{1}"
+    },
+    {
+        "opy": "{0} {1}",
+        "en": "{0} {1}"
+    }
 ];
 
 var ternaryStrKw = [
-[["{0} - {1} - {2}"], [
-    "{0} - {1} - {2}",
-]],
-[["{0} : {1} : {2}"], [
-    "{0} : {1} : {2}",
-]],
-[["{0} {1} {2}"], [
-    "{0} {1} {2}",
-]],
-[["{0}, {1}, And {2}"], [
-    "{0}, {1}, And {2}",
-]],
-[["{0}: {1} And {2}"], [
-    "{0}: {1} And {2}",
-]],
+    {
+        "opy": "{0} - {1} - {2}",
+        "en": "{0} - {1} - {2}"
+    },
+    {
+        "opy": "{0} : {1} : {2}",
+        "en": "{0} : {1} : {2}"
+    },
+    {
+        "opy": "{0} {1} {2}",
+        "en": "{0} {1} {2}"
+    },
+    {
+        "opy": "{0}, {1}, And {2}",
+        "en": "{0}, {1}, And {2}"
+    },
+    {
+        "opy": "{0}: {1} And {2}",
+        "en": "{0}: {1} And {2}"
+    }
 ];
 
 var surroundStrKw = [
-[["({0})"], [
-    "({0})",
-]],
-[["¡{0}!"], [
-    "¡{0}!",
-]],
-[["¿{0}?"], [
-    "¿{0}?",
-]],
+    {
+        "opy": "({0})",
+        "en": "({0})"
+    },
+    {
+        "opy": "¡{0}!",
+        "en": "¡{0}!"
+    },
+    {
+        "opy": "¿{0}?",
+        "en": "¿{0}?"
+    }
 ];
 
 var stringKw = normalStrKw.concat(prefixStrKw).concat(postfixStrKw).concat(binaryStrKw).concat(ternaryStrKw).concat(surroundStrKw).concat(emptyStrKw);
+
+/*for (var hero of getConstantKw("HERO CONSTANT")) {
+	stringKw.push(hero.opy);
+}*/
 
 var strTokens = [];
 
 //Generate string tokens
 //normal strings
 for (var j = 0; j < normalStrKw.length; j++) {
-	strTokens.push(normalStrKw[j][0][0].toLowerCase());
+	strTokens.push(normalStrKw[j].opy.toLowerCase());
 }
 
 //prefix strings
 for (var j = 0; j < prefixStrKw.length; j++) {
-	strTokens.push(prefixStrKw[j][0][0].substring(0, prefixStrKw[j][0][0].indexOf("{0}")).toLowerCase());
+	strTokens.push(prefixStrKw[j].opy.substring(0, prefixStrKw[j].opy.indexOf("{0}")).toLowerCase());
 }
 
 //postfix strings
 for (var j = 0; j < postfixStrKw.length; j++) {
-	strTokens.push(postfixStrKw[j][0][0].substring("{0}".length).toLowerCase());
+	strTokens.push(postfixStrKw[j].opy.substring("{0}".length).toLowerCase());
 }
 
 //ternary strings
 for (var j = 0; j < ternaryStrKw.length; j++) {
-	strTokens.push(ternaryStrKw[j][0][0].substring("{0}".length, ternaryStrKw[j][0][0].indexOf("{1}")).toLowerCase());
-	strTokens.push(ternaryStrKw[j][0][0].substring(ternaryStrKw[j][0][0].indexOf("{1}")+"{1}".length, ternaryStrKw[j][0][0].indexOf("{2}")).toLowerCase());
+	strTokens.push(ternaryStrKw[j].opy.substring("{0}".length, ternaryStrKw[j].opy.indexOf("{1}")).toLowerCase());
+	strTokens.push(ternaryStrKw[j].opy.substring(ternaryStrKw[j].opy.indexOf("{1}")+"{1}".length, ternaryStrKw[j].opy.indexOf("{2}")).toLowerCase());
 }
 
 //binary strings
 for (var j = 0; j < binaryStrKw.length; j++) {
-	strTokens.push(binaryStrKw[j][0][0].substring("{0}".length, binaryStrKw[j][0][0].indexOf("{1}")).toLowerCase());
+	strTokens.push(binaryStrKw[j].opy.substring("{0}".length, binaryStrKw[j].opy.indexOf("{1}")).toLowerCase());
 }
 
 
 //surround strings
 for (var j = 0; j < surroundStrKw.length; j++) {
-	strTokens.push(surroundStrKw[j][0][0][0].toLowerCase())
-	strTokens.push(surroundStrKw[j][0][0][surroundStrKw[j][0][0].length-1].toLowerCase())
+	strTokens.push(surroundStrKw[j].opy[0].toLowerCase())
+	strTokens.push(surroundStrKw[j].opy[surroundStrKw[j].opy.length-1].toLowerCase())
 }
 
 //heroes
-for (var j = 0; j < heroKw.length; j++) {
-	strTokens.push(heroKw[j][0][0].toLowerCase());
+for (var hero of getConstantKw("HERO CONSTANT")) {
+	strTokens.push(hero.opy.toLowerCase().substring("Hero.".length));
 }
 
 //Sort reverse alphabetical order for greediness

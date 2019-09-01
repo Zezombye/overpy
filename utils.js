@@ -17,6 +17,10 @@
 
 "use strict";
 
+function getConstantKw(type) {
+	return constantValues[type].values;
+}
+
 //Used for string parsing; splits an array of strings on one or two strings.
 //Eg: splitStrTokens(["owo", "uwu", "owo"], "uwu") will return [["owo"], ["owo"]].
 function splitStrTokens(tokens, str1, str2) {
@@ -110,7 +114,7 @@ function loadVariableNames(names, varKw) {
 		if (index < 0) {
 			error("Illegal variable "+key);
 		} else {
-			varKw[index][0][0] = value;
+			varKw[index].opy = value;
 			result += "#!define "+value+" "+key.toUpperCase()+"\n";
 		}
 	}
@@ -121,7 +125,7 @@ function loadVariableNames(names, varKw) {
 function resetVarNames(varKw) {
 	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	for (var i = 0; i < alphabet.length; i++) {
-		varKw[i][0][0] = alphabet[i];
+		varKw[i].opy = alphabet[i];
 	}
 }
 
@@ -261,22 +265,16 @@ function translate(keyword, toWorkshop, keywordArray) {
 			}
 		}
 	}
-	
-	
-	
+
 	for (var i = 0; i < keywordArray.length; i++) {
 				
 		if (toWorkshop) {
-			//for (var j = 0; j < keywordArray[i][0].length; j++) {
-				if (keywordArray[i][0][0] === keyword) {
-					return keywordArray[i][1][currentLanguage];
-				}
-			//}
+			if (keywordArray[i].opy === keyword) {
+				return keywordArray[i][currentLanguage];
+			}
 		} else {
-			for (var j = 0; j < keywordArray[i][1].length; j++) {
-				if (keywordArray[i][1][j].toLowerCase() === keyword) {
-					return keywordArray[i][0][0];
-				}
+			if (keywordArray[i][currentLanguage].toLowerCase() === keyword) {
+				return keywordArray[i].opy;
 			}
 		}
 		
@@ -496,7 +494,7 @@ function startsWithParenthesis(content) {
 	return false;
 }
 
-//Returns true if c is [A-Za-z\d_].
+//Returns true if c is [A-Za-z\d_@].
 function isVarChar(c) {
 	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_' || c === '@';
 }
@@ -566,3 +564,5 @@ function debug(str, arg) {
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+
