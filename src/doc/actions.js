@@ -20,7 +20,7 @@ var actionKw = [
         "opy": "return",
         "en": "abort",
         "description": "Stops execution of the action list.",
-        "args": []
+        "args": null
     },
     {
         "opy": "_abortIf",
