@@ -1,4 +1,4 @@
-# OverPy v1.2
+# OverPy v1.3
 High-level language for the Overwatch Workshop with support for compilation and decompilation.
 
 The philosophy behind this language is "what would the workshop be like if it was coded in Python?" As such, this language aims to be as Python-like as reasonably possible.
@@ -14,8 +14,6 @@ If someone posts workshop code, the bot will reply with the decompiled version (
 [Try it out here!](https://zezombye.github.io/overpy/demo)
 
 ![owo](https://i.imgur.com/MGru5kS.png)
-
-To access the demo page, simply clone the repository (or download the zip) then open demo.html with your browser.
 
 The demo page is divided in 3 parts.
 

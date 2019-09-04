@@ -6,16 +6,17 @@ overpyFiles = [
 	"utils.js",
 	"overpyDecompiler.js",
 	"overpyCompiler.js",
-	"actions.js",
-	"values.js",
-	"constants.js",
-	"keywords.js",
-	"stringKw.js",
+	"doc/actions.js",
+	"doc/values.js",
+	"doc/constants.js",
+	"doc/keywords.js",
+	"doc/stringKw.js",
+	"doc/specialFuncDoc.js",
 ];
 
 var overpyCode = "";
 for (file of overpyFiles) {
-	overpyCode += fs.readFileSync(process.cwd()+"/../"+file).toString()
+	overpyCode += fs.readFileSync(process.cwd()+"/../src/"+file).toString()
 }
 
 overpyCode += `
@@ -23,7 +24,16 @@ module.exports = {
 	decompileAllRules: decompileAllRules,
 	decompileActions: decompileActions,
     decompileConditions: decompileConditions,
-    compile: compile,
+	compile: compile,
+	actionKw: actionKw,
+	valueFuncKw: valueFuncKw,
+	constantValues: constantValues,
+	eventKw: eventKw,
+	ruleKw: ruleKw,
+	stringKw: stringKw,
+	specialFuncs: specialFuncs,
+	specialMemberFuncs: specialMemberFuncs,
+
 };
 `
 

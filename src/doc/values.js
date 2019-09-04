@@ -250,13 +250,13 @@ var valueFuncKw = [
         "opy": "attacker",
         "en": "attacker",
         "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
-        "args": []
+        "args": null
     },
     {
         "opy": "Vector.BACKWARD",
         "en": "backward",
         "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
-        "args": []
+        "args": null
     },
     {
         "opy": "_&getClosestPlayer",
@@ -484,7 +484,7 @@ var valueFuncKw = [
         "opy": "Vector.DOWN",
         "en": "down",
         "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
-        "args": []
+        "args": null
     },
     {
         "opy": "_emptyArray",
@@ -509,25 +509,26 @@ var valueFuncKw = [
         "opy": "eventDamage",
         "en": "eventDamage",
         "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
-        "args": []
+        "args": null
     },
     {
         "opy": "eventHealing",
         "en": "eventHealing",
         "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
-        "args": []
+        "args": null
     },
     {
         "opy": "eventPlayer",
         "en": "eventPlayer",
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
-        "args": []
+        "args": null,
+        "completionPrecedence": 100
     },
     {
         "opy": "eventWasCriticalHit",
         "en": "eventWasCriticalHit",
         "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
-        "args": []
+        "args": null
     },
     {
         "opy": "_&getEyePosition",
@@ -559,7 +560,7 @@ var valueFuncKw = [
         "opy": "false",
         "en": "false",
         "description": "The boolean value of false.",
-        "args": []
+        "args": null
     },
     {
         "opy": "getFarthestPlayer",
@@ -629,7 +630,7 @@ var valueFuncKw = [
         "opy": "Vector.FORWARD",
         "en": "forward",
         "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
-        "args": []
+        "args": null
     },
     {
         "opy": "_globalVar",
@@ -680,13 +681,13 @@ var valueFuncKw = [
         "opy": "healee",
         "en": "healee",
         "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
-        "args": []
+        "args": null
     },
     {
         "opy": "healer",
         "en": "healer",
         "description": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player.",
-        "args": []
+        "args": null
     },
     {
         "opy": "_&getHealth",
@@ -815,7 +816,7 @@ var valueFuncKw = [
         "opy": "hostPlayer",
         "en": "hostPlayer",
         "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
-        "args": []
+        "args": null
     },
     {
         "opy": "_indexOfArrayValue",
@@ -1401,7 +1402,7 @@ var valueFuncKw = [
         "opy": "Vector.LEFT",
         "en": "left",
         "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
-        "args": []
+        "args": null
     },
     {
         "opy": "localVector",
@@ -1566,13 +1567,14 @@ var valueFuncKw = [
                 "type": "BOOLEAN",
                 "default": "TRUE"
             }
-        ]
+        ],
+        "snippet": "not",
     },
     {
         "opy": "null",
         "en": "null",
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
-        "args": []
+        "args": null
     },
     {
         "opy": "getNumberOfDeadPlayers",
@@ -2128,7 +2130,7 @@ var valueFuncKw = [
         "opy": "Vector.RIGHT",
         "en": "right",
         "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
-        "args": []
+        "args": null
     },
     {
         "opy": "_round",
@@ -2382,7 +2384,7 @@ var valueFuncKw = [
         "opy": "true",
         "en": "true",
         "description": "The boolean value of true.",
-        "args": []
+        "args": null
     },
     {
         "opy": "_&getUltCharge",
@@ -2401,7 +2403,7 @@ var valueFuncKw = [
         "opy": "Vector.UP",
         "en": "up",
         "description": "Shorthand for the directional vector(0, l, 0), which points upward.",
-        "args": []
+        "args": null
     },
     {
         "opy": "_valueInArray",
@@ -2541,7 +2543,7 @@ var valueFuncKw = [
         "opy": "victim",
         "en": "victim",
         "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
-        "args": []
+        "args": null
     },
     {
         "opy": "worldVector",
