@@ -84,7 +84,7 @@ For line of sight, the 3rd argument must be \`los=\` and the 4th and 5th argumen
 
 Examples:
 - \`raycast(A, B, include=C, exclude=D, includePlayerObjects=false).getHitPosition()\`
-- \`raycast(A, B, los=LosCheck.BLOCKED_BY_ALL_BARRIERS).hasLoS()\``,
+- \`raycast(A, B, los=BarrierLos.BLOCKED_BY_ALL_BARRIERS).hasLoS()\``,
         args: [
             {
                 "name": "START POS",
@@ -100,7 +100,7 @@ Examples:
             },
             {
                 "name": "include=players To Include",
-                "description": "Which players can be hit by this ray cast. Note: if doing a line-of-sight check, use `los=LosCheck.xxxx` instead.",
+                "description": "Which players can be hit by this ray cast. Note: if doing a line-of-sight check, use `los=BarrierLos.xxxx` instead.",
                 "type": "PLAYER",
                 "default": "ALL PLAYERS"
             },
