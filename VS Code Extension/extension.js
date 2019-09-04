@@ -177,11 +177,11 @@ const decompilerUI = [`
  * @param {vscode.ExtensionContext} context
  */
 
-const funcDoc = overpy.actionKw.concat(overpy.valueFuncKw);
+const funcDoc = JSON.parse(JSON.stringify(overpy.actionKw.concat(overpy.valueFuncKw)));
 
-const constTypes = overpy.constantValues;
+const constTypes = JSON.parse(JSON.stringify(overpy.constantValues));
 
-const funcList = overpy.specialFuncs;
+const funcList = JSON.parse(JSON.stringify(overpy.specialFuncs));
 
 for (func of funcDoc) {
     if (func.opy.startsWith("_!") || !func.opy.startsWith("_")) {
@@ -241,7 +241,7 @@ const metaRuleParams = [
 ]
 
 //Functions that come after a dot.
-const memberFuncList = overpy.specialMemberFuncs;
+const memberFuncList = JSON.parse(JSON.stringify(overpy.specialMemberFuncs));
 
 for (func of funcDoc) {
     if (func.opy.startsWith("_&")) {
@@ -671,6 +671,10 @@ function getSuitableArgType(type) {
 
     if (type in constTypes) {
         return constTypes[type].opy;
+    } else if (type === "ANY") {
+        return "Object";
+    } else if (type === "ARRAY") {
+        return "Object[]";
     } else {
         type = type[0].toUpperCase() + type.substring(1).toLowerCase();
     }

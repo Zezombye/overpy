@@ -6,9 +6,9 @@
 #!define turretHorizontalAngle D
 #!define turretVerticalAngle E
 
-#!define grappleCannon(start, end) createBeam(getPlayers(Team.ALL), Beam.GRAPPLE, cannonPos+start, cannonPos+end, Color.PURPLE, Reeval.VISIBILITY_POSITION_AND_RADIUS)
-#!define grappleTurret(start, end) createBeam(getPlayers(Team.ALL), Beam.GRAPPLE, turretPos+start, turretPos+end, Color.PURPLE, Reeval.VISIBILITY_POSITION_AND_RADIUS)
-#!define grapple(start, end) createBeam(getPlayers(Team.ALL), Beam.GRAPPLE, tankPos+start, tankPos+end, Color.PURPLE, Reeval.VISIBILITY_POSITION_AND_RADIUS)
+#!define grappleCannon(start, end) createBeam(getPlayers(Team.ALL), Beam.GRAPPLE, cannonPos+start, cannonPos+end, Color.PURPLE, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+#!define grappleTurret(start, end) createBeam(getPlayers(Team.ALL), Beam.GRAPPLE, turretPos+start, turretPos+end, Color.PURPLE, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+#!define grapple(start, end) createBeam(getPlayers(Team.ALL), Beam.GRAPPLE, tankPos+start, tankPos+end, Color.PURPLE, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
 
 #!define tankTurretPlayerPos vect(sinDeg(turretHorizontalAngle)*cosDeg(turretVerticalAngle)*2.5 + cosDeg(turretHorizontalAngle)*0.25 + sinDeg(turretHorizontalAngle)*sinDeg(turretVerticalAngle)*0.13, (0-sinDeg(turretVerticalAngle))*2.5 + cosDeg(turretVerticalAngle)*0.13, cosDeg(turretHorizontalAngle)*cosDeg(turretVerticalAngle)*2.5 + (0-sinDeg(turretHorizontalAngle))*0.25 + cosDeg(turretHorizontalAngle)*sinDeg(turretVerticalAngle)*0.13)
 
@@ -44,7 +44,7 @@ if eventPlayer == hostPlayer and eventPlayer.hasSpawned():
     wait(1)
     createDummy(Hero.PHARAH, Team.1, 1, hostPlayer.getPosition(), vect(0, 0, 1))
     tankTurretPlayer = getLastCreatedEntity()
-    tankTurretPlayer.startFacing(hostPlayer.getFacingDirection(), 9999, Relativity.TO_WORLD, Reeval.DIRECTION_AND_TURN_RATE)
+    tankTurretPlayer.startFacing(hostPlayer.getFacingDirection(), 9999, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
     tankTurretPlayer.setStatusEffect(null, Status.PHASED_OUT, 9999)
     tankTurretPlayer.setInvisibility(Invis.ALL)
     #wait(0.25)
@@ -54,28 +54,28 @@ if eventPlayer == hostPlayer and eventPlayer.hasSpawned():
     
     createDummy(Hero.PHARAH, Team.1, 2, hostPlayer.getPosition(), vect(0, 0, 1))
     tankTurretPlayer2 = getLastCreatedEntity()
-    tankTurretPlayer2.startFacing(hostPlayer.getFacingDirection(), 9999, Relativity.TO_WORLD, Reeval.DIRECTION_AND_TURN_RATE)
+    tankTurretPlayer2.startFacing(hostPlayer.getFacingDirection(), 9999, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
     tankTurretPlayer2.setStatusEffect(null, Status.PHASED_OUT, 9999)
     tankTurretPlayer2.setInvisibility(Invis.ALL)
 
     
     createDummy(Hero.PHARAH, Team.1, 3, hostPlayer.getPosition(), vect(0, 0, 1))
     tankTurretPlayer3 = getLastCreatedEntity()
-    tankTurretPlayer3.startFacing(hostPlayer.getFacingDirection(), 9999, Relativity.TO_WORLD, Reeval.DIRECTION_AND_TURN_RATE)
+    tankTurretPlayer3.startFacing(hostPlayer.getFacingDirection(), 9999, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
     tankTurretPlayer3.setStatusEffect(null, Status.PHASED_OUT, 9999)
     tankTurretPlayer3.setInvisibility(Invis.ALL)
 
     
     createDummy(Hero.PHARAH, Team.1, 4, hostPlayer.getPosition(), vect(0, 0, 1))
     tankTurretPlayer4 = getLastCreatedEntity()
-    tankTurretPlayer4.startFacing(hostPlayer.getFacingDirection(), 9999, Relativity.TO_WORLD, Reeval.DIRECTION_AND_TURN_RATE)
+    tankTurretPlayer4.startFacing(hostPlayer.getFacingDirection(), 9999, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
     tankTurretPlayer4.setStatusEffect(null, Status.PHASED_OUT, 9999)
     tankTurretPlayer4.setInvisibility(Invis.ALL)
 
     
     createDummy(Hero.PHARAH, Team.1, 5, hostPlayer.getPosition(), vect(0, 0, 1))
     tankTurretPlayer5 = getLastCreatedEntity()
-    tankTurretPlayer5.startFacing(hostPlayer.getFacingDirection(), 9999, Relativity.TO_WORLD, Reeval.DIRECTION_AND_TURN_RATE)
+    tankTurretPlayer5.startFacing(hostPlayer.getFacingDirection(), 9999, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
     tankTurretPlayer5.setStatusEffect(null, Status.PHASED_OUT, 9999)
     tankTurretPlayer5.setInvisibility(Invis.ALL)
 
