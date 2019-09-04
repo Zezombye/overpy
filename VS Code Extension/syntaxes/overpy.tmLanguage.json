@@ -40,7 +40,7 @@
 					"match": "\\b(and|or|not|in)\\b|((\\+|\\-|\\*\\*|\\/|\\%|\\*|<|>)=?)|(\\=)|\\.|((min|max|\\!)\\=)"
 				},{
 					"name": "variable.other",
-					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|healee|healer|hostPlayer|loc|RULE_CONDITION|[A-Z])\\b"
+					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|healee|healer|hostPlayer|loc|RULE_CONDITION|[A-Z])\\b"
 				},{
 					"name": "constant.numeric",
 					"match": "\\@(Rule|Event|Team|Slot|Hero)\\b"
