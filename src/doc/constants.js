@@ -141,6 +141,7 @@ var constantValues = {
         ]
     },
     "OPERATION": {
+        "opy": "Operation",
         "values": [
             {
                 "opy": "_add",
@@ -335,6 +336,7 @@ var constantValues = {
         ]
     },
     "VARIABLE": {
+        "opy": "Variable",
         "values": [
             {
                 "opy": "A",
@@ -443,46 +445,46 @@ var constantValues = {
         ]
     },
     "PLAY EFFECT": {
-        "opy": "Effect",
+        "opy": "DynamicEffect",
         "values": [
             {
-                "opy": "Effect.BAD_EXPLOSION",
+                "opy": "DynamicEffect.BAD_EXPLOSION",
                 "en": "BadExplosion"
             },
             {
-                "opy": "Effect.BAD_PICKUP_EFFECT",
+                "opy": "DynamicEffect.BAD_PICKUP_EFFECT",
                 "en": "BadPickupEffect"
             },
             {
-                "opy": "Effect.BUFF_EXPLOSION_SOUND",
+                "opy": "DynamicEffect.BUFF_EXPLOSION_SOUND",
                 "en": "BuffExplosionSound"
             },
             {
-                "opy": "Effect.BUFF_IMPACT_SOUND",
+                "opy": "DynamicEffect.BUFF_IMPACT_SOUND",
                 "en": "BuffImpactSound"
             },
             {
-                "opy": "Effect.DEBUFF_IMPACT_SOUND",
+                "opy": "DynamicEffect.DEBUFF_IMPACT_SOUND",
                 "en": "DebuffImpactSound"
             },
             {
-                "opy": "Effect.EXPLOSION_SOUND",
+                "opy": "DynamicEffect.EXPLOSION_SOUND",
                 "en": "ExplosionSound"
             },
             {
-                "opy": "Effect.GOOD_EXPLOSION",
+                "opy": "DynamicEffect.GOOD_EXPLOSION",
                 "en": "GoodExplosion"
             },
             {
-                "opy": "Effect.GOOD_PICKUP_EFFECT",
+                "opy": "DynamicEffect.GOOD_PICKUP_EFFECT",
                 "en": "GoodPickupEffect"
             },
             {
-                "opy": "Effect.RING_EXPLOSION",
+                "opy": "DynamicEffect.RING_EXPLOSION",
                 "en": "RingExplosion"
             },
             {
-                "opy": "Effect.RING_EXPLOSION_SOUND",
+                "opy": "DynamicEffect.RING_EXPLOSION_SOUND",
                 "en": "RingExplosionSound"
             }
         ]
@@ -860,142 +862,142 @@ var constantValues = {
         ]
     },
     "ICON REEVALUATION": {
-        "opy": "Reeval",
+        "opy": "IconReeval",
         "values": [
             {
-                "opy": "Reeval.POSITION",
+                "opy": "IconReeval.POSITION",
                 "en": "Position"
             },
             {
-                "opy": "Reeval.NONE",
+                "opy": "IconReeval.NONE",
                 "en": "None"
             },
             {
-                "opy": "Reeval.VISIBILITY",
+                "opy": "IconReeval.VISIBILITY",
                 "en": "VisibleTo"
             },
             {
-                "opy": "Reeval.VISIBILITY_AND_POSITION",
+                "opy": "IconReeval.VISIBILITY_AND_POSITION",
                 "en": "VisibleToAndPosition"
             }
         ]
     },
     "EFFECT REEVALUATION": {
-        "opy": "Reeval",
+        "opy": "EffectReeval",
         "values": [
             {
-                "opy": "Reeval.POSITION_AND_RADIUS",
+                "opy": "EffectReeval.POSITION_AND_RADIUS",
                 "en": "PositionAndRadius"
             },
             {
-                "opy": "Reeval.NONE",
+                "opy": "EffectReeval.NONE",
                 "en": "None"
             },
             {
-                "opy": "Reeval.VISIBILITY",
+                "opy": "EffectReeval.VISIBILITY",
                 "en": "VisibleTo"
             },
             {
-                "opy": "Reeval.VISIBILITY_POSITION_AND_RADIUS",
+                "opy": "EffectReeval.VISIBILITY_POSITION_AND_RADIUS",
                 "en": "VisibleToPositionAndRadius"
             }
         ]
     },
     "HUD TEXT REEVALUATION": {
-        "opy": "Reeval",
+        "opy": "HudReeval",
         "values": [
             {
-                "opy": "Reeval.STRING",
+                "opy": "HudReeval.STRING",
                 "en": "String"
             },
             {
-                "opy": "Reeval.VISIBILITY_AND_STRING",
+                "opy": "HudReeval.VISIBILITY_AND_STRING",
                 "en": "VisibleToAndString"
             }
         ]
     },
     "WORLD TEXT REEVALUATION": {
-        "opy": "Reeval",
+        "opy": "WorldTextReeval",
         "values": [
             {
-                "opy": "Reeval.STRING",
+                "opy": "WorldTextReeval.STRING",
                 "en": "String"
             },
             {
-                "opy": "Reeval.VISIBILITY_AND_STRING",
+                "opy": "WorldTextReeval.VISIBILITY_AND_STRING",
                 "en": "VisibleToAndString"
             },
             {
-                "opy": "Reeval.VISIBILITY_POSITION_AND_STRING",
+                "opy": "WorldTextReeval.VISIBILITY_POSITION_AND_STRING",
                 "en": "VisibleToPositionAndString"
             }
         ]
     },
     "CHASE RATE REEVALUATION": {
-        "opy": "Reeval",
+        "opy": "ChaseReeval",
         "values": [
             {
-                "opy": "Reeval.DESTINATION_AND_RATE",
+                "opy": "ChaseReeval.DESTINATION_AND_RATE",
                 "en": "DestinationAndRate"
             },
             {
-                "opy": "Reeval.NONE",
+                "opy": "ChaseReeval.NONE",
                 "en": "None"
             }
         ]
     },
     "CHASE TIME REEVALUATION": {
-        "opy": "Reeval",
+        "opy": "ChaseReeval",
         "values": [
             {
-                "opy": "Reeval.DESTINATION_AND_DURATION",
+                "opy": "ChaseReeval.DESTINATION_AND_DURATION",
                 "en": "DestinationAndDuration"
             },
             {
-                "opy": "Reeval.NONE",
+                "opy": "ChaseReeval.NONE",
                 "en": "None"
             }
         ]
     },
     "OBJECTIVE DESCRIPTION REEVALUATION": {
-        "opy": "Reeval",
+        "opy": "HudReeval",
         "values": [
             {
-                "opy": "Reeval.STRING",
+                "opy": "HudReeval.STRING",
                 "en": "String"
             },
             {
-                "opy": "Reeval.VISIBILITY_AND_STRING",
+                "opy": "HudReeval.VISIBILITY_AND_STRING",
                 "en": "VisibleToAndString"
             }
         ]
     },
     "DAMAGE MODIFICATION REEVALUATION": {
-        "opy": "Reeval",
+        "opy": "DamageReeval",
         "values": [
             {
-                "opy": "Reeval.NONE",
+                "opy": "DamageReeval.NONE",
                 "en": "None"
             },
             {
-                "opy": "Reeval.RECEIVERS_AND_DAMAGERS",
+                "opy": "DamageReeval.RECEIVERS_AND_DAMAGERS",
                 "en": "ReceiversAndDamagers"
             },
             {
-                "opy": "Reeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT",
+                "opy": "DamageReeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT",
                 "en": "ReceiversDamagersAndDamagePercent"
             }
         ]
     },
     "FACING REEVALUATION": {
-        "opy": "Reeval",
+        "opy": "FacingReeval",
         "values": [
             {
-                "opy": "Reeval.DIRECTION_AND_TURN_RATE",
+                "opy": "FacingReeval.DIRECTION_AND_TURN_RATE",
                 "en": "DirectionAndTurnRate"
             },
             {
-                "opy": "Reeval.NONE",
+                "opy": "FacingReeval.NONE",
                 "en": "None"
             }
         ]
@@ -1018,18 +1020,18 @@ var constantValues = {
         ]
     },
     "BARRIERS LOS": {
-        "opy": "LosCheck",
+        "opy": "BarrierLos",
         "values": [
             {
-                "opy": "LosCheck.BLOCKED_BY_ENEMY_BARRIERS",
+                "opy": "BarrierLos.BLOCKED_BY_ENEMY_BARRIERS",
                 "en": "EnemyBarriersBlockLos"
             },
             {
-                "opy": "LosCheck.BLOCKED_BY_ALL_BARRIERS",
+                "opy": "BarrierLos.BLOCKED_BY_ALL_BARRIERS",
                 "en": "AllBarriersBlockLos"
             },
             {
-                "opy": "LosCheck.PASS_THROUGH_BARRIERS",
+                "opy": "BarrierLos.PASS_THROUGH_BARRIERS",
                 "en": "BarriersDoNotBlockLos"
             }
         ]
@@ -1127,14 +1129,14 @@ var constantValues = {
         ]
     },
     "THROTTLE REEVALUATION": {
-        "opy": "Reeval",
+        "opy": "ThrottleReeval",
         "values": [
             {
-                "opy": "Reeval.DIRECTION_AND_MAGNITUDE",
+                "opy": "ThrottleReeval.DIRECTION_AND_MAGNITUDE",
                 "en": "Directionandmagnitude"
             },
             {
-                "opy": "Reeval.NONE",
+                "opy": "ThrottleReeval.NONE",
                 "en": "None"
             }
         ]
