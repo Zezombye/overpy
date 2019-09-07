@@ -34,7 +34,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.overpy",
-					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|del)\\b"
+					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|del|import)\\b"
 				},{
 					"name": "keyword.other.overpy",
 					"match": "\\b(and|or|not|in)\\b|((\\+|\\-|\\*\\*|\\/|\\%|\\*|<|>)=?)|(\\=)|\\.|((min|max|\\!)\\=)"
@@ -43,19 +43,19 @@
 					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|healee|healer|hostPlayer|loc|RULE_CONDITION|[A-Z])\\b"
 				},{
 					"name": "constant.numeric",
-					"match": "\\@(Rule|Event|Team|Slot|Hero)\\b"
+					"match": "\\@\\w+\\b"
 				},{
 					"name": "entity.name.function",
-					"match": "(?<=\\@Event )(global|eachPlayer|playerTookDamage|playerDealtDamage|playerDealtFinalBlow|playerDied|playerEarnedElimination|playerDealtHealing|playerReceivedHealing|playerJoined|playerLeft)\\b"
+					"match": "(?<=\\@Event )\\w+\\b"
 				},{
 					"name": "entity.name.function",
-					"match": "(?<=\\@Team )(all|1|2)\\b"
+					"match": "(?<=\\@Team )\\w+\\b"
 				},{
 					"name": "entity.name.function",
-					"match": "(?<=\\@Slot )(\\d|10|11)\\b"
+					"match": "(?<=\\@Slot )\\w+\\b"
 				},{
 					"name": "entity.name.function",
-					"match": "(?<=\\@Hero )(ana|ashe|baptiste|bastion|brigitte|dva|doomfist|genji|hanzo|junkrat|lucio|mccree|mei|mercy|moira|orisa|pharah|reaper|reinhardt|roadhog|sigma|soldier|sombra|symmetra|torbjorn|tracer|widowmaker|winston|hammond|zarya|zenyatta)\\b"
+					"match": "(?<=\\@Hero )\\w+\\b"
 				}
 			]
 		},
@@ -99,7 +99,7 @@
 		},
 		"macros": {
 			"name": "support.class",
-			"begin": "#!define",
+			"begin": "#!",
 			"end": "(?<!\\\\)\\n"
 			
 		},
@@ -117,7 +117,7 @@
 			"patterns": [
 				{
 					"name": "invalid.illegal",
-					"match": "\\b(False|True|None|Null|class|finally|is|try|def|from|nonlocal|with|as|yield|assert|import|pass|break|except|raise)\\b"
+					"match": "\\b(False|True|None|Null|class|finally|is|try|def|from|nonlocal|with|as|yield|assert|pass|break|except|raise)\\b"
 				}
 			]
 		},
@@ -133,7 +133,7 @@
 			"patterns": [
 				{
 					"name": "constant.character.escape",
-					"match": "\\b[A-Z][a-z_]+\\b"
+					"match": "\\b[A-Z][a-z_]\\w*\\b"
 				}
 			]
 		}
