@@ -340,7 +340,7 @@ function activate(context) {
         } catch (e) {
             if (e instanceof Error) {
                 vscode.window.showErrorMessage("Error: "+e.message);
-                try {
+                /*try {
                     var errorLine = parseInt(e.message.substring(e.message.indexOf("line ")+"line ".length, e.message.indexOf(",")))-1;
                     var errorCol = parseInt(e.message.substring(e.message.indexOf("col ")+"col ".length, e.message.indexOf(":")))-1;
 
@@ -349,7 +349,7 @@ function activate(context) {
                     vscode.window.activeTextEditor.revealRange(new vscode.Range((errorLine > 10 ? errorLine-10 : 0), errorCol, errorLine+10, errorCol));
                 } catch (e) {
                     console.error(e);
-                }
+                }*/
                 //vscode.window.activeTextEditor.document.
             } else {
                 console.error(e);

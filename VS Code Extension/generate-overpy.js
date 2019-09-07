@@ -4,8 +4,9 @@ const fs = require("fs");
 overpyFiles = [
 	"globalVars.js",
 	"utils.js",
-	"overpyDecompiler.js",
-	"overpyCompiler.js",
+	"decompiler.js",
+	"tokenizer.js",
+	"compiler.js",
 	"doc/actions.js",
 	"doc/values.js",
 	"doc/constants.js",

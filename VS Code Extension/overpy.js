@@ -17,8 +17,10 @@
 
 "use strict";
 
-var currentLineNb = 0;
-var currentColNb = 0;
+
+//The stack of the files (macros count as "files").
+//Is reset at each compilation.
+var fileStack = [];
 
 //Global variable used for "skip ifs", to keep track of where the skip if ends.
 //Is reset at each rule. (for decompilation)
@@ -123,6 +125,42 @@ var pyOperators = [
  */
 
 "use strict";
+
+function getFilenameFromPath(path) {
+	return path.split('\\').pop().split('/').pop();
+}
+
+function getFilePath(pathStr) {
+	pathStr = pathStr.trim();
+	debug("path str = "+pathStr);
+	if (!(pathStr.startsWith("'") && pathStr.endsWith("'")) && !(pathStr.startsWith('"') && pathStr.endsWith('"'))) {
+		error("Expected a string but found '"+pathStr+"'");
+	}
+	pathStr = pathStr.substring(1, pathStr.length-1);
+	pathStr = pathStr.replace(/\\("|')/g, "$1");
+	pathStr = pathStr.replace(/\\\\/g, "\\");
+	debug("Path str is now '"+pathStr+"'");
+	return pathStr;
+}
+
+function getFileContent(path) {
+	
+	var fs;
+	try {
+		fs = require("fs");
+	} catch (e) {
+		error("Cannot use 'import' statement in browsers");
+	}
+	try {
+		return fs.readFileSync(path);
+	} catch (e) {
+		error(e);
+	}
+}
+
+function getFileStackCopy() {
+	return fileStack.map(x => Object.assign({}, x));
+}
 
 function getConstantKw(type) {
 	return constantValues[type].values;
@@ -362,7 +400,7 @@ function translate(keyword, toWorkshop, keywordArray) {
 		}
 	}
 	debug("Translating keyword '"+keyword+"'");
-	debug(keywordArray === stringKw);
+	//debug(keywordArray === stringKw);
 	
 	//Check for current array element
 	if (toWorkshop) {
@@ -404,8 +442,7 @@ function tows(keyword, keywordArray) {
 	
 	//Check if a token was passed, or a string
 	if (typeof keyword === "object") {
-		currentLineNb = keyword.lineNb;
-		currentColNb = keyword.colNb;
+		fileStack = keyword.fileStack;
 		return translate(keyword.text, true, keywordArray);
 	} else {
 		return translate(keyword, true, keywordArray);
@@ -645,18 +682,20 @@ function dispTokens(content) {
 function error(str, token) {
 	
 	if (token !== undefined) {
-		currentLineNb = token.lineNb;
-		currentColNb = token.colNb;
+		fileStack = token.fileStack;
 	}
 	
 	//var error = "ERROR: ";
 	var error = "";
-	if (currentLineNb !== undefined && currentLineNb > 0) {
-		error += "line "+currentLineNb+", col "+currentColNb+": ";
-	}
 	error += str;
 	if (token !== undefined) {
 		error += "'"+dispTokens(token)+"'";
+	}
+	if (fileStack.length !== 0) {
+		fileStack.reverse();
+		for (var file of fileStack) {
+			error += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+		}
 	}
 	
 	throw new Error(error);
@@ -664,7 +703,7 @@ function error(str, token) {
 
 function debug(str, arg) {
 	//return;
-	console.log("DEBUG: "+str);
+	console.debug("DEBUG: "+str);
 }
 
 //ty stackoverflow
@@ -1876,6 +1915,578 @@ function decompileOperator(operand1, operator, operand2) {
 	
 }
 
+
+
+/*
+Really a class, but I couldn't manage to make the "class" keyword work.
+*/
+function Macro(text, replacement, args) {
+	
+	if (args === undefined || args.length === 0) {
+		this.isFunction = false;
+	} else {
+		this.isFunction = true;
+		this.args = args;
+	}
+	this.text = text;
+	this.replacement = replacement;
+}
+
+/*
+Splits the content to return an array of rules, with an array of (effective) lines.
+We cannot do split('\n') because we need to handle backslashed lines, and multi-line functions.
+For example, the following will count as 1 line:
+
+function(arg1, arg2,
+	arg3, arg4)
+	
+As well as the following:
+
+#!define owo(x) function(x)\
+function(y)
+
+While we're at it, this function also automatically removes comments,
+and splits rules as well as macros.
+It also resolves macros, and tokenizes.
+*/
+
+function tokenize(content) {
+	
+	if (!content.endsWith('\n')) {
+		content += '\n';
+	}
+	
+	//Not the full list of tokens; namely, brackets aren't in this list.
+	//Sorted by longest first, for greediness.
+	var tokens = [
+		"==",
+		"!=",
+		"<=",
+		">=",
+		"+=",
+		"-=",
+		"*=",
+		"/=",
+		"%=",
+		"**=",
+		"<",
+		">",
+		"=",
+		"++",
+		"--",
+		"+",
+		"-",
+		",",
+		"/",
+		"%",
+		"**",
+		"*",
+		".",
+		":",
+		"\\",
+	];
+	
+	
+	var rules = [];
+	var macros = [];
+	
+	var isInSpecial = false;
+	//var isInString = false;
+	var currentStrDelimiter = "";
+	var isInLineComment = false;
+	var isInStrComment = false;
+	var isInMacro = false;
+	var currentStrCommentDelimiter = "";
+	var bracketsLevel = 0;
+	var isInRule = false;
+	var currentRule = {};
+	var currentRuleLine = {};
+	//var currentToken = {"text":""};
+	var currentMacro = {};
+	var isBackslashed = false;
+	var isInTextToken = false;
+	
+	//"Timer" used for the end of a multiline string.
+    var strCommentTimer = 0;
+    
+    fileStack = [{
+        "name": "<main>",
+        "currentLineNb": 1,
+        "currentColNb": 0,
+        "remainingChars": content.length+1, //does not matter
+    }];
+	
+	var i = 0;
+	
+	function addToken(text) {
+		
+		if (text.length === 0) {
+			error("Token is empty, lexer broke");
+		}
+		
+		//debug("Adding token '"+text+"' at "+currentLineNb+":"+currentColNb);
+		
+		currentRuleLine.tokens.push({
+			"fileStack": getFileStackCopy(),
+			"text":text
+		});
+		
+		i += text.length-1;
+		fileStack[fileStack.length-1].currentColNb += text.length-1;
+		fileStack[fileStack.length-1].remainingChars -= text.length-1;
+    }
+    
+    //Length = length of the macro resolution
+    //callCols, callLines = how many cols/lines the macro CALL takes
+    //callNbChars = how many characters the macro call takes
+    //Name: used in stack trace, should be macro name or file name
+    //startingCol, startingLine: the col/line of the macro start in the file it is declared
+    function addFile(length, callNbChars, callCols, callLines, name, startingCol, startingLine) {
+        fileStack.push({
+            name,
+            remainingChars: length,
+            callNbChars,
+            callCols,
+            callLines,
+            currentLineNb: 0+startingLine,
+            currentColNb: 0+startingCol,
+        });
+        //console.log(JSON.stringify(fileStack));
+    }
+	
+	function newRuleLine() {
+		
+		if (currentRuleLine.tokens !== undefined && currentRuleLine.tokens.length > 0) {
+			currentRule.lines.push(currentRuleLine);
+		}
+		
+		currentRuleLine = {
+			"indentLevel":0,
+			"tokens":[]
+		};
+	}
+	
+	newRuleLine();
+		
+	for (i = 0; i < content.length; i++) {
+		
+		//console.log(i);
+        //await sleep(5);
+        //console.log(JSON.stringify(fileStack));
+
+        isInSpecial = (isInLineComment || isInStrComment || isInMacro);
+		
+		if (fileStack[fileStack.length-1].remainingChars > 0) {
+			fileStack[fileStack.length-1].remainingChars--;
+			if (fileStack[fileStack.length-1].remainingChars === 0) {
+				//debug("macro lines = "+macroLines+", macro cols = "+macroCols);
+				fileStack[fileStack.length-2].currentLineNb += fileStack[fileStack.length-1].callLines;
+                fileStack[fileStack.length-2].currentColNb += fileStack[fileStack.length-1].callLines-1;
+                fileStack[fileStack.length-2].remainingChars -= fileStack[fileStack.length-1].callNbChars;
+                fileStack.pop();
+			}
+        }
+        
+        fileStack[fileStack.length-1].currentColNb++;
+				
+		if (strCommentTimer > 0) {
+			strCommentTimer--;
+			if (strCommentTimer === 0) {
+				isInStrComment = false;
+			}
+		}
+		
+		if (content[i] === '\n') {
+			if (!isBackslashed) {
+				if (isInMacro) {
+					isInMacro = false;
+					macros.push(parseMacro(currentMacro));
+				}
+			}
+			//For some reason, in Python, line comments aren't affected by backslashes before new lines.
+			if (isInLineComment) {
+				isInLineComment = false;
+				
+			
+			//Do not end the instruction if there is a line break inside a function, or the line is backslashed.
+			} else if (bracketsLevel === 0 && isInRule && !isBackslashed) {
+				newRuleLine();
+				
+            }
+            
+            fileStack[fileStack.length-1].currentLineNb++;
+            fileStack[fileStack.length-1].currentColNb = 0;
+			
+		} else if (!isInStrComment && !isInMacro && !isInLineComment) {
+			
+			if (content[i] === "\t") {
+				if (currentRuleLine.tokens.length === 0) {
+					currentRuleLine.indentLevel += 4;
+				}
+			} else if (content[i] === ' ') {
+                //increase indentation if no token yet; else, do nothing
+				if (currentRuleLine.tokens.length === 0) {
+			    	currentRuleLine.indentLevel++;
+                }
+			} else if (content[i] === '\\') {
+				//do nothing
+			} else if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
+				bracketsLevel++;
+				addToken(content[i]);
+				
+			} else if (content[i] === ')' || content[i] === ']' || content[i] === '}') {
+				bracketsLevel--;
+				if (bracketsLevel < 0) {
+					error("Brackets level below 0");
+				}
+				addToken(content[i]);
+				
+			} else if (content.startsWith("#!", i)) {
+				if (!isInRule) {
+					isInMacro = true;
+					currentMacro = {
+                        "fileStack":getFileStackCopy(),
+						"content":""
+					};
+				} else {
+					error("Cannot declare macro inside a rule");
+				}
+				
+			} else if (content[i] === '#') {
+				isInLineComment = true;
+			
+			} else if (content.startsWith("'''", i)) {
+				isInStrComment = true;
+				currentStrCommentDelimiter = "'''";
+				
+			} else if (content.startsWith('"""', i)) {
+				isInStrComment = true;
+				currentStrCommentDelimiter = '"""';
+				
+			} else if (content[i] === '"' || content[i] === '\'') {
+				currentStrDelimiter = content[i];
+				//Get to the end of the string
+				var j = i+1;
+				for (; j < content.length; j++) {
+					
+					//Test for potentially unclosed string
+					if (!isBackslashed && content[j] === '\n') {
+						error("Unclosed string");
+					}
+					
+					if (!isBackslashed && content[j] === currentStrDelimiter) {
+						break;
+					}
+						
+					if (content[j] === '\\') {
+						isBackslashed = true;
+					} else {
+						isBackslashed = false;
+					}
+					
+					
+				}
+				
+				j += 1; //account for closing delimiter
+				
+				if (j > i) {
+					addToken(content.substring(i, j));
+				} else {
+					error("Failed to parse string '"+content.substring(i, j)+"' (malformed string?)");
+				}
+			} else {
+				//Test each macro
+				for (var j = 0; j < macros.length; j++) {
+					if (content.startsWith(macros[j].name, i)) {
+
+						var text;
+                        var replacement;
+                        var macroCols = 0;
+                        var macroLines = 0;
+						
+						if (macros[j].isFunction) {
+							//debug("Resolving function macro "+macros[j].name);
+							var bracketPos = getBracketPositions(content.substring(i), true);
+							text = content.substring(i, i+bracketPos[1]+1);
+							var macroArgs = getArgs(content.substring(i+bracketPos[0]+1, i+bracketPos[1]));
+							replacement = resolveMacro(macros[j], macroArgs);
+							
+						} else {
+							//debug("Resolving normal macro "+macros[j].name);
+							text = macros[j].name;
+							replacement = macros[j].replacement;
+						}
+						
+                        content = content.substring(0, i) + replacement + content.substring(i+text.length);
+                        
+                        if (text.indexOf('\n') >= 0) {
+                            macroCols = text.length - text.lastIndexOf('\n');
+                            macroLines = text.split('\n').length-1;
+                        } else {
+                            macroCols = text.length;
+                        }
+
+                        if (replacement === undefined) {
+                            error("Replacement is undefined");
+                        }
+
+                        addFile(replacement.length, text.length, macroCols, macroLines, macros[j].name, macros[j].startingCol, macros[j].fileStack[macros[j].fileStack.length-1].currentLineNb);
+						
+						//debug("Text: "+text);
+						//debug("Replacement: "+replacement);
+						
+						j = 0;
+						continue;
+					}
+				}
+				
+				//Get token
+                var j = i;
+                //Increases j as long as there are characters that can compose a word
+				for (; j < content.length && isVarChar(content[j]); j++);
+                
+                //If j == i, then there wasn't a word (but an operator)
+				if (j > i) {
+					if (content.substring(i, j) === "@Rule") {
+						isInRule = true;
+						rules.push(currentRule);
+						currentRule = {
+							"fileStack":getFileStackCopy(),
+							"lines":[]
+						};
+						newRuleLine();
+					} else if (content.substring(i, j) === "import") {
+
+                        var endOfLine = content.indexOf('\n', i);
+                        var path = getFilePath(content.substring(j, endOfLine));
+                        var importedFileContent = ""+getFileContent(path);
+                        
+                        content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
+                        addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 0);
+                        i--;
+                        fileStack[fileStack.length-1].remainingChars++;
+
+                        continue;
+
+                    } else if (!isInRule) {
+						error("Found code outside a rule : "+content[i]);
+					}
+					
+					//Handle the special case of min= and max= operators
+					if ((content.substring(i,j) === "min" || content.substring(i,j) === "max") && content[i+"min".length] === '=') {
+						j++;
+					}
+					addToken(content.substring(i, j))
+				} else {
+					
+					var hasTokenBeenFound = false;
+					//Test each remaining token
+					for (var h = 0; h < tokens.length; h++) {
+						if (content.startsWith(tokens[h], i)) {
+							addToken(content.substring(i, i+tokens[h].length));
+							hasTokenBeenFound = true;
+							break;
+						}
+					}
+					
+					if (!hasTokenBeenFound && content[i] !== '\r') {
+						error("Unknown token '"+content[i]+"'");
+					}
+				}
+			}
+			
+		} else if (isInStrComment && content.startsWith(currentStrCommentDelimiter, i)) {
+			strCommentTimer = 3;
+			
+		}
+		
+		
+		if (content[i] === '\\') {
+			isBackslashed = true;
+		} else {
+			isBackslashed = false;
+		}
+		
+		if (isInMacro) {
+			currentMacro.content += content[i];
+		}
+	}
+	
+	rules.push(currentRule);
+	
+	//console.log("macros = ");
+	//console.log(macros);
+	
+	return rules.slice(1)
+	
+}
+
+function resolveMacro(macro, args=[]) {
+
+	if (macro.isFunction) {
+		//debug("Args: "+args);
+		if (args.length != macro.args.length) {
+			error("Wrong number of arguments for macro "+macro.name);
+        }
+        
+        if (macro.isScript) {
+            var scriptContent = getFileContent(macro.scriptPath);
+            var vars = "";
+            for (var i = 0; i < args.length; i++) {
+                vars += "var "+macro.args[i]+"="+args[i]+";";
+            }
+            scriptContent = vars + '\n'+scriptContent;
+            try {
+                var result = eval(scriptContent);
+            } catch (e) {
+                var stackTrace = e.stack.split('\n').slice(1).reverse();
+                var encounteredEval = false;
+                for (var line of stackTrace) {
+                    line = line.trim();
+                    var name = line.substring("at ".length, line.indexOf("(")).trim();
+                    if (name === "eval") {
+                        name = getFilenameFromPath(macro.scriptPath);
+                        encounteredEval = true;
+                    }
+                    if (encounteredEval) {
+                        var colNb = parseInt(line.substring(line.lastIndexOf(":")+1, line.lastIndexOf(")")));
+                        var lineNb = parseInt(line.substring(line.substring(0, line.lastIndexOf(":")).lastIndexOf(":")+1, line.lastIndexOf(":")));
+                        fileStack.push({
+                            name: name,
+                            currentLineNb: lineNb-1,
+                            currentColNb: colNb,
+                        })
+                    }
+                }
+                error(e);
+            }
+            return result;
+        } else {
+		
+            var result = macro.replacement;
+            //debug("result 1 = "+result);
+            
+            //Replace macro argument names with their values
+            for (var i = 0; i < macro.args.length; i++) {
+                result = result.replace(new RegExp("\\b"+macro.args[i]+"\\b", 'g'), args[i])
+            }
+            
+            //debug("result 2 = "+result);
+            result = result.replace(new RegExp("\\\\\\n", 'g'), '\n');
+            //debug("result 3 = "+result);
+            return result;
+        }
+	} else {
+		return macro.replacement;
+	}
+}
+
+function parseMacro(macro) {
+	
+	macro.content = macro.content.substring("#!define ".length);
+	var bracketPos = getBracketPositions(macro.content);
+	
+	if (bracketPos.length === 0 || macro.content.indexOf(" ") < bracketPos[0]) {
+		//Not a function macro
+		macro.isFunction = false;
+		macro.text = macro.content.substring(0, macro.content.indexOf(" ")).trim();
+		macro.name = macro.text;
+        macro.replacement = macro.content.substring(macro.content.indexOf(" ")).trim();
+        macro.startingCol = "#!define ".length+macro.content.indexOf(" ")+macro.content.substring(macro.content.indexOf(" ")).search(/\S/)+1;
+		
+	} else {
+		//Function macro
+		macro.isFunction = true;
+		macro.text = macro.content.substring(0, bracketPos[1]+1).trim();
+		macro.name = macro.content.substring(0, bracketPos[0]).trim();
+		macro.replacement = macro.content.substring(bracketPos[1]+1).trim();
+        macro.args = getArgs(macro.content.substring(bracketPos[0]+1, bracketPos[1]));
+        macro.startingCol = "#!define ".length+bracketPos[1]+1+macro.content.substring(bracketPos[1]+1).search(/\S/)+1;
+
+        //Test for script macro
+        if (macro.replacement.startsWith("__script__(")) {
+            macro.isScript = true;
+            macro.scriptPath = getFilePath(macro.replacement.substring("__script__(".length, macro.replacement.length-1));
+        } else {
+            macro.isScript = false;
+        }
+    }
+    
+    //console.log(macro);
+
+	return macro;
+	
+}
+
+//Tokenizes string
+function tokenizeString(str) {
+	
+	var tokenList = []
+	var originalColNb = fileStack[fileStack.length-1].currentColNb;
+	
+	debug("Tokenizing string '"+str+"'");
+	
+	str = str.toLowerCase();
+	
+	for (var i = 0; i < str.length; i++) {
+		
+		fileStack[fileStack.length-1].currentColNb = originalColNb+i;
+		var currentToken = "";
+		var hasTokenBeenFound = false;
+		
+		//Test tokens
+		for (var j = 0; j < strTokens.length; j++) {
+			if (str.startsWith(strTokens[j], i)) {
+				currentToken = strTokens[j];
+				hasTokenBeenFound = true;
+				break;
+			}
+		}
+		
+		if (!hasTokenBeenFound) {
+			//Test numbers
+			var j = i;
+			for (; (str[j] >= '0' && str[j] <= '9') || str[j] === '.' || str[j] === '-'; j++);
+			
+			if (j !== i) {
+				currentToken = str.substring(i, j);
+				hasTokenBeenFound = true;
+			}
+		}
+		
+		//Test for formatting
+		if (!hasTokenBeenFound) {
+			if (str.startsWith("{}", i)) {
+				currentToken = "{}";
+				hasTokenBeenFound = true;
+			}
+		}
+
+		//Test for heroes
+		if (!hasTokenBeenFound) {
+			for (var hero of getConstantKw("HERO CONSTANT")) {
+				var heroName = hero.opy.substring("Hero.".length).toLowerCase();
+				console.log(heroName);
+				if (str.startsWith(heroName, i)) {
+					currentToken = "_h"+heroName;
+					hasTokenBeenFound = true;
+				}
+			}
+		}
+				
+		if (!hasTokenBeenFound) {
+			var j = i+1;
+			for (; str[j] >= 'a' && str[j] <= 'z'; j++);
+			error("No string translation found for '"+str.substring(i, j)+"'");
+		}
+		
+		tokenList.push(currentToken);
+		i += currentToken.length-1;
+		
+	}
+	
+	return tokenList;
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -1906,6 +2517,7 @@ function compile(content) {
 	if (typeof window !== "undefined") {
 		var t0 = performance.now();
 	}
+	fileStack = [];
 	var rules = tokenize(content);
 	//console.log(rules);
 
@@ -1921,25 +2533,10 @@ function compile(content) {
 	return result;
 }
 
-/*
-Really a class, but I couldn't manage to make the "class" keyword work.
-*/
-function Macro(text, replacement, args) {
-	
-	if (args === undefined || args.length === 0) {
-		this.isFunction = false;
-	} else {
-		this.isFunction = true;
-		this.args = args;
-	}
-	this.text = text;
-	this.replacement = replacement;
-}
 
 function compileRule(rule) {
 	
-	currentLineNb = rule.lineStart;
-	currentColNb = 1;
+	fileStack = rule.fileStack;
 	var result = "";
 	
 	if (currentArrayElementNames.length !== 0) {
@@ -1987,8 +2584,7 @@ function compileRule(rule) {
 			continue;
 		}
 		
-		currentLineNb = rule.lines[i].tokens[0].lineNb;
-		currentColNb = rule.lines[i].tokens[0].colNb;		
+		fileStack = rule.lines[i].tokens[0].fileStack;	
 		
 		if (rule.lines[i].tokens[0].text.startsWith("@")) {
 			if (!isInEvent) {
@@ -2348,8 +2944,7 @@ function parse(content, parseArgs={}) {
 		error("Content is empty");
 	}
 	
-	currentLineNb = content[0].lineNb;
-	currentColNb = content[0].colNb;
+	fileStack = content[0].fileStack;
 	
 	debug("Parsing '"+dispTokens(content)+"'");
 	
@@ -2887,7 +3482,9 @@ function parseMember(object, member, parseArgs={}) {
 	
 	if (name.length === 1 && name >= 'A' && name <= 'Z') {
 		return tows("_playerVar", valueFuncKw)+"("+parse(object)+", "+name+")";
-	} else if (["Beam", "Button", "Clip", "Color", "Comms", "Effect", "Icon", "Impulse", "Invis", "LosCheck", "Position", "IconReeval", "EffectReeval", "HudReeval", "WorldTextReeval", "ChaseReeval", "DamageReeval", "FacingReeval", "ThrottleReeval", "Relativity", "SpecVisibility", "Status", "Team", "Throttle", "Transform", "Wait"].indexOf(object[0].text) >= 0) {
+	} else if ([
+			"Beam", "Button", "Clip", "Color", "Comms", "Effect", "Icon", "Impulse", "Invis", "LosCheck", "Position", "IconReeval", "EffectReeval", "HudReeval", "WorldTextReeval", "ChaseReeval", "DamageReeval", "FacingReeval", "ThrottleReeval", "Relativity", "SpecVisibility", "Status", "Team", "Throttle", "Transform", "Wait"
+			].indexOf(object[0].text) >= 0) {
 		return tows(object[0].text+"."+name, constantKw)
 
 	} else if (name === "append") {
@@ -2986,6 +3583,9 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 	var result = "";
 	
 	if (variable.length === 1) {
+		if (variable[0].text.length !== 1 || variable[0].text < 'A' || variable[0].text > 'Z') {
+			error("Unauthorized global variable '"+variable[0].text+"'");
+		}
 		result += tows("_"+func+"GlobalVar", actionKw)+"("+variable[0].text+", ";
 		
 	} else {
@@ -3145,7 +3745,6 @@ function parseRuleCondition(content) {
 						error("Chained comparisons are not allowed (eg: a == b == c)");
 					}
 					result += parse(comparisonOperands[0]);
-					currentColNb += comparisonOperators[j].length;
 					result += " "+comparisonOperators[j]+" "+parse(comparisonOperands[1]);
 					hasComparisonOperand = true;
 					break;
@@ -3167,483 +3766,6 @@ function parseRuleCondition(content) {
 	return result;
 }
 
-/*
-Splits the content to return an array of rules, with an array of (effective) lines.
-We cannot do split('\n') because we need to handle backslashed lines, and multi-line functions.
-For example, the following will count as 1 line:
-
-function(arg1, arg2,
-	arg3, arg4)
-	
-As well as the following:
-
-#!define owo(x) function(x)\
-function(y)
-
-While we're at it, this function also automatically removes comments,
-and splits rules as well as macros.
-It also resolves macros, and tokenizes.
-*/
-
-function tokenize(content) {
-	
-	if (!content.endsWith('\n')) {
-		content += '\n';
-	}
-	
-	//Not the full list of tokens; namely, brackets aren't in this list.
-	//Sorted by longest first, for greediness.
-	var tokens = [
-		"==",
-		"!=",
-		"<=",
-		">=",
-		"+=",
-		"-=",
-		"*=",
-		"/=",
-		"%=",
-		"**=",
-		"<",
-		">",
-		"=",
-		"++",
-		"--",
-		"+",
-		"-",
-		",",
-		"/",
-		"%",
-		"**",
-		"*",
-		".",
-		":",
-		"\\",
-	];
-	
-	
-	var rules = [];
-	var macros = [];
-	
-	var isInSpecial = false;
-	//var isInString = false;
-	var currentStrDelimiter = "";
-	var isInLineComment = false;
-	var isInStrComment = false;
-	var isInMacro = false;
-	var currentStrCommentDelimiter = "";
-	var bracketsLevel = 0;
-	var isInRule = false;
-	var currentRule = {};
-	var currentRuleLine = {};
-	//var currentToken = {"text":""};
-	var currentMacro = {};
-	var isBackslashed = false;
-	var isInTextToken = false;
-	
-	//"Timer" used for end of special zones (eg: the end of a multiline string is 3 characters long).
-	var timer = 0;
-	
-	//Timer used when inside a macro resolution, in order to stop incrementing column+line.
-	var macroTimer = 0;
-	var macroCols = 0;
-	var macroLines = 0;
-	
-	currentLineNb = 1;
-	currentColNb = 0;
-	
-	var i = 0;
-	
-	function addToken(text) {
-		
-		if (text.length === 0) {
-			error("Token is empty, lexer broke");
-		}
-		
-		//debug("Adding token '"+text+"' at "+currentLineNb+":"+currentColNb);
-		
-		currentRuleLine.tokens.push({
-			"lineNb":currentLineNb,
-			"colNb":currentColNb,
-			"text":text
-		});
-		
-		i += text.length-1;
-		currentColNb += text.length-1;
-	}
-	
-	function newRuleLine() {
-		
-		if (currentRuleLine.tokens !== undefined && currentRuleLine.tokens.length > 0) {
-			currentRule.lines.push(currentRuleLine);
-		}
-		
-		currentRuleLine = {
-			"indentLevel":0,
-			"tokens":[]
-		};
-	}
-	
-	newRuleLine();
-		
-	for (i = 0; i < content.length; i++) {
-		
-		//console.log(i);
-		//await sleep(5);
-		
-		isInSpecial = (isInLineComment || isInStrComment || isInMacro);
-		
-		
-		if (macroTimer > 0) {
-			macroTimer--;
-			if (macroTimer === 0) {
-				//debug("macro lines = "+macroLines+", macro cols = "+macroCols);
-				currentLineNb += macroLines;
-				currentColNb = macroCols;
-			}
-		}
-		
-		if (macroTimer === 0) {
-			currentColNb++;
-		}
-		
-		
-		if (timer > 0) {
-			timer--;
-			if (timer === 0) {
-				isInStrComment = false;
-			}
-		}
-		
-		if (content[i] === '\n') {
-			if (!isBackslashed) {
-				if (isInMacro) {
-					isInMacro = false;
-					macros.push(parseMacro(currentMacro));
-				}
-			}
-			//For some reason, in Python, line comments aren't affected by backslashes before new lines.
-			if (isInLineComment) {
-				isInLineComment = false;
-				
-			
-			//Do not end the instruction if there is a line break inside a function, or the line is backslashed.
-			} else if (bracketsLevel === 0 && isInRule && !isBackslashed) {
-				newRuleLine();
-				
-			}
-			if (macroTimer === 0) {
-				currentLineNb++;
-				currentColNb = 0;
-			}
-			
-		} else if (!isInStrComment && !isInMacro && !isInLineComment) {
-			
-			if (content.startsWith("    ", i) && currentRuleLine.tokens.length === 0) {
-				currentRuleLine.indentLevel++;
-				currentColNb += "    ".length-1;
-			} else if (content.startsWith("\t", i)) {
-				if (currentRuleLine.tokens.length === 0) {
-					currentRuleLine.indentLevel++;
-				}
-			} else if (content[i] === ' ') {
-				//do nothing
-			} else if (content[i] === '\\') {
-				//do nothing
-			} else if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
-				bracketsLevel++;
-				addToken(content[i]);
-				
-			} else if (content[i] === ')' || content[i] === ']' || content[i] === '}') {
-				bracketsLevel--;
-				if (bracketsLevel < 0) {
-					error("Brackets level below 0");
-				}
-				addToken(content[i]);
-				
-			} else if (content.startsWith("#!", i)) {
-				if (!isInRule) {
-					isInMacro = true;
-					currentMacro = {
-						"lineStart":currentLineNb,
-						"content":""
-					};
-				} else {
-					error("Cannot declare macro inside a rule");
-				}
-				
-			} else if (content[i] === '#') {
-				isInLineComment = true;
-			
-			} else if (content.startsWith("'''", i)) {
-				isInStrComment = true;
-				currentStrCommentDelimiter = "'''";
-				
-			} else if (content.startsWith('"""', i)) {
-				isInStrComment = true;
-				currentStrCommentDelimiter = '"""';
-				
-			} else if (content[i] === '"' || content[i] === '\'') {
-				currentStrDelimiter = content[i];
-				//Get to the end of the string
-				var j = i+1;
-				for (; j < content.length; j++) {
-					
-					//Test for potentially unclosed string
-					if (!isBackslashed && content[j] === '\n') {
-						error("Unclosed string");
-					}
-					
-					if (!isBackslashed && content[j] === currentStrDelimiter) {
-						break;
-					}
-						
-					if (content[j] === '\\') {
-						isBackslashed = true;
-					} else {
-						isBackslashed = false;
-					}
-					
-					
-				}
-				
-				j += 1; //account for closing delimiter
-				
-				if (j > i) {
-					addToken(content.substring(i, j));
-				} else {
-					error("Failed to parse string '"+content.substring(i, j)+"' (malformed string?)");
-				}
-								
-			} else {
-				//Test each macro
-				for (var j = 0; j < macros.length; j++) {
-					if (content.startsWith(macros[j].name, i)) {
-						
-						
-						var text;
-						var replacement;
-						
-						if (macros[j].isFunction) {
-							//debug("Resolving function macro "+macros[j].name);
-							var bracketPos = getBracketPositions(content.substring(i), true);
-							text = content.substring(i, i+bracketPos[1]+1);
-							var macroArgs = getArgs(content.substring(i+bracketPos[0]+1, i+bracketPos[1]));
-							replacement = resolveMacro(macros[j], macroArgs);
-							
-						} else {
-							//debug("Resolving normal macro "+macros[j].name);
-							text = macros[j].name;
-							replacement = macros[j].replacement;
-						}
-						
-						content = content.substring(0, i) + replacement + content.substring(i+text.length);
-						if (macroTimer === 0) {
-							if (text.indexOf('\n') >= 0) {
-								macroCols = text.length - text.lastIndexOf('\n');
-								macroLines = text.split('\n').length-1;
-							} else {
-								macroCols = text.length;
-							}
-						}
-						macroTimer += replacement.length;
-						
-						//debug("Text: "+text);
-						//debug("Replacement: "+replacement);
-						
-						j = 0;
-						continue;
-					}
-				}
-				
-				//Get token
-				var j = i;
-				for (; j < content.length && isVarChar(content[j]); j++);
-				
-				if (j > i) {
-					if (content.substring(i, j) === "@Rule") {
-						isInRule = true;
-						rules.push(currentRule);
-						currentRule = {
-							"lineStart":currentLineNb,
-							"lines":[]
-						};
-						newRuleLine();
-					} else if (!isInRule) {
-						error("Found code outside a rule : "+content[i]);
-					}
-					
-					//Handle the special case of min= and max= operators
-					if ((content.substring(i,j) === "min" || content.substring(i,j) === "max") && content[i+"min".length] === '=') {
-						j++;
-					}
-					addToken(content.substring(i, j))
-				} else {
-					
-					var hasTokenBeenFound = false;
-					//Test each remaining token
-					for (var h = 0; h < tokens.length; h++) {
-						if (content.startsWith(tokens[h], i)) {
-							addToken(content.substring(i, i+tokens[h].length));
-							hasTokenBeenFound = true;
-							break;
-						}
-					}
-					
-					if (!hasTokenBeenFound && content[i] !== '\r') {
-						error("Unknown token '"+content[i]+"'");
-					}
-				}
-				
-				
-				
-			}
-			
-		} else if (isInStrComment && content.startsWith(currentStrCommentDelimiter, i)) {
-			timer = 3;
-			
-		}
-		
-		
-		if (content[i] === '\\') {
-			isBackslashed = true;
-		} else {
-			isBackslashed = false;
-		}
-		
-		if (isInMacro) {
-			currentMacro.content += content[i];
-		}
-	}
-	
-	rules.push(currentRule);
-	
-	//console.log("macros = ");
-	//console.log(macros);
-	
-	return rules.slice(1)
-	
-}
-
-function resolveMacro(macro, args=[]) {
-	if (macro.isFunction) {
-		
-		//debug("Args: "+args);
-		if (args.length != macro.args.length) {
-			error("Wrong number of arguments for macro "+macro.name);
-		}
-		
-		var result = macro.replacement;
-		//debug("result 1 = "+result);
-		
-		//Replace macro argument names with their values
-		for (var i = 0; i < macro.args.length; i++) {
-			result = result.replace(new RegExp("\\b"+macro.args[i]+"\\b", 'g'), args[i])
-		}
-		
-		//debug("result 2 = "+result);
-		result = result.replace(new RegExp("\\\\\\n", 'g'), '\n');
-		//debug("result 3 = "+result);
-		return result;
-	} else {
-		return macro.replacement;
-	}
-}
-
-function parseMacro(macro) {
-	
-	macro.content = macro.content.substring("#!define ".length);
-	var bracketPos = getBracketPositions(macro.content);
-	
-	if (bracketPos.length === 0 || macro.content.indexOf(" ") < bracketPos[0]) {
-		//Not a function macro
-		macro.isFunction = false;
-		macro.text = macro.content.substring(0, macro.content.indexOf(" ")).trim();
-		macro.name = macro.text;
-		macro.replacement = macro.content.substring(macro.content.indexOf(" ")).trim();
-		
-	} else {
-		//Function macro
-		macro.isFunction = true;
-		macro.text = macro.content.substring(0, bracketPos[1]+1).trim();
-		macro.name = macro.content.substring(0, bracketPos[0]).trim();
-		macro.replacement = macro.content.substring(bracketPos[1]+1).trim();
-		macro.args = getArgs(macro.content.substring(bracketPos[0]+1, bracketPos[1]));
-	}
-	
-	return macro;
-	
-}
-
-//Tokenizes string
-function tokenizeString(str) {
-	
-	var tokenList = []
-	var originalColNb = currentColNb;
-	
-	debug("Tokenizing string '"+str+"'");
-	
-	str = str.toLowerCase();
-	
-	for (var i = 0; i < str.length; i++) {
-		
-		currentColNb = originalColNb+i;
-		var currentToken = "";
-		var hasTokenBeenFound = false;
-		
-		//Test tokens
-		for (var j = 0; j < strTokens.length; j++) {
-			if (str.startsWith(strTokens[j], i)) {
-				currentToken = strTokens[j];
-				hasTokenBeenFound = true;
-				break;
-			}
-		}
-		
-		if (!hasTokenBeenFound) {
-			//Test numbers
-			var j = i;
-			for (; (str[j] >= '0' && str[j] <= '9') || str[j] === '.' || str[j] === '-'; j++);
-			
-			if (j !== i) {
-				currentToken = str.substring(i, j);
-				hasTokenBeenFound = true;
-			}
-		}
-		
-		//Test for formatting
-		if (!hasTokenBeenFound) {
-			if (str.startsWith("{}", i)) {
-				currentToken = "{}";
-				hasTokenBeenFound = true;
-			}
-		}
-
-		//Test for heroes
-		if (!hasTokenBeenFound) {
-			for (var hero of getConstantKw("HERO CONSTANT")) {
-				var heroName = hero.opy.substring("Hero.".length).toLowerCase();
-				console.log(heroName);
-				if (str.startsWith(heroName, i)) {
-					currentToken = "_h"+heroName;
-					hasTokenBeenFound = true;
-				}
-			}
-		}
-				
-		if (!hasTokenBeenFound) {
-			var j = i+1;
-			for (; str[j] >= 'a' && str[j] <= 'z'; j++);
-			error("No string translation found for '"+str.substring(i, j)+"'");
-		}
-		
-		tokenList.push(currentToken);
-		i += currentToken.length-1;
-		
-	}
-	
-	return tokenList;
-}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.

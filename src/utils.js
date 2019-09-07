@@ -17,6 +17,42 @@
 
 "use strict";
 
+function getFilenameFromPath(path) {
+	return path.split('\\').pop().split('/').pop();
+}
+
+function getFilePath(pathStr) {
+	pathStr = pathStr.trim();
+	debug("path str = "+pathStr);
+	if (!(pathStr.startsWith("'") && pathStr.endsWith("'")) && !(pathStr.startsWith('"') && pathStr.endsWith('"'))) {
+		error("Expected a string but found '"+pathStr+"'");
+	}
+	pathStr = pathStr.substring(1, pathStr.length-1);
+	pathStr = pathStr.replace(/\\("|')/g, "$1");
+	pathStr = pathStr.replace(/\\\\/g, "\\");
+	debug("Path str is now '"+pathStr+"'");
+	return pathStr;
+}
+
+function getFileContent(path) {
+	
+	var fs;
+	try {
+		fs = require("fs");
+	} catch (e) {
+		error("Cannot use 'import' statement in browsers");
+	}
+	try {
+		return fs.readFileSync(path);
+	} catch (e) {
+		error(e);
+	}
+}
+
+function getFileStackCopy() {
+	return fileStack.map(x => Object.assign({}, x));
+}
+
 function getConstantKw(type) {
 	return constantValues[type].values;
 }
@@ -255,7 +291,7 @@ function translate(keyword, toWorkshop, keywordArray) {
 		}
 	}
 	debug("Translating keyword '"+keyword+"'");
-	debug(keywordArray === stringKw);
+	//debug(keywordArray === stringKw);
 	
 	//Check for current array element
 	if (toWorkshop) {
@@ -297,8 +333,7 @@ function tows(keyword, keywordArray) {
 	
 	//Check if a token was passed, or a string
 	if (typeof keyword === "object") {
-		currentLineNb = keyword.lineNb;
-		currentColNb = keyword.colNb;
+		fileStack = keyword.fileStack;
 		return translate(keyword.text, true, keywordArray);
 	} else {
 		return translate(keyword, true, keywordArray);
@@ -538,18 +573,20 @@ function dispTokens(content) {
 function error(str, token) {
 	
 	if (token !== undefined) {
-		currentLineNb = token.lineNb;
-		currentColNb = token.colNb;
+		fileStack = token.fileStack;
 	}
 	
 	//var error = "ERROR: ";
 	var error = "";
-	if (currentLineNb !== undefined && currentLineNb > 0) {
-		error += "line "+currentLineNb+", col "+currentColNb+": ";
-	}
 	error += str;
 	if (token !== undefined) {
 		error += "'"+dispTokens(token)+"'";
+	}
+	if (fileStack.length !== 0) {
+		fileStack.reverse();
+		for (var file of fileStack) {
+			error += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+		}
 	}
 	
 	throw new Error(error);
@@ -557,7 +594,7 @@ function error(str, token) {
 
 function debug(str, arg) {
 	//return;
-	console.log("DEBUG: "+str);
+	console.debug("DEBUG: "+str);
 }
 
 //ty stackoverflow

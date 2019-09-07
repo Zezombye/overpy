@@ -20,4 +20,4 @@ None (yet)
 
 ## Known Issues
 
-Some shit with tab stops: https://www.reddit.com/r/vscode/comments/cotiql/autocompletion_does_not_trigger_within_tab_stops/
+Quite a lot for my liking ngl
