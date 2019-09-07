@@ -9,25 +9,44 @@ Discord operators can add my decompiler bot by clicking on this link: https://di
 
 If someone posts workshop code, the bot will reply with the decompiled version (which is more readable).
 
+# Installing the VS Code extension
+
+- Download VS Code: https://code.visualstudio.com/download
+- Install the extension: ![owo](https://i.imgur.com/j0WsTTR.png)
+
+# Decompiling your code
+
+Press Ctrl+Shift+P, then type "decompile". The "Decompile" command should pop up: https://i.imgur.com/jzfo2Bj.png
+
+You will then be able to paste your workshop code, but also to specify names for global and player variables: ![owo](https://i.imgur.com/iBbdz9o.png)
+
+Once you click on "decompile", a save prompt will pop up; just select the location where you wish to create the file. ![owo](https://i.imgur.com/V7v33j3.png)
+
+If everything goes well, you will be able to start coding in OverPy: ![owo](https://i.imgur.com/QaPn8pF.png)
+
+# Coding
+
+The extension includes syntax highlighting, autocompletion, and documentation: 
+
+![owo](https://i.imgur.com/jwWY8mw.png)
+
+![owo](https://i.imgur.com/QQYuWNf.png)
+
+Note that the extension is still in BETA; there can be a few bugs, and some documentation is missing. However it is still usable.
+
+Also, big thanks to arxenix, who parsed the workshop documentation: https://github.com/arxenix/owws-documentation/blob/master/workshop.json
+
+# Compiling
+
+Press the "Compile" button at the top right: ![owo](https://i.imgur.com/RSrn3tz.png)
+
+If everything goes right, you should get a success notification, and the content of the code is copied into your clipboard. Else, you will get an error: ![owo](https://i.imgur.com/G72LoAk.png)
+
 # Demo page
 
-[Try it out here!](https://zezombye.github.io/overpy/demo)
+[Try it out here! (note: currently broken)](https://zezombye.github.io/overpy/demo)
 
 ![owo](https://i.imgur.com/MGru5kS.png)
-
-The demo page is divided in 3 parts.
-
-The first part is the input for decompilation; this is where you paste your workshop code. Click on the "decompile" button to convert it to OverPy. Alternatively, click on the "add example text" button to input my Zombie Escape code. Note that the "add example text" will also hardcode names for some variables (refresh to get rid of that).
-
-The second part is the input for compilation (and the output for decompilation); it is OverPy code (don't hesitate to copy-paste it into another window, as my front-end skills aren't that great and I didn't manage to make it so you can resize horizontally the textarea). Click on the "compile" button to convert it back into the Workshop script.
-
-The third part is the output for compilation. It has a "compare" button you can use to check if the decompilation+compilation outputs the same code as the original. However, there can be false positives:
-- Strings will most likely be parsed in different ways and will be differently organized, although they should result in the same output. (eg for the string "#Up!" you can put #{0} and {0}! in any order you want)
-- Likely, operations can be parsed in different ways, eg add(add(a,b),c) is the same as add(a,add(b,c)).
-- If you have a "skip if 9999", the number will be converted to however much instructions you need to get to the end of the rule (so a smaller number).
-- Various optimizations (as there are several ways to represent the same code). In the end, just check the differences, and determine if it's a compilation error or just a reorganization :p
-
-If you get "An error has occurred", you must open the developer console (F12 on Firefox, Ctrl+Shift+J in Chrome) to check the error. Please report to me any error you find! Note: your browser may freeze for a few seconds on decompilation/compilation (due to the amount of debug messages printed to the console).
 
 # OverPy Syntax
 
@@ -70,31 +89,14 @@ Function macros are supported as well:
     
 Note the usage of the backslashed lines.
 
-A planned feature is script macros, meaning you would be able to do this:
+You can do script macros with the special `__script__` function. For example:
 
-`#!define createEffects(nbEffects) __script__("createEffects", nbEffects)`
+```#!define addFive(x) __script__("C:/users/zezombye/scripts/addfive.js")```
 
-with createEffects being a script that returns `nbEffects` createEffect instructions.
+The content of `addfive.js` is simply `x+5` (no `return`!)
 
-# Todo list/known issues
+For the technical details:
 
-##VS Code Extension:
-
-- Fix the bug with snippet and tab stops (https://www.reddit.com/r/vscode/comments/cotiql/autocompletion_does_not_trigger_within_tab_stops/)
-- Give a proper icon to the "compile" button
-- Add missing documentation for functions
-- Add macros to autocomplete on save
-
-##Decompiler:
-
-- Handle "disabled" keyword
-- Handle comments
-- Detect if/else based on gotos
-
-##Compiler:
-
-- Throw an error if "Disable Death Spectate" is used as it is impossible to import it (ow bug)
-- Add else/elif
-- Test multiline comments more thoroughly
-- Add script macros
-- Throw an error if eventPlayer is used in a global rule (or similarly for attacker/victim/healer/healee)
+- Arguments are automatically inserted into the script (in this case, `var x = 123;` would be inserted at the top of the script)
+- The script is then evaluated using `eval()`
+- You must specify the absolute path of the script

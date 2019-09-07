@@ -18,7 +18,6 @@
 #!define tankTurretPlayer5 I
 #!define tankTurretPlayer J
 
-#!define addFive(x) __script__("C:/users/zezombye/desktop/overpy/vs code extension/tests/testscript.js")
 
 import "C:/users/zezombye/desktop/overpy/vs code extension/tests/fastfire.opy"
 
@@ -35,7 +34,7 @@ do:
     tankTurretPlayer5.teleport(cannonPos+tankTurretPlayerPos)
     #cannonPos = hostPlayer.getPosition()
     #turretPos = hostPlayer.getPosition()
-    wait(addFive(3))
+    wait(0.016)
 while true
 
 @Rule "owo"
