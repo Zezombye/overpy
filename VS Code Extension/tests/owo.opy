@@ -18,9 +18,14 @@
 #!define tankTurretPlayer5 I
 #!define tankTurretPlayer J
 
+#!define addFive(x) __script__("C:/users/zezombye/desktop/overpy/vs code extension/tests/testscript.js")
+
+import "C:/users/zezombye/desktop/overpy/vs code extension/tests/fastfire.opy"
+
 @Rule "update angle"
 @Event global
 do:
+    
     turretHorizontalAngle = hostPlayer.getHorizontalFacingAngle()
     turretVerticalAngle = hostPlayer.getVerticalFacingAngle()
     tankTurretPlayer.teleport(cannonPos+tankTurretPlayerPos)
@@ -30,7 +35,7 @@ do:
     tankTurretPlayer5.teleport(cannonPos+tankTurretPlayerPos)
     #cannonPos = hostPlayer.getPosition()
     #turretPos = hostPlayer.getPosition()
-    wait(0.016)
+    wait(addFive(3))
 while true
 
 @Rule "owo"

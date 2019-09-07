@@ -17,8 +17,10 @@
 
 "use strict";
 
-var currentLineNb = 0;
-var currentColNb = 0;
+
+//The stack of the files (macros count as "files").
+//Is reset at each compilation.
+var fileStack = [];
 
 //Global variable used for "skip ifs", to keep track of where the skip if ends.
 //Is reset at each rule. (for decompilation)

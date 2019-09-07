@@ -1,3 +1,4 @@
 node_modules
 bot
 bot.js
+*.vsix
