@@ -44,7 +44,7 @@ If everything goes right, you should get a success notification, and the content
 
 # Demo page
 
-[Try it out here! (note: currently broken)](https://zezombye.github.io/overpy/demo)
+[Try it out here!](https://zezombye.github.io/overpy/demo)
 
 ![owo](https://i.imgur.com/MGru5kS.png)
 
