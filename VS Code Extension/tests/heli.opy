@@ -16,7 +16,7 @@
 #!define rotation Z
 #!define ROTATION_SPEED 29
 
-#!define heliBlade(start, end) createBeam(getPlayers(Team.ALL), Beam.GRAPPLE, start, end, Color.AQUA, Reeval.VISIBILITY_POSITION_AND_RADIUS)
+#!define heliBlade(start, end) createBeam(getPlayers(Team.ALL), Beam.GRAPPLE, start, end, Color.AQUA, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
 
 @Rule "tp to arena"
 @Event eachPlayer
@@ -49,21 +49,21 @@ if eventPlayer.isHoldingButton(Button.INTERACT):
     heliTurret = getLastCreatedEntity()
     heliTurret.setStatusEffect(null, Status.PHASED_OUT, 9999)
     heliTurret.setInvisibility(Invis.ALL)
-    heliTurret.startFacing(directionTowards(heliTurret.getEyePosition(), eventPlayer.getEyePosition()), 100, Relativity.TO_WORLD, Reeval.DIRECTION_AND_TURN_RATE)
+    heliTurret.startFacing(directionTowards(heliTurret.getEyePosition(), eventPlayer.getEyePosition()), 100, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
     wait(0.1)
     
     createDummy(Hero.DOOMFIST, Team.2, -1, eventPlayer.getPosition(), vect(0,0,0))
     heliTurret2 = getLastCreatedEntity()
     heliTurret2.setStatusEffect(null, Status.PHASED_OUT, 9999)
     heliTurret2.setInvisibility(Invis.ALL)
-    heliTurret2.startFacing(directionTowards(heliTurret2.getEyePosition(), eventPlayer.getEyePosition()), 100, Relativity.TO_WORLD, Reeval.DIRECTION_AND_TURN_RATE)
+    heliTurret2.startFacing(directionTowards(heliTurret2.getEyePosition(), eventPlayer.getEyePosition()), 100, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
     wait(0.1)
     
     createDummy(Hero.DOOMFIST, Team.2, -1, eventPlayer.getPosition(), vect(0,0,0))
     heliTurret3 = getLastCreatedEntity()
     heliTurret3.setStatusEffect(null, Status.PHASED_OUT, 9999)
     heliTurret3.setInvisibility(Invis.ALL)
-    heliTurret3.startFacing(directionTowards(heliTurret3.getEyePosition(), eventPlayer.getEyePosition()), 100, Relativity.TO_WORLD, Reeval.DIRECTION_AND_TURN_RATE)
+    heliTurret3.startFacing(directionTowards(heliTurret3.getEyePosition(), eventPlayer.getEyePosition()), 100, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
     wait(0.1)
 
     
@@ -72,14 +72,14 @@ if eventPlayer.isHoldingButton(Button.INTERACT):
     heliTurret4 = getLastCreatedEntity()
     heliTurret4.setStatusEffect(null, Status.PHASED_OUT, 9999)
     heliTurret4.setInvisibility(Invis.ALL)
-    heliTurret4.startFacing(directionTowards(heliTurret4.getEyePosition(), eventPlayer.getEyePosition()), 100, Relativity.TO_WORLD, Reeval.DIRECTION_AND_TURN_RATE)
+    heliTurret4.startFacing(directionTowards(heliTurret4.getEyePosition(), eventPlayer.getEyePosition()), 100, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
 
     
     #createDummy(Hero.DOOMFIST, Team.2, -1, eventPlayer.getPosition(), vect(0,0,0))
     #heliTurret5 = getLastCreatedEntity()
     #heliTurret5.setStatusEffect(null, Status.PHASED_OUT, 9999)
     #heliTurret5.setInvisibility(Invis.ALL)
-    #heliTurret5.startFacing(directionTowards(heliTurret4.getEyePosition(), eventPlayer.getEyePosition()), 100, Relativity.TO_WORLD, Reeval.DIRECTION_AND_TURN_RATE)
+    #heliTurret5.startFacing(directionTowards(heliTurret4.getEyePosition(), eventPlayer.getEyePosition()), 100, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
 
     
     #heliMinesDispenser.startFacing(directionTowards(heliMinesDispenser.getEyePosition(), eventPlayer.getEyePosition()), 100, Relativity.TO_WORLD, Reeval.DIRECTION_AND_TURN_RATE)
