@@ -278,50 +278,7 @@ function tokenize(content) {
 					error("Failed to parse string '"+content.substring(i, j)+"' (malformed string?)");
 				}
 			} else {
-				//Test each macro
-				for (var j = 0; j < macros.length; j++) {
-					if (content.startsWith(macros[j].name, i)) {
-
-						var text;
-                        var replacement;
-                        var macroCols = 0;
-                        var macroLines = 0;
-						
-						if (macros[j].isFunction) {
-							//debug("Resolving function macro "+macros[j].name);
-							var bracketPos = getBracketPositions(content.substring(i), true);
-							text = content.substring(i, i+bracketPos[1]+1);
-							var macroArgs = getArgs(content.substring(i+bracketPos[0]+1, i+bracketPos[1]));
-							replacement = resolveMacro(macros[j], macroArgs);
-							
-						} else {
-							//debug("Resolving normal macro "+macros[j].name);
-							text = macros[j].name;
-							replacement = macros[j].replacement;
-						}
-						
-                        content = content.substring(0, i) + replacement + content.substring(i+text.length);
-                        
-                        if (text.indexOf('\n') >= 0) {
-                            macroCols = text.length - text.lastIndexOf('\n');
-                            macroLines = text.split('\n').length-1;
-                        } else {
-                            macroCols = text.length;
-                        }
-
-                        if (replacement === undefined) {
-                            error("Replacement is undefined");
-                        }
-
-                        addFile(replacement.length, text.length, macroCols, macroLines, macros[j].name, macros[j].startingCol, macros[j].fileStack[macros[j].fileStack.length-1].currentLineNb);
-						
-						//debug("Text: "+text);
-						//debug("Replacement: "+replacement);
-						
-						j = 0;
-						continue;
-					}
-				}
+				
 				
 				//Get token
                 var j = i;
@@ -354,12 +311,63 @@ function tokenize(content) {
                     } else if (!isInRule) {
 						error("Found code outside a rule : "+content[i]);
 					}
-					
-					//Handle the special case of min= and max= operators
-					if ((content.substring(i,j) === "min" || content.substring(i,j) === "max") && content[i+"min".length] === '=') {
-						j++;
+
+					var macroWasFound = false;
+
+					//Test each macro
+					for (var k = 0; k < macros.length; k++) {
+						if (content.substring(i,j) === macros[k].name) {
+
+							var text;
+							var replacement;
+							var macroCols = 0;
+							var macroLines = 0;
+							
+							if (macros[k].isFunction) {
+								//debug("Resolving function macro "+macros[k].name);
+								var bracketPos = getBracketPositions(content.substring(i), true);
+								text = content.substring(i, i+bracketPos[1]+1);
+								var macroArgs = getArgs(content.substring(i+bracketPos[0]+1, i+bracketPos[1]));
+								replacement = resolveMacro(macros[k], macroArgs);
+								
+							} else {
+								//debug("Resolving normal macro "+macros[k].name);
+								text = macros[k].name;
+								replacement = macros[k].replacement;
+							}
+							
+							content = content.substring(0, i) + replacement + content.substring(i+text.length);
+							
+							if (text.indexOf('\n') >= 0) {
+								macroCols = text.length - text.lastIndexOf('\n');
+								macroLines = text.split('\n').length-1;
+							} else {
+								macroCols = text.length;
+							}
+
+							if (replacement === undefined) {
+								error("Replacement is undefined");
+							}
+
+							addFile(replacement.length, text.length, macroCols, macroLines, macros[k].name, macros[k].startingCol, macros[k].fileStack[macros[k].fileStack.length-1].currentLineNb);
+							
+							//debug("Text: "+text);
+							//debug("Replacement: "+replacement);
+							
+							k = 0;
+							i--;
+							fileStack[fileStack.length-1].remainingChars++;
+							macroWasFound = true;
+						}
 					}
-					addToken(content.substring(i, j))
+					
+					if (!macroWasFound) {
+						//Handle the special case of min= and max= operators
+						if ((content.substring(i,j) === "min" || content.substring(i,j) === "max") && content[i+"min".length] === '=') {
+							j++;
+						}
+						addToken(content.substring(i, j))
+					}
 				} else {
 					
 					var hasTokenBeenFound = false;
@@ -399,6 +407,7 @@ function tokenize(content) {
 	
 	//console.log("macros = ");
 	//console.log(macros);
+	console.log(rules);
 	
 	return rules.slice(1)
 	
