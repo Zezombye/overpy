@@ -494,6 +494,9 @@ function makeCompList(array) {
 function makeCompItem(item) {
     var compItem = new vscode.CompletionItem();
     compItem.label = item.opy.endsWith("()") ? item.opy.substring(0, item.opy.length-2) : item.opy;
+    if (compItem.label.startsWith('@')) {
+        compItem.label = compItem.label.substring(1);
+    }
     compItem.documentation = generateDocFromDoc(item);
     compItem.insertText = generateSnippetFromDoc(item);
     return compItem;

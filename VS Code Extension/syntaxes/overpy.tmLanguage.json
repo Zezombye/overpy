@@ -125,7 +125,7 @@
 			"patterns": [
 				{
 					"name": "entity.name.function",
-					"match": "\\b[A-Z_]+\\b"
+					"match": "\\b[A-Z_\\d]+\\b"
 				}
 			]
 		},
