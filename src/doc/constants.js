@@ -1140,6 +1140,19 @@ var constantValues = {
                 "en": "None"
             }
         ]
+    },
+    "ACCELERATION REEVALUATION": {
+        "opy": "AccelReeval",
+        "values": [
+            {
+                "opy": "AccelReeval.DIRECTION_RATE_AND_MAX_SPEED",
+                "en": "DirectionRateAndMaxSpeed"
+            },
+            {
+                "opy": "AccelReeval.NONE",
+                "en": "None"
+            }
+        ]
     }
 };
 

@@ -1939,6 +1939,18 @@ var actionKw = [
                 "description": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction.",
                 "type": "NUMBER",
                 "default": "NUMBER"
+            },
+            {
+                "name": "RELATIVE",
+                "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
+                "type": "RELATIVE",
+                "default": "TO WORLD"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "ACCELERATION REEVALUATION",
+                "default": "DIRECTION, RATE, AND MAX SPEED"
             }
         ]
     },

@@ -1,0 +1,14 @@
+{
+  "name": "overpy",
+  "version": "1.0.0",
+  "description": "OverPy Decompiler",
+  "main": "bot.js",
+  "scripts": {
+    "start": "pwd && ls && node bot.js"
+  },
+  "author": "Zezombye",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}

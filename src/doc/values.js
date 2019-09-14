@@ -259,7 +259,7 @@ var valueFuncKw = [
         "args": null
     },
     {
-        "opy": "_&getClosestPlayer",
+        "opy": "getClosestPlayer",
         "en": "closestPlayerTo",
         "description": "The player closest to a position, optionally restricted by team.",
         "args": [
