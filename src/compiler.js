@@ -994,7 +994,7 @@ function parseMember(object, member, parseArgs={}) {
 	if (name.length === 1 && name >= 'A' && name <= 'Z') {
 		return tows("_playerVar", valueFuncKw)+"("+parse(object)+", "+name+")";
 	} else if ([
-			"Beam", "Button", "Clip", "Color", "Comms", "Effect", "Icon", "Impulse", "Invis", "LosCheck", "Position", "IconReeval", "AccelReeval", "EffectReeval", "HudReeval", "WorldTextReeval", "ChaseReeval", "DamageReeval", "FacingReeval", "ThrottleReeval", "Relativity", "SpecVisibility", "Status", "Team", "Throttle", "Transform", "Wait"
+			"Beam", "Button", "Clip", "Color", "Comms", "DynamicEffect", "Effect", "Icon", "Impulse", "Invis", "LosCheck", "Position", "IconReeval", "AccelReeval", "EffectReeval", "HudReeval", "WorldTextReeval", "ChaseReeval", "DamageReeval", "FacingReeval", "ThrottleReeval", "Relativity", "SpecVisibility", "Status", "Team", "Throttle", "Transform", "Wait"
 			].indexOf(object[0].text) >= 0) {
 		return tows(object[0].text+"."+name, constantKw)
 
