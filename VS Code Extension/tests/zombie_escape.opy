@@ -1073,7 +1073,6 @@ if currentBossFight != NO_BOSS_FIGHT:
         wait(0.016)
     while RULE_CONDITION
 
-
 @Rule "boss fight init"
 @Event global
 if currentBossFight != NO_BOSS_FIGHT:
