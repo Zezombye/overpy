@@ -3487,9 +3487,9 @@ function parseMember(object, member, parseArgs={}) {
 	
 	if (name.length === 1 && name >= 'A' && name <= 'Z') {
 		return tows("_playerVar", valueFuncKw)+"("+parse(object)+", "+name+")";
-	} else if ([
-			"Beam", "Button", "Clip", "Color", "Comms", "Effect", "Icon", "Impulse", "Invis", "LosCheck", "Position", "IconReeval", "AccelReeval", "EffectReeval", "HudReeval", "WorldTextReeval", "ChaseReeval", "DamageReeval", "FacingReeval", "ThrottleReeval", "Relativity", "SpecVisibility", "Status", "Team", "Throttle", "Transform", "Wait"
-			].indexOf(object[0].text) >= 0) {
+
+	//Check enums
+	} else if (Object.values(constantValues).map(x => x.opy).indexOf(object[0].text) >= 0) {
 		return tows(object[0].text+"."+name, constantKw)
 
 	} else if (name === "append") {
@@ -3520,9 +3520,6 @@ function parseMember(object, member, parseArgs={}) {
 		
 	} else if (name === "hasLoS") {
 		return parse(object, {raycastType:"hasLoS"});
-		
-	} else if (object[0].text === "Hero") {
-		return tows("_hero", valueFuncKw)+"("+tows("Hero."+name, getConstantKw("HERO CONSTANT"))+")";
 		
 	} else if (name === "index") {
 		return tows("_indexOfArrayValue", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
