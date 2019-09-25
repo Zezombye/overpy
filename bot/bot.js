@@ -3,11 +3,11 @@ const client = new Discord.Client();
 
 var fs = require("fs");
 
-//var token = fs.readFileSync("C:/Users/Zezombye/Desktop/overpy-token.txt", "utf-8");
-var token = process.env.BOT_TOKEN;
+var token = fs.readFileSync("C:/Users/Zezombye/Desktop/overpy-token.txt", "utf-8");
+//var token = process.env.BOT_TOKEN;
 
 //import overpy files
-overpyFiles = [
+/*overpyFiles = [
 	"globalVars.js",
 	"keywords.js",
 	"stringKw.js",
@@ -29,7 +29,7 @@ module.exports = {
 
 `
 
-fs.writeFileSync("./overpy.js", overpyCode);
+fs.writeFileSync("./overpy.js", overpyCode);*/
 
 var overpy = require("./overpy.js");
 
