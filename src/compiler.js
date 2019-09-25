@@ -802,11 +802,7 @@ function parse(content, parseArgs={}) {
 		
 		return tows(funcName, actionKw)+"("+result+")";
 	}
-	
-	if (name === "teamHasHero" || name === "getPlayersOnHero" || name === "getNumberOfHeroes") {
-		return tows("_!"+name, valueFuncKw)+"("+parse(args[1])+", "+parse(args[0])+")";
-	}
-	
+		
 	
 	if (name === "wait") {
 		var result = tows("_wait", actionKw)+"("+parse(args[0])+", ";
