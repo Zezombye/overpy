@@ -819,6 +819,19 @@ var valueFuncKw = [
         "args": null
     },
     {
+        "opy": "iconString",
+        "en": "iconString",
+        "description": "Allows you to use an icon inside of a string.",
+        "args": [
+            {
+                "name": "Icon",
+                "description": "The icon to display.",
+                "type": "ICON",
+                "default": "ARROW: DOWN"
+            }
+        ]
+    },
+    {
         "opy": "_indexOfArrayValue",
         "en": "indexOfArrayValue",
         "description": "The index of a value within an array or -1 if no such value can be found.",
@@ -1049,7 +1062,7 @@ var valueFuncKw = [
         "args": []
     },
     {
-        "opy": "_!teamHasHero",
+        "opy": "teamHasHero",
         "en": "isHeroBeingPlayed",
         "description": "Whether a specific hero is being played (either on a team or in the match).",
         "args": [
@@ -1629,7 +1642,7 @@ var valueFuncKw = [
         ]
     },
     {
-        "opy": "_!getNumberOfHeroes",
+        "opy": "getNumberOfHeroes",
         "en": "numberOfHeroes",
         "description": "The number of players playing a specific hero on a team or in the match.",
         "args": [
@@ -1687,7 +1700,7 @@ var valueFuncKw = [
         ]
     },
     {
-        "opy": "getCurrentObjective",
+        "opy": "getCurrentObjective()",
         "en": "objectiveIndex",
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
         "args": []
@@ -1845,7 +1858,7 @@ var valueFuncKw = [
         ]
     },
     {
-        "opy": "_!getPlayersOnHero",
+        "opy": "getPlayersOnHero",
         "en": "playersOnHero",
         "description": "The array of players playing a specific hero on a team or in the match.",
         "args": [

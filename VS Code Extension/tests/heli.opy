@@ -81,16 +81,6 @@ if eventPlayer.isHoldingButton(Button.INTERACT) and eventPlayer == hostPlayer:
     heliTurrets.setGravity(0)
     heliTurrets.setProjectileSpeed(250)
     
-    heliTurrets[0].startForcingButton(heliTurretButton)
-    wait(0.064)
-    heliTurrets[1].startForcingButton(heliTurretButton)
-    wait(0.064)
-    heliTurrets[2].startForcingButton(heliTurretButton)
-    wait(0.064)
-    heliTurrets[3].startForcingButton(heliTurretButton)
-    wait(0.064)
-    heliTurrets[4].startForcingButton(heliTurretButton)
-
 @Rule "begin mines"
 @Event global
 if heliMode == MODE_MINES:
@@ -151,6 +141,8 @@ if heliMode == MODE_MINES:
 @Event global
 if heliMode == MODE_TURRET:
     do:
+        heliTurrets.stopForcingButton(heliTurretButton)
+        wait(random.randint(4, 6))
         targetedPlayer = random.choice(getLivingPlayers(humanTeam))
         heliTurrets.startFacing(directionTowards(heliTurrets.getEyePosition(), targetedPlayer.getEyePosition()), 9999, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
         heliTurrets[0].startForcingButton(heliTurretButton)
@@ -164,8 +156,6 @@ if heliMode == MODE_TURRET:
         heliTurrets[4].startForcingButton(heliTurretButton)
         
         wait(4)
-        heliTurrets.stopForcingButton(heliTurretButton)
-        wait(random.randint(4, 6))
     while RULE_CONDITION
 
 @Rule "move heli in turret"
