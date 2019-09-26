@@ -86,8 +86,9 @@ console.log(counter2);*/
 	z:"team",
 }));*/
 
-function decompileAllRules(content, globalVarNames={}, playerVarNames={}) {
+function decompileAllRules(content, globalVarNames={}, playerVarNames={}, language="en") {
 
+	currentLanguage = language;
 	var result = "";
 	
 	//debug(globalVarNames);
@@ -175,13 +176,13 @@ function decompileRule(content) {
 		result += "@Event "+topy(eventInst[0], eventKw)+"\n";
 		if (eventInst.length > 1) {
 			//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
-			if (topy(eventInst[1], eventKw) !== "all") {
-				result += "@Team "+topy(eventInst[1], eventKw)+"\n";
+			if (topy(eventInst[1], eventTeamKw) !== "all") {
+				result += "@Team "+topy(eventInst[1], eventTeamKw)+"\n";
 			}
 			
 			//Parse the 3rd event instruction
 			//Detect if it is a slot or hero
-			var eventInst3 = topy(eventInst[2], eventKw.concat(getConstantKw("HERO CONSTANT")))
+			var eventInst3 = topy(eventInst[2], eventPlayerKw.concat(getConstantKw("HERO CONSTANT")))
 			if (eventInst3 !== "all") {
 				if (eventInst3.startsWith("slot")) {
 					result += "@Slot "+eventInst3.replace("slot", "")+"\n";

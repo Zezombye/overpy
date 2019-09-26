@@ -23,11 +23,12 @@
 
 //console.log(compile(compileTest));
 
-function compile(content) {
+function compile(content, language="en") {
 	
 	if (typeof window !== "undefined") {
 		var t0 = performance.now();
 	}
+	currentLanguage = language;
 	fileStack = [];
 	var rules = tokenize(content);
 	//console.log(rules);
@@ -116,14 +117,14 @@ function compileRule(rule) {
 					}
 					
 					isEventTeamDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw)+";\n";
+					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventTeamKw)+";\n";
 					
 				} else if (rule.lines[i].tokens[0].text === "@Hero") {
 					if (isEventPlayerDefined) {
 						error("Event player defined twice");
 					}
 					if (!isEventTeamDefined) {
-						result += tabLevel(2)+tows("all", eventKw)+";\n";
+						result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
 						isEventTeamDefined = true;
 					}
 					isEventPlayerDefined = true;
@@ -134,12 +135,12 @@ function compileRule(rule) {
 						error("Event player defined twice");
 					}
 					if (!isEventTeamDefined) {
-						result += tabLevel(2)+tows("all", eventKw)+";\n"+tabLevel(2);
+						result += tabLevel(2)+tows("all", eventTeamKw)+";\n"+tabLevel(2);
 						isEventTeamDefined = true;
 					}
 					
 					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows("slot"+rule.lines[i].tokens[1].text, eventKw)+";\n";
+					result += tabLevel(2)+tows("slot"+rule.lines[i].tokens[1].text, eventPlayerKw)+";\n";
 					
 				} else {
 					error("Unknown annotation");
@@ -148,10 +149,10 @@ function compileRule(rule) {
 		} else {
 			if (isInEvent) {
 				if (!isEventTeamDefined && eventType !== "global") {
-					result += tabLevel(2)+tows("all", eventKw)+";\n";
+					result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
 				}
 				if (!isEventPlayerDefined && eventType !== "global") {
-					result += tabLevel(2)+tows("all", eventKw)+";\n";
+					result += tabLevel(2)+tows("all", eventPlayerKw)+";\n";
 				}
 				isInEvent = false;
 				result += tabLevel(1)+"}\n\n";
@@ -916,7 +917,11 @@ function parseString(content) {
 			var token1 = normalStrKw[j].opy.toLowerCase();
 			if (content[0] === token1) {
 				hasMatchBeenFound = true;
-				matchStr = token1;
+				if (currentLanguage in normalStrKw[j]) {
+					matchStr = normalStrKw[j][currentLanguage];
+				} else {
+					matchStr = normalStrKw[j]["en"];
+				}
 				break;
 			}
 		}
@@ -992,7 +997,12 @@ function parseMember(object, member, parseArgs={}) {
 
 	//Check enums
 	} else if (Object.values(constantValues).map(x => x.opy).indexOf(object[0].text) >= 0) {
-		return tows(object[0].text+"."+name, constantKw)
+		var result = tows(object[0].text+"."+name, constantKw);
+		if (object[0].text === "Hero") {
+			result = tows("_hero", valueFuncKw)+"("+result+")";
+		}
+
+		return result;
 
 	} else if (name === "append") {
 		if (parseArgs.isWholeInstruction === true) {

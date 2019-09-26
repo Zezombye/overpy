@@ -26,21 +26,21 @@
 //OverPy keywords beginning with "_" aren't actually keywords; they signal to the parser that it isn't a simple keyword replacement.
 //For example, the "set global variable(var, value)" is replaced by "var = value".
 
-//Array of languages. As of now, only English is supported.
+//Array of languages.
 var languages = [
 	"en",
-	
-	//Not supported yet!
-	"fr",
-	"es",
-	"it",
-	"ru",
-	"pl",
-	"de",
-	"pt",
-	"ja",
-	"kr",
-	"zh",
+	"fr", //everything
+    //"es-eu", //strings, heroes (only soldier), some enums (eg "ignore condition"), meta (player event and team event)
+    //"es-al", //everything
+	//"it", //strings, heroes (only soldier), some enums (eg "ignore condition"), meta (rule/event/condition/actions, player event and team event)
+	//"ru", //strings, heroes, meta (player event)
+	//"pl", //strings, heroes, meta (rule/event/condition/actions, player event and team event)
+	//"de", //strings, meta(rule/event/condition/actions)
+	//"pt", //everything
+	//"ja", //everything
+	"kr", //heroes and meta ("conditions"/"actions")
+    //"zh1", //strings, heroes, meta(rule/event/condition/actions)
+    //"zh2", //everything
 ]
 
 var currentLanguage = "en";
@@ -48,19 +48,25 @@ var currentLanguage = "en";
 var ruleKw = [
     {
         "opy": "@Rule",
-        "en": "rule"
+        "en": "rule",
+        "fr": "règle",
     },
     {
         "opy": "@Event",
-        "en": "event"
+        "en": "event",
+        "fr": "évènement",
     },
     {
         "opy": "_conditions",
-        "en": "conditions"
+        "en": "conditions",
+        "fr": "conditions",
+        "kr": "condition",
     },
     {
         "opy": "_actions",
-        "en": "actions"
+        "en": "actions",
+        "fr": "actions",
+        "kr": "action",
     }
 ];
 
@@ -68,109 +74,149 @@ var ruleKw = [
 var eventKw = [
     {
         "opy": "global",
-        "en": "ongoing-global"
+        "en": "ongoing-global",
+        "fr": "toutelapartie-toutlemonde",
     },
     {
         "opy": "eachPlayer",
-        "en": "ongoing-eachplayer"
+        "en": "ongoing-eachplayer",
+        "fr": "toutelapartie-chaquejoueur",
     },
     {
         "opy": "playerTookDamage",
-        "en": "playerTookDamage"
+        "en": "playerTookDamage",
+        "fr": "unjoueursubitdesdégâts",
     },
     {
         "opy": "playerDealtDamage",
-        "en": "playerDealtDamage"
+        "en": "playerDealtDamage",
+        "fr": "unjoueurinfligedesdégâts",
     },
     {
         "opy": "playerDealtFinalBlow",
-        "en": "playerDealtFinalBlow"
+        "en": "playerDealtFinalBlow",
+        "fr": "unjoueurinfligeuncoupdegrâce",
     },
     {
         "opy": "playerDied",
-        "en": "playerDied"
+        "en": "playerDied",
+        "fr": "unjoueurmeurt",
     },
     {
         "opy": "playerEarnedElimination",
-        "en": "playerEarnedElimination"
+        "en": "playerEarnedElimination",
+        "fr": "unjoueurobtientuneélimination",
     },
     {
         "opy": "playerDealtHealing",
-        "en": "playerDealtHealing"
+        "en": "playerDealtHealing",
+        "fr": "unjoueuraprodiguédessoins",
     },
     {
         "opy": "playerReceivedHealing",
-        "en": "playerReceivedHealing"
+        "en": "playerReceivedHealing",
+        "fr": "unjoueurareçudessoins",
     },
     {
         "opy": "playerJoined",
-        "en": "playerJoinedMatch"
+        "en": "playerJoinedMatch",
+        "fr": "unjoueurarejointlapartie",
     },
     {
         "opy": "playerLeft",
-        "en": "playerLeftMatch"
-    },
+        "en": "playerLeftMatch",
+        "fr": "unjoueuraquittélapartie",
+    }
+];
+
+var eventTeamKw = [
     {
         "opy": "all",
-        "en": "all"
+        "en": "all",
+        "fr": "lesdeux",
     },
     {
         "opy": "1",
-        "en": "team1"
+        "en": "team1",
+        "fr": "Équipe1",
     },
     {
         "opy": "2",
-        "en": "team2"
+        "en": "team2",
+        "fr": "Équipe2",
     },
-    {
-        "opy": "slot0",
-        "en": "slot0"
-    },
-    {
-        "opy": "slot1",
-        "en": "slot1"
-    },
-    {
-        "opy": "slot2",
-        "en": "slot2"
-    },
-    {
-        "opy": "slot3",
-        "en": "slot3"
-    },
-    {
-        "opy": "slot4",
-        "en": "slot4"
-    },
-    {
-        "opy": "slot5",
-        "en": "slot5"
-    },
-    {
-        "opy": "slot6",
-        "en": "slot6"
-    },
-    {
-        "opy": "slot7",
-        "en": "slot7"
-    },
-    {
-        "opy": "slot8",
-        "en": "slot8"
-    },
-    {
-        "opy": "slot9",
-        "en": "slot9"
-    },
-    {
-        "opy": "slot10",
-        "en": "slot10"
-    },
-    {
-        "opy": "slot11",
-        "en": "slot11"
-    }
 ];
+
+var eventSlotKw = [
+    {
+        "opy": "0",
+        "en": "slot0",
+        "fr": "emplacement0",
+    },
+    {
+        "opy": "1",
+        "en": "slot1",
+        "fr": "emplacement1",
+    },
+    {
+        "opy": "2",
+        "en": "slot2",
+        "fr": "emplacement2",
+    },
+    {
+        "opy": "3",
+        "en": "slot3",
+        "fr": "emplacement3",
+    },
+    {
+        "opy": "4",
+        "en": "slot4",
+        "fr": "emplacement4",
+    },
+    {
+        "opy": "5",
+        "en": "slot5",
+        "fr": "emplacement5",
+    },
+    {
+        "opy": "6",
+        "en": "slot6",
+        "fr": "emplacement6",
+    },
+    {
+        "opy": "7",
+        "en": "slot7",
+        "fr": "emplacement7",
+    },
+    {
+        "opy": "8",
+        "en": "slot8",
+        "fr": "emplacement8",
+    },
+    {
+        "opy": "9",
+        "en": "slot9",
+        "fr": "emplacement9",
+    },
+    {
+        "opy": "10",
+        "en": "slot10",
+        "fr": "emplacement10",
+    },
+    {
+        "opy": "11",
+        "en": "slot11",
+        "fr": "emplacement11",
+    }
+]
+
+var eventPlayerKw = [
+    {
+        "opy": "all",
+        "en": "all",
+        "fr": "tout",
+    },
+].concat(eventSlotKw);
 
 //Global variables, used to convert to names during decompilation.
 var globalVarKw = [
