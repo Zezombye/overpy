@@ -80,7 +80,15 @@ const decompilerUI = [`
         </div>
         
     </div>
+    
     <div id="button-container">
+        Language: <select id="language-select">
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="kr">Korean</option>
+        </select>
+        <br>
+        <br>
         <button type="button" onclick="decompile()">Decompile</button>
     </div>
 
@@ -130,8 +138,16 @@ const decompilerUI = [`
             width: 100%;
         }
 
+        body, textarea, input {
+            color: #CCCCCC;
+            background-color: #222222;
+            scrollbar-color: #CCCCCC #222222;
+        }
 
-    
+        a {
+            color: lightblue;
+        }
+        
     </style>
 
     <script>
@@ -155,12 +171,15 @@ const decompilerUI = [`
                     playerVars[letter] = varText;
                 }
             }
+            var languageSelect = document.getElementById("language-select");
+            var language = languageSelect.options[languageSelect.selectedIndex].value;
 
             const vscode = acquireVsCodeApi();
             vscode.postMessage({
                 content: workshopCode,
                 globalVars: globalVars,
                 playerVars: playerVars,
+                language: language,
             });
 
         }
@@ -198,45 +217,19 @@ const metaRuleParams = [
         "values": []
     },{
         "opy": "@Event",
-        "values": [
-            "global",
-            "eachPlayer",
-            "playerTookDamage",
-            "playerDealtDamage",
-            "playerDealtFinalBlow",
-            "playerDied",
-            "playerEarnedElimination",
-            "playerDealtHealing",
-            "playerReceivedHealing",
-            "playerJoined",
-            "playerLeft",
-        ]
+        "values": overpy.eventKw,
     },{
         "opy": "@Team",
-        "values": [
-            "all",
-            "1",
-            "2",
-        ]
+        "values": overpy.eventTeamKw,
     },{
         "opy": "@Slot",
-        "values": [
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-        ]
+        "values": overpy.eventSlotKw,
     },{
         "opy": "@Hero",
-        "values": constTypes["HERO CONSTANT"].values.map(x => x.opy.substring("Hero.".length).toLowerCase()),
+        "values": constTypes["HERO CONSTANT"].values.map(x => ({
+            ...x,
+            opy: x.opy.substring("Hero.".length).toLowerCase()
+        })),
     }
 ]
 
@@ -271,7 +264,7 @@ const memberConstList = [
 const memberCompItem = makeCompList(memberFuncList.concat(memberConstList));
 
 const constValues = getConstValues();
-const constTypeList = Object.keys(constValues).map(x => ({opy: x}));
+const constTypeList = Object.keys(constValues).map(x => ({opy: x})).filter(x => x.opy !== "Operation" && x.opy !== "Variable");
 const constTypeListOpy = constTypeList.map(x => x.opy);
 
 const metaRuleParamsCompList = makeCompList(metaRuleParams);
@@ -292,7 +285,8 @@ function activate(context) {
         panel.webview.onDidReceiveMessage(message => {
 
             try {
-                var decompiled = overpy.decompileAllRules(message.content, message.globalVars, message.playerVars);
+
+                var decompiled = overpy.decompileAllRules(message.content, message.globalVars, message.playerVars, message.language);
 
                 vscode.window.showSaveDialog({
                     canSelectMany: false,
@@ -334,7 +328,8 @@ function activate(context) {
 
     vscode.commands.registerCommand('extension.compile', () => {
         try {
-            var compiledText = overpy.compile(vscode.window.activeTextEditor.document.getText());
+
+            var compiledText = overpy.compile(vscode.window.activeTextEditor.document.getText(), vscode.workspace.getConfiguration("overpy").workshopLanguage);
             clipboard.copy(compiledText);
             vscode.window.showInformationMessage("Successfully compiled! (copied into clipboard)");
         } catch (e) {
@@ -453,6 +448,13 @@ function activate(context) {
             }
         }
     }, ',', '(', ')');
+
+    vscode.workspace.onDidSaveTextDocument((document) => {
+        if (document.languageId === "overpy" && document.uri.scheme === "file" && vscode.workspace.getConfiguration("overpy").compileOnSave) {
+            vscode.commands.executeCommand("extension.compile");
+        }
+    })
+
 }
 exports.activate = activate;
 
@@ -494,9 +496,9 @@ function makeCompList(array) {
 function makeCompItem(item) {
     var compItem = new vscode.CompletionItem();
     compItem.label = item.opy.endsWith("()") ? item.opy.substring(0, item.opy.length-2) : item.opy;
-    if (compItem.label.startsWith('@')) {
+    /*if (compItem.label.startsWith('@')) {
         compItem.label = compItem.label.substring(1);
-    }
+    }*/
     compItem.documentation = generateDocFromDoc(item);
     compItem.insertText = generateSnippetFromDoc(item);
     return compItem;
@@ -610,7 +612,7 @@ function getSnippetForMetaRuleParam(param) {
     var result = param.substring(1) + " ${1|";
     var ruleParam = null;
     for (metaRuleParam of metaRuleParams) {
-        if (metaRuleParam.name === param) {
+        if (metaRuleParam.opy === param) {
             ruleParam = metaRuleParam;
             break;
         }
@@ -619,7 +621,7 @@ function getSnippetForMetaRuleParam(param) {
         console.log("Could not find param "+param);
         return param;
     }
-    result += ruleParam.values.join(",");
+    result += ruleParam.values.map(x => x.opy).join(",");
     result += "|}$0";
     return result;
 }
@@ -678,6 +680,8 @@ function getSuitableArgType(type) {
         return "Object";
     } else if (type === "ARRAY") {
         return "Object[]";
+    } else if (type === "POSITION") {
+        return "Location";
     } else {
         type = type[0].toUpperCase() + type.substring(1).toLowerCase();
     }

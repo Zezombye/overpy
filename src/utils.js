@@ -282,7 +282,7 @@ function tabLevel(nbTabs) {
 
 
 //Translates a keyword to the other language.
-function translate(keyword, toWorkshop, keywordArray) {
+function translate(keyword, toWorkshop, keywordArray, options={}) {
 	
 	if (!toWorkshop) {
 		keyword = keyword.toLowerCase();
@@ -291,7 +291,8 @@ function translate(keyword, toWorkshop, keywordArray) {
 		}
 	}
 	debug("Translating keyword '"+keyword+"'");
-	//debug(keywordArray === stringKw);
+	debug("language = "+currentLanguage);
+	debug(keywordArray === stringKw);
 	
 	//Check for current array element
 	if (toWorkshop) {
@@ -303,14 +304,25 @@ function translate(keyword, toWorkshop, keywordArray) {
 	}
 
 	for (var i = 0; i < keywordArray.length; i++) {
-				
+		
 		if (toWorkshop) {
 			if (keywordArray[i].opy === keyword) {
-				return keywordArray[i][currentLanguage];
+				//Fallback to "en" if no entry for this language
+				if (currentLanguage in keywordArray[i]) {
+					return keywordArray[i][currentLanguage];
+				} else {
+					return keywordArray[i]["en"];
+				}
 			}
 		} else {
-			if (keywordArray[i][currentLanguage].toLowerCase() === keyword) {
-				return keywordArray[i].opy;
+			if (currentLanguage in keywordArray[i]) {
+				if (keywordArray[i][currentLanguage].toLowerCase() === keyword) {
+					return keywordArray[i].opy;
+				}
+			} else {
+				if (keywordArray[i]["en"].toLowerCase() === keyword) {
+					return keywordArray[i].opy;
+				}
 			}
 		}
 		
@@ -326,17 +338,17 @@ function translate(keyword, toWorkshop, keywordArray) {
 	error("No match found for keyword '"+keyword+"'");	
 }
 
-function topy(keyword, keywordArray) {
-	return translate(keyword, false, keywordArray);
+function topy(keyword, keywordArray, options) {
+	return translate(keyword, false, keywordArray, options);
 }
-function tows(keyword, keywordArray) {
+function tows(keyword, keywordArray, options) {
 	
 	//Check if a token was passed, or a string
 	if (typeof keyword === "object") {
 		fileStack = keyword.fileStack;
-		return translate(keyword.text, true, keywordArray);
+		return translate(keyword.text, true, keywordArray, options);
 	} else {
-		return translate(keyword, true, keywordArray);
+		return translate(keyword, true, keywordArray, options);
 	}
 }
 

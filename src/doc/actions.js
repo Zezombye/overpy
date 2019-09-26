@@ -19,12 +19,14 @@ var actionKw = [
     {
         "opy": "return",
         "en": "abort",
+        "fr": "Interrompre",
         "description": "Stops execution of the action list.",
         "args": null
     },
     {
         "opy": "_abortIf",
         "en": "abortIf",
+        "fr": "InterrompreSi",
         "description": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
         "args": [
             {
@@ -38,18 +40,21 @@ var actionKw = [
     {
         "opy": "_abortIfConditionIsFalse",
         "en": "abortIfConditionIsFalse",
+        "fr": "InterrompreSiLaConditionEstFausse",
         "description": "Stops execution of the action list if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
         "args": []
     },
     {
         "opy": "_abortIfConditionIsTrue",
         "en": "abortIfConditionIsTrue",
+        "fr": "InterrompreSiLaConditionEstVraie",
         "description": "Stops execution of the action list if all conditions in the condition list are true. If any are false, execution continues with the next action.",
         "args": []
     },
     {
         "opy": "_&allowButton",
         "en": "allowButton",
+        "fr": "AutoriserUnBouton",
         "description": "Undoes the effect of the disallow button action for one or more players.",
         "args": [
             {
@@ -69,6 +74,7 @@ var actionKw = [
     {
         "opy": "_&applyImpulse",
         "en": "applyImpulse",
+        "fr": "AppliquerUneImpulsion",
         "description": "Applies an instantaneous change in velocity to the movement of one or more players.",
         "args": [
             {
@@ -106,6 +112,7 @@ var actionKw = [
     {
         "opy": "bigMessage",
         "en": "bigMessage",
+        "fr": "MessageEnGrand",
         "description": "Displays a large message above the reticle that is visible to specific players.",
         "args": [
             {
@@ -125,6 +132,7 @@ var actionKw = [
     {
         "opy": "_chaseGlobalVariableAtRate",
         "en": "chaseGlobalVariableAtRate",
+        "fr": "ModifierUneVariableGlobaleSelonUneCadence",
         "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
         "args": [
             {
@@ -156,6 +164,7 @@ var actionKw = [
     {
         "opy": "_chaseGlobalVariableOverTime",
         "en": "chaseGlobalVariableOverTime",
+        "fr": "ModifierUneVariableGlobaleSurLaDurée",
         "description": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)",
         "args": [
             {
@@ -187,6 +196,7 @@ var actionKw = [
     {
         "opy": "_chasePlayerVariableAtRate",
         "en": "chasePlayerVariableAtRate",
+        "fr": "ModifierUneVariableDeJoueurSelonUneCadence",
         "description": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)",
         "args": [
             {
@@ -212,12 +222,19 @@ var actionKw = [
                 "description": "The amount of change that will happen to the variable's value each second.",
                 "type": "NUMBER",
                 "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "CHASE RATE REEVALUATION",
+                "default": "DESTINATION AND RATE"
             }
         ]
     },
     {
         "opy": "_chasePlayerVariableOverTime",
         "en": "chasePlayerVariableOverTime",
+        "fr": "ModifierUneVariableDeJoueurSurLaDurée",
         "description": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)",
         "args": [
             {
@@ -243,12 +260,19 @@ var actionKw = [
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
                 "type": "ANY",
                 "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "CHASE TIME REEVALUATION",
+                "default": "DESTINATION AND DURATION"
             }
         ]
     },
     {
         "opy": "_&clearStatusEffect",
         "en": "clearStatus",
+        "fr": "EffacerLeStatut",
         "description": "Clears a status that was applied from a set status action from one or more players.",
         "args": [
             {
@@ -268,6 +292,7 @@ var actionKw = [
     {
         "opy": "_&communicate",
         "en": "communicate",
+        "fr": "Communiquer",
         "description": "Causes one or more players to use an emote, voice line, or other equipped communication.",
         "args": [
             {
@@ -287,6 +312,7 @@ var actionKw = [
     {
         "opy": "createBeam",
         "en": "createBeamEffect",
+        "fr": "CréerUnEffetDeRayon",
         "description": "Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
         "args": [
             {
@@ -330,6 +356,7 @@ var actionKw = [
     {
         "opy": "createDummy",
         "en": "createDummyBot",
+        "fr": "CréerUnBot",
         "description": "Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing workshop actions.",
         "args": [
             {
@@ -361,12 +388,13 @@ var actionKw = [
                 "description": "The initial direction that the bot will face.",
                 "type": "DIRECTION",
                 "default": "VECTOR"
-            },
+            }
         ]
     },
     {
         "opy": "createEffect",
         "en": "createEffect",
+        "fr": "CréerUnEffet",
         "description": "Creates an in-world effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
         "args": [
             {
@@ -410,6 +438,7 @@ var actionKw = [
     {
         "opy": "_hudText",
         "en": "createHudText",
+        "fr": "CréerDuTexteD’interface",
         "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
         "args": [
             {
@@ -483,6 +512,7 @@ var actionKw = [
     {
         "opy": "createIcon",
         "en": "createIcon",
+        "fr": "CréerUneIcône",
         "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
         "args": [
             {
@@ -526,6 +556,7 @@ var actionKw = [
     {
         "opy": "createInWorldText",
         "en": "createIn-worldText",
+        "fr": "CréerDuTexteEnJeu",
         "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
         "args": [
             {
@@ -581,6 +612,7 @@ var actionKw = [
     {
         "opy": "damage",
         "en": "damage",
+        "fr": "InfligerDesDégâts",
         "description": "Applies instantaneous damage to one or more players, possibly killing the players.",
         "args": [
             {
@@ -606,12 +638,14 @@ var actionKw = [
     {
         "opy": "declareDraw",
         "en": "declareMatchDraw",
+        "fr": "DéclarerLeMatchNul",
         "description": "Instantly ends the match in a draw. This action has no effect in free-for-all modes.",
         "args": []
     },
     {
         "opy": "declarePlayerVictory",
         "en": "declarePlayerVictory",
+        "fr": "DéclarerLaVictoireD’unJoueur",
         "description": "Instantly ends the match with the specific player as the winner. This action only has an effect in free-for-all modes.",
         "args": [
             {
@@ -625,6 +659,7 @@ var actionKw = [
     {
         "opy": "declareRoundVictory",
         "en": "declareRoundVictory",
+        "fr": "DéclarerLaVictoireDeLaManche",
         "description": "Declare a team as the current round winner. This only works in the control and elimination game modes",
         "args": [
             {
@@ -638,6 +673,7 @@ var actionKw = [
     {
         "opy": "declareTeamVictory",
         "en": "declareTeamVictory",
+        "fr": "DéclarerLaVictoireD’uneéquipe",
         "description": "Instantly ends the match with the specified team as the winner. This action has no effect in free-for-all modes.",
         "args": [
             {
@@ -651,36 +687,42 @@ var actionKw = [
     {
         "opy": "destroyAllDummies()",
         "en": "destroyAllDummyBots",
+        "fr": "DétruireTousLesBots",
         "description": "Removes all dummy bots from the match.",
         "args": []
     },
     {
         "opy": "destroyAllEffects()",
         "en": "destroyAllEffects",
+        "fr": "DétruireTousLesEffets",
         "description": "Destroys all effect entities created by create effect.",
         "args": []
     },
     {
         "opy": "destroyAllHudTexts()",
         "en": "destroyAllHudText",
+        "fr": "DétruireTousLesTextesD’interface",
         "description": "Destroys all hud text that was created by the create hud text action.",
         "args": []
     },
     {
         "opy": "destroyAllIcons()",
         "en": "destroyAllIcons",
+        "fr": "DétruireToutesLesIcônes",
         "description": "Destroys all icon entities created by create icon.",
         "args": []
     },
     {
         "opy": "destroyAllInWorldText()",
         "en": "destroyAllIn-worldText",
+        "fr": "DétruireTousLesTextesEnJeu",
         "description": "Destroys all in-world text created by create in-world text.",
         "args": []
     },
     {
         "opy": "destroyDummy",
         "en": "destroyDummyBot",
+        "fr": "DétruireUnBot",
         "description": "Removes the specified dummy bot from the match.",
         "args": [
             {
@@ -688,7 +730,8 @@ var actionKw = [
                 "description": "The team to remove the dummy bot from. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
                 "type": "TEAM",
                 "default": "TEAM"
-            },{
+            },
+            {
                 "name": "SLOT",
                 "description": "The slot to remove the dummy bot from.",
                 "type": "NUMBER",
@@ -699,6 +742,7 @@ var actionKw = [
     {
         "opy": "destroyEffect",
         "en": "destroyEffect",
+        "fr": "DétruireUnEffet",
         "description": "Destroys an effect entity that was created by create effect.",
         "args": [
             {
@@ -712,6 +756,7 @@ var actionKw = [
     {
         "opy": "destroyHudText",
         "en": "destroyHudText",
+        "fr": "DétruireDuTexteD’interface",
         "description": "Destroys hud text that was created by create hud text.",
         "args": [
             {
@@ -725,6 +770,7 @@ var actionKw = [
     {
         "opy": "destroyIcon",
         "en": "destroyIcon",
+        "fr": "DétruireUneIcône",
         "description": "Destroys an icon entity that was created by create icon.",
         "args": [
             {
@@ -738,6 +784,7 @@ var actionKw = [
     {
         "opy": "destroyInWorldText",
         "en": "destroyIn-worldText",
+        "fr": "DétruireDuTexteEnJeu",
         "description": "Destroys in-world text that was created by create in-world text.",
         "args": [
             {
@@ -751,24 +798,28 @@ var actionKw = [
     {
         "opy": "disableAnnouncer()",
         "en": "disableBuilt-inGamemodeAnnouncer",
+        "fr": "DésactiverL’annonceurPrédéfiniParLeModeDeJeu",
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
         "args": []
     },
     {
         "opy": "disableGamemodeCompletion()",
         "en": "disableBuilt-inGamemodeCompletion",
+        "fr": "DésactiverL’accomplissementPrédéfiniParLeModeDeJeu",
         "description": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands.",
         "args": []
     },
     {
         "opy": "disableMusic()",
         "en": "disableBuilt-inGamemodeMusic",
+        "fr": "DésactiverLaMusiquePrédéfinieParLeModeDeJeu",
         "description": "Disables all game mode music until reenabled or the match ends.",
         "args": []
     },
     {
         "opy": "_&disableRespawn",
         "en": "disableBuilt-inGamemodeRespawning",
+        "fr": "DésactiverLaRéapparitionPrédéfinieParLeModeDeJeu",
         "description": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands.",
         "args": [
             {
@@ -782,12 +833,14 @@ var actionKw = [
     {
         "opy": "disableScoring()",
         "en": "disableBuilt-inGamemodeScoring",
+        "fr": "DésactiverLeCalculDesPointsPrédéfiniParLeModeDeJeu",
         "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
         "args": []
     },
     {
         "opy": "_&disableDeathSpectateAllPlayers",
         "en": "disableDeathSpectateAllPlayers",
+        "fr": "EmpêcherD’observerN’importeQuiAprèsLaMort",
         "description": "Undoes the effect of the enable death spectate all players action for or more players.",
         "args": [
             {
@@ -801,6 +854,7 @@ var actionKw = [
     {
         "opy": "_&disableDeathSpectateTargetHud",
         "en": "disableDeathSpectateTargetHud",
+        "fr": "EmpêcherDeVoirL’interfaceDeLaCibleAprèsLaMort",
         "description": "Undoes the effect of the enable death spectate target hud action for or more players.",
         "args": [
             {
@@ -814,6 +868,7 @@ var actionKw = [
     {
         "opy": "_&disallowButton",
         "en": "disallowButton",
+        "fr": "InterdireLeBouton",
         "description": "Disables a logical button for one or more players such that pressing it has no effect.",
         "args": [
             {
@@ -833,24 +888,28 @@ var actionKw = [
     {
         "opy": "enableAnnouncer()",
         "en": "enableBuilt-inGamemodeAnnouncer",
+        "fr": "ActiverL’annonceurPrédéfiniParLeModeDeJeu",
         "description": "Undoes the effect of the disable built-in game mode announcer action.",
         "args": []
     },
     {
         "opy": "enableGamemodeCompletion()",
         "en": "enableBuilt-inGamemodeCompletion",
+        "fr": "ActiverL’accomplissementPrédéfiniParLeModeDeJeu",
         "description": "Undoes the effect of the disable built-in game mode completion action.",
         "args": []
     },
     {
         "opy": "enableMusic()",
         "en": "enableBuilt-inGamemodeMusic",
+        "fr": "ActiverLaMusiquePrédéfinieParLeModeDeJeu",
         "description": "Undoes the effect of the disable built-in game mode music action.",
         "args": []
     },
     {
         "opy": "_&enableRespawn",
         "en": "enableBuilt-inGamemodeRespawning",
+        "fr": "ActiverLaRéapparitionPrédéfinieParLeModeDeJeu",
         "description": "Undoes the effect of the disable built-in game mode respawning action for one or more players.",
         "args": [
             {
@@ -864,12 +923,14 @@ var actionKw = [
     {
         "opy": "enableScoring()",
         "en": "enableBuilt-inGamemodeScoring",
+        "fr": "ActiverLeCalculDesPointsPrédéfiniParLeModeDeJeu",
         "description": "Undoes the effect of the disable built-in game mode scoring action.",
         "args": []
     },
     {
         "opy": "_&enableDeathSpectateAllPlayers",
         "en": "enableDeathSpectateAllPlayers",
+        "fr": "PermettreD’observerN’importeQuiAprèsLaMort",
         "description": "Allows one or more players to spectate all players when dead, as opposed to only allies.",
         "args": [
             {
@@ -883,6 +944,7 @@ var actionKw = [
     {
         "opy": "_&enableDeathSpectateTargetHud",
         "en": "enableDeathSpectateTargetHud",
+        "fr": "PermettreDeVoirL’interfaceDeLaCibleAprèsLaMort",
         "description": "Causes one or more players to see their spectate target's hud instead of their own while death spectating.",
         "args": [
             {
@@ -896,12 +958,14 @@ var actionKw = [
     {
         "opy": "goToAssembleHeroes()",
         "en": "goToAssembleHeroes",
+        "fr": "AlleràChoisissezVosHéros",
         "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
         "args": []
     },
     {
         "opy": "heal",
         "en": "heal",
+        "fr": "Soigner",
         "description": "Provides an instantaneous heal to one or more players. This heal will not resurrect dead players.",
         "args": [
             {
@@ -927,6 +991,7 @@ var actionKw = [
     {
         "opy": "kill",
         "en": "kill",
+        "fr": "Tuer",
         "description": "Instantly kills one or more players.",
         "args": [
             {
@@ -946,12 +1011,14 @@ var actionKw = [
     {
         "opy": "_loop",
         "en": "loop",
+        "fr": "Boucle",
         "description": "Restarts the action list from the beginning. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": []
     },
     {
         "opy": "_loopIf",
         "en": "loopIf",
+        "fr": "BoucleSi",
         "description": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [
             {
@@ -965,18 +1032,21 @@ var actionKw = [
     {
         "opy": "_loopIfConditionIsFalse",
         "en": "loopIfConditionIsFalse",
+        "fr": "BoucleSiLaConditionEstFausse",
         "description": "Restarts the action list from the beginning if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": []
     },
     {
         "opy": "_loopIfConditionIsTrue",
         "en": "loopIfConditionIsTrue",
+        "fr": "BoucleSiLaConditionEstVraie",
         "description": "Restarts the action list from the beginning if every condition in the condition list is true. If any are false, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": []
     },
     {
         "opy": "_modifyGlobalVar",
         "en": "modifyGlobalVariable",
+        "fr": "ModifierUneVariableGlobale",
         "description": "Modifies the value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -1002,6 +1072,7 @@ var actionKw = [
     {
         "opy": "_modifyGlobalVarAtIndex",
         "en": "modifyGlobalVariableAtIndex",
+        "fr": "ModifierUneVariableGlobaleàL’index",
         "description": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -1009,7 +1080,8 @@ var actionKw = [
                 "description": "The global variable to modify.",
                 "type": "VARIABLE",
                 "default": "A"
-            },{
+            },
+            {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "NUMBER",
@@ -1032,6 +1104,7 @@ var actionKw = [
     {
         "opy": "_&addToScore",
         "en": "modifyPlayerScore",
+        "fr": "ModifierLeScoreD’unJoueur",
         "description": "Modifies the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
         "args": [
             {
@@ -1051,6 +1124,7 @@ var actionKw = [
     {
         "opy": "_modifyPlayerVar",
         "en": "modifyPlayerVariable",
+        "fr": "ModifierUneVariableDeJoueur",
         "description": "Modifies the value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -1082,6 +1156,7 @@ var actionKw = [
     {
         "opy": "_modifyPlayerVarAtIndex",
         "en": "modifyPlayerVariableAtIndex",
+        "fr": "ModifierUneVariableDeJoueuràL’index",
         "description": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -1095,7 +1170,8 @@ var actionKw = [
                 "description": "Specifies which of the player's variables to modify.",
                 "type": "VARIABLE",
                 "default": "A"
-            },{
+            },
+            {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "NUMBER",
@@ -1118,6 +1194,7 @@ var actionKw = [
     {
         "opy": "addToTeamScore",
         "en": "modifyTeamScore",
+        "fr": "ModifierLeScoreDeL’équipe",
         "description": "Modifies the score of one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
         "args": [
             {
@@ -1137,12 +1214,14 @@ var actionKw = [
     {
         "opy": "pauseMatchTime()",
         "en": "pauseMatchTime",
+        "fr": "MettreEnPauseLeTempsDeJeu",
         "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
         "args": []
     },
     {
         "opy": "playEffect",
         "en": "playEffect",
+        "fr": "JouerUnEffet",
         "description": "Plays an effect at a position in the world. The lifetime of this effect is short, so it does not need to be updated or destroyed.",
         "args": [
             {
@@ -1180,6 +1259,7 @@ var actionKw = [
     {
         "opy": "_&preloadHero",
         "en": "preloadHero",
+        "fr": "PréchargerUnHéros",
         "description": "Preemptively loads the specified hero or heroes into memory using the skins of the specified player or players, available memory permitting. Useful whenever rapid hero changing is possible and the next hero is known.",
         "args": [
             {
@@ -1199,6 +1279,7 @@ var actionKw = [
     {
         "opy": "_&forceButtonPress",
         "en": "pressButton",
+        "fr": "AppuyerSurUnBouton",
         "description": "Forces one or more players to press a button virtually for a single frame.",
         "args": [
             {
@@ -1218,6 +1299,7 @@ var actionKw = [
     {
         "opy": "_&resetHeroAvailability",
         "en": "resetPlayerHeroAvailability",
+        "fr": "RéinitialiserLaDisponibilitéDuHérosPourUnJoueur",
         "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
         "args": [
             {
@@ -1231,6 +1313,7 @@ var actionKw = [
     {
         "opy": "_&respawn",
         "en": "respawn",
+        "fr": "Réapparaître",
         "description": "Respawns one or more players at an appropriate spawn location with full health, even if they were already alive.",
         "args": [
             {
@@ -1244,6 +1327,7 @@ var actionKw = [
     {
         "opy": "_&resurrect",
         "en": "resurrect",
+        "fr": "Ressusciter",
         "description": "Instantly resurrects one or more players at the location they died with no transition.",
         "args": [
             {
@@ -1257,6 +1341,7 @@ var actionKw = [
     {
         "opy": "_&setAbility1Enabled",
         "en": "setAbility1Enabled",
+        "fr": "DéfinirL’activationDeLaCapacité1",
         "description": "Enables or disables ability 1 for one or more players.",
         "args": [
             {
@@ -1276,6 +1361,7 @@ var actionKw = [
     {
         "opy": "_&setAbility2Enabled",
         "en": "setAbility2Enabled",
+        "fr": "DéfinirL’activationDeLaCapacité2",
         "description": "Enables or disables ability 2 for one or more players.",
         "args": [
             {
@@ -1295,6 +1381,7 @@ var actionKw = [
     {
         "opy": "_&setAimSpeed",
         "en": "setAimSpeed",
+        "fr": "DéfinirLaVitesseDeVisée",
         "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
         "args": [
             {
@@ -1314,6 +1401,7 @@ var actionKw = [
     {
         "opy": "_&setDamageDealt",
         "en": "setDamageDealt",
+        "fr": "DéfinirLesDégâtsInfligés",
         "description": "Sets the damage dealt of one or more players to a percentage of their raw damage dealt.",
         "args": [
             {
@@ -1333,6 +1421,7 @@ var actionKw = [
     {
         "opy": "_&setDamageReceived",
         "en": "setDamageReceived",
+        "fr": "DéfinirLesDégâtsSubis",
         "description": "Sets the damage received of one or more players to a percentage of their raw damage received.",
         "args": [
             {
@@ -1352,6 +1441,7 @@ var actionKw = [
     {
         "opy": "_&setFacing",
         "en": "setFacing",
+        "fr": "DéfinirLaDirectionDuRegard",
         "description": "Sets the facing of one or more players to the specified direction.",
         "args": [
             {
@@ -1377,6 +1467,7 @@ var actionKw = [
     {
         "opy": "_setGlobalVar",
         "en": "setGlobalVariable",
+        "fr": "DéfinirUneVariableGlobale",
         "description": "Stores a value into a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -1396,6 +1487,7 @@ var actionKw = [
     {
         "opy": "_setGlobalVarAtIndex",
         "en": "setGlobalVariableAtIndex",
+        "fr": "DéfinirUneVariableGlobaleàL’index",
         "description": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index.",
         "args": [
             {
@@ -1421,6 +1513,7 @@ var actionKw = [
     {
         "opy": "_&setGravity",
         "en": "setGravity",
+        "fr": "DéfinirLaGravité",
         "description": "Sets the movement gravity for one or more players to a percentage regular movement gravity.",
         "args": [
             {
@@ -1440,6 +1533,7 @@ var actionKw = [
     {
         "opy": "_&setHealingDealt",
         "en": "setHealingDealt",
+        "fr": "DéfinirLesSoinsProdigués",
         "description": "Sets the healing dealt of one or more players to a percentage of their raw healing dealt.",
         "args": [
             {
@@ -1459,6 +1553,7 @@ var actionKw = [
     {
         "opy": "_&setHealingReceived",
         "en": "setHealingReceived",
+        "fr": "DéfinirLesSoinsReçus",
         "description": "Sets the healing received of one or more players to a percentage of their raw healing received.",
         "args": [
             {
@@ -1478,6 +1573,7 @@ var actionKw = [
     {
         "opy": "_&setInvisibility",
         "en": "setInvisible",
+        "fr": "DéfinirL’invisibilité",
         "description": "Causes one or more players to become invisible to either all other players or just enemies.",
         "args": [
             {
@@ -1497,6 +1593,7 @@ var actionKw = [
     {
         "opy": "setMatchTime",
         "en": "setMatchTime",
+        "fr": "DéfinirLeTempsDeJeu",
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
         "args": [
             {
@@ -1510,6 +1607,7 @@ var actionKw = [
     {
         "opy": "_&setMaxHealth",
         "en": "setMaxHealth",
+        "fr": "DéfinirLesPointsDeVieMaximum",
         "description": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health.",
         "args": [
             {
@@ -1529,6 +1627,7 @@ var actionKw = [
     {
         "opy": "_&setMoveSpeed",
         "en": "setMoveSpeed",
+        "fr": "DéfinirLaVitesseDeDéplacement",
         "description": "Sets the move speed of one or more players to a percentage of their raw move speed.",
         "args": [
             {
@@ -1548,6 +1647,7 @@ var actionKw = [
     {
         "opy": "setObjectiveDescription",
         "en": "setObjectiveDescription",
+        "fr": "DéfinirLaDescriptionD’objectif",
         "description": "Sets the text at the top center of the screen that normally describes the objective to a message visible to specific players.",
         "args": [
             {
@@ -1573,6 +1673,7 @@ var actionKw = [
     {
         "opy": "_&setAllowedHeroes",
         "en": "setPlayerAllowedHeroes",
+        "fr": "DéfinirLesHérosAutorisésPourUnJoueur",
         "description": "Sets the list of heroes available to one or more players. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
         "args": [
             {
@@ -1592,6 +1693,7 @@ var actionKw = [
     {
         "opy": "_&setScore",
         "en": "setPlayerScore",
+        "fr": "DéfinirLeScoreD’unJoueur",
         "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
         "args": [
             {
@@ -1611,6 +1713,7 @@ var actionKw = [
     {
         "opy": "_setPlayerVar",
         "en": "setPlayerVariable",
+        "fr": "DéfinirUneVariableDeJoueur",
         "description": "Stores a value into a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -1636,6 +1739,7 @@ var actionKw = [
     {
         "opy": "_setPlayerVarAtIndex",
         "en": "setPlayerVariableAtIndex",
+        "fr": "DéfinirUneVariableDeJoueuràL’index",
         "description": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index.",
         "args": [
             {
@@ -1667,6 +1771,7 @@ var actionKw = [
     {
         "opy": "_&setPrimaryFireEnabled",
         "en": "setPrimaryFireEnabled",
+        "fr": "DéfinirL’activationDuTirPrincipal",
         "description": "Enables or disables primary fire for one or more players.",
         "args": [
             {
@@ -1686,6 +1791,7 @@ var actionKw = [
     {
         "opy": "_&setProjectileGravity",
         "en": "setProjectileGravity",
+        "fr": "DéfinirLaGravitéDesProjectiles",
         "description": "Sets the projectile gravity for one or more players to a percentage of regular projectile gravity.",
         "args": [
             {
@@ -1705,6 +1811,7 @@ var actionKw = [
     {
         "opy": "_&setProjectileSpeed",
         "en": "setProjectileSpeed",
+        "fr": "DéfinirLaVitesseDesProjectiles",
         "description": "Iets the projectile speed for one or more players to a percentage of projectile speed.",
         "args": [
             {
@@ -1724,6 +1831,7 @@ var actionKw = [
     {
         "opy": "_&setRespawnTime",
         "en": "setRespawnMaxTime",
+        "fr": "DéfinirLaDuréeMaximumAvantRéapparition",
         "description": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death.",
         "args": [
             {
@@ -1743,6 +1851,7 @@ var actionKw = [
     {
         "opy": "_&setSecondaryFireEnabled",
         "en": "setSecondaryFireEnabled",
+        "fr": "DéfinirL’activationDuTirSecondaire",
         "description": "Enables or disables secondary fire for one or more players.",
         "args": [
             {
@@ -1762,6 +1871,7 @@ var actionKw = [
     {
         "opy": "setSlowMotion",
         "en": "setSlowMotion",
+        "fr": "DéfinirUnRalenti",
         "description": "Sets the simulation rate for the entire game, including all players, projectiles, effects, and game mode logic.",
         "args": [
             {
@@ -1775,6 +1885,7 @@ var actionKw = [
     {
         "opy": "_&setStatusEffect",
         "en": "setStatus",
+        "fr": "DéfinirUnStatut",
         "description": "Applies a status to one or more players. This status will remain in effect for the specified duration or until it is cleared by the clear status action.",
         "args": [
             {
@@ -1806,6 +1917,7 @@ var actionKw = [
     {
         "opy": "setTeamScore",
         "en": "setTeamScore",
+        "fr": "DéfinirLeScoreD’uneéquipe",
         "description": "Sets the score for one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
         "args": [
             {
@@ -1825,6 +1937,7 @@ var actionKw = [
     {
         "opy": "_&setUltEnabled",
         "en": "setUltimateAbilityEnabled",
+        "fr": "DéfinirL’activationDeLaCapacitéUltime",
         "description": "Enables or disables the ultimate ability of one or more players.",
         "args": [
             {
@@ -1844,6 +1957,7 @@ var actionKw = [
     {
         "opy": "_&setUltCharge",
         "en": "setUltimateCharge",
+        "fr": "DéfinirLaChargeDeLaCapacitéUltime",
         "description": "Sets the ultimate charge for one or more players as a percentage of maximum charge.",
         "args": [
             {
@@ -1863,6 +1977,7 @@ var actionKw = [
     {
         "opy": "_skip",
         "en": "skip",
+        "fr": "Passer",
         "description": "Skips execution of a certain number of actions in the action list.",
         "args": [
             {
@@ -1876,6 +1991,7 @@ var actionKw = [
     {
         "opy": "_skipIf",
         "en": "skipIf",
+        "fr": "PasserSi",
         "description": "Skips execution of a certain number of actions in the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
         "args": [
             {
@@ -1895,6 +2011,7 @@ var actionKw = [
     {
         "opy": "smallMessage",
         "en": "smallMessage",
+        "fr": "MessageEnPetit",
         "description": "Displays a small message beneath the reticle that is visible to specific players.",
         "args": [
             {
@@ -1914,6 +2031,7 @@ var actionKw = [
     {
         "opy": "_&startAcceleration",
         "en": "startAccelerating",
+        "fr": "Accélérer",
         "description": "Starts accelerating one or more players in a specified direction.",
         "args": [
             {
@@ -1957,6 +2075,7 @@ var actionKw = [
     {
         "opy": "_&setCamera",
         "en": "startCamera",
+        "fr": "LancerLaCaméra",
         "description": "Places your camera at a location, facing a direction.",
         "args": [
             {
@@ -1988,6 +2107,7 @@ var actionKw = [
     {
         "opy": "startDamageModification",
         "en": "startDamageModification",
+        "fr": "LancerLaModificationDesDégâts",
         "description": "Starts modifying how much damage one or more receivers will receive from one or more damagers. A reference to this damage modification can be obtained from the last damage modification id value. This action will fail if too many damage modifications have been started.",
         "args": [
             {
@@ -2019,6 +2139,7 @@ var actionKw = [
     {
         "opy": "_&startDoT",
         "en": "startDamageOverTime",
+        "fr": "InfligerDesDégâtsSurLaDurée",
         "description": "Starts an instance of damage over time. This dot will persist for the specified duration or until stopped by script. To obtain a reference to this dot, use the last damage over time id value.",
         "args": [
             {
@@ -2050,6 +2171,7 @@ var actionKw = [
     {
         "opy": "_&startFacing",
         "en": "startFacing",
+        "fr": "RegarderVers",
         "description": "Starts turning one or more players to face the specified direction.",
         "args": [
             {
@@ -2087,6 +2209,7 @@ var actionKw = [
     {
         "opy": "_&startForcingHero",
         "en": "startForcingPlayerToBeHero",
+        "fr": "ForcerUnHéros",
         "description": "Starts forcing one or more players to be a specific hero and, if necessary, respawns them immediately in their current location. This will be the only hero available to the player or players until the stop forcing player to be hero action is executed.",
         "args": [
             {
@@ -2106,6 +2229,7 @@ var actionKw = [
     {
         "opy": "startForcingSpawn",
         "en": "startForcingSpawnRoom",
+        "fr": "ForcerUneSalleD’apparition",
         "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
         "args": [
             {
@@ -2125,6 +2249,7 @@ var actionKw = [
     {
         "opy": "_&startForcingThrottle",
         "en": "startForcingThrottle",
+        "fr": "ForcerL’accélération",
         "description": "Defines minimum and maximum movement input values for one or more players, possibly forcing or preventing movement.",
         "args": [
             {
@@ -2174,6 +2299,7 @@ var actionKw = [
     {
         "opy": "_&startHoT",
         "en": "startHealOverTime",
+        "fr": "ProdiguerDesSoinsSurLaDurée",
         "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
         "args": [
             {
@@ -2205,6 +2331,7 @@ var actionKw = [
     {
         "opy": "_&startForcingButton",
         "en": "startHoldingButton",
+        "fr": "MaintenirUnBoutonEnfoncé",
         "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
         "args": [
             {
@@ -2224,6 +2351,7 @@ var actionKw = [
     {
         "opy": "_&startThrottleInDirection",
         "en": "startThrottleInDirection",
+        "fr": "CommencerL’accélérationDirectionnelle",
         "description": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled.",
         "args": [
             {
@@ -2267,6 +2395,7 @@ var actionKw = [
     {
         "opy": "_&startTransformingThrottle",
         "en": "startTransformingThrottle",
+        "fr": "DébutDeModificationDeL’accélération",
         "description": "Starts transforming (scaling and rotating) the throttle (directional input control) of a player or players. Cancels any existing start transforming throttle behavior.",
         "args": [
             {
@@ -2298,6 +2427,7 @@ var actionKw = [
     {
         "opy": "_&stopAcceleration",
         "en": "stopAccelerating",
+        "fr": "ArrêterL’accélération",
         "description": "Stops the acceleration started by the start accelerating action for one or more players.",
         "args": [
             {
@@ -2311,12 +2441,14 @@ var actionKw = [
     {
         "opy": "stopAllDamageModifications",
         "en": "stopAllDamageModifications",
+        "fr": "ArrêterToutesLesModificationsDeDégâts",
         "description": "Stops all damage modifications that were started using the start damage modification action.",
         "args": []
     },
     {
         "opy": "_&stopAllDoT",
         "en": "stopAllDamageOverTime",
+        "fr": "ArrêterTousLesDégâtsSurLaDurée",
         "description": "Stops all damage over time started by start damage over time for one or more players.",
         "args": [
             {
@@ -2330,6 +2462,7 @@ var actionKw = [
     {
         "opy": "_&stopAllHoT",
         "en": "stopAllHealOverTime",
+        "fr": "ArrêterTousLesSoinsSurLaDurée",
         "description": "Stops all heal over time started by start heal over time for one or more players.",
         "args": [
             {
@@ -2343,6 +2476,7 @@ var actionKw = [
     {
         "opy": "_&stopCamera",
         "en": "stopCamera",
+        "fr": "ArrêterLaCaméra",
         "description": "None",
         "args": [
             {
@@ -2356,6 +2490,7 @@ var actionKw = [
     {
         "opy": "_stopChasingGlobalVariable",
         "en": "stopChasingGlobalVariable",
+        "fr": "ArrêterDeModifierUneVariableGlobale",
         "description": "Stops an in-progress chase of a global variable, leaving it at its current value.",
         "args": [
             {
@@ -2369,6 +2504,7 @@ var actionKw = [
     {
         "opy": "_stopChasingPlayerVariable",
         "en": "stopChasingPlayerVariable",
+        "fr": "ArrêterDeModifierUneVariableDeJoueur",
         "description": "Stops an in-progress chase of a player variable, leaving it at its current value.",
         "args": [
             {
@@ -2388,6 +2524,7 @@ var actionKw = [
     {
         "opy": "stopDamageModification",
         "en": "stopDamageModification",
+        "fr": "ArrêterLaModificationDesDégâts",
         "description": "Stops a damage modification that was started by the start damage modification action.",
         "args": [
             {
@@ -2401,6 +2538,7 @@ var actionKw = [
     {
         "opy": "stopDoT",
         "en": "stopDamageOverTime",
+        "fr": "ArrêterDesDégâtsSurLaDurée",
         "description": "Stops an instance of damage over time started by the start damage over time action.",
         "args": [
             {
@@ -2414,6 +2552,7 @@ var actionKw = [
     {
         "opy": "_&stopFacing",
         "en": "stopFacing",
+        "fr": "ArrêterDeRegarderVers",
         "description": "Stops the turning started by the start facing action for one or more players.",
         "args": [
             {
@@ -2427,6 +2566,7 @@ var actionKw = [
     {
         "opy": "_&stopForcingCurrentHero",
         "en": "stopForcingPlayerToBeHero",
+        "fr": "ArrêterDeForcerUnHéros",
         "description": "Stops forcing one or more players to be a specific hero. This will not respawn the player or players, but it will restore their hero availability the next time they go to select a hero.",
         "args": [
             {
@@ -2440,6 +2580,7 @@ var actionKw = [
     {
         "opy": "stopForcingSpawn",
         "en": "stopForcingSpawnRoom",
+        "fr": "ArrêterDeForcerUneSalleD’apparition",
         "description": "Undoes the effect of the start forcing spawn room action for the specified team.",
         "args": [
             {
@@ -2453,6 +2594,7 @@ var actionKw = [
     {
         "opy": "_&stopForcingThrottle",
         "en": "stopForcingThrottle",
+        "fr": "ArrêterDeForcerL’accélération",
         "description": "Undoes the effect of the start forcing throttle action for one or more players.",
         "args": [
             {
@@ -2466,6 +2608,7 @@ var actionKw = [
     {
         "opy": "stopHoT",
         "en": "stopHealOverTime",
+        "fr": "ArrêterDesSoinsSurLaDurée",
         "description": "Stops an instance of heal over time started by the start heal over time action.",
         "args": [
             {
@@ -2479,6 +2622,7 @@ var actionKw = [
     {
         "opy": "_&stopForcingButton",
         "en": "stopHoldingButton",
+        "fr": "ArrêterDeMaintenirUnBoutonEnfoncé",
         "description": "Undoes the effect of the start holding button action for one or more players.",
         "args": [
             {
@@ -2498,6 +2642,7 @@ var actionKw = [
     {
         "opy": "_&stopThrottleInDirection",
         "en": "stopThrottleInDirection",
+        "fr": "ArrêterL’accélérationDirectionnelle",
         "description": "Cancels the behavior caused by start throttle in direction.",
         "args": [
             {
@@ -2511,6 +2656,7 @@ var actionKw = [
     {
         "opy": "_&stopTransformingThrottle",
         "en": "stopTransformingThrottle",
+        "fr": "ArrêtDeModificationDeL’accélération",
         "description": "Stops the throttle transform started by start transforming throttle for one or more players.",
         "args": [
             {
@@ -2524,6 +2670,7 @@ var actionKw = [
     {
         "opy": "_&teleport",
         "en": "teleport",
+        "fr": "Téléportation",
         "description": "Teleports one or more players to the specified position.",
         "args": [
             {
@@ -2543,12 +2690,14 @@ var actionKw = [
     {
         "opy": "unpauseMatchTime()",
         "en": "unpauseMatchTime",
+        "fr": "ReprendreLeTempsDeJeu",
         "description": "Unpauses the match time.",
         "args": []
     },
     {
         "opy": "_wait",
         "en": "wait",
+        "fr": "Attente",
         "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
         "args": [
             {
