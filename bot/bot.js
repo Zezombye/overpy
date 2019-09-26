@@ -46,7 +46,7 @@ client.on('message', msg => {
 		msgContent = msgContent.substring(msgContent.indexOf("\n"), msgContent.length-3);
 		msgContent = msgContent.trim();
 	}
-	if (msgContent.startsWith("rule(") && msgContent.endsWith("}")) {
+	if ((msgContent.startsWith("rule(") || msgContent.startsWith("rule (")) && msgContent.endsWith("}")) {
 		try {
 			msg.channel.send("```python\n"+overpy.decompileAllRules(msgContent)+"```");
 		} catch (Error) {

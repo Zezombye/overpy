@@ -1,4 +1,4 @@
-# OverPy v1.4
+# OverPy v1.5
 High-level language for the Overwatch Workshop with support for compilation and decompilation.
 
 The philosophy behind this language is "what would the workshop be like if it was coded in Python?" As such, this language aims to be as Python-like as reasonably possible.
@@ -8,6 +8,8 @@ Join the EloHell discord for feedback: https://discord.gg/zwF7KQm #highlevel-scr
 Discord operators can add my decompiler bot by clicking on this link: https://discordapp.com/oauth2/authorize?client_id=604665521102782467&scope=bot
 
 If someone posts workshop code, the bot will reply with the decompiled version (which is more readable).
+
+Languages supported: English, French, Korean
 
 # Installing the VS Code extension
 

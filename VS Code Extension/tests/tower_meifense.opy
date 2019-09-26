@@ -221,6 +221,7 @@ if eventPlayer.meiType == MEI_MEICOPTER_TURRET:
 if eventPlayer.meiType == MEI_MEICOPTER_TURRET:
     do:
         eventPlayer.teleport(meicopter.getPosition())
+        playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.RED, eventPlayer.getPosition(), 5)
         wait(0.016)
     while RULE_CONDITION
 

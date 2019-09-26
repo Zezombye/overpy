@@ -30,10 +30,14 @@ module.exports = {
 	valueFuncKw: valueFuncKw,
 	constantValues: constantValues,
 	eventKw: eventKw,
+	eventTeamKw: eventTeamKw,
+	eventSlotKw: eventSlotKw,
+	eventPlayerKw: eventPlayerKw,
 	ruleKw: ruleKw,
 	stringKw: stringKw,
 	specialFuncs: specialFuncs,
 	specialMemberFuncs: specialMemberFuncs,
+	currentLanguage: currentLanguage,
 
 };
 `

@@ -4,7 +4,7 @@
     "displayName": "OverPy",
     "repository": "https://github.com/Zezombye/overpy",
     "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
-    "version": "1.4.7",
+    "version": "1.5.0",
     "readme": "README.md",
     "engines": {
         "vscode": "^1.36.0"
@@ -28,6 +28,31 @@
         "copy-paste": "^1.3.0"
     },
     "contributes": {
+        "configuration": {
+            "title": "OverPy",
+            "properties": {
+                "overpy.workshopLanguage": {
+                    "type": "string",
+                    "description": "Specifies the language used for decompilation and compilation.",
+                    "default": "en",
+                    "enum": [
+                        "en",
+                        "fr",
+                        "kr"
+                    ],
+                    "enumDescriptions": [
+                        "English",
+                        "French",
+                        "Korean"
+                    ]
+                },
+                "overpy.compileOnSave": {
+                    "type": "boolean",
+                    "description": "Specifies whether to initiate a compilation on save.",
+                    "default": false
+                }
+            }
+        },
         "languages": [
             {
                 "id": "overpy",

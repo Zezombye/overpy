@@ -7,7 +7,7 @@
             <textarea id="decompiler-input-text" placeholder="Copy paste your workshop code here"></textarea>
         </div>
         <div id="var-input">
-            <p>Global var names</p>
+            <p><b>Global var names</b></p>
             <div id="global-var-input">
                 <p>A: <input type='text' id='global-var-a'/></p>
                 <p>B: <input type='text' id='global-var-b'/></p>
@@ -36,7 +36,7 @@
                 <p>Y: <input type='text' id='global-var-y'/></p>
                 <p>Z: <input type='text' id='global-var-z'/></p>
             </div>
-            <p>Player var names</p>
+            <p><b>Player var names</b></p>
             <div id="player-var-input">
                 <p>A: <input type='text' id='player-var-a'/></p>
                 <p>B: <input type='text' id='player-var-b'/></p>
@@ -69,6 +69,13 @@
         
     </div>
     <div id="button-container">
+        Language: <select id="language-select">
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="kr">Korean</option>
+        </select>
+        <br>
+        <br>
         <button type="button" onclick="decompile()">Decompile</button>
     </div>
 
@@ -117,6 +124,20 @@
             width: 100%;
         }
 
+        textarea {
+            resize: vertical;
+        }
+
+        body, textarea, input {
+            color: #CCCCCC;
+            background-color: #222222;
+            scrollbar-color: #CCCCCC #222222;
+        }
+
+        a {
+            color: lightblue;
+        }
+
 
     
     </style>
@@ -143,9 +164,13 @@
                 }
             }
 
+            var languageSelect = document.getElementById("language-select");
+            var language = languageSelect.options[languageSelect.selectedIndex].value;
+
             console.log(workshopCode);
             console.log(globalVars);
             console.log(playerVars);
+            console.log(language);
 
         }
     

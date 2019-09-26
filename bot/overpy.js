@@ -391,7 +391,7 @@ function tabLevel(nbTabs) {
 
 
 //Translates a keyword to the other language.
-function translate(keyword, toWorkshop, keywordArray) {
+function translate(keyword, toWorkshop, keywordArray, options={}) {
 	
 	if (!toWorkshop) {
 		keyword = keyword.toLowerCase();
@@ -400,7 +400,8 @@ function translate(keyword, toWorkshop, keywordArray) {
 		}
 	}
 	debug("Translating keyword '"+keyword+"'");
-	//debug(keywordArray === stringKw);
+	debug("language = "+currentLanguage);
+	debug(keywordArray === stringKw);
 	
 	//Check for current array element
 	if (toWorkshop) {
@@ -412,14 +413,25 @@ function translate(keyword, toWorkshop, keywordArray) {
 	}
 
 	for (var i = 0; i < keywordArray.length; i++) {
-				
+		
 		if (toWorkshop) {
 			if (keywordArray[i].opy === keyword) {
-				return keywordArray[i][currentLanguage];
+				//Fallback to "en" if no entry for this language
+				if (currentLanguage in keywordArray[i]) {
+					return keywordArray[i][currentLanguage];
+				} else {
+					return keywordArray[i]["en"];
+				}
 			}
 		} else {
-			if (keywordArray[i][currentLanguage].toLowerCase() === keyword) {
-				return keywordArray[i].opy;
+			if (currentLanguage in keywordArray[i]) {
+				if (keywordArray[i][currentLanguage].toLowerCase() === keyword) {
+					return keywordArray[i].opy;
+				}
+			} else {
+				if (keywordArray[i]["en"].toLowerCase() === keyword) {
+					return keywordArray[i].opy;
+				}
 			}
 		}
 		
@@ -435,17 +447,17 @@ function translate(keyword, toWorkshop, keywordArray) {
 	error("No match found for keyword '"+keyword+"'");	
 }
 
-function topy(keyword, keywordArray) {
-	return translate(keyword, false, keywordArray);
+function topy(keyword, keywordArray, options) {
+	return translate(keyword, false, keywordArray, options);
 }
-function tows(keyword, keywordArray) {
+function tows(keyword, keywordArray, options) {
 	
 	//Check if a token was passed, or a string
 	if (typeof keyword === "object") {
 		fileStack = keyword.fileStack;
-		return translate(keyword.text, true, keywordArray);
+		return translate(keyword.text, true, keywordArray, options);
 	} else {
-		return translate(keyword, true, keywordArray);
+		return translate(keyword, true, keywordArray, options);
 	}
 }
 
@@ -800,8 +812,9 @@ console.log(counter2);*/
 	z:"team",
 }));*/
 
-function decompileAllRules(content, globalVarNames={}, playerVarNames={}) {
+function decompileAllRules(content, globalVarNames={}, playerVarNames={}, language="en") {
 
+	currentLanguage = language;
 	var result = "";
 	
 	//debug(globalVarNames);
@@ -889,13 +902,13 @@ function decompileRule(content) {
 		result += "@Event "+topy(eventInst[0], eventKw)+"\n";
 		if (eventInst.length > 1) {
 			//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
-			if (topy(eventInst[1], eventKw) !== "all") {
-				result += "@Team "+topy(eventInst[1], eventKw)+"\n";
+			if (topy(eventInst[1], eventTeamKw) !== "all") {
+				result += "@Team "+topy(eventInst[1], eventTeamKw)+"\n";
 			}
 			
 			//Parse the 3rd event instruction
 			//Detect if it is a slot or hero
-			var eventInst3 = topy(eventInst[2], eventKw.concat(getConstantKw("HERO CONSTANT")))
+			var eventInst3 = topy(eventInst[2], eventPlayerKw.concat(getConstantKw("HERO CONSTANT")))
 			if (eventInst3 !== "all") {
 				if (eventInst3.startsWith("slot")) {
 					result += "@Slot "+eventInst3.replace("slot", "")+"\n";
@@ -2521,11 +2534,12 @@ function tokenizeString(str) {
 
 //console.log(compile(compileTest));
 
-function compile(content) {
+function compile(content, language="en") {
 	
 	if (typeof window !== "undefined") {
 		var t0 = performance.now();
 	}
+	currentLanguage = language;
 	fileStack = [];
 	var rules = tokenize(content);
 	//console.log(rules);
@@ -2614,14 +2628,14 @@ function compileRule(rule) {
 					}
 					
 					isEventTeamDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw)+";\n";
+					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventTeamKw)+";\n";
 					
 				} else if (rule.lines[i].tokens[0].text === "@Hero") {
 					if (isEventPlayerDefined) {
 						error("Event player defined twice");
 					}
 					if (!isEventTeamDefined) {
-						result += tabLevel(2)+tows("all", eventKw)+";\n";
+						result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
 						isEventTeamDefined = true;
 					}
 					isEventPlayerDefined = true;
@@ -2632,12 +2646,12 @@ function compileRule(rule) {
 						error("Event player defined twice");
 					}
 					if (!isEventTeamDefined) {
-						result += tabLevel(2)+tows("all", eventKw)+";\n"+tabLevel(2);
+						result += tabLevel(2)+tows("all", eventTeamKw)+";\n"+tabLevel(2);
 						isEventTeamDefined = true;
 					}
 					
 					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows("slot"+rule.lines[i].tokens[1].text, eventKw)+";\n";
+					result += tabLevel(2)+tows("slot"+rule.lines[i].tokens[1].text, eventPlayerKw)+";\n";
 					
 				} else {
 					error("Unknown annotation");
@@ -2646,10 +2660,10 @@ function compileRule(rule) {
 		} else {
 			if (isInEvent) {
 				if (!isEventTeamDefined && eventType !== "global") {
-					result += tabLevel(2)+tows("all", eventKw)+";\n";
+					result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
 				}
 				if (!isEventPlayerDefined && eventType !== "global") {
-					result += tabLevel(2)+tows("all", eventKw)+";\n";
+					result += tabLevel(2)+tows("all", eventPlayerKw)+";\n";
 				}
 				isInEvent = false;
 				result += tabLevel(1)+"}\n\n";
@@ -3414,7 +3428,11 @@ function parseString(content) {
 			var token1 = normalStrKw[j].opy.toLowerCase();
 			if (content[0] === token1) {
 				hasMatchBeenFound = true;
-				matchStr = token1;
+				if (currentLanguage in normalStrKw[j]) {
+					matchStr = normalStrKw[j][currentLanguage];
+				} else {
+					matchStr = normalStrKw[j]["en"];
+				}
 				break;
 			}
 		}
@@ -3490,7 +3508,12 @@ function parseMember(object, member, parseArgs={}) {
 
 	//Check enums
 	} else if (Object.values(constantValues).map(x => x.opy).indexOf(object[0].text) >= 0) {
-		return tows(object[0].text+"."+name, constantKw)
+		var result = tows(object[0].text+"."+name, constantKw);
+		if (object[0].text === "Hero") {
+			result = tows("_hero", valueFuncKw)+"("+result+")";
+		}
+
+		return result;
 
 	} else if (name === "append") {
 		if (parseArgs.isWholeInstruction === true) {
@@ -3789,12 +3812,14 @@ var actionKw = [
     {
         "opy": "return",
         "en": "abort",
+        "fr": "Interrompre",
         "description": "Stops execution of the action list.",
         "args": null
     },
     {
         "opy": "_abortIf",
         "en": "abortIf",
+        "fr": "InterrompreSi",
         "description": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
         "args": [
             {
@@ -3808,18 +3833,21 @@ var actionKw = [
     {
         "opy": "_abortIfConditionIsFalse",
         "en": "abortIfConditionIsFalse",
+        "fr": "InterrompreSiLaConditionEstFausse",
         "description": "Stops execution of the action list if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
         "args": []
     },
     {
         "opy": "_abortIfConditionIsTrue",
         "en": "abortIfConditionIsTrue",
+        "fr": "InterrompreSiLaConditionEstVraie",
         "description": "Stops execution of the action list if all conditions in the condition list are true. If any are false, execution continues with the next action.",
         "args": []
     },
     {
         "opy": "_&allowButton",
         "en": "allowButton",
+        "fr": "AutoriserUnBouton",
         "description": "Undoes the effect of the disallow button action for one or more players.",
         "args": [
             {
@@ -3839,6 +3867,7 @@ var actionKw = [
     {
         "opy": "_&applyImpulse",
         "en": "applyImpulse",
+        "fr": "AppliquerUneImpulsion",
         "description": "Applies an instantaneous change in velocity to the movement of one or more players.",
         "args": [
             {
@@ -3876,6 +3905,7 @@ var actionKw = [
     {
         "opy": "bigMessage",
         "en": "bigMessage",
+        "fr": "MessageEnGrand",
         "description": "Displays a large message above the reticle that is visible to specific players.",
         "args": [
             {
@@ -3895,6 +3925,7 @@ var actionKw = [
     {
         "opy": "_chaseGlobalVariableAtRate",
         "en": "chaseGlobalVariableAtRate",
+        "fr": "ModifierUneVariableGlobaleSelonUneCadence",
         "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
         "args": [
             {
@@ -3926,6 +3957,7 @@ var actionKw = [
     {
         "opy": "_chaseGlobalVariableOverTime",
         "en": "chaseGlobalVariableOverTime",
+        "fr": "ModifierUneVariableGlobaleSurLaDurée",
         "description": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)",
         "args": [
             {
@@ -3957,6 +3989,7 @@ var actionKw = [
     {
         "opy": "_chasePlayerVariableAtRate",
         "en": "chasePlayerVariableAtRate",
+        "fr": "ModifierUneVariableDeJoueurSelonUneCadence",
         "description": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)",
         "args": [
             {
@@ -3982,12 +4015,19 @@ var actionKw = [
                 "description": "The amount of change that will happen to the variable's value each second.",
                 "type": "NUMBER",
                 "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "CHASE RATE REEVALUATION",
+                "default": "DESTINATION AND RATE"
             }
         ]
     },
     {
         "opy": "_chasePlayerVariableOverTime",
         "en": "chasePlayerVariableOverTime",
+        "fr": "ModifierUneVariableDeJoueurSurLaDurée",
         "description": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)",
         "args": [
             {
@@ -4013,12 +4053,19 @@ var actionKw = [
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
                 "type": "ANY",
                 "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "CHASE TIME REEVALUATION",
+                "default": "DESTINATION AND DURATION"
             }
         ]
     },
     {
         "opy": "_&clearStatusEffect",
         "en": "clearStatus",
+        "fr": "EffacerLeStatut",
         "description": "Clears a status that was applied from a set status action from one or more players.",
         "args": [
             {
@@ -4038,6 +4085,7 @@ var actionKw = [
     {
         "opy": "_&communicate",
         "en": "communicate",
+        "fr": "Communiquer",
         "description": "Causes one or more players to use an emote, voice line, or other equipped communication.",
         "args": [
             {
@@ -4057,6 +4105,7 @@ var actionKw = [
     {
         "opy": "createBeam",
         "en": "createBeamEffect",
+        "fr": "CréerUnEffetDeRayon",
         "description": "Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
         "args": [
             {
@@ -4100,6 +4149,7 @@ var actionKw = [
     {
         "opy": "createDummy",
         "en": "createDummyBot",
+        "fr": "CréerUnBot",
         "description": "Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing workshop actions.",
         "args": [
             {
@@ -4131,12 +4181,13 @@ var actionKw = [
                 "description": "The initial direction that the bot will face.",
                 "type": "DIRECTION",
                 "default": "VECTOR"
-            },
+            }
         ]
     },
     {
         "opy": "createEffect",
         "en": "createEffect",
+        "fr": "CréerUnEffet",
         "description": "Creates an in-world effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
         "args": [
             {
@@ -4180,6 +4231,7 @@ var actionKw = [
     {
         "opy": "_hudText",
         "en": "createHudText",
+        "fr": "CréerDuTexteD’interface",
         "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
         "args": [
             {
@@ -4253,6 +4305,7 @@ var actionKw = [
     {
         "opy": "createIcon",
         "en": "createIcon",
+        "fr": "CréerUneIcône",
         "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
         "args": [
             {
@@ -4296,6 +4349,7 @@ var actionKw = [
     {
         "opy": "createInWorldText",
         "en": "createIn-worldText",
+        "fr": "CréerDuTexteEnJeu",
         "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
         "args": [
             {
@@ -4351,6 +4405,7 @@ var actionKw = [
     {
         "opy": "damage",
         "en": "damage",
+        "fr": "InfligerDesDégâts",
         "description": "Applies instantaneous damage to one or more players, possibly killing the players.",
         "args": [
             {
@@ -4376,12 +4431,14 @@ var actionKw = [
     {
         "opy": "declareDraw",
         "en": "declareMatchDraw",
+        "fr": "DéclarerLeMatchNul",
         "description": "Instantly ends the match in a draw. This action has no effect in free-for-all modes.",
         "args": []
     },
     {
         "opy": "declarePlayerVictory",
         "en": "declarePlayerVictory",
+        "fr": "DéclarerLaVictoireD’unJoueur",
         "description": "Instantly ends the match with the specific player as the winner. This action only has an effect in free-for-all modes.",
         "args": [
             {
@@ -4395,6 +4452,7 @@ var actionKw = [
     {
         "opy": "declareRoundVictory",
         "en": "declareRoundVictory",
+        "fr": "DéclarerLaVictoireDeLaManche",
         "description": "Declare a team as the current round winner. This only works in the control and elimination game modes",
         "args": [
             {
@@ -4408,6 +4466,7 @@ var actionKw = [
     {
         "opy": "declareTeamVictory",
         "en": "declareTeamVictory",
+        "fr": "DéclarerLaVictoireD’uneéquipe",
         "description": "Instantly ends the match with the specified team as the winner. This action has no effect in free-for-all modes.",
         "args": [
             {
@@ -4421,36 +4480,42 @@ var actionKw = [
     {
         "opy": "destroyAllDummies()",
         "en": "destroyAllDummyBots",
+        "fr": "DétruireTousLesBots",
         "description": "Removes all dummy bots from the match.",
         "args": []
     },
     {
         "opy": "destroyAllEffects()",
         "en": "destroyAllEffects",
+        "fr": "DétruireTousLesEffets",
         "description": "Destroys all effect entities created by create effect.",
         "args": []
     },
     {
         "opy": "destroyAllHudTexts()",
         "en": "destroyAllHudText",
+        "fr": "DétruireTousLesTextesD’interface",
         "description": "Destroys all hud text that was created by the create hud text action.",
         "args": []
     },
     {
         "opy": "destroyAllIcons()",
         "en": "destroyAllIcons",
+        "fr": "DétruireToutesLesIcônes",
         "description": "Destroys all icon entities created by create icon.",
         "args": []
     },
     {
         "opy": "destroyAllInWorldText()",
         "en": "destroyAllIn-worldText",
+        "fr": "DétruireTousLesTextesEnJeu",
         "description": "Destroys all in-world text created by create in-world text.",
         "args": []
     },
     {
         "opy": "destroyDummy",
         "en": "destroyDummyBot",
+        "fr": "DétruireUnBot",
         "description": "Removes the specified dummy bot from the match.",
         "args": [
             {
@@ -4458,7 +4523,8 @@ var actionKw = [
                 "description": "The team to remove the dummy bot from. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
                 "type": "TEAM",
                 "default": "TEAM"
-            },{
+            },
+            {
                 "name": "SLOT",
                 "description": "The slot to remove the dummy bot from.",
                 "type": "NUMBER",
@@ -4469,6 +4535,7 @@ var actionKw = [
     {
         "opy": "destroyEffect",
         "en": "destroyEffect",
+        "fr": "DétruireUnEffet",
         "description": "Destroys an effect entity that was created by create effect.",
         "args": [
             {
@@ -4482,6 +4549,7 @@ var actionKw = [
     {
         "opy": "destroyHudText",
         "en": "destroyHudText",
+        "fr": "DétruireDuTexteD’interface",
         "description": "Destroys hud text that was created by create hud text.",
         "args": [
             {
@@ -4495,6 +4563,7 @@ var actionKw = [
     {
         "opy": "destroyIcon",
         "en": "destroyIcon",
+        "fr": "DétruireUneIcône",
         "description": "Destroys an icon entity that was created by create icon.",
         "args": [
             {
@@ -4508,6 +4577,7 @@ var actionKw = [
     {
         "opy": "destroyInWorldText",
         "en": "destroyIn-worldText",
+        "fr": "DétruireDuTexteEnJeu",
         "description": "Destroys in-world text that was created by create in-world text.",
         "args": [
             {
@@ -4521,24 +4591,28 @@ var actionKw = [
     {
         "opy": "disableAnnouncer()",
         "en": "disableBuilt-inGamemodeAnnouncer",
+        "fr": "DésactiverL’annonceurPrédéfiniParLeModeDeJeu",
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
         "args": []
     },
     {
         "opy": "disableGamemodeCompletion()",
         "en": "disableBuilt-inGamemodeCompletion",
+        "fr": "DésactiverL’accomplissementPrédéfiniParLeModeDeJeu",
         "description": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands.",
         "args": []
     },
     {
         "opy": "disableMusic()",
         "en": "disableBuilt-inGamemodeMusic",
+        "fr": "DésactiverLaMusiquePrédéfinieParLeModeDeJeu",
         "description": "Disables all game mode music until reenabled or the match ends.",
         "args": []
     },
     {
         "opy": "_&disableRespawn",
         "en": "disableBuilt-inGamemodeRespawning",
+        "fr": "DésactiverLaRéapparitionPrédéfinieParLeModeDeJeu",
         "description": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands.",
         "args": [
             {
@@ -4552,12 +4626,14 @@ var actionKw = [
     {
         "opy": "disableScoring()",
         "en": "disableBuilt-inGamemodeScoring",
+        "fr": "DésactiverLeCalculDesPointsPrédéfiniParLeModeDeJeu",
         "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
         "args": []
     },
     {
         "opy": "_&disableDeathSpectateAllPlayers",
         "en": "disableDeathSpectateAllPlayers",
+        "fr": "EmpêcherD’observerN’importeQuiAprèsLaMort",
         "description": "Undoes the effect of the enable death spectate all players action for or more players.",
         "args": [
             {
@@ -4571,6 +4647,7 @@ var actionKw = [
     {
         "opy": "_&disableDeathSpectateTargetHud",
         "en": "disableDeathSpectateTargetHud",
+        "fr": "EmpêcherDeVoirL’interfaceDeLaCibleAprèsLaMort",
         "description": "Undoes the effect of the enable death spectate target hud action for or more players.",
         "args": [
             {
@@ -4584,6 +4661,7 @@ var actionKw = [
     {
         "opy": "_&disallowButton",
         "en": "disallowButton",
+        "fr": "InterdireLeBouton",
         "description": "Disables a logical button for one or more players such that pressing it has no effect.",
         "args": [
             {
@@ -4603,24 +4681,28 @@ var actionKw = [
     {
         "opy": "enableAnnouncer()",
         "en": "enableBuilt-inGamemodeAnnouncer",
+        "fr": "ActiverL’annonceurPrédéfiniParLeModeDeJeu",
         "description": "Undoes the effect of the disable built-in game mode announcer action.",
         "args": []
     },
     {
         "opy": "enableGamemodeCompletion()",
         "en": "enableBuilt-inGamemodeCompletion",
+        "fr": "ActiverL’accomplissementPrédéfiniParLeModeDeJeu",
         "description": "Undoes the effect of the disable built-in game mode completion action.",
         "args": []
     },
     {
         "opy": "enableMusic()",
         "en": "enableBuilt-inGamemodeMusic",
+        "fr": "ActiverLaMusiquePrédéfinieParLeModeDeJeu",
         "description": "Undoes the effect of the disable built-in game mode music action.",
         "args": []
     },
     {
         "opy": "_&enableRespawn",
         "en": "enableBuilt-inGamemodeRespawning",
+        "fr": "ActiverLaRéapparitionPrédéfinieParLeModeDeJeu",
         "description": "Undoes the effect of the disable built-in game mode respawning action for one or more players.",
         "args": [
             {
@@ -4634,12 +4716,14 @@ var actionKw = [
     {
         "opy": "enableScoring()",
         "en": "enableBuilt-inGamemodeScoring",
+        "fr": "ActiverLeCalculDesPointsPrédéfiniParLeModeDeJeu",
         "description": "Undoes the effect of the disable built-in game mode scoring action.",
         "args": []
     },
     {
         "opy": "_&enableDeathSpectateAllPlayers",
         "en": "enableDeathSpectateAllPlayers",
+        "fr": "PermettreD’observerN’importeQuiAprèsLaMort",
         "description": "Allows one or more players to spectate all players when dead, as opposed to only allies.",
         "args": [
             {
@@ -4653,6 +4737,7 @@ var actionKw = [
     {
         "opy": "_&enableDeathSpectateTargetHud",
         "en": "enableDeathSpectateTargetHud",
+        "fr": "PermettreDeVoirL’interfaceDeLaCibleAprèsLaMort",
         "description": "Causes one or more players to see their spectate target's hud instead of their own while death spectating.",
         "args": [
             {
@@ -4666,12 +4751,14 @@ var actionKw = [
     {
         "opy": "goToAssembleHeroes()",
         "en": "goToAssembleHeroes",
+        "fr": "AlleràChoisissezVosHéros",
         "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
         "args": []
     },
     {
         "opy": "heal",
         "en": "heal",
+        "fr": "Soigner",
         "description": "Provides an instantaneous heal to one or more players. This heal will not resurrect dead players.",
         "args": [
             {
@@ -4697,6 +4784,7 @@ var actionKw = [
     {
         "opy": "kill",
         "en": "kill",
+        "fr": "Tuer",
         "description": "Instantly kills one or more players.",
         "args": [
             {
@@ -4716,12 +4804,14 @@ var actionKw = [
     {
         "opy": "_loop",
         "en": "loop",
+        "fr": "Boucle",
         "description": "Restarts the action list from the beginning. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": []
     },
     {
         "opy": "_loopIf",
         "en": "loopIf",
+        "fr": "BoucleSi",
         "description": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [
             {
@@ -4735,18 +4825,21 @@ var actionKw = [
     {
         "opy": "_loopIfConditionIsFalse",
         "en": "loopIfConditionIsFalse",
+        "fr": "BoucleSiLaConditionEstFausse",
         "description": "Restarts the action list from the beginning if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": []
     },
     {
         "opy": "_loopIfConditionIsTrue",
         "en": "loopIfConditionIsTrue",
+        "fr": "BoucleSiLaConditionEstVraie",
         "description": "Restarts the action list from the beginning if every condition in the condition list is true. If any are false, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": []
     },
     {
         "opy": "_modifyGlobalVar",
         "en": "modifyGlobalVariable",
+        "fr": "ModifierUneVariableGlobale",
         "description": "Modifies the value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -4772,6 +4865,7 @@ var actionKw = [
     {
         "opy": "_modifyGlobalVarAtIndex",
         "en": "modifyGlobalVariableAtIndex",
+        "fr": "ModifierUneVariableGlobaleàL’index",
         "description": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -4779,7 +4873,8 @@ var actionKw = [
                 "description": "The global variable to modify.",
                 "type": "VARIABLE",
                 "default": "A"
-            },{
+            },
+            {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "NUMBER",
@@ -4802,6 +4897,7 @@ var actionKw = [
     {
         "opy": "_&addToScore",
         "en": "modifyPlayerScore",
+        "fr": "ModifierLeScoreD’unJoueur",
         "description": "Modifies the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
         "args": [
             {
@@ -4821,6 +4917,7 @@ var actionKw = [
     {
         "opy": "_modifyPlayerVar",
         "en": "modifyPlayerVariable",
+        "fr": "ModifierUneVariableDeJoueur",
         "description": "Modifies the value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -4852,6 +4949,7 @@ var actionKw = [
     {
         "opy": "_modifyPlayerVarAtIndex",
         "en": "modifyPlayerVariableAtIndex",
+        "fr": "ModifierUneVariableDeJoueuràL’index",
         "description": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -4865,7 +4963,8 @@ var actionKw = [
                 "description": "Specifies which of the player's variables to modify.",
                 "type": "VARIABLE",
                 "default": "A"
-            },{
+            },
+            {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "NUMBER",
@@ -4888,6 +4987,7 @@ var actionKw = [
     {
         "opy": "addToTeamScore",
         "en": "modifyTeamScore",
+        "fr": "ModifierLeScoreDeL’équipe",
         "description": "Modifies the score of one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
         "args": [
             {
@@ -4907,12 +5007,14 @@ var actionKw = [
     {
         "opy": "pauseMatchTime()",
         "en": "pauseMatchTime",
+        "fr": "MettreEnPauseLeTempsDeJeu",
         "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
         "args": []
     },
     {
         "opy": "playEffect",
         "en": "playEffect",
+        "fr": "JouerUnEffet",
         "description": "Plays an effect at a position in the world. The lifetime of this effect is short, so it does not need to be updated or destroyed.",
         "args": [
             {
@@ -4950,6 +5052,7 @@ var actionKw = [
     {
         "opy": "_&preloadHero",
         "en": "preloadHero",
+        "fr": "PréchargerUnHéros",
         "description": "Preemptively loads the specified hero or heroes into memory using the skins of the specified player or players, available memory permitting. Useful whenever rapid hero changing is possible and the next hero is known.",
         "args": [
             {
@@ -4969,6 +5072,7 @@ var actionKw = [
     {
         "opy": "_&forceButtonPress",
         "en": "pressButton",
+        "fr": "AppuyerSurUnBouton",
         "description": "Forces one or more players to press a button virtually for a single frame.",
         "args": [
             {
@@ -4988,6 +5092,7 @@ var actionKw = [
     {
         "opy": "_&resetHeroAvailability",
         "en": "resetPlayerHeroAvailability",
+        "fr": "RéinitialiserLaDisponibilitéDuHérosPourUnJoueur",
         "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
         "args": [
             {
@@ -5001,6 +5106,7 @@ var actionKw = [
     {
         "opy": "_&respawn",
         "en": "respawn",
+        "fr": "Réapparaître",
         "description": "Respawns one or more players at an appropriate spawn location with full health, even if they were already alive.",
         "args": [
             {
@@ -5014,6 +5120,7 @@ var actionKw = [
     {
         "opy": "_&resurrect",
         "en": "resurrect",
+        "fr": "Ressusciter",
         "description": "Instantly resurrects one or more players at the location they died with no transition.",
         "args": [
             {
@@ -5027,6 +5134,7 @@ var actionKw = [
     {
         "opy": "_&setAbility1Enabled",
         "en": "setAbility1Enabled",
+        "fr": "DéfinirL’activationDeLaCapacité1",
         "description": "Enables or disables ability 1 for one or more players.",
         "args": [
             {
@@ -5046,6 +5154,7 @@ var actionKw = [
     {
         "opy": "_&setAbility2Enabled",
         "en": "setAbility2Enabled",
+        "fr": "DéfinirL’activationDeLaCapacité2",
         "description": "Enables or disables ability 2 for one or more players.",
         "args": [
             {
@@ -5065,6 +5174,7 @@ var actionKw = [
     {
         "opy": "_&setAimSpeed",
         "en": "setAimSpeed",
+        "fr": "DéfinirLaVitesseDeVisée",
         "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
         "args": [
             {
@@ -5084,6 +5194,7 @@ var actionKw = [
     {
         "opy": "_&setDamageDealt",
         "en": "setDamageDealt",
+        "fr": "DéfinirLesDégâtsInfligés",
         "description": "Sets the damage dealt of one or more players to a percentage of their raw damage dealt.",
         "args": [
             {
@@ -5103,6 +5214,7 @@ var actionKw = [
     {
         "opy": "_&setDamageReceived",
         "en": "setDamageReceived",
+        "fr": "DéfinirLesDégâtsSubis",
         "description": "Sets the damage received of one or more players to a percentage of their raw damage received.",
         "args": [
             {
@@ -5122,6 +5234,7 @@ var actionKw = [
     {
         "opy": "_&setFacing",
         "en": "setFacing",
+        "fr": "DéfinirLaDirectionDuRegard",
         "description": "Sets the facing of one or more players to the specified direction.",
         "args": [
             {
@@ -5147,6 +5260,7 @@ var actionKw = [
     {
         "opy": "_setGlobalVar",
         "en": "setGlobalVariable",
+        "fr": "DéfinirUneVariableGlobale",
         "description": "Stores a value into a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -5166,6 +5280,7 @@ var actionKw = [
     {
         "opy": "_setGlobalVarAtIndex",
         "en": "setGlobalVariableAtIndex",
+        "fr": "DéfinirUneVariableGlobaleàL’index",
         "description": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index.",
         "args": [
             {
@@ -5191,6 +5306,7 @@ var actionKw = [
     {
         "opy": "_&setGravity",
         "en": "setGravity",
+        "fr": "DéfinirLaGravité",
         "description": "Sets the movement gravity for one or more players to a percentage regular movement gravity.",
         "args": [
             {
@@ -5210,6 +5326,7 @@ var actionKw = [
     {
         "opy": "_&setHealingDealt",
         "en": "setHealingDealt",
+        "fr": "DéfinirLesSoinsProdigués",
         "description": "Sets the healing dealt of one or more players to a percentage of their raw healing dealt.",
         "args": [
             {
@@ -5229,6 +5346,7 @@ var actionKw = [
     {
         "opy": "_&setHealingReceived",
         "en": "setHealingReceived",
+        "fr": "DéfinirLesSoinsReçus",
         "description": "Sets the healing received of one or more players to a percentage of their raw healing received.",
         "args": [
             {
@@ -5248,6 +5366,7 @@ var actionKw = [
     {
         "opy": "_&setInvisibility",
         "en": "setInvisible",
+        "fr": "DéfinirL’invisibilité",
         "description": "Causes one or more players to become invisible to either all other players or just enemies.",
         "args": [
             {
@@ -5267,6 +5386,7 @@ var actionKw = [
     {
         "opy": "setMatchTime",
         "en": "setMatchTime",
+        "fr": "DéfinirLeTempsDeJeu",
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
         "args": [
             {
@@ -5280,6 +5400,7 @@ var actionKw = [
     {
         "opy": "_&setMaxHealth",
         "en": "setMaxHealth",
+        "fr": "DéfinirLesPointsDeVieMaximum",
         "description": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health.",
         "args": [
             {
@@ -5299,6 +5420,7 @@ var actionKw = [
     {
         "opy": "_&setMoveSpeed",
         "en": "setMoveSpeed",
+        "fr": "DéfinirLaVitesseDeDéplacement",
         "description": "Sets the move speed of one or more players to a percentage of their raw move speed.",
         "args": [
             {
@@ -5318,6 +5440,7 @@ var actionKw = [
     {
         "opy": "setObjectiveDescription",
         "en": "setObjectiveDescription",
+        "fr": "DéfinirLaDescriptionD’objectif",
         "description": "Sets the text at the top center of the screen that normally describes the objective to a message visible to specific players.",
         "args": [
             {
@@ -5343,6 +5466,7 @@ var actionKw = [
     {
         "opy": "_&setAllowedHeroes",
         "en": "setPlayerAllowedHeroes",
+        "fr": "DéfinirLesHérosAutorisésPourUnJoueur",
         "description": "Sets the list of heroes available to one or more players. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
         "args": [
             {
@@ -5362,6 +5486,7 @@ var actionKw = [
     {
         "opy": "_&setScore",
         "en": "setPlayerScore",
+        "fr": "DéfinirLeScoreD’unJoueur",
         "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
         "args": [
             {
@@ -5381,6 +5506,7 @@ var actionKw = [
     {
         "opy": "_setPlayerVar",
         "en": "setPlayerVariable",
+        "fr": "DéfinirUneVariableDeJoueur",
         "description": "Stores a value into a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -5406,6 +5532,7 @@ var actionKw = [
     {
         "opy": "_setPlayerVarAtIndex",
         "en": "setPlayerVariableAtIndex",
+        "fr": "DéfinirUneVariableDeJoueuràL’index",
         "description": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index.",
         "args": [
             {
@@ -5437,6 +5564,7 @@ var actionKw = [
     {
         "opy": "_&setPrimaryFireEnabled",
         "en": "setPrimaryFireEnabled",
+        "fr": "DéfinirL’activationDuTirPrincipal",
         "description": "Enables or disables primary fire for one or more players.",
         "args": [
             {
@@ -5456,6 +5584,7 @@ var actionKw = [
     {
         "opy": "_&setProjectileGravity",
         "en": "setProjectileGravity",
+        "fr": "DéfinirLaGravitéDesProjectiles",
         "description": "Sets the projectile gravity for one or more players to a percentage of regular projectile gravity.",
         "args": [
             {
@@ -5475,6 +5604,7 @@ var actionKw = [
     {
         "opy": "_&setProjectileSpeed",
         "en": "setProjectileSpeed",
+        "fr": "DéfinirLaVitesseDesProjectiles",
         "description": "Iets the projectile speed for one or more players to a percentage of projectile speed.",
         "args": [
             {
@@ -5494,6 +5624,7 @@ var actionKw = [
     {
         "opy": "_&setRespawnTime",
         "en": "setRespawnMaxTime",
+        "fr": "DéfinirLaDuréeMaximumAvantRéapparition",
         "description": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death.",
         "args": [
             {
@@ -5513,6 +5644,7 @@ var actionKw = [
     {
         "opy": "_&setSecondaryFireEnabled",
         "en": "setSecondaryFireEnabled",
+        "fr": "DéfinirL’activationDuTirSecondaire",
         "description": "Enables or disables secondary fire for one or more players.",
         "args": [
             {
@@ -5532,6 +5664,7 @@ var actionKw = [
     {
         "opy": "setSlowMotion",
         "en": "setSlowMotion",
+        "fr": "DéfinirUnRalenti",
         "description": "Sets the simulation rate for the entire game, including all players, projectiles, effects, and game mode logic.",
         "args": [
             {
@@ -5545,6 +5678,7 @@ var actionKw = [
     {
         "opy": "_&setStatusEffect",
         "en": "setStatus",
+        "fr": "DéfinirUnStatut",
         "description": "Applies a status to one or more players. This status will remain in effect for the specified duration or until it is cleared by the clear status action.",
         "args": [
             {
@@ -5576,6 +5710,7 @@ var actionKw = [
     {
         "opy": "setTeamScore",
         "en": "setTeamScore",
+        "fr": "DéfinirLeScoreD’uneéquipe",
         "description": "Sets the score for one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
         "args": [
             {
@@ -5595,6 +5730,7 @@ var actionKw = [
     {
         "opy": "_&setUltEnabled",
         "en": "setUltimateAbilityEnabled",
+        "fr": "DéfinirL’activationDeLaCapacitéUltime",
         "description": "Enables or disables the ultimate ability of one or more players.",
         "args": [
             {
@@ -5614,6 +5750,7 @@ var actionKw = [
     {
         "opy": "_&setUltCharge",
         "en": "setUltimateCharge",
+        "fr": "DéfinirLaChargeDeLaCapacitéUltime",
         "description": "Sets the ultimate charge for one or more players as a percentage of maximum charge.",
         "args": [
             {
@@ -5633,6 +5770,7 @@ var actionKw = [
     {
         "opy": "_skip",
         "en": "skip",
+        "fr": "Passer",
         "description": "Skips execution of a certain number of actions in the action list.",
         "args": [
             {
@@ -5646,6 +5784,7 @@ var actionKw = [
     {
         "opy": "_skipIf",
         "en": "skipIf",
+        "fr": "PasserSi",
         "description": "Skips execution of a certain number of actions in the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
         "args": [
             {
@@ -5665,6 +5804,7 @@ var actionKw = [
     {
         "opy": "smallMessage",
         "en": "smallMessage",
+        "fr": "MessageEnPetit",
         "description": "Displays a small message beneath the reticle that is visible to specific players.",
         "args": [
             {
@@ -5684,6 +5824,7 @@ var actionKw = [
     {
         "opy": "_&startAcceleration",
         "en": "startAccelerating",
+        "fr": "Accélérer",
         "description": "Starts accelerating one or more players in a specified direction.",
         "args": [
             {
@@ -5727,6 +5868,7 @@ var actionKw = [
     {
         "opy": "_&setCamera",
         "en": "startCamera",
+        "fr": "LancerLaCaméra",
         "description": "Places your camera at a location, facing a direction.",
         "args": [
             {
@@ -5758,6 +5900,7 @@ var actionKw = [
     {
         "opy": "startDamageModification",
         "en": "startDamageModification",
+        "fr": "LancerLaModificationDesDégâts",
         "description": "Starts modifying how much damage one or more receivers will receive from one or more damagers. A reference to this damage modification can be obtained from the last damage modification id value. This action will fail if too many damage modifications have been started.",
         "args": [
             {
@@ -5789,6 +5932,7 @@ var actionKw = [
     {
         "opy": "_&startDoT",
         "en": "startDamageOverTime",
+        "fr": "InfligerDesDégâtsSurLaDurée",
         "description": "Starts an instance of damage over time. This dot will persist for the specified duration or until stopped by script. To obtain a reference to this dot, use the last damage over time id value.",
         "args": [
             {
@@ -5820,6 +5964,7 @@ var actionKw = [
     {
         "opy": "_&startFacing",
         "en": "startFacing",
+        "fr": "RegarderVers",
         "description": "Starts turning one or more players to face the specified direction.",
         "args": [
             {
@@ -5857,6 +6002,7 @@ var actionKw = [
     {
         "opy": "_&startForcingHero",
         "en": "startForcingPlayerToBeHero",
+        "fr": "ForcerUnHéros",
         "description": "Starts forcing one or more players to be a specific hero and, if necessary, respawns them immediately in their current location. This will be the only hero available to the player or players until the stop forcing player to be hero action is executed.",
         "args": [
             {
@@ -5876,6 +6022,7 @@ var actionKw = [
     {
         "opy": "startForcingSpawn",
         "en": "startForcingSpawnRoom",
+        "fr": "ForcerUneSalleD’apparition",
         "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
         "args": [
             {
@@ -5895,6 +6042,7 @@ var actionKw = [
     {
         "opy": "_&startForcingThrottle",
         "en": "startForcingThrottle",
+        "fr": "ForcerL’accélération",
         "description": "Defines minimum and maximum movement input values for one or more players, possibly forcing or preventing movement.",
         "args": [
             {
@@ -5944,6 +6092,7 @@ var actionKw = [
     {
         "opy": "_&startHoT",
         "en": "startHealOverTime",
+        "fr": "ProdiguerDesSoinsSurLaDurée",
         "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
         "args": [
             {
@@ -5975,6 +6124,7 @@ var actionKw = [
     {
         "opy": "_&startForcingButton",
         "en": "startHoldingButton",
+        "fr": "MaintenirUnBoutonEnfoncé",
         "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
         "args": [
             {
@@ -5994,6 +6144,7 @@ var actionKw = [
     {
         "opy": "_&startThrottleInDirection",
         "en": "startThrottleInDirection",
+        "fr": "CommencerL’accélérationDirectionnelle",
         "description": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled.",
         "args": [
             {
@@ -6037,6 +6188,7 @@ var actionKw = [
     {
         "opy": "_&startTransformingThrottle",
         "en": "startTransformingThrottle",
+        "fr": "DébutDeModificationDeL’accélération",
         "description": "Starts transforming (scaling and rotating) the throttle (directional input control) of a player or players. Cancels any existing start transforming throttle behavior.",
         "args": [
             {
@@ -6068,6 +6220,7 @@ var actionKw = [
     {
         "opy": "_&stopAcceleration",
         "en": "stopAccelerating",
+        "fr": "ArrêterL’accélération",
         "description": "Stops the acceleration started by the start accelerating action for one or more players.",
         "args": [
             {
@@ -6081,12 +6234,14 @@ var actionKw = [
     {
         "opy": "stopAllDamageModifications",
         "en": "stopAllDamageModifications",
+        "fr": "ArrêterToutesLesModificationsDeDégâts",
         "description": "Stops all damage modifications that were started using the start damage modification action.",
         "args": []
     },
     {
         "opy": "_&stopAllDoT",
         "en": "stopAllDamageOverTime",
+        "fr": "ArrêterTousLesDégâtsSurLaDurée",
         "description": "Stops all damage over time started by start damage over time for one or more players.",
         "args": [
             {
@@ -6100,6 +6255,7 @@ var actionKw = [
     {
         "opy": "_&stopAllHoT",
         "en": "stopAllHealOverTime",
+        "fr": "ArrêterTousLesSoinsSurLaDurée",
         "description": "Stops all heal over time started by start heal over time for one or more players.",
         "args": [
             {
@@ -6113,6 +6269,7 @@ var actionKw = [
     {
         "opy": "_&stopCamera",
         "en": "stopCamera",
+        "fr": "ArrêterLaCaméra",
         "description": "None",
         "args": [
             {
@@ -6126,6 +6283,7 @@ var actionKw = [
     {
         "opy": "_stopChasingGlobalVariable",
         "en": "stopChasingGlobalVariable",
+        "fr": "ArrêterDeModifierUneVariableGlobale",
         "description": "Stops an in-progress chase of a global variable, leaving it at its current value.",
         "args": [
             {
@@ -6139,6 +6297,7 @@ var actionKw = [
     {
         "opy": "_stopChasingPlayerVariable",
         "en": "stopChasingPlayerVariable",
+        "fr": "ArrêterDeModifierUneVariableDeJoueur",
         "description": "Stops an in-progress chase of a player variable, leaving it at its current value.",
         "args": [
             {
@@ -6158,6 +6317,7 @@ var actionKw = [
     {
         "opy": "stopDamageModification",
         "en": "stopDamageModification",
+        "fr": "ArrêterLaModificationDesDégâts",
         "description": "Stops a damage modification that was started by the start damage modification action.",
         "args": [
             {
@@ -6171,6 +6331,7 @@ var actionKw = [
     {
         "opy": "stopDoT",
         "en": "stopDamageOverTime",
+        "fr": "ArrêterDesDégâtsSurLaDurée",
         "description": "Stops an instance of damage over time started by the start damage over time action.",
         "args": [
             {
@@ -6184,6 +6345,7 @@ var actionKw = [
     {
         "opy": "_&stopFacing",
         "en": "stopFacing",
+        "fr": "ArrêterDeRegarderVers",
         "description": "Stops the turning started by the start facing action for one or more players.",
         "args": [
             {
@@ -6197,6 +6359,7 @@ var actionKw = [
     {
         "opy": "_&stopForcingCurrentHero",
         "en": "stopForcingPlayerToBeHero",
+        "fr": "ArrêterDeForcerUnHéros",
         "description": "Stops forcing one or more players to be a specific hero. This will not respawn the player or players, but it will restore their hero availability the next time they go to select a hero.",
         "args": [
             {
@@ -6210,6 +6373,7 @@ var actionKw = [
     {
         "opy": "stopForcingSpawn",
         "en": "stopForcingSpawnRoom",
+        "fr": "ArrêterDeForcerUneSalleD’apparition",
         "description": "Undoes the effect of the start forcing spawn room action for the specified team.",
         "args": [
             {
@@ -6223,6 +6387,7 @@ var actionKw = [
     {
         "opy": "_&stopForcingThrottle",
         "en": "stopForcingThrottle",
+        "fr": "ArrêterDeForcerL’accélération",
         "description": "Undoes the effect of the start forcing throttle action for one or more players.",
         "args": [
             {
@@ -6236,6 +6401,7 @@ var actionKw = [
     {
         "opy": "stopHoT",
         "en": "stopHealOverTime",
+        "fr": "ArrêterDesSoinsSurLaDurée",
         "description": "Stops an instance of heal over time started by the start heal over time action.",
         "args": [
             {
@@ -6249,6 +6415,7 @@ var actionKw = [
     {
         "opy": "_&stopForcingButton",
         "en": "stopHoldingButton",
+        "fr": "ArrêterDeMaintenirUnBoutonEnfoncé",
         "description": "Undoes the effect of the start holding button action for one or more players.",
         "args": [
             {
@@ -6268,6 +6435,7 @@ var actionKw = [
     {
         "opy": "_&stopThrottleInDirection",
         "en": "stopThrottleInDirection",
+        "fr": "ArrêterL’accélérationDirectionnelle",
         "description": "Cancels the behavior caused by start throttle in direction.",
         "args": [
             {
@@ -6281,6 +6449,7 @@ var actionKw = [
     {
         "opy": "_&stopTransformingThrottle",
         "en": "stopTransformingThrottle",
+        "fr": "ArrêtDeModificationDeL’accélération",
         "description": "Stops the throttle transform started by start transforming throttle for one or more players.",
         "args": [
             {
@@ -6294,6 +6463,7 @@ var actionKw = [
     {
         "opy": "_&teleport",
         "en": "teleport",
+        "fr": "Téléportation",
         "description": "Teleports one or more players to the specified position.",
         "args": [
             {
@@ -6313,12 +6483,14 @@ var actionKw = [
     {
         "opy": "unpauseMatchTime()",
         "en": "unpauseMatchTime",
+        "fr": "ReprendreLeTempsDeJeu",
         "description": "Unpauses the match time.",
         "args": []
     },
     {
         "opy": "_wait",
         "en": "wait",
+        "fr": "Attente",
         "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
         "args": [
             {
@@ -6357,6 +6529,7 @@ var valueFuncKw = [
     {
         "opy": "abs",
         "en": "absoluteValue",
+        "fr": "ValeurAbsolue",
         "description": "The absolute value of the specified value.",
         "args": [
             {
@@ -6370,6 +6543,7 @@ var valueFuncKw = [
     {
         "opy": "_add",
         "en": "add",
+        "fr": "Addition",
         "description": "The sum of two numbers or vectors.",
         "args": [
             {
@@ -6389,6 +6563,7 @@ var valueFuncKw = [
     {
         "opy": "getDeadPlayers",
         "en": "allDeadPlayers",
+        "fr": "TousLesJoueursMorts",
         "description": "An array containing all dead players on a team or in the match.",
         "args": [
             {
@@ -6402,12 +6577,14 @@ var valueFuncKw = [
     {
         "opy": "getAllHeroes()",
         "en": "allHeroes",
+        "fr": "TousLesHéros",
         "description": "The array of all heroes in overwatch.",
         "args": []
     },
     {
         "opy": "getLivingPlayers",
         "en": "allLivingPlayers",
+        "fr": "TousLesJoueursEnVie",
         "description": "An array containing all living players on a team or in the match.",
         "args": [
             {
@@ -6421,6 +6598,7 @@ var valueFuncKw = [
     {
         "opy": "getPlayers",
         "en": "allPlayers",
+        "fr": "TousLesJoueurs",
         "description": "An array containing all players on a team or in the match.",
         "args": [
             {
@@ -6434,6 +6612,7 @@ var valueFuncKw = [
     {
         "opy": "getPlayersNotOnObjective",
         "en": "allPlayersNotOnObjective",
+        "fr": "TousLesJoueurséloignésDeL’objectif",
         "description": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match).",
         "args": [
             {
@@ -6447,6 +6626,7 @@ var valueFuncKw = [
     {
         "opy": "getPlayersOnObjective",
         "en": "allPlayersOnObjective",
+        "fr": "TousLesJoueursSurL’objectif",
         "description": "An array containing all players occupying a payload or control point (either on a team or in the match).",
         "args": [
             {
@@ -6460,6 +6640,7 @@ var valueFuncKw = [
     {
         "opy": "_&getAllowedHeroes",
         "en": "allowedHeroes",
+        "fr": "HérosAutorisés",
         "description": "The array of heroes from which the specified player is currently allowed to select.",
         "args": [
             {
@@ -6473,6 +6654,7 @@ var valueFuncKw = [
     {
         "opy": "_&getAltitude",
         "en": "altitudeOf",
+        "fr": "AltitudeDe",
         "description": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface.",
         "args": [
             {
@@ -6486,6 +6668,7 @@ var valueFuncKw = [
     {
         "opy": "_and",
         "en": "and",
+        "fr": "Et",
         "description": "Whether both of the two inputs are true (or equivalent to true).",
         "args": [
             {
@@ -6505,6 +6688,7 @@ var valueFuncKw = [
     {
         "opy": "angleDifference",
         "en": "angleDifference",
+        "fr": "DifférenceEntreAngles",
         "description": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative.",
         "args": [
             {
@@ -6524,6 +6708,7 @@ var valueFuncKw = [
     {
         "opy": "_appendToArray",
         "en": "appendToArray",
+        "fr": "AjouterAuTableau",
         "description": "A copy of an array with one or more values appended to the end.",
         "args": [
             {
@@ -6543,6 +6728,7 @@ var valueFuncKw = [
     {
         "opy": "_arrayContains",
         "en": "arrayContains",
+        "fr": "ContenuDuTableau",
         "description": "Whether the specified array contains the specified value.",
         "args": [
             {
@@ -6562,6 +6748,7 @@ var valueFuncKw = [
     {
         "opy": "_arraySlice",
         "en": "arraySlice",
+        "fr": "SectionDeTableau",
         "description": "A copy of the specified array containing only values from a specified index range.",
         "args": [
             {
@@ -6587,18 +6774,21 @@ var valueFuncKw = [
     {
         "opy": "attacker",
         "en": "attacker",
+        "fr": "Attaquant",
         "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
         "args": null
     },
     {
         "opy": "Vector.BACKWARD",
         "en": "backward",
+        "fr": "Arrière",
         "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
         "args": null
     },
     {
         "opy": "getClosestPlayer",
         "en": "closestPlayerTo",
+        "fr": "JoueurLePlusProcheDe",
         "description": "The player closest to a position, optionally restricted by team.",
         "args": [
             {
@@ -6618,6 +6808,7 @@ var valueFuncKw = [
     {
         "opy": "_compare",
         "en": "compare",
+        "fr": "Comparer",
         "description": "Whether the comparison of the two inputs is true.",
         "args": [
             {
@@ -6643,6 +6834,7 @@ var valueFuncKw = [
     {
         "opy": "getControlScorePercentage",
         "en": "controlModeScoringPercentage",
+        "fr": "PourcentageDuScoreEnModeContrôle",
         "description": "The score percentage for the specified team in control mode.",
         "args": [
             {
@@ -6656,12 +6848,14 @@ var valueFuncKw = [
     {
         "opy": "getControlScoringTeam",
         "en": "controlModeScoringTeam",
+        "fr": "ÉquipeContrôlantLePointEnModeContrôle",
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
         "args": []
     },
     {
         "opy": "cosDeg",
         "en": "cosineFromDegrees",
+        "fr": "CosinusEnDegrés",
         "description": "Cosine of the specified angle in degrees.",
         "args": [
             {
@@ -6675,6 +6869,7 @@ var valueFuncKw = [
     {
         "opy": "cos",
         "en": "cosineFromRadians",
+        "fr": "CosinusEnRadians",
         "description": "Cosine of the specified angle in radians.",
         "args": [
             {
@@ -6688,6 +6883,7 @@ var valueFuncKw = [
     {
         "opy": "len",
         "en": "countOf",
+        "fr": "DécompteDe",
         "description": "The number of elements in the specified array.",
         "args": [
             {
@@ -6701,6 +6897,7 @@ var valueFuncKw = [
     {
         "opy": "crossProduct",
         "en": "crossProduct",
+        "fr": "ProduitCroisé",
         "description": "The cross product of the specified values. (Left cross up equals forward.)",
         "args": [
             {
@@ -6720,12 +6917,14 @@ var valueFuncKw = [
     {
         "opy": "_currentArrayElement",
         "en": "currentArrayElement",
+        "fr": "ÉlémentDeTableauActuel",
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": []
     },
     {
         "opy": "angleToDirection",
         "en": "directionFromAngles",
+        "fr": "DirectionDepuisDesAngles",
         "description": "The unit-length direction vector corresponding to the specified angles.",
         "args": [
             {
@@ -6745,6 +6944,7 @@ var valueFuncKw = [
     {
         "opy": "directionTowards",
         "en": "directionTowards",
+        "fr": "Direction",
         "description": "The unit-length direction vector from one position to another.",
         "args": [
             {
@@ -6764,6 +6964,7 @@ var valueFuncKw = [
     {
         "opy": "distance",
         "en": "distanceBetween",
+        "fr": "DistanceEntre",
         "description": "The distance between two positions in meters.",
         "args": [
             {
@@ -6783,6 +6984,7 @@ var valueFuncKw = [
     {
         "opy": "_divide",
         "en": "divide",
+        "fr": "Division",
         "description": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero.",
         "args": [
             {
@@ -6802,6 +7004,7 @@ var valueFuncKw = [
     {
         "opy": "dotProduct",
         "en": "dotProduct",
+        "fr": "ProduitScalaire",
         "description": "The dot product of the specified values.",
         "args": [
             {
@@ -6821,18 +7024,21 @@ var valueFuncKw = [
     {
         "opy": "Vector.DOWN",
         "en": "down",
+        "fr": "Bas",
         "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
         "args": null
     },
     {
         "opy": "_emptyArray",
         "en": "emptyArray",
+        "fr": "TableauVide",
         "description": "An array with no elements.",
         "args": []
     },
     {
         "opy": "entityExists",
         "en": "entityExists",
+        "fr": "ExistenceDeL’entité",
         "description": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed.",
         "args": [
             {
@@ -6846,31 +7052,35 @@ var valueFuncKw = [
     {
         "opy": "eventDamage",
         "en": "eventDamage",
+        "fr": "DégâtsD’évènement",
         "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
         "args": null
     },
     {
         "opy": "eventHealing",
         "en": "eventHealing",
+        "fr": "ÉvènementSoin",
         "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
         "args": null
     },
     {
         "opy": "eventPlayer",
         "en": "eventPlayer",
+        "fr": "JoueurExécutant",
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
-        "args": null,
-        "completionPrecedence": 100
+        "args": null
     },
     {
         "opy": "eventWasCriticalHit",
         "en": "eventWasCriticalHit",
+        "fr": "L’évènementétaitUnCoupCritique",
         "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
         "args": null
     },
     {
         "opy": "_&getEyePosition",
         "en": "eyePosition",
+        "fr": "PositionDesYeux",
         "description": "The position of a player's first person view (used for aiming)",
         "args": [
             {
@@ -6884,6 +7094,7 @@ var valueFuncKw = [
     {
         "opy": "_&getFacingDirection",
         "en": "facingDirectionOf",
+        "fr": "RegardEnDirectionDe",
         "description": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing.",
         "args": [
             {
@@ -6897,12 +7108,14 @@ var valueFuncKw = [
     {
         "opy": "false",
         "en": "false",
+        "fr": "Faux",
         "description": "The boolean value of false.",
         "args": null
     },
     {
         "opy": "getFarthestPlayer",
         "en": "farthestPlayerFrom",
+        "fr": "JoueurLePluséloignéDe",
         "description": "The player farthest from a position, optionally restricted by team.",
         "args": [
             {
@@ -6922,6 +7135,7 @@ var valueFuncKw = [
     {
         "opy": "_filteredArray",
         "en": "filteredArray",
+        "fr": "TableauFiltré",
         "description": "A copy of the specified array with any values that do not match the specified condition removed.",
         "args": [
             {
@@ -6941,6 +7155,7 @@ var valueFuncKw = [
     {
         "opy": "_firstOf",
         "en": "firstOf",
+        "fr": "PremierDe",
         "description": "The value at the start of the specified array. Results in 0 if the specified array is empty.",
         "args": [
             {
@@ -6954,6 +7169,7 @@ var valueFuncKw = [
     {
         "opy": "getFlagPosition",
         "en": "flagPosition",
+        "fr": "PositionDuDrapeau",
         "description": "The position of a specific team's flag in capture the flag.",
         "args": [
             {
@@ -6967,12 +7183,14 @@ var valueFuncKw = [
     {
         "opy": "Vector.FORWARD",
         "en": "forward",
+        "fr": "Avant",
         "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
         "args": null
     },
     {
         "opy": "_globalVar",
         "en": "globalVariable",
+        "fr": "VariableGlobale",
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -6986,6 +7204,7 @@ var valueFuncKw = [
     {
         "opy": "_&hasSpawned",
         "en": "hasSpawned",
+        "fr": "Apparition",
         "description": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet.",
         "args": [
             {
@@ -6999,6 +7218,7 @@ var valueFuncKw = [
     {
         "opy": "_&hasStatusEffect",
         "en": "hasStatus",
+        "fr": "Statut",
         "description": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic.",
         "args": [
             {
@@ -7018,18 +7238,21 @@ var valueFuncKw = [
     {
         "opy": "healee",
         "en": "healee",
+        "fr": "Soigné",
         "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
         "args": null
     },
     {
         "opy": "healer",
         "en": "healer",
+        "fr": "Soigneur",
         "description": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player.",
         "args": null
     },
     {
         "opy": "_&getHealth",
         "en": "health",
+        "fr": "PointsDeVie",
         "description": "The current health of a player, including armor and shields.",
         "args": [
             {
@@ -7043,6 +7266,7 @@ var valueFuncKw = [
     {
         "opy": "_&getNormalizedHealth",
         "en": "normalizedHealth",
+        "fr": "PointsDeVieNormalisés",
         "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
         "args": [
             {
@@ -7056,6 +7280,7 @@ var valueFuncKw = [
     {
         "opy": "_hero",
         "en": "hero",
+        "fr": "Héros",
         "description": "A hero constant.",
         "args": [
             {
@@ -7069,6 +7294,7 @@ var valueFuncKw = [
     {
         "opy": "heroIcon",
         "en": "heroIconString",
+        "fr": "ChaîneD’icôneDuHéros",
         "description": "Converts a hero parameter into a string that shows up as an icon.",
         "args": [
             {
@@ -7082,6 +7308,7 @@ var valueFuncKw = [
     {
         "opy": "_&getCurrentHero",
         "en": "heroOf",
+        "fr": "HérosDe",
         "description": "The current hero of a player.",
         "args": [
             {
@@ -7095,6 +7322,7 @@ var valueFuncKw = [
     {
         "opy": "horizontalAngleFromDirection",
         "en": "horizontalAngleFromDirection",
+        "fr": "AngleHorizontalDepuisUneDirection",
         "description": "The horizontal angle in degrees corresponding to the specified direction vector.",
         "args": [
             {
@@ -7108,6 +7336,7 @@ var valueFuncKw = [
     {
         "opy": "horizontalAngleTowards",
         "en": "horizontalAngleTowards",
+        "fr": "AngleHorizontalVers",
         "description": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative.",
         "args": [
             {
@@ -7127,6 +7356,7 @@ var valueFuncKw = [
     {
         "opy": "_&getHorizontalFacingAngle",
         "en": "horizontalFacingAngleOf",
+        "fr": "AngleHorizontalDuRegardDe",
         "description": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180).",
         "args": [
             {
@@ -7140,6 +7370,7 @@ var valueFuncKw = [
     {
         "opy": "_&getHorizontalSpeed",
         "en": "horizontalSpeedOf",
+        "fr": "VitesseHorizontaleDe",
         "description": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion.",
         "args": [
             {
@@ -7153,12 +7384,14 @@ var valueFuncKw = [
     {
         "opy": "hostPlayer",
         "en": "hostPlayer",
+        "fr": "JoueurHôte",
         "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
         "args": null
     },
     {
         "opy": "iconString",
         "en": "iconString",
+        "fr": "ChaîneD’icône",
         "description": "Allows you to use an icon inside of a string.",
         "args": [
             {
@@ -7172,6 +7405,7 @@ var valueFuncKw = [
     {
         "opy": "_indexOfArrayValue",
         "en": "indexOfArrayValue",
+        "fr": "IndexDeLaValeurDeTableau",
         "description": "The index of a value within an array or -1 if no such value can be found.",
         "args": [
             {
@@ -7191,6 +7425,7 @@ var valueFuncKw = [
     {
         "opy": "_&isAlive",
         "en": "isAlive",
+        "fr": "EnVie",
         "description": "Whether a player is alive.",
         "args": [
             {
@@ -7204,18 +7439,21 @@ var valueFuncKw = [
     {
         "opy": "isAssemblingHeroes()",
         "en": "isAssemblingHeroes",
+        "fr": "PhaseDeChoixDeHéros",
         "description": "Whether the match is currently in its assemble heroes phase.",
         "args": []
     },
     {
         "opy": "isMatchBetweenRounds()",
         "en": "isBetweenRounds",
+        "fr": "EntreDeuxManches",
         "description": "Whether the match is between rounds.",
         "args": []
     },
     {
         "opy": "_&isHoldingButton",
         "en": "isButtonHeld",
+        "fr": "BoutonMaintenuEnfoncé",
         "description": "Whether a player is holding a specific button.",
         "args": [
             {
@@ -7235,6 +7473,7 @@ var valueFuncKw = [
     {
         "opy": "_&isCommunicating",
         "en": "isCommunicating",
+        "fr": "Communication",
         "description": "Whether a player is using a specific communication type (such as emoting, using a voice line, etc.).",
         "args": [
             {
@@ -7254,6 +7493,7 @@ var valueFuncKw = [
     {
         "opy": "_&isCommunicatingAnything",
         "en": "isCommunicatingAny",
+        "fr": "N’importeQuelleCommunication",
         "description": "Whether a player is using any communication type (such as emoting, using a voice line, etc.).",
         "args": [
             {
@@ -7267,6 +7507,7 @@ var valueFuncKw = [
     {
         "opy": "_&isCommunicatingEmote",
         "en": "isCommunicatingAnyEmote",
+        "fr": "CommunicationParEmote",
         "description": "Whether a player is using an emote.",
         "args": [
             {
@@ -7280,6 +7521,7 @@ var valueFuncKw = [
     {
         "opy": "_&isCommunicatingVoiceline",
         "en": "isCommunicatingAnyVoiceline",
+        "fr": "CommunicationParRéplique",
         "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
         "args": [
             {
@@ -7293,12 +7535,14 @@ var valueFuncKw = [
     {
         "opy": "isControlPointLocked()",
         "en": "isControlModePointLocked",
+        "fr": "PointDeContrôleVerrouillé",
         "description": "Whether the point is locked in control mode.",
         "args": []
     },
     {
         "opy": "_&isCrouching",
         "en": "isCrouching",
+        "fr": "Accroupi",
         "description": "Whether a player is crouching.",
         "args": [
             {
@@ -7312,12 +7556,14 @@ var valueFuncKw = [
     {
         "opy": "isInSuddenDeath()",
         "en": "isCtfModeInSuddenDeath",
+        "fr": "CaptureDuDrapeauEnMortSubite",
         "description": "Whether the current game of capture the flag is in sudden death.",
         "args": []
     },
     {
         "opy": "_&isDead",
         "en": "isDead",
+        "fr": "Mort",
         "description": "Whether a player is dead.",
         "args": [
             {
@@ -7331,6 +7577,7 @@ var valueFuncKw = [
     {
         "opy": "_&isDummy",
         "en": "isDummyBot",
+        "fr": "EstUnBot",
         "description": "Whether a player is a dummy bot.",
         "args": [
             {
@@ -7344,6 +7591,7 @@ var valueFuncKw = [
     {
         "opy": "_&isFiringPrimaryFire",
         "en": "isFiringPrimary",
+        "fr": "TirPrincipal",
         "description": "Whether the specified player's primary weapon attack is being used.",
         "args": [
             {
@@ -7357,6 +7605,7 @@ var valueFuncKw = [
     {
         "opy": "_&isFiringSecondaryFire",
         "en": "isFiringSecondary",
+        "fr": "TirSecondaire",
         "description": "Whether the specified player's secondary weapon attack is being used.",
         "args": [
             {
@@ -7370,6 +7619,7 @@ var valueFuncKw = [
     {
         "opy": "isFlagAtBase",
         "en": "isFlagAtBase",
+        "fr": "DrapeauàLaBase",
         "description": "Whether a specific team's flag is at its base in capture the flag.",
         "args": [
             {
@@ -7383,6 +7633,7 @@ var valueFuncKw = [
     {
         "opy": "isFlagBeingCarried",
         "en": "isFlagBeingCarried",
+        "fr": "DrapeauTransporté",
         "description": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag.",
         "args": [
             {
@@ -7396,12 +7647,14 @@ var valueFuncKw = [
     {
         "opy": "isGameInProgress()",
         "en": "isGameInProgress",
+        "fr": "PartieEnCours",
         "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
         "args": []
     },
     {
         "opy": "teamHasHero",
         "en": "isHeroBeingPlayed",
+        "fr": "HérosJoué",
         "description": "Whether a specific hero is being played (either on a team or in the match).",
         "args": [
             {
@@ -7421,6 +7674,7 @@ var valueFuncKw = [
     {
         "opy": "_&isInAir",
         "en": "isInAir",
+        "fr": "DansLesAirs",
         "description": "Whether a player is airborne.",
         "args": [
             {
@@ -7434,6 +7688,7 @@ var valueFuncKw = [
     {
         "opy": "_isInLineOfSight",
         "en": "isInLineOfSight",
+        "fr": "DansLaLigneDeVue",
         "description": "Whether two positions have line of sight with each other.",
         "args": [
             {
@@ -7459,12 +7714,14 @@ var valueFuncKw = [
     {
         "opy": "isInSetup()",
         "en": "isInSetup",
+        "fr": "DansLesParamètres",
         "description": "Whether the match is currently in its setup phase.",
         "args": []
     },
     {
         "opy": "_&isInSpawnRoom",
         "en": "isInSpawnRoom",
+        "fr": "DansLaSalleD’apparition",
         "description": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes).",
         "args": [
             {
@@ -7478,6 +7735,7 @@ var valueFuncKw = [
     {
         "opy": "_&isInViewAngle",
         "en": "isInViewAngle",
+        "fr": "DansLeChampDeVision",
         "description": "Whether a location is within view of a player.",
         "args": [
             {
@@ -7503,12 +7761,14 @@ var valueFuncKw = [
     {
         "opy": "isMatchComplete()",
         "en": "isMatchComplete",
+        "fr": "PartieTerminée",
         "description": "Whether the match has finished.",
         "args": []
     },
     {
         "opy": "_&isMoving",
         "en": "isMoving",
+        "fr": "SeDéplace",
         "description": "Whether a player is moving (defined as having a nonzero current speed).",
         "args": [
             {
@@ -7522,6 +7782,7 @@ var valueFuncKw = [
     {
         "opy": "isObjectiveComplete",
         "en": "isObjectiveComplete",
+        "fr": "ObjectifAccompli",
         "description": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or assault/escort.",
         "args": [
             {
@@ -7535,6 +7796,7 @@ var valueFuncKw = [
     {
         "opy": "_&isOnGround",
         "en": "isOnGround",
+        "fr": "AuSol",
         "description": "Whether a player is on the ground (or other walkable surface).",
         "args": [
             {
@@ -7548,6 +7810,7 @@ var valueFuncKw = [
     {
         "opy": "_&isOnObjective",
         "en": "isOnObjective",
+        "fr": "SurL’objectif",
         "description": "Whether a specific player is currently occupying a payload or capture point.",
         "args": [
             {
@@ -7561,6 +7824,7 @@ var valueFuncKw = [
     {
         "opy": "_&isOnWall",
         "en": "isOnWall",
+        "fr": "SurLeMur",
         "description": "Whether a player is on a wall (climbing or riding).",
         "args": [
             {
@@ -7574,6 +7838,7 @@ var valueFuncKw = [
     {
         "opy": "_&isOnFire",
         "en": "isPortraitOnFire",
+        "fr": "Portrait«EnFeu»",
         "description": "Whether a specific player's portrait is on fire.",
         "args": [
             {
@@ -7587,6 +7852,7 @@ var valueFuncKw = [
     {
         "opy": "_&isStanding",
         "en": "isStanding",
+        "fr": "Debout",
         "description": "Whether a player is standing (defined as both not moving and not in the air).",
         "args": [
             {
@@ -7600,6 +7866,7 @@ var valueFuncKw = [
     {
         "opy": "isTeamOnDefense",
         "en": "isTeamOnDefense",
+        "fr": "ÉquipeEnDéfense",
         "description": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or assault/escort.",
         "args": [
             {
@@ -7613,6 +7880,7 @@ var valueFuncKw = [
     {
         "opy": "isTeamOnOffense",
         "en": "isTeamOnOffense",
+        "fr": "ÉquipeEnAttaque",
         "description": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or assault/escort.",
         "args": [
             {
@@ -7626,6 +7894,7 @@ var valueFuncKw = [
     {
         "opy": "_all",
         "en": "isTrueForAll",
+        "fr": "VraiPourTous",
         "description": "Whether the specified condition evaluates to true for every value in the specified array.",
         "args": [
             {
@@ -7645,6 +7914,7 @@ var valueFuncKw = [
     {
         "opy": "_any",
         "en": "isTrueForAny",
+        "fr": "VraiPourN’importeQui",
         "description": "Whether the specified condition evaluates to true for any value in the specified array.",
         "args": [
             {
@@ -7664,6 +7934,7 @@ var valueFuncKw = [
     {
         "opy": "_&isUsingAbility1",
         "en": "isUsingAbility1",
+        "fr": "Capacité1Utilisée",
         "description": "Whether the specified player is using ability 1.",
         "args": [
             {
@@ -7677,6 +7948,7 @@ var valueFuncKw = [
     {
         "opy": "_&isUsingAbility2",
         "en": "isUsingAbility2",
+        "fr": "Capacité2Utilisée",
         "description": "Whether the specified player is using ability 2.",
         "args": [
             {
@@ -7690,6 +7962,7 @@ var valueFuncKw = [
     {
         "opy": "_&isUsingUltimate",
         "en": "isUsingUltimate",
+        "fr": "CapacitéUltimeUtilisée",
         "description": "Whether a player is using an ultimate ability.",
         "args": [
             {
@@ -7703,36 +7976,42 @@ var valueFuncKw = [
     {
         "opy": "isWaitingForPlayers()",
         "en": "isWaitingForPlayers",
+        "fr": "EnAttenteDeJoueurs",
         "description": "Whether the match is waiting for players to join before starting.",
         "args": []
     },
     {
         "opy": "getLastCreatedEntity()",
         "en": "lastCreatedEntity",
+        "fr": "DernièreEntitéCréée",
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": []
     },
     {
         "opy": "getLastDamageModification()",
         "en": "lastDamageModificationId",
+        "fr": "DernierIdentifiantDeModificationDeDégâts",
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
         "args": []
     },
     {
         "opy": "getLastDoT()",
         "en": "lastDamageOverTimeId",
+        "fr": "DernierIdentifiantDeDégâtsSurLaDurée",
         "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
         "args": []
     },
     {
         "opy": "getLastHoT()",
         "en": "lastHealOverTimeId",
+        "fr": "DernierIdentifiantDeSoinsSurLaDurée",
         "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
         "args": []
     },
     {
         "opy": "_lastOf",
         "en": "lastOf",
+        "fr": "Dernier",
         "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
         "args": [
             {
@@ -7746,18 +8025,21 @@ var valueFuncKw = [
     {
         "opy": "getLastCreatedText()",
         "en": "lastTextId",
+        "fr": "DernierIdentifiantDeTexte",
         "description": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action.",
         "args": []
     },
     {
         "opy": "Vector.LEFT",
         "en": "left",
+        "fr": "Gauche",
         "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
         "args": null
     },
     {
         "opy": "localVector",
         "en": "localVectorOf",
+        "fr": "VecteurLocalDe",
         "description": "The vector in local coordinates corresponding to the provided vector in world coordinates.",
         "args": [
             {
@@ -7783,18 +8065,21 @@ var valueFuncKw = [
     {
         "opy": "getMatchRound()",
         "en": "matchRound",
+        "fr": "MancheDeLaPartie",
         "description": "The current round of the match, counting up from 1.",
         "args": []
     },
     {
         "opy": "getMatchTime()",
         "en": "matchTime",
+        "fr": "TempsDeJeu",
         "description": "The amount of time in seconds remaining in the current game mode phase.",
         "args": []
     },
     {
         "opy": "max",
         "en": "max",
+        "fr": "Maximum",
         "description": "The greater of two numbers.",
         "args": [
             {
@@ -7814,6 +8099,7 @@ var valueFuncKw = [
     {
         "opy": "_&getMaxHealth",
         "en": "maxHealth",
+        "fr": "PointsDeVieMaximum",
         "description": "The max health of a player, including armor and shields.",
         "args": [
             {
@@ -7827,6 +8113,7 @@ var valueFuncKw = [
     {
         "opy": "min",
         "en": "min",
+        "fr": "Minimum",
         "description": "The lesser of two numbers.",
         "args": [
             {
@@ -7846,6 +8133,7 @@ var valueFuncKw = [
     {
         "opy": "_modulo",
         "en": "modulo",
+        "fr": "Modulo",
         "description": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero.",
         "args": [
             {
@@ -7865,6 +8153,7 @@ var valueFuncKw = [
     {
         "opy": "_multiply",
         "en": "multiply",
+        "fr": "Multiplication",
         "description": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector.",
         "args": [
             {
@@ -7884,6 +8173,7 @@ var valueFuncKw = [
     {
         "opy": "nearestWalkablePosition",
         "en": "nearestWalkablePosition",
+        "fr": "PositionLaPlusProcheEnMarchant",
         "description": "The position closest to the specified position that can be stood on and is accessible from a spawn point.",
         "args": [
             {
@@ -7897,6 +8187,7 @@ var valueFuncKw = [
     {
         "opy": "normalize",
         "en": "normalize",
+        "fr": "Normalisation",
         "description": "The unit-length normalization of a vector.",
         "args": [
             {
@@ -7910,6 +8201,7 @@ var valueFuncKw = [
     {
         "opy": "not",
         "en": "not",
+        "fr": "Pas",
         "description": "Whether the input is false (or equivalent to false).",
         "args": [
             {
@@ -7918,18 +8210,19 @@ var valueFuncKw = [
                 "type": "BOOLEAN",
                 "default": "TRUE"
             }
-        ],
-        "snippet": "not",
+        ]
     },
     {
         "opy": "null",
         "en": "null",
+        "fr": "NonApplicable",
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
         "args": null
     },
     {
         "opy": "getNumberOfDeadPlayers",
         "en": "numberOfDeadPlayers",
+        "fr": "NombreDeJoueursMorts",
         "description": "The number of dead players on a team or in the match.",
         "args": [
             {
@@ -7943,6 +8236,7 @@ var valueFuncKw = [
     {
         "opy": "_&getNumberOfDeaths",
         "en": "numberOfDeaths",
+        "fr": "NombreDeMorts",
         "description": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
             {
@@ -7956,6 +8250,7 @@ var valueFuncKw = [
     {
         "opy": "_&getNumberOfElims",
         "en": "numberOfEliminations",
+        "fr": "NombreD’éliminations",
         "description": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
             {
@@ -7969,6 +8264,7 @@ var valueFuncKw = [
     {
         "opy": "_&getNumberOfFinalBlows",
         "en": "numberOfFinalBlows",
+        "fr": "NombreDeCoupsDeGrâce",
         "description": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
             {
@@ -7982,6 +8278,7 @@ var valueFuncKw = [
     {
         "opy": "getNumberOfHeroes",
         "en": "numberOfHeroes",
+        "fr": "NombreDeHéros",
         "description": "The number of players playing a specific hero on a team or in the match.",
         "args": [
             {
@@ -8001,6 +8298,7 @@ var valueFuncKw = [
     {
         "opy": "getNumberOfLivingPlayers",
         "en": "numberOfLivingPlayers",
+        "fr": "NombreDeJoueursEnVie",
         "description": "The number of living players on a team or in the match.",
         "args": [
             {
@@ -8014,6 +8312,7 @@ var valueFuncKw = [
     {
         "opy": "getNumberOfPlayers",
         "en": "numberOfPlayers",
+        "fr": "NombreDeJoueurs",
         "description": "The number of players on a team or in the match.",
         "args": [
             {
@@ -8027,6 +8326,7 @@ var valueFuncKw = [
     {
         "opy": "getNumberOfPlayersOnObjective",
         "en": "numberOfPlayersOnObjective",
+        "fr": "NombreDeJoueursSurL’objectif",
         "description": "The number of players occupying a payload or control point (either on a team or in the match).",
         "args": [
             {
@@ -8040,12 +8340,14 @@ var valueFuncKw = [
     {
         "opy": "getCurrentObjective()",
         "en": "objectiveIndex",
+        "fr": "IndexDeL’objectif",
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
         "args": []
     },
     {
         "opy": "getObjectivePosition",
         "en": "objectivePosition",
+        "fr": "PositionDeL’objectif",
         "description": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, assault/escort, escort, and control.",
         "args": [
             {
@@ -8059,6 +8361,7 @@ var valueFuncKw = [
     {
         "opy": "getOppositeTeam",
         "en": "oppositeTeamOf",
+        "fr": "ÉquipeOpposéeà",
         "description": "The team opposite the specified team.",
         "args": [
             {
@@ -8072,6 +8375,7 @@ var valueFuncKw = [
     {
         "opy": "_or",
         "en": "or",
+        "fr": "Ou",
         "description": "Whether either of the two inputs are true (or equivalent to true).",
         "args": [
             {
@@ -8091,18 +8395,21 @@ var valueFuncKw = [
     {
         "opy": "getPayloadPosition",
         "en": "payloadPosition",
+        "fr": "PositionDuConvoi",
         "description": "The position in the world of the active payload.",
         "args": []
     },
     {
         "opy": "getPayloadProgressPercentage",
         "en": "payloadProgressPercentage",
+        "fr": "PourcentageDeProgressionDuConvoi",
         "description": "The current progress towards the destination for the active payload (expressed as a percentage).",
         "args": []
     },
     {
         "opy": "getFlagCarrier",
         "en": "playerCarryingFlag",
+        "fr": "JoueurPortantLeDrapeau",
         "description": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag.",
         "args": [
             {
@@ -8116,6 +8423,7 @@ var valueFuncKw = [
     {
         "opy": "_&getPlayerClosestToReticle",
         "en": "playerClosestToReticle",
+        "fr": "JoueurLePlusProcheDuRéticule",
         "description": "The player closest to the reticle of the specified player, optionally restricted by team.",
         "args": [
             {
@@ -8135,6 +8443,7 @@ var valueFuncKw = [
     {
         "opy": "_playerVar",
         "en": "playerVariable",
+        "fr": "VariableDeJoueur",
         "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -8154,6 +8463,7 @@ var valueFuncKw = [
     {
         "opy": "getPlayersInSlot",
         "en": "playersInSlot",
+        "fr": "JoueursDansL’emplacement",
         "description": "The player or array of players who occupy a specific slot in the game.",
         "args": [
             {
@@ -8173,6 +8483,7 @@ var valueFuncKw = [
     {
         "opy": "_&getPlayersInViewAngle",
         "en": "playersInViewAngle",
+        "fr": "JoueursDansLeChampDeVision",
         "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.",
         "args": [
             {
@@ -8198,6 +8509,7 @@ var valueFuncKw = [
     {
         "opy": "getPlayersOnHero",
         "en": "playersOnHero",
+        "fr": "JoueursSurLeHéros",
         "description": "The array of players playing a specific hero on a team or in the match.",
         "args": [
             {
@@ -8217,6 +8529,7 @@ var valueFuncKw = [
     {
         "opy": "getPlayersInRadius",
         "en": "playersWithinRadius",
+        "fr": "JoueursDansUnRayon",
         "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.",
         "args": [
             {
@@ -8248,12 +8561,14 @@ var valueFuncKw = [
     {
         "opy": "getCapturePercentage",
         "en": "pointCapturePercentage",
+        "fr": "PourcentageDeCaptureDuPoint",
         "description": "The current progress towards capture for the active control point (expressed as a percentage).",
         "args": []
     },
     {
         "opy": "_&getPosition",
         "en": "positionOf",
+        "fr": "PositionDe",
         "description": "The current position of a player as a vector.",
         "args": [
             {
@@ -8267,6 +8582,7 @@ var valueFuncKw = [
     {
         "opy": "_raiseToPower",
         "en": "raiseToPower",
+        "fr": "ÉlévationàUnePuissance",
         "description": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero.",
         "args": [
             {
@@ -8286,6 +8602,7 @@ var valueFuncKw = [
     {
         "opy": "random.randint",
         "en": "randomInteger",
+        "fr": "NombreEntierAléatoire",
         "description": "A random integer between the specified min and max, inclusive.",
         "args": [
             {
@@ -8305,6 +8622,7 @@ var valueFuncKw = [
     {
         "opy": "random.uniform",
         "en": "randomReal",
+        "fr": "NombreRéelAléatoire",
         "description": "A random real number between the specified min and max.",
         "args": [
             {
@@ -8324,6 +8642,7 @@ var valueFuncKw = [
     {
         "opy": "random.choice",
         "en": "randomValueInArray",
+        "fr": "ValeurAléatoireDansLeTableau",
         "description": "A random value from the specified array.",
         "args": [
             {
@@ -8337,6 +8656,7 @@ var valueFuncKw = [
     {
         "opy": "random.shuffle",
         "en": "randomizedArray",
+        "fr": "TableauAléatoire",
         "description": "A copy of the specified array with the values in a random order.",
         "args": [
             {
@@ -8350,6 +8670,7 @@ var valueFuncKw = [
     {
         "opy": "_getNormal",
         "en": "raycastHitNormal",
+        "fr": "SurfaceIntersectéeParLeRayonémis",
         "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
         "args": [
             {
@@ -8387,6 +8708,7 @@ var valueFuncKw = [
     {
         "opy": "_getPlayerHit",
         "en": "raycastHitPlayer",
+        "fr": "JoueurIntersectéParLeRayonémis",
         "description": "The player hit by the ray cast (or null if no player is hit).",
         "args": [
             {
@@ -8424,6 +8746,7 @@ var valueFuncKw = [
     {
         "opy": "_getHitPosition",
         "en": "raycastHitPosition",
+        "fr": "PositionD’impactDuRayonémis",
         "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
         "args": [
             {
@@ -8461,6 +8784,7 @@ var valueFuncKw = [
     {
         "opy": "_removeFromArray",
         "en": "removeFromArray",
+        "fr": "SupprimerDuTableau",
         "description": "A copy of an array with one or more values removed (if found).",
         "args": [
             {
@@ -8480,12 +8804,14 @@ var valueFuncKw = [
     {
         "opy": "Vector.RIGHT",
         "en": "right",
+        "fr": "Droite",
         "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
         "args": null
     },
     {
         "opy": "_round",
         "en": "roundToInteger",
+        "fr": "ArrondiràL’entier",
         "description": "The integer to which the specified value rounds.",
         "args": [
             {
@@ -8505,6 +8831,7 @@ var valueFuncKw = [
     {
         "opy": "_&getScore",
         "en": "scoreOf",
+        "fr": "ScoreDe",
         "description": "The current score of a player. Results in 0 if the game mode is not free-for-all.",
         "args": [
             {
@@ -8518,24 +8845,28 @@ var valueFuncKw = [
     {
         "opy": "getServerLoad()",
         "en": "serverLoad",
+        "fr": "ChargeDuServeur",
         "description": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": []
     },
     {
         "opy": "getAverageServerLoad()",
         "en": "serverLoadAverage",
+        "fr": "ChargeMoyenneDuServeur",
         "description": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": []
     },
     {
         "opy": "getPeakServerLoad()",
         "en": "serverLoadPeak",
+        "fr": "PicDeChargeDuServeur",
         "description": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": []
     },
     {
         "opy": "sinDeg",
         "en": "sineFromDegrees",
+        "fr": "SinusEnDegrés",
         "description": "Sine of the specified angle in degrees.",
         "args": [
             {
@@ -8549,6 +8880,7 @@ var valueFuncKw = [
     {
         "opy": "sin",
         "en": "sineFromRadians",
+        "fr": "SinusEnRadians",
         "description": "Sine of the specified angle in radians.",
         "args": [
             {
@@ -8562,6 +8894,7 @@ var valueFuncKw = [
     {
         "opy": "_&getSlot",
         "en": "slotOf",
+        "fr": "EmplacementDe",
         "description": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
         "args": [
             {
@@ -8575,6 +8908,7 @@ var valueFuncKw = [
     {
         "opy": "_sortedArray",
         "en": "sortedArray",
+        "fr": "TableauTrié",
         "description": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element.",
         "args": [
             {
@@ -8594,6 +8928,7 @@ var valueFuncKw = [
     {
         "opy": "_&getSpeed",
         "en": "speedOf",
+        "fr": "VitesseDe",
         "description": "The current speed of a player in meters per second.",
         "args": [
             {
@@ -8607,6 +8942,7 @@ var valueFuncKw = [
     {
         "opy": "_&getSpeedInDirection",
         "en": "speedOfInDirection",
+        "fr": "VitesseDansLaDirectionDonnéeDe",
         "description": "The current speed of a player in a specific direction in meters per second.",
         "args": [
             {
@@ -8626,6 +8962,7 @@ var valueFuncKw = [
     {
         "opy": "sqrt",
         "en": "squareRoot",
+        "fr": "RacineCarrée",
         "description": "The square root of the specified value.",
         "args": [
             {
@@ -8639,6 +8976,7 @@ var valueFuncKw = [
     {
         "opy": "_string",
         "en": "string",
+        "fr": "ChaîneDeTexte",
         "description": "Text formed from a selection of strings and specified values.",
         "args": [
             {
@@ -8670,6 +9008,7 @@ var valueFuncKw = [
     {
         "opy": "_subtract",
         "en": "subtract",
+        "fr": "Soustraction",
         "description": "The difference between two numbers or vectors.",
         "args": [
             {
@@ -8689,6 +9028,7 @@ var valueFuncKw = [
     {
         "opy": "_&getTeam",
         "en": "teamOf",
+        "fr": "ÉquipeDe",
         "description": "The team of a player. If the game mode is free-for-all, the team is considered to be all.",
         "args": [
             {
@@ -8702,6 +9042,7 @@ var valueFuncKw = [
     {
         "opy": "teamScore",
         "en": "teamScore",
+        "fr": "ScoreDeL’équipe",
         "description": "The current score for the specified team. Results in 0 in free-for-all game modes.",
         "args": [
             {
@@ -8715,6 +9056,7 @@ var valueFuncKw = [
     {
         "opy": "_&getThrottle",
         "en": "throttleOf",
+        "fr": "AccélérationDe",
         "description": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward).",
         "args": [
             {
@@ -8728,18 +9070,21 @@ var valueFuncKw = [
     {
         "opy": "getTotalTimeElapsed",
         "en": "totalTimeElapsed",
+        "fr": "TempsTotalécoulé",
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
         "args": []
     },
     {
         "opy": "true",
         "en": "true",
+        "fr": "Vrai",
         "description": "The boolean value of true.",
         "args": null
     },
     {
         "opy": "_&getUltCharge",
         "en": "ultimateChargePercent",
+        "fr": "PourcentageDeChargeDeLaCapacitéUltime",
         "description": "The current ultimate ability charge percentage of a player.",
         "args": [
             {
@@ -8753,12 +9098,14 @@ var valueFuncKw = [
     {
         "opy": "Vector.UP",
         "en": "up",
+        "fr": "Haut",
         "description": "Shorthand for the directional vector(0, l, 0), which points upward.",
         "args": null
     },
     {
         "opy": "_valueInArray",
         "en": "valueInArray",
+        "fr": "ValeurDansLeTableau",
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
         "args": [
             {
@@ -8778,6 +9125,7 @@ var valueFuncKw = [
     {
         "opy": "vect",
         "en": "vector",
+        "fr": "Vecteur",
         "description": "A vector composed of three real numbers (x, y, z) where x is left, y is up, and z is forward. Vectors are used for position, direction, and velocity.",
         "args": [
             {
@@ -8803,6 +9151,7 @@ var valueFuncKw = [
     {
         "opy": "vectorTowards",
         "en": "vectorTowards",
+        "fr": "VecteurVers",
         "description": "The displacement vector from one position to another.",
         "args": [
             {
@@ -8822,6 +9171,7 @@ var valueFuncKw = [
     {
         "opy": "_&getVelocity",
         "en": "velocityOf",
+        "fr": "VélocitéDe",
         "description": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope.",
         "args": [
             {
@@ -8835,6 +9185,7 @@ var valueFuncKw = [
     {
         "opy": "verticalAngleOfDirection",
         "en": "verticalAngleFromDirection",
+        "fr": "AngleVerticalDepuisUneDirection",
         "description": "The vertical angle in degrees corresponding to the specified direction vector.",
         "args": [
             {
@@ -8848,6 +9199,7 @@ var valueFuncKw = [
     {
         "opy": "verticalAngleTowards",
         "en": "verticalAngleTowards",
+        "fr": "AngleVerticalVers",
         "description": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative.",
         "args": [
             {
@@ -8867,6 +9219,7 @@ var valueFuncKw = [
     {
         "opy": "_&getVerticalFacingAngle",
         "en": "verticalFacingAngleOf",
+        "fr": "AngleVerticalDuRegardDe",
         "description": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down.",
         "args": [
             {
@@ -8880,6 +9233,7 @@ var valueFuncKw = [
     {
         "opy": "_&getVerticalSpeed",
         "en": "verticalSpeedOf",
+        "fr": "VitesseVerticaleDe",
         "description": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes.",
         "args": [
             {
@@ -8893,12 +9247,14 @@ var valueFuncKw = [
     {
         "opy": "victim",
         "en": "victim",
+        "fr": "Victime",
         "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
         "args": null
     },
     {
         "opy": "worldVector",
         "en": "worldVectorOf",
+        "fr": "VecteurMondialDe",
         "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
         "args": [
             {
@@ -8924,6 +9280,7 @@ var valueFuncKw = [
     {
         "opy": "_xComponentOf",
         "en": "xComponentOf",
+        "fr": "ComposanteXDe",
         "description": "The x component of the specified vector, usually representing a leftward amount.",
         "args": [
             {
@@ -8937,6 +9294,7 @@ var valueFuncKw = [
     {
         "opy": "_yComponentOf",
         "en": "yComponentOf",
+        "fr": "ComposanteYDe",
         "description": "The y component of the specified vector, usually representing an upward amount.",
         "args": [
             {
@@ -8950,6 +9308,7 @@ var valueFuncKw = [
     {
         "opy": "_zComponentOf",
         "en": "zComponentOf",
+        "fr": "ComposanteZDe",
         "description": "The z component of the specified vector, usually representing a forward amount.",
         "args": [
             {
@@ -8988,7 +9347,8 @@ var constantValues = {
             },
             {
                 "opy": "Transform.ROTATION_AND_TRANSLATION",
-                "en": "RotationAndTranslation"
+                "en": "RotationAndTranslation",
+                "fr": "RotationEtTranslation"
             }
         ]
     },
@@ -8997,15 +9357,18 @@ var constantValues = {
         "values": [
             {
                 "opy": "Invis.ALL",
-                "en": "All"
+                "en": "All",
+                "fr": "Tous"
             },
             {
                 "opy": "Invis.ENEMIES",
-                "en": "Enemies"
+                "en": "Enemies",
+                "fr": "Ennemis"
             },
             {
                 "opy": "Invis.NONE",
-                "en": "None"
+                "en": "None",
+                "fr": "Personne"
             }
         ]
     },
@@ -9014,55 +9377,68 @@ var constantValues = {
         "values": [
             {
                 "opy": "Color.AQUA",
-                "en": "Aqua"
+                "en": "Aqua",
+                "fr": "Cyan"
             },
             {
                 "opy": "Color.BLUE",
-                "en": "Blue"
+                "en": "Blue",
+                "fr": "Bleu"
             },
             {
                 "opy": "Color.GREEN",
-                "en": "Green"
+                "en": "Green",
+                "fr": "Vert"
             },
             {
                 "opy": "Color.LIME_GREEN",
-                "en": "Limegreen"
+                "en": "Limegreen",
+                "fr": "CitronVert"
             },
             {
                 "opy": "Color.ORANGE",
-                "en": "Orange"
+                "en": "Orange",
+                "fr": "Orange"
             },
             {
                 "opy": "Color.PURPLE",
-                "en": "Purple"
+                "en": "Purple",
+                "fr": "Violet"
             },
             {
                 "opy": "Color.RED",
-                "en": "Red"
+                "en": "Red",
+                "fr": "Rouge"
             },
             {
                 "opy": "Color.SKY_BLUE",
-                "en": "Skyblue"
+                "en": "Skyblue",
+                "fr": "BleuCiel"
             },
             {
                 "opy": "Color.TEAM_1",
-                "en": "Team1"
+                "en": "Team1",
+                "fr": "Équipe1"
             },
             {
                 "opy": "Color.TEAM_2",
-                "en": "Team2"
+                "en": "Team2",
+                "fr": "Équipe2"
             },
             {
                 "opy": "Color.TURQUOISE",
-                "en": "Turquoise"
+                "en": "Turquoise",
+                "fr": "Turquoise"
             },
             {
                 "opy": "Color.WHITE",
-                "en": "White"
+                "en": "White",
+                "fr": "Blanc"
             },
             {
                 "opy": "Color.YELLOW",
-                "en": "Yellow"
+                "en": "Yellow",
+                "fr": "Jaune"
             }
         ]
     },
@@ -9071,35 +9447,43 @@ var constantValues = {
         "values": [
             {
                 "opy": "Button.ABILITY_1",
-                "en": "Ability1"
+                "en": "Ability1",
+                "fr": "Capacité1"
             },
             {
                 "opy": "Button.ABILITY_2",
-                "en": "Ability2"
+                "en": "Ability2",
+                "fr": "Capacité2"
             },
             {
                 "opy": "Button.CROUCH",
-                "en": "Crouch"
+                "en": "Crouch",
+                "fr": "S’accroupir"
             },
             {
                 "opy": "Button.INTERACT",
-                "en": "Interact"
+                "en": "Interact",
+                "fr": "Interagir"
             },
             {
                 "opy": "Button.JUMP",
-                "en": "Jump"
+                "en": "Jump",
+                "fr": "Sauter"
             },
             {
                 "opy": "Button.PRIMARY_FIRE",
-                "en": "PrimaryFire"
+                "en": "PrimaryFire",
+                "fr": "TirPrincipal"
             },
             {
                 "opy": "Button.SECONDARY_FIRE",
-                "en": "SecondaryFire"
+                "en": "SecondaryFire",
+                "fr": "TirSecondaire"
             },
             {
                 "opy": "Button.ULTIMATE",
-                "en": "Ultimate"
+                "en": "Ultimate",
+                "fr": "CapacitéUltime"
             }
         ]
     },
@@ -9108,47 +9492,58 @@ var constantValues = {
         "values": [
             {
                 "opy": "_add",
-                "en": "Add"
+                "en": "Add",
+                "fr": "Addition"
             },
             {
                 "opy": "_appendToArray",
-                "en": "AppendToArray"
+                "en": "AppendToArray",
+                "fr": "AjouterAuTableau"
             },
             {
                 "opy": "_divide",
-                "en": "Divide"
+                "en": "Divide",
+                "fr": "Division"
             },
             {
                 "opy": "_max",
-                "en": "Max"
+                "en": "Max",
+                "fr": "Maximum"
             },
             {
                 "opy": "_min",
-                "en": "Min"
+                "en": "Min",
+                "fr": "Minimum"
             },
             {
                 "opy": "_modulo",
-                "en": "Modulo"
+                "en": "Modulo",
+                "fr": "Modulo"
             },
             {
                 "opy": "_multiply",
-                "en": "Multiply"
+                "en": "Multiply",
+                "fr": "Multiplication"
             },
             {
                 "opy": "_raiseToPower",
-                "en": "RaiseToPower"
+                "en": "RaiseToPower",
+                "fr": "ÉlévationàUnePuissance"
             },
             {
                 "opy": "_removeFromArrayByIndex",
-                "en": "RemoveFromArrayByIndex"
+                "en": "RemoveFromArrayByIndex",
+                "fr": "SupprimerDuTableauParIndex"
             },
             {
                 "opy": "_removeFromArrayByValue",
-                "en": "RemoveFromArrayByValue"
+                "en": "RemoveFromArrayByValue",
+                "fr": "SupprimerDuTableauParValeur"
             },
             {
                 "opy": "_subtract",
-                "en": "Subtract"
+                "en": "Subtract",
+                "fr": "Soustraction"
             }
         ]
     },
@@ -9157,15 +9552,18 @@ var constantValues = {
         "values": [
             {
                 "opy": "Team.ALL",
-                "en": "AllTeams"
+                "en": "AllTeams",
+                "fr": "ToutesLeséquipes"
             },
             {
                 "opy": "Team.1",
-                "en": "Team1"
+                "en": "Team1",
+                "fr": "Équipe1"
             },
             {
                 "opy": "Team.2",
-                "en": "Team2"
+                "en": "Team2",
+                "fr": "Équipe2"
             }
         ]
     },
@@ -9174,127 +9572,189 @@ var constantValues = {
         "values": [
             {
                 "opy": "Hero.ANA",
-                "en": "Ana"
+                "en": "Ana",
+                "fr": "Ana",
+                "kr": "아나"
             },
             {
                 "opy": "Hero.ASHE",
-                "en": "Ashe"
+                "en": "Ashe",
+                "fr": "Ashe",
+                "kr": "애쉬"
             },
             {
                 "opy": "Hero.BAPTISTE",
-                "en": "Baptiste"
+                "en": "Baptiste",
+                "fr": "Baptiste",
+                "kr": "바티스트"
             },
             {
                 "opy": "Hero.BASTION",
-                "en": "Bastion"
+                "en": "Bastion",
+                "fr": "Bastion",
+                "kr": "바스티온"
             },
             {
                 "opy": "Hero.BRIGITTE",
-                "en": "Brigitte"
+                "en": "Brigitte",
+                "fr": "Brigitte",
+                "kr": "브리기테"
             },
             {
                 "opy": "Hero.DVA",
-                "en": "D.va"
+                "en": "D.va",
+                "fr": "D.va",
+                "kr": "D.Va"
             },
             {
                 "opy": "Hero.DOOMFIST",
-                "en": "Doomfist"
+                "en": "Doomfist",
+                "fr": "Doomfist",
+                "kr": "둠피스트"
             },
             {
                 "opy": "Hero.GENJI",
-                "en": "Genji"
+                "en": "Genji",
+                "fr": "Genji",
+                "kr": "겐지"
             },
             {
                 "opy": "Hero.HANZO",
-                "en": "Hanzo"
+                "en": "Hanzo",
+                "fr": "Hanzo",
+                "kr": "한조"
             },
             {
                 "opy": "Hero.JUNKRAT",
-                "en": "Junkrat"
+                "en": "Junkrat",
+                "fr": "Chacal",
+                "kr": "정크랫"
             },
             {
                 "opy": "Hero.LUCIO",
-                "en": "Lúcio"
+                "en": "Lúcio",
+                "fr": "Lúcio",
+                "kr": "루시우"
             },
             {
                 "opy": "Hero.MCCREE",
-                "en": "Mccree"
+                "en": "Mccree",
+                "fr": "Mccree",
+                "kr": "맥크리"
             },
             {
                 "opy": "Hero.MEI",
-                "en": "Mei"
+                "en": "Mei",
+                "fr": "Mei",
+                "kr": "메이"
             },
             {
                 "opy": "Hero.MERCY",
-                "en": "Mercy"
+                "en": "Mercy",
+                "fr": "Ange",
+                "kr": "메르시"
             },
             {
                 "opy": "Hero.MOIRA",
-                "en": "Moira"
+                "en": "Moira",
+                "fr": "Moira",
+                "kr": "모이라"
             },
             {
                 "opy": "Hero.ORISA",
-                "en": "Orisa"
+                "en": "Orisa",
+                "fr": "Orisa",
+                "kr": "오리사"
             },
             {
                 "opy": "Hero.PHARAH",
-                "en": "Pharah"
+                "en": "Pharah",
+                "fr": "Pharah",
+                "kr": "파라"
             },
             {
                 "opy": "Hero.REAPER",
-                "en": "Reaper"
+                "en": "Reaper",
+                "fr": "Faucheur",
+                "kr": "리퍼"
             },
             {
                 "opy": "Hero.REINHARDT",
-                "en": "Reinhardt"
+                "en": "Reinhardt",
+                "fr": "Reinhardt",
+                "kr": "라인하르트"
             },
             {
                 "opy": "Hero.ROADHOG",
-                "en": "Roadhog"
+                "en": "Roadhog",
+                "fr": "Chopper",
+                "kr": "로드호그"
             },
             {
                 "opy": "Hero.SIGMA",
-                "en": "Sigma"
+                "en": "Sigma",
+                "fr": "Sigma",
+                "kr": "시그마"
             },
             {
                 "opy": "Hero.SOLDIER",
-                "en": "Soldier:76"
+                "en": "Soldier:76",
+                "fr": "Soldat:76",
+                "kr": "솔저: 76"
             },
             {
                 "opy": "Hero.SOMBRA",
-                "en": "Sombra"
+                "en": "Sombra",
+                "fr": "Sombra",
+                "kr": "솜브라"
             },
             {
                 "opy": "Hero.SYMMETRA",
-                "en": "Symmetra"
+                "en": "Symmetra",
+                "fr": "Symmetra",
+                "kr": "시메트라"
             },
             {
                 "opy": "Hero.TORBJORN",
-                "en": "Torbjörn"
+                "en": "Torbjörn",
+                "fr": "Torbjörn",
+                "kr": "토르비욘"
             },
             {
                 "opy": "Hero.TRACER",
-                "en": "Tracer"
+                "en": "Tracer",
+                "fr": "Tracer",
+                "kr": "트레이서"
             },
             {
                 "opy": "Hero.WIDOWMAKER",
-                "en": "Widowmaker"
+                "en": "Widowmaker",
+                "fr": "Fatale",
+                "kr": "위도우메이커"
             },
             {
                 "opy": "Hero.WINSTON",
-                "en": "Winston"
+                "en": "Winston",
+                "fr": "Winston",
+                "kr": "윈스턴"
             },
             {
                 "opy": "Hero.HAMMOND",
-                "en": "WreckingBall"
+                "en": "WreckingBall",
+                "fr": "Bouldozer",
+                "kr": "레킹볼"
             },
             {
                 "opy": "Hero.ZARYA",
-                "en": "Zarya"
+                "en": "Zarya",
+                "fr": "Zarya",
+                "kr": "자리야"
             },
             {
                 "opy": "Hero.ZENYATTA",
-                "en": "Zenyatta"
+                "en": "Zenyatta",
+                "fr": "Zenyatta",
+                "kr": "젠야타"
             }
         ]
     },
@@ -9412,43 +9872,53 @@ var constantValues = {
         "values": [
             {
                 "opy": "DynamicEffect.BAD_EXPLOSION",
-                "en": "BadExplosion"
+                "en": "BadExplosion",
+                "fr": "MauvaiseExplosion"
             },
             {
                 "opy": "DynamicEffect.BAD_PICKUP_EFFECT",
-                "en": "BadPickupEffect"
+                "en": "BadPickupEffect",
+                "fr": "MauvaisEffetDeRamassage"
             },
             {
                 "opy": "DynamicEffect.BUFF_EXPLOSION_SOUND",
-                "en": "BuffExplosionSound"
+                "en": "BuffExplosionSound",
+                "fr": "SonD’explosionD’amélioration"
             },
             {
                 "opy": "DynamicEffect.BUFF_IMPACT_SOUND",
-                "en": "BuffImpactSound"
+                "en": "BuffImpactSound",
+                "fr": "SonD’impactD’amélioration"
             },
             {
                 "opy": "DynamicEffect.DEBUFF_IMPACT_SOUND",
-                "en": "DebuffImpactSound"
+                "en": "DebuffImpactSound",
+                "fr": "SonD’impactD’affaiblissement"
             },
             {
                 "opy": "DynamicEffect.EXPLOSION_SOUND",
-                "en": "ExplosionSound"
+                "en": "ExplosionSound",
+                "fr": "SonDeL’explosion"
             },
             {
                 "opy": "DynamicEffect.GOOD_EXPLOSION",
-                "en": "GoodExplosion"
+                "en": "GoodExplosion",
+                "fr": "BonneExplosion"
             },
             {
                 "opy": "DynamicEffect.GOOD_PICKUP_EFFECT",
-                "en": "GoodPickupEffect"
+                "en": "GoodPickupEffect",
+                "fr": "BonEffetDeRamassage"
             },
             {
                 "opy": "DynamicEffect.RING_EXPLOSION",
-                "en": "RingExplosion"
+                "en": "RingExplosion",
+                "fr": "ExplosionConcentrique"
             },
             {
                 "opy": "DynamicEffect.RING_EXPLOSION_SOUND",
-                "en": "RingExplosionSound"
+                "en": "RingExplosionSound",
+                "fr": "SonD’explosionConcentrique"
             }
         ]
     },
@@ -9457,67 +9927,83 @@ var constantValues = {
         "values": [
             {
                 "opy": "Effect.BAD_AURA",
-                "en": "BadAura"
+                "en": "BadAura",
+                "fr": "MauvaiseAura"
             },
             {
                 "opy": "Effect.BAD_AURA_SOUND",
-                "en": "BadAuraSound"
+                "en": "BadAuraSound",
+                "fr": "SonDeMauvaiseAura"
             },
             {
                 "opy": "Effect.BEACON_SOUND",
-                "en": "BeaconSound"
+                "en": "BeaconSound",
+                "fr": "SonDeBalise"
             },
             {
                 "opy": "Effect.CLOUD",
-                "en": "Cloud"
+                "en": "Cloud",
+                "fr": "Nuage"
             },
             {
                 "opy": "Effect.DECAL_SOUND",
-                "en": "DecalSound"
+                "en": "DecalSound",
+                "fr": "SonDeDécal"
             },
             {
                 "opy": "Effect.ENERGY_SOUND",
-                "en": "EnergySound"
+                "en": "EnergySound",
+                "fr": "SonDeL’énergie"
             },
             {
                 "opy": "Effect.GOOD_AURA",
-                "en": "GoodAura"
+                "en": "GoodAura",
+                "fr": "BonneAura"
             },
             {
                 "opy": "Effect.GOOD_AURA_SOUND",
-                "en": "GoodAuraSound"
+                "en": "GoodAuraSound",
+                "fr": "SonDeBonneAura"
             },
             {
                 "opy": "Effect.LIGHT_SHAFT",
-                "en": "LightShaft"
+                "en": "LightShaft",
+                "fr": "PuitsDeLumière"
             },
             {
                 "opy": "Effect.ORB",
-                "en": "Orb"
+                "en": "Orb",
+                "fr": "Orbe"
             },
             {
                 "opy": "Effect.PICKUP_SOUND",
-                "en": "Pick-upSound"
+                "en": "Pick-upSound",
+                "fr": "SonDeRamassage"
             },
             {
                 "opy": "Effect.RING",
-                "en": "Ring"
+                "en": "Ring",
+                "fr": "Anneau"
             },
             {
                 "opy": "Effect.SMOKE_SOUND",
-                "en": "SmokeSound"
+                "en": "SmokeSound",
+                "fr": "SonDeLaFumée"
             },
             {
                 "opy": "Effect.SPARKLES",
-                "en": "Sparkles"
+                "en": "Sparkles",
+                "fr": "Etincelles"
             },
             {
                 "opy": "Effect.SPARKLES_SOUND",
-                "en": "SparklesSound"
+                "en": "SparklesSound",
+                "fr": "SonDesétincelles"
             },
             {
                 "opy": "Effect.SPHERE",
-                "en": "Sphere"
+                "en": "Sphere",
+                "fr": "Sphère"
             }
         ]
     },
@@ -9526,59 +10012,73 @@ var constantValues = {
         "values": [
             {
                 "opy": "Comms.ACKNOWLEDGE",
-                "en": "Acknowledge"
+                "en": "Acknowledge",
+                "fr": "BienReçu"
             },
             {
                 "opy": "Comms.EMOTE_DOWN",
-                "en": "EmoteDown"
+                "en": "EmoteDown",
+                "fr": "EmoteBas"
             },
             {
                 "opy": "Comms.EMOTE_LEFT",
-                "en": "EmoteLeft"
+                "en": "EmoteLeft",
+                "fr": "EmoteGauche"
             },
             {
                 "opy": "Comms.EMOTE_RIGHT",
-                "en": "EmoteRight"
+                "en": "EmoteRight",
+                "fr": "EmoteDroite"
             },
             {
                 "opy": "Comms.EMOTE_UP",
-                "en": "EmoteUp"
+                "en": "EmoteUp",
+                "fr": "EmoteHaut"
             },
             {
                 "opy": "Comms.GROUP_UP",
-                "en": "GroupUp"
+                "en": "GroupUp",
+                "fr": "Regroupement"
             },
             {
                 "opy": "Comms.HELLO",
-                "en": "Hello"
+                "en": "Hello",
+                "fr": "Bonjour"
             },
             {
                 "opy": "Comms.NEED_HEALING",
-                "en": "NeedHealing"
+                "en": "NeedHealing",
+                "fr": "BesoinDeSoins"
             },
             {
                 "opy": "Comms.THANKS",
-                "en": "Thanks"
+                "en": "Thanks",
+                "fr": "Merci"
             },
             {
                 "opy": "Comms.ULTIMATE_STATUS",
-                "en": "UltimateStatus"
+                "en": "UltimateStatus",
+                "fr": "StatutDeL’ulti"
             },
             {
                 "opy": "Comms.VOICE_LINE_DOWN",
-                "en": "VoiceLineDown"
+                "en": "VoiceLineDown",
+                "fr": "RépliqueBas"
             },
             {
                 "opy": "Comms.VOICE_LINE_LEFT",
-                "en": "VoiceLineLeft"
+                "en": "VoiceLineLeft",
+                "fr": "RépliqueGauche"
             },
             {
                 "opy": "Comms.VOICE_LINE_RIGHT",
-                "en": "VoiceLineRight"
+                "en": "VoiceLineRight",
+                "fr": "RépliqueDroite"
             },
             {
                 "opy": "Comms.VOICE_LINE_UP",
-                "en": "VoiceLineUp"
+                "en": "VoiceLineUp",
+                "fr": "RépliqueHaut"
             }
         ]
     },
@@ -9587,147 +10087,219 @@ var constantValues = {
         "values": [
             {
                 "opy": "Icon.ARROW_DOWN",
-                "en": "Arrow:Down"
+                "en": "Arrow:Down",
+                "fr": "FlècheBas",
+                "description": "![](https://i.imgur.com/hych4AE.jpg)"
             },
             {
                 "opy": "Icon.ARROW_LEFT",
-                "en": "Arrow:Left"
+                "en": "Arrow:Left",
+                "fr": "FlècheGauche",
+                "description": "![](https://i.imgur.com/jgpW0Nb.jpg)"
             },
             {
                 "opy": "Icon.ARROW_RIGHT",
-                "en": "Arrow:Right"
+                "en": "Arrow:Right",
+                "fr": "FlècheDroite",
+                "description": "![](https://i.imgur.com/0BttENZ.jpg)"
             },
             {
                 "opy": "Icon.ARROW_UP",
-                "en": "Arrow:Up"
+                "en": "Arrow:Up",
+                "fr": "FlècheHaut",
+                "description": "![](https://i.imgur.com/Pr86Pcf.jpg)"
             },
             {
                 "opy": "Icon.ASTERISK",
-                "en": "Asterisk"
+                "en": "Asterisk",
+                "fr": "Astérisque",
+                "description": "![](https://i.imgur.com/XTvINuC.jpg)"
             },
             {
                 "opy": "Icon.BOLT",
-                "en": "Bolt"
+                "en": "Bolt",
+                "fr": "Boulon",
+                "description": "![](https://i.imgur.com/ekbDxsT.jpg)"
             },
             {
                 "opy": "Icon.CHECKMARK",
-                "en": "Checkmark"
+                "en": "Checkmark",
+                "fr": "PointD’exclamation",
+                "description": "![](https://i.imgur.com/B7V240H.jpg)"
             },
             {
                 "opy": "Icon.CIRCLE",
-                "en": "Circle"
+                "en": "Circle",
+                "fr": "Cercle",
+                "description": "![](https://i.imgur.com/6lNvrqD.jpg)"
             },
             {
                 "opy": "Icon.CLUB",
-                "en": "Club"
+                "en": "Club",
+                "fr": "Trèfle",
+                "description": "![](https://i.imgur.com/HYWor8w.jpg)"
             },
             {
                 "opy": "Icon.DIAMOND",
-                "en": "Diamond"
+                "en": "Diamond",
+                "fr": "Carreau",
+                "description": "![](https://i.imgur.com/5aLqsHf.jpg)"
             },
             {
                 "opy": "Icon.DIZZY",
-                "en": "Dizzy"
+                "en": "Dizzy",
+                "fr": "Étourdi",
+                "description": "![](https://i.imgur.com/P1Qi43N.jpg)"
             },
             {
                 "opy": "Icon.EXCLAMATION_MARK",
-                "en": "ExclamationMark"
+                "en": "ExclamationMark",
+                "fr": "PointD’exclamation",
+                "description": "![](https://i.imgur.com/1rBcHfz.jpg)"
             },
             {
                 "opy": "Icon.EYE",
-                "en": "Eye"
+                "en": "Eye",
+                "fr": "Œil",
+                "description": "![](https://i.imgur.com/pVMPtoH.jpg)"
             },
             {
                 "opy": "Icon.FIRE",
-                "en": "Fire"
+                "en": "Fire",
+                "fr": "Flamme",
+                "description": "![](https://i.imgur.com/m3As7B0.jpg)"
             },
             {
                 "opy": "Icon.FLAG",
-                "en": "Flag"
+                "en": "Flag",
+                "fr": "Drapeau",
+                "description": "![](https://i.imgur.com/v30lUgy.jpg)"
             },
             {
                 "opy": "Icon.HALO",
-                "en": "Halo"
+                "en": "Halo",
+                "fr": "Halo",
+                "description": "![](https://i.imgur.com/FWR9HAQ.jpg)"
             },
             {
                 "opy": "Icon.HAPPY",
-                "en": "Happy"
+                "en": "Happy",
+                "fr": "SmileyContent",
+                "description": "![](https://i.imgur.com/CNwSwb1.jpg)"
             },
             {
                 "opy": "Icon.HEART",
-                "en": "Heart"
+                "en": "Heart",
+                "fr": "Cœur",
+                "description": "![](https://i.imgur.com/1KPOyZa.jpg)"
             },
             {
                 "opy": "Icon.MOON",
-                "en": "Moon"
+                "en": "Moon",
+                "fr": "Lune",
+                "description": "![](https://i.imgur.com/2uxcKF0.jpg)"
             },
             {
                 "opy": "Icon.NO",
-                "en": "No"
+                "en": "No",
+                "fr": "Interdit",
+                "description": "![](https://i.imgur.com/TZ4zFso.jpg)"
             },
             {
                 "opy": "Icon.PLUS",
-                "en": "Plus"
+                "en": "Plus",
+                "fr": "Plus",
+                "description": "![](https://i.imgur.com/OLARJ80.jpg)"
             },
             {
                 "opy": "Icon.POISON",
-                "en": "Poison"
+                "en": "Poison",
+                "fr": "Poison",
+                "description": "![](https://i.imgur.com/w2gsTiI.jpg)"
             },
             {
                 "opy": "Icon.POISON_2",
-                "en": "Poison2"
+                "en": "Poison2",
+                "fr": "Poison2",
+                "description": "![](https://i.imgur.com/UWmyDg2.jpg)"
             },
             {
                 "opy": "Icon.QUESTION_MARK",
-                "en": "QuestionMark"
+                "en": "QuestionMark",
+                "fr": "PointD’interrogation",
+                "description": "![](https://i.imgur.com/CZBV4tx.jpg)"
             },
             {
                 "opy": "Icon.RADIOACTIVE",
-                "en": "Radioactive"
+                "en": "Radioactive",
+                "fr": "Radioactif",
+                "description": "![](https://i.imgur.com/R1bnNcl.jpg)"
             },
             {
                 "opy": "Icon.RECYCLE",
-                "en": "Recycle"
+                "en": "Recycle",
+                "fr": "Recyclage",
+                "description": "![](https://i.imgur.com/q2fxb2u.jpg)"
             },
             {
                 "opy": "Icon.RING_THICK",
-                "en": "RingThick"
+                "en": "RingThick",
+                "fr": "Anneauépais",
+                "description": "![](https://i.imgur.com/lTwuAjX.jpg)"
             },
             {
                 "opy": "Icon.RING_THIN",
-                "en": "RingThin"
+                "en": "RingThin",
+                "fr": "AnneauFin",
+                "description": "![](https://i.imgur.com/NDOrzVS.jpg)"
             },
             {
                 "opy": "Icon.SAD",
-                "en": "Sad"
+                "en": "Sad",
+                "fr": "SmileyTriste",
+                "description": "![](https://i.imgur.com/00jyB4n.jpg)"
             },
             {
                 "opy": "Icon.SKULL",
-                "en": "Skull"
+                "en": "Skull",
+                "fr": "Crâne",
+                "description": "![](https://i.imgur.com/TKKtSIa.jpg)"
             },
             {
                 "opy": "Icon.SPADE",
-                "en": "Spade"
+                "en": "Spade",
+                "fr": "Pique",
+                "description": "![](https://i.imgur.com/AJNBYA3.jpg)"
             },
             {
                 "opy": "Icon.SPIRAL",
-                "en": "Spiral"
+                "en": "Spiral",
+                "fr": "Spirale",
+                "description": "![](https://i.imgur.com/TQLGPww.jpg)"
             },
             {
                 "opy": "Icon.STOP",
-                "en": "Stop"
+                "en": "Stop",
+                "fr": "Stop",
+                "description": "![](https://i.imgur.com/af56Ghv.jpg)"
             },
             {
                 "opy": "Icon.TRASHCAN",
-                "en": "Trashcan"
+                "en": "Trashcan",
+                "fr": "Poubelle",
+                "description": "![](https://i.imgur.com/iEtFvyC.jpg)"
             },
             {
                 "opy": "Icon.WARNING",
-                "en": "Warning"
+                "en": "Warning",
+                "fr": "Avertissement",
+                "description": "![](https://i.imgur.com/SXDld9l.jpg)"
             },
             {
                 "opy": "Icon.CROSS",
-                "en": "X"
+                "en": "X",
+                "fr": "Croix",
+                "description": "![](https://i.imgur.com/05HFEnd.jpg)"
             }
         ]
     },
@@ -9736,11 +10308,13 @@ var constantValues = {
         "values": [
             {
                 "opy": "Relativity.TO_PLAYER",
-                "en": "ToPlayer"
+                "en": "ToPlayer",
+                "fr": "AuMonde"
             },
             {
                 "opy": "Relativity.TO_WORLD",
-                "en": "ToWorld"
+                "en": "ToWorld",
+                "fr": "AuJoueur"
             }
         ]
     },
@@ -9749,11 +10323,13 @@ var constantValues = {
         "values": [
             {
                 "opy": "Impulse.CANCEL_CONTRARY_MOTION",
-                "en": "CancelContraryMotion"
+                "en": "CancelContraryMotion",
+                "fr": "AnnulerLeMouvementContraire"
             },
             {
                 "opy": "Impulse.INCORPORATE_CONTRARY_MOTION",
-                "en": "IncorporateContraryMotion"
+                "en": "IncorporateContraryMotion",
+                "fr": "IncorporerUnMouvementContraire"
             }
         ]
     },
@@ -9761,15 +10337,18 @@ var constantValues = {
         "values": [
             {
                 "opy": "_roundUp",
-                "en": "Up"
+                "en": "Up",
+                "fr": "Au-dessus"
             },
             {
                 "opy": "_roundDown",
-                "en": "Down"
+                "en": "Down",
+                "fr": "En-dessous"
             },
             {
                 "opy": "_roundToNearest",
-                "en": "ToNearest"
+                "en": "ToNearest",
+                "fr": "AuPlusPrès"
             }
         ]
     },
@@ -9778,19 +10357,23 @@ var constantValues = {
         "values": [
             {
                 "opy": "LosCheck.OFF",
-                "en": "Off"
+                "en": "Off",
+                "fr": "Désactivé"
             },
             {
                 "opy": "LosCheck.SURFACES",
-                "en": "Surfaces"
+                "en": "Surfaces",
+                "fr": "Surfaces"
             },
             {
                 "opy": "LosCheck.SURFACES_AND_ALL_BARRIERS",
-                "en": "SurfacesAndAllBarriers"
+                "en": "SurfacesAndAllBarriers",
+                "fr": "SurfacesEtBarrièresEnnemies"
             },
             {
                 "opy": "LosCheck.SURFACES_AND_ENEMY_BARRIERS",
-                "en": "SurfacesAndEnemyBarriers"
+                "en": "SurfacesAndEnemyBarriers",
+                "fr": "SurfacesEtToutesLesBarrières"
             }
         ]
     },
@@ -9799,11 +10382,13 @@ var constantValues = {
         "values": [
             {
                 "opy": "Clip.SURFACES",
-                "en": "ClipAgainstSurfaces"
+                "en": "ClipAgainstSurfaces",
+                "fr": "MasquerDerrièreLesSurfaces"
             },
             {
                 "opy": "Clip.NONE",
-                "en": "DoNotClip"
+                "en": "DoNotClip",
+                "fr": "NePasMasquer"
             }
         ]
     },
@@ -9812,15 +10397,18 @@ var constantValues = {
         "values": [
             {
                 "opy": "Position.LEFT",
-                "en": "Left"
+                "en": "Left",
+                "fr": "Gauche"
             },
             {
                 "opy": "Position.TOP",
-                "en": "Top"
+                "en": "Top",
+                "fr": "Haut"
             },
             {
                 "opy": "Position.RIGHT",
-                "en": "Right"
+                "en": "Right",
+                "fr": "Droite"
             }
         ]
     },
@@ -9833,15 +10421,18 @@ var constantValues = {
             },
             {
                 "opy": "IconReeval.NONE",
-                "en": "None"
+                "en": "None",
+                "fr": "Aucune"
             },
             {
                 "opy": "IconReeval.VISIBILITY",
-                "en": "VisibleTo"
+                "en": "VisibleTo",
+                "fr": "VisiblePour"
             },
             {
                 "opy": "IconReeval.VISIBILITY_AND_POSITION",
-                "en": "VisibleToAndPosition"
+                "en": "VisibleToAndPosition",
+                "fr": "VisiblePourEtPosition"
             }
         ]
     },
@@ -9850,19 +10441,23 @@ var constantValues = {
         "values": [
             {
                 "opy": "EffectReeval.POSITION_AND_RADIUS",
-                "en": "PositionAndRadius"
+                "en": "PositionAndRadius",
+                "fr": "PositionEtRayon"
             },
             {
                 "opy": "EffectReeval.NONE",
-                "en": "None"
+                "en": "None",
+                "fr": "Aucune"
             },
             {
                 "opy": "EffectReeval.VISIBILITY",
-                "en": "VisibleTo"
+                "en": "VisibleTo",
+                "fr": "VisiblePour"
             },
             {
                 "opy": "EffectReeval.VISIBILITY_POSITION_AND_RADIUS",
-                "en": "VisibleToPositionAndRadius"
+                "en": "VisibleToPositionAndRadius",
+                "fr": "VisiblePourPositionEtRayon"
             }
         ]
     },
@@ -9871,11 +10466,13 @@ var constantValues = {
         "values": [
             {
                 "opy": "HudReeval.STRING",
-                "en": "String"
+                "en": "String",
+                "fr": "ChaîneDeTexte"
             },
             {
                 "opy": "HudReeval.VISIBILITY_AND_STRING",
-                "en": "VisibleToAndString"
+                "en": "VisibleToAndString",
+                "fr": "VisiblePourEtChaîneDeTexte"
             }
         ]
     },
@@ -9884,15 +10481,18 @@ var constantValues = {
         "values": [
             {
                 "opy": "WorldTextReeval.STRING",
-                "en": "String"
+                "en": "String",
+                "fr": "ChaîneDeTexte"
             },
             {
                 "opy": "WorldTextReeval.VISIBILITY_AND_STRING",
-                "en": "VisibleToAndString"
+                "en": "VisibleToAndString",
+                "fr": "VisiblePourEtChaîneDeTexte"
             },
             {
                 "opy": "WorldTextReeval.VISIBILITY_POSITION_AND_STRING",
-                "en": "VisibleToPositionAndString"
+                "en": "VisibleToPositionAndString",
+                "fr": "VisiblePourPositionEtChaîneDeTexte"
             }
         ]
     },
@@ -9901,11 +10501,13 @@ var constantValues = {
         "values": [
             {
                 "opy": "ChaseReeval.DESTINATION_AND_RATE",
-                "en": "DestinationAndRate"
+                "en": "DestinationAndRate",
+                "fr": "DestinationEtTaux"
             },
             {
                 "opy": "ChaseReeval.NONE",
-                "en": "None"
+                "en": "None",
+                "fr": "Aucune"
             }
         ]
     },
@@ -9914,11 +10516,13 @@ var constantValues = {
         "values": [
             {
                 "opy": "ChaseReeval.DESTINATION_AND_DURATION",
-                "en": "DestinationAndDuration"
+                "en": "DestinationAndDuration",
+                "fr": "DestinationEtDurée"
             },
             {
                 "opy": "ChaseReeval.NONE",
-                "en": "None"
+                "en": "None",
+                "fr": "Aucune"
             }
         ]
     },
@@ -9927,11 +10531,13 @@ var constantValues = {
         "values": [
             {
                 "opy": "HudReeval.STRING",
-                "en": "String"
+                "en": "String",
+                "fr": "ChaîneDeTexte"
             },
             {
                 "opy": "HudReeval.VISIBILITY_AND_STRING",
-                "en": "VisibleToAndString"
+                "en": "VisibleToAndString",
+                "fr": "VisiblePourEtChaîneDeTexte"
             }
         ]
     },
@@ -9940,15 +10546,18 @@ var constantValues = {
         "values": [
             {
                 "opy": "DamageReeval.NONE",
-                "en": "None"
+                "en": "None",
+                "fr": "Aucun"
             },
             {
                 "opy": "DamageReeval.RECEIVERS_AND_DAMAGERS",
-                "en": "ReceiversAndDamagers"
+                "en": "ReceiversAndDamagers",
+                "fr": "RécepteursEtémetteursDeDégâts"
             },
             {
                 "opy": "DamageReeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT",
-                "en": "ReceiversDamagersAndDamagePercent"
+                "en": "ReceiversDamagersAndDamagePercent",
+                "fr": "RécepteursDeDégâtsémetteursDeDégâtsEtPourcentageDeDégâts"
             }
         ]
     },
@@ -9957,11 +10566,13 @@ var constantValues = {
         "values": [
             {
                 "opy": "FacingReeval.DIRECTION_AND_TURN_RATE",
-                "en": "DirectionAndTurnRate"
+                "en": "DirectionAndTurnRate",
+                "fr": "DirectionEtTauxDeRotation"
             },
             {
                 "opy": "FacingReeval.NONE",
-                "en": "None"
+                "en": "None",
+                "fr": "Aucune"
             }
         ]
     },
@@ -9970,15 +10581,18 @@ var constantValues = {
         "values": [
             {
                 "opy": "Wait.ABORT_WHEN_FALSE",
-                "en": "AbortWhenFalse"
+                "en": "AbortWhenFalse",
+                "fr": "InterrompreQuandFaux"
             },
             {
                 "opy": "Wait.IGNORE_CONDITION",
-                "en": "IgnoreCondition"
+                "en": "IgnoreCondition",
+                "fr": "IgnorerLaCondition"
             },
             {
                 "opy": "Wait.RESTART_WHEN_TRUE",
-                "en": "RestartWhenTrue"
+                "en": "RestartWhenTrue",
+                "fr": "RedémarrerQuandVrai"
             }
         ]
     },
@@ -9987,15 +10601,18 @@ var constantValues = {
         "values": [
             {
                 "opy": "BarrierLos.BLOCKED_BY_ENEMY_BARRIERS",
-                "en": "EnemyBarriersBlockLos"
+                "en": "EnemyBarriersBlockLos",
+                "fr": "LesBarrièresEnnemiesBloquentLaLigneDeVue"
             },
             {
                 "opy": "BarrierLos.BLOCKED_BY_ALL_BARRIERS",
-                "en": "AllBarriersBlockLos"
+                "en": "AllBarriersBlockLos",
+                "fr": "ToutesLesBarrièresBloquentLaLigneDeVue"
             },
             {
                 "opy": "BarrierLos.PASS_THROUGH_BARRIERS",
-                "en": "BarriersDoNotBlockLos"
+                "en": "BarriersDoNotBlockLos",
+                "fr": "LesBarrièresNeBloquentPasLaLigneDeVue"
             }
         ]
     },
@@ -10004,43 +10621,53 @@ var constantValues = {
         "values": [
             {
                 "opy": "Status.ASLEEP",
-                "en": "Asleep"
+                "en": "Asleep",
+                "fr": "Endormi"
             },
             {
                 "opy": "Status.BURNING",
-                "en": "Burning"
+                "en": "Burning",
+                "fr": "Enflammé"
             },
             {
                 "opy": "Status.FROZEN",
-                "en": "Frozen"
+                "en": "Frozen",
+                "fr": "Gelé"
             },
             {
                 "opy": "Status.HACKED",
-                "en": "Hacked"
+                "en": "Hacked",
+                "fr": "Piraté"
             },
             {
                 "opy": "Status.INVINCIBLE",
-                "en": "Invincible"
+                "en": "Invincible",
+                "fr": "Invincible"
             },
             {
                 "opy": "Status.KNOCKED_DOWN",
-                "en": "KnockedDown"
+                "en": "KnockedDown",
+                "fr": "Renversé"
             },
             {
                 "opy": "Status.PHASED_OUT",
-                "en": "PhasedOut"
+                "en": "PhasedOut",
+                "fr": "Déphasé"
             },
             {
                 "opy": "Status.ROOTED",
-                "en": "Rooted"
+                "en": "Rooted",
+                "fr": "Immobilisé"
             },
             {
                 "opy": "Status.STUNNED",
-                "en": "Stunned"
+                "en": "Stunned",
+                "fr": "Étourdi"
             },
             {
                 "opy": "Status.UNKILLABLE",
-                "en": "Unkillable"
+                "en": "Unkillable",
+                "fr": "Intuable"
             }
         ]
     },
@@ -10049,15 +10676,18 @@ var constantValues = {
         "values": [
             {
                 "opy": "SpecVisibility.DEFAULT",
-                "en": "Defaultvisibility"
+                "en": "Defaultvisibility",
+                "fr": "VisibilitéParDéfaut"
             },
             {
                 "opy": "SpecVisibility.ALWAYS",
-                "en": "Visiblealways"
+                "en": "Visiblealways",
+                "fr": "ToujoursVisible"
             },
             {
                 "opy": "SpecVisibility.NEVER",
-                "en": "Visiblenever"
+                "en": "Visiblenever",
+                "fr": "JamaisVisible"
             }
         ]
     },
@@ -10066,15 +10696,18 @@ var constantValues = {
         "values": [
             {
                 "opy": "Beam.BAD",
-                "en": "Badbeam"
+                "en": "Badbeam",
+                "fr": "MauvaisRayon"
             },
             {
                 "opy": "Beam.GOOD",
-                "en": "Goodbeam"
+                "en": "Goodbeam",
+                "fr": "BonRayon"
             },
             {
                 "opy": "Beam.GRAPPLE",
-                "en": "Grapplebeam"
+                "en": "Grapplebeam",
+                "fr": "RayonDuGrappin"
             }
         ]
     },
@@ -10083,11 +10716,13 @@ var constantValues = {
         "values": [
             {
                 "opy": "Throttle.REPLACE_EXISTING",
-                "en": "Replaceexistingthrottle"
+                "en": "Replaceexistingthrottle",
+                "fr": "RemplacerL’accélérationExistante"
             },
             {
                 "opy": "Throttle.ADD_TO_EXISTING",
-                "en": "Addtoexistingthrottle"
+                "en": "Addtoexistingthrottle",
+                "fr": "AjouteràL’accélérationExistante"
             }
         ]
     },
@@ -10096,11 +10731,13 @@ var constantValues = {
         "values": [
             {
                 "opy": "ThrottleReeval.DIRECTION_AND_MAGNITUDE",
-                "en": "Directionandmagnitude"
+                "en": "Directionandmagnitude",
+                "fr": "DirectionEtAmpleur"
             },
             {
                 "opy": "ThrottleReeval.NONE",
-                "en": "None"
+                "en": "None",
+                "fr": "Aucune"
             }
         ]
     },
@@ -10109,11 +10746,13 @@ var constantValues = {
         "values": [
             {
                 "opy": "AccelReeval.DIRECTION_RATE_AND_MAX_SPEED",
-                "en": "DirectionRateAndMaxSpeed"
+                "en": "DirectionRateAndMaxSpeed",
+                "fr": "DirectionTauxEtVitesseMaximum"
             },
             {
                 "opy": "AccelReeval.NONE",
-                "en": "None"
+                "en": "None",
+                "fr": "Aucune"
             }
         ]
     }
@@ -10147,21 +10786,21 @@ var constantValues = {
 //OverPy keywords beginning with "_" aren't actually keywords; they signal to the parser that it isn't a simple keyword replacement.
 //For example, the "set global variable(var, value)" is replaced by "var = value".
 
-//Array of languages. As of now, only English is supported.
+//Array of languages.
 var languages = [
 	"en",
-	
-	//Not supported yet!
-	"fr",
-	"es",
-	"it",
-	"ru",
-	"pl",
-	"de",
-	"pt",
-	"ja",
-	"kr",
-	"zh",
+	"fr", //everything
+    //"es-eu", //strings, heroes (only soldier), some enums (eg "ignore condition"), meta (player event and team event)
+    //"es-al", //everything
+	//"it", //strings, heroes (only soldier), some enums (eg "ignore condition"), meta (rule/event/condition/actions, player event and team event)
+	//"ru", //strings, heroes, meta (player event)
+	//"pl", //strings, heroes, meta (rule/event/condition/actions, player event and team event)
+	//"de", //strings, meta(rule/event/condition/actions)
+	//"pt", //everything
+	//"ja", //everything
+	"kr", //heroes and meta ("conditions"/"actions")
+    //"zh1", //strings, heroes, meta(rule/event/condition/actions)
+    //"zh2", //everything
 ]
 
 var currentLanguage = "en";
@@ -10169,19 +10808,25 @@ var currentLanguage = "en";
 var ruleKw = [
     {
         "opy": "@Rule",
-        "en": "rule"
+        "en": "rule",
+        "fr": "règle",
     },
     {
         "opy": "@Event",
-        "en": "event"
+        "en": "event",
+        "fr": "évènement",
     },
     {
         "opy": "_conditions",
-        "en": "conditions"
+        "en": "conditions",
+        "fr": "conditions",
+        "kr": "condition",
     },
     {
         "opy": "_actions",
-        "en": "actions"
+        "en": "actions",
+        "fr": "actions",
+        "kr": "action",
     }
 ];
 
@@ -10189,109 +10834,149 @@ var ruleKw = [
 var eventKw = [
     {
         "opy": "global",
-        "en": "ongoing-global"
+        "en": "ongoing-global",
+        "fr": "toutelapartie-toutlemonde",
     },
     {
         "opy": "eachPlayer",
-        "en": "ongoing-eachplayer"
+        "en": "ongoing-eachplayer",
+        "fr": "toutelapartie-chaquejoueur",
     },
     {
         "opy": "playerTookDamage",
-        "en": "playerTookDamage"
+        "en": "playerTookDamage",
+        "fr": "unjoueursubitdesdégâts",
     },
     {
         "opy": "playerDealtDamage",
-        "en": "playerDealtDamage"
+        "en": "playerDealtDamage",
+        "fr": "unjoueurinfligedesdégâts",
     },
     {
         "opy": "playerDealtFinalBlow",
-        "en": "playerDealtFinalBlow"
+        "en": "playerDealtFinalBlow",
+        "fr": "unjoueurinfligeuncoupdegrâce",
     },
     {
         "opy": "playerDied",
-        "en": "playerDied"
+        "en": "playerDied",
+        "fr": "unjoueurmeurt",
     },
     {
         "opy": "playerEarnedElimination",
-        "en": "playerEarnedElimination"
+        "en": "playerEarnedElimination",
+        "fr": "unjoueurobtientuneélimination",
     },
     {
         "opy": "playerDealtHealing",
-        "en": "playerDealtHealing"
+        "en": "playerDealtHealing",
+        "fr": "unjoueuraprodiguédessoins",
     },
     {
         "opy": "playerReceivedHealing",
-        "en": "playerReceivedHealing"
+        "en": "playerReceivedHealing",
+        "fr": "unjoueurareçudessoins",
     },
     {
         "opy": "playerJoined",
-        "en": "playerJoinedMatch"
+        "en": "playerJoinedMatch",
+        "fr": "unjoueurarejointlapartie",
     },
     {
         "opy": "playerLeft",
-        "en": "playerLeftMatch"
-    },
+        "en": "playerLeftMatch",
+        "fr": "unjoueuraquittélapartie",
+    }
+];
+
+var eventTeamKw = [
     {
         "opy": "all",
-        "en": "all"
+        "en": "all",
+        "fr": "lesdeux",
     },
     {
         "opy": "1",
-        "en": "team1"
+        "en": "team1",
+        "fr": "Équipe1",
     },
     {
         "opy": "2",
-        "en": "team2"
+        "en": "team2",
+        "fr": "Équipe2",
     },
-    {
-        "opy": "slot0",
-        "en": "slot0"
-    },
-    {
-        "opy": "slot1",
-        "en": "slot1"
-    },
-    {
-        "opy": "slot2",
-        "en": "slot2"
-    },
-    {
-        "opy": "slot3",
-        "en": "slot3"
-    },
-    {
-        "opy": "slot4",
-        "en": "slot4"
-    },
-    {
-        "opy": "slot5",
-        "en": "slot5"
-    },
-    {
-        "opy": "slot6",
-        "en": "slot6"
-    },
-    {
-        "opy": "slot7",
-        "en": "slot7"
-    },
-    {
-        "opy": "slot8",
-        "en": "slot8"
-    },
-    {
-        "opy": "slot9",
-        "en": "slot9"
-    },
-    {
-        "opy": "slot10",
-        "en": "slot10"
-    },
-    {
-        "opy": "slot11",
-        "en": "slot11"
-    }
 ];
+
+var eventSlotKw = [
+    {
+        "opy": "0",
+        "en": "slot0",
+        "fr": "emplacement0",
+    },
+    {
+        "opy": "1",
+        "en": "slot1",
+        "fr": "emplacement1",
+    },
+    {
+        "opy": "2",
+        "en": "slot2",
+        "fr": "emplacement2",
+    },
+    {
+        "opy": "3",
+        "en": "slot3",
+        "fr": "emplacement3",
+    },
+    {
+        "opy": "4",
+        "en": "slot4",
+        "fr": "emplacement4",
+    },
+    {
+        "opy": "5",
+        "en": "slot5",
+        "fr": "emplacement5",
+    },
+    {
+        "opy": "6",
+        "en": "slot6",
+        "fr": "emplacement6",
+    },
+    {
+        "opy": "7",
+        "en": "slot7",
+        "fr": "emplacement7",
+    },
+    {
+        "opy": "8",
+        "en": "slot8",
+        "fr": "emplacement8",
+    },
+    {
+        "opy": "9",
+        "en": "slot9",
+        "fr": "emplacement9",
+    },
+    {
+        "opy": "10",
+        "en": "slot10",
+        "fr": "emplacement10",
+    },
+    {
+        "opy": "11",
+        "en": "slot11",
+        "fr": "emplacement11",
+    }
+]
+
+var eventPlayerKw = [
+    {
+        "opy": "all",
+        "en": "all",
+        "fr": "tout",
+    },
+].concat(eventSlotKw);
 
 //Global variables, used to convert to names during decompilation.
 var globalVarKw = [
@@ -10543,2687 +11228,3358 @@ var emptyStrKw = [
 var normalStrKw = [
     {
         "opy": "Zones",
-        "en": "Zones"
+        "en": "Zones",
+        "fr": "Zones"
     },
     {
         "opy": "Zone",
-        "en": "Zone"
+        "en": "Zone",
+        "fr": "Zone"
     },
     {
         "opy": "You Win",
-        "en": "You Win"
+        "en": "You Win",
+        "fr": "Vous avez gagné"
     },
     {
         "opy": "You Lose",
-        "en": "You Lose"
+        "en": "You Lose",
+        "fr": "Vous avez perdu"
     },
     {
         "opy": "You",
-        "en": "You"
+        "en": "You",
+        "fr": "Vous"
     },
     {
         "opy": "Yes",
-        "en": "Yes"
+        "en": "Yes",
+        "fr": "Oui"
     },
     {
         "opy": "Yellow",
-        "en": "Yellow"
+        "en": "Yellow",
+        "fr": "Jaune"
     },
     {
         "opy": "Wow",
-        "en": "Wow"
+        "en": "Wow",
+        "fr": "Waouh"
     },
     {
         "opy": "Worst",
-        "en": "Worst"
+        "en": "Worst",
+        "fr": "Le pire"
     },
     {
         "opy": "Worse",
-        "en": "Worse"
+        "en": "Worse",
+        "fr": "Pire"
     },
     {
         "opy": "Wisdom",
-        "en": "Wisdom"
+        "en": "Wisdom",
+        "fr": "Sagesse"
     },
     {
         "opy": "Wins",
-        "en": "Wins"
+        "en": "Wins",
+        "fr": "Victoires"
     },
     {
         "opy": "Winners",
-        "en": "Winners"
+        "en": "Winners",
+        "fr": "Vainqueurs"
     },
     {
         "opy": "Winner",
-        "en": "Winner"
+        "en": "Winner",
+        "fr": "Gagnant"
     },
     {
         "opy": "Win",
-        "en": "Win"
+        "en": "Win",
+        "fr": "Victoire"
     },
     {
         "opy": "Wild",
-        "en": "Wild"
+        "en": "Wild",
+        "fr": "Libre"
     },
     {
         "opy": "White",
-        "en": "White"
+        "en": "White",
+        "fr": "Blanc"
     },
     {
         "opy": "West",
-        "en": "West"
+        "en": "West",
+        "fr": "Ouest"
     },
     {
         "opy": "Well Played",
-        "en": "Well Played"
+        "en": "Well Played",
+        "fr": "Bien joué"
     },
     {
         "opy": "Welcome",
-        "en": "Welcome"
+        "en": "Welcome",
+        "fr": "Bienvenue"
     },
     {
         "opy": "Warning",
-        "en": "Warning"
+        "en": "Warning",
+        "fr": "Avertissement"
     },
     {
         "opy": "Walls",
-        "en": "Walls"
+        "en": "Walls",
+        "fr": "Murs"
     },
     {
         "opy": "Wall",
-        "en": "Wall"
+        "en": "Wall",
+        "fr": "Mur"
     },
     {
         "opy": "Waiting",
-        "en": "Waiting"
+        "en": "Waiting",
+        "fr": "Attente"
     },
     {
         "opy": "Wait",
-        "en": "Wait"
+        "en": "Wait",
+        "fr": "Attendre"
     },
     {
         "opy": "Vortices",
-        "en": "Vortices"
+        "en": "Vortices",
+        "fr": "Vortex"
     },
     {
         "opy": "Vortex",
-        "en": "Vortex"
+        "en": "Vortex",
+        "fr": "Vortex"
     },
     {
         "opy": "Visible",
-        "en": "Visible"
+        "en": "Visible",
+        "fr": "Visible"
     },
     {
         "opy": "Victory",
-        "en": "Victory"
+        "en": "Victory",
+        "fr": "Victoire"
     },
     {
         "opy": "Use Ultimate Ability",
-        "en": "Use Ultimate Ability"
+        "en": "Use Ultimate Ability",
+        "fr": "Utilisation de la capacité ultime"
     },
     {
         "opy": "Use Ability 2",
-        "en": "Use Ability 2"
+        "en": "Use Ability 2",
+        "fr": "Utilisation de la capacité 2"
     },
     {
         "opy": "Use Ability 1",
-        "en": "Use Ability 1"
+        "en": "Use Ability 1",
+        "fr": "Utilisation de la capacité 1"
     },
     {
         "opy": "Uploading",
-        "en": "Uploading"
+        "en": "Uploading",
+        "fr": "Envoi"
     },
     {
         "opy": "Uploaded",
-        "en": "Uploaded"
+        "en": "Uploaded",
+        "fr": "Envoyé"
     },
     {
         "opy": "Upload",
-        "en": "Upload"
+        "en": "Upload",
+        "fr": "Envoyer"
     },
     {
         "opy": "Upgrades",
-        "en": "Upgrades"
+        "en": "Upgrades",
+        "fr": "Améliorations"
     },
     {
         "opy": "Upgrade",
-        "en": "Upgrade"
+        "en": "Upgrade",
+        "fr": "Amélioration"
     },
     {
         "opy": "Up",
-        "en": "Up"
+        "en": "Up",
+        "fr": "Haut"
     },
     {
         "opy": "Unstable",
-        "en": "Unstable"
+        "en": "Unstable",
+        "fr": "Instable"
     },
     {
         "opy": "Unsafe",
-        "en": "Unsafe"
+        "en": "Unsafe",
+        "fr": "Dangereux"
     },
     {
         "opy": "Unlocking",
-        "en": "Unlocking"
+        "en": "Unlocking",
+        "fr": "Déverrouillage"
     },
     {
         "opy": "Unlocked",
-        "en": "Unlocked"
+        "en": "Unlocked",
+        "fr": "Déverrouillé"
     },
     {
         "opy": "Unlock",
-        "en": "Unlock"
+        "en": "Unlock",
+        "fr": "Déverrouiller"
     },
     {
         "opy": "Unlimited",
-        "en": "Unlimited"
+        "en": "Unlimited",
+        "fr": "Illimité"
     },
     {
         "opy": "Unknown",
-        "en": "Unknown"
+        "en": "Unknown",
+        "fr": "Inconnu"
     },
     {
         "opy": "Under",
-        "en": "Under"
+        "en": "Under",
+        "fr": "Sous"
     },
     {
         "opy": "Ultimate Ability",
-        "en": "Ultimate Ability"
+        "en": "Ultimate Ability",
+        "fr": "Capacité ultime"
     },
     {
         "opy": "Ugh",
-        "en": "Ugh"
+        "en": "Ugh",
+        "fr": "Arg"
     },
     {
         "opy": "Turrets",
-        "en": "Turrets"
+        "en": "Turrets",
+        "fr": "Tourelles"
     },
     {
         "opy": "Turret",
-        "en": "Turret"
+        "en": "Turret",
+        "fr": "Tourelle"
     },
     {
         "opy": "Try Again",
-        "en": "Try Again"
+        "en": "Try Again",
+        "fr": "Veuillez réessayer"
     },
     {
         "opy": "Transferring",
-        "en": "Transferring"
+        "en": "Transferring",
+        "fr": "Transfert"
     },
     {
         "opy": "Transferred",
-        "en": "Transferred"
+        "en": "Transferred",
+        "fr": "Transféré"
     },
     {
         "opy": "Transfer",
-        "en": "Transfer"
+        "en": "Transfer",
+        "fr": "Transférer"
     },
     {
         "opy": "Traitors",
-        "en": "Traitors"
+        "en": "Traitors",
+        "fr": "Traîtres"
     },
     {
         "opy": "Traitor",
-        "en": "Traitor"
+        "en": "Traitor",
+        "fr": "Traître"
     },
     {
         "opy": "Trading",
-        "en": "Trading"
+        "en": "Trading",
+        "fr": "Échange"
     },
     {
         "opy": "Traded",
-        "en": "Traded"
+        "en": "Traded",
+        "fr": "Échangé"
     },
     {
         "opy": "Trade",
-        "en": "Trade"
+        "en": "Trade",
+        "fr": "Échanger"
     },
     {
         "opy": "Total",
-        "en": "Total"
+        "en": "Total",
+        "fr": "Total"
     },
     {
         "opy": "Times",
-        "en": "Times"
+        "en": "Times",
+        "fr": "Temps"
     },
     {
         "opy": "Time",
-        "en": "Time"
+        "en": "Time",
+        "fr": "Temps"
     },
     {
         "opy": "Tiebreaker",
-        "en": "Tiebreaker"
+        "en": "Tiebreaker",
+        "fr": "Décisif"
     },
     {
         "opy": "Threats",
-        "en": "Threats"
+        "en": "Threats",
+        "fr": "Menaces"
     },
     {
         "opy": "Threat Levels",
-        "en": "Threat Levels"
+        "en": "Threat Levels",
+        "fr": "Niveaux de menace"
     },
     {
         "opy": "Threat Level",
-        "en": "Threat Level"
+        "en": "Threat Level",
+        "fr": "Niveau de menace"
     },
     {
         "opy": "Threat",
-        "en": "Threat"
+        "en": "Threat",
+        "fr": "Menace"
     },
     {
         "opy": "That Was Awesome",
-        "en": "That Was Awesome"
+        "en": "That Was Awesome",
+        "fr": "C’était génial"
     },
     {
         "opy": "Thanks",
-        "en": "Thanks"
+        "en": "Thanks",
+        "fr": "Remerciements"
     },
     {
         "opy": "Thank You",
-        "en": "Thank You"
+        "en": "Thank You",
+        "fr": "Merci"
     },
     {
         "opy": "Terrible",
-        "en": "Terrible"
+        "en": "Terrible",
+        "fr": "Terrible"
     },
     {
         "opy": "Teams",
-        "en": "Teams"
+        "en": "Teams",
+        "fr": "Équipes"
     },
     {
         "opy": "Teammates",
-        "en": "Teammates"
+        "en": "Teammates",
+        "fr": "Équipiers"
     },
     {
         "opy": "Teammate",
-        "en": "Teammate"
+        "en": "Teammate",
+        "fr": "Équipier"
     },
     {
         "opy": "Team",
-        "en": "Team"
+        "en": "Team",
+        "fr": "Équipe"
     },
     {
         "opy": "Targets",
-        "en": "Targets"
+        "en": "Targets",
+        "fr": "Cibles"
     },
     {
         "opy": "Target",
-        "en": "Target"
+        "en": "Target",
+        "fr": "Cible"
     },
     {
         "opy": "Surviving",
-        "en": "Surviving"
+        "en": "Surviving",
+        "fr": "Survie"
     },
     {
         "opy": "Survived",
-        "en": "Survived"
+        "en": "Survived",
+        "fr": "Survécu"
     },
     {
         "opy": "Survive",
-        "en": "Survive"
+        "en": "Survive",
+        "fr": "Survivre"
     },
     {
         "opy": "Superb",
-        "en": "Superb"
+        "en": "Superb",
+        "fr": "Superbe"
     },
     {
         "opy": "Sunk",
-        "en": "Sunk"
+        "en": "Sunk",
+        "fr": "Noyé"
     },
     {
         "opy": "Sudden Death",
-        "en": "Sudden Death"
+        "en": "Sudden Death",
+        "fr": "Mort subite"
     },
     {
         "opy": "Success",
-        "en": "Success"
+        "en": "Success",
+        "fr": "Réussite"
     },
     {
         "opy": "Suboptimal",
-        "en": "Suboptimal"
+        "en": "Suboptimal",
+        "fr": "Sous-optimal"
     },
     {
         "opy": "Stunning",
-        "en": "Stunning"
+        "en": "Stunning",
+        "fr": "Étourdissant"
     },
     {
         "opy": "Stunned",
-        "en": "Stunned"
+        "en": "Stunned",
+        "fr": "Étourdi"
     },
     {
         "opy": "Stun",
-        "en": "Stun"
+        "en": "Stun",
+        "fr": "Étourdir"
     },
     {
         "opy": "Strength",
-        "en": "Strength"
+        "en": "Strength",
+        "fr": "Force"
     },
     {
         "opy": "Stopping",
-        "en": "Stopping"
+        "en": "Stopping",
+        "fr": "Arrêt"
     },
     {
         "opy": "Stopped",
-        "en": "Stopped"
+        "en": "Stopped",
+        "fr": "Arrêté"
     },
     {
         "opy": "Stop",
-        "en": "Stop"
+        "en": "Stop",
+        "fr": "Arrêter"
     },
     {
         "opy": "Staying",
-        "en": "Staying"
+        "en": "Staying",
+        "fr": "Suit"
     },
     {
         "opy": "Stayed",
-        "en": "Stayed"
+        "en": "Stayed",
+        "fr": "Suivi"
     },
     {
         "opy": "Stay Away",
-        "en": "Stay Away"
+        "en": "Stay Away",
+        "fr": "Éloignez-vous"
     },
     {
         "opy": "Stay",
-        "en": "Stay"
+        "en": "Stay",
+        "fr": "Suivre"
     },
     {
         "opy": "Status",
-        "en": "Status"
+        "en": "Status",
+        "fr": "Statut"
     },
     {
         "opy": "Starting",
-        "en": "Starting"
+        "en": "Starting",
+        "fr": "Commencement"
     },
     {
         "opy": "Started",
-        "en": "Started"
+        "en": "Started",
+        "fr": "Commencé"
     },
     {
         "opy": "Start",
-        "en": "Start"
+        "en": "Start",
+        "fr": "Commencer"
     },
     {
         "opy": "Stars",
-        "en": "Stars"
+        "en": "Stars",
+        "fr": "Étoiles"
     },
     {
         "opy": "Star",
-        "en": "Star"
+        "en": "Star",
+        "fr": "Étoile"
     },
     {
         "opy": "Stable",
-        "en": "Stable"
+        "en": "Stable",
+        "fr": "Stable"
     },
     {
         "opy": "Stabilizing",
-        "en": "Stabilizing"
+        "en": "Stabilizing",
+        "fr": "Stabilisation"
     },
     {
         "opy": "Stabilized",
-        "en": "Stabilized"
+        "en": "Stabilized",
+        "fr": "Stabilisé"
     },
     {
         "opy": "Stabilize",
-        "en": "Stabilize"
+        "en": "Stabilize",
+        "fr": "Stabiliser"
     },
     {
         "opy": "Spheres",
-        "en": "Spheres"
+        "en": "Spheres",
+        "fr": "Sphères"
     },
     {
         "opy": "Sphere",
-        "en": "Sphere"
+        "en": "Sphere",
+        "fr": "Sphère"
     },
     {
         "opy": "Speeds",
-        "en": "Speeds"
+        "en": "Speeds",
+        "fr": "Vitesses"
     },
     {
         "opy": "Speed",
-        "en": "Speed"
+        "en": "Speed",
+        "fr": "Vitesse"
     },
     {
         "opy": "Spawning",
-        "en": "Spawning"
+        "en": "Spawning",
+        "fr": "Apparition"
     },
     {
         "opy": "Spawned",
-        "en": "Spawned"
+        "en": "Spawned",
+        "fr": "Apparu"
     },
     {
         "opy": "Spawn",
-        "en": "Spawn"
+        "en": "Spawn",
+        "fr": "Apparaître"
     },
     {
         "opy": "Sparkles",
-        "en": "Sparkles"
+        "en": "Sparkles",
+        "fr": "Étincelles"
     },
     {
         "opy": "Spades",
-        "en": "Spades"
+        "en": "Spades",
+        "fr": "Pique"
     },
     {
         "opy": "Spade",
-        "en": "Spade"
+        "en": "Spade",
+        "fr": "Pique"
     },
     {
         "opy": "Southwest",
-        "en": "Southwest"
+        "en": "Southwest",
+        "fr": "Sud-ouest"
     },
     {
         "opy": "Southeast",
-        "en": "Southeast"
+        "en": "Southeast",
+        "fr": "Sud-est"
     },
     {
         "opy": "South",
-        "en": "South"
+        "en": "South",
+        "fr": "Sud"
     },
     {
         "opy": "Sorry",
-        "en": "Sorry"
+        "en": "Sorry",
+        "fr": "Désolé"
     },
     {
         "opy": "Sold",
-        "en": "Sold"
+        "en": "Sold",
+        "fr": "Vendu"
     },
     {
         "opy": "Slowest",
-        "en": "Slowest"
+        "en": "Slowest",
+        "fr": "Le plus lent"
     },
     {
         "opy": "Slower",
-        "en": "Slower"
+        "en": "Slower",
+        "fr": "Plus lent"
     },
     {
         "opy": "Slow",
-        "en": "Slow"
+        "en": "Slow",
+        "fr": "Lent"
     },
     {
         "opy": "Slept",
-        "en": "Slept"
+        "en": "Slept",
+        "fr": "Dormi"
     },
     {
         "opy": "Sleeping",
-        "en": "Sleeping"
+        "en": "Sleeping",
+        "fr": "Dort"
     },
     {
         "opy": "Sleep",
-        "en": "Sleep"
+        "en": "Sleep",
+        "fr": "Sommeil"
     },
     {
         "opy": "Skipping",
-        "en": "Skipping"
+        "en": "Skipping",
+        "fr": "Passe"
     },
     {
         "opy": "Skipped",
-        "en": "Skipped"
+        "en": "Skipped",
+        "fr": "Passé"
     },
     {
         "opy": "Skip",
-        "en": "Skip"
+        "en": "Skip",
+        "fr": "Passer"
     },
     {
         "opy": "Sinking",
-        "en": "Sinking"
+        "en": "Sinking",
+        "fr": "Noyade"
     },
     {
         "opy": "Sink",
-        "en": "Sink"
+        "en": "Sink",
+        "fr": "Noyer"
     },
     {
         "opy": "Shuffled",
-        "en": "Shuffled"
+        "en": "Shuffled",
+        "fr": "Mélangé"
     },
     {
         "opy": "Shuffle",
-        "en": "Shuffle"
+        "en": "Shuffle",
+        "fr": "Mélanger"
     },
     {
         "opy": "Shops",
-        "en": "Shops"
+        "en": "Shops",
+        "fr": "Boutiques"
     },
     {
         "opy": "Shop",
-        "en": "Shop"
+        "en": "Shop",
+        "fr": "Boutique"
     },
     {
         "opy": "Severing",
-        "en": "Severing"
+        "en": "Severing",
+        "fr": "Coupure"
     },
     {
         "opy": "Severed",
-        "en": "Severed"
+        "en": "Severed",
+        "fr": "Coupé"
     },
     {
         "opy": "Severe",
-        "en": "Severe"
+        "en": "Severe",
+        "fr": "Grave"
     },
     {
         "opy": "Sever",
-        "en": "Sever"
+        "en": "Sever",
+        "fr": "Couper"
     },
     {
         "opy": "Server Load Peak",
-        "en": "Server Load Peak"
+        "en": "Server Load Peak",
+        "fr": "Pic de charge du serveur"
     },
     {
         "opy": "Server Load Average",
-        "en": "Server Load Average"
+        "en": "Server Load Average",
+        "fr": "Charge moyenne du serveur"
     },
     {
         "opy": "Server Load",
-        "en": "Server Load"
+        "en": "Server Load",
+        "fr": "Charge du serveur"
     },
     {
         "opy": "Selling",
-        "en": "Selling"
+        "en": "Selling",
+        "fr": "Vente"
     },
     {
         "opy": "Sell",
-        "en": "Sell"
+        "en": "Sell",
+        "fr": "Vendre"
     },
     {
         "opy": "Selecting",
-        "en": "Selecting"
+        "en": "Selecting",
+        "fr": "Sélectionne"
     },
     {
         "opy": "Selected",
-        "en": "Selected"
+        "en": "Selected",
+        "fr": "Sélectionné"
     },
     {
         "opy": "Select",
-        "en": "Select"
+        "en": "Select",
+        "fr": "Sélectionner"
     },
     {
         "opy": "Securing",
-        "en": "Securing"
+        "en": "Securing",
+        "fr": "Sécurisation"
     },
     {
         "opy": "Secured",
-        "en": "Secured"
+        "en": "Secured",
+        "fr": "Sécurisé"
     },
     {
         "opy": "Secure",
-        "en": "Secure"
+        "en": "Secure",
+        "fr": "Sécuriser"
     },
     {
         "opy": "Secondary Fire",
-        "en": "Secondary Fire"
+        "en": "Secondary Fire",
+        "fr": "Tir secondaire"
     },
     {
         "opy": "Scores",
-        "en": "Scores"
+        "en": "Scores",
+        "fr": "Points"
     },
     {
         "opy": "Score",
-        "en": "Score"
+        "en": "Score",
+        "fr": "Points"
     },
     {
         "opy": "Saving",
-        "en": "Saving"
+        "en": "Saving",
+        "fr": "Sauvegarde"
     },
     {
         "opy": "Saved",
-        "en": "Saved"
+        "en": "Saved",
+        "fr": "Sauvé"
     },
     {
         "opy": "Save",
-        "en": "Save"
+        "en": "Save",
+        "fr": "Sauver"
     },
     {
         "opy": "Safe",
-        "en": "Safe"
+        "en": "Safe",
+        "fr": "Sans danger"
     },
     {
         "opy": "Running",
-        "en": "Running"
+        "en": "Running",
+        "fr": "Course"
     },
     {
         "opy": "Run",
-        "en": "Run"
+        "en": "Run",
+        "fr": "Courir"
     },
     {
         "opy": "Rounds Won",
-        "en": "Rounds Won"
+        "en": "Rounds Won",
+        "fr": "Manches gagnées"
     },
     {
         "opy": "Rounds Lost",
-        "en": "Rounds Lost"
+        "en": "Rounds Lost",
+        "fr": "Manches perdues"
     },
     {
         "opy": "Rounds",
-        "en": "Rounds"
+        "en": "Rounds",
+        "fr": "Manches"
     },
     {
         "opy": "Round",
-        "en": "Round"
+        "en": "Round",
+        "fr": "Manche"
     },
     {
         "opy": "Right",
-        "en": "Right"
+        "en": "Right",
+        "fr": "Droite"
     },
     {
         "opy": "Revealing",
-        "en": "Revealing"
+        "en": "Revealing",
+        "fr": "Révélation"
     },
     {
         "opy": "Revealed",
-        "en": "Revealed"
+        "en": "Revealed",
+        "fr": "Révélé"
     },
     {
         "opy": "Reveal",
-        "en": "Reveal"
+        "en": "Reveal",
+        "fr": "Révéler"
     },
     {
         "opy": "Resurrecting",
-        "en": "Resurrecting"
+        "en": "Resurrecting",
+        "fr": "Résurrection"
     },
     {
         "opy": "Resurrected",
-        "en": "Resurrected"
+        "en": "Resurrected",
+        "fr": "Ressuscité"
     },
     {
         "opy": "Resurrect",
-        "en": "Resurrect"
+        "en": "Resurrect",
+        "fr": "Ressusciter"
     },
     {
         "opy": "Resources",
-        "en": "Resources"
+        "en": "Resources",
+        "fr": "Ressources "
     },
     {
         "opy": "Resource",
-        "en": "Resource"
+        "en": "Resource",
+        "fr": "Ressource"
     },
     {
         "opy": "Rescuing",
-        "en": "Rescuing"
+        "en": "Rescuing",
+        "fr": "Sauvetage"
     },
     {
         "opy": "Rescued",
-        "en": "Rescued"
+        "en": "Rescued",
+        "fr": "Secouru"
     },
     {
         "opy": "Rescue",
-        "en": "Rescue"
+        "en": "Rescue",
+        "fr": "Secourir"
     },
     {
         "opy": "Remaining",
-        "en": "Remaining"
+        "en": "Remaining",
+        "fr": "Restant"
     },
     {
         "opy": "Remain",
-        "en": "Remain"
+        "en": "Remain",
+        "fr": "Rester"
     },
     {
         "opy": "Red",
-        "en": "Red"
+        "en": "Red",
+        "fr": "Rouge"
     },
     {
         "opy": "Recovering",
-        "en": "Recovering"
+        "en": "Recovering",
+        "fr": "Récupération"
     },
     {
         "opy": "Recovered",
-        "en": "Recovered"
+        "en": "Recovered",
+        "fr": "Récupéré"
     },
     {
         "opy": "Recover",
-        "en": "Recover"
+        "en": "Recover",
+        "fr": "Récupérer"
     },
     {
         "opy": "Records",
-        "en": "Records"
+        "en": "Records",
+        "fr": "Records"
     },
     {
         "opy": "Record",
-        "en": "Record"
+        "en": "Record",
+        "fr": "Record"
     },
     {
         "opy": "Ready",
-        "en": "Ready"
+        "en": "Ready",
+        "fr": "Prêt"
     },
     {
         "opy": "Reaching",
-        "en": "Reaching"
+        "en": "Reaching",
+        "fr": "Atteinte"
     },
     {
         "opy": "Reached",
-        "en": "Reached"
+        "en": "Reached",
+        "fr": "Atteint"
     },
     {
         "opy": "Reach",
-        "en": "Reach"
+        "en": "Reach",
+        "fr": "Atteindre"
     },
     {
         "opy": "Rank S",
-        "en": "Rank S"
+        "en": "Rank S",
+        "fr": "Rang S"
     },
     {
         "opy": "Rank F",
-        "en": "Rank F"
+        "en": "Rank F",
+        "fr": "Rang F"
     },
     {
         "opy": "Rank E",
-        "en": "Rank E"
+        "en": "Rank E",
+        "fr": "Rang E"
     },
     {
         "opy": "Rank D",
-        "en": "Rank D"
+        "en": "Rank D",
+        "fr": "Rang D"
     },
     {
         "opy": "Rank C",
-        "en": "Rank C"
+        "en": "Rank C",
+        "fr": "Rang C"
     },
     {
         "opy": "Rank B",
-        "en": "Rank B"
+        "en": "Rank B",
+        "fr": "Rang B"
     },
     {
         "opy": "Rank A",
-        "en": "Rank A"
+        "en": "Rank A",
+        "fr": "Rang A"
     },
     {
         "opy": "Rank",
-        "en": "Rank"
+        "en": "Rank",
+        "fr": "Rang"
     },
     {
         "opy": "Raising",
-        "en": "Raising"
+        "en": "Raising",
+        "fr": "Augmentation"
     },
     {
         "opy": "Raised",
-        "en": "Raised"
+        "en": "Raised",
+        "fr": "Augmenté"
     },
     {
         "opy": "Raise",
-        "en": "Raise"
+        "en": "Raise",
+        "fr": "Augmenter"
     },
     {
         "opy": "Purple",
-        "en": "Purple"
+        "en": "Purple",
+        "fr": "Violet"
     },
     {
         "opy": "Purifying",
-        "en": "Purifying"
+        "en": "Purifying",
+        "fr": "Purification"
     },
     {
         "opy": "Purify",
-        "en": "Purify"
+        "en": "Purify",
+        "fr": "Purifier"
     },
     {
         "opy": "Purified",
-        "en": "Purified"
+        "en": "Purified",
+        "fr": "Purifié"
     },
     {
         "opy": "Protecting",
-        "en": "Protecting"
+        "en": "Protecting",
+        "fr": "Protection"
     },
     {
         "opy": "Protected",
-        "en": "Protected"
+        "en": "Protected",
+        "fr": "Protégé"
     },
     {
         "opy": "Protect",
-        "en": "Protect"
+        "en": "Protect",
+        "fr": "Protéger"
     },
     {
         "opy": "Projectiles",
-        "en": "Projectiles"
+        "en": "Projectiles",
+        "fr": "Projectiles"
     },
     {
         "opy": "Projectile",
-        "en": "Projectile"
+        "en": "Projectile",
+        "fr": "Projectile"
     },
     {
         "opy": "Primary Fire",
-        "en": "Primary Fire"
+        "en": "Primary Fire",
+        "fr": "Tir principal"
     },
     {
         "opy": "Price",
-        "en": "Price"
+        "en": "Price",
+        "fr": "Prix"
     },
     {
         "opy": "Power-Ups",
-        "en": "Power-Ups"
+        "en": "Power-Ups",
+        "fr": "Bonus"
     },
     {
         "opy": "Power-Up",
-        "en": "Power-Up"
+        "en": "Power-Up",
+        "fr": "Bonus"
     },
     {
         "opy": "Power",
-        "en": "Power"
+        "en": "Power",
+        "fr": "Puissance"
     },
     {
         "opy": "Position",
-        "en": "Position"
+        "en": "Position",
+        "fr": "Position"
     },
     {
         "opy": "Points Lost",
-        "en": "Points Lost"
+        "en": "Points Lost",
+        "fr": "Points perdus"
     },
     {
         "opy": "Points Earned",
-        "en": "Points Earned"
+        "en": "Points Earned",
+        "fr": "Points gagnés"
     },
     {
         "opy": "Points",
-        "en": "Points"
+        "en": "Points",
+        "fr": "Points"
     },
     {
         "opy": "Point",
-        "en": "Point"
+        "en": "Point",
+        "fr": "Point"
     },
     {
         "opy": "Playing",
-        "en": "Playing"
+        "en": "Playing",
+        "fr": "Joue"
     },
     {
         "opy": "Players",
-        "en": "Players"
+        "en": "Players",
+        "fr": "Joueurs"
     },
     {
         "opy": "Player",
-        "en": "Player"
+        "en": "Player",
+        "fr": "Joueur"
     },
     {
         "opy": "Played",
-        "en": "Played"
+        "en": "Played",
+        "fr": "Joué"
     },
     {
         "opy": "Play",
-        "en": "Play"
+        "en": "Play",
+        "fr": "Jouer"
     },
     {
         "opy": "Piles",
-        "en": "Piles"
+        "en": "Piles",
+        "fr": "Piles"
     },
     {
         "opy": "Pile",
-        "en": "Pile"
+        "en": "Pile",
+        "fr": "Pile"
     },
     {
         "opy": "Picking",
-        "en": "Picking"
+        "en": "Picking",
+        "fr": "Prise"
     },
     {
         "opy": "Picked",
-        "en": "Picked"
+        "en": "Picked",
+        "fr": "Pris"
     },
     {
         "opy": "Pick",
-        "en": "Pick"
+        "en": "Pick",
+        "fr": "Prendre"
     },
     {
         "opy": "Phases",
-        "en": "Phases"
+        "en": "Phases",
+        "fr": "Phases"
     },
     {
         "opy": "Phase",
-        "en": "Phase"
+        "en": "Phase",
+        "fr": "Phase"
     },
     {
         "opy": "Payloads",
-        "en": "Payloads"
+        "en": "Payloads",
+        "fr": "Convois"
     },
     {
         "opy": "Payload",
-        "en": "Payload"
+        "en": "Payload",
+        "fr": "Convoi"
     },
     {
         "opy": "Participants",
-        "en": "Participants"
+        "en": "Participants",
+        "fr": "Participants"
     },
     {
         "opy": "Participant",
-        "en": "Participant"
+        "en": "Participant",
+        "fr": "Participant"
     },
     {
         "opy": "Overtime",
-        "en": "Overtime"
+        "en": "Overtime",
+        "fr": "Prolongations"
     },
     {
         "opy": "Over",
-        "en": "Over"
+        "en": "Over",
+        "fr": "Sur"
     },
     {
         "opy": "Outside",
-        "en": "Outside"
+        "en": "Outside",
+        "fr": "Dehors"
     },
     {
         "opy": "Outgoing",
-        "en": "Outgoing"
+        "en": "Outgoing",
+        "fr": "Sortant"
     },
     {
         "opy": "Out Of View",
-        "en": "Out Of View"
+        "en": "Out Of View",
+        "fr": "Hors de la vue"
     },
     {
         "opy": "Optimizing",
-        "en": "Optimizing"
+        "en": "Optimizing",
+        "fr": "Optimisation"
     },
     {
         "opy": "Optimized",
-        "en": "Optimized"
+        "en": "Optimized",
+        "fr": "Optimisé"
     },
     {
         "opy": "Optimize",
-        "en": "Optimize"
+        "en": "Optimize",
+        "fr": "Optimiser"
     },
     {
         "opy": "Optimal",
-        "en": "Optimal"
+        "en": "Optimal",
+        "fr": "Optimal"
     },
     {
         "opy": "Oops",
-        "en": "Oops"
+        "en": "Oops",
+        "fr": "Oups"
     },
     {
         "opy": "Oof",
-        "en": "Oof"
+        "en": "Oof",
+        "fr": "Aïe"
     },
     {
         "opy": "On",
-        "en": "On"
+        "en": "On",
+        "fr": "Activé"
     },
     {
         "opy": "Off",
-        "en": "Off"
+        "en": "Off",
+        "fr": "Désactivé"
     },
     {
         "opy": "Obtaining",
-        "en": "Obtaining"
+        "en": "Obtaining",
+        "fr": "Obtention"
     },
     {
         "opy": "Obtained",
-        "en": "Obtained"
+        "en": "Obtained",
+        "fr": "Obtenu"
     },
     {
         "opy": "Obtain",
-        "en": "Obtain"
+        "en": "Obtain",
+        "fr": "Obtenir"
     },
     {
         "opy": "Objects",
-        "en": "Objects"
+        "en": "Objects",
+        "fr": "Objets"
     },
     {
         "opy": "Objectives",
-        "en": "Objectives"
+        "en": "Objectives",
+        "fr": "Objectifs"
     },
     {
         "opy": "Objective",
-        "en": "Objective"
+        "en": "Objective",
+        "fr": "Objectif"
     },
     {
         "opy": "Object",
-        "en": "Object"
+        "en": "Object",
+        "fr": "Objet"
     },
     {
         "opy": "Not Today",
-        "en": "Not Today"
+        "en": "Not Today",
+        "fr": "Pas aujourd’hui"
     },
     {
         "opy": "Northwest",
-        "en": "Northwest"
+        "en": "Northwest",
+        "fr": "Nord-ouest"
     },
     {
         "opy": "Northeast",
-        "en": "Northeast"
+        "en": "Northeast",
+        "fr": "Nord-est"
     },
     {
         "opy": "North",
-        "en": "North"
+        "en": "North",
+        "fr": "Nord"
     },
     {
         "opy": "Normal",
-        "en": "Normal"
+        "en": "Normal",
+        "fr": "Normal"
     },
     {
         "opy": "None",
-        "en": "None"
+        "en": "None",
+        "fr": "Aucun"
     },
     {
         "opy": "No Thanks",
-        "en": "No Thanks"
+        "en": "No Thanks",
+        "fr": "Non merci"
     },
     {
         "opy": "No",
-        "en": "No"
+        "en": "No",
+        "fr": "Non"
     },
     {
         "opy": "Nice Try",
-        "en": "Nice Try"
+        "en": "Nice Try",
+        "fr": "Bien essayé"
     },
     {
         "opy": "Next Upgrade",
-        "en": "Next Upgrade"
+        "en": "Next Upgrade",
+        "fr": "Amélioration suivante"
     },
     {
         "opy": "Next Targets",
-        "en": "Next Targets"
+        "en": "Next Targets",
+        "fr": "Cibles suivantes"
     },
     {
         "opy": "Next Target",
-        "en": "Next Target"
+        "en": "Next Target",
+        "fr": "Cible suivante"
     },
     {
         "opy": "Next Round",
-        "en": "Next Round"
+        "en": "Next Round",
+        "fr": "Manche suivante"
     },
     {
         "opy": "Next Players",
-        "en": "Next Players"
+        "en": "Next Players",
+        "fr": "Joueurs suivants"
     },
     {
         "opy": "Next Player",
-        "en": "Next Player"
+        "en": "Next Player",
+        "fr": "Joueur suivant"
     },
     {
         "opy": "Next Phase",
-        "en": "Next Phase"
+        "en": "Next Phase",
+        "fr": "Phase suivante"
     },
     {
         "opy": "Next Objects",
-        "en": "Next Objects"
+        "en": "Next Objects",
+        "fr": "Objets suivants"
     },
     {
         "opy": "Next Objective",
-        "en": "Next Objective"
+        "en": "Next Objective",
+        "fr": "Objectif suivant"
     },
     {
         "opy": "Next Object",
-        "en": "Next Object"
+        "en": "Next Object",
+        "fr": "Objet suivant"
     },
     {
         "opy": "Next Mission",
-        "en": "Next Mission"
+        "en": "Next Mission",
+        "fr": "Mission suivante"
     },
     {
         "opy": "Next Level",
-        "en": "Next Level"
+        "en": "Next Level",
+        "fr": "Niveau suivant"
     },
     {
         "opy": "Next Hostages",
-        "en": "Next Hostages"
+        "en": "Next Hostages",
+        "fr": "Otages suivants"
     },
     {
         "opy": "Next Hostage",
-        "en": "Next Hostage"
+        "en": "Next Hostage",
+        "fr": "Otage suivant"
     },
     {
         "opy": "Next Heroes",
-        "en": "Next Heroes"
+        "en": "Next Heroes",
+        "fr": "Héros suivants"
     },
     {
         "opy": "Next Hero",
-        "en": "Next Hero"
+        "en": "Next Hero",
+        "fr": "Héros suivant"
     },
     {
         "opy": "Next Game",
-        "en": "Next Game"
+        "en": "Next Game",
+        "fr": "Partie suivante"
     },
     {
         "opy": "Next Form",
-        "en": "Next Form"
+        "en": "Next Form",
+        "fr": "Forme suivante"
     },
     {
         "opy": "Next Enemy",
-        "en": "Next Enemy"
+        "en": "Next Enemy",
+        "fr": "Ennemi suivant"
     },
     {
         "opy": "Next Enemies",
-        "en": "Next Enemies"
+        "en": "Next Enemies",
+        "fr": "Ennemis suivants"
     },
     {
         "opy": "Next Checkpoint",
-        "en": "Next Checkpoint"
+        "en": "Next Checkpoint",
+        "fr": "Point de contrôle suivant"
     },
     {
         "opy": "Next Attempt",
-        "en": "Next Attempt"
+        "en": "Next Attempt",
+        "fr": "Tentative suivante"
     },
     {
         "opy": "Next Ally",
-        "en": "Next Ally"
+        "en": "Next Ally",
+        "fr": "Allié suivant"
     },
     {
         "opy": "Next Allies",
-        "en": "Next Allies"
+        "en": "Next Allies",
+        "fr": "Alliés suivants"
     },
     {
         "opy": "Next",
-        "en": "Next"
+        "en": "Next",
+        "fr": "Suivant"
     },
     {
         "opy": "New Record",
-        "en": "New Record"
+        "en": "New Record",
+        "fr": "Nouveau record"
     },
     {
         "opy": "New High Score",
-        "en": "New High Score"
+        "en": "New High Score",
+        "fr": "Nouveau meilleur score"
     },
     {
         "opy": "Near",
-        "en": "Near"
+        "en": "Near",
+        "fr": "Près"
     },
     {
         "opy": "My Mistake",
-        "en": "My Mistake"
+        "en": "My Mistake",
+        "fr": "C’est de ma faute"
     },
     {
         "opy": "Most",
-        "en": "Most"
+        "en": "Most",
+        "fr": "Le plus"
     },
     {
         "opy": "More",
-        "en": "More"
+        "en": "More",
+        "fr": "Plus"
     },
     {
         "opy": "Monsters",
-        "en": "Monsters"
+        "en": "Monsters",
+        "fr": "Monstres"
     },
     {
         "opy": "Monster",
-        "en": "Monster"
+        "en": "Monster",
+        "fr": "Monstre"
     },
     {
         "opy": "Money",
-        "en": "Money"
+        "en": "Money",
+        "fr": "Argent"
     },
     {
         "opy": "Moderate",
-        "en": "Moderate"
+        "en": "Moderate",
+        "fr": "Modéré"
     },
     {
         "opy": "Missions",
-        "en": "Missions"
+        "en": "Missions",
+        "fr": "Missions"
     },
     {
         "opy": "Mission Failed",
-        "en": "Mission Failed"
+        "en": "Mission Failed",
+        "fr": "Échec de la mission"
     },
     {
         "opy": "Mission Accomplished",
-        "en": "Mission Accomplished"
+        "en": "Mission Accomplished",
+        "fr": "Mission accomplie"
     },
     {
         "opy": "Mission Aborted",
-        "en": "Mission Aborted"
+        "en": "Mission Aborted",
+        "fr": "Mission annulée"
     },
     {
         "opy": "Mission",
-        "en": "Mission"
+        "en": "Mission",
+        "fr": "Mission"
     },
     {
         "opy": "Min",
-        "en": "Min"
+        "en": "Min",
+        "fr": "Minimum"
     },
     {
         "opy": "Mild",
-        "en": "Mild"
+        "en": "Mild",
+        "fr": "Modéré"
     },
     {
         "opy": "Max",
-        "en": "Max"
+        "en": "Max",
+        "fr": "Maximum"
     },
     {
         "opy": "Losses",
-        "en": "Losses"
+        "en": "Losses",
+        "fr": "Défaites"
     },
     {
         "opy": "Loss",
-        "en": "Loss"
+        "en": "Loss",
+        "fr": "Défaite"
     },
     {
         "opy": "Losers",
-        "en": "Losers"
+        "en": "Losers",
+        "fr": "Perdants"
     },
     {
         "opy": "Loser",
-        "en": "Loser"
+        "en": "Loser",
+        "fr": "Perdant"
     },
     {
         "opy": "Locking",
-        "en": "Locking"
+        "en": "Locking",
+        "fr": "Verrouillage"
     },
     {
         "opy": "Locked",
-        "en": "Locked"
+        "en": "Locked",
+        "fr": "Verrouillé"
     },
     {
         "opy": "Lock",
-        "en": "Lock"
+        "en": "Lock",
+        "fr": "Verrouiller"
     },
     {
         "opy": "Location",
-        "en": "Location"
+        "en": "Location",
+        "fr": "Lieu"
     },
     {
         "opy": "Loading",
-        "en": "Loading"
+        "en": "Loading",
+        "fr": "Chargement"
     },
     {
         "opy": "Loaded",
-        "en": "Loaded"
+        "en": "Loaded",
+        "fr": "Chargé"
     },
     {
         "opy": "Load",
-        "en": "Load"
+        "en": "Load",
+        "fr": "Charger"
     },
     {
         "opy": "Lives",
-        "en": "Lives"
+        "en": "Lives",
+        "fr": "Vies"
     },
     {
         "opy": "Limited",
-        "en": "Limited"
+        "en": "Limited",
+        "fr": "Limité"
     },
     {
         "opy": "Life",
-        "en": "Life"
+        "en": "Life",
+        "fr": "Vie"
     },
     {
         "opy": "Levels",
-        "en": "Levels"
+        "en": "Levels",
+        "fr": "Niveaux"
     },
     {
         "opy": "Level Up",
-        "en": "Level Up"
+        "en": "Level Up",
+        "fr": "Gain de niveau"
     },
     {
         "opy": "Level Down",
-        "en": "Level Down"
+        "en": "Level Down",
+        "fr": "Perte de niveau"
     },
     {
         "opy": "Level",
-        "en": "Level"
+        "en": "Level",
+        "fr": "Niveau"
     },
     {
         "opy": "Less",
-        "en": "Less"
+        "en": "Less",
+        "fr": "Moins"
     },
     {
         "opy": "Left",
-        "en": "Left"
+        "en": "Left",
+        "fr": "Gauche"
     },
     {
         "opy": "Least",
-        "en": "Least"
+        "en": "Least",
+        "fr": "Le moins"
     },
     {
         "opy": "Leaders",
-        "en": "Leaders"
+        "en": "Leaders",
+        "fr": "Meneurs"
     },
     {
         "opy": "Leader",
-        "en": "Leader"
+        "en": "Leader",
+        "fr": "Meneur"
     },
     {
         "opy": "Killstreaks",
-        "en": "Killstreaks"
+        "en": "Killstreaks",
+        "fr": "Séries de victimes"
     },
     {
         "opy": "Killstreak",
-        "en": "Killstreak"
+        "en": "Killstreak",
+        "fr": "Série de victimes"
     },
     {
         "opy": "Killstreak",
-        "en": "Killstreak"
+        "en": "Killstreak",
+        "fr": "Série de victimes"
     },
     {
         "opy": "Kills",
-        "en": "Kills"
+        "en": "Kills",
+        "fr": "Victimes"
     },
     {
         "opy": "Kill",
-        "en": "Kill"
+        "en": "Kill",
+        "fr": "Victime"
     },
     {
         "opy": "Jumping",
-        "en": "Jumping"
+        "en": "Jumping",
+        "fr": "Saut"
     },
     {
         "opy": "Jump",
-        "en": "Jump"
+        "en": "Jump",
+        "fr": "Sauter"
     },
     {
         "opy": "Joining",
-        "en": "Joining"
+        "en": "Joining",
+        "fr": "Rejoint"
     },
     {
         "opy": "Joined",
-        "en": "Joined"
+        "en": "Joined",
+        "fr": "A rejoint"
     },
     {
         "opy": "Join",
-        "en": "Join"
+        "en": "Join",
+        "fr": "Rejoindre"
     },
     {
         "opy": "Items",
-        "en": "Items"
+        "en": "Items",
+        "fr": "Articles"
     },
     {
         "opy": "Item",
-        "en": "Item"
+        "en": "Item",
+        "fr": "Article"
     },
     {
         "opy": "Invisible",
-        "en": "Invisible"
+        "en": "Invisible",
+        "fr": "Invisible"
     },
     {
         "opy": "Interact",
-        "en": "Interact"
+        "en": "Interact",
+        "fr": "Interagir"
     },
     {
         "opy": "Intelligence",
-        "en": "Intelligence"
+        "en": "Intelligence",
+        "fr": "Intelligence"
     },
     {
         "opy": "Inside",
-        "en": "Inside"
+        "en": "Inside",
+        "fr": "À l’intérieur"
     },
     {
         "opy": "Innocent",
-        "en": "Innocent"
+        "en": "Innocent",
+        "fr": "Innocent"
     },
     {
         "opy": "Initial Upgrade",
-        "en": "Initial Upgrade"
+        "en": "Initial Upgrade",
+        "fr": "Amélioration initiale"
     },
     {
         "opy": "Initial Targets",
-        "en": "Initial Targets"
+        "en": "Initial Targets",
+        "fr": "Cibles initiales"
     },
     {
         "opy": "Initial Target",
-        "en": "Initial Target"
+        "en": "Initial Target",
+        "fr": "Cible initiale"
     },
     {
         "opy": "Initial Round",
-        "en": "Initial Round"
+        "en": "Initial Round",
+        "fr": "Manche initiale"
     },
     {
         "opy": "Initial Players",
-        "en": "Initial Players"
+        "en": "Initial Players",
+        "fr": "Joueurs initiaux"
     },
     {
         "opy": "Initial Player",
-        "en": "Initial Player"
+        "en": "Initial Player",
+        "fr": "Joueur initial"
     },
     {
         "opy": "Initial Phase",
-        "en": "Initial Phase"
+        "en": "Initial Phase",
+        "fr": "Phase initiale"
     },
     {
         "opy": "Initial Objects",
-        "en": "Initial Objects"
+        "en": "Initial Objects",
+        "fr": "Objets initiaux"
     },
     {
         "opy": "Initial Objective",
-        "en": "Initial Objective"
+        "en": "Initial Objective",
+        "fr": "Objectif initial"
     },
     {
         "opy": "Initial Object",
-        "en": "Initial Object"
+        "en": "Initial Object",
+        "fr": "Objet initial"
     },
     {
         "opy": "Initial Mission",
-        "en": "Initial Mission"
+        "en": "Initial Mission",
+        "fr": "Mission initiale"
     },
     {
         "opy": "Initial Level",
-        "en": "Initial Level"
+        "en": "Initial Level",
+        "fr": "Niveau initial"
     },
     {
         "opy": "Initial Hostage",
-        "en": "Initial Hostage"
+        "en": "Initial Hostage",
+        "fr": "Otage initial"
     },
     {
         "opy": "Initial Heroes",
-        "en": "Initial Heroes"
+        "en": "Initial Heroes",
+        "fr": "Héros initiaux"
     },
     {
         "opy": "Initial Hero",
-        "en": "Initial Hero"
+        "en": "Initial Hero",
+        "fr": "Héros initial"
     },
     {
         "opy": "Initial Game",
-        "en": "Initial Game"
+        "en": "Initial Game",
+        "fr": "Partie initiale"
     },
     {
         "opy": "Initial Form",
-        "en": "Initial Form"
+        "en": "Initial Form",
+        "fr": "Forme initiale"
     },
     {
         "opy": "Initial Enemy",
-        "en": "Initial Enemy"
+        "en": "Initial Enemy",
+        "fr": "Ennemi initial"
     },
     {
         "opy": "Initial Enemies",
-        "en": "Initial Enemies"
+        "en": "Initial Enemies",
+        "fr": "Ennemis initiaux"
     },
     {
         "opy": "Initial Checkpoint",
-        "en": "Initial Checkpoint"
+        "en": "Initial Checkpoint",
+        "fr": "Point de contrôle initial"
     },
     {
         "opy": "Initial Attempt",
-        "en": "Initial Attempt"
+        "en": "Initial Attempt",
+        "fr": "Tentative initiale"
     },
     {
         "opy": "Initial Ally",
-        "en": "Initial Ally"
+        "en": "Initial Ally",
+        "fr": "Allié initial"
     },
     {
         "opy": "Initial Allies",
-        "en": "Initial Allies"
+        "en": "Initial Allies",
+        "fr": "Alliés initiaux"
     },
     {
         "opy": "Initial",
-        "en": "Initial"
+        "en": "Initial",
+        "fr": "Initial"
     },
     {
         "opy": "Incoming",
-        "en": "Incoming"
+        "en": "Incoming",
+        "fr": "En approche"
     },
     {
         "opy": "Income",
-        "en": "Income"
+        "en": "Income",
+        "fr": "Revenu"
     },
     {
         "opy": "In View",
-        "en": "In View"
+        "en": "In View",
+        "fr": "En vue"
     },
     {
         "opy": "I Tried",
-        "en": "I Tried"
+        "en": "I Tried",
+        "fr": "J’ai essayé"
     },
     {
         "opy": "I Give Up",
-        "en": "I Give Up"
+        "en": "I Give Up",
+        "fr": "J’abandonne"
     },
     {
         "opy": "Hunting",
-        "en": "Hunting"
+        "en": "Hunting",
+        "fr": "Chasse"
     },
     {
         "opy": "Hunters",
-        "en": "Hunters"
+        "en": "Hunters",
+        "fr": "Chasseurs"
     },
     {
         "opy": "Hunter",
-        "en": "Hunter"
+        "en": "Hunter",
+        "fr": "Chasseur"
     },
     {
         "opy": "Hunted",
-        "en": "Hunted"
+        "en": "Hunted",
+        "fr": "Pourchassé"
     },
     {
         "opy": "Hunt",
-        "en": "Hunt"
+        "en": "Hunt",
+        "fr": "Chasser"
     },
     {
         "opy": "Huh",
-        "en": "Huh"
+        "en": "Huh",
+        "fr": "Euh"
     },
     {
         "opy": "Hostages",
-        "en": "Hostages"
+        "en": "Hostages",
+        "fr": "Otages"
     },
     {
         "opy": "Hostage",
-        "en": "Hostage"
+        "en": "Hostage",
+        "fr": "Otage"
     },
     {
         "opy": "Hmmm",
-        "en": "Hmmm"
+        "en": "Hmmm",
+        "fr": "Hmmm"
     },
     {
         "opy": "Hitting",
-        "en": "Hitting"
+        "en": "Hitting",
+        "fr": "Touche"
     },
     {
         "opy": "Hit",
-        "en": "Hit"
+        "en": "Hit",
+        "fr": "Toucher"
     },
     {
         "opy": "High Scores",
-        "en": "High Scores"
+        "en": "High Scores",
+        "fr": "Meilleurs scores"
     },
     {
         "opy": "High Score",
-        "en": "High Score"
+        "en": "High Score",
+        "fr": "Meilleur score"
     },
     {
         "opy": "Hiding",
-        "en": "Hiding"
+        "en": "Hiding",
+        "fr": "Cache"
     },
     {
         "opy": "Hide",
-        "en": "Hide"
+        "en": "Hide",
+        "fr": "Cacher"
     },
     {
         "opy": "Hidden",
-        "en": "Hidden"
+        "en": "Hidden",
+        "fr": "Caché"
     },
     {
         "opy": "Heroes",
-        "en": "Heroes"
+        "en": "Heroes",
+        "fr": "Héros"
     },
     {
         "opy": "Hero",
-        "en": "Hero"
+        "en": "Hero",
+        "fr": "Héros"
     },
     {
         "opy": "Here",
-        "en": "Here"
+        "en": "Here",
+        "fr": "Ici"
     },
     {
         "opy": "Help",
-        "en": "Help"
+        "en": "Help",
+        "fr": "Aide"
     },
     {
         "opy": "Hello",
-        "en": "Hello"
+        "en": "Hello",
+        "fr": "Bonjour"
     },
     {
         "opy": "Height",
-        "en": "Height"
+        "en": "Height",
+        "fr": "Hauteur"
     },
     {
         "opy": "Hearts",
-        "en": "Hearts"
+        "en": "Hearts",
+        "fr": "Cœur"
     },
     {
         "opy": "Heart",
-        "en": "Heart"
+        "en": "Heart",
+        "fr": "Cœur"
     },
     {
         "opy": "Healing",
-        "en": "Healing"
+        "en": "Healing",
+        "fr": "Soigne"
     },
     {
         "opy": "Healers",
-        "en": "Healers"
+        "en": "Healers",
+        "fr": "Soigneurs"
     },
     {
         "opy": "Healer",
-        "en": "Healer"
+        "en": "Healer",
+        "fr": "Soigneur"
     },
     {
         "opy": "Healed",
-        "en": "Healed"
+        "en": "Healed",
+        "fr": "Soigné"
     },
     {
         "opy": "Heal",
-        "en": "Heal"
+        "en": "Heal",
+        "fr": "Soigner"
     },
     {
         "opy": "Hands",
-        "en": "Hands"
+        "en": "Hands",
+        "fr": "Mains"
     },
     {
         "opy": "Hand",
-        "en": "Hand"
+        "en": "Hand",
+        "fr": "Main"
     },
     {
         "opy": "Hacking",
-        "en": "Hacking"
+        "en": "Hacking",
+        "fr": "Piratage"
     },
     {
         "opy": "Hacked",
-        "en": "Hacked"
+        "en": "Hacked",
+        "fr": "Piraté"
     },
     {
         "opy": "Hack",
-        "en": "Hack"
+        "en": "Hack",
+        "fr": "Pirater"
     },
     {
         "opy": "Guilty",
-        "en": "Guilty"
+        "en": "Guilty",
+        "fr": "Coupable"
     },
     {
         "opy": "Green",
-        "en": "Green"
+        "en": "Green",
+        "fr": "Vert"
     },
     {
         "opy": "Goodbye",
-        "en": "Goodbye"
+        "en": "Goodbye",
+        "fr": "Au revoir"
     },
     {
         "opy": "Good Luck",
-        "en": "Good Luck"
+        "en": "Good Luck",
+        "fr": "Bonne chance"
     },
     {
         "opy": "Good",
-        "en": "Good"
+        "en": "Good",
+        "fr": "Bon"
     },
     {
         "opy": "Going",
-        "en": "Going"
+        "en": "Going",
+        "fr": "Aller"
     },
     {
         "opy": "Goals",
-        "en": "Goals"
+        "en": "Goals",
+        "fr": "Buts"
     },
     {
         "opy": "Goal",
-        "en": "Goal"
+        "en": "Goal",
+        "fr": "But"
     },
     {
         "opy": "Go",
-        "en": "Go"
+        "en": "Go",
+        "fr": "Aller"
     },
     {
         "opy": "Gg",
-        "en": "Gg"
+        "en": "Gg",
+        "fr": "BRAVO"
     },
     {
         "opy": "Games Won",
-        "en": "Games Won"
+        "en": "Games Won",
+        "fr": "Parties gagnées"
     },
     {
         "opy": "Games Lost",
-        "en": "Games Lost"
+        "en": "Games Lost",
+        "fr": "Parties perdues"
     },
     {
         "opy": "Games",
-        "en": "Games"
+        "en": "Games",
+        "fr": "Parties"
     },
     {
         "opy": "Game",
-        "en": "Game"
+        "en": "Game",
+        "fr": "Partie"
     },
     {
         "opy": "Frozen",
-        "en": "Frozen"
+        "en": "Frozen",
+        "fr": "Gelé"
     },
     {
         "opy": "Freezing",
-        "en": "Freezing"
+        "en": "Freezing",
+        "fr": "Gel"
     },
     {
         "opy": "Freeze",
-        "en": "Freeze"
+        "en": "Freeze",
+        "fr": "Geler"
     },
     {
         "opy": "Found",
-        "en": "Found"
+        "en": "Found",
+        "fr": "Trouvé"
     },
     {
         "opy": "Forward",
-        "en": "Forward"
+        "en": "Forward",
+        "fr": "Avant"
     },
     {
         "opy": "Forms",
-        "en": "Forms"
+        "en": "Forms",
+        "fr": "Formes"
     },
     {
         "opy": "Form",
-        "en": "Form"
+        "en": "Form",
+        "fr": "Forme"
     },
     {
         "opy": "Folding",
-        "en": "Folding"
+        "en": "Folding",
+        "fr": "Se couche"
     },
     {
         "opy": "Folded",
-        "en": "Folded"
+        "en": "Folded",
+        "fr": "S’est couché"
     },
     {
         "opy": "Fold",
-        "en": "Fold"
+        "en": "Fold",
+        "fr": "Se coucher"
     },
     {
         "opy": "Flying",
-        "en": "Flying"
+        "en": "Flying",
+        "fr": "Vole"
     },
     {
         "opy": "Fly",
-        "en": "Fly"
+        "en": "Fly",
+        "fr": "Voler"
     },
     {
         "opy": "Flown",
-        "en": "Flown"
+        "en": "Flown",
+        "fr": "Volé"
     },
     {
         "opy": "Finishing",
-        "en": "Finishing"
+        "en": "Finishing",
+        "fr": "Fin"
     },
     {
         "opy": "Finished",
-        "en": "Finished"
+        "en": "Finished",
+        "fr": "Fini"
     },
     {
         "opy": "Finish",
-        "en": "Finish"
+        "en": "Finish",
+        "fr": "Finir"
     },
     {
         "opy": "Finding",
-        "en": "Finding"
+        "en": "Finding",
+        "fr": "Découverte"
     },
     {
         "opy": "Find",
-        "en": "Find"
+        "en": "Find",
+        "fr": "Trouver"
     },
     {
         "opy": "Final Upgrade",
-        "en": "Final Upgrade"
+        "en": "Final Upgrade",
+        "fr": "Amélioration finale"
     },
     {
         "opy": "Final Time",
-        "en": "Final Time"
+        "en": "Final Time",
+        "fr": "Temps final"
     },
     {
         "opy": "Final Targets",
-        "en": "Final Targets"
+        "en": "Final Targets",
+        "fr": "Cibles finales"
     },
     {
         "opy": "Final Target",
-        "en": "Final Target"
+        "en": "Final Target",
+        "fr": "Cible finale"
     },
     {
         "opy": "Final Round",
-        "en": "Final Round"
+        "en": "Final Round",
+        "fr": "Manche finale"
     },
     {
         "opy": "Final Players",
-        "en": "Final Players"
+        "en": "Final Players",
+        "fr": "Joueurs finaux"
     },
     {
         "opy": "Final Player",
-        "en": "Final Player"
+        "en": "Final Player",
+        "fr": "Joueur final"
     },
     {
         "opy": "Final Phase",
-        "en": "Final Phase"
+        "en": "Final Phase",
+        "fr": "Phase finale"
     },
     {
         "opy": "Final Objects",
-        "en": "Final Objects"
+        "en": "Final Objects",
+        "fr": "Objets finaux"
     },
     {
         "opy": "Final Objective",
-        "en": "Final Objective"
+        "en": "Final Objective",
+        "fr": "Objectif final"
     },
     {
         "opy": "Final Object",
-        "en": "Final Object"
+        "en": "Final Object",
+        "fr": "Objet final"
     },
     {
         "opy": "Final Mission",
-        "en": "Final Mission"
+        "en": "Final Mission",
+        "fr": "Mission finale"
     },
     {
         "opy": "Final Level",
-        "en": "Final Level"
+        "en": "Final Level",
+        "fr": "Niveau final"
     },
     {
         "opy": "Final Item",
-        "en": "Final Item"
+        "en": "Final Item",
+        "fr": "Article final"
     },
     {
         "opy": "Final Hostages",
-        "en": "Final Hostages"
+        "en": "Final Hostages",
+        "fr": "Otages finaux"
     },
     {
         "opy": "Final Hostage",
-        "en": "Final Hostage"
+        "en": "Final Hostage",
+        "fr": "Otage final"
     },
     {
         "opy": "Final Heroes",
-        "en": "Final Heroes"
+        "en": "Final Heroes",
+        "fr": "Héros finaux"
     },
     {
         "opy": "Final Hero",
-        "en": "Final Hero"
+        "en": "Final Hero",
+        "fr": "Héros final"
     },
     {
         "opy": "Final Game",
-        "en": "Final Game"
+        "en": "Final Game",
+        "fr": "Partie finale"
     },
     {
         "opy": "Final Form",
-        "en": "Final Form"
+        "en": "Final Form",
+        "fr": "Forme finale"
     },
     {
         "opy": "Final Enemy",
-        "en": "Final Enemy"
+        "en": "Final Enemy",
+        "fr": "Ennemi final"
     },
     {
         "opy": "Final Enemies",
-        "en": "Final Enemies"
+        "en": "Final Enemies",
+        "fr": "Ennemis finaux"
     },
     {
         "opy": "Final Checkpoint",
-        "en": "Final Checkpoint"
+        "en": "Final Checkpoint",
+        "fr": "Point de contrôle final"
     },
     {
         "opy": "Final Attempt",
-        "en": "Final Attempt"
+        "en": "Final Attempt",
+        "fr": "Tentative finale"
     },
     {
         "opy": "Final Ally",
-        "en": "Final Ally"
+        "en": "Final Ally",
+        "fr": "Allié final"
     },
     {
         "opy": "Final Allies",
-        "en": "Final Allies"
+        "en": "Final Allies",
+        "fr": "Alliés finaux"
     },
     {
         "opy": "Final",
-        "en": "Final"
+        "en": "Final",
+        "fr": "Final"
     },
     {
         "opy": "Faults",
-        "en": "Faults"
+        "en": "Faults",
+        "fr": "Fautes"
     },
     {
         "opy": "Fault",
-        "en": "Fault"
+        "en": "Fault",
+        "fr": "Faute"
     },
     {
         "opy": "Fastest",
-        "en": "Fastest"
+        "en": "Fastest",
+        "fr": "Le plus rapide"
     },
     {
         "opy": "Faster",
-        "en": "Faster"
+        "en": "Faster",
+        "fr": "Plus rapide"
     },
     {
         "opy": "Fast",
-        "en": "Fast"
+        "en": "Fast",
+        "fr": "Rapide"
     },
     {
         "opy": "Far",
-        "en": "Far"
+        "en": "Far",
+        "fr": "Loin"
     },
     {
         "opy": "Falling",
-        "en": "Falling"
+        "en": "Falling",
+        "fr": "Chute"
     },
     {
         "opy": "Fallen",
-        "en": "Fallen"
+        "en": "Fallen",
+        "fr": "Tombé"
     },
     {
         "opy": "Fall",
-        "en": "Fall"
+        "en": "Fall",
+        "fr": "Tomber"
     },
     {
         "opy": "Failure",
-        "en": "Failure"
+        "en": "Failure",
+        "fr": "Échec"
     },
     {
         "opy": "Failing",
-        "en": "Failing"
+        "en": "Failing",
+        "fr": "Échec"
     },
     {
         "opy": "Failed",
-        "en": "Failed"
+        "en": "Failed",
+        "fr": "Échoué"
     },
     {
         "opy": "Facing",
-        "en": "Facing"
+        "en": "Facing",
+        "fr": "Face à"
     },
     {
         "opy": "Faces",
-        "en": "Faces"
+        "en": "Faces",
+        "fr": "Regarde vers"
     },
     {
         "opy": "Face",
-        "en": "Face"
+        "en": "Face",
+        "fr": "Regarder vers"
     },
     {
         "opy": "Extreme",
-        "en": "Extreme"
+        "en": "Extreme",
+        "fr": "Extrême"
     },
     {
         "opy": "Experience",
-        "en": "Experience"
+        "en": "Experience",
+        "fr": "Expérience"
     },
     {
         "opy": "Exit",
-        "en": "Exit"
+        "en": "Exit",
+        "fr": "Sortie"
     },
     {
         "opy": "Excellent",
-        "en": "Excellent"
+        "en": "Excellent",
+        "fr": "Excellent"
     },
     {
         "opy": "Escorting",
-        "en": "Escorting"
+        "en": "Escorting",
+        "fr": "Escorte"
     },
     {
         "opy": "Escorted",
-        "en": "Escorted"
+        "en": "Escorted",
+        "fr": "Escorté"
     },
     {
         "opy": "Escort",
-        "en": "Escort"
+        "en": "Escort",
+        "fr": "Escorter"
     },
     {
         "opy": "Entrance",
-        "en": "Entrance"
+        "en": "Entrance",
+        "fr": "Entrée"
     },
     {
         "opy": "Enemy",
-        "en": "Enemy"
+        "en": "Enemy",
+        "fr": "Ennemi"
     },
     {
         "opy": "Enemies",
-        "en": "Enemies"
+        "en": "Enemies",
+        "fr": "Ennemis"
     },
     {
         "opy": "Eliminations",
-        "en": "Eliminations"
+        "en": "Eliminations",
+        "fr": "Éliminations"
     },
     {
         "opy": "Elimination",
-        "en": "Elimination"
+        "en": "Elimination",
+        "fr": "Élimination"
     },
     {
         "opy": "Eliminating",
-        "en": "Eliminating"
+        "en": "Eliminating",
+        "fr": "Élimination"
     },
     {
         "opy": "Eliminated",
-        "en": "Eliminated"
+        "en": "Eliminated",
+        "fr": "Éliminé"
     },
     {
         "opy": "Eliminate",
-        "en": "Eliminate"
+        "en": "Eliminate",
+        "fr": "Éliminer"
     },
     {
         "opy": "East",
-        "en": "East"
+        "en": "East",
+        "fr": "Est"
     },
     {
         "opy": "Dying",
-        "en": "Dying"
+        "en": "Dying",
+        "fr": "Mort"
     },
     {
         "opy": "Dropping",
-        "en": "Dropping"
+        "en": "Dropping",
+        "fr": "Largage"
     },
     {
         "opy": "Dropped",
-        "en": "Dropped"
+        "en": "Dropped",
+        "fr": "Largué"
     },
     {
         "opy": "Drop",
-        "en": "Drop"
+        "en": "Drop",
+        "fr": "Larguer"
     },
     {
         "opy": "Drawn",
-        "en": "Drawn"
+        "en": "Drawn",
+        "fr": "Pioché"
     },
     {
         "opy": "Drawing",
-        "en": "Drawing"
+        "en": "Drawing",
+        "fr": "Pioche"
     },
     {
         "opy": "Draw",
-        "en": "Draw"
+        "en": "Draw",
+        "fr": "Match nul"
     },
     {
         "opy": "Downloading",
-        "en": "Downloading"
+        "en": "Downloading",
+        "fr": "Téléchargement"
     },
     {
         "opy": "Downloaded",
-        "en": "Downloaded"
+        "en": "Downloaded",
+        "fr": "Téléchargé"
     },
     {
         "opy": "Download",
-        "en": "Download"
+        "en": "Download",
+        "fr": "Télécharger"
     },
     {
         "opy": "Down",
-        "en": "Down"
+        "en": "Down",
+        "fr": "Bas"
     },
     {
         "opy": "Domes",
-        "en": "Domes"
+        "en": "Domes",
+        "fr": "Dômes"
     },
     {
         "opy": "Dome",
-        "en": "Dome"
+        "en": "Dome",
+        "fr": "Dôme"
     },
     {
         "opy": "Dodging",
-        "en": "Dodging"
+        "en": "Dodging",
+        "fr": "Esquive"
     },
     {
         "opy": "Dodged",
-        "en": "Dodged"
+        "en": "Dodged",
+        "fr": "Esquivé"
     },
     {
         "opy": "Dodge",
-        "en": "Dodge"
+        "en": "Dodge",
+        "fr": "Esquiver"
     },
     {
         "opy": "Distances",
-        "en": "Distances"
+        "en": "Distances",
+        "fr": "Distances"
     },
     {
         "opy": "Distance",
-        "en": "Distance"
+        "en": "Distance",
+        "fr": "Distance"
     },
     {
         "opy": "Disconnecting",
-        "en": "Disconnecting"
+        "en": "Disconnecting",
+        "fr": "Déconnexion"
     },
     {
         "opy": "Disconnected",
-        "en": "Disconnected"
+        "en": "Disconnected",
+        "fr": "Déconnecté"
     },
     {
         "opy": "Disconnect",
-        "en": "Disconnect"
+        "en": "Disconnect",
+        "fr": "Déconnecter"
     },
     {
         "opy": "Discarding",
-        "en": "Discarding"
+        "en": "Discarding",
+        "fr": "Défausse"
     },
     {
         "opy": "Discarded",
-        "en": "Discarded"
+        "en": "Discarded",
+        "fr": "Défaussé"
     },
     {
         "opy": "Discard",
-        "en": "Discard"
+        "en": "Discard",
+        "fr": "Défausser"
     },
     {
         "opy": "Die",
-        "en": "Die"
+        "en": "Die",
+        "fr": "Mourir"
     },
     {
         "opy": "Diamonds",
-        "en": "Diamonds"
+        "en": "Diamonds",
+        "fr": "Carreau"
     },
     {
         "opy": "Diamond",
-        "en": "Diamond"
+        "en": "Diamond",
+        "fr": "Carreau"
     },
     {
         "opy": "Dexterity",
-        "en": "Dexterity"
+        "en": "Dexterity",
+        "fr": "Dextérité"
     },
     {
         "opy": "Detecting",
-        "en": "Detecting"
+        "en": "Detecting",
+        "fr": "Détection"
     },
     {
         "opy": "Detected",
-        "en": "Detected"
+        "en": "Detected",
+        "fr": "Détecté"
     },
     {
         "opy": "Detect",
-        "en": "Detect"
+        "en": "Detect",
+        "fr": "Détecter"
     },
     {
         "opy": "Destroying",
-        "en": "Destroying"
+        "en": "Destroying",
+        "fr": "Destruction"
     },
     {
         "opy": "Destroyed",
-        "en": "Destroyed"
+        "en": "Destroyed",
+        "fr": "Détruit"
     },
     {
         "opy": "Destroy",
-        "en": "Destroy"
+        "en": "Destroy",
+        "fr": "Détruire"
     },
     {
         "opy": "Destabilizing",
-        "en": "Destabilizing"
+        "en": "Destabilizing",
+        "fr": "Déstabilisation"
     },
     {
         "opy": "Destabilized",
-        "en": "Destabilized"
+        "en": "Destabilized",
+        "fr": "Déstabilisé"
     },
     {
         "opy": "Destabilize",
-        "en": "Destabilize"
+        "en": "Destabilize",
+        "fr": "Déstabiliser"
     },
     {
         "opy": "Depth",
-        "en": "Depth"
+        "en": "Depth",
+        "fr": "Profondeur"
     },
     {
         "opy": "Delivering",
-        "en": "Delivering"
+        "en": "Delivering",
+        "fr": "Livraison"
     },
     {
         "opy": "Delivered",
-        "en": "Delivered"
+        "en": "Delivered",
+        "fr": "Livré"
     },
     {
         "opy": "Deliver",
-        "en": "Deliver"
+        "en": "Deliver",
+        "fr": "Livrer"
     },
     {
-        "opy": "Defence",
-        "en": "Defence"
+        "opy": "Defense",
+        "en": "Defense",
+        "fr": "Défense"
     },
     {
         "opy": "Defending",
-        "en": "Defending"
+        "en": "Defending",
+        "fr": "Défense"
     },
     {
         "opy": "Defended",
-        "en": "Defended"
+        "en": "Defended",
+        "fr": "Défendu"
     },
     {
         "opy": "Defend",
-        "en": "Defend"
+        "en": "Defend",
+        "fr": "Défendre"
     },
     {
         "opy": "Defeat",
-        "en": "Defeat"
+        "en": "Defeat",
+        "fr": "Défaite"
     },
     {
         "opy": "Decks",
-        "en": "Decks"
+        "en": "Decks",
+        "fr": "Tas"
     },
     {
         "opy": "Deck",
-        "en": "Deck"
+        "en": "Deck",
+        "fr": "Tas"
     },
     {
         "opy": "Dealt",
-        "en": "Dealt"
+        "en": "Dealt",
+        "fr": "Distribué"
     },
     {
         "opy": "Dealing",
-        "en": "Dealing"
+        "en": "Dealing",
+        "fr": "Distribution"
     },
     {
         "opy": "Deal",
-        "en": "Deal"
+        "en": "Deal",
+        "fr": "Distribuer"
     },
     {
         "opy": "Dead",
-        "en": "Dead"
+        "en": "Dead",
+        "fr": "Mort"
     },
     {
         "opy": "Danger",
-        "en": "Danger"
+        "en": "Danger",
+        "fr": "Danger"
     },
     {
         "opy": "Damaging",
-        "en": "Damaging"
+        "en": "Damaging",
+        "fr": "Inflige des dégâts"
     },
     {
         "opy": "Damaged",
-        "en": "Damaged"
+        "en": "Damaged",
+        "fr": "Endommagé"
     },
     {
         "opy": "Damage",
-        "en": "Damage"
+        "en": "Damage",
+        "fr": "Infliger des dégâts"
     },
     {
         "opy": "Current Upgrade",
-        "en": "Current Upgrade"
+        "en": "Current Upgrade",
+        "fr": "Amélioration actuelle"
     },
     {
         "opy": "Current Targets",
-        "en": "Current Targets"
+        "en": "Current Targets",
+        "fr": "Cibles actuelles"
     },
     {
         "opy": "Current Target",
-        "en": "Current Target"
+        "en": "Current Target",
+        "fr": "Cible actuelle"
     },
     {
         "opy": "Current Round",
-        "en": "Current Round"
+        "en": "Current Round",
+        "fr": "Manche actuelle"
     },
     {
         "opy": "Current Players",
-        "en": "Current Players"
+        "en": "Current Players",
+        "fr": "Joueurs actuels"
     },
     {
         "opy": "Current Player",
-        "en": "Current Player"
+        "en": "Current Player",
+        "fr": "Joueur actuel"
     },
     {
         "opy": "Current Phase",
-        "en": "Current Phase"
+        "en": "Current Phase",
+        "fr": "Phase actuelle"
     },
     {
         "opy": "Current Objects",
-        "en": "Current Objects"
+        "en": "Current Objects",
+        "fr": "Objets actuels"
     },
     {
         "opy": "Current Objective",
-        "en": "Current Objective"
+        "en": "Current Objective",
+        "fr": "Objectif actuel"
     },
     {
         "opy": "Current Object",
-        "en": "Current Object"
+        "en": "Current Object",
+        "fr": "Object actuel"
     },
     {
         "opy": "Current Mission",
-        "en": "Current Mission"
+        "en": "Current Mission",
+        "fr": "Mission actuelle"
     },
     {
         "opy": "Current Level",
-        "en": "Current Level"
+        "en": "Current Level",
+        "fr": "Niveau actuel"
     },
     {
         "opy": "Current Hostages",
-        "en": "Current Hostages"
+        "en": "Current Hostages",
+        "fr": "Otages actuels"
     },
     {
         "opy": "Current Hostage",
-        "en": "Current Hostage"
+        "en": "Current Hostage",
+        "fr": "Otage actuel"
     },
     {
         "opy": "Current Heroes",
-        "en": "Current Heroes"
+        "en": "Current Heroes",
+        "fr": "Héros actuels"
     },
     {
         "opy": "Current Hero",
-        "en": "Current Hero"
+        "en": "Current Hero",
+        "fr": "Héros actuel"
     },
     {
         "opy": "Current Game",
-        "en": "Current Game"
+        "en": "Current Game",
+        "fr": "Partie actuelle"
     },
     {
         "opy": "Current Form",
-        "en": "Current Form"
+        "en": "Current Form",
+        "fr": "Forme actuelle"
     },
     {
         "opy": "Current Enemy",
-        "en": "Current Enemy"
+        "en": "Current Enemy",
+        "fr": "Ennemi actuel"
     },
     {
         "opy": "Current Enemies",
-        "en": "Current Enemies"
+        "en": "Current Enemies",
+        "fr": "Ennemis actuels"
     },
     {
         "opy": "Current Checkpoint",
-        "en": "Current Checkpoint"
+        "en": "Current Checkpoint",
+        "fr": "Point de contrôle actuel"
     },
     {
         "opy": "Current Attempt",
-        "en": "Current Attempt"
+        "en": "Current Attempt",
+        "fr": "Tentative actuelle"
     },
     {
         "opy": "Current Ally",
-        "en": "Current Ally"
+        "en": "Current Ally",
+        "fr": "Allié actuel"
     },
     {
         "opy": "Current Allies",
-        "en": "Current Allies"
+        "en": "Current Allies",
+        "fr": "Alliés actuels"
     },
     {
         "opy": "Current",
-        "en": "Current"
+        "en": "Current",
+        "fr": "Actuel"
     },
     {
         "opy": "Crouching",
-        "en": "Crouching"
+        "en": "Crouching",
+        "fr": "Accroupissement"
     },
     {
         "opy": "Crouched",
-        "en": "Crouched"
+        "en": "Crouched",
+        "fr": "Accroupi"
     },
     {
         "opy": "Crouch",
-        "en": "Crouch"
+        "en": "Crouch",
+        "fr": "S’accroupir"
     },
     {
         "opy": "Critical",
-        "en": "Critical"
+        "en": "Critical",
+        "fr": "Critique"
     },
     {
         "opy": "Credits",
-        "en": "Credits"
+        "en": "Credits",
+        "fr": "Crédits"
     },
     {
         "opy": "Credit",
-        "en": "Credit"
+        "en": "Credit",
+        "fr": "Crédit"
     },
     {
         "opy": "Corrupting",
-        "en": "Corrupting"
+        "en": "Corrupting",
+        "fr": "Corruption"
     },
     {
         "opy": "Corrupted",
-        "en": "Corrupted"
+        "en": "Corrupted",
+        "fr": "Corrompu"
     },
     {
         "opy": "Corrupt",
-        "en": "Corrupt"
+        "en": "Corrupt",
+        "fr": "Corrompre"
     },
     {
         "opy": "Cooldowns",
-        "en": "Cooldowns"
+        "en": "Cooldowns",
+        "fr": "Temps de recharge"
     },
     {
         "opy": "Cooldown",
-        "en": "Cooldown"
+        "en": "Cooldown",
+        "fr": "Temps de recharge"
     },
     {
         "opy": "Control Points",
-        "en": "Control Points"
+        "en": "Control Points",
+        "fr": "Points de contrôle"
     },
     {
         "opy": "Control Point",
-        "en": "Control Point"
+        "en": "Control Point",
+        "fr": "Point de contrôle"
     },
     {
         "opy": "Constitution",
-        "en": "Constitution"
+        "en": "Constitution",
+        "fr": "Constitution"
     },
     {
         "opy": "Connecting",
-        "en": "Connecting"
+        "en": "Connecting",
+        "fr": "Connexion"
     },
     {
         "opy": "Connected",
-        "en": "Connected"
+        "en": "Connected",
+        "fr": "Connecté"
     },
     {
         "opy": "Connect",
-        "en": "Connect"
+        "en": "Connect",
+        "fr": "Connecter"
     },
     {
         "opy": "Congratulations",
-        "en": "Congratulations"
+        "en": "Congratulations",
+        "fr": "Félicitations"
     },
     {
         "opy": "Condition",
-        "en": "Condition"
+        "en": "Condition",
+        "fr": "Condition"
     },
     {
         "opy": "Come Here",
-        "en": "Come Here"
+        "en": "Come Here",
+        "fr": "Venez ici"
     },
     {
         "opy": "Combo",
-        "en": "Combo"
+        "en": "Combo",
+        "fr": "Combo"
     },
     {
         "opy": "Clubs",
-        "en": "Clubs"
+        "en": "Clubs",
+        "fr": "Trèfle"
     },
     {
         "opy": "Club",
-        "en": "Club"
+        "en": "Club",
+        "fr": "Trèfle"
     },
     {
         "opy": "Clouds",
-        "en": "Clouds"
+        "en": "Clouds",
+        "fr": "Nuages"
     },
     {
         "opy": "Cloud",
-        "en": "Cloud"
+        "en": "Cloud",
+        "fr": "Nuage"
     },
     {
         "opy": "Checkpoints",
-        "en": "Checkpoints"
+        "en": "Checkpoints",
+        "fr": "Points de contrôle"
     },
     {
         "opy": "Checkpoint",
-        "en": "Checkpoint"
+        "en": "Checkpoint",
+        "fr": "Point de contrôle"
     },
     {
         "opy": "Chasing",
-        "en": "Chasing"
+        "en": "Chasing",
+        "fr": "Poursuite"
     },
     {
         "opy": "Chased",
-        "en": "Chased"
+        "en": "Chased",
+        "fr": "Poursuivi"
     },
     {
         "opy": "Chase",
-        "en": "Chase"
+        "en": "Chase",
+        "fr": "Poursuivre"
     },
     {
         "opy": "Charisma",
-        "en": "Charisma"
+        "en": "Charisma",
+        "fr": "Charisme"
     },
     {
         "opy": "Challenge Accepted",
-        "en": "Challenge Accepted"
+        "en": "Challenge Accepted",
+        "fr": "Défi accepté"
     },
     {
         "opy": "Center",
-        "en": "Center"
+        "en": "Center",
+        "fr": "Centre"
     },
     {
         "opy": "Caution",
-        "en": "Caution"
+        "en": "Caution",
+        "fr": "Prudence"
     },
     {
         "opy": "Capturing",
-        "en": "Capturing"
+        "en": "Capturing",
+        "fr": "Capture"
     },
     {
         "opy": "Captured",
-        "en": "Captured"
+        "en": "Captured",
+        "fr": "Capturé"
     },
     {
         "opy": "Capture",
-        "en": "Capture"
+        "en": "Capture",
+        "fr": "Capturer"
     },
     {
         "opy": "Buying",
-        "en": "Buying"
+        "en": "Buying",
+        "fr": "Achat"
     },
     {
         "opy": "Buy",
-        "en": "Buy"
+        "en": "Buy",
+        "fr": "Acheter"
     },
     {
         "opy": "Burnt",
-        "en": "Burnt"
+        "en": "Burnt",
+        "fr": "Brûlé"
     },
     {
         "opy": "Burning",
-        "en": "Burning"
+        "en": "Burning",
+        "fr": "Enflammé"
     },
     {
         "opy": "Burn",
-        "en": "Burn"
+        "en": "Burn",
+        "fr": "Brûler"
     },
     {
         "opy": "Built",
-        "en": "Built"
+        "en": "Built",
+        "fr": "Construit"
     },
     {
         "opy": "Building",
-        "en": "Building"
+        "en": "Building",
+        "fr": "Construction"
     },
     {
         "opy": "Build",
-        "en": "Build"
+        "en": "Build",
+        "fr": "Construire"
     },
     {
         "opy": "Bought",
-        "en": "Bought"
+        "en": "Bought",
+        "fr": "Acheté"
     },
     {
         "opy": "Bosses",
-        "en": "Bosses"
+        "en": "Bosses",
+        "fr": "Boss"
     },
     {
         "opy": "Boss",
-        "en": "Boss"
+        "en": "Boss",
+        "fr": "Boss"
     },
     {
         "opy": "Bonuses",
-        "en": "Bonuses"
+        "en": "Bonuses",
+        "fr": "Primes"
     },
     {
         "opy": "Bonus",
-        "en": "Bonus"
+        "en": "Bonus",
+        "fr": "Prime"
     },
     {
         "opy": "Blue",
-        "en": "Blue"
+        "en": "Blue",
+        "fr": "Bleu"
     },
     {
         "opy": "Blocking",
-        "en": "Blocking"
+        "en": "Blocking",
+        "fr": "Bloque"
     },
     {
         "opy": "Blocked",
-        "en": "Blocked"
+        "en": "Blocked",
+        "fr": "Bloqué"
     },
     {
         "opy": "Block",
-        "en": "Block"
+        "en": "Block",
+        "fr": "Bloquer"
     },
     {
         "opy": "Bids",
-        "en": "Bids"
+        "en": "Bids",
+        "fr": "Enchères"
     },
     {
         "opy": "Bid",
-        "en": "Bid"
+        "en": "Bid",
+        "fr": "Enchère"
     },
     {
         "opy": "Better",
-        "en": "Better"
+        "en": "Better",
+        "fr": "Meilleur"
     },
     {
         "opy": "Best",
-        "en": "Best"
+        "en": "Best",
+        "fr": "Le meilleur"
     },
     {
         "opy": "Banning",
-        "en": "Banning"
+        "en": "Banning",
+        "fr": "Bannissement"
     },
     {
         "opy": "Banned",
-        "en": "Banned"
+        "en": "Banned",
+        "fr": "Banni"
     },
     {
         "opy": "Ban",
-        "en": "Ban"
+        "en": "Ban",
+        "fr": "Bannir"
     },
     {
         "opy": "Bad",
-        "en": "Bad"
+        "en": "Bad",
+        "fr": "Mauvais"
     },
     {
         "opy": "Backward",
-        "en": "Backward"
+        "en": "Backward",
+        "fr": "Arrière"
     },
     {
         "opy": "Avoiding",
-        "en": "Avoiding"
+        "en": "Avoiding",
+        "fr": "Évitement"
     },
     {
         "opy": "Avoided",
-        "en": "Avoided"
+        "en": "Avoided",
+        "fr": "Évité"
     },
     {
         "opy": "Avoid",
-        "en": "Avoid"
+        "en": "Avoid",
+        "fr": "Éviter"
     },
     {
         "opy": "Average",
-        "en": "Average"
+        "en": "Average",
+        "fr": "Moyenne"
     },
     {
         "opy": "Attempts",
-        "en": "Attempts"
+        "en": "Attempts",
+        "fr": "Tentatives"
     },
     {
         "opy": "Attempt",
-        "en": "Attempt"
+        "en": "Attempt",
+        "fr": "Tentative"
     },
     {
         "opy": "Attacking",
-        "en": "Attacking"
+        "en": "Attacking",
+        "fr": "Attaque"
     },
     {
         "opy": "Attacked",
-        "en": "Attacked"
+        "en": "Attacked",
+        "fr": "Attaqué"
     },
     {
         "opy": "Attack",
-        "en": "Attack"
+        "en": "Attack",
+        "fr": "Attaquer"
     },
     {
         "opy": "Angle",
-        "en": "Angle"
+        "en": "Angle",
+        "fr": "Angle"
     },
     {
         "opy": "Ammunition",
-        "en": "Ammunition"
+        "en": "Ammunition",
+        "fr": "Munitions"
     },
     {
         "opy": "Ally",
-        "en": "Ally"
+        "en": "Ally",
+        "fr": "Allié"
     },
     {
         "opy": "Allies",
-        "en": "Allies"
+        "en": "Allies",
+        "fr": "Alliés"
     },
     {
         "opy": "Alive",
-        "en": "Alive"
+        "en": "Alive",
+        "fr": "En vie"
     },
     {
         "opy": "Alert",
-        "en": "Alert"
+        "en": "Alert",
+        "fr": "Alerte"
     },
     {
         "opy": "Ability 2",
-        "en": "Ability 2"
+        "en": "Ability 2",
+        "fr": "Capacité 2"
     },
     {
         "opy": "Ability 1",
-        "en": "Ability 1"
+        "en": "Ability 1",
+        "fr": "Capacité 1"
     },
     {
         "opy": "Ability",
-        "en": "Ability"
+        "en": "Ability",
+        "fr": "Capacité"
     },
     {
         "opy": "Abilities",
-        "en": "Abilities"
+        "en": "Abilities",
+        "fr": "Capacités"
     },
     {
         "opy": "???",
-        "en": "???"
+        "en": "???",
+        "fr": "???"
     },
     {
         "opy": "??",
-        "en": "??"
+        "en": "??",
+        "fr": "??"
     },
     {
         "opy": "?",
-        "en": "?"
+        "en": "?",
+        "fr": "?"
     },
     {
         "opy": "...",
-        "en": "..."
+        "en": "...",
+        "fr": "…"
     },
     {
         "opy": "----------",
-        "en": "----------"
+        "en": "----------",
+        "fr": "----------"
     },
     {
         "opy": "*",
-        "en": "*"
+        "en": "*",
+        "fr": "*"
     },
     {
         "opy": "!!!",
-        "en": "!!!"
+        "en": "!!!",
+        "fr": "!!!"
     },
     {
         "opy": "!!",
-        "en": "!!"
+        "en": "!!",
+        "fr": "!!"
     },
     {
         "opy": "!",
-        "en": "!"
+        "en": "!",
+        "fr": "!"
     }
 ];
 
@@ -13246,7 +14602,8 @@ var prefixStrKw = [
     },
     {
         "opy": "Round {0}",
-        "en": "Round {0}"
+        "en": "Round {0}",
+        "fr": "Manche {0}"
     }
 ];
 
@@ -13273,39 +14630,48 @@ var postfixStrKw = [
     },
     {
         "opy": "{0} Sec",
-        "en": "{0} Sec"
+        "en": "{0} Sec",
+        "fr": "{0} s"
     },
     {
         "opy": "{0}!!!",
-        "en": "{0}!!!"
+        "en": "{0}!!!",
+        "fr": "{0} !!!"
     },
     {
         "opy": "{0}!!",
-        "en": "{0}!!"
+        "en": "{0}!!",
+        "fr": "{0} !!"
     },
     {
         "opy": "{0}!",
-        "en": "{0}!"
+        "en": "{0}!",
+        "fr": "{0} !"
     },
     {
         "opy": "{0}%",
-        "en": "{0}%"
+        "en": "{0}%",
+        "fr": "{0} %"
     },
     {
         "opy": "{0}:",
-        "en": "{0}:"
+        "en": "{0}:",
+        "fr": "{0} :"
     },
     {
         "opy": "{0}???",
-        "en": "{0}???"
+        "en": "{0}???",
+        "fr": "{0} ???"
     },
     {
         "opy": "{0}??",
-        "en": "{0}??"
+        "en": "{0}??",
+        "fr": "{0} ??"
     },
     {
         "opy": "{0}?",
-        "en": "{0}?"
+        "en": "{0}?",
+        "fr": "{0} ?"
     }
 ];
 
@@ -13368,7 +14734,8 @@ var binaryStrKw = [
     },
     {
         "opy": "{0} And {1}",
-        "en": "{0} And {1}"
+        "en": "{0} And {1}",
+        "fr": "{0} et {1}"
     },
     {
         "opy": "{0} Vs {1}",
@@ -13380,7 +14747,8 @@ var binaryStrKw = [
     },
     {
         "opy": "{0}: {1}",
-        "en": "{0}: {1}"
+        "en": "{0}: {1}",
+        "fr": "{0} : {1}",
     },
     {
         "opy": "{0}:{1}",
@@ -13407,11 +14775,13 @@ var ternaryStrKw = [
     },
     {
         "opy": "{0}, {1}, And {2}",
-        "en": "{0}, {1}, And {2}"
+        "en": "{0}, {1}, And {2}",
+        "fr": "{0}, {1}, et {2}"
     },
     {
         "opy": "{0}: {1} And {2}",
-        "en": "{0}: {1} And {2}"
+        "en": "{0}: {1} And {2}",
+        "fr": "{0} : {1} et {2}"
     }
 ];
 
@@ -13970,9 +15340,13 @@ module.exports = {
 	valueFuncKw: valueFuncKw,
 	constantValues: constantValues,
 	eventKw: eventKw,
+	eventTeamKw: eventTeamKw,
+	eventSlotKw: eventSlotKw,
+	eventPlayerKw: eventPlayerKw,
 	ruleKw: ruleKw,
 	stringKw: stringKw,
 	specialFuncs: specialFuncs,
 	specialMemberFuncs: specialMemberFuncs,
+	currentLanguage: currentLanguage,
 
 };
