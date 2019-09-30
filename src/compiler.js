@@ -29,13 +29,13 @@ function compile(content, language="en") {
 		var t0 = performance.now();
 	}
 	currentLanguage = language;
+	currentArrayElementNames = [];
 	fileStack = [];
 	var rules = tokenize(content);
 	//console.log(rules);
 
 	var result = "";
 	for (var i = 0; i < rules.length; i++) {
-	//for (var i = 26; i < 28; i++) {
 		result += compileRule(rules[i]);
 	}
 	if (typeof window !== "undefined") {
@@ -76,28 +76,15 @@ function compileRule(rule) {
 	var eventType = "";
 	var isEventTeamDefined = false;
 	var isEventPlayerDefined = false;
-	
-	for (var i = 1; i < rule.lines.length+1; i++) {
-		//Check for loop var timer
-		//console.log(forLoopTimers);
-		//console.log(i);
-		for (var j = 0; j < forLoopTimers.length; j++) {
-			if (forLoopTimers[j][0] === i) {
-				delete forLoopVariables[forLoopTimers[j][1]];
-			}
-		}
-		
-		if (i >= rule.lines.length) {
-			break;
-		}
-		
-		
+
+	//Loop until we reach the actions; parse metadata
+	var i = 1;
+	for (; i < rule.lines.length; i++) {
 		if (rule.lines[i].tokens.length === 0) {
 			continue;
 		}
-		
-		fileStack = rule.lines[i].tokens[0].fileStack;	
-		
+		fileStack = rule.lines[i].tokens[0].fileStack;
+
 		if (rule.lines[i].tokens[0].text.startsWith("@")) {
 			if (!isInEvent) {
 				error("Annotation found after code");
@@ -147,297 +134,98 @@ function compileRule(rule) {
 				}
 			}
 		} else {
-			if (isInEvent) {
-				if (!isEventTeamDefined && eventType !== "global") {
-					result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
-				}
-				if (!isEventPlayerDefined && eventType !== "global") {
-					result += tabLevel(2)+tows("all", eventPlayerKw)+";\n";
-				}
-				isInEvent = false;
-				result += tabLevel(1)+"}\n\n";
+			break;
+		}
+	}
+	
+	//Add missing metadata
+	if (!isEventTeamDefined && eventType !== "global") {
+		result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
+	}
+	if (!isEventPlayerDefined && eventType !== "global") {
+		result += tabLevel(2)+tows("all", eventPlayerKw)+";\n";
+	}
+	isInEvent = false;
+	result += tabLevel(1)+"}\n\n";
+
+	//Parse the eventual rule condition, as well as the "do:".
+	//This loop breaks when it hits an actual action.
+	var nbDo = 0;
+	for (; i < rule.lines.length; i++) {
+		if (rule.lines[i].tokens.length === 0) {
+			continue;
+		}
+
+		fileStack = rule.lines[i].tokens[0].fileStack;
+
+		//Rule condition: 
+		if (rule.lines[i].tokens[0].text === "if" && rule.lines[i].indentLevel === 0 && nbDo === 0) {
+
+			//Check if there are instructions after the if; if not, return nothing as the rule is useless
+			if (i+1 >= rule.lines.length) {
+				return "";
 			}
-			
+
+			//Check if the "if" is special
+			if (rule.lines[i+1].tokens[0].text === "goto" || rule.lines[i+1].tokens[0].text === "continue" || rule.lines[i+1].tokens[0].text === "return" || rule.lines[i+1].tokens[0].text === "break") {
+				break;
+			}
+
+			//Check if the "if" covers the whole rule
 			var areAllLinesAfterCurrentLineIndented = true;
-			//Check if all of the lines have indent level non-0
 			for (var j = i+1; j < rule.lines.length; j++) {
 				if (rule.lines[j].indentLevel === 0) {
 					areAllLinesAfterCurrentLineIndented = false;
 					break;
 				}
 			}
-			//If without indentation = (rule) condition
-			if (rule.lines[i].tokens[0].text === "if" && rule.lines[i].indentLevel === 0 && areAllLinesAfterCurrentLineIndented && !isInActions) {
+			if (areAllLinesAfterCurrentLineIndented) {
 				result += tabLevel(1)+tows("_conditions", ruleKw)+" {\n";
 				result += parseRuleCondition(rule.lines[i].tokens);
 				result += tabLevel(1)+"}\n\n";
 			} else {
-				
-				if (rule.lines[i].tokens[0].text === "do") {
-					if (rule.lines[i].tokens.length !== 2 || rule.lines[i].tokens[1].text !== ':') {
-						error("Do instruction must be 'do:'");
-					} else if (isInActions) {
-						error("Do instructions must be at the beginning of the rule");
-					}
+				break;
+			}
+		} else if (rule.lines[i].tokens[0].text === "do") {
+			if (rule.lines[i].tokens.length !== 2 || rule.lines[i].tokens[1].text !== ':') {
+				error("Do instruction must be 'do:'");
+			}
+			nbDo++;
+
+			//Check if the "do" eventually hits a "while"
+			var foundWhile = false;
+			for (var j = i+1; j < rule.lines.length; j++) {
+				if (rule.lines[j].indentLevel > rule.lines[i].indentLevel) {
 					continue;
-				} 
-				
-				if (!isInActions) {
-					result += tabLevel(1)+tows("_actions", ruleKw)+" {\n";
-					isInActions = true;
-				}
-				
-				//Check for "if"
-				if (rule.lines[i].tokens[0].text === "if") {
-					if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text !== ':') {
-						error("If statement must end with ':'");
-					}
-					
-					var isSkipIf = true;
-					var isConditionTrueCheck = false;
-					var isConditionFalseCheck = false;
-					var invertCondition = false;
-					var skipIfOffset;
-					var hasGoto = false;
-					var hasAbort = false;
-					var hasContinue = false;
-					//var condition = "(" + parse(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), {"isWholeInstruction":true, "invertCondition":true});
-					
-					//Check if there is a goto
-					if (rule.lines[i+1].tokens[0].text === "goto") {
-						if (rule.lines[i+1].tokens.length < 2) {
-							error("Malformed goto");
-						}
-						
-						//Check if the goto is of the form "goto loc+xxx"
-						if (rule.lines[i+1].tokens[1].text === "loc") {
-							skipIfOffset = parse(rule.lines[i+1].tokens.slice(3))
-							
-						} else {
-							//Search for label
-							var label = rule.lines[i+1].tokens[1].text;
-							var labelOffset = 0;
-							var foundLabel = false;
-							for (var j = i+1; j < rule.lines.length; j++) {
-								if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if")) {
-									labelOffset++;
-								} else if (rule.lines[j].tokens[0].text === label) {
-									foundLabel = true;
-									if (rule.lines[j].tokens.length !== 2 || rule.lines[j].tokens[1].text !== ':') {
-										error("Label must end with ':'");
-									}
-									break;
-								}
-							}
-							if (!foundLabel) {
-								error("Could not find label "+label);
-							}
-							skipIfOffset = labelOffset;
-						}
-						hasGoto = true;
-						
-					//Check for return (abort)
-					} else if (rule.lines[i+1].tokens[0].text === "return") {
-						isSkipIf = false;
-						hasAbort = true;
-						
-						if (rule.lines[i].tokens[1].text === "RULE_CONDITION" && rule.lines[i].tokens.length === 3) {
-							isConditionTrueCheck = true;
-						} else if (rule.lines[i].tokens[1].text === "not" && rule.lines[i].tokens[2].text === "RULE_CONDITION" && rule.lines[i].tokens.length === 4) {
-							isConditionFalseCheck = true;
-						}
-						
-					} else if (rule.lines[i+1].tokens[0].text === "continue") {
-						isSkipIf = false;
-						hasContinue = true;
-						
-						if (rule.lines[i].tokens[1].text === "RULE_CONDITION" && rule.lines[i].tokens.length === 3) {
-							isConditionTrueCheck = true;
-						} else if (rule.lines[i].tokens[1].text === "not" && rule.lines[i].tokens[2].text === "RULE_CONDITION" && rule.lines[i].tokens.length === 4) {
-							isConditionFalseCheck = true;
-						}
-					} else {
-						
-						//Check how much instructions there is after the "if" (do not count gotos or lbls)
-						var nbInstructionsIf = 0;
-						var ifIndent = rule.lines[i].indentLevel;
-						var reachedEndOfRule = true;
-						var j = i+1;
-						for (; j < rule.lines.length; j++) {
-							if (rule.lines[j].indentLevel > ifIndent) {
-								if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if")) {
-									nbInstructionsIf++;
-								}
-							} else {
-								reachedEndOfRule = false;
-								break;
-							}
-						}
-						
-						if (reachedEndOfRule) {
-							isSkipIf = false;
-							hasAbort = true;
-							invertCondition = true;
-						} else {
-							skipIfOffset = nbInstructionsIf;
-							if (skipIfOffset <= 0) {
-								error("If instruction must have at least one sub-instruction");
-							}
-							invertCondition = true;
-						}
-					}
-					
-					result += tabLevel(2);
-					if (isSkipIf) {
-						result += tows("_skipIf", actionKw);
-					} else if (isConditionTrueCheck) {
-						if (hasAbort) {
-							result += tows("_abortIfConditionIsTrue", actionKw);
-						} else if (hasContinue) {
-							result += tows("_loopIfConditionIsTrue", actionKw);
-						}
-					} else if (isConditionFalseCheck) {
-						if (hasAbort) {
-							result += tows("_abortIfConditionIsFalse", actionKw);
-						} else if (hasContinue) {
-							result += tows("_loopIfConditionIsFalse", actionKw);
-						}
-					} else if (hasContinue) {
-						result += tows("_loopIf", actionKw);
-					} else if (hasAbort) {
-						result += tows("_abortIf", actionKw);
-					} else {
-						error("weird if");
-					}
-					result += "(";
-					if (!isConditionTrueCheck && !isConditionFalseCheck) {
-						result += parse(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), {"isWholeInstruction":true, "invertCondition":invertCondition});
-					}
-					if (isSkipIf) {
-						result += ", "+skipIfOffset;
-					}
-					result += ");\n";
-					if (hasGoto || hasAbort || hasContinue) {
-						i++;
-					}
-					
-				//Check for "for"
-				} else if (rule.lines[i].tokens[0].text === "for") {
-					if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text !== ':') {
-						error("For instruction must end with ':'");
-					}
-					
-					var inOperands = splitTokens(rule.lines[i].tokens.slice(1, rule.lines[i].tokens.length-1), "in", false);
-					if (inOperands.length !== 2) {
-						error("For instruction must contain 'in'");
-					} else if (inOperands[0].length !== 1) {
-						error("There can only be 1 token between 'for' and 'in'");
-					}
-					var forVarName = inOperands[0][0].text;
-					if (forLoopVariables[forVarName] !== undefined) {
-						error("Variable "+forVarName+" is already used");
-					}
-					forLoopVariables[forVarName] = inOperands[1];
-					//Check amount of lines
-					var forIndent = rule.lines[i].indentLevel;
-					var j = i+1;
-					for (; j < rule.lines.length && rule.lines[j].indentLevel > forIndent; j++);
-					if (j === i) {
-						error("For loop contains no instructions");
-					}
-					forLoopTimers.push([j, forVarName]);
-					
-					
-				//Check for "while"
-				} else if (rule.lines[i].tokens[0].text === "while") {
-					result += tabLevel(2);
-					if (rule.lines[i].tokens.length === 1) {
-						error("While what?");
-					}
-					if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text === ":") {
-						error("While statement must not end by a colon");
-					}
-					if (rule.lines[i].tokens[1].text === "true" && rule.lines[i].tokens.length === 2) {
-						result += tows("_loop", actionKw);
-					} else {
-						if (rule.lines[i].tokens[1].text === "RULE_CONDITION") {
-							result += tows("_loopIfConditionIsTrue", actionKw);
-						} else if (rule.lines[i].tokens[1].text === "not" && rule.lines[i].tokens[2].text === "RULE_CONDITION") {
-							result += tows("_loopIfConditionIsFalse", actionKw);
-						} else {
-							result += tows("_loopIf", actionKw)+"("+parse(rule.lines[i].tokens.slice(1))+")";
-						}
-					}
-					
-					result += ";\n";
-					
-				//Check for goto
-				} else if (rule.lines[i].tokens[0].text === 'goto') {
-					var skipOffset = 0;
-					if (rule.lines[i].tokens.length < 2) {
-						error("Malformed goto");
-					}
-					
-					//Check if the goto is of the form "goto loc+xxx"
-					if (rule.lines[i].tokens[1].text === "loc") {
-						skipOffset = parse(rule.lines[i].tokens.slice(3))
-						
-					} else {
-						//Search for label
-						var label = rule.lines[i].tokens[1].text;
-						var labelOffset = 0;
-						var foundLabel = false;
-						for (var j = i+1; j < rule.lines.length; j++) {
-							if (lineIsInstruction(rule.lines[j].tokens, rule.lines[j-1].tokens[0].text === "if")) {
-								labelOffset++;
-							} else if (rule.lines[j].tokens[0].text === label) {
-								foundLabel = true;
-								if (rule.lines[j].tokens.length !== 2 || rule.lines[j].tokens[1].text !== ':') {
-									error("Label must end with ':'");
-								}
-								break;
-							}
-						}
-						if (!foundLabel) {
-							error("Could not find label "+label);
-						}
-						skipOffset = labelOffset;
-					}
-					result += tabLevel(2)+tows("_skip", actionKw)+"("+skipOffset+");\n";
-					
-				//Check for del
-				} else if (rule.lines[i].tokens[0].text === 'del') {
-					
-					if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text !== ']') {
-						error("Del keyword must be followed by an array membership");
-					}
-					
-					var bracketPos = getTokenBracketPos(rule.lines[i].tokens);
-					
-					var variable = rule.lines[i].tokens.slice(1, bracketPos[bracketPos.length-2])
-					var member = rule.lines[i].tokens.slice(bracketPos[bracketPos.length-2]+1, rule.lines[i].tokens.length-1)
-					
-					debug("Parsing del keyword with var = '"+dispTokens(variable)+"' and member = '"+dispTokens(member)+"'");
-					
-					result += tabLevel(2);
-					result += parseAssignment(variable, member, true, "_removeFromArrayByIndex");
-					result += ";\n";
-					
-				} else if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text === ':') {
-					continue;
+				} else if (rule.lines[j].indentLevel < rule.lines[i].indentLevel){
+					error("Unexpected unindent in 'do' body");
 				} else {
-					result += tabLevel(2);
-					result += parse(rule.lines[i].tokens, {"isWholeInstruction":true});
-					result += ";\n";
+					if (rule.lines[j].tokens[0].text === "while") {
+						foundWhile = true;
+					}
 				}
 			}
+			if (!foundWhile) {
+				error("'do' instruction does not have a matched 'while'");
+			}
+
+		} else {
+			break;
 		}
 	}
-	
-	if (isInActions || isInEvent) {
-		//End actions
-		result += tabLevel(1)+"}\n";
+
+	result += tabLevel(1)+tows("_actions", ruleKw)+" {\n";
+
+	var actions = parseInstructions(rule.lines.slice(i), nbDo);
+	if (actions === "") {
+		//No actions = useless rule.
+		return "";
+	} else {
+		result += actions;
 	}
+	
+	//End actions
+	result += tabLevel(1)+"}\n";
 	
 	//End rules
 	result += "}\n\n";
@@ -445,8 +233,411 @@ function compileRule(rule) {
 	return result;
 }
 
+//Parses a list of actions (not metadata, rule condition, or "do").
+function parseInstructions(lines, nbDo) {
+
+	//Note: a "fake" else is the else that is generated for an elif.
+	//A "ghost" else is an else that does not generate a "skip" (if the previous 'if' didn't have its condition inverted).
+
+	//Array of objects: {
+	//	"type": "if"|"else"|"fakeelse"|"ghostelse"|"fakeghostelse"|"skip"|"skipif"|"label"|"other"|"forloop"
+	//	"condition": compiled content of the condition, if type not in ["label", "other"] or "skip" is not a skip if
+	//	"content": compiled content of the instruction
+	//	"label": if type == "skip", the label to search for, if type == "label", the name of the label
+	//	"indentLevel": the indent level of the line
+	//	"fileStack": the file stack of the first token of the line
+	//}
+	var resultLines = [];
+
+	//Do a first pass to compile lines and to fill the resultLines array.
+	for (var i = 0; i < lines.length; i++) {
+
+		if (lines[i].tokens.length === 0) {
+			continue;
+		}
+
+		var currentResultLineType = undefined;
+		var currentResultLineContent = undefined;
+		var currentResultLineCondition = undefined;
+		var currentResultLineLabel = undefined;
+		var skipNextLine = false;
+
+		//As we already handled all "do" actions before calling this function, encountering a "do" means it can't be at the beginning of the rule.
+		if (lines[i].tokens[0].text === "do") {
+			error("Do instructions must be at the beginning of the rule");
+		}
+
+		fileStack = lines[i].tokens[0].fileStack;
+
+		
+		//Check for "if"
+		if (lines[i].tokens[0].text === "if" || lines[i].tokens[0].text === "elif") {
+
+			if (lines[i].tokens[lines[i].tokens.length-1].text !== ':') {
+				error("If/Elif statement must end with ':'");
+			}
+
+			var condition = lines[i].tokens.slice(1, lines[i].tokens.length-1);
+			if (condition.length === 0) {
+				error("If/Elif statement must have a condition");
+			}
+
+			if (i+1 >= lines.length) {
+				error("If/Elif instruction must have at least one sub-instruction");
+			}
+ 
+
+			if (lines[i+1].tokens[0].text === "goto") {
+				if (lines[i+1].tokens.length < 2) {
+					error("Malformed goto");
+				}
+				
+				var skipIfOffset = 0;
+
+				//Check if the goto is of the form "goto loc+xxx"
+				if (lines[i+1].tokens[1].text === "loc") {
+					skipIfOffset = parse(lines[i+1].tokens.slice(3))
+
+					currentResultLineType="other";
+					currentResultLineContent = tows("_skipIf", actionKw)+"("+parse(condition, {isCondition: true})+", "+skipIfOffset+")";
+					
+				} else {
+					//Search for label
+					var label = lines[i+1].tokens[1].text;
+					currentResultLineType = "skipif";
+					currentResultLineCondition = parse(condition, {isCondition: true});
+					currentResultLineLabel = label;
+				}
+				skipNextLine = true;
+				
+				if (lines[i].tokens[0].text === "elif") {
+					resultLines.push({
+						type: "fakeghostelse",
+						indentLevel: lines[i].indentLevel,
+						fileStack: fileStack,
+					})
+				}
+
+			} else if (lines[i+1].tokens[0].text === "return" || lines[i+1].tokens[0].text === "continue") {
+				var ifFunction = "";
+				if (lines[i+1].tokens[0].text === "return") {
+					ifFunction = "_abortIf";
+				} else {
+					ifFunction = "_loopIf";
+				}
+
+				if (condition[0].text === "RULE_CONDITION" && condition.length === 1) {
+					
+					currentResultLineType = "other";
+					currentResultLineContent = tows(ifFunction+"ConditionIsTrue", actionKw);
+
+				} else if (condition[0].text === "not" && condition[1].text === "RULE_CONDITION" && condition.length === 2) {
+					
+					currentResultLineType = "other";
+					currentResultLineContent = tows(ifFunction+"ConditionIsFalse", actionKw);
+
+				} else {
+					currentResultLineType = "other";
+					currentResultLineContent = tows(ifFunction, actionKw)+"("+parse(condition, {isCondition: true})+")";
+				}
+				skipNextLine = true;
+
+				
+				if (lines[i].tokens[0].text === "elif") {
+					resultLines.push({
+						type: "fakeghostelse",
+						indentLevel: lines[i].indentLevel,
+						fileStack: fileStack,
+					})
+				}
+			} else {
+				currentResultLineType = "if";
+				currentResultLineCondition = parse(condition, {invertCondition: true, isCondition: true});
+
+				if (lines[i].tokens[0].text === "elif") {
+					resultLines.push({
+						type: "fakeelse",
+						indentLevel: lines[i].indentLevel,
+						fileStack: fileStack,
+					})
+				}
+			}
+
+		//Check for "else"
+		} else if (lines[i].tokens[0].text === "else") {
+			
+			if (lines[i].tokens.length !== 2 || lines[i].tokens[1].text !== ':') {
+				error("Else instruction must be 'else:'");
+			}
+
+			if (i === 0) {
+				error("Found 'else', but no 'if'");
+			} else if (resultLines[resultLines.length-1].indentLevel <= lines[i].indentLevel) {
+				//If this is the case, then there is no need to replace the else for a "skip" as the previous if wasn't inverted.
+				currentResultLineType = "ghostelse";
+			} else {
+				currentResultLineType = "else";
+			}
+
+		//Check for "for"
+		} else if (lines[i].tokens[0].text === "for") {
+			if (lines[i].tokens[lines[i].tokens.length-1].text !== ':') {
+				error("For instruction must end with ':'");
+			}
+			
+			var inOperands = splitTokens(lines[i].tokens.slice(1, lines[i].tokens.length-1), "in", false);
+			if (inOperands.length !== 2) {
+				error("For instruction must contain 'in'");
+			} else if (inOperands[0].length !== 1) {
+				error("There can only be 1 token between 'for' and 'in'");
+			}
+			var forVarName = inOperands[0][0].text;
+			if (forLoopVariables[forVarName] !== undefined) {
+				error("Variable "+forVarName+" is already used");
+			}
+			forLoopVariables[forVarName] = inOperands[1];
+			//Check amount of lines
+			var forIndent = lines[i].indentLevel;
+			var j = i+1;
+			for (; j < lines.length && lines[j].indentLevel > forIndent; j++);
+			if (j === i) {
+				error("For loop contains no instructions");
+			}
+			forLoopTimers.push([j, forVarName]);
+
+			currentResultLineType = "forloop";
+			
+		//Check for "while"
+		} else if (lines[i].tokens[0].text === "while") {
+
+			if (nbDo === 0) {
+				error("Found 'while' without matching 'do'");
+			}
+			nbDo--;
+
+			if (lines[i].tokens.length === 1) {
+				error("While what?");
+			}
+			if (lines[i].tokens[lines[i].tokens.length-1].text === ":") {
+				error("While statement must not end by a colon");
+			}
+			if (lines[i].tokens[1].text === "true" && lines[i].tokens.length === 2) {
+				currentResultLineType = "other";
+				currentResultLineContent = tows("_loop", actionKw);
+
+			} else {
+				if (lines[i].tokens[1].text === "RULE_CONDITION") {
+					currentResultLineType = "other";
+					currentResultLineContent = tows("_loopIfConditionIsTrue", actionKw);
+
+				} else if (lines[i].tokens[1].text === "not" && lines[i].tokens[2].text === "RULE_CONDITION") {
+					currentResultLineType = "other";
+					currentResultLineContent = tows("_loopIfConditionIsFalse", actionKw);
+
+				} else {
+
+					//TODO: optimize and use "loop" if the condition evaluates to "true"
+					currentResultLineType = "other";
+					currentResultLineContent = tows("_loopIf", actionKw)+"("+parse(lines[i].tokens.slice(1), {isCondition: true})+")";
+
+				}
+			}
+
+		//Check goto
+		} else if (lines[i].tokens[0].text === 'goto') {
+			if (lines[i].tokens.length < 2) {
+				error("Malformed goto");
+			}
+			
+			//Check if the goto is of the form "goto loc+xxx"
+			if (lines[i].tokens[1].text === "loc") {
+				skipOffset = parse(lines[i].tokens.slice(3))
+				currentResultLineType = "other";
+				currentResultLineContent = tows("_skipIf", actionKw)+"("+parse(condition, {isCondition: true})+", "+skipIfOffset+")";
+
+			} else {
+				var label = lines[i].tokens[1].text;
+				currentResultLineType = "skip";
+				currentResultLineLabel = label;
+			}
+
+		//Check for del
+		} else if (lines[i].tokens[0].text === 'del') {
+						
+			if (lines[i].tokens[lines[i].tokens.length-1].text !== ']') {
+				error("Del keyword must be followed by an array membership");
+			}
+			
+			var bracketPos = getTokenBracketPos(lines[i].tokens);
+			
+			var variable = lines[i].tokens.slice(1, bracketPos[bracketPos.length-2])
+			var member = lines[i].tokens.slice(bracketPos[bracketPos.length-2]+1, lines[i].tokens.length-1)
+			
+			debug("Parsing del keyword with var = '"+dispTokens(variable)+"' and member = '"+dispTokens(member)+"'");
+			
+			currentResultLineType = "other";
+			currentResultLineContent = parseAssignment(variable, member, true, "_removeFromArrayByIndex");
+			
+		//Check for label
+		} else if (lines[i].tokens[lines[i].tokens.length-1].text === ':') {
+			if (lines[i].tokens.length !== 2) {
+				error("Incorrectly formatted label");
+			}
+			var label = lines[i].tokens[0].text;
+			currentResultLineType = "label";
+			currentResultLineLabel = label;
+
+		//Any other instruction
+		} else {
+			currentResultLineType = "other",
+			currentResultLineContent = parse(lines[i].tokens, {"isWholeInstruction":true});
+		}
+
+		resultLines.push({
+			type: currentResultLineType,
+			condition: currentResultLineCondition,
+			content: currentResultLineContent,
+			label: currentResultLineLabel,
+			indentLevel: lines[i].indentLevel,
+			fileStack: lines[i].tokens[0].fileStack,
+		});
+		if (skipNextLine) {
+			i++;
+		}
+	}
+
+	lines = undefined;
+	var result = "";
+	console.log(resultLines);
+
+	function getNbLinesForType(type) {
+		if (type === "forloop" || type === "label" || type === "ghostelse" || type === "fakeghostelse") {
+			return 0;
+		} else {
+			return 1;
+		}
+	}
+
+	//Then, do a second pass to handle the "if"s.
+	for (var i = 0; i < resultLines.length; i++) {
+
+		fileStack = resultLines[i].fileStack;
+
+		if (resultLines[i].type === "other") {
+			result += tabLevel(2)+resultLines[i].content+";\n";
+
+			if (i > 0 && (resultLines[i-1].type === "other" || resultLines[i-1].type === "skip" || resultLines[i-1].type === "label")) {
+				if (resultLines[i].indentLevel > resultLines[i-1].indentLevel) {
+					error("Unexpected indent or unreachable code");
+				}
+			}
+
+		} else if (resultLines[i].type === "label" || resultLines[i].type === "ghostelse" || resultLines[i].type === "fakeghostelse" || resultLines[i].type === "forloop") {
+			//do nothing
+
+		} else if (resultLines[i].type === "if") {
+			
+			var gotoOffset = 0;
+			var j = i+1;
+
+			//Get number of indented lines within the if
+			for (; j < resultLines.length && resultLines[j].indentLevel > resultLines[i].indentLevel; j++) {
+				gotoOffset += getNbLinesForType(resultLines[j].type);
+			}
+
+			if (j < resultLines.length && (resultLines[j].type === "else" || resultLines[j].type === "fakeelse")) {
+				gotoOffset++;
+			}
+
+			result += tabLevel(2)+tows("_skipIf", actionKw)+"("+resultLines[i].condition+", "+gotoOffset+");\n";
+
+		} else if (resultLines[i].type === "skip" || resultLines[i].type === "skipif") {
+			
+			var gotoOffset = 0;
+			var foundLabel = false;
+			
+			for (var j = i+1; j < resultLines.length; j++) {
+				gotoOffset += getNbLinesForType(resultLines[j].type);
+				if (resultLines[j].type === "label" && resultLines[j].label === resultLines[i].label) {
+					foundLabel = true;
+					break;
+				}
+			}
+
+			if (!foundLabel) {
+				error("Could not find label "+label);
+			}
+
+			result += tabLevel(2);
+			if (resultLines[i].type === "skipif") {
+				result += tows("_skipIf", actionKw)+"("+resultLines[i].condition+", ";
+			} else {
+				result += tows("_skip", actionKw)+"(";
+			}
+			result += gotoOffset+");\n";
+
+		} else if (resultLines[i].type === "else") {
+						
+			//Get number of indented lines within the else
+			var gotoOffset = 0;
+			for (var j = i+1; j < resultLines.length && resultLines[j].indentLevel > resultLines[i].indentLevel; j++) {
+				gotoOffset += getNbLinesForType(resultLines[j].type);
+			}
+
+			if (gotoOffset === 0) {
+				error("Else instruction must have at least one sub-instruction");
+			}
+
+			result += tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n";
+
+
+		} else if (resultLines[i].type === "fakeelse") {
+			
+			var gotoOffset = 0;
+
+			//If the line following the "fake else" is "other" then it's a special elif.
+			if (resultLines[i+1].type === "other") {
+				gotoOffset++;
+			}
+
+			//Go to the end of the elif/else chain.
+			//Stop when encountering a line which type is not "else", or preceded by a "fakeelse", that is not on a greater indentation level than the current line.
+			for (var j = i+1+gotoOffset; j < resultLines.length; j++) {
+				console.log(resultLines[j]);
+				if (resultLines[j].indentLevel <= resultLines[i].indentLevel 
+						&& resultLines[j-1].type !== "fakeelse" 
+						&& resultLines[j-1].type !== "fakeghostelse" 
+						&& resultLines[j].type !== "else" 
+						&& resultLines[j].type !== "fakeelse" 
+						&& resultLines[j].type !== "ghostelse"
+						&& resultLines[j].type !== "fakeghostelse") {
+					break;
+				}
+				gotoOffset += getNbLinesForType(resultLines[j].type);
+			}
+
+			if (gotoOffset === 0) {
+				error("Parser broke (offset for fake else is 0)");
+			}
+			result += tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n";
+			
+		} else {
+			error("Unhandled rule line type "+resultLines[i].type);
+		}
+	}
+	
+	return result;
+}
+
 /*
 The main parse function.
+
+parseArgs options:
+
+- "invertCondition": true/false
+- "raycastType": "getHitPosition"|"getNormal"|"getPlayerHit"|"hasLoS"
+- "isWholeInstruction": true/false
+- "isCondition": true/false
 */
 function parse(content, parseArgs={}) {
 	
@@ -455,8 +646,15 @@ function parse(content, parseArgs={}) {
 	} else if (content.length === 0) {
 		error("Content is empty");
 	}
+	console.log(content);
 	
 	fileStack = content[0].fileStack;
+	if (parseArgs.invertCondition === true) {
+		//add "not(...)"
+		content.unshift({text: "(",});
+		content.unshift({text: "not"});
+		content.push({text: ")"});
+	}
 	
 	debug("Parsing '"+dispTokens(content)+"'");
 	
@@ -478,7 +676,6 @@ function parse(content, parseArgs={}) {
 				return tows("_arrayContains", valueFuncKw)+"("+parse(operands[1])+", "+parse(operands[0])+")";
 			} else if (pyOperators[i] === "==" || pyOperators[i] === '!=' || pyOperators[i] === '<=' || pyOperators[i] === '>=' || pyOperators[i] === '<' || pyOperators[i] === '>' ) {
 				var pyOperator = pyOperators[i];
-				if (parseArgs.invertCondition === true) pyOperator = reverseOperator(pyOperator);
 				return tows("_compare", valueFuncKw)+"("+parse(operands[0])+", "+pyOperator+", "+parse(operands[1])+")";
 			} else if (pyOperators[i] === "+=") {
 				return parseAssignment(operands[0], operands[1], true, "_add");
@@ -580,6 +777,11 @@ function parse(content, parseArgs={}) {
 	if (content[0].text === '(') {
 		return parse(content.slice(1, content.length-1));
 	}
+
+	//Check for "continue"
+	if (content.length === 1 && content[0].text === "continue") {
+		return tows("_loop", actionKw);
+	}
 	
 	//Parse args and name of function.
 	var name = content[0].text;
@@ -599,6 +801,7 @@ function parse(content, parseArgs={}) {
 		
 		return tows(name, funcKw);
 	}
+
 	
 	var str = "args: "
 	for (var i = 0; i < args.length; i++) {
@@ -1205,6 +1408,11 @@ function parseLiteralArray(content) {
 			
 			//Literal array with only values ([1,2,3])
 			var args = splitTokens(content.slice(1, content.length-1), ",");
+			console.log(args);
+			//Allow trailing comma
+			if (args[args.length-1].length === 0) {
+				args = args.slice(0, args.length-1);
+			}
 			var appendFunc = tows("_appendToArray", valueFuncKw);
 			var result = tows("_emptyArray", valueFuncKw);
 			for (var i = 0; i < args.length; i++) {

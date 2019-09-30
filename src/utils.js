@@ -123,23 +123,6 @@ function reverseOperator(content) {
 	}
 }
 
-//Returns true if the given token array is an instruction (not goto/label).
-function lineIsInstruction(line, previousLineIsIf) {
-	
-	//Check for label
-	if (line[line.length-1].text === ':' && line[0].text !== "if" && line[0].text !== "for") {
-		return false;
-	}
-	if (line[0].text === "for") {
-		return false;
-	}
-	if (previousLineIsIf && (line[0].text === "goto" || line[0].text === "return" || line[0].text === "continue")) {
-		return false;
-	}
-	
-	return true;
-}
-
 //Replaces variables A-Z with the provided names (for decompilation).
 //Also returns "#define name var" for each name.
 function loadVariableNames(names, varKw) {
@@ -291,8 +274,8 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 		}
 	}
 	debug("Translating keyword '"+keyword+"'");
-	debug("language = "+currentLanguage);
-	debug(keywordArray === stringKw);
+	//debug("language = "+currentLanguage);
+	//debug(keywordArray === stringKw);
 	
 	//Check for current array element
 	if (toWorkshop) {
