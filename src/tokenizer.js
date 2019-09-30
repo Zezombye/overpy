@@ -328,7 +328,7 @@ function tokenize(content) {
 								var bracketPos = getBracketPositions(content.substring(i), true);
 								text = content.substring(i, i+bracketPos[1]+1);
 								var macroArgs = getArgs(content.substring(i+bracketPos[0]+1, i+bracketPos[1]));
-								replacement = resolveMacro(macros[k], macroArgs);
+								replacement = resolveMacro(macros[k], macroArgs, currentRuleLine.indentLevel);
 								
 							} else {
 								//debug("Resolving normal macro "+macros[k].name);
@@ -407,13 +407,15 @@ function tokenize(content) {
 	
 	//console.log("macros = ");
 	//console.log(macros);
-	console.log(rules);
+	//console.log(rules);
 	
 	return rules.slice(1)
 	
 }
 
-function resolveMacro(macro, args=[]) {
+function resolveMacro(macro, args=[], indentLevel) {
+
+	var result = "";
 
 	if (macro.isFunction) {
 		//debug("Args: "+args);
@@ -429,7 +431,7 @@ function resolveMacro(macro, args=[]) {
             }
             scriptContent = vars + '\n'+scriptContent;
             try {
-                var result = eval(scriptContent);
+                result = eval(scriptContent);
             } catch (e) {
                 var stackTrace = e.stack.split('\n').slice(1).reverse();
                 var encounteredEval = false;
@@ -452,10 +454,9 @@ function resolveMacro(macro, args=[]) {
                 }
                 error(e);
             }
-            return result;
         } else {
 		
-            var result = macro.replacement;
+            result = macro.replacement;
             //debug("result 1 = "+result);
             
             //Replace macro argument names with their values
@@ -466,11 +467,15 @@ function resolveMacro(macro, args=[]) {
             //debug("result 2 = "+result);
             result = result.replace(new RegExp("\\\\\\n", 'g'), '\n');
             //debug("result 3 = "+result);
-            return result;
         }
 	} else {
-		return macro.replacement;
+		result = macro.replacement;
 	}
+	var tabs = "\n"+" ".repeat(indentLevel);
+	result = result.replace(/\n/g, tabs);
+	console.log(tabs)
+	console.log(result)
+	return result;
 }
 
 function parseMacro(macro) {

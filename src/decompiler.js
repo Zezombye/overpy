@@ -625,7 +625,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 
 	//All Players
 	if (name === "getPlayers") {
-		var team = decompile(args[0], getConstantKw("TEAM CONSTANT"));
+		var team = decompile(args[0], valueKw);
 		if (team === "Team.ALL") {
 			return "getAllPlayers()";
 		} else {
