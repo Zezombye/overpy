@@ -2439,7 +2439,7 @@ var actionKw = [
         ]
     },
     {
-        "opy": "stopAllDamageModifications",
+        "opy": "stopAllDamageModifications()",
         "en": "stopAllDamageModifications",
         "fr": "ArrêterToutesLesModificationsDeDégâts",
         "description": "Stops all damage modifications that were started using the start damage modification action.",
