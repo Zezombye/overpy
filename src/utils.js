@@ -17,6 +17,58 @@
 
 "use strict";
 
+function boolToWs(x) {
+	if (x === true) {
+		return wsTrue;
+	} else if (x === false) {
+		return wsFalse;
+	} else {
+		error("Invalid boolean "+x);
+	}
+}
+
+function containsRandom(x) {
+	return x.includes(wsRand);
+}
+
+function isWsTrue(x) {
+	if (x === wsTrue) {
+		return true;
+	}
+	if (isNumber(x) && parseFloat(x) !== 0) {
+		return true;
+	}
+	return false;
+}
+
+function isWsFalse(x) {
+	return x === wsFalse || x === wsNull || x === "0";
+}
+
+function isWs1(x) {
+	return x === "1" || x === wsTrue;
+}
+
+function isWs0(x) {
+	return x === "0" || x === wsFalse || x === wsNull;
+}
+
+//As the workshop does not accept numbers that are too long (such as 0.22585181552505867), trim all numbers to 15 decimal places.
+function trimNb(x) {
+	var result = ""+x;
+	if (result.indexOf('.') >= 0) {
+		result = result.substring(0,result.indexOf('.')+16);
+	}
+	return result;
+}
+
+function isNumber(x) {
+	if (x.trim() === "") {
+		return false;
+	}
+	return !isNaN(x);
+}
+
 function getFilenameFromPath(path) {
 	return path.split('\\').pop().split('/').pop();
 }
@@ -314,7 +366,7 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 	//Check for numbers
 	if (!isNaN(keyword)) {
 		//Convert to int then to string to remove unnecessary 0s.
-		keyword = Number(keyword).toString();
+		keyword = trimNb(Number(keyword).toString());
 		return keyword;
 	}
 	
@@ -434,7 +486,7 @@ function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
 	}
 	
 	if (rtl) {
-		result.push(tokens.slice(end+1, latestDelimiterPos));
+		result.unshift(tokens.slice(end+1, latestDelimiterPos));
 	} else {
 		result.push(tokens.slice(latestDelimiterPos+1, end));
 	}
