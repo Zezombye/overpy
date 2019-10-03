@@ -15,8 +15,9 @@ function calculateVectMagnitude(vector) {
 }
 
 function trimnb(nb) {
-    nb = ""+nb;
-    return nb.substring(0, nb.indexOf('.')+4);
+    //nb = ""+nb;
+    //return nb.substring(0, nb.indexOf('.')+4);
+    return nb;
 }
 
 function calculateVect(pos1, pos2) {

@@ -767,217 +767,217 @@ var constantValues = {
                 "opy": "Icon.ARROW_DOWN",
                 "en": "Arrow:Down",
                 "fr": "FlècheBas",
-                "description": "![](https://i.imgur.com/hych4AE.jpg)"
+                "description": "![](https://i.imgur.com/hych4AE.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.ARROW_LEFT",
                 "en": "Arrow:Left",
                 "fr": "FlècheGauche",
-                "description": "![](https://i.imgur.com/jgpW0Nb.jpg)"
+                "description": "![](https://i.imgur.com/jgpW0Nb.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.ARROW_RIGHT",
                 "en": "Arrow:Right",
                 "fr": "FlècheDroite",
-                "description": "![](https://i.imgur.com/0BttENZ.jpg)"
+                "description": "![](https://i.imgur.com/0BttENZ.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.ARROW_UP",
                 "en": "Arrow:Up",
                 "fr": "FlècheHaut",
-                "description": "![](https://i.imgur.com/Pr86Pcf.jpg)"
+                "description": "![](https://i.imgur.com/Pr86Pcf.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.ASTERISK",
                 "en": "Asterisk",
                 "fr": "Astérisque",
-                "description": "![](https://i.imgur.com/XTvINuC.jpg)"
+                "description": "![](https://i.imgur.com/XTvINuC.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.BOLT",
                 "en": "Bolt",
                 "fr": "Boulon",
-                "description": "![](https://i.imgur.com/ekbDxsT.jpg)"
+                "description": "![](https://i.imgur.com/ekbDxsT.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.CHECKMARK",
                 "en": "Checkmark",
                 "fr": "PointD’exclamation",
-                "description": "![](https://i.imgur.com/B7V240H.jpg)"
+                "description": "![](https://i.imgur.com/B7V240H.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.CIRCLE",
                 "en": "Circle",
                 "fr": "Cercle",
-                "description": "![](https://i.imgur.com/6lNvrqD.jpg)"
+                "description": "![](https://i.imgur.com/6lNvrqD.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.CLUB",
                 "en": "Club",
                 "fr": "Trèfle",
-                "description": "![](https://i.imgur.com/HYWor8w.jpg)"
+                "description": "![](https://i.imgur.com/HYWor8w.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.DIAMOND",
                 "en": "Diamond",
                 "fr": "Carreau",
-                "description": "![](https://i.imgur.com/5aLqsHf.jpg)"
+                "description": "![](https://i.imgur.com/5aLqsHf.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.DIZZY",
                 "en": "Dizzy",
                 "fr": "Étourdi",
-                "description": "![](https://i.imgur.com/P1Qi43N.jpg)"
+                "description": "![](https://i.imgur.com/P1Qi43N.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.EXCLAMATION_MARK",
                 "en": "ExclamationMark",
                 "fr": "PointD’exclamation",
-                "description": "![](https://i.imgur.com/1rBcHfz.jpg)"
+                "description": "![](https://i.imgur.com/1rBcHfz.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.EYE",
                 "en": "Eye",
                 "fr": "Œil",
-                "description": "![](https://i.imgur.com/pVMPtoH.jpg)"
+                "description": "![](https://i.imgur.com/pVMPtoH.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.FIRE",
                 "en": "Fire",
                 "fr": "Flamme",
-                "description": "![](https://i.imgur.com/m3As7B0.jpg)"
+                "description": "![](https://i.imgur.com/m3As7B0.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.FLAG",
                 "en": "Flag",
                 "fr": "Drapeau",
-                "description": "![](https://i.imgur.com/v30lUgy.jpg)"
+                "description": "![](https://i.imgur.com/v30lUgy.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.HALO",
                 "en": "Halo",
                 "fr": "Halo",
-                "description": "![](https://i.imgur.com/FWR9HAQ.jpg)"
+                "description": "![](https://i.imgur.com/FWR9HAQ.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.HAPPY",
                 "en": "Happy",
                 "fr": "SmileyContent",
-                "description": "![](https://i.imgur.com/CNwSwb1.jpg)"
+                "description": "![](https://i.imgur.com/CNwSwb1.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.HEART",
                 "en": "Heart",
                 "fr": "Cœur",
-                "description": "![](https://i.imgur.com/1KPOyZa.jpg)"
+                "description": "![](https://i.imgur.com/1KPOyZa.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.MOON",
                 "en": "Moon",
                 "fr": "Lune",
-                "description": "![](https://i.imgur.com/2uxcKF0.jpg)"
+                "description": "![](https://i.imgur.com/2uxcKF0.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.NO",
                 "en": "No",
                 "fr": "Interdit",
-                "description": "![](https://i.imgur.com/TZ4zFso.jpg)"
+                "description": "![](https://i.imgur.com/TZ4zFso.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.PLUS",
                 "en": "Plus",
                 "fr": "Plus",
-                "description": "![](https://i.imgur.com/OLARJ80.jpg)"
+                "description": "![](https://i.imgur.com/OLARJ80.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.POISON",
                 "en": "Poison",
                 "fr": "Poison",
-                "description": "![](https://i.imgur.com/w2gsTiI.jpg)"
+                "description": "![](https://i.imgur.com/w2gsTiI.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.POISON_2",
                 "en": "Poison2",
                 "fr": "Poison2",
-                "description": "![](https://i.imgur.com/UWmyDg2.jpg)"
+                "description": "![](https://i.imgur.com/UWmyDg2.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.QUESTION_MARK",
                 "en": "QuestionMark",
                 "fr": "PointD’interrogation",
-                "description": "![](https://i.imgur.com/CZBV4tx.jpg)"
+                "description": "![](https://i.imgur.com/CZBV4tx.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.RADIOACTIVE",
                 "en": "Radioactive",
                 "fr": "Radioactif",
-                "description": "![](https://i.imgur.com/R1bnNcl.jpg)"
+                "description": "![](https://i.imgur.com/R1bnNcl.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.RECYCLE",
                 "en": "Recycle",
                 "fr": "Recyclage",
-                "description": "![](https://i.imgur.com/q2fxb2u.jpg)"
+                "description": "![](https://i.imgur.com/q2fxb2u.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.RING_THICK",
                 "en": "RingThick",
                 "fr": "Anneauépais",
-                "description": "![](https://i.imgur.com/lTwuAjX.jpg)"
+                "description": "![](https://i.imgur.com/lTwuAjX.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.RING_THIN",
                 "en": "RingThin",
                 "fr": "AnneauFin",
-                "description": "![](https://i.imgur.com/NDOrzVS.jpg)"
+                "description": "![](https://i.imgur.com/NDOrzVS.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.SAD",
                 "en": "Sad",
                 "fr": "SmileyTriste",
-                "description": "![](https://i.imgur.com/00jyB4n.jpg)"
+                "description": "![](https://i.imgur.com/00jyB4n.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.SKULL",
                 "en": "Skull",
                 "fr": "Crâne",
-                "description": "![](https://i.imgur.com/TKKtSIa.jpg)"
+                "description": "![](https://i.imgur.com/TKKtSIa.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.SPADE",
                 "en": "Spade",
                 "fr": "Pique",
-                "description": "![](https://i.imgur.com/AJNBYA3.jpg)"
+                "description": "![](https://i.imgur.com/AJNBYA3.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.SPIRAL",
                 "en": "Spiral",
                 "fr": "Spirale",
-                "description": "![](https://i.imgur.com/TQLGPww.jpg)"
+                "description": "![](https://i.imgur.com/TQLGPww.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.STOP",
                 "en": "Stop",
                 "fr": "Stop",
-                "description": "![](https://i.imgur.com/af56Ghv.jpg)"
+                "description": "![](https://i.imgur.com/af56Ghv.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.TRASHCAN",
                 "en": "Trashcan",
                 "fr": "Poubelle",
-                "description": "![](https://i.imgur.com/iEtFvyC.jpg)"
+                "description": "![](https://i.imgur.com/iEtFvyC.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.WARNING",
                 "en": "Warning",
                 "fr": "Avertissement",
-                "description": "![](https://i.imgur.com/SXDld9l.jpg)"
+                "description": "![](https://i.imgur.com/SXDld9l.jpg) \n\n \n\n \n\n \n\n "
             },
             {
                 "opy": "Icon.CROSS",
                 "en": "X",
                 "fr": "Croix",
-                "description": "![](https://i.imgur.com/05HFEnd.jpg)"
+                "description": "![](https://i.imgur.com/05HFEnd.jpg) \n\n \n\n \n\n \n\n "
             }
         ]
     },

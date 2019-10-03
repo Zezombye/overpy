@@ -16,6 +16,7 @@
  */
 
 "use strict";
+
 //OverPy Compiler (OverPy -> Workshop)
 
 
@@ -28,9 +29,25 @@ function compile(content, language="en") {
 	if (typeof window !== "undefined") {
 		var t0 = performance.now();
 	}
+
+	//Reset global variables in case the latest compilation had an error and didn't properly reset it.
+	decompilerGotos = [];
 	currentLanguage = language;
 	currentArrayElementNames = [];
 	fileStack = [];
+	forLoopVariables = {};
+	forLoopTimers = [];
+	operatorPrecedenceStack = [];
+	formatArgs = [];
+	isInNormalForLoop = false;
+	nbTabs = 0;
+	lastLoop = -1;
+	wsTrue = tows("true", valueFuncKw);
+	wsFalse = tows("false", valueFuncKw);
+	wsNull = tows("null", valueFuncKw);
+	wsNot = tows("not", valueFuncKw);
+	wsRand = tows("_randomWs", valueFuncKw);
+
 	var rules = tokenize(content);
 	//console.log(rules);
 
@@ -56,10 +73,6 @@ function compileRule(rule) {
 	}
 	
 	forLoopTimers = [];
-	if (Object.entries(forLoopVariables).length !== 0) {
-		console.log(forLoopVariables);
-		error("For loop variables isn't empty");
-	}
 	
 	//The first line should always start with @Rule.
 	if (rule.lines[0].tokens[0].text !== "@Rule") {
@@ -230,6 +243,12 @@ function compileRule(rule) {
 	//End rules
 	result += "}\n\n";
 	
+	if (Object.entries(forLoopVariables).length !== 0) {
+		console.log(forLoopVariables);
+		console.log(forLoopTimers);
+		error("For loop variables isn't empty");
+	}
+
 	return result;
 }
 
@@ -240,7 +259,7 @@ function parseInstructions(lines, nbDo) {
 	//A "ghost" else is an else that does not generate a "skip" (if the previous 'if' didn't have its condition inverted).
 
 	//Array of objects: {
-	//	"type": "if"|"else"|"fakeelse"|"ghostelse"|"fakeghostelse"|"skip"|"skipif"|"label"|"other"|"forloop"
+	//	"type": "if"|"else"|"fakeelse"|"ghostelse"|"fakeghostelse"|"skip"|"skipif"|"label"|"other"|"forloop"|"optimized"
 	//	"condition": compiled content of the condition, if type not in ["label", "other"] or "skip" is not a skip if
 	//	"content": compiled content of the instruction
 	//	"label": if type == "skip", the label to search for, if type == "label", the name of the label
@@ -252,22 +271,25 @@ function parseInstructions(lines, nbDo) {
 	//Do a first pass to compile lines and to fill the resultLines array.
 	for (var i = 0; i < lines.length; i++) {
 
+		
 		if (lines[i].tokens.length === 0) {
 			continue;
 		}
+
+		
 
 		var currentResultLineType = undefined;
 		var currentResultLineContent = undefined;
 		var currentResultLineCondition = undefined;
 		var currentResultLineLabel = undefined;
 		var skipNextLine = false;
+		fileStack = lines[i].tokens[0].fileStack;
 
 		//As we already handled all "do" actions before calling this function, encountering a "do" means it can't be at the beginning of the rule.
 		if (lines[i].tokens[0].text === "do") {
 			error("Do instructions must be at the beginning of the rule");
 		}
 
-		fileStack = lines[i].tokens[0].fileStack;
 
 		
 		//Check for "if"
@@ -286,7 +308,6 @@ function parseInstructions(lines, nbDo) {
 				error("If/Elif instruction must have at least one sub-instruction");
 			}
  
-
 			if (lines[i+1].tokens[0].text === "goto") {
 				if (lines[i+1].tokens.length < 2) {
 					error("Malformed goto");
@@ -489,8 +510,12 @@ function parseInstructions(lines, nbDo) {
 
 		//Any other instruction
 		} else {
-			currentResultLineType = "other",
 			currentResultLineContent = parse(lines[i].tokens, {"isWholeInstruction":true});
+			if (currentResultLineContent.length > 0) {
+				currentResultLineType = "other";
+			} else {
+				currentResultLineType = "optimized";
+			}
 		}
 
 		resultLines.push({
@@ -501,6 +526,16 @@ function parseInstructions(lines, nbDo) {
 			indentLevel: lines[i].indentLevel,
 			fileStack: lines[i].tokens[0].fileStack,
 		});
+
+		//Check for loop var timer
+		//console.log(forLoopTimers);
+		//console.log(i);
+		for (var j = 0; j < forLoopTimers.length; j++) {
+			if (forLoopTimers[j][0] === i+1) {
+				delete forLoopVariables[forLoopTimers[j][1]];
+			}
+		}
+
 		if (skipNextLine) {
 			i++;
 		}
@@ -511,7 +546,7 @@ function parseInstructions(lines, nbDo) {
 	console.log(resultLines);
 
 	function getNbLinesForType(type) {
-		if (type === "forloop" || type === "label" || type === "ghostelse" || type === "fakeghostelse") {
+		if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized"].includes(type)) {
 			return 0;
 		} else {
 			return 1;
@@ -519,12 +554,13 @@ function parseInstructions(lines, nbDo) {
 	}
 
 	//Then, do a second pass to handle the "if"s.
-	for (var i = 0; i < resultLines.length; i++) {
+	//Go in reverse, to be able to optimize away "skip 0" and still calculate the correct length.
+	for (var i = resultLines.length-1; i >= 0; i--) {
 
 		fileStack = resultLines[i].fileStack;
 
 		if (resultLines[i].type === "other") {
-			result += tabLevel(2)+resultLines[i].content+";\n";
+			result = tabLevel(2)+resultLines[i].content+";\n"+result;
 
 			if (i > 0 && (resultLines[i-1].type === "other" || resultLines[i-1].type === "skip" || resultLines[i-1].type === "label")) {
 				if (resultLines[i].indentLevel > resultLines[i-1].indentLevel) {
@@ -532,7 +568,7 @@ function parseInstructions(lines, nbDo) {
 				}
 			}
 
-		} else if (resultLines[i].type === "label" || resultLines[i].type === "ghostelse" || resultLines[i].type === "fakeghostelse" || resultLines[i].type === "forloop") {
+		} else if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized"].includes(resultLines[i].type)) {
 			//do nothing
 
 		} else if (resultLines[i].type === "if") {
@@ -549,7 +585,12 @@ function parseInstructions(lines, nbDo) {
 				gotoOffset++;
 			}
 
-			result += tabLevel(2)+tows("_skipIf", actionKw)+"("+resultLines[i].condition+", "+gotoOffset+");\n";
+			if (gotoOffset === 0) {
+				//Optimize away
+				resultLines[i].type = "optimized";
+			} else {
+				result = tabLevel(2)+tows("_skipIf", actionKw)+"("+resultLines[i].condition+", "+gotoOffset+");\n"+result;
+			}
 
 		} else if (resultLines[i].type === "skip" || resultLines[i].type === "skipif") {
 			
@@ -568,16 +609,23 @@ function parseInstructions(lines, nbDo) {
 				error("Could not find label "+label);
 			}
 
-			result += tabLevel(2);
-			if (resultLines[i].type === "skipif") {
-				result += tows("_skipIf", actionKw)+"("+resultLines[i].condition+", ";
+			if (gotoOffset === 0) {
+				//Optimize away
+				resultLines[i].type = "optimized";
 			} else {
-				result += tows("_skip", actionKw)+"(";
+				var tmpresult = tabLevel(2);
+				if (resultLines[i].type === "skipif") {
+					tmpresult += tows("_skipIf", actionKw)+"("+resultLines[i].condition+", ";
+				} else {
+					tmpresult += tows("_skip", actionKw)+"(";
+				}
+				tmpresult += gotoOffset+");\n";
+				result = tmpresult + result;
 			}
-			result += gotoOffset+");\n";
+
 
 		} else if (resultLines[i].type === "else") {
-						
+			
 			//Get number of indented lines within the else
 			var gotoOffset = 0;
 			for (var j = i+1; j < resultLines.length && resultLines[j].indentLevel > resultLines[i].indentLevel; j++) {
@@ -588,7 +636,7 @@ function parseInstructions(lines, nbDo) {
 				error("Else instruction must have at least one sub-instruction");
 			}
 
-			result += tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n";
+			result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
 
 
 		} else if (resultLines[i].type === "fakeelse") {
@@ -619,11 +667,14 @@ function parseInstructions(lines, nbDo) {
 			if (gotoOffset === 0) {
 				error("Parser broke (offset for fake else is 0)");
 			}
-			result += tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n";
+			result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
 			
 		} else {
 			error("Unhandled rule line type "+resultLines[i].type);
 		}
+
+		
+
 	}
 	
 	return result;
@@ -646,7 +697,6 @@ function parse(content, parseArgs={}) {
 	} else if (content.length === 0) {
 		error("Content is empty");
 	}
-	console.log(content);
 	
 	fileStack = content[0].fileStack;
 	if (parseArgs.invertCondition === true) {
@@ -660,30 +710,164 @@ function parse(content, parseArgs={}) {
 	
 	//Parse operators
 	for (var i = 0; i < pyOperators.length; i++) {
-		var operands = splitTokens(content, pyOperators[i], false);
+		
+		if (pyOperators[i] === "not") {
+			var operands = splitTokens(content, pyOperators[i], false, false);
+		} else {
+			var operands = splitTokens(content, pyOperators[i], false, true);
+		}
 		if (operands.length === 2) {
 			
+			console.log(operands);
 			//The operator is present; parse it
 			if (pyOperators[i] === "=") {
 				return parseAssignment(operands[0], operands[1], false);
 			} else if (pyOperators[i] === "or") {
-				return tows("_or", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+
+				var op1 = parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//A or false = false or A = A
+				if (isWsFalse(op1)) {
+					return op2;
+				}
+				if (isWsFalse(op2)) {
+					return op1;
+				}
+				//A or true = true or A = true
+				if (isWsTrue(op1) || isWsTrue(op2)) {
+					return wsTrue;
+				}
+				//A or A = A
+				if (op1 === op2 && !containsRandom(op1)) {
+					return op1;
+				}
+				//A or not A = not A or A = true
+				if ((op1 === wsNot+"("+op2+")" || wsNot+"("+op1+")" === op2) && !containsRandom(op1)) {
+					return wsTrue;
+				}
+
+				return tows("_or", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else if (pyOperators[i] === "and") {
-				return tows("_and", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+
+				var op1 = parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//A and true = true and A = A
+				if (isWsTrue(op1)) {
+					return op2;
+				}
+				if (isWsTrue(op2)) {
+					return op1;
+				}
+				//A and false = false and A = false
+				if (isWsFalse(op1) || isWsFalse(op2)) {
+					return wsFalse;
+				}
+				//A and A = A
+				if (op1 === op2 && !containsRandom(op1)) {
+					return op1;
+				}
+				//A and not A = not A and A = true
+				if ((op1 === wsNot+"("+op2+")" || wsNot+"("+op1+")" === op2) && !containsRandom(op1)) {
+					return wsFalse;
+				}
+				return tows("_and", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else if (pyOperators[i] === "not") {
-				return tows("not", valueFuncKw)+"("+parse(operands[1])+")";
+
+				var op1 = parse(operands[1]);
+
+				//not true = false
+				if (isWsTrue(op1)) {
+					return wsFalse;
+				}
+				//not false = true
+				if (isWsFalse(op1)) {
+					return wsTrue;
+				}
+				//not not A = A
+				if (op1.startsWith(wsNot+"(")) {
+					return op1.substring((wsNot+"(").length, op1.length-1);
+				}
+				return tows("not", valueFuncKw)+"("+op1+")";
+
 			} else if (pyOperators[i] === "in") {
 				return tows("_arrayContains", valueFuncKw)+"("+parse(operands[1])+", "+parse(operands[0])+")";
 			} else if (pyOperators[i] === "==" || pyOperators[i] === '!=' || pyOperators[i] === '<=' || pyOperators[i] === '>=' || pyOperators[i] === '<' || pyOperators[i] === '>' ) {
 				var pyOperator = pyOperators[i];
-				return tows("_compare", valueFuncKw)+"("+parse(operands[0])+", "+pyOperator+", "+parse(operands[1])+")";
+				var op1 = parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				if (pyOperator === "==") {
+					//A == A = true
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsTrue;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) == parseFloat(op2));
+					}
+				} else if (pyOperator === "!=") {
+					//A != A = false
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsFalse;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) != parseFloat(op2));
+					}
+				} else if (pyOperator === ">") {
+					//A > A = false
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsFalse;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) > parseFloat(op2));
+					}
+				} else if (pyOperator === "<") {
+					//A < A = false
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsFalse;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) < parseFloat(op2));
+					}
+				} else if (pyOperator === ">=") {
+					//A >= A = false
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsTrue;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) >= parseFloat(op2));
+					}
+				} else if (pyOperator === "<=") {
+					//A <= A = false
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsTrue;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) <= parseFloat(op2));
+					}
+				}
+
+				return tows("_compare", valueFuncKw)+"("+op1+", "+pyOperator+", "+op2+")";
 			} else if (pyOperators[i] === "+=") {
+				//A += 0 -> nothing
+				if (isWs0(parse(operands[1]))) {
+					return "";
+				}
 				return parseAssignment(operands[0], operands[1], true, "_add");
 			} else if (pyOperators[i] === "-=") {
+				//A -= 0 -> nothing
+				if (isWs0(parse(operands[1]))) {
+					return "";
+				}
 				return parseAssignment(operands[0], operands[1], true, "_subtract");
 			} else if (pyOperators[i] === "*=") {
+				//A *= 1 -> nothing
+				if (isWs1(parse(operands[1]))) {
+					return "";
+				}
 				return parseAssignment(operands[0], operands[1], true, "_multiply");
 			} else if (pyOperators[i] === "/=") {
+				//A /= 1 -> nothing
+				if (isWs1(parse(operands[1]))) {
+					return "";
+				}
 				return parseAssignment(operands[0], operands[1], true, "_divide");
 			} else if (pyOperators[i] === "%=") {
 				return parseAssignment(operands[0], operands[1], true, "_modulo");
@@ -694,29 +878,114 @@ function parse(content, parseArgs={}) {
 			} else if (pyOperators[i] === "max=") {
 				return parseAssignment(operands[0], operands[1], true, "_max");
 			} else if (pyOperators[i] === "++") {
-				return parseAssignment(operands[0], [{"lineNb":-1, "colNb":-1,"text":"1"}], true, "_add");
+				return parseAssignment(operands[0], [{"text":"1"}], true, "_add");
 			} else if (pyOperators[i] === "--") {
-				return parseAssignment(operands[0], [{"lineNb":-1, "colNb":-1,"text":"1"}], true, "_subtract");
+				return parseAssignment(operands[0], [{"text":"1"}], true, "_subtract");
 			} else if (pyOperators[i] === "/") {
-				return tows("_divide", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+
+				var op1 = parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//pre-calculate nb/nb
+				if (isNumber(op1) && isNumber(op2)) {
+					return trimNb(parseFloat(op1)/parseFloat(op2));
+				}
+				//A/0 = 0/A = 0
+				if (isWs0(op1) || isWs0(op2)) {
+					return "0";
+				}
+				//A/1 = A
+				if (isWs1(op2)) {
+					return op1;
+				}
+				
+				return tows("_divide", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else if (pyOperators[i] === "*") {
-				return tows("_multiply", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+
+				var op1 = parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//pre-calculate nb*nb
+				if (isNumber(op1) && isNumber(op2)) {
+					return trimNb(parseFloat(op1)*parseFloat(op2));
+				}
+				//A*0 = 0*A = 0
+				if (isWs0(op1) || isWs0(op2)) {
+					return "0";
+				}
+				//A*1 = 1*A = A
+				if (isWs1(op1)) {
+					return op2;
+				}
+				if (isWs1(op2)) {
+					return op1;
+				}
+				//A*A = A**2
+				if (op1 === op2 && !containsRandom(op1)) {
+					return tows("_raiseToPower", valueFuncKw)+"(2, "+op1+")";
+				}
+				
+				return tows("_multiply", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else if (pyOperators[i] === "%") {
 				return tows("_modulo", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 			} else if (pyOperators[i] === "**") {
 				return tows("_raiseToPower", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 			} else if (pyOperators[i] === "-") {
 				
-				//Check for unary operator
-				if (operands[0].length === 0 || pyOperators.indexOf(operands[0][operands[0].length-1].text) >= 0) {
-					//Do nothing; parse it later
+				//Handle things like "3*-5" by checking if the 1st operand ends by another operator
+				if (operands[0].length > 0 && ["*", "/", "%"].includes(operands[0][operands[0].length-1].text)) {
 					continue;
-				} else {
-					return tows("_subtract", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 				}
-				return tows("_not", valueFuncKw)+"("+parse(operands[1])+")";
+
+				//A - -B -> A+B
+				if (operands[0].length > 0 && operands[0][operands[0].length-1].text === "-") {
+					return parse(operands[0].slice(0, operands[0].length-1).concat([{"text":"+"}]).concat(operands[1]));
+				}
+
+				var op1 = operands[0].length === 0 ? "0" : parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//pre-calculate nb-nb
+				if (isNumber(op1) && isNumber(op2)) {
+					return trimNb(parseFloat(op1)-parseFloat(op2));
+				}
+				//A-0 = A
+				if (isWs0(op2)) {
+					return op1;
+				}
+				//A-A = 0
+				if (op1 === op2 && !containsRandom(op1)) {
+					return "0";
+				}
+
+				return tows("_subtract", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else if (pyOperators[i] === "+") {
-				return tows("_add", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+
+				var op1 = operands[0].length === 0 ? "0" : parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//pre-calculate nb+nb
+				 
+				if (isNumber(op1) && isNumber(op2)) {
+					return trimNb(parseFloat(op1)+parseFloat(op2));
+				}
+				//A+0 = 0+A = A
+				if (isWs0(op1)) {
+					return op2;
+				}
+				if (isWs0(op2)) {
+					return op1;
+				}
+				//A+A = 2*A
+				if (op1 === op2 && !containsRandom(op1)) {
+					return tows("_multiply", valueFuncKw)+"(2, "+op1+")";
+				}
+
+				return tows("_add", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else {
 				error("Unhandled operator "+pyOperators[i]);
 			}
@@ -770,7 +1039,7 @@ function parse(content, parseArgs={}) {
 	//It must be parsed from right to left.
 	var operands = splitTokens(content, ".", false, true);
 	if (operands.length === 2) {
-		return parseMember(operands[1], operands[0], parseArgs);
+		return parseMember(operands[0], operands[1], parseArgs);
 	}
 	
 	//Check for parentheses
@@ -889,24 +1158,24 @@ function parse(content, parseArgs={}) {
 			{text: "."},
 			{text: "WHITE"}
 		];
-		var wsnull = [{
+		var opynull = [{
 			text: "null",
 		}]
 		if (name === "hudHeader") {
-			args.splice(2, 0, wsnull);
-			args.splice(3, 0, wsnull);
+			args.splice(2, 0, opynull);
+			args.splice(3, 0, opynull);
 
 			args.splice(7, 0, defaultColor);
 			args.splice(8, 0, defaultColor);
 		} else if (name === "hudSubheader") {
-			args.splice(1, 0, wsnull);
-			args.splice(3, 0, wsnull);
+			args.splice(1, 0, opynull);
+			args.splice(3, 0, opynull);
 
 			args.splice(6, 0, defaultColor);
 			args.splice(8, 0, defaultColor);
-		} else if (name === "hudHeader") {
-			args.splice(1, 0, wsnull);
-			args.splice(2, 0, wsnull);
+		} else if (name === "hudSubtext") {
+			args.splice(1, 0, opynull);
+			args.splice(2, 0, opynull);
 
 			args.splice(6, 0, defaultColor);
 			args.splice(7, 0, defaultColor);

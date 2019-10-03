@@ -149,6 +149,7 @@ if mapId == 144 and (level == 1 or level == 3):
     #Section 3 - just before boss fight
 
     #shared with 2
+    
     walls.append(vect(99.21, 20, 21.74))
 
     walls.append(vect(108.67, 19, 33.98))

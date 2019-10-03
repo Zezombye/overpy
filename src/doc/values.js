@@ -2090,6 +2090,13 @@ var valueFuncKw = [
         ]
     },
     {
+        "opy": "_randomWs",
+        "en": "random",
+        "fr": "Aléatoire",
+        "description": "An internal value that is the word 'random' used by all 4 random functions, no matter the language.",
+        "args": [],
+    },
+    {
         "opy": "random.randint",
         "en": "randomInteger",
         "fr": "NombreEntierAléatoire",

@@ -24,7 +24,7 @@ var fileStack = [];
 
 //Global variable used for "skip ifs", to keep track of where the skip if ends.
 //Is reset at each rule. (for decompilation)
-var decompilerGotos = []
+var decompilerGotos = [];
 
 //Global variable used for the number of tabs.
 //Is reset at each rule. (for decompilation)
@@ -54,6 +54,17 @@ var formatArgs = [];
 
 //Whether the decompilation at this time is under a normal "for" loop (for decompilation).
 var isInNormalForLoop = false;
+
+//The keywords "true" and "false", in the workshop.
+//Used to avoid translating back when comparing to true/false.
+//Generated at each compilation.
+var wsTrue = "";
+var wsFalse = "";
+var wsNull = "";
+var wsNot = "";
+
+//Note: assumes "randInt", "randReal", "randShuffle" and "randChoice" all have the same "random" word, no matter the language.
+var wsRand = "";
 
 //Operator precedence, from lowest to highest.
 var operatorPrecedence = {
@@ -100,10 +111,10 @@ var pyOperators = [
 	">=",
 	">",
 	"<",
-	"-",
 	"+",
-	"/",
+	"-",
 	"*",
+	"/",
 	"%",
 	"**",
 ];
