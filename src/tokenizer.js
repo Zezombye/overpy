@@ -189,10 +189,10 @@ function tokenize(content) {
 			//For some reason, in Python, line comments aren't affected by backslashes before new lines.
 			if (isInLineComment) {
 				isInLineComment = false;
-				
+			}
 			
 			//Do not end the instruction if there is a line break inside a function, or the line is backslashed.
-			} else if (bracketsLevel === 0 && isInRule && !isBackslashed) {
+			if (bracketsLevel === 0 && isInRule && !isBackslashed) {
 				newRuleLine();
 				
             }
@@ -213,6 +213,12 @@ function tokenize(content) {
                 }
 			} else if (content[i] === '\\') {
 				//do nothing
+
+			} else if (content[i] === ',') {
+				if (bracketsLevel === 0) {
+					error("Unexpected token ','");
+				}
+				addToken(content[i]);
 			} else if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
 				bracketsLevel++;
 				addToken(content[i]);
@@ -225,14 +231,18 @@ function tokenize(content) {
 				addToken(content[i]);
 				
 			} else if (content.startsWith("#!", i)) {
-				if (!isInRule) {
-					isInMacro = true;
-					currentMacro = {
-                        "fileStack":getFileStackCopy(),
-						"content":""
-					};
+				if (content.startsWith("#!define", i)) {
+					if (!isInRule) {
+						isInMacro = true;
+						currentMacro = {
+							"fileStack":getFileStackCopy(),
+							"content":""
+						};
+					} else {
+						error("Cannot declare macro inside a rule");
+					}
 				} else {
-					error("Cannot declare macro inside a rule");
+					error("Unknown preprocessor directive");
 				}
 				
 			} else if (content[i] === '#') {
@@ -288,6 +298,9 @@ function tokenize(content) {
                 //If j == i, then there wasn't a word (but an operator)
 				if (j > i) {
 					if (content.substring(i, j) === "@Rule") {
+						if (bracketsLevel > 0) {
+							error("Found '@Rule' within brackets (missing closing bracket in previous rule)");
+						}
 						isInRule = true;
 						rules.push(currentRule);
 						currentRule = {
@@ -374,6 +387,7 @@ function tokenize(content) {
 					//Test each remaining token
 					for (var h = 0; h < tokens.length; h++) {
 						if (content.startsWith(tokens[h], i)) {
+
 							addToken(content.substring(i, i+tokens[h].length));
 							hasTokenBeenFound = true;
 							break;
@@ -507,7 +521,11 @@ function parseMacro(macro) {
         } else {
             macro.isScript = false;
         }
-    }
+	}
+	
+	if (!macro.text || !macro.replacement) {
+		error("Expected a macro declaration (eg: #!define myVar A)");
+	}
     
     //console.log(macro);
 
