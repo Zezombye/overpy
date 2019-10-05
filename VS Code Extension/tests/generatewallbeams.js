@@ -18,11 +18,6 @@ function calculateDist(x1, z1, x2, z2) {
     return Math.sqrt(Math.pow(x1-x2, 2)+Math.pow(z1-z2, 2))
 }
 
-function trimnb(nb) {
-    nb = ""+nb;
-    return nb.substring(0, nb.indexOf('.')+4);
-}
-
 var result = "";
 var spacing = 0.7;
 
@@ -53,12 +48,12 @@ for (var wallBeam of wallBeams) {
 
     for (var i = 0; i < nbBeams; i++) {
         result += "createBeam(getAllPlayers(), Beam.GRAPPLE, vect("
-                +trimnb(currentx+0.01)
-                +","+trimnb(starty)
-                +","+trimnb(currentz)
-                +"),vect("+trimnb(currentx)
-                +","+trimnb(endy)
-                +","+trimnb(currentz)
+                +(currentx+0.01)
+                +","+starty
+                +","+currentz
+                +"),vect("+currentx
+                +","+endy
+                +","+currentz
         +"), Color.ORANGE, EffectReeval.VISIBILITY)\n"
         currentx += stepvectx;
         currentz += stepvectz;

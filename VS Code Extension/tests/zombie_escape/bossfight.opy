@@ -66,8 +66,8 @@ if eventPlayer == bossPlayer:
 
 @Rule "boss dies"
 @Event playerDied
-if eventPlayer == bossPlayer:
-    eventPlayer.team = TEAM_ZOMBIES
+if victim == bossPlayer:
+    victim.team = TEAM_ZOMBIES
     bossPlayer = null
 
 @Rule "no more boss"

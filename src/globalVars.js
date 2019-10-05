@@ -17,6 +17,8 @@
 
 "use strict";
 
+//The absolute path of the folder containing the main file. Used for relative paths.
+var rootPath = "";
 
 //The stack of the files (macros count as "files").
 //Is reset at each compilation.
@@ -65,6 +67,15 @@ var wsNot = "";
 
 //Note: assumes "randInt", "randReal", "randShuffle" and "randChoice" all have the same "random" word, no matter the language.
 var wsRand = "";
+
+//Set at each rule, to check whether it is legal to use "eventPlayer" and related.
+var currentRuleEvent = "";
+
+//Set at each compilation. If set to true, sets all rule titles to empty.
+var obfuscateRules = false;
+
+//Reset at each compilation. Contains all macros.
+var macros = [];
 
 //Operator precedence, from lowest to highest.
 var operatorPrecedence = {
@@ -118,3 +129,18 @@ var pyOperators = [
 	"%",
 	"**",
 ];
+
+//Text that gets inserted on top of all js scripts.
+var builtInJsFunctions = `
+function vect(x,y,z) {
+    return ({
+        x:x,
+        y:y,
+        z:z,
+        toString: function() {
+            return "vect("+this.x+","+this.y+","+this.z+")";
+        }
+    });
+}`;
+
+var builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length-1;

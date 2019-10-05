@@ -1,4 +1,4 @@
-
+#!mainFile "../zombie_escape.opy"
 
 @Rule "blizz world"
 @Event global
