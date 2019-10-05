@@ -24,7 +24,7 @@
 
 //console.log(compile(compileTest));
 
-function compile(content, language="en") {
+function compile(content, language="en", _rootPath="") {
 	
 	if (typeof window !== "undefined") {
 		var t0 = performance.now();
@@ -47,6 +47,19 @@ function compile(content, language="en") {
 	wsNull = tows("null", valueFuncKw);
 	wsNot = tows("not", valueFuncKw);
 	wsRand = tows("_randomWs", valueFuncKw);
+	currentRuleEvent = "";
+	rootPath = _rootPath;
+	obfuscateRules = false;
+	macros = [];
+
+	//Handle #!mainfile directive
+	if (content.startsWith("#!mainFile ")) {
+		var mainFilePath = getFilePath(content.substring("#!mainFile ".length, content.indexOf("\n")));
+		rootPath = mainFilePath.substring(0, mainFilePath.lastIndexOf("/")+1);
+		content = getFileContent(mainFilePath);
+		console.log("content = ");
+		console.log(content);
+	}
 
 	var rules = tokenize(content);
 	//console.log(rules);
@@ -59,7 +72,10 @@ function compile(content, language="en") {
 		var t1 = performance.now();
 		console.log("Compilation time: "+(t1-t0)+"ms");
 	}
-	return result;
+	return {
+		result: result,
+		macros: macros,
+	};
 }
 
 
@@ -81,7 +97,13 @@ function compileRule(rule) {
 		error("Malformed rule declaration (found "+rule.lines[0].tokens.length+") tokens");
 	}
 	
-	result += tows("@Rule", ruleKw)+" ("+rule.lines[0].tokens[1].text+") {\n";
+	result += tows("@Rule", ruleKw)+" (";
+	if (obfuscateRules) {
+		result += '""';
+	} else {
+		result += rule.lines[0].tokens[1].text;
+	}
+	result += ") {\n";
 	result += tabLevel(1)+tows("@Event", ruleKw)+" {\n";
 	
 	var isInEvent = true;
@@ -158,6 +180,10 @@ function compileRule(rule) {
 	if (!isEventPlayerDefined && eventType !== "global") {
 		result += tabLevel(2)+tows("all", eventPlayerKw)+";\n";
 	}
+	currentRuleEvent = eventType;
+	if (currentRuleEvent === "") {
+		error("An event must be specified");
+	}
 	isInEvent = false;
 	result += tabLevel(1)+"}\n\n";
 
@@ -193,9 +219,16 @@ function compileRule(rule) {
 				}
 			}
 			if (areAllLinesAfterCurrentLineIndented) {
-				result += tabLevel(1)+tows("_conditions", ruleKw)+" {\n";
-				result += parseRuleCondition(rule.lines[i].tokens);
-				result += tabLevel(1)+"}\n\n";
+				var compiledConditions = parseRuleCondition(rule.lines[i].tokens);
+				if (compiledConditions === "__false__") {
+					return ""; //rule will never execute, as one of the condition is false
+				} else if (compiledConditions === "") {
+					//do nothing
+				} else {
+					result += tabLevel(1)+tows("_conditions", ruleKw)+" {\n";
+					result += compiledConditions;
+					result += tabLevel(1)+"}\n\n";
+				}
 			} else {
 				break;
 			}
@@ -313,20 +346,26 @@ function parseInstructions(lines, nbDo) {
 					error("Malformed goto");
 				}
 				
-				var skipIfOffset = 0;
 
 				//Check if the goto is of the form "goto loc+xxx"
 				if (lines[i+1].tokens[1].text === "loc") {
-					skipIfOffset = parse(lines[i+1].tokens.slice(3))
-
-					currentResultLineType="other";
-					currentResultLineContent = tows("_skipIf", actionKw)+"("+parse(condition, {isCondition: true})+", "+skipIfOffset+")";
+					var skipIfOffset = parse(lines[i+1].tokens.slice(3))
+					var compiledCondition = parse(condition);
+					if (isWsFalse(compiledCondition) || isWs0(skipIfOffset)) {
+						currentResultLineType = "optimized";
+					} else if (isWsTrue(compiledCondition)) {
+						currentResultLineType="other";
+						currentResultLineContent = tows("_skip", actionKw)+"("+skipIfOffset+")";
+					} else {
+						currentResultLineType="other";
+						currentResultLineContent = tows("_skipIf", actionKw)+"("+compiledCondition+", "+skipIfOffset+")";
+					}
 					
 				} else {
 					//Search for label
 					var label = lines[i+1].tokens[1].text;
 					currentResultLineType = "skipif";
-					currentResultLineCondition = parse(condition, {isCondition: true});
+					currentResultLineCondition = parse(condition);
 					currentResultLineLabel = label;
 				}
 				skipNextLine = true;
@@ -358,8 +397,20 @@ function parseInstructions(lines, nbDo) {
 					currentResultLineContent = tows(ifFunction+"ConditionIsFalse", actionKw);
 
 				} else {
-					currentResultLineType = "other";
-					currentResultLineContent = tows(ifFunction, actionKw)+"("+parse(condition, {isCondition: true})+")";
+					var compiledCondition = parse(condition);
+					if (isWsFalse(compiledCondition)) {
+						currentResultLineType = "optimized";
+					} else if (isWsTrue(compiledCondition)) {
+						currentResultLineType = "other";
+						if (ifFunction === "_abortIf") {
+							currentResultLineContent = tows("return", actionKw);
+						} else {
+							currentResultLineContent = tows("_loop", actionKw);
+						}
+					} else {
+						currentResultLineType = "other";
+						currentResultLineContent = tows(ifFunction, actionKw)+"("+compiledCondition+")";
+					}
 				}
 				skipNextLine = true;
 
@@ -456,11 +507,16 @@ function parseInstructions(lines, nbDo) {
 					currentResultLineContent = tows("_loopIfConditionIsFalse", actionKw);
 
 				} else {
-
-					//TODO: optimize and use "loop" if the condition evaluates to "true"
-					currentResultLineType = "other";
-					currentResultLineContent = tows("_loopIf", actionKw)+"("+parse(lines[i].tokens.slice(1), {isCondition: true})+")";
-
+					var compiledCondition = parse(lines[i].tokens.slice(1));
+					if (isWsFalse(compiledCondition)) {
+						currentResultLineType = "optimized";
+					} else if (isWsTrue(compiledCondition)) {
+						currentResultLineType = "other";
+						currentResultLineContent = tows("_loop", actionKw);
+					} else {
+						currentResultLineType = "other";
+						currentResultLineContent = tows("_loopIf", actionKw)+"("+compiledCondition+")";
+					}
 				}
 			}
 
@@ -472,9 +528,18 @@ function parseInstructions(lines, nbDo) {
 			
 			//Check if the goto is of the form "goto loc+xxx"
 			if (lines[i].tokens[1].text === "loc") {
-				skipOffset = parse(lines[i].tokens.slice(3))
-				currentResultLineType = "other";
-				currentResultLineContent = tows("_skipIf", actionKw)+"("+parse(condition, {isCondition: true})+", "+skipIfOffset+")";
+				skipOffset = parse(lines[i].tokens.slice(3));
+
+				var compiledCondition = parse(condition);
+				if (isWsFalse(compiledCondition) || isWs0(skipIfOffset)) {
+					currentResultLineType = "optimized";
+				} else if (isWsTrue(compiledCondition)) {
+					currentResultLineType="other";
+					currentResultLineContent = tows("_skip", actionKw)+"("+skipIfOffset+")";
+				} else {
+					currentResultLineType="other";
+					currentResultLineContent = tows("_skipIf", actionKw)+"("+compiledCondition+", "+skipIfOffset+")";
+				}
 
 			} else {
 				var label = lines[i].tokens[1].text;
@@ -543,7 +608,6 @@ function parseInstructions(lines, nbDo) {
 
 	lines = undefined;
 	var result = "";
-	console.log(resultLines);
 
 	function getNbLinesForType(type) {
 		if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized"].includes(type)) {
@@ -585,9 +649,13 @@ function parseInstructions(lines, nbDo) {
 				gotoOffset++;
 			}
 
-			if (gotoOffset === 0) {
+			var compiledCondition = resultLines[i].condition;
+
+			if (isWsFalse(compiledCondition) || gotoOffset === 0) {
 				//Optimize away
 				resultLines[i].type = "optimized";
+			} else if (isWsTrue(compiledCondition)) {
+				result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
 			} else {
 				result = tabLevel(2)+tows("_skipIf", actionKw)+"("+resultLines[i].condition+", "+gotoOffset+");\n"+result;
 			}
@@ -609,20 +677,16 @@ function parseInstructions(lines, nbDo) {
 				error("Could not find label "+label);
 			}
 
-			if (gotoOffset === 0) {
+			var compiledCondition = resultLines[i].type === "skipif" ? resultLines[i].condition : wsTrue;
+
+			if (isWsFalse(compiledCondition) || gotoOffset === 0) {
 				//Optimize away
 				resultLines[i].type = "optimized";
+			} else if (isWsTrue(compiledCondition)) {
+				result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
 			} else {
-				var tmpresult = tabLevel(2);
-				if (resultLines[i].type === "skipif") {
-					tmpresult += tows("_skipIf", actionKw)+"("+resultLines[i].condition+", ";
-				} else {
-					tmpresult += tows("_skip", actionKw)+"(";
-				}
-				tmpresult += gotoOffset+");\n";
-				result = tmpresult + result;
+				result = tabLevel(2)+tows("_skipIf", actionKw)+"("+resultLines[i].condition+", "+gotoOffset+");\n"+result;
 			}
-
 
 		} else if (resultLines[i].type === "else") {
 			
@@ -672,9 +736,6 @@ function parseInstructions(lines, nbDo) {
 		} else {
 			error("Unhandled rule line type "+resultLines[i].type);
 		}
-
-		
-
 	}
 	
 	return result;
@@ -688,7 +749,6 @@ parseArgs options:
 - "invertCondition": true/false
 - "raycastType": "getHitPosition"|"getNormal"|"getPlayerHit"|"hasLoS"
 - "isWholeInstruction": true/false
-- "isCondition": true/false
 */
 function parse(content, parseArgs={}) {
 	
@@ -718,7 +778,6 @@ function parse(content, parseArgs={}) {
 		}
 		if (operands.length === 2) {
 			
-			console.log(operands);
 			//The operator is present; parse it
 			if (pyOperators[i] === "=") {
 				return parseAssignment(operands[0], operands[1], false);
@@ -1013,7 +1072,7 @@ function parse(content, parseArgs={}) {
 	//Check for literal number
 	var nbTest = dispTokens(content).replace(/ /g, "")
 	if (!isNaN(nbTest)) {
-		return nbTest;
+		return trimNb(nbTest);
 	}
 	
 	//Check for global variable
@@ -1067,6 +1126,19 @@ function parse(content, parseArgs={}) {
 			return parseString(tokenizeString(name.substring(1, name.length-1)));
 			//error("owo");
 		}
+
+		
+		//Check if it is legal to use the event variables.
+		if (name === "eventPlayer" && !(["eachPlayer", "playerJoined", "playerLeft"].includes(currentRuleEvent))) {
+			error("Cannot use 'eventPlayer' with event type '"+currentRuleEvent+"'");
+
+		} else if ((name === "attacker" || name === "victim" || name === "eventDamage" || name === "eventWasCriticalHit") && !(["playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied"].includes(currentRuleEvent))) {
+			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
+
+		} else if ((name === "healer" || name === "healee" || name === "eventHealing") && !(["playerDealtHealing", "playerReceivedHealing"].includes(currentRuleEvent))) {
+			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
+
+		}
 		
 		return tows(name, funcKw);
 	}
@@ -1080,7 +1152,6 @@ function parse(content, parseArgs={}) {
 		}
 	}
 	debug(str);
-	
 	
 	
 	//Special functions
@@ -1142,6 +1213,11 @@ function parse(content, parseArgs={}) {
 		
 		return tows(funcName, actionKw)+"("+result+", "+parse(args[1])+", "+parse(args[2].slice(2))+", "+parse(args[3])+")";
 	}
+
+	if (name === "debug") {
+		//probably the longest line of code in all this codebase
+		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("Team.ALL", getConstantKw("TEAM CONSTANT"))+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("Position.LEFT", getConstantKw("HUD LOCATION"))+", 0, "+tows("Color.ORANGE", getConstantKw("COLOR"))+", "+tows("Color.WHITE", getConstantKw("COLOR"))+", "+tows("Color.WHITE", getConstantKw("COLOR"))+", "+tows("HudReeval.VISIBILITY_AND_STRING", getConstantKw("HUD TEXT REEVALUATION"))+", "+tows("SpecVisibility.ALWAYS", getConstantKw("SPECTATOR VISIBILITY"))+")";
+	}
 	
 	if (name === "floor") {
 		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", getConstantKw("ROUNDING TYPE"))+")";
@@ -1193,11 +1269,25 @@ function parse(content, parseArgs={}) {
 	}
 
 	if (name === "getAllPlayers") {
-		return tows("getPlayers", valueFuncKw)+"("+parse([
-			{"text": "Team"},
-			{"text": "."},
-			{"text": "ALL"},
-		])+")";
+		return tows("getPlayers", valueFuncKw)+"("+tows("Team.ALL", getConstantKw("TEAM CONSTANT"))+")";
+	}
+
+	if (name === "getMapId") {
+		
+		//((getObjectivePosition(0) != null) * (300 + ceil(getObjectivePosition(0).x)) + ceil(nearestWalkablePosition(vect(100, 100, 100)).x))
+		return parse([
+			//nevermind, this one is the longest.
+			{"text": "("},{"text": "("},{"text": "getObjectivePosition"},{"text": "("},{"text": "0"},{"text": ")"},{"text": "!="},{"text": "null"},{"text": ")"},{"text": "*"},{"text": "("},{"text": "300"},{"text": "+"},{"text": "ceil"},{"text": "("},{"text": "getObjectivePosition"},{"text": "("},{"text": "0"},{"text": ")"},{"text": "."},{"text": "x"},{"text": ")"},{"text": ")"},{"text": "+"},{"text": "ceil"},{"text": "("},{"text": "nearestWalkablePosition"},{"text": "("},{"text": "vect"},{"text": "("},{"text": "100"},{"text": ","},{"text": "100"},{"text": ","},{"text": "100"},{"text": ")"},{"text": ")"},{"text": "."},{"text": "x"},{"text": ")"},{"text": ")"},
+		])
+	}
+
+	if (name === "getSign") {
+		if (args.length !== 1) {
+			error("Function getSign() takes one argument, received "+args.length);
+		} else {
+			//(((x)>0)-((x)<0))
+			return parse([{"text":"("},{"text":"("},{"text":"("}].concat(args[0]).concat([{"text":")"},{"text":">"},{"text":"0"},{"text":")"},{"text":"-"},{"text":"("},{"text":"("}].concat(args[0]).concat([{"text":")"},{"text":"<"},{"text":"0"},{"text":")"},{"text":")"}])));
+		}
 	}
 	
 	if (name === "round") {
@@ -1278,8 +1368,13 @@ function parse(content, parseArgs={}) {
 		
 	
 	if (name === "wait") {
-		var result = tows("_wait", actionKw)+"("+parse(args[0])+", ";
-		if (args.length === 1) {
+		var result = tows("_wait", actionKw)+"(";
+		if (args.length === 0) {
+			result += "0.016, ";
+		} else {
+			result += parse(args[0])+", ";
+		}
+		if (args.length <= 1) {
 			result += tows("Wait.IGNORE_CONDITION", getConstantKw("WAIT BEHAVIOR"))
 		} else {
 			result += parse(args[1]);
@@ -1294,7 +1389,7 @@ function parse(content, parseArgs={}) {
 	}
 	
 	//Default case (not a special function).
-	var result = tows(name, funcKw)+"(";
+	var result = tows(name, funcKw, {nbArgs:args.length})+"(";
 	for (var i = 0; i < args.length; i++) {
 		result += parse(args[i]);
 		if (i < args.length-1) {
@@ -1508,6 +1603,18 @@ function parseMember(object, member, parseArgs={}) {
 	} else if (name === "index") {
 		return tows("_indexOfArrayValue", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
 		
+	} else if (object[0].text === "math" && object.length === 1) {
+		if (name === "pi") {
+			return "3.14159265359";
+		} else if (name === "e") {
+			return "2.71828182846";
+		} else {
+			error("Unhandled member 'math."+name+"'");
+		}
+
+	} else if (object[0].text === "Map") {
+		return tows("Map."+name, mapKw);
+
 	} else if (object[0].text === "random" && object.length === 1) {
 		if (name === "randint" || name === "uniform") {
 			return tows("random."+name, valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+")";
@@ -1582,15 +1689,15 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 			//console.log(operands);
 			
 			//Check for array
-			if (operands[0].length > 1 && operands[0][1].text === '[') {
+			if (operands[1].length > 1 && operands[1][1].text === '[') {
 				result += tows("_"+func+"PlayerVarAtIndex", actionKw)
-						+"("+parse(operands[1])+", "+operands[0][0].text+", "
-						+parse(operands[0].slice(2, operands[0].length-1))+", ";
+						+"("+parse(operands[0])+", "+operands[1][0].text+", "
+						+parse(operands[1].slice(2, operands[1].length-1))+", ";
 			} else {
-				if (operands[0].length > 1) {
-					error("Unauthorised player variable", operands[1]);
+				if (operands[1].length > 1) {
+					error("Unauthorised player variable ", operands[1]);
 				}
-				result += tows("_"+func+"PlayerVar", actionKw)+"("+parse(operands[1])+", "+operands[0][0].text+", ";
+				result += tows("_"+func+"PlayerVar", actionKw)+"("+parse(operands[0])+", "+operands[1][0].text+", ";
 			}
 			
 		} else {
@@ -1677,7 +1784,6 @@ function parseLiteralArray(content) {
 			
 			//Literal array with only values ([1,2,3])
 			var args = splitTokens(content.slice(1, content.length-1), ",");
-			console.log(args);
 			//Allow trailing comma
 			if (args[args.length-1].length === 0) {
 				args = args.slice(0, args.length-1);
@@ -1708,50 +1814,85 @@ function parseRuleCondition(content) {
 	}
 	
 	content = content.slice(1, content.length-1);
+	var conditions = [];
 	
 	//If there is any "or" in the condition, there is only one instruction.
 	var orOperands = splitTokens(content, "or");
 	
 	if (orOperands.length > 1) {
 		debug("Condition contains 'or'");
-		result += tabLevel(2)+parse(content);
+		conditions = [[{text:"("}].concat(content).concat([{text:")"}])];
 	} else {
 		var andOperands = splitTokens(content, "and");
+		conditions = andOperands;
+	}
+
+
+	for (var condition of conditions) {
 		
-		for (var i = 0; i < andOperands.length; i++) {
-			
-			debug("Parsing condition '"+dispTokens(andOperands[i])+"'");
-			//console.log(andOperands);
-			
-			result += tabLevel(2);
-			
-			var comparisonOperators = ["==", "!=", "<=", ">=", "<", ">"];
-			var comparisonOperands;
-			var hasComparisonOperand = false;
-			
-			for (var j = 0; j < comparisonOperators.length; j++) {
-				comparisonOperands = splitTokens(andOperands[i], comparisonOperators[j]);
-				if (comparisonOperands.length > 1) {
-					if (comparisonOperands.length != 2) {
-						error("Chained comparisons are not allowed (eg: a == b == c)");
-					}
-					result += parse(comparisonOperands[0]);
-					result += " "+comparisonOperators[j]+" "+parse(comparisonOperands[1]);
-					hasComparisonOperand = true;
-					break;
+		debug("Parsing condition '"+dispTokens(condition)+"'");
+		//console.log(andOperands);
+
+		
+		var comparisonOperators = ["==", "!=", "<=", ">=", "<", ">"];
+		var comparisonOperands;
+		var hasComparisonOperand = false;
+		var op1 = "";
+		var op2 = "";
+		var operator = "";
+		
+		for (var j = 0; j < comparisonOperators.length; j++) {
+			comparisonOperands = splitTokens(condition, comparisonOperators[j]);
+			if (comparisonOperands.length > 1) {
+				if (comparisonOperands.length != 2) {
+					error("Chained comparisons are not allowed (eg: a == b == c)");
 				}
+				op1 = parse(comparisonOperands[0]);
+				op2 = parse(comparisonOperands[1]);
+				operator = comparisonOperators[j];
+				hasComparisonOperand = true;
+				break;
 			}
-			
-			if (!hasComparisonOperand) {
-				if (andOperands[i][0].text === "not") {
-					result += parse(andOperands[i].slice(1)) + " == "+tows("false", valueFuncKw);
-				} else {
-					result += parse(andOperands[i]) + " == "+tows("true", valueFuncKw);
-				}
-			}
-			
-			result += ";\n";
 		}
+		
+		if (!hasComparisonOperand) {
+			operator = "==";
+			if (condition[0].text === "not") {
+				op1 = parse(condition.slice(1));
+				op2 = tows("false", valueFuncKw);
+			} else {
+				op1 = parse(condition);
+				op2 = tows("true", valueFuncKw);
+			}
+		}
+		//tests for optimizations
+		var isOp1True = isWsTrue(op1);
+		var isOp2True = isWsTrue(op2);
+		var isOp1False = isWsFalse(op1);
+		var isOp2False = isWsFalse(op2);
+
+		if (operator === "==") {
+			//true == true or false == false -> true
+			if (isOp1True && isOp2True || isOp1False && isOp2False) {
+				continue;
+
+			//true == false or false == true -> false
+			} else if (isOp1True && isOp2False || isOp1False && isOp2True) {
+				return "__false__";
+			}
+		} else if (operator === "!=") {
+			//true != false or false != true -> true
+			if (isOp1True && isOp2False || isOp1False && isOp2True) {
+				continue;
+			
+			//true != true or false != false -> false
+			} else if (isOp1True && isOp2True || isOp1False && isOp2False) {
+				return "__false__";
+			}
+		}
+
+
+		result += tabLevel(2)+op1+" "+operator+" "+op2+";\n";
 	}
 	
 	return result;

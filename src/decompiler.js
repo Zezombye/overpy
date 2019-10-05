@@ -143,10 +143,17 @@ function decompileRule(content) {
 	}
 	
 	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
+	var isCurrentRuleDisabled = false;
+	if (content.trim().startsWith(tows("_disabled", ruleKw))) {
+		isCurrentRuleDisabled = true;
+	}
 	
 	debug("Decompiling rule "+ruleName);
-	
-	var result = "@Rule "+ruleName+"\n";
+	var result = "";
+	if (isCurrentRuleDisabled) {
+		result += '"""';
+	}
+	result += "@Rule "+ruleName+"\n";
 	
 	var ruleContent = content.substring(bracketPos[2]+1, bracketPos[3]);
 	
@@ -203,6 +210,10 @@ function decompileRule(content) {
 	if (actions !== "") {
 		result += decompileActions(actions);
 	}
+	
+	if (isCurrentRuleDisabled) {
+		result += '"""';
+	}
 	return result+"\n\n";
 }
 
@@ -247,7 +258,8 @@ function decompileActions(content) {
 	
 	//Detect the last loop to know where to place the "while"
 	for (var i = 0; i < actions.length; i++) {
-		if (topy(getName(actions[i]), actionKw).startsWith("_loop")) {
+		var actionName = getName(actions[i]);
+		if (!actionName.startsWith(tows("_disabled", ruleKw)) && topy(actionName, actionKw).startsWith("_loop")) {
 			//It is a loop; update the loop position
 			lastLoop = i;
 		}
@@ -291,14 +303,28 @@ function decompileAction(content, actionNb) {
 			result += "lbl_"+i+":\n"+tabLevel(nbTabs);
 		}
 	}
-	
+	var isCurrentActionDisabled = false;
+	console.log(tows("_disabled", ruleKw)+" ");
+	content = content.trim();
+	if (content.startsWith(tows("_disabled", ruleKw)+" ")) {
+		isCurrentActionDisabled = true;
+		content = content.substring((tows("_disabled", ruleKw)+" ").length);
+	}
+	var decompiledAction = "";
 	if (actionNb == lastLoop) {
-		result += decompile(content, actionKw, {"isLastLoop":true});
+		decompiledAction = decompile(content, actionKw, {"isLastLoop":true});
 	} else {
 		
-		result += decompile(content, actionKw, 0, {"isLastLoop":false});
+		decompiledAction = decompile(content, actionKw, 0, {"isLastLoop":false});
 	}
-	return result;
+	if (isCurrentActionDisabled) {
+		if (decompiledAction.includes('\n')) {
+			decompiledAction = "'''"+decompiledAction+"'''";
+		} else {
+			decompiledAction = "#"+decompiledAction;
+		}
+	}
+	return result+decompiledAction;
 }
 
 //This function only decompiles conditions that are in the "condition" section of a rule.
@@ -937,13 +963,16 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Wait
 	if (name === "_wait") {
+		var arg1 = decompile(args[0]);
 		var arg2 = decompile(args[1]);
-		if (arg2 === "Wait.IGNORE_CONDITION") {
-			return "wait("+decompile(args[0])+")";
+		var result = "wait(";
+		if (arg1 !== "0.016") {
+			result += arg1;
 		}
-		else {
-			return "wait("+decompile(args[0])+", "+arg2+")";
+		if (arg2 !== "Wait.IGNORE_CONDITION") {
+			result += ", "+arg2;
 		}
+		return result+")";
 	}
 	
 	//X/Y/Z component of

@@ -80,10 +80,22 @@ function getFilePath(pathStr) {
 		error("Expected a string but found '"+pathStr+"'");
 	}
 	pathStr = pathStr.substring(1, pathStr.length-1);
+	//parse backslashes
 	pathStr = pathStr.replace(/\\("|')/g, "$1");
 	pathStr = pathStr.replace(/\\\\/g, "\\");
+
+	//convert backslashes to normal slashes
+	pathStr = pathStr.replace(/\\/g, "/");
 	debug("Path str is now '"+pathStr+"'");
-	return pathStr;
+
+	//Determine if the path is absolute or relative
+	if (pathStr.startsWith("/") || /^[A-Za-z]:/.test(pathStr)) {
+		//absolute path
+		return pathStr;
+	} else {
+		//relative path
+		return rootPath+pathStr;
+	}
 }
 
 function getFileContent(path) {
@@ -92,10 +104,10 @@ function getFileContent(path) {
 	try {
 		fs = require("fs");
 	} catch (e) {
-		error("Cannot use 'import' statement in browsers");
+		error("Cannot use multiple files in browsers");
 	}
 	try {
-		return fs.readFileSync(path);
+		return ""+fs.readFileSync(path);
 	} catch (e) {
 		error(e);
 	}
@@ -342,6 +354,14 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 		
 		if (toWorkshop) {
 			if (keywordArray[i].opy === keyword) {
+
+				//Check number of arguments
+				if (options.nbArgs) {
+					if (keywordArray[i].args === null && options.nbArgs !== 0 || keywordArray[i].args.length !== options.nbArgs) {
+						error("Function '"+keyword+"' takes "+(keywordArray[i].args===null?0:keywordArray[i].args.length)+" arguments, received "+options.nbArgs);
+					}
+				}
+
 				//Fallback to "en" if no entry for this language
 				if (currentLanguage in keywordArray[i]) {
 					return keywordArray[i][currentLanguage];
@@ -619,7 +639,7 @@ function dispTokens(content) {
 //Logging stuff
 function error(str, token) {
 	
-	if (token !== undefined) {
+	if (token !== undefined && token.fileStack !== undefined) {
 		fileStack = token.fileStack;
 	}
 	

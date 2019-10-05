@@ -73,6 +73,7 @@ a {
 <script src="src/doc/constants.js"></script>
 <script src="src/doc/keywords.js"></script>
 <script src="src/doc/stringKw.js"></script>
+<script src="src/doc/maps.js"></script>
 
 <script>
 
@@ -160,6 +161,72 @@ console.log(JSON.stringify(actionKw, null, 4));*/
 <script>
 
 
+var maps = `Ayutthaya	42
+Black Forest	37
+Blizzard World (Arcade)	54
+Blizzard World (Hybrid)	358
+Busan	523
+Castillo	-71
+Château Guillard	168
+Dorado (Arcade)	144
+Dorado (Escort)	518
+Ecopoint: Antartica	18
+Eichenwalde (Arcade)	124
+Eichenwalde (Hybrid)	435
+Hanamura (Arcade)	78
+Hanamura (Assault)	374
+Havana (Arcade)	88
+Havana (Escort)	384
+Hollywood (Arcade)	25
+Hollywood (Hybrid)	302
+Horizon: Lunar Colony (Arcade)	56
+Horizon: Lunar Colony (Assault)	411
+Ilios (Control)	724
+Ilios: Lighthouse (Arcade)	300
+Ilios: Ruins (Arcade)	66
+Ilios: Well (Arcade)	-167
+Junkertown	278
+King's Row (Arcade)	17
+King's Row (Hybrid)	299
+Lijiang Tower (Control)	371
+Lijiang: Control Center (Arcade)	13
+Lijiang: Garden (Arcade)	102
+Lijiang: Night Market (Arcade)	69
+Necropolis	30
+Nepal (Control)	195
+Nepal: Sanctum (Arcade)	101
+Nepal: Shrine (Arcade)	-13
+Nepal: Village (Arcade)	-130
+Numbani	497
+Oasis (Control)	630
+Oasis: City Center (Arcade)	186
+Oasis: Gardens (Arcade)	173
+Oasis: University (Arcade)	-163
+Paris (Arcade)	-3
+Paris (Assault)	243
+Petra	41
+Rialto	451
+Route 66	368
+Temple of Anubis (Arcade)	21
+Temple of Anubis (Assault)	276
+Volskaya Industries (Arcade)	34
+Volskaya Industries (Assault)	321
+Watchpoint: Gibraltar	416`;
+
+maps = maps.split("\n");
+result = [];
+for (var map of maps) {
+	mapName = map.split("\t")[0]
+	mapValue = map.split("\t")[1]
+	mapName = mapName.toUpperCase().replace(/[:\(\)']/g, "").replace(/ /g, "_").replace("ASSAULT", "").replace("HYBRID", "").replace("ESCORT", "");
+	result.push({
+		opy: "Map."+mapName,
+		en: mapValue,
+	});
+}
+console.log(JSON.stringify(result, null, 4));
+
+
 /*for (var i = 0; i < actionKw.length-1; i++) {
 	if (actionKw[i][1][0].toLowerCase() >= actionKw[i+1][1][0].toLowerCase()) {
 		console.log("Messed up alphabetical order for "+actionKw[i+1][1][0]);
@@ -228,7 +295,7 @@ function demoCompile() {
 	
 	var str = "";
 	try {
-		str = compile(document.getElementById("overpy-textarea").value);
+		str = compile(document.getElementById("overpy-textarea").value).result;
 	} catch (Error) {
 		console.log(Error);
 		str = "An error occurred. Press F12 (Firefox) or Ctrl+Shift+J (Chrome)";

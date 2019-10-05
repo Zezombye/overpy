@@ -198,8 +198,13 @@ const decompilerUI = [`
 
 const funcDoc = JSON.parse(JSON.stringify(overpy.actionKw.concat(overpy.valueFuncKw)));
 
-const constTypes = JSON.parse(JSON.stringify(overpy.constantValues));
+var constTypes = JSON.parse(JSON.stringify(overpy.constantValues));
+constTypes["MAP"] = {
+    opy: "Map",
+    values: JSON.parse(JSON.stringify(overpy.mapKw)),
+};
 
+console.log(constTypes);
 const funcList = JSON.parse(JSON.stringify(overpy.specialFuncs));
 
 for (func of funcDoc) {
@@ -261,19 +266,28 @@ const memberConstList = [
     }
 ];
 
-const memberCompItem = makeCompList(memberFuncList.concat(memberConstList));
 
 const constValues = getConstValues();
 const constTypeList = Object.keys(constValues).map(x => ({opy: x})).filter(x => x.opy !== "Operation" && x.opy !== "Variable");
 const constTypeListOpy = constTypeList.map(x => x.opy);
 
 const metaRuleParamsCompList = makeCompList(metaRuleParams);
-const defaultCompList = makeCompList(funcList.concat(constTypeList));
-const allFuncList = funcList.concat(memberFuncList);
 
-for (var func of allFuncList) {
-    func.sigHelp = makeSignatureHelp(func);
+var defaultCompList;
+var allFuncList;
+var memberCompItem;
+var macros = [];
+function refreshAutoComplete() {
+
+    defaultCompList = makeCompList(funcList.concat(constTypeList).concat(macros));
+    allFuncList = funcList.concat(memberFuncList).concat(macros);
+    for (var func of allFuncList) {
+        func.sigHelp = makeSignatureHelp(func);
+    }
+    memberCompItem = makeCompList(memberFuncList.concat(memberConstList).concat(macros))
 }
+refreshAutoComplete();
+
 
 function activate(context) {
 
@@ -329,11 +343,19 @@ function activate(context) {
     vscode.commands.registerCommand('extension.compile', () => {
         try {
 
-            var compiledText = overpy.compile(vscode.window.activeTextEditor.document.getText(), vscode.workspace.getConfiguration("overpy").workshopLanguage);
-            clipboard.copy(compiledText);
+            var rootPath = vscode.window.activeTextEditor.document.fileName;
+            rootPath = rootPath.replace(/\\/g, "/");
+            rootPath = rootPath.substring(0, rootPath.lastIndexOf('/')+1);
+
+            var compiledText = overpy.compile(vscode.window.activeTextEditor.document.getText(), vscode.workspace.getConfiguration("overpy").workshopLanguage, rootPath);
+            clipboard.copy(compiledText.result);
             vscode.window.showInformationMessage("Successfully compiled! (copied into clipboard)");
+            macros = convertMacros(compiledText.macros);
+            refreshAutoComplete();
+            console.log(compiledText.macros);
         } catch (e) {
             if (e instanceof Error) {
+                console.error(e);
                 vscode.window.showErrorMessage("Error: "+e.message);
                 /*try {
                     var errorLine = parseInt(e.message.substring(e.message.indexOf("line ")+"line ".length, e.message.indexOf(",")))-1;
@@ -350,6 +372,8 @@ function activate(context) {
                 console.error(e);
             }
         }
+
+        
 
     });
 
@@ -504,6 +528,34 @@ function makeCompItem(item) {
     return compItem;
 }
 
+function convertMacros(macros) {
+    var result = [];
+    for (var macro of macros) {
+        var convertedMacro = {};
+        convertedMacro.opy = macro.name;
+        if (macro.isFunction) {
+            if (macro.args.length === 0) {
+                convertedMacro.opy += "()";
+            } else {
+                convertedMacro.args = [];
+                for (var arg of macro.args) {
+                    convertedMacro.args.push({
+                        name: arg,
+                        type: "Object",
+                    });
+                }
+            }
+        }
+        if (macro.isScript) {
+            convertedMacro.description = "This macro executes the script: "+macro.scriptPath;
+        } else {
+            convertedMacro.description = "This macro resolves to:\n\n"+macro.replacement;
+        }
+        result.push(convertedMacro);
+    }
+    return result;
+}
+
 function generateDocFromDoc(item) {
 
     var isMemberFunction = false;
@@ -568,40 +620,10 @@ function generateSnippetFromDoc(item) {
             return new vscode.SnippetString(item.opy/*+"("*/);
         }
     }
-
-
-    
-    /*
-    if (!("args" in item) || item.args.length === 0) {
-        return new vscode.SnippetString(text);
-    }
-
-
-    var snippet = text + "(";
-    var doc = null;
-    for (var func of funcDoc) {
-        if (func.name === text) {
-            doc = func;
-            break;
-        }
-    }
-    if (doc === null) {
-        console.log("Could not find documentation for function "+text);
-        return new vscode.SnippetString(text+"()");
-    }
-    for (var i = 0; i < doc.args.length; i++) {
-        var type = doc.args[i].type;
-        snippet += getSnippetFromArg(i+1, doc.args[i]);
-
-        if (i < doc.args.length-1) {
-            snippet += ", ";
-        }
-    }
-    snippet += ")";
-    //console.log("Snippet for "+text+" is "+snippet);
-    return new vscode.SnippetString(snippet);*/
     
 }
+
+
 
 function getSnippetForMetaRuleParam(param) {
 
@@ -690,7 +712,7 @@ function getSuitableArgType(type) {
 }
 
 function makeSignatureHelp(func) {
-    if (func.args === null || func.args.length === 0) {
+    if (func.args === null || func.args === undefined || func.args.length === 0) {
         return null;
     }
 

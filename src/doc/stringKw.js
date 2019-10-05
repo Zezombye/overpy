@@ -849,6 +849,21 @@ var normalStrKw = [
         "fr": "Droite"
     },
     {
+        "opy": "Reversing",
+        "en": "Reversing",
+        "fr": "Inverse"
+    },
+    {
+        "opy": "Reversed",
+        "en": "Reversed",
+        "fr": "Inversé"
+    },
+    {
+        "opy": "Reverse",
+        "en": "Reverse",
+        "fr": "Inverser"
+    },
+    {
         "opy": "Revealing",
         "en": "Revealing",
         "fr": "Révélation"

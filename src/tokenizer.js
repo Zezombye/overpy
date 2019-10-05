@@ -1,4 +1,19 @@
-
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
 /*
 Really a class, but I couldn't manage to make the "class" keyword work.
@@ -71,7 +86,7 @@ function tokenize(content) {
 	
 	
 	var rules = [];
-	var macros = [];
+	macros = [];
 	
 	var isInSpecial = false;
 	//var isInString = false;
@@ -231,7 +246,7 @@ function tokenize(content) {
 				addToken(content[i]);
 				
 			} else if (content.startsWith("#!", i)) {
-				if (content.startsWith("#!define", i)) {
+				if (content.startsWith("#!define ", i)) {
 					if (!isInRule) {
 						isInMacro = true;
 						currentMacro = {
@@ -241,6 +256,13 @@ function tokenize(content) {
 					} else {
 						error("Cannot declare macro inside a rule");
 					}
+				} else if (content.startsWith("#!mainFile ", i)) {
+					//we must ignore this preprocessor directive, and it behaves like a line comment
+					isInLineComment = true;
+
+				} else if (content.startsWith("#!obfuscate", i)) {
+					obfuscateRules = true;
+					isInLineComment = true;
 				} else {
 					error("Unknown preprocessor directive");
 				}
@@ -312,7 +334,7 @@ function tokenize(content) {
 
                         var endOfLine = content.indexOf('\n', i);
                         var path = getFilePath(content.substring(j, endOfLine));
-                        var importedFileContent = ""+getFileContent(path);
+                        var importedFileContent = getFileContent(path);
                         
                         content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
                         addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 0);
@@ -443,7 +465,8 @@ function resolveMacro(macro, args=[], indentLevel) {
             for (var i = 0; i < args.length; i++) {
                 vars += "var "+macro.args[i]+"="+args[i]+";";
             }
-            scriptContent = vars + '\n'+scriptContent;
+			scriptContent = vars + '\n'+scriptContent;
+			scriptContent = builtInJsFunctions + scriptContent;
             try {
                 result = eval(scriptContent);
             } catch (e) {
@@ -458,10 +481,11 @@ function resolveMacro(macro, args=[], indentLevel) {
                     }
                     if (encounteredEval) {
                         var colNb = parseInt(line.substring(line.lastIndexOf(":")+1, line.lastIndexOf(")")));
-                        var lineNb = parseInt(line.substring(line.substring(0, line.lastIndexOf(":")).lastIndexOf(":")+1, line.lastIndexOf(":")));
+						var lineNb = parseInt(line.substring(line.substring(0, line.lastIndexOf(":")).lastIndexOf(":")+1, line.lastIndexOf(":")));
+						lineNb -= builtInJsFunctionsNbLines;
                         fileStack.push({
                             name: name,
-                            currentLineNb: lineNb-1,
+                            currentLineNb: lineNb,
                             currentColNb: colNb,
                         })
                     }
