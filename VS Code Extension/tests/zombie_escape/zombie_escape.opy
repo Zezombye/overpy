@@ -101,19 +101,20 @@
 #!define getHumans() [player for player in getAllPlayers() if player.team == TEAM_HUMANS]
 #!define getZombies() [player for player in getAllPlayers() if player.team == TEAM_ZOMBIES]
 
+#!obfuscate
 
 @Rule "cs:s zombie escape - made by /u/zezombye - discord in description"
 @Event global
 mapId = ceil(nearestWalkablePosition(vect(100, 100, 100)).x)
 
 
-import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\maps\kings_row.opy"
+import "maps\kings_row.opy"
 import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\maps\eichenwalde.opy"
 import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\maps\blizzard_world.opy"
 import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\maps\oasis_city_center.opy"
 import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\maps\dorado.opy"
 
-import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\teams.opy"
+import "teams.opy"
 import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\debug.opy"
 import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\bossfight.opy"
 

@@ -60,12 +60,35 @@ const specialFuncs = [
             }
         ]
     },{
+        opy: "getMapId",
+        "description": "Built-in macro that calculates the map ID according to Kevlar's Map Detector (https://docs.google.com/spreadsheets/d/1KOEVdlErAsDIlt1EutD6qhFCykHVJjyydr4vPOxBS9Q).",
+        "args": []
+    },{
+        opy: "getSign",
+        "description": "Built-in macro for calculating the sign of a number. Resolves to `(((x)>0)-((x)<0))`. Returns -1, 0 or 1.",
+        "args": [
+            {
+                "name": "NUMBER",
+                "description": "The number to calculate the sign of.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },{
+        opy: "math.pi",
+        "description": "The number pi = 3.14159265359.",
+        "args": null
+    },{
+        opy: "math.e",
+        "description": "The number e = 2.71828182846.",
+        "args": null
+    },{
         opy: "wait",
         "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
         "args": [
             {
                 "name": "TIME",
-                "description": "The duration of the pause.",
+                "description": "The duration of the pause. If omitted, defaults to 0.016.",
                 "type": "NUMBER",
                 "default": "NUMBER"
             },
@@ -264,6 +287,18 @@ Examples:
                 "default": "DEFAULT VISIBILITY"
             }
         ],
+
+    },{
+        opy: "debug",
+        description: "Creates an orange HUD text at the top left. Should be used for quick debugging of a value.",
+        args: [
+            {
+                "name": "HEADER",
+                "description": "The text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "STRING"
+            },
+        ]
     },{
         opy: "hudHeader",
         description: "Built-in macro for `hudText` to reduce the number of arguments.",

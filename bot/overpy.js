@@ -17,6 +17,8 @@
 
 "use strict";
 
+//The absolute path of the folder containing the main file. Used for relative paths.
+var rootPath = "";
 
 //The stack of the files (macros count as "files").
 //Is reset at each compilation.
@@ -54,6 +56,26 @@ var formatArgs = [];
 
 //Whether the decompilation at this time is under a normal "for" loop (for decompilation).
 var isInNormalForLoop = false;
+
+//The keywords "true" and "false", in the workshop.
+//Used to avoid translating back when comparing to true/false.
+//Generated at each compilation.
+var wsTrue = "";
+var wsFalse = "";
+var wsNull = "";
+var wsNot = "";
+
+//Note: assumes "randInt", "randReal", "randShuffle" and "randChoice" all have the same "random" word, no matter the language.
+var wsRand = "";
+
+//Set at each rule, to check whether it is legal to use "eventPlayer" and related.
+var currentRuleEvent = "";
+
+//Set at each compilation. If set to true, sets all rule titles to empty.
+var obfuscateRules = false;
+
+//Reset at each compilation. Contains all macros.
+var macros = [];
 
 //Operator precedence, from lowest to highest.
 var operatorPrecedence = {
@@ -100,13 +122,28 @@ var pyOperators = [
 	">=",
 	">",
 	"<",
-	"-",
 	"+",
-	"/",
+	"-",
 	"*",
+	"/",
 	"%",
 	"**",
 ];
+
+//Text that gets inserted on top of all js scripts.
+var builtInJsFunctions = `
+function vect(x,y,z) {
+    return ({
+        x:x,
+        y:y,
+        z:z,
+        toString: function() {
+            return "vect("+this.x+","+this.y+","+this.z+")";
+        }
+    });
+}`;
+
+var builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length-1;
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -126,6 +163,58 @@ var pyOperators = [
 
 "use strict";
 
+function boolToWs(x) {
+	if (x === true) {
+		return wsTrue;
+	} else if (x === false) {
+		return wsFalse;
+	} else {
+		error("Invalid boolean "+x);
+	}
+}
+
+function containsRandom(x) {
+	return x.includes(wsRand);
+}
+
+function isWsTrue(x) {
+	if (x === wsTrue) {
+		return true;
+	}
+	if (isNumber(x) && parseFloat(x) !== 0) {
+		return true;
+	}
+	return false;
+}
+
+function isWsFalse(x) {
+	return x === wsFalse || x === wsNull || x === "0";
+}
+
+function isWs1(x) {
+	return x === "1" || x === wsTrue;
+}
+
+function isWs0(x) {
+	return x === "0" || x === wsFalse || x === wsNull;
+}
+
+//As the workshop does not accept numbers that are too long (such as 0.22585181552505867), trim all numbers to 15 decimal places.
+function trimNb(x) {
+	var result = ""+x;
+	if (result.indexOf('.') >= 0) {
+		result = result.substring(0,result.indexOf('.')+16);
+	}
+	return result;
+}
+
+function isNumber(x) {
+	if (x.trim() === "") {
+		return false;
+	}
+	return !isNaN(x);
+}
+
 function getFilenameFromPath(path) {
 	return path.split('\\').pop().split('/').pop();
 }
@@ -137,10 +226,22 @@ function getFilePath(pathStr) {
 		error("Expected a string but found '"+pathStr+"'");
 	}
 	pathStr = pathStr.substring(1, pathStr.length-1);
+	//parse backslashes
 	pathStr = pathStr.replace(/\\("|')/g, "$1");
 	pathStr = pathStr.replace(/\\\\/g, "\\");
+
+	//convert backslashes to normal slashes
+	pathStr = pathStr.replace(/\\/g, "/");
 	debug("Path str is now '"+pathStr+"'");
-	return pathStr;
+
+	//Determine if the path is absolute or relative
+	if (pathStr.startsWith("/") || /^[A-Za-z]:/.test(pathStr)) {
+		//absolute path
+		return pathStr;
+	} else {
+		//relative path
+		return rootPath+pathStr;
+	}
 }
 
 function getFileContent(path) {
@@ -149,10 +250,10 @@ function getFileContent(path) {
 	try {
 		fs = require("fs");
 	} catch (e) {
-		error("Cannot use 'import' statement in browsers");
+		error("Cannot use multiple files in browsers");
 	}
 	try {
-		return fs.readFileSync(path);
+		return ""+fs.readFileSync(path);
 	} catch (e) {
 		error(e);
 	}
@@ -399,6 +500,14 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 		
 		if (toWorkshop) {
 			if (keywordArray[i].opy === keyword) {
+
+				//Check number of arguments
+				if (options.nbArgs) {
+					if (keywordArray[i].args === null && options.nbArgs !== 0 || keywordArray[i].args.length !== options.nbArgs) {
+						error("Function '"+keyword+"' takes "+(keywordArray[i].args===null?0:keywordArray[i].args.length)+" arguments, received "+options.nbArgs);
+					}
+				}
+
 				//Fallback to "en" if no entry for this language
 				if (currentLanguage in keywordArray[i]) {
 					return keywordArray[i][currentLanguage];
@@ -423,7 +532,7 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 	//Check for numbers
 	if (!isNaN(keyword)) {
 		//Convert to int then to string to remove unnecessary 0s.
-		keyword = Number(keyword).toString();
+		keyword = trimNb(Number(keyword).toString());
 		return keyword;
 	}
 	
@@ -543,7 +652,7 @@ function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
 	}
 	
 	if (rtl) {
-		result.push(tokens.slice(end+1, latestDelimiterPos));
+		result.unshift(tokens.slice(end+1, latestDelimiterPos));
 	} else {
 		result.push(tokens.slice(latestDelimiterPos+1, end));
 	}
@@ -676,7 +785,7 @@ function dispTokens(content) {
 //Logging stuff
 function error(str, token) {
 	
-	if (token !== undefined) {
+	if (token !== undefined && token.fileStack !== undefined) {
 		fileStack = token.fileStack;
 	}
 	
@@ -852,10 +961,17 @@ function decompileRule(content) {
 	}
 	
 	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
+	var isCurrentRuleDisabled = false;
+	if (content.trim().startsWith(tows("_disabled", ruleKw))) {
+		isCurrentRuleDisabled = true;
+	}
 	
 	debug("Decompiling rule "+ruleName);
-	
-	var result = "@Rule "+ruleName+"\n";
+	var result = "";
+	if (isCurrentRuleDisabled) {
+		result += '"""';
+	}
+	result += "@Rule "+ruleName+"\n";
 	
 	var ruleContent = content.substring(bracketPos[2]+1, bracketPos[3]);
 	
@@ -912,6 +1028,10 @@ function decompileRule(content) {
 	if (actions !== "") {
 		result += decompileActions(actions);
 	}
+	
+	if (isCurrentRuleDisabled) {
+		result += '"""';
+	}
 	return result+"\n\n";
 }
 
@@ -956,7 +1076,8 @@ function decompileActions(content) {
 	
 	//Detect the last loop to know where to place the "while"
 	for (var i = 0; i < actions.length; i++) {
-		if (topy(getName(actions[i]), actionKw).startsWith("_loop")) {
+		var actionName = getName(actions[i]);
+		if (!actionName.startsWith(tows("_disabled", ruleKw)) && topy(actionName, actionKw).startsWith("_loop")) {
 			//It is a loop; update the loop position
 			lastLoop = i;
 		}
@@ -1000,14 +1121,28 @@ function decompileAction(content, actionNb) {
 			result += "lbl_"+i+":\n"+tabLevel(nbTabs);
 		}
 	}
-	
+	var isCurrentActionDisabled = false;
+	console.log(tows("_disabled", ruleKw)+" ");
+	content = content.trim();
+	if (content.startsWith(tows("_disabled", ruleKw)+" ")) {
+		isCurrentActionDisabled = true;
+		content = content.substring((tows("_disabled", ruleKw)+" ").length);
+	}
+	var decompiledAction = "";
 	if (actionNb == lastLoop) {
-		result += decompile(content, actionKw, {"isLastLoop":true});
+		decompiledAction = decompile(content, actionKw, {"isLastLoop":true});
 	} else {
 		
-		result += decompile(content, actionKw, 0, {"isLastLoop":false});
+		decompiledAction = decompile(content, actionKw, 0, {"isLastLoop":false});
 	}
-	return result;
+	if (isCurrentActionDisabled) {
+		if (decompiledAction.includes('\n')) {
+			decompiledAction = "'''"+decompiledAction+"'''";
+		} else {
+			decompiledAction = "#"+decompiledAction;
+		}
+	}
+	return result+decompiledAction;
 }
 
 //This function only decompiles conditions that are in the "condition" section of a rule.
@@ -1646,13 +1781,16 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Wait
 	if (name === "_wait") {
+		var arg1 = decompile(args[0]);
 		var arg2 = decompile(args[1]);
-		if (arg2 === "Wait.IGNORE_CONDITION") {
-			return "wait("+decompile(args[0])+")";
+		var result = "wait(";
+		if (arg1 !== "0.016") {
+			result += arg1;
 		}
-		else {
-			return "wait("+decompile(args[0])+", "+arg2+")";
+		if (arg2 !== "Wait.IGNORE_CONDITION") {
+			result += ", "+arg2;
 		}
+		return result+")";
 	}
 	
 	//X/Y/Z component of
@@ -1911,7 +2049,22 @@ function decompileOperator(operand1, operator, operand2) {
 	
 }
 
-
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
 /*
 Really a class, but I couldn't manage to make the "class" keyword work.
@@ -1984,7 +2137,7 @@ function tokenize(content) {
 	
 	
 	var rules = [];
-	var macros = [];
+	macros = [];
 	
 	var isInSpecial = false;
 	//var isInString = false;
@@ -2126,6 +2279,12 @@ function tokenize(content) {
                 }
 			} else if (content[i] === '\\') {
 				//do nothing
+
+			} else if (content[i] === ',') {
+				if (bracketsLevel === 0) {
+					error("Unexpected token ','");
+				}
+				addToken(content[i]);
 			} else if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
 				bracketsLevel++;
 				addToken(content[i]);
@@ -2138,7 +2297,7 @@ function tokenize(content) {
 				addToken(content[i]);
 				
 			} else if (content.startsWith("#!", i)) {
-				if (content.startsWith("#!define", i)) {
+				if (content.startsWith("#!define ", i)) {
 					if (!isInRule) {
 						isInMacro = true;
 						currentMacro = {
@@ -2148,6 +2307,13 @@ function tokenize(content) {
 					} else {
 						error("Cannot declare macro inside a rule");
 					}
+				} else if (content.startsWith("#!mainFile ", i)) {
+					//we must ignore this preprocessor directive, and it behaves like a line comment
+					isInLineComment = true;
+
+				} else if (content.startsWith("#!obfuscate", i)) {
+					obfuscateRules = true;
+					isInLineComment = true;
 				} else {
 					error("Unknown preprocessor directive");
 				}
@@ -2219,7 +2385,7 @@ function tokenize(content) {
 
                         var endOfLine = content.indexOf('\n', i);
                         var path = getFilePath(content.substring(j, endOfLine));
-                        var importedFileContent = ""+getFileContent(path);
+                        var importedFileContent = getFileContent(path);
                         
                         content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
                         addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 0);
@@ -2294,6 +2460,7 @@ function tokenize(content) {
 					//Test each remaining token
 					for (var h = 0; h < tokens.length; h++) {
 						if (content.startsWith(tokens[h], i)) {
+
 							addToken(content.substring(i, i+tokens[h].length));
 							hasTokenBeenFound = true;
 							break;
@@ -2349,7 +2516,8 @@ function resolveMacro(macro, args=[], indentLevel) {
             for (var i = 0; i < args.length; i++) {
                 vars += "var "+macro.args[i]+"="+args[i]+";";
             }
-            scriptContent = vars + '\n'+scriptContent;
+			scriptContent = vars + '\n'+scriptContent;
+			scriptContent = builtInJsFunctions + scriptContent;
             try {
                 result = eval(scriptContent);
             } catch (e) {
@@ -2364,10 +2532,11 @@ function resolveMacro(macro, args=[], indentLevel) {
                     }
                     if (encounteredEval) {
                         var colNb = parseInt(line.substring(line.lastIndexOf(":")+1, line.lastIndexOf(")")));
-                        var lineNb = parseInt(line.substring(line.substring(0, line.lastIndexOf(":")).lastIndexOf(":")+1, line.lastIndexOf(":")));
+						var lineNb = parseInt(line.substring(line.substring(0, line.lastIndexOf(":")).lastIndexOf(":")+1, line.lastIndexOf(":")));
+						lineNb -= builtInJsFunctionsNbLines;
                         fileStack.push({
                             name: name,
-                            currentLineNb: lineNb-1,
+                            currentLineNb: lineNb,
                             currentColNb: colNb,
                         })
                     }
@@ -2526,6 +2695,7 @@ function tokenizeString(str) {
  */
 
 "use strict";
+
 //OverPy Compiler (OverPy -> Workshop)
 
 
@@ -2533,7 +2703,7 @@ function tokenizeString(str) {
 
 //console.log(compile(compileTest));
 
-function compile(content, language="en") {
+function compile(content, language="en", _rootPath="") {
 	
 	if (typeof window !== "undefined") {
 		var t0 = performance.now();
@@ -2551,6 +2721,24 @@ function compile(content, language="en") {
 	isInNormalForLoop = false;
 	nbTabs = 0;
 	lastLoop = -1;
+	wsTrue = tows("true", valueFuncKw);
+	wsFalse = tows("false", valueFuncKw);
+	wsNull = tows("null", valueFuncKw);
+	wsNot = tows("not", valueFuncKw);
+	wsRand = tows("_randomWs", valueFuncKw);
+	currentRuleEvent = "";
+	rootPath = _rootPath;
+	obfuscateRules = false;
+	macros = [];
+
+	//Handle #!mainfile directive
+	if (content.startsWith("#!mainFile ")) {
+		var mainFilePath = getFilePath(content.substring("#!mainFile ".length, content.indexOf("\n")));
+		rootPath = mainFilePath.substring(0, mainFilePath.lastIndexOf("/")+1);
+		content = getFileContent(mainFilePath);
+		console.log("content = ");
+		console.log(content);
+	}
 
 	var rules = tokenize(content);
 	//console.log(rules);
@@ -2563,7 +2751,10 @@ function compile(content, language="en") {
 		var t1 = performance.now();
 		console.log("Compilation time: "+(t1-t0)+"ms");
 	}
-	return result;
+	return {
+		result: result,
+		macros: macros,
+	};
 }
 
 
@@ -2585,7 +2776,13 @@ function compileRule(rule) {
 		error("Malformed rule declaration (found "+rule.lines[0].tokens.length+") tokens");
 	}
 	
-	result += tows("@Rule", ruleKw)+" ("+rule.lines[0].tokens[1].text+") {\n";
+	result += tows("@Rule", ruleKw)+" (";
+	if (obfuscateRules) {
+		result += '""';
+	} else {
+		result += rule.lines[0].tokens[1].text;
+	}
+	result += ") {\n";
 	result += tabLevel(1)+tows("@Event", ruleKw)+" {\n";
 	
 	var isInEvent = true;
@@ -2662,6 +2859,10 @@ function compileRule(rule) {
 	if (!isEventPlayerDefined && eventType !== "global") {
 		result += tabLevel(2)+tows("all", eventPlayerKw)+";\n";
 	}
+	currentRuleEvent = eventType;
+	if (currentRuleEvent === "") {
+		error("An event must be specified");
+	}
 	isInEvent = false;
 	result += tabLevel(1)+"}\n\n";
 
@@ -2697,9 +2898,16 @@ function compileRule(rule) {
 				}
 			}
 			if (areAllLinesAfterCurrentLineIndented) {
-				result += tabLevel(1)+tows("_conditions", ruleKw)+" {\n";
-				result += parseRuleCondition(rule.lines[i].tokens);
-				result += tabLevel(1)+"}\n\n";
+				var compiledConditions = parseRuleCondition(rule.lines[i].tokens);
+				if (compiledConditions === "__false__") {
+					return ""; //rule will never execute, as one of the condition is false
+				} else if (compiledConditions === "") {
+					//do nothing
+				} else {
+					result += tabLevel(1)+tows("_conditions", ruleKw)+" {\n";
+					result += compiledConditions;
+					result += tabLevel(1)+"}\n\n";
+				}
 			} else {
 				break;
 			}
@@ -2817,20 +3025,26 @@ function parseInstructions(lines, nbDo) {
 					error("Malformed goto");
 				}
 				
-				var skipIfOffset = 0;
 
 				//Check if the goto is of the form "goto loc+xxx"
 				if (lines[i+1].tokens[1].text === "loc") {
-					skipIfOffset = parse(lines[i+1].tokens.slice(3))
-
-					currentResultLineType="other";
-					currentResultLineContent = tows("_skipIf", actionKw)+"("+parse(condition, {isCondition: true})+", "+skipIfOffset+")";
+					var skipIfOffset = parse(lines[i+1].tokens.slice(3))
+					var compiledCondition = parse(condition);
+					if (isWsFalse(compiledCondition) || isWs0(skipIfOffset)) {
+						currentResultLineType = "optimized";
+					} else if (isWsTrue(compiledCondition)) {
+						currentResultLineType="other";
+						currentResultLineContent = tows("_skip", actionKw)+"("+skipIfOffset+")";
+					} else {
+						currentResultLineType="other";
+						currentResultLineContent = tows("_skipIf", actionKw)+"("+compiledCondition+", "+skipIfOffset+")";
+					}
 					
 				} else {
 					//Search for label
 					var label = lines[i+1].tokens[1].text;
 					currentResultLineType = "skipif";
-					currentResultLineCondition = parse(condition, {isCondition: true});
+					currentResultLineCondition = parse(condition);
 					currentResultLineLabel = label;
 				}
 				skipNextLine = true;
@@ -2862,8 +3076,20 @@ function parseInstructions(lines, nbDo) {
 					currentResultLineContent = tows(ifFunction+"ConditionIsFalse", actionKw);
 
 				} else {
-					currentResultLineType = "other";
-					currentResultLineContent = tows(ifFunction, actionKw)+"("+parse(condition, {isCondition: true})+")";
+					var compiledCondition = parse(condition);
+					if (isWsFalse(compiledCondition)) {
+						currentResultLineType = "optimized";
+					} else if (isWsTrue(compiledCondition)) {
+						currentResultLineType = "other";
+						if (ifFunction === "_abortIf") {
+							currentResultLineContent = tows("return", actionKw);
+						} else {
+							currentResultLineContent = tows("_loop", actionKw);
+						}
+					} else {
+						currentResultLineType = "other";
+						currentResultLineContent = tows(ifFunction, actionKw)+"("+compiledCondition+")";
+					}
 				}
 				skipNextLine = true;
 
@@ -2960,11 +3186,16 @@ function parseInstructions(lines, nbDo) {
 					currentResultLineContent = tows("_loopIfConditionIsFalse", actionKw);
 
 				} else {
-
-					//TODO: optimize and use "loop" if the condition evaluates to "true"
-					currentResultLineType = "other";
-					currentResultLineContent = tows("_loopIf", actionKw)+"("+parse(lines[i].tokens.slice(1), {isCondition: true})+")";
-
+					var compiledCondition = parse(lines[i].tokens.slice(1));
+					if (isWsFalse(compiledCondition)) {
+						currentResultLineType = "optimized";
+					} else if (isWsTrue(compiledCondition)) {
+						currentResultLineType = "other";
+						currentResultLineContent = tows("_loop", actionKw);
+					} else {
+						currentResultLineType = "other";
+						currentResultLineContent = tows("_loopIf", actionKw)+"("+compiledCondition+")";
+					}
 				}
 			}
 
@@ -2976,9 +3207,18 @@ function parseInstructions(lines, nbDo) {
 			
 			//Check if the goto is of the form "goto loc+xxx"
 			if (lines[i].tokens[1].text === "loc") {
-				skipOffset = parse(lines[i].tokens.slice(3))
-				currentResultLineType = "other";
-				currentResultLineContent = tows("_skipIf", actionKw)+"("+parse(condition, {isCondition: true})+", "+skipIfOffset+")";
+				skipOffset = parse(lines[i].tokens.slice(3));
+
+				var compiledCondition = parse(condition);
+				if (isWsFalse(compiledCondition) || isWs0(skipIfOffset)) {
+					currentResultLineType = "optimized";
+				} else if (isWsTrue(compiledCondition)) {
+					currentResultLineType="other";
+					currentResultLineContent = tows("_skip", actionKw)+"("+skipIfOffset+")";
+				} else {
+					currentResultLineType="other";
+					currentResultLineContent = tows("_skipIf", actionKw)+"("+compiledCondition+", "+skipIfOffset+")";
+				}
 
 			} else {
 				var label = lines[i].tokens[1].text;
@@ -3014,8 +3254,12 @@ function parseInstructions(lines, nbDo) {
 
 		//Any other instruction
 		} else {
-			currentResultLineType = "other",
 			currentResultLineContent = parse(lines[i].tokens, {"isWholeInstruction":true});
+			if (currentResultLineContent.length > 0) {
+				currentResultLineType = "other";
+			} else {
+				currentResultLineType = "optimized";
+			}
 		}
 
 		resultLines.push({
@@ -3043,10 +3287,9 @@ function parseInstructions(lines, nbDo) {
 
 	lines = undefined;
 	var result = "";
-	console.log(resultLines);
 
 	function getNbLinesForType(type) {
-		if (type === "forloop" || type === "label" || type === "ghostelse" || type === "fakeghostelse" || type === "optimized") {
+		if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized"].includes(type)) {
 			return 0;
 		} else {
 			return 1;
@@ -3068,7 +3311,7 @@ function parseInstructions(lines, nbDo) {
 				}
 			}
 
-		} else if (resultLines[i].type === "label" || resultLines[i].type === "ghostelse" || resultLines[i].type === "fakeghostelse" || resultLines[i].type === "forloop") {
+		} else if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized"].includes(resultLines[i].type)) {
 			//do nothing
 
 		} else if (resultLines[i].type === "if") {
@@ -3085,9 +3328,13 @@ function parseInstructions(lines, nbDo) {
 				gotoOffset++;
 			}
 
-			if (gotoOffset === 0) {
+			var compiledCondition = resultLines[i].condition;
+
+			if (isWsFalse(compiledCondition) || gotoOffset === 0) {
 				//Optimize away
 				resultLines[i].type = "optimized";
+			} else if (isWsTrue(compiledCondition)) {
+				result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
 			} else {
 				result = tabLevel(2)+tows("_skipIf", actionKw)+"("+resultLines[i].condition+", "+gotoOffset+");\n"+result;
 			}
@@ -3109,20 +3356,16 @@ function parseInstructions(lines, nbDo) {
 				error("Could not find label "+label);
 			}
 
-			if (gotoOffset === 0) {
+			var compiledCondition = resultLines[i].type === "skipif" ? resultLines[i].condition : wsTrue;
+
+			if (isWsFalse(compiledCondition) || gotoOffset === 0) {
 				//Optimize away
 				resultLines[i].type = "optimized";
+			} else if (isWsTrue(compiledCondition)) {
+				result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
 			} else {
-				var tmpresult = tabLevel(2);
-				if (resultLines[i].type === "skipif") {
-					tmpresult += tows("_skipIf", actionKw)+"("+resultLines[i].condition+", ";
-				} else {
-					tmpresult += tows("_skip", actionKw)+"(";
-				}
-				tmpresult += gotoOffset+");\n";
-				result = tmpresult + result;
+				result = tabLevel(2)+tows("_skipIf", actionKw)+"("+resultLines[i].condition+", "+gotoOffset+");\n"+result;
 			}
-
 
 		} else if (resultLines[i].type === "else") {
 			
@@ -3172,9 +3415,6 @@ function parseInstructions(lines, nbDo) {
 		} else {
 			error("Unhandled rule line type "+resultLines[i].type);
 		}
-
-		
-
 	}
 	
 	return result;
@@ -3188,7 +3428,6 @@ parseArgs options:
 - "invertCondition": true/false
 - "raycastType": "getHitPosition"|"getNormal"|"getPlayerHit"|"hasLoS"
 - "isWholeInstruction": true/false
-- "isCondition": true/false
 */
 function parse(content, parseArgs={}) {
 	
@@ -3197,7 +3436,6 @@ function parse(content, parseArgs={}) {
 	} else if (content.length === 0) {
 		error("Content is empty");
 	}
-	console.log(content);
 	
 	fileStack = content[0].fileStack;
 	if (parseArgs.invertCondition === true) {
@@ -3211,30 +3449,163 @@ function parse(content, parseArgs={}) {
 	
 	//Parse operators
 	for (var i = 0; i < pyOperators.length; i++) {
-		var operands = splitTokens(content, pyOperators[i], false);
+		
+		if (pyOperators[i] === "not") {
+			var operands = splitTokens(content, pyOperators[i], false, false);
+		} else {
+			var operands = splitTokens(content, pyOperators[i], false, true);
+		}
 		if (operands.length === 2) {
 			
 			//The operator is present; parse it
 			if (pyOperators[i] === "=") {
 				return parseAssignment(operands[0], operands[1], false);
 			} else if (pyOperators[i] === "or") {
-				return tows("_or", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+
+				var op1 = parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//A or false = false or A = A
+				if (isWsFalse(op1)) {
+					return op2;
+				}
+				if (isWsFalse(op2)) {
+					return op1;
+				}
+				//A or true = true or A = true
+				if (isWsTrue(op1) || isWsTrue(op2)) {
+					return wsTrue;
+				}
+				//A or A = A
+				if (op1 === op2 && !containsRandom(op1)) {
+					return op1;
+				}
+				//A or not A = not A or A = true
+				if ((op1 === wsNot+"("+op2+")" || wsNot+"("+op1+")" === op2) && !containsRandom(op1)) {
+					return wsTrue;
+				}
+
+				return tows("_or", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else if (pyOperators[i] === "and") {
-				return tows("_and", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+
+				var op1 = parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//A and true = true and A = A
+				if (isWsTrue(op1)) {
+					return op2;
+				}
+				if (isWsTrue(op2)) {
+					return op1;
+				}
+				//A and false = false and A = false
+				if (isWsFalse(op1) || isWsFalse(op2)) {
+					return wsFalse;
+				}
+				//A and A = A
+				if (op1 === op2 && !containsRandom(op1)) {
+					return op1;
+				}
+				//A and not A = not A and A = true
+				if ((op1 === wsNot+"("+op2+")" || wsNot+"("+op1+")" === op2) && !containsRandom(op1)) {
+					return wsFalse;
+				}
+				return tows("_and", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else if (pyOperators[i] === "not") {
-				return tows("not", valueFuncKw)+"("+parse(operands[1])+")";
+
+				var op1 = parse(operands[1]);
+
+				//not true = false
+				if (isWsTrue(op1)) {
+					return wsFalse;
+				}
+				//not false = true
+				if (isWsFalse(op1)) {
+					return wsTrue;
+				}
+				//not not A = A
+				if (op1.startsWith(wsNot+"(")) {
+					return op1.substring((wsNot+"(").length, op1.length-1);
+				}
+				return tows("not", valueFuncKw)+"("+op1+")";
+
 			} else if (pyOperators[i] === "in") {
 				return tows("_arrayContains", valueFuncKw)+"("+parse(operands[1])+", "+parse(operands[0])+")";
 			} else if (pyOperators[i] === "==" || pyOperators[i] === '!=' || pyOperators[i] === '<=' || pyOperators[i] === '>=' || pyOperators[i] === '<' || pyOperators[i] === '>' ) {
 				var pyOperator = pyOperators[i];
-				return tows("_compare", valueFuncKw)+"("+parse(operands[0])+", "+pyOperator+", "+parse(operands[1])+")";
+				var op1 = parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				if (pyOperator === "==") {
+					//A == A = true
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsTrue;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) == parseFloat(op2));
+					}
+				} else if (pyOperator === "!=") {
+					//A != A = false
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsFalse;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) != parseFloat(op2));
+					}
+				} else if (pyOperator === ">") {
+					//A > A = false
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsFalse;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) > parseFloat(op2));
+					}
+				} else if (pyOperator === "<") {
+					//A < A = false
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsFalse;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) < parseFloat(op2));
+					}
+				} else if (pyOperator === ">=") {
+					//A >= A = false
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsTrue;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) >= parseFloat(op2));
+					}
+				} else if (pyOperator === "<=") {
+					//A <= A = false
+					if (op1 === op2 && !containsRandom(op1)) {
+						return wsTrue;
+					} else if (isNumber(op1) && isNumber(op2)) {
+						return boolToWs(parseFloat(op1) <= parseFloat(op2));
+					}
+				}
+
+				return tows("_compare", valueFuncKw)+"("+op1+", "+pyOperator+", "+op2+")";
 			} else if (pyOperators[i] === "+=") {
+				//A += 0 -> nothing
+				if (isWs0(parse(operands[1]))) {
+					return "";
+				}
 				return parseAssignment(operands[0], operands[1], true, "_add");
 			} else if (pyOperators[i] === "-=") {
+				//A -= 0 -> nothing
+				if (isWs0(parse(operands[1]))) {
+					return "";
+				}
 				return parseAssignment(operands[0], operands[1], true, "_subtract");
 			} else if (pyOperators[i] === "*=") {
+				//A *= 1 -> nothing
+				if (isWs1(parse(operands[1]))) {
+					return "";
+				}
 				return parseAssignment(operands[0], operands[1], true, "_multiply");
 			} else if (pyOperators[i] === "/=") {
+				//A /= 1 -> nothing
+				if (isWs1(parse(operands[1]))) {
+					return "";
+				}
 				return parseAssignment(operands[0], operands[1], true, "_divide");
 			} else if (pyOperators[i] === "%=") {
 				return parseAssignment(operands[0], operands[1], true, "_modulo");
@@ -3245,29 +3616,114 @@ function parse(content, parseArgs={}) {
 			} else if (pyOperators[i] === "max=") {
 				return parseAssignment(operands[0], operands[1], true, "_max");
 			} else if (pyOperators[i] === "++") {
-				return parseAssignment(operands[0], [{"lineNb":-1, "colNb":-1,"text":"1"}], true, "_add");
+				return parseAssignment(operands[0], [{"text":"1"}], true, "_add");
 			} else if (pyOperators[i] === "--") {
-				return parseAssignment(operands[0], [{"lineNb":-1, "colNb":-1,"text":"1"}], true, "_subtract");
+				return parseAssignment(operands[0], [{"text":"1"}], true, "_subtract");
 			} else if (pyOperators[i] === "/") {
-				return tows("_divide", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+
+				var op1 = parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//pre-calculate nb/nb
+				if (isNumber(op1) && isNumber(op2)) {
+					return trimNb(parseFloat(op1)/parseFloat(op2));
+				}
+				//A/0 = 0/A = 0
+				if (isWs0(op1) || isWs0(op2)) {
+					return "0";
+				}
+				//A/1 = A
+				if (isWs1(op2)) {
+					return op1;
+				}
+				
+				return tows("_divide", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else if (pyOperators[i] === "*") {
-				return tows("_multiply", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+
+				var op1 = parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//pre-calculate nb*nb
+				if (isNumber(op1) && isNumber(op2)) {
+					return trimNb(parseFloat(op1)*parseFloat(op2));
+				}
+				//A*0 = 0*A = 0
+				if (isWs0(op1) || isWs0(op2)) {
+					return "0";
+				}
+				//A*1 = 1*A = A
+				if (isWs1(op1)) {
+					return op2;
+				}
+				if (isWs1(op2)) {
+					return op1;
+				}
+				//A*A = A**2
+				if (op1 === op2 && !containsRandom(op1)) {
+					return tows("_raiseToPower", valueFuncKw)+"(2, "+op1+")";
+				}
+				
+				return tows("_multiply", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else if (pyOperators[i] === "%") {
 				return tows("_modulo", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 			} else if (pyOperators[i] === "**") {
 				return tows("_raiseToPower", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 			} else if (pyOperators[i] === "-") {
 				
-				//Check for unary operator
-				if (operands[0].length === 0 || pyOperators.indexOf(operands[0][operands[0].length-1].text) >= 0) {
-					//Do nothing; parse it later
+				//Handle things like "3*-5" by checking if the 1st operand ends by another operator
+				if (operands[0].length > 0 && ["*", "/", "%"].includes(operands[0][operands[0].length-1].text)) {
 					continue;
-				} else {
-					return tows("_subtract", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
 				}
-				return tows("_not", valueFuncKw)+"("+parse(operands[1])+")";
+
+				//A - -B -> A+B
+				if (operands[0].length > 0 && operands[0][operands[0].length-1].text === "-") {
+					return parse(operands[0].slice(0, operands[0].length-1).concat([{"text":"+"}]).concat(operands[1]));
+				}
+
+				var op1 = operands[0].length === 0 ? "0" : parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//pre-calculate nb-nb
+				if (isNumber(op1) && isNumber(op2)) {
+					return trimNb(parseFloat(op1)-parseFloat(op2));
+				}
+				//A-0 = A
+				if (isWs0(op2)) {
+					return op1;
+				}
+				//A-A = 0
+				if (op1 === op2 && !containsRandom(op1)) {
+					return "0";
+				}
+
+				return tows("_subtract", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else if (pyOperators[i] === "+") {
-				return tows("_add", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
+
+				var op1 = operands[0].length === 0 ? "0" : parse(operands[0]);
+				var op2 = parse(operands[1]);
+
+				//pre-calculate nb+nb
+				 
+				if (isNumber(op1) && isNumber(op2)) {
+					return trimNb(parseFloat(op1)+parseFloat(op2));
+				}
+				//A+0 = 0+A = A
+				if (isWs0(op1)) {
+					return op2;
+				}
+				if (isWs0(op2)) {
+					return op1;
+				}
+				//A+A = 2*A
+				if (op1 === op2 && !containsRandom(op1)) {
+					return tows("_multiply", valueFuncKw)+"(2, "+op1+")";
+				}
+
+				return tows("_add", valueFuncKw)+"("+op1+", "+op2+")";
+
 			} else {
 				error("Unhandled operator "+pyOperators[i]);
 			}
@@ -3295,7 +3751,7 @@ function parse(content, parseArgs={}) {
 	//Check for literal number
 	var nbTest = dispTokens(content).replace(/ /g, "")
 	if (!isNaN(nbTest)) {
-		return nbTest;
+		return trimNb(nbTest);
 	}
 	
 	//Check for global variable
@@ -3321,7 +3777,7 @@ function parse(content, parseArgs={}) {
 	//It must be parsed from right to left.
 	var operands = splitTokens(content, ".", false, true);
 	if (operands.length === 2) {
-		return parseMember(operands[1], operands[0], parseArgs);
+		return parseMember(operands[0], operands[1], parseArgs);
 	}
 	
 	//Check for parentheses
@@ -3349,6 +3805,19 @@ function parse(content, parseArgs={}) {
 			return parseString(tokenizeString(name.substring(1, name.length-1)));
 			//error("owo");
 		}
+
+		
+		//Check if it is legal to use the event variables.
+		if (name === "eventPlayer" && !(["eachPlayer", "playerJoined", "playerLeft"].includes(currentRuleEvent))) {
+			error("Cannot use 'eventPlayer' with event type '"+currentRuleEvent+"'");
+
+		} else if ((name === "attacker" || name === "victim" || name === "eventDamage" || name === "eventWasCriticalHit") && !(["playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied"].includes(currentRuleEvent))) {
+			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
+
+		} else if ((name === "healer" || name === "healee" || name === "eventHealing") && !(["playerDealtHealing", "playerReceivedHealing"].includes(currentRuleEvent))) {
+			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
+
+		}
 		
 		return tows(name, funcKw);
 	}
@@ -3362,7 +3831,6 @@ function parse(content, parseArgs={}) {
 		}
 	}
 	debug(str);
-	
 	
 	
 	//Special functions
@@ -3424,6 +3892,11 @@ function parse(content, parseArgs={}) {
 		
 		return tows(funcName, actionKw)+"("+result+", "+parse(args[1])+", "+parse(args[2].slice(2))+", "+parse(args[3])+")";
 	}
+
+	if (name === "debug") {
+		//probably the longest line of code in all this codebase
+		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("Team.ALL", getConstantKw("TEAM CONSTANT"))+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("Position.LEFT", getConstantKw("HUD LOCATION"))+", 0, "+tows("Color.ORANGE", getConstantKw("COLOR"))+", "+tows("Color.WHITE", getConstantKw("COLOR"))+", "+tows("Color.WHITE", getConstantKw("COLOR"))+", "+tows("HudReeval.VISIBILITY_AND_STRING", getConstantKw("HUD TEXT REEVALUATION"))+", "+tows("SpecVisibility.ALWAYS", getConstantKw("SPECTATOR VISIBILITY"))+")";
+	}
 	
 	if (name === "floor") {
 		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", getConstantKw("ROUNDING TYPE"))+")";
@@ -3440,24 +3913,24 @@ function parse(content, parseArgs={}) {
 			{text: "."},
 			{text: "WHITE"}
 		];
-		var wsnull = [{
+		var opynull = [{
 			text: "null",
 		}]
 		if (name === "hudHeader") {
-			args.splice(2, 0, wsnull);
-			args.splice(3, 0, wsnull);
+			args.splice(2, 0, opynull);
+			args.splice(3, 0, opynull);
 
 			args.splice(7, 0, defaultColor);
 			args.splice(8, 0, defaultColor);
 		} else if (name === "hudSubheader") {
-			args.splice(1, 0, wsnull);
-			args.splice(3, 0, wsnull);
+			args.splice(1, 0, opynull);
+			args.splice(3, 0, opynull);
 
 			args.splice(6, 0, defaultColor);
 			args.splice(8, 0, defaultColor);
 		} else if (name === "hudSubtext") {
-			args.splice(1, 0, wsnull);
-			args.splice(2, 0, wsnull);
+			args.splice(1, 0, opynull);
+			args.splice(2, 0, opynull);
 
 			args.splice(6, 0, defaultColor);
 			args.splice(7, 0, defaultColor);
@@ -3475,11 +3948,25 @@ function parse(content, parseArgs={}) {
 	}
 
 	if (name === "getAllPlayers") {
-		return tows("getPlayers", valueFuncKw)+"("+parse([
-			{"text": "Team"},
-			{"text": "."},
-			{"text": "ALL"},
-		])+")";
+		return tows("getPlayers", valueFuncKw)+"("+tows("Team.ALL", getConstantKw("TEAM CONSTANT"))+")";
+	}
+
+	if (name === "getMapId") {
+		
+		//((getObjectivePosition(0) != null) * (300 + ceil(getObjectivePosition(0).x)) + ceil(nearestWalkablePosition(vect(100, 100, 100)).x))
+		return parse([
+			//nevermind, this one is the longest.
+			{"text": "("},{"text": "("},{"text": "getObjectivePosition"},{"text": "("},{"text": "0"},{"text": ")"},{"text": "!="},{"text": "null"},{"text": ")"},{"text": "*"},{"text": "("},{"text": "300"},{"text": "+"},{"text": "ceil"},{"text": "("},{"text": "getObjectivePosition"},{"text": "("},{"text": "0"},{"text": ")"},{"text": "."},{"text": "x"},{"text": ")"},{"text": ")"},{"text": "+"},{"text": "ceil"},{"text": "("},{"text": "nearestWalkablePosition"},{"text": "("},{"text": "vect"},{"text": "("},{"text": "100"},{"text": ","},{"text": "100"},{"text": ","},{"text": "100"},{"text": ")"},{"text": ")"},{"text": "."},{"text": "x"},{"text": ")"},{"text": ")"},
+		])
+	}
+
+	if (name === "getSign") {
+		if (args.length !== 1) {
+			error("Function getSign() takes one argument, received "+args.length);
+		} else {
+			//(((x)>0)-((x)<0))
+			return parse([{"text":"("},{"text":"("},{"text":"("}].concat(args[0]).concat([{"text":")"},{"text":">"},{"text":"0"},{"text":")"},{"text":"-"},{"text":"("},{"text":"("}].concat(args[0]).concat([{"text":")"},{"text":"<"},{"text":"0"},{"text":")"},{"text":")"}])));
+		}
 	}
 	
 	if (name === "round") {
@@ -3560,8 +4047,13 @@ function parse(content, parseArgs={}) {
 		
 	
 	if (name === "wait") {
-		var result = tows("_wait", actionKw)+"("+parse(args[0])+", ";
-		if (args.length === 1) {
+		var result = tows("_wait", actionKw)+"(";
+		if (args.length === 0) {
+			result += "0.016, ";
+		} else {
+			result += parse(args[0])+", ";
+		}
+		if (args.length <= 1) {
 			result += tows("Wait.IGNORE_CONDITION", getConstantKw("WAIT BEHAVIOR"))
 		} else {
 			result += parse(args[1]);
@@ -3576,7 +4068,7 @@ function parse(content, parseArgs={}) {
 	}
 	
 	//Default case (not a special function).
-	var result = tows(name, funcKw)+"(";
+	var result = tows(name, funcKw, {nbArgs:args.length})+"(";
 	for (var i = 0; i < args.length; i++) {
 		result += parse(args[i]);
 		if (i < args.length-1) {
@@ -3790,6 +4282,18 @@ function parseMember(object, member, parseArgs={}) {
 	} else if (name === "index") {
 		return tows("_indexOfArrayValue", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
 		
+	} else if (object[0].text === "math" && object.length === 1) {
+		if (name === "pi") {
+			return "3.14159265359";
+		} else if (name === "e") {
+			return "2.71828182846";
+		} else {
+			error("Unhandled member 'math."+name+"'");
+		}
+
+	} else if (object[0].text === "Map") {
+		return tows("Map."+name, mapKw);
+
 	} else if (object[0].text === "random" && object.length === 1) {
 		if (name === "randint" || name === "uniform") {
 			return tows("random."+name, valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+")";
@@ -3864,15 +4368,15 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 			//console.log(operands);
 			
 			//Check for array
-			if (operands[0].length > 1 && operands[0][1].text === '[') {
+			if (operands[1].length > 1 && operands[1][1].text === '[') {
 				result += tows("_"+func+"PlayerVarAtIndex", actionKw)
-						+"("+parse(operands[1])+", "+operands[0][0].text+", "
-						+parse(operands[0].slice(2, operands[0].length-1))+", ";
+						+"("+parse(operands[0])+", "+operands[1][0].text+", "
+						+parse(operands[1].slice(2, operands[1].length-1))+", ";
 			} else {
-				if (operands[0].length > 1) {
-					error("Unauthorised player variable", operands[1]);
+				if (operands[1].length > 1) {
+					error("Unauthorised player variable ", operands[1]);
 				}
-				result += tows("_"+func+"PlayerVar", actionKw)+"("+parse(operands[1])+", "+operands[0][0].text+", ";
+				result += tows("_"+func+"PlayerVar", actionKw)+"("+parse(operands[0])+", "+operands[1][0].text+", ";
 			}
 			
 		} else {
@@ -3959,7 +4463,6 @@ function parseLiteralArray(content) {
 			
 			//Literal array with only values ([1,2,3])
 			var args = splitTokens(content.slice(1, content.length-1), ",");
-			console.log(args);
 			//Allow trailing comma
 			if (args[args.length-1].length === 0) {
 				args = args.slice(0, args.length-1);
@@ -3990,50 +4493,85 @@ function parseRuleCondition(content) {
 	}
 	
 	content = content.slice(1, content.length-1);
+	var conditions = [];
 	
 	//If there is any "or" in the condition, there is only one instruction.
 	var orOperands = splitTokens(content, "or");
 	
 	if (orOperands.length > 1) {
 		debug("Condition contains 'or'");
-		result += tabLevel(2)+parse(content);
+		conditions = [[{text:"("}].concat(content).concat([{text:")"}])];
 	} else {
 		var andOperands = splitTokens(content, "and");
+		conditions = andOperands;
+	}
+
+
+	for (var condition of conditions) {
 		
-		for (var i = 0; i < andOperands.length; i++) {
-			
-			debug("Parsing condition '"+dispTokens(andOperands[i])+"'");
-			//console.log(andOperands);
-			
-			result += tabLevel(2);
-			
-			var comparisonOperators = ["==", "!=", "<=", ">=", "<", ">"];
-			var comparisonOperands;
-			var hasComparisonOperand = false;
-			
-			for (var j = 0; j < comparisonOperators.length; j++) {
-				comparisonOperands = splitTokens(andOperands[i], comparisonOperators[j]);
-				if (comparisonOperands.length > 1) {
-					if (comparisonOperands.length != 2) {
-						error("Chained comparisons are not allowed (eg: a == b == c)");
-					}
-					result += parse(comparisonOperands[0]);
-					result += " "+comparisonOperators[j]+" "+parse(comparisonOperands[1]);
-					hasComparisonOperand = true;
-					break;
+		debug("Parsing condition '"+dispTokens(condition)+"'");
+		//console.log(andOperands);
+
+		
+		var comparisonOperators = ["==", "!=", "<=", ">=", "<", ">"];
+		var comparisonOperands;
+		var hasComparisonOperand = false;
+		var op1 = "";
+		var op2 = "";
+		var operator = "";
+		
+		for (var j = 0; j < comparisonOperators.length; j++) {
+			comparisonOperands = splitTokens(condition, comparisonOperators[j]);
+			if (comparisonOperands.length > 1) {
+				if (comparisonOperands.length != 2) {
+					error("Chained comparisons are not allowed (eg: a == b == c)");
 				}
+				op1 = parse(comparisonOperands[0]);
+				op2 = parse(comparisonOperands[1]);
+				operator = comparisonOperators[j];
+				hasComparisonOperand = true;
+				break;
 			}
-			
-			if (!hasComparisonOperand) {
-				if (andOperands[i][0].text === "not") {
-					result += parse(andOperands[i].slice(1)) + " == "+tows("false", valueFuncKw);
-				} else {
-					result += parse(andOperands[i]) + " == "+tows("true", valueFuncKw);
-				}
-			}
-			
-			result += ";\n";
 		}
+		
+		if (!hasComparisonOperand) {
+			operator = "==";
+			if (condition[0].text === "not") {
+				op1 = parse(condition.slice(1));
+				op2 = tows("false", valueFuncKw);
+			} else {
+				op1 = parse(condition);
+				op2 = tows("true", valueFuncKw);
+			}
+		}
+		//tests for optimizations
+		var isOp1True = isWsTrue(op1);
+		var isOp2True = isWsTrue(op2);
+		var isOp1False = isWsFalse(op1);
+		var isOp2False = isWsFalse(op2);
+
+		if (operator === "==") {
+			//true == true or false == false -> true
+			if (isOp1True && isOp2True || isOp1False && isOp2False) {
+				continue;
+
+			//true == false or false == true -> false
+			} else if (isOp1True && isOp2False || isOp1False && isOp2True) {
+				return "__false__";
+			}
+		} else if (operator === "!=") {
+			//true != false or false != true -> true
+			if (isOp1True && isOp2False || isOp1False && isOp2True) {
+				continue;
+			
+			//true != true or false != false -> false
+			} else if (isOp1True && isOp2True || isOp1False && isOp2False) {
+				return "__false__";
+			}
+		}
+
+
+		result += tabLevel(2)+op1+" "+operator+" "+op2+";\n";
 	}
 	
 	return result;
@@ -8848,6 +9386,13 @@ var valueFuncKw = [
         ]
     },
     {
+        "opy": "_randomWs",
+        "en": "random",
+        "fr": "Aléatoire",
+        "description": "An internal value that is the word 'random' used by all 4 random functions, no matter the language.",
+        "args": [],
+    },
+    {
         "opy": "random.randint",
         "en": "randomInteger",
         "fr": "NombreEntierAléatoire",
@@ -11026,9 +11571,6 @@ var constantValues = {
 "use strict";
 
 //List of workshop "keywords" (conditions, values, actions).
-//Each keyword set is an array containing arrays containing 2 arrays.
-//The first array is the OverPy keywords, the second array is the Workshop keywords.
-//The keywords are sorted by the english workshop keyword (with the exception of the event keywords).
 //Note: each workshop keyword MUST be with no spaces!
 
 //OverPy keywords beginning with "_" aren't actually keywords; they signal to the parser that it isn't a simple keyword replacement.
@@ -11075,6 +11617,10 @@ var ruleKw = [
         "en": "actions",
         "fr": "actions",
         "kr": "action",
+    },{
+        "opy": "_disabled",
+        "en": "disabled",
+        "fr": "désactivé",
     }
 ];
 
@@ -12298,6 +12844,21 @@ var normalStrKw = [
         "opy": "Right",
         "en": "Right",
         "fr": "Droite"
+    },
+    {
+        "opy": "Reversing",
+        "en": "Reversing",
+        "fr": "Inverse"
+    },
+    {
+        "opy": "Reversed",
+        "en": "Reversed",
+        "fr": "Inversé"
+    },
+    {
+        "opy": "Reverse",
+        "en": "Reverse",
+        "fr": "Inverser"
     },
     {
         "opy": "Revealing",
@@ -15159,12 +15720,35 @@ const specialFuncs = [
             }
         ]
     },{
+        opy: "getMapId",
+        "description": "Built-in macro that calculates the map ID according to Kevlar's Map Detector (https://docs.google.com/spreadsheets/d/1KOEVdlErAsDIlt1EutD6qhFCykHVJjyydr4vPOxBS9Q).",
+        "args": []
+    },{
+        opy: "getSign",
+        "description": "Built-in macro for calculating the sign of a number. Resolves to `(((x)>0)-((x)<0))`. Returns -1, 0 or 1.",
+        "args": [
+            {
+                "name": "NUMBER",
+                "description": "The number to calculate the sign of.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },{
+        opy: "math.pi",
+        "description": "The number pi = 3.14159265359.",
+        "args": null
+    },{
+        opy: "math.e",
+        "description": "The number e = 2.71828182846.",
+        "args": null
+    },{
         opy: "wait",
         "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
         "args": [
             {
                 "name": "TIME",
-                "description": "The duration of the pause.",
+                "description": "The duration of the pause. If omitted, defaults to 0.016.",
                 "type": "NUMBER",
                 "default": "NUMBER"
             },
@@ -15363,6 +15947,18 @@ Examples:
                 "default": "DEFAULT VISIBILITY"
             }
         ],
+
+    },{
+        opy: "debug",
+        description: "Creates an orange HUD text at the top left. Should be used for quick debugging of a value.",
+        args: [
+            {
+                "name": "HEADER",
+                "description": "The text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "STRING"
+            },
+        ]
     },{
         opy: "hudHeader",
         description: "Built-in macro for `hudText` to reduce the number of arguments.",
@@ -15578,6 +16174,232 @@ const specialMemberFuncs = [
         args: [],
     }
 ];
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+//Thanks to Kevlar for the map IDs
+//https://docs.google.com/spreadsheets/d/1KOEVdlErAsDIlt1EutD6qhFCykHVJjyydr4vPOxBS9Q
+
+var mapKw = [
+    {
+        "opy": "Map.AYUTTHAYA",
+        "en": "42"
+    },
+    {
+        "opy": "Map.BLACK_FOREST",
+        "en": "37"
+    },
+    {
+        "opy": "Map.BLIZZ_WORLD_ARCADE",
+        "en": "54"
+    },
+    {
+        "opy": "Map.BLIZZ_WORLD",
+        "en": "358"
+    },
+    {
+        "opy": "Map.BUSAN",
+        "en": "523"
+    },
+    {
+        "opy": "Map.CASTILLO",
+        "en": "-71"
+    },
+    {
+        "opy": "Map.CHATEAU_GUILLARD",
+        "en": "168"
+    },
+    {
+        "opy": "Map.DORADO_ARCADE",
+        "en": "144"
+    },
+    {
+        "opy": "Map.DORADO",
+        "en": "518"
+    },
+    {
+        "opy": "Map.ECOPOINT_ANTARTICA",
+        "en": "18"
+    },
+    {
+        "opy": "Map.EICHENWALDE_ARCADE",
+        "en": "124"
+    },
+    {
+        "opy": "Map.EICHENWALDE",
+        "en": "435"
+    },
+    {
+        "opy": "Map.HANAMURA_ARCADE",
+        "en": "78"
+    },
+    {
+        "opy": "Map.HANAMURA",
+        "en": "374"
+    },
+    {
+        "opy": "Map.HAVANA_ARCADE",
+        "en": "88"
+    },
+    {
+        "opy": "Map.HAVANA",
+        "en": "384"
+    },
+    {
+        "opy": "Map.HOLLYWOOD_ARCADE",
+        "en": "25"
+    },
+    {
+        "opy": "Map.HOLLYWOOD",
+        "en": "302"
+    },
+    {
+        "opy": "Map.HORIZON_LUNAR_COLONY_ARCADE",
+        "en": "56"
+    },
+    {
+        "opy": "Map.HORIZON_LUNAR_COLONY",
+        "en": "411"
+    },
+    {
+        "opy": "Map.ILIOS",
+        "en": "724"
+    },
+    {
+        "opy": "Map.ILIOS_LIGHTHOUSE",
+        "en": "300"
+    },
+    {
+        "opy": "Map.ILIOS_RUINS",
+        "en": "66"
+    },
+    {
+        "opy": "Map.ILIOS_WELL",
+        "en": "-167"
+    },
+    {
+        "opy": "Map.JUNKERTOWN",
+        "en": "278"
+    },
+    {
+        "opy": "Map.KINGS_ROW_ARCADE",
+        "en": "17"
+    },
+    {
+        "opy": "Map.KINGS_ROW",
+        "en": "299"
+    },
+    {
+        "opy": "Map.LIJIANG_TOWER",
+        "en": "371"
+    },
+    {
+        "opy": "Map.LIJIANG_CONTROL_CENTER",
+        "en": "13"
+    },
+    {
+        "opy": "Map.LIJIANG_GARDEN",
+        "en": "102"
+    },
+    {
+        "opy": "Map.LIJIANG_NIGHT_MARKET",
+        "en": "69"
+    },
+    {
+        "opy": "Map.NECROPOLIS",
+        "en": "30"
+    },
+    {
+        "opy": "Map.NEPAL",
+        "en": "195"
+    },
+    {
+        "opy": "Map.NEPAL_SANCTUM",
+        "en": "101"
+    },
+    {
+        "opy": "Map.NEPAL_SHRINE",
+        "en": "-13"
+    },
+    {
+        "opy": "Map.NEPAL_VILLAGE",
+        "en": "-130"
+    },
+    {
+        "opy": "Map.NUMBANI",
+        "en": "497"
+    },
+    {
+        "opy": "Map.OASIS",
+        "en": "630"
+    },
+    {
+        "opy": "Map.OASIS_CITY_CENTER",
+        "en": "186"
+    },
+    {
+        "opy": "Map.OASIS_GARDENS",
+        "en": "173"
+    },
+    {
+        "opy": "Map.OASIS_UNIVERSITY",
+        "en": "-163"
+    },
+    {
+        "opy": "Map.PARIS_ARCADE",
+        "en": "-3"
+    },
+    {
+        "opy": "Map.PARIS",
+        "en": "243"
+    },
+    {
+        "opy": "Map.PETRA",
+        "en": "41"
+    },
+    {
+        "opy": "Map.RIALTO",
+        "en": "451"
+    },
+    {
+        "opy": "Map.ROUTE_66",
+        "en": "368"
+    },
+    {
+        "opy": "Map.TEMPLE_OF_ANUBIS_ARCADE",
+        "en": "21"
+    },
+    {
+        "opy": "Map.TEMPLE_OF_ANUBIS",
+        "en": "276"
+    },
+    {
+        "opy": "Map.VOLSKAYA_ARCADE",
+        "en": "34"
+    },
+    {
+        "opy": "Map.VOLSKAYA",
+        "en": "321"
+    },
+    {
+        "opy": "Map.WATCHPOINT_GIBRALTAR",
+        "en": "416"
+    }
+];
 
 module.exports = {
 	decompileAllRules: decompileAllRules,
@@ -15593,8 +16415,10 @@ module.exports = {
 	eventPlayerKw: eventPlayerKw,
 	ruleKw: ruleKw,
 	stringKw: stringKw,
+	mapKw: mapKw,
 	specialFuncs: specialFuncs,
 	specialMemberFuncs: specialMemberFuncs,
 	currentLanguage: currentLanguage,
+	macros: macros,
 
 };

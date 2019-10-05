@@ -73,10 +73,10 @@ if eventPlayer.hasSpawned():
 @Rule "reset mei type on death"
 @Event playerDied
 @Team 2
-eventPlayer.respawn()
+victim.respawn()
 wait(0.1)
-eventPlayer.teleport(holdingRoom)
-eventPlayer.meiType = MEI_NO_TYPE
+victim.teleport(holdingRoom)
+victim.meiType = MEI_NO_TYPE
 
 @Rule "mei default"
 @Event eachPlayer
@@ -141,10 +141,11 @@ if eventPlayer.meiType == MEI_SPEEDY:
 @Event eachPlayer
 @Team 2
 if not eventPlayer.noCrouchSpam:
-    wait(0.1)
-    eventPlayer.startForcingButton(Button.CROUCH)
-    wait(0.1)
-    eventPlayer.stopForcingButton(Button.CROUCH)
+    do:
+        wait(0.1)
+        eventPlayer.startForcingButton(Button.CROUCH)
+        wait(0.1)
+        eventPlayer.stopForcingButton(Button.CROUCH)
     while RULE_CONDITION
 
 @Rule "mei sniper"

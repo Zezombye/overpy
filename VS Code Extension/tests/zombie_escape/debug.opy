@@ -1,3 +1,4 @@
+#!mainFile "zombie_escape.opy"
 
 @Rule "(debug) section spheres draw"
 @Event global

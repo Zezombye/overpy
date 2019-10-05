@@ -18,9 +18,6 @@
 "use strict";
 
 //List of workshop "keywords" (conditions, values, actions).
-//Each keyword set is an array containing arrays containing 2 arrays.
-//The first array is the OverPy keywords, the second array is the Workshop keywords.
-//The keywords are sorted by the english workshop keyword (with the exception of the event keywords).
 //Note: each workshop keyword MUST be with no spaces!
 
 //OverPy keywords beginning with "_" aren't actually keywords; they signal to the parser that it isn't a simple keyword replacement.
@@ -67,6 +64,10 @@ var ruleKw = [
         "en": "actions",
         "fr": "actions",
         "kr": "action",
+    },{
+        "opy": "_disabled",
+        "en": "disabled",
+        "fr": "désactivé",
     }
 ];
 

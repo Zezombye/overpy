@@ -27,7 +27,7 @@
 		}
 	],
 
-	"//":"Note: two more colors are possible with 'unused function name' and 'unused variable name'.",
+	"//":"Note: more colors are possible with 'unused function name' and 'unused variable name', as well as 'regex'",
 
 	"repository": {
 		"keywords": {
@@ -85,7 +85,7 @@
 			"patterns": [
 				{
 					"name": "constant.character.escape.overpy",
-					"match": "\\\\."
+					"match": "\\\\[\\\\\"']"
 				}
 			]
 		},
