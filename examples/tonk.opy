@@ -18,9 +18,6 @@
 #!define tankTurretPlayer5 I
 #!define tankTurretPlayer J
 
-
-import "C:/users/zezombye/desktop/overpy/vs code extension/tests/fastfire.opy"
-
 @Rule "update angle"
 @Event global
 do:

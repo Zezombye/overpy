@@ -1,10 +1,9 @@
 
-#!define addFive(x) __script__("C:/users/zezombye/desktop/overpy/vs code extension/tests/testscript.js")
 @Rule "Rule 1"
 @Event eachPlayer
 if eventPlayer.isHoldingButton(Button.INTERACT):
 	destroyAllDummies()
-	wait(addFive(3))
+	wait(3)
     createDummy(eventPlayer.getCurrentHero(), eventPlayer.getTeam(), -1, eventPlayer.getPosition(), vect(0, 0, 0))
     eventPlayer.A = getLastCreatedEntity()
     getLastCreatedEntity().startFacing(eventPlayer.getFacingDirection(), 10000, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)
