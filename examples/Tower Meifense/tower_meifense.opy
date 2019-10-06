@@ -61,7 +61,7 @@
 #!define spawnA36 vect(-7.3, 5, -43)
 #!define spawnA37 vect(-16.56, -2, -55.39)
 
-#!define generateBeams() __script__("C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\generatewallbeams.js")
+#!define generateBeams() __script__("generatewallbeams.js")
 
 @Rule "mei first spawn"
 @Event eachPlayer

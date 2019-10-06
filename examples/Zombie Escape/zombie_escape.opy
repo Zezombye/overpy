@@ -95,9 +95,7 @@
 #!define kbMultScalar 0.54
 #!define kbRatioMult 0.36
 
-#!define debug(x) hudHeader(getAllPlayers(), x, Position.LEFT, 0, Color.TURQUOISE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.ALWAYS)
-#!define generateArenaVectors(bottomRight, bottomLeft, topLeft) __script__("C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\GenerateArenaVectors.js")
-#!define getSign(x) ((x>=0)-(x<0))
+#!define generateArenaVectors(bottomRight, bottomLeft, topLeft) __script__("GenerateArenaVectors.js")
 #!define getHumans() [player for player in getAllPlayers() if player.team == TEAM_HUMANS]
 #!define getZombies() [player for player in getAllPlayers() if player.team == TEAM_ZOMBIES]
 
@@ -109,14 +107,14 @@ mapId = ceil(nearestWalkablePosition(vect(100, 100, 100)).x)
 
 
 import "maps\kings_row.opy"
-import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\maps\eichenwalde.opy"
-import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\maps\blizzard_world.opy"
-import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\maps\oasis_city_center.opy"
-import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\maps\dorado.opy"
+import "maps\eichenwalde.opy"
+import "maps\blizzard_world.opy"
+import "maps\oasis_city_center.opy"
+import "maps\dorado.opy"
 
 import "teams.opy"
-import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\debug.opy"
-import "C:\Users\Zezombye\Desktop\overpy\VS Code Extension\tests\zombie_escape\bossfight.opy"
+import "debug.opy"
+import "bossfight.opy"
 
 
 @Rule "initial zombie hero + other vars"
