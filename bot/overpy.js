@@ -3049,14 +3049,6 @@ function parseInstructions(lines, nbDo) {
 				}
 				skipNextLine = true;
 				
-				if (lines[i].tokens[0].text === "elif") {
-					resultLines.push({
-						type: "fakeghostelse",
-						indentLevel: lines[i].indentLevel,
-						fileStack: fileStack,
-					})
-				}
-
 			} else if (lines[i+1].tokens[0].text === "return" || lines[i+1].tokens[0].text === "continue") {
 				var ifFunction = "";
 				if (lines[i+1].tokens[0].text === "return") {
@@ -3094,18 +3086,20 @@ function parseInstructions(lines, nbDo) {
 				skipNextLine = true;
 
 				
-				if (lines[i].tokens[0].text === "elif") {
+			} else {
+				currentResultLineType = "if";
+				currentResultLineCondition = parse(condition, {invertCondition: true, isCondition: true});
+
+			}
+
+			if (lines[i].tokens[0].text === "elif") {
+				if (resultLines[resultLines.length-1].indentLevel <= lines[i].indentLevel) {
 					resultLines.push({
 						type: "fakeghostelse",
 						indentLevel: lines[i].indentLevel,
 						fileStack: fileStack,
 					})
-				}
-			} else {
-				currentResultLineType = "if";
-				currentResultLineCondition = parse(condition, {invertCondition: true, isCondition: true});
-
-				if (lines[i].tokens[0].text === "elif") {
+				} else {
 					resultLines.push({
 						type: "fakeelse",
 						indentLevel: lines[i].indentLevel,
