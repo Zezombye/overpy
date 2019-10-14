@@ -1,4 +1,4 @@
-#!mainFile "zombie_escape.opy"
+#!mainFile "zombieescape.opy"
 
 @Rule "(debug) section spheres draw"
 @Event global
@@ -13,11 +13,11 @@ if ENABLE_DEBUG and eventPlayer.isHoldingButton(Button.INTERACT):
 
 
 @Rule "(debug) print coords"
-@Event eachPlayer
+@Event global
 if ENABLE_DEBUG:
-    hudHeader(getAllPlayers(), eventPlayer.getPosition(), Position.LEFT, 0, Color.GREEN, HudReeval.VISIBILITY_AND_STRING)
-    hudHeader(getAllPlayers(), distance(eventPlayer.getPosition(), lateTps[currentSection + 1]), Position.LEFT, 0, Color.PURPLE, HudReeval.VISIBILITY_AND_STRING)
-    debug(hostPlayer.isUsingAbility2())
+    hudHeader(getAllPlayers(), hostPlayer.getPosition(), Position.LEFT, 0, Color.GREEN, HudReeval.VISIBILITY_AND_STRING)
+    hudHeader(getAllPlayers(), distance(hostPlayer.getPosition(), lateTps[currentSection + 1]), Position.LEFT, 0, Color.PURPLE, HudReeval.VISIBILITY_AND_STRING)
+    debug(hostPlayer.isFiringSecondaryFire())
 
     
 @Rule "pharah debug"
@@ -27,4 +27,23 @@ if ENABLE_DEBUG and eventPlayer.isCommunicating(Comms.NEED_HEALING) and eventPla
     wait(1)
     currentSection++
     sectionLoopIndex = 0
+"""
+@Rule "spawn dummies"
+@Event global
+if ENABLE_DEBUG:
+    createDummy(Hero.ANA, Team.ALL, -1, hostPlayer.getPosition(), vect(0,0,0))
+    createDummy(Hero.ASHE, Team.ALL, -1, hostPlayer.getPosition(), vect(0,0,0))
+    createDummy(Hero.BAPTISTE, Team.ALL, -1, hostPlayer.getPosition(), vect(0,0,0))
 
+@Rule "tp dummies"
+@Event global
+if ENABLE_DEBUG and hostPlayer.isCommunicating(Comms.VOICE_LINE_UP):
+    for dummy in [player for player in getAllPlayers() if player != hostPlayer]:
+        dummy.teleport(hostPlayer.getPosition())
+
+@Rule "dummy hit"
+@Event global
+if ENABLE_DEBUG and hostPlayer.isHoldingButton(Button.INTERACT):
+    for dummy in [player for player in getAllPlayers() if player != hostPlayer]:
+        dummy.forceButtonPress(Button.PRIMARY_FIRE)
+"""

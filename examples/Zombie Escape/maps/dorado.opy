@@ -1,3 +1,4 @@
+#!mainFile "../zombieescape.opy"
 
 @Rule "dorado part 1&3"
 @Event global
@@ -16,7 +17,7 @@ if mapId == 144 and (level == 0 or level == 2):
     walls.append(vect(31.124, 5.269, -19.999))
     walls.append(vect(21.23, 5.422, -19.641))
     X = 3
-    walls.append(vect(55.469, 7.243, 11.299))
+    walls.append(vect(55, 7, 5.75))
     walls.append(vect(26.178, 5.363, -31.329))
     walls.append(vect(25.042, 2.076, 2.763))
     walls.append(vect(29.07, 2.369, 4.184))
@@ -41,7 +42,7 @@ if mapId == 144 and (level == 0 or level == 2):
     lateTps = []
     lateTps.append(vect(-24.091, 0.948, -13.063))
     lateTps.append(vect(-17.663, 1.363, 15.329))
-    lateTps.append(vect(19.562, 0.363, -12.991))
+    lateTps.append(vect(17.61, 0.3, -13.06))
     lateTps.append(vect(26.117, 4, -41.122))
     lateTps.append(vect(45.758, 3.349, 1.928))
     lateTps.append(vect(53.212, 8.349, -30.774))
@@ -53,12 +54,12 @@ if mapId == 144 and (level == 0 or level == 2):
     sectionRadiuses.append(14)
     sectionRadiuses.append(23)
     sectionRadiuses.append(15)
-    sectionRadiuses.append(20)
+    sectionRadiuses.append(15)
     triggers = []
     triggers.append(vect(-6.798, -0.636, 22.805))
     triggers.append(vect(25.913, 1.363, -22.195))
     triggers.append(vect(32.164, 9.352, -48.708))
-    triggers.append(vect(47.77, 3.349, 13.372))
+    triggers.append(vect(55.11, 7, 11))
     triggers.append(vect(68.383, 9.094, -44.804))
     triggers.append(vect(72.108, 9.351, 4.322))
     triggers.append(vect(89.482, 8.086, -0.043))
@@ -142,20 +143,21 @@ if mapId == 144 and (level == 1 or level == 3):
     sectionData.append(vect(8, 4, 10))
     tpDests.append(vect(106.49, 19, -8.23))
     tpStarts.append(vect(138.37, 12, 14.86))
-    lateTps.append(vect(134.26, 12, -9.31))
+    lateTps.append(vect(130, 10, -20.38))
     sectionRadiuses.append(15)
     triggers.append(vect(103.10, 19, 8.73))
 
     #Section 3 - just before boss fight
 
     #shared with 2
-    
-    walls.append(vect(99.21, 20, 21.74))
+    #walls.append(vect(99.21, 20, 21.74))
+    walls.append(vect(90.79, 21, 16.5))
 
     walls.append(vect(108.67, 19, 33.98))
     walls.append(vect(103.24, 15, 25.02))
     walls.append(vect(107.68, 15, 27.63))
     walls.append(vect(101.6, 13, 41.84))
+    walls.append(vect(87.23, 13, 14.5))
 
     sectionData.append(vect(11, 5, 10))
     tpDests.append(vect(0, -30, 0))

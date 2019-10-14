@@ -1,4 +1,4 @@
-#!define ENABLE_DEBUG true
+#!define ENABLE_DEBUG false
 #!define ENABLE_WALL_KB true
 #!define ENABLE_FIRST_INFECTION true
 
@@ -47,6 +47,7 @@
 #!define sectionData S
 #!define triggers T
 #!define walls W
+#!define debugVar Y
 #!define zombieHeroes Z
 
 #Player variables
@@ -54,9 +55,11 @@
 #!define fastFireCountdown B
 #!define tempPos C
 #!define currentHero D
+#!define isHealedByAna E
 #!define hasWonRound F
 #!define tempHero H
 #!define wallLoopIndex J
+#!define zenCharge K
 #!define wasFirstZombieLastRound L
 #!define soldierHealPosition N
 #!define team Z
@@ -69,9 +72,9 @@
 #!define GAME_IN_PROGRESS 3
 
 #!define NO_COUNTDOWN 0
-#!define X_SECONDS_LEFT 1
-#!define 8_SECONDS_LEFT 2
-#!define 1_SECOND_LEFT 3
+#!define FIRST_COUNTDOWN 1
+#!define SECOND_COUNTDOWN 2
+#!define TP_COUNTDOWN 3
 #!define COUNTDOWN_FINISHED 4
 
 #!define NO_TEAM 0
@@ -86,14 +89,12 @@
 #!define wallLength y
 #!define sectionTime z
 
-#!define humanHeroes [Hero.ANA, Hero.ASHE, Hero.BAPTISTE, Hero.HANZO, Hero.MCCREE, Hero.REAPER, Hero.SOLDIER, Hero.SOMBRA, Hero.SYMMETRA, Hero.TRACER, Hero.WIDOWMAKER]
+#!define humanHeroes [Hero.ANA, Hero.ASHE, Hero.BAPTISTE, Hero.HANZO, Hero.MCCREE, Hero.REAPER, Hero.SOLDIER, Hero.SOMBRA, Hero.TRACER, Hero.WIDOWMAKER, Hero.ZENYATTA]
 
-#kbMult = 0.9
-#kbScalar = 0.4
-#kbMultScalar = kbMult*(1-kbScalar)
-#kbRatioMult = kbMult*kbScalar
-#!define kbMultScalar 0.54
-#!define kbRatioMult 0.36
+#!define kbMult 1.3
+#!define kbScalar 0.2
+#!define kbMultScalar (kbMult*(1-kbScalar))
+#!define kbRatioMult (kbMult*kbScalar)
 
 #!define generateArenaVectors(bottomRight, bottomLeft, topLeft) __script__("GenerateArenaVectors.js")
 #!define getHumans() [player for player in getAllPlayers() if player.team == TEAM_HUMANS]
@@ -106,29 +107,31 @@
 mapId = ceil(nearestWalkablePosition(vect(100, 100, 100)).x)
 
 
-import "maps\kings_row.opy"
-import "maps\eichenwalde.opy"
-import "maps\blizzard_world.opy"
-import "maps\oasis_city_center.opy"
-import "maps\dorado.opy"
+import "maps\KingsRow.opy"
+import "maps\Eichenwalde.opy"
+import "maps\BlizzardWorld.opy"
+import "maps\OasisCityCenter.opy"
+import "maps\Dorado.opy"
 
-import "teams.opy"
-import "debug.opy"
-import "bossfight.opy"
+import "Teams.opy"
+import "Debug.opy"
+import "BossFight.opy"
 
 
 @Rule "initial zombie hero + other vars"
 @Event global
-    zombieHeroes = [Hero.TORBJORN, Hero.REINHARDT, Hero.WINSTON, Hero.BRIGITTE]
-    hudHeader(getAllPlayers(), "Waiting 4 Players 2 Start ...", Position.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+zombieHeroes = [Hero.TORBJORN, Hero.REINHARDT, Hero.WINSTON, Hero.BRIGITTE]
+hudHeader(getAllPlayers(), "Waiting 4 Players 2 Start ... ({} / 6)".format(len(getAllPlayers())), Position.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
 
-    currentSection = 0
-    level = 1
-    matchTime = 1200
+currentSection = 0
+matchTime = 1200
+level = 1
+debug((kbMultScalar+kbRatioMult*(len(getZombies())/len(getHumans()))))
 
 @Rule "assembling heroes"
 @Event global
 if isAssemblingHeroes():
+    destroyAllDummies()
     setMatchTime(9)
     roundStatus = IS_ASSEMBLING_HEROES
 
@@ -154,11 +157,23 @@ if isAssemblingHeroes():
 if roundStatus == NEW_ROUND and getMatchTime() != 0:
     matchTime = getMatchTime()
 
-    if not ENABLE_DEBUG:
-        destroyAllHudTexts()
+    #if not ENABLE_DEBUG:
+    #    destroyAllHudTexts()
         
     wait(0.25)
     goToAssembleHeroes()
+
+@Rule "start game if 6 players"
+@Event global
+if len(getAllPlayers()) >= 6 and roundStatus == GAME_NOT_STARTED and not ENABLE_DEBUG:
+    #Fill up the lobby to trigger game start
+    createDummy(Hero.ANA, Team.ALL, -1, vect(1000,0,1000), vect(0,0,0))
+    createDummy(Hero.ANA, Team.ALL, -1, vect(1000,0,1000), vect(0,0,0))
+    createDummy(Hero.ANA, Team.ALL, -1, vect(1000,0,1000), vect(0,0,0))
+    createDummy(Hero.ANA, Team.ALL, -1, vect(1000,0,1000), vect(0,0,0))
+    createDummy(Hero.ANA, Team.ALL, -1, vect(1000,0,1000), vect(0,0,0))
+    createDummy(Hero.ANA, Team.ALL, -1, vect(1000,0,1000), vect(0,0,0))
+    createDummy(Hero.ANA, Team.ALL, -1, vect(1000,0,1000), vect(0,0,0))
     
 
 @Rule "round start"
@@ -221,43 +236,51 @@ if distance(eventPlayer.getPosition(), tpStarts[currentSection] - vect(0, 1, 0))
 
 @Rule "trigger"
 @Event global
-if len(getPlayersInRadius(triggers[currentSection], 5, Team.ALL, LosCheck.OFF)) > 0 and countdownStatus == NO_COUNTDOWN:
+if len(getPlayersInRadius(triggers[currentSection], 5, Team.ALL, LosCheck.OFF)) > 0 and countdownStatus == NO_COUNTDOWN and currentBossFight == NO_BOSS_FIGHT:
+
+    wait(0.15, Wait.ABORT_WHEN_FALSE)
 
     #Immediately end the game if there are zombies
-
     if len([player for player in getPlayersInRadius(triggers[currentSection], 5, Team.ALL, LosCheck.OFF) if player.team == TEAM_ZOMBIES]) != 0:
         roundWinners = TEAM_ZOMBIES
         return
     
-    
     #Check if it is the last section
-
     if currentSection == len(sectionData)-1:
         roundWinners = TEAM_HUMANS
         return
 
     #Don't do anything if the current trigger is a boss fight (defined as time == -1)
-
     if sectionData[currentSection].sectionTime == -1:
         currentBossFight = bossFightType
         return
         
     bigMessage(getAllPlayers(), "Defend: {} Sec".format(sectionData[currentSection].sectionTime))
-    countdownStatus = X_SECONDS_LEFT
+    countdownStatus = FIRST_COUNTDOWN
     wait(sectionData[currentSection].sectionTime - 8)
     if roundStatus <= IS_ASSEMBLING_HEROES:
         return
     
     bigMessage(getAllPlayers(), "Defend: 8 Sec")
-    countdownStatus = 8_SECONDS_LEFT
-    wait(7)
+    smallMessage([player for player in getPlayersInRadius(triggers[currentSection], sectionRadiuses[currentSection], Team.ALL, LosCheck.OFF) if player.team == TEAM_HUMANS], "2 far! Go blue sphere!")
+    countdownStatus = SECOND_COUNTDOWN
+    wait(6)
+
+    createBeam(getAllPlayers(), Beam.BAD, lateTps[currentSection+1]+vect(0.7, -1000, 0.7-5), lateTps[currentSection+1]+vect(0.7, 1000, 0.7-5), Color.RED, EffectReeval.VISIBILITY)
+    smallMessage([player for player in getPlayersInRadius(triggers[currentSection], sectionRadiuses[currentSection], Team.ALL, LosCheck.OFF) if player.team == TEAM_HUMANS], "2 far! Go blue sphere!")
+    wait(0.5)
+    createBeam(getAllPlayers(), Beam.BAD, lateTps[currentSection+1]+vect(0.7, -1000, -0.7-5), lateTps[currentSection+1]+vect(0.7, 1000, -0.7-5), Color.RED, EffectReeval.VISIBILITY)
+    smallMessage([player for player in getPlayersInRadius(triggers[currentSection], sectionRadiuses[currentSection], Team.ALL, LosCheck.OFF) if player.team == TEAM_HUMANS], "2 far! Go blue sphere!")
+    wait(0.5)
+    createBeam(getAllPlayers(), Beam.BAD, lateTps[currentSection+1]+vect(-0.7, -1000, 0-5), lateTps[currentSection+1]+vect(-0.7, 1000, 0-5), Color.RED, EffectReeval.VISIBILITY)
+    smallMessage([player for player in getPlayersInRadius(triggers[currentSection], sectionRadiuses[currentSection], Team.ALL, LosCheck.OFF) if player.team == TEAM_HUMANS], "2 far! Go blue sphere!")
+    wait(0.5)
     if roundStatus <= IS_ASSEMBLING_HEROES:
         return
-
     
     #bigMessage(getAllPlayers(), "Defend: 1 Sec")
-    countdownStatus = 1_SECOND_LEFT
-    wait(1)
+    countdownStatus = TP_COUNTDOWN
+    wait(0.5)
     if roundStatus <= IS_ASSEMBLING_HEROES:
         return
     
@@ -294,7 +317,7 @@ if ENABLE_FIRST_INFECTION and roundStatus == GAME_IN_PROGRESS:
 
 @Rule "tp players at 1 sec left"
 @Event eachPlayer
-if countdownStatus == 1_SECOND_LEFT and not(eventPlayer in getPlayersInRadius(triggers[currentSection], sectionRadiuses[currentSection], Team.ALL, LosCheck.OFF)):
+if countdownStatus == TP_COUNTDOWN and not(eventPlayer in getPlayersInRadius(triggers[currentSection], sectionRadiuses[currentSection], Team.ALL, LosCheck.OFF)):
     eventPlayer.teleport(lateTps[currentSection+1])
 
 
@@ -325,14 +348,15 @@ if len(getHumans()) == 0 and roundStatus >= GAME_IN_PROGRESS and hasFirstInfecti
 @Rule "player dies = gets tp'd, +10 pts if zombie kill"
 @Event playerDied
 if roundWinners == NO_TEAM and roundStatus != GAME_NOT_STARTED:
-
-    if victim == attacker or victim.team == TEAM_ZOMBIES:
+    if attacker.team != TEAM_ZOMBIES or victim.team != TEAM_HUMANS:
         victim.resurrect()
         victim.teleport(lateTps[currentSection])
 
     if attacker.team != TEAM_ZOMBIES:
         attacker.addToScore(9)
     
+    if attacker.team == TEAM_BOSS:
+        victim.team = TEAM_ZOMBIES
 
 
 @Rule "humans and zombies cant hurt same"
@@ -347,7 +371,6 @@ if isGameInProgress():
 if attacker.team != victim.team and victim.team == TEAM_ZOMBIES:
 
     #Randomly apply upwards impulse (more kb)
-
     if random.randint(1, 6) == 1:
         victim.applyImpulse(Vector.UP, 1.0, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     
@@ -406,7 +429,7 @@ if eventPlayer.hasStatusEffect(Status.STUNNED) and eventPlayer.team == TEAM_HUMA
 
 @Rule "red orb"
 @Event global
-if countdownStatus == 8_SECONDS_LEFT:
+if countdownStatus == SECOND_COUNTDOWN:
     createEffect(getAllPlayers(), Effect.ORB, Color.RED, lateTps[currentSection + 1], 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
 
 
@@ -433,6 +456,7 @@ if roundWinners == TEAM_ZOMBIES:
 if roundWinners == TEAM_HUMANS:
     stopAllDamageModifications()
     bigMessage(getAllPlayers(), "Heroes Win")
+    wait(0.1)
     kill(getZombies(), null)
     for player in getHumans():
         player.addToScore(100)
@@ -458,12 +482,14 @@ if getMatchTime() == 0 and roundStatus == GAME_NOT_STARTED:
 
 @Rule "baptiste no crouch jump"
 @Event eachPlayer
+@Hero baptiste
 if eventPlayer.getCurrentHero() == Hero.BAPTISTE and eventPlayer.isCrouching():
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.016)
 
 @Rule "no climb on walls"
 @Event eachPlayer
-if eventPlayer.getCurrentHero() == Hero.HANZO and eventPlayer.isOnWall():
+@Hero hanzo
+if eventPlayer.isOnWall():
     eventPlayer.setStatusEffect(null, Status.KNOCKED_DOWN, 0.016)
     eventPlayer.applyImpulse(Vector.DOWN, 10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
 
@@ -484,11 +510,54 @@ if eventPlayer.isUsingAbility2():
 @Hero soldier
 if eventPlayer.isUsingAbility2():
     do:
-        heal([player for player in getPlayersInRadius(eventPlayer.soldierHealPosition, 4.5, Team.ALL, LosCheck.OFF) if player.team == TEAM_HUMANS], eventPlayer, 0.64)
+        heal([player for player in getPlayersInRadius(eventPlayer.soldierHealPosition, 4.5, Team.ALL, LosCheck.OFF) if player.team == TEAM_HUMANS], eventPlayer, 1)
         wait(0.016)
     while RULE_CONDITION
 
 @Rule "ana healing"
 @Event playerDealtDamage
-if attacker.getCurrentHero() == Hero.ANA and victim.team == TEAM_HUMANS:
-    victim.startHoT(attacker, 0.85, 40)
+@Hero ana
+if victim.team == TEAM_HUMANS and not victim.isHealedByAna:
+    victim.startHoT(attacker, 0.85, 30)
+    victim.isHealedByAna = true
+    wait(0.85)
+    victim.isHealedByAna = false
+
+@Rule "zen healing"
+@Event eachPlayer
+@Hero zenyatta
+if eventPlayer.isUsingUltimate():
+    do:
+        heal([player for player in getPlayersInRadius(eventPlayer.getPosition(), 10, Team.ALL, LosCheck.OFF) if player.team == TEAM_HUMANS], eventPlayer, 3)
+        wait()
+    while RULE_CONDITION
+
+@Rule "zen fast fire - charging"
+@Event eachPlayer
+@Hero zenyatta
+if eventPlayer.isFiringSecondaryFire():
+    do:
+        eventPlayer.zenCharge += 0.016
+        wait(0.016)
+    while RULE_CONDITION
+
+@Rule "zen fast fire - releasing"
+@Event eachPlayer
+@Hero zenyatta
+if not eventPlayer.isFiringSecondaryFire():
+    wait(0.016)
+    if eventPlayer.zenCharge > 1.80 and eventPlayer.getUltCharge() == 100:
+        eventPlayer.forceButtonPress(Button.ULTIMATE)
+    else:
+        eventPlayer.zenCharge = 0
+
+@Rule "zen fast fire - firing"
+@Event eachPlayer
+@Hero zenyatta
+if eventPlayer.zenCharge > 1.80 and eventPlayer.isUsingUltimate():
+    do:
+        eventPlayer.setProjectileSpeed(100)
+        wait(0.016)
+    while RULE_CONDITION
+    eventPlayer.zenCharge = 0
+
