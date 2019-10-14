@@ -1,7 +1,8 @@
+#!mainFile "zombieescape.opy"
 
 @Rule "boss fight kb left/right"
 @Event eachPlayer
-if currentBossFight != NO_BOSS_FIGHT and abs(crossProduct(arenaBottomTopVect, eventPlayer.getPosition()).y - arenaLeftRightCrossDiff) > arenaLeftRightCrossThreshold:
+if currentBossFight != NO_BOSS_FIGHT and eventPlayer.team != TEAM_ZOMBIES and abs(crossProduct(arenaBottomTopVect, eventPlayer.getPosition()).y - arenaLeftRightCrossDiff) > arenaLeftRightCrossThreshold:
     do:
         eventPlayer.setStatusEffect(null, Status.KNOCKED_DOWN, 0.016)
         eventPlayer.applyImpulse(arenaLeftRightVect*getSign(crossProduct(arenaBottomTopVect, eventPlayer.getPosition()).y - arenaLeftRightCrossDiff), 5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
@@ -10,7 +11,7 @@ if currentBossFight != NO_BOSS_FIGHT and abs(crossProduct(arenaBottomTopVect, ev
 
 @Rule "boss fight kb bottom/top"
 @Event eachPlayer
-if currentBossFight != NO_BOSS_FIGHT and abs(crossProduct(arenaLeftRightVect, eventPlayer.getPosition()).y - arenaBottomTopCrossDiff) > arenaBottomTopCrossThreshold:
+if currentBossFight != NO_BOSS_FIGHT and eventPlayer.team != TEAM_ZOMBIES and abs(crossProduct(arenaLeftRightVect, eventPlayer.getPosition()).y - arenaBottomTopCrossDiff) > arenaBottomTopCrossThreshold:
     do:
         eventPlayer.setStatusEffect(null, Status.KNOCKED_DOWN, 0.016)
         eventPlayer.applyImpulse(arenaBottomTopVect*(0-getSign(crossProduct(arenaBottomTopVect, eventPlayer.getPosition()).y - arenaBottomTopCrossDiff)), 5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
@@ -22,6 +23,7 @@ if currentBossFight != NO_BOSS_FIGHT and abs(crossProduct(arenaLeftRightVect, ev
 if currentBossFight != NO_BOSS_FIGHT:
 
     destroyAllEffects()
+    destroyAllIcons()
     wait(0.2)
     createEffect(getAllPlayers(), Effect.BAD_AURA, Color.RED, bossSpawn, 4, EffectReeval.VISIBILITY)
     bossSpawnEffect = getLastCreatedEntity()

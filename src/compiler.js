@@ -143,7 +143,7 @@ function compileRule(rule) {
 					
 				} else if (rule.lines[i].tokens[0].text === "@Hero") {
 					if (isEventPlayerDefined) {
-						error("Event player defined twice");
+						error("Event player (@Hero/@Slot) defined twice");
 					}
 					if (!isEventTeamDefined) {
 						result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
@@ -154,18 +154,18 @@ function compileRule(rule) {
 					
 				} else if (rule.lines[i].tokens[0].text === "@Slot") {
 					if (isEventPlayerDefined) {
-						error("Event player defined twice");
+						error("Event player (@Hero/@Slot) defined twice");
 					}
 					if (!isEventTeamDefined) {
-						result += tabLevel(2)+tows("all", eventTeamKw)+";\n"+tabLevel(2);
+						result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
 						isEventTeamDefined = true;
 					}
 					
 					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows("slot"+rule.lines[i].tokens[1].text, eventPlayerKw)+";\n";
+					result += tabLevel(2)+tows(rule.lines[i].tokens[1].text, eventPlayerKw)+";\n";
 					
 				} else {
-					error("Unknown annotation");
+					error("Unknown annotation '"+rule.lines[i].tokens[0].text+"'");
 				}
 			}
 		} else {
@@ -975,9 +975,11 @@ function parse(content, parseArgs={}) {
 					return op1;
 				}
 				//A*A = A**2
-				if (op1 === op2 && !containsRandom(op1)) {
+				//Do not do this because of the weird behavior with negative numbers to power.
+				//Eg (-1)*(-1) = 1 but (-1)**2 = 0.
+				/*if (op1 === op2 && !containsRandom(op1)) {
 					return tows("_raiseToPower", valueFuncKw)+"(2, "+op1+")";
-				}
+				}*/
 				
 				return tows("_multiply", valueFuncKw)+"("+op1+", "+op2+")";
 
@@ -1123,7 +1125,7 @@ function parse(content, parseArgs={}) {
 
 		
 		//Check if it is legal to use the event variables.
-		if (name === "eventPlayer" && !(["eachPlayer", "playerJoined", "playerLeft"].includes(currentRuleEvent))) {
+		if (name === "eventPlayer" && !(["eachPlayer", "playerJoined", "playerLeft", "playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "playerDealtHealing", "playerReceivedHealing"].includes(currentRuleEvent))) {
 			error("Cannot use 'eventPlayer' with event type '"+currentRuleEvent+"'");
 
 		} else if ((name === "attacker" || name === "victim" || name === "eventDamage" || name === "eventWasCriticalHit") && !(["playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied"].includes(currentRuleEvent))) {
@@ -1187,7 +1189,7 @@ function parse(content, parseArgs={}) {
 		var operands = splitTokens(args[0], ".", false, true);
 		if (operands.length === 2) {
 			funcName += "PlayerVariable";
-			result += parse(operands[1])+", "+operands[0][0].text;
+			result += parse(operands[0])+", "+operands[1][0].text;
 		} else {
 			funcName += "GlobalVariable";
 			result += args[0][0].text;
@@ -1302,9 +1304,9 @@ function parse(content, parseArgs={}) {
 			
 			if (args[2][0].text !== "include" || args[2][1].text !== "=") {
 				error("3rd arg for this raycast must be 'include = xxxx'");
-			} else if (args[3][0].text !== "exclude" || args[2][1].text !== "=") {
+			} else if (args[3][0].text !== "exclude" || args[3][1].text !== "=") {
 				error("4th arg for this raycast must be 'exclude = xxxx'");
-			} else if (args[4][0].text !== "includePlayerObjects" || args[2][1].text !== "=") {
+			} else if (args[4][0].text !== "includePlayerObjects" || args[4][1].text !== "=") {
 				error("5th arg for this raycast must be 'includePlayerObjects = xxxx'");
 			}
 			

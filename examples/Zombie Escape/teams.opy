@@ -1,3 +1,4 @@
+#!mainFile "zombieescape.opy"
 
 @Rule "player becomes dorado boss"
 @Event eachPlayer
@@ -11,6 +12,7 @@ if eventPlayer.team == TEAM_BOSS and currentBossFight == BOSS_FIGHT_DORADO:
     eventPlayer.setDamageReceived(100)
     eventPlayer.setMoveSpeed(80)
     eventPlayer.setMaxHealth(500+200*len(getHumans()))
+    wait(0.1)
     eventPlayer.startHoT(null, 2, 9999)
 
 @Rule "player becomes zombie"
@@ -31,10 +33,12 @@ if eventPlayer.team == TEAM_ZOMBIES:
     eventPlayer.setDamageReceived(50)
     eventPlayer.setMoveSpeed(100)
     eventPlayer.setMaxHealth(500)
-    eventPlayer.startHoT(null, 2, 9999)
+    
 
     bigMessage(eventPlayer, "You Dead")
-    wait(1)
+    wait(0.1)
+    eventPlayer.startHoT(null, 2, 9999)
+    wait(0.9)
     eventPlayer.clearStatusEffect(Status.ROOTED)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
 
@@ -42,13 +46,14 @@ if eventPlayer.team == TEAM_ZOMBIES:
 @Event eachPlayer
 if eventPlayer.team == TEAM_HUMANS:
     eventPlayer.setAbility1Enabled(eventPlayer.getCurrentHero() in [Hero.BAPTISTE, Hero.HANZO, Hero.MCCREE, Hero.SYMMETRA])
-    eventPlayer.setAbility2Enabled(eventPlayer.getCurrentHero() in [Hero.ANA, Hero.ASHE, Hero.HANZO, Hero.SOLDIER, Hero.TRACER, Hero.WIDOWMAKER])
+    eventPlayer.setAbility2Enabled(eventPlayer.getCurrentHero() in [Hero.ANA, Hero.ASHE, Hero.HANZO, Hero.SOLDIER, Hero.TRACER, Hero.WIDOWMAKER, Hero.ZENYATTA])
     eventPlayer.setPrimaryFireEnabled(true)
-    eventPlayer.setSecondaryFireEnabled(eventPlayer.getCurrentHero() in [Hero.ANA, Hero.ASHE, Hero.MCCREE, Hero.SOLDIER, Hero.SYMMETRA, Hero.WIDOWMAKER])
-    eventPlayer.setUltEnabled(eventPlayer.getCurrentHero() in [Hero.ANA, Hero.BAPTISTE, Hero.HANZO, Hero.MCCREE, Hero.REAPER, Hero.SOLDIER, Hero.TRACER, Hero.WIDOWMAKER])
+    eventPlayer.setSecondaryFireEnabled(eventPlayer.getCurrentHero() in [Hero.ANA, Hero.ASHE, Hero.MCCREE, Hero.SOLDIER, Hero.WIDOWMAKER, Hero.ZENYATTA])
+    eventPlayer.setUltEnabled(eventPlayer.getCurrentHero() in [Hero.ANA, Hero.BAPTISTE, Hero.HANZO, Hero.MCCREE, Hero.REAPER, Hero.SOLDIER, Hero.TRACER, Hero.WIDOWMAKER, Hero.ZENYATTA])
     eventPlayer.startForcingHero(eventPlayer.getCurrentHero())
     eventPlayer.setDamageReceived(100)
     eventPlayer.setMoveSpeed(100)
     eventPlayer.setMaxHealth(200)
+    wait(0.1)
     eventPlayer.startHoT(null, 2, 9999)
 

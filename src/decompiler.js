@@ -16,6 +16,7 @@
  */
 
 "use strict";
+
 //OverPy Decompiler (Workshop -> OverPy)
 
 
@@ -191,8 +192,8 @@ function decompileRule(content) {
 			//Detect if it is a slot or hero
 			var eventInst3 = topy(eventInst[2], eventPlayerKw.concat(getConstantKw("HERO CONSTANT")))
 			if (eventInst3 !== "all") {
-				if (eventInst3.startsWith("slot")) {
-					result += "@Slot "+eventInst3.replace("slot", "")+"\n";
+				if (isNumber(eventInst3)) {
+					result += "@Slot "+eventInst3+"\n";
 				} else {
 					//We assume it is a hero
 					result += "@Hero "+eventInst3.substring("HERO.".length).toLowerCase() + "\n";
