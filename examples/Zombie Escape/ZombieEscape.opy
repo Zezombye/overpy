@@ -125,7 +125,6 @@ hudHeader(getAllPlayers(), "Waiting 4 Players 2 Start ... ({} / 6)".format(len(g
 
 currentSection = 0
 matchTime = 1200
-level = 1
 debug((kbMultScalar+kbRatioMult*(len(getZombies())/len(getHumans()))))
 
 @Rule "assembling heroes"
