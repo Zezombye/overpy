@@ -113,7 +113,7 @@ var mapKw = [
     },
     {
         "opy": "Map.ILIOS_WELL",
-        "en": "-167"
+        "en": "-170"
     },
     {
         "opy": "Map.JUNKERTOWN",
@@ -121,11 +121,11 @@ var mapKw = [
     },
     {
         "opy": "Map.KINGS_ROW_ARCADE",
-        "en": "17"
+        "en": "10"
     },
     {
         "opy": "Map.KINGS_ROW",
-        "en": "299"
+        "en": "292"
     },
     {
         "opy": "Map.LIJIANG_TOWER",
@@ -133,7 +133,7 @@ var mapKw = [
     },
     {
         "opy": "Map.LIJIANG_CONTROL_CENTER",
-        "en": "13"
+        "en": "14"
     },
     {
         "opy": "Map.LIJIANG_GARDEN",
