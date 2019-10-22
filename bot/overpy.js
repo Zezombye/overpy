@@ -627,7 +627,7 @@ function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
 		var latestDelimiterPos = -1;
 	}
 	
-	//debug("Splitting tokens '"+dispTokens(tokens)+"' on "+str);
+	//console.log("Splitting tokens '"+dispTokens(tokens)+"' on "+str);
 	
 	for (var i = start; i != end; i+=step) {
 		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
@@ -648,7 +648,7 @@ function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
 	}
 	
 	if (bracketsLevel !== 0) {
-		error("Lexer broke (bracket level not equal to 0)");
+		error("Lexer broke (bracket level is "+bracketsLevel+")");
 	}
 	
 	if (rtl) {
@@ -16286,7 +16286,7 @@ var mapKw = [
     },
     {
         "opy": "Map.ILIOS_WELL",
-        "en": "-167"
+        "en": "-170"
     },
     {
         "opy": "Map.JUNKERTOWN",
@@ -16294,11 +16294,11 @@ var mapKw = [
     },
     {
         "opy": "Map.KINGS_ROW_ARCADE",
-        "en": "17"
+        "en": "10"
     },
     {
         "opy": "Map.KINGS_ROW",
-        "en": "299"
+        "en": "292"
     },
     {
         "opy": "Map.LIJIANG_TOWER",
@@ -16306,7 +16306,7 @@ var mapKw = [
     },
     {
         "opy": "Map.LIJIANG_CONTROL_CENTER",
-        "en": "13"
+        "en": "14"
     },
     {
         "opy": "Map.LIJIANG_GARDEN",

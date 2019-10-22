@@ -481,7 +481,7 @@ function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
 		var latestDelimiterPos = -1;
 	}
 	
-	console.log("Splitting tokens '"+dispTokens(tokens)+"' on "+str);
+	//console.log("Splitting tokens '"+dispTokens(tokens)+"' on "+str);
 	
 	for (var i = start; i != end; i+=step) {
 		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
