@@ -1,0 +1,123 @@
+<html>
+
+
+    <style>
+    
+    table, th, td {
+        text-align: center;
+        border: 1px solid black;
+        border-collapse: collapse; 
+        padding: 5px;
+    }
+    
+    </style>
+
+    <body>
+        <table id="output-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Perceived development time</th>
+                    <th>Perceived impact</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </body>
+
+    <script>
+    
+    var list = [{
+        "name": "Infinite bots",
+        "description": "Allow the unrestricted addition of bots, disregarding how many bots or players are currently on the server, or whether an empty slot is available.",
+        "dev": 1,
+        "impact": 5,
+    },{
+        "name": "Custom bots",
+        "description": "Allow the use of all heroes as bots, even if some of them may not be finished (such as the Ashe bot not having any pathfinding). The shortcomings can be fixed with workshop, with the help of actions such as use ability or force throttle.",
+        "dev": 1,
+        "impact": 5,
+    },{
+        "name": "Event heroes",
+        "description": "Allow selecting event and other non-selectable heroes, such as the Heavy Assault, Enforcer, Zomnic, Bob, Training Bot, the Boat, or the Gunship. Also allow these heroes for bots and dummy bots.",
+        "dev": 1,
+        "impact": 5,
+    },{
+        "name": "Menu maps",
+        "description": "Allow selecting the menu maps. These menu maps are \"cleaned\" and have areas without clutter, which are very useful in certain gamemodes such as boss fights. Additionally, some of those maps allow gamemodes that are not reproducible elsewhere (see the <a href='https://www.reddit.com/r/Overwatch/comments/cfxnup/oi_josuke_i_usedza_handoto_cut_the_entire_map_so/'>Zipline CTF</a> or the <a href='https://www.reddit.com/r/Overwatch/comments/cg04q1/za_handoparis_ffa_arena/'>Paris FFA Arena</a>).",
+        "dev": 1,
+        "impact": 4,
+    },{
+        "name": "Gamemode-agnostic maps",
+        "description": "Allow selecting any map for any gamemode (such as Route 66 for FFA or Petra for Escort), even if that causes the game to be buggy (such as spawning at 0,0,0 or the game being impossible to finish normally). The shortcomings can be fixed with workshop.",
+        "dev": 1,
+        "impact": 4,
+    },{
+        "name": "Infinite players",
+        "description": "Increase the maximum amount of players there can be in one team to up to 50.",
+        "dev": 2,
+        "impact": 5,
+    },{
+        "name": "Custom teams",
+        "description": "Allow, server-side, the use of multiple teams. The relationships between teams can be configured, such that some teams may be hostile to all others, while some teams may be friendly to all others (such as NPCs). Each player only sees 2 teams: one pseudo-team composed of all players friendly to them, and one pseudo-team composed of all players hostile to them.",
+        "dev": 4,
+        "impact": 4,
+    },{
+        "name": "Colored strings and icons",
+        "description": "Add a way to use color and icons in strings, such that it was possible before the Halloween patch (with tags such as &lt;FGFF1133FF&gt; and &lt;TXC0000000004&gt;).",
+        "dev": 1,
+        "impact": 3,
+    },{
+        "name": "Infinite pets",
+        "description": "Add a way to remove the pet limit so that pets such as Torb turret, Junk trap/mine, Sym turret, Hammond mine, Mei wall, Orisa shield, or Dva Mech, can be spawned infinitely many times.",
+        "dev": 1,
+        "impact": 5,
+    },{
+        "name": "Spawnable entities",
+        "description": "Add a way to spawn any entity. This includes bots, dummy bots and pets, but also projectiles such as Pharah's rockets.",
+        "dev": 3,
+        "impact": 5,
+    },{
+        "name": "Disable deathplane",
+        "description": "Add a way to disable all death planes, both local and global. As to keep the death plane functionality such as boop detection, a global death plane should be at the y coordinate -900.",
+        "dev": 2,
+        "impact": 4,
+    },{
+        "name": "SSH Integration",
+        "description": "Allow uploading the workshop code using SSH to the game server. This would speed up the testing process for high-level languages, and allow the use of high-level languages for console players.",
+        "dev": 5,
+        "impact": 1,
+    }
+    ]
+
+    function stars(nb) {
+        var starStr = [
+            "☆☆☆☆☆",
+            "★☆☆☆☆",
+            "★★☆☆☆",
+            "★★★☆☆",
+            "★★★★☆",
+            "★★★★★",
+        ]
+        return starStr[nb];
+    }
+
+    var table = document.getElementById("output-table");
+
+    for (var elem of list) {
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        cell1.innerHTML = elem.name;
+        var cell2 = row.insertCell(1);
+        cell2.innerHTML = elem.description;
+        var cell3 = row.insertCell(2);
+        cell3.innerHTML = stars(elem.dev);
+        var cell4 = row.insertCell(3);
+        cell4.innerHTML = stars(elem.impact);
+    }
+    
+    </script>
+</html>
