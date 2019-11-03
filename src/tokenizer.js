@@ -511,8 +511,6 @@ function resolveMacro(macro, args=[], indentLevel) {
 	}
 	var tabs = "\n"+" ".repeat(indentLevel);
 	result = result.replace(/\n/g, tabs);
-	console.log(tabs)
-	console.log(result)
 	return result;
 }
 

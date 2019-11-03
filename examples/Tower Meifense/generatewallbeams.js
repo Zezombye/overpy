@@ -31,17 +31,12 @@ for (var wallBeam of wallBeams) {
     var vectx = endx-startx;
     var vectz = endz-startz;
 
-    console.log(vectx+" "+vectz);
-
     var dist = calculateDist(startx, startz, endx, endz);
     var nbBeams = dist/spacing+1;
 
     var stepvectx = vectx/(dist/spacing);
     var stepvectz = vectz/(dist/spacing);
 
-    console.log("dist = "+dist);
-    console.log("stepvectx = "+stepvectx);
-    console.log("stepvectz = "+stepvectz);
 
     var currentx = startx;
     var currentz = startz;
@@ -60,5 +55,4 @@ for (var wallBeam of wallBeams) {
     }
 }
 
-console.log(result);
 result;

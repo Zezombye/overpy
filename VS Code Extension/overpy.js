@@ -2563,8 +2563,6 @@ function resolveMacro(macro, args=[], indentLevel) {
 	}
 	var tabs = "\n"+" ".repeat(indentLevel);
 	result = result.replace(/\n/g, tabs);
-	console.log(tabs)
-	console.log(result)
 	return result;
 }
 
@@ -7361,7 +7359,40 @@ var valueFuncKw = [
         "opy": "getAllHeroes()",
         "en": "allHeroes",
         "fr": "TousLesHéros",
-        "description": "The array of all heroes in overwatch.",
+        "description": `The array of all heroes in overwatch. The order is as follows:
+        
+        0. Reaper   
+        1. Tracer   
+        2. Mercy    
+        3. Hanzo    
+        4. Torbjorn 
+        5. Reinhardt
+        6. Pharah   
+        7. Winston  
+        8. Widowmaker
+        9. Bastion  
+        10. Symmetra 
+        11. Zenyatta 
+        12. Genji    
+        13. Roadhog  
+        14. McCree   
+        15. Junkrat  
+        16. Zarya    
+        17. Soldier  
+        18. Lucio    
+        19. Dva      
+        20. Mei      
+        21. Sombra   
+        22. Doomfist 
+        23. Ana      
+        24. Orisa    
+        25. Brigitte 
+        26. Moira    
+        27. Hammond  
+        28. Ashe     
+        29. Baptiste 
+        30. Sigma    
+        `,
         "args": []
     },
     {
@@ -7504,6 +7535,102 @@ var valueFuncKw = [
                 "name": "VALUE",
                 "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
                 "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "acosDeg",
+        "en": "arccosineInDegrees",
+        "fr": "todo",
+        "description": "Arccosine in degrees of the specified value.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "Input value for the function.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "acos",
+        "en": "arccosineInRadians",
+        "fr": "todo",
+        "description": "Arccosine in radians of the specified value.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "Input value for the function.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "asinDeg",
+        "en": "arcsineInDegrees",
+        "fr": "todo",
+        "description": "Arcsine in degrees of the specified value.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "Input value for the function.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "asin",
+        "en": "arcsineInRadians",
+        "fr": "todo",
+        "description": "Arcsine in radians of the specified value.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "Input value for the function.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "atan2Deg",
+        "en": "arctangentInDegrees",
+        "fr": "todo",
+        "description": "Arctangent in degrees of the specified numerator and denominator (often referred to as atan2).",
+        "args": [
+            {
+                "name": "NUMERATOR",
+                "description": "Numerator input for the function.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "DENOMINATOR",
+                "description": "Denominator input for the function.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "atan2",
+        "en": "arctangentInRadians",
+        "fr": "todo",
+        "description": "Arctangent in radians of the specified numerator and denominator (often referred to as atan2).",
+        "args": [
+            {
+                "name": "NUMERATOR",
+                "description": "Numerator input for the function.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "DENOMINATOR",
+                "description": "Denominator input for the function.",
+                "type": "NUMBER",
                 "default": "NUMBER"
             }
         ]
@@ -9811,6 +9938,34 @@ var valueFuncKw = [
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
                 "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "tanDeg",
+        "en": "tangentFromDegrees",
+        "fr": "todo",
+        "description": "Tangent of the specified angle in degrees.",
+        "args": [
+            {
+                "name": "ANGLE",
+                "description": "Angle in degrees.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    {
+        "opy": "tan",
+        "en": "tangentFromRadians",
+        "fr": "todo",
+        "description": "Tangent of the specified angle in radians.",
+        "args": [
+            {
+                "name": "ANGLE",
+                "description": "Angle in radians.",
+                "type": "NUMBER",
                 "default": "NUMBER"
             }
         ]
