@@ -935,16 +935,16 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//String
-	if (name === "_string") {
+	if (name === "_localizedString") {
 		
 		//Blizzard likes making parsing difficult apparently,
 		//cause the "reevaluation on string" used with hud is the same as the "string" function.
 		
 		if (args.length == 0) {
-			return "Reeval.STRING";
+			return "HudReeval.STRING";
 		}
 				
-		var [str, format] = decompileString(args[0], args[1], args[2], args[3], decompileArgs.strDepth);
+		var [str, format] = decompileLocalizedString(args[0], args[1], args[2], args[3], decompileArgs.strDepth);
 				
 		if (decompileArgs.strDepth !== 0 && decompileArgs.strDepth !== undefined) {
 			return [str, format];
