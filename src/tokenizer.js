@@ -360,7 +360,7 @@ function tokenize(content) {
 							
 							if (macros[k].isFunction) {
 								//debug("Resolving function macro "+macros[k].name);
-								var bracketPos = getBracketPositions(content.substring(i), true);
+								var bracketPos = getBracketPositions(content.substring(i), true, true);
 								text = content.substring(i, i+bracketPos[1]+1);
 								var macroArgs = getArgs(content.substring(i+bracketPos[0]+1, i+bracketPos[1]));
 								replacement = resolveMacro(macros[k], macroArgs, currentRuleLine.indentLevel);
@@ -517,7 +517,7 @@ function resolveMacro(macro, args=[], indentLevel) {
 function parseMacro(macro) {
 	
 	macro.content = macro.content.substring("#!define ".length);
-	var bracketPos = getBracketPositions(macro.content);
+	var bracketPos = getBracketPositions(macro.content, false, true);
 	
 	if (bracketPos.length === 0 || macro.content.indexOf(" ") < bracketPos[0]) {
 		//Not a function macro
@@ -556,7 +556,7 @@ function parseMacro(macro) {
 }
 
 //Tokenizes string
-function tokenizeString(str) {
+function tokenizeLocalizedString(str) {
 	
 	var tokenList = []
 	var originalColNb = fileStack[fileStack.length-1].currentColNb;

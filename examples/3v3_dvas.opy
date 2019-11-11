@@ -131,8 +131,8 @@ if eventPlayer.isDummy() and eventPlayer.getCurrentHero() == Hero.DVA and eventP
 @Rule "counteract dva mech balance"
 @Event eachPlayer
 @Hero dva
-if eventPlayer.hasSpawned():
-    eventPlayer.setDamageReceived(0.4)
+if eventPlayer.hasSpawned() and eventPlayer.isDummy():
+    eventPlayer.setDamageReceived(300)
 
 
 """@Rule "player dies -> kill his dva"

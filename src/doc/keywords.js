@@ -42,7 +42,9 @@ var languages = [
 
 var currentLanguage = "en";
 
-var ruleKw = [
+var ruleKw = 
+//begin-json
+[
     {
         "opy": "@Rule",
         "en": "rule",
@@ -69,10 +71,13 @@ var ruleKw = [
         "en": "disabled",
         "fr": "désactivé",
     }
-];
+]
+//end-json
 
 //Event keywords
-var eventKw = [
+var eventKw = 
+//begin-json
+[
     {
         "opy": "global",
         "en": "ongoing-global",
@@ -128,9 +133,12 @@ var eventKw = [
         "en": "playerLeftMatch",
         "fr": "unjoueuraquittélapartie",
     }
-];
+]
+//end-json
 
-var eventTeamKw = [
+var eventTeamKw = 
+//begin-json
+[
     {
         "opy": "all",
         "en": "all",
@@ -146,9 +154,12 @@ var eventTeamKw = [
         "en": "team2",
         "fr": "Équipe2",
     },
-];
+]
+//end-json
 
-var eventSlotKw = [
+var eventSlotKw = 
+//begin-json
+[
     {
         "opy": "0",
         "en": "slot0",
@@ -210,14 +221,19 @@ var eventSlotKw = [
         "fr": "emplacement11",
     }
 ]
+//end-json
 
-var eventPlayerKw = [
+var eventPlayerKw = 
+//begin-json
+[
     {
         "opy": "all",
         "en": "all",
         "fr": "tout",
     },
-].concat(eventSlotKw);
+]
+//end-json
+.concat(eventSlotKw);
 
 //Global variables, used to convert to names during decompilation.
 var globalVarKw = [

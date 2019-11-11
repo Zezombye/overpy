@@ -17,68 +17,92 @@
 
 "use strict";
 
+//Compilation variables - are reset at each compilation.
+
 //The absolute path of the folder containing the main file. Used for relative paths.
-var rootPath = "";
-
-//The stack of the files (macros count as "files").
-//Is reset at each compilation.
-var fileStack = [];
-
-//Global variable used for "skip ifs", to keep track of where the skip if ends.
-//Is reset at each rule. (for decompilation)
-var decompilerGotos = [];
-
-//Global variable used for the number of tabs.
-//Is reset at each rule. (for decompilation)
-var nbTabs = 0;
-
-//Global variable used to mark the action number of the last loop in the rule.
-//Is reset at each rule. (for decompilation)
-var lastLoop = -1;
+var rootPath;
 
 //Global variable used to keep track of each name for the current array element.
 //Should be the empty array at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
-var currentArrayElementNames = [];
+var currentArrayElementNames;
 
 //Dictionary used for for loops.
 //Should be empty at the beginning and end of each rule. (for compilation)
-var forLoopVariables = {};
+var forLoopVariables;
 
 //Timer for for loop variables; when it is reached, delete the corresponding variable.
-var forLoopTimers = [];
-
-//Global variable used to keep track of operator precedence.
-//Is reset at each action and rule condition. (for decompilation)
-var operatorPrecedenceStack = [];
-
-//Arguments of the format() function for strings.
-var formatArgs = [];
-
-//Whether the decompilation at this time is under a normal "for" loop (for decompilation).
-var isInNormalForLoop = false;
+var forLoopTimers;
 
 //The keywords "true" and "false", in the workshop.
 //Used to avoid translating back when comparing to true/false.
 //Generated at each compilation.
-var wsTrue = "";
-var wsFalse = "";
-var wsNull = "";
-var wsNot = "";
-
+var wsTrue ;
+var wsFalse;
+var wsNull;
+var wsNot;
 //Note: assumes "randInt", "randReal", "randShuffle" and "randChoice" all have the same "random" word, no matter the language.
-var wsRand = "";
+var wsRand;
 
 //Set at each rule, to check whether it is legal to use "eventPlayer" and related.
-var currentRuleEvent = "";
+var currentRuleEvent;
 
-//Set at each compilation. If set to true, sets all rule titles to empty.
-var obfuscateRules = false;
+//If set to true, sets all rule titles to empty.
+var obfuscateRules;
 
-//Reset at each compilation. Contains all macros.
-var macros = [];
+//Contains all macros.
+var macros;
+
+
+//Decompilation variables
+
+//The stack of the files (macros count as "files").
+var fileStack;
+
+//Global variable used for "skip ifs", to keep track of where the skip if ends.
+//Is reset at each rule. (for decompilation)
+var decompilerGotos;
+
+//Global variable used for the number of tabs.
+//Is reset at each rule. (for decompilation)
+var nbTabs;
+
+//Global variable used to mark the action number of the last loop in the rule.
+//Is reset at each rule. (for decompilation)
+var lastLoop;
+
+//Global variable used to keep track of operator precedence.
+//Is reset at each action and rule condition. (for decompilation)
+var operatorPrecedenceStack;
+
+//Whether the decompilation at this time is under a normal "for" loop (for decompilation).
+var isInNormalForLoop;
+
+
+function resetGlobalVariables() {
+	rootPath = "";
+	currentArrayElementNames = [];
+	forLoopVariables = {};
+	forLoopTimers = [];
+	wsTrue = tows("true", valueFuncKw);
+	wsFalse = tows("false", valueFuncKw);
+	wsNull = tows("null", valueFuncKw);
+	wsNot = tows("not", valueFuncKw);
+	wsRand = tows("_randomWs", valueFuncKw);
+	currentRuleEvent = "";
+	obfuscateRules = false;
+	macros = [];
+	fileStack = [];
+	decompilerGotos = [];
+	nbTabs = 0;
+	lastLoop = -1;
+	operatorPrecedenceStack = [];
+	isInNormalForLoop = false;
+}
+
+//Other constants
 
 //Operator precedence, from lowest to highest.
-var operatorPrecedence = {
+const operatorPrecedence = {
 	"or":1,
 	"and":2,
 	"not":3,
@@ -100,7 +124,7 @@ var operatorPrecedence = {
 };
 
 //Python operators, from lowest to highest precedence.
-var pyOperators = [
+const pyOperators = [
 	"=",
 	"+=",
 	"-=",
@@ -131,7 +155,7 @@ var pyOperators = [
 ];
 
 //Text that gets inserted on top of all js scripts.
-var builtInJsFunctions = `
+const builtInJsFunctions = `
 function vect(x,y,z) {
     return ({
         x:x,
@@ -143,7 +167,7 @@ function vect(x,y,z) {
     });
 }`;
 
-var builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length-1;
+const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length-1;
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -517,11 +541,11 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 			}
 		} else {
 			if (currentLanguage in keywordArray[i]) {
-				if (keywordArray[i][currentLanguage].toLowerCase() === keyword) {
+				if (keywordArray[i][currentLanguage].toLowerCase().replace(/\s/g, "") === keyword) {
 					return keywordArray[i].opy;
 				}
 			} else {
-				if (keywordArray[i]["en"].toLowerCase() === keyword) {
+				if (keywordArray[i]["en"].toLowerCase().replace(/\s/g, "") === keyword) {
 					return keywordArray[i].opy;
 				}
 			}
@@ -581,7 +605,7 @@ function splitStrOnDelimiter(content, delimiter) {
 			i = bracketPos[bracketPosCheckIndex+1];
 			bracketPosCheckIndex += 2;
 			
-		} else if (!currentPositionIsString && (content.charAt(i) == '"' || content.charAt(i) == '\'')) {
+		} else if (!currentPositionIsString && (content.charAt(i) == '"'/* || content.charAt(i) == '\''*/)) {
 			currentPositionIsString = !currentPositionIsString;
 			currentStrDelimiter = content.charAt(i);
 		} else if (content.charAt(i) === currentStrDelimiter) {
@@ -668,7 +692,7 @@ function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
 
 //This function returns the index of each first-level opening and closing brackets/parentheses.
 //Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].
-function getBracketPositions(content, returnFirstPair=false) {
+function getBracketPositions(content, returnFirstPair=false, stringIncludesApos=false) {
 	var bracketsPos = []
 	var bracketsLevel = 0;
 	var currentPositionIsString = false;
@@ -689,7 +713,7 @@ function getBracketPositions(content, returnFirstPair=false) {
 			} else if (bracketsLevel < 0) {
 				error("Brackets level below 0! (missing opening bracket)");
 			}
-		} else if (!currentPositionIsString && (content.charAt(i) == '"' || content.charAt(i) == '\'')) {
+		} else if (!currentPositionIsString && (content.charAt(i) == '"' || (content.charAt(i) == '\'' && stringIncludesApos))) {
 			currentPositionIsString = !currentPositionIsString;
 			currentStrDelimiter = content.charAt(i);
 		} else if (content.charAt(i) === currentStrDelimiter) {
@@ -907,6 +931,7 @@ console.log(counter2);*/
 
 function decompileAllRules(content, globalVarNames={}, playerVarNames={}, language="en") {
 
+	resetGlobalVariables();
 	currentLanguage = language;
 	var result = "";
 	
@@ -985,7 +1010,7 @@ function decompileRule(content) {
 	for (var i = 0; i < bracketPos2.length-2; i += 2) {
 		var fieldName = topy(ruleContent.substring(bracketPos2[i]+1, bracketPos2[i+1]), ruleKw);
 		if (fieldName === "@Event") {
-			eventInst = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+			eventInst = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]), false);
 		} else if (fieldName === "_conditions") {
 			//conditions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
 			conditions = "conditions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
@@ -1038,7 +1063,7 @@ function decompileRule(content) {
 
 function decompileConditions(content) {
 	
-	var conditions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")));
+	var conditions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
 	
 	var result = "";
 	result += "if ";
@@ -1073,7 +1098,7 @@ function decompileConditions(content) {
 function decompileActions(content) {
 	
 	var result = "";
-	var actions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")));
+	var actions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
 	
 	//Detect the last loop to know where to place the "while"
 	for (var i = 0; i < actions.length; i++) {
@@ -1123,7 +1148,6 @@ function decompileAction(content, actionNb) {
 		}
 	}
 	var isCurrentActionDisabled = false;
-	console.log(tows("_disabled", ruleKw)+" ");
 	content = content.trim();
 	if (content.startsWith(tows("_disabled", ruleKw)+" ")) {
 		isCurrentActionDisabled = true;
@@ -1157,7 +1181,7 @@ function decompileRuleCondition(content) {
 	var operators = ["==", "!=", "<=", ">=", "<", ">"];
 	
 	for (var i = 0; i < operators.length; i++) {
-		var operands = splitStrOnDelimiter(content, operators[i]);
+		var operands = splitStrOnDelimiter(content, operators[i], false);
 		if (operands.length == 2) {
 			return decompileCondition(operands[0], operators[i], operands[1]);
 		}
@@ -1253,7 +1277,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	var args = [];
 	if (hasArgs) {
-		var args = getArgs(content.substring(bracketPos[0]+1, bracketPos[1]));
+		var args = getArgs(content.substring(bracketPos[0]+1, bracketPos[1]), false);
 	}
 	debug("Arguments: "+args);
 	var result = "";
@@ -1421,6 +1445,35 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		return currentArrayElementName;
 	}
 	
+	//Custom String
+	if (name === "_customString") {
+		
+		var result = args[0];
+		var format = [];
+		if (result.includes("{0}")) {
+			format.push(decompile(args[1]));
+		}
+		if (result.includes("{1}")) {
+			if (format.length === 0) {
+				result = result.replace("{1}", "{0}");
+			}
+			format.push(decompile(args[2]));
+		}
+		if (result.includes("{2}")) {
+			if (format.length === 0) {
+				result = result.replace("{2}", "{0}");
+			} else if (format.length === 1) {
+				result = result.replace("{2}", "{1}");
+			}
+			format.push(decompile(args[3]));
+		}
+		
+		if (format.length > 0) {
+			result += '.format(' + format.join(", ") + ")";
+		}
+		return result;
+	}
+	
 	//Divide
 	if (name === "_divide") {
 		return decompileOperator(args[0], "/", args[1]);
@@ -1539,6 +1592,29 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	if (name === "_lastOf") {
 		return decompile(args[0])+"[-1]";
 	}
+	
+	//Localized String
+	if (name === "_localizedString") {
+		
+		//Blizzard likes making parsing difficult apparently,
+		//cause the "reevaluation on string" used with hud is the same as the "string" function.
+		
+		if (args.length == 0) {
+			return "HudReeval.STRING";
+		}
+				
+		var [str, format] = decompileLocalizedString(args[0], args[1], args[2], args[3], decompileArgs.strDepth);
+				
+		if (decompileArgs.strDepth !== 0 && decompileArgs.strDepth !== undefined) {
+			return [str, format];
+		}
+		
+		result = '"'+str+'"';
+		if (format.length > 0) {
+			result += '.format(' + format.join(", ") + ")";
+		}
+		return "localizedStr("+result+")";
+	}
 			
 	//Loop
 	if (name === "_loop") {
@@ -1580,6 +1656,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 			result += tabLevel(nbTabs+1)+"continue";
 			return result;
 		}
+	}
+
+	//Map
+	if (name === "_map") {
+		return decompile(args[0], getConstantKw("MAP CONSTANT"));
 	}
 	
 	//Modify global var
@@ -1751,30 +1832,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		currentArrayElementNames.pop();
 		return result;
 	}
-	
-	//String
-	if (name === "_string") {
-		
-		//Blizzard likes making parsing difficult apparently,
-		//cause the "reevaluation on string" used with hud is the same as the "string" function.
-		
-		if (args.length == 0) {
-			return "Reeval.STRING";
-		}
-				
-		var [str, format] = decompileString(args[0], args[1], args[2], args[3], decompileArgs.strDepth);
-				
-		if (decompileArgs.strDepth !== 0 && decompileArgs.strDepth !== undefined) {
-			return [str, format];
-		}
-		
-		result = '"'+str+'"';
-		if (format.length > 0) {
-			result += '.format(' + format.join(", ") + ")";
-		}
-		return result;
-	}
-				
+					
 	//Value in array
 	if (name === "_valueInArray") {
 		return decompile(args[0])+"["+decompile(args[1])+"]";
@@ -1826,7 +1884,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 }
 
-function decompileString(content, arg1, arg2, arg3, strDepth) {
+function decompileLocalizedString(content, arg1, arg2, arg3, strDepth) {
 		
 	var result = content;
 	var format = [];
@@ -2412,7 +2470,7 @@ function tokenize(content) {
 							
 							if (macros[k].isFunction) {
 								//debug("Resolving function macro "+macros[k].name);
-								var bracketPos = getBracketPositions(content.substring(i), true);
+								var bracketPos = getBracketPositions(content.substring(i), true, true);
 								text = content.substring(i, i+bracketPos[1]+1);
 								var macroArgs = getArgs(content.substring(i+bracketPos[0]+1, i+bracketPos[1]));
 								replacement = resolveMacro(macros[k], macroArgs, currentRuleLine.indentLevel);
@@ -2569,7 +2627,7 @@ function resolveMacro(macro, args=[], indentLevel) {
 function parseMacro(macro) {
 	
 	macro.content = macro.content.substring("#!define ".length);
-	var bracketPos = getBracketPositions(macro.content);
+	var bracketPos = getBracketPositions(macro.content, false, true);
 	
 	if (bracketPos.length === 0 || macro.content.indexOf(" ") < bracketPos[0]) {
 		//Not a function macro
@@ -2608,7 +2666,7 @@ function parseMacro(macro) {
 }
 
 //Tokenizes string
-function tokenizeString(str) {
+function tokenizeLocalizedString(str) {
 	
 	var tokenList = []
 	var originalColNb = fileStack[fileStack.length-1].currentColNb;
@@ -2708,27 +2766,9 @@ function compile(content, language="en", _rootPath="") {
 		var t0 = performance.now();
 	}
 
-	//Reset global variables in case the latest compilation had an error and didn't properly reset it.
-	decompilerGotos = [];
+	resetGlobalVariables();
 	currentLanguage = language;
-	currentArrayElementNames = [];
-	fileStack = [];
-	forLoopVariables = {};
-	forLoopTimers = [];
-	operatorPrecedenceStack = [];
-	formatArgs = [];
-	isInNormalForLoop = false;
-	nbTabs = 0;
-	lastLoop = -1;
-	wsTrue = tows("true", valueFuncKw);
-	wsFalse = tows("false", valueFuncKw);
-	wsNull = tows("null", valueFuncKw);
-	wsNot = tows("not", valueFuncKw);
-	wsRand = tows("_randomWs", valueFuncKw);
-	currentRuleEvent = "";
 	rootPath = _rootPath;
-	obfuscateRules = false;
-	macros = [];
 
 	//Handle #!mainfile directive
 	if (content.startsWith("#!mainFile ")) {
@@ -3796,8 +3836,11 @@ function parse(content, parseArgs={}) {
 		}
 	} else {
 		if (name.startsWith('"') || name.startsWith("'")) {
-			formatArgs = [];
-			return parseString(tokenizeString(name.substring(1, name.length-1)));
+			if (parseArgs.isLocalizedString === true) {
+				return parseLocalizedString(tokenizeLocalizedString(name.substring(1, name.length-1)), []);
+			} else {
+				return parseString(name, []);
+			}
 			//error("owo");
 		}
 
@@ -3947,12 +3990,7 @@ function parse(content, parseArgs={}) {
 	}
 
 	if (name === "getMapId") {
-		
-		//((getObjectivePosition(0) != null) * (300 + ceil(getObjectivePosition(0).x)) + ceil(nearestWalkablePosition(vect(100, 100, 100)).x))
-		return parse([
-			//nevermind, this one is the longest.
-			{"text": "("},{"text": "("},{"text": "getObjectivePosition"},{"text": "("},{"text": "0"},{"text": ")"},{"text": "!="},{"text": "null"},{"text": ")"},{"text": "*"},{"text": "("},{"text": "300"},{"text": "+"},{"text": "ceil"},{"text": "("},{"text": "getObjectivePosition"},{"text": "("},{"text": "0"},{"text": ")"},{"text": "."},{"text": "x"},{"text": ")"},{"text": ")"},{"text": "+"},{"text": "ceil"},{"text": "("},{"text": "nearestWalkablePosition"},{"text": "("},{"text": "vect"},{"text": "("},{"text": "100"},{"text": ","},{"text": "100"},{"text": ","},{"text": "100"},{"text": ")"},{"text": ")"},{"text": "."},{"text": "x"},{"text": ")"},{"text": ")"},
-		])
+		error("getMapId() has been removed; use getCurrentMap().");
 	}
 
 	if (name === "getSign") {
@@ -3961,6 +3999,14 @@ function parse(content, parseArgs={}) {
 		} else {
 			//(((x)>0)-((x)<0))
 			return parse([{"text":"("},{"text":"("},{"text":"("}].concat(args[0]).concat([{"text":")"},{"text":">"},{"text":"0"},{"text":")"},{"text":"-"},{"text":"("},{"text":"("}].concat(args[0]).concat([{"text":")"},{"text":"<"},{"text":"0"},{"text":")"},{"text":")"}])));
+		}
+	}
+
+	if (name === "localizedStr") {
+		if (args.length !== 1) {
+			error("Function localizedStr() takes one argument, received "+args.length);
+		} else {
+			return parse(args[0], {isLocalizedString: true});
 		}
 	}
 	
@@ -4075,8 +4121,8 @@ function parse(content, parseArgs={}) {
 	
 }
 
-//Parses string
-function parseString(content) {
+//Parses localized string
+function parseLocalizedString(content, formatArgs) {
 	if (!content instanceof Array) {
 		error("Content must be list of str");
 	}
@@ -4195,24 +4241,16 @@ function parseString(content) {
 		}
 	}
 	
-	var result = tows("_string", valueFuncKw)+"(\""+matchStr+'"';
+	var result = tows("_localizedString", valueFuncKw)+"(\""+matchStr+'"';
 	//debug("tokens = ")
 	//console.log(tokens);
 	
-	if (tokens.length > 0) {
-		result += ", "+parseString(tokens[0]);
-	} else {
-		result += ", "+tows("null", valueFuncKw);
-	}
-	if (tokens.length > 1) {
-		result += ", "+parseString(tokens[1]);
-	} else {
-		result += ", "+tows("null", valueFuncKw);
-	}
-	if (tokens.length > 2) {
-		result += ", "+parseString(tokens[2]);
-	} else {
-		result += ", "+tows("null", valueFuncKw);
+	for (var i = 0; i < 3; i++) {
+		if (tokens.length > i) {
+			result += ", "+parseLocalizedString(tokens[i], formatArgs);
+		} else {
+			result += ", "+tows("null", valueFuncKw);
+		}
 	}
 	
 	result += ")";
@@ -4241,6 +4279,8 @@ function parseMember(object, member, parseArgs={}) {
 		var result = tows(object[0].text+"."+name, constantKw);
 		if (object[0].text === "Hero") {
 			result = tows("_hero", valueFuncKw)+"("+result+")";
+		} else if (object[0].text === "Map") {
+			result = tows("_map", valueFuncKw)+"("+result+")";
 		}
 
 		return result;
@@ -4257,9 +4297,11 @@ function parseMember(object, member, parseArgs={}) {
 		return tows("_removeFromArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
 		
 	} else if (name === "format") {
-		formatArgs = args;
-		var result = parseString(tokenizeString(object[0].text.substring(1, object[0].text.length-1)));
-		formatArgs = [];
+		if (parseArgs.isLocalizedString === true) {
+			var result = parseLocalizedString(tokenizeLocalizedString(object[0].text.substring(1, object[0].text.length-1)), args);
+		} else {
+			var result = parseString(object[0].text, args);
+		}
 		return result;
 		
 	} else if (name === "getHitPosition") {
@@ -4285,9 +4327,6 @@ function parseMember(object, member, parseArgs={}) {
 		} else {
 			error("Unhandled member 'math."+name+"'");
 		}
-
-	} else if (object[0].text === "Map") {
-		return tows("Map."+name, mapKw);
 
 	} else if (object[0].text === "random" && object.length === 1) {
 		if (name === "randint" || name === "uniform") {
@@ -4572,6 +4611,151 @@ function parseRuleCondition(content) {
 	return result;
 }
 
+
+//Parses a custom string.
+function parseString(content, formatArgs) {
+	content = content.substring(1, content.length-1);
+
+	var result = "";
+	var tokens = [];
+	var numberIndex = 0;
+	var args = [];
+	var argsAreNumbered = null;
+
+	//Used to reorder args for easier optimization.
+	//Eg "{1}{0}" is converted to "{0}{1}", with the arguments obviously switched.
+	var numberMapping = {};
+
+	//Tokenize string
+	while (true) {
+		var index = content.search(/{\d*}/)
+		if (index >= 0) {
+			if (index > 0) {
+				tokens.push({
+					text: content.substring(0, index),
+					type: "string"
+				});
+				content = content.substring(index);
+			}
+			var number = content.substring(1, content.indexOf("}"));
+
+			//test for {}
+			if (number === "") {
+				if (argsAreNumbered === true) {
+					error("Cannot switch from automatic field numbering to manual field specification");
+				}
+				argsAreNumbered = false;
+				number = numberIndex;
+
+			} else {
+				if (argsAreNumbered === false) {
+					error("Cannot switch from automatic field numbering to manual field specification");
+				}
+				argsAreNumbered = true;
+				number = parseInt(number);
+			}
+			if (!(number in numberMapping)) {
+				numberMapping[number] = numberIndex;
+				numberIndex++;
+			}
+
+			tokens.push({
+				index: numberMapping[number],
+				type: "arg"
+			});
+			content = content.substring(content.indexOf("}")+1);
+
+		} else {
+			tokens.push({
+				text: content,
+				type: "string"
+			});
+			break;
+		}
+	}
+
+	console.log(numberMapping);
+
+	//sort args if there was (potentially) a reordering
+	for (var key of Object.keys(numberMapping)) {
+		if (formatArgs[key]) {
+			args[numberMapping[key]] = parse(formatArgs[key]);
+		} else {
+			error("Too few arguments in format() function: expected "+numberMapping[key]+" but found "+formatArgs.length);
+		}
+	}
+	//console.log("args = ");
+	//console.log(args);
+
+	result = parseStringTokens(tokens, args);
+
+	return result;
+
+}
+
+function parseStringTokens(tokens, args) {
+	var result = "";
+	var resultArgs = [];
+	var numbers = [];
+	var numbersEncountered = [];
+	var mappings = {};
+
+	//iterate through tokens and figure out the total number of unique numbers
+	for (var token of tokens) {
+		if (token.type === "string") {
+			continue;
+		} else {
+			if (!numbers.includes(token.index)) {
+				numbers.push(token.index);
+			}
+		}
+	}
+
+	console.log(tokens);
+	console.log(numbers);
+
+	//Add tokens
+	//For now, no optimization: just split if more than 3 unique numbers
+	for (var i = 0; i < tokens.length; i++) {
+		//console.log(tokens[i]);
+		//console.log("numbers encountered=");
+		//console.log(numbersEncountered);
+		//debugger;
+		if (tokens[i].type === "string") {
+			result += tokens[i].text;
+		} else {
+			if (numbersEncountered.length >= 2 && numbers.length > 3) {
+				//split
+				result += "{2}";
+				resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
+				break;
+			} else {
+				if (!(tokens[i].index in mappings)) {
+					mappings[tokens[i].index] = numbersEncountered.length;
+				}
+				if (!numbersEncountered.includes(tokens[i].index)) {
+					numbersEncountered.push(tokens[i].index);
+					resultArgs.push(args[tokens[i].index]);
+				}
+				result += "{"+mappings[tokens[i].index]+"}";
+
+
+			}
+		}
+	}
+
+	console.log(resultArgs);
+
+	while (resultArgs.length < 3) {
+		resultArgs.push(wsNull);
+	}
+
+	if (resultArgs.length != 3) {
+		error("Custom string parser broke (string args length is "+resultArgs.length+")");
+	}
+
+	return tows("_customString", valueFuncKw)+"(\""+result+"\", "+resultArgs.join(", ")+")";
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -4589,7 +4773,9 @@ function parseRuleCondition(content) {
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var actionKw = [
+var actionKw = 
+//begin-json
+[
     {
         "opy": "return",
         "en": "abort",
@@ -7288,7 +7474,8 @@ var actionKw = [
             }
         ]
     }
-];
+]
+//end-json
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -7306,7 +7493,9 @@ var actionKw = [
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var valueFuncKw = [
+var valueFuncKw = 
+//begin-json
+[
     {
         "opy": "abs",
         "en": "absoluteValue",
@@ -7354,6 +7543,31 @@ var valueFuncKw = [
                 "default": "TEAM"
             }
         ]
+    },
+    {
+        "opy": "getDamageHeroes()",
+        "en": "allDamageHeroes",
+        "fr": "todo",
+        "description": `The array of all damage heroes in overwatch. The order is as follows:
+        
+        0. Reaper
+        1. Tracer
+        2. Hanzo
+        3. Torbjorn
+        4. Pharah
+        5. Widowmaker
+        6. Bastion
+        7. Symmetra
+        8. Genji
+        9. Mccree
+        10. Junkrat
+        11. Soldier
+        12. Mei
+        13. Sombra
+        14. Doomfist
+        15. Ashe  
+        `,
+        "args": []
     },
     {
         "opy": "getAllHeroes()",
@@ -7464,6 +7678,39 @@ var valueFuncKw = [
                 "default": "EVENT PLAYER"
             }
         ]
+    },
+    {
+        "opy": "getSupportHeroes()",
+        "en": "allSupportHeroes",
+        "fr": "todo",
+        "description": `The array of all support heroes in overwatch. The order is as follows:
+        
+        0. Mercy
+        1. Zenyatta
+        2. Lucio
+        3. Ana
+        4. Brigitte
+        5. Moira
+        6. Baptiste    
+        `,
+        "args": []
+    },
+    {
+        "opy": "getTankHeroes()",
+        "en": "allTankHeroes",
+        "fr": "todo",
+        "description": `The array of all tank heroes in overwatch. The order is as follows:
+        
+        0. Reinhardt
+        1. Winston
+        2. Roadhog
+        3. Zarya
+        4. Dva
+        5. Orisa
+        6. Hammond
+        7. Sigma    
+        `,
+        "args": []
     },
     {
         "opy": "_&getAltitude",
@@ -7830,6 +8077,44 @@ var valueFuncKw = [
         "fr": "ÉlémentDeTableauActuel",
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": []
+    },
+    {
+        "opy": "getCurrentMap",
+        "en": "currentMap",
+        "description": "The current map of the custom game.",
+        "args": []
+    },
+    {
+        "opy": "_customString",
+        "en": "customString",
+        "fr": "todo",
+        "description": "ty magzie for adding that",
+        "args": [
+            {
+                "name": "STRING",
+                "description": "",
+                "type": "STRING CONSTANT",
+                "default": "HELLO"
+            },
+            {
+                "name": "{0}",
+                "description": "The value that will be converted to text and used to replace {0}.",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "{1}",
+                "description": "The value that will be converted to text and used to replace {1}.",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "{2}",
+                "description": "The value that will be converted to text and used to replace {2}.",
+                "type": "ANY",
+                "default": "NULL"
+            }
+        ]
     },
     {
         "opy": "angleToDirection",
@@ -8973,6 +9258,19 @@ var valueFuncKw = [
         ]
     },
     {
+        "opy": "_map",
+        "en": "Map",
+        "description": "A map constant.",
+        "args": [
+            {
+                "name": "MAP",
+                "description": "A map constant.",
+                "type": "MAP CONSTANT",
+                "default": "AYUTTHAYA"
+            }
+        ]
+    },
+    {
         "opy": "getMatchRound()",
         "en": "matchRound",
         "fr": "MancheDeLaPartie",
@@ -9891,7 +10189,7 @@ var valueFuncKw = [
         ]
     },
     {
-        "opy": "_string",
+        "opy": "_localizedString",
         "en": "string",
         "fr": "ChaîneDeTexte",
         "description": "Text formed from a selection of strings and specified values.",
@@ -10264,7 +10562,8 @@ var valueFuncKw = [
             }
         ]
     }
-];
+]
+//end-json
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -10282,7 +10581,9 @@ var valueFuncKw = [
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var constantValues = {
+var constantValues = 
+//begin-json
+{
     "TRANSFORMATION": {
         "opy": "Transform",
         "values": [
@@ -11700,8 +12001,250 @@ var constantValues = {
                 "fr": "Aucune"
             }
         ]
+    },
+    "MAP CONSTANT": {
+        "opy": "Map",
+        "values": [
+            {
+                "opy": "Map.AYUTTHAYA",
+                "en": "Ayutthaya"
+            },
+            {
+                "opy": "Map.BLACK_FOREST",
+                "en": "Black Forest"
+            },
+            {
+                "opy": "Map.BLACK_FOREST_WINTER",
+                "en": "BLACK FOREST WINTER"
+            },
+            {
+                "opy": "Map.BLIZZ_WORLD",
+                "en": "Blizzard World"
+            },
+            {
+                "opy": "Map.BLIZZ_WORLD_WINTER",
+                "en": "Blizzard World Winter"
+            },
+            {
+                "opy": "Map.BUSAN",
+                "en": "Busan"
+            },
+            {
+                "opy": "Map.BUSAN_DOWNTOWN_LNY",
+                "en": "Busan Downtown Lunar New Year"
+            },
+            {
+                "opy": "Map.BUSAN_SANCTUARY_LNY",
+                "en": "Busan Sanctuary Lunar New Year"
+            },
+            {
+                "opy": "Map.BUSAN_STADIUM",
+                "en": "Busan Stadium"
+            },
+            {
+                "opy": "Map.CASTILLO",
+                "en": "Castillo"
+            },
+            {
+                "opy": "Map.CHATEAU_GUILLARD",
+                "en": "Château Guillard"
+            },
+            {
+                "opy": "Map.CHATEAU_GUILLARD_HALLOWEEN",
+                "en": "Château Guillard Halloween"
+            },
+            {
+                "opy": "Map.DORADO",
+                "en": "Dorado"
+            },
+            {
+                "opy": "Map.ECOPOINT_ANTARTICA",
+                "en": "Ecopoint: Antartica"
+            },
+            {
+                "opy": "Map.ECOPOINT_ANTARTICA_WINTER",
+                "en": "Ecopoint: Antartica Winter"
+            },
+            {
+                "opy": "Map.EICHENWALDE",
+                "en": "Eichenwalde"
+            },
+            {
+                "opy": "Map.EICHENWALDE_HALLOWEEN",
+                "en": "EICHENWALDE HALLOWEEN"
+            },
+            {
+                "opy": "Map.ESTADIO_DAS_RAS",
+                "en": "Estádio das Rãs"
+            },
+            {
+                "opy": "Map.HANAMURA",
+                "en": "Hanamura"
+            },
+            {
+                "opy": "Map.HANAMURA_WINTER",
+                "en": "HANAMURA WINTER"
+            },
+            {
+                "opy": "Map.Havana",
+                "en": "Havana"
+            },
+            {
+                "opy": "Map.HOLLYWOOD",
+                "en": "Hollywood"
+            },
+            {
+                "opy": "Map.HOLLYWOOD_HALLOWEEN",
+                "en": "Hollywood Halloween"
+            },
+            {
+                "opy": "Map.HORIZON_LUNAR_COLONY",
+                "en": "Horizon Lunar Colony"
+            },
+            {
+                "opy": "Map.ILIOS",
+                "en": "ilios"
+            },
+            {
+                "opy": "Map.ILIOS_LIGHTHOUSE",
+                "en": "iliosLighthouse"
+            },
+            {
+                "opy": "Map.ILIOS_RUINS",
+                "en": "iliosRuins"
+            },
+            {
+                "opy": "Map.ILIOS_WELL",
+                "en": "iliosWell"
+            },
+            {
+                "opy": "Map.JUNKENSTEIN",
+                "en": "Junkenstein's Revenge"
+            },
+            {
+                "opy": "Map.JUNKERTOWN",
+                "en": "junkertown"
+            },
+            {
+                "opy": "Map.KINGS_ROW",
+                "en": "king's row"
+            },
+            {
+                "opy": "Map.KINGS_ROW_WINTER",
+                "en": "KING'S ROW WINTER"
+            },
+            {
+                "opy": "Map.LIJIANG_CONTROL_CENTER",
+                "en": "lijiang control center"
+            },
+            {
+                "opy": "Map.LIJIANG_CONTROL_CENTER_LNY",
+                "en": "lijiang control center lunar new year"
+            },
+            {
+                "opy": "Map.LIJIANG_GARDEN",
+                "en": "lijiang garden"
+            },
+            {
+                "opy": "Map.LIJIANG_GARDEN_LNY",
+                "en": "lijiang garden lunar new year"
+            },
+            {
+                "opy": "Map.LIJIANG_NIGHT_MARKET",
+                "en": "lijiang night market"
+            },
+            {
+                "opy": "Map.LIJIANG_NIGHT_MARKET_LNY",
+                "en": "lijiang night market lunar new year"
+            },
+            {
+                "opy": "Map.LIJIANG_TOWER",
+                "en": "lijiang tower"
+            },
+            {
+                "opy": "Map.LIJIANG_TOWER_LNY",
+                "en": "lijiang tower lunar new year"
+            },
+            {
+                "opy": "Map.NECROPOLIS",
+                "en": "necropolis"
+            },
+            {
+                "opy": "Map.NEPAL",
+                "en": "nepal"
+            },
+            {
+                "opy": "Map.NEPAL_SANCTUM",
+                "en": "nepal sanctum"
+            },
+            {
+                "opy": "Map.NEPAL_SHRINE",
+                "en": "nepal shrine"
+            },
+            {
+                "opy": "Map.NEPAL_VILLAGE",
+                "en": "nepal village"
+            },
+            {
+                "opy": "Map.NEPAL_VILLAGE_WINTER",
+                "en": "nepal village winter"
+            },
+            {
+                "opy": "Map.NUMBANI",
+                "en": "Numbani"
+            },
+            {
+                "opy": "Map.OASIS",
+                "en": "oasis"
+            },
+            {
+                "opy": "Map.OASIS_CITY_CENTER",
+                "en": "oasis city center"
+            },
+            {
+                "opy": "Map.OASIS_GARDENS",
+                "en": "oasis gardens"
+            },
+            {
+                "opy": "Map.OASIS_UNIVERSITY",
+                "en": "oasis university"
+            },
+            {
+                "opy": "Map.PARIS",
+                "en": "paris"
+            },
+            {
+                "opy": "Map.PETRA",
+                "en": "petra"
+            },
+            {
+                "opy": "Map.RIALTO",
+                "en": "rialto"
+            },
+            {
+                "opy": "Map.ROUTE_66",
+                "en": "route 66"
+            },
+            {
+                "opy": "Map.SYDNEY_HARBOUR_ARENA",
+                "en": "sydney harbour arena"
+            },
+            {
+                "opy": "Map.TEMPLE_OF_ANUBIS",
+                "en": "temple of anubis"
+            },
+            {
+                "opy": "Map.VOLSKAYA",
+                "en": "volskaya industries"
+            },
+            {
+                "opy": "Map.WATCHPOINT_GIBRALTAR",
+                "en": "watchpoint: gibraltar"
+            }
+        ]
     }
-};
+}
+//end-json
 
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -11747,7 +12290,9 @@ var languages = [
 
 var currentLanguage = "en";
 
-var ruleKw = [
+var ruleKw = 
+//begin-json
+[
     {
         "opy": "@Rule",
         "en": "rule",
@@ -11774,10 +12319,13 @@ var ruleKw = [
         "en": "disabled",
         "fr": "désactivé",
     }
-];
+]
+//end-json
 
 //Event keywords
-var eventKw = [
+var eventKw = 
+//begin-json
+[
     {
         "opy": "global",
         "en": "ongoing-global",
@@ -11833,9 +12381,12 @@ var eventKw = [
         "en": "playerLeftMatch",
         "fr": "unjoueuraquittélapartie",
     }
-];
+]
+//end-json
 
-var eventTeamKw = [
+var eventTeamKw = 
+//begin-json
+[
     {
         "opy": "all",
         "en": "all",
@@ -11851,9 +12402,12 @@ var eventTeamKw = [
         "en": "team2",
         "fr": "Équipe2",
     },
-];
+]
+//end-json
 
-var eventSlotKw = [
+var eventSlotKw = 
+//begin-json
+[
     {
         "opy": "0",
         "en": "slot0",
@@ -11915,14 +12469,19 @@ var eventSlotKw = [
         "fr": "emplacement11",
     }
 ]
+//end-json
 
-var eventPlayerKw = [
+var eventPlayerKw = 
+//begin-json
+[
     {
         "opy": "all",
         "en": "all",
         "fr": "tout",
     },
-].concat(eventSlotKw);
+]
+//end-json
+.concat(eventSlotKw);
 
 //Global variables, used to convert to names during decompilation.
 var globalVarKw = [
@@ -12171,7 +12730,9 @@ var emptyStrKw = [
     }
 ];
 
-var normalStrKw = [
+var normalStrKw = 
+//begin-json
+[
     {
         "opy": "Zones",
         "en": "Zones",
@@ -15542,9 +16103,12 @@ var normalStrKw = [
         "en": "!",
         "fr": "!"
     }
-];
+]
+//end-json
 
-var prefixStrKw = [
+var prefixStrKw = 
+//begin-json
+[
     {
         "opy": "#{0}",
         "en": "#{0}"
@@ -15566,9 +16130,12 @@ var prefixStrKw = [
         "en": "Round {0}",
         "fr": "Manche {0}"
     }
-];
+]
+//end-json
 
-var postfixStrKw = [
+var postfixStrKw = 
+//begin-json
+[
     {
         "opy": "{0} ->",
         "en": "{0} ->"
@@ -15634,9 +16201,12 @@ var postfixStrKw = [
         "en": "{0}?",
         "fr": "{0} ?"
     }
-];
+]
+//end-json
 
-var binaryStrKw = [
+var binaryStrKw = 
+//begin-json
+[
     {
         "opy": "{0} -> {1}",
         "en": "{0} -> {1}"
@@ -15719,9 +16289,12 @@ var binaryStrKw = [
         "opy": "{0} {1}",
         "en": "{0} {1}"
     }
-];
+]
+//end-json
 
-var ternaryStrKw = [
+var ternaryStrKw = 
+//begin-json
+[
     {
         "opy": "{0} - {1} - {2}",
         "en": "{0} - {1} - {2}"
@@ -15744,9 +16317,12 @@ var ternaryStrKw = [
         "en": "{0}: {1} And {2}",
         "fr": "{0} : {1} et {2}"
     }
-];
+]
+//end-json
 
-var surroundStrKw = [
+var surroundStrKw = 
+//begin-json
+[
     {
         "opy": "({0})",
         "en": "({0})"
@@ -15759,7 +16335,8 @@ var surroundStrKw = [
         "opy": "¿{0}?",
         "en": "¿{0}?"
     }
-];
+]
+//end-json
 
 var stringKw = normalStrKw.concat(prefixStrKw).concat(postfixStrKw).concat(binaryStrKw).concat(ternaryStrKw).concat(surroundStrKw).concat(emptyStrKw);
 
@@ -15872,10 +16449,6 @@ const specialFuncs = [
             }
         ]
     },{
-        opy: "getMapId",
-        "description": "Built-in macro that calculates the map ID according to Kevlar's Map Detector (https://docs.google.com/spreadsheets/d/1KOEVdlErAsDIlt1EutD6qhFCykHVJjyydr4vPOxBS9Q).",
-        "args": []
-    },{
         opy: "getSign",
         "description": "Built-in macro for calculating the sign of a number. Resolves to `(((x)>0)-((x)<0))`. Returns -1, 0 or 1.",
         "args": [
@@ -15911,7 +16484,20 @@ const specialFuncs = [
                 "default": "IGNORE CONDITION"
             }
         ]
-    },{
+    },
+    {
+        "opy": "localizedStr",
+        "description": "Defines a localized string. The text inside the string is restricted to preset strings, and is translated according to the language of each player.",
+        "args": [
+            {
+                "name": "STRING",
+                "description": "",
+                "type": "STRING CONSTANT",
+                "default": "HELLO"
+            },
+        ]
+    },
+    {
         opy: "raycast",
         description: 
 `Defines a raycast to be then used with \`hasLoS()\`, \`getPlayerHit()\`, \`getNormal()\` or \`getHitPosition()\`.
@@ -16326,232 +16912,6 @@ const specialMemberFuncs = [
         args: [],
     }
 ];
-/* 
- * This file is part of OverPy (https://github.com/Zezombye/overpy).
- * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
- * the Free Software Foundation, version 3.
- *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License 
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
-//Thanks to Kevlar for the map IDs
-//https://docs.google.com/spreadsheets/d/1KOEVdlErAsDIlt1EutD6qhFCykHVJjyydr4vPOxBS9Q
-
-var mapKw = [
-    {
-        "opy": "Map.AYUTTHAYA",
-        "en": "42"
-    },
-    {
-        "opy": "Map.BLACK_FOREST",
-        "en": "37"
-    },
-    {
-        "opy": "Map.BLIZZ_WORLD_ARCADE",
-        "en": "54"
-    },
-    {
-        "opy": "Map.BLIZZ_WORLD",
-        "en": "358"
-    },
-    {
-        "opy": "Map.BUSAN",
-        "en": "523"
-    },
-    {
-        "opy": "Map.CASTILLO",
-        "en": "-71"
-    },
-    {
-        "opy": "Map.CHATEAU_GUILLARD",
-        "en": "168"
-    },
-    {
-        "opy": "Map.DORADO_ARCADE",
-        "en": "144"
-    },
-    {
-        "opy": "Map.DORADO",
-        "en": "518"
-    },
-    {
-        "opy": "Map.ECOPOINT_ANTARTICA",
-        "en": "18"
-    },
-    {
-        "opy": "Map.EICHENWALDE_ARCADE",
-        "en": "124"
-    },
-    {
-        "opy": "Map.EICHENWALDE",
-        "en": "435"
-    },
-    {
-        "opy": "Map.HANAMURA_ARCADE",
-        "en": "78"
-    },
-    {
-        "opy": "Map.HANAMURA",
-        "en": "374"
-    },
-    {
-        "opy": "Map.HAVANA_ARCADE",
-        "en": "88"
-    },
-    {
-        "opy": "Map.HAVANA",
-        "en": "384"
-    },
-    {
-        "opy": "Map.HOLLYWOOD_ARCADE",
-        "en": "25"
-    },
-    {
-        "opy": "Map.HOLLYWOOD",
-        "en": "302"
-    },
-    {
-        "opy": "Map.HORIZON_LUNAR_COLONY_ARCADE",
-        "en": "56"
-    },
-    {
-        "opy": "Map.HORIZON_LUNAR_COLONY",
-        "en": "411"
-    },
-    {
-        "opy": "Map.ILIOS",
-        "en": "724"
-    },
-    {
-        "opy": "Map.ILIOS_LIGHTHOUSE",
-        "en": "300"
-    },
-    {
-        "opy": "Map.ILIOS_RUINS",
-        "en": "66"
-    },
-    {
-        "opy": "Map.ILIOS_WELL",
-        "en": "-170"
-    },
-    {
-        "opy": "Map.JUNKERTOWN",
-        "en": "278"
-    },
-    {
-        "opy": "Map.KINGS_ROW_ARCADE",
-        "en": "10"
-    },
-    {
-        "opy": "Map.KINGS_ROW",
-        "en": "292"
-    },
-    {
-        "opy": "Map.LIJIANG_TOWER",
-        "en": "371"
-    },
-    {
-        "opy": "Map.LIJIANG_CONTROL_CENTER",
-        "en": "14"
-    },
-    {
-        "opy": "Map.LIJIANG_GARDEN",
-        "en": "102"
-    },
-    {
-        "opy": "Map.LIJIANG_NIGHT_MARKET",
-        "en": "69"
-    },
-    {
-        "opy": "Map.NECROPOLIS",
-        "en": "30"
-    },
-    {
-        "opy": "Map.NEPAL",
-        "en": "195"
-    },
-    {
-        "opy": "Map.NEPAL_SANCTUM",
-        "en": "101"
-    },
-    {
-        "opy": "Map.NEPAL_SHRINE",
-        "en": "-13"
-    },
-    {
-        "opy": "Map.NEPAL_VILLAGE",
-        "en": "-130"
-    },
-    {
-        "opy": "Map.NUMBANI",
-        "en": "497"
-    },
-    {
-        "opy": "Map.OASIS",
-        "en": "630"
-    },
-    {
-        "opy": "Map.OASIS_CITY_CENTER",
-        "en": "186"
-    },
-    {
-        "opy": "Map.OASIS_GARDENS",
-        "en": "173"
-    },
-    {
-        "opy": "Map.OASIS_UNIVERSITY",
-        "en": "-163"
-    },
-    {
-        "opy": "Map.PARIS_ARCADE",
-        "en": "-3"
-    },
-    {
-        "opy": "Map.PARIS",
-        "en": "243"
-    },
-    {
-        "opy": "Map.PETRA",
-        "en": "41"
-    },
-    {
-        "opy": "Map.RIALTO",
-        "en": "451"
-    },
-    {
-        "opy": "Map.ROUTE_66",
-        "en": "368"
-    },
-    {
-        "opy": "Map.TEMPLE_OF_ANUBIS_ARCADE",
-        "en": "21"
-    },
-    {
-        "opy": "Map.TEMPLE_OF_ANUBIS",
-        "en": "276"
-    },
-    {
-        "opy": "Map.VOLSKAYA_ARCADE",
-        "en": "34"
-    },
-    {
-        "opy": "Map.VOLSKAYA",
-        "en": "321"
-    },
-    {
-        "opy": "Map.WATCHPOINT_GIBRALTAR",
-        "en": "416"
-    }
-];
 
 module.exports = {
 	decompileAllRules: decompileAllRules,
@@ -16567,10 +16927,10 @@ module.exports = {
 	eventPlayerKw: eventPlayerKw,
 	ruleKw: ruleKw,
 	stringKw: stringKw,
-	mapKw: mapKw,
 	specialFuncs: specialFuncs,
 	specialMemberFuncs: specialMemberFuncs,
 	currentLanguage: currentLanguage,
 	macros: macros,
+	resetGlobalVariables: resetGlobalVariables,
 
 };

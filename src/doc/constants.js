@@ -15,7 +15,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var constantValues = {
+var constantValues = 
+//begin-json
+{
     "TRANSFORMATION": {
         "opy": "Transform",
         "values": [
@@ -1433,6 +1435,248 @@ var constantValues = {
                 "fr": "Aucune"
             }
         ]
+    },
+    "MAP CONSTANT": {
+        "opy": "Map",
+        "values": [
+            {
+                "opy": "Map.AYUTTHAYA",
+                "en": "Ayutthaya"
+            },
+            {
+                "opy": "Map.BLACK_FOREST",
+                "en": "Black Forest"
+            },
+            {
+                "opy": "Map.BLACK_FOREST_WINTER",
+                "en": "BLACK FOREST WINTER"
+            },
+            {
+                "opy": "Map.BLIZZ_WORLD",
+                "en": "Blizzard World"
+            },
+            {
+                "opy": "Map.BLIZZ_WORLD_WINTER",
+                "en": "Blizzard World Winter"
+            },
+            {
+                "opy": "Map.BUSAN",
+                "en": "Busan"
+            },
+            {
+                "opy": "Map.BUSAN_DOWNTOWN_LNY",
+                "en": "Busan Downtown Lunar New Year"
+            },
+            {
+                "opy": "Map.BUSAN_SANCTUARY_LNY",
+                "en": "Busan Sanctuary Lunar New Year"
+            },
+            {
+                "opy": "Map.BUSAN_STADIUM",
+                "en": "Busan Stadium"
+            },
+            {
+                "opy": "Map.CASTILLO",
+                "en": "Castillo"
+            },
+            {
+                "opy": "Map.CHATEAU_GUILLARD",
+                "en": "Château Guillard"
+            },
+            {
+                "opy": "Map.CHATEAU_GUILLARD_HALLOWEEN",
+                "en": "Château Guillard Halloween"
+            },
+            {
+                "opy": "Map.DORADO",
+                "en": "Dorado"
+            },
+            {
+                "opy": "Map.ECOPOINT_ANTARTICA",
+                "en": "Ecopoint: Antartica"
+            },
+            {
+                "opy": "Map.ECOPOINT_ANTARTICA_WINTER",
+                "en": "Ecopoint: Antartica Winter"
+            },
+            {
+                "opy": "Map.EICHENWALDE",
+                "en": "Eichenwalde"
+            },
+            {
+                "opy": "Map.EICHENWALDE_HALLOWEEN",
+                "en": "EICHENWALDE HALLOWEEN"
+            },
+            {
+                "opy": "Map.ESTADIO_DAS_RAS",
+                "en": "Estádio das Rãs"
+            },
+            {
+                "opy": "Map.HANAMURA",
+                "en": "Hanamura"
+            },
+            {
+                "opy": "Map.HANAMURA_WINTER",
+                "en": "HANAMURA WINTER"
+            },
+            {
+                "opy": "Map.Havana",
+                "en": "Havana"
+            },
+            {
+                "opy": "Map.HOLLYWOOD",
+                "en": "Hollywood"
+            },
+            {
+                "opy": "Map.HOLLYWOOD_HALLOWEEN",
+                "en": "Hollywood Halloween"
+            },
+            {
+                "opy": "Map.HORIZON_LUNAR_COLONY",
+                "en": "Horizon Lunar Colony"
+            },
+            {
+                "opy": "Map.ILIOS",
+                "en": "ilios"
+            },
+            {
+                "opy": "Map.ILIOS_LIGHTHOUSE",
+                "en": "iliosLighthouse"
+            },
+            {
+                "opy": "Map.ILIOS_RUINS",
+                "en": "iliosRuins"
+            },
+            {
+                "opy": "Map.ILIOS_WELL",
+                "en": "iliosWell"
+            },
+            {
+                "opy": "Map.JUNKENSTEIN",
+                "en": "Junkenstein's Revenge"
+            },
+            {
+                "opy": "Map.JUNKERTOWN",
+                "en": "junkertown"
+            },
+            {
+                "opy": "Map.KINGS_ROW",
+                "en": "king's row"
+            },
+            {
+                "opy": "Map.KINGS_ROW_WINTER",
+                "en": "KING'S ROW WINTER"
+            },
+            {
+                "opy": "Map.LIJIANG_CONTROL_CENTER",
+                "en": "lijiang control center"
+            },
+            {
+                "opy": "Map.LIJIANG_CONTROL_CENTER_LNY",
+                "en": "lijiang control center lunar new year"
+            },
+            {
+                "opy": "Map.LIJIANG_GARDEN",
+                "en": "lijiang garden"
+            },
+            {
+                "opy": "Map.LIJIANG_GARDEN_LNY",
+                "en": "lijiang garden lunar new year"
+            },
+            {
+                "opy": "Map.LIJIANG_NIGHT_MARKET",
+                "en": "lijiang night market"
+            },
+            {
+                "opy": "Map.LIJIANG_NIGHT_MARKET_LNY",
+                "en": "lijiang night market lunar new year"
+            },
+            {
+                "opy": "Map.LIJIANG_TOWER",
+                "en": "lijiang tower"
+            },
+            {
+                "opy": "Map.LIJIANG_TOWER_LNY",
+                "en": "lijiang tower lunar new year"
+            },
+            {
+                "opy": "Map.NECROPOLIS",
+                "en": "necropolis"
+            },
+            {
+                "opy": "Map.NEPAL",
+                "en": "nepal"
+            },
+            {
+                "opy": "Map.NEPAL_SANCTUM",
+                "en": "nepal sanctum"
+            },
+            {
+                "opy": "Map.NEPAL_SHRINE",
+                "en": "nepal shrine"
+            },
+            {
+                "opy": "Map.NEPAL_VILLAGE",
+                "en": "nepal village"
+            },
+            {
+                "opy": "Map.NEPAL_VILLAGE_WINTER",
+                "en": "nepal village winter"
+            },
+            {
+                "opy": "Map.NUMBANI",
+                "en": "Numbani"
+            },
+            {
+                "opy": "Map.OASIS",
+                "en": "oasis"
+            },
+            {
+                "opy": "Map.OASIS_CITY_CENTER",
+                "en": "oasis city center"
+            },
+            {
+                "opy": "Map.OASIS_GARDENS",
+                "en": "oasis gardens"
+            },
+            {
+                "opy": "Map.OASIS_UNIVERSITY",
+                "en": "oasis university"
+            },
+            {
+                "opy": "Map.PARIS",
+                "en": "paris"
+            },
+            {
+                "opy": "Map.PETRA",
+                "en": "petra"
+            },
+            {
+                "opy": "Map.RIALTO",
+                "en": "rialto"
+            },
+            {
+                "opy": "Map.ROUTE_66",
+                "en": "route 66"
+            },
+            {
+                "opy": "Map.SYDNEY_HARBOUR_ARENA",
+                "en": "sydney harbour arena"
+            },
+            {
+                "opy": "Map.TEMPLE_OF_ANUBIS",
+                "en": "temple of anubis"
+            },
+            {
+                "opy": "Map.VOLSKAYA",
+                "en": "volskaya industries"
+            },
+            {
+                "opy": "Map.WATCHPOINT_GIBRALTAR",
+                "en": "watchpoint: gibraltar"
+            }
+        ]
     }
-};
+}
+//end-json
 

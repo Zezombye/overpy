@@ -199,10 +199,6 @@ const decompilerUI = [`
 const funcDoc = JSON.parse(JSON.stringify(overpy.actionKw.concat(overpy.valueFuncKw)));
 
 var constTypes = JSON.parse(JSON.stringify(overpy.constantValues));
-constTypes["MAP"] = {
-    opy: "Map",
-    values: JSON.parse(JSON.stringify(overpy.mapKw)),
-};
 
 console.log(constTypes);
 const funcList = JSON.parse(JSON.stringify(overpy.specialFuncs));

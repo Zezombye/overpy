@@ -89,6 +89,7 @@ console.log(counter2);*/
 
 function decompileAllRules(content, globalVarNames={}, playerVarNames={}, language="en") {
 
+	resetGlobalVariables();
 	currentLanguage = language;
 	var result = "";
 	
@@ -167,7 +168,7 @@ function decompileRule(content) {
 	for (var i = 0; i < bracketPos2.length-2; i += 2) {
 		var fieldName = topy(ruleContent.substring(bracketPos2[i]+1, bracketPos2[i+1]), ruleKw);
 		if (fieldName === "@Event") {
-			eventInst = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+			eventInst = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]), false);
 		} else if (fieldName === "_conditions") {
 			//conditions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
 			conditions = "conditions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
@@ -220,7 +221,7 @@ function decompileRule(content) {
 
 function decompileConditions(content) {
 	
-	var conditions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")));
+	var conditions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
 	
 	var result = "";
 	result += "if ";
@@ -255,7 +256,7 @@ function decompileConditions(content) {
 function decompileActions(content) {
 	
 	var result = "";
-	var actions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")));
+	var actions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
 	
 	//Detect the last loop to know where to place the "while"
 	for (var i = 0; i < actions.length; i++) {
@@ -305,7 +306,6 @@ function decompileAction(content, actionNb) {
 		}
 	}
 	var isCurrentActionDisabled = false;
-	console.log(tows("_disabled", ruleKw)+" ");
 	content = content.trim();
 	if (content.startsWith(tows("_disabled", ruleKw)+" ")) {
 		isCurrentActionDisabled = true;
@@ -339,7 +339,7 @@ function decompileRuleCondition(content) {
 	var operators = ["==", "!=", "<=", ">=", "<", ">"];
 	
 	for (var i = 0; i < operators.length; i++) {
-		var operands = splitStrOnDelimiter(content, operators[i]);
+		var operands = splitStrOnDelimiter(content, operators[i], false);
 		if (operands.length == 2) {
 			return decompileCondition(operands[0], operators[i], operands[1]);
 		}
@@ -435,7 +435,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	var args = [];
 	if (hasArgs) {
-		var args = getArgs(content.substring(bracketPos[0]+1, bracketPos[1]));
+		var args = getArgs(content.substring(bracketPos[0]+1, bracketPos[1]), false);
 	}
 	debug("Arguments: "+args);
 	var result = "";
@@ -603,6 +603,35 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		return currentArrayElementName;
 	}
 	
+	//Custom String
+	if (name === "_customString") {
+		
+		var result = args[0];
+		var format = [];
+		if (result.includes("{0}")) {
+			format.push(decompile(args[1]));
+		}
+		if (result.includes("{1}")) {
+			if (format.length === 0) {
+				result = result.replace("{1}", "{0}");
+			}
+			format.push(decompile(args[2]));
+		}
+		if (result.includes("{2}")) {
+			if (format.length === 0) {
+				result = result.replace("{2}", "{0}");
+			} else if (format.length === 1) {
+				result = result.replace("{2}", "{1}");
+			}
+			format.push(decompile(args[3]));
+		}
+		
+		if (format.length > 0) {
+			result += '.format(' + format.join(", ") + ")";
+		}
+		return result;
+	}
+	
 	//Divide
 	if (name === "_divide") {
 		return decompileOperator(args[0], "/", args[1]);
@@ -721,6 +750,29 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	if (name === "_lastOf") {
 		return decompile(args[0])+"[-1]";
 	}
+	
+	//Localized String
+	if (name === "_localizedString") {
+		
+		//Blizzard likes making parsing difficult apparently,
+		//cause the "reevaluation on string" used with hud is the same as the "string" function.
+		
+		if (args.length == 0) {
+			return "HudReeval.STRING";
+		}
+				
+		var [str, format] = decompileLocalizedString(args[0], args[1], args[2], args[3], decompileArgs.strDepth);
+				
+		if (decompileArgs.strDepth !== 0 && decompileArgs.strDepth !== undefined) {
+			return [str, format];
+		}
+		
+		result = '"'+str+'"';
+		if (format.length > 0) {
+			result += '.format(' + format.join(", ") + ")";
+		}
+		return "localizedStr("+result+")";
+	}
 			
 	//Loop
 	if (name === "_loop") {
@@ -762,6 +814,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 			result += tabLevel(nbTabs+1)+"continue";
 			return result;
 		}
+	}
+
+	//Map
+	if (name === "_map") {
+		return decompile(args[0], getConstantKw("MAP CONSTANT"));
 	}
 	
 	//Modify global var
@@ -933,30 +990,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		currentArrayElementNames.pop();
 		return result;
 	}
-	
-	//String
-	if (name === "_localizedString") {
-		
-		//Blizzard likes making parsing difficult apparently,
-		//cause the "reevaluation on string" used with hud is the same as the "string" function.
-		
-		if (args.length == 0) {
-			return "HudReeval.STRING";
-		}
-				
-		var [str, format] = decompileLocalizedString(args[0], args[1], args[2], args[3], decompileArgs.strDepth);
-				
-		if (decompileArgs.strDepth !== 0 && decompileArgs.strDepth !== undefined) {
-			return [str, format];
-		}
-		
-		result = '"'+str+'"';
-		if (format.length > 0) {
-			result += '.format(' + format.join(", ") + ")";
-		}
-		return result;
-	}
-				
+					
 	//Value in array
 	if (name === "_valueInArray") {
 		return decompile(args[0])+"["+decompile(args[1])+"]";
@@ -1008,7 +1042,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 }
 
-function decompileString(content, arg1, arg2, arg3, strDepth) {
+function decompileLocalizedString(content, arg1, arg2, arg3, strDepth) {
 		
 	var result = content;
 	var format = [];
