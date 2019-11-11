@@ -371,11 +371,11 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 			}
 		} else {
 			if (currentLanguage in keywordArray[i]) {
-				if (keywordArray[i][currentLanguage].toLowerCase() === keyword) {
+				if (keywordArray[i][currentLanguage].toLowerCase().replace(/\s/g, "") === keyword) {
 					return keywordArray[i].opy;
 				}
 			} else {
-				if (keywordArray[i]["en"].toLowerCase() === keyword) {
+				if (keywordArray[i]["en"].toLowerCase().replace(/\s/g, "") === keyword) {
 					return keywordArray[i].opy;
 				}
 			}
@@ -435,7 +435,7 @@ function splitStrOnDelimiter(content, delimiter) {
 			i = bracketPos[bracketPosCheckIndex+1];
 			bracketPosCheckIndex += 2;
 			
-		} else if (!currentPositionIsString && (content.charAt(i) == '"' || content.charAt(i) == '\'')) {
+		} else if (!currentPositionIsString && (content.charAt(i) == '"'/* || content.charAt(i) == '\''*/)) {
 			currentPositionIsString = !currentPositionIsString;
 			currentStrDelimiter = content.charAt(i);
 		} else if (content.charAt(i) === currentStrDelimiter) {
@@ -522,7 +522,7 @@ function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
 
 //This function returns the index of each first-level opening and closing brackets/parentheses.
 //Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].
-function getBracketPositions(content, returnFirstPair=false) {
+function getBracketPositions(content, returnFirstPair=false, stringIncludesApos=false) {
 	var bracketsPos = []
 	var bracketsLevel = 0;
 	var currentPositionIsString = false;
@@ -543,7 +543,7 @@ function getBracketPositions(content, returnFirstPair=false) {
 			} else if (bracketsLevel < 0) {
 				error("Brackets level below 0! (missing opening bracket)");
 			}
-		} else if (!currentPositionIsString && (content.charAt(i) == '"' || content.charAt(i) == '\'')) {
+		} else if (!currentPositionIsString && (content.charAt(i) == '"' || (content.charAt(i) == '\'' && stringIncludesApos))) {
 			currentPositionIsString = !currentPositionIsString;
 			currentStrDelimiter = content.charAt(i);
 		} else if (content.charAt(i) === currentStrDelimiter) {

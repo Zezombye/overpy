@@ -22,7 +22,9 @@ var emptyStrKw = [
     }
 ];
 
-var normalStrKw = [
+var normalStrKw = 
+//begin-json
+[
     {
         "opy": "Zones",
         "en": "Zones",
@@ -3393,9 +3395,12 @@ var normalStrKw = [
         "en": "!",
         "fr": "!"
     }
-];
+]
+//end-json
 
-var prefixStrKw = [
+var prefixStrKw = 
+//begin-json
+[
     {
         "opy": "#{0}",
         "en": "#{0}"
@@ -3417,9 +3422,12 @@ var prefixStrKw = [
         "en": "Round {0}",
         "fr": "Manche {0}"
     }
-];
+]
+//end-json
 
-var postfixStrKw = [
+var postfixStrKw = 
+//begin-json
+[
     {
         "opy": "{0} ->",
         "en": "{0} ->"
@@ -3485,9 +3493,12 @@ var postfixStrKw = [
         "en": "{0}?",
         "fr": "{0} ?"
     }
-];
+]
+//end-json
 
-var binaryStrKw = [
+var binaryStrKw = 
+//begin-json
+[
     {
         "opy": "{0} -> {1}",
         "en": "{0} -> {1}"
@@ -3570,9 +3581,12 @@ var binaryStrKw = [
         "opy": "{0} {1}",
         "en": "{0} {1}"
     }
-];
+]
+//end-json
 
-var ternaryStrKw = [
+var ternaryStrKw = 
+//begin-json
+[
     {
         "opy": "{0} - {1} - {2}",
         "en": "{0} - {1} - {2}"
@@ -3595,9 +3609,12 @@ var ternaryStrKw = [
         "en": "{0}: {1} And {2}",
         "fr": "{0} : {1} et {2}"
     }
-];
+]
+//end-json
 
-var surroundStrKw = [
+var surroundStrKw = 
+//begin-json
+[
     {
         "opy": "({0})",
         "en": "({0})"
@@ -3610,7 +3627,8 @@ var surroundStrKw = [
         "opy": "¿{0}?",
         "en": "¿{0}?"
     }
-];
+]
+//end-json
 
 var stringKw = normalStrKw.concat(prefixStrKw).concat(postfixStrKw).concat(binaryStrKw).concat(ternaryStrKw).concat(surroundStrKw).concat(emptyStrKw);
 

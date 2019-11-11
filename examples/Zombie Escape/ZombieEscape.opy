@@ -194,7 +194,7 @@ if sectionLoopIndex == 0 and roundStatus >= GAME_IN_PROGRESS:
     createEffect(getAllPlayers(), Effect.SPHERE, Color.BLUE, triggers[currentSection], 4, IconReeval.VISIBILITY)
     createIcon(getAllPlayers(), triggers[currentSection], Icon.ARROW_DOWN, IconReeval.VISIBILITY_AND_POSITION, Color.BLUE, true)
     
-
+Map.ESTADIO_DAS_RAS
 @Rule "walls visual effect"
 @Event global
 if sectionLoopIndex == 0:

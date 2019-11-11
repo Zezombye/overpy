@@ -30,27 +30,9 @@ function compile(content, language="en", _rootPath="") {
 		var t0 = performance.now();
 	}
 
-	//Reset global variables in case the latest compilation had an error and didn't properly reset it.
-	decompilerGotos = [];
+	resetGlobalVariables();
 	currentLanguage = language;
-	currentArrayElementNames = [];
-	fileStack = [];
-	forLoopVariables = {};
-	forLoopTimers = [];
-	operatorPrecedenceStack = [];
-	formatArgs = [];
-	isInNormalForLoop = false;
-	nbTabs = 0;
-	lastLoop = -1;
-	wsTrue = tows("true", valueFuncKw);
-	wsFalse = tows("false", valueFuncKw);
-	wsNull = tows("null", valueFuncKw);
-	wsNot = tows("not", valueFuncKw);
-	wsRand = tows("_randomWs", valueFuncKw);
-	currentRuleEvent = "";
 	rootPath = _rootPath;
-	obfuscateRules = false;
-	macros = [];
 
 	//Handle #!mainfile directive
 	if (content.startsWith("#!mainFile ")) {
@@ -1118,8 +1100,11 @@ function parse(content, parseArgs={}) {
 		}
 	} else {
 		if (name.startsWith('"') || name.startsWith("'")) {
-			formatArgs = [];
-			return parseString(tokenizeString(name.substring(1, name.length-1)));
+			if (parseArgs.isLocalizedString === true) {
+				return parseLocalizedString(tokenizeLocalizedString(name.substring(1, name.length-1)), []);
+			} else {
+				return parseString(name, []);
+			}
 			//error("owo");
 		}
 
@@ -1269,12 +1254,7 @@ function parse(content, parseArgs={}) {
 	}
 
 	if (name === "getMapId") {
-		
-		//((getObjectivePosition(0) != null) * (300 + ceil(getObjectivePosition(0).x)) + ceil(nearestWalkablePosition(vect(100, 100, 100)).x))
-		return parse([
-			//nevermind, this one is the longest.
-			{"text": "("},{"text": "("},{"text": "getObjectivePosition"},{"text": "("},{"text": "0"},{"text": ")"},{"text": "!="},{"text": "null"},{"text": ")"},{"text": "*"},{"text": "("},{"text": "300"},{"text": "+"},{"text": "ceil"},{"text": "("},{"text": "getObjectivePosition"},{"text": "("},{"text": "0"},{"text": ")"},{"text": "."},{"text": "x"},{"text": ")"},{"text": ")"},{"text": "+"},{"text": "ceil"},{"text": "("},{"text": "nearestWalkablePosition"},{"text": "("},{"text": "vect"},{"text": "("},{"text": "100"},{"text": ","},{"text": "100"},{"text": ","},{"text": "100"},{"text": ")"},{"text": ")"},{"text": "."},{"text": "x"},{"text": ")"},{"text": ")"},
-		])
+		error("getMapId() has been removed; use getCurrentMap().");
 	}
 
 	if (name === "getSign") {
@@ -1283,6 +1263,14 @@ function parse(content, parseArgs={}) {
 		} else {
 			//(((x)>0)-((x)<0))
 			return parse([{"text":"("},{"text":"("},{"text":"("}].concat(args[0]).concat([{"text":")"},{"text":">"},{"text":"0"},{"text":")"},{"text":"-"},{"text":"("},{"text":"("}].concat(args[0]).concat([{"text":")"},{"text":"<"},{"text":"0"},{"text":")"},{"text":")"}])));
+		}
+	}
+
+	if (name === "localizedStr") {
+		if (args.length !== 1) {
+			error("Function localizedStr() takes one argument, received "+args.length);
+		} else {
+			return parse(args[0], {isLocalizedString: true});
 		}
 	}
 	
@@ -1397,8 +1385,8 @@ function parse(content, parseArgs={}) {
 	
 }
 
-//Parses string
-function parseString(content) {
+//Parses localized string
+function parseLocalizedString(content, formatArgs) {
 	if (!content instanceof Array) {
 		error("Content must be list of str");
 	}
@@ -1517,24 +1505,16 @@ function parseString(content) {
 		}
 	}
 	
-	var result = tows("_string", valueFuncKw)+"(\""+matchStr+'"';
+	var result = tows("_localizedString", valueFuncKw)+"(\""+matchStr+'"';
 	//debug("tokens = ")
 	//console.log(tokens);
 	
-	if (tokens.length > 0) {
-		result += ", "+parseString(tokens[0]);
-	} else {
-		result += ", "+tows("null", valueFuncKw);
-	}
-	if (tokens.length > 1) {
-		result += ", "+parseString(tokens[1]);
-	} else {
-		result += ", "+tows("null", valueFuncKw);
-	}
-	if (tokens.length > 2) {
-		result += ", "+parseString(tokens[2]);
-	} else {
-		result += ", "+tows("null", valueFuncKw);
+	for (var i = 0; i < 3; i++) {
+		if (tokens.length > i) {
+			result += ", "+parseLocalizedString(tokens[i], formatArgs);
+		} else {
+			result += ", "+tows("null", valueFuncKw);
+		}
 	}
 	
 	result += ")";
@@ -1563,6 +1543,8 @@ function parseMember(object, member, parseArgs={}) {
 		var result = tows(object[0].text+"."+name, constantKw);
 		if (object[0].text === "Hero") {
 			result = tows("_hero", valueFuncKw)+"("+result+")";
+		} else if (object[0].text === "Map") {
+			result = tows("_map", valueFuncKw)+"("+result+")";
 		}
 
 		return result;
@@ -1579,9 +1561,11 @@ function parseMember(object, member, parseArgs={}) {
 		return tows("_removeFromArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
 		
 	} else if (name === "format") {
-		formatArgs = args;
-		var result = parseString(tokenizeString(object[0].text.substring(1, object[0].text.length-1)));
-		formatArgs = [];
+		if (parseArgs.isLocalizedString === true) {
+			var result = parseLocalizedString(tokenizeLocalizedString(object[0].text.substring(1, object[0].text.length-1)), args);
+		} else {
+			var result = parseString(object[0].text, args);
+		}
 		return result;
 		
 	} else if (name === "getHitPosition") {
@@ -1607,9 +1591,6 @@ function parseMember(object, member, parseArgs={}) {
 		} else {
 			error("Unhandled member 'math."+name+"'");
 		}
-
-	} else if (object[0].text === "Map") {
-		return tows("Map."+name, mapKw);
 
 	} else if (object[0].text === "random" && object.length === 1) {
 		if (name === "randint" || name === "uniform") {
@@ -1894,3 +1875,148 @@ function parseRuleCondition(content) {
 	return result;
 }
 
+
+//Parses a custom string.
+function parseString(content, formatArgs) {
+	content = content.substring(1, content.length-1);
+
+	var result = "";
+	var tokens = [];
+	var numberIndex = 0;
+	var args = [];
+	var argsAreNumbered = null;
+
+	//Used to reorder args for easier optimization.
+	//Eg "{1}{0}" is converted to "{0}{1}", with the arguments obviously switched.
+	var numberMapping = {};
+
+	//Tokenize string
+	while (true) {
+		var index = content.search(/{\d*}/)
+		if (index >= 0) {
+			if (index > 0) {
+				tokens.push({
+					text: content.substring(0, index),
+					type: "string"
+				});
+				content = content.substring(index);
+			}
+			var number = content.substring(1, content.indexOf("}"));
+
+			//test for {}
+			if (number === "") {
+				if (argsAreNumbered === true) {
+					error("Cannot switch from automatic field numbering to manual field specification");
+				}
+				argsAreNumbered = false;
+				number = numberIndex;
+
+			} else {
+				if (argsAreNumbered === false) {
+					error("Cannot switch from automatic field numbering to manual field specification");
+				}
+				argsAreNumbered = true;
+				number = parseInt(number);
+			}
+			if (!(number in numberMapping)) {
+				numberMapping[number] = numberIndex;
+				numberIndex++;
+			}
+
+			tokens.push({
+				index: numberMapping[number],
+				type: "arg"
+			});
+			content = content.substring(content.indexOf("}")+1);
+
+		} else {
+			tokens.push({
+				text: content,
+				type: "string"
+			});
+			break;
+		}
+	}
+
+	console.log(numberMapping);
+
+	//sort args if there was (potentially) a reordering
+	for (var key of Object.keys(numberMapping)) {
+		if (formatArgs[key]) {
+			args[numberMapping[key]] = parse(formatArgs[key]);
+		} else {
+			error("Too few arguments in format() function: expected "+numberMapping[key]+" but found "+formatArgs.length);
+		}
+	}
+	//console.log("args = ");
+	//console.log(args);
+
+	result = parseStringTokens(tokens, args);
+
+	return result;
+
+}
+
+function parseStringTokens(tokens, args) {
+	var result = "";
+	var resultArgs = [];
+	var numbers = [];
+	var numbersEncountered = [];
+	var mappings = {};
+
+	//iterate through tokens and figure out the total number of unique numbers
+	for (var token of tokens) {
+		if (token.type === "string") {
+			continue;
+		} else {
+			if (!numbers.includes(token.index)) {
+				numbers.push(token.index);
+			}
+		}
+	}
+
+	console.log(tokens);
+	console.log(numbers);
+
+	//Add tokens
+	//For now, no optimization: just split if more than 3 unique numbers
+	for (var i = 0; i < tokens.length; i++) {
+		//console.log(tokens[i]);
+		//console.log("numbers encountered=");
+		//console.log(numbersEncountered);
+		//debugger;
+		if (tokens[i].type === "string") {
+			result += tokens[i].text;
+		} else {
+			if (numbersEncountered.length >= 2 && numbers.length > 3) {
+				//split
+				result += "{2}";
+				resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
+				break;
+			} else {
+				if (!(tokens[i].index in mappings)) {
+					mappings[tokens[i].index] = numbersEncountered.length;
+				}
+				if (!numbersEncountered.includes(tokens[i].index)) {
+					numbersEncountered.push(tokens[i].index);
+					resultArgs.push(args[tokens[i].index]);
+				}
+				result += "{"+mappings[tokens[i].index]+"}";
+
+
+			}
+		}
+	}
+
+	console.log(resultArgs);
+
+	while (resultArgs.length < 3) {
+		resultArgs.push(wsNull);
+	}
+
+	if (resultArgs.length != 3) {
+		error("Custom string parser broke (string args length is "+resultArgs.length+")");
+	}
+
+	return tows("_customString", valueFuncKw)+"(\""+result+"\", "+resultArgs.join(", ")+")";
+}

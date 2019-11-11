@@ -13,7 +13,6 @@ overpyFiles = [
 	"doc/keywords.js",
 	"doc/stringKw.js",
 	"doc/specialFuncDoc.js",
-	"doc/maps.js",
 ];
 
 var overpyCode = "";
@@ -36,11 +35,11 @@ module.exports = {
 	eventPlayerKw: eventPlayerKw,
 	ruleKw: ruleKw,
 	stringKw: stringKw,
-	mapKw: mapKw,
 	specialFuncs: specialFuncs,
 	specialMemberFuncs: specialMemberFuncs,
 	currentLanguage: currentLanguage,
 	macros: macros,
+	resetGlobalVariables: resetGlobalVariables,
 
 };
 `
