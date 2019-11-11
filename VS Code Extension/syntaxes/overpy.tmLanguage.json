@@ -27,8 +27,6 @@
 		}
 	],
 
-	"//":"Note: more colors are possible with 'unused function name' and 'unused variable name', as well as 'regex'",
-
 	"repository": {
 		"keywords": {
 			"patterns": [
@@ -42,19 +40,19 @@
 					"name": "variable.other",
 					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|healee|healer|hostPlayer|loc|RULE_CONDITION|[A-Z])\\b"
 				},{
-					"name": "constant.numeric",
+					"name": "string.regexp",
 					"match": "\\@\\w+\\b"
 				},{
-					"name": "entity.name.function",
+					"name": "punctuation.definition.list.begin.markdown",
 					"match": "(?<=\\@Event )\\w+\\b"
 				},{
-					"name": "entity.name.function",
+					"name": "punctuation.definition.list.begin.markdown",
 					"match": "(?<=\\@Team )\\w+\\b"
 				},{
-					"name": "entity.name.function",
+					"name": "punctuation.definition.list.begin.markdown",
 					"match": "(?<=\\@Slot )\\w+\\b"
 				},{
-					"name": "entity.name.function",
+					"name": "punctuation.definition.list.begin.markdown",
 					"match": "(?<=\\@Hero )\\w+\\b"
 				}
 			]
@@ -98,7 +96,7 @@
 			]
 		},
 		"macros": {
-			"name": "support.class",
+			"name": "constant.language",
 			"begin": "#!",
 			"end": "(?<!\\\\)\\n"
 			

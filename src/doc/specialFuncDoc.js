@@ -60,10 +60,6 @@ const specialFuncs = [
             }
         ]
     },{
-        opy: "getMapId",
-        "description": "Built-in macro that calculates the map ID according to Kevlar's Map Detector (https://docs.google.com/spreadsheets/d/1KOEVdlErAsDIlt1EutD6qhFCykHVJjyydr4vPOxBS9Q).",
-        "args": []
-    },{
         opy: "getSign",
         "description": "Built-in macro for calculating the sign of a number. Resolves to `(((x)>0)-((x)<0))`. Returns -1, 0 or 1.",
         "args": [
@@ -99,7 +95,20 @@ const specialFuncs = [
                 "default": "IGNORE CONDITION"
             }
         ]
-    },{
+    },
+    {
+        "opy": "localizedStr",
+        "description": "Defines a localized string. The text inside the string is restricted to preset strings, and is translated according to the language of each player.",
+        "args": [
+            {
+                "name": "STRING",
+                "description": "",
+                "type": "STRING CONSTANT",
+                "default": "HELLO"
+            },
+        ]
+    },
+    {
         opy: "raycast",
         description: 
 `Defines a raycast to be then used with \`hasLoS()\`, \`getPlayerHit()\`, \`getNormal()\` or \`getHitPosition()\`.

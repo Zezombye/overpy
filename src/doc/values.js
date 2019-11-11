@@ -15,7 +15,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var valueFuncKw = [
+var valueFuncKw = 
+//begin-json
+[
     {
         "opy": "abs",
         "en": "absoluteValue",
@@ -597,6 +599,44 @@ var valueFuncKw = [
         "fr": "ÉlémentDeTableauActuel",
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": []
+    },
+    {
+        "opy": "getCurrentMap",
+        "en": "currentMap",
+        "description": "The current map of the custom game.",
+        "args": []
+    },
+    {
+        "opy": "_customString",
+        "en": "customString",
+        "fr": "todo",
+        "description": "ty magzie for adding that",
+        "args": [
+            {
+                "name": "STRING",
+                "description": "",
+                "type": "STRING CONSTANT",
+                "default": "HELLO"
+            },
+            {
+                "name": "{0}",
+                "description": "The value that will be converted to text and used to replace {0}.",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "{1}",
+                "description": "The value that will be converted to text and used to replace {1}.",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "{2}",
+                "description": "The value that will be converted to text and used to replace {2}.",
+                "type": "ANY",
+                "default": "NULL"
+            }
+        ]
     },
     {
         "opy": "angleToDirection",
@@ -1736,6 +1776,19 @@ var valueFuncKw = [
                 "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
                 "type": "TRANSFORMATION",
                 "default": "ROTATION"
+            }
+        ]
+    },
+    {
+        "opy": "_map",
+        "en": "Map",
+        "description": "A map constant.",
+        "args": [
+            {
+                "name": "MAP",
+                "description": "A map constant.",
+                "type": "MAP CONSTANT",
+                "default": "AYUTTHAYA"
             }
         ]
     },
@@ -3031,4 +3084,5 @@ var valueFuncKw = [
             }
         ]
     }
-];
+]
+//end-json
