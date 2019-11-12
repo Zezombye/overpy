@@ -17,6 +17,49 @@
 
 "use strict";
 
+function translateVarToPy(content, isGlobalVariable) {
+	content = content.trim();
+	if (isGlobalVariable && globalVarNames.includes(content) || !isGlobalVariable && playerVarNames.includes(content) || defaultVarNames.includes(content)) {
+		//modify the name
+		if (content.startsWith("_") || reservedNames.includes(content)) {
+			content = "_"+content;
+		}
+		if (!/[A-Za-z_]\w*/.test(content)) {
+			error("Unauthorized name for variable: '"+content+"'");
+		}
+		return content;
+	} else {
+		error("Unknown variable '"+content+"'");
+	}
+}
+
+function translateVarToWs(content) {
+	if (!/[A-Za-z_]\w*/.test(content)) {
+		error("Unauthorized name for variable: '"+content+"'");
+	}
+	return content;
+}
+
+//Adds a variable to the global/player variable arrays.
+function addVariable(content, isGlobalVariable, index) {
+	if (index === undefined) {
+		error("Index is undefined");
+	}
+	if (isGlobalVariable) {
+		if (globalVarNames.size < 128) {
+			globalVarNames.add(content);
+		} else {
+			error("More than 128 global variables have been declared");
+		}
+	} else {
+		if (playerVarNames.size < 128) {
+			playerVarNames.add(content);
+		} else {
+			error("More than 128 player variables have been declared");
+		}
+	}
+}
+
 function boolToWs(x) {
 	if (x === true) {
 		return wsTrue;

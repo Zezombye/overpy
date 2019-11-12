@@ -50,6 +50,9 @@ function compile(content, language="en", _rootPath="") {
 	for (var i = 0; i < rules.length; i++) {
 		result += compileRule(rules[i]);
 	}
+
+	result = generateVariablesField()+result;
+
 	if (typeof window !== "undefined") {
 		var t1 = performance.now();
 		console.log("Compilation time: "+(t1-t0)+"ms");
@@ -58,6 +61,45 @@ function compile(content, language="en", _rootPath="") {
 		result: result,
 		macros: macros,
 	};
+}
+
+function generateVariablesField() {
+	//Check if a variable was used but not declared
+	for (var variable of encounteredGlobalVars) {
+		if (!globalVarNames.has(variable)) {
+			error("Global variable '"+variable+"' was used, but not assigned to");
+		}
+	}
+	for (var variable of encounteredPlayerVars) {
+		if (!playerVarNames.has(variable)) {
+			error("Player variable '"+variable+"' was used, but not assigned to");
+		}
+	}
+
+	//Convert to array for easier iteration
+	globalVarNames = [...globalVarNames];
+	playerVarNames = [...playerVarNames];
+
+	var result = tows("_variables", ruleKw)+" {\n";
+	result += "\t"+tows("_global", ruleKw)+":\n";
+	for (var i = 0; i < 128; i++) {
+		if (i < globalVarNames.length) {
+			result += "\t\t"+i+": "+globalVarNames[i]+"\n";
+		} else {
+			result += "\t\t"+i+": unused_var_"+i+"\n";
+		}
+	}
+	result += "\t"+tows("_player", ruleKw)+":\n";
+	for (var i = 0; i < 128; i++) {
+		if (i < playerVarNames.length) {
+			result += "\t\t"+i+": "+playerVarNames[i]+"\n";
+		} else {
+			result += "\t\t"+i+": unused_var_"+i+"\n";
+		}
+	}
+	result += "}\n";
+	return result;
+
 }
 
 
@@ -725,6 +767,8 @@ parseArgs options:
 - "invertCondition": true/false
 - "raycastType": "getHitPosition"|"getNormal"|"getPlayerHit"|"hasLoS"
 - "isWholeInstruction": true/false
+- "isLocalizedString": true/false
+- "isTranslationOfForLoopVariable": string
 */
 function parse(content, parseArgs={}) {
 	
@@ -1032,33 +1076,13 @@ function parse(content, parseArgs={}) {
 		}
 	}
 	
-	//Check for current array element variable name
-	if (content.length === 1) {
-		if (currentArrayElementNames.indexOf(content[0].text) >= 0) {
-			return tows("_currentArrayElement", valueFuncKw);
-		}
-	}
-	
-	//Check for for loop variable name
-	if (content.length === 1) {
-		if (forLoopVariables[content[0].text] !== undefined) {
-			//console.log(forLoopVariables[content[0].text]);
-			return parse(forLoopVariables[content[0].text]);
-		}
-	}
 	
 	//Check for literal number
 	var nbTest = dispTokens(content).replace(/ /g, "")
 	if (!isNaN(nbTest)) {
 		return trimNb(nbTest);
 	}
-	
-	//Check for global variable
-	if (content.length === 1 && content[0].text.length === 1 && content[0].text >= 'A' && content[0].text <= 'Z') {
-		return tows("_globalVar", valueFuncKw)+"("+content[0].text+")";
-	}
-	
-	
+		
 	//Parse array
 	if (content[content.length-1].text === ']') {
 		var bracketPos = getTokenBracketPos(content);
@@ -1084,31 +1108,47 @@ function parse(content, parseArgs={}) {
 		return parse(content.slice(1, content.length-1));
 	}
 
-	//Check for "continue"
-	if (content.length === 1 && content[0].text === "continue") {
-		return tows("_loop", actionKw);
-	}
 	
 	//Parse args and name of function.
 	var name = content[0].text;
-	var args = [];
+	var args = null;
 	if (content.length > 1) {
 		if (content[1].text === '(') {
 			args = splitTokens(content.slice(2, content.length-1), ",");
 		} else if (content[1].text === '[') {
 			return parseArrayMembership(content);
+		} else {
+			error("Syntax error: expected '(' or '[' after '"+name+"'");
 		}
-	} else {
+	}
+
+	if (args === null) {
+
+		//Check for strings
 		if (name.startsWith('"') || name.startsWith("'")) {
 			if (parseArgs.isLocalizedString === true) {
 				return parseLocalizedString(tokenizeLocalizedString(name.substring(1, name.length-1)), []);
 			} else {
 				return parseString(name, []);
 			}
-			//error("owo");
 		}
 
-		
+		//Check for "continue"
+		if (name === "continue") {
+			return tows("_loop", actionKw);
+		}
+
+		//Check for current array element variable name
+		if (currentArrayElementNames.indexOf(name) >= 0) {
+			return tows("_currentArrayElement", valueFuncKw);
+		}
+
+		//Check for for loop variable name
+		if (forLoopVariables[name] !== undefined && parseArgs.isTranslationOfForLoopVariable !== name) {
+			//console.log(forLoopVariables[content[0].text]);
+			return parse(forLoopVariables[name], {isTranslationOfForLoopVariable: name});
+		}
+
 		//Check if it is legal to use the event variables.
 		if (name === "eventPlayer" && !(["eachPlayer", "playerJoined", "playerLeft", "playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "playerDealtHealing", "playerReceivedHealing"].includes(currentRuleEvent))) {
 			error("Cannot use 'eventPlayer' with event type '"+currentRuleEvent+"'");
@@ -1120,8 +1160,14 @@ function parse(content, parseArgs={}) {
 			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
 
 		}
-		
-		return tows(name, funcKw);
+
+		try {
+			return tows(name, funcKw);
+		} catch (e) {
+			//No translation found? Must be a global variable.
+			encounteredGlobalVars.add(name);
+			return tows("_globalVar", valueFuncKw)+"("+translateVarToWs(name)+")";
+		}
 	}
 
 	
@@ -1174,10 +1220,13 @@ function parse(content, parseArgs={}) {
 		var operands = splitTokens(args[0], ".", false, true);
 		if (operands.length === 2) {
 			funcName += "PlayerVariable";
-			result += parse(operands[0])+", "+operands[1][0].text;
+			result += parse(operands[0])+", ";
+			encounteredPlayerVars.add(operands[1][0].text);
+			result += translateVarToWs(operands[1][0].text);
 		} else {
 			funcName += "GlobalVariable";
-			result += args[0][0].text;
+			encounteredGlobalVars.add(args[0][0].text);
+			result += translateVarToWs(args[0][0].text);
 		}
 		
 		if (args.length !== 4) {
@@ -1530,107 +1579,116 @@ function parseMember(object, member, parseArgs={}) {
 	
 	var name = member[0].text;
 	//debug("name = "+name);
-	var args = [];
-	if (member.length > 1 && member[1].text === '(') {
-		args = splitTokens(member.slice(2, member.length-1), ",");
-	}
-	
-	if (name.length === 1 && name >= 'A' && name <= 'Z') {
-		return tows("_playerVar", valueFuncKw)+"("+parse(object)+", "+name+")";
-
-	//Check enums
-	} else if (Object.values(constantValues).map(x => x.opy).indexOf(object[0].text) >= 0) {
-		var result = tows(object[0].text+"."+name, constantKw);
-		if (object[0].text === "Hero") {
-			result = tows("_hero", valueFuncKw)+"("+result+")";
-		} else if (object[0].text === "Map") {
-			result = tows("_map", valueFuncKw)+"("+result+")";
+	var args = null;
+	if (member.length > 1) {
+		if (member[1].text === '(') {
+			args = splitTokens(member.slice(2, member.length-1), ",");
+		} else {
+			error("Invalid syntax (member function isn't followed by parenthesis)");
 		}
+	}
 
-		return result;
+	if (args === null) {
+		if (name === "x") {
+			return tows("_xComponentOf", valueFuncKw)+"("+parse(object)+")";
+		} else if (name === "y") {
+			return tows("_yComponentOf", valueFuncKw)+"("+parse(object)+")";
+		} else if (name === "z") {
+			return tows("_zComponentOf", valueFuncKw)+"("+parse(object)+")";
+			
+		//Check enums
+		} else if (Object.values(constantValues).map(x => x.opy).indexOf(object[0].text) >= 0) {
+			var result = tows(object[0].text+"."+name, constantKw);
+			if (object[0].text === "Hero") {
+				result = tows("_hero", valueFuncKw)+"("+result+")";
+			} else if (object[0].text === "Map") {
+				result = tows("_map", valueFuncKw)+"("+result+")";
+			}
+			return result;
+		} else if (object[0].text === "math" && object.length === 1) {
+			if (name === "pi") {
+				return "3.14159265359";
+			} else if (name === "e") {
+				return "2.71828182846";
+			} else {
+				error("Unhandled member 'math."+name+"'");
+			}
+	
+		} else if (object[0].text === "Vector") {
+			return tows("Vector."+name, valueFuncKw);
 
-	} else if (name === "append") {
-		if (parseArgs.isWholeInstruction === true) {
-			return parseAssignment(object, args[0], true, "_appendToArray");
+		} else {
+			//Should be a player variable.
+			encounteredPlayerVars.add(name);
+			return tows("_playerVar", valueFuncKw)+"("+parse(object)+", "+translateVarToWs(name)+")";
+		}
+	} else {
+	
+		if (name === "append") {
+			if (parseArgs.isWholeInstruction === true) {
+				return parseAssignment(object, args[0], true, "_appendToArray");
+				
+			} else {
+				return tows("_appendToArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
+			}
+			
+		} else if (name === "exclude") {
+			return tows("_removeFromArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
+			
+		} else if (name === "format") {
+			if (parseArgs.isLocalizedString === true) {
+				var result = parseLocalizedString(tokenizeLocalizedString(object[0].text.substring(1, object[0].text.length-1)), args);
+			} else {
+				var result = parseString(object[0].text, args);
+			}
+			return result;
+			
+		} else if (name === "getHitPosition") {
+			return parse(object, {raycastType:"getHitPosition"});
+			
+		} else if (name === "getNormal") {
+			return parse(object, {raycastType:"getNormal"});
+			
+		} else if (name === "getPlayerHit") {
+			return parse(object, {raycastType:"getPlayerHit"});
+			
+		} else if (name === "hasLoS") {
+			return parse(object, {raycastType:"hasLoS"});
+			
+		} else if (name === "index") {
+			return tows("_indexOfArrayValue", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
+			
+		} else if (object[0].text === "random" && object.length === 1) {
+			if (name === "randint" || name === "uniform") {
+				return tows("random."+name, valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+")";
+			} else if (name === "shuffle" || name === "choice") {
+				return tows("random."+name, valueFuncKw)+"("+parse(args[0])+")";
+			} else {
+				error("Unhandled member 'random."+name+"'");
+			}
+			
+		} else if (name === "remove") {
+			return parseAssignment(object, args[0], true, "_removeFromArrayByValue");
+			
+		} else if (name === "slice") {
+			return tows("_arraySlice", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+", "+parse(args[1])+")";
 			
 		} else {
-			return tows("_appendToArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
+			
+			//Check for player function
+			try {
+				var translation = tows("_&"+name, funcKw);
+			} catch (e) {
+				error("Unhandled member ", member[0]);
+			}
+			
+			var result = translation+"("+parse(object);
+			for (var i = 0; i < args.length; i++) {
+				result += ", "+parse(args[i]);
+			}
+			result += ")";
+			return result;
 		}
-		
-	} else if (name === "exclude") {
-		return tows("_removeFromArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
-		
-	} else if (name === "format") {
-		if (parseArgs.isLocalizedString === true) {
-			var result = parseLocalizedString(tokenizeLocalizedString(object[0].text.substring(1, object[0].text.length-1)), args);
-		} else {
-			var result = parseString(object[0].text, args);
-		}
-		return result;
-		
-	} else if (name === "getHitPosition") {
-		return parse(object, {raycastType:"getHitPosition"});
-		
-	} else if (name === "getNormal") {
-		return parse(object, {raycastType:"getNormal"});
-		
-	} else if (name === "getPlayerHit") {
-		return parse(object, {raycastType:"getPlayerHit"});
-		
-	} else if (name === "hasLoS") {
-		return parse(object, {raycastType:"hasLoS"});
-		
-	} else if (name === "index") {
-		return tows("_indexOfArrayValue", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
-		
-	} else if (object[0].text === "math" && object.length === 1) {
-		if (name === "pi") {
-			return "3.14159265359";
-		} else if (name === "e") {
-			return "2.71828182846";
-		} else {
-			error("Unhandled member 'math."+name+"'");
-		}
-
-	} else if (object[0].text === "random" && object.length === 1) {
-		if (name === "randint" || name === "uniform") {
-			return tows("random."+name, valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+")";
-		} else if (name === "shuffle" || name === "choice") {
-			return tows("random."+name, valueFuncKw)+"("+parse(args[0])+")";
-		} else {
-			error("Unhandled member 'random."+name+"'");
-		}
-		
-	} else if (name === "remove") {
-		return parseAssignment(object, args[0], true, "_removeFromArrayByValue");
-		
-	} else if (name === "slice") {
-		return tows("_arraySlice", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+", "+parse(args[1])+")";
-		
-	} else if (object[0].text === "Vector") {
-		return tows("Vector."+name, valueFuncKw);
-		
-	} else if (name === "x") {
-		return tows("_xComponentOf", valueFuncKw)+"("+parse(object)+")";
-	} else if (name === "y") {
-		return tows("_yComponentOf", valueFuncKw)+"("+parse(object)+")";
-	} else if (name === "z") {
-		return tows("_zComponentOf", valueFuncKw)+"("+parse(object)+")";
-	} else {
-		
-		//Check for player function
-		try {
-			var translation = tows("_&"+name, funcKw);
-		} catch (Error) {
-			error("Unhandled member ", member[0]);
-		}
-		
-		var result = translation+"("+parse(object);
-		for (var i = 0; i < args.length; i++) {
-			result += ", "+parse(args[i]);
-		}
-		result += ")";
-		return result;
 	}
 	
 	error("This shouldn't happen");
@@ -1653,10 +1711,9 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 	var result = "";
 	
 	if (variable.length === 1) {
-		if (variable[0].text.length !== 1 || variable[0].text < 'A' || variable[0].text > 'Z') {
-			error("Unauthorized global variable '"+variable[0].text+"'");
-		}
-		result += tows("_"+func+"GlobalVar", actionKw)+"("+variable[0].text+", ";
+		//It is a global variable
+		addVariable(variable[0].text, true)
+		result += tows("_"+func+"GlobalVar", actionKw)+"("+translateVarToWs(variable[0].text)+", ";
 		
 	} else {
 		//Check for dot; if it is present, it can only be a player variable
@@ -1667,19 +1724,22 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 			
 			//Check for array
 			if (operands[1].length > 1 && operands[1][1].text === '[') {
+				addVariable(operands[1][0].text, false);
 				result += tows("_"+func+"PlayerVarAtIndex", actionKw)
-						+"("+parse(operands[0])+", "+operands[1][0].text+", "
+						+"("+parse(operands[0])+", "+translateVarToWs(operands[1][0].text)+", "
 						+parse(operands[1].slice(2, operands[1].length-1))+", ";
 			} else {
 				if (operands[1].length > 1) {
 					error("Unauthorised player variable ", operands[1]);
 				}
-				result += tows("_"+func+"PlayerVar", actionKw)+"("+parse(operands[0])+", "+operands[1][0].text+", ";
+				addVariable(operands[1][0].text, false);
+				result += tows("_"+func+"PlayerVar", actionKw)+"("+parse(operands[0])+", "+translateVarToWs(operands[1][0].text)+", ";
 			}
 			
 		} else {
 			if (variable[1].text === '[') {
-				result += tows("_"+func+"GlobalVarAtIndex", actionKw)+"("+variable[0].text+", "+parse(variable.slice(2, variable.length-1))+", ";
+				addVariable(variable[0].text, true)
+				result += tows("_"+func+"GlobalVarAtIndex", actionKw)+"("+translateVarToWs(variable[0].text)+", "+parse(variable.slice(2, variable.length-1))+", ";
 			} else {
 				error("Unauthorized global variable", variable);
 			}
@@ -1938,8 +1998,6 @@ function parseString(content, formatArgs) {
 		}
 	}
 
-	console.log(numberMapping);
-
 	//sort args if there was (potentially) a reordering
 	for (var key of Object.keys(numberMapping)) {
 		if (formatArgs[key]) {
@@ -1975,9 +2033,6 @@ function parseStringTokens(tokens, args) {
 		}
 	}
 
-	console.log(tokens);
-	console.log(numbers);
-
 	//Add tokens
 	//For now, no optimization: just split if more than 3 unique numbers
 	for (var i = 0; i < tokens.length; i++) {
@@ -2007,8 +2062,6 @@ function parseStringTokens(tokens, args) {
 			}
 		}
 	}
-
-	console.log(resultArgs);
 
 	while (resultArgs.length < 3) {
 		resultArgs.push(wsNull);

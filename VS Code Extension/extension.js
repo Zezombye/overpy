@@ -18,67 +18,6 @@ const decompilerUI = [`
         <div id="decompiler-input">
             <textarea id="decompiler-input-text" placeholder="Copy paste your workshop code here"></textarea>
         </div>
-        <div id="var-input">
-            <p>Global var names</p>
-            <div id="global-var-input">
-                <p>A: <input type='text' id='global-var-a'/></p>
-                <p>B: <input type='text' id='global-var-b'/></p>
-                <p>C: <input type='text' id='global-var-c'/></p>
-                <p>D: <input type='text' id='global-var-d'/></p>
-                <p>E: <input type='text' id='global-var-e'/></p>
-                <p>F: <input type='text' id='global-var-f'/></p>
-                <p>G: <input type='text' id='global-var-g'/></p>
-                <p>H: <input type='text' id='global-var-h'/></p>
-                <p>I: <input type='text' id='global-var-i'/></p>
-                <p>J: <input type='text' id='global-var-j'/></p>
-                <p>K: <input type='text' id='global-var-k'/></p>
-                <p>L: <input type='text' id='global-var-l'/></p>
-                <p>M: <input type='text' id='global-var-m'/></p>
-                <p>N: <input type='text' id='global-var-n'/></p>
-                <p>O: <input type='text' id='global-var-o'/></p>
-                <p>P: <input type='text' id='global-var-p'/></p>
-                <p>Q: <input type='text' id='global-var-q'/></p>
-                <p>R: <input type='text' id='global-var-r'/></p>
-                <p>S: <input type='text' id='global-var-s'/></p>
-                <p>T: <input type='text' id='global-var-t'/></p>
-                <p>U: <input type='text' id='global-var-u'/></p>
-                <p>V: <input type='text' id='global-var-v'/></p>
-                <p>W: <input type='text' id='global-var-w'/></p>
-                <p>X: <input type='text' id='global-var-x'/></p>
-                <p>Y: <input type='text' id='global-var-y'/></p>
-                <p>Z: <input type='text' id='global-var-z'/></p>
-            </div>
-            <p>Player var names</p>
-            <div id="player-var-input">
-                <p>A: <input type='text' id='player-var-a'/></p>
-                <p>B: <input type='text' id='player-var-b'/></p>
-                <p>C: <input type='text' id='player-var-c'/></p>
-                <p>D: <input type='text' id='player-var-d'/></p>
-                <p>E: <input type='text' id='player-var-e'/></p>
-                <p>F: <input type='text' id='player-var-f'/></p>
-                <p>G: <input type='text' id='player-var-g'/></p>
-                <p>H: <input type='text' id='player-var-h'/></p>
-                <p>I: <input type='text' id='player-var-i'/></p>
-                <p>J: <input type='text' id='player-var-j'/></p>
-                <p>K: <input type='text' id='player-var-k'/></p>
-                <p>L: <input type='text' id='player-var-l'/></p>
-                <p>M: <input type='text' id='player-var-m'/></p>
-                <p>N: <input type='text' id='player-var-n'/></p>
-                <p>O: <input type='text' id='player-var-o'/></p>
-                <p>P: <input type='text' id='player-var-p'/></p>
-                <p>Q: <input type='text' id='player-var-q'/></p>
-                <p>R: <input type='text' id='player-var-r'/></p>
-                <p>S: <input type='text' id='player-var-s'/></p>
-                <p>T: <input type='text' id='player-var-t'/></p>
-                <p>U: <input type='text' id='player-var-u'/></p>
-                <p>V: <input type='text' id='player-var-v'/></p>
-                <p>W: <input type='text' id='player-var-w'/></p>
-                <p>X: <input type='text' id='player-var-x'/></p>
-                <p>Y: <input type='text' id='player-var-y'/></p>
-                <p>Z: <input type='text' id='player-var-z'/></p>
-            </div>
-        </div>
-        
     </div>
     
     <div id="button-container">
@@ -154,31 +93,13 @@ const decompilerUI = [`
     
         function decompile() {
 
-            var alphabet = "abcdefghijklmnopqrstuvwxyz";
             var workshopCode = document.getElementById("decompiler-input-text").value;
-            var globalVars = {};
-            for (var letter of alphabet) {
-                var varText = document.getElementById("global-var-"+letter).value.trim();
-                if (varText !== "") {
-                    globalVars[letter] = varText;
-                }
-            }
-
-            var playerVars = {};
-            for (var letter of alphabet) {
-                var varText = document.getElementById("player-var-"+letter).value.trim();
-                if (varText !== "") {
-                    playerVars[letter] = varText;
-                }
-            }
             var languageSelect = document.getElementById("language-select");
             var language = languageSelect.options[languageSelect.selectedIndex].value;
 
             const vscode = acquireVsCodeApi();
             vscode.postMessage({
                 content: workshopCode,
-                globalVars: globalVars,
-                playerVars: playerVars,
                 language: language,
             });
 
@@ -249,15 +170,15 @@ const memberConstList = [
     //Vector constants
     {
         opy: "x",
-        description: "todo",
+        description: "The x component of the specified vector, usually representing a leftward amount.",
         args: null,
     },{
         opy: "y",
-        description: "todo",
+        description: "The y component of the specified vector, usually representing an upward amount.",
         args: null,
     },{
         opy: "z",
-        description: "todo",
+        description: "The z component of the specified vector, usually representing a forward amount.",
         args: null,
     }
 ];
@@ -296,7 +217,7 @@ function activate(context) {
 
             try {
 
-                var decompiled = overpy.decompileAllRules(message.content, message.globalVars, message.playerVars, message.language);
+                var decompiled = overpy.decompileAllRules(message.content, message.language);
 
                 vscode.window.showSaveDialog({
                     canSelectMany: false,

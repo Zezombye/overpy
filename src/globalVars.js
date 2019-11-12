@@ -17,6 +17,9 @@
 
 "use strict";
 
+var globalVarNames = [];
+var playerVarNames = [];
+
 //Compilation variables - are reset at each compilation.
 
 //The absolute path of the folder containing the main file. Used for relative paths.
@@ -52,6 +55,9 @@ var obfuscateRules;
 //Contains all macros.
 var macros;
 
+var encounteredGlobalVars;
+var encounteredPlayerVars;
+
 
 //Decompilation variables
 
@@ -59,22 +65,22 @@ var macros;
 var fileStack;
 
 //Global variable used for "skip ifs", to keep track of where the skip if ends.
-//Is reset at each rule. (for decompilation)
+//Is reset at each rule.
 var decompilerGotos;
 
 //Global variable used for the number of tabs.
-//Is reset at each rule. (for decompilation)
+//Is reset at each rule.
 var nbTabs;
 
 //Global variable used to mark the action number of the last loop in the rule.
-//Is reset at each rule. (for decompilation)
+//Is reset at each rule.
 var lastLoop;
 
 //Global variable used to keep track of operator precedence.
-//Is reset at each action and rule condition. (for decompilation)
+//Is reset at each action and rule condition.
 var operatorPrecedenceStack;
 
-//Whether the decompilation at this time is under a normal "for" loop (for decompilation).
+//Whether the decompilation at this time is under a normal "for" loop.
 var isInNormalForLoop;
 
 
@@ -97,6 +103,10 @@ function resetGlobalVariables() {
 	lastLoop = -1;
 	operatorPrecedenceStack = [];
 	isInNormalForLoop = false;
+	globalVarNames = new Set();
+	playerVarNames = new Set();
+	encounteredGlobalVars = new Set();
+	encounteredPlayerVars = new Set();
 }
 
 //Other constants
@@ -168,3 +178,8 @@ function vect(x,y,z) {
 }`;
 
 const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length-1;
+
+const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BV', 'BW', 'BX', 'BY', 'BZ', 'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN', 'CO', 'CP', 'CQ', 'CR', 'CS', 'CT', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG', 'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN', 'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DV', 'DW', 'DX'];
+
+//Names that cannot be used for variables.
+const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "x", "y", "z", "math", "pi", "e", "random", "Vector"].concat( Object.keys(constantValues).map(x => constantValues[x].opy));

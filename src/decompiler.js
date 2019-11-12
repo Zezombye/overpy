@@ -19,112 +19,85 @@
 
 //OverPy Decompiler (Workshop -> OverPy)
 
-
-/*var counter = 0;
-var counter2 = 0;*/
-/*for (var h = 0; h < testvalues.length; h++) {
-	var isIn = false;
-	for (var i = 0; i < valueKw.length; i++) {
-		for (var j = 0; j < valueKw[i][1].length; j++) {
-			if (valueKw[i][1][j].toLowerCase() === testvalues[h]["name"].replace(/\s/, "").toLowerCase()) {
-				isIn = true;
-			}
-		}
-	}
-	if (isIn) {
-		counter++;
-	} else {
-		counter2++;
-	}
-}*/
-/*for (var h = 0; h < testactions.length; h++) {
-	var isIn = false;
-	for (var i = 0; i < actionKw.length; i++) {
-		for (var j = 0; j < actionKw[i][1].length; j++) {
-			if (actionKw[i][1][j].toLowerCase() === testactions[h]["name"].replace(/\s/, "").toLowerCase()) {
-				isIn = true;
-			}
-		}
-	}
-	if (isIn) {
-		counter++;
-	} else {
-		counter2++;
-	}
-}
-console.log(counter);
-console.log(counter2);*/
-
-//console.log(decompileAllRules(decompileTest));
-
-/*console.log(decompileAllRules(decompileTest, {
-	"a":"currentSectionWalls",
-	"b":"tpStarts",
-	"c":"tpDests",
-	"d":"deathplaneY",
-	"e":"roundWinners",
-	"f":"mapId",
-	"g":"hasFirstInfectionPassed",
-	"i":"sectionLoopIndex",
-	"j":"level",
-	"l":"lateTps",
-	"m":"sectionRadiuses",
-	"n":"currentSection",
-	"o":"firstInfectionLoopIndex",
-	"p":"matchTime",
-	"q":"countdownProgress",
-	"r":"roundProgress",
-	"s":"sectionData",
-	"t":"triggers",
-	"w":"walls",
-	"z":"zombieHero",
-}, {
-	b:"fastFireCountdown",
-	c:"tempPos",
-	f:"hasWonRound",
-	j:"wallLoopIndex",
-	l:"wasFirstZombieLastRound",
-	z:"team",
-}));*/
-
-function decompileAllRules(content, globalVarNames={}, playerVarNames={}, language="en") {
+function decompileAllRules(content, language="en") {
 
 	resetGlobalVariables();
 	currentLanguage = language;
 	var result = "";
+	content = content.trim();
 	
-	//debug(globalVarNames);
-	//debug(playerVarNames);
 	
-	if (Object.entries(globalVarNames).length !== 0) {
-		result += "#Global variables\n\n";
-		result += loadVariableNames(globalVarNames, globalVarKw);
-		result += "\n\n";
-	}
-	if (Object.entries(playerVarNames).length !== 0) {
-		result += "#Player variables\n\n";
-		result += loadVariableNames(playerVarNames, playerVarKw);
-		result += "\n\n";
+	var bracketPos = getBracketPositions(content);
+
+	//Check for variable names
+	if (content.startsWith(tows("_variables", ruleKw))) {
+		decompileVarNames(content.substring(bracketPos[0]+1, bracketPos[1]));
+		bracketPos = bracketPos.slice(1);
+	} else {
+		bracketPos.unshift(-1);
 	}
 
-	var bracketPos = [-1].concat(getBracketPositions(content));
+	debug("global vars: "+globalVarNames);
+	debug("player vars: "+playerVarNames);
 	
 	//A rule looks like this:
 	//rule(title) {...}
 	//Therefore, each rule ends every 4th bracket position
-	
 	
 	for (var i = 0; i < bracketPos.length-1; i += 4) {
 	//for (var i = 0; i < 4; i += 4) {
 		if (i >= bracketPos.length-1) break;
 		result += decompileRule(content.substring(bracketPos[i]+1, bracketPos[i+4]+1));
 	}
-	
-	resetVarNames(globalVarKw);
-	resetVarNames(playerVarKw);
-	
+		
 	return result;
 	
+}
+
+function decompileVarNames(content) {
+	content = content.split(":");
+	var isInGlobalVars = true;
+	var currentVarIndex = undefined;
+	for (var i = 0; i < content.length; i++) {
+		content[i] = content[i].trim();
+		if (i === 0) {
+			//First element is always a var type
+			if (content[i] === tows("_global", ruleKw)) {
+				isInGlobalVars = true;
+			} else if (content[i] === tows("_player", ruleKw)) {
+				isInGlobalVars = false;
+			} else {
+				error("Unrecognized var type '"+content[i]+"'");
+			}
+		} else {
+			if (content[i].search(/\s/) >= 0) {
+				var elems = content[i].split(/\s+/);
+				if (elems.length !== 2) {
+					error("Could not parse variables field: too many elements on '"+content[i]+"'");
+				}
+				addVariable(elems[0], isInGlobalVars, currentVarIndex);
+				if (!isNaN(elems[1])) {
+					currentVarIndex = +elems[1];
+				} else {
+					if (elems[1] === tows("_global", ruleKw)) {
+						isInGlobalVars = true;
+					} else if (elems[1] === tows("_player", ruleKw)) {
+						isInGlobalVars = false;
+					} else {
+						error("Unrecognized var type '"+elems[1]+"'");
+					}
+				}
+			} else {
+				if (!isNaN(content[i])) {
+					currentVarIndex = +content[i];
+				} else if (i === content.length-1) {
+					addVariable(content[i], isInGlobalVars, currentVarIndex);
+				} else {
+					error("Could not parse variables field");
+				}
+			}
+		}
+	}
 }
 
 function decompileRule(content) {
@@ -557,19 +530,19 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Chase global variable at rate
 	if (name === "_chaseGlobalVariableAtRate") {
 		
-		return "chase("+decompile(args[0], globalVarKw)+", "+decompile(args[1])+", rate="+decompile(args[2])+", "+decompile(args[3])+")";
+		return "chase("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", rate="+decompile(args[2])+", "+decompile(args[3])+")";
 	}
 	
 	//Chase global variable over time
 	if (name === "_chaseGlobalVariableOverTime") {
 		
-		return "chase("+decompile(args[0], globalVarKw)+", "+decompile(args[1])+", duration="+decompile(args[2])+", "+decompile(args[3])+")";
+		return "chase("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", duration="+decompile(args[2])+", "+decompile(args[3])+")";
 	}
 	
 	//Chase player variable at rate
 	if (name === "_chasePlayerVariableAtRate") {
 		
-		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, rate={arg2}, {arg3})", args[0], args.slice(1), true)
+		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, rate={arg2}, {arg3})", args[0], args.slice(1), true, true, true)
 		
 		return result;
 	}
@@ -577,7 +550,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Chase player variable over time
 	if (name === "_chasePlayerVariableOverTime") {
 		
-		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, duration={arg2}, {arg3})", args[0], args.slice(1), true)
+		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, duration={arg2}, {arg3})", args[0], args.slice(1), true, true, true)
 		
 		return result;
 	}
@@ -691,7 +664,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		
 	//Global variable
 	if (name === "_globalVar") {
-		return decompile(args[0], globalVarKw);
+		return translateVarToPy(args[0], true);
 	}
 		
 	//Hero
@@ -823,19 +796,19 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Modify global var
 	if (name === "_modifyGlobalVar") {
-		return decompileModifyVar(decompile(args[0], globalVarKw), args[1], decompile(args[2]));
+		return decompileModifyVar(translateVarToPy(args[0], true), args[1], decompile(args[2]));
 	}
 	
 	//Modify global var at index
 	if (name === "_modifyGlobalVarAtIndex") {
-		return decompileModifyVar(decompile(args[0], globalVarKw), args[2], decompile(args[3]), decompile(args[1]));
+		return decompileModifyVar(translateVarToPy(args[0], true), args[2], decompile(args[3]), decompile(args[1]));
 	}
 	
 	//Modify player var
 	if (name === "_modifyPlayerVar") {
 		
 		var playerVarName = getPlayerVarName(args[0]);
-		var result = decompileModifyVar(playerVarName+"."+decompile(args[1], playerVarKw), args[2], decompile(args[3]))
+		var result = decompileModifyVar(playerVarName+"."+translateVarToPy(args[1], false), args[2], decompile(args[3]))
 		
 		return decompilePlayerFunction(result, args[0], []);
 	}
@@ -844,7 +817,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	if (name === "_modifyPlayerVarAtIndex") {
 		
 		var playerVarName = getPlayerVarName(args[0]);
-		var result = decompileModifyVar(playerVarName+"."+decompile(args[1], playerVarKw), args[3], decompile(args[4]), decompile(args[2]))
+		var result = decompileModifyVar(playerVarName+"."+translateVarToPy(args[1], false), args[3], decompile(args[4]), decompile(args[2]))
 		
 		return decompilePlayerFunction(result, args[0], []);
 	}
@@ -867,12 +840,12 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Player variable
 	if (name === "_playerVar") {
 		if (isSinglePlayerInstruction(args[0])) {
-			return decompile(args[0])+"."+decompile(args[1], playerVarKw);
+			return decompile(args[0])+"."+translateVarToPy(args[1], false);
 		} else {
 			if (isInNormalForLoop) {
-				return "[player2."+decompile(args[1], playerVarKw)+" for player2 in "+decompile(args[0])+"]";
+				return "[player2."+translateVarToPy(args[1], false)+" for player2 in "+decompile(args[0])+"]";
 			} else {
-				return "[player."+decompile(args[1], playerVarKw)+" for player in "+decompile(args[0])+"]";
+				return "[player."+translateVarToPy(args[1], false)+" for player in "+decompile(args[0])+"]";
 			}
 		}
 	}
@@ -904,32 +877,32 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Set global var
 	if (name === "_setGlobalVar") {
-		return decompile(args[0], globalVarKw)+" = "+decompile(args[1]);
+		return translateVarToPy(args[0], true)+" = "+decompile(args[1]);
 	}
 	
 	//Set global var at index
 	if (name === "_setGlobalVarAtIndex") {
-		return decompile(args[0], globalVarKw)+"["+decompile(args[1])+"] = "+decompile(args[2]);
+		return translateVarToPy(args[0], true)+"["+decompile(args[1])+"] = "+decompile(args[2]);
 	}
 	
 	//Set player var
 	if (name === "_setPlayerVar") {
-		return decompilePlayerFunction("{player}.{arg0} = {arg1}", args[0], args.slice(1), true);
+		return decompilePlayerFunction("{player}.{arg0} = {arg1}", args[0], args.slice(1), true, true, true);
 	}
 	
 	//Set player var at index
 	if (name === "_setPlayerVarAtIndex") {
-		return decompilePlayerFunction("{player}.{arg0}[{arg1}] = {arg2}", args[0], args.slice(1), true);
+		return decompilePlayerFunction("{player}.{arg0}[{arg1}] = {arg2}", args[0], args.slice(1), true, true, true);
 	}
 	
 	//Stop chasing player variable
 	if (name === "_stopChasingGlobalVariable") {
-		return "stopChasingVariable("+args[0]+")";
+		return "stopChasingVariable("+translateVarToPy(args[0], true)+")";
 	}
 	
 	//Stop chasing player variable
 	if (name === "_stopChasingPlayerVariable") {
-		return decompilePlayerFunction("stopChasingVariable({player}.{args})", args[0], args.slice(1));
+		return decompilePlayerFunction("stopChasingVariable({player}.{args})", args[0], args.slice(1), false, true, true);
 	}
 					
 	//Subtract
@@ -1121,7 +1094,7 @@ function decompileGenericPlayerFunction(name, args, isAction) {
 //Automatically generates a for loop for player function, if that player function takes an array as argument.
 //The content is a python translation and must contain {player} and {args} to replace strings by the args.
 //If separateArgs = true, {arg0}, {arg1} etc must be provided instead of {args}.
-function decompilePlayerFunction(content, player, args, separateArgs=false, isAction=true) {
+function decompilePlayerFunction(content, player, args, separateArgs=false, isAction=true, firstArgIsVar=false) {
 	
 	var result = "";
 	var hasNormalForLoopBeenSetInThisFunction = false;
@@ -1152,8 +1125,8 @@ function decompilePlayerFunction(content, player, args, separateArgs=false, isAc
 	if (!separateArgs) {
 		var argsStr = "";
 		for (var i = 0; i < args.length; i++) {
-			if (args[i].length === 1) {
-				argsStr += decompile(args[i], playerVarKw);
+			if (i === 0 && firstArgIsVar) {
+				argsStr += translateVarToPy(args[i], false);
 			} else {
 				argsStr += decompile(args[i]);
 			}
@@ -1164,8 +1137,8 @@ function decompilePlayerFunction(content, player, args, separateArgs=false, isAc
 		result = result.replace("\{args\}", argsStr)
 	} else {
 		for (var i = 0; i < args.length; i++) {
-			if (args[i].length === 1) {
-				result = result.replace("\{arg"+i+"\}", decompile(args[i], playerVarKw))
+			if (i === 0 && firstArgIsVar) {
+				result = result.replace("\{arg"+i+"\}", translateVarToPy(args[i], false))
 			} else {
 				result = result.replace("\{arg"+i+"\}", decompile(args[i]))
 			}
