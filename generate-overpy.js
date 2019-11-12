@@ -2,15 +2,15 @@ const fs = require("fs");
 
 //import overpy files
 overpyFiles = [
+	"doc/actions.js",
+	"doc/values.js",
+	"doc/constants.js",
+	"doc/keywords.js",
 	"globalVars.js",
 	"utils.js",
 	"decompiler.js",
 	"tokenizer.js",
 	"compiler.js",
-	"doc/actions.js",
-	"doc/values.js",
-	"doc/constants.js",
-	"doc/keywords.js",
 	"doc/stringKw.js",
 	"doc/specialFuncDoc.js",
 ];
