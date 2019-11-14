@@ -17,8 +17,8 @@
 
 "use strict";
 
-var globalVarNames = [];
-var playerVarNames = [];
+var globalVariables;
+var playerVariables;
 
 //Compilation variables - are reset at each compilation.
 
@@ -54,9 +54,6 @@ var obfuscateRules;
 
 //Contains all macros.
 var macros;
-
-var encounteredGlobalVars;
-var encounteredPlayerVars;
 
 
 //Decompilation variables
@@ -103,10 +100,8 @@ function resetGlobalVariables() {
 	lastLoop = -1;
 	operatorPrecedenceStack = [];
 	isInNormalForLoop = false;
-	globalVarNames = new Set();
-	playerVarNames = new Set();
-	encounteredGlobalVars = new Set();
-	encounteredPlayerVars = new Set();
+	globalVariables = [];
+	playerVariables = [];
 }
 
 //Other constants

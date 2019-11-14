@@ -19,7 +19,8 @@
 
 function translateVarToPy(content, isGlobalVariable) {
 	content = content.trim();
-	if (isGlobalVariable && globalVarNames.includes(content) || !isGlobalVariable && playerVarNames.includes(content) || defaultVarNames.includes(content)) {
+	var varArray = isGlobalVariable ? globalVariables : playerVariables;
+	if (varArray.map(x => x.name).includes(content)) {
 		//modify the name
 		if (content.startsWith("_") || reservedNames.includes(content)) {
 			content = "_"+content;
@@ -28,16 +29,29 @@ function translateVarToPy(content, isGlobalVariable) {
 			error("Unauthorized name for variable: '"+content+"'");
 		}
 		return content;
+	} else if (defaultVarNames.includes(content)) {
+		//Add the variable as it doesn't already exist (else it would've been caught by the first if)
+		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
+		return content;
 	} else {
 		error("Unknown variable '"+content+"'");
 	}
 }
 
-function translateVarToWs(content) {
-	if (!/[A-Za-z_]\w*/.test(content)) {
-		error("Unauthorized name for variable: '"+content+"'");
+function translateVarToWs(content, isGlobalVariable) {
+
+	var varArray = isGlobalVariable ? globalVariables : playerVariables;
+	for (var variable of varArray) {
+		if (variable.name === content) {
+			return content;
+		}
 	}
-	return content;
+	if (defaultVarNames.includes(content)) {
+		//Add the variable as it doesn't already exist (else it would've been caught by the for)
+		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
+		return content;
+	}
+	error("Undeclared "+(isGlobalVariable ? "global" : "player")+" variable '"+content+"'");
 }
 
 //Adds a variable to the global/player variable arrays.
@@ -46,17 +60,15 @@ function addVariable(content, isGlobalVariable, index) {
 		error("Index is undefined");
 	}
 	if (isGlobalVariable) {
-		if (globalVarNames.size < 128) {
-			globalVarNames.add(content);
-		} else {
-			error("More than 128 global variables have been declared");
-		}
+		globalVariables.push({
+			"name": content,
+			"index": index,
+		});
 	} else {
-		if (playerVarNames.size < 128) {
-			playerVarNames.add(content);
-		} else {
-			error("More than 128 player variables have been declared");
-		}
+		playerVariables.push({
+			"name": content,
+			"index": index,
+		});
 	}
 }
 
@@ -276,7 +288,7 @@ function getName(content) {
 //Returns "player" if the instruction represents an array of players, else the name of the instruction.
 //Note: you must only pass the name of the instruction to this function.
 function getPlayerVarName(content) {
-	if (isSinglePlayerInstruction(content)) {
+	if (!isPlayerArrayInstruction(content)) {
 		return decompile(content);
 	} else {
 		return "player";
@@ -286,7 +298,7 @@ function getPlayerVarName(content) {
 //Checks if the (python) instruction represents only a player.
 //Used to differenciate player and player[].
 //Note: you must only pass the name to this function.
-function isSinglePlayerInstruction(content) {
+/*function isSinglePlayerInstruction(content) {
 	
 	content = topy(getName(content), valueKw);
 	
@@ -331,7 +343,7 @@ function isSinglePlayerInstruction(content) {
 		return true;
 	}
 	return false;
-}
+}*/
 
 //Same as isSinglePlayerInstruction, but for player arrays.
 //However, note that these functions aren't mutually exclusive;
@@ -349,7 +361,6 @@ function isPlayerArrayInstruction(content) {
 		"getPlayers",
 		"getPlayersNotOnObjective",
 		"getPlayersOnObjective",
-		"getPlayersInSlot",
 		"getPlayersInViewAngle",
 		"getPlayersOnHero",
 		"getPlayersInRadius",
@@ -413,14 +424,19 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 				}
 			}
 		} else {
+			var keywordComparing = keywordArray[i];
+			
 			if (currentLanguage in keywordArray[i]) {
-				if (keywordArray[i][currentLanguage].toLowerCase().replace(/\s/g, "") === keyword) {
-					return keywordArray[i].opy;
-				}
+				keywordComparing = keywordComparing[currentLanguage];
 			} else {
-				if (keywordArray[i]["en"].toLowerCase().replace(/\s/g, "") === keyword) {
-					return keywordArray[i].opy;
-				}
+				keywordComparing = keywordComparing["en"];
+			}
+			keywordComparing = keywordComparing.toLowerCase();
+			if (keywordArray !== stringKw) {
+				keywordComparing = keywordComparing.replace(/\s/g, "")
+			}
+			if (keywordComparing === keyword) {
+				return keywordArray[i].opy;
 			}
 		}
 		
