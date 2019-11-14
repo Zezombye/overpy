@@ -1492,12 +1492,12 @@ var constantValues =
                 "en": "Dorado"
             },
             {
-                "opy": "Map.ECOPOINT_ANTARTICA",
-                "en": "Ecopoint: Antartica"
+                "opy": "Map.ECOPOINT_ANTARCTICA",
+                "en": "Ecopoint: Antarctica"
             },
             {
-                "opy": "Map.ECOPOINT_ANTARTICA_WINTER",
-                "en": "Ecopoint: Antartica Winter"
+                "opy": "Map.ECOPOINT_ANTARCTICA_WINTER",
+                "en": "Ecopoint: Antarctica Winter"
             },
             {
                 "opy": "Map.EICHENWALDE",
@@ -1652,6 +1652,10 @@ var constantValues =
                 "en": "petra"
             },
             {
+                "opy": "Map.PRACTICE_RANGE",
+                "en": "practiceRange"
+            },
+            {
                 "opy": "Map.RIALTO",
                 "en": "rialto"
             },
@@ -1676,7 +1680,68 @@ var constantValues =
                 "en": "watchpoint: gibraltar"
             }
         ]
-    }
+    },
+    "GAMEMODE CONSTANT": {
+        "opy": "Gamemode",
+        "values": [
+            {
+                "opy": "Gamemode.ASSAULT",
+                "en": "Assault"
+            },
+            {
+                "opy": "Gamemode.CTF",
+                "en": "captureTheFlag"
+            },
+            {
+                "opy": "Gamemode.CONTROL",
+                "en": "control"
+            },
+            {
+                "opy": "Gamemode.FFA",
+                "en": "deathmatch"
+            },
+            {
+                "opy": "Gamemode.ELIMINATION",
+                "en": "elimination"
+            },
+            {
+                "opy": "Gamemode.ESCORT",
+                "en": "escort"
+            },
+            {
+                "opy": "Gamemode.HYBRID",
+                "en": "hybrid"
+            },
+            {
+                "opy": "Gamemode.JUNKENSTEIN",
+                "en": "junkenstein'sRevenge"
+            },
+            {
+                "opy": "Gamemode.LUCIOBALL",
+                "en": "Lúcioball"
+            },
+            {
+                "opy": "Gamemode.MEIS_SNOWBALL_OFFENSIVE",
+                "en": "mei'sSnowballOffensive"
+            },
+            {
+                "opy": "Gamemode.PRACTICE_RANGE",
+                "en": "practiceRange"
+            },
+            {
+                "opy": "Gamemode.SKIRMISH",
+                "en": "skirmish"
+            },
+            {
+                "opy": "Gamemode.TDM",
+                "en": "teamDeathmatch"
+            },
+            {
+                "opy": "Gamemode.YETI_HUNTER",
+                "en": "yetiHunter"
+            },
+        ]
+    },
 }
 //end-json
 
