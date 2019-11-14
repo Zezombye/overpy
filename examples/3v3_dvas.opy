@@ -13,11 +13,11 @@
 #!define cloningEffect F
 
 
-#!obfuscate
+##!obfuscate
 
 @Rule "init"
 @Event global
-currentMap = getMapId()
+currentMap = getCurrentMap()
 hudHeader(getAllPlayers(), "Interact: Spawn {}".format(Hero.DVA), Position.LEFT, 0, Color.AQUA, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.ALWAYS)
 
 
@@ -37,12 +37,12 @@ if currentMap == Map.BLACK_FOREST:
 if currentMap == Map.CASTILLO:
     globalRemechPosition = vect(-108.15, 38.31, 26.32)
 
-
+"""
 @Rule "ecopoint"
 @Event global
 if currentMap == Map.ECOPOINT_ANTARTICA:
     globalRemechPosition = vect(31.82, 16, 4.28)
-    
+"""
 
 @Rule "necropolis"
 @Event global
@@ -52,13 +52,13 @@ if currentMap == Map.NECROPOLIS:
 
 @Rule "hanamura"
 @Event global
-if currentMap == Map.HANAMURA or currentMap == Map.HANAMURA_ARCADE:
+if currentMap == Map.HANAMURA:
     globalRemechPosition = vect(89.68, -3.51, 94.48)
 
     
 @Rule "blizz world"
 @Event global
-if currentMap == Map.BLIZZ_WORLD or currentMap == Map.BLIZZ_WORLD_ARCADE:
+if currentMap == Map.BLIZZ_WORLD:
     globalRemechPosition = vect(3, -5, -106.62)
 
 
@@ -70,7 +70,7 @@ if currentMap == Map.BUSAN:
 
 @Rule "dorado"
 @Event global
-if currentMap == Map.DORADO or currentMap == Map.DORADO_ARCADE:
+if currentMap == Map.DORADO:
     globalRemechPosition = vect(76.15, 20, 16)
 
 

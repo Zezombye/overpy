@@ -3321,7 +3321,13 @@ var valueFuncKw =
         "args": []
     },
     {
-        "opy": "getCurrentMap",
+        "opy": "getCurrentGamemode()",
+        "en": "currentGameMode",
+        "description": "The current game mode of the custom game.",
+        "args": []
+    },
+    {
+        "opy": "getCurrentMap()",
         "en": "currentMap",
         "description": "The current map of the custom game.",
         "args": []
@@ -3623,6 +3629,19 @@ var valueFuncKw =
         "fr": "Avant",
         "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
         "args": null
+    },
+    {
+        "opy": "_gamemode",
+        "en": "gameMode",
+        "description": "A game mode constant.",
+        "args": [
+            {
+                "name": "GAME MODE",
+                "description": "A game mode constant.",
+                "type": "GAMEMODE CONSTANT",
+                "default": "ASSAULT"
+            }
+        ]
     },
     {
         "opy": "_globalVar",
@@ -7300,12 +7319,12 @@ var constantValues =
                 "en": "Dorado"
             },
             {
-                "opy": "Map.ECOPOINT_ANTARTICA",
-                "en": "Ecopoint: Antartica"
+                "opy": "Map.ECOPOINT_ANTARCTICA",
+                "en": "Ecopoint: Antarctica"
             },
             {
-                "opy": "Map.ECOPOINT_ANTARTICA_WINTER",
-                "en": "Ecopoint: Antartica Winter"
+                "opy": "Map.ECOPOINT_ANTARCTICA_WINTER",
+                "en": "Ecopoint: Antarctica Winter"
             },
             {
                 "opy": "Map.EICHENWALDE",
@@ -7460,6 +7479,10 @@ var constantValues =
                 "en": "petra"
             },
             {
+                "opy": "Map.PRACTICE_RANGE",
+                "en": "practiceRange"
+            },
+            {
                 "opy": "Map.RIALTO",
                 "en": "rialto"
             },
@@ -7484,7 +7507,68 @@ var constantValues =
                 "en": "watchpoint: gibraltar"
             }
         ]
-    }
+    },
+    "GAMEMODE CONSTANT": {
+        "opy": "Gamemode",
+        "values": [
+            {
+                "opy": "Gamemode.ASSAULT",
+                "en": "Assault"
+            },
+            {
+                "opy": "Gamemode.CTF",
+                "en": "captureTheFlag"
+            },
+            {
+                "opy": "Gamemode.CONTROL",
+                "en": "control"
+            },
+            {
+                "opy": "Gamemode.FFA",
+                "en": "deathmatch"
+            },
+            {
+                "opy": "Gamemode.ELIMINATION",
+                "en": "elimination"
+            },
+            {
+                "opy": "Gamemode.ESCORT",
+                "en": "escort"
+            },
+            {
+                "opy": "Gamemode.HYBRID",
+                "en": "hybrid"
+            },
+            {
+                "opy": "Gamemode.JUNKENSTEIN",
+                "en": "junkenstein'sRevenge"
+            },
+            {
+                "opy": "Gamemode.LUCIOBALL",
+                "en": "Lúcioball"
+            },
+            {
+                "opy": "Gamemode.MEIS_SNOWBALL_OFFENSIVE",
+                "en": "mei'sSnowballOffensive"
+            },
+            {
+                "opy": "Gamemode.PRACTICE_RANGE",
+                "en": "practiceRange"
+            },
+            {
+                "opy": "Gamemode.SKIRMISH",
+                "en": "skirmish"
+            },
+            {
+                "opy": "Gamemode.TDM",
+                "en": "teamDeathmatch"
+            },
+            {
+                "opy": "Gamemode.YETI_HUNTER",
+                "en": "yetiHunter"
+            },
+        ]
+    },
 }
 //end-json
 
@@ -7761,8 +7845,8 @@ var funcKw = actionKw.concat(valueFuncKw);/*
 
 "use strict";
 
-var globalVarNames = [];
-var playerVarNames = [];
+var globalVariables;
+var playerVariables;
 
 //Compilation variables - are reset at each compilation.
 
@@ -7824,9 +7908,6 @@ var operatorPrecedenceStack;
 //Whether the decompilation at this time is under a normal "for" loop.
 var isInNormalForLoop;
 
-var encounteredGlobalVars;
-var encounteredPlayerVars;
-
 
 function resetGlobalVariables() {
 	rootPath = "";
@@ -7847,10 +7928,8 @@ function resetGlobalVariables() {
 	lastLoop = -1;
 	operatorPrecedenceStack = [];
 	isInNormalForLoop = false;
-	globalVarNames = new Set();
-	playerVarNames = new Set();
-	encounteredGlobalVars = new Set();
-	encounteredPlayerVars = new Set();
+	globalVariables = [];
+	playerVariables = [];
 }
 
 //Other constants
@@ -7948,44 +8027,56 @@ const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "co
 
 function translateVarToPy(content, isGlobalVariable) {
 	content = content.trim();
-	if (isGlobalVariable && globalVarNames.includes(content) || !isGlobalVariable && playerVarNames.includes(content) || defaultVarNames.includes(content)) {
+	var varArray = isGlobalVariable ? globalVariables : playerVariables;
+	if (varArray.map(x => x.name).includes(content)) {
 		//modify the name
-		if (content.startsWith("_")) {
-			content = "_"+content;
-		}
-		if (reservedNames.includes(content)) {
+		if (content.startsWith("_") || reservedNames.includes(content)) {
 			content = "_"+content;
 		}
 		if (!/[A-Za-z_]\w*/.test(content)) {
 			error("Unauthorized name for variable: '"+content+"'");
 		}
 		return content;
+	} else if (defaultVarNames.includes(content)) {
+		//Add the variable as it doesn't already exist (else it would've been caught by the first if)
+		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
+		return content;
 	} else {
 		error("Unknown variable '"+content+"'");
 	}
 }
 
-function translateVarToWs(content) {
-	if (!/[A-Za-z_]\w*/.test(content)) {
-		error("Unauthorized name for variable: '"+content+"'");
+function translateVarToWs(content, isGlobalVariable) {
+
+	var varArray = isGlobalVariable ? globalVariables : playerVariables;
+	for (var variable of varArray) {
+		if (variable.name === content) {
+			return content;
+		}
 	}
-	return content;
+	if (defaultVarNames.includes(content)) {
+		//Add the variable as it doesn't already exist (else it would've been caught by the for)
+		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
+		return content;
+	}
+	error("Undeclared "+(isGlobalVariable ? "global" : "player")+" variable '"+content+"'");
 }
 
 //Adds a variable to the global/player variable arrays.
-function addVariable(content, isGlobalVariable) {
+function addVariable(content, isGlobalVariable, index) {
+	if (index === undefined) {
+		error("Index is undefined");
+	}
 	if (isGlobalVariable) {
-		if (globalVarNames.size < 128) {
-			globalVarNames.add(content);
-		} else {
-			error("More than 128 global variables have been declared");
-		}
+		globalVariables.push({
+			"name": content,
+			"index": index,
+		});
 	} else {
-		if (playerVarNames.size < 128) {
-			playerVarNames.add(content);
-		} else {
-			error("More than 128 player variables have been declared");
-		}
+		playerVariables.push({
+			"name": content,
+			"index": index,
+		});
 	}
 }
 
@@ -8205,7 +8296,7 @@ function getName(content) {
 //Returns "player" if the instruction represents an array of players, else the name of the instruction.
 //Note: you must only pass the name of the instruction to this function.
 function getPlayerVarName(content) {
-	if (isSinglePlayerInstruction(content)) {
+	if (!isPlayerArrayInstruction(content)) {
 		return decompile(content);
 	} else {
 		return "player";
@@ -8215,7 +8306,7 @@ function getPlayerVarName(content) {
 //Checks if the (python) instruction represents only a player.
 //Used to differenciate player and player[].
 //Note: you must only pass the name to this function.
-function isSinglePlayerInstruction(content) {
+/*function isSinglePlayerInstruction(content) {
 	
 	content = topy(getName(content), valueKw);
 	
@@ -8260,7 +8351,7 @@ function isSinglePlayerInstruction(content) {
 		return true;
 	}
 	return false;
-}
+}*/
 
 //Same as isSinglePlayerInstruction, but for player arrays.
 //However, note that these functions aren't mutually exclusive;
@@ -8278,7 +8369,6 @@ function isPlayerArrayInstruction(content) {
 		"getPlayers",
 		"getPlayersNotOnObjective",
 		"getPlayersOnObjective",
-		"getPlayersInSlot",
 		"getPlayersInViewAngle",
 		"getPlayersOnHero",
 		"getPlayersInRadius",
@@ -8342,14 +8432,19 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 				}
 			}
 		} else {
+			var keywordComparing = keywordArray[i];
+			
 			if (currentLanguage in keywordArray[i]) {
-				if (keywordArray[i][currentLanguage].toLowerCase().replace(/\s/g, "") === keyword) {
-					return keywordArray[i].opy;
-				}
+				keywordComparing = keywordComparing[currentLanguage];
 			} else {
-				if (keywordArray[i]["en"].toLowerCase().replace(/\s/g, "") === keyword) {
-					return keywordArray[i].opy;
-				}
+				keywordComparing = keywordComparing["en"];
+			}
+			keywordComparing = keywordComparing.toLowerCase();
+			if (keywordArray !== stringKw) {
+				keywordComparing = keywordComparing.replace(/\s/g, "")
+			}
+			if (keywordComparing === keyword) {
+				return keywordArray[i].opy;
 			}
 		}
 		
@@ -8677,12 +8772,13 @@ function decompileAllRules(content, language="en") {
 	if (content.startsWith(tows("_variables", ruleKw))) {
 		decompileVarNames(content.substring(bracketPos[0]+1, bracketPos[1]));
 		bracketPos = bracketPos.slice(1);
+
 	} else {
 		bracketPos.unshift(-1);
 	}
 
-	debug("global vars: "+globalVarNames);
-	debug("player vars: "+playerVarNames);
+	debug("global vars: "+globalVariables);
+	debug("player vars: "+playerVariables);
 	
 	//A rule looks like this:
 	//rule(title) {...}
@@ -8693,6 +8789,25 @@ function decompileAllRules(content, language="en") {
 		if (i >= bracketPos.length-1) break;
 		result += decompileRule(content.substring(bracketPos[i]+1, bracketPos[i+4]+1));
 	}
+
+	var variableDeclarations = "";	
+	if (globalVariables.length > 0) {
+		globalVariables.sort((a,b) => a.index-b.index);
+		variableDeclarations += "#Global variables\n\n";
+		for (var variable of globalVariables) {
+			variableDeclarations += "#!declareGlobal "+translateVarToPy(variable.name, true)+" "+variable.index+"\n";
+		}
+		variableDeclarations += "\n\n"
+	}
+	if (playerVariables.length > 0) {
+		playerVariables.sort((a,b) => a.index-b.index);
+		variableDeclarations += "#Player variables\n\n";
+		for (var variable of playerVariables) {
+			variableDeclarations += "#!declarePlayer "+translateVarToPy(variable.name, false)+" "+variable.index+"\n";
+		}
+		variableDeclarations += "\n\n"
+	}
+	result = variableDeclarations + result;
 		
 	return result;
 	
@@ -8701,7 +8816,7 @@ function decompileAllRules(content, language="en") {
 function decompileVarNames(content) {
 	content = content.split(":");
 	var isInGlobalVars = true;
-	//var currentVarIndex = -1;
+	var currentVarIndex = undefined;
 	for (var i = 0; i < content.length; i++) {
 		content[i] = content[i].trim();
 		if (i === 0) {
@@ -8719,9 +8834,9 @@ function decompileVarNames(content) {
 				if (elems.length !== 2) {
 					error("Could not parse variables field: too many elements on '"+content[i]+"'");
 				}
-				addVariable(elems[0], isInGlobalVars);
+				addVariable(elems[0], isInGlobalVars, currentVarIndex);
 				if (!isNaN(elems[1])) {
-					//currentVarIndex = +elems[1];
+					currentVarIndex = +elems[1];
 				} else {
 					if (elems[1] === tows("_global", ruleKw)) {
 						isInGlobalVars = true;
@@ -8733,9 +8848,9 @@ function decompileVarNames(content) {
 				}
 			} else {
 				if (!isNaN(content[i])) {
-					//currentVarIndex = +content[i];
+					currentVarIndex = +content[i];
 				} else if (i === content.length-1) {
-					addVariable(content[i], isInGlobalVars);
+					addVariable(content[i], isInGlobalVars, currentVarIndex);
 				} else {
 					error("Could not parse variables field");
 				}
@@ -9305,6 +9420,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 			return "getPlayers("+team+")";
 		}
 	}
+	
+	//Gamemode
+	if (name === "_gamemode") {
+		return decompile(args[0], getConstantKw("GAMEMODE CONSTANT"));
+	}
 		
 	//Global variable
 	if (name === "_globalVar") {
@@ -9483,7 +9603,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Player variable
 	if (name === "_playerVar") {
-		if (isSinglePlayerInstruction(args[0])) {
+		if (!isPlayerArrayInstruction(args[0])) {
 			return decompile(args[0])+"."+translateVarToPy(args[1], false);
 		} else {
 			if (isInNormalForLoop) {
@@ -9744,7 +9864,7 @@ function decompilePlayerFunction(content, player, args, separateArgs=false, isAc
 	var hasNormalForLoopBeenSetInThisFunction = false;
 	
 	
-	if (isSinglePlayerInstruction(player)) {
+	if (!isPlayerArrayInstruction(player)) {
 		result += content.replace("\{player\}", decompile(player))
 		
 	} else {
@@ -10147,6 +10267,23 @@ function tokenize(content) {
 
 				} else if (content.startsWith("#!obfuscate", i)) {
 					obfuscateRules = true;
+					isInLineComment = true;
+				} else if (content.startsWith("#!declareGlobal", i) || content.startsWith("#!declarePlayer", i)) {
+					var isGlobalVariable = content.startsWith("#!declareGlobal", i);
+					var lineIndex = content.indexOf("\n", i);
+					var firstSpaceIndex = content.indexOf(" ", i);
+					if (lineIndex === -1 || firstSpaceIndex === -1) {
+						error("Malformed variable declaration")
+					}
+					var line = content.substring(firstSpaceIndex, lineIndex).trim();
+					var args = line.split(" ");
+					if (args.length !== 2) {
+						error("Malformed variable declaration (directive should have 2 arguments)");
+					}
+					var varName = args[0].trim();
+					var varIndex = args[1].trim();
+					addVariable(varName, isGlobalVariable, varIndex);
+
 					isInLineComment = true;
 				} else {
 					error("Unknown preprocessor directive");
@@ -10575,39 +10712,45 @@ function compile(content, language="en", _rootPath="") {
 }
 
 function generateVariablesField() {
-	//Check if a variable was used but not declared
-	for (var variable of encounteredGlobalVars) {
-		if (!globalVarNames.has(variable)) {
-			error("Global variable '"+variable+"' was used, but not assigned to");
-		}
-	}
-	for (var variable of encounteredPlayerVars) {
-		if (!playerVarNames.has(variable)) {
-			error("Player variable '"+variable+"' was used, but not assigned to");
-		}
-	}
-
-	//Convert to array for easier iteration
-	globalVarNames = [...globalVarNames];
-	playerVarNames = [...playerVarNames];
 
 	var result = tows("_variables", ruleKw)+" {\n";
-	result += "\t"+tows("_global", ruleKw)+":\n";
-	for (var i = 0; i < 128; i++) {
-		if (i < globalVarNames.length) {
-			result += "\t\t"+i+": "+globalVarNames[i]+"\n";
-		} else {
-			result += "\t\t"+i+": unused_var_"+i+"\n";
+
+	for (var varType of ["global", "player"]) {
+		var outputVariables = Array(128);
+		var varNames = [];
+		var varList = varType === "global" ? globalVariables : playerVariables;
+
+		for (var variable of varList) {
+			//check name
+			if (!/[A-Za-z_]\w*/.test(variable.name)) {
+				error("Unauthorized name for "+varType+" variable: '"+variable.name+"'");
+			}
+			//check duplication
+			if (varNames.includes(variable.name)) {
+				error("Duplicate declaration of "+varType+" variable '"+variable.name+"'");
+			}
+			
+			if (outputVariables[variable.index] !== undefined) {
+				error("Duplicate use of index "+variable.index+" for "+varType+" variables '"+variable.name+"' and '"+outputVariables[variable.index]+"'");
+			}
+			if (isNaN(variable.index) || variable.index >= 128 || variable.index < 0) {
+				error("Invalid index '"+variable.index+"', must be from 0 to 127");
+			}
+			varNames.push(variable.name);
+			outputVariables[variable.index] = variable.name;
 		}
-	}
-	result += "\t"+tows("_player", ruleKw)+":\n";
-	for (var i = 0; i < 128; i++) {
-		if (i < playerVarNames.length) {
-			result += "\t\t"+i+": "+playerVarNames[i]+"\n";
-		} else {
-			result += "\t\t"+i+": unused_var_"+i+"\n";
+		
+		result += "\t"+tows("_"+varType, ruleKw)+":\n";
+		for (var i = 0; i < 128; i++) {
+			if (outputVariables[i] !== undefined) {
+				result += "\t\t"+i+": "+outputVariables[i]+"\n";
+			} else {
+				result += "\t\t"+i+": _unused_var_"+i+"\n";
+			}
 		}
+
 	}
+
 	result += "}\n";
 	return result;
 
@@ -11676,8 +11819,8 @@ function parse(content, parseArgs={}) {
 			return tows(name, funcKw);
 		} catch (e) {
 			//No translation found? Must be a global variable.
-			encounteredGlobalVars.add(name);
-			return tows("_globalVar", valueFuncKw)+"("+translateVarToWs(name)+")";
+			//encounteredGlobalVars.add(name);
+			return tows("_globalVar", valueFuncKw)+"("+translateVarToWs(name, true)+")";
 		}
 	}
 
@@ -11732,12 +11875,12 @@ function parse(content, parseArgs={}) {
 		if (operands.length === 2) {
 			funcName += "PlayerVariable";
 			result += parse(operands[0])+", ";
-			encounteredPlayerVars.add(operands[1][0].text);
-			result += translateVarToWs(operands[1][0].text);
+			//encounteredPlayerVars.add(operands[1][0].text);
+			result += translateVarToWs(operands[1][0].text, false);
 		} else {
 			funcName += "GlobalVariable";
-			encounteredGlobalVars.add(args[0][0].text);
-			result += translateVarToWs(args[0][0].text);
+			//encounteredGlobalVars.add(args[0][0].text);
+			result += translateVarToWs(args[0][0].text, true);
 		}
 		
 		if (args.length !== 4) {
@@ -12114,6 +12257,8 @@ function parseMember(object, member, parseArgs={}) {
 				result = tows("_hero", valueFuncKw)+"("+result+")";
 			} else if (object[0].text === "Map") {
 				result = tows("_map", valueFuncKw)+"("+result+")";
+			} else if (object[0].text === "Gamemode") {
+				result = tows("_gamemode", valueFuncKw)+"("+result+")";
 			}
 			return result;
 		} else if (object[0].text === "math" && object.length === 1) {
@@ -12130,8 +12275,8 @@ function parseMember(object, member, parseArgs={}) {
 
 		} else {
 			//Should be a player variable.
-			encounteredPlayerVars.add(name);
-			return tows("_playerVar", valueFuncKw)+"("+parse(object)+", "+translateVarToWs(name)+")";
+			//encounteredPlayerVars.add(name);
+			return tows("_playerVar", valueFuncKw)+"("+parse(object)+", "+translateVarToWs(name, false)+")";
 		}
 	} else {
 	
@@ -12223,8 +12368,8 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 	
 	if (variable.length === 1) {
 		//It is a global variable
-		addVariable(variable[0].text, true)
-		result += tows("_"+func+"GlobalVar", actionKw)+"("+translateVarToWs(variable[0].text)+", ";
+		//addVariable(variable[0].text, true)
+		result += tows("_"+func+"GlobalVar", actionKw)+"("+translateVarToWs(variable[0].text, true)+", ";
 		
 	} else {
 		//Check for dot; if it is present, it can only be a player variable
@@ -12235,22 +12380,22 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 			
 			//Check for array
 			if (operands[1].length > 1 && operands[1][1].text === '[') {
-				addVariable(operands[1][0].text, false);
+				//addVariable(operands[1][0].text, false);
 				result += tows("_"+func+"PlayerVarAtIndex", actionKw)
-						+"("+parse(operands[0])+", "+translateVarToWs(operands[1][0].text)+", "
+						+"("+parse(operands[0])+", "+translateVarToWs(operands[1][0].text, false)+", "
 						+parse(operands[1].slice(2, operands[1].length-1))+", ";
 			} else {
 				if (operands[1].length > 1) {
 					error("Unauthorised player variable ", operands[1]);
 				}
-				addVariable(operands[1][0].text, false);
-				result += tows("_"+func+"PlayerVar", actionKw)+"("+parse(operands[0])+", "+translateVarToWs(operands[1][0].text)+", ";
+				//addVariable(operands[1][0].text, false);
+				result += tows("_"+func+"PlayerVar", actionKw)+"("+parse(operands[0])+", "+translateVarToWs(operands[1][0].text, false)+", ";
 			}
 			
 		} else {
 			if (variable[1].text === '[') {
-				addVariable(variable[0].text, true)
-				result += tows("_"+func+"GlobalVarAtIndex", actionKw)+"("+translateVarToWs(variable[0].text)+", "+parse(variable.slice(2, variable.length-1))+", ";
+				//addVariable(variable[0].text, true)
+				result += tows("_"+func+"GlobalVarAtIndex", actionKw)+"("+translateVarToWs(variable[0].text, true)+", "+parse(variable.slice(2, variable.length-1))+", ";
 			} else {
 				error("Unauthorized global variable", variable);
 			}

@@ -263,6 +263,23 @@ function tokenize(content) {
 				} else if (content.startsWith("#!obfuscate", i)) {
 					obfuscateRules = true;
 					isInLineComment = true;
+				} else if (content.startsWith("#!declareGlobal", i) || content.startsWith("#!declarePlayer", i)) {
+					var isGlobalVariable = content.startsWith("#!declareGlobal", i);
+					var lineIndex = content.indexOf("\n", i);
+					var firstSpaceIndex = content.indexOf(" ", i);
+					if (lineIndex === -1 || firstSpaceIndex === -1) {
+						error("Malformed variable declaration")
+					}
+					var line = content.substring(firstSpaceIndex, lineIndex).trim();
+					var args = line.split(" ");
+					if (args.length !== 2) {
+						error("Malformed variable declaration (directive should have 2 arguments)");
+					}
+					var varName = args[0].trim();
+					var varIndex = args[1].trim();
+					addVariable(varName, isGlobalVariable, varIndex);
+
+					isInLineComment = true;
 				} else {
 					error("Unknown preprocessor directive");
 				}

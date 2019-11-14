@@ -33,12 +33,13 @@ function decompileAllRules(content, language="en") {
 	if (content.startsWith(tows("_variables", ruleKw))) {
 		decompileVarNames(content.substring(bracketPos[0]+1, bracketPos[1]));
 		bracketPos = bracketPos.slice(1);
+
 	} else {
 		bracketPos.unshift(-1);
 	}
 
-	debug("global vars: "+globalVarNames);
-	debug("player vars: "+playerVarNames);
+	debug("global vars: "+globalVariables);
+	debug("player vars: "+playerVariables);
 	
 	//A rule looks like this:
 	//rule(title) {...}
@@ -49,6 +50,25 @@ function decompileAllRules(content, language="en") {
 		if (i >= bracketPos.length-1) break;
 		result += decompileRule(content.substring(bracketPos[i]+1, bracketPos[i+4]+1));
 	}
+
+	var variableDeclarations = "";	
+	if (globalVariables.length > 0) {
+		globalVariables.sort((a,b) => a.index-b.index);
+		variableDeclarations += "#Global variables\n\n";
+		for (var variable of globalVariables) {
+			variableDeclarations += "#!declareGlobal "+translateVarToPy(variable.name, true)+" "+variable.index+"\n";
+		}
+		variableDeclarations += "\n\n"
+	}
+	if (playerVariables.length > 0) {
+		playerVariables.sort((a,b) => a.index-b.index);
+		variableDeclarations += "#Player variables\n\n";
+		for (var variable of playerVariables) {
+			variableDeclarations += "#!declarePlayer "+translateVarToPy(variable.name, false)+" "+variable.index+"\n";
+		}
+		variableDeclarations += "\n\n"
+	}
+	result = variableDeclarations + result;
 		
 	return result;
 	
@@ -661,6 +681,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 			return "getPlayers("+team+")";
 		}
 	}
+	
+	//Gamemode
+	if (name === "_gamemode") {
+		return decompile(args[0], getConstantKw("GAMEMODE CONSTANT"));
+	}
 		
 	//Global variable
 	if (name === "_globalVar") {
@@ -839,7 +864,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Player variable
 	if (name === "_playerVar") {
-		if (isSinglePlayerInstruction(args[0])) {
+		if (!isPlayerArrayInstruction(args[0])) {
 			return decompile(args[0])+"."+translateVarToPy(args[1], false);
 		} else {
 			if (isInNormalForLoop) {
@@ -1100,7 +1125,7 @@ function decompilePlayerFunction(content, player, args, separateArgs=false, isAc
 	var hasNormalForLoopBeenSetInThisFunction = false;
 	
 	
-	if (isSinglePlayerInstruction(player)) {
+	if (!isPlayerArrayInstruction(player)) {
 		result += content.replace("\{player\}", decompile(player))
 		
 	} else {

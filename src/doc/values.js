@@ -601,7 +601,13 @@ var valueFuncKw =
         "args": []
     },
     {
-        "opy": "getCurrentMap",
+        "opy": "getCurrentGamemode()",
+        "en": "currentGameMode",
+        "description": "The current game mode of the custom game.",
+        "args": []
+    },
+    {
+        "opy": "getCurrentMap()",
         "en": "currentMap",
         "description": "The current map of the custom game.",
         "args": []
@@ -903,6 +909,19 @@ var valueFuncKw =
         "fr": "Avant",
         "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
         "args": null
+    },
+    {
+        "opy": "_gamemode",
+        "en": "gameMode",
+        "description": "A game mode constant.",
+        "args": [
+            {
+                "name": "GAME MODE",
+                "description": "A game mode constant.",
+                "type": "GAMEMODE CONSTANT",
+                "default": "ASSAULT"
+            }
+        ]
     },
     {
         "opy": "_globalVar",
