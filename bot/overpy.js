@@ -7883,6 +7883,10 @@ var obfuscateRules;
 //Contains all macros.
 var macros;
 
+var encounteredWarnings;
+var suppressedWarnings;
+var globalSuppressedWarnings;
+
 
 //Decompilation variables
 
@@ -7930,6 +7934,9 @@ function resetGlobalVariables() {
 	isInNormalForLoop = false;
 	globalVariables = [];
 	playerVariables = [];
+	encounteredWarnings = [];
+	suppressedWarnings = [];
+	globalSuppressedWarnings = [];
 }
 
 //Other constants
@@ -7969,6 +7976,7 @@ const pyOperators = [
 	"max=",
 	"++",
 	"--",
+	"if",
 	"or",
 	"and",
 	"not",
@@ -8006,6 +8014,56 @@ const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
 
 //Names that cannot be used for variables.
 const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "x", "y", "z", "math", "pi", "e", "random", "Vector"].concat( Object.keys(constantValues).map(x => constantValues[x].opy));
+
+//Characters that are visually the same as normal ASCII characters (when uppercased), but make the string appear in "big letters" (the i18n font).
+//For now, only greek letters and the "line separator" character.
+//Let me know if you find any other such characters.
+const bigLettersMappings = {
+	a: "Α",
+	A: "Α",
+	b: "Β",
+	B: "Β",
+	e: "Ε",
+	E: "Ε",
+	h: "Η",
+	H: "Η",
+	i: "Ι",
+	I: "Ι",
+	k: "Κ",
+	K: "Κ",
+	m: "Μ",
+	M: "Μ",
+	n: "Ν",
+	N: "Ν",
+	o: "Ο",
+	O: "Ο",
+	p: "Ρ",
+	P: "Ρ",
+	t: "Τ",
+	T: "Τ",
+	x: "Χ",
+	X: "Χ",
+	y: "Υ",
+	Y: "Υ",
+	z: "Ζ",
+	Z: "Ζ",
+	" ": "\u2028", //line separator
+}
+
+//Fullwidth characters
+var fullwidthMappings = {
+	" ": "　",
+	"¥": "￥",
+	"₩": "￦",
+	"¢": "￠",
+	"£": "￡",
+	"¯": "￣",
+	"¬": "￢",
+	"¦": "￤",
+}
+for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
+	fullwidthMappings[char] = String.fromCharCode(char.charCodeAt(0)+0xFEE0);
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -8726,6 +8784,21 @@ function error(str, token) {
 	throw new Error(error);
 }
 
+function warn(warnType, message) {
+	
+	if (!suppressedWarnings.includes(warnType)) {
+		var warning = message+" ("+warnType+")";
+		if (fileStack.length !== 0) {
+			fileStack.reverse();
+			for (var file of fileStack) {
+				warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+			}
+		}
+		console.warn(warning);
+		encounteredWarnings.push(warning);
+	}
+}
+
 function debug(str, arg) {
 	//return;
 	console.debug("DEBUG: "+str);
@@ -8793,19 +8866,27 @@ function decompileAllRules(content, language="en") {
 	var variableDeclarations = "";	
 	if (globalVariables.length > 0) {
 		globalVariables.sort((a,b) => a.index-b.index);
-		variableDeclarations += "#Global variables\n\n";
+		var globalVariableDeclarations = "";
 		for (var variable of globalVariables) {
-			variableDeclarations += "#!declareGlobal "+translateVarToPy(variable.name, true)+" "+variable.index+"\n";
+			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+				globalVariableDeclarations += "#!declareGlobal "+translateVarToPy(variable.name, true)+" "+variable.index+"\n";
+			}
 		}
-		variableDeclarations += "\n\n"
+		if (globalVariableDeclarations !== "") {
+			variableDeclarations += "#Global variables\n\n"+globalVariableDeclarations+"\n\n";
+		}
 	}
 	if (playerVariables.length > 0) {
 		playerVariables.sort((a,b) => a.index-b.index);
-		variableDeclarations += "#Player variables\n\n";
+		var playerVariableDeclarations = "";
 		for (var variable of playerVariables) {
-			variableDeclarations += "#!declarePlayer "+translateVarToPy(variable.name, false)+" "+variable.index+"\n";
+			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+				playerVariableDeclarations += "#!declarePlayer "+translateVarToPy(variable.name, false)+" "+variable.index+"\n";
+			}
 		}
-		variableDeclarations += "\n\n"
+		if (playerVariableDeclarations !== "") {
+			variableDeclarations += "#Player variables\n\n"+playerVariableDeclarations+"\n\n";
+		}
 	}
 	result = variableDeclarations + result;
 		
@@ -9508,7 +9589,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		if (format.length > 0) {
 			result += '.format(' + format.join(", ") + ")";
 		}
-		return "localizedStr("+result+")";
+		return "l"+result+"";
 	}
 			
 	//Loop
@@ -9981,7 +10062,7 @@ function decompileOperator(operand1, operator, operand2) {
 		var needsParentheses = false;
 		
 		for (var i = currentPrecedenceIndex+1; i < operatorPrecedenceStack.length; i++) {
-			if (operatorPrecedenceStack[i] < currentPrecedence) {
+			if (operatorPrecedenceStack[i] < currentPrecedence || (operatorPrecedenceStack[i] == currentPrecedence && (operator === "-" || operator === "/") && h === 1)) {
 				needsParentheses = true;
 				operatorPrecedenceStack[currentPrecedenceIndex] = operatorPrecedenceStack[i];
 			}
@@ -10251,7 +10332,7 @@ function tokenize(content) {
 				addToken(content[i]);
 				
 			} else if (content.startsWith("#!", i)) {
-				if (content.startsWith("#!define ", i)) {
+				if (content.startsWith("#!define ", i) || content.startsWith("#!defineMember ", i)) {
 					if (!isInRule) {
 						isInMacro = true;
 						currentMacro = {
@@ -10538,7 +10619,11 @@ function resolveMacro(macro, args=[], indentLevel) {
 
 function parseMacro(macro) {
 	
-	macro.content = macro.content.substring("#!define ".length);
+	if (macro.content.startsWith("#!defineMember ")) {
+		macro.isMember = true;
+	}
+	macro.startingCol = macro.content.indexOf(" ")+1;
+	macro.content = macro.content.substring(macro.content.indexOf(" ")+1);
 	var bracketPos = getBracketPositions(macro.content, false, true);
 	
 	if (bracketPos.length === 0 || macro.content.indexOf(" ") < bracketPos[0]) {
@@ -10547,7 +10632,7 @@ function parseMacro(macro) {
 		macro.text = macro.content.substring(0, macro.content.indexOf(" ")).trim();
 		macro.name = macro.text;
         macro.replacement = macro.content.substring(macro.content.indexOf(" ")).trim();
-        macro.startingCol = "#!define ".length+macro.content.indexOf(" ")+macro.content.substring(macro.content.indexOf(" ")).search(/\S/)+1;
+        macro.startingCol += macro.content.indexOf(" ")+macro.content.substring(macro.content.indexOf(" ")).search(/\S/)+1;
 		
 	} else {
 		//Function macro
@@ -10556,7 +10641,7 @@ function parseMacro(macro) {
 		macro.name = macro.content.substring(0, bracketPos[0]).trim();
 		macro.replacement = macro.content.substring(bracketPos[1]+1).trim();
         macro.args = getArgs(macro.content.substring(bracketPos[0]+1, bracketPos[1]));
-        macro.startingCol = "#!define ".length+bracketPos[1]+1+macro.content.substring(bracketPos[1]+1).search(/\S/)+1;
+        macro.startingCol += bracketPos[1]+1+macro.content.substring(bracketPos[1]+1).search(/\S/)+1;
 
         //Test for script macro
         if (macro.replacement.startsWith("__script__(")) {
@@ -10708,6 +10793,9 @@ function compile(content, language="en", _rootPath="") {
 	return {
 		result: result,
 		macros: macros,
+		globalVariables: globalVariables,
+		playerVariables: playerVariables,
+		encounteredWarnings: encounteredWarnings,
 	};
 }
 
@@ -11423,13 +11511,14 @@ parseArgs options:
 - "isWholeInstruction": true/false
 - "isLocalizedString": true/false
 - "isTranslationOfForLoopVariable": string
+- "formatArgs": token array
 */
 function parse(content, parseArgs={}) {
 	
 	if (content === undefined) {
 		error("Content is undefined");
 	} else if (content.length === 0) {
-		error("Content is empty");
+		error("Content is empty (missing operand or argument?)");
 	}
 	
 	fileStack = content[0].fileStack;
@@ -11445,7 +11534,7 @@ function parse(content, parseArgs={}) {
 	//Parse operators
 	for (var i = 0; i < pyOperators.length; i++) {
 		
-		if (pyOperators[i] === "not") {
+		if (pyOperators[i] === "not" || pyOperators[i] === "if") {
 			var operands = splitTokens(content, pyOperators[i], false, false);
 		} else {
 			var operands = splitTokens(content, pyOperators[i], false, true);
@@ -11455,6 +11544,32 @@ function parse(content, parseArgs={}) {
 			//The operator is present; parse it
 			if (pyOperators[i] === "=") {
 				return parseAssignment(operands[0], operands[1], false);
+			} else if (pyOperators[i] === "if") {
+				
+				error("Ternary operator (A if B else C) is disabled as it is not possible to put a boolean in an array index.");
+				var trueExpr = parse(operands[0]);
+				var elseOperands = splitTokens(operands[1], "else", false, false);
+				if (elseOperands.length !== 2) {
+					error("Found 'if', but no 'else'");
+				}
+				var falseExpr = parse(elseOperands[1]);
+				var condition = parse(elseOperands[0]);
+
+				//A if true else B -> A
+				if (isWsTrue(condition)) {
+					return trueExpr;
+				}
+				//A if false else B -> B
+				if (isWsFalse(condition)) {
+					return falseExpr;
+				}
+				//A if condition else A -> A
+				if (trueExpr === falseExpr && !containsRandom(trueExpr)) {
+					return trueExpr;
+				}
+				//A if condition else B -> [B,A][not condition]
+				return tows("_valueInArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_emptyArray", valueFuncKw)+", "+falseExpr+"), "+trueExpr+"), "+tows("not", valueFuncKw)+"("+condition+"))";
+
 			} else if (pyOperators[i] === "or") {
 
 				var op1 = parse(operands[0]);
@@ -11762,6 +11877,33 @@ function parse(content, parseArgs={}) {
 		return parse(content.slice(1, content.length-1));
 	}
 
+	//Check for strings
+	if (content[content.length-1].text.startsWith('"') || content[content.length-1].text.startsWith("'")) {
+		var stringModifiers = {};
+		var string;
+		if (content.length === 1) {
+			string = content[0].text;
+		} else if (content.length === 2) {
+			string = content[1].text;
+			if (content[0].text === "l") {
+				stringModifiers.localizedString = true;
+			} else if (content[0].text === "b") {
+				stringModifiers.bigLetters = true;
+			} else if (content[0].text === "w") {
+				stringModifiers.fullWidth = true;
+			} else {
+				error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters) and 'w' (fullwidth)");
+			}
+		} else {
+			error("Failed to parse string: amount of tokens is "+content.length);
+		}
+		if (stringModifiers.localizedString === true) {
+			return parseLocalizedString(tokenizeLocalizedString(string.substring(1, string.length-1)), parseArgs.formatArgs);
+		} else {
+			return parseString(string, parseArgs.formatArgs, stringModifiers);
+		}
+	}
+
 	
 	//Parse args and name of function.
 	var name = content[0].text;
@@ -11777,15 +11919,6 @@ function parse(content, parseArgs={}) {
 	}
 
 	if (args === null) {
-
-		//Check for strings
-		if (name.startsWith('"') || name.startsWith("'")) {
-			if (parseArgs.isLocalizedString === true) {
-				return parseLocalizedString(tokenizeLocalizedString(name.substring(1, name.length-1)), []);
-			} else {
-				return parseString(name, []);
-			}
-		}
 
 		//Check for "continue"
 		if (name === "continue") {
@@ -11970,11 +12103,7 @@ function parse(content, parseArgs={}) {
 	}
 
 	if (name === "localizedStr") {
-		if (args.length !== 1) {
-			error("Function localizedStr() takes one argument, received "+args.length);
-		} else {
-			return parse(args[0], {isLocalizedString: true});
-		}
+		error("localizedStr() has been removed, use the 'l' string modifier instead.");
 	}
 	
 	if (name === "round") {
@@ -12092,6 +12221,9 @@ function parse(content, parseArgs={}) {
 function parseLocalizedString(content, formatArgs) {
 	if (!content instanceof Array) {
 		error("Content must be list of str");
+	}
+	if (!formatArgs) {
+		formatArgs = [];
 	}
 	
 	var matchStr;
@@ -12292,12 +12424,13 @@ function parseMember(object, member, parseArgs={}) {
 			return tows("_removeFromArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
 			
 		} else if (name === "format") {
-			if (parseArgs.isLocalizedString === true) {
+			return parse(object, {formatArgs: args});
+			/*if (parseArgs.isLocalizedString === true) {
 				var result = parseLocalizedString(tokenizeLocalizedString(object[0].text.substring(1, object[0].text.length-1)), args);
 			} else {
 				var result = parseString(object[0].text, args);
 			}
-			return result;
+			return result;*/
 			
 		} else if (name === "getHitPosition") {
 			return parse(object, {raycastType:"getHitPosition"});
@@ -12593,14 +12726,18 @@ function parseRuleCondition(content) {
 
 
 //Parses a custom string.
-function parseString(content, formatArgs) {
+function parseString(content, formatArgs, stringModifiers) {
 	content = content.substring(1, content.length-1);
 
+	if (!formatArgs) {
+		formatArgs = [];
+	}
 	var result = "";
 	var tokens = [];
 	var numberIndex = 0;
 	var args = [];
 	var argsAreNumbered = null;
+	var isConvertedToBigLetters = false;
 
 	//Used to reorder args for easier optimization.
 	//Eg "{1}{0}" is converted to "{0}{1}", with the arguments obviously switched.
@@ -12646,6 +12783,34 @@ function parseString(content, formatArgs) {
 			content = content.substring(content.indexOf("}")+1);
 
 		} else {
+
+			//If big letters, try to map letters until we get one
+			//We only need one letter to convert to big letters
+			if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
+				for (var i = 0; i < content.length; i++) {
+					if (content[i] in bigLettersMappings) {
+						content = content.substring(0,i)+bigLettersMappings[content[i]]+content.substring(i+1);
+						isConvertedToBigLetters = true;
+						break;
+					}
+				}
+			} else if (stringModifiers.fullWidth) {
+				var tmpStr = "";
+				var containsNonFullwidthChar = false;
+				for (var char of content) {
+					if (char in fullwidthMappings) {
+						tmpStr += fullwidthMappings[char];
+					} else {
+						containsNonFullwidthChar = true;
+						tmpStr += char;
+					}
+				}
+				content = tmpStr;
+				if (containsNonFullwidthChar) {
+					warn("w_not_total_fullwidth", "Could not fully convert this string to fullwidth characters")
+				}
+			}
+
 			tokens.push({
 				text: content,
 				type: "string"
@@ -12665,6 +12830,10 @@ function parseString(content, formatArgs) {
 	//console.log("args = ");
 	//console.log(args);
 
+	if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
+		error("Could not convert the string to big letters. The string must have one of the following chars: '"+Object.keys(bigLettersMappings).join("")+"'");
+	}
+
 	result = parseStringTokens(tokens, args);
 
 	return result;
@@ -12677,6 +12846,7 @@ function parseStringTokens(tokens, args) {
 	var numbers = [];
 	var numbersEncountered = [];
 	var mappings = {};
+
 
 	//iterate through tokens and figure out the total number of unique numbers
 	for (var token of tokens) {
