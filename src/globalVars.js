@@ -19,6 +19,7 @@
 
 var globalVariables;
 var playerVariables;
+var currentLanguage;
 
 //Compilation variables - are reset at each compilation.
 
@@ -54,6 +55,10 @@ var obfuscateRules;
 
 //Contains all macros.
 var macros;
+
+var encounteredWarnings;
+var suppressedWarnings;
+var globalSuppressedWarnings;
 
 
 //Decompilation variables
@@ -102,6 +107,10 @@ function resetGlobalVariables() {
 	isInNormalForLoop = false;
 	globalVariables = [];
 	playerVariables = [];
+	encounteredWarnings = [];
+	suppressedWarnings = [];
+	globalSuppressedWarnings = [];
+	currentLanguage = "en-US";
 }
 
 //Other constants
@@ -141,6 +150,7 @@ const pyOperators = [
 	"max=",
 	"++",
 	"--",
+	"if",
 	"or",
 	"and",
 	"not",
@@ -178,3 +188,53 @@ const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
 
 //Names that cannot be used for variables.
 const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "x", "y", "z", "math", "pi", "e", "random", "Vector"].concat( Object.keys(constantValues).map(x => constantValues[x].opy));
+
+//Characters that are visually the same as normal ASCII characters (when uppercased), but make the string appear in "big letters" (the i18n font).
+//For now, only greek letters and the "line separator" character.
+//Let me know if you find any other such characters.
+const bigLettersMappings = {
+	a: "Α",
+	A: "Α",
+	b: "Β",
+	B: "Β",
+	e: "Ε",
+	E: "Ε",
+	h: "Η",
+	H: "Η",
+	i: "Ι",
+	I: "Ι",
+	k: "Κ",
+	K: "Κ",
+	m: "Μ",
+	M: "Μ",
+	n: "Ν",
+	N: "Ν",
+	o: "Ο",
+	O: "Ο",
+	p: "Ρ",
+	P: "Ρ",
+	t: "Τ",
+	T: "Τ",
+	x: "Χ",
+	X: "Χ",
+	y: "Υ",
+	Y: "Υ",
+	z: "Ζ",
+	Z: "Ζ",
+	" ": "\u2028", //line separator
+}
+
+//Fullwidth characters
+var fullwidthMappings = {
+	" ": "　",
+	"¥": "￥",
+	"₩": "￦",
+	"¢": "￠",
+	"£": "￡",
+	"¯": "￣",
+	"¬": "￢",
+	"¦": "￤",
+}
+for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
+	fullwidthMappings[char] = String.fromCharCode(char.charCodeAt(0)+0xFEE0);
+}

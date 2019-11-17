@@ -18,7 +18,7 @@
 var emptyStrKw = [
     {
         "opy": "",
-        "en": ""
+        "en-US": ""
     }
 ];
 
@@ -27,3373 +27,3379 @@ var normalStrKw =
 [
     {
         "opy": "Zones",
-        "en": "Zones",
-        "fr": "Zones"
+        "fr": "Zones",
+        "en-US": "Zones"
     },
     {
         "opy": "Zone",
-        "en": "Zone",
-        "fr": "Zone"
+        "fr": "Zone",
+        "en-US": "Zone"
     },
     {
         "opy": "You Win",
-        "en": "You Win",
-        "fr": "Vous avez gagné"
+        "fr": "Vous avez gagné",
+        "en-US": "You Win"
     },
     {
         "opy": "You Lose",
-        "en": "You Lose",
-        "fr": "Vous avez perdu"
+        "fr": "Vous avez perdu",
+        "en-US": "You Lose"
     },
     {
         "opy": "You",
-        "en": "You",
-        "fr": "Vous"
+        "fr": "Vous",
+        "en-US": "You"
     },
     {
         "opy": "Yes",
-        "en": "Yes",
-        "fr": "Oui"
+        "fr": "Oui",
+        "en-US": "Yes"
     },
     {
         "opy": "Yellow",
-        "en": "Yellow",
-        "fr": "Jaune"
+        "fr": "Jaune",
+        "en-US": "Yellow"
     },
     {
         "opy": "Wow",
-        "en": "Wow",
-        "fr": "Waouh"
+        "fr": "Waouh",
+        "en-US": "Wow"
     },
     {
         "opy": "Worst",
-        "en": "Worst",
-        "fr": "Le pire"
+        "fr": "Le pire",
+        "en-US": "Worst"
     },
     {
         "opy": "Worse",
-        "en": "Worse",
-        "fr": "Pire"
+        "fr": "Pire",
+        "en-US": "Worse"
     },
     {
         "opy": "Wisdom",
-        "en": "Wisdom",
-        "fr": "Sagesse"
+        "fr": "Sagesse",
+        "en-US": "Wisdom"
     },
     {
         "opy": "Wins",
-        "en": "Wins",
-        "fr": "Victoires"
+        "fr": "Victoires",
+        "en-US": "Wins"
     },
     {
         "opy": "Winners",
-        "en": "Winners",
-        "fr": "Vainqueurs"
+        "fr": "Vainqueurs",
+        "en-US": "Winners"
     },
     {
         "opy": "Winner",
-        "en": "Winner",
-        "fr": "Gagnant"
+        "fr": "Gagnant",
+        "en-US": "Winner"
     },
     {
         "opy": "Win",
-        "en": "Win",
-        "fr": "Victoire"
+        "fr": "Victoire",
+        "en-US": "Win"
     },
     {
         "opy": "Wild",
-        "en": "Wild",
-        "fr": "Libre"
+        "fr": "Libre",
+        "en-US": "Wild"
     },
     {
         "opy": "White",
-        "en": "White",
-        "fr": "Blanc"
+        "fr": "Blanc",
+        "en-US": "White"
     },
     {
         "opy": "West",
-        "en": "West",
-        "fr": "Ouest"
+        "fr": "Ouest",
+        "en-US": "West"
     },
     {
         "opy": "Well Played",
-        "en": "Well Played",
-        "fr": "Bien joué"
+        "fr": "Bien joué",
+        "en-US": "Well Played"
     },
     {
         "opy": "Welcome",
-        "en": "Welcome",
-        "fr": "Bienvenue"
+        "fr": "Bienvenue",
+        "en-US": "Welcome"
     },
     {
         "opy": "Warning",
-        "en": "Warning",
-        "fr": "Avertissement"
+        "fr": "Avertissement",
+        "en-US": "Warning"
     },
     {
         "opy": "Walls",
-        "en": "Walls",
-        "fr": "Murs"
+        "fr": "Murs",
+        "en-US": "Walls"
     },
     {
         "opy": "Wall",
-        "en": "Wall",
-        "fr": "Mur"
+        "fr": "Mur",
+        "en-US": "Wall"
     },
     {
         "opy": "Waiting",
-        "en": "Waiting",
-        "fr": "Attente"
+        "fr": "Attente",
+        "en-US": "Waiting"
     },
     {
+        "guid": "00000000C5D1",
         "opy": "Wait",
-        "en": "Wait",
-        "fr": "Attendre"
+        "fr": "Attendre",
+        "en-US": "Wait"
     },
     {
         "opy": "Vortices",
-        "en": "Vortices",
-        "fr": "Vortex"
+        "fr": "Vortex",
+        "en-US": "Vortices"
     },
     {
         "opy": "Vortex",
-        "en": "Vortex",
-        "fr": "Vortex"
+        "fr": "Vortex",
+        "en-US": "Vortex"
     },
     {
         "opy": "Visible",
-        "en": "Visible",
-        "fr": "Visible"
+        "fr": "Visible",
+        "en-US": "Visible"
     },
     {
         "opy": "Victory",
-        "en": "Victory",
-        "fr": "Victoire"
+        "fr": "Victoire",
+        "en-US": "Victory"
     },
     {
         "opy": "Use Ultimate Ability",
-        "en": "Use Ultimate Ability",
-        "fr": "Utilisation de la capacité ultime"
+        "fr": "Utilisation de la capacité ultime",
+        "en-US": "Use Ultimate Ability"
     },
     {
         "opy": "Use Ability 2",
-        "en": "Use Ability 2",
-        "fr": "Utilisation de la capacité 2"
+        "fr": "Utilisation de la capacité 2",
+        "en-US": "Use Ability 2"
     },
     {
         "opy": "Use Ability 1",
-        "en": "Use Ability 1",
-        "fr": "Utilisation de la capacité 1"
+        "fr": "Utilisation de la capacité 1",
+        "en-US": "Use Ability 1"
     },
     {
         "opy": "Uploading",
-        "en": "Uploading",
-        "fr": "Envoi"
+        "fr": "Envoi",
+        "en-US": "Uploading"
     },
     {
         "opy": "Uploaded",
-        "en": "Uploaded",
-        "fr": "Envoyé"
+        "fr": "Envoyé",
+        "en-US": "Uploaded"
     },
     {
         "opy": "Upload",
-        "en": "Upload",
-        "fr": "Envoyer"
+        "fr": "Envoyer",
+        "en-US": "Upload"
     },
     {
         "opy": "Upgrades",
-        "en": "Upgrades",
-        "fr": "Améliorations"
+        "fr": "Améliorations",
+        "en-US": "Upgrades"
     },
     {
         "opy": "Upgrade",
-        "en": "Upgrade",
-        "fr": "Amélioration"
+        "fr": "Amélioration",
+        "en-US": "Upgrade"
     },
     {
         "opy": "Up",
-        "en": "Up",
-        "fr": "Haut"
+        "fr": "Haut",
+        "en-US": "Up"
     },
     {
         "opy": "Unstable",
-        "en": "Unstable",
-        "fr": "Instable"
+        "fr": "Instable",
+        "en-US": "Unstable"
     },
     {
         "opy": "Unsafe",
-        "en": "Unsafe",
-        "fr": "Dangereux"
+        "fr": "Dangereux",
+        "en-US": "Unsafe"
     },
     {
         "opy": "Unlocking",
-        "en": "Unlocking",
-        "fr": "Déverrouillage"
+        "fr": "Déverrouillage",
+        "en-US": "Unlocking"
     },
     {
         "opy": "Unlocked",
-        "en": "Unlocked",
-        "fr": "Déverrouillé"
+        "fr": "Déverrouillé",
+        "en-US": "Unlocked"
     },
     {
         "opy": "Unlock",
-        "en": "Unlock",
-        "fr": "Déverrouiller"
+        "fr": "Déverrouiller",
+        "en-US": "Unlock"
     },
     {
         "opy": "Unlimited",
-        "en": "Unlimited",
-        "fr": "Illimité"
+        "fr": "Illimité",
+        "en-US": "Unlimited"
     },
     {
         "opy": "Unknown",
-        "en": "Unknown",
-        "fr": "Inconnu"
+        "fr": "Inconnu",
+        "en-US": "Unknown"
     },
     {
         "opy": "Under",
-        "en": "Under",
-        "fr": "Sous"
+        "fr": "Sous",
+        "en-US": "Under"
     },
     {
         "opy": "Ultimate Ability",
-        "en": "Ultimate Ability",
-        "fr": "Capacité ultime"
+        "fr": "Capacité ultime",
+        "en-US": "Ultimate Ability"
     },
     {
         "opy": "Ugh",
-        "en": "Ugh",
-        "fr": "Arg"
+        "fr": "Arg",
+        "en-US": "Ugh"
     },
     {
         "opy": "Turrets",
-        "en": "Turrets",
-        "fr": "Tourelles"
+        "fr": "Tourelles",
+        "en-US": "Turrets"
     },
     {
         "opy": "Turret",
-        "en": "Turret",
-        "fr": "Tourelle"
+        "fr": "Tourelle",
+        "en-US": "Turret"
     },
     {
         "opy": "Try Again",
-        "en": "Try Again",
-        "fr": "Veuillez réessayer"
+        "fr": "Veuillez réessayer",
+        "en-US": "Try Again"
     },
     {
         "opy": "Transferring",
-        "en": "Transferring",
-        "fr": "Transfert"
+        "fr": "Transfert",
+        "en-US": "Transferring"
     },
     {
         "opy": "Transferred",
-        "en": "Transferred",
-        "fr": "Transféré"
+        "fr": "Transféré",
+        "en-US": "Transferred"
     },
     {
         "opy": "Transfer",
-        "en": "Transfer",
-        "fr": "Transférer"
+        "fr": "Transférer",
+        "en-US": "Transfer"
     },
     {
         "opy": "Traitors",
-        "en": "Traitors",
-        "fr": "Traîtres"
+        "fr": "Traîtres",
+        "en-US": "Traitors"
     },
     {
         "opy": "Traitor",
-        "en": "Traitor",
-        "fr": "Traître"
+        "fr": "Traître",
+        "en-US": "Traitor"
     },
     {
         "opy": "Trading",
-        "en": "Trading",
-        "fr": "Échange"
+        "fr": "Échange",
+        "en-US": "Trading"
     },
     {
         "opy": "Traded",
-        "en": "Traded",
-        "fr": "Échangé"
+        "fr": "Échangé",
+        "en-US": "Traded"
     },
     {
         "opy": "Trade",
-        "en": "Trade",
-        "fr": "Échanger"
+        "fr": "Échanger",
+        "en-US": "Trade"
     },
     {
         "opy": "Total",
-        "en": "Total",
-        "fr": "Total"
+        "fr": "Total",
+        "en-US": "Total"
     },
     {
         "opy": "Times",
-        "en": "Times",
-        "fr": "Temps"
+        "fr": "Temps",
+        "en-US": "Times"
     },
     {
         "opy": "Time",
-        "en": "Time",
-        "fr": "Temps"
+        "fr": "Temps",
+        "en-US": "Time"
     },
     {
         "opy": "Tiebreaker",
-        "en": "Tiebreaker",
-        "fr": "Décisif"
+        "fr": "Décisif",
+        "en-US": "Tiebreaker"
     },
     {
         "opy": "Threats",
-        "en": "Threats",
-        "fr": "Menaces"
+        "fr": "Menaces",
+        "en-US": "Threats"
     },
     {
         "opy": "Threat Levels",
-        "en": "Threat Levels",
-        "fr": "Niveaux de menace"
+        "fr": "Niveaux de menace",
+        "en-US": "Threat Levels"
     },
     {
         "opy": "Threat Level",
-        "en": "Threat Level",
-        "fr": "Niveau de menace"
+        "fr": "Niveau de menace",
+        "en-US": "Threat Level"
     },
     {
         "opy": "Threat",
-        "en": "Threat",
-        "fr": "Menace"
+        "fr": "Menace",
+        "en-US": "Threat"
     },
     {
         "opy": "That Was Awesome",
-        "en": "That Was Awesome",
-        "fr": "C’était génial"
+        "fr": "C’était génial",
+        "en-US": "That Was Awesome"
     },
     {
         "opy": "Thanks",
-        "en": "Thanks",
-        "fr": "Remerciements"
+        "fr": "Remerciements",
+        "en-US": "Thanks"
     },
     {
         "opy": "Thank You",
-        "en": "Thank You",
-        "fr": "Merci"
+        "fr": "Merci",
+        "en-US": "Thank You"
     },
     {
         "opy": "Terrible",
-        "en": "Terrible",
-        "fr": "Terrible"
+        "fr": "Terrible",
+        "en-US": "Terrible"
     },
     {
         "opy": "Teams",
-        "en": "Teams",
-        "fr": "Équipes"
+        "fr": "Équipes",
+        "en-US": "Teams"
     },
     {
         "opy": "Teammates",
-        "en": "Teammates",
-        "fr": "Équipiers"
+        "fr": "Équipiers",
+        "en-US": "Teammates"
     },
     {
         "opy": "Teammate",
-        "en": "Teammate",
-        "fr": "Équipier"
+        "fr": "Équipier",
+        "en-US": "Teammate"
     },
     {
         "opy": "Team",
-        "en": "Team",
-        "fr": "Équipe"
+        "fr": "Équipe",
+        "en-US": "Team"
     },
     {
         "opy": "Targets",
-        "en": "Targets",
-        "fr": "Cibles"
+        "fr": "Cibles",
+        "en-US": "Targets"
     },
     {
         "opy": "Target",
-        "en": "Target",
-        "fr": "Cible"
+        "fr": "Cible",
+        "en-US": "Target"
     },
     {
         "opy": "Surviving",
-        "en": "Surviving",
-        "fr": "Survie"
+        "fr": "Survie",
+        "en-US": "Surviving"
     },
     {
         "opy": "Survived",
-        "en": "Survived",
-        "fr": "Survécu"
+        "fr": "Survécu",
+        "en-US": "Survived"
     },
     {
         "opy": "Survive",
-        "en": "Survive",
-        "fr": "Survivre"
+        "fr": "Survivre",
+        "en-US": "Survive"
     },
     {
         "opy": "Superb",
-        "en": "Superb",
-        "fr": "Superbe"
+        "fr": "Superbe",
+        "en-US": "Superb"
     },
     {
         "opy": "Sunk",
-        "en": "Sunk",
-        "fr": "Noyé"
+        "fr": "Noyé",
+        "en-US": "Sunk"
     },
     {
         "opy": "Sudden Death",
-        "en": "Sudden Death",
-        "fr": "Mort subite"
+        "fr": "Mort subite",
+        "en-US": "Sudden Death"
     },
     {
         "opy": "Success",
-        "en": "Success",
-        "fr": "Réussite"
+        "fr": "Réussite",
+        "en-US": "Success"
     },
     {
         "opy": "Suboptimal",
-        "en": "Suboptimal",
-        "fr": "Sous-optimal"
+        "fr": "Sous-optimal",
+        "en-US": "Suboptimal"
     },
     {
         "opy": "Stunning",
-        "en": "Stunning",
-        "fr": "Étourdissant"
+        "fr": "Étourdissant",
+        "en-US": "Stunning"
     },
     {
         "opy": "Stunned",
-        "en": "Stunned",
-        "fr": "Étourdi"
+        "fr": "Étourdi",
+        "en-US": "Stunned"
     },
     {
         "opy": "Stun",
-        "en": "Stun",
-        "fr": "Étourdir"
+        "fr": "Étourdir",
+        "en-US": "Stun"
     },
     {
         "opy": "Strength",
-        "en": "Strength",
-        "fr": "Force"
+        "fr": "Force",
+        "en-US": "Strength"
     },
     {
         "opy": "Stopping",
-        "en": "Stopping",
-        "fr": "Arrêt"
+        "fr": "Arrêt",
+        "en-US": "Stopping"
     },
     {
         "opy": "Stopped",
-        "en": "Stopped",
-        "fr": "Arrêté"
+        "fr": "Arrêté",
+        "en-US": "Stopped"
     },
     {
         "opy": "Stop",
-        "en": "Stop",
-        "fr": "Arrêter"
+        "fr": "Arrêter",
+        "en-US": "Stop"
     },
     {
         "opy": "Staying",
-        "en": "Staying",
-        "fr": "Suit"
+        "fr": "Suit",
+        "en-US": "Staying"
     },
     {
         "opy": "Stayed",
-        "en": "Stayed",
-        "fr": "Suivi"
+        "fr": "Suivi",
+        "en-US": "Stayed"
     },
     {
         "opy": "Stay Away",
-        "en": "Stay Away",
-        "fr": "Éloignez-vous"
+        "fr": "Éloignez-vous",
+        "en-US": "Stay Away"
     },
     {
         "opy": "Stay",
-        "en": "Stay",
-        "fr": "Suivre"
+        "fr": "Suivre",
+        "en-US": "Stay"
     },
     {
         "opy": "Status",
-        "en": "Status",
-        "fr": "Statut"
+        "fr": "Statut",
+        "en-US": "Status"
     },
     {
         "opy": "Starting",
-        "en": "Starting",
-        "fr": "Commencement"
+        "fr": "Commencement",
+        "en-US": "Starting"
     },
     {
         "opy": "Started",
-        "en": "Started",
-        "fr": "Commencé"
+        "fr": "Commencé",
+        "en-US": "Started"
     },
     {
         "opy": "Start",
-        "en": "Start",
-        "fr": "Commencer"
+        "fr": "Commencer",
+        "en-US": "Start"
     },
     {
         "opy": "Stars",
-        "en": "Stars",
-        "fr": "Étoiles"
+        "fr": "Étoiles",
+        "en-US": "Stars"
     },
     {
         "opy": "Star",
-        "en": "Star",
-        "fr": "Étoile"
+        "fr": "Étoile",
+        "en-US": "Star"
     },
     {
         "opy": "Stable",
-        "en": "Stable",
-        "fr": "Stable"
+        "fr": "Stable",
+        "en-US": "Stable"
     },
     {
         "opy": "Stabilizing",
-        "en": "Stabilizing",
-        "fr": "Stabilisation"
+        "fr": "Stabilisation",
+        "en-US": "Stabilizing"
     },
     {
         "opy": "Stabilized",
-        "en": "Stabilized",
-        "fr": "Stabilisé"
+        "fr": "Stabilisé",
+        "en-US": "Stabilized"
     },
     {
         "opy": "Stabilize",
-        "en": "Stabilize",
-        "fr": "Stabiliser"
+        "fr": "Stabiliser",
+        "en-US": "Stabilize"
     },
     {
         "opy": "Spheres",
-        "en": "Spheres",
-        "fr": "Sphères"
+        "fr": "Sphères",
+        "en-US": "Spheres"
     },
     {
         "opy": "Sphere",
-        "en": "Sphere",
-        "fr": "Sphère"
+        "fr": "Sphère",
+        "en-US": "Sphere"
     },
     {
         "opy": "Speeds",
-        "en": "Speeds",
-        "fr": "Vitesses"
+        "fr": "Vitesses",
+        "en-US": "Speeds"
     },
     {
         "opy": "Speed",
-        "en": "Speed",
-        "fr": "Vitesse"
+        "fr": "Vitesse",
+        "en-US": "Speed"
     },
     {
         "opy": "Spawning",
-        "en": "Spawning",
-        "fr": "Apparition"
+        "fr": "Apparition",
+        "en-US": "Spawning"
     },
     {
         "opy": "Spawned",
-        "en": "Spawned",
-        "fr": "Apparu"
+        "fr": "Apparu",
+        "en-US": "Spawned"
     },
     {
         "opy": "Spawn",
-        "en": "Spawn",
-        "fr": "Apparaître"
+        "fr": "Apparaître",
+        "en-US": "Spawn"
     },
     {
         "opy": "Sparkles",
-        "en": "Sparkles",
-        "fr": "Étincelles"
+        "fr": "Étincelles",
+        "en-US": "Sparkles"
     },
     {
         "opy": "Spades",
-        "en": "Spades",
-        "fr": "Pique"
+        "fr": "Pique",
+        "en-US": "Spades"
     },
     {
         "opy": "Spade",
-        "en": "Spade",
-        "fr": "Pique"
+        "fr": "Pique",
+        "en-US": "Spade"
     },
     {
         "opy": "Southwest",
-        "en": "Southwest",
-        "fr": "Sud-ouest"
+        "fr": "Sud-ouest",
+        "en-US": "Southwest"
     },
     {
         "opy": "Southeast",
-        "en": "Southeast",
-        "fr": "Sud-est"
+        "fr": "Sud-est",
+        "en-US": "Southeast"
     },
     {
         "opy": "South",
-        "en": "South",
-        "fr": "Sud"
+        "fr": "Sud",
+        "en-US": "South"
     },
     {
         "opy": "Sorry",
-        "en": "Sorry",
-        "fr": "Désolé"
+        "fr": "Désolé",
+        "en-US": "Sorry"
     },
     {
         "opy": "Sold",
-        "en": "Sold",
-        "fr": "Vendu"
+        "fr": "Vendu",
+        "en-US": "Sold"
     },
     {
         "opy": "Slowest",
-        "en": "Slowest",
-        "fr": "Le plus lent"
+        "fr": "Le plus lent",
+        "en-US": "Slowest"
     },
     {
         "opy": "Slower",
-        "en": "Slower",
-        "fr": "Plus lent"
+        "fr": "Plus lent",
+        "en-US": "Slower"
     },
     {
         "opy": "Slow",
-        "en": "Slow",
-        "fr": "Lent"
+        "fr": "Lent",
+        "en-US": "Slow"
     },
     {
         "opy": "Slept",
-        "en": "Slept",
-        "fr": "Dormi"
+        "fr": "Dormi",
+        "en-US": "Slept"
     },
     {
         "opy": "Sleeping",
-        "en": "Sleeping",
-        "fr": "Dort"
+        "fr": "Dort",
+        "en-US": "Sleeping"
     },
     {
         "opy": "Sleep",
-        "en": "Sleep",
-        "fr": "Sommeil"
+        "fr": "Sommeil",
+        "en-US": "Sleep"
     },
     {
         "opy": "Skipping",
-        "en": "Skipping",
-        "fr": "Passe"
+        "fr": "Passe",
+        "en-US": "Skipping"
     },
     {
         "opy": "Skipped",
-        "en": "Skipped",
-        "fr": "Passé"
+        "fr": "Passé",
+        "en-US": "Skipped"
     },
     {
+        "guid": "00000000CAB6",
         "opy": "Skip",
-        "en": "Skip",
-        "fr": "Passer"
+        "fr": "Passer",
+        "en-US": "Skip"
     },
     {
         "opy": "Sinking",
-        "en": "Sinking",
-        "fr": "Noyade"
+        "fr": "Noyade",
+        "en-US": "Sinking"
     },
     {
         "opy": "Sink",
-        "en": "Sink",
-        "fr": "Noyer"
+        "fr": "Noyer",
+        "en-US": "Sink"
     },
     {
         "opy": "Shuffled",
-        "en": "Shuffled",
-        "fr": "Mélangé"
+        "fr": "Mélangé",
+        "en-US": "Shuffled"
     },
     {
         "opy": "Shuffle",
-        "en": "Shuffle",
-        "fr": "Mélanger"
+        "fr": "Mélanger",
+        "en-US": "Shuffle"
     },
     {
         "opy": "Shops",
-        "en": "Shops",
-        "fr": "Boutiques"
+        "fr": "Boutiques",
+        "en-US": "Shops"
     },
     {
         "opy": "Shop",
-        "en": "Shop",
-        "fr": "Boutique"
+        "fr": "Boutique",
+        "en-US": "Shop"
     },
     {
         "opy": "Severing",
-        "en": "Severing",
-        "fr": "Coupure"
+        "fr": "Coupure",
+        "en-US": "Severing"
     },
     {
         "opy": "Severed",
-        "en": "Severed",
-        "fr": "Coupé"
+        "fr": "Coupé",
+        "en-US": "Severed"
     },
     {
         "opy": "Severe",
-        "en": "Severe",
-        "fr": "Grave"
+        "fr": "Grave",
+        "en-US": "Severe"
     },
     {
         "opy": "Sever",
-        "en": "Sever",
-        "fr": "Couper"
+        "fr": "Couper",
+        "en-US": "Sever"
     },
     {
         "opy": "Server Load Peak",
-        "en": "Server Load Peak",
-        "fr": "Pic de charge du serveur"
+        "fr": "Pic de charge du serveur",
+        "en-US": "Server Load Peak"
     },
     {
         "opy": "Server Load Average",
-        "en": "Server Load Average",
-        "fr": "Charge moyenne du serveur"
+        "fr": "Charge moyenne du serveur",
+        "en-US": "Server Load Average"
     },
     {
         "opy": "Server Load",
-        "en": "Server Load",
-        "fr": "Charge du serveur"
+        "fr": "Charge du serveur",
+        "en-US": "Server Load"
     },
     {
         "opy": "Selling",
-        "en": "Selling",
-        "fr": "Vente"
+        "fr": "Vente",
+        "en-US": "Selling"
     },
     {
         "opy": "Sell",
-        "en": "Sell",
-        "fr": "Vendre"
+        "fr": "Vendre",
+        "en-US": "Sell"
     },
     {
         "opy": "Selecting",
-        "en": "Selecting",
-        "fr": "Sélectionne"
+        "fr": "Sélectionne",
+        "en-US": "Selecting"
     },
     {
         "opy": "Selected",
-        "en": "Selected",
-        "fr": "Sélectionné"
+        "fr": "Sélectionné",
+        "en-US": "Selected"
     },
     {
         "opy": "Select",
-        "en": "Select",
-        "fr": "Sélectionner"
+        "fr": "Sélectionner",
+        "en-US": "Select"
     },
     {
         "opy": "Securing",
-        "en": "Securing",
-        "fr": "Sécurisation"
+        "fr": "Sécurisation",
+        "en-US": "Securing"
     },
     {
         "opy": "Secured",
-        "en": "Secured",
-        "fr": "Sécurisé"
+        "fr": "Sécurisé",
+        "en-US": "Secured"
     },
     {
         "opy": "Secure",
-        "en": "Secure",
-        "fr": "Sécuriser"
+        "fr": "Sécuriser",
+        "en-US": "Secure"
     },
     {
         "opy": "Secondary Fire",
-        "en": "Secondary Fire",
-        "fr": "Tir secondaire"
+        "fr": "Tir secondaire",
+        "en-US": "Secondary Fire"
     },
     {
         "opy": "Scores",
-        "en": "Scores",
-        "fr": "Points"
+        "fr": "Points",
+        "en-US": "Scores"
     },
     {
         "opy": "Score",
-        "en": "Score",
-        "fr": "Points"
+        "fr": "Points",
+        "en-US": "Score"
     },
     {
         "opy": "Saving",
-        "en": "Saving",
-        "fr": "Sauvegarde"
+        "fr": "Sauvegarde",
+        "en-US": "Saving"
     },
     {
         "opy": "Saved",
-        "en": "Saved",
-        "fr": "Sauvé"
+        "fr": "Sauvé",
+        "en-US": "Saved"
     },
     {
         "opy": "Save",
-        "en": "Save",
-        "fr": "Sauver"
+        "fr": "Sauver",
+        "en-US": "Save"
     },
     {
         "opy": "Safe",
-        "en": "Safe",
-        "fr": "Sans danger"
+        "fr": "Sans danger",
+        "en-US": "Safe"
     },
     {
         "opy": "Running",
-        "en": "Running",
-        "fr": "Course"
+        "fr": "Course",
+        "en-US": "Running"
     },
     {
         "opy": "Run",
-        "en": "Run",
-        "fr": "Courir"
+        "fr": "Courir",
+        "en-US": "Run"
     },
     {
         "opy": "Rounds Won",
-        "en": "Rounds Won",
-        "fr": "Manches gagnées"
+        "fr": "Manches gagnées",
+        "en-US": "Rounds Won"
     },
     {
         "opy": "Rounds Lost",
-        "en": "Rounds Lost",
-        "fr": "Manches perdues"
+        "fr": "Manches perdues",
+        "en-US": "Rounds Lost"
     },
     {
         "opy": "Rounds",
-        "en": "Rounds",
-        "fr": "Manches"
+        "fr": "Manches",
+        "en-US": "Rounds"
     },
     {
         "opy": "Round",
-        "en": "Round",
-        "fr": "Manche"
+        "fr": "Manche",
+        "en-US": "Round"
     },
     {
         "opy": "Right",
-        "en": "Right",
-        "fr": "Droite"
+        "fr": "Droite",
+        "en-US": "Right"
     },
     {
         "opy": "Reversing",
-        "en": "Reversing",
-        "fr": "Inverse"
+        "fr": "Inverse",
+        "en-US": "Reversing"
     },
     {
         "opy": "Reversed",
-        "en": "Reversed",
-        "fr": "Inversé"
+        "fr": "Inversé",
+        "en-US": "Reversed"
     },
     {
         "opy": "Reverse",
-        "en": "Reverse",
-        "fr": "Inverser"
+        "fr": "Inverser",
+        "en-US": "Reverse"
     },
     {
         "opy": "Revealing",
-        "en": "Revealing",
-        "fr": "Révélation"
+        "fr": "Révélation",
+        "en-US": "Revealing"
     },
     {
         "opy": "Revealed",
-        "en": "Revealed",
-        "fr": "Révélé"
+        "fr": "Révélé",
+        "en-US": "Revealed"
     },
     {
         "opy": "Reveal",
-        "en": "Reveal",
-        "fr": "Révéler"
+        "fr": "Révéler",
+        "en-US": "Reveal"
     },
     {
         "opy": "Resurrecting",
-        "en": "Resurrecting",
-        "fr": "Résurrection"
+        "fr": "Résurrection",
+        "en-US": "Resurrecting"
     },
     {
         "opy": "Resurrected",
-        "en": "Resurrected",
-        "fr": "Ressuscité"
+        "fr": "Ressuscité",
+        "en-US": "Resurrected"
     },
     {
+        "guid": "00000000C126",
         "opy": "Resurrect",
-        "en": "Resurrect",
-        "fr": "Ressusciter"
+        "fr": "Ressusciter",
+        "en-US": "Resurrect"
     },
     {
         "opy": "Resources",
-        "en": "Resources",
-        "fr": "Ressources "
+        "fr": "Ressources ",
+        "en-US": "Resources"
     },
     {
         "opy": "Resource",
-        "en": "Resource",
-        "fr": "Ressource"
+        "fr": "Ressource",
+        "en-US": "Resource"
     },
     {
         "opy": "Rescuing",
-        "en": "Rescuing",
-        "fr": "Sauvetage"
+        "fr": "Sauvetage",
+        "en-US": "Rescuing"
     },
     {
         "opy": "Rescued",
-        "en": "Rescued",
-        "fr": "Secouru"
+        "fr": "Secouru",
+        "en-US": "Rescued"
     },
     {
         "opy": "Rescue",
-        "en": "Rescue",
-        "fr": "Secourir"
+        "fr": "Secourir",
+        "en-US": "Rescue"
     },
     {
         "opy": "Remaining",
-        "en": "Remaining",
-        "fr": "Restant"
+        "fr": "Restant",
+        "en-US": "Remaining"
     },
     {
         "opy": "Remain",
-        "en": "Remain",
-        "fr": "Rester"
+        "fr": "Rester",
+        "en-US": "Remain"
     },
     {
         "opy": "Red",
-        "en": "Red",
-        "fr": "Rouge"
+        "fr": "Rouge",
+        "en-US": "Red"
     },
     {
         "opy": "Recovering",
-        "en": "Recovering",
-        "fr": "Récupération"
+        "fr": "Récupération",
+        "en-US": "Recovering"
     },
     {
         "opy": "Recovered",
-        "en": "Recovered",
-        "fr": "Récupéré"
+        "fr": "Récupéré",
+        "en-US": "Recovered"
     },
     {
         "opy": "Recover",
-        "en": "Recover",
-        "fr": "Récupérer"
+        "fr": "Récupérer",
+        "en-US": "Recover"
     },
     {
         "opy": "Records",
-        "en": "Records",
-        "fr": "Records"
+        "fr": "Records",
+        "en-US": "Records"
     },
     {
         "opy": "Record",
-        "en": "Record",
-        "fr": "Record"
+        "fr": "Record",
+        "en-US": "Record"
     },
     {
         "opy": "Ready",
-        "en": "Ready",
-        "fr": "Prêt"
+        "fr": "Prêt",
+        "en-US": "Ready"
     },
     {
         "opy": "Reaching",
-        "en": "Reaching",
-        "fr": "Atteinte"
+        "fr": "Atteinte",
+        "en-US": "Reaching"
     },
     {
         "opy": "Reached",
-        "en": "Reached",
-        "fr": "Atteint"
+        "fr": "Atteint",
+        "en-US": "Reached"
     },
     {
         "opy": "Reach",
-        "en": "Reach",
-        "fr": "Atteindre"
+        "fr": "Atteindre",
+        "en-US": "Reach"
     },
     {
         "opy": "Rank S",
-        "en": "Rank S",
-        "fr": "Rang S"
+        "fr": "Rang S",
+        "en-US": "Rank S"
     },
     {
         "opy": "Rank F",
-        "en": "Rank F",
-        "fr": "Rang F"
+        "fr": "Rang F",
+        "en-US": "Rank F"
     },
     {
         "opy": "Rank E",
-        "en": "Rank E",
-        "fr": "Rang E"
+        "fr": "Rang E",
+        "en-US": "Rank E"
     },
     {
         "opy": "Rank D",
-        "en": "Rank D",
-        "fr": "Rang D"
+        "fr": "Rang D",
+        "en-US": "Rank D"
     },
     {
         "opy": "Rank C",
-        "en": "Rank C",
-        "fr": "Rang C"
+        "fr": "Rang C",
+        "en-US": "Rank C"
     },
     {
         "opy": "Rank B",
-        "en": "Rank B",
-        "fr": "Rang B"
+        "fr": "Rang B",
+        "en-US": "Rank B"
     },
     {
         "opy": "Rank A",
-        "en": "Rank A",
-        "fr": "Rang A"
+        "fr": "Rang A",
+        "en-US": "Rank A"
     },
     {
         "opy": "Rank",
-        "en": "Rank",
-        "fr": "Rang"
+        "fr": "Rang",
+        "en-US": "Rank"
     },
     {
         "opy": "Raising",
-        "en": "Raising",
-        "fr": "Augmentation"
+        "fr": "Augmentation",
+        "en-US": "Raising"
     },
     {
         "opy": "Raised",
-        "en": "Raised",
-        "fr": "Augmenté"
+        "fr": "Augmenté",
+        "en-US": "Raised"
     },
     {
         "opy": "Raise",
-        "en": "Raise",
-        "fr": "Augmenter"
+        "fr": "Augmenter",
+        "en-US": "Raise"
     },
     {
         "opy": "Purple",
-        "en": "Purple",
-        "fr": "Violet"
+        "fr": "Violet",
+        "en-US": "Purple"
     },
     {
         "opy": "Purifying",
-        "en": "Purifying",
-        "fr": "Purification"
+        "fr": "Purification",
+        "en-US": "Purifying"
     },
     {
         "opy": "Purify",
-        "en": "Purify",
-        "fr": "Purifier"
+        "fr": "Purifier",
+        "en-US": "Purify"
     },
     {
         "opy": "Purified",
-        "en": "Purified",
-        "fr": "Purifié"
+        "fr": "Purifié",
+        "en-US": "Purified"
     },
     {
         "opy": "Protecting",
-        "en": "Protecting",
-        "fr": "Protection"
+        "fr": "Protection",
+        "en-US": "Protecting"
     },
     {
         "opy": "Protected",
-        "en": "Protected",
-        "fr": "Protégé"
+        "fr": "Protégé",
+        "en-US": "Protected"
     },
     {
         "opy": "Protect",
-        "en": "Protect",
-        "fr": "Protéger"
+        "fr": "Protéger",
+        "en-US": "Protect"
     },
     {
         "opy": "Projectiles",
-        "en": "Projectiles",
-        "fr": "Projectiles"
+        "fr": "Projectiles",
+        "en-US": "Projectiles"
     },
     {
         "opy": "Projectile",
-        "en": "Projectile",
-        "fr": "Projectile"
+        "fr": "Projectile",
+        "en-US": "Projectile"
     },
     {
         "opy": "Primary Fire",
-        "en": "Primary Fire",
-        "fr": "Tir principal"
+        "fr": "Tir principal",
+        "en-US": "Primary Fire"
     },
     {
         "opy": "Price",
-        "en": "Price",
-        "fr": "Prix"
+        "fr": "Prix",
+        "en-US": "Price"
     },
     {
         "opy": "Power-Ups",
-        "en": "Power-Ups",
-        "fr": "Bonus"
+        "fr": "Bonus",
+        "en-US": "Power-Ups"
     },
     {
         "opy": "Power-Up",
-        "en": "Power-Up",
-        "fr": "Bonus"
+        "fr": "Bonus",
+        "en-US": "Power-Up"
     },
     {
         "opy": "Power",
-        "en": "Power",
-        "fr": "Puissance"
+        "fr": "Puissance",
+        "en-US": "Power"
     },
     {
         "opy": "Position",
-        "en": "Position",
-        "fr": "Position"
+        "fr": "Position",
+        "en-US": "Position"
     },
     {
         "opy": "Points Lost",
-        "en": "Points Lost",
-        "fr": "Points perdus"
+        "fr": "Points perdus",
+        "en-US": "Points Lost"
     },
     {
         "opy": "Points Earned",
-        "en": "Points Earned",
-        "fr": "Points gagnés"
+        "fr": "Points gagnés",
+        "en-US": "Points Earned"
     },
     {
         "opy": "Points",
-        "en": "Points",
-        "fr": "Points"
+        "fr": "Points",
+        "en-US": "Points"
     },
     {
         "opy": "Point",
-        "en": "Point",
-        "fr": "Point"
+        "fr": "Point",
+        "en-US": "Point"
     },
     {
         "opy": "Playing",
-        "en": "Playing",
-        "fr": "Joue"
+        "fr": "Joue",
+        "en-US": "Playing"
     },
     {
         "opy": "Players",
-        "en": "Players",
-        "fr": "Joueurs"
+        "fr": "Joueurs",
+        "en-US": "Players"
     },
     {
         "opy": "Player",
-        "en": "Player",
-        "fr": "Joueur"
+        "fr": "Joueur",
+        "en-US": "Player"
     },
     {
         "opy": "Played",
-        "en": "Played",
-        "fr": "Joué"
+        "fr": "Joué",
+        "en-US": "Played"
     },
     {
         "opy": "Play",
-        "en": "Play",
-        "fr": "Jouer"
+        "fr": "Jouer",
+        "en-US": "Play"
     },
     {
         "opy": "Piles",
-        "en": "Piles",
-        "fr": "Piles"
+        "fr": "Piles",
+        "en-US": "Piles"
     },
     {
         "opy": "Pile",
-        "en": "Pile",
-        "fr": "Pile"
+        "fr": "Pile",
+        "en-US": "Pile"
     },
     {
         "opy": "Picking",
-        "en": "Picking",
-        "fr": "Prise"
+        "fr": "Prise",
+        "en-US": "Picking"
     },
     {
         "opy": "Picked",
-        "en": "Picked",
-        "fr": "Pris"
+        "fr": "Pris",
+        "en-US": "Picked"
     },
     {
         "opy": "Pick",
-        "en": "Pick",
-        "fr": "Prendre"
+        "fr": "Prendre",
+        "en-US": "Pick"
     },
     {
         "opy": "Phases",
-        "en": "Phases",
-        "fr": "Phases"
+        "fr": "Phases",
+        "en-US": "Phases"
     },
     {
         "opy": "Phase",
-        "en": "Phase",
-        "fr": "Phase"
+        "fr": "Phase",
+        "en-US": "Phase"
     },
     {
         "opy": "Payloads",
-        "en": "Payloads",
-        "fr": "Convois"
+        "fr": "Convois",
+        "en-US": "Payloads"
     },
     {
         "opy": "Payload",
-        "en": "Payload",
-        "fr": "Convoi"
+        "fr": "Convoi",
+        "en-US": "Payload"
     },
     {
         "opy": "Participants",
-        "en": "Participants",
-        "fr": "Participants"
+        "fr": "Participants",
+        "en-US": "Participants"
     },
     {
         "opy": "Participant",
-        "en": "Participant",
-        "fr": "Participant"
+        "fr": "Participant",
+        "en-US": "Participant"
     },
     {
         "opy": "Overtime",
-        "en": "Overtime",
-        "fr": "Prolongations"
+        "fr": "Prolongations",
+        "en-US": "Overtime"
     },
     {
         "opy": "Over",
-        "en": "Over",
-        "fr": "Sur"
+        "fr": "Sur",
+        "en-US": "Over"
     },
     {
         "opy": "Outside",
-        "en": "Outside",
-        "fr": "Dehors"
+        "fr": "Dehors",
+        "en-US": "Outside"
     },
     {
         "opy": "Outgoing",
-        "en": "Outgoing",
-        "fr": "Sortant"
+        "fr": "Sortant",
+        "en-US": "Outgoing"
     },
     {
         "opy": "Out Of View",
-        "en": "Out Of View",
-        "fr": "Hors de la vue"
+        "fr": "Hors de la vue",
+        "en-US": "Out Of View"
     },
     {
         "opy": "Optimizing",
-        "en": "Optimizing",
-        "fr": "Optimisation"
+        "fr": "Optimisation",
+        "en-US": "Optimizing"
     },
     {
         "opy": "Optimized",
-        "en": "Optimized",
-        "fr": "Optimisé"
+        "fr": "Optimisé",
+        "en-US": "Optimized"
     },
     {
         "opy": "Optimize",
-        "en": "Optimize",
-        "fr": "Optimiser"
+        "fr": "Optimiser",
+        "en-US": "Optimize"
     },
     {
         "opy": "Optimal",
-        "en": "Optimal",
-        "fr": "Optimal"
+        "fr": "Optimal",
+        "en-US": "Optimal"
     },
     {
         "opy": "Oops",
-        "en": "Oops",
-        "fr": "Oups"
+        "fr": "Oups",
+        "en-US": "Oops"
     },
     {
         "opy": "Oof",
-        "en": "Oof",
-        "fr": "Aïe"
+        "fr": "Aïe",
+        "en-US": "Oof"
     },
     {
         "opy": "On",
-        "en": "On",
-        "fr": "Activé"
+        "fr": "Activé",
+        "en-US": "On"
     },
     {
         "opy": "Off",
-        "en": "Off",
-        "fr": "Désactivé"
+        "fr": "Désactivé",
+        "en-US": "Off"
     },
     {
         "opy": "Obtaining",
-        "en": "Obtaining",
-        "fr": "Obtention"
+        "fr": "Obtention",
+        "en-US": "Obtaining"
     },
     {
         "opy": "Obtained",
-        "en": "Obtained",
-        "fr": "Obtenu"
+        "fr": "Obtenu",
+        "en-US": "Obtained"
     },
     {
         "opy": "Obtain",
-        "en": "Obtain",
-        "fr": "Obtenir"
+        "fr": "Obtenir",
+        "en-US": "Obtain"
     },
     {
         "opy": "Objects",
-        "en": "Objects",
-        "fr": "Objets"
+        "fr": "Objets",
+        "en-US": "Objects"
     },
     {
         "opy": "Objectives",
-        "en": "Objectives",
-        "fr": "Objectifs"
+        "fr": "Objectifs",
+        "en-US": "Objectives"
     },
     {
         "opy": "Objective",
-        "en": "Objective",
-        "fr": "Objectif"
+        "fr": "Objectif",
+        "en-US": "Objective"
     },
     {
         "opy": "Object",
-        "en": "Object",
-        "fr": "Objet"
+        "fr": "Objet",
+        "en-US": "Object"
     },
     {
         "opy": "Not Today",
-        "en": "Not Today",
-        "fr": "Pas aujourd’hui"
+        "fr": "Pas aujourd’hui",
+        "en-US": "Not Today"
     },
     {
         "opy": "Northwest",
-        "en": "Northwest",
-        "fr": "Nord-ouest"
+        "fr": "Nord-ouest",
+        "en-US": "Northwest"
     },
     {
         "opy": "Northeast",
-        "en": "Northeast",
-        "fr": "Nord-est"
+        "fr": "Nord-est",
+        "en-US": "Northeast"
     },
     {
         "opy": "North",
-        "en": "North",
-        "fr": "Nord"
+        "fr": "Nord",
+        "en-US": "North"
     },
     {
         "opy": "Normal",
-        "en": "Normal",
-        "fr": "Normal"
+        "fr": "Normal",
+        "en-US": "Normal"
     },
     {
         "opy": "None",
-        "en": "None",
-        "fr": "Aucun"
+        "fr": "Aucun",
+        "en-US": "None"
     },
     {
         "opy": "No Thanks",
-        "en": "No Thanks",
-        "fr": "Non merci"
+        "fr": "Non merci",
+        "en-US": "No Thanks"
     },
     {
         "opy": "No",
-        "en": "No",
-        "fr": "Non"
+        "fr": "Non",
+        "en-US": "No"
     },
     {
         "opy": "Nice Try",
-        "en": "Nice Try",
-        "fr": "Bien essayé"
+        "fr": "Bien essayé",
+        "en-US": "Nice Try"
     },
     {
         "opy": "Next Upgrade",
-        "en": "Next Upgrade",
-        "fr": "Amélioration suivante"
+        "fr": "Amélioration suivante",
+        "en-US": "Next Upgrade"
     },
     {
         "opy": "Next Targets",
-        "en": "Next Targets",
-        "fr": "Cibles suivantes"
+        "fr": "Cibles suivantes",
+        "en-US": "Next Targets"
     },
     {
         "opy": "Next Target",
-        "en": "Next Target",
-        "fr": "Cible suivante"
+        "fr": "Cible suivante",
+        "en-US": "Next Target"
     },
     {
         "opy": "Next Round",
-        "en": "Next Round",
-        "fr": "Manche suivante"
+        "fr": "Manche suivante",
+        "en-US": "Next Round"
     },
     {
         "opy": "Next Players",
-        "en": "Next Players",
-        "fr": "Joueurs suivants"
+        "fr": "Joueurs suivants",
+        "en-US": "Next Players"
     },
     {
         "opy": "Next Player",
-        "en": "Next Player",
-        "fr": "Joueur suivant"
+        "fr": "Joueur suivant",
+        "en-US": "Next Player"
     },
     {
         "opy": "Next Phase",
-        "en": "Next Phase",
-        "fr": "Phase suivante"
+        "fr": "Phase suivante",
+        "en-US": "Next Phase"
     },
     {
         "opy": "Next Objects",
-        "en": "Next Objects",
-        "fr": "Objets suivants"
+        "fr": "Objets suivants",
+        "en-US": "Next Objects"
     },
     {
         "opy": "Next Objective",
-        "en": "Next Objective",
-        "fr": "Objectif suivant"
+        "fr": "Objectif suivant",
+        "en-US": "Next Objective"
     },
     {
         "opy": "Next Object",
-        "en": "Next Object",
-        "fr": "Objet suivant"
+        "fr": "Objet suivant",
+        "en-US": "Next Object"
     },
     {
         "opy": "Next Mission",
-        "en": "Next Mission",
-        "fr": "Mission suivante"
+        "fr": "Mission suivante",
+        "en-US": "Next Mission"
     },
     {
         "opy": "Next Level",
-        "en": "Next Level",
-        "fr": "Niveau suivant"
+        "fr": "Niveau suivant",
+        "en-US": "Next Level"
     },
     {
         "opy": "Next Hostages",
-        "en": "Next Hostages",
-        "fr": "Otages suivants"
+        "fr": "Otages suivants",
+        "en-US": "Next Hostages"
     },
     {
         "opy": "Next Hostage",
-        "en": "Next Hostage",
-        "fr": "Otage suivant"
+        "fr": "Otage suivant",
+        "en-US": "Next Hostage"
     },
     {
         "opy": "Next Heroes",
-        "en": "Next Heroes",
-        "fr": "Héros suivants"
+        "fr": "Héros suivants",
+        "en-US": "Next Heroes"
     },
     {
         "opy": "Next Hero",
-        "en": "Next Hero",
-        "fr": "Héros suivant"
+        "fr": "Héros suivant",
+        "en-US": "Next Hero"
     },
     {
         "opy": "Next Game",
-        "en": "Next Game",
-        "fr": "Partie suivante"
+        "fr": "Partie suivante",
+        "en-US": "Next Game"
     },
     {
         "opy": "Next Form",
-        "en": "Next Form",
-        "fr": "Forme suivante"
+        "fr": "Forme suivante",
+        "en-US": "Next Form"
     },
     {
         "opy": "Next Enemy",
-        "en": "Next Enemy",
-        "fr": "Ennemi suivant"
+        "fr": "Ennemi suivant",
+        "en-US": "Next Enemy"
     },
     {
         "opy": "Next Enemies",
-        "en": "Next Enemies",
-        "fr": "Ennemis suivants"
+        "fr": "Ennemis suivants",
+        "en-US": "Next Enemies"
     },
     {
         "opy": "Next Checkpoint",
-        "en": "Next Checkpoint",
-        "fr": "Point de contrôle suivant"
+        "fr": "Point de contrôle suivant",
+        "en-US": "Next Checkpoint"
     },
     {
         "opy": "Next Attempt",
-        "en": "Next Attempt",
-        "fr": "Tentative suivante"
+        "fr": "Tentative suivante",
+        "en-US": "Next Attempt"
     },
     {
         "opy": "Next Ally",
-        "en": "Next Ally",
-        "fr": "Allié suivant"
+        "fr": "Allié suivant",
+        "en-US": "Next Ally"
     },
     {
         "opy": "Next Allies",
-        "en": "Next Allies",
-        "fr": "Alliés suivants"
+        "fr": "Alliés suivants",
+        "en-US": "Next Allies"
     },
     {
         "opy": "Next",
-        "en": "Next",
-        "fr": "Suivant"
+        "fr": "Suivant",
+        "en-US": "Next"
     },
     {
         "opy": "New Record",
-        "en": "New Record",
-        "fr": "Nouveau record"
+        "fr": "Nouveau record",
+        "en-US": "New Record"
     },
     {
         "opy": "New High Score",
-        "en": "New High Score",
-        "fr": "Nouveau meilleur score"
+        "fr": "Nouveau meilleur score",
+        "en-US": "New High Score"
     },
     {
         "opy": "Near",
-        "en": "Near",
-        "fr": "Près"
+        "fr": "Près",
+        "en-US": "Near"
     },
     {
         "opy": "My Mistake",
-        "en": "My Mistake",
-        "fr": "C’est de ma faute"
+        "fr": "C’est de ma faute",
+        "en-US": "My Mistake"
     },
     {
         "opy": "Most",
-        "en": "Most",
-        "fr": "Le plus"
+        "fr": "Le plus",
+        "en-US": "Most"
     },
     {
         "opy": "More",
-        "en": "More",
-        "fr": "Plus"
+        "fr": "Plus",
+        "en-US": "More"
     },
     {
         "opy": "Monsters",
-        "en": "Monsters",
-        "fr": "Monstres"
+        "fr": "Monstres",
+        "en-US": "Monsters"
     },
     {
         "opy": "Monster",
-        "en": "Monster",
-        "fr": "Monstre"
+        "fr": "Monstre",
+        "en-US": "Monster"
     },
     {
         "opy": "Money",
-        "en": "Money",
-        "fr": "Argent"
+        "fr": "Argent",
+        "en-US": "Money"
     },
     {
         "opy": "Moderate",
-        "en": "Moderate",
-        "fr": "Modéré"
+        "fr": "Modéré",
+        "en-US": "Moderate"
     },
     {
         "opy": "Missions",
-        "en": "Missions",
-        "fr": "Missions"
+        "fr": "Missions",
+        "en-US": "Missions"
     },
     {
         "opy": "Mission Failed",
-        "en": "Mission Failed",
-        "fr": "Échec de la mission"
+        "fr": "Échec de la mission",
+        "en-US": "Mission Failed"
     },
     {
         "opy": "Mission Accomplished",
-        "en": "Mission Accomplished",
-        "fr": "Mission accomplie"
+        "fr": "Mission accomplie",
+        "en-US": "Mission Accomplished"
     },
     {
         "opy": "Mission Aborted",
-        "en": "Mission Aborted",
-        "fr": "Mission annulée"
+        "fr": "Mission annulée",
+        "en-US": "Mission Aborted"
     },
     {
         "opy": "Mission",
-        "en": "Mission",
-        "fr": "Mission"
+        "fr": "Mission",
+        "en-US": "Mission"
     },
     {
         "opy": "Min",
-        "en": "Min",
-        "fr": "Minimum"
+        "fr": "Minimum",
+        "en-US": "Min"
     },
     {
         "opy": "Mild",
-        "en": "Mild",
-        "fr": "Modéré"
+        "fr": "Modéré",
+        "en-US": "Mild"
     },
     {
         "opy": "Max",
-        "en": "Max",
-        "fr": "Maximum"
+        "fr": "Maximum",
+        "en-US": "Max"
     },
     {
         "opy": "Losses",
-        "en": "Losses",
-        "fr": "Défaites"
+        "fr": "Défaites",
+        "en-US": "Losses"
     },
     {
         "opy": "Loss",
-        "en": "Loss",
-        "fr": "Défaite"
+        "fr": "Défaite",
+        "en-US": "Loss"
     },
     {
         "opy": "Losers",
-        "en": "Losers",
-        "fr": "Perdants"
+        "fr": "Perdants",
+        "en-US": "Losers"
     },
     {
         "opy": "Loser",
-        "en": "Loser",
-        "fr": "Perdant"
+        "fr": "Perdant",
+        "en-US": "Loser"
     },
     {
         "opy": "Locking",
-        "en": "Locking",
-        "fr": "Verrouillage"
+        "fr": "Verrouillage",
+        "en-US": "Locking"
     },
     {
         "opy": "Locked",
-        "en": "Locked",
-        "fr": "Verrouillé"
+        "fr": "Verrouillé",
+        "en-US": "Locked"
     },
     {
         "opy": "Lock",
-        "en": "Lock",
-        "fr": "Verrouiller"
+        "fr": "Verrouiller",
+        "en-US": "Lock"
     },
     {
         "opy": "Location",
-        "en": "Location",
-        "fr": "Lieu"
+        "fr": "Lieu",
+        "en-US": "Location"
     },
     {
         "opy": "Loading",
-        "en": "Loading",
-        "fr": "Chargement"
+        "fr": "Chargement",
+        "en-US": "Loading"
     },
     {
         "opy": "Loaded",
-        "en": "Loaded",
-        "fr": "Chargé"
+        "fr": "Chargé",
+        "en-US": "Loaded"
     },
     {
         "opy": "Load",
-        "en": "Load",
-        "fr": "Charger"
+        "fr": "Charger",
+        "en-US": "Load"
     },
     {
         "opy": "Lives",
-        "en": "Lives",
-        "fr": "Vies"
+        "fr": "Vies",
+        "en-US": "Lives"
     },
     {
         "opy": "Limited",
-        "en": "Limited",
-        "fr": "Limité"
+        "fr": "Limité",
+        "en-US": "Limited"
     },
     {
         "opy": "Life",
-        "en": "Life",
-        "fr": "Vie"
+        "fr": "Vie",
+        "en-US": "Life"
     },
     {
         "opy": "Levels",
-        "en": "Levels",
-        "fr": "Niveaux"
+        "fr": "Niveaux",
+        "en-US": "Levels"
     },
     {
         "opy": "Level Up",
-        "en": "Level Up",
-        "fr": "Gain de niveau"
+        "fr": "Gain de niveau",
+        "en-US": "Level Up"
     },
     {
         "opy": "Level Down",
-        "en": "Level Down",
-        "fr": "Perte de niveau"
+        "fr": "Perte de niveau",
+        "en-US": "Level Down"
     },
     {
         "opy": "Level",
-        "en": "Level",
-        "fr": "Niveau"
+        "fr": "Niveau",
+        "en-US": "Level"
     },
     {
         "opy": "Less",
-        "en": "Less",
-        "fr": "Moins"
+        "fr": "Moins",
+        "en-US": "Less"
     },
     {
         "opy": "Left",
-        "en": "Left",
-        "fr": "Gauche"
+        "fr": "Gauche",
+        "en-US": "Left"
     },
     {
         "opy": "Least",
-        "en": "Least",
-        "fr": "Le moins"
+        "fr": "Le moins",
+        "en-US": "Least"
     },
     {
         "opy": "Leaders",
-        "en": "Leaders",
-        "fr": "Meneurs"
+        "fr": "Meneurs",
+        "en-US": "Leaders"
     },
     {
         "opy": "Leader",
-        "en": "Leader",
-        "fr": "Meneur"
+        "fr": "Meneur",
+        "en-US": "Leader"
     },
     {
         "opy": "Killstreaks",
-        "en": "Killstreaks",
-        "fr": "Séries de victimes"
+        "fr": "Séries de victimes",
+        "en-US": "Killstreaks"
     },
     {
         "opy": "Killstreak",
-        "en": "Killstreak",
-        "fr": "Série de victimes"
+        "fr": "Série de victimes",
+        "en-US": "Killstreak"
     },
     {
         "opy": "Killstreak",
-        "en": "Killstreak",
-        "fr": "Série de victimes"
+        "fr": "Série de victimes",
+        "en-US": "Killstreak"
     },
     {
         "opy": "Kills",
-        "en": "Kills",
-        "fr": "Victimes"
+        "fr": "Victimes",
+        "en-US": "Kills"
     },
     {
+        "guid": "00000000C292",
         "opy": "Kill",
-        "en": "Kill",
-        "fr": "Victime"
+        "fr": "Victime",
+        "en-US": "Kill"
     },
     {
         "opy": "Jumping",
-        "en": "Jumping",
-        "fr": "Saut"
+        "fr": "Saut",
+        "en-US": "Jumping"
     },
     {
         "opy": "Jump",
-        "en": "Jump",
-        "fr": "Sauter"
+        "fr": "Sauter",
+        "en-US": "Jump"
     },
     {
         "opy": "Joining",
-        "en": "Joining",
-        "fr": "Rejoint"
+        "fr": "Rejoint",
+        "en-US": "Joining"
     },
     {
         "opy": "Joined",
-        "en": "Joined",
-        "fr": "A rejoint"
+        "fr": "A rejoint",
+        "en-US": "Joined"
     },
     {
         "opy": "Join",
-        "en": "Join",
-        "fr": "Rejoindre"
+        "fr": "Rejoindre",
+        "en-US": "Join"
     },
     {
         "opy": "Items",
-        "en": "Items",
-        "fr": "Articles"
+        "fr": "Articles",
+        "en-US": "Items"
     },
     {
         "opy": "Item",
-        "en": "Item",
-        "fr": "Article"
+        "fr": "Article",
+        "en-US": "Item"
     },
     {
         "opy": "Invisible",
-        "en": "Invisible",
-        "fr": "Invisible"
+        "fr": "Invisible",
+        "en-US": "Invisible"
     },
     {
         "opy": "Interact",
-        "en": "Interact",
-        "fr": "Interagir"
+        "fr": "Interagir",
+        "en-US": "Interact"
     },
     {
         "opy": "Intelligence",
-        "en": "Intelligence",
-        "fr": "Intelligence"
+        "fr": "Intelligence",
+        "en-US": "Intelligence"
     },
     {
         "opy": "Inside",
-        "en": "Inside",
-        "fr": "À l’intérieur"
+        "fr": "À l’intérieur",
+        "en-US": "Inside"
     },
     {
         "opy": "Innocent",
-        "en": "Innocent",
-        "fr": "Innocent"
+        "fr": "Innocent",
+        "en-US": "Innocent"
     },
     {
         "opy": "Initial Upgrade",
-        "en": "Initial Upgrade",
-        "fr": "Amélioration initiale"
+        "fr": "Amélioration initiale",
+        "en-US": "Initial Upgrade"
     },
     {
         "opy": "Initial Targets",
-        "en": "Initial Targets",
-        "fr": "Cibles initiales"
+        "fr": "Cibles initiales",
+        "en-US": "Initial Targets"
     },
     {
         "opy": "Initial Target",
-        "en": "Initial Target",
-        "fr": "Cible initiale"
+        "fr": "Cible initiale",
+        "en-US": "Initial Target"
     },
     {
         "opy": "Initial Round",
-        "en": "Initial Round",
-        "fr": "Manche initiale"
+        "fr": "Manche initiale",
+        "en-US": "Initial Round"
     },
     {
         "opy": "Initial Players",
-        "en": "Initial Players",
-        "fr": "Joueurs initiaux"
+        "fr": "Joueurs initiaux",
+        "en-US": "Initial Players"
     },
     {
         "opy": "Initial Player",
-        "en": "Initial Player",
-        "fr": "Joueur initial"
+        "fr": "Joueur initial",
+        "en-US": "Initial Player"
     },
     {
         "opy": "Initial Phase",
-        "en": "Initial Phase",
-        "fr": "Phase initiale"
+        "fr": "Phase initiale",
+        "en-US": "Initial Phase"
     },
     {
         "opy": "Initial Objects",
-        "en": "Initial Objects",
-        "fr": "Objets initiaux"
+        "fr": "Objets initiaux",
+        "en-US": "Initial Objects"
     },
     {
         "opy": "Initial Objective",
-        "en": "Initial Objective",
-        "fr": "Objectif initial"
+        "fr": "Objectif initial",
+        "en-US": "Initial Objective"
     },
     {
         "opy": "Initial Object",
-        "en": "Initial Object",
-        "fr": "Objet initial"
+        "fr": "Objet initial",
+        "en-US": "Initial Object"
     },
     {
         "opy": "Initial Mission",
-        "en": "Initial Mission",
-        "fr": "Mission initiale"
+        "fr": "Mission initiale",
+        "en-US": "Initial Mission"
     },
     {
         "opy": "Initial Level",
-        "en": "Initial Level",
-        "fr": "Niveau initial"
+        "fr": "Niveau initial",
+        "en-US": "Initial Level"
     },
     {
         "opy": "Initial Hostage",
-        "en": "Initial Hostage",
-        "fr": "Otage initial"
+        "fr": "Otage initial",
+        "en-US": "Initial Hostage"
     },
     {
         "opy": "Initial Heroes",
-        "en": "Initial Heroes",
-        "fr": "Héros initiaux"
+        "fr": "Héros initiaux",
+        "en-US": "Initial Heroes"
     },
     {
         "opy": "Initial Hero",
-        "en": "Initial Hero",
-        "fr": "Héros initial"
+        "fr": "Héros initial",
+        "en-US": "Initial Hero"
     },
     {
         "opy": "Initial Game",
-        "en": "Initial Game",
-        "fr": "Partie initiale"
+        "fr": "Partie initiale",
+        "en-US": "Initial Game"
     },
     {
         "opy": "Initial Form",
-        "en": "Initial Form",
-        "fr": "Forme initiale"
+        "fr": "Forme initiale",
+        "en-US": "Initial Form"
     },
     {
         "opy": "Initial Enemy",
-        "en": "Initial Enemy",
-        "fr": "Ennemi initial"
+        "fr": "Ennemi initial",
+        "en-US": "Initial Enemy"
     },
     {
         "opy": "Initial Enemies",
-        "en": "Initial Enemies",
-        "fr": "Ennemis initiaux"
+        "fr": "Ennemis initiaux",
+        "en-US": "Initial Enemies"
     },
     {
         "opy": "Initial Checkpoint",
-        "en": "Initial Checkpoint",
-        "fr": "Point de contrôle initial"
+        "fr": "Point de contrôle initial",
+        "en-US": "Initial Checkpoint"
     },
     {
         "opy": "Initial Attempt",
-        "en": "Initial Attempt",
-        "fr": "Tentative initiale"
+        "fr": "Tentative initiale",
+        "en-US": "Initial Attempt"
     },
     {
         "opy": "Initial Ally",
-        "en": "Initial Ally",
-        "fr": "Allié initial"
+        "fr": "Allié initial",
+        "en-US": "Initial Ally"
     },
     {
         "opy": "Initial Allies",
-        "en": "Initial Allies",
-        "fr": "Alliés initiaux"
+        "fr": "Alliés initiaux",
+        "en-US": "Initial Allies"
     },
     {
         "opy": "Initial",
-        "en": "Initial",
-        "fr": "Initial"
+        "fr": "Initial",
+        "en-US": "Initial"
     },
     {
         "opy": "Incoming",
-        "en": "Incoming",
-        "fr": "En approche"
+        "fr": "En approche",
+        "en-US": "Incoming"
     },
     {
         "opy": "Income",
-        "en": "Income",
-        "fr": "Revenu"
+        "fr": "Revenu",
+        "en-US": "Income"
     },
     {
         "opy": "In View",
-        "en": "In View",
-        "fr": "En vue"
+        "fr": "En vue",
+        "en-US": "In View"
     },
     {
         "opy": "I Tried",
-        "en": "I Tried",
-        "fr": "J’ai essayé"
+        "fr": "J’ai essayé",
+        "en-US": "I Tried"
     },
     {
         "opy": "I Give Up",
-        "en": "I Give Up",
-        "fr": "J’abandonne"
+        "fr": "J’abandonne",
+        "en-US": "I Give Up"
     },
     {
         "opy": "Hunting",
-        "en": "Hunting",
-        "fr": "Chasse"
+        "fr": "Chasse",
+        "en-US": "Hunting"
     },
     {
         "opy": "Hunters",
-        "en": "Hunters",
-        "fr": "Chasseurs"
+        "fr": "Chasseurs",
+        "en-US": "Hunters"
     },
     {
         "opy": "Hunter",
-        "en": "Hunter",
-        "fr": "Chasseur"
+        "fr": "Chasseur",
+        "en-US": "Hunter"
     },
     {
         "opy": "Hunted",
-        "en": "Hunted",
-        "fr": "Pourchassé"
+        "fr": "Pourchassé",
+        "en-US": "Hunted"
     },
     {
         "opy": "Hunt",
-        "en": "Hunt",
-        "fr": "Chasser"
+        "fr": "Chasser",
+        "en-US": "Hunt"
     },
     {
         "opy": "Huh",
-        "en": "Huh",
-        "fr": "Euh"
+        "fr": "Euh",
+        "en-US": "Huh"
     },
     {
         "opy": "Hostages",
-        "en": "Hostages",
-        "fr": "Otages"
+        "fr": "Otages",
+        "en-US": "Hostages"
     },
     {
         "opy": "Hostage",
-        "en": "Hostage",
-        "fr": "Otage"
+        "fr": "Otage",
+        "en-US": "Hostage"
     },
     {
         "opy": "Hmmm",
-        "en": "Hmmm",
-        "fr": "Hmmm"
+        "fr": "Hmmm",
+        "en-US": "Hmmm"
     },
     {
         "opy": "Hitting",
-        "en": "Hitting",
-        "fr": "Touche"
+        "fr": "Touche",
+        "en-US": "Hitting"
     },
     {
         "opy": "Hit",
-        "en": "Hit",
-        "fr": "Toucher"
+        "fr": "Toucher",
+        "en-US": "Hit"
     },
     {
         "opy": "High Scores",
-        "en": "High Scores",
-        "fr": "Meilleurs scores"
+        "fr": "Meilleurs scores",
+        "en-US": "High Scores"
     },
     {
         "opy": "High Score",
-        "en": "High Score",
-        "fr": "Meilleur score"
+        "fr": "Meilleur score",
+        "en-US": "High Score"
     },
     {
         "opy": "Hiding",
-        "en": "Hiding",
-        "fr": "Cache"
+        "fr": "Cache",
+        "en-US": "Hiding"
     },
     {
         "opy": "Hide",
-        "en": "Hide",
-        "fr": "Cacher"
+        "fr": "Cacher",
+        "en-US": "Hide"
     },
     {
         "opy": "Hidden",
-        "en": "Hidden",
-        "fr": "Caché"
+        "fr": "Caché",
+        "en-US": "Hidden"
     },
     {
         "opy": "Heroes",
-        "en": "Heroes",
-        "fr": "Héros"
+        "fr": "Héros",
+        "en-US": "Heroes"
     },
     {
         "opy": "Hero",
-        "en": "Hero",
-        "fr": "Héros"
+        "fr": "Héros",
+        "en-US": "Hero"
     },
     {
         "opy": "Here",
-        "en": "Here",
-        "fr": "Ici"
+        "fr": "Ici",
+        "en-US": "Here"
     },
     {
         "opy": "Help",
-        "en": "Help",
-        "fr": "Aide"
+        "fr": "Aide",
+        "en-US": "Help"
     },
     {
         "opy": "Hello",
-        "en": "Hello",
-        "fr": "Bonjour"
+        "fr": "Bonjour",
+        "en-US": "Hello"
     },
     {
         "opy": "Height",
-        "en": "Height",
-        "fr": "Hauteur"
+        "fr": "Hauteur",
+        "en-US": "Height"
     },
     {
         "opy": "Hearts",
-        "en": "Hearts",
-        "fr": "Cœur"
+        "fr": "Cœur",
+        "en-US": "Hearts"
     },
     {
         "opy": "Heart",
-        "en": "Heart",
-        "fr": "Cœur"
+        "fr": "Cœur",
+        "en-US": "Heart"
     },
     {
         "opy": "Healing",
-        "en": "Healing",
-        "fr": "Soigne"
+        "fr": "Soigne",
+        "en-US": "Healing"
     },
     {
         "opy": "Healers",
-        "en": "Healers",
-        "fr": "Soigneurs"
+        "fr": "Soigneurs",
+        "en-US": "Healers"
     },
     {
         "opy": "Healer",
-        "en": "Healer",
-        "fr": "Soigneur"
+        "fr": "Soigneur",
+        "en-US": "Healer"
     },
     {
         "opy": "Healed",
-        "en": "Healed",
-        "fr": "Soigné"
+        "fr": "Soigné",
+        "en-US": "Healed"
     },
     {
+        "guid": "00000000C5D7",
         "opy": "Heal",
-        "en": "Heal",
-        "fr": "Soigner"
+        "fr": "Soigner",
+        "en-US": "Heal"
     },
     {
         "opy": "Hands",
-        "en": "Hands",
-        "fr": "Mains"
+        "fr": "Mains",
+        "en-US": "Hands"
     },
     {
         "opy": "Hand",
-        "en": "Hand",
-        "fr": "Main"
+        "fr": "Main",
+        "en-US": "Hand"
     },
     {
         "opy": "Hacking",
-        "en": "Hacking",
-        "fr": "Piratage"
+        "fr": "Piratage",
+        "en-US": "Hacking"
     },
     {
         "opy": "Hacked",
-        "en": "Hacked",
-        "fr": "Piraté"
+        "fr": "Piraté",
+        "en-US": "Hacked"
     },
     {
         "opy": "Hack",
-        "en": "Hack",
-        "fr": "Pirater"
+        "fr": "Pirater",
+        "en-US": "Hack"
     },
     {
         "opy": "Guilty",
-        "en": "Guilty",
-        "fr": "Coupable"
+        "fr": "Coupable",
+        "en-US": "Guilty"
     },
     {
         "opy": "Green",
-        "en": "Green",
-        "fr": "Vert"
+        "fr": "Vert",
+        "en-US": "Green"
     },
     {
         "opy": "Goodbye",
-        "en": "Goodbye",
-        "fr": "Au revoir"
+        "fr": "Au revoir",
+        "en-US": "Goodbye"
     },
     {
         "opy": "Good Luck",
-        "en": "Good Luck",
-        "fr": "Bonne chance"
+        "fr": "Bonne chance",
+        "en-US": "Good Luck"
     },
     {
         "opy": "Good",
-        "en": "Good",
-        "fr": "Bon"
+        "fr": "Bon",
+        "en-US": "Good"
     },
     {
         "opy": "Going",
-        "en": "Going",
-        "fr": "Aller"
+        "fr": "Aller",
+        "en-US": "Going"
     },
     {
         "opy": "Goals",
-        "en": "Goals",
-        "fr": "Buts"
+        "fr": "Buts",
+        "en-US": "Goals"
     },
     {
         "opy": "Goal",
-        "en": "Goal",
-        "fr": "But"
+        "fr": "But",
+        "en-US": "Goal"
     },
     {
         "opy": "Go",
-        "en": "Go",
-        "fr": "Aller"
+        "fr": "Aller",
+        "en-US": "Go"
     },
     {
         "opy": "Gg",
-        "en": "Gg",
-        "fr": "BRAVO"
+        "fr": "BRAVO",
+        "en-US": "Gg"
     },
     {
         "opy": "Games Won",
-        "en": "Games Won",
-        "fr": "Parties gagnées"
+        "fr": "Parties gagnées",
+        "en-US": "Games Won"
     },
     {
         "opy": "Games Lost",
-        "en": "Games Lost",
-        "fr": "Parties perdues"
+        "fr": "Parties perdues",
+        "en-US": "Games Lost"
     },
     {
         "opy": "Games",
-        "en": "Games",
-        "fr": "Parties"
+        "fr": "Parties",
+        "en-US": "Games"
     },
     {
         "opy": "Game",
-        "en": "Game",
-        "fr": "Partie"
+        "fr": "Partie",
+        "en-US": "Game"
     },
     {
         "opy": "Frozen",
-        "en": "Frozen",
-        "fr": "Gelé"
+        "fr": "Gelé",
+        "en-US": "Frozen"
     },
     {
         "opy": "Freezing",
-        "en": "Freezing",
-        "fr": "Gel"
+        "fr": "Gel",
+        "en-US": "Freezing"
     },
     {
         "opy": "Freeze",
-        "en": "Freeze",
-        "fr": "Geler"
+        "fr": "Geler",
+        "en-US": "Freeze"
     },
     {
         "opy": "Found",
-        "en": "Found",
-        "fr": "Trouvé"
+        "fr": "Trouvé",
+        "en-US": "Found"
     },
     {
         "opy": "Forward",
-        "en": "Forward",
-        "fr": "Avant"
+        "fr": "Avant",
+        "en-US": "Forward"
     },
     {
         "opy": "Forms",
-        "en": "Forms",
-        "fr": "Formes"
+        "fr": "Formes",
+        "en-US": "Forms"
     },
     {
         "opy": "Form",
-        "en": "Form",
-        "fr": "Forme"
+        "fr": "Forme",
+        "en-US": "Form"
     },
     {
         "opy": "Folding",
-        "en": "Folding",
-        "fr": "Se couche"
+        "fr": "Se couche",
+        "en-US": "Folding"
     },
     {
         "opy": "Folded",
-        "en": "Folded",
-        "fr": "S’est couché"
+        "fr": "S’est couché",
+        "en-US": "Folded"
     },
     {
         "opy": "Fold",
-        "en": "Fold",
-        "fr": "Se coucher"
+        "fr": "Se coucher",
+        "en-US": "Fold"
     },
     {
         "opy": "Flying",
-        "en": "Flying",
-        "fr": "Vole"
+        "fr": "Vole",
+        "en-US": "Flying"
     },
     {
         "opy": "Fly",
-        "en": "Fly",
-        "fr": "Voler"
+        "fr": "Voler",
+        "en-US": "Fly"
     },
     {
         "opy": "Flown",
-        "en": "Flown",
-        "fr": "Volé"
+        "fr": "Volé",
+        "en-US": "Flown"
     },
     {
         "opy": "Finishing",
-        "en": "Finishing",
-        "fr": "Fin"
+        "fr": "Fin",
+        "en-US": "Finishing"
     },
     {
         "opy": "Finished",
-        "en": "Finished",
-        "fr": "Fini"
+        "fr": "Fini",
+        "en-US": "Finished"
     },
     {
         "opy": "Finish",
-        "en": "Finish",
-        "fr": "Finir"
+        "fr": "Finir",
+        "en-US": "Finish"
     },
     {
         "opy": "Finding",
-        "en": "Finding",
-        "fr": "Découverte"
+        "fr": "Découverte",
+        "en-US": "Finding"
     },
     {
         "opy": "Find",
-        "en": "Find",
-        "fr": "Trouver"
+        "fr": "Trouver",
+        "en-US": "Find"
     },
     {
         "opy": "Final Upgrade",
-        "en": "Final Upgrade",
-        "fr": "Amélioration finale"
+        "fr": "Amélioration finale",
+        "en-US": "Final Upgrade"
     },
     {
         "opy": "Final Time",
-        "en": "Final Time",
-        "fr": "Temps final"
+        "fr": "Temps final",
+        "en-US": "Final Time"
     },
     {
         "opy": "Final Targets",
-        "en": "Final Targets",
-        "fr": "Cibles finales"
+        "fr": "Cibles finales",
+        "en-US": "Final Targets"
     },
     {
         "opy": "Final Target",
-        "en": "Final Target",
-        "fr": "Cible finale"
+        "fr": "Cible finale",
+        "en-US": "Final Target"
     },
     {
         "opy": "Final Round",
-        "en": "Final Round",
-        "fr": "Manche finale"
+        "fr": "Manche finale",
+        "en-US": "Final Round"
     },
     {
         "opy": "Final Players",
-        "en": "Final Players",
-        "fr": "Joueurs finaux"
+        "fr": "Joueurs finaux",
+        "en-US": "Final Players"
     },
     {
         "opy": "Final Player",
-        "en": "Final Player",
-        "fr": "Joueur final"
+        "fr": "Joueur final",
+        "en-US": "Final Player"
     },
     {
         "opy": "Final Phase",
-        "en": "Final Phase",
-        "fr": "Phase finale"
+        "fr": "Phase finale",
+        "en-US": "Final Phase"
     },
     {
         "opy": "Final Objects",
-        "en": "Final Objects",
-        "fr": "Objets finaux"
+        "fr": "Objets finaux",
+        "en-US": "Final Objects"
     },
     {
         "opy": "Final Objective",
-        "en": "Final Objective",
-        "fr": "Objectif final"
+        "fr": "Objectif final",
+        "en-US": "Final Objective"
     },
     {
         "opy": "Final Object",
-        "en": "Final Object",
-        "fr": "Objet final"
+        "fr": "Objet final",
+        "en-US": "Final Object"
     },
     {
         "opy": "Final Mission",
-        "en": "Final Mission",
-        "fr": "Mission finale"
+        "fr": "Mission finale",
+        "en-US": "Final Mission"
     },
     {
         "opy": "Final Level",
-        "en": "Final Level",
-        "fr": "Niveau final"
+        "fr": "Niveau final",
+        "en-US": "Final Level"
     },
     {
         "opy": "Final Item",
-        "en": "Final Item",
-        "fr": "Article final"
+        "fr": "Article final",
+        "en-US": "Final Item"
     },
     {
         "opy": "Final Hostages",
-        "en": "Final Hostages",
-        "fr": "Otages finaux"
+        "fr": "Otages finaux",
+        "en-US": "Final Hostages"
     },
     {
         "opy": "Final Hostage",
-        "en": "Final Hostage",
-        "fr": "Otage final"
+        "fr": "Otage final",
+        "en-US": "Final Hostage"
     },
     {
         "opy": "Final Heroes",
-        "en": "Final Heroes",
-        "fr": "Héros finaux"
+        "fr": "Héros finaux",
+        "en-US": "Final Heroes"
     },
     {
         "opy": "Final Hero",
-        "en": "Final Hero",
-        "fr": "Héros final"
+        "fr": "Héros final",
+        "en-US": "Final Hero"
     },
     {
         "opy": "Final Game",
-        "en": "Final Game",
-        "fr": "Partie finale"
+        "fr": "Partie finale",
+        "en-US": "Final Game"
     },
     {
         "opy": "Final Form",
-        "en": "Final Form",
-        "fr": "Forme finale"
+        "fr": "Forme finale",
+        "en-US": "Final Form"
     },
     {
         "opy": "Final Enemy",
-        "en": "Final Enemy",
-        "fr": "Ennemi final"
+        "fr": "Ennemi final",
+        "en-US": "Final Enemy"
     },
     {
         "opy": "Final Enemies",
-        "en": "Final Enemies",
-        "fr": "Ennemis finaux"
+        "fr": "Ennemis finaux",
+        "en-US": "Final Enemies"
     },
     {
         "opy": "Final Checkpoint",
-        "en": "Final Checkpoint",
-        "fr": "Point de contrôle final"
+        "fr": "Point de contrôle final",
+        "en-US": "Final Checkpoint"
     },
     {
         "opy": "Final Attempt",
-        "en": "Final Attempt",
-        "fr": "Tentative finale"
+        "fr": "Tentative finale",
+        "en-US": "Final Attempt"
     },
     {
         "opy": "Final Ally",
-        "en": "Final Ally",
-        "fr": "Allié final"
+        "fr": "Allié final",
+        "en-US": "Final Ally"
     },
     {
         "opy": "Final Allies",
-        "en": "Final Allies",
-        "fr": "Alliés finaux"
+        "fr": "Alliés finaux",
+        "en-US": "Final Allies"
     },
     {
         "opy": "Final",
-        "en": "Final",
-        "fr": "Final"
+        "fr": "Final",
+        "en-US": "Final"
     },
     {
         "opy": "Faults",
-        "en": "Faults",
-        "fr": "Fautes"
+        "fr": "Fautes",
+        "en-US": "Faults"
     },
     {
         "opy": "Fault",
-        "en": "Fault",
-        "fr": "Faute"
+        "fr": "Faute",
+        "en-US": "Fault"
     },
     {
         "opy": "Fastest",
-        "en": "Fastest",
-        "fr": "Le plus rapide"
+        "fr": "Le plus rapide",
+        "en-US": "Fastest"
     },
     {
         "opy": "Faster",
-        "en": "Faster",
-        "fr": "Plus rapide"
+        "fr": "Plus rapide",
+        "en-US": "Faster"
     },
     {
         "opy": "Fast",
-        "en": "Fast",
-        "fr": "Rapide"
+        "fr": "Rapide",
+        "en-US": "Fast"
     },
     {
         "opy": "Far",
-        "en": "Far",
-        "fr": "Loin"
+        "fr": "Loin",
+        "en-US": "Far"
     },
     {
         "opy": "Falling",
-        "en": "Falling",
-        "fr": "Chute"
+        "fr": "Chute",
+        "en-US": "Falling"
     },
     {
         "opy": "Fallen",
-        "en": "Fallen",
-        "fr": "Tombé"
+        "fr": "Tombé",
+        "en-US": "Fallen"
     },
     {
         "opy": "Fall",
-        "en": "Fall",
-        "fr": "Tomber"
+        "fr": "Tomber",
+        "en-US": "Fall"
     },
     {
         "opy": "Failure",
-        "en": "Failure",
-        "fr": "Échec"
+        "fr": "Échec",
+        "en-US": "Failure"
     },
     {
         "opy": "Failing",
-        "en": "Failing",
-        "fr": "Échec"
+        "fr": "Échec",
+        "en-US": "Failing"
     },
     {
         "opy": "Failed",
-        "en": "Failed",
-        "fr": "Échoué"
+        "fr": "Échoué",
+        "en-US": "Failed"
     },
     {
         "opy": "Facing",
-        "en": "Facing",
-        "fr": "Face à"
+        "fr": "Face à",
+        "en-US": "Facing"
     },
     {
         "opy": "Faces",
-        "en": "Faces",
-        "fr": "Regarde vers"
+        "fr": "Regarde vers",
+        "en-US": "Faces"
     },
     {
         "opy": "Face",
-        "en": "Face",
-        "fr": "Regarder vers"
+        "fr": "Regarder vers",
+        "en-US": "Face"
     },
     {
         "opy": "Extreme",
-        "en": "Extreme",
-        "fr": "Extrême"
+        "fr": "Extrême",
+        "en-US": "Extreme"
     },
     {
         "opy": "Experience",
-        "en": "Experience",
-        "fr": "Expérience"
+        "fr": "Expérience",
+        "en-US": "Experience"
     },
     {
         "opy": "Exit",
-        "en": "Exit",
-        "fr": "Sortie"
+        "fr": "Sortie",
+        "en-US": "Exit"
     },
     {
         "opy": "Excellent",
-        "en": "Excellent",
-        "fr": "Excellent"
+        "fr": "Excellent",
+        "en-US": "Excellent"
     },
     {
         "opy": "Escorting",
-        "en": "Escorting",
-        "fr": "Escorte"
+        "fr": "Escorte",
+        "en-US": "Escorting"
     },
     {
         "opy": "Escorted",
-        "en": "Escorted",
-        "fr": "Escorté"
+        "fr": "Escorté",
+        "en-US": "Escorted"
     },
     {
         "opy": "Escort",
-        "en": "Escort",
-        "fr": "Escorter"
+        "fr": "Escorter",
+        "en-US": "Escort"
     },
     {
         "opy": "Entrance",
-        "en": "Entrance",
-        "fr": "Entrée"
+        "fr": "Entrée",
+        "en-US": "Entrance"
     },
     {
         "opy": "Enemy",
-        "en": "Enemy",
-        "fr": "Ennemi"
+        "fr": "Ennemi",
+        "en-US": "Enemy"
     },
     {
         "opy": "Enemies",
-        "en": "Enemies",
-        "fr": "Ennemis"
+        "fr": "Ennemis",
+        "en-US": "Enemies"
     },
     {
         "opy": "Eliminations",
-        "en": "Eliminations",
-        "fr": "Éliminations"
+        "fr": "Éliminations",
+        "en-US": "Eliminations"
     },
     {
         "opy": "Elimination",
-        "en": "Elimination",
-        "fr": "Élimination"
+        "fr": "Élimination",
+        "en-US": "Elimination"
     },
     {
         "opy": "Eliminating",
-        "en": "Eliminating",
-        "fr": "Élimination"
+        "fr": "Élimination",
+        "en-US": "Eliminating"
     },
     {
         "opy": "Eliminated",
-        "en": "Eliminated",
-        "fr": "Éliminé"
+        "fr": "Éliminé",
+        "en-US": "Eliminated"
     },
     {
         "opy": "Eliminate",
-        "en": "Eliminate",
-        "fr": "Éliminer"
+        "fr": "Éliminer",
+        "en-US": "Eliminate"
     },
     {
         "opy": "East",
-        "en": "East",
-        "fr": "Est"
+        "fr": "Est",
+        "en-US": "East"
     },
     {
         "opy": "Dying",
-        "en": "Dying",
-        "fr": "Mort"
+        "fr": "Mort",
+        "en-US": "Dying"
     },
     {
         "opy": "Dropping",
-        "en": "Dropping",
-        "fr": "Largage"
+        "fr": "Largage",
+        "en-US": "Dropping"
     },
     {
         "opy": "Dropped",
-        "en": "Dropped",
-        "fr": "Largué"
+        "fr": "Largué",
+        "en-US": "Dropped"
     },
     {
         "opy": "Drop",
-        "en": "Drop",
-        "fr": "Larguer"
+        "fr": "Larguer",
+        "en-US": "Drop"
     },
     {
         "opy": "Drawn",
-        "en": "Drawn",
-        "fr": "Pioché"
+        "fr": "Pioché",
+        "en-US": "Drawn"
     },
     {
         "opy": "Drawing",
-        "en": "Drawing",
-        "fr": "Pioche"
+        "fr": "Pioche",
+        "en-US": "Drawing"
     },
     {
         "opy": "Draw",
-        "en": "Draw",
-        "fr": "Match nul"
+        "fr": "Match nul",
+        "en-US": "Draw"
     },
     {
         "opy": "Downloading",
-        "en": "Downloading",
-        "fr": "Téléchargement"
+        "fr": "Téléchargement",
+        "en-US": "Downloading"
     },
     {
         "opy": "Downloaded",
-        "en": "Downloaded",
-        "fr": "Téléchargé"
+        "fr": "Téléchargé",
+        "en-US": "Downloaded"
     },
     {
         "opy": "Download",
-        "en": "Download",
-        "fr": "Télécharger"
+        "fr": "Télécharger",
+        "en-US": "Download"
     },
     {
         "opy": "Down",
-        "en": "Down",
-        "fr": "Bas"
+        "fr": "Bas",
+        "en-US": "Down"
     },
     {
         "opy": "Domes",
-        "en": "Domes",
-        "fr": "Dômes"
+        "fr": "Dômes",
+        "en-US": "Domes"
     },
     {
         "opy": "Dome",
-        "en": "Dome",
-        "fr": "Dôme"
+        "fr": "Dôme",
+        "en-US": "Dome"
     },
     {
         "opy": "Dodging",
-        "en": "Dodging",
-        "fr": "Esquive"
+        "fr": "Esquive",
+        "en-US": "Dodging"
     },
     {
         "opy": "Dodged",
-        "en": "Dodged",
-        "fr": "Esquivé"
+        "fr": "Esquivé",
+        "en-US": "Dodged"
     },
     {
         "opy": "Dodge",
-        "en": "Dodge",
-        "fr": "Esquiver"
+        "fr": "Esquiver",
+        "en-US": "Dodge"
     },
     {
         "opy": "Distances",
-        "en": "Distances",
-        "fr": "Distances"
+        "fr": "Distances",
+        "en-US": "Distances"
     },
     {
         "opy": "Distance",
-        "en": "Distance",
-        "fr": "Distance"
+        "fr": "Distance",
+        "en-US": "Distance"
     },
     {
         "opy": "Disconnecting",
-        "en": "Disconnecting",
-        "fr": "Déconnexion"
+        "fr": "Déconnexion",
+        "en-US": "Disconnecting"
     },
     {
         "opy": "Disconnected",
-        "en": "Disconnected",
-        "fr": "Déconnecté"
+        "fr": "Déconnecté",
+        "en-US": "Disconnected"
     },
     {
         "opy": "Disconnect",
-        "en": "Disconnect",
-        "fr": "Déconnecter"
+        "fr": "Déconnecter",
+        "en-US": "Disconnect"
     },
     {
         "opy": "Discarding",
-        "en": "Discarding",
-        "fr": "Défausse"
+        "fr": "Défausse",
+        "en-US": "Discarding"
     },
     {
         "opy": "Discarded",
-        "en": "Discarded",
-        "fr": "Défaussé"
+        "fr": "Défaussé",
+        "en-US": "Discarded"
     },
     {
         "opy": "Discard",
-        "en": "Discard",
-        "fr": "Défausser"
+        "fr": "Défausser",
+        "en-US": "Discard"
     },
     {
         "opy": "Die",
-        "en": "Die",
-        "fr": "Mourir"
+        "fr": "Mourir",
+        "en-US": "Die"
     },
     {
         "opy": "Diamonds",
-        "en": "Diamonds",
-        "fr": "Carreau"
+        "fr": "Carreau",
+        "en-US": "Diamonds"
     },
     {
         "opy": "Diamond",
-        "en": "Diamond",
-        "fr": "Carreau"
+        "fr": "Carreau",
+        "en-US": "Diamond"
     },
     {
         "opy": "Dexterity",
-        "en": "Dexterity",
-        "fr": "Dextérité"
+        "fr": "Dextérité",
+        "en-US": "Dexterity"
     },
     {
         "opy": "Detecting",
-        "en": "Detecting",
-        "fr": "Détection"
+        "fr": "Détection",
+        "en-US": "Detecting"
     },
     {
         "opy": "Detected",
-        "en": "Detected",
-        "fr": "Détecté"
+        "fr": "Détecté",
+        "en-US": "Detected"
     },
     {
         "opy": "Detect",
-        "en": "Detect",
-        "fr": "Détecter"
+        "fr": "Détecter",
+        "en-US": "Detect"
     },
     {
         "opy": "Destroying",
-        "en": "Destroying",
-        "fr": "Destruction"
+        "fr": "Destruction",
+        "en-US": "Destroying"
     },
     {
         "opy": "Destroyed",
-        "en": "Destroyed",
-        "fr": "Détruit"
+        "fr": "Détruit",
+        "en-US": "Destroyed"
     },
     {
         "opy": "Destroy",
-        "en": "Destroy",
-        "fr": "Détruire"
+        "fr": "Détruire",
+        "en-US": "Destroy"
     },
     {
         "opy": "Destabilizing",
-        "en": "Destabilizing",
-        "fr": "Déstabilisation"
+        "fr": "Déstabilisation",
+        "en-US": "Destabilizing"
     },
     {
         "opy": "Destabilized",
-        "en": "Destabilized",
-        "fr": "Déstabilisé"
+        "fr": "Déstabilisé",
+        "en-US": "Destabilized"
     },
     {
         "opy": "Destabilize",
-        "en": "Destabilize",
-        "fr": "Déstabiliser"
+        "fr": "Déstabiliser",
+        "en-US": "Destabilize"
     },
     {
         "opy": "Depth",
-        "en": "Depth",
-        "fr": "Profondeur"
+        "fr": "Profondeur",
+        "en-US": "Depth"
     },
     {
         "opy": "Delivering",
-        "en": "Delivering",
-        "fr": "Livraison"
+        "fr": "Livraison",
+        "en-US": "Delivering"
     },
     {
         "opy": "Delivered",
-        "en": "Delivered",
-        "fr": "Livré"
+        "fr": "Livré",
+        "en-US": "Delivered"
     },
     {
         "opy": "Deliver",
-        "en": "Deliver",
-        "fr": "Livrer"
+        "fr": "Livrer",
+        "en-US": "Deliver"
     },
     {
         "opy": "Defense",
-        "en": "Defense",
-        "fr": "Défense"
+        "fr": "Défense",
+        "en-US": "Defense"
     },
     {
         "opy": "Defending",
-        "en": "Defending",
-        "fr": "Défense"
+        "fr": "Défense",
+        "en-US": "Defending"
     },
     {
         "opy": "Defended",
-        "en": "Defended",
-        "fr": "Défendu"
+        "fr": "Défendu",
+        "en-US": "Defended"
     },
     {
         "opy": "Defend",
-        "en": "Defend",
-        "fr": "Défendre"
+        "fr": "Défendre",
+        "en-US": "Defend"
     },
     {
         "opy": "Defeat",
-        "en": "Defeat",
-        "fr": "Défaite"
+        "fr": "Défaite",
+        "en-US": "Defeat"
     },
     {
         "opy": "Decks",
-        "en": "Decks",
-        "fr": "Tas"
+        "fr": "Tas",
+        "en-US": "Decks"
     },
     {
         "opy": "Deck",
-        "en": "Deck",
-        "fr": "Tas"
+        "fr": "Tas",
+        "en-US": "Deck"
     },
     {
         "opy": "Dealt",
-        "en": "Dealt",
-        "fr": "Distribué"
+        "fr": "Distribué",
+        "en-US": "Dealt"
     },
     {
         "opy": "Dealing",
-        "en": "Dealing",
-        "fr": "Distribution"
+        "fr": "Distribution",
+        "en-US": "Dealing"
     },
     {
         "opy": "Deal",
-        "en": "Deal",
-        "fr": "Distribuer"
+        "fr": "Distribuer",
+        "en-US": "Deal"
     },
     {
         "opy": "Dead",
-        "en": "Dead",
-        "fr": "Mort"
+        "fr": "Mort",
+        "en-US": "Dead"
     },
     {
         "opy": "Danger",
-        "en": "Danger",
-        "fr": "Danger"
+        "fr": "Danger",
+        "en-US": "Danger"
     },
     {
         "opy": "Damaging",
-        "en": "Damaging",
-        "fr": "Inflige des dégâts"
+        "fr": "Inflige des dégâts",
+        "en-US": "Damaging"
     },
     {
         "opy": "Damaged",
-        "en": "Damaged",
-        "fr": "Endommagé"
+        "fr": "Endommagé",
+        "en-US": "Damaged"
     },
     {
+        "guid": "00000000C5D4",
         "opy": "Damage",
-        "en": "Damage",
-        "fr": "Infliger des dégâts"
+        "fr": "Infliger des dégâts",
+        "en-US": "Damage"
     },
     {
         "opy": "Current Upgrade",
-        "en": "Current Upgrade",
-        "fr": "Amélioration actuelle"
+        "fr": "Amélioration actuelle",
+        "en-US": "Current Upgrade"
     },
     {
         "opy": "Current Targets",
-        "en": "Current Targets",
-        "fr": "Cibles actuelles"
+        "fr": "Cibles actuelles",
+        "en-US": "Current Targets"
     },
     {
         "opy": "Current Target",
-        "en": "Current Target",
-        "fr": "Cible actuelle"
+        "fr": "Cible actuelle",
+        "en-US": "Current Target"
     },
     {
         "opy": "Current Round",
-        "en": "Current Round",
-        "fr": "Manche actuelle"
+        "fr": "Manche actuelle",
+        "en-US": "Current Round"
     },
     {
         "opy": "Current Players",
-        "en": "Current Players",
-        "fr": "Joueurs actuels"
+        "fr": "Joueurs actuels",
+        "en-US": "Current Players"
     },
     {
         "opy": "Current Player",
-        "en": "Current Player",
-        "fr": "Joueur actuel"
+        "fr": "Joueur actuel",
+        "en-US": "Current Player"
     },
     {
         "opy": "Current Phase",
-        "en": "Current Phase",
-        "fr": "Phase actuelle"
+        "fr": "Phase actuelle",
+        "en-US": "Current Phase"
     },
     {
         "opy": "Current Objects",
-        "en": "Current Objects",
-        "fr": "Objets actuels"
+        "fr": "Objets actuels",
+        "en-US": "Current Objects"
     },
     {
         "opy": "Current Objective",
-        "en": "Current Objective",
-        "fr": "Objectif actuel"
+        "fr": "Objectif actuel",
+        "en-US": "Current Objective"
     },
     {
         "opy": "Current Object",
-        "en": "Current Object",
-        "fr": "Object actuel"
+        "fr": "Object actuel",
+        "en-US": "Current Object"
     },
     {
         "opy": "Current Mission",
-        "en": "Current Mission",
-        "fr": "Mission actuelle"
+        "fr": "Mission actuelle",
+        "en-US": "Current Mission"
     },
     {
         "opy": "Current Level",
-        "en": "Current Level",
-        "fr": "Niveau actuel"
+        "fr": "Niveau actuel",
+        "en-US": "Current Level"
     },
     {
         "opy": "Current Hostages",
-        "en": "Current Hostages",
-        "fr": "Otages actuels"
+        "fr": "Otages actuels",
+        "en-US": "Current Hostages"
     },
     {
         "opy": "Current Hostage",
-        "en": "Current Hostage",
-        "fr": "Otage actuel"
+        "fr": "Otage actuel",
+        "en-US": "Current Hostage"
     },
     {
         "opy": "Current Heroes",
-        "en": "Current Heroes",
-        "fr": "Héros actuels"
+        "fr": "Héros actuels",
+        "en-US": "Current Heroes"
     },
     {
         "opy": "Current Hero",
-        "en": "Current Hero",
-        "fr": "Héros actuel"
+        "fr": "Héros actuel",
+        "en-US": "Current Hero"
     },
     {
         "opy": "Current Game",
-        "en": "Current Game",
-        "fr": "Partie actuelle"
+        "fr": "Partie actuelle",
+        "en-US": "Current Game"
     },
     {
         "opy": "Current Form",
-        "en": "Current Form",
-        "fr": "Forme actuelle"
+        "fr": "Forme actuelle",
+        "en-US": "Current Form"
     },
     {
         "opy": "Current Enemy",
-        "en": "Current Enemy",
-        "fr": "Ennemi actuel"
+        "fr": "Ennemi actuel",
+        "en-US": "Current Enemy"
     },
     {
         "opy": "Current Enemies",
-        "en": "Current Enemies",
-        "fr": "Ennemis actuels"
+        "fr": "Ennemis actuels",
+        "en-US": "Current Enemies"
     },
     {
         "opy": "Current Checkpoint",
-        "en": "Current Checkpoint",
-        "fr": "Point de contrôle actuel"
+        "fr": "Point de contrôle actuel",
+        "en-US": "Current Checkpoint"
     },
     {
         "opy": "Current Attempt",
-        "en": "Current Attempt",
-        "fr": "Tentative actuelle"
+        "fr": "Tentative actuelle",
+        "en-US": "Current Attempt"
     },
     {
         "opy": "Current Ally",
-        "en": "Current Ally",
-        "fr": "Allié actuel"
+        "fr": "Allié actuel",
+        "en-US": "Current Ally"
     },
     {
         "opy": "Current Allies",
-        "en": "Current Allies",
-        "fr": "Alliés actuels"
+        "fr": "Alliés actuels",
+        "en-US": "Current Allies"
     },
     {
         "opy": "Current",
-        "en": "Current",
-        "fr": "Actuel"
+        "fr": "Actuel",
+        "en-US": "Current"
     },
     {
         "opy": "Crouching",
-        "en": "Crouching",
-        "fr": "Accroupissement"
+        "fr": "Accroupissement",
+        "en-US": "Crouching"
     },
     {
         "opy": "Crouched",
-        "en": "Crouched",
-        "fr": "Accroupi"
+        "fr": "Accroupi",
+        "en-US": "Crouched"
     },
     {
         "opy": "Crouch",
-        "en": "Crouch",
-        "fr": "S’accroupir"
+        "fr": "S’accroupir",
+        "en-US": "Crouch"
     },
     {
         "opy": "Critical",
-        "en": "Critical",
-        "fr": "Critique"
+        "fr": "Critique",
+        "en-US": "Critical"
     },
     {
         "opy": "Credits",
-        "en": "Credits",
-        "fr": "Crédits"
+        "fr": "Crédits",
+        "en-US": "Credits"
     },
     {
         "opy": "Credit",
-        "en": "Credit",
-        "fr": "Crédit"
+        "fr": "Crédit",
+        "en-US": "Credit"
     },
     {
         "opy": "Corrupting",
-        "en": "Corrupting",
-        "fr": "Corruption"
+        "fr": "Corruption",
+        "en-US": "Corrupting"
     },
     {
         "opy": "Corrupted",
-        "en": "Corrupted",
-        "fr": "Corrompu"
+        "fr": "Corrompu",
+        "en-US": "Corrupted"
     },
     {
         "opy": "Corrupt",
-        "en": "Corrupt",
-        "fr": "Corrompre"
+        "fr": "Corrompre",
+        "en-US": "Corrupt"
     },
     {
         "opy": "Cooldowns",
-        "en": "Cooldowns",
-        "fr": "Temps de recharge"
+        "fr": "Temps de recharge",
+        "en-US": "Cooldowns"
     },
     {
         "opy": "Cooldown",
-        "en": "Cooldown",
-        "fr": "Temps de recharge"
+        "fr": "Temps de recharge",
+        "en-US": "Cooldown"
     },
     {
         "opy": "Control Points",
-        "en": "Control Points",
-        "fr": "Points de contrôle"
+        "fr": "Points de contrôle",
+        "en-US": "Control Points"
     },
     {
         "opy": "Control Point",
-        "en": "Control Point",
-        "fr": "Point de contrôle"
+        "fr": "Point de contrôle",
+        "en-US": "Control Point"
     },
     {
         "opy": "Constitution",
-        "en": "Constitution",
-        "fr": "Constitution"
+        "fr": "Constitution",
+        "en-US": "Constitution"
     },
     {
         "opy": "Connecting",
-        "en": "Connecting",
-        "fr": "Connexion"
+        "fr": "Connexion",
+        "en-US": "Connecting"
     },
     {
         "opy": "Connected",
-        "en": "Connected",
-        "fr": "Connecté"
+        "fr": "Connecté",
+        "en-US": "Connected"
     },
     {
         "opy": "Connect",
-        "en": "Connect",
-        "fr": "Connecter"
+        "fr": "Connecter",
+        "en-US": "Connect"
     },
     {
         "opy": "Congratulations",
-        "en": "Congratulations",
-        "fr": "Félicitations"
+        "fr": "Félicitations",
+        "en-US": "Congratulations"
     },
     {
         "opy": "Condition",
-        "en": "Condition",
-        "fr": "Condition"
+        "fr": "Condition",
+        "en-US": "Condition"
     },
     {
         "opy": "Come Here",
-        "en": "Come Here",
-        "fr": "Venez ici"
+        "fr": "Venez ici",
+        "en-US": "Come Here"
     },
     {
         "opy": "Combo",
-        "en": "Combo",
-        "fr": "Combo"
+        "fr": "Combo",
+        "en-US": "Combo"
     },
     {
         "opy": "Clubs",
-        "en": "Clubs",
-        "fr": "Trèfle"
+        "fr": "Trèfle",
+        "en-US": "Clubs"
     },
     {
         "opy": "Club",
-        "en": "Club",
-        "fr": "Trèfle"
+        "fr": "Trèfle",
+        "en-US": "Club"
     },
     {
         "opy": "Clouds",
-        "en": "Clouds",
-        "fr": "Nuages"
+        "fr": "Nuages",
+        "en-US": "Clouds"
     },
     {
         "opy": "Cloud",
-        "en": "Cloud",
-        "fr": "Nuage"
+        "fr": "Nuage",
+        "en-US": "Cloud"
     },
     {
         "opy": "Checkpoints",
-        "en": "Checkpoints",
-        "fr": "Points de contrôle"
+        "fr": "Points de contrôle",
+        "en-US": "Checkpoints"
     },
     {
         "opy": "Checkpoint",
-        "en": "Checkpoint",
-        "fr": "Point de contrôle"
+        "fr": "Point de contrôle",
+        "en-US": "Checkpoint"
     },
     {
         "opy": "Chasing",
-        "en": "Chasing",
-        "fr": "Poursuite"
+        "fr": "Poursuite",
+        "en-US": "Chasing"
     },
     {
         "opy": "Chased",
-        "en": "Chased",
-        "fr": "Poursuivi"
+        "fr": "Poursuivi",
+        "en-US": "Chased"
     },
     {
         "opy": "Chase",
-        "en": "Chase",
-        "fr": "Poursuivre"
+        "fr": "Poursuivre",
+        "en-US": "Chase"
     },
     {
         "opy": "Charisma",
-        "en": "Charisma",
-        "fr": "Charisme"
+        "fr": "Charisme",
+        "en-US": "Charisma"
     },
     {
         "opy": "Challenge Accepted",
-        "en": "Challenge Accepted",
-        "fr": "Défi accepté"
+        "fr": "Défi accepté",
+        "en-US": "Challenge Accepted"
     },
     {
         "opy": "Center",
-        "en": "Center",
-        "fr": "Centre"
+        "fr": "Centre",
+        "en-US": "Center"
     },
     {
         "opy": "Caution",
-        "en": "Caution",
-        "fr": "Prudence"
+        "fr": "Prudence",
+        "en-US": "Caution"
     },
     {
         "opy": "Capturing",
-        "en": "Capturing",
-        "fr": "Capture"
+        "fr": "Capture",
+        "en-US": "Capturing"
     },
     {
         "opy": "Captured",
-        "en": "Captured",
-        "fr": "Capturé"
+        "fr": "Capturé",
+        "en-US": "Captured"
     },
     {
         "opy": "Capture",
-        "en": "Capture",
-        "fr": "Capturer"
+        "fr": "Capturer",
+        "en-US": "Capture"
     },
     {
         "opy": "Buying",
-        "en": "Buying",
-        "fr": "Achat"
+        "fr": "Achat",
+        "en-US": "Buying"
     },
     {
         "opy": "Buy",
-        "en": "Buy",
-        "fr": "Acheter"
+        "fr": "Acheter",
+        "en-US": "Buy"
     },
     {
         "opy": "Burnt",
-        "en": "Burnt",
-        "fr": "Brûlé"
+        "fr": "Brûlé",
+        "en-US": "Burnt"
     },
     {
         "opy": "Burning",
-        "en": "Burning",
-        "fr": "Enflammé"
+        "fr": "Enflammé",
+        "en-US": "Burning"
     },
     {
         "opy": "Burn",
-        "en": "Burn",
-        "fr": "Brûler"
+        "fr": "Brûler",
+        "en-US": "Burn"
     },
     {
         "opy": "Built",
-        "en": "Built",
-        "fr": "Construit"
+        "fr": "Construit",
+        "en-US": "Built"
     },
     {
         "opy": "Building",
-        "en": "Building",
-        "fr": "Construction"
+        "fr": "Construction",
+        "en-US": "Building"
     },
     {
         "opy": "Build",
-        "en": "Build",
-        "fr": "Construire"
+        "fr": "Construire",
+        "en-US": "Build"
     },
     {
         "opy": "Bought",
-        "en": "Bought",
-        "fr": "Acheté"
+        "fr": "Acheté",
+        "en-US": "Bought"
     },
     {
         "opy": "Bosses",
-        "en": "Bosses",
-        "fr": "Boss"
+        "fr": "Boss",
+        "en-US": "Bosses"
     },
     {
         "opy": "Boss",
-        "en": "Boss",
-        "fr": "Boss"
+        "fr": "Boss",
+        "en-US": "Boss"
     },
     {
         "opy": "Bonuses",
-        "en": "Bonuses",
-        "fr": "Primes"
+        "fr": "Primes",
+        "en-US": "Bonuses"
     },
     {
         "opy": "Bonus",
-        "en": "Bonus",
-        "fr": "Prime"
+        "fr": "Prime",
+        "en-US": "Bonus"
     },
     {
         "opy": "Blue",
-        "en": "Blue",
-        "fr": "Bleu"
+        "fr": "Bleu",
+        "en-US": "Blue"
     },
     {
         "opy": "Blocking",
-        "en": "Blocking",
-        "fr": "Bloque"
+        "fr": "Bloque",
+        "en-US": "Blocking"
     },
     {
         "opy": "Blocked",
-        "en": "Blocked",
-        "fr": "Bloqué"
+        "fr": "Bloqué",
+        "en-US": "Blocked"
     },
     {
         "opy": "Block",
-        "en": "Block",
-        "fr": "Bloquer"
+        "fr": "Bloquer",
+        "en-US": "Block"
     },
     {
         "opy": "Bids",
-        "en": "Bids",
-        "fr": "Enchères"
+        "fr": "Enchères",
+        "en-US": "Bids"
     },
     {
         "opy": "Bid",
-        "en": "Bid",
-        "fr": "Enchère"
+        "fr": "Enchère",
+        "en-US": "Bid"
     },
     {
         "opy": "Better",
-        "en": "Better",
-        "fr": "Meilleur"
+        "fr": "Meilleur",
+        "en-US": "Better"
     },
     {
         "opy": "Best",
-        "en": "Best",
-        "fr": "Le meilleur"
+        "fr": "Le meilleur",
+        "en-US": "Best"
     },
     {
         "opy": "Banning",
-        "en": "Banning",
-        "fr": "Bannissement"
+        "fr": "Bannissement",
+        "en-US": "Banning"
     },
     {
         "opy": "Banned",
-        "en": "Banned",
-        "fr": "Banni"
+        "fr": "Banni",
+        "en-US": "Banned"
     },
     {
         "opy": "Ban",
-        "en": "Ban",
-        "fr": "Bannir"
+        "fr": "Bannir",
+        "en-US": "Ban"
     },
     {
         "opy": "Bad",
-        "en": "Bad",
-        "fr": "Mauvais"
+        "fr": "Mauvais",
+        "en-US": "Bad"
     },
     {
         "opy": "Backward",
-        "en": "Backward",
-        "fr": "Arrière"
+        "fr": "Arrière",
+        "en-US": "Backward"
     },
     {
         "opy": "Avoiding",
-        "en": "Avoiding",
-        "fr": "Évitement"
+        "fr": "Évitement",
+        "en-US": "Avoiding"
     },
     {
         "opy": "Avoided",
-        "en": "Avoided",
-        "fr": "Évité"
+        "fr": "Évité",
+        "en-US": "Avoided"
     },
     {
         "opy": "Avoid",
-        "en": "Avoid",
-        "fr": "Éviter"
+        "fr": "Éviter",
+        "en-US": "Avoid"
     },
     {
         "opy": "Average",
-        "en": "Average",
-        "fr": "Moyenne"
+        "fr": "Moyenne",
+        "en-US": "Average"
     },
     {
         "opy": "Attempts",
-        "en": "Attempts",
-        "fr": "Tentatives"
+        "fr": "Tentatives",
+        "en-US": "Attempts"
     },
     {
         "opy": "Attempt",
-        "en": "Attempt",
-        "fr": "Tentative"
+        "fr": "Tentative",
+        "en-US": "Attempt"
     },
     {
         "opy": "Attacking",
-        "en": "Attacking",
-        "fr": "Attaque"
+        "fr": "Attaque",
+        "en-US": "Attacking"
     },
     {
         "opy": "Attacked",
-        "en": "Attacked",
-        "fr": "Attaqué"
+        "fr": "Attaqué",
+        "en-US": "Attacked"
     },
     {
         "opy": "Attack",
-        "en": "Attack",
-        "fr": "Attaquer"
+        "fr": "Attaquer",
+        "en-US": "Attack"
     },
     {
         "opy": "Angle",
-        "en": "Angle",
-        "fr": "Angle"
+        "fr": "Angle",
+        "en-US": "Angle"
     },
     {
         "opy": "Ammunition",
-        "en": "Ammunition",
-        "fr": "Munitions"
+        "fr": "Munitions",
+        "en-US": "Ammunition"
     },
     {
         "opy": "Ally",
-        "en": "Ally",
-        "fr": "Allié"
+        "fr": "Allié",
+        "en-US": "Ally"
     },
     {
         "opy": "Allies",
-        "en": "Allies",
-        "fr": "Alliés"
+        "fr": "Alliés",
+        "en-US": "Allies"
     },
     {
         "opy": "Alive",
-        "en": "Alive",
-        "fr": "En vie"
+        "fr": "En vie",
+        "en-US": "Alive"
     },
     {
         "opy": "Alert",
-        "en": "Alert",
-        "fr": "Alerte"
+        "fr": "Alerte",
+        "en-US": "Alert"
     },
     {
         "opy": "Ability 2",
-        "en": "Ability 2",
-        "fr": "Capacité 2"
+        "fr": "Capacité 2",
+        "en-US": "Ability 2"
     },
     {
         "opy": "Ability 1",
-        "en": "Ability 1",
-        "fr": "Capacité 1"
+        "fr": "Capacité 1",
+        "en-US": "Ability 1"
     },
     {
         "opy": "Ability",
-        "en": "Ability",
-        "fr": "Capacité"
+        "fr": "Capacité",
+        "en-US": "Ability"
     },
     {
         "opy": "Abilities",
-        "en": "Abilities",
-        "fr": "Capacités"
+        "fr": "Capacités",
+        "en-US": "Abilities"
     },
     {
         "opy": "???",
-        "en": "???",
-        "fr": "???"
+        "fr": "???",
+        "en-US": "???"
     },
     {
         "opy": "??",
-        "en": "??",
-        "fr": "??"
+        "fr": "??",
+        "en-US": "??"
     },
     {
         "opy": "?",
-        "en": "?",
-        "fr": "?"
+        "fr": "?",
+        "en-US": "?"
     },
     {
         "opy": "...",
-        "en": "...",
-        "fr": "…"
+        "fr": "…",
+        "en-US": "..."
     },
     {
         "opy": "----------",
-        "en": "----------",
-        "fr": "----------"
+        "fr": "----------",
+        "en-US": "----------"
     },
     {
         "opy": "*",
-        "en": "*",
-        "fr": "*"
+        "fr": "*",
+        "en-US": "*"
     },
     {
         "opy": "!!!",
-        "en": "!!!",
-        "fr": "!!!"
+        "fr": "!!!",
+        "en-US": "!!!"
     },
     {
         "opy": "!!",
-        "en": "!!",
-        "fr": "!!"
+        "fr": "!!",
+        "en-US": "!!"
     },
     {
         "opy": "!",
-        "en": "!",
-        "fr": "!"
+        "fr": "!",
+        "en-US": "!"
     }
 ]
 //end-json
@@ -3403,24 +3409,24 @@ var prefixStrKw =
 [
     {
         "opy": "#{0}",
-        "en": "#{0}"
+        "en-US": "#{0}"
     },
     {
         "opy": "-> {0}",
-        "en": "-> {0}"
+        "en-US": "-> {0}"
     },
     {
         "opy": "<-> {0}",
-        "en": "<-> {0}"
+        "en-US": "<-> {0}"
     },
     {
         "opy": "<- {0}",
-        "en": "<- {0}"
+        "en-US": "<- {0}"
     },
     {
         "opy": "Round {0}",
-        "en": "Round {0}",
-        "fr": "Manche {0}"
+        "fr": "Manche {0}",
+        "en-US": "Round {0}"
     }
 ]
 //end-json
@@ -3430,68 +3436,68 @@ var postfixStrKw =
 [
     {
         "opy": "{0} ->",
-        "en": "{0} ->"
+        "en-US": "{0} ->"
     },
     {
         "opy": "{0} <->",
-        "en": "{0} <->"
+        "en-US": "{0} <->"
     },
     {
         "opy": "{0} <-",
-        "en": "{0} <-"
+        "en-US": "{0} <-"
     },
     {
         "opy": "{0} M/S",
-        "en": "{0} M/S"
+        "en-US": "{0} M/S"
     },
     {
         "opy": "{0} M",
-        "en": "{0} M"
+        "en-US": "{0} M"
     },
     {
         "opy": "{0} Sec",
-        "en": "{0} Sec",
-        "fr": "{0} s"
+        "fr": "{0} s",
+        "en-US": "{0} Sec"
     },
     {
         "opy": "{0}!!!",
-        "en": "{0}!!!",
-        "fr": "{0} !!!"
+        "fr": "{0} !!!",
+        "en-US": "{0}!!!"
     },
     {
         "opy": "{0}!!",
-        "en": "{0}!!",
-        "fr": "{0} !!"
+        "fr": "{0} !!",
+        "en-US": "{0}!!"
     },
     {
         "opy": "{0}!",
-        "en": "{0}!",
-        "fr": "{0} !"
+        "fr": "{0} !",
+        "en-US": "{0}!"
     },
     {
         "opy": "{0}%",
-        "en": "{0}%",
-        "fr": "{0} %"
+        "fr": "{0} %",
+        "en-US": "{0}%"
     },
     {
         "opy": "{0}:",
-        "en": "{0}:",
-        "fr": "{0} :"
+        "fr": "{0} :",
+        "en-US": "{0}:"
     },
     {
         "opy": "{0}???",
-        "en": "{0}???",
-        "fr": "{0} ???"
+        "fr": "{0} ???",
+        "en-US": "{0}???"
     },
     {
         "opy": "{0}??",
-        "en": "{0}??",
-        "fr": "{0} ??"
+        "fr": "{0} ??",
+        "en-US": "{0}??"
     },
     {
         "opy": "{0}?",
-        "en": "{0}?",
-        "fr": "{0} ?"
+        "fr": "{0} ?",
+        "en-US": "{0}?"
     }
 ]
 //end-json
@@ -3501,85 +3507,85 @@ var binaryStrKw =
 [
     {
         "opy": "{0} -> {1}",
-        "en": "{0} -> {1}"
+        "en-US": "{0} -> {1}"
     },
     {
         "opy": "{0} - {1}",
-        "en": "{0} - {1}"
+        "en-US": "{0} - {1}"
     },
     {
         "opy": "{0} != {1}",
-        "en": "{0} != {1}"
+        "en-US": "{0} != {1}"
     },
     {
         "opy": "{0} * {1}",
-        "en": "{0} * {1}"
+        "en-US": "{0} * {1}"
     },
     {
         "opy": "{0} / {1}",
-        "en": "{0} / {1}"
+        "en-US": "{0} / {1}"
     },
     {
         "opy": "{0} + {1}",
-        "en": "{0} + {1}"
+        "en-US": "{0} + {1}"
     },
     {
         "opy": "{0} <-> {1}",
-        "en": "{0} <-> {1}"
+        "en-US": "{0} <-> {1}"
     },
     {
         "opy": "{0} <- {1}",
-        "en": "{0} <- {1}"
+        "en-US": "{0} <- {1}"
     },
     {
         "opy": "{0} <= {1}",
-        "en": "{0} <= {1}"
+        "en-US": "{0} <= {1}"
     },
     {
         "opy": "{0} < {1}",
-        "en": "{0} < {1}"
+        "en-US": "{0} < {1}"
     },
     {
         "opy": "{0} == {1}",
-        "en": "{0} == {1}"
+        "en-US": "{0} == {1}"
     },
     {
         "opy": "{0} = {1}",
-        "en": "{0} = {1}"
+        "en-US": "{0} = {1}"
     },
     {
         "opy": "{0} >= {1}",
-        "en": "{0} >= {1}"
+        "en-US": "{0} >= {1}"
     },
     {
         "opy": "{0} > {1}",
-        "en": "{0} > {1}"
+        "en-US": "{0} > {1}"
     },
     {
         "opy": "{0} And {1}",
-        "en": "{0} And {1}",
-        "fr": "{0} et {1}"
+        "fr": "{0} et {1}",
+        "en-US": "{0} And {1}"
     },
     {
         "opy": "{0} Vs {1}",
-        "en": "{0} Vs {1}"
+        "en-US": "{0} Vs {1}"
     },
     {
         "opy": "{0}, {1}",
-        "en": "{0}, {1}"
+        "en-US": "{0}, {1}"
     },
     {
         "opy": "{0}: {1}",
-        "en": "{0}: {1}",
         "fr": "{0} : {1}",
+        "en-US": "{0}: {1}"
     },
     {
         "opy": "{0}:{1}",
-        "en": "{0}:{1}"
+        "en-US": "{0}:{1}"
     },
     {
         "opy": "{0} {1}",
-        "en": "{0} {1}"
+        "en-US": "{0} {1}"
     }
 ]
 //end-json
@@ -3589,25 +3595,25 @@ var ternaryStrKw =
 [
     {
         "opy": "{0} - {1} - {2}",
-        "en": "{0} - {1} - {2}"
+        "en-US": "{0} - {1} - {2}"
     },
     {
         "opy": "{0} : {1} : {2}",
-        "en": "{0} : {1} : {2}"
+        "en-US": "{0} : {1} : {2}"
     },
     {
         "opy": "{0} {1} {2}",
-        "en": "{0} {1} {2}"
+        "en-US": "{0} {1} {2}"
     },
     {
         "opy": "{0}, {1}, And {2}",
-        "en": "{0}, {1}, And {2}",
-        "fr": "{0}, {1}, et {2}"
+        "fr": "{0}, {1}, et {2}",
+        "en-US": "{0}, {1}, And {2}"
     },
     {
         "opy": "{0}: {1} And {2}",
-        "en": "{0}: {1} And {2}",
-        "fr": "{0} : {1} et {2}"
+        "fr": "{0} : {1} et {2}",
+        "en-US": "{0}: {1} And {2}"
     }
 ]
 //end-json
@@ -3617,15 +3623,15 @@ var surroundStrKw =
 [
     {
         "opy": "({0})",
-        "en": "({0})"
+        "en-US": "({0})"
     },
     {
         "opy": "¡{0}!",
-        "en": "¡{0}!"
+        "en-US": "¡{0}!"
     },
     {
         "opy": "¿{0}?",
-        "en": "¿{0}?"
+        "en-US": "¿{0}?"
     }
 ]
 //end-json
@@ -3679,3 +3685,4 @@ for (var hero of getConstantKw("HERO CONSTANT")) {
 
 //Sort reverse alphabetical order for greediness
 strTokens = strTokens.sort().reverse();
+

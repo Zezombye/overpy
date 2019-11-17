@@ -13,15 +13,20 @@
 #!define gameStatus R
 #!define rotation S
 
+#!declareGlobal test 100
+#!declarePlayer owo 100
+
 #Player variables
 
-#!define isOob A
-#!define meiType B
-#!define icon C
-#!define effect D
-#!define noCrouchSpam E
-#!define isFighting F
-#!define blades G
+#!defineMember isOob A
+#!defineMember meiType B
+#!defineMember icon C
+#!defineMember effect D
+#!defineMember noCrouchSpam E
+#!defineMember isFighting F
+#!defineMember blades G
+
+
 
 #Mei types
 
@@ -96,6 +101,7 @@ spawnA2 = [spawnA21, spawnA22, spawnA23, spawnA24, spawnA25, spawnA26]
 spawnA3 = [spawnA31, spawnA32, spawnA33, spawnA34, spawnA35, spawnA36, spawnA37]
 disableGamemodeCompletion()
 disableScoring()
+bigMessage(getAllPlayers(), w"owoé")
 
 @Rule "skip assembling heroes"
 @Event global

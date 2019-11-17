@@ -20,7 +20,6 @@ var valueFuncKw =
 [
     {
         "opy": "abs",
-        "en": "absoluteValue",
         "fr": "ValeurAbsolue",
         "description": "The absolute value of the specified value.",
         "args": [
@@ -30,11 +29,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Absolute Value"
     },
     {
         "opy": "_add",
-        "en": "add",
         "fr": "Addition",
         "description": "The sum of two numbers or vectors.",
         "args": [
@@ -50,11 +49,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Add"
     },
     {
         "opy": "getDeadPlayers",
-        "en": "allDeadPlayers",
         "fr": "TousLesJoueursMorts",
         "description": "An array containing all dead players on a team or in the match.",
         "args": [
@@ -64,76 +63,25 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "All Dead Players"
     },
     {
         "opy": "getDamageHeroes()",
-        "en": "allDamageHeroes",
         "fr": "todo",
-        "description": `The array of all damage heroes in overwatch. The order is as follows:
-        
-        0. Reaper
-        1. Tracer
-        2. Hanzo
-        3. Torbjorn
-        4. Pharah
-        5. Widowmaker
-        6. Bastion
-        7. Symmetra
-        8. Genji
-        9. Mccree
-        10. Junkrat
-        11. Soldier
-        12. Mei
-        13. Sombra
-        14. Doomfist
-        15. Ashe  
-        `,
-        "args": []
+        "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        ",
+        "args": [],
+        "en-US": "All Damage Heroes"
     },
     {
         "opy": "getAllHeroes()",
-        "en": "allHeroes",
         "fr": "TousLesHéros",
-        "description": `The array of all heroes in overwatch. The order is as follows:
-        
-        0. Reaper   
-        1. Tracer   
-        2. Mercy    
-        3. Hanzo    
-        4. Torbjorn 
-        5. Reinhardt
-        6. Pharah   
-        7. Winston  
-        8. Widowmaker
-        9. Bastion  
-        10. Symmetra 
-        11. Zenyatta 
-        12. Genji    
-        13. Roadhog  
-        14. McCree   
-        15. Junkrat  
-        16. Zarya    
-        17. Soldier  
-        18. Lucio    
-        19. Dva      
-        20. Mei      
-        21. Sombra   
-        22. Doomfist 
-        23. Ana      
-        24. Orisa    
-        25. Brigitte 
-        26. Moira    
-        27. Hammond  
-        28. Ashe     
-        29. Baptiste 
-        30. Sigma    
-        `,
-        "args": []
+        "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Baptiste \n        30. Sigma    \n        ",
+        "args": [],
+        "en-US": "All Heroes"
     },
     {
         "opy": "getLivingPlayers",
-        "en": "allLivingPlayers",
         "fr": "TousLesJoueursEnVie",
         "description": "An array containing all living players on a team or in the match.",
         "args": [
@@ -143,11 +91,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "All Living Players"
     },
     {
         "opy": "getPlayers",
-        "en": "allPlayers",
         "fr": "TousLesJoueurs",
         "description": "An array containing all players on a team or in the match.",
         "args": [
@@ -157,11 +105,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "All Players"
     },
     {
         "opy": "getPlayersNotOnObjective",
-        "en": "allPlayersNotOnObjective",
         "fr": "TousLesJoueurséloignésDeL’objectif",
         "description": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match).",
         "args": [
@@ -171,11 +119,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "All Players Not On Objective"
     },
     {
         "opy": "getPlayersOnObjective",
-        "en": "allPlayersOnObjective",
         "fr": "TousLesJoueursSurL’objectif",
         "description": "An array containing all players occupying a payload or control point (either on a team or in the match).",
         "args": [
@@ -185,11 +133,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "All Players On Objective"
     },
     {
         "opy": "_&getAllowedHeroes",
-        "en": "allowedHeroes",
         "fr": "HérosAutorisés",
         "description": "The array of heroes from which the specified player is currently allowed to select.",
         "args": [
@@ -199,44 +147,25 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Allowed Heroes"
     },
     {
         "opy": "getSupportHeroes()",
-        "en": "allSupportHeroes",
         "fr": "todo",
-        "description": `The array of all support heroes in overwatch. The order is as follows:
-        
-        0. Mercy
-        1. Zenyatta
-        2. Lucio
-        3. Ana
-        4. Brigitte
-        5. Moira
-        6. Baptiste    
-        `,
-        "args": []
+        "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
+        "args": [],
+        "en-US": "All Support Heroes"
     },
     {
         "opy": "getTankHeroes()",
-        "en": "allTankHeroes",
         "fr": "todo",
-        "description": `The array of all tank heroes in overwatch. The order is as follows:
-        
-        0. Reinhardt
-        1. Winston
-        2. Roadhog
-        3. Zarya
-        4. Dva
-        5. Orisa
-        6. Hammond
-        7. Sigma    
-        `,
-        "args": []
+        "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
+        "args": [],
+        "en-US": "All Tank Heroes"
     },
     {
         "opy": "_&getAltitude",
-        "en": "altitudeOf",
         "fr": "AltitudeDe",
         "description": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface.",
         "args": [
@@ -246,11 +175,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Altitude Of"
     },
     {
         "opy": "_and",
-        "en": "and",
         "fr": "Et",
         "description": "Whether both of the two inputs are true (or equivalent to true).",
         "args": [
@@ -266,11 +195,11 @@ var valueFuncKw =
                 "type": "BOOLEAN",
                 "default": "TRUE"
             }
-        ]
+        ],
+        "en-US": "And"
     },
     {
         "opy": "angleDifference",
-        "en": "angleDifference",
         "fr": "DifférenceEntreAngles",
         "description": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative.",
         "args": [
@@ -286,11 +215,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Angle Difference"
     },
     {
         "opy": "_appendToArray",
-        "en": "appendToArray",
         "fr": "AjouterAuTableau",
         "description": "A copy of an array with one or more values appended to the end.",
         "args": [
@@ -306,11 +235,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Append To Array"
     },
     {
         "opy": "acosDeg",
-        "en": "arccosineInDegrees",
         "fr": "todo",
         "description": "Arccosine in degrees of the specified value.",
         "args": [
@@ -320,11 +249,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Arccosine In Degrees"
     },
     {
         "opy": "acos",
-        "en": "arccosineInRadians",
         "fr": "todo",
         "description": "Arccosine in radians of the specified value.",
         "args": [
@@ -334,11 +263,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Arccosine In Radians"
     },
     {
         "opy": "asinDeg",
-        "en": "arcsineInDegrees",
         "fr": "todo",
         "description": "Arcsine in degrees of the specified value.",
         "args": [
@@ -348,11 +277,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Arcsine In Degrees"
     },
     {
         "opy": "asin",
-        "en": "arcsineInRadians",
         "fr": "todo",
         "description": "Arcsine in radians of the specified value.",
         "args": [
@@ -362,11 +291,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Arcsine In Radians"
     },
     {
         "opy": "atan2Deg",
-        "en": "arctangentInDegrees",
         "fr": "todo",
         "description": "Arctangent in degrees of the specified numerator and denominator (often referred to as atan2).",
         "args": [
@@ -382,11 +311,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Arctangent In Degrees"
     },
     {
         "opy": "atan2",
-        "en": "arctangentInRadians",
         "fr": "todo",
         "description": "Arctangent in radians of the specified numerator and denominator (often referred to as atan2).",
         "args": [
@@ -402,11 +331,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Arctangent In Radians"
     },
     {
         "opy": "_arrayContains",
-        "en": "arrayContains",
         "fr": "ContenuDuTableau",
         "description": "Whether the specified array contains the specified value.",
         "args": [
@@ -422,11 +351,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Array Contains"
     },
     {
         "opy": "_arraySlice",
-        "en": "arraySlice",
         "fr": "SectionDeTableau",
         "description": "A copy of the specified array containing only values from a specified index range.",
         "args": [
@@ -448,25 +377,25 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Array Slice"
     },
     {
         "opy": "attacker",
-        "en": "attacker",
         "fr": "Attaquant",
         "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
-        "args": null
+        "args": null,
+        "en-US": "Attacker"
     },
     {
         "opy": "Vector.BACKWARD",
-        "en": "backward",
         "fr": "Arrière",
         "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
-        "args": null
+        "args": null,
+        "en-US": "Backward"
     },
     {
         "opy": "getClosestPlayer",
-        "en": "closestPlayerTo",
         "fr": "JoueurLePlusProcheDe",
         "description": "The player closest to a position, optionally restricted by team.",
         "args": [
@@ -482,11 +411,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Closest Player To"
     },
     {
         "opy": "_compare",
-        "en": "compare",
         "fr": "Comparer",
         "description": "Whether the comparison of the two inputs is true.",
         "args": [
@@ -508,11 +437,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Compare"
     },
     {
         "opy": "getControlScorePercentage",
-        "en": "controlModeScoringPercentage",
         "fr": "PourcentageDuScoreEnModeContrôle",
         "description": "The score percentage for the specified team in control mode.",
         "args": [
@@ -522,18 +451,18 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Control Mode Scoring Percentage"
     },
     {
         "opy": "getControlScoringTeam",
-        "en": "controlModeScoringTeam",
         "fr": "ÉquipeContrôlantLePointEnModeContrôle",
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
-        "args": []
+        "args": [],
+        "en-US": "Control Mode Scoring Team"
     },
     {
         "opy": "cosDeg",
-        "en": "cosineFromDegrees",
         "fr": "CosinusEnDegrés",
         "description": "Cosine of the specified angle in degrees.",
         "args": [
@@ -543,11 +472,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Cosine From Degrees"
     },
     {
         "opy": "cos",
-        "en": "cosineFromRadians",
         "fr": "CosinusEnRadians",
         "description": "Cosine of the specified angle in radians.",
         "args": [
@@ -557,11 +486,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Cosine From Radians"
     },
     {
         "opy": "len",
-        "en": "countOf",
         "fr": "DécompteDe",
         "description": "The number of elements in the specified array.",
         "args": [
@@ -571,11 +500,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "GLOBAL VARIABLE"
             }
-        ]
+        ],
+        "en-US": "Count Of"
     },
     {
         "opy": "crossProduct",
-        "en": "crossProduct",
         "fr": "ProduitCroisé",
         "description": "The cross product of the specified values. (Left cross up equals forward.)",
         "args": [
@@ -591,30 +520,30 @@ var valueFuncKw =
                 "type": "VECTOR",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Cross Product"
     },
     {
         "opy": "_currentArrayElement",
-        "en": "currentArrayElement",
         "fr": "ÉlémentDeTableauActuel",
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
-        "args": []
+        "args": [],
+        "en-US": "Current Array Element"
     },
     {
         "opy": "getCurrentGamemode()",
-        "en": "currentGameMode",
         "description": "The current game mode of the custom game.",
-        "args": []
+        "args": [],
+        "en-US": "Current Game Mode"
     },
     {
         "opy": "getCurrentMap()",
-        "en": "currentMap",
         "description": "The current map of the custom game.",
-        "args": []
+        "args": [],
+        "en-US": "Current Map"
     },
     {
         "opy": "_customString",
-        "en": "customString",
         "fr": "todo",
         "description": "ty magzie for adding that",
         "args": [
@@ -642,11 +571,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "NULL"
             }
-        ]
+        ],
+        "en-US": "Custom String"
     },
     {
         "opy": "angleToDirection",
-        "en": "directionFromAngles",
         "fr": "DirectionDepuisDesAngles",
         "description": "The unit-length direction vector corresponding to the specified angles.",
         "args": [
@@ -662,11 +591,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Direction From Angles"
     },
     {
         "opy": "directionTowards",
-        "en": "directionTowards",
         "fr": "Direction",
         "description": "The unit-length direction vector from one position to another.",
         "args": [
@@ -682,11 +611,11 @@ var valueFuncKw =
                 "type": "POSITION",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Direction Towards"
     },
     {
         "opy": "distance",
-        "en": "distanceBetween",
         "fr": "DistanceEntre",
         "description": "The distance between two positions in meters.",
         "args": [
@@ -702,11 +631,11 @@ var valueFuncKw =
                 "type": "POSITION",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Distance Between"
     },
     {
         "opy": "_divide",
-        "en": "divide",
         "fr": "Division",
         "description": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero.",
         "args": [
@@ -722,11 +651,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Divide"
     },
     {
         "opy": "dotProduct",
-        "en": "dotProduct",
         "fr": "ProduitScalaire",
         "description": "The dot product of the specified values.",
         "args": [
@@ -742,25 +671,25 @@ var valueFuncKw =
                 "type": "VECTOR",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Dot Product"
     },
     {
         "opy": "Vector.DOWN",
-        "en": "down",
         "fr": "Bas",
         "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
-        "args": null
+        "args": null,
+        "en-US": "Down"
     },
     {
         "opy": "_emptyArray",
-        "en": "emptyArray",
         "fr": "TableauVide",
         "description": "An array with no elements.",
-        "args": []
+        "args": [],
+        "en-US": "Empty Array"
     },
     {
         "opy": "entityExists",
-        "en": "entityExists",
         "fr": "ExistenceDeL’entité",
         "description": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed.",
         "args": [
@@ -770,39 +699,39 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Entity Exists"
     },
     {
         "opy": "eventDamage",
-        "en": "eventDamage",
         "fr": "DégâtsD’évènement",
         "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
-        "args": null
+        "args": null,
+        "en-US": "Event Damage"
     },
     {
         "opy": "eventHealing",
-        "en": "eventHealing",
         "fr": "ÉvènementSoin",
         "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
-        "args": null
+        "args": null,
+        "en-US": "Event Healing"
     },
     {
         "opy": "eventPlayer",
-        "en": "eventPlayer",
         "fr": "JoueurExécutant",
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
-        "args": null
+        "args": null,
+        "en-US": "Event Player"
     },
     {
         "opy": "eventWasCriticalHit",
-        "en": "eventWasCriticalHit",
         "fr": "L’évènementétaitUnCoupCritique",
         "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
-        "args": null
+        "args": null,
+        "en-US": "Event Was Critical Hit"
     },
     {
         "opy": "_&getEyePosition",
-        "en": "eyePosition",
         "fr": "PositionDesYeux",
         "description": "The position of a player's first person view (used for aiming)",
         "args": [
@@ -812,11 +741,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Eye Position"
     },
     {
         "opy": "_&getFacingDirection",
-        "en": "facingDirectionOf",
         "fr": "RegardEnDirectionDe",
         "description": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing.",
         "args": [
@@ -826,18 +755,18 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Facing Direction Of"
     },
     {
         "opy": "false",
-        "en": "false",
         "fr": "Faux",
         "description": "The boolean value of false.",
-        "args": null
+        "args": null,
+        "en-US": "False"
     },
     {
         "opy": "getFarthestPlayer",
-        "en": "farthestPlayerFrom",
         "fr": "JoueurLePluséloignéDe",
         "description": "The player farthest from a position, optionally restricted by team.",
         "args": [
@@ -853,11 +782,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Farthest Player From"
     },
     {
         "opy": "_filteredArray",
-        "en": "filteredArray",
         "fr": "TableauFiltré",
         "description": "A copy of the specified array with any values that do not match the specified condition removed.",
         "args": [
@@ -873,11 +802,11 @@ var valueFuncKw =
                 "type": "BOOLEAN",
                 "default": "COMPARE"
             }
-        ]
+        ],
+        "en-US": "Filtered Array"
     },
     {
         "opy": "_firstOf",
-        "en": "firstOf",
         "fr": "PremierDe",
         "description": "The value at the start of the specified array. Results in 0 if the specified array is empty.",
         "args": [
@@ -887,11 +816,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "GLOBAL VARIABLE"
             }
-        ]
+        ],
+        "en-US": "First Of"
     },
     {
         "opy": "getFlagPosition",
-        "en": "flagPosition",
         "fr": "PositionDuDrapeau",
         "description": "The position of a specific team's flag in capture the flag.",
         "args": [
@@ -901,18 +830,18 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Flag Position"
     },
     {
         "opy": "Vector.FORWARD",
-        "en": "forward",
         "fr": "Avant",
         "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
-        "args": null
+        "args": null,
+        "en-US": "Forward"
     },
     {
         "opy": "_gamemode",
-        "en": "gameMode",
         "description": "A game mode constant.",
         "args": [
             {
@@ -921,11 +850,11 @@ var valueFuncKw =
                 "type": "GAMEMODE CONSTANT",
                 "default": "ASSAULT"
             }
-        ]
+        ],
+        "en-US": "Game Mode"
     },
     {
         "opy": "_globalVar",
-        "en": "globalVariable",
         "fr": "VariableGlobale",
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
@@ -935,11 +864,11 @@ var valueFuncKw =
                 "type": "VARIABLE",
                 "default": "A"
             }
-        ]
+        ],
+        "en-US": "Global Variable"
     },
     {
         "opy": "_&hasSpawned",
-        "en": "hasSpawned",
         "fr": "Apparition",
         "description": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet.",
         "args": [
@@ -949,11 +878,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Has Spawned"
     },
     {
         "opy": "_&hasStatusEffect",
-        "en": "hasStatus",
         "fr": "Statut",
         "description": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic.",
         "args": [
@@ -969,25 +898,25 @@ var valueFuncKw =
                 "type": "STATUS",
                 "default": "HACKED"
             }
-        ]
+        ],
+        "en-US": "Has Status"
     },
     {
         "opy": "healee",
-        "en": "healee",
         "fr": "Soigné",
         "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
-        "args": null
+        "args": null,
+        "en-US": "Healee"
     },
     {
         "opy": "healer",
-        "en": "healer",
         "fr": "Soigneur",
         "description": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player.",
-        "args": null
+        "args": null,
+        "en-US": "Healer"
     },
     {
         "opy": "_&getHealth",
-        "en": "health",
         "fr": "PointsDeVie",
         "description": "The current health of a player, including armor and shields.",
         "args": [
@@ -997,11 +926,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Health"
     },
     {
         "opy": "_&getNormalizedHealth",
-        "en": "normalizedHealth",
         "fr": "PointsDeVieNormalisés",
         "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
         "args": [
@@ -1011,11 +940,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Normalized Health"
     },
     {
         "opy": "_hero",
-        "en": "hero",
         "fr": "Héros",
         "description": "A hero constant.",
         "args": [
@@ -1025,11 +954,11 @@ var valueFuncKw =
                 "type": "HERO CONSTANT",
                 "default": "ANA"
             }
-        ]
+        ],
+        "en-US": "Hero"
     },
     {
         "opy": "heroIcon",
-        "en": "heroIconString",
         "fr": "ChaîneD’icôneDuHéros",
         "description": "Converts a hero parameter into a string that shows up as an icon.",
         "args": [
@@ -1039,11 +968,11 @@ var valueFuncKw =
                 "type": "HERO",
                 "default": "HERO"
             }
-        ]
+        ],
+        "en-US": "Hero Icon String"
     },
     {
         "opy": "_&getCurrentHero",
-        "en": "heroOf",
         "fr": "HérosDe",
         "description": "The current hero of a player.",
         "args": [
@@ -1053,11 +982,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Hero Of"
     },
     {
         "opy": "horizontalAngleFromDirection",
-        "en": "horizontalAngleFromDirection",
         "fr": "AngleHorizontalDepuisUneDirection",
         "description": "The horizontal angle in degrees corresponding to the specified direction vector.",
         "args": [
@@ -1067,11 +996,11 @@ var valueFuncKw =
                 "type": "VECTOR",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Horizontal Angle From Direction"
     },
     {
         "opy": "horizontalAngleTowards",
-        "en": "horizontalAngleTowards",
         "fr": "AngleHorizontalVers",
         "description": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative.",
         "args": [
@@ -1087,11 +1016,11 @@ var valueFuncKw =
                 "type": "POSITION",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Horizontal Angle Towards"
     },
     {
         "opy": "_&getHorizontalFacingAngle",
-        "en": "horizontalFacingAngleOf",
         "fr": "AngleHorizontalDuRegardDe",
         "description": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180).",
         "args": [
@@ -1101,11 +1030,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Horizontal Facing Angle Of"
     },
     {
         "opy": "_&getHorizontalSpeed",
-        "en": "horizontalSpeedOf",
         "fr": "VitesseHorizontaleDe",
         "description": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion.",
         "args": [
@@ -1115,18 +1044,18 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Horizontal Speed Of"
     },
     {
         "opy": "hostPlayer",
-        "en": "hostPlayer",
         "fr": "JoueurHôte",
         "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
-        "args": null
+        "args": null,
+        "en-US": "Host Player"
     },
     {
         "opy": "iconString",
-        "en": "iconString",
         "fr": "ChaîneD’icône",
         "description": "Allows you to use an icon inside of a string.",
         "args": [
@@ -1136,11 +1065,11 @@ var valueFuncKw =
                 "type": "ICON",
                 "default": "ARROW: DOWN"
             }
-        ]
+        ],
+        "en-US": "Icon String"
     },
     {
         "opy": "_indexOfArrayValue",
-        "en": "indexOfArrayValue",
         "fr": "IndexDeLaValeurDeTableau",
         "description": "The index of a value within an array or -1 if no such value can be found.",
         "args": [
@@ -1156,11 +1085,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Index Of Array Value"
     },
     {
         "opy": "_&isAlive",
-        "en": "isAlive",
         "fr": "EnVie",
         "description": "Whether a player is alive.",
         "args": [
@@ -1170,25 +1099,25 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Alive"
     },
     {
         "opy": "isAssemblingHeroes()",
-        "en": "isAssemblingHeroes",
         "fr": "PhaseDeChoixDeHéros",
         "description": "Whether the match is currently in its assemble heroes phase.",
-        "args": []
+        "args": [],
+        "en-US": "Is Assembling Heroes"
     },
     {
         "opy": "isMatchBetweenRounds()",
-        "en": "isBetweenRounds",
         "fr": "EntreDeuxManches",
         "description": "Whether the match is between rounds.",
-        "args": []
+        "args": [],
+        "en-US": "Is Between Rounds"
     },
     {
         "opy": "_&isHoldingButton",
-        "en": "isButtonHeld",
         "fr": "BoutonMaintenuEnfoncé",
         "description": "Whether a player is holding a specific button.",
         "args": [
@@ -1204,11 +1133,11 @@ var valueFuncKw =
                 "type": "BUTTON",
                 "default": "PRIMARY FIRE"
             }
-        ]
+        ],
+        "en-US": "Is Button Held"
     },
     {
         "opy": "_&isCommunicating",
-        "en": "isCommunicating",
         "fr": "Communication",
         "description": "Whether a player is using a specific communication type (such as emoting, using a voice line, etc.).",
         "args": [
@@ -1224,11 +1153,11 @@ var valueFuncKw =
                 "type": "COMMUNICATE",
                 "default": "VOICE LINE UP"
             }
-        ]
+        ],
+        "en-US": "Is Communicating"
     },
     {
         "opy": "_&isCommunicatingAnything",
-        "en": "isCommunicatingAny",
         "fr": "N’importeQuelleCommunication",
         "description": "Whether a player is using any communication type (such as emoting, using a voice line, etc.).",
         "args": [
@@ -1238,11 +1167,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Communicating Any"
     },
     {
         "opy": "_&isCommunicatingEmote",
-        "en": "isCommunicatingAnyEmote",
         "fr": "CommunicationParEmote",
         "description": "Whether a player is using an emote.",
         "args": [
@@ -1252,11 +1181,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Communicating Any Emote"
     },
     {
         "opy": "_&isCommunicatingVoiceline",
-        "en": "isCommunicatingAnyVoiceline",
         "fr": "CommunicationParRéplique",
         "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
         "args": [
@@ -1266,18 +1195,18 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Communicating Any Voiceline"
     },
     {
         "opy": "isControlPointLocked()",
-        "en": "isControlModePointLocked",
         "fr": "PointDeContrôleVerrouillé",
         "description": "Whether the point is locked in control mode.",
-        "args": []
+        "args": [],
+        "en-US": "Is Control Mode Point Locked"
     },
     {
         "opy": "_&isCrouching",
-        "en": "isCrouching",
         "fr": "Accroupi",
         "description": "Whether a player is crouching.",
         "args": [
@@ -1287,18 +1216,18 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Crouching"
     },
     {
         "opy": "isInSuddenDeath()",
-        "en": "isCtfModeInSuddenDeath",
         "fr": "CaptureDuDrapeauEnMortSubite",
         "description": "Whether the current game of capture the flag is in sudden death.",
-        "args": []
+        "args": [],
+        "en-US": "Is Ctf Mode In Sudden Death"
     },
     {
         "opy": "_&isDead",
-        "en": "isDead",
         "fr": "Mort",
         "description": "Whether a player is dead.",
         "args": [
@@ -1308,11 +1237,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Dead"
     },
     {
         "opy": "_&isDummy",
-        "en": "isDummyBot",
         "fr": "EstUnBot",
         "description": "Whether a player is a dummy bot.",
         "args": [
@@ -1322,11 +1251,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Dummy Bot"
     },
     {
         "opy": "_&isFiringPrimaryFire",
-        "en": "isFiringPrimary",
         "fr": "TirPrincipal",
         "description": "Whether the specified player's primary weapon attack is being used.",
         "args": [
@@ -1336,11 +1265,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Firing Primary"
     },
     {
         "opy": "_&isFiringSecondaryFire",
-        "en": "isFiringSecondary",
         "fr": "TirSecondaire",
         "description": "Whether the specified player's secondary weapon attack is being used.",
         "args": [
@@ -1350,11 +1279,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Firing Secondary"
     },
     {
         "opy": "isFlagAtBase",
-        "en": "isFlagAtBase",
         "fr": "DrapeauàLaBase",
         "description": "Whether a specific team's flag is at its base in capture the flag.",
         "args": [
@@ -1364,11 +1293,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Is Flag At Base"
     },
     {
         "opy": "isFlagBeingCarried",
-        "en": "isFlagBeingCarried",
         "fr": "DrapeauTransporté",
         "description": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag.",
         "args": [
@@ -1378,18 +1307,18 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Is Flag Being Carried"
     },
     {
         "opy": "isGameInProgress()",
-        "en": "isGameInProgress",
         "fr": "PartieEnCours",
         "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
-        "args": []
+        "args": [],
+        "en-US": "Is Game In Progress"
     },
     {
         "opy": "teamHasHero",
-        "en": "isHeroBeingPlayed",
         "fr": "HérosJoué",
         "description": "Whether a specific hero is being played (either on a team or in the match).",
         "args": [
@@ -1405,11 +1334,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Is Hero Being Played"
     },
     {
         "opy": "_&isInAir",
-        "en": "isInAir",
         "fr": "DansLesAirs",
         "description": "Whether a player is airborne.",
         "args": [
@@ -1419,11 +1348,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is In Air"
     },
     {
         "opy": "_isInLineOfSight",
-        "en": "isInLineOfSight",
         "fr": "DansLaLigneDeVue",
         "description": "Whether two positions have line of sight with each other.",
         "args": [
@@ -1445,18 +1374,18 @@ var valueFuncKw =
                 "type": "BARRIERS LOS",
                 "default": "BARRIERS DO NOT BLOCK LOS"
             }
-        ]
+        ],
+        "en-US": "Is In Line Of Sight"
     },
     {
         "opy": "isInSetup()",
-        "en": "isInSetup",
         "fr": "DansLesParamètres",
         "description": "Whether the match is currently in its setup phase.",
-        "args": []
+        "args": [],
+        "en-US": "Is In Setup"
     },
     {
         "opy": "_&isInSpawnRoom",
-        "en": "isInSpawnRoom",
         "fr": "DansLaSalleD’apparition",
         "description": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes).",
         "args": [
@@ -1466,11 +1395,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is In Spawn Room"
     },
     {
         "opy": "_&isInViewAngle",
-        "en": "isInViewAngle",
         "fr": "DansLeChampDeVision",
         "description": "Whether a location is within view of a player.",
         "args": [
@@ -1492,18 +1421,18 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Is In View Angle"
     },
     {
         "opy": "isMatchComplete()",
-        "en": "isMatchComplete",
         "fr": "PartieTerminée",
         "description": "Whether the match has finished.",
-        "args": []
+        "args": [],
+        "en-US": "Is Match Complete"
     },
     {
         "opy": "_&isMoving",
-        "en": "isMoving",
         "fr": "SeDéplace",
         "description": "Whether a player is moving (defined as having a nonzero current speed).",
         "args": [
@@ -1513,11 +1442,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Moving"
     },
     {
         "opy": "isObjectiveComplete",
-        "en": "isObjectiveComplete",
         "fr": "ObjectifAccompli",
         "description": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or assault/escort.",
         "args": [
@@ -1527,11 +1456,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Is Objective Complete"
     },
     {
         "opy": "_&isOnGround",
-        "en": "isOnGround",
         "fr": "AuSol",
         "description": "Whether a player is on the ground (or other walkable surface).",
         "args": [
@@ -1541,11 +1470,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is On Ground"
     },
     {
         "opy": "_&isOnObjective",
-        "en": "isOnObjective",
         "fr": "SurL’objectif",
         "description": "Whether a specific player is currently occupying a payload or capture point.",
         "args": [
@@ -1555,11 +1484,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is On Objective"
     },
     {
         "opy": "_&isOnWall",
-        "en": "isOnWall",
         "fr": "SurLeMur",
         "description": "Whether a player is on a wall (climbing or riding).",
         "args": [
@@ -1569,11 +1498,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is On Wall"
     },
     {
         "opy": "_&isOnFire",
-        "en": "isPortraitOnFire",
         "fr": "Portrait«EnFeu»",
         "description": "Whether a specific player's portrait is on fire.",
         "args": [
@@ -1583,11 +1512,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Portrait On Fire"
     },
     {
         "opy": "_&isStanding",
-        "en": "isStanding",
         "fr": "Debout",
         "description": "Whether a player is standing (defined as both not moving and not in the air).",
         "args": [
@@ -1597,11 +1526,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Standing"
     },
     {
         "opy": "isTeamOnDefense",
-        "en": "isTeamOnDefense",
         "fr": "ÉquipeEnDéfense",
         "description": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or assault/escort.",
         "args": [
@@ -1611,11 +1540,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Is Team On Defense"
     },
     {
         "opy": "isTeamOnOffense",
-        "en": "isTeamOnOffense",
         "fr": "ÉquipeEnAttaque",
         "description": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or assault/escort.",
         "args": [
@@ -1625,11 +1554,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Is Team On Offense"
     },
     {
         "opy": "_all",
-        "en": "isTrueForAll",
         "fr": "VraiPourTous",
         "description": "Whether the specified condition evaluates to true for every value in the specified array.",
         "args": [
@@ -1645,11 +1574,11 @@ var valueFuncKw =
                 "type": "BOOLEAN",
                 "default": "COMPARE"
             }
-        ]
+        ],
+        "en-US": "Is True For All"
     },
     {
         "opy": "_any",
-        "en": "isTrueForAny",
         "fr": "VraiPourN’importeQui",
         "description": "Whether the specified condition evaluates to true for any value in the specified array.",
         "args": [
@@ -1665,11 +1594,11 @@ var valueFuncKw =
                 "type": "BOOLEAN",
                 "default": "COMPARE"
             }
-        ]
+        ],
+        "en-US": "Is True For Any"
     },
     {
         "opy": "_&isUsingAbility1",
-        "en": "isUsingAbility1",
         "fr": "Capacité1Utilisée",
         "description": "Whether the specified player is using ability 1.",
         "args": [
@@ -1679,11 +1608,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Using Ability 1"
     },
     {
         "opy": "_&isUsingAbility2",
-        "en": "isUsingAbility2",
         "fr": "Capacité2Utilisée",
         "description": "Whether the specified player is using ability 2.",
         "args": [
@@ -1693,11 +1622,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Using Ability 2"
     },
     {
         "opy": "_&isUsingUltimate",
-        "en": "isUsingUltimate",
         "fr": "CapacitéUltimeUtilisée",
         "description": "Whether a player is using an ultimate ability.",
         "args": [
@@ -1707,46 +1636,46 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Is Using Ultimate"
     },
     {
         "opy": "isWaitingForPlayers()",
-        "en": "isWaitingForPlayers",
         "fr": "EnAttenteDeJoueurs",
         "description": "Whether the match is waiting for players to join before starting.",
-        "args": []
+        "args": [],
+        "en-US": "Is Waiting For Players"
     },
     {
         "opy": "getLastCreatedEntity()",
-        "en": "lastCreatedEntity",
         "fr": "DernièreEntitéCréée",
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
-        "args": []
+        "args": [],
+        "en-US": "Last Created Entity"
     },
     {
         "opy": "getLastDamageModification()",
-        "en": "lastDamageModificationId",
         "fr": "DernierIdentifiantDeModificationDeDégâts",
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
-        "args": []
+        "args": [],
+        "en-US": "Last Damage Modification Id"
     },
     {
         "opy": "getLastDoT()",
-        "en": "lastDamageOverTimeId",
         "fr": "DernierIdentifiantDeDégâtsSurLaDurée",
         "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
-        "args": []
+        "args": [],
+        "en-US": "Last Damage Over Time Id"
     },
     {
         "opy": "getLastHoT()",
-        "en": "lastHealOverTimeId",
         "fr": "DernierIdentifiantDeSoinsSurLaDurée",
         "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
-        "args": []
+        "args": [],
+        "en-US": "Last Heal Over Time Id"
     },
     {
         "opy": "_lastOf",
-        "en": "lastOf",
         "fr": "Dernier",
         "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
         "args": [
@@ -1756,25 +1685,25 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "GLOBAL VARIABLE"
             }
-        ]
+        ],
+        "en-US": "Last Of"
     },
     {
         "opy": "getLastCreatedText()",
-        "en": "lastTextId",
         "fr": "DernierIdentifiantDeTexte",
         "description": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action.",
-        "args": []
+        "args": [],
+        "en-US": "Last Text Id"
     },
     {
         "opy": "Vector.LEFT",
-        "en": "left",
         "fr": "Gauche",
         "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
-        "args": null
+        "args": null,
+        "en-US": "Left"
     },
     {
         "opy": "localVector",
-        "en": "localVectorOf",
         "fr": "VecteurLocalDe",
         "description": "The vector in local coordinates corresponding to the provided vector in world coordinates.",
         "args": [
@@ -1796,11 +1725,11 @@ var valueFuncKw =
                 "type": "TRANSFORMATION",
                 "default": "ROTATION"
             }
-        ]
+        ],
+        "en-US": "Local Vector Of"
     },
     {
         "opy": "_map",
-        "en": "Map",
         "description": "A map constant.",
         "args": [
             {
@@ -1809,25 +1738,25 @@ var valueFuncKw =
                 "type": "MAP CONSTANT",
                 "default": "AYUTTHAYA"
             }
-        ]
+        ],
+        "en-US": "Map"
     },
     {
         "opy": "getMatchRound()",
-        "en": "matchRound",
         "fr": "MancheDeLaPartie",
         "description": "The current round of the match, counting up from 1.",
-        "args": []
+        "args": [],
+        "en-US": "Match Round"
     },
     {
         "opy": "getMatchTime()",
-        "en": "matchTime",
         "fr": "TempsDeJeu",
         "description": "The amount of time in seconds remaining in the current game mode phase.",
-        "args": []
+        "args": [],
+        "en-US": "Match Time"
     },
     {
         "opy": "max",
-        "en": "max",
         "fr": "Maximum",
         "description": "The greater of two numbers.",
         "args": [
@@ -1843,11 +1772,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Max"
     },
     {
         "opy": "_&getMaxHealth",
-        "en": "maxHealth",
         "fr": "PointsDeVieMaximum",
         "description": "The max health of a player, including armor and shields.",
         "args": [
@@ -1857,11 +1786,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Max Health"
     },
     {
         "opy": "min",
-        "en": "min",
         "fr": "Minimum",
         "description": "The lesser of two numbers.",
         "args": [
@@ -1877,11 +1806,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Min"
     },
     {
         "opy": "_modulo",
-        "en": "modulo",
         "fr": "Modulo",
         "description": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero.",
         "args": [
@@ -1897,11 +1826,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Modulo"
     },
     {
         "opy": "_multiply",
-        "en": "multiply",
         "fr": "Multiplication",
         "description": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector.",
         "args": [
@@ -1917,11 +1846,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Multiply"
     },
     {
         "opy": "nearestWalkablePosition",
-        "en": "nearestWalkablePosition",
         "fr": "PositionLaPlusProcheEnMarchant",
         "description": "The position closest to the specified position that can be stood on and is accessible from a spawn point.",
         "args": [
@@ -1931,11 +1860,11 @@ var valueFuncKw =
                 "type": "POSITION",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Nearest Walkable Position"
     },
     {
         "opy": "normalize",
-        "en": "normalize",
         "fr": "Normalisation",
         "description": "The unit-length normalization of a vector.",
         "args": [
@@ -1945,11 +1874,11 @@ var valueFuncKw =
                 "type": "VECTOR",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Normalize"
     },
     {
         "opy": "not",
-        "en": "not",
         "fr": "Pas",
         "description": "Whether the input is false (or equivalent to false).",
         "args": [
@@ -1959,18 +1888,18 @@ var valueFuncKw =
                 "type": "BOOLEAN",
                 "default": "TRUE"
             }
-        ]
+        ],
+        "en-US": "Not"
     },
     {
         "opy": "null",
-        "en": "null",
         "fr": "NonApplicable",
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
-        "args": null
+        "args": null,
+        "en-US": "Null"
     },
     {
         "opy": "getNumberOfDeadPlayers",
-        "en": "numberOfDeadPlayers",
         "fr": "NombreDeJoueursMorts",
         "description": "The number of dead players on a team or in the match.",
         "args": [
@@ -1980,11 +1909,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Number Of Dead Players"
     },
     {
         "opy": "_&getNumberOfDeaths",
-        "en": "numberOfDeaths",
         "fr": "NombreDeMorts",
         "description": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
@@ -1994,11 +1923,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Number Of Deaths"
     },
     {
         "opy": "_&getNumberOfElims",
-        "en": "numberOfEliminations",
         "fr": "NombreD’éliminations",
         "description": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
@@ -2008,11 +1937,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Number Of Eliminations"
     },
     {
         "opy": "_&getNumberOfFinalBlows",
-        "en": "numberOfFinalBlows",
         "fr": "NombreDeCoupsDeGrâce",
         "description": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
@@ -2022,11 +1951,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Number Of Final Blows"
     },
     {
         "opy": "getNumberOfHeroes",
-        "en": "numberOfHeroes",
         "fr": "NombreDeHéros",
         "description": "The number of players playing a specific hero on a team or in the match.",
         "args": [
@@ -2042,11 +1971,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Number Of Heroes"
     },
     {
         "opy": "getNumberOfLivingPlayers",
-        "en": "numberOfLivingPlayers",
         "fr": "NombreDeJoueursEnVie",
         "description": "The number of living players on a team or in the match.",
         "args": [
@@ -2056,11 +1985,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Number Of Living Players"
     },
     {
         "opy": "getNumberOfPlayers",
-        "en": "numberOfPlayers",
         "fr": "NombreDeJoueurs",
         "description": "The number of players on a team or in the match.",
         "args": [
@@ -2070,11 +1999,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Number Of Players"
     },
     {
         "opy": "getNumberOfPlayersOnObjective",
-        "en": "numberOfPlayersOnObjective",
         "fr": "NombreDeJoueursSurL’objectif",
         "description": "The number of players occupying a payload or control point (either on a team or in the match).",
         "args": [
@@ -2084,18 +2013,18 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Number Of Players On Objective"
     },
     {
         "opy": "getCurrentObjective()",
-        "en": "objectiveIndex",
         "fr": "IndexDeL’objectif",
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
-        "args": []
+        "args": [],
+        "en-US": "Objective Index"
     },
     {
         "opy": "getObjectivePosition",
-        "en": "objectivePosition",
         "fr": "PositionDeL’objectif",
         "description": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, assault/escort, escort, and control.",
         "args": [
@@ -2105,11 +2034,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Objective Position"
     },
     {
         "opy": "getOppositeTeam",
-        "en": "oppositeTeamOf",
         "fr": "ÉquipeOpposéeà",
         "description": "The team opposite the specified team.",
         "args": [
@@ -2119,11 +2048,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Opposite Team Of"
     },
     {
         "opy": "_or",
-        "en": "or",
         "fr": "Ou",
         "description": "Whether either of the two inputs are true (or equivalent to true).",
         "args": [
@@ -2139,25 +2068,25 @@ var valueFuncKw =
                 "type": "BOOLEAN",
                 "default": "TRUE"
             }
-        ]
+        ],
+        "en-US": "Or"
     },
     {
         "opy": "getPayloadPosition",
-        "en": "payloadPosition",
         "fr": "PositionDuConvoi",
         "description": "The position in the world of the active payload.",
-        "args": []
+        "args": [],
+        "en-US": "Payload Position"
     },
     {
         "opy": "getPayloadProgressPercentage",
-        "en": "payloadProgressPercentage",
         "fr": "PourcentageDeProgressionDuConvoi",
         "description": "The current progress towards the destination for the active payload (expressed as a percentage).",
-        "args": []
+        "args": [],
+        "en-US": "Payload Progress Percentage"
     },
     {
         "opy": "getFlagCarrier",
-        "en": "playerCarryingFlag",
         "fr": "JoueurPortantLeDrapeau",
         "description": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag.",
         "args": [
@@ -2167,11 +2096,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Player Carrying Flag"
     },
     {
         "opy": "_&getPlayerClosestToReticle",
-        "en": "playerClosestToReticle",
         "fr": "JoueurLePlusProcheDuRéticule",
         "description": "The player closest to the reticle of the specified player, optionally restricted by team.",
         "args": [
@@ -2187,11 +2116,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Player Closest To Reticle"
     },
     {
         "opy": "_playerVar",
-        "en": "playerVariable",
         "fr": "VariableDeJoueur",
         "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
@@ -2207,11 +2136,11 @@ var valueFuncKw =
                 "type": "VARIABLE",
                 "default": "A"
             }
-        ]
+        ],
+        "en-US": "Player Variable"
     },
     {
         "opy": "getPlayersInSlot",
-        "en": "playersInSlot",
         "fr": "JoueursDansL’emplacement",
         "description": "The player or array of players who occupy a specific slot in the game.",
         "args": [
@@ -2227,11 +2156,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Players In Slot"
     },
     {
         "opy": "_&getPlayersInViewAngle",
-        "en": "playersInViewAngle",
         "fr": "JoueursDansLeChampDeVision",
         "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.",
         "args": [
@@ -2253,11 +2182,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Players In View Angle"
     },
     {
         "opy": "getPlayersOnHero",
-        "en": "playersOnHero",
         "fr": "JoueursSurLeHéros",
         "description": "The array of players playing a specific hero on a team or in the match.",
         "args": [
@@ -2273,11 +2202,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Players On Hero"
     },
     {
         "opy": "getPlayersInRadius",
-        "en": "playersWithinRadius",
         "fr": "JoueursDansUnRayon",
         "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.",
         "args": [
@@ -2305,18 +2234,18 @@ var valueFuncKw =
                 "type": "LOS CHECK",
                 "default": "OFF"
             }
-        ]
+        ],
+        "en-US": "Players Within Radius"
     },
     {
         "opy": "getCapturePercentage",
-        "en": "pointCapturePercentage",
         "fr": "PourcentageDeCaptureDuPoint",
         "description": "The current progress towards capture for the active control point (expressed as a percentage).",
-        "args": []
+        "args": [],
+        "en-US": "Point Capture Percentage"
     },
     {
         "opy": "_&getPosition",
-        "en": "positionOf",
         "fr": "PositionDe",
         "description": "The current position of a player as a vector.",
         "args": [
@@ -2326,11 +2255,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Position Of"
     },
     {
         "opy": "_raiseToPower",
-        "en": "raiseToPower",
         "fr": "ÉlévationàUnePuissance",
         "description": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero.",
         "args": [
@@ -2346,18 +2275,18 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Raise To Power"
     },
     {
         "opy": "_randomWs",
-        "en": "random",
         "fr": "Aléatoire",
         "description": "An internal value that is the word 'random' used by all 4 random functions, no matter the language.",
         "args": [],
+        "en-US": "Random"
     },
     {
         "opy": "random.randint",
-        "en": "randomInteger",
         "fr": "NombreEntierAléatoire",
         "description": "A random integer between the specified min and max, inclusive.",
         "args": [
@@ -2373,11 +2302,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Random Integer"
     },
     {
         "opy": "random.uniform",
-        "en": "randomReal",
         "fr": "NombreRéelAléatoire",
         "description": "A random real number between the specified min and max.",
         "args": [
@@ -2393,11 +2322,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Random Real"
     },
     {
         "opy": "random.choice",
-        "en": "randomValueInArray",
         "fr": "ValeurAléatoireDansLeTableau",
         "description": "A random value from the specified array.",
         "args": [
@@ -2407,11 +2336,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "GLOBAL VARIABLE"
             }
-        ]
+        ],
+        "en-US": "Random Value In Array"
     },
     {
         "opy": "random.shuffle",
-        "en": "randomizedArray",
         "fr": "TableauAléatoire",
         "description": "A copy of the specified array with the values in a random order.",
         "args": [
@@ -2421,11 +2350,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "GLOBAL VARIABLE"
             }
-        ]
+        ],
+        "en-US": "Randomized Array"
     },
     {
         "opy": "_getNormal",
-        "en": "raycastHitNormal",
         "fr": "SurfaceIntersectéeParLeRayonémis",
         "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
         "args": [
@@ -2459,11 +2388,11 @@ var valueFuncKw =
                 "type": "BOOLEAN",
                 "default": "TRUE"
             }
-        ]
+        ],
+        "en-US": "Raycast Hit Normal"
     },
     {
         "opy": "_getPlayerHit",
-        "en": "raycastHitPlayer",
         "fr": "JoueurIntersectéParLeRayonémis",
         "description": "The player hit by the ray cast (or null if no player is hit).",
         "args": [
@@ -2497,11 +2426,11 @@ var valueFuncKw =
                 "type": "BOOLEAN",
                 "default": "TRUE"
             }
-        ]
+        ],
+        "en-US": "Raycast Hit Player"
     },
     {
         "opy": "_getHitPosition",
-        "en": "raycastHitPosition",
         "fr": "PositionD’impactDuRayonémis",
         "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
         "args": [
@@ -2535,11 +2464,11 @@ var valueFuncKw =
                 "type": "BOOLEAN",
                 "default": "TRUE"
             }
-        ]
+        ],
+        "en-US": "Raycast Hit Position"
     },
     {
         "opy": "_removeFromArray",
-        "en": "removeFromArray",
         "fr": "SupprimerDuTableau",
         "description": "A copy of an array with one or more values removed (if found).",
         "args": [
@@ -2555,18 +2484,18 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Remove From Array"
     },
     {
         "opy": "Vector.RIGHT",
-        "en": "right",
         "fr": "Droite",
         "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
-        "args": null
+        "args": null,
+        "en-US": "Right"
     },
     {
         "opy": "_round",
-        "en": "roundToInteger",
         "fr": "ArrondiràL’entier",
         "description": "The integer to which the specified value rounds.",
         "args": [
@@ -2582,11 +2511,11 @@ var valueFuncKw =
                 "type": "ROUNDING TYPE",
                 "default": "UP"
             }
-        ]
+        ],
+        "en-US": "Round To Integer"
     },
     {
         "opy": "_&getScore",
-        "en": "scoreOf",
         "fr": "ScoreDe",
         "description": "The current score of a player. Results in 0 if the game mode is not free-for-all.",
         "args": [
@@ -2596,32 +2525,32 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Score Of"
     },
     {
         "opy": "getServerLoad()",
-        "en": "serverLoad",
         "fr": "ChargeDuServeur",
         "description": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
-        "args": []
+        "args": [],
+        "en-US": "Server Load"
     },
     {
         "opy": "getAverageServerLoad()",
-        "en": "serverLoadAverage",
         "fr": "ChargeMoyenneDuServeur",
         "description": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
-        "args": []
+        "args": [],
+        "en-US": "Server Load Average"
     },
     {
         "opy": "getPeakServerLoad()",
-        "en": "serverLoadPeak",
         "fr": "PicDeChargeDuServeur",
         "description": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
-        "args": []
+        "args": [],
+        "en-US": "Server Load Peak"
     },
     {
         "opy": "sinDeg",
-        "en": "sineFromDegrees",
         "fr": "SinusEnDegrés",
         "description": "Sine of the specified angle in degrees.",
         "args": [
@@ -2631,11 +2560,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Sine From Degrees"
     },
     {
         "opy": "sin",
-        "en": "sineFromRadians",
         "fr": "SinusEnRadians",
         "description": "Sine of the specified angle in radians.",
         "args": [
@@ -2645,11 +2574,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Sine From Radians"
     },
     {
         "opy": "_&getSlot",
-        "en": "slotOf",
         "fr": "EmplacementDe",
         "description": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
         "args": [
@@ -2659,11 +2588,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Slot Of"
     },
     {
         "opy": "_sortedArray",
-        "en": "sortedArray",
         "fr": "TableauTrié",
         "description": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element.",
         "args": [
@@ -2679,11 +2608,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "CURRENT ARRAY ELEMENT"
             }
-        ]
+        ],
+        "en-US": "Sorted Array"
     },
     {
         "opy": "_&getSpeed",
-        "en": "speedOf",
         "fr": "VitesseDe",
         "description": "The current speed of a player in meters per second.",
         "args": [
@@ -2693,11 +2622,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Speed Of"
     },
     {
         "opy": "_&getSpeedInDirection",
-        "en": "speedOfInDirection",
         "fr": "VitesseDansLaDirectionDonnéeDe",
         "description": "The current speed of a player in a specific direction in meters per second.",
         "args": [
@@ -2713,11 +2642,11 @@ var valueFuncKw =
                 "type": "DIRECTION",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Speed Of In Direction"
     },
     {
         "opy": "sqrt",
-        "en": "squareRoot",
         "fr": "RacineCarrée",
         "description": "The square root of the specified value.",
         "args": [
@@ -2727,11 +2656,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Square Root"
     },
     {
         "opy": "_localizedString",
-        "en": "string",
         "fr": "ChaîneDeTexte",
         "description": "Text formed from a selection of strings and specified values.",
         "args": [
@@ -2759,11 +2688,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "NULL"
             }
-        ]
+        ],
+        "en-US": "String"
     },
     {
         "opy": "_subtract",
-        "en": "subtract",
         "fr": "Soustraction",
         "description": "The difference between two numbers or vectors.",
         "args": [
@@ -2779,11 +2708,11 @@ var valueFuncKw =
                 "type": "ANY",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Subtract"
     },
     {
         "opy": "tanDeg",
-        "en": "tangentFromDegrees",
         "fr": "todo",
         "description": "Tangent of the specified angle in degrees.",
         "args": [
@@ -2793,11 +2722,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Tangent From Degrees"
     },
     {
         "opy": "tan",
-        "en": "tangentFromRadians",
         "fr": "todo",
         "description": "Tangent of the specified angle in radians.",
         "args": [
@@ -2807,11 +2736,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Tangent From Radians"
     },
     {
         "opy": "_&getTeam",
-        "en": "teamOf",
         "fr": "ÉquipeDe",
         "description": "The team of a player. If the game mode is free-for-all, the team is considered to be all.",
         "args": [
@@ -2821,11 +2750,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Team Of"
     },
     {
         "opy": "teamScore",
-        "en": "teamScore",
         "fr": "ScoreDeL’équipe",
         "description": "The current score for the specified team. Results in 0 in free-for-all game modes.",
         "args": [
@@ -2835,11 +2764,11 @@ var valueFuncKw =
                 "type": "TEAM",
                 "default": "TEAM"
             }
-        ]
+        ],
+        "en-US": "Team Score"
     },
     {
         "opy": "_&getThrottle",
-        "en": "throttleOf",
         "fr": "AccélérationDe",
         "description": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward).",
         "args": [
@@ -2849,25 +2778,25 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Throttle Of"
     },
     {
         "opy": "getTotalTimeElapsed",
-        "en": "totalTimeElapsed",
         "fr": "TempsTotalécoulé",
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
-        "args": []
+        "args": [],
+        "en-US": "Total Time Elapsed"
     },
     {
         "opy": "true",
-        "en": "true",
         "fr": "Vrai",
         "description": "The boolean value of true.",
-        "args": null
+        "args": null,
+        "en-US": "True"
     },
     {
         "opy": "_&getUltCharge",
-        "en": "ultimateChargePercent",
         "fr": "PourcentageDeChargeDeLaCapacitéUltime",
         "description": "The current ultimate ability charge percentage of a player.",
         "args": [
@@ -2877,18 +2806,18 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Ultimate Charge Percent"
     },
     {
         "opy": "Vector.UP",
-        "en": "up",
         "fr": "Haut",
         "description": "Shorthand for the directional vector(0, l, 0), which points upward.",
-        "args": null
+        "args": null,
+        "en-US": "Up"
     },
     {
         "opy": "_valueInArray",
-        "en": "valueInArray",
         "fr": "ValeurDansLeTableau",
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
         "args": [
@@ -2904,11 +2833,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Value In Array"
     },
     {
         "opy": "vect",
-        "en": "vector",
         "fr": "Vecteur",
         "description": "A vector composed of three real numbers (x, y, z) where x is left, y is up, and z is forward. Vectors are used for position, direction, and velocity.",
         "args": [
@@ -2930,11 +2859,11 @@ var valueFuncKw =
                 "type": "NUMBER",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        "en-US": "Vector"
     },
     {
         "opy": "vectorTowards",
-        "en": "vectorTowards",
         "fr": "VecteurVers",
         "description": "The displacement vector from one position to another.",
         "args": [
@@ -2950,11 +2879,11 @@ var valueFuncKw =
                 "type": "POSITION",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Vector Towards"
     },
     {
         "opy": "_&getVelocity",
-        "en": "velocityOf",
         "fr": "VélocitéDe",
         "description": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope.",
         "args": [
@@ -2964,11 +2893,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Velocity Of"
     },
     {
         "opy": "verticalAngleOfDirection",
-        "en": "verticalAngleFromDirection",
         "fr": "AngleVerticalDepuisUneDirection",
         "description": "The vertical angle in degrees corresponding to the specified direction vector.",
         "args": [
@@ -2978,11 +2907,11 @@ var valueFuncKw =
                 "type": "VECTOR",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Vertical Angle From Direction"
     },
     {
         "opy": "verticalAngleTowards",
-        "en": "verticalAngleTowards",
         "fr": "AngleVerticalVers",
         "description": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative.",
         "args": [
@@ -2998,11 +2927,11 @@ var valueFuncKw =
                 "type": "POSITION",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Vertical Angle Towards"
     },
     {
         "opy": "_&getVerticalFacingAngle",
-        "en": "verticalFacingAngleOf",
         "fr": "AngleVerticalDuRegardDe",
         "description": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down.",
         "args": [
@@ -3012,11 +2941,11 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Vertical Facing Angle Of"
     },
     {
         "opy": "_&getVerticalSpeed",
-        "en": "verticalSpeedOf",
         "fr": "VitesseVerticaleDe",
         "description": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes.",
         "args": [
@@ -3026,18 +2955,18 @@ var valueFuncKw =
                 "type": "PLAYER",
                 "default": "EVENT PLAYER"
             }
-        ]
+        ],
+        "en-US": "Vertical Speed Of"
     },
     {
         "opy": "victim",
-        "en": "victim",
         "fr": "Victime",
         "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
-        "args": null
+        "args": null,
+        "en-US": "Victim"
     },
     {
         "opy": "worldVector",
-        "en": "worldVectorOf",
         "fr": "VecteurMondialDe",
         "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
         "args": [
@@ -3059,11 +2988,11 @@ var valueFuncKw =
                 "type": "TRANSFORMATION",
                 "default": "ROTATION"
             }
-        ]
+        ],
+        "en-US": "World Vector Of"
     },
     {
         "opy": "_xComponentOf",
-        "en": "xComponentOf",
         "fr": "ComposanteXDe",
         "description": "The x component of the specified vector, usually representing a leftward amount.",
         "args": [
@@ -3073,11 +3002,11 @@ var valueFuncKw =
                 "type": "VECTOR",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "X Component Of"
     },
     {
         "opy": "_yComponentOf",
-        "en": "yComponentOf",
         "fr": "ComposanteYDe",
         "description": "The y component of the specified vector, usually representing an upward amount.",
         "args": [
@@ -3087,11 +3016,11 @@ var valueFuncKw =
                 "type": "VECTOR",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Y Component Of"
     },
     {
         "opy": "_zComponentOf",
-        "en": "zComponentOf",
         "fr": "ComposanteZDe",
         "description": "The z component of the specified vector, usually representing a forward amount.",
         "args": [
@@ -3101,7 +3030,14 @@ var valueFuncKw =
                 "type": "VECTOR",
                 "default": "VECTOR"
             }
-        ]
+        ],
+        "en-US": "Z Component Of"
     }
 ]
 //end-json
+
+
+
+
+
+

@@ -23,12 +23,12 @@ var constantValues =
         "values": [
             {
                 "opy": "Transform.ROTATION",
-                "en": "Rotation"
+                "en-US": "Rotation"
             },
             {
                 "opy": "Transform.ROTATION_AND_TRANSLATION",
-                "en": "RotationAndTranslation",
-                "fr": "RotationEtTranslation"
+                "fr": "RotationEtTranslation",
+                "en-US": "Rotation And Translation"
             }
         ]
     },
@@ -37,18 +37,18 @@ var constantValues =
         "values": [
             {
                 "opy": "Invis.ALL",
-                "en": "All",
-                "fr": "Tous"
+                "fr": "Tous",
+                "en-US": "All"
             },
             {
                 "opy": "Invis.ENEMIES",
-                "en": "Enemies",
-                "fr": "Ennemis"
+                "fr": "Ennemis",
+                "en-US": "Enemies"
             },
             {
                 "opy": "Invis.NONE",
-                "en": "None",
-                "fr": "Personne"
+                "fr": "Personne",
+                "en-US": "None"
             }
         ]
     },
@@ -57,68 +57,68 @@ var constantValues =
         "values": [
             {
                 "opy": "Color.AQUA",
-                "en": "Aqua",
-                "fr": "Cyan"
+                "fr": "Cyan",
+                "en-US": "Aqua"
             },
             {
                 "opy": "Color.BLUE",
-                "en": "Blue",
-                "fr": "Bleu"
+                "fr": "Bleu",
+                "en-US": "Blue"
             },
             {
                 "opy": "Color.GREEN",
-                "en": "Green",
-                "fr": "Vert"
+                "fr": "Vert",
+                "en-US": "Green"
             },
             {
                 "opy": "Color.LIME_GREEN",
-                "en": "Limegreen",
-                "fr": "CitronVert"
+                "fr": "CitronVert",
+                "en-US": "Limegreen"
             },
             {
                 "opy": "Color.ORANGE",
-                "en": "Orange",
-                "fr": "Orange"
+                "fr": "Orange",
+                "en-US": "Orange"
             },
             {
                 "opy": "Color.PURPLE",
-                "en": "Purple",
-                "fr": "Violet"
+                "fr": "Violet",
+                "en-US": "Purple"
             },
             {
                 "opy": "Color.RED",
-                "en": "Red",
-                "fr": "Rouge"
+                "fr": "Rouge",
+                "en-US": "Red"
             },
             {
                 "opy": "Color.SKY_BLUE",
-                "en": "Skyblue",
-                "fr": "BleuCiel"
+                "fr": "BleuCiel",
+                "en-US": "Skyblue"
             },
             {
                 "opy": "Color.TEAM_1",
-                "en": "Team1",
-                "fr": "Équipe1"
+                "fr": "Équipe1",
+                "en-US": "Team 1"
             },
             {
                 "opy": "Color.TEAM_2",
-                "en": "Team2",
-                "fr": "Équipe2"
+                "fr": "Équipe2",
+                "en-US": "Team 2"
             },
             {
                 "opy": "Color.TURQUOISE",
-                "en": "Turquoise",
-                "fr": "Turquoise"
+                "fr": "Turquoise",
+                "en-US": "Turquoise"
             },
             {
                 "opy": "Color.WHITE",
-                "en": "White",
-                "fr": "Blanc"
+                "fr": "Blanc",
+                "en-US": "White"
             },
             {
                 "opy": "Color.YELLOW",
-                "en": "Yellow",
-                "fr": "Jaune"
+                "fr": "Jaune",
+                "en-US": "Yellow"
             }
         ]
     },
@@ -127,43 +127,43 @@ var constantValues =
         "values": [
             {
                 "opy": "Button.ABILITY_1",
-                "en": "Ability1",
-                "fr": "Capacité1"
+                "fr": "Capacité1",
+                "en-US": "Ability 1"
             },
             {
                 "opy": "Button.ABILITY_2",
-                "en": "Ability2",
-                "fr": "Capacité2"
+                "fr": "Capacité2",
+                "en-US": "Ability 2"
             },
             {
                 "opy": "Button.CROUCH",
-                "en": "Crouch",
-                "fr": "S’accroupir"
+                "fr": "S’accroupir",
+                "en-US": "Crouch"
             },
             {
                 "opy": "Button.INTERACT",
-                "en": "Interact",
-                "fr": "Interagir"
+                "fr": "Interagir",
+                "en-US": "Interact"
             },
             {
                 "opy": "Button.JUMP",
-                "en": "Jump",
-                "fr": "Sauter"
+                "fr": "Sauter",
+                "en-US": "Jump"
             },
             {
                 "opy": "Button.PRIMARY_FIRE",
-                "en": "PrimaryFire",
-                "fr": "TirPrincipal"
+                "fr": "TirPrincipal",
+                "en-US": "Primary Fire"
             },
             {
                 "opy": "Button.SECONDARY_FIRE",
-                "en": "SecondaryFire",
-                "fr": "TirSecondaire"
+                "fr": "TirSecondaire",
+                "en-US": "Secondary Fire"
             },
             {
                 "opy": "Button.ULTIMATE",
-                "en": "Ultimate",
-                "fr": "CapacitéUltime"
+                "fr": "CapacitéUltime",
+                "en-US": "Ultimate"
             }
         ]
     },
@@ -172,58 +172,58 @@ var constantValues =
         "values": [
             {
                 "opy": "_add",
-                "en": "Add",
-                "fr": "Addition"
+                "fr": "Addition",
+                "en-US": "Add"
             },
             {
                 "opy": "_appendToArray",
-                "en": "AppendToArray",
-                "fr": "AjouterAuTableau"
+                "fr": "AjouterAuTableau",
+                "en-US": "Append To Array"
             },
             {
                 "opy": "_divide",
-                "en": "Divide",
-                "fr": "Division"
+                "fr": "Division",
+                "en-US": "Divide"
             },
             {
                 "opy": "_max",
-                "en": "Max",
-                "fr": "Maximum"
+                "fr": "Maximum",
+                "en-US": "Max"
             },
             {
                 "opy": "_min",
-                "en": "Min",
-                "fr": "Minimum"
+                "fr": "Minimum",
+                "en-US": "Min"
             },
             {
                 "opy": "_modulo",
-                "en": "Modulo",
-                "fr": "Modulo"
+                "fr": "Modulo",
+                "en-US": "Modulo"
             },
             {
                 "opy": "_multiply",
-                "en": "Multiply",
-                "fr": "Multiplication"
+                "fr": "Multiplication",
+                "en-US": "Multiply"
             },
             {
                 "opy": "_raiseToPower",
-                "en": "RaiseToPower",
-                "fr": "ÉlévationàUnePuissance"
+                "fr": "ÉlévationàUnePuissance",
+                "en-US": "Raise To Power"
             },
             {
                 "opy": "_removeFromArrayByIndex",
-                "en": "RemoveFromArrayByIndex",
-                "fr": "SupprimerDuTableauParIndex"
+                "fr": "SupprimerDuTableauParIndex",
+                "en-US": "Remove From Array By Index"
             },
             {
                 "opy": "_removeFromArrayByValue",
-                "en": "RemoveFromArrayByValue",
-                "fr": "SupprimerDuTableauParValeur"
+                "fr": "SupprimerDuTableauParValeur",
+                "en-US": "Remove From Array By Value"
             },
             {
                 "opy": "_subtract",
-                "en": "Subtract",
-                "fr": "Soustraction"
+                "fr": "Soustraction",
+                "en-US": "Subtract"
             }
         ]
     },
@@ -232,18 +232,18 @@ var constantValues =
         "values": [
             {
                 "opy": "Team.ALL",
-                "en": "AllTeams",
-                "fr": "ToutesLeséquipes"
+                "fr": "ToutesLeséquipes",
+                "en-US": "All Teams"
             },
             {
                 "opy": "Team.1",
-                "en": "Team1",
-                "fr": "Équipe1"
+                "fr": "Équipe1",
+                "en-US": "Team 1"
             },
             {
                 "opy": "Team.2",
-                "en": "Team2",
-                "fr": "Équipe2"
+                "fr": "Équipe2",
+                "en-US": "Team 2"
             }
         ]
     },
@@ -252,189 +252,189 @@ var constantValues =
         "values": [
             {
                 "opy": "Hero.ANA",
-                "en": "Ana",
                 "fr": "Ana",
-                "kr": "아나"
+                "kr": "아나",
+                "en-US": "Ana"
             },
             {
                 "opy": "Hero.ASHE",
-                "en": "Ashe",
                 "fr": "Ashe",
-                "kr": "애쉬"
+                "kr": "애쉬",
+                "en-US": "Ashe"
             },
             {
                 "opy": "Hero.BAPTISTE",
-                "en": "Baptiste",
                 "fr": "Baptiste",
-                "kr": "바티스트"
+                "kr": "바티스트",
+                "en-US": "Baptiste"
             },
             {
                 "opy": "Hero.BASTION",
-                "en": "Bastion",
                 "fr": "Bastion",
-                "kr": "바스티온"
+                "kr": "바스티온",
+                "en-US": "Bastion"
             },
             {
                 "opy": "Hero.BRIGITTE",
-                "en": "Brigitte",
                 "fr": "Brigitte",
-                "kr": "브리기테"
+                "kr": "브리기테",
+                "en-US": "Brigitte"
             },
             {
                 "opy": "Hero.DVA",
-                "en": "D.va",
                 "fr": "D.va",
-                "kr": "D.Va"
+                "kr": "D.Va",
+                "en-US": "D.va"
             },
             {
                 "opy": "Hero.DOOMFIST",
-                "en": "Doomfist",
                 "fr": "Doomfist",
-                "kr": "둠피스트"
+                "kr": "둠피스트",
+                "en-US": "Doomfist"
             },
             {
                 "opy": "Hero.GENJI",
-                "en": "Genji",
                 "fr": "Genji",
-                "kr": "겐지"
+                "kr": "겐지",
+                "en-US": "Genji"
             },
             {
                 "opy": "Hero.HANZO",
-                "en": "Hanzo",
                 "fr": "Hanzo",
-                "kr": "한조"
+                "kr": "한조",
+                "en-US": "Hanzo"
             },
             {
                 "opy": "Hero.JUNKRAT",
-                "en": "Junkrat",
                 "fr": "Chacal",
-                "kr": "정크랫"
+                "kr": "정크랫",
+                "en-US": "Junkrat"
             },
             {
                 "opy": "Hero.LUCIO",
-                "en": "Lúcio",
                 "fr": "Lúcio",
-                "kr": "루시우"
+                "kr": "루시우",
+                "en-US": "Lúcio"
             },
             {
                 "opy": "Hero.MCCREE",
-                "en": "Mccree",
                 "fr": "Mccree",
-                "kr": "맥크리"
+                "kr": "맥크리",
+                "en-US": "Mccree"
             },
             {
                 "opy": "Hero.MEI",
-                "en": "Mei",
                 "fr": "Mei",
-                "kr": "메이"
+                "kr": "메이",
+                "en-US": "Mei"
             },
             {
                 "opy": "Hero.MERCY",
-                "en": "Mercy",
                 "fr": "Ange",
-                "kr": "메르시"
+                "kr": "메르시",
+                "en-US": "Mercy"
             },
             {
                 "opy": "Hero.MOIRA",
-                "en": "Moira",
                 "fr": "Moira",
-                "kr": "모이라"
+                "kr": "모이라",
+                "en-US": "Moira"
             },
             {
                 "opy": "Hero.ORISA",
-                "en": "Orisa",
                 "fr": "Orisa",
-                "kr": "오리사"
+                "kr": "오리사",
+                "en-US": "Orisa"
             },
             {
                 "opy": "Hero.PHARAH",
-                "en": "Pharah",
                 "fr": "Pharah",
-                "kr": "파라"
+                "kr": "파라",
+                "en-US": "Pharah"
             },
             {
                 "opy": "Hero.REAPER",
-                "en": "Reaper",
                 "fr": "Faucheur",
-                "kr": "리퍼"
+                "kr": "리퍼",
+                "en-US": "Reaper"
             },
             {
                 "opy": "Hero.REINHARDT",
-                "en": "Reinhardt",
                 "fr": "Reinhardt",
-                "kr": "라인하르트"
+                "kr": "라인하르트",
+                "en-US": "Reinhardt"
             },
             {
                 "opy": "Hero.ROADHOG",
-                "en": "Roadhog",
                 "fr": "Chopper",
-                "kr": "로드호그"
+                "kr": "로드호그",
+                "en-US": "Roadhog"
             },
             {
                 "opy": "Hero.SIGMA",
-                "en": "Sigma",
                 "fr": "Sigma",
-                "kr": "시그마"
+                "kr": "시그마",
+                "en-US": "Sigma"
             },
             {
                 "opy": "Hero.SOLDIER",
-                "en": "Soldier:76",
                 "fr": "Soldat:76",
-                "kr": "솔저: 76"
+                "kr": "솔저: 76",
+                "en-US": "Soldier: 76"
             },
             {
                 "opy": "Hero.SOMBRA",
-                "en": "Sombra",
                 "fr": "Sombra",
-                "kr": "솜브라"
+                "kr": "솜브라",
+                "en-US": "Sombra"
             },
             {
                 "opy": "Hero.SYMMETRA",
-                "en": "Symmetra",
                 "fr": "Symmetra",
-                "kr": "시메트라"
+                "kr": "시메트라",
+                "en-US": "Symmetra"
             },
             {
                 "opy": "Hero.TORBJORN",
-                "en": "Torbjörn",
                 "fr": "Torbjörn",
-                "kr": "토르비욘"
+                "kr": "토르비욘",
+                "en-US": "Torbjörn"
             },
             {
                 "opy": "Hero.TRACER",
-                "en": "Tracer",
                 "fr": "Tracer",
-                "kr": "트레이서"
+                "kr": "트레이서",
+                "en-US": "Tracer"
             },
             {
                 "opy": "Hero.WIDOWMAKER",
-                "en": "Widowmaker",
                 "fr": "Fatale",
-                "kr": "위도우메이커"
+                "kr": "위도우메이커",
+                "en-US": "Widowmaker"
             },
             {
                 "opy": "Hero.WINSTON",
-                "en": "Winston",
                 "fr": "Winston",
-                "kr": "윈스턴"
+                "kr": "윈스턴",
+                "en-US": "Winston"
             },
             {
                 "opy": "Hero.HAMMOND",
-                "en": "WreckingBall",
                 "fr": "Bouldozer",
-                "kr": "레킹볼"
+                "kr": "레킹볼",
+                "en-US": "Wrecking Ball"
             },
             {
                 "opy": "Hero.ZARYA",
-                "en": "Zarya",
                 "fr": "Zarya",
-                "kr": "자리야"
+                "kr": "자리야",
+                "en-US": "Zarya"
             },
             {
                 "opy": "Hero.ZENYATTA",
-                "en": "Zenyatta",
                 "fr": "Zenyatta",
-                "kr": "젠야타"
+                "kr": "젠야타",
+                "en-US": "Zenyatta"
             }
         ]
     },
@@ -443,107 +443,107 @@ var constantValues =
         "values": [
             {
                 "opy": "A",
-                "en": "A"
+                "en-US": "A"
             },
             {
                 "opy": "B",
-                "en": "B"
+                "en-US": "B"
             },
             {
                 "opy": "C",
-                "en": "C"
+                "en-US": "C"
             },
             {
                 "opy": "D",
-                "en": "D"
+                "en-US": "D"
             },
             {
                 "opy": "E",
-                "en": "E"
+                "en-US": "E"
             },
             {
                 "opy": "F",
-                "en": "F"
+                "en-US": "F"
             },
             {
                 "opy": "G",
-                "en": "G"
+                "en-US": "G"
             },
             {
                 "opy": "H",
-                "en": "H"
+                "en-US": "H"
             },
             {
                 "opy": "I",
-                "en": "I"
+                "en-US": "I"
             },
             {
                 "opy": "J",
-                "en": "J"
+                "en-US": "J"
             },
             {
                 "opy": "K",
-                "en": "K"
+                "en-US": "K"
             },
             {
                 "opy": "L",
-                "en": "L"
+                "en-US": "L"
             },
             {
                 "opy": "M",
-                "en": "M"
+                "en-US": "M"
             },
             {
                 "opy": "N",
-                "en": "N"
+                "en-US": "N"
             },
             {
                 "opy": "O",
-                "en": "O"
+                "en-US": "O"
             },
             {
                 "opy": "P",
-                "en": "P"
+                "en-US": "P"
             },
             {
                 "opy": "Q",
-                "en": "Q"
+                "en-US": "Q"
             },
             {
                 "opy": "R",
-                "en": "R"
+                "en-US": "R"
             },
             {
                 "opy": "S",
-                "en": "S"
+                "en-US": "S"
             },
             {
                 "opy": "T",
-                "en": "T"
+                "en-US": "T"
             },
             {
                 "opy": "U",
-                "en": "U"
+                "en-US": "U"
             },
             {
                 "opy": "V",
-                "en": "V"
+                "en-US": "V"
             },
             {
                 "opy": "W",
-                "en": "W"
+                "en-US": "W"
             },
             {
                 "opy": "X",
-                "en": "X"
+                "en-US": "X"
             },
             {
                 "opy": "Y",
-                "en": "Y"
+                "en-US": "Y"
             },
             {
                 "opy": "Z",
-                "en": "Z"
+                "en-US": "Z"
             }
         ]
     },
@@ -552,53 +552,53 @@ var constantValues =
         "values": [
             {
                 "opy": "DynamicEffect.BAD_EXPLOSION",
-                "en": "BadExplosion",
-                "fr": "MauvaiseExplosion"
+                "fr": "MauvaiseExplosion",
+                "en-US": "Bad Explosion"
             },
             {
                 "opy": "DynamicEffect.BAD_PICKUP_EFFECT",
-                "en": "BadPickupEffect",
-                "fr": "MauvaisEffetDeRamassage"
+                "fr": "MauvaisEffetDeRamassage",
+                "en-US": "Bad Pickup Effect"
             },
             {
                 "opy": "DynamicEffect.BUFF_EXPLOSION_SOUND",
-                "en": "BuffExplosionSound",
-                "fr": "SonD’explosionD’amélioration"
+                "fr": "SonD’explosionD’amélioration",
+                "en-US": "Buff Explosion Sound"
             },
             {
                 "opy": "DynamicEffect.BUFF_IMPACT_SOUND",
-                "en": "BuffImpactSound",
-                "fr": "SonD’impactD’amélioration"
+                "fr": "SonD’impactD’amélioration",
+                "en-US": "Buff Impact Sound"
             },
             {
                 "opy": "DynamicEffect.DEBUFF_IMPACT_SOUND",
-                "en": "DebuffImpactSound",
-                "fr": "SonD’impactD’affaiblissement"
+                "fr": "SonD’impactD’affaiblissement",
+                "en-US": "Debuff Impact Sound"
             },
             {
                 "opy": "DynamicEffect.EXPLOSION_SOUND",
-                "en": "ExplosionSound",
-                "fr": "SonDeL’explosion"
+                "fr": "SonDeL’explosion",
+                "en-US": "Explosion Sound"
             },
             {
                 "opy": "DynamicEffect.GOOD_EXPLOSION",
-                "en": "GoodExplosion",
-                "fr": "BonneExplosion"
+                "fr": "BonneExplosion",
+                "en-US": "Good Explosion"
             },
             {
                 "opy": "DynamicEffect.GOOD_PICKUP_EFFECT",
-                "en": "GoodPickupEffect",
-                "fr": "BonEffetDeRamassage"
+                "fr": "BonEffetDeRamassage",
+                "en-US": "Good Pickup Effect"
             },
             {
                 "opy": "DynamicEffect.RING_EXPLOSION",
-                "en": "RingExplosion",
-                "fr": "ExplosionConcentrique"
+                "fr": "ExplosionConcentrique",
+                "en-US": "Ring Explosion"
             },
             {
                 "opy": "DynamicEffect.RING_EXPLOSION_SOUND",
-                "en": "RingExplosionSound",
-                "fr": "SonD’explosionConcentrique"
+                "fr": "SonD’explosionConcentrique",
+                "en-US": "Ring Explosion Sound"
             }
         ]
     },
@@ -607,83 +607,83 @@ var constantValues =
         "values": [
             {
                 "opy": "Effect.BAD_AURA",
-                "en": "BadAura",
-                "fr": "MauvaiseAura"
+                "fr": "MauvaiseAura",
+                "en-US": "Bad Aura"
             },
             {
                 "opy": "Effect.BAD_AURA_SOUND",
-                "en": "BadAuraSound",
-                "fr": "SonDeMauvaiseAura"
+                "fr": "SonDeMauvaiseAura",
+                "en-US": "Bad Aura Sound"
             },
             {
                 "opy": "Effect.BEACON_SOUND",
-                "en": "BeaconSound",
-                "fr": "SonDeBalise"
+                "fr": "SonDeBalise",
+                "en-US": "Beacon Sound"
             },
             {
                 "opy": "Effect.CLOUD",
-                "en": "Cloud",
-                "fr": "Nuage"
+                "fr": "Nuage",
+                "en-US": "Cloud"
             },
             {
                 "opy": "Effect.DECAL_SOUND",
-                "en": "DecalSound",
-                "fr": "SonDeDécal"
+                "fr": "SonDeDécal",
+                "en-US": "Decal Sound"
             },
             {
                 "opy": "Effect.ENERGY_SOUND",
-                "en": "EnergySound",
-                "fr": "SonDeL’énergie"
+                "fr": "SonDeL’énergie",
+                "en-US": "Energy Sound"
             },
             {
                 "opy": "Effect.GOOD_AURA",
-                "en": "GoodAura",
-                "fr": "BonneAura"
+                "fr": "BonneAura",
+                "en-US": "Good Aura"
             },
             {
                 "opy": "Effect.GOOD_AURA_SOUND",
-                "en": "GoodAuraSound",
-                "fr": "SonDeBonneAura"
+                "fr": "SonDeBonneAura",
+                "en-US": "Good Aura Sound"
             },
             {
                 "opy": "Effect.LIGHT_SHAFT",
-                "en": "LightShaft",
-                "fr": "PuitsDeLumière"
+                "fr": "PuitsDeLumière",
+                "en-US": "Light Shaft"
             },
             {
                 "opy": "Effect.ORB",
-                "en": "Orb",
-                "fr": "Orbe"
+                "fr": "Orbe",
+                "en-US": "Orb"
             },
             {
                 "opy": "Effect.PICKUP_SOUND",
-                "en": "Pick-upSound",
-                "fr": "SonDeRamassage"
+                "fr": "SonDeRamassage",
+                "en-US": "Pick - Up Sound"
             },
             {
                 "opy": "Effect.RING",
-                "en": "Ring",
-                "fr": "Anneau"
+                "fr": "Anneau",
+                "en-US": "Ring"
             },
             {
                 "opy": "Effect.SMOKE_SOUND",
-                "en": "SmokeSound",
-                "fr": "SonDeLaFumée"
+                "fr": "SonDeLaFumée",
+                "en-US": "Smoke Sound"
             },
             {
                 "opy": "Effect.SPARKLES",
-                "en": "Sparkles",
-                "fr": "Etincelles"
+                "fr": "Etincelles",
+                "en-US": "Sparkles"
             },
             {
                 "opy": "Effect.SPARKLES_SOUND",
-                "en": "SparklesSound",
-                "fr": "SonDesétincelles"
+                "fr": "SonDesétincelles",
+                "en-US": "Sparkles Sound"
             },
             {
                 "opy": "Effect.SPHERE",
-                "en": "Sphere",
-                "fr": "Sphère"
+                "fr": "Sphère",
+                "en-US": "Sphere"
             }
         ]
     },
@@ -692,73 +692,73 @@ var constantValues =
         "values": [
             {
                 "opy": "Comms.ACKNOWLEDGE",
-                "en": "Acknowledge",
-                "fr": "BienReçu"
+                "fr": "BienReçu",
+                "en-US": "Acknowledge"
             },
             {
                 "opy": "Comms.EMOTE_DOWN",
-                "en": "EmoteDown",
-                "fr": "EmoteBas"
+                "fr": "EmoteBas",
+                "en-US": "Emote Down"
             },
             {
                 "opy": "Comms.EMOTE_LEFT",
-                "en": "EmoteLeft",
-                "fr": "EmoteGauche"
+                "fr": "EmoteGauche",
+                "en-US": "Emote Left"
             },
             {
                 "opy": "Comms.EMOTE_RIGHT",
-                "en": "EmoteRight",
-                "fr": "EmoteDroite"
+                "fr": "EmoteDroite",
+                "en-US": "Emote Right"
             },
             {
                 "opy": "Comms.EMOTE_UP",
-                "en": "EmoteUp",
-                "fr": "EmoteHaut"
+                "fr": "EmoteHaut",
+                "en-US": "Emote Up"
             },
             {
                 "opy": "Comms.GROUP_UP",
-                "en": "GroupUp",
-                "fr": "Regroupement"
+                "fr": "Regroupement",
+                "en-US": "Group Up"
             },
             {
                 "opy": "Comms.HELLO",
-                "en": "Hello",
-                "fr": "Bonjour"
+                "fr": "Bonjour",
+                "en-US": "Hello"
             },
             {
                 "opy": "Comms.NEED_HEALING",
-                "en": "NeedHealing",
-                "fr": "BesoinDeSoins"
+                "fr": "BesoinDeSoins",
+                "en-US": "Need Healing"
             },
             {
                 "opy": "Comms.THANKS",
-                "en": "Thanks",
-                "fr": "Merci"
+                "fr": "Merci",
+                "en-US": "Thanks"
             },
             {
                 "opy": "Comms.ULTIMATE_STATUS",
-                "en": "UltimateStatus",
-                "fr": "StatutDeL’ulti"
+                "fr": "StatutDeL’ulti",
+                "en-US": "Ultimate Status"
             },
             {
                 "opy": "Comms.VOICE_LINE_DOWN",
-                "en": "VoiceLineDown",
-                "fr": "RépliqueBas"
+                "fr": "RépliqueBas",
+                "en-US": "Voice Line Down"
             },
             {
                 "opy": "Comms.VOICE_LINE_LEFT",
-                "en": "VoiceLineLeft",
-                "fr": "RépliqueGauche"
+                "fr": "RépliqueGauche",
+                "en-US": "Voice Line Left"
             },
             {
                 "opy": "Comms.VOICE_LINE_RIGHT",
-                "en": "VoiceLineRight",
-                "fr": "RépliqueDroite"
+                "fr": "RépliqueDroite",
+                "en-US": "Voice Line Right"
             },
             {
                 "opy": "Comms.VOICE_LINE_UP",
-                "en": "VoiceLineUp",
-                "fr": "RépliqueHaut"
+                "fr": "RépliqueHaut",
+                "en-US": "Voice Line Up"
             }
         ]
     },
@@ -767,219 +767,219 @@ var constantValues =
         "values": [
             {
                 "opy": "Icon.ARROW_DOWN",
-                "en": "Arrow:Down",
                 "fr": "FlècheBas",
-                "description": "![](https://i.imgur.com/hych4AE.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/hych4AE.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Arrow: Down"
             },
             {
                 "opy": "Icon.ARROW_LEFT",
-                "en": "Arrow:Left",
                 "fr": "FlècheGauche",
-                "description": "![](https://i.imgur.com/jgpW0Nb.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/jgpW0Nb.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Arrow: Left"
             },
             {
                 "opy": "Icon.ARROW_RIGHT",
-                "en": "Arrow:Right",
                 "fr": "FlècheDroite",
-                "description": "![](https://i.imgur.com/0BttENZ.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/0BttENZ.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Arrow: Right"
             },
             {
                 "opy": "Icon.ARROW_UP",
-                "en": "Arrow:Up",
                 "fr": "FlècheHaut",
-                "description": "![](https://i.imgur.com/Pr86Pcf.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/Pr86Pcf.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Arrow: Up"
             },
             {
                 "opy": "Icon.ASTERISK",
-                "en": "Asterisk",
                 "fr": "Astérisque",
-                "description": "![](https://i.imgur.com/XTvINuC.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/XTvINuC.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Asterisk"
             },
             {
                 "opy": "Icon.BOLT",
-                "en": "Bolt",
                 "fr": "Boulon",
-                "description": "![](https://i.imgur.com/ekbDxsT.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/ekbDxsT.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Bolt"
             },
             {
                 "opy": "Icon.CHECKMARK",
-                "en": "Checkmark",
                 "fr": "PointD’exclamation",
-                "description": "![](https://i.imgur.com/B7V240H.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/B7V240H.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Checkmark"
             },
             {
                 "opy": "Icon.CIRCLE",
-                "en": "Circle",
                 "fr": "Cercle",
-                "description": "![](https://i.imgur.com/6lNvrqD.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/6lNvrqD.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Circle"
             },
             {
                 "opy": "Icon.CLUB",
-                "en": "Club",
                 "fr": "Trèfle",
-                "description": "![](https://i.imgur.com/HYWor8w.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/HYWor8w.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Club"
             },
             {
                 "opy": "Icon.DIAMOND",
-                "en": "Diamond",
                 "fr": "Carreau",
-                "description": "![](https://i.imgur.com/5aLqsHf.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/5aLqsHf.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Diamond"
             },
             {
                 "opy": "Icon.DIZZY",
-                "en": "Dizzy",
                 "fr": "Étourdi",
-                "description": "![](https://i.imgur.com/P1Qi43N.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/P1Qi43N.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Dizzy"
             },
             {
                 "opy": "Icon.EXCLAMATION_MARK",
-                "en": "ExclamationMark",
                 "fr": "PointD’exclamation",
-                "description": "![](https://i.imgur.com/1rBcHfz.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/1rBcHfz.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Exclamation Mark"
             },
             {
                 "opy": "Icon.EYE",
-                "en": "Eye",
                 "fr": "Œil",
-                "description": "![](https://i.imgur.com/pVMPtoH.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/pVMPtoH.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Eye"
             },
             {
                 "opy": "Icon.FIRE",
-                "en": "Fire",
                 "fr": "Flamme",
-                "description": "![](https://i.imgur.com/m3As7B0.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/m3As7B0.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Fire"
             },
             {
                 "opy": "Icon.FLAG",
-                "en": "Flag",
                 "fr": "Drapeau",
-                "description": "![](https://i.imgur.com/v30lUgy.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/v30lUgy.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Flag"
             },
             {
                 "opy": "Icon.HALO",
-                "en": "Halo",
                 "fr": "Halo",
-                "description": "![](https://i.imgur.com/FWR9HAQ.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/FWR9HAQ.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Halo"
             },
             {
                 "opy": "Icon.HAPPY",
-                "en": "Happy",
                 "fr": "SmileyContent",
-                "description": "![](https://i.imgur.com/CNwSwb1.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/CNwSwb1.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Happy"
             },
             {
                 "opy": "Icon.HEART",
-                "en": "Heart",
                 "fr": "Cœur",
-                "description": "![](https://i.imgur.com/1KPOyZa.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/1KPOyZa.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Heart"
             },
             {
                 "opy": "Icon.MOON",
-                "en": "Moon",
                 "fr": "Lune",
-                "description": "![](https://i.imgur.com/2uxcKF0.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/2uxcKF0.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Moon"
             },
             {
                 "opy": "Icon.NO",
-                "en": "No",
                 "fr": "Interdit",
-                "description": "![](https://i.imgur.com/TZ4zFso.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/TZ4zFso.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "No"
             },
             {
                 "opy": "Icon.PLUS",
-                "en": "Plus",
                 "fr": "Plus",
-                "description": "![](https://i.imgur.com/OLARJ80.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/OLARJ80.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Plus"
             },
             {
                 "opy": "Icon.POISON",
-                "en": "Poison",
                 "fr": "Poison",
-                "description": "![](https://i.imgur.com/w2gsTiI.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/w2gsTiI.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Poison"
             },
             {
                 "opy": "Icon.POISON_2",
-                "en": "Poison2",
                 "fr": "Poison2",
-                "description": "![](https://i.imgur.com/UWmyDg2.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/UWmyDg2.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Poison 2"
             },
             {
                 "opy": "Icon.QUESTION_MARK",
-                "en": "QuestionMark",
                 "fr": "PointD’interrogation",
-                "description": "![](https://i.imgur.com/CZBV4tx.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/CZBV4tx.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Question Mark"
             },
             {
                 "opy": "Icon.RADIOACTIVE",
-                "en": "Radioactive",
                 "fr": "Radioactif",
-                "description": "![](https://i.imgur.com/R1bnNcl.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/R1bnNcl.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Radioactive"
             },
             {
                 "opy": "Icon.RECYCLE",
-                "en": "Recycle",
                 "fr": "Recyclage",
-                "description": "![](https://i.imgur.com/q2fxb2u.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/q2fxb2u.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Recycle"
             },
             {
                 "opy": "Icon.RING_THICK",
-                "en": "RingThick",
                 "fr": "Anneauépais",
-                "description": "![](https://i.imgur.com/lTwuAjX.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/lTwuAjX.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Ring Thick"
             },
             {
                 "opy": "Icon.RING_THIN",
-                "en": "RingThin",
                 "fr": "AnneauFin",
-                "description": "![](https://i.imgur.com/NDOrzVS.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/NDOrzVS.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Ring Thin"
             },
             {
                 "opy": "Icon.SAD",
-                "en": "Sad",
                 "fr": "SmileyTriste",
-                "description": "![](https://i.imgur.com/00jyB4n.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/00jyB4n.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Sad"
             },
             {
                 "opy": "Icon.SKULL",
-                "en": "Skull",
                 "fr": "Crâne",
-                "description": "![](https://i.imgur.com/TKKtSIa.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/TKKtSIa.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Skull"
             },
             {
                 "opy": "Icon.SPADE",
-                "en": "Spade",
                 "fr": "Pique",
-                "description": "![](https://i.imgur.com/AJNBYA3.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/AJNBYA3.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Spade"
             },
             {
                 "opy": "Icon.SPIRAL",
-                "en": "Spiral",
                 "fr": "Spirale",
-                "description": "![](https://i.imgur.com/TQLGPww.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/TQLGPww.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Spiral"
             },
             {
                 "opy": "Icon.STOP",
-                "en": "Stop",
                 "fr": "Stop",
-                "description": "![](https://i.imgur.com/af56Ghv.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/af56Ghv.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Stop"
             },
             {
                 "opy": "Icon.TRASHCAN",
-                "en": "Trashcan",
                 "fr": "Poubelle",
-                "description": "![](https://i.imgur.com/iEtFvyC.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/iEtFvyC.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Trashcan"
             },
             {
                 "opy": "Icon.WARNING",
-                "en": "Warning",
                 "fr": "Avertissement",
-                "description": "![](https://i.imgur.com/SXDld9l.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/SXDld9l.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "Warning"
             },
             {
                 "opy": "Icon.CROSS",
-                "en": "X",
                 "fr": "Croix",
-                "description": "![](https://i.imgur.com/05HFEnd.jpg) \n\n \n\n \n\n \n\n "
+                "description": "![](https://i.imgur.com/05HFEnd.jpg) \n\n \n\n \n\n \n\n ",
+                "en-US": "X"
             }
         ]
     },
@@ -988,13 +988,13 @@ var constantValues =
         "values": [
             {
                 "opy": "Relativity.TO_PLAYER",
-                "en": "ToPlayer",
-                "fr": "AuMonde"
+                "fr": "AuMonde",
+                "en-US": "To Player"
             },
             {
                 "opy": "Relativity.TO_WORLD",
-                "en": "ToWorld",
-                "fr": "AuJoueur"
+                "fr": "AuJoueur",
+                "en-US": "To World"
             }
         ]
     },
@@ -1003,13 +1003,13 @@ var constantValues =
         "values": [
             {
                 "opy": "Impulse.CANCEL_CONTRARY_MOTION",
-                "en": "CancelContraryMotion",
-                "fr": "AnnulerLeMouvementContraire"
+                "fr": "AnnulerLeMouvementContraire",
+                "en-US": "Cancel Contrary Motion"
             },
             {
                 "opy": "Impulse.INCORPORATE_CONTRARY_MOTION",
-                "en": "IncorporateContraryMotion",
-                "fr": "IncorporerUnMouvementContraire"
+                "fr": "IncorporerUnMouvementContraire",
+                "en-US": "Incorporate Contrary Motion"
             }
         ]
     },
@@ -1017,18 +1017,18 @@ var constantValues =
         "values": [
             {
                 "opy": "_roundUp",
-                "en": "Up",
-                "fr": "Au-dessus"
+                "fr": "Au-dessus",
+                "en-US": "Up"
             },
             {
                 "opy": "_roundDown",
-                "en": "Down",
-                "fr": "En-dessous"
+                "fr": "En-dessous",
+                "en-US": "Down"
             },
             {
                 "opy": "_roundToNearest",
-                "en": "ToNearest",
-                "fr": "AuPlusPrès"
+                "fr": "AuPlusPrès",
+                "en-US": "To Nearest"
             }
         ]
     },
@@ -1037,23 +1037,23 @@ var constantValues =
         "values": [
             {
                 "opy": "LosCheck.OFF",
-                "en": "Off",
-                "fr": "Désactivé"
+                "fr": "Désactivé",
+                "en-US": "Off"
             },
             {
                 "opy": "LosCheck.SURFACES",
-                "en": "Surfaces",
-                "fr": "Surfaces"
+                "fr": "Surfaces",
+                "en-US": "Surfaces"
             },
             {
                 "opy": "LosCheck.SURFACES_AND_ALL_BARRIERS",
-                "en": "SurfacesAndAllBarriers",
-                "fr": "SurfacesEtBarrièresEnnemies"
+                "fr": "SurfacesEtBarrièresEnnemies",
+                "en-US": "Surfaces And All Barriers"
             },
             {
                 "opy": "LosCheck.SURFACES_AND_ENEMY_BARRIERS",
-                "en": "SurfacesAndEnemyBarriers",
-                "fr": "SurfacesEtToutesLesBarrières"
+                "fr": "SurfacesEtToutesLesBarrières",
+                "en-US": "Surfaces And Enemy Barriers"
             }
         ]
     },
@@ -1062,13 +1062,13 @@ var constantValues =
         "values": [
             {
                 "opy": "Clip.SURFACES",
-                "en": "ClipAgainstSurfaces",
-                "fr": "MasquerDerrièreLesSurfaces"
+                "fr": "MasquerDerrièreLesSurfaces",
+                "en-US": "Clip Against Surfaces"
             },
             {
                 "opy": "Clip.NONE",
-                "en": "DoNotClip",
-                "fr": "NePasMasquer"
+                "fr": "NePasMasquer",
+                "en-US": "Do Not Clip"
             }
         ]
     },
@@ -1077,18 +1077,18 @@ var constantValues =
         "values": [
             {
                 "opy": "Position.LEFT",
-                "en": "Left",
-                "fr": "Gauche"
+                "fr": "Gauche",
+                "en-US": "Left"
             },
             {
                 "opy": "Position.TOP",
-                "en": "Top",
-                "fr": "Haut"
+                "fr": "Haut",
+                "en-US": "Top"
             },
             {
                 "opy": "Position.RIGHT",
-                "en": "Right",
-                "fr": "Droite"
+                "fr": "Droite",
+                "en-US": "Right"
             }
         ]
     },
@@ -1097,22 +1097,22 @@ var constantValues =
         "values": [
             {
                 "opy": "IconReeval.POSITION",
-                "en": "Position"
+                "en-US": "Position"
             },
             {
                 "opy": "IconReeval.NONE",
-                "en": "None",
-                "fr": "Aucune"
+                "fr": "Aucune",
+                "en-US": "None"
             },
             {
                 "opy": "IconReeval.VISIBILITY",
-                "en": "VisibleTo",
-                "fr": "VisiblePour"
+                "fr": "VisiblePour",
+                "en-US": "Visible To"
             },
             {
                 "opy": "IconReeval.VISIBILITY_AND_POSITION",
-                "en": "VisibleToAndPosition",
-                "fr": "VisiblePourEtPosition"
+                "fr": "VisiblePourEtPosition",
+                "en-US": "Visible To And Position"
             }
         ]
     },
@@ -1121,23 +1121,23 @@ var constantValues =
         "values": [
             {
                 "opy": "EffectReeval.POSITION_AND_RADIUS",
-                "en": "PositionAndRadius",
-                "fr": "PositionEtRayon"
+                "fr": "PositionEtRayon",
+                "en-US": "Position And Radius"
             },
             {
                 "opy": "EffectReeval.NONE",
-                "en": "None",
-                "fr": "Aucune"
+                "fr": "Aucune",
+                "en-US": "None"
             },
             {
                 "opy": "EffectReeval.VISIBILITY",
-                "en": "VisibleTo",
-                "fr": "VisiblePour"
+                "fr": "VisiblePour",
+                "en-US": "Visible To"
             },
             {
                 "opy": "EffectReeval.VISIBILITY_POSITION_AND_RADIUS",
-                "en": "VisibleToPositionAndRadius",
-                "fr": "VisiblePourPositionEtRayon"
+                "fr": "VisiblePourPositionEtRayon",
+                "en-US": "Visible To Position And Radius"
             }
         ]
     },
@@ -1146,13 +1146,13 @@ var constantValues =
         "values": [
             {
                 "opy": "HudReeval.STRING",
-                "en": "String",
-                "fr": "ChaîneDeTexte"
+                "fr": "ChaîneDeTexte",
+                "en-US": "String"
             },
             {
                 "opy": "HudReeval.VISIBILITY_AND_STRING",
-                "en": "VisibleToAndString",
-                "fr": "VisiblePourEtChaîneDeTexte"
+                "fr": "VisiblePourEtChaîneDeTexte",
+                "en-US": "Visible To And String"
             }
         ]
     },
@@ -1161,18 +1161,18 @@ var constantValues =
         "values": [
             {
                 "opy": "WorldTextReeval.STRING",
-                "en": "String",
-                "fr": "ChaîneDeTexte"
+                "fr": "ChaîneDeTexte",
+                "en-US": "String"
             },
             {
                 "opy": "WorldTextReeval.VISIBILITY_AND_STRING",
-                "en": "VisibleToAndString",
-                "fr": "VisiblePourEtChaîneDeTexte"
+                "fr": "VisiblePourEtChaîneDeTexte",
+                "en-US": "Visible To And String"
             },
             {
                 "opy": "WorldTextReeval.VISIBILITY_POSITION_AND_STRING",
-                "en": "VisibleToPositionAndString",
-                "fr": "VisiblePourPositionEtChaîneDeTexte"
+                "fr": "VisiblePourPositionEtChaîneDeTexte",
+                "en-US": "Visible To Position And String"
             }
         ]
     },
@@ -1181,13 +1181,13 @@ var constantValues =
         "values": [
             {
                 "opy": "ChaseReeval.DESTINATION_AND_RATE",
-                "en": "DestinationAndRate",
-                "fr": "DestinationEtTaux"
+                "fr": "DestinationEtTaux",
+                "en-US": "Destination And Rate"
             },
             {
                 "opy": "ChaseReeval.NONE",
-                "en": "None",
-                "fr": "Aucune"
+                "fr": "Aucune",
+                "en-US": "None"
             }
         ]
     },
@@ -1196,13 +1196,13 @@ var constantValues =
         "values": [
             {
                 "opy": "ChaseReeval.DESTINATION_AND_DURATION",
-                "en": "DestinationAndDuration",
-                "fr": "DestinationEtDurée"
+                "fr": "DestinationEtDurée",
+                "en-US": "Destination And Duration"
             },
             {
                 "opy": "ChaseReeval.NONE",
-                "en": "None",
-                "fr": "Aucune"
+                "fr": "Aucune",
+                "en-US": "None"
             }
         ]
     },
@@ -1211,13 +1211,13 @@ var constantValues =
         "values": [
             {
                 "opy": "HudReeval.STRING",
-                "en": "String",
-                "fr": "ChaîneDeTexte"
+                "fr": "ChaîneDeTexte",
+                "en-US": "String"
             },
             {
                 "opy": "HudReeval.VISIBILITY_AND_STRING",
-                "en": "VisibleToAndString",
-                "fr": "VisiblePourEtChaîneDeTexte"
+                "fr": "VisiblePourEtChaîneDeTexte",
+                "en-US": "Visible To And String"
             }
         ]
     },
@@ -1226,18 +1226,18 @@ var constantValues =
         "values": [
             {
                 "opy": "DamageReeval.NONE",
-                "en": "None",
-                "fr": "Aucun"
+                "fr": "Aucun",
+                "en-US": "None"
             },
             {
                 "opy": "DamageReeval.RECEIVERS_AND_DAMAGERS",
-                "en": "ReceiversAndDamagers",
-                "fr": "RécepteursEtémetteursDeDégâts"
+                "fr": "RécepteursEtémetteursDeDégâts",
+                "en-US": "Receivers And Damagers"
             },
             {
                 "opy": "DamageReeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT",
-                "en": "ReceiversDamagersAndDamagePercent",
-                "fr": "RécepteursDeDégâtsémetteursDeDégâtsEtPourcentageDeDégâts"
+                "fr": "RécepteursDeDégâtsémetteursDeDégâtsEtPourcentageDeDégâts",
+                "en-US": "Receivers Damagers And Damage Percent"
             }
         ]
     },
@@ -1246,13 +1246,13 @@ var constantValues =
         "values": [
             {
                 "opy": "FacingReeval.DIRECTION_AND_TURN_RATE",
-                "en": "DirectionAndTurnRate",
-                "fr": "DirectionEtTauxDeRotation"
+                "fr": "DirectionEtTauxDeRotation",
+                "en-US": "Direction And Turn Rate"
             },
             {
                 "opy": "FacingReeval.NONE",
-                "en": "None",
-                "fr": "Aucune"
+                "fr": "Aucune",
+                "en-US": "None"
             }
         ]
     },
@@ -1261,18 +1261,18 @@ var constantValues =
         "values": [
             {
                 "opy": "Wait.ABORT_WHEN_FALSE",
-                "en": "AbortWhenFalse",
-                "fr": "InterrompreQuandFaux"
+                "fr": "InterrompreQuandFaux",
+                "en-US": "Abort When False"
             },
             {
                 "opy": "Wait.IGNORE_CONDITION",
-                "en": "IgnoreCondition",
-                "fr": "IgnorerLaCondition"
+                "fr": "IgnorerLaCondition",
+                "en-US": "Ignore Condition"
             },
             {
                 "opy": "Wait.RESTART_WHEN_TRUE",
-                "en": "RestartWhenTrue",
-                "fr": "RedémarrerQuandVrai"
+                "fr": "RedémarrerQuandVrai",
+                "en-US": "Restart When True"
             }
         ]
     },
@@ -1281,18 +1281,18 @@ var constantValues =
         "values": [
             {
                 "opy": "BarrierLos.BLOCKED_BY_ENEMY_BARRIERS",
-                "en": "EnemyBarriersBlockLos",
-                "fr": "LesBarrièresEnnemiesBloquentLaLigneDeVue"
+                "fr": "LesBarrièresEnnemiesBloquentLaLigneDeVue",
+                "en-US": "Enemy Barriers Block Los"
             },
             {
                 "opy": "BarrierLos.BLOCKED_BY_ALL_BARRIERS",
-                "en": "AllBarriersBlockLos",
-                "fr": "ToutesLesBarrièresBloquentLaLigneDeVue"
+                "fr": "ToutesLesBarrièresBloquentLaLigneDeVue",
+                "en-US": "All Barriers Block Los"
             },
             {
                 "opy": "BarrierLos.PASS_THROUGH_BARRIERS",
-                "en": "BarriersDoNotBlockLos",
-                "fr": "LesBarrièresNeBloquentPasLaLigneDeVue"
+                "fr": "LesBarrièresNeBloquentPasLaLigneDeVue",
+                "en-US": "Barriers Do Not Block Los"
             }
         ]
     },
@@ -1301,53 +1301,53 @@ var constantValues =
         "values": [
             {
                 "opy": "Status.ASLEEP",
-                "en": "Asleep",
-                "fr": "Endormi"
+                "fr": "Endormi",
+                "en-US": "Asleep"
             },
             {
                 "opy": "Status.BURNING",
-                "en": "Burning",
-                "fr": "Enflammé"
+                "fr": "Enflammé",
+                "en-US": "Burning"
             },
             {
                 "opy": "Status.FROZEN",
-                "en": "Frozen",
-                "fr": "Gelé"
+                "fr": "Gelé",
+                "en-US": "Frozen"
             },
             {
                 "opy": "Status.HACKED",
-                "en": "Hacked",
-                "fr": "Piraté"
+                "fr": "Piraté",
+                "en-US": "Hacked"
             },
             {
                 "opy": "Status.INVINCIBLE",
-                "en": "Invincible",
-                "fr": "Invincible"
+                "fr": "Invincible",
+                "en-US": "Invincible"
             },
             {
                 "opy": "Status.KNOCKED_DOWN",
-                "en": "KnockedDown",
-                "fr": "Renversé"
+                "fr": "Renversé",
+                "en-US": "Knocked Down"
             },
             {
                 "opy": "Status.PHASED_OUT",
-                "en": "PhasedOut",
-                "fr": "Déphasé"
+                "fr": "Déphasé",
+                "en-US": "Phased Out"
             },
             {
                 "opy": "Status.ROOTED",
-                "en": "Rooted",
-                "fr": "Immobilisé"
+                "fr": "Immobilisé",
+                "en-US": "Rooted"
             },
             {
                 "opy": "Status.STUNNED",
-                "en": "Stunned",
-                "fr": "Étourdi"
+                "fr": "Étourdi",
+                "en-US": "Stunned"
             },
             {
                 "opy": "Status.UNKILLABLE",
-                "en": "Unkillable",
-                "fr": "Intuable"
+                "fr": "Intuable",
+                "en-US": "Unkillable"
             }
         ]
     },
@@ -1356,18 +1356,18 @@ var constantValues =
         "values": [
             {
                 "opy": "SpecVisibility.DEFAULT",
-                "en": "Defaultvisibility",
-                "fr": "VisibilitéParDéfaut"
+                "fr": "VisibilitéParDéfaut",
+                "en-US": "Default Visibility"
             },
             {
                 "opy": "SpecVisibility.ALWAYS",
-                "en": "Visiblealways",
-                "fr": "ToujoursVisible"
+                "fr": "ToujoursVisible",
+                "en-US": "Visible Always"
             },
             {
                 "opy": "SpecVisibility.NEVER",
-                "en": "Visiblenever",
-                "fr": "JamaisVisible"
+                "fr": "JamaisVisible",
+                "en-US": "Visible Never"
             }
         ]
     },
@@ -1376,18 +1376,18 @@ var constantValues =
         "values": [
             {
                 "opy": "Beam.BAD",
-                "en": "Badbeam",
-                "fr": "MauvaisRayon"
+                "fr": "MauvaisRayon",
+                "en-US": "Bad Beam"
             },
             {
                 "opy": "Beam.GOOD",
-                "en": "Goodbeam",
-                "fr": "BonRayon"
+                "fr": "BonRayon",
+                "en-US": "Good Beam"
             },
             {
                 "opy": "Beam.GRAPPLE",
-                "en": "Grapplebeam",
-                "fr": "RayonDuGrappin"
+                "fr": "RayonDuGrappin",
+                "en-US": "Grapple Beam"
             }
         ]
     },
@@ -1396,13 +1396,13 @@ var constantValues =
         "values": [
             {
                 "opy": "Throttle.REPLACE_EXISTING",
-                "en": "Replaceexistingthrottle",
-                "fr": "RemplacerL’accélérationExistante"
+                "fr": "RemplacerL’accélérationExistante",
+                "en-US": "Replace Existing Throttle"
             },
             {
                 "opy": "Throttle.ADD_TO_EXISTING",
-                "en": "Addtoexistingthrottle",
-                "fr": "AjouteràL’accélérationExistante"
+                "fr": "AjouteràL’accélérationExistante",
+                "en-US": "Add To Existing Throttle"
             }
         ]
     },
@@ -1411,13 +1411,13 @@ var constantValues =
         "values": [
             {
                 "opy": "ThrottleReeval.DIRECTION_AND_MAGNITUDE",
-                "en": "Directionandmagnitude",
-                "fr": "DirectionEtAmpleur"
+                "fr": "DirectionEtAmpleur",
+                "en-US": "Direction And Magnitude"
             },
             {
                 "opy": "ThrottleReeval.NONE",
-                "en": "None",
-                "fr": "Aucune"
+                "fr": "Aucune",
+                "en-US": "None"
             }
         ]
     },
@@ -1426,13 +1426,13 @@ var constantValues =
         "values": [
             {
                 "opy": "AccelReeval.DIRECTION_RATE_AND_MAX_SPEED",
-                "en": "DirectionRateAndMaxSpeed",
-                "fr": "DirectionTauxEtVitesseMaximum"
+                "fr": "DirectionTauxEtVitesseMaximum",
+                "en-US": "Direction Rate And Max Speed"
             },
             {
                 "opy": "AccelReeval.NONE",
-                "en": "None",
-                "fr": "Aucune"
+                "fr": "Aucune",
+                "en-US": "None"
             }
         ]
     },
@@ -1441,243 +1441,243 @@ var constantValues =
         "values": [
             {
                 "opy": "Map.AYUTTHAYA",
-                "en": "Ayutthaya"
+                "en-US": "Ayutthaya"
             },
             {
                 "opy": "Map.BLACK_FOREST",
-                "en": "Black Forest"
+                "en-US": "Black Forest"
             },
             {
                 "opy": "Map.BLACK_FOREST_WINTER",
-                "en": "BLACK FOREST WINTER"
+                "en-US": "Black Forest Winter"
             },
             {
                 "opy": "Map.BLIZZ_WORLD",
-                "en": "Blizzard World"
+                "en-US": "Blizzard World"
             },
             {
                 "opy": "Map.BLIZZ_WORLD_WINTER",
-                "en": "Blizzard World Winter"
+                "en-US": "Blizzard World Winter"
             },
             {
                 "opy": "Map.BUSAN",
-                "en": "Busan"
+                "en-US": "Busan"
             },
             {
                 "opy": "Map.BUSAN_DOWNTOWN_LNY",
-                "en": "Busan Downtown Lunar New Year"
+                "en-US": "Busan Downtown Lunar New Year"
             },
             {
                 "opy": "Map.BUSAN_SANCTUARY_LNY",
-                "en": "Busan Sanctuary Lunar New Year"
+                "en-US": "Busan Sanctuary Lunar New Year"
             },
             {
                 "opy": "Map.BUSAN_STADIUM",
-                "en": "Busan Stadium"
+                "en-US": "Busan Stadium"
             },
             {
                 "opy": "Map.CASTILLO",
-                "en": "Castillo"
+                "en-US": "Castillo"
             },
             {
                 "opy": "Map.CHATEAU_GUILLARD",
-                "en": "Château Guillard"
+                "en-US": "Château Guillard"
             },
             {
                 "opy": "Map.CHATEAU_GUILLARD_HALLOWEEN",
-                "en": "Château Guillard Halloween"
+                "en-US": "Château Guillard Halloween"
             },
             {
                 "opy": "Map.DORADO",
-                "en": "Dorado"
+                "en-US": "Dorado"
             },
             {
                 "opy": "Map.ECOPOINT_ANTARCTICA",
-                "en": "Ecopoint: Antarctica"
+                "en-US": "Ecopoint: Antarctica"
             },
             {
                 "opy": "Map.ECOPOINT_ANTARCTICA_WINTER",
-                "en": "Ecopoint: Antarctica Winter"
+                "en-US": "Ecopoint: Antarctica Winter"
             },
             {
                 "opy": "Map.EICHENWALDE",
-                "en": "Eichenwalde"
+                "en-US": "Eichenwalde"
             },
             {
                 "opy": "Map.EICHENWALDE_HALLOWEEN",
-                "en": "EICHENWALDE HALLOWEEN"
+                "en-US": "Eichenwalde Halloween"
             },
             {
                 "opy": "Map.ESTADIO_DAS_RAS",
-                "en": "Estádio das Rãs"
+                "en-US": "Estádio Das Rãs"
             },
             {
                 "opy": "Map.HANAMURA",
-                "en": "Hanamura"
+                "en-US": "Hanamura"
             },
             {
                 "opy": "Map.HANAMURA_WINTER",
-                "en": "HANAMURA WINTER"
+                "en-US": "Hanamura Winter"
             },
             {
                 "opy": "Map.Havana",
-                "en": "Havana"
+                "en-US": "Havana"
             },
             {
                 "opy": "Map.HOLLYWOOD",
-                "en": "Hollywood"
+                "en-US": "Hollywood"
             },
             {
                 "opy": "Map.HOLLYWOOD_HALLOWEEN",
-                "en": "Hollywood Halloween"
+                "en-US": "Hollywood Halloween"
             },
             {
                 "opy": "Map.HORIZON_LUNAR_COLONY",
-                "en": "Horizon Lunar Colony"
+                "en-US": "Horizon Lunar Colony"
             },
             {
                 "opy": "Map.ILIOS",
-                "en": "ilios"
+                "en-US": "Ilios"
             },
             {
                 "opy": "Map.ILIOS_LIGHTHOUSE",
-                "en": "iliosLighthouse"
+                "en-US": "Ilios Lighthouse"
             },
             {
                 "opy": "Map.ILIOS_RUINS",
-                "en": "iliosRuins"
+                "en-US": "Ilios Ruins"
             },
             {
                 "opy": "Map.ILIOS_WELL",
-                "en": "iliosWell"
+                "en-US": "Ilios Well"
             },
             {
                 "opy": "Map.JUNKENSTEIN",
-                "en": "Junkenstein's Revenge"
+                "en-US": "Junkenstein's Revenge"
             },
             {
                 "opy": "Map.JUNKERTOWN",
-                "en": "junkertown"
+                "en-US": "Junkertown"
             },
             {
                 "opy": "Map.KINGS_ROW",
-                "en": "king's row"
+                "en-US": "King's Row"
             },
             {
                 "opy": "Map.KINGS_ROW_WINTER",
-                "en": "KING'S ROW WINTER"
+                "en-US": "King's Row Winter"
             },
             {
                 "opy": "Map.LIJIANG_CONTROL_CENTER",
-                "en": "lijiang control center"
+                "en-US": "Lijiang Control Center"
             },
             {
                 "opy": "Map.LIJIANG_CONTROL_CENTER_LNY",
-                "en": "lijiang control center lunar new year"
+                "en-US": "Lijiang Control Center Lunar New Year"
             },
             {
                 "opy": "Map.LIJIANG_GARDEN",
-                "en": "lijiang garden"
+                "en-US": "Lijiang Garden"
             },
             {
                 "opy": "Map.LIJIANG_GARDEN_LNY",
-                "en": "lijiang garden lunar new year"
+                "en-US": "Lijiang Garden Lunar New Year"
             },
             {
                 "opy": "Map.LIJIANG_NIGHT_MARKET",
-                "en": "lijiang night market"
+                "en-US": "Lijiang Night Market"
             },
             {
                 "opy": "Map.LIJIANG_NIGHT_MARKET_LNY",
-                "en": "lijiang night market lunar new year"
+                "en-US": "Lijiang Night Market Lunar New Year"
             },
             {
                 "opy": "Map.LIJIANG_TOWER",
-                "en": "lijiang tower"
+                "en-US": "Lijiang Tower"
             },
             {
                 "opy": "Map.LIJIANG_TOWER_LNY",
-                "en": "lijiang tower lunar new year"
+                "en-US": "Lijiang Tower Lunar New Year"
             },
             {
                 "opy": "Map.NECROPOLIS",
-                "en": "necropolis"
+                "en-US": "Necropolis"
             },
             {
                 "opy": "Map.NEPAL",
-                "en": "nepal"
+                "en-US": "Nepal"
             },
             {
                 "opy": "Map.NEPAL_SANCTUM",
-                "en": "nepal sanctum"
+                "en-US": "Nepal Sanctum"
             },
             {
                 "opy": "Map.NEPAL_SHRINE",
-                "en": "nepal shrine"
+                "en-US": "Nepal Shrine"
             },
             {
                 "opy": "Map.NEPAL_VILLAGE",
-                "en": "nepal village"
+                "en-US": "Nepal Village"
             },
             {
                 "opy": "Map.NEPAL_VILLAGE_WINTER",
-                "en": "nepal village winter"
+                "en-US": "Nepal Village Winter"
             },
             {
                 "opy": "Map.NUMBANI",
-                "en": "Numbani"
+                "en-US": "Numbani"
             },
             {
                 "opy": "Map.OASIS",
-                "en": "oasis"
+                "en-US": "Oasis"
             },
             {
                 "opy": "Map.OASIS_CITY_CENTER",
-                "en": "oasis city center"
+                "en-US": "Oasis City Center"
             },
             {
                 "opy": "Map.OASIS_GARDENS",
-                "en": "oasis gardens"
+                "en-US": "Oasis Gardens"
             },
             {
                 "opy": "Map.OASIS_UNIVERSITY",
-                "en": "oasis university"
+                "en-US": "Oasis University"
             },
             {
                 "opy": "Map.PARIS",
-                "en": "paris"
+                "en-US": "Paris"
             },
             {
                 "opy": "Map.PETRA",
-                "en": "petra"
+                "en-US": "Petra"
             },
             {
                 "opy": "Map.PRACTICE_RANGE",
-                "en": "practiceRange"
+                "en-US": "Practice Range"
             },
             {
                 "opy": "Map.RIALTO",
-                "en": "rialto"
+                "en-US": "Rialto"
             },
             {
                 "opy": "Map.ROUTE_66",
-                "en": "route 66"
+                "en-US": "Route 66"
             },
             {
                 "opy": "Map.SYDNEY_HARBOUR_ARENA",
-                "en": "sydney harbour arena"
+                "en-US": "Sydney Harbour Arena"
             },
             {
                 "opy": "Map.TEMPLE_OF_ANUBIS",
-                "en": "temple of anubis"
+                "en-US": "Temple Of Anubis"
             },
             {
                 "opy": "Map.VOLSKAYA",
-                "en": "volskaya industries"
+                "en-US": "Volskaya Industries"
             },
             {
                 "opy": "Map.WATCHPOINT_GIBRALTAR",
-                "en": "watchpoint: gibraltar"
+                "en-US": "Watchpoint: Gibraltar"
             }
         ]
     },
@@ -1686,62 +1686,74 @@ var constantValues =
         "values": [
             {
                 "opy": "Gamemode.ASSAULT",
-                "en": "Assault"
+                "en-US": "Assault"
             },
             {
                 "opy": "Gamemode.CTF",
-                "en": "captureTheFlag"
+                "en-US": "Capture The Flag"
             },
             {
                 "opy": "Gamemode.CONTROL",
-                "en": "control"
+                "en-US": "Control"
             },
             {
                 "opy": "Gamemode.FFA",
-                "en": "deathmatch"
+                "en-US": "Deathmatch"
             },
             {
                 "opy": "Gamemode.ELIMINATION",
-                "en": "elimination"
+                "en-US": "Elimination"
             },
             {
                 "opy": "Gamemode.ESCORT",
-                "en": "escort"
+                "en-US": "Escort"
             },
             {
                 "opy": "Gamemode.HYBRID",
-                "en": "hybrid"
+                "en-US": "Hybrid"
             },
             {
                 "opy": "Gamemode.JUNKENSTEIN",
-                "en": "junkenstein'sRevenge"
+                "en-US": "Junkenstein's Revenge"
             },
             {
                 "opy": "Gamemode.LUCIOBALL",
-                "en": "Lúcioball"
+                "en-US": "Lúcioball"
             },
             {
                 "opy": "Gamemode.MEIS_SNOWBALL_OFFENSIVE",
-                "en": "mei'sSnowballOffensive"
+                "en-US": "Mei's Snowball Offensive"
             },
             {
                 "opy": "Gamemode.PRACTICE_RANGE",
-                "en": "practiceRange"
+                "en-US": "Practice Range"
             },
             {
                 "opy": "Gamemode.SKIRMISH",
-                "en": "skirmish"
+                "en-US": "Skirmish"
             },
             {
                 "opy": "Gamemode.TDM",
-                "en": "teamDeathmatch"
+                "en-US": "Team Deathmatch"
             },
             {
                 "opy": "Gamemode.YETI_HUNTER",
-                "en": "yetiHunter"
-            },
+                "en-US": "Yeti Hunter"
+            }
         ]
-    },
+    }
 }
 //end-json
+
+
+
+
+
+
+
+
+
+
+
+
 

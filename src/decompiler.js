@@ -19,7 +19,7 @@
 
 //OverPy Decompiler (Workshop -> OverPy)
 
-function decompileAllRules(content, language="en") {
+function decompileAllRules(content, language="en-US") {
 
 	resetGlobalVariables();
 	currentLanguage = language;
@@ -54,19 +54,27 @@ function decompileAllRules(content, language="en") {
 	var variableDeclarations = "";	
 	if (globalVariables.length > 0) {
 		globalVariables.sort((a,b) => a.index-b.index);
-		variableDeclarations += "#Global variables\n\n";
+		var globalVariableDeclarations = "";
 		for (var variable of globalVariables) {
-			variableDeclarations += "#!declareGlobal "+translateVarToPy(variable.name, true)+" "+variable.index+"\n";
+			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+				globalVariableDeclarations += "#!declareGlobal "+translateVarToPy(variable.name, true)+" "+variable.index+"\n";
+			}
 		}
-		variableDeclarations += "\n\n"
+		if (globalVariableDeclarations !== "") {
+			variableDeclarations += "#Global variables\n\n"+globalVariableDeclarations+"\n\n";
+		}
 	}
 	if (playerVariables.length > 0) {
 		playerVariables.sort((a,b) => a.index-b.index);
-		variableDeclarations += "#Player variables\n\n";
+		var playerVariableDeclarations = "";
 		for (var variable of playerVariables) {
-			variableDeclarations += "#!declarePlayer "+translateVarToPy(variable.name, false)+" "+variable.index+"\n";
+			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+				playerVariableDeclarations += "#!declarePlayer "+translateVarToPy(variable.name, false)+" "+variable.index+"\n";
+			}
 		}
-		variableDeclarations += "\n\n"
+		if (playerVariableDeclarations !== "") {
+			variableDeclarations += "#Player variables\n\n"+playerVariableDeclarations+"\n\n";
+		}
 	}
 	result = variableDeclarations + result;
 		
@@ -769,7 +777,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		if (format.length > 0) {
 			result += '.format(' + format.join(", ") + ")";
 		}
-		return "localizedStr("+result+")";
+		return "l"+result+"";
 	}
 			
 	//Loop
@@ -1242,7 +1250,7 @@ function decompileOperator(operand1, operator, operand2) {
 		var needsParentheses = false;
 		
 		for (var i = currentPrecedenceIndex+1; i < operatorPrecedenceStack.length; i++) {
-			if (operatorPrecedenceStack[i] < currentPrecedence) {
+			if (operatorPrecedenceStack[i] < currentPrecedence || (operatorPrecedenceStack[i] == currentPrecedence && (operator === "-" || operator === "/") && h === 1)) {
 				needsParentheses = true;
 				operatorPrecedenceStack[currentPrecedenceIndex] = operatorPrecedenceStack[i];
 			}

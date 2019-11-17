@@ -416,11 +416,11 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 					}
 				}
 
-				//Fallback to "en" if no entry for this language
+				//Fallback to "en-US" if no entry for this language
 				if (currentLanguage in keywordArray[i]) {
 					return keywordArray[i][currentLanguage];
 				} else {
-					return keywordArray[i]["en"];
+					return keywordArray[i]["en-US"];
 				}
 			}
 		} else {
@@ -429,7 +429,7 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 			if (currentLanguage in keywordArray[i]) {
 				keywordComparing = keywordComparing[currentLanguage];
 			} else {
-				keywordComparing = keywordComparing["en"];
+				keywordComparing = keywordComparing["en-US"];
 			}
 			keywordComparing = keywordComparing.toLowerCase();
 			if (keywordArray !== stringKw) {
@@ -716,6 +716,21 @@ function error(str, token) {
 	}
 	
 	throw new Error(error);
+}
+
+function warn(warnType, message) {
+	
+	if (!suppressedWarnings.includes(warnType)) {
+		var warning = message+" ("+warnType+")";
+		if (fileStack.length !== 0) {
+			fileStack.reverse();
+			for (var file of fileStack) {
+				warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+			}
+		}
+		console.warn(warning);
+		encounteredWarnings.push(warning);
+	}
 }
 
 function debug(str, arg) {

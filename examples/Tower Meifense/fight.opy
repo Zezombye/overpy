@@ -5,13 +5,14 @@
 if gameStatus == POINT_A_DEFENSE:
     wait(1)
     setMatchTime(60*6)
-
+    """
     spawnMei(MEI_MEICOPTER, vect(0,2,0))
     spawnMei(MEI_MEICOPTER_TURRET, vect(0,2,0))
     spawnMei(MEI_MEICOPTER_TURRET, vect(0,2,0))
     spawnMei(MEI_MEICOPTER_TURRET, vect(0,2,0))
     spawnMei(MEI_MEICOPTER_TURRET, vect(0,2,0))
     """
+    
     spawnMei(MEI_TANK, random.choice(spawnA1))
     spawnMei(MEI_GENERIC, random.choice(spawnA1))
     spawnMei(MEI_GENERIC, random.choice(spawnA1))
@@ -46,4 +47,4 @@ if gameStatus == POINT_A_DEFENSE:
     spawnMei(MEI_SNIPER, random.choice(spawnA1))
     spawnMei(MEI_GENERIC, random.choice(spawnA1))
     spawnMei(MEI_GENERIC, random.choice(spawnA1))
-    """
+    
