@@ -52,7 +52,7 @@
 
 #Player variables
 
-#!define fastFireCountdown B
+#!defineMember fastFireCountdown B
 #!define tempPos C
 #!define currentHero D
 #!define isHealedByAna E

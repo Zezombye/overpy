@@ -23,62 +23,47 @@
 //OverPy keywords beginning with "_" aren't actually keywords; they signal to the parser that it isn't a simple keyword replacement.
 //For example, the "set global variable(var, value)" is replaced by "var = value".
 
-//Array of languages.
-var languages = [
-	"en",
-	"fr", //everything
-    //"es-eu", //strings, heroes (only soldier), some enums (eg "ignore condition"), meta (player event and team event)
-    //"es-al", //everything
-	//"it", //strings, heroes (only soldier), some enums (eg "ignore condition"), meta (rule/event/condition/actions, player event and team event)
-	//"ru", //strings, heroes, meta (player event)
-	//"pl", //strings, heroes, meta (rule/event/condition/actions, player event and team event)
-	//"de", //strings, meta(rule/event/condition/actions)
-	//"pt", //everything
-	//"ja", //everything
-	"kr", //heroes and meta ("conditions"/"actions")
-    //"zh1", //strings, heroes, meta(rule/event/condition/actions)
-    //"zh2", //everything
-]
-
-var currentLanguage = "en";
-
 var ruleKw = 
 //begin-json
 [
     {
         "opy": "@Rule",
-        "en": "rule",
         "fr": "règle",
+        "en-US": "Rule"
     },
     {
         "opy": "@Event",
-        "en": "event",
         "fr": "évènement",
+        "en-US": "Event"
     },
     {
         "opy": "_conditions",
-        "en": "conditions",
         "fr": "conditions",
         "kr": "condition",
+        "en-US": "Conditions"
     },
     {
         "opy": "_actions",
-        "en": "actions",
         "fr": "actions",
         "kr": "action",
-    },{
+        "en-US": "Actions"
+    },
+    {
         "opy": "_disabled",
-        "en": "disabled",
         "fr": "désactivé",
-    },{
+        "en-US": "Disabled"
+    },
+    {
         "opy": "_variables",
-        "en": "variables",
-    },{
+        "en-US": "Variables"
+    },
+    {
         "opy": "_global",
-        "en": "global",
-    },{
+        "en-US": "Global"
+    },
+    {
         "opy": "_player",
-        "en": "player",
+        "en-US": "Player"
     }
 ]
 //end-json
@@ -89,58 +74,58 @@ var eventKw =
 [
     {
         "opy": "global",
-        "en": "ongoing-global",
         "fr": "toutelapartie-toutlemonde",
+        "en-US": "Ongoing - Global"
     },
     {
         "opy": "eachPlayer",
-        "en": "ongoing-eachplayer",
         "fr": "toutelapartie-chaquejoueur",
+        "en-US": "Ongoing - Eachplayer"
     },
     {
         "opy": "playerTookDamage",
-        "en": "playerTookDamage",
         "fr": "unjoueursubitdesdégâts",
+        "en-US": "Player Took Damage"
     },
     {
         "opy": "playerDealtDamage",
-        "en": "playerDealtDamage",
         "fr": "unjoueurinfligedesdégâts",
+        "en-US": "Player Dealt Damage"
     },
     {
         "opy": "playerDealtFinalBlow",
-        "en": "playerDealtFinalBlow",
         "fr": "unjoueurinfligeuncoupdegrâce",
+        "en-US": "Player Dealt Final Blow"
     },
     {
         "opy": "playerDied",
-        "en": "playerDied",
         "fr": "unjoueurmeurt",
+        "en-US": "Player Died"
     },
     {
         "opy": "playerEarnedElimination",
-        "en": "playerEarnedElimination",
         "fr": "unjoueurobtientuneélimination",
+        "en-US": "Player Earned Elimination"
     },
     {
         "opy": "playerDealtHealing",
-        "en": "playerDealtHealing",
         "fr": "unjoueuraprodiguédessoins",
+        "en-US": "Player Dealt Healing"
     },
     {
         "opy": "playerReceivedHealing",
-        "en": "playerReceivedHealing",
         "fr": "unjoueurareçudessoins",
+        "en-US": "Player Received Healing"
     },
     {
         "opy": "playerJoined",
-        "en": "playerJoinedMatch",
         "fr": "unjoueurarejointlapartie",
+        "en-US": "Player Joined Match"
     },
     {
         "opy": "playerLeft",
-        "en": "playerLeftMatch",
         "fr": "unjoueuraquittélapartie",
+        "en-US": "Player Left Match"
     }
 ]
 //end-json
@@ -150,19 +135,19 @@ var eventTeamKw =
 [
     {
         "opy": "all",
-        "en": "all",
         "fr": "lesdeux",
+        "en-US": "All"
     },
     {
         "opy": "1",
-        "en": "team1",
         "fr": "Équipe1",
+        "en-US": "Team 1"
     },
     {
         "opy": "2",
-        "en": "team2",
         "fr": "Équipe2",
-    },
+        "en-US": "Team 2"
+    }
 ]
 //end-json
 
@@ -171,63 +156,63 @@ var eventSlotKw =
 [
     {
         "opy": "0",
-        "en": "slot0",
         "fr": "emplacement0",
+        "en-US": "Slot 0"
     },
     {
         "opy": "1",
-        "en": "slot1",
         "fr": "emplacement1",
+        "en-US": "Slot 1"
     },
     {
         "opy": "2",
-        "en": "slot2",
         "fr": "emplacement2",
+        "en-US": "Slot 2"
     },
     {
         "opy": "3",
-        "en": "slot3",
         "fr": "emplacement3",
+        "en-US": "Slot 3"
     },
     {
         "opy": "4",
-        "en": "slot4",
         "fr": "emplacement4",
+        "en-US": "Slot 4"
     },
     {
         "opy": "5",
-        "en": "slot5",
         "fr": "emplacement5",
+        "en-US": "Slot 5"
     },
     {
         "opy": "6",
-        "en": "slot6",
         "fr": "emplacement6",
+        "en-US": "Slot 6"
     },
     {
         "opy": "7",
-        "en": "slot7",
         "fr": "emplacement7",
+        "en-US": "Slot 7"
     },
     {
         "opy": "8",
-        "en": "slot8",
         "fr": "emplacement8",
+        "en-US": "Slot 8"
     },
     {
         "opy": "9",
-        "en": "slot9",
         "fr": "emplacement9",
+        "en-US": "Slot 9"
     },
     {
         "opy": "10",
-        "en": "slot10",
         "fr": "emplacement10",
+        "en-US": "Slot 10"
     },
     {
         "opy": "11",
-        "en": "slot11",
         "fr": "emplacement11",
+        "en-US": "Slot 11"
     }
 ]
 //end-json
@@ -237,9 +222,9 @@ var eventPlayerKw =
 [
     {
         "opy": "all",
-        "en": "all",
         "fr": "tout",
-    },
+        "en-US": "All"
+    }
 ]
 //end-json
 .concat(eventSlotKw);
@@ -253,3 +238,6 @@ for (var constant of Object.keys(constantValues)) {
 var valueKw = valueFuncKw.concat(constantKw);
 
 var funcKw = actionKw.concat(valueFuncKw);
+
+
+

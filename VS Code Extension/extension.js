@@ -22,7 +22,7 @@ const decompilerUI = [`
     
     <div id="button-container">
         Language: <select id="language-select">
-            <option value="en">English</option>
+            <option value="en-US">English</option>
             <option value="fr">French</option>
             <option value="kr">Korean</option>
         </select>
@@ -193,15 +193,18 @@ const metaRuleParamsCompList = makeCompList(metaRuleParams);
 var defaultCompList;
 var allFuncList;
 var memberCompItem;
-var macros = [];
+var normalMacros = [];
+var memberMacros = [];
+var globalVariables = [];
+var playerVariables = [];
 function refreshAutoComplete() {
 
-    defaultCompList = makeCompList(funcList.concat(constTypeList).concat(macros));
-    allFuncList = funcList.concat(memberFuncList).concat(macros);
+    defaultCompList = makeCompList(funcList.concat(constTypeList).concat(normalMacros).concat(globalVariables));
+    allFuncList = funcList.concat(memberFuncList).concat(normalMacros).concat(memberMacros);
     for (var func of allFuncList) {
         func.sigHelp = makeSignatureHelp(func);
     }
-    memberCompItem = makeCompList(memberFuncList.concat(memberConstList).concat(macros))
+    memberCompItem = makeCompList(memberFuncList.concat(memberConstList).concat(memberMacros).concat(playerVariables))
 }
 refreshAutoComplete();
 
@@ -265,26 +268,19 @@ function activate(context) {
             rootPath = rootPath.substring(0, rootPath.lastIndexOf('/')+1);
 
             var compiledText = overpy.compile(vscode.window.activeTextEditor.document.getText(), vscode.workspace.getConfiguration("overpy").workshopLanguage, rootPath);
+            for (var warning of compiledText.encounteredWarnings) {
+                vscode.window.showWarningMessage("Warning: "+warning);
+            }
             clipboard.copy(compiledText.result);
             vscode.window.showInformationMessage("Successfully compiled! (copied into clipboard)");
-            macros = convertMacros(compiledText.macros);
+            fillAutocompletionMacros(compiledText.macros);
+            fillAutocompletionVariables(compiledText.globalVariables, compiledText.playerVariables);
             refreshAutoComplete();
             console.log(compiledText.macros);
         } catch (e) {
             if (e instanceof Error) {
                 console.error(e);
                 vscode.window.showErrorMessage("Error: "+e.message);
-                /*try {
-                    var errorLine = parseInt(e.message.substring(e.message.indexOf("line ")+"line ".length, e.message.indexOf(",")))-1;
-                    var errorCol = parseInt(e.message.substring(e.message.indexOf("col ")+"col ".length, e.message.indexOf(":")))-1;
-
-                    //Position the cursor to the error location
-                    vscode.window.activeTextEditor.selection = new vscode.Selection(errorLine, errorCol, errorLine, errorCol);
-                    vscode.window.activeTextEditor.revealRange(new vscode.Range((errorLine > 10 ? errorLine-10 : 0), errorCol, errorLine+10, errorCol));
-                } catch (e) {
-                    console.error(e);
-                }*/
-                //vscode.window.activeTextEditor.document.
             } else {
                 console.error(e);
             }
@@ -391,7 +387,7 @@ function activate(context) {
     }, ',', '(', ')');
 
     vscode.workspace.onDidSaveTextDocument((document) => {
-        if (document.languageId === "overpy" && document.uri.scheme === "file" && vscode.workspace.getConfiguration("overpy").compileOnSave) {
+        if (document.languageId === "overpy" && document.uri.scheme === "file" && vscode.workspace.getConfiguration("overpy").compileOnSave && (!vscode.workspace.getConfiguration("overpy").onlySaveOnMainFile || !document.getText().startsWith("#!mainFile "))) {
             vscode.commands.executeCommand("extension.compile");
         }
     })
@@ -445,8 +441,9 @@ function makeCompItem(item) {
     return compItem;
 }
 
-function convertMacros(macros) {
-    var result = [];
+function fillAutocompletionMacros(macros) {
+    normalMacros = [];
+    memberMacros = [];
     for (var macro of macros) {
         var convertedMacro = {};
         convertedMacro.opy = macro.name;
@@ -468,9 +465,23 @@ function convertMacros(macros) {
         } else {
             convertedMacro.description = "This macro resolves to:\n\n"+macro.replacement;
         }
-        result.push(convertedMacro);
+        if (macro.isMember) {
+            memberMacros.push(convertedMacro);
+        } else {
+            normalMacros.push(convertedMacro);
+        }
     }
-    return result;
+}
+
+function fillAutocompletionVariables(globalVars, playerVars) {
+    globalVariables = globalVars.map(x => ({
+        opy: x.name,
+        description: "A global variable. (index: "+x.index+")",
+    }));
+    playerVariables = playerVars.map(x => ({
+        opy: x.name,
+        description: "A player variable. (index: "+x.index+")",
+    }));
 }
 
 function generateDocFromDoc(item) {

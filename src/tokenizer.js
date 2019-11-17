@@ -246,7 +246,7 @@ function tokenize(content) {
 				addToken(content[i]);
 				
 			} else if (content.startsWith("#!", i)) {
-				if (content.startsWith("#!define ", i)) {
+				if (content.startsWith("#!define ", i) || content.startsWith("#!defineMember ", i)) {
 					if (!isInRule) {
 						isInMacro = true;
 						currentMacro = {
@@ -279,6 +279,11 @@ function tokenize(content) {
 					var varIndex = args[1].trim();
 					addVariable(varName, isGlobalVariable, varIndex);
 
+					isInLineComment = true;
+				} else if (content.startsWith("#!suppressWarnings ", i)) {
+					var lineIndex = content.indexOf("\n", i);
+					var firstSpaceIndex = content.indexOf(" ", i);
+					globalSuppressedWarnings = content.substring(firstSpaceIndex, lineIndex).trim().split(" ").map(x => x.trim());
 					isInLineComment = true;
 				} else {
 					error("Unknown preprocessor directive");
@@ -533,7 +538,11 @@ function resolveMacro(macro, args=[], indentLevel) {
 
 function parseMacro(macro) {
 	
-	macro.content = macro.content.substring("#!define ".length);
+	if (macro.content.startsWith("#!defineMember ")) {
+		macro.isMember = true;
+	}
+	macro.startingCol = macro.content.indexOf(" ")+1;
+	macro.content = macro.content.substring(macro.content.indexOf(" ")+1);
 	var bracketPos = getBracketPositions(macro.content, false, true);
 	
 	if (bracketPos.length === 0 || macro.content.indexOf(" ") < bracketPos[0]) {
@@ -542,7 +551,7 @@ function parseMacro(macro) {
 		macro.text = macro.content.substring(0, macro.content.indexOf(" ")).trim();
 		macro.name = macro.text;
         macro.replacement = macro.content.substring(macro.content.indexOf(" ")).trim();
-        macro.startingCol = "#!define ".length+macro.content.indexOf(" ")+macro.content.substring(macro.content.indexOf(" ")).search(/\S/)+1;
+        macro.startingCol += macro.content.indexOf(" ")+macro.content.substring(macro.content.indexOf(" ")).search(/\S/)+1;
 		
 	} else {
 		//Function macro
@@ -551,7 +560,7 @@ function parseMacro(macro) {
 		macro.name = macro.content.substring(0, bracketPos[0]).trim();
 		macro.replacement = macro.content.substring(bracketPos[1]+1).trim();
         macro.args = getArgs(macro.content.substring(bracketPos[0]+1, bracketPos[1]));
-        macro.startingCol = "#!define ".length+bracketPos[1]+1+macro.content.substring(bracketPos[1]+1).search(/\S/)+1;
+        macro.startingCol += bracketPos[1]+1+macro.content.substring(bracketPos[1]+1).search(/\S/)+1;
 
         //Test for script macro
         if (macro.replacement.startsWith("__script__(")) {
