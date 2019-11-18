@@ -22236,8 +22236,10 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CA13.07C: Week 2: Vampire Baptiste
 00000000CA14.07C: Week 3: Demon Hunter Sombra
 00000000CA15.07C: Win 9 games in quick play, arcade, or competitive play!
-00000000CA16.07C: Win 9 games in quick play, arcade, orcompetitive play!
-00000000CA17.07C: Win 9 games in quick play, arcade, orcompetitive play!
+00000000CA16.07C: Win 9 games in quick play, arcade, or
+competitive play!
+00000000CA17.07C: Win 9 games in quick play, arcade, or
+competitive play!
 00000000CA18.07C: Unlocked by participating in the Summer Games 2019 week 1 challenge
 00000000CA19.07C: Unlocked by participating in the Summer Games 2019 week 2 challenge
 00000000CA1A.07C: Unlocked by participating in the Summer Games 2019 week 3 challenge

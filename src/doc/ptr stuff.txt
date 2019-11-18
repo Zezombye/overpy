@@ -1,0 +1,22 @@
+//Values
+
+
+    {
+        "opy": "getCurrentGamemode()",
+        "description": "The current game mode of the custom game.",
+        "args": [],
+        "en-US": "Current Game Mode"
+    },
+    {
+        "opy": "_gamemode",
+        "description": "A game mode constant.",
+        "args": [
+            {
+                "name": "GAME MODE",
+                "description": "A game mode constant.",
+                "type": "GAMEMODE CONSTANT",
+                "default": "ASSAULT"
+            }
+        ],
+        "en-US": "Game Mode"
+    },
