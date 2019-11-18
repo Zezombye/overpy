@@ -36,6 +36,7 @@ var constantValues =
         "opy": "Invis",
         "values": [
             {
+                "guid": "00000000B9EB",
                 "opy": "Invis.ALL",
                 "fr": "Tous",
                 "en-US": "All"
@@ -171,41 +172,49 @@ var constantValues =
         "opy": "Operation",
         "values": [
             {
+                "guid": "00000000B16D",
                 "opy": "_add",
                 "fr": "Addition",
                 "en-US": "Add"
             },
             {
+                "guid": "00000000B167",
                 "opy": "_appendToArray",
                 "fr": "AjouterAuTableau",
                 "en-US": "Append To Array"
             },
             {
+                "guid": "00000000B16A",
                 "opy": "_divide",
                 "fr": "Division",
                 "en-US": "Divide"
             },
             {
+                "guid": "00000000B18F",
                 "opy": "_max",
                 "fr": "Maximum",
                 "en-US": "Max"
             },
             {
+                "guid": "00000000B190",
                 "opy": "_min",
                 "fr": "Minimum",
                 "en-US": "Min"
             },
             {
+                "guid": "00000000B169",
                 "opy": "_modulo",
                 "fr": "Modulo",
                 "en-US": "Modulo"
             },
             {
+                "guid": "00000000B16B",
                 "opy": "_multiply",
                 "fr": "Multiplication",
                 "en-US": "Multiply"
             },
             {
+                "guid": "00000000B168",
                 "opy": "_raiseToPower",
                 "fr": "ÉlévationàUnePuissance",
                 "en-US": "Raise To Power"
@@ -221,6 +230,7 @@ var constantValues =
                 "en-US": "Remove From Array By Value"
             },
             {
+                "guid": "00000000B16C",
                 "opy": "_subtract",
                 "fr": "Soustraction",
                 "en-US": "Subtract"
@@ -1016,11 +1026,13 @@ var constantValues =
     "ROUNDING TYPE": {
         "values": [
             {
+                "guid": "00000000C34F",
                 "opy": "_roundUp",
                 "fr": "Au-dessus",
                 "en-US": "Up"
             },
             {
+                "guid": "00000000C34E",
                 "opy": "_roundDown",
                 "fr": "En-dessous",
                 "en-US": "Down"
@@ -1076,6 +1088,7 @@ var constantValues =
         "opy": "Position",
         "values": [
             {
+                "guid": "00000000BAF6",
                 "opy": "Position.LEFT",
                 "fr": "Gauche",
                 "en-US": "Left"
@@ -1086,6 +1099,7 @@ var constantValues =
                 "en-US": "Top"
             },
             {
+                "guid": "00000000BAF8",
                 "opy": "Position.RIGHT",
                 "fr": "Droite",
                 "en-US": "Right"

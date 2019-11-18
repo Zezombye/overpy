@@ -107,6 +107,8 @@ function addTranslations(content) {
         }
         content.guid = matchingGuids[0];
     }
+    delete content.fr;
+    delete content.kr;
     for (var language of languages) {
         if (language === "en-US") continue;
         var isGuidFound = false;
@@ -143,10 +145,10 @@ function normalizeName(content) {
 
 //generateStringFiles();
 getGuids();
-replaceJsonObjectsInFile(docFolder+"actions.js");
+//replaceJsonObjectsInFile(docFolder+"actions.js");
 //replaceJsonObjectsInFile(docFolder+"values.js");
 //replaceJsonObjectsInFile(docFolder+"constants.js");
-//replaceJsonObjectsInFile(docFolder+"keywords.js");
+replaceJsonObjectsInFile(docFolder+"keywords.js");
 //replaceJsonObjectsInFile(docFolder+"stringKw.js");
 
 function sleep(ms){
