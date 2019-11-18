@@ -212,6 +212,7 @@ var normalStrKw =
         "en-US": "Upgrade"
     },
     {
+        "guid": "00000000C169",
         "opy": "Up",
         "fr": "Haut",
         "en-US": "Up"
@@ -728,16 +729,19 @@ var normalStrKw =
         "en-US": "Sever"
     },
     {
+        "guid": "00000000C984",
         "opy": "Server Load Peak",
         "fr": "Pic de charge du serveur",
         "en-US": "Server Load Peak"
     },
     {
+        "guid": "00000000C983",
         "opy": "Server Load Average",
         "fr": "Charge moyenne du serveur",
         "en-US": "Server Load Average"
     },
     {
+        "guid": "00000000C982",
         "opy": "Server Load",
         "fr": "Charge du serveur",
         "en-US": "Server Load"
@@ -848,6 +852,7 @@ var normalStrKw =
         "en-US": "Round"
     },
     {
+        "guid": "00000000C163",
         "opy": "Right",
         "fr": "Droite",
         "en-US": "Right"
@@ -1559,6 +1564,7 @@ var normalStrKw =
         "en-US": "Mission"
     },
     {
+        "guid": "00000000C5DF",
         "opy": "Min",
         "fr": "Minimum",
         "en-US": "Min"
@@ -1569,6 +1575,7 @@ var normalStrKw =
         "en-US": "Mild"
     },
     {
+        "guid": "00000000C5E0",
         "opy": "Max",
         "fr": "Maximum",
         "en-US": "Max"
@@ -1669,6 +1676,7 @@ var normalStrKw =
         "en-US": "Less"
     },
     {
+        "guid": "00000000C162",
         "opy": "Left",
         "fr": "Gauche",
         "en-US": "Left"
@@ -2005,6 +2013,7 @@ var normalStrKw =
         "en-US": "Heroes"
     },
     {
+        "guid": "00000000BFD0",
         "opy": "Hero",
         "fr": "Héros",
         "en-US": "Hero"
@@ -2050,6 +2059,7 @@ var normalStrKw =
         "en-US": "Healers"
     },
     {
+        "guid": "00000000C5E1",
         "opy": "Healer",
         "fr": "Soigneur",
         "en-US": "Healer"
@@ -2181,6 +2191,7 @@ var normalStrKw =
         "en-US": "Found"
     },
     {
+        "guid": "00000000C176",
         "opy": "Forward",
         "fr": "Avant",
         "en-US": "Forward"
@@ -2591,6 +2602,7 @@ var normalStrKw =
         "en-US": "Download"
     },
     {
+        "guid": "00000000C16A",
         "opy": "Down",
         "fr": "Bas",
         "en-US": "Down"
@@ -3257,6 +3269,7 @@ var normalStrKw =
         "en-US": "Bad"
     },
     {
+        "guid": "00000000C177",
         "opy": "Backward",
         "fr": "Arrière",
         "en-US": "Backward"
