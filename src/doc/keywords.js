@@ -18,7 +18,6 @@
 "use strict";
 
 //List of workshop "keywords" (conditions, values, actions).
-//Note: each workshop keyword MUST be with no spaces!
 
 //OverPy keywords beginning with "_" aren't actually keywords; they signal to the parser that it isn't a simple keyword replacement.
 //For example, the "set global variable(var, value)" is replaced by "var = value".
@@ -311,7 +310,7 @@ var eventTeamKw =
 ]
 //end-json
 
-var eventSlotKw = Array(12).map(x => (
+var eventSlotKw = Array(12).fill().map(x => (
 
 //begin-json
 [
@@ -329,8 +328,8 @@ var eventSlotKw = Array(12).map(x => (
     }
 ]
 //end-json
-));
-/*
+[0]));
+
 eventSlotKw.forEach((element, index) => {
     element.opy = ""+index;
     for (var key of Object.keys(element)) {
@@ -338,7 +337,7 @@ eventSlotKw.forEach((element, index) => {
             element[key] = element[key].replace("%1$s", index);
         }
     }
-});*/
+});
 
 var eventPlayerKw = 
 //begin-json
