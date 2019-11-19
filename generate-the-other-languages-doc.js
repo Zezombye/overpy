@@ -116,7 +116,7 @@ function addTranslations(content) {
         for (var elem of guids[language]) {
             if (elem.guid === content.guid) {
                 if (elem.string !== content["en-US"]) {
-                    content[language] = elem.string;
+                    content[language] = elem.string.replace(/[,\(\)]/g,"");
                 }
                 isGuidFound = true;
                 break;
@@ -147,8 +147,8 @@ function normalizeName(content) {
 getGuids();
 //replaceJsonObjectsInFile(docFolder+"actions.js");
 //replaceJsonObjectsInFile(docFolder+"values.js");
-//replaceJsonObjectsInFile(docFolder+"constants.js");
-replaceJsonObjectsInFile(docFolder+"keywords.js");
+replaceJsonObjectsInFile(docFolder+"constants.js");
+//replaceJsonObjectsInFile(docFolder+"keywords.js");
 //replaceJsonObjectsInFile(docFolder+"stringKw.js");
 
 function sleep(ms){

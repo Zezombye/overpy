@@ -56,6 +56,7 @@ var normalStrKw =
         "en-US": "Yes"
     },
     {
+        "guid": "00000000C878",
         "opy": "Yellow",
         "fr": "Jaune",
         "en-US": "Yellow"
@@ -106,6 +107,7 @@ var normalStrKw =
         "en-US": "Wild"
     },
     {
+        "guid": "00000000C877",
         "opy": "White",
         "fr": "Blanc",
         "en-US": "White"
@@ -368,6 +370,7 @@ var normalStrKw =
         "en-US": "That Was Awesome"
     },
     {
+        "guid": "00000000C17C",
         "opy": "Thanks",
         "fr": "Remerciements",
         "en-US": "Thanks"
@@ -458,6 +461,7 @@ var normalStrKw =
         "en-US": "Stunning"
     },
     {
+        "guid": "00000000C5F3",
         "opy": "Stunned",
         "fr": "Étourdi",
         "en-US": "Stunned"
@@ -563,6 +567,7 @@ var normalStrKw =
         "en-US": "Spheres"
     },
     {
+        "guid": "00000000C283",
         "opy": "Sphere",
         "fr": "Sphère",
         "en-US": "Sphere"
@@ -593,6 +598,7 @@ var normalStrKw =
         "en-US": "Spawn"
     },
     {
+        "guid": "00000000C28D",
         "opy": "Sparkles",
         "fr": "Étincelles",
         "en-US": "Sparkles"
@@ -603,6 +609,7 @@ var normalStrKw =
         "en-US": "Spades"
     },
     {
+        "guid": "00000000CAC3",
         "opy": "Spade",
         "fr": "Pique",
         "en-US": "Spade"
@@ -787,6 +794,7 @@ var normalStrKw =
         "en-US": "Secure"
     },
     {
+        "guid": "00000000C868",
         "opy": "Secondary Fire",
         "fr": "Tir secondaire",
         "en-US": "Secondary Fire"
@@ -939,6 +947,7 @@ var normalStrKw =
         "en-US": "Remain"
     },
     {
+        "guid": "00000000C87B",
         "opy": "Red",
         "fr": "Rouge",
         "en-US": "Red"
@@ -1044,6 +1053,7 @@ var normalStrKw =
         "en-US": "Raise"
     },
     {
+        "guid": "00000000C87A",
         "opy": "Purple",
         "fr": "Violet",
         "en-US": "Purple"
@@ -1089,6 +1099,7 @@ var normalStrKw =
         "en-US": "Projectile"
     },
     {
+        "guid": "00000000C867",
         "opy": "Primary Fire",
         "fr": "Tir principal",
         "en-US": "Primary Fire"
@@ -1279,6 +1290,7 @@ var normalStrKw =
         "en-US": "On"
     },
     {
+        "guid": "00000000C5DD",
         "opy": "Off",
         "fr": "Désactivé",
         "en-US": "Off"
@@ -1354,6 +1366,7 @@ var normalStrKw =
         "en-US": "No Thanks"
     },
     {
+        "guid": "00000000C5F5",
         "opy": "No",
         "fr": "Non",
         "en-US": "No"
@@ -1728,6 +1741,7 @@ var normalStrKw =
         "en-US": "Jumping"
     },
     {
+        "guid": "00000000C2A8",
         "opy": "Jump",
         "fr": "Sauter",
         "en-US": "Jump"
@@ -1763,6 +1777,7 @@ var normalStrKw =
         "en-US": "Invisible"
     },
     {
+        "guid": "00000000C866",
         "opy": "Interact",
         "fr": "Interagir",
         "en-US": "Interact"
@@ -2029,6 +2044,7 @@ var normalStrKw =
         "en-US": "Help"
     },
     {
+        "guid": "00000000C178",
         "opy": "Hello",
         "fr": "Bonjour",
         "en-US": "Hello"
@@ -2044,6 +2060,7 @@ var normalStrKw =
         "en-US": "Hearts"
     },
     {
+        "guid": "00000000CAC4",
         "opy": "Heart",
         "fr": "Cœur",
         "en-US": "Heart"
@@ -2091,6 +2108,7 @@ var normalStrKw =
         "en-US": "Hacking"
     },
     {
+        "guid": "00000000C0EC",
         "opy": "Hacked",
         "fr": "Piraté",
         "en-US": "Hacked"
@@ -2106,6 +2124,7 @@ var normalStrKw =
         "en-US": "Guilty"
     },
     {
+        "guid": "00000000C879",
         "opy": "Green",
         "fr": "Vert",
         "en-US": "Green"
@@ -2171,6 +2190,7 @@ var normalStrKw =
         "en-US": "Game"
     },
     {
+        "guid": "00000000C0D7",
         "opy": "Frozen",
         "fr": "Gelé",
         "en-US": "Frozen"
@@ -2517,6 +2537,7 @@ var normalStrKw =
         "en-US": "Enemy"
     },
     {
+        "guid": "00000000BFD2",
         "opy": "Enemies",
         "fr": "Ennemis",
         "en-US": "Enemies"
@@ -2683,6 +2704,7 @@ var normalStrKw =
         "en-US": "Diamonds"
     },
     {
+        "guid": "00000000CAC2",
         "opy": "Diamond",
         "fr": "Carreau",
         "en-US": "Diamond"
@@ -2969,6 +2991,7 @@ var normalStrKw =
         "en-US": "Crouched"
     },
     {
+        "guid": "00000000C2A5",
         "opy": "Crouch",
         "fr": "S’accroupir",
         "en-US": "Crouch"
@@ -3069,6 +3092,7 @@ var normalStrKw =
         "en-US": "Clubs"
     },
     {
+        "guid": "00000000CAC1",
         "opy": "Club",
         "fr": "Trèfle",
         "en-US": "Club"
@@ -3079,6 +3103,7 @@ var normalStrKw =
         "en-US": "Clouds"
     },
     {
+        "guid": "00000000C288",
         "opy": "Cloud",
         "fr": "Nuage",
         "en-US": "Cloud"
@@ -3159,6 +3184,7 @@ var normalStrKw =
         "en-US": "Burnt"
     },
     {
+        "guid": "00000000C0D1",
         "opy": "Burning",
         "fr": "Enflammé",
         "en-US": "Burning"
@@ -3209,6 +3235,7 @@ var normalStrKw =
         "en-US": "Bonus"
     },
     {
+        "guid": "00000000C87C",
         "opy": "Blue",
         "fr": "Bleu",
         "en-US": "Blue"
@@ -3350,11 +3377,13 @@ var normalStrKw =
         "en-US": "Alert"
     },
     {
+        "guid": "00000000BFF4",
         "opy": "Ability 2",
         "fr": "Capacité 2",
         "en-US": "Ability 2"
     },
     {
+        "guid": "00000000BFF7",
         "opy": "Ability 1",
         "fr": "Capacité 1",
         "en-US": "Ability 1"
