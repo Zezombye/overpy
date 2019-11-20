@@ -523,3 +523,73 @@ const specialMemberFuncs = [
         args: [],
     }
 ];
+
+const preprocessingDirectives = [
+    {
+        opy: "define",
+        description:
+`Creates a macro, like in C/C++. Macros must be defined before any code. Examples:
+
+    #!define currentSectionWalls A
+    #!define GAME_NOT_STARTED 3\`
+
+Function macros are supported as well:
+
+    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]
+    #!define spawnMei(type, location) \
+    getFirstAvailableMei().meiType = type\
+    wait(0.1)\
+    getFirstAvailableMei().teleport(location)\
+    getFirstAvailableMei().isFighting = true
+
+Note the usage of the backslashed lines.
+
+JS scripts can be inserted with the special __script__ function:
+
+    #!define addFive(x) __script__("addfive.js")
+
+where the \`addfive.js\` script contains \`x+5\` (no \`return\`).
+
+Arguments of JS scripts are inserted automatically at the beginning (so \`addFive(123)\` would cause \`var x = 123;\` to be inserted). The script is then evaluated using \`eval()\`.
+
+A \`vect()\` function is also inserted, so that \`vect(1,2,3)\` returns an object with the correct properties and \`toString()\` function.
+
+When resolving the macro, the indentation on the macro call is prepended to each line of the replacement.
+`
+    },{
+        opy: "defineMember",
+        description: "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion."
+    },{
+        opy: "obfuscate",
+        description:
+`Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.
+
+Usage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)
+
+The following obfuscation methods are applied:
+
+- Rule filling: empty rules are inserted so that the code hits the limit of 1000 rules. The non-empty rules are scattered randomly across these 1000 rules (but still keeping the rule order).
+- Comment removing: all rule titles are replaced with the empty string.
+- Dead code injection: actions that effectively do nothing are inserted in rules.
+- Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.
+- Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
+`
+    },{
+        opy: "declareGlobal",
+        description:
+`Declares a global variable. The index (0-127) must be specified. Example:
+
+    #!declareGlobal myVar 127
+`
+    },{
+        opy: "declarePlayer",
+        description:
+`Declares a player variable. The index (0-127) must be specified. Example:
+
+    #!declarePlayer myVar 127
+`
+    },{
+        opy: "suppressWarnings",
+        description: "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
+    }
+]

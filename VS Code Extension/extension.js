@@ -162,6 +162,10 @@ const metaRuleParams = [
             ...x,
             opy: x.opy.substring("Hero.".length).toLowerCase()
         })),
+    },{
+        "opy": "@SuppressWarnings",
+        "description": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces.",
+        "values": "[]",
     }
 ]
 
