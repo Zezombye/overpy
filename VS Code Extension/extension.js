@@ -23,8 +23,18 @@ const decompilerUI = [`
     <div id="button-container">
         Language: <select id="language-select">
             <option value="en-US">English</option>
-            <option value="fr">French</option>
-            <option value="kr">Korean</option>
+            <option value="de-DE">German</option>
+            <option value="es-ES">Spanish (Spain)</option>
+            <option value="es-MX">Spanish (Mexico)</option>
+            <option value="fr-FR">French</option>
+            <option value="it-IT">Italian</option>
+            <option value="ja-JP">Japanese</option>
+            <option value="ko-KR">Korean</option>
+            <option value="pl-PL">Polish</option>
+            <option value="pt-BR">Portugese (Brazil)</option>
+            <option value="ru-RU">Russian</option>
+            <option value="zh-CN">Chinese (Simplified)</option>
+            <option value="zh-TW">Chinese (Traditional)</option>
         </select>
         <br>
         <br>
