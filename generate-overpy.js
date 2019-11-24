@@ -6,6 +6,7 @@ overpyFiles = [
 	"doc/values.js",
 	"doc/constants.js",
 	"doc/keywords.js",
+	"obfuscation.js",
 	"globalVars.js",
 	"utils.js",
 	"decompiler.js",
@@ -40,6 +41,7 @@ module.exports = {
 	currentLanguage: currentLanguage,
 	macros: macros,
 	resetGlobalVariables: resetGlobalVariables,
+	preprocessingDirectives: preprocessingDirectives,
 
 };
 `

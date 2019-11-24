@@ -11335,6 +11335,11 @@ var funcKw = actionKw.concat(valueFuncKw);
 
 
 
+
+var obfuscationMappings = {};
+for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
+	obfuscationMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xE0000);
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -11397,6 +11402,7 @@ var encounteredWarnings;
 var suppressedWarnings;
 var globalSuppressedWarnings;
 
+var wasWaitEncountered;
 
 //Decompilation variables
 
@@ -11448,6 +11454,7 @@ function resetGlobalVariables() {
 	suppressedWarnings = [];
 	globalSuppressedWarnings = [];
 	currentLanguage = "en-US";
+	wasWaitEncountered = false;
 }
 
 //Other constants
@@ -11573,7 +11580,7 @@ var fullwidthMappings = {
 	"¦": "￤",
 }
 for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
-	fullwidthMappings[char] = String.fromCharCode(char.charCodeAt(0)+0xFEE0);
+	fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -14372,6 +14379,7 @@ function compileRule(rule) {
 	}
 	
 	forLoopTimers = [];
+	wasWaitEncountered = false;
 	
 	//The first line should always start with @Rule.
 	if (rule.lines[0].tokens[0].text !== "@Rule") {
@@ -14763,6 +14771,9 @@ function parseInstructions(lines, nbDo) {
 		//Check for "while"
 		} else if (lines[i].tokens[0].text === "while") {
 
+			if (!wasWaitEncountered) {
+				error("Found 'while' without a 'wait' before it");
+			}
 			if (nbDo === 0) {
 				error("Found 'while' without matching 'do'");
 			}
@@ -15705,6 +15716,7 @@ function parse(content, parseArgs={}) {
 		
 	
 	if (name === "wait") {
+		wasWaitEncountered = true;
 		var result = tows("_wait", actionKw)+"(";
 		if (args.length === 0) {
 			result += "0.016, ";
@@ -16263,6 +16275,7 @@ function parseString(content, formatArgs, stringModifiers) {
 	//Used to reorder args for easier optimization.
 	//Eg "{1}{0}" is converted to "{0}{1}", with the arguments obviously switched.
 	var numberMapping = {};
+	var containsNonFullwidthChar = false;
 
 	//Tokenize string
 	while (true) {
@@ -16317,7 +16330,6 @@ function parseString(content, formatArgs, stringModifiers) {
 				}
 			} else if (stringModifiers.fullWidth) {
 				var tmpStr = "";
-				var containsNonFullwidthChar = false;
 				for (var char of content) {
 					if (char in fullwidthMappings) {
 						tmpStr += fullwidthMappings[char];
@@ -16326,12 +16338,22 @@ function parseString(content, formatArgs, stringModifiers) {
 						tmpStr += char;
 					}
 				}
+
 				content = tmpStr;
-				if (containsNonFullwidthChar) {
-					warn("w_not_total_fullwidth", "Could not fully convert this string to fullwidth characters")
-				}
+				
 			}
 
+			if (obfuscateRules) {
+				var tmpStr = "";
+				for (var char of result) {
+					if (char in obfuscationMappings) {
+						tmpStr += obfuscationMappings[char];
+					} else {
+						tmpStr += char;
+					}
+				}
+				content = tmpStr;
+			}
 			tokens.push({
 				text: content,
 				type: "string"
@@ -16339,6 +16361,7 @@ function parseString(content, formatArgs, stringModifiers) {
 			break;
 		}
 	}
+
 
 	//sort args if there was (potentially) a reordering
 	for (var key of Object.keys(numberMapping)) {
@@ -16351,6 +16374,9 @@ function parseString(content, formatArgs, stringModifiers) {
 	//console.log("args = ");
 	//console.log(args);
 
+	if (containsNonFullwidthChar && stringModifiers.fullWidth) {
+		warn("w_not_total_fullwidth", "Could not fully convert this string to fullwidth characters")
+	}
 	if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
 		error("Could not convert the string to big letters. The string must have one of the following chars: '"+Object.keys(bigLettersMappings).join("")+"'");
 	}
@@ -20597,14 +20623,14 @@ var normalStrKw =
         "en-US": "No Thanks",
         "guid": "00000000C181",
         "de-DE": "Nein danke",
-        "es-ES": "No gracias",
-        "es-MX": "No gracias",
+        "es-ES": "No, gracias",
+        "es-MX": "No, gracias",
         "fr-FR": "Non merci",
         "it-IT": "No Grazie",
         "ja-JP": "結構です",
-        "pl-PL": "Nie dzięki",
-        "pt-BR": "Não Obrigado",
-        "ru-RU": "Нет спасибо",
+        "pl-PL": "Nie, dzięki",
+        "pt-BR": "Não, Obrigado",
+        "ru-RU": "Нет, спасибо",
         "zh-CN": "不用了",
         "zh-TW": "不，謝謝"
     },
@@ -27267,18 +27293,8 @@ var binaryStrKw =
         "opy": "{0}, {1}",
         "en-US": "{0}, {1}",
         "guid": "00000000BF9B",
-        "de-DE": "{0} {1}",
-        "es-ES": "{0} {1}",
-        "es-MX": "{0} {1}",
-        "fr-FR": "{0} {1}",
-        "it-IT": "{0} {1}",
         "ja-JP": "{0}、{1}",
-        "ko-KR": "{0} {1}",
-        "pl-PL": "{0} {1}",
-        "pt-BR": "{0} {1}",
-        "ru-RU": "{0} {1}",
-        "zh-CN": "{0}，{1}",
-        "zh-TW": "{0} {1}"
+        "zh-CN": "{0}，{1}"
     },
     {
         "opy": "{0}: {1}",
@@ -27324,18 +27340,17 @@ var ternaryStrKw =
         "opy": "{0}, {1}, and {2}",
         "en-US": "{0}, {1}, and {2}",
         "guid": "00000000BFB6",
-        "de-DE": "{0} {1} und {2}",
-        "es-ES": "{0} {1} y {2}",
-        "es-MX": "{0} {1} y {2}",
-        "fr-FR": "{0} {1} et {2}",
-        "it-IT": "{0} {1} e {2}",
+        "de-DE": "{0}, {1} und {2}",
+        "es-ES": "{0}, {1} y {2}",
+        "es-MX": "{0}, {1} y {2}",
+        "fr-FR": "{0}, {1} et {2}",
+        "it-IT": "{0}, {1}, e {2}",
         "ja-JP": "{0}、{1}、{2}",
-        "ko-KR": "{0} {1} and {2}",
-        "pl-PL": "{0} {1} i {2}",
-        "pt-BR": "{0} {1} e {2}",
-        "ru-RU": "{0} {1} и {2}",
+        "pl-PL": "{0}, {1} i {2}",
+        "pt-BR": "{0}, {1} e {2}",
+        "ru-RU": "{0}, {1} и {2}",
         "zh-CN": "{0}，{1}和{2}",
-        "zh-TW": "{0} {1} 以及{2}"
+        "zh-TW": "{0}, {1}, 以及{2}"
     },
     {
         "opy": "{0}: {1} and {2}",
@@ -27362,19 +27377,7 @@ var surroundStrKw =
     {
         "opy": "({0})",
         "en-US": "({0})",
-        "guid": "00000000BFBD",
-        "de-DE": "{0}",
-        "es-ES": "{0}",
-        "es-MX": "{0}",
-        "fr-FR": "{0}",
-        "it-IT": "{0}",
-        "ja-JP": "{0}",
-        "ko-KR": "{0}",
-        "pl-PL": "{0}",
-        "pt-BR": "{0}",
-        "ru-RU": "{0}",
-        "zh-CN": "{0}",
-        "zh-TW": "{0}"
+        "guid": "00000000BFBD"
     },
     {
         "opy": "¡{0}!",
@@ -27438,6 +27441,7 @@ for (var hero of getConstantKw("HERO CONSTANT")) {
 
 //Sort reverse alphabetical order for greediness
 strTokens = strTokens.sort().reverse();
+
 
 
 
@@ -28056,5 +28060,6 @@ module.exports = {
 	currentLanguage: currentLanguage,
 	macros: macros,
 	resetGlobalVariables: resetGlobalVariables,
+	preprocessingDirectives: preprocessingDirectives,
 
 };

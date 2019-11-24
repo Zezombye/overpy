@@ -146,18 +146,23 @@ for (func of funcDoc) {
 const metaRuleParams = [
     {
         "opy": "@Rule",
+        "description": "Declares a new rule. Must be followed by the rule title.",
         "values": []
     },{
         "opy": "@Event",
+        "description": "Defines the event type for the current rule.",
         "values": overpy.eventKw,
     },{
         "opy": "@Team",
+        "description": "Defines which team the current rule applies for. If omitted, defaults to 'all'.",
         "values": overpy.eventTeamKw,
     },{
         "opy": "@Slot",
+        "description": "Defines which slot the current rule applies for. If omitted, defaults to all slots. Cannot be used with `@Hero`.",
         "values": overpy.eventSlotKw,
     },{
         "opy": "@Hero",
+        "description": "Defines which hero the current rule applies for. If omitted, defaults to all heroes. Cannot be used with `@Slot`.",
         "values": constTypes["HERO CONSTANT"].values.map(x => ({
             ...x,
             opy: x.opy.substring("Hero.".length).toLowerCase()
@@ -165,9 +170,11 @@ const metaRuleParams = [
     },{
         "opy": "@SuppressWarnings",
         "description": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces.",
-        "values": "[]",
+        "values": [],
     }
 ]
+
+const preprocessingDirectivesCompList = makeCompList(JSON.parse(JSON.stringify(overpy.preprocessingDirectives)));
 
 //Functions that come after a dot.
 const memberFuncList = JSON.parse(JSON.stringify(overpy.specialMemberFuncs));
@@ -330,6 +337,12 @@ function activate(context) {
                     }
                 } else if (context.triggerCharacter === '@') {
                     return metaRuleParamsCompList;
+                } else if (context.triggerCharacter === '!') {
+                    if (document.getText(new vscode.Range(position.translate(0, -2), position.translate(0, -1))) === "#") {
+                        return preprocessingDirectivesCompList;
+                    } else {
+                        return;
+                    }
                 } else {
                     return defaultCompList;
                 }
@@ -338,7 +351,7 @@ function activate(context) {
             }
             
         }
-    }, '.', '@');
+    }, '.', '@', '!');
 
     vscode.languages.registerSignatureHelpProvider("overpy", {
         provideSignatureHelp(document, position, token, context) {
@@ -573,7 +586,7 @@ function getSnippetForMetaRuleParam(param) {
         return 'Rule "$0"';
     }
 
-    var result = param.substring(1) + " ${1|";
+    var result = param.substring(1);
     var ruleParam = null;
     for (metaRuleParam of metaRuleParams) {
         if (metaRuleParam.opy === param) {
@@ -585,8 +598,11 @@ function getSnippetForMetaRuleParam(param) {
         console.log("Could not find param "+param);
         return param;
     }
-    result += ruleParam.values.map(x => x.opy).join(",");
-    result += "|}$0";
+    if (ruleParam.values.length > 0) {
+        result += " ${1|";
+        result += ruleParam.values.map(x => x.opy).join(",");
+        result += "|}$0";
+    }
     return result;
 }
 
