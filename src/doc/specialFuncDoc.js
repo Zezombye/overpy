@@ -591,5 +591,8 @@ The following obfuscation methods are applied:
     },{
         opy: "suppressWarnings",
         description: "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
+    },{
+        opy: "mainFile",
+        description: "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file."
     }
 ]

@@ -4175,14 +4175,14 @@ var normalStrKw =
         "en-US": "No Thanks",
         "guid": "00000000C181",
         "de-DE": "Nein danke",
-        "es-ES": "No gracias",
-        "es-MX": "No gracias",
+        "es-ES": "No, gracias",
+        "es-MX": "No, gracias",
         "fr-FR": "Non merci",
         "it-IT": "No Grazie",
         "ja-JP": "結構です",
-        "pl-PL": "Nie dzięki",
-        "pt-BR": "Não Obrigado",
-        "ru-RU": "Нет спасибо",
+        "pl-PL": "Nie, dzięki",
+        "pt-BR": "Não, Obrigado",
+        "ru-RU": "Нет, спасибо",
         "zh-CN": "不用了",
         "zh-TW": "不，謝謝"
     },
@@ -10845,18 +10845,8 @@ var binaryStrKw =
         "opy": "{0}, {1}",
         "en-US": "{0}, {1}",
         "guid": "00000000BF9B",
-        "de-DE": "{0} {1}",
-        "es-ES": "{0} {1}",
-        "es-MX": "{0} {1}",
-        "fr-FR": "{0} {1}",
-        "it-IT": "{0} {1}",
         "ja-JP": "{0}、{1}",
-        "ko-KR": "{0} {1}",
-        "pl-PL": "{0} {1}",
-        "pt-BR": "{0} {1}",
-        "ru-RU": "{0} {1}",
-        "zh-CN": "{0}，{1}",
-        "zh-TW": "{0} {1}"
+        "zh-CN": "{0}，{1}"
     },
     {
         "opy": "{0}: {1}",
@@ -10902,18 +10892,17 @@ var ternaryStrKw =
         "opy": "{0}, {1}, and {2}",
         "en-US": "{0}, {1}, and {2}",
         "guid": "00000000BFB6",
-        "de-DE": "{0} {1} und {2}",
-        "es-ES": "{0} {1} y {2}",
-        "es-MX": "{0} {1} y {2}",
-        "fr-FR": "{0} {1} et {2}",
-        "it-IT": "{0} {1} e {2}",
+        "de-DE": "{0}, {1} und {2}",
+        "es-ES": "{0}, {1} y {2}",
+        "es-MX": "{0}, {1} y {2}",
+        "fr-FR": "{0}, {1} et {2}",
+        "it-IT": "{0}, {1}, e {2}",
         "ja-JP": "{0}、{1}、{2}",
-        "ko-KR": "{0} {1} and {2}",
-        "pl-PL": "{0} {1} i {2}",
-        "pt-BR": "{0} {1} e {2}",
-        "ru-RU": "{0} {1} и {2}",
+        "pl-PL": "{0}, {1} i {2}",
+        "pt-BR": "{0}, {1} e {2}",
+        "ru-RU": "{0}, {1} и {2}",
         "zh-CN": "{0}，{1}和{2}",
-        "zh-TW": "{0} {1} 以及{2}"
+        "zh-TW": "{0}, {1}, 以及{2}"
     },
     {
         "opy": "{0}: {1} and {2}",
@@ -10940,19 +10929,7 @@ var surroundStrKw =
     {
         "opy": "({0})",
         "en-US": "({0})",
-        "guid": "00000000BFBD",
-        "de-DE": "{0}",
-        "es-ES": "{0}",
-        "es-MX": "{0}",
-        "fr-FR": "{0}",
-        "it-IT": "{0}",
-        "ja-JP": "{0}",
-        "ko-KR": "{0}",
-        "pl-PL": "{0}",
-        "pt-BR": "{0}",
-        "ru-RU": "{0}",
-        "zh-CN": "{0}",
-        "zh-TW": "{0}"
+        "guid": "00000000BFBD"
     },
     {
         "opy": "¡{0}!",
@@ -11016,6 +10993,7 @@ for (var hero of getConstantKw("HERO CONSTANT")) {
 
 //Sort reverse alphabetical order for greediness
 strTokens = strTokens.sort().reverse();
+
 
 
 

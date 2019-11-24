@@ -60,6 +60,7 @@ var encounteredWarnings;
 var suppressedWarnings;
 var globalSuppressedWarnings;
 
+var wasWaitEncountered;
 
 //Decompilation variables
 
@@ -111,6 +112,7 @@ function resetGlobalVariables() {
 	suppressedWarnings = [];
 	globalSuppressedWarnings = [];
 	currentLanguage = "en-US";
+	wasWaitEncountered = false;
 }
 
 //Other constants
@@ -236,5 +238,5 @@ var fullwidthMappings = {
 	"¦": "￤",
 }
 for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
-	fullwidthMappings[char] = String.fromCharCode(char.charCodeAt(0)+0xFEE0);
+	fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
 }
