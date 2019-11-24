@@ -123,6 +123,7 @@ function compileRule(rule) {
 	}
 	
 	forLoopTimers = [];
+	wasWaitEncountered = false;
 	
 	//The first line should always start with @Rule.
 	if (rule.lines[0].tokens[0].text !== "@Rule") {
@@ -514,6 +515,9 @@ function parseInstructions(lines, nbDo) {
 		//Check for "while"
 		} else if (lines[i].tokens[0].text === "while") {
 
+			if (!wasWaitEncountered) {
+				error("Found 'while' without a 'wait' before it");
+			}
 			if (nbDo === 0) {
 				error("Found 'while' without matching 'do'");
 			}
@@ -1456,6 +1460,7 @@ function parse(content, parseArgs={}) {
 		
 	
 	if (name === "wait") {
+		wasWaitEncountered = true;
 		var result = tows("_wait", actionKw)+"(";
 		if (args.length === 0) {
 			result += "0.016, ";
@@ -2014,6 +2019,7 @@ function parseString(content, formatArgs, stringModifiers) {
 	//Used to reorder args for easier optimization.
 	//Eg "{1}{0}" is converted to "{0}{1}", with the arguments obviously switched.
 	var numberMapping = {};
+	var containsNonFullwidthChar = false;
 
 	//Tokenize string
 	while (true) {
@@ -2068,7 +2074,6 @@ function parseString(content, formatArgs, stringModifiers) {
 				}
 			} else if (stringModifiers.fullWidth) {
 				var tmpStr = "";
-				var containsNonFullwidthChar = false;
 				for (var char of content) {
 					if (char in fullwidthMappings) {
 						tmpStr += fullwidthMappings[char];
@@ -2077,12 +2082,22 @@ function parseString(content, formatArgs, stringModifiers) {
 						tmpStr += char;
 					}
 				}
+
 				content = tmpStr;
-				if (containsNonFullwidthChar) {
-					warn("w_not_total_fullwidth", "Could not fully convert this string to fullwidth characters")
-				}
+				
 			}
 
+			if (obfuscateRules) {
+				var tmpStr = "";
+				for (var char of result) {
+					if (char in obfuscationMappings) {
+						tmpStr += obfuscationMappings[char];
+					} else {
+						tmpStr += char;
+					}
+				}
+				content = tmpStr;
+			}
 			tokens.push({
 				text: content,
 				type: "string"
@@ -2090,6 +2105,7 @@ function parseString(content, formatArgs, stringModifiers) {
 			break;
 		}
 	}
+
 
 	//sort args if there was (potentially) a reordering
 	for (var key of Object.keys(numberMapping)) {
@@ -2102,6 +2118,9 @@ function parseString(content, formatArgs, stringModifiers) {
 	//console.log("args = ");
 	//console.log(args);
 
+	if (containsNonFullwidthChar && stringModifiers.fullWidth) {
+		warn("w_not_total_fullwidth", "Could not fully convert this string to fullwidth characters")
+	}
 	if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
 		error("Could not convert the string to big letters. The string must have one of the following chars: '"+Object.keys(bigLettersMappings).join("")+"'");
 	}
