@@ -16,8 +16,8 @@
 #!declareGlobal mapYLimits 12
 #!declareGlobal holdingRoom 13
 #!declareGlobal meiSpawns 14
-#!declareGlobal zoneSpawnIntervals 15
-#!declareGlobal zoneMaxMeis 16
+#!declareGlobal spawnInterval 15
+#!declareGlobal nbMaxMeis 16
 #!declareGlobal nbMeisFighting 17
 #!declareGlobal barricade1 18
 #!declareGlobal barricade1hp 19
@@ -31,6 +31,17 @@
 #!declareGlobal barricade5hp 27
 #!declareGlobal barricade6 28
 #!declareGlobal barricade6hp 29
+#!declareGlobal cryoChance 30
+#!declareGlobal zoneUnlockLocations 31
+#!declareGlobal zoneMinScores 32
+#!declareGlobal score 33
+#!declareGlobal generateNewWave 34
+#!declareGlobal currentWave 35
+#!declareGlobal nbRemainingMeis 36
+#!declareGlobal barricades 37
+#!declareGlobal barricadesHp 38
+#!declareGlobal playersMoney 39
+#!declareGlobal playersUnlockedHeroes 40
 
 #!declarePlayer isOob 0
 #!declarePlayer meiType 1
@@ -42,6 +53,7 @@
 #!declarePlayer randomVar 7
 #!declarePlayer isAvailable 8
 #!declarePlayer hasReceivedHoT 9
+#!declarePlayer isDeflecting 11
 
 #Mei types
 
@@ -55,6 +67,7 @@
 #!define MEI_MEICOPTER 7
 #!define MEI_MEICOPTER_TURRET 8
 #!define MEI_SPEEDBOSS 9
+#!define MEI_DEFLECT 10
 
 #!define MEI_BASE_SPEED 100
 #!define MEI_BASE_DMG 50
@@ -63,8 +76,7 @@
 #Round status
 
 #!define GAME_NOT_STARTED 0
-#!define POINT_A_DEFENSE 1
-#!define POINT_B_DEFENSE 2
+#!define GAME_IN_PROGRESS 1
 
 #!define BARRICADE_HEALTH 200
 
@@ -75,18 +87,56 @@
 
 #!define generateWalls(map, walls) __script__("generateWalls.js")
 #!define generateBarricadeRules() __script__("generateBarricadeRules.js")
+#!define generateZoneVariables(zoneData) __script__("generateZoneVariables.js")
+#!define generateMoneyRules() __script__("generateMoneyRules.js")
 #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if player.isAvailable][0]
 
 @Rule "init"
 @Event global
-currentMap = 0
-currentZone = 0
+
 barricade1 = vect(0,-1000,0)
 barricade2 = vect(0,-1000,0)
-createEffect(getAllPlayers(), Effect.SPHERE, Color.AQUA, barricade1, 5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
-createEffect(getAllPlayers(), Effect.SPHERE, Color.AQUA, barricade2, 5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
-createInWorldText(getAllPlayers(), "{}/{}".format(barricade1hp, BARRICADE_HEALTH), barricade1, 3, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.LIME_GREEN, SpecVisibility.ALWAYS)
-createInWorldText(getAllPlayers(), "{}/{}".format(barricade2hp, BARRICADE_HEALTH), barricade2, 3, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.LIME_GREEN, SpecVisibility.ALWAYS)
+barricade3 = vect(0,-1000,0)
+barricade4 = vect(0,-1000,0)
+barricade5 = vect(0,-1000,0)
+barricade6 = vect(0,-1000,0)
+barricades = [barricade1, barricade2, barricade3, barricade4, barricade5, barricade6]
+barricadesHp = [barricade1hp, barricade2hp, barricade3hp, barricade4hp, barricade5hp, barricade6hp]
+createInWorldText(getAllPlayers(), "{}/{}".format(barricade1hp, BARRICADE_HEALTH), barricade1, 2, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.WHITE, SpecVisibility.ALWAYS)
+createInWorldText(getAllPlayers(), "{}/{}".format(barricade2hp, BARRICADE_HEALTH), barricade2, 2, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.WHITE, SpecVisibility.ALWAYS)
+createInWorldText(getAllPlayers(), "{}/{}".format(barricade3hp, BARRICADE_HEALTH), barricade3, 2, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.WHITE, SpecVisibility.ALWAYS)
+createInWorldText(getAllPlayers(), "{}/{}".format(barricade4hp, BARRICADE_HEALTH), barricade4, 2, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.WHITE, SpecVisibility.ALWAYS)
+createInWorldText(getAllPlayers(), "{}/{}".format(barricade5hp, BARRICADE_HEALTH), barricade5, 2, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.WHITE, SpecVisibility.ALWAYS)
+createInWorldText(getAllPlayers(), "{}/{}".format(barricade6hp, BARRICADE_HEALTH), barricade6, 2, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.WHITE, SpecVisibility.ALWAYS)
+
+createInWorldText(getAllPlayers(), "Unlock next zone: {} score".format(score), zoneUnlockLocations[currentZone], 2, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.AQUA, SpecVisibility.ALWAYS)
+createInWorldText(getAllPlayers(), "(Ctrl+F)".format(score), zoneUnlockLocations[currentZone]-vect(0,0.5,0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.AQUA, SpecVisibility.ALWAYS)
+
+hudText(getAllPlayers(), "{} meis remaining".format(nbRemainingMeis), "Wave {}".format(currentWave), "{} meis fighting".format(nbMeisFighting), Position.RIGHT, 0, Color.BLUE, Color.AQUA, Color.AQUA, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.ALWAYS)
+
+gameStatus = GAME_IN_PROGRESS
+
+@Rule "game not started"
+@Event global
+if gameStatus == GAME_NOT_STARTED:
+    score = 0
+    playersMoney = [0,0,0,0,0,0]
+    playersUnlockedHeroes = [[],[],[],[],[],[]]
+
+@Rule "new game"
+@Event global
+if gameStatus == GAME_IN_PROGRESS:
+    currentMap = 0
+    currentZone = 0
+    currentWave = -1
+    spawnInterval = 5
+    nbMaxMeis = 12
+    bigMessage(getAllPlayers(), "Game started")
+
+@Rule "new wave"
+@Event global
+if nbRemainingMeis == 0 and GAME_IN_PROGRESS:
+    generateNewWave = true
 
 """
 @Rule "make sure the right spawn is selected"
@@ -101,11 +151,12 @@ if hostPlayer.hasSpawned():
 @Rule "tp player to current zone spawn"
 @Event eachPlayer
 @Team 1
-if eventPlayer.hasSpawned() and eventPlayer.isAlive():
+if eventPlayer.hasSpawned() and eventPlayer.isAlive() and gameStatus == GAME_IN_PROGRESS:
     wait(0.1)
     eventPlayer.teleport(playerSpawns[currentZone])
     eventPlayer.setFacing(Vector.BACKWARD, Relativity.TO_WORLD)
     eventPlayer.stopAllHoT()
+    wait(0.1)
     eventPlayer.startHoT(null, 9999, 10)
 
 @Rule "map change"
@@ -118,41 +169,35 @@ else:
 @Rule "mei first spawn"
 @Event eachPlayer
 @Team 2
-if eventPlayer.hasSpawned():
+if eventPlayer.hasSpawned() and gameStatus == GAME_IN_PROGRESS:
     wait(0.1)
     kill(eventPlayer, null)
 
 @Rule "mei tp to holding room"
 @Event eachPlayer
 @Team 2
-if eventPlayer.hasSpawned() and eventPlayer.isAlive():
+if eventPlayer.hasSpawned() and eventPlayer.isAlive() and gameStatus == GAME_IN_PROGRESS:
     wait(0.1)
     eventPlayer.teleport(holdingRoom)
-
-@Rule "declare mei spawns"
-@Event global
-meiSpawns[0] = [
-    vect(-22.44, 28, 51.66),
-    vect(-45.60, 11, 48.22),
-    vect(-63, 11, 32.17),
-    vect(-24, 16, 40),
-    vect(-25.85, 10.12, 29.81),
-    vect(-60, 9.8, 23.48),
-]
 
 @Rule "reset mei type on death"
 @Event playerDied
 @Team 2
-wait(1)
-victim.respawn()
-wait(0.1)
-victim.teleport(holdingRoom)
-#victim.setStatusEffect(null, Status.ROOTED, 9999)
-victim.meiType = MEI_NO_TYPE
-if victim.isFighting:
-    nbMeisFighting--
-victim.isFighting = false
-victim.isAvailable = true
+if gameStatus == GAME_IN_PROGRESS:
+    if victim.isFighting:
+        nbRemainingMeis--
+    wait(1)
+    victim.respawn()
+    wait(0.1)
+    victim.teleport(holdingRoom)
+    wait(0.2)
+    #victim.setStatusEffect(null, Status.ROOTED, 9999)
+    victim.meiType = MEI_NO_TYPE
+    if victim.isFighting:
+        nbMeisFighting--
+    victim.isFighting = false
+    victim.isAvailable = true
+
 
 @Rule "mei fights"
 @Event eachPlayer
@@ -166,14 +211,16 @@ if eventPlayer.isFighting:
 @Rule "spawn meis"
 @Event global
 do:
-    if nbMeisFighting < zoneMaxMeis[currentZone]:
+    if nbMeisFighting < nbMaxMeis and nbMeisFighting < nbRemainingMeis:
         getFirstAvailableMei().isFighting = true
-    wait(zoneSpawnIntervals[currentZone])
+    if nbMeisFighting > 11:
+        wait(spawnInterval)
+    wait(0.016)
 while true
 
 @Rule "barricade enable"
 @Event eachPlayer
-if eventPlayer.isHoldingButton(Button.INTERACT):
+if eventPlayer.isHoldingButton(Button.INTERACT) and eventPlayer.isCrouching():
     if eventPlayer.getSlot() == 0:
         barricade1 = worldVector(vect(0,2,5.5), eventPlayer, Transform.ROTATION_AND_TRANSLATION)
         barricade1hp = BARRICADE_HEALTH
@@ -181,8 +228,24 @@ if eventPlayer.isHoldingButton(Button.INTERACT):
         barricade2 = worldVector(vect(0,2,5.5), eventPlayer, Transform.ROTATION_AND_TRANSLATION)
         barricade2hp = BARRICADE_HEALTH
 
-generateBarricadeRules()
+#generateBarricadeRules()
+
+@Rule "anti crash?"
+@Event global
+if getServerLoad() > 200:
+    wait(1, Wait.ABORT_WHEN_FALSE)
+    bigMessage(getAllPlayers(), "Anti-crash system activated")
+    smallMessage(getAllPlayers(), "Stay away from Mei's freeze!")
+    for player in getPlayers(Team.1):
+        player.setStatusEffect(null, Status.PHASED_OUT, 0.5)
+        player.setStatusEffect(null, Status.BURNING, 0.5)
+    setSlowMotion(1)
+    wait(0.5)
+    setSlowMotion(100)
+
+generateMoneyRules()
 
 import "mei_types.opy"
 import "zones.opy"
 import "debug.opy"
+import "waves.opy"

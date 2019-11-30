@@ -22,24 +22,22 @@ generateWalls(0, [
 
 @Rule "define zone variables"
 @Event global
-playerSpawns = [
-    vect(-42.63, 17.03, 83.12),
-]
 
-zoneMaxMeis = [
-    24,
-]
-
-zoneSpawnIntervals = [
-    5,
-]
-
-zoneZWalls = [
-    1000,
-    1000,
-    55,
-    32,
-]
+generateZoneVariables([{
+    playerSpawn: vect(-42.63, 17.03, 83.12),
+    spawnInterval: 5,
+    zWallPos: 55,
+    meiSpawns: [
+        vect(-22.44, 28, 51.66),
+        vect(-45.60, 11, 48.22),
+        vect(-63, 11, 32.17),
+        vect(-24, 16, 40),
+        vect(-25.85, 10.12, 29.81),
+        vect(-60, 9.8, 23.48),
+    ],
+    unlockLocation: vect(-57.10, 18, 56.74),
+    scoreNeeded: 1000,
+}])
 
 mapXLimits = [
     -87, -16,
@@ -52,11 +50,16 @@ mapYLimits = [
     -100,-80,
     125, 140,
 ]
+redrawZWalls = true
+
 
 @Rule "new zone unlocked"
-@Event global
-zWallDrawIndex = mapYLimits[currentMap*2]
-redrawZWalls = true
+@Event eachPlayer
+@Team 1
+if eventPlayer.isHoldingButton(Button.INTERACT) and not eventPlayer.isCrouching() and distance(eventPlayer.getPosition(), zoneUnlockLocations[currentZone]) < 5 and score >= zoneMinScores[currentZone]:
+    currentZone++
+    redrawZWalls = true
+    bigMessage(getAllPlayers(), "{} unlocked next zone".format(eventPlayer))
 
 """
 @Rule "display zone z wall"
@@ -71,15 +74,29 @@ if redrawZWalls:
     zWallDrawIndex = 0
     redrawZWalls = false
 """
+
+@Rule "init zwall vars and recreate effects"
+@Event global
+if redrawZWalls:
+    zWallDrawIndex = mapYLimits[currentMap*2]
+    destroyAllEffects()
+    #create barricade effects
+    createEffect(getAllPlayers(), Effect.SPHERE, Color.SKY_BLUE, barricade1, 5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+    createEffect(getAllPlayers(), Effect.SPHERE, Color.SKY_BLUE, barricade2, 5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+    createEffect(getAllPlayers(), Effect.SPHERE, Color.SKY_BLUE, barricade3, 5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+    createEffect(getAllPlayers(), Effect.SPHERE, Color.SKY_BLUE, barricade4, 5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+    createEffect(getAllPlayers(), Effect.SPHERE, Color.SKY_BLUE, barricade5, 5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+    createEffect(getAllPlayers(), Effect.SPHERE, Color.SKY_BLUE, barricade6, 5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+
     
 @Rule "display zone z wall"
 @Event global
 if redrawZWalls:
     do:
+        wait(0.032)
         createBeam(getAllPlayers(), Beam.GRAPPLE, vect(mapXLimits[currentMap*2], zWallDrawIndex, zoneZWalls[currentZone+2]), vect(mapXLimits[currentMap*2+1], zWallDrawIndex, zoneZWalls[currentZone+2]+0.01), Color.WHITE, EffectReeval.VISIBILITY)
         createBeam(getAllPlayers(), Beam.GRAPPLE, vect(mapXLimits[currentMap*2], zWallDrawIndex, zoneZWalls[currentZone]), vect(mapXLimits[currentMap*2+1], zWallDrawIndex, zoneZWalls[currentZone]+0.01), Color.WHITE, EffectReeval.VISIBILITY)
         zWallDrawIndex++
-        wait(0.016)
     while zWallDrawIndex < mapYLimits[currentMap*2+1]
     zWallDrawIndex = 0
     redrawZWalls = false
@@ -125,19 +142,3 @@ if eventPlayer.isOob and eventPlayer.isAlive():
     bigMessage(eventPlayer, "Out of bounds")
     eventPlayer.teleport(playerSpawns[currentZone])
     eventPlayer.setStatusEffect(null, Status.FROZEN, 1)
-
-@Rule "zone 0 meis"
-@Event eachPlayer
-@Team 2
-if currentZone == 0 and eventPlayer.isFighting == true:
-    eventPlayer.randomVar = random.randint(1, 100)
-    if eventPlayer.randomVar <= 80:
-        eventPlayer.meiType = MEI_GENERIC
-    elif eventPlayer.randomVar <= 85:
-        eventPlayer.meiType = MEI_HEALER
-    elif eventPlayer.randomVar <= 90:
-        eventPlayer.meiType = MEI_SPEEDY
-    elif eventPlayer.randomVar <= 95:
-        eventPlayer.meiType = MEI_SNIPER
-    else:
-        eventPlayer.meiType = MEI_TANK
