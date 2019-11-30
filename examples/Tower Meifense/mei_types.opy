@@ -14,6 +14,10 @@ if eventPlayer.meiType == MEI_NO_TYPE:
     eventPlayer.setSecondaryFireEnabled(false)
     eventPlayer.setUltCharge(0)
     eventPlayer.noCrouchSpam = true
+    if random.randint(1,100) <= zoneCryoChances[currentZone]:
+        eventPlayer.setAbility2Enabled(true)
+    else:
+        eventPlayer.setAbility2Enabled(false)
     destroyInWorldText(eventPlayer.icon)
     destroyEffect(eventPlayer.effect)
 

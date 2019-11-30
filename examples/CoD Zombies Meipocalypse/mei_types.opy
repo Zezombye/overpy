@@ -13,6 +13,7 @@ if eventPlayer.meiType == MEI_NO_TYPE:
     eventPlayer.setSecondaryFireEnabled(false)
     eventPlayer.setUltCharge(0)
     eventPlayer.noCrouchSpam = true
+    eventPlayer.setAbility1Enabled(random.randint(1,100) <= cryoChance)
     destroyInWorldText(eventPlayer.icon)
     destroyEffect(eventPlayer.effect)
 
@@ -101,6 +102,42 @@ if eventPlayer.meiType == MEI_ULT:
         wait(1)
         #eventPlayer.forceButtonPress(Button.ULTIMATE)
     while RULE_CONDITION
+
+
+@Rule "mei deflect"
+@Event eachPlayer
+@Team 2
+if eventPlayer.meiType == MEI_DEFLECT:
+    eventPlayer.setMaxHealth(150)
+    eventPlayer.noCrouchSpam = random.randint(0,15)
+
+
+@Rule "mei deflect bubble"
+@Event eachPlayer
+@Team 2
+if eventPlayer.meiType == MEI_DEFLECT:
+    do:
+        createEffect(getAllPlayers(), Effect.SPHERE, Color.PURPLE, eventPlayer.getEyePosition(), 1.5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+        eventPlayer.effect = getLastCreatedEntity()
+        eventPlayer.isDeflecting = true
+        eventPlayer.setDamageReceived(1)
+        eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 9999)
+        wait(3)
+        destroyEffect(eventPlayer.effect)
+        eventPlayer.isDeflecting = false
+        eventPlayer.setDamageReceived(100)
+        eventPlayer.clearStatusEffect(Status.UNKILLABLE)
+        wait(1.5)
+    while RULE_CONDITION
+
+
+@Rule "mei deflect dmg"
+@Event playerTookDamage
+@Team 2
+if victim.meiType == MEI_DEFLECT and victim.isDeflecting:
+    damage(attacker, victim, eventDamage*150)
+    heal(victim, null, eventDamage)
+
 
 @Rule "mei speed boss"
 @Event eachPlayer
