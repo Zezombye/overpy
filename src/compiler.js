@@ -41,6 +41,8 @@ function compile(content, language="en-US", _rootPath="") {
 		content = getFileContent(mainFilePath);
 		console.log("content = ");
 		console.log(content);
+	} else {
+		importedFiles.push(rootPath);
 	}
 
 	var rules = tokenize(content);
@@ -95,12 +97,19 @@ function generateVariablesField() {
 			outputVariables[variable.index] = variable.name;
 		}
 		
+		if (obfuscateRules) {
+			var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e,i)=>i));
+		}
 		result += "\t"+tows("_"+varType, ruleKw)+":\n";
 		for (var i = 0; i < 128; i++) {
-			if (outputVariables[i] !== undefined) {
-				result += "\t\t"+i+": "+outputVariables[i]+"\n";
+			if (obfuscateRules) {
+				result += "\t\t"+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 			} else {
-				result += "\t\t"+i+": _unused_var_"+i+"\n";
+				if (outputVariables[i] !== undefined) {
+					result += "\t\t"+i+": "+outputVariables[i]+"\n";
+				} else {
+					result += "\t\t"+i+": _unused_var_"+i+"\n";
+				}
 			}
 		}
 
@@ -331,7 +340,7 @@ function parseInstructions(lines, nbDo) {
 	//A "ghost" else is an else that does not generate a "skip" (if the previous 'if' didn't have its condition inverted).
 
 	//Array of objects: {
-	//	"type": "if"|"else"|"fakeelse"|"ghostelse"|"fakeghostelse"|"skip"|"skipif"|"label"|"other"|"forloop"|"optimized"
+	//	"type": "if"|"else"|"fakeelse"|"ghostelse"|"fakeghostelse"|"skip"|"skipif"|"label"|"other"|"forloop"|"optimized"|"switch"|"case"|"break"
 	//	"condition": compiled content of the condition, if type not in ["label", "other"] or "skip" is not a skip if
 	//	"content": compiled content of the instruction
 	//	"label": if type == "skip", the label to search for, if type == "label", the name of the label
@@ -353,6 +362,8 @@ function parseInstructions(lines, nbDo) {
 		var currentResultLineType = undefined;
 		var currentResultLineContent = undefined;
 		var currentResultLineCondition = undefined;
+		var currentResultLineSwitch = undefined;
+		var currentResultLineCase = undefined;
 		var currentResultLineLabel = undefined;
 		var skipNextLine = false;
 		fileStack = lines[i].tokens[0].fileStack;
@@ -483,6 +494,42 @@ function parseInstructions(lines, nbDo) {
 			} else {
 				currentResultLineType = "else";
 			}
+
+		//Check for "switch"
+		} else if (lines[i].tokens[0].text === "switch") {
+
+			if (lines[i].tokens[lines[i].tokens.length-1].text !== ':') {
+				error("Switch instruction must end with ':'");
+			} else if (lines[i].tokens.length <= 2) {
+				error("Malformed switch");
+			}
+
+			currentResultLineType = "switch";
+			currentResultLineSwitch = parse(lines[i].tokens.slice(1, lines[i].tokens.length-1));
+
+		} else if (lines[i].tokens[0].text === "case") {
+			if (lines[i].tokens[lines[i].tokens.length-1].text !== ':') {
+				error("Case instruction must end with ':'");
+			} else if (lines[i].tokens.length <= 2) {
+				error("Malformed case");
+			}
+
+			currentResultLineType = "case";
+			currentResultLineCase = parse(lines[i].tokens.slice(1, lines[i].tokens.length-1));
+		} else if (lines[i].tokens[0].text === "default") {
+			
+			if (lines[i].tokens.length !== 2 || lines[i].tokens[1].text !== ':') {
+				error("Default instruction must be 'default:'");
+			}
+			currentResultLineType = "case";
+			currentResultLineCase = "__default__";
+
+
+		} else if (lines[i].tokens[0].text === "break") {
+			if (lines[i].tokens.length !== 1) {
+				error("Malformed break statement");
+			}
+			currentResultLineType = "break";
 
 		//Check for "for"
 		} else if (lines[i].tokens[0].text === "for") {
@@ -622,11 +669,23 @@ function parseInstructions(lines, nbDo) {
 		resultLines.push({
 			type: currentResultLineType,
 			condition: currentResultLineCondition,
+			switch: currentResultLineSwitch,
+			case: currentResultLineCase,
 			content: currentResultLineContent,
 			label: currentResultLineLabel,
 			indentLevel: lines[i].indentLevel,
 			fileStack: lines[i].tokens[0].fileStack,
 		});
+
+		if (currentResultLineType === "switch") {
+			//add an useless instruction cause no skip(0)
+			resultLines.push({
+				type: "other",
+				content: tows("_disabled", ruleKw)+" "+tows("return", actionKw),
+				indentLevel: lines[i].indentLevel+4,
+				fileStack: lines[i].tokens[0].fileStack,
+			});
+		}
 
 		//Check for loop var timer
 		//console.log(forLoopTimers);
@@ -646,7 +705,7 @@ function parseInstructions(lines, nbDo) {
 	var result = "";
 
 	function getNbLinesForType(type) {
-		if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized"].includes(type)) {
+		if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized", "case"].includes(type)) {
 			return 0;
 		} else {
 			return 1;
@@ -668,7 +727,7 @@ function parseInstructions(lines, nbDo) {
 				}
 			}
 
-		} else if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized"].includes(resultLines[i].type)) {
+		} else if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized", "case"].includes(resultLines[i].type)) {
 			//do nothing
 
 		} else if (resultLines[i].type === "if") {
@@ -769,6 +828,114 @@ function parseInstructions(lines, nbDo) {
 			}
 			result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
 			
+		} else if (resultLines[i].type === "switch") {
+			var caseOffsets = [];
+			var caseValues = [];
+			var currentCaseOffset = 0;
+			var wasDefaultEncountered = false;
+
+			if (i === resultLines.length-2 || resultLines[i+2].type !== "case") {
+				error("A switch must be followed by a 'case' or 'default' instruction");
+			}
+
+			for (var j = i+1; j < resultLines.length && resultLines[j].indentLevel > resultLines[i].indentLevel; j++) {
+				if (resultLines[j].type === "case") {
+					if (resultLines[j].case === "__default__") {
+						if (wasDefaultEncountered) {
+							error("The 'default' case was already declared in the switch");
+						} else {
+							wasDefaultEncountered = true;
+						}
+						caseOffsets.unshift(currentCaseOffset);
+
+					} else {
+						if (caseValues.includes(resultLines[j].case)) {
+							error("This case is already declared in the switch");
+						}
+						caseOffsets.push(currentCaseOffset);
+						caseValues.push(resultLines[j].case);
+
+					}
+
+				} else {
+					currentCaseOffset += getNbLinesForType(resultLines[j].type);
+				}
+			}
+
+			if (caseValues.length === 0) {
+				error("Switch does not contain cases");
+			}
+			if (!wasDefaultEncountered) {
+				caseOffsets.unshift(currentCaseOffset);
+			}
+
+			//[caseOffsets][[caseValues].index(switchValue)+1]
+			var switchResult = tows("_valueInArray", valueFuncKw)+"(";
+			var caseOffsetsResult = tows("_emptyArray", valueFuncKw);
+			var appendFunc = tows("_appendToArray", valueFuncKw);
+			for (var caseOffset of caseOffsets) {
+				caseOffsetsResult = appendFunc+"("+caseOffsetsResult+", "+caseOffset+")";
+			}
+			switchResult += caseOffsetsResult+", "+tows("_add", valueFuncKw)+"(1, "+tows("_indexOfArrayValue", valueFuncKw)+"(";
+			var caseValuesResult = tows("_emptyArray", valueFuncKw);
+			for (var caseValue of caseValues) {
+				caseValuesResult = appendFunc+"("+caseValuesResult+", "+caseValue+")";
+			}
+			switchResult += caseValuesResult + ", "+resultLines[i].switch+")))";
+
+			result = tabLevel(2)+tows("_skip", actionKw)+"("+switchResult+");\n"+result;
+
+		} else if (resultLines[i].type === "break") {
+			var breakOutOfSwitch = false;
+			var switchIndentLevel = 0;
+			var breakOffset = 0;
+
+			//If the indentation level is 0, it cannot be within a switch.
+			if (resultLines[i].indentLevel === 0) {
+				breakOutOfSwitch = false;
+
+			} else {
+				//Go up until we encounter a switch statement
+				for (var j = i-1; j >= 0; j--) {
+					if (resultLines[j].type === "switch") {
+						breakOutOfSwitch = true;
+						switchIndentLevel = resultLines[j].indentLevel;
+						break;
+					}
+				}
+			}
+
+			if (breakOutOfSwitch) {
+				console.log("finding end of switch, indent level = "+switchIndentLevel);
+				//Go down until we find the end of the switch
+				for (var j = i+1; j < resultLines.length && resultLines[j].indentLevel > switchIndentLevel; j++) {
+					breakOffset += getNbLinesForType(resultLines[j].type);
+				}
+
+			} else {
+				//Go down until we find a "while"
+				var loopWs = tows("_loop", actionKw);
+				var loopIfWs = tows("_loopIf", actionKw);
+				var foundWhile = false;
+				for (var j = i+1; j < resultLines.length; j++) {
+					breakOffset += getNbLinesForType(resultLines[j].type);
+					if (resultLines[j].type === "other" && (resultLines[j].content.startsWith(loopWs) || resultLines[j].content.startsWith(loopIfWs))) {
+						foundWhile = true;
+						break;
+					}
+				}
+				if (!foundWhile) {
+					error("Found 'break', but no switch or loop to break out of");
+				}
+
+			}
+
+			if (breakOffset === 0) {
+				resultLines[i].type = "optimized";
+			} else {
+				result = tabLevel(2)+tows("_skip", actionKw)+"("+breakOffset+");\n"+result;
+			}
+
 		} else {
 			error("Unhandled rule line type "+resultLines[i].type);
 		}
@@ -822,7 +989,6 @@ function parse(content, parseArgs={}) {
 				return parseAssignment(operands[0], operands[1], false);
 			} else if (pyOperators[i] === "if") {
 				
-				error("Ternary operator (A if B else C) is disabled as it is not possible to put a boolean in an array index.");
 				var trueExpr = parse(operands[0]);
 				var elseOperands = splitTokens(operands[1], "else", false, false);
 				if (elseOperands.length !== 2) {
@@ -843,8 +1009,8 @@ function parse(content, parseArgs={}) {
 				if (trueExpr === falseExpr && !containsRandom(trueExpr)) {
 					return trueExpr;
 				}
-				//A if condition else B -> [B,A][not condition]
-				return tows("_valueInArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_emptyArray", valueFuncKw)+", "+falseExpr+"), "+trueExpr+"), "+tows("not", valueFuncKw)+"("+condition+"))";
+				//A if condition else B -> [B,A][1*not condition]
+				return tows("_valueInArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_emptyArray", valueFuncKw)+", "+trueExpr+"), "+falseExpr+"), "+tows("_multiply", valueFuncKw)+"(1, "+tows("not", valueFuncKw)+"("+condition+")))";
 
 			} else if (pyOperators[i] === "or") {
 
@@ -859,7 +1025,10 @@ function parse(content, parseArgs={}) {
 					return op1;
 				}
 				//A or true = true or A = true
-				if (isWsTrue(op1) || isWsTrue(op2)) {
+				if (isWsTrue(op1)) {
+					return op1;
+				}
+				if (isWs1(op2)) {
 					return wsTrue;
 				}
 				//A or A = A
@@ -882,7 +1051,8 @@ function parse(content, parseArgs={}) {
 				if (isWsTrue(op1)) {
 					return op2;
 				}
-				if (isWsTrue(op2)) {
+				//Here, we do not use isWsTrue but isWs1 (strictly true) because "A and 3" returns 3 if A is true.
+				if (isWs1(op2)) {
 					return op1;
 				}
 				//A and false = false and A = false
@@ -1139,6 +1309,11 @@ function parse(content, parseArgs={}) {
 			return parseArrayMembership(content.slice(0, bracketPos[bracketPos.length-2]), content.slice(bracketPos[bracketPos.length-2]+1, content.length-1));
 		}
 	}
+
+	//Dictionaries aren't allowed without array indexes
+	if (content[0].text === "{") {
+		error("Cannot use a dictionary without accessing it");
+	}
 	
 	
 	//Check for "." operator, which has the highest precedence.
@@ -1156,25 +1331,31 @@ function parse(content, parseArgs={}) {
 	//Check for strings
 	if (content[content.length-1].text.startsWith('"') || content[content.length-1].text.startsWith("'")) {
 		var stringModifiers = {};
-		var string;
-		if (content.length === 1) {
-			string = content[0].text;
-		} else if (content.length === 2) {
-			string = content[1].text;
-			if (content[0].text === "l") {
-				stringModifiers.localizedString = true;
-			} else if (content[0].text === "b") {
-				stringModifiers.bigLetters = true;
-			} else if (content[0].text === "w") {
-				stringModifiers.fullWidth = true;
+		var string = "";
+		for (var i = content.length-1; i >= 0; i--) {
+			if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
+				string = content[i].text.substring(1, content[i].text.length-1)+string;
+
 			} else {
-				error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters) and 'w' (fullwidth)");
+				if (i === 0) {
+					//string modifier?
+					if (content[0].text === "l") {
+						stringModifiers.localizedString = true;
+					} else if (content[0].text === "b") {
+						stringModifiers.bigLetters = true;
+					} else if (content[0].text === "w") {
+						stringModifiers.fullWidth = true;
+					} else {
+						error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters) and 'w' (fullwidth)");
+					}
+				} else {
+					error("Syntax error: expected string or string modifier");
+				}
 			}
-		} else {
-			error("Failed to parse string: amount of tokens is "+content.length);
 		}
+
 		if (stringModifiers.localizedString === true) {
-			return parseLocalizedString(tokenizeLocalizedString(string.substring(1, string.length-1)), parseArgs.formatArgs);
+			return parseLocalizedString(tokenizeLocalizedString(string), parseArgs.formatArgs);
 		} else {
 			return parseString(string, parseArgs.formatArgs, stringModifiers);
 		}
@@ -1213,8 +1394,13 @@ function parse(content, parseArgs={}) {
 		}
 
 		//Check if it is legal to use the event variables.
-		if (name === "eventPlayer" && !(["eachPlayer", "playerJoined", "playerLeft", "playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "playerDealtHealing", "playerReceivedHealing"].includes(currentRuleEvent))) {
-			error("Cannot use 'eventPlayer' with event type '"+currentRuleEvent+"'");
+		if (name === "eventPlayer") {
+			if (!(["eachPlayer", "playerJoined", "playerLeft", "playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "playerDealtHealing", "playerReceivedHealing"].includes(currentRuleEvent))) {
+				error("Cannot use 'eventPlayer' with event type '"+currentRuleEvent+"'");
+
+			} else if (!(["eachPlayer", "playerJoined", "playerLeft"].includes(currentRuleEvent))) {
+				warn("w_unsuitable_event", "Use of 'eventPlayer' with event type '"+currentRuleEvent+"' is ambiguous. Use 'attacker' or 'victim' instead.")
+			}
 
 		} else if ((name === "attacker" || name === "victim" || name === "eventDamage" || name === "eventWasCriticalHit") && !(["playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied"].includes(currentRuleEvent))) {
 			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
@@ -1445,14 +1631,18 @@ function parse(content, parseArgs={}) {
 		var funcName = "_stopChasing";
 		var result = "";
 		
+
 		//Check for dot; if it is present, it can only be a player variable
 		var operands = splitTokens(args[0], ".", false, true);
 		if (operands.length === 2) {
 			funcName += "PlayerVariable";
-			result += parse(operands[1])+", "+operands[0][0].text;
+			result += parse(operands[0])+", ";
+			//encounteredPlayerVars.add(operands[1][0].text);
+			result += translateVarToWs(operands[1][0].text, false);
 		} else {
 			funcName += "GlobalVariable";
-			result += args[0][0].text;
+			//encounteredGlobalVars.add(args[0][0].text);
+			result += translateVarToWs(args[0][0].text, true);
 		}
 		
 		return tows(funcName, actionKw)+"("+result+")";
@@ -1823,17 +2013,69 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 //Parses an array index such as A[1].
 function parseArrayMembership(array, membership) {
 	
-	//[0] -> first of
-	if (membership.length === 1 && membership[0].text === '0') {
-		return tows("_firstOf", valueFuncKw)+"("+parse(array)+")";
+	//check for dictionary
+	if (array[0].text === "{" && array[array.length-1].text === "}") {
+		array = array.slice(1, array.length-1);
+		var elements = splitTokens(array, ",", true, false);
+		if (elements[elements.length-1].length === 0) {
+			//handle trailing comma
+			elements.pop();
+		}
+		if (elements.length === 0) {
+			error("Cannot declare an empty dictionary");
+		}
+		console.log(elements);
+		var keys = [];
+		var values = [];
+		for (var elem of elements) {
+			var keyValue = splitTokens(elem, ":", true, false);
+			if (keyValue.length !== 2) {
+				error("Malformed entry in dictionary: found "+keyValue.length+" values composing element, expected 2");
+			}
+			var compiledKey = parse(keyValue[0]);
+			if (keys.includes(compiledKey)) {
+				error("Duplicate key '"+dispTokens(keyValue[0])+"'");
+			}
+			keys.push(compiledKey);
+			values.push(parse(keyValue[1]));
+		}
+
+		var selectedKey = parse(membership);
+		//if the chosen value is a constant, optimize the dictionary out
+		if (!containsRandom(selectedKey) && keys.includes(selectedKey)) {
+			return values[keys.indexOf(selectedKey)];
+		}
 		
-	//[-1] -> last of
-	} else if (membership.length === 2 && membership[0].text === '-' && membership[1].text === '1') {
-		return tows("_lastOf", valueFuncKw)+"("+parse(array)+")";
-		
+		var wsAppend = tows("_appendToArray", valueFuncKw);
+		var result = tows("_valueInArray", valueFuncKw)+"(";
+		var valuesResult = tows("_emptyArray", valueFuncKw);
+		for (var value of values) {
+			valuesResult = wsAppend+"("+valuesResult+", "+value+")";
+		}
+		result += valuesResult+", "+tows("_indexOfArrayValue", valueFuncKw)+"(";
+		var keysResult = tows("_emptyArray", valueFuncKw);
+		for (var key of keys) {
+			keysResult = wsAppend+"("+keysResult+", "+key+")";
+		}
+		result += keysResult+", "+parse(membership)+"))";
+		return result;
+
 	} else {
-		return tows("_valueInArray", valueFuncKw)+"("+parse(array)+", "+parse(membership)+")";
+		//normal array
+
+		//[0] -> first of
+		if (membership.length === 1 && membership[0].text === '0') {
+			return tows("_firstOf", valueFuncKw)+"("+parse(array)+")";
+			
+		//[-1] -> last of
+		} else if (membership.length === 2 && membership[0].text === '-' && membership[1].text === '1') {
+			return tows("_lastOf", valueFuncKw)+"("+parse(array)+")";
+			
+		} else {
+			return tows("_valueInArray", valueFuncKw)+"("+parse(array)+", "+parse(membership)+")";
+		}
 	}
+
 	
 	
 	error("This shouldn't happen");
@@ -2004,7 +2246,6 @@ function parseRuleCondition(content) {
 
 //Parses a custom string.
 function parseString(content, formatArgs, stringModifiers) {
-	content = content.substring(1, content.length-1);
 
 	if (!formatArgs) {
 		formatArgs = [];
@@ -2027,7 +2268,7 @@ function parseString(content, formatArgs, stringModifiers) {
 		if (index >= 0) {
 			if (index > 0) {
 				tokens.push({
-					text: content.substring(0, index),
+					text: applyStringModifiers(content.substring(0, index), stringModifiers),
 					type: "string"
 				});
 				content = content.substring(index);
@@ -2062,44 +2303,8 @@ function parseString(content, formatArgs, stringModifiers) {
 
 		} else {
 
-			//If big letters, try to map letters until we get one
-			//We only need one letter to convert to big letters
-			if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
-				for (var i = 0; i < content.length; i++) {
-					if (content[i] in bigLettersMappings) {
-						content = content.substring(0,i)+bigLettersMappings[content[i]]+content.substring(i+1);
-						isConvertedToBigLetters = true;
-						break;
-					}
-				}
-			} else if (stringModifiers.fullWidth) {
-				var tmpStr = "";
-				for (var char of content) {
-					if (char in fullwidthMappings) {
-						tmpStr += fullwidthMappings[char];
-					} else {
-						containsNonFullwidthChar = true;
-						tmpStr += char;
-					}
-				}
-
-				content = tmpStr;
-				
-			}
-
-			if (obfuscateRules) {
-				var tmpStr = "";
-				for (var char of result) {
-					if (char in obfuscationMappings) {
-						tmpStr += obfuscationMappings[char];
-					} else {
-						tmpStr += char;
-					}
-				}
-				content = tmpStr;
-			}
 			tokens.push({
-				text: content,
+				text: applyStringModifiers(content, stringModifiers),
 				type: "string"
 			});
 			break;
@@ -2125,6 +2330,9 @@ function parseString(content, formatArgs, stringModifiers) {
 		error("Could not convert the string to big letters. The string must have one of the following chars: '"+Object.keys(bigLettersMappings).join("")+"'");
 	}
 
+	console.log(tokens);
+	console.log(stringModifiers);
+
 	result = parseStringTokens(tokens, args);
 
 	return result;
@@ -2137,6 +2345,8 @@ function parseStringTokens(tokens, args) {
 	var numbers = [];
 	var numbersEncountered = [];
 	var mappings = {};
+	var stringLength = 0;
+	var currentNbIndex = 0;
 
 
 	//iterate through tokens and figure out the total number of unique numbers
@@ -2157,8 +2367,39 @@ function parseStringTokens(tokens, args) {
 		//console.log("numbers encountered=");
 		//console.log(numbersEncountered);
 		//debugger;
+
+		//length check
+		if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) >= 125 || tokens[i].type === "arg" && stringLength+3 >= 125) {
+
+			var splitString = false;
+			if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) > 127 || tokens.length > i) {
+
+				var tokenText = [...tokens[i].text]
+				var tokenSliceLength = 0;
+				var sliceIndex = 0;
+				for (var j = 0; stringLength+tokenSliceLength < 122; j++) {
+					tokenSliceLength += getUtf8Length(tokenText[j]+"");
+					sliceIndex++;
+				}
+
+				result += tokenText.slice(0, sliceIndex).join("")
+				tokens[i].text = tokenText.slice(sliceIndex).join("");
+				splitString = true;
+
+			} else if (tokens[i].type === "arg" && tokens.length > i) {
+				splitString = true;
+			}
+
+			if (splitString) {
+				result += "{"+currentNbIndex+"}";
+				resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
+				break;
+			}
+		}
+
 		if (tokens[i].type === "string") {
 			result += tokens[i].text;
+			stringLength += getUtf8Length(tokens[i].text);
 		} else {
 			if (numbersEncountered.length >= 2 && numbers.length > 3) {
 				//split
@@ -2174,6 +2415,8 @@ function parseStringTokens(tokens, args) {
 					resultArgs.push(args[tokens[i].index]);
 				}
 				result += "{"+mappings[tokens[i].index]+"}";
+				currentNbIndex++;
+				stringLength += 3;
 
 
 			}

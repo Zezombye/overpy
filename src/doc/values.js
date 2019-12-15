@@ -3089,25 +3089,6 @@ var valueFuncKw =
         "zh-CN": "乘方"
     },
     {
-        "opy": "_randomWs",
-        "description": "An internal value that is the word 'random' used by all 4 random functions, no matter the language.",
-        "args": [],
-        "en-US": "Random",
-        "guid": "00000000589D",
-        "de-DE": "Zufällig",
-        "es-ES": "Aleatoria",
-        "es-MX": "Aleatorio",
-        "fr-FR": "Aléatoire",
-        "it-IT": "Casuale",
-        "ja-JP": "ランダム",
-        "ko-KR": "무작위",
-        "pl-PL": "Losowo",
-        "pt-BR": "Aleatório",
-        "ru-RU": "Случайно",
-        "zh-CN": "随机英雄",
-        "zh-TW": "隨機"
-    },
-    {
         "opy": "random.randint",
         "description": "A random integer between the specified min and max, inclusive.",
         "args": [
