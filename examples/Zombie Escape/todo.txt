@@ -1,5 +1,0 @@
-- Fix the balcony skip on the section before boss fight
-- Fix the wall offset bug on 2nd part dorado
-- Fix zen trans passing through walls
-- Put the actual countdowns for part 2
-- time doesn't reset if humans win

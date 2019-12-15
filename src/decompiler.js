@@ -229,6 +229,12 @@ function decompileConditions(content) {
 	var condStrs = [];
 	for (var i = 0; i < conditions.length; i++) {
 		
+		var currentCondIsDisabled = false;
+		conditions[i] = conditions[i].trim();
+		if (conditions[i].startsWith(tows("_disabled", ruleKw))) {
+			currentCondIsDisabled = true;
+			conditions[i] = conditions[i].substring(tows("_disabled", ruleKw).length);
+		}
 		var currentCond = decompileRuleCondition(conditions[i]);
 		//Check for and-ing with true
 		if (currentCond === "true") {
@@ -238,15 +244,32 @@ function decompileConditions(content) {
 		if (operatorPrecedenceStack[0] < 2) {
 			currentCond = "("+currentCond+")";
 		}
-		condStrs.push(currentCond);
+		condStrs.push({
+			text: currentCond,
+			isDisabled: currentCondIsDisabled,
+		});
 	}
-	var condStr = condStrs.join(" and ");
+	var condStrResult = "";
+	for (var i = 0; i < condStrs.length; i++) {
+		console.log(i)
+		console.log(condStrs[i]);
+		var condStr = condStrs[i].text;
+		if (i < condStrs.length-2 && !condStrs[i+1].isDisabled) {
+			condStr += " and ";
+		} else if (condStrs.length >= 2 && (i === condStrs.length-1 || condStrs[i].isDisabled && i > 0)) {
+			condStr = " and "+condStr;
+		}
+		if (condStrs[i].isDisabled) {
+			condStr = "'''"+condStr+"'''";
+		}
+		condStrResult += condStr;
+	}
 	
 	//This happens if everything is true
-	if (condStr === "") {
-		condStr = "true";
+	if (condStrResult === "") {
+		condStrResult = "true";
 	}
-	result += condStr;
+	result += condStrResult;
 	
 	result += ":\n"
 	nbTabs = 1;

@@ -44,8 +44,10 @@ var wsTrue ;
 var wsFalse;
 var wsNull;
 var wsNot;
-//Note: assumes "randInt", "randReal", "randShuffle" and "randChoice" all have the same "random" word, no matter the language.
-var wsRand;
+var wsRandInt;
+var wsRandReal;
+var wsRandShuffle;
+var wsRandChoice;
 
 //Set at each rule, to check whether it is legal to use "eventPlayer" and related.
 var currentRuleEvent;
@@ -59,6 +61,9 @@ var macros;
 var encounteredWarnings;
 var suppressedWarnings;
 var globalSuppressedWarnings;
+
+//A list of imported files, to prevent import loops.
+var importedFiles;
 
 var wasWaitEncountered;
 
@@ -96,7 +101,10 @@ function resetGlobalVariables() {
 	wsFalse = tows("false", valueFuncKw);
 	wsNull = tows("null", valueFuncKw);
 	wsNot = tows("not", valueFuncKw);
-	wsRand = tows("_randomWs", valueFuncKw);
+	wsRandInt = tows("random.randint", valueFuncKw);
+	wsRandReal = tows("random.uniform", valueFuncKw);
+	wsRandShuffle = tows("random.shuffle", valueFuncKw);
+	wsRandChoice = tows("random.choice", valueFuncKw);
 	currentRuleEvent = "";
 	obfuscateRules = false;
 	macros = [];
@@ -113,6 +121,7 @@ function resetGlobalVariables() {
 	globalSuppressedWarnings = [];
 	currentLanguage = "en-US";
 	wasWaitEncountered = false;
+	importedFiles = [];
 }
 
 //Other constants
@@ -189,7 +198,7 @@ const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length-1;
 const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BV', 'BW', 'BX', 'BY', 'BZ', 'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN', 'CO', 'CP', 'CQ', 'CR', 'CS', 'CT', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG', 'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN', 'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DV', 'DW', 'DX'];
 
 //Names that cannot be used for variables.
-const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "x", "y", "z", "math", "pi", "e", "random", "Vector"].concat( Object.keys(constantValues).map(x => constantValues[x].opy));
+const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default"].concat( Object.keys(constantValues).map(x => constantValues[x].opy));
 
 //Characters that are visually the same as normal ASCII characters (when uppercased), but make the string appear in "big letters" (the i18n font).
 //For now, only greek letters and the "line separator" character.

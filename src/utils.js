@@ -17,6 +17,65 @@
 
 "use strict";
 
+function shuffleArray(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
+
+function applyStringModifiers(content, stringModifiers) {
+
+	//If big letters, try to map letters until we get one
+	//We only need one letter to convert to big letters
+	if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
+		for (var i = 0; i < content.length; i++) {
+			if (content[i] in bigLettersMappings) {
+				content = content.substring(0,i)+bigLettersMappings[content[i]]+content.substring(i+1);
+				isConvertedToBigLetters = true;
+				break;
+			}
+		}
+	} else if (stringModifiers.fullWidth) {
+		var tmpStr = "";
+		for (var char of content) {
+			if (char in fullwidthMappings) {
+				tmpStr += fullwidthMappings[char];
+			} else {
+				containsNonFullwidthChar = true;
+				tmpStr += char;
+			}
+		}
+
+		content = tmpStr;
+		
+	}
+
+	if (obfuscateRules) {
+		var tmpStr = "";
+		for (var char of content) {
+			if (char in obfuscationMappings) {
+				tmpStr += obfuscationMappings[char];
+			} else {
+				tmpStr += char;
+			}
+		}
+		content = tmpStr;
+	}
+	return content;
+}
+
+function getUtf8Length(s){
+	//console.log("getting utf8 length of '"+s+"'");
+    var b = 0, i = 0, c;
+    for(;c=s.charCodeAt(i++);b+=c>>11?3:c>>7?2:1);
+    return b;
+}
+
 function translateVarToPy(content, isGlobalVariable) {
 	content = content.trim();
 	var varArray = isGlobalVariable ? globalVariables : playerVariables;
@@ -41,15 +100,24 @@ function translateVarToPy(content, isGlobalVariable) {
 function translateVarToWs(content, isGlobalVariable) {
 
 	var varArray = isGlobalVariable ? globalVariables : playerVariables;
-	for (var variable of varArray) {
-		if (variable.name === content) {
-			return content;
+	for (var i = 0; i < varArray.length; i++) {
+		if (varArray[i].name === content) {
+			if (obfuscateRules) {
+				return obfuscatedVarNames[varArray[i].index]
+			} else {
+				return content;
+			}
 		}
 	}
 	if (defaultVarNames.includes(content)) {
 		//Add the variable as it doesn't already exist (else it would've been caught by the for)
+		//However, only do this if it is a default variable name
 		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
-		return content;
+		if (obfuscateRules) {
+			return obfuscatedVarNames[defaultVarNames.indexOf(content)];
+		} else {
+			return content;
+		}
 	}
 	error("Undeclared "+(isGlobalVariable ? "global" : "player")+" variable '"+content+"'");
 }
@@ -83,7 +151,7 @@ function boolToWs(x) {
 }
 
 function containsRandom(x) {
-	return x.includes(wsRand);
+	return x.includes(wsRandInt) || x.includes(wsRandReal) || x.includes(wsRandShuffle) || x.includes(wsRandChoice);
 }
 
 function isWsTrue(x) {
@@ -158,11 +226,33 @@ function getFileContent(path) {
 	var fs;
 	try {
 		fs = require("fs");
+		//glob = require("glob");
 	} catch (e) {
 		error("Cannot use multiple files in browsers");
 	}
+	if (path.endsWith(".opy") && importedFiles.includes(path)) {
+		warn("w_already_imported", "The file '"+path+"' was already imported and will not be imported again.");
+		return "";
+	}
 	try {
-		return ""+fs.readFileSync(path);
+		/*var matchingFiles = glob.sync(path);
+		if (matchingFiles.length === 0) {
+			error("The path '"+path+"' did not match any file.");
+		}
+		var result = "";
+		for (matchingFile in matchingFiles) {
+			importedFiles.push(matchingFile);
+			fileContent = ""+fs.readFileSync(matchingFile);
+			if (!fileContent.endsWith("\n")) {
+				fileContent += "\n";
+			}
+			result += fileContent;
+		}
+		return result;*/
+		importedFiles.push(path);
+		return ""+fs.readFileSync(path)+"\n";
+
+
 	} catch (e) {
 		error(e);
 	}
