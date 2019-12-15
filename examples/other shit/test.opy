@@ -3,4 +3,9 @@
 
 @Rule "test"
 @Event global
-macro2+34566
+A = 42
+debug({
+    42: "owo",
+    56: "uwu",
+    10: "test",
+}[A])

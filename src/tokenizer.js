@@ -490,7 +490,10 @@ function resolveMacro(macro, args=[], indentLevel) {
 			scriptContent = vars + '\n'+scriptContent;
 			scriptContent = builtInJsFunctions + scriptContent;
             try {
-                result = eval(scriptContent);
+				result = eval(scriptContent);
+				if (!result) {
+					error("Script '"+getFilenameFromPath(macro.scriptPath)+"' yielded no result");
+				}
             } catch (e) {
                 var stackTrace = e.stack.split('\n').slice(1).reverse();
                 var encounteredEval = false;
