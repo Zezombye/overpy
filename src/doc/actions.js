@@ -464,7 +464,7 @@ var actionKw =
         "en-US": "Create Dummy Bot",
         "guid": "00000000CA6A",
         "es-MX": "Crear robot de entrenamiento",
-        "fr-FR": "Créer un bot",
+        "fr-FR": "Créer une I.A.",
         "it-IT": "Crea bot di prova",
         "ja-JP": "ダミーボットを作成",
         "pl-PL": "Stwórz atrapę bota",
@@ -816,7 +816,7 @@ var actionKw =
         "en-US": "Destroy All Dummy Bots",
         "guid": "00000000D1D4",
         "es-MX": "Destruir todos los robots de entrenamiento",
-        "fr-FR": "Détruire tous les bots",
+        "fr-FR": "Détruire toutes les I.A.",
         "it-IT": "Distrugge tutti i bot di prova.",
         "ja-JP": "すべてのダミーボットを破棄",
         "pt-BR": "Destruir Todos os Bots",
@@ -890,7 +890,7 @@ var actionKw =
         "en-US": "Destroy Dummy Bot",
         "guid": "00000000CC21",
         "es-MX": "Destruir robot de entrenamiento",
-        "fr-FR": "Détruire un bot",
+        "fr-FR": "Détruire une I.A.",
         "it-IT": "Distruggi bot di prova",
         "ja-JP": "ダミーボットを破壊する",
         "pl-PL": "Zniszcz atrapę bota",
@@ -3394,6 +3394,22 @@ var actionKw =
     }
 ]
 //end-json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

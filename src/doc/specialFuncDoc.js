@@ -568,11 +568,19 @@ Usage of this directive will result in a size increase, and a very low performan
 
 The following obfuscation methods are applied:
 
-- Rule filling: empty rules are inserted so that the code hits the limit of 1000 rules. The non-empty rules are scattered randomly across these 1000 rules (but still keeping the rule order).
+- Rule filling: several empty rules are inserted.
 - Comment removing: all rule titles are replaced with the empty string.
-- Dead code injection: actions that effectively do nothing are inserted in rules.
 - Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.
 - Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
+`
+    },{
+        opy: "noEdit",
+        description:
+`Adds 2500 empty rules to the preset, which should make it absolutely impossible to open the rules (as you get a "connection lost" error). Therefore, it is the ultimate form of obfuscation, as you simply cannot even see the code.
+
+However, pasting the generated code could trigger a "connection lost" error as well, and a huge lag. As such, this directive should only be used on finalized gamemodes, before you publish it; it should not be used every time.
+
+You will very likely have to paste the generated code in an editor, then paste the rules by sets of 800, 1200 then 500 to be able to insert them.
 `
     },{
         opy: "declareGlobal",
