@@ -1,15 +1,14 @@
-[Core] DataTool v1.42.0.853-git-db504fbbe1186ba8b688f601f6d8afbf366f3f0e
+[Core] DataTool v1.43.0.858-git-7df896aa214f93a4165c50ba690775381a7b8735
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=esMX", "-T=esMX"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.exe.args
 [CASC] Set language to esMX
 [CASC] Set speech language to esMX
-[CASC] Overwatch build 1.42.0.0.63869
+[CASC] Overwatch build 1.43.0.0.64719
 [CASC] Initializing...
-[CMF] Using CMF procedure 63869
-[CMF] Using CMF procedure 63869
+[CMF] Using CMF procedure 64719
+[CMF] Using CMF procedure 64719
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
-[Core] The branch "" is not supported!. This might result in failure to load. Proceed with caution.
 [Core] Checking ResourceKeys
 [Core] Tooling...
 000000000019.07C: Muere... Muere... Muere...
@@ -1039,10 +1038,7 @@
 000000000F7F.07C: EN DISPUTA
 000000000F80.07C: J
 000000000F81.07C: ¡EN DISPUTA!
-000000000F82.07C: 2.8
 000000000F83.07C: S
-000000000F84.07C: BARRA GENÉRICA
-000000000F85.07C: CAPTURANDO...
 000000000F87.07C: /
 000000000F8B.07C:  ¡SUBES DE NIVEL!
 000000000F8C.07C:  EXP. 
@@ -6937,9 +6933,7 @@ Humam Sakhnini
 0000000040BE.07C: Campo de pruebas
 0000000040BF.07C: Tutorial
 0000000040C5.07C: Antes de jugar
-0000000040CA.07C: ABANDONANDO PARTIDA Y GRUPO. ¿CONTINUAR?
 0000000040CB.07C: ABANDONAR LA PARTIDA COMO GRUPO
-0000000040CC.07C: ABANDONAR LA PARTIDA COMO GRUPO. ¿CONTINUAR?
 0000000040CF.07C: Preferir a este jugador
 0000000040D0.07C: Evitar a este jugador
 0000000040D1.07C: Silenciar voz
@@ -7119,7 +7113,6 @@ Andrew Wang
 000000004164.07C: Juega el tutorial en cualquier momento desde el menú de entrenamiento
 000000004166.07C: Puedes acceder al campo de pruebas cuando quieras en el menú de entrenamiento
 000000004167.07C: Puedes entrar al modo de Practicar contra IA en cualquier momento desde el menú de entrenamiento o de juego.
-000000004168.07C: JUEGA ESCARAMUZA MIENTRAS BUSCAS
 00000000417B.07C: Recomendado
 000000004194.07C: STUN SAVE
 000000004195.07C: NINGUNO
@@ -8303,7 +8296,6 @@ de colocación
 000000004A64.07C: %1$s |Rpl asistencia:asistencias;
 000000004A66.07C: <fg%1$s>¡PARADA!</fg>
 000000004A6A.07C: Parada
-000000004A6B.07C: CONTINUAR
 000000004A6C.07C: De regreso a la playa
 000000004A6D.07C: 2016
 000000004A73.07C: |Rpl %1$s gol:goles;
@@ -8989,7 +8981,6 @@ THIS SOFTWARE.
 0000000051D3.07C: VICTORIA: derrota a tu oponente 5 veces
 0000000051D4.07C: Sin límites en la selección de héroes
 0000000051D8.07C: VICTORIA: completa los objetivos de los mapas estándar
-0000000051D9.07C: %1$s Hasta la siguiente temporada
 0000000051DA.07C: VICTORIA: derrota al equipo enemigo 3 veces
 0000000051DC.07C: Eliminaciones
 0000000051DD.07C: Perfecta
@@ -9029,7 +9020,7 @@ THIS SOFTWARE.
 000000005251.07C: HÉROES NO DISPONIBLES: Bastion, Brigitte, D.VA, Lúcio, Mercy, Reinhardt, Torbjörn, Winston y Zarya.
 000000005254.07C: Esquí
 00000000525A.07C: Mei: Operación Bola de Nieve
-00000000525B.07C: Participa en una serie de peleas de seis contra seis en Ecopunto: Antártida. Todos los participantes juegan con Mei, quien está equipada con un poderoso Bláster de bolas de nieve. Esta arma solamente tiene un disparo, pero se puede recargar en cualquier montón de nieve.
+00000000525B.07C: Participa en una serie de peleas de seis contra seis con Mei, quien está equipada con un poderoso Bláster de bolas de nieve. Esta arma solamente tiene un disparo, pero se puede recargar en cualquier montón de nieve.
 00000000525E.07C: <tx0C000000000044B0> para desactivar el atajo
 000000005260.07C: <tx0C000000000065FD>
 000000005262.07C: Truco del sombrero
@@ -9077,9 +9068,7 @@ THIS SOFTWARE.
 00000000531D.07C: ELIMINACIÓN
 00000000531E.07C: Cortador
 000000005321.07C: Abandonando partida en:
-000000005323.07C: Fuera de temporada
 000000005324.07C: Hombre de nieve
-000000005325.07C: Juega contra otros jugadores con el reglamento competitivo.
 000000005326.07C: Nulltrooper
 000000005327.07C: %1$s formando grupo
 000000005328.07C: Brindis
@@ -9246,8 +9235,8 @@ recargadas;
 00000000546B.07C: %1$s Daño bloqueado - Mayor cantidad en una partida
 00000000546F.07C: ¡Bup!
 000000005473.07C: Gallo
-000000005479.07C: HANAMURA (INVIERNO)
-00000000547A.07C: KING'S ROW (INVIERNO)
+000000005479.07C: Hanamura (Invierno)
+00000000547A.07C: King's Row (Invierno)
 00000000547B.07C: %1$s/%2$s
 00000000547C.07C: ¿Mantenerse como equipo?
 00000000547D.07C: Pendiente
@@ -9307,6 +9296,7 @@ recargadas;
 0000000054E8.07C: 85700002111103284
 0000000054F3.07C: La luna de invierno
 000000005500.07C: ¡Tienes la bandera!
+000000005501.07C: CONTINUAR
 000000005504.07C: Una exhibición impresionante
 000000005506.07C: Cuando hay luna llena
 000000005508.07C: Llamada de celebración
@@ -9323,6 +9313,11 @@ recargadas;
 000000005562.07C: EL VACÍO INSENSIBLE
 000000005569.07C: TU <fg%1$s>GENERADOR DE ESCUDO</fg> FUE REEMBOLSADO
 00000000556A.07C: Festín
+00000000556B.07C: Felices fiestas
+00000000556C.07C: Héroes,
+00000000556D.07C: Hemos tenido un año genial y de mucha actividad, y les agradecemos por habernos acompañado. Sin su gran apoyo, pasión y entusiasmo hacia Overwatch, no habríamos podido lograrlo.
+00000000556E.07C: ¡El equipo de Blizzard les desea lo mejor a ti y a los tuyos, y espera poder compartir un maravilloso año nuevo contigo!
+00000000556F.07C: ¡Celebra la temporada con CINCO cajas de botín de invierno!
 000000005570.07C: Fortuna
 000000005572.07C: Solo puedes presionar el botón una cantidad limitada de veces. Espera antes de volver a intentarlo.
 000000005576.07C: Equipar
@@ -9606,7 +9601,7 @@ recargadas;
 00000000582E.07C: ATAQUE
 00000000582F.07C: EL VACÍO INSENSIBLE
 000000005836.07C: Asalto
-000000005837.07C: Asalto/escolta
+000000005837.07C: Híbrido
 000000005838.07C: Escolta
 000000005839.07C: Control
 00000000583A.07C: Supercargador
@@ -9768,7 +9763,7 @@ recargadas;
 00000000594B.07C: Control
 00000000594C.07C: Captura la bandera
 00000000594D.07C: Eliminación
-00000000594E.07C: Asalto/escolta
+00000000594E.07C: Híbrido
 00000000594F.07C: Disponible en cajas de botín de aniversario
 000000005958.07C: Partida rápida
 000000005959.07C: Descripción no válida para la configuración de partida.
@@ -9955,7 +9950,6 @@ recargadas;
 000000005A95.07C: Efi
 000000005A97.07C: Tiempo de selección de héroe
 000000005A98.07C: Iniciar Modo de juego
-000000005A99.07C: Escaramuza
 000000005A9B.07C: ATRÁS
 000000005A9C.07C: Habilidades
 000000005A9D.07C: Modificadores de combate
@@ -13094,7 +13088,7 @@ Vivian Zhang
 000000006309.07C: Gravedad baja
 00000000630A.07C: Derrota al equipo enemigo en un entorno de gravedad baja.
 00000000630B.07C: Asalto: gravedad baja
-00000000630C.07C: Asalto/escolta: gravedad baja
+00000000630C.07C: Híbrido: gravedad baja
 00000000630D.07C: Escolta: gravedad baja
 00000000630E.07C: Control: gravedad baja
 00000000630F.07C: Gravedad baja
@@ -14150,7 +14144,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E0E.07C: CAZADORA DE YETIS
 000000006E12.07C: Sube hasta lo más alto del marcador. El héroe más letal gana.
 000000006E14.07C: Sube hasta lo más alto del marcador. El equipo más letal gana.
-000000006E1F.07C: Pueblo de Nepal
+000000006E1F.07C: Pueblo de Nepal (Invierno)
 000000006E20.07C: SOBREVIVIR
 000000006E21.07C: ATACAR
 000000006E22.07C: EL VACÍO INSENSIBLE
@@ -14184,7 +14178,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E63.07C: DEFENDER
 000000006E64.07C: ATACAR
 000000006E6A.07C: Asesina
-000000006E6B.07C: EICHENWALDE (HALLOWEEN)
+000000006E6B.07C: Eichenwalde (Halloween)
 000000006E6F.07C: Revivir a %2$s
 000000006E70.07C: Movimiento de la cámara durante la barrera en vista libre
 000000006E72.07C: NANO
@@ -14352,7 +14346,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007042.07C: %1$s Healing - Coalescence
 000000007043.07C: Qué divertido
 00000000704A.07C: Generador de escudo
-00000000704E.07C: ¡Enfréntate a oleadas interminables de zómnicos del Dr. Junkenstein y algunos de sus poderosos aliados!
 000000007058.07C: Disparo secundario
 000000007059.07C: Habilitado
 00000000705A.07C: Deshabilitado
@@ -14403,7 +14396,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000070D5.07C: |Rfn %1$s:P0;
 0000000070D6.07C: |Rfn %1$s:P0;
 0000000070F2.07C: Clásico
-0000000070F4.07C: SELVA NEGRA (INVIERNO)
+0000000070F4.07C: Selva Negra (Invierno)
 0000000070F5.07C: Real
 0000000070FC.07C: A tu servicio
 000000007100.07C: Escala de duración de congelación de arma
@@ -14878,6 +14871,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000751E.07C: %1$s |Rpl Trampa:Trampas; de yeti con éxito
 00000000751F.07C: Autosanación
 000000007520.07C: %1$s de autosanación
+000000007532.07C: Selva negra
+000000007533.07C: Selva Negra (Invierno)
 000000007535.07C: Carne consumida por el yeti
 000000007536.07C: Trozos de carne consumidos: %1$s
 000000007538.07C: |Rpl %1$s:Derribo:Derribos; cuerpo a cuerpo
@@ -14935,7 +14930,7 @@ Por favor, ayúdanos a crear la mejor comunidad de Overwatch posible manteniendo
 00000000758C.07C: REGALOS
 00000000758D.07C: Blizzard World
 00000000758E.07C: Bienvenido a Blizzard World. ¿Estás preparado para la experiencia más épica de todos los tiempos en un parque temático?
-00000000758F.07C: Asalto/Escolta
+00000000758F.07C: Híbrido
 000000007590.07C: ¡Captura la carga y escóltala a su destino!
 000000007593.07C: SELECCIONAR DISEÑO
 000000007594.07C: ¡Enfurecido!
@@ -15655,7 +15650,7 @@ Otros modos de juego de Overwatch, como Partida rápida, Arcade y Explorador de 
 000000007D99.07C: Daño - Ira primigenia - Salto
 000000007D9A.07C: %1$s Damage Done
 000000007DAD.07C: Tiempo transcurrido: %1$s
-000000007DAE.07C: Tiempo en escaramuza: %1$s
+000000007DAE.07C: Tiempo transcurrido: %1$s
 000000007DAF.07C: Brigitte
 000000007DB0.07C: Sanación - Granada biótica
 000000007DB1.07C: %1$s Healing Done
@@ -17083,11 +17078,11 @@ competitivo 2018
 000000008DB6.07C: Has utilizado todas tus recomendaciones para esta partida.
 000000008DCE.07C: Torreta
 000000008DEA.07C: CANCELAR
-000000008DEC.07C: SE REQUIERE PROTECCIÓN DE SMS.
+000000008DEC.07C: SE REQUIERE NÚMERO DE TELÉFONO.
 000000008DEE.07C: INCLUIR SMS
 000000008DEF.07C: Demonio
 000000008DF2.07C: https://nydus.battle.net/Pro/esMX/client/support/blizzard-sms-protect?targetRegion=US
-000000008DF3.07C: La cuenta requiere protección de SMS.
+000000008DF3.07C: La cuenta requiere un número de teléfono.
 000000008E00.07C: Horizonte sin límites
 000000008E01.07C: Derrota al equipo enemigo sin tener límites en la selección de héroes.
 000000008E11.07C: ¡Recomendación recibida: <br>%1$s!
@@ -18558,6 +18553,8 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000AD62.07C: Héroe de la temporada 18
 00000000AD63.07C: Competidor de la temporada 19
 00000000AD64.07C: Héroe de la temporada 19
+00000000AD65.07C: Competidor de la temporada 20
+00000000AD66.07C: Héroe de la temporada 20
 00000000AD67.07C: Competidor de la temporada 15
 00000000AD68.07C: Se desbloquea al completar las partidas de colocación de la temporada 15
 00000000AD69.07C: Héroe de la temporada 15
@@ -19109,6 +19106,8 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000AFF6.07C: Temporada 18
 00000000AFF7.07C: Temporada 19
 00000000AFF8.07C: Temporada 19
+00000000AFF9.07C: Temporada 20
+00000000AFFA.07C: Temporada 20
 00000000AFFD.07C: Competidor de la temporada 16
 00000000AFFE.07C: Se desbloquea al completar las partidas de colocación de la temporada 16
 00000000AFFF.07C: Competidor de la temporada 17
@@ -19150,9 +19149,9 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000B11B.07C: Atrás
 00000000B11C.07C: Posición de
 00000000B11D.07C: Altitud de
-00000000B13C.07C: JUGADOR
-00000000B13D.07C: JUGADOR
-00000000B164.07C: JUGADOR
+00000000B13C.07C: Jugador
+00000000B13D.07C: Jugador
+00000000B164.07C: Jugador
 00000000B165.07C: Equipo
 00000000B166.07C: Eliminar de la matriz por valor
 00000000B167.07C: Anexar a la matriz
@@ -19547,6 +19546,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000B557.07C: %1$s Healing Done
 00000000B559.07C: Sanación - Disparador biótico
 00000000B55A.07C: %1$s Healing Done
+00000000B560.07C: Pionero
 00000000B562.07C: Sanación - Campo de inmortalidad
 00000000B563.07C: %1$s Healing Done
 00000000B565.07C: Aturdido
@@ -21586,7 +21586,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000C387.07C: Error: El valor es ilegal.
 00000000C393.07C: Comenzar cámara
 00000000C394.07C: Coloca tu cámara en una ubicación y la orienta en una dirección.
-00000000C395.07C: JUGADOR
+00000000C395.07C: Jugador
 00000000C396.07C: El jugador o los jugadores cuyas cámaras se colocarán en la ubicación.
 00000000C397.07C: Posición de la vista
 00000000C398.07C: La posición de la cámara. Se reevalúa continuamente.
@@ -21610,7 +21610,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000C3D9.07C: Thrall
 00000000C3DA.07C: Tyrande
 00000000C3DB.07C: Rey Exánime
-00000000C3DE.07C: Asalto/Escolta
+00000000C3DE.07C: Híbrido
 00000000C3DF.07C: Inicializar cantidad de dobles saltos en (A)
 00000000C3E0.07C: Permite el doble salto (B) si te encuentras a una altitud mayor a 0.8, no estás manteniendo presionado el botón de salto y tienes dobles saltos (A)
 00000000C3E1.07C: Si saltas en el aire y el doble salto está permitido (B), harás un doble salto y consumirás una carga (A)
@@ -21730,8 +21730,8 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000C470.07C: El jugador no puede moverse, apuntar o utilizar armas o habilidades. Por ejemplo, el Quebrantasuelos de Reinhardt provoca este estado.
 00000000C471.07C: El jugador está en llamas. Por ejemplo, la Dinamita de Ashe provoca este estado.
 00000000C472.07C: El jugador no puede utilizar las habilidades ni la habilidad máxima. Los ataques de arma no se ven afectados. Por ejemplo, Sombra puede provocar este estado.
-00000000C473.07C: El equipo ubicado del lado izquierdo de la sala de espera. En los mapas de Asalto, Asalto/Escolta y Escolta, este equipo defiende primero.
-00000000C474.07C: El equipo ubicado del lado derecho de la sala de espera. En los mapas de Asalto, Asalto/Escolta y Escolta, este equipo ataca primero.
+00000000C473.07C: El equipo ubicado del lado izquierdo de la sala de espera. En los mapas de Asalto, Híbridos y de Escolta, este equipo defiende primero.
+00000000C474.07C: El equipo ubicado del lado derecho de la sala de espera. En los mapas de Asalto, Híbridos y de Escolta, este equipo ataca primero.
 00000000C475.07C: Si el objetivo se mueve en contra de la dirección del impulso, esta velocidad relativa se negará antes de aplicar el impulso.
 00000000C476.07C: El impulso se agrega directamente a la velocidad del objetivo, de modo que, si el objetivo se mueve en contra de la dirección del impulso, podría parecer que el impulso tiene menos efecto.
 00000000C477.07C: El texto puede estar parcial o totalmente oculto por muros, pisos, techos, jugadores u otros objetos sólidos.
@@ -22129,6 +22129,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000C897.07C: 
 00000000C898.07C: Otorga créditos
 00000000C899.07C: Otorga una caja de botín
+00000000C8BA.07C: Rey Rata
 00000000C8D1.07C: Cancelar
 00000000C8D2.07C: Listo
 00000000C8D7.07C: Tiro
@@ -22190,7 +22191,6 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000C961.07C: Uso del servidor
 00000000C962.07C: Muestra un porcentaje que representa el uso del procesador de la instancia de juego actual. A medida que el número alcanza o supera el 100%%, aumenta la probabilidad de que esa instancia se cierre, ya que está consumiendo demasiados recursos.
 00000000C970.07C: Combinado
-00000000C97E.07C: Desbloquea nuevos diseños
 00000000C982.07C: Uso del servidor
 00000000C983.07C: Uso promedio del servidor
 00000000C984.07C: Uso máximo del servidor
@@ -22242,9 +22242,9 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000CA0C.07C: Debes seleccionar un rol antes de que tu grupo pueda ponerse en cola. ¿Seleccionar ahora?
 00000000CA0D.07C: Tiendas
 00000000CA0E.07C: Tienda
-00000000CA11.07C: Desafío El llamado de Mercy
-00000000CA13.07C: Semana 2: Baptiste Vampiro
-00000000CA14.07C: Semana 3: Sombra Cazadora de demonios
+00000000CA11.07C: Semana 1: Suéter feo: 76
+00000000CA13.07C: Semana 2: Moira Acebo
+00000000CA14.07C: Semana 3: Mercy Ángel de nieve
 00000000CA15.07C: ¡Gana 9 partidas en arcade, partida rápida o competitiva!
 00000000CA16.07C: ¡Gana 9 partidas en arcade, partida rápida o competitiva!
 00000000CA17.07C: ¡Gana 9 partidas en arcade, partida rápida o competitiva!
@@ -22553,7 +22553,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000CD55.07C: Los jugadores tienen niveles de habilidad separados para cada rol (daño, apoyo y tanque). Los puntos competitivos se otorgan por separado para el nivel de habilidad de cada rol.
 00000000CD58.07C: Partida rápida clásica
 00000000CD59.07C: Asalto
-00000000CD5A.07C: Asalto/Escolta
+00000000CD5A.07C: Híbrido
 00000000CD5B.07C: Control
 00000000CD5C.07C: Escolta
 00000000CD67.07C: CM Genérico Local
@@ -22602,6 +22602,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000CE5B.07C: Los espectadores siempre pueden ver el texto.
 00000000CE5C.07C: Los espectadores nunca pueden ver el texto.
 00000000CE5F.07C: Desbloqueado por participar en el Desafío Bloque de Bastion
+00000000CE61.07C: Escarcha
 00000000CE64.07C: Texto
 00000000CE68.07C: Error: Se encontró el final de una línea en una cadena literal después de '%1$s' en la línea %2$s
 00000000CE69.07C: Error: Se encontró una cadena literal que no tiene comillas de cierre después de '%1$s' en la línea %2$s
@@ -26014,9 +26015,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D3B9.07C: El primer encuentro de la Copa mundial de Overwatch comienza el viernes aproximadamente a las 19:00 h UTC.
 00000000D3BA.07C: Ver partidas
 00000000D3BB.07C: VS
-00000000D3D9.07C: ¡Los favoritos de Halloween de años anteriores regresan junto con algunos objetos nuevos!
-00000000D3DD.07C: Desafíos semanales
 00000000D3E3.07C: Partida rápida clásica
+00000000D3EA.07C: Suéter feo: 76
 00000000D3EC.07C: LEGO
 00000000D3ED.07C: © 2019 The LEGO GROUP
 LEGO, the LEGO logo, and the MiniFigure figurine are trademarks of the LEGO GROUP. All Rights Reserved.
@@ -26031,6 +26031,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D40E.07C: La matriz de todos los héroes de apoyo de Overwatch.
 00000000D40F.07C: La matriz de todos los héroes tanques de Overwatch.
 00000000D411.07C: Mapa
+00000000D412.07C: Error: Se esperaba un nombre de mapa después de '%1$s' en la línea %2$s
 00000000D415.07C: Mapa
 00000000D416.07C: Una constante de mapa.
 00000000D417.07C: Una constante de mapa.
@@ -26040,6 +26041,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D41B.07C: IRL
 00000000D41C.07C: Irlanda
 00000000D41E.07C: IRL
+00000000D431.07C: Se desbloquea al completar las partidas de colocación de la temporada 20
+00000000D432.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 20
 00000000D483.07C: Genérico
 00000000D484.07C: Genérico
 00000000D485.07C: GEN
@@ -26111,6 +26114,7 @@ https://account.blizzard.com/connections/nintendo
 00000000D593.07C: Turquía
 00000000D597.07C: VIE
 00000000D59B.07C: Vietnam
+00000000D5BD.07C: Ángel de nieve
 00000000DA38.07C: Personalizado
 00000000DA39.07C: Portátil
 00000000DA3A.07C: Predeterminados de giroscopio
@@ -26181,5 +26185,178 @@ https://account.blizzard.com/connections/nintendo
 00000000EBD9.07C: Noche
 00000000EBDB.07C: Ascenso
 00000000EBE7.07C: https://blizzcon.playoverwatch.com/story
+00000000EBF1.07C: Jötunn
 00000000EBF3.07C: Prepárense
-[Core] Execution finished in 00:00:01.3234079 seconds
+00000000EC0C.07C: Combate a muerte
+00000000EC0D.07C: Combate a muerte
+00000000EC0E.07C: PH Endless Deathmatch description
+00000000EC72.07C: Escaramuza
+00000000EC77.07C: Mientras esperas
+00000000EC78.07C: Selecciona un modo de juego para jugar mientras esperas en la cola.
+00000000EC79.07C: Consejo: Puedes determinar la preferencia de unirte automáticamente en las opciones/configuración del juego
+00000000EC7B.07C: Combate a muerte Bola de Nieve
+00000000EC7D.07C: Campo de pruebas
+00000000EC7E.07C: Reaparición de robots de entrenamiento
+00000000EC7F.07C: Habilitado
+00000000EC80.07C: Deshabilitado
+00000000EC82.07C: Campo de pruebas
+00000000EC83.07C: Pelea con bolas de nieve
+00000000EC84.07C: Disponible en cajas de botín de invierno
+00000000EC85.07C: Adorno
+00000000EC86.07C: Disponible en cajas de botín de invierno
+00000000EC87.07C: Estatua de hielo
+00000000EC88.07C: Disponible en cajas de botín de invierno
+00000000EC89.07C: Adorno
+00000000EC8A.07C: Disponible en cajas de botín de invierno
+00000000EC8C.07C: Combate a muerte Bola de Nieve
+00000000EC8F.07C: Campo de pruebas
+00000000EC90.07C: Combate a muerte Bola de Nieve
+00000000EC91.07C: Participa en una pelea de bolas de nieve todos contra todos con Mei, quien está equipada con un poderoso Bláster de bolas de nieve. Esta arma tiene munición limitada, pero se puede recargar en cualquier montón de nieve.
+00000000EC9C.07C: Hechizo invernal
+00000000EC9E.07C: Se desbloquea al participar del desafío de la semana 3 de Paraíso Invernal 2019
+00000000EC9F.07C: Acebo
+00000000ECA0.07C: Se desbloquea al participar del desafío de la semana 2 de Paraíso Invernal 2019
+00000000ECA1.07C: Se desbloquea al participar del desafío de la semana 1 de Paraíso Invernal 2019
+00000000ECA2.07C: Suéter feo
+00000000ECA4.07C: Regalos
+00000000ECA6.07C: Ángel de nieve
+00000000ECA8.07C: Suéter feo
+00000000ECAA.07C: Coinín Nollag
+00000000ECAF.07C: Campo de pruebas
+00000000ECB0.07C: Explorador de partidas
+00000000EF22.07C: Hola, mi nombre es
+00000000EF23.07C: Re-regalo
+00000000EF24.07C: Festivo
+00000000F044.07C: Ocluido
+00000000F045.07C: Siempre
+00000000F048.07C: Mostrar contornos de aliados
+00000000F058.07C: Predeterminado
+00000000F059.07C: 900 Fichas de Liga
+00000000F05A.07C: 2600 Fichas de Liga
+00000000F086.07C: Elige un juego para jugar mientras esperas.
+00000000F08A.07C: Buscando
+00000000F08B.07C: Algunos juegos no están disponibles
+00000000F08C.07C: Brindis
+00000000F08D.07C: Brindis
+00000000F08E.07C: Un poco de cariño y atención
+00000000F08F.07C: Disponible en cajas de botín de invierno
+00000000F090.07C: Hoy, tú eliges
+00000000F091.07C: Disponible en cajas de botín de invierno
+00000000F092.07C: Una especie de ángel
+00000000F093.07C: Disponible en cajas de botín de invierno
+00000000F094.07C: Glorioso
+00000000F095.07C: Disponible en cajas de botín de invierno
+00000000F096.07C: El alma de la fiesta
+00000000F097.07C: Disponible en cajas de botín de invierno
+00000000F098.07C: ¡Feliz Navidad!
+00000000F099.07C: Disponible en cajas de botín de invierno
+00000000F09E.07C: ¡Felices fiestas!
+00000000F09F.07C: Disponible en cajas de botín de invierno
+00000000F0A0.07C: Muy bueno
+00000000F0A1.07C: Disponible en cajas de botín de invierno
+00000000F0A4.07C: Cascabel
+00000000F0A5.07C: Disponible en cajas de botín de invierno
+00000000F0A6.07C: ¡Feliz Año Nuevo!
+00000000F0A7.07C: Disponible en cajas de botín de invierno
+00000000F0C9.07C: Atrapar
+00000000F0CA.07C: Atrapa una bola de nieve lanzada y agrégala a tu munición.
+00000000F0CB.07C: Continuar
+00000000F0CC.07C: Escala de tiempo de reaparición de robot de entrenamiento
+00000000F0CD.07C: |Rfn %1$s:P0;
+00000000F0FE.07C: Solo para residentes en California
+00000000F0FF.07C: No vendan mi información personal
+00000000F102.07C: Esto abrirá un navegador en otra ventana
+00000000F103.07C: Aceptar
+00000000F104.07C: CANCELAR
+00000000F12D.07C: Escarcha
+00000000F12E.07C: Disponible en cajas de botín de invierno
+00000000F12F.07C: Rey Rata
+00000000F130.07C: Disponible en cajas de botín de invierno
+00000000F131.07C: Pionero
+00000000F132.07C: Disponible en cajas de botín de invierno
+00000000F133.07C: Jötunn
+00000000F134.07C: Disponible en cajas de botín de invierno
+00000000F137.07C: Paraíso Invernal 2019
+00000000F147.07C: Mientras esperas
+00000000F148.07C: Elige entre una variedad de actividades mientras esperas que comience tu partida:
+00000000F149.07C: Campo de pruebas: ¡Ahora disponible para grupos!
+00000000F14A.07C: Escaramuza: ¡Juega sin reglas!
+00000000F14B.07C: Combate a muerte: ¡Ahora juega contra tus miembros del grupo!
+00000000F161.07C: Modo de juego
+00000000F162.07C: Una constante de modo de juego.
+00000000F163.07C: Modo de juego actual
+00000000F164.07C: El modo de juego actual de la partida personalizada.
+00000000F166.07C: Una constante de modo de juego.
+00000000F167.07C: Error: Se esperaba un nombre de modo de juego después de '%1$s' en la línea %2$s
+00000000F168.07C: Modo de juego
+00000000F178.07C: Gestionar cuenta
+00000000F196.07C: Escaramuza
+00000000F197.07C: PH Skirmish description
+00000000F19C.07C: Explorador de partidas: ¡Juega una variedad de modos creados por los jugadores!
+00000000F19D.07C: ABANDONAR COLA
+00000000F19E.07C: ABANDONAR JUEGO
+00000000F19F.07C: ABANDONAR JUEGO Y COLA
+00000000F1A2.07C: Buscando partida
+00000000F1A3.07C: account/management
+00000000F1AB.07C: support/ccpa
+00000000F1B1.07C: Error: Demasiadas cadenas personalizadas.
+00000000F1BD.07C: client
+00000000F1C0.07C: ABANDONANDO JUEGO Y COLA. ¿ESTÁS SEGURO?
+00000000F1C5.07C: <fg%1$s>ATRAPADO</fg>
+00000000F1C6.07C: 2020
+00000000F1C7.07C: Disponible en cajas de botín de invierno
+00000000F212.07C: Atravesado
+00000000F213.07C: Mata a un enemigo después de destruir parte de su Muro de hielo en Combate a muerte Bola de Nieve.
+00000000F214.07C: Por tres
+00000000F215.07C: Mata a 3 enemigos sin recargar o morir en Combate a muerte Bola de Nieve.
+00000000F216.07C: ¡Te atrapé!
+00000000F217.07C: Mata un enemigo atrapado en una bola de nieve en Combate a muerte Bola de Nieve.
+00000000F21F.07C: Jötunn
+00000000F221.07C: Pionero
+00000000F223.07C: Esferas de hielo
+00000000F225.07C: Rey Rata
+00000000F226.07C: Disponible en cajas de botín de invierno
+00000000F227.07C: Cascanueces
+00000000F228.07C: Disponible en cajas de botín de invierno
+00000000F229.07C: 
+00000000F22A.07C: 
+00000000F22B.07C: 
+00000000F23D.07C: Solo se muestran juegos que permiten jugadores en cola.
+00000000F23E.07C: ¡Advertencia! ¡Esto puede afectar el rendimiento del sistema!
+00000000F241.07C: + 100 Fichas de bonificación
+00000000F242.07C: + 500 Fichas de bonificación
+00000000F246.07C: Bebedero
+00000000F248.07C: Los modos de juego mientras esperas no están disponibles actualmente.
+00000000F24A.07C: Selva Negra (Invierno)
+00000000F24B.07C: Selva negra
+00000000F24D.07C: VICTORIA: Primer jugador en lograr 15 muertes
+00000000F255.07C: Combate a muerte Bola de Nieve
+00000000F25B.07C: Permite jugadores en cola
+00000000F25D.07C: CONTINUAR
+00000000F25E.07C: Paraíso Invernal
+00000000F25F.07C: De vuelta a la nieve
+00000000F260.07C: ¡Regresa Paraíso Invernal! ¡Tus favoritos de años anteriores regresan junto con objetos nuevos!
+00000000F261.07C: Combate a muerte Bola de Nieve
+00000000F262.07C: ¡Un nuevo torneo comienza!
+00000000F263.07C: ¡PARTICIPA EN UNA PELEA DE BOLAS DE NIEVE TODOS CONTRA TODOS!
+00000000F264.07C: Paraíso Invernal 2019
+00000000F265.07C: El evento finaliza el 2 de ENERO
+00000000F266.07C: Desbloquea nuevos diseños
+00000000F267.07C: Desafíos semanales
+00000000F268.07C: Semana 1
+00000000F269.07C: Semana 2
+00000000F26A.07C: Semana 3
+00000000F26C.07C: El equipo ganador.
+00000000F376.07C: Cargando juego
+00000000F3A3.07C: Cuando se encuentre una partida, se te llevará al juego que estabas esperando en la cola.
+00000000F3AE.07C: Entrando a la partida
+00000000F3CD.07C: Buscando belleza
+00000000F3CE.07C: Disponible en cajas de botín de invierno
+00000000F420.07C: Sorpresita
+00000000F422.07C: Nieve nieve nieve
+00000000F424.07C: Ositos polares
+00000000F4B5.07C: , 
+00000000F4BE.07C: Seleccionar
+00000000F523.07C: Se desbloquea al iniciar sesión en el juego durante el evento de Paraíso Invernal 2019
+00000000F949.07C: Off
+[Core] Execution finished in 00:00:03.4510868 seconds

@@ -1,15 +1,14 @@
-[Core] DataTool v1.42.0.853-git-db504fbbe1186ba8b688f601f6d8afbf366f3f0e
+[Core] DataTool v1.43.0.858-git-7df896aa214f93a4165c50ba690775381a7b8735
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.exe.args
 [CASC] Set language to plPL
 [CASC] Set speech language to plPL
-[CASC] Overwatch build 1.42.0.0.63869
+[CASC] Overwatch build 1.43.0.0.64719
 [CASC] Initializing...
-[CMF] Using CMF procedure 63869
-[CMF] Using CMF procedure 63869
+[CMF] Using CMF procedure 64719
+[CMF] Using CMF procedure 64719
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
-[Core] The branch "" is not supported!. This might result in failure to load. Proceed with caution.
 [Core] Checking ResourceKeys
 [Core] Tooling...
 000000000019.07C: Giń! Giń! Giń!... I trup!
@@ -1058,10 +1057,7 @@ by po niej jechać.
 000000000F7F.07C: WALKA
 000000000F80.07C: Ł
 000000000F81.07C: WALKA!
-000000000F82.07C: 2.8
 000000000F83.07C: S
-000000000F84.07C: PASEK STANU
-000000000F85.07C: ZAJMOWANIE...
 000000000F87.07C: /
 000000000F8B.07C:  AWANS!
 000000000F8C.07C:  PD
@@ -6959,9 +6955,7 @@ Humam Sakhnini
 0000000040BE.07C: Obszar treningowy
 0000000040BF.07C: Samouczek
 0000000040C5.07C: Zanim zaczniesz
-0000000040CA.07C: OPUSZCZASZ MECZ I EKIPĘ. POTWIERDZASZ DECYZJĘ?
 0000000040CB.07C: OPUŚĆ MECZ WSPÓLNIE Z EKIPĄ
-0000000040CC.07C: OPUŚCISZ MECZ WSPÓLNIE Z EKIPĄ. POTWIERDZASZ DECYZJĘ?
 0000000040CF.07C: Preferuj tego gracza
 0000000040D0.07C: Unikaj tego gracza
 0000000040D1.07C: Wycisz głos
@@ -7141,7 +7135,6 @@ Andrew Wang
 000000004164.07C: W każdej chwili możesz uruchomić samouczek w menu szkolenia
 000000004166.07C: W każdej chwili możesz uruchomić obszar treningowy w menu szkolenia
 000000004167.07C: W każdej chwili możesz uruchomić tryb Treningu z SI w menu rozgrywki albo szkolenia
-000000004168.07C: POTYCZKA W CZASIE WYSZUKIWANIA
 00000000417B.07C: Zalecane
 000000004194.07C: STUN SAVE
 000000004195.07C: ŻADNE
@@ -8327,7 +8320,6 @@ z letnich igrzysk
 000000004A64.07C: %1$s |Rpl asysta:asysty:asyst;
 000000004A66.07C: <fg%1$s>INTERWENCJA!</fg>
 000000004A6A.07C: Interwencja
-000000004A6B.07C: KONTYNUUJ
 000000004A6C.07C: Powrót na plażę
 000000004A6D.07C: 2016
 000000004A73.07C: |Rpl %1$s:Bramki:Bramki:Bramki;
@@ -9016,7 +9008,6 @@ THIS SOFTWARE.
 0000000051D3.07C: ZWYCIĘSTWO: Pokonaj przeciwnika pięciokrotnie
 0000000051D4.07C: Bez ograniczeń w wyborze bohaterów
 0000000051D8.07C: ZWYCIĘSTWO: Zrealizuj standardowe cele na mapie
-0000000051D9.07C: %1$s do następnego sezonu
 0000000051DA.07C: ZWYCIĘSTWO: Pokonaj drużynę wroga trzykrotnie
 0000000051DC.07C: Likwidacje
 0000000051DD.07C: Perfekcyjnie
@@ -9056,7 +9047,7 @@ THIS SOFTWARE.
 000000005251.07C: NIEDOSTĘPNI BOHATEROWIE: Bastion, Brigitte, D.Va, Lúcio, Łaska, Reinhardt, Torbjörn, Winston i Zaria.
 000000005254.07C: Narty
 00000000525A.07C: Śnieżkowa Ofensywa Mei
-00000000525B.07C: Stań do walki w serii pojedynków 6 na 6 na mapie Ekopunkt Antarktyda. Każdy gra Mei wyposażoną w potężny Śnieżkowy Blaster. Jest to jednostrzałowa broń, lecz można ją przeładowywać przy górkach śniegu.
+00000000525B.07C: Stań do walki w serii pojedynków 6 na 6 jako Mei wyposażona w potężny Śnieżkowy Blaster. Jest to jednostrzałowa broń, lecz można ją przeładowywać przy górkach śniegu.
 00000000525E.07C: <tx0C000000000044B0> usuń przypisanie
 000000005260.07C: <tx0C000000000065FD>
 000000005262.07C: Hat trick
@@ -9104,9 +9095,7 @@ THIS SOFTWARE.
 00000000531D.07C: ELIMINACJA
 00000000531E.07C: Siekacz
 000000005321.07C: Opuszczanie meczu za:
-000000005323.07C: Poza sezonem
 000000005324.07C: Bałwan
-000000005325.07C: Walcz z innymi graczami na zasadach trybu Rywalizacji.
 000000005326.07C: Szturmownik
 000000005327.07C: %1$s |Rpl gracz:graczy:graczy; chce stworzyć ekipę
 000000005328.07C: Kakałko
@@ -9271,8 +9260,8 @@ THIS SOFTWARE.
 00000000546B.07C: Zablokowane obrażenia – najwięcej w meczu: %1$s
 00000000546F.07C: Pum
 000000005473.07C: Kogut
-000000005479.07C: HANAMURA (ZIMOWA)
-00000000547A.07C: KING'S ROW (ZIMOWA)
+000000005479.07C: Hanamura (zima)
+00000000547A.07C: King's Row (zima)
 00000000547B.07C: %1$s/%2$s
 00000000547C.07C: Pozostać w drużynie?
 00000000547D.07C: Oczekuje
@@ -9330,6 +9319,7 @@ THIS SOFTWARE.
 0000000054E8.07C: 85700002111103284
 0000000054F3.07C: Zimą ginie nie tylko blask księżyca
 000000005500.07C: Masz flagę!
+000000005501.07C: KONTYNUUJ
 000000005504.07C: Imponujące
 000000005506.07C: Gdy księżyc jest w pełni
 000000005508.07C: Trzeba to uczcić
@@ -9346,6 +9336,11 @@ THIS SOFTWARE.
 000000005562.07C: ZIMNA PUSTKA
 000000005569.07C: OTRZYMUJESZ Z POWROTEM <fg%1$s>GENERATOR OSŁON</fg>
 00000000556A.07C: Uczta
+00000000556B.07C: Wesołych Świąt!
+00000000556C.07C: Bohaterowie!
+00000000556D.07C: To był wspaniały, pełen wydarzeń rok. Chcieliśmy wyrazić radość i wdzięczność, że spędziliście go razem z nami. Nie poradzilibyśmy sobie bez niezwykłego wsparcia, oddania i entuzjazmu, które okazaliście Overwatch.
+00000000556E.07C: Cały zespół Blizzarda życzy wam i waszym bliskim wszystkiego najlepszego! Będzie nam bardzo miło spędzić razem z wami kolejny rok!
+00000000556F.07C: W prezencie otrzymujesz PIĘĆ zimowych skrzynek z łupami!
 000000005570.07C: Szczęście
 000000005572.07C: Dopuszczalna liczba wciśnięć przycisku jest ograniczona. Poczekaj chwilę, zanim spróbujesz ponownie.
 000000005576.07C: Używaj
@@ -9631,7 +9626,7 @@ premiery Diablo.
 00000000582E.07C: ATAK
 00000000582F.07C: ZIMNA PUSTKA
 000000005836.07C: Szturm
-000000005837.07C: Szturm/Eskorta
+000000005837.07C: Hybryda
 000000005838.07C: Eskorta
 000000005839.07C: Kontrola
 00000000583A.07C: Turbodoładowanie
@@ -9793,7 +9788,7 @@ premiery Diablo.
 00000000594B.07C: Kontrola
 00000000594C.07C: Zdobywanie flagi
 00000000594D.07C: Eliminacja
-00000000594E.07C: Szturm/Eskorta
+00000000594E.07C: Hybryda
 00000000594F.07C: Zawartość rocznicowych skrzynek
 000000005958.07C: Szybka gra
 000000005959.07C: Nieprawidłowy opis ustawień gry.
@@ -9980,7 +9975,6 @@ premiery Diablo.
 000000005A95.07C: Efi
 000000005A97.07C: Czas wyboru bohaterów
 000000005A98.07C: Rozpocznij grę
-000000005A99.07C: Potyczka
 000000005A9B.07C: WSTECZ
 000000005A9C.07C: Zdolności
 000000005A9D.07C: Modyfikatory walki
@@ -13120,7 +13114,7 @@ Vivian Zhang
 000000006309.07C: Niska grawitacja
 00000000630A.07C: Pokonaj drużynę wroga w warunkach niskiej grawitacji.
 00000000630B.07C: Szturm – Niska grawitacja
-00000000630C.07C: Szturm/Eskorta – Niska grawitacja
+00000000630C.07C: Hybryda – Niska grawitacja
 00000000630D.07C: Eskorta – Niska grawitacja
 00000000630E.07C: Kontrola – Niska grawitacja
 00000000630F.07C: Niska grawitacja
@@ -14218,7 +14212,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E0E.07C: POLOWANIE NA YETI
 000000006E12.07C: Wywalcz miejsce na szczycie tabeli wyników. Wygrywa najbardziej zabójczy bohater.
 000000006E14.07C: Wywalczcie miejsce na szczycie tabeli wyników. Wygrywa najbardziej zabójcza drużyna.
-000000006E1F.07C: Nepal: Wioska
+000000006E1F.07C: Nepal: Wioska (zima)
 000000006E20.07C: PRZETRWAJ
 000000006E21.07C: ATAK
 000000006E22.07C: ZIMNA PUSTKA
@@ -14252,7 +14246,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E63.07C: OBRONA
 000000006E64.07C: ATAK
 000000006E6A.07C: Zabójczyni
-000000006E6B.07C: EICHENWALDE (HALLOWEEN)
+000000006E6B.07C: Eichenwalde (Halloween)
 000000006E6F.07C: Wskrześ: %2$s
 000000006E70.07C: Ruch względem kamery przy rozglądaniu się z barierą
 000000006E72.07C: NANO
@@ -14420,7 +14414,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007042.07C: %1$s Healing - Coalescence
 000000007043.07C: Kuriozum
 00000000704A.07C: Generator Osłon
-00000000704E.07C: Walcz z hordami złomników dr. Złomensteina oraz jego najpotężniejszymi sojusznikami!
 000000007058.07C: Atak alternatywny
 000000007059.07C: Włączono
 00000000705A.07C: Wyłączono
@@ -14471,7 +14464,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000070D5.07C: |Rfn %1$s:P0;
 0000000070D6.07C: |Rfn %1$s:P0;
 0000000070F2.07C: Klasyczna
-0000000070F4.07C: CZARNY LAS (ZIMA)
+0000000070F4.07C: Czarny las (zima)
 0000000070F5.07C: Majestat
 0000000070FC.07C: Ukłon
 000000007100.07C: Uzbrojenie, Skalowanie czasu zamrożenia
@@ -14946,6 +14939,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000751E.07C: %1$s |Rpl udana pułapka:udane pułapki:udanych pułapek; na Yeti
 00000000751F.07C: Samoleczenie
 000000007520.07C: Samoleczenie: %1$s
+000000007532.07C: Czarny Las
+000000007533.07C: Czarny las (zima)
 000000007535.07C: Mięso zjedzone przez Yeti
 000000007536.07C: Zjedzone mięso: %1$s
 000000007538.07C: |Rpl %1$s:zabici:zabici:zabici; Atakiem Wręcz
@@ -15004,7 +14999,7 @@ Prosimy o pomoc w tworzeniu jak najbardziej przyjaznej i pozytywnie nastawionej 
 00000000758C.07C: PODARUNKI
 00000000758D.07C: Blizzard World
 00000000758E.07C: Witamy w Blizzard World. Gotowi na zabawę w najlepszym parku rozrywki wszech czasów?
-00000000758F.07C: Szturm/Eskorta
+00000000758F.07C: Hybryda
 000000007590.07C: Przejmijcie ładunek i eskortujcie go do celu!
 000000007593.07C: WYBIERZ SKÓRKĘ
 000000007594.07C: Rozwścieczony!
@@ -15726,7 +15721,7 @@ o dużym zasięgu.
 000000007D99.07C: Obrażenia – Pierwotny Szał, Skok
 000000007D9A.07C: %1$s Damage Done
 000000007DAD.07C: Upłynęło czasu: %1$s
-000000007DAE.07C: Potyczka: %1$s
+000000007DAE.07C: Upłynęło czasu: %1$s
 000000007DAF.07C: Brigitte
 000000007DB0.07C: Leczenie – Granat Biotyczny
 000000007DB1.07C: %1$s Healing Done
@@ -17181,11 +17176,11 @@ z letnich igrzysk
 000000008DB6.07C: Wystawiono wszystkie pochwały za mecz.
 000000008DCE.07C: Wieżyczka
 000000008DEA.07C: ANULUJ
-000000008DEC.07C: WYMAGANA OCHRONA ALERTAMI KOMÓRKOWYMI.
+000000008DEC.07C: WYMAGANE PODANIE NUMERU TELEFONU.
 000000008DEE.07C: DODAJ NUMER
 000000008DEF.07C: Demon
 000000008DF2.07C: https://nydus.battle.net/Pro/plPL/client/support/blizzard-sms-protect?targetRegion=EU
-000000008DF3.07C: Konto wymaga ochrony alertami komórkowymi.
+000000008DF3.07C: Konto wymaga podania numeru telefonu.
 000000008E00.07C: Horyzont – Bez ograniczeń
 000000008E01.07C: Pokonaj drużynę wroga. Brak jakichkolwiek ograniczeń w wyborze bohaterów.
 000000008E11.07C: Otrzymano pochwałę: <br>%1$s!
@@ -17770,7 +17765,7 @@ Overwatch League 2018.
 000000009538.07C: Zhuge Liang
 000000009561.07C: %1$s vs %2$s
 000000009562.07C: |Rfd %1$s:dd MMM – hh:mm a;
-000000009567.07C: Cyfrowy gadżet z BlizzConu 2019 lub nagroda za udział w wyzwaniu 3. tygodnia Halloweenowej Grozy 2019
+000000009567.07C: Cyfrowy gadżet z BlizzConu 2018 lub nagroda za udział w wyzwaniu 3. tygodnia Halloweenowej Grozy 2019
 000000009575.07C: Klasyczne dostosowanie celowania
 000000009576.07C: Dostosowanie asysty celowania
 000000009593.07C: Zawartość niedostępna
@@ -18720,6 +18715,8 @@ w Zdobywanie flagi 2019
 00000000AD62.07C: Bohater 18. sezonu
 00000000AD63.07C: Uczestnik 19. sezonu
 00000000AD64.07C: Bohater 19. sezonu
+00000000AD65.07C: Uczestnik 20. sezonu
+00000000AD66.07C: Bohater 20. sezonu
 00000000AD67.07C: Uczestnik 15. sezonu
 00000000AD68.07C: Nagroda za mecze klasyfikacyjne
 w sezonie 15.
@@ -19272,6 +19269,8 @@ w sezonie 15.
 00000000AFF6.07C: Sezon 18
 00000000AFF7.07C: Sezon 19
 00000000AFF8.07C: Sezon 19
+00000000AFF9.07C: Sezon 20
+00000000AFFA.07C: Sezon 20
 00000000AFFD.07C: Uczestnik 16. sezonu
 00000000AFFE.07C: Nagroda za mecze klasyfikacyjne
 w sezonie 16.
@@ -19317,9 +19316,9 @@ w sezonie 19.
 00000000B11B.07C: Backward
 00000000B11C.07C: Position Of
 00000000B11D.07C: Altitude Of
-00000000B13C.07C: GRACZ
-00000000B13D.07C: GRACZ
-00000000B164.07C: GRACZ
+00000000B13C.07C: Gracz
+00000000B13D.07C: Gracz
+00000000B164.07C: Gracz
 00000000B165.07C: Drużyna
 00000000B166.07C: Remove From Array By Value
 00000000B167.07C: Append To Array
@@ -19720,6 +19719,7 @@ w trybie Eliminacji 6 na 6 w 2019
 00000000B557.07C: %1$s Healing Done
 00000000B559.07C: Leczenie – Miotacz Biotyczny
 00000000B55A.07C: %1$s Healing Done
+00000000B560.07C: Człowiek z gór
 00000000B562.07C: Leczenie – Pole Nieśmiertelności
 00000000B563.07C: %1$s Healing Done
 00000000B565.07C: Stunned
@@ -21765,7 +21765,7 @@ w trybie Deathmatch 2019
 00000000C387.07C: Błąd: Niedozwolona wartość
 00000000C393.07C: Start Camera
 00000000C394.07C: Umieszcza w lokalizacji twoją kamerę skierowaną w danym kierunku.
-00000000C395.07C: GRACZ
+00000000C395.07C: Gracz
 00000000C396.07C: Gracz lub gracze, których kamery zostaną umieszczone w lokalizacji.
 00000000C397.07C: Pozycja oka
 00000000C398.07C: Pozycja kamery. Stale szacowana od nowa.
@@ -21789,7 +21789,7 @@ w trybie Deathmatch 2019
 00000000C3D9.07C: Thrall
 00000000C3DA.07C: Tyrande
 00000000C3DB.07C: Król Lisz
-00000000C3DE.07C: Szturm/Eskorta
+00000000C3DE.07C: Hybryda
 00000000C3DF.07C: Inicjalizuj liczbę podwójnych skoków (A)
 00000000C3E0.07C: Włącz podwójny skok (B), jeśli jesteś na wysokości > 0,8 i nie trzymasz przycisku skoku oraz masz podwójne skoki (A)
 00000000C3E1.07C: Jeśli skoczysz, kiedy jesteś w powietrzu i włączone są podwójne skoki (B), wykonasz podwójny skok i zużyjesz ładunek (A)
@@ -21909,8 +21909,8 @@ w trybie Deathmatch 2019
 00000000C470.07C: Gracz nie może się poruszać, celować ani korzystać z broni i zdolności. Status ten wywołuje na przykład Zdruzgotanie Reinhardta.
 00000000C471.07C: Gracz płonie. Status ten wywołuje na przykład Dynamit Ashe.
 00000000C472.07C: Gracz nie może korzystać ze zdolności ani superzdolności. Nie wpływa na ataki bronią. Status ten wywołuje na przykład Sombra.
-00000000C473.07C: Drużyna po lewej w poczekalni. Na mapach Szturm, Szturm/Eskorta i Eskorta ta drużyna broni pierwsza.
-00000000C474.07C: Drużyna po prawej w poczekalni. Na mapach Szturm, Szturm/Eskorta i Eskorta ta drużyna atakuje pierwsza.
+00000000C473.07C: Drużyna po lewej w poczekalni. Na mapach Szturm, Hybryda i Eskorta ta drużyna broni pierwsza.
+00000000C474.07C: Drużyna po prawej w poczekalni. Na mapach Szturm, Hybryda i Eskorta ta drużyna atakuje pierwsza.
 00000000C475.07C: Jeśli cel porusza się w przeciwnym kierunku do impulsu, względna prędkość jest negowana przed zastosowaniem impulsu.
 00000000C476.07C: Impuls jest dodawany bezpośrednio do prędkości celu. Jeśli więc cel porusza się w przeciwnym kierunku do impulsu, może wydawać się, że impuls ma słabsze działanie.
 00000000C477.07C: Tekst może być częściowo lub całkowicie zasłonięty przez ściany, podłogi, sufity, graczy lub inne jednolite obiekty.
@@ -22310,6 +22310,7 @@ w Copa Futbolúcio 2019.
 00000000C897.07C: 
 00000000C898.07C: Nagroda: Kredyty
 00000000C899.07C: Nagroda: Skrzynka z łupami
+00000000C8BA.07C: Szczurzy Król
 00000000C8D1.07C: Anuluj
 00000000C8D2.07C: Gotowe
 00000000C8D7.07C: Strzelectwo
@@ -22383,7 +22384,6 @@ z letnich igrzysk
 00000000C961.07C: Obciążenie serwera
 00000000C962.07C: Procentowy wskaźnik obciążenia głównego procesora przez bieżącą instancję gry. Kiedy wartość zbliża się lub przekracza 100, rośnie prawdopodobieństwo, że program zostanie zamknięty z powodu zużycia zbyt dużych zasobów systemowych.
 00000000C970.07C: Połączone
-00000000C97E.07C: Odblokuj nowe skórki
 00000000C982.07C: Obciążenie serwera
 00000000C983.07C: Średnie obciążenie serwera
 00000000C984.07C: Szczytowe obciążenie serwera
@@ -22436,9 +22436,9 @@ z letnich igrzysk
 00000000CA0C.07C: Musisz wybrać rolę zanim twoja grupa dołączy do kolejki. Chcesz wybrać teraz?
 00000000CA0D.07C: Sklepy
 00000000CA0E.07C: Sklep
-00000000CA11.07C: Wyzwanie Łaski: Reaktywacja
-00000000CA13.07C: Tydzień 2: Baptiste Wampir
-00000000CA14.07C: Tydzień 3: Sombra Łowczyni Demonów
+00000000CA11.07C: Tydzień 1: Żołnierz-76 (Sweterek-76)
+00000000CA13.07C: Tydzień 2: Moira (Ostrokrzew)
+00000000CA14.07C: Tydzień 3: Łaska (Aniołek)
 00000000CA15.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
 00000000CA16.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
 00000000CA17.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
@@ -22753,7 +22753,7 @@ letnich igrzysk 2019
 00000000CD55.07C: Gracze mają osobne rangi umiejętności dla wszystkich roli (natarcie, wsparcie i tank). Punkty rywalizacji są przyznawane oddzielnie za rangę każdej z ról.
 00000000CD58.07C: Klasyczna szybka gra
 00000000CD59.07C: Szturm
-00000000CD5A.07C: Szturm/Eskorta
+00000000CD5A.07C: Hybryda
 00000000CD5B.07C: Kontrola
 00000000CD5C.07C: Eskorta
 00000000CD67.07C: WC – domyślna gospodarzy
@@ -22803,6 +22803,7 @@ letnich igrzysk 2019
 00000000CE5C.07C: Obserwatorzy nigdy nie widzą tekstu.
 00000000CE5F.07C: Nagroda za udział
 w wyzwaniu Klockowy Bastion.
+00000000CE61.07C: Szron
 00000000CE64.07C: Tekst
 00000000CE68.07C: Błąd: Napotkano znak końca linii w literale łańcuchowym po „%1$s” w linii %2$s
 00000000CE69.07C: Błąd: Napotkano literał łańcuchowy bez cudzysłowu zamykającego po „%1$s” w linii %2$s
@@ -26222,9 +26223,8 @@ w trybie Eliminacji 3 na 3 w 2019
 00000000D3B9.07C: Pierwszy mecz Overwatch World Cup zaczyna się w piątek ok. 21:00 czasu polskiego.
 00000000D3BA.07C: Przeglądaj gry
 00000000D3BB.07C: VS
-00000000D3D9.07C: Halloween powraca! Oprócz ulubionych elementów z zeszłego roku możesz zdobyć też zupełnie nowe!
-00000000D3DD.07C: Cotygodniowe wyzwania
 00000000D3E3.07C: Klasyczna szybka gra
+00000000D3EA.07C: Sweterek-76
 00000000D3EC.07C: LEGO
 00000000D3ED.07C: © 2019 The LEGO GROUP
 LEGO, the LEGO logo, and the MiniFigure figurine are trademarks of the LEGO GROUP. All Rights Reserved.
@@ -26239,6 +26239,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D40E.07C: Tabela z wszystkimi bohaterami wsparcia w Overwatch.
 00000000D40F.07C: Tabela z wszystkimi bohaterami tankami w Overwatch.
 00000000D411.07C: Mapa
+00000000D412.07C: Błąd: Oczekiwano nazwy mapy po „%1$s” w linii %2$s
 00000000D415.07C: Mapa
 00000000D416.07C: Stała mapy.
 00000000D417.07C: Stała mapy.
@@ -26248,6 +26249,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D41B.07C: IRL
 00000000D41C.07C: Irlandia
 00000000D41E.07C: IRL
+00000000D431.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 20.
+00000000D432.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 20.
 00000000D483.07C: Domyślna
 00000000D484.07C: Domyślna
 00000000D485.07C: DMŚ
@@ -26319,6 +26323,7 @@ https://account.blizzard.com/connections/nintendo
 00000000D593.07C: Turcja
 00000000D597.07C: WIE
 00000000D59B.07C: Wietnam
+00000000D5BD.07C: Lodowy anioł
 00000000DA38.07C: Własne
 00000000DA39.07C: Przenośne
 00000000DA3A.07C: Wstępne ustawienia żyroskopu
@@ -26395,5 +26400,178 @@ w Drużynowym Deathmatchu 2019
 00000000EBD9.07C: Późna noc
 00000000EBDB.07C: Wyniesienie
 00000000EBE7.07C: https://blizzcon.playoverwatch.com/story
+00000000EBF1.07C: Jötunn
 00000000EBF3.07C: Przygotuj się
-[Core] Execution finished in 00:00:04.1681784 seconds
+00000000EC0C.07C: Deathmatch
+00000000EC0D.07C: Deathmatch
+00000000EC0E.07C: PH Endless Deathmatch description
+00000000EC72.07C: Potyczka
+00000000EC77.07C: W poczekalni
+00000000EC78.07C: Czekając, kliknij, by wybrać tryb gry.
+00000000EC79.07C: Podpowiedź: W ustawieniach Opcje/Rozgrywka możesz ustawić preferencje automatycznego dołączania
+00000000EC7B.07C: Śnieżkowy Deathmatch
+00000000EC7D.07C: Obszar treningowy
+00000000EC7E.07C: Odrodź boty treningowe
+00000000EC7F.07C: Włączono
+00000000EC80.07C: Wyłączono
+00000000EC82.07C: Obszar treningowy
+00000000EC83.07C: Bitwa na śnieżki
+00000000EC84.07C: Zawartość zimowych skrzynek
+00000000EC85.07C: Ozdoba
+00000000EC86.07C: Zawartość zimowych skrzynek
+00000000EC87.07C: Lodowy posąg
+00000000EC88.07C: Zawartość zimowych skrzynek
+00000000EC89.07C: Ozdoba
+00000000EC8A.07C: Zawartość zimowych skrzynek
+00000000EC8C.07C: Śnieżkowy Deathmatch
+00000000EC8F.07C: Obszar treningowy
+00000000EC90.07C: Śnieżkowy Deathmatch
+00000000EC91.07C: Stań do walki w grze każdy na każdego jako Mei wyposażona w potężny Śnieżkowy Blaster. Broń posiada ograniczoną amuniację, lecz można ją przeładowywać przy górkach śniegu.
+00000000EC9C.07C: Zimowe zaklęcie
+00000000EC9E.07C: Nagroda za udział w wyzwaniu 3. tygodnia Zimowej Krainy Czarów 2019
+00000000EC9F.07C: Ostrokrzew
+00000000ECA0.07C: Nagroda za udział w wyzwaniu 2. tygodnia Zimowej Krainy Czarów 2019
+00000000ECA1.07C: Nagroda za udział w wyzwaniu 1. tygodnia Zimowej Krainy Czarów 2019
+00000000ECA2.07C: Brzydki sweter
+00000000ECA4.07C: Prezenty
+00000000ECA6.07C: Lodowy anioł
+00000000ECA8.07C: Sweterek-76
+00000000ECAA.07C: Coinín Nollag
+00000000ECAF.07C: Obszar treningowy
+00000000ECB0.07C: Wyszukiwarka gier
+00000000EF22.07C: Cześć, jestem Winston
+00000000EF23.07C: Zwrot prezentu
+00000000EF24.07C: Światełka
+00000000F044.07C: Przysłonięty
+00000000F045.07C: Zawsze
+00000000F048.07C: Wyświetlaj kontur sojuszników
+00000000F058.07C: Domyślnie
+00000000F059.07C: 900 żetonów ligowych
+00000000F05A.07C: 2600 żetonów ligowych
+00000000F086.07C: Czekając, kliknij, by wybrać rodzaj gry.
+00000000F08A.07C: Wyszukiwanie
+00000000F08B.07C: Niektóre gry nie są dostępne
+00000000F08C.07C: Toast
+00000000F08D.07C: Toast
+00000000F08E.07C: Na dobre i na złe
+00000000F08F.07C: Zawartość zimowych skrzynek
+00000000F090.07C: Dzisiaj to ja daję wam wybór
+00000000F091.07C: Zawartość zimowych skrzynek
+00000000F092.07C: Jak anioł stróż
+00000000F093.07C: Zawartość zimowych skrzynek
+00000000F094.07C: Wspaniałe
+00000000F095.07C: Zawartość zimowych skrzynek
+00000000F096.07C: Imprezowa dusza
+00000000F097.07C: Zawartość zimowych skrzynek
+00000000F098.07C: Radosnych świąt!
+00000000F099.07C: Zawartość zimowych skrzynek
+00000000F09E.07C: Wesołych świąt!
+00000000F09F.07C: Zawartość zimowych skrzynek
+00000000F0A0.07C: Słodziutko
+00000000F0A1.07C: Zawartość zimowych skrzynek
+00000000F0A4.07C: Bożonarodzeniowe dzwonki
+00000000F0A5.07C: Zawartość zimowych skrzynek
+00000000F0A6.07C: Szczęśliwego Nowego Roku!
+00000000F0A7.07C: Zawartość zimowych skrzynek
+00000000F0C9.07C: Chwyt
+00000000F0CA.07C: Łapiesz rzuconą śnieżkę, i dodajesz ją do swojej amunicji.
+00000000F0CB.07C: Kontynuuj
+00000000F0CC.07C: Skalowanie czasu odświeżania botów treningowych
+00000000F0CD.07C: |Rfn %1$s:P0;
+00000000F0FE.07C: Tylko dla mieszkańców Kalifornii
+00000000F0FF.07C: Nie udostępniaj moich danych osobowych
+00000000F102.07C: Nastąpi otwarcie przeglądarki w nowym oknie
+00000000F103.07C: Ok
+00000000F104.07C: ANULUJ
+00000000F12D.07C: Szron
+00000000F12E.07C: Zawartość zimowych skrzynek
+00000000F12F.07C: Szczurzy Król
+00000000F130.07C: Zawartość zimowych skrzynek
+00000000F131.07C: Człowiek z gór
+00000000F132.07C: Zawartość zimowych skrzynek
+00000000F133.07C: Jötunn
+00000000F134.07C: Zawartość zimowych skrzynek
+00000000F137.07C: Zimowa Kraina Czarów 2019
+00000000F147.07C: W poczekalni
+00000000F148.07C: Czekając na rozpoczęcie meczu, możesz wybrać jedną z wielu czynności:
+00000000F149.07C: Obszar treningowy: teraz dostępny dla grup!
+00000000F14A.07C: Potyczka: graj bez żadnych zasad!
+00000000F14B.07C: Deathmatch: teraz możesz zagrać przeciwko swojej drużynie!
+00000000F161.07C: Tryb gry
+00000000F162.07C: Stały punkt w trybach gry.
+00000000F163.07C: Bieżący tryb gry
+00000000F164.07C: Bieżący tryb gry dowolnej.
+00000000F166.07C: Stały punkt w trybach gry.
+00000000F167.07C: Błąd: Oczekiwano nazwy trybu gry po „%1$s” w linii %2$s
+00000000F168.07C: Tryb gry
+00000000F178.07C: Zarządzaj kontem
+00000000F196.07C: Potyczka
+00000000F197.07C: PH Skirmish description
+00000000F19C.07C: Wyszukiwarka gier: graj w przeróżne tryby przygotowane przez graczy!
+00000000F19D.07C: OPUŚĆ KOLEJKĘ
+00000000F19E.07C: OPUŚĆ MECZ
+00000000F19F.07C: OPUŚĆ MECZ I KOLEJKĘ
+00000000F1A2.07C: Wyszukiwanie
+00000000F1A3.07C: account/management
+00000000F1AB.07C: support/ccpa
+00000000F1B1.07C: Błąd: zbyt wiele niestandardowych ciągów.
+00000000F1BD.07C: client
+00000000F1C0.07C: OPUSZCZASZ MECZ I KOLEJKĘ. POTWIERDZASZ DECYZJĘ?
+00000000F1C5.07C: <fg%1$s>ZŁAPANO</fg>
+00000000F1C6.07C: 2020
+00000000F1C7.07C: Zawartość zimowych skrzynek
+00000000F212.07C: Wyłom
+00000000F213.07C: Zabij wroga uprzednio niszcząc część jego ściany lodu w trybie Śnieżkowy Deathmatch.
+00000000F214.07C: Raz, dwa, trzy
+00000000F215.07C: Zabij 3 wrogów w trybie Śnieżkowy Deathmatch, nie przeładowując broni i nie dając się zabić.
+00000000F216.07C: Mam cię!
+00000000F217.07C: Zabij wroga złapaną śnieżką w trybie Śnieżkowy Deathmatch.
+00000000F21F.07C: Jötunn
+00000000F221.07C: Człowiek z gór
+00000000F223.07C: Lodowe sfery
+00000000F225.07C: Szczurzy Król
+00000000F226.07C: Zawartość zimowych skrzynek
+00000000F227.07C: Dziadek do orzechów
+00000000F228.07C: Zawartość zimowych skrzynek
+00000000F229.07C: 
+00000000F22A.07C: 
+00000000F22B.07C: 
+00000000F23D.07C: Pokazuje jedynie gry, które pozwalają na dołączenie graczom z kolejki.
+00000000F23E.07C: Uwaga! Może to wpłynąć na wydajność twojego systemu!
+00000000F241.07C: +100 dodatkowych żetonów
+00000000F242.07C: +500 dodatkowych żetonów
+00000000F246.07C: Poidełko
+00000000F248.07C: Tryby gry w poczekalni są obecnie niedostępne.
+00000000F24A.07C: Czarny las (zima)
+00000000F24B.07C: Czarny Las
+00000000F24D.07C: ZWYCIĘSTWO: Pierwszy gracz, który zaliczy 15 likwidacji
+00000000F255.07C: Śnieżkowy Deathmatch
+00000000F25B.07C: Pozwól na dołączanie graczy z kolejki
+00000000F25D.07C: KONTYNUUJ
+00000000F25E.07C: Zimowa Kraina Czarów
+00000000F25F.07C: Powrót na śnieg
+00000000F260.07C: Zimowa Kraina Czarów powraca wraz z waszymi ulubionymi elementami kosmetycznymi z zeszłego roku i wieloma nowymi!
+00000000F261.07C: Śnieżkowy Deathmatch
+00000000F262.07C: Otwarcie nowego turnieju
+00000000F263.07C: STAŃ DO WALKI KAŻDY NA KAŻDEGO W BITWIE NA ŚNIEŻKI!
+00000000F264.07C: Zimowa Kraina Czarów 2019
+00000000F265.07C: Wydarzenie kończy się 2 stycznia
+00000000F266.07C: Odblokuj nowe skórki
+00000000F267.07C: Cotygodniowe wyzwania
+00000000F268.07C: Tydzień 1
+00000000F269.07C: Tydzień 2
+00000000F26A.07C: Tydzień 3
+00000000F26C.07C: Wygrywająca drużyna.
+00000000F376.07C: Wczytywanie gry
+00000000F3A3.07C: Kiedy znajdziemy mecz z danej kolejki, włączymy cię do gry.
+00000000F3AE.07C: Dołączanie do meczu
+00000000F3CD.07C: Piękno i harmonia
+00000000F3CE.07C: Zawartość zimowych skrzynek
+00000000F420.07C: Świąteczna niespodzianka
+00000000F422.07C: Śnieżek, śnieżek, śnieżek
+00000000F424.07C: Niedźwiedź polarny
+00000000F4B5.07C: ,
+00000000F4BE.07C: Wybierz
+00000000F523.07C: Odblokowanie poprzez zalogowanie się do gry podczas wydarzenia Zimowa Kraina Czarów 2019
+00000000F949.07C: Off
+[Core] Execution finished in 00:00:03.9743774 seconds

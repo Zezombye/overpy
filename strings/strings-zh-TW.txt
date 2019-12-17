@@ -1,15 +1,14 @@
-[Core] DataTool v1.42.0.853-git-db504fbbe1186ba8b688f601f6d8afbf366f3f0e
+[Core] DataTool v1.43.0.858-git-7df896aa214f93a4165c50ba690775381a7b8735
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.exe.args
 [CASC] Set language to zhTW
 [CASC] Set speech language to zhTW
-[CASC] Overwatch build 1.42.0.0.63869
+[CASC] Overwatch build 1.43.0.0.64719
 [CASC] Initializing...
-[CMF] Using CMF procedure 63869
-[CMF] Using CMF procedure 63869
+[CMF] Using CMF procedure 64719
+[CMF] Using CMF procedure 64719
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
-[Core] The branch "" is not supported!. This might result in failure to load. Proceed with caution.
 [Core] Checking ResourceKeys
 [Core] Tooling...
 000000000019.07C: 殺...殺...殺...
@@ -1039,10 +1038,7 @@
 000000000F7F.07C: 爭奪中
 000000000F80.07C: P
 000000000F81.07C: 爭奪中！
-000000000F82.07C: 2.8
 000000000F83.07C: 秒
-000000000F84.07C: 一般顯示條
-000000000F85.07C: 正在佔領...
 000000000F87.07C: /
 000000000F8B.07C: 升級！
 000000000F8C.07C: 經驗值
@@ -3530,7 +3526,7 @@
 000000002A74.07C: 在快速對戰或競技對戰中，讓托比昂在爐心超載狀態下連續擊殺4名敵人
 000000002A75.07C: 規則
 000000002A76.07C: 裝甲包來了！
-000000002A77.07C: 在快速對戰或競技對戰中，以托比昂的超負荷裝甲吸收500點傷害。
+000000002A77.07C: 在快速對戰或競技對戰中，以托比昂的超負荷裝甲吸收500點傷害
 000000002A78.07C: 啊，會痛嗎？
 000000002A79.07C: 在同一場快速對戰或競技對戰中，以奪命女的劇毒地雷擊殺4名敵人
 000000002A7A.07C: 輕而易舉
@@ -6937,9 +6933,7 @@ Humam Sakhnini
 0000000040BE.07C: 訓練中心
 0000000040BF.07C: 教學模式
 0000000040C5.07C: 在對戰之前
-0000000040CA.07C: 你確定要離開遊戲和團隊嗎？
 0000000040CB.07C: 全隊一起離開遊戲
-0000000040CC.07C: 你確定要全隊一起離開遊戲嗎？
 0000000040CF.07C: 喜歡這名玩家
 0000000040D0.07C: 不喜歡這名玩家
 0000000040D1.07C: 語音靜音
@@ -7119,7 +7113,6 @@ Andrew Wang
 000000004164.07C: 你隨時能從訓練模式的選單中進入教學模式
 000000004166.07C: 你隨時能從訓練模式的選單進入訓練中心
 000000004167.07C: 你隨時能從訓練模式和對戰的選單中進行練習戰
-000000004168.07C: 在搜尋的同時進行衝突戰
 00000000417B.07C: 推薦
 000000004194.07C: STUN SAVE
 000000004195.07C: 都不顯示
@@ -8304,7 +8297,6 @@ Andrew Wang
 000000004A64.07C: %1$s助攻數
 000000004A66.07C: <fg%1$s>救球成功！</fg>
 000000004A6A.07C: 最佳救球
-000000004A6B.07C: 繼續
 000000004A6C.07C: 海邊戲水
 000000004A6D.07C: 2016年
 000000004A73.07C: 進球數
@@ -8990,7 +8982,6 @@ THIS SOFTWARE.
 0000000051D3.07C: 勝利條件：擊敗對手5次
 0000000051D4.07C: 沒有英雄選擇限制
 0000000051D8.07C: 勝利條件：完成一般地圖目標
-0000000051D9.07C: %1$s後開始新賽季
 0000000051DA.07C: 勝利條件：擊敗敵方隊伍3次
 0000000051DC.07C: 擊殺數
 0000000051DD.07C: 完美
@@ -9030,7 +9021,7 @@ THIS SOFTWARE.
 000000005251.07C: 禁用英雄：壁壘機兵、碧姬、D.Va、路西歐、慈悲、萊因哈特、托比昂、溫斯頓和札莉雅
 000000005254.07C: 滑雪
 00000000525A.07C: 小美的雪球大作戰
-00000000525B.07C: 在南極洲生態觀測站連續進行幾場6對6的對決。玩家只能使用小美，手上的武器是雪球槍。雖然子彈只有一發，不過你可以在雪堆進行裝填。
+00000000525B.07C: 來進行一系列的6對6決鬥！玩家只能使用小美，手上的武器是雪球槍。雖然子彈只有一發，不過你可以在雪堆進行裝填。
 00000000525E.07C: <tx0C000000000044B0>解除熱鍵
 000000005260.07C: <tx0C000000000065FD>
 000000005262.07C: 帽子戲法
@@ -9078,9 +9069,7 @@ THIS SOFTWARE.
 00000000531D.07C: 鬥陣對決
 00000000531E.07C: 切割機兵
 000000005321.07C: 即將離開對戰：
-000000005323.07C: 休賽期
 000000005324.07C: 雪人
-000000005325.07C: 以競技對戰規則和其他玩家切磋
 000000005326.07C: 步槍機兵
 000000005327.07C: 有%1$s個人想一起組隊
 000000005328.07C: 舉杯
@@ -9304,6 +9293,7 @@ THIS SOFTWARE.
 0000000054E8.07C: 85700002111103284
 0000000054F3.07C: 比冬天的月亮更加失落
 000000005500.07C: 你拿到旗幟了！
+000000005501.07C: 繼續
 000000005504.07C: 真是令人印象深刻
 000000005506.07C: 月盈則虧，盛極必衰
 000000005508.07C: 應該慶祝一下
@@ -9320,6 +9310,11 @@ THIS SOFTWARE.
 000000005562.07C: 無底深淵
 000000005569.07C: 你回收了<fg%1$s>護盾產生器</fg>
 00000000556A.07C: 吃飽睡
+00000000556B.07C: 佳節愉快
+00000000556C.07C: 各位英雄，
+00000000556D.07C: 今年是很重要的一年，驚喜不斷。我們想花點時間，謝謝各位的參與。因為有你們對《鬥陣特攻》的無比熱情與支持，我們才能打造出這樣一款遊戲。
+00000000556E.07C: 暴雪團隊全體成員，在此祝你們心想事成。期待在新的一年與大家繼續一同奮戰！
+00000000556F.07C: 歡慶佳節！送你五箱冬境戰利品！
 000000005570.07C: 福
 000000005572.07C: 你在一定時間內能按的次數有限，請稍後再試
 000000005576.07C: 套用
@@ -9603,7 +9598,7 @@ THIS SOFTWARE.
 00000000582E.07C: 攻擊方
 00000000582F.07C: 無底深淵
 000000005836.07C: 佔領
-000000005837.07C: 佔領與護送
+000000005837.07C: 混合
 000000005838.07C: 護送
 000000005839.07C: 控制
 00000000583A.07C: 增壓強化裝置
@@ -9765,7 +9760,7 @@ THIS SOFTWARE.
 00000000594B.07C: 控制
 00000000594C.07C: 搶旗
 00000000594D.07C: 鬥陣對決
-00000000594E.07C: 佔領與護送
+00000000594E.07C: 混合
 00000000594F.07C: 經由週年戰利品解鎖
 000000005958.07C: 快速對戰
 000000005959.07C: 無效的遊戲設定敘述。
@@ -9952,7 +9947,6 @@ THIS SOFTWARE.
 000000005A95.07C: 伊菲
 000000005A97.07C: 選擇英雄的時間限制
 000000005A98.07C: 開始遊戲
-000000005A99.07C: 衝突戰
 000000005A9B.07C: 返回
 000000005A9C.07C: 技能
 000000005A9D.07C: 調整戰鬥選項
@@ -13091,7 +13085,7 @@ Vivian Zhang
 000000006309.07C: 低重力
 00000000630A.07C: 在低重力環境下擊敗敵方隊伍。
 00000000630B.07C: 佔領（低重力）
-00000000630C.07C: 佔領與護送（低重力）
+00000000630C.07C: 混合（低重力）
 00000000630D.07C: 護送（低重力）
 00000000630E.07C: 控制（低重力）
 00000000630F.07C: 低重力
@@ -14147,7 +14141,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E0E.07C: 雪怪大作戰
 000000006E12.07C: 在排行榜一路晉升，只有又強又猛又殺的人能成為贏家。
 000000006E14.07C: 在排行榜一路晉升，只有又強又猛又殺的那方能成為贏家。
-000000006E1F.07C: 尼泊爾村落
+000000006E1F.07C: 尼泊爾村落（冬境）
 000000006E20.07C: 活下來
 000000006E21.07C: 攻擊方
 000000006E22.07C: 無底深淵
@@ -14349,7 +14343,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007042.07C: %1$s Healing - Coalescence
 000000007043.07C: 真是有趣
 00000000704A.07C: 護盾法陣
-00000000704E.07C: 面對鼠肯斯坦博士無盡的屍械大軍，和他強大的盟友！
 000000007058.07C: 次要攻擊
 000000007059.07C: 啟用
 00000000705A.07C: 停用
@@ -14875,6 +14868,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000751E.07C: 陷阱困住雪怪次數%1$s
 00000000751F.07C: 自我治療量
 000000007520.07C: 自我治療量%1$s
+000000007532.07C: 黑森林
+000000007533.07C: 黑森林（冬境）
 000000007535.07C: 雪怪吃掉的肉
 000000007536.07C: 吃掉的肉%1$s
 000000007538.07C: 近戰擊殺數
@@ -14931,7 +14926,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000758C.07C: 禮物
 00000000758D.07C: 暴雪樂園
 00000000758E.07C: 歡迎來到暴雪樂園。準備好要踏入最史詩的遊樂園了嗎？
-00000000758F.07C: 佔領與護送
+00000000758F.07C: 混合
 000000007590.07C: 佔領目標，然後將目標護送至目的地！
 000000007593.07C: 選擇造型
 000000007594.07C: 生氣！
@@ -15650,7 +15645,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007D99.07C: 野性之怒跳躍傷害量
 000000007D9A.07C: %1$s Damage Done
 000000007DAD.07C: 等待時間：%1$s
-000000007DAE.07C: 衝突戰進行時間：%1$s
+000000007DAE.07C: 等待時間：%1$s
 000000007DAF.07C: 碧姬
 000000007DB0.07C: 生化手榴彈治療量
 000000007DB1.07C: %1$s Healing Done
@@ -17073,11 +17068,11 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008DB6.07C: 你已經用完了本次對戰可用的表揚次數。
 000000008DCE.07C: 砲塔
 000000008DEA.07C: 取消
-000000008DEC.07C: 需要使用簡訊安全通知。
+000000008DEC.07C: 需要使用綁定手機號碼。
 000000008DEE.07C: 綁定簡訊安全通知
 000000008DEF.07C: 惡魔
 000000008DF2.07C: https://nydus.battle.net/Pro/zhTW/client/support/blizzard-sms-protect?targetRegion=TW
-000000008DF3.07C: 此帳號需要簡訊安全通知。
+000000008DF3.07C: 此帳號需要綁定手機號碼。
 000000008E00.07C: 地平線（無限制）
 000000008E01.07C: 沒有英雄選擇限制，目標是擊敗敵方隊伍。
 000000008E11.07C: 收到表揚：<br>%1$s！
@@ -18197,7 +18192,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000A5BA.07C: 上菜
 00000000A5BC.07C: 在快速對戰或競技對戰中，以艾西擊殺被鮑伯擊飛至空中的敵人
 00000000A5EB.07C: 一觸即發
-00000000A5EC.07C: 在快速對戰或競技對戰中，從30公尺之外的距離射擊艾西的炸藥並擊殺一名敵人。
+00000000A5EC.07C: 在快速對戰或競技對戰中，從30公尺之外的距離射擊艾西的炸藥並擊殺一名敵人
 00000000A5EF.07C: 戲劇化
 00000000A5FB.07C: 舉杯
 00000000A602.07C: 社交名流
@@ -18547,6 +18542,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000AD62.07C: 第18賽季精英
 00000000AD63.07C: 第19賽季選手
 00000000AD64.07C: 第19賽季精英
+00000000AD65.07C: 第20賽季選手
+00000000AD66.07C: 第20賽季精英
 00000000AD67.07C: 第15賽季選手
 00000000AD68.07C: 完成第15賽季預選賽即可解鎖
 00000000AD69.07C: 第15賽季精英
@@ -19098,6 +19095,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000AFF6.07C: 第18賽季
 00000000AFF7.07C: 第19賽季
 00000000AFF8.07C: 第19賽季
+00000000AFF9.07C: 第20賽季
+00000000AFFA.07C: 第20賽季
 00000000AFFD.07C: 第16賽季選手
 00000000AFFE.07C: 完成第16賽季預選賽即可解鎖
 00000000AFFF.07C: 第17賽季選手
@@ -19139,9 +19138,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B11B.07C: Backward
 00000000B11C.07C: Position Of
 00000000B11D.07C: Altitude Of
-00000000B13C.07C: PLAYER
-00000000B13D.07C: PLAYER
-00000000B164.07C: PLAYER
+00000000B13C.07C: Player
+00000000B13D.07C: Player
+00000000B164.07C: Player
 00000000B165.07C: Team
 00000000B166.07C: Remove From Array By Value
 00000000B167.07C: Append To Array
@@ -19536,6 +19535,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B557.07C: %1$s Healing Done
 00000000B559.07C: 生化發射器治療量
 00000000B55A.07C: %1$s Healing Done
+00000000B560.07C: 山中住民
 00000000B562.07C: 維生力場治療量
 00000000B563.07C: %1$s Healing Done
 00000000B565.07C: Stunned
@@ -19622,9 +19622,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B5F1.07C: Visible To
 00000000B5F6.07C: 無法與大師階級玩家組隊加入佇列
 00000000B604.07C: 大好時機
-00000000B605.07C: 在快速對戰或競技對戰中一直未死亡的狀態下，以巴帝斯特強化2500點傷害或治療量。
+00000000B605.07C: 在快速對戰或競技對戰中一直未死亡的狀態下，以巴帝斯特強化2500點傷害或治療量
 00000000B606.07C: 與我同在
-00000000B607.07C: 在快速對戰或競技對戰中，以巴帝斯特的維生力場一次防止4名隊友死亡。
+00000000B607.07C: 在快速對戰或競技對戰中，以巴帝斯特的維生力場一次防止4名隊友死亡
 00000000B619.07C: Entity Exists
 00000000B61A.07C: Entity
 00000000B61B.07C: 頭像
@@ -21575,7 +21575,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C387.07C: Error: Illegal Value
 00000000C393.07C: Start Camera
 00000000C394.07C: Places your camera at a location, facing a direction.
-00000000C395.07C: PLAYER
+00000000C395.07C: Player
 00000000C396.07C: The Player or Players whose cameras will be placed at the location.
 00000000C397.07C: Eye Position
 00000000C398.07C: The position of the camera. Reevaluates continuously.
@@ -21599,7 +21599,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C3D9.07C: 索爾
 00000000C3DA.07C: 泰蘭妲
 00000000C3DB.07C: 巫妖王
-00000000C3DE.07C: 佔領與護送
+00000000C3DE.07C: 混合
 00000000C3DF.07C: 初始化二連跳（A）的次數
 00000000C3E0.07C: 如果你的高度大於0.8、沒有按住跳躍鍵、並且有可用的二連跳（A），就能使用二連跳（B）
 00000000C3E1.07C: 如果你跳在空中時，並且能使用二連跳（B），將會使出二連跳並消耗一次使用次數（A）
@@ -21719,8 +21719,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C470.07C: The Player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status.
 00000000C471.07C: The Player is burning. For example, Ashe's Dynamite causes this status.
 00000000C472.07C: The Player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status.
-00000000C473.07C: The Team on the left in the lobby. In Assault, Assault/Escort, and Escort maps, this team defends first.
-00000000C474.07C: The Team on the right in the lobby. In Assault, Assault/Escort, and Escort maps, this team attacks first.
+00000000C473.07C: The Team on the left in the lobby. In Assault, Hybrid, and Escort maps, this team defends first.
+00000000C474.07C: The Team on the right in the lobby. In Assault, Hybrid, and Escort maps, this team attacks first.
 00000000C475.07C: If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied.
 00000000C476.07C: The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect.
 00000000C477.07C: The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects.
@@ -22118,6 +22118,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C897.07C: 
 00000000C898.07C: 獎勵鬥陣幣
 00000000C899.07C: 獎勵一箱戰利品
+00000000C8BA.07C: 鼠王
 00000000C8D1.07C: 取消
 00000000C8D2.07C: 就緒
 00000000C8D7.07C: 射擊
@@ -22179,7 +22180,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C961.07C: Server Load
 00000000C962.07C: 此百分比數字會顯示當前遊戲的CPU負載狀態。當這個數字接近或超出100，遊戲極有可能會因消耗過多資源而關閉。
 00000000C970.07C: 全部
-00000000C97E.07C: 解鎖全新造型
 00000000C982.07C: 伺服器負載
 00000000C983.07C: 伺服器平均負載
 00000000C984.07C: 伺服器最高負載
@@ -22231,9 +22231,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA0C.07C: 你必須先選擇角色類型，團隊才能加入佇列。要現在選擇嗎？
 00000000CA0D.07C: 商店
 00000000CA0E.07C: 商店
-00000000CA11.07C: 慈悲的召回大挑戰
-00000000CA13.07C: 第2週：吸血鬼巴帝斯特
-00000000CA14.07C: 第3週：狩魔獵人駭影
+00000000CA11.07C: 第1週：難看毛衣76
+00000000CA13.07C: 第2週：冬青樹莫伊拉
+00000000CA14.07C: 第3週：雪天使慈悲
 00000000CA15.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
 00000000CA16.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
 00000000CA17.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
@@ -22542,7 +22542,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CD55.07C: 玩家對於不同英雄角色類型（攻擊、輔助或肉盾）會有各自的實力排名。你會根據角色類型的實力排名獲得對應的競技點數獎勵。
 00000000CD58.07C: 經典快速對戰
 00000000CD59.07C: 佔領
-00000000CD5A.07C: 佔領與護送
+00000000CD5A.07C: 混合
 00000000CD5B.07C: 控制
 00000000CD5C.07C: 護送
 00000000CD67.07C: 世界盃一般主場
@@ -22591,6 +22591,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CE5B.07C: Spectators can always see text.
 00000000CE5C.07C: Spectators can never see text.
 00000000CE5F.07C: 參與壁壘機兵的積木大挑戰即可解鎖
+00000000CE61.07C: 冰魔
 00000000CE64.07C: 文字
 00000000CE68.07C: 錯誤：第%2$s行的'%1$s'之後字串常數出現斷行
 00000000CE69.07C: 錯誤：第%2$s行的'%1$s'之後出現缺少結尾引號的字串常數
@@ -26004,9 +26005,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D3B9.07C: 《鬥陣特攻》世界盃第一場比賽約於台灣時間星期六凌晨3點開始。
 00000000D3BA.07C: 觀看對戰
 00000000D3BB.07C: VS
-00000000D3D9.07C: 往年深受大家歡迎的萬聖節內容重新開放，此外還有全新物品！
-00000000D3DD.07C: 每週挑戰
 00000000D3E3.07C: 經典快速對戰
+00000000D3EA.07C: 難看毛衣76
 00000000D3EC.07C: LEGO
 00000000D3ED.07C: © 2019 The LEGO GROUP
 LEGO, the LEGO logo, and the MiniFigure figurine are trademarks of the LEGO GROUP. All Rights Reserved.
@@ -26021,6 +26021,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D40E.07C: The array of all Support Heroes in Overwatch.
 00000000D40F.07C: The array of all Tank Heroes in Overwatch.
 00000000D411.07C: 地圖
+00000000D412.07C: 錯誤：第%2$s行的'%1$s'之後預期要有地圖名稱
 00000000D415.07C: Map
 00000000D416.07C: A Map constant.
 00000000D417.07C: A Map constant.
@@ -26030,6 +26031,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D41B.07C: IRL
 00000000D41C.07C: 愛爾蘭
 00000000D41E.07C: IRL
+00000000D431.07C: 完成第20賽季預選賽即可解鎖
+00000000D432.07C: 在第20賽季進入前500名即可解鎖
 00000000D483.07C: 一般
 00000000D484.07C: 一般
 00000000D485.07C: GEN
@@ -26101,6 +26104,7 @@ https://account.blizzard.com/connections/nintendo
 00000000D593.07C: 土耳其
 00000000D597.07C: VIE
 00000000D59B.07C: 越南
+00000000D5BD.07C: 雪天使
 00000000DA38.07C: 自訂
 00000000DA39.07C: 手持
 00000000DA3A.07C: 陀螺儀選項預載規則
@@ -26171,5 +26175,178 @@ https://account.blizzard.com/connections/nintendo
 00000000EBD9.07C: 熬夜
 00000000EBDB.07C: 升起
 00000000EBE7.07C: https://blizzcon.playoverwatch.com/story
+00000000EBF1.07C: 霜巨人
 00000000EBF3.07C: 就緒
-[Core] Execution finished in 00:00:02.9029480 seconds
+00000000EC0C.07C: 死鬥
+00000000EC0D.07C: 死鬥
+00000000EC0E.07C: 無盡死鬥說明
+00000000EC72.07C: 衝突戰
+00000000EC77.07C: 在等待時
+00000000EC78.07C: 可以在佇列的同時，選擇一個遊戲模式邊玩邊等候。
+00000000EC79.07C: 提示：你可以在選項的遊戲設定裡面調整自動加入相關設定
+00000000EC7B.07C: 雪球死鬥大作戰
+00000000EC7D.07C: 訓練中心
+00000000EC7E.07C: 產生訓練機器人
+00000000EC7F.07C: 啟用
+00000000EC80.07C: 停用
+00000000EC82.07C: 訓練中心
+00000000EC83.07C: 打雪仗
+00000000EC84.07C: 經由冬境戰利品解鎖
+00000000EC85.07C: 裝飾
+00000000EC86.07C: 經由冬境戰利品解鎖
+00000000EC87.07C: 冰雕
+00000000EC88.07C: 經由冬境戰利品解鎖
+00000000EC89.07C: 裝飾
+00000000EC8A.07C: 經由冬境戰利品解鎖
+00000000EC8C.07C: 雪球死鬥大作戰
+00000000EC8F.07C: 訓練中心
+00000000EC90.07C: 雪球死鬥大作戰
+00000000EC91.07C: 進行一場死鬥。玩家只能使用小美，手上的武器是雪球槍。雖然子彈只有幾發，不過你可以在雪堆進行裝填。
+00000000EC9C.07C: 冬幕咒語
+00000000EC9E.07C: 參與2019年冬境樂園第3週挑戰即可解鎖
+00000000EC9F.07C: 冬青樹
+00000000ECA0.07C: 參與2019年冬境樂園第2週挑戰即可解鎖
+00000000ECA1.07C: 參與2019年冬境樂園第1週挑戰即可解鎖
+00000000ECA2.07C: 難看毛衣
+00000000ECA4.07C: 禮物
+00000000ECA6.07C: 雪天使
+00000000ECA8.07C: 難看毛衣
+00000000ECAA.07C: 聖誕兔
+00000000ECAF.07C: 訓練中心
+00000000ECB0.07C: 自訂與搜尋遊戲
+00000000EF22.07C: 你好，我叫做
+00000000EF23.07C: 重製禮物
+00000000EF24.07C: 歡慶佳節
+00000000F044.07C: 遮蔽
+00000000F045.07C: 永遠顯示
+00000000F048.07C: 顯示友方輪廓
+00000000F058.07C: 預設
+00000000F059.07C: 900枚聯賽代幣
+00000000F05A.07C: 2600枚聯賽代幣
+00000000F086.07C: 點擊選擇等待時想玩的遊戲。
+00000000F08A.07C: 正在搜尋
+00000000F08B.07C: 有些遊戲無法進行
+00000000F08C.07C: 舉杯
+00000000F08D.07C: 舉杯
+00000000F08E.07C: 溫柔、愛心、關懷
+00000000F08F.07C: 經由冬境戰利品解鎖
+00000000F090.07C: 今天，我讓你來選擇
+00000000F091.07C: 經由冬境戰利品解鎖
+00000000F092.07C: 天使下凡
+00000000F093.07C: 經由冬境戰利品解鎖
+00000000F094.07C: 好極了
+00000000F095.07C: 經由冬境戰利品解鎖
+00000000F096.07C: 我不怎麼參加派對
+00000000F097.07C: 經由冬境戰利品解鎖
+00000000F098.07C: 聖誕節快樂！
+00000000F099.07C: 經由冬境戰利品解鎖
+00000000F09E.07C: 佳節愉快！
+00000000F09F.07C: 經由冬境戰利品解鎖
+00000000F0A0.07C: 棒呆了
+00000000F0A1.07C: 經由冬境戰利品解鎖
+00000000F0A4.07C: 叮叮噹～叮叮噹～
+00000000F0A5.07C: 經由冬境戰利品解鎖
+00000000F0A6.07C: 新年快樂！
+00000000F0A7.07C: 經由冬境戰利品解鎖
+00000000F0C9.07C: 接雪球
+00000000F0CA.07C: 接住雪球，加到你的子彈裡面。
+00000000F0CB.07C: 繼續
+00000000F0CC.07C: 訓練機器人重生時間
+00000000F0CD.07C: |Rfn %1$s:P0;
+00000000F0FE.07C: 僅限美國加州居民
+00000000F0FF.07C: 請勿將我的個人資料用在其他地方
+00000000F102.07C: 這樣會另外開啟一個瀏覽器視窗
+00000000F103.07C: 確認
+00000000F104.07C: 取消
+00000000F12D.07C: 冰魔
+00000000F12E.07C: 經由冬境戰利品解鎖
+00000000F12F.07C: 鼠王
+00000000F130.07C: 經由冬境戰利品解鎖
+00000000F131.07C: 山中住民
+00000000F132.07C: 經由冬境戰利品解鎖
+00000000F133.07C: 霜巨人
+00000000F134.07C: 經由冬境戰利品解鎖
+00000000F137.07C: 2019年冬境樂園
+00000000F147.07C: 在等待時
+00000000F148.07C: 在等候遊戲開始的時候，從以下選項進行選擇：
+00000000F149.07C: 訓練中心：現在開放全隊一起使用！
+00000000F14A.07C: 衝突戰：沒有規則、盡情遊玩！
+00000000F14B.07C: 死鬥：跟你的隊友進行死鬥！
+00000000F161.07C: Game Mode
+00000000F162.07C: A Game Mode constant.
+00000000F163.07C: Current Game Mode
+00000000F164.07C: The current game mode of the custom game.
+00000000F166.07C: A Game Mode constant.
+00000000F167.07C: 錯誤：第%2$s行的'%1$s'之後預期要有遊戲模式名稱
+00000000F168.07C: 遊戲模式
+00000000F178.07C: 管理帳號
+00000000F196.07C: 衝突戰
+00000000F197.07C: 衝突戰說明
+00000000F19C.07C: 自訂與搜尋遊戲：可進行玩家創建的遊戲模式！
+00000000F19D.07C: 離開佇列
+00000000F19E.07C: 離開遊戲
+00000000F19F.07C: 離開遊戲和佇列
+00000000F1A2.07C: 搜尋配對
+00000000F1A3.07C: account/management
+00000000F1AB.07C: support/ccpa
+00000000F1B1.07C: 錯誤：過多自訂字串
+00000000F1BD.07C: client
+00000000F1C0.07C: 正在離開遊戲和佇列，確定要離開嗎？
+00000000F1C5.07C: <fg%1$s>接住雪球</fg>
+00000000F1C6.07C: 2020
+00000000F1C7.07C: 經由冬境戰利品解鎖
+00000000F212.07C: 強行破壞
+00000000F213.07C: 在「雪球死鬥大作戰」中摧毀敵方部分冰牆的狀態下，擊殺1名敵人
+00000000F214.07C: 連下三城
+00000000F215.07C: 在「雪球死鬥大作戰」中一直未裝填子彈或死亡的狀態下，擊殺3名敵人
+00000000F216.07C: 中！
+00000000F217.07C: 在「雪球死鬥大作戰」中，接住雪球然後反過來用這顆雪球擊殺1名敵人
+00000000F21F.07C: 霜巨人
+00000000F221.07C: 山中住民
+00000000F223.07C: 冰球
+00000000F225.07C: 鼠王
+00000000F226.07C: 經由冬境戰利品解鎖
+00000000F227.07C: 胡桃鉗軍官
+00000000F228.07C: 經由冬境戰利品解鎖
+00000000F229.07C: 
+00000000F22A.07C: 
+00000000F22B.07C: 
+00000000F23D.07C: 只顯示佇列中的玩家可進行的遊戲。
+00000000F23E.07C: 警告！這樣可能會影響系統效能！
+00000000F241.07C: +100枚額外代幣
+00000000F242.07C: +500枚額外代幣
+00000000F246.07C: 喝水
+00000000F248.07C: 目前無法使用等待時的遊戲模式。
+00000000F24A.07C: 黑森林（冬境）
+00000000F24B.07C: 黑森林
+00000000F24D.07C: 勝利條件：先獲得15次擊殺的玩家獲勝
+00000000F255.07C: 雪球死鬥大作戰
+00000000F25B.07C: 佇列中的玩家可進行
+00000000F25D.07C: 繼續
+00000000F25E.07C: 冬境樂園
+00000000F25F.07C: 玩雪囉
+00000000F260.07C: 冬境樂園再次開幕！不光是前幾次的好東西，這次還追加了新物品！
+00000000F261.07C: 雪球死鬥大作戰
+00000000F262.07C: 全新錦標賽開打啦！
+00000000F263.07C: 加入這場雪球死鬥！
+00000000F264.07C: 2019年冬境樂園
+00000000F265.07C: 活動至1月3號
+00000000F266.07C: 解鎖全新造型
+00000000F267.07C: 每週挑戰
+00000000F268.07C: 第1週
+00000000F269.07C: 第2週
+00000000F26A.07C: 第3週
+00000000F26C.07C: 勝利隊伍。
+00000000F376.07C: 載入遊戲中
+00000000F3A3.07C: 對戰配對成功後，你會自動進入佇列中的遊戲。
+00000000F3AE.07C: 正在加入對戰
+00000000F3CD.07C: 追求美感
+00000000F3CE.07C: 經由冬境戰利品解鎖
+00000000F420.07C: 佳節驚喜
+00000000F422.07C: 雪雪雪
+00000000F424.07C: 北極熊
+00000000F4B5.07C: ，
+00000000F4BE.07C: 選取
+00000000F523.07C: 在2019年冬境樂園活動期間登入遊戲即可解鎖
+00000000F949.07C: Off
+[Core] Execution finished in 00:00:03.0700913 seconds

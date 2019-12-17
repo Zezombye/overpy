@@ -263,6 +263,9 @@ function tokenize(content) {
 				} else if (content.startsWith("#!obfuscate", i)) {
 					obfuscateRules = true;
 					isInLineComment = true;
+				} else if (content.startsWith("#!noEdit", i)) {
+					enableNoEdit = true;
+					isInLineComment = true;
 				} else if (content.startsWith("#!declareGlobal", i) || content.startsWith("#!declarePlayer", i)) {
 					var isGlobalVariable = content.startsWith("#!declareGlobal", i);
 					var lineIndex = content.indexOf("\n", i);

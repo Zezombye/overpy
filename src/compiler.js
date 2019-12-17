@@ -49,11 +49,18 @@ function compile(content, language="en-US", _rootPath="") {
 	//console.log(rules);
 
 	var result = "";
+	var compiledRules = [];
 	for (var i = 0; i < rules.length; i++) {
-		result += compileRule(rules[i]);
+		compiledRules.push(compileRule(rules[i]));
 	}
 
-	result = generateVariablesField()+result;
+	if (obfuscateRules || enableNoEdit) {
+		compiledRules = addEmptyRules(compiledRules);
+	} else {
+		compiledRules = compiledRules.join("");
+	}
+
+	result = generateVariablesField()+compiledRules;
 
 	if (typeof window !== "undefined") {
 		var t1 = performance.now();
@@ -2262,13 +2269,54 @@ function parseString(content, formatArgs, stringModifiers) {
 	var numberMapping = {};
 	var containsNonFullwidthChar = false;
 
+	function applyStringModifiers(content) {
+
+		//If big letters, try to map letters until we get one
+		//We only need one letter to convert to big letters
+		if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
+			for (var i = 0; i < content.length; i++) {
+				if (content[i] in bigLettersMappings) {
+					content = content.substring(0,i)+bigLettersMappings[content[i]]+content.substring(i+1);
+					isConvertedToBigLetters = true;
+					break;
+				}
+			}
+		} else if (stringModifiers.fullWidth) {
+			var tmpStr = "";
+			for (var char of content) {
+				if (char in fullwidthMappings) {
+					tmpStr += fullwidthMappings[char];
+				} else {
+					containsNonFullwidthChar = true;
+					tmpStr += char;
+				}
+			}
+	
+			content = tmpStr;
+			
+		}
+	
+		if (obfuscateRules) {
+			var tmpStr = "";
+			for (var char of content) {
+				if (char in obfuscationMappings) {
+					tmpStr += obfuscationMappings[char];
+				} else {
+					tmpStr += char;
+				}
+			}
+			content = tmpStr;
+		}
+		return content;
+	}
+
 	//Tokenize string
 	while (true) {
 		var index = content.search(/{\d*}/)
 		if (index >= 0) {
 			if (index > 0) {
 				tokens.push({
-					text: applyStringModifiers(content.substring(0, index), stringModifiers),
+					text: applyStringModifiers(content.substring(0, index), stringModifiers, isConvertedToBigLetters),
 					type: "string"
 				});
 				content = content.substring(index);
@@ -2304,7 +2352,7 @@ function parseString(content, formatArgs, stringModifiers) {
 		} else {
 
 			tokens.push({
-				text: applyStringModifiers(content, stringModifiers),
+				text: applyStringModifiers(content, stringModifiers, isConvertedToBigLetters),
 				type: "string"
 			});
 			break;
