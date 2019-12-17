@@ -30,9 +30,7 @@ The extension includes syntax highlighting, autocompletion, and documentation:
 
 ![owo](https://i.imgur.com/QQYuWNf.png)
 
-Note that the extension is still in BETA; there can be a few bugs, and some documentation is missing. However it is still usable.
-
-Also, big thanks to arxenix, who parsed the workshop documentation: https://github.com/arxenix/owws-documentation/blob/master/workshop.json
+Big thanks to arxenix who parsed the workshop documentation: https://github.com/arxenix/owws-documentation/blob/master/workshop.json
 
 # Compiling
 
