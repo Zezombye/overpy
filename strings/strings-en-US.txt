@@ -1,14 +1,13 @@
-[Core] DataTool v1.42.0.853-git-db504fbbe1186ba8b688f601f6d8afbf366f3f0e
+[Core] DataTool v1.43.0.858-git-7df896aa214f93a4165c50ba690775381a7b8735
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.exe.args
 [CASC] Set language to enUS
 [CASC] Set speech language to enUS
-[CASC] Overwatch build 1.42.0.0.63869
+[CASC] Overwatch build 1.43.0.0.64719
 [CASC] Initializing...
-[CMF] Using CMF procedure 63869
-[CMF] Using CMF procedure 63869
+[CMF] Using CMF procedure 64719
+[CMF] Using CMF procedure 64719
 [CASC] Ready
-[Core] The branch "" is not supported!. This might result in failure to load. Proceed with caution.
 [Core] Checking ResourceKeys
 [Core] Tooling...
 000000000019.07C: Die Die Die... Die
@@ -1038,10 +1037,7 @@
 000000000F7F.07C: CONTESTED
 000000000F80.07C: P
 000000000F81.07C: CONTESTED!
-000000000F82.07C: 2.8
 000000000F83.07C: S
-000000000F84.07C: GENERIC BAR
-000000000F85.07C: CAPTURING...
 000000000F87.07C: /
 000000000F8B.07C:  LEVEL UP!
 000000000F8C.07C:  XP 
@@ -6936,9 +6932,7 @@ Humam Sakhnini
 0000000040BE.07C: Practice Range
 0000000040BF.07C: Tutorial
 0000000040C5.07C: Before playing
-0000000040CA.07C: LEAVING GAME AND GROUP. ARE YOU SURE?
 0000000040CB.07C: LEAVE GAME AS GROUP
-0000000040CC.07C: LEAVE GAME AS GROUP. ARE YOU SURE?
 0000000040CF.07C: Prefer this Player
 0000000040D0.07C: Avoid this Player
 0000000040D1.07C: Mute Voice
@@ -7118,7 +7112,6 @@ Andrew Wang
 000000004164.07C: Play the Tutorial at any time from the Training menu
 000000004166.07C: You can access the practice range at any time in the training menu
 000000004167.07C: You can access the Practice Vs. AI mode at any time in both the training and play menus
-000000004168.07C: SKIRMISH WHILE SEARCHING
 00000000417B.07C: Recommended
 000000004194.07C: STUN SAVE
 000000004195.07C: NEITHER
@@ -8302,7 +8295,6 @@ Matches
 000000004A64.07C: %1$s |Rpl Assistl:Assists;
 000000004A66.07C: <fg%1$s>SAVE!</fg>
 000000004A6A.07C: Soccer Save
-000000004A6B.07C: CONTINUE
 000000004A6C.07C: Back to the beach
 000000004A6D.07C: 2016
 000000004A73.07C: |Rpl %1$s:Goal:Goals;
@@ -8370,10 +8362,10 @@ Matches
 000000004ADA.07C: %2$s (%1$s) to you: My teleporter is online. %3$s |Rpl charge:charges; remaining.
 000000004ADB.07C: %2$s (%1$s) to %4$s: My teleporter is online. %3$s |Rpl charge:charges; remaining.
 000000004ADE.07C: Take a Knee
-000000004AE0.07C: Off
+000000004AE0.07C: Default
 000000004AE1.07C: Spectators are full
 000000004AE2.07C: Teams are full
-000000004AE3.07C: On
+000000004AE3.07C: Always
 000000004AE4.07C: Allied Health Bars
 000000004AE5.07C: Yeti
 000000004AE7.07C: Wukong
@@ -8988,7 +8980,6 @@ THIS SOFTWARE.
 0000000051D3.07C: VICTORY: Defeat your opponent five times
 0000000051D4.07C: No Hero Selection Limit
 0000000051D8.07C: VICTORY: Complete standard map objectives
-0000000051D9.07C: %1$s until next season
 0000000051DA.07C: VICTORY: Defeat the enemy team three times
 0000000051DC.07C: Eliminations
 0000000051DD.07C: Perfect
@@ -9028,7 +9019,7 @@ THIS SOFTWARE.
 000000005251.07C: UNAVAILABLE HEROES: Bastion, Brigitte, D.VA, Lúcio, Mercy, Reinhardt, Torbjörn, Winston, and  Zarya.
 000000005254.07C: Skiing
 00000000525A.07C: Mei's Snowball Offensive
-00000000525B.07C: Face off in a series of six-on-six fights at Ecopoint: Antarctica. Every player uses Mei who is equipped with a powerful Snowball Blaster. This weapon only has one shot, but can be reloaded at snow piles.
+00000000525B.07C: Face off in a series of six-on-six fights as Mei, who is equipped with a powerful Snowball Blaster. This weapon only has one shot, but can be reloaded at snow piles.
 00000000525E.07C: <tx0C000000000044B0> to unbind
 000000005260.07C: <tx0C000000000065FD>
 000000005262.07C: Hat Trick
@@ -9076,9 +9067,7 @@ THIS SOFTWARE.
 00000000531D.07C: ELIMINATION
 00000000531E.07C: Slicer
 000000005321.07C: Leaving game in:
-000000005323.07C: Off-season
 000000005324.07C: Snowman
-000000005325.07C: Play against other players with the competitive ruleset.
 000000005326.07C: Nulltrooper
 000000005327.07C: %1$s Grouping Up
 000000005328.07C: Toast
@@ -9243,8 +9232,8 @@ THIS SOFTWARE.
 00000000546B.07C: %1$s Damage Blocked - Most in Game
 00000000546F.07C: Boop
 000000005473.07C: Rooster
-000000005479.07C: HANAMURA (WINTER)
-00000000547A.07C: KING'S ROW (WINTER)
+000000005479.07C: Hanamura (Winter)
+00000000547A.07C: King's Row (Winter)
 00000000547B.07C: %1$s/%2$s
 00000000547C.07C: Stay As Team?
 00000000547D.07C: Pending
@@ -9302,6 +9291,7 @@ THIS SOFTWARE.
 0000000054E8.07C: 85700002111103284
 0000000054F3.07C: The moon in winter
 000000005500.07C: You have the flag!
+000000005501.07C: CONTINUE
 000000005504.07C: A most impressive display
 000000005506.07C: When the moon is full
 000000005508.07C: Calls for a celebration
@@ -9318,6 +9308,11 @@ THIS SOFTWARE.
 000000005562.07C: THE UNFEELING VOID
 000000005569.07C: YOUR <fg%1$s>SHIELD GENERATOR</fg> HAS BEEN REFUNDED
 00000000556A.07C: Feast
+00000000556B.07C: Happy Holidays
+00000000556C.07C: Heroes,
+00000000556D.07C: It has truly been an eventful and amazing year, and we wanted to take a moment to thank you for being a part of it. We could not have done this without the tremendous support, passion, and enthusiasm that you've shown for Overwatch.
+00000000556E.07C: From the entire Blizzard team, we wish you and yours the very best and look forward to spending an exciting new year with you!
+00000000556F.07C: Celebrate the season with FIVE Winter Loot Boxes!
 000000005570.07C: Fortune
 000000005572.07C: The number of button presses you can perform is limited, please wait before trying again
 000000005576.07C: Equip
@@ -9601,7 +9596,7 @@ THIS SOFTWARE.
 00000000582E.07C: ATTACK
 00000000582F.07C: THE UNFEELING VOID
 000000005836.07C: Assault
-000000005837.07C: Assault/Escort
+000000005837.07C: Hybrid
 000000005838.07C: Escort
 000000005839.07C: Control
 00000000583A.07C: Supercharger
@@ -9763,7 +9758,7 @@ THIS SOFTWARE.
 00000000594B.07C: Control
 00000000594C.07C: Capture the Flag
 00000000594D.07C: Elimination
-00000000594E.07C: Assault/Escort
+00000000594E.07C: Hybrid
 00000000594F.07C: Available in Anniversary Loot Boxes
 000000005958.07C: Quick Play
 000000005959.07C: Invalid description for game settings.
@@ -9950,7 +9945,6 @@ THIS SOFTWARE.
 000000005A95.07C: Efi
 000000005A97.07C: Hero Selection Time
 000000005A98.07C: Start Game Mode
-000000005A99.07C: Skirmish
 000000005A9B.07C: BACK
 000000005A9C.07C: Abilities
 000000005A9D.07C: Combat Modifiers
@@ -13089,7 +13083,7 @@ Vivian Zhang
 000000006309.07C: Low Gravity
 00000000630A.07C: Defeat the enemy team in a low-gravity environment.
 00000000630B.07C: Assault - Low Gravity
-00000000630C.07C: Assault/Escort - Low Gravity
+00000000630C.07C: Hybrid - Low Gravity
 00000000630D.07C: Escort - Low Gravity
 00000000630E.07C: Control - Low Gravity
 00000000630F.07C: Low Gravity
@@ -13735,7 +13729,7 @@ Brian Urbina
 000000006771.07C: The Greatest
 000000006772.07C: Available in Summer Games Loot Boxes
 00000000678C.07C: Rime
-00000000678E.07C: Available in Winter Loot Boxes
+00000000678E.07C: 
 00000000678F.07C: Talon
 000000006791.07C: Summer Games 
 000000006795.07C: Magni
@@ -14145,7 +14139,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E0E.07C: YETI HUNTER
 000000006E12.07C: Climb to the top of the scoreboard. The deadliest hero wins.
 000000006E14.07C: Climb to the top of the scoreboard. The deadliest team wins.
-000000006E1F.07C: Nepal Village
+000000006E1F.07C: Nepal Village (Winter)
 000000006E20.07C: Defend the Church
 000000006E21.07C: ATTACK
 000000006E22.07C: THE UNFEELING VOID
@@ -14179,7 +14173,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E63.07C: DEFEND
 000000006E64.07C: ATTACK
 000000006E6A.07C: Assassin
-000000006E6B.07C: EICHENWALDE (HALLOWEEN)
+000000006E6B.07C: Eichenwalde (Halloween)
 000000006E6F.07C: Revive %2$s
 000000006E70.07C: Movement Relative to Camera During Barrier Free Look
 000000006E72.07C: NANO
@@ -14347,7 +14341,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007042.07C: %1$s Healing - Coalescence
 000000007043.07C: How amusing
 00000000704A.07C: Shield Generator
-00000000704E.07C: Face endless waves of Dr. Junkenstein's zomnics along with some of his powerful allies!
 000000007058.07C: Secondary Fire
 000000007059.07C: Enabled
 00000000705A.07C: Disabled
@@ -14398,7 +14391,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000070D5.07C: |Rfn %1$s:P0;
 0000000070D6.07C: |Rfn %1$s:P0;
 0000000070F2.07C: Classic
-0000000070F4.07C: BLACK FOREST (WINTER)
+0000000070F4.07C: Black Forest (Winter)
 0000000070F5.07C: Royal
 0000000070FC.07C: At your service
 000000007100.07C: Weapon Freeze Duration Scalar
@@ -14873,6 +14866,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000751E.07C: %1$s Successful Yeti |Rpl Trap:Traps;
 00000000751F.07C: Self Healing
 000000007520.07C: %1$s Self Healing
+000000007532.07C: Black Forest
+000000007533.07C: Black Forest (Winter)
 000000007535.07C: Meat Eaten by Yeti
 000000007536.07C: %1$s Meat Eaten
 000000007538.07C: Melee |Rpl %1$s:Kill:Kills;
@@ -14930,7 +14925,7 @@ Please help us create the best possible Overwatch community by staying positive 
 00000000758C.07C: GIFTS
 00000000758D.07C: Blizzard World
 00000000758E.07C: Welcome to Blizzard World. Are you prepared for the most epic theme park experience... ever?
-00000000758F.07C: Assault/Escort
+00000000758F.07C: Hybrid
 000000007590.07C: Capture the payload and escort it to the destination!
 000000007593.07C: SELECT SKIN
 000000007594.07C: Enraged!
@@ -15650,7 +15645,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 000000007D99.07C: Damage - Primal Rage Leap
 000000007D9A.07C: %1$s Damage Done
 000000007DAD.07C: Time Elapsed: %1$s
-000000007DAE.07C: Skirmishing: %1$s
+000000007DAE.07C: Time Elapsed: %1$s
 000000007DAF.07C: Brigitte
 000000007DB0.07C: Healing - Biotic Grenade
 000000007DB1.07C: %1$s Healing Done
@@ -17073,11 +17068,11 @@ Do you want to cancel?
 000000008DB6.07C: You have used all of your endorsements for this match.
 000000008DCE.07C: Turret
 000000008DEA.07C: CANCEL
-000000008DEC.07C: SMS PROTECTION REQUIRED.
+000000008DEC.07C: PHONE NUMBER REQUIRED.
 000000008DEE.07C: ATTACH SMS
 000000008DEF.07C: Demon
 000000008DF2.07C: https://nydus.battle.net/Pro/enUS/client/support/blizzard-sms-protect?targetRegion=US
-000000008DF3.07C: Account requires SMS protection.
+000000008DF3.07C: Account requires a phone number.
 000000008E00.07C: Horizon No Limits
 000000008E01.07C: Defeat the enemy team without any limits on hero selection.
 000000008E11.07C: Endorsement received: <br>%1$s!
@@ -18548,6 +18543,8 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000AD62.07C: Season 18 Hero
 00000000AD63.07C: Season 19 Competitor
 00000000AD64.07C: Season 19 Hero
+00000000AD65.07C: Season 20 Competitor
+00000000AD66.07C: Season 20 Hero
 00000000AD67.07C: Season 15 Competitor
 00000000AD68.07C: Unlocked by completing Season 15 placement matches
 00000000AD69.07C: Season 15 Hero
@@ -19099,6 +19096,8 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000AFF6.07C: Season 18
 00000000AFF7.07C: Season 19
 00000000AFF8.07C: Season 19
+00000000AFF9.07C: Season 20
+00000000AFFA.07C: Season 20
 00000000AFFD.07C: Season 16 Competitor
 00000000AFFE.07C: Unlocked by completing Season 16 placement matches
 00000000AFFF.07C: Season 17 Competitor
@@ -19140,9 +19139,9 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000B11B.07C: Backward
 00000000B11C.07C: Position Of
 00000000B11D.07C: Altitude Of
-00000000B13C.07C: PLAYER
-00000000B13D.07C: PLAYER
-00000000B164.07C: PLAYER
+00000000B13C.07C: Player
+00000000B13D.07C: Player
+00000000B164.07C: Player
 00000000B165.07C: Team
 00000000B166.07C: Remove From Array By Value
 00000000B167.07C: Append To Array
@@ -19537,6 +19536,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000B557.07C: %1$s Healing Done
 00000000B559.07C: Healing - Biotic Launcher
 00000000B55A.07C: %1$s Healing Done
+00000000B560.07C: Mountain Man
 00000000B562.07C: Healing - Immortality Field
 00000000B563.07C: %1$s Healing Done
 00000000B565.07C: Stunned
@@ -21576,7 +21576,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C387.07C: Error: Illegal Value
 00000000C393.07C: Start Camera
 00000000C394.07C: Places your camera at a location, facing a direction.
-00000000C395.07C: PLAYER
+00000000C395.07C: Player
 00000000C396.07C: The Player or Players whose cameras will be placed at the location.
 00000000C397.07C: Eye Position
 00000000C398.07C: The position of the camera. Reevaluates continuously.
@@ -21600,7 +21600,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C3D9.07C: Thrall
 00000000C3DA.07C: Tyrande
 00000000C3DB.07C: Lich King
-00000000C3DE.07C: Assault/Escort
+00000000C3DE.07C: Hybrid
 00000000C3DF.07C: Initialize number of double jumps in (A)
 00000000C3E0.07C: Allow double jump (B) if you are > 0.8 altitude, not holding jump button, and have double jumps (A)
 00000000C3E1.07C: If you jump while in the air and double jump is allowed (B), double jump and consume a charge (A)
@@ -21720,8 +21720,8 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C470.07C: The Player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status.
 00000000C471.07C: The Player is burning. For example, Ashe's Dynamite causes this status.
 00000000C472.07C: The Player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status.
-00000000C473.07C: The Team on the left in the lobby. In Assault, Assault/Escort, and Escort maps, this team defends first.
-00000000C474.07C: The Team on the right in the lobby. In Assault, Assault/Escort, and Escort maps, this team attacks first.
+00000000C473.07C: The Team on the left in the lobby. In Assault, Hybrid, and Escort maps, this team defends first.
+00000000C474.07C: The Team on the right in the lobby. In Assault, Hybrid, and Escort maps, this team attacks first.
 00000000C475.07C: If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied.
 00000000C476.07C: The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect.
 00000000C477.07C: The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects.
@@ -22119,6 +22119,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C897.07C: 
 00000000C898.07C: Earns Credits
 00000000C899.07C: Earns a Loot Box
+00000000C8BA.07C: Rat King
 00000000C8D1.07C: Cancel
 00000000C8D2.07C: Ready
 00000000C8D7.07C: Shooting
@@ -22180,7 +22181,6 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C961.07C: Server Load
 00000000C962.07C: Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.
 00000000C970.07C: Combined
-00000000C97E.07C: Unlock New Skins
 00000000C982.07C: Server Load
 00000000C983.07C: Server Load Average
 00000000C984.07C: Server Load Peak
@@ -22232,14 +22232,12 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CA0C.07C: You must select a role before your group can queue. Select now?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Mercy's Recall Challenge
-00000000CA13.07C: Week 2: Vampire Baptiste
-00000000CA14.07C: Week 3: Demon Hunter Sombra
+00000000CA11.07C: Week 1: Ugly Sweater: 76
+00000000CA13.07C: Week 2: Holly Moira
+00000000CA14.07C: Week 3: Snow Angel Mercy
 00000000CA15.07C: Win 9 games in quick play, arcade, or competitive play!
-00000000CA16.07C: Win 9 games in quick play, arcade, or
-competitive play!
-00000000CA17.07C: Win 9 games in quick play, arcade, or
-competitive play!
+00000000CA16.07C: Win 9 games in quick play, arcade, or competitive play!
+00000000CA17.07C: Win 9 games in quick play, arcade, or competitive play!
 00000000CA18.07C: Unlocked by participating in the Summer Games 2019 week 1 challenge
 00000000CA19.07C: Unlocked by participating in the Summer Games 2019 week 2 challenge
 00000000CA1A.07C: Unlocked by participating in the Summer Games 2019 week 3 challenge
@@ -22545,7 +22543,7 @@ competitive play!
 00000000CD55.07C: Players have different skill ratings for each hero role (Damage, Support, and Tank). Competitive Points are rewarded separately for each role’s skill rating.
 00000000CD58.07C: Quick Play Classic
 00000000CD59.07C: Assault
-00000000CD5A.07C: Assault/Escort
+00000000CD5A.07C: Hybrid
 00000000CD5B.07C: Control
 00000000CD5C.07C: Escort
 00000000CD67.07C: WC Generic Home
@@ -22594,6 +22592,7 @@ competitive play!
 00000000CE5B.07C: Spectators can always see text.
 00000000CE5C.07C: Spectators can never see text.
 00000000CE5F.07C: Unlocked by participating in the Bastion’s Brick Challenge
+00000000CE61.07C: Rime
 00000000CE64.07C: Text
 00000000CE68.07C: Error: Encountered the end of a line in a string literal after '%1$s' on line %2$s
 00000000CE69.07C: Error: Encountered a string literal that lacks closing quotes after '%1$s' on line %2$s
@@ -26006,9 +26005,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D3B9.07C: The first Overwatch World Cup match begins Friday at approximately 12:00 PM PDT.
 00000000D3BA.07C: View Games
 00000000D3BB.07C: VS
-00000000D3D9.07C: Halloween favorites from previous years are back alongside some new items!
-00000000D3DD.07C: Weekly Challenges
 00000000D3E3.07C: Quick Play Classic
+00000000D3EA.07C: Ugly Sweater: 76
 00000000D3EC.07C: LEGO
 00000000D3ED.07C: © 2019 The LEGO GROUP
 LEGO, the LEGO logo, and the MiniFigure figurine are trademarks of the LEGO GROUP. All Rights Reserved.
@@ -26023,6 +26021,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D40E.07C: The array of all Support Heroes in Overwatch.
 00000000D40F.07C: The array of all Tank Heroes in Overwatch.
 00000000D411.07C: Map
+00000000D412.07C: Error: Expected a map name after '%1$s' on line %2$s
 00000000D415.07C: Map
 00000000D416.07C: A Map constant.
 00000000D417.07C: A Map constant.
@@ -26032,6 +26031,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D41B.07C: IRL
 00000000D41C.07C: Ireland
 00000000D41E.07C: IRL
+00000000D431.07C: Unlocked by completing Season 20 placement matches
+00000000D432.07C: Unlocked by achieving top 500 ranking at the end of Season 20
 00000000D483.07C: Generic
 00000000D484.07C: Generic
 00000000D485.07C: GEN
@@ -26103,6 +26104,7 @@ https://account.blizzard.com/connections/nintendo
 00000000D593.07C: Turkey
 00000000D597.07C: VIE
 00000000D59B.07C: Vietnam
+00000000D5BD.07C: Snow Angel
 00000000DA38.07C: Custom
 00000000DA39.07C: Handheld
 00000000DA3A.07C: Gyro Option Presets
@@ -26173,5 +26175,178 @@ https://account.blizzard.com/connections/nintendo
 00000000EBD9.07C: Late night
 00000000EBDB.07C: Ascent
 00000000EBE7.07C: https://blizzcon.playoverwatch.com/story
+00000000EBF1.07C: Jötunn
 00000000EBF3.07C: Get Ready
-[Core] Execution finished in 00:00:01.3004474 seconds
+00000000EC0C.07C: Deathmatch
+00000000EC0D.07C: Deathmatch
+00000000EC0E.07C: PH Endless Deathmatch description
+00000000EC72.07C: Skirmish
+00000000EC77.07C: While You Wait
+00000000EC78.07C: Select a game mode to play while you wait in queue.
+00000000EC79.07C: Tip: You can set an Auto-Join preference in Options/Gameplay settings
+00000000EC7B.07C: Snowball Deathmatch
+00000000EC7D.07C: Practice Range
+00000000EC7E.07C: Spawn Training Bots
+00000000EC7F.07C: Enabled
+00000000EC80.07C: Disabled
+00000000EC82.07C: Practice Range
+00000000EC83.07C: Snowball Fight
+00000000EC84.07C: Available in Winter Loot Boxes
+00000000EC85.07C: Ornament
+00000000EC86.07C: Available in Winter Loot Boxes
+00000000EC87.07C: Ice Statue
+00000000EC88.07C: Available in Winter Loot Boxes
+00000000EC89.07C: Ornament
+00000000EC8A.07C: Available in Winter Loot Boxes
+00000000EC8C.07C: Snowball Deathmatch
+00000000EC8F.07C: Practice Range
+00000000EC90.07C: Snowball Deathmatch
+00000000EC91.07C: Face off in a free-for-all snowball fight as Mei, who is equipped with a powerful Snowball Blaster. This weapon has limited ammo, but can be reloaded at snow piles.
+00000000EC9C.07C: Winter spell
+00000000EC9E.07C: Unlocked by participating in the Winter Wonderland 2019 week 3 challenge
+00000000EC9F.07C: Holly
+00000000ECA0.07C: Unlocked by participating in the Winter Wonderland 2019 week 2 challenge
+00000000ECA1.07C: Unlocked by participating in the Winter Wonderland 2019 week 1 challenge
+00000000ECA2.07C: Ugly Sweater
+00000000ECA4.07C: Presents
+00000000ECA6.07C: Snow Angel
+00000000ECA8.07C: Ugly Sweater
+00000000ECAA.07C: Coinín Nollag
+00000000ECAF.07C: Practice Range
+00000000ECB0.07C: Game Browser
+00000000EF22.07C: Hello, My Name Is
+00000000EF23.07C: Regifted
+00000000EF24.07C: Festive
+00000000F044.07C: Occluded
+00000000F045.07C: Always
+00000000F048.07C: Show Friendly Outlines
+00000000F058.07C: Default
+00000000F059.07C: 900 League Tokens
+00000000F05A.07C: 2600 League Tokens
+00000000F086.07C: Click to choose a game to play while you wait.
+00000000F08A.07C: Searching
+00000000F08B.07C: Some games not available
+00000000F08C.07C: Toast
+00000000F08D.07C: Toast
+00000000F08E.07C: A little T.L.C.
+00000000F08F.07C: Available in Winter Loot Boxes
+00000000F090.07C: Today, I give you a choice
+00000000F091.07C: Available in Winter Loot Boxes
+00000000F092.07C: Some kind of angel
+00000000F093.07C: Available in Winter Loot Boxes
+00000000F094.07C: Glorious
+00000000F095.07C: Available in Winter Loot Boxes
+00000000F096.07C: Party guy
+00000000F097.07C: Available in Winter Loot Boxes
+00000000F098.07C: Happy Christmas!
+00000000F099.07C: Available in Winter Loot Boxes
+00000000F09E.07C: Season's greetings!
+00000000F09F.07C: Available in Winter Loot Boxes
+00000000F0A0.07C: Sweet as
+00000000F0A1.07C: Available in Winter Loot Boxes
+00000000F0A4.07C: Jingle bells
+00000000F0A5.07C: Available in Winter Loot Boxes
+00000000F0A6.07C: Happy New Year!
+00000000F0A7.07C: Available in Winter Loot Boxes
+00000000F0C9.07C: Catch
+00000000F0CA.07C: Catch a thrown snowball, adding it to your ammunition.
+00000000F0CB.07C: Continue
+00000000F0CC.07C: Training Bot Respawn Time Scalar
+00000000F0CD.07C: |Rfn %1$s:P0;
+00000000F0FE.07C: For CA residents only
+00000000F0FF.07C: Do not sell my personal information
+00000000F102.07C: This will open a browser in another window
+00000000F103.07C: Ok
+00000000F104.07C: CANCEL
+00000000F12D.07C: Rime
+00000000F12E.07C: Available in Winter Loot Boxes
+00000000F12F.07C: Rat King
+00000000F130.07C: Available in Winter Loot Boxes
+00000000F131.07C: Mountain Man
+00000000F132.07C: Available in Winter Loot Boxes
+00000000F133.07C: Jötunn
+00000000F134.07C: Available in Winter Loot Boxes
+00000000F137.07C: Winter Wonderland 2019
+00000000F147.07C: While You Wait
+00000000F148.07C: Choose between a variety of activities while waiting for your match to start:
+00000000F149.07C: Practice Range: Now available for groups!
+00000000F14A.07C: Skirmish: Play with no rules!
+00000000F14B.07C: Deathmatch: Now play against your party members!
+00000000F161.07C: Game Mode
+00000000F162.07C: A Game Mode constant.
+00000000F163.07C: Current Game Mode
+00000000F164.07C: The current game mode of the custom game.
+00000000F166.07C: A Game Mode constant.
+00000000F167.07C: Error: Expected a game mode name after '%1$s' on line %2$s
+00000000F168.07C: Game Mode
+00000000F178.07C: Manage Account
+00000000F196.07C: Skirmish
+00000000F197.07C: PH Skirmish description
+00000000F19C.07C: Game Browser: Play a variety of modes created by players!
+00000000F19D.07C: LEAVE QUEUE
+00000000F19E.07C: LEAVE GAME
+00000000F19F.07C: LEAVE GAME AND QUEUE
+00000000F1A2.07C: Finding Game
+00000000F1A3.07C: account/management
+00000000F1AB.07C: support/ccpa
+00000000F1B1.07C: Error: Too many custom strings.
+00000000F1BD.07C: client
+00000000F1C0.07C: LEAVING GAME AND QUEUE. ARE YOU SURE?
+00000000F1C5.07C: <fg%1$s>CAUGHT</fg>
+00000000F1C6.07C: 2020
+00000000F1C7.07C: Available in Winter Loot Boxes
+00000000F212.07C: Breached
+00000000F213.07C: Kill an enemy after destroying part of their Ice Wall in Snowball Deathmatch.
+00000000F214.07C: Threepeat
+00000000F215.07C: Kill 3 enemies without reloading or dying in Snowball Deathmatch.
+00000000F216.07C: Caught You!
+00000000F217.07C: Kill an enemy with a caught snowball in Snowball Deathmatch.
+00000000F21F.07C: Jötunn
+00000000F221.07C: Mountain Man
+00000000F223.07C: Ice Spheres
+00000000F225.07C: Rat King
+00000000F226.07C: Available in Winter Loot Boxes
+00000000F227.07C: Nutcracker
+00000000F228.07C: Available in Winter Loot Boxes
+00000000F229.07C: 
+00000000F22A.07C: 
+00000000F22B.07C: 
+00000000F23D.07C: Only showing games that allow players who are in queue.
+00000000F23E.07C: Warning! This may impact your system performance!
+00000000F241.07C: + 100 Bonus Tokens
+00000000F242.07C: + 500 Bonus Tokens
+00000000F246.07C: Imbibe
+00000000F248.07C: Game modes while you wait are currently unavailable.
+00000000F24A.07C: Black Forest (Winter)
+00000000F24B.07C: Black Forest
+00000000F24D.07C: VICTORY: First player to earn 15 kills
+00000000F255.07C: Snowball Deathmatch
+00000000F25B.07C: Allow players who are in queue
+00000000F25D.07C: CONTINUE
+00000000F25E.07C: Winter Wonderland
+00000000F25F.07C: Back to the Snow
+00000000F260.07C: Winter Wonderland returns! Your favorites from previous years are back alongside new items!
+00000000F261.07C: Snowball Deathmatch
+00000000F262.07C: A New Tournament Begins!
+00000000F263.07C: FACE OFF IN A FREE-FOR-ALL SNOWBALL FIGHT!
+00000000F264.07C: Winter Wonderland 2019
+00000000F265.07C: Event Ends JAN 2
+00000000F266.07C: Unlock New Skins
+00000000F267.07C: Weekly Challenges
+00000000F268.07C: Week 1
+00000000F269.07C: Week 2
+00000000F26A.07C: Week 3
+00000000F26C.07C: The winning Team.
+00000000F376.07C: Loading Game
+00000000F3A3.07C: When a match is found, you will be pulled into the game you queued for.
+00000000F3AE.07C: Entering Game
+00000000F3CD.07C: Finding beauty
+00000000F3CE.07C: Available in Winter Loot Boxes
+00000000F420.07C: Holiday surprise
+00000000F422.07C: Snow snow snow
+00000000F424.07C: Polar bear
+00000000F4B5.07C: , 
+00000000F4BE.07C: Select
+00000000F523.07C: Unlocked by logging into the game during the Winter Wonderland 2019 event
+00000000F949.07C: Off
+[Core] Execution finished in 00:00:03.7980019 seconds

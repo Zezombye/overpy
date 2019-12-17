@@ -4,10 +4,11 @@ var languages = ["de-DE", "en-US", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", 
 var docFolder = "./src/doc/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
 
-var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(5)\\DataTool.exe"
+var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(7)\\DataTool.exe"
 var overwatchPath = "D:\\Overwatch"
 var outputFolder = "strings"
 var guids = {};
+var removeParentheses = true;
 
 async function generateStringFiles() {
     const { execSync } = require('child_process');
@@ -115,9 +116,11 @@ function addTranslations(content) {
         delete content[language];
         for (var elem of guids[language]) {
             if (elem.guid === content.guid) {
-                elem.string = elem.string
-                        //.replace(/[,\(\)]/g,"")
-                        .replace(/%%/g, "%")
+                elem.string = elem.string.replace(/%%/g, "%");
+                if (removeParentheses) {
+                    elem.string = elem.string.replace(/[,\(\)]/g,"")
+                }
+                        
                 if (elem.string !== content["en-US"]) {
                     content[language] = elem.string;
                 }
@@ -148,10 +151,11 @@ function normalizeName(content) {
 
 //generateStringFiles();
 getGuids();
-//replaceJsonObjectsInFile(docFolder+"actions.js");
-//replaceJsonObjectsInFile(docFolder+"values.js");
-//replaceJsonObjectsInFile(docFolder+"constants.js");
-//replaceJsonObjectsInFile(docFolder+"keywords.js");
+replaceJsonObjectsInFile(docFolder+"actions.js");
+replaceJsonObjectsInFile(docFolder+"values.js");
+replaceJsonObjectsInFile(docFolder+"constants.js");
+replaceJsonObjectsInFile(docFolder+"keywords.js");
+removeParentheses = false;
 replaceJsonObjectsInFile(docFolder+"stringKw.js");
 
 function sleep(ms){

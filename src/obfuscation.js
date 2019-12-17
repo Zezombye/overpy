@@ -21,3 +21,24 @@ for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\
 }
 
 var obfuscatedVarNames = shuffleArray(Array(4096).fill().map((e,i)=>i).map(x => x.toString(2).padStart(12, "0").replace(/0/g, "I").replace(/1/g, "l"))).slice(0,128);
+
+function addEmptyRules(rules) {
+	var nbEmptyRules = (enableNoEdit ? 2500 : 100);
+	var nbTotalRules = nbEmptyRules + rules.length;
+	var emptyRule = tows("@Rule", ruleKw)+'(""){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	var result = "";
+	result += tows("@Rule", ruleKw)+'("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy)."){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	result += tows("@Rule", ruleKw)+'("Please respect its author\'s wishes and do not edit it. Thanks!"){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
+	var ruleIndex = 0;
+	for (var i = 0; i < nbTotalRules; i++) {
+		if (putEmptyRuleArray[i]) {
+			result += emptyRule;
+		} else {
+			result += rules[ruleIndex];
+			ruleIndex++;
+		}
+	}
+	return result;
+
+}

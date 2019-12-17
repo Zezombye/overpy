@@ -87,6 +87,7 @@ var valueFuncKw =
         "args": [],
         "en-US": "All Damage Heroes",
         "guid": "00000000D40A",
+        "de-DE": "Alle Schadenshelden",
         "es-MX": "Todos los héroes de daño",
         "fr-FR": "Tous les héros de dégâts",
         "ja-JP": "全ダメージヒーロー",
@@ -207,6 +208,7 @@ var valueFuncKw =
         "args": [],
         "en-US": "All Support Heroes",
         "guid": "00000000D40B",
+        "de-DE": "Alle Unterstützungshelden",
         "es-MX": "Todos los héroes de apoyo",
         "fr-FR": "Tous les héros de soutien",
         "ja-JP": "全サポートヒーロー",
@@ -220,6 +222,7 @@ var valueFuncKw =
         "args": [],
         "en-US": "All Tank Heroes",
         "guid": "00000000D40C",
+        "de-DE": "Alle Tankhelden",
         "es-MX": "Todos los héroes tanques",
         "fr-FR": "Tous les héros tanks",
         "ja-JP": "全タンクヒーロー",
@@ -712,7 +715,16 @@ var valueFuncKw =
         "opy": "getCurrentGamemode()",
         "description": "The current game mode of the custom game.",
         "args": [],
-        "en-US": "Current Game Mode"
+        "en-US": "Current Game Mode",
+        "guid": "00000000F163",
+        "es-ES": "Modo de juego actual",
+        "es-MX": "Modo de juego actual",
+        "fr-FR": "Mode de jeu actuel",
+        "ja-JP": "現在のゲーム・モード",
+        "pl-PL": "Bieżący tryb gry",
+        "pt-BR": "Modo de jogo atual",
+        "ru-RU": "Текущий игровой режим",
+        "zh-CN": "当前比赛模式"
     },
     {
         "guid": "00000000D418",
@@ -1316,7 +1328,7 @@ var valueFuncKw =
         "fr-FR": "Héros de",
         "ja-JP": "ヒーロー",
         "pt-BR": "Herói de",
-        "zh-CN": "英雄"
+        "zh-CN": "所用英雄"
     },
     {
         "opy": "horizontalAngleFromDirection",
@@ -1363,6 +1375,7 @@ var valueFuncKw =
         "zh-CN": "水平方向夹角"
     },
     {
+        "guid": "00000000F161",
         "opy": "_gamemode",
         "description": "A game mode constant.",
         "args": [
@@ -1373,7 +1386,15 @@ var valueFuncKw =
                 "default": "ASSAULT"
             }
         ],
-        "en-US": "Game Mode"
+        "en-US": "Game Mode",
+        "es-ES": "Modo de juego",
+        "es-MX": "Modo de juego",
+        "fr-FR": "Mode de jeu",
+        "ja-JP": "ゲーム・モード",
+        "pl-PL": "Tryb gry",
+        "pt-BR": "Modo de jogo",
+        "ru-RU": "Игровой режим",
+        "zh-CN": "比赛模式"
     },
     {
         "opy": "_&getHorizontalFacingAngle",
@@ -1698,7 +1719,7 @@ var valueFuncKw =
         "en-US": "Is Dummy Bot",
         "guid": "00000000CEDF",
         "es-MX": "Robot de entrenamiento",
-        "fr-FR": "Est un bot",
+        "fr-FR": "Est une I.A.",
         "ja-JP": "ダミーボットである",
         "pl-PL": "Jest atrapą bota.",
         "pt-BR": "É Bot",
@@ -3061,7 +3082,7 @@ var valueFuncKw =
         "fr-FR": "Position de",
         "ja-JP": "位置: ",
         "pt-BR": "Posição de",
-        "zh-CN": "位置"
+        "zh-CN": "所选位置"
     },
     {
         "guid": "00000000C414",
@@ -3686,7 +3707,7 @@ var valueFuncKw =
         "fr-FR": "Équipe de",
         "ja-JP": "チーム: ",
         "pt-BR": "Equipe de",
-        "zh-CN": "队伍"
+        "zh-CN": "所在队伍"
     },
     {
         "guid": "00000000B353",
@@ -4062,6 +4083,20 @@ var valueFuncKw =
     }
 ]
 //end-json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -55,6 +55,9 @@ var currentRuleEvent;
 //If set to true, sets all rule titles to empty.
 var obfuscateRules;
 
+//If set to true, puts 3000 empty rules, effectively making it impossible to open the preset (you get kicked by the server).
+var enableNoEdit;
+
 //Contains all macros.
 var macros;
 
@@ -122,6 +125,7 @@ function resetGlobalVariables() {
 	currentLanguage = "en-US";
 	wasWaitEncountered = false;
 	importedFiles = [];
+	enableNoEdit = false;
 }
 
 //Other constants

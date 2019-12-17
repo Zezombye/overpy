@@ -28,47 +28,6 @@ function shuffleArray(a) {
     return a;
 }
 
-function applyStringModifiers(content, stringModifiers) {
-
-	//If big letters, try to map letters until we get one
-	//We only need one letter to convert to big letters
-	if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
-		for (var i = 0; i < content.length; i++) {
-			if (content[i] in bigLettersMappings) {
-				content = content.substring(0,i)+bigLettersMappings[content[i]]+content.substring(i+1);
-				isConvertedToBigLetters = true;
-				break;
-			}
-		}
-	} else if (stringModifiers.fullWidth) {
-		var tmpStr = "";
-		for (var char of content) {
-			if (char in fullwidthMappings) {
-				tmpStr += fullwidthMappings[char];
-			} else {
-				containsNonFullwidthChar = true;
-				tmpStr += char;
-			}
-		}
-
-		content = tmpStr;
-		
-	}
-
-	if (obfuscateRules) {
-		var tmpStr = "";
-		for (var char of content) {
-			if (char in obfuscationMappings) {
-				tmpStr += obfuscationMappings[char];
-			} else {
-				tmpStr += char;
-			}
-		}
-		content = tmpStr;
-	}
-	return content;
-}
-
 function getUtf8Length(s){
 	//console.log("getting utf8 length of '"+s+"'");
     var b = 0, i = 0, c;

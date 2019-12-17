@@ -464,7 +464,7 @@ var actionKw =
         "en-US": "Create Dummy Bot",
         "guid": "00000000CA6A",
         "es-MX": "Crear robot de entrenamiento",
-        "fr-FR": "Créer un bot",
+        "fr-FR": "Créer une I.A.",
         "it-IT": "Crea bot di prova",
         "ja-JP": "ダミーボットを作成",
         "pl-PL": "Stwórz atrapę bota",
@@ -816,7 +816,7 @@ var actionKw =
         "en-US": "Destroy All Dummy Bots",
         "guid": "00000000D1D4",
         "es-MX": "Destruir todos los robots de entrenamiento",
-        "fr-FR": "Détruire tous les bots",
+        "fr-FR": "Détruire toutes les I.A.",
         "it-IT": "Distrugge tutti i bot di prova.",
         "ja-JP": "すべてのダミーボットを破棄",
         "pt-BR": "Destruir Todos os Bots",
@@ -890,7 +890,7 @@ var actionKw =
         "en-US": "Destroy Dummy Bot",
         "guid": "00000000CC21",
         "es-MX": "Destruir robot de entrenamiento",
-        "fr-FR": "Détruire un bot",
+        "fr-FR": "Détruire une I.A.",
         "it-IT": "Distruggi bot di prova",
         "ja-JP": "ダミーボットを破壊する",
         "pl-PL": "Zniszcz atrapę bota",
@@ -3397,6 +3397,22 @@ var actionKw =
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -3486,6 +3502,7 @@ var valueFuncKw =
         "args": [],
         "en-US": "All Damage Heroes",
         "guid": "00000000D40A",
+        "de-DE": "Alle Schadenshelden",
         "es-MX": "Todos los héroes de daño",
         "fr-FR": "Tous les héros de dégâts",
         "ja-JP": "全ダメージヒーロー",
@@ -3606,6 +3623,7 @@ var valueFuncKw =
         "args": [],
         "en-US": "All Support Heroes",
         "guid": "00000000D40B",
+        "de-DE": "Alle Unterstützungshelden",
         "es-MX": "Todos los héroes de apoyo",
         "fr-FR": "Tous les héros de soutien",
         "ja-JP": "全サポートヒーロー",
@@ -3619,6 +3637,7 @@ var valueFuncKw =
         "args": [],
         "en-US": "All Tank Heroes",
         "guid": "00000000D40C",
+        "de-DE": "Alle Tankhelden",
         "es-MX": "Todos los héroes tanques",
         "fr-FR": "Tous les héros tanks",
         "ja-JP": "全タンクヒーロー",
@@ -4111,7 +4130,16 @@ var valueFuncKw =
         "opy": "getCurrentGamemode()",
         "description": "The current game mode of the custom game.",
         "args": [],
-        "en-US": "Current Game Mode"
+        "en-US": "Current Game Mode",
+        "guid": "00000000F163",
+        "es-ES": "Modo de juego actual",
+        "es-MX": "Modo de juego actual",
+        "fr-FR": "Mode de jeu actuel",
+        "ja-JP": "現在のゲーム・モード",
+        "pl-PL": "Bieżący tryb gry",
+        "pt-BR": "Modo de jogo atual",
+        "ru-RU": "Текущий игровой режим",
+        "zh-CN": "当前比赛模式"
     },
     {
         "guid": "00000000D418",
@@ -4715,7 +4743,7 @@ var valueFuncKw =
         "fr-FR": "Héros de",
         "ja-JP": "ヒーロー",
         "pt-BR": "Herói de",
-        "zh-CN": "英雄"
+        "zh-CN": "所用英雄"
     },
     {
         "opy": "horizontalAngleFromDirection",
@@ -4762,6 +4790,7 @@ var valueFuncKw =
         "zh-CN": "水平方向夹角"
     },
     {
+        "guid": "00000000F161",
         "opy": "_gamemode",
         "description": "A game mode constant.",
         "args": [
@@ -4772,7 +4801,15 @@ var valueFuncKw =
                 "default": "ASSAULT"
             }
         ],
-        "en-US": "Game Mode"
+        "en-US": "Game Mode",
+        "es-ES": "Modo de juego",
+        "es-MX": "Modo de juego",
+        "fr-FR": "Mode de jeu",
+        "ja-JP": "ゲーム・モード",
+        "pl-PL": "Tryb gry",
+        "pt-BR": "Modo de jogo",
+        "ru-RU": "Игровой режим",
+        "zh-CN": "比赛模式"
     },
     {
         "opy": "_&getHorizontalFacingAngle",
@@ -5097,7 +5134,7 @@ var valueFuncKw =
         "en-US": "Is Dummy Bot",
         "guid": "00000000CEDF",
         "es-MX": "Robot de entrenamiento",
-        "fr-FR": "Est un bot",
+        "fr-FR": "Est une I.A.",
         "ja-JP": "ダミーボットである",
         "pl-PL": "Jest atrapą bota.",
         "pt-BR": "É Bot",
@@ -6460,7 +6497,7 @@ var valueFuncKw =
         "fr-FR": "Position de",
         "ja-JP": "位置: ",
         "pt-BR": "Posição de",
-        "zh-CN": "位置"
+        "zh-CN": "所选位置"
     },
     {
         "guid": "00000000C414",
@@ -7085,7 +7122,7 @@ var valueFuncKw =
         "fr-FR": "Équipe de",
         "ja-JP": "チーム: ",
         "pt-BR": "Equipe de",
-        "zh-CN": "队伍"
+        "zh-CN": "所在队伍"
     },
     {
         "guid": "00000000B353",
@@ -7461,6 +7498,20 @@ var valueFuncKw =
     }
 ]
 //end-json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9332,18 +9383,11 @@ var constantValues =
                 "guid": "00000000B8C6",
                 "opy": "EffectReeval.VISIBILITY_POSITION_AND_RADIUS",
                 "en-US": "Visible To Position and Radius",
-                "de-DE": "Visible To Position and Radius",
-                "es-ES": "Visible To Position and Radius",
                 "es-MX": "Visible para posición y radio",
                 "fr-FR": "Visible pour Position et Rayon",
-                "it-IT": "Visible To Position and Radius",
                 "ja-JP": "表示される相手、位置、範囲",
-                "ko-KR": "Visible To Position and Radius",
-                "pl-PL": "Visible To Position and Radius",
                 "pt-BR": "Visível para Posição e Raio",
-                "ru-RU": "Visible To Position and Radius",
-                "zh-CN": "可见，位置和半径",
-                "zh-TW": "Visible To Position and Radius"
+                "zh-CN": "可见，位置和半径"
             }
         ]
     },
@@ -9397,18 +9441,11 @@ var constantValues =
                 "guid": "00000000BAD4",
                 "opy": "WorldTextReeval.VISIBILITY_POSITION_AND_STRING",
                 "en-US": "Visible To Position and String",
-                "de-DE": "Visible To Position and String",
-                "es-ES": "Visible To Position and String",
                 "es-MX": "Visible para posición y cadena",
                 "fr-FR": "Visible pour Position et Chaîne de texte",
-                "it-IT": "Visible To Position and String",
                 "ja-JP": "表示される相手、位置、文字列",
-                "ko-KR": "Visible To Position and String",
-                "pl-PL": "Visible To Position and String",
                 "pt-BR": "Visível para Posição e String",
-                "ru-RU": "Visible To Position and String",
-                "zh-CN": "可见，位置和字符串",
-                "zh-TW": "Visible To Position and String"
+                "zh-CN": "可见，位置和字符串"
             }
         ]
     },
@@ -9513,18 +9550,11 @@ var constantValues =
                 "guid": "00000000C645",
                 "opy": "DamageReeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT",
                 "en-US": "Receivers Damagers and Damage Percent",
-                "de-DE": "Receivers Damagers and Damage Percent",
-                "es-ES": "Receivers Damagers and Damage Percent",
                 "es-MX": "Receptores infligidores de daño y porcentaje de daño",
                 "fr-FR": "Récepteurs de dégâts émetteurs de dégâts et pourcentage de dégâts",
-                "it-IT": "Receivers Damagers and Damage Percent",
                 "ja-JP": "レシーバー、ダメージャー、ダメージのパーセンテージ",
-                "ko-KR": "Receivers Damagers and Damage Percent",
-                "pl-PL": "Receivers Damagers and Damage Percent",
                 "pt-BR": "Receptores Danificadores e Porcentagem de Dano",
-                "ru-RU": "Receivers Damagers and Damage Percent",
-                "zh-CN": "受伤害者，伤害者及伤害百分比",
-                "zh-TW": "Receivers Damagers and Damage Percent"
+                "zh-CN": "受伤害者，伤害者及伤害百分比"
             }
         ]
     },
@@ -9874,18 +9904,11 @@ var constantValues =
                 "guid": "00000000BB1A",
                 "opy": "AccelReeval.DIRECTION_RATE_AND_MAX_SPEED",
                 "en-US": "Direction Rate and Max Speed",
-                "de-DE": "Direction Rate and Max Speed",
-                "es-ES": "Direction Rate and Max Speed",
                 "es-MX": "Dirección aceleración y velocidad máxima",
                 "fr-FR": "Direction Taux et Vitesse maximum",
-                "it-IT": "Direction Rate and Max Speed",
                 "ja-JP": "方向、レート、最大の速さ",
-                "ko-KR": "Direction Rate and Max Speed",
-                "pl-PL": "Direction Rate and Max Speed",
                 "pt-BR": "Direção Taxa e Velocidade Máx.",
-                "ru-RU": "Direction Rate and Max Speed",
-                "zh-CN": "方向，速率，及最大速度",
-                "zh-TW": "Direction Rate and Max Speed"
+                "zh-CN": "方向，速率，及最大速度"
             },
             {
                 "guid": "00000000B8C3",
@@ -9933,17 +9956,17 @@ var constantValues =
                 "guid": "0000000070F4",
                 "opy": "Map.BLACK_FOREST_WINTER",
                 "en-US": "BLACK FOREST WINTER",
-                "de-DE": "SCHWARZWALD WINTER",
-                "es-ES": "SELVA NEGRA INVIERNO",
-                "es-MX": "SELVA NEGRA INVIERNO",
-                "fr-FR": "FORÊT-NOIRE HIVER",
-                "it-IT": "FORESTA NERA INVERNO",
+                "de-DE": "Schwarzwald Winter",
+                "es-ES": "Selva Negra invierno",
+                "es-MX": "Selva Negra Invierno",
+                "fr-FR": "Forêt-Noire hiver",
+                "it-IT": "Foresta Nera Inverno",
                 "ja-JP": "BLACK FOREST （ウィンター）",
                 "ko-KR": "검은 숲 겨울",
-                "pl-PL": "CZARNY LAS ZIMA",
-                "pt-BR": "FLORESTA NEGRA INVERNO",
-                "ru-RU": "ЧЕРНЫЙ ЛЕС ЗИМА",
-                "zh-CN": "冬季黑森林",
+                "pl-PL": "Czarny las zima",
+                "pt-BR": "Floresta Negra Inverno",
+                "ru-RU": "Черный лес зима",
+                "zh-CN": "圣诞节黑森林",
                 "zh-TW": "黑森林（冬境）"
             },
             {
@@ -9959,7 +9982,6 @@ var constantValues =
                 "guid": "00000000A933",
                 "opy": "Map.BLIZZ_WORLD_WINTER",
                 "en-US": "Blizzard World Winter",
-                "de-DE": "Blizzard World Winter",
                 "es-ES": "Blizzard World invierno",
                 "es-MX": "Blizzard World invierno",
                 "fr-FR": "Blizzard World hiver",
@@ -10059,15 +10081,10 @@ var constantValues =
                 "guid": "000000009FA4",
                 "opy": "Map.CHATEAU_GUILLARD_HALLOWEEN",
                 "en-US": "Château Guillard Halloween",
-                "de-DE": "Château Guillard Halloween",
                 "es-ES": "Palacio Guillard Halloween",
-                "es-MX": "Château Guillard Halloween",
-                "fr-FR": "Château Guillard Halloween",
-                "it-IT": "Château Guillard Halloween",
                 "ja-JP": "CHATEAU GUILLARD ハロウィン",
                 "ko-KR": "샤토 기야르 할로윈",
                 "pl-PL": "Château Guillard Halloweenowe",
-                "pt-BR": "Château Guillard Halloween",
                 "ru-RU": "Шато-Гийяр Хеллоуин",
                 "zh-CN": "万圣节吉拉德堡",
                 "zh-TW": "蓋亞爾城堡（萬聖節）"
@@ -10131,16 +10148,16 @@ var constantValues =
                 "guid": "000000006E6B",
                 "opy": "Map.EICHENWALDE_HALLOWEEN",
                 "en-US": "EICHENWALDE HALLOWEEN",
-                "de-DE": "EICHENWALDE HALLOWEEN",
-                "es-ES": "EICHENWALDE HALLOWEEN",
-                "es-MX": "EICHENWALDE HALLOWEEN",
-                "fr-FR": "EICHENWALDE HALLOWEEN",
-                "it-IT": "EICHENWALDE HALLOWEEN",
+                "de-DE": "Eichenwalde Halloween",
+                "es-ES": "Eichenwalde Halloween",
+                "es-MX": "Eichenwalde Halloween",
+                "fr-FR": "Eichenwalde Halloween",
+                "it-IT": "Eichenwalde Halloween",
                 "ja-JP": "EICHENWALDE （ハロウィン）",
                 "ko-KR": "아이헨발데 할로윈",
-                "pl-PL": "EICHENWALDE HALLOWEEN",
-                "pt-BR": "EICHENWALDE HALLOWEEN",
-                "ru-RU": "АЙХЕНВАЛЬД ХЕЛЛОУИН",
+                "pl-PL": "Eichenwalde Halloween",
+                "pt-BR": "Eichenwalde Halloween",
+                "ru-RU": "Айхенвальд Хеллоуин",
                 "zh-CN": "万圣节艾兴瓦尔德",
                 "zh-TW": "愛西瓦德（萬聖節）"
             },
@@ -10170,16 +10187,15 @@ var constantValues =
                 "guid": "000000005479",
                 "opy": "Map.HANAMURA_WINTER",
                 "en-US": "Hanamura Winter",
-                "de-DE": "HANAMURA WINTER",
-                "es-ES": "HANAMURA INVIERNO",
-                "es-MX": "HANAMURA INVIERNO",
-                "fr-FR": "HANAMURA HIVER",
-                "it-IT": "HANAMURA INVERNO",
+                "es-ES": "Hanamura invierno",
+                "es-MX": "Hanamura Invierno",
+                "fr-FR": "Hanamura hiver",
+                "it-IT": "Hanamura Inverno",
                 "ja-JP": "HANAMURA （ウィンター）",
                 "ko-KR": "하나무라 겨울",
-                "pl-PL": "HANAMURA ZIMOWA",
-                "pt-BR": "HANAMURA INVERNO",
-                "ru-RU": "ХАНАМУРА ЗИМА",
+                "pl-PL": "Hanamura zima",
+                "pt-BR": "Hanamura Inverno",
+                "ru-RU": "Ханамура зима",
                 "zh-CN": "圣诞节花村",
                 "zh-TW": "花村（冬境）"
             },
@@ -10214,15 +10230,8 @@ var constantValues =
                 "guid": "000000004EE3",
                 "opy": "Map.HOLLYWOOD_HALLOWEEN",
                 "en-US": "Hollywood Halloween",
-                "de-DE": "Hollywood Halloween",
-                "es-ES": "Hollywood Halloween",
-                "es-MX": "Hollywood Halloween",
-                "fr-FR": "Hollywood Halloween",
-                "it-IT": "Hollywood Halloween",
                 "ja-JP": "HOLLYWOOD （ハロウィン）",
                 "ko-KR": "할리우드 할로윈",
-                "pl-PL": "Hollywood Halloween",
-                "pt-BR": "Hollywood Halloween",
                 "ru-RU": "Голливуд Хеллоуин",
                 "zh-CN": "万圣节好莱坞",
                 "zh-TW": "好萊塢（萬聖節主題）"
@@ -10348,16 +10357,15 @@ var constantValues =
                 "guid": "00000000547A",
                 "opy": "Map.KINGS_ROW_WINTER",
                 "en-US": "King's Row Winter",
-                "de-DE": "KING'S ROW WINTER",
-                "es-ES": "KING'S ROW INVIERNO",
-                "es-MX": "KING'S ROW INVIERNO",
-                "fr-FR": "KING’S ROW HIVER",
-                "it-IT": "KING'S ROW INVERNO",
+                "es-ES": "King's Row invierno",
+                "es-MX": "King's Row Invierno",
+                "fr-FR": "King's Row hiver",
+                "it-IT": "King's Row Inverno",
                 "ja-JP": "KING'S ROW （ウィンター）",
                 "ko-KR": "왕의 길 겨울",
-                "pl-PL": "KING'S ROW ZIMOWA",
-                "pt-BR": "KING'S ROW INVERNO",
-                "ru-RU": "КИНГС РОУ ЗИМА",
+                "pl-PL": "King's Row zima",
+                "pt-BR": "King's Row Inverno",
+                "ru-RU": "Кингс Роу зима",
                 "zh-CN": "圣诞节国王大道",
                 "zh-TW": "國王大道（冬境）"
             },
@@ -10560,11 +10568,37 @@ var constantValues =
             },
             {
                 "opy": "Map.NEPAL_VILLAGE",
-                "en-US": "Nepal Village"
+                "en-US": "Nepal Village",
+                "guid": "000000005821",
+                "de-DE": "Nepal – Dorf",
+                "es-ES": "Aldea de Nepal",
+                "es-MX": "Pueblo de Nepal",
+                "fr-FR": "Népal - Village",
+                "it-IT": "Nepal - Villaggio",
+                "ja-JP": "NEPAL VILLAGE",
+                "ko-KR": "네팔 마을",
+                "pl-PL": "Nepal: Wioska",
+                "pt-BR": "Vilarejo de Nepal",
+                "ru-RU": "Непал: деревня",
+                "zh-CN": "尼泊尔村庄",
+                "zh-TW": "尼泊爾村落"
             },
             {
+                "guid": "000000006E1F",
                 "opy": "Map.NEPAL_VILLAGE_WINTER",
-                "en-US": "Nepal Village Winter"
+                "en-US": "Nepal Village Winter",
+                "de-DE": "Nepal – Dorf Winter",
+                "es-ES": "Aldea de Nepal invierno",
+                "es-MX": "Pueblo de Nepal Invierno",
+                "fr-FR": "Népal - Village hiver",
+                "it-IT": "Nepal - Villaggio Inverno",
+                "ja-JP": "NEPAL VILLAGE （ウィンター）",
+                "ko-KR": "네팔 마을 겨울",
+                "pl-PL": "Nepal: Wioska zima",
+                "pt-BR": "Vilarejo de Nepal Inverno",
+                "ru-RU": "Непал: деревня зима",
+                "zh-CN": "圣诞节尼泊尔村庄",
+                "zh-TW": "尼泊爾村落（冬境）"
             },
             {
                 "guid": "0000000002EA",
@@ -10773,174 +10807,241 @@ var constantValues =
         "opy": "Gamemode",
         "values": [
             {
+                "guid": "00000000CD59",
                 "opy": "Gamemode.ASSAULT",
-                "en-US": "Assault"
+                "en-US": "Assault",
+                "de-DE": "Angriff",
+                "es-ES": "Asalto",
+                "es-MX": "Asalto",
+                "fr-FR": "Attaque",
+                "it-IT": "Conquista",
+                "ja-JP": "アサルト",
+                "ko-KR": "점령",
+                "pl-PL": "Szturm",
+                "pt-BR": "Ataque",
+                "ru-RU": "Захват точек",
+                "zh-CN": "攻防作战",
+                "zh-TW": "佔領"
             },
             {
+                "guid": "000000005A56",
                 "opy": "Gamemode.CTF",
-                "en-US": "Capture The Flag"
+                "en-US": "Capture The Flag",
+                "de-DE": "Flaggeneroberung",
+                "es-ES": "Captura la bandera",
+                "es-MX": "Captura la bandera",
+                "fr-FR": "Capture du drapeau",
+                "it-IT": "Cattura la Bandiera",
+                "ja-JP": "キャプチャー・ザ・フラッグ",
+                "ko-KR": "깃발 뺏기",
+                "pl-PL": "Zdobywanie flagi",
+                "pt-BR": "Capture a Bandeira",
+                "ru-RU": "Захват флага",
+                "zh-CN": "勇夺锦旗",
+                "zh-TW": "搶旗"
             },
             {
+                "guid": "00000000CD5B",
                 "opy": "Gamemode.CONTROL",
-                "en-US": "Control"
+                "en-US": "Control",
+                "de-DE": "Kontrolle",
+                "fr-FR": "Contrôle",
+                "it-IT": "Controllo",
+                "ja-JP": "コントロール",
+                "ko-KR": "쟁탈",
+                "pl-PL": "Kontrola",
+                "pt-BR": "Controle",
+                "ru-RU": "Контроль",
+                "zh-CN": "占领要点",
+                "zh-TW": "控制"
             },
             {
+                "guid": "000000006853",
                 "opy": "Gamemode.FFA",
-                "en-US": "Deathmatch"
+                "en-US": "Deathmatch",
+                "es-ES": "Combate a muerte",
+                "es-MX": "Combate a muerte",
+                "fr-FR": "Combat à mort",
+                "ja-JP": "デスマッチ",
+                "ko-KR": "데스매치",
+                "pt-BR": "Combate até a Morte",
+                "ru-RU": "Схватка",
+                "zh-CN": "死斗",
+                "zh-TW": "死鬥"
             },
             {
+                "guid": "000000005887",
                 "opy": "Gamemode.ELIMINATION",
-                "en-US": "Elimination"
+                "en-US": "Elimination",
+                "de-DE": "Eliminierung",
+                "es-ES": "Eliminación",
+                "es-MX": "Eliminación",
+                "fr-FR": "Élimination",
+                "it-IT": "Eliminazione",
+                "ja-JP": "エリミネーション",
+                "ko-KR": "섬멸전",
+                "pl-PL": "Eliminacja",
+                "pt-BR": "Eliminação",
+                "ru-RU": "Ликвидация",
+                "zh-CN": "决斗先锋",
+                "zh-TW": "鬥陣對決"
             },
             {
+                "guid": "00000000CD5C",
                 "opy": "Gamemode.ESCORT",
-                "en-US": "Escort"
+                "en-US": "Escort",
+                "de-DE": "Eskorte",
+                "es-ES": "Escolta",
+                "es-MX": "Escolta",
+                "fr-FR": "Escorte",
+                "it-IT": "Trasporto",
+                "ja-JP": "エスコート",
+                "ko-KR": "호위",
+                "pl-PL": "Eskorta",
+                "pt-BR": "Escolta",
+                "ru-RU": "Сопровождение",
+                "zh-CN": "运载目标",
+                "zh-TW": "護送"
             },
             {
+                "guid": "00000000CD5A",
                 "opy": "Gamemode.HYBRID",
-                "en-US": "Hybrid"
+                "en-US": "Hybrid",
+                "es-ES": "Híbrido",
+                "es-MX": "Híbrido",
+                "fr-FR": "Hybride",
+                "it-IT": "Ibrida",
+                "ja-JP": "ハイブリッド",
+                "ko-KR": "혼합",
+                "pl-PL": "Hybryda",
+                "pt-BR": "Híbrido",
+                "ru-RU": "Гибридный режим",
+                "zh-CN": "攻击/护送",
+                "zh-TW": "混合"
             },
             {
+                "guid": "000000004AF4",
                 "opy": "Gamemode.JUNKENSTEIN",
-                "en-US": "Junkenstein's Revenge"
+                "en-US": "Junkenstein's Revenge",
+                "de-DE": "Junkensteins Rache",
+                "es-ES": "La venganza de Junkenstein",
+                "es-MX": "La venganza de Junkenstein",
+                "fr-FR": "La vengeance du Dr Schakalstein",
+                "it-IT": "La vendetta di Junkenstein",
+                "ja-JP": "ジャンケン<br>シュタインの<br>復讐",
+                "ko-KR": "정켄슈타인의 복수",
+                "pl-PL": "Zemsta dr. Złomensteina",
+                "pt-BR": "A vingança de Junkenstein",
+                "ru-RU": "Месть Крысенштейна",
+                "zh-CN": "怪鼠复仇",
+                "zh-TW": "鼠肯斯坦復仇記"
             },
             {
+                "guid": "000000004989",
                 "opy": "Gamemode.LUCIOBALL",
-                "en-US": "Lúcioball"
+                "en-US": "Lúcioball",
+                "es-ES": "Lúciobol",
+                "es-MX": "Lúciobol",
+                "ja-JP": "ルシオボール",
+                "ko-KR": "루시우볼",
+                "pl-PL": "Futbolúcio",
+                "pt-BR": "Luciobol",
+                "ru-RU": "Лусиобол",
+                "zh-CN": "动感斗球",
+                "zh-TW": "路西歐競球"
             },
             {
+                "guid": "00000000525A",
                 "opy": "Gamemode.MEIS_SNOWBALL_OFFENSIVE",
-                "en-US": "Mei's Snowball Offensive"
+                "en-US": "Mei's Snowball Offensive",
+                "de-DE": "Meis Schneeballschlacht",
+                "es-ES": "Mei: Operación Bola de Nieve",
+                "es-MX": "Mei: Operación Bola de Nieve",
+                "fr-FR": "Opération Boule de neige",
+                "it-IT": "Mei: Operazione Palle di Neve",
+                "ja-JP": "メイの雪合戦",
+                "ko-KR": "메이의 눈싸움 대작전",
+                "pl-PL": "Śnieżkowa Ofensywa Mei",
+                "pt-BR": "Ofensiva de Bola de Neve da Mei",
+                "ru-RU": "Операция «Метелица»",
+                "zh-CN": "雪球攻势",
+                "zh-TW": "小美的雪球大作戰"
             },
             {
+                "guid": "0000000040BE",
                 "opy": "Gamemode.PRACTICE_RANGE",
-                "en-US": "Practice Range"
+                "en-US": "Practice Range",
+                "de-DE": "Trainingsbereich",
+                "es-ES": "Práctica de combate",
+                "es-MX": "Campo de pruebas",
+                "fr-FR": "Champ de tir",
+                "it-IT": "Zona d'addestramento",
+                "ja-JP": "練習場",
+                "ko-KR": "훈련장",
+                "pl-PL": "Obszar treningowy",
+                "pt-BR": "Campo de Treinamento",
+                "ru-RU": "Учебный полигон",
+                "zh-CN": "训练靶场",
+                "zh-TW": "訓練中心"
             },
             {
+                "guid": "000000005A61",
                 "opy": "Gamemode.SKIRMISH",
-                "en-US": "Skirmish"
+                "en-US": "Skirmish",
+                "de-DE": "Übungsgefecht",
+                "es-ES": "Escaramuza",
+                "es-MX": "Escaramuza",
+                "fr-FR": "Échauffement",
+                "it-IT": "Schermaglia",
+                "ja-JP": "スカーミッシュ",
+                "ko-KR": "연습 전투",
+                "pl-PL": "Potyczka",
+                "pt-BR": "Confronto",
+                "ru-RU": "Разминка",
+                "zh-CN": "突击模式",
+                "zh-TW": "衝突戰"
             },
             {
+                "guid": "000000006854",
                 "opy": "Gamemode.TDM",
-                "en-US": "Team Deathmatch"
+                "en-US": "Team Deathmatch",
+                "de-DE": "Team-Deathmatch",
+                "es-ES": "Combate a muerte por equipos",
+                "es-MX": "Combate a muerte por equipos",
+                "fr-FR": "Combat à mort par équipe",
+                "it-IT": "Deathmatch a squadre",
+                "ja-JP": "チーム・デスマッチ",
+                "ko-KR": "팀 데스매치",
+                "pl-PL": "Drużynowy Deathmatch",
+                "pt-BR": "Combate até a Morte em Equipe",
+                "ru-RU": "Командная схватка",
+                "zh-CN": "团队死斗",
+                "zh-TW": "團隊死鬥"
             },
             {
+                "guid": "000000006DF1",
                 "opy": "Gamemode.YETI_HUNTER",
-                "en-US": "Yeti Hunter"
-            }
-        ]
-    },
-    "VARIABLE": {
-        "opy": "Variable",
-        "values": [
-            {
-                "opy": "A",
-                "en-US": "A"
-            },
-            {
-                "opy": "B",
-                "en-US": "B"
-            },
-            {
-                "opy": "C",
-                "en-US": "C"
-            },
-            {
-                "opy": "D",
-                "en-US": "D"
-            },
-            {
-                "opy": "E",
-                "en-US": "E"
-            },
-            {
-                "opy": "F",
-                "en-US": "F"
-            },
-            {
-                "opy": "G",
-                "en-US": "G"
-            },
-            {
-                "opy": "H",
-                "en-US": "H"
-            },
-            {
-                "opy": "I",
-                "en-US": "I"
-            },
-            {
-                "opy": "J",
-                "en-US": "J"
-            },
-            {
-                "opy": "K",
-                "en-US": "K"
-            },
-            {
-                "opy": "L",
-                "en-US": "L"
-            },
-            {
-                "opy": "M",
-                "en-US": "M"
-            },
-            {
-                "opy": "N",
-                "en-US": "N"
-            },
-            {
-                "opy": "O",
-                "en-US": "O"
-            },
-            {
-                "opy": "P",
-                "en-US": "P"
-            },
-            {
-                "opy": "Q",
-                "en-US": "Q"
-            },
-            {
-                "opy": "R",
-                "en-US": "R"
-            },
-            {
-                "opy": "S",
-                "en-US": "S"
-            },
-            {
-                "opy": "T",
-                "en-US": "T"
-            },
-            {
-                "opy": "U",
-                "en-US": "U"
-            },
-            {
-                "opy": "V",
-                "en-US": "V"
-            },
-            {
-                "opy": "W",
-                "en-US": "W"
-            },
-            {
-                "opy": "X",
-                "en-US": "X"
-            },
-            {
-                "opy": "Y",
-                "en-US": "Y"
-            },
-            {
-                "opy": "Z",
-                "en-US": "Z"
+                "en-US": "Yeti Hunter",
+                "de-DE": "Yetijagd",
+                "es-ES": "Caza del yeti",
+                "es-MX": "Cazadora de yetis",
+                "fr-FR": "Chasse au yéti",
+                "it-IT": "Caccia allo Yeti",
+                "ja-JP": "イエティ・ハント",
+                "ko-KR": "예티 사냥꾼",
+                "pl-PL": "Polowanie na Yeti",
+                "pt-BR": "Caça ao Yeti",
+                "ru-RU": "Охота на йети",
+                "zh-CN": "雪域狩猎",
+                "zh-TW": "雪怪大作戰"
             }
         ]
     }
 }
 //end-json
+
+
+
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -11316,6 +11417,9 @@ var funcKw = actionKw.concat(valueFuncKw);
 
 
 
+
+
+
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -11339,6 +11443,27 @@ for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\
 }
 
 var obfuscatedVarNames = shuffleArray(Array(4096).fill().map((e,i)=>i).map(x => x.toString(2).padStart(12, "0").replace(/0/g, "I").replace(/1/g, "l"))).slice(0,128);
+
+function addEmptyRules(rules) {
+	var nbEmptyRules = (enableNoEdit ? 2500 : 100);
+	var nbTotalRules = nbEmptyRules + rules.length;
+	var emptyRule = tows("@Rule", ruleKw)+'(""){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	var result = "";
+	result += tows("@Rule", ruleKw)+'("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy)."){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	result += tows("@Rule", ruleKw)+'("Please respect its author\'s wishes and do not edit it. Thanks!"){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
+	var ruleIndex = 0;
+	for (var i = 0; i < nbTotalRules; i++) {
+		if (putEmptyRuleArray[i]) {
+			result += emptyRule;
+		} else {
+			result += rules[ruleIndex];
+			ruleIndex++;
+		}
+	}
+	return result;
+
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -11395,6 +11520,9 @@ var currentRuleEvent;
 
 //If set to true, sets all rule titles to empty.
 var obfuscateRules;
+
+//If set to true, puts 3000 empty rules, effectively making it impossible to open the preset (you get kicked by the server).
+var enableNoEdit;
 
 //Contains all macros.
 var macros;
@@ -11463,6 +11591,7 @@ function resetGlobalVariables() {
 	currentLanguage = "en-US";
 	wasWaitEncountered = false;
 	importedFiles = [];
+	enableNoEdit = false;
 }
 
 //Other constants
@@ -11618,47 +11747,6 @@ function shuffleArray(a) {
         a[j] = x;
     }
     return a;
-}
-
-function applyStringModifiers(content, stringModifiers) {
-
-	//If big letters, try to map letters until we get one
-	//We only need one letter to convert to big letters
-	if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
-		for (var i = 0; i < content.length; i++) {
-			if (content[i] in bigLettersMappings) {
-				content = content.substring(0,i)+bigLettersMappings[content[i]]+content.substring(i+1);
-				isConvertedToBigLetters = true;
-				break;
-			}
-		}
-	} else if (stringModifiers.fullWidth) {
-		var tmpStr = "";
-		for (var char of content) {
-			if (char in fullwidthMappings) {
-				tmpStr += fullwidthMappings[char];
-			} else {
-				containsNonFullwidthChar = true;
-				tmpStr += char;
-			}
-		}
-
-		content = tmpStr;
-		
-	}
-
-	if (obfuscateRules) {
-		var tmpStr = "";
-		for (var char of content) {
-			if (char in obfuscationMappings) {
-				tmpStr += obfuscationMappings[char];
-			} else {
-				tmpStr += char;
-			}
-		}
-		content = tmpStr;
-	}
-	return content;
 }
 
 function getUtf8Length(s){
@@ -13988,6 +14076,9 @@ function tokenize(content) {
 				} else if (content.startsWith("#!obfuscate", i)) {
 					obfuscateRules = true;
 					isInLineComment = true;
+				} else if (content.startsWith("#!noEdit", i)) {
+					enableNoEdit = true;
+					isInLineComment = true;
 				} else if (content.startsWith("#!declareGlobal", i) || content.startsWith("#!declarePlayer", i)) {
 					var isGlobalVariable = content.startsWith("#!declareGlobal", i);
 					var lineIndex = content.indexOf("\n", i);
@@ -14429,11 +14520,18 @@ function compile(content, language="en-US", _rootPath="") {
 	//console.log(rules);
 
 	var result = "";
+	var compiledRules = [];
 	for (var i = 0; i < rules.length; i++) {
-		result += compileRule(rules[i]);
+		compiledRules.push(compileRule(rules[i]));
 	}
 
-	result = generateVariablesField()+result;
+	if (obfuscateRules || enableNoEdit) {
+		compiledRules = addEmptyRules(compiledRules);
+	} else {
+		compiledRules = compiledRules.join("");
+	}
+
+	result = generateVariablesField()+compiledRules;
 
 	if (typeof window !== "undefined") {
 		var t1 = performance.now();
@@ -16642,13 +16740,54 @@ function parseString(content, formatArgs, stringModifiers) {
 	var numberMapping = {};
 	var containsNonFullwidthChar = false;
 
+	function applyStringModifiers(content) {
+
+		//If big letters, try to map letters until we get one
+		//We only need one letter to convert to big letters
+		if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
+			for (var i = 0; i < content.length; i++) {
+				if (content[i] in bigLettersMappings) {
+					content = content.substring(0,i)+bigLettersMappings[content[i]]+content.substring(i+1);
+					isConvertedToBigLetters = true;
+					break;
+				}
+			}
+		} else if (stringModifiers.fullWidth) {
+			var tmpStr = "";
+			for (var char of content) {
+				if (char in fullwidthMappings) {
+					tmpStr += fullwidthMappings[char];
+				} else {
+					containsNonFullwidthChar = true;
+					tmpStr += char;
+				}
+			}
+	
+			content = tmpStr;
+			
+		}
+	
+		if (obfuscateRules) {
+			var tmpStr = "";
+			for (var char of content) {
+				if (char in obfuscationMappings) {
+					tmpStr += obfuscationMappings[char];
+				} else {
+					tmpStr += char;
+				}
+			}
+			content = tmpStr;
+		}
+		return content;
+	}
+
 	//Tokenize string
 	while (true) {
 		var index = content.search(/{\d*}/)
 		if (index >= 0) {
 			if (index > 0) {
 				tokens.push({
-					text: applyStringModifiers(content.substring(0, index), stringModifiers),
+					text: applyStringModifiers(content.substring(0, index), stringModifiers, isConvertedToBigLetters),
 					type: "string"
 				});
 				content = content.substring(index);
@@ -16684,7 +16823,7 @@ function parseString(content, formatArgs, stringModifiers) {
 		} else {
 
 			tokens.push({
-				text: applyStringModifiers(content, stringModifiers),
+				text: applyStringModifiers(content, stringModifiers, isConvertedToBigLetters),
 				type: "string"
 			});
 			break;
@@ -27812,6 +27951,9 @@ strTokens = strTokens.sort().reverse();
 
 
 
+
+
+
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -28382,11 +28524,19 @@ Usage of this directive will result in a size increase, and a very low performan
 
 The following obfuscation methods are applied:
 
-- Rule filling: empty rules are inserted so that the code hits the limit of 1000 rules. The non-empty rules are scattered randomly across these 1000 rules (but still keeping the rule order).
+- Rule filling: several empty rules are inserted.
 - Comment removing: all rule titles are replaced with the empty string.
-- Dead code injection: actions that effectively do nothing are inserted in rules.
 - Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.
 - Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
+`
+    },{
+        opy: "noEdit",
+        description:
+`Adds 2500 empty rules to the preset, which should make it absolutely impossible to open the rules (as you get a "connection lost" error). Therefore, it is the ultimate form of obfuscation, as you simply cannot even see the code.
+
+However, pasting the generated code could trigger a "connection lost" error as well, and a huge lag. As such, this directive should only be used on finalized gamemodes, before you publish it; it should not be used every time.
+
+You will very likely have to paste the generated code in an editor, then paste the rules by sets of 800, 1200 then 500 to be able to insert them.
 `
     },{
         opy: "declareGlobal",
