@@ -70,6 +70,8 @@ var importedFiles;
 
 var wasWaitEncountered;
 
+var disableUnusedVars;
+
 //Decompilation variables
 
 //The stack of the files (macros count as "files").
@@ -126,6 +128,7 @@ function resetGlobalVariables() {
 	wasWaitEncountered = false;
 	importedFiles = [];
 	enableNoEdit = false;
+	disableUnusedVars = false;
 }
 
 //Other constants
