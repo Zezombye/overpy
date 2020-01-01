@@ -263,6 +263,9 @@ function tokenize(content) {
 				} else if (content.startsWith("#!obfuscate", i)) {
 					obfuscateRules = true;
 					isInLineComment = true;
+				} else if (content.startsWith("#!disableUnusedVars", i)) {
+					disableUnusedVars = true;
+					isInLineComment = true;
 				} else if (content.startsWith("#!noEdit", i)) {
 					enableNoEdit = true;
 					isInLineComment = true;
@@ -275,11 +278,15 @@ function tokenize(content) {
 					}
 					var line = content.substring(firstSpaceIndex, lineIndex).trim();
 					var args = line.split(" ");
-					if (args.length !== 2) {
-						error("Malformed variable declaration (directive should have 2 arguments)");
+					if (args.length !== 1 && args.length !== 2) {
+						error("Malformed variable declaration (directive should have 1 or 2 arguments)");
 					}
 					var varName = args[0].trim();
-					var varIndex = args[1].trim();
+					if (args.length === 1 || args[1].trim().length === 0) {
+						var varIndex = null;
+					} else {
+						var varIndex = args[1].trim();
+					}
 					addVariable(varName, isGlobalVariable, varIndex);
 
 					isInLineComment = true;
@@ -441,8 +448,12 @@ function tokenize(content) {
 						}
 					}
 					
-					if (!hasTokenBeenFound && content[i] !== '\r') {
-						error("Unknown token '"+content[i]+"'");
+					if (!hasTokenBeenFound) {
+						if (content[i] === "\r") {
+							warn("w_crlf", "File is in CRLF mode. This could cause bugs as CRLF is not supported.");
+						} else {
+							error("Unknown token '"+content[i]+"'");
+						}
 					}
 				}
 			}

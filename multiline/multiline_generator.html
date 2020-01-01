@@ -1,0 +1,375 @@
+<!--
+
+g00d shIt
+
+https://www.dafont.com/hydrating-lip.font?text=ZOmbiEs+wiN&fpp=100&back=bitmap
+https://www.dafont.com/pixel-takhisis.font?fpp=100&text=HUMANS+WIN
+https://www.dafont.com/endless-boss-battle.font?fpp=100&text=HUMANS+WIN
+https://www.dafont.com/alkhemikal.font?text=ZOMBIES+WIN&fpp=100&back=bitmap
+https://www.dafont.com/vermin-vibes-1989.font?fpp=100&text=HUMANS+WIN
+https://www.dafont.com/bitmap.php?page=1&fpp=100&text=HUMANS+WIN
+
+7TPY5 really makes u thonk
+
+-->
+
+
+<head>
+    <title>
+        Zez's ASCII Art Text Generator
+    </title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+<style>
+
+textarea {
+	width: 1200px;
+    height: 400px;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: scroll;
+    text-align: left !important;
+}
+
+body, textarea {
+	color: #CCCCCC;
+	background-color: #222222;
+	scrollbar-color: #CCCCCC #222222;
+    text-align: center;
+}
+
+a {
+	color: lightblue;
+}
+
+</style>
+
+<h1>Zez's ASCII art text generator</h1>
+Note: Z-index is left &lt; right &lt; top
+<br>
+
+<textarea id="input-left" placeholder="Left HUD input"></textarea>
+<textarea id="input-top" placeholder="Top HUD input"></textarea>
+<textarea id="input-right" placeholder="Right HUD input"></textarea>
+
+
+<p>
+    Left Sort offset: <input type="text" id="sort-offset-left">
+    Top Sort offset: <input type="text" id="sort-offset-top">
+    Right Sort offset: <input type="text" id="sort-offset-right">
+</p>
+<p>
+    Left color: 
+    <select id="color-left">
+        <option value="Color.AQUA">Aqua</option>
+        <option value="Color.BLUE">Blue</option>
+        <option value="Color.GREEN">Green</option>
+        <option value="Color.LIME_GREEN">Lime green</option>
+        <option value="Color.ORANGE">Orange</option>
+        <option value="Color.PURPLE">Purple</option>
+        <option value="Color.RED">Red</option>
+        <option value="Color.SKY_BLUE">Sky blue</option>
+        <option value="Color.TEAM_1">Team 1</option>
+        <option value="Color.TEAM_2">Team 2</option>
+        <option value="Color.TURQUOISE">Turquoise</option>
+        <option value="Color.WHITE">White</option>
+        <option value="Color.YELLOW">Yellow</option>
+    </select> 
+    Top color: 
+    <select id="color-top">
+        <option value="Color.AQUA">Aqua</option>
+        <option value="Color.BLUE">Blue</option>
+        <option value="Color.GREEN">Green</option>
+        <option value="Color.LIME_GREEN">Lime green</option>
+        <option value="Color.ORANGE">Orange</option>
+        <option value="Color.PURPLE">Purple</option>
+        <option value="Color.RED">Red</option>
+        <option value="Color.SKY_BLUE">Sky blue</option>
+        <option value="Color.TEAM_1">Team 1</option>
+        <option value="Color.TEAM_2">Team 2</option>
+        <option value="Color.TURQUOISE">Turquoise</option>
+        <option value="Color.WHITE">White</option>
+        <option value="Color.YELLOW">Yellow</option>
+    </select> 
+    Right color: 
+    <select id="color-right">
+        <option value="Color.AQUA">Aqua</option>
+        <option value="Color.BLUE">Blue</option>
+        <option value="Color.GREEN">Green</option>
+        <option value="Color.LIME_GREEN">Lime green</option>
+        <option value="Color.ORANGE">Orange</option>
+        <option value="Color.PURPLE">Purple</option>
+        <option value="Color.RED">Red</option>
+        <option value="Color.SKY_BLUE">Sky blue</option>
+        <option value="Color.TEAM_1">Team 1</option>
+        <option value="Color.TEAM_2">Team 2</option>
+        <option value="Color.TURQUOISE">Turquoise</option>
+        <option value="Color.WHITE">White</option>
+        <option value="Color.YELLOW">Yellow</option>
+    </select> 
+</p>
+<p>
+    Language: <select id="language">            
+        <option value="en-US">English</option>
+        <option value="de-DE">German</option>
+        <option value="es-ES">Spanish (Spain)</option>
+        <option value="es-MX">Spanish (Mexico)</option>
+        <option value="fr-FR">French</option>
+        <option value="it-IT">Italian</option>
+        <option value="ja-JP">Japanese</option>
+        <option value="ko-KR">Korean</option>
+        <option value="pl-PL">Polish</option>
+        <option value="pt-BR">Portugese (Brazil)</option>
+        <option value="ru-RU">Russian</option>
+        <option value="zh-CN">Chinese (Simplified)</option>
+        <option value="zh-TW">Chinese (Traditional)</option>
+    </select>
+    <input type="checkbox" id="auto-center">Auto-center</input>
+    <input type="checkbox" id="add-horizontal-shadow">Add horizontal shadow</input>
+    <input type="checkbox" id="add-vertical-shadow">Add vertical shadow</input>
+    <input type="checkbox" id="generate-for-overpy">Generate for OverPy</input>
+</p>
+<br>
+<br>
+<button onclick="generateAll();">Generate</button>
+<br>
+<br>
+<textarea id="output">Output</textarea>
+
+<script src="../src/doc/actions.js"></script>
+<script src="../src/doc/values.js"></script>
+<script src="../src/doc/constants.js"></script>
+<script src="../src/doc/keywords.js"></script>
+<script src="../src/globalVars.js"></script>
+<script src="../src/utils.js"></script>
+
+<script>
+"use strict";
+
+//init
+var nbHuds = 0;
+var generateForOverpy = false;
+resetGlobalVariables();
+
+
+for (var i of ["left", "top", "right"]) {
+    document.getElementById("sort-offset-"+i).value = "-500";
+}
+
+function getUtf8Length(s){
+	//console.log("getting utf8 length of '"+s+"'");
+    var b = 0, i = 0, c;
+    for(;c=s.charCodeAt(i++);b+=c>>11?3:c>>7?2:1);
+    return b;
+}
+
+function splitStr(s, position) {
+    var autoCenter = document.getElementById("auto-center").checked;
+    var addHorizontalShadow = document.getElementById("add-horizontal-shadow").checked;
+
+    var thinSpace = " ";
+    var halfWidthSpace = " ";
+    var fullWidthSpace = "　";
+
+    if (autoCenter) {
+        //var nbSpaces = (132-[...s].length)/2;
+        var strLength = (132-((s.split("▒").length-1)+s.split(fullWidthSpace).length-1));
+        var nbSpaces = strLength/2;
+        var nbThinSpaces = 0;
+        if (strLength%2 === 1) {
+            if (position === "left") {
+                s = halfWidthSpace+s;
+                if (addHorizontalShadow) {
+                    nbThinSpaces = 2;
+                } else {
+                    nbThinSpaces = 1;
+                }
+            } else {
+                s += halfWidthSpace;
+            }
+        } else {
+            if (position === "left") {
+                if (addHorizontalShadow) {
+                    nbThinSpaces = 2;
+                } else {
+                    nbThinSpaces = 1;
+                }
+            }
+            
+            //nbThinSpaces = 1;
+        }
+        nbSpaces = Math.floor(nbSpaces);
+        for (var i = 0; i < nbSpaces; i++) {
+            if (position === "left") {
+                s = fullWidthSpace+s;
+                if (nbThinSpaces > 0) {
+                    s = thinSpace+s;
+                    nbThinSpaces--;
+                }
+            } else {
+                s += fullWidthSpace;
+                if (nbThinSpaces > 0) {
+                    s += thinSpace;
+                    nbThinSpaces--;
+                }
+            }
+        }
+    }
+
+    var wsNull = tows("null", valueFuncKw);
+
+    if (generateForOverpy) {
+        return '"'+s+'"';
+
+    } else {
+        var result = "";
+        var prefix = "";
+        var suffix = "";
+        var resultStr = "";
+        var strLength = 0;
+        var chars = [...s];
+        for (var char of chars) {
+            if (strLength >= 122) {
+                resultStr += "{0}";
+                strLength = 0;
+                result += tows("_customString", valueFuncKw)+"(\""+resultStr+"\", ";
+                //suffix = ", "+wsNull+", "+wsNull+")"+suffix;
+                suffix = ", team(Team 1), team(Team 2))"+suffix;
+                resultStr = "";
+            }
+            resultStr += char;
+            strLength += getUtf8Length(char);
+        }
+        result += tows("_customString", valueFuncKw)+"(\""+resultStr+"\", ";
+        //suffix = wsNull+", "+wsNull+", "+wsNull+")"+suffix;
+        suffix = "null, team(Team 1), team(Team 2))"+suffix;
+        return result+suffix;
+    }
+}
+
+function generateAll() {
+
+    nbHuds = 0;
+    currentLanguage = document.getElementById("language").options[document.getElementById("language").selectedIndex].value;
+    generateForOverpy = document.getElementById("generate-for-overpy").checked;
+    document.getElementById("output").value = generate("left")+generate("top")+generate("right");
+}
+
+function generate(position, color, sortOffset) {
+    var input = document.getElementById("input-"+position).value;
+
+    if (input.trim().length === 0) {
+        return "";
+    }
+
+    var addVerticalShadow = document.getElementById("add-vertical-shadow").checked;
+
+    if (addVerticalShadow && position === "left") {
+        input = 
+`                                                                                                                                                    *
+                                                                                                                                                *
+                                                                                                                                                *
+                                                                                                                                                *
+                                                                                                                                                *
+                                                                                                                                                *
+                                                                                                                                                *
+                                                                                                                                                *
+`+input;
+    } else if (addVerticalShadow && position === "right") {
+        input =
+` 
+
+
+
+
+
+
+`+input;
+    }
+
+    var mappings = {
+        " ": "　",
+        "█": "▒",
+        "╗": "┓",
+        "╝": "┛",
+        "╔": "┏",
+        "╚": "┗",
+        "═": "━",
+        "║": "┃",
+
+        "▓": "#",
+        "░": "%",
+
+        "¥": "￥",
+        "₩": "￦",
+        "¢": "￠",
+        "£": "￡",
+        "¯": "￣",
+        "¬": "￢",
+        "¦": "￤",
+    };
+    
+
+    /*for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
+        mappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
+    }*/
+    mappings["#"] = "▒";
+    mappings["*"] = "▒";
+
+    var output = "";
+    if (generateForOverpy) {
+        /*output +=
+`@Rule "${position} HUD"
+@Event global
+`;*/
+        output += "#"+position+" HUD\n";
+    } else {
+        output += tows("@Rule", ruleKw)+"(\""+position+" HUD\") {"+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";} "+tows("_actions", ruleKw)+" {\n";
+    }
+
+    for (var key of Object.keys(mappings)) {
+        input = input.split("\n").map(x => x
+            //.trimEnd()
+            .split(key).join(mappings[key])).join("\n");
+    }
+
+    var lines = input.split("\n");
+    for (var i = 0; i < lines.length; i++) {
+        
+        var color = document.getElementById("color-"+position).options[document.getElementById("color-"+position).selectedIndex].value;
+
+        if (generateForOverpy) {
+            output += "hudSubheader(getAllPlayers(), "+splitStr(lines[i], position)+", Position."+position.toUpperCase()+", "+(i+(+document.getElementById("sort-offset-"+position).value))+", "+color+", HudReeval.VISIBILITY_AND_STRING, SpecVisibility.DEFAULT)\n";
+        } else {
+            output += "\t"+tows("_hudText", actionKw)+"("
+                +tows("getPlayers", valueFuncKw)+"("
+                    +tows("Team.ALL", getConstantKw("TEAM CONSTANT"))
+                +"), "
+                +tows("null", valueFuncKw)+", "
+                +splitStr(lines[i], position)+", "
+                +tows("null", valueFuncKw)+", "
+                +position+", "
+                +(i+(+document.getElementById("sort-offset-"+position).value))+", "
+                +tows("Color.WHITE", getConstantKw("COLOR"))+", "
+                +tows(color, getConstantKw("COLOR"))+", "
+                +tows("Color.WHITE", getConstantKw("COLOR"))+", "
+                +tows("HudReeval.VISIBILITY_AND_STRING", getConstantKw("HUD TEXT REEVALUATION"))+", "
+                +tows("SpecVisibility.DEFAULT", getConstantKw("SPECTATOR VISIBILITY"))
+            +");\n";
+        }
+    }
+
+    if (generateForOverpy) {
+        output += "\n\n";
+    } else {
+        output += "}}\n";
+    };
+
+    return output;
+}
+</script>
+
+</body>
