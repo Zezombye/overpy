@@ -83,6 +83,7 @@ function generateVariablesField() {
 		var outputVariables = Array(128);
 		var varNames = [];
 		var varList = varType === "global" ? globalVariables : playerVariables;
+		var unassignedVariables = [];
 
 		for (var variable of varList) {
 			//check name
@@ -97,27 +98,54 @@ function generateVariablesField() {
 			if (outputVariables[variable.index] !== undefined) {
 				error("Duplicate use of index "+variable.index+" for "+varType+" variables '"+variable.name+"' and '"+outputVariables[variable.index]+"'");
 			}
-			if (isNaN(variable.index) || variable.index >= 128 || variable.index < 0) {
-				error("Invalid index '"+variable.index+"', must be from 0 to 127");
-			}
 			varNames.push(variable.name);
-			outputVariables[variable.index] = variable.name;
+			if (variable.index === undefined || variable.index === null) {
+				unassignedVariables.push(variable.name);
+			} else {
+				if (isNaN(variable.index) || variable.index >= 128 || variable.index < 0) {
+					error("Invalid index '"+variable.index+"', must be from 0 to 127");
+				}
+				outputVariables[variable.index] = variable.name;
+			}
 		}
+
+		console.log(outputVariables);
 		
+		for (var variable of unassignedVariables) {
+			var foundSpot = false;
+			for (var i = 0; i < 128; i++) {
+				if (outputVariables[i] === undefined) {
+					foundSpot = true;
+					outputVariables[i] = variable;
+					break;
+				}
+			}
+			if (!foundSpot) {
+				error("More than 128 "+varType+" variables have been declared");
+			}
+		}
+		console.log(outputVariables);
+		console.log(obfuscatedVarNames);
+		console.log(obfuscatedVarNumbers);
+
 		if (obfuscateRules) {
 			var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e,i)=>i));
 		}
-		result += "\t"+tows("_"+varType, ruleKw)+":\n";
+		var varTypeResult = "";
 		for (var i = 0; i < 128; i++) {
 			if (obfuscateRules) {
-				result += "\t\t"+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
+				varTypeResult += "\t\t"+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 			} else {
 				if (outputVariables[i] !== undefined) {
-					result += "\t\t"+i+": "+outputVariables[i]+"\n";
-				} else {
-					result += "\t\t"+i+": _unused_var_"+i+"\n";
+					varTypeResult += "\t\t"+i+": "+outputVariables[i]+"\n";
+				} else if (!disableUnusedVars) {
+					varTypeResult += "\t\t"+i+": _unused_var_"+i+"\n";
 				}
 			}
+		}
+		if (varTypeResult !== "") {
+			varTypeResult = "\t"+tows("_"+varType, ruleKw)+":\n" + varTypeResult;
+			result += varTypeResult;
 		}
 
 	}
@@ -1858,14 +1886,32 @@ function parseMember(object, member, parseArgs={}) {
 			
 		//Check enums
 		} else if (Object.values(constantValues).map(x => x.opy).indexOf(object[0].text) >= 0) {
-			var result = tows(object[0].text+"."+name, constantKw);
-			if (object[0].text === "Hero") {
-				result = tows("_hero", valueFuncKw)+"("+result+")";
-			} else if (object[0].text === "Map") {
-				result = tows("_map", valueFuncKw)+"("+result+")";
-			} else if (object[0].text === "Gamemode") {
-				result = tows("_gamemode", valueFuncKw)+"("+result+")";
+			if (object[0].text === "Hero" && obfuscateRules) {
+				//Obfuscate heroes, eg Reaper -> getAllHeroes[0]
+				if (Math.random() < 0.5) {
+					if (allTankHeroes.includes(name)) {
+						result = tows("_valueInArray", valueFuncKw)+"("+tows("getTankHeroes()", valueFuncKw)+", "+allTankHeroes.indexOf(name)+")";
+					} else if (allDamageHeroes.includes(name)) {
+						result = tows("_valueInArray", valueFuncKw)+"("+tows("getDamageHeroes()", valueFuncKw)+", "+allDamageHeroes.indexOf(name)+")";
+					} else if (allSupportHeroes.includes(name)) {
+						result = tows("_valueInArray", valueFuncKw)+"("+tows("getSupportHeroes()", valueFuncKw)+", "+allSupportHeroes.indexOf(name)+")";
+					} else {
+						error("Could not find category for hero '"+name+"'");
+					}
+				} else {
+					result = tows("_valueInArray", valueFuncKw)+"("+tows("getAllHeroes()", valueFuncKw)+", "+allHeroes.indexOf(name)+")";
+				}
+			} else {
+				var result = tows(object[0].text+"."+name, constantKw);
+				if (object[0].text === "Hero") {
+					result = tows("_hero", valueFuncKw)+"("+result+")";
+				} else if (object[0].text === "Map") {
+					result = tows("_map", valueFuncKw)+"("+result+")";
+				} else if (object[0].text === "Gamemode") {
+					result = tows("_gamemode", valueFuncKw)+"("+result+")";
+				}
 			}
+			
 			return result;
 		} else if (object[0].text === "math" && object.length === 1) {
 			if (name === "pi") {
@@ -2420,7 +2466,7 @@ function parseStringTokens(tokens, args) {
 		if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) >= 125 || tokens[i].type === "arg" && stringLength+3 >= 125) {
 
 			var splitString = false;
-			if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) > 127 || tokens.length > i) {
+			if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 127 || tokens.length > i)) {
 
 				var tokenText = [...tokens[i].text]
 				var tokenSliceLength = 0;

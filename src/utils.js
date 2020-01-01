@@ -62,7 +62,7 @@ function translateVarToWs(content, isGlobalVariable) {
 	for (var i = 0; i < varArray.length; i++) {
 		if (varArray[i].name === content) {
 			if (obfuscateRules) {
-				return obfuscatedVarNames[varArray[i].index]
+				return obfuscatedVarNames[i]
 			} else {
 				return content;
 			}
@@ -73,7 +73,11 @@ function translateVarToWs(content, isGlobalVariable) {
 		//However, only do this if it is a default variable name
 		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
 		if (obfuscateRules) {
-			return obfuscatedVarNames[defaultVarNames.indexOf(content)];
+			for (var i = 0; i < varArray.length; i++) {
+				if (varArray[i].name === content) {
+					return obfuscatedVarNames[i];
+				}
+			}
 		} else {
 			return content;
 		}
@@ -778,6 +782,7 @@ function warn(warnType, message) {
 			}
 		}
 		console.warn(warning);
+		suppressedWarnings.push(warnType);
 		encounteredWarnings.push(warning);
 	}
 }
