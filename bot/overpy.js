@@ -11542,6 +11542,8 @@ var importedFiles;
 
 var wasWaitEncountered;
 
+var disableUnusedVars;
+
 //Decompilation variables
 
 //The stack of the files (macros count as "files").
@@ -11598,6 +11600,7 @@ function resetGlobalVariables() {
 	wasWaitEncountered = false;
 	importedFiles = [];
 	enableNoEdit = false;
+	disableUnusedVars = false;
 }
 
 //Other constants
@@ -14087,6 +14090,9 @@ function tokenize(content) {
 				} else if (content.startsWith("#!obfuscate", i)) {
 					obfuscateRules = true;
 					isInLineComment = true;
+				} else if (content.startsWith("#!disableUnusedVars", i)) {
+					disableUnusedVars = true;
+					isInLineComment = true;
 				} else if (content.startsWith("#!noEdit", i)) {
 					enableNoEdit = true;
 					isInLineComment = true;
@@ -14621,17 +14627,21 @@ function generateVariablesField() {
 		if (obfuscateRules) {
 			var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e,i)=>i));
 		}
-		result += "\t"+tows("_"+varType, ruleKw)+":\n";
+		var varTypeResult = "";
 		for (var i = 0; i < 128; i++) {
 			if (obfuscateRules) {
-				result += "\t\t"+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
+				varTypeResult += "\t\t"+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 			} else {
 				if (outputVariables[i] !== undefined) {
-					result += "\t\t"+i+": "+outputVariables[i]+"\n";
-				} else {
-					result += "\t\t"+i+": _unused_var_"+i+"\n";
+					varTypeResult += "\t\t"+i+": "+outputVariables[i]+"\n";
+				} else if (!disableUnusedVars) {
+					varTypeResult += "\t\t"+i+": _unused_var_"+i+"\n";
 				}
 			}
+		}
+		if (varTypeResult !== "") {
+			varTypeResult = "\t"+tows("_"+varType, ruleKw)+":\n" + varTypeResult;
+			result += varTypeResult;
 		}
 
 	}
@@ -28616,6 +28626,9 @@ You will very likely have to paste the generated code in an editor, then paste t
     },{
         opy: "suppressWarnings",
         description: "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
+    },{
+        opy: "disableUnusedVars",
+        description: "Do not put 'unused_var_xxx' in the compilation. Not recommended if compiling regularly, as this could lead to not being able to paste the generated output if variable offsets have been modified."
     },{
         opy: "mainFile",
         description: "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file."
