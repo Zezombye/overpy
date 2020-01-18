@@ -3413,6 +3413,8 @@ var actionKw =
 
 
 
+
+
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -3688,6 +3690,31 @@ var valueFuncKw =
         "ja-JP": "AND",
         "pt-BR": "E",
         "zh-CN": "与"
+    },
+    {
+        "opy": "angleBetweenVectors",
+        "description": "The angle in degrees between two directional vectors (no normalization required).",
+        "args": [
+            {
+                "name": "VECTOR",
+                "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            },
+            {
+                "name": "VECTOR",
+                "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            }
+        ],
+        "en-US": "Angle Between Vectors",
+        "guid": "00000000C813",
+        "es-MX": "Ángulo entre vectores",
+        "fr-FR": "Angle entre deux vecteurs",
+        "ja-JP": "ベクトル間角度",
+        "pt-BR": "Ângulo entre Vetores",
+        "zh-CN": "矢量间夹角"
     },
     {
         "opy": "angleDifference",
@@ -7163,7 +7190,7 @@ var valueFuncKw =
         "zh-CN": "阈值"
     },
     {
-        "opy": "getTotalTimeElapsed",
+        "opy": "getTotalTimeElapsed()",
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
         "args": [],
         "en-US": "Total Time Elapsed",
@@ -7498,6 +7525,7 @@ var valueFuncKw =
     }
 ]
 //end-json
+
 
 
 
@@ -11042,6 +11070,7 @@ var constantValues =
 
 
 
+
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -11413,6 +11442,7 @@ for (var constant of Object.keys(constantValues)) {
 var valueKw = valueFuncKw.concat(constantKw);
 
 var funcKw = actionKw.concat(valueFuncKw);
+
 
 
 
@@ -28018,6 +28048,7 @@ for (var hero of getConstantKw("HERO CONSTANT")) {
 
 //Sort reverse alphabetical order for greediness
 strTokens = strTokens.sort().reverse();
+
 
 
 
