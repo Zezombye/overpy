@@ -275,6 +275,31 @@ var valueFuncKw =
         "zh-CN": "与"
     },
     {
+        "opy": "angleBetweenVectors",
+        "description": "The angle in degrees between two directional vectors (no normalization required).",
+        "args": [
+            {
+                "name": "VECTOR",
+                "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            },
+            {
+                "name": "VECTOR",
+                "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
+                "type": "VECTOR",
+                "default": "VECTOR"
+            }
+        ],
+        "en-US": "Angle Between Vectors",
+        "guid": "00000000C813",
+        "es-MX": "Ángulo entre vectores",
+        "fr-FR": "Angle entre deux vecteurs",
+        "ja-JP": "ベクトル間角度",
+        "pt-BR": "Ângulo entre Vetores",
+        "zh-CN": "矢量间夹角"
+    },
+    {
         "opy": "angleDifference",
         "description": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative.",
         "args": [
@@ -3748,7 +3773,7 @@ var valueFuncKw =
         "zh-CN": "阈值"
     },
     {
-        "opy": "getTotalTimeElapsed",
+        "opy": "getTotalTimeElapsed()",
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
         "args": [],
         "en-US": "Total Time Elapsed",
@@ -4083,6 +4108,7 @@ var valueFuncKw =
     }
 ]
 //end-json
+
 
 
 
