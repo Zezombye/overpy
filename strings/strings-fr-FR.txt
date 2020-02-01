@@ -1,12 +1,12 @@
-[Core] DataTool v1.43.0.858-git-7df896aa214f93a4165c50ba690775381a7b8735
+[Core] DataTool v1.44.0.859-git-cd7fb0d09445e6c85a1bcd84e8902c678d85618e
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.exe.args
 [CASC] Set language to frFR
 [CASC] Set speech language to frFR
-[CASC] Overwatch build 1.43.0.0.64719
+[CASC] Overwatch build 1.44.0.0.65302
 [CASC] Initializing...
-[CMF] Using CMF procedure 64719
-[CMF] Using CMF procedure 64719
+[CMF] Using CMF procedure 65302
+[CMF] Using CMF procedure 65302
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -7719,7 +7719,6 @@ d’entraînement
 0000000045AF.07C: Déconnecté par les services Blizzard
 0000000045B0.07C: Déconnecté pour cause d’inactivité
 0000000045B3.07C: MAINTENIR POUR CROSSFADE
-0000000045B5.07C: Indisponible pendant l’installation
 0000000045B6.07C: 
 0000000045B7.07C: Le meilleur des remèdes
 0000000045B8.07C: Paramètres non valides. Vous devez corriger ou annuler vos modifications.
@@ -8388,10 +8387,10 @@ rythmique
 000000004ADA.07C: %2$s (%1$s) vous dit : mon téléporteur est déployé. %3$s |Rplcharge restante:charges restantes;.
 000000004ADB.07C: %2$s (%1$s) dit à %4$s : mon téléporteur est déployé. %3$s |Rplcharge restante:charges restantes;.
 000000004ADE.07C: Genou à terre
-000000004AE0.07C: Désactivé
+000000004AE0.07C: Par défaut
 000000004AE1.07C: Il n’y a plus de place de spectateur.
 000000004AE2.07C: Les équipes sont complètes.
-000000004AE3.07C: Activé
+000000004AE3.07C: Toujours
 000000004AE4.07C: Barres de vie des alliés
 000000004AE5.07C: Yéti
 000000004AE7.07C: Wukong
@@ -15130,27 +15129,27 @@ Aidez-nous à créer la meilleure communauté possible pour Overwatch : restez 
 000000007672.07C: Durée infinie de la capacité ultime
 000000007673.07C: Score à atteindre par le yéti
 000000007674.07C: Logo Seoul Dynasty
-000000007678.07C: Logo San Fransico Shock
+000000007678.07C: Logo San Francisco Shock 2018
 00000000767A.07C: Logo Shanghai Dragons
 00000000767D.07C: Logo Philadelphia Fusion
 00000000767F.07C: Logo New York Excelsior
-000000007681.07C: Logo Los Angeles Valiant
+000000007681.07C: Logo Los Angeles Valiant 2018
 000000007683.07C: Logo Los Angeles Gladiators
 000000007685.07C: Logo London Spitfire
 000000007687.07C: Logo Houston Outlaws
-000000007689.07C: Logo Florida Mayhem
+000000007689.07C: Logo Florida Mayhem 2018
 00000000768B.07C: Logo Dallas Fuel
 00000000768D.07C: Logo Boston Uprising
 000000007691.07C: Seoul Dynasty
 000000007692.07C: Shanghai Dragons
-000000007693.07C: San Fransico Shock
+000000007693.07C: San Francisco Shock 2018
 000000007694.07C: Philadelphia Fusion
 000000007695.07C: New York Excelsior
-000000007696.07C: Los Angeles Valiant
+000000007696.07C: Los Angeles Valiant 2018
 000000007697.07C: Los Angeles Gladiators
 000000007698.07C: London Spitfire
 000000007699.07C: Houston Outlaws
-00000000769A.07C: Florida Mayhem
+00000000769A.07C: Florida Mayhem 2018
 00000000769B.07C: Dallas Fuel
 00000000769C.07C: Boston Uprising
 00000000769E.07C: La vengeance
@@ -15192,7 +15191,6 @@ Les autres modes de jeu d’Overwatch, dont les parties rapides, l’arcade et l
 000000007729.07C: Aperçu
 00000000772A.07C: La Forge
 00000000772D.07C: La Forge
-0000000077D2.07C: Évènement
 0000000077D3.07C: Conditions
 0000000077D4.07C: Actions
 0000000077D5.07C: Global
@@ -15440,58 +15438,58 @@ Les autres modes de jeu d’Overwatch, dont les parties rapides, l’arcade et l
 000000007B88.07C: Los Angeles Gladiators
 000000007B89.07C: Los Angeles Gladiators
 000000007B8A.07C: Los Angeles Gladiators
-000000007B8B.07C: Los Angeles Valiant
-000000007B8C.07C: Los Angeles Valiant
-000000007B8D.07C: Los Angeles Valiant
-000000007B8E.07C: Los Angeles Valiant
-000000007B8F.07C: Los Angeles Valiant
-000000007B90.07C: Los Angeles Valiant
-000000007B91.07C: Los Angeles Valiant
-000000007B92.07C: Los Angeles Valiant
-000000007B93.07C: Los Angeles Valiant
-000000007B94.07C: Los Angeles Valiant
-000000007B95.07C: Los Angeles Valiant
-000000007B96.07C: Los Angeles Valiant
-000000007B97.07C: Los Angeles Valiant
-000000007B98.07C: Los Angeles Valiant
-000000007B99.07C: Los Angeles Valiant
-000000007B9A.07C: Los Angeles Valiant
-000000007B9B.07C: Los Angeles Valiant
-000000007B9C.07C: Los Angeles Valiant
-000000007B9D.07C: Los Angeles Valiant
-000000007B9E.07C: Los Angeles Valiant
-000000007B9F.07C: Los Angeles Valiant
-000000007BA0.07C: Los Angeles Valiant
-000000007BA1.07C: Los Angeles Valiant
-000000007BA2.07C: Los Angeles Valiant
-000000007BA3.07C: Los Angeles Valiant
-000000007BA4.07C: Los Angeles Valiant
-000000007BA5.07C: Florida Mayhem
-000000007BA6.07C: Florida Mayhem
-000000007BA7.07C: Florida Mayhem
-000000007BA8.07C: Florida Mayhem
-000000007BA9.07C: Florida Mayhem
-000000007BAA.07C: Florida Mayhem
-000000007BAB.07C: Florida Mayhem
-000000007BAC.07C: Florida Mayhem
-000000007BAD.07C: Florida Mayhem
-000000007BAE.07C: Florida Mayhem
-000000007BAF.07C: Florida Mayhem
-000000007BB0.07C: Florida Mayhem
-000000007BB1.07C: Florida Mayhem
-000000007BB2.07C: Florida Mayhem
-000000007BB3.07C: Florida Mayhem
-000000007BB4.07C: Florida Mayhem
-000000007BB5.07C: Florida Mayhem
-000000007BB6.07C: Florida Mayhem
-000000007BB7.07C: Florida Mayhem
-000000007BB8.07C: Florida Mayhem
-000000007BB9.07C: Florida Mayhem
-000000007BBA.07C: Florida Mayhem
-000000007BBB.07C: Florida Mayhem
-000000007BBC.07C: Florida Mayhem
-000000007BBD.07C: Florida Mayhem
-000000007BBE.07C: Florida Mayhem
+000000007B8B.07C: Los Angeles Valiant 2018
+000000007B8C.07C: Los Angeles Valiant 2018
+000000007B8D.07C: Los Angeles Valiant 2018
+000000007B8E.07C: Los Angeles Valiant 2018
+000000007B8F.07C: Los Angeles Valiant 2018
+000000007B90.07C: Los Angeles Valiant 2018
+000000007B91.07C: Los Angeles Valiant 2018
+000000007B92.07C: Los Angeles Valiant 2018
+000000007B93.07C: Los Angeles Valiant 2018
+000000007B94.07C: Los Angeles Valiant 2018
+000000007B95.07C: Los Angeles Valiant 2018
+000000007B96.07C: Los Angeles Valiant 2018
+000000007B97.07C: Los Angeles Valiant 2018
+000000007B98.07C: Los Angeles Valiant 2018
+000000007B99.07C: Los Angeles Valiant 2018
+000000007B9A.07C: Los Angeles Valiant 2018
+000000007B9B.07C: Los Angeles Valiant 2018
+000000007B9C.07C: Los Angeles Valiant 2018
+000000007B9D.07C: Los Angeles Valiant 2018
+000000007B9E.07C: Los Angeles Valiant 2018
+000000007B9F.07C: Los Angeles Valiant 2018
+000000007BA0.07C: Los Angeles Valiant 2018
+000000007BA1.07C: Los Angeles Valiant 2018
+000000007BA2.07C: Los Angeles Valiant 2018
+000000007BA3.07C: Los Angeles Valiant 2018
+000000007BA4.07C: Los Angeles Valiant 2018
+000000007BA5.07C: Florida Mayhem 2018
+000000007BA6.07C: Florida Mayhem 2018
+000000007BA7.07C: Florida Mayhem 2018
+000000007BA8.07C: Florida Mayhem 2018
+000000007BA9.07C: Florida Mayhem 2018
+000000007BAA.07C: Florida Mayhem 2018
+000000007BAB.07C: Florida Mayhem 2018
+000000007BAC.07C: Florida Mayhem 2018
+000000007BAD.07C: Florida Mayhem 2018
+000000007BAE.07C: Florida Mayhem 2018
+000000007BAF.07C: Florida Mayhem 2018
+000000007BB0.07C: Florida Mayhem 2018
+000000007BB1.07C: Florida Mayhem 2018
+000000007BB2.07C: Florida Mayhem 2018
+000000007BB3.07C: Florida Mayhem 2018
+000000007BB4.07C: Florida Mayhem 2018
+000000007BB5.07C: Florida Mayhem 2018
+000000007BB6.07C: Florida Mayhem 2018
+000000007BB7.07C: Florida Mayhem 2018
+000000007BB8.07C: Florida Mayhem 2018
+000000007BB9.07C: Florida Mayhem 2018
+000000007BBA.07C: Florida Mayhem 2018
+000000007BBB.07C: Florida Mayhem 2018
+000000007BBC.07C: Florida Mayhem 2018
+000000007BBD.07C: Florida Mayhem 2018
+000000007BBE.07C: Florida Mayhem 2018
 000000007BBF.07C: Houston Outlaws
 000000007BC0.07C: Houston Outlaws
 000000007BC1.07C: Houston Outlaws
@@ -15570,32 +15568,32 @@ Les autres modes de jeu d’Overwatch, dont les parties rapides, l’arcade et l
 000000007C0A.07C: Philadelphia Fusion
 000000007C0B.07C: Philadelphia Fusion
 000000007C0C.07C: Philadelphia Fusion
-000000007C0D.07C: San Francisco Shock
-000000007C0E.07C: San Francisco Shock
-000000007C0F.07C: San Francisco Shock
-000000007C10.07C: San Francisco Shock
-000000007C11.07C: San Francisco Shock
-000000007C12.07C: San Francisco Shock
-000000007C13.07C: San Francisco Shock
-000000007C14.07C: San Francisco Shock
-000000007C15.07C: San Francisco Shock
-000000007C16.07C: San Francisco Shock
-000000007C17.07C: San Francisco Shock
-000000007C18.07C: San Francisco Shock
-000000007C19.07C: San Francisco Shock
-000000007C1A.07C: San Francisco Shock
-000000007C1B.07C: San Francisco Shock
-000000007C1C.07C: San Francisco Shock
-000000007C1D.07C: San Francisco Shock
-000000007C1E.07C: San Francisco Shock
-000000007C1F.07C: San Francisco Shock
-000000007C20.07C: San Francisco Shock
-000000007C21.07C: San Francisco Shock
-000000007C22.07C: San Francisco Shock
-000000007C23.07C: San Francisco Shock
-000000007C24.07C: San Francisco Shock
-000000007C25.07C: San Francisco Shock
-000000007C26.07C: San Francisco Shock
+000000007C0D.07C: San Francisco Shock 2018
+000000007C0E.07C: San Francisco Shock 2018
+000000007C0F.07C: San Francisco Shock 2018
+000000007C10.07C: San Francisco Shock 2018
+000000007C11.07C: San Francisco Shock 2018
+000000007C12.07C: San Francisco Shock 2018
+000000007C13.07C: San Francisco Shock 2018
+000000007C14.07C: San Francisco Shock 2018
+000000007C15.07C: San Francisco Shock 2018
+000000007C16.07C: San Francisco Shock 2018
+000000007C17.07C: San Francisco Shock 2018
+000000007C18.07C: San Francisco Shock 2018
+000000007C19.07C: San Francisco Shock 2018
+000000007C1A.07C: San Francisco Shock 2018
+000000007C1B.07C: San Francisco Shock 2018
+000000007C1C.07C: San Francisco Shock 2018
+000000007C1D.07C: San Francisco Shock 2018
+000000007C1E.07C: San Francisco Shock 2018
+000000007C1F.07C: San Francisco Shock 2018
+000000007C20.07C: San Francisco Shock 2018
+000000007C21.07C: San Francisco Shock 2018
+000000007C22.07C: San Francisco Shock 2018
+000000007C23.07C: San Francisco Shock 2018
+000000007C24.07C: San Francisco Shock 2018
+000000007C25.07C: San Francisco Shock 2018
+000000007C26.07C: San Francisco Shock 2018
 000000007C27.07C: Seoul Dynasty
 000000007C28.07C: Seoul Dynasty
 000000007C29.07C: Seoul Dynasty
@@ -16233,12 +16231,12 @@ chats
 0000000082FB.07C: Dallas Fuel
 0000000082FC.07C: London Spitfire
 0000000082FD.07C: Los Angeles Gladiators
-0000000082FE.07C: Los Angeles Valiant
-0000000082FF.07C: Florida Mayhem
+0000000082FE.07C: Los Angeles Valiant 2018
+0000000082FF.07C: Florida Mayhem 2018
 000000008300.07C: Houston Outlaws
 000000008301.07C: New York Excelsior
 000000008302.07C: Philadelphia Fusion
-000000008303.07C: San Francisco Shock
+000000008303.07C: San Francisco Shock 2018
 000000008304.07C: Seoul Dynasty
 000000008305.07C: Shanghai Dragons
 000000008310.07C: accomplie
@@ -16293,58 +16291,58 @@ chats
 000000008399.07C: Houston Outlaws (extérieur)
 00000000839A.07C: London Spitfire (extérieur)
 00000000839B.07C: Los Angeles Gladiators (extérieur)
-00000000839C.07C: Los Angeles Valiant (extérieur)
+00000000839C.07C: Los Angeles Valiant 2018 (extérieur)
 00000000839D.07C: New York Excelsior (extérieur)
 00000000839E.07C: Philadelphia Fusion (extérieur)
-00000000839F.07C: San Francisco Shock (extérieur)
+00000000839F.07C: San Francisco Shock 2018 (extérieur)
 0000000083A0.07C: Seoul Dynasty (extérieur)
 0000000083A1.07C: Shanghai Dragons (extérieur)
 0000000083A5.07C: Boston Uprising (extérieur)
 0000000083A6.07C: Dallas Fuel (extérieur)
-0000000083A7.07C: Florida Mayhem (extérieur)
+0000000083A7.07C: Florida Mayhem 2018 (extérieur)
 0000000083A8.07C: Houston Outlaws (extérieur)
 0000000083A9.07C: London Spitfire (extérieur)
 0000000083AA.07C: Los Angeles Gladiators (extérieur)
-0000000083AB.07C: Los Angeles Valiant (extérieur)
+0000000083AB.07C: Los Angeles Valiant 2018 (extérieur)
 0000000083AC.07C: New York Excelsior (extérieur)
 0000000083AD.07C: Philadelphia Fusion (extérieur)
-0000000083AE.07C: San Francisco Shock (extérieur)
+0000000083AE.07C: San Francisco Shock 2018 (extérieur)
 0000000083AF.07C: Seoul Dynasty (extérieur)
 0000000083B0.07C: Shanghai Dragons (extérieur)
 0000000083B1.07C: Boston Uprising (extérieur)
 0000000083B2.07C: Dallas Fuel (extérieur)
-0000000083B3.07C: Florida Mayhem (extérieur)
+0000000083B3.07C: Florida Mayhem 2018 (extérieur)
 0000000083B4.07C: Houston Outlaws (extérieur)
 0000000083B5.07C: London Spitfire (extérieur)
 0000000083B6.07C: Los Angeles Gladiators (extérieur)
-0000000083B7.07C: Los Angeles Valiant (extérieur)
+0000000083B7.07C: Los Angeles Valiant 2018 (extérieur)
 0000000083B8.07C: New York Excelsior (extérieur)
 0000000083B9.07C: Philadelphia Fusion (extérieur)
-0000000083BA.07C: San Francisco Shock (extérieur)
+0000000083BA.07C: San Francisco Shock 2018 (extérieur)
 0000000083BB.07C: Seoul Dynasty (extérieur)
 0000000083BC.07C: Shanghai Dragons (extérieur)
 0000000083BD.07C: Boston Uprising (extérieur)
 0000000083C8.07C: Dallas Fuel (extérieur)
-0000000083C9.07C: Florida Mayhem (extérieur)
+0000000083C9.07C: Florida Mayhem 2018 (extérieur)
 0000000083CA.07C: Houston Outlaws (extérieur)
 0000000083CB.07C: London Spitfire (extérieur)
 0000000083CC.07C: Los Angeles Gladiators (extérieur)
-0000000083CD.07C: Los Angeles Valiant (extérieur)
+0000000083CD.07C: Los Angeles Valiant 2018 (extérieur)
 0000000083CE.07C: New York Excelsior (extérieur)
 0000000083CF.07C: Philadelphia Fusion (extérieur)
-0000000083D0.07C: San Francisco Shock (extérieur)
+0000000083D0.07C: San Francisco Shock 2018 (extérieur)
 0000000083D1.07C: Seoul Dynasty (extérieur)
 0000000083D2.07C: Shanghai Dragons (extérieur)
 0000000083D4.07C: Boston Uprising (extérieur)
 0000000083D5.07C: Dallas Fuel (extérieur)
-0000000083D6.07C: Florida Mayhem (extérieur)
+0000000083D6.07C: Florida Mayhem 2018 (extérieur)
 0000000083D7.07C: Houston Outlaws (extérieur)
 0000000083D8.07C: London Spitfire (extérieur)
 0000000083D9.07C: Los Angeles Gladiators (extérieur)
-0000000083DA.07C: Los Angeles Valiant (extérieur)
+0000000083DA.07C: Los Angeles Valiant 2018 (extérieur)
 0000000083DB.07C: New York Excelsior (extérieur)
 0000000083DC.07C: Philadelphia Fusion (extérieur)
-0000000083DD.07C: San Francisco Shock (extérieur)
+0000000083DD.07C: San Francisco Shock 2018 (extérieur)
 0000000083DE.07C: Seoul Dynasty (extérieur)
 0000000083DF.07C: Shanghai Dragons (extérieur)
 0000000083E5.07C: Archives 2018
@@ -16365,65 +16363,65 @@ chats
 000000008402.07C: Colomar
 000000008406.07C: Boston Uprising (extérieur)
 00000000840A.07C: Dallas Fuel (extérieur)
-00000000840B.07C: Florida Mayhem (extérieur)
+00000000840B.07C: Florida Mayhem 2018 (extérieur)
 00000000840C.07C: Houston Outlaws (extérieur)
 00000000840D.07C: London Spitfire (extérieur)
 00000000840E.07C: Los Angeles Gladiators (extérieur)
-00000000840F.07C: Los Angeles Valiant (extérieur)
+00000000840F.07C: Los Angeles Valiant 2018 (extérieur)
 000000008410.07C: New York Excelsior (extérieur)
 000000008411.07C: Philadelphia Fusion (extérieur)
-000000008412.07C: San Francisco Shock (extérieur)
+000000008412.07C: San Francisco Shock 2018 (extérieur)
 000000008413.07C: Seoul Dynasty (extérieur)
 000000008414.07C: Shanghai Dragons (extérieur)
 000000008417.07C: Boston Uprising (extérieur)
 000000008418.07C: Dallas Fuel (extérieur)
-000000008419.07C: Florida Mayhem (extérieur)
+000000008419.07C: Florida Mayhem 2018 (extérieur)
 00000000841A.07C: Houston Outlaws (extérieur)
 00000000841B.07C: London Spitfire (extérieur)
 00000000841C.07C: Los Angeles Gladiators (extérieur)
-00000000841D.07C: Los Angeles Valiant (extérieur)
+00000000841D.07C: Los Angeles Valiant 2018 (extérieur)
 00000000841E.07C: New York Excelsior (extérieur)
 00000000841F.07C: Philadelphia Fusion (extérieur)
-000000008420.07C: San Francisco Shock (extérieur)
+000000008420.07C: San Francisco Shock 2018 (extérieur)
 000000008421.07C: Seoul Dynasty (extérieur)
 000000008422.07C: Shanghai Dragons (extérieur)
 000000008423.07C: Prêt
 000000008448.07C: Boston Uprising (extérieur)
 00000000844F.07C: Dallas Fuel (extérieur)
-000000008450.07C: Florida Mayhem (extérieur)
+000000008450.07C: Florida Mayhem 2018 (extérieur)
 000000008451.07C: Houston Outlaws (extérieur)
 000000008453.07C: London Spitfire (extérieur)
 000000008454.07C: Los Angeles Gladiators (extérieur)
-000000008455.07C: Los Angeles Valiant (extérieur)
+000000008455.07C: Los Angeles Valiant 2018 (extérieur)
 000000008456.07C: New York Excelsior (extérieur)
 000000008457.07C: Philadelphia Fusion (extérieur)
-000000008458.07C: San Francisco Shock (extérieur)
+000000008458.07C: San Francisco Shock 2018 (extérieur)
 000000008459.07C: Seoul Dynasty (extérieur)
 00000000845A.07C: Shanghai Dragons (extérieur)
 000000008460.07C: Boston Uprising (extérieur)
 000000008463.07C: Dallas Fuel (extérieur)
-000000008464.07C: Florida Mayhem (extérieur)
+000000008464.07C: Florida Mayhem 2018 (extérieur)
 000000008465.07C: Houston Outlaws (extérieur)
 000000008466.07C: London Spitfire (extérieur)
 000000008467.07C: Los Angeles Gladiators (extérieur)
-000000008468.07C: Los Angeles Valiant (extérieur)
+000000008468.07C: Los Angeles Valiant 2018 (extérieur)
 000000008469.07C: New York Excelsior (extérieur)
 00000000846A.07C: Philadelphia Fusion (extérieur)
-00000000846B.07C: San Francisco Shock (extérieur)
+00000000846B.07C: San Francisco Shock 2018 (extérieur)
 00000000846C.07C: Seoul Dynasty (extérieur)
 00000000846D.07C: Shanghai Dragons (extérieur)
 00000000846E.07C: Boston Uprising (extérieur)
 000000008470.07C: Aucun soigneur
 000000008471.07C: Aucun tank
 00000000847F.07C: Dallas Fuel (extérieur)
-000000008480.07C: Florida Mayhem (extérieur)
+000000008480.07C: Florida Mayhem 2018 (extérieur)
 000000008481.07C: Houston Outlaws (extérieur)
 000000008482.07C: London Spitfire (extérieur)
 000000008483.07C: Los Angeles Gladiators (extérieur)
-000000008484.07C: Los Angeles Valiant (extérieur)
+000000008484.07C: Los Angeles Valiant 2018 (extérieur)
 000000008485.07C: New York Excelsior (extérieur)
 000000008486.07C: Philadelphia Fusion (extérieur)
-000000008487.07C: San Francisco Shock (extérieur)
+000000008487.07C: San Francisco Shock 2018 (extérieur)
 000000008488.07C: Seoul Dynasty (extérieur)
 000000008489.07C: Shanghai Dragons (extérieur)
 00000000848A.07C: Un seul soigneur
@@ -16453,14 +16451,14 @@ chats
 0000000084DA.07C: Shanghai Dragons (extérieur)
 0000000084DB.07C: Boston Uprising (extérieur)
 0000000084DC.07C: Dallas Fuel (extérieur)
-0000000084DD.07C: Florida Mayhem (extérieur)
+0000000084DD.07C: Florida Mayhem 2018 (extérieur)
 0000000084DE.07C: Houston Outlaws (extérieur)
 0000000084DF.07C: London Spitfire (extérieur)
 0000000084E0.07C: Los Angeles Gladiators (extérieur)
-0000000084E1.07C: Los Angeles Valiant (extérieur)
+0000000084E1.07C: Los Angeles Valiant 2018 (extérieur)
 0000000084E2.07C: New York Excelsior (extérieur)
 0000000084E3.07C: Philadelphia Fusion (extérieur)
-0000000084E4.07C: San Francisco Shock (extérieur)
+0000000084E4.07C: San Francisco Shock 2018 (extérieur)
 0000000084E5.07C: Seoul Dynasty (extérieur)
 0000000084E6.07C: APPROCHER
 0000000084E9.07C: Bonus de points de vie du convoi
@@ -16468,151 +16466,151 @@ chats
 0000000084EB.07C: Genou au sol
 0000000084FC.07C: Boston Uprising (extérieur)
 0000000084FD.07C: Dallas Fuel (extérieur)
-0000000084FE.07C: Florida Mayhem (extérieur)
+0000000084FE.07C: Florida Mayhem 2018 (extérieur)
 0000000084FF.07C: Houston Outlaws (extérieur)
 000000008500.07C: London Spitfire (extérieur)
 000000008501.07C: Los Angeles Gladiators (extérieur)
-000000008502.07C: Los Angeles Valiant (extérieur)
+000000008502.07C: Los Angeles Valiant 2018 (extérieur)
 000000008503.07C: New York Excelsior (extérieur)
 000000008504.07C: Philadelphia Fusion (extérieur)
-000000008505.07C: San Francisco Shock (extérieur)
+000000008505.07C: San Francisco Shock 2018 (extérieur)
 000000008506.07C: Seoul Dynasty (extérieur)
 000000008507.07C: Shanghai Dragons (extérieur)
 000000008508.07C: Boston Uprising (extérieur)
 000000008509.07C: Dallas Fuel (extérieur)
-00000000850A.07C: Florida Mayhem (extérieur)
+00000000850A.07C: Florida Mayhem 2018 (extérieur)
 00000000850B.07C: Houston Outlaws (extérieur)
 00000000850C.07C: London Spitfire (extérieur)
 00000000850D.07C: Los Angeles Gladiators (extérieur)
-00000000850E.07C: Los Angeles Valiant (extérieur)
+00000000850E.07C: Los Angeles Valiant 2018 (extérieur)
 00000000850F.07C: New York Excelsior (extérieur)
 000000008510.07C: Philadelphia Fusion (extérieur)
-000000008511.07C: San Francisco Shock (extérieur)
+000000008511.07C: San Francisco Shock 2018 (extérieur)
 000000008512.07C: Seoul Dynasty (extérieur)
 000000008513.07C: Shanghai Dragons (extérieur)
 000000008515.07C: Boston Uprising (extérieur)
 000000008516.07C: Dallas Fuel (extérieur)
-000000008517.07C: Florida Mayhem (extérieur)
+000000008517.07C: Florida Mayhem 2018 (extérieur)
 000000008518.07C: Houston Outlaws (extérieur)
 000000008519.07C: London Spitfire (extérieur)
 00000000851A.07C: Los Angeles Gladiators (extérieur)
-00000000851B.07C: Los Angeles Valiant (extérieur)
+00000000851B.07C: Los Angeles Valiant 2018 (extérieur)
 00000000851C.07C: New York Excelsior (extérieur)
 00000000851D.07C: Philadelphia Fusion (extérieur)
-00000000851E.07C: San Francisco Shock (extérieur)
+00000000851E.07C: San Francisco Shock 2018 (extérieur)
 00000000851F.07C: Seoul Dynasty (extérieur)
 000000008520.07C: Shanghai Dragons (extérieur)
 000000008523.07C: Pilote de Blackwatch
 00000000852A.07C: Mine de proximité
 00000000852B.07C: Boston Uprising (extérieur)
 00000000852C.07C: Dallas Fuel (extérieur)
-00000000852D.07C: Florida Mayhem (extérieur)
+00000000852D.07C: Florida Mayhem 2018 (extérieur)
 00000000852E.07C: Houston Outlaws (extérieur)
 00000000852F.07C: London Spitfire (extérieur)
 000000008530.07C: Los Angeles Gladiators (extérieur)
-000000008531.07C: Los Angeles Valiant (extérieur)
+000000008531.07C: Los Angeles Valiant 2018 (extérieur)
 000000008532.07C: New York Excelsior (extérieur)
 000000008533.07C: Philadelphia Fusion (extérieur)
-000000008534.07C: San Francisco Shock (extérieur)
+000000008534.07C: San Francisco Shock 2018 (extérieur)
 000000008535.07C: Seoul Dynasty (extérieur)
 000000008536.07C: Shanghai Dragons (extérieur)
 000000008537.07C: Boston Uprising (extérieur)
 000000008538.07C: Dallas Fuel (extérieur)
-000000008539.07C: Florida Mayhem (extérieur)
+000000008539.07C: Florida Mayhem 2018 (extérieur)
 00000000853A.07C: Houston Outlaws (extérieur)
 00000000853B.07C: London Spitfire (extérieur)
 00000000853C.07C: Los Angeles Gladiators (extérieur)
-00000000853D.07C: Los Angeles Valiant (extérieur)
+00000000853D.07C: Los Angeles Valiant 2018 (extérieur)
 00000000853E.07C: New York Excelsior (extérieur)
 00000000853F.07C: Philadelphia Fusion (extérieur)
-000000008540.07C: San Francisco Shock (extérieur)
+000000008540.07C: San Francisco Shock 2018 (extérieur)
 000000008541.07C: Seoul Dynasty (extérieur)
 000000008542.07C: Shanghai Dragons (extérieur)
 000000008544.07C: Boston Uprising (extérieur)
 000000008545.07C: Dallas Fuel (extérieur)
-000000008546.07C: Florida Mayhem (extérieur)
+000000008546.07C: Florida Mayhem 2018 (extérieur)
 000000008547.07C: Houston Outlaws (extérieur)
 000000008548.07C: London Spitfire (extérieur)
 000000008549.07C: Los Angeles Gladiators (extérieur)
-00000000854A.07C: Los Angeles Valiant (extérieur)
+00000000854A.07C: Los Angeles Valiant 2018 (extérieur)
 00000000854B.07C: New York Excelsior (extérieur)
 00000000854C.07C: Philadelphia Fusion (extérieur)
-00000000854D.07C: San Francisco Shock (extérieur)
+00000000854D.07C: San Francisco Shock 2018 (extérieur)
 00000000854E.07C: Seoul Dynasty (extérieur)
 00000000854F.07C: Shanghai Dragons (extérieur)
 000000008552.07C: Boston Uprising (extérieur)
 000000008553.07C: Dallas Fuel (extérieur)
-000000008554.07C: Florida Mayhem (extérieur)
+000000008554.07C: Florida Mayhem 2018 (extérieur)
 000000008555.07C: Houston Outlaws (extérieur)
 000000008556.07C: London Spitfire (extérieur)
 000000008557.07C: Los Angeles Gladiators (extérieur)
-000000008558.07C: Los Angeles Valiant (extérieur)
+000000008558.07C: Los Angeles Valiant 2018 (extérieur)
 000000008559.07C: New York Excelsior (extérieur)
 00000000855A.07C: Philadelphia Fusion (extérieur)
-00000000855B.07C: San Francisco Shock (extérieur)
+00000000855B.07C: San Francisco Shock 2018 (extérieur)
 00000000855C.07C: Seoul Dynasty (extérieur)
 00000000855D.07C: Shanghai Dragons (extérieur)
 00000000855F.07C: Mission
 000000008563.07C: Boston Uprising (extérieur)
 000000008564.07C: Dallas Fuel (extérieur)
-000000008565.07C: Florida Mayhem (extérieur)
+000000008565.07C: Florida Mayhem 2018 (extérieur)
 000000008566.07C: Houston Outlaws (extérieur)
 000000008567.07C: London Spitfire (extérieur)
 000000008568.07C: Los Angeles Gladiators (extérieur)
-000000008569.07C: Los Angeles Valiant (extérieur)
+000000008569.07C: Los Angeles Valiant 2018 (extérieur)
 00000000856A.07C: New York Excelsior (extérieur)
 00000000856B.07C: Philadelphia Fusion (extérieur)
-00000000856C.07C: San Francisco Shock (extérieur)
+00000000856C.07C: San Francisco Shock 2018 (extérieur)
 00000000856D.07C: Seoul Dynasty (extérieur)
 00000000856E.07C: Shanghai Dragons (extérieur)
 000000008570.07C: Boston Uprising (extérieur)
 000000008571.07C: Dallas Fuel (extérieur)
-000000008572.07C: Florida Mayhem (extérieur)
+000000008572.07C: Florida Mayhem 2018 (extérieur)
 000000008573.07C: Houston Outlaws (extérieur)
 000000008574.07C: London Spitfire (extérieur)
 000000008575.07C: Los Angeles Gladiators (extérieur)
-000000008576.07C: Los Angeles Valiant (extérieur)
+000000008576.07C: Los Angeles Valiant 2018 (extérieur)
 000000008577.07C: New York Excelsior (extérieur)
 000000008578.07C: Philadelphia Fusion (extérieur)
-000000008579.07C: San Francisco Shock (extérieur)
+000000008579.07C: San Francisco Shock 2018 (extérieur)
 00000000857A.07C: Seoul Dynasty (extérieur)
 00000000857B.07C: Shanghai Dragons (extérieur)
 00000000857F.07C: Boston Uprising (extérieur)
 000000008580.07C: Dallas Fuel (extérieur)
-000000008581.07C: Florida Mayhem (extérieur)
+000000008581.07C: Florida Mayhem 2018 (extérieur)
 000000008582.07C: Houston Outlaws (extérieur)
 000000008583.07C: London Spitfire (extérieur)
 000000008584.07C: Los Angeles Gladiators (extérieur)
-000000008585.07C: Los Angeles Valiant (extérieur)
+000000008585.07C: Los Angeles Valiant 2018 (extérieur)
 000000008587.07C: New York Excelsior (extérieur)
 000000008588.07C: Philadelphia Fusion (extérieur)
-000000008589.07C: San Francisco Shock (extérieur)
+000000008589.07C: San Francisco Shock 2018 (extérieur)
 00000000858A.07C: Seoul Dynasty (extérieur)
 00000000858B.07C: Shanghai Dragons (extérieur)
 000000008594.07C: accomplie
 000000008595.07C: ratée
 00000000859D.07C: Boston Uprising (extérieur)
 00000000859E.07C: Dallas Fuel (extérieur)
-00000000859F.07C: Florida Mayhem (extérieur)
+00000000859F.07C: Florida Mayhem 2018 (extérieur)
 0000000085A0.07C: Houston Outlaws (extérieur)
 0000000085A1.07C: London Spitfire (extérieur)
 0000000085A2.07C: Los Angeles Gladiators (extérieur)
-0000000085A3.07C: Los Angeles Valiant (extérieur)
+0000000085A3.07C: Los Angeles Valiant 2018 (extérieur)
 0000000085A4.07C: New York Excelsior (extérieur)
 0000000085A5.07C: Philadelphia Fusion (extérieur)
-0000000085A6.07C: San Francisco Shock (extérieur)
+0000000085A6.07C: San Francisco Shock 2018 (extérieur)
 0000000085A7.07C: Seoul Dynasty (extérieur)
 0000000085A8.07C: Shanghai Dragons (extérieur)
 0000000085A9.07C: Boston Uprising (extérieur)
 0000000085AA.07C: Dallas Fuel (extérieur)
-0000000085AB.07C: Florida Mayhem (extérieur)
+0000000085AB.07C: Florida Mayhem 2018 (extérieur)
 0000000085AC.07C: Houston Outlaws (extérieur)
 0000000085AD.07C: London Spitfire (extérieur)
 0000000085AE.07C: Los Angeles Gladiators (extérieur)
-0000000085AF.07C: Los Angeles Valiant (extérieur)
+0000000085AF.07C: Los Angeles Valiant 2018 (extérieur)
 0000000085B0.07C: New York Excelsior (extérieur)
 0000000085B1.07C: Philadelphia Fusion (extérieur)
-0000000085B2.07C: San Francisco Shock (extérieur)
+0000000085B2.07C: San Francisco Shock 2018 (extérieur)
 0000000085B3.07C: Seoul Dynasty (extérieur)
 0000000085B4.07C: Shanghai Dragons (extérieur)
 0000000085BB.07C: Rialto
@@ -16630,26 +16628,26 @@ chats
 0000000085D9.07C: Boston Uprising (extérieur)
 0000000085DA.07C: Archives
 0000000085DC.07C: Dallas Fuel (extérieur)
-0000000085DD.07C: Florida Mayhem (extérieur)
+0000000085DD.07C: Florida Mayhem 2018 (extérieur)
 0000000085DE.07C: Houston Outlaws (extérieur)
 0000000085DF.07C: London Spitfire (extérieur)
 0000000085E0.07C: Los Angeles Gladiators (extérieur)
-0000000085E1.07C: Los Angeles Valiant (extérieur)
+0000000085E1.07C: Los Angeles Valiant 2018 (extérieur)
 0000000085E2.07C: New York Excelsior (extérieur)
 0000000085E3.07C: Philadelphia Fusion (extérieur)
-0000000085E4.07C: San Francisco Shock (extérieur)
+0000000085E4.07C: San Francisco Shock 2018 (extérieur)
 0000000085E5.07C: Seoul Dynasty (extérieur)
 0000000085E6.07C: Shanghai Dragons (extérieur)
 0000000085EF.07C: Boston Uprising (extérieur)
 0000000085F0.07C: Dallas Fuel (extérieur)
-0000000085F1.07C: Florida Mayhem (extérieur)
+0000000085F1.07C: Florida Mayhem 2018 (extérieur)
 0000000085F2.07C: Houston Outlaws (extérieur)
 0000000085F3.07C: London Spitfire (extérieur)
 0000000085F4.07C: Los Angeles Gladiators (extérieur)
-0000000085F5.07C: Los Angeles Valiant (extérieur)
+0000000085F5.07C: Los Angeles Valiant 2018 (extérieur)
 0000000085F6.07C: New York Excelsior (extérieur)
 0000000085F7.07C: Philadelphia Fusion (extérieur)
-0000000085F8.07C: San Francisco Shock (extérieur)
+0000000085F8.07C: San Francisco Shock 2018 (extérieur)
 0000000085F9.07C: Seoul Dynasty (extérieur)
 0000000085FA.07C: Shanghai Dragons (extérieur)
 0000000085FB.07C: Boston Uprising (extérieur)
@@ -16678,26 +16676,26 @@ chats
 000000008628.07C: Temps en ma faveur
 00000000862A.07C: Chasseurs toujours
 00000000862C.07C: Dallas Fuel (extérieur)
-00000000862D.07C: Florida Mayhem (extérieur)
+00000000862D.07C: Florida Mayhem 2018 (extérieur)
 00000000862E.07C: Houston Outlaws (extérieur)
 00000000862F.07C: London Spitfire (extérieur)
 000000008630.07C: Los Angeles Gladiators (extérieur)
-000000008631.07C: Los Angeles Valiant (extérieur)
+000000008631.07C: Los Angeles Valiant 2018 (extérieur)
 000000008632.07C: New York Excelsior (extérieur)
 000000008633.07C: Philadelphia Fusion (extérieur)
-000000008634.07C: San Francisco Shock (extérieur)
+000000008634.07C: San Francisco Shock 2018 (extérieur)
 000000008635.07C: Seoul Dynasty (extérieur)
 000000008636.07C: Shanghai Dragons (extérieur)
 000000008637.07C: Boston Uprising (extérieur)
 000000008638.07C: Dallas Fuel (extérieur)
-000000008639.07C: Florida Mayhem (extérieur)
+000000008639.07C: Florida Mayhem 2018 (extérieur)
 00000000863A.07C: Houston Outlaws (extérieur)
 00000000863B.07C: London Spitfire (extérieur)
 00000000863C.07C: Los Angeles Gladiators (extérieur)
-00000000863D.07C: Los Angeles Valiant (extérieur)
+00000000863D.07C: Los Angeles Valiant 2018 (extérieur)
 00000000863E.07C: New York Excelsior (extérieur)
 00000000863F.07C: Philadelphia Fusion (extérieur)
-000000008640.07C: San Francisco Shock (extérieur)
+000000008640.07C: San Francisco Shock 2018 (extérieur)
 000000008641.07C: Seoul Dynasty (extérieur)
 000000008642.07C: Shanghai Dragons (extérieur)
 000000008643.07C: Besoin de personne
@@ -17638,25 +17636,25 @@ Lúcioball 2018
 000000009363.07C: Dallas Fuel
 000000009364.07C: London Spitfire
 000000009365.07C: Los Angeles Gladiators
-000000009366.07C: Los Angeles Valiant
-000000009367.07C: Florida Mayhem
+000000009366.07C: Los Angeles Valiant 2018
+000000009367.07C: Florida Mayhem 2018
 000000009368.07C: Houston Outlaws
 000000009369.07C: New York Excelsior
 00000000936A.07C: Philadelphia Fusion
-00000000936B.07C: San Francisco Shock
+00000000936B.07C: San Francisco Shock 2018
 00000000936C.07C: Seoul Dynasty
 00000000936D.07C: Shanghai Dragons
 000000009372.07C: Copa Lúcioball
 00000000937B.07C: Boston Uprising (extérieur)
 00000000937C.07C: Dallas Fuel (extérieur)
-00000000937D.07C: Florida Mayhem (extérieur)
+00000000937D.07C: Florida Mayhem 2018 (extérieur)
 00000000937E.07C: Houston Outlaws (extérieur)
 00000000937F.07C: London Spitfire (extérieur)
 000000009380.07C: Los Angeles Gladiators (extérieur)
-000000009381.07C: Los Angeles Valiant (extérieur)
+000000009381.07C: Los Angeles Valiant 2018 (extérieur)
 000000009382.07C: New York Excelsior (extérieur)
 000000009383.07C: Philadelphia Fusion (extérieur)
-000000009384.07C: San Francisco Shock (extérieur)
+000000009384.07C: San Francisco Shock 2018 (extérieur)
 000000009385.07C: Seoul Dynasty (extérieur)
 000000009386.07C: Shanghai Dragons (extérieur)
 000000009390.07C: GAGNEZ CES RÉCOMPENSES EN PARTICIPANT
@@ -18337,23 +18335,23 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000A7E6.07C: Dallas Fuel
 00000000A7E7.07C: London Spitfire
 00000000A7E8.07C: Los Angeles Gladiators
-00000000A7E9.07C: Los Angeles Valiant
-00000000A7EA.07C: Florida Mayhem
+00000000A7E9.07C: Los Angeles Valiant 2018
+00000000A7EA.07C: Florida Mayhem 2018
 00000000A7EB.07C: Houston Outlaws
 00000000A7EC.07C: New York Excelsior
 00000000A7ED.07C: Philadelphia Fusion
-00000000A7EE.07C: San Francisco Shock
+00000000A7EE.07C: San Francisco Shock 2018
 00000000A7EF.07C: Seoul Dynasty
 00000000A7F0.07C: Boston Uprising (extérieur)
 00000000A7F1.07C: Dallas Fuel (extérieur)
-00000000A7F2.07C: Florida Mayhem (extérieur)
+00000000A7F2.07C: Florida Mayhem 2018 (extérieur)
 00000000A7F3.07C: Houston Outlaws (extérieur)
 00000000A7F4.07C: Los Angeles Gladiators (extérieur)
 00000000A7F5.07C: London Spitfire (extérieur)
-00000000A7F6.07C: Los Angeles Valiant (extérieur)
+00000000A7F6.07C: Los Angeles Valiant 2018 (extérieur)
 00000000A7F7.07C: New York Excelsior (extérieur)
 00000000A7F8.07C: Philadelphia Fusion (extérieur)
-00000000A7F9.07C: San Francisco Shock (extérieur)
+00000000A7F9.07C: San Francisco Shock 2018 (extérieur)
 00000000A7FA.07C: Seoul Dynasty (extérieur)
 00000000A7FB.07C: Shanghai Dragons (extérieur)
 00000000A806.07C: Diminuer la vitesse de lecture
@@ -19575,27 +19573,27 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000B4F8.07C: Atlanta Reign
 00000000B4F9.07C: Shanghai Dragons (extérieur)
 00000000B4FA.07C: Seoul Dynasty (extérieur)
-00000000B4FB.07C: San Francisco Shock (extérieur)
+00000000B4FB.07C: San Francisco Shock 2018 (extérieur)
 00000000B4FC.07C: Philadelphia Fusion (extérieur)
 00000000B4FD.07C: Seoul Dynasty
 00000000B4FE.07C: London Spitfire
 00000000B4FF.07C: Dallas Fuel
 00000000B500.07C: Los Angeles Gladiators
-00000000B501.07C: Los Angeles Valiant
-00000000B502.07C: Florida Mayhem
+00000000B501.07C: Los Angeles Valiant 2018
+00000000B502.07C: Florida Mayhem 2018
 00000000B503.07C: Houston Outlaws
 00000000B504.07C: New York Excelsior
 00000000B505.07C: Philadelphia Fusion
-00000000B506.07C: San Francisco Shock
+00000000B506.07C: San Francisco Shock 2018
 00000000B507.07C: Shanghai Dragons
 00000000B508.07C: New York Excelsior (extérieur)
 00000000B509.07C: Boston Uprising (extérieur)
 00000000B50A.07C: Dallas Fuel (extérieur)
-00000000B50B.07C: Florida Mayhem (extérieur)
+00000000B50B.07C: Florida Mayhem 2018 (extérieur)
 00000000B50C.07C: Houston Outlaws (extérieur)
 00000000B50D.07C: London Spitfire (extérieur)
 00000000B50E.07C: Los Angeles Gladiators (extérieur)
-00000000B50F.07C: Los Angeles Valiant (extérieur)
+00000000B50F.07C: Los Angeles Valiant 2018 (extérieur)
 00000000B510.07C: Washington Justice
 00000000B511.07C: Washington Justice (extérieur)
 00000000B512.07C: Vancouver Titans
@@ -19752,6 +19750,7 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000B65F.07C: Déesse
 00000000B660.07C: Kraken
 00000000B676.07C: Vous ne pouvez pas accepter cette demande de contact car la liste de l’expéditeur est pleine.
+00000000B677.07C: OWL VAL 2020 (extérieur)
 00000000B67A.07C: Trop puissant !
 00000000B67B.07C: Hamac
 00000000B67C.07C: Origine
@@ -22022,6 +22021,7 @@ miroir
 00000000C5F3.07C: Étourdi
 00000000C5F4.07C: Oui
 00000000C5F5.07C: Non
+00000000C602.07C: Samul Nori
 00000000C604.07C: Les joueurs ne pouvant pas être touchés par cette émission de rayons. Cette liste supplante celle des Joueurs à inclure.
 00000000C605.07C: Joueurs à exclure
 00000000C611.07C: Joueur intersecté par le rayon émis
@@ -22075,6 +22075,7 @@ miroir
 00000000C71E.07C: Zhongguo
 00000000C71F.07C: Aigle fédéral
 00000000C72C.07C: Secouriste militaire
+00000000C733.07C: Visage fluctuant
 00000000C740.07C: Américain
 00000000C741.07C: Brique
 00000000C742.07C: Obtenu comme bonus en jeu à l’occasion de la BlizzCon 2019
@@ -22093,10 +22094,8 @@ miroir
 00000000C77B.07C: Mauga
 00000000C77C.07C: Obtenu en participant au défi Le choix de Baptiste
 00000000C77D.07C: Activé/Désactivé
-00000000C780.07C: MVP de l’Overwatch League 2018
 00000000C781.07C: Rétention énergétique
 00000000C782.07C: Obtenir 350 points de bouclier avec une seule Captation cinétique en partie rapide ou compétitive.
-00000000C783.07C: Modèle légendaire ZEN-NAKJI
 00000000C785.07C: SON SPATIAL
 00000000C786.07C: PARAMÈTRES SYSTÈME
 00000000C7A4.07C: Trop cool
@@ -22136,6 +22135,7 @@ miroir
 00000000C7EC.07C: Obtenu en participant au défi Le choix de Baptiste
 00000000C7ED.07C: Obtenu en regardant les streams participant à l’opération pendant le défi Le choix de Baptiste
 00000000C7F6.07C: Supprimer
+00000000C7F7.07C: Danseuse masquée
 00000000C7F8.07C: Tangente en degrés
 00000000C7F9.07C: Tangente de l’angle spécifié en degrés.
 00000000C7FC.07C: Tangente de l’angle spécifié en radians.
@@ -22320,6 +22320,7 @@ Copa Lúcioball
 00000000C9DE.07C: %1$s : %2$s
 00000000C9E3.07C: Temporairement indisponible
 00000000C9E4.07C: Rôle déjà assigné
+00000000C9E5.07C: Opéra
 00000000C9E8.07C: Visée gyroscopique activée/désactivée
 00000000C9E9.07C: Sensibilité de l’axe de tangage pour la visée gyroscopique
 00000000C9EB.07C: Aide à la visée gyroscopique activée/désactivée
@@ -22341,9 +22342,9 @@ Copa Lúcioball
 00000000CA0C.07C: Vous devez choisir un rôle pour que votre escouade accède à la file d’attente. Choisir maintenant ?
 00000000CA0D.07C: Boutiques
 00000000CA0E.07C: Boutique
-00000000CA11.07C: Semaine 1 : Chandail : 76
-00000000CA13.07C: Semaine 2 : Moira houx
-00000000CA14.07C: Semaine 3 : Ange de neige
+00000000CA11.07C: Semaine 1 : Doomfist moine
+00000000CA13.07C: Semaine 2 : Winston bronze antique
+00000000CA14.07C: Semaine 3 : Bouldozer lampion de papier
 00000000CA15.07C: Obtenez 9 victoires en arcade,
 partie rapide ou compétitive !
 00000000CA16.07C: Obtenez 9 victoires en arcade,
@@ -22430,8 +22431,8 @@ partie rapide ou compétitive !
 00000000CAD7.07C: Chengdu Hunters (extérieur)
 00000000CADA.07C: Dallas Fuel
 00000000CADB.07C: Dallas Fuel (extérieur)
-00000000CADC.07C: Florida Mayhem
-00000000CADD.07C: Florida Mayhem (extérieur)
+00000000CADC.07C: Florida Mayhem 2018
+00000000CADD.07C: Florida Mayhem 2018 (extérieur)
 00000000CADE.07C: Guangzhou Charge
 00000000CADF.07C: Guangzhou Charge (extérieur)
 00000000CAE0.07C: Hangzhou Spark
@@ -22442,15 +22443,15 @@ partie rapide ou compétitive !
 00000000CAE5.07C: London Spitfire (extérieur)
 00000000CAE6.07C: Los Angeles Gladiators
 00000000CAE7.07C: Los Angeles Gladiators (extérieur)
-00000000CAE8.07C: Los Angeles Valiant
-00000000CAE9.07C: Los Angeles Valiant (extérieur)
+00000000CAE8.07C: Los Angeles Valiant 2018
+00000000CAE9.07C: Los Angeles Valiant 2018 (extérieur)
 00000000CAEA.07C: New York Excelsior
 00000000CAEB.07C: Paris Eternal
 00000000CAEC.07C: Paris Eternal (extérieur)
 00000000CAED.07C: Philadelphia Fusion
 00000000CAEE.07C: Philadelphia Fusion (extérieur)
-00000000CAEF.07C: San Francisco Shock
-00000000CAF0.07C: San Francisco Shock (extérieur)
+00000000CAEF.07C: San Francisco Shock 2018
+00000000CAF0.07C: San Francisco Shock 2018 (extérieur)
 00000000CAF1.07C: Seoul Dynasty
 00000000CAF2.07C: Seoul Dynasty (extérieur)
 00000000CAF3.07C: Shanghai Dragons
@@ -26224,6 +26225,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000EA3E.07C: Inverser l’axe de lacet pour la visée gyroscopique
 00000000EA40.07C: Partie compétitive
 00000000EA41.07C: GAGNEZ CES RÉCOMPENSES EN PARTICIPANT
+00000000EA51.07C: Bélier
 00000000EA59.07C: Inverser l’axe de roulis pour la visée gyroscopique
 00000000EA5A.07C: (débloqué)
 00000000EA97.07C: Manette pro
@@ -26234,6 +26236,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000EAFB.07C: Global
 00000000EAFC.07C: Joueur
 00000000EB07.07C: Il y a %1$s |Rplseconde:secondes;
+00000000EB0A.07C: Lampion de papier
 00000000EB0E.07C: Réglages par défaut
 00000000EB17.07C: Activer l’entrée haute précision de la souris
 00000000EB1E.07C: Erreur : la variable de joueur « %1$s » doit être nommée
@@ -26249,6 +26252,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000EB4C.07C: Eichenwalde, Hollywood, King’s Row
 00000000EB4D.07C: Busan, Nepal, Tour de Lijiang
 00000000EB4E.07C: La Havane, Observatoire : Gibraltar, Route 66
+00000000EB4F.07C: Moine
 00000000EB73.07C: variables
 00000000EB74.07C: globale
 00000000EB75.07C: de joueur
@@ -26335,6 +26339,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F059.07C: 900 jetons de ligue
 00000000F05A.07C: 2 600 jetons de ligue
 00000000F086.07C: Cliquez pour choisir une partie à rejoindre pendant que vous êtes en file d’attente.
+00000000F089.07C: Masque de lion
 00000000F08A.07C: Recherche
 00000000F08B.07C: Certaines parties ne sont pas disponibles.
 00000000F08C.07C: Saúde
@@ -26401,17 +26406,20 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F1A3.07C: account/management
 00000000F1AB.07C: support/ccpa
 00000000F1B1.07C: Erreur : trop de chaînes personnalisées.
+00000000F1B6.07C: Bronze antique
 00000000F1BD.07C: client
 00000000F1C0.07C: VOULEZ-VOUS VRAIMENT QUITTER LA PARTIE ET LA FILE D’ATTENTE ?
 00000000F1C5.07C: <fg%1$s>ATTRAPÉE</fg>
 00000000F1C6.07C: 2020
 00000000F1C7.07C: Disponible dans les coffres hivernaux
+00000000F1C8.07C: Rejoindre automatiquement pendant l’attente
 00000000F212.07C: Brèche
 00000000F213.07C: Tuer un ennemi après avoir détruit en partie son mur de glace en combat à mort de boules de neige.
 00000000F214.07C: Répétrition
 00000000F215.07C: Tuer 3 ennemis sans recharger ou mourir en combat à mort de boules de neige.
 00000000F216.07C: Attrapée !
 00000000F217.07C: Tuer un ennemi avec une boule de neige attrapée en combat à mort de boules de neige.
+00000000F21E.07C: Ne pas rejoindre automatiquement
 00000000F21F.07C: Jötunn
 00000000F221.07C: Trappeur
 00000000F223.07C: Sphères de glace
@@ -26426,6 +26434,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F23E.07C: Avertissement : vos performances système pourraient en être affectées !
 00000000F241.07C: + 100 jetons en bonus
 00000000F242.07C: + 500 jetons en bonus
+00000000F244.07C: OWL SFS 2020 (domicile)
 00000000F246.07C: Abreuvoir
 00000000F248.07C: Les modes de jeu en cours d’attente sont actuellement indisponibles.
 00000000F24A.07C: Forêt-Noire (hiver)
@@ -26448,16 +26457,361 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F269.07C: Semaine 2
 00000000F26A.07C: Semaine 3
 00000000F26C.07C: L’équipe victorieuse.
+00000000F26D.07C: OWL FLA 2020 (domicile)
+00000000F275.07C: Logo Los Angeles Valiant
+00000000F276.07C: Logo San Francisco Shock
+00000000F277.07C: Logo Florida Mayhem
+00000000F278.07C: Florida Mayhem
+00000000F279.07C: San Francisco Shock
+00000000F27A.07C: Los Angeles Valiant
+00000000F362.07C: OWL VAL 2020 (domicile)
+00000000F365.07C: OWL SFS 2020 (extérieur)
+00000000F366.07C: Obtenu en participant au défi de la semaine 3 de l’année du rat 2020
+00000000F367.07C: Obtenu en participant au défi de la semaine 2 de l’année du rat 2020
+00000000F368.07C: Obtenu en participant au défi de la semaine 1 de l’année du rat 2020
+00000000F369.07C: OWL FLA 2020 (extérieur)
+00000000F36C.07C: Capture du drapeau Éclair
+00000000F36D.07C: Capture du drapeau Éclair
+00000000F36E.07C: Deux équipes de six joueurs s’affrontent dans une partie effrénée pour capturer le drapeau adverse tout en défendant le leur.
+00000000F370.07C: Capture du drapeau en compétitif - Saison 3
+00000000F371.07C: Capture du drapeau en compétitif
+00000000F372.07C: Grimpez les échelons et affrontez les meilleurs joueurs de capture du drapeau au monde !
+00000000F374.07C: Soupe chaude
 00000000F376.07C: Partie en cours de chargement
+00000000F396.07C: Lampion
+00000000F39C.07C: Festin
+00000000F39D.07C: Cerf-volant
 00000000F3A3.07C: Quand une partie correspondant à votre file d'attente sera trouvée, vous la rejoindrez automatiquement.
 00000000F3AE.07C: Chargement de la partie
 00000000F3CD.07C: Fruit de l’harmonie
 00000000F3CE.07C: Disponible dans les coffres hivernaux
+00000000F405.07C: Emplacement des drapeaux Éclair
+00000000F406.07C: Oui
+00000000F407.07C: Non
+00000000F408.07C: Durée du bonus de vitesse à la réapparition
+00000000F409.07C: Capture du drapeau Éclair
+00000000F40A.07C: ÉQUIPE
+00000000F40B.07C: |Rfn %1$s:N1;
+00000000F417.07C: Afficher le diagnostic
+00000000F418.07C: Diagnostic du script
+00000000F41B.07C: Nombre total d’éléments : %1$s
+00000000F41C.07C: Taille de la plus grande règle : %1$s Ko
+00000000F41D.07C: Ces éléments incluent les règles, conditions, actions et valeurs (jusqu’à un maximum de %1$s).
+00000000F41E.07C: Les règles doivent faire moins de %1$s Ko.
 00000000F420.07C: Surprise festive
 00000000F422.07C: Neige neige neige
 00000000F424.07C: Ours polaire
+00000000F426.07C: Feu d’artifice
+00000000F428.07C: Florida
+00000000F429.07C: FL
+00000000F42A.07C: Mayhem
+00000000F42B.07C: Florida
+00000000F42C.07C: FL
+00000000F42D.07C: Mayhem
+00000000F48A.07C: Los Angeles
+00000000F48B.07C: LA
+00000000F48C.07C: Valiant
+00000000F48D.07C: Los Angeles
+00000000F48E.07C: LA
+00000000F48F.07C: Valiant
+00000000F49A.07C: San Francisco
+00000000F49B.07C: SF
+00000000F49C.07C: Shock
+00000000F49D.07C: San Francisco
+00000000F49E.07C: SF
+00000000F49F.07C: Shock
+00000000F4A2.07C: CONTINUER
+00000000F4A3.07C: Nouvel an lunaire
+00000000F4A4.07C: Année du rat
+00000000F4A5.07C: Jouez pour gagner des coffres lunaires en édition limitée. De nouveaux modèles, entrées en scène et bien plus à gagner !
+00000000F4A6.07C: Capture du drapeau Éclair
+00000000F4A7.07C: Nouveau mode de Capture du drapeau !
+00000000F4A8.07C: Affrontez-vous dans une partie effrénée pour capturer le drapeau de l’équipe adverse !
+00000000F4A9.07C: Féerie hivernale 2019
+00000000F4AA.07C: Fin de l’évènement le 5 février
+00000000F4AB.07C: Obtenez de nouveaux modèles
+00000000F4AC.07C: Défis hebdomadaires
+00000000F4AD.07C: Semaine 1
+00000000F4AE.07C: Semaine 2
+00000000F4AF.07C: Semaine 3
+00000000F4B2.07C: VICTOIRE : Capturez 6 drapeaux
+00000000F4B3.07C: CARTES : Busan - Sanctuaire, Ilios - Puits, Ilios - Ruines, Népal - Village, Oasis - Centre-ville, Oasis - Université
 00000000F4B5.07C: , 
+00000000F4B8.07C: Danse du lion
+00000000F4B9.07C: Disponible dans les coffres lunaires
+00000000F4BA.07C: Captation de raviolis
+00000000F4BB.07C: Disponible dans les coffres lunaires
 00000000F4BE.07C: Sélectionner
 00000000F523.07C: Débloqué en se connectant au jeu pendant la Féerie hivernale 2019
-00000000F949.07C: Off
-[Core] Execution finished in 00:00:03.4920960 seconds
+00000000F528.07C: Année du rat 2020
+00000000F529.07C: Année du rat
+00000000F52A.07C: Disponible dans les coffres lunaires
+00000000F531.07C: Los Angeles Valiant (extérieur)
+00000000F532.07C: San Francisco Shock (extérieur)
+00000000F533.07C: San Francisco Shock (extérieur)
+00000000F534.07C: San Francisco Shock (extérieur)
+00000000F535.07C: San Francisco Shock (extérieur)
+00000000F536.07C: San Francisco Shock (extérieur)
+00000000F537.07C: San Francisco Shock (extérieur)
+00000000F538.07C: San Francisco Shock (extérieur)
+00000000F539.07C: San Francisco Shock (extérieur)
+00000000F53A.07C: San Francisco Shock (extérieur)
+00000000F53B.07C: San Francisco Shock (extérieur)
+00000000F53C.07C: San Francisco Shock (extérieur)
+00000000F53D.07C: San Francisco Shock (extérieur)
+00000000F53E.07C: San Francisco Shock (extérieur)
+00000000F53F.07C: San Francisco Shock (extérieur)
+00000000F540.07C: San Francisco Shock (extérieur)
+00000000F541.07C: San Francisco Shock (extérieur)
+00000000F542.07C: San Francisco Shock (extérieur)
+00000000F543.07C: San Francisco Shock (extérieur)
+00000000F544.07C: San Francisco Shock (extérieur)
+00000000F545.07C: San Francisco Shock (extérieur)
+00000000F546.07C: San Francisco Shock (extérieur)
+00000000F547.07C: San Francisco Shock (extérieur)
+00000000F548.07C: San Francisco Shock (extérieur)
+00000000F549.07C: San Francisco Shock (extérieur)
+00000000F54A.07C: San Francisco Shock (extérieur)
+00000000F54B.07C: San Francisco Shock (extérieur)
+00000000F54C.07C: San Francisco Shock (extérieur)
+00000000F54D.07C: San Francisco Shock (extérieur)
+00000000F54E.07C: San Francisco Shock (extérieur)
+00000000F54F.07C: San Francisco Shock (extérieur)
+00000000F550.07C: San Francisco Shock (extérieur)
+00000000F551.07C: San Francisco Shock
+00000000F552.07C: San Francisco Shock
+00000000F553.07C: San Francisco Shock
+00000000F554.07C: San Francisco Shock
+00000000F555.07C: San Francisco Shock
+00000000F556.07C: San Francisco Shock
+00000000F557.07C: San Francisco Shock
+00000000F558.07C: San Francisco Shock
+00000000F559.07C: San Francisco Shock
+00000000F55A.07C: San Francisco Shock
+00000000F55B.07C: San Francisco Shock
+00000000F55C.07C: San Francisco Shock
+00000000F55D.07C: San Francisco Shock
+00000000F55E.07C: San Francisco Shock
+00000000F55F.07C: San Francisco Shock
+00000000F560.07C: San Francisco Shock
+00000000F561.07C: San Francisco Shock
+00000000F562.07C: San Francisco Shock
+00000000F563.07C: San Francisco Shock
+00000000F564.07C: San Francisco Shock
+00000000F565.07C: San Francisco Shock
+00000000F566.07C: San Francisco Shock
+00000000F567.07C: San Francisco Shock
+00000000F568.07C: San Francisco Shock
+00000000F569.07C: San Francisco Shock
+00000000F56A.07C: San Francisco Shock
+00000000F56B.07C: San Francisco Shock
+00000000F56C.07C: San Francisco Shock
+00000000F56D.07C: San Francisco Shock
+00000000F56E.07C: San Francisco Shock
+00000000F56F.07C: San Francisco Shock
+00000000F570.07C: Los Angeles Valiant
+00000000F571.07C: Los Angeles Valiant
+00000000F572.07C: Los Angeles Valiant
+00000000F573.07C: Los Angeles Valiant
+00000000F574.07C: Los Angeles Valiant
+00000000F575.07C: Los Angeles Valiant
+00000000F576.07C: Los Angeles Valiant
+00000000F577.07C: Los Angeles Valiant
+00000000F578.07C: Los Angeles Valiant
+00000000F579.07C: Los Angeles Valiant
+00000000F57A.07C: Los Angeles Valiant
+00000000F57B.07C: Los Angeles Valiant
+00000000F57C.07C: Los Angeles Valiant
+00000000F57D.07C: Los Angeles Valiant
+00000000F57E.07C: Los Angeles Valiant
+00000000F57F.07C: Los Angeles Valiant
+00000000F580.07C: Los Angeles Valiant
+00000000F581.07C: Los Angeles Valiant
+00000000F582.07C: Los Angeles Valiant
+00000000F583.07C: Los Angeles Valiant
+00000000F584.07C: Los Angeles Valiant
+00000000F585.07C: Los Angeles Valiant
+00000000F586.07C: Los Angeles Valiant
+00000000F587.07C: Los Angeles Valiant
+00000000F588.07C: Los Angeles Valiant
+00000000F589.07C: Los Angeles Valiant
+00000000F58A.07C: Los Angeles Valiant
+00000000F58B.07C: Los Angeles Valiant
+00000000F58C.07C: Los Angeles Valiant
+00000000F58D.07C: Los Angeles Valiant
+00000000F58E.07C: Los Angeles Valiant
+00000000F58F.07C: Los Angeles Valiant (extérieur)
+00000000F590.07C: Los Angeles Valiant (extérieur)
+00000000F591.07C: Los Angeles Valiant (extérieur)
+00000000F592.07C: Los Angeles Valiant (extérieur)
+00000000F593.07C: Los Angeles Valiant (extérieur)
+00000000F594.07C: Los Angeles Valiant (extérieur)
+00000000F595.07C: Los Angeles Valiant (extérieur)
+00000000F596.07C: Los Angeles Valiant (extérieur)
+00000000F597.07C: Los Angeles Valiant (extérieur)
+00000000F598.07C: Los Angeles Valiant (extérieur)
+00000000F599.07C: Los Angeles Valiant (extérieur)
+00000000F59A.07C: Los Angeles Valiant (extérieur)
+00000000F59B.07C: Los Angeles Valiant (extérieur)
+00000000F59C.07C: Los Angeles Valiant (extérieur)
+00000000F59D.07C: Los Angeles Valiant (extérieur)
+00000000F59E.07C: Los Angeles Valiant (extérieur)
+00000000F59F.07C: Los Angeles Valiant (extérieur)
+00000000F5A0.07C: Los Angeles Valiant (extérieur)
+00000000F5A1.07C: Los Angeles Valiant (extérieur)
+00000000F5A2.07C: Los Angeles Valiant (extérieur)
+00000000F5A3.07C: Los Angeles Valiant (extérieur)
+00000000F5A4.07C: Los Angeles Valiant (extérieur)
+00000000F5A5.07C: Los Angeles Valiant (extérieur)
+00000000F5A6.07C: Los Angeles Valiant (extérieur)
+00000000F5A7.07C: Los Angeles Valiant (extérieur)
+00000000F5A8.07C: Los Angeles Valiant (extérieur)
+00000000F5A9.07C: Los Angeles Valiant (extérieur)
+00000000F5AA.07C: Los Angeles Valiant (extérieur)
+00000000F5AB.07C: Los Angeles Valiant (extérieur)
+00000000F5AC.07C: Los Angeles Valiant (extérieur)
+00000000F5AD.07C: Florida Mayhem
+00000000F5AE.07C: Florida Mayhem
+00000000F5AF.07C: Florida Mayhem
+00000000F5B0.07C: Florida Mayhem
+00000000F5B1.07C: Florida Mayhem
+00000000F5B2.07C: Florida Mayhem
+00000000F5B3.07C: Florida Mayhem
+00000000F5B4.07C: Florida Mayhem
+00000000F5B5.07C: Florida Mayhem
+00000000F5B6.07C: Florida Mayhem
+00000000F5B7.07C: Florida Mayhem
+00000000F5B8.07C: Florida Mayhem
+00000000F5B9.07C: Florida Mayhem
+00000000F5BA.07C: Florida Mayhem
+00000000F5BB.07C: Florida Mayhem
+00000000F5BC.07C: Florida Mayhem
+00000000F5BD.07C: Florida Mayhem
+00000000F5BE.07C: Florida Mayhem
+00000000F5BF.07C: Florida Mayhem
+00000000F5C0.07C: Florida Mayhem
+00000000F5C1.07C: Florida Mayhem
+00000000F5C2.07C: Florida Mayhem
+00000000F5C3.07C: Florida Mayhem
+00000000F5C4.07C: Florida Mayhem
+00000000F5C5.07C: Florida Mayhem
+00000000F5C6.07C: Florida Mayhem
+00000000F5C7.07C: Florida Mayhem
+00000000F5C8.07C: Florida Mayhem
+00000000F5C9.07C: Florida Mayhem
+00000000F5CA.07C: Florida Mayhem
+00000000F5CB.07C: Florida Mayhem
+00000000F5CC.07C: Florida Mayhem (extérieur)
+00000000F5CD.07C: Florida Mayhem (extérieur)
+00000000F5CE.07C: Florida Mayhem (extérieur)
+00000000F5CF.07C: Florida Mayhem (extérieur)
+00000000F5D0.07C: Florida Mayhem (extérieur)
+00000000F5D1.07C: Florida Mayhem (extérieur)
+00000000F5D2.07C: Florida Mayhem (extérieur)
+00000000F5D3.07C: Florida Mayhem (extérieur)
+00000000F5D4.07C: Florida Mayhem (extérieur)
+00000000F5D5.07C: Florida Mayhem (extérieur)
+00000000F5D6.07C: Florida Mayhem (extérieur)
+00000000F5D7.07C: Florida Mayhem (extérieur)
+00000000F5D8.07C: Florida Mayhem (extérieur)
+00000000F5D9.07C: Florida Mayhem (extérieur)
+00000000F5DA.07C: Florida Mayhem (extérieur)
+00000000F5DB.07C: Florida Mayhem (extérieur)
+00000000F5DC.07C: Florida Mayhem (extérieur)
+00000000F5DD.07C: Florida Mayhem (extérieur)
+00000000F5DE.07C: Florida Mayhem (extérieur)
+00000000F5DF.07C: Florida Mayhem (extérieur)
+00000000F5E0.07C: Florida Mayhem (extérieur)
+00000000F5E1.07C: Florida Mayhem (extérieur)
+00000000F5E2.07C: Florida Mayhem (extérieur)
+00000000F5E3.07C: Florida Mayhem (extérieur)
+00000000F5E4.07C: Florida Mayhem (extérieur)
+00000000F5E5.07C: Florida Mayhem (extérieur)
+00000000F5E6.07C: Florida Mayhem (extérieur)
+00000000F5E7.07C: Florida Mayhem (extérieur)
+00000000F5E8.07C: Florida Mayhem (extérieur)
+00000000F5E9.07C: Florida Mayhem (extérieur)
+00000000F5EA.07C: Florida Mayhem (extérieur)
+00000000F8B0.07C: Visage fluctuant
+00000000F8B1.07C: Disponible dans les coffres lunaires
+00000000F8B2.07C: Masque de Sombra
+00000000F8B3.07C: Disponible dans les coffres lunaires
+00000000F8B4.07C: Masque orange
+00000000F8B5.07C: Disponible dans les coffres lunaires
+00000000F8B6.07C: Masque d’omniaque
+00000000F8B7.07C: Disponible dans les coffres lunaires
+00000000F8B8.07C: Samul Nori
+00000000F8B9.07C: Disponible dans les coffres lunaires
+00000000F8BA.07C: Guerrière d’opéra
+00000000F8BB.07C: Disponible dans les coffres lunaires
+00000000F8BC.07C: Danseuse masquée
+00000000F8BD.07C: Disponible dans les coffres lunaires
+00000000F8BE.07C: Danse du dragon
+00000000F8BF.07C: Disponible dans les coffres lunaires
+00000000F8C0.07C: Danse du dragon
+00000000F8C1.07C: Disponible dans les coffres lunaires
+00000000F8C2.07C: Compétiteur Capture du drapeau 2020
+00000000F8C3.07C: Obtenu en effectuant toutes les parties de placement du mode Capture du drapeau en 2020
+00000000F8C4.07C: Héros Capture du drapeau 2020
+00000000F8C5.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Capture du drapeau en 2020
+00000000F949.07C: Désactivé
+00000000FA3D.07C: Compétiteur Capture du drapeau 2020
+00000000FA3F.07C: Héros Capture du drapeau 2020
+00000000FA42.07C: Jingang
+00000000FA45.07C: Concentration
+00000000FA47.07C: Bronze antique
+00000000FA49.07C: Bronze antique
+00000000FA4B.07C: Rat
+00000000FA4D.07C: Printemps
+00000000FABE.07C: |Rpl %1$s:Victime:Victimes; de recul
+00000000FABF.07C: %1$s |Rpl Victime:Victimes; de recul
+00000000FAC0.07C: |Rpl %1$s:Victime:Victimes; de recul
+00000000FAC1.07C: %1$s |Rpl Victime:Victimes; de recul
+00000000FB62.07C: CÔTÉ DE LA CAMÉRA EN VUE 3E PERSONNE SIMPLE
+00000000FB64.07C: Bahreïn
+00000000FB69.07C: Samul Nori
+00000000FB6B.07C: Guerrière d’opéra
+00000000FB6F.07C: Talchum
+00000000FB70.07C: Disponible dans les coffres lunaires
+00000000FB71.07C: Visage fluctuant
+00000000FB72.07C: Disponible dans les coffres lunaires
+00000000FB7F.07C: Skål
+00000000FB80.07C: Disponible dans les coffres lunaires
+00000000FB81.07C: On remet ça
+00000000FB82.07C: Disponible dans les coffres lunaires
+00000000FB83.07C: J’ai envie de danser
+00000000FB84.07C: Disponible dans les coffres lunaires
+00000000FB85.07C: Comment te sens-tu
+00000000FB86.07C: Disponible dans les coffres lunaires
+00000000FB87.07C: Magnifique
+00000000FB88.07C: Disponible dans les coffres lunaires
+00000000FB89.07C: Je pense, donc je crée
+00000000FB8A.07C: Disponible dans les coffres lunaires
+00000000FB90.07C: Je suis un hamster
+00000000FB91.07C: Disponible dans les coffres lunaires
+00000000FB94.07C: Je ne pense pas
+00000000FB95.07C: Disponible dans les coffres lunaires
+00000000FB96.07C: Dépassement de pile
+00000000FB97.07C: Disponible dans les coffres lunaires
+00000000FBAA.07C: Gelukkig Nieuwjaar
+00000000FBAB.07C: Disponible dans les coffres lunaires
+00000000FBB2.07C: Besoin de quelque chose
+00000000FBB3.07C: Disponible dans les coffres lunaires
+00000000FBB4.07C: Une anomalie !
+00000000FBB5.07C: Disponible dans les coffres lunaires
+00000000FBB7.07C: Disponible dans les coffres lunaires
+00000000FBB8.07C: Ne vous inquiétez pas
+00000000FBD5.07C: Masque de Wukong
+00000000FBD6.07C: Disponible dans les coffres lunaires
+00000000FBD7.07C: Masque bleu
+00000000FBD8.07C: Disponible dans les coffres lunaires
+00000000FBDA.07C: Mises à jour désactivées
+00000000FC5D.07C: Vous serez peut-être dans l’incapacité de jouer si une mise à jour est nécessaire.
+00000000FC5E.07C: Masquer l’interface des enregistrements
+00000000FC91.07C: VUE DE SPECTATEUR EN 3E PERSONNE NORMALE/SIMPLE
+00000000FDBB.07C: Désactivé
+00000000FFB4.07C: Matchs
+00000000FFCF.07C: DEMANDE DE CONTACT REÇUE
+00000000FFE7.07C: Overwatch League 2020
+00000000FFE8.07C: Brigitte bélier
+[Core] Execution finished in 00:00:03.7793546 seconds
