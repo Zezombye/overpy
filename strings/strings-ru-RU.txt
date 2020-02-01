@@ -1,12 +1,12 @@
-[Core] DataTool v1.43.0.858-git-7df896aa214f93a4165c50ba690775381a7b8735
+[Core] DataTool v1.44.0.859-git-cd7fb0d09445e6c85a1bcd84e8902c678d85618e
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=ruRU", "-T=ruRU"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.exe.args
 [CASC] Set language to ruRU
 [CASC] Set speech language to ruRU
-[CASC] Overwatch build 1.43.0.0.64719
+[CASC] Overwatch build 1.44.0.0.65302
 [CASC] Initializing...
-[CMF] Using CMF procedure 64719
-[CMF] Using CMF procedure 64719
+[CMF] Using CMF procedure 65302
+[CMF] Using CMF procedure 65302
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -2433,7 +2433,7 @@
 000000002374.07C: %1$s переходит на канал «%2$s».
 000000002375.07C: %1$s покидает канал голосового чата.
 00000000237A.07C: ОБЩЕНИЕ
-00000000238E.07C: Подключение к игре
+00000000238E.07C: Подключение к матчу
 00000000238F.07C: Режим разминки позволяет опробовать новых героев или ознакомиться с полем боя во время поиска матча.
 000000002390.07C: В режиме разминки нет заданий поля боя. Вы можете просто повеселиться, пока мы ищем подходящий матч!
 000000002391.07C: Во время разминки поиск матча продолжается. Просто повеселитесь!
@@ -7702,7 +7702,6 @@ Andrew Wang
 0000000045AF.07C: Соединение со службой Blizzard потеряно
 0000000045B0.07C: Соединение разорвано по причине бездействия
 0000000045B3.07C: УДЕРЖИВАТЬ ДЛЯ «КРОССФЕЙДА»
-0000000045B5.07C: Невозможно во время установки
 0000000045B6.07C: 
 0000000045B7.07C: Лучшее лекарство
 0000000045B8.07C: Некорректные настройки. Обновите их или отмените изменения.
@@ -8366,10 +8365,10 @@ Andrew Wang
 000000004ADA.07C: %1$s (%2$s) сообщает вам, что телепорт установлен. Количество зарядов: %3$s.
 000000004ADB.07C: %1$s (%2$s) сообщает игроку %4$s, что телепорт установлен. Количество зарядов: %3$s.
 000000004ADE.07C: На колено
-000000004AE0.07C: Откл.
+000000004AE0.07C: По умолчанию
 000000004AE1.07C: Нет свободных мест для зрителей
 000000004AE2.07C: Команды заполнены
-000000004AE3.07C: Вкл.
+000000004AE3.07C: Всегда
 000000004AE4.07C: Индикаторы здоровья союзников
 000000004AE5.07C: Йети
 000000004AE7.07C: У-кун
@@ -15048,27 +15047,27 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007672.07C: Бесконечные суперспособности
 000000007673.07C: Очков для победы йети
 000000007674.07C: Эмблема Seoul Dynasty
-000000007678.07C: Эмблема San Francisco Shock
+000000007678.07C: Эмблема San Francisco Shock 2018
 00000000767A.07C: Эмблема Shanghai Dragons
 00000000767D.07C: Эмблема Philadelphia Fusion
 00000000767F.07C: Эмблема New York Excelsior
-000000007681.07C: Эмблема Los Angeles Valiant
+000000007681.07C: Эмблема Los Angeles Valiant 2018
 000000007683.07C: Эмблема Los Angeles Gladiators
 000000007685.07C: Эмблема London Spitfire
 000000007687.07C: Эмблема Houston Outlaws
-000000007689.07C: Эмблема Florida Mayhem
+000000007689.07C: Эмблема Florida Mayhem 2018
 00000000768B.07C: Эмблема Dallas Fuel
 00000000768D.07C: Эмблема Boston Uprising
 000000007691.07C: Seoul Dynasty
 000000007692.07C: Shanghai Dragons
-000000007693.07C: San Francisco Shock
+000000007693.07C: San Francisco Shock 2018
 000000007694.07C: Philadelphia Fusion
 000000007695.07C: New York Excelsior
-000000007696.07C: Los Angeles Valiant
+000000007696.07C: Los Angeles Valiant 2018
 000000007697.07C: Los Angeles Gladiators
 000000007698.07C: London Spitfire
 000000007699.07C: Houston Outlaws
-00000000769A.07C: Florida Mayhem
+00000000769A.07C: Florida Mayhem 2018
 00000000769B.07C: Dallas Fuel
 00000000769C.07C: Boston Uprising
 00000000769E.07C: Месть Крысенштейна
@@ -15109,7 +15108,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007729.07C: Сводка
 00000000772A.07C: Мастерская
 00000000772D.07C: Мастерская
-0000000077D2.07C: Событие
 0000000077D3.07C: Условия
 0000000077D4.07C: Действия
 0000000077D5.07C: Глобальные
@@ -15357,58 +15355,58 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007B88.07C: Los Angeles Gladiators
 000000007B89.07C: Los Angeles Gladiators
 000000007B8A.07C: Los Angeles Gladiators
-000000007B8B.07C: Los Angeles Valiant
-000000007B8C.07C: Los Angeles Valiant
-000000007B8D.07C: Los Angeles Valiant
-000000007B8E.07C: Los Angeles Valiant
-000000007B8F.07C: Los Angeles Valiant
-000000007B90.07C: Los Angeles Valiant
-000000007B91.07C: Los Angeles Valiant
-000000007B92.07C: Los Angeles Valiant
-000000007B93.07C: Los Angeles Valiant
-000000007B94.07C: Los Angeles Valiant
-000000007B95.07C: Los Angeles Valiant
-000000007B96.07C: Los Angeles Valiant
-000000007B97.07C: Los Angeles Valiant
-000000007B98.07C: Los Angeles Valiant
-000000007B99.07C: Los Angeles Valiant
-000000007B9A.07C: Los Angeles Valiant
-000000007B9B.07C: Los Angeles Valiant
-000000007B9C.07C: Los Angeles Valiant
-000000007B9D.07C: Los Angeles Valiant
-000000007B9E.07C: Los Angeles Valiant
-000000007B9F.07C: Los Angeles Valiant
-000000007BA0.07C: Los Angeles Valiant
-000000007BA1.07C: Los Angeles Valiant
-000000007BA2.07C: Los Angeles Valiant
-000000007BA3.07C: Los Angeles Valiant
-000000007BA4.07C: Los Angeles Valiant
-000000007BA5.07C: Florida Mayhem
-000000007BA6.07C: Florida Mayhem
-000000007BA7.07C: Florida Mayhem
-000000007BA8.07C: Florida Mayhem
-000000007BA9.07C: Florida Mayhem
-000000007BAA.07C: Florida Mayhem
-000000007BAB.07C: Florida Mayhem
-000000007BAC.07C: Florida Mayhem
-000000007BAD.07C: Florida Mayhem
-000000007BAE.07C: Florida Mayhem
-000000007BAF.07C: Florida Mayhem
-000000007BB0.07C: Florida Mayhem
-000000007BB1.07C: Florida Mayhem
-000000007BB2.07C: Florida Mayhem
-000000007BB3.07C: Florida Mayhem
-000000007BB4.07C: Florida Mayhem
-000000007BB5.07C: Florida Mayhem
-000000007BB6.07C: Florida Mayhem
-000000007BB7.07C: Florida Mayhem
-000000007BB8.07C: Florida Mayhem
-000000007BB9.07C: Florida Mayhem
-000000007BBA.07C: Florida Mayhem
-000000007BBB.07C: Florida Mayhem
-000000007BBC.07C: Florida Mayhem
-000000007BBD.07C: Florida Mayhem
-000000007BBE.07C: Florida Mayhem
+000000007B8B.07C: Los Angeles Valiant 2018
+000000007B8C.07C: Los Angeles Valiant 2018
+000000007B8D.07C: Los Angeles Valiant 2018
+000000007B8E.07C: Los Angeles Valiant 2018
+000000007B8F.07C: Los Angeles Valiant 2018
+000000007B90.07C: Los Angeles Valiant 2018
+000000007B91.07C: Los Angeles Valiant 2018
+000000007B92.07C: Los Angeles Valiant 2018
+000000007B93.07C: Los Angeles Valiant 2018
+000000007B94.07C: Los Angeles Valiant 2018
+000000007B95.07C: Los Angeles Valiant 2018
+000000007B96.07C: Los Angeles Valiant 2018
+000000007B97.07C: Los Angeles Valiant 2018
+000000007B98.07C: Los Angeles Valiant 2018
+000000007B99.07C: Los Angeles Valiant 2018
+000000007B9A.07C: Los Angeles Valiant 2018
+000000007B9B.07C: Los Angeles Valiant 2018
+000000007B9C.07C: Los Angeles Valiant 2018
+000000007B9D.07C: Los Angeles Valiant 2018
+000000007B9E.07C: Los Angeles Valiant 2018
+000000007B9F.07C: Los Angeles Valiant 2018
+000000007BA0.07C: Los Angeles Valiant 2018
+000000007BA1.07C: Los Angeles Valiant 2018
+000000007BA2.07C: Los Angeles Valiant 2018
+000000007BA3.07C: Los Angeles Valiant 2018
+000000007BA4.07C: Los Angeles Valiant 2018
+000000007BA5.07C: Florida Mayhem 2018
+000000007BA6.07C: Florida Mayhem 2018
+000000007BA7.07C: Florida Mayhem 2018
+000000007BA8.07C: Florida Mayhem 2018
+000000007BA9.07C: Florida Mayhem 2018
+000000007BAA.07C: Florida Mayhem 2018
+000000007BAB.07C: Florida Mayhem 2018
+000000007BAC.07C: Florida Mayhem 2018
+000000007BAD.07C: Florida Mayhem 2018
+000000007BAE.07C: Florida Mayhem 2018
+000000007BAF.07C: Florida Mayhem 2018
+000000007BB0.07C: Florida Mayhem 2018
+000000007BB1.07C: Florida Mayhem 2018
+000000007BB2.07C: Florida Mayhem 2018
+000000007BB3.07C: Florida Mayhem 2018
+000000007BB4.07C: Florida Mayhem 2018
+000000007BB5.07C: Florida Mayhem 2018
+000000007BB6.07C: Florida Mayhem 2018
+000000007BB7.07C: Florida Mayhem 2018
+000000007BB8.07C: Florida Mayhem 2018
+000000007BB9.07C: Florida Mayhem 2018
+000000007BBA.07C: Florida Mayhem 2018
+000000007BBB.07C: Florida Mayhem 2018
+000000007BBC.07C: Florida Mayhem 2018
+000000007BBD.07C: Florida Mayhem 2018
+000000007BBE.07C: Florida Mayhem 2018
 000000007BBF.07C: Houston Outlaws
 000000007BC0.07C: Houston Outlaws
 000000007BC1.07C: Houston Outlaws
@@ -15487,32 +15485,32 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007C0A.07C: Philadelphia Fusion
 000000007C0B.07C: Philadelphia Fusion
 000000007C0C.07C: Philadelphia Fusion
-000000007C0D.07C: San Francisco Shock
-000000007C0E.07C: San Francisco Shock
-000000007C0F.07C: San Francisco Shock
-000000007C10.07C: San Francisco Shock
-000000007C11.07C: San Francisco Shock
-000000007C12.07C: San Francisco Shock
-000000007C13.07C: San Francisco Shock
-000000007C14.07C: San Francisco Shock
-000000007C15.07C: San Francisco Shock
-000000007C16.07C: San Francisco Shock
-000000007C17.07C: San Francisco Shock
-000000007C18.07C: San Francisco Shock
-000000007C19.07C: San Francisco Shock
-000000007C1A.07C: San Francisco Shock
-000000007C1B.07C: San Francisco Shock
-000000007C1C.07C: San Francisco Shock
-000000007C1D.07C: San Francisco Shock
-000000007C1E.07C: San Francisco Shock
-000000007C1F.07C: San Francisco Shock
-000000007C20.07C: San Francisco Shock
-000000007C21.07C: San Francisco Shock
-000000007C22.07C: San Francisco Shock
-000000007C23.07C: San Francisco Shock
-000000007C24.07C: San Francisco Shock
-000000007C25.07C: San Francisco Shock
-000000007C26.07C: San Francisco Shock
+000000007C0D.07C: San Francisco Shock 2018
+000000007C0E.07C: San Francisco Shock 2018
+000000007C0F.07C: San Francisco Shock 2018
+000000007C10.07C: San Francisco Shock 2018
+000000007C11.07C: San Francisco Shock 2018
+000000007C12.07C: San Francisco Shock 2018
+000000007C13.07C: San Francisco Shock 2018
+000000007C14.07C: San Francisco Shock 2018
+000000007C15.07C: San Francisco Shock 2018
+000000007C16.07C: San Francisco Shock 2018
+000000007C17.07C: San Francisco Shock 2018
+000000007C18.07C: San Francisco Shock 2018
+000000007C19.07C: San Francisco Shock 2018
+000000007C1A.07C: San Francisco Shock 2018
+000000007C1B.07C: San Francisco Shock 2018
+000000007C1C.07C: San Francisco Shock 2018
+000000007C1D.07C: San Francisco Shock 2018
+000000007C1E.07C: San Francisco Shock 2018
+000000007C1F.07C: San Francisco Shock 2018
+000000007C20.07C: San Francisco Shock 2018
+000000007C21.07C: San Francisco Shock 2018
+000000007C22.07C: San Francisco Shock 2018
+000000007C23.07C: San Francisco Shock 2018
+000000007C24.07C: San Francisco Shock 2018
+000000007C25.07C: San Francisco Shock 2018
+000000007C26.07C: San Francisco Shock 2018
 000000007C27.07C: Seoul Dynasty
 000000007C28.07C: Seoul Dynasty
 000000007C29.07C: Seoul Dynasty
@@ -16136,12 +16134,12 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000082FB.07C: Dallas Fuel
 0000000082FC.07C: London Spitfire
 0000000082FD.07C: Los Angeles Gladiators
-0000000082FE.07C: Los Angeles Valiant
-0000000082FF.07C: Florida Mayhem
+0000000082FE.07C: Los Angeles Valiant 2018
+0000000082FF.07C: Florida Mayhem 2018
 000000008300.07C: Houston Outlaws
 000000008301.07C: New York Excelsior
 000000008302.07C: Philadelphia Fusion
-000000008303.07C: San Francisco Shock
+000000008303.07C: San Francisco Shock 2018
 000000008304.07C: Seoul Dynasty
 000000008305.07C: Shanghai Dragons
 000000008310.07C: Выполнено
@@ -16168,7 +16166,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000836A.07C: СОЮЗНИКИ
 00000000837B.07C: Boston Uprising (выездной)
 00000000837F.07C: Dallas Fuel (выездной)
-000000008380.07C: Florida Mayhem (выездной)
+000000008380.07C: Florida Mayhem (выездной) 2018
 000000008381.07C: London
 000000008382.07C: LDN
 000000008383.07C: Spitfire
@@ -16196,58 +16194,58 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008399.07C: Houston Outlaws (выездной)
 00000000839A.07C: London Spitfire (выездной)
 00000000839B.07C: Los Angeles Gladiators (выездной)
-00000000839C.07C: Los Angeles Valiant (выездной)
+00000000839C.07C: Los Angeles Valiant (выездной) 2018
 00000000839D.07C: New York Excelsior (выездной)
 00000000839E.07C: Philadelphia Fusion (выездной)
-00000000839F.07C: San Francisco Shock (выездной)
+00000000839F.07C: San Francisco Shock (выездной) 2018
 0000000083A0.07C: Seoul Dynasty (выездной)
 0000000083A1.07C: Shanghai Dragons (выездной)
 0000000083A5.07C: Boston Uprising (выездной)
 0000000083A6.07C: Dallas Fuel (выездной)
-0000000083A7.07C: Florida Mayhem (выездной)
+0000000083A7.07C: Florida Mayhem (выездной) 2018
 0000000083A8.07C: Houston Outlaws (выездной)
 0000000083A9.07C: London Spitfire (выездной)
 0000000083AA.07C: Los Angeles Gladiators (выездной)
-0000000083AB.07C: Los Angeles Valiant (выездной)
+0000000083AB.07C: Los Angeles Valiant (выездной) 2018
 0000000083AC.07C: New York Excelsior (выездной)
 0000000083AD.07C: Philadelphia Fusion (выездной)
-0000000083AE.07C: San Francisco Shock (выездной)
+0000000083AE.07C: San Francisco Shock (выездной) 2018
 0000000083AF.07C: Seoul Dynasty (выездной)
 0000000083B0.07C: Shanghai Dragons (выездной)
 0000000083B1.07C: Boston Uprising (выездной)
 0000000083B2.07C: Dallas Fuel (выездной)
-0000000083B3.07C: Florida Mayhem (выездной)
+0000000083B3.07C: Florida Mayhem (выездной) 2018
 0000000083B4.07C: Houston Outlaws (выездной)
 0000000083B5.07C: London Spitfire (выездной)
 0000000083B6.07C: Los Angeles Gladiators (выездной)
-0000000083B7.07C: Los Angeles Valiant (выездной)
+0000000083B7.07C: Los Angeles Valiant (выездной) 2018
 0000000083B8.07C: New York Excelsior (выездной)
 0000000083B9.07C: Philadelphia Fusion (выездной)
-0000000083BA.07C: San Francisco Shock (выездной)
+0000000083BA.07C: San Francisco Shock (выездной) 2018
 0000000083BB.07C: Seoul Dynasty (выездной)
 0000000083BC.07C: Shanghai Dragons (выездной)
 0000000083BD.07C: Boston Uprising (выездной)
 0000000083C8.07C: Dallas Fuel (выездной)
-0000000083C9.07C: Florida Mayhem (выездной)
+0000000083C9.07C: Florida Mayhem (выездной) 2018
 0000000083CA.07C: Houston Outlaws (выездной)
 0000000083CB.07C: London Spitfire (выездной)
 0000000083CC.07C: Los Angeles Gladiators (выездной)
-0000000083CD.07C: Los Angeles Valiant (выездной)
+0000000083CD.07C: Los Angeles Valiant (выездной) 2018
 0000000083CE.07C: New York Excelsior (выездной)
 0000000083CF.07C: Philadelphia Fusion (выездной)
-0000000083D0.07C: San Francisco Shock (выездной)
+0000000083D0.07C: San Francisco Shock (выездной) 2018
 0000000083D1.07C: Seoul Dynasty (выездной)
 0000000083D2.07C: Shanghai Dragons (выездной)
 0000000083D4.07C: Boston Uprising (выездной)
 0000000083D5.07C: Dallas Fuel (выездной)
-0000000083D6.07C: Florida Mayhem (выездной)
+0000000083D6.07C: Florida Mayhem (выездной) 2018
 0000000083D7.07C: Houston Outlaws (выездной)
 0000000083D8.07C: London Spitfire (выездной)
 0000000083D9.07C: Los Angeles Gladiators (выездной)
-0000000083DA.07C: Los Angeles Valiant (выездной)
+0000000083DA.07C: Los Angeles Valiant (выездной) 2018
 0000000083DB.07C: New York Excelsior (выездной)
 0000000083DC.07C: Philadelphia Fusion (выездной)
-0000000083DD.07C: San Francisco Shock (выездной)
+0000000083DD.07C: San Francisco Shock (выездной) 2018
 0000000083DE.07C: Seoul Dynasty (выездной)
 0000000083DF.07C: Shanghai Dragons (выездной)
 0000000083E5.07C: Архивы 2018
@@ -16268,65 +16266,65 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008402.07C: Коломар
 000000008406.07C: Boston Uprising (выездной)
 00000000840A.07C: Dallas Fuel (выездной)
-00000000840B.07C: Florida Mayhem (выездной)
+00000000840B.07C: Florida Mayhem (выездной) 2018
 00000000840C.07C: Houston Outlaws (выездной)
 00000000840D.07C: London Spitfire (выездной)
 00000000840E.07C: Los Angeles Gladiators (выездной)
-00000000840F.07C: Los Angeles Valiant (выездной)
+00000000840F.07C: Los Angeles Valiant (выездной) 2018
 000000008410.07C: New York Excelsior (выездной)
 000000008411.07C: Philadelphia Fusion (выездной)
-000000008412.07C: San Francisco Shock (выездной)
+000000008412.07C: San Francisco Shock (выездной) 2018
 000000008413.07C: Seoul Dynasty (выездной)
 000000008414.07C: Shanghai Dragons (выездной)
 000000008417.07C: Boston Uprising (выездной)
 000000008418.07C: Dallas Fuel (выездной)
-000000008419.07C: Florida Mayhem (выездной)
+000000008419.07C: Florida Mayhem (выездной) 2018
 00000000841A.07C: Houston Outlaws (выездной)
 00000000841B.07C: London Spitfire (выездной)
 00000000841C.07C: Los Angeles Gladiators (выездной)
-00000000841D.07C: Los Angeles Valiant (выездной)
+00000000841D.07C: Los Angeles Valiant (выездной) 2018
 00000000841E.07C: New York Excelsior (выездной)
 00000000841F.07C: Philadelphia Fusion (выездной)
-000000008420.07C: San Francisco Shock (выездной)
+000000008420.07C: San Francisco Shock (выездной) 2018
 000000008421.07C: Seoul Dynasty (выездной)
 000000008422.07C: Shanghai Dragons (выездной)
 000000008423.07C: Вы готовы
 000000008448.07C: Boston Uprising (выездной)
 00000000844F.07C: Dallas Fuel (выездной)
-000000008450.07C: Florida Mayhem (выездной)
+000000008450.07C: Florida Mayhem (выездной) 2018
 000000008451.07C: Houston Outlaws (выездной)
 000000008453.07C: London Spitfire (выездной)
 000000008454.07C: Los Angeles Gladiators (выездной)
-000000008455.07C: Los Angeles Valiant (выездной)
+000000008455.07C: Los Angeles Valiant (выездной) 2018
 000000008456.07C: New York Excelsior (выездной)
 000000008457.07C: Philadelphia Fusion (выездной)
-000000008458.07C: San Francisco Shock (выездной)
+000000008458.07C: San Francisco Shock (выездной) 2018
 000000008459.07C: Seoul Dynasty (выездной)
 00000000845A.07C: Shanghai Dragons (выездной)
 000000008460.07C: Boston Uprising (выездной)
 000000008463.07C: Dallas Fuel (выездной)
-000000008464.07C: Florida Mayhem (выездной)
+000000008464.07C: Florida Mayhem (выездной) 2018
 000000008465.07C: Houston Outlaws (выездной)
 000000008466.07C: London Spitfire (выездной)
 000000008467.07C: Los Angeles Gladiators (выездной)
-000000008468.07C: Los Angeles Valiant (выездной)
+000000008468.07C: Los Angeles Valiant (выездной) 2018
 000000008469.07C: New York Excelsior (выездной)
 00000000846A.07C: Philadelphia Fusion (выездной)
-00000000846B.07C: San Francisco Shock (выездной)
+00000000846B.07C: San Francisco Shock (выездной) 2018
 00000000846C.07C: Seoul Dynasty (выездной)
 00000000846D.07C: Shanghai Dragons (выездной)
 00000000846E.07C: Boston Uprising (выездной)
 000000008470.07C: Нет медика
 000000008471.07C: Нет танка
 00000000847F.07C: Dallas Fuel (выездной)
-000000008480.07C: Florida Mayhem (выездной)
+000000008480.07C: Florida Mayhem (выездной) 2018
 000000008481.07C: Houston Outlaws (выездной)
 000000008482.07C: London Spitfire (выездной)
 000000008483.07C: Los Angeles Gladiators (выездной)
-000000008484.07C: Los Angeles Valiant (выездной)
+000000008484.07C: Los Angeles Valiant (выездной) 2018
 000000008485.07C: New York Excelsior (выездной)
 000000008486.07C: Philadelphia Fusion (выездной)
-000000008487.07C: San Francisco Shock (выездной)
+000000008487.07C: San Francisco Shock (выездной) 2018
 000000008488.07C: Seoul Dynasty (выездной)
 000000008489.07C: Shanghai Dragons (выездной)
 00000000848A.07C: Один медик
@@ -16356,14 +16354,14 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000084DA.07C: Shanghai Dragons (выездной)
 0000000084DB.07C: Boston Uprising (выездной)
 0000000084DC.07C: Dallas Fuel (выездной)
-0000000084DD.07C: Florida Mayhem (выездной)
+0000000084DD.07C: Florida Mayhem (выездной) 2018
 0000000084DE.07C: Houston Outlaws (выездной)
 0000000084DF.07C: London Spitfire (выездной)
 0000000084E0.07C: Los Angeles Gladiators (выездной)
-0000000084E1.07C: Los Angeles Valiant (выездной)
+0000000084E1.07C: Los Angeles Valiant (выездной) 2018
 0000000084E2.07C: New York Excelsior (выездной)
 0000000084E3.07C: Philadelphia Fusion (выездной)
-0000000084E4.07C: San Francisco Shock (выездной)
+0000000084E4.07C: San Francisco Shock (выездной) 2018
 0000000084E5.07C: Seoul Dynasty (выездной)
 0000000084E6.07C: ПОДОЙДИТЕ...
 0000000084E9.07C: Бонус за сохранность груза
@@ -16371,151 +16369,151 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000084EB.07C: На колено
 0000000084FC.07C: Boston Uprising (выездной)
 0000000084FD.07C: Dallas Fuel (выездной)
-0000000084FE.07C: Florida Mayhem (выездной)
+0000000084FE.07C: Florida Mayhem (выездной) 2018
 0000000084FF.07C: Houston Outlaws (выездной)
 000000008500.07C: London Spitfire (выездной)
 000000008501.07C: Los Angeles Gladiators (выездной)
-000000008502.07C: Los Angeles Valiant (выездной)
+000000008502.07C: Los Angeles Valiant (выездной) 2018
 000000008503.07C: New York Excelsior (выездной)
 000000008504.07C: Philadelphia Fusion (выездной)
-000000008505.07C: San Francisco Shock (выездной)
+000000008505.07C: San Francisco Shock (выездной) 2018
 000000008506.07C: Seoul Dynasty (выездной)
 000000008507.07C: Shanghai Dragons (выездной)
 000000008508.07C: Boston Uprising (выездной)
 000000008509.07C: Dallas Fuel (выездной)
-00000000850A.07C: Florida Mayhem (выездной)
+00000000850A.07C: Florida Mayhem (выездной) 2018
 00000000850B.07C: Houston Outlaws (выездной)
 00000000850C.07C: London Spitfire (выездной)
 00000000850D.07C: Los Angeles Gladiators (выездной)
-00000000850E.07C: Los Angeles Valiant (выездной)
+00000000850E.07C: Los Angeles Valiant (выездной) 2018
 00000000850F.07C: New York Excelsior (выездной)
 000000008510.07C: Philadelphia Fusion (выездной)
-000000008511.07C: San Francisco Shock (выездной)
+000000008511.07C: San Francisco Shock (выездной) 2018
 000000008512.07C: Seoul Dynasty (выездной)
 000000008513.07C: Shanghai Dragons (выездной)
 000000008515.07C: Boston Uprising (выездной)
 000000008516.07C: Dallas Fuel (выездной)
-000000008517.07C: Florida Mayhem (выездной)
+000000008517.07C: Florida Mayhem (выездной) 2018
 000000008518.07C: Houston Outlaws (выездной)
 000000008519.07C: London Spitfire (выездной)
 00000000851A.07C: Los Angeles Gladiators (выездной)
-00000000851B.07C: Los Angeles Valiant (выездной)
+00000000851B.07C: Los Angeles Valiant (выездной) 2018
 00000000851C.07C: New York Excelsior (выездной)
 00000000851D.07C: Philadelphia Fusion (выездной)
-00000000851E.07C: San Francisco Shock (выездной)
+00000000851E.07C: San Francisco Shock (выездной) 2018
 00000000851F.07C: Seoul Dynasty (выездной)
 000000008520.07C: Shanghai Dragons (выездной)
 000000008523.07C: Пилот Blackwatch
 00000000852A.07C: Противопехотные мины
 00000000852B.07C: Boston Uprising (выездной)
 00000000852C.07C: Dallas Fuel (выездной)
-00000000852D.07C: Florida Mayhem (выездной)
+00000000852D.07C: Florida Mayhem (выездной) 2018
 00000000852E.07C: Houston Outlaws (выездной)
 00000000852F.07C: London Spitfire (выездной)
 000000008530.07C: Los Angeles Gladiators (выездной)
-000000008531.07C: Los Angeles Valiant (выездной)
+000000008531.07C: Los Angeles Valiant (выездной) 2018
 000000008532.07C: New York Excelsior (выездной)
 000000008533.07C: Philadelphia Fusion (выездной)
-000000008534.07C: San Francisco Shock (выездной)
+000000008534.07C: San Francisco Shock (выездной) 2018
 000000008535.07C: Seoul Dynasty (выездной)
 000000008536.07C: Shanghai Dragons (выездной)
 000000008537.07C: Boston Uprising (выездной)
 000000008538.07C: Dallas Fuel (выездной)
-000000008539.07C: Florida Mayhem (выездной)
+000000008539.07C: Florida Mayhem (выездной) 2018
 00000000853A.07C: Houston Outlaws (выездной)
 00000000853B.07C: London Spitfire (выездной)
 00000000853C.07C: Los Angeles Gladiators (выездной)
-00000000853D.07C: Los Angeles Valiant (выездной)
+00000000853D.07C: Los Angeles Valiant (выездной) 2018
 00000000853E.07C: New York Excelsior (выездной)
 00000000853F.07C: Philadelphia Fusion (выездной)
-000000008540.07C: San Francisco Shock (выездной)
+000000008540.07C: San Francisco Shock (выездной) 2018
 000000008541.07C: Seoul Dynasty (выездной)
 000000008542.07C: Shanghai Dragons (выездной)
 000000008544.07C: Boston Uprising (выездной)
 000000008545.07C: Dallas Fuel (выездной)
-000000008546.07C: Florida Mayhem (выездной)
+000000008546.07C: Florida Mayhem (выездной) 2018
 000000008547.07C: Houston Outlaws (выездной)
 000000008548.07C: London Spitfire (выездной)
 000000008549.07C: Los Angeles Gladiators (выездной)
-00000000854A.07C: Los Angeles Valiant (выездной)
+00000000854A.07C: Los Angeles Valiant (выездной) 2018
 00000000854B.07C: New York Excelsior (выездной)
 00000000854C.07C: Philadelphia Fusion (выездной)
-00000000854D.07C: San Francisco Shock (выездной)
+00000000854D.07C: San Francisco Shock (выездной) 2018
 00000000854E.07C: Seoul Dynasty (выездной)
 00000000854F.07C: Shanghai Dragons (выездной)
 000000008552.07C: Boston Uprising (выездной)
 000000008553.07C: Dallas Fuel (выездной)
-000000008554.07C: Florida Mayhem (выездной)
+000000008554.07C: Florida Mayhem (выездной) 2018
 000000008555.07C: Houston Outlaws (выездной)
 000000008556.07C: London Spitfire (выездной)
 000000008557.07C: Los Angeles Gladiators (выездной)
-000000008558.07C: Los Angeles Valiant (выездной)
+000000008558.07C: Los Angeles Valiant (выездной) 2018
 000000008559.07C: New York Excelsior (выездной)
 00000000855A.07C: Philadelphia Fusion (выездной)
-00000000855B.07C: San Francisco Shock (выездной)
+00000000855B.07C: San Francisco Shock (выездной) 2018
 00000000855C.07C: Seoul Dynasty (выездной)
 00000000855D.07C: Shanghai Dragons (выездной)
 00000000855F.07C: Задание
 000000008563.07C: Boston Uprising (выездной)
 000000008564.07C: Dallas Fuel (выездной)
-000000008565.07C: Florida Mayhem (выездной)
+000000008565.07C: Florida Mayhem (выездной) 2018
 000000008566.07C: Houston Outlaws (выездной)
 000000008567.07C: London Spitfire (выездной)
 000000008568.07C: Los Angeles Gladiators (выездной)
-000000008569.07C: Los Angeles Valiant (выездной)
+000000008569.07C: Los Angeles Valiant (выездной) 2018
 00000000856A.07C: New York Excelsior (выездной)
 00000000856B.07C: Philadelphia Fusion (выездной)
-00000000856C.07C: San Francisco Shock (выездной)
+00000000856C.07C: San Francisco Shock (выездной) 2018
 00000000856D.07C: Seoul Dynasty (выездной)
 00000000856E.07C: Shanghai Dragons (выездной)
 000000008570.07C: Boston Uprising (выездной)
 000000008571.07C: Dallas Fuel (выездной)
-000000008572.07C: Florida Mayhem (выездной)
+000000008572.07C: Florida Mayhem (выездной) 2018
 000000008573.07C: Houston Outlaws (выездной)
 000000008574.07C: London Spitfire (выездной)
 000000008575.07C: Los Angeles Gladiators (выездной)
-000000008576.07C: Los Angeles Valiant (выездной)
+000000008576.07C: Los Angeles Valiant (выездной) 2018
 000000008577.07C: New York Excelsior (выездной)
 000000008578.07C: Philadelphia Fusion (выездной)
-000000008579.07C: San Francisco Shock (выездной)
+000000008579.07C: San Francisco Shock (выездной) 2018
 00000000857A.07C: Seoul Dynasty (выездной)
 00000000857B.07C: Shanghai Dragons (выездной)
 00000000857F.07C: Boston Uprising (выездной)
 000000008580.07C: Dallas Fuel (выездной)
-000000008581.07C: Florida Mayhem (выездной)
+000000008581.07C: Florida Mayhem (выездной) 2018
 000000008582.07C: Houston Outlaws (выездной)
 000000008583.07C: London Spitfire (выездной)
 000000008584.07C: Los Angeles Gladiators (выездной)
-000000008585.07C: Los Angeles Valiant (выездной)
+000000008585.07C: Los Angeles Valiant (выездной) 2018
 000000008587.07C: New York Excelsior (выездной)
 000000008588.07C: Philadelphia Fusion (выездной)
-000000008589.07C: San Francisco Shock (выездной)
+000000008589.07C: San Francisco Shock (выездной) 2018
 00000000858A.07C: Seoul Dynasty (выездной)
 00000000858B.07C: Shanghai Dragons (выездной)
 000000008594.07C: Выполнено
 000000008595.07C: Провалено
 00000000859D.07C: Boston Uprising (выездной)
 00000000859E.07C: Dallas Fuel (выездной)
-00000000859F.07C: Florida Mayhem (выездной)
+00000000859F.07C: Florida Mayhem (выездной) 2018
 0000000085A0.07C: Houston Outlaws (выездной)
 0000000085A1.07C: London Spitfire (выездной)
 0000000085A2.07C: Los Angeles Gladiators (выездной)
-0000000085A3.07C: Los Angeles Valiant (выездной)
+0000000085A3.07C: Los Angeles Valiant (выездной) 2018
 0000000085A4.07C: New York Excelsior (выездной)
 0000000085A5.07C: Philadelphia Fusion (выездной)
-0000000085A6.07C: San Francisco Shock (выездной)
+0000000085A6.07C: San Francisco Shock (выездной) 2018
 0000000085A7.07C: Seoul Dynasty (выездной)
 0000000085A8.07C: Shanghai Dragons (выездной)
 0000000085A9.07C: Boston Uprising (выездной)
 0000000085AA.07C: Dallas Fuel (выездной)
-0000000085AB.07C: Florida Mayhem (выездной)
+0000000085AB.07C: Florida Mayhem (выездной) 2018
 0000000085AC.07C: Houston Outlaws (выездной)
 0000000085AD.07C: London Spitfire (выездной)
 0000000085AE.07C: Los Angeles Gladiators (выездной)
-0000000085AF.07C: Los Angeles Valiant (выездной)
+0000000085AF.07C: Los Angeles Valiant (выездной) 2018
 0000000085B0.07C: New York Excelsior (выездной)
 0000000085B1.07C: Philadelphia Fusion (выездной)
-0000000085B2.07C: San Francisco Shock (выездной)
+0000000085B2.07C: San Francisco Shock (выездной) 2018
 0000000085B3.07C: Seoul Dynasty (выездной)
 0000000085B4.07C: Shanghai Dragons (выездной)
 0000000085BB.07C: Риальто
@@ -16533,26 +16531,26 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000085D9.07C: Boston Uprising (выездной)
 0000000085DA.07C: Архивы
 0000000085DC.07C: Dallas Fuel (выездной)
-0000000085DD.07C: Florida Mayhem (выездной)
+0000000085DD.07C: Florida Mayhem (выездной) 2018
 0000000085DE.07C: Houston Outlaws (выездной)
 0000000085DF.07C: London Spitfire (выездной)
 0000000085E0.07C: Los Angeles Gladiators (выездной)
-0000000085E1.07C: Los Angeles Valiant (выездной)
+0000000085E1.07C: Los Angeles Valiant (выездной) 2018
 0000000085E2.07C: New York Excelsior (выездной)
 0000000085E3.07C: Philadelphia Fusion (выездной)
-0000000085E4.07C: San Francisco Shock (выездной)
+0000000085E4.07C: San Francisco Shock (выездной) 2018
 0000000085E5.07C: Seoul Dynasty (выездной)
 0000000085E6.07C: Shanghai Dragons (выездной)
 0000000085EF.07C: Boston Uprising (выездной)
 0000000085F0.07C: Dallas Fuel (выездной)
-0000000085F1.07C: Florida Mayhem (выездной)
+0000000085F1.07C: Florida Mayhem (выездной) 2018
 0000000085F2.07C: Houston Outlaws (выездной)
 0000000085F3.07C: London Spitfire (выездной)
 0000000085F4.07C: Los Angeles Gladiators (выездной)
-0000000085F5.07C: Los Angeles Valiant (выездной)
+0000000085F5.07C: Los Angeles Valiant (выездной) 2018
 0000000085F6.07C: New York Excelsior (выездной)
 0000000085F7.07C: Philadelphia Fusion (выездной)
-0000000085F8.07C: San Francisco Shock (выездной)
+0000000085F8.07C: San Francisco Shock (выездной) 2018
 0000000085F9.07C: Seoul Dynasty (выездной)
 0000000085FA.07C: Shanghai Dragons (выездной)
 0000000085FB.07C: Boston Uprising (выездной)
@@ -16581,26 +16579,26 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008628.07C: Время на моей стороне
 00000000862A.07C: Охотница
 00000000862C.07C: Dallas Fuel (выездной)
-00000000862D.07C: Florida Mayhem (выездной)
+00000000862D.07C: Florida Mayhem (выездной) 2018
 00000000862E.07C: Houston Outlaws (выездной)
 00000000862F.07C: London Spitfire (выездной)
 000000008630.07C: Los Angeles Gladiators (выездной)
-000000008631.07C: Los Angeles Valiant (выездной)
+000000008631.07C: Los Angeles Valiant (выездной) 2018
 000000008632.07C: New York Excelsior (выездной)
 000000008633.07C: Philadelphia Fusion (выездной)
-000000008634.07C: San Francisco Shock (выездной)
+000000008634.07C: San Francisco Shock (выездной) 2018
 000000008635.07C: Seoul Dynasty (выездной)
 000000008636.07C: Shanghai Dragons (выездной)
 000000008637.07C: Boston Uprising (выездной)
 000000008638.07C: Dallas Fuel (выездной)
-000000008639.07C: Florida Mayhem (выездной)
+000000008639.07C: Florida Mayhem (выездной) 2018
 00000000863A.07C: Houston Outlaws (выездной)
 00000000863B.07C: London Spitfire (выездной)
 00000000863C.07C: Los Angeles Gladiators (выездной)
-00000000863D.07C: Los Angeles Valiant (выездной)
+00000000863D.07C: Los Angeles Valiant (выездной) 2018
 00000000863E.07C: New York Excelsior (выездной)
 00000000863F.07C: Philadelphia Fusion (выездной)
-000000008640.07C: San Francisco Shock (выездной)
+000000008640.07C: San Francisco Shock (выездной) 2018
 000000008641.07C: Seoul Dynasty (выездной)
 000000008642.07C: Shanghai Dragons (выездной)
 000000008643.07C: Я тебя спрашивал?
@@ -17536,25 +17534,25 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000009363.07C: Dallas Fuel
 000000009364.07C: London Spitfire
 000000009365.07C: Los Angeles Gladiators
-000000009366.07C: Los Angeles Valiant
-000000009367.07C: Florida Mayhem
+000000009366.07C: Los Angeles Valiant 2018
+000000009367.07C: Florida Mayhem 2018
 000000009368.07C: Houston Outlaws
 000000009369.07C: New York Excelsior
 00000000936A.07C: Philadelphia Fusion
-00000000936B.07C: San Francisco Shock
+00000000936B.07C: San Francisco Shock 2018
 00000000936C.07C: Seoul Dynasty
 00000000936D.07C: Shanghai Dragons
 000000009372.07C: Кубок Лусио
 00000000937B.07C: Boston Uprising (выездной)
 00000000937C.07C: Dallas Fuel (выездной)
-00000000937D.07C: Florida Mayhem (выездной)
+00000000937D.07C: Florida Mayhem (выездной) 2018
 00000000937E.07C: Houston Outlaws (выездной)
 00000000937F.07C: London Spitfire (выездной)
 000000009380.07C: Los Angeles Gladiators (выездной)
-000000009381.07C: Los Angeles Valiant (выездной)
+000000009381.07C: Los Angeles Valiant (выездной) 2018
 000000009382.07C: New York Excelsior (выездной)
 000000009383.07C: Philadelphia Fusion (выездной)
-000000009384.07C: San Francisco Shock (выездной)
+000000009384.07C: San Francisco Shock (выездной) 2018
 000000009385.07C: Seoul Dynasty (выездной)
 000000009386.07C: Shanghai Dragons (выездной)
 000000009390.07C: НАГРАДЫ ЗА УЧАСТИЕ
@@ -18202,7 +18200,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000A5FB.07C: Тост!
 00000000A602.07C: Светская львица
 00000000A603.07C: Фейерверки
-00000000A60B.07C: "Снежинки"
+00000000A60B.07C: Снежинки
 00000000A625.07C: Мои детки
 00000000A645.07C: Выполнено
 00000000A648.07C: Взрывной резерв
@@ -18235,23 +18233,23 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000A7E6.07C: Dallas Fuel
 00000000A7E7.07C: London Spitfire
 00000000A7E8.07C: Los Angeles Gladiators
-00000000A7E9.07C: Los Angeles Valiant
-00000000A7EA.07C: Florida Mayhem
+00000000A7E9.07C: Los Angeles Valiant 2018
+00000000A7EA.07C: Florida Mayhem 2018
 00000000A7EB.07C: Houston Outlaws
 00000000A7EC.07C: New York Excelsior
 00000000A7ED.07C: Philadelphia Fusion
-00000000A7EE.07C: San Francisco Shock
+00000000A7EE.07C: San Francisco Shock 2018
 00000000A7EF.07C: Seoul Dynasty
 00000000A7F0.07C: Boston Uprising (выездной)
 00000000A7F1.07C: Dallas Fuel (выездной)
-00000000A7F2.07C: Florida Mayhem (выездной)
+00000000A7F2.07C: Florida Mayhem (выездной) 2018
 00000000A7F3.07C: Houston Outlaws (выездной)
 00000000A7F4.07C: Los Angeles Gladiators (выездной)
 00000000A7F5.07C: London Spitfire (выездной)
-00000000A7F6.07C: Los Angeles Valiant (выездной)
+00000000A7F6.07C: Los Angeles Valiant (выездной) 2018
 00000000A7F7.07C: New York Excelsior (выездной)
 00000000A7F8.07C: Philadelphia Fusion (выездной)
-00000000A7F9.07C: San Francisco Shock (выездной)
+00000000A7F9.07C: San Francisco Shock (выездной) 2018
 00000000A7FA.07C: Seoul Dynasty (выездной)
 00000000A7FB.07C: Shanghai Dragons (выездной)
 00000000A806.07C: Снизить скорость воспроизведения
@@ -19474,27 +19472,27 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B4F8.07C: Atlanta Reign
 00000000B4F9.07C: Shanghai Dragons (выездной)
 00000000B4FA.07C: Seoul Dynasty (выездной)
-00000000B4FB.07C: San Francisco Shock (выездной)
+00000000B4FB.07C: San Francisco Shock (выездной) 2018
 00000000B4FC.07C: Philadelphia Fusion (выездной)
 00000000B4FD.07C: Seoul Dynasty
 00000000B4FE.07C: London Spitfire
 00000000B4FF.07C: Dallas Fuel
 00000000B500.07C: Los Angeles Gladiators
-00000000B501.07C: Los Angeles Valiant
-00000000B502.07C: Florida Mayhem
+00000000B501.07C: Los Angeles Valiant 2018
+00000000B502.07C: Florida Mayhem 2018
 00000000B503.07C: Houston Outlaws
 00000000B504.07C: New York Excelsior
 00000000B505.07C: Philadelphia Fusion
-00000000B506.07C: San Francisco Shock
+00000000B506.07C: San Francisco Shock 2018
 00000000B507.07C: Shanghai Dragons
 00000000B508.07C: New York Excelsior (выездной)
 00000000B509.07C: Boston Uprising (выездной)
 00000000B50A.07C: Dallas Fuel (выездной)
-00000000B50B.07C: Florida Mayhem (выездной)
+00000000B50B.07C: Florida Mayhem (выездной) 2018
 00000000B50C.07C: Houston Outlaws (выездной)
 00000000B50D.07C: London Spitfire (выездной)
 00000000B50E.07C: Los Angeles Gladiators (выездной)
-00000000B50F.07C: Los Angeles Valiant (выездной)
+00000000B50F.07C: Los Angeles Valiant (выездной) 2018
 00000000B510.07C: Washington Justice
 00000000B511.07C: Washington Justice (выездной)
 00000000B512.07C: Vancouver Titans
@@ -19651,6 +19649,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B65F.07C: Богиня
 00000000B660.07C: Кракен
 00000000B676.07C: Вы не можете принять эту заявку, так как список друзей ее отправителя полон.
+00000000B677.07C: OWL VAL (выездной) 2020
 00000000B67A.07C: Овер 9000!!!
 00000000B67B.07C: Гамак
 00000000B67C.07C: Истоки
@@ -21920,6 +21919,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C5F3.07C: Оглушил
 00000000C5F4.07C: Да
 00000000C5F5.07C: Нет
+00000000C602.07C: Самуллори
 00000000C604.07C: Определяет, какие игроки не будут учитываться функцией [Ray Cast]. Этот список имеет приоритет над списком [Players To Include].
 00000000C605.07C: Незатрагиваемые игроки
 00000000C611.07C: Ray Cast Hit Player
@@ -21973,6 +21973,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C71E.07C: Чжунго
 00000000C71F.07C: Адлерхардт
 00000000C72C.07C: Боевой медик
+00000000C733.07C: Меняющая лица
 00000000C740.07C: Американец
 00000000C741.07C: Конструктор
 00000000C742.07C: Входит во внутриигровой подарочный набор BlizzCon 2019
@@ -21991,10 +21992,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C77B.07C: Мауга
 00000000C77C.07C: Награда за участие в испытании «Последнее дело Батиста»
 00000000C77D.07C: Вкл./Выкл.
-00000000C780.07C: Награда Overwatch League MVP 2019: JJONAK
 00000000C781.07C: Сохранение энергии
 00000000C782.07C: Получите 350 ед. щитов за один «Кинетический захват» Сигмы в быстром или соревновательном матче.
-00000000C783.07C: Легендарный облик «Дзеннакджи»
 00000000C785.07C: ПРОСТРАНСТВЕННЫЙ ЗВУК
 00000000C786.07C: СИСТЕМНЫЕ НАСТРОЙКИ
 00000000C7A4.07C: Всегда свеж
@@ -22034,6 +22033,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C7EC.07C: Награда за участие в испытании «Последнее дело Батиста»
 00000000C7ED.07C: Награда за просмотр определенных трансляций во время испытания «Последнее дело Батиста»
 00000000C7F6.07C: Удалить
+00000000C7F7.07C: Танцовщица в маске
 00000000C7F8.07C: Tangent From Degrees
 00000000C7F9.07C: Тангенс указанного угла в градусах.
 00000000C7FC.07C: Тангенс указанного угла в радианах.
@@ -22216,6 +22216,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C9DE.07C: %1$s: %2$s
 00000000C9E3.07C: Сейчас недоступно
 00000000C9E4.07C: Роль занята
+00000000C9E5.07C: Опера
 00000000C9E8.07C: Гироприцеливание
 00000000C9E9.07C: Чувствительность поперечной оси при гироприцеливании
 00000000C9EB.07C: Помощь в гироприцеливании
@@ -22237,9 +22238,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA0C.07C: Чтобы ваша группа встала в очередь, вам нужно выбрать роль. Сделать это сейчас?
 00000000CA0D.07C: Магазины
 00000000CA0E.07C: Магазин
-00000000CA11.07C: 1-я неделя: «Дурацкий свитер – 76»
-00000000CA13.07C: 2-я неделя: «Остролист» (Мойра)
-00000000CA14.07C: 3-я неделя: «Снежный ангел» (Ангел)
+00000000CA11.07C: 1-я неделя: «Монах» (Кулак Смерти)
+00000000CA13.07C: 2-я неделя: «Древняя бронза» (Уинстон)
+00000000CA14.07C: 3-я неделя: «Бумажная вырезка» (Таран)
 00000000CA15.07C: Победите в 9 матчах в «Быстрой игре», «Аркаде» или «Соревновательной игре»!
 00000000CA16.07C: Победите в 9 матчах в «Быстрой игре», «Аркаде» или «Соревновательной игре»!
 00000000CA17.07C: Победите в 9 матчах в «Быстрой игре», «Аркаде» или «Соревновательной игре»!
@@ -22323,8 +22324,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CAD7.07C: Chengdu Hunters (выездной)
 00000000CADA.07C: Dallas Fuel
 00000000CADB.07C: Dallas Fuel (выездной)
-00000000CADC.07C: Florida Mayhem
-00000000CADD.07C: Florida Mayhem (выездной)
+00000000CADC.07C: Florida Mayhem 2018
+00000000CADD.07C: Florida Mayhem (выездной) 2018
 00000000CADE.07C: Guangzhou Charge
 00000000CADF.07C: Guangzhou Charge (выездной)
 00000000CAE0.07C: Hangzhou Spark
@@ -22335,15 +22336,15 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CAE5.07C: London Spitfire (выездной)
 00000000CAE6.07C: Los Angeles Gladiators
 00000000CAE7.07C: Los Angeles Gladiators (выездной)
-00000000CAE8.07C: Los Angeles Valiant
-00000000CAE9.07C: Los Angeles Valiant (выездной)
+00000000CAE8.07C: Los Angeles Valiant 2018
+00000000CAE9.07C: Los Angeles Valiant (выездной) 2018
 00000000CAEA.07C: New York Excelsior
 00000000CAEB.07C: Paris Eternal
 00000000CAEC.07C: Paris Eternal (выездной)
 00000000CAED.07C: Philadelphia Fusion
 00000000CAEE.07C: Philadelphia Fusion (выездной)
-00000000CAEF.07C: San Francisco Shock
-00000000CAF0.07C: San Francisco Shock (выездной)
+00000000CAEF.07C: San Francisco Shock 2018
+00000000CAF0.07C: San Francisco Shock (выездной) 2018
 00000000CAF1.07C: Seoul Dynasty
 00000000CAF2.07C: Seoul Dynasty (выездной)
 00000000CAF3.07C: Shanghai Dragons
@@ -26026,7 +26027,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D40E.07C: Массив, содержащий всех героев поддержки в Overwatch.
 00000000D40F.07C: Массив, содержащий всех героев-танков в Overwatch.
 00000000D411.07C: Поле боя
-00000000D412.07C: Ошибка: ожидалось название поля боя после [%1$s] в строке %2$s
+00000000D412.07C: Ошибка: в строке %2$s после '%1$s' требуется указание названия поля боя
 00000000D415.07C: Map
 00000000D416.07C: Константа поля боя.
 00000000D417.07C: Константа поля боя.
@@ -26118,6 +26119,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EA3E.07C: Инвертировать вертикальную ось при гироприцеливании
 00000000EA40.07C: Соревновательная игра
 00000000EA41.07C: НАГРАДЫ ЗА УЧАСТИЕ
+00000000EA51.07C: Козочка
 00000000EA59.07C: Инвертировать ось крена при гироприцеливании
 00000000EA5A.07C: (в коллекции)
 00000000EA97.07C: Контроллер Pro
@@ -26128,6 +26130,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EAFB.07C: Глобальные
 00000000EAFC.07C: Переменные игроков
 00000000EB07.07C: %1$s |Rplсек.:сек.:сек.; назад
+00000000EB0A.07C: Бумажная вырезка
 00000000EB0E.07C: По умолчанию
 00000000EB17.07C: Включить высокую точность ввода для мыши
 00000000EB1E.07C: Ошибка: переменной игрока '%1$s' требуется имя
@@ -26143,6 +26146,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EB4C.07C: «Голливуд», «Кингс Роу», «Айхенвальд»
 00000000EB4D.07C: Непал, башня Лицзян, Пусан
 00000000EB4E.07C: «Шоссе 66», «Пост наблюдения: Гибралтар», «Гавана»
+00000000EB4F.07C: Монах
 00000000EB73.07C: variables
 00000000EB74.07C: global
 00000000EB75.07C: player
@@ -26186,9 +26190,9 @@ https://account.blizzard.com/connections/nintendo
 00000000EC0D.07C: Схватка
 00000000EC0E.07C: PH Endless Deathmatch description
 00000000EC72.07C: Разминка
-00000000EC77.07C: В очереди
+00000000EC77.07C: Пока вы ждете
 00000000EC78.07C: Выберите предпочтительный игровой режим при нахождении в очереди.
-00000000EC79.07C: Совет: возможность автоматического подключения к играм можно установить в Настройках -> Игра.
+00000000EC79.07C: Совет: возможность автоматического подключения к матчам можно установить в разделе настроек «Игра».
 00000000EC7B.07C: Снежная схватка
 00000000EC7D.07C: Учебный полигон
 00000000EC7E.07C: Возродить тренировочных роботов
@@ -26229,6 +26233,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F059.07C: 900 жетонов лиги
 00000000F05A.07C: 2600 жетонов лиги
 00000000F086.07C: Щелкните здесь, чтобы выбрать матч на время ожидания в очереди.
+00000000F089.07C: Маска льва
 00000000F08A.07C: Идет поиск
 00000000F08B.07C: Некоторые матчи недоступны.
 00000000F08C.07C: Тост!
@@ -26258,7 +26263,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F0CB.07C: Продолжить
 00000000F0CC.07C: Время возрождения тренировочных роботов
 00000000F0CD.07C: |Rfn %1$s:P0;
-00000000F0FE.07C: Только для резидентов Калифорнии.
+00000000F0FE.07C: Только для жителей Калифорнии.
 00000000F0FF.07C: Я запрещаю продавать мою личную информацию.
 00000000F102.07C: Эта страница откроется в отдельном окне браузера.
 00000000F103.07C: ОК
@@ -26272,17 +26277,17 @@ https://account.blizzard.com/connections/nintendo
 00000000F133.07C: Йотун
 00000000F134.07C: Можно получить из зимнего контейнера
 00000000F137.07C: Зимняя сказка 2019
-00000000F147.07C: В очереди
+00000000F147.07C: Пока вы ждете
 00000000F148.07C: Выберите один из режимов, чтобы развлечься во время ожидания матча:
 00000000F149.07C: Учебный полигон теперь доступен для групп!
 00000000F14A.07C: Разминка: играйте без правил!
-00000000F14B.07C: Схватка: сражайтесь с участниками вашей группы!
-00000000F161.07C: Игровой режим
+00000000F14B.07C: Схватка: сразитесь с участниками вашей группы!
+00000000F161.07C: Game Mode
 00000000F162.07C: Константа игрового режима.
-00000000F163.07C: Текущий игровой режим
+00000000F163.07C: Current Game Mode
 00000000F164.07C: Текущий игровой режим «Своей игры».
 00000000F166.07C: Константа игрового режима.
-00000000F167.07C: Ошибка: ожидалось название режима после [%1$s] в строке %2$s
+00000000F167.07C: Ошибка: в строке %2$s после '%1$s' требуется указание названия режима
 00000000F168.07C: Игровой режим
 00000000F178.07C: Учетная запись
 00000000F196.07C: Разминка
@@ -26295,17 +26300,20 @@ https://account.blizzard.com/connections/nintendo
 00000000F1A3.07C: account/management
 00000000F1AB.07C: support/ccpa
 00000000F1B1.07C: Ошибка: слишком много пользовательских строк.
+00000000F1B6.07C: Древняя бронза
 00000000F1BD.07C: client
 00000000F1C0.07C: ВЫ ПОКИНЕТЕ МАТЧ И ОЧЕРЕДЬ. ВЫ УВЕРЕНЫ?
 00000000F1C5.07C: <fg%1$s>ПОЙМАЛА</fg>
 00000000F1C6.07C: 2020
 00000000F1C7.07C: Можно получить из зимнего контейнера
+00000000F1C8.07C: Автоматически присоединяться, находясь в очереди
 00000000F212.07C: Прорыв
 00000000F213.07C: Пробейте «Ледяную стену» противника в снежной схватке, а затем убейте его.
 00000000F214.07C: Повторить трижды
 00000000F215.07C: Убейте 3 противников в снежной схватке без смертей и перезарядок.
 00000000F216.07C: Поймала!
 00000000F217.07C: Убейте противника пойманным снежком в снежной схватке.
+00000000F21E.07C: Не присоединяться автоматически
 00000000F21F.07C: Йотун
 00000000F221.07C: Горец
 00000000F223.07C: Ледяные сферы
@@ -26316,12 +26324,13 @@ https://account.blizzard.com/connections/nintendo
 00000000F229.07C: 
 00000000F22A.07C: 
 00000000F22B.07C: 
-00000000F23D.07C: Показывать только открытые для игроков в очереди игры.
+00000000F23D.07C: Показывать только открытые для игроков в очереди матчи.
 00000000F23E.07C: Внимание! Это может повлиять на быстродействие системы!
 00000000F241.07C: + 100 жетонов в подарок
 00000000F242.07C: + 500 жетонов в подарок
+00000000F244.07C: OWL SFS (домашний) 2020
 00000000F246.07C: Поилка
-00000000F248.07C: Игровые режимы для находящихся в очереди пока недоступны.
+00000000F248.07C: Игровые режимы для игроков, находящихся в очереди, пока недоступны.
 00000000F24A.07C: Черный лес (зима)
 00000000F24B.07C: Черный лес
 00000000F24D.07C: Условие победы: стать первым игроком, совершившим 15 убийств
@@ -26335,23 +26344,368 @@ https://account.blizzard.com/connections/nintendo
 00000000F262.07C: Начинается новый турнир!
 00000000F263.07C: ПОБЕДИТЕ ДРУГИХ ИГРОКОВ В БИТВЕ НА СНЕЖКАХ!
 00000000F264.07C: Зимняя сказка 2019
-00000000F265.07C: Событие заканчивается 2 января
+00000000F265.07C: Участвуйте до 2 января
 00000000F266.07C: Новые облики
 00000000F267.07C: Еженедельные испытания
 00000000F268.07C: 1-я неделя
 00000000F269.07C: 2-я неделя
 00000000F26A.07C: 3-я неделя
 00000000F26C.07C: Команда-победитель.
+00000000F26D.07C: OWL FLA (домашний) 2020
+00000000F275.07C: Эмблема Los Angeles Valiant
+00000000F276.07C: Эмблема San Francisco Shock
+00000000F277.07C: Эмблема Florida Mayhem
+00000000F278.07C: Florida Mayhem
+00000000F279.07C: San Francisco Shock
+00000000F27A.07C: Los Angeles Valiant
+00000000F362.07C: OWL VAL (домашний) 2020
+00000000F365.07C: OWL SFS (выездной) 2020
+00000000F366.07C: Награда за участие в испытании третьей недели года Крысы 2020
+00000000F367.07C: Награда за участие в испытании второй недели года Крысы 2020
+00000000F368.07C: Награда за участие в испытании первой недели года Крысы 2020
+00000000F369.07C: OWL FLA (выездной) 2020
+00000000F36C.07C: Быстрый захват флага
+00000000F36D.07C: Быстрый захват флага
+00000000F36E.07C: В этом динамичном режиме две команды по шесть игроков стараются захватить флаг противника и защитить свой.
+00000000F370.07C: 3-й сезон соревновательного захвата флага
+00000000F371.07C: Соревновательный захват флага
+00000000F372.07C: Поднимайте свой ранг и соревнуйтесь с лучшими захватчиками флагов в мире!
+00000000F374.07C: Горячий супчик
 00000000F376.07C: Загрузка матча
+00000000F396.07C: Небесный фонарь
+00000000F39C.07C: Обжорство
+00000000F39D.07C: Воздушный змей
 00000000F3A3.07C: Когда система найдет других игроков для участия в матче, вы автоматически перейдете из очереди в игру.
 00000000F3AE.07C: Запуск матча
 00000000F3CD.07C: Красота среди гармонии
 00000000F3CE.07C: Можно получить из зимнего контейнера
+00000000F405.07C: Быстрый ЗФ: расположение флагов
+00000000F406.07C: Да
+00000000F407.07C: Нет
+00000000F408.07C: Длительность бонуса к скорости после возрождения
+00000000F409.07C: Быстрый захват флага
+00000000F40A.07C: КОМАНДА
+00000000F40B.07C: |Rfn %1$s:N1;
+00000000F417.07C: Показать диагностику
+00000000F418.07C: Диагностика скрипта
+00000000F41B.07C: Общее количество элементов: %1$s
+00000000F41C.07C: Размер наибольшего правила: %1$s КБ.
+00000000F41D.07C: Элементы включают в себя правила, условия, действия и значения (вплоть до %1$s).
+00000000F41E.07C: Каждое правило должно занимать меньше %1$s КБ.
 00000000F420.07C: Праздничный сюрприз
 00000000F422.07C: Снег, снег, снег
 00000000F424.07C: Белый медведь
+00000000F426.07C: Фейерверк
+00000000F428.07C: Florida
+00000000F429.07C: FL
+00000000F42A.07C: Mayhem
+00000000F42B.07C: Florida
+00000000F42C.07C: FL
+00000000F42D.07C: Mayhem
+00000000F48A.07C: Los Angeles
+00000000F48B.07C: LA
+00000000F48C.07C: Valiant
+00000000F48D.07C: Los Angeles
+00000000F48E.07C: LA
+00000000F48F.07C: Valiant
+00000000F49A.07C: San Francisco
+00000000F49B.07C: SF
+00000000F49C.07C: Shock
+00000000F49D.07C: San Francisco
+00000000F49E.07C: SF
+00000000F49F.07C: Shock
+00000000F4A2.07C: ПРОДОЛЖИТЬ
+00000000F4A3.07C: Лунный Новый год
+00000000F4A4.07C: Год Крысы
+00000000F4A5.07C: Играйте, чтобы получить особые лунные контейнеры. Вас ждут новые облики, заставки лучших моментов матча и многое другое!
+00000000F4A6.07C: Быстрый захват флага
+00000000F4A7.07C: Новый режим с захватом флага!
+00000000F4A8.07C: Примите участие в безумной борьбе за флаг противника!
+00000000F4A9.07C: Зимняя сказка 2019
+00000000F4AA.07C: Участвуйте до 5 февраля
+00000000F4AB.07C: Новые облики
+00000000F4AC.07C: Еженедельные испытания
+00000000F4AD.07C: 1-я неделя
+00000000F4AE.07C: 2-я неделя
+00000000F4AF.07C: 3-я неделя
+00000000F4B2.07C: Условие победы: захватить 6 флагов
+00000000F4B3.07C: ПОЛЯ БОЯ: «Илиос: колодец», «Илиос: развалины», «Непал: деревня», «Оазис: университет», «Оазис: центр города», «Пусан: святилище»
 00000000F4B5.07C: , 
+00000000F4B8.07C: Танец льва
+00000000F4B9.07C: Можно получить из лунного контейнера
+00000000F4BA.07C: Пельменный захват
+00000000F4BB.07C: Можно получить из лунного контейнера
 00000000F4BE.07C: Выбрать
 00000000F523.07C: Награда за вход в игру во время события «Зимняя сказка» в 2019 г.
-00000000F949.07C: Off
-[Core] Execution finished in 00:00:02.7291537 seconds
+00000000F528.07C: Год Крысы 2020
+00000000F529.07C: Год Крысы
+00000000F52A.07C: Можно получить из лунного контейнера
+00000000F531.07C: Los Angeles Valiant (выездной)
+00000000F532.07C: San Francisco Shock (выездной)
+00000000F533.07C: San Francisco Shock (выездной)
+00000000F534.07C: San Francisco Shock (выездной)
+00000000F535.07C: San Francisco Shock (выездной)
+00000000F536.07C: San Francisco Shock (выездной)
+00000000F537.07C: San Francisco Shock (выездной)
+00000000F538.07C: San Francisco Shock (выездной)
+00000000F539.07C: San Francisco Shock (выездной)
+00000000F53A.07C: San Francisco Shock (выездной)
+00000000F53B.07C: San Francisco Shock (выездной)
+00000000F53C.07C: San Francisco Shock (выездной)
+00000000F53D.07C: San Francisco Shock (выездной)
+00000000F53E.07C: San Francisco Shock (выездной)
+00000000F53F.07C: San Francisco Shock (выездной)
+00000000F540.07C: San Francisco Shock (выездной)
+00000000F541.07C: San Francisco Shock (выездной)
+00000000F542.07C: San Francisco Shock (выездной)
+00000000F543.07C: San Francisco Shock (выездной)
+00000000F544.07C: San Francisco Shock (выездной)
+00000000F545.07C: San Francisco Shock (выездной)
+00000000F546.07C: San Francisco Shock (выездной)
+00000000F547.07C: San Francisco Shock (выездной)
+00000000F548.07C: San Francisco Shock (выездной)
+00000000F549.07C: San Francisco Shock (выездной)
+00000000F54A.07C: San Francisco Shock (выездной)
+00000000F54B.07C: San Francisco Shock (выездной)
+00000000F54C.07C: San Francisco Shock (выездной)
+00000000F54D.07C: San Francisco Shock (выездной)
+00000000F54E.07C: San Francisco Shock (выездной)
+00000000F54F.07C: San Francisco Shock (выездной)
+00000000F550.07C: San Francisco Shock (выездной)
+00000000F551.07C: San Francisco Shock
+00000000F552.07C: San Francisco Shock
+00000000F553.07C: San Francisco Shock
+00000000F554.07C: San Francisco Shock
+00000000F555.07C: San Francisco Shock
+00000000F556.07C: San Francisco Shock
+00000000F557.07C: San Francisco Shock
+00000000F558.07C: San Francisco Shock
+00000000F559.07C: San Francisco Shock
+00000000F55A.07C: San Francisco Shock
+00000000F55B.07C: San Francisco Shock
+00000000F55C.07C: San Francisco Shock
+00000000F55D.07C: San Francisco Shock
+00000000F55E.07C: San Francisco Shock
+00000000F55F.07C: San Francisco Shock
+00000000F560.07C: San Francisco Shock
+00000000F561.07C: San Francisco Shock
+00000000F562.07C: San Francisco Shock
+00000000F563.07C: San Francisco Shock
+00000000F564.07C: San Francisco Shock
+00000000F565.07C: San Francisco Shock
+00000000F566.07C: San Francisco Shock
+00000000F567.07C: San Francisco Shock
+00000000F568.07C: San Francisco Shock
+00000000F569.07C: San Francisco Shock
+00000000F56A.07C: San Francisco Shock
+00000000F56B.07C: San Francisco Shock
+00000000F56C.07C: San Francisco Shock
+00000000F56D.07C: San Francisco Shock
+00000000F56E.07C: San Francisco Shock
+00000000F56F.07C: San Francisco Shock
+00000000F570.07C: Los Angeles Valiant
+00000000F571.07C: Los Angeles Valiant
+00000000F572.07C: Los Angeles Valiant
+00000000F573.07C: Los Angeles Valiant
+00000000F574.07C: Los Angeles Valiant
+00000000F575.07C: Los Angeles Valiant
+00000000F576.07C: Los Angeles Valiant
+00000000F577.07C: Los Angeles Valiant
+00000000F578.07C: Los Angeles Valiant
+00000000F579.07C: Los Angeles Valiant
+00000000F57A.07C: Los Angeles Valiant
+00000000F57B.07C: Los Angeles Valiant
+00000000F57C.07C: Los Angeles Valiant
+00000000F57D.07C: Los Angeles Valiant
+00000000F57E.07C: Los Angeles Valiant
+00000000F57F.07C: Los Angeles Valiant
+00000000F580.07C: Los Angeles Valiant
+00000000F581.07C: Los Angeles Valiant
+00000000F582.07C: Los Angeles Valiant
+00000000F583.07C: Los Angeles Valiant
+00000000F584.07C: Los Angeles Valiant
+00000000F585.07C: Los Angeles Valiant
+00000000F586.07C: Los Angeles Valiant
+00000000F587.07C: Los Angeles Valiant
+00000000F588.07C: Los Angeles Valiant
+00000000F589.07C: Los Angeles Valiant
+00000000F58A.07C: Los Angeles Valiant
+00000000F58B.07C: Los Angeles Valiant
+00000000F58C.07C: Los Angeles Valiant
+00000000F58D.07C: Los Angeles Valiant
+00000000F58E.07C: Los Angeles Valiant
+00000000F58F.07C: Los Angeles Valiant (выездной)
+00000000F590.07C: Los Angeles Valiant (выездной)
+00000000F591.07C: Los Angeles Valiant (выездной)
+00000000F592.07C: Los Angeles Valiant (выездной)
+00000000F593.07C: Los Angeles Valiant (выездной)
+00000000F594.07C: Los Angeles Valiant (выездной)
+00000000F595.07C: Los Angeles Valiant (выездной)
+00000000F596.07C: Los Angeles Valiant (выездной)
+00000000F597.07C: Los Angeles Valiant (выездной)
+00000000F598.07C: Los Angeles Valiant (выездной)
+00000000F599.07C: Los Angeles Valiant (выездной)
+00000000F59A.07C: Los Angeles Valiant (выездной)
+00000000F59B.07C: Los Angeles Valiant (выездной)
+00000000F59C.07C: Los Angeles Valiant (выездной)
+00000000F59D.07C: Los Angeles Valiant (выездной)
+00000000F59E.07C: Los Angeles Valiant (выездной)
+00000000F59F.07C: Los Angeles Valiant (выездной)
+00000000F5A0.07C: Los Angeles Valiant (выездной)
+00000000F5A1.07C: Los Angeles Valiant (выездной)
+00000000F5A2.07C: Los Angeles Valiant (выездной)
+00000000F5A3.07C: Los Angeles Valiant (выездной)
+00000000F5A4.07C: Los Angeles Valiant (выездной)
+00000000F5A5.07C: Los Angeles Valiant (выездной)
+00000000F5A6.07C: Los Angeles Valiant (выездной)
+00000000F5A7.07C: Los Angeles Valiant (выездной)
+00000000F5A8.07C: Los Angeles Valiant (выездной)
+00000000F5A9.07C: Los Angeles Valiant (выездной)
+00000000F5AA.07C: Los Angeles Valiant (выездной)
+00000000F5AB.07C: Los Angeles Valiant (выездной)
+00000000F5AC.07C: Los Angeles Valiant (выездной)
+00000000F5AD.07C: Florida Mayhem
+00000000F5AE.07C: Florida Mayhem
+00000000F5AF.07C: Florida Mayhem
+00000000F5B0.07C: Florida Mayhem
+00000000F5B1.07C: Florida Mayhem
+00000000F5B2.07C: Florida Mayhem
+00000000F5B3.07C: Florida Mayhem
+00000000F5B4.07C: Florida Mayhem
+00000000F5B5.07C: Florida Mayhem
+00000000F5B6.07C: Florida Mayhem
+00000000F5B7.07C: Florida Mayhem
+00000000F5B8.07C: Florida Mayhem
+00000000F5B9.07C: Florida Mayhem
+00000000F5BA.07C: Florida Mayhem
+00000000F5BB.07C: Florida Mayhem
+00000000F5BC.07C: Florida Mayhem
+00000000F5BD.07C: Florida Mayhem
+00000000F5BE.07C: Florida Mayhem
+00000000F5BF.07C: Florida Mayhem
+00000000F5C0.07C: Florida Mayhem
+00000000F5C1.07C: Florida Mayhem
+00000000F5C2.07C: Florida Mayhem
+00000000F5C3.07C: Florida Mayhem
+00000000F5C4.07C: Florida Mayhem
+00000000F5C5.07C: Florida Mayhem
+00000000F5C6.07C: Florida Mayhem
+00000000F5C7.07C: Florida Mayhem
+00000000F5C8.07C: Florida Mayhem
+00000000F5C9.07C: Florida Mayhem
+00000000F5CA.07C: Florida Mayhem
+00000000F5CB.07C: Florida Mayhem
+00000000F5CC.07C: Florida Mayhem (выездной)
+00000000F5CD.07C: Florida Mayhem (выездной)
+00000000F5CE.07C: Florida Mayhem (выездной)
+00000000F5CF.07C: Florida Mayhem (выездной)
+00000000F5D0.07C: Florida Mayhem (выездной)
+00000000F5D1.07C: Florida Mayhem (выездной)
+00000000F5D2.07C: Florida Mayhem (выездной)
+00000000F5D3.07C: Florida Mayhem (выездной)
+00000000F5D4.07C: Florida Mayhem (выездной)
+00000000F5D5.07C: Florida Mayhem (выездной)
+00000000F5D6.07C: Florida Mayhem (выездной)
+00000000F5D7.07C: Florida Mayhem (выездной)
+00000000F5D8.07C: Florida Mayhem (выездной)
+00000000F5D9.07C: Florida Mayhem (выездной)
+00000000F5DA.07C: Florida Mayhem (выездной)
+00000000F5DB.07C: Florida Mayhem (выездной)
+00000000F5DC.07C: Florida Mayhem (выездной)
+00000000F5DD.07C: Florida Mayhem (выездной)
+00000000F5DE.07C: Florida Mayhem (выездной)
+00000000F5DF.07C: Florida Mayhem (выездной)
+00000000F5E0.07C: Florida Mayhem (выездной)
+00000000F5E1.07C: Florida Mayhem (выездной)
+00000000F5E2.07C: Florida Mayhem (выездной)
+00000000F5E3.07C: Florida Mayhem (выездной)
+00000000F5E4.07C: Florida Mayhem (выездной)
+00000000F5E5.07C: Florida Mayhem (выездной)
+00000000F5E6.07C: Florida Mayhem (выездной)
+00000000F5E7.07C: Florida Mayhem (выездной)
+00000000F5E8.07C: Florida Mayhem (выездной)
+00000000F5E9.07C: Florida Mayhem (выездной)
+00000000F5EA.07C: Florida Mayhem (выездной)
+00000000F8B0.07C: Меняющая лица
+00000000F8B1.07C: Можно получить из лунного контейнера
+00000000F8B2.07C: Маска Сомбры
+00000000F8B3.07C: Можно получить из лунного контейнера
+00000000F8B4.07C: Оранжевая маска
+00000000F8B5.07C: Можно получить из лунного контейнера
+00000000F8B6.07C: Маска омника
+00000000F8B7.07C: Можно получить из лунного контейнера
+00000000F8B8.07C: Самуллори
+00000000F8B9.07C: Можно получить из лунного контейнера
+00000000F8BA.07C: Оперная воительница
+00000000F8BB.07C: Можно получить из лунного контейнера
+00000000F8BC.07C: Танцовщица в маске
+00000000F8BD.07C: Можно получить из лунного контейнера
+00000000F8BE.07C: Танец дракона
+00000000F8BF.07C: Можно получить из лунного контейнера
+00000000F8C0.07C: Танец дракона
+00000000F8C1.07C: Можно получить из лунного контейнера
+00000000F8C2.07C: Флагоносец-претендент 2020
+00000000F8C3.07C: Награда за завершение квалификационных матчей соревновательного захвата флага в 2020 г.
+00000000F8C4.07C: Флагоносец-герой 2020
+00000000F8C5.07C: Награда за вхождение в список 500 лучших игроков соревновательного захвата флага в 2020 г.
+00000000F949.07C: Откл.
+00000000FA3D.07C: Флагоносец-претендент 2020
+00000000FA3F.07C: Флагоносец-герой 2020
+00000000FA42.07C: Ваджра
+00000000FA45.07C: Концентрация
+00000000FA47.07C: Древняя бронза
+00000000FA49.07C: Древняя бронза
+00000000FA4B.07C: Крыса
+00000000FA4D.07C: Весна
+00000000FABE.07C: |Rpl %1$s:убийство:убийства:убийств; отбрасывающими способностями
+00000000FABF.07C: %1$s |Rpl убийство:убийства:убийств; отбрасывающими способностями
+00000000FAC0.07C: |Rpl %1$s:убийство:убийства:убийств; отбрасывающими способностями
+00000000FAC1.07C: %1$s |Rpl убийство:убийства:убийств; отбрасывающими способностями
+00000000FB62.07C: ПЕРЕКЛЮЧИТЬ СТОРОНУ ПРОСТОГО ВИДА ОТ 3-ГО ЛИЦА
+00000000FB64.07C: Бахрейн
+00000000FB69.07C: Самуллори
+00000000FB6B.07C: Оперная воительница
+00000000FB6F.07C: Тхальчхум
+00000000FB70.07C: Можно получить из лунного контейнера
+00000000FB71.07C: Меняющая лица
+00000000FB72.07C: Можно получить из лунного контейнера
+00000000FB7F.07C: Будем!
+00000000FB80.07C: Можно получить из лунного контейнера
+00000000FB81.07C: А еще раз слабо?
+00000000FB82.07C: Можно получить из лунного контейнера
+00000000FB83.07C: Танцевать охота!
+00000000FB84.07C: Можно получить из лунного контейнера
+00000000FB85.07C: Как самочувствие?
+00000000FB86.07C: Можно получить из лунного контейнера
+00000000FB87.07C: Превосходно
+00000000FB88.07C: Можно получить из лунного контейнера
+00000000FB89.07C: Все, что я могу представить
+00000000FB8A.07C: Можно получить из лунного контейнера
+00000000FB90.07C: Он не должен пялиться на тень
+00000000FB91.07C: Можно получить из лунного контейнера
+00000000FB94.07C: Никак нет
+00000000FB95.07C: Можно получить из лунного контейнера
+00000000FB96.07C: Переполнение стека
+00000000FB97.07C: Можно получить из лунного контейнера
+00000000FBAA.07C: С Новым Годом!
+00000000FBAB.07C: Можно получить из лунного контейнера
+00000000FBB2.07C: Чего тебе?
+00000000FBB3.07C: Можно получить из лунного контейнера
+00000000FBB4.07C: Аномалия!
+00000000FBB5.07C: Можно получить из лунного контейнера
+00000000FBB7.07C: Можно получить из лунного контейнера
+00000000FBB8.07C: Не волнуйся
+00000000FBD5.07C: Маска У-куна
+00000000FBD6.07C: Можно получить из лунного контейнера
+00000000FBD7.07C: Синяя маска
+00000000FBD8.07C: Можно получить из лунного контейнера
+00000000FBDA.07C: Обновления отключены
+00000000FC5D.07C: Если потребуется обновление, игра может стать недоступной, пока вы его не установите.
+00000000FC5E.07C: Скрыть панель просмотра повтора
+00000000FC91.07C: СТАНДАРТНЫЙ/ПРОСТОЙ ВИД ОТ 3-ГО ЛИЦА
+00000000FDBB.07C: Откл.
+00000000FFB4.07C: Матчи
+00000000FFCF.07C: ПОЛУЧЕН ЗАПРОС НА ДОБАВЛЕНИЕ В ДРУЗЬЯ
+00000000FFE7.07C: Overwatch League 2020
+00000000FFE8.07C: «Козочка» Бригитта
+[Core] Execution finished in 00:00:02.8472839 seconds
