@@ -4,7 +4,7 @@ var languages = ["de-DE", "en-US", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", 
 var docFolder = "./src/doc/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
 
-var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(7)\\DataTool.exe"
+var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(9)\\DataTool.exe"
 var overwatchPath = "D:\\Overwatch"
 var outputFolder = "strings"
 var guids = {};
@@ -149,14 +149,14 @@ function normalizeName(content) {
 
 
 
-//generateStringFiles();
-getGuids();
+generateStringFiles();
+/*getGuids();
 replaceJsonObjectsInFile(docFolder+"actions.js");
 replaceJsonObjectsInFile(docFolder+"values.js");
 replaceJsonObjectsInFile(docFolder+"constants.js");
 replaceJsonObjectsInFile(docFolder+"keywords.js");
 removeParentheses = false;
-replaceJsonObjectsInFile(docFolder+"stringKw.js");
+replaceJsonObjectsInFile(docFolder+"stringKw.js");*/
 
 function sleep(ms){
     return new Promise(resolve=>{
