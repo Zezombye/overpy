@@ -55,7 +55,7 @@ function translateSubroutineToWs(content) {
 	if (defaultSubroutineNames.includes(content)) {
 		//Add the subroutine as it doesn't already exist (else it would've been caught by the for)
 		//However, only do this if it is a default subroutine name
-		addVariable(content, defaultSubroutineNames.indexOf(content));
+		addSubroutine(content, defaultSubroutineNames.indexOf(content));
 		if (obfuscateRules) {
 			for (var i = 0; i < defaultSubroutineNames.length; i++) {
 				if (defaultSubroutineNames[i].name === content) {

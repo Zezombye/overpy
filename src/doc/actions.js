@@ -167,6 +167,19 @@ var actionKw =
         "zh-CN": "大字体信息"
     },
     {
+        "opy": "_callSubroutine",
+        "description": "Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
+        "args": [
+            {
+                "name": "SUBROUTINE",
+                "description": "Specifies which subroutine to call. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
+                "type": "SUBROUTINE",
+                "default": "Sub0",
+            }
+        ],
+        "en-US": "Call Subroutine",
+    },
+    {
         "opy": "_chaseGlobalVariableAtRate",
         "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
         "args": [
@@ -3066,6 +3079,24 @@ var actionKw =
         "ja-JP": "ボタン長押し開始",
         "pt-BR": "Começar a Segurar Botão",
         "zh-CN": "开始按下按钮"
+    },
+    {
+        "opy": "_startRule",
+        "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
+        "args": [
+            {
+                "name": "SUBROUTINE",
+                "description": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
+                "type": "SUBROUTINE",
+                "default": "Sub0",
+            },{
+                "name": "IF ALREADY EXECUTING",
+                "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
+                "type": "START RULE BEHAVIOR",
+                "default": "RESTART RULE",
+            }
+        ],
+        "en-US": "Start Rule",
     },
     {
         "opy": "_&startThrottleInDirection",
