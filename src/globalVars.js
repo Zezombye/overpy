@@ -19,6 +19,7 @@
 
 var globalVariables;
 var playerVariables;
+var subroutines;
 var currentLanguage;
 
 //Compilation variables - are reset at each compilation.
@@ -29,13 +30,6 @@ var rootPath;
 //Global variable used to keep track of each name for the current array element.
 //Should be the empty array at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
 var currentArrayElementNames;
-
-//Dictionary used for for loops.
-//Should be empty at the beginning and end of each rule. (for compilation)
-var forLoopVariables;
-
-//Timer for for loop variables; when it is reached, delete the corresponding variable.
-var forLoopTimers;
 
 //The keywords "true" and "false", in the workshop.
 //Used to avoid translating back when comparing to true/false.
@@ -100,8 +94,6 @@ var isInNormalForLoop;
 function resetGlobalVariables() {
 	rootPath = "";
 	currentArrayElementNames = [];
-	forLoopVariables = {};
-	forLoopTimers = [];
 	wsTrue = tows("true", valueFuncKw);
 	wsFalse = tows("false", valueFuncKw);
 	wsNull = tows("null", valueFuncKw);
@@ -121,6 +113,7 @@ function resetGlobalVariables() {
 	isInNormalForLoop = false;
 	globalVariables = [];
 	playerVariables = [];
+	subroutines = [];
 	encounteredWarnings = [];
 	suppressedWarnings = [];
 	globalSuppressedWarnings = [];
@@ -204,8 +197,22 @@ const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length-1;
 
 const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BV', 'BW', 'BX', 'BY', 'BZ', 'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN', 'CO', 'CP', 'CQ', 'CR', 'CS', 'CT', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG', 'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN', 'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DV', 'DW', 'DX'];
 
+const defaultSubroutineNames = Array(128).fill().map((e,i)=>i).map(x => "Sub"+x);
+
 //Names that cannot be used for variables.
-const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default"].concat( Object.keys(constantValues).map(x => constantValues[x].opy));
+const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "def", "pass", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "RULE_START", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default", "lobbySettings"].concat(Object.keys(constantValues).map(x => constantValues[x].opy));
+
+//Names that cannot be used for subroutines.
+const reservedFuncNames = [];
+for (var func of actionKw.concat(specialFuncs)) {
+	if (!func.opy.startsWith("_")) {
+		if (func.opy.includes("(")) {
+			reservedFuncNames.push(func.opy.substring(0, func.opy.indexOf("(")));
+		} else {
+			reservedFuncNames.push(func.opy);
+		}
+	}
+}
 
 //Characters that are visually the same as normal ASCII characters (when uppercased), but make the string appear in "big letters" (the i18n font).
 //For now, only greek letters and the "line separator" character.

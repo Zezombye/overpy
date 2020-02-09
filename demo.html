@@ -55,7 +55,7 @@ a {
 	
 	<div id="compiled-text" style="float:right; width:34%;">
 		<p>Compiled text</p>
-		<button onclick="compareOutputs()">Compare</button>
+		<button style="visibility: hidden;">hidden</button>
 		<textarea id="compiled-textarea" onkeyup="getTextareaLineNumber(this, 'compiled');" onmouseup="this.onkeyup();" rows="20" style="width:100%;" wrap="off"></textarea> 
 		<p style="float:left;">line <span id="compiled-textarea-line-number"></span>, col <span id="compiled-textarea-col-number"></span></p>
 	</div>
@@ -65,7 +65,18 @@ a {
 <script src="src/doc/values.js"></script>
 <script src="src/doc/constants.js"></script>
 <script src="src/doc/keywords.js"></script>
-<script src="src/utils.js"></script>
+<script src="src/doc/specialFuncDoc.js"></script>
+
+<script src="src/utils/compilation.js"></script>
+<script src="src/utils/decompilation.js"></script>
+<script src="src/utils/file.js"></script>
+<script src="src/utils/logging.js"></script>
+<script src="src/utils/optimization.js"></script>
+<script src="src/utils/other.js"></script>
+<script src="src/utils/strings.js"></script>
+<script src="src/utils/translation.js"></script>
+<script src="src/utils/varNames.js"></script>
+
 <script src="src/obfuscation.js"></script>
 <script src="src/globalVars.js"></script>
 <script src="src/tests/decompileTest.js"></script>
@@ -77,204 +88,11 @@ a {
 
 <script>
 
-//Generate strings for a language
-/*var strFr = [
-];
-
-for (var i = 0; i < normalStrKw.length; i++) {
-	normalStrKw[i].fr = strFr[i];
-}
-
-console.log(JSON.stringify(normalStrKw, null, 4));*/
-
-var korean = [
-
-
-
-
-"아나",
-"애쉬",
-"바티스트",
-"바스티온",
-"브리기테",
-"D.Va",
-"둠피스트",
-"겐지",
-"한조",
-"정크랫",
-"루시우",
-"맥크리",
-"메이",
-"메르시",
-"모이라",
-"오리사",
-"파라",
-"리퍼",
-"라인하르트",
-"로드호그",
-"시그마",
-"솔저: 76",
-"솜브라",
-"시메트라",
-"토르비욘",
-"트레이서",
-"위도우메이커",
-"윈스턴",
-"레킹볼",
-"자리야",
-"젠야타",
-
-];
-
-/*var result = "";
-for (value of valueFuncKw) {
-	result += "setGlobalVariable(A,"+value.en+"(";
-	if (value.args) {
-		result += value.args.map(x => x.default).join(",");
-	}
-	result +="));\n";
-}
-
-console.log(result);*/
-
-/*function owo(constant) {
-	for (var i = 0; i < constantValues[constant].values.length; i++) {
-		constantValues[constant].values[i].kr = korean[i];
-	}
-	console.log(JSON.stringify(constantValues[constant], ["opy", "values", "en", "fr", "kr", "name", "description", "type", "default", "args"], 4));
-}
-
-owo("HERO CONSTANT");*/
-
-/*for (var action of actionKw) {
-	if ("fr" in action) {
-		//console.log(value.fr);
-		action.fr = action.fr.split(" ").map(x => x[0].toUpperCase()+x.substring(1).toLowerCase()).join("").replace(/ /g, "");
-	}
-}
-console.log(JSON.stringify(actionKw, null, 4));*/
-
-
-
-</script>
-
-<script>
-
-/*
-var maps = `Ayutthaya	42
-Black Forest	37
-Blizzard World (Arcade)	54
-Blizzard World (Hybrid)	358
-Busan	523
-Castillo	-71
-Château Guillard	168
-Dorado (Arcade)	144
-Dorado (Escort)	518
-Ecopoint: Antartica	18
-Eichenwalde (Arcade)	124
-Eichenwalde (Hybrid)	435
-Hanamura (Arcade)	78
-Hanamura (Assault)	374
-Havana (Arcade)	88
-Havana (Escort)	384
-Hollywood (Arcade)	25
-Hollywood (Hybrid)	302
-Horizon: Lunar Colony (Arcade)	56
-Horizon: Lunar Colony (Assault)	411
-Ilios (Control)	724
-Ilios: Lighthouse (Arcade)	300
-Ilios: Ruins (Arcade)	66
-Ilios: Well (Arcade)	-167
-Junkertown	278
-King's Row (Arcade)	17
-King's Row (Hybrid)	299
-Lijiang Tower (Control)	371
-Lijiang: Control Center (Arcade)	13
-Lijiang: Garden (Arcade)	102
-Lijiang: Night Market (Arcade)	69
-Necropolis	30
-Nepal (Control)	195
-Nepal: Sanctum (Arcade)	101
-Nepal: Shrine (Arcade)	-13
-Nepal: Village (Arcade)	-130
-Numbani	497
-Oasis (Control)	630
-Oasis: City Center (Arcade)	186
-Oasis: Gardens (Arcade)	173
-Oasis: University (Arcade)	-163
-Paris (Arcade)	-3
-Paris (Assault)	243
-Petra	41
-Rialto	451
-Route 66	368
-Temple of Anubis (Arcade)	21
-Temple of Anubis (Assault)	276
-Volskaya Industries (Arcade)	34
-Volskaya Industries (Assault)	321
-Watchpoint: Gibraltar	416`;
-
-maps = maps.split("\n");
-result = [];
-for (var map of maps) {
-	mapName = map.split("\t")[0]
-	mapValue = map.split("\t")[1]
-	mapName = mapName.toUpperCase().replace(/[:\(\)']/g, "").replace(/ /g, "_").replace("ASSAULT", "").replace("HYBRID", "").replace("ESCORT", "");
-	result.push({
-		opy: "Map."+mapName,
-		en: mapValue,
-	});
-}
-console.log(JSON.stringify(result, null, 4));*/
-
-
-/*for (var i = 0; i < actionKw.length-1; i++) {
-	if (actionKw[i][1][0].toLowerCase() >= actionKw[i+1][1][0].toLowerCase()) {
-		console.log("Messed up alphabetical order for "+actionKw[i+1][1][0]);
-	}
-}*/
-
-/*for (var i = 0; i < valueFuncKw.length-1; i++) {
-	if (valueFuncKw[i][1][0].toLowerCase() >= valueFuncKw[i+1][1][0].toLowerCase()) {
-		console.log("Messed up alphabetical order for "+valueFuncKw[i+1][1][0]);
-	}
-}*/
-
-</script>
-
-
-<script>
-"use strict";
-
-/*var result = [];
-
-for (var kw of surroundStrKw) {
-	result.push({
-		opy: kw[0][0],
-		en: kw[1][0],
-	})
-}
-
-console.log(JSON.stringify(result, null, 4));*/
-
-/*for (var constant of Object.keys(constantKw)) {
-	for (var value of constantKw[constant].values) {
-		value.en = value.en.split(" ").map(x => x[0].toUpperCase()+x.substring(1).toLowerCase()).join("").replace(/ /g, "");
-	}
-}
-console.log(JSON.stringify(constantKw, null, 4));*/
-
-</script>
-
-
-<script>
-
 var demoGlobalVars = {};
 var demoPlayerVars = {};
 
 function getTextareaLineNumber(textarea, name) {
-	
-	textarea.value = textarea.value.replace(/\t/g, "    ");
-	
+		
 	document.getElementById(name+"-textarea-line-number").innerHTML = textarea.value.substr(0, textarea.selectionStart).split("\n").length;
 	document.getElementById(name+"-textarea-col-number").innerHTML = textarea.selectionStart - textarea.value.substr(0, textarea.selectionStart).lastIndexOf("\n");
 }
@@ -341,68 +159,4 @@ function demoAddText() {
 	
 }
 
-function compareOutputs() {
-	var workshopOutput = document.getElementById("workshop-textarea").value;
-	
-	//Numbers are annoying
-	for (var i = 0; i < workshopOutput.length; i++) {
-		if (workshopOutput[i] >= '0' && workshopOutput[i] <= '9') {
-			var j = i;
-			for (; (workshopOutput[j] >= '0' && workshopOutput[j] <= '9') || workshopOutput[j] === '.'; j++);
-			
-			//console.log(workshopOutput.substring(i, j));
-			
-			workshopOutput = workshopOutput.substring(0,i)+Number(workshopOutput.substring(i, j)).toString()+workshopOutput.substring(j);
-			i += Number(workshopOutput.substring(i, j)).toString().length+1;
-		}
-	}
-	
-	document.getElementById("workshop-textarea").value = workshopOutput;
-	
-	workshopOutput = workshopOutput.toLowerCase().replace(/\s/g, "")
-	
-	var compiledOutput = document.getElementById("compiled-textarea").value.toLowerCase().replace(/\s/g, "");
-	var workshopDiffOffset = -1;
-	var compiledDiffOffset = -1;
-	for (var i = 0; i < compiledOutput.length; i++) {
-		if (workshopOutput[i] !== compiledOutput[i]) {
-			workshopDiffOffset = i;
-			compiledDiffOffset = i;
-			console.log("Difference found: '"+workshopOutput[i]+"' vs '"+compiledOutput[i]+"'");
-			break;
-		}
-	}
-	
-	if (workshopDiffOffset === -1) {
-		alert("No differences found");
-		return;
-	}
-	
-	for (var i = 0; i < workshopDiffOffset+1; i++) {
-		if (/\s/.test(document.getElementById("workshop-textarea").value[i])) {
-			workshopDiffOffset++;
-		}
-	}
-	workshopDiffOffset--;
-	var workshopText = document.getElementById("workshop-textarea").value;
-	var lineEndBefore = workshopText.substring(0, workshopDiffOffset).lastIndexOf('\n');
-	var lineEndAfter = workshopDiffOffset+workshopText.substring(workshopDiffOffset).indexOf('\n');
-	console.log(workshopText.substring(lineEndBefore+1, lineEndAfter));
-	console.log(" ".repeat(workshopDiffOffset-lineEndBefore)+"^"); 
-	document.getElementById("workshop-textarea").selectionEnd = workshopDiffOffset;
-	
-	for (var i = 0; i < compiledDiffOffset+1; i++) {
-		if (/\s/.test(document.getElementById("compiled-textarea").value[i])) {
-			compiledDiffOffset++;
-		}
-	}
-	compiledDiffOffset--;
-	var compiledText = document.getElementById("compiled-textarea").value;
-	lineEndBefore = compiledText.substring(0, compiledDiffOffset).lastIndexOf('\n');
-	lineEndAfter = compiledDiffOffset+compiledText.substring(compiledDiffOffset).indexOf('\n');
-	console.log(compiledText.substring(lineEndBefore+1, lineEndAfter));
-	console.log(" ".repeat(compiledDiffOffset-lineEndBefore)+"^"); 
-	document.getElementById("compiled-textarea").selectionEnd = compiledDiffOffset;
-	
-}
 </script>

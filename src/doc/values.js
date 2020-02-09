@@ -1020,6 +1020,12 @@ var valueFuncKw =
         "zh-CN": "事件暴击"
     },
     {
+        "opy": "eventWasHealthPack",
+        "description": "Whether the healing was a health pack for the event currently being processed by this rule.",
+        "args": null,
+        "en-US": "Event Was Health Pack",
+    },
+    {
         "guid": "00000000C595",
         "opy": "_&getEyePosition",
         "description": "The position of a player's first person view (used for aiming)",
@@ -2324,6 +2330,12 @@ var valueFuncKw =
         "ja-JP": "最新の継続ヒールID",
         "pt-BR": "ID de Cura ao Longo do Tempo Mais Recente",
         "zh-CN": "上一个持续治疗效果ID"
+    },
+    {
+        "opy": "getLastHealingModification()",
+        "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
+        "args": [],
+        "en-US": "Last Healing Modification ID",
     },
     {
         "opy": "_lastOf",

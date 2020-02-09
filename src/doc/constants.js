@@ -271,6 +271,9 @@ var constantValues =
                 "ja-JP": "ジャンプ",
                 "pt-BR": "Pular",
                 "zh-CN": "跳跃"
+            },{
+                "opy": "Button.MELEE",
+                "en-US": "Melee"
             },
             {
                 "guid": "00000000B17B",
@@ -281,6 +284,9 @@ var constantValues =
                 "ja-JP": "メイン攻撃",
                 "pt-BR": "Disparo Primário",
                 "zh-CN": "主要攻击模式"
+            },{
+                "opy": "Button.RELOAD",
+                "en-US": "Reload",
             },
             {
                 "guid": "00000000B17A",
@@ -1891,6 +1897,12 @@ var constantValues =
                 "ja-JP": "表示される相手、文字列",
                 "pt-BR": "Visível para e String",
                 "zh-CN": "可见和字符串"
+            },{
+                "opy": "HudReeval.SORT_ORDER_AND_STRING",
+                "en-US": "Sort Order and String",
+            },{
+                "opy": "HudReeval.VISIBILITY_SORT_ORDER_AND_STRING",
+                "en-US": "Visible To Sort Order and String",
             }
         ]
     },
@@ -2034,6 +2046,21 @@ var constantValues =
                 "ja-JP": "レシーバー、ダメージャー、ダメージのパーセンテージ",
                 "pt-BR": "Receptores Danificadores e Porcentagem de Dano",
                 "zh-CN": "受伤害者，伤害者及伤害百分比"
+            }
+        ]
+    },
+    "HEALING MODIFICATION REEVALUATION": {
+        "opy": "HealingReeval",
+        "values": [
+            {
+                "opy": "HealingReeval.NONE",
+                "en-US": "None",
+            },{
+                "opy": "HealingReeval.RECEIVERS_AND_HEALERS",
+                "en-US": "Receivers and Healers",
+            },{
+                "opy": "HealingReeval.RECEIVERS_HEALERS_AND_HEALPERCENT",
+                "en-US": "Receivers Healers and Healing Percent",
             }
         ]
     },
@@ -3279,6 +3306,15 @@ var constantValues =
                 "ru-RU": "Пост наблюдения: Гибралтар",
                 "zh-CN": "监测站：直布罗陀",
                 "zh-TW": "捍衛者基地：直布羅陀"
+            },{
+                "opy": "Map.WORKSHOP_CHAMBER",
+                "en-US": "Workshop Chamber",
+            },{
+                "opy": "Map.WORKSHOP_EXPANSE",
+                "en-US": "Workshop Expanse",
+            },{
+                "opy": "Map.WORKSHOP_ISLAND",
+                "en-US": "Workshop Island",
             }
         ]
     },
