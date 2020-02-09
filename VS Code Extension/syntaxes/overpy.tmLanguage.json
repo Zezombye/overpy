@@ -34,13 +34,13 @@
 			"patterns": [
 				{
 					"name": "keyword.control.overpy",
-					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|del|import|break|switch|case|default)\\b"
+					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|del|import|break|switch|case|default|def|lobbySettings)\\b"
 				},{
 					"name": "keyword.other.overpy",
 					"match": "\\b(and|or|not|in)\\b|((\\+|\\-|\\*\\*|\\/|\\%|\\*|<|>)=?)|(\\=)|\\.|((min|max|\\!)\\=)"
 				},{
 					"name": "variable.other",
-					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|healee|healer|hostPlayer|loc|RULE_CONDITION|[A-Z]|[A-D][A-Z])\\b"
+					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasHealthPack|healee|healer|hostPlayer|loc|RULE_CONDITION|RULE_START|__\\w+__|[A-Z]|[A-D][A-Z])\\b"
 				},{
 					"name": "string.regexp",
 					"match": "\\@\\w+\\b"
@@ -117,7 +117,7 @@
 			"patterns": [
 				{
 					"name": "invalid.illegal",
-					"match": "\\b(False|True|None|Null|class|finally|is|try|def|from|nonlocal|with|as|yield|assert|pass|break|except|raise)\\b"
+					"match": "\\b(False|True|None|Null|class|finally|is|try|from|nonlocal|with|as|yield|assert|pass|except|raise|disabled)\\b"
 				}
 			]
 		},

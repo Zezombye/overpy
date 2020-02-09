@@ -1079,6 +1079,12 @@ var actionKw =
         "zh-CN": "禁用死亡回放时目标的HUD"
     },
     {
+        "opy": "disableInspector()",
+        "description": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.",
+        "args": [],
+        "en-US": "Disable Inspector Recording",
+    },
+    {
         "opy": "_&disallowButton",
         "description": "Disables a logical button for one or more players such that pressing it has no effect.",
         "args": [
@@ -1207,6 +1213,12 @@ var actionKw =
         "ja-JP": "観戦中のターゲットHUD表示を有効化",
         "pt-BR": "Ativar HUD do Alvo de Visualização na Morte",
         "zh-CN": "启用死亡回放时目标的HUD"
+    },
+    {
+        "opy": "enableInspector()",
+        "description": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.",
+        "args": [],
+        "en-US": "Enable Inspector Recording",
     },
     {
         "opy": "goToAssembleHeroes()",
@@ -2892,6 +2904,43 @@ var actionKw =
         "zh-CN": "开始持续治疗"
     },
     {
+        "opy": "startHealingModification",
+        "description": "Starts modifying how much healing one or more receivers will receive from one or more healers. A reference to this healing modification can be obtained from the last healing modification id value. This action will fail if too many healing modifications have been started.",
+        "args": [
+            {
+                "name": "RECEIVERS",
+                "description": "The player or players whose incoming healing will be modified (when healed by the healers).",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "HEALERS",
+                "description": "The player or players whose outgoing healing will be modified (when healing the receivers).",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "HEALING PERCENT",
+                "description": "The percentage of healing that will apply to receivers when healed by healers.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "HEALING MODIFICATION REEVALUATION",
+                "default": "RECEIVERS, HEALERS, AND HEALING PERCENT"
+            }
+        ],
+        "en-US": "Start Damage Modification",
+        "guid": "00000000C639",
+        "es-MX": "Comenzar modificación de daño",
+        "fr-FR": "Lancer la modification des dégâts",
+        "ja-JP": "ダメージ変更を開始",
+        "pt-BR": "Começar Modificação de Dano",
+        "zh-CN": "开始伤害调整"
+    },
+    {
         "opy": "_&startForcingButton",
         "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
         "args": [
@@ -3032,6 +3081,12 @@ var actionKw =
         "ja-JP": "すべてのダメージ変更を停止",
         "pt-BR": "Parar Todas as Modificações de Dano",
         "zh-CN": "停止所有伤害调整"
+    },
+    {
+        "opy": "stopAllHealingModifications()",
+        "description": "Stops all healing modifications that were started using the start healing modification action.",
+        "args": [],
+        "en-US": "Stop All Healing Modifications",
     },
     {
         "opy": "_&stopAllDoT",
@@ -3268,6 +3323,18 @@ var actionKw =
         "zh-CN": "停止持续治疗"
     },
     {
+        "opy": "stopHealingModification",
+        "description": "Stops a healing modification that was started by the start healing modification action.",
+        "args": [
+            {
+                "name": "HEALING MODIFICATION ID",
+                "description": "Specifies which healing modification instance to stop. This id may be last healing modification id or a variable into which last healing modification id was earlier stored.",
+                "type": "NUMBER",
+                "default": "LAST HEALING MODIFICATION ID"
+            }
+        ],
+    },
+    {
         "opy": "_&stopForcingButton",
         "description": "Undoes the effect of the start holding button action for one or more players.",
         "args": [
@@ -3394,6 +3461,7 @@ var actionKw =
     }
 ]
 //end-json
+
 
 
 
@@ -4435,6 +4503,12 @@ var valueFuncKw =
         "ja-JP": "イベントがクリティカル・ヒットだった",
         "pt-BR": "Evento foi Golpe Crítico",
         "zh-CN": "事件暴击"
+    },
+    {
+        "opy": "eventWasHealthPack",
+        "description": "Whether the healing was a health pack for the event currently being processed by this rule.",
+        "args": null,
+        "en-US": "Event Was Health Pack",
     },
     {
         "guid": "00000000C595",
@@ -5741,6 +5815,12 @@ var valueFuncKw =
         "ja-JP": "最新の継続ヒールID",
         "pt-BR": "ID de Cura ao Longo do Tempo Mais Recente",
         "zh-CN": "上一个持续治疗效果ID"
+    },
+    {
+        "opy": "getLastHealingModification()",
+        "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
+        "args": [],
+        "en-US": "Last Healing Modification ID",
     },
     {
         "opy": "_lastOf",
@@ -7547,6 +7627,7 @@ var valueFuncKw =
 
 
 
+
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -7820,6 +7901,9 @@ var constantValues =
                 "ja-JP": "ジャンプ",
                 "pt-BR": "Pular",
                 "zh-CN": "跳跃"
+            },{
+                "opy": "Button.MELEE",
+                "en-US": "Melee"
             },
             {
                 "guid": "00000000B17B",
@@ -7830,6 +7914,9 @@ var constantValues =
                 "ja-JP": "メイン攻撃",
                 "pt-BR": "Disparo Primário",
                 "zh-CN": "主要攻击模式"
+            },{
+                "opy": "Button.RELOAD",
+                "en-US": "Reload",
             },
             {
                 "guid": "00000000B17A",
@@ -9440,6 +9527,12 @@ var constantValues =
                 "ja-JP": "表示される相手、文字列",
                 "pt-BR": "Visível para e String",
                 "zh-CN": "可见和字符串"
+            },{
+                "opy": "HudReeval.SORT_ORDER_AND_STRING",
+                "en-US": "Sort Order and String",
+            },{
+                "opy": "HudReeval.VISIBILITY_SORT_ORDER_AND_STRING",
+                "en-US": "Visible To Sort Order and String",
             }
         ]
     },
@@ -9583,6 +9676,21 @@ var constantValues =
                 "ja-JP": "レシーバー、ダメージャー、ダメージのパーセンテージ",
                 "pt-BR": "Receptores Danificadores e Porcentagem de Dano",
                 "zh-CN": "受伤害者，伤害者及伤害百分比"
+            }
+        ]
+    },
+    "HEALING MODIFICATION REEVALUATION": {
+        "opy": "HealingReeval",
+        "values": [
+            {
+                "opy": "HealingReeval.NONE",
+                "en-US": "None",
+            },{
+                "opy": "HealingReeval.RECEIVERS_AND_HEALERS",
+                "en-US": "Receivers and Healers",
+            },{
+                "opy": "HealingReeval.RECEIVERS_HEALERS_AND_HEALPERCENT",
+                "en-US": "Receivers Healers and Healing Percent",
             }
         ]
     },
@@ -10828,6 +10936,15 @@ var constantValues =
                 "ru-RU": "Пост наблюдения: Гибралтар",
                 "zh-CN": "监测站：直布罗陀",
                 "zh-TW": "捍衛者基地：直布羅陀"
+            },{
+                "opy": "Map.WORKSHOP_CHAMBER",
+                "en-US": "Workshop Chamber",
+            },{
+                "opy": "Map.WORKSHOP_EXPANSE",
+                "en-US": "Workshop Expanse",
+            },{
+                "opy": "Map.WORKSHOP_ISLAND",
+                "en-US": "Workshop Island",
             }
         ]
     },
@@ -11067,6 +11184,7 @@ var constantValues =
     }
 }
 //end-json
+
 
 
 
@@ -11450,6 +11568,7 @@ var funcKw = actionKw.concat(valueFuncKw);
 
 
 
+
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -11707,7 +11826,7 @@ const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length-1;
 const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BV', 'BW', 'BX', 'BY', 'BZ', 'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN', 'CO', 'CP', 'CQ', 'CR', 'CS', 'CT', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG', 'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN', 'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DV', 'DW', 'DX'];
 
 //Names that cannot be used for variables.
-const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default"].concat( Object.keys(constantValues).map(x => constantValues[x].opy));
+const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "def", "async", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "RULE_START", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default"].concat(Object.keys(constantValues).map(x => constantValues[x].opy));
 
 //Characters that are visually the same as normal ASCII characters (when uppercased), but make the string appear in "big letters" (the i18n font).
 //For now, only greek letters and the "line separator" character.
@@ -14226,7 +14345,7 @@ function tokenize(content) {
                         var importedFileContent = getFileContent(path);
                         
                         content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
-                        addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 0);
+                        addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 1);
                         i--;
                         fileStack[fileStack.length-1].remainingChars++;
 
@@ -14773,6 +14892,8 @@ function compileRule(rule) {
 					for (var j = 1; j < rule.lines[i].tokens.length; j++) {
 						suppressedWarnings.push(rule.lines[i].tokens[j].text);
 					}
+				} else if (rule.lines[i].tokens[0].text === "@Disabled") {
+					result = tows("_disabled", ruleKw)+" "+result;
 				} else {
 					error("Unknown annotation '"+rule.lines[i].tokens[0].text+"'");
 				}
@@ -15956,17 +16077,17 @@ function parse(content, parseArgs={}) {
 
 		//Check if it is legal to use the event variables.
 		if (name === "eventPlayer") {
-			if (!(["eachPlayer", "playerJoined", "playerLeft", "playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "playerDealtHealing", "playerReceivedHealing"].includes(currentRuleEvent))) {
+			if (!(["eachPlayer", "playerJoined", "playerLeft", "playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "playerDealtHealing", "playerReceivedHealing", "_subroutine"].includes(currentRuleEvent))) {
 				error("Cannot use 'eventPlayer' with event type '"+currentRuleEvent+"'");
 
-			} else if (!(["eachPlayer", "playerJoined", "playerLeft"].includes(currentRuleEvent))) {
+			} else if (!(["eachPlayer", "playerJoined", "playerLeft", "_subroutine"].includes(currentRuleEvent))) {
 				warn("w_unsuitable_event", "Use of 'eventPlayer' with event type '"+currentRuleEvent+"' is ambiguous. Use 'attacker' or 'victim' instead.")
 			}
 
-		} else if ((name === "attacker" || name === "victim" || name === "eventDamage" || name === "eventWasCriticalHit") && !(["playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied"].includes(currentRuleEvent))) {
+		} else if ((name === "attacker" || name === "victim" || name === "eventDamage" || name === "eventWasCriticalHit") && !(["playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "_subroutine"].includes(currentRuleEvent))) {
 			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
 
-		} else if ((name === "healer" || name === "healee" || name === "eventHealing") && !(["playerDealtHealing", "playerReceivedHealing"].includes(currentRuleEvent))) {
+		} else if ((name === "healer" || name === "healee" || name === "eventHealing" || name === "eventWasHealthPack") && !(["playerDealtHealing", "playerReceivedHealing", "_subroutine"].includes(currentRuleEvent))) {
 			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
 
 		}
@@ -16879,6 +17000,14 @@ function parseString(content, formatArgs, stringModifiers) {
 			}
 			content = tmpStr;
 		}
+
+		//Workshop bug: if the last character of a string is 2 bytes or more, it will be "eaten".
+		//Fix it by adding a zero-width space.
+		console.log(content);
+		if (content.length >= 1 && getUtf8Length(content[content.length-1]) >= 2) {
+			content += "\u200B";
+		}
+
 		return content;
 	}
 
@@ -28048,6 +28177,7 @@ for (var hero of getConstantKw("HERO CONSTANT")) {
 
 //Sort reverse alphabetical order for greediness
 strTokens = strTokens.sort().reverse();
+
 
 
 

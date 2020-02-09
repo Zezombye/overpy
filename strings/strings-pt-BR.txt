@@ -1,12 +1,12 @@
-[Core] DataTool v1.44.0.859-git-cd7fb0d09445e6c85a1bcd84e8902c678d85618e
+[Core] DataTool v1.44.0.860-git-7d5102deb936ed3a32453c8b05dd4a2c9a628126
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
 [CASC] Set language to ptBR
 [CASC] Set speech language to ptBR
-[CASC] Overwatch build 1.44.0.0.65302
+[CASC] Overwatch build 1.44.0.1.65513
 [CASC] Initializing...
-[CMF] Using CMF procedure 65302
-[CMF] Using CMF procedure 65302
+[CMF] Using CMF procedure 65513
+[CMF] Using CMF procedure 65513
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -26708,4 +26708,4 @@ https://account.blizzard.com/connections/nintendo
 00000000FFCF.07C: CONVITE DE AMIZADE RECEBIDO
 00000000FFE7.07C: Overwatch League 2020
 00000000FFE8.07C: Brigitte GOATS
-[Core] Execution finished in 00:00:03.0309043 seconds
+[Core] Execution finished in 00:00:06.0944666 seconds

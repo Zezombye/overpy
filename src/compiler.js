@@ -60,7 +60,7 @@ function compile(content, language="en-US", _rootPath="") {
 		compiledRules = compiledRules.join("");
 	}
 
-	result = generateVariablesField()+compiledRules;
+	result = generateVariablesField()+generateSubroutinesField()+compiledRules;
 
 	if (typeof window !== "undefined") {
 		var t1 = performance.now();
@@ -71,6 +71,7 @@ function compile(content, language="en-US", _rootPath="") {
 		macros: macros,
 		globalVariables: globalVariables,
 		playerVariables: playerVariables,
+		subroutines: subroutines,
 		encounteredWarnings: encounteredWarnings,
 	};
 }
@@ -103,13 +104,13 @@ function generateVariablesField() {
 				unassignedVariables.push(variable.name);
 			} else {
 				if (isNaN(variable.index) || variable.index >= 128 || variable.index < 0) {
-					error("Invalid index '"+variable.index+"', must be from 0 to 127");
+					error("Invalid index '"+variable.index+"' for "+varType+" variable '"+variable.name+"', must be from 0 to 127");
 				}
 				outputVariables[variable.index] = variable.name;
 			}
 		}
 
-		console.log(outputVariables);
+		//console.log(outputVariables);
 		
 		for (var variable of unassignedVariables) {
 			var foundSpot = false;
@@ -124,9 +125,9 @@ function generateVariablesField() {
 				error("More than 128 "+varType+" variables have been declared");
 			}
 		}
-		console.log(outputVariables);
-		console.log(obfuscatedVarNames);
-		console.log(obfuscatedVarNumbers);
+		//console.log(outputVariables);
+		//console.log(obfuscatedVarNames);
+		//console.log(obfuscatedVarNumbers);
 
 		if (obfuscateRules) {
 			var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e,i)=>i));
@@ -155,6 +156,73 @@ function generateVariablesField() {
 
 }
 
+function generateSubroutinesField() {
+
+	var result = tows("_subroutines", ruleKw)+" {\n";
+
+	
+	var outputSubroutines = Array(128);
+	var subNames = [];
+	var unassignedSubroutines = [];
+
+	for (var subroutine of subroutines) {
+		//check name
+		if (!/[A-Za-z_]\w*/.test(subroutine.name)) {
+			error("Unauthorized name for subroutine: '"+subroutine.name+"'");
+		}
+		//check duplication
+		if (subNames.includes(subroutine.name)) {
+			error("Duplicate declaration of subroutine '"+subroutine.name+"'");
+		}
+		
+		if (outputSubroutines[subroutine.index] !== undefined) {
+			error("Duplicate use of index "+subroutine.index+" for subroutines '"+subroutine.name+"' and '"+outputSubroutines[subroutine.index]+"'");
+		}
+		subNames.push(subroutine.name);
+		if (subroutine.index === undefined || subroutine.index === null) {
+			unassignedSubroutines.push(subroutine.name);
+		} else {
+			if (isNaN(subroutine.index) || subroutine.index >= 128 || subroutine.index < 0) {
+				error("Invalid index '"+subroutine.index+"' for subroutine '"+subroutine.name+"', must be from 0 to 127");
+			}
+			outputSubroutines[subroutine.index] = subroutine.name;
+		}
+	}
+
+	for (var subroutine of unassignedSubroutines) {
+		var foundSpot = false;
+		for (var i = 0; i < 128; i++) {
+			if (outputSubroutines[i] === undefined) {
+				foundSpot = true;
+				outputSubroutines[i] = subroutine;
+				break;
+			}
+		}
+		if (!foundSpot) {
+			error("More than 128 subroutines have been declared");
+		}
+	}
+
+	if (obfuscateRules) {
+		var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e,i)=>i));
+	}
+	for (var i = 0; i < 128; i++) {
+		if (obfuscateRules) {
+			result += "\t"+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
+		} else {
+			if (outputSubroutines[i] !== undefined) {
+				result += "\t"+i+": "+outputSubroutines[i]+"\n";
+			} else if (!disableUnusedVars) {
+				result += "\t"+i+": _unused_sub_"+i+"\n";
+			}
+		}
+	}
+
+	result += "}\n";
+	return result;
+
+}
+
 
 function compileRule(rule) {
 	
@@ -166,7 +234,6 @@ function compileRule(rule) {
 		error("Current array element names length isn't 0");
 	}
 	
-	forLoopTimers = [];
 	wasWaitEncountered = false;
 	
 	//The first line should always start with @Rule.
@@ -185,11 +252,10 @@ function compileRule(rule) {
 	result += ") {\n";
 	result += tabLevel(1)+tows("@Event", ruleKw)+" {\n";
 	
-	var isInEvent = true;
-	var isInActions = false;
-	var eventType = "";
-	var isEventTeamDefined = false;
-	var isEventPlayerDefined = false;
+	var eventType = null;
+	var eventTeam = null;
+	var eventPlayer = null;
+	var subroutineName = null;
 
 	//Loop until we reach the actions; parse metadata
 	var i = 1;
@@ -200,73 +266,89 @@ function compileRule(rule) {
 		fileStack = rule.lines[i].tokens[0].fileStack;
 
 		if (rule.lines[i].tokens[0].text.startsWith("@")) {
-			if (!isInEvent) {
-				error("Annotation found after code");
-			} else {
-				if (rule.lines[i].tokens[0].text === "@Event") {
-					if (rule.lines.length === 2) {
-						result += tabLevel(2)+tows("global", eventKw)+";\n";
-						eventType = "global";
-					} else {
-						result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw)+";\n";
-						eventType = rule.lines[i].tokens[1].text;
-					}
-					
-				} else if (rule.lines[i].tokens[0].text === "@Team") {
-					if (isEventTeamDefined) {
-						error("Event team defined twice");
-					}
-					
-					isEventTeamDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventTeamKw)+";\n";
-					
-				} else if (rule.lines[i].tokens[0].text === "@Hero") {
-					if (isEventPlayerDefined) {
-						error("Event player (@Hero/@Slot) defined twice");
-					}
-					if (!isEventTeamDefined) {
-						result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
-						isEventTeamDefined = true;
-					}
-					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows("Hero."+rule.lines[i].tokens[1].text.toUpperCase(), getConstantKw("HERO CONSTANT"))+";\n";
-					
-				} else if (rule.lines[i].tokens[0].text === "@Slot") {
-					if (isEventPlayerDefined) {
-						error("Event player (@Hero/@Slot) defined twice");
-					}
-					if (!isEventTeamDefined) {
-						result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
-						isEventTeamDefined = true;
-					}
-					
-					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].tokens[1].text, eventPlayerKw)+";\n";
-					
-				} else if (rule.lines[i].tokens[0].text === "@SuppressWarnings") {
-					for (var j = 1; j < rule.lines[i].tokens.length; j++) {
-						suppressedWarnings.push(rule.lines[i].tokens[j].text);
-					}
-				} else {
-					error("Unknown annotation '"+rule.lines[i].tokens[0].text+"'");
+			if (rule.lines[i].tokens[0].text === "@Event") {
+				if (eventType) {
+					error("Event type is defined twice;");
 				}
+				if (rule.lines.length === 2) {
+					eventType = "global";
+				} else {
+					eventType = rule.lines[i].tokens[1].text;
+				}
+				
+			} else if (rule.lines[i].tokens[0].text === "@Team") {
+				if (eventTeam) {
+					error("Event team is defined twice");
+				}
+				eventTeam = rule.lines[i].tokens[1];
+				
+			} else if (rule.lines[i].tokens[0].text === "@Hero") {
+				if (eventPlayer) {
+					error("Event player (@Hero/@Slot) is defined twice");
+				}
+				eventPlayer = tows("Hero."+rule.lines[i].tokens[1].text.toUpperCase(), getConstantKw("HERO CONSTANT"));
+				
+			} else if (rule.lines[i].tokens[0].text === "@Slot") {
+				if (eventPlayer) {
+					error("Event player (@Hero/@Slot) is defined twice");
+				}
+				eventPlayer = tows(rule.lines[i].tokens[1].text, eventPlayerKw);
+				
+			} else if (rule.lines[i].tokens[0].text === "@SuppressWarnings") {
+				for (var j = 1; j < rule.lines[i].tokens.length; j++) {
+					suppressedWarnings.push(rule.lines[i].tokens[j].text);
+				}
+			} else if (rule.lines[i].tokens[0].text === "@Disabled") {
+				result = tows("_disabled", ruleKw)+" "+result;
+			} else {
+				error("Unknown annotation '"+rule.lines[i].tokens[0].text+"'");
 			}
+		} else if (rule.lines[i].tokens[0].text === "def") {
+			if (eventType) {
+				error("Cannot declare an event type for a subroutine");
+			}
+			eventType = "_subroutine";
+			
+			if (rule.lines[i].tokens.length !== 5) {
+				error("Malformed def statement, must be 'def func_name():'")
+			}
+			if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text !== ":") {
+				error("Def statement must end with ':'")
+			}
+			subroutineName = rule.lines[i].tokens[1].text;
 		} else {
 			break;
 		}
 	}
 	
-	//Add missing metadata
-	if (!isEventTeamDefined && eventType !== "global") {
-		result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
-	}
-	if (!isEventPlayerDefined && eventType !== "global") {
-		result += tabLevel(2)+tows("all", eventPlayerKw)+";\n";
-	}
-	currentRuleEvent = eventType;
-	if (currentRuleEvent === "") {
+	if (!eventType) {
 		error("An event must be specified");
 	}
+	result += tabLevel(2)+tows(eventType, eventKw)+";\n";
+	
+	//Add missing metadata
+	if (eventType === "global" || eventType === "_subroutine") {
+		if (eventTeam) {
+			error("Cannot declare an event team for event type '"+eventType+"'");
+		}
+		if (eventPlayer) {
+			error("Cannot declare an event player (@Hero/@Slot) for event type '"+eventType+"'");
+		}
+		if (eventType === "_subroutine") {
+			result += tabLevel(2)+translateSubroutineToWs(subroutineName)+";\n";
+		}
+	} else {
+		if (!eventTeam) {
+			eventTeam = "all";
+		}
+		result += tabLevel(2)+tows(eventTeam, eventTeamKw)+";\n";
+		if (!eventPlayer) {
+			eventPlayer = "all";
+		}
+		result += tabLevel(2)+tows(eventPlayer, eventPlayerKw)+";\n";
+	}
+
+	currentRuleEvent = eventType;
 	isInEvent = false;
 	result += tabLevel(1)+"}\n\n";
 
@@ -329,7 +411,7 @@ function compileRule(rule) {
 				} else if (rule.lines[j].indentLevel < rule.lines[i].indentLevel){
 					error("Unexpected unindent in 'do' body");
 				} else {
-					if (rule.lines[j].tokens[0].text === "while") {
+					if (rule.lines[j].tokens.length >= 1 && rule.lines[j].tokens[0].text === "while"  && rule.lines[j].tokens[rule.lines[j].tokens.length-1].text != ":") {
 						foundWhile = true;
 					}
 				}
@@ -359,12 +441,6 @@ function compileRule(rule) {
 	//End rules
 	result += "}\n\n";
 	
-	if (Object.entries(forLoopVariables).length !== 0) {
-		console.log(forLoopVariables);
-		console.log(forLoopTimers);
-		error("For loop variables isn't empty");
-	}
-
 	return result;
 }
 
@@ -375,7 +451,7 @@ function parseInstructions(lines, nbDo) {
 	//A "ghost" else is an else that does not generate a "skip" (if the previous 'if' didn't have its condition inverted).
 
 	//Array of objects: {
-	//	"type": "if"|"else"|"fakeelse"|"ghostelse"|"fakeghostelse"|"skip"|"skipif"|"label"|"other"|"forloop"|"optimized"|"switch"|"case"|"break"
+	//	"type": "if"|"else"|"fakeelse"|"ghostelse"|"fakeghostelse"|"skip"|"skipif"|"label"|"other"|"forloop"|"optimized"|"switch"|"case"|"break"|"end"|"whileloop"|"continue"
 	//	"condition": compiled content of the condition, if type not in ["label", "other"] or "skip" is not a skip if
 	//	"content": compiled content of the instruction
 	//	"label": if type == "skip", the label to search for, if type == "label", the name of the label
@@ -392,8 +468,6 @@ function parseInstructions(lines, nbDo) {
 			continue;
 		}
 
-		
-
 		var currentResultLineType = undefined;
 		var currentResultLineContent = undefined;
 		var currentResultLineCondition = undefined;
@@ -407,8 +481,6 @@ function parseInstructions(lines, nbDo) {
 		if (lines[i].tokens[0].text === "do") {
 			error("Do instructions must be at the beginning of the rule");
 		}
-
-
 		
 		//Check for "if"
 		if (lines[i].tokens[0].text === "if" || lines[i].tokens[0].text === "elif") {
@@ -495,7 +567,6 @@ function parseInstructions(lines, nbDo) {
 			} else {
 				currentResultLineType = "if";
 				currentResultLineCondition = parse(condition, {invertCondition: true, isCondition: true});
-
 			}
 
 			if (lines[i].tokens[0].text === "elif") {
@@ -513,6 +584,8 @@ function parseInstructions(lines, nbDo) {
 					})
 				}
 			}
+
+			
 
 		//Check for "else"
 		} else if (lines[i].tokens[0].text === "else") {
@@ -575,68 +648,95 @@ function parseInstructions(lines, nbDo) {
 			var inOperands = splitTokens(lines[i].tokens.slice(1, lines[i].tokens.length-1), "in", false);
 			if (inOperands.length !== 2) {
 				error("For instruction must contain 'in'");
-			} else if (inOperands[0].length !== 1) {
-				error("There can only be 1 token between 'for' and 'in'");
 			}
-			var forVarName = inOperands[0][0].text;
-			if (forLoopVariables[forVarName] !== undefined) {
-				error("Variable "+forVarName+" is already used");
+
+			var funcName = "_for";
+			currentResultLineContent = "";
+			
+			//Check for dot; if it is present, it can only be a player variable
+			var varOperands = splitTokens(inOperands[0], ".", false, true);
+			if (varOperands.length === 2) {
+				funcName += "PlayerVar";
+				currentResultLineContent += parse(varOperands[0])+", ";
+				currentResultLineContent += translateVarToWs(varOperands[1][0].text, false);
+			} else {
+				funcName += "GlobalVar";
+				currentResultLineContent += translateVarToWs(varOperands[0][0].text, true);
 			}
-			forLoopVariables[forVarName] = inOperands[1];
-			//Check amount of lines
-			var forIndent = lines[i].indentLevel;
-			var j = i+1;
-			for (; j < lines.length && lines[j].indentLevel > forIndent; j++);
-			if (j === i) {
-				error("For loop contains no instructions");
+
+			if (inOperands[1].length <= 3 || inOperands[1][0].text != "range" || inOperands[1][1].text != "(" || inOperands[1][inOperands[1].length-1].text != ")") {
+				error("For loop must be 'for var in range(start, stop, step)'");
 			}
-			forLoopTimers.push([j, forVarName]);
+
+			var rangeArgs = splitTokens(inOperands[1].slice(2, inOperands[1].length-1), ",");
+			var rangeStart, rangeEnd, rangeStep;
+			if (rangeArgs.length > 3) {
+				error("range() function takes a maximum of 3 arguments");
+			}
+			if (rangeArgs.length >= 3) {
+				rangeStep = parse(rangeArgs[2]);
+			} else {
+				rangeStep = 1;
+			}
+			if (rangeArgs.length >= 2) {
+				rangeEnd = parse(rangeArgs[1]);
+				rangeStart = parse(rangeArgs[0]);
+			} else {
+				rangeEnd = parse(rangeArgs[0]);
+				rangeStart = 0;
+			}
+
+			currentResultLineContent += ", "+rangeStart+", "+rangeEnd+", "+rangeStep;
+			currentResultLineContent = tows(funcName, actionKw)+"("+currentResultLineContent+")";
 
 			currentResultLineType = "forloop";
 			
 		//Check for "while"
 		} else if (lines[i].tokens[0].text === "while") {
 
-			if (!wasWaitEncountered) {
-				error("Found 'while' without a 'wait' before it");
-			}
-			if (nbDo === 0) {
-				error("Found 'while' without matching 'do'");
-			}
-			nbDo--;
-
 			if (lines[i].tokens.length === 1) {
-				error("While what?");
+				error("Expected code after 'while'");
 			}
+
 			if (lines[i].tokens[lines[i].tokens.length-1].text === ":") {
-				error("While statement must not end by a colon");
-			}
-			if (lines[i].tokens[1].text === "true" && lines[i].tokens.length === 2) {
-				currentResultLineType = "other";
-				currentResultLineContent = tows("_loop", actionKw);
+				currentResultLineType = "whileloop";
+				currentResultLineContent = tows("__while__", actionKw)+"("+parse(lines[i].tokens.slice(1, lines[i].tokens.length-1));
 
 			} else {
-				if (lines[i].tokens[1].text === "RULE_CONDITION") {
-					currentResultLineType = "other";
-					currentResultLineContent = tows("_loopIfConditionIsTrue", actionKw);
+				//it is a while from do/while				
+				if (nbDo === 0) {
+					error("Found 'while' without matching 'do'");
+				}
+				nbDo--;
 
-				} else if (lines[i].tokens[1].text === "not" && lines[i].tokens[2].text === "RULE_CONDITION") {
+				if (lines[i].tokens[1].text === "true" && lines[i].tokens.length === 2) {
 					currentResultLineType = "other";
-					currentResultLineContent = tows("_loopIfConditionIsFalse", actionKw);
-
+					currentResultLineContent = tows("_loop", actionKw);
+	
 				} else {
-					var compiledCondition = parse(lines[i].tokens.slice(1));
-					if (isWsFalse(compiledCondition)) {
-						currentResultLineType = "optimized";
-					} else if (isWsTrue(compiledCondition)) {
+					if (lines[i].tokens[1].text === "RULE_CONDITION") {
 						currentResultLineType = "other";
-						currentResultLineContent = tows("_loop", actionKw);
+						currentResultLineContent = tows("_loopIfConditionIsTrue", actionKw);
+	
+					} else if (lines[i].tokens[1].text === "not" && lines[i].tokens[2].text === "RULE_CONDITION") {
+						currentResultLineType = "other";
+						currentResultLineContent = tows("_loopIfConditionIsFalse", actionKw);
+	
 					} else {
-						currentResultLineType = "other";
-						currentResultLineContent = tows("_loopIf", actionKw)+"("+compiledCondition+")";
+						var compiledCondition = parse(lines[i].tokens.slice(1));
+						if (isWsFalse(compiledCondition)) {
+							currentResultLineType = "optimized";
+						} else if (isWsTrue(compiledCondition)) {
+							currentResultLineType = "other";
+							currentResultLineContent = tows("_loop", actionKw);
+						} else {
+							currentResultLineType = "other";
+							currentResultLineContent = tows("_loopIf", actionKw)+"("+compiledCondition+")";
+						}
 					}
 				}
 			}
+	
 
 		//Check goto
 		} else if (lines[i].tokens[0].text === 'goto') {
@@ -722,15 +822,6 @@ function parseInstructions(lines, nbDo) {
 			});
 		}
 
-		//Check for loop var timer
-		//console.log(forLoopTimers);
-		//console.log(i);
-		for (var j = 0; j < forLoopTimers.length; j++) {
-			if (forLoopTimers[j][0] === i+1) {
-				delete forLoopVariables[forLoopTimers[j][1]];
-			}
-		}
-
 		if (skipNextLine) {
 			i++;
 		}
@@ -740,10 +831,32 @@ function parseInstructions(lines, nbDo) {
 	var result = "";
 
 	function getNbLinesForType(type) {
-		if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized", "case"].includes(type)) {
+		if (["label", "ghostelse", "fakeghostelse", "optimized", "case"].includes(type)) {
 			return 0;
 		} else {
 			return 1;
+		}
+	}
+
+	//Do a pass to add the "end"s when necessary
+	for (var i = 0; i < resultLines.length; i++) {
+		
+		fileStack = resultLines[i].fileStack;
+
+		if (resultLines[i].type === "forloop" || resultLines[i].type === "whileloop") {
+
+			//Get the first non-indented line
+			var j = i+1;
+			for (; j < resultLines.length && resultLines[j].indentLevel > resultLines[i].indentLevel; j++);
+
+			if (j === i+1) {
+				error("Expected an indented block");
+			}
+			resultLines.splice(j, 0, ({
+				"type": "end",
+				"indentLevel": resultLines[i].indentLevel,
+				"fileStack": resultLines[i].fileStack,
+			}))
 		}
 	}
 
@@ -753,7 +866,7 @@ function parseInstructions(lines, nbDo) {
 
 		fileStack = resultLines[i].fileStack;
 
-		if (resultLines[i].type === "other") {
+		if (resultLines[i].type === "other" || resultLines[i].type === "forloop" || resultLines[i].type === "whileloop") {
 			result = tabLevel(2)+resultLines[i].content+";\n"+result;
 
 			if (i > 0 && (resultLines[i-1].type === "other" || resultLines[i-1].type === "skip" || resultLines[i-1].type === "label")) {
@@ -762,7 +875,7 @@ function parseInstructions(lines, nbDo) {
 				}
 			}
 
-		} else if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized", "case"].includes(resultLines[i].type)) {
+		} else if (["label", "ghostelse", "fakeghostelse", "optimized", "case"].includes(resultLines[i].type)) {
 			//do nothing
 
 		} else if (resultLines[i].type === "if") {
@@ -971,6 +1084,8 @@ function parseInstructions(lines, nbDo) {
 				result = tabLevel(2)+tows("_skip", actionKw)+"("+breakOffset+");\n"+result;
 			}
 
+		} else if (resultLines[i].type === "end") {
+			result = tabLevel(2)+tows("__end__", actionKw)+";\n"+result;
 		} else {
 			error("Unhandled rule line type "+resultLines[i].type);
 		}
@@ -988,7 +1103,6 @@ parseArgs options:
 - "raycastType": "getHitPosition"|"getNormal"|"getPlayerHit"|"hasLoS"
 - "isWholeInstruction": true/false
 - "isLocalizedString": true/false
-- "isTranslationOfForLoopVariable": string
 - "formatArgs": token array
 */
 function parse(content, parseArgs={}) {
@@ -1422,25 +1536,19 @@ function parse(content, parseArgs={}) {
 			return tows("_currentArrayElement", valueFuncKw);
 		}
 
-		//Check for for loop variable name
-		if (forLoopVariables[name] !== undefined && parseArgs.isTranslationOfForLoopVariable !== name) {
-			//console.log(forLoopVariables[content[0].text]);
-			return parse(forLoopVariables[name], {isTranslationOfForLoopVariable: name});
-		}
-
 		//Check if it is legal to use the event variables.
 		if (name === "eventPlayer") {
-			if (!(["eachPlayer", "playerJoined", "playerLeft", "playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "playerDealtHealing", "playerReceivedHealing"].includes(currentRuleEvent))) {
+			if (!(["eachPlayer", "playerJoined", "playerLeft", "playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "playerDealtHealing", "playerReceivedHealing", "_subroutine"].includes(currentRuleEvent))) {
 				error("Cannot use 'eventPlayer' with event type '"+currentRuleEvent+"'");
 
-			} else if (!(["eachPlayer", "playerJoined", "playerLeft"].includes(currentRuleEvent))) {
+			} else if (!(["eachPlayer", "playerJoined", "playerLeft", "_subroutine"].includes(currentRuleEvent))) {
 				warn("w_unsuitable_event", "Use of 'eventPlayer' with event type '"+currentRuleEvent+"' is ambiguous. Use 'attacker' or 'victim' instead.")
 			}
 
-		} else if ((name === "attacker" || name === "victim" || name === "eventDamage" || name === "eventWasCriticalHit") && !(["playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied"].includes(currentRuleEvent))) {
+		} else if ((name === "attacker" || name === "victim" || name === "eventDamage" || name === "eventWasCriticalHit") && !(["playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "_subroutine"].includes(currentRuleEvent))) {
 			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
 
-		} else if ((name === "healer" || name === "healee" || name === "eventHealing") && !(["playerDealtHealing", "playerReceivedHealing"].includes(currentRuleEvent))) {
+		} else if ((name === "healer" || name === "healee" || name === "eventHealing" || name === "eventWasHealthPack") && !(["playerDealtHealing", "playerReceivedHealing", "_subroutine"].includes(currentRuleEvent))) {
 			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
 
 		}
@@ -2151,20 +2259,9 @@ function parseLiteralArray(content) {
 		if (inOperands.length === 2) {
 			var ifOperands = splitTokens(inOperands[1], "if");
 			if (ifOperands.length !== 2) {
-				//Not a filtered array (eg: [player.C for player in playersInRadius()])
-				var forOperands = splitTokens(inOperands[0], "for");
-				if (forOperands.length !== 2) {
-					error("Malformed 'x for y in z'");
-				}
-				var forVarName = forOperands[1][0].text;
-				if (forLoopVariables[forVarName] !== undefined) {
-					error("Variable "+forVarName+" is already used");
-				}
-				forLoopVariables[forVarName] = inOperands[1];
-				
-				var result = parse(forOperands[0]);
-				delete forLoopVariables[forVarName];
-				return result;
+
+				//There is not a proper map() function so the previous hack has been removed as too misleading.
+				error("Cannot use list comprehension without a condition (eg [i for i in array if x])");
 				
 			} else {
 				//Filtered array
@@ -2353,6 +2450,14 @@ function parseString(content, formatArgs, stringModifiers) {
 			}
 			content = tmpStr;
 		}
+
+		//Workshop bug: if the last character of a string is 2 bytes or more, it will be "eaten".
+		//Fix it by adding a zero-width space.
+		console.log(content);
+		if (content.length >= 1 && getUtf8Length(content[content.length-1]) >= 2) {
+			content += "\u200B";
+		}
+
 		return content;
 	}
 
@@ -2476,7 +2581,15 @@ function parseStringTokens(tokens, args) {
 					sliceIndex++;
 				}
 
-				result += tokenText.slice(0, sliceIndex).join("")
+				//Workshop bug: if the last character of a string is 2 bytes or more, it will be "eaten".
+				//Fix it by adding a zero-width space.
+				if (getUtf8Length(tokenText[tokenText.length-1]) >= 2) {
+					sliceIndex -= 3;
+					result += tokenText.slice(0, sliceIndex).join("") + "\u200B";
+				} else {
+					result += tokenText.slice(0, sliceIndex).join("")
+				}
+
 				tokens[i].text = tokenText.slice(sliceIndex).join("");
 				splitString = true;
 

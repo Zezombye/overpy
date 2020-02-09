@@ -290,6 +290,27 @@ function tokenize(content) {
 					addVariable(varName, isGlobalVariable, varIndex);
 
 					isInLineComment = true;
+				} else if (content.startsWith("#!declareSubroutine", i)) {
+
+					var lineIndex = content.indexOf("\n", i);
+					var firstSpaceIndex = content.indexOf(" ", i);
+					if (lineIndex === -1 || firstSpaceIndex === -1) {
+						error("Malformed subroutine declaration")
+					}
+					var line = content.substring(firstSpaceIndex, lineIndex).trim();
+					var args = line.split(" ");
+					if (args.length !== 1 && args.length !== 2) {
+						error("Malformed subroutine declaration (directive should have 1 or 2 arguments)");
+					}
+					var subroutineName = args[0].trim();
+					if (args.length === 1 || args[1].trim().length === 0) {
+						var subroutineIndex = null;
+					} else {
+						var subroutineIndex = args[1].trim();
+					}
+					addSubroutine(subroutineName, subroutineIndex);
+
+					isInLineComment = true;
 				} else if (content.startsWith("#!suppressWarnings ", i)) {
 					var lineIndex = content.indexOf("\n", i);
 					var firstSpaceIndex = content.indexOf(" ", i);
@@ -369,7 +390,7 @@ function tokenize(content) {
                         var importedFileContent = getFileContent(path);
                         
                         content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
-                        addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 0);
+                        addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 1);
                         i--;
                         fileStack[fileStack.length-1].remainingChars++;
 
