@@ -171,6 +171,10 @@ const metaRuleParams = [
         "opy": "@SuppressWarnings",
         "description": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces.",
         "values": [],
+    },{
+        "opy": "@Disabled",
+        "description": "Generates the rule as disabled.",
+        "values": [],
     }
 ]
 

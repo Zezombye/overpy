@@ -1,12 +1,12 @@
-[Core] DataTool v1.44.0.859-git-cd7fb0d09445e6c85a1bcd84e8902c678d85618e
+[Core] DataTool v1.44.0.860-git-7d5102deb936ed3a32453c8b05dd4a2c9a628126
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
 [CASC] Set language to enUS
 [CASC] Set speech language to enUS
-[CASC] Overwatch build 1.44.0.0.65302
+[CASC] Overwatch build 1.44.0.1.65513
 [CASC] Initializing...
-[CMF] Using CMF procedure 65302
-[CMF] Using CMF procedure 65302
+[CMF] Using CMF procedure 65513
+[CMF] Using CMF procedure 65513
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -26703,4 +26703,4 @@ https://account.blizzard.com/connections/nintendo
 00000000FFCF.07C: FRIEND REQUEST RECEIVED
 00000000FFE7.07C: 2020 Overwatch League
 00000000FFE8.07C: Goat Brigitte
-[Core] Execution finished in 00:00:04.3823483 seconds
+[Core] Execution finished in 00:00:04.4047015 seconds

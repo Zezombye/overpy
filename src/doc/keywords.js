@@ -130,7 +130,11 @@ var ruleKw =
         "pt-BR": "jogador",
         "zh-CN": "玩家",
         "zh-TW": "玩家"
-    }
+    },
+    {
+        "opy": "_subroutines",
+        "en-US": "subroutines",
+    },
 ]
 //end-json
 
@@ -255,6 +259,10 @@ var eventKw =
         "pl-PL": "Gracz opuścił mecz",
         "pt-BR": "Jogador Saiu da Partida",
         "zh-CN": "玩家离开比赛"
+    },
+    {
+        "opy": "_subroutine",
+        "en-US": "Subroutine",
     }
 ]
 //end-json

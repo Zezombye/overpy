@@ -456,10 +456,10 @@ Examples:
 
 - \`while RULE_CONDITION\`
 - \`while not RULE_CONDITION\`
-- \`if RULE_CONDITION: continue\`
-- \`if not RULE_CONDITION: continue\`
-- \`if RULE_CONDITION: abort\`
-- \`if not RULE_CONDITION: abort\``,
+- \`if RULE_CONDITION: continue (and not in a while/for loop)\`
+- \`if not RULE_CONDITION: continue (and not in a while/for loop)\`
+- \`if RULE_CONDITION: return\`
+- \`if not RULE_CONDITION: return\``,
         "args": null
     }
 ];
@@ -585,16 +585,23 @@ You will very likely have to paste the generated code in an editor, then paste t
     },{
         opy: "declareGlobal",
         description:
-`Declares a global variable. The index (0-127) must be specified. Example:
+`Declares a global variable. The index (0-127) can optionally be specified. Example:
 
     #!declareGlobal myVar 127
 `
     },{
         opy: "declarePlayer",
         description:
-`Declares a player variable. The index (0-127) must be specified. Example:
+`Declares a player variable. The index (0-127) can optionally be specified. Example:
 
     #!declarePlayer myVar 127
+`
+    },{
+        opy: "declareSubroutine",
+        description:
+`Declares a subroutine. The index (0-127) can optionally be specified. Example:
+
+    #!declareSubroutine mySubroutine 127
 `
     },{
         opy: "suppressWarnings",

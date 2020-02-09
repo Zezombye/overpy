@@ -1079,6 +1079,12 @@ var actionKw =
         "zh-CN": "禁用死亡回放时目标的HUD"
     },
     {
+        "opy": "disableInspector()",
+        "description": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.",
+        "args": [],
+        "en-US": "Disable Inspector Recording",
+    },
+    {
         "opy": "_&disallowButton",
         "description": "Disables a logical button for one or more players such that pressing it has no effect.",
         "args": [
@@ -1102,6 +1108,25 @@ var actionKw =
         "ja-JP": "ボタンを無効化",
         "pt-BR": "Proibir Botão",
         "zh-CN": "禁用按钮"
+    },
+    {
+        "opy": "__else__",
+        "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
+        "args": null,
+        "en-US": "Else",
+    },
+    {
+        "opy": "__elif__",
+        "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true and the previous If or Else If action's condition was false.",
+        "args": [
+            {
+                "name": "CONDITION",
+                "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            }
+        ],
+        "en-US": "Else If",
     },
     {
         "opy": "enableAnnouncer()",
@@ -1209,6 +1234,82 @@ var actionKw =
         "zh-CN": "启用死亡回放时目标的HUD"
     },
     {
+        "opy": "enableInspector()",
+        "description": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.",
+        "args": [],
+        "en-US": "Enable Inspector Recording",
+    },
+    {
+        "opy": "__end__",
+        "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
+        "args": null,
+        "en-US": "End",
+    },
+    {
+        "opy": "_forGlobalVar",
+        "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
+        "args": [
+            {
+                "name": "CONTROL VARIABLE",
+                "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "RANGE START",
+                "description": "The control variable is set to this value when the loop begins.",
+                "type": "NUMBER",
+                "default": "NUMBER",
+            },{
+                "name": "RANGE STOP",
+                "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
+                "type": "NUMBER",
+                "default": "COUNT OF",
+            },{
+                "name": "STEP",
+                "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
+                "type": "NUMBER",
+                "default": "NUMBER",
+            }
+        ],
+        "en-US": "For Global Variable",
+    },
+    {
+        "opy": "_forPlayerVar",
+        "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
+        "args": [
+            {
+                "name": "CONTROL PLAYER",
+                "description": "The player whose variable is being modified in this loop. If multiple players are specified, the first player is used.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "CONTROL VARIABLE",
+                "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "RANGE START",
+                "description": "The control variable is set to this value when the loop begins.",
+                "type": "NUMBER",
+                "default": "NUMBER",
+            },{
+                "name": "RANGE STOP",
+                "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
+                "type": "NUMBER",
+                "default": "COUNT OF",
+            },{
+                "name": "STEP",
+                "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
+                "type": "NUMBER",
+                "default": "NUMBER",
+            }
+        ],
+        "en-US": "For Player Variable",
+    },
+    {
         "opy": "goToAssembleHeroes()",
         "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
         "args": [],
@@ -1250,6 +1351,19 @@ var actionKw =
         "ja-JP": "回復",
         "pt-BR": "Cura",
         "zh-CN": "治疗"
+    },
+    {
+        "opy": "__if__",
+        "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true.",
+        "args": [
+            {
+                "name": "CONDITION",
+                "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            }
+        ],
+        "en-US": "If",
     },
     {
         "guid": "000000007877",
@@ -2892,6 +3006,43 @@ var actionKw =
         "zh-CN": "开始持续治疗"
     },
     {
+        "opy": "startHealingModification",
+        "description": "Starts modifying how much healing one or more receivers will receive from one or more healers. A reference to this healing modification can be obtained from the last healing modification id value. This action will fail if too many healing modifications have been started.",
+        "args": [
+            {
+                "name": "RECEIVERS",
+                "description": "The player or players whose incoming healing will be modified (when healed by the healers).",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "HEALERS",
+                "description": "The player or players whose outgoing healing will be modified (when healing the receivers).",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "HEALING PERCENT",
+                "description": "The percentage of healing that will apply to receivers when healed by healers.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "HEALING MODIFICATION REEVALUATION",
+                "default": "RECEIVERS, HEALERS, AND HEALING PERCENT"
+            }
+        ],
+        "en-US": "Start Damage Modification",
+        "guid": "00000000C639",
+        "es-MX": "Comenzar modificación de daño",
+        "fr-FR": "Lancer la modification des dégâts",
+        "ja-JP": "ダメージ変更を開始",
+        "pt-BR": "Começar Modificação de Dano",
+        "zh-CN": "开始伤害调整"
+    },
+    {
         "opy": "_&startForcingButton",
         "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
         "args": [
@@ -3032,6 +3183,12 @@ var actionKw =
         "ja-JP": "すべてのダメージ変更を停止",
         "pt-BR": "Parar Todas as Modificações de Dano",
         "zh-CN": "停止所有伤害调整"
+    },
+    {
+        "opy": "stopAllHealingModifications()",
+        "description": "Stops all healing modifications that were started using the start healing modification action.",
+        "args": [],
+        "en-US": "Stop All Healing Modifications",
     },
     {
         "opy": "_&stopAllDoT",
@@ -3268,6 +3425,18 @@ var actionKw =
         "zh-CN": "停止持续治疗"
     },
     {
+        "opy": "stopHealingModification",
+        "description": "Stops a healing modification that was started by the start healing modification action.",
+        "args": [
+            {
+                "name": "HEALING MODIFICATION ID",
+                "description": "Specifies which healing modification instance to stop. This id may be last healing modification id or a variable into which last healing modification id was earlier stored.",
+                "type": "NUMBER",
+                "default": "LAST HEALING MODIFICATION ID"
+            }
+        ],
+    },
+    {
         "opy": "_&stopForcingButton",
         "description": "Undoes the effect of the start holding button action for one or more players.",
         "args": [
@@ -3391,6 +3560,19 @@ var actionKw =
         "ja-JP": "待機",
         "pt-BR": "Esperar",
         "zh-CN": "等待"
+    },
+    {
+        "opy": "__while__",
+        "description": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action.",
+        "args": [
+            {
+                "name": "CONDITION",
+                "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next end action at the current level.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            }
+        ],
+        "en-US": "While",
     }
 ]
 //end-json
