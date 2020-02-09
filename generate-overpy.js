@@ -6,8 +6,7 @@ overpyFiles = [
 	"doc/values.js",
 	"doc/constants.js",
 	"doc/keywords.js",
-	"obfuscation.js",
-	"globalVars.js",
+	"doc/specialFuncDoc.js",
 	"utils/compilation.js",
 	"utils/decompilation.js",
 	"utils/file.js",
@@ -17,11 +16,15 @@ overpyFiles = [
 	"utils/strings.js",
 	"utils/translation.js",
 	"utils/varNames.js",
+	"obfuscation.js",
+	"globalVars.js",
+	"tests/decompileTest.js",
+	"tests/compileTest.js",
 	"decompiler.js",
 	"tokenizer.js",
 	"compiler.js",
 	"doc/stringKw.js",
-	"doc/specialFuncDoc.js",
+
 ];
 
 var overpyCode = "";

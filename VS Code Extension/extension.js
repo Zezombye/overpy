@@ -1,3 +1,22 @@
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 try{
 
 // The module 'vscode' contains the VS Code extensibility API
@@ -134,7 +153,7 @@ var constTypes = JSON.parse(JSON.stringify(overpy.constantValues));
 console.log(constTypes);
 const funcList = JSON.parse(JSON.stringify(overpy.specialFuncs));
 
-for (func of funcDoc) {
+for (var func of funcDoc) {
     if (func.opy.startsWith("_!") || !func.opy.startsWith("_")) {
         if (func.opy.startsWith("_!")) {
             func.opy = func.opy.substring(2);
@@ -222,9 +241,10 @@ var normalMacros = [];
 var memberMacros = [];
 var globalVariables = [];
 var playerVariables = [];
+var subroutines = [];
 function refreshAutoComplete() {
 
-    defaultCompList = makeCompList(funcList.concat(constTypeList).concat(normalMacros).concat(globalVariables));
+    defaultCompList = makeCompList(funcList.concat(constTypeList).concat(normalMacros).concat(globalVariables).concat(subroutines));
     allFuncList = funcList.concat(memberFuncList).concat(normalMacros).concat(memberMacros);
     for (var func of allFuncList) {
         func.sigHelp = makeSignatureHelp(func);
@@ -300,6 +320,7 @@ function activate(context) {
             vscode.window.showInformationMessage("Successfully compiled! (copied into clipboard)");
             fillAutocompletionMacros(compiledText.macros);
             fillAutocompletionVariables(compiledText.globalVariables, compiledText.playerVariables);
+            fillAutocompletionSubroutines(compiledText.subroutines);
             refreshAutoComplete();
             console.log(compiledText.macros);
         } catch (e) {
@@ -433,14 +454,14 @@ function deactivate() {}
 //This is needed because some consts (LosCheck/Reeval) are divided into different consts in the doc.
 function getConstValues() {
     var result = {};
-    for (constType of Object.values(constTypes)) {
+    for (var constType of Object.values(constTypes)) {
         if (!("opy" in constType)) {
             continue;
         }
         if (!result.hasOwnProperty(constType.opy)) {
             result[constType.opy] = [];
         }
-        for (value of constType.values) {
+        for (var value of constType.values) {
             value.opy = value.opy.substring(value.opy.indexOf(".")+1);
         }
         result[constType.opy] = result[constType.opy].concat(constType.values);
@@ -507,11 +528,18 @@ function fillAutocompletionMacros(macros) {
 function fillAutocompletionVariables(globalVars, playerVars) {
     globalVariables = globalVars.map(x => ({
         opy: x.name,
-        description: "A global variable. (index: "+x.index+")",
+        description: x.index !== null ? "A global variable. (index: "+x.index+")" : "A global variable.",
     }));
     playerVariables = playerVars.map(x => ({
         opy: x.name,
-        description: "A player variable. (index: "+x.index+")",
+        description: x.index !== null ? "A player variable. (index: "+x.index+")" : "A player variable.",
+    }));
+}
+
+function fillAutocompletionSubroutines(subroutineNames) {
+    subroutines = subroutineNames.map(x => ({
+        opy: x.name+"()",
+        description: x.index ? "A subroutine. (index: "+x.index+")" : "A subroutine.",
     }));
 }
 
@@ -592,7 +620,7 @@ function getSnippetForMetaRuleParam(param) {
 
     var result = param.substring(1);
     var ruleParam = null;
-    for (metaRuleParam of metaRuleParams) {
+    for (var metaRuleParam of metaRuleParams) {
         if (metaRuleParam.opy === param) {
             ruleParam = metaRuleParam;
             break;

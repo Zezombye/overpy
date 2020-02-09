@@ -167,6 +167,19 @@ var actionKw =
         "zh-CN": "大字体信息"
     },
     {
+        "opy": "_callSubroutine",
+        "description": "Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
+        "args": [
+            {
+                "name": "SUBROUTINE",
+                "description": "Specifies which subroutine to call. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
+                "type": "SUBROUTINE",
+                "default": "Sub0",
+            }
+        ],
+        "en-US": "Call Subroutine",
+    },
+    {
         "opy": "_chaseGlobalVariableAtRate",
         "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
         "args": [
@@ -1110,6 +1123,25 @@ var actionKw =
         "zh-CN": "禁用按钮"
     },
     {
+        "opy": "__else__",
+        "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
+        "args": null,
+        "en-US": "Else",
+    },
+    {
+        "opy": "__elif__",
+        "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true and the previous If or Else If action's condition was false.",
+        "args": [
+            {
+                "name": "CONDITION",
+                "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            }
+        ],
+        "en-US": "Else If",
+    },
+    {
         "opy": "enableAnnouncer()",
         "description": "Undoes the effect of the disable built-in game mode announcer action.",
         "args": [],
@@ -1221,6 +1253,76 @@ var actionKw =
         "en-US": "Enable Inspector Recording",
     },
     {
+        "opy": "__end__",
+        "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
+        "args": null,
+        "en-US": "End",
+    },
+    {
+        "opy": "_forGlobalVar",
+        "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
+        "args": [
+            {
+                "name": "CONTROL VARIABLE",
+                "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "RANGE START",
+                "description": "The control variable is set to this value when the loop begins.",
+                "type": "NUMBER",
+                "default": "NUMBER",
+            },{
+                "name": "RANGE STOP",
+                "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
+                "type": "NUMBER",
+                "default": "COUNT OF",
+            },{
+                "name": "STEP",
+                "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
+                "type": "NUMBER",
+                "default": "NUMBER",
+            }
+        ],
+        "en-US": "For Global Variable",
+    },
+    {
+        "opy": "_forPlayerVar",
+        "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
+        "args": [
+            {
+                "name": "CONTROL PLAYER",
+                "description": "The player whose variable is being modified in this loop. If multiple players are specified, the first player is used.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "CONTROL VARIABLE",
+                "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "RANGE START",
+                "description": "The control variable is set to this value when the loop begins.",
+                "type": "NUMBER",
+                "default": "NUMBER",
+            },{
+                "name": "RANGE STOP",
+                "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
+                "type": "NUMBER",
+                "default": "COUNT OF",
+            },{
+                "name": "STEP",
+                "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
+                "type": "NUMBER",
+                "default": "NUMBER",
+            }
+        ],
+        "en-US": "For Player Variable",
+    },
+    {
         "opy": "goToAssembleHeroes()",
         "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
         "args": [],
@@ -1262,6 +1364,19 @@ var actionKw =
         "ja-JP": "回復",
         "pt-BR": "Cura",
         "zh-CN": "治疗"
+    },
+    {
+        "opy": "__if__",
+        "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true.",
+        "args": [
+            {
+                "name": "CONDITION",
+                "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            }
+        ],
+        "en-US": "If",
     },
     {
         "guid": "000000007877",
@@ -2966,6 +3081,24 @@ var actionKw =
         "zh-CN": "开始按下按钮"
     },
     {
+        "opy": "_startRule",
+        "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
+        "args": [
+            {
+                "name": "SUBROUTINE",
+                "description": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
+                "type": "SUBROUTINE",
+                "default": "Sub0",
+            },{
+                "name": "IF ALREADY EXECUTING",
+                "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
+                "type": "START RULE BEHAVIOR",
+                "default": "RESTART RULE",
+            }
+        ],
+        "en-US": "Start Rule",
+    },
+    {
         "opy": "_&startThrottleInDirection",
         "description": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled.",
         "args": [
@@ -3458,6 +3591,19 @@ var actionKw =
         "ja-JP": "待機",
         "pt-BR": "Esperar",
         "zh-CN": "等待"
+    },
+    {
+        "opy": "__while__",
+        "description": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action.",
+        "args": [
+            {
+                "name": "CONDITION",
+                "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next end action at the current level.",
+                "type": "BOOLEAN",
+                "default": "COMPARE"
+            }
+        ],
+        "en-US": "While",
     }
 ]
 //end-json
@@ -11181,6 +11327,18 @@ var constantValues =
                 "zh-TW": "雪怪大作戰"
             }
         ]
+    },
+    "START RULE BEHAVIOR": {
+        "opy": "AsyncBehavior",
+        "values": [
+            {
+                "opy": "AsyncBehavior.RESTART",
+                "en-US": "Restart Rule",
+            },{
+                "opy": "AsyncBehavior.NOOP",
+                "en-US": "Do Nothing",
+            }
+        ]
     }
 }
 //end-json
@@ -11321,7 +11479,11 @@ var ruleKw =
         "pt-BR": "jogador",
         "zh-CN": "玩家",
         "zh-TW": "玩家"
-    }
+    },
+    {
+        "opy": "_subroutines",
+        "en-US": "subroutines",
+    },
 ]
 //end-json
 
@@ -11446,6 +11608,10 @@ var eventKw =
         "pl-PL": "Gracz opuścił mecz",
         "pt-BR": "Jogador Saiu da Partida",
         "zh-CN": "玩家离开比赛"
+    },
+    {
+        "opy": "_subroutine",
+        "en-US": "Subroutine",
     }
 ]
 //end-json
@@ -11586,297 +11752,622 @@ var funcKw = actionKw.concat(valueFuncKw);
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var obfuscationMappings = {};
-for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
-	obfuscationMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xE0000);
-}
+//This file is only used for the vs code extension.
 
-var obfuscatedVarNames = shuffleArray(Array(4096).fill().map((e,i)=>i).map(x => x.toString(2).padStart(12, "0").replace(/0/g, "I").replace(/1/g, "l"))).slice(0,128);
+const specialFuncs = [
+    //Special functions and built-in macros
+    {
+        opy: "chase",
+        "description": "Gradually modifies the value of a variable (global or player) at a specific rate, or over time.",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which variable (global or player) to modify gradually.",
+                "type": "VARIABLE",
+                "default": "A"
+            },
+            {
+                "name": "DESTINATION",
+                "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+                "type": "ANY",
+                "default": "NUMBER"
+            },
+            {
+                "name": "RATE OR DURATION",
+                "description": "The amount of change that will happen to the variable's value each second, or the amount of time, in seconds, over which the variable's value will approach the destination.\n\nPut `rate=xxxx` or `duration=xxxx` as argument.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "CHASE RATE REEVALUATION",
+                "default": "DESTINATION AND RATE"
+            }
+        ],
+    },{
+        opy: "stopChasingVariable",
+        "description": "Stops an in-progress chase of a variable (global or player), leaving it at its current value.",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which variable (global or player) to stop modifying.",
+                "type": "VARIABLE",
+                "default": "A"
+            }
+        ]
+    },{
+        opy: "getSign",
+        "description": "Built-in macro for calculating the sign of a number. Resolves to `(((x)>0)-((x)<0))`. Returns -1, 0 or 1.",
+        "args": [
+            {
+                "name": "NUMBER",
+                "description": "The number to calculate the sign of.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },{
+        opy: "math.pi",
+        "description": "The number pi = 3.14159265359.",
+        "args": null
+    },{
+        opy: "math.e",
+        "description": "The number e = 2.71828182846.",
+        "args": null
+    },{
+        opy: "wait",
+        "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
+        "args": [
+            {
+                "name": "TIME",
+                "description": "The duration of the pause. If omitted, defaults to 0.016.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "WAIT BEHAVIOR",
+                "description": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart. If omitted, defaults to `Wait.IGNORE_CONDITION`.",
+                "type": "WAIT BEHAVIOR",
+                "default": "IGNORE CONDITION"
+            }
+        ]
+    },
+    {
+        "opy": "localizedStr",
+        "description": "Defines a localized string. The text inside the string is restricted to preset strings, and is translated according to the language of each player.",
+        "args": [
+            {
+                "name": "STRING",
+                "description": "",
+                "type": "STRING CONSTANT",
+                "default": "HELLO"
+            },
+        ]
+    },
+    {
+        opy: "raycast",
+        description: 
+`Defines a raycast to be then used with \`hasLoS()\`, \`getPlayerHit()\`, \`getNormal()\` or \`getHitPosition()\`.
+For line of sight, the 3rd argument must be \`los=\` and the 4th and 5th arguments must be omitted.
 
-function addEmptyRules(rules) {
-	var nbEmptyRules = (enableNoEdit ? 2500 : 100);
-	var nbTotalRules = nbEmptyRules + rules.length;
-	var emptyRule = tows("@Rule", ruleKw)+'(""){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
-	var result = "";
-	result += tows("@Rule", ruleKw)+'("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy)."){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
-	result += tows("@Rule", ruleKw)+'("Please respect its author\'s wishes and do not edit it. Thanks!"){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
-	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
-	var ruleIndex = 0;
-	for (var i = 0; i < nbTotalRules; i++) {
-		if (putEmptyRuleArray[i]) {
-			result += emptyRule;
-		} else {
-			result += rules[ruleIndex];
-			ruleIndex++;
-		}
-	}
-	return result;
+Examples:
+- \`raycast(A, B, include=C, exclude=D, includePlayerObjects=false).getHitPosition()\`
+- \`raycast(A, B, los=BarrierLos.BLOCKED_BY_ALL_BARRIERS).hasLoS()\``,
+        args: [
+            {
+                "name": "START POS",
+                "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "END POS",
+                "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "POSITION",
+                "default": "VECTOR"
+            },
+            {
+                "name": "include=players To Include",
+                "description": "Which players can be hit by this ray cast. Note: if doing a line-of-sight check, use `los=BarrierLos.xxxx` instead.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "exclude=players To Exclude",
+                "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
+                "type": "PLAYER",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "include Player Objects=bool",
+                "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+                "type": "BOOLEAN",
+                "default": "TRUE"
+            }
+        ]
+    },{
+        opy: "all",
+        "description": "Whether the specified condition evaluates to true for every value in the specified iterable. Requires a condition.\n\nExample: `all(player for player in getAllPlayers() if player.A == 2)`",
+        "args": [
+            {
+                "name": "iterable",
+                "description": "The iterable whose values will be considered.",
+                "type": "ITERABLE",
+                "default": "GLOBAL VARIABLE"
+            },
+        ]
+    },{
+        opy: "any",
+        "description": "Whether the specified condition evaluates to true for any value in the specified iterable. Requires a condition.\n\nExample: `any(player for player in getAllPlayers() if player.A == 2)`",
+        "args": [
+            {
+                "name": "iterable",
+                "description": "The iterable whose values will be considered.",
+                "type": "ITERABLE",
+                "default": "GLOBAL VARIABLE"
+            },
+        ]
+    },{
+        opy: "floor",
+        "description": "The integer that is the floor of the specified value (equivalent to rounding down).",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The real number to get the floor of.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+        ],
+    },{
+        opy: "round",
+        "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The real number to get the nearest integer of.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+        ],
+    },{
+        opy: "ceil",
+        "description": "The integer that is the ceiling of the specified value (equivalent to rounding up).",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The real number to get the ceiling of.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+        ],
+    },{
+        opy: "sorted",
+        "description": "A copy of the specified array with the values sorted according to the lambda function that is evaluated for each element.\n\nExample: `sorted(getAllPlayers(), key=lambda x: x.getScore())`",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array whose copy will be sorted.",
+                "type": "ANY",
+                "default": "GLOBAL VARIABLE"
+            },
+            {
+                "name": "key=lambda",
+                "description": "The lambda function that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Can be omitted if the array is sorted without a special key (equivalent to `lambda x: x`).",
+                "type": "LAMBDA",
+                "default": "CURRENT ARRAY ELEMENT"
+            }
+        ]
+    },{
+        opy: "getAllPlayers",
+        description: "Built-in macro for `getPlayers(Team.ALL)`.",
+        args: [],
+    },{
+        opy: "hudText",
+        "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.\n\nNote: you can use the macros `hudHeader`, `hudSubheader` and `hudSubtext` to reduce the number of arguments.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the hud text.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "HEADER",
+                "description": "The text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "STRING"
+            },
+            {
+                "name": "SUBHEADER",
+                "description": "The subheader text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "TEXT",
+                "description": "The body text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "LOCATION",
+                "description": "The location on the screen where the text will appear.",
+                "type": "HUD LOCATION",
+                "default": "LEFT"
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "HEADER COLOR",
+                "description": "The color of the header.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "SUBHEADER COLOR",
+                "description": "The color of the subheader.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "TEXT COLOR",
+                "description": "The color of the text.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "type": "HUD TEXT REEVALUATION",
+                "default": "VISIBLE TO AND STRING"
+            },
+            {
+                "name": "SPECTATORS",
+                "description": "Whether spectators can see the text or not. Optional argument.",
+                "type": "SPECTATOR VISIBILITY",
+                "default": "DEFAULT VISIBILITY"
+            }
+        ],
 
-}
+    },{
+        opy: "debug",
+        description: "Creates an orange HUD text at the top left. Should be used for quick debugging of a value.",
+        args: [
+            {
+                "name": "HEADER",
+                "description": "The text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "STRING"
+            },
+        ]
+    },{
+        opy: "hudHeader",
+        description: "Built-in macro for `hudText` to reduce the number of arguments.",
+        args: [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the hud text.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "HEADER",
+                "description": "The text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "STRING"
+            },
+            {
+                "name": "LOCATION",
+                "description": "The location on the screen where the text will appear.",
+                "type": "HUD LOCATION",
+                "default": "LEFT"
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "HEADER COLOR",
+                "description": "The color of the header.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "type": "HUD TEXT REEVALUATION",
+                "default": "VISIBLE TO AND STRING"
+            },
+            {
+                "name": "SPECTATORS",
+                "description": "Whether spectators can see the text or not. Optional argument.",
+                "type": "SPECTATOR VISIBILITY",
+                "default": "DEFAULT VISIBILITY"
+            }
+        ],
+    },{
+        opy: "hudSubtext",
+        description: "Built-in macro for `hudText` to reduce the number of arguments.",
+        args: [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the hud text.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "SUBTEXT",
+                "description": "The body text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "LOCATION",
+                "description": "The location on the screen where the text will appear.",
+                "type": "HUD LOCATION",
+                "default": "LEFT"
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "TEXT COLOR",
+                "description": "The color of the text.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "type": "HUD TEXT REEVALUATION",
+                "default": "VISIBLE TO AND STRING"
+            },
+            {
+                "name": "SPECTATORS",
+                "description": "Whether spectators can see the text or not. Optional argument.",
+                "type": "SPECTATOR VISIBILITY",
+                "default": "DEFAULT VISIBILITY"
+            }
+        ],
+    },{
+        opy: "hudSubheader",
+        description: "Built-in macro for `hudText` to reduce the number of arguments.",
+        args: [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the hud text.",
+                "type": "PLAYER",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "SUBHEADER",
+                "description": "The subheader text to be displayed (can be blank)",
+                "type": "ANY",
+                "default": "NULL"
+            },
+            {
+                "name": "LOCATION",
+                "description": "The location on the screen where the text will appear.",
+                "type": "HUD LOCATION",
+                "default": "LEFT"
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "SUBHEADER COLOR",
+                "description": "The color of the subheader.",
+                "type": "COLOR",
+                "default": "WHITE"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "type": "HUD TEXT REEVALUATION",
+                "default": "VISIBLE TO AND STRING"
+            },
+            {
+                "name": "SPECTATORS",
+                "description": "Whether spectators can see the text or not. Optional argument.",
+                "type": "SPECTATOR VISIBILITY",
+                "default": "DEFAULT VISIBILITY"
+            }
+        ],
+    },
+    {
+        opy: "async",
+        description: "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
+        args: [
+            {
+                "name": "SUBROUTINE",
+                "description": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
+                "type": "SUBROUTINE",
+                "default": "Sub0",
+            },{
+                "name": "IF ALREADY EXECUTING",
+                "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
+                "type": "START RULE BEHAVIOR",
+                "default": "RESTART RULE",
+            }
+        ],
+    },{
+        opy: "RULE_CONDITION",
+        "description": 
+`Equivalent to true if every condition in the rule is true. Can only be used in the following cases:
 
-var allHeroes = ["REAPER","TRACER","MERCY","HANZO","TORBJORN","REINHARDT","PHARAH","WINSTON","WIDOWMAKER","BASTION","SYMMETRA","ZENYATTA","GENJI","ROADHOG","MCCREE","JUNKRAT","ZARYA","SOLDIER","LUCIO","DVA","MEI","SOMBRA","DOOMFIST","ANA","ORISA","BRIGITTE","MOIRA","HAMMOND","ASHE","BAPTISTE","SIGMA"]
-
-var allTankHeroes = ["REINHARDT","WINSTON","ROADHOG","ZARYA","DVA","ORISA","HAMMOND","SIGMA"]
-var allDamageHeroes = ["REAPER","TRACER","HANZO","TORBJORN","PHARAH","WIDOWMAKER","BASTION","SYMMETRA","GENJI","MCCREE","JUNKRAT","SOLDIER","MEI","SOMBRA","DOOMFIST","ASHE"]
-var allSupportHeroes = ["MERCY","ZENYATTA","LUCIO","ANA","BRIGITTE","MOIRA","BAPTISTE"]
-/* 
- * This file is part of OverPy (https://github.com/Zezombye/overpy).
- * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
- * the Free Software Foundation, version 3.
- *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License 
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
-"use strict";
-
-var globalVariables;
-var playerVariables;
-var currentLanguage;
-
-//Compilation variables - are reset at each compilation.
-
-//The absolute path of the folder containing the main file. Used for relative paths.
-var rootPath;
-
-//Global variable used to keep track of each name for the current array element.
-//Should be the empty array at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
-var currentArrayElementNames;
-
-//Dictionary used for for loops.
-//Should be empty at the beginning and end of each rule. (for compilation)
-var forLoopVariables;
-
-//Timer for for loop variables; when it is reached, delete the corresponding variable.
-var forLoopTimers;
-
-//The keywords "true" and "false", in the workshop.
-//Used to avoid translating back when comparing to true/false.
-//Generated at each compilation.
-var wsTrue ;
-var wsFalse;
-var wsNull;
-var wsNot;
-var wsRandInt;
-var wsRandReal;
-var wsRandShuffle;
-var wsRandChoice;
-
-//Set at each rule, to check whether it is legal to use "eventPlayer" and related.
-var currentRuleEvent;
-
-//If set to true, sets all rule titles to empty.
-var obfuscateRules;
-
-//If set to true, puts 3000 empty rules, effectively making it impossible to open the preset (you get kicked by the server).
-var enableNoEdit;
-
-//Contains all macros.
-var macros;
-
-var encounteredWarnings;
-var suppressedWarnings;
-var globalSuppressedWarnings;
-
-//A list of imported files, to prevent import loops.
-var importedFiles;
-
-var wasWaitEncountered;
-
-var disableUnusedVars;
-
-//Decompilation variables
-
-//The stack of the files (macros count as "files").
-var fileStack;
-
-//Global variable used for "skip ifs", to keep track of where the skip if ends.
-//Is reset at each rule.
-var decompilerGotos;
-
-//Global variable used for the number of tabs.
-//Is reset at each rule.
-var nbTabs;
-
-//Global variable used to mark the action number of the last loop in the rule.
-//Is reset at each rule.
-var lastLoop;
-
-//Global variable used to keep track of operator precedence.
-//Is reset at each action and rule condition.
-var operatorPrecedenceStack;
-
-//Whether the decompilation at this time is under a normal "for" loop.
-var isInNormalForLoop;
-
-
-function resetGlobalVariables() {
-	rootPath = "";
-	currentArrayElementNames = [];
-	forLoopVariables = {};
-	forLoopTimers = [];
-	wsTrue = tows("true", valueFuncKw);
-	wsFalse = tows("false", valueFuncKw);
-	wsNull = tows("null", valueFuncKw);
-	wsNot = tows("not", valueFuncKw);
-	wsRandInt = tows("random.randint", valueFuncKw);
-	wsRandReal = tows("random.uniform", valueFuncKw);
-	wsRandShuffle = tows("random.shuffle", valueFuncKw);
-	wsRandChoice = tows("random.choice", valueFuncKw);
-	currentRuleEvent = "";
-	obfuscateRules = false;
-	macros = [];
-	fileStack = [];
-	decompilerGotos = [];
-	nbTabs = 0;
-	lastLoop = -1;
-	operatorPrecedenceStack = [];
-	isInNormalForLoop = false;
-	globalVariables = [];
-	playerVariables = [];
-	encounteredWarnings = [];
-	suppressedWarnings = [];
-	globalSuppressedWarnings = [];
-	currentLanguage = "en-US";
-	wasWaitEncountered = false;
-	importedFiles = [];
-	enableNoEdit = false;
-	disableUnusedVars = false;
-}
-
-//Other constants
-
-//Operator precedence, from lowest to highest.
-const operatorPrecedence = {
-	"or":1,
-	"and":2,
-	"not":3,
-	"==":4,
-	"!=":4,
-	"<=":4,
-	">=":4,
-	">":4,
-	"<":4,
-	"+":5,
-	"-":5,
-	"*":6,
-	"/":6,
-	
-	//Although in Python the modulo operator has the same precedence as * and /,
-	//it must have a higher precedence because (a*b)%c is not the same as a*(b%c).
-	"%":7,
-	"**":8,
-};
-
-//Python operators, from lowest to highest precedence.
-const pyOperators = [
-	"=",
-	"+=",
-	"-=",
-	"*=",
-	"/=",
-	"%=",
-	"**=",
-	"min=",
-	"max=",
-	"++",
-	"--",
-	"if",
-	"or",
-	"and",
-	"not",
-	"in",
-	"==",
-	"!=",
-	"<=",
-	">=",
-	">",
-	"<",
-	"+",
-	"-",
-	"*",
-	"/",
-	"%",
-	"**",
+- \`while RULE_CONDITION\`
+- \`while not RULE_CONDITION\`
+- \`if RULE_CONDITION: continue (and not in a while/for loop)\`
+- \`if not RULE_CONDITION: continue (and not in a while/for loop)\`
+- \`if RULE_CONDITION: return\`
+- \`if not RULE_CONDITION: return\``,
+        "args": null
+    }
 ];
 
-//Text that gets inserted on top of all js scripts.
-const builtInJsFunctions = `
-function vect(x,y,z) {
-    return ({
-        x:x,
-        y:y,
-        z:z,
-        toString: function() {
-            return "vect("+this.x+","+this.y+","+this.z+")";
-        }
-    });
-}`;
+const specialMemberFuncs = [
+    
+    {
+        opy: "append",
+        "description": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. If used without an assignment, modifies the array in-place.\n\nExample: `A.append(3)`",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
+                "type": "ANY",
+                "default": "NUMBER"
+            }
+        ]
+    },{
+        opy: "slice",
+        "description": "A copy of the specified array containing only values from a specified index range.",
+        "args": [
+            {
+                "name": "START INDEX",
+                "description": "The first index of the range.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            },
+            {
+                "name": "COUNT",
+                "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },{
+        opy: "index",
+        "description": "The index of a value within an array or -1 if no such value can be found.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value for which to search.",
+                "type": "NUMBER",
+                "default": "NUMBER"
+            }
+        ]
+    },{
+        opy: "hasLoS",
+        description: "Whether the start and end position of a raycast have line of sight with each other.",
+        args: [],
+    },{
+        opy: "getNormal",
+        description: "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs).",
+        args: [],
+    },{
+        opy: "getPlayerHit",
+        description: "The player hit by the raycast (or null if no player is hit).",
+        args: [],
+    },{
+        opy: "getHitPosition",
+        description: "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs).",
+        args: [],
+    }
+];
 
-const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length-1;
+const preprocessingDirectives = [
+    {
+        opy: "define",
+        description:
+`Creates a macro, like in C/C++. Macros must be defined before any code. Examples:
 
-const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BV', 'BW', 'BX', 'BY', 'BZ', 'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN', 'CO', 'CP', 'CQ', 'CR', 'CS', 'CT', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG', 'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN', 'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DV', 'DW', 'DX'];
+    #!define currentSectionWalls A
+    #!define GAME_NOT_STARTED 3\`
 
-//Names that cannot be used for variables.
-const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "def", "async", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "RULE_START", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default"].concat(Object.keys(constantValues).map(x => constantValues[x].opy));
+Function macros are supported as well:
 
-//Characters that are visually the same as normal ASCII characters (when uppercased), but make the string appear in "big letters" (the i18n font).
-//For now, only greek letters and the "line separator" character.
-//Let me know if you find any other such characters.
-const bigLettersMappings = {
-	a: "Α",
-	A: "Α",
-	b: "Β",
-	B: "Β",
-	e: "Ε",
-	E: "Ε",
-	h: "Η",
-	H: "Η",
-	i: "Ι",
-	I: "Ι",
-	k: "Κ",
-	K: "Κ",
-	m: "Μ",
-	M: "Μ",
-	n: "Ν",
-	N: "Ν",
-	o: "Ο",
-	O: "Ο",
-	p: "Ρ",
-	P: "Ρ",
-	t: "Τ",
-	T: "Τ",
-	x: "Χ",
-	X: "Χ",
-	y: "Υ",
-	Y: "Υ",
-	z: "Ζ",
-	Z: "Ζ",
-	" ": "\u2028", //line separator
-}
+    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]
+    #!define spawnMei(type, location) \
+    getFirstAvailableMei().meiType = type\
+    wait(0.1)\
+    getFirstAvailableMei().teleport(location)\
+    getFirstAvailableMei().isFighting = true
 
-//Fullwidth characters
-var fullwidthMappings = {
-	" ": "　",
-	"¥": "￥",
-	"₩": "￦",
-	"¢": "￠",
-	"£": "￡",
-	"¯": "￣",
-	"¬": "￢",
-	"¦": "￤",
-}
-for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
-	fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
-}
+Note the usage of the backslashed lines.
+
+JS scripts can be inserted with the special __script__ function:
+
+    #!define addFive(x) __script__("addfive.js")
+
+where the \`addfive.js\` script contains \`x+5\` (no \`return\`).
+
+Arguments of JS scripts are inserted automatically at the beginning (so \`addFive(123)\` would cause \`var x = 123;\` to be inserted). The script is then evaluated using \`eval()\`.
+
+A \`vect()\` function is also inserted, so that \`vect(1,2,3)\` returns an object with the correct properties and \`toString()\` function.
+
+When resolving the macro, the indentation on the macro call is prepended to each line of the replacement.
+`
+    },{
+        opy: "defineMember",
+        description: "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion."
+    },{
+        opy: "obfuscate",
+        description:
+`Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.
+
+Usage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)
+
+The following obfuscation methods are applied:
+
+- Rule filling: several empty rules are inserted.
+- Comment removing: all rule titles are replaced with the empty string.
+- Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.
+- Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
+`
+    },{
+        opy: "noEdit",
+        description:
+`Adds 2500 empty rules to the preset, which should make it absolutely impossible to open the rules (as you get a "connection lost" error). Therefore, it is the ultimate form of obfuscation, as you simply cannot even see the code.
+
+However, pasting the generated code could trigger a "connection lost" error as well, and a huge lag. As such, this directive should only be used on finalized gamemodes, before you publish it; it should not be used every time.
+
+You will very likely have to paste the generated code in an editor, then paste the rules by sets of 800, 1200 then 500 to be able to insert them.
+`
+    },{
+        opy: "declareGlobal",
+        description:
+`Declares a global variable. The index (0-127) can optionally be specified. Example:
+
+    #!declareGlobal myVar 127
+`
+    },{
+        opy: "declarePlayer",
+        description:
+`Declares a player variable. The index (0-127) can optionally be specified. Example:
+
+    #!declarePlayer myVar 127
+`
+    },{
+        opy: "declareSubroutine",
+        description:
+`Declares a subroutine. The index (0-127) can optionally be specified. Example:
+
+    #!declareSubroutine mySubroutine 127
+`
+    },{
+        opy: "suppressWarnings",
+        description: "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
+    },{
+        opy: "disableUnusedVars",
+        description: "Do not put 'unused_var_xxx' in the compilation. Not recommended if compiling regularly, as this could lead to not being able to paste the generated output if variable offsets have been modified."
+    },{
+        opy: "mainFile",
+        description: "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file."
+    }
+]
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -11895,128 +12386,6 @@ for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\
  */
 
 "use strict";
-
-function shuffleArray(a) {
-    var j, x, i;
-    for (i = a.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = a[i];
-        a[i] = a[j];
-        a[j] = x;
-    }
-    return a;
-}
-
-function getUtf8Length(s){
-	//console.log("getting utf8 length of '"+s+"'");
-    var b = 0, i = 0, c;
-    for(;c=s.charCodeAt(i++);b+=c>>11?3:c>>7?2:1);
-    return b;
-}
-
-function translateVarToPy(content, isGlobalVariable) {
-	content = content.trim();
-	var varArray = isGlobalVariable ? globalVariables : playerVariables;
-	if (varArray.map(x => x.name).includes(content)) {
-		//modify the name
-		if (content.startsWith("_") || reservedNames.includes(content)) {
-			content = "_"+content;
-		}
-		if (!/[A-Za-z_]\w*/.test(content)) {
-			error("Unauthorized name for variable: '"+content+"'");
-		}
-		return content;
-	} else if (defaultVarNames.includes(content)) {
-		//Add the variable as it doesn't already exist (else it would've been caught by the first if)
-		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
-		return content;
-	} else {
-		error("Unknown variable '"+content+"'");
-	}
-}
-
-function translateVarToWs(content, isGlobalVariable) {
-
-	var varArray = isGlobalVariable ? globalVariables : playerVariables;
-	for (var i = 0; i < varArray.length; i++) {
-		if (varArray[i].name === content) {
-			if (obfuscateRules) {
-				return obfuscatedVarNames[i]
-			} else {
-				return content;
-			}
-		}
-	}
-	if (defaultVarNames.includes(content)) {
-		//Add the variable as it doesn't already exist (else it would've been caught by the for)
-		//However, only do this if it is a default variable name
-		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
-		if (obfuscateRules) {
-			for (var i = 0; i < varArray.length; i++) {
-				if (varArray[i].name === content) {
-					return obfuscatedVarNames[i];
-				}
-			}
-		} else {
-			return content;
-		}
-	}
-	error("Undeclared "+(isGlobalVariable ? "global" : "player")+" variable '"+content+"'");
-}
-
-//Adds a variable to the global/player variable arrays.
-function addVariable(content, isGlobalVariable, index) {
-	if (index === undefined) {
-		error("Index is undefined");
-	}
-	if (isGlobalVariable) {
-		globalVariables.push({
-			"name": content,
-			"index": index,
-		});
-	} else {
-		playerVariables.push({
-			"name": content,
-			"index": index,
-		});
-	}
-}
-
-function boolToWs(x) {
-	if (x === true) {
-		return wsTrue;
-	} else if (x === false) {
-		return wsFalse;
-	} else {
-		error("Invalid boolean "+x);
-	}
-}
-
-function containsRandom(x) {
-	return x.includes(wsRandInt) || x.includes(wsRandReal) || x.includes(wsRandShuffle) || x.includes(wsRandChoice);
-}
-
-function isWsTrue(x) {
-	if (x === wsTrue) {
-		return true;
-	}
-	if (isNumber(x) && parseFloat(x) !== 0) {
-		return true;
-	}
-	return false;
-}
-
-function isWsFalse(x) {
-	return x === wsFalse || x === wsNull || x === "0";
-}
-
-function isWs1(x) {
-	return x === "1" || x === wsTrue;
-}
-
-function isWs0(x) {
-	return x === "0" || x === wsFalse || x === wsNull;
-}
 
 //As the workshop does not accept numbers that are too long (such as 0.22585181552505867), trim all numbers to 15 decimal places.
 function trimNb(x) {
@@ -12027,12 +12396,272 @@ function trimNb(x) {
 	return result;
 }
 
-function isNumber(x) {
-	if (x.trim() === "") {
-		return false;
+
+//Same as splitStrOnDelimiter but for a token list.
+//If getAllTokens = false, this will only split on the first occurrence of the token.
+function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
+	
+	var result = [];
+	var bracketsLevel = 0;
+	
+	if (rtl) {
+		var start = tokens.length-1;
+		var end = -1;
+		var step = -1;
+		var latestDelimiterPos = tokens.length;
+	} else {
+		var start = 0;
+		var end = tokens.length;
+		var step = 1;
+		var latestDelimiterPos = -1;
 	}
-	return !isNaN(x);
+	
+	//console.log("Splitting tokens '"+dispTokens(tokens)+"' on "+str);
+	
+	for (var i = start; i != end; i+=step) {
+		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
+			bracketsLevel += step;
+		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
+			bracketsLevel -= step;
+		} else if (tokens[i].text === str && bracketsLevel === 0) {
+			if (rtl) {
+				result.push(tokens.slice(i+1, latestDelimiterPos));
+			} else {
+				result.push(tokens.slice(latestDelimiterPos+1, i));
+			}
+			latestDelimiterPos = i;
+			if (!getAllTokens) {
+				break;
+			}
+		}
+	}
+	
+	if (bracketsLevel !== 0) {
+		error("Lexer broke (bracket level is "+bracketsLevel+")");
+	}
+	
+	if (rtl) {
+		result.unshift(tokens.slice(end+1, latestDelimiterPos));
+	} else {
+		result.push(tokens.slice(latestDelimiterPos+1, end));
+	}
+		
+	if (result[0].length === 0 && result.length === 1) {
+		return [];
+	} else {
+		return result;
+	}
+	
 }
+
+
+//Same as getBracketPositions but for tokens.
+function getTokenBracketPos(tokens, returnFirstPair=false) {
+	var bracketsPos = []
+	var bracketsLevel = 0;
+	var currentPositionIsString = false;
+	var currentStrDelimiter = "";
+	for (var i = 0; i < tokens.length; i++) {
+		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
+			bracketsLevel++;
+			if (bracketsLevel == 1) {
+				bracketsPos.push(i);
+			}
+		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
+			bracketsLevel--;
+			if (bracketsLevel === 0) {
+				bracketsPos.push(i);
+				if (returnFirstPair) {
+					break;
+				}
+			}
+		} 
+	}
+	if (bracketsLevel > 0) {
+		error("Brackets level above 0! (missing closing bracket)");
+	}
+	
+	return bracketsPos;
+}
+
+
+
+//Converts a token list, or a token object to string.
+function dispTokens(content) {
+	if (content instanceof Array) {
+		var result = "";
+		for (var i = 0; i < content.length; i++) {
+			result += content[i].text;
+			if (i < content.length-1) {
+				result += " ";
+			}
+		}
+		return result;
+	} else if (typeof content === "string") {
+		return content;
+	} else if (typeof content === "object") {
+		if (content.text === undefined) {
+			error("Object is not a token or token list");
+		} else {
+			return content.text;
+		}
+	} else {
+		error("Undefined content "+content);
+	}
+}
+
+
+
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+//Returns an array of workshop instructions (delimited by a semicolon).
+function splitInstructions(content) {
+	return splitStrOnDelimiter(content, [';']);
+}
+
+//Returns an array of arguments (delimited by a comma).
+function getArgs(content) {
+	return splitStrOnDelimiter(content, [',']);
+}
+
+//Returns an array of strings that are delimited by the given string(s).
+//The delimiter is only taken into account if it is not within parentheses and not within a string.
+//Example: "azer(1,2), reaz(',,,,')" will return ["azer(1,2)","reaz(',,,,')"] for a comma separator.
+function splitStrOnDelimiter(content, delimiter) {
+	
+	content = content.trim();
+	var bracketPos = getBracketPositions(content);
+	var bracketPosCheckIndex = 0;
+	var delimiterPos = [-delimiter.length];
+	var currentPositionIsString = false;
+	var currentStrDelimiter = "";
+	
+	for (var i = 0; i < content.length; i++) {
+		//Check if the current index is in parentheses
+		if (bracketPosCheckIndex < bracketPos.length && i >= bracketPos[bracketPosCheckIndex]) {
+			i = bracketPos[bracketPosCheckIndex+1];
+			bracketPosCheckIndex += 2;
+			
+		} else if (!currentPositionIsString && (content.charAt(i) == '"'/* || content.charAt(i) == '\''*/)) {
+			currentPositionIsString = !currentPositionIsString;
+			currentStrDelimiter = content.charAt(i);
+		} else if (content.charAt(i) === currentStrDelimiter) {
+			currentPositionIsString = !currentPositionIsString;
+		} else if (content.charAt(i) == '\\') {
+			i++;
+		} else if (!currentPositionIsString && content.startsWith(delimiter, i)) {
+			delimiterPos.push(i);
+		}
+
+	}
+	
+	delimiterPos.push(content.length);
+	
+	var result = [];
+	for (var i = 0; i < delimiterPos.length-1; i++) {
+		var currentStr = content.substring(delimiterPos[i]+delimiter.length, delimiterPos[i+1]);
+		currentStr = currentStr.trim();
+		if (currentStr.length > 0) {
+			result.push(currentStr);
+		}
+	}
+	
+	return result;
+}
+
+
+//This function returns the index of each first-level opening and closing brackets/parentheses.
+//Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].
+function getBracketPositions(content, returnFirstPair=false, stringIncludesApos=false) {
+	var bracketsPos = []
+	var bracketsLevel = 0;
+	var currentPositionIsString = false;
+	var currentStrDelimiter = "";
+	for (var i = 0; i < content.length; i++) {
+		if (!currentPositionIsString && startsWithParenthesis(content.substring(i))) {
+			bracketsLevel++;
+			if (bracketsLevel == 1) {
+				bracketsPos.push(i);
+			}
+		} else if ((content.charAt(i) == ')' || content.charAt(i) == ']' || content.charAt(i) == '}') && !currentPositionIsString) {
+			bracketsLevel--;
+			if (bracketsLevel == 0) {
+				bracketsPos.push(i);
+				if (returnFirstPair) {
+					break;
+				}
+			} else if (bracketsLevel < 0) {
+				error("Brackets level below 0! (missing opening bracket)");
+			}
+		} else if (!currentPositionIsString && (content.charAt(i) == '"' || (content.charAt(i) == '\'' && stringIncludesApos))) {
+			currentPositionIsString = !currentPositionIsString;
+			currentStrDelimiter = content.charAt(i);
+		} else if (content.charAt(i) === currentStrDelimiter) {
+			currentPositionIsString = !currentPositionIsString;
+		} else if (content.charAt(i) == '\\') {
+			i++;
+		}
+	}
+	if (bracketsLevel > 0) {
+		error("Brackets level above 0! (missing closing bracket)");
+	}
+	
+	return bracketsPos;
+}
+
+
+//Gets the name of a function.
+function getName(content) {
+	
+	if (content === undefined) {
+		error("Trying to get name of undefined function");
+	}
+	
+	var bracketPos = getBracketPositions(content);
+	
+	if (bracketPos.length == 2) {
+		var name = content.substring(0, bracketPos[0]);
+	} else {
+		var name = content;
+	}
+	
+	return name.replace(/\s/g, "");
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
 
 function getFilenameFromPath(path) {
 	return path.split('\\').pop().split('/').pop();
@@ -12099,6 +12728,169 @@ function getFileContent(path) {
 		error(e);
 	}
 }
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+//Logging stuff
+function error(str, token) {
+	
+	if (token !== undefined && token.fileStack !== undefined) {
+		fileStack = token.fileStack;
+	}
+	
+	//var error = "ERROR: ";
+	var error = "";
+	error += str;
+	if (token !== undefined) {
+		error += "'"+dispTokens(token)+"'";
+	}
+	if (fileStack) {
+		if (fileStack.length !== 0) {
+			fileStack.reverse();
+			for (var file of fileStack) {
+				error += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+			}
+		}
+	} else {
+		error += "\n\t| <no filestack>";
+	}
+	
+	throw new Error(error);
+}
+
+function warn(warnType, message) {
+	
+	if (!suppressedWarnings.includes(warnType)) {
+		var warning = message+" ("+warnType+")";
+		if (fileStack.length !== 0) {
+			fileStack.reverse();
+			for (var file of fileStack) {
+				warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+			}
+		}
+		console.warn(warning);
+		suppressedWarnings.push(warnType);
+		encounteredWarnings.push(warning);
+	}
+}
+
+function debug(str, arg) {
+	//return;
+	console.debug("DEBUG: "+str);
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+function boolToWs(x) {
+	if (x === true) {
+		return wsTrue;
+	} else if (x === false) {
+		return wsFalse;
+	} else {
+		error("Invalid boolean "+x);
+	}
+}
+
+function containsRandom(x) {
+	return x.includes(wsRandInt) || x.includes(wsRandReal) || x.includes(wsRandShuffle) || x.includes(wsRandChoice);
+}
+
+function isWsTrue(x) {
+	if (x === wsTrue) {
+		return true;
+	}
+	if (isNumber(x) && parseFloat(x) !== 0) {
+		return true;
+	}
+	return false;
+}
+
+function isWsFalse(x) {
+	return x === wsFalse || x === wsNull || x === "0";
+}
+
+function isWs1(x) {
+	return x === "1" || x === wsTrue;
+}
+
+function isWs0(x) {
+	return x === "0" || x === wsFalse || x === wsNull;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+function shuffleArray(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
+
+function getUtf8Length(s){
+	//console.log("getting utf8 length of '"+s+"'");
+    var b = 0, i = 0, c;
+    for(;c=s.charCodeAt(i++);b+=c>>11?3:c>>7?2:1);
+    return b;
+}
+
+function isNumber(x) {
+	if (x.trim() === "") {
+		return false;
+	}
+	return !isNaN(x);
+}
 
 function getFileStackCopy() {
 	return fileStack.map(x => Object.assign({}, x));
@@ -12108,7 +12900,146 @@ function getConstantKw(type) {
 	return constantValues[type].values;
 }
 
-//Used for string parsing; splits an array of strings on one or two strings.
+//Reverses the comparison operator.
+function reverseOperator(content) {
+	if (content === "==") return "!=";
+	else if (content === '!=') return "==";
+	else if (content === '<=') return ">";
+	else if (content === '>=') return "<";
+	else if (content === '<') return ">=";
+	else if (content === '>') return "<=";
+	else {
+		error("Cannot reverse operator "+content);
+	}
+}
+
+/*
+//Replaces variables A-Z with the provided names (for decompilation).
+//Also returns "#define name var" for each name.
+function loadVariableNames(names, varKw) {
+	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	var result = "";
+	for (const [key,value] of Object.entries(names)) {
+		var index = alphabet.indexOf(key.toUpperCase());
+		if (index < 0) {
+			error("Illegal variable "+key);
+		} else {
+			varKw[index].opy = value;
+			result += "#!define "+value+" "+key.toUpperCase()+"\n";
+		}
+	}
+	return result;
+}
+
+//Resets variable names to A-Z.
+function resetVarNames(varKw) {
+	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	for (var i = 0; i < alphabet.length; i++) {
+		varKw[i].opy = alphabet[i];
+	}
+}
+*/
+
+
+//Returns "player" if the instruction represents an array of players, else the name of the instruction.
+//Note: you must only pass the name of the instruction to this function.
+function getPlayerVarName(content) {
+	if (!isPlayerArrayInstruction(content)) {
+		return decompile(content);
+	} else {
+		return "player";
+	}
+}
+
+//Same as isSinglePlayerInstruction, but for player arrays.
+//However, note that these functions aren't mutually exclusive;
+//if one of them returns false, the other one will not necessarily return true.
+//This is because variables can hold a player and a player array, and we can't know which.
+function isPlayerArrayInstruction(content) {
+	
+	content = topy(getName(content), valueKw);
+	
+	debug("Checking if '"+content+"' is a player array instruction");
+	
+	var playerArrayInstructions = [
+		"getDeadPlayers",
+		"getLivingPlayers",
+		"getPlayers",
+		"getPlayersNotOnObjective",
+		"getPlayersOnObjective",
+		"getPlayersInViewAngle",
+		"getPlayersOnHero",
+		"getPlayersInRadius",
+	];
+	
+	if (playerArrayInstructions.indexOf(content) > -1) {
+		return true;
+	}
+	return false;
+}
+
+//Returns 4 spaces per tab level.
+function tabLevel(nbTabs) {
+	var result = "";
+	for (var i = 0; i < nbTabs; i++) {
+		result += "    ";
+	}
+	return result;
+}
+
+
+
+
+//Returns true if the given string starts with a parenthesis (or a bracket/curly bracket).
+function startsWithParenthesis(content) {
+	if (content[0] == '(' || content[0] == '[' || content[0] == '{') {
+		return true;
+	}
+	return false;
+}
+
+//Returns true if c is [A-Za-z\d_@].
+function isVarChar(c) {
+	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_' || c === '@';
+}
+
+/*//Returns the indent, assuming 1 indent = 4 spaces.
+function getIndent(content) {
+	var indent = 0;
+	var i = 0;
+	while (content.startsWith("    ", i)) {
+		indent++;
+		i += 4;
+	}
+	return indent;
+}*/
+
+//ty stackoverflow
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+//Used for localized string parsing; splits an array of strings on one or two strings.
 //Eg: splitStrTokens(["owo", "uwu", "owo"], "uwu") will return [["owo"], ["owo"]].
 function splitStrTokens(tokens, str1, str2) {
 	
@@ -12160,159 +13091,24 @@ function splitStrTokens(tokens, str1, str2) {
 	}
 	
 }
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
-//Reverses the comparison operator.
-function reverseOperator(content) {
-	if (content === "==") return "!=";
-	else if (content === '!=') return "==";
-	else if (content === '<=') return ">";
-	else if (content === '>=') return "<";
-	else if (content === '<') return ">=";
-	else if (content === '>') return "<=";
-	else {
-		error("Cannot reverse operator "+content);
-	}
-}
-
-//Replaces variables A-Z with the provided names (for decompilation).
-//Also returns "#define name var" for each name.
-function loadVariableNames(names, varKw) {
-	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	var result = "";
-	for (const [key,value] of Object.entries(names)) {
-		var index = alphabet.indexOf(key.toUpperCase());
-		if (index < 0) {
-			error("Illegal variable "+key);
-		} else {
-			varKw[index].opy = value;
-			result += "#!define "+value+" "+key.toUpperCase()+"\n";
-		}
-	}
-	return result;
-}
-
-//Resets variable names to A-Z.
-function resetVarNames(varKw) {
-	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	for (var i = 0; i < alphabet.length; i++) {
-		varKw[i].opy = alphabet[i];
-	}
-}
-
-//Gets the name of a function.
-function getName(content) {
-	
-	if (content === undefined) {
-		error("Trying to get name of undefined function");
-	}
-	
-	var bracketPos = getBracketPositions(content);
-	
-	if (bracketPos.length == 2) {
-		var name = content.substring(0, bracketPos[0]);
-	} else {
-		var name = content;
-	}
-	
-	return name.replace(/\s/g, "");
-}
-
-//Returns "player" if the instruction represents an array of players, else the name of the instruction.
-//Note: you must only pass the name of the instruction to this function.
-function getPlayerVarName(content) {
-	if (!isPlayerArrayInstruction(content)) {
-		return decompile(content);
-	} else {
-		return "player";
-	}
-}
-
-//Checks if the (python) instruction represents only a player.
-//Used to differenciate player and player[].
-//Note: you must only pass the name to this function.
-/*function isSinglePlayerInstruction(content) {
-	
-	content = topy(getName(content), valueKw);
-	
-	debug("Checking if '"+content+"' is a single player instruction");
-	
-	var playerInstructions = [
-		"attacker",
-		"getClosestPlayer",
-		"eventPlayer",
-		"getFarthestPlayer",
-		"_firstOf",
-		"_lastOf",
-		"getFlagCarrier",
-		"getPlayerClosestToReticle",
-		"_randomValueInArray",
-		"victim",
-		"_currentArrayElement",
-		"isDead",
-		"isAlive",
-		"isCommunicating",
-		"isCommunicatingAny",
-		"isCommunicatingAnyEmote",
-		"isCommunicatingAnyVoiceline",
-		"isCrouching",
-		"isUsingAbility1",
-		"isUsingAbility2",
-		"isHoldingButton",
-		"isFiringPrimary",
-		"isFiringSecondary",
-		"isInAir",
-		"isOnGround",
-		"isInSpawnRoom",
-		"isMoving",
-		"isOnObjective",
-		"isOnWall",
-		"isOnFire",
-		"isStanding",
-		"isUsingUltimate",
-	];
-	
-	if (playerInstructions.indexOf(content) > -1) {
-		return true;
-	}
-	return false;
-}*/
-
-//Same as isSinglePlayerInstruction, but for player arrays.
-//However, note that these functions aren't mutually exclusive;
-//if one of them returns false, the other one will not necessarily return true.
-//This is because variables can hold a player and a player array, and we can't know which.
-function isPlayerArrayInstruction(content) {
-	
-	content = topy(getName(content), valueKw);
-	
-	debug("Checking if '"+content+"' is a player array instruction");
-	
-	var playerArrayInstructions = [
-		"getDeadPlayers",
-		"getLivingPlayers",
-		"getPlayers",
-		"getPlayersNotOnObjective",
-		"getPlayersOnObjective",
-		"getPlayersInViewAngle",
-		"getPlayersOnHero",
-		"getPlayersInRadius",
-	];
-	
-	if (playerArrayInstructions.indexOf(content) > -1) {
-		return true;
-	}
-	return false;
-}
-
-//Returns 4 spaces per tab level.
-function tabLevel(nbTabs) {
-	var result = "";
-	for (var i = 0; i < nbTabs; i++) {
-		result += "    ";
-	}
-	return result;
-}
-
+"use strict";
 
 //Translates a keyword to the other language.
 function translate(keyword, toWorkshop, keywordArray, options={}) {
@@ -12397,287 +13193,3124 @@ function tows(keyword, keywordArray, options) {
 		return translate(keyword, true, keywordArray, options);
 	}
 }
-
-//Returns an array of workshop instructions (delimited by a semicolon).
-function splitInstructions(content) {
-	return splitStrOnDelimiter(content, [';']);
-}
-
-//Returns an array of arguments (delimited by a comma).
-function getArgs(content) {
-	return splitStrOnDelimiter(content, [',']);
-}
-
-//Returns an array of strings that are delimited by the given string(s).
-//The delimiter is only taken into account if it is not within parentheses and not within a string.
-//Example: "azer(1,2), reaz(',,,,')" will return ["azer(1,2)","reaz(',,,,')"] for a comma separator.
-function splitStrOnDelimiter(content, delimiter) {
-	
-	content = content.trim();
-	var bracketPos = getBracketPositions(content);
-	var bracketPosCheckIndex = 0;
-	var delimiterPos = [-delimiter.length];
-	var currentPositionIsString = false;
-	var currentStrDelimiter = "";
-	
-	for (var i = 0; i < content.length; i++) {
-		//Check if the current index is in parentheses
-		if (bracketPosCheckIndex < bracketPos.length && i >= bracketPos[bracketPosCheckIndex]) {
-			i = bracketPos[bracketPosCheckIndex+1];
-			bracketPosCheckIndex += 2;
-			
-		} else if (!currentPositionIsString && (content.charAt(i) == '"'/* || content.charAt(i) == '\''*/)) {
-			currentPositionIsString = !currentPositionIsString;
-			currentStrDelimiter = content.charAt(i);
-		} else if (content.charAt(i) === currentStrDelimiter) {
-			currentPositionIsString = !currentPositionIsString;
-		} else if (content.charAt(i) == '\\') {
-			i++;
-		} else if (!currentPositionIsString && content.startsWith(delimiter, i)) {
-			delimiterPos.push(i);
-		}
-
-	}
-	
-	delimiterPos.push(content.length);
-	
-	var result = [];
-	for (var i = 0; i < delimiterPos.length-1; i++) {
-		var currentStr = content.substring(delimiterPos[i]+delimiter.length, delimiterPos[i+1]);
-		currentStr = currentStr.trim();
-		if (currentStr.length > 0) {
-			result.push(currentStr);
-		}
-	}
-	
-	return result;
-}
-
-//Same as splitStrOnDelimiter but for a token list.
-//If getAllTokens = false, this will only split on the first occurrence of the token.
-function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
-	
-	var result = [];
-	var bracketsLevel = 0;
-	
-	if (rtl) {
-		var start = tokens.length-1;
-		var end = -1;
-		var step = -1;
-		var latestDelimiterPos = tokens.length;
-	} else {
-		var start = 0;
-		var end = tokens.length;
-		var step = 1;
-		var latestDelimiterPos = -1;
-	}
-	
-	//console.log("Splitting tokens '"+dispTokens(tokens)+"' on "+str);
-	
-	for (var i = start; i != end; i+=step) {
-		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
-			bracketsLevel += step;
-		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
-			bracketsLevel -= step;
-		} else if (tokens[i].text === str && bracketsLevel === 0) {
-			if (rtl) {
-				result.push(tokens.slice(i+1, latestDelimiterPos));
-			} else {
-				result.push(tokens.slice(latestDelimiterPos+1, i));
-			}
-			latestDelimiterPos = i;
-			if (!getAllTokens) {
-				break;
-			}
-		}
-	}
-	
-	if (bracketsLevel !== 0) {
-		error("Lexer broke (bracket level is "+bracketsLevel+")");
-	}
-	
-	if (rtl) {
-		result.unshift(tokens.slice(end+1, latestDelimiterPos));
-	} else {
-		result.push(tokens.slice(latestDelimiterPos+1, end));
-	}
-		
-	if (result[0].length === 0 && result.length === 1) {
-		return [];
-	} else {
-		return result;
-	}
-	
-}
-
-
-//This function returns the index of each first-level opening and closing brackets/parentheses.
-//Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].
-function getBracketPositions(content, returnFirstPair=false, stringIncludesApos=false) {
-	var bracketsPos = []
-	var bracketsLevel = 0;
-	var currentPositionIsString = false;
-	var currentStrDelimiter = "";
-	for (var i = 0; i < content.length; i++) {
-		if (!currentPositionIsString && startsWithParenthesis(content.substring(i))) {
-			bracketsLevel++;
-			if (bracketsLevel == 1) {
-				bracketsPos.push(i);
-			}
-		} else if ((content.charAt(i) == ')' || content.charAt(i) == ']' || content.charAt(i) == '}') && !currentPositionIsString) {
-			bracketsLevel--;
-			if (bracketsLevel == 0) {
-				bracketsPos.push(i);
-				if (returnFirstPair) {
-					break;
-				}
-			} else if (bracketsLevel < 0) {
-				error("Brackets level below 0! (missing opening bracket)");
-			}
-		} else if (!currentPositionIsString && (content.charAt(i) == '"' || (content.charAt(i) == '\'' && stringIncludesApos))) {
-			currentPositionIsString = !currentPositionIsString;
-			currentStrDelimiter = content.charAt(i);
-		} else if (content.charAt(i) === currentStrDelimiter) {
-			currentPositionIsString = !currentPositionIsString;
-		} else if (content.charAt(i) == '\\') {
-			i++;
-		}
-	}
-	if (bracketsLevel > 0) {
-		error("Brackets level above 0! (missing closing bracket)");
-	}
-	
-	return bracketsPos;
-}
-
-//Same as getBracketPositions but for tokens.
-function getTokenBracketPos(tokens, returnFirstPair=false) {
-	var bracketsPos = []
-	var bracketsLevel = 0;
-	var currentPositionIsString = false;
-	var currentStrDelimiter = "";
-	for (var i = 0; i < tokens.length; i++) {
-		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
-			bracketsLevel++;
-			if (bracketsLevel == 1) {
-				bracketsPos.push(i);
-			}
-		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
-			bracketsLevel--;
-			if (bracketsLevel === 0) {
-				bracketsPos.push(i);
-				if (returnFirstPair) {
-					break;
-				}
-			}
-		} 
-	}
-	if (bracketsLevel > 0) {
-		error("Brackets level above 0! (missing closing bracket)");
-	}
-	
-	return bracketsPos;
-}
-
-//Returns true if the given string starts with a parenthesis (or a bracket/curly bracket).
-function startsWithParenthesis(content) {
-	if (content[0] == '(' || content[0] == '[' || content[0] == '{') {
-		return true;
-	}
-	return false;
-}
-
-//Returns true if c is [A-Za-z\d_@].
-function isVarChar(c) {
-	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_' || c === '@';
-}
-
-//Returns the indent, assuming 1 indent = 4 spaces.
-function getIndent(content) {
-	var indent = 0;
-	var i = 0;
-	while (content.startsWith("    ", i)) {
-		indent++;
-		i += 4;
-	}
-	return indent;
-}
-
-//Converts a token list, or a token object to string.
-function dispTokens(content) {
-	if (content instanceof Array) {
-		var result = "";
-		for (var i = 0; i < content.length; i++) {
-			result += content[i].text;
-			if (i < content.length-1) {
-				result += " ";
-			}
-		}
-		return result;
-	} else if (typeof content === "string") {
-		return content;
-	} else if (typeof content === "object") {
-		if (content.text === undefined) {
-			error("Object is not a token or token list");
-		} else {
-			return content.text;
-		}
-	} else {
-		error("Undefined content "+content);
-	}
-}
-
-//Logging stuff
-function error(str, token) {
-	
-	if (token !== undefined && token.fileStack !== undefined) {
-		fileStack = token.fileStack;
-	}
-	
-	//var error = "ERROR: ";
-	var error = "";
-	error += str;
-	if (token !== undefined) {
-		error += "'"+dispTokens(token)+"'";
-	}
-	if (fileStack.length !== 0) {
-		fileStack.reverse();
-		for (var file of fileStack) {
-			error += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
-		}
-	}
-	
-	throw new Error(error);
-}
-
-function warn(warnType, message) {
-	
-	if (!suppressedWarnings.includes(warnType)) {
-		var warning = message+" ("+warnType+")";
-		if (fileStack.length !== 0) {
-			fileStack.reverse();
-			for (var file of fileStack) {
-				warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
-			}
-		}
-		console.warn(warning);
-		suppressedWarnings.push(warnType);
-		encounteredWarnings.push(warning);
-	}
-}
-
-function debug(str, arg) {
-	//return;
-	console.debug("DEBUG: "+str);
-}
-
-//ty stackoverflow
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-
 /* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+function translateSubroutineToPy(content) {
+	content = content.trim();
+
+	if (subroutines.map(x => x.name).includes(content)) {
+		//modify the name
+		if (content.startsWith("_") || reservedFuncNames.includes(content)) {
+			content = "_"+content;
+		}
+		if (content.endsWith("__")) {
+			content += "_";
+		}
+		if (!/[A-Za-z_]\w*/.test(content)) {
+			error("Unauthorized name for subroutine: '"+content+"'");
+		}
+		return content;
+	} else if (defaultSubroutineNames.includes(content)) {
+		//Add the subroutine as it doesn't already exist (else it would've been caught by the first if)
+		addVariable(content, defaultSubroutineNames.indexOf(content));
+		return content;
+	} else {
+		error("Unknown subroutine '"+content+"'");
+	}
+}
+
+function translateSubroutineToWs(content) {
+	for (var i = 0; i < subroutines.length; i++) {
+		if (subroutines[i].name === content) {
+			if (obfuscateRules) {
+				return obfuscatedVarNames[i];
+			} else {
+				return content;
+			}
+		}
+	}
+
+	if (defaultSubroutineNames.includes(content)) {
+		//Add the subroutine as it doesn't already exist (else it would've been caught by the for)
+		//However, only do this if it is a default subroutine name
+		addSubroutine(content, defaultSubroutineNames.indexOf(content));
+		if (obfuscateRules) {
+			for (var i = 0; i < defaultSubroutineNames.length; i++) {
+				if (defaultSubroutineNames[i].name === content) {
+					return obfuscatedVarNames[i];
+				}
+			}
+		} else {
+			return content;
+		}
+	}
+	error("Undeclared subroutine '"+content+"'");
+}
+
+function addSubroutine(content, index) {
+	if (index === undefined) {
+		error("Index is undefined");
+	}
+	if (reservedFuncNames.includes(content)) {
+		error("Subroutine name '"+content+"' is a built-in function or keyword");
+	}
+	subroutines.push({
+		"name": content,
+		"index": index,
+	})
+}
+
+function translateVarToPy(content, isGlobalVariable) {
+	content = content.trim();
+	var varArray = isGlobalVariable ? globalVariables : playerVariables;
+	if (varArray.map(x => x.name).includes(content)) {
+		//modify the name
+		if (content.startsWith("_") || reservedNames.includes(content)) {
+			content = "_"+content;
+		}
+		if (!/[A-Za-z_]\w*/.test(content)) {
+			error("Unauthorized name for variable: '"+content+"'");
+		}
+		return content;
+	} else if (defaultVarNames.includes(content)) {
+		//Add the variable as it doesn't already exist (else it would've been caught by the first if)
+		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
+		return content;
+	} else {
+		error("Unknown variable '"+content+"'");
+	}
+}
+
+function translateVarToWs(content, isGlobalVariable) {
+
+	var varArray = isGlobalVariable ? globalVariables : playerVariables;
+	for (var i = 0; i < varArray.length; i++) {
+		if (varArray[i].name === content) {
+			if (obfuscateRules) {
+				return obfuscatedVarNames[i]
+			} else {
+				return content;
+			}
+		}
+	}
+	if (defaultVarNames.includes(content)) {
+		//Add the variable as it doesn't already exist (else it would've been caught by the for)
+		//However, only do this if it is a default variable name
+		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
+		if (obfuscateRules) {
+			for (var i = 0; i < varArray.length; i++) {
+				if (varArray[i].name === content) {
+					return obfuscatedVarNames[i];
+				}
+			}
+		} else {
+			return content;
+		}
+	}
+	error("Undeclared "+(isGlobalVariable ? "global" : "player")+" variable '"+content+"'");
+}
+
+//Adds a variable to the global/player variable arrays.
+function addVariable(content, isGlobalVariable, index) {
+	if (index === undefined) {
+		error("Index is undefined");
+	}
+	if (reservedNames.includes(content)) {
+		error("Variable name '"+content+"' is a keyword");
+	}
+	if (isGlobalVariable) {
+		globalVariables.push({
+			"name": content,
+			"index": index,
+		});
+	} else {
+		playerVariables.push({
+			"name": content,
+			"index": index,
+		});
+	}
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+var obfuscationMappings = {};
+for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
+	obfuscationMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xE0000);
+}
+
+var obfuscatedVarNames = shuffleArray(Array(4096).fill().map((e,i)=>i).map(x => x.toString(2).padStart(12, "0").replace(/0/g, "I").replace(/1/g, "l"))).slice(0,128);
+
+function addEmptyRules(rules) {
+	var nbEmptyRules = (enableNoEdit ? 2500 : 100);
+	var nbTotalRules = nbEmptyRules + rules.length;
+	var emptyRule = tows("@Rule", ruleKw)+'(""){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	var result = "";
+	result += tows("@Rule", ruleKw)+'("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy)."){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	result += tows("@Rule", ruleKw)+'("Please respect its author\'s wishes and do not edit it. Thanks!"){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
+	var ruleIndex = 0;
+	for (var i = 0; i < nbTotalRules; i++) {
+		if (putEmptyRuleArray[i]) {
+			result += emptyRule;
+		} else {
+			result += rules[ruleIndex];
+			ruleIndex++;
+		}
+	}
+	return result;
+
+}
+
+var allHeroes = ["REAPER","TRACER","MERCY","HANZO","TORBJORN","REINHARDT","PHARAH","WINSTON","WIDOWMAKER","BASTION","SYMMETRA","ZENYATTA","GENJI","ROADHOG","MCCREE","JUNKRAT","ZARYA","SOLDIER","LUCIO","DVA","MEI","SOMBRA","DOOMFIST","ANA","ORISA","BRIGITTE","MOIRA","HAMMOND","ASHE","BAPTISTE","SIGMA"]
+
+var allTankHeroes = ["REINHARDT","WINSTON","ROADHOG","ZARYA","DVA","ORISA","HAMMOND","SIGMA"]
+var allDamageHeroes = ["REAPER","TRACER","HANZO","TORBJORN","PHARAH","WIDOWMAKER","BASTION","SYMMETRA","GENJI","MCCREE","JUNKRAT","SOLDIER","MEI","SOMBRA","DOOMFIST","ASHE"]
+var allSupportHeroes = ["MERCY","ZENYATTA","LUCIO","ANA","BRIGITTE","MOIRA","BAPTISTE"]
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+var globalVariables;
+var playerVariables;
+var subroutines;
+var currentLanguage;
+
+//Compilation variables - are reset at each compilation.
+
+//The absolute path of the folder containing the main file. Used for relative paths.
+var rootPath;
+
+//Global variable used to keep track of each name for the current array element.
+//Should be the empty array at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
+var currentArrayElementNames;
+
+//The keywords "true" and "false", in the workshop.
+//Used to avoid translating back when comparing to true/false.
+//Generated at each compilation.
+var wsTrue ;
+var wsFalse;
+var wsNull;
+var wsNot;
+var wsRandInt;
+var wsRandReal;
+var wsRandShuffle;
+var wsRandChoice;
+
+//Set at each rule, to check whether it is legal to use "eventPlayer" and related.
+var currentRuleEvent;
+
+//If set to true, sets all rule titles to empty.
+var obfuscateRules;
+
+//If set to true, puts 3000 empty rules, effectively making it impossible to open the preset (you get kicked by the server).
+var enableNoEdit;
+
+//Contains all macros.
+var macros;
+
+var encounteredWarnings;
+var suppressedWarnings;
+var globalSuppressedWarnings;
+
+//A list of imported files, to prevent import loops.
+var importedFiles;
+
+var wasWaitEncountered;
+
+var disableUnusedVars;
+
+//Decompilation variables
+
+//The stack of the files (macros count as "files").
+var fileStack;
+
+//Global variable used for "skip ifs", to keep track of where the skip if ends.
+//Is reset at each rule.
+var decompilerGotos;
+
+//Global variable used for the number of tabs.
+//Is reset at each rule.
+var nbTabs;
+
+//Global variable used to mark the action number of the last loop in the rule.
+//Is reset at each rule.
+var lastLoop;
+
+//Global variable used to keep track of operator precedence.
+//Is reset at each action and rule condition.
+var operatorPrecedenceStack;
+
+//Whether the decompilation at this time is under a normal "for" loop.
+var isInNormalForLoop;
+
+
+function resetGlobalVariables() {
+	rootPath = "";
+	currentArrayElementNames = [];
+	wsTrue = tows("true", valueFuncKw);
+	wsFalse = tows("false", valueFuncKw);
+	wsNull = tows("null", valueFuncKw);
+	wsNot = tows("not", valueFuncKw);
+	wsRandInt = tows("random.randint", valueFuncKw);
+	wsRandReal = tows("random.uniform", valueFuncKw);
+	wsRandShuffle = tows("random.shuffle", valueFuncKw);
+	wsRandChoice = tows("random.choice", valueFuncKw);
+	currentRuleEvent = "";
+	obfuscateRules = false;
+	macros = [];
+	fileStack = [];
+	decompilerGotos = [];
+	nbTabs = 0;
+	lastLoop = -1;
+	operatorPrecedenceStack = [];
+	isInNormalForLoop = false;
+	globalVariables = [];
+	playerVariables = [];
+	subroutines = [];
+	encounteredWarnings = [];
+	suppressedWarnings = [];
+	globalSuppressedWarnings = [];
+	currentLanguage = "en-US";
+	wasWaitEncountered = false;
+	importedFiles = [];
+	enableNoEdit = false;
+	disableUnusedVars = false;
+}
+
+//Other constants
+
+//Operator precedence, from lowest to highest.
+const operatorPrecedence = {
+	"or":1,
+	"and":2,
+	"not":3,
+	"==":4,
+	"!=":4,
+	"<=":4,
+	">=":4,
+	">":4,
+	"<":4,
+	"+":5,
+	"-":5,
+	"*":6,
+	"/":6,
+	
+	//Although in Python the modulo operator has the same precedence as * and /,
+	//it must have a higher precedence because (a*b)%c is not the same as a*(b%c).
+	"%":7,
+	"**":8,
+};
+
+//Python operators, from lowest to highest precedence.
+const pyOperators = [
+	"=",
+	"+=",
+	"-=",
+	"*=",
+	"/=",
+	"%=",
+	"**=",
+	"min=",
+	"max=",
+	"++",
+	"--",
+	"if",
+	"or",
+	"and",
+	"not",
+	"in",
+	"==",
+	"!=",
+	"<=",
+	">=",
+	">",
+	"<",
+	"+",
+	"-",
+	"*",
+	"/",
+	"%",
+	"**",
+];
+
+//Text that gets inserted on top of all js scripts.
+const builtInJsFunctions = `
+function vect(x,y,z) {
+    return ({
+        x:x,
+        y:y,
+        z:z,
+        toString: function() {
+            return "vect("+this.x+","+this.y+","+this.z+")";
+        }
+    });
+}`;
+
+const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length-1;
+
+const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BV', 'BW', 'BX', 'BY', 'BZ', 'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN', 'CO', 'CP', 'CQ', 'CR', 'CS', 'CT', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG', 'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN', 'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DV', 'DW', 'DX'];
+
+const defaultSubroutineNames = Array(128).fill().map((e,i)=>i).map(x => "Sub"+x);
+
+//Names that cannot be used for variables.
+const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "def", "pass", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "RULE_START", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default", "lobbySettings"].concat(Object.keys(constantValues).map(x => constantValues[x].opy));
+
+//Names that cannot be used for subroutines.
+const reservedFuncNames = [];
+for (var func of actionKw.concat(specialFuncs)) {
+	if (!func.opy.startsWith("_")) {
+		if (func.opy.includes("(")) {
+			reservedFuncNames.push(func.opy.substring(0, func.opy.indexOf("(")));
+		} else {
+			reservedFuncNames.push(func.opy);
+		}
+	}
+}
+
+//Characters that are visually the same as normal ASCII characters (when uppercased), but make the string appear in "big letters" (the i18n font).
+//For now, only greek letters and the "line separator" character.
+//Let me know if you find any other such characters.
+const bigLettersMappings = {
+	a: "Α",
+	A: "Α",
+	b: "Β",
+	B: "Β",
+	e: "Ε",
+	E: "Ε",
+	h: "Η",
+	H: "Η",
+	i: "Ι",
+	I: "Ι",
+	k: "Κ",
+	K: "Κ",
+	m: "Μ",
+	M: "Μ",
+	n: "Ν",
+	N: "Ν",
+	o: "Ο",
+	O: "Ο",
+	p: "Ρ",
+	P: "Ρ",
+	t: "Τ",
+	T: "Τ",
+	x: "Χ",
+	X: "Χ",
+	y: "Υ",
+	Y: "Υ",
+	z: "Ζ",
+	Z: "Ζ",
+	" ": "\u2028", //line separator
+}
+
+//Fullwidth characters
+var fullwidthMappings = {
+	" ": "　",
+	"¥": "￥",
+	"₩": "￦",
+	"¢": "￠",
+	"£": "￡",
+	"¯": "￣",
+	"¬": "￢",
+	"¦": "￤",
+}
+for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
+	fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+decompileTest = `
+
+rule("cs:s zombie escape - made by /u/zezombye - discord in description")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Set Global Variable(F, Round To Integer(X Component Of(Nearest Walkable Position(Vector(100, 100, 100))), Up));
+	}
+}
+
+rule("kings row")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 17;
+	}
+
+	actions
+	{
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(1, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(7, 5, 20));
+		Modify Global Variable(S, Append To Array, Vector(12, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(18, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(23, 2, 20));
+		Modify Global Variable(S, Append To Array, Vector(25, 0, 10));
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(62.730, 5.860, -55.220));
+		Modify Global Variable(L, Append To Array, Vector(32.710, 7.460, -31.960));
+		Modify Global Variable(L, Append To Array, Vector(-10.513, 0.937, 41.313));
+		Modify Global Variable(L, Append To Array, Vector(24.319, 5.350, -4.521));
+		Modify Global Variable(L, Append To Array, Vector(-25.564, 1.336, -34.058));
+		Modify Global Variable(L, Append To Array, Vector(-92.891, 2.859, -28.700));
+		Modify Global Variable(L, Append To Array, Vector(-156.650, 1.479, 48.010));
+		Set Global Variable(H, Vector(21.270, 0.580, -48.480));
+		Set Global Variable(D, -15.000);
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 21);
+		Modify Global Variable(M, Append To Array, 16);
+		Modify Global Variable(M, Append To Array, 17);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 25);
+		Modify Global Variable(M, Append To Array, 35);
+		Modify Global Variable(M, Append To Array, 10);
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(30.029, 7.399, -15.740));
+		Modify Global Variable(T, Append To Array, Vector(-17.200, 0.550, 42.439));
+		Modify Global Variable(T, Append To Array, Vector(9.729, 9.350, -8.530));
+		Modify Global Variable(T, Append To Array, Vector(-22.480, 2.350, -16.360));
+		Modify Global Variable(T, Append To Array, Vector(-95.540, -1.141, -46.360));
+		Modify Global Variable(T, Append To Array, Vector(-168.860, 1.160, 35.540));
+		Modify Global Variable(T, Append To Array, Vector(-178.840, 1.540, 37.250));
+		Set Global Variable(W, Empty Array);
+		Modify Global Variable(W, Append To Array, Vector(30.770, 5.960, -8.000));
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(27.600, 5.859, -39.780));
+		Modify Global Variable(W, Append To Array, Vector(31.810, 0.240, -63.221));
+		Modify Global Variable(W, Append To Array, Vector(25, 5.960, -10.971));
+		Modify Global Variable(W, Append To Array, Vector(25.359, 5.859, -51.500));
+		Modify Global Variable(W, Append To Array, Vector(24.880, 5.960, -16.250));
+		Modify Global Variable(W, Append To Array, Vector(19.220, 4, -6.980));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(10.500, 7.350, -16.181));
+		Modify Global Variable(W, Append To Array, Vector(-8.021, 1.240, 3.880));
+		Modify Global Variable(W, Append To Array, Vector(1.109, 1.420, 4.250));
+		Modify Global Variable(W, Append To Array, Vector(-1.590, 1.240, -12.700));
+		Modify Global Variable(W, Append To Array, Vector(4.670, 7, -13.620));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(-11.931, 1.410, -15.030));
+		Modify Global Variable(W, Append To Array, Vector(-2.940, 1.410, -38.690));
+		Modify Global Variable(W, Append To Array, Vector(-19.630, 2.350, -54.021));
+		Modify Global Variable(W, Append To Array, Vector(-15.250, 1.229, -27.730));
+		Modify Global Variable(W, Append To Array, Vector(-15.471, 1.220, -31.960));
+		Modify Global Variable(W, Append To Array, Vector(-17.300, 1.220, -37.000));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(-62.450, 6.300, -17.040));
+		Modify Global Variable(W, Append To Array, Vector(-66.010, 6.370, -12.891));
+		Modify Global Variable(W, Append To Array, Vector(-52.851, 1.200, -36.070));
+		Modify Global Variable(W, Append To Array, Vector(-55.460, 0.950, -32.540));
+		Modify Global Variable(W, Append To Array, Vector(-72.330, 1.160, -12.420));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(-170.521, 1.479, 39.270));
+		Modify Global Variable(W, Append To Array, Vector(-171.641, 1.479, 32.510));
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(42.160, 0.670, 31.960));
+		Modify Global Variable(B, Append To Array, Vector(-20.250, 1.260, 27.649));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(-19.271, 2.350, -16.340));
+		Modify Global Variable(B, Append To Array, Vector(-97.971, -1.141, -47.771));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(62.729, 5.859, -55.221));
+		Modify Global Variable(C, Append To Array, Vector(3.630, 3.550, 52.290));
+		Modify Global Variable(C, Append To Array, Vector(7.409, 1.488, 13.761));
+		Modify Global Variable(C, Append To Array, Vector(11.270, 7.350, -2.210));
+		Modify Global Variable(C, Append To Array, Vector(-29.230, 10.350, -12.990));
+		Modify Global Variable(C, Append To Array, Vector(-102.940, 2.240, -8.070));
+		Modify Global Variable(C, Append To Array, Vector(-102.940, 2.240, -8.070));
+	}
+}
+
+rule("blizz world")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 54;
+	}
+
+	actions
+	{
+		Set Global Variable(W, Empty Array);
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(3, 1.250, 24.290));
+		Modify Global Variable(W, Append To Array, Vector(16.910, -2.650, 25.750));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(-9.130, 3.150, 64.190));
+		Modify Global Variable(W, Append To Array, Vector(-5.100, 2.470, 59.900));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(-1.240, 1.860, 55.560));
+		Modify Global Variable(W, Append To Array, Vector(5.640, 1.770, 55.980));
+		Modify Global Variable(W, Append To Array, Vector(8.030, 1.440, 52.010));
+		Modify Global Variable(W, Append To Array, Vector(16.460, 4.440, 83));
+		Modify Global Variable(W, Append To Array, Vector(16.270, 0.630, 88.900));
+		Modify Global Variable(W, Append To Array, Vector(16.380, 0.380, 95.980));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(-69.170, 7.930, 103.970));
+		Modify Global Variable(W, Append To Array, Vector(-53.750, 1.140, 126.340));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(-59.730, 2.160, 120.330));
+		Modify Global Variable(W, Append To Array, Vector(-63.110, 2.170, 115.720));
+		Set Global Variable(X, 6);
+		Modify Global Variable(W, Append To Array, Vector(-115.740, 0.270, 95.590));
+		Modify Global Variable(W, Append To Array, Vector(-135.510, 2.100, 118.180));
+		Modify Global Variable(W, Append To Array, Vector(-125.930, 0.950, 118.130));
+		Modify Global Variable(W, Append To Array, Vector(-120.980, 1.100, 119.230));
+		Modify Global Variable(W, Append To Array, Vector(-145.590, 2.150, 115.900));
+		Modify Global Variable(W, Append To Array, Vector(-147.460, 2.230, 90.870));
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 2, 20));
+		Modify Global Variable(S, Append To Array, Vector(2, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(4, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(10, 4, 25));
+		Modify Global Variable(S, Append To Array, Vector(12, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(14, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(2.970, -4.650, -85.640));
+		Modify Global Variable(L, Append To Array, Vector(-12.371, -4.201, -57.627));
+		Modify Global Variable(L, Append To Array, Vector(-10.511, -2.848, -0.823));
+		Modify Global Variable(L, Append To Array, Vector(-25.075, 5.251, 39.109));
+		Modify Global Variable(L, Append To Array, Vector(35.927, 3.303, 78.218));
+		Modify Global Variable(L, Append To Array, Vector(-50.660, 5.870, 88.570));
+		Modify Global Variable(L, Append To Array, Vector(-115.069, 2.995, 156.563));
+		Modify Global Variable(L, Append To Array, Vector(-123.480, 1.200, 110.010));
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 21);
+		Modify Global Variable(M, Append To Array, 16);
+		Modify Global Variable(M, Append To Array, 17);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 20);
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(-12.490, -2.650, -34.070));
+		Modify Global Variable(T, Append To Array, Vector(2.730, 1.250, 16.760));
+		Modify Global Variable(T, Append To Array, Vector(-8.830, 7.420, 51.640));
+		Modify Global Variable(T, Append To Array, Vector(22.190, 1.380, 97.410));
+		Modify Global Variable(T, Append To Array, Vector(-55.680, 5.870, 98.160));
+		Modify Global Variable(T, Append To Array, Vector(-109.040, 8, 131.870));
+		Modify Global Variable(T, Append To Array, Vector(-145.550, 2.100, 103.960));
+		Modify Global Variable(T, Append To Array, Vector(-145.550, 2.100, 103.960));
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(-12.510, -2.650, -33.500));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(22.180, 1.520, 96.160));
+		Modify Global Variable(B, Append To Array, Vector(-78.400, 1.950, 129.360));
+		Modify Global Variable(B, Append To Array, Vector(-113.260, 6.100, 130.810));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(2.970, -4.650, -85.640));
+		Modify Global Variable(C, Append To Array, Vector(-12.480, -2.720, -32.040));
+		Modify Global Variable(C, Append To Array, Vector(5.410, 1.420, 11.439));
+		Modify Global Variable(C, Append To Array, Vector(11.270, 7.350, -2.210));
+		Modify Global Variable(C, Append To Array, Vector(-17.940, 3.350, 65.140));
+		Modify Global Variable(C, Append To Array, Vector(-85.120, 0.100, 108.350));
+		Modify Global Variable(C, Append To Array, Vector(-116.570, 1.200, 112.060));
+		Modify Global Variable(C, Append To Array, Vector(-116.570, 1.200, 112.060));
+		Set Global Variable(D, -6.100);
+	}
+}
+
+rule("eichenwalde")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 124;
+	}
+
+	actions
+	{
+		Set Global Variable(W, Empty Array);
+		Modify Global Variable(W, Append To Array, Vector(8.603, 5.397, -34.937));
+		Modify Global Variable(W, Append To Array, Vector(-0.034, 4.280, -25.379));
+		Modify Global Variable(W, Append To Array, Vector(-1.348, 3.689, -27.841));
+		Modify Global Variable(W, Append To Array, Vector(-1.492, 1.359, -11.064));
+		Modify Global Variable(W, Append To Array, Vector(-1.939, 1.356, -6.578));
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(38.464, 10.852, -51.943));
+		Modify Global Variable(W, Append To Array, Vector(13, 5.554, -39.500));
+		Modify Global Variable(W, Append To Array, Vector(8.708, 6.434, -45.911));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(7.928, 6.380, -52.230));
+		Modify Global Variable(W, Append To Array, Vector(22, 6.398, -58.962));
+		Modify Global Variable(W, Append To Array, Vector(27.209, 6.395, -59.248));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(70.735, 8, -78.100));
+		Modify Global Variable(W, Append To Array, Vector(67.838, 8, -89.479));
+		Modify Global Variable(W, Append To Array, Vector(72.732, 8, -85.123));
+		Modify Global Variable(W, Append To Array, Vector(65.018, 18.071, -81.605));
+		Modify Global Variable(W, Append To Array, Vector(51.731, 8.021, -66.974));
+		Modify Global Variable(W, Append To Array, Vector(60.254, 12.454, -94.021));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(104.171, 14.071, -53.970));
+		Modify Global Variable(W, Append To Array, Vector(100.794, 12.071, -29.289));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(98.650, 12.071, -37.693));
+		Modify Global Variable(W, Append To Array, Vector(95.719, 12.071, -44.037));
+		Modify Global Variable(W, Append To Array, Vector(115.603, 10.072, -40.858));
+		Modify Global Variable(W, Append To Array, Vector(115.165, 10.073, -48.097));
+		Modify Global Variable(W, Append To Array, Vector(111.677, 12.090, -7.810));
+		Modify Global Variable(W, Append To Array, Vector(142.352, 12.090, -16.331));
+		Set Global Variable(X, 6);
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(5, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(8, 3, 25));
+		Modify Global Variable(S, Append To Array, Vector(11, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(17, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(19, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(-11.842, 1.351, -9.350));
+		Modify Global Variable(L, Append To Array, Vector(-7.643, 3.377, -28.960));
+		Modify Global Variable(L, Append To Array, Vector(17.593, 6.142, -51.242));
+		Modify Global Variable(L, Append To Array, Vector(10.165, 12.363, -96.497));
+		Modify Global Variable(L, Append To Array, Vector(56.275, 6.161, -98.000));
+		Modify Global Variable(L, Append To Array, Vector(107.763, 12.071, -32.700));
+		Modify Global Variable(L, Append To Array, Vector(128.931, 15.071, -6.823));
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 22);
+		Modify Global Variable(M, Append To Array, 11);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 11);
+		Modify Global Variable(M, Append To Array, 20);
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(-4.208, 3.352, -36.936));
+		Modify Global Variable(T, Append To Array, Vector(31.750, 8.819, -49.356));
+		Modify Global Variable(T, Append To Array, Vector(17.581, 12.364, -88.729));
+		Modify Global Variable(T, Append To Array, Vector(67.373, 6.071, -83.719));
+		Modify Global Variable(T, Append To Array, Vector(105.776, 14.071, -46.755));
+		Modify Global Variable(T, Append To Array, Vector(126.503, 17.516, -15.358));
+		Modify Global Variable(T, Append To Array, Vector(111.545, 16.071, -33.741));
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(21, 11.208, -99.000));
+		Modify Global Variable(B, Append To Array, Vector(26.932, 10.006, -87.287));
+		Modify Global Variable(B, Append To Array, Vector(67.503, 6.071, -83.707));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(125.858, 16.083, -19.069));
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(-12.112, 2.165, -7.337));
+		Modify Global Variable(C, Append To Array, Vector(-12.480, -2.720, -32.040));
+		Modify Global Variable(C, Append To Array, Vector(5.125, 12.613, -84.363));
+		Modify Global Variable(C, Append To Array, Vector(28.763, 9.349, -86.460));
+		Modify Global Variable(C, Append To Array, Vector(73.259, 14.071, -50.833));
+		Modify Global Variable(C, Append To Array, Vector(-85.120, 0.100, 108.350));
+		Modify Global Variable(C, Append To Array, Vector(113.351, 16.071, -27.425));
+		Set Global Variable(D, -2.050);
+	}
+}
+
+rule("oasis city center")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 186;
+	}
+
+	actions
+	{
+		Set Global Variable(W, Empty Array);
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(138.166, 2, 209.031));
+		Modify Global Variable(W, Append To Array, Vector(173.918, 5.451, 238.435));
+		Modify Global Variable(W, Append To Array, Vector(153.992, 4.105, 211.989));
+		Modify Global Variable(W, Append To Array, Vector(170.979, 5.348, 232.410));
+		Modify Global Variable(W, Append To Array, Vector(169.230, 4.230, 221.512));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(146.914, 5.353, 269.272));
+		Modify Global Variable(W, Append To Array, Vector(165.430, 5.353, 251.300));
+		Modify Global Variable(W, Append To Array, Vector(174.073, 5.453, 244.755));
+		Modify Global Variable(W, Append To Array, Vector(152.772, 4.353, 256.830));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(152.202, 5.453, 277.696));
+		Modify Global Variable(W, Append To Array, Vector(169.966, 5.352, 239.374));
+		Modify Global Variable(W, Append To Array, Vector(154.181, 4.298, 236.817));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(80.529, 21, 321.752));
+		Modify Global Variable(W, Append To Array, Vector(58.479, 14, 315.438));
+		Modify Global Variable(W, Append To Array, Vector(68.252, 10, 321.405));
+		Modify Global Variable(W, Append To Array, Vector(73.934, 14, 309.110));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(144.727, 5.348, 216.623));
+		Modify Global Variable(W, Append To Array, Vector(112.532, 5.348, 248.279));
+		Modify Global Variable(W, Append To Array, Vector(124.038, 4.408, 228.053));
+		Modify Global Variable(W, Append To Array, Vector(122.864, 5.352, 246.109));
+		Modify Global Variable(W, Append To Array, Vector(142.109, 5.352, 226.935));
+		Modify Global Variable(W, Append To Array, Vector(137.603, 2, 210.548));
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 5, 20));
+		Modify Global Variable(S, Append To Array, Vector(4, 7, 15));
+		Modify Global Variable(S, Append To Array, Vector(9, 3, 25));
+		Modify Global Variable(S, Append To Array, Vector(12, 4, 20));
+		Modify Global Variable(S, Append To Array, Vector(16, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(220.224, 2.351, 167.747));
+		Modify Global Variable(L, Append To Array, Vector(211.228, 2.351, 181.767));
+		Modify Global Variable(L, Append To Array, Vector(194.838, 2.995, 221.516));
+		Modify Global Variable(L, Append To Array, Vector(153.317, 5.353, 228.670));
+		Modify Global Variable(L, Append To Array, Vector(157.114, 12.871, 256.487));
+		Modify Global Variable(L, Append To Array, Vector(81.267, 8.348, 305.765));
+		Modify Global Variable(L, Append To Array, Vector(139.865, 3.553, 243.895));
+		Modify Global Variable(L, Append To Array, Vector(37.600, -5.314, 141.744));
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 22);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 25);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 20);
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(203.838, 2.351, 193.103));
+		Modify Global Variable(T, Append To Array, Vector(187.465, 3.197, 228.936));
+		Modify Global Variable(T, Append To Array, Vector(164.010, 5.352, 246.529));
+		Modify Global Variable(T, Append To Array, Vector(146.688, 12.871, 272.180));
+		Modify Global Variable(T, Append To Array, Vector(62.132, 9.210, 309.589));
+		Modify Global Variable(T, Append To Array, Vector(128.289, 5.349, 232.291));
+		Modify Global Variable(T, Append To Array, Vector(16.617, -8.500, 120.524));
+		Modify Global Variable(T, Append To Array, Vector(16.617, -8.500, 120.524));
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(202.897, 2.351, 194.546));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(146.278, 12.871, 273.901));
+		Modify Global Variable(B, Append To Array, Vector(62.114, 9.210, 309.601));
+		Modify Global Variable(B, Append To Array, Vector(113.736, 2.148, 217.728));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(201.216, 2.354, 197.171));
+		Modify Global Variable(C, Append To Array, Vector(202.001, 2.349, 195.913));
+		Modify Global Variable(C, Append To Array, Vector(5.125, 12.613, -84.363));
+		Modify Global Variable(C, Append To Array, Vector(28.763, 9.349, -86.460));
+		Modify Global Variable(C, Append To Array, Vector(87.876, 19.998, 314.105));
+		Modify Global Variable(C, Append To Array, Vector(153.019, 5.453, 281.754));
+		Modify Global Variable(C, Append To Array, Vector(112, 2.148, 216));
+		Modify Global Variable(C, Append To Array, Vector(112, 2.148, 216));
+		Set Global Variable(D, -8.900);
+	}
+}
+
+rule("list walls (W)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(W, Empty Array);
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(138.166, 2, 209.031));
+		Modify Global Variable(W, Append To Array, Vector(173.918, 5.451, 238.435));
+		Modify Global Variable(W, Append To Array, Vector(153.992, 4.105, 211.989));
+		Modify Global Variable(W, Append To Array, Vector(170.979, 5.348, 232.410));
+		Modify Global Variable(W, Append To Array, Vector(169.230, 4.230, 221.512));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(146.914, 5.353, 269.272));
+		Modify Global Variable(W, Append To Array, Vector(165.430, 5.353, 251.300));
+		Modify Global Variable(W, Append To Array, Vector(174.073, 5.453, 244.755));
+		Modify Global Variable(W, Append To Array, Vector(152.772, 4.353, 256.830));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(152.202, 5.453, 277.696));
+		Modify Global Variable(W, Append To Array, Vector(169.966, 5.352, 239.374));
+		Modify Global Variable(W, Append To Array, Vector(154.181, 4.298, 236.817));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(58.479, 14, 315.438));
+		Modify Global Variable(W, Append To Array, Vector(68.252, 16, 321.405));
+		Modify Global Variable(W, Append To Array, Vector(73.934, 14, 309.110));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(144.727, 5.348, 216.623));
+		Modify Global Variable(W, Append To Array, Vector(112.532, 5.348, 248.279));
+		Modify Global Variable(W, Append To Array, Vector(124.038, 4.408, 228.053));
+		Modify Global Variable(W, Append To Array, Vector(122.864, 5.352, 246.109));
+		Modify Global Variable(W, Append To Array, Vector(142.109, 5.352, 226.935));
+		Modify Global Variable(W, Append To Array, Vector(137.603, 2, 210.548));
+		Set Global Variable(X, 6);
+	}
+}
+
+rule("list of sections S(wall index start; wall index len; time)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 5, 20));
+		Modify Global Variable(S, Append To Array, Vector(4, 7, 15));
+		Modify Global Variable(S, Append To Array, Vector(9, 3, 25));
+		Modify Global Variable(S, Append To Array, Vector(12, 3, 20));
+		Modify Global Variable(S, Append To Array, Vector(15, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 10));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
+	}
+}
+
+rule("tps when 5 seconds left")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(220.224, 2.351, 167.747));
+		Modify Global Variable(L, Append To Array, Vector(211.228, 2.351, 181.767));
+		Modify Global Variable(L, Append To Array, Vector(194.838, 2.995, 221.516));
+		Modify Global Variable(L, Append To Array, Vector(153.317, 5.353, 228.670));
+		Modify Global Variable(L, Append To Array, Vector(157.114, 12.871, 256.487));
+		Modify Global Variable(L, Append To Array, Vector(81.267, 8.348, 305.765));
+		Modify Global Variable(L, Append To Array, Vector(139.865, 3.553, 243.895));
+		Modify Global Variable(L, Append To Array, Vector(37.600, -5.314, 141.744));
+	}
+}
+
+rule("list m")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 22);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 25);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 20);
+	}
+}
+
+rule("list triggers (t)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(203.838, 2.351, 193.103));
+		Modify Global Variable(T, Append To Array, Vector(187.465, 3.197, 228.936));
+		Modify Global Variable(T, Append To Array, Vector(164.010, 5.352, 246.529));
+		Modify Global Variable(T, Append To Array, Vector(146.688, 12.871, 272.180));
+		Modify Global Variable(T, Append To Array, Vector(62.132, 9.210, 309.589));
+		Modify Global Variable(T, Append To Array, Vector(128.289, 5.349, 232.291));
+		Modify Global Variable(T, Append To Array, Vector(3.100, -9.000, 107.400));
+		Modify Global Variable(T, Append To Array, Vector(3.100, -9.000, 107.400));
+	}
+}
+
+rule("list tp starts (B)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(202.897, 2.351, 194.546));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(146.278, 12.871, 273.901));
+		Modify Global Variable(B, Append To Array, Vector(62.114, 9.210, 309.601));
+		Modify Global Variable(B, Append To Array, Vector(113.736, 2.148, 217.728));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+	}
+}
+
+rule("list tp dest (C)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(201.216, 2.354, 197.171));
+		Modify Global Variable(C, Append To Array, Vector(202.001, 2.349, 195.913));
+		Modify Global Variable(C, Append To Array, Vector(5.125, 12.613, -84.363));
+		Modify Global Variable(C, Append To Array, Vector(28.763, 9.349, -86.460));
+		Modify Global Variable(C, Append To Array, Vector(88.041, 24.348, 313.927));
+		Modify Global Variable(C, Append To Array, Vector(153.019, 5.453, 281.754));
+		Modify Global Variable(C, Append To Array, Vector(112, 2.148, 216));
+		Modify Global Variable(C, Append To Array, Vector(112, 2.148, 216));
+	}
+}
+
+rule("initial zombie hero")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Set Global Variable(Z, Hero(Torbjörn));
+		Set Global Variable(N, 0);
+		Create HUD Text(All Players(All Teams), String("{0} {1} {2}", String("{0} {1} {2}", String("Waiting", Null, Null, Null), 4, String(
+			"Players", Null, Null, Null)), 2, String("{0} {1}", String("Start", Null, Null, Null), String("...", Null, Null, Null), Null)),
+			Null, Null, Left, 0, White, White, White, Visible To and String);
+	}
+}
+
+rule("list kb for each hero (k)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Set Global Variable(K, Empty Array);
+		Modify Global Variable(K, Append To Array, 30);
+		Modify Global Variable(K, Append To Array, 15);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 300);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 50);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 15);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 10);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 25);
+		Modify Global Variable(K, Append To Array, 20);
+	}
+}
+
+rule("init round")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(R) <= 1;
+		Match Time != 0;
+	}
+
+	actions
+	{
+		Set Global Variable(P, Match Time);
+		Skip If(Compare(Global Variable(R), !=, 0), 1);
+		Set Global Variable(P, 1200);
+		Set Global Variable(G, 0);
+		Set Global Variable(I, 1);
+		Set Global Variable(N, 0);
+		Set Global Variable(O, 0);
+		Set Global Variable(Q, 0);
+		Set Global Variable(E, 0);
+		Set Player Variable(All Players(All Teams), F, 0);
+		Set Player Variable(All Players(All Teams), Z, 0);
+		Skip If(False, 1);
+		Destroy All HUD Text;
+		Resurrect(All Players(All Teams));
+		Wait(0.250, Ignore Condition);
+		Go To Assemble Heroes;
+		Set Match Time(8.900);
+		Reset Player Hero Availability(All Players(All Teams));
+		Stop Forcing Player To Be Hero(All Players(All Teams));
+		Disable Built-In Game Mode Completion;
+		Wait(9, Ignore Condition);
+		Set Global Variable(I, 0);
+		Set Global Variable(R, 3);
+		Set Match Time(Global Variable(P));
+		Skip If(Compare(Match Time, >, 0), 1);
+		Set Global Variable(J, 4);
+		Set Global Variable(G, 0);
+		Set Global Variable(N, 0);
+		Set Global Variable(O, 0);
+		Set Global Variable(Q, 0);
+		Set Global Variable(E, 0);
+	}
+}
+
+rule("init section (slice + draw tp)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(I) == 0;
+	}
+
+	actions
+	{
+		Set Global Variable(A, Array Slice(Global Variable(W), X Component Of(Value In Array(Global Variable(S), Global Variable(N))),
+			Y Component Of(Value In Array(Global Variable(S), Global Variable(N)))));
+		Create Effect(All Players(All Teams), Orb, Green, Value In Array(Global Variable(B), Global Variable(N)), 0.250,
+			Visible To Position and Radius);
+	}
+}
+
+rule("(debug) section spheres draw")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(I) == 0;
+		False == True;
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Sphere, White, Value In Array(Global Variable(T), Global Variable(N)), Value In Array(
+			Global Variable(M), Global Variable(N)), Visible To);
+	}
+}
+
+rule("trigger draw")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(I) == 0;
+	}
+
+	actions
+	{
+		Destroy All Icons;
+		Create Effect(All Players(All Teams), Sphere, Blue, Value In Array(Global Variable(T), Global Variable(N)), 4, Visible To);
+		Create Icon(All Players(All Teams), Value In Array(Global Variable(T), Global Variable(N)), Arrow: Down, Visible To and Position,
+			Blue, True);
+	}
+}
+
+rule("walls visual effect")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(I) == 0;
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Sphere, Yellow, Value In Array(Global Variable(A), Global Variable(I)), 4, Visible To);
+		Create Effect(All Players(All Teams), Sphere, Yellow, Add(Value In Array(Global Variable(A), Global Variable(I)), Vector(0, 4, 0)),
+			4, Visible To);
+		Modify Global Variable(I, Add, 1);
+		Wait(0.050, Ignore Condition);
+		Loop If(Compare(Global Variable(I), <, Count Of(Global Variable(A))));
+		Skip(1);
+	}
+}
+
+rule("walls kb effect")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		True == True;
+	}
+
+	actions
+	{
+		Skip If(Compare(Y Component Of(Position Of(Event Player)), <, Subtract(Y Component Of(Value In Array(Global Variable(A),
+			Player Variable(Event Player, J))), 4)), 5);
+		Skip If(Compare(Distance Between(Vector(X Component Of(Position Of(Event Player)), 0, Z Component Of(Position Of(Event Player))),
+			Vector(X Component Of(Value In Array(Global Variable(A), Player Variable(Event Player, J))), 0, Z Component Of(Value In Array(
+			Global Variable(A), Player Variable(Event Player, J))))), >, 4.500), 4);
+		Apply Impulse(Event Player, Vector(0, 1, 0), 1, To Player, Cancel Contrary Motion);
+		Apply Impulse(Event Player, Vector(X Component Of(Vector Towards(Value In Array(Global Variable(A), Player Variable(Event Player,
+			J)), Position Of(Event Player))), 0, Z Component Of(Vector Towards(Value In Array(Global Variable(A), Player Variable(
+			Event Player, J)), Position Of(Event Player)))), Add(2.500, Multiply(Horizontal Speed Of(Event Player), 1.500)), To World,
+			Cancel Contrary Motion);
+		Skip If(True, 1);
+		Apply Impulse(Event Player, Divide(Velocity Of(Event Player), Vector(Absolute Value(X Component Of(Velocity Of(Event Player))),
+			Absolute Value(Y Component Of(Velocity Of(Event Player))), Absolute Value(Z Component Of(Velocity Of(Event Player))))),
+			-10.000, To World, Cancel Contrary Motion);
+		Modify Player Variable(Event Player, J, Add, 1);
+		Skip If(Compare(Player Variable(Event Player, J), <, Count Of(Global Variable(A))), 1);
+		Set Player Variable(Event Player, J, 0);
+		Wait(0.016, Ignore Condition);
+		Loop;
+	}
+}
+
+rule("(debug) print coords")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Create HUD Text(All Players(All Teams), Horizontal Speed Of(Event Player), Null, Null, Left, 0, White, White, White,
+			Visible To and String);
+		Create HUD Text(All Players(All Teams), Position Of(Event Player), Null, Null, Left, 0, Green, White, White,
+			Visible To and String);
+		Create HUD Text(All Players(All Teams), Distance Between(Position Of(Event Player), Value In Array(Global Variable(L), Add(
+			Global Variable(N), 1))), Null, Null, Left, 0, Purple, White, White, Visible To and String);
+	}
+}
+
+rule("(debug) tp")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Interact) == True;
+		False == True;
+	}
+
+	actions
+	{
+		Teleport(Event Player, World Vector Of(Vector(0, 0, 5), Event Player, Rotation And Translation));
+	}
+}
+
+rule("use tp")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Array Contains(Players Within Radius(Subtract(Value In Array(Global Variable(B), Global Variable(N)), Vector(0, 1, 0)), 2,
+			All Teams, Off), Event Player) == True;
+	}
+
+	actions
+	{
+		Teleport(Event Player, Value In Array(Global Variable(C), Global Variable(N)));
+	}
+}
+
+rule("trigger")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Count Of(Players Within Radius(Value In Array(Global Variable(T), Global Variable(N)), 5, All Teams, Off)) > 0;
+		Global Variable(Q) == 0;
+		True == True;
+	}
+
+	actions
+	{
+		Set Global Variable(Q, 1);
+		Skip If(Compare(Count Of(Filtered Array(Players Within Radius(Value In Array(Global Variable(T), Global Variable(N)), 5, All Teams,
+			Off), Compare(Player Variable(Current Array Element, Z), ==, 1))), !=, 0), 23);
+		Skip If(Compare(Global Variable(N), ==, Add(Count Of(Global Variable(S)), -1.000)), 11);
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend", Null, Null, Null), String("{0} sec", Z Component Of(
+			Value In Array(Global Variable(S), Global Variable(N))), Null, Null), Null));
+		Wait(Subtract(Z Component Of(Value In Array(Global Variable(S), Global Variable(N))), 8), Ignore Condition);
+		Abort If(Compare(Global Variable(R), <=, 2));
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend", Null, Null, Null), String("{0} sec", 8, Null, Null),
+			Null));
+		Set Global Variable(Q, 1.500);
+		Wait(7, Ignore Condition);
+		Abort If(Compare(Global Variable(R), <=, 2));
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend", Null, Null, Null), String("{0} sec", 1, Null, Null),
+			Null));
+		Set Global Variable(Q, 2);
+		Wait(1, Ignore Condition);
+		Abort If(Compare(Global Variable(R), <=, 2));
+		Set Global Variable(Q, 3);
+		Modify Global Variable(N, Add, 1);
+		Skip If(Compare(Global Variable(N), ==, Add(Count Of(Global Variable(S)), 0)), 1);
+		Big Message(All Players(All Teams), String("{0}!!!", String("Run", Null, Null, Null), Null, Null));
+		Destroy All Effects;
+		Wait(0.250, Ignore Condition);
+		Set Global Variable(I, 0);
+		Set Global Variable(Q, 0);
+		Skip If(Compare(Global Variable(N), !=, Add(Count Of(Global Variable(S)), 0)), 10);
+		Set Global Variable(E, 2);
+		Abort;
+		Set Global Variable(E, 1);
+	}
+}
+
+rule("first infection")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		True == True;
+		Global Variable(R) == 3;
+	}
+
+	actions
+	{
+		Wait(1, Ignore Condition);
+		Big Message(All Players(All Teams), String("{0} {1}", String("Initial", Null, Null, Null), String("{0} {1}", String("{0}:", String(
+			"Dead", Null, Null, Null), Null, Null), String("{0} sec", Subtract(10, Global Variable(O)), Null, Null), Null), Null));
+		Modify Global Variable(O, Add, 1);
+		Loop If(Compare(Global Variable(O), <, 10));
+		Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), <=, 10), 1);
+		Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element),
+			Compare(Player Variable(Current Array Element, L), ==, 0)))), 0, 2), Z, 1);
+		Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), >, 10), 1);
+		Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element),
+			Compare(Player Variable(Current Array Element, L), ==, 0)))), 0, 1), Z, 1);
+		Teleport(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), Value In Array(
+			Global Variable(L), 0));
+		Set Global Variable(G, 1);
+		Set Player Variable(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), L, 1);
+		Set Player Variable(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)), L, 0);
+	}
+}
+
+rule("tp players at 1 sec left")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global Variable(Q) == 2;
+		Not(Array Contains(Players Within Radius(Value In Array(Global Variable(T), Global Variable(N)), Value In Array(Global Variable(M),
+			Global Variable(N)), All Teams, Off), Event Player)) == True;
+	}
+
+	actions
+	{
+		Teleport(Event Player, Value In Array(Global Variable(L), Add(Global Variable(N), 1)));
+	}
+}
+
+rule("deathplane tp")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Y Component Of(Position Of(Event Player)) < Global Variable(D);
+		Global Variable(R) != 0;
+		Global Variable(E) == 0;
+	}
+
+	actions
+	{
+		Teleport(Event Player, Value In Array(Global Variable(L), Global Variable(N)));
+		Resurrect(Event Player);
+	}
+}
+
+rule("infect players")
+{
+	event
+	{
+		Player took damage;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Player Variable(Attacker, Z) == 1;
+		Player Variable(Victim, Z) == 0;
+		Global Variable(E) == 0;
+		Distance Between(Position Of(Attacker), Position Of(Victim)) <= 5.500;
+	}
+
+	actions
+	{
+		Set Player Variable(Victim, Z, 1);
+		Modify Player Score(Attacker, 1);
+		Set Player Variable(Victim, H, Hero Of(Victim));
+		Create HUD Text(All Players(All Teams), String("{0} -> {1}", String("{0} {1}", Hero Icon String(Hero Of(Attacker)), Attacker,
+			Null), String("{0} {1}", Hero Icon String(Player Variable(Victim, H)), Victim, Null), Null), Null, Null, Right, 0, White,
+			White, White, Visible To and String);
+		Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare(
+			Player Variable(Current Array Element, Z), ==, 0))), !=, 0), 10);
+		Set Global Variable(E, 1);
+		Resurrect(Event Player);
+	}
+}
+
+rule("player dies = gets tp'd, +10 pts if zombie kill")
+{
+	event
+	{
+		Player Died;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global Variable(E) == 0;
+		Global Variable(R) != 0;
+	}
+
+	actions
+	{
+		Resurrect(Victim);
+		Teleport(Victim, Value In Array(Global Variable(L), Global Variable(N)));
+		Skip If(Compare(Victim, ==, Attacker), 2);
+		Skip If(Compare(Player Variable(Attacker, Z), ==, 1), 1);
+		Modify Player Score(Attacker, 9);
+	}
+}
+
+rule("humans and zombies cant hurt same")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+	}
+
+	actions
+	{
+		Start Damage Modification(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)),
+			Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)), 0,
+			Receivers Damagers and Damage Percent);
+		Start Damage Modification(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)),
+			Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), 0,
+			Receivers Damagers and Damage Percent);
+	}
+}
+
+rule("humans and zombies can hurt each other + kb")
+{
+	event
+	{
+		Player dealt damage;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Player Variable(Attacker, Z) != Player Variable(Victim, Z);
+		Player Variable(Victim, Z) == 1;
+	}
+
+	actions
+	{
+		Skip If(Compare(Random Integer(1, 4), !=, 1), 1);
+		Apply Impulse(Victim, Vector(0, 1, 0), 1.500, To Player, Cancel Contrary Motion);
+		Apply Impulse(Victim, Divide(Vector Towards(Position Of(Attacker), Position Of(Victim)), Vector(Absolute Value(X Component Of(
+			Vector Towards(Position Of(Attacker), Position Of(Victim)))), 0, Absolute Value(Z Component Of(Vector Towards(Position Of(
+			Attacker), Position Of(Victim)))))), Multiply(Event Damage, 1.050), To World, Cancel Contrary Motion);
+	}
+}
+
+rule("tp dest")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Baptiste);
+		Is Using Ability 1(Event Player) == True;
+	}
+
+	actions
+	{
+		Set Projectile Speed(Event Player, 100);
+		Wait(0.016, Ignore Condition);
+		Modify Player Variable(Event Player, B, Add, 1);
+		Loop If(Compare(Player Variable(Event Player, B), <, 105));
+		Set Player Variable(Event Player, B, 0);
+	}
+}
+
+rule("zombie behavior")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Player Variable(Event Player, Z) == 1;
+	}
+
+	actions
+	{
+		Set Player Variable(Event Player, C, Position Of(Event Player));
+		Start Forcing Player To Be Hero(Event Player, Global Variable(Z));
+		Teleport(Event Player, Player Variable(Event Player, C));
+		Stop All Heal Over Time(Event Player);
+		Set Status(Event Player, Null, Rooted, 2);
+		Big Message(Event Player, String("{0} {1}", String("You", Null, Null, Null), String("Dead", Null, Null, Null), Null));
+		Wait(1, Ignore Condition);
+		Clear Status(Event Player, Rooted);
+		Press Button(Event Player, Ultimate);
+		Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare(
+			Player Variable(Current Array Element, Z), ==, 0))), !=, 0), 10);
+		Set Global Variable(E, 1);
+	}
+}
+
+rule("player selected hero")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Spawned(Event Player) == True;
+		Global Variable(R) >= 3;
+	}
+
+	actions
+	{
+		Disallow Button(Event Player, Crouch);
+		Wait(0.100, Ignore Condition);
+		Teleport(Event Player, Value In Array(Global Variable(L), Global Variable(N)));
+		Skip If(Compare(Global Variable(G), ==, 0), 1);
+		Set Player Variable(Event Player, Z, 1);
+		Start Heal Over Time(Event Player, Null, 9999, 20);
+		Wait(2, Ignore Condition);
+		Allow Button(Event Player, Crouch);
+	}
+}
+
+rule("burn = slow")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Status(Event Player, Burning) == True;
+		Player Variable(Event Player, Z) == 1;
+	}
+
+	actions
+	{
+		Set Move Speed(Event Player, 75);
+		Wait(5, Ignore Condition);
+		Set Move Speed(Event Player, 100);
+	}
+}
+
+rule("no hax for humans")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Status(Event Player, Hacked) == True;
+		False == True;
+	}
+
+	actions
+	{
+		Set Status(Event Player, Null, Hacked, 9999);
+		Wait(0.250, Ignore Condition);
+		Clear Status(Event Player, Hacked);
+	}
+}
+
+rule("no stun for humans")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Status(Event Player, Stunned) == True;
+		Player Variable(Event Player, Z) == 0;
+	}
+
+	actions
+	{
+		Clear Status(Event Player, Stunned);
+	}
+}
+
+rule("red orb")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(Q) == 1.500;
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Orb, Red, Value In Array(Global Variable(L), Add(Global Variable(N), 1)), 1,
+			Visible To Position and Radius);
+	}
+}
+
+rule("normal zombies: rein")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(J) == 1;
+	}
+
+	actions
+	{
+		Set Global Variable(Z, Hero(Reinhardt));
+		Big Message(All Players(All Teams), String("{0}: {1}", String("{0} {1}", String("Level", Null, Null, Null), 2, Null), Hero(
+			Reinhardt), Null));
+	}
+}
+
+rule("hard zombies: winston")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(J) == 2;
+	}
+
+	actions
+	{
+		Set Global Variable(Z, Hero(Winston));
+		Big Message(All Players(All Teams), String("{0}: {1}", String("{0} {1}", String("Level", Null, Null, Null), 3, Null), Hero(
+			Winston), Null));
+	}
+}
+
+rule("expert zombies: brig")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(J) == 3;
+	}
+
+	actions
+	{
+		Set Global Variable(Z, Hero(Brigitte));
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Final Level", String("Level", Null, Null, Null), 2, Null), Hero(
+			Brigitte), Null));
+	}
+}
+
+rule("map finished")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(J) == 4;
+	}
+
+	actions
+	{
+		Declare Player Victory(Last Of(Sorted Array(All Players(All Teams), Score Of(Current Array Element))));
+	}
+}
+
+rule("zombies win")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(E) == 1;
+	}
+
+	actions
+	{
+		Stop All Damage Modifications;
+		Big Message(All Players(All Teams), String("{0} {1}", String("Dead", Null, Null, Null), String("Win", Null, Null, Null), Null));
+		Wait(5, Ignore Condition);
+		Skip If(Compare(Match Time, >, 0), 1);
+		Set Global Variable(J, 4);
+		Set Global Variable(R, 1);
+	}
+}
+
+rule("humans win")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(E) == 2;
+	}
+
+	actions
+	{
+		Stop All Damage Modifications;
+		Big Message(All Players(All Teams), String("{0} {1}", String("Heroes", Null, Null, Null), String("Win", Null, Null, Null), Null));
+		Wait(0, Ignore Condition);
+		Kill(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), Null);
+		Modify Player Score(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)), 100);
+		Wait(1.500, Ignore Condition);
+		Modify Global Variable(J, Add, 1);
+		Wait(3.500, Ignore Condition);
+		Set Match Time(1200);
+		Set Global Variable(R, 1);
+		Teleport(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), Vector(0, -500.000,
+			0));
+	}
+}
+
+rule("kings row")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(1, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(7, 5, 20));
+		Modify Global Variable(S, Append To Array, Vector(12, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(18, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(23, 2, 20));
+		Modify Global Variable(S, Append To Array, Vector(25, 0, 10));
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(62.730, 5.860, -55.220));
+		Modify Global Variable(L, Append To Array, Vector(32.710, 7.460, -31.960));
+		Modify Global Variable(L, Append To Array, Vector(-14.950, 0.350, 43.630));
+		Modify Global Variable(L, Append To Array, Vector(24.319, 5.350, -4.521));
+		Modify Global Variable(L, Append To Array, Vector(-25.471, 1.240, -32.000));
+		Modify Global Variable(L, Append To Array, Vector(-92.891, 2.859, -28.700));
+		Modify Global Variable(L, Append To Array, Vector(-156.650, 1.479, 48.010));
+		Set Global Variable(H, Vector(21.270, 0.580, -48.480));
+		Set Global Variable(D, -15.000);
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 21);
+		Modify Global Variable(M, Append To Array, 16);
+		Modify Global Variable(M, Append To Array, 17);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 25);
+		Modify Global Variable(M, Append To Array, 35);
+		Modify Global Variable(M, Append To Array, 10);
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(30.029, 7.399, -15.740));
+		Modify Global Variable(T, Append To Array, Vector(-17.200, 0.550, 42.439));
+		Modify Global Variable(T, Append To Array, Vector(9.729, 9.350, -8.530));
+		Modify Global Variable(T, Append To Array, Vector(-22.480, 2.350, -16.360));
+		Modify Global Variable(T, Append To Array, Vector(-95.540, -1.141, -46.360));
+		Modify Global Variable(T, Append To Array, Vector(-168.860, 1.160, 35.540));
+		Modify Global Variable(T, Append To Array, Vector(-178.840, 1.540, 37.250));
+		Set Global Variable(W, Empty Array);
+		Modify Global Variable(W, Append To Array, Vector(30.770, 5.960, -8.000));
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(27.600, 5.859, -39.780));
+		Modify Global Variable(W, Append To Array, Vector(31.810, 0.240, -63.221));
+		Modify Global Variable(W, Append To Array, Vector(25, 5.960, -10.971));
+		Modify Global Variable(W, Append To Array, Vector(25.359, 5.859, -51.500));
+		Modify Global Variable(W, Append To Array, Vector(24.880, 5.960, -16.250));
+		Modify Global Variable(W, Append To Array, Vector(19.220, 4, -6.980));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(10.500, 7.350, -16.181));
+		Modify Global Variable(W, Append To Array, Vector(-8.021, 1.240, 3.880));
+		Modify Global Variable(W, Append To Array, Vector(1.109, 1.420, 4.250));
+		Modify Global Variable(W, Append To Array, Vector(-1.590, 1.240, -12.700));
+		Modify Global Variable(W, Append To Array, Vector(4.670, 7, -13.620));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(-11.931, 1.410, -15.030));
+		Modify Global Variable(W, Append To Array, Vector(-2.940, 1.410, -38.690));
+		Modify Global Variable(W, Append To Array, Vector(-19.630, 2.350, -54.021));
+		Modify Global Variable(W, Append To Array, Vector(-15.250, 1.229, -27.730));
+		Modify Global Variable(W, Append To Array, Vector(-15.471, 1.220, -31.960));
+		Modify Global Variable(W, Append To Array, Vector(-17.300, 1.220, -37.000));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(-62.450, 6.300, -17.040));
+		Modify Global Variable(W, Append To Array, Vector(-66.010, 6.370, -12.891));
+		Modify Global Variable(W, Append To Array, Vector(-52.851, 1.200, -36.070));
+		Modify Global Variable(W, Append To Array, Vector(-55.460, 0.950, -32.540));
+		Modify Global Variable(W, Append To Array, Vector(-72.330, 1.160, -12.420));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(-170.521, 1.479, 39.270));
+		Modify Global Variable(W, Append To Array, Vector(-171.641, 1.479, 32.510));
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(42.160, 0.670, 31.960));
+		Modify Global Variable(B, Append To Array, Vector(-20.250, 1.260, 27.649));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(-19.271, 2.350, -16.340));
+		Modify Global Variable(B, Append To Array, Vector(-97.971, -1.141, -47.771));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(62.729, 5.859, -55.221));
+		Modify Global Variable(C, Append To Array, Vector(3.630, 3.550, 52.290));
+		Modify Global Variable(C, Append To Array, Vector(5.410, 1.420, 11.439));
+		Modify Global Variable(C, Append To Array, Vector(11.270, 7.350, -2.210));
+		Modify Global Variable(C, Append To Array, Vector(-29.230, 10.350, -12.990));
+		Modify Global Variable(C, Append To Array, Vector(-102.940, 2.240, -8.070));
+		Modify Global Variable(C, Append To Array, Vector(-102.940, 2.240, -8.070));
+	}
+}
+
+rule("skirmish rez")
+{
+	event
+	{
+		Player Died;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Match Time == 0;
+		Global Variable(R) == 0;
+	}
+
+	actions
+	{
+		Wait(4, Ignore Condition);
+		Respawn(Victim);
+	}
+}
+
+rule("oasis city center death plane modif 1")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 186;
+		Global Variable(N) == 3;
+	}
+
+	actions
+	{
+		Set Global Variable(D, 3);
+	}
+}
+
+rule("oasis city center death plane modif 2")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 186;
+		Global Variable(N) == 4;
+	}
+
+	actions
+	{
+		Set Global Variable(D, 1.500);
+		Wait(0.250, Ignore Condition);
+		Create Effect(All Players(All Teams), Sphere, Red, Vector(73.298, -96.500, 318.105), 100, Visible To Position and Radius);
+	}
+}
+
+rule("oasis city center death plane modif 3")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 186;
+		Or(Compare(Global Variable(N), <, 3), Compare(Global Variable(N), >, 5)) == True;
+	}
+
+	actions
+	{
+		Set Global Variable(D, -8.900);
+	}
+}
+
+rule("baptiste no crouch jump")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Baptiste);
+		Is Crouching(Event Player) == True;
+	}
+
+	actions
+	{
+		Set Status(Event Player, Null, Hacked, 0.016);
+	}
+}
+`/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+compileTest = `
+#Global variables
+
+#!define currentSectionWalls A
+#!define tpStarts B
+#!define tpDests C
+#!define deathplaneY D
+#!define roundWinners E
+#!define mapId F
+#!define hasFirstInfectionPassed G
+#!define sectionLoopIndex I
+#!define level J
+#!define lateTps L
+#!define sectionRadiuses M
+#!define currentSection N
+#!define firstInfectionLoopIndex O
+#!define matchTime P
+#!define countdownProgress Q
+#!define roundProgress R
+#!define sectionData S
+#!define triggers T
+#!define walls W
+#!define zombieHero Z
+
+
+#Player variables
+
+#!define fastFireCountdown B
+#!define tempPos C
+#!define hasWonRound F
+#!define wallLoopIndex J
+#!define wasFirstZombieLastRound L
+#!define team Z
+
+#!define testMacroFunc(a, b_9owo3,c)     sectionData.append(vect(0, 6, 15))\\
+    sectionData.append(vect(a, 6, b_9owo3))\\
+    sectionData.append(vect(7, 5, b_9owo3))\\
+    sectionData.append(vect(12, 6, b_9owo3))\\
+    sectionData.append(vect(18, 5, 15))\\
+    sectionData.append(vect(23, 2, b_9owo3))\\
+    sectionData.append(vect(25, 0, 10))
+
+@Rule "cs:s zombie escape - made by /u/zezombye - discord in description"
+@Event global
+mapId = ceil(nearestWalkablePosition(vect(100, 100, 100)).x)
+
+
+@Rule "kings row"
+@Event global
+if mapId == 17:
+    sectionData \\
+	= []
+    testMacroFunc(1, 20, 3)
+    lateTps = []
+    lateTps.append(vect(62.73, 5.86, -55.22))
+    lateTps.append(vect(32.71, 7.46, -31.96))
+    lateTps.append(vect(-10.513, 0.937, 41.313))
+    lateTps.append(vect(24.319, 5.35, -4.521))
+    lateTps.append(vect(-25.564, 1.336, -34.058))
+    lateTps.append(vect(-92.891, 2.859, -28.7))
+    lateTps.append(vect(-156.65, 1.479, 48.01))
+    H = vect(21.27, 0.58, -48.48)
+    deathplaneY = -15
+    sectionRadiuses = []
+    sectionRadiuses.append(21)
+    sectionRadiuses.append(16)
+    sectionRadiuses.append(17)
+    sectionRadiuses.append(20)
+    sectionRadiuses.append(25)
+    sectionRadiuses.append(35)
+    sectionRadiuses.append(10)
+    triggers = []
+    triggers.append(vect(30.029, 7.399, -15.74))
+    triggers.append(vect(-17.2, 0.55, 42.439))
+    triggers.append(vect(9.729, 9.35, -8.53))
+    triggers.append(vect(-22.48, 2.35, -16.36))
+    triggers.append(vect(-95.54, -1.141, -46.36))
+    triggers.append(vect(-168.86, 1.16, 35.54))
+    triggers.append(vect(-178.84, 1.54, 37.25))
+    walls = []
+    walls.append(vect(30.77, 5.96, -8))
+    X = 1
+    walls.append(vect(27.6, 5.859, -39.78))
+    walls.append(vect(31.81, 0.24, -63.221))
+    walls.append(vect(25, 5.96, -10.971))
+    walls.append(vect(25.359, 5.859, -51.5))
+    walls.append(vect(24.88, 5.96, -16.25))
+    walls.append(vect(19.22, 4, -6.98))
+    X = 2
+    walls.append(vect(10.5, 7.35, -16.181))
+    walls.append(vect(-8.021, 1.24, 3.88))
+    walls.append(vect(1.109, 1.42, 4.25))
+    walls.append(vect(-1.59, 1.24, -12.7))
+    walls.append(vect(4.67, 7, -13.62))
+    X = 3
+    walls.append(vect(-11.931, 1.41, -15.03))
+    walls.append(vect(-2.94, 1.41, -38.69))
+    walls.append(vect(-19.63, 2.35, -54.021))
+    walls.append(vect(-15.25, 1.229, -27.73))
+    walls.append(vect(-15.471, 1.22, -31.96))
+    walls.append(vect(-17.3, 1.22, -37))
+    X = 4
+    walls.append(vect(-62.45, 6.3, -17.04))
+    walls.append(vect(-66.01, 6.37, -12.891))
+    walls.append(vect(-52.851, 1.2, -36.07))
+    walls.append(vect(-55.46, 0.95, -32.54))
+    walls.append(vect(-72.33, 1.16, -12.42))
+    X = 5
+    walls.append(vect(-170.521, 1.479, 39.27))
+    walls.append(vect(-171.641, 1.479, 32.51))
+    tpStarts = []
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(42.16, 0.67, 31.96))
+    tpStarts.append(vect(-20.25, 1.26, 27.649))
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(-19.271, 2.35, -16.34))
+    tpStarts.append(vect(-97.971, -1.141, -47.771))
+    tpStarts.append(vect(0, -30, 0))
+    tpDests = []
+    tpDests.append(vect(62.729, 5.859, -55.221))
+    tpDests.append(vect(3.63, 3.55, 52.29))
+    tpDests.append(vect(7.409, 1.488, 13.761))
+    tpDests.append(vect(11.27, 7.35, -2.21))
+    tpDests.append(vect(-29.23, 10.35, -12.99))
+    tpDests.append(vect(-102.94, 2.24, -8.07))
+    tpDests.append(vect(-102.94, 2.24, -8.07))
+
+
+@Rule "blizz world"
+@Event global
+if mapId == 54:
+    walls = []
+    X = 1
+    walls.append(vect(3, 1.25, 24.29))
+    walls.append(vect(16.91, -2.65, 25.75))
+    X = 2
+    walls.append(vect(-9.13, 3.15, 64.19))
+    walls.append(vect(-5.1, 2.47, 59.9))
+    X = 3
+    walls.append(vect(-1.24, 1.86, 55.56))
+    walls.append(vect(5.64, 1.77, 55.98))
+    walls.append(vect(8.03, 1.44, 52.01))
+    walls.append(vect(16.46, 4.44, 83))
+    walls.append(vect(16.27, 0.63, 88.9))
+    walls.append(vect(16.38, 0.38, 95.98))
+    X = 4
+    walls.append(vect(-69.17, 7.93, 103.97))
+    walls.append(vect(-53.75, 1.14, 126.34))
+    X = 5
+    walls.append(vect(-59.73, 2.16, 120.33))
+    walls.append(vect(-63.11, 2.17, 115.72))
+    X = 6
+    walls.append(vect(-115.74, 0.27, 95.59))
+    walls.append(vect(-135.51, 2.1, 118.18))
+    walls.append(vect(-125.93, 0.95, 118.13))
+    walls.append(vect(-120.98, 1.1, 119.23))
+    walls.append(vect(-145.59, 2.15, 115.9))
+    walls.append(vect(-147.46, 2.23, 90.87))
+    sectionData = []
+    sectionData.append(vect(0, 0, 15))
+    sectionData.append(vect(0, 2, 20))
+    sectionData.append(vect(2, 5, 15))
+    sectionData.append(vect(4, 6, 15))
+    sectionData.append(vect(10, 4, 25))
+    sectionData.append(vect(12, 6, 20))
+    sectionData.append(vect(14, 6, 15))
+    sectionData.append(vect(0, 0, 0))
+    lateTps = []
+    lateTps.append(vect(2.97, -4.65, -85.64))
+    lateTps.append(vect(-12.371, -4.201, -57.627))
+    lateTps.append(vect(-10.511, -2.848, -0.823))
+    lateTps.append(vect(-25.075, 5.251, 39.109))
+    lateTps.append(vect(35.927, 3.303, 78.218))
+    lateTps.append(vect(-50.66, 5.87, 88.57))
+    lateTps.append(vect(-115.069, 2.995, 156.563))
+    lateTps.append(vect(-123.48, 1.2, 110.01))
+    sectionRadiuses = []
+    sectionRadiuses.append(21)
+    sectionRadiuses.append(16)
+    sectionRadiuses.append(17)
+    sectionRadiuses.append(20)
+    sectionRadiuses.append(15)
+    sectionRadiuses.append(15)
+    sectionRadiuses.append(20)
+    sectionRadiuses.append(20)
+    triggers = []
+    triggers.append(vect(-12.49, -2.65, -34.07))
+    triggers.append(vect(2.73, 1.25, 16.76))
+    triggers.append(vect(-8.83, 7.42, 51.64))
+    triggers.append(vect(22.19, 1.38, 97.41))
+    triggers.append(vect(-55.68, 5.87, 98.16))
+    triggers.append(vect(-109.04, 8, 131.87))
+    triggers.append(vect(-145.55, 2.1, 103.96))
+    triggers.append(vect(-145.55, 2.1, 103.96))
+    tpStarts = []
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(-12.51, -2.65, -33.5))
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(22.18, 1.52, 96.16))
+    tpStarts.append(vect(-78.4, 1.95, 129.36))
+    tpStarts.append(vect(-113.26, 6.1, 130.81))
+    tpStarts.append(vect(0, -30, 0))
+    tpDests = []
+    tpDests.append(vect(2.97, -4.65, -85.64))
+    tpDests.append(vect(-12.48, -2.72, -32.04))
+    tpDests.append(vect(5.41, 1.42, 11.439))
+    tpDests.append(vect(11.27, 7.35, -2.21))
+    tpDests.append(vect(-17.94, 3.35, 65.14))
+    tpDests.append(vect(-85.12, 0.1, 108.35))
+    tpDests.append(vect(-116.57, 1.2, 112.06))
+    tpDests.append(vect(-116.57, 1.2, 112.06))
+    deathplaneY = -6.1
+
+
+@Rule "eichenwalde"
+@Event global
+if mapId == 124:
+    walls = []
+    walls.append(vect(8.603, 5.397, -34.937))
+    walls.append(vect(-0.034, 4.28, -25.379))
+    walls.append(vect(-1.348, 3.689, -27.841))
+    walls.append(vect(-1.492, 1.359, -11.064))
+    walls.append(vect(-1.939, 1.356, -6.578))
+    X = 1
+    walls.append(vect(38.464, 10.852, -51.943))
+    walls.append(vect(13, 5.554, -39.5))
+    walls.append(vect(8.708, 6.434, -45.911))
+    X = 2
+    walls.append(vect(7.928, 6.38, -52.23))
+    walls.append(vect(22, 6.398, -58.962))
+    walls.append(vect(27.209, 6.395, -59.248))
+    X = 3
+    walls.append(vect(70.735, 8, -78.1))
+    walls.append(vect(67.838, 8, -89.479))
+    walls.append(vect(72.732, 8, -85.123))
+    walls.append(vect(65.018, 18.071, -81.605))
+    walls.append(vect(51.731, 8.021, -66.974))
+    walls.append(vect(60.254, 12.454, -94.021))
+    X = 4
+    walls.append(vect(104.171, 14.071, -53.97))
+    walls.append(vect(100.794, 12.071, -29.289))
+    X = 5
+    walls.append(vect(98.65, 12.071, -37.693))
+    walls.append(vect(95.719, 12.071, -44.037))
+    walls.append(vect(115.603, 10.072, -40.858))
+    walls.append(vect(115.165, 10.073, -48.097))
+    walls.append(vect(111.677, 12.09, -7.81))
+    walls.append(vect(142.352, 12.09, -16.331))
+    X = 6
+    sectionData = []
+    sectionData.append(vect(0, 5, 15))
+    sectionData.append(vect(5, 6, 15))
+    sectionData.append(vect(8, 3, 25))
+    sectionData.append(vect(11, 6, 15))
+    sectionData.append(vect(17, 6, 20))
+    sectionData.append(vect(19, 6, 20))
+    sectionData.append(vect(0, 0, 0))
+    lateTps = []
+    lateTps.append(vect(-11.842, 1.351, -9.35))
+    lateTps.append(vect(-7.643, 3.377, -28.96))
+    lateTps.append(vect(17.593, 6.142, -51.242))
+    lateTps.append(vect(10.165, 12.363, -96.497))
+    lateTps.append(vect(56.275, 6.161, -98))
+    lateTps.append(vect(107.763, 12.071, -32.7))
+    lateTps.append(vect(128.931, 15.071, -6.823))
+    sectionRadiuses = []
+    sectionRadiuses.append(15)
+    sectionRadiuses.append(22)
+    sectionRadiuses.append(11)
+    sectionRadiuses.append(20)
+    sectionRadiuses.append(15)
+    sectionRadiuses.append(11)
+    sectionRadiuses.append(20)
+    triggers = []
+    triggers.append(vect(-4.208, 3.352, -36.936))
+    triggers.append(vect(31.75, 8.819, -49.356))
+    triggers.append(vect(17.581, 12.364, -88.729))
+    triggers.append(vect(67.373, 6.071, -83.719))
+    triggers.append(vect(105.776, 14.071, -46.755))
+    triggers.append(vect(126.503, 17.516, -15.358))
+    triggers.append(vect(111.545, 16.071, -33.741))
+    tpStarts = []
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(21, 11.208, -99))
+    tpStarts.append(vect(26.932, 10.006, -87.287))
+    tpStarts.append(vect(67.503, 6.071, -83.707))
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(125.858, 16.083, -19.069))
+    tpDests = []
+    tpDests.append(vect(-12.112, 2.165, -7.337))
+    tpDests.append(vect(-12.48, -2.72, -32.04))
+    tpDests.append(vect(5.125, 12.613, -84.363))
+    tpDests.append(vect(28.763, 9.349, -86.46))
+    tpDests.append(vect(73.259, 14.071, -50.833))
+    tpDests.append(vect(-85.12, 0.1, 108.35))
+    tpDests.append(vect(113.351, 16.071, -27.425))
+    deathplaneY = -2.05
+
+
+@Rule "oasis city center"
+@Event global
+if mapId == 186:
+    walls = []
+    X = 1
+    walls.append(vect(138.166, 2, 209.031))
+    walls.append(vect(173.918, 5.451, 238.435))
+    walls.append(vect(153.992, 4.105, 211.989))
+    walls.append(vect(170.979, 5.348, 232.41))
+    walls.append(vect(169.23, 4.23, 221.512))
+    X = 2
+    walls.append(vect(146.914, 5.353, 269.272))
+    walls.append(vect(165.43, 5.353, 251.3))
+    walls.append(vect(174.073, 5.453, 244.755))
+    walls.append(vect(152.772, 4.353, 256.83))
+    X = 3
+    walls.append(vect(152.202, 5.453, 277.696))
+    walls.append(vect(169.966, 5.352, 239.374))
+    walls.append(vect(154.181, 4.298, 236.817))
+    X = 4
+    walls.append(vect(80.529, 21, 321.752))
+    walls.append(vect(58.479, 14, 315.438))
+    walls.append(vect(68.252, 10, 321.405))
+    walls.append(vect(73.934, 14, 309.11))
+    X = 5
+    walls.append(vect(144.727, 5.348, 216.623))
+    walls.append(vect(112.532, 5.348, 248.279))
+    walls.append(vect(124.038, 4.408, 228.053))
+    walls.append(vect(122.864, 5.352, 246.109))
+    walls.append(vect(142.109, 5.352, 226.935))
+    walls.append(vect(137.603, 2, 210.548))
+    sectionData = []
+    sectionData.append(vect(0, 0, 15))
+    sectionData.append(vect(0, 5, 20))
+    sectionData.append(vect(4, 7, 15))
+    sectionData.append(vect(9, 3, 25))
+    sectionData.append(vect(12, 4, 20))
+    sectionData.append(vect(16, 5, 15))
+    sectionData.append(vect(0, 0, 15))
+    sectionData.append(vect(0, 0, 0))
+    lateTps = []
+    lateTps.append(vect(220.224, 2.351, 167.747))
+    lateTps.append(vect(211.228, 2.351, 181.767))
+    lateTps.append(vect(194.838, 2.995, 221.516))
+    lateTps.append(vect(153.317, 5.353, 228.67))
+    lateTps.append(vect(157.114, 12.871, 256.487))
+    lateTps.append(vect(81.267, 8.348, 305.765))
+    lateTps.append(vect(139.865, 3.553, 243.895))
+    lateTps.append(vect(37.6, -5.314, 141.744))
+    sectionRadiuses = []
+    sectionRadiuses.append(15)
+    sectionRadiuses.append(15)
+    sectionRadiuses.append(22)
+    sectionRadiuses.append(20)
+    sectionRadiuses.append(15)
+    sectionRadiuses.append(25)
+    sectionRadiuses.append(20)
+    sectionRadiuses.append(20)
+    triggers = []
+    triggers.append(vect(203.838, 2.351, 193.103))
+    triggers.append(vect(187.465, 3.197, 228.936))
+    triggers.append(vect(164.01, 5.352, 246.529))
+    triggers.append(vect(146.688, 12.871, 272.18))
+    triggers.append(vect(62.132, 9.21, 309.589))
+    triggers.append(vect(128.289, 5.349, 232.291))
+    triggers.append(vect(16.617, -8.5, 120.524))
+    triggers.append(vect(16.617, -8.5, 120.524))
+    tpStarts = []
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(202.897, 2.351, 194.546))
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(146.278, 12.871, 273.901))
+    tpStarts.append(vect(62.114, 9.21, 309.601))
+    tpStarts.append(vect(113.736, 2.148, 217.728))
+    tpStarts.append(vect(0, -30, 0))
+    tpDests = []
+    tpDests.append(vect(201.216, 2.354, 197.171))
+    tpDests.append(vect(202.001, 2.349, 195.913))
+    tpDests.append(vect(5.125, 12.613, -84.363))
+    tpDests.append(vect(28.763, 9.349, -86.46))
+    tpDests.append(vect(87.876, 19.998, 314.105))
+    tpDests.append(vect(153.019, 5.453, 281.754))
+    tpDests.append(vect(112, 2.148, 216))
+    tpDests.append(vect(112, 2.148, 216))
+    deathplaneY = -8.9
+
+
+@Rule "list walls (W)"
+@Event global
+if true:
+    walls = []
+    X = 1
+    walls.append(vect(12.41, -0.632, 23.647))
+    walls.append(vect(13.797, 1.556, 5.716))
+    walls.append(vect(14.091, 2.364, -4.894))
+    walls.append(vect(20.744, 6, -10.905))
+    walls.append(vect(25.865, 1.363, -28.006))
+    X = 2
+    walls.append(vect(32.705, 11.352, -40.458))
+    walls.append(vect(13.915, 1.069, -12.951))
+    walls.append(vect(31.124, 5.269, -19.999))
+    walls.append(vect(21.23, 5.422, -19.641))
+    X = 3
+    walls.append(vect(55.469, 7.243, 11.299))
+    walls.append(vect(26.178, 5.363, -31.329))
+    walls.append(vect(25.042, 2.076, 2.763))
+    walls.append(vect(29.07, 2.369, 4.184))
+    X = 4
+    walls.append(vect(38.879, 11.016, -31.907))
+    walls.append(vect(35.266, 5.242, -17.739))
+    walls.append(vect(74.821, 10.126, -48.785))
+    X = 5
+    walls.append(vect(46.324, 8.364, -9.905))
+    walls.append(vect(70.192, 8.333, -23.901))
+    walls.append(vect(65.059, 7.601, -18.487))
+    walls.append(vect(62.994, 8.135, -11.591))
+    walls.append(vect(73.903, 12.363, -38.837))
+    X = 6
+    walls.append(vect(137.603, 2, 210.548))
+    walls.append(vect(137.603, 2, 210.548))
+    walls.append(vect(137.603, 2, 210.548))
+    walls.append(vect(137.603, 2, 210.548))
+    walls.append(vect(137.603, 2, 210.548))
+
+
+@Rule "list of sections S(wall index start; wall index len; time)"
+@Event global
+if true:
+    sectionData = []
+    sectionData.append(vect(0, 0, 15))
+    sectionData.append(vect(0, 5, 20))
+    sectionData.append(vect(5, 4, 20))
+    sectionData.append(vect(9, 6, 25))
+    sectionData.append(vect(13, 7, 20))
+    sectionData.append(vect(16, 6, 20))
+    sectionData.append(vect(0, 0, 0))
+
+
+@Rule "tps when 5 seconds left"
+@Event global
+if true:
+    lateTps = []
+    lateTps.append(vect(-24.091, 0.948, -13.063))
+    lateTps.append(vect(-17.663, 1.363, 15.329))
+    lateTps.append(vect(19.562, 0.363, -12.991))
+    lateTps.append(vect(26.117, 4, -41.122))
+    lateTps.append(vect(45.758, 3.349, 1.928))
+    lateTps.append(vect(53.212, 8.349, -30.774))
+    lateTps.append(vect(73.655, 8.307, -11.372))
+
+
+@Rule "list m"
+@Event global
+if true:
+    sectionRadiuses = []
+    sectionRadiuses.append(15)
+    sectionRadiuses.append(13)
+    sectionRadiuses.append(15)
+    sectionRadiuses.append(14)
+    sectionRadiuses.append(23)
+    sectionRadiuses.append(15)
+    sectionRadiuses.append(20)
+
+
+@Rule "list triggers (t)"
+@Event global
+if true:
+    triggers = []
+    triggers.append(vect(-6.798, -0.636, 22.805))
+    triggers.append(vect(25.913, 1.363, -22.195))
+    triggers.append(vect(32.164, 9.352, -48.708))
+    triggers.append(vect(47.77, 3.349, 13.372))
+    triggers.append(vect(68.383, 9.094, -44.804))
+    triggers.append(vect(72.108, 9.351, 4.322))
+    triggers.append(vect(89.482, 8.086, -0.043))
+
+
+@Rule "list tp starts (B)"
+@Event global
+if true:
+    tpStarts = []
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(-4.722, -0.637, 23.487))
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(0, -30, 0))
+    tpStarts.append(vect(82.56, 10.114, -51.925))
+    tpStarts.append(vect(73.133, 9.351, 4.783))
+
+
+@Rule "list tp dest (C)"
+@Event global
+if true:
+    tpDests = []
+    tpDests.append(vect(201.216, 2.354, 197.171))
+    tpDests.append(vect(-3.178, -0.632, 23.306))
+    tpDests.append(vect(5.125, 12.613, -84.363))
+    tpDests.append(vect(28.763, 9.349, -86.46))
+    tpDests.append(vect(88.041, 24.348, 313.927))
+    tpDests.append(vect(67.771, 12.363, -34.732))
+    tpDests.append(vect(74.389, 9.351, 5.621))
+
+
+@Rule "initial zombie hero"
+@Event global
+zombieHero = Hero.TORBJORN
+currentSection = 4
+deathplaneY = -4
+hudText(getAllPlayers(Team.ALL), "Waiting 4 Players 2 Start ...", null, null, Vector.LEFT, 0, Color.WHITE, Color.WHITE, Color.WHITE, Reeval.VISIBILITY_AND_STRING)
+
+
+@Rule "list kb for each hero (k)"
+@Event global
+K = []
+K.append(30)
+K.append(15)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(300)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(50)
+K.append(0)
+K.append(0)
+K.append(15)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(10)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(0)
+K.append(25)
+K.append(20)
+
+
+@Rule "init round"
+@Event global
+if roundProgress <= 1 and getMatchTime() != 0:
+    matchTime = getMatchTime()
+    if roundProgress != 0:
+        goto lbl_0
+    matchTime = 1200
+    lbl_0:
+    hasFirstInfectionPassed = 0
+    sectionLoopIndex = 1
+    currentSection = 0
+    firstInfectionLoopIndex = 0
+    countdownProgress = 0
+    roundWinners = 0
+    for player in getAllPlayers(Team.ALL):
+        player.hasWonRound = 0
+    for player in getAllPlayers(Team.ALL):
+        player.team = 0
+    if false:
+        goto lbl_1
+    destroyAllHudTexts()
+    lbl_1:
+    for player in getAllPlayers(Team.ALL):
+        player.resurrect()
+    wait(0.25)
+    goToAssembleHeroes()
+    setMatchTime(8.9)
+    for player in getAllPlayers(Team.ALL):
+        player.resetHeroAvailability()
+    for player in getAllPlayers(Team.ALL):
+        player.stopForcingCurrentHero()
+    disableGamemodeCompletion()
+    wait(9)
+    sectionLoopIndex = 0
+    roundProgress = 3
+    setMatchTime(matchTime)
+    if getMatchTime() > 0:
+        goto lbl_2
+    level = 4
+    lbl_2:
+    hasFirstInfectionPassed = 0
+    currentSection = 0
+    firstInfectionLoopIndex = 0
+    countdownProgress = 0
+    roundWinners = 0
+
+
+@Rule "init section (slice + draw tp)"
+@Event global
+if sectionLoopIndex == 0:
+    currentSectionWalls = walls.slice(sectionData[currentSection].x, sectionData[currentSection].y)
+    createEffect(getAllPlayers(Team.ALL), Effect.ORB, Color.GREEN, tpStarts[currentSection], 0.25, Reeval.VISIBILITY_POSITION_AND_RADIUS)
+
+
+@Rule "(debug) section spheres draw"
+@Event global
+if sectionLoopIndex == 0:
+    createEffect(getAllPlayers(Team.ALL), Effect.SPHERE, Color.WHITE, triggers[currentSection], sectionRadiuses[currentSection], Reeval.VISIBILITY)
+
+
+@Rule "trigger draw"
+@Event global
+if sectionLoopIndex == 0:
+    destroyAllIcons()
+    createEffect(getAllPlayers(Team.ALL), Effect.SPHERE, Color.BLUE, triggers[currentSection], 4, Reeval.VISIBILITY)
+    createIcon(getAllPlayers(Team.ALL), triggers[currentSection], Icon.ARROW_DOWN, Reeval.VISIBILITY_AND_POSITION, Color.BLUE, true)
+
+
+@Rule "walls visual effect"
+@Event global
+if sectionLoopIndex == 0:
+    do:
+        createEffect(getAllPlayers(Team.ALL), Effect.SPHERE, Color.YELLOW, currentSectionWalls[sectionLoopIndex], 4, Reeval.VISIBILITY)
+        createEffect(getAllPlayers(Team.ALL), Effect.SPHERE, Color.YELLOW, currentSectionWalls[sectionLoopIndex] + vect(0, 4, 0), 4, Reeval.VISIBILITY)
+        sectionLoopIndex++
+        wait(0.05)
+    while sectionLoopIndex < len(currentSectionWalls)
+    goto lbl_0
+    lbl_0:
+
+
+@Rule "walls kb effect"
+@Event eachPlayer
+if true:
+    do:
+        if eventPlayer.getPosition().y < currentSectionWalls[eventPlayer.wallLoopIndex].y - 4:
+            goto lbl_0
+        if distance(vect(eventPlayer.getPosition().x, 0, eventPlayer.getPosition().z), vect(currentSectionWalls[eventPlayer.wallLoopIndex].x, 0, currentSectionWalls[eventPlayer.wallLoopIndex].z)) > 4.5:
+            goto lbl_1
+        eventPlayer.applyImpulse(vect(0, 1, 0), 1, Relativity.TO_PLAYER, Impulse.CANCEL_CONTRARY_MOTION)
+        eventPlayer.applyImpulse(vect(vectorTowards(currentSectionWalls[eventPlayer.wallLoopIndex], eventPlayer.getPosition()).x, 0, vectorTowards(currentSectionWalls[eventPlayer.wallLoopIndex], eventPlayer.getPosition()).z), 2.5 + eventPlayer.getHorizontalSpeed() * 1.5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+        if true:
+            goto lbl_2
+        eventPlayer.applyImpulse(eventPlayer.getVelocity() / vect(abs(eventPlayer.getVelocity().x), abs(eventPlayer.getVelocity().y), abs(eventPlayer.getVelocity().z)), -10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+        lbl_0:
+        lbl_1:
+        lbl_2:
+        eventPlayer.wallLoopIndex++
+        if eventPlayer.wallLoopIndex < len(currentSectionWalls):
+            goto lbl_3
+        eventPlayer.wallLoopIndex = 0
+        lbl_3:
+        wait(0.016)
+    while true
+
+
+@Rule "(debug) print coords"
+@Event eachPlayer
+if true:
+    hudText(getAllPlayers(Team.ALL), eventPlayer.getHorizontalSpeed(), null, null, Vector.LEFT, 0, Color.WHITE, Color.WHITE, Color.WHITE, Reeval.VISIBILITY_AND_STRING)
+    hudText(getAllPlayers(Team.ALL), eventPlayer.getPosition(), null, null, Vector.LEFT, 0, Color.GREEN, Color.WHITE, Color.WHITE, Reeval.VISIBILITY_AND_STRING)
+    hudText(getAllPlayers(Team.ALL), distance(eventPlayer.getPosition(), lateTps[currentSection + 1]), null, null, Vector.LEFT, 0, Color.PURPLE, Color.WHITE, Color.WHITE, Reeval.VISIBILITY_AND_STRING)
+
+
+@Rule "(debug) tp"
+@Event eachPlayer
+if eventPlayer.isHoldingButton(Button.INTERACT) and eventPlayer.getCurrentHero() == Hero.PHARAH:
+    eventPlayer.teleportTo(worldVector(vect(0, 0, 5), eventPlayer, Transform.ROTATION_AND_TRANSLATION))
+
+
+@Rule "use tp"
+@Event eachPlayer
+if eventPlayer in getPlayersInRadius(tpStarts[currentSection] - vect(0, 1, 0), 2, Team.ALL, LosCheck.OFF):
+    eventPlayer.teleportTo(tpDests[currentSection])
+
+
+@Rule "trigger"
+@Event global
+if len(getPlayersInRadius(triggers[currentSection], 5, Team.ALL, LosCheck.OFF)) > 0 and countdownProgress == 0:
+    countdownProgress = 1
+    if len([player for player in getPlayersInRadius(triggers[currentSection], 5, Team.ALL, LosCheck.OFF) if player.team == 1]) != 0:
+        goto lbl_0
+    if currentSection == len(sectionData) + -1:
+        goto lbl_1
+    bigMessage(getAllPlayers(Team.ALL), "Defend: {} sec".format(sectionData[currentSection].z))
+    wait(sectionData[currentSection].z - 8)
+    if roundProgress <= 2:
+        return
+    bigMessage(getAllPlayers(Team.ALL), "Defend: 8 sec")
+    countdownProgress = 1.5
+    wait(7)
+    if roundProgress <= 2:
+        return
+    bigMessage(getAllPlayers(Team.ALL), "Defend: 1 sec")
+    countdownProgress = 2
+    wait(1)
+    if roundProgress <= 2:
+        return
+    lbl_1:
+    countdownProgress = 3
+    currentSection++
+    if currentSection == len(sectionData) + 0:
+        goto lbl_2
+    bigMessage(getAllPlayers(Team.ALL), "Run!!!")
+    lbl_2:
+    destroyAllEffects()
+    wait(0.25)
+    sectionLoopIndex = 0
+    countdownProgress = 0
+    if currentSection != len(sectionData) + 0:
+        goto lbl_3
+    roundWinners = 2
+    return
+    lbl_0:
+    roundWinners = 1
+    lbl_3:
+
+
+@Rule "first infection"
+@Event global
+if roundProgress == 3:
+    do:
+        wait(1)
+        bigMessage(getAllPlayers(Team.ALL), "Initial Dead: {} sec".format(10 - firstInfectionLoopIndex))
+        firstInfectionLoopIndex++
+    while firstInfectionLoopIndex < 10
+    if len([player for player in getAllPlayers(Team.ALL) if player.hasSpawned()]) <= 10:
+        goto lbl_0
+    for player in random.shuffle([player for player in getAllPlayers(Team.ALL) if player.hasSpawned() and player.wasFirstZombieLastRound == 0]).slice(0, 2):
+        player.team = 1
+    lbl_0:
+    if len([player for player in getAllPlayers(Team.ALL) if player.hasSpawned()]) > 10:
+        goto lbl_1
+    for player in random.shuffle([player for player in getAllPlayers(Team.ALL) if player.hasSpawned() and player.wasFirstZombieLastRound == 0]).slice(0, 1):
+        player.team = 1
+    lbl_1:
+    for player in [player for player in getAllPlayers(Team.ALL) if player.team == 1]:
+        player.teleportTo(lateTps[0])
+    hasFirstInfectionPassed = 1
+    for player in [player for player in getAllPlayers(Team.ALL) if player.team == 1]:
+        player.wasFirstZombieLastRound = 1
+    for player in [player for player in getAllPlayers(Team.ALL) if player.team == 0]:
+        player.wasFirstZombieLastRound = 0
+
+
+@Rule "tp players at 1 sec left"
+@Event eachPlayer
+if countdownProgress == 2 and not (eventPlayer in getPlayersInRadius(triggers[currentSection], sectionRadiuses[currentSection], Team.ALL, LosCheck.OFF)):
+    eventPlayer.teleportTo(lateTps[currentSection + 1])
+
+
+@Rule "deathplane tp"
+@Event eachPlayer
+if eventPlayer.getPosition().y < deathplaneY and roundProgress != 0 and roundWinners == 0:
+    eventPlayer.teleportTo(lateTps[currentSection])
+    eventPlayer.resurrect()
+
+
+@Rule "infect players"
+@Event playerTookDamage
+if attacker.team == 1 and victim.team == 0 and roundWinners == 0 and distance(attacker.getPosition(), victim.getPosition()) <= 5.5:
+    victim.team = 1
+    attacker.addToScore(1)
+    victim.H = victim.getCurrentHero()
+    hudText(getAllPlayers(Team.ALL), "{} {} -> {} {}".format(heroIcon(attacker.getCurrentHero()), attacker, heroIcon(victim.H), victim), null, null, Vector.RIGHT, 0, Color.WHITE, Color.WHITE, Color.WHITE, Reeval.VISIBILITY_AND_STRING)
+    if len([i for i in [player for player in getAllPlayers(Team.ALL) if player.hasSpawned()] if i.team == 0]) != 0:
+        goto lbl_0
+    roundWinners = 1
+    eventPlayer.resurrect()
+    lbl_0:
+
+
+@Rule "player dies = gets tp'd, +10 pts if zombie kill"
+@Event playerDied
+if roundWinners == 0 and roundProgress != 0:
+    victim.resurrect()
+    victim.teleportTo(lateTps[currentSection])
+    if victim == attacker:
+        goto lbl_0
+    if attacker.team == 1:
+        goto lbl_1
+    attacker.addToScore(9)
+    lbl_0:
+    lbl_1:
+
+
+@Rule "humans and zombies cant hurt same"
+@Event global
+if isGameInProgress():
+    startDamageModification([player for player in getAllPlayers(Team.ALL) if player.team == 0], [player for player in getAllPlayers(Team.ALL) if player.team == 0], 0, Reeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT)
+    startDamageModification([player for player in getAllPlayers(Team.ALL) if player.team == 1], [player for player in getAllPlayers(Team.ALL) if player.team == 1], 0, Reeval.RECEIVERS_DAMAGERS_AND_DMGPERCENT)
+
+
+@Rule "humans and zombies can hurt each other + kb"
+@Event playerDealtDamage
+if attacker.team != victim.team and victim.team == 1:
+    if random.randint(1, 4) != 1:
+        goto lbl_0
+    victim.applyImpulse(vect(0, 1, 0), 1.5, Relativity.TO_PLAYER, Impulse.CANCEL_CONTRARY_MOTION)
+    lbl_0:
+    victim.applyImpulse(vect(vectorTowards(attacker.getPosition(), victim.getPosition()).x, 0, vectorTowards(attacker.getPosition(), victim.getPosition()).z), eventDamage * 0.9, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+
+
+@Rule "tp dest"
+@Event eachPlayer
+if eventPlayer.getCurrentHero() == Hero.BAPTISTE and eventPlayer.isUsingAbility1():
+    do:
+        eventPlayer.setProjectileSpeed(100)
+        wait(0.016)
+        eventPlayer.fastFireCountdown++
+    while eventPlayer.fastFireCountdown < 105
+    eventPlayer.fastFireCountdown = 0
+
+
+@Rule "zombie behavior"
+@Event eachPlayer
+if eventPlayer.team == 1:
+    eventPlayer.tempPos = eventPlayer.getPosition()
+    eventPlayer.startForcingHero(zombieHero)
+    eventPlayer.teleportTo(eventPlayer.tempPos)
+    eventPlayer.stopAllHoT()
+    eventPlayer.setStatusEffect(null, Status.ROOTED, 2)
+    bigMessage(eventPlayer, "You Dead")
+    wait(1)
+    eventPlayer.clearStatusEffect(Status.ROOTED)
+    eventPlayer.forceButtonPress(Button.ULTIMATE)
+    if len([i for i in [player for player in getAllPlayers(Team.ALL) if player.hasSpawned()] if i.team == 0]) != 0:
+        goto lbl_0
+    roundWinners = 1
+    lbl_0:
+
+
+@Rule "player selected hero"
+@Event eachPlayer
+if eventPlayer.hasSpawned() and roundProgress >= 3:
+    eventPlayer.disallowButton(Button.CROUCH)
+    wait(0.1)
+    eventPlayer.teleportTo(lateTps[currentSection])
+    if hasFirstInfectionPassed == 0:
+        goto lbl_0
+    eventPlayer.team = 1
+    lbl_0:
+    wait(2)
+    eventPlayer.allowButton(Button.CROUCH)
+
+
+@Rule "burn = slow"
+@Event eachPlayer
+if eventPlayer.hasStatusEffect(Status.BURNING) and eventPlayer.team == 1:
+    eventPlayer.setMoveSpeed(75)
+    wait(5)
+    eventPlayer.setMoveSpeed(100)
+
+
+@Rule "no hax for humans"
+@Event eachPlayer
+if eventPlayer.hasStatusEffect(Status.HACKED) and false:
+    eventPlayer.setStatusEffect(null, Status.HACKED, 9999)
+    wait(0.25)
+    eventPlayer.clearStatusEffect(Status.HACKED)
+
+
+@Rule "no stun for humans"
+@Event eachPlayer
+if eventPlayer.hasStatusEffect(Status.STUNNED) and eventPlayer.team == 0:
+    eventPlayer.clearStatusEffect(Status.STUNNED)
+
+
+@Rule "red orb"
+@Event global
+if countdownProgress == 1.5:
+    createEffect(getAllPlayers(Team.ALL), Effect.ORB, Color.RED, lateTps[currentSection + 1], 1, Reeval.VISIBILITY_POSITION_AND_RADIUS)
+
+
+@Rule "normal zombies: rein"
+@Event global
+if level == 1:
+    zombieHero = Hero.REINHARDT
+    bigMessage(getAllPlayers(Team.ALL), "Level 2: Reinhardt")
+
+
+@Rule "hard zombies: winston"
+@Event global
+if level == 2:
+    zombieHero = Hero.WINSTON
+    bigMessage(getAllPlayers(Team.ALL), "Level 3: Winston")
+
+
+@Rule "expert zombies: brig"
+@Event global
+if level == 3:
+    zombieHero = Hero.BRIGITTE
+    bigMessage(getAllPlayers(Team.ALL), "Final Level: Brigitte")
+
+
+@Rule "map finished"
+@Event global
+if level == 4:
+    declarePlayerVictory(sorted(getAllPlayers(Team.ALL), key=lambda player: player.getScore())[-1])
+
+
+@Rule "zombies win"
+@Event global
+if roundWinners == 1:
+    stopAllDamageModifications
+    bigMessage(getAllPlayers(Team.ALL), "Dead Win")
+    wait(5)
+    if getMatchTime() > 0:
+        goto lbl_0
+    level = 4
+    lbl_0:
+    roundProgress = 1
+
+
+@Rule "humans win"
+@Event global
+if roundWinners == 2:
+    stopAllDamageModifications
+    bigMessage(getAllPlayers(Team.ALL), "Heroes Win")
+    wait(0)
+    kill([player for player in getAllPlayers(Team.ALL) if player.team == 1], null)
+    for player in [player for player in getAllPlayers(Team.ALL) if player.team == 0]:
+        player.addToScore(100)
+    wait(1.5)
+    level++
+    wait(3.5)
+    setMatchTime(1200)
+    roundProgress = 1
+    for player in [player for player in getAllPlayers(Team.ALL) if player.team == 1]:
+        player.teleportTo(vect(0, -500, 0))
+
+
+@Rule "skirmish rez"
+@Event playerDied
+if getMatchTime() == 0 and roundProgress == 0:
+    wait(4)
+    victim.respawn()
+
+
+@Rule "oasis city center death plane modif 1"
+@Event global
+if mapId == 186 and currentSection == 3:
+    deathplaneY = 3
+
+
+@Rule "oasis city center death plane modif 2"
+@Event global
+if mapId == 186 and currentSection == 4:
+    deathplaneY = 1.5
+    wait(0.25)
+    createEffect(getAllPlayers(Team.ALL), Effect.SPHERE, Color.RED, vect(73.298, -96.5, 318.105), 100, Reeval.VISIBILITY_POSITION_AND_RADIUS)
+
+
+@Rule "oasis city center death plane modif 3"
+@Event global
+if mapId == 186 and currentSection < 3orcurrentSection > 5:
+    deathplaneY = -8.9
+
+
+@Rule "baptiste no crouch jump"
+@Event eachPlayer
+if eventPlayer.getCurrentHero() == Hero.BAPTISTE and eventPlayer.isCrouching():
+    eventPlayer.setStatusEffect(null, Status.HACKED, 0.016)
+
+
+@Rule "pharah debug"
+@Event eachPlayer
+if eventPlayer.isCommunicating(Comms.NEED_HEALING) and eventPlayer.getCurrentHero() == Hero.PHARAH:
+    destroyAllEffects()
+    wait(1)
+    currentSection++
+    sectionLoopIndex = 0
+
+`/* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
  * 
@@ -14266,6 +17899,27 @@ function tokenize(content) {
 					addVariable(varName, isGlobalVariable, varIndex);
 
 					isInLineComment = true;
+				} else if (content.startsWith("#!declareSubroutine", i)) {
+
+					var lineIndex = content.indexOf("\n", i);
+					var firstSpaceIndex = content.indexOf(" ", i);
+					if (lineIndex === -1 || firstSpaceIndex === -1) {
+						error("Malformed subroutine declaration")
+					}
+					var line = content.substring(firstSpaceIndex, lineIndex).trim();
+					var args = line.split(" ");
+					if (args.length !== 1 && args.length !== 2) {
+						error("Malformed subroutine declaration (directive should have 1 or 2 arguments)");
+					}
+					var subroutineName = args[0].trim();
+					if (args.length === 1 || args[1].trim().length === 0) {
+						var subroutineIndex = null;
+					} else {
+						var subroutineIndex = args[1].trim();
+					}
+					addSubroutine(subroutineName, subroutineIndex);
+
+					isInLineComment = true;
 				} else if (content.startsWith("#!suppressWarnings ", i)) {
 					var lineIndex = content.indexOf("\n", i);
 					var firstSpaceIndex = content.indexOf(" ", i);
@@ -14705,7 +18359,7 @@ function compile(content, language="en-US", _rootPath="") {
 		compiledRules = compiledRules.join("");
 	}
 
-	result = generateVariablesField()+compiledRules;
+	result = generateVariablesField()+generateSubroutinesField()+compiledRules;
 
 	if (typeof window !== "undefined") {
 		var t1 = performance.now();
@@ -14716,6 +18370,7 @@ function compile(content, language="en-US", _rootPath="") {
 		macros: macros,
 		globalVariables: globalVariables,
 		playerVariables: playerVariables,
+		subroutines: subroutines,
 		encounteredWarnings: encounteredWarnings,
 	};
 }
@@ -14748,13 +18403,13 @@ function generateVariablesField() {
 				unassignedVariables.push(variable.name);
 			} else {
 				if (isNaN(variable.index) || variable.index >= 128 || variable.index < 0) {
-					error("Invalid index '"+variable.index+"', must be from 0 to 127");
+					error("Invalid index '"+variable.index+"' for "+varType+" variable '"+variable.name+"', must be from 0 to 127");
 				}
 				outputVariables[variable.index] = variable.name;
 			}
 		}
 
-		console.log(outputVariables);
+		//console.log(outputVariables);
 		
 		for (var variable of unassignedVariables) {
 			var foundSpot = false;
@@ -14769,9 +18424,9 @@ function generateVariablesField() {
 				error("More than 128 "+varType+" variables have been declared");
 			}
 		}
-		console.log(outputVariables);
-		console.log(obfuscatedVarNames);
-		console.log(obfuscatedVarNumbers);
+		//console.log(outputVariables);
+		//console.log(obfuscatedVarNames);
+		//console.log(obfuscatedVarNumbers);
 
 		if (obfuscateRules) {
 			var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e,i)=>i));
@@ -14800,6 +18455,73 @@ function generateVariablesField() {
 
 }
 
+function generateSubroutinesField() {
+
+	var result = tows("_subroutines", ruleKw)+" {\n";
+
+	
+	var outputSubroutines = Array(128);
+	var subNames = [];
+	var unassignedSubroutines = [];
+
+	for (var subroutine of subroutines) {
+		//check name
+		if (!/[A-Za-z_]\w*/.test(subroutine.name)) {
+			error("Unauthorized name for subroutine: '"+subroutine.name+"'");
+		}
+		//check duplication
+		if (subNames.includes(subroutine.name)) {
+			error("Duplicate declaration of subroutine '"+subroutine.name+"'");
+		}
+		
+		if (outputSubroutines[subroutine.index] !== undefined) {
+			error("Duplicate use of index "+subroutine.index+" for subroutines '"+subroutine.name+"' and '"+outputSubroutines[subroutine.index]+"'");
+		}
+		subNames.push(subroutine.name);
+		if (subroutine.index === undefined || subroutine.index === null) {
+			unassignedSubroutines.push(subroutine.name);
+		} else {
+			if (isNaN(subroutine.index) || subroutine.index >= 128 || subroutine.index < 0) {
+				error("Invalid index '"+subroutine.index+"' for subroutine '"+subroutine.name+"', must be from 0 to 127");
+			}
+			outputSubroutines[subroutine.index] = subroutine.name;
+		}
+	}
+
+	for (var subroutine of unassignedSubroutines) {
+		var foundSpot = false;
+		for (var i = 0; i < 128; i++) {
+			if (outputSubroutines[i] === undefined) {
+				foundSpot = true;
+				outputSubroutines[i] = subroutine;
+				break;
+			}
+		}
+		if (!foundSpot) {
+			error("More than 128 subroutines have been declared");
+		}
+	}
+
+	if (obfuscateRules) {
+		var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e,i)=>i));
+	}
+	for (var i = 0; i < 128; i++) {
+		if (obfuscateRules) {
+			result += "\t"+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
+		} else {
+			if (outputSubroutines[i] !== undefined) {
+				result += "\t"+i+": "+outputSubroutines[i]+"\n";
+			} else if (!disableUnusedVars) {
+				result += "\t"+i+": _unused_sub_"+i+"\n";
+			}
+		}
+	}
+
+	result += "}\n";
+	return result;
+
+}
+
 
 function compileRule(rule) {
 	
@@ -14811,7 +18533,6 @@ function compileRule(rule) {
 		error("Current array element names length isn't 0");
 	}
 	
-	forLoopTimers = [];
 	wasWaitEncountered = false;
 	
 	//The first line should always start with @Rule.
@@ -14830,11 +18551,10 @@ function compileRule(rule) {
 	result += ") {\n";
 	result += tabLevel(1)+tows("@Event", ruleKw)+" {\n";
 	
-	var isInEvent = true;
-	var isInActions = false;
-	var eventType = "";
-	var isEventTeamDefined = false;
-	var isEventPlayerDefined = false;
+	var eventType = null;
+	var eventTeam = null;
+	var eventPlayer = null;
+	var subroutineName = null;
 
 	//Loop until we reach the actions; parse metadata
 	var i = 1;
@@ -14845,76 +18565,96 @@ function compileRule(rule) {
 		fileStack = rule.lines[i].tokens[0].fileStack;
 
 		if (rule.lines[i].tokens[0].text.startsWith("@")) {
-			if (!isInEvent) {
-				error("Annotation found after code");
-			} else {
-				if (rule.lines[i].tokens[0].text === "@Event") {
-					if (rule.lines.length === 2) {
-						result += tabLevel(2)+tows("global", eventKw)+";\n";
-						eventType = "global";
-					} else {
-						result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventKw)+";\n";
-						eventType = rule.lines[i].tokens[1].text;
-					}
-					
-				} else if (rule.lines[i].tokens[0].text === "@Team") {
-					if (isEventTeamDefined) {
-						error("Event team defined twice");
-					}
-					
-					isEventTeamDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].tokens[1], eventTeamKw)+";\n";
-					
-				} else if (rule.lines[i].tokens[0].text === "@Hero") {
-					if (isEventPlayerDefined) {
-						error("Event player (@Hero/@Slot) defined twice");
-					}
-					if (!isEventTeamDefined) {
-						result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
-						isEventTeamDefined = true;
-					}
-					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows("Hero."+rule.lines[i].tokens[1].text.toUpperCase(), getConstantKw("HERO CONSTANT"))+";\n";
-					
-				} else if (rule.lines[i].tokens[0].text === "@Slot") {
-					if (isEventPlayerDefined) {
-						error("Event player (@Hero/@Slot) defined twice");
-					}
-					if (!isEventTeamDefined) {
-						result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
-						isEventTeamDefined = true;
-					}
-					
-					isEventPlayerDefined = true;
-					result += tabLevel(2)+tows(rule.lines[i].tokens[1].text, eventPlayerKw)+";\n";
-					
-				} else if (rule.lines[i].tokens[0].text === "@SuppressWarnings") {
-					for (var j = 1; j < rule.lines[i].tokens.length; j++) {
-						suppressedWarnings.push(rule.lines[i].tokens[j].text);
-					}
-				} else if (rule.lines[i].tokens[0].text === "@Disabled") {
-					result = tows("_disabled", ruleKw)+" "+result;
+			if (rule.lines[i].tokens[0].text === "@Event") {
+				if (eventType) {
+					error("Event type is defined twice;");
+				}
+				if (rule.lines.length === 2) {
+					eventType = "global";
 				} else {
-					error("Unknown annotation '"+rule.lines[i].tokens[0].text+"'");
+					eventType = rule.lines[i].tokens[1].text;
+				}
+				
+			} else if (rule.lines[i].tokens[0].text === "@Team") {
+				if (eventTeam) {
+					error("Event team is defined twice");
+				}
+				eventTeam = tows(rule.lines[i].tokens[1], eventTeamKw);
+				
+			} else if (rule.lines[i].tokens[0].text === "@Hero") {
+				if (eventPlayer) {
+					error("Event player (@Hero/@Slot) is defined twice");
+				}
+				eventPlayer = tows("Hero."+rule.lines[i].tokens[1].text.toUpperCase(), getConstantKw("HERO CONSTANT"));
+				
+			} else if (rule.lines[i].tokens[0].text === "@Slot") {
+				if (eventPlayer) {
+					error("Event player (@Hero/@Slot) is defined twice");
+				}
+				eventPlayer = tows(rule.lines[i].tokens[1].text, eventPlayerKw);
+				
+			} else if (rule.lines[i].tokens[0].text === "@SuppressWarnings") {
+				for (var j = 1; j < rule.lines[i].tokens.length; j++) {
+					suppressedWarnings.push(rule.lines[i].tokens[j].text);
+				}
+			} else if (rule.lines[i].tokens[0].text === "@Disabled") {
+				result = tows("_disabled", ruleKw)+" "+result;
+			} else {
+				error("Unknown annotation '"+rule.lines[i].tokens[0].text+"'");
+			}
+		} else if (rule.lines[i].tokens[0].text === "def") {
+			if (eventType) {
+				error("Cannot declare an event type for a subroutine");
+			}
+			eventType = "_subroutine";
+			
+			if (rule.lines[i].tokens.length !== 5) {
+				error("Malformed def statement, must be 'def func_name():'")
+			}
+			if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text !== ":") {
+				error("Def statement must end with ':'")
+			}
+
+			for (var j = i+1; j < rule.lines.length; j++) {
+				if (rule.lines[j].indentLevel <= rule.lines[i].indentLevel) {
+					error("Def statement must cover the whole rule");
 				}
 			}
+
+			subroutineName = rule.lines[i].tokens[1].text;
 		} else {
 			break;
 		}
 	}
 	
-	//Add missing metadata
-	if (!isEventTeamDefined && eventType !== "global") {
-		result += tabLevel(2)+tows("all", eventTeamKw)+";\n";
-	}
-	if (!isEventPlayerDefined && eventType !== "global") {
-		result += tabLevel(2)+tows("all", eventPlayerKw)+";\n";
-	}
-	currentRuleEvent = eventType;
-	if (currentRuleEvent === "") {
+	if (!eventType) {
 		error("An event must be specified");
 	}
-	isInEvent = false;
+	result += tabLevel(2)+tows(eventType, eventKw)+";\n";
+	
+	//Add missing metadata
+	if (eventType === "global" || eventType === "_subroutine") {
+		if (eventTeam) {
+			error("Cannot declare an event team for event type '"+eventType+"'");
+		}
+		if (eventPlayer) {
+			error("Cannot declare an event player (@Hero/@Slot) for event type '"+eventType+"'");
+		}
+		if (eventType === "_subroutine") {
+			result += tabLevel(2)+translateSubroutineToWs(subroutineName)+";\n";
+		}
+	} else {
+		if (!eventTeam) {
+			eventTeam = tows("all", eventTeamKw);
+		}
+		result += tabLevel(2)+eventTeam+";\n";
+		if (!eventPlayer) {
+			eventPlayer = tows("all", eventPlayerKw);
+		}
+		result += tabLevel(2)+eventPlayer+";\n";
+	}
+
+	currentRuleEvent = eventType;
 	result += tabLevel(1)+"}\n\n";
 
 	//Parse the eventual rule condition, as well as the "do:".
@@ -14928,7 +18668,7 @@ function compileRule(rule) {
 		fileStack = rule.lines[i].tokens[0].fileStack;
 
 		//Rule condition: 
-		if (rule.lines[i].tokens[0].text === "if" && rule.lines[i].indentLevel === 0 && nbDo === 0) {
+		if (rule.lines[i].tokens[0].text === "if" && nbDo === 0) {
 
 			//Check if there are instructions after the if; if not, return nothing as the rule is useless
 			if (i+1 >= rule.lines.length) {
@@ -14943,7 +18683,7 @@ function compileRule(rule) {
 			//Check if the "if" covers the whole rule
 			var areAllLinesAfterCurrentLineIndented = true;
 			for (var j = i+1; j < rule.lines.length; j++) {
-				if (rule.lines[j].indentLevel === 0) {
+				if (rule.lines[j].indentLevel <= rule.lines[i].indentLevel) {
 					areAllLinesAfterCurrentLineIndented = false;
 					break;
 				}
@@ -14976,7 +18716,7 @@ function compileRule(rule) {
 				} else if (rule.lines[j].indentLevel < rule.lines[i].indentLevel){
 					error("Unexpected unindent in 'do' body");
 				} else {
-					if (rule.lines[j].tokens[0].text === "while") {
+					if (rule.lines[j].tokens.length >= 1 && rule.lines[j].tokens[0].text === "while"  && rule.lines[j].tokens[rule.lines[j].tokens.length-1].text != ":") {
 						foundWhile = true;
 					}
 				}
@@ -15006,12 +18746,6 @@ function compileRule(rule) {
 	//End rules
 	result += "}\n\n";
 	
-	if (Object.entries(forLoopVariables).length !== 0) {
-		console.log(forLoopVariables);
-		console.log(forLoopTimers);
-		error("For loop variables isn't empty");
-	}
-
 	return result;
 }
 
@@ -15022,7 +18756,7 @@ function parseInstructions(lines, nbDo) {
 	//A "ghost" else is an else that does not generate a "skip" (if the previous 'if' didn't have its condition inverted).
 
 	//Array of objects: {
-	//	"type": "if"|"else"|"fakeelse"|"ghostelse"|"fakeghostelse"|"skip"|"skipif"|"label"|"other"|"forloop"|"optimized"|"switch"|"case"|"break"
+	//	"type": "if"|"else"|"fakeelse"|"ghostelse"|"fakeghostelse"|"skip"|"skipif"|"label"|"other"|"forloop"|"optimized"|"switch"|"case"|"break"|"end"|"whileloop"|"continue"
 	//	"condition": compiled content of the condition, if type not in ["label", "other"] or "skip" is not a skip if
 	//	"content": compiled content of the instruction
 	//	"label": if type == "skip", the label to search for, if type == "label", the name of the label
@@ -15039,8 +18773,6 @@ function parseInstructions(lines, nbDo) {
 			continue;
 		}
 
-		
-
 		var currentResultLineType = undefined;
 		var currentResultLineContent = undefined;
 		var currentResultLineCondition = undefined;
@@ -15054,8 +18786,6 @@ function parseInstructions(lines, nbDo) {
 		if (lines[i].tokens[0].text === "do") {
 			error("Do instructions must be at the beginning of the rule");
 		}
-
-
 		
 		//Check for "if"
 		if (lines[i].tokens[0].text === "if" || lines[i].tokens[0].text === "elif") {
@@ -15142,7 +18872,6 @@ function parseInstructions(lines, nbDo) {
 			} else {
 				currentResultLineType = "if";
 				currentResultLineCondition = parse(condition, {invertCondition: true, isCondition: true});
-
 			}
 
 			if (lines[i].tokens[0].text === "elif") {
@@ -15160,6 +18889,8 @@ function parseInstructions(lines, nbDo) {
 					})
 				}
 			}
+
+			
 
 		//Check for "else"
 		} else if (lines[i].tokens[0].text === "else") {
@@ -15222,68 +18953,97 @@ function parseInstructions(lines, nbDo) {
 			var inOperands = splitTokens(lines[i].tokens.slice(1, lines[i].tokens.length-1), "in", false);
 			if (inOperands.length !== 2) {
 				error("For instruction must contain 'in'");
-			} else if (inOperands[0].length !== 1) {
-				error("There can only be 1 token between 'for' and 'in'");
 			}
-			var forVarName = inOperands[0][0].text;
-			if (forLoopVariables[forVarName] !== undefined) {
-				error("Variable "+forVarName+" is already used");
+
+			var funcName = "_for";
+			currentResultLineContent = "";
+			
+
+			if (inOperands[1].length <= 3 || inOperands[1][0].text != "range" || inOperands[1][1].text != "(" || inOperands[1][inOperands[1].length-1].text != ")") {
+				error("For loop must be 'for var in range(start, stop, step)'");
 			}
-			forLoopVariables[forVarName] = inOperands[1];
-			//Check amount of lines
-			var forIndent = lines[i].indentLevel;
-			var j = i+1;
-			for (; j < lines.length && lines[j].indentLevel > forIndent; j++);
-			if (j === i) {
-				error("For loop contains no instructions");
+
+			
+			//Check for dot; if it is present, it can only be a player variable
+			var varOperands = splitTokens(inOperands[0], ".", false, true);
+			if (varOperands.length === 2) {
+				funcName += "PlayerVar";
+				currentResultLineContent += parse(varOperands[0])+", ";
+				currentResultLineContent += translateVarToWs(varOperands[1][0].text, false);
+			} else {
+				funcName += "GlobalVar";
+				currentResultLineContent += translateVarToWs(varOperands[0][0].text, true);
 			}
-			forLoopTimers.push([j, forVarName]);
+
+			var rangeArgs = splitTokens(inOperands[1].slice(2, inOperands[1].length-1), ",");
+			var rangeStart, rangeEnd, rangeStep;
+			if (rangeArgs.length > 3) {
+				error("range() function takes a maximum of 3 arguments");
+			}
+			if (rangeArgs.length >= 3) {
+				rangeStep = parse(rangeArgs[2]);
+			} else {
+				rangeStep = 1;
+			}
+			if (rangeArgs.length >= 2) {
+				rangeEnd = parse(rangeArgs[1]);
+				rangeStart = parse(rangeArgs[0]);
+			} else {
+				rangeEnd = parse(rangeArgs[0]);
+				rangeStart = 0;
+			}
+
+			currentResultLineContent += ", "+rangeStart+", "+rangeEnd+", "+rangeStep;
+			currentResultLineContent = tows(funcName, actionKw)+"("+currentResultLineContent+")";
 
 			currentResultLineType = "forloop";
 			
 		//Check for "while"
 		} else if (lines[i].tokens[0].text === "while") {
 
-			if (!wasWaitEncountered) {
-				error("Found 'while' without a 'wait' before it");
-			}
-			if (nbDo === 0) {
-				error("Found 'while' without matching 'do'");
-			}
-			nbDo--;
-
 			if (lines[i].tokens.length === 1) {
-				error("While what?");
+				error("Expected code after 'while'");
 			}
+
 			if (lines[i].tokens[lines[i].tokens.length-1].text === ":") {
-				error("While statement must not end by a colon");
-			}
-			if (lines[i].tokens[1].text === "true" && lines[i].tokens.length === 2) {
-				currentResultLineType = "other";
-				currentResultLineContent = tows("_loop", actionKw);
+				currentResultLineType = "whileloop";
+				currentResultLineContent = tows("__while__", actionKw)+"("+parse(lines[i].tokens.slice(1, lines[i].tokens.length-1))+")";
 
 			} else {
-				if (lines[i].tokens[1].text === "RULE_CONDITION") {
-					currentResultLineType = "other";
-					currentResultLineContent = tows("_loopIfConditionIsTrue", actionKw);
+				//it is a while from do/while				
+				if (nbDo === 0) {
+					error("Found 'while' without matching 'do'");
+				}
+				nbDo--;
 
-				} else if (lines[i].tokens[1].text === "not" && lines[i].tokens[2].text === "RULE_CONDITION") {
+				if (lines[i].tokens[1].text === "true" && lines[i].tokens.length === 2) {
 					currentResultLineType = "other";
-					currentResultLineContent = tows("_loopIfConditionIsFalse", actionKw);
-
+					currentResultLineContent = tows("_loop", actionKw);
+	
 				} else {
-					var compiledCondition = parse(lines[i].tokens.slice(1));
-					if (isWsFalse(compiledCondition)) {
-						currentResultLineType = "optimized";
-					} else if (isWsTrue(compiledCondition)) {
+					if (lines[i].tokens[1].text === "RULE_CONDITION") {
 						currentResultLineType = "other";
-						currentResultLineContent = tows("_loop", actionKw);
+						currentResultLineContent = tows("_loopIfConditionIsTrue", actionKw);
+	
+					} else if (lines[i].tokens[1].text === "not" && lines[i].tokens[2].text === "RULE_CONDITION") {
+						currentResultLineType = "other";
+						currentResultLineContent = tows("_loopIfConditionIsFalse", actionKw);
+	
 					} else {
-						currentResultLineType = "other";
-						currentResultLineContent = tows("_loopIf", actionKw)+"("+compiledCondition+")";
+						var compiledCondition = parse(lines[i].tokens.slice(1));
+						if (isWsFalse(compiledCondition)) {
+							currentResultLineType = "optimized";
+						} else if (isWsTrue(compiledCondition)) {
+							currentResultLineType = "other";
+							currentResultLineContent = tows("_loop", actionKw);
+						} else {
+							currentResultLineType = "other";
+							currentResultLineContent = tows("_loopIf", actionKw)+"("+compiledCondition+")";
+						}
 					}
 				}
 			}
+	
 
 		//Check goto
 		} else if (lines[i].tokens[0].text === 'goto') {
@@ -15338,6 +19098,13 @@ function parseInstructions(lines, nbDo) {
 			currentResultLineType = "label";
 			currentResultLineLabel = label;
 
+		//Check for pass
+		} else if (lines[i].tokens[0].text === "pass") {
+			if (lines[i].tokens.length !== 1) {
+				error("Unexpected token after 'pass'");
+			}
+			currentResultLineType = "optimized";
+
 		//Any other instruction
 		} else {
 			currentResultLineContent = parse(lines[i].tokens, {"isWholeInstruction":true});
@@ -15369,15 +19136,6 @@ function parseInstructions(lines, nbDo) {
 			});
 		}
 
-		//Check for loop var timer
-		//console.log(forLoopTimers);
-		//console.log(i);
-		for (var j = 0; j < forLoopTimers.length; j++) {
-			if (forLoopTimers[j][0] === i+1) {
-				delete forLoopVariables[forLoopTimers[j][1]];
-			}
-		}
-
 		if (skipNextLine) {
 			i++;
 		}
@@ -15387,10 +19145,32 @@ function parseInstructions(lines, nbDo) {
 	var result = "";
 
 	function getNbLinesForType(type) {
-		if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized", "case"].includes(type)) {
+		if (["label", "ghostelse", "fakeghostelse", "optimized", "case"].includes(type)) {
 			return 0;
 		} else {
 			return 1;
+		}
+	}
+
+	//Do a pass to add the "end"s when necessary
+	for (var i = 0; i < resultLines.length; i++) {
+		
+		fileStack = resultLines[i].fileStack;
+
+		if (resultLines[i].type === "forloop" || resultLines[i].type === "whileloop") {
+
+			//Get the first non-indented line
+			var j = i+1;
+			for (; j < resultLines.length && resultLines[j].indentLevel > resultLines[i].indentLevel; j++);
+
+			if (j === i+1) {
+				error("Expected an indented block");
+			}
+			resultLines.splice(j, 0, ({
+				"type": "end",
+				"indentLevel": resultLines[i].indentLevel,
+				"fileStack": resultLines[i].fileStack,
+			}))
 		}
 	}
 
@@ -15400,7 +19180,7 @@ function parseInstructions(lines, nbDo) {
 
 		fileStack = resultLines[i].fileStack;
 
-		if (resultLines[i].type === "other") {
+		if (resultLines[i].type === "other" || resultLines[i].type === "forloop" || resultLines[i].type === "whileloop") {
 			result = tabLevel(2)+resultLines[i].content+";\n"+result;
 
 			if (i > 0 && (resultLines[i-1].type === "other" || resultLines[i-1].type === "skip" || resultLines[i-1].type === "label")) {
@@ -15409,7 +19189,7 @@ function parseInstructions(lines, nbDo) {
 				}
 			}
 
-		} else if (["label", "ghostelse", "fakeghostelse", "forloop", "optimized", "case"].includes(resultLines[i].type)) {
+		} else if (["label", "ghostelse", "fakeghostelse", "optimized", "case"].includes(resultLines[i].type)) {
 			//do nothing
 
 		} else if (resultLines[i].type === "if") {
@@ -15618,6 +19398,8 @@ function parseInstructions(lines, nbDo) {
 				result = tabLevel(2)+tows("_skip", actionKw)+"("+breakOffset+");\n"+result;
 			}
 
+		} else if (resultLines[i].type === "end") {
+			result = tabLevel(2)+tows("__end__", actionKw)+";\n"+result;
 		} else {
 			error("Unhandled rule line type "+resultLines[i].type);
 		}
@@ -15635,7 +19417,6 @@ parseArgs options:
 - "raycastType": "getHitPosition"|"getNormal"|"getPlayerHit"|"hasLoS"
 - "isWholeInstruction": true/false
 - "isLocalizedString": true/false
-- "isTranslationOfForLoopVariable": string
 - "formatArgs": token array
 */
 function parse(content, parseArgs={}) {
@@ -16069,12 +19850,6 @@ function parse(content, parseArgs={}) {
 			return tows("_currentArrayElement", valueFuncKw);
 		}
 
-		//Check for for loop variable name
-		if (forLoopVariables[name] !== undefined && parseArgs.isTranslationOfForLoopVariable !== name) {
-			//console.log(forLoopVariables[content[0].text]);
-			return parse(forLoopVariables[name], {isTranslationOfForLoopVariable: name});
-		}
-
 		//Check if it is legal to use the event variables.
 		if (name === "eventPlayer") {
 			if (!(["eachPlayer", "playerJoined", "playerLeft", "playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "playerDealtHealing", "playerReceivedHealing", "_subroutine"].includes(currentRuleEvent))) {
@@ -16136,6 +19911,18 @@ function parse(content, parseArgs={}) {
 		currentArrayElementNames.pop();
 		result += ")";
 		return result;
+	}
+
+	if (name === "async") {
+		if (args.length != 2) {
+			error("Function async takes 2 arguments, received "+args.length);
+		}
+		//Check if first arg is indeed a subroutine
+		if (args[0].length !== 3 || args[0][1].text !== "(" || args[0][2].text !== ")") {
+			error("Expected subroutine call as first argument");
+		}
+		console.log(args);
+		return tows("_startRule", actionKw)+"("+translateSubroutineToWs(args[0][0].text)+", "+parse(args[1])+")";
 	}
 	
 	if (name === "ceil") {
@@ -16350,7 +20137,12 @@ function parse(content, parseArgs={}) {
 	
 	//Handle functions with no arguments
 	if (args.length === 0) {
-		return tows(name+"()", funcKw);
+		try {
+			return tows(name+"()", funcKw);
+		} catch (e) {
+			//No translation found? May be a subroutine.
+			return tows("_callSubroutine", actionKw)+"("+translateSubroutineToWs(name)+")";
+		}
 	}
 	
 	//Default case (not a special function).
@@ -16798,20 +20590,9 @@ function parseLiteralArray(content) {
 		if (inOperands.length === 2) {
 			var ifOperands = splitTokens(inOperands[1], "if");
 			if (ifOperands.length !== 2) {
-				//Not a filtered array (eg: [player.C for player in playersInRadius()])
-				var forOperands = splitTokens(inOperands[0], "for");
-				if (forOperands.length !== 2) {
-					error("Malformed 'x for y in z'");
-				}
-				var forVarName = forOperands[1][0].text;
-				if (forLoopVariables[forVarName] !== undefined) {
-					error("Variable "+forVarName+" is already used");
-				}
-				forLoopVariables[forVarName] = inOperands[1];
-				
-				var result = parse(forOperands[0]);
-				delete forLoopVariables[forVarName];
-				return result;
+
+				//There is not a proper map() function so the previous hack has been removed as too misleading.
+				error("Cannot use list comprehension without a condition (eg [i for i in array if x])");
 				
 			} else {
 				//Filtered array
@@ -17131,7 +20912,15 @@ function parseStringTokens(tokens, args) {
 					sliceIndex++;
 				}
 
-				result += tokenText.slice(0, sliceIndex).join("")
+				//Workshop bug: if the last character of a string is 2 bytes or more, it will be "eaten".
+				//Fix it by adding a zero-width space.
+				if (getUtf8Length(tokenText[tokenText.length-1]) >= 2) {
+					sliceIndex -= 3;
+					result += tokenText.slice(0, sliceIndex).join("") + "\u200B";
+				} else {
+					result += tokenText.slice(0, sliceIndex).join("")
+				}
+
 				tokens[i].text = tokenText.slice(sliceIndex).join("");
 				splitString = true;
 
@@ -28186,615 +31975,6 @@ strTokens = strTokens.sort().reverse();
 
 
 
-/* 
- * This file is part of OverPy (https://github.com/Zezombye/overpy).
- * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
- * the Free Software Foundation, version 3.
- *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License 
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
-//This file is only used for the vs code extension.
-
-const specialFuncs = [
-    //Special functions and built-in macros
-    {
-        opy: "chase",
-        "description": "Gradually modifies the value of a variable (global or player) at a specific rate, or over time.",
-        "args": [
-            {
-                "name": "VARIABLE",
-                "description": "Specifies which variable (global or player) to modify gradually.",
-                "type": "VARIABLE",
-                "default": "A"
-            },
-            {
-                "name": "DESTINATION",
-                "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "ANY",
-                "default": "NUMBER"
-            },
-            {
-                "name": "RATE OR DURATION",
-                "description": "The amount of change that will happen to the variable's value each second, or the amount of time, in seconds, over which the variable's value will approach the destination.\n\nPut `rate=xxxx` or `duration=xxxx` as argument.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "CHASE RATE REEVALUATION",
-                "default": "DESTINATION AND RATE"
-            }
-        ],
-    },{
-        opy: "stopChasingVariable",
-        "description": "Stops an in-progress chase of a variable (global or player), leaving it at its current value.",
-        "args": [
-            {
-                "name": "VARIABLE",
-                "description": "Specifies which variable (global or player) to stop modifying.",
-                "type": "VARIABLE",
-                "default": "A"
-            }
-        ]
-    },{
-        opy: "getSign",
-        "description": "Built-in macro for calculating the sign of a number. Resolves to `(((x)>0)-((x)<0))`. Returns -1, 0 or 1.",
-        "args": [
-            {
-                "name": "NUMBER",
-                "description": "The number to calculate the sign of.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            }
-        ]
-    },{
-        opy: "math.pi",
-        "description": "The number pi = 3.14159265359.",
-        "args": null
-    },{
-        opy: "math.e",
-        "description": "The number e = 2.71828182846.",
-        "args": null
-    },{
-        opy: "wait",
-        "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
-        "args": [
-            {
-                "name": "TIME",
-                "description": "The duration of the pause. If omitted, defaults to 0.016.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            },
-            {
-                "name": "WAIT BEHAVIOR",
-                "description": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart. If omitted, defaults to `Wait.IGNORE_CONDITION`.",
-                "type": "WAIT BEHAVIOR",
-                "default": "IGNORE CONDITION"
-            }
-        ]
-    },
-    {
-        "opy": "localizedStr",
-        "description": "Defines a localized string. The text inside the string is restricted to preset strings, and is translated according to the language of each player.",
-        "args": [
-            {
-                "name": "STRING",
-                "description": "",
-                "type": "STRING CONSTANT",
-                "default": "HELLO"
-            },
-        ]
-    },
-    {
-        opy: "raycast",
-        description: 
-`Defines a raycast to be then used with \`hasLoS()\`, \`getPlayerHit()\`, \`getNormal()\` or \`getHitPosition()\`.
-For line of sight, the 3rd argument must be \`los=\` and the 4th and 5th arguments must be omitted.
-
-Examples:
-- \`raycast(A, B, include=C, exclude=D, includePlayerObjects=false).getHitPosition()\`
-- \`raycast(A, B, los=BarrierLos.BLOCKED_BY_ALL_BARRIERS).hasLoS()\``,
-        args: [
-            {
-                "name": "START POS",
-                "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "POSITION",
-                "default": "VECTOR"
-            },
-            {
-                "name": "END POS",
-                "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "POSITION",
-                "default": "VECTOR"
-            },
-            {
-                "name": "include=players To Include",
-                "description": "Which players can be hit by this ray cast. Note: if doing a line-of-sight check, use `los=BarrierLos.xxxx` instead.",
-                "type": "PLAYER",
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "exclude=players To Exclude",
-                "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
-                "type": "PLAYER",
-                "default": "EVENT PLAYER"
-            },
-            {
-                "name": "include Player Objects=bool",
-                "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
-                "type": "BOOLEAN",
-                "default": "TRUE"
-            }
-        ]
-    },{
-        opy: "all",
-        "description": "Whether the specified condition evaluates to true for every value in the specified iterable. Requires a condition.\n\nExample: `all(player for player in getAllPlayers() if player.A == 2)`",
-        "args": [
-            {
-                "name": "iterable",
-                "description": "The iterable whose values will be considered.",
-                "type": "ITERABLE",
-                "default": "GLOBAL VARIABLE"
-            },
-        ]
-    },{
-        opy: "any",
-        "description": "Whether the specified condition evaluates to true for any value in the specified iterable. Requires a condition.\n\nExample: `any(player for player in getAllPlayers() if player.A == 2)`",
-        "args": [
-            {
-                "name": "iterable",
-                "description": "The iterable whose values will be considered.",
-                "type": "ITERABLE",
-                "default": "GLOBAL VARIABLE"
-            },
-        ]
-    },{
-        opy: "floor",
-        "description": "The integer that is the floor of the specified value (equivalent to rounding down).",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The real number to get the floor of.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            },
-        ],
-    },{
-        opy: "round",
-        "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The real number to get the nearest integer of.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            },
-        ],
-    },{
-        opy: "ceil",
-        "description": "The integer that is the ceiling of the specified value (equivalent to rounding up).",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The real number to get the ceiling of.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            },
-        ],
-    },{
-        opy: "sorted",
-        "description": "A copy of the specified array with the values sorted according to the lambda function that is evaluated for each element.\n\nExample: `sorted(getAllPlayers(), key=lambda x: x.getScore())`",
-        "args": [
-            {
-                "name": "ARRAY",
-                "description": "The array whose copy will be sorted.",
-                "type": "ANY",
-                "default": "GLOBAL VARIABLE"
-            },
-            {
-                "name": "key=lambda",
-                "description": "The lambda function that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Can be omitted if the array is sorted without a special key (equivalent to `lambda x: x`).",
-                "type": "LAMBDA",
-                "default": "CURRENT ARRAY ELEMENT"
-            }
-        ]
-    },{
-        opy: "getAllPlayers",
-        description: "Built-in macro for `getPlayers(Team.ALL)`.",
-        args: [],
-    },{
-        opy: "hudText",
-        "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.\n\nNote: you can use the macros `hudHeader`, `hudSubheader` and `hudSubtext` to reduce the number of arguments.",
-        "args": [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": "PLAYER",
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "HEADER",
-                "description": "The text to be displayed (can be blank)",
-                "type": "ANY",
-                "default": "STRING"
-            },
-            {
-                "name": "SUBHEADER",
-                "description": "The subheader text to be displayed (can be blank)",
-                "type": "ANY",
-                "default": "NULL"
-            },
-            {
-                "name": "TEXT",
-                "description": "The body text to be displayed (can be blank)",
-                "type": "ANY",
-                "default": "NULL"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "HUD LOCATION",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            },
-            {
-                "name": "HEADER COLOR",
-                "description": "The color of the header.",
-                "type": "COLOR",
-                "default": "WHITE"
-            },
-            {
-                "name": "SUBHEADER COLOR",
-                "description": "The color of the subheader.",
-                "type": "COLOR",
-                "default": "WHITE"
-            },
-            {
-                "name": "TEXT COLOR",
-                "description": "The color of the text.",
-                "type": "COLOR",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HUD TEXT REEVALUATION",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SPECTATOR VISIBILITY",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ],
-
-    },{
-        opy: "debug",
-        description: "Creates an orange HUD text at the top left. Should be used for quick debugging of a value.",
-        args: [
-            {
-                "name": "HEADER",
-                "description": "The text to be displayed (can be blank)",
-                "type": "ANY",
-                "default": "STRING"
-            },
-        ]
-    },{
-        opy: "hudHeader",
-        description: "Built-in macro for `hudText` to reduce the number of arguments.",
-        args: [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": "PLAYER",
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "HEADER",
-                "description": "The text to be displayed (can be blank)",
-                "type": "ANY",
-                "default": "STRING"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "HUD LOCATION",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            },
-            {
-                "name": "HEADER COLOR",
-                "description": "The color of the header.",
-                "type": "COLOR",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HUD TEXT REEVALUATION",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SPECTATOR VISIBILITY",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ],
-    },{
-        opy: "hudSubtext",
-        description: "Built-in macro for `hudText` to reduce the number of arguments.",
-        args: [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": "PLAYER",
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "SUBTEXT",
-                "description": "The body text to be displayed (can be blank)",
-                "type": "ANY",
-                "default": "NULL"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "HUD LOCATION",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            },
-            {
-                "name": "TEXT COLOR",
-                "description": "The color of the text.",
-                "type": "COLOR",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HUD TEXT REEVALUATION",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SPECTATOR VISIBILITY",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ],
-    },{
-        opy: "hudSubheader",
-        description: "Built-in macro for `hudText` to reduce the number of arguments.",
-        args: [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": "PLAYER",
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "SUBHEADER",
-                "description": "The subheader text to be displayed (can be blank)",
-                "type": "ANY",
-                "default": "NULL"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "HUD LOCATION",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            },
-            {
-                "name": "SUBHEADER COLOR",
-                "description": "The color of the subheader.",
-                "type": "COLOR",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HUD TEXT REEVALUATION",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SPECTATOR VISIBILITY",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ],
-    },{
-        opy: "RULE_CONDITION",
-        "description": 
-`Equivalent to true if every condition in the rule is true. Can only be used in the following cases:
-
-- \`while RULE_CONDITION\`
-- \`while not RULE_CONDITION\`
-- \`if RULE_CONDITION: continue\`
-- \`if not RULE_CONDITION: continue\`
-- \`if RULE_CONDITION: abort\`
-- \`if not RULE_CONDITION: abort\``,
-        "args": null
-    }
-];
-
-const specialMemberFuncs = [
-    
-    {
-        opy: "append",
-        "description": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. If used without an assignment, modifies the array in-place.\n\nExample: `A.append(3)`",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
-                "type": "ANY",
-                "default": "NUMBER"
-            }
-        ]
-    },{
-        opy: "slice",
-        "description": "A copy of the specified array containing only values from a specified index range.",
-        "args": [
-            {
-                "name": "START INDEX",
-                "description": "The first index of the range.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            },
-            {
-                "name": "COUNT",
-                "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            }
-        ]
-    },{
-        opy: "index",
-        "description": "The index of a value within an array or -1 if no such value can be found.",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The value for which to search.",
-                "type": "NUMBER",
-                "default": "NUMBER"
-            }
-        ]
-    },{
-        opy: "hasLoS",
-        description: "Whether the start and end position of a raycast have line of sight with each other.",
-        args: [],
-    },{
-        opy: "getNormal",
-        description: "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs).",
-        args: [],
-    },{
-        opy: "getPlayerHit",
-        description: "The player hit by the raycast (or null if no player is hit).",
-        args: [],
-    },{
-        opy: "getHitPosition",
-        description: "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs).",
-        args: [],
-    }
-];
-
-const preprocessingDirectives = [
-    {
-        opy: "define",
-        description:
-`Creates a macro, like in C/C++. Macros must be defined before any code. Examples:
-
-    #!define currentSectionWalls A
-    #!define GAME_NOT_STARTED 3\`
-
-Function macros are supported as well:
-
-    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]
-    #!define spawnMei(type, location) \
-    getFirstAvailableMei().meiType = type\
-    wait(0.1)\
-    getFirstAvailableMei().teleport(location)\
-    getFirstAvailableMei().isFighting = true
-
-Note the usage of the backslashed lines.
-
-JS scripts can be inserted with the special __script__ function:
-
-    #!define addFive(x) __script__("addfive.js")
-
-where the \`addfive.js\` script contains \`x+5\` (no \`return\`).
-
-Arguments of JS scripts are inserted automatically at the beginning (so \`addFive(123)\` would cause \`var x = 123;\` to be inserted). The script is then evaluated using \`eval()\`.
-
-A \`vect()\` function is also inserted, so that \`vect(1,2,3)\` returns an object with the correct properties and \`toString()\` function.
-
-When resolving the macro, the indentation on the macro call is prepended to each line of the replacement.
-`
-    },{
-        opy: "defineMember",
-        description: "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion."
-    },{
-        opy: "obfuscate",
-        description:
-`Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.
-
-Usage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)
-
-The following obfuscation methods are applied:
-
-- Rule filling: several empty rules are inserted.
-- Comment removing: all rule titles are replaced with the empty string.
-- Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.
-- Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
-`
-    },{
-        opy: "noEdit",
-        description:
-`Adds 2500 empty rules to the preset, which should make it absolutely impossible to open the rules (as you get a "connection lost" error). Therefore, it is the ultimate form of obfuscation, as you simply cannot even see the code.
-
-However, pasting the generated code could trigger a "connection lost" error as well, and a huge lag. As such, this directive should only be used on finalized gamemodes, before you publish it; it should not be used every time.
-
-You will very likely have to paste the generated code in an editor, then paste the rules by sets of 800, 1200 then 500 to be able to insert them.
-`
-    },{
-        opy: "declareGlobal",
-        description:
-`Declares a global variable. The index (0-127) must be specified. Example:
-
-    #!declareGlobal myVar 127
-`
-    },{
-        opy: "declarePlayer",
-        description:
-`Declares a player variable. The index (0-127) must be specified. Example:
-
-    #!declarePlayer myVar 127
-`
-    },{
-        opy: "suppressWarnings",
-        description: "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
-    },{
-        opy: "disableUnusedVars",
-        description: "Do not put 'unused_var_xxx' in the compilation. Not recommended if compiling regularly, as this could lead to not being able to paste the generated output if variable offsets have been modified."
-    },{
-        opy: "mainFile",
-        description: "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file."
-    }
-]
 
 module.exports = {
 	decompileAllRules: decompileAllRules,

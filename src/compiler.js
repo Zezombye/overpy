@@ -280,7 +280,7 @@ function compileRule(rule) {
 				if (eventTeam) {
 					error("Event team is defined twice");
 				}
-				eventTeam = rule.lines[i].tokens[1];
+				eventTeam = tows(rule.lines[i].tokens[1], eventTeamKw);
 				
 			} else if (rule.lines[i].tokens[0].text === "@Hero") {
 				if (eventPlayer) {
@@ -315,6 +315,13 @@ function compileRule(rule) {
 			if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text !== ":") {
 				error("Def statement must end with ':'")
 			}
+
+			for (var j = i+1; j < rule.lines.length; j++) {
+				if (rule.lines[j].indentLevel <= rule.lines[i].indentLevel) {
+					error("Def statement must cover the whole rule");
+				}
+			}
+
 			subroutineName = rule.lines[i].tokens[1].text;
 		} else {
 			break;
@@ -339,17 +346,16 @@ function compileRule(rule) {
 		}
 	} else {
 		if (!eventTeam) {
-			eventTeam = "all";
+			eventTeam = tows("all", eventTeamKw);
 		}
-		result += tabLevel(2)+tows(eventTeam, eventTeamKw)+";\n";
+		result += tabLevel(2)+eventTeam+";\n";
 		if (!eventPlayer) {
-			eventPlayer = "all";
+			eventPlayer = tows("all", eventPlayerKw);
 		}
-		result += tabLevel(2)+tows(eventPlayer, eventPlayerKw)+";\n";
+		result += tabLevel(2)+eventPlayer+";\n";
 	}
 
 	currentRuleEvent = eventType;
-	isInEvent = false;
 	result += tabLevel(1)+"}\n\n";
 
 	//Parse the eventual rule condition, as well as the "do:".
@@ -363,7 +369,7 @@ function compileRule(rule) {
 		fileStack = rule.lines[i].tokens[0].fileStack;
 
 		//Rule condition: 
-		if (rule.lines[i].tokens[0].text === "if" && rule.lines[i].indentLevel === 0 && nbDo === 0) {
+		if (rule.lines[i].tokens[0].text === "if" && nbDo === 0) {
 
 			//Check if there are instructions after the if; if not, return nothing as the rule is useless
 			if (i+1 >= rule.lines.length) {
@@ -378,7 +384,7 @@ function compileRule(rule) {
 			//Check if the "if" covers the whole rule
 			var areAllLinesAfterCurrentLineIndented = true;
 			for (var j = i+1; j < rule.lines.length; j++) {
-				if (rule.lines[j].indentLevel === 0) {
+				if (rule.lines[j].indentLevel <= rule.lines[i].indentLevel) {
 					areAllLinesAfterCurrentLineIndented = false;
 					break;
 				}
@@ -653,6 +659,12 @@ function parseInstructions(lines, nbDo) {
 			var funcName = "_for";
 			currentResultLineContent = "";
 			
+
+			if (inOperands[1].length <= 3 || inOperands[1][0].text != "range" || inOperands[1][1].text != "(" || inOperands[1][inOperands[1].length-1].text != ")") {
+				error("For loop must be 'for var in range(start, stop, step)'");
+			}
+
+			
 			//Check for dot; if it is present, it can only be a player variable
 			var varOperands = splitTokens(inOperands[0], ".", false, true);
 			if (varOperands.length === 2) {
@@ -662,10 +674,6 @@ function parseInstructions(lines, nbDo) {
 			} else {
 				funcName += "GlobalVar";
 				currentResultLineContent += translateVarToWs(varOperands[0][0].text, true);
-			}
-
-			if (inOperands[1].length <= 3 || inOperands[1][0].text != "range" || inOperands[1][1].text != "(" || inOperands[1][inOperands[1].length-1].text != ")") {
-				error("For loop must be 'for var in range(start, stop, step)'");
 			}
 
 			var rangeArgs = splitTokens(inOperands[1].slice(2, inOperands[1].length-1), ",");
@@ -700,7 +708,7 @@ function parseInstructions(lines, nbDo) {
 
 			if (lines[i].tokens[lines[i].tokens.length-1].text === ":") {
 				currentResultLineType = "whileloop";
-				currentResultLineContent = tows("__while__", actionKw)+"("+parse(lines[i].tokens.slice(1, lines[i].tokens.length-1));
+				currentResultLineContent = tows("__while__", actionKw)+"("+parse(lines[i].tokens.slice(1, lines[i].tokens.length-1))+")";
 
 			} else {
 				//it is a while from do/while				
@@ -790,6 +798,13 @@ function parseInstructions(lines, nbDo) {
 			var label = lines[i].tokens[0].text;
 			currentResultLineType = "label";
 			currentResultLineLabel = label;
+
+		//Check for pass
+		} else if (lines[i].tokens[0].text === "pass") {
+			if (lines[i].tokens.length !== 1) {
+				error("Unexpected token after 'pass'");
+			}
+			currentResultLineType = "optimized";
 
 		//Any other instruction
 		} else {
@@ -1598,6 +1613,18 @@ function parse(content, parseArgs={}) {
 		result += ")";
 		return result;
 	}
+
+	if (name === "async") {
+		if (args.length != 2) {
+			error("Function async takes 2 arguments, received "+args.length);
+		}
+		//Check if first arg is indeed a subroutine
+		if (args[0].length !== 3 || args[0][1].text !== "(" || args[0][2].text !== ")") {
+			error("Expected subroutine call as first argument");
+		}
+		console.log(args);
+		return tows("_startRule", actionKw)+"("+translateSubroutineToWs(args[0][0].text)+", "+parse(args[1])+")";
+	}
 	
 	if (name === "ceil") {
 		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundUp", getConstantKw("ROUNDING TYPE"))+")";
@@ -1811,7 +1838,12 @@ function parse(content, parseArgs={}) {
 	
 	//Handle functions with no arguments
 	if (args.length === 0) {
-		return tows(name+"()", funcKw);
+		try {
+			return tows(name+"()", funcKw);
+		} catch (e) {
+			//No translation found? May be a subroutine.
+			return tows("_callSubroutine", actionKw)+"("+translateSubroutineToWs(name)+")";
+		}
 	}
 	
 	//Default case (not a special function).

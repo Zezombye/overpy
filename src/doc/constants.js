@@ -3551,6 +3551,18 @@ var constantValues =
                 "zh-TW": "雪怪大作戰"
             }
         ]
+    },
+    "START RULE BEHAVIOR": {
+        "opy": "AsyncBehavior",
+        "values": [
+            {
+                "opy": "AsyncBehavior.RESTART",
+                "en-US": "Restart Rule",
+            },{
+                "opy": "AsyncBehavior.NOOP",
+                "en-US": "Do Nothing",
+            }
+        ]
     }
 }
 //end-json

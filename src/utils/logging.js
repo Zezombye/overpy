@@ -30,11 +30,15 @@ function error(str, token) {
 	if (token !== undefined) {
 		error += "'"+dispTokens(token)+"'";
 	}
-	if (fileStack.length !== 0) {
-		fileStack.reverse();
-		for (var file of fileStack) {
-			error += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+	if (fileStack) {
+		if (fileStack.length !== 0) {
+			fileStack.reverse();
+			for (var file of fileStack) {
+				error += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+			}
 		}
+	} else {
+		error += "\n\t| <no filestack>";
 	}
 	
 	throw new Error(error);
