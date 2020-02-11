@@ -360,6 +360,7 @@ function compileRule(rule) {
 
 	//Parse the eventual rule condition, as well as the "do:".
 	//This loop breaks when it hits an actual action.
+
 	var nbDo = 0;
 	for (; i < rule.lines.length; i++) {
 		if (rule.lines[i].tokens.length === 0) {
@@ -369,7 +370,7 @@ function compileRule(rule) {
 		fileStack = rule.lines[i].tokens[0].fileStack;
 
 		//Rule condition: 
-		if (rule.lines[i].tokens[0].text === "if" && nbDo === 0) {
+		if (rule.lines[i].tokens[0].text === "if" && nbDo === 0 && rule.lines[i].indentLevel === 0) {
 
 			//Check if there are instructions after the if; if not, return nothing as the rule is useless
 			if (i+1 >= rule.lines.length) {
