@@ -18659,6 +18659,8 @@ function compileRule(rule) {
 
 	//Parse the eventual rule condition, as well as the "do:".
 	//This loop breaks when it hits an actual action.
+
+	var hasRuleConditionBeenEncountered = false
 	var nbDo = 0;
 	for (; i < rule.lines.length; i++) {
 		if (rule.lines[i].tokens.length === 0) {
@@ -18668,7 +18670,7 @@ function compileRule(rule) {
 		fileStack = rule.lines[i].tokens[0].fileStack;
 
 		//Rule condition: 
-		if (rule.lines[i].tokens[0].text === "if" && nbDo === 0) {
+		if (rule.lines[i].tokens[0].text === "if" && nbDo === 0 && !hasRuleConditionBeenEncountered) {
 
 			//Check if there are instructions after the if; if not, return nothing as the rule is useless
 			if (i+1 >= rule.lines.length) {
@@ -18699,6 +18701,7 @@ function compileRule(rule) {
 					result += compiledConditions;
 					result += tabLevel(1)+"}\n\n";
 				}
+				hasRuleConditionBeenEncountered = true;
 			} else {
 				break;
 			}
