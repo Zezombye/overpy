@@ -158,7 +158,7 @@ function generateVariablesField() {
 
 function generateSubroutinesField() {
 
-	var result = tows("_subroutines", ruleKw)+" {\n";
+	var result = "";
 
 	
 	var outputSubroutines = Array(128);
@@ -218,7 +218,10 @@ function generateSubroutinesField() {
 		}
 	}
 
-	result += "}\n";
+	if (result) {
+		result = tows("_subroutines", ruleKw)+" {\n" + result + "}\n";
+	}
+	
 	return result;
 
 }
@@ -1668,6 +1671,27 @@ function parse(content, parseArgs={}) {
 		//probably the longest line of code in all this codebase
 		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("Team.ALL", getConstantKw("TEAM CONSTANT"))+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("Position.LEFT", getConstantKw("HUD LOCATION"))+", 0, "+tows("Color.ORANGE", getConstantKw("COLOR"))+", "+tows("Color.WHITE", getConstantKw("COLOR"))+", "+tows("Color.WHITE", getConstantKw("COLOR"))+", "+tows("HudReeval.VISIBILITY_AND_STRING", getConstantKw("HUD TEXT REEVALUATION"))+", "+tows("SpecVisibility.ALWAYS", getConstantKw("SPECTATOR VISIBILITY"))+")";
 	}
+
+	if (name === "__for__") {
+		var funcName = "_for";
+		var result = "";
+		
+		//Check for dot; if it is present, it can only be a player variable
+		var operands = splitTokens(args[0], ".", false, true);
+		if (operands.length === 2) {
+			funcName += "PlayerVar";
+			result += parse(operands[0])+", ";
+			result += translateVarToWs(operands[1][0].text, false);
+		} else {
+			funcName += "GlobalVar";
+			result += translateVarToWs(args[0][0].text, true);
+		}
+		
+		if (args.length !== 4) {
+			error("__for__ function must have 4 arguments");
+		}
+		return tows(funcName, actionKw)+"("+result+", "+parse(args[1])+", "+parse(args[2])+", "+parse(args[3])+")";
+	}
 	
 	if (name === "floor") {
 		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", getConstantKw("ROUNDING TYPE"))+")";
@@ -1840,10 +1864,14 @@ function parse(content, parseArgs={}) {
 	//Handle functions with no arguments
 	if (args.length === 0) {
 		try {
-			return tows(name+"()", funcKw);
+			return tows(name, funcKw);
 		} catch (e) {
 			//No translation found? May be a subroutine.
-			return tows("_callSubroutine", actionKw)+"("+translateSubroutineToWs(name)+")";
+			try {
+				return tows("_callSubroutine", actionKw)+"("+translateSubroutineToWs(name)+")";
+			} catch (e) {
+				error("Unknown function "+name);
+			}
 		}
 	}
 	

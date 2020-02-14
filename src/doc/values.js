@@ -8,7 +8,7 @@
  *
  * This program is distributed in the hope that it will be useful, but 
  * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License 
@@ -82,7 +82,7 @@ var valueFuncKw =
         "zh-CN": "所有死亡玩家"
     },
     {
-        "opy": "getDamageHeroes()",
+        "opy": "getDamageHeroes",
         "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        ",
         "args": [],
         "en-US": "All Damage Heroes",
@@ -97,7 +97,7 @@ var valueFuncKw =
     },
     {
         "guid": "00000000BF58",
-        "opy": "getAllHeroes()",
+        "opy": "getAllHeroes",
         "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Baptiste \n        30. Sigma    \n        ",
         "args": [],
         "en-US": "All Heroes",
@@ -203,7 +203,7 @@ var valueFuncKw =
         "zh-CN": "可用英雄"
     },
     {
-        "opy": "getSupportHeroes()",
+        "opy": "getSupportHeroes",
         "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
         "args": [],
         "en-US": "All Support Heroes",
@@ -217,7 +217,7 @@ var valueFuncKw =
         "zh-CN": "所有支援英雄"
     },
     {
-        "opy": "getTankHeroes()",
+        "opy": "getTankHeroes",
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
         "args": [],
         "en-US": "All Tank Heroes",
@@ -737,7 +737,7 @@ var valueFuncKw =
         "zh-CN": "当前数组元素"
     },
     {
-        "opy": "getCurrentGamemode()",
+        "opy": "getCurrentGamemode",
         "description": "The current game mode of the custom game.",
         "args": [],
         "en-US": "Current Game Mode",
@@ -753,7 +753,7 @@ var valueFuncKw =
     },
     {
         "guid": "00000000D418",
-        "opy": "getCurrentMap()",
+        "opy": "getCurrentMap",
         "description": "The current map of the custom game.",
         "args": [],
         "en-US": "Current Map",
@@ -1544,7 +1544,7 @@ var valueFuncKw =
         "zh-CN": "存活"
     },
     {
-        "opy": "isAssemblingHeroes()",
+        "opy": "isAssemblingHeroes",
         "description": "Whether the match is currently in its assemble heroes phase.",
         "args": [],
         "en-US": "Is Assembling Heroes",
@@ -1556,7 +1556,7 @@ var valueFuncKw =
         "zh-CN": "正在集结英雄"
     },
     {
-        "opy": "isMatchBetweenRounds()",
+        "opy": "isMatchBetweenRounds",
         "description": "Whether the match is between rounds.",
         "args": [],
         "en-US": "Is Between Rounds",
@@ -1675,7 +1675,7 @@ var valueFuncKw =
         "zh-CN": "正在使用语音交流"
     },
     {
-        "opy": "isControlPointLocked()",
+        "opy": "isControlPointLocked",
         "description": "Whether the point is locked in control mode.",
         "args": [],
         "en-US": "Is Control Mode Point Locked",
@@ -1706,7 +1706,7 @@ var valueFuncKw =
         "zh-CN": "正在蹲下"
     },
     {
-        "opy": "isInSuddenDeath()",
+        "opy": "isInSuddenDeath",
         "description": "Whether the current game of capture the flag is in sudden death.",
         "args": [],
         "en-US": "Is CTF Mode In Sudden Death",
@@ -1833,7 +1833,7 @@ var valueFuncKw =
         "zh-CN": "是否有人携带旗帜"
     },
     {
-        "opy": "isGameInProgress()",
+        "opy": "isGameInProgress",
         "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
         "args": [],
         "en-US": "Is Game In Progress",
@@ -1920,7 +1920,7 @@ var valueFuncKw =
         "zh-CN": "在视线内"
     },
     {
-        "opy": "isInSetup()",
+        "opy": "isInSetup",
         "description": "Whether the match is currently in its setup phase.",
         "args": [],
         "en-US": "Is In Setup",
@@ -1982,7 +1982,7 @@ var valueFuncKw =
         "zh-CN": "在视野内"
     },
     {
-        "opy": "isMatchComplete()",
+        "opy": "isMatchComplete",
         "description": "Whether the match has finished.",
         "args": [],
         "en-US": "Is Match Complete",
@@ -2272,7 +2272,7 @@ var valueFuncKw =
         "zh-CN": "正在使用终极技能"
     },
     {
-        "opy": "isWaitingForPlayers()",
+        "opy": "isWaitingForPlayers",
         "description": "Whether the match is waiting for players to join before starting.",
         "args": [],
         "en-US": "Is Waiting For Players",
@@ -2284,7 +2284,7 @@ var valueFuncKw =
         "zh-CN": "正在等待玩家"
     },
     {
-        "opy": "getLastCreatedEntity()",
+        "opy": "getLastCreatedEntity",
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": [],
         "en-US": "Last Created Entity",
@@ -2296,7 +2296,7 @@ var valueFuncKw =
         "zh-CN": "最后创建的实体"
     },
     {
-        "opy": "getLastDamageModification()",
+        "opy": "getLastDamageModification",
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
         "args": [],
         "en-US": "Last Damage Modification ID",
@@ -2308,7 +2308,7 @@ var valueFuncKw =
         "zh-CN": "上一个伤害调整ID"
     },
     {
-        "opy": "getLastDoT()",
+        "opy": "getLastDoT",
         "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
         "args": [],
         "en-US": "Last Damage Over Time ID",
@@ -2320,7 +2320,7 @@ var valueFuncKw =
         "zh-CN": "上一个持续伤害效果ID"
     },
     {
-        "opy": "getLastHoT()",
+        "opy": "getLastHoT",
         "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
         "args": [],
         "en-US": "Last Heal Over Time ID",
@@ -2332,7 +2332,7 @@ var valueFuncKw =
         "zh-CN": "上一个持续治疗效果ID"
     },
     {
-        "opy": "getLastHealingModification()",
+        "opy": "getLastHealingModification",
         "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
         "args": [],
         "en-US": "Last Healing Modification ID",
@@ -2357,7 +2357,7 @@ var valueFuncKw =
         "zh-CN": "最后"
     },
     {
-        "opy": "getLastCreatedText()",
+        "opy": "getLastCreatedText",
         "description": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action.",
         "args": [],
         "en-US": "Last Text ID",
@@ -2436,7 +2436,7 @@ var valueFuncKw =
         "zh-TW": "地圖"
     },
     {
-        "opy": "getMatchRound()",
+        "opy": "getMatchRound",
         "description": "The current round of the match, counting up from 1.",
         "args": [],
         "en-US": "Match Round",
@@ -2448,7 +2448,7 @@ var valueFuncKw =
         "zh-CN": "比赛回合"
     },
     {
-        "opy": "getMatchTime()",
+        "opy": "getMatchTime",
         "description": "The amount of time in seconds remaining in the current game mode phase.",
         "args": [],
         "en-US": "Match Time",
@@ -2805,7 +2805,7 @@ var valueFuncKw =
         "zh-CN": "目标点上玩家数量"
     },
     {
-        "opy": "getCurrentObjective()",
+        "opy": "getCurrentObjective",
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
         "args": [],
         "en-US": "Objective Index",
@@ -3446,7 +3446,7 @@ var valueFuncKw =
     },
     {
         "guid": "00000000C961",
-        "opy": "getServerLoad()",
+        "opy": "getServerLoad",
         "description": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
         "en-US": "Server Load",
@@ -3459,7 +3459,7 @@ var valueFuncKw =
     },
     {
         "guid": "00000000C997",
-        "opy": "getAverageServerLoad()",
+        "opy": "getAverageServerLoad",
         "description": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
         "en-US": "Server Load Average",
@@ -3472,7 +3472,7 @@ var valueFuncKw =
     },
     {
         "guid": "00000000C996",
-        "opy": "getPeakServerLoad()",
+        "opy": "getPeakServerLoad",
         "description": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
         "en-US": "Server Load Peak",
@@ -3785,7 +3785,7 @@ var valueFuncKw =
         "zh-CN": "阈值"
     },
     {
-        "opy": "getTotalTimeElapsed()",
+        "opy": "getTotalTimeElapsed",
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
         "args": [],
         "en-US": "Total Time Elapsed",
