@@ -32,15 +32,25 @@ function decompileAllRules(content, language="en-US") {
 	//Check for variable names
 	if (content.startsWith(tows("_variables", ruleKw))) {
 		decompileVarNames(content.substring(bracketPos[0]+1, bracketPos[1]));
-		bracketPos = bracketPos.slice(1);
-
-	} else {
-		bracketPos.unshift(-1);
+		content = content.substring(bracketPos[1]+1)
 	}
 
+	content = content.trim();
+	bracketPos = getBracketPositions(content);
+
+	//Check for subroutine names
+	if (content.startsWith(tows("_subroutines", ruleKw))) {
+		decompileSubroutines(content.substring(bracketPos[0]+1, bracketPos[1]));
+		content = content.substring(bracketPos[1]+1);
+
+	}
+
+	bracketPos = getBracketPositions(content);
 	debug("global vars: "+globalVariables);
 	debug("player vars: "+playerVariables);
+	debug("subroutines: "+subroutines);
 	
+	bracketPos.unshift(-1);
 	//A rule looks like this:
 	//rule(title) {...}
 	//Therefore, each rule ends every 4th bracket position
@@ -76,7 +86,20 @@ function decompileAllRules(content, language="en-US") {
 			variableDeclarations += "#Player variables\n\n"+playerVariableDeclarations+"\n\n";
 		}
 	}
-	result = variableDeclarations + result;
+
+	var subroutineDeclarations = "";
+	if (subroutines.length > 0) {
+		subroutines.sort((a,b) => a.index-b.index);
+		for (var subroutine of subroutines) {
+			if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
+				subroutineDeclarations += "#!declareSubroutine "+translateSubroutineToPy(subroutine.name)+" "+subroutine.index+"\n";
+			}
+		}
+		if (subroutineDeclarations !== "") {
+			subroutineDeclarations = "#Subroutine names\n\n"+subroutineDeclarations+"\n\n";
+		}
+	}
+	result = variableDeclarations + subroutineDeclarations + result;
 		
 	return result;
 	
@@ -125,6 +148,28 @@ function decompileVarNames(content) {
 				}
 			}
 		}
+	}
+}
+
+function decompileSubroutines(content) {
+	content = content.split("\n");
+	console.log(content);
+	for (var i = 0; i < content.length; i ++) {
+		
+		content[i] = content[i].trim();
+		if (content[i] === "") {
+			continue;
+		}
+
+		if (content[i].split(":").length % 2 !== 0) {
+			error("Malformed subroutine field '"+content[i]+"'(expected 2 elements)");
+		}
+		var index = content[i].split(":")[0].trim();
+		var subName = content[i].split(":")[1].trim();
+		if (isNaN(index)) {
+			error("Index '"+index+"' in subroutines field should be a number");
+		}
+		addSubroutine(subName, index);
 	}
 }
 
@@ -183,25 +228,41 @@ function decompileRule(content) {
 	
 	//Parse events
 	if (eventInst.length > 0) {
-		result += "@Event "+topy(eventInst[0], eventKw)+"\n";
-		if (eventInst.length > 1) {
-			//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
-			if (topy(eventInst[1], eventTeamKw) !== "all") {
-				result += "@Team "+topy(eventInst[1], eventTeamKw)+"\n";
+
+		var eventName = topy(eventInst[0], eventKw);
+		if (eventName === "_subroutine") {
+
+			if (eventInst.length !== 2) {
+				error("Malformed subroutine event");
 			}
-			
-			//Parse the 3rd event instruction
-			//Detect if it is a slot or hero
-			var eventInst3 = topy(eventInst[2], eventPlayerKw.concat(getConstantKw("HERO CONSTANT")))
-			if (eventInst3 !== "all") {
-				if (isNumber(eventInst3)) {
-					result += "@Slot "+eventInst3+"\n";
-				} else {
-					//We assume it is a hero
-					result += "@Hero "+eventInst3.substring("HERO.".length).toLowerCase() + "\n";
+			var subroutineName = translateSubroutineToPy(eventInst[1].trim());
+
+			result += "def "+subroutineName+"():\n";
+			nbTabs = 1;
+
+		} else {
+			result += "@Event "+eventName+"\n";
+			if (eventInst.length > 1) {
+				//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
+				if (topy(eventInst[1], eventTeamKw) !== "all") {
+					result += "@Team "+topy(eventInst[1], eventTeamKw)+"\n";
+				}
+				
+				//Parse the 3rd event instruction
+				//Detect if it is a slot or hero
+				var eventInst3 = topy(eventInst[2], eventPlayerKw.concat(getConstantKw("HERO CONSTANT")))
+				if (eventInst3 !== "all") {
+					if (isNumber(eventInst3)) {
+						result += "@Slot "+eventInst3+"\n";
+					} else {
+						//We assume it is a hero
+						result += "@Hero "+eventInst3.substring("HERO.".length).toLowerCase() + "\n";
+					}
 				}
 			}
 		}
+
+
 	}
 	
 	//Parse conditions
@@ -251,8 +312,8 @@ function decompileConditions(content) {
 	}
 	var condStrResult = "";
 	for (var i = 0; i < condStrs.length; i++) {
-		console.log(i)
-		console.log(condStrs[i]);
+		//console.log(i)
+		//console.log(condStrs[i]);
 		var condStr = condStrs[i].text;
 		if (i < condStrs.length-2 && !condStrs[i+1].isDisabled) {
 			condStr += " and ";
@@ -577,6 +638,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	if (name === "_arraySlice") {
 		return decompile(args[0]) + ".slice(" + decompile(args[1]) + ", " + decompile(args[2])+")";
 	}
+
+	//Call subroutine
+	if (name === "_callSubroutine") {
+		return translateSubroutineToPy(args[0])+"()";
+	}
 	
 	//Chase global variable at rate
 	if (name === "_chaseGlobalVariableAtRate") {
@@ -660,10 +726,29 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	if (name === "_divide") {
 		return decompileOperator(args[0], "/", args[1]);
 	}
+
+	//Elif
+	if (name === "__elif__") {
+		var arg1 = decompile(args[0]);
+		var result = "__elif__(";+arg1+")";
+		return result;
+	}
+
+	//Else
+	if (name === "__else__") {
+		var result = "__else__()";
+		return result;
+	}
 	
 	//Empty array
 	if (name === "_emptyArray") {
 		return "[]";
+	}
+	
+	//End
+	if (name === "__end__") {
+		var result = "__end__()";
+		return result;
 	}
 	
 	//Filtered array
@@ -686,6 +771,16 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//First of
 	if (name === "_firstOf") {
 		return decompile(args[0])+"[0]";
+	}
+
+	//For global var
+	if (name === "_forGlobalVar") {
+		return "__for__("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", "+decompile(args[2])+", "+decompile(args[3])+")";
+	}
+
+	//For player var
+	if (name === "_forPlayerVar") {
+		return "__for__("+decompile(args[0])+"."+translateVarToPy(args[1], false)+", "+decompile(args[2])+", "+decompile(args[3])+", "+decompile(args[4])+")";
 	}
 	
 	//Raycast hit normal
@@ -763,6 +858,13 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 			colors = decompile(args[6])+", "+decompile(args[7])+", "+decompile(args[8]);
 		}
 		return funcName+"("+decompile(args[0])+", "+texts+", "+decompile(args[4], getConstantKw("HUD LOCATION"))+", "+decompile(args[5])+", "+colors+", "+decompile(args[9])+specVisibility+")";
+	}
+
+	//If
+	if (name === "__if__") {
+		var arg1 = decompile(args[0]);
+		var result = "__if__(";+arg1+")";
+		return result;
 	}
 	
 	//Index of array value
@@ -863,8 +965,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Modify player var
 	if (name === "_modifyPlayerVar") {
 		
-		var playerVarName = getPlayerVarName(args[0]);
-		var result = decompileModifyVar(playerVarName+"."+translateVarToPy(args[1], false), args[2], decompile(args[3]))
+		var result = decompileModifyVar(decompile(args[0])+"."+translateVarToPy(args[1], false), args[2], decompile(args[3]))
 		
 		return decompilePlayerFunction(result, args[0], []);
 	}
@@ -872,8 +973,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Modify player var at index
 	if (name === "_modifyPlayerVarAtIndex") {
 		
-		var playerVarName = getPlayerVarName(args[0]);
-		var result = decompileModifyVar(playerVarName+"."+translateVarToPy(args[1], false), args[3], decompile(args[4]), decompile(args[2]))
+		var result = decompileModifyVar(decompile(args[0])+"."+translateVarToPy(args[1], false), args[3], decompile(args[4]), decompile(args[2]))
 		
 		return decompilePlayerFunction(result, args[0], []);
 	}
@@ -895,15 +995,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Player variable
 	if (name === "_playerVar") {
-		if (!isPlayerArrayInstruction(args[0])) {
-			return decompile(args[0])+"."+translateVarToPy(args[1], false);
-		} else {
-			if (isInNormalForLoop) {
-				return "[player2."+translateVarToPy(args[1], false)+" for player2 in "+decompile(args[0])+"]";
-			} else {
-				return "[player."+translateVarToPy(args[1], false)+" for player in "+decompile(args[0])+"]";
-			}
-		}
+		return decompile(args[0])+"."+translateVarToPy(args[1], false);
 	}
 	
 	//Raise to power
@@ -949,6 +1041,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Set player var at index
 	if (name === "_setPlayerVarAtIndex") {
 		return decompilePlayerFunction("{player}.{arg0}[{arg1}] = {arg2}", args[0], args.slice(1), true, true, true);
+	}
+
+	//Start rule
+	if (name === "_startRule") {
+		return "async("+translateSubroutineToPy(args[0])+"(), "+decompile(args[1])+")";
 	}
 	
 	//Stop chasing player variable
@@ -1019,7 +1116,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		currentArrayElementNames.pop();
 		return result;
 	}
-					
+
 	//Value in array
 	if (name === "_valueInArray") {
 		return decompile(args[0])+"["+decompile(args[1])+"]";
@@ -1030,13 +1127,20 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		var arg1 = decompile(args[0]);
 		var arg2 = decompile(args[1]);
 		var result = "wait(";
-		if (arg1 !== "0.016") {
+		if (arg1 !== "0.016" || arg2 !== "Wait.IGNORE_CONDITION") {
 			result += arg1;
 		}
 		if (arg2 !== "Wait.IGNORE_CONDITION") {
 			result += ", "+arg2;
 		}
 		return result+")";
+	}
+
+	//While
+	if (name === "__while__") {
+		var arg1 = decompile(args[0]);
+		var result = "__while__(";+arg1+")";
+		return result;
 	}
 	
 	//X/Y/Z component of
@@ -1147,34 +1251,12 @@ function decompileGenericPlayerFunction(name, args, isAction) {
 	return decompilePlayerFunction("{player}."+name+"({args})", args[0], args.slice(1), false, isAction);
 }
 
-//Automatically generates a for loop for player function, if that player function takes an array as argument.
 //The content is a python translation and must contain {player} and {args} to replace strings by the args.
 //If separateArgs = true, {arg0}, {arg1} etc must be provided instead of {args}.
 function decompilePlayerFunction(content, player, args, separateArgs=false, isAction=true, firstArgIsVar=false) {
 	
 	var result = "";
-	var hasNormalForLoopBeenSetInThisFunction = false;
-	
-	
-	if (!isPlayerArrayInstruction(player)) {
-		result += content.replace("\{player\}", decompile(player))
-		
-	} else {
-		if (isAction) {
-			result += "for player in "+decompile(player)+":\n";
-			result += tabLevel(nbTabs+1)+content.replace("\{player\}", "player")
-			isInNormalForLoop = true;
-			hasNormalForLoopBeenSetInThisFunction = true;
-		} else {
-			if (isInNormalForLoop) {
-				result += "["+content.replace("\{player\}", "player2")+" for player2 in "+decompile(player)+"]";
-			} else if (currentArrayElementNames.indexOf("player") > -1) {
-				result += "["+content.replace("\{player\}", "player3")+" for player3 in "+decompile(player)+"]";
-			} else {
-				result += "["+content.replace("\{player\}", "player")+" for player in "+decompile(player)+"]";
-			}
-		}
-	}
+	result += content.replace("\{player\}", decompile(player))
 	
 	
 	//Parse arguments
@@ -1199,9 +1281,6 @@ function decompilePlayerFunction(content, player, args, separateArgs=false, isAc
 				result = result.replace("\{arg"+i+"\}", decompile(args[i]))
 			}
 		}
-	}
-	if (hasNormalForLoopBeenSetInThisFunction) {
-		isInNormalForLoop = false;
 	}
 	return result;
 }
