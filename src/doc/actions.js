@@ -823,7 +823,7 @@ var actionKw =
         "zh-CN": "宣告队伍胜利"
     },
     {
-        "opy": "destroyAllDummies()",
+        "opy": "destroyAllDummies",
         "description": "Removes all dummy bots from the match.",
         "args": [],
         "en-US": "Destroy All Dummy Bots",
@@ -836,7 +836,7 @@ var actionKw =
         "zh-CN": "移除所有机器人"
     },
     {
-        "opy": "destroyAllEffects()",
+        "opy": "destroyAllEffects",
         "description": "Destroys all effect entities created by create effect.",
         "args": [],
         "en-US": "Destroy All Effects",
@@ -848,7 +848,7 @@ var actionKw =
         "zh-CN": "消除所有效果"
     },
     {
-        "opy": "destroyAllHudTexts()",
+        "opy": "destroyAllHudTexts",
         "description": "Destroys all hud text that was created by the create hud text action.",
         "args": [],
         "en-US": "Destroy All HUD Text",
@@ -860,7 +860,7 @@ var actionKw =
         "zh-CN": "消除所有HUD文本"
     },
     {
-        "opy": "destroyAllIcons()",
+        "opy": "destroyAllIcons",
         "description": "Destroys all icon entities created by create icon.",
         "args": [],
         "en-US": "Destroy All Icons",
@@ -872,7 +872,7 @@ var actionKw =
         "zh-CN": "消除所有图标"
     },
     {
-        "opy": "destroyAllInWorldText()",
+        "opy": "destroyAllInWorldText",
         "description": "Destroys all in-world text created by create in-world text.",
         "args": [],
         "en-US": "Destroy All In-World Text",
@@ -987,7 +987,7 @@ var actionKw =
         "zh-CN": "消除地图文本"
     },
     {
-        "opy": "disableAnnouncer()",
+        "opy": "disableAnnouncer",
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Announcer",
@@ -999,7 +999,7 @@ var actionKw =
         "zh-CN": "关闭游戏预设通告模式"
     },
     {
-        "opy": "disableGamemodeCompletion()",
+        "opy": "disableGamemodeCompletion",
         "description": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Completion",
@@ -1011,7 +1011,7 @@ var actionKw =
         "zh-CN": "关闭游戏预设完成条件"
     },
     {
-        "opy": "disableMusic()",
+        "opy": "disableMusic",
         "description": "Disables all game mode music until reenabled or the match ends.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Music",
@@ -1042,7 +1042,7 @@ var actionKw =
         "zh-CN": "关闭游戏预设重生模式"
     },
     {
-        "opy": "disableScoring()",
+        "opy": "disableScoring",
         "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Scoring",
@@ -1092,7 +1092,7 @@ var actionKw =
         "zh-CN": "禁用死亡回放时目标的HUD"
     },
     {
-        "opy": "disableInspector()",
+        "opy": "disableInspector",
         "description": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.",
         "args": [],
         "en-US": "Disable Inspector Recording",
@@ -1125,7 +1125,7 @@ var actionKw =
     {
         "opy": "__else__",
         "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
-        "args": null,
+        "args": [],
         "en-US": "Else",
     },
     {
@@ -1142,7 +1142,7 @@ var actionKw =
         "en-US": "Else If",
     },
     {
-        "opy": "enableAnnouncer()",
+        "opy": "enableAnnouncer",
         "description": "Undoes the effect of the disable built-in game mode announcer action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Announcer",
@@ -1154,7 +1154,7 @@ var actionKw =
         "zh-CN": "开启游戏预设通告模式"
     },
     {
-        "opy": "enableGamemodeCompletion()",
+        "opy": "enableGamemodeCompletion",
         "description": "Undoes the effect of the disable built-in game mode completion action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Completion",
@@ -1166,7 +1166,7 @@ var actionKw =
         "zh-CN": "开启游戏预设完成条件"
     },
     {
-        "opy": "enableMusic()",
+        "opy": "enableMusic",
         "description": "Undoes the effect of the disable built-in game mode music action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Music",
@@ -1197,7 +1197,7 @@ var actionKw =
         "zh-CN": "开启游戏预设重生模式"
     },
     {
-        "opy": "enableScoring()",
+        "opy": "enableScoring",
         "description": "Undoes the effect of the disable built-in game mode scoring action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Scoring",
@@ -1247,7 +1247,7 @@ var actionKw =
         "zh-CN": "启用死亡回放时目标的HUD"
     },
     {
-        "opy": "enableInspector()",
+        "opy": "enableInspector",
         "description": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.",
         "args": [],
         "en-US": "Enable Inspector Recording",
@@ -1255,7 +1255,7 @@ var actionKw =
     {
         "opy": "__end__",
         "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
-        "args": null,
+        "args": [],
         "en-US": "End",
     },
     {
@@ -1323,7 +1323,7 @@ var actionKw =
         "en-US": "For Player Variable",
     },
     {
-        "opy": "goToAssembleHeroes()",
+        "opy": "goToAssembleHeroes",
         "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
         "args": [],
         "en-US": "Go To Assemble Heroes",
@@ -1657,7 +1657,7 @@ var actionKw =
         "zh-CN": "修改队伍分数"
     },
     {
-        "opy": "pauseMatchTime()",
+        "opy": "pauseMatchTime",
         "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
         "args": [],
         "en-US": "Pause Match Time",
@@ -3204,7 +3204,7 @@ var actionKw =
         "zh-CN": "停止加速"
     },
     {
-        "opy": "stopAllDamageModifications()",
+        "opy": "stopAllDamageModifications",
         "description": "Stops all damage modifications that were started using the start damage modification action.",
         "args": [],
         "en-US": "Stop All Damage Modifications",
@@ -3216,7 +3216,7 @@ var actionKw =
         "zh-CN": "停止所有伤害调整"
     },
     {
-        "opy": "stopAllHealingModifications()",
+        "opy": "stopAllHealingModifications",
         "description": "Stops all healing modifications that were started using the start healing modification action.",
         "args": [],
         "en-US": "Stop All Healing Modifications",
@@ -3466,6 +3466,7 @@ var actionKw =
                 "default": "LAST HEALING MODIFICATION ID"
             }
         ],
+        "en-US": "Stop Healing Modification",
     },
     {
         "opy": "_&stopForcingButton",
@@ -3556,7 +3557,7 @@ var actionKw =
         "zh-CN": "传送"
     },
     {
-        "opy": "unpauseMatchTime()",
+        "opy": "unpauseMatchTime",
         "description": "Unpauses the match time.",
         "args": [],
         "en-US": "Unpause Match Time",
