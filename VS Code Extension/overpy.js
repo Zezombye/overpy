@@ -823,7 +823,7 @@ var actionKw =
         "zh-CN": "宣告队伍胜利"
     },
     {
-        "opy": "destroyAllDummies()",
+        "opy": "destroyAllDummies",
         "description": "Removes all dummy bots from the match.",
         "args": [],
         "en-US": "Destroy All Dummy Bots",
@@ -836,7 +836,7 @@ var actionKw =
         "zh-CN": "移除所有机器人"
     },
     {
-        "opy": "destroyAllEffects()",
+        "opy": "destroyAllEffects",
         "description": "Destroys all effect entities created by create effect.",
         "args": [],
         "en-US": "Destroy All Effects",
@@ -848,7 +848,7 @@ var actionKw =
         "zh-CN": "消除所有效果"
     },
     {
-        "opy": "destroyAllHudTexts()",
+        "opy": "destroyAllHudTexts",
         "description": "Destroys all hud text that was created by the create hud text action.",
         "args": [],
         "en-US": "Destroy All HUD Text",
@@ -860,7 +860,7 @@ var actionKw =
         "zh-CN": "消除所有HUD文本"
     },
     {
-        "opy": "destroyAllIcons()",
+        "opy": "destroyAllIcons",
         "description": "Destroys all icon entities created by create icon.",
         "args": [],
         "en-US": "Destroy All Icons",
@@ -872,7 +872,7 @@ var actionKw =
         "zh-CN": "消除所有图标"
     },
     {
-        "opy": "destroyAllInWorldText()",
+        "opy": "destroyAllInWorldText",
         "description": "Destroys all in-world text created by create in-world text.",
         "args": [],
         "en-US": "Destroy All In-World Text",
@@ -987,7 +987,7 @@ var actionKw =
         "zh-CN": "消除地图文本"
     },
     {
-        "opy": "disableAnnouncer()",
+        "opy": "disableAnnouncer",
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Announcer",
@@ -999,7 +999,7 @@ var actionKw =
         "zh-CN": "关闭游戏预设通告模式"
     },
     {
-        "opy": "disableGamemodeCompletion()",
+        "opy": "disableGamemodeCompletion",
         "description": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Completion",
@@ -1011,7 +1011,7 @@ var actionKw =
         "zh-CN": "关闭游戏预设完成条件"
     },
     {
-        "opy": "disableMusic()",
+        "opy": "disableMusic",
         "description": "Disables all game mode music until reenabled or the match ends.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Music",
@@ -1042,7 +1042,7 @@ var actionKw =
         "zh-CN": "关闭游戏预设重生模式"
     },
     {
-        "opy": "disableScoring()",
+        "opy": "disableScoring",
         "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Scoring",
@@ -1092,7 +1092,7 @@ var actionKw =
         "zh-CN": "禁用死亡回放时目标的HUD"
     },
     {
-        "opy": "disableInspector()",
+        "opy": "disableInspector",
         "description": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.",
         "args": [],
         "en-US": "Disable Inspector Recording",
@@ -1125,7 +1125,7 @@ var actionKw =
     {
         "opy": "__else__",
         "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
-        "args": null,
+        "args": [],
         "en-US": "Else",
     },
     {
@@ -1142,7 +1142,7 @@ var actionKw =
         "en-US": "Else If",
     },
     {
-        "opy": "enableAnnouncer()",
+        "opy": "enableAnnouncer",
         "description": "Undoes the effect of the disable built-in game mode announcer action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Announcer",
@@ -1154,7 +1154,7 @@ var actionKw =
         "zh-CN": "开启游戏预设通告模式"
     },
     {
-        "opy": "enableGamemodeCompletion()",
+        "opy": "enableGamemodeCompletion",
         "description": "Undoes the effect of the disable built-in game mode completion action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Completion",
@@ -1166,7 +1166,7 @@ var actionKw =
         "zh-CN": "开启游戏预设完成条件"
     },
     {
-        "opy": "enableMusic()",
+        "opy": "enableMusic",
         "description": "Undoes the effect of the disable built-in game mode music action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Music",
@@ -1197,7 +1197,7 @@ var actionKw =
         "zh-CN": "开启游戏预设重生模式"
     },
     {
-        "opy": "enableScoring()",
+        "opy": "enableScoring",
         "description": "Undoes the effect of the disable built-in game mode scoring action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Scoring",
@@ -1247,7 +1247,7 @@ var actionKw =
         "zh-CN": "启用死亡回放时目标的HUD"
     },
     {
-        "opy": "enableInspector()",
+        "opy": "enableInspector",
         "description": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.",
         "args": [],
         "en-US": "Enable Inspector Recording",
@@ -1255,7 +1255,7 @@ var actionKw =
     {
         "opy": "__end__",
         "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
-        "args": null,
+        "args": [],
         "en-US": "End",
     },
     {
@@ -1323,7 +1323,7 @@ var actionKw =
         "en-US": "For Player Variable",
     },
     {
-        "opy": "goToAssembleHeroes()",
+        "opy": "goToAssembleHeroes",
         "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
         "args": [],
         "en-US": "Go To Assemble Heroes",
@@ -1657,7 +1657,7 @@ var actionKw =
         "zh-CN": "修改队伍分数"
     },
     {
-        "opy": "pauseMatchTime()",
+        "opy": "pauseMatchTime",
         "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
         "args": [],
         "en-US": "Pause Match Time",
@@ -3204,7 +3204,7 @@ var actionKw =
         "zh-CN": "停止加速"
     },
     {
-        "opy": "stopAllDamageModifications()",
+        "opy": "stopAllDamageModifications",
         "description": "Stops all damage modifications that were started using the start damage modification action.",
         "args": [],
         "en-US": "Stop All Damage Modifications",
@@ -3216,7 +3216,7 @@ var actionKw =
         "zh-CN": "停止所有伤害调整"
     },
     {
-        "opy": "stopAllHealingModifications()",
+        "opy": "stopAllHealingModifications",
         "description": "Stops all healing modifications that were started using the start healing modification action.",
         "args": [],
         "en-US": "Stop All Healing Modifications",
@@ -3466,6 +3466,7 @@ var actionKw =
                 "default": "LAST HEALING MODIFICATION ID"
             }
         ],
+        "en-US": "Stop Healing Modification",
     },
     {
         "opy": "_&stopForcingButton",
@@ -3556,7 +3557,7 @@ var actionKw =
         "zh-CN": "传送"
     },
     {
-        "opy": "unpauseMatchTime()",
+        "opy": "unpauseMatchTime",
         "description": "Unpauses the match time.",
         "args": [],
         "en-US": "Unpause Match Time",
@@ -3639,7 +3640,7 @@ var actionKw =
  *
  * This program is distributed in the hope that it will be useful, but 
  * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License 
@@ -3713,7 +3714,7 @@ var valueFuncKw =
         "zh-CN": "所有死亡玩家"
     },
     {
-        "opy": "getDamageHeroes()",
+        "opy": "getDamageHeroes",
         "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        ",
         "args": [],
         "en-US": "All Damage Heroes",
@@ -3728,7 +3729,7 @@ var valueFuncKw =
     },
     {
         "guid": "00000000BF58",
-        "opy": "getAllHeroes()",
+        "opy": "getAllHeroes",
         "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Baptiste \n        30. Sigma    \n        ",
         "args": [],
         "en-US": "All Heroes",
@@ -3834,7 +3835,7 @@ var valueFuncKw =
         "zh-CN": "可用英雄"
     },
     {
-        "opy": "getSupportHeroes()",
+        "opy": "getSupportHeroes",
         "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
         "args": [],
         "en-US": "All Support Heroes",
@@ -3848,7 +3849,7 @@ var valueFuncKw =
         "zh-CN": "所有支援英雄"
     },
     {
-        "opy": "getTankHeroes()",
+        "opy": "getTankHeroes",
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
         "args": [],
         "en-US": "All Tank Heroes",
@@ -4368,7 +4369,7 @@ var valueFuncKw =
         "zh-CN": "当前数组元素"
     },
     {
-        "opy": "getCurrentGamemode()",
+        "opy": "getCurrentGamemode",
         "description": "The current game mode of the custom game.",
         "args": [],
         "en-US": "Current Game Mode",
@@ -4384,7 +4385,7 @@ var valueFuncKw =
     },
     {
         "guid": "00000000D418",
-        "opy": "getCurrentMap()",
+        "opy": "getCurrentMap",
         "description": "The current map of the custom game.",
         "args": [],
         "en-US": "Current Map",
@@ -5175,7 +5176,7 @@ var valueFuncKw =
         "zh-CN": "存活"
     },
     {
-        "opy": "isAssemblingHeroes()",
+        "opy": "isAssemblingHeroes",
         "description": "Whether the match is currently in its assemble heroes phase.",
         "args": [],
         "en-US": "Is Assembling Heroes",
@@ -5187,7 +5188,7 @@ var valueFuncKw =
         "zh-CN": "正在集结英雄"
     },
     {
-        "opy": "isMatchBetweenRounds()",
+        "opy": "isMatchBetweenRounds",
         "description": "Whether the match is between rounds.",
         "args": [],
         "en-US": "Is Between Rounds",
@@ -5306,7 +5307,7 @@ var valueFuncKw =
         "zh-CN": "正在使用语音交流"
     },
     {
-        "opy": "isControlPointLocked()",
+        "opy": "isControlPointLocked",
         "description": "Whether the point is locked in control mode.",
         "args": [],
         "en-US": "Is Control Mode Point Locked",
@@ -5337,7 +5338,7 @@ var valueFuncKw =
         "zh-CN": "正在蹲下"
     },
     {
-        "opy": "isInSuddenDeath()",
+        "opy": "isInSuddenDeath",
         "description": "Whether the current game of capture the flag is in sudden death.",
         "args": [],
         "en-US": "Is CTF Mode In Sudden Death",
@@ -5464,7 +5465,7 @@ var valueFuncKw =
         "zh-CN": "是否有人携带旗帜"
     },
     {
-        "opy": "isGameInProgress()",
+        "opy": "isGameInProgress",
         "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
         "args": [],
         "en-US": "Is Game In Progress",
@@ -5551,7 +5552,7 @@ var valueFuncKw =
         "zh-CN": "在视线内"
     },
     {
-        "opy": "isInSetup()",
+        "opy": "isInSetup",
         "description": "Whether the match is currently in its setup phase.",
         "args": [],
         "en-US": "Is In Setup",
@@ -5613,7 +5614,7 @@ var valueFuncKw =
         "zh-CN": "在视野内"
     },
     {
-        "opy": "isMatchComplete()",
+        "opy": "isMatchComplete",
         "description": "Whether the match has finished.",
         "args": [],
         "en-US": "Is Match Complete",
@@ -5903,7 +5904,7 @@ var valueFuncKw =
         "zh-CN": "正在使用终极技能"
     },
     {
-        "opy": "isWaitingForPlayers()",
+        "opy": "isWaitingForPlayers",
         "description": "Whether the match is waiting for players to join before starting.",
         "args": [],
         "en-US": "Is Waiting For Players",
@@ -5915,7 +5916,7 @@ var valueFuncKw =
         "zh-CN": "正在等待玩家"
     },
     {
-        "opy": "getLastCreatedEntity()",
+        "opy": "getLastCreatedEntity",
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": [],
         "en-US": "Last Created Entity",
@@ -5927,7 +5928,7 @@ var valueFuncKw =
         "zh-CN": "最后创建的实体"
     },
     {
-        "opy": "getLastDamageModification()",
+        "opy": "getLastDamageModification",
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
         "args": [],
         "en-US": "Last Damage Modification ID",
@@ -5939,7 +5940,7 @@ var valueFuncKw =
         "zh-CN": "上一个伤害调整ID"
     },
     {
-        "opy": "getLastDoT()",
+        "opy": "getLastDoT",
         "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
         "args": [],
         "en-US": "Last Damage Over Time ID",
@@ -5951,7 +5952,7 @@ var valueFuncKw =
         "zh-CN": "上一个持续伤害效果ID"
     },
     {
-        "opy": "getLastHoT()",
+        "opy": "getLastHoT",
         "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
         "args": [],
         "en-US": "Last Heal Over Time ID",
@@ -5963,7 +5964,7 @@ var valueFuncKw =
         "zh-CN": "上一个持续治疗效果ID"
     },
     {
-        "opy": "getLastHealingModification()",
+        "opy": "getLastHealingModification",
         "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
         "args": [],
         "en-US": "Last Healing Modification ID",
@@ -5988,7 +5989,7 @@ var valueFuncKw =
         "zh-CN": "最后"
     },
     {
-        "opy": "getLastCreatedText()",
+        "opy": "getLastCreatedText",
         "description": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action.",
         "args": [],
         "en-US": "Last Text ID",
@@ -6067,7 +6068,7 @@ var valueFuncKw =
         "zh-TW": "地圖"
     },
     {
-        "opy": "getMatchRound()",
+        "opy": "getMatchRound",
         "description": "The current round of the match, counting up from 1.",
         "args": [],
         "en-US": "Match Round",
@@ -6079,7 +6080,7 @@ var valueFuncKw =
         "zh-CN": "比赛回合"
     },
     {
-        "opy": "getMatchTime()",
+        "opy": "getMatchTime",
         "description": "The amount of time in seconds remaining in the current game mode phase.",
         "args": [],
         "en-US": "Match Time",
@@ -6436,7 +6437,7 @@ var valueFuncKw =
         "zh-CN": "目标点上玩家数量"
     },
     {
-        "opy": "getCurrentObjective()",
+        "opy": "getCurrentObjective",
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
         "args": [],
         "en-US": "Objective Index",
@@ -7077,7 +7078,7 @@ var valueFuncKw =
     },
     {
         "guid": "00000000C961",
-        "opy": "getServerLoad()",
+        "opy": "getServerLoad",
         "description": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
         "en-US": "Server Load",
@@ -7090,7 +7091,7 @@ var valueFuncKw =
     },
     {
         "guid": "00000000C997",
-        "opy": "getAverageServerLoad()",
+        "opy": "getAverageServerLoad",
         "description": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
         "en-US": "Server Load Average",
@@ -7103,7 +7104,7 @@ var valueFuncKw =
     },
     {
         "guid": "00000000C996",
-        "opy": "getPeakServerLoad()",
+        "opy": "getPeakServerLoad",
         "description": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
         "en-US": "Server Load Peak",
@@ -7416,7 +7417,7 @@ var valueFuncKw =
         "zh-CN": "阈值"
     },
     {
-        "opy": "getTotalTimeElapsed()",
+        "opy": "getTotalTimeElapsed",
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
         "args": [],
         "en-US": "Total Time Elapsed",
@@ -12644,6 +12645,31 @@ function getName(content) {
 	
 	return name.replace(/\s/g, "");
 }
+
+
+//Returns true if the function always returns a player array.
+function isPlayerArrayInstruction(content) {
+	
+	content = topy(getName(content), valueKw);
+	
+	debug("Checking if '"+content+"' is a player array instruction");
+	
+	var playerArrayInstructions = [
+		"getDeadPlayers",
+		"getLivingPlayers",
+		"getPlayers",
+		"getPlayersNotOnObjective",
+		"getPlayersOnObjective",
+		"getPlayersInViewAngle",
+		"getPlayersOnHero",
+		"getPlayersInRadius",
+	];
+	
+	if (playerArrayInstructions.indexOf(content) > -1) {
+		return true;
+	}
+	return false;
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -12941,43 +12967,6 @@ function resetVarNames(varKw) {
 */
 
 
-//Returns "player" if the instruction represents an array of players, else the name of the instruction.
-//Note: you must only pass the name of the instruction to this function.
-function getPlayerVarName(content) {
-	if (!isPlayerArrayInstruction(content)) {
-		return decompile(content);
-	} else {
-		return "player";
-	}
-}
-
-//Same as isSinglePlayerInstruction, but for player arrays.
-//However, note that these functions aren't mutually exclusive;
-//if one of them returns false, the other one will not necessarily return true.
-//This is because variables can hold a player and a player array, and we can't know which.
-function isPlayerArrayInstruction(content) {
-	
-	content = topy(getName(content), valueKw);
-	
-	debug("Checking if '"+content+"' is a player array instruction");
-	
-	var playerArrayInstructions = [
-		"getDeadPlayers",
-		"getLivingPlayers",
-		"getPlayers",
-		"getPlayersNotOnObjective",
-		"getPlayersOnObjective",
-		"getPlayersInViewAngle",
-		"getPlayersOnHero",
-		"getPlayersInRadius",
-	];
-	
-	if (playerArrayInstructions.indexOf(content) > -1) {
-		return true;
-	}
-	return false;
-}
-
 //Returns 4 spaces per tab level.
 function tabLevel(nbTabs) {
 	var result = "";
@@ -12986,9 +12975,6 @@ function tabLevel(nbTabs) {
 	}
 	return result;
 }
-
-
-
 
 //Returns true if the given string starts with a parenthesis (or a bracket/curly bracket).
 function startsWithParenthesis(content) {
@@ -16344,15 +16330,25 @@ function decompileAllRules(content, language="en-US") {
 	//Check for variable names
 	if (content.startsWith(tows("_variables", ruleKw))) {
 		decompileVarNames(content.substring(bracketPos[0]+1, bracketPos[1]));
-		bracketPos = bracketPos.slice(1);
-
-	} else {
-		bracketPos.unshift(-1);
+		content = content.substring(bracketPos[1]+1)
 	}
 
+	content = content.trim();
+	bracketPos = getBracketPositions(content);
+
+	//Check for subroutine names
+	if (content.startsWith(tows("_subroutines", ruleKw))) {
+		decompileSubroutines(content.substring(bracketPos[0]+1, bracketPos[1]));
+		content = content.substring(bracketPos[1]+1);
+
+	}
+
+	bracketPos = getBracketPositions(content);
 	debug("global vars: "+globalVariables);
 	debug("player vars: "+playerVariables);
+	debug("subroutines: "+subroutines);
 	
+	bracketPos.unshift(-1);
 	//A rule looks like this:
 	//rule(title) {...}
 	//Therefore, each rule ends every 4th bracket position
@@ -16388,7 +16384,20 @@ function decompileAllRules(content, language="en-US") {
 			variableDeclarations += "#Player variables\n\n"+playerVariableDeclarations+"\n\n";
 		}
 	}
-	result = variableDeclarations + result;
+
+	var subroutineDeclarations = "";
+	if (subroutines.length > 0) {
+		subroutines.sort((a,b) => a.index-b.index);
+		for (var subroutine of subroutines) {
+			if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
+				subroutineDeclarations += "#!declareSubroutine "+translateSubroutineToPy(subroutine.name)+" "+subroutine.index+"\n";
+			}
+		}
+		if (subroutineDeclarations !== "") {
+			subroutineDeclarations = "#Subroutine names\n\n"+subroutineDeclarations+"\n\n";
+		}
+	}
+	result = variableDeclarations + subroutineDeclarations + result;
 		
 	return result;
 	
@@ -16437,6 +16446,28 @@ function decompileVarNames(content) {
 				}
 			}
 		}
+	}
+}
+
+function decompileSubroutines(content) {
+	content = content.split("\n");
+	console.log(content);
+	for (var i = 0; i < content.length; i ++) {
+		
+		content[i] = content[i].trim();
+		if (content[i] === "") {
+			continue;
+		}
+
+		if (content[i].split(":").length % 2 !== 0) {
+			error("Malformed subroutine field '"+content[i]+"'(expected 2 elements)");
+		}
+		var index = content[i].split(":")[0].trim();
+		var subName = content[i].split(":")[1].trim();
+		if (isNaN(index)) {
+			error("Index '"+index+"' in subroutines field should be a number");
+		}
+		addSubroutine(subName, index);
 	}
 }
 
@@ -16495,25 +16526,41 @@ function decompileRule(content) {
 	
 	//Parse events
 	if (eventInst.length > 0) {
-		result += "@Event "+topy(eventInst[0], eventKw)+"\n";
-		if (eventInst.length > 1) {
-			//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
-			if (topy(eventInst[1], eventTeamKw) !== "all") {
-				result += "@Team "+topy(eventInst[1], eventTeamKw)+"\n";
+
+		var eventName = topy(eventInst[0], eventKw);
+		if (eventName === "_subroutine") {
+
+			if (eventInst.length !== 2) {
+				error("Malformed subroutine event");
 			}
-			
-			//Parse the 3rd event instruction
-			//Detect if it is a slot or hero
-			var eventInst3 = topy(eventInst[2], eventPlayerKw.concat(getConstantKw("HERO CONSTANT")))
-			if (eventInst3 !== "all") {
-				if (isNumber(eventInst3)) {
-					result += "@Slot "+eventInst3+"\n";
-				} else {
-					//We assume it is a hero
-					result += "@Hero "+eventInst3.substring("HERO.".length).toLowerCase() + "\n";
+			var subroutineName = translateSubroutineToPy(eventInst[1].trim());
+
+			result += "def "+subroutineName+"():\n";
+			nbTabs = 1;
+
+		} else {
+			result += "@Event "+eventName+"\n";
+			if (eventInst.length > 1) {
+				//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
+				if (topy(eventInst[1], eventTeamKw) !== "all") {
+					result += "@Team "+topy(eventInst[1], eventTeamKw)+"\n";
+				}
+				
+				//Parse the 3rd event instruction
+				//Detect if it is a slot or hero
+				var eventInst3 = topy(eventInst[2], eventPlayerKw.concat(getConstantKw("HERO CONSTANT")))
+				if (eventInst3 !== "all") {
+					if (isNumber(eventInst3)) {
+						result += "@Slot "+eventInst3+"\n";
+					} else {
+						//We assume it is a hero
+						result += "@Hero "+eventInst3.substring("HERO.".length).toLowerCase() + "\n";
+					}
 				}
 			}
 		}
+
+
 	}
 	
 	//Parse conditions
@@ -16563,8 +16610,8 @@ function decompileConditions(content) {
 	}
 	var condStrResult = "";
 	for (var i = 0; i < condStrs.length; i++) {
-		console.log(i)
-		console.log(condStrs[i]);
+		//console.log(i)
+		//console.log(condStrs[i]);
 		var condStr = condStrs[i].text;
 		if (i < condStrs.length-2 && !condStrs[i+1].isDisabled) {
 			condStr += " and ";
@@ -16889,6 +16936,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	if (name === "_arraySlice") {
 		return decompile(args[0]) + ".slice(" + decompile(args[1]) + ", " + decompile(args[2])+")";
 	}
+
+	//Call subroutine
+	if (name === "_callSubroutine") {
+		return translateSubroutineToPy(args[0])+"()";
+	}
 	
 	//Chase global variable at rate
 	if (name === "_chaseGlobalVariableAtRate") {
@@ -16972,10 +17024,29 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	if (name === "_divide") {
 		return decompileOperator(args[0], "/", args[1]);
 	}
+
+	//Elif
+	if (name === "__elif__") {
+		var arg1 = decompile(args[0]);
+		var result = "__elif__(";+arg1+")";
+		return result;
+	}
+
+	//Else
+	if (name === "__else__") {
+		var result = "__else__()";
+		return result;
+	}
 	
 	//Empty array
 	if (name === "_emptyArray") {
 		return "[]";
+	}
+	
+	//End
+	if (name === "__end__") {
+		var result = "__end__()";
+		return result;
 	}
 	
 	//Filtered array
@@ -16998,6 +17069,16 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//First of
 	if (name === "_firstOf") {
 		return decompile(args[0])+"[0]";
+	}
+
+	//For global var
+	if (name === "_forGlobalVar") {
+		return "__for__("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", "+decompile(args[2])+", "+decompile(args[3])+")";
+	}
+
+	//For player var
+	if (name === "_forPlayerVar") {
+		return "__for__("+decompile(args[0])+"."+translateVarToPy(args[1], false)+", "+decompile(args[2])+", "+decompile(args[3])+", "+decompile(args[4])+")";
 	}
 	
 	//Raycast hit normal
@@ -17075,6 +17156,13 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 			colors = decompile(args[6])+", "+decompile(args[7])+", "+decompile(args[8]);
 		}
 		return funcName+"("+decompile(args[0])+", "+texts+", "+decompile(args[4], getConstantKw("HUD LOCATION"))+", "+decompile(args[5])+", "+colors+", "+decompile(args[9])+specVisibility+")";
+	}
+
+	//If
+	if (name === "__if__") {
+		var arg1 = decompile(args[0]);
+		var result = "__if__(";+arg1+")";
+		return result;
 	}
 	
 	//Index of array value
@@ -17175,8 +17263,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Modify player var
 	if (name === "_modifyPlayerVar") {
 		
-		var playerVarName = getPlayerVarName(args[0]);
-		var result = decompileModifyVar(playerVarName+"."+translateVarToPy(args[1], false), args[2], decompile(args[3]))
+		var result = decompileModifyVar(decompile(args[0])+"."+translateVarToPy(args[1], false), args[2], decompile(args[3]))
 		
 		return decompilePlayerFunction(result, args[0], []);
 	}
@@ -17184,8 +17271,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Modify player var at index
 	if (name === "_modifyPlayerVarAtIndex") {
 		
-		var playerVarName = getPlayerVarName(args[0]);
-		var result = decompileModifyVar(playerVarName+"."+translateVarToPy(args[1], false), args[3], decompile(args[4]), decompile(args[2]))
+		var result = decompileModifyVar(decompile(args[0])+"."+translateVarToPy(args[1], false), args[3], decompile(args[4]), decompile(args[2]))
 		
 		return decompilePlayerFunction(result, args[0], []);
 	}
@@ -17207,15 +17293,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Player variable
 	if (name === "_playerVar") {
-		if (!isPlayerArrayInstruction(args[0])) {
-			return decompile(args[0])+"."+translateVarToPy(args[1], false);
-		} else {
-			if (isInNormalForLoop) {
-				return "[player2."+translateVarToPy(args[1], false)+" for player2 in "+decompile(args[0])+"]";
-			} else {
-				return "[player."+translateVarToPy(args[1], false)+" for player in "+decompile(args[0])+"]";
-			}
-		}
+		return decompile(args[0])+"."+translateVarToPy(args[1], false);
 	}
 	
 	//Raise to power
@@ -17261,6 +17339,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Set player var at index
 	if (name === "_setPlayerVarAtIndex") {
 		return decompilePlayerFunction("{player}.{arg0}[{arg1}] = {arg2}", args[0], args.slice(1), true, true, true);
+	}
+
+	//Start rule
+	if (name === "_startRule") {
+		return "async("+translateSubroutineToPy(args[0])+"(), "+decompile(args[1])+")";
 	}
 	
 	//Stop chasing player variable
@@ -17331,7 +17414,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		currentArrayElementNames.pop();
 		return result;
 	}
-					
+
 	//Value in array
 	if (name === "_valueInArray") {
 		return decompile(args[0])+"["+decompile(args[1])+"]";
@@ -17342,13 +17425,20 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		var arg1 = decompile(args[0]);
 		var arg2 = decompile(args[1]);
 		var result = "wait(";
-		if (arg1 !== "0.016") {
+		if (arg1 !== "0.016" || arg2 !== "Wait.IGNORE_CONDITION") {
 			result += arg1;
 		}
 		if (arg2 !== "Wait.IGNORE_CONDITION") {
 			result += ", "+arg2;
 		}
 		return result+")";
+	}
+
+	//While
+	if (name === "__while__") {
+		var arg1 = decompile(args[0]);
+		var result = "__while__(";+arg1+")";
+		return result;
 	}
 	
 	//X/Y/Z component of
@@ -17459,34 +17549,12 @@ function decompileGenericPlayerFunction(name, args, isAction) {
 	return decompilePlayerFunction("{player}."+name+"({args})", args[0], args.slice(1), false, isAction);
 }
 
-//Automatically generates a for loop for player function, if that player function takes an array as argument.
 //The content is a python translation and must contain {player} and {args} to replace strings by the args.
 //If separateArgs = true, {arg0}, {arg1} etc must be provided instead of {args}.
 function decompilePlayerFunction(content, player, args, separateArgs=false, isAction=true, firstArgIsVar=false) {
 	
 	var result = "";
-	var hasNormalForLoopBeenSetInThisFunction = false;
-	
-	
-	if (!isPlayerArrayInstruction(player)) {
-		result += content.replace("\{player\}", decompile(player))
-		
-	} else {
-		if (isAction) {
-			result += "for player in "+decompile(player)+":\n";
-			result += tabLevel(nbTabs+1)+content.replace("\{player\}", "player")
-			isInNormalForLoop = true;
-			hasNormalForLoopBeenSetInThisFunction = true;
-		} else {
-			if (isInNormalForLoop) {
-				result += "["+content.replace("\{player\}", "player2")+" for player2 in "+decompile(player)+"]";
-			} else if (currentArrayElementNames.indexOf("player") > -1) {
-				result += "["+content.replace("\{player\}", "player3")+" for player3 in "+decompile(player)+"]";
-			} else {
-				result += "["+content.replace("\{player\}", "player")+" for player in "+decompile(player)+"]";
-			}
-		}
-	}
+	result += content.replace("\{player\}", decompile(player))
 	
 	
 	//Parse arguments
@@ -17511,9 +17579,6 @@ function decompilePlayerFunction(content, player, args, separateArgs=false, isAc
 				result = result.replace("\{arg"+i+"\}", decompile(args[i]))
 			}
 		}
-	}
-	if (hasNormalForLoopBeenSetInThisFunction) {
-		isInNormalForLoop = false;
 	}
 	return result;
 }
@@ -18457,7 +18522,7 @@ function generateVariablesField() {
 
 function generateSubroutinesField() {
 
-	var result = tows("_subroutines", ruleKw)+" {\n";
+	var result = "";
 
 	
 	var outputSubroutines = Array(128);
@@ -18517,7 +18582,10 @@ function generateSubroutinesField() {
 		}
 	}
 
-	result += "}\n";
+	if (result) {
+		result = tows("_subroutines", ruleKw)+" {\n" + result + "}\n";
+	}
+	
 	return result;
 
 }
@@ -18660,7 +18728,6 @@ function compileRule(rule) {
 	//Parse the eventual rule condition, as well as the "do:".
 	//This loop breaks when it hits an actual action.
 
-	var hasRuleConditionBeenEncountered = false
 	var nbDo = 0;
 	for (; i < rule.lines.length; i++) {
 		if (rule.lines[i].tokens.length === 0) {
@@ -18670,7 +18737,7 @@ function compileRule(rule) {
 		fileStack = rule.lines[i].tokens[0].fileStack;
 
 		//Rule condition: 
-		if (rule.lines[i].tokens[0].text === "if" && nbDo === 0 && !hasRuleConditionBeenEncountered) {
+		if (rule.lines[i].tokens[0].text === "if" && nbDo === 0 && rule.lines[i].indentLevel === 0) {
 
 			//Check if there are instructions after the if; if not, return nothing as the rule is useless
 			if (i+1 >= rule.lines.length) {
@@ -18701,7 +18768,6 @@ function compileRule(rule) {
 					result += compiledConditions;
 					result += tabLevel(1)+"}\n\n";
 				}
-				hasRuleConditionBeenEncountered = true;
 			} else {
 				break;
 			}
@@ -19969,6 +20035,27 @@ function parse(content, parseArgs={}) {
 		//probably the longest line of code in all this codebase
 		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("Team.ALL", getConstantKw("TEAM CONSTANT"))+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("Position.LEFT", getConstantKw("HUD LOCATION"))+", 0, "+tows("Color.ORANGE", getConstantKw("COLOR"))+", "+tows("Color.WHITE", getConstantKw("COLOR"))+", "+tows("Color.WHITE", getConstantKw("COLOR"))+", "+tows("HudReeval.VISIBILITY_AND_STRING", getConstantKw("HUD TEXT REEVALUATION"))+", "+tows("SpecVisibility.ALWAYS", getConstantKw("SPECTATOR VISIBILITY"))+")";
 	}
+
+	if (name === "__for__") {
+		var funcName = "_for";
+		var result = "";
+		
+		//Check for dot; if it is present, it can only be a player variable
+		var operands = splitTokens(args[0], ".", false, true);
+		if (operands.length === 2) {
+			funcName += "PlayerVar";
+			result += parse(operands[0])+", ";
+			result += translateVarToWs(operands[1][0].text, false);
+		} else {
+			funcName += "GlobalVar";
+			result += translateVarToWs(args[0][0].text, true);
+		}
+		
+		if (args.length !== 4) {
+			error("__for__ function must have 4 arguments");
+		}
+		return tows(funcName, actionKw)+"("+result+", "+parse(args[1])+", "+parse(args[2])+", "+parse(args[3])+")";
+	}
 	
 	if (name === "floor") {
 		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", getConstantKw("ROUNDING TYPE"))+")";
@@ -20141,10 +20228,14 @@ function parse(content, parseArgs={}) {
 	//Handle functions with no arguments
 	if (args.length === 0) {
 		try {
-			return tows(name+"()", funcKw);
+			return tows(name, funcKw);
 		} catch (e) {
 			//No translation found? May be a subroutine.
-			return tows("_callSubroutine", actionKw)+"("+translateSubroutineToWs(name)+")";
+			try {
+				return tows("_callSubroutine", actionKw)+"("+translateSubroutineToWs(name)+")";
+			} catch (e) {
+				error("Unknown function "+name);
+			}
 		}
 	}
 	

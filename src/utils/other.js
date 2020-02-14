@@ -91,43 +91,6 @@ function resetVarNames(varKw) {
 */
 
 
-//Returns "player" if the instruction represents an array of players, else the name of the instruction.
-//Note: you must only pass the name of the instruction to this function.
-function getPlayerVarName(content) {
-	if (!isPlayerArrayInstruction(content)) {
-		return decompile(content);
-	} else {
-		return "player";
-	}
-}
-
-//Same as isSinglePlayerInstruction, but for player arrays.
-//However, note that these functions aren't mutually exclusive;
-//if one of them returns false, the other one will not necessarily return true.
-//This is because variables can hold a player and a player array, and we can't know which.
-function isPlayerArrayInstruction(content) {
-	
-	content = topy(getName(content), valueKw);
-	
-	debug("Checking if '"+content+"' is a player array instruction");
-	
-	var playerArrayInstructions = [
-		"getDeadPlayers",
-		"getLivingPlayers",
-		"getPlayers",
-		"getPlayersNotOnObjective",
-		"getPlayersOnObjective",
-		"getPlayersInViewAngle",
-		"getPlayersOnHero",
-		"getPlayersInRadius",
-	];
-	
-	if (playerArrayInstructions.indexOf(content) > -1) {
-		return true;
-	}
-	return false;
-}
-
 //Returns 4 spaces per tab level.
 function tabLevel(nbTabs) {
 	var result = "";
@@ -136,9 +99,6 @@ function tabLevel(nbTabs) {
 	}
 	return result;
 }
-
-
-
 
 //Returns true if the given string starts with a parenthesis (or a bracket/curly bracket).
 function startsWithParenthesis(content) {

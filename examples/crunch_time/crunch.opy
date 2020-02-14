@@ -8,6 +8,8 @@
 #!declareSubroutine countdownTimer
 #!declareSubroutine nextChallenge
 
+#!obfuscate
+
 @Rule "timer"
 @Event global
 #debug(timer)

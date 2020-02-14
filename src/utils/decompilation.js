@@ -130,3 +130,28 @@ function getName(content) {
 	
 	return name.replace(/\s/g, "");
 }
+
+
+//Returns true if the function always returns a player array.
+function isPlayerArrayInstruction(content) {
+	
+	content = topy(getName(content), valueKw);
+	
+	debug("Checking if '"+content+"' is a player array instruction");
+	
+	var playerArrayInstructions = [
+		"getDeadPlayers",
+		"getLivingPlayers",
+		"getPlayers",
+		"getPlayersNotOnObjective",
+		"getPlayersOnObjective",
+		"getPlayersInViewAngle",
+		"getPlayersOnHero",
+		"getPlayersInRadius",
+	];
+	
+	if (playerArrayInstructions.indexOf(content) > -1) {
+		return true;
+	}
+	return false;
+}
