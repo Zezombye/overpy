@@ -62,8 +62,6 @@ var globalSuppressedWarnings;
 //A list of imported files, to prevent import loops.
 var importedFiles;
 
-var wasWaitEncountered;
-
 var disableUnusedVars;
 
 //Decompilation variables
@@ -87,9 +85,6 @@ var lastLoop;
 //Is reset at each action and rule condition.
 var operatorPrecedenceStack;
 
-//Whether the decompilation at this time is under a normal "for" loop.
-var isInNormalForLoop;
-
 
 function resetGlobalVariables() {
 	rootPath = "";
@@ -110,7 +105,6 @@ function resetGlobalVariables() {
 	nbTabs = 0;
 	lastLoop = -1;
 	operatorPrecedenceStack = [];
-	isInNormalForLoop = false;
 	globalVariables = [];
 	playerVariables = [];
 	subroutines = [];
@@ -118,7 +112,6 @@ function resetGlobalVariables() {
 	suppressedWarnings = [];
 	globalSuppressedWarnings = [];
 	currentLanguage = "en-US";
-	wasWaitEncountered = false;
 	importedFiles = [];
 	enableNoEdit = false;
 	disableUnusedVars = false;
