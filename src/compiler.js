@@ -237,8 +237,6 @@ function compileRule(rule) {
 		error("Current array element names length isn't 0");
 	}
 	
-	wasWaitEncountered = false;
-	
 	//The first line should always start with @Rule.
 	if (rule.lines[0].tokens[0].text !== "@Rule") {
 		error("Lexer broke (rule not starting with '@Rule'?)");
@@ -1845,7 +1843,6 @@ function parse(content, parseArgs={}) {
 		
 	
 	if (name === "wait") {
-		wasWaitEncountered = true;
 		var result = tows("_wait", actionKw)+"(";
 		if (args.length === 0) {
 			result += "0.016, ";

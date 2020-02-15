@@ -501,6 +501,9 @@ function tokenize(content) {
 	//console.log("macros = ");
 	//console.log(macros);
 	//console.log(rules);
+
+	console.log(rules)
+	throw new Exception("owo");
 	
 	return rules.slice(1)
 	
