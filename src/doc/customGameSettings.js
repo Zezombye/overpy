@@ -278,7 +278,394 @@ var customGameSettingsSchema =
                 "values": {
                     "captureSpeed%": {
                         "en-US": "Capture Speed Modifier",
-                        "values": 
+                        "values": "_percent",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                    },
+                    "enableCompetitiveRules": {
+                        "en-US": "Competitive Rules",
+                        "values": "_boolEnabled",
+                        "default": "disabled",
+                    }
+                }
+            },
+            "control": {
+                "en-US": "Control",
+                "values": {
+                    "captureSpeed%": {
+                        "en-US": "Capture Speed Modifier",
+                        "values": "_percent",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                    },
+                    "enableCompetitiveRules": {
+                        "en-US": "Competitive Rules",
+                        "values": "_boolEnabled",
+                        "default": "disabled",
+                    },
+                    "setValidControlPoints": {
+                        "en-US": "Limit Valid Control Points",
+                        "values": [
+                            {
+                                "opy": "all",
+                                "en-US": "All",
+                                "default": true,
+                            },{
+                                "opy": "first",
+                                "en-US": "First",
+                            },{
+                                "opy": "second",
+                                "en-US": "Second",
+                            },{
+                                "opy": "third",
+                                "en-US": "Third",
+                            }
+                        ]
+                    },
+                    "scoreToWin": {
+                        "en-US": "Score To Win",
+                        "values": "_int",
+                        "min": 1,
+                        "max": 3,
+                        "default": 2,
+                    },
+                    "scoringSpeed%": {
+                        "en-US": "Scoring Speed Modifier",
+                        "values": "_percent",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                    }
+                }
+            },
+            "escort": {
+                "en-US": "Escort",
+                "values": {
+                    "enableCompetitiveRules": {
+                        "en-US": "Competitive Rules",
+                        "values": "_boolEnabled",
+                        "default": "disabled",
+                    },
+                    "payloadSpeed%": {
+                        "en-US": "Payload Speed Modifier",
+                        "values": "_percent",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                    },
+                }
+            },
+            "hybrid": {
+                "en-US": "Hybrid",
+                "values": {
+                    "captureSpeed%": {
+                        "en-US": "Capture Speed Modifier",
+                        "values": "_percent",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                    },
+                    "enableCompetitiveRules": {
+                        "en-US": "Competitive Rules",
+                        "values": "_boolEnabled",
+                        "default": "disabled",
+                    },
+                    "payloadSpeed%": {
+                        "en-US": "Payload Speed Modifier",
+                        "values": "_percent",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                    },
+                }
+            },
+            "ctf": {
+                "en-US": "Capture The Flag",
+                "values": {
+                    "enableBlitzFlagLocations": {
+                        "en-US": "Blitz Flag Locations",
+                        "values": "_boolYesNo",
+                        "default": "no",
+                    },
+                    "enableDropFlagOnDmg": {
+                        "en-US": "Damage Interrupts Flag Interaction",
+                        "values": "_boolEnabled",
+                        "default": "disabled",
+                    },
+                    "flagCarrierAbilities": {
+                        "en-US": "Flag Carrier Abilities",
+                        "values": [
+                            {
+                                "opy": "all",
+                                "en-US": "All",
+                            },{
+                                "opy": "none",
+                                "en-US": "None",
+                            },{
+                                "opy": "restricted",
+                                "en-US": "Restricted",
+                                "default": true,
+                            },
+                        ]
+                    },
+                    "flagDroppedLockTime": {
+                        "en-US": "Flag Dropped Lock Time",
+                        "values": "_float",
+                        "min": 0,
+                        "max": 10,
+                        "default": 5,
+                    },
+                    "flagPickupTime": {
+                        "en-US": "Flag Pickup Time",
+                        "values": "_float",
+                        "min": 0,
+                        "max": 5,
+                        "default": 0,
+                    },
+                    "flagReturnTime": {
+                        "en-US": "Flag Return Time",
+                        "values": "_float",
+                        "min": 0,
+                        "max": 5,
+                        "default": 4,
+                    },
+                    "flagScoreRespawnTime": {
+                        "en-US": "Flag Score Respawn Time",
+                        "values": "_float",
+                        "min": 0,
+                        "max": 20,
+                        "default": 15,
+                    },
+                    "gameLengthInMn": {
+                        "en-US": "Game Length Minutes",
+                        "values": "_int",
+                        "min": 5,
+                        "max": 15,
+                        "default": 8,
+                    },
+                    "respawnSpeedBuffDuration": {
+                        "en-US": "Respawn Speed Buff Duration",
+                        "values": "_float",
+                        "min": 0,
+                        "max": 60,
+                        "default": 0,
+                    },
+                    "scoreToWin": {
+                        "en-US": "Score To Win",
+                        "values": "_int",
+                        "min": 1,
+                        "max": 9,
+                        "default": 3,
+                    },
+                    "teamNeedsFlagAtBaseToScore": {
+                        "en-US": "Team Needs Flag At Base To Score",
+                        "values": "_boolYesNo",
+                        "default": "no",
+                    },
+                }
+            },
+            "deathmatch": {
+                "en-US": "Deathmatch",
+                "values": {
+                    "gameLengthInMn": {
+                        "en-US": "Game Length In Minutes",
+                        "values": "_int",
+                        "min": 5,
+                        "max": 15,
+                        "default": 10,
+                    },
+                    "scoreToWin": {
+                        "en-US": "Score To Win",
+                        "values": "_int",
+                        "min": 1,
+                        "max": 50,
+                        "default": 20,
+                    },
+                    "enableSelfInitiatedRespawn": {
+                        "en-US": "Self Initiated Respawn",
+                        "values": "_boolOnOff",
+                        "default": "on",
+                    }
+                }
+            },
+            "elimination": {
+                "en-US": "Elimination",
+                "values": {
+                    "heroSelectionTime": {
+                        "en-US": "Hero Selection Time",
+                        "values": "_int",
+                        "min": 20,
+                        "max": 60,
+                        "default": 20,
+                    },
+                    "scoreToWin": {
+                        "en-US": "Score To Win",
+                        "values": "_int",
+                        "min": 1,
+                        "max": 9,
+                        "default": 3,
+                    },
+                    "restrictPreviouslyPlayedHeroes": {
+                        "en-US": "Restrict Previously Used Heroes",
+                        "values": [
+                            {
+                                "opy": "off",
+                                "en-US": "Off",
+                                "default": true,
+                            },{
+                                "opy": "afterRoundWon",
+                                "en-US": "After Round Won",
+                            },{
+                                "opy": "afterRoundPlayed",
+                                "en-US": "After Round Played",
+                            }
+                        ]
+                    },
+                    "heroesAvailable": {
+                        "en-US": "Hero Selection",
+                        "values": [
+                            {
+                                "opy": "any",
+                                "en-US": "Any",
+                                "default": true,
+                            },{
+                                "opy": "limited",
+                                "en-US": "Limited",
+                            },{
+                                "opy": "random",
+                                "en-US": "Random",
+                            },{
+                                "opy": "mirroredRandom",
+                                "en-US": "Random Mirrored",
+                            }
+                        ]
+                    },
+                    "heroPoolSize": {
+                        "en-US": "Limited Choice Pool",
+                        "values": [
+                            {
+                                "opy": "teamSize",
+                                "en-US": "Team Size",
+                            },{
+                                "opy": "teamSize+1",
+                                "en-US": "Team Size +1",
+                            },{
+                                "opy": "teamSize+2",
+                                "en-US": "Team Size +2",
+                            },{
+                                "opy": "teamSize+3",
+                                "en-US": "Team Size +3",
+                            },
+                        ]
+                    },
+                    "enableTiebreaker": {
+                        "en-US": "Capture Objective Tiebreaker",
+                        "values": "_boolEnabled",
+                        "default": "enabled",
+                    },
+                    "tiebreakerTime": {
+                        "en-US": "Tiebreaker After Match Time Elapsed",
+                        "values": "_int",
+                        "min": 30,
+                        "max": 300,
+                        "default": 105,
+                    },
+                    "tiebreakerCaptureTime": {
+                        "en-US": "Time To Capture",
+                        "values": "_int",
+                        "min": 1,
+                        "max": 7,
+                        "default": 3,
+                    },
+                    "drawTime": {
+                        "en-US": "Draw After Match Time Elapsed With No Tiebreaker",
+                        "values": "_int",
+                        "min": 60,
+                        "max": 300,
+                        "default": 135,
+                    },
+                    "enableWallhack": {
+                        "en-US": "Reveal Heroes",
+                        "values": "_boolEnabled",
+                        "default": "diabled",
+                    },
+                    "wallhackEnabledTime": {
+                        "en-US": "Reveal Heroes After Match Time Elapsed",
+                        "values": "_int",
+                        "min": 0,
+                        "max": 180,
+                        "default": 75,
+                    },
+                }
+            },
+            "tdm": {
+                "en-US": "Team Deathmatch",
+                "values": {
+                    "gameLengthInMn": {
+                        "en-US": "Game Length In Minutes",
+                        "values": "_int",
+                        "min": 5,
+                        "max": 15,
+                        "default": 10,
+                    },
+                    "enableMercyRezKillCancel": {
+                        "en-US": "Mercy Resurrect Counteracts Kills",
+                        "values": "_boolOnOff",
+                        "default": "on",
+                    },
+                    "scoreToWin": {
+                        "en-US": "Score To Win",
+                        "values": "_int",
+                        "min": 1,
+                        "max": 200,
+                        "default": 30,
+                    },
+                    "enableSelfInitiatedRespawn": {
+                        "en-US": "Self Initiated Respawn",
+                        "values": "_boolOnOff",
+                        "default": "on",
+                    },
+                    "needsImbalancedTeamScoreToWin": {
+                        "en-US": "Imbalanced Team Score To Win",
+                        "values": "_boolOnOff",
+                        "default": "off",
+                    },
+                    "team1ScoreToWin": {
+                        "en-US": "Team 1 Score To Win",
+                        "values": "_int",
+                        "min": 1,
+                        "max": 200,
+                        "default": 30,
+                    },
+                    "team2ScoreToWin": {
+                        "en-US": "Team 2 Score To Win",
+                        "values": "_int",
+                        "min": 1,
+                        "max": 200,
+                        "default": 30,
+                    },
+                }
+            },
+            "skirmish": {
+                "en-US": "Skirmish",
+                "values": [],
+            },
+            "practiceRange": {
+                "en-US": "Practice Range",
+                "values": {
+                    "spawnTrainingBots": {
+                        "en-US": "Spawn Training Bots",
+                        "values": "_boolEnabled",
+                        "default": "enabled",
+                    },
+                    "trainingBotsRespawnTime%": {
+                        "en-US": "Training Bot Respawn Time Scalar",
+                        "values": "_percent",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
                     }
                 }
             }
