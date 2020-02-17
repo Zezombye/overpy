@@ -13447,8 +13447,6 @@ var globalSuppressedWarnings;
 //A list of imported files, to prevent import loops.
 var importedFiles;
 
-var wasWaitEncountered;
-
 var disableUnusedVars;
 
 //Decompilation variables
@@ -13472,9 +13470,6 @@ var lastLoop;
 //Is reset at each action and rule condition.
 var operatorPrecedenceStack;
 
-//Whether the decompilation at this time is under a normal "for" loop.
-var isInNormalForLoop;
-
 
 function resetGlobalVariables() {
 	rootPath = "";
@@ -13495,7 +13490,6 @@ function resetGlobalVariables() {
 	nbTabs = 0;
 	lastLoop = -1;
 	operatorPrecedenceStack = [];
-	isInNormalForLoop = false;
 	globalVariables = [];
 	playerVariables = [];
 	subroutines = [];
@@ -13503,7 +13497,6 @@ function resetGlobalVariables() {
 	suppressedWarnings = [];
 	globalSuppressedWarnings = [];
 	currentLanguage = "en-US";
-	wasWaitEncountered = false;
 	importedFiles = [];
 	enableNoEdit = false;
 	disableUnusedVars = false;
@@ -18175,6 +18168,9 @@ function tokenize(content) {
 	//console.log("macros = ");
 	//console.log(macros);
 	//console.log(rules);
+
+	console.log(rules)
+	throw new Exception("owo");
 	
 	return rules.slice(1)
 	
@@ -18600,8 +18596,6 @@ function compileRule(rule) {
 	if (currentArrayElementNames.length !== 0) {
 		error("Current array element names length isn't 0");
 	}
-	
-	wasWaitEncountered = false;
 	
 	//The first line should always start with @Rule.
 	if (rule.lines[0].tokens[0].text !== "@Rule") {
@@ -20209,7 +20203,6 @@ function parse(content, parseArgs={}) {
 		
 	
 	if (name === "wait") {
-		wasWaitEncountered = true;
 		var result = tows("_wait", actionKw)+"(";
 		if (args.length === 0) {
 			result += "0.016, ";
@@ -20423,16 +20416,16 @@ function parseMember(object, member, parseArgs={}) {
 				//Obfuscate heroes, eg Reaper -> getAllHeroes[0]
 				if (Math.random() < 0.5) {
 					if (allTankHeroes.includes(name)) {
-						result = tows("_valueInArray", valueFuncKw)+"("+tows("getTankHeroes()", valueFuncKw)+", "+allTankHeroes.indexOf(name)+")";
+						result = tows("_valueInArray", valueFuncKw)+"("+tows("getTankHeroes", valueFuncKw)+", "+allTankHeroes.indexOf(name)+")";
 					} else if (allDamageHeroes.includes(name)) {
-						result = tows("_valueInArray", valueFuncKw)+"("+tows("getDamageHeroes()", valueFuncKw)+", "+allDamageHeroes.indexOf(name)+")";
+						result = tows("_valueInArray", valueFuncKw)+"("+tows("getDamageHeroes", valueFuncKw)+", "+allDamageHeroes.indexOf(name)+")";
 					} else if (allSupportHeroes.includes(name)) {
-						result = tows("_valueInArray", valueFuncKw)+"("+tows("getSupportHeroes()", valueFuncKw)+", "+allSupportHeroes.indexOf(name)+")";
+						result = tows("_valueInArray", valueFuncKw)+"("+tows("getSupportHeroes", valueFuncKw)+", "+allSupportHeroes.indexOf(name)+")";
 					} else {
 						error("Could not find category for hero '"+name+"'");
 					}
 				} else {
-					result = tows("_valueInArray", valueFuncKw)+"("+tows("getAllHeroes()", valueFuncKw)+", "+allHeroes.indexOf(name)+")";
+					result = tows("_valueInArray", valueFuncKw)+"("+tows("getAllHeroes", valueFuncKw)+", "+allHeroes.indexOf(name)+")";
 				}
 			} else {
 				var result = tows(object[0].text+"."+name, constantKw);

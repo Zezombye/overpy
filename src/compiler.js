@@ -2056,16 +2056,16 @@ function parseMember(object, member, parseArgs={}) {
 				//Obfuscate heroes, eg Reaper -> getAllHeroes[0]
 				if (Math.random() < 0.5) {
 					if (allTankHeroes.includes(name)) {
-						result = tows("_valueInArray", valueFuncKw)+"("+tows("getTankHeroes()", valueFuncKw)+", "+allTankHeroes.indexOf(name)+")";
+						result = tows("_valueInArray", valueFuncKw)+"("+tows("getTankHeroes", valueFuncKw)+", "+allTankHeroes.indexOf(name)+")";
 					} else if (allDamageHeroes.includes(name)) {
-						result = tows("_valueInArray", valueFuncKw)+"("+tows("getDamageHeroes()", valueFuncKw)+", "+allDamageHeroes.indexOf(name)+")";
+						result = tows("_valueInArray", valueFuncKw)+"("+tows("getDamageHeroes", valueFuncKw)+", "+allDamageHeroes.indexOf(name)+")";
 					} else if (allSupportHeroes.includes(name)) {
-						result = tows("_valueInArray", valueFuncKw)+"("+tows("getSupportHeroes()", valueFuncKw)+", "+allSupportHeroes.indexOf(name)+")";
+						result = tows("_valueInArray", valueFuncKw)+"("+tows("getSupportHeroes", valueFuncKw)+", "+allSupportHeroes.indexOf(name)+")";
 					} else {
 						error("Could not find category for hero '"+name+"'");
 					}
 				} else {
-					result = tows("_valueInArray", valueFuncKw)+"("+tows("getAllHeroes()", valueFuncKw)+", "+allHeroes.indexOf(name)+")";
+					result = tows("_valueInArray", valueFuncKw)+"("+tows("getAllHeroes", valueFuncKw)+", "+allHeroes.indexOf(name)+")";
 				}
 			} else {
 				var result = tows(object[0].text+"."+name, constantKw);

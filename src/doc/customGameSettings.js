@@ -81,7 +81,7 @@ var customGameSettingsSchema =
                 "default": 6,
             },
             "team2Slots": {
-                "en-US": "Max Team 1 Players",
+                "en-US": "Max Team 2 Players",
                 "values": "_int",
                 "min": 0,
                 "max": 6,
@@ -466,7 +466,7 @@ var customGameSettingsSchema =
                     },
                 }
             },
-            "deathmatch": {
+            "ffa": {
                 "en-US": "Deathmatch",
                 "values": {
                     "gameLengthInMn": {
@@ -669,6 +669,27 @@ var customGameSettingsSchema =
                     }
                 }
             }
+        }
+    },
+    "heroes": {
+        "en-US": "heroes",
+        "teams": [
+            {
+                "opy": "allTeams",
+                "en-US": "General",
+            },{
+                "opy": "team1",
+                "en-US": "Team 1",
+            },{
+                "opy": "team2",
+                "en-US": "Team 2",
+            },{
+                "opy": "ffa",
+                "en-US": "Team FFA",
+            }
+        ],
+        "values": {
+
         }
     }
 }
