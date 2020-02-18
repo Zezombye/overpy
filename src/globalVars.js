@@ -193,7 +193,7 @@ const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
 const defaultSubroutineNames = Array(128).fill().map((e,i)=>i).map(x => "Sub"+x);
 
 //Names that cannot be used for variables.
-const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "def", "pass", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "RULE_START", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default", "lobbySettings"].concat(Object.keys(constantValues).map(x => constantValues[x].opy));
+const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "def", "pass", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "RULE_START", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default", "settings", "globalvar", "playervar", "int", "float", "disabled"].concat(Object.keys(constantValues).map(x => constantValues[x].opy));
 
 //Names that cannot be used for subroutines.
 const reservedFuncNames = [];
