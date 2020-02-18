@@ -134,6 +134,15 @@ var ruleKw =
     {
         "opy": "_subroutines",
         "en-US": "subroutines",
+        "de-DE": "Subroutinen",
+        "es-ES": "subrutinas",
+        "es-MX": "Subrutinas",
+        "fr-FR": "sous-programmes",
+        "it-IT": "subroutine",
+        "ja-JP": "サブルーチン",
+        "pl-PL": "podprogramy",
+        "pt-BR": "sub-rotinas",
+        "zh-CN": "子程序",
     },
 ]
 //end-json
@@ -263,6 +272,13 @@ var eventKw =
     {
         "opy": "_subroutine",
         "en-US": "Subroutine",
+        "es-ES": "Subrutina",
+        "es-MX": "Subrutina",
+        "fr-FR": "Sous-programme",
+        "ja-JP": "サブルーチン",
+        "pl-PL": "Podprogram",
+        "pt-BR": "Sub-rotina",
+        "zh-CN": "子程序"
     }
 ]
 //end-json
