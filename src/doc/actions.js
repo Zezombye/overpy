@@ -178,6 +178,12 @@ var actionKw =
             }
         ],
         "en-US": "Call Subroutine",
+        "es-MX": "Llamada a subrutina",
+        "fr-FR": "Sous-programme à appeler",
+        "ja-JP": "サブルーチンの呼び出し",
+        "pl-PL": "Wywołaj podprogram",
+        "pt-BR": "Chamar sub-rotina",
+        "zh-CN": "调用子程序",
     },
     {
         "opy": "_chaseGlobalVariableAtRate",
@@ -1127,6 +1133,9 @@ var actionKw =
         "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
         "args": [],
         "en-US": "Else",
+        "es-MX": "Si no",
+        "fr-FR": "Sinon",
+        "pl-PL": "Inaczej",
     },
     {
         "opy": "__elif__",
@@ -1140,6 +1149,9 @@ var actionKw =
             }
         ],
         "en-US": "Else If",
+        "es-MX": "Si no si",
+        "fr-FR": "Sinon Si",
+        "pl-PL": "Inaczej jeśli",
     },
     {
         "opy": "enableAnnouncer",
@@ -1257,6 +1269,10 @@ var actionKw =
         "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
         "args": [],
         "en-US": "End",
+        "es-MX": "Fin",
+        "fr-FR": "Fin",
+        "ja-JP": "終了",
+        "pt-BR": "Término",
     },
     {
         "opy": "_forGlobalVar",
@@ -1286,6 +1302,11 @@ var actionKw =
             }
         ],
         "en-US": "For Global Variable",
+        "es-MX": "Para variable global",
+        "fr-FR": "Pour variable globale",
+        "ja-JP": "グローバル変数",
+        "pt-BR": "For variável global",
+        "zh-CN": "For 全局变量"
     },
     {
         "opy": "_forPlayerVar",
@@ -1321,6 +1342,11 @@ var actionKw =
             }
         ],
         "en-US": "For Player Variable",
+        "es-MX": "Para variable de jugador",
+        "fr-FR": "Pour variable de joueur",
+        "ja-JP": "プレイヤー変数",
+        "pt-BR": "For variável de jogador",
+        "zh-CN": "For 玩家变量"
     },
     {
         "opy": "goToAssembleHeroes",
@@ -1377,6 +1403,9 @@ var actionKw =
             }
         ],
         "en-US": "If",
+        "es-MX": "Si",
+        "fr-FR": "Si",
+        "pl-PL": "Jeśli",
     },
     {
         "guid": "000000007877",
@@ -3097,6 +3126,11 @@ var actionKw =
             }
         ],
         "en-US": "Start Rule",
+        "es-MX": "Comenzar regla",
+        "fr-FR": "Lancer la règle",
+        "ja-JP": "ルールを開始",
+        "pt-BR": "Regra de início",
+        "zh-CN": "开始规则"
     },
     {
         "opy": "_&startThrottleInDirection",
@@ -3605,6 +3639,9 @@ var actionKw =
             }
         ],
         "en-US": "While",
+        "es-MX": "Mientras",
+        "fr-FR": "Tant que",
+        "pl-PL": "Kiedy",
     }
 ]
 //end-json
