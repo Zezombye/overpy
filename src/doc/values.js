@@ -1313,14 +1313,10 @@ var valueFuncKw =
             }
         ],
         "en-US": "Hero",
-        "es-ES": "Héroe",
         "es-MX": "Héroe",
         "fr-FR": "Héros",
-        "it-IT": "Eroe",
         "ja-JP": "ヒーロー",
-        "pl-PL": "Bohater",
         "pt-BR": "Herói",
-        "ru-RU": "Герой",
         "zh-CN": "英雄"
     },
     {

@@ -484,7 +484,6 @@ var actionKw =
         "guid": "00000000CA6A",
         "es-MX": "Crear robot de entrenamiento",
         "fr-FR": "Créer une I.A.",
-        "it-IT": "Crea bot di prova",
         "ja-JP": "ダミーボットを作成",
         "pl-PL": "Stwórz atrapę bota",
         "pt-BR": "Criar Bot",
@@ -836,7 +835,6 @@ var actionKw =
         "guid": "00000000D1D4",
         "es-MX": "Destruir todos los robots de entrenamiento",
         "fr-FR": "Détruire toutes les I.A.",
-        "it-IT": "Distrugge tutti i bot di prova.",
         "ja-JP": "すべてのダミーボットを破棄",
         "pt-BR": "Destruir Todos os Bots",
         "zh-CN": "移除所有机器人"
