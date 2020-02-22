@@ -730,7 +730,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Elif
 	if (name === "__elif__") {
 		var arg1 = decompile(args[0]);
-		var result = "__elif__(";+arg1+")";
+		var result = "__elif__("+arg1+")";
 		return result;
 	}
 
@@ -863,7 +863,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//If
 	if (name === "__if__") {
 		var arg1 = decompile(args[0]);
-		var result = "__if__(";+arg1+")";
+		var result = "__if__("+arg1+")";
 		return result;
 	}
 	
@@ -1139,7 +1139,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//While
 	if (name === "__while__") {
 		var arg1 = decompile(args[0]);
-		var result = "__while__(";+arg1+")";
+		var result = "__while__("+arg1+")";
 		return result;
 	}
 	
