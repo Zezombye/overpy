@@ -1102,6 +1102,12 @@ var actionKw =
         "description": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.",
         "args": [],
         "en-US": "Disable Inspector Recording",
+        "es-MX": "Desactivar registro de Inspector",
+        "fr-FR": "Désactiver l’enregistrement du contrôleur",
+        "ja-JP": "インスペクターでの記録を無効化",
+        "pl-PL": "Wyłącz nagrywanie Inspektora",
+        "pt-BR": "Desativar gravação do Inspetor",
+        "zh-CN": "禁用查看器录制"
     },
     {
         "opy": "_&disallowButton",
@@ -1263,6 +1269,12 @@ var actionKw =
         "description": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.",
         "args": [],
         "en-US": "Enable Inspector Recording",
+        "es-MX": "Activar registro de Inspector",
+        "fr-FR": "Activer l’enregistrement du contrôleur",
+        "ja-JP": "インスペクターでの記録を有効化",
+        "pl-PL": "Włącz nagrywanie Inspektora",
+        "pt-BR": "Ativar gravação do Inspetor",
+        "zh-CN": "启用查看器录制"
     },
     {
         "opy": "__end__",
