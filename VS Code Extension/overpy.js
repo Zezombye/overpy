@@ -178,6 +178,12 @@ var actionKw =
             }
         ],
         "en-US": "Call Subroutine",
+        "es-MX": "Llamada a subrutina",
+        "fr-FR": "Sous-programme à appeler",
+        "ja-JP": "サブルーチンの呼び出し",
+        "pl-PL": "Wywołaj podprogram",
+        "pt-BR": "Chamar sub-rotina",
+        "zh-CN": "调用子程序",
     },
     {
         "opy": "_chaseGlobalVariableAtRate",
@@ -1127,6 +1133,9 @@ var actionKw =
         "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
         "args": [],
         "en-US": "Else",
+        "es-MX": "Si no",
+        "fr-FR": "Sinon",
+        "pl-PL": "Inaczej",
     },
     {
         "opy": "__elif__",
@@ -1140,6 +1149,9 @@ var actionKw =
             }
         ],
         "en-US": "Else If",
+        "es-MX": "Si no si",
+        "fr-FR": "Sinon Si",
+        "pl-PL": "Inaczej jeśli",
     },
     {
         "opy": "enableAnnouncer",
@@ -1257,6 +1269,10 @@ var actionKw =
         "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
         "args": [],
         "en-US": "End",
+        "es-MX": "Fin",
+        "fr-FR": "Fin",
+        "ja-JP": "終了",
+        "pt-BR": "Término",
     },
     {
         "opy": "_forGlobalVar",
@@ -1286,6 +1302,11 @@ var actionKw =
             }
         ],
         "en-US": "For Global Variable",
+        "es-MX": "Para variable global",
+        "fr-FR": "Pour variable globale",
+        "ja-JP": "グローバル変数",
+        "pt-BR": "For variável global",
+        "zh-CN": "For 全局变量"
     },
     {
         "opy": "_forPlayerVar",
@@ -1321,6 +1342,11 @@ var actionKw =
             }
         ],
         "en-US": "For Player Variable",
+        "es-MX": "Para variable de jugador",
+        "fr-FR": "Pour variable de joueur",
+        "ja-JP": "プレイヤー変数",
+        "pt-BR": "For variável de jogador",
+        "zh-CN": "For 玩家变量"
     },
     {
         "opy": "goToAssembleHeroes",
@@ -1377,6 +1403,9 @@ var actionKw =
             }
         ],
         "en-US": "If",
+        "es-MX": "Si",
+        "fr-FR": "Si",
+        "pl-PL": "Jeśli",
     },
     {
         "guid": "000000007877",
@@ -3097,6 +3126,11 @@ var actionKw =
             }
         ],
         "en-US": "Start Rule",
+        "es-MX": "Comenzar regla",
+        "fr-FR": "Lancer la règle",
+        "ja-JP": "ルールを開始",
+        "pt-BR": "Regra de início",
+        "zh-CN": "开始规则"
     },
     {
         "opy": "_&startThrottleInDirection",
@@ -3605,6 +3639,9 @@ var actionKw =
             }
         ],
         "en-US": "While",
+        "es-MX": "Mientras",
+        "fr-FR": "Tant que",
+        "pl-PL": "Kiedy",
     }
 ]
 //end-json
@@ -8462,7 +8499,7 @@ var constantValues =
                 "en-US": "Soldier: 76",
                 "es-ES": "Soldado: 76",
                 "es-MX": "Soldado: 76",
-                "fr-FR": "Soldat : 76",
+                "fr-FR": "Soldat : 76",
                 "it-IT": "Soldato-76",
                 "ja-JP": "ソルジャー76",
                 "ko-KR": "솔저: 76",
@@ -8568,7 +8605,7 @@ var constantValues =
                 "zh-CN": "禅雅塔",
                 "zh-TW": "禪亞塔"
             }
-        ]
+        ],
     },
     "PLAY EFFECT": {
         "opy": "DynamicEffect",
@@ -11484,6 +11521,15 @@ var ruleKw =
     {
         "opy": "_subroutines",
         "en-US": "subroutines",
+        "de-DE": "Subroutinen",
+        "es-ES": "subrutinas",
+        "es-MX": "Subrutinas",
+        "fr-FR": "sous-programmes",
+        "it-IT": "subroutine",
+        "ja-JP": "サブルーチン",
+        "pl-PL": "podprogramy",
+        "pt-BR": "sub-rotinas",
+        "zh-CN": "子程序",
     },
 ]
 //end-json
@@ -11613,6 +11659,13 @@ var eventKw =
     {
         "opy": "_subroutine",
         "en-US": "Subroutine",
+        "es-ES": "Subrutina",
+        "es-MX": "Subrutina",
+        "fr-FR": "Sous-programme",
+        "ja-JP": "サブルーチン",
+        "pl-PL": "Podprogram",
+        "pt-BR": "Sub-rotina",
+        "zh-CN": "子程序"
     }
 ]
 //end-json
@@ -13578,7 +13631,7 @@ const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
 const defaultSubroutineNames = Array(128).fill().map((e,i)=>i).map(x => "Sub"+x);
 
 //Names that cannot be used for variables.
-const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "def", "pass", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "RULE_START", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default", "lobbySettings"].concat(Object.keys(constantValues).map(x => constantValues[x].opy));
+const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "def", "pass", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "RULE_START", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default", "settings", "globalvar", "playervar", "int", "float", "disabled"].concat(Object.keys(constantValues).map(x => constantValues[x].opy));
 
 //Names that cannot be used for subroutines.
 const reservedFuncNames = [];
@@ -17021,7 +17074,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Elif
 	if (name === "__elif__") {
 		var arg1 = decompile(args[0]);
-		var result = "__elif__(";+arg1+")";
+		var result = "__elif__("+arg1+")";
 		return result;
 	}
 
@@ -17154,7 +17207,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//If
 	if (name === "__if__") {
 		var arg1 = decompile(args[0]);
-		var result = "__if__(";+arg1+")";
+		var result = "__if__("+arg1+")";
 		return result;
 	}
 	
@@ -17430,7 +17483,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//While
 	if (name === "__while__") {
 		var arg1 = decompile(args[0]);
-		var result = "__while__(";+arg1+")";
+		var result = "__while__("+arg1+")";
 		return result;
 	}
 	

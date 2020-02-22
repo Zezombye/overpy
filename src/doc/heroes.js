@@ -65,6 +65,9 @@ var heroes = [
         "ru-RU": "Бастион",
         "zh-CN": "堡垒",
         "zh-TW": "壁壘機兵",
+        secondaryFire: {
+            guid: "0000000003C5"
+        },
         ability1: {
             guid: "0000000003C3"
         },
@@ -81,6 +84,9 @@ var heroes = [
         "ru-RU": "Бригитта",
         "zh-CN": "布丽吉塔",
         "zh-TW": "碧姬",
+        secondaryFire: {
+            guid: "00000000802E"
+        },
         ability1: {
             guid: "0000000076BE"
         },
@@ -97,6 +103,18 @@ var heroes = [
         "en-US": "D.Va",
         "es-MX": "D.VA",
         "it-IT": "D.VA",
+        secondaryFire: {
+            guid: "000000001706"
+        },
+        ability1: {
+            guid: "000000001704"
+        },
+        ability2: {
+            guid: "000000006E30",
+        },
+        ultimate: {
+            guid: "000000001708"
+        }
     },
     {
         "guid": "0000000015E5",
@@ -108,6 +126,9 @@ var heroes = [
         "ru-RU": "Кулак Смерти",
         "zh-CN": "末日铁拳",
         "zh-TW": "毀滅拳王",
+        secondaryFire: {
+            guid: "0000000056D5"
+        },
         ability1: {
             guid: "0000000056D0"
         },
@@ -186,8 +207,11 @@ var heroes = [
         "ru-RU": "Лусио",
         "zh-CN": "卢西奥",
         "zh-TW": "路西歐",
-        ability1: {
+        secondaryFire: {
             guid: "000000000CFD"
+        },
+        ability1: {
+            guid: "000000000D0D"
         },
         ability2: {
             guid: "000000000D01"
@@ -283,6 +307,9 @@ var heroes = [
         "ru-RU": "Ориса",
         "zh-CN": "奥丽莎",
         "zh-TW": "歐瑞莎",
+        secondaryFire: {
+            guid: "000000004ED5"
+        },
         ability1: {
             guid: "000000004ED3"
         },
@@ -303,14 +330,17 @@ var heroes = [
         "ru-RU": "Фарра",
         "zh-CN": "法老之鹰",
         "zh-TW": "法拉",
+        secondaryFire: {
+            guid: "0000000003B1"
+        },
         ability1: {
-            guid: ""
+            guid: "0000000003AF"
         },
         ability2: {
-            guid: ""
+            guid: "0000000003B3"
         },
         ultimate: {
-            guid: ""
+            guid: "0000000003AD"
         }
     },
     {
@@ -325,13 +355,13 @@ var heroes = [
         "zh-CN": "死神",
         "zh-TW": "死神",
         ability1: {
-            guid: ""
+            guid: "0000000003BB"
         },
         ability2: {
-            guid: ""
+            guid: "0000000003BF"
         },
         ultimate: {
-            guid: ""
+            guid: "0000000003B7"
         }
     },
     {
@@ -343,14 +373,17 @@ var heroes = [
         "ru-RU": "Райнхардт",
         "zh-CN": "莱因哈特",
         "zh-TW": "萊因哈特",
+        secondaryFire: {
+            guid: "0000000003EC"
+        },
         ability1: {
-            guid: ""
+            guid: "0000000003E8"
         },
         ability2: {
-            guid: ""
+            guid: "0000000003EA"
         },
         ultimate: {
-            guid: ""
+            guid: "0000000003E6"
         }
     },
     {
@@ -365,13 +398,13 @@ var heroes = [
         "zh-CN": "路霸",
         "zh-TW": "攔路豬",
         ability1: {
-            guid: ""
+            guid: "00000000079D"
         },
         ability2: {
-            guid: ""
+            guid: "00000000079B"
         },
         ultimate: {
-            guid: ""
+            guid: "000000000795"
         }
     },
     {
@@ -383,14 +416,17 @@ var heroes = [
         "ru-RU": "Сигма",
         "zh-CN": "西格玛",
         "zh-TW": "席格馬",
+        secondaryFire: {
+            guid: "00000000B350"
+        },
         ability1: {
-            guid: ""
+            guid: "00000000B347"
         },
         ability2: {
-            guid: ""
+            guid: "00000000B345"
         },
         ultimate: {
-            guid: ""
+            guid: "00000000B352"
         }
     },
     {
@@ -408,14 +444,17 @@ var heroes = [
         "ru-RU": "Солдат-76",
         "zh-CN": "士兵：76",
         "zh-TW": "士兵76",
+        secondaryFire: {
+            guid: "000000000C83"
+        },
         ability1: {
-            guid: ""
+            guid: "000000000C85"
         },
         ability2: {
-            guid: ""
+            guid: "000000000C87"
         },
         ultimate: {
-            guid: ""
+            guid: "000000000C89"
         }
     },
     {
@@ -427,14 +466,17 @@ var heroes = [
         "ru-RU": "Сомбра",
         "zh-CN": "黑影",
         "zh-TW": "駭影",
+        secondaryFire: {
+            guid: "000000004711"
+        },
         ability1: {
-            guid: ""
+            guid: "000000004712"
         },
         ability2: {
-            guid: ""
+            guid: "000000004700"
         },
         ultimate: {
-            guid: ""
+            guid: "00000000470C"
         }
     },
     {
@@ -447,13 +489,13 @@ var heroes = [
         "zh-CN": "秩序之光",
         "zh-TW": "辛梅塔",
         ability1: {
-            guid: ""
+            guid: "000000000406"
         },
         ability2: {
-            guid: ""
+            guid: "000000000404"
         },
         ultimate: {
-            guid: ""
+            guid: "000000005462"
         }
     },
     {
@@ -466,13 +508,13 @@ var heroes = [
         "zh-CN": "托比昂",
         "zh-TW": "托比昂",
         ability1: {
-            guid: ""
+            guid: "000000009295"
         },
         ability2: {
-            guid: ""
+            guid: "000000009297"
         },
         ultimate: {
-            guid: ""
+            guid: "000000009299"
         }
     },
     {
@@ -486,13 +528,13 @@ var heroes = [
         "zh-CN": "猎空",
         "zh-TW": "閃光",
         ability1: {
-            guid: ""
+            guid: "000000000393"
         },
         ability2: {
-            guid: ""
+            guid: "000000000396"
         },
         ultimate: {
-            guid: ""
+            guid: "000000000398"
         }
     },
     {
@@ -507,13 +549,13 @@ var heroes = [
         "zh-CN": "黑百合",
         "zh-TW": "奪命女",
         ability1: {
-            guid: ""
+            guid: "0000000003E0"
         },
         ability2: {
-            guid: ""
+            guid: "0000000003DE"
         },
         ultimate: {
-            guid: ""
+            guid: "0000000003DD"
         }
     },
     {
@@ -526,13 +568,13 @@ var heroes = [
         "zh-CN": "温斯顿",
         "zh-TW": "溫斯頓",
         ability1: {
-            guid: ""
+            guid: "0000000003F2"
         },
         ability2: {
-            guid: ""
+            guid: "0000000003F4"
         },
         ultimate: {
-            guid: ""
+            guid: "0000000003F0"
         }
     },
     {
@@ -546,14 +588,17 @@ var heroes = [
         "ru-RU": "Таран",
         "zh-CN": "破坏球",
         "zh-TW": "火爆鋼球",
+        secondaryFire: {
+            guid: "0000000082A6"
+        },
         ability1: {
-            guid: ""
+            guid: "0000000072E4"
         },
         ability2: {
-            guid: ""
+            guid: "000000008B75"
         },
         ultimate: {
-            guid: ""
+            guid: "00000000866F"
         }
     },
     {
@@ -567,13 +612,13 @@ var heroes = [
         "zh-CN": "查莉娅",
         "zh-TW": "札莉雅",
         ability1: {
-            guid: ""
+            guid: "000000000492"
         },
         ability2: {
-            guid: ""
+            guid: "000000000494"
         },
         ultimate: {
-            guid: ""
+            guid: "000000000496"
         }
     },
     {
@@ -586,13 +631,13 @@ var heroes = [
         "zh-CN": "禅雅塔",
         "zh-TW": "禪亞塔",
         ability1: {
-            guid: ""
+            guid: "0000000003FC"
         },
         ability2: {
-            guid: ""
+            guid: "0000000003FE"
         },
         ultimate: {
-            guid: ""
+            guid: "0000000003F9"
         }
     }
 ];
