@@ -18,8 +18,6 @@ overpyFiles = [
 	"utils/varNames.js",
 	"obfuscation.js",
 	"globalVars.js",
-	"tests/decompileTest.js",
-	"tests/compileTest.js",
 	"decompiler.js",
 	"tokenizer.js",
 	"compiler.js",

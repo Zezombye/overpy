@@ -34,7 +34,7 @@ var currentArrayElementNames;
 //The keywords "true" and "false", in the workshop.
 //Used to avoid translating back when comparing to true/false.
 //Generated at each compilation.
-var wsTrue ;
+var wsTrue;
 var wsFalse;
 var wsNull;
 var wsNot;
@@ -86,9 +86,10 @@ var lastLoop;
 var operatorPrecedenceStack;
 
 
-function resetGlobalVariables() {
+function resetGlobalVariables(language) {
 	rootPath = "";
 	currentArrayElementNames = [];
+	currentLanguage = language;
 	wsTrue = tows("true", valueFuncKw);
 	wsFalse = tows("false", valueFuncKw);
 	wsNull = tows("null", valueFuncKw);
@@ -111,7 +112,6 @@ function resetGlobalVariables() {
 	encounteredWarnings = [];
 	suppressedWarnings = [];
 	globalSuppressedWarnings = [];
-	currentLanguage = "en-US";
 	importedFiles = [];
 	enableNoEdit = false;
 	disableUnusedVars = false;

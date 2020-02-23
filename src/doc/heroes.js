@@ -1,4 +1,5 @@
-var heroes = [
+var heroes = 
+[
     {
         "guid": "0000000029EC",
         "opy": "Hero.ANA",
