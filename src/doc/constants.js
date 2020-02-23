@@ -257,7 +257,7 @@ var constantValues =
                 "opy": "Button.INTERACT",
                 "en-US": "Interact",
                 "es-MX": "Interactuar",
-                "fr-FR": "Interagir",
+                "fr-FR": "Interaction",
                 "ja-JP": "インタラクト",
                 "pt-BR": "Interagir",
                 "zh-CN": "互动"
