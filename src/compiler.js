@@ -30,8 +30,7 @@ function compile(content, language="en-US", _rootPath="") {
 		var t0 = performance.now();
 	}
 
-	resetGlobalVariables();
-	currentLanguage = language;
+	resetGlobalVariables(language);
 	rootPath = _rootPath;
 
 	//Handle #!mainfile directive

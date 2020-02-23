@@ -21,8 +21,7 @@
 
 function decompileAllRules(content, language="en-US") {
 
-	resetGlobalVariables();
-	currentLanguage = language;
+	resetGlobalVariables(language);
 	var result = "";
 	content = content.trim();
 	

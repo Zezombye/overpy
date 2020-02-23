@@ -95,6 +95,10 @@ var ruleKw =
         "zh-TW": "停用"
     },
     {
+        "opy": "_enabled",
+        "en-US": "enabled",
+    },
+    {
         "opy": "_variables",
         "en-US": "variables",
         "guid": "00000000EB73",

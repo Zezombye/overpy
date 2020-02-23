@@ -270,7 +270,10 @@ var customGameSettingsSchema =
                         "min": 0,
                         "max": 100,
                         "default": 100,
-                    }
+                    },
+                    "_maps": {
+                        "en-US": "maps",
+                    },
                 }
             },
             "assault": {
@@ -973,26 +976,29 @@ var customGameSettingsSchema =
                         "zenyatta",
                     ]
                 },
-                "disableAutomaticFire": {
+                "enableAutomaticFire": {
                     "en-US": "No Automatic Fire",
-                    "values": "_boolEnabled",
-                    "default": "disabled",
+                    "values": "_boolReverseEnabled",
+                    "default": "enabled",
                     "include": [
                         "ana",
                         "ashe",
                         "widowmaker",
                     ]
                 },
-                "disableScoping": {
+                "enableScoping": {
                     "en-US": "No Scope",
-                    "values": "_boolEnabled",
-                    "default": "disabled",
+                    "values": "_boolReverseEnabled",
+                    "default": "enabled",
                     "include": [
                         "ana",
                         "ashe",
                         "widowmaker",
                     ]
                 },
+            },
+            "_heroes": {
+                "en-US": "heroes",
             },
             "ashe": {
                 "values": {
@@ -1516,5 +1522,8 @@ var customGameSettingsSchema =
                 }
             }
         }
+    },
+    "maps": {
+        "en-US": "maps",
     }
 }
