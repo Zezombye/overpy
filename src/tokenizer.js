@@ -665,12 +665,11 @@ function tokenizeLocalizedString(str) {
 
 		//Test for heroes
 		if (!hasTokenBeenFound) {
-			for (var hero of getConstantKw("HERO CONSTANT")) {
-				var heroName = hero.opy.substring("Hero.".length).toLowerCase();
-				console.log(heroName);
-				if (str.startsWith(heroName, i)) {
-					currentToken = "_h"+heroName;
+			for (var hero of Object.keys(heroKw)) {
+				if (str.startsWith(hero, i)) {
+					currentToken = "_h"+hero;
 					hasTokenBeenFound = true;
+					break;
 				}
 			}
 		}

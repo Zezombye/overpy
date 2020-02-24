@@ -17,6 +17,18 @@
 
 "use strict";
 
+//camelCase -> UPPER_CASE
+function camelCaseToUpperCase(str) {
+	return str.split(/(?=[A-Z])/).join('_').toUpperCase();
+}
+
+//UPPER_CASE -> camelCase
+function upperCaseToCamelCase(str) {
+	var result = str.toLowerCase().replace(/(_\w)/g, x => x[1].toUpperCase());
+	result = result[0].toLowerCase()+result.substring(1)
+	return result;
+}
+
 function shuffleArray(a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -46,10 +58,6 @@ function getFileStackCopy() {
 	return fileStack.map(x => Object.assign({}, x));
 }
 
-function getConstantKw(type) {
-	return constantValues[type].values;
-}
-
 //Reverses the comparison operator.
 function reverseOperator(content) {
 	if (content === "==") return "!=";
@@ -62,34 +70,6 @@ function reverseOperator(content) {
 		error("Cannot reverse operator "+content);
 	}
 }
-
-/*
-//Replaces variables A-Z with the provided names (for decompilation).
-//Also returns "#define name var" for each name.
-function loadVariableNames(names, varKw) {
-	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	var result = "";
-	for (const [key,value] of Object.entries(names)) {
-		var index = alphabet.indexOf(key.toUpperCase());
-		if (index < 0) {
-			error("Illegal variable "+key);
-		} else {
-			varKw[index].opy = value;
-			result += "#!define "+value+" "+key.toUpperCase()+"\n";
-		}
-	}
-	return result;
-}
-
-//Resets variable names to A-Z.
-function resetVarNames(varKw) {
-	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	for (var i = 0; i < alphabet.length; i++) {
-		varKw[i].opy = alphabet[i];
-	}
-}
-*/
-
 
 //Returns 4 spaces per tab level.
 function tabLevel(nbTabs) {
@@ -112,17 +92,6 @@ function startsWithParenthesis(content) {
 function isVarChar(c) {
 	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_' || c === '@';
 }
-
-/*//Returns the indent, assuming 1 indent = 4 spaces.
-function getIndent(content) {
-	var indent = 0;
-	var i = 0;
-	while (content.startsWith("    ", i)) {
-		indent++;
-		i += 4;
-	}
-	return indent;
-}*/
 
 //ty stackoverflow
 function sleep(ms) {

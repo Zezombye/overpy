@@ -68,7 +68,7 @@ function replaceJsonObjectsInFile(path) {
             isInJsonObject = true;
         }
     }
-    fs.writeFileSync(path, result);
+    fs.writeFileSync(path, result.substring(0, result.length-1));
 }
 
 function convertJson(content) {
@@ -108,8 +108,6 @@ function addTranslations(content) {
         }
         content.guid = matchingGuids[0];
     }
-    delete content.fr;
-    delete content.kr;
     for (var language of languages) {
         if (language === "en-US") continue;
         var isGuidFound = false;

@@ -15,18 +15,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var emptyStrKw = [
-    {
-        "opy": "",
+var emptyStrKw = {
+    "": {
         "en-US": ""
     }
-];
+}
 
 var normalStrKw = 
 //begin-json
-[
-    {
-        "opy": "Zones",
+{
+    "Zones": {
         "en-US": "Zones",
         "guid": "00000000C5CE",
         "de-DE": "Zonen",
@@ -40,8 +38,7 @@ var normalStrKw =
         "zh-CN": "区域",
         "zh-TW": "範圍"
     },
-    {
-        "opy": "Zone",
+    "Zone": {
         "en-US": "Zone",
         "guid": "00000000C5CD",
         "es-ES": "Zona",
@@ -54,8 +51,7 @@ var normalStrKw =
         "zh-CN": "区域",
         "zh-TW": "範圍"
     },
-    {
-        "opy": "You Win",
+    "You Win": {
         "en-US": "You Win",
         "guid": "00000000C08D",
         "de-DE": "Du hast gewonnen",
@@ -70,8 +66,7 @@ var normalStrKw =
         "zh-CN": "你胜利了",
         "zh-TW": "你贏了"
     },
-    {
-        "opy": "You Lose",
+    "You Lose": {
         "en-US": "You Lose",
         "guid": "00000000C091",
         "de-DE": "Du hast verloren",
@@ -86,8 +81,7 @@ var normalStrKw =
         "zh-CN": "你失败了",
         "zh-TW": "你輸了"
     },
-    {
-        "opy": "You",
+    "You": {
         "en-US": "You",
         "guid": "00000000C08C",
         "de-DE": "Du",
@@ -102,9 +96,8 @@ var normalStrKw =
         "zh-CN": "你",
         "zh-TW": "你"
     },
-    {
+    "Yes": {
         "guid": "00000000C5F4",
-        "opy": "Yes",
         "en-US": "Yes",
         "de-DE": "Ja",
         "es-ES": "Sí",
@@ -118,9 +111,8 @@ var normalStrKw =
         "zh-CN": "是",
         "zh-TW": "是"
     },
-    {
+    "Yellow": {
         "guid": "00000000C878",
-        "opy": "Yellow",
         "en-US": "Yellow",
         "de-DE": "Gelb",
         "es-ES": "Amarillo",
@@ -134,9 +126,8 @@ var normalStrKw =
         "zh-CN": "黄色",
         "zh-TW": "黃"
     },
-    {
+    "Wow": {
         "guid": "00000000C185",
-        "opy": "Wow",
         "en-US": "Wow",
         "es-ES": "Guau",
         "es-MX": "Guau",
@@ -147,8 +138,7 @@ var normalStrKw =
         "zh-CN": "哇哦",
         "zh-TW": "哇"
     },
-    {
-        "opy": "Worst",
+    "Worst": {
         "en-US": "Worst",
         "guid": "00000000C158",
         "de-DE": "Am schlechtesten",
@@ -163,8 +153,7 @@ var normalStrKw =
         "zh-CN": "最差",
         "zh-TW": "最差"
     },
-    {
-        "opy": "Worse",
+    "Worse": {
         "en-US": "Worse",
         "guid": "00000000C157",
         "de-DE": "Schlechter",
@@ -179,8 +168,7 @@ var normalStrKw =
         "zh-CN": "较差",
         "zh-TW": "較差"
     },
-    {
-        "opy": "Wisdom",
+    "Wisdom": {
         "en-US": "Wisdom",
         "guid": "00000000C989",
         "de-DE": "Weisheit",
@@ -195,8 +183,7 @@ var normalStrKw =
         "zh-CN": "感知",
         "zh-TW": "智慧"
     },
-    {
-        "opy": "Wins",
+    "Wins": {
         "en-US": "Wins",
         "guid": "00000000C299",
         "de-DE": "Siege",
@@ -211,8 +198,7 @@ var normalStrKw =
         "zh-CN": "胜利",
         "zh-TW": "勝利"
     },
-    {
-        "opy": "Winners",
+    "Winners": {
         "en-US": "Winners",
         "guid": "00000000C086",
         "de-DE": "Gewinner",
@@ -227,8 +213,7 @@ var normalStrKw =
         "zh-CN": "胜者",
         "zh-TW": "贏家"
     },
-    {
-        "opy": "Winner",
+    "Winner": {
         "en-US": "Winner",
         "guid": "00000000C084",
         "de-DE": "Sieger",
@@ -243,9 +228,8 @@ var normalStrKw =
         "zh-CN": "胜者",
         "zh-TW": "贏家"
     },
-    {
+    "Win": {
         "guid": "00000000C298",
-        "opy": "Win",
         "en-US": "Win",
         "de-DE": "Gewonnen",
         "es-ES": "Victoria",
@@ -259,8 +243,7 @@ var normalStrKw =
         "zh-CN": "胜利",
         "zh-TW": "勝利"
     },
-    {
-        "opy": "Wild",
+    "Wild": {
         "en-US": "Wild",
         "guid": "00000000CAC0",
         "es-ES": "Salvaje",
@@ -274,9 +257,8 @@ var normalStrKw =
         "zh-CN": "关键牌",
         "zh-TW": "關鍵牌"
     },
-    {
+    "White": {
         "guid": "00000000C877",
-        "opy": "White",
         "en-US": "White",
         "de-DE": "Weiß",
         "es-ES": "Blanco",
@@ -290,8 +272,7 @@ var normalStrKw =
         "zh-CN": "白色",
         "zh-TW": "白"
     },
-    {
-        "opy": "West",
+    "West": {
         "en-US": "West",
         "guid": "00000000C174",
         "de-DE": "Westen",
@@ -306,9 +287,8 @@ var normalStrKw =
         "zh-CN": "西",
         "zh-TW": "西"
     },
-    {
+    "Well Played": {
         "guid": "00000000C17E",
-        "opy": "Well Played",
         "en-US": "Well Played",
         "de-DE": "Gut gespielt",
         "es-ES": "Bien jugado",
@@ -322,8 +302,7 @@ var normalStrKw =
         "zh-CN": "称赞",
         "zh-TW": "打得不錯"
     },
-    {
-        "opy": "Welcome",
+    "Welcome": {
         "en-US": "Welcome",
         "guid": "00000000C98E",
         "de-DE": "Willkommen",
@@ -338,9 +317,8 @@ var normalStrKw =
         "zh-CN": "欢迎",
         "zh-TW": "歡迎"
     },
-    {
+    "Warning": {
         "guid": "00000000C159",
-        "opy": "Warning",
         "en-US": "Warning",
         "de-DE": "Warnung",
         "es-ES": "Aviso",
@@ -354,8 +332,7 @@ var normalStrKw =
         "zh-CN": "警告",
         "zh-TW": "警告"
     },
-    {
-        "opy": "Walls",
+    "Walls": {
         "en-US": "Walls",
         "guid": "00000000C28A",
         "de-DE": "Wände",
@@ -370,8 +347,7 @@ var normalStrKw =
         "zh-CN": "墙壁",
         "zh-TW": "牆壁"
     },
-    {
-        "opy": "Wall",
+    "Wall": {
         "en-US": "Wall",
         "guid": "00000000C286",
         "de-DE": "Wand",
@@ -386,9 +362,8 @@ var normalStrKw =
         "zh-CN": "墙壁",
         "zh-TW": "牆壁"
     },
-    {
+    "Waiting": {
         "guid": "00000000C5D2",
-        "opy": "Waiting",
         "en-US": "Waiting",
         "de-DE": "Wartezeit",
         "es-ES": "Esperando",
@@ -402,9 +377,8 @@ var normalStrKw =
         "zh-CN": "正在等待",
         "zh-TW": "正在等待"
     },
-    {
+    "Wait": {
         "guid": "00000000C5D1",
-        "opy": "Wait",
         "en-US": "Wait",
         "de-DE": "Warten",
         "es-ES": "Esperar",
@@ -418,8 +392,7 @@ var normalStrKw =
         "zh-CN": "等待",
         "zh-TW": "等待"
     },
-    {
-        "opy": "Vortices",
+    "Vortices": {
         "en-US": "Vortices",
         "guid": "00000000C28C",
         "de-DE": "Wirbel",
@@ -434,8 +407,7 @@ var normalStrKw =
         "zh-CN": "漩涡",
         "zh-TW": "旋渦"
     },
-    {
-        "opy": "Vortex",
+    "Vortex": {
         "en-US": "Vortex",
         "guid": "00000000C28B",
         "es-ES": "Vórtice",
@@ -448,8 +420,7 @@ var normalStrKw =
         "zh-CN": "漩涡",
         "zh-TW": "旋渦"
     },
-    {
-        "opy": "Visible",
+    "Visible": {
         "en-US": "Visible",
         "guid": "00000000C133",
         "de-DE": "Sichtbar",
@@ -461,9 +432,8 @@ var normalStrKw =
         "zh-CN": "可见",
         "zh-TW": "可見"
     },
-    {
+    "Victory": {
         "guid": "00000000C082",
-        "opy": "Victory",
         "en-US": "Victory",
         "de-DE": "Sieg",
         "es-ES": "Victoria",
@@ -477,8 +447,7 @@ var normalStrKw =
         "zh-CN": "胜利",
         "zh-TW": "勝利"
     },
-    {
-        "opy": "Use Ultimate Ability",
+    "Use Ultimate Ability": {
         "en-US": "Use Ultimate Ability",
         "guid": "00000000BFF0",
         "de-DE": "Ultimative Fähigkeit einsetzen",
@@ -493,8 +462,7 @@ var normalStrKw =
         "zh-CN": "使用终极技能",
         "zh-TW": "使用絕招"
     },
-    {
-        "opy": "Use Ability 2",
+    "Use Ability 2": {
         "en-US": "Use Ability 2",
         "guid": "00000000BFF1",
         "de-DE": "Fähigkeit 2 einsetzen",
@@ -509,8 +477,7 @@ var normalStrKw =
         "zh-CN": "使用技能 2",
         "zh-TW": "使用技能2"
     },
-    {
-        "opy": "Use Ability 1",
+    "Use Ability 1": {
         "en-US": "Use Ability 1",
         "guid": "00000000BFF2",
         "de-DE": "Fähigkeit 1 einsetzen",
@@ -525,8 +492,7 @@ var normalStrKw =
         "zh-CN": "使用技能 1",
         "zh-TW": "使用技能1"
     },
-    {
-        "opy": "Uploading",
+    "Uploading": {
         "en-US": "Uploading",
         "guid": "00000000C0E8",
         "de-DE": "Upload",
@@ -541,8 +507,7 @@ var normalStrKw =
         "zh-CN": "正在上传",
         "zh-TW": "正在上傳"
     },
-    {
-        "opy": "Uploaded",
+    "Uploaded": {
         "en-US": "Uploaded",
         "guid": "00000000C0E9",
         "de-DE": "Hochgeladen",
@@ -557,8 +522,7 @@ var normalStrKw =
         "zh-CN": "已上传",
         "zh-TW": "已上傳"
     },
-    {
-        "opy": "Upload",
+    "Upload": {
         "en-US": "Upload",
         "guid": "00000000C0E7",
         "de-DE": "Hochladen",
@@ -572,8 +536,7 @@ var normalStrKw =
         "zh-CN": "上传",
         "zh-TW": "上傳"
     },
-    {
-        "opy": "Upgrades",
+    "Upgrades": {
         "en-US": "Upgrades",
         "guid": "00000000BFFF",
         "es-ES": "Mejoras",
@@ -587,8 +550,7 @@ var normalStrKw =
         "zh-CN": "升级",
         "zh-TW": "升級"
     },
-    {
-        "opy": "Upgrade",
+    "Upgrade": {
         "en-US": "Upgrade",
         "guid": "00000000C000",
         "es-ES": "Mejora",
@@ -602,9 +564,8 @@ var normalStrKw =
         "zh-CN": "升级",
         "zh-TW": "升級"
     },
-    {
+    "Up": {
         "guid": "00000000C169",
-        "opy": "Up",
         "en-US": "Up",
         "de-DE": "Nach oben",
         "es-ES": "Arriba",
@@ -618,8 +579,7 @@ var normalStrKw =
         "zh-CN": "上",
         "zh-TW": "上"
     },
-    {
-        "opy": "Unstable",
+    "Unstable": {
         "en-US": "Unstable",
         "guid": "00000000C140",
         "de-DE": "Instabil",
@@ -634,8 +594,7 @@ var normalStrKw =
         "zh-CN": "不稳定",
         "zh-TW": "不穩定"
     },
-    {
-        "opy": "Unsafe",
+    "Unsafe": {
         "en-US": "Unsafe",
         "guid": "00000000C13F",
         "de-DE": "Unsicher",
@@ -650,8 +609,7 @@ var normalStrKw =
         "zh-CN": "不安全",
         "zh-TW": "不安全"
     },
-    {
-        "opy": "Unlocking",
+    "Unlocking": {
         "en-US": "Unlocking",
         "guid": "00000000C112",
         "de-DE": "Freischaltung",
@@ -666,9 +624,8 @@ var normalStrKw =
         "zh-CN": "正在解锁",
         "zh-TW": "正在解鎖"
     },
-    {
+    "Unlocked": {
         "guid": "00000000C113",
-        "opy": "Unlocked",
         "en-US": "Unlocked",
         "de-DE": "Freigeschaltet",
         "es-ES": "Desbloqueado",
@@ -682,9 +639,8 @@ var normalStrKw =
         "zh-CN": "已解锁",
         "zh-TW": "得到解鎖"
     },
-    {
+    "Unlock": {
         "guid": "00000000C111",
-        "opy": "Unlock",
         "en-US": "Unlock",
         "de-DE": "Freischalten",
         "es-ES": "Desbloquear",
@@ -698,8 +654,7 @@ var normalStrKw =
         "zh-CN": "解锁",
         "zh-TW": "解鎖"
     },
-    {
-        "opy": "Unlimited",
+    "Unlimited": {
         "en-US": "Unlimited",
         "guid": "00000000C13B",
         "de-DE": "Unbegrenzt",
@@ -714,9 +669,8 @@ var normalStrKw =
         "zh-CN": "不受限",
         "zh-TW": "無限制"
     },
-    {
+    "Unknown": {
         "guid": "00000000C141",
-        "opy": "Unknown",
         "en-US": "Unknown",
         "de-DE": "Unbekannt",
         "es-ES": "Desconocido",
@@ -730,8 +684,7 @@ var normalStrKw =
         "zh-CN": "未知",
         "zh-TW": "未知"
     },
-    {
-        "opy": "Under",
+    "Under": {
         "en-US": "Under",
         "guid": "00000000C165",
         "de-DE": "Unter",
@@ -746,8 +699,7 @@ var normalStrKw =
         "zh-CN": "下方",
         "zh-TW": "下"
     },
-    {
-        "opy": "Ultimate Ability",
+    "Ultimate Ability": {
         "en-US": "Ultimate Ability",
         "guid": "00000000BFF3",
         "de-DE": "Ultimative Fähigkeit",
@@ -762,8 +714,7 @@ var normalStrKw =
         "zh-CN": "终极技能",
         "zh-TW": "絕招"
     },
-    {
-        "opy": "Ugh",
+    "Ugh": {
         "en-US": "Ugh",
         "guid": "00000000C184",
         "de-DE": "Argh",
@@ -776,9 +727,8 @@ var normalStrKw =
         "zh-CN": "呃",
         "zh-TW": "呃"
     },
-    {
+    "Turrets": {
         "guid": "00000000BFE9",
-        "opy": "Turrets",
         "en-US": "Turrets",
         "de-DE": "Geschütze",
         "es-ES": "Torretas",
@@ -792,9 +742,8 @@ var normalStrKw =
         "zh-CN": "炮台",
         "zh-TW": "砲塔"
     },
-    {
+    "Turret": {
         "guid": "00000000BFEA",
-        "opy": "Turret",
         "en-US": "Turret",
         "de-DE": "Geschütz",
         "es-ES": "Torreta",
@@ -808,8 +757,7 @@ var normalStrKw =
         "zh-CN": "炮台",
         "zh-TW": "砲塔"
     },
-    {
-        "opy": "Try Again",
+    "Try Again": {
         "en-US": "Try Again",
         "guid": "00000000C18B",
         "de-DE": "Neuer Versuch",
@@ -824,8 +772,7 @@ var normalStrKw =
         "zh-CN": "再来试试",
         "zh-TW": "再一次"
     },
-    {
-        "opy": "Transferring",
+    "Transferring": {
         "en-US": "Transferring",
         "guid": "00000000C0C1",
         "de-DE": "Transfer",
@@ -840,8 +787,7 @@ var normalStrKw =
         "zh-CN": "正在转移",
         "zh-TW": "正在轉移"
     },
-    {
-        "opy": "Transferred",
+    "Transferred": {
         "en-US": "Transferred",
         "guid": "00000000C0C2",
         "de-DE": "Transferiert",
@@ -856,8 +802,7 @@ var normalStrKw =
         "zh-CN": "已转移",
         "zh-TW": "受到轉移"
     },
-    {
-        "opy": "Transfer",
+    "Transfer": {
         "en-US": "Transfer",
         "guid": "00000000C0BF",
         "de-DE": "Transferieren",
@@ -872,8 +817,7 @@ var normalStrKw =
         "zh-CN": "转移",
         "zh-TW": "轉移"
     },
-    {
-        "opy": "Traitors",
+    "Traitors": {
         "en-US": "Traitors",
         "guid": "00000000C5BE",
         "de-DE": "Spione",
@@ -888,8 +832,7 @@ var normalStrKw =
         "zh-CN": "叛徒",
         "zh-TW": "叛徒"
     },
-    {
-        "opy": "Traitor",
+    "Traitor": {
         "en-US": "Traitor",
         "guid": "00000000C5BD",
         "de-DE": "Verräter",
@@ -904,8 +847,7 @@ var normalStrKw =
         "zh-CN": "叛徒",
         "zh-TW": "叛徒"
     },
-    {
-        "opy": "Trading",
+    "Trading": {
         "en-US": "Trading",
         "guid": "00000000C106",
         "de-DE": "Tausch",
@@ -920,8 +862,7 @@ var normalStrKw =
         "zh-CN": "正在交易",
         "zh-TW": "正在交易"
     },
-    {
-        "opy": "Traded",
+    "Traded": {
         "en-US": "Traded",
         "guid": "00000000C107",
         "de-DE": "Getauscht",
@@ -936,8 +877,7 @@ var normalStrKw =
         "zh-CN": "已交易",
         "zh-TW": "得到交易"
     },
-    {
-        "opy": "Trade",
+    "Trade": {
         "en-US": "Trade",
         "guid": "00000000C105",
         "de-DE": "Tauschen",
@@ -952,8 +892,7 @@ var normalStrKw =
         "zh-CN": "交易",
         "zh-TW": "交易"
     },
-    {
-        "opy": "Total",
+    "Total": {
         "en-US": "Total",
         "guid": "00000000C5DE",
         "de-DE": "Insgesamt",
@@ -964,8 +903,7 @@ var normalStrKw =
         "zh-CN": "总计",
         "zh-TW": "總計"
     },
-    {
-        "opy": "Times",
+    "Times": {
         "en-US": "Times",
         "guid": "00000000C005",
         "de-DE": "Zeiten",
@@ -980,9 +918,8 @@ var normalStrKw =
         "zh-CN": "时间",
         "zh-TW": "時間"
     },
-    {
+    "Time": {
         "guid": "00000000C006",
-        "opy": "Time",
         "en-US": "Time",
         "de-DE": "Zeit",
         "es-ES": "Tiempo",
@@ -996,8 +933,7 @@ var normalStrKw =
         "zh-CN": "时间",
         "zh-TW": "時間"
     },
-    {
-        "opy": "Tiebreaker",
+    "Tiebreaker": {
         "en-US": "Tiebreaker",
         "guid": "00000000BFF9",
         "de-DE": "Nächster Punkt entscheidet",
@@ -1012,8 +948,7 @@ var normalStrKw =
         "zh-CN": "绝杀局",
         "zh-TW": "決勝賽局"
     },
-    {
-        "opy": "Threats",
+    "Threats": {
         "en-US": "Threats",
         "guid": "00000000C07D",
         "de-DE": "Bedrohungen",
@@ -1028,8 +963,7 @@ var normalStrKw =
         "zh-CN": "威胁",
         "zh-TW": "威脅"
     },
-    {
-        "opy": "Threat Levels",
+    "Threat Levels": {
         "en-US": "Threat Levels",
         "guid": "00000000C07F",
         "de-DE": "Bedrohungsstufen",
@@ -1044,8 +978,7 @@ var normalStrKw =
         "zh-CN": "威胁等级",
         "zh-TW": "威脅等級"
     },
-    {
-        "opy": "Threat Level",
+    "Threat Level": {
         "en-US": "Threat Level",
         "guid": "00000000C07E",
         "de-DE": "Bedrohungsstufe",
@@ -1060,8 +993,7 @@ var normalStrKw =
         "zh-CN": "威胁等级",
         "zh-TW": "威脅等級"
     },
-    {
-        "opy": "Threat",
+    "Threat": {
         "en-US": "Threat",
         "guid": "00000000C07C",
         "de-DE": "Bedrohung",
@@ -1076,8 +1008,7 @@ var normalStrKw =
         "zh-CN": "威胁",
         "zh-TW": "威脅"
     },
-    {
-        "opy": "That Was Awesome",
+    "That Was Awesome": {
         "en-US": "That Was Awesome",
         "guid": "00000000C190",
         "de-DE": "Das war der Hammer",
@@ -1092,9 +1023,8 @@ var normalStrKw =
         "zh-CN": "太棒了",
         "zh-TW": "真厲害"
     },
-    {
+    "Thanks": {
         "guid": "00000000C17C",
-        "opy": "Thanks",
         "en-US": "Thanks",
         "de-DE": "Danke",
         "es-ES": "Gracias",
@@ -1108,9 +1038,8 @@ var normalStrKw =
         "zh-CN": "感谢",
         "zh-TW": "謝謝"
     },
-    {
+    "Thank You": {
         "guid": "00000000C17D",
-        "opy": "Thank You",
         "en-US": "Thank You",
         "de-DE": "Vielen Dank",
         "es-ES": "Te lo agradezco",
@@ -1124,8 +1053,7 @@ var normalStrKw =
         "zh-CN": "衷心感谢",
         "zh-TW": "謝謝你"
     },
-    {
-        "opy": "Terrible",
+    "Terrible": {
         "en-US": "Terrible",
         "guid": "00000000C14E",
         "de-DE": "Sehr schlecht",
@@ -1138,9 +1066,8 @@ var normalStrKw =
         "zh-CN": "极差",
         "zh-TW": "差"
     },
-    {
+    "Teams": {
         "guid": "00000000BFEE",
-        "opy": "Teams",
         "en-US": "Teams",
         "es-ES": "Equipos",
         "es-MX": "Equipos",
@@ -1153,8 +1080,7 @@ var normalStrKw =
         "zh-CN": "队伍",
         "zh-TW": "隊伍"
     },
-    {
-        "opy": "Teammates",
+    "Teammates": {
         "en-US": "Teammates",
         "guid": "00000000C291",
         "de-DE": "Teammitglieder",
@@ -1169,8 +1095,7 @@ var normalStrKw =
         "zh-CN": "队友",
         "zh-TW": "隊友"
     },
-    {
-        "opy": "Teammate",
+    "Teammate": {
         "en-US": "Teammate",
         "guid": "00000000C28F",
         "de-DE": "Teammitglied",
@@ -1185,9 +1110,8 @@ var normalStrKw =
         "zh-CN": "队友",
         "zh-TW": "隊友"
     },
-    {
+    "Team": {
         "guid": "00000000C004",
-        "opy": "Team",
         "en-US": "Team",
         "es-ES": "Equipo",
         "es-MX": "Equipo",
@@ -1200,8 +1124,7 @@ var normalStrKw =
         "zh-CN": "队伍",
         "zh-TW": "隊伍"
     },
-    {
-        "opy": "Targets",
+    "Targets": {
         "en-US": "Targets",
         "guid": "00000000BFDE",
         "de-DE": "Ziele",
@@ -1216,9 +1139,8 @@ var normalStrKw =
         "zh-CN": "目标",
         "zh-TW": "目標"
     },
-    {
+    "Target": {
         "guid": "00000000BFDF",
-        "opy": "Target",
         "en-US": "Target",
         "de-DE": "Ziel",
         "es-ES": "Objetivo",
@@ -1232,8 +1154,7 @@ var normalStrKw =
         "zh-CN": "目标",
         "zh-TW": "目標"
     },
-    {
-        "opy": "Surviving",
+    "Surviving": {
         "en-US": "Surviving",
         "guid": "00000000C117",
         "de-DE": "Überlebe",
@@ -1248,8 +1169,7 @@ var normalStrKw =
         "zh-CN": "正在生存",
         "zh-TW": "存活中"
     },
-    {
-        "opy": "Survived",
+    "Survived": {
         "en-US": "Survived",
         "guid": "00000000C119",
         "de-DE": "Überlebt",
@@ -1264,8 +1184,7 @@ var normalStrKw =
         "zh-CN": "已生存",
         "zh-TW": "生還"
     },
-    {
-        "opy": "Survive",
+    "Survive": {
         "en-US": "Survive",
         "guid": "00000000C118",
         "de-DE": "Überleben",
@@ -1280,8 +1199,7 @@ var normalStrKw =
         "zh-CN": "生存",
         "zh-TW": "存活"
     },
-    {
-        "opy": "Superb",
+    "Superb": {
         "en-US": "Superb",
         "guid": "00000000C148",
         "de-DE": "Super",
@@ -1296,8 +1214,7 @@ var normalStrKw =
         "zh-CN": "强烈",
         "zh-TW": "非常"
     },
-    {
-        "opy": "Sunk",
+    "Sunk": {
         "en-US": "Sunk",
         "guid": "00000000C0CE",
         "de-DE": "Versenkt",
@@ -1312,8 +1229,7 @@ var normalStrKw =
         "zh-CN": "已击沉",
         "zh-TW": "遭到沉沒"
     },
-    {
-        "opy": "Sudden Death",
+    "Sudden Death": {
         "en-US": "Sudden Death",
         "guid": "00000000BFF8",
         "de-DE": "K.o.-Runde",
@@ -1328,9 +1244,8 @@ var normalStrKw =
         "zh-CN": "绝杀局",
         "zh-TW": "殊死戰"
     },
-    {
+    "Success": {
         "guid": "00000000C080",
-        "opy": "Success",
         "en-US": "Success",
         "de-DE": "Erfolg",
         "es-ES": "Éxito",
@@ -1344,9 +1259,8 @@ var normalStrKw =
         "zh-CN": "成功",
         "zh-TW": "成功"
     },
-    {
+    "Suboptimal": {
         "guid": "00000000C138",
-        "opy": "Suboptimal",
         "en-US": "Suboptimal",
         "es-ES": "Subóptimo",
         "es-MX": "Casi óptimo",
@@ -1359,8 +1273,7 @@ var normalStrKw =
         "zh-CN": "次佳",
         "zh-TW": "次佳"
     },
-    {
-        "opy": "Stunning",
+    "Stunning": {
         "en-US": "Stunning",
         "guid": "00000000C5F2",
         "de-DE": "Betäuben",
@@ -1375,9 +1288,8 @@ var normalStrKw =
         "zh-CN": "正在昏迷",
         "zh-TW": "正在擊昏"
     },
-    {
+    "Stunned": {
         "guid": "00000000C5F3",
-        "opy": "Stunned",
         "en-US": "Stunned",
         "de-DE": "Betäubt",
         "es-ES": "Aturdido",
@@ -1391,8 +1303,7 @@ var normalStrKw =
         "zh-CN": "已昏迷",
         "zh-TW": "遭到擊昏"
     },
-    {
-        "opy": "Stun",
+    "Stun": {
         "en-US": "Stun",
         "guid": "00000000C5F1",
         "de-DE": "Betäubung",
@@ -1407,9 +1318,8 @@ var normalStrKw =
         "zh-CN": "昏迷",
         "zh-TW": "擊昏"
     },
-    {
+    "Strength": {
         "guid": "00000000C98C",
-        "opy": "Strength",
         "en-US": "Strength",
         "de-DE": "Stärke",
         "es-ES": "Fuerza",
@@ -1423,8 +1333,7 @@ var normalStrKw =
         "zh-CN": "力量",
         "zh-TW": "力量"
     },
-    {
-        "opy": "Stopping",
+    "Stopping": {
         "en-US": "Stopping",
         "guid": "00000000C121",
         "de-DE": "Stopp",
@@ -1439,8 +1348,7 @@ var normalStrKw =
         "zh-CN": "正在阻止",
         "zh-TW": "正在停止"
     },
-    {
-        "opy": "Stopped",
+    "Stopped": {
         "en-US": "Stopped",
         "guid": "00000000C122",
         "de-DE": "Gestoppt",
@@ -1455,9 +1363,8 @@ var normalStrKw =
         "zh-CN": "已阻止",
         "zh-TW": "已停止"
     },
-    {
+    "Stop": {
         "guid": "00000000C120",
-        "opy": "Stop",
         "en-US": "Stop",
         "de-DE": "Stoppen",
         "es-ES": "Parar",
@@ -1471,8 +1378,7 @@ var normalStrKw =
         "zh-CN": "阻止",
         "zh-TW": "停止"
     },
-    {
-        "opy": "Staying",
+    "Staying": {
         "en-US": "Staying",
         "guid": "00000000CABA",
         "de-DE": "Verbleiben",
@@ -1487,8 +1393,7 @@ var normalStrKw =
         "zh-CN": "正在停止",
         "zh-TW": "不再要牌"
     },
-    {
-        "opy": "Stayed",
+    "Stayed": {
         "en-US": "Stayed",
         "guid": "00000000CABE",
         "de-DE": "Geblieben",
@@ -1503,8 +1408,7 @@ var normalStrKw =
         "zh-CN": "已停止 ",
         "zh-TW": "不再要牌"
     },
-    {
-        "opy": "Stay Away",
+    "Stay Away": {
         "en-US": "Stay Away",
         "guid": "00000000C189",
         "de-DE": "Bleib weg",
@@ -1519,8 +1423,7 @@ var normalStrKw =
         "zh-CN": "走开",
         "zh-TW": "走開"
     },
-    {
-        "opy": "Stay",
+    "Stay": {
         "en-US": "Stay",
         "guid": "00000000CAB9",
         "de-DE": "Bleiben",
@@ -1535,9 +1438,8 @@ var normalStrKw =
         "zh-CN": "停止",
         "zh-TW": "不再要牌"
     },
-    {
+    "Status": {
         "guid": "00000000C094",
-        "opy": "Status",
         "en-US": "Status",
         "es-ES": "Estado",
         "es-MX": "Estado",
@@ -1548,8 +1450,7 @@ var normalStrKw =
         "zh-CN": "状态",
         "zh-TW": "狀態"
     },
-    {
-        "opy": "Starting",
+    "Starting": {
         "en-US": "Starting",
         "guid": "00000000C2A3",
         "de-DE": "Start",
@@ -1564,8 +1465,7 @@ var normalStrKw =
         "zh-CN": "正在开始",
         "zh-TW": "正在開始"
     },
-    {
-        "opy": "Started",
+    "Started": {
         "en-US": "Started",
         "guid": "00000000C2A4",
         "de-DE": "Gestartet",
@@ -1580,8 +1480,7 @@ var normalStrKw =
         "zh-CN": "已开始",
         "zh-TW": "已開始"
     },
-    {
-        "opy": "Start",
+    "Start": {
         "en-US": "Start",
         "guid": "00000000C2A2",
         "de-DE": "Starten",
@@ -1596,8 +1495,7 @@ var normalStrKw =
         "zh-CN": "开始",
         "zh-TW": "開始"
     },
-    {
-        "opy": "Stars",
+    "Stars": {
         "en-US": "Stars",
         "guid": "00000000C5C2",
         "de-DE": "Sterne",
@@ -1612,9 +1510,8 @@ var normalStrKw =
         "zh-CN": "群星",
         "zh-TW": "星星"
     },
-    {
+    "Star": {
         "guid": "00000000C5C1",
-        "opy": "Star",
         "en-US": "Star",
         "de-DE": "Stern",
         "es-ES": "Estrella",
@@ -1628,8 +1525,7 @@ var normalStrKw =
         "zh-CN": "星星",
         "zh-TW": "星星"
     },
-    {
-        "opy": "Stable",
+    "Stable": {
         "en-US": "Stable",
         "guid": "00000000C13E",
         "de-DE": "Stabil",
@@ -1643,8 +1539,7 @@ var normalStrKw =
         "zh-CN": "存放宠物",
         "zh-TW": "穩定"
     },
-    {
-        "opy": "Stabilizing",
+    "Stabilizing": {
         "en-US": "Stabilizing",
         "guid": "00000000C0F1",
         "de-DE": "Stabilisierung",
@@ -1659,8 +1554,7 @@ var normalStrKw =
         "zh-CN": "正在稳定",
         "zh-TW": "正在穩定"
     },
-    {
-        "opy": "Stabilized",
+    "Stabilized": {
         "en-US": "Stabilized",
         "guid": "00000000C0F2",
         "de-DE": "Stabilisiert",
@@ -1675,8 +1569,7 @@ var normalStrKw =
         "zh-CN": "已稳定",
         "zh-TW": "獲得穩定"
     },
-    {
-        "opy": "Stabilize",
+    "Stabilize": {
         "en-US": "Stabilize",
         "guid": "00000000C0F0",
         "de-DE": "Stabilisieren",
@@ -1691,8 +1584,7 @@ var normalStrKw =
         "zh-CN": "稳定",
         "zh-TW": "穩定"
     },
-    {
-        "opy": "Spheres",
+    "Spheres": {
         "en-US": "Spheres",
         "guid": "00000000C282",
         "de-DE": "Sphären",
@@ -1707,9 +1599,8 @@ var normalStrKw =
         "zh-CN": "球形",
         "zh-TW": "球體"
     },
-    {
+    "Sphere": {
         "guid": "00000000C283",
-        "opy": "Sphere",
         "en-US": "Sphere",
         "de-DE": "Sphäre",
         "es-ES": "Esfera",
@@ -1723,8 +1614,7 @@ var normalStrKw =
         "zh-CN": "球体",
         "zh-TW": "球體"
     },
-    {
-        "opy": "Speeds",
+    "Speeds": {
         "en-US": "Speeds",
         "guid": "00000000C872",
         "de-DE": "Tempo",
@@ -1739,9 +1629,8 @@ var normalStrKw =
         "zh-CN": "速度",
         "zh-TW": "速度"
     },
-    {
+    "Speed": {
         "guid": "00000000C871",
-        "opy": "Speed",
         "en-US": "Speed",
         "de-DE": "Geschwindigkeit",
         "es-ES": "Velocidad",
@@ -1755,8 +1644,7 @@ var normalStrKw =
         "zh-CN": "速度",
         "zh-TW": "速度"
     },
-    {
-        "opy": "Spawning",
+    "Spawning": {
         "en-US": "Spawning",
         "guid": "00000000C115",
         "de-DE": "Spawn",
@@ -1771,8 +1659,7 @@ var normalStrKw =
         "zh-CN": "正在孵化",
         "zh-TW": "正在重生"
     },
-    {
-        "opy": "Spawned",
+    "Spawned": {
         "en-US": "Spawned",
         "guid": "00000000C116",
         "de-DE": "Gespawnt",
@@ -1787,8 +1674,7 @@ var normalStrKw =
         "zh-CN": "已孵化",
         "zh-TW": "得到重生"
     },
-    {
-        "opy": "Spawn",
+    "Spawn": {
         "en-US": "Spawn",
         "guid": "00000000C114",
         "de-DE": "Spawnen",
@@ -1803,9 +1689,8 @@ var normalStrKw =
         "zh-CN": "孵化",
         "zh-TW": "重生"
     },
-    {
+    "Sparkles": {
         "guid": "00000000C28D",
-        "opy": "Sparkles",
         "en-US": "Sparkles",
         "de-DE": "Glitzer",
         "es-ES": "Destellos",
@@ -1819,8 +1704,7 @@ var normalStrKw =
         "zh-CN": "火花",
         "zh-TW": "火花"
     },
-    {
-        "opy": "Spades",
+    "Spades": {
         "en-US": "Spades",
         "guid": "00000000CABD",
         "de-DE": "Pik",
@@ -1835,9 +1719,8 @@ var normalStrKw =
         "zh-CN": "黑桃",
         "zh-TW": "黑桃"
     },
-    {
+    "Spade": {
         "guid": "00000000CAC3",
-        "opy": "Spade",
         "en-US": "Spade",
         "de-DE": "Pik",
         "es-ES": "Pica",
@@ -1851,8 +1734,7 @@ var normalStrKw =
         "zh-CN": "黑桃",
         "zh-TW": "黑桃"
     },
-    {
-        "opy": "Southwest",
+    "Southwest": {
         "en-US": "Southwest",
         "guid": "00000000C173",
         "de-DE": "Südwesten",
@@ -1867,8 +1749,7 @@ var normalStrKw =
         "zh-CN": "西南",
         "zh-TW": "西南"
     },
-    {
-        "opy": "Southeast",
+    "Southeast": {
         "en-US": "Southeast",
         "guid": "00000000C16F",
         "de-DE": "Südosten",
@@ -1883,8 +1764,7 @@ var normalStrKw =
         "zh-CN": "东南",
         "zh-TW": "東南"
     },
-    {
-        "opy": "South",
+    "South": {
         "en-US": "South",
         "guid": "00000000C171",
         "de-DE": "Süden",
@@ -1899,9 +1779,8 @@ var normalStrKw =
         "zh-CN": "南",
         "zh-TW": "南"
     },
-    {
+    "Sorry": {
         "guid": "00000000C188",
-        "opy": "Sorry",
         "en-US": "Sorry",
         "de-DE": "Tut mir leid",
         "es-ES": "Lo siento",
@@ -1915,8 +1794,7 @@ var normalStrKw =
         "zh-CN": "抱歉",
         "zh-TW": "抱歉"
     },
-    {
-        "opy": "Sold",
+    "Sold": {
         "en-US": "Sold",
         "guid": "00000000C104",
         "de-DE": "Verkauft",
@@ -1931,8 +1809,7 @@ var normalStrKw =
         "zh-CN": "已出售",
         "zh-TW": "遭到出售"
     },
-    {
-        "opy": "Slowest",
+    "Slowest": {
         "en-US": "Slowest",
         "guid": "00000000C151",
         "de-DE": "Am langsamsten",
@@ -1947,8 +1824,7 @@ var normalStrKw =
         "zh-CN": "最慢",
         "zh-TW": "最慢"
     },
-    {
-        "opy": "Slower",
+    "Slower": {
         "en-US": "Slower",
         "guid": "00000000C150",
         "de-DE": "Langsamer",
@@ -1963,8 +1839,7 @@ var normalStrKw =
         "zh-CN": "较慢",
         "zh-TW": "較慢"
     },
-    {
-        "opy": "Slow",
+    "Slow": {
         "en-US": "Slow",
         "guid": "00000000C14F",
         "de-DE": "Langsam",
@@ -1979,8 +1854,7 @@ var normalStrKw =
         "zh-CN": "慢",
         "zh-TW": "慢"
     },
-    {
-        "opy": "Slept",
+    "Slept": {
         "en-US": "Slept",
         "guid": "00000000C5F0",
         "de-DE": "Eingeschläfert",
@@ -1995,8 +1869,7 @@ var normalStrKw =
         "zh-CN": "已沉睡",
         "zh-TW": "已睡著"
     },
-    {
-        "opy": "Sleeping",
+    "Sleeping": {
         "en-US": "Sleeping",
         "guid": "00000000C5EF",
         "de-DE": "Schlaf",
@@ -2011,8 +1884,7 @@ var normalStrKw =
         "zh-CN": "正在沉睡",
         "zh-TW": "正在睡眠"
     },
-    {
-        "opy": "Sleep",
+    "Sleep": {
         "en-US": "Sleep",
         "guid": "00000000C5EE",
         "de-DE": "Einschläfern",
@@ -2027,8 +1899,7 @@ var normalStrKw =
         "zh-CN": "沉睡",
         "zh-TW": "睡眠"
     },
-    {
-        "opy": "Skipping",
+    "Skipping": {
         "en-US": "Skipping",
         "guid": "00000000CAB7",
         "de-DE": "Auslassen",
@@ -2043,8 +1914,7 @@ var normalStrKw =
         "zh-CN": "正在跳过",
         "zh-TW": "跳過"
     },
-    {
-        "opy": "Skipped",
+    "Skipped": {
         "en-US": "Skipped",
         "guid": "00000000CAB8",
         "de-DE": "Übersprungen",
@@ -2059,9 +1929,8 @@ var normalStrKw =
         "zh-CN": "已跳过",
         "zh-TW": "跳過"
     },
-    {
+    "Skip": {
         "guid": "00000000CAB6",
-        "opy": "Skip",
         "en-US": "Skip",
         "de-DE": "Überspringen",
         "es-ES": "Saltar",
@@ -2075,8 +1944,7 @@ var normalStrKw =
         "zh-CN": "跳过",
         "zh-TW": "跳過"
     },
-    {
-        "opy": "Sinking",
+    "Sinking": {
         "en-US": "Sinking",
         "guid": "00000000C0CD",
         "de-DE": "Versenkung",
@@ -2091,8 +1959,7 @@ var normalStrKw =
         "zh-CN": "正在击沉",
         "zh-TW": "正在沉沒"
     },
-    {
-        "opy": "Sink",
+    "Sink": {
         "en-US": "Sink",
         "guid": "00000000C0CC",
         "de-DE": "Versenken",
@@ -2107,8 +1974,7 @@ var normalStrKw =
         "zh-CN": "击沉",
         "zh-TW": "沉沒"
     },
-    {
-        "opy": "Shuffled",
+    "Shuffled": {
         "en-US": "Shuffled",
         "guid": "00000000CAB5",
         "de-DE": "Gemischt",
@@ -2123,8 +1989,7 @@ var normalStrKw =
         "zh-CN": "已洗牌",
         "zh-TW": "洗牌"
     },
-    {
-        "opy": "Shuffle",
+    "Shuffle": {
         "en-US": "Shuffle",
         "guid": "00000000CAB3",
         "de-DE": "Mischen",
@@ -2139,8 +2004,7 @@ var normalStrKw =
         "zh-CN": "洗牌",
         "zh-TW": "洗牌"
     },
-    {
-        "opy": "Shops",
+    "Shops": {
         "en-US": "Shops",
         "guid": "00000000CA0D",
         "es-ES": "Tiendas",
@@ -2154,9 +2018,8 @@ var normalStrKw =
         "zh-CN": "商店",
         "zh-TW": "商店"
     },
-    {
+    "Shop": {
         "guid": "00000000CA0E",
-        "opy": "Shop",
         "en-US": "Shop",
         "es-ES": "Tienda",
         "es-MX": "Tienda",
@@ -2169,8 +2032,7 @@ var normalStrKw =
         "zh-CN": "商店",
         "zh-TW": "商店"
     },
-    {
-        "opy": "Severing",
+    "Severing": {
         "en-US": "Severing",
         "guid": "00000000C0F7",
         "de-DE": "Trennung",
@@ -2185,8 +2047,7 @@ var normalStrKw =
         "zh-CN": "正在撕裂",
         "zh-TW": "正在截斷"
     },
-    {
-        "opy": "Severed",
+    "Severed": {
         "en-US": "Severed",
         "guid": "00000000C0F8",
         "de-DE": "Getrennt",
@@ -2201,8 +2062,7 @@ var normalStrKw =
         "zh-CN": "已撕裂",
         "zh-TW": "受到截斷"
     },
-    {
-        "opy": "Severe",
+    "Severe": {
         "en-US": "Severe",
         "guid": "00000000C147",
         "de-DE": "Schlimm",
@@ -2217,8 +2077,7 @@ var normalStrKw =
         "zh-CN": "严重",
         "zh-TW": "嚴重"
     },
-    {
-        "opy": "Sever",
+    "Sever": {
         "en-US": "Sever",
         "guid": "00000000C0F5",
         "de-DE": "Trennen",
@@ -2233,9 +2092,8 @@ var normalStrKw =
         "zh-CN": "撕裂",
         "zh-TW": "截斷"
     },
-    {
+    "Server Load Peak": {
         "guid": "00000000C984",
-        "opy": "Server Load Peak",
         "en-US": "Server Load Peak",
         "de-DE": "Maximale Serverauslastung",
         "es-ES": "Carga máxima del servidor",
@@ -2249,9 +2107,8 @@ var normalStrKw =
         "zh-CN": "服务器负载峰值",
         "zh-TW": "伺服器最高負載"
     },
-    {
+    "Server Load Average": {
         "guid": "00000000C983",
-        "opy": "Server Load Average",
         "en-US": "Server Load Average",
         "de-DE": "Durchschnittliche Serverauslastung",
         "es-ES": "Carga media del servidor",
@@ -2265,9 +2122,8 @@ var normalStrKw =
         "zh-CN": "服务器负载平均值",
         "zh-TW": "伺服器平均負載"
     },
-    {
+    "Server Load": {
         "guid": "00000000C982",
-        "opy": "Server Load",
         "en-US": "Server Load",
         "de-DE": "Serverauslastung",
         "es-ES": "Carga del servidor",
@@ -2281,8 +2137,7 @@ var normalStrKw =
         "zh-CN": "服务器负载",
         "zh-TW": "伺服器負載"
     },
-    {
-        "opy": "Selling",
+    "Selling": {
         "en-US": "Selling",
         "guid": "00000000C103",
         "de-DE": "Verkauf",
@@ -2297,8 +2152,7 @@ var normalStrKw =
         "zh-CN": "正在出售",
         "zh-TW": "正在出售"
     },
-    {
-        "opy": "Sell",
+    "Sell": {
         "en-US": "Sell",
         "guid": "00000000C102",
         "de-DE": "Verkaufen",
@@ -2313,8 +2167,7 @@ var normalStrKw =
         "zh-CN": "出售",
         "zh-TW": "出售"
     },
-    {
-        "opy": "Selecting",
+    "Selecting": {
         "en-US": "Selecting",
         "guid": "00000000CAB1",
         "de-DE": "Auswahl",
@@ -2329,8 +2182,7 @@ var normalStrKw =
         "zh-CN": "正在选择",
         "zh-TW": "選取"
     },
-    {
-        "opy": "Selected",
+    "Selected": {
         "en-US": "Selected",
         "guid": "00000000CAB2",
         "de-DE": "Ausgewählt",
@@ -2345,9 +2197,8 @@ var normalStrKw =
         "zh-CN": "已选择",
         "zh-TW": "選取"
     },
-    {
+    "Select": {
         "guid": "00000000CAA6",
-        "opy": "Select",
         "en-US": "Select",
         "de-DE": "Auswählen",
         "es-ES": "Seleccionar",
@@ -2361,8 +2212,7 @@ var normalStrKw =
         "zh-CN": "选择",
         "zh-TW": "選擇"
     },
-    {
-        "opy": "Securing",
+    "Securing": {
         "en-US": "Securing",
         "guid": "00000000C0C0",
         "de-DE": "Sicherung",
@@ -2377,8 +2227,7 @@ var normalStrKw =
         "zh-CN": "正在保护",
         "zh-TW": "正在佔領"
     },
-    {
-        "opy": "Secured",
+    "Secured": {
         "en-US": "Secured",
         "guid": "00000000C0BE",
         "de-DE": "Gesichert",
@@ -2393,8 +2242,7 @@ var normalStrKw =
         "zh-CN": "已保护",
         "zh-TW": "遭到佔領"
     },
-    {
-        "opy": "Secure",
+    "Secure": {
         "en-US": "Secure",
         "guid": "00000000C0BD",
         "de-DE": "Sichern",
@@ -2409,9 +2257,8 @@ var normalStrKw =
         "zh-CN": "保护",
         "zh-TW": "佔領"
     },
-    {
+    "Secondary Fire": {
         "guid": "00000000C868",
-        "opy": "Secondary Fire",
         "en-US": "Secondary Fire",
         "de-DE": "Sekundärer Feuermodus",
         "es-ES": "Disparo secundario",
@@ -2425,8 +2272,7 @@ var normalStrKw =
         "zh-CN": "辅助攻击模式",
         "zh-TW": "次要攻擊"
     },
-    {
-        "opy": "Scores",
+    "Scores": {
         "en-US": "Scores",
         "guid": "00000000C27E",
         "de-DE": "Punktestände",
@@ -2441,9 +2287,8 @@ var normalStrKw =
         "zh-CN": "分数",
         "zh-TW": "分數"
     },
-    {
+    "Score": {
         "guid": "00000000C27D",
-        "opy": "Score",
         "en-US": "Score",
         "de-DE": "Punktestand",
         "es-ES": "Puntuación",
@@ -2457,8 +2302,7 @@ var normalStrKw =
         "zh-CN": "分数",
         "zh-TW": "分數"
     },
-    {
-        "opy": "Saving",
+    "Saving": {
         "en-US": "Saving",
         "guid": "00000000C0DF",
         "de-DE": "Speichern",
@@ -2473,8 +2317,7 @@ var normalStrKw =
         "zh-CN": "正在保存",
         "zh-TW": "正在儲存"
     },
-    {
-        "opy": "Saved",
+    "Saved": {
         "en-US": "Saved",
         "guid": "00000000C0E1",
         "de-DE": "Gespeichert",
@@ -2489,9 +2332,8 @@ var normalStrKw =
         "zh-CN": "已保存",
         "zh-TW": "已儲存"
     },
-    {
+    "Save": {
         "guid": "00000000C0DE",
-        "opy": "Save",
         "en-US": "Save",
         "de-DE": "Speichern",
         "es-ES": "Guardar",
@@ -2505,8 +2347,7 @@ var normalStrKw =
         "zh-CN": "保存",
         "zh-TW": "儲存"
     },
-    {
-        "opy": "Safe",
+    "Safe": {
         "en-US": "Safe",
         "guid": "00000000C13D",
         "de-DE": "Sicher",
@@ -2521,9 +2362,8 @@ var normalStrKw =
         "zh-CN": "安全",
         "zh-TW": "安全"
     },
-    {
+    "Running": {
         "guid": "00000000C12C",
-        "opy": "Running",
         "en-US": "Running",
         "de-DE": "Renne",
         "es-ES": "Corriendo",
@@ -2537,8 +2377,7 @@ var normalStrKw =
         "zh-CN": "正在运行",
         "zh-TW": "正在跑"
     },
-    {
-        "opy": "Run",
+    "Run": {
         "en-US": "Run",
         "guid": "00000000C12B",
         "de-DE": "Rennen",
@@ -2553,8 +2392,7 @@ var normalStrKw =
         "zh-CN": "运行",
         "zh-TW": "快跑"
     },
-    {
-        "opy": "Rounds Won",
+    "Rounds Won": {
         "en-US": "Rounds Won",
         "guid": "00000000C089",
         "de-DE": "Runden gewonnen",
@@ -2569,8 +2407,7 @@ var normalStrKw =
         "zh-CN": "胜利回合数",
         "zh-TW": "獲勝回合"
     },
-    {
-        "opy": "Rounds Lost",
+    "Rounds Lost": {
         "en-US": "Rounds Lost",
         "guid": "00000000C08B",
         "de-DE": "Runden verloren",
@@ -2585,8 +2422,7 @@ var normalStrKw =
         "zh-CN": "战败回合数",
         "zh-TW": "落敗回合"
     },
-    {
-        "opy": "Rounds",
+    "Rounds": {
         "en-US": "Rounds",
         "guid": "00000000BFC4",
         "de-DE": "Runden",
@@ -2601,9 +2437,8 @@ var normalStrKw =
         "zh-CN": "回合",
         "zh-TW": "回合"
     },
-    {
+    "Round": {
         "guid": "00000000BFC5",
-        "opy": "Round",
         "en-US": "Round",
         "de-DE": "Runde",
         "es-ES": "Ronda",
@@ -2616,9 +2451,8 @@ var normalStrKw =
         "zh-CN": "回合",
         "zh-TW": "回合"
     },
-    {
+    "Right": {
         "guid": "00000000C163",
-        "opy": "Right",
         "en-US": "Right",
         "de-DE": "Rechts",
         "es-ES": "Derecha",
@@ -2632,8 +2466,7 @@ var normalStrKw =
         "zh-CN": "右",
         "zh-TW": "右"
     },
-    {
-        "opy": "Reversing",
+    "Reversing": {
         "en-US": "Reversing",
         "guid": "00000000CAA4",
         "de-DE": "Umdrehen",
@@ -2648,8 +2481,7 @@ var normalStrKw =
         "zh-CN": "正在撤销",
         "zh-TW": "反轉"
     },
-    {
-        "opy": "Reversed",
+    "Reversed": {
         "en-US": "Reversed",
         "guid": "00000000CAA5",
         "de-DE": "Umgekehrt",
@@ -2664,8 +2496,7 @@ var normalStrKw =
         "zh-CN": "已撤销",
         "zh-TW": "反轉"
     },
-    {
-        "opy": "Reverse",
+    "Reverse": {
         "en-US": "Reverse",
         "guid": "00000000CAA3",
         "de-DE": "Umkehren",
@@ -2680,8 +2511,7 @@ var normalStrKw =
         "zh-CN": "撤销",
         "zh-TW": "反轉"
     },
-    {
-        "opy": "Revealing",
+    "Revealing": {
         "en-US": "Revealing",
         "guid": "00000000C0A3",
         "de-DE": "Enttarnung",
@@ -2696,8 +2526,7 @@ var normalStrKw =
         "zh-CN": "正在揭示",
         "zh-TW": "正在現身"
     },
-    {
-        "opy": "Revealed",
+    "Revealed": {
         "en-US": "Revealed",
         "guid": "00000000C0A4",
         "de-DE": "Enttarnt",
@@ -2712,8 +2541,7 @@ var normalStrKw =
         "zh-CN": "已揭示",
         "zh-TW": "已現身"
     },
-    {
-        "opy": "Reveal",
+    "Reveal": {
         "en-US": "Reveal",
         "guid": "00000000C0A2",
         "de-DE": "Enttarnen",
@@ -2728,8 +2556,7 @@ var normalStrKw =
         "zh-CN": "揭示",
         "zh-TW": "現身"
     },
-    {
-        "opy": "Resurrecting",
+    "Resurrecting": {
         "en-US": "Resurrecting",
         "guid": "00000000C127",
         "de-DE": "Wiederbelebung",
@@ -2744,8 +2571,7 @@ var normalStrKw =
         "zh-CN": "正在重生",
         "zh-TW": "正在復活"
     },
-    {
-        "opy": "Resurrected",
+    "Resurrected": {
         "en-US": "Resurrected",
         "guid": "00000000C128",
         "de-DE": "Wiederbelebt",
@@ -2760,9 +2586,8 @@ var normalStrKw =
         "zh-CN": "已重生",
         "zh-TW": "獲得復活"
     },
-    {
+    "Resurrect": {
         "guid": "00000000C126",
-        "opy": "Resurrect",
         "en-US": "Resurrect",
         "de-DE": "Wiederbeleben",
         "es-ES": "Resurrección",
@@ -2776,8 +2601,7 @@ var normalStrKw =
         "zh-CN": "重生",
         "zh-TW": "復活"
     },
-    {
-        "opy": "Resources",
+    "Resources": {
         "en-US": "Resources",
         "guid": "00000000C995",
         "de-DE": "Ressourcen",
@@ -2792,8 +2616,7 @@ var normalStrKw =
         "zh-CN": "资源",
         "zh-TW": "資源"
     },
-    {
-        "opy": "Resource",
+    "Resource": {
         "en-US": "Resource",
         "guid": "00000000C994",
         "de-DE": "Ressource",
@@ -2808,8 +2631,7 @@ var normalStrKw =
         "zh-CN": "资源",
         "zh-TW": "資源"
     },
-    {
-        "opy": "Rescuing",
+    "Rescuing": {
         "en-US": "Rescuing",
         "guid": "00000000C0B2",
         "de-DE": "Rettung",
@@ -2824,8 +2646,7 @@ var normalStrKw =
         "zh-CN": "正在营救",
         "zh-TW": "正在救援"
     },
-    {
-        "opy": "Rescued",
+    "Rescued": {
         "en-US": "Rescued",
         "guid": "00000000C0B3",
         "de-DE": "Gerettet",
@@ -2840,8 +2661,7 @@ var normalStrKw =
         "zh-CN": "已营救 ",
         "zh-TW": "獲得救援"
     },
-    {
-        "opy": "Rescue",
+    "Rescue": {
         "en-US": "Rescue",
         "guid": "00000000C0B1",
         "de-DE": "Retten",
@@ -2856,9 +2676,8 @@ var normalStrKw =
         "zh-CN": "营救",
         "zh-TW": "救援"
     },
-    {
+    "Remaining": {
         "guid": "00000000C5EB",
-        "opy": "Remaining",
         "en-US": "Remaining",
         "de-DE": "Verbleibend",
         "es-ES": "Restante",
@@ -2872,8 +2691,7 @@ var normalStrKw =
         "zh-CN": "剩余",
         "zh-TW": "剩餘"
     },
-    {
-        "opy": "Remain",
+    "Remain": {
         "en-US": "Remain",
         "guid": "00000000C5EA",
         "de-DE": "Bleiben",
@@ -2888,9 +2706,8 @@ var normalStrKw =
         "zh-CN": "剩余",
         "zh-TW": "剩餘"
     },
-    {
+    "Red": {
         "guid": "00000000C87B",
-        "opy": "Red",
         "en-US": "Red",
         "de-DE": "Rot",
         "es-MX": "Rojo",
@@ -2903,8 +2720,7 @@ var normalStrKw =
         "zh-CN": "红色",
         "zh-TW": "紅"
     },
-    {
-        "opy": "Recovering",
+    "Recovering": {
         "en-US": "Recovering",
         "guid": "00000000C0D4",
         "de-DE": "Wiederherstellung",
@@ -2919,8 +2735,7 @@ var normalStrKw =
         "zh-CN": "正在恢复",
         "zh-TW": "正在恢復"
     },
-    {
-        "opy": "Recovered",
+    "Recovered": {
         "en-US": "Recovered",
         "guid": "00000000C0D3",
         "de-DE": "Wiederhergestellt",
@@ -2935,8 +2750,7 @@ var normalStrKw =
         "zh-CN": "已恢复",
         "zh-TW": "獲得恢復"
     },
-    {
-        "opy": "Recover",
+    "Recover": {
         "en-US": "Recover",
         "guid": "00000000C0CF",
         "de-DE": "Wiederherstellen",
@@ -2951,8 +2765,7 @@ var normalStrKw =
         "zh-CN": "恢复",
         "zh-TW": "恢復"
     },
-    {
-        "opy": "Records",
+    "Records": {
         "en-US": "Records",
         "guid": "00000000C284",
         "de-DE": "Rekorde",
@@ -2966,8 +2779,7 @@ var normalStrKw =
         "zh-CN": "记录",
         "zh-TW": "紀錄"
     },
-    {
-        "opy": "Record",
+    "Record": {
         "en-US": "Record",
         "guid": "00000000C281",
         "de-DE": "Rekord",
@@ -2980,9 +2792,8 @@ var normalStrKw =
         "zh-CN": "记录",
         "zh-TW": "紀錄"
     },
-    {
+    "Ready": {
         "guid": "00000000C5D3",
-        "opy": "Ready",
         "en-US": "Ready",
         "de-DE": "Bereit",
         "es-ES": "Listo",
@@ -2996,8 +2807,7 @@ var normalStrKw =
         "zh-CN": "就绪",
         "zh-TW": "就緒"
     },
-    {
-        "opy": "Reaching",
+    "Reaching": {
         "en-US": "Reaching",
         "guid": "00000000C875",
         "de-DE": "Reichweite",
@@ -3012,8 +2822,7 @@ var normalStrKw =
         "zh-CN": "正在前往",
         "zh-TW": "正在前往"
     },
-    {
-        "opy": "Reached",
+    "Reached": {
         "en-US": "Reached",
         "guid": "00000000C874",
         "de-DE": "Erreicht",
@@ -3028,8 +2837,7 @@ var normalStrKw =
         "zh-CN": "已抵达",
         "zh-TW": "抵達"
     },
-    {
-        "opy": "Reach",
+    "Reach": {
         "en-US": "Reach",
         "guid": "00000000C873",
         "de-DE": "Erreichen",
@@ -3044,8 +2852,7 @@ var normalStrKw =
         "zh-CN": "前往",
         "zh-TW": "前往"
     },
-    {
-        "opy": "Rank S",
+    "Rank S": {
         "en-US": "Rank S",
         "guid": "00000000C07A",
         "de-DE": "Rang S",
@@ -3060,8 +2867,7 @@ var normalStrKw =
         "zh-CN": "等级 S",
         "zh-TW": "等級S"
     },
-    {
-        "opy": "Rank F",
+    "Rank F": {
         "en-US": "Rank F",
         "guid": "00000000C079",
         "de-DE": "Rang F",
@@ -3076,8 +2882,7 @@ var normalStrKw =
         "zh-CN": "等级 F",
         "zh-TW": "等級F"
     },
-    {
-        "opy": "Rank E",
+    "Rank E": {
         "en-US": "Rank E",
         "guid": "00000000C078",
         "de-DE": "Rang E",
@@ -3092,8 +2897,7 @@ var normalStrKw =
         "zh-CN": "等级 E",
         "zh-TW": "等級E"
     },
-    {
-        "opy": "Rank D",
+    "Rank D": {
         "en-US": "Rank D",
         "guid": "00000000C077",
         "de-DE": "Rang D",
@@ -3108,8 +2912,7 @@ var normalStrKw =
         "zh-CN": "等级 D",
         "zh-TW": "等級D"
     },
-    {
-        "opy": "Rank C",
+    "Rank C": {
         "en-US": "Rank C",
         "guid": "00000000C076",
         "de-DE": "Rang C",
@@ -3124,8 +2927,7 @@ var normalStrKw =
         "zh-CN": "等级 C",
         "zh-TW": "等級C"
     },
-    {
-        "opy": "Rank B",
+    "Rank B": {
         "en-US": "Rank B",
         "guid": "00000000C075",
         "de-DE": "Rang B",
@@ -3140,8 +2942,7 @@ var normalStrKw =
         "zh-CN": "等级 B",
         "zh-TW": "等級B"
     },
-    {
-        "opy": "Rank A",
+    "Rank A": {
         "en-US": "Rank A",
         "guid": "00000000C074",
         "de-DE": "Rang A",
@@ -3156,8 +2957,7 @@ var normalStrKw =
         "zh-CN": "等级 A",
         "zh-TW": "等級A"
     },
-    {
-        "opy": "Rank",
+    "Rank": {
         "en-US": "Rank",
         "guid": "00000000C073",
         "de-DE": "Rang",
@@ -3172,8 +2972,7 @@ var normalStrKw =
         "zh-CN": "排名",
         "zh-TW": "等級"
     },
-    {
-        "opy": "Raising",
+    "Raising": {
         "en-US": "Raising",
         "guid": "00000000C0CA",
         "de-DE": "Erhöhung",
@@ -3188,8 +2987,7 @@ var normalStrKw =
         "zh-CN": "正在复活",
         "zh-TW": "正在提高"
     },
-    {
-        "opy": "Raised",
+    "Raised": {
         "en-US": "Raised",
         "guid": "00000000C0CB",
         "de-DE": "Erhöht",
@@ -3204,8 +3002,7 @@ var normalStrKw =
         "zh-CN": "已复活",
         "zh-TW": "獲得提高"
     },
-    {
-        "opy": "Raise",
+    "Raise": {
         "en-US": "Raise",
         "guid": "00000000C0C9",
         "de-DE": "Erhöhen",
@@ -3220,9 +3017,8 @@ var normalStrKw =
         "zh-CN": "复活",
         "zh-TW": "提高"
     },
-    {
+    "Purple": {
         "guid": "00000000C87A",
-        "opy": "Purple",
         "en-US": "Purple",
         "de-DE": "Violett",
         "es-ES": "Morado",
@@ -3236,8 +3032,7 @@ var normalStrKw =
         "zh-CN": "紫色",
         "zh-TW": "紫"
     },
-    {
-        "opy": "Purifying",
+    "Purifying": {
         "en-US": "Purifying",
         "guid": "00000000C0DC",
         "de-DE": "Reinigung",
@@ -3252,8 +3047,7 @@ var normalStrKw =
         "zh-CN": "正在净化",
         "zh-TW": "正在淨化"
     },
-    {
-        "opy": "Purify",
+    "Purify": {
         "en-US": "Purify",
         "guid": "00000000C0DB",
         "de-DE": "Reinigen",
@@ -3268,8 +3062,7 @@ var normalStrKw =
         "zh-CN": "净化",
         "zh-TW": "淨化"
     },
-    {
-        "opy": "Purified",
+    "Purified": {
         "en-US": "Purified",
         "guid": "00000000C0DD",
         "de-DE": "Gereinigt",
@@ -3284,8 +3077,7 @@ var normalStrKw =
         "zh-CN": "已净化",
         "zh-TW": "受到淨化"
     },
-    {
-        "opy": "Protecting",
+    "Protecting": {
         "en-US": "Protecting",
         "guid": "00000000C11E",
         "de-DE": "Schutz",
@@ -3300,8 +3092,7 @@ var normalStrKw =
         "zh-CN": "正在保护",
         "zh-TW": "正在保護"
     },
-    {
-        "opy": "Protected",
+    "Protected": {
         "en-US": "Protected",
         "guid": "00000000C11F",
         "de-DE": "Geschützt",
@@ -3316,8 +3107,7 @@ var normalStrKw =
         "zh-CN": "已保护",
         "zh-TW": "受到保護"
     },
-    {
-        "opy": "Protect",
+    "Protect": {
         "en-US": "Protect",
         "guid": "00000000C11D",
         "de-DE": "Schützen",
@@ -3332,8 +3122,7 @@ var normalStrKw =
         "zh-CN": "保护",
         "zh-TW": "保護"
     },
-    {
-        "opy": "Projectiles",
+    "Projectiles": {
         "en-US": "Projectiles",
         "guid": "00000000C991",
         "de-DE": "Projektile",
@@ -3347,8 +3136,7 @@ var normalStrKw =
         "zh-CN": "飞弹",
         "zh-TW": "拋射物"
     },
-    {
-        "opy": "Projectile",
+    "Projectile": {
         "en-US": "Projectile",
         "guid": "00000000C992",
         "de-DE": "Projektil",
@@ -3362,9 +3150,8 @@ var normalStrKw =
         "zh-CN": "飞弹",
         "zh-TW": "拋射物"
     },
-    {
+    "Primary Fire": {
         "guid": "00000000C867",
-        "opy": "Primary Fire",
         "en-US": "Primary Fire",
         "de-DE": "Primärer Feuermodus",
         "es-ES": "Disparo principal",
@@ -3378,8 +3165,7 @@ var normalStrKw =
         "zh-CN": "主要攻击模式",
         "zh-TW": "主要攻擊"
     },
-    {
-        "opy": "Price",
+    "Price": {
         "en-US": "Price",
         "guid": "00000000BFFB",
         "de-DE": "Preis",
@@ -3394,8 +3180,7 @@ var normalStrKw =
         "zh-CN": "价格",
         "zh-TW": "價格"
     },
-    {
-        "opy": "Power-ups",
+    "Power-ups": {
         "en-US": "Power-ups",
         "guid": "00000000BFDA",
         "es-ES": "Potenciadores",
@@ -3408,8 +3193,7 @@ var normalStrKw =
         "zh-CN": "强化",
         "zh-TW": "強化"
     },
-    {
-        "opy": "Power-up",
+    "Power-up": {
         "en-US": "Power-up",
         "guid": "00000000BFDB",
         "es-ES": "Potenciador",
@@ -3422,9 +3206,8 @@ var normalStrKw =
         "zh-CN": "强化",
         "zh-TW": "強化"
     },
-    {
+    "Power": {
         "guid": "00000000C986",
-        "opy": "Power",
         "en-US": "Power",
         "de-DE": "Macht",
         "es-ES": "Poder",
@@ -3438,9 +3221,8 @@ var normalStrKw =
         "zh-CN": "能量",
         "zh-TW": "能量"
     },
-    {
+    "Position": {
         "guid": "00000000C87D",
-        "opy": "Position",
         "en-US": "Position",
         "es-ES": "Posición",
         "es-MX": "Posición",
@@ -3452,8 +3234,7 @@ var normalStrKw =
         "zh-CN": "位置",
         "zh-TW": "位置"
     },
-    {
-        "opy": "Points Lost",
+    "Points Lost": {
         "en-US": "Points Lost",
         "guid": "00000000C3E6",
         "de-DE": "Punkte verloren",
@@ -3468,8 +3249,7 @@ var normalStrKw =
         "zh-CN": "失去分数",
         "zh-TW": "失去的點"
     },
-    {
-        "opy": "Points Earned",
+    "Points Earned": {
         "en-US": "Points Earned",
         "guid": "00000000C3E5",
         "de-DE": "Punkte erhalten",
@@ -3484,8 +3264,7 @@ var normalStrKw =
         "zh-CN": "获得分数",
         "zh-TW": "獲得的分數"
     },
-    {
-        "opy": "Points",
+    "Points": {
         "en-US": "Points",
         "guid": "00000000C27C",
         "de-DE": "Punkte",
@@ -3499,8 +3278,7 @@ var normalStrKw =
         "zh-CN": "点",
         "zh-TW": "分"
     },
-    {
-        "opy": "Point",
+    "Point": {
         "en-US": "Point",
         "guid": "00000000C27B",
         "de-DE": "Punkt",
@@ -3514,8 +3292,7 @@ var normalStrKw =
         "zh-CN": "点",
         "zh-TW": "分"
     },
-    {
-        "opy": "Playing",
+    "Playing": {
         "en-US": "Playing",
         "guid": "00000000CAAF",
         "de-DE": "Spiel",
@@ -3530,9 +3307,8 @@ var normalStrKw =
         "zh-CN": "正在打出",
         "zh-TW": "遊玩"
     },
-    {
+    "Players": {
         "guid": "00000000BFDC",
-        "opy": "Players",
         "en-US": "Players",
         "de-DE": "Spieler",
         "es-ES": "Jugadores",
@@ -3546,9 +3322,8 @@ var normalStrKw =
         "zh-CN": "玩家",
         "zh-TW": "玩家"
     },
-    {
+    "Player": {
         "guid": "00000000BFDD",
-        "opy": "Player",
         "en-US": "Player",
         "de-DE": "Spieler",
         "es-ES": "Jugador",
@@ -3562,8 +3337,7 @@ var normalStrKw =
         "zh-CN": "玩家",
         "zh-TW": "玩家"
     },
-    {
-        "opy": "Played",
+    "Played": {
         "en-US": "Played",
         "guid": "00000000CAB0",
         "de-DE": "Gespielt",
@@ -3578,8 +3352,7 @@ var normalStrKw =
         "zh-CN": "已打出",
         "zh-TW": "遊玩"
     },
-    {
-        "opy": "Play",
+    "Play": {
         "en-US": "Play",
         "guid": "00000000CAAE",
         "de-DE": "Spielen",
@@ -3594,8 +3367,7 @@ var normalStrKw =
         "zh-CN": "打出",
         "zh-TW": "遊玩"
     },
-    {
-        "opy": "Piles",
+    "Piles": {
         "en-US": "Piles",
         "guid": "00000000CAAD",
         "de-DE": "Haufen",
@@ -3609,8 +3381,7 @@ var normalStrKw =
         "zh-CN": "堆",
         "zh-TW": "牌堆"
     },
-    {
-        "opy": "Pile",
+    "Pile": {
         "en-US": "Pile",
         "guid": "00000000CAAC",
         "de-DE": "Stapel",
@@ -3624,8 +3395,7 @@ var normalStrKw =
         "zh-CN": "堆",
         "zh-TW": "牌堆"
     },
-    {
-        "opy": "Picking",
+    "Picking": {
         "en-US": "Picking",
         "guid": "00000000C10C",
         "de-DE": "Wahl",
@@ -3640,8 +3410,7 @@ var normalStrKw =
         "zh-CN": "正在选取",
         "zh-TW": "正在挑選"
     },
-    {
-        "opy": "Picked",
+    "Picked": {
         "en-US": "Picked",
         "guid": "00000000C10D",
         "de-DE": "Gewählt",
@@ -3656,8 +3425,7 @@ var normalStrKw =
         "zh-CN": "已选取",
         "zh-TW": "受到挑選"
     },
-    {
-        "opy": "Pick",
+    "Pick": {
         "en-US": "Pick",
         "guid": "00000000C10B",
         "de-DE": "Wählen",
@@ -3672,8 +3440,7 @@ var normalStrKw =
         "zh-CN": "选取",
         "zh-TW": "挑選"
     },
-    {
-        "opy": "Phases",
+    "Phases": {
         "en-US": "Phases",
         "guid": "00000000C009",
         "de-DE": "Phasen",
@@ -3687,8 +3454,7 @@ var normalStrKw =
         "zh-CN": "阶段",
         "zh-TW": "階段"
     },
-    {
-        "opy": "Phase",
+    "Phase": {
         "en-US": "Phase",
         "guid": "00000000C00A",
         "es-ES": "Fase",
@@ -3701,8 +3467,7 @@ var normalStrKw =
         "zh-CN": "阶段",
         "zh-TW": "階段"
     },
-    {
-        "opy": "Payloads",
+    "Payloads": {
         "en-US": "Payloads",
         "guid": "00000000BFCC",
         "de-DE": "Frachten",
@@ -3717,9 +3482,8 @@ var normalStrKw =
         "zh-CN": "运载目标",
         "zh-TW": "護送目標"
     },
-    {
+    "Payload": {
         "guid": "00000000BFCD",
-        "opy": "Payload",
         "en-US": "Payload",
         "de-DE": "Fracht",
         "es-ES": "Carga",
@@ -3733,8 +3497,7 @@ var normalStrKw =
         "zh-CN": "运载目标",
         "zh-TW": "護送目標"
     },
-    {
-        "opy": "Participants",
+    "Participants": {
         "en-US": "Participants",
         "guid": "00000000C28E",
         "de-DE": "Teilnehmer",
@@ -3748,8 +3511,7 @@ var normalStrKw =
         "zh-CN": "参与者",
         "zh-TW": "參與者"
     },
-    {
-        "opy": "Participant",
+    "Participant": {
         "en-US": "Participant",
         "guid": "00000000C290",
         "de-DE": "Teilnehmer",
@@ -3763,9 +3525,8 @@ var normalStrKw =
         "zh-CN": "参与者",
         "zh-TW": "參與者"
     },
-    {
+    "Overtime": {
         "guid": "00000000BFFA",
-        "opy": "Overtime",
         "en-US": "Overtime",
         "de-DE": "Verlängerung",
         "es-ES": "Tiempo extra",
@@ -3779,8 +3540,7 @@ var normalStrKw =
         "zh-CN": "加时",
         "zh-TW": "延長賽"
     },
-    {
-        "opy": "Over",
+    "Over": {
         "en-US": "Over",
         "guid": "00000000C166",
         "de-DE": "Über",
@@ -3795,8 +3555,7 @@ var normalStrKw =
         "zh-CN": "上方",
         "zh-TW": "超過"
     },
-    {
-        "opy": "Outside",
+    "Outside": {
         "en-US": "Outside",
         "guid": "00000000C168",
         "de-DE": "Außerhalb",
@@ -3811,8 +3570,7 @@ var normalStrKw =
         "zh-CN": "外",
         "zh-TW": "外部"
     },
-    {
-        "opy": "Outgoing",
+    "Outgoing": {
         "en-US": "Outgoing",
         "guid": "00000000C136",
         "de-DE": "Ausgehend",
@@ -3827,8 +3585,7 @@ var normalStrKw =
         "zh-CN": "正在远去",
         "zh-TW": "離開"
     },
-    {
-        "opy": "Out of View",
+    "Out of View": {
         "en-US": "Out of View",
         "guid": "00000000C132",
         "de-DE": "Nicht in Sicht",
@@ -3843,8 +3600,7 @@ var normalStrKw =
         "zh-CN": "不在视野中",
         "zh-TW": "不在視野中"
     },
-    {
-        "opy": "Optimizing",
+    "Optimizing": {
         "en-US": "Optimizing",
         "guid": "00000000C0C4",
         "de-DE": "Optimierung",
@@ -3859,8 +3615,7 @@ var normalStrKw =
         "zh-CN": "正在优化",
         "zh-TW": "正在最佳化"
     },
-    {
-        "opy": "Optimized",
+    "Optimized": {
         "en-US": "Optimized",
         "guid": "00000000C0C5",
         "de-DE": "Optimiert",
@@ -3875,8 +3630,7 @@ var normalStrKw =
         "zh-CN": "已优化",
         "zh-TW": "獲得最佳化"
     },
-    {
-        "opy": "Optimize",
+    "Optimize": {
         "en-US": "Optimize",
         "guid": "00000000C0C3",
         "de-DE": "Optimieren",
@@ -3891,8 +3645,7 @@ var normalStrKw =
         "zh-CN": "优化",
         "zh-TW": "最佳化"
     },
-    {
-        "opy": "Optimal",
+    "Optimal": {
         "en-US": "Optimal",
         "guid": "00000000C137",
         "es-ES": "Óptimo",
@@ -3905,9 +3658,8 @@ var normalStrKw =
         "zh-CN": "最佳",
         "zh-TW": "最佳"
     },
-    {
+    "Oops": {
         "guid": "00000000C17F",
-        "opy": "Oops",
         "en-US": "Oops",
         "de-DE": "Ups",
         "es-ES": "Ay",
@@ -3921,8 +3673,7 @@ var normalStrKw =
         "zh-CN": "啊呀",
         "zh-TW": "哎呀"
     },
-    {
-        "opy": "Oof",
+    "Oof": {
         "en-US": "Oof",
         "guid": "00000000C182",
         "de-DE": "Uff",
@@ -3937,9 +3688,8 @@ var normalStrKw =
         "zh-CN": "噢",
         "zh-TW": "噢"
     },
-    {
+    "On": {
         "guid": "00000000C5DC",
-        "opy": "On",
         "en-US": "On",
         "de-DE": "Ein",
         "es-ES": "Activado",
@@ -3952,9 +3702,8 @@ var normalStrKw =
         "zh-CN": "开启",
         "zh-TW": "開啟"
     },
-    {
+    "Off": {
         "guid": "00000000C5DD",
-        "opy": "Off",
         "en-US": "Off",
         "de-DE": "Aus",
         "es-ES": "Desactivado",
@@ -3967,8 +3716,7 @@ var normalStrKw =
         "zh-CN": "关闭",
         "zh-TW": "關閉"
     },
-    {
-        "opy": "Obtaining",
+    "Obtaining": {
         "en-US": "Obtaining",
         "guid": "00000000C0BB",
         "de-DE": "Erhält",
@@ -3983,8 +3731,7 @@ var normalStrKw =
         "zh-CN": "正在获取",
         "zh-TW": "正在取得"
     },
-    {
-        "opy": "Obtained",
+    "Obtained": {
         "en-US": "Obtained",
         "guid": "00000000C0BC",
         "de-DE": "Erlangt",
@@ -3999,8 +3746,7 @@ var normalStrKw =
         "zh-CN": "已获取",
         "zh-TW": "取得"
     },
-    {
-        "opy": "Obtain",
+    "Obtain": {
         "en-US": "Obtain",
         "guid": "00000000C0BA",
         "de-DE": "Erhalten",
@@ -4015,8 +3761,7 @@ var normalStrKw =
         "zh-CN": "获取",
         "zh-TW": "取得"
     },
-    {
-        "opy": "Objects",
+    "Objects": {
         "en-US": "Objects",
         "guid": "00000000BFCA",
         "de-DE": "Objekte",
@@ -4031,8 +3776,7 @@ var normalStrKw =
         "zh-CN": "对象",
         "zh-TW": "目標"
     },
-    {
-        "opy": "Objectives",
+    "Objectives": {
         "en-US": "Objectives",
         "guid": "00000000BFD6",
         "de-DE": "Zielpunkte",
@@ -4047,9 +3791,8 @@ var normalStrKw =
         "zh-CN": "目标点",
         "zh-TW": "目標"
     },
-    {
+    "Objective": {
         "guid": "00000000BFC9",
-        "opy": "Objective",
         "en-US": "Objective",
         "de-DE": "Zielpunkt",
         "es-ES": "Objetivo",
@@ -4063,8 +3806,7 @@ var normalStrKw =
         "zh-CN": "目标点",
         "zh-TW": "目標"
     },
-    {
-        "opy": "Object",
+    "Object": {
         "en-US": "Object",
         "guid": "00000000BFCB",
         "de-DE": "Objekt",
@@ -4079,8 +3821,7 @@ var normalStrKw =
         "zh-CN": "对象",
         "zh-TW": "目標"
     },
-    {
-        "opy": "Not Today",
+    "Not Today": {
         "en-US": "Not Today",
         "guid": "00000000C18C",
         "de-DE": "Nicht heute",
@@ -4095,8 +3836,7 @@ var normalStrKw =
         "zh-CN": "算了吧",
         "zh-TW": "下次再說"
     },
-    {
-        "opy": "Northwest",
+    "Northwest": {
         "en-US": "Northwest",
         "guid": "00000000C175",
         "de-DE": "Nordwesten",
@@ -4111,8 +3851,7 @@ var normalStrKw =
         "zh-CN": "西北",
         "zh-TW": "西北"
     },
-    {
-        "opy": "Northeast",
+    "Northeast": {
         "en-US": "Northeast",
         "guid": "00000000C16E",
         "de-DE": "Nordosten",
@@ -4127,8 +3866,7 @@ var normalStrKw =
         "zh-CN": "东北",
         "zh-TW": "東北"
     },
-    {
-        "opy": "North",
+    "North": {
         "en-US": "North",
         "guid": "00000000C16D",
         "de-DE": "Norden",
@@ -4143,9 +3881,8 @@ var normalStrKw =
         "zh-CN": "北",
         "zh-TW": "北"
     },
-    {
+    "Normal": {
         "guid": "00000000C139",
-        "opy": "Normal",
         "en-US": "Normal",
         "it-IT": "Normale",
         "ja-JP": "ノーマル",
@@ -4154,9 +3891,8 @@ var normalStrKw =
         "zh-CN": "普通",
         "zh-TW": "普通"
     },
-    {
+    "None": {
         "guid": "00000000C144",
-        "opy": "None",
         "en-US": "None",
         "de-DE": "Nichts",
         "es-ES": "Nada",
@@ -4170,8 +3906,7 @@ var normalStrKw =
         "zh-CN": "无",
         "zh-TW": "無"
     },
-    {
-        "opy": "No Thanks",
+    "No Thanks": {
         "en-US": "No Thanks",
         "guid": "00000000C181",
         "de-DE": "Nein danke",
@@ -4186,9 +3921,8 @@ var normalStrKw =
         "zh-CN": "不用了",
         "zh-TW": "不，謝謝"
     },
-    {
+    "No": {
         "guid": "00000000C5F5",
-        "opy": "No",
         "en-US": "No",
         "de-DE": "Nein",
         "fr-FR": "Non",
@@ -4199,8 +3933,7 @@ var normalStrKw =
         "zh-CN": "否",
         "zh-TW": "否"
     },
-    {
-        "opy": "Nice Try",
+    "Nice Try": {
         "en-US": "Nice Try",
         "guid": "00000000C18A",
         "de-DE": "Netter Versuch",
@@ -4215,8 +3948,7 @@ var normalStrKw =
         "zh-CN": "表现不错",
         "zh-TW": "差一點"
     },
-    {
-        "opy": "Next Upgrade",
+    "Next Upgrade": {
         "en-US": "Next Upgrade",
         "guid": "00000000C055",
         "de-DE": "Nächstes Upgrade",
@@ -4231,8 +3963,7 @@ var normalStrKw =
         "zh-CN": "下一个升级 ",
         "zh-TW": "下個升級"
     },
-    {
-        "opy": "Next Targets",
+    "Next Targets": {
         "en-US": "Next Targets",
         "guid": "00000000C045",
         "de-DE": "Nächste Ziele",
@@ -4247,8 +3978,7 @@ var normalStrKw =
         "zh-CN": "下一批目标",
         "zh-TW": "下個目標"
     },
-    {
-        "opy": "Next Target",
+    "Next Target": {
         "en-US": "Next Target",
         "guid": "00000000C044",
         "de-DE": "Nächstes Ziel",
@@ -4263,8 +3993,7 @@ var normalStrKw =
         "zh-CN": "下一个目标",
         "zh-TW": "下個目標"
     },
-    {
-        "opy": "Next Round",
+    "Next Round": {
         "en-US": "Next Round",
         "guid": "00000000C04E",
         "de-DE": "Nächste Runde",
@@ -4279,8 +4008,7 @@ var normalStrKw =
         "zh-CN": "下一个回合",
         "zh-TW": "下個回合"
     },
-    {
-        "opy": "Next Players",
+    "Next Players": {
         "en-US": "Next Players",
         "guid": "00000000C043",
         "de-DE": "Nächste Spieler",
@@ -4295,8 +4023,7 @@ var normalStrKw =
         "zh-CN": "下一批玩家",
         "zh-TW": "下個玩家"
     },
-    {
-        "opy": "Next Player",
+    "Next Player": {
         "en-US": "Next Player",
         "guid": "00000000C042",
         "de-DE": "Nächster Spieler",
@@ -4311,8 +4038,7 @@ var normalStrKw =
         "zh-CN": "下一个玩家",
         "zh-TW": "下個玩家"
     },
-    {
-        "opy": "Next Phase",
+    "Next Phase": {
         "en-US": "Next Phase",
         "guid": "00000000C053",
         "de-DE": "Nächste Phase",
@@ -4327,8 +4053,7 @@ var normalStrKw =
         "zh-CN": "下一个阶段",
         "zh-TW": "下個階段"
     },
-    {
-        "opy": "Next Objects",
+    "Next Objects": {
         "en-US": "Next Objects",
         "guid": "00000000C048",
         "de-DE": "Nächste Objekte",
@@ -4343,8 +4068,7 @@ var normalStrKw =
         "zh-CN": "下一个对象",
         "zh-TW": "下個目標"
     },
-    {
-        "opy": "Next Objective",
+    "Next Objective": {
         "en-US": "Next Objective",
         "guid": "00000000C04A",
         "de-DE": "Nächster Zielpunkt",
@@ -4359,8 +4083,7 @@ var normalStrKw =
         "zh-CN": "下一个目标点",
         "zh-TW": "下個目標"
     },
-    {
-        "opy": "Next Object",
+    "Next Object": {
         "en-US": "Next Object",
         "guid": "00000000C049",
         "de-DE": "Nächstes Objekt",
@@ -4375,8 +4098,7 @@ var normalStrKw =
         "zh-CN": "下一批对象",
         "zh-TW": "下個目標"
     },
-    {
-        "opy": "Next Mission",
+    "Next Mission": {
         "en-US": "Next Mission",
         "guid": "00000000C052",
         "de-DE": "Nächste Mission",
@@ -4391,8 +4113,7 @@ var normalStrKw =
         "zh-CN": "下一个任务",
         "zh-TW": "下個任務"
     },
-    {
-        "opy": "Next Level",
+    "Next Level": {
         "en-US": "Next Level",
         "guid": "00000000C057",
         "de-DE": "Nächster Level",
@@ -4407,8 +4128,7 @@ var normalStrKw =
         "zh-CN": "下一个等级",
         "zh-TW": "下個等級"
     },
-    {
-        "opy": "Next Hostages",
+    "Next Hostages": {
         "en-US": "Next Hostages",
         "guid": "00000000C047",
         "de-DE": "Nächste Geiseln",
@@ -4423,8 +4143,7 @@ var normalStrKw =
         "zh-CN": "下一批人质",
         "zh-TW": "下個人質"
     },
-    {
-        "opy": "Next Hostage",
+    "Next Hostage": {
         "en-US": "Next Hostage",
         "guid": "00000000C046",
         "de-DE": "Nächste Geisel",
@@ -4439,8 +4158,7 @@ var normalStrKw =
         "zh-CN": "下一个人质",
         "zh-TW": "下個人質"
     },
-    {
-        "opy": "Next Heroes",
+    "Next Heroes": {
         "en-US": "Next Heroes",
         "guid": "00000000C041",
         "de-DE": "Nächste Helden",
@@ -4455,8 +4173,7 @@ var normalStrKw =
         "zh-CN": "下一批英雄",
         "zh-TW": "下個英雄"
     },
-    {
-        "opy": "Next Hero",
+    "Next Hero": {
         "en-US": "Next Hero",
         "guid": "00000000C040",
         "de-DE": "Nächster Held",
@@ -4471,8 +4188,7 @@ var normalStrKw =
         "zh-CN": "下一个英雄",
         "zh-TW": "下個英雄"
     },
-    {
-        "opy": "Next Game",
+    "Next Game": {
         "en-US": "Next Game",
         "guid": "00000000C04F",
         "de-DE": "Nächstes Spiel",
@@ -4487,8 +4203,7 @@ var normalStrKw =
         "zh-CN": "下一个游戏",
         "zh-TW": "下場遊戲"
     },
-    {
-        "opy": "Next Form",
+    "Next Form": {
         "en-US": "Next Form",
         "guid": "00000000C056",
         "de-DE": "Nächste Form",
@@ -4503,8 +4218,7 @@ var normalStrKw =
         "zh-CN": "下一个表格",
         "zh-TW": "下個型態"
     },
-    {
-        "opy": "Next Enemy",
+    "Next Enemy": {
         "en-US": "Next Enemy",
         "guid": "00000000C04D",
         "de-DE": "Nächster Gegner",
@@ -4519,8 +4233,7 @@ var normalStrKw =
         "zh-CN": "下一个敌人",
         "zh-TW": "下個敵人"
     },
-    {
-        "opy": "Next Enemies",
+    "Next Enemies": {
         "en-US": "Next Enemies",
         "guid": "00000000C050",
         "de-DE": "Nächste Gegner",
@@ -4535,8 +4248,7 @@ var normalStrKw =
         "zh-CN": "下一批敌人",
         "zh-TW": "下個敵人"
     },
-    {
-        "opy": "Next Checkpoint",
+    "Next Checkpoint": {
         "en-US": "Next Checkpoint",
         "guid": "00000000C054",
         "de-DE": "Nächster Checkpoint",
@@ -4551,8 +4263,7 @@ var normalStrKw =
         "zh-CN": "下一个检查点",
         "zh-TW": "下個檢查點"
     },
-    {
-        "opy": "Next Attempt",
+    "Next Attempt": {
         "en-US": "Next Attempt",
         "guid": "00000000C051",
         "de-DE": "Nächster Versuch",
@@ -4567,8 +4278,7 @@ var normalStrKw =
         "zh-CN": "下一次尝试",
         "zh-TW": "下次機會"
     },
-    {
-        "opy": "Next Ally",
+    "Next Ally": {
         "en-US": "Next Ally",
         "guid": "00000000C04B",
         "de-DE": "Nächster Verbündeter",
@@ -4583,8 +4293,7 @@ var normalStrKw =
         "zh-CN": "下一个盟友",
         "zh-TW": "下個盟友"
     },
-    {
-        "opy": "Next Allies",
+    "Next Allies": {
         "en-US": "Next Allies",
         "guid": "00000000C04C",
         "de-DE": "Nächste Verbündete",
@@ -4599,9 +4308,8 @@ var normalStrKw =
         "zh-CN": "下一批盟友",
         "zh-TW": "下個盟友"
     },
-    {
+    "Next": {
         "guid": "00000000C02E",
-        "opy": "Next",
         "en-US": "Next",
         "de-DE": "Nächster",
         "es-ES": "Siguiente",
@@ -4615,8 +4323,7 @@ var normalStrKw =
         "zh-CN": "下一个",
         "zh-TW": "下一個"
     },
-    {
-        "opy": "New Record",
+    "New Record": {
         "en-US": "New Record",
         "guid": "00000000C29D",
         "de-DE": "Neuer Rekord",
@@ -4631,8 +4338,7 @@ var normalStrKw =
         "zh-CN": "最新记录",
         "zh-TW": "全新紀錄"
     },
-    {
-        "opy": "New High Score",
+    "New High Score": {
         "en-US": "New High Score",
         "guid": "00000000C29C",
         "de-DE": "Neuer Highscore",
@@ -4647,8 +4353,7 @@ var normalStrKw =
         "zh-CN": "最新高分",
         "zh-TW": "全新最高分"
     },
-    {
-        "opy": "Near",
+    "Near": {
         "en-US": "Near",
         "guid": "00000000C160",
         "de-DE": "Nahe",
@@ -4663,8 +4368,7 @@ var normalStrKw =
         "zh-CN": "近",
         "zh-TW": "近"
     },
-    {
-        "opy": "My Mistake",
+    "My Mistake": {
         "en-US": "My Mistake",
         "guid": "00000000C18F",
         "de-DE": "Mein Fehler",
@@ -4679,8 +4383,7 @@ var normalStrKw =
         "zh-CN": "我的错",
         "zh-TW": "是我不好"
     },
-    {
-        "opy": "Most",
+    "Most": {
         "en-US": "Most",
         "guid": "00000000C15E",
         "de-DE": "Am meisten",
@@ -4695,8 +4398,7 @@ var normalStrKw =
         "zh-CN": "最多",
         "zh-TW": "最多"
     },
-    {
-        "opy": "More",
+    "More": {
         "en-US": "More",
         "guid": "00000000C15C",
         "de-DE": "Mehr",
@@ -4711,8 +4413,7 @@ var normalStrKw =
         "zh-CN": "更多",
         "zh-TW": "較多"
     },
-    {
-        "opy": "Monsters",
+    "Monsters": {
         "en-US": "Monsters",
         "guid": "00000000C98F",
         "de-DE": "Ungeheuer",
@@ -4727,8 +4428,7 @@ var normalStrKw =
         "zh-CN": "怪物",
         "zh-TW": "怪物"
     },
-    {
-        "opy": "Monster",
+    "Monster": {
         "en-US": "Monster",
         "guid": "00000000C990",
         "es-ES": "Monstruo",
@@ -4742,8 +4442,7 @@ var normalStrKw =
         "zh-CN": "怪物",
         "zh-TW": "怪物"
     },
-    {
-        "opy": "Money",
+    "Money": {
         "en-US": "Money",
         "guid": "00000000BFEB",
         "de-DE": "Geld",
@@ -4758,8 +4457,7 @@ var normalStrKw =
         "zh-CN": "金钱",
         "zh-TW": "金錢"
     },
-    {
-        "opy": "Moderate",
+    "Moderate": {
         "en-US": "Moderate",
         "guid": "00000000C146",
         "de-DE": "Moderat",
@@ -4774,8 +4472,7 @@ var normalStrKw =
         "zh-CN": "适中",
         "zh-TW": "中等"
     },
-    {
-        "opy": "Missions",
+    "Missions": {
         "en-US": "Missions",
         "guid": "00000000C00E",
         "de-DE": "Missionen",
@@ -4789,8 +4486,7 @@ var normalStrKw =
         "zh-CN": "任务",
         "zh-TW": "任務"
     },
-    {
-        "opy": "Mission Failed",
+    "Mission Failed": {
         "en-US": "Mission Failed",
         "guid": "00000000C092",
         "de-DE": "Mission gescheitert",
@@ -4805,8 +4501,7 @@ var normalStrKw =
         "zh-CN": "失败的任务",
         "zh-TW": "任務失敗"
     },
-    {
-        "opy": "Mission Accomplished",
+    "Mission Accomplished": {
         "en-US": "Mission Accomplished",
         "guid": "00000000C090",
         "de-DE": "Mission erfüllt",
@@ -4821,8 +4516,7 @@ var normalStrKw =
         "zh-CN": "任务完成",
         "zh-TW": "任務完成"
     },
-    {
-        "opy": "Mission Aborted",
+    "Mission Aborted": {
         "en-US": "Mission Aborted",
         "guid": "00000000C093",
         "de-DE": "Mission abgebrochen",
@@ -4837,9 +4531,8 @@ var normalStrKw =
         "zh-CN": "放弃的任务",
         "zh-TW": "任務中止"
     },
-    {
+    "Mission": {
         "guid": "00000000C00B",
-        "opy": "Mission",
         "en-US": "Mission",
         "es-ES": "Misión",
         "es-MX": "Misión",
@@ -4851,9 +4544,8 @@ var normalStrKw =
         "zh-CN": "任务",
         "zh-TW": "任務"
     },
-    {
+    "Min": {
         "guid": "00000000C5DF",
-        "opy": "Min",
         "en-US": "Min",
         "de-DE": "Min.",
         "es-ES": "Mín",
@@ -4866,8 +4558,7 @@ var normalStrKw =
         "zh-CN": "较小",
         "zh-TW": "最小"
     },
-    {
-        "opy": "Mild",
+    "Mild": {
         "en-US": "Mild",
         "guid": "00000000C145",
         "es-ES": "Leve",
@@ -4881,9 +4572,8 @@ var normalStrKw =
         "zh-CN": "轻微",
         "zh-TW": "輕微"
     },
-    {
+    "Max": {
         "guid": "00000000C5E0",
-        "opy": "Max",
         "en-US": "Max",
         "de-DE": "Max.",
         "es-ES": "Máx",
@@ -4896,8 +4586,7 @@ var normalStrKw =
         "zh-CN": "较大",
         "zh-TW": "最大"
     },
-    {
-        "opy": "Losses",
+    "Losses": {
         "en-US": "Losses",
         "guid": "00000000C29B",
         "de-DE": "Niederlagen",
@@ -4912,9 +4601,8 @@ var normalStrKw =
         "zh-CN": "失败",
         "zh-TW": "落敗"
     },
-    {
+    "Loss": {
         "guid": "00000000C29A",
-        "opy": "Loss",
         "en-US": "Loss",
         "de-DE": "Verloren",
         "es-ES": "Derrota",
@@ -4928,8 +4616,7 @@ var normalStrKw =
         "zh-CN": "失败",
         "zh-TW": "落敗"
     },
-    {
-        "opy": "Losers",
+    "Losers": {
         "en-US": "Losers",
         "guid": "00000000C087",
         "de-DE": "Unterlegen",
@@ -4944,8 +4631,7 @@ var normalStrKw =
         "zh-CN": "败者",
         "zh-TW": "輸家"
     },
-    {
-        "opy": "Loser",
+    "Loser": {
         "en-US": "Loser",
         "guid": "00000000C085",
         "de-DE": "Verlierer",
@@ -4960,8 +4646,7 @@ var normalStrKw =
         "zh-CN": "败者",
         "zh-TW": "輸家"
     },
-    {
-        "opy": "Locking",
+    "Locking": {
         "en-US": "Locking",
         "guid": "00000000C10F",
         "de-DE": "Sperre",
@@ -4976,8 +4661,7 @@ var normalStrKw =
         "zh-CN": "正在锁定",
         "zh-TW": "正在鎖定"
     },
-    {
-        "opy": "Locked",
+    "Locked": {
         "en-US": "Locked",
         "guid": "00000000C110",
         "de-DE": "Gesperrt",
@@ -4992,8 +4676,7 @@ var normalStrKw =
         "zh-CN": "已锁定",
         "zh-TW": "受到鎖定"
     },
-    {
-        "opy": "Lock",
+    "Lock": {
         "en-US": "Lock",
         "guid": "00000000C10E",
         "de-DE": "Sperren",
@@ -5008,9 +4691,8 @@ var normalStrKw =
         "zh-CN": "锁定",
         "zh-TW": "鎖定"
     },
-    {
+    "Location": {
         "guid": "00000000C87E",
-        "opy": "Location",
         "en-US": "Location",
         "de-DE": "Ort",
         "es-ES": "Ubicación",
@@ -5024,8 +4706,7 @@ var normalStrKw =
         "zh-CN": "坐标",
         "zh-TW": "地點"
     },
-    {
-        "opy": "Loading",
+    "Loading": {
         "en-US": "Loading",
         "guid": "00000000C0E2",
         "de-DE": "Laden",
@@ -5040,8 +4721,7 @@ var normalStrKw =
         "zh-CN": "正在读取",
         "zh-TW": "正在讀取"
     },
-    {
-        "opy": "Loaded",
+    "Loaded": {
         "en-US": "Loaded",
         "guid": "00000000C0E3",
         "de-DE": "Geladen",
@@ -5056,8 +4736,7 @@ var normalStrKw =
         "zh-CN": "已读取",
         "zh-TW": "已讀取"
     },
-    {
-        "opy": "Load",
+    "Load": {
         "en-US": "Load",
         "guid": "00000000C0E0",
         "de-DE": "Ladung",
@@ -5072,9 +4751,8 @@ var normalStrKw =
         "zh-CN": "读取",
         "zh-TW": "讀取"
     },
-    {
+    "Lives": {
         "guid": "00000000C5ED",
-        "opy": "Lives",
         "en-US": "Lives",
         "de-DE": "Leben",
         "es-ES": "Vidas",
@@ -5088,9 +4766,8 @@ var normalStrKw =
         "zh-CN": "生命",
         "zh-TW": "生命"
     },
-    {
+    "Limited": {
         "guid": "00000000C13A",
-        "opy": "Limited",
         "en-US": "Limited",
         "de-DE": "Begrenzt",
         "es-ES": "Limitado",
@@ -5104,8 +4781,7 @@ var normalStrKw =
         "zh-CN": "受限",
         "zh-TW": "有限制"
     },
-    {
-        "opy": "Life",
+    "Life": {
         "en-US": "Life",
         "guid": "00000000C5EC",
         "de-DE": "Trefferpunkte",
@@ -5120,8 +4796,7 @@ var normalStrKw =
         "zh-CN": "生命",
         "zh-TW": "生命"
     },
-    {
-        "opy": "Levels",
+    "Levels": {
         "en-US": "Levels",
         "guid": "00000000BFFC",
         "es-ES": "Niveles",
@@ -5135,8 +4810,7 @@ var normalStrKw =
         "zh-CN": "等级",
         "zh-TW": "等級"
     },
-    {
-        "opy": "Level Up",
+    "Level Up": {
         "en-US": "Level Up",
         "guid": "00000000CA0B",
         "de-DE": "Stufe aufgestiegen",
@@ -5151,8 +4825,7 @@ var normalStrKw =
         "zh-CN": "等级提升",
         "zh-TW": "升級"
     },
-    {
-        "opy": "Level Down",
+    "Level Down": {
         "en-US": "Level Down",
         "guid": "00000000CA0A",
         "de-DE": "Stufe abgestiegen",
@@ -5167,8 +4840,7 @@ var normalStrKw =
         "zh-CN": "等级下降",
         "zh-TW": "降級"
     },
-    {
-        "opy": "Level",
+    "Level": {
         "en-US": "Level",
         "guid": "00000000BFFD",
         "es-ES": "Nivel",
@@ -5182,8 +4854,7 @@ var normalStrKw =
         "zh-CN": "等级",
         "zh-TW": "等級"
     },
-    {
-        "opy": "Less",
+    "Less": {
         "en-US": "Less",
         "guid": "00000000C15D",
         "de-DE": "Weniger",
@@ -5198,9 +4869,8 @@ var normalStrKw =
         "zh-CN": "更少",
         "zh-TW": "較少"
     },
-    {
+    "Left": {
         "guid": "00000000C162",
-        "opy": "Left",
         "en-US": "Left",
         "de-DE": "Links",
         "es-ES": "Izquierda",
@@ -5214,8 +4884,7 @@ var normalStrKw =
         "zh-CN": "左",
         "zh-TW": "左"
     },
-    {
-        "opy": "Least",
+    "Least": {
         "en-US": "Least",
         "guid": "00000000C15F",
         "de-DE": "Am wenigsten",
@@ -5230,8 +4899,7 @@ var normalStrKw =
         "zh-CN": "最少",
         "zh-TW": "最少"
     },
-    {
-        "opy": "Leaders",
+    "Leaders": {
         "en-US": "Leaders",
         "guid": "00000000BFE0",
         "de-DE": "Anführer",
@@ -5246,8 +4914,7 @@ var normalStrKw =
         "zh-CN": "队长",
         "zh-TW": "領先者"
     },
-    {
-        "opy": "Leader",
+    "Leader": {
         "en-US": "Leader",
         "guid": "00000000BFE1",
         "de-DE": "Kommandant",
@@ -5261,8 +4928,7 @@ var normalStrKw =
         "zh-CN": "队长",
         "zh-TW": "領先者"
     },
-    {
-        "opy": "Killstreaks",
+    "Killstreaks": {
         "en-US": "Killstreaks",
         "guid": "00000000C5D0",
         "es-ES": "Rachas de asesinatos",
@@ -5276,9 +4942,8 @@ var normalStrKw =
         "zh-CN": "连杀",
         "zh-TW": "連殺"
     },
-    {
+    "Killstreak": {
         "guid": "00000000C5CF",
-        "opy": "Killstreak",
         "en-US": "Killstreak",
         "es-ES": "Racha de asesinatos",
         "es-MX": "Racha de muertes",
@@ -5291,9 +4956,8 @@ var normalStrKw =
         "zh-CN": "连杀",
         "zh-TW": "連殺"
     },
-    {
+    "Kills": {
         "guid": "00000000C293",
-        "opy": "Kills",
         "en-US": "Kills",
         "es-ES": "Asesinatos",
         "es-MX": "Muertes",
@@ -5306,9 +4970,8 @@ var normalStrKw =
         "zh-CN": "击杀",
         "zh-TW": "擊殺"
     },
-    {
+    "Kill": {
         "guid": "00000000C292",
-        "opy": "Kill",
         "en-US": "Kill",
         "es-ES": "Asesinato",
         "es-MX": "Muerte",
@@ -5321,8 +4984,7 @@ var normalStrKw =
         "zh-CN": "击杀",
         "zh-TW": "擊殺"
     },
-    {
-        "opy": "Jumping",
+    "Jumping": {
         "en-US": "Jumping",
         "guid": "00000000C2A9",
         "de-DE": "Sprung",
@@ -5337,9 +4999,8 @@ var normalStrKw =
         "zh-CN": "正在跳跃",
         "zh-TW": "正在跳躍"
     },
-    {
+    "Jump": {
         "guid": "00000000C2A8",
-        "opy": "Jump",
         "en-US": "Jump",
         "de-DE": "Springen",
         "es-ES": "Saltar",
@@ -5353,8 +5014,7 @@ var normalStrKw =
         "zh-CN": "跳跃",
         "zh-TW": "跳躍"
     },
-    {
-        "opy": "Joining",
+    "Joining": {
         "en-US": "Joining",
         "guid": "00000000C5E6",
         "de-DE": "Beitritt",
@@ -5369,8 +5029,7 @@ var normalStrKw =
         "zh-CN": "正在加入",
         "zh-TW": "正在加入"
     },
-    {
-        "opy": "Joined",
+    "Joined": {
         "en-US": "Joined",
         "guid": "00000000C5E7",
         "de-DE": "Beigetreten",
@@ -5385,9 +5044,8 @@ var normalStrKw =
         "zh-CN": "已加入",
         "zh-TW": "已加入"
     },
-    {
+    "Join": {
         "guid": "00000000C5E5",
-        "opy": "Join",
         "en-US": "Join",
         "de-DE": "Beitreten",
         "es-ES": "Unirse",
@@ -5401,8 +5059,7 @@ var normalStrKw =
         "zh-CN": "加入",
         "zh-TW": "加入"
     },
-    {
-        "opy": "Items",
+    "Items": {
         "en-US": "Items",
         "guid": "00000000BFBA",
         "de-DE": "Gegenstände",
@@ -5417,8 +5074,7 @@ var normalStrKw =
         "zh-CN": "物品",
         "zh-TW": "物品"
     },
-    {
-        "opy": "Item",
+    "Item": {
         "en-US": "Item",
         "guid": "00000000BFD5",
         "de-DE": "Gegenstand",
@@ -5432,9 +5088,8 @@ var normalStrKw =
         "zh-CN": "物品",
         "zh-TW": "物品"
     },
-    {
+    "Invisible": {
         "guid": "00000000C134",
-        "opy": "Invisible",
         "en-US": "Invisible",
         "de-DE": "Unsichtbar",
         "it-IT": "Invisibile",
@@ -5445,9 +5100,8 @@ var normalStrKw =
         "zh-CN": "不可见",
         "zh-TW": "隱形"
     },
-    {
+    "Interact": {
         "guid": "00000000C866",
-        "opy": "Interact",
         "en-US": "Interact",
         "de-DE": "Interagieren",
         "es-ES": "Interactuar",
@@ -5461,8 +5115,7 @@ var normalStrKw =
         "zh-CN": "互动",
         "zh-TW": "互動"
     },
-    {
-        "opy": "Intelligence",
+    "Intelligence": {
         "en-US": "Intelligence",
         "guid": "00000000C98A",
         "de-DE": "Intelligenz",
@@ -5476,8 +5129,7 @@ var normalStrKw =
         "zh-CN": "智力",
         "zh-TW": "智力"
     },
-    {
-        "opy": "Inside",
+    "Inside": {
         "en-US": "Inside",
         "guid": "00000000C167",
         "de-DE": "Innerhalb",
@@ -5492,8 +5144,7 @@ var normalStrKw =
         "zh-CN": "内",
         "zh-TW": "內部"
     },
-    {
-        "opy": "Innocent",
+    "Innocent": {
         "en-US": "Innocent",
         "guid": "00000000C5BB",
         "de-DE": "Unschuldig",
@@ -5507,8 +5158,7 @@ var normalStrKw =
         "zh-CN": "无罪",
         "zh-TW": "無辜"
     },
-    {
-        "opy": "Initial Upgrade",
+    "Initial Upgrade": {
         "en-US": "Initial Upgrade",
         "guid": "00000000C021",
         "de-DE": "Erstes Upgrade",
@@ -5523,8 +5173,7 @@ var normalStrKw =
         "zh-CN": "初始升级",
         "zh-TW": "初始升級"
     },
-    {
-        "opy": "Initial Targets",
+    "Initial Targets": {
         "en-US": "Initial Targets",
         "guid": "00000000C014",
         "de-DE": "Erste Ziele",
@@ -5539,8 +5188,7 @@ var normalStrKw =
         "zh-CN": "初始目标",
         "zh-TW": "初始目標"
     },
-    {
-        "opy": "Initial Target",
+    "Initial Target": {
         "en-US": "Initial Target",
         "guid": "00000000C012",
         "de-DE": "Erstes Ziel",
@@ -5555,8 +5203,7 @@ var normalStrKw =
         "zh-CN": "初始目标",
         "zh-TW": "初始目標"
     },
-    {
-        "opy": "Initial Round",
+    "Initial Round": {
         "en-US": "Initial Round",
         "guid": "00000000C019",
         "de-DE": "Erste Runde",
@@ -5571,8 +5218,7 @@ var normalStrKw =
         "zh-CN": "初始回合",
         "zh-TW": "初始回合"
     },
-    {
-        "opy": "Initial Players",
+    "Initial Players": {
         "en-US": "Initial Players",
         "guid": "00000000C013",
         "de-DE": "Erste Spieler",
@@ -5587,8 +5233,7 @@ var normalStrKw =
         "zh-CN": "初始玩家",
         "zh-TW": "初始玩家"
     },
-    {
-        "opy": "Initial Player",
+    "Initial Player": {
         "en-US": "Initial Player",
         "guid": "00000000C011",
         "de-DE": "Erster Spieler",
@@ -5603,8 +5248,7 @@ var normalStrKw =
         "zh-CN": "初始玩家",
         "zh-TW": "初始玩家"
     },
-    {
-        "opy": "Initial Phase",
+    "Initial Phase": {
         "en-US": "Initial Phase",
         "guid": "00000000C025",
         "de-DE": "Erste Phase",
@@ -5619,8 +5263,7 @@ var normalStrKw =
         "zh-CN": "初始阶段",
         "zh-TW": "初始階段"
     },
-    {
-        "opy": "Initial Objects",
+    "Initial Objects": {
         "en-US": "Initial Objects",
         "guid": "00000000C017",
         "de-DE": "Erste Objekte",
@@ -5635,8 +5278,7 @@ var normalStrKw =
         "zh-CN": "初始对象",
         "zh-TW": "初始目標"
     },
-    {
-        "opy": "Initial Objective",
+    "Initial Objective": {
         "en-US": "Initial Objective",
         "guid": "00000000C01E",
         "de-DE": "Erster Zielpunkt",
@@ -5651,8 +5293,7 @@ var normalStrKw =
         "zh-CN": "初始目标点",
         "zh-TW": "初始目標"
     },
-    {
-        "opy": "Initial Object",
+    "Initial Object": {
         "en-US": "Initial Object",
         "guid": "00000000C016",
         "de-DE": "Erstes Objekt",
@@ -5667,8 +5308,7 @@ var normalStrKw =
         "zh-CN": "初始对象",
         "zh-TW": "初始目標"
     },
-    {
-        "opy": "Initial Mission",
+    "Initial Mission": {
         "en-US": "Initial Mission",
         "guid": "00000000C020",
         "de-DE": "Erste Mission",
@@ -5683,8 +5323,7 @@ var normalStrKw =
         "zh-CN": "初始任务",
         "zh-TW": "初始任務"
     },
-    {
-        "opy": "Initial Level",
+    "Initial Level": {
         "en-US": "Initial Level",
         "guid": "00000000C028",
         "de-DE": "Erster Level",
@@ -5699,8 +5338,7 @@ var normalStrKw =
         "zh-CN": "初始等级",
         "zh-TW": "初始等級"
     },
-    {
-        "opy": "Initial Hostage",
+    "Initial Hostage": {
         "en-US": "Initial Hostage",
         "guid": "00000000C015",
         "de-DE": "Erste Geisel",
@@ -5715,8 +5353,7 @@ var normalStrKw =
         "zh-CN": "初始人质",
         "zh-TW": "初始人質"
     },
-    {
-        "opy": "Initial Heroes",
+    "Initial Heroes": {
         "en-US": "Initial Heroes",
         "guid": "00000000C010",
         "de-DE": "Erste Helden",
@@ -5731,8 +5368,7 @@ var normalStrKw =
         "zh-CN": "初始英雄",
         "zh-TW": "初始英雄"
     },
-    {
-        "opy": "Initial Hero",
+    "Initial Hero": {
         "en-US": "Initial Hero",
         "guid": "00000000C00F",
         "de-DE": "Erster Held",
@@ -5747,8 +5383,7 @@ var normalStrKw =
         "zh-CN": "初始英雄",
         "zh-TW": "初始英雄"
     },
-    {
-        "opy": "Initial Game",
+    "Initial Game": {
         "en-US": "Initial Game",
         "guid": "00000000C018",
         "de-DE": "Erstes Spiel",
@@ -5763,8 +5398,7 @@ var normalStrKw =
         "zh-CN": "初始游戏",
         "zh-TW": "初始遊戲"
     },
-    {
-        "opy": "Initial Form",
+    "Initial Form": {
         "en-US": "Initial Form",
         "guid": "00000000C029",
         "de-DE": "Erste Form",
@@ -5779,8 +5413,7 @@ var normalStrKw =
         "zh-CN": "初始形态",
         "zh-TW": "初始型態"
     },
-    {
-        "opy": "Initial Enemy",
+    "Initial Enemy": {
         "en-US": "Initial Enemy",
         "guid": "00000000C01D",
         "de-DE": "Erster Gegner",
@@ -5795,8 +5428,7 @@ var normalStrKw =
         "zh-CN": "初始敌人",
         "zh-TW": "初始敵人"
     },
-    {
-        "opy": "Initial Enemies",
+    "Initial Enemies": {
         "en-US": "Initial Enemies",
         "guid": "00000000C01C",
         "de-DE": "Erste Gegner",
@@ -5811,8 +5443,7 @@ var normalStrKw =
         "zh-CN": "初始敌人",
         "zh-TW": "初始敵人"
     },
-    {
-        "opy": "Initial Checkpoint",
+    "Initial Checkpoint": {
         "en-US": "Initial Checkpoint",
         "guid": "00000000C024",
         "de-DE": "Erster Checkpoint",
@@ -5827,8 +5458,7 @@ var normalStrKw =
         "zh-CN": "初始检查点",
         "zh-TW": "初始檢查點"
     },
-    {
-        "opy": "Initial Attempt",
+    "Initial Attempt": {
         "en-US": "Initial Attempt",
         "guid": "00000000C01F",
         "de-DE": "Erster Versuch",
@@ -5843,8 +5473,7 @@ var normalStrKw =
         "zh-CN": "初始尝试",
         "zh-TW": "初次機會"
     },
-    {
-        "opy": "Initial Ally",
+    "Initial Ally": {
         "en-US": "Initial Ally",
         "guid": "00000000C01B",
         "de-DE": "Erster Verbündeter",
@@ -5859,8 +5488,7 @@ var normalStrKw =
         "zh-CN": "初始盟友",
         "zh-TW": "初始盟友"
     },
-    {
-        "opy": "Initial Allies",
+    "Initial Allies": {
         "en-US": "Initial Allies",
         "guid": "00000000C01A",
         "de-DE": "Erste Verbündete",
@@ -5875,8 +5503,7 @@ var normalStrKw =
         "zh-CN": "初始盟友",
         "zh-TW": "初始盟友"
     },
-    {
-        "opy": "Initial",
+    "Initial": {
         "en-US": "Initial",
         "guid": "00000000BFEF",
         "de-DE": "Zuerst",
@@ -5890,9 +5517,8 @@ var normalStrKw =
         "zh-CN": "初始",
         "zh-TW": "初始"
     },
-    {
+    "Incoming": {
         "guid": "00000000C135",
-        "opy": "Incoming",
         "en-US": "Incoming",
         "de-DE": "Eingehend",
         "es-ES": "Entrante",
@@ -5906,8 +5532,7 @@ var normalStrKw =
         "zh-CN": "正在前来",
         "zh-TW": "來襲"
     },
-    {
-        "opy": "Income",
+    "Income": {
         "en-US": "Income",
         "guid": "00000000C876",
         "de-DE": "Einkommen",
@@ -5922,8 +5547,7 @@ var normalStrKw =
         "zh-CN": "收入",
         "zh-TW": "收入"
     },
-    {
-        "opy": "In View",
+    "In View": {
         "en-US": "In View",
         "guid": "00000000C131",
         "de-DE": "In Sicht",
@@ -5938,8 +5562,7 @@ var normalStrKw =
         "zh-CN": "在视野中",
         "zh-TW": "在視野中"
     },
-    {
-        "opy": "I Tried",
+    "I Tried": {
         "en-US": "I Tried",
         "guid": "00000000C180",
         "de-DE": "Ich hab's versucht",
@@ -5954,8 +5577,7 @@ var normalStrKw =
         "zh-CN": "我尽力了",
         "zh-TW": "努力了"
     },
-    {
-        "opy": "I Give Up",
+    "I Give Up": {
         "en-US": "I Give Up",
         "guid": "00000000C18E",
         "de-DE": "Ich gebe auf",
@@ -5970,8 +5592,7 @@ var normalStrKw =
         "zh-CN": "我放弃了",
         "zh-TW": "放棄"
     },
-    {
-        "opy": "Hunting",
+    "Hunting": {
         "en-US": "Hunting",
         "guid": "00000000C0A9",
         "de-DE": "Jagd",
@@ -5986,9 +5607,8 @@ var normalStrKw =
         "zh-CN": "正在狩猎",
         "zh-TW": "正在狩獵"
     },
-    {
+    "Hunters": {
         "guid": "00000000C297",
-        "opy": "Hunters",
         "en-US": "Hunters",
         "de-DE": "Verfolger",
         "es-ES": "Cazadoras",
@@ -6002,8 +5622,7 @@ var normalStrKw =
         "zh-CN": "猎人",
         "zh-TW": "獵人"
     },
-    {
-        "opy": "Hunter",
+    "Hunter": {
         "en-US": "Hunter",
         "guid": "00000000C296",
         "de-DE": "Jäger",
@@ -6018,8 +5637,7 @@ var normalStrKw =
         "zh-CN": "猎人",
         "zh-TW": "獵人"
     },
-    {
-        "opy": "Hunted",
+    "Hunted": {
         "en-US": "Hunted",
         "guid": "00000000C0AA",
         "de-DE": "Gejagt",
@@ -6034,8 +5652,7 @@ var normalStrKw =
         "zh-CN": "已狩猎 ",
         "zh-TW": "遭到狩獵"
     },
-    {
-        "opy": "Hunt",
+    "Hunt": {
         "en-US": "Hunt",
         "guid": "00000000C0A8",
         "de-DE": "Jagen",
@@ -6050,8 +5667,7 @@ var normalStrKw =
         "zh-CN": "狩猎",
         "zh-TW": "狩獵"
     },
-    {
-        "opy": "Huh",
+    "Huh": {
         "en-US": "Huh",
         "guid": "00000000C29E",
         "de-DE": "Hä",
@@ -6066,8 +5682,7 @@ var normalStrKw =
         "zh-CN": "哈",
         "zh-TW": "哼"
     },
-    {
-        "opy": "Hostages",
+    "Hostages": {
         "en-US": "Hostages",
         "guid": "00000000BFD1",
         "de-DE": "Geiseln",
@@ -6082,8 +5697,7 @@ var normalStrKw =
         "zh-CN": "人质",
         "zh-TW": "人質"
     },
-    {
-        "opy": "Hostage",
+    "Hostage": {
         "en-US": "Hostage",
         "guid": "00000000BFD7",
         "de-DE": "Geisel",
@@ -6098,8 +5712,7 @@ var normalStrKw =
         "zh-CN": "人质",
         "zh-TW": "人質"
     },
-    {
-        "opy": "Hmmm",
+    "Hmmm": {
         "en-US": "Hmmm",
         "guid": "00000000C183",
         "es-ES": "Mmm",
@@ -6110,8 +5723,7 @@ var normalStrKw =
         "zh-CN": "嗯",
         "zh-TW": "嗯"
     },
-    {
-        "opy": "Hitting",
+    "Hitting": {
         "en-US": "Hitting",
         "guid": "00000000CAAA",
         "de-DE": "Treffer",
@@ -6126,8 +5738,7 @@ var normalStrKw =
         "zh-CN": "正在击中",
         "zh-TW": "擊中"
     },
-    {
-        "opy": "Hit",
+    "Hit": {
         "en-US": "Hit",
         "guid": "00000000CAA9",
         "de-DE": "Treffen",
@@ -6142,8 +5753,7 @@ var normalStrKw =
         "zh-CN": "击中",
         "zh-TW": "擊中"
     },
-    {
-        "opy": "High Scores",
+    "High Scores": {
         "en-US": "High Scores",
         "guid": "00000000C280",
         "de-DE": "Highscores",
@@ -6158,8 +5768,7 @@ var normalStrKw =
         "zh-CN": "最高得分",
         "zh-TW": "最高分"
     },
-    {
-        "opy": "High Score",
+    "High Score": {
         "en-US": "High Score",
         "guid": "00000000C27F",
         "de-DE": "Highscore",
@@ -6174,8 +5783,7 @@ var normalStrKw =
         "zh-CN": "最高得分",
         "zh-TW": "最高分"
     },
-    {
-        "opy": "Hiding",
+    "Hiding": {
         "en-US": "Hiding",
         "guid": "00000000C0A0",
         "de-DE": "Versteck",
@@ -6190,9 +5798,8 @@ var normalStrKw =
         "zh-CN": "正在隐藏",
         "zh-TW": "正在躲藏"
     },
-    {
+    "Hide": {
         "guid": "00000000C09F",
-        "opy": "Hide",
         "en-US": "Hide",
         "de-DE": "Verstecken",
         "es-ES": "Ocultar",
@@ -6206,8 +5813,7 @@ var normalStrKw =
         "zh-CN": "隐藏",
         "zh-TW": "躲藏"
     },
-    {
-        "opy": "Hidden",
+    "Hidden": {
         "en-US": "Hidden",
         "guid": "00000000C0A1",
         "de-DE": "Versteckt",
@@ -6222,9 +5828,8 @@ var normalStrKw =
         "zh-CN": "已隐藏",
         "zh-TW": "躲藏"
     },
-    {
+    "Heroes": {
         "guid": "00000000BFCF",
-        "opy": "Heroes",
         "en-US": "Heroes",
         "de-DE": "Helden",
         "es-ES": "Héroes",
@@ -6238,9 +5843,8 @@ var normalStrKw =
         "zh-CN": "英雄",
         "zh-TW": "英雄"
     },
-    {
+    "Hero": {
         "guid": "00000000BFD0",
-        "opy": "Hero",
         "en-US": "Hero",
         "de-DE": "Held",
         "es-ES": "Héroe",
@@ -6254,8 +5858,7 @@ var normalStrKw =
         "zh-CN": "英雄",
         "zh-TW": "英雄"
     },
-    {
-        "opy": "Here",
+    "Here": {
         "en-US": "Here",
         "guid": "00000000C2AA",
         "de-DE": "Hier",
@@ -6270,8 +5873,7 @@ var normalStrKw =
         "zh-CN": "此处",
         "zh-TW": "這裡"
     },
-    {
-        "opy": "Help",
+    "Help": {
         "en-US": "Help",
         "guid": "00000000C187",
         "de-DE": "Hilfe",
@@ -6286,9 +5888,8 @@ var normalStrKw =
         "zh-CN": "求助",
         "zh-TW": "幫我"
     },
-    {
+    "Hello": {
         "guid": "00000000C178",
-        "opy": "Hello",
         "en-US": "Hello",
         "de-DE": "Hallo",
         "es-ES": "Hola",
@@ -6302,8 +5903,7 @@ var normalStrKw =
         "zh-CN": "问候",
         "zh-TW": "哈囉"
     },
-    {
-        "opy": "Height",
+    "Height": {
         "en-US": "Height",
         "guid": "00000000C86B",
         "de-DE": "Höhe",
@@ -6318,8 +5918,7 @@ var normalStrKw =
         "zh-CN": "高度",
         "zh-TW": "高度"
     },
-    {
-        "opy": "Hearts",
+    "Hearts": {
         "en-US": "Hearts",
         "guid": "00000000CAAB",
         "de-DE": "Herz",
@@ -6334,9 +5933,8 @@ var normalStrKw =
         "zh-CN": "心",
         "zh-TW": "紅心"
     },
-    {
+    "Heart": {
         "guid": "00000000CAC4",
-        "opy": "Heart",
         "en-US": "Heart",
         "de-DE": "Herz",
         "es-ES": "Corazón",
@@ -6350,8 +5948,7 @@ var normalStrKw =
         "zh-CN": "红桃",
         "zh-TW": "紅心"
     },
-    {
-        "opy": "Healing",
+    "Healing": {
         "en-US": "Healing",
         "guid": "00000000C5D8",
         "de-DE": "Heilung",
@@ -6366,8 +5963,7 @@ var normalStrKw =
         "zh-CN": "正在治疗",
         "zh-TW": "正在治療"
     },
-    {
-        "opy": "Healers",
+    "Healers": {
         "en-US": "Healers",
         "guid": "00000000C5E2",
         "de-DE": "Sanitäter",
@@ -6382,9 +5978,8 @@ var normalStrKw =
         "zh-CN": "治疗者",
         "zh-TW": "治療者"
     },
-    {
+    "Healer": {
         "guid": "00000000C5E1",
-        "opy": "Healer",
         "en-US": "Healer",
         "de-DE": "Heiler",
         "es-ES": "Sanador",
@@ -6398,8 +5993,7 @@ var normalStrKw =
         "zh-CN": "治疗者",
         "zh-TW": "治療者"
     },
-    {
-        "opy": "Healed",
+    "Healed": {
         "en-US": "Healed",
         "guid": "00000000C5D9",
         "de-DE": "Geheilt",
@@ -6414,9 +6008,8 @@ var normalStrKw =
         "zh-CN": "已治疗",
         "zh-TW": "受到治療"
     },
-    {
+    "Heal": {
         "guid": "00000000C5D7",
-        "opy": "Heal",
         "en-US": "Heal",
         "de-DE": "Heilen",
         "es-ES": "Sanar",
@@ -6430,8 +6023,7 @@ var normalStrKw =
         "zh-CN": "治疗",
         "zh-TW": "治療"
     },
-    {
-        "opy": "Hands",
+    "Hands": {
         "en-US": "Hands",
         "guid": "00000000CAA8",
         "de-DE": "Hände",
@@ -6446,9 +6038,8 @@ var normalStrKw =
         "zh-CN": "手牌",
         "zh-TW": "手牌"
     },
-    {
+    "Hand": {
         "guid": "00000000CAA7",
-        "opy": "Hand",
         "en-US": "Hand",
         "es-ES": "Mano",
         "es-MX": "Mano",
@@ -6461,9 +6052,8 @@ var normalStrKw =
         "zh-CN": "手牌",
         "zh-TW": "手牌"
     },
-    {
+    "Hacking": {
         "guid": "00000000C0EB",
-        "opy": "Hacking",
         "en-US": "Hacking",
         "de-DE": "Hack",
         "es-ES": "Hackeando",
@@ -6477,9 +6067,8 @@ var normalStrKw =
         "zh-CN": "正在入侵",
         "zh-TW": "正在駭入"
     },
-    {
+    "Hacked": {
         "guid": "00000000C0EC",
-        "opy": "Hacked",
         "en-US": "Hacked",
         "de-DE": "Gehackt",
         "es-ES": "Hackeado",
@@ -6493,9 +6082,8 @@ var normalStrKw =
         "zh-CN": "已入侵",
         "zh-TW": "被駭入"
     },
-    {
+    "Hack": {
         "guid": "00000000C0EA",
-        "opy": "Hack",
         "en-US": "Hack",
         "de-DE": "Hacken",
         "es-ES": "Hackear",
@@ -6509,8 +6097,7 @@ var normalStrKw =
         "zh-CN": "入侵",
         "zh-TW": "駭入"
     },
-    {
-        "opy": "Guilty",
+    "Guilty": {
         "en-US": "Guilty",
         "guid": "00000000C5BC",
         "de-DE": "Schuldig",
@@ -6525,9 +6112,8 @@ var normalStrKw =
         "zh-CN": "有罪",
         "zh-TW": "有罪"
     },
-    {
+    "Green": {
         "guid": "00000000C879",
-        "opy": "Green",
         "en-US": "Green",
         "de-DE": "Grün",
         "es-ES": "Verde",
@@ -6541,8 +6127,7 @@ var normalStrKw =
         "zh-CN": "绿色",
         "zh-TW": "綠"
     },
-    {
-        "opy": "Goodbye",
+    "Goodbye": {
         "en-US": "Goodbye",
         "guid": "00000000C179",
         "de-DE": "Tschüss",
@@ -6557,8 +6142,7 @@ var normalStrKw =
         "zh-CN": "再见",
         "zh-TW": "再見"
     },
-    {
-        "opy": "Good Luck",
+    "Good Luck": {
         "en-US": "Good Luck",
         "guid": "00000000C17A",
         "de-DE": "Viel Glück",
@@ -6573,9 +6157,8 @@ var normalStrKw =
         "zh-CN": "好运",
         "zh-TW": "祝好運"
     },
-    {
+    "Good": {
         "guid": "00000000C14B",
-        "opy": "Good",
         "en-US": "Good",
         "de-DE": "Gut",
         "es-ES": "Bueno",
@@ -6589,8 +6172,7 @@ var normalStrKw =
         "zh-CN": "好",
         "zh-TW": "好"
     },
-    {
-        "opy": "Going",
+    "Going": {
         "en-US": "Going",
         "guid": "00000000C12F",
         "de-DE": "Los",
@@ -6605,8 +6187,7 @@ var normalStrKw =
         "zh-CN": "正在前往",
         "zh-TW": "正在前往"
     },
-    {
-        "opy": "Goals",
+    "Goals": {
         "en-US": "Goals",
         "guid": "00000000BFD8",
         "de-DE": "Ziele",
@@ -6621,9 +6202,8 @@ var normalStrKw =
         "zh-CN": "终点",
         "zh-TW": "目標"
     },
-    {
+    "Goal": {
         "guid": "00000000BFD9",
-        "opy": "Goal",
         "en-US": "Goal",
         "de-DE": "Ziel",
         "es-ES": "Objetivo",
@@ -6637,8 +6217,7 @@ var normalStrKw =
         "zh-CN": "终点",
         "zh-TW": "目標"
     },
-    {
-        "opy": "Go",
+    "Go": {
         "en-US": "Go",
         "guid": "00000000C12E",
         "de-DE": "Gehen",
@@ -6653,17 +6232,15 @@ var normalStrKw =
         "zh-CN": "前往",
         "zh-TW": "前往"
     },
-    {
+    "GG": {
         "guid": "00000000C17B",
-        "opy": "GG",
         "en-US": "GG",
         "es-MX": "Buen juego",
         "fr-FR": "BRAVO",
         "pl-PL": "Dobra gra",
         "ru-RU": "ГГ"
     },
-    {
-        "opy": "Games Won",
+    "Games Won": {
         "en-US": "Games Won",
         "guid": "00000000C088",
         "de-DE": "Spiele gewonnen",
@@ -6678,8 +6255,7 @@ var normalStrKw =
         "zh-CN": "胜利场数",
         "zh-TW": "勝場"
     },
-    {
-        "opy": "Games Lost",
+    "Games Lost": {
         "en-US": "Games Lost",
         "guid": "00000000C08A",
         "de-DE": "Spiele verloren",
@@ -6694,8 +6270,7 @@ var normalStrKw =
         "zh-CN": "战败场数",
         "zh-TW": "敗場"
     },
-    {
-        "opy": "Games",
+    "Games": {
         "en-US": "Games",
         "guid": "00000000BFB8",
         "de-DE": "Spiele",
@@ -6710,8 +6285,7 @@ var normalStrKw =
         "zh-CN": "比赛",
         "zh-TW": "遊戲"
     },
-    {
-        "opy": "Game",
+    "Game": {
         "en-US": "Game",
         "guid": "00000000BFB9",
         "de-DE": "Spiel",
@@ -6726,9 +6300,8 @@ var normalStrKw =
         "zh-CN": "比赛",
         "zh-TW": "遊戲"
     },
-    {
+    "Frozen": {
         "guid": "00000000C0D7",
-        "opy": "Frozen",
         "en-US": "Frozen",
         "de-DE": "Eingefroren",
         "es-ES": "Congelado",
@@ -6742,8 +6315,7 @@ var normalStrKw =
         "zh-CN": "已冰冻",
         "zh-TW": "受到冰凍"
     },
-    {
-        "opy": "Freezing",
+    "Freezing": {
         "en-US": "Freezing",
         "guid": "00000000C0D6",
         "de-DE": "Frost",
@@ -6758,8 +6330,7 @@ var normalStrKw =
         "zh-CN": "正在冰冻",
         "zh-TW": "正在冰凍"
     },
-    {
-        "opy": "Freeze",
+    "Freeze": {
         "en-US": "Freeze",
         "guid": "00000000C0D5",
         "de-DE": "Einfrieren",
@@ -6774,8 +6345,7 @@ var normalStrKw =
         "zh-CN": "冰冻",
         "zh-TW": "冰凍"
     },
-    {
-        "opy": "Found",
+    "Found": {
         "en-US": "Found",
         "guid": "00000000C09C",
         "de-DE": "Gefunden",
@@ -6790,9 +6360,8 @@ var normalStrKw =
         "zh-CN": "已找到",
         "zh-TW": "被發現"
     },
-    {
+    "Forward": {
         "guid": "00000000C176",
-        "opy": "Forward",
         "en-US": "Forward",
         "de-DE": "Vorwärts",
         "es-ES": "Hacia adelante",
@@ -6806,8 +6375,7 @@ var normalStrKw =
         "zh-CN": "前",
         "zh-TW": "前進"
     },
-    {
-        "opy": "Forms",
+    "Forms": {
         "en-US": "Forms",
         "guid": "00000000BFFE",
         "de-DE": "Formen",
@@ -6822,8 +6390,7 @@ var normalStrKw =
         "zh-CN": "表格",
         "zh-TW": "型態"
     },
-    {
-        "opy": "Form",
+    "Form": {
         "en-US": "Form",
         "guid": "00000000BFEC",
         "es-ES": "Forma",
@@ -6837,8 +6404,7 @@ var normalStrKw =
         "zh-CN": "表格",
         "zh-TW": "型態"
     },
-    {
-        "opy": "Folding",
+    "Folding": {
         "en-US": "Folding",
         "guid": "00000000CAA1",
         "de-DE": "Passen",
@@ -6853,8 +6419,7 @@ var normalStrKw =
         "zh-CN": "正在收起",
         "zh-TW": "蓋牌"
     },
-    {
-        "opy": "Folded",
+    "Folded": {
         "en-US": "Folded",
         "guid": "00000000CAA2",
         "de-DE": "Ausgestiegen",
@@ -6869,8 +6434,7 @@ var normalStrKw =
         "zh-CN": "已收起",
         "zh-TW": "蓋牌"
     },
-    {
-        "opy": "Fold",
+    "Fold": {
         "en-US": "Fold",
         "guid": "00000000CAA0",
         "de-DE": "Aussteigen",
@@ -6885,8 +6449,7 @@ var normalStrKw =
         "zh-CN": "收起",
         "zh-TW": "蓋牌"
     },
-    {
-        "opy": "Flying",
+    "Flying": {
         "en-US": "Flying",
         "guid": "00000000C5CB",
         "de-DE": "Flug",
@@ -6901,8 +6464,7 @@ var normalStrKw =
         "zh-CN": "正在飞行",
         "zh-TW": "正在飛行"
     },
-    {
-        "opy": "Fly",
+    "Fly": {
         "en-US": "Fly",
         "guid": "00000000C5CA",
         "de-DE": "Fliegen",
@@ -6917,8 +6479,7 @@ var normalStrKw =
         "zh-CN": "飞行",
         "zh-TW": "飛行"
     },
-    {
-        "opy": "Flown",
+    "Flown": {
         "en-US": "Flown",
         "guid": "00000000C5CC",
         "de-DE": "Geflogen",
@@ -6933,8 +6494,7 @@ var normalStrKw =
         "zh-CN": "已飞行",
         "zh-TW": "已飛行"
     },
-    {
-        "opy": "Finishing",
+    "Finishing": {
         "en-US": "Finishing",
         "guid": "00000000C124",
         "de-DE": "Ende",
@@ -6949,8 +6509,7 @@ var normalStrKw =
         "zh-CN": "正在结束",
         "zh-TW": "正在完成"
     },
-    {
-        "opy": "Finished",
+    "Finished": {
         "en-US": "Finished",
         "guid": "00000000C125",
         "de-DE": "Beendet",
@@ -6965,8 +6524,7 @@ var normalStrKw =
         "zh-CN": "已结束",
         "zh-TW": "已完成"
     },
-    {
-        "opy": "Finish",
+    "Finish": {
         "en-US": "Finish",
         "guid": "00000000C123",
         "de-DE": "Beenden",
@@ -6981,8 +6539,7 @@ var normalStrKw =
         "zh-CN": "结束",
         "zh-TW": "完成"
     },
-    {
-        "opy": "Finding",
+    "Finding": {
         "en-US": "Finding",
         "guid": "00000000C09A",
         "de-DE": "Fund",
@@ -6997,8 +6554,7 @@ var normalStrKw =
         "zh-CN": "正在寻找",
         "zh-TW": "正在尋找"
     },
-    {
-        "opy": "Find",
+    "Find": {
         "en-US": "Find",
         "guid": "00000000C099",
         "de-DE": "Finden",
@@ -7013,8 +6569,7 @@ var normalStrKw =
         "zh-CN": "寻找",
         "zh-TW": "尋找"
     },
-    {
-        "opy": "Final Upgrade",
+    "Final Upgrade": {
         "en-US": "Final Upgrade",
         "guid": "00000000C070",
         "de-DE": "Letztes Upgrade",
@@ -7029,8 +6584,7 @@ var normalStrKw =
         "zh-CN": "最终升级",
         "zh-TW": "最終升級"
     },
-    {
-        "opy": "Final Time",
+    "Final Time": {
         "en-US": "Final Time",
         "guid": "00000000C06C",
         "de-DE": "Finale Zeit",
@@ -7045,8 +6599,7 @@ var normalStrKw =
         "zh-CN": "最终时间",
         "zh-TW": "最終時間"
     },
-    {
-        "opy": "Final Targets",
+    "Final Targets": {
         "en-US": "Final Targets",
         "guid": "00000000C05E",
         "de-DE": "Letzte Ziele",
@@ -7061,8 +6614,7 @@ var normalStrKw =
         "zh-CN": "最终目标",
         "zh-TW": "最終目標"
     },
-    {
-        "opy": "Final Target",
+    "Final Target": {
         "en-US": "Final Target",
         "guid": "00000000C05D",
         "de-DE": "Letztes Ziel",
@@ -7077,8 +6629,7 @@ var normalStrKw =
         "zh-CN": "最终目标",
         "zh-TW": "最終目標"
     },
-    {
-        "opy": "Final Round",
+    "Final Round": {
         "en-US": "Final Round",
         "guid": "00000000C069",
         "de-DE": "Letzte Runde",
@@ -7093,8 +6644,7 @@ var normalStrKw =
         "zh-CN": "最终回合",
         "zh-TW": "最終回合"
     },
-    {
-        "opy": "Final Players",
+    "Final Players": {
         "en-US": "Final Players",
         "guid": "00000000C05C",
         "de-DE": "Letzte Spieler",
@@ -7109,8 +6659,7 @@ var normalStrKw =
         "zh-CN": "最终玩家",
         "zh-TW": "最終玩家"
     },
-    {
-        "opy": "Final Player",
+    "Final Player": {
         "en-US": "Final Player",
         "guid": "00000000C05B",
         "de-DE": "Letzter Spieler",
@@ -7125,8 +6674,7 @@ var normalStrKw =
         "zh-CN": "最终玩家",
         "zh-TW": "最終玩家"
     },
-    {
-        "opy": "Final Phase",
+    "Final Phase": {
         "en-US": "Final Phase",
         "guid": "00000000C06E",
         "de-DE": "Letzte Phase",
@@ -7141,8 +6689,7 @@ var normalStrKw =
         "zh-CN": "最终阶段",
         "zh-TW": "最終階段"
     },
-    {
-        "opy": "Final Objects",
+    "Final Objects": {
         "en-US": "Final Objects",
         "guid": "00000000C063",
         "de-DE": "Letzte Objekte",
@@ -7157,8 +6704,7 @@ var normalStrKw =
         "zh-CN": "最终对象",
         "zh-TW": "最終目標"
     },
-    {
-        "opy": "Final Objective",
+    "Final Objective": {
         "en-US": "Final Objective",
         "guid": "00000000C062",
         "de-DE": "Letzter Zielpunkt",
@@ -7173,8 +6719,7 @@ var normalStrKw =
         "zh-CN": "最终目标点",
         "zh-TW": "最終目標"
     },
-    {
-        "opy": "Final Object",
+    "Final Object": {
         "en-US": "Final Object",
         "guid": "00000000C061",
         "de-DE": "Letztes Objekt",
@@ -7189,8 +6734,7 @@ var normalStrKw =
         "zh-CN": "最终对象",
         "zh-TW": "最終目標"
     },
-    {
-        "opy": "Final Mission",
+    "Final Mission": {
         "en-US": "Final Mission",
         "guid": "00000000C06D",
         "de-DE": "Letzte Mission",
@@ -7205,8 +6749,7 @@ var normalStrKw =
         "zh-CN": "最终任务",
         "zh-TW": "最終任務"
     },
-    {
-        "opy": "Final Level",
+    "Final Level": {
         "en-US": "Final Level",
         "guid": "00000000C072",
         "de-DE": "Letzter Level",
@@ -7221,8 +6764,7 @@ var normalStrKw =
         "zh-CN": "最终等级",
         "zh-TW": "最終等級"
     },
-    {
-        "opy": "Final Item",
+    "Final Item": {
         "en-US": "Final Item",
         "guid": "00000000C064",
         "de-DE": "Letzter Gegenstand",
@@ -7237,8 +6779,7 @@ var normalStrKw =
         "zh-CN": "最终物品",
         "zh-TW": "最終物品"
     },
-    {
-        "opy": "Final Hostages",
+    "Final Hostages": {
         "en-US": "Final Hostages",
         "guid": "00000000C060",
         "de-DE": "Letzte Geiseln",
@@ -7253,8 +6794,7 @@ var normalStrKw =
         "zh-CN": "最终人质",
         "zh-TW": "最終人質"
     },
-    {
-        "opy": "Final Hostage",
+    "Final Hostage": {
         "en-US": "Final Hostage",
         "guid": "00000000C05F",
         "de-DE": "Letzte Geisel",
@@ -7269,8 +6809,7 @@ var normalStrKw =
         "zh-CN": "最终人质",
         "zh-TW": "最終人質"
     },
-    {
-        "opy": "Final Heroes",
+    "Final Heroes": {
         "en-US": "Final Heroes",
         "guid": "00000000C05A",
         "de-DE": "Letzte Helden",
@@ -7285,8 +6824,7 @@ var normalStrKw =
         "zh-CN": "最终英雄",
         "zh-TW": "最終英雄"
     },
-    {
-        "opy": "Final Hero",
+    "Final Hero": {
         "en-US": "Final Hero",
         "guid": "00000000C059",
         "de-DE": "Letzter Held",
@@ -7301,8 +6839,7 @@ var normalStrKw =
         "zh-CN": "最终英雄",
         "zh-TW": "最終英雄"
     },
-    {
-        "opy": "Final Game",
+    "Final Game": {
         "en-US": "Final Game",
         "guid": "00000000C06A",
         "de-DE": "Letztes Spiel",
@@ -7317,8 +6854,7 @@ var normalStrKw =
         "zh-CN": "最终游戏",
         "zh-TW": "最終遊戲"
     },
-    {
-        "opy": "Final Form",
+    "Final Form": {
         "en-US": "Final Form",
         "guid": "00000000C071",
         "de-DE": "Letzte Form",
@@ -7333,8 +6869,7 @@ var normalStrKw =
         "zh-CN": "最终形态",
         "zh-TW": "最終型態"
     },
-    {
-        "opy": "Final Enemy",
+    "Final Enemy": {
         "en-US": "Final Enemy",
         "guid": "00000000C067",
         "de-DE": "Letzter Gegner",
@@ -7349,8 +6884,7 @@ var normalStrKw =
         "zh-CN": "最终敌人",
         "zh-TW": "最終敵人"
     },
-    {
-        "opy": "Final Enemies",
+    "Final Enemies": {
         "en-US": "Final Enemies",
         "guid": "00000000C068",
         "de-DE": "Letzte Gegner",
@@ -7365,8 +6899,7 @@ var normalStrKw =
         "zh-CN": "最终敌人",
         "zh-TW": "最終敵人"
     },
-    {
-        "opy": "Final Checkpoint",
+    "Final Checkpoint": {
         "en-US": "Final Checkpoint",
         "guid": "00000000C06F",
         "de-DE": "Letzter Checkpoint",
@@ -7381,9 +6914,8 @@ var normalStrKw =
         "zh-CN": "最终检查点",
         "zh-TW": "最終檢查點"
     },
-    {
+    "Final Attempt": {
         "guid": "00000000C06B",
-        "opy": "Final Attempt",
         "en-US": "Final Attempt",
         "de-DE": "Letzter Versuch",
         "es-ES": "Intento final",
@@ -7397,8 +6929,7 @@ var normalStrKw =
         "zh-CN": "最终尝试",
         "zh-TW": "最終機會"
     },
-    {
-        "opy": "Final Ally",
+    "Final Ally": {
         "en-US": "Final Ally",
         "guid": "00000000C065",
         "de-DE": "Letzter Verbündeter",
@@ -7413,8 +6944,7 @@ var normalStrKw =
         "zh-CN": "最终盟友",
         "zh-TW": "最終盟友"
     },
-    {
-        "opy": "Final Allies",
+    "Final Allies": {
         "en-US": "Final Allies",
         "guid": "00000000C066",
         "de-DE": "Letzte Verbündete",
@@ -7429,9 +6959,8 @@ var normalStrKw =
         "zh-CN": "最终盟友",
         "zh-TW": "最終盟友"
     },
-    {
+    "Final": {
         "guid": "00000000C058",
-        "opy": "Final",
         "en-US": "Final",
         "de-DE": "Zuletzt",
         "it-IT": "Finale",
@@ -7441,8 +6970,7 @@ var normalStrKw =
         "zh-CN": "最终",
         "zh-TW": "最終"
     },
-    {
-        "opy": "Faults",
+    "Faults": {
         "en-US": "Faults",
         "guid": "00000000C5C0",
         "de-DE": "Schuld",
@@ -7457,8 +6985,7 @@ var normalStrKw =
         "zh-CN": "失误",
         "zh-TW": "錯誤"
     },
-    {
-        "opy": "Fault",
+    "Fault": {
         "en-US": "Fault",
         "guid": "00000000C5BF",
         "de-DE": "Fehler",
@@ -7473,8 +7000,7 @@ var normalStrKw =
         "zh-CN": "失误",
         "zh-TW": "錯誤"
     },
-    {
-        "opy": "Fastest",
+    "Fastest": {
         "en-US": "Fastest",
         "guid": "00000000C154",
         "de-DE": "Am schnellsten",
@@ -7489,8 +7015,7 @@ var normalStrKw =
         "zh-CN": "最快",
         "zh-TW": "最快"
     },
-    {
-        "opy": "Faster",
+    "Faster": {
         "en-US": "Faster",
         "guid": "00000000C153",
         "de-DE": "Schneller",
@@ -7505,8 +7030,7 @@ var normalStrKw =
         "zh-CN": "较快",
         "zh-TW": "較快"
     },
-    {
-        "opy": "Fast",
+    "Fast": {
         "en-US": "Fast",
         "guid": "00000000C152",
         "de-DE": "Schnell",
@@ -7521,8 +7045,7 @@ var normalStrKw =
         "zh-CN": "快",
         "zh-TW": "快"
     },
-    {
-        "opy": "Far",
+    "Far": {
         "en-US": "Far",
         "guid": "00000000C161",
         "de-DE": "Entfernt",
@@ -7537,9 +7060,8 @@ var normalStrKw =
         "zh-CN": "远",
         "zh-TW": "遠"
     },
-    {
+    "Falling": {
         "guid": "00000000C5C8",
-        "opy": "Falling",
         "en-US": "Falling",
         "de-DE": "Falle",
         "es-ES": "Cayendo",
@@ -7553,8 +7075,7 @@ var normalStrKw =
         "zh-CN": "正在跌落",
         "zh-TW": "正在墜落"
     },
-    {
-        "opy": "Fallen",
+    "Fallen": {
         "en-US": "Fallen",
         "guid": "00000000C5C9",
         "de-DE": "Gefallen",
@@ -7569,9 +7090,8 @@ var normalStrKw =
         "zh-CN": "已跌落",
         "zh-TW": "已墜落"
     },
-    {
+    "Fall": {
         "guid": "00000000C5C7",
-        "opy": "Fall",
         "en-US": "Fall",
         "de-DE": "Fallen",
         "es-ES": "Caer",
@@ -7585,8 +7105,7 @@ var normalStrKw =
         "zh-CN": "跌落",
         "zh-TW": "墜落"
     },
-    {
-        "opy": "Failure",
+    "Failure": {
         "en-US": "Failure",
         "guid": "00000000C081",
         "de-DE": "Fehlschlag",
@@ -7601,8 +7120,7 @@ var normalStrKw =
         "zh-CN": "失败",
         "zh-TW": "失敗"
     },
-    {
-        "opy": "Failing",
+    "Failing": {
         "en-US": "Failing",
         "guid": "00000000C142",
         "de-DE": "Scheitern",
@@ -7617,9 +7135,8 @@ var normalStrKw =
         "zh-CN": "即将失败",
         "zh-TW": "失敗"
     },
-    {
+    "Failed": {
         "guid": "00000000C143",
-        "opy": "Failed",
         "en-US": "Failed",
         "de-DE": "Gescheitert",
         "es-ES": "Fallido",
@@ -7633,9 +7150,8 @@ var normalStrKw =
         "zh-CN": "已失败",
         "zh-TW": "失敗"
     },
-    {
+    "Facing": {
         "guid": "00000000C881",
-        "opy": "Facing",
         "en-US": "Facing",
         "de-DE": "Ausrichtung",
         "es-ES": "Mirando a",
@@ -7649,8 +7165,7 @@ var normalStrKw =
         "zh-CN": "正在面向",
         "zh-TW": "面向"
     },
-    {
-        "opy": "Faces",
+    "Faces": {
         "en-US": "Faces",
         "guid": "00000000C880",
         "de-DE": "Gesicht",
@@ -7665,8 +7180,7 @@ var normalStrKw =
         "zh-CN": "面向",
         "zh-TW": "面向"
     },
-    {
-        "opy": "Face",
+    "Face": {
         "en-US": "Face",
         "guid": "00000000C87F",
         "de-DE": "Ansehen",
@@ -7681,8 +7195,7 @@ var normalStrKw =
         "zh-CN": "面向",
         "zh-TW": "面向"
     },
-    {
-        "opy": "Extreme",
+    "Extreme": {
         "en-US": "Extreme",
         "guid": "00000000C14A",
         "de-DE": "Extrem",
@@ -7697,8 +7210,7 @@ var normalStrKw =
         "zh-CN": "极端",
         "zh-TW": "極致"
     },
-    {
-        "opy": "Experience",
+    "Experience": {
         "en-US": "Experience",
         "guid": "00000000CA08",
         "de-DE": "Erfahrung",
@@ -7713,9 +7225,8 @@ var normalStrKw =
         "zh-CN": "经验值",
         "zh-TW": "經驗值"
     },
-    {
+    "Exit": {
         "guid": "00000000C5E8",
-        "opy": "Exit",
         "en-US": "Exit",
         "de-DE": "Verlassen",
         "es-ES": "Salida",
@@ -7729,9 +7240,8 @@ var normalStrKw =
         "zh-CN": "离开",
         "zh-TW": "出口"
     },
-    {
+    "Excellent": {
         "guid": "00000000C149",
-        "opy": "Excellent",
         "en-US": "Excellent",
         "de-DE": "Ausgezeichnet",
         "es-ES": "Excelente",
@@ -7744,8 +7254,7 @@ var normalStrKw =
         "zh-CN": "优秀",
         "zh-TW": "優異"
     },
-    {
-        "opy": "Escorting",
+    "Escorting": {
         "en-US": "Escorting",
         "guid": "00000000C09D",
         "de-DE": "Eskorte",
@@ -7760,8 +7269,7 @@ var normalStrKw =
         "zh-CN": "正在护送",
         "zh-TW": "正在護送"
     },
-    {
-        "opy": "Escorted",
+    "Escorted": {
         "en-US": "Escorted",
         "guid": "00000000C09E",
         "de-DE": "Eskortiert",
@@ -7776,9 +7284,8 @@ var normalStrKw =
         "zh-CN": "已护送",
         "zh-TW": "護送"
     },
-    {
+    "Escort": {
         "guid": "00000000C09B",
-        "opy": "Escort",
         "en-US": "Escort",
         "de-DE": "Eskortieren",
         "es-ES": "Escoltar",
@@ -7792,8 +7299,7 @@ var normalStrKw =
         "zh-CN": "护送",
         "zh-TW": "護送"
     },
-    {
-        "opy": "Entrance",
+    "Entrance": {
         "en-US": "Entrance",
         "guid": "00000000C5E9",
         "de-DE": "Eingang",
@@ -7808,8 +7314,7 @@ var normalStrKw =
         "zh-CN": "进入",
         "zh-TW": "入口"
     },
-    {
-        "opy": "Enemy",
+    "Enemy": {
         "en-US": "Enemy",
         "guid": "00000000BFD3",
         "de-DE": "Gegner",
@@ -7824,9 +7329,8 @@ var normalStrKw =
         "zh-CN": "敌人",
         "zh-TW": "敵人"
     },
-    {
+    "Enemies": {
         "guid": "00000000BFD2",
-        "opy": "Enemies",
         "en-US": "Enemies",
         "de-DE": "Feinde",
         "es-ES": "Enemigos",
@@ -7840,9 +7344,8 @@ var normalStrKw =
         "zh-CN": "敌人",
         "zh-TW": "敵人"
     },
-    {
+    "Eliminations": {
         "guid": "00000000C295",
-        "opy": "Eliminations",
         "en-US": "Eliminations",
         "de-DE": "Eliminierungen",
         "es-ES": "Eliminaciones",
@@ -7856,9 +7359,8 @@ var normalStrKw =
         "zh-CN": "消灭",
         "zh-TW": "擊殺"
     },
-    {
+    "Elimination": {
         "guid": "00000000C294",
-        "opy": "Elimination",
         "en-US": "Elimination",
         "de-DE": "Eliminierung",
         "es-ES": "Eliminación",
@@ -7872,8 +7374,7 @@ var normalStrKw =
         "zh-CN": "消灭",
         "zh-TW": "擊殺"
     },
-    {
-        "opy": "Eliminating",
+    "Eliminating": {
         "en-US": "Eliminating",
         "guid": "00000000C2A0",
         "de-DE": "Ausschalten",
@@ -7888,9 +7389,8 @@ var normalStrKw =
         "zh-CN": "正在消灭",
         "zh-TW": "正在擊殺"
     },
-    {
+    "Eliminated": {
         "guid": "00000000C2A1",
-        "opy": "Eliminated",
         "en-US": "Eliminated",
         "de-DE": "Eliminiert",
         "es-ES": "Eliminado",
@@ -7904,8 +7404,7 @@ var normalStrKw =
         "zh-CN": "已消灭",
         "zh-TW": "遭到擊殺"
     },
-    {
-        "opy": "Eliminate",
+    "Eliminate": {
         "en-US": "Eliminate",
         "guid": "00000000C29F",
         "de-DE": "Eliminieren",
@@ -7920,8 +7419,7 @@ var normalStrKw =
         "zh-CN": "消灭",
         "zh-TW": "擊殺"
     },
-    {
-        "opy": "East",
+    "East": {
         "en-US": "East",
         "guid": "00000000C170",
         "de-DE": "Osten",
@@ -7936,8 +7434,7 @@ var normalStrKw =
         "zh-CN": "东",
         "zh-TW": "東"
     },
-    {
-        "opy": "Dying",
+    "Dying": {
         "en-US": "Dying",
         "guid": "00000000C11B",
         "de-DE": "Stirb",
@@ -7952,8 +7449,7 @@ var normalStrKw =
         "zh-CN": "正在死亡",
         "zh-TW": "正在死亡"
     },
-    {
-        "opy": "Dropping",
+    "Dropping": {
         "en-US": "Dropping",
         "guid": "00000000C5C5",
         "de-DE": "Fall",
@@ -7968,9 +7464,8 @@ var normalStrKw =
         "zh-CN": "正在掉落",
         "zh-TW": "正在掉落"
     },
-    {
+    "Dropped": {
         "guid": "00000000C5C6",
-        "opy": "Dropped",
         "en-US": "Dropped",
         "de-DE": "Fallen gelassen",
         "es-ES": "Soltado",
@@ -7984,8 +7479,7 @@ var normalStrKw =
         "zh-CN": "已掉落",
         "zh-TW": "已掉落"
     },
-    {
-        "opy": "Drop",
+    "Drop": {
         "en-US": "Drop",
         "guid": "00000000C5C4",
         "de-DE": "Fallen lassen",
@@ -8000,9 +7494,8 @@ var normalStrKw =
         "zh-CN": "掉落",
         "zh-TW": "掉落"
     },
-    {
+    "Drawn": {
         "guid": "00000000CA9F",
-        "opy": "Drawn",
         "en-US": "Drawn",
         "de-DE": "Gezogen",
         "es-ES": "Robado",
@@ -8016,8 +7509,7 @@ var normalStrKw =
         "zh-CN": "已抽牌",
         "zh-TW": "抽牌"
     },
-    {
-        "opy": "Drawing",
+    "Drawing": {
         "en-US": "Drawing",
         "guid": "00000000CA9E",
         "de-DE": "Ziehen",
@@ -8032,9 +7524,8 @@ var normalStrKw =
         "zh-CN": "正在抽牌",
         "zh-TW": "抽牌"
     },
-    {
+    "Draw": {
         "guid": "00000000C07B",
-        "opy": "Draw",
         "en-US": "Draw",
         "de-DE": "Unentschieden",
         "es-ES": "Empate",
@@ -8048,8 +7539,7 @@ var normalStrKw =
         "zh-CN": "平局",
         "zh-TW": "平手"
     },
-    {
-        "opy": "Downloading",
+    "Downloading": {
         "en-US": "Downloading",
         "guid": "00000000C0E5",
         "de-DE": "Download",
@@ -8064,8 +7554,7 @@ var normalStrKw =
         "zh-CN": "正在下载",
         "zh-TW": "正在下載"
     },
-    {
-        "opy": "Downloaded",
+    "Downloaded": {
         "en-US": "Downloaded",
         "guid": "00000000C0E6",
         "de-DE": "Heruntergeladen",
@@ -8080,9 +7569,8 @@ var normalStrKw =
         "zh-CN": "已下载",
         "zh-TW": "已下載"
     },
-    {
+    "Download": {
         "guid": "00000000C0E4",
-        "opy": "Download",
         "en-US": "Download",
         "de-DE": "Herunterladen",
         "es-ES": "Descargar",
@@ -8095,9 +7583,8 @@ var normalStrKw =
         "zh-CN": "下载",
         "zh-TW": "下載"
     },
-    {
+    "Down": {
         "guid": "00000000C16A",
-        "opy": "Down",
         "en-US": "Down",
         "de-DE": "Nach unten",
         "es-ES": "Abajo",
@@ -8111,8 +7598,7 @@ var normalStrKw =
         "zh-CN": "下",
         "zh-TW": "下"
     },
-    {
-        "opy": "Domes",
+    "Domes": {
         "en-US": "Domes",
         "guid": "00000000C285",
         "de-DE": "Kuppeln",
@@ -8127,8 +7613,7 @@ var normalStrKw =
         "zh-CN": "罩子",
         "zh-TW": "穹頂"
     },
-    {
-        "opy": "Dome",
+    "Dome": {
         "en-US": "Dome",
         "guid": "00000000C287",
         "de-DE": "Kuppel",
@@ -8143,8 +7628,7 @@ var normalStrKw =
         "zh-CN": "罩子",
         "zh-TW": "穹頂"
     },
-    {
-        "opy": "Dodging",
+    "Dodging": {
         "en-US": "Dodging",
         "guid": "00000000C0B8",
         "de-DE": "Ausweichen",
@@ -8159,8 +7643,7 @@ var normalStrKw =
         "zh-CN": "正在躲闪",
         "zh-TW": "正在閃躲"
     },
-    {
-        "opy": "Dodged",
+    "Dodged": {
         "en-US": "Dodged",
         "guid": "00000000C0B9",
         "de-DE": "Ausgewichen",
@@ -8175,8 +7658,7 @@ var normalStrKw =
         "zh-CN": "已躲闪",
         "zh-TW": "遭到閃躲"
     },
-    {
-        "opy": "Dodge",
+    "Dodge": {
         "en-US": "Dodge",
         "guid": "00000000C0B7",
         "de-DE": "Ausweichen",
@@ -8191,8 +7673,7 @@ var normalStrKw =
         "zh-CN": "躲闪",
         "zh-TW": "閃躲"
     },
-    {
-        "opy": "Distances",
+    "Distances": {
         "en-US": "Distances",
         "guid": "00000000C002",
         "de-DE": "Distanzen",
@@ -8206,8 +7687,7 @@ var normalStrKw =
         "zh-CN": "距离",
         "zh-TW": "距離"
     },
-    {
-        "opy": "Distance",
+    "Distance": {
         "en-US": "Distance",
         "guid": "00000000C003",
         "de-DE": "Distanz",
@@ -8221,8 +7701,7 @@ var normalStrKw =
         "zh-CN": "距离",
         "zh-TW": "距離"
     },
-    {
-        "opy": "Disconnecting",
+    "Disconnecting": {
         "en-US": "Disconnecting",
         "guid": "00000000C0FD",
         "de-DE": "Unterbrechung",
@@ -8237,9 +7716,8 @@ var normalStrKw =
         "zh-CN": "正在断开",
         "zh-TW": "正在中斷連接"
     },
-    {
+    "Disconnected": {
         "guid": "00000000C0FE",
-        "opy": "Disconnected",
         "en-US": "Disconnected",
         "de-DE": "Unterbrochen",
         "es-ES": "Desconectado",
@@ -8253,8 +7731,7 @@ var normalStrKw =
         "zh-CN": "已断开",
         "zh-TW": "中斷連接"
     },
-    {
-        "opy": "Disconnect",
+    "Disconnect": {
         "en-US": "Disconnect",
         "guid": "00000000C0FC",
         "de-DE": "Unterbrechen",
@@ -8269,8 +7746,7 @@ var normalStrKw =
         "zh-CN": "断开",
         "zh-TW": "中斷連接"
     },
-    {
-        "opy": "Discarding",
+    "Discarding": {
         "en-US": "Discarding",
         "guid": "00000000CA9C",
         "de-DE": "Verwerfen",
@@ -8285,8 +7761,7 @@ var normalStrKw =
         "zh-CN": "正在弃牌",
         "zh-TW": "棄牌"
     },
-    {
-        "opy": "Discarded",
+    "Discarded": {
         "en-US": "Discarded",
         "guid": "00000000CA9D",
         "de-DE": "Abgeworfen",
@@ -8301,9 +7776,8 @@ var normalStrKw =
         "zh-CN": "已弃牌",
         "zh-TW": "棄牌"
     },
-    {
+    "Discard": {
         "guid": "00000000CA9B",
-        "opy": "Discard",
         "en-US": "Discard",
         "de-DE": "Abwerfen",
         "es-ES": "Descartar",
@@ -8317,8 +7791,7 @@ var normalStrKw =
         "zh-CN": "弃牌",
         "zh-TW": "棄牌"
     },
-    {
-        "opy": "Die",
+    "Die": {
         "en-US": "Die",
         "guid": "00000000C11A",
         "de-DE": "Sterben",
@@ -8333,8 +7806,7 @@ var normalStrKw =
         "zh-CN": "死亡",
         "zh-TW": "死亡"
     },
-    {
-        "opy": "Diamonds",
+    "Diamonds": {
         "en-US": "Diamonds",
         "guid": "00000000CA9A",
         "de-DE": "Karo",
@@ -8349,9 +7821,8 @@ var normalStrKw =
         "zh-CN": "方块",
         "zh-TW": "方塊"
     },
-    {
+    "Diamond": {
         "guid": "00000000CAC2",
-        "opy": "Diamond",
         "en-US": "Diamond",
         "de-DE": "Karo",
         "es-ES": "Diamante",
@@ -8365,8 +7836,7 @@ var normalStrKw =
         "zh-CN": "方块",
         "zh-TW": "方塊"
     },
-    {
-        "opy": "Dexterity",
+    "Dexterity": {
         "en-US": "Dexterity",
         "guid": "00000000C98B",
         "de-DE": "Geschicklichkeit",
@@ -8381,8 +7851,7 @@ var normalStrKw =
         "zh-CN": "灵巧",
         "zh-TW": "靈敏"
     },
-    {
-        "opy": "Detecting",
+    "Detecting": {
         "en-US": "Detecting",
         "guid": "00000000C86F",
         "de-DE": "Entdeckung",
@@ -8397,9 +7866,8 @@ var normalStrKw =
         "zh-CN": "正在探测",
         "zh-TW": "正在偵測"
     },
-    {
+    "Detected": {
         "guid": "00000000C86D",
-        "opy": "Detected",
         "en-US": "Detected",
         "de-DE": "Entdeckt",
         "es-ES": "Detectado",
@@ -8413,8 +7881,7 @@ var normalStrKw =
         "zh-CN": "被探测",
         "zh-TW": "遭到偵測"
     },
-    {
-        "opy": "Detect",
+    "Detect": {
         "en-US": "Detect",
         "guid": "00000000C86E",
         "de-DE": "Entdecken",
@@ -8429,8 +7896,7 @@ var normalStrKw =
         "zh-CN": "探测",
         "zh-TW": "偵測"
     },
-    {
-        "opy": "Destroying",
+    "Destroying": {
         "en-US": "Destroying",
         "guid": "00000000C0EE",
         "de-DE": "Zerstörung",
@@ -8445,8 +7911,7 @@ var normalStrKw =
         "zh-CN": "正在摧毁",
         "zh-TW": "正在摧毀"
     },
-    {
-        "opy": "Destroyed",
+    "Destroyed": {
         "en-US": "Destroyed",
         "guid": "00000000C0EF",
         "de-DE": "Zerstört",
@@ -8461,8 +7926,7 @@ var normalStrKw =
         "zh-CN": "已摧毁",
         "zh-TW": "遭到摧毀"
     },
-    {
-        "opy": "Destroy",
+    "Destroy": {
         "en-US": "Destroy",
         "guid": "00000000C0ED",
         "de-DE": "Zerstören",
@@ -8477,8 +7941,7 @@ var normalStrKw =
         "zh-CN": "摧毁",
         "zh-TW": "摧毀"
     },
-    {
-        "opy": "Destabilizing",
+    "Destabilizing": {
         "en-US": "Destabilizing",
         "guid": "00000000C0F4",
         "de-DE": "Destabilisierung",
@@ -8493,8 +7956,7 @@ var normalStrKw =
         "zh-CN": "正在干扰",
         "zh-TW": "正在動搖"
     },
-    {
-        "opy": "Destabilized",
+    "Destabilized": {
         "en-US": "Destabilized",
         "guid": "00000000C0F6",
         "de-DE": "Destabilisiert",
@@ -8509,8 +7971,7 @@ var normalStrKw =
         "zh-CN": "已干扰",
         "zh-TW": "受到動搖"
     },
-    {
-        "opy": "Destabilize",
+    "Destabilize": {
         "en-US": "Destabilize",
         "guid": "00000000C0F3",
         "de-DE": "Destabilisieren",
@@ -8525,8 +7986,7 @@ var normalStrKw =
         "zh-CN": "干扰",
         "zh-TW": "動搖"
     },
-    {
-        "opy": "Depth",
+    "Depth": {
         "en-US": "Depth",
         "guid": "00000000C86C",
         "de-DE": "Tiefe",
@@ -8541,8 +8001,7 @@ var normalStrKw =
         "zh-CN": "深度",
         "zh-TW": "深度"
     },
-    {
-        "opy": "Delivering",
+    "Delivering": {
         "en-US": "Delivering",
         "guid": "00000000C097",
         "de-DE": "Lieferung",
@@ -8557,8 +8016,7 @@ var normalStrKw =
         "zh-CN": "正在送达",
         "zh-TW": "正在抵達"
     },
-    {
-        "opy": "Delivered",
+    "Delivered": {
         "en-US": "Delivered",
         "guid": "00000000C098",
         "de-DE": "Geliefert",
@@ -8573,8 +8031,7 @@ var normalStrKw =
         "zh-CN": "已送达",
         "zh-TW": "已抵達"
     },
-    {
-        "opy": "Deliver",
+    "Deliver": {
         "en-US": "Deliver",
         "guid": "00000000C096",
         "de-DE": "Liefern",
@@ -8589,9 +8046,8 @@ var normalStrKw =
         "zh-CN": "送达",
         "zh-TW": "抵達"
     },
-    {
+    "Defense": {
         "guid": "00000000C985",
-        "opy": "Defense",
         "en-US": "Defense",
         "de-DE": "Verteidigung",
         "es-ES": "Defensa",
@@ -8605,8 +8061,7 @@ var normalStrKw =
         "zh-CN": "防御",
         "zh-TW": "防禦"
     },
-    {
-        "opy": "Defending",
+    "Defending": {
         "en-US": "Defending",
         "guid": "00000000C0AC",
         "de-DE": "Beschützen",
@@ -8621,8 +8076,7 @@ var normalStrKw =
         "zh-CN": "正在防守",
         "zh-TW": "正在防守"
     },
-    {
-        "opy": "Defended",
+    "Defended": {
         "en-US": "Defended",
         "guid": "00000000C0AD",
         "de-DE": "Verteidigt",
@@ -8637,9 +8091,8 @@ var normalStrKw =
         "zh-CN": "已防守",
         "zh-TW": "受到防守"
     },
-    {
+    "Defend": {
         "guid": "00000000C0AB",
-        "opy": "Defend",
         "en-US": "Defend",
         "de-DE": "Verteidigen",
         "es-ES": "Defender",
@@ -8653,9 +8106,8 @@ var normalStrKw =
         "zh-CN": "防守",
         "zh-TW": "防守"
     },
-    {
+    "Defeat": {
         "guid": "00000000C083",
-        "opy": "Defeat",
         "en-US": "Defeat",
         "de-DE": "Niederlage",
         "es-ES": "Derrota",
@@ -8669,8 +8121,7 @@ var normalStrKw =
         "zh-CN": "战败",
         "zh-TW": "落敗"
     },
-    {
-        "opy": "Decks",
+    "Decks": {
         "en-US": "Decks",
         "guid": "00000000CA99",
         "es-ES": "Mazos",
@@ -8684,9 +8135,8 @@ var normalStrKw =
         "zh-CN": "牌堆",
         "zh-TW": "牌庫"
     },
-    {
+    "Deck": {
         "guid": "00000000CA98",
-        "opy": "Deck",
         "en-US": "Deck",
         "es-ES": "Mazo",
         "es-MX": "Baraja",
@@ -8699,8 +8149,7 @@ var normalStrKw =
         "zh-CN": "牌堆",
         "zh-TW": "牌庫"
     },
-    {
-        "opy": "Dealt",
+    "Dealt": {
         "en-US": "Dealt",
         "guid": "00000000CA97",
         "de-DE": "Ausgeteilt",
@@ -8715,8 +8164,7 @@ var normalStrKw =
         "zh-CN": "已发牌",
         "zh-TW": "發牌"
     },
-    {
-        "opy": "Dealing",
+    "Dealing": {
         "en-US": "Dealing",
         "guid": "00000000CA96",
         "de-DE": "Geben",
@@ -8731,8 +8179,7 @@ var normalStrKw =
         "zh-CN": "正在发牌",
         "zh-TW": "發牌"
     },
-    {
-        "opy": "Deal",
+    "Deal": {
         "en-US": "Deal",
         "guid": "00000000CA95",
         "de-DE": "Austeilen",
@@ -8747,8 +8194,7 @@ var normalStrKw =
         "zh-CN": "发牌",
         "zh-TW": "發牌"
     },
-    {
-        "opy": "Dead",
+    "Dead": {
         "en-US": "Dead",
         "guid": "00000000C11C",
         "de-DE": "Tot",
@@ -8763,8 +8209,7 @@ var normalStrKw =
         "zh-CN": "已死亡",
         "zh-TW": "死亡"
     },
-    {
-        "opy": "Danger",
+    "Danger": {
         "en-US": "Danger",
         "guid": "00000000C15A",
         "de-DE": "Gefahr",
@@ -8778,8 +8223,7 @@ var normalStrKw =
         "zh-CN": "危险",
         "zh-TW": "危險"
     },
-    {
-        "opy": "Damaging",
+    "Damaging": {
         "en-US": "Damaging",
         "guid": "00000000C5D5",
         "de-DE": "Beschädigen",
@@ -8794,8 +8238,7 @@ var normalStrKw =
         "zh-CN": "正在伤害",
         "zh-TW": "正在攻擊"
     },
-    {
-        "opy": "Damaged",
+    "Damaged": {
         "en-US": "Damaged",
         "guid": "00000000C5D6",
         "de-DE": "Beschädigt",
@@ -8810,9 +8253,8 @@ var normalStrKw =
         "zh-CN": "已伤害",
         "zh-TW": "受到攻擊"
     },
-    {
+    "Damage": {
         "guid": "00000000C5D4",
-        "opy": "Damage",
         "en-US": "Damage",
         "de-DE": "Schaden",
         "es-ES": "Dañar",
@@ -8826,8 +8268,7 @@ var normalStrKw =
         "zh-CN": "伤害",
         "zh-TW": "攻擊"
     },
-    {
-        "opy": "Current Upgrade",
+    "Current Upgrade": {
         "en-US": "Current Upgrade",
         "guid": "00000000C031",
         "de-DE": "Aktuelles Upgrade",
@@ -8842,8 +8283,7 @@ var normalStrKw =
         "zh-CN": "当前升级",
         "zh-TW": "目前升級"
     },
-    {
-        "opy": "Current Targets",
+    "Current Targets": {
         "en-US": "Current Targets",
         "guid": "00000000C02D",
         "de-DE": "Aktuelle Ziele",
@@ -8858,8 +8298,7 @@ var normalStrKw =
         "zh-CN": "当前目标",
         "zh-TW": "目前目標"
     },
-    {
-        "opy": "Current Target",
+    "Current Target": {
         "en-US": "Current Target",
         "guid": "00000000C02C",
         "de-DE": "Aktuelles Ziel",
@@ -8874,8 +8313,7 @@ var normalStrKw =
         "zh-CN": "当前目标",
         "zh-TW": "目前目標"
     },
-    {
-        "opy": "Current Round",
+    "Current Round": {
         "en-US": "Current Round",
         "guid": "00000000C036",
         "de-DE": "Aktuelle Runde",
@@ -8890,8 +8328,7 @@ var normalStrKw =
         "zh-CN": "当前回合",
         "zh-TW": "目前回合"
     },
-    {
-        "opy": "Current Players",
+    "Current Players": {
         "en-US": "Current Players",
         "guid": "00000000C02B",
         "de-DE": "Aktuelle Spieler",
@@ -8906,8 +8343,7 @@ var normalStrKw =
         "zh-CN": "当前玩家",
         "zh-TW": "目前玩家"
     },
-    {
-        "opy": "Current Player",
+    "Current Player": {
         "en-US": "Current Player",
         "guid": "00000000C02A",
         "de-DE": "Aktueller Spieler",
@@ -8922,8 +8358,7 @@ var normalStrKw =
         "zh-CN": "当前玩家",
         "zh-TW": "目前玩家"
     },
-    {
-        "opy": "Current Phase",
+    "Current Phase": {
         "en-US": "Current Phase",
         "guid": "00000000C032",
         "de-DE": "Aktuelle Phase",
@@ -8938,8 +8373,7 @@ var normalStrKw =
         "zh-CN": "当前阶段",
         "zh-TW": "目前階段"
     },
-    {
-        "opy": "Current Objects",
+    "Current Objects": {
         "en-US": "Current Objects",
         "guid": "00000000C03D",
         "de-DE": "Aktuelle Objekte",
@@ -8954,8 +8388,7 @@ var normalStrKw =
         "zh-CN": "当前对象",
         "zh-TW": "目前目標"
     },
-    {
-        "opy": "Current Objective",
+    "Current Objective": {
         "en-US": "Current Objective",
         "guid": "00000000C03C",
         "de-DE": "Aktueller Zielpunkt",
@@ -8970,8 +8403,7 @@ var normalStrKw =
         "zh-CN": "当前目标点",
         "zh-TW": "目前目標"
     },
-    {
-        "opy": "Current Object",
+    "Current Object": {
         "en-US": "Current Object",
         "guid": "00000000C03E",
         "de-DE": "Aktuelles Objekt",
@@ -8986,8 +8418,7 @@ var normalStrKw =
         "zh-CN": "当前对象",
         "zh-TW": "目前目標"
     },
-    {
-        "opy": "Current Mission",
+    "Current Mission": {
         "en-US": "Current Mission",
         "guid": "00000000C033",
         "de-DE": "Aktuelle Mission",
@@ -9002,8 +8433,7 @@ var normalStrKw =
         "zh-CN": "当前任务",
         "zh-TW": "目前任務"
     },
-    {
-        "opy": "Current Level",
+    "Current Level": {
         "en-US": "Current Level",
         "guid": "00000000C02F",
         "de-DE": "Aktueller Level",
@@ -9018,8 +8448,7 @@ var normalStrKw =
         "zh-CN": "当前等级",
         "zh-TW": "目前等級"
     },
-    {
-        "opy": "Current Hostages",
+    "Current Hostages": {
         "en-US": "Current Hostages",
         "guid": "00000000C03F",
         "de-DE": "Aktuelle Geiseln",
@@ -9034,8 +8463,7 @@ var normalStrKw =
         "zh-CN": "当前人质",
         "zh-TW": "目前人質"
     },
-    {
-        "opy": "Current Hostage",
+    "Current Hostage": {
         "en-US": "Current Hostage",
         "guid": "00000000C023",
         "de-DE": "Aktuelle Geisel",
@@ -9050,8 +8478,7 @@ var normalStrKw =
         "zh-CN": "当前人质",
         "zh-TW": "目前人質"
     },
-    {
-        "opy": "Current Heroes",
+    "Current Heroes": {
         "en-US": "Current Heroes",
         "guid": "00000000C022",
         "de-DE": "Aktuelle Helden",
@@ -9066,8 +8493,7 @@ var normalStrKw =
         "zh-CN": "当前英雄",
         "zh-TW": "目前英雄"
     },
-    {
-        "opy": "Current Hero",
+    "Current Hero": {
         "en-US": "Current Hero",
         "guid": "00000000C026",
         "de-DE": "Aktueller Held",
@@ -9082,8 +8508,7 @@ var normalStrKw =
         "zh-CN": "当前英雄",
         "zh-TW": "目前英雄"
     },
-    {
-        "opy": "Current Game",
+    "Current Game": {
         "en-US": "Current Game",
         "guid": "00000000C037",
         "de-DE": "Aktuelles Spiel",
@@ -9098,8 +8523,7 @@ var normalStrKw =
         "zh-CN": "当前游戏",
         "zh-TW": "目前遊戲"
     },
-    {
-        "opy": "Current Form",
+    "Current Form": {
         "en-US": "Current Form",
         "guid": "00000000C030",
         "de-DE": "Aktuelle Form",
@@ -9114,8 +8538,7 @@ var normalStrKw =
         "zh-CN": "当前形态",
         "zh-TW": "目前型態"
     },
-    {
-        "opy": "Current Enemy",
+    "Current Enemy": {
         "en-US": "Current Enemy",
         "guid": "00000000C039",
         "de-DE": "Aktueller Gegner",
@@ -9130,8 +8553,7 @@ var normalStrKw =
         "zh-CN": "当前敌人",
         "zh-TW": "目前敵人"
     },
-    {
-        "opy": "Current Enemies",
+    "Current Enemies": {
         "en-US": "Current Enemies",
         "guid": "00000000C038",
         "de-DE": "Aktuelle Gegner",
@@ -9146,8 +8568,7 @@ var normalStrKw =
         "zh-CN": "当前敌人",
         "zh-TW": "目前敵人"
     },
-    {
-        "opy": "Current Checkpoint",
+    "Current Checkpoint": {
         "en-US": "Current Checkpoint",
         "guid": "00000000C034",
         "de-DE": "Aktueller Checkpoint",
@@ -9162,8 +8583,7 @@ var normalStrKw =
         "zh-CN": "当前检查点",
         "zh-TW": "目前檢查點"
     },
-    {
-        "opy": "Current Attempt",
+    "Current Attempt": {
         "en-US": "Current Attempt",
         "guid": "00000000C035",
         "de-DE": "Aktueller Versuch",
@@ -9178,8 +8598,7 @@ var normalStrKw =
         "zh-CN": "当前尝试",
         "zh-TW": "目前機會"
     },
-    {
-        "opy": "Current Ally",
+    "Current Ally": {
         "en-US": "Current Ally",
         "guid": "00000000C03B",
         "de-DE": "Aktueller Verbündeter",
@@ -9194,8 +8613,7 @@ var normalStrKw =
         "zh-CN": "当前盟友",
         "zh-TW": "目前盟友"
     },
-    {
-        "opy": "Current Allies",
+    "Current Allies": {
         "en-US": "Current Allies",
         "guid": "00000000C03A",
         "de-DE": "Aktuelle Verbündete",
@@ -9210,9 +8628,8 @@ var normalStrKw =
         "zh-CN": "当前盟友",
         "zh-TW": "目前盟友"
     },
-    {
+    "Current": {
         "guid": "00000000C027",
-        "opy": "Current",
         "en-US": "Current",
         "de-DE": "Aktuell",
         "es-ES": "Actual",
@@ -9226,8 +8643,7 @@ var normalStrKw =
         "zh-CN": "当前",
         "zh-TW": "目前"
     },
-    {
-        "opy": "Crouching",
+    "Crouching": {
         "en-US": "Crouching",
         "guid": "00000000C2A6",
         "de-DE": "Ducken",
@@ -9242,8 +8658,7 @@ var normalStrKw =
         "zh-CN": "正在蹲下",
         "zh-TW": "正在蹲下"
     },
-    {
-        "opy": "Crouched",
+    "Crouched": {
         "en-US": "Crouched",
         "guid": "00000000C2A7",
         "de-DE": "Geduckt",
@@ -9258,9 +8673,8 @@ var normalStrKw =
         "zh-CN": "已蹲下",
         "zh-TW": "已蹲下"
     },
-    {
+    "Crouch": {
         "guid": "00000000C2A5",
-        "opy": "Crouch",
         "en-US": "Crouch",
         "de-DE": "Ducken",
         "es-ES": "Agacharse",
@@ -9274,8 +8688,7 @@ var normalStrKw =
         "zh-CN": "蹲下",
         "zh-TW": "蹲下"
     },
-    {
-        "opy": "Critical",
+    "Critical": {
         "en-US": "Critical",
         "guid": "00000000C13C",
         "de-DE": "Kritisch",
@@ -9290,9 +8703,8 @@ var normalStrKw =
         "zh-CN": "严重",
         "zh-TW": "致命"
     },
-    {
+    "Credits": {
         "guid": "00000000BFED",
-        "opy": "Credits",
         "en-US": "Credits",
         "es-ES": "Créditos",
         "es-MX": "Créditos",
@@ -9305,9 +8717,8 @@ var normalStrKw =
         "zh-CN": "货币",
         "zh-TW": "次數"
     },
-    {
+    "Credit": {
         "guid": "00000000C001",
-        "opy": "Credit",
         "en-US": "Credit",
         "es-ES": "Crédito",
         "es-MX": "Crédito",
@@ -9320,8 +8731,7 @@ var normalStrKw =
         "zh-CN": "货币",
         "zh-TW": "次數"
     },
-    {
-        "opy": "Corrupting",
+    "Corrupting": {
         "en-US": "Corrupting",
         "guid": "00000000C0D9",
         "de-DE": "Verderbnis",
@@ -9336,8 +8746,7 @@ var normalStrKw =
         "zh-CN": "正在腐化",
         "zh-TW": "正在腐化"
     },
-    {
-        "opy": "Corrupted",
+    "Corrupted": {
         "en-US": "Corrupted",
         "guid": "00000000C0DA",
         "de-DE": "Verdorben",
@@ -9352,8 +8761,7 @@ var normalStrKw =
         "zh-CN": "已腐化",
         "zh-TW": "受到腐化"
     },
-    {
-        "opy": "Corrupt",
+    "Corrupt": {
         "en-US": "Corrupt",
         "guid": "00000000C0D8",
         "de-DE": "Verderben",
@@ -9368,8 +8776,7 @@ var normalStrKw =
         "zh-CN": "腐化",
         "zh-TW": "腐化"
     },
-    {
-        "opy": "Cooldowns",
+    "Cooldowns": {
         "en-US": "Cooldowns",
         "guid": "00000000C5DB",
         "de-DE": "Abklingzeiten",
@@ -9383,8 +8790,7 @@ var normalStrKw =
         "zh-CN": "冷却时间",
         "zh-TW": "冷卻時間"
     },
-    {
-        "opy": "Cooldown",
+    "Cooldown": {
         "en-US": "Cooldown",
         "guid": "00000000C5DA",
         "de-DE": "Abklingzeit",
@@ -9399,8 +8805,7 @@ var normalStrKw =
         "zh-CN": "冷却时间",
         "zh-TW": "冷卻時間"
     },
-    {
-        "opy": "Control Points",
+    "Control Points": {
         "en-US": "Control Points",
         "guid": "00000000BFC7",
         "de-DE": "Kontrollpunkte",
@@ -9415,8 +8820,7 @@ var normalStrKw =
         "zh-CN": "控制点",
         "zh-TW": "控制點"
     },
-    {
-        "opy": "Control Point",
+    "Control Point": {
         "en-US": "Control Point",
         "guid": "00000000BFC8",
         "de-DE": "Kontrollpunkt",
@@ -9431,8 +8835,7 @@ var normalStrKw =
         "zh-CN": "控制点",
         "zh-TW": "控制點"
     },
-    {
-        "opy": "Constitution",
+    "Constitution": {
         "en-US": "Constitution",
         "guid": "00000000C987",
         "de-DE": "Konstitution",
@@ -9446,8 +8849,7 @@ var normalStrKw =
         "zh-CN": "建筑",
         "zh-TW": "體質"
     },
-    {
-        "opy": "Connecting",
+    "Connecting": {
         "en-US": "Connecting",
         "guid": "00000000C0FA",
         "de-DE": "Verbindung",
@@ -9462,8 +8864,7 @@ var normalStrKw =
         "zh-CN": "正在连接",
         "zh-TW": "正在連接"
     },
-    {
-        "opy": "Connected",
+    "Connected": {
         "en-US": "Connected",
         "guid": "00000000C0FB",
         "de-DE": "Verbunden",
@@ -9478,8 +8879,7 @@ var normalStrKw =
         "zh-CN": "已连接",
         "zh-TW": "獲得連接"
     },
-    {
-        "opy": "Connect",
+    "Connect": {
         "en-US": "Connect",
         "guid": "00000000C0F9",
         "de-DE": "Verbinden",
@@ -9494,8 +8894,7 @@ var normalStrKw =
         "zh-CN": "连接",
         "zh-TW": "連接"
     },
-    {
-        "opy": "Congratulations",
+    "Congratulations": {
         "en-US": "Congratulations",
         "guid": "00000000C323",
         "de-DE": "Glückwunsch",
@@ -9510,9 +8909,8 @@ var normalStrKw =
         "zh-CN": "恭喜",
         "zh-TW": "恭喜"
     },
-    {
+    "Condition": {
         "guid": "00000000C095",
-        "opy": "Condition",
         "en-US": "Condition",
         "de-DE": "Zustand",
         "es-ES": "Condición",
@@ -9525,8 +8923,7 @@ var normalStrKw =
         "zh-CN": "条件",
         "zh-TW": "狀況"
     },
-    {
-        "opy": "Come Here",
+    "Come Here": {
         "en-US": "Come Here",
         "guid": "00000000C186",
         "de-DE": "Hierher kommen",
@@ -9541,9 +8938,8 @@ var normalStrKw =
         "zh-CN": "到这儿来",
         "zh-TW": "過來"
     },
-    {
+    "Combo": {
         "guid": "00000000C870",
-        "opy": "Combo",
         "en-US": "Combo",
         "it-IT": "Combinazione",
         "ja-JP": "コンボ",
@@ -9552,8 +8948,7 @@ var normalStrKw =
         "zh-CN": "连击",
         "zh-TW": "連擊"
     },
-    {
-        "opy": "Clubs",
+    "Clubs": {
         "en-US": "Clubs",
         "guid": "00000000CA94",
         "de-DE": "Kreuz",
@@ -9568,9 +8963,8 @@ var normalStrKw =
         "zh-CN": "梅花",
         "zh-TW": "梅花"
     },
-    {
+    "Club": {
         "guid": "00000000CAC1",
-        "opy": "Club",
         "en-US": "Club",
         "de-DE": "Kreuz",
         "es-ES": "Basto",
@@ -9584,8 +8978,7 @@ var normalStrKw =
         "zh-CN": "梅花",
         "zh-TW": "梅花"
     },
-    {
-        "opy": "Clouds",
+    "Clouds": {
         "en-US": "Clouds",
         "guid": "00000000C289",
         "de-DE": "Wolken",
@@ -9600,9 +8993,8 @@ var normalStrKw =
         "zh-CN": "云朵",
         "zh-TW": "雲"
     },
-    {
+    "Cloud": {
         "guid": "00000000C288",
-        "opy": "Cloud",
         "en-US": "Cloud",
         "de-DE": "Wolke",
         "es-ES": "Nube",
@@ -9616,8 +9008,7 @@ var normalStrKw =
         "zh-CN": "云朵",
         "zh-TW": "雲"
     },
-    {
-        "opy": "Checkpoints",
+    "Checkpoints": {
         "en-US": "Checkpoints",
         "guid": "00000000C007",
         "es-ES": "Puntos de control",
@@ -9631,8 +9022,7 @@ var normalStrKw =
         "zh-CN": "检查点",
         "zh-TW": "檢查點"
     },
-    {
-        "opy": "Checkpoint",
+    "Checkpoint": {
         "en-US": "Checkpoint",
         "guid": "00000000C008",
         "es-ES": "Punto de control",
@@ -9645,8 +9035,7 @@ var normalStrKw =
         "zh-CN": "检查点",
         "zh-TW": "檢查點"
     },
-    {
-        "opy": "Chasing",
+    "Chasing": {
         "en-US": "Chasing",
         "guid": "00000000C0B5",
         "de-DE": "Verfolgung",
@@ -9661,8 +9050,7 @@ var normalStrKw =
         "zh-CN": "正在追击",
         "zh-TW": "正在追逐"
     },
-    {
-        "opy": "Chased",
+    "Chased": {
         "en-US": "Chased",
         "guid": "00000000C0B6",
         "de-DE": "Verfolgt",
@@ -9677,8 +9065,7 @@ var normalStrKw =
         "zh-CN": "已追击",
         "zh-TW": "被追逐"
     },
-    {
-        "opy": "Chase",
+    "Chase": {
         "en-US": "Chase",
         "guid": "00000000C0B4",
         "de-DE": "Verfolgen",
@@ -9693,8 +9080,7 @@ var normalStrKw =
         "zh-CN": "追击",
         "zh-TW": "追逐"
     },
-    {
-        "opy": "Charisma",
+    "Charisma": {
         "en-US": "Charisma",
         "guid": "00000000C988",
         "es-ES": "Carisma",
@@ -9708,8 +9094,7 @@ var normalStrKw =
         "zh-CN": "魅力",
         "zh-TW": "魅力"
     },
-    {
-        "opy": "Challenge Accepted",
+    "Challenge Accepted": {
         "en-US": "Challenge Accepted",
         "guid": "00000000C18D",
         "de-DE": "Herausforderung angenommen",
@@ -9724,9 +9109,8 @@ var normalStrKw =
         "zh-CN": "接受挑战",
         "zh-TW": "接受挑戰"
     },
-    {
+    "Center": {
         "guid": "00000000C164",
-        "opy": "Center",
         "en-US": "Center",
         "de-DE": "Mitte",
         "es-ES": "Centro",
@@ -9740,9 +9124,8 @@ var normalStrKw =
         "zh-CN": "中",
         "zh-TW": "中央"
     },
-    {
+    "Caution": {
         "guid": "00000000C5C3",
-        "opy": "Caution",
         "en-US": "Caution",
         "de-DE": "Vorsicht",
         "es-ES": "Precaución",
@@ -9756,8 +9139,7 @@ var normalStrKw =
         "zh-CN": "危险",
         "zh-TW": "注意"
     },
-    {
-        "opy": "Capturing",
+    "Capturing": {
         "en-US": "Capturing",
         "guid": "00000000C12A",
         "de-DE": "Eroberung",
@@ -9772,9 +9154,8 @@ var normalStrKw =
         "zh-CN": "正在夺取",
         "zh-TW": "正在捕捉"
     },
-    {
+    "Captured": {
         "guid": "00000000C12D",
-        "opy": "Captured",
         "en-US": "Captured",
         "de-DE": "Erobert",
         "es-ES": "Capturado",
@@ -9788,8 +9169,7 @@ var normalStrKw =
         "zh-CN": "已夺取",
         "zh-TW": "遭到捕捉"
     },
-    {
-        "opy": "Capture",
+    "Capture": {
         "en-US": "Capture",
         "guid": "00000000C129",
         "de-DE": "Erobern",
@@ -9804,8 +9184,7 @@ var normalStrKw =
         "zh-CN": "夺取",
         "zh-TW": "捕捉"
     },
-    {
-        "opy": "Buying",
+    "Buying": {
         "en-US": "Buying",
         "guid": "00000000C0FF",
         "de-DE": "Kauf",
@@ -9820,9 +9199,8 @@ var normalStrKw =
         "zh-CN": "正在购买",
         "zh-TW": "正在購買"
     },
-    {
+    "Buy": {
         "guid": "00000000C101",
-        "opy": "Buy",
         "en-US": "Buy",
         "de-DE": "Kaufen",
         "es-ES": "Comprar",
@@ -9836,8 +9214,7 @@ var normalStrKw =
         "zh-CN": "购买",
         "zh-TW": "購買"
     },
-    {
-        "opy": "Burnt",
+    "Burnt": {
         "en-US": "Burnt",
         "guid": "00000000C0D0",
         "de-DE": "Verbrannt",
@@ -9852,9 +9229,8 @@ var normalStrKw =
         "zh-CN": "已点燃",
         "zh-TW": "受到燃燒"
     },
-    {
+    "Burning": {
         "guid": "00000000C0D1",
-        "opy": "Burning",
         "en-US": "Burning",
         "de-DE": "Brand",
         "es-ES": "Quemando",
@@ -9868,8 +9244,7 @@ var normalStrKw =
         "zh-CN": "正在点燃",
         "zh-TW": "正在燃燒"
     },
-    {
-        "opy": "Burn",
+    "Burn": {
         "en-US": "Burn",
         "guid": "00000000C0D2",
         "de-DE": "Verbrennen",
@@ -9884,8 +9259,7 @@ var normalStrKw =
         "zh-CN": "点燃",
         "zh-TW": "燃燒"
     },
-    {
-        "opy": "Built",
+    "Built": {
         "en-US": "Built",
         "guid": "00000000C0C8",
         "de-DE": "Gebaut",
@@ -9900,9 +9274,8 @@ var normalStrKw =
         "zh-CN": "已建造",
         "zh-TW": "已建造"
     },
-    {
+    "Building": {
         "guid": "00000000C0C7",
-        "opy": "Building",
         "en-US": "Building",
         "de-DE": "Gebäude",
         "es-ES": "Construyendo",
@@ -9916,8 +9289,7 @@ var normalStrKw =
         "zh-CN": "正在建造",
         "zh-TW": "正在建造"
     },
-    {
-        "opy": "Build",
+    "Build": {
         "en-US": "Build",
         "guid": "00000000C0C6",
         "de-DE": "Bauen",
@@ -9932,8 +9304,7 @@ var normalStrKw =
         "zh-CN": "建造",
         "zh-TW": "建造"
     },
-    {
-        "opy": "Bought",
+    "Bought": {
         "en-US": "Bought",
         "guid": "00000000C100",
         "de-DE": "Gekauft",
@@ -9948,8 +9319,7 @@ var normalStrKw =
         "zh-CN": "已购买",
         "zh-TW": "已購買"
     },
-    {
-        "opy": "Bosses",
+    "Bosses": {
         "en-US": "Bosses",
         "guid": "00000000C5E4",
         "de-DE": "Bosse",
@@ -9964,8 +9334,7 @@ var normalStrKw =
         "zh-CN": "首领",
         "zh-TW": "首領"
     },
-    {
-        "opy": "Boss",
+    "Boss": {
         "en-US": "Boss",
         "guid": "00000000C5E3",
         "es-ES": "Jefe",
@@ -9976,8 +9345,7 @@ var normalStrKw =
         "zh-CN": "首领",
         "zh-TW": "首領"
     },
-    {
-        "opy": "Bonuses",
+    "Bonuses": {
         "en-US": "Bonuses",
         "guid": "00000000CA93",
         "de-DE": "Boni",
@@ -9992,8 +9360,7 @@ var normalStrKw =
         "zh-CN": "奖励",
         "zh-TW": "獎勵"
     },
-    {
-        "opy": "Bonus",
+    "Bonus": {
         "en-US": "Bonus",
         "guid": "00000000CA92",
         "es-ES": "Bonificación",
@@ -10006,9 +9373,8 @@ var normalStrKw =
         "zh-CN": "奖励",
         "zh-TW": "獎勵"
     },
-    {
+    "Blue": {
         "guid": "00000000C87C",
-        "opy": "Blue",
         "en-US": "Blue",
         "de-DE": "Blau",
         "es-MX": "Azul",
@@ -10021,8 +9387,7 @@ var normalStrKw =
         "zh-CN": "蓝色",
         "zh-TW": "藍"
     },
-    {
-        "opy": "Blocking",
+    "Blocking": {
         "en-US": "Blocking",
         "guid": "00000000C884",
         "de-DE": "Block",
@@ -10037,8 +9402,7 @@ var normalStrKw =
         "zh-CN": "正在阻挡",
         "zh-TW": "正在阻擋"
     },
-    {
-        "opy": "Blocked",
+    "Blocked": {
         "en-US": "Blocked",
         "guid": "00000000C883",
         "de-DE": "Blockiert",
@@ -10053,9 +9417,8 @@ var normalStrKw =
         "zh-CN": "已阻挡",
         "zh-TW": "被阻擋"
     },
-    {
+    "Block": {
         "guid": "00000000C882",
-        "opy": "Block",
         "en-US": "Block",
         "de-DE": "Blockieren",
         "es-ES": "Bloquear",
@@ -10069,8 +9432,7 @@ var normalStrKw =
         "zh-CN": "阻挡",
         "zh-TW": "阻擋"
     },
-    {
-        "opy": "Bids",
+    "Bids": {
         "en-US": "Bids",
         "guid": "00000000CA91",
         "de-DE": "Gebote",
@@ -10085,8 +9447,7 @@ var normalStrKw =
         "zh-CN": "加注",
         "zh-TW": "競標"
     },
-    {
-        "opy": "Bid",
+    "Bid": {
         "en-US": "Bid",
         "guid": "00000000CA90",
         "de-DE": "Gebot",
@@ -10101,8 +9462,7 @@ var normalStrKw =
         "zh-CN": "加注",
         "zh-TW": "競標"
     },
-    {
-        "opy": "Better",
+    "Better": {
         "en-US": "Better",
         "guid": "00000000C155",
         "de-DE": "Besser",
@@ -10117,8 +9477,7 @@ var normalStrKw =
         "zh-CN": "优秀",
         "zh-TW": "較佳"
     },
-    {
-        "opy": "Best",
+    "Best": {
         "en-US": "Best",
         "guid": "00000000C156",
         "de-DE": "Am besten",
@@ -10133,8 +9492,7 @@ var normalStrKw =
         "zh-CN": "最佳",
         "zh-TW": "最佳"
     },
-    {
-        "opy": "Banning",
+    "Banning": {
         "en-US": "Banning",
         "guid": "00000000C109",
         "de-DE": "Bann",
@@ -10149,8 +9507,7 @@ var normalStrKw =
         "zh-CN": "正在屏蔽",
         "zh-TW": "正在禁止"
     },
-    {
-        "opy": "Banned",
+    "Banned": {
         "en-US": "Banned",
         "guid": "00000000C10A",
         "de-DE": "Gebannt",
@@ -10165,8 +9522,7 @@ var normalStrKw =
         "zh-CN": "已屏蔽",
         "zh-TW": "被禁止"
     },
-    {
-        "opy": "Ban",
+    "Ban": {
         "en-US": "Ban",
         "guid": "00000000C108",
         "de-DE": "Bannen",
@@ -10181,8 +9537,7 @@ var normalStrKw =
         "zh-CN": "屏蔽",
         "zh-TW": "禁止"
     },
-    {
-        "opy": "Bad",
+    "Bad": {
         "en-US": "Bad",
         "guid": "00000000C14D",
         "de-DE": "Schlecht",
@@ -10197,9 +9552,8 @@ var normalStrKw =
         "zh-CN": "差",
         "zh-TW": "壞"
     },
-    {
+    "Backward": {
         "guid": "00000000C177",
-        "opy": "Backward",
         "en-US": "Backward",
         "de-DE": "Rückwärts",
         "es-ES": "Hacia atrás",
@@ -10213,8 +9567,7 @@ var normalStrKw =
         "zh-CN": "后",
         "zh-TW": "後退"
     },
-    {
-        "opy": "Avoiding",
+    "Avoiding": {
         "en-US": "Avoiding",
         "guid": "00000000C0A6",
         "de-DE": "Vermeidung",
@@ -10229,8 +9582,7 @@ var normalStrKw =
         "zh-CN": "正在躲避",
         "zh-TW": "正在避開"
     },
-    {
-        "opy": "Avoided",
+    "Avoided": {
         "en-US": "Avoided",
         "guid": "00000000C0A7",
         "de-DE": "Gemieden",
@@ -10245,8 +9597,7 @@ var normalStrKw =
         "zh-CN": "已躲避",
         "zh-TW": "被避開"
     },
-    {
-        "opy": "Avoid",
+    "Avoid": {
         "en-US": "Avoid",
         "guid": "00000000C0A5",
         "de-DE": "Meiden",
@@ -10261,9 +9612,8 @@ var normalStrKw =
         "zh-CN": "躲避",
         "zh-TW": "避開"
     },
-    {
+    "Average": {
         "guid": "00000000C14C",
-        "opy": "Average",
         "en-US": "Average",
         "de-DE": "Durchschnitt",
         "es-ES": "Medio",
@@ -10277,8 +9627,7 @@ var normalStrKw =
         "zh-CN": "平均",
         "zh-TW": "平均"
     },
-    {
-        "opy": "Attempts",
+    "Attempts": {
         "en-US": "Attempts",
         "guid": "00000000C00C",
         "de-DE": "Versuche",
@@ -10293,8 +9642,7 @@ var normalStrKw =
         "zh-CN": "尝试",
         "zh-TW": "機會"
     },
-    {
-        "opy": "Attempt",
+    "Attempt": {
         "en-US": "Attempt",
         "guid": "00000000C00D",
         "de-DE": "Versuch",
@@ -10309,8 +9657,7 @@ var normalStrKw =
         "zh-CN": "尝试",
         "zh-TW": "機會"
     },
-    {
-        "opy": "Attacking",
+    "Attacking": {
         "en-US": "Attacking",
         "guid": "00000000C0AF",
         "de-DE": "Angriff",
@@ -10325,8 +9672,7 @@ var normalStrKw =
         "zh-CN": "正在进攻",
         "zh-TW": "正在攻擊"
     },
-    {
-        "opy": "Attacked",
+    "Attacked": {
         "en-US": "Attacked",
         "guid": "00000000C0B0",
         "de-DE": "Angegriffen",
@@ -10341,9 +9687,8 @@ var normalStrKw =
         "zh-CN": "已进攻",
         "zh-TW": "被攻擊"
     },
-    {
+    "Attack": {
         "guid": "00000000C0AE",
-        "opy": "Attack",
         "en-US": "Attack",
         "de-DE": "Angreifen",
         "es-ES": "Atacar",
@@ -10357,9 +9702,8 @@ var normalStrKw =
         "zh-CN": "进攻",
         "zh-TW": "攻擊"
     },
-    {
+    "Angle": {
         "guid": "00000000C86A",
-        "opy": "Angle",
         "en-US": "Angle",
         "de-DE": "Winkel",
         "es-ES": "Ángulo",
@@ -10372,8 +9716,7 @@ var normalStrKw =
         "zh-CN": "角度",
         "zh-TW": "角度"
     },
-    {
-        "opy": "Ammunition",
+    "Ammunition": {
         "en-US": "Ammunition",
         "guid": "00000000C993",
         "de-DE": "Munition",
@@ -10388,8 +9731,7 @@ var normalStrKw =
         "zh-CN": "弹药",
         "zh-TW": "彈藥"
     },
-    {
-        "opy": "Ally",
+    "Ally": {
         "en-US": "Ally",
         "guid": "00000000BFD4",
         "de-DE": "Verbündeter",
@@ -10404,8 +9746,7 @@ var normalStrKw =
         "zh-CN": "盟友",
         "zh-TW": "盟友"
     },
-    {
-        "opy": "Allies",
+    "Allies": {
         "en-US": "Allies",
         "guid": "00000000BFC6",
         "de-DE": "Verbündete",
@@ -10420,8 +9761,7 @@ var normalStrKw =
         "zh-CN": "盟友",
         "zh-TW": "盟友"
     },
-    {
-        "opy": "Alive",
+    "Alive": {
         "en-US": "Alive",
         "guid": "00000000C130",
         "de-DE": "Lebendig",
@@ -10436,8 +9776,7 @@ var normalStrKw =
         "zh-CN": "存活",
         "zh-TW": "生存"
     },
-    {
-        "opy": "Alert",
+    "Alert": {
         "en-US": "Alert",
         "guid": "00000000C15B",
         "de-DE": "Achtung",
@@ -10451,9 +9790,8 @@ var normalStrKw =
         "zh-CN": "警报",
         "zh-TW": "警報"
     },
-    {
+    "Ability 2": {
         "guid": "00000000BFF4",
-        "opy": "Ability 2",
         "en-US": "Ability 2",
         "de-DE": "Fähigkeit 2",
         "es-ES": "Habilidad 2",
@@ -10467,9 +9805,8 @@ var normalStrKw =
         "zh-CN": "技能2",
         "zh-TW": "技能2"
     },
-    {
+    "Ability 1": {
         "guid": "00000000BFF7",
-        "opy": "Ability 1",
         "en-US": "Ability 1",
         "de-DE": "Fähigkeit 1",
         "es-ES": "Habilidad 1",
@@ -10483,8 +9820,7 @@ var normalStrKw =
         "zh-CN": "技能1",
         "zh-TW": "技能1"
     },
-    {
-        "opy": "Ability",
+    "Ability": {
         "en-US": "Ability",
         "guid": "00000000BFF6",
         "de-DE": "Fähigkeit",
@@ -10499,9 +9835,8 @@ var normalStrKw =
         "zh-CN": "技能",
         "zh-TW": "技能"
     },
-    {
+    "Abilities": {
         "guid": "00000000BFF5",
-        "opy": "Abilities",
         "en-US": "Abilities",
         "de-DE": "Fähigkeiten",
         "es-ES": "Habilidades",
@@ -10515,94 +9850,80 @@ var normalStrKw =
         "zh-CN": "技能",
         "zh-TW": "技能"
     },
-    {
-        "opy": "???",
+    "???": {
         "en-US": "???",
         "guid": "00000000BFE5",
         "ja-JP": "？？？",
         "zh-CN": "？？？"
     },
-    {
-        "opy": "??",
+    "??": {
         "en-US": "??",
         "guid": "00000000BFE6",
         "ja-JP": "？？",
         "zh-CN": "？？"
     },
-    {
+    "?": {
         "guid": "00000000BFE7",
-        "opy": "?",
         "en-US": "?",
         "ja-JP": "？",
         "zh-CN": "？"
     },
-    {
-        "opy": "...",
+    "...": {
         "en-US": "...",
         "guid": "00000000BFC1",
         "fr-FR": "…",
         "ja-JP": "…",
         "zh-CN": "……"
     },
-    {
-        "opy": "----------",
+    "----------": {
         "en-US": "----------",
         "guid": "00000000BFC0"
     },
-    {
+    "*": {
         "guid": "00000000BFE8",
-        "opy": "*",
         "en-US": "*"
     },
-    {
-        "opy": "!!!",
+    "!!!": {
         "en-US": "!!!",
         "guid": "00000000BFE2",
         "ja-JP": "！！！",
         "zh-CN": "！！！"
     },
-    {
-        "opy": "!!",
+    "!!": {
         "en-US": "!!",
         "guid": "00000000BFE3",
         "ja-JP": "！！",
         "zh-CN": "！！"
     },
-    {
+    "!": {
         "guid": "00000000BFE4",
-        "opy": "!",
         "en-US": "!",
         "ja-JP": "！",
         "zh-CN": "！"
     }
-]
+}
 //end-json
 
 var prefixStrKw = 
 //begin-json
-[
-    {
-        "opy": "#{0}",
+{
+    "#{0}": {
         "en-US": "#{0}",
         "guid": "00000000BFC2"
     },
-    {
-        "opy": "-> {0}",
+    "-> {0}": {
         "en-US": "-> {0}",
         "guid": "00000000BFB0"
     },
-    {
-        "opy": "<-> {0}",
+    "<-> {0}": {
         "en-US": "<-> {0}",
         "guid": "00000000BFAE"
     },
-    {
-        "opy": "<- {0}",
+    "<- {0}": {
         "en-US": "<- {0}",
         "guid": "00000000BFAF"
     },
-    {
-        "opy": "Round {0}",
+    "Round {0}": {
         "en-US": "Round {0}",
         "guid": "00000000C322",
         "de-DE": "Runde {0}",
@@ -10616,29 +9937,25 @@ var prefixStrKw =
         "zh-CN": "第{0}回合",
         "zh-TW": "第{0}回合"
     }
-]
+}
 //end-json
 
 var postfixStrKw = 
 //begin-json
-[
-    {
-        "opy": "{0} ->",
+{
+    "{0} ->": {
         "en-US": "{0} ->",
         "guid": "00000000BFAD"
     },
-    {
-        "opy": "{0} <->",
+    "{0} <->": {
         "en-US": "{0} <->",
         "guid": "00000000BF99"
     },
-    {
-        "opy": "{0} <-",
+    "{0} <-": {
         "en-US": "{0} <-",
         "guid": "00000000BFAC"
     },
-    {
-        "opy": "{0} m/s",
+    "{0} m/s": {
         "en-US": "{0} m/s",
         "guid": "00000000BFBF",
         "ja-JP": "{0}メートル/秒",
@@ -10646,8 +9963,7 @@ var postfixStrKw =
         "zh-CN": "{0} 米/秒",
         "zh-TW": "{0}公尺/秒"
     },
-    {
-        "opy": "{0} m",
+    "{0} m": {
         "en-US": "{0} m",
         "guid": "00000000BFBE",
         "ja-JP": "{0}メートル",
@@ -10655,8 +9971,7 @@ var postfixStrKw =
         "zh-CN": "{0} 米",
         "zh-TW": "{0}公尺"
     },
-    {
-        "opy": "{0} sec",
+    "{0} sec": {
         "en-US": "{0} sec",
         "guid": "00000000BFC3",
         "de-DE": "{0} Sek.",
@@ -10671,8 +9986,7 @@ var postfixStrKw =
         "zh-CN": "{0}秒",
         "zh-TW": "{0}秒"
     },
-    {
-        "opy": "{0}!!!",
+    "{0}!!!": {
         "en-US": "{0}!!!",
         "guid": "00000000BF97",
         "es-ES": "¡¡¡{0}!!!",
@@ -10680,8 +9994,7 @@ var postfixStrKw =
         "ja-JP": "{0}！！！",
         "zh-CN": "{0}！！！"
     },
-    {
-        "opy": "{0}!!",
+    "{0}!!": {
         "en-US": "{0}!!",
         "guid": "00000000BF98",
         "es-ES": "¡¡{0}!!",
@@ -10689,8 +10002,7 @@ var postfixStrKw =
         "ja-JP": "{0}！！",
         "zh-CN": "{0}！！"
     },
-    {
-        "opy": "{0}!",
+    "{0}!": {
         "en-US": "{0}!",
         "guid": "00000000BFA5",
         "es-ES": "¡{0}!",
@@ -10698,21 +10010,18 @@ var postfixStrKw =
         "ja-JP": "{0}！",
         "zh-CN": "{0}！"
     },
-    {
+    "{0}%": {
         "guid": "00000000BFBC",
-        "opy": "{0}%",
         "en-US": "{0}%",
         "fr-FR": "{0} %"
     },
-    {
-        "opy": "{0}:",
+    "{0}:": {
         "en-US": "{0}:",
         "guid": "00000000BA64",
         "fr-FR": "{0} :",
         "ja-JP": "{0}: "
     },
-    {
-        "opy": "{0}???",
+    "{0}???": {
         "en-US": "{0}???",
         "guid": "00000000BFA7",
         "es-ES": "¿¿¿{0}???",
@@ -10720,8 +10029,7 @@ var postfixStrKw =
         "ja-JP": "{0}？？？",
         "zh-CN": "{0}？？？"
     },
-    {
-        "opy": "{0}??",
+    "{0}??": {
         "en-US": "{0}??",
         "guid": "00000000BFA8",
         "es-ES": "¿¿{0}??",
@@ -10729,8 +10037,7 @@ var postfixStrKw =
         "ja-JP": "{0}？？",
         "zh-CN": "{0}？？"
     },
-    {
-        "opy": "{0}?",
+    "{0}?": {
         "en-US": "{0}?",
         "guid": "00000000BFAA",
         "es-ES": "¿{0}?",
@@ -10738,84 +10045,69 @@ var postfixStrKw =
         "ja-JP": "{0}？",
         "zh-CN": "{0}？"
     }
-]
+}
 //end-json
 
 var binaryStrKw = 
 //begin-json
-[
-    {
-        "opy": "{0} -> {1}",
+{
+    "{0} -> {1}": {
         "en-US": "{0} -> {1}",
         "guid": "00000000BFB2"
     },
-    {
-        "opy": "{0} - {1}",
+    "{0} - {1}": {
         "en-US": "{0} - {1}",
         "guid": "00000000BF9D"
     },
-    {
-        "opy": "{0} != {1}",
+    "{0} != {1}": {
         "en-US": "{0} != {1}",
         "guid": "00000000BFA2"
     },
-    {
-        "opy": "{0} * {1}",
+    "{0} * {1}": {
         "en-US": "{0} * {1}",
         "guid": "00000000BF9C"
     },
-    {
-        "opy": "{0} / {1}",
+    "{0} / {1}": {
         "en-US": "{0} / {1}",
         "guid": "00000000BFBB"
     },
-    {
-        "opy": "{0} + {1}",
+    "{0} + {1}": {
         "en-US": "{0} + {1}",
         "guid": "00000000BF9E"
     },
-    {
-        "opy": "{0} <-> {1}",
+    "{0} <-> {1}": {
         "en-US": "{0} <-> {1}",
         "guid": "00000000BF9A"
     },
-    {
-        "opy": "{0} <- {1}",
+    "{0} <- {1}": {
         "en-US": "{0} <- {1}",
         "guid": "00000000BFB1"
     },
-    {
-        "opy": "{0} <= {1}",
+    "{0} <= {1}": {
         "en-US": "{0} <= {1}",
         "guid": "00000000BFA1"
     },
-    {
-        "opy": "{0} < {1}",
+    "{0} < {1}": {
         "en-US": "{0} < {1}",
         "guid": "00000000BFA6"
     },
-    {
-        "opy": "{0} == {1}",
+    "{0} == {1}": {
         "en-US": "{0} == {1}",
         "guid": "00000000BFA3"
     },
-    {
-        "opy": "{0} = {1}",
+    "{0} = {1}": {
         "en-US": "{0} = {1}",
         "guid": "00000000BFA4"
     },
-    {
-        "opy": "{0} >= {1}",
+    "{0} >= {1}": {
         "en-US": "{0} >= {1}",
         "guid": "00000000BF9F"
     },
-    {
-        "opy": "{0} > {1}",
+    "{0} > {1}": {
         "en-US": "{0} > {1}",
         "guid": "00000000BFA0"
     },
-    {
-        "opy": "{0} and {1}",
+    "{0} and {1}": {
         "en-US": "{0} and {1}",
         "guid": "00000000BFB5",
         "de-DE": "{0} und {1}",
@@ -10830,8 +10122,7 @@ var binaryStrKw =
         "zh-CN": "{0}和{1}",
         "zh-TW": "{0}以及{1}"
     },
-    {
-        "opy": "{0} vs {1}",
+    "{0} vs {1}": {
         "en-US": "{0} vs {1}",
         "guid": "00000000BFB4",
         "es-ES": "{0} contra {1}",
@@ -10841,55 +10132,47 @@ var binaryStrKw =
         "ru-RU": "{0} х {1}",
         "zh-CN": "{0}对阵{1}"
     },
-    {
-        "opy": "{0}, {1}",
+    "{0}, {1}": {
         "en-US": "{0}, {1}",
         "guid": "00000000BF9B",
         "ja-JP": "{0}、{1}",
         "zh-CN": "{0}，{1}"
     },
-    {
-        "opy": "{0}: {1}",
+    "{0}: {1}": {
         "en-US": "{0}: {1}",
         "guid": "00000000BFB3",
         "fr-FR": "{0} : {1}",
         "zh-CN": "{0}：{1}"
     },
-    {
-        "opy": "{0}:{1}",
+    "{0}:{1}": {
         "en-US": "{0}:{1}",
         "guid": "00000000BA63",
         "ja-JP": "{0}: {1}"
     },
-    {
-        "opy": "{0} {1}",
+    "{0} {1}": {
         "en-US": "{0} {1}",
         "guid": "00000000C43C"
     }
-]
+}
 //end-json
 
 var ternaryStrKw = 
 //begin-json
-[
-    {
-        "opy": "{0} - {1} - {2}",
+{
+    "{0} - {1} - {2}": {
         "en-US": "{0} - {1} - {2}",
         "guid": "00000000C5BA",
         "ru-RU": "{0} – {1} – {2}"
     },
-    {
-        "opy": "{0} : {1} : {2}",
+    "{0} : {1} : {2}": {
         "en-US": "{0} : {1} : {2}",
         "guid": "00000000C5B9"
     },
-    {
-        "opy": "{0} {1} {2}",
+    "{0} {1} {2}": {
         "en-US": "{0} {1} {2}",
         "guid": "00000000C5B8"
     },
-    {
-        "opy": "{0}, {1}, and {2}",
+    "{0}, {1}, and {2}": {
         "en-US": "{0}, {1}, and {2}",
         "guid": "00000000BFB6",
         "de-DE": "{0}, {1} und {2}",
@@ -10904,8 +10187,7 @@ var ternaryStrKw =
         "zh-CN": "{0}，{1}和{2}",
         "zh-TW": "{0}, {1}, 以及{2}"
     },
-    {
-        "opy": "{0}: {1} and {2}",
+    "{0}: {1} and {2}": {
         "en-US": "{0}: {1} and {2}",
         "guid": "00000000BFB7",
         "de-DE": "{0}: {1} und {2}",
@@ -10920,85 +10202,68 @@ var ternaryStrKw =
         "zh-CN": "{0}：{1}和{2}",
         "zh-TW": "{0}: {1} 以及{2}"
     }
-]
+}
 //end-json
 
 var surroundStrKw = 
 //begin-json
-[
-    {
-        "opy": "({0})",
+{
+    "({0})": {
         "en-US": "({0})",
         "guid": "00000000BFBD"
     },
-    {
-        "opy": "¡{0}!",
+    "¡{0}!": {
         "en-US": "¡{0}!",
         "guid": "00000000BFA9"
     },
-    {
-        "opy": "¿{0}?",
+    "¿{0}?": {
         "en-US": "¿{0}?",
         "guid": "00000000BFAB"
     }
-]
+}
 //end-json
 
-var stringKw = normalStrKw.concat(prefixStrKw).concat(postfixStrKw).concat(binaryStrKw).concat(ternaryStrKw).concat(surroundStrKw).concat(emptyStrKw);
-
-/*for (var hero of getConstantKw("HERO CONSTANT")) {
-	stringKw.push(hero.opy);
-}*/
+var stringKw = Object.assign({}, normalStrKw, prefixStrKw, postfixStrKw, binaryStrKw, ternaryStrKw, surroundStrKw, emptyStrKw)
 
 var strTokens = [];
 
 //Generate string tokens
 //normal strings
-for (var j = 0; j < normalStrKw.length; j++) {
-	strTokens.push(normalStrKw[j].opy.toLowerCase());
+for (var key of Object.keys(normalStrKw)) {
+	strTokens.push(key.toLowerCase());
 }
 
 //prefix strings
-for (var j = 0; j < prefixStrKw.length; j++) {
-	strTokens.push(prefixStrKw[j].opy.substring(0, prefixStrKw[j].opy.indexOf("{0}")).toLowerCase());
+for (var key of Object.keys(prefixStrKw)) {
+	strTokens.push(key.substring(0, key.indexOf("{0}")).toLowerCase());
 }
 
 //postfix strings
-for (var j = 0; j < postfixStrKw.length; j++) {
-	strTokens.push(postfixStrKw[j].opy.substring("{0}".length).toLowerCase());
+for (var key of Object.keys(postfixStrKw)) {
+	strTokens.push(key.substring("{0}".length).toLowerCase());
 }
 
 //ternary strings
-for (var j = 0; j < ternaryStrKw.length; j++) {
-	strTokens.push(ternaryStrKw[j].opy.substring("{0}".length, ternaryStrKw[j].opy.indexOf("{1}")).toLowerCase());
-	strTokens.push(ternaryStrKw[j].opy.substring(ternaryStrKw[j].opy.indexOf("{1}")+"{1}".length, ternaryStrKw[j].opy.indexOf("{2}")).toLowerCase());
+for (var key of Object.keys(ternaryStrKw)) {
+	strTokens.push(key.substring("{0}".length, key.indexOf("{1}")).toLowerCase());
+	strTokens.push(key.substring(key.indexOf("{1}")+"{1}".length, key.indexOf("{2}")).toLowerCase());
 }
 
 //binary strings
-for (var j = 0; j < binaryStrKw.length; j++) {
-	strTokens.push(binaryStrKw[j].opy.substring("{0}".length, binaryStrKw[j].opy.indexOf("{1}")).toLowerCase());
+for (var key of Object.keys(binaryStrKw)) {
+	strTokens.push(key.substring("{0}".length, key.indexOf("{1}")).toLowerCase());
 }
 
-
 //surround strings
-for (var j = 0; j < surroundStrKw.length; j++) {
-	strTokens.push(surroundStrKw[j].opy[0].toLowerCase())
-	strTokens.push(surroundStrKw[j].opy[surroundStrKw[j].opy.length-1].toLowerCase())
+for (var key of Object.keys(surroundStrKw)) {
+	strTokens.push(key[0].toLowerCase())
+	strTokens.push(key[key.length-1].toLowerCase())
 }
 
 //heroes
-for (var hero of getConstantKw("HERO CONSTANT")) {
-	strTokens.push(hero.opy.toLowerCase().substring("Hero.".length));
+for (var key of Object.keys(heroKw)) {
+	strTokens.push(key.toLowerCase());
 }
 
 //Sort reverse alphabetical order for greediness
 strTokens = strTokens.sort().reverse();
-
-
-
-
-
-
-
-
-

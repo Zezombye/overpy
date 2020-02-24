@@ -18,17 +18,15 @@
 "use strict";
 
 //Translates a keyword to the other language.
-function translate(keyword, toWorkshop, keywordArray, options={}) {
+function translate(keyword, toWorkshop, keywordObj, options={}) {
 	
 	if (!toWorkshop) {
 		keyword = keyword.toLowerCase();
-		if (keywordArray !== stringKw) {
+		if (keywordObj !== stringKw) {
 			keyword = keyword.replace(/\s/g, "");
 		}
 	}
 	debug("Translating keyword '"+keyword+"'");
-	//debug("language = "+currentLanguage);
-	//debug(keywordArray === stringKw);
 	
 	//Check for current array element
 	if (toWorkshop) {
@@ -39,43 +37,46 @@ function translate(keyword, toWorkshop, keywordArray, options={}) {
 		}
 	}
 
-	for (var i = 0; i < keywordArray.length; i++) {
-		
-		if (toWorkshop) {
-			if (keywordArray[i].opy === keyword) {
-
-				//Check number of arguments
-				if (options.nbArgs) {
-					if (keywordArray[i].args === null && options.nbArgs !== 0 || keywordArray[i].args.length !== options.nbArgs) {
-						error("Function '"+keyword+"' takes "+(keywordArray[i].args===null?0:keywordArray[i].args.length)+" arguments, received "+options.nbArgs);
-					}
-				}
-
-				//Fallback to "en-US" if no entry for this language
-				if (currentLanguage in keywordArray[i]) {
-					return keywordArray[i][currentLanguage];
-				} else {
-					return keywordArray[i]["en-US"];
+	if (toWorkshop) {
+		try {
+			//Check number of arguments
+			if (options.nbArgs) {
+				if (keywordObj[keyword].args === null && options.nbArgs !== 0 || keywordObj[keyword].args.length !== options.nbArgs) {
+					error("Function '"+keyword+"' takes "+(keywordObj[keyword].args===null?0:keywordObj[keyword].args.length)+" arguments, received "+options.nbArgs);
 				}
 			}
-		} else {
-			var keywordComparing = keywordArray[i];
-			
-			if (currentLanguage in keywordArray[i]) {
-				keywordComparing = keywordComparing[currentLanguage];
+
+			//Fallback to "en-US" if no entry for this language
+			if (currentLanguage in keywordObj[keyword]) {
+				return keywordObj[keyword][currentLanguage];
 			} else {
-				keywordComparing = keywordComparing["en-US"];
+				return keywordObj[keyword]["en-US"];
+			}
+		} catch (e) {
+			//continue
+		}
+	
+	} else {
+
+		for (var key of Object.keys(keywordObj)) {
+			
+			if (currentLanguage in keywordObj[key]) {
+				var keywordComparing = keywordObj[key][currentLanguage];
+			} else {
+				var keywordComparing = keywordObj[key]["en-US"];
 			}
 			keywordComparing = keywordComparing.toLowerCase();
-			if (keywordArray !== stringKw) {
+			if (keywordObj !== stringKw) {
 				keywordComparing = keywordComparing.replace(/\s/g, "")
 			}
 			if (keywordComparing === keyword) {
-				return keywordArray[i].opy;
+				return key;
 			}
 		}
 		
 	}
+
+	
 	
 	//Check for numbers
 	if (!isNaN(keyword)) {

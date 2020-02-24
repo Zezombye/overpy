@@ -15,11 +15,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var actionKw = 
+const actionKw = 
 //begin-json
-[
-    {
-        "opy": "return",
+{
+    "return": {
         "description": "Stops execution of the action list.",
         "args": null,
         "en-US": "Abort",
@@ -30,14 +29,13 @@ var actionKw =
         "pt-BR": "Anular",
         "zh-CN": "中止"
     },
-    {
-        "opy": "_abortIf",
+    "_abortIf": {
         "description": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
         "args": [
             {
                 "name": "CONDITION",
                 "description": "Specifies whether the execution is stopped.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "COMPARE"
             }
         ],
@@ -49,8 +47,7 @@ var actionKw =
         "pt-BR": "Anular se",
         "zh-CN": "根据条件中止"
     },
-    {
-        "opy": "_abortIfConditionIsFalse",
+    "_abortIfConditionIsFalse": {
         "description": "Stops execution of the action list if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
         "args": [],
         "en-US": "Abort If Condition Is False",
@@ -61,8 +58,7 @@ var actionKw =
         "pt-BR": "Anular se a Condição for Falsa",
         "zh-CN": "如条件为“假”则中止"
     },
-    {
-        "opy": "_abortIfConditionIsTrue",
+    "_abortIfConditionIsTrue": {
         "description": "Stops execution of the action list if all conditions in the condition list are true. If any are false, execution continues with the next action.",
         "args": [],
         "en-US": "Abort If Condition Is True",
@@ -73,20 +69,19 @@ var actionKw =
         "pt-BR": "Anular se a Condição for Verdadeira",
         "zh-CN": "如条件为”真“则中止"
     },
-    {
-        "opy": "_&allowButton",
+    "_&allowButton": {
         "description": "Undoes the effect of the disallow button action for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose button is being reenabled.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being reenabled.",
-                "type": "BUTTON",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -98,38 +93,37 @@ var actionKw =
         "pt-BR": "Permitir Botão",
         "zh-CN": "可用按钮"
     },
-    {
-        "opy": "_&applyImpulse",
+    "_&applyImpulse": {
         "description": "Applies an instantaneous change in velocity to the movement of one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose velocity will be changed.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DIRECTION",
                 "description": "The unit direction in which the impulse will be applied. This value is normalized internally.",
-                "type": "DIRECTION",
+                "type": "Direction",
                 "default": "VECTOR"
             },
             {
                 "name": "SPEED",
                 "description": "The magnitude of the change to the velocities of the player or players.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "RELATIVE",
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
-                "type": "RELATIVE",
+                "type": "Relativity",
                 "default": "TO WORLD"
             },
             {
                 "name": "MOTION",
                 "description": "Specifies whether existing velocity that is counter to direction should first be cancelled out before applying the impulse.",
-                "type": "MOTION",
+                "type": "Impulse",
                 "default": "CANCEL CONTRARY MOTION"
             }
         ],
@@ -141,20 +135,19 @@ var actionKw =
         "pt-BR": "Aplicar Impulso",
         "zh-CN": "施加推力"
     },
-    {
-        "opy": "bigMessage",
+    "bigMessage": {
         "description": "Displays a large message above the reticle that is visible to specific players.",
         "args": [
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The message to be displayed.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "STRING"
             }
         ],
@@ -166,15 +159,14 @@ var actionKw =
         "pt-BR": "Mensagem Grande",
         "zh-CN": "大字体信息"
     },
-    {
-        "opy": "_callSubroutine",
+    "_callSubroutine": {
         "description": "Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
         "args": [
             {
                 "name": "SUBROUTINE",
                 "description": "Specifies which subroutine to call. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
-                "type": "SUBROUTINE",
-                "default": "Sub0",
+                "type": "Subroutine",
+                "default": "Sub0"
             }
         ],
         "en-US": "Call Subroutine",
@@ -183,34 +175,33 @@ var actionKw =
         "ja-JP": "サブルーチンの呼び出し",
         "pl-PL": "Wywołaj podprogram",
         "pt-BR": "Chamar sub-rotina",
-        "zh-CN": "调用子程序",
+        "zh-CN": "调用子程序"
     },
-    {
-        "opy": "_chaseGlobalVariableAtRate",
+    "_chaseGlobalVariableAtRate": {
         "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to modify gradually.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             },
             {
                 "name": "RATE",
                 "description": "The amount of change that will happen to the variable's value each second.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "CHASE RATE REEVALUATION",
+                "type": "ChaseRateReeval",
                 "default": "DESTINATION AND RATE"
             }
         ],
@@ -222,32 +213,31 @@ var actionKw =
         "pt-BR": "Acompanhar Variável Global na Medida",
         "zh-CN": "追踪全局变量频率"
     },
-    {
-        "opy": "_chaseGlobalVariableOverTime",
+    "_chaseGlobalVariableOverTime": {
         "description": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to modify gradually.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             },
             {
                 "name": "DURATION",
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "CHASE TIME REEVALUATION",
+                "type": "ChaseTimeReeval",
                 "default": "DESTINATION AND DURATION"
             }
         ],
@@ -259,38 +249,37 @@ var actionKw =
         "pt-BR": "Acompanhar Variável Global ao Longo do Tempo",
         "zh-CN": "持续追踪全局变量"
     },
-    {
-        "opy": "_chasePlayerVariableAtRate",
+    "_chasePlayerVariableAtRate": {
         "description": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify gradually.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             },
             {
                 "name": "RATE",
                 "description": "The amount of change that will happen to the variable's value each second.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "CHASE RATE REEVALUATION",
+                "type": "ChaseRateReeval",
                 "default": "DESTINATION AND RATE"
             }
         ],
@@ -302,38 +291,37 @@ var actionKw =
         "pt-BR": "Acompanhar Variável de Jogador na Medida",
         "zh-CN": "追踪玩家变量频率"
     },
-    {
-        "opy": "_chasePlayerVariableOverTime",
+    "_chasePlayerVariableOverTime": {
         "description": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify gradually.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "VARIABLE"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             },
             {
                 "name": "DURATION",
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "CHASE TIME REEVALUATION",
+                "type": "ChaseTimeReeval",
                 "default": "DESTINATION AND DURATION"
             }
         ],
@@ -345,20 +333,19 @@ var actionKw =
         "pt-BR": "Acompanhar Variável de Jogador ao Longo do Tempo",
         "zh-CN": "持续追踪玩家变量"
     },
-    {
-        "opy": "_&clearStatusEffect",
+    "_&clearStatusEffect": {
         "description": "Clears a status that was applied from a set status action from one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players from whom the status will be removed.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "STATUS",
                 "description": "The status to be removed from the player or players.",
-                "type": "STATUS",
+                "type": "Status",
                 "default": "HACKED"
             }
         ],
@@ -370,20 +357,19 @@ var actionKw =
         "pt-BR": "Apagar Status",
         "zh-CN": "清除状态"
     },
-    {
-        "opy": "_&communicate",
+    "_&communicate": {
         "description": "Causes one or more players to use an emote, voice line, or other equipped communication.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players to perform the communication.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TYPE",
                 "description": "The type of communication.",
-                "type": "COMMUNICATE",
+                "type": "Comms",
                 "default": "VOICE LINE UP"
             }
         ],
@@ -395,14 +381,13 @@ var actionKw =
         "pt-BR": "Comunicar",
         "zh-CN": "交流"
     },
-    {
-        "opy": "createBeam",
+    "createBeam": {
         "description": "Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
         "args": [
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
@@ -414,25 +399,25 @@ var actionKw =
             {
                 "name": "START POSITION",
                 "description": "The effect's start position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "END POSITION",
                 "description": "The effect's end position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "COLOR",
                 "description": "The color of the beam to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Only the \"good\" and \"bad\" beam effects can have color applied.",
-                "type": "COLOR",
+                "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs.",
-                "type": "EFFECT REEVALUATION",
+                "type": "EffectReeval",
                 "default": "VISIBLE TO, POSITION, AND RADIUS"
             }
         ],
@@ -445,38 +430,37 @@ var actionKw =
         "pt-BR": "Criar Efeito de Feixe",
         "zh-CN": "创建光束效果"
     },
-    {
-        "opy": "createDummy",
+    "createDummy": {
         "description": "Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing workshop actions.",
         "args": [
             {
                 "name": "HERO",
                 "description": "The hero that the bot will be. If more than one hero is provided, one will be chosen at random.",
-                "type": "HERO",
+                "type": "HeroValue",
                 "default": "HERO"
             },
             {
                 "name": "TEAM",
                 "description": "The team on which to create the bot. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             },
             {
                 "name": "SLOT",
                 "description": "The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "POSITION",
                 "description": "The initial position where the bot will appear.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "FACING",
                 "description": "The initial direction that the bot will face.",
-                "type": "DIRECTION",
+                "type": "Direction",
                 "default": "VECTOR"
             }
         ],
@@ -489,44 +473,43 @@ var actionKw =
         "pt-BR": "Criar Bot",
         "zh-CN": "生成机器人"
     },
-    {
-        "opy": "createEffect",
+    "createEffect": {
         "description": "Creates an in-world effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
         "args": [
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "TYPE",
                 "description": "The type of effect to be created.",
-                "type": "CREATE EFFECT",
+                "type": "Effect",
                 "default": "SPHERE"
             },
             {
                 "name": "COLOR",
                 "description": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects.",
-                "type": "COLOR",
+                "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "POSITION",
                 "description": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "RADIUS",
                 "description": "The radius of this effect.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "EFFECT REEVALUATION",
+                "type": "EffectReeval",
                 "default": "VISIBLE TO, POSITION, AND RADIUS"
             }
         ],
@@ -538,74 +521,73 @@ var actionKw =
         "pt-BR": "Criar Efeito",
         "zh-CN": "创建效果"
     },
-    {
-        "opy": "_hudText",
+    "_hudText": {
         "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
         "args": [
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the hud text.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The text to be displayed (can be blank)",
-                "type": "ANY",
+                "type": "Any",
                 "default": "STRING"
             },
             {
                 "name": "SUBHEADER",
                 "description": "The subheader text to be displayed (can be blank)",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NULL"
             },
             {
                 "name": "TEXT",
                 "description": "The body text to be displayed (can be blank)",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NULL"
             },
             {
                 "name": "LOCATION",
                 "description": "The location on the screen where the text will appear.",
-                "type": "HUD LOCATION",
+                "type": "Position",
                 "default": "LEFT"
             },
             {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "HEADER COLOR",
                 "description": "The color of the header.",
-                "type": "COLOR",
+                "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "SUBHEADER COLOR",
                 "description": "The color of the subheader.",
-                "type": "COLOR",
+                "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "TEXT COLOR",
                 "description": "The color of the text.",
-                "type": "COLOR",
+                "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HUD TEXT REEVALUATION",
+                "type": "HudReeval",
                 "default": "VISIBLE TO AND STRING"
             },
             {
                 "name": "SPECTATORS",
                 "description": "Whether spectators can see the text or not.",
-                "type": "SPECTATOR VISIBILITY",
+                "type": "SpecVisibility",
                 "default": "DEFAULT VISIBILITY"
             }
         ],
@@ -617,44 +599,43 @@ var actionKw =
         "pt-BR": "Criar Texto de HUD",
         "zh-CN": "创建HUD文本"
     },
-    {
-        "opy": "createIcon",
+    "createIcon": {
         "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
         "args": [
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the icon.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "POSITION",
                 "description": "The icon's position. If this value is a player, then the icon will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "ICON",
                 "description": "The icon to be created.",
-                "type": "ICON",
+                "type": "Icon",
                 "default": "ARROW: DOWN"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The icon will keep asking for and using new values from reevaluated inputs.",
-                "type": "ICON REEVALUATION",
+                "type": "IconReeval",
                 "default": "VISIBLE TO AND POSITION"
             },
             {
                 "name": "ICON COLOR",
                 "description": "The color of the icon to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
-                "type": "COLOR",
+                "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "SHOW WHEN OFFSCREEN",
                 "description": "Should this icon appear even when it is behind you?",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -666,56 +647,55 @@ var actionKw =
         "pt-BR": "Criar Ícone",
         "zh-CN": "创建图标"
     },
-    {
-        "opy": "createInWorldText",
+    "createInWorldText": {
         "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
         "args": [
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the in-world text.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The text to be displayed.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "STRING"
             },
             {
                 "name": "POSITION",
                 "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "SCALE",
                 "description": "The text's scale.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "CLIPPING",
                 "description": "Specifies whether the text can be seen through walls or is instead clipped.",
-                "type": "WORLD TEXT CLIPPING",
+                "type": "Clip",
                 "default": "CLIP AGAINST SURFACES"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
-                "type": "WORLD TEXT REEVALUATION",
+                "type": "WorldTextReeval",
                 "default": "VISIBLE TO, POSITION, AND STRING"
             },
             {
                 "name": "TEXT COLOR",
                 "description": "Specifies the color of the in-world text to use.",
-                "type": "COLOR",
+                "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "SPECTATORS",
                 "description": "Whether spectators can see the text or not.",
-                "type": "SPECTATOR VISIBILITY",
+                "type": "SpecVisibility",
                 "default": "DEFAULT VISIBILITY"
             }
         ],
@@ -727,27 +707,26 @@ var actionKw =
         "pt-BR": "Criar Texto no Mundo",
         "zh-CN": "创建地图文本"
     },
-    {
+    "damage": {
         "guid": "000000007876",
-        "opy": "damage",
         "description": "Applies instantaneous damage to one or more players, possibly killing the players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will receive damage.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGER",
                 "description": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "NULL"
             },
             {
                 "name": "AMOUNT",
                 "description": "The amount of damage to apply. This amount may be modified by buffs, debuffs, or armor.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -758,8 +737,7 @@ var actionKw =
         "pt-BR": "Dano",
         "zh-CN": "伤害"
     },
-    {
-        "opy": "declareDraw",
+    "declareDraw": {
         "description": "Instantly ends the match in a draw. This action has no effect in free-for-all modes.",
         "args": [],
         "en-US": "Declare Match Draw",
@@ -770,14 +748,13 @@ var actionKw =
         "pt-BR": "Declarar Empate na Partida",
         "zh-CN": "宣布比赛为平局"
     },
-    {
-        "opy": "declarePlayerVictory",
+    "declarePlayerVictory": {
         "description": "Instantly ends the match with the specific player as the winner. This action only has an effect in free-for-all modes.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The winning player.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -789,14 +766,13 @@ var actionKw =
         "pt-BR": "Declarar Vitória do Jogador",
         "zh-CN": "宣告玩家胜利"
     },
-    {
-        "opy": "declareRoundVictory",
+    "declareRoundVictory": {
         "description": "Declare a team as the current round winner. This only works in the control and elimination game modes",
         "args": [
             {
                 "name": "ROUND WINNING TEAM",
                 "description": "Round winning team",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -808,14 +784,13 @@ var actionKw =
         "pt-BR": "Declarar Vitória na Rodada",
         "zh-CN": "宣告回合胜利"
     },
-    {
-        "opy": "declareTeamVictory",
+    "declareTeamVictory": {
         "description": "Instantly ends the match with the specified team as the winner. This action has no effect in free-for-all modes.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The winning team.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -827,8 +802,7 @@ var actionKw =
         "pt-BR": "Declarar Vitória da Equipe",
         "zh-CN": "宣告队伍胜利"
     },
-    {
-        "opy": "destroyAllDummies",
+    "destroyAllDummies": {
         "description": "Removes all dummy bots from the match.",
         "args": [],
         "en-US": "Destroy All Dummy Bots",
@@ -839,8 +813,7 @@ var actionKw =
         "pt-BR": "Destruir Todos os Bots",
         "zh-CN": "移除所有机器人"
     },
-    {
-        "opy": "destroyAllEffects",
+    "destroyAllEffects": {
         "description": "Destroys all effect entities created by create effect.",
         "args": [],
         "en-US": "Destroy All Effects",
@@ -851,8 +824,7 @@ var actionKw =
         "pt-BR": "Destruir Todos os Efeitos",
         "zh-CN": "消除所有效果"
     },
-    {
-        "opy": "destroyAllHudTexts",
+    "destroyAllHudTexts": {
         "description": "Destroys all hud text that was created by the create hud text action.",
         "args": [],
         "en-US": "Destroy All HUD Text",
@@ -863,8 +835,7 @@ var actionKw =
         "pt-BR": "Destruir Todo o Texto de HUD",
         "zh-CN": "消除所有HUD文本"
     },
-    {
-        "opy": "destroyAllIcons",
+    "destroyAllIcons": {
         "description": "Destroys all icon entities created by create icon.",
         "args": [],
         "en-US": "Destroy All Icons",
@@ -875,8 +846,7 @@ var actionKw =
         "pt-BR": "Destruir Todos os Ícones",
         "zh-CN": "消除所有图标"
     },
-    {
-        "opy": "destroyAllInWorldText",
+    "destroyAllInWorldText": {
         "description": "Destroys all in-world text created by create in-world text.",
         "args": [],
         "en-US": "Destroy All In-World Text",
@@ -887,20 +857,19 @@ var actionKw =
         "pt-BR": "Destruir Todo o Texto no Mundo",
         "zh-CN": "消除所有地图文本"
     },
-    {
-        "opy": "destroyDummy",
+    "destroyDummy": {
         "description": "Removes the specified dummy bot from the match.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team to remove the dummy bot from. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             },
             {
                 "name": "SLOT",
                 "description": "The slot to remove the dummy bot from.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -914,14 +883,13 @@ var actionKw =
         "pt-BR": "Destruir Bot",
         "zh-CN": "移除机器人"
     },
-    {
-        "opy": "destroyEffect",
+    "destroyEffect": {
         "description": "Destroys an effect entity that was created by create effect.",
         "args": [
             {
                 "name": "ENTITY",
                 "description": "Specifies which effect entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "LAST CREATED ENTITY"
             }
         ],
@@ -933,14 +901,13 @@ var actionKw =
         "pt-BR": "Destruir Efeito",
         "zh-CN": "消除效果"
     },
-    {
-        "opy": "destroyHudText",
+    "destroyHudText": {
         "description": "Destroys hud text that was created by create hud text.",
         "args": [
             {
                 "name": "TEXT ID",
                 "description": "Specifies which hud text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "LAST TEXT ID"
             }
         ],
@@ -952,14 +919,13 @@ var actionKw =
         "pt-BR": "Destruir Texto de HUD",
         "zh-CN": "消除HUD文本"
     },
-    {
-        "opy": "destroyIcon",
+    "destroyIcon": {
         "description": "Destroys an icon entity that was created by create icon.",
         "args": [
             {
                 "name": "ENTITY",
                 "description": "Specifies which icon entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "LAST CREATED ENTITY"
             }
         ],
@@ -971,14 +937,13 @@ var actionKw =
         "pt-BR": "Destruir Ícone",
         "zh-CN": "消除图标"
     },
-    {
-        "opy": "destroyInWorldText",
+    "destroyInWorldText": {
         "description": "Destroys in-world text that was created by create in-world text.",
         "args": [
             {
                 "name": "TEXT ID",
                 "description": "Specifies which in-world text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "LAST TEXT ID"
             }
         ],
@@ -990,8 +955,7 @@ var actionKw =
         "pt-BR": "Destruir Texto no Mundo",
         "zh-CN": "消除地图文本"
     },
-    {
-        "opy": "disableAnnouncer",
+    "disableAnnouncer": {
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Announcer",
@@ -1002,8 +966,7 @@ var actionKw =
         "pt-BR": "Desativar Narração Integrada ao Modo de Jogo",
         "zh-CN": "关闭游戏预设通告模式"
     },
-    {
-        "opy": "disableGamemodeCompletion",
+    "disableGamemodeCompletion": {
         "description": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Completion",
@@ -1014,8 +977,7 @@ var actionKw =
         "pt-BR": "Desativar Conclusão Integrada ao Modo de Jogo",
         "zh-CN": "关闭游戏预设完成条件"
     },
-    {
-        "opy": "disableMusic",
+    "disableMusic": {
         "description": "Disables all game mode music until reenabled or the match ends.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Music",
@@ -1026,14 +988,13 @@ var actionKw =
         "pt-BR": "Desativar Música Integrada ao Modo de Jogo",
         "zh-CN": "关闭游戏预设音乐模式"
     },
-    {
-        "opy": "_&disableRespawn",
+    "_&disableRespawn": {
         "description": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands.",
         "args": [
             {
                 "name": "PLAYERS",
                 "description": "The player or players whose respawning is affected.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1045,8 +1006,7 @@ var actionKw =
         "pt-BR": "Desativar Ressurgimento Integrado ao Modo de Jogo",
         "zh-CN": "关闭游戏预设重生模式"
     },
-    {
-        "opy": "disableScoring",
+    "disableScoring": {
         "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
         "args": [],
         "en-US": "Disable Built-In Game Mode Scoring",
@@ -1057,14 +1017,13 @@ var actionKw =
         "pt-BR": "Desativar Pontuação Integrada ao Modo de Jogo",
         "zh-CN": "关闭游戏预设计分模式"
     },
-    {
-        "opy": "_&disableDeathSpectateAllPlayers",
+    "_&disableDeathSpectateAllPlayers": {
         "description": "Undoes the effect of the enable death spectate all players action for or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose default death spectate behavior is restored.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1076,14 +1035,13 @@ var actionKw =
         "pt-BR": "Desativar Visualização de Todos os Jogadores na Morte",
         "zh-CN": "对所有玩家禁用死亡回放"
     },
-    {
-        "opy": "_&disableDeathSpectateTargetHud",
+    "_&disableDeathSpectateTargetHud": {
         "description": "Undoes the effect of the enable death spectate target hud action for or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will revert to seeing their own hud while death spectating.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1095,8 +1053,7 @@ var actionKw =
         "pt-BR": "Desativar HUD do Alvo de Visualização na Morte",
         "zh-CN": "禁用死亡回放时目标的HUD"
     },
-    {
-        "opy": "disableInspector",
+    "disableInspector": {
         "description": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.",
         "args": [],
         "en-US": "Disable Inspector Recording",
@@ -1107,20 +1064,19 @@ var actionKw =
         "pt-BR": "Desativar gravação do Inspetor",
         "zh-CN": "禁用查看器录制"
     },
-    {
-        "opy": "_&disallowButton",
+    "_&disallowButton": {
         "description": "Disables a logical button for one or more players such that pressing it has no effect.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose button is being disabled.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being disabled.",
-                "type": "BUTTON",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -1132,33 +1088,30 @@ var actionKw =
         "pt-BR": "Proibir Botão",
         "zh-CN": "禁用按钮"
     },
-    {
-        "opy": "__else__",
+    "__else__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
         "args": [],
         "en-US": "Else",
         "es-MX": "Si no",
         "fr-FR": "Sinon",
-        "pl-PL": "Inaczej",
+        "pl-PL": "Inaczej"
     },
-    {
-        "opy": "__elif__",
+    "__elif__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true and the previous If or Else If action's condition was false.",
         "args": [
             {
                 "name": "CONDITION",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "COMPARE"
             }
         ],
         "en-US": "Else If",
         "es-MX": "Si no si",
         "fr-FR": "Sinon Si",
-        "pl-PL": "Inaczej jeśli",
+        "pl-PL": "Inaczej jeśli"
     },
-    {
-        "opy": "enableAnnouncer",
+    "enableAnnouncer": {
         "description": "Undoes the effect of the disable built-in game mode announcer action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Announcer",
@@ -1169,8 +1122,7 @@ var actionKw =
         "pt-BR": "Ativar Narração Integrada ao Modo de Jogo",
         "zh-CN": "开启游戏预设通告模式"
     },
-    {
-        "opy": "enableGamemodeCompletion",
+    "enableGamemodeCompletion": {
         "description": "Undoes the effect of the disable built-in game mode completion action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Completion",
@@ -1181,8 +1133,7 @@ var actionKw =
         "pt-BR": "Ativar Conclusão Integrada ao Modo de Jogo",
         "zh-CN": "开启游戏预设完成条件"
     },
-    {
-        "opy": "enableMusic",
+    "enableMusic": {
         "description": "Undoes the effect of the disable built-in game mode music action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Music",
@@ -1193,14 +1144,13 @@ var actionKw =
         "pt-BR": "Ativar Música Integrada ao Modo de Jogo",
         "zh-CN": "开启游戏预设音乐模式"
     },
-    {
-        "opy": "_&enableRespawn",
+    "_&enableRespawn": {
         "description": "Undoes the effect of the disable built-in game mode respawning action for one or more players.",
         "args": [
             {
                 "name": "PLAYERS",
                 "description": "The player or players whose respawning is affected.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1212,8 +1162,7 @@ var actionKw =
         "pt-BR": "Ativar Ressurgimento Integrado ao Modo de Jogo",
         "zh-CN": "开启游戏预设重生模式"
     },
-    {
-        "opy": "enableScoring",
+    "enableScoring": {
         "description": "Undoes the effect of the disable built-in game mode scoring action.",
         "args": [],
         "en-US": "Enable Built-In Game Mode Scoring",
@@ -1224,14 +1173,13 @@ var actionKw =
         "pt-BR": "Ativar Pontuação Integrada ao Modo de Jogo",
         "zh-CN": "开启游戏预设计分模式"
     },
-    {
-        "opy": "_&enableDeathSpectateAllPlayers",
+    "_&enableDeathSpectateAllPlayers": {
         "description": "Allows one or more players to spectate all players when dead, as opposed to only allies.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be allowed to spectate all players.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1243,14 +1191,13 @@ var actionKw =
         "pt-BR": "Ativar Visualização de Todos os Jogadores na Morte",
         "zh-CN": "对所有玩家启用死亡回放"
     },
-    {
-        "opy": "_&enableDeathSpectateTargetHud",
+    "_&enableDeathSpectateTargetHud": {
         "description": "Causes one or more players to see their spectate target's hud instead of their own while death spectating.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will begin seeing their spectate targets hud while death spectating.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1262,8 +1209,7 @@ var actionKw =
         "pt-BR": "Ativar HUD do Alvo de Visualização na Morte",
         "zh-CN": "启用死亡回放时目标的HUD"
     },
-    {
-        "opy": "enableInspector",
+    "enableInspector": {
         "description": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.",
         "args": [],
         "en-US": "Enable Inspector Recording",
@@ -1274,41 +1220,41 @@ var actionKw =
         "pt-BR": "Ativar gravação do Inspetor",
         "zh-CN": "启用查看器录制"
     },
-    {
-        "opy": "__end__",
+    "__end__": {
         "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
         "args": [],
         "en-US": "End",
         "es-MX": "Fin",
         "fr-FR": "Fin",
         "ja-JP": "終了",
-        "pt-BR": "Término",
+        "pt-BR": "Término"
     },
-    {
-        "opy": "_forGlobalVar",
+    "_forGlobalVar": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
         "args": [
             {
                 "name": "CONTROL VARIABLE",
                 "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "RANGE START",
                 "description": "The control variable is set to this value when the loop begins.",
-                "type": "NUMBER",
-                "default": "NUMBER",
-            },{
+                "type": "Number",
+                "default": "NUMBER"
+            },
+            {
                 "name": "RANGE STOP",
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
-                "type": "NUMBER",
-                "default": "COUNT OF",
-            },{
+                "type": "Number",
+                "default": "COUNT OF"
+            },
+            {
                 "name": "STEP",
                 "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
-                "type": "NUMBER",
-                "default": "NUMBER",
+                "type": "Number",
+                "default": "NUMBER"
             }
         ],
         "en-US": "For Global Variable",
@@ -1318,37 +1264,38 @@ var actionKw =
         "pt-BR": "For variável global",
         "zh-CN": "For 全局变量"
     },
-    {
-        "opy": "_forPlayerVar",
+    "_forPlayerVar": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
         "args": [
             {
                 "name": "CONTROL PLAYER",
                 "description": "The player whose variable is being modified in this loop. If multiple players are specified, the first player is used.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "CONTROL VARIABLE",
                 "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "RANGE START",
                 "description": "The control variable is set to this value when the loop begins.",
-                "type": "NUMBER",
-                "default": "NUMBER",
-            },{
+                "type": "Number",
+                "default": "NUMBER"
+            },
+            {
                 "name": "RANGE STOP",
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
-                "type": "NUMBER",
-                "default": "COUNT OF",
-            },{
+                "type": "Number",
+                "default": "COUNT OF"
+            },
+            {
                 "name": "STEP",
                 "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
-                "type": "NUMBER",
-                "default": "NUMBER",
+                "type": "Number",
+                "default": "NUMBER"
             }
         ],
         "en-US": "For Player Variable",
@@ -1358,8 +1305,7 @@ var actionKw =
         "pt-BR": "For variável de jogador",
         "zh-CN": "For 玩家变量"
     },
-    {
-        "opy": "goToAssembleHeroes",
+    "goToAssembleHeroes": {
         "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
         "args": [],
         "en-US": "Go To Assemble Heroes",
@@ -1370,27 +1316,26 @@ var actionKw =
         "pt-BR": "Ir para Escolher Heróis",
         "zh-CN": "前往集结英雄"
     },
-    {
+    "heal": {
         "guid": "000000007875",
-        "opy": "heal",
         "description": "Provides an instantaneous heal to one or more players. This heal will not resurrect dead players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose health will be restored.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALER",
                 "description": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "NULL"
             },
             {
                 "name": "AMOUNT",
                 "description": "The amount of healing to apply. This amount may be modified by buff or debuffs. Healing is capped by each player's max health.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -1401,37 +1346,35 @@ var actionKw =
         "pt-BR": "Cura",
         "zh-CN": "治疗"
     },
-    {
-        "opy": "__if__",
+    "__if__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true.",
         "args": [
             {
                 "name": "CONDITION",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "COMPARE"
             }
         ],
         "en-US": "If",
         "es-MX": "Si",
         "fr-FR": "Si",
-        "pl-PL": "Jeśli",
+        "pl-PL": "Jeśli"
     },
-    {
+    "kill": {
         "guid": "000000007877",
-        "opy": "kill",
         "description": "Instantly kills one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be killed.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "KILLER",
                 "description": "The player who will receive credit for the kill. A killer of null indicates no player will receive credit.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "NULL"
             }
         ],
@@ -1442,9 +1385,8 @@ var actionKw =
         "pt-BR": "Abater",
         "zh-CN": "击杀"
     },
-    {
+    "_loop": {
         "guid": "0000000078F5",
-        "opy": "_loop",
         "description": "Restarts the action list from the beginning. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
         "en-US": "Loop",
@@ -1454,14 +1396,13 @@ var actionKw =
         "pt-BR": "Gerar Loop",
         "zh-CN": "循环"
     },
-    {
-        "opy": "_loopIf",
+    "_loopIf": {
         "description": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [
             {
                 "name": "CONDITION",
                 "description": "Specifies whether the loop will occur.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "COMPARE"
             }
         ],
@@ -1473,8 +1414,7 @@ var actionKw =
         "pt-BR": "Gerar Loop se",
         "zh-CN": "根据条件循环"
     },
-    {
-        "opy": "_loopIfConditionIsFalse",
+    "_loopIfConditionIsFalse": {
         "description": "Restarts the action list from the beginning if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
         "en-US": "Loop If Condition Is False",
@@ -1485,8 +1425,7 @@ var actionKw =
         "pt-BR": "Gerar Loop se a Condição for Falsa",
         "zh-CN": "如条件为“假”则循环"
     },
-    {
-        "opy": "_loopIfConditionIsTrue",
+    "_loopIfConditionIsTrue": {
         "description": "Restarts the action list from the beginning if every condition in the condition list is true. If any are false, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
         "en-US": "Loop If Condition Is True",
@@ -1497,26 +1436,25 @@ var actionKw =
         "pt-BR": "Gerar Loop se a Condição for Verdadeira",
         "zh-CN": "如条件为”真“则循环"
     },
-    {
-        "opy": "_modifyGlobalVar",
+    "_modifyGlobalVar": {
         "description": "Modifies the value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "The global variable to modify.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "OPERATION",
+                "type": "_Operation",
                 "default": "ADD"
             },
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -1528,32 +1466,31 @@ var actionKw =
         "pt-BR": "Modificar Variável Global",
         "zh-CN": "修改全局变量"
     },
-    {
-        "opy": "_modifyGlobalVarAtIndex",
+    "_modifyGlobalVarAtIndex": {
         "description": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "The global variable to modify.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "OPERATION",
+                "type": "_Operation",
                 "default": "ADD"
             },
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -1565,20 +1502,19 @@ var actionKw =
         "pt-BR": "Modificar Variável Global no Índice",
         "zh-CN": "在索引处修改全局变量"
     },
-    {
-        "opy": "_&addToScore",
+    "_&addToScore": {
         "description": "Modifies the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose score will change.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -1590,32 +1526,31 @@ var actionKw =
         "pt-BR": "Modificar Pontuação do Jogador",
         "zh-CN": "修改玩家分数"
     },
-    {
-        "opy": "_modifyPlayerVar",
+    "_modifyPlayerVar": {
         "description": "Modifies the value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "OPERATION",
+                "type": "_Operation",
                 "default": "ADD"
             },
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -1627,38 +1562,37 @@ var actionKw =
         "pt-BR": "Modificar Variável de Jogador",
         "zh-CN": "修改玩家变量"
     },
-    {
-        "opy": "_modifyPlayerVarAtIndex",
+    "_modifyPlayerVarAtIndex": {
         "description": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "OPERATION",
+                "type": "_Operation",
                 "default": "ADD"
             },
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -1670,20 +1604,19 @@ var actionKw =
         "pt-BR": "Modificar Variável de Jogador no Índice",
         "zh-CN": "在索引处修改玩家变量"
     },
-    {
-        "opy": "addToTeamScore",
+    "addToTeamScore": {
         "description": "Modifies the score of one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team or teams whose score will be changed.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             },
             {
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -1695,8 +1628,7 @@ var actionKw =
         "pt-BR": "Modificar Pontuação da Equipe",
         "zh-CN": "修改队伍分数"
     },
-    {
-        "opy": "pauseMatchTime",
+    "pauseMatchTime": {
         "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
         "args": [],
         "en-US": "Pause Match Time",
@@ -1707,38 +1639,37 @@ var actionKw =
         "pt-BR": "Pausar Tempo da Partida",
         "zh-CN": "比赛时间暂停"
     },
-    {
-        "opy": "playEffect",
+    "playEffect": {
         "description": "Plays an effect at a position in the world. The lifetime of this effect is short, so it does not need to be updated or destroyed.",
         "args": [
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "TYPE",
                 "description": "The type of effect to be created.",
-                "type": "PLAY EFFECT",
+                "type": "DynamicEffect",
                 "default": "GOOD EXPLOSION"
             },
             {
                 "name": "COLOR",
                 "description": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
-                "type": "COLOR",
+                "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "POSITION",
                 "description": "The effect's position. If this value is a player, then the effect will play at the player's position. Otherwise, the value is interpreted as a position in the world.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "RADIUS",
                 "description": "The effect's radius in meters.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -1750,20 +1681,19 @@ var actionKw =
         "pt-BR": "Reproduzir Efeito",
         "zh-CN": "播放效果"
     },
-    {
-        "opy": "_&preloadHero",
+    "_&preloadHero": {
         "description": "Preemptively loads the specified hero or heroes into memory using the skins of the specified player or players, available memory permitting. Useful whenever rapid hero changing is possible and the next hero is known.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will begin preloading a hero or heroes. Only one preload hero action will be active at a time for a given player.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HERO",
                 "description": "The hero or heroes to begin preloading for the specified player or players. When multiple heroes are specified in an array, the heroes towards the beginning of the array are prioritized.",
-                "type": "HERO",
+                "type": "HeroValue",
                 "default": "HERO"
             }
         ],
@@ -1775,20 +1705,19 @@ var actionKw =
         "pt-BR": "Pré-carregar Herói",
         "zh-CN": "预加载英雄"
     },
-    {
-        "opy": "_&forceButtonPress",
+    "_&forceButtonPress": {
         "description": "Forces one or more players to press a button virtually for a single frame.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players for whom the virtual button input will be forced.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "BUTTON",
                 "description": "The button to be pressed.",
-                "type": "BUTTON",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -1800,14 +1729,13 @@ var actionKw =
         "pt-BR": "Pressionar Botão",
         "zh-CN": "按下按键"
     },
-    {
-        "opy": "_&resetHeroAvailability",
+    "_&resetHeroAvailability": {
         "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose hero list is being reset.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1819,14 +1747,13 @@ var actionKw =
         "pt-BR": "Redefinir Disponibilidade de Heróis para o Jogador",
         "zh-CN": "重置玩家英雄可选状态"
     },
-    {
-        "opy": "_&respawn",
+    "_&respawn": {
         "description": "Respawns one or more players at an appropriate spawn location with full health, even if they were already alive.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players to respawn.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1838,15 +1765,14 @@ var actionKw =
         "pt-BR": "Ressurgir",
         "zh-CN": "重生"
     },
-    {
+    "_&resurrect": {
         "guid": "000000007878",
-        "opy": "_&resurrect",
         "description": "Instantly resurrects one or more players at the location they died with no transition.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be resurrected.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1857,20 +1783,19 @@ var actionKw =
         "pt-BR": "Ressuscitar",
         "zh-CN": "重生"
     },
-    {
-        "opy": "_&setAbility1Enabled",
+    "_&setAbility1Enabled": {
         "description": "Enables or disables ability 1 for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to ability 1 is affected.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use ability 1. Expects a boolean value such as true, false, or compare.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -1882,20 +1807,19 @@ var actionKw =
         "pt-BR": "Definir Habilidade 1 como Ativada",
         "zh-CN": "设置启用技能 1"
     },
-    {
-        "opy": "_&setAbility2Enabled",
+    "_&setAbility2Enabled": {
         "description": "Enables or disables ability 2 for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to ability 2 is affected.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use ability 2. Expects a boolean value such as true, false, or compare.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -1907,20 +1831,19 @@ var actionKw =
         "pt-BR": "Definir Habilidade 2 como Ativada",
         "zh-CN": "设置启用技能 2"
     },
-    {
-        "opy": "_&setAimSpeed",
+    "_&setAimSpeed": {
         "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose aim speed will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TURN SPEED PERCENT",
                 "description": "The percentage of normal aim speed to which the player or players will set their aim speed.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -1932,20 +1855,19 @@ var actionKw =
         "pt-BR": "Definir Velocidade de Mira",
         "zh-CN": "设置瞄准速度"
     },
-    {
-        "opy": "_&setDamageDealt",
+    "_&setDamageDealt": {
         "description": "Sets the damage dealt of one or more players to a percentage of their raw damage dealt.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose damage dealt will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGE DEALT PERCENT",
                 "description": "The percentage of raw damage dealt to which the player or players will set their damage dealt.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -1957,20 +1879,19 @@ var actionKw =
         "pt-BR": "Definir Dano Causado",
         "zh-CN": "设置造成伤害"
     },
-    {
-        "opy": "_&setDamageReceived",
+    "_&setDamageReceived": {
         "description": "Sets the damage received of one or more players to a percentage of their raw damage received.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose damage received will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGE RECEIVED PERCENT",
                 "description": "The percentage of raw damage received to which the player or players will set their damage received.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -1982,26 +1903,25 @@ var actionKw =
         "pt-BR": "Definir Dano Recebido",
         "zh-CN": "设置受到伤害"
     },
-    {
-        "opy": "_&setFacing",
+    "_&setFacing": {
         "description": "Sets the facing of one or more players to the specified direction.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose facing will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DIRECTION",
                 "description": "The unit direction in which the player or players will face. This value is normalized internally.",
-                "type": "DIRECTION",
+                "type": "Direction",
                 "default": "VECTOR"
             },
             {
                 "name": "RELATIVE",
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
-                "type": "RELATIVE",
+                "type": "Relativity",
                 "default": "TO WORLD"
             }
         ],
@@ -2013,20 +1933,19 @@ var actionKw =
         "pt-BR": "Definir Encarar",
         "zh-CN": "设置朝向"
     },
-    {
-        "opy": "_setGlobalVar",
+    "_setGlobalVar": {
         "description": "Stores a value into a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to store the value into.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -2038,26 +1957,25 @@ var actionKw =
         "pt-BR": "Definir Variável Global",
         "zh-CN": "设置全局变量"
     },
-    {
-        "opy": "_setGlobalVarAtIndex",
+    "_setGlobalVarAtIndex": {
         "description": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored into the array.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -2069,20 +1987,19 @@ var actionKw =
         "pt-BR": "Definir Variável Global no Índice",
         "zh-CN": "在索引处设置全局变量"
     },
-    {
-        "opy": "_&setGravity",
+    "_&setGravity": {
         "description": "Sets the movement gravity for one or more players to a percentage regular movement gravity.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement gravity will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "GRAVITY PERCENT",
                 "description": "The percentage of regular movement gravity to which the player or players will set their personal movement gravity.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2094,20 +2011,19 @@ var actionKw =
         "pt-BR": "Definir Gravidade",
         "zh-CN": "设置引力"
     },
-    {
-        "opy": "_&setHealingDealt",
+    "_&setHealingDealt": {
         "description": "Sets the healing dealt of one or more players to a percentage of their raw healing dealt.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose healing dealt will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALING DEALT PERCENT",
                 "description": "",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2119,20 +2035,19 @@ var actionKw =
         "pt-BR": "Definir Cura Realizada",
         "zh-CN": "设置造成治疗"
     },
-    {
-        "opy": "_&setHealingReceived",
+    "_&setHealingReceived": {
         "description": "Sets the healing received of one or more players to a percentage of their raw healing received.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose healing received will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALING RECEIVED PERCENT",
                 "description": "The percentage of raw healing received to which the player or players will set their healing received.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2144,20 +2059,19 @@ var actionKw =
         "pt-BR": "Definir Cura Recebida",
         "zh-CN": "设置受到治疗"
     },
-    {
-        "opy": "_&setInvisibility",
+    "_&setInvisibility": {
         "description": "Causes one or more players to become invisible to either all other players or just enemies.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will become invisible.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "INVISIBLE TO",
                 "description": "Specifies for whom the player or players will be invisible.",
-                "type": "INVISIBLE TO",
+                "type": "Invis",
                 "default": "ALL"
             }
         ],
@@ -2169,14 +2083,13 @@ var actionKw =
         "pt-BR": "Definir como Invisível",
         "zh-CN": "设置不可见"
     },
-    {
-        "opy": "setMatchTime",
+    "setMatchTime": {
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
         "args": [
             {
                 "name": "TIME",
                 "description": "The match time in seconds.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2188,20 +2101,19 @@ var actionKw =
         "pt-BR": "Definir Tempo da Partida",
         "zh-CN": "设置比赛时间"
     },
-    {
-        "opy": "_&setMaxHealth",
+    "_&setMaxHealth": {
         "description": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose max health will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALTH PERCENT",
                 "description": "The percentage of raw max health to which the player or players will set their max health.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2213,20 +2125,19 @@ var actionKw =
         "pt-BR": "Definir Vida Máxima",
         "zh-CN": "设置最大生命值"
     },
-    {
-        "opy": "_&setMoveSpeed",
+    "_&setMoveSpeed": {
         "description": "Sets the move speed of one or more players to a percentage of their raw move speed.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose move speed will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "MOVE SPEED PERCENT",
                 "description": "The percentage of raw move speed to which the player or players will set their move speed.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2238,26 +2149,25 @@ var actionKw =
         "pt-BR": "Definir Velocidade de Movimento",
         "zh-CN": "设置移动速度"
     },
-    {
-        "opy": "setObjectiveDescription",
+    "setObjectiveDescription": {
         "description": "Sets the text at the top center of the screen that normally describes the objective to a message visible to specific players.",
         "args": [
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The message to be displayed.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "STRING"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The message will keep asking for and using new values from reevaluated inputs.",
-                "type": "OBJECTIVE DESCRIPTION REEVALUATION",
+                "type": "HudReeval",
                 "default": "VISIBLE TO AND STRING"
             }
         ],
@@ -2269,20 +2179,19 @@ var actionKw =
         "pt-BR": "Definir Descrição do Objetivo",
         "zh-CN": "设置目标点描述"
     },
-    {
-        "opy": "_&setAllowedHeroes",
+    "_&setAllowedHeroes": {
         "description": "Sets the list of heroes available to one or more players. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose hero list is being set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HERO",
                 "description": "The hero or heroes that will be available. If no heroes are provided, the action has no effect.",
-                "type": "HERO",
+                "type": "HeroValue",
                 "default": "HERO"
             }
         ],
@@ -2294,20 +2203,19 @@ var actionKw =
         "pt-BR": "Definir Heróis Permitidos para o Jogador",
         "zh-CN": "设置玩家可选的英雄"
     },
-    {
-        "opy": "_&setScore",
+    "_&setScore": {
         "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose score will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "SCORE",
                 "description": "The score that will be set.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2319,26 +2227,25 @@ var actionKw =
         "pt-BR": "Definir Pontuação do Jogador",
         "zh-CN": "设置玩家分数"
     },
-    {
-        "opy": "_setPlayerVar",
+    "_setPlayerVar": {
         "description": "Stores a value into a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be set. If multiple players are provided, each of their variables will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to store the value into.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -2350,32 +2257,31 @@ var actionKw =
         "pt-BR": "Definir Variável de Jogador",
         "zh-CN": "设置玩家变量"
     },
-    {
-        "opy": "_setPlayerVarAtIndex",
+    "_setPlayerVarAtIndex": {
         "description": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which player variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored into the array.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -2387,20 +2293,19 @@ var actionKw =
         "pt-BR": "Definir Variável de Jogador no Índice",
         "zh-CN": "在索引处设置玩家变量"
     },
-    {
-        "opy": "_&setPrimaryFireEnabled",
+    "_&setPrimaryFireEnabled": {
         "description": "Enables or disables primary fire for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to primary fire is affected.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use primary fire. Expects a boolean value such as true, false, or compare.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -2412,20 +2317,19 @@ var actionKw =
         "pt-BR": "Definir Disparo Primário Ativado",
         "zh-CN": "设置主要攻击模式启用"
     },
-    {
-        "opy": "_&setProjectileGravity",
+    "_&setProjectileGravity": {
         "description": "Sets the projectile gravity for one or more players to a percentage of regular projectile gravity.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose projectile gravity will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "PROJECTILE GRAVITY PERCENT",
                 "description": "The percentage of regular projectile gravity to which the player or players will set their personal projectile gravity.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2437,20 +2341,19 @@ var actionKw =
         "pt-BR": "Definir Gravidade de Projétil",
         "zh-CN": "设置弹道引力"
     },
-    {
-        "opy": "_&setProjectileSpeed",
+    "_&setProjectileSpeed": {
         "description": "Iets the projectile speed for one or more players to a percentage of projectile speed.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose projectile speed will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "PROJECTILE SPEED PERCENT",
                 "description": "The percentage of regular projectile speed to which the player or players will set their personal projectile speed.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2462,20 +2365,19 @@ var actionKw =
         "pt-BR": "Definir Velocidade de Projétil",
         "zh-CN": "设置弹道速度"
     },
-    {
-        "opy": "_&setRespawnTime",
+    "_&setRespawnTime": {
         "description": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose respawn max time is being defined.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TIME",
                 "description": "The duration between death and respawn in seconds.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2487,20 +2389,19 @@ var actionKw =
         "pt-BR": "Definir Tempo Máximo de Ressurgimento",
         "zh-CN": "设置最大重生时间"
     },
-    {
-        "opy": "_&setSecondaryFireEnabled",
+    "_&setSecondaryFireEnabled": {
         "description": "Enables or disables secondary fire for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to secondary fire is affected.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use secondary fire. Expects a boolean value such as true, false, or compare.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -2512,14 +2413,13 @@ var actionKw =
         "pt-BR": "Definir Disparo Secundário Ativado",
         "zh-CN": "设置辅助攻击模式启用"
     },
-    {
-        "opy": "setSlowMotion",
+    "setSlowMotion": {
         "description": "Sets the simulation rate for the entire game, including all players, projectiles, effects, and game mode logic.",
         "args": [
             {
                 "name": "SPEED PERCENT",
                 "description": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2531,32 +2431,31 @@ var actionKw =
         "pt-BR": "Definir Câmera Lenta",
         "zh-CN": "设置慢动作"
     },
-    {
-        "opy": "_&setStatusEffect",
+    "_&setStatusEffect": {
         "description": "Applies a status to one or more players. This status will remain in effect for the specified duration or until it is cleared by the clear status action.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players to whom the status will be applied.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ASSISTER",
                 "description": "Specifies a player to be awarded assist credit should the affected player or players be killed while the status is in effect. An assister of null indicates no player will receive credit.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "NULL"
             },
             {
                 "name": "STATUS",
                 "description": "The status to be applied to the player or players. These behave similarly to statuses applied from hero abilities.",
-                "type": "STATUS",
+                "type": "Status",
                 "default": "HACKED"
             },
             {
                 "name": "DURATION",
                 "description": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 9999.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2568,20 +2467,19 @@ var actionKw =
         "pt-BR": "Definir Status",
         "zh-CN": "设置状态"
     },
-    {
-        "opy": "setTeamScore",
+    "setTeamScore": {
         "description": "Sets the score for one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team or teams whose score will be set.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             },
             {
                 "name": "SCORE",
                 "description": "The score that will be set.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2593,20 +2491,19 @@ var actionKw =
         "pt-BR": "Definir Pontuação da Equipe",
         "zh-CN": "设置队伍分数"
     },
-    {
-        "opy": "_&setUltEnabled",
+    "_&setUltEnabled": {
         "description": "Enables or disables the ultimate ability of one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to their ultimate ability is affected.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use their ultimate ability. Expects a boolean value such as true, false, or compare.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -2618,20 +2515,19 @@ var actionKw =
         "pt-BR": "Definir Habilidade Suprema como Ativada",
         "zh-CN": "设置启用终极技能"
     },
-    {
-        "opy": "_&setUltCharge",
+    "_&setUltCharge": {
         "description": "Sets the ultimate charge for one or more players as a percentage of maximum charge.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose ultimate charge will be set.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "CHARGE PERCENT",
                 "description": "The percentage of maximum charge.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2643,15 +2539,14 @@ var actionKw =
         "pt-BR": "Definir Carga da Suprema",
         "zh-CN": "设置终极技能充能"
     },
-    {
+    "_skip": {
         "guid": "00000000BB01",
-        "opy": "_skip",
         "description": "Skips execution of a certain number of actions in the action list.",
         "args": [
             {
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2662,20 +2557,19 @@ var actionKw =
         "pt-BR": "Ignorar",
         "zh-CN": "跳过"
     },
-    {
-        "opy": "_skipIf",
+    "_skipIf": {
         "description": "Skips execution of a certain number of actions in the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
         "args": [
             {
                 "name": "CONDITION",
                 "description": "Specifies whether the skip occurs.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "COMPARE"
             },
             {
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2687,20 +2581,19 @@ var actionKw =
         "pt-BR": "Ignorar se",
         "zh-CN": "根据条件跳过"
     },
-    {
-        "opy": "smallMessage",
+    "smallMessage": {
         "description": "Displays a small message beneath the reticle that is visible to specific players.",
         "args": [
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The message to be displayed.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "STRING"
             }
         ],
@@ -2712,44 +2605,43 @@ var actionKw =
         "pt-BR": "Mensagem Pequena",
         "zh-CN": "小字体信息"
     },
-    {
-        "opy": "_&startAcceleration",
+    "_&startAcceleration": {
         "description": "Starts accelerating one or more players in a specified direction.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players that will begin accelerating.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DIRECTION",
                 "description": "The unit direction in which the acceleration will be applied. This value is normalized internally.",
-                "type": "DIRECTION",
+                "type": "Direction",
                 "default": "VECTOR"
             },
             {
                 "name": "RATE",
                 "description": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity and/or surface friction.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX SPEED",
                 "description": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "RELATIVE",
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
-                "type": "RELATIVE",
+                "type": "Relativity",
                 "default": "TO WORLD"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "ACCELERATION REEVALUATION",
+                "type": "AccelReeval",
                 "default": "DIRECTION, RATE, AND MAX SPEED"
             }
         ],
@@ -2761,32 +2653,31 @@ var actionKw =
         "pt-BR": "Começar a Acelerar",
         "zh-CN": "开始加速"
     },
-    {
-        "opy": "_&setCamera",
+    "_&setCamera": {
         "description": "Places your camera at a location, facing a direction.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose cameras will be placed at the location.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "EYE POSITION",
                 "description": "The position of the camera. Reevaluates continuously.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "LOOK AT POSITION",
                 "description": "Where the camera looks at. Reevaluates continuously.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "BLEND SPEED",
                 "description": "How fast to blend the camera speed as positions change. 0 means do not blend at all, and just change positions instantly.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2798,32 +2689,31 @@ var actionKw =
         "pt-BR": "Iniciar Câmera",
         "zh-CN": "开始镜头"
     },
-    {
-        "opy": "startDamageModification",
+    "startDamageModification": {
         "description": "Starts modifying how much damage one or more receivers will receive from one or more damagers. A reference to this damage modification can be obtained from the last damage modification id value. This action will fail if too many damage modifications have been started.",
         "args": [
             {
                 "name": "RECEIVERS",
                 "description": "The player or players whose incoming damage will be modified (when attacked by the damagers).",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGERS",
                 "description": "The player or players whose outgoing damage will be modified (when attacking the receivers).",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "DAMAGE PERCENT",
                 "description": "The percentage of damage that will apply to receivers when attacked by damagers.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "DAMAGE MODIFICATION REEVALUATION",
+                "type": "DamageReeval",
                 "default": "RECEIVERS, DAMAGERS, AND DAMAGE PERCENT"
             }
         ],
@@ -2835,32 +2725,31 @@ var actionKw =
         "pt-BR": "Começar Modificação de Dano",
         "zh-CN": "开始伤害调整"
     },
-    {
-        "opy": "_&startDoT",
+    "_&startDoT": {
         "description": "Starts an instance of damage over time. This dot will persist for the specified duration or until stopped by script. To obtain a reference to this dot, use the last damage over time id value.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "One or more players who will receive the damage over time.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGER",
                 "description": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "NULL"
             },
             {
                 "name": "DURATION",
                 "description": "The duration of the damage over time in seconds. To have a dot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "DAMAGE PER SECOND",
                 "description": "The damage per second for the damage over time.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2872,38 +2761,37 @@ var actionKw =
         "pt-BR": "Começar Dano ao Longo do Tempo",
         "zh-CN": "开始持续伤害"
     },
-    {
-        "opy": "_&startFacing",
+    "_&startFacing": {
         "description": "Starts turning one or more players to face the specified direction.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will start turning.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DIRECTION",
                 "description": "The unit direction in which the player or players will eventually face. This value is normalized internally.",
-                "type": "DIRECTION",
+                "type": "Direction",
                 "default": "VECTOR"
             },
             {
                 "name": "TURN RATE",
                 "description": "The turn rate in degrees per second.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "RELATIVE",
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
-                "type": "RELATIVE",
+                "type": "Relativity",
                 "default": "TO WORLD"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "FACING REEVALUATION",
+                "type": "FacingReeval",
                 "default": "DIRECTION AND TURN RATE"
             }
         ],
@@ -2915,20 +2803,19 @@ var actionKw =
         "pt-BR": "Começar a Encarar",
         "zh-CN": "开始朝向"
     },
-    {
-        "opy": "_&startForcingHero",
+    "_&startForcingHero": {
         "description": "Starts forcing one or more players to be a specific hero and, if necessary, respawns them immediately in their current location. This will be the only hero available to the player or players until the stop forcing player to be hero action is executed.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be forced to be a specific hero.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HERO",
                 "description": "The hero that the player or players will be forced to be.",
-                "type": "HERO",
+                "type": "HeroValue",
                 "default": "HERO"
             }
         ],
@@ -2940,20 +2827,19 @@ var actionKw =
         "pt-BR": "Começar a Forçar Jogador a Ser o Herói",
         "zh-CN": "开始强制玩家选择英雄"
     },
-    {
-        "opy": "startForcingSpawn",
+    "startForcingSpawn": {
         "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team whose spawn room will be forced.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             },
             {
                 "name": "ROOM",
                 "description": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2965,50 +2851,49 @@ var actionKw =
         "pt-BR": "Começar a Forçar Sala de Ressurgimento",
         "zh-CN": "开始强制重生室"
     },
-    {
-        "opy": "_&startForcingThrottle",
+    "_&startForcingThrottle": {
         "description": "Defines minimum and maximum movement input values for one or more players, possibly forcing or preventing movement.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement will be forced or limited.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "MIN FORWARD",
                 "description": "Sets the minimum run forward amount. 0 allows the player or players to stop while 1 forces full forward movement.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX FORWARD",
                 "description": "Sets the maximum run forward amount. 0 prevents the player or players from moving forward while 1 allows full forward movement.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "MIN BACKWARD",
                 "description": "Sets the minimum run backward amount. 0 allows the player or players to stop while 1 forces full backward movement.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX BACKWARD",
                 "description": "Sets the maximum run backward amount. 0 prevents the player or players from moving backward while 1 allows full backward movement.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "MIN SIDEWAYS",
                 "description": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX SIDEWAYS",
                 "description": "Sets the maximum run sideways amount. 0 prevents the player or players from moving SIDEWAYS while 1 allows full sideways movement.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3020,32 +2905,31 @@ var actionKw =
         "pt-BR": "Começar a Forçar Aceleração",
         "zh-CN": "开始限制阈值"
     },
-    {
-        "opy": "_&startHoT",
+    "_&startHoT": {
         "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "One or more players who will receive the heal over time.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALER",
                 "description": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "NULL"
             },
             {
                 "name": "DURATION",
                 "description": "The duration of the heal over time in seconds. To have a hot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "HEALING PER SECOND",
                 "description": "The healing per second for the heal over time.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3057,32 +2941,31 @@ var actionKw =
         "pt-BR": "Começar Cura ao Longo do Tempo",
         "zh-CN": "开始持续治疗"
     },
-    {
-        "opy": "startHealingModification",
+    "startHealingModification": {
         "description": "Starts modifying how much healing one or more receivers will receive from one or more healers. A reference to this healing modification can be obtained from the last healing modification id value. This action will fail if too many healing modifications have been started.",
         "args": [
             {
                 "name": "RECEIVERS",
                 "description": "The player or players whose incoming healing will be modified (when healed by the healers).",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALERS",
                 "description": "The player or players whose outgoing healing will be modified (when healing the receivers).",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEALING PERCENT",
                 "description": "The percentage of healing that will apply to receivers when healed by healers.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "HEALING MODIFICATION REEVALUATION",
+                "type": "HealingReeval",
                 "default": "RECEIVERS, HEALERS, AND HEALING PERCENT"
             }
         ],
@@ -3094,20 +2977,19 @@ var actionKw =
         "pt-BR": "Começar Modificação de Dano",
         "zh-CN": "开始伤害调整"
     },
-    {
-        "opy": "_&startForcingButton",
+    "_&startForcingButton": {
         "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who are holding a button virtually.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being held virtually.",
-                "type": "BUTTON",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -3119,20 +3001,20 @@ var actionKw =
         "pt-BR": "Começar a Segurar Botão",
         "zh-CN": "开始按下按钮"
     },
-    {
-        "opy": "_startRule",
+    "_startRule": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
         "args": [
             {
                 "name": "SUBROUTINE",
                 "description": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
-                "type": "SUBROUTINE",
-                "default": "Sub0",
-            },{
+                "type": "Subroutine",
+                "default": "Sub0"
+            },
+            {
                 "name": "IF ALREADY EXECUTING",
                 "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
-                "type": "START RULE BEHAVIOR",
-                "default": "RESTART RULE",
+                "type": "AsyncBehavior",
+                "default": "RESTART RULE"
             }
         ],
         "en-US": "Start Rule",
@@ -3142,44 +3024,43 @@ var actionKw =
         "pt-BR": "Regra de início",
         "zh-CN": "开始规则"
     },
-    {
-        "opy": "_&startThrottleInDirection",
+    "_&startThrottleInDirection": {
         "description": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will be set or added to.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DIRECTION",
                 "description": "The unit direction in which the throttle will be set or added to. This value is normalized internally.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             },
             {
                 "name": "MAGNITUDE",
                 "description": "The amount of throttle (or change to throttle). A value of 1 denotes full throttle.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "RELATIVE",
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
-                "type": "RELATIVE",
+                "type": "Relativity",
                 "default": "TO WORLD"
             },
             {
                 "name": "BEHAVIOR",
                 "description": "Specifies whether preexisting throttle is replaced or added to.",
-                "type": "THROTTLE BEHAVIOR",
+                "type": "Throttle",
                 "default": "REPLACE EXISTING THROTTLE"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This aciton will keep asking for and using new values from reevaluated inputs.",
-                "type": "THROTTLE REEVALUATION",
+                "type": "ThrottleReeval",
                 "default": "DIRECTION AND MAGNITUDE"
             }
         ],
@@ -3191,32 +3072,31 @@ var actionKw =
         "pt-BR": "Iniciar Aceleração na Direção",
         "zh-CN": "开始定向阈值"
     },
-    {
-        "opy": "_&startTransformingThrottle",
+    "_&startTransformingThrottle": {
         "description": "Starts transforming (scaling and rotating) the throttle (directional input control) of a player or players. Cancels any existing start transforming throttle behavior.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will be transformed.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "X AXIS SCALAR",
                 "description": "The player or players will have their throttle X axis (left to right) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "Y AXIS SCALAR",
                 "description": "The player or players will have their throttle Y axis (front to back) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "RELATIVE DIRECTION",
                 "description": "After the axis scalars are applied, the player or players will have their throttle transformed so that it is relative to this unit direction vector. For example, to make the throttle camera relative, provide the direction that the camera is facing. This value is evaluated continuously (meaning it updates every frame) and normalized internally.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             }
         ],
@@ -3228,14 +3108,13 @@ var actionKw =
         "pt-BR": "Iniciar Transformação de Aceleração",
         "zh-CN": "开始转换阈值"
     },
-    {
-        "opy": "_&stopAcceleration",
+    "_&stopAcceleration": {
         "description": "Stops the acceleration started by the start accelerating action for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will stop accelerating.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3247,8 +3126,7 @@ var actionKw =
         "pt-BR": "Parar de Acelerar",
         "zh-CN": "停止加速"
     },
-    {
-        "opy": "stopAllDamageModifications",
+    "stopAllDamageModifications": {
         "description": "Stops all damage modifications that were started using the start damage modification action.",
         "args": [],
         "en-US": "Stop All Damage Modifications",
@@ -3259,20 +3137,18 @@ var actionKw =
         "pt-BR": "Parar Todas as Modificações de Dano",
         "zh-CN": "停止所有伤害调整"
     },
-    {
-        "opy": "stopAllHealingModifications",
+    "stopAllHealingModifications": {
         "description": "Stops all healing modifications that were started using the start healing modification action.",
         "args": [],
-        "en-US": "Stop All Healing Modifications",
+        "en-US": "Stop All Healing Modifications"
     },
-    {
-        "opy": "_&stopAllDoT",
+    "_&stopAllDoT": {
         "description": "Stops all damage over time started by start damage over time for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose scripted damage over time will stop.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3284,14 +3160,13 @@ var actionKw =
         "pt-BR": "Parar Todo o Dano ao Longo do Tempo",
         "zh-CN": "停止所有持续伤害"
     },
-    {
-        "opy": "_&stopAllHoT",
+    "_&stopAllHoT": {
         "description": "Stops all heal over time started by start heal over time for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose scripted heal over time will stop.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3303,14 +3178,13 @@ var actionKw =
         "pt-BR": "Parar Toda a Cura ao Longo do Tempo",
         "zh-CN": "停止所有持续治疗"
     },
-    {
-        "opy": "_&stopCamera",
+    "_&stopCamera": {
         "description": "None",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose cameras will be put back to the default view.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3322,14 +3196,13 @@ var actionKw =
         "pt-BR": "Parar Câmera",
         "zh-CN": "停止镜头"
     },
-    {
-        "opy": "_stopChasingGlobalVariable",
+    "_stopChasingGlobalVariable": {
         "description": "Stops an in-progress chase of a global variable, leaving it at its current value.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to stop modifying.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             }
         ],
@@ -3341,20 +3214,19 @@ var actionKw =
         "pt-BR": "Parar de Acompanhar Variável Global",
         "zh-CN": "停止追踪全局变量"
     },
-    {
-        "opy": "_stopChasingPlayerVariable",
+    "_stopChasingPlayerVariable": {
         "description": "Stops an in-progress chase of a player variable, leaving it at its current value.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will stop changing. If multiple players are provided, each of their variables will stop changing.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to stop modifying.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             }
         ],
@@ -3366,14 +3238,13 @@ var actionKw =
         "pt-BR": "Parar de Acompanhar Variável de Jogador",
         "zh-CN": "停止追踪玩家变量"
     },
-    {
-        "opy": "stopDamageModification",
+    "stopDamageModification": {
         "description": "Stops a damage modification that was started by the start damage modification action.",
         "args": [
             {
                 "name": "DAMAGE MODIFICATION",
                 "description": "Specifies which damage modification instance to stop. This id may be last damage modification id or a variable into which last damage modification id was earlier stored.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "LAST DAMAGE MODIFICATION ID"
             }
         ],
@@ -3385,14 +3256,13 @@ var actionKw =
         "pt-BR": "Parar Modificação de Dano",
         "zh-CN": "停止伤害调整"
     },
-    {
-        "opy": "stopDoT",
+    "stopDoT": {
         "description": "Stops an instance of damage over time started by the start damage over time action.",
         "args": [
             {
                 "name": "DAMAGE OVER TIME ID",
                 "description": "Specifies which damage over time instance to stop. This id may be last damage over time id or a variable into which last damage over time id was earlier stored.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "LAST DAMAGE OVER TIME ID"
             }
         ],
@@ -3404,14 +3274,13 @@ var actionKw =
         "pt-BR": "Parar Dano ao Longo do Tempo",
         "zh-CN": "停止持续伤害"
     },
-    {
-        "opy": "_&stopFacing",
+    "_&stopFacing": {
         "description": "Stops the turning started by the start facing action for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will stop turning.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3423,14 +3292,13 @@ var actionKw =
         "pt-BR": "Parar de Encarar",
         "zh-CN": "停止朝向"
     },
-    {
-        "opy": "_&stopForcingCurrentHero",
+    "_&stopForcingCurrentHero": {
         "description": "Stops forcing one or more players to be a specific hero. This will not respawn the player or players, but it will restore their hero availability the next time they go to select a hero.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who will no longer be forced to be a specific hero.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3442,14 +3310,13 @@ var actionKw =
         "pt-BR": "Parar de Forçar Jogador a Ser o Herói",
         "zh-CN": "停止强制玩家选择英雄"
     },
-    {
-        "opy": "stopForcingSpawn",
+    "stopForcingSpawn": {
         "description": "Undoes the effect of the start forcing spawn room action for the specified team.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team that will resume using their normal spawn room.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -3461,14 +3328,13 @@ var actionKw =
         "pt-BR": "Parar de Forçar Sala de Ressurgimento",
         "zh-CN": "停止强制重生室"
     },
-    {
-        "opy": "_&stopForcingThrottle",
+    "_&stopForcingThrottle": {
         "description": "Undoes the effect of the start forcing throttle action for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement input will be restored.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3480,14 +3346,13 @@ var actionKw =
         "pt-BR": "Parar de Forçar Aceleração",
         "zh-CN": "停止限制阈值"
     },
-    {
-        "opy": "stopHoT",
+    "stopHoT": {
         "description": "Stops an instance of heal over time started by the start heal over time action.",
         "args": [
             {
                 "name": "HEAL OVER TIME ID",
                 "description": "Specifies which heal over time instance to stop. This id may be last heal over time id or a variable into which last heal over time id was earlier stored.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "PLAYER VARIABLE"
             }
         ],
@@ -3499,33 +3364,31 @@ var actionKw =
         "pt-BR": "Parar Cura ao Longo do Tempo",
         "zh-CN": "停止持续治疗"
     },
-    {
-        "opy": "stopHealingModification",
+    "stopHealingModification": {
         "description": "Stops a healing modification that was started by the start healing modification action.",
         "args": [
             {
                 "name": "HEALING MODIFICATION ID",
                 "description": "Specifies which healing modification instance to stop. This id may be last healing modification id or a variable into which last healing modification id was earlier stored.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "LAST HEALING MODIFICATION ID"
             }
         ],
-        "en-US": "Stop Healing Modification",
+        "en-US": "Stop Healing Modification"
     },
-    {
-        "opy": "_&stopForcingButton",
+    "_&stopForcingButton": {
         "description": "Undoes the effect of the start holding button action for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players who are no longer holding a button virtually.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "BUTTON",
                 "description": "The logical button that is no longer being held virtually.",
-                "type": "BUTTON",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -3537,14 +3400,13 @@ var actionKw =
         "pt-BR": "Parar de Segurar Botão",
         "zh-CN": "停止按下按钮"
     },
-    {
-        "opy": "_&stopThrottleInDirection",
+    "_&stopThrottleInDirection": {
         "description": "Cancels the behavior caused by start throttle in direction.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose default throttle control will be restored.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3556,14 +3418,13 @@ var actionKw =
         "pt-BR": "Parar Aceleração na Direção",
         "zh-CN": "停止定向阈值"
     },
-    {
-        "opy": "_&stopTransformingThrottle",
+    "_&stopTransformingThrottle": {
         "description": "Stops the throttle transform started by start transforming throttle for one or more players.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will stop being transformed.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3575,21 +3436,20 @@ var actionKw =
         "pt-BR": "Parar Transformação de Aceleração",
         "zh-CN": "停止转换阈值"
     },
-    {
+    "_&teleport": {
         "guid": "00000000B9BA",
-        "opy": "_&teleport",
         "description": "Teleports one or more players to the specified position.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players to teleport.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "POSITION",
                 "description": "The position to which the player or players will teleport. If a player is provided, the position of the player is used.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             }
         ],
@@ -3600,8 +3460,7 @@ var actionKw =
         "pt-BR": "Teletransportar",
         "zh-CN": "传送"
     },
-    {
-        "opy": "unpauseMatchTime",
+    "unpauseMatchTime": {
         "description": "Unpauses the match time.",
         "args": [],
         "en-US": "Unpause Match Time",
@@ -3612,21 +3471,20 @@ var actionKw =
         "pt-BR": "Retomar Tempo da Partida",
         "zh-CN": "比赛时间继续"
     },
-    {
+    "_wait": {
         "guid": "000000007872",
-        "opy": "_wait",
         "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
         "args": [
             {
                 "name": "TIME",
                 "description": "The duration of the pause.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "WAIT BEHAVIOR",
                 "description": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart.",
-                "type": "WAIT BEHAVIOR",
+                "type": "Wait",
                 "default": "IGNORE CONDITION"
             }
         ],
@@ -3637,43 +3495,20 @@ var actionKw =
         "pt-BR": "Esperar",
         "zh-CN": "等待"
     },
-    {
-        "opy": "__while__",
+    "__while__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action.",
         "args": [
             {
                 "name": "CONDITION",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next end action at the current level.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "COMPARE"
             }
         ],
         "en-US": "While",
         "es-MX": "Mientras",
         "fr-FR": "Tant que",
-        "pl-PL": "Kiedy",
+        "pl-PL": "Kiedy"
     }
-]
+}
 //end-json
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

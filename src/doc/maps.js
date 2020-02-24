@@ -1,7 +1,26 @@
-var maps = 
-[
-    {
-        "opy": "Map.AYUTTHAYA",
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+const mapKw = 
+//begin-json
+{
+    "ayutthaya": {
         "en-US": "Ayutthaya",
         "guid": "00000000676E",
         "ja-JP": "AYUTTHAYA",
@@ -9,11 +28,13 @@ var maps =
         "ru-RU": "Аюттайя",
         "zh-CN": "阿育陀耶",
         "zh-TW": "大城",
-        "gamemodes": ["ctf", "elimination"]
+        "gamemodes": [
+            "ctf",
+            "elimination"
+        ]
     },
-    {
+    "blackForest": {
         "guid": "0000000059C3",
-        "opy": "Map.BLACK_FOREST",
         "en-US": "Black Forest",
         "de-DE": "Schwarzwald",
         "es-ES": "Selva Negra",
@@ -27,11 +48,14 @@ var maps =
         "ru-RU": "Черный лес",
         "zh-CN": "黑森林",
         "zh-TW": "黑森林",
-        "gamemodes": ["elimination", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "blackForestWinter": {
         "guid": "0000000070F4",
-        "opy": "Map.BLACK_FOREST_WINTER",
         "en-US": "BLACK FOREST WINTER",
         "de-DE": "Schwarzwald Winter",
         "es-ES": "Selva Negra invierno",
@@ -45,21 +69,28 @@ var maps =
         "ru-RU": "Черный лес зима",
         "zh-CN": "圣诞节黑森林",
         "zh-TW": "黑森林（冬境）",
-        "gamemodes": ["elimination", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "blizzWorld": {
         "guid": "000000006905",
-        "opy": "Map.BLIZZ_WORLD",
         "en-US": "Blizzard World",
         "ja-JP": "BLIZZARD WORLD",
         "ko-KR": "블리자드 월드",
         "zh-CN": "暴雪世界",
         "zh-TW": "暴雪樂園",
-        "gamemodes": ["hybrid", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "hybrid",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "blizzWorldWinter": {
         "guid": "00000000A933",
-        "opy": "Map.BLIZZ_WORLD_WINTER",
         "en-US": "Blizzard World Winter",
         "es-ES": "Blizzard World invierno",
         "es-MX": "Blizzard World invierno",
@@ -72,11 +103,15 @@ var maps =
         "ru-RU": "Blizzard World зима",
         "zh-CN": "圣诞节暴雪世界",
         "zh-TW": "暴雪樂園（冬境）",
-        "gamemodes": ["hybrid", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "hybrid",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "busan": {
         "guid": "000000006D90",
-        "opy": "Map.BUSAN",
         "en-US": "Busan",
         "ja-JP": "BUSAN",
         "ko-KR": "부산",
@@ -84,11 +119,13 @@ var maps =
         "ru-RU": "Пусан",
         "zh-CN": "釜山",
         "zh-TW": "釜山",
-        "gamemodes": ["control", "skirmish"]
+        "gamemodes": [
+            "control",
+            "skirmish"
+        ]
     },
-    {
+    "busanDowntownLny": {
         "guid": "00000000D2C9",
-        "opy": "Map.BUSAN_DOWNTOWN_LNY",
         "en-US": "Busan Downtown Lunar New Year",
         "de-DE": "Stadtzentrum von Busan Neujahr",
         "es-ES": "Centro de Busan Año Nuevo Lunar",
@@ -102,11 +139,12 @@ var maps =
         "ru-RU": "Центр Пусана Лунный Новый год",
         "zh-CN": "春节釜山城区",
         "zh-TW": "釜山市區（春節）",
-        "gamemodes": ["ctf"]
+        "gamemodes": [
+            "ctf"
+        ]
     },
-    {
+    "busanSanctuaryLny": {
         "guid": "00000000D2CA",
-        "opy": "Map.BUSAN_SANCTUARY_LNY",
         "en-US": "Busan Sanctuary Lunar New Year",
         "de-DE": "Tempel von Busan Neujahr",
         "es-ES": "Santuario de Busan Año Nuevo Lunar",
@@ -120,10 +158,11 @@ var maps =
         "ru-RU": "Святилище Пусана Лунный Новый год",
         "zh-CN": "春节釜山寺院",
         "zh-TW": "釜山寺院（春節）",
-        "gamemodes": ["ctf"]
+        "gamemodes": [
+            "ctf"
+        ]
     },
-    {
-        "opy": "Map.BUSAN_STADIUM",
+    "busanStadium": {
         "en-US": "Busan Stadium",
         "guid": "000000008A19",
         "de-DE": "Stadion von Busan",
@@ -138,10 +177,11 @@ var maps =
         "ru-RU": "Стадион Пусана",
         "zh-CN": "釜山体育场",
         "zh-TW": "釜山運動場",
-        "gamemodes": ["lucioball"]
+        "gamemodes": [
+            "lucioball"
+        ]
     },
-    {
-        "opy": "Map.CASTILLO",
+    "castillo": {
         "en-US": "Castillo",
         "guid": "000000005C04",
         "ja-JP": "CASTILLO",
@@ -149,11 +189,14 @@ var maps =
         "ru-RU": "Кастильо",
         "zh-CN": "城堡",
         "zh-TW": "城塞",
-        "gamemodes": ["elimination", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "chateauGuillard": {
         "guid": "0000000069CA",
-        "opy": "Map.CHATEAU_GUILLARD",
         "en-US": "Château Guillard",
         "es-ES": "Palacio Guillard",
         "ja-JP": "CHATEAU GUILLARD",
@@ -161,11 +204,13 @@ var maps =
         "ru-RU": "Шато-Гийяр",
         "zh-CN": "吉拉德堡",
         "zh-TW": "蓋亞爾城堡",
-        "gamemodes": ["ffa", "tdm"]
+        "gamemodes": [
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "chateauGuillardHalloween": {
         "guid": "000000009FA4",
-        "opy": "Map.CHATEAU_GUILLARD_HALLOWEEN",
         "en-US": "Château Guillard Halloween",
         "es-ES": "Palacio Guillard Halloween",
         "ja-JP": "CHATEAU GUILLARD ハロウィン",
@@ -174,10 +219,12 @@ var maps =
         "ru-RU": "Шато-Гийяр Хеллоуин",
         "zh-CN": "万圣节吉拉德堡",
         "zh-TW": "蓋亞爾城堡（萬聖節）",
-        "gamemodes": ["ffa", "tdm"]
+        "gamemodes": [
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.DORADO",
+    "dorado": {
         "en-US": "Dorado",
         "guid": "0000000008C1",
         "it-IT": "El Dorado",
@@ -186,11 +233,15 @@ var maps =
         "ru-RU": "Дорадо",
         "zh-CN": "多拉多",
         "zh-TW": "多拉多",
-        "gamemodes": ["escort", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "escort",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "ecopointAntarctica": {
         "guid": "0000000047D3",
-        "opy": "Map.ECOPOINT_ANTARCTICA",
         "en-US": "Ecopoint: Antarctica",
         "de-DE": "Ecopoint: Antarktis",
         "es-ES": "Ecobase: Antártida",
@@ -204,11 +255,14 @@ var maps =
         "ru-RU": "Экостанция: Антарктика",
         "zh-CN": "生态监测站：南极洲",
         "zh-TW": "南極洲生態觀測站",
-        "gamemodes": ["elimination", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "ecopointAntarcticaWinter": {
         "guid": "0000000075A7",
-        "opy": "Map.ECOPOINT_ANTARCTICA_WINTER",
         "en-US": "Ecopoint: Antarctica Winter",
         "de-DE": "Ecopoint: Antarktis Winter",
         "es-ES": "Ecobase: Antártida invierno",
@@ -222,22 +276,29 @@ var maps =
         "ru-RU": "Экостанция: Антарктика зима",
         "zh-CN": "圣诞节生态监测站：南极洲",
         "zh-TW": "南極洲生態觀測站（冬境）",
-        "gamemodes": ["elimination", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "eichenwalde": {
         "guid": "0000000029AF",
-        "opy": "Map.EICHENWALDE",
         "en-US": "Eichenwalde",
         "ja-JP": "EICHENWALDE",
         "ko-KR": "아이헨발데",
         "ru-RU": "Айхенвальд",
         "zh-CN": "艾兴瓦尔德",
         "zh-TW": "愛西瓦德",
-        "gamemodes": ["hybrid", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "hybrid",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "eichenwaldeHalloween": {
         "guid": "000000006E6B",
-        "opy": "Map.EICHENWALDE_HALLOWEEN",
         "en-US": "EICHENWALDE HALLOWEEN",
         "de-DE": "Eichenwalde Halloween",
         "es-ES": "Eichenwalde Halloween",
@@ -251,10 +312,14 @@ var maps =
         "ru-RU": "Айхенвальд Хеллоуин",
         "zh-CN": "万圣节艾兴瓦尔德",
         "zh-TW": "愛西瓦德（萬聖節）",
-        "gamemodes": ["hybrid", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "hybrid",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.ESTADIO_DAS_RAS",
+    "estadioDasRas": {
         "en-US": "Estádio das Rãs",
         "guid": "000000004629",
         "es-MX": "Estadio de Rãs",
@@ -264,22 +329,27 @@ var maps =
         "ru-RU": "«Эстадиу ди Ранс»",
         "zh-CN": "弗格体育场",
         "zh-TW": "青蛙體育場",
-        "gamemodes": ["lucioball"]
+        "gamemodes": [
+            "lucioball"
+        ]
     },
-    {
+    "hanamura": {
         "guid": "000000000138",
-        "opy": "Map.HANAMURA",
         "en-US": "Hanamura",
         "ja-JP": "HANAMURA",
         "ko-KR": "하나무라",
         "ru-RU": "Ханамура",
         "zh-CN": "花村",
         "zh-TW": "花村",
-        "gamemodes": ["assault", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "assault",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "hanamuraWinter": {
         "guid": "000000005479",
-        "opy": "Map.HANAMURA_WINTER",
         "en-US": "Hanamura Winter",
         "es-ES": "Hanamura invierno",
         "es-MX": "Hanamura Invierno",
@@ -292,11 +362,15 @@ var maps =
         "ru-RU": "Ханамура зима",
         "zh-CN": "圣诞节花村",
         "zh-TW": "花村（冬境）",
-        "gamemodes": ["assault", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "assault",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "havana": {
         "guid": "00000000B457",
-        "opy": "Map.Havana",
         "en-US": "Havana",
         "de-DE": "Havanna",
         "es-ES": "La Habana",
@@ -309,11 +383,15 @@ var maps =
         "ru-RU": "Гавана",
         "zh-CN": "哈瓦那",
         "zh-TW": "哈瓦那",
-        "gamemodes": ["escort", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "escort",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "hollywood": {
         "guid": "00000000053D",
-        "opy": "Map.HOLLYWOOD",
         "en-US": "Hollywood",
         "it-IT": "HOLLYWOOD",
         "ja-JP": "HOLLYWOOD",
@@ -321,22 +399,30 @@ var maps =
         "ru-RU": "Голливуд",
         "zh-CN": "好莱坞",
         "zh-TW": "好萊塢",
-        "gamemodes": ["hybrid", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "hybrid",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "hollywoodHalloween": {
         "guid": "000000004EE3",
-        "opy": "Map.HOLLYWOOD_HALLOWEEN",
         "en-US": "Hollywood Halloween",
         "ja-JP": "HOLLYWOOD （ハロウィン）",
         "ko-KR": "할리우드 할로윈",
         "ru-RU": "Голливуд Хеллоуин",
         "zh-CN": "万圣节好莱坞",
         "zh-TW": "好萊塢（萬聖節主題）",
-        "gamemodes": ["hybrid", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "hybrid",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "horizonLunarColony": {
         "guid": "000000004EEE",
-        "opy": "Map.HORIZON_LUNAR_COLONY",
         "en-US": "Horizon Lunar Colony",
         "de-DE": "Mondkolonie Horizon",
         "es-ES": "Colonia Lunar Horizon",
@@ -350,10 +436,14 @@ var maps =
         "ru-RU": "Лунная колония «Горизонт»",
         "zh-CN": "“地平线”月球基地",
         "zh-TW": "地平線月球殖民地",
-        "gamemodes": ["assault", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "assault",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.ILIOS",
+    "ilios": {
         "en-US": "Ilios",
         "guid": "0000000022FA",
         "it-IT": "Ilio",
@@ -362,10 +452,12 @@ var maps =
         "ru-RU": "Илиос",
         "zh-CN": "伊利奥斯",
         "zh-TW": "伊利歐斯",
-        "gamemodes": ["control", "skirmish"]
+        "gamemodes": [
+            "control",
+            "skirmish"
+        ]
     },
-    {
-        "opy": "Map.ILIOS_LIGHTHOUSE",
+    "iliosLighthouse": {
         "en-US": "Ilios Lighthouse",
         "guid": "000000005847",
         "de-DE": "Ilios – Leuchtturm",
@@ -380,10 +472,14 @@ var maps =
         "ru-RU": "Илиос: маяк",
         "zh-CN": "伊利奥斯灯塔",
         "zh-TW": "伊利歐斯燈塔",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.ILIOS_RUINS",
+    "iliosRuins": {
         "en-US": "Ilios Ruins",
         "guid": "000000005851",
         "de-DE": "Ilios – Ruinen",
@@ -398,10 +494,14 @@ var maps =
         "ru-RU": "Илиос: развалины",
         "zh-CN": "伊利奥斯废墟",
         "zh-TW": "伊利歐斯廢墟",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.ILIOS_WELL",
+    "iliosWell": {
         "en-US": "Ilios Well",
         "guid": "00000000583B",
         "de-DE": "Ilios – Brunnen",
@@ -416,11 +516,15 @@ var maps =
         "ru-RU": "Илиос: колодец",
         "zh-CN": "伊利奥斯深井",
         "zh-TW": "伊利歐斯水井",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "junkenstein": {
         "guid": "000000004AF4",
-        "opy": "Map.JUNKENSTEIN",
         "en-US": "Junkenstein's Revenge",
         "de-DE": "Junkensteins Rache",
         "es-ES": "La venganza de Junkenstein",
@@ -434,22 +538,25 @@ var maps =
         "ru-RU": "Месть Крысенштейна",
         "zh-CN": "怪鼠复仇",
         "zh-TW": "鼠肯斯坦復仇記",
-        "gamemodes": ["junkenstein"]
+        "gamemodes": [
+            "junkenstein"
+        ]
     },
-    {
+    "junkertown": {
         "guid": "000000005D7B",
-        "opy": "Map.JUNKERTOWN",
         "en-US": "Junkertown",
         "ja-JP": "JUNKERTOWN",
         "ko-KR": "쓰레기촌",
         "ru-RU": "Джанкертаун",
         "zh-CN": "渣客镇",
         "zh-TW": "垃圾鎮",
-        "gamemodes": ["escort", "skirmish"]
+        "gamemodes": [
+            "escort",
+            "skirmish"
+        ]
     },
-    {
+    "kingsRow": {
         "guid": "000000000133",
-        "opy": "Map.KINGS_ROW",
         "en-US": "King's Row",
         "fr-FR": "King’s Row",
         "ja-JP": "KING'S ROW",
@@ -457,11 +564,15 @@ var maps =
         "ru-RU": "Кингс Роу",
         "zh-CN": "国王大道",
         "zh-TW": "國王大道",
-        "gamemodes": ["hybrid", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "hybrid",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "kingsRowWinter": {
         "guid": "00000000547A",
-        "opy": "Map.KINGS_ROW_WINTER",
         "en-US": "King's Row Winter",
         "es-ES": "King's Row invierno",
         "es-MX": "King's Row Invierno",
@@ -474,11 +585,15 @@ var maps =
         "ru-RU": "Кингс Роу зима",
         "zh-CN": "圣诞节国王大道",
         "zh-TW": "國王大道（冬境）",
-        "gamemodes": ["hybrid", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "hybrid",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "lijiangControlCenter": {
         "guid": "000000005724",
-        "opy": "Map.LIJIANG_CONTROL_CENTER",
         "en-US": "Lijiang Control Center",
         "de-DE": "Lijiang Tower – Kontrollzentrum",
         "es-ES": "Centro de control de Torre Lijiang",
@@ -492,11 +607,15 @@ var maps =
         "ru-RU": "Командный центр Лицзян",
         "zh-CN": "漓江塔控制中心",
         "zh-TW": "灕江天塔控制中心",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "lijiangControlCenterLny": {
         "guid": "000000007EFB",
-        "opy": "Map.LIJIANG_CONTROL_CENTER_LNY",
         "en-US": "Lijiang Control Center Lunar New Year",
         "de-DE": "Lijiang Tower – Kontrollzentrum Neujahr",
         "es-ES": "Centro de control de Lijiang Año Nuevo Lunar",
@@ -510,11 +629,15 @@ var maps =
         "ru-RU": "Командный центр Лицзян Лунный Новый год",
         "zh-CN": "春节漓江塔控制中心",
         "zh-TW": "灕江控制中心（春節）",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "lijiangGarden": {
         "guid": "000000005623",
-        "opy": "Map.LIJIANG_GARDEN",
         "en-US": "Lijiang Garden",
         "de-DE": "Lijiang Tower – Garten",
         "es-ES": "Lijiang: Jardín",
@@ -528,11 +651,15 @@ var maps =
         "ru-RU": "Сад Лицзян",
         "zh-CN": "漓江塔庭院",
         "zh-TW": "灕江花園",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "lijiangGardenLny": {
         "guid": "000000007EF9",
-        "opy": "Map.LIJIANG_GARDEN_LNY",
         "en-US": "Lijiang Garden Lunar New Year",
         "de-DE": "Lijiang Tower – Garten Neujahr",
         "es-ES": "Lijiang: Jardín Año Nuevo Lunar",
@@ -546,11 +673,15 @@ var maps =
         "ru-RU": "Сад Лицзян Лунный Новый год",
         "zh-CN": "春节漓江塔庭院",
         "zh-TW": "灕江花園（春節）",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "lijiangNightMarket": {
         "guid": "000000005631",
-        "opy": "Map.LIJIANG_NIGHT_MARKET",
         "en-US": "Lijiang Night Market",
         "de-DE": "Nachtmarkt von Lijiang",
         "es-ES": "Lijiang: Mercado nocturno",
@@ -564,11 +695,15 @@ var maps =
         "ru-RU": "Ночной рынок Лицзян",
         "zh-CN": "漓江塔夜市",
         "zh-TW": "灕江夜市",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "lijiangNightMarketLny": {
         "guid": "000000007EFA",
-        "opy": "Map.LIJIANG_NIGHT_MARKET_LNY",
         "en-US": "Lijiang Night Market Lunar New Year",
         "de-DE": "Lijiang Tower – Nachtmarkt Neujahr",
         "es-ES": "Mercado nocturno de Lijiang Año Nuevo Lunar",
@@ -582,11 +717,15 @@ var maps =
         "ru-RU": "Ночной рынок Лицзян Лунный Новый год",
         "zh-CN": "春节漓江塔夜市",
         "zh-TW": "灕江夜市（春節）",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "lijiangTower": {
         "guid": "000000001D22",
-        "opy": "Map.LIJIANG_TOWER",
         "en-US": "Lijiang Tower",
         "es-ES": "Torre Lijiang",
         "es-MX": "Torre Lijiang",
@@ -599,11 +738,13 @@ var maps =
         "ru-RU": "Башня Лицзян",
         "zh-CN": "漓江塔",
         "zh-TW": "灕江天塔",
-        "gamemodes": ["control", "skirmish"]
+        "gamemodes": [
+            "control",
+            "skirmish"
+        ]
     },
-    {
+    "lijiangTowerLny": {
         "guid": "000000005A33",
-        "opy": "Map.LIJIANG_TOWER_LNY",
         "en-US": "Lijiang Tower Lunar New Year",
         "de-DE": "Lijiang Tower Neujahr",
         "es-ES": "Torre Lijiang Año Nuevo Lunar",
@@ -617,10 +758,12 @@ var maps =
         "ru-RU": "Башня Лицзян Лунный Новый год",
         "zh-CN": "春节漓江塔",
         "zh-TW": "灕江天塔（春節）",
-        "gamemodes": ["control", "skirmish"]
+        "gamemodes": [
+            "control",
+            "skirmish"
+        ]
     },
-    {
-        "opy": "Map.NECROPOLIS",
+    "necropolis": {
         "en-US": "Necropolis",
         "guid": "0000000053FB",
         "de-DE": "Nekropole",
@@ -635,11 +778,14 @@ var maps =
         "ru-RU": "Некрополь",
         "zh-CN": "墓园",
         "zh-TW": "墓室",
-        "gamemodes": ["elimination", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "nepal": {
         "guid": "00000000138A",
-        "opy": "Map.NEPAL",
         "en-US": "Nepal",
         "fr-FR": "Népal",
         "ja-JP": "NEPAL",
@@ -647,10 +793,12 @@ var maps =
         "ru-RU": "Непал",
         "zh-CN": "尼泊尔",
         "zh-TW": "尼泊爾",
-        "gamemodes": ["control", "skirmish"]
+        "gamemodes": [
+            "control",
+            "skirmish"
+        ]
     },
-    {
-        "opy": "Map.NEPAL_SANCTUM",
+    "nepalSanctum": {
         "en-US": "Nepal Sanctum",
         "guid": "0000000056BA",
         "de-DE": "Nepal – Sanktum",
@@ -665,10 +813,14 @@ var maps =
         "ru-RU": "Непал: святилище",
         "zh-CN": "尼泊尔圣所",
         "zh-TW": "尼泊爾聖所",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.NEPAL_SHRINE",
+    "nepalShrine": {
         "en-US": "Nepal Shrine",
         "guid": "00000000582C",
         "de-DE": "Nepal – Schrein",
@@ -683,10 +835,14 @@ var maps =
         "ru-RU": "Непал: алтарь",
         "zh-CN": "尼泊尔圣坛",
         "zh-TW": "尼泊爾聖壇",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.NEPAL_VILLAGE",
+    "nepalVillage": {
         "en-US": "Nepal Village",
         "guid": "000000005821",
         "de-DE": "Nepal – Dorf",
@@ -701,11 +857,15 @@ var maps =
         "ru-RU": "Непал: деревня",
         "zh-CN": "尼泊尔村庄",
         "zh-TW": "尼泊爾村落",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "nepalVillageWinter": {
         "guid": "000000006E1F",
-        "opy": "Map.NEPAL_VILLAGE_WINTER",
         "en-US": "Nepal Village Winter",
         "de-DE": "Nepal – Dorf Winter",
         "es-ES": "Aldea de Nepal invierno",
@@ -719,22 +879,25 @@ var maps =
         "ru-RU": "Непал: деревня зима",
         "zh-CN": "圣诞节尼泊尔村庄",
         "zh-TW": "尼泊爾村落（冬境）",
-        "gamemodes": ["yetiHunter"]
+        "gamemodes": [
+            "yetiHunter"
+        ]
     },
-    {
+    "numbani": {
         "guid": "0000000002EA",
-        "opy": "Map.NUMBANI",
         "en-US": "Numbani",
         "ja-JP": "NUMBANI",
         "ko-KR": "눔바니",
         "ru-RU": "Нумбани",
         "zh-CN": "努巴尼",
         "zh-TW": "努巴尼",
-        "gamemodes": ["hybrid", "skirmish"]
+        "gamemodes": [
+            "hybrid",
+            "skirmish"
+        ]
     },
-    {
+    "oasis": {
         "guid": "0000000046D5",
-        "opy": "Map.OASIS",
         "en-US": "Oasis",
         "it-IT": "Oasi",
         "ja-JP": "OASIS",
@@ -743,10 +906,12 @@ var maps =
         "ru-RU": "Оазис",
         "zh-CN": "绿洲城",
         "zh-TW": "綠洲城",
-        "gamemodes": ["control", "skirmish"]
+        "gamemodes": [
+            "control",
+            "skirmish"
+        ]
     },
-    {
-        "opy": "Map.OASIS_CITY_CENTER",
+    "oasisCityCenter": {
         "en-US": "Oasis City Center",
         "guid": "000000005905",
         "de-DE": "Oasis – Stadtzentrum",
@@ -761,10 +926,14 @@ var maps =
         "ru-RU": "Оазис: центр города",
         "zh-CN": "绿洲城中心",
         "zh-TW": "綠洲城市都心",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.OASIS_GARDENS",
+    "oasisGardens": {
         "en-US": "Oasis Gardens",
         "guid": "000000005931",
         "de-DE": "Oasis – Gärten",
@@ -779,10 +948,14 @@ var maps =
         "ru-RU": "Оазис: сады",
         "zh-CN": "绿洲城花园",
         "zh-TW": "綠洲城公園",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.OASIS_UNIVERSITY",
+    "oasisUniversity": {
         "en-US": "Oasis University",
         "guid": "00000000593F",
         "de-DE": "Oasis – Universität",
@@ -797,11 +970,15 @@ var maps =
         "ru-RU": "Оазис: университет",
         "zh-CN": "绿洲城大学",
         "zh-TW": "綠洲城大學",
-        "gamemodes": ["elimination", "ctf", "ffa", "tdm"]
+        "gamemodes": [
+            "elimination",
+            "ctf",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "paris": {
         "guid": "00000000831E",
-        "opy": "Map.PARIS",
         "en-US": "Paris",
         "es-MX": "París",
         "it-IT": "Parigi",
@@ -811,10 +988,14 @@ var maps =
         "ru-RU": "Париж",
         "zh-CN": "巴黎",
         "zh-TW": "巴黎",
-        "gamemodes": ["assault", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "assault",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.PETRA",
+    "petra": {
         "en-US": "Petra",
         "guid": "0000000081CB",
         "ja-JP": "PETRA",
@@ -822,11 +1003,13 @@ var maps =
         "ru-RU": "Петра",
         "zh-CN": "佩特拉",
         "zh-TW": "佩特拉",
-        "gamemodes": ["ffa", "tdm"]
+        "gamemodes": [
+            "ffa",
+            "tdm"
+        ]
     },
-    {
+    "practiceRange": {
         "guid": "000000002BA1",
-        "opy": "Map.PRACTICE_RANGE",
         "en-US": "Practice Range",
         "de-DE": "Trainingsbereich",
         "es-ES": "Práctica de combate",
@@ -840,22 +1023,25 @@ var maps =
         "ru-RU": "УЧЕБНЫЙ ПОЛИГОН",
         "zh-CN": "训练靶场",
         "zh-TW": "訓練中心",
-        "gamemodes": ["practiceRange"]
+        "gamemodes": [
+            "practiceRange"
+        ]
     },
-    {
+    "rialto": {
         "guid": "000000006906",
-        "opy": "Map.RIALTO",
         "en-US": "Rialto",
         "ja-JP": "RIALTO",
         "ko-KR": "리알토",
         "ru-RU": "Риальто",
         "zh-CN": "里阿尔托",
         "zh-TW": "里亞爾托",
-        "gamemodes": ["escort", "skirmish"]
+        "gamemodes": [
+            "escort",
+            "skirmish"
+        ]
     },
-    {
+    "route66": {
         "guid": "0000000011D3",
-        "opy": "Map.ROUTE_66",
         "en-US": "Route 66",
         "es-ES": "Ruta 66",
         "es-MX": "Ruta 66",
@@ -867,10 +1053,12 @@ var maps =
         "ru-RU": "Шоссе 66",
         "zh-CN": "66号公路",
         "zh-TW": "66號公路",
-        "gamemodes": ["escort", "skirmish"]
+        "gamemodes": [
+            "escort",
+            "skirmish"
+        ]
     },
-    {
-        "opy": "Map.SYDNEY_HARBOUR_ARENA",
+    "sydneyHarbourArena": {
         "en-US": "Sydney Harbour Arena",
         "guid": "0000000063D5",
         "es-MX": "Arena Sydney Harbour",
@@ -882,10 +1070,11 @@ var maps =
         "ru-RU": "«Арена Сидней-Харбор»",
         "zh-CN": "悉尼海港竞技场",
         "zh-TW": "雪梨海港運動公園",
-        "gamemodes": ["lucioball"]
+        "gamemodes": [
+            "lucioball"
+        ]
     },
-    {
-        "opy": "Map.TEMPLE_OF_ANUBIS",
+    "templeOfAnubis": {
         "en-US": "Temple of Anubis",
         "guid": "00000000012E",
         "de-DE": "Tempel des Anubis",
@@ -900,10 +1089,14 @@ var maps =
         "ru-RU": "Храм Анубиса",
         "zh-CN": "阿努比斯神殿",
         "zh-TW": "阿努比斯神廟",
-        "gamemodes": ["assault", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "assault",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.VOLSKAYA",
+    "volskaya": {
         "en-US": "Volskaya Industries",
         "guid": "0000000002EB",
         "es-ES": "Industrias Volskaya",
@@ -917,10 +1110,14 @@ var maps =
         "ru-RU": "КБ Вольской",
         "zh-CN": "沃斯卡娅工业区",
         "zh-TW": "伏斯凱亞工業",
-        "gamemodes": ["assault", "skirmish", "ffa", "tdm"]
+        "gamemodes": [
+            "assault",
+            "skirmish",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.WATCHPOINT_GIBRALTAR",
+    "watchpointGibraltar": {
         "en-US": "Watchpoint: Gibraltar",
         "guid": "0000000002E9",
         "es-ES": "Observatorio: Gibraltar",
@@ -934,21 +1131,37 @@ var maps =
         "ru-RU": "Пост наблюдения: Гибралтар",
         "zh-CN": "监测站：直布罗陀",
         "zh-TW": "捍衛者基地：直布羅陀",
-        "gamemodes": ["escort", "skirmish"]
+        "gamemodes": [
+            "escort",
+            "skirmish"
+        ]
     },
-    {
-        "opy": "Map.WORKSHOP_CHAMBER",
+    "workshopChamber": {
         "en-US": "Workshop Chamber",
-        "gamemodes": ["skirmish", "elimination", "ffa", "tdm"]
+        "gamemodes": [
+            "skirmish",
+            "elimination",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.WORKSHOP_EXPANSE",
+    "workshopExpanse": {
         "en-US": "Workshop Expanse",
-        "gamemodes": ["skirmish", "elimination", "ffa", "tdm"]
+        "gamemodes": [
+            "skirmish",
+            "elimination",
+            "ffa",
+            "tdm"
+        ]
     },
-    {
-        "opy": "Map.WORKSHOP_ISLAND",
+    "workshopIsland": {
         "en-US": "Workshop Island",
-        "gamemodes": ["skirmish", "elimination", "ffa", "tdm"]
+        "gamemodes": [
+            "skirmish",
+            "elimination",
+            "ffa",
+            "tdm"
+        ]
     }
-]
+}
+//end-json

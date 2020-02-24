@@ -17,15 +17,14 @@
 
 var valueFuncKw = 
 //begin-json
-[
-    {
-        "opy": "abs",
+{
+    "abs": {
         "description": "The absolute value of the specified value.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The real number value whose absolute value will be computed.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -37,21 +36,20 @@ var valueFuncKw =
         "pt-BR": "Valor Absoluto",
         "zh-CN": "绝对值"
     },
-    {
+    "_add": {
         "guid": "00000000C408",
-        "opy": "_add",
         "description": "The sum of two numbers or vectors.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -62,14 +60,13 @@ var valueFuncKw =
         "pt-BR": "Somar",
         "zh-CN": "加"
     },
-    {
-        "opy": "getDeadPlayers",
+    "getDeadPlayers": {
         "description": "An array containing all dead players on a team or in the match.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -81,8 +78,7 @@ var valueFuncKw =
         "pt-BR": "Todos os Jogadores Mortos",
         "zh-CN": "所有死亡玩家"
     },
-    {
-        "opy": "getDamageHeroes",
+    "getDamageHeroes": {
         "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        ",
         "args": [],
         "en-US": "All Damage Heroes",
@@ -95,9 +91,8 @@ var valueFuncKw =
         "pt-BR": "Todos os Heróis de Dano",
         "zh-CN": "所有输出英雄"
     },
-    {
+    "getAllHeroes": {
         "guid": "00000000BF58",
-        "opy": "getAllHeroes",
         "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Baptiste \n        30. Sigma    \n        ",
         "args": [],
         "en-US": "All Heroes",
@@ -107,14 +102,13 @@ var valueFuncKw =
         "pt-BR": "Todos os Heróis",
         "zh-CN": "全部英雄"
     },
-    {
-        "opy": "getLivingPlayers",
+    "getLivingPlayers": {
         "description": "An array containing all living players on a team or in the match.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -126,14 +120,13 @@ var valueFuncKw =
         "pt-BR": "Todos os Jogadores Vivos",
         "zh-CN": "所有存活玩家"
     },
-    {
-        "opy": "getPlayers",
+    "getPlayers": {
         "description": "An array containing all players on a team or in the match.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -145,14 +138,13 @@ var valueFuncKw =
         "pt-BR": "Todos os Jogadores",
         "zh-CN": "所有玩家"
     },
-    {
-        "opy": "getPlayersNotOnObjective",
+    "getPlayersNotOnObjective": {
         "description": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match).",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -164,14 +156,13 @@ var valueFuncKw =
         "pt-BR": "Todos os Jogadores Fora do Objetivo",
         "zh-CN": "所有目标点外玩家"
     },
-    {
-        "opy": "getPlayersOnObjective",
+    "getPlayersOnObjective": {
         "description": "An array containing all players occupying a payload or control point (either on a team or in the match).",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -183,14 +174,13 @@ var valueFuncKw =
         "pt-BR": "Todos os Jogadores no Objetivo",
         "zh-CN": "所有目标点内玩家"
     },
-    {
-        "opy": "_&getAllowedHeroes",
+    "_&getAllowedHeroes": {
         "description": "The array of heroes from which the specified player is currently allowed to select.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose allowed heroes to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -202,8 +192,7 @@ var valueFuncKw =
         "pt-BR": "Heróis Permitidos",
         "zh-CN": "可用英雄"
     },
-    {
-        "opy": "getSupportHeroes",
+    "getSupportHeroes": {
         "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
         "args": [],
         "en-US": "All Support Heroes",
@@ -216,8 +205,7 @@ var valueFuncKw =
         "pt-BR": "Todos os Heróis de Suporte",
         "zh-CN": "所有支援英雄"
     },
-    {
-        "opy": "getTankHeroes",
+    "getTankHeroes": {
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
         "args": [],
         "en-US": "All Tank Heroes",
@@ -230,14 +218,13 @@ var valueFuncKw =
         "pt-BR": "Todos os Heróis de Tanque",
         "zh-CN": "所有重装英雄"
     },
-    {
-        "opy": "_&getAltitude",
+    "_&getAltitude": {
         "description": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose altitude to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -249,20 +236,19 @@ var valueFuncKw =
         "pt-BR": "Altitude de",
         "zh-CN": "高度"
     },
-    {
-        "opy": "_and",
+    "_and": {
         "description": "Whether both of the two inputs are true (or equivalent to true).",
         "args": [
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             },
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -274,20 +260,19 @@ var valueFuncKw =
         "pt-BR": "E",
         "zh-CN": "与"
     },
-    {
-        "opy": "angleBetweenVectors",
+    "angleBetweenVectors": {
         "description": "The angle in degrees between two directional vectors (no normalization required).",
         "args": [
             {
                 "name": "VECTOR",
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             },
             {
                 "name": "VECTOR",
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             }
         ],
@@ -299,20 +284,19 @@ var valueFuncKw =
         "pt-BR": "Ângulo entre Vetores",
         "zh-CN": "矢量间夹角"
     },
-    {
-        "opy": "angleDifference",
+    "angleDifference": {
         "description": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative.",
         "args": [
             {
                 "name": "ANGLE",
                 "description": "One of the two angles between which to measure the resulting angle.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "ANGLE",
                 "description": "One of the two angles between which to measure the resulting angle.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -324,21 +308,20 @@ var valueFuncKw =
         "pt-BR": "Diferença de Ângulo",
         "zh-CN": "角度差"
     },
-    {
+    "_appendToArray": {
         "guid": "00000000C41A",
-        "opy": "_appendToArray",
         "description": "A copy of an array with one or more values appended to the end.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array to which to append.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "VALUE",
                 "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -349,14 +332,13 @@ var valueFuncKw =
         "pt-BR": "Juntar à Matriz",
         "zh-CN": "添加至数组"
     },
-    {
-        "opy": "acosDeg",
+    "acosDeg": {
         "description": "Arccosine in degrees of the specified value.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -368,14 +350,13 @@ var valueFuncKw =
         "pt-BR": "Arco Cosseno em Graus",
         "zh-CN": "以角度为单位的反余弦值"
     },
-    {
-        "opy": "acos",
+    "acos": {
         "description": "Arccosine in radians of the specified value.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -387,14 +368,13 @@ var valueFuncKw =
         "pt-BR": "Arco Cosseno em Radianos",
         "zh-CN": "以弧度为单位的反余弦值"
     },
-    {
-        "opy": "asinDeg",
+    "asinDeg": {
         "description": "Arcsine in degrees of the specified value.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -406,14 +386,13 @@ var valueFuncKw =
         "pt-BR": "Arco Seno em Graus",
         "zh-CN": "以角度为单位的反正弦值"
     },
-    {
-        "opy": "asin",
+    "asin": {
         "description": "Arcsine in radians of the specified value.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -425,20 +404,19 @@ var valueFuncKw =
         "pt-BR": "Arco Seno em Radianos",
         "zh-CN": "以弧度为单位的反正弦值"
     },
-    {
-        "opy": "atan2Deg",
+    "atan2Deg": {
         "description": "Arctangent in degrees of the specified numerator and denominator (often referred to as atan2).",
         "args": [
             {
                 "name": "NUMERATOR",
                 "description": "Numerator input for the function.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "DENOMINATOR",
                 "description": "Denominator input for the function.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -450,20 +428,19 @@ var valueFuncKw =
         "pt-BR": "Arco Tangente em Graus",
         "zh-CN": "以角度为单位的反正切值"
     },
-    {
-        "opy": "atan2",
+    "atan2": {
         "description": "Arctangent in radians of the specified numerator and denominator (often referred to as atan2).",
         "args": [
             {
                 "name": "NUMERATOR",
                 "description": "Numerator input for the function.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "DENOMINATOR",
                 "description": "Denominator input for the function.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -475,20 +452,19 @@ var valueFuncKw =
         "pt-BR": "Arco Tangente em Radianos",
         "zh-CN": "以弧度为单位的反正切值"
     },
-    {
-        "opy": "_arrayContains",
+    "_arrayContains": {
         "description": "Whether the specified array contains the specified value.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array in which to search for the specified value.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "VALUE",
                 "description": "The value for which to search.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -500,26 +476,25 @@ var valueFuncKw =
         "pt-BR": "Matriz Contém",
         "zh-CN": "数组包含"
     },
-    {
-        "opy": "_arraySlice",
+    "_arraySlice": {
         "description": "A copy of the specified array containing only values from a specified index range.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array from which to make a copy.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "START INDEX",
                 "description": "The first index of the range.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "COUNT",
                 "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -531,9 +506,8 @@ var valueFuncKw =
         "pt-BR": "Fatia da Matriz",
         "zh-CN": "数组分割"
     },
-    {
+    "attacker": {
         "guid": "00000000B32F",
-        "opy": "attacker",
         "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
         "args": null,
         "en-US": "Attacker",
@@ -543,9 +517,8 @@ var valueFuncKw =
         "pt-BR": "Atacante",
         "zh-CN": "攻击方"
     },
-    {
+    "Vector.BACKWARD": {
         "guid": "00000000B11B",
-        "opy": "Vector.BACKWARD",
         "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
         "args": null,
         "en-US": "Backward",
@@ -555,20 +528,19 @@ var valueFuncKw =
         "pt-BR": "Para Trás",
         "zh-CN": "后"
     },
-    {
-        "opy": "getClosestPlayer",
+    "getClosestPlayer": {
         "description": "The player closest to a position, optionally restricted by team.",
         "args": [
             {
                 "name": "CENTER",
                 "description": "The position from which to measure proximity.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams from which the closest player will come.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -580,14 +552,13 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo a",
         "zh-CN": "距离最近的玩家"
     },
-    {
-        "opy": "_compare",
+    "_compare": {
         "description": "Whether the comparison of the two inputs is true.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             },
             {
@@ -599,7 +570,7 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -611,14 +582,13 @@ var valueFuncKw =
         "pt-BR": "Comparar",
         "zh-CN": "比较"
     },
-    {
-        "opy": "getControlScorePercentage",
+    "getControlScorePercentage": {
         "description": "The score percentage for the specified team in control mode.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team whose score percentage to acquire.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -630,8 +600,7 @@ var valueFuncKw =
         "pt-BR": "Percentual de Pontuação no Modo de Controle",
         "zh-CN": "占领要点模式得分百分比"
     },
-    {
-        "opy": "getControlScoringTeam",
+    "getControlScoringTeam": {
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
         "args": [],
         "en-US": "Control Mode Scoring Team",
@@ -642,14 +611,13 @@ var valueFuncKw =
         "pt-BR": "Equipe Pontuando no Modo de Controle",
         "zh-CN": "占领要点模式正在得分的队伍"
     },
-    {
-        "opy": "cosDeg",
+    "cosDeg": {
         "description": "Cosine of the specified angle in degrees.",
         "args": [
             {
                 "name": "ANGLE",
                 "description": "Angle in degrees.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -661,14 +629,13 @@ var valueFuncKw =
         "pt-BR": "Cosseno de Graus",
         "zh-CN": "角度的余弦值"
     },
-    {
-        "opy": "cos",
+    "cos": {
         "description": "Cosine of the specified angle in radians.",
         "args": [
             {
                 "name": "ANGLE",
                 "description": "Angle in radians.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -680,14 +647,13 @@ var valueFuncKw =
         "pt-BR": "Cosseno de Radianos",
         "zh-CN": "弧度的余弦值"
     },
-    {
-        "opy": "len",
+    "len": {
         "description": "The number of elements in the specified array.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose elements will be counted.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "GLOBAL VARIABLE"
             }
         ],
@@ -699,20 +665,19 @@ var valueFuncKw =
         "pt-BR": "Contagem de",
         "zh-CN": "数量"
     },
-    {
-        "opy": "crossProduct",
+    "crossProduct": {
         "description": "The cross product of the specified values. (Left cross up equals forward.)",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand-side vector operand of the cross product.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand-side vector operand of the cross product.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             }
         ],
@@ -724,8 +689,7 @@ var valueFuncKw =
         "pt-BR": "Produto Vetorial",
         "zh-CN": "矢量积"
     },
-    {
-        "opy": "_currentArrayElement",
+    "_currentArrayElement": {
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": [],
         "en-US": "Current Array Element",
@@ -736,8 +700,7 @@ var valueFuncKw =
         "pt-BR": "Elemento da Matriz Atual",
         "zh-CN": "当前数组元素"
     },
-    {
-        "opy": "getCurrentGamemode",
+    "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
         "args": [],
         "en-US": "Current Game Mode",
@@ -751,9 +714,8 @@ var valueFuncKw =
         "ru-RU": "Текущий игровой режим",
         "zh-CN": "当前比赛模式"
     },
-    {
+    "getCurrentMap": {
         "guid": "00000000D418",
-        "opy": "getCurrentMap",
         "description": "The current map of the custom game.",
         "args": [],
         "en-US": "Current Map",
@@ -764,32 +726,31 @@ var valueFuncKw =
         "pt-BR": "Mapa Atual",
         "zh-CN": "当前地图"
     },
-    {
-        "opy": "_customString",
+    "_customString": {
         "description": "ty magzie for adding that",
         "args": [
             {
                 "name": "STRING",
                 "description": "",
-                "type": "STRING CONSTANT",
+                "type": "LocalizedString",
                 "default": "HELLO"
             },
             {
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NULL"
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NULL"
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NULL"
             }
         ],
@@ -802,20 +763,19 @@ var valueFuncKw =
         "pt-BR": "String Personalizada",
         "zh-CN": "自定义字符串"
     },
-    {
-        "opy": "angleToDirection",
+    "angleToDirection": {
         "description": "The unit-length direction vector corresponding to the specified angles.",
         "args": [
             {
                 "name": "HORIZONTAL ANGLE",
                 "description": "The horizontal angle in degrees used to construct the resulting vector.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "VERTICAL ANGLE",
                 "description": "The vertical angle in degrees used to construct the resulting vector.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -827,20 +787,19 @@ var valueFuncKw =
         "pt-BR": "Direção a partir dos Ângulos",
         "zh-CN": "与此角度的相对方向"
     },
-    {
-        "opy": "directionTowards",
+    "directionTowards": {
         "description": "The unit-length direction vector from one position to another.",
         "args": [
             {
                 "name": "START POS",
                 "description": "The position from which the resulting direction vector will point.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The position to which the resulting direction vector will point.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             }
         ],
@@ -852,20 +811,19 @@ var valueFuncKw =
         "pt-BR": "Direção Rumo a",
         "zh-CN": "方向"
     },
-    {
-        "opy": "distance",
+    "distance": {
         "description": "The distance between two positions in meters.",
         "args": [
             {
                 "name": "START POS",
                 "description": "One of the two positions used in the distance measurement.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "One of the two positions used in the distance measurement.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             }
         ],
@@ -877,21 +835,20 @@ var valueFuncKw =
         "pt-BR": "Distância entre",
         "zh-CN": "相距距离"
     },
-    {
+    "_divide": {
         "guid": "00000000C40F",
-        "opy": "_divide",
         "description": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -902,20 +859,19 @@ var valueFuncKw =
         "pt-BR": "Dividir",
         "zh-CN": "除"
     },
-    {
-        "opy": "dotProduct",
+    "dotProduct": {
         "description": "The dot product of the specified values.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "One of two vector operands of the dot product.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             },
             {
                 "name": "VALUE",
                 "description": "One of two vector operands of the dot product.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             }
         ],
@@ -927,9 +883,8 @@ var valueFuncKw =
         "pt-BR": "Produto Escalar",
         "zh-CN": "标量积"
     },
-    {
+    "Vector.DOWN": {
         "guid": "00000000B119",
-        "opy": "Vector.DOWN",
         "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
         "args": null,
         "en-US": "Down",
@@ -939,8 +894,7 @@ var valueFuncKw =
         "pt-BR": "Baixo",
         "zh-CN": "下"
     },
-    {
-        "opy": "_emptyArray",
+    "_emptyArray": {
         "description": "An array with no elements.",
         "args": [],
         "en-US": "Empty Array",
@@ -951,14 +905,13 @@ var valueFuncKw =
         "pt-BR": "Matriz Vazia",
         "zh-CN": "空数组"
     },
-    {
-        "opy": "entityExists",
+    "entityExists": {
         "description": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed.",
         "args": [
             {
                 "name": "ENTITY",
                 "description": "The player, icon entity, or effect entity whose existence to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -970,8 +923,7 @@ var valueFuncKw =
         "pt-BR": "Entidade Existe",
         "zh-CN": "实体存在"
     },
-    {
-        "opy": "eventDamage",
+    "eventDamage": {
         "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
         "args": null,
         "en-US": "Event Damage",
@@ -982,8 +934,7 @@ var valueFuncKw =
         "pt-BR": "Dano do Evento",
         "zh-CN": "事件伤害"
     },
-    {
-        "opy": "eventHealing",
+    "eventHealing": {
         "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
         "args": null,
         "en-US": "Event Healing",
@@ -995,8 +946,7 @@ var valueFuncKw =
         "pt-BR": "Cura no Evento",
         "zh-CN": "事件治疗"
     },
-    {
-        "opy": "eventPlayer",
+    "eventPlayer": {
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
         "args": null,
         "en-US": "Event Player",
@@ -1007,8 +957,7 @@ var valueFuncKw =
         "pt-BR": "Jogador do Evento",
         "zh-CN": "事件玩家"
     },
-    {
-        "opy": "eventWasCriticalHit",
+    "eventWasCriticalHit": {
         "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
         "args": null,
         "en-US": "Event Was Critical Hit",
@@ -1019,21 +968,19 @@ var valueFuncKw =
         "pt-BR": "Evento foi Golpe Crítico",
         "zh-CN": "事件暴击"
     },
-    {
-        "opy": "eventWasHealthPack",
+    "eventWasHealthPack": {
         "description": "Whether the healing was a health pack for the event currently being processed by this rule.",
         "args": null,
-        "en-US": "Event Was Health Pack",
+        "en-US": "Event Was Health Pack"
     },
-    {
+    "_&getEyePosition": {
         "guid": "00000000C595",
-        "opy": "_&getEyePosition",
         "description": "The position of a player's first person view (used for aiming)",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The position of a player's first person view (used for aiming)",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1044,14 +991,13 @@ var valueFuncKw =
         "pt-BR": "Posição do Olho",
         "zh-CN": "眼睛位置"
     },
-    {
-        "opy": "_&getFacingDirection",
+    "_&getFacingDirection": {
         "description": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose facing direction to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1063,8 +1009,7 @@ var valueFuncKw =
         "pt-BR": "Direção Frontal de",
         "zh-CN": "面朝方向"
     },
-    {
-        "opy": "false",
+    "false": {
         "description": "The boolean value of false.",
         "args": null,
         "en-US": "False",
@@ -1073,20 +1018,19 @@ var valueFuncKw =
         "fr-FR": "Faux",
         "zh-CN": "假"
     },
-    {
-        "opy": "getFarthestPlayer",
+    "getFarthestPlayer": {
         "description": "The player farthest from a position, optionally restricted by team.",
         "args": [
             {
                 "name": "CENTER",
                 "description": "The position from which to measure distance.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams from which the farthest player will come.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -1098,20 +1042,19 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Distante de",
         "zh-CN": "距离最远的玩家"
     },
-    {
-        "opy": "_filteredArray",
+    "_filteredArray": {
         "description": "A copy of the specified array with any values that do not match the specified condition removed.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose copy will be filtered.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "CONDITION",
                 "description": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "COMPARE"
             }
         ],
@@ -1123,14 +1066,13 @@ var valueFuncKw =
         "pt-BR": "Matriz Filtrada",
         "zh-CN": "已过滤的数组"
     },
-    {
-        "opy": "_firstOf",
+    "_firstOf": {
         "description": "The value at the start of the specified array. Results in 0 if the specified array is empty.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array from which the value is acquired.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "GLOBAL VARIABLE"
             }
         ],
@@ -1142,14 +1084,13 @@ var valueFuncKw =
         "pt-BR": "Primeiro de",
         "zh-CN": "首个"
     },
-    {
-        "opy": "getFlagPosition",
+    "getFlagPosition": {
         "description": "The position of a specific team's flag in capture the flag.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team whose flag position to acquire.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -1161,9 +1102,8 @@ var valueFuncKw =
         "pt-BR": "Posição da Bandeira",
         "zh-CN": "旗帜位置"
     },
-    {
+    "Vector.FORWARD": {
         "guid": "00000000B11A",
-        "opy": "Vector.FORWARD",
         "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
         "args": null,
         "en-US": "Forward",
@@ -1173,14 +1113,13 @@ var valueFuncKw =
         "pt-BR": "Para a Frente",
         "zh-CN": "前"
     },
-    {
-        "opy": "_globalVar",
+    "_globalVar": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "The variable whose value to acquire.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             }
         ],
@@ -1192,14 +1131,13 @@ var valueFuncKw =
         "pt-BR": "Variável Global",
         "zh-CN": "全局变量"
     },
-    {
-        "opy": "_&hasSpawned",
+    "_&hasSpawned": {
         "description": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet.",
         "args": [
             {
                 "name": "ENTITY",
                 "description": "The player, icon entity, or effect entity whose presence in world to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1211,20 +1149,19 @@ var valueFuncKw =
         "pt-BR": "Surgiu",
         "zh-CN": "已重生"
     },
-    {
-        "opy": "_&hasStatusEffect",
+    "_&hasStatusEffect": {
         "description": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "STATUS",
                 "description": "The status to check for.",
-                "type": "STATUS",
+                "type": "Status",
                 "default": "HACKED"
             }
         ],
@@ -1236,8 +1173,7 @@ var valueFuncKw =
         "pt-BR": "Tem Status",
         "zh-CN": "具有状态"
     },
-    {
-        "opy": "healee",
+    "healee": {
         "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
         "args": null,
         "en-US": "Healee",
@@ -1249,9 +1185,8 @@ var valueFuncKw =
         "pt-BR": "Curado",
         "zh-CN": "受治疗者"
     },
-    {
+    "healer": {
         "guid": "00000000CC1A",
-        "opy": "healer",
         "description": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player.",
         "args": null,
         "en-US": "Healer",
@@ -1262,15 +1197,14 @@ var valueFuncKw =
         "pt-BR": "Curandeiro",
         "zh-CN": "治疗者"
     },
-    {
+    "_&getHealth": {
         "guid": "0000000081C2",
-        "opy": "_&getHealth",
         "description": "The current health of a player, including armor and shields.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose health to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1281,14 +1215,13 @@ var valueFuncKw =
         "pt-BR": "Vida",
         "zh-CN": "生命值"
     },
-    {
-        "opy": "_&getNormalizedHealth",
+    "_&getNormalizedHealth": {
         "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose normalized health to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1300,15 +1233,14 @@ var valueFuncKw =
         "pt-BR": "Vida Normalizada",
         "zh-CN": "标准化生命值"
     },
-    {
+    "_hero": {
         "guid": "00000000BA5C",
-        "opy": "_hero",
         "description": "A hero constant.",
         "args": [
             {
                 "name": "HERO",
                 "description": "A hero constant.",
-                "type": "HERO CONSTANT",
+                "type": "Hero",
                 "default": "ANA"
             }
         ],
@@ -1319,14 +1251,13 @@ var valueFuncKw =
         "pt-BR": "Herói",
         "zh-CN": "英雄"
     },
-    {
-        "opy": "heroIcon",
+    "heroIcon": {
         "description": "Converts a hero parameter into a string that shows up as an icon.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The hero that will be converted to an icon.",
-                "type": "HERO",
+                "type": "HeroValue",
                 "default": "HERO"
             }
         ],
@@ -1338,14 +1269,13 @@ var valueFuncKw =
         "pt-BR": "String de Ícone de Herói",
         "zh-CN": "英雄图标字符串"
     },
-    {
-        "opy": "_&getCurrentHero",
+    "_&getCurrentHero": {
         "description": "The current hero of a player.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose hero to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1357,14 +1287,13 @@ var valueFuncKw =
         "pt-BR": "Herói de",
         "zh-CN": "所用英雄"
     },
-    {
-        "opy": "horizontalAngleFromDirection",
+    "horizontalAngleFromDirection": {
         "description": "The horizontal angle in degrees corresponding to the specified direction vector.",
         "args": [
             {
                 "name": "DIRECTION",
                 "description": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             }
         ],
@@ -1376,20 +1305,19 @@ var valueFuncKw =
         "pt-BR": "Ângulo Horizontal a partir da Direção",
         "zh-CN": "与此方向的水平角度"
     },
-    {
-        "opy": "horizontalAngleTowards",
+    "horizontalAngleTowards": {
         "description": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player from whose current facing the angle begins.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "POSITION",
                 "description": "The position in the world where the angle ends.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             }
         ],
@@ -1401,15 +1329,14 @@ var valueFuncKw =
         "pt-BR": "Ângulo Horizontal Rumo a",
         "zh-CN": "水平方向夹角"
     },
-    {
+    "_gamemode": {
         "guid": "00000000F161",
-        "opy": "_gamemode",
         "description": "A game mode constant.",
         "args": [
             {
                 "name": "GAME MODE",
                 "description": "A game mode constant.",
-                "type": "GAMEMODE CONSTANT",
+                "type": "Gamemode",
                 "default": "ASSAULT"
             }
         ],
@@ -1423,14 +1350,13 @@ var valueFuncKw =
         "ru-RU": "Игровой режим",
         "zh-CN": "比赛模式"
     },
-    {
-        "opy": "_&getHorizontalFacingAngle",
+    "_&getHorizontalFacingAngle": {
         "description": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180).",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose horizontal facing angle to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1442,14 +1368,13 @@ var valueFuncKw =
         "pt-BR": "Ângulo Horizontal Frontal de",
         "zh-CN": "水平朝向角度"
     },
-    {
-        "opy": "_&getHorizontalSpeed",
+    "_&getHorizontalSpeed": {
         "description": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose horizontal speed to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1461,8 +1386,7 @@ var valueFuncKw =
         "pt-BR": "Velocidade Horizontal de",
         "zh-CN": "水平速度"
     },
-    {
-        "opy": "hostPlayer",
+    "hostPlayer": {
         "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
         "args": null,
         "en-US": "Host Player",
@@ -1474,14 +1398,13 @@ var valueFuncKw =
         "pt-BR": "Jogador Anfitrião",
         "zh-CN": "主机玩家"
     },
-    {
-        "opy": "iconString",
+    "iconString": {
         "description": "Allows you to use an icon inside of a string.",
         "args": [
             {
                 "name": "Icon",
                 "description": "The icon to display.",
-                "type": "ICON",
+                "type": "Icon",
                 "default": "ARROW: DOWN"
             }
         ],
@@ -1495,20 +1418,19 @@ var valueFuncKw =
         "pt-BR": "String de Ícone",
         "zh-CN": "图标字符串"
     },
-    {
-        "opy": "_indexOfArrayValue",
+    "_indexOfArrayValue": {
         "description": "The index of a value within an array or -1 if no such value can be found.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array in which to search for the specified value.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "VALUE",
                 "description": "The value for which to search.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -1520,14 +1442,13 @@ var valueFuncKw =
         "pt-BR": "Índice do Valor da Matriz",
         "zh-CN": "数组值的索引"
     },
-    {
-        "opy": "_&isAlive",
+    "_&isAlive": {
         "description": "Whether a player is alive.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose life to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1539,8 +1460,7 @@ var valueFuncKw =
         "pt-BR": "É Vivo",
         "zh-CN": "存活"
     },
-    {
-        "opy": "isAssemblingHeroes",
+    "isAssemblingHeroes": {
         "description": "Whether the match is currently in its assemble heroes phase.",
         "args": [],
         "en-US": "Is Assembling Heroes",
@@ -1551,8 +1471,7 @@ var valueFuncKw =
         "pt-BR": "É Escolher Heróis",
         "zh-CN": "正在集结英雄"
     },
-    {
-        "opy": "isMatchBetweenRounds",
+    "isMatchBetweenRounds": {
         "description": "Whether the match is between rounds.",
         "args": [],
         "en-US": "Is Between Rounds",
@@ -1563,20 +1482,19 @@ var valueFuncKw =
         "pt-BR": "É Entre Rodadas",
         "zh-CN": "处于回合之间"
     },
-    {
-        "opy": "_&isHoldingButton",
+    "_&isHoldingButton": {
         "description": "Whether a player is holding a specific button.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose button to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "BUTTON",
                 "description": "The button to check.",
-                "type": "BUTTON",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -1588,20 +1506,19 @@ var valueFuncKw =
         "pt-BR": "É Botão Segurado",
         "zh-CN": "按钮被按下"
     },
-    {
-        "opy": "_&isCommunicating",
+    "_&isCommunicating": {
         "description": "Whether a player is using a specific communication type (such as emoting, using a voice line, etc.).",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose communication status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TYPE",
                 "description": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds.",
-                "type": "COMMUNICATE",
+                "type": "Comms",
                 "default": "VOICE LINE UP"
             }
         ],
@@ -1613,14 +1530,13 @@ var valueFuncKw =
         "pt-BR": "É Comunicando",
         "zh-CN": "正在交流"
     },
-    {
-        "opy": "_&isCommunicatingAnything",
+    "_&isCommunicatingAnything": {
         "description": "Whether a player is using any communication type (such as emoting, using a voice line, etc.).",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose communication status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1632,14 +1548,13 @@ var valueFuncKw =
         "pt-BR": "É Comunicando Qualquer",
         "zh-CN": "正在与人交流"
     },
-    {
-        "opy": "_&isCommunicatingEmote",
+    "_&isCommunicatingEmote": {
         "description": "Whether a player is using an emote.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose emoting status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1651,14 +1566,13 @@ var valueFuncKw =
         "pt-BR": "É Comunicando Qualquer Emote",
         "zh-CN": "正在使用表情交流"
     },
-    {
-        "opy": "_&isCommunicatingVoiceline",
+    "_&isCommunicatingVoiceline": {
         "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose voice line status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1670,8 +1584,7 @@ var valueFuncKw =
         "pt-BR": "É Comunicando Qualquer Fala",
         "zh-CN": "正在使用语音交流"
     },
-    {
-        "opy": "isControlPointLocked",
+    "isControlPointLocked": {
         "description": "Whether the point is locked in control mode.",
         "args": [],
         "en-US": "Is Control Mode Point Locked",
@@ -1682,14 +1595,13 @@ var valueFuncKw =
         "pt-BR": "É Ponto Bloqueado do Modo de Controle",
         "zh-CN": "占领要点模式占领点解锁"
     },
-    {
-        "opy": "_&isCrouching",
+    "_&isCrouching": {
         "description": "Whether a player is crouching.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose crouching status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1701,8 +1613,7 @@ var valueFuncKw =
         "pt-BR": "É Agachado",
         "zh-CN": "正在蹲下"
     },
-    {
-        "opy": "isInSuddenDeath",
+    "isInSuddenDeath": {
         "description": "Whether the current game of capture the flag is in sudden death.",
         "args": [],
         "en-US": "Is CTF Mode In Sudden Death",
@@ -1713,14 +1624,13 @@ var valueFuncKw =
         "pt-BR": "É Modo CaB em Morte Súbita",
         "zh-CN": "在夺旗模式中开始绝杀局"
     },
-    {
-        "opy": "_&isDead",
+    "_&isDead": {
         "description": "Whether a player is dead.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose death to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1732,14 +1642,13 @@ var valueFuncKw =
         "pt-BR": "É Morto",
         "zh-CN": "死亡"
     },
-    {
-        "opy": "_&isDummy",
+    "_&isDummy": {
         "description": "Whether a player is a dummy bot.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "Player to consider.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1752,14 +1661,13 @@ var valueFuncKw =
         "pt-BR": "É Bot",
         "zh-CN": "是否是机器人"
     },
-    {
-        "opy": "_&isFiringPrimaryFire",
+    "_&isFiringPrimaryFire": {
         "description": "Whether the specified player's primary weapon attack is being used.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose primary weapon attack usage to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1771,14 +1679,13 @@ var valueFuncKw =
         "pt-BR": "É Disparo Primário",
         "zh-CN": "正在使用主要武器"
     },
-    {
-        "opy": "_&isFiringSecondaryFire",
+    "_&isFiringSecondaryFire": {
         "description": "Whether the specified player's secondary weapon attack is being used.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose secondary weapon attack usage to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1790,14 +1697,13 @@ var valueFuncKw =
         "pt-BR": "É Disparo Secundário",
         "zh-CN": "正在使用辅助武器"
     },
-    {
-        "opy": "isFlagAtBase",
+    "isFlagAtBase": {
         "description": "Whether a specific team's flag is at its base in capture the flag.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team whose flag to check.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -1809,14 +1715,13 @@ var valueFuncKw =
         "pt-BR": "É Bandeira na Base",
         "zh-CN": "旗帜是否在基地中"
     },
-    {
-        "opy": "isFlagBeingCarried",
+    "isFlagBeingCarried": {
         "description": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team whose flag to check.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -1828,8 +1733,7 @@ var valueFuncKw =
         "pt-BR": "É Bandeira Sendo Carregada",
         "zh-CN": "是否有人携带旗帜"
     },
-    {
-        "opy": "isGameInProgress",
+    "isGameInProgress": {
         "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
         "args": [],
         "en-US": "Is Game In Progress",
@@ -1840,20 +1744,19 @@ var valueFuncKw =
         "pt-BR": "É Jogo em Andamento",
         "zh-CN": "游戏正在进行中"
     },
-    {
-        "opy": "teamHasHero",
+    "teamHasHero": {
         "description": "Whether a specific hero is being played (either on a team or in the match).",
         "args": [
             {
                 "name": "HERO",
                 "description": "The hero to check for play.",
-                "type": "HERO",
+                "type": "HeroValue",
                 "default": "HERO"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to check for the hero being played.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -1865,14 +1768,13 @@ var valueFuncKw =
         "pt-BR": "É o Herói em Jogo",
         "zh-CN": "正在使用英雄"
     },
-    {
-        "opy": "_&isInAir",
+    "_&isInAir": {
         "description": "Whether a player is airborne.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose airborne status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1884,26 +1786,25 @@ var valueFuncKw =
         "pt-BR": "É no Ar",
         "zh-CN": "正在空中"
     },
-    {
-        "opy": "_isInLineOfSight",
+    "_isInLineOfSight": {
         "description": "Whether two positions have line of sight with each other.",
         "args": [
             {
                 "name": "START POS",
                 "description": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "BARRIERS",
                 "description": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used.",
-                "type": "BARRIERS LOS",
+                "type": "BarrierLos",
                 "default": "BARRIERS DO NOT BLOCK LOS"
             }
         ],
@@ -1915,8 +1816,7 @@ var valueFuncKw =
         "pt-BR": "É Na Linha de Visão",
         "zh-CN": "在视线内"
     },
-    {
-        "opy": "isInSetup",
+    "isInSetup": {
         "description": "Whether the match is currently in its setup phase.",
         "args": [],
         "en-US": "Is In Setup",
@@ -1927,14 +1827,13 @@ var valueFuncKw =
         "pt-BR": "É em Organização",
         "zh-CN": "正在设置"
     },
-    {
-        "opy": "_&isInSpawnRoom",
+    "_&isInSpawnRoom": {
         "description": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes).",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose spawn room status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1946,26 +1845,25 @@ var valueFuncKw =
         "pt-BR": "É Na Sala de Ressurgimento",
         "zh-CN": "在重生室中"
     },
-    {
-        "opy": "_&isInViewAngle",
+    "_&isInViewAngle": {
         "description": "Whether a location is within view of a player.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose view to use for the check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "LOCATION",
                 "description": "The location to test if it's within view.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "VIEW ANGLE",
                 "description": "The view angle to compare against in degrees.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -1977,8 +1875,7 @@ var valueFuncKw =
         "pt-BR": "É No Ângulo de Visão",
         "zh-CN": "在视野内"
     },
-    {
-        "opy": "isMatchComplete",
+    "isMatchComplete": {
         "description": "Whether the match has finished.",
         "args": [],
         "en-US": "Is Match Complete",
@@ -1989,14 +1886,13 @@ var valueFuncKw =
         "pt-BR": "É Partida Concluída",
         "zh-CN": "比赛结束"
     },
-    {
-        "opy": "_&isMoving",
+    "_&isMoving": {
         "description": "Whether a player is moving (defined as having a nonzero current speed).",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose moving status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2008,14 +1904,13 @@ var valueFuncKw =
         "pt-BR": "É Movimentando-se",
         "zh-CN": "正在移动"
     },
-    {
-        "opy": "isObjectiveComplete",
+    "isObjectiveComplete": {
         "description": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or assault/escort.",
         "args": [
             {
                 "name": "NUMBER",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2027,14 +1922,13 @@ var valueFuncKw =
         "pt-BR": "É Objetivo Concluído",
         "zh-CN": "目标是否完成"
     },
-    {
-        "opy": "_&isOnGround",
+    "_&isOnGround": {
         "description": "Whether a player is on the ground (or other walkable surface).",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose ground status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2046,14 +1940,13 @@ var valueFuncKw =
         "pt-BR": "É No Chão",
         "zh-CN": "在地面上"
     },
-    {
-        "opy": "_&isOnObjective",
+    "_&isOnObjective": {
         "description": "Whether a specific player is currently occupying a payload or capture point.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose objective status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2065,14 +1958,13 @@ var valueFuncKw =
         "pt-BR": "É No Objetivo",
         "zh-CN": "在目标点上"
     },
-    {
-        "opy": "_&isOnWall",
+    "_&isOnWall": {
         "description": "Whether a player is on a wall (climbing or riding).",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose wall status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2084,14 +1976,13 @@ var valueFuncKw =
         "pt-BR": "É Na Parede",
         "zh-CN": "在墙上"
     },
-    {
-        "opy": "_&isOnFire",
+    "_&isOnFire": {
         "description": "Whether a specific player's portrait is on fire.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose portrait to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2103,14 +1994,13 @@ var valueFuncKw =
         "pt-BR": "É Retrato Em Chamas",
         "zh-CN": "头像火力全开"
     },
-    {
-        "opy": "_&isStanding",
+    "_&isStanding": {
         "description": "Whether a player is standing (defined as both not moving and not in the air).",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose standing status to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2122,14 +2012,13 @@ var valueFuncKw =
         "pt-BR": "É Parado",
         "zh-CN": "正在站立"
     },
-    {
-        "opy": "isTeamOnDefense",
+    "isTeamOnDefense": {
         "description": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or assault/escort.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team whose role to check.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -2141,14 +2030,13 @@ var valueFuncKw =
         "pt-BR": "É Equipe na Defensa",
         "zh-CN": "正在防守"
     },
-    {
-        "opy": "isTeamOnOffense",
+    "isTeamOnOffense": {
         "description": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or assault/escort.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team whose role to check.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -2160,20 +2048,19 @@ var valueFuncKw =
         "pt-BR": "É Equipe no Ataque",
         "zh-CN": "作为进攻队伍"
     },
-    {
-        "opy": "_all",
+    "_all": {
         "description": "Whether the specified condition evaluates to true for every value in the specified array.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose values will be considered.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "GLOBAL VARIABLE"
             },
             {
                 "name": "CONDITION",
                 "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "COMPARE"
             }
         ],
@@ -2185,20 +2072,19 @@ var valueFuncKw =
         "pt-BR": "É Verdadeiro para Todos",
         "zh-CN": "对全部为”真“"
     },
-    {
-        "opy": "_any",
+    "_any": {
         "description": "Whether the specified condition evaluates to true for any value in the specified array.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose values will be considered.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "GLOBAL VARIABLE"
             },
             {
                 "name": "CONDITION",
                 "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "COMPARE"
             }
         ],
@@ -2210,14 +2096,13 @@ var valueFuncKw =
         "pt-BR": "É Verdadeiro para Qualquer",
         "zh-CN": "对任意为”真“"
     },
-    {
-        "opy": "_&isUsingAbility1",
+    "_&isUsingAbility1": {
         "description": "Whether the specified player is using ability 1.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose ability 1 usage to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2229,14 +2114,13 @@ var valueFuncKw =
         "pt-BR": "É Usando Habilidade 1",
         "zh-CN": "正在使用技能 1"
     },
-    {
-        "opy": "_&isUsingAbility2",
+    "_&isUsingAbility2": {
         "description": "Whether the specified player is using ability 2.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose ability 2 usage to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2248,14 +2132,13 @@ var valueFuncKw =
         "pt-BR": "É Usando Habilidade 2",
         "zh-CN": "正在使用技能 2"
     },
-    {
-        "opy": "_&isUsingUltimate",
+    "_&isUsingUltimate": {
         "description": "Whether a player is using an ultimate ability.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose ultimate ability usage to check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2267,8 +2150,7 @@ var valueFuncKw =
         "pt-BR": "É Usando Suprema",
         "zh-CN": "正在使用终极技能"
     },
-    {
-        "opy": "isWaitingForPlayers",
+    "isWaitingForPlayers": {
         "description": "Whether the match is waiting for players to join before starting.",
         "args": [],
         "en-US": "Is Waiting For Players",
@@ -2279,8 +2161,7 @@ var valueFuncKw =
         "pt-BR": "É Aguardando Jogadores",
         "zh-CN": "正在等待玩家"
     },
-    {
-        "opy": "getLastCreatedEntity",
+    "getLastCreatedEntity": {
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": [],
         "en-US": "Last Created Entity",
@@ -2291,8 +2172,7 @@ var valueFuncKw =
         "pt-BR": "Entidade Criada por Último",
         "zh-CN": "最后创建的实体"
     },
-    {
-        "opy": "getLastDamageModification",
+    "getLastDamageModification": {
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
         "args": [],
         "en-US": "Last Damage Modification ID",
@@ -2303,8 +2183,7 @@ var valueFuncKw =
         "pt-BR": "ID de Modificação de Dano Mais Recente",
         "zh-CN": "上一个伤害调整ID"
     },
-    {
-        "opy": "getLastDoT",
+    "getLastDoT": {
         "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
         "args": [],
         "en-US": "Last Damage Over Time ID",
@@ -2315,8 +2194,7 @@ var valueFuncKw =
         "pt-BR": "ID de Dano ao Longo do Tempo Mais Recente",
         "zh-CN": "上一个持续伤害效果ID"
     },
-    {
-        "opy": "getLastHoT",
+    "getLastHoT": {
         "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
         "args": [],
         "en-US": "Last Heal Over Time ID",
@@ -2327,20 +2205,18 @@ var valueFuncKw =
         "pt-BR": "ID de Cura ao Longo do Tempo Mais Recente",
         "zh-CN": "上一个持续治疗效果ID"
     },
-    {
-        "opy": "getLastHealingModification",
+    "getLastHealingModification": {
         "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
         "args": [],
-        "en-US": "Last Healing Modification ID",
+        "en-US": "Last Healing Modification ID"
     },
-    {
-        "opy": "_lastOf",
+    "_lastOf": {
         "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array from which the value is acquired.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "GLOBAL VARIABLE"
             }
         ],
@@ -2352,8 +2228,7 @@ var valueFuncKw =
         "pt-BR": "Último de",
         "zh-CN": "最后"
     },
-    {
-        "opy": "getLastCreatedText",
+    "getLastCreatedText": {
         "description": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action.",
         "args": [],
         "en-US": "Last Text ID",
@@ -2364,9 +2239,8 @@ var valueFuncKw =
         "pt-BR": "ID de Texto Mais Recente",
         "zh-CN": "上一个文本ID"
     },
-    {
+    "Vector.LEFT": {
         "guid": "00000000B116",
-        "opy": "Vector.LEFT",
         "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
         "args": null,
         "en-US": "Left",
@@ -2376,26 +2250,25 @@ var valueFuncKw =
         "pt-BR": "Esquerda",
         "zh-CN": "左"
     },
-    {
-        "opy": "localVector",
+    "localVector": {
         "description": "The vector in local coordinates corresponding to the provided vector in world coordinates.",
         "args": [
             {
                 "name": "WORLD VECTOR",
                 "description": "The vector in world coordinates that will be converted to local coordinates.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "RELATIVE PLAYER",
                 "description": "The player to whom the resulting vector will be relative.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TRANSFORMATION",
                 "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
-                "type": "TRANSFORMATION",
+                "type": "Transform",
                 "default": "ROTATION"
             }
         ],
@@ -2407,15 +2280,14 @@ var valueFuncKw =
         "pt-BR": "Vetor Local de",
         "zh-CN": "本地矢量"
     },
-    {
+    "_map": {
         "guid": "00000000D411",
-        "opy": "_map",
         "description": "A map constant.",
         "args": [
             {
                 "name": "MAP",
                 "description": "A map constant.",
-                "type": "MAP CONSTANT",
+                "type": "Map",
                 "default": "AYUTTHAYA"
             }
         ],
@@ -2431,8 +2303,7 @@ var valueFuncKw =
         "zh-CN": "地图",
         "zh-TW": "地圖"
     },
-    {
-        "opy": "getMatchRound",
+    "getMatchRound": {
         "description": "The current round of the match, counting up from 1.",
         "args": [],
         "en-US": "Match Round",
@@ -2443,8 +2314,7 @@ var valueFuncKw =
         "pt-BR": "Rodada da Partida",
         "zh-CN": "比赛回合"
     },
-    {
-        "opy": "getMatchTime",
+    "getMatchTime": {
         "description": "The amount of time in seconds remaining in the current game mode phase.",
         "args": [],
         "en-US": "Match Time",
@@ -2455,21 +2325,20 @@ var valueFuncKw =
         "pt-BR": "Tempo da Partida",
         "zh-CN": "比赛时间"
     },
-    {
+    "max": {
         "guid": "00000000C418",
-        "opy": "max",
         "description": "The greater of two numbers.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2480,14 +2349,13 @@ var valueFuncKw =
         "pt-BR": "Máx.",
         "zh-CN": "较大"
     },
-    {
-        "opy": "_&getMaxHealth",
+    "_&getMaxHealth": {
         "description": "The max health of a player, including armor and shields.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose max health to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2499,21 +2367,20 @@ var valueFuncKw =
         "pt-BR": "Vida Máxima",
         "zh-CN": "最大生命值"
     },
-    {
+    "min": {
         "guid": "00000000C416",
-        "opy": "min",
         "description": "The lesser of two numbers.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2524,21 +2391,20 @@ var valueFuncKw =
         "pt-BR": "Mín.",
         "zh-CN": "较小"
     },
-    {
+    "_modulo": {
         "guid": "00000000C410",
-        "opy": "_modulo",
         "description": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2548,21 +2414,20 @@ var valueFuncKw =
         "pt-BR": "Modular",
         "zh-CN": "余数"
     },
-    {
+    "_multiply": {
         "guid": "00000000C40D",
-        "opy": "_multiply",
         "description": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -2573,14 +2438,13 @@ var valueFuncKw =
         "pt-BR": "Multiplicar",
         "zh-CN": "乘"
     },
-    {
-        "opy": "nearestWalkablePosition",
+    "nearestWalkablePosition": {
         "description": "The position closest to the specified position that can be stood on and is accessible from a spawn point.",
         "args": [
             {
                 "name": "POSITION",
                 "description": "The position from which to search for the nearest walkable position.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             }
         ],
@@ -2592,14 +2456,13 @@ var valueFuncKw =
         "pt-BR": "Posição Transitável Mais Próxima",
         "zh-CN": "最近的可行走位置"
     },
-    {
-        "opy": "normalize",
+    "normalize": {
         "description": "The unit-length normalization of a vector.",
         "args": [
             {
                 "name": "VECTOR",
                 "description": "The vector to normalize.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             }
         ],
@@ -2611,15 +2474,14 @@ var valueFuncKw =
         "pt-BR": "Normalizar",
         "zh-CN": "归一化"
     },
-    {
+    "not": {
         "guid": "00000000B275",
-        "opy": "not",
         "description": "Whether the input is false (or equivalent to false).",
         "args": [
             {
                 "name": "VALUE",
                 "description": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -2630,8 +2492,7 @@ var valueFuncKw =
         "pt-BR": "Não",
         "zh-CN": "非"
     },
-    {
-        "opy": "null",
+    "null": {
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
         "args": null,
         "en-US": "Null",
@@ -2642,14 +2503,13 @@ var valueFuncKw =
         "pt-BR": "Nulo",
         "zh-CN": "无"
     },
-    {
-        "opy": "getNumberOfDeadPlayers",
+    "getNumberOfDeadPlayers": {
         "description": "The number of dead players on a team or in the match.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -2661,14 +2521,13 @@ var valueFuncKw =
         "pt-BR": "Número de Jogadores Mortos",
         "zh-CN": "死亡玩家数量"
     },
-    {
-        "opy": "_&getNumberOfDeaths",
+    "_&getNumberOfDeaths": {
         "description": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose death count to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2680,14 +2539,13 @@ var valueFuncKw =
         "pt-BR": "Número de Mortes",
         "zh-CN": "死亡数"
     },
-    {
-        "opy": "_&getNumberOfElims",
+    "_&getNumberOfElims": {
         "description": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose elimination count to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2699,14 +2557,13 @@ var valueFuncKw =
         "pt-BR": "Número de Eliminações",
         "zh-CN": "消灭数"
     },
-    {
-        "opy": "_&getNumberOfFinalBlows",
+    "_&getNumberOfFinalBlows": {
         "description": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose final blow count to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -2718,20 +2575,19 @@ var valueFuncKw =
         "pt-BR": "Número de Golpes Finais",
         "zh-CN": "最后一击数"
     },
-    {
-        "opy": "getNumberOfHeroes",
+    "getNumberOfHeroes": {
         "description": "The number of players playing a specific hero on a team or in the match.",
         "args": [
             {
                 "name": "HERO",
                 "description": "The hero to check for play.",
-                "type": "HERO",
+                "type": "HeroValue",
                 "default": "HERO"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to check for the hero being played.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -2743,14 +2599,13 @@ var valueFuncKw =
         "pt-BR": "Número de Heróis",
         "zh-CN": "英雄数量"
     },
-    {
-        "opy": "getNumberOfLivingPlayers",
+    "getNumberOfLivingPlayers": {
         "description": "The number of living players on a team or in the match.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -2762,14 +2617,13 @@ var valueFuncKw =
         "pt-BR": "Número de Jogadores Vivos",
         "zh-CN": "存活玩家数量"
     },
-    {
-        "opy": "getNumberOfPlayers",
+    "getNumberOfPlayers": {
         "description": "The number of players on a team or in the match.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -2781,14 +2635,13 @@ var valueFuncKw =
         "pt-BR": "Número de Jogadores",
         "zh-CN": "玩家数量"
     },
-    {
-        "opy": "getNumberOfPlayersOnObjective",
+    "getNumberOfPlayersOnObjective": {
         "description": "The number of players occupying a payload or control point (either on a team or in the match).",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -2800,8 +2653,7 @@ var valueFuncKw =
         "pt-BR": "Número de Jogadores no Objetivo",
         "zh-CN": "目标点上玩家数量"
     },
-    {
-        "opy": "getCurrentObjective",
+    "getCurrentObjective": {
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
         "args": [],
         "en-US": "Objective Index",
@@ -2812,14 +2664,13 @@ var valueFuncKw =
         "pt-BR": "Índice do Objetivo",
         "zh-CN": "对象索引"
     },
-    {
-        "opy": "getObjectivePosition",
+    "getObjectivePosition": {
         "description": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, assault/escort, escort, and control.",
         "args": [
             {
                 "name": "NUMBER",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -2831,14 +2682,13 @@ var valueFuncKw =
         "pt-BR": "Posição do Objetivo",
         "zh-CN": "目标位置"
     },
-    {
-        "opy": "getOppositeTeam",
+    "getOppositeTeam": {
         "description": "The team opposite the specified team.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team whose opposite to acquire. If all, the result will be all.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -2850,21 +2700,20 @@ var valueFuncKw =
         "pt-BR": "Equipe Adversária de",
         "zh-CN": "对方队伍"
     },
-    {
+    "_or": {
         "guid": "00000000B274",
-        "opy": "_or",
         "description": "Whether either of the two inputs are true (or equivalent to true).",
         "args": [
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             },
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -2875,8 +2724,7 @@ var valueFuncKw =
         "pt-BR": "Ou",
         "zh-CN": "或"
     },
-    {
-        "opy": "getPayloadPosition",
+    "getPayloadPosition": {
         "description": "The position in the world of the active payload.",
         "args": [],
         "en-US": "Payload Position",
@@ -2887,8 +2735,7 @@ var valueFuncKw =
         "pt-BR": "Posição da Carga",
         "zh-CN": "运载目标位置"
     },
-    {
-        "opy": "getPayloadProgressPercentage",
+    "getPayloadProgressPercentage": {
         "description": "The current progress towards the destination for the active payload (expressed as a percentage).",
         "args": [],
         "en-US": "Payload Progress Percentage",
@@ -2899,14 +2746,13 @@ var valueFuncKw =
         "pt-BR": "Percentual de Progresso da Carga",
         "zh-CN": "运载目标进度百分比"
     },
-    {
-        "opy": "getFlagCarrier",
+    "getFlagCarrier": {
         "description": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team whose flag to check.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -2918,20 +2764,19 @@ var valueFuncKw =
         "pt-BR": "Jogador Carregando a Bandeira",
         "zh-CN": "携带旗帜的玩家"
     },
-    {
-        "opy": "_&getPlayerClosestToReticle",
+    "_&getPlayerClosestToReticle": {
         "description": "The player closest to the reticle of the specified player, optionally restricted by team.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player from whose reticle to search for the closest player.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to search for the closest player.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -2943,20 +2788,19 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo da Mira",
         "zh-CN": "距离准星最近的玩家"
     },
-    {
-        "opy": "_playerVar",
+    "_playerVar": {
         "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable value to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "The variable whose value to acquire.",
-                "type": "VARIABLE",
+                "type": "Variable",
                 "default": "A"
             }
         ],
@@ -2968,20 +2812,19 @@ var valueFuncKw =
         "pt-BR": "Variável de Jogador",
         "zh-CN": "玩家变量"
     },
-    {
-        "opy": "getPlayersInSlot",
+    "getPlayersInSlot": {
         "description": "The player or array of players who occupy a specific slot in the game.",
         "args": [
             {
                 "name": "SLOT",
                 "description": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams from which to acquire a player or players.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -2993,26 +2836,25 @@ var valueFuncKw =
         "pt-BR": "Jogadores no Espaço",
         "zh-CN": "此位置的玩家"
     },
-    {
-        "opy": "_&getPlayersInViewAngle",
+    "_&getPlayersInViewAngle": {
         "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose view to use for the check.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to consider players.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             },
             {
                 "name": "VIEW ANGLE",
                 "description": "The view angle to compare against in degrees.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3024,20 +2866,19 @@ var valueFuncKw =
         "pt-BR": "Jogadores no Ângulo de Visão",
         "zh-CN": "视角中的玩家"
     },
-    {
-        "opy": "getPlayersOnHero",
+    "getPlayersOnHero": {
         "description": "The array of players playing a specific hero on a team or in the match.",
         "args": [
             {
                 "name": "HERO",
                 "description": "The hero to check for play.",
-                "type": "HERO",
+                "type": "HeroValue",
                 "default": "HERO"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to check for the hero being played.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -3049,32 +2890,31 @@ var valueFuncKw =
         "pt-BR": "Jogadores Usando o Herói",
         "zh-CN": "选择英雄的玩家"
     },
-    {
-        "opy": "getPlayersInRadius",
+    "getPlayersInRadius": {
         "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.",
         "args": [
             {
                 "name": "CENTER",
                 "description": "The center position from which to measure distance.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "RADIUS",
                 "description": "The radius in meters inside which players must be in order to be included in the resulting array.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams to which a player must belong to be included in the resulting array.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             },
             {
                 "name": "LOS CHECK",
                 "description": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array.",
-                "type": "LOS CHECK",
+                "type": "LosCheck",
                 "default": "OFF"
             }
         ],
@@ -3086,8 +2926,7 @@ var valueFuncKw =
         "pt-BR": "Jogadores no Raio",
         "zh-CN": "范围内玩家"
     },
-    {
-        "opy": "getCapturePercentage",
+    "getCapturePercentage": {
         "description": "The current progress towards capture for the active control point (expressed as a percentage).",
         "args": [],
         "en-US": "Point Capture Percentage",
@@ -3098,14 +2937,13 @@ var valueFuncKw =
         "pt-BR": "Percentual de Captura do Ponto",
         "zh-CN": "目标点占领百分比"
     },
-    {
-        "opy": "_&getPosition",
+    "_&getPosition": {
         "description": "The current position of a player as a vector.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose position to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3117,21 +2955,20 @@ var valueFuncKw =
         "pt-BR": "Posição de",
         "zh-CN": "所选位置"
     },
-    {
+    "_raiseToPower": {
         "guid": "00000000C414",
-        "opy": "_raiseToPower",
         "description": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3142,20 +2979,19 @@ var valueFuncKw =
         "pt-BR": "Elevar à Potência",
         "zh-CN": "乘方"
     },
-    {
-        "opy": "random.randint",
+    "random.randint": {
         "description": "A random integer between the specified min and max, inclusive.",
         "args": [
             {
                 "name": "MIN",
                 "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX",
                 "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3167,20 +3003,19 @@ var valueFuncKw =
         "pt-BR": "Inteiro Aleatório",
         "zh-CN": "随机整数"
     },
-    {
-        "opy": "random.uniform",
+    "random.uniform": {
         "description": "A random real number between the specified min and max.",
         "args": [
             {
                 "name": "MIN",
                 "description": "The smallest real number allowed.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX",
                 "description": "The largest real number allowed.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3192,14 +3027,13 @@ var valueFuncKw =
         "pt-BR": "Real Aleatório",
         "zh-CN": "随机实数"
     },
-    {
-        "opy": "random.choice",
+    "random.choice": {
         "description": "A random value from the specified array.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "GLOBAL VARIABLE"
             }
         ],
@@ -3211,14 +3045,13 @@ var valueFuncKw =
         "pt-BR": "Valor Aleatório na Matriz",
         "zh-CN": "数组随机取值"
     },
-    {
-        "opy": "random.shuffle",
+    "random.shuffle": {
         "description": "A copy of the specified array with the values in a random order.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose copy will be randomized.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "GLOBAL VARIABLE"
             }
         ],
@@ -3230,38 +3063,37 @@ var valueFuncKw =
         "pt-BR": "Matriz Randomizada",
         "zh-CN": "随机数组"
     },
-    {
-        "opy": "_getNormal",
+    "_getNormal": {
         "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
         "args": [
             {
                 "name": "START POS",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "PLAYERS TO INCLUDE",
                 "description": "Which players can be hit by this ray cast.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "INCLUDE PLAYER OWNED OBJECTS",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -3273,38 +3105,37 @@ var valueFuncKw =
         "pt-BR": "Normal de Acerto do Lançamento de Raio",
         "zh-CN": "射线命中法线"
     },
-    {
-        "opy": "_getPlayerHit",
+    "_getPlayerHit": {
         "description": "The player hit by the ray cast (or null if no player is hit).",
         "args": [
             {
                 "name": "START POS",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "PLAYERS TO INCLUDE",
                 "description": "Which players can be hit by this ray cast.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "INCLUDE PLAYER OWNED OBJECTS",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -3316,38 +3147,37 @@ var valueFuncKw =
         "pt-BR": "Jogador Atingido pelo Lançamento de Raio",
         "zh-CN": "射线命中玩家"
     },
-    {
-        "opy": "_getHitPosition",
+    "_getHitPosition": {
         "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
         "args": [
             {
                 "name": "START POS",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "PLAYERS TO INCLUDE",
                 "description": "Which players can be hit by this ray cast.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "INCLUDE PLAYER OWNED OBJECTS",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
-                "type": "BOOLEAN",
+                "type": "BooleanValue",
                 "default": "TRUE"
             }
         ],
@@ -3359,20 +3189,19 @@ var valueFuncKw =
         "pt-BR": "Posição de Acerto do Lançamento de Raio",
         "zh-CN": "射线命中位置"
     },
-    {
-        "opy": "_removeFromArray",
+    "_removeFromArray": {
         "description": "A copy of an array with one or more values removed (if found).",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array from which to remove values.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "VALUE",
                 "description": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -3384,9 +3213,8 @@ var valueFuncKw =
         "pt-BR": "Remover da Matriz",
         "zh-CN": "从数组中移除"
     },
-    {
+    "Vector.RIGHT": {
         "guid": "00000000B117",
-        "opy": "Vector.RIGHT",
         "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
         "args": null,
         "en-US": "Right",
@@ -3396,20 +3224,19 @@ var valueFuncKw =
         "pt-BR": "Direita",
         "zh-CN": "右"
     },
-    {
-        "opy": "_round",
+    "_round": {
         "description": "The integer to which the specified value rounds.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The real number to round.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "ROUNDING TYPE",
                 "description": "Determines the direction in which the value will be rounded.",
-                "type": "ROUNDING TYPE",
+                "type": "_Rounding",
                 "default": "UP"
             }
         ],
@@ -3421,14 +3248,13 @@ var valueFuncKw =
         "pt-BR": "Arredondar para Inteiro",
         "zh-CN": "取整"
     },
-    {
-        "opy": "_&getScore",
+    "_&getScore": {
         "description": "The current score of a player. Results in 0 if the game mode is not free-for-all.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose score to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3440,9 +3266,8 @@ var valueFuncKw =
         "pt-BR": "Pontuação de",
         "zh-CN": "分数"
     },
-    {
+    "getServerLoad": {
         "guid": "00000000C961",
-        "opy": "getServerLoad",
         "description": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
         "en-US": "Server Load",
@@ -3453,9 +3278,8 @@ var valueFuncKw =
         "pt-BR": "Uso do Servidor",
         "zh-CN": "服务器负载"
     },
-    {
+    "getAverageServerLoad": {
         "guid": "00000000C997",
-        "opy": "getAverageServerLoad",
         "description": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
         "en-US": "Server Load Average",
@@ -3466,9 +3290,8 @@ var valueFuncKw =
         "pt-BR": "Média de Uso do Servidor",
         "zh-CN": "服务器负载平均值"
     },
-    {
+    "getPeakServerLoad": {
         "guid": "00000000C996",
-        "opy": "getPeakServerLoad",
         "description": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
         "en-US": "Server Load Peak",
@@ -3479,14 +3302,13 @@ var valueFuncKw =
         "pt-BR": "Pico de Uso do Servidor",
         "zh-CN": "服务器负载峰值"
     },
-    {
-        "opy": "sinDeg",
+    "sinDeg": {
         "description": "Sine of the specified angle in degrees.",
         "args": [
             {
                 "name": "ANGLE",
                 "description": "Angle in degrees.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3498,14 +3320,13 @@ var valueFuncKw =
         "pt-BR": "Seno de Graus",
         "zh-CN": "角度的正弦值"
     },
-    {
-        "opy": "sin",
+    "sin": {
         "description": "Sine of the specified angle in radians.",
         "args": [
             {
                 "name": "ANGLE",
                 "description": "Angle in radians.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3517,14 +3338,13 @@ var valueFuncKw =
         "pt-BR": "Seno de Radianos",
         "zh-CN": "弧度的正弦值"
     },
-    {
-        "opy": "_&getSlot",
+    "_&getSlot": {
         "description": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose slot number to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3536,20 +3356,19 @@ var valueFuncKw =
         "pt-BR": "Espaço de",
         "zh-CN": "位置"
     },
-    {
-        "opy": "_sortedArray",
+    "_sortedArray": {
         "description": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose copy will be sorted.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "GLOBAL VARIABLE"
             },
             {
                 "name": "VALUE RANK",
                 "description": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "CURRENT ARRAY ELEMENT"
             }
         ],
@@ -3561,14 +3380,13 @@ var valueFuncKw =
         "pt-BR": "Matriz Ordenada",
         "zh-CN": "已排序的数组"
     },
-    {
-        "opy": "_&getSpeed",
+    "_&getSpeed": {
         "description": "The current speed of a player in meters per second.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose speed to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3580,20 +3398,19 @@ var valueFuncKw =
         "pt-BR": "Velocidade de",
         "zh-CN": "速度"
     },
-    {
-        "opy": "_&getSpeedInDirection",
+    "_&getSpeedInDirection": {
         "description": "The current speed of a player in a specific direction in meters per second.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose speed to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DIRECTION",
                 "description": "The direction of travel in which to measure the player's speed.",
-                "type": "DIRECTION",
+                "type": "Direction",
                 "default": "VECTOR"
             }
         ],
@@ -3605,14 +3422,13 @@ var valueFuncKw =
         "pt-BR": "Velocidade de na Direção",
         "zh-CN": "指定方向速度"
     },
-    {
-        "opy": "sqrt",
+    "sqrt": {
         "description": "The square root of the specified value.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The real number value whose square root will be computed. Negative values result in zero.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3624,33 +3440,32 @@ var valueFuncKw =
         "pt-BR": "Raiz Quadrada",
         "zh-CN": "平方根"
     },
-    {
+    "_localizedString": {
         "guid": "00000000BA60",
-        "opy": "_localizedString",
         "description": "Text formed from a selection of strings and specified values.",
         "args": [
             {
                 "name": "STRING",
                 "description": "",
-                "type": "STRING CONSTANT",
+                "type": "LocalizedString",
                 "default": "HELLO"
             },
             {
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NULL"
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NULL"
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NULL"
             }
         ],
@@ -3660,21 +3475,20 @@ var valueFuncKw =
         "ja-JP": "文字列",
         "zh-CN": "字符串"
     },
-    {
+    "_subtract": {
         "guid": "00000000C40A",
-        "opy": "_subtract",
         "description": "The difference between two numbers or vectors.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ],
@@ -3685,14 +3499,13 @@ var valueFuncKw =
         "pt-BR": "Subtrair",
         "zh-CN": "减"
     },
-    {
-        "opy": "tanDeg",
+    "tanDeg": {
         "description": "Tangent of the specified angle in degrees.",
         "args": [
             {
                 "name": "ANGLE",
                 "description": "Angle in degrees.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3704,14 +3517,13 @@ var valueFuncKw =
         "pt-BR": "Tangente de Graus",
         "zh-CN": "角度的正切值"
     },
-    {
-        "opy": "tan",
+    "tan": {
         "description": "Tangent of the specified angle in radians.",
         "args": [
             {
                 "name": "ANGLE",
                 "description": "Angle in radians.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3723,14 +3535,13 @@ var valueFuncKw =
         "pt-BR": "Tangente de Radianos",
         "zh-CN": "弧度的正切值"
     },
-    {
-        "opy": "_&getTeam",
+    "_&getTeam": {
         "description": "The team of a player. If the game mode is free-for-all, the team is considered to be all.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose team to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3742,15 +3553,14 @@ var valueFuncKw =
         "pt-BR": "Equipe de",
         "zh-CN": "所在队伍"
     },
-    {
+    "teamScore": {
         "guid": "00000000B353",
-        "opy": "teamScore",
         "description": "The current score for the specified team. Results in 0 in free-for-all game modes.",
         "args": [
             {
                 "name": "TEAM",
                 "description": "The team whose score to acquire.",
-                "type": "TEAM",
+                "type": "TeamValue",
                 "default": "TEAM"
             }
         ],
@@ -3761,14 +3571,13 @@ var valueFuncKw =
         "pt-BR": "Pontuação da Equipe",
         "zh-CN": "团队得分"
     },
-    {
-        "opy": "_&getThrottle",
+    "_&getThrottle": {
         "description": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward).",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose directional input to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3780,8 +3589,7 @@ var valueFuncKw =
         "pt-BR": "Aceleração de",
         "zh-CN": "阈值"
     },
-    {
-        "opy": "getTotalTimeElapsed",
+    "getTotalTimeElapsed": {
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
         "args": [],
         "en-US": "Total Time Elapsed",
@@ -3792,8 +3600,7 @@ var valueFuncKw =
         "pt-BR": "Tempo Total Decorrido",
         "zh-CN": "总计消耗时间"
     },
-    {
-        "opy": "true",
+    "true": {
         "description": "The boolean value of true.",
         "args": null,
         "en-US": "True",
@@ -3802,14 +3609,13 @@ var valueFuncKw =
         "fr-FR": "Vrai",
         "zh-CN": "真"
     },
-    {
-        "opy": "_&getUltCharge",
+    "_&getUltCharge": {
         "description": "The current ultimate ability charge percentage of a player.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose ultimate charge percentage to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3821,9 +3627,8 @@ var valueFuncKw =
         "pt-BR": "Percentual de Carga da Suprema",
         "zh-CN": "终极技能充能百分比"
     },
-    {
+    "Vector.UP": {
         "guid": "00000000B118",
-        "opy": "Vector.UP",
         "description": "Shorthand for the directional vector(0, l, 0), which points upward.",
         "args": null,
         "en-US": "Up",
@@ -3833,20 +3638,19 @@ var valueFuncKw =
         "pt-BR": "Cima",
         "zh-CN": "上"
     },
-    {
-        "opy": "_valueInArray",
+    "_valueInArray": {
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose element to acquire.",
-                "type": "ANY",
+                "type": "Any",
                 "default": "GLOBAL VARIABLE"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the element to acquire.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3858,27 +3662,26 @@ var valueFuncKw =
         "pt-BR": "Valor na Matriz",
         "zh-CN": "数组中的值"
     },
-    {
+    "vect": {
         "guid": "00000000B0F1",
-        "opy": "vect",
         "description": "A vector composed of three real numbers (x, y, z) where x is left, y is up, and z is forward. Vectors are used for position, direction, and velocity.",
         "args": [
             {
                 "name": "X",
                 "description": "The x value of the vector.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "Y",
                 "description": "The y value of the vector.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             },
             {
                 "name": "Z",
                 "description": "The z value of the vector.",
-                "type": "NUMBER",
+                "type": "Number",
                 "default": "NUMBER"
             }
         ],
@@ -3888,20 +3691,19 @@ var valueFuncKw =
         "pt-BR": "Vetor",
         "zh-CN": "矢量"
     },
-    {
-        "opy": "vectorTowards",
+    "vectorTowards": {
         "description": "The displacement vector from one position to another.",
         "args": [
             {
                 "name": "START POS",
                 "description": "The position from which the resulting displacement vector begins.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The position at which the resulting displacement vector ends.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             }
         ],
@@ -3913,14 +3715,13 @@ var valueFuncKw =
         "pt-BR": "Vetor Rumo a",
         "zh-CN": "向量"
     },
-    {
-        "opy": "_&getVelocity",
+    "_&getVelocity": {
         "description": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose velocity to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3932,14 +3733,13 @@ var valueFuncKw =
         "pt-BR": "Rapidez de",
         "zh-CN": "速率"
     },
-    {
-        "opy": "verticalAngleOfDirection",
+    "verticalAngleOfDirection": {
         "description": "The vertical angle in degrees corresponding to the specified direction vector.",
         "args": [
             {
                 "name": "DIRECTION",
                 "description": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             }
         ],
@@ -3951,20 +3751,19 @@ var valueFuncKw =
         "pt-BR": "Ângulo Vertical a partir da Direção",
         "zh-CN": "与此方向的垂直角度"
     },
-    {
-        "opy": "verticalAngleTowards",
+    "verticalAngleTowards": {
         "description": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player from whose current facing the angle begins.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "POSITION",
                 "description": "The position in the world where the angle ends.",
-                "type": "POSITION",
+                "type": "Location",
                 "default": "VECTOR"
             }
         ],
@@ -3976,14 +3775,13 @@ var valueFuncKw =
         "pt-BR": "Ângulo Vertical Rumo a",
         "zh-CN": "垂直方向夹角"
     },
-    {
-        "opy": "_&getVerticalFacingAngle",
+    "_&getVerticalFacingAngle": {
         "description": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose vertical facing angle to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3995,14 +3793,13 @@ var valueFuncKw =
         "pt-BR": "Ângulo Vertical Frontal de",
         "zh-CN": "垂直朝向角度"
     },
-    {
-        "opy": "_&getVerticalSpeed",
+    "_&getVerticalSpeed": {
         "description": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose vertical speed to acquire.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             }
         ],
@@ -4014,9 +3811,8 @@ var valueFuncKw =
         "pt-BR": "Velocidade Vertical de",
         "zh-CN": "垂直速度"
     },
-    {
+    "victim": {
         "guid": "00000000B330",
-        "opy": "victim",
         "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
         "args": null,
         "en-US": "Victim",
@@ -4026,26 +3822,25 @@ var valueFuncKw =
         "pt-BR": "Vítima",
         "zh-CN": "被攻击方"
     },
-    {
-        "opy": "worldVector",
+    "worldVector": {
         "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
         "args": [
             {
                 "name": "LOCAL VECTOR",
                 "description": "The vector in local coordinates that will be converted to world coordinates.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             },
             {
                 "name": "RELATIVE PLAYER",
                 "description": "The player to whom the local vector is relative.",
-                "type": "PLAYER",
+                "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TRANSFORMATION",
                 "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
-                "type": "TRANSFORMATION",
+                "type": "Transform",
                 "default": "ROTATION"
             }
         ],
@@ -4057,14 +3852,13 @@ var valueFuncKw =
         "pt-BR": "Vetor do Mundo de",
         "zh-CN": "地图矢量"
     },
-    {
-        "opy": "_xComponentOf",
+    "_xComponentOf": {
         "description": "The x component of the specified vector, usually representing a leftward amount.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The vector from which to acquire the x component.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             }
         ],
@@ -4076,14 +3870,13 @@ var valueFuncKw =
         "pt-BR": "Componente X de",
         "zh-CN": "X方向分量"
     },
-    {
-        "opy": "_yComponentOf",
+    "_yComponentOf": {
         "description": "The y component of the specified vector, usually representing an upward amount.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The vector from which to acquire the y component.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             }
         ],
@@ -4095,14 +3888,13 @@ var valueFuncKw =
         "pt-BR": "Componente Y de",
         "zh-CN": "Y方向分量"
     },
-    {
-        "opy": "_zComponentOf",
+    "_zComponentOf": {
         "description": "The z component of the specified vector, usually representing a forward amount.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The vector from which to acquire the z component.",
-                "type": "VECTOR",
+                "type": "Vector",
                 "default": "VECTOR"
             }
         ],
@@ -4114,28 +3906,5 @@ var valueFuncKw =
         "pt-BR": "Componente Z de",
         "zh-CN": "Z方向分量"
     }
-]
+}
 //end-json
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

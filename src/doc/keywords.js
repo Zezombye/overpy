@@ -17,16 +17,10 @@
 
 "use strict";
 
-//List of workshop "keywords" (conditions, values, actions).
-
-//OverPy keywords beginning with "_" aren't actually keywords; they signal to the parser that it isn't a simple keyword replacement.
-//For example, the "set global variable(var, value)" is replaced by "var = value".
-
-var ruleKw = 
+const ruleKw = 
 //begin-json
-[
-    {
-        "opy": "@Rule",
+{
+    "@Rule": {
         "en-US": "rule",
         "guid": "00000000C7B4",
         "de-DE": "regel",
@@ -39,8 +33,7 @@ var ruleKw =
         "zh-CN": "规则",
         "zh-TW": "規則"
     },
-    {
-        "opy": "@Event",
+    "@Event": {
         "en-US": "event",
         "guid": "00000000C7B5",
         "es-MX": "evento",
@@ -52,8 +45,7 @@ var ruleKw =
         "zh-CN": "事件",
         "zh-TW": "事件"
     },
-    {
-        "opy": "_conditions",
+    "_conditions": {
         "en-US": "conditions",
         "guid": "00000000C7B6",
         "de-DE": "bedingungen",
@@ -66,8 +58,7 @@ var ruleKw =
         "zh-CN": "条件",
         "zh-TW": "條件"
     },
-    {
-        "opy": "_actions",
+    "_actions": {
         "en-US": "actions",
         "guid": "00000000C7B7",
         "de-DE": "aktionen",
@@ -80,8 +71,7 @@ var ruleKw =
         "zh-CN": "动作",
         "zh-TW": "動作"
     },
-    {
-        "opy": "_disabled",
+    "_disabled": {
         "en-US": "disabled",
         "guid": "00000000C7B8",
         "de-DE": "deaktiviert",
@@ -94,12 +84,10 @@ var ruleKw =
         "zh-CN": "禁用",
         "zh-TW": "停用"
     },
-    {
-        "opy": "_enabled",
-        "en-US": "enabled",
+    "_enabled": {
+        "en-US": "enabled"
     },
-    {
-        "opy": "_variables",
+    "_variables": {
         "en-US": "variables",
         "guid": "00000000EB73",
         "de-DE": "Variablen",
@@ -110,8 +98,7 @@ var ruleKw =
         "zh-CN": "变量",
         "zh-TW": "變數"
     },
-    {
-        "opy": "_global",
+    "_global": {
         "en-US": "global",
         "guid": "00000000EB74",
         "fr-FR": "globale",
@@ -121,8 +108,7 @@ var ruleKw =
         "zh-CN": "全局",
         "zh-TW": "全域"
     },
-    {
-        "opy": "_player",
+    "_player": {
         "en-US": "player",
         "guid": "00000000EB75",
         "es-ES": "jugador",
@@ -135,8 +121,7 @@ var ruleKw =
         "zh-CN": "玩家",
         "zh-TW": "玩家"
     },
-    {
-        "opy": "_subroutines",
+    "_subroutines": {
         "en-US": "subroutines",
         "de-DE": "Subroutinen",
         "es-ES": "subrutinas",
@@ -146,17 +131,16 @@ var ruleKw =
         "ja-JP": "サブルーチン",
         "pl-PL": "podprogramy",
         "pt-BR": "sub-rotinas",
-        "zh-CN": "子程序",
-    },
-]
+        "zh-CN": "子程序"
+    }
+}
 //end-json
 
 //Event keywords
-var eventKw = 
+const eventKw = 
 //begin-json
-[
-    {
-        "opy": "global",
+{
+    "global": {
         "en-US": "Ongoing - Global",
         "guid": "000000007895",
         "es-MX": "En curso - Global",
@@ -165,8 +149,7 @@ var eventKw =
         "pt-BR": "Em andamento - Global",
         "zh-CN": "持续 - 全局"
     },
-    {
-        "opy": "eachPlayer",
+    "eachPlayer": {
         "en-US": "Ongoing - Each Player",
         "guid": "000000007897",
         "es-MX": "En curso - Cada jugador",
@@ -175,8 +158,7 @@ var eventKw =
         "pt-BR": "Em andamento - Cada Jogador",
         "zh-CN": "持续 - 每名玩家"
     },
-    {
-        "opy": "playerTookDamage",
+    "playerTookDamage": {
         "en-US": "Player Took Damage",
         "guid": "00000000B313",
         "es-MX": "El jugador recibió daño",
@@ -186,8 +168,7 @@ var eventKw =
         "ru-RU": "Player took damage",
         "zh-CN": "玩家受到伤害"
     },
-    {
-        "opy": "playerDealtDamage",
+    "playerDealtDamage": {
         "en-US": "Player Dealt Damage",
         "guid": "00000000B52D",
         "es-MX": "El jugador infligió daño",
@@ -197,8 +178,7 @@ var eventKw =
         "ru-RU": "Player dealt damage",
         "zh-CN": "玩家造成伤害"
     },
-    {
-        "opy": "playerDealtFinalBlow",
+    "playerDealtFinalBlow": {
         "en-US": "Player Dealt Final Blow",
         "guid": "0000000078F8",
         "es-MX": "El jugador asestó un golpe de gracia",
@@ -208,8 +188,7 @@ var eventKw =
         "ru-RU": "Player dealt final blow",
         "zh-CN": "玩家造成最后一击"
     },
-    {
-        "opy": "playerDied",
+    "playerDied": {
         "en-US": "Player Died",
         "guid": "00000000B314",
         "es-MX": "El jugador murió",
@@ -218,8 +197,7 @@ var eventKw =
         "pt-BR": "Jogador morreu",
         "zh-CN": "玩家阵亡"
     },
-    {
-        "opy": "playerEarnedElimination",
+    "playerEarnedElimination": {
         "en-US": "Player Earned Elimination",
         "guid": "0000000078F7",
         "es-MX": "El jugador obtuvo una eliminación",
@@ -229,8 +207,7 @@ var eventKw =
         "ru-RU": "Player earned elimination",
         "zh-CN": "玩家参与消灭"
     },
-    {
-        "opy": "playerDealtHealing",
+    "playerDealtHealing": {
         "en-US": "Player Dealt Healing",
         "guid": "00000000CC16",
         "es-MX": "El jugador realizó una sanación",
@@ -240,8 +217,7 @@ var eventKw =
         "pt-BR": "Jogador Realizou Cura",
         "zh-CN": "玩家造成治疗"
     },
-    {
-        "opy": "playerReceivedHealing",
+    "playerReceivedHealing": {
         "en-US": "Player Received Healing",
         "guid": "00000000CC17",
         "es-MX": "El jugador recibió una sanación",
@@ -251,8 +227,7 @@ var eventKw =
         "pt-BR": "Jogador Recebeu Cura",
         "zh-CN": "玩家受到治疗"
     },
-    {
-        "opy": "playerJoined",
+    "playerJoined": {
         "en-US": "Player Joined Match",
         "guid": "00000000CC18",
         "es-MX": "El jugador se unió a la partida",
@@ -262,8 +237,7 @@ var eventKw =
         "pt-BR": "Jogador Entrou na Partida",
         "zh-CN": "玩家加入比赛"
     },
-    {
-        "opy": "playerLeft",
+    "playerLeft": {
         "en-US": "Player Left Match",
         "guid": "00000000CC19",
         "es-MX": "El jugador abandonó la partida",
@@ -273,8 +247,7 @@ var eventKw =
         "pt-BR": "Jogador Saiu da Partida",
         "zh-CN": "玩家离开比赛"
     },
-    {
-        "opy": "_subroutine",
+    "_subroutine": {
         "en-US": "Subroutine",
         "es-ES": "Subrutina",
         "es-MX": "Subrutina",
@@ -284,28 +257,14 @@ var eventKw =
         "pt-BR": "Sub-rotina",
         "zh-CN": "子程序"
     }
-]
+}
 //end-json
 
-var eventTeamKw = 
+const eventTeamKw = 
 //begin-json
-[
-    {
-        "guid": "000000007804",
-        "opy": "all",
-        "en-US": "All",
-        "es-ES": "Todos",
-        "es-MX": "Todos",
-        "fr-FR": "Les deux",
-        "it-IT": "Tutti",
-        "ja-JP": "すべて",
-        "pl-PL": "Wszystkie",
-        "pt-BR": "Todas",
-        "zh-CN": "双方"
-    },
-    {
+{
+    "1": {
         "guid": "000000004672",
-        "opy": "1",
         "en-US": "Team 1",
         "es-ES": "Equipo 1",
         "es-MX": "Equipo 1",
@@ -319,9 +278,8 @@ var eventTeamKw =
         "zh-CN": "队伍1",
         "zh-TW": "隊伍1"
     },
-    {
+    "2": {
         "guid": "000000004673",
-        "opy": "2",
         "en-US": "Team 2",
         "es-ES": "Equipo 2",
         "es-MX": "Equipo 2",
@@ -334,45 +292,50 @@ var eventTeamKw =
         "ru-RU": "Команда 2",
         "zh-CN": "队伍2",
         "zh-TW": "隊伍2"
+    },
+    "all": {
+        "guid": "000000007804",
+        "en-US": "All",
+        "es-ES": "Todos",
+        "es-MX": "Todos",
+        "fr-FR": "Les deux",
+        "it-IT": "Tutti",
+        "ja-JP": "すべて",
+        "pl-PL": "Wszystkie",
+        "pt-BR": "Todas",
+        "zh-CN": "双方"
     }
-]
+}
 //end-json
 
-var eventSlotKw = Array(12).fill().map(x => (
-
+const slotKw = 
 //begin-json
-[
-    {
-        "guid": "00000000C231",
-        "en-US": "Slot %1$s",
-        "es-ES": "Ranura %1$s",
-        "es-MX": "Posición %1$s",
-        "fr-FR": "Emplacement %1$s",
-        "ja-JP": "スロット%1$s",
-        "pl-PL": "Miejsce %1$s",
-        "pt-BR": "Espaço %1$s",
-        "ru-RU": "Ячейка %1$s",
-        "zh-CN": "位置 %1$s"
-    }
-]
+{
+    "guid": "00000000C231",
+    "en-US": "Slot %1$s",
+    "es-ES": "Ranura %1$s",
+    "es-MX": "Posición %1$s",
+    "fr-FR": "Emplacement %1$s",
+    "ja-JP": "スロット%1$s",
+    "pl-PL": "Miejsce %1$s",
+    "pt-BR": "Espaço %1$s",
+    "ru-RU": "Ячейка %1$s",
+    "zh-CN": "位置 %1$s"
+}
 //end-json
-[0]));
-
-eventSlotKw.forEach((element, index) => {
-    element.opy = ""+index;
-    for (var key of Object.keys(element)) {
-        if (key.includes("-")) {
-            element[key] = element[key].replace("%1$s", index);
-        }
+const eventSlotKw = {}
+for (var i = 0; i < 12; i++) {
+    eventSlotKw[i] = Object.assign({}, slotKw)
+    for (var key of Object.keys(eventSlotKw[i])) {
+        eventSlotKw[i][key] = eventSlotKw[i][key].replace("%1$s", i);
     }
-});
+}
 
-var eventPlayerKw = 
+const eventPlayerKw = 
 //begin-json
-[
-    {
+{
+    "all": {
         "guid": "0000000077FE",
-        "opy": "all",
         "en-US": "All",
         "es-ES": "Todos",
         "es-MX": "Todos",
@@ -384,25 +347,18 @@ var eventPlayerKw =
         "ru-RU": "Все",
         "zh-CN": "全部"
     }
-]
+}
 //end-json
-.concat(eventSlotKw);
+Object.assign(eventPlayerKw, eventSlotKw, heroKw);
 
-var constantKw = [];
+var constantKw = {};
 for (var constant of Object.keys(constantValues)) {
-	constantKw = constantKw.concat(constantValues[constant].values);
+    for (var value of Object.keys(constantValues[constant])) {
+        constantKw[constant+"."+value] = constantValues[constant][value];
+    }
 }
 
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
-var valueKw = valueFuncKw.concat(constantKw);
+const valueKw = Object.assign({}, valueFuncKw, constantKw);
 
-var funcKw = actionKw.concat(valueFuncKw);
-
-
-
-
-
-
-
-
-
+const funcKw = Object.assign({}, actionKw, valueFuncKw);
