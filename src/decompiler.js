@@ -104,6 +104,10 @@ function decompileAllRules(content, language="en-US") {
 	
 }
 
+function decompileCustomGameSettings(content) {
+	
+}
+
 function decompileVarNames(content) {
 	content = content.split(":");
 	var isInGlobalVars = true;
@@ -249,13 +253,13 @@ function decompileRule(content) {
 				
 				//Parse the 3rd event instruction
 				//Detect if it is a slot or hero
-				var eventInst3 = topy(eventInst[2], eventPlayerKw.concat(getConstantKw("HERO CONSTANT")))
+				var eventInst3 = topy(eventInst[2], eventPlayerKw)
 				if (eventInst3 !== "all") {
 					if (isNumber(eventInst3)) {
 						result += "@Slot "+eventInst3+"\n";
 					} else {
 						//We assume it is a hero
-						result += "@Hero "+eventInst3.substring("HERO.".length).toLowerCase() + "\n";
+						result += "@Hero "+eventInst3.toLowerCase() + "\n";
 					}
 				}
 			}
@@ -809,7 +813,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Gamemode
 	if (name === "_gamemode") {
-		return decompile(args[0], getConstantKw("GAMEMODE CONSTANT"));
+		return "Gamemode."+decompile(args[0], constantValues["Gamemode"]);
 	}
 		
 	//Global variable
@@ -819,7 +823,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		
 	//Hero
 	if (name === "_hero") {
-		return decompile(args[0], getConstantKw("HERO CONSTANT"));
+		return "Hero."+decompile(args[0], constantValues["Hero"]);
 	}
 
 	//Hud text
@@ -829,7 +833,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		var subtext = decompile(args[3]);
 		var specVisibility = "";
 		if (args.length > 11) {
-			specVisibility = decompile(args[10], getConstantKw("SPECTATOR VISIBILITY"));
+			specVisibility = "SpecVisibility."+decompile(args[10], constantValues["SpecVisibility"]);
 			if (specVisibility === "SpecVisibility.DEFAULT") {
 				specVisibility = "";
 			} else {
@@ -838,25 +842,29 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		}
 		var funcName = "";
 		var texts = "";
+
+		var headerColor = "Color."+decompile(args[6], constantValues["Color"])
+		var subheaderColor = "Color."+decompile(args[7], constantValues["Color"])
+		var subtextColor = "Color."+decompile(args[8], constantValues["Color"])
 		var colors = "";
 		if (subheader === "null" && subtext === "null") {
 			funcName = "hudHeader";
 			texts = header;
-			colors = decompile(args[6]);
+			colors = headerColor;
 		} else if (header === "null" && subtext === "null") {
 			funcName = "hudSubheader";
 			texts = subheader;
-			colors = decompile(args[7]);
+			colors = subheaderColor;
 		} else if (subheader === "null" && subheader === "null") {
 			funcName = "hudSubtext";
 			texts = subtext;
-			colors = decompile(args[8]);
+			colors = subtextColor;
 		} else {
 			funcName = "hudText";
 			texts = header+", "+subheader+", "+subtext;
-			colors = decompile(args[6])+", "+decompile(args[7])+", "+decompile(args[8]);
+			colors = headerColor+", "+subheaderColor+", "+subtextColor;
 		}
-		return funcName+"("+decompile(args[0])+", "+texts+", "+decompile(args[4], getConstantKw("HUD LOCATION"))+", "+decompile(args[5])+", "+colors+", "+decompile(args[9])+specVisibility+")";
+		return funcName+"("+decompile(args[0])+", "+texts+", Position."+decompile(args[4], constantValues["Position"])+", "+decompile(args[5])+", "+colors+", "+decompile(args[9])+specVisibility+")";
 	}
 
 	//If
@@ -948,7 +956,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 
 	//Map
 	if (name === "_map") {
-		return decompile(args[0], getConstantKw("MAP CONSTANT"));
+		return "Map."+decompile(args[0], constantValues["Map"]);
 	}
 	
 	//Modify global var
@@ -1010,7 +1018,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	
 	//Round
 	if (name === "_round") {
-		var roundType = topy(args[1], getConstantKw("ROUNDING TYPE"));
+		var roundType = topy(args[1], constantValues["_Rounding"]);
 		if (roundType === "_roundUp") {
 			return "ceil("+decompile(args[0])+")";
 		} else if (roundType === "_roundDown") {
@@ -1218,7 +1226,7 @@ function decompileLocalizedString(content, arg1, arg2, arg3, strDepth) {
 			isInFormat = false;
 			
 		//Else, check if the argument is in the list of string keywords
-		} else if (stringKw.indexOf(decompiledArg[0]) > -1) {
+		} else if (decompiledArg[0] in stringKw) {
 			isInFormat = false;
 		}
 		
@@ -1290,7 +1298,7 @@ function decompileModifyVar(variable, operation, value, index) {
 	if (index !== undefined) {
 		variable += "["+index+"]";
 	}
-	operation = topy(operation, getConstantKw("OPERATION"));
+	operation = topy(operation, constantValues["_Operation"]);
 	if (operation === "_appendToArray") {
 		return variable+".append("+value+")";
 	} else if (operation === "_add") {

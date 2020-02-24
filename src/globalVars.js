@@ -197,12 +197,12 @@ const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "co
 
 //Names that cannot be used for subroutines.
 const reservedFuncNames = [];
-for (var func of actionKw.concat(specialFuncs)) {
-	if (!func.opy.startsWith("_")) {
-		if (func.opy.includes("(")) {
-			reservedFuncNames.push(func.opy.substring(0, func.opy.indexOf("(")));
+for (var func of Object.keys(actionKw).concat(Object.keys(specialFuncs))) {
+	if (!func.startsWith("_")) {
+		if (func.includes("(")) {
+			reservedFuncNames.push(func.substring(0, func.indexOf("(")));
 		} else {
-			reservedFuncNames.push(func.opy);
+			reservedFuncNames.push(func);
 		}
 	}
 }

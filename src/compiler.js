@@ -277,24 +277,36 @@ function compileRule(rule) {
 				}
 				
 			} else if (rule.lines[i].tokens[0].text === "@Team") {
+				if (rule.lines[i].tokens.length !== 2) {
+					error("Expected one token after @Team")
+				}
 				if (eventTeam) {
 					error("Event team is defined twice");
 				}
 				eventTeam = tows(rule.lines[i].tokens[1], eventTeamKw);
 				
 			} else if (rule.lines[i].tokens[0].text === "@Hero") {
+				if (rule.lines[i].tokens.length !== 2) {
+					error("Expected one token after @Hero")
+				}
 				if (eventPlayer) {
 					error("Event player (@Hero/@Slot) is defined twice");
 				}
-				eventPlayer = tows("Hero."+rule.lines[i].tokens[1].text.toUpperCase(), getConstantKw("HERO CONSTANT"));
+				eventPlayer = tows(rule.lines[i].tokens[1].text.toLowerCase(), heroKw);
 				
 			} else if (rule.lines[i].tokens[0].text === "@Slot") {
+				if (rule.lines[i].tokens.length !== 2) {
+					error("Expected one token after @Slot")
+				}
 				if (eventPlayer) {
 					error("Event player (@Hero/@Slot) is defined twice");
 				}
-				eventPlayer = tows(rule.lines[i].tokens[1].text, eventPlayerKw);
+				eventPlayer = tows(rule.lines[i].tokens[1].text, eventSlotKw);
 				
 			} else if (rule.lines[i].tokens[0].text === "@SuppressWarnings") {
+				if (rule.lines[i].tokens.length === 1) {
+					error("Expected at least one token after @SuppressWarnings")
+				}
 				for (var j = 1; j < rule.lines[i].tokens.length; j++) {
 					suppressedWarnings.push(rule.lines[i].tokens[j].text);
 				}
@@ -1628,7 +1640,7 @@ function parse(content, parseArgs={}) {
 	}
 	
 	if (name === "ceil") {
-		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundUp", getConstantKw("ROUNDING TYPE"))+")";
+		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundUp", constantValues["_Rounding"])+")";
 	}
 	
 	if (name === "chase") {
@@ -1666,7 +1678,7 @@ function parse(content, parseArgs={}) {
 
 	if (name === "debug") {
 		//probably the longest line of code in all this codebase
-		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("Team.ALL", getConstantKw("TEAM CONSTANT"))+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("Position.LEFT", getConstantKw("HUD LOCATION"))+", 0, "+tows("Color.ORANGE", getConstantKw("COLOR"))+", "+tows("Color.WHITE", getConstantKw("COLOR"))+", "+tows("Color.WHITE", getConstantKw("COLOR"))+", "+tows("HudReeval.VISIBILITY_AND_STRING", getConstantKw("HUD TEXT REEVALUATION"))+", "+tows("SpecVisibility.ALWAYS", getConstantKw("SPECTATOR VISIBILITY"))+")";
+		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("ALL", constantValues["Team"])+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("LEFT", constantValues["Position"])+", 0, "+tows("ORANGE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("VISIBILITY_AND_STRING", constantValues["Color"])+", "+tows("ALWAYS", constantValues["Color"])+")";
 	}
 
 	if (name === "__for__") {
@@ -1691,7 +1703,7 @@ function parse(content, parseArgs={}) {
 	}
 	
 	if (name === "floor") {
-		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", getConstantKw("ROUNDING TYPE"))+")";
+		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", constantValues["_Rounding"])+")";
 	}
 
 	if (name === "hudHeader" || name === "hudText" || name === "hudSubheader" || name === "hudSubtext") {
@@ -1740,7 +1752,7 @@ function parse(content, parseArgs={}) {
 	}
 
 	if (name === "getAllPlayers") {
-		return tows("getPlayers", valueFuncKw)+"("+tows("Team.ALL", getConstantKw("TEAM CONSTANT"))+")";
+		return tows("getPlayers", valueFuncKw)+"("+tows("ALL", constantValues["Team"])+")";
 	}
 
 	if (name === "getMapId") {
@@ -1764,7 +1776,7 @@ function parse(content, parseArgs={}) {
 		if (args.length !== 1) {
 			error("round() only takes one argument, you maybe meant to use ceil() or floor().");
 		} else {
-			return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundToNearest", getConstantKw("ROUNDING TYPE"))+")";
+			return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundToNearest", constantValues["_Rounding"])+")";
 		}
 	}
 	
@@ -1849,7 +1861,7 @@ function parse(content, parseArgs={}) {
 			result += parse(args[0])+", ";
 		}
 		if (args.length <= 1) {
-			result += tows("Wait.IGNORE_CONDITION", getConstantKw("WAIT BEHAVIOR"))
+			result += tows("IGNORE_CONDITION", constantValues["Wait"])
 		} else {
 			result += parse(args[1]);
 		}
@@ -1900,13 +1912,13 @@ function parseLocalizedString(content, formatArgs) {
 	debug("Parsing string '"+content+"'");
 	
 	//Test surround strings
-	for (var j = 0; j < surroundStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = surroundStrKw[j].opy.substring(0, surroundStrKw[j].opy.indexOf("{0}")).toLowerCase();
-		var token2 = surroundStrKw[j].opy.substring(surroundStrKw[j].opy.indexOf("{0}")+"{0}".length).toLowerCase();
+	for (var key of Object.keys(surroundStrKw)) {
+		var token1 = key.substring(0, key.indexOf("{0}")).toLowerCase();
+		var token2 = key.substring(key.indexOf("{0}")+"{0}".length).toLowerCase();
 		debug("Testing str match on '"+token1+"{0}"+token2+"'");
 		if (content[0] === token1 && content[content.length-1] === token2) {
 			hasMatchBeenFound = true;
-			matchStr = tows(surroundStrKw[j].opy, surroundStrKw);
+			matchStr = tows(key, surroundStrKw);
 			//Note: it is assumed all surround strings have a length of only 1 character for each side.
 			tokens.push(content.slice(1, content.length-1));
 			break;
@@ -1915,36 +1927,36 @@ function parseLocalizedString(content, formatArgs) {
 	}
 	
 	//Test ternary string
-	for (var j = 0; j < ternaryStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = ternaryStrKw[j].opy.substring("{0}".length, ternaryStrKw[j].opy.indexOf("{1}")).toLowerCase();
-		var token2 = ternaryStrKw[j].opy.substring(ternaryStrKw[j].opy.indexOf("{1}")+"{1}".length, ternaryStrKw[j].opy.indexOf("{2}")).toLowerCase();
+	for (var key of Object.keys(ternaryStrKw)) {
+		var token1 = key.substring("{0}".length, key.indexOf("{1}")).toLowerCase();
+		var token2 = key.substring(key.indexOf("{1}")+"{1}".length, key.indexOf("{2}")).toLowerCase();
 		tokens = splitStrTokens(content, token1, token2);
 		if (tokens.length === 3) {
 			hasMatchBeenFound = true;
-			matchStr = tows(ternaryStrKw[j].opy, ternaryStrKw);
+			matchStr = tows(key, ternaryStrKw);
 			break;
 		}
 		tokens = []
 	}
 	
 	//Test binary strings
-	for (var j = 0; j < binaryStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = binaryStrKw[j].opy.substring("{0}".length, binaryStrKw[j].opy.indexOf("{1}")).toLowerCase();
+	for (var key of Object.keys(binaryStrKw)) {
+		var token1 = key.substring("{0}".length, key.indexOf("{1}")).toLowerCase();
 		var tokens = splitStrTokens(content, token1);
 		if (tokens.length === 2) {
 			hasMatchBeenFound = true;
-			matchStr = tows(binaryStrKw[j].opy, binaryStrKw);
+			matchStr = tows(key, binaryStrKw);
 			break;
 		}
 		tokens = []
 	}
 	
 	//Test prefix strings
-	for (var j = 0; j < prefixStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = prefixStrKw[j].opy.substring(0, prefixStrKw[j].opy.indexOf("{0}")).toLowerCase();
+	for (var key of Object.keys(prefixStrKw)) {
+		var token1 = key.substring(0, key.indexOf("{0}")).toLowerCase();
 		if (content[0] === token1) {
 			hasMatchBeenFound = true;
-			matchStr = tows(prefixStrKw[j].opy, prefixStrKw);
+			matchStr = tows(key, prefixStrKw);
 			tokens.push(splitStrTokens(content, token1)[1]);
 			break;
 		}
@@ -1952,11 +1964,11 @@ function parseLocalizedString(content, formatArgs) {
 	}
 	
 	//Test postfix strings
-	for (var j = 0; j < postfixStrKw.length && !hasMatchBeenFound; j++) {
-		var token1 = postfixStrKw[j].opy.substring("{0}".length).toLowerCase();
+	for (var key of Object.keys(postfixStrKw)) {
+		var token1 = key.substring("{0}".length).toLowerCase();
 		if (content[content.length-1] === token1) {
 			hasMatchBeenFound = true;
-			matchStr = tows(postfixStrKw[j].opy, postfixStrKw);
+			matchStr = tows(key, postfixStrKw);
 			tokens.push(splitStrTokens(content, token1)[0]);
 			break;
 		}
@@ -1966,14 +1978,14 @@ function parseLocalizedString(content, formatArgs) {
 	
 	//Test normal strings
 	if (content.length === 1) {
-		for (var j = 0; j < normalStrKw.length && !hasMatchBeenFound; j++) {
-			var token1 = normalStrKw[j].opy.toLowerCase();
+		for (var key of Object.keys(normalStrKw)) {
+			var token1 = key.toLowerCase();
 			if (content[0] === token1) {
 				hasMatchBeenFound = true;
-				if (currentLanguage in normalStrKw[j]) {
-					matchStr = normalStrKw[j][currentLanguage];
+				if (currentLanguage in normalStrKw[key]) {
+					matchStr = normalStrKw[key][currentLanguage];
 				} else {
-					matchStr = normalStrKw[j]["en-US"];
+					matchStr = normalStrKw[key]["en-US"];
 				}
 				break;
 			}
@@ -1989,11 +2001,12 @@ function parseLocalizedString(content, formatArgs) {
 	//Test if no token (probably not a string)
 	if (tokens.length === 0 && !hasMatchBeenFound) {
 		if (content.length !== 1) {
+			console.log(content);
 			error("Parser broke I guess? (content = '"+JSON.stringify(content)+"')");
 		}
 		
 		if (content[0].startsWith("_h")) {
-			return tows("_hero", valueFuncKw)+"("+tows("Hero."+content[0].substring(2).toUpperCase(), getConstantKw("HERO CONSTANT"))+")";
+			return tows("_hero", valueFuncKw)+"("+tows(content[0].substring(2).toLowerCase(), heroKw)+")";
 		} else if (!isNaN(content[0])) {
 			return parse(content[0]);
 		} else if (content[0] === "{}") {
@@ -2050,7 +2063,7 @@ function parseMember(object, member, parseArgs={}) {
 			return tows("_zComponentOf", valueFuncKw)+"("+parse(object)+")";
 			
 		//Check enums
-		} else if (Object.values(constantValues).map(x => x.opy).indexOf(object[0].text) >= 0) {
+		} else if (Object.keys(constantValues).indexOf(object[0].text) >= 0) {
 			if (object[0].text === "Hero" && obfuscateRules) {
 				//Obfuscate heroes, eg Reaper -> getAllHeroes[0]
 				if (Math.random() < 0.5) {
@@ -2221,7 +2234,7 @@ function parseAssignment(variable, value, modify, modifyArg=null) {
 	}
 	
 	if (modify) {
-		result += tows(modifyArg, getConstantKw("OPERATION"))+", ";
+		result += tows(modifyArg, constantValues["_Operation"])+", ";
 	}
 	
 	result += parse(value)+")";

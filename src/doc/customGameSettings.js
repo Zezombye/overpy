@@ -15,8 +15,19 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var customGameSettingsSchema = 
+const customGameSettingsSchema = 
+//begin-json
 {
+    "main": {
+        "en-US": "main",
+        "values": {
+            "description": {
+                "en-US": "Description",
+                "values": "_string",
+                "maxBytes": 512,
+            }
+        }
+    },
     "lobby": {
         "en-US": "lobby",
         "values": {
@@ -1523,7 +1534,5 @@ var customGameSettingsSchema =
             }
         }
     },
-    "maps": {
-        "en-US": "maps",
-    }
 }
+//end-json
