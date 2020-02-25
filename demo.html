@@ -87,6 +87,7 @@ a {
 <script src="src/doc/gamemodes.js"></script>
 <script src="src/doc/constants.js"></script>
 <script src="src/doc/keywords.js"></script>
+<script src="src/doc/customGameSettings.js"></script>
 <script src="src/doc/opy/functions.js"></script>
 <script src="src/doc/opy/memberFunctions.js"></script>
 <script src="src/doc/opy/preprocessing.js"></script>
@@ -136,7 +137,16 @@ function demoCompile() {
 	var str = "";
     var language = document.getElementById("languageInput").value;
 	try {
-		str = compile(document.getElementById("overpy-textarea").value, language).result;
+		compilationResult = compile(document.getElementById("overpy-textarea").value, language);
+		str = compilationResult.result;
+		if (compilationResult.encounteredWarnings.length > 0) {
+			var strWarn = "/* Warnings were encountered:\n\n"
+			for (var warning of compilationResult.encounteredWarnings) {
+				strWarn += " - "+warning+"\n\n";
+			}
+			strWarn += "*/\n";
+			str = strWarn+str;
+		}
 	} catch (Error) {
 		console.log(Error);
 		str = "An error occurred. Press F12 (Firefox) or Ctrl+Shift+J (Chrome)";

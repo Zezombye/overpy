@@ -33,51 +33,48 @@ const customGameSettingsSchema =
         "values": {
             "mapRotation": {
                 "en-US": "Map Rotation",
-                "values": [
-                    {
-                        "opy": "afterMirrorMatch",
+                "values": {
+                    "afterMirrorMatch": {
                         "en-US": "After A Mirror Match",
-                        "default": true,
-                    },{
-                        "opy": "afterGame",
-                        "en-US": "After A Game",
-                    },{
-                        "opy": "paused",
-                        "en-US": "Paused",
+                        "default": true
+                    },
+                    "afterGame": {
+                        "en-US": "After A Game"
+                    },
+                    "paused": {
+                        "en-US": "Paused"
                     }
-                ]
+                }
             },
             "returnToLobby": {
                 "en-US": "Return To Lobby",
-                "values": [
-                    {
-                        "opy": "never",
+                "values": {
+                    "never": {
                         "en-US": "Never",
-                        "default": true,
-                    },{
-                        "opy": "afterGame",
-                        "en-US": "After A Game",
-                    },{
-                        "opy": "afterMirrorMatch",
-                        "en-US": "After A Mirror Match",
+                        "default": true
+                    },
+                    "afterGame": {
+                        "en-US": "After A Game"
+                    },
+                    "afterMirrorMatch": {
+                        "en-US": "After A Mirror Match"
                     }
-                ]
+                }
             },
             "teamBalancing": {
                 "en-US": "Team Balancing",
-                "values": [
-                    {
-                        "opy": "off",
+                "values": {
+                    "off": {
                         "en-US": "Off",
-                        "default": true,
-                    },{
-                        "opy": "afterMirrorMatch",
-                        "en-US": "After A Mirror Match",
-                    },{
-                        "opy": "afterGame",
-                        "en-US": "After A Game",
+                        "default": true
+                    },
+                    "afterMirrorMatch": {
+                        "en-US": "After A Mirror Match"
+                    },
+                    "afterGame": {
+                        "en-US": "After A Game"
                     }
-                ]
+                }
             },
             "swapTeamsAfterMatch": {
                 "en-US": "Swap Teams After Match",
@@ -134,38 +131,37 @@ const customGameSettingsSchema =
             },
             "dataCenterPreference": {
                 "en-US": "Data Center Preference",
-                "values": [
-                    {
-                        "opy": "bestAvailable",
+                "values": {
+                    "bestAvailable": {
                         "en-US": "Best Available",
-                        "default": true,
-                    },{
-                        "opy": "USCentral",
-                        "en-US": "USA - Central",
-                    },{
-                        "opy": "France",
+                        "default": true
+                    },
+                    "USCentral": {
+                        "en-US": "USA - Central"
+                    },
+                    "France": {
                         "en-US": "France"
-                    },{
-                        "opy": "SouthKorea",
-                        "en-US": "South Korea",
-                    },{
-                        "opy": "Bahrain",
-                        "en-US": "Bahrain",
-                    },{
-                        "opy": "Netherlands",
-                        "en-US": "Netherlands",
-                    },{
-                        "opy": "USWest",
-                        "en-US": "USA - West",
-                    },{
-                        "opy": "Australia3",
-                        "en-US": "Australia 3",
+                    },
+                    "SouthKorea": {
+                        "en-US": "South Korea"
+                    },
+                    "Bahrain": {
+                        "en-US": "Bahrain"
+                    },
+                    "Netherlands": {
+                        "en-US": "Netherlands"
+                    },
+                    "USWest": {
+                        "en-US": "USA - West"
+                    },
+                    "Australia3": {
+                        "en-US": "Australia 3"
                     }
-                ]
+                }
             }
         }
     },
-    "modes": {
+    "gamemodes": {
         "en-US": "modes",
         "values": {
             "general": {
@@ -178,19 +174,18 @@ const customGameSettingsSchema =
                     },
                     "gamemodeStartTrigger": {
                         "en-US": "Game Mode Start",
-                        "values": [
-                            {
-                                "opy": "allSlotsFilled",
+                        "values": {
+                            "allSlotsFilled": {
                                 "en-US": "All Slots Filled",
-                                "default": true,
-                            },{
-                                "opy": "immediately",
+                                "default": true
+                            },
+                            "immediately": {
                                 "en-US": "Immediately"
-                            },{
-                                "opy": "manual",
-                                "en-US": "Manual",
+                            },
+                            "manual": {
+                                "en-US": "Manual"
                             }
-                        ]
+                        }
                     },
                     "healthPackRespawnTime%": {
                         "en-US": "Health Pack Respawn Time Scalar",
@@ -216,19 +211,18 @@ const customGameSettingsSchema =
                     },
                     "spawnHealthPacks": {
                         "en-US": "Spawn Health Packs",
-                        "values": [
-                            {
-                                "opy": "modeDependent",
+                        "values": {
+                            "modeDependent": {
                                 "en-US": "Determined By Mode",
-                                "default": true,
-                            },{
-                                "opy": "enabled",
-                                "en-US": "Enabled",
-                            },{
-                                "opy": "disabled",
+                                "default": true
+                            },
+                            "enabled": {
+                                "en-US": "Enabled"
+                            },
+                            "disabled": {
                                 "en-US": "Disabled"
                             }
-                        ]
+                        }
                     },
                     "enableHeroSwitching": {
                         "en-US": "Allow Hero Switching",
@@ -237,38 +231,36 @@ const customGameSettingsSchema =
                     },
                     "heroLimit": {
                         "en-US": "Hero Limit",
-                        "values": [
-                            {
-                                "opy": "off",
-                                "en-US": "Off",
-                            },{
-                                "opy": "1PerTeam",
+                        "values": {
+                            "off": {
+                                "en-US": "Off"
+                            },
+                            "1PerTeam": {
                                 "en-US": "1 Per Team",
-                                "default": true,
-                            },{
-                                "opy": "2PerTeam",
-                                "en-US": "2 Per Team",
-                            },{
-                                "opy": "1PerGame",
-                                "en-US": "1 Per Game",
-                            },{
-                                "opy": "2PerGame",
-                                "en-US": "2 Per Game",
+                                "default": true
+                            },
+                            "2PerTeam": {
+                                "en-US": "2 Per Team"
+                            },
+                            "1PerGame": {
+                                "en-US": "1 Per Game"
+                            },
+                            "2PerGame": {
+                                "en-US": "2 Per Game"
                             }
-                        ]
+                        }
                     },
                     "roleLimit": {
                         "en-US": "Limit Roles",
-                        "values": [
-                            {
-                                "opy": "off",
+                        "values": {
+                            "off": {
                                 "en-US": "Off",
-                                "default": true,
-                            },{
-                                "opy": "2OfEachRolePerTeam",
-                                "en-US": "2 Of Each Role Per Team",
+                                "default": true
+                            },
+                            "2OfEachRolePerTeam": {
+                                "en-US": "2 Of Each Role Per Team"
                             }
-                        ]
+                        }
                     },
                     "enableRandomHeroes": {
                         "en-US": "Respawn As Random Hero",
@@ -321,22 +313,21 @@ const customGameSettingsSchema =
                     },
                     "setValidControlPoints": {
                         "en-US": "Limit Valid Control Points",
-                        "values": [
-                            {
-                                "opy": "all",
+                        "values": {
+                            "all": {
                                 "en-US": "All",
-                                "default": true,
-                            },{
-                                "opy": "first",
-                                "en-US": "First",
-                            },{
-                                "opy": "second",
-                                "en-US": "Second",
-                            },{
-                                "opy": "third",
-                                "en-US": "Third",
+                                "default": true
+                            },
+                            "first": {
+                                "en-US": "First"
+                            },
+                            "second": {
+                                "en-US": "Second"
+                            },
+                            "third": {
+                                "en-US": "Third"
                             }
-                        ]
+                        }
                     },
                     "scoreToWin": {
                         "en-US": "Score To Win",
@@ -410,19 +401,18 @@ const customGameSettingsSchema =
                     },
                     "flagCarrierAbilities": {
                         "en-US": "Flag Carrier Abilities",
-                        "values": [
-                            {
-                                "opy": "all",
-                                "en-US": "All",
-                            },{
-                                "opy": "none",
-                                "en-US": "None",
-                            },{
-                                "opy": "restricted",
-                                "en-US": "Restricted",
-                                "default": true,
+                        "values": {
+                            "all": {
+                                "en-US": "All"
                             },
-                        ]
+                            "none": {
+                                "en-US": "None"
+                            },
+                            "restricted": {
+                                "en-US": "Restricted",
+                                "default": true
+                            }
+                        }
                     },
                     "flagDroppedLockTime": {
                         "en-US": "Flag Dropped Lock Time",
@@ -523,56 +513,53 @@ const customGameSettingsSchema =
                     },
                     "restrictPreviouslyPlayedHeroes": {
                         "en-US": "Restrict Previously Used Heroes",
-                        "values": [
-                            {
-                                "opy": "off",
+                        "values": {
+                            "off": {
                                 "en-US": "Off",
-                                "default": true,
-                            },{
-                                "opy": "afterRoundWon",
-                                "en-US": "After Round Won",
-                            },{
-                                "opy": "afterRoundPlayed",
-                                "en-US": "After Round Played",
+                                "default": true
+                            },
+                            "afterRoundWon": {
+                                "en-US": "After Round Won"
+                            },
+                            "afterRoundPlayed": {
+                                "en-US": "After Round Played"
                             }
-                        ]
+                        }
                     },
                     "heroesAvailable": {
                         "en-US": "Hero Selection",
-                        "values": [
-                            {
-                                "opy": "any",
+                        "values": {
+                            "any": {
                                 "en-US": "Any",
-                                "default": true,
-                            },{
-                                "opy": "limited",
-                                "en-US": "Limited",
-                            },{
-                                "opy": "random",
-                                "en-US": "Random",
-                            },{
-                                "opy": "mirroredRandom",
-                                "en-US": "Random Mirrored",
+                                "default": true
+                            },
+                            "limited": {
+                                "en-US": "Limited"
+                            },
+                            "random": {
+                                "en-US": "Random"
+                            },
+                            "mirroredRandom": {
+                                "en-US": "Random Mirrored"
                             }
-                        ]
+                        }
                     },
                     "heroPoolSize": {
                         "en-US": "Limited Choice Pool",
-                        "values": [
-                            {
-                                "opy": "teamSize",
-                                "en-US": "Team Size",
-                            },{
-                                "opy": "teamSize+1",
-                                "en-US": "Team Size +1",
-                            },{
-                                "opy": "teamSize+2",
-                                "en-US": "Team Size +2",
-                            },{
-                                "opy": "teamSize+3",
-                                "en-US": "Team Size +3",
+                        "values": {
+                            "teamSize": {
+                                "en-US": "Team Size"
                             },
-                        ]
+                            "teamSize+1": {
+                                "en-US": "Team Size +1"
+                            },
+                            "teamSize+2": {
+                                "en-US": "Team Size +2"
+                            },
+                            "teamSize+3": {
+                                "en-US": "Team Size +3"
+                            }
+                        }
                     },
                     "enableTiebreaker": {
                         "en-US": "Capture Objective Tiebreaker",
@@ -664,7 +651,7 @@ const customGameSettingsSchema =
             },
             "skirmish": {
                 "en-US": "Skirmish",
-                "values": [],
+                "values": {},
             },
             "practiceRange": {
                 "en-US": "Practice Range",
@@ -687,21 +674,20 @@ const customGameSettingsSchema =
     },
     "heroes": {
         "en-US": "heroes",
-        "teams": [
-            {
-                "opy": "allTeams",
+        "teams": {
+            "allTeams": {
                 "en-US": "General",
-            },{
-                "opy": "team1",
+            },
+            "team1": {
                 "en-US": "Team 1",
-            },{
-                "opy": "team2",
+            },
+            "team2": {
                 "en-US": "Team 2",
-            },{
-                "opy": "ffa",
+            },
+            "ffa": {
                 "en-US": "Team FFA",
             }
-        ],
+        },
         "values": {
             "_generalButNotEachHero": {
                 "abilityCooldown%": {
@@ -897,10 +883,12 @@ const customGameSettingsSchema =
             },
             "_eachHero": {
                 "enableAbility1": {
+                    "en-US": "%1$s",
                     "values": "_boolEnabled",
                     "default": "enabled",
                 },
                 "ability1Cooldown%": {
+                    "en-US": "%1$s cooldown time",
                     "guid": "000000005B84",
                     "values": "_percent",
                     "min": 0,
@@ -915,6 +903,7 @@ const customGameSettingsSchema =
                     ]
                 },
                 "enableAbility2": {
+                    "en-US": "%1$s",
                     "values": "_boolEnabled",
                     "default": "enabled",
                     "exclude": [
@@ -922,6 +911,7 @@ const customGameSettingsSchema =
                     ]
                 },
                 "ability2Cooldown%": {
+                    "en-US": "%1$s cooldown time",
                     "guid": "000000005B84",
                     "values": "_percent",
                     "min": 0,
@@ -933,6 +923,7 @@ const customGameSettingsSchema =
                     ]
                 },
                 "enableSecondaryFire": {
+                    "en-US": "%1$s",
                     "values": "_boolEnabled",
                     "default": "enabled",
                     "include": [
@@ -951,6 +942,7 @@ const customGameSettingsSchema =
                     ]
                 },
                 "secondaryFireCooldown%": {
+                    "en-US": "%1$s cooldown time",
                     "guid": "000000005B84",
                     "values": "_percent",
                     "min": 0,
@@ -1054,6 +1046,7 @@ const customGameSettingsSchema =
                     },
                     "ultKb%": {
                         "en-US": "Configuration: Tank Weapon Knockback Scalar",
+                        "values": "_percent",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -1282,19 +1275,18 @@ const customGameSettingsSchema =
                     },
                     "weaponsEnabled": {
                         "en-US": "Weapons Enabled",
-                        "values": [
-                            {
-                                "opy": "all",
+                        "values": {
+                            "all": {
                                 "en-US": "All",
-                                "default": true,
-                            },{
-                                "opy": "staff",
-                                "en-US": "Caduceus Staff Only",
-                            },{
-                                "opy": "blaster",
-                                "en-US": "Caduceus Blaster Only",
+                                "default": true
+                            },
+                            "staff": {
+                                "en-US": "Caduceus Staff Only"
+                            },
+                            "blaster": {
+                                "en-US": "Caduceus Blaster Only"
                             }
-                        ]
+                        }
                     },
                 }
             },
@@ -1457,19 +1449,18 @@ const customGameSettingsSchema =
                     },
                     "weaponsEnabled": {
                         "en-US": "Weapons Enabled",
-                        "values": [
-                            {
-                                "opy": "all",
+                        "values": {
+                            "all": {
                                 "en-US": "All",
-                                "default": true,
-                            },{
-                                "opy": "rivetGun",
-                                "en-US": "Rivet Gun Only",
-                            },{
-                                "opy": "hammer",
-                                "en-US": "Forge Hammer Only",
+                                "default": true
+                            },
+                            "rivetGun": {
+                                "en-US": "Rivet Gun Only"
+                            },
+                            "hammer": {
+                                "en-US": "Forge Hammer Only"
                             }
-                        ]
+                        }
                     },
                 }
             },
@@ -1536,3 +1527,58 @@ const customGameSettingsSchema =
     },
 }
 //end-json
+
+//Apply general settings to each gamemode
+for (var key of Object.keys(customGameSettingsSchema.gamemodes.values)) {
+    Object.assign(customGameSettingsSchema.gamemodes.values[key].values, customGameSettingsSchema.gamemodes.values.general.values);
+}
+
+//Generate settings for heroes.general
+customGameSettingsSchema.heroes.values.general = Object.assign({}, customGameSettingsSchema.heroes.values._generalAndEachHero, customGameSettingsSchema.heroes.values._generalButNotEachHero)
+
+//Generate settings for each hero
+const availableLanguages = ["de-DE", "en-US", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW"];
+for (var hero of Object.keys(heroKw)) {
+
+    if (!(hero in customGameSettingsSchema.heroes.values)) {
+        customGameSettingsSchema.heroes.values[hero] = {};
+        customGameSettingsSchema.heroes.values[hero].values = {};
+    }
+
+    var eachHero = Object.assign({}, customGameSettingsSchema.heroes.values._generalAndEachHero, customGameSettingsSchema.heroes.values._eachHero)
+
+    for (var key of Object.keys(eachHero)) {
+        if ("include" in eachHero[key] && eachHero[key].include.includes(hero)
+                || "exclude" in eachHero[key] && !eachHero[key].exclude.includes(hero)
+                || !("include" in eachHero[key]) && !("exclude" in eachHero[key])) {
+                    
+            var destKey = (key === "enableGenericSecondaryFire" ? "enableSecondaryFire" : key)
+            customGameSettingsSchema.heroes.values[hero].values[destKey] = JSON.parse(JSON.stringify(eachHero[key]));
+
+            var heroValue = customGameSettingsSchema.heroes.values[hero].values[destKey];
+
+            if ([
+                "secondaryFireCooldown%", "enableSecondaryFire",
+                "ability2Cooldown%", "enableAbility2", 
+                "ability1Cooldown%", "enableAbility1", 
+                "enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"
+            ].includes(key)) {
+                for (var key2 of Object.keys(heroValue)) {
+                    if (availableLanguages.includes(key2)) {
+
+                        if (["secondaryFireCooldown%", "enableSecondaryFire"].includes(key)) {
+                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].secondaryFire[key2])
+
+                        } else if (["ability2Cooldown%", "enableAbility2"].includes(key)) {
+                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].ability2[key2])
+                        } else if (["ability1Cooldown%", "enableAbility1"].includes(key)) {
+                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].ability1[key2])
+                        } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
+                            heroValue[key2] = heroValue[key2]+" "+heroKw[hero].ultimate[key2]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

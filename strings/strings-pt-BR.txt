@@ -3,7 +3,7 @@
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
 [CASC] Set language to ptBR
 [CASC] Set speech language to ptBR
-[CASC] Overwatch build 1.44.0.1.65513
+[CASC] Overwatch build 1.44.0.1.66085
 [CASC] Initializing...
 [CMF] Using CMF procedure 65513
 [CMF] Using CMF procedure 65513
@@ -26708,4 +26708,4 @@ https://account.blizzard.com/connections/nintendo
 00000000FFCF.07C: CONVITE DE AMIZADE RECEBIDO
 00000000FFE7.07C: Overwatch League 2020
 00000000FFE8.07C: Brigitte GOATS
-[Core] Execution finished in 00:00:06.0944666 seconds
+[Core] Execution finished in 00:00:02.9384402 seconds

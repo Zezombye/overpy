@@ -525,6 +525,8 @@ function parseInstructions(lines, nbDo) {
 
 				//Check if the goto is of the form "goto loc+xxx"
 				if (lines[i+1].tokens[1].text === "loc") {
+					
+					warn("w_dynamic_goto", "Dynamic gotos are unreliable as OverPy can optimize out some actions.")
 					var skipIfOffset = parse(lines[i+1].tokens.slice(3))
 					var compiledCondition = parse(condition);
 					if (isWsFalse(compiledCondition) || isWs0(skipIfOffset)) {
@@ -758,27 +760,19 @@ function parseInstructions(lines, nbDo) {
 				}
 			}
 	
-
 		//Check goto
 		} else if (lines[i].tokens[0].text === 'goto') {
 			if (lines[i].tokens.length < 2) {
 				error("Malformed goto");
 			}
-			
 			//Check if the goto is of the form "goto loc+xxx"
 			if (lines[i].tokens[1].text === "loc") {
-				skipOffset = parse(lines[i].tokens.slice(3));
+				warn("w_dynamic_goto", "Dynamic gotos are unreliable as OverPy can optimize out some actions.")
 
-				var compiledCondition = parse(condition);
-				if (isWsFalse(compiledCondition) || isWs0(skipIfOffset)) {
-					currentResultLineType = "optimized";
-				} else if (isWsTrue(compiledCondition)) {
-					currentResultLineType="other";
-					currentResultLineContent = tows("_skip", actionKw)+"("+skipIfOffset+")";
-				} else {
-					currentResultLineType="other";
-					currentResultLineContent = tows("_skipIf", actionKw)+"("+compiledCondition+", "+skipIfOffset+")";
-				}
+				var skipOffset = parse(lines[i].tokens.slice(3));
+
+				currentResultLineType="other";
+				currentResultLineContent = tows("_skip", actionKw)+"("+skipOffset+")";
 
 			} else {
 				var label = lines[i].tokens[1].text;

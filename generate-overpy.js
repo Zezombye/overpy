@@ -2,20 +2,29 @@ const fs = require("fs");
  
 //import overpy files
 overpyFiles = [
+	"utils/other.js",
+
 	"doc/actions.js",
 	"doc/values.js",
+	"doc/maps.js",
+	"doc/heroes.js",
+	"doc/gamemodes.js",
 	"doc/constants.js",
 	"doc/keywords.js",
-	"doc/specialFuncDoc.js",
+	"doc/customGameSettings.js",
+	"doc/opy/functions.js",
+	"doc/opy/memberFunctions.js",
+	"doc/opy/preprocessing.js",
+
 	"utils/compilation.js",
 	"utils/decompilation.js",
 	"utils/file.js",
 	"utils/logging.js",
 	"utils/optimization.js",
-	"utils/other.js",
 	"utils/strings.js",
 	"utils/translation.js",
 	"utils/varNames.js",
+	
 	"obfuscation.js",
 	"globalVars.js",
 	"decompiler.js",

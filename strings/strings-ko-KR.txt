@@ -3,7 +3,7 @@
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
 [CASC] Set language to koKR
 [CASC] Set speech language to koKR
-[CASC] Overwatch build 1.44.0.1.65513
+[CASC] Overwatch build 1.44.0.1.66085
 [CASC] Initializing...
 [CMF] Using CMF procedure 65513
 [CMF] Using CMF procedure 65513
@@ -26701,4 +26701,4 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000FFCF.07C: 친구 요청을 받았습니다
 00000000FFE7.07C: 2020 오버워치 리그
 00000000FFE8.07C: 염소 브리기테
-[Core] Execution finished in 00:00:03.1786061 seconds
+[Core] Execution finished in 00:00:02.9983332 seconds

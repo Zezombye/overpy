@@ -17,6 +17,94 @@
 
 "use strict";
 
+function decompileCustomGameSettingsDict(dict, kwObj) {
+	var result = {};
+	for (var elem of dict) {
+		elem = elem.trim();
+		if (elem === "") {
+			continue;
+		}
+
+		var keyName = null;
+		var value = null;
+		var objKeys = Object.keys(kwObj).sort(function(a,b) {
+			var locA = (currentLanguage in kwObj[a] ? kwObj[a][currentLanguage] : kwObj[a]["en-US"])
+			var locB = (currentLanguage in kwObj[b] ? kwObj[b][currentLanguage] : kwObj[b]["en-US"])
+			return locA.localeCompare(locB)
+		}).reverse()
+		console.log(objKeys)
+		for (var key of objKeys) {
+			if (currentLanguage in kwObj[key]) {
+				if (elem.toLowerCase().startsWith(kwObj[key][currentLanguage].toLowerCase())) {
+					keyName = key;
+					value = elem.substring(kwObj[key][currentLanguage].length);
+					break;
+				}
+			} else {
+				if (elem.toLowerCase().startsWith(kwObj[key]["en-US"].toLowerCase())) {
+					keyName = key;
+					value = elem.substring(kwObj[key]["en-US"].length);
+					break;
+				}
+			}
+		}
+
+		if (keyName === null) {
+			error("No translation found for key of element '"+elem+"'");
+		}
+
+		if (!value.startsWith(":")) {
+			console.log(value);
+			error("Expected ':' after key in element '"+elem+"'");
+		}
+		value = value.substring(1).trim();
+
+		if (typeof kwObj[keyName].values === "object") {
+			value = topy(value, kwObj[keyName].values);
+
+		} else if (kwObj[keyName].values === "_string") {
+			value = value.substring(1, value.length-1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+
+		} else if (kwObj[keyName].values === "_percent") {
+			if (!value.endsWith("%")) {
+				error("Expected a percentage for value of elem '"+elem+"'");
+			}
+			value = parseInt(value.substring(0, value.length-1));
+
+		} else if (kwObj[keyName].values === "_int") {
+			value = parseInt(value);
+			
+		} else if (kwObj[keyName].values === "_float") {
+			value = parseFloat(value);
+			
+		} else if (["_boolYesNo", "_boolOnOff", "_boolEnabled"].includes(kwObj[keyName].values)) {
+			value = topy(value, customGameSettingsKw);
+			if (["_yes", "_enabled", "_on"].includes(value)) {
+				value = true;
+			} else if (["_no", "_disabled", "_off"].includes(value)) {
+				value = false;
+			} else {
+				error("Unknown value '"+value+"'");
+			}
+
+		} else if (kwObj[keyName].values === "_boolReverseEnabled") {
+			value = topy(value, customGameSettingsKw);
+			if (value === "_disabled") {
+				value = true;
+			} else if (value === "_enabled") {
+				value = false;
+			} else {
+				error("Unknown value '"+value+"'");
+			}
+		} else {
+			error("Unknown value type '"+kwObj[keyName].values+"' for '"+keyName+"'");
+		}
+
+		result[keyName] = value;
+	}
+	return result;
+}
+
 //Returns an array of workshop instructions (delimited by a semicolon).
 function splitInstructions(content) {
 	return splitStrOnDelimiter(content, [';']);

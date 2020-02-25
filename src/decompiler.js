@@ -28,6 +28,15 @@ function decompileAllRules(content, language="en-US") {
 	
 	var bracketPos = getBracketPositions(content);
 
+	//Check for settings
+	if (content.startsWith(tows("_settings", ruleKw))) {
+		result += decompileCustomGameSettings(content.substring(bracketPos[0]+1, bracketPos[1]));
+		content = content.substring(bracketPos[1]+1)
+	}
+
+	content = content.trim();
+	bracketPos = getBracketPositions(content);
+
 	//Check for variable names
 	if (content.startsWith(tows("_variables", ruleKw))) {
 		decompileVarNames(content.substring(bracketPos[0]+1, bracketPos[1]));
@@ -105,7 +114,140 @@ function decompileAllRules(content, language="en-US") {
 }
 
 function decompileCustomGameSettings(content) {
+	console.log(content);
+	var result = {};
+	var wsDisabled = tows("_disabled", ruleKw)+" ";
+	var wsEnabled = tows("_enabled", ruleKw)+" ";
+
+	//Convert the settings to an object (without even translating).
+	var serialized = {};
+	var lines = content.split("\n").map(x => x.trim());
+	var objectStack = [];
+	var currentObject = null;
+	var depth = 0;
 	
+	function updateCurrentObject() {
+		currentObject = serialized;
+		for (var elem of objectStack) {
+			if (!(elem in currentObject)) {
+				currentObject[elem] = {};
+			}
+			currentObject = currentObject[elem];
+		}
+	}
+
+	for (var i = 0; i < lines.length; i++) {
+
+		if (lines[i] === "" || lines[i] === "{") {
+			continue;
+
+		} else if (i < lines.length-1 && lines[i+1] === "{") {
+			objectStack.push(lines[i]);
+			updateCurrentObject();
+			depth++;
+
+		} else if (lines[i] === "}") {
+			objectStack.pop();
+			updateCurrentObject();
+			depth--;
+			if (depth < 0) {
+				error("Depth is less than 0");
+			}
+
+		} else {
+			currentObject[lines[i]] = {};
+		}
+	}
+
+	if (depth > 0) {
+		error("Depth is more than 0 (missing closing bracket)");
+	}
+	console.log(serialized);
+
+	for (var category of Object.keys(serialized)) {
+		var opyCategory = topy(category, customGameSettingsSchema);
+		result[opyCategory] = {};
+		if (opyCategory === "main" || opyCategory === "lobby") {
+			result[opyCategory] = decompileCustomGameSettingsDict(Object.keys(serialized[category]), customGameSettingsSchema[opyCategory].values)
+
+		} else if (opyCategory === "gamemodes") {
+			for (var gamemode of Object.keys(serialized[category])) {
+				var isCurrentGamemodeDisabled = false;
+				if (gamemode.startsWith(wsDisabled)) {
+					isCurrentGamemodeDisabled = true;
+					var opyGamemode = topy(gamemode.substring(wsDisabled.length), customGameSettingsSchema.gamemodes.values);
+				} else {
+					var opyGamemode = topy(gamemode, customGameSettingsSchema.gamemodes.values);
+				}
+
+				result[opyCategory][opyGamemode] = {};
+				if (isCurrentGamemodeDisabled) {
+					result[opyCategory][opyGamemode].enabled = false;
+				}
+
+				var dict = [];
+				for (var property of Object.keys(serialized[category][gamemode])) {
+					if (Object.entries(serialized[category][gamemode][property]).length === 0) {
+						//empty object - is actually part of a dict
+						dict.push(property);
+
+					} else {
+						//the only object in a gamemode should be disabled/enabled maps
+						if (property === wsDisabled+tows("_maps", customGameSettingsSchema.gamemodes.values.general.values) || property === wsEnabled+tows("_maps", customGameSettingsSchema.gamemodes.values.general.values)) {
+							var opyPropName = (property.startsWith(wsDisabled) ? "disabledMaps" : "enabledMaps");
+							result[opyCategory][opyGamemode][opyPropName] = [];
+							for (var map of Object.keys(serialized[category][gamemode][property])) {
+								result[opyCategory][opyGamemode][opyPropName].push(topy(map, mapKw))
+							}
+						} else {
+							error("Unknown property '"+property+"'");
+						}
+					}
+				}
+
+				Object.assign(result[opyCategory][opyGamemode], decompileCustomGameSettingsDict(dict, customGameSettingsSchema[opyCategory].values[opyGamemode].values))
+			}
+
+		} else if (opyCategory === "heroes") {
+			for (var team of Object.keys(serialized[category])) {
+				var opyTeam = topy(team, customGameSettingsSchema[opyCategory].teams)
+				result[opyCategory][opyTeam] = {};
+
+				var dict = [];
+				for (var property of Object.keys(serialized[category][team])) {
+					if (Object.entries(serialized[category][team][property]).length === 0) {
+						//empty object - is actually part of a dict
+						dict.push(property);
+
+					} else {
+						//check if it's disabled/enabled heroes
+						if (property === wsDisabled+tows("_heroes", customGameSettingsSchema.heroes.values) || property === wsEnabled+tows("_heroes", customGameSettingsSchema.heroes.values)) {
+							var opyPropName = (property.startsWith(wsDisabled) ? "disabledHeroes" : "enabledHeroes");
+							result[opyCategory][opyTeam][opyPropName] = [];
+							console.log(property);
+							console.log(serialized);
+							for (var hero of Object.keys(serialized[category][team][property])) {
+								result[opyCategory][opyTeam][opyPropName].push(topy(hero, heroKw))
+							}
+						} else {
+							//probably a hero
+							var opyHero = topy(property, heroKw);
+							result[opyCategory][opyTeam][opyHero] = {};
+							Object.assign(result[opyCategory][opyTeam][opyHero], decompileCustomGameSettingsDict(Object.keys(serialized[category][team][property]), customGameSettingsSchema[opyCategory].values[opyHero].values))
+						}
+					}
+				}
+
+				if (dict.length > 0) {
+					result[opyCategory][opyTeam].general = decompileCustomGameSettingsDict(dict, customGameSettingsSchema.heroes.values.general);
+				}
+			}
+		}
+	}
+
+	console.log(result);
+
+	return "settings "+JSON.stringify(result, null, 4)+"\n\n";
 }
 
 function decompileVarNames(content) {
@@ -264,8 +406,6 @@ function decompileRule(content) {
 				}
 			}
 		}
-
-
 	}
 	
 	//Parse conditions

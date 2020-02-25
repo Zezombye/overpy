@@ -22,175 +22,605 @@ const heroKw =
 {
     "ana": {
         "guid": "0000000029EC",
+        "ability1": {
+            "guid": "0000000046AE",
+            "en-US": "Sleep Dart",
+            "de-DE": "Betäubungspfeil",
+            "es-ES": "Dardo sedante",
+            "es-MX": "Dardo tranquilizante",
+            "fr-FR": "Fléchette hypodermique",
+            "it-IT": "Dardo Soporifero",
+            "ja-JP": "スリープ・ダーツ",
+            "ko-KR": "수면총",
+            "pl-PL": "Strzałka Usypiająca",
+            "pt-BR": "Dardo Sonífero",
+            "ru-RU": "Транквилизатор",
+            "zh-CN": "麻醉镖",
+            "zh-TW": "睡眠鏢"
+        },
+        "ability2": {
+            "guid": "0000000046B2",
+            "en-US": "Biotic Grenade",
+            "de-DE": "Biotische Granate",
+            "es-ES": "Granada biótica",
+            "es-MX": "Granada biótica",
+            "fr-FR": "Grenade biotique",
+            "it-IT": "Granata Biotica",
+            "ja-JP": "バイオティック・<br>グレネード",
+            "ko-KR": "생체 수류탄",
+            "pl-PL": "Granat Biotyczny",
+            "pt-BR": "Granada Biótica",
+            "ru-RU": "Биотическая граната",
+            "zh-CN": "生物手雷",
+            "zh-TW": "生化手榴彈"
+        },
+        "ultimate": {
+            "guid": "0000000046BA",
+            "en-US": "Nano Boost",
+            "de-DE": "Nanoboost",
+            "es-ES": "Nanoestimulantes",
+            "es-MX": "Nanopotenciamiento",
+            "fr-FR": "Nanoboost",
+            "it-IT": "Biostimolatore",
+            "ja-JP": "ナノ・ブースト",
+            "ko-KR": "나노 강화제",
+            "pl-PL": "Nanowzmocnienie",
+            "pt-BR": "Estimulante",
+            "ru-RU": "Стимулятор",
+            "zh-CN": "纳米激素",
+            "zh-TW": "奈米強化"
+        },
         "en-US": "Ana",
         "ja-JP": "アナ",
         "ko-KR": "아나",
         "ru-RU": "Ана",
         "zh-CN": "安娜",
-        "zh-TW": "安娜",
-        "ability1": {
-            "guid": "0000000046AE"
-        },
-        "ability2": {
-            "guid": "0000000046B2"
-        },
-        "ultimate": {
-            "guid": "0000000046BA"
-        }
+        "zh-TW": "安娜"
     },
     "ashe": {
         "guid": "00000000832E",
+        "ability1": {
+            "guid": "000000008A5C",
+            "en-US": "Coach Gun",
+            "de-DE": "Doppelflinte",
+            "es-ES": "Recortada",
+            "es-MX": "Escopeta de dos cañones",
+            "fr-FR": "Canon scié",
+            "it-IT": "Doppietta",
+            "ja-JP": "コーチ・ガン",
+            "ko-KR": "충격 샷건",
+            "pl-PL": "Obrzyn",
+            "pt-BR": "Escopeta",
+            "ru-RU": "Обрез",
+            "zh-CN": "短筒猎枪",
+            "zh-TW": "雙管散彈槍"
+        },
+        "ability2": {
+            "guid": "000000008A5D",
+            "en-US": "Dynamite",
+            "de-DE": "Dynamit",
+            "es-ES": "Dinamita",
+            "es-MX": "Dinamita",
+            "it-IT": "Dinamite",
+            "ja-JP": "ダイナマイト",
+            "ko-KR": "다이너마이트",
+            "pl-PL": "Dynamit",
+            "pt-BR": "Dinamite",
+            "ru-RU": "Динамит",
+            "zh-CN": "延时雷管",
+            "zh-TW": "炸藥"
+        },
+        "ultimate": {
+            "guid": "000000008A5B",
+            "en-US": "B.O.B.",
+            "es-ES": "BOB",
+            "ja-JP": "B.O.B",
+            "ru-RU": "БОБ",
+            "zh-CN": "召唤鲍勃",
+            "zh-TW": "鮑伯"
+        },
         "en-US": "Ashe",
         "ja-JP": "アッシュ",
         "ko-KR": "애쉬",
         "ru-RU": "Эш",
         "zh-CN": "艾什",
-        "zh-TW": "艾西",
-        "ability1": {
-            "guid": "000000008A5C"
-        },
-        "ability2": {
-            "guid": "000000008A5D"
-        },
-        "ultimate": {
-            "guid": "000000008A5B"
-        }
+        "zh-TW": "艾西"
     },
     "baptiste": {
         "guid": "000000009411",
+        "ability1": {
+            "guid": "00000000A7AB",
+            "en-US": "Regenerative Burst",
+            "de-DE": "Regenerativer Schub",
+            "es-ES": "Energía regeneradora",
+            "es-MX": "Energía regeneradora",
+            "fr-FR": "Salve régénérante",
+            "it-IT": "Impulso Rigenerativo",
+            "ja-JP": "リジェネ・<br>バースト",
+            "ko-KR": "치유 파동",
+            "pl-PL": "Impuls Regeneracyjny",
+            "pt-BR": "Pulso Regenerador",
+            "ru-RU": "Стимулятор регенерации",
+            "zh-CN": "愈合冲击",
+            "zh-TW": "癒傷波動"
+        },
+        "ability2": {
+            "guid": "00000000A44B",
+            "en-US": "Immortality Field",
+            "de-DE": "Lebenserhaltungsfeld",
+            "es-ES": "Campo de inmortalidad",
+            "es-MX": "Campo de inmortalidad",
+            "fr-FR": "Champ d’immortalité",
+            "it-IT": "Campo d'Immortalità",
+            "ja-JP": "イモータリ<br>ティ・<br>フィールド",
+            "ko-KR": "불사 장치",
+            "pl-PL": "Pole Nieśmiertelności",
+            "pt-BR": "Campo de Imortalidade",
+            "ru-RU": "Поле бессмертия",
+            "zh-CN": "维生力场",
+            "zh-TW": "維生力場"
+        },
+        "ultimate": {
+            "guid": "00000000A44C",
+            "en-US": "Amplification Matrix",
+            "de-DE": "Verstärkungsmatrix",
+            "es-ES": "Matriz amplificadora",
+            "es-MX": "Matriz de amplificación",
+            "fr-FR": "Matrice amplificatrice",
+            "it-IT": "Matrice di Amplificazione",
+            "ja-JP": "アンプリ<br>フィ<br>ケーション・<br>マトリックス",
+            "ko-KR": "증폭 매트릭스",
+            "pl-PL": "Matryca Wzmacniająca",
+            "pt-BR": "Matriz Amplificadora",
+            "ru-RU": "Усиливающая матрица",
+            "zh-CN": "增幅矩阵",
+            "zh-TW": "增幅矩陣"
+        },
         "en-US": "Baptiste",
         "ja-JP": "バティスト",
         "ko-KR": "바티스트",
         "ru-RU": "Батист",
         "zh-CN": "巴蒂斯特",
-        "zh-TW": "巴帝斯特",
-        "ability1": {
-            "guid": "00000000A7AB"
-        },
-        "ability2": {
-            "guid": "00000000A44B"
-        },
-        "ultimate": {
-            "guid": "00000000A44C"
-        }
+        "zh-TW": "巴帝斯特"
     },
     "bastion": {
         "guid": "000000000023",
+        "secondaryFire": {
+            "guid": "0000000003C5",
+            "en-US": "Self-Repair",
+            "de-DE": "Selbstreparatur",
+            "es-ES": "Autorreparación",
+            "es-MX": "Auto-reparación",
+            "fr-FR": "Autoréparation",
+            "it-IT": "Autoriparazione",
+            "ja-JP": "自己修復",
+            "ko-KR": "자가 수리",
+            "pl-PL": "Samonaprawa",
+            "pt-BR": "Autorreparo",
+            "ru-RU": "Саморемонт",
+            "zh-CN": "自我修复",
+            "zh-TW": "自我修復"
+        },
+        "ability1": {
+            "guid": "0000000003C3",
+            "en-US": "Reconfigure",
+            "de-DE": "Rekonfigurieren",
+            "es-ES": "Reconfiguración",
+            "es-MX": "Reconfiguración",
+            "fr-FR": "Reconfiguration",
+            "it-IT": "Riconfigurazione",
+            "ja-JP": "モード変更",
+            "ko-KR": "재설정",
+            "pl-PL": "Rekonfiguracja",
+            "pt-BR": "Reconfigurar",
+            "ru-RU": "Смена режима",
+            "zh-CN": "切换模式",
+            "zh-TW": "切換模式"
+        },
+        "ultimate": {
+            "guid": "0000000003C1",
+            "en-US": "Configuration: Tank",
+            "de-DE": "Konfiguration: Panzer",
+            "es-ES": "Modo tanque",
+            "es-MX": "Configuración: tanque",
+            "fr-FR": "Configuration : tank",
+            "it-IT": "Assetto Carro Armato",
+            "ja-JP": "タンク・モード",
+            "ko-KR": "설정: 전차",
+            "pl-PL": "Konfiguracja: Czołg",
+            "pt-BR": "Configuração: Tanque",
+            "ru-RU": "Режим танка",
+            "zh-CN": "坦克模式",
+            "zh-TW": "坦克模式"
+        },
         "en-US": "Bastion",
         "ja-JP": "バスティオン",
         "ko-KR": "바스티온",
         "ru-RU": "Бастион",
         "zh-CN": "堡垒",
-        "zh-TW": "壁壘機兵",
-        "secondaryFire": {
-            "guid": "0000000003C5"
-        },
-        "ability1": {
-            "guid": "0000000003C3"
-        },
-        "ultimate": {
-            "guid": "0000000003C1"
-        }
+        "zh-TW": "壁壘機兵"
     },
     "brigitte": {
         "guid": "000000005D06",
+        "secondaryFire": {
+            "guid": "00000000802E",
+            "en-US": "Barrier Shield",
+            "de-DE": "Barrierenschild",
+            "es-ES": "Escudo barrera",
+            "es-MX": "Escudo barrera",
+            "fr-FR": "Bouclier-écran",
+            "it-IT": "Scudo Protettivo",
+            "ja-JP": "バリア・シールド",
+            "ko-KR": "방벽 방패",
+            "pl-PL": "Tarcza Osłonowa",
+            "pt-BR": "Barreira de Escudo",
+            "ru-RU": "Персональный барьер",
+            "zh-CN": "屏障护盾",
+            "zh-TW": "屏障防盾"
+        },
+        "ability1": {
+            "guid": "0000000076BE",
+            "en-US": "Whip Shot",
+            "de-DE": "Flegelstoß",
+            "es-ES": "Lanzamiento de mangual",
+            "es-MX": "Azote de mangual",
+            "fr-FR": "Fléau cinglant",
+            "it-IT": "Frustata",
+            "ja-JP": "ウィップ・ショット",
+            "ko-KR": "도리깨 투척",
+            "pl-PL": "Trzaśnięcie",
+            "pt-BR": "Disparo Açoitador",
+            "ru-RU": "Хлесткий удар",
+            "zh-CN": "流星飞锤",
+            "zh-TW": "懲擊"
+        },
+        "ability2": {
+            "guid": "0000000076C2",
+            "en-US": "Repair Pack",
+            "de-DE": "Reparaturset",
+            "es-ES": "Kit de reparación",
+            "es-MX": "Kit de reparación",
+            "fr-FR": "Module de réparation",
+            "it-IT": "Modulo Riparatore",
+            "ja-JP": "リペア・パック",
+            "ko-KR": "수리 팩",
+            "pl-PL": "Pakiet Regeneracyjny",
+            "pt-BR": "Kit de Reparos",
+            "ru-RU": "Ремкомплект",
+            "zh-CN": "恢复包",
+            "zh-TW": "修復包"
+        },
+        "ultimate": {
+            "guid": "0000000076C6",
+            "en-US": "Rally",
+            "de-DE": "Inbrunst",
+            "es-ES": "Formación",
+            "es-MX": "Motivación",
+            "fr-FR": "Ralliement",
+            "it-IT": "Adunata",
+            "ja-JP": "ラリー",
+            "ko-KR": "집결",
+            "pl-PL": "Natchnienie",
+            "pt-BR": "Reagrupar",
+            "ru-RU": "Общий сбор",
+            "zh-CN": "集结号令",
+            "zh-TW": "全軍集結"
+        },
         "en-US": "Brigitte",
         "ja-JP": "ブリギッテ",
         "ko-KR": "브리기테",
         "ru-RU": "Бригитта",
         "zh-CN": "布丽吉塔",
-        "zh-TW": "碧姬",
-        "secondaryFire": {
-            "guid": "00000000802E"
-        },
-        "ability1": {
-            "guid": "0000000076BE"
-        },
-        "ability2": {
-            "guid": "0000000076C2"
-        },
-        "ultimate": {
-            "guid": "0000000076C6"
-        }
+        "zh-TW": "碧姬"
     },
     "dva": {
         "guid": "0000000002E2",
-        "en-US": "D.Va",
-        "es-MX": "D.VA",
-        "it-IT": "D.VA",
         "secondaryFire": {
-            "guid": "000000001706"
+            "guid": "000000001706",
+            "en-US": "Defense Matrix",
+            "de-DE": "Defensivmatrix",
+            "es-ES": "Matriz de defensa",
+            "es-MX": "Matriz de defensa",
+            "fr-FR": "Matrice défensive",
+            "it-IT": "Matrice Difensiva",
+            "ja-JP": "ディフェンス・<br>マトリックス",
+            "ko-KR": "방어 매트릭스",
+            "pl-PL": "Matryca Obronna",
+            "pt-BR": "Matriz de Defesa",
+            "ru-RU": "Защитная матрица",
+            "zh-CN": "防御矩阵",
+            "zh-TW": "防護力場"
         },
         "ability1": {
-            "guid": "000000001704"
+            "guid": "000000001704",
+            "en-US": "Boosters",
+            "de-DE": "Booster",
+            "es-ES": "Impulsores",
+            "es-MX": "Propulsores",
+            "fr-FR": "Turboréacteurs",
+            "it-IT": "Retrorazzi",
+            "ja-JP": "ブースター",
+            "ko-KR": "부스터",
+            "pl-PL": "Dopalacze",
+            "pt-BR": "Propulsores",
+            "ru-RU": "Ускорители",
+            "zh-CN": "推进器",
+            "zh-TW": "噴射推進"
         },
         "ability2": {
-            "guid": "000000006E30"
+            "guid": "000000006E30",
+            "en-US": "Micro Missiles",
+            "de-DE": "Mikroraketen",
+            "es-ES": "Micromisiles",
+            "es-MX": "Micromisiles",
+            "fr-FR": "Micro-missiles",
+            "it-IT": "Micromissili",
+            "ja-JP": "マイクロ・ミサイル",
+            "ko-KR": "마이크로 미사일",
+            "pl-PL": "Mikro-pociski",
+            "pt-BR": "Micromísseis",
+            "ru-RU": "Микроракеты",
+            "zh-CN": "微型飞弹",
+            "zh-TW": "火箭匣艙"
         },
         "ultimate": {
-            "guid": "000000001708"
-        }
+            "guid": "000000001708",
+            "en-US": "Self-Destruct",
+            "de-DE": "Selbstzerstörung",
+            "es-ES": "Autodestrucción",
+            "es-MX": "Autodestrucción",
+            "fr-FR": "Autodestruction",
+            "it-IT": "Autodistruzione",
+            "ja-JP": "自爆",
+            "ko-KR": "자폭",
+            "pl-PL": "Samozniszczenie",
+            "pt-BR": "Autodestruir",
+            "ru-RU": "Самоуничтожение",
+            "zh-CN": "自毁",
+            "zh-TW": "自爆"
+        },
+        "en-US": "D.Va",
+        "es-MX": "D.VA",
+        "it-IT": "D.VA"
     },
     "doomfist": {
         "guid": "0000000015E5",
+        "secondaryFire": {
+            "guid": "0000000056D5",
+            "en-US": "Rocket Punch",
+            "de-DE": "Dampfhammer",
+            "es-ES": "Puño cohete",
+            "es-MX": "Puño cohete",
+            "fr-FR": "Direct d’enfer",
+            "it-IT": "Pugno a Reazione",
+            "ja-JP": "ロケット・パンチ",
+            "ko-KR": "로켓 펀치",
+            "pl-PL": "Rakietowy Cios",
+            "pt-BR": "Soco Foguete",
+            "ru-RU": "Реактивный удар",
+            "zh-CN": "火箭重拳",
+            "zh-TW": "火箭拳"
+        },
+        "ability1": {
+            "guid": "0000000056D0",
+            "en-US": "Rising Uppercut",
+            "de-DE": "Uppercut",
+            "es-ES": "Uppercut",
+            "es-MX": "Gancho ascendente",
+            "fr-FR": "Uppercut",
+            "it-IT": "Montante",
+            "ja-JP": "ライジング・<br>アッパーカット",
+            "ko-KR": "라이징 어퍼컷",
+            "pl-PL": "Podbródkowy",
+            "pt-BR": "Gancho Ascendente",
+            "ru-RU": "Апперкот",
+            "zh-CN": "上勾重拳",
+            "zh-TW": "天鉤拳"
+        },
+        "ability2": {
+            "guid": "000000005B4A",
+            "en-US": "Seismic Slam",
+            "de-DE": "Seismischer Schlag",
+            "es-ES": "Golpe sísmico",
+            "es-MX": "Embate sísmico",
+            "fr-FR": "Onde de choc",
+            "it-IT": "Slancio Sismico",
+            "ja-JP": "サイズミック・スラム",
+            "ko-KR": "지진 강타",
+            "pl-PL": "Fala Sejsmiczna",
+            "pt-BR": "Abalo Sísmico",
+            "ru-RU": "Дрожь земли",
+            "zh-CN": "裂地重拳",
+            "zh-TW": "震地襲"
+        },
+        "ultimate": {
+            "guid": "0000000056D3",
+            "en-US": "Meteor Strike",
+            "de-DE": "Meteorschlag",
+            "es-ES": "Meteoro",
+            "es-MX": "Golpe de meteoro",
+            "fr-FR": "Frappe météore",
+            "it-IT": "Impatto Devastante",
+            "ja-JP": "メテオ・ストライク",
+            "ko-KR": "파멸의 일격",
+            "pl-PL": "Meteor",
+            "pt-BR": "Impacto Meteoro",
+            "ru-RU": "Удар метеора",
+            "zh-CN": "毁天灭地",
+            "zh-TW": "流星墜"
+        },
         "en-US": "Doomfist",
         "ja-JP": "ドゥームフィスト",
         "ko-KR": "둠피스트",
         "pl-PL": "Pięść Zagłady",
         "ru-RU": "Кулак Смерти",
         "zh-CN": "末日铁拳",
-        "zh-TW": "毀滅拳王",
-        "secondaryFire": {
-            "guid": "0000000056D5"
-        },
-        "ability1": {
-            "guid": "0000000056D0"
-        },
-        "ability2": {
-            "guid": "000000005B4A"
-        },
-        "ultimate": {
-            "guid": "0000000056D3"
-        }
+        "zh-TW": "毀滅拳王"
     },
     "genji": {
         "guid": "000000000029",
+        "ability1": {
+            "guid": "000000001793",
+            "en-US": "Swift Strike",
+            "de-DE": "Sturmschlag",
+            "es-ES": "Corte veloz",
+            "es-MX": "Golpe ágil",
+            "fr-FR": "Frappe du vent",
+            "it-IT": "Assalto Rapido",
+            "ja-JP": "風斬り",
+            "ko-KR": "질풍참",
+            "pl-PL": "Szybkie Cięcie",
+            "pt-BR": "Golpe Veloz",
+            "ru-RU": "Молниеносный удар",
+            "zh-CN": "影",
+            "zh-TW": "迅影襲"
+        },
+        "ability2": {
+            "guid": "000000001791",
+            "en-US": "Deflect",
+            "de-DE": "Reflektieren",
+            "es-ES": "Desvío",
+            "es-MX": "Desviar",
+            "fr-FR": "Riposte",
+            "it-IT": "Deviazione",
+            "ja-JP": "木の葉返し",
+            "ko-KR": "튕겨내기",
+            "pl-PL": "Odbicie",
+            "pt-BR": "Desviar",
+            "ru-RU": "Отражение атак",
+            "zh-CN": "闪",
+            "zh-TW": "招架"
+        },
+        "ultimate": {
+            "guid": "00000000178F",
+            "en-US": "Dragonblade",
+            "de-DE": "Drachenklinge",
+            "es-ES": "Hoja del dragón",
+            "es-MX": "Hoja dragón",
+            "fr-FR": "Lame du dragon",
+            "it-IT": "Spada del Drago",
+            "ja-JP": "龍撃剣",
+            "ko-KR": "용검",
+            "pl-PL": "Smoczy Miecz",
+            "pt-BR": "Lâmina do Dragão",
+            "ru-RU": "Клинок дракона",
+            "zh-CN": "斩",
+            "zh-TW": "龍一文字"
+        },
         "en-US": "Genji",
         "ja-JP": "ゲンジ",
         "ko-KR": "겐지",
         "ru-RU": "Гэндзи",
         "zh-CN": "源氏",
-        "zh-TW": "源氏",
-        "ability1": {
-            "guid": "000000001793"
-        },
-        "ability2": {
-            "guid": "000000001791"
-        },
-        "ultimate": {
-            "guid": "00000000178F"
-        }
+        "zh-TW": "源氏"
     },
     "hanzo": {
         "guid": "000000000021",
+        "ability1": {
+            "guid": "0000000003A4",
+            "en-US": "Sonic Arrow",
+            "de-DE": "Sonarpfeil",
+            "es-ES": "Flecha sónica",
+            "es-MX": "Flecha sónica",
+            "fr-FR": "Flèche sonique",
+            "it-IT": "Freccia Sonica",
+            "ja-JP": "鳴響矢水",
+            "ko-KR": "음파 화살",
+            "pl-PL": "Strzała Soniczna",
+            "pt-BR": "Flecha Sônica",
+            "ru-RU": "Звуковая стрела",
+            "zh-CN": "音",
+            "zh-TW": "音波箭"
+        },
+        "ability2": {
+            "guid": "000000008189",
+            "en-US": "Storm Arrows",
+            "de-DE": "Sturmpfeile",
+            "es-ES": "Tormenta de flechas",
+            "es-MX": "Tormenta de flechas",
+            "fr-FR": "Rafale",
+            "it-IT": "Tempesta di Frecce",
+            "ja-JP": "電光石火",
+            "ko-KR": "폭풍 화살",
+            "pl-PL": "Strzały Burzowe",
+            "pt-BR": "Flechas da Tempestade",
+            "ru-RU": "Шквал",
+            "zh-CN": "岚",
+            "zh-TW": "暴風箭"
+        },
+        "ultimate": {
+            "guid": "0000000003A7",
+            "en-US": "Dragonstrike",
+            "de-DE": "Drachenschlag",
+            "es-ES": "Ataque del dragón",
+            "es-MX": "Golpe dragón",
+            "fr-FR": "Frappe du dragon",
+            "it-IT": "Assalto del Drago",
+            "ja-JP": "龍撃波",
+            "ko-KR": "용의 일격",
+            "pl-PL": "Smoczy Strzał",
+            "pt-BR": "Golpe do Dragão",
+            "ru-RU": "Удар дракона",
+            "zh-CN": "竜",
+            "zh-TW": "龍魂擊"
+        },
         "en-US": "Hanzo",
         "ja-JP": "ハンゾー",
         "ko-KR": "한조",
         "ru-RU": "Хандзо",
         "zh-CN": "半藏",
-        "zh-TW": "半藏",
-        "ability1": {
-            "guid": "0000000003A4"
-        },
-        "ability2": {
-            "guid": "000000008189"
-        },
-        "ultimate": {
-            "guid": "0000000003A7"
-        }
+        "zh-TW": "半藏"
     },
     "junkrat": {
         "guid": "0000000001AA",
+        "ability1": {
+            "guid": "000000001495",
+            "en-US": "Concussion Mine",
+            "de-DE": "Ferngezündete Mine",
+            "es-ES": "Mina de conmoción",
+            "es-MX": "Mina de conmoción",
+            "fr-FR": "Mine incapacitante",
+            "it-IT": "Mina Dirompente",
+            "ja-JP": "コンカッション・<br>マイン",
+            "ko-KR": "충격 지뢰",
+            "pl-PL": "Mina Ogłuszająca",
+            "pt-BR": "Mina de Concussão",
+            "ru-RU": "Фугасная мина",
+            "zh-CN": "震荡地雷",
+            "zh-TW": "震盪地雷"
+        },
+        "ability2": {
+            "guid": "00000000149B",
+            "en-US": "Steel Trap",
+            "de-DE": "Stahlfalle",
+            "es-ES": "Cepo",
+            "es-MX": "Trampa de acero",
+            "fr-FR": "Piège d’acier",
+            "it-IT": "Tagliola",
+            "ja-JP": "スティール・トラップ",
+            "ko-KR": "강철 덫",
+            "pl-PL": "Potrzask",
+            "pt-BR": "Armadilha de Aço",
+            "ru-RU": "Капкан",
+            "zh-CN": "捕兽夹",
+            "zh-TW": "鋼鐵陷阱"
+        },
+        "ultimate": {
+            "guid": "000000001499",
+            "en-US": "RIP-Tire",
+            "de-DE": "Kamikazereifen",
+            "es-ES": "Rueda explosiva",
+            "es-MX": "Neumático <br>desgarrador",
+            "fr-FR": "Pneumastic",
+            "it-IT": "Rotobomba",
+            "ja-JP": "RIPタイヤ",
+            "ko-KR": "죽이는 타이어",
+            "pl-PL": "Mord-Opona",
+            "pt-BR": "Pneu da Morte",
+            "ru-RU": "Адская шина",
+            "zh-CN": "炸弹轮胎",
+            "zh-TW": "地獄飛輪"
+        },
         "en-US": "Junkrat",
         "fr-FR": "Chacal",
         "ja-JP": "ジャンクラット",
@@ -198,76 +628,239 @@ const heroKw =
         "pl-PL": "Złomiarz",
         "ru-RU": "Крысавчик",
         "zh-CN": "狂鼠",
-        "zh-TW": "炸彈鼠",
-        "ability1": {
-            "guid": "000000001495"
-        },
-        "ability2": {
-            "guid": "00000000149B"
-        },
-        "ultimate": {
-            "guid": "000000001499"
-        }
+        "zh-TW": "炸彈鼠"
     },
     "lucio": {
         "guid": "0000000002DA",
+        "secondaryFire": {
+            "guid": "000000000CFD",
+            "en-US": "Soundwave",
+            "de-DE": "Schallwelle",
+            "es-ES": "Onda sonora",
+            "es-MX": "Onda sonora",
+            "fr-FR": "Onde sonore",
+            "it-IT": "Onda d'Urto",
+            "ja-JP": "サウンドウェーブ",
+            "ko-KR": "소리 파동",
+            "pl-PL": "Fala Dźwiękowa",
+            "pt-BR": "Onda Sonora",
+            "ru-RU": "Звуковая волна",
+            "zh-CN": "音波",
+            "zh-TW": "音浪衝擊"
+        },
+        "ability1": {
+            "guid": "000000000D0D",
+            "en-US": "Crossfade",
+            "es-ES": "Cambio de pista",
+            "es-MX": "Mezclador",
+            "it-IT": "Vibrazioni",
+            "ja-JP": "クロスフェード",
+            "ko-KR": "분위기 전환!",
+            "pl-PL": "Przejście",
+            "pt-BR": "Transição",
+            "ru-RU": "Кроссфейд",
+            "zh-CN": "切歌",
+            "zh-TW": "切換曲目"
+        },
+        "ability2": {
+            "guid": "000000000D01",
+            "en-US": "Amp It Up",
+            "de-DE": "Aufdrehen",
+            "es-ES": "Subidón",
+            "es-MX": "Sube el volumen",
+            "fr-FR": "Volume max.",
+            "it-IT": "Volume al Massimo",
+            "ja-JP": "アンプ・イット・<br>アップ",
+            "ko-KR": "볼륨을 높여라!",
+            "pl-PL": "Potencjometr",
+            "pt-BR": "Solta o Som",
+            "ru-RU": "Громкость на полную!",
+            "zh-CN": "强音",
+            "zh-TW": "音量全開"
+        },
+        "ultimate": {
+            "guid": "000000000D03",
+            "en-US": "Sound Barrier",
+            "de-DE": "Soundbarriere",
+            "es-ES": "Barrera de sonido",
+            "es-MX": "Barrera de sonido",
+            "fr-FR": "Mur de son",
+            "it-IT": "Barriera Sonora",
+            "ja-JP": "サウンド・バリア",
+            "ko-KR": "소리 방벽",
+            "pl-PL": "Bariera Dźwiękowa",
+            "pt-BR": "Barreira de Som",
+            "ru-RU": "Звуковой барьер",
+            "zh-CN": "音障",
+            "zh-TW": "音波屏障"
+        },
         "en-US": "Lúcio",
         "ja-JP": "ルシオ",
         "ko-KR": "루시우",
         "ru-RU": "Лусио",
         "zh-CN": "卢西奥",
-        "zh-TW": "路西歐",
-        "secondaryFire": {
-            "guid": "000000000CFD"
-        },
-        "ability1": {
-            "guid": "000000000D0D"
-        },
-        "ability2": {
-            "guid": "000000000D01"
-        },
-        "ultimate": {
-            "guid": "000000000D03"
-        }
+        "zh-TW": "路西歐"
     },
     "mccree": {
         "guid": "00000000005C",
+        "ability1": {
+            "guid": "00000000049E",
+            "en-US": "Combat Roll",
+            "de-DE": "Steppenrolle",
+            "es-ES": "Evasión",
+            "es-MX": "Voltereta de combate",
+            "fr-FR": "Roulade",
+            "it-IT": "Capriola Tattica",
+            "ja-JP": "コンバット・ロール",
+            "ko-KR": "구르기",
+            "pl-PL": "Przewrót Bojowy",
+            "pt-BR": "Rolamento",
+            "ru-RU": "Кувырок",
+            "zh-CN": "战术翻滚",
+            "zh-TW": "戰術翻滾"
+        },
+        "ability2": {
+            "guid": "0000000004A0",
+            "en-US": "Flashbang",
+            "de-DE": "Blendgranate",
+            "es-ES": "Granada cegadora",
+            "es-MX": "Granada aturdidora",
+            "fr-FR": "Grenade flash",
+            "it-IT": "Granata Stordente",
+            "ja-JP": "フラッシュバン",
+            "ko-KR": "섬광탄",
+            "pl-PL": "Granat Błyskowy",
+            "pt-BR": "Clarão",
+            "ru-RU": "Светошумовая граната",
+            "zh-CN": "闪光弹",
+            "zh-TW": "閃光彈"
+        },
+        "ultimate": {
+            "guid": "0000000004A2",
+            "en-US": "Deadeye",
+            "de-DE": "Revolverheld",
+            "es-ES": "Sin perdón",
+            "es-MX": "Tiro certero",
+            "fr-FR": "Implacable",
+            "it-IT": "Scarica di Piombo",
+            "ja-JP": "デッド・アイ",
+            "ko-KR": "황야의 무법자",
+            "pl-PL": "Przycelowanie",
+            "pt-BR": "Tiro Certeiro",
+            "ru-RU": "Меткий стрелок",
+            "zh-CN": "神射手",
+            "zh-TW": "彈無虛發"
+        },
         "en-US": "McCree",
         "ja-JP": "マクリー",
         "ko-KR": "맥크리",
         "ru-RU": "Маккри",
         "zh-CN": "麦克雷",
-        "zh-TW": "麥卡利",
-        "ability1": {
-            "guid": "00000000049E"
-        },
-        "ability2": {
-            "guid": "0000000004A0"
-        },
-        "ultimate": {
-            "guid": "0000000004A2"
-        }
+        "zh-TW": "麥卡利"
     },
     "mei": {
         "guid": "00000000083A",
+        "ability1": {
+            "guid": "00000000178B",
+            "en-US": "Cryo-Freeze",
+            "de-DE": "Kryostase",
+            "es-ES": "Criónica",
+            "es-MX": "Criocongelación",
+            "fr-FR": "Cryostase",
+            "it-IT": "Ibernazione",
+            "ja-JP": "クリオフリーズ",
+            "ko-KR": "급속 빙결",
+            "pl-PL": "Kriostaza",
+            "pt-BR": "Congelamento Criogênico",
+            "ru-RU": "Криостазис",
+            "zh-CN": "急冻",
+            "zh-TW": "冰霜屏障"
+        },
+        "ability2": {
+            "guid": "00000000178D",
+            "en-US": "Ice Wall",
+            "de-DE": "Eiswall",
+            "es-ES": "Muro de hielo",
+            "es-MX": "Muro de hielo",
+            "fr-FR": "Mur de glace",
+            "it-IT": "Muro di Ghiaccio",
+            "ja-JP": "アイス・ウォール",
+            "ko-KR": "빙벽",
+            "pl-PL": "Ściana Lodu",
+            "pt-BR": "Muralha de Gelo",
+            "ru-RU": "Ледяная стена",
+            "zh-CN": "冰墙",
+            "zh-TW": "冰牆"
+        },
+        "ultimate": {
+            "guid": "000000001789",
+            "en-US": "Blizzard",
+            "es-ES": "Ventisca",
+            "es-MX": "Ventisca",
+            "it-IT": "Tormenta",
+            "ja-JP": "ブリザード",
+            "ko-KR": "눈보라",
+            "pl-PL": "Zamieć",
+            "pt-BR": "Nevasca",
+            "ru-RU": "Вьюга",
+            "zh-CN": "暴雪",
+            "zh-TW": "暴風雪"
+        },
         "en-US": "Mei",
         "ja-JP": "メイ",
         "ko-KR": "메이",
         "ru-RU": "Мэй",
         "zh-CN": "美",
-        "zh-TW": "小美",
-        "ability1": {
-            "guid": "00000000178B"
-        },
-        "ability2": {
-            "guid": "00000000178D"
-        },
-        "ultimate": {
-            "guid": "000000001789"
-        }
+        "zh-TW": "小美"
     },
     "mercy": {
         "guid": "000000000020",
+        "ability1": {
+            "guid": "000000000410",
+            "en-US": "Guardian Angel",
+            "de-DE": "Schutzengel",
+            "es-ES": "Ángel de la guarda",
+            "es-MX": "Ángel guardián",
+            "fr-FR": "Ange gardien",
+            "it-IT": "Angelo Custode",
+            "ja-JP": "ガーディアン・<br>エンジェル",
+            "ko-KR": "수호천사",
+            "pl-PL": "Anioł Stróż",
+            "pt-BR": "Anjo da Guarda",
+            "ru-RU": "Ангел-хранитель",
+            "zh-CN": "守护天使",
+            "zh-TW": "守護天使"
+        },
+        "ability2": {
+            "guid": "00000000040E",
+            "en-US": "Resurrect",
+            "de-DE": "Wiederauferstehung",
+            "es-ES": "Resurrección",
+            "es-MX": "Resurrección",
+            "fr-FR": "Résurrection",
+            "it-IT": "Resurrezione",
+            "ja-JP": "リザレクト",
+            "ko-KR": "부활",
+            "pl-PL": "Wskrzeszenie",
+            "pt-BR": "Ressurreição",
+            "ru-RU": "Воскрешение",
+            "zh-CN": "重生",
+            "zh-TW": "復活"
+        },
+        "ultimate": {
+            "guid": "000000006DAA",
+            "en-US": "Valkyrie",
+            "es-ES": "Valkiria",
+            "es-MX": "Valquiria",
+            "it-IT": "Valchiria",
+            "ja-JP": "ヴァルキリー",
+            "ko-KR": "발키리",
+            "pl-PL": "Walkiria",
+            "pt-BR": "Valquíria",
+            "ru-RU": "Валькирия",
+            "zh-CN": "女武神",
+            "zh-TW": "女武神"
+        },
         "en-US": "Mercy",
         "fr-FR": "Ange",
         "ja-JP": "マーシー",
@@ -275,80 +868,259 @@ const heroKw =
         "pl-PL": "Łaska",
         "ru-RU": "Ангел",
         "zh-CN": "天使",
-        "zh-TW": "慈悲",
-        "ability1": {
-            "guid": "000000000410"
-        },
-        "ability2": {
-            "guid": "00000000040E"
-        },
-        "ultimate": {
-            "guid": "000000006DAA"
-        }
+        "zh-TW": "慈悲"
     },
     "moira": {
         "guid": "000000006339",
+        "ability1": {
+            "guid": "000000006629",
+            "en-US": "Fade",
+            "de-DE": "Phasensprung",
+            "es-ES": "Evanescencia",
+            "es-MX": "Evanescencia",
+            "fr-FR": "Volatilité",
+            "it-IT": "Dissolvenza",
+            "ja-JP": "フェード",
+            "ko-KR": "소멸",
+            "pl-PL": "Zniknięcie",
+            "pt-BR": "Desvanecer",
+            "ru-RU": "Уход в тень",
+            "zh-CN": "消散",
+            "zh-TW": "消失"
+        },
+        "ability2": {
+            "guid": "000000006E54",
+            "en-US": "Biotic Orb",
+            "de-DE": "Biotische Sphäre",
+            "es-ES": "Orbe biótico",
+            "es-MX": "Orbe biótico",
+            "fr-FR": "Orbe biotique",
+            "it-IT": "Globo Biotico",
+            "ja-JP": "バイオティック・<br>オーブ",
+            "ko-KR": "생체 구슬",
+            "pl-PL": "Kula Biotyczna",
+            "pt-BR": "Orbe Biótica",
+            "ru-RU": "Биотическая сфера",
+            "zh-CN": "生化之球",
+            "zh-TW": "生化球"
+        },
+        "ultimate": {
+            "guid": "000000006630",
+            "en-US": "Coalescence",
+            "de-DE": "Koaleszenz",
+            "es-ES": "Coalescencia",
+            "es-MX": "Coalescencia",
+            "it-IT": "Coalescenza",
+            "ja-JP": "コアレッセンス",
+            "ko-KR": "융화",
+            "pl-PL": "Koalescencja",
+            "pt-BR": "Coalescência",
+            "ru-RU": "Коалесценция",
+            "zh-CN": "聚合射线",
+            "zh-TW": "聚合光束"
+        },
         "en-US": "Moira",
         "ja-JP": "モイラ",
         "ko-KR": "모이라",
         "ru-RU": "Мойра",
         "zh-CN": "莫伊拉",
-        "zh-TW": "莫伊拉",
-        "ability1": {
-            "guid": "000000006629"
-        },
-        "ability2": {
-            "guid": "000000006E54"
-        },
-        "ultimate": {
-            "guid": "000000006630"
-        }
+        "zh-TW": "莫伊拉"
     },
     "orisa": {
         "guid": "000000002D21",
+        "secondaryFire": {
+            "guid": "000000004ED5",
+            "en-US": "Halt!",
+            "es-ES": "¡Alto!",
+            "es-MX": "¡Alto!",
+            "fr-FR": "Entrave",
+            "it-IT": "Mina Traente",
+            "ja-JP": "ストップ！",
+            "ko-KR": "꼼짝 마!",
+            "pl-PL": "Stać!",
+            "pt-BR": "Parados!",
+            "ru-RU": "Стоять!",
+            "zh-CN": "站住别动",
+            "zh-TW": "不准動！"
+        },
+        "ability1": {
+            "guid": "000000004ED3",
+            "en-US": "Fortify",
+            "de-DE": "Defensivprotokoll",
+            "es-ES": "Fortificación",
+            "es-MX": "Fortificar",
+            "fr-FR": "Blindage",
+            "it-IT": "Fortificazione",
+            "ja-JP": "フォーティファイ",
+            "ko-KR": "방어 강화",
+            "pl-PL": "Umocnienie",
+            "pt-BR": "Fortificar",
+            "ru-RU": "Защитное поле",
+            "zh-CN": "强固防御",
+            "zh-TW": "強化防禦"
+        },
+        "ability2": {
+            "guid": "000000004ED7",
+            "en-US": "Protective Barrier",
+            "de-DE": "Schutzbarriere",
+            "es-ES": "Barrera protectora",
+            "es-MX": "Barrera protectora",
+            "fr-FR": "Dispositif de protection",
+            "it-IT": "Barriera Protettiva",
+            "ja-JP": "プロテクティブ・<br>バリア",
+            "ko-KR": "보호 방벽",
+            "pl-PL": "Bariera Ochronna",
+            "pt-BR": "Barreira Protetora",
+            "ru-RU": "Силовой барьер",
+            "zh-CN": "防护屏障",
+            "zh-TW": "防護屏障"
+        },
+        "ultimate": {
+            "guid": "000000004EDB",
+            "en-US": "Supercharger",
+            "de-DE": "Superbooster",
+            "es-ES": "Potenciador",
+            "es-MX": "Supercargador",
+            "fr-FR": "Surchargeur",
+            "it-IT": "Sovralimentatore",
+            "ja-JP": "スーパーチャージャー",
+            "ko-KR": "초강력 증폭기",
+            "pl-PL": "Turbodoładowanie",
+            "pt-BR": "Amplificador",
+            "ru-RU": "Катализатор",
+            "zh-CN": "超充能器",
+            "zh-TW": "增壓強化裝置"
+        },
         "en-US": "Orisa",
         "ja-JP": "オリーサ",
         "ko-KR": "오리사",
         "ru-RU": "Ориса",
         "zh-CN": "奥丽莎",
-        "zh-TW": "歐瑞莎",
-        "secondaryFire": {
-            "guid": "000000004ED5"
-        },
-        "ability1": {
-            "guid": "000000004ED3"
-        },
-        "ability2": {
-            "guid": "000000004ED7"
-        },
-        "ultimate": {
-            "guid": "000000004EDB"
-        }
+        "zh-TW": "歐瑞莎"
     },
     "pharah": {
         "guid": "000000000027",
+        "secondaryFire": {
+            "guid": "0000000003B1",
+            "en-US": "Hover Jets",
+            "de-DE": "Schwebedüsen",
+            "es-ES": "Planeador",
+            "es-MX": "Propulsores levitantes",
+            "fr-FR": "Stabilisateurs",
+            "it-IT": "Propulsori",
+            "ja-JP": "ホバー・ジェット",
+            "ko-KR": "호버 추진기",
+            "pl-PL": "Zawiśnięcie",
+            "pt-BR": "Suspensão a Jato",
+            "ru-RU": "Парение",
+            "zh-CN": "悬浮背包",
+            "zh-TW": "滯空"
+        },
+        "ability1": {
+            "guid": "0000000003AF",
+            "en-US": "Jump Jet",
+            "de-DE": "Senkrechtstarter",
+            "es-ES": "Propulsores",
+            "es-MX": "Propulsor aéreo",
+            "fr-FR": "Réacteurs",
+            "it-IT": "Propulsori",
+            "ja-JP": "ジャンプ・ジェット",
+            "ko-KR": "점프 추진기",
+            "pl-PL": "Skok Odrzutowy",
+            "pt-BR": "Salto Foguete",
+            "ru-RU": "Реактивный ранец",
+            "zh-CN": "推进背包",
+            "zh-TW": "跳躍噴射"
+        },
+        "ability2": {
+            "guid": "0000000003B3",
+            "en-US": "Concussive Blast",
+            "de-DE": "Erschütterungs<hy>impuls",
+            "es-ES": "Disparo de conmoción",
+            "es-MX": "Explosión conmocionante",
+            "fr-FR": "Conflagration",
+            "it-IT": "Scarica Esplosiva",
+            "ja-JP": "コンカッシブ・<br>ブラスト",
+            "ko-KR": "충격탄",
+            "pl-PL": "Przytłaczający Strzał",
+            "pt-BR": "Explosão Concussiva",
+            "ru-RU": "Взрывная волна",
+            "zh-CN": "震荡冲击",
+            "zh-TW": "震盪爆破"
+        },
+        "ultimate": {
+            "guid": "0000000003AD",
+            "en-US": "Barrage",
+            "de-DE": "Trommelfeuer",
+            "es-ES": "Bombardeo",
+            "es-MX": "Bombardeo",
+            "it-IT": "Pioggia di Fuoco",
+            "ja-JP": "バレッジ",
+            "ko-KR": "포화",
+            "pl-PL": "Salwa",
+            "pt-BR": "Bombardeio",
+            "ru-RU": "Ракетный залп",
+            "zh-CN": "火箭弹幕",
+            "zh-TW": "火箭彈幕"
+        },
         "en-US": "Pharah",
         "ja-JP": "ファラ",
         "ko-KR": "파라",
         "pl-PL": "Fara",
         "ru-RU": "Фарра",
         "zh-CN": "法老之鹰",
-        "zh-TW": "法拉",
-        "secondaryFire": {
-            "guid": "0000000003B1"
-        },
-        "ability1": {
-            "guid": "0000000003AF"
-        },
-        "ability2": {
-            "guid": "0000000003B3"
-        },
-        "ultimate": {
-            "guid": "0000000003AD"
-        }
+        "zh-TW": "法拉"
     },
     "reaper": {
         "guid": "000000000026",
+        "ability1": {
+            "guid": "0000000003BB",
+            "en-US": "Wraith Form",
+            "de-DE": "Phantom",
+            "es-ES": "Forma espectral",
+            "es-MX": "Forma espectral",
+            "fr-FR": "Forme spectrale",
+            "it-IT": "Forma Spettrale",
+            "ja-JP": "レイス・フォーム",
+            "ko-KR": "망령화",
+            "pl-PL": "Postać Upiora",
+            "pt-BR": "Forma Fantasma",
+            "ru-RU": "Бестелесность",
+            "zh-CN": "幽灵形态",
+            "zh-TW": "亡靈形態"
+        },
+        "ability2": {
+            "guid": "0000000003BF",
+            "en-US": "Shadow Step",
+            "de-DE": "Schattenschritt",
+            "es-ES": "Paso de las tinieblas",
+            "es-MX": "Paso sombrío",
+            "fr-FR": "Voie des ombres",
+            "it-IT": "Passo d'Ombra",
+            "ja-JP": "シャドウ・ステップ",
+            "ko-KR": "그림자 밟기",
+            "pl-PL": "Krok w Cień",
+            "pt-BR": "Passos das Sombras",
+            "ru-RU": "Шаг сквозь тень",
+            "zh-CN": "暗影步",
+            "zh-TW": "幽影傳送"
+        },
+        "ultimate": {
+            "guid": "0000000003B7",
+            "en-US": "Death Blossom",
+            "de-DE": "Totentanz",
+            "es-ES": "Espiral de muerte",
+            "es-MX": "Liberación de almas",
+            "fr-FR": "Éclosion mortelle",
+            "it-IT": "Spirale della Morte",
+            "ja-JP": "デス・ブロッサム",
+            "ko-KR": "죽음의 꽃",
+            "pl-PL": "Wirująca Śmierć",
+            "pt-BR": "Desabrochar da Morte",
+            "ru-RU": "Цветок смерти",
+            "zh-CN": "死亡绽放",
+            "zh-TW": "死亡綻放"
+        },
         "en-US": "Reaper",
         "fr-FR": "Faucheur",
         "ja-JP": "リーパー",
@@ -356,40 +1128,130 @@ const heroKw =
         "pl-PL": "Żniwiarz",
         "ru-RU": "Жнец",
         "zh-CN": "死神",
-        "zh-TW": "死神",
-        "ability1": {
-            "guid": "0000000003BB"
-        },
-        "ability2": {
-            "guid": "0000000003BF"
-        },
-        "ultimate": {
-            "guid": "0000000003B7"
-        }
+        "zh-TW": "死神"
     },
     "reinhardt": {
         "guid": "000000000025",
+        "secondaryFire": {
+            "guid": "0000000003EC",
+            "en-US": "Barrier Field",
+            "de-DE": "Barrierenfeld",
+            "es-ES": "Campo protector",
+            "es-MX": "Campo de escudo",
+            "fr-FR": "Écran",
+            "it-IT": "Barriera",
+            "ja-JP": "バリア・フィールド",
+            "ko-KR": "방벽 방패",
+            "pl-PL": "Pole Osłonowe",
+            "pt-BR": "Campo de Barreira",
+            "ru-RU": "Энергетический барьер",
+            "zh-CN": "屏障力场",
+            "zh-TW": "屏障力場"
+        },
+        "ability1": {
+            "guid": "0000000003E8",
+            "en-US": "Charge",
+            "de-DE": "Ansturm",
+            "es-ES": "Embestida",
+            "es-MX": "Carga",
+            "it-IT": "Carica",
+            "ja-JP": "チャージ",
+            "ko-KR": "돌진",
+            "pl-PL": "Szarża",
+            "pt-BR": "Investida",
+            "ru-RU": "Рывок",
+            "zh-CN": "冲锋",
+            "zh-TW": "衝鋒"
+        },
+        "ability2": {
+            "guid": "0000000003EA",
+            "en-US": "Fire Strike",
+            "de-DE": "Feuerschlag",
+            "es-ES": "Onda de fuego",
+            "es-MX": "Ataque ígneo",
+            "fr-FR": "Frappe de feu",
+            "it-IT": "Dardo di Fuoco",
+            "ja-JP": "ファイア・ストライク",
+            "ko-KR": "화염 강타",
+            "pl-PL": "Ogniste Uderzenie",
+            "pt-BR": "Tiro Flamejante",
+            "ru-RU": "Огненный удар",
+            "zh-CN": "烈焰打击",
+            "zh-TW": "烈焰擊"
+        },
+        "ultimate": {
+            "guid": "0000000003E6",
+            "en-US": "Earthshatter",
+            "de-DE": "Erdstoß",
+            "es-ES": "Seísmo",
+            "es-MX": "Quebrantasuelos",
+            "fr-FR": "Choc sismique",
+            "it-IT": "Schianto Sismico",
+            "ja-JP": "アース・シャター",
+            "ko-KR": "대지분쇄",
+            "pl-PL": "Zdruzgotanie",
+            "pt-BR": "Abalo Terrestre",
+            "ru-RU": "Землетрясение",
+            "zh-CN": "裂地猛击",
+            "zh-TW": "地裂擊"
+        },
         "en-US": "Reinhardt",
         "ja-JP": "ラインハルト",
         "ko-KR": "라인하르트",
         "ru-RU": "Райнхардт",
         "zh-CN": "莱因哈特",
-        "zh-TW": "萊因哈特",
-        "secondaryFire": {
-            "guid": "0000000003EC"
-        },
-        "ability1": {
-            "guid": "0000000003E8"
-        },
-        "ability2": {
-            "guid": "0000000003EA"
-        },
-        "ultimate": {
-            "guid": "0000000003E6"
-        }
+        "zh-TW": "萊因哈特"
     },
     "roadhog": {
         "guid": "000000000054",
+        "ability1": {
+            "guid": "00000000079D",
+            "en-US": "Chain Hook",
+            "de-DE": "Abschlepphaken",
+            "es-ES": "Garfio",
+            "es-MX": "Gancho con cadena",
+            "fr-FR": "Traquelard",
+            "it-IT": "Gancio",
+            "ja-JP": "チェイン・フック",
+            "ko-KR": "사슬 갈고리",
+            "pl-PL": "Hak na Łańcuchu",
+            "pt-BR": "Corrente de Gancho",
+            "ru-RU": "Цепной крюк",
+            "zh-CN": "链钩",
+            "zh-TW": "鎖鍊鉤"
+        },
+        "ability2": {
+            "guid": "00000000079B",
+            "en-US": "Take a Breather",
+            "de-DE": "Verschnaufpause",
+            "es-ES": "Inhalador",
+            "es-MX": "Toma un respiro",
+            "fr-FR": "Inhalateur",
+            "it-IT": "Boccata d'Aria",
+            "ja-JP": "テイク・ア・<br>ブリーザー",
+            "ko-KR": "숨 돌리기",
+            "pl-PL": "Sztachnięcie",
+            "pt-BR": "Pegando Fôlego",
+            "ru-RU": "Передышка",
+            "zh-CN": "呼吸器",
+            "zh-TW": "吸了再上"
+        },
+        "ultimate": {
+            "guid": "000000000795",
+            "en-US": "Whole Hog",
+            "de-DE": "Fleischwolf",
+            "es-ES": "Juego sucio",
+            "es-MX": "A todo jabalí",
+            "fr-FR": "Équarisseur",
+            "it-IT": "Porcata",
+            "ja-JP": "ホール・ホッグ",
+            "ko-KR": "돼재앙",
+            "pl-PL": "Wieprznięcie",
+            "pt-BR": "Cair Matando",
+            "ru-RU": "Турбосвинство",
+            "zh-CN": "鸡飞狗跳",
+            "zh-TW": "火力全開"
+        },
         "en-US": "Roadhog",
         "fr-FR": "Chopper",
         "ja-JP": "ロードホッグ",
@@ -397,40 +1259,142 @@ const heroKw =
         "pl-PL": "Wieprzu",
         "ru-RU": "Турбосвин",
         "zh-CN": "路霸",
-        "zh-TW": "攔路豬",
-        "ability1": {
-            "guid": "00000000079D"
-        },
-        "ability2": {
-            "guid": "00000000079B"
-        },
-        "ultimate": {
-            "guid": "000000000795"
-        }
+        "zh-TW": "攔路豬"
     },
     "sigma": {
         "guid": "000000009E9E",
+        "secondaryFire": {
+            "guid": "00000000B350",
+            "en-US": "Experimental Barrier",
+            "de-DE": "Experimentelle Barriere",
+            "es-ES": "Barrera experimental",
+            "es-MX": "Barrera experimental",
+            "fr-FR": "Écran expérimental",
+            "it-IT": "Barriera Sperimentale",
+            "ja-JP": "エクスペリメンタル・バリア",
+            "ko-KR": "실험용 방벽",
+            "pl-PL": "Eksperymentalna Bariera",
+            "pt-BR": "Barreira Experimental",
+            "ru-RU": "Экспериментальный барьер",
+            "zh-CN": "实验屏障",
+            "zh-TW": "實驗屏障"
+        },
+        "ability1": {
+            "guid": "00000000B347",
+            "en-US": "Kinetic Grasp",
+            "de-DE": "Kinetische Konversion",
+            "es-ES": "Agarre cinético",
+            "es-MX": "Agarre cinético",
+            "fr-FR": "Captation cinétique",
+            "it-IT": "Presa Cinetica",
+            "ja-JP": "キネティック・グラスプ",
+            "ko-KR": "키네틱 손아귀",
+            "pl-PL": "Chwyt Kinetyczny",
+            "pt-BR": "Punho Cinético",
+            "ru-RU": "Кинетический захват",
+            "zh-CN": "动能俘获",
+            "zh-TW": "動能轉化"
+        },
+        "ability2": {
+            "guid": "00000000B345",
+            "en-US": "Accretion",
+            "de-DE": "Akkretion",
+            "es-ES": "Acreción",
+            "es-MX": "Acreción",
+            "fr-FR": "Concrétion",
+            "it-IT": "Accrescimento",
+            "ja-JP": "アクリーション",
+            "ko-KR": "강착",
+            "pl-PL": "Akrecja",
+            "pt-BR": "Acreção",
+            "ru-RU": "Аккреция",
+            "zh-CN": "质量吸附",
+            "zh-TW": "重力崩引"
+        },
+        "ultimate": {
+            "guid": "00000000B352",
+            "en-US": "Gravitic Flux",
+            "de-DE": "Gravitationsfluss",
+            "es-ES": "Flujo gravitacional",
+            "es-MX": "Flujo gravitatorio",
+            "fr-FR": "Flux gravitationnel",
+            "it-IT": "Flusso Gravitazionale",
+            "ja-JP": "グラビティ・フラックス",
+            "ko-KR": "중력 붕괴",
+            "pl-PL": "Strumień Grawitacyjny",
+            "pt-BR": "Fluxo Gravitacional",
+            "ru-RU": "Гравитационный колодец",
+            "zh-CN": "引力乱流",
+            "zh-TW": "重力流"
+        },
         "en-US": "Sigma",
         "ja-JP": "シグマ",
         "ko-KR": "시그마",
         "ru-RU": "Сигма",
         "zh-CN": "西格玛",
-        "zh-TW": "席格馬",
-        "secondaryFire": {
-            "guid": "00000000B350"
-        },
-        "ability1": {
-            "guid": "00000000B347"
-        },
-        "ability2": {
-            "guid": "00000000B345"
-        },
-        "ultimate": {
-            "guid": "00000000B352"
-        }
+        "zh-TW": "席格馬"
     },
     "soldier": {
         "guid": "000000000224",
+        "secondaryFire": {
+            "guid": "000000000C83",
+            "en-US": "Helix Rockets",
+            "de-DE": "Helix-Raketen",
+            "es-ES": "Cohetes hélice",
+            "es-MX": "Cohetes Helix",
+            "fr-FR": "Roquettes LX",
+            "it-IT": "Razzi Helix",
+            "ja-JP": "ヘリックス・ロケット",
+            "ko-KR": "나선 로켓",
+            "pl-PL": "Rakiety Helix",
+            "pt-BR": "Foguetes Hélix",
+            "ru-RU": "Ракетный удар",
+            "zh-CN": "螺旋飞弹",
+            "zh-TW": "旋風火箭"
+        },
+        "ability1": {
+            "guid": "000000000C85",
+            "en-US": "Sprint",
+            "it-IT": "Scatto",
+            "ja-JP": "スプリント",
+            "ko-KR": "질주",
+            "pt-BR": "Disparada",
+            "ru-RU": "Спринт",
+            "zh-CN": "疾跑",
+            "zh-TW": "衝刺"
+        },
+        "ability2": {
+            "guid": "000000000C87",
+            "en-US": "Biotic Field",
+            "de-DE": "Biotisches Feld",
+            "es-ES": "Campo biótico",
+            "es-MX": "Campo biótico",
+            "fr-FR": "Champ biotique",
+            "it-IT": "Rigeneratore Biotico",
+            "ja-JP": "バイオティック・<br>フィールド",
+            "ko-KR": "생체장",
+            "pl-PL": "Pole Biotyczne",
+            "pt-BR": "Campo Biótico",
+            "ru-RU": "Биотическое поле",
+            "zh-CN": "生物力场",
+            "zh-TW": "生化力場"
+        },
+        "ultimate": {
+            "guid": "000000000C89",
+            "en-US": "Tactical Visor",
+            "de-DE": "Taktisches Visier",
+            "es-ES": "Visor táctico",
+            "es-MX": "Visor táctico",
+            "fr-FR": "Visière tactique",
+            "it-IT": "Visore Tattico",
+            "ja-JP": "タクティカル・<br>バイザー",
+            "ko-KR": "전술 조준경",
+            "pl-PL": "Wizjer Taktyczny",
+            "pt-BR": "Visor Tático",
+            "ru-RU": "Тактический визор",
+            "zh-CN": "战术目镜",
+            "zh-TW": "戰術鎖定"
+        },
         "en-US": "Soldier: 76",
         "es-ES": "Soldado: 76",
         "es-MX": "Soldado: 76",
@@ -442,98 +1406,297 @@ const heroKw =
         "pt-BR": "Soldado: 76",
         "ru-RU": "Солдат-76",
         "zh-CN": "士兵：76",
-        "zh-TW": "士兵76",
-        "secondaryFire": {
-            "guid": "000000000C83"
-        },
-        "ability1": {
-            "guid": "000000000C85"
-        },
-        "ability2": {
-            "guid": "000000000C87"
-        },
-        "ultimate": {
-            "guid": "000000000C89"
-        }
+        "zh-TW": "士兵76"
     },
     "sombra": {
         "guid": "0000000046F9",
+        "secondaryFire": {
+            "guid": "000000004711",
+            "en-US": "Hack",
+            "de-DE": "Hacken",
+            "es-ES": "Hackeo",
+            "es-MX": "Hackeo",
+            "fr-FR": "Piratage",
+            "it-IT": "Hacking",
+            "ja-JP": "ハック",
+            "ko-KR": "해킹",
+            "pl-PL": "Hakowanie",
+            "pt-BR": "Hackear",
+            "ru-RU": "Взлом",
+            "zh-CN": "黑客入侵",
+            "zh-TW": "駭入"
+        },
+        "ability1": {
+            "guid": "000000004712",
+            "en-US": "Stealth",
+            "de-DE": "Camouflage",
+            "es-ES": "Modo incógnito",
+            "es-MX": "Sigilo",
+            "fr-FR": "Furtivité",
+            "it-IT": "Occultamento",
+            "ja-JP": "ステルス",
+            "ko-KR": "은신",
+            "pl-PL": "Ukrycie",
+            "pt-BR": "Furtividade",
+            "ru-RU": "Маскировка",
+            "zh-CN": "隐秘潜行",
+            "zh-TW": "匿蹤"
+        },
+        "ability2": {
+            "guid": "000000004700",
+            "en-US": "Translocator",
+            "de-DE": "Translokator",
+            "es-ES": "Baliza de translocación",
+            "es-MX": "Translocalizador",
+            "fr-FR": "Transducteur",
+            "it-IT": "Rilocatore",
+            "ja-JP": "トランズロケーター",
+            "ko-KR": "위치변환기",
+            "pl-PL": "Translokator",
+            "pt-BR": "Translocador",
+            "ru-RU": "Транслокатор",
+            "zh-CN": "位移传动",
+            "zh-TW": "相位轉換器"
+        },
+        "ultimate": {
+            "guid": "00000000470C",
+            "en-US": "EMP",
+            "es-ES": "PEM",
+            "es-MX": "PEM",
+            "fr-FR": "IEM",
+            "pl-PL": "Impuls Elektromagnetyczny",
+            "pt-BR": "PEM",
+            "ru-RU": "Импульс",
+            "zh-CN": "电磁脉冲",
+            "zh-TW": "電磁脈衝波"
+        },
         "en-US": "Sombra",
         "ja-JP": "ソンブラ",
         "ko-KR": "솜브라",
         "ru-RU": "Сомбра",
         "zh-CN": "黑影",
-        "zh-TW": "駭影",
-        "secondaryFire": {
-            "guid": "000000004711"
-        },
-        "ability1": {
-            "guid": "000000004712"
-        },
-        "ability2": {
-            "guid": "000000004700"
-        },
-        "ultimate": {
-            "guid": "00000000470C"
-        }
+        "zh-TW": "駭影"
     },
     "symmetra": {
         "guid": "00000000002A",
+        "ability1": {
+            "guid": "000000000406",
+            "en-US": "Sentry Turret",
+            "de-DE": "Selbstschussanlage",
+            "es-ES": "Torreta centinela",
+            "es-MX": "Torreta centinela",
+            "fr-FR": "Tourelle sentinelle",
+            "it-IT": "Drone Sentinella",
+            "ja-JP": "セントリー・タレット",
+            "ko-KR": "감시 포탑",
+            "pl-PL": "Wieżyczka Strażnicza",
+            "pt-BR": "Torre de Sentinela ",
+            "ru-RU": "Защитная турель",
+            "zh-CN": "哨戒炮",
+            "zh-TW": "哨戒塔"
+        },
+        "ability2": {
+            "guid": "000000000404",
+            "en-US": "Teleporter",
+            "es-ES": "Teletransportador",
+            "es-MX": "Transportador",
+            "fr-FR": "Téléporteur",
+            "it-IT": "Televarco",
+            "ja-JP": "テレポーター",
+            "ko-KR": "순간이동기",
+            "pt-BR": "Teletransportador",
+            "ru-RU": "Телепортер",
+            "zh-CN": "传送面板",
+            "zh-TW": "傳送器"
+        },
+        "ultimate": {
+            "guid": "000000005462",
+            "en-US": "Photon Barrier",
+            "de-DE": "Photonenbarriere",
+            "es-ES": "Barrera de fotones",
+            "es-MX": "Barrera de fotones",
+            "fr-FR": "Écran photonique",
+            "it-IT": "Barriera Fotonica",
+            "ja-JP": "フォトン・<br>バリア",
+            "ko-KR": "광자 방벽",
+            "pl-PL": "Bariera Fotonowa",
+            "pt-BR": "Barreira de Fótons",
+            "ru-RU": "Фотонный барьер",
+            "zh-CN": "光子屏障",
+            "zh-TW": "光子屏障"
+        },
         "en-US": "Symmetra",
         "ja-JP": "シンメトラ",
         "ko-KR": "시메트라",
         "ru-RU": "Симметра",
         "zh-CN": "秩序之光",
-        "zh-TW": "辛梅塔",
-        "ability1": {
-            "guid": "000000000406"
-        },
-        "ability2": {
-            "guid": "000000000404"
-        },
-        "ultimate": {
-            "guid": "000000005462"
-        }
+        "zh-TW": "辛梅塔"
     },
     "torbjorn": {
         "guid": "000000000024",
+        "ability1": {
+            "guid": "000000009295",
+            "en-US": "Deploy Turret",
+            "de-DE": "Geschütz aufstellen",
+            "es-ES": "Desplegar torreta",
+            "es-MX": "Desplegar torreta",
+            "fr-FR": "Déploiement de tourelle",
+            "it-IT": "Posiziona Torretta",
+            "ja-JP": "タレット設置",
+            "ko-KR": "포탑 설치",
+            "pl-PL": "Rozstawienie Wieżyczki",
+            "pt-BR": "Posicionar Torre",
+            "ru-RU": "Установка турели",
+            "zh-CN": "部署炮台",
+            "zh-TW": "部署砲塔"
+        },
+        "ability2": {
+            "guid": "000000009297",
+            "en-US": "Overload",
+            "de-DE": "Überladung",
+            "es-ES": "Sobrecarga",
+            "es-MX": "Sobrecarga",
+            "fr-FR": "Surcharge",
+            "it-IT": "Sovraccarico",
+            "ja-JP": "オーバーロード",
+            "ko-KR": "과부하",
+            "pl-PL": "Dopancerzenie",
+            "pt-BR": "Sobrecarga",
+            "ru-RU": "Перегрузка",
+            "zh-CN": "热力过载",
+            "zh-TW": "超負荷"
+        },
+        "ultimate": {
+            "guid": "000000009299",
+            "en-US": "Molten Core",
+            "de-DE": "Geschmolzener Kern",
+            "es-ES": "Fusión nuclear",
+            "es-MX": "Núcleo de magma",
+            "fr-FR": "Cœur de magma",
+            "it-IT": "Nucleo Ardente",
+            "ja-JP": "モルテン・コア",
+            "ko-KR": "초고열 용광로",
+            "pl-PL": "Przegrzanie",
+            "pt-BR": "Núcleo Fundido",
+            "ru-RU": "Перегрев",
+            "zh-CN": "熔火核心",
+            "zh-TW": "爐心超載"
+        },
         "en-US": "Torbjörn",
         "ja-JP": "トールビョーン",
         "ko-KR": "토르비욘",
         "ru-RU": "Торбьорн",
         "zh-CN": "托比昂",
-        "zh-TW": "托比昂",
-        "ability1": {
-            "guid": "000000009295"
-        },
-        "ability2": {
-            "guid": "000000009297"
-        },
-        "ultimate": {
-            "guid": "000000009299"
-        }
+        "zh-TW": "托比昂"
     },
     "tracer": {
         "guid": "00000000002B",
+        "ability1": {
+            "guid": "000000000393",
+            "en-US": "Blink",
+            "de-DE": "Warp",
+            "es-ES": "Traslación",
+            "es-MX": "Traslación",
+            "fr-FR": "Transfert",
+            "it-IT": "Traslazione",
+            "ja-JP": "ブリンク",
+            "ko-KR": "점멸",
+            "pl-PL": "Mignięcie",
+            "pt-BR": "Teleportar",
+            "ru-RU": "Скачок",
+            "zh-CN": "闪现",
+            "zh-TW": "閃現"
+        },
+        "ability2": {
+            "guid": "000000000396",
+            "en-US": "Recall",
+            "de-DE": "Zeitschleife",
+            "es-ES": "Regresión",
+            "es-MX": "Regresión",
+            "fr-FR": "Rappel",
+            "it-IT": "Flashback",
+            "ja-JP": "リコール",
+            "ko-KR": "시간 역행",
+            "pl-PL": "Powrót",
+            "pt-BR": "Recordação",
+            "ru-RU": "Возврат",
+            "zh-CN": "闪回",
+            "zh-TW": "回溯"
+        },
+        "ultimate": {
+            "guid": "000000000398",
+            "en-US": "Pulse Bomb",
+            "de-DE": "Impulsbombe",
+            "es-ES": "Bomba de pulsos",
+            "es-MX": "Bomba de pulso",
+            "fr-FR": "Bombe à impulsion",
+            "it-IT": "Bomba a Impulsi",
+            "ja-JP": "パルス・ボム",
+            "ko-KR": "펄스 폭탄",
+            "pl-PL": "Bomba Pulsacyjna",
+            "pt-BR": "Bomba Eletromagnética",
+            "ru-RU": "Импульсная бомба",
+            "zh-CN": "脉冲炸弹",
+            "zh-TW": "脈衝炸彈"
+        },
         "en-US": "Tracer",
         "ja-JP": "トレーサー",
         "ko-KR": "트레이서",
         "pl-PL": "Smuga",
         "ru-RU": "Трейсер",
         "zh-CN": "猎空",
-        "zh-TW": "閃光",
-        "ability1": {
-            "guid": "000000000393"
-        },
-        "ability2": {
-            "guid": "000000000396"
-        },
-        "ultimate": {
-            "guid": "000000000398"
-        }
+        "zh-TW": "閃光"
     },
     "widowmaker": {
         "guid": "00000000002C",
+        "ability1": {
+            "guid": "0000000003E0",
+            "en-US": "Grappling Hook",
+            "de-DE": "Spinnenfaden",
+            "es-ES": "Gancho",
+            "es-MX": "Arpeo",
+            "fr-FR": "Grappin",
+            "it-IT": "Rampino",
+            "ja-JP": "グラップリング・<br>フック",
+            "ko-KR": "갈고리 발사",
+            "pl-PL": "Kotwiczka",
+            "pt-BR": "Arpéu",
+            "ru-RU": "Крюк",
+            "zh-CN": "抓钩",
+            "zh-TW": "爪鉤"
+        },
+        "ability2": {
+            "guid": "0000000003DE",
+            "en-US": "Venom Mine",
+            "de-DE": "Giftmine",
+            "es-ES": "Mina venenosa",
+            "es-MX": "Mina venenosa",
+            "fr-FR": "Mine venimeuse",
+            "it-IT": "Mina Venefica",
+            "ja-JP": "ヴェノム・マイン",
+            "ko-KR": "맹독 지뢰",
+            "pl-PL": "Jadowita Mina",
+            "pt-BR": "Mina Venenosa",
+            "ru-RU": "Ядовитая мина",
+            "zh-CN": "剧毒诡雷",
+            "zh-TW": "劇毒地雷"
+        },
+        "ultimate": {
+            "guid": "0000000003DD",
+            "en-US": "Infra-Sight",
+            "de-DE": "Infrasicht",
+            "es-ES": "Infravisión",
+            "es-MX": "Infravisión",
+            "fr-FR": "Infravision",
+            "it-IT": "Visore Termico",
+            "ja-JP": "インフラサイト",
+            "ko-KR": "적외선 투시",
+            "pl-PL": "Infrawizja",
+            "pt-BR": "Visão Infravermelho",
+            "ru-RU": "Инфразрение",
+            "zh-CN": "红外侦测",
+            "zh-TW": "紅外線視野"
+        },
         "en-US": "Widowmaker",
         "fr-FR": "Fatale",
         "ja-JP": "ウィドウメイカー",
@@ -541,37 +1704,131 @@ const heroKw =
         "pl-PL": "Trupia Wdowa",
         "ru-RU": "Роковая Вдова",
         "zh-CN": "黑百合",
-        "zh-TW": "奪命女",
-        "ability1": {
-            "guid": "0000000003E0"
-        },
-        "ability2": {
-            "guid": "0000000003DE"
-        },
-        "ultimate": {
-            "guid": "0000000003DD"
-        }
+        "zh-TW": "奪命女"
     },
     "winston": {
         "guid": "000000000028",
+        "ability1": {
+            "guid": "0000000003F2",
+            "en-US": "Jump Pack",
+            "de-DE": "Sprungantrieb",
+            "es-ES": "Salto potenciado",
+            "es-MX": "Propulsores",
+            "fr-FR": "Propulseurs",
+            "it-IT": "Ipersalto",
+            "ja-JP": "ジャンプ・パック",
+            "ko-KR": "점프 팩",
+            "pl-PL": "Plecak Odrzutowy",
+            "pt-BR": "Salto a Jato",
+            "ru-RU": "Прыжковый ранец",
+            "zh-CN": "喷射背包",
+            "zh-TW": "噴射跳躍"
+        },
+        "ability2": {
+            "guid": "0000000003F4",
+            "en-US": "Barrier Projector",
+            "de-DE": "Barrierenprojektor",
+            "es-ES": "Campo de fuerza",
+            "es-MX": "Proyector de barrera",
+            "fr-FR": "Générateur d’écran",
+            "it-IT": "Proiettore Difensivo",
+            "ja-JP": "バリア・<br>プロジェクター",
+            "ko-KR": "방벽 생성기",
+            "pl-PL": "Emiter Osłony",
+            "pt-BR": "Projetor de Barreira",
+            "ru-RU": "Защитный купол",
+            "zh-CN": "屏障发射器",
+            "zh-TW": "屏障產生器"
+        },
+        "ultimate": {
+            "guid": "0000000003F0",
+            "en-US": "Primal Rage",
+            "de-DE": "Dschungelwut",
+            "es-ES": "Rabia primigenia",
+            "es-MX": "Ira primigenia",
+            "fr-FR": "Rage primordiale",
+            "it-IT": "Rabbia Primordiale",
+            "ja-JP": "プライマル・レイジ",
+            "ko-KR": "원시의 분노",
+            "pl-PL": "Pierwotny Szał",
+            "pt-BR": "Fúria Primata",
+            "ru-RU": "Ярость зверя",
+            "zh-CN": "原始暴怒",
+            "zh-TW": "野性之怒"
+        },
         "en-US": "Winston",
         "ja-JP": "ウィンストン",
         "ko-KR": "윈스턴",
         "ru-RU": "Уинстон",
         "zh-CN": "温斯顿",
-        "zh-TW": "溫斯頓",
-        "ability1": {
-            "guid": "0000000003F2"
-        },
-        "ability2": {
-            "guid": "0000000003F4"
-        },
-        "ultimate": {
-            "guid": "0000000003F0"
-        }
+        "zh-TW": "溫斯頓"
     },
     "hammond": {
         "guid": "000000007269",
+        "secondaryFire": {
+            "guid": "0000000082A6",
+            "en-US": "Grappling Claw",
+            "de-DE": "Abrissbirne",
+            "es-ES": "Gancho garra",
+            "es-MX": "Garra mecánica",
+            "fr-FR": "Griffe-crampon",
+            "it-IT": "Rampone",
+            "ja-JP": "グラップリング・<br>クロー",
+            "ko-KR": "갈고리 고정",
+            "pl-PL": "Pazur",
+            "pt-BR": "Garra",
+            "ru-RU": "«Кошка»",
+            "zh-CN": "工程抓钩",
+            "zh-TW": "穩固爪鉤"
+        },
+        "ability1": {
+            "guid": "0000000072E4",
+            "en-US": "Roll",
+            "de-DE": "Einkugeln",
+            "es-ES": "Bola arrolladora",
+            "es-MX": "Rodar",
+            "fr-FR": "Roulé-boulé",
+            "it-IT": "Rotolamento",
+            "ja-JP": "ロール",
+            "ko-KR": "구르기",
+            "pl-PL": "Kulowrotek",
+            "pt-BR": "Rolagem",
+            "ru-RU": "Каток",
+            "zh-CN": "动力铁球",
+            "zh-TW": "滾球形態"
+        },
+        "ability2": {
+            "guid": "000000008B75",
+            "en-US": "Adaptive Shield",
+            "de-DE": "Adaptiver Schild",
+            "es-ES": "Escudo adaptable",
+            "es-MX": "Escudo adaptable",
+            "fr-FR": "Bouclier dynamique",
+            "it-IT": "Scudo Adattivo",
+            "ja-JP": "アダプティブ・シールド",
+            "ko-KR": "적응형 보호막",
+            "pl-PL": "Adaptabilne Osłony",
+            "pt-BR": "Escudo Adaptativo",
+            "ru-RU": "Адаптивный щит",
+            "zh-CN": "感应护盾",
+            "zh-TW": "自動調整型護盾"
+        },
+        "ultimate": {
+            "guid": "00000000866F",
+            "en-US": "Minefield",
+            "de-DE": "Minenfeld",
+            "es-ES": "Campo de minas",
+            "es-MX": "Campo minado",
+            "fr-FR": "Champ de mines",
+            "it-IT": "Campo Minato",
+            "ja-JP": "マインフィールド",
+            "ko-KR": "지뢰밭",
+            "pl-PL": "Pole Minowe",
+            "pt-BR": "Campo Minado",
+            "ru-RU": "Минное поле",
+            "zh-CN": "地雷禁区",
+            "zh-TW": "地雷陣"
+        },
         "en-US": "Wrecking Ball",
         "fr-FR": "Bouldozer",
         "ja-JP": "レッキング・ボール",
@@ -579,56 +1836,122 @@ const heroKw =
         "pl-PL": "Burzyciel",
         "ru-RU": "Таран",
         "zh-CN": "破坏球",
-        "zh-TW": "火爆鋼球",
-        "secondaryFire": {
-            "guid": "0000000082A6"
-        },
-        "ability1": {
-            "guid": "0000000072E4"
-        },
-        "ability2": {
-            "guid": "000000008B75"
-        },
-        "ultimate": {
-            "guid": "00000000866F"
-        }
+        "zh-TW": "火爆鋼球"
     },
     "zarya": {
         "guid": "0000000001EB",
+        "ability1": {
+            "guid": "000000000492",
+            "en-US": "Particle Barrier",
+            "de-DE": "Partikelbarriere",
+            "es-ES": "Barrera de partículas",
+            "es-MX": "Barrera de partículas",
+            "fr-FR": "Écran de particules",
+            "it-IT": "Barriera Particellare",
+            "ja-JP": "パーティクル・バリア",
+            "ko-KR": "입자 방벽",
+            "pl-PL": "Bariera Cząsteczkowa",
+            "pt-BR": "Barreira de Partículas",
+            "ru-RU": "Защитный барьер",
+            "zh-CN": "粒子屏障",
+            "zh-TW": "粒子屏障"
+        },
+        "ability2": {
+            "guid": "000000000494",
+            "en-US": "Projected Barrier",
+            "de-DE": "Projizierte Barriere",
+            "es-ES": "Barrera proyectada",
+            "es-MX": "Barrera proyectada",
+            "fr-FR": "Écran généré",
+            "it-IT": "Proiezione Difensiva",
+            "ja-JP": "バリア・ショット",
+            "ko-KR": "방벽 씌우기",
+            "pl-PL": "Bariera Projekcyjna",
+            "pt-BR": "Barreira Projetada",
+            "ru-RU": "Дистанционный барьер",
+            "zh-CN": "投射屏障",
+            "zh-TW": "投射屏障"
+        },
+        "ultimate": {
+            "guid": "000000000496",
+            "en-US": "Graviton Surge",
+            "de-DE": "Gravitonbombe",
+            "es-ES": "Bomba de gravedad",
+            "es-MX": "Oleada de gravitones",
+            "fr-FR": "Orbe à gravitons",
+            "it-IT": "Bomba Gravitonica",
+            "ja-JP": "グラビトン・サージ",
+            "ko-KR": "중력자탄",
+            "pl-PL": "Uderzenie Grawitonowe",
+            "pt-BR": "Surto de Grávitons",
+            "ru-RU": "Гравитонный импульс",
+            "zh-CN": "重力喷涌",
+            "zh-TW": "引力彈"
+        },
         "en-US": "Zarya",
         "ja-JP": "ザリア",
         "ko-KR": "자리야",
         "pl-PL": "Zaria",
         "ru-RU": "Заря",
         "zh-CN": "查莉娅",
-        "zh-TW": "札莉雅",
-        "ability1": {
-            "guid": "000000000492"
-        },
-        "ability2": {
-            "guid": "000000000494"
-        },
-        "ultimate": {
-            "guid": "000000000496"
-        }
+        "zh-TW": "札莉雅"
     },
     "zenyatta": {
         "guid": "000000000022",
+        "ability1": {
+            "guid": "0000000003FC",
+            "en-US": "Orb of Harmony",
+            "de-DE": "Sphäre der Harmonie",
+            "es-ES": "Orbe de armonía",
+            "es-MX": "Orbe de armonía",
+            "fr-FR": "Orbe d’harmonie",
+            "it-IT": "Globo dell'Armonia",
+            "ja-JP": "調和のオーブ",
+            "ko-KR": "조화의 구슬",
+            "pl-PL": "Kula Harmonii",
+            "pt-BR": "Orbe da Harmonia",
+            "ru-RU": "Сфера гармонии",
+            "zh-CN": "谐",
+            "zh-TW": "和諧之珠"
+        },
+        "ability2": {
+            "guid": "0000000003FE",
+            "en-US": "Orb of Discord",
+            "de-DE": "Sphäre der Zwietracht",
+            "es-ES": "Orbe de discordia",
+            "es-MX": "Orbe de discordancia",
+            "fr-FR": "Orbe de discorde",
+            "it-IT": "Globo della Discordia",
+            "ja-JP": "不和のオーブ",
+            "ko-KR": "부조화의 구슬",
+            "pl-PL": "Kula Rozdarcia",
+            "pt-BR": "Orbe da Discórdia",
+            "ru-RU": "Сфера диссонанса",
+            "zh-CN": "乱",
+            "zh-TW": "紛亂之珠"
+        },
+        "ultimate": {
+            "guid": "0000000003F9",
+            "en-US": "Transcendence",
+            "de-DE": "Transzendenz",
+            "es-ES": "Trascendencia",
+            "es-MX": "Trascendencia",
+            "fr-FR": "Transcendance",
+            "it-IT": "Trascendenza",
+            "ja-JP": "心頭滅却",
+            "ko-KR": "초월",
+            "pl-PL": "Transcendencja",
+            "pt-BR": "Transcendência",
+            "ru-RU": "Трансцендентность",
+            "zh-CN": "圣",
+            "zh-TW": "超凡入聖"
+        },
         "en-US": "Zenyatta",
         "ja-JP": "ゼニヤッタ",
         "ko-KR": "젠야타",
         "ru-RU": "Дзенъятта",
         "zh-CN": "禅雅塔",
-        "zh-TW": "禪亞塔",
-        "ability1": {
-            "guid": "0000000003FC"
-        },
-        "ability2": {
-            "guid": "0000000003FE"
-        },
-        "ultimate": {
-            "guid": "0000000003F9"
-        }
+        "zh-TW": "禪亞塔"
     }
 }
 //end-json
