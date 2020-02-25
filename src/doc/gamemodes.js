@@ -18,7 +18,7 @@
 "use strict";
 
 const gamemodeKw = {
-    "ASSAULT": {
+    "assault": {
         "guid": "00000000CD59",
         "en-US": "Assault",
         "de-DE": "Angriff",
@@ -34,7 +34,7 @@ const gamemodeKw = {
         "zh-CN": "攻防作战",
         "zh-TW": "佔領"
     },
-    "CTF": {
+    "ctf": {
         "guid": "000000005A56",
         "en-US": "Capture The Flag",
         "de-DE": "Flaggeneroberung",
@@ -50,7 +50,7 @@ const gamemodeKw = {
         "zh-CN": "勇夺锦旗",
         "zh-TW": "搶旗"
     },
-    "CONTROL": {
+    "control": {
         "guid": "00000000CD5B",
         "en-US": "Control",
         "de-DE": "Kontrolle",
@@ -64,7 +64,7 @@ const gamemodeKw = {
         "zh-CN": "占领要点",
         "zh-TW": "控制"
     },
-    "FFA": {
+    "ffa": {
         "guid": "000000006853",
         "en-US": "Deathmatch",
         "es-ES": "Combate a muerte",
@@ -77,7 +77,7 @@ const gamemodeKw = {
         "zh-CN": "死斗",
         "zh-TW": "死鬥"
     },
-    "ELIMINATION": {
+    "elimination": {
         "guid": "000000005887",
         "en-US": "Elimination",
         "de-DE": "Eliminierung",
@@ -93,7 +93,7 @@ const gamemodeKw = {
         "zh-CN": "决斗先锋",
         "zh-TW": "鬥陣對決"
     },
-    "ESCORT": {
+    "escort": {
         "guid": "00000000CD5C",
         "en-US": "Escort",
         "de-DE": "Eskorte",
@@ -109,7 +109,7 @@ const gamemodeKw = {
         "zh-CN": "运载目标",
         "zh-TW": "護送"
     },
-    "HYBRID": {
+    "hybrid": {
         "guid": "00000000CD5A",
         "en-US": "Hybrid",
         "es-ES": "Híbrido",
@@ -124,7 +124,7 @@ const gamemodeKw = {
         "zh-CN": "攻击/护送",
         "zh-TW": "混合"
     },
-    "JUNKENSTEIN": {
+    "junkenstein": {
         "guid": "000000004AF4",
         "en-US": "Junkenstein's Revenge",
         "de-DE": "Junkensteins Rache",
@@ -140,7 +140,7 @@ const gamemodeKw = {
         "zh-CN": "怪鼠复仇",
         "zh-TW": "鼠肯斯坦復仇記"
     },
-    "LUCIOBALL": {
+    "lucioball": {
         "guid": "000000004989",
         "en-US": "Lúcioball",
         "es-ES": "Lúciobol",
@@ -153,7 +153,7 @@ const gamemodeKw = {
         "zh-CN": "动感斗球",
         "zh-TW": "路西歐競球"
     },
-    "MEIS_SNOWBALL_OFFENSIVE": {
+    "meisSnowballOffensive": {
         "guid": "00000000525A",
         "en-US": "Mei's Snowball Offensive",
         "de-DE": "Meis Schneeballschlacht",
@@ -169,7 +169,7 @@ const gamemodeKw = {
         "zh-CN": "雪球攻势",
         "zh-TW": "小美的雪球大作戰"
     },
-    "PRACTICE_RANGE": {
+    "practiceRange": {
         "guid": "0000000040BE",
         "en-US": "Practice Range",
         "de-DE": "Trainingsbereich",
@@ -185,7 +185,7 @@ const gamemodeKw = {
         "zh-CN": "训练靶场",
         "zh-TW": "訓練中心"
     },
-    "SKIRMISH": {
+    "skirmish": {
         "guid": "000000005A61",
         "en-US": "Skirmish",
         "de-DE": "Übungsgefecht",
@@ -201,7 +201,7 @@ const gamemodeKw = {
         "zh-CN": "突击模式",
         "zh-TW": "衝突戰"
     },
-    "TDM": {
+    "tdm": {
         "guid": "000000006854",
         "en-US": "Team Deathmatch",
         "de-DE": "Team-Deathmatch",
@@ -217,7 +217,7 @@ const gamemodeKw = {
         "zh-CN": "团队死斗",
         "zh-TW": "團隊死鬥"
     },
-    "YETI_HUNTER": {
+    "yetiHunter": {
         "guid": "000000006DF1",
         "en-US": "Yeti Hunter",
         "de-DE": "Yetijagd",

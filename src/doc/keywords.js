@@ -17,6 +17,29 @@
 
 "use strict";
 
+const customGameSettingsKw =
+//begin-json
+{
+    "_on": {
+        "en-US": "On"
+    },
+    "_off": {
+        "en-US": "Off",
+    },
+    "_enabled": {
+        "en-US": "Enabled",
+    },
+    "_disabled": {
+        "en-US": "Disabled"
+    },
+    "_yes": {
+        "en-US": "Yes"
+    },
+    "_no": {
+        "en-US": "No"
+    }
+}
+
 const ruleKw = 
 //begin-json
 {
@@ -132,6 +155,9 @@ const ruleKw =
         "pl-PL": "podprogramy",
         "pt-BR": "sub-rotinas",
         "zh-CN": "子程序"
+    },
+    "_settings": {
+        "en-US": "settings",
     }
 }
 //end-json

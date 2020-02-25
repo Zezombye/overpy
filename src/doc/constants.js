@@ -1806,3 +1806,5 @@ constantValues["Gamemode"] = {};
 for (var key of Object.keys(gamemodeKw)) {
     constantValues["Gamemode"][camelCaseToUpperCase(key)] = gamemodeKw[key]
 }
+
+constantValues["ChaseReeval"] = Object.assign({}, constantValues["_ChaseRateReeval"], constantValues["_ChaseTimeReeval"])

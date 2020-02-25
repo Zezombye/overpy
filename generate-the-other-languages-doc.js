@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-var languages = ["de-DE", "en-US", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW"]
+var languages = ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW"]
 var docFolder = "./src/doc/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
 
@@ -56,7 +56,7 @@ function replaceJsonObjectsInFile(path) {
     for (var line of content.split("\n")) {
         if (line === "//end-json") {
             isInJsonObject = false;
-            result += JSON.stringify(convertJson(JSON.parse(currentJsonStr)), null, 4)+"\n";
+            result += JSON.stringify(iterateOnObject(eval("("+currentJsonStr+")")), null, 4)+"\n";
             currentJsonStr = "";
         }
         if (!isInJsonObject) {
@@ -71,22 +71,15 @@ function replaceJsonObjectsInFile(path) {
     fs.writeFileSync(path, result.substring(0, result.length-1));
 }
 
-function convertJson(content) {
-    if (Array.isArray(content)) {
-        content = convertArray(content);
-    } else {
-        for (var key of Object.keys(content)) {
-            content[key].values = convertArray(content[key].values);
-        }
+function iterateOnObject(content) {
+    if ("guid" in content || "en-US" in content) {
+        content = addTranslations(content);
     }
-    return content;
-}
 
-function convertArray(content) {
-    for (var elem of content) {
-        //elem.en = normalizeName(elem.en);
-        elem = addTranslations(elem);
-        //elem = JSON.parse(JSON.stringify(elem, ["guid", "opy", "en-US", "name", "description", "type", "default", "args", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW"]))
+    for (var key of Object.keys(content)) {
+        if (typeof content[key] === "object") {
+            content[key] = iterateOnObject(content[key]);
+        }
     }
     
     return content;
@@ -109,7 +102,6 @@ function addTranslations(content) {
         content.guid = matchingGuids[0];
     }
     for (var language of languages) {
-        if (language === "en-US") continue;
         var isGuidFound = false;
         delete content[language];
         for (var elem of guids[language]) {
@@ -127,7 +119,7 @@ function addTranslations(content) {
             }
         }
         if (!isGuidFound) {
-            error("Did not find the guid '"+content.guid+"' for language '"+language);
+            throw new Error("Did not find the guid '"+content.guid+"' for language '"+language+"'");
         }
     }
     return content;
@@ -147,14 +139,18 @@ function normalizeName(content) {
 
 
 
-generateStringFiles();
-/*getGuids();
-replaceJsonObjectsInFile(docFolder+"actions.js");
-replaceJsonObjectsInFile(docFolder+"values.js");
-replaceJsonObjectsInFile(docFolder+"constants.js");
-replaceJsonObjectsInFile(docFolder+"keywords.js");
-removeParentheses = false;
-replaceJsonObjectsInFile(docFolder+"stringKw.js");*/
+//generateStringFiles();
+getGuids();
+//replaceJsonObjectsInFile(docFolder+"actions.js");
+//replaceJsonObjectsInFile(docFolder+"values.js");
+//replaceJsonObjectsInFile(docFolder+"constants.js");
+//replaceJsonObjectsInFile(docFolder+"keywords.js");
+replaceJsonObjectsInFile(docFolder+"heroes.js");
+//replaceJsonObjectsInFile(docFolder+"maps.js");
+replaceJsonObjectsInFile(docFolder+"gamemodes.js");
+//removeParentheses = false;
+//replaceJsonObjectsInFile(docFolder+"stringKw.js");
+//replaceJsonObjectsInFile(docFolder+"keywords.js");
 
 function sleep(ms){
     return new Promise(resolve=>{

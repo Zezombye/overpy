@@ -3,7 +3,7 @@
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
 [CASC] Set language to plPL
 [CASC] Set speech language to plPL
-[CASC] Overwatch build 1.44.0.1.65513
+[CASC] Overwatch build 1.44.0.1.66085
 [CASC] Initializing...
 [CMF] Using CMF procedure 65513
 [CMF] Using CMF procedure 65513
@@ -26936,4 +26936,4 @@ flagi 2020
 00000000FFCF.07C: OTRZYMANO ZAPROSZENIE DO ZNAJOMYCH
 00000000FFE7.07C: Overwatch League 2020
 00000000FFE8.07C: Brigitte Koza(k)
-[Core] Execution finished in 00:00:04.3765412 seconds
+[Core] Execution finished in 00:00:04.1770524 seconds

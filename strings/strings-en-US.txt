@@ -3,7 +3,7 @@
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
 [CASC] Set language to enUS
 [CASC] Set speech language to enUS
-[CASC] Overwatch build 1.44.0.1.65513
+[CASC] Overwatch build 1.44.0.1.66085
 [CASC] Initializing...
 [CMF] Using CMF procedure 65513
 [CMF] Using CMF procedure 65513
@@ -26703,4 +26703,4 @@ https://account.blizzard.com/connections/nintendo
 00000000FFCF.07C: FRIEND REQUEST RECEIVED
 00000000FFE7.07C: 2020 Overwatch League
 00000000FFE8.07C: Goat Brigitte
-[Core] Execution finished in 00:00:04.4047015 seconds
+[Core] Execution finished in 00:00:03.7930838 seconds

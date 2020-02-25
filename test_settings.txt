@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééèéèéèéèéèééèéèèèéèèéèèéèéèéèéèéèéèé  èééèééééééééééééééééééééééé ééééééèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèé ééééééééééééééééééééééééé éèèèèèè"
+		Description: "é\\\"ééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééèéèéèéèéèééèéèèèéèèéèèéèéèéèéèéèéèé  èééèééééééééééééééééééééééé ééééééèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèé ééééééééééééééééééééééééé éèèèèè"
 	}
 
 	lobby
@@ -26,7 +26,7 @@ settings
 			}
 		}
 
-		Control
+		disabled Control
 		{
 			disabled maps
 			{
@@ -77,10 +77,53 @@ settings
 				Ultimate Ability Nano Boost: Off
 			}
 
+			Bastion
+			{
+				Configuration: Tank Weapon Knockback Scalar: 198%
+				Ultimate Generation Configuration: Tank: 334%
+			}
+
 			disabled heroes
 			{
 				Brigitte
 			}
 		}
+	}
+}
+
+variables
+{
+	global:
+		1: Bfd
+}
+
+subroutines
+{
+	0: fssqsdfqsdfqsdfSub0
+}
+
+rule("Rule 1")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Set Global Variable(Bfd, 0);
+	}
+}
+
+rule("Rule 2")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Call Subroutine(fssqsdfqsdfqsdfSub0);
 	}
 }

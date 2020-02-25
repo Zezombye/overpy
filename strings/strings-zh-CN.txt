@@ -3,7 +3,7 @@
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
 [CASC] Set language to zhCN
 [CASC] Set speech language to zhCN
-[CASC] Overwatch build 1.44.0.1.65513
+[CASC] Overwatch build 1.44.0.1.66085
 [CASC] Initializing...
 [CMF] Using CMF procedure 65513
 [CMF] Using CMF procedure 65513
@@ -26832,4 +26832,4 @@ https://account.blizzard.com/connections/nintendo
 00000000FFCF.07C: 待定的好友请求
 00000000FFE7.07C: 2020赛季守望先锋联赛
 00000000FFE8.07C: 布丽吉塔“山岭山羊”
-[Core] Execution finished in 00:00:03.8727852 seconds
+[Core] Execution finished in 00:00:03.9012005 seconds

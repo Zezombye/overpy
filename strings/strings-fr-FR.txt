@@ -3,7 +3,7 @@
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
 [CASC] Set language to frFR
 [CASC] Set speech language to frFR
-[CASC] Overwatch build 1.44.0.1.65513
+[CASC] Overwatch build 1.44.0.1.66085
 [CASC] Initializing...
 [CMF] Using CMF procedure 65513
 [CMF] Using CMF procedure 65513
@@ -26814,4 +26814,4 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000FFCF.07C: DEMANDE DE CONTACT REÇUE
 00000000FFE7.07C: Overwatch League 2020
 00000000FFE8.07C: Brigitte bélier
-[Core] Execution finished in 00:00:03.8506928 seconds
+[Core] Execution finished in 00:00:03.6410409 seconds
