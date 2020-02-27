@@ -1,12 +1,12 @@
-[Core] DataTool v1.44.0.860-git-7d5102deb936ed3a32453c8b05dd4a2c9a628126
+[Core] DataTool v1.45.0.863-git-d08b8ee3b6474c6bd141eb865797b12a3bde1d66
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.exe.args
 [CASC] Set language to esES
 [CASC] Set speech language to esES
-[CASC] Overwatch build 1.44.0.1.66085
+[CASC] Overwatch build 1.45.0.0.66302
 [CASC] Initializing...
-[CMF] Using CMF procedure 65513
-[CMF] Using CMF procedure 65513
+[CMF] Using CMF procedure 66302
+[CMF] Using CMF procedure 66302
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -639,8 +639,6 @@
 0000000005F7.07C: Cuando un compañero muere, la ubicación de su cadáver se marca con el icono del héroe en el mundo.
 0000000005F8.07C: Los héroes que actúan como tanque son especialistas en tomar y defender objetivos del mapa e interrumpir al equipo enemigo.
 0000000005F9.07C: Los héroes de apoyo protegen y curan a sus compañeros, y otorgan ventajas muy útiles.
-000000000606.07C: <fg%1$s>|RcgATURDIDO:ATURDIDA;</fg>
-000000000609.07C: <fg%1$s>|RcgATURDIDO:ATURDIDA;</fg>
 000000000641.07C: SELECCIÓN DE HÉROE
 000000000642.07C: PUNTUACIONES
 000000000657.07C: |Rpl %1$s:Teletransportador colocado:Teletransportadores colocados;
@@ -2432,7 +2430,7 @@ Descubre nuevas maneras de jugar con una selección variable de modos que incluy
 000000002311.07C: ATAQUE
 000000002312.07C: No has podido unirte a la partida personalizada; puede que esté completa.
 000000002313.07C: CANALES DEL MENÚ SOCIAL
-000000002314.07C: EQUIPO 1
+000000002314.07C: Equipo 1
 000000002315.07C: OBSERVADORES
 000000002317.07C: equipo
 000000002318.07C: escuadrón
@@ -3735,7 +3733,7 @@ Descubre nuevas maneras de jugar con una selección variable de modos que incluy
 000000002C05.07C: Error al conectarse al servidor de juego. Inténtalo de nuevo más tarde.
 000000002C0B.07C:  ha comenzado a observar la partida.
 000000002C0D.07C:  (observador)
-000000002C0E.07C: EQUIPO 2
+000000002C0E.07C: Equipo 2
 000000002C10.07C: ¡SELECCIONA UNA RECOMPENSA PARA ACTIVAR LA VISTA PREVIA!
 000000002C12.07C: En %1$s h llegarás al tiempo de juego malsano, a partir del cual ya no recibirás experiencia ni cajas de botín hasta que te hayas desconectado durante 5 h.
 000000002C13.07C: Llevas más de 5 h de juego. Estás en el tiempo de juego malsano, así que ya no podrás obtener ni cajas de botín ni experiencia. Tu estado de descanso se restablecerá tras 5 h de desconexión. Desconéctate, descansa y haz algo de ejercicio.
@@ -3779,29 +3777,29 @@ Descubre nuevas maneras de jugar con una selección variable de modos que incluy
 000000002C40.07C: HÉROES
 000000002C41.07C: OPCIONES DE HÉROE
 000000002C42.07C: MAPAS
-000000002C43.07C: MAPA
-000000002C44.07C: EQUIPO
-000000002C45.07C: EQUILIBRIO DE EQUIPOS
-000000002C46.07C: MOMENTO DEL EQUILIBRADO
-000000002C4C.07C: VOLVER A SALA
-000000002C4D.07C: ORDEN DE MAPAS
+000000002C43.07C: Mapa
+000000002C44.07C: Equipo
+000000002C45.07C: Equilibrio de equipos
+000000002C46.07C: Momento del equilibrado
+000000002C4C.07C: Volver a sala
+000000002C4D.07C: Orden de mapas
 000000002C4E.07C: LÍMITE DE SELECCIÓN DE FUNCIONES
 000000002C4F.07C: LÍMITE DE SELECCIÓN DE HÉROES
-000000002C52.07C: DESACTIVADO
-000000002C54.07C: DESPUÉS DE UNA REVANCHA
-000000002C55.07C: DESPUÉS DE UNA PARTIDA
-000000002C57.07C: ALEATORIO
-000000002C58.07C: ORDEN DE LA LISTA
-000000002C5A.07C: NUNCA
-000000002C5B.07C: DESPUÉS DE UNA PARTIDA
-000000002C5C.07C: DESPUÉS DE UNA REVANCHA
+000000002C52.07C: Desactivado
+000000002C54.07C: Después de una revancha
+000000002C55.07C: Después de una partida
+000000002C57.07C: Aleatorio
+000000002C58.07C: Orden de la lista
+000000002C5A.07C: Nunca
+000000002C5B.07C: Después de una partida
+000000002C5C.07C: Después de una revancha
 000000002C5D.07C: 2 POR PARTIDA
 000000002C5E.07C: 1 POR PARTIDA
 000000002C5F.07C: 2 POR EQUIPO
 000000002C60.07C: 1 POR EQUIPO
 000000002C61.07C: NINGUNO
-000000002C62.07C: NINGUNO
-000000002C63.07C: 2 DE CADA POR EQUIPO
+000000002C62.07C: Ninguno
+000000002C63.07C: 2 de cada por equipo
 000000002C64.07C: Robot aliado
 000000002C67.07C: |Rpl %1$s:Asesinato:Asesinatos; por entorno
 000000002C68.07C: %1$s |Rplasesinato:asesinatos; por entorno
@@ -3979,10 +3977,10 @@ Descubre nuevas maneras de jugar con una selección variable de modos que incluy
 000000002D66.07C: ATRÁS
 000000002D68.07C: INVITAR
 000000002D69.07C: CANCELAR
-000000002D71.07C: EQUIPO 1
-000000002D72.07C: EQUIPO 2
-000000002D73.07C: OBSERVADOR
-000000002D74.07C: AMBOS
+000000002D71.07C: Equipo 1
+000000002D72.07C: Equipo 2
+000000002D73.07C: Observador
+000000002D74.07C: Ambos
 000000002D76.07C: SÍ
 000000002D77.07C: CANCELAR
 000000002D78.07C: ¿SEGURO QUE QUIERES ABANDONAR LA PARTIDA?
@@ -7109,10 +7107,10 @@ Andrew Wang
 00000000411C.07C: Abandonar partidas antes de tiempo reiteradamente te penalizará.
 00000000411D.07C: Tienes una penalización por abandonar la última partida antes de tiempo.
 000000004120.07C: No recibirás experiencia por esta partida. Te falta poco para recibir una penalización.
-000000004122.07C: ROTACIÓN DE MAPAS
-000000004123.07C: DESPUÉS DE UNA REVANCHA
-000000004124.07C: DESPUÉS DE UNA PARTIDA
-000000004125.07C: EN PAUSA
+000000004122.07C: Rotación de mapas
+000000004123.07C: Después de una revancha
+000000004124.07C: Después de una partida
+000000004125.07C: En pausa
 000000004126.07C: RES ASSIST
 000000004127.07C: RESURRECTION
 00000000412D.07C: gg :|
@@ -7678,9 +7676,9 @@ Andrew Wang
 000000004549.07C: Preparad vuestras defensas
 00000000454A.07C: Escoltad la carga
 00000000454B.07C: Detened la carga
-00000000454E.07C: DESACTIVADO
-00000000454F.07C: ACTIVADO
-000000004550.07C: ANCHO DE BANDA ALTO
+00000000454E.07C: Desactivado
+00000000454F.07C: Activado
+000000004550.07C: Ancho de banda alto
 000000004553.07C: Mostrar avisos sobre la calidad de la red
 000000004558.07C: Hace un momento
 000000004559.07C: Hace %1$s min
@@ -7950,7 +7948,7 @@ de la temporada 1
 - Se obtienen puntos capturando objetivos
 - ¡Gana quien obtenga más puntos!
 0000000047B1.07C: - Hay una nueva temporada cada 2 meses
-- Increíbles recompensas exclusivas
+- Increíbles recompensas exclusivas al final de la temporada
 - Las partidas de posicionamiento vuelven con cada temporada
 0000000047B2.07C: Índice de habilidad
 0000000047B3.07C: Partidas competitivas
@@ -7975,7 +7973,7 @@ de la temporada 1
 0000000047D5.07C: Partidas de
 posicionamiento
 0000000047D6.07C: No se puede solicitar una invitación al escuadrón
-0000000047D7.07C: Puedes obtener las siguientes recompensas al final de la temporada participando en partidas competitivas:
+0000000047D7.07C: - Puedes obtener recompensas al final de la temporada participando en partidas competitivas:
 0000000047D8.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 1
 0000000047D9.07C: Se desbloquea al estar entre los 500 mejores durante la temporada 1
 0000000047DD.07C: ¡Partidas competitivas desbloqueadas!
@@ -8815,10 +8813,10 @@ de la temporada 3
 00000000501E.07C: CREAR PARTIDA DE TORNEO
 00000000501F.07C: Partida personalizada establecida como partida de torneo.
 000000005036.07C: PUNTO DE CONTROL DEL MAPA
-000000005037.07C: PRIMERO
-000000005038.07C: SEGUNDO
-000000005039.07C: TERCERO
-00000000503A.07C: TODOS
+000000005037.07C: Primero
+000000005038.07C: Segundo
+000000005039.07C: Tercero
+00000000503A.07C: Todas
 00000000503F.07C: Oportunista
 000000005040.07C: Detectas a enemigos moribundos a través de las paredes.
 000000005041.07C: Inflige daño a Sombra cuando os esté hackeando a ti o a un compañero para interrumpir así el hackeo.
@@ -9681,17 +9679,17 @@ THIS SOFTWARE.
 000000005894.07C: 2 por equipo
 000000005895.07C: 2 por partida
 000000005897.07C: Reglas competitivas
-000000005898.07C: Velocidad de captura
+000000005898.07C: Modificador de velocidad de captura
 000000005899.07C: Modificador de velocidad de captura
 00000000589A.07C: Puntuación para ganar
 00000000589B.07C: Selección de héroe
 00000000589C.07C: Cualquiera
 00000000589D.07C: Aleatoria
 00000000589E.07C: Aleatoria (héroe idéntico)
-00000000589F.07C: Velocidad de la carga
+00000000589F.07C: Modificador de velocidad de la carga
 0000000058A0.07C: Tiempo de reutilización de la habilidad
 0000000058A1.07C: Daño infligido
-0000000058A2.07C: Daño sufrido
+0000000058A2.07C: Daño recibido
 0000000058A3.07C: Sanación realizada
 0000000058A4.07C: Sanación recibida
 0000000058A5.07C: Recibir solo disparos a la cabeza
@@ -9699,7 +9697,7 @@ THIS SOFTWARE.
 0000000058A7.07C: Velocidad de los proyectiles
 0000000058A8.07C: Tiempo de reaparición
 0000000058A9.07C: Habilidad definitiva
-0000000058AA.07C: Carga de la habilidad definitiva
+0000000058AA.07C: Carga de habilidad definitiva
 0000000058AD.07C: |Rfn %1$s:P0;
 0000000058B0.07C: El equipo necesita la bandera en la base para puntuar
 0000000058B1.07C: |Rfn %1$s:N0;
@@ -10402,7 +10400,7 @@ Un nombre de jugador o BattleTag que esté en un idioma distinto.
 000000005E5B.07C: Explicación científica
 000000005E5D.07C: Tener más cuidado
 000000005E5F.07C: Por qué me molesto
-000000005E64.07C: Error: el divisor es 0
+000000005E64.07C: Error: El divisor es 0.
 000000005E66.07C: Fase beta
 000000005E68.07C: No es nada personal
 000000005E6A.07C: Reina de los cohetes
@@ -13619,7 +13617,7 @@ Brian Urbina
 00000000666E.07C: Torbellino
 00000000667B.07C: Punto
 00000000668E.07C: El jugador está guardando un momento destacado
-000000006693.07C: |Rfd %1$s:dd-MMM-yy, HH:mm;
+000000006693.07C: |Rfd %1$s: dd de MMMM de yyyy;
 000000006694.07C: Los mejores momentos no están disponibles.
 000000006697.07C: Los créditos del juego se pueden usar para desbloquear muchos objetos cosméticos. Cada caja de botín de los Juegos de Verano contiene una combinación de hasta 4 objetos cosméticos o créditos del juego. Las cajas de botín de los Juegos de Verano se pueden obtener jugando.
 000000006698.07C: 5 créditos y, de regalo, 2 cajas de botín de los Juegos de Verano
@@ -13925,13 +13923,13 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000069FF.07C: VICTORIA: El primer jugador que consiga 20 asesinatos
 000000006A01.07C: CHAT DE VOZ EN PARTIDA
 000000006A02.07C: Marioneta
-000000006A03.07C: PARTIDA
+000000006A03.07C: Partida
 000000006A04.07C: Chat de voz en partida
 000000006A06.07C: No permitir
 000000006A07.07C: Combate a muerte en el Palacio
 000000006A08.07C: MAPA: Palacio Guillard
 000000006A28.07C: Reaparición en %1$s
-000000006ABB.07C: Máx. jugadores para TcT
+000000006ABB.07C: Máx. de jugadores para TcT
 000000006ABC.07C: TcT
 000000006ABF.07C: La conjuradora
 000000006AC4.07C: Destructor
@@ -14384,9 +14382,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000705A.07C: No permitir
 00000000705B.07C: Ritmo de recarga de energía biótica
 00000000705C.07C: Máximo de energía biótica
-00000000705F.07C: CAMBIAR EQUIPOS TRAS LA PARTIDA
+00000000705F.07C: Cambiar equipos tras la partida
 000000007060.07C: Fibra de carbono
-000000007063.07C: CAMBIAR EQUIPOS TRAS LA PARTIDA
+000000007063.07C: Cambiar equipos tras la partida
 000000007077.07C: Salud de la puerta
 000000007078.07C: |Rfn %1$s:P0;
 000000007083.07C: CAMERA FREE INPUT MODE
@@ -14816,7 +14814,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s |Rplacierto:aciertos; con Dardo sedante
 000000007460.07C: Índice de adhesión de Bomba de pulsos
 000000007461.07C: %1$s de índice de adhesión de Bomba de pulsos
-00000000746F.07C: <fg%1$s>|RcgATURDIDO:ATURDIDA;</fg>
 000000007472.07C: Sanación por uso de Coalescencia
 000000007473.07C: %1$s de sanación por uso de Coalescencia
 000000007474.07C: Daño por uso de Coalescencia
@@ -14865,7 +14862,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000074B3.07C: Este juego tiene dos índices de edad: 12+ y 15+. La edad del jugador se determina de forma automática al iniciar sesión. Los jugadores de 12 a 15 años pueden acceder al contenido 12+. El juego no es apto para jugadores menores de 12 años.
 0000000074B4.07C: Eliminar todos los robots
 0000000074B8.07C: 5c1
-0000000074B9.07C: |Rfd %1$s:dd-MMM;
 0000000074BA.07C: |Rfd %1$s:hh:mm a;
 0000000074BB.07C: Calendario
 0000000074BC.07C: Tienda de equipos
@@ -15205,7 +15201,7 @@ Aún podrás acceder a otros modos de juego de Overwatch, como Partida rápida, 
 00000000787E.07C: Reiniciar cuando sea verdadero
 000000007895.07C: Ongoing - Global
 000000007897.07C: Ongoing - Each Player
-000000007898.07C: Error: %1$s
+000000007898.07C: Error: %1$s.
 0000000078E8.07C: X
 0000000078F5.07C: Loop
 0000000078F6.07C: Apply Impulse
@@ -17908,7 +17904,6 @@ de regalo, 10 cajas de botín de Halloween
 000000009F12.07C: Calabamari
 000000009F13.07C: Disponible en las cajas de botín de Halloween
 000000009F21.07C: Overwatch League
-000000009F29.07C: <fg%1$s>|RcgATURDIDO:ATURDIDA;</fg>
 000000009F34.07C: ¡Nuevos aspectos legendarios!
 000000009F99.07C: TORRETA <fg%1$s>SUPERCARGADA</fg>
 000000009F9A.07C: Calabaza
@@ -18503,7 +18498,7 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000AAD8.07C: Preferencia de centro de datos
 00000000AAD9.07C: %1$s %2$s %3$s Definitiva
 00000000AADC.07C: %1$s %2$s %3$s %4$s %5$s Definitva
-00000000AADE.07C: PREFERENCIA DE CENTRO DE DATOS
+00000000AADE.07C: Preferencia de centro de datos
 00000000AAE2.07C: Conectando a nuevo servidor
 00000000AAE4.07C: El centro de datos preferido ya no está disponible
 00000000AAE5.07C: Un par de copos
@@ -20137,13 +20132,13 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000BBB9.07C: Evento anterior
 00000000BBBA.07C: Siguiente línea
 00000000BBBB.07C: Línea anterior
-00000000BBC5.07C: Comentario
+00000000BBC5.07C: Regla
 00000000BBC6.07C: Condición
 00000000BBC7.07C: Acción
 00000000BBC8.07C: Global
 00000000BBCA.07C: Sin condición
 00000000BBCB.07C: Condición:
-00000000BBCC.07C: Comentario:
+00000000BBCC.07C: Regla:
 00000000BBCD.07C: Acción:
 00000000BBD1.07C: Entrada #%1$s
 00000000BBD3.07C: Descripción
@@ -20200,8 +20195,8 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000BC68.07C: Modifica la puntuación (recuento de asesinatos) de uno o más jugadores. Esta acción solo surte efecto en modos de todos contra todos.
 00000000BC69.07C: Cantidad que subirá o bajará la puntuación. Si es positiva, la puntuación subirá; si es negativa, bajará.
 00000000BC6A.07C: Jugador o jugadores cuya puntuación cambiará.
-00000000BC6B.07C: Reinicia la lista de acciones desde el principio. Si alguna es falsa, la ejecución continúa con la siguiente acción. Para evitar un bucle infinito, se debe ejecutar una acción «Wait» entre el comienzo de la lista de acciones y esta acción.
-00000000BC6C.07C: Reinicia la lista de acciones desde el principio si todas las condiciones de la lista de condiciones son verdaderas. Si alguna es falsa, la ejecución continúa con la siguiente acción. Para evitar un bucle infinito, se debe ejecutar una acción «Wait» entre el comienzo de la lista de acciones y esta acción.
+00000000BC6B.07C: Reinicia la lista de acciones desde el principio.
+00000000BC6C.07C: Reinicia la lista de acciones desde el principio si todas las condiciones de la lista de condiciones son verdaderas. Si alguna es falsa, la ejecución continúa con la siguiente acción.
 00000000BC6D.07C: Proporciona una sanación instantánea a uno o más jugadores. Esta sanación no resucitará jugadores muertos.
 00000000BC6E.07C: Jugador o jugadores cuya salud se restaurará.
 00000000BC6F.07C: Jugador al que se le atribuirá la sanación. Si el valor de «Healer» es «Null», no se le atribuirá a ningún jugador.
@@ -20434,8 +20429,8 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000BD57.07C: Crea texto del mundo visible para jugadores concretos en una posición específica del mundo. Este texto persistirá hasta su destrucción. Para obtener una referencia a este texto, utiliza el valor de «Last Text ID». Esta acción fallará si se han creado demasiados elementos de texto.
 00000000BD58.07C: Destruye el texto del mundo creado por «Create In-World Text».
 00000000BD59.07C: Especifica qué texto del mundo se destruye. Esta ID puede ser «Last Text ID» o una variable en la que se almacenó previamente «Last Text ID».
-00000000BD5A.07C: Reinicia la lista de acciones desde el principio si la condición de esta acción se evalúa como verdadera; en caso contrario, la ejecución continúa con la siguiente acción. Para evitar un bucle infinito, se debe ejecutar una acción «Wait» entre el comienzo de la lista de acciones y esta acción.
-00000000BD5B.07C: Reinicia la lista de acciones desde el principio si al menos una condición de la lista de condiciones es falsa. Si todas las condiciones son verdaderas, la ejecución continúa con la siguiente acción. Para evitar un bucle infinito, se debe ejecutar una acción «Wait» entre el comienzo de la lista de acciones y esta acción.
+00000000BD5A.07C: Reinicia la lista de acciones desde el principio si la condición de esta acción se evalúa como verdadera. En caso contrario, la ejecución continúa con la siguiente acción.
+00000000BD5B.07C: Reinicia la lista de acciones desde el principio si al menos una condición en la lista de condiciones es falsa. Si todas las condiciones son verdaderas, la ejecución continúa con la siguiente acción.
 00000000BD5C.07C: Especifica si se produce el bucle.
 00000000BD5D.07C: Detiene la ejecución de la lista de acciones.
 00000000BD5E.07C: Detiene la ejecución de la lista de acciones si la condición de esta acción se evalúa como verdadera; en caso contrario, la ejecución continúa con la siguiente acción.
@@ -21608,11 +21603,11 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000C375.07C: ¿Debería aparecer este icono incluso cuando está por detrás de ti?
 00000000C376.07C: No hay ningún héroe seleccionado. Debes corregir o descartar tus cambios.
 00000000C377.07C: Error: El guion es demasiado grande.
-00000000C378.07C: Error: el valor «Event Player» no está permitido dentro de una regla con un evento «Ongoing - Global».
+00000000C378.07C: Error: El valor «Event Player» no está permitido dentro de una regla con un evento «Ongoing - Global».
 00000000C379.07C: Error: Solo se permiten Attacker o Victim en reglas con tipos de eventos compatibles (como «Player Earned Elimination»).
 00000000C37A.07C: Error: "Current Array Element" no se puede utilizar fuera de una matriz.
 00000000C37B.07C: Error: No se puede anidar más de 1 nivel para alguno de los valores de este guion.
-00000000C37C.07C: Error: los valores de la cadena no se pueden almacenar en variables.
+00000000C37C.07C: Error: Los valores de la cadena no se pueden almacenar en variables.
 00000000C37D.07C: Error: Debes tener una acción de espera antes de una acción de bucle.
 00000000C380.07C: Error: La lista de acciones es demasiado compleja.
 00000000C381.07C: Error: Se ha encontrado un valor restringido.
@@ -22049,28 +22044,28 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000C7B6.07C: conditions
 00000000C7B7.07C: actions
 00000000C7B8.07C: disabled
-00000000C7B9.07C: Error: Se esperaba '%1$s' tras '%2$s' en la línea %3$s
-00000000C7BA.07C: Error: Se esperaba '%1$s' tras el inicio del portapapeles en la línea %2$s
-00000000C7BB.07C: Error: Se esperaba una cadena entrecomillada tras '%1$s' en la línea %2$s
+00000000C7B9.07C: Error: Se esperaba «%1$s» tras «%2$s» en la línea %3$s.
+00000000C7BA.07C: Error: Se esperaba «%1$s» tras el inicio del portapapeles en la línea %2$s.
+00000000C7BB.07C: Error: Se esperaba una cadena entrecomillada tras «%1$s» en la línea %2$s.
 00000000C7C6.07C: 
 00000000C7CA.07C: Conectando...
-00000000C7CC.07C: Error: Se esperaba un equipo tras '%1$s' en la línea %2$s
-00000000C7CD.07C: Error: Se esperaba un jugador tras '%1$s' en la línea %2$s
-00000000C7CE.07C: Error: Se esperaba un nombre de héroe tras '%1$s' en la línea %2$s
-00000000C7CF.07C: Error: Se esperaba una variable tras '%1$s' en la línea %2$s
-00000000C7D0.07C: Error: Se esperaba un número tras '%1$s' en la línea %2$s
-00000000C7D1.07C: Error: Se esperaba un operador de comparación tras '%1$s' en la línea %2$s
-00000000C7D2.07C: Error: Se esperaba un tipo de evento tras '%1$s' en la línea %2$s
-00000000C7D3.07C: Error: Se esperaba una opción tras '%1$s' en la línea %2$s
-00000000C7D4.07C: Error: Se esperaba un valor tras '%1$s' en la línea %2$s
-00000000C7D6.07C: Error: Se esperaba el final del portapapeles tras '%1$s' en la línea %2$s
-00000000C7D7.07C: Error: Se esperaba una acción tras '%1$s' en la línea %2$s
-00000000C7D8.07C: Error: La regla acaba sin un evento en '%1$s' en la línea %2$s
-00000000C7D9.07C: Error: Se ha encontrado un número no válido tras '%1$s' en la línea %2$s
-00000000C7DB.07C: Error: Se ha encontrado una cadena no compatible tras '%1$s' en la línea %2$s
-00000000C7DC.07C: Error: Se ha encontrado un valor de un tipo incompatible tras '%1$s' en la línea %2$s
+00000000C7CC.07C: Error: Se esperaba un equipo tras «%1$s» en la línea %2$s.
+00000000C7CD.07C: Error: Se esperaba un jugador tras «%1$s» en la línea %2$s.
+00000000C7CE.07C: Error: Se esperaba un nombre de héroe tras «%1$s» en la línea %2$s.
+00000000C7CF.07C: Error: Se esperaba una variable tras «%1$s» en la línea %2$s.
+00000000C7D0.07C: Error: Se esperaba un número tras «%1$s» en la línea %2$s.
+00000000C7D1.07C: Error: Se esperaba un operador de comparación tras «%1$s» en la línea %2$s.
+00000000C7D2.07C: Error: Se esperaba un tipo de evento tras «%1$s» en la línea %2$s.
+00000000C7D3.07C: Error: Se esperaba una opción tras «%1$s» en la línea %2$s.
+00000000C7D4.07C: Error: Se esperaba un valor tras «%1$s» en la línea %2$s.
+00000000C7D6.07C: Error: Se esperaba el final del portapapeles tras «%1$s» en la línea %2$s.
+00000000C7D7.07C: Error: Se esperaba una acción tras «%1$s» en la línea %2$s.
+00000000C7D8.07C: Error: La regla acaba sin un evento en '%1$s' en la línea %2$s.
+00000000C7D9.07C: Error: Se ha encontrado un número no válido tras '%1$s' en la línea %2$s.
+00000000C7DB.07C: Error: Se ha encontrado una cadena no compatible tras '%1$s' en la línea %2$s.
+00000000C7DC.07C: Error: Se ha encontrado un valor de un tipo incompatible tras '%1$s' en la línea %2$s.
 00000000C7DD.07C: Seleccionar todos
-00000000C7DE.07C: Error: Comentario no válido tras '%1$s' en la línea %2$s
+00000000C7DE.07C: Error: Comentario no válido tras '%1$s' en la línea %2$s.
 00000000C7DF.07C: Modify Player Variable At Index
 00000000C7E0.07C: Modifica el valor de una variable de jugador en un índice (una variable que pertenece a un jugador concreto).
 00000000C7E1.07C: Modify Global Variable At Index
@@ -22283,7 +22278,7 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000CA0C.07C: Selecciona una función para poner en cola a tu equipo. ¿Seleccionarla ahora?
 00000000CA0D.07C: Tiendas
 00000000CA0E.07C: Tienda
-00000000CA11.07C: Semana 1: Doomfist monje
+00000000CA11.07C: Desafío Mardi Gras de Ashe
 00000000CA13.07C: Semana 2: Winston bronce antiguo
 00000000CA14.07C: Semana 3: Wrecking Ball papel recortado
 00000000CA15.07C: ¡Gana 9 partidas rápidas, de Arcade o competitivas!
@@ -22645,8 +22640,8 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000CE5F.07C: Se desbloquea al participar en el desafío Bloque de Bastion
 00000000CE61.07C: Escarchado
 00000000CE64.07C: Texto
-00000000CE68.07C: Error: se ha encontrado el final de una línea en un literal de cadena tras «%1$s» en la línea %2$s.
-00000000CE69.07C: Error: se ha encontrado un literal de cadena al que le faltan las comillas de cierre tras «%1$s» en la línea %2$s.
+00000000CE68.07C: Error: Se ha encontrado el final de una línea en un literal de cadena tras «%1$s» en la línea %2$s.
+00000000CE69.07C: Error: Se ha encontrado un literal de cadena al que le faltan las comillas de cierre tras «%1$s» en la línea %2$s.
 00000000CE6D.07C: Vampiro
 00000000CE6E.07C: La edición de texto está desactivada en esta cuenta.
 00000000CE75.07C: Esto abrirá un navegador en otra ventana.
@@ -22697,7 +22692,7 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000CEE8.07C: ¡Salta al campo de batalla y compite con los mejores jugadores de Eliminación del mundo!
 00000000CEE9.07C: Temporada 2 del modo competitivo de Eliminación 3c3
 00000000CEEF.07C: Enterrador
-00000000CEF0.07C: Camino a la gloria
+00000000CEF0.07C: Camino a la gloria de 2019
 00000000CEFF.07C: Infernal
 00000000CF28.07C: 2019
 00000000CF29.07C: Chacko Sonny
@@ -26072,7 +26067,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D40E.07C: Matriz de todos los héroes de apoyo de Overwatch.
 00000000D40F.07C: Matriz de todos los héroes tanque de Overwatch.
 00000000D411.07C: Mapa
-00000000D412.07C: Error: Se esperaba un nombre de mapa tras '%1$s' en la línea %2$s
+00000000D412.07C: Error: Se esperaba un nombre de mapa tras «%1$s» en la línea %2$s.
 00000000D415.07C: Map
 00000000D416.07C: Una constante de mapa.
 00000000D417.07C: Una constante de mapa.
@@ -26178,16 +26173,16 @@ https://account.blizzard.com/connections/nintendo
 00000000EB0A.07C: Papel recortado
 00000000EB0E.07C: Restablecer valores por defecto
 00000000EB17.07C: Habilitar entrada de alta precisión del ratón
-00000000EB1E.07C: Error: la variable de jugador «%1$s» requiere un nombre.
-00000000EB21.07C: Error: la variable global «%1$s» entra en conflicto con otra variable.
-00000000EB23.07C: Mapas disponibles
+00000000EB1E.07C: Error: La variable de jugador «%1$s» requiere un nombre.
+00000000EB21.07C: Error: La variable global «%1$s» entra en conflicto con otra variable.
+00000000EB23.07C: Mapas disponibles esta temporada
 00000000EB24.07C: Hanamura, Templo de Anubis, Industrias Volskaya
-00000000EB25.07C: Error: la variable global «%1$s» contiene un nombre no válido.
-00000000EB29.07C: Error: la variable global «%1$s» requiere un nombre.
-00000000EB2A.07C: Error: la variable de jugador «%1$s» contiene un nombre no válido.
-00000000EB2B.07C: Error: la variable de jugador «%1$s» entra en conflicto con otra variable.
-00000000EB2E.07C: Error: la variable de jugador «%1$s» contiene un nombre demasiado largo.
-00000000EB2F.07C: Error: la variable global «%1$s» contiene un nombre demasiado largo.
+00000000EB25.07C: Error: La variable global «%1$s» contiene un nombre no válido.
+00000000EB29.07C: Error: La variable global «%1$s» requiere un nombre.
+00000000EB2A.07C: Error: La variable de jugador «%1$s» contiene un nombre no válido.
+00000000EB2B.07C: Error: La variable de jugador «%1$s» entra en conflicto con otra variable.
+00000000EB2E.07C: Error: La variable de jugador «%1$s» contiene un nombre demasiado largo.
+00000000EB2F.07C: Error: La variable global «%1$s» contiene un nombre demasiado largo.
 00000000EB4C.07C: Hollywood, King's Row, Eichenwalde
 00000000EB4D.07C: Nepal, Torre Lijiang, Busan
 00000000EB4E.07C: Ruta 66, Observatorio: Gibraltar, La Habana
@@ -26195,23 +26190,23 @@ https://account.blizzard.com/connections/nintendo
 00000000EB73.07C: variables
 00000000EB74.07C: global
 00000000EB75.07C: jugador
-00000000EB76.07C: Error: se han encontrado variables inesperadas tras «%1$s» en la línea %2$s.
-00000000EB77.07C: Error: se ha encontrado el índice de variable fuera de los límites «%1$s» en la línea %2$s.
-00000000EB78.07C: Error: se ha encontrado el índice de variable duplicado «%1$s» en la línea %2$s.
-00000000EB79.07C: Error: la variable global «%1$s» tiene un nombre no válido.
-00000000EB7A.07C: Error: la variable global «%1$s» es demasiado larga.
+00000000EB76.07C: Error: Se han encontrado variables inesperadas tras «%1$s» en la línea %2$s.
+00000000EB77.07C: Error: Se ha encontrado el índice de variable fuera de los límites «%1$s» en la línea %2$s.
+00000000EB78.07C: Error: Se ha encontrado el índice de variable duplicado «%1$s» en la línea %2$s.
+00000000EB79.07C: Error: La variable global «%1$s» tiene un nombre no válido.
+00000000EB7A.07C: Error: La variable global «%1$s» es demasiado larga.
 00000000EB7B.07C: Doctora Ziegler
-00000000EB7D.07C: Error: la variable global «%1$s» tiene el mismo nombre que otra variable.
+00000000EB7D.07C: Error: La variable global «%1$s» tiene el mismo nombre que otra variable.
 00000000EB7E.07C: Evaluación
-00000000EB80.07C: Error: la variable de jugador «%1$s» tiene un nombre no válido.
-00000000EB81.07C: Error: la variable de jugador «%1$s» es demasiado larga.
-00000000EB82.07C: Error: la variable de jugador «%1$s» tiene el mismo nombre que otra variable.
+00000000EB80.07C: Error: La variable de jugador «%1$s» tiene un nombre no válido.
+00000000EB81.07C: Error: La variable de jugador «%1$s» es demasiado larga.
+00000000EB82.07C: Error: La variable de jugador «%1$s» tiene el mismo nombre que otra variable.
 00000000EB83.07C: Se desbloquea al participar en el desafío La llamada de Mercy
 00000000EB84.07C: Bata de laboratorio
 00000000EB85.07C: Se desbloquea al participar en el desafío La llamada de Mercy
 00000000EB90.07C: Añadir variable global
 00000000EB91.07C: Añadir variable de jugador
-00000000EB9A.07C: Error: se ha encontrado una variable desconocida tras «%1$s» en la línea %2$s.
+00000000EB9A.07C: Error: Se ha encontrado una variable desconocida tras «%1$s» en la línea %2$s.
 00000000EBAB.07C: Más información
 00000000EBB8.07C: Héroe de Combate a muerte por equipos competitivo 2019
 00000000EBB9.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo de Combate a muerte por equipos de 2019
@@ -26308,6 +26303,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F0CB.07C: Continuar
 00000000F0CC.07C: Tiempo de reaparición de robot de entrenamiento
 00000000F0CD.07C: |Rfn %1$s:P0;
+00000000F0F3.07C: <fg%1$s>|RcgATURDIDO:ATURDIDA;</fg>
+00000000F0F4.07C: <fg%1$s>|RcgDORMIDO:DORMIDA;</fg>
 00000000F0FE.07C: Solo para residentes de California
 00000000F0FF.07C: No vendas mi información personal
 00000000F102.07C: Esto abrirá un navegador en otra ventana.
@@ -26327,12 +26324,12 @@ https://account.blizzard.com/connections/nintendo
 00000000F149.07C: Práctica de combate: ¡ya disponible para grupos!
 00000000F14A.07C: Escaramuza: ¡No hay reglas!
 00000000F14B.07C: Combate a muerte: ¡juega contra los miembros de tu grupo!
-00000000F161.07C: Modo de juego
+00000000F161.07C: Game Mode
 00000000F162.07C: Una constante de modo de juego.
-00000000F163.07C: Modo de juego actual
+00000000F163.07C: Current Game Mode
 00000000F164.07C: El modo de juego actual de la partida personalizada.
 00000000F166.07C: Una constante de modo de juego.
-00000000F167.07C: Error: Se esperaba un modo de juego tras '%1$s' en la línea %2$s
+00000000F167.07C: Error: Se esperaba un modo de juego tras «%1$s» en la línea %2$s.
 00000000F168.07C: Modo de juego
 00000000F178.07C: Gestionar cuenta
 00000000F196.07C: Escaramuza
@@ -26380,7 +26377,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F24B.07C: Selva Negra
 00000000F24D.07C: VICTORIA: El primer jugador que consiga 15 asesinatos
 00000000F255.07C: Pelea de bolas de nieve a muerte
-00000000F25B.07C: Admitir a jugadores en cola
+00000000F25B.07C: Permitir jugadores que estén en cola
 00000000F25D.07C: CONTINUAR
 00000000F25E.07C: Inverlandia
 00000000F25F.07C: De vuelta a la nieve
@@ -26433,8 +26430,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F40B.07C: |Rfn %1$s:N1;
 00000000F417.07C: Mostrar diagnóstico
 00000000F418.07C: Diagnóstico de script
-00000000F41B.07C: Total de elementos: %1$s
-00000000F41C.07C: Tamaño de la regla más grande: %1$s KB
+00000000F41B.07C: Total de elementos
+00000000F41C.07C: Tamaño de la regla más grande
 00000000F41D.07C: Entre los elementos se incluyen reglas, condiciones, acciones y valores (hasta un máximo de %1$s)
 00000000F41E.07C: Cada regla debe pesar menos de %1$s KB
 00000000F420.07C: Sorpresa festiva
@@ -26671,6 +26668,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F5E8.07C: Florida Mayhem (visitante)
 00000000F5E9.07C: Florida Mayhem (visitante)
 00000000F5EA.07C: Florida Mayhem (visitante)
+00000000F5EB.07C: EQUIPO 3
+00000000F5EC.07C: EQUIPO 4
 00000000F8B0.07C: Cambiarrostros
 00000000F8B1.07C: Disponible en las cajas de botín del Año Nuevo Lunar
 00000000F8B2.07C: Máscara de Sombra
@@ -26706,6 +26705,31 @@ https://account.blizzard.com/connections/nintendo
 00000000FABF.07C: %1$s |Rplasesinato:asesinatos; por repulsión
 00000000FAC0.07C: |Rpl %1$s:Asesinato:Asesinatos; por repulsión
 00000000FAC1.07C: %1$s |Rplasesinato:asesinatos; por repulsión
+00000000FB2E.07C: Enable Inspector Recording
+00000000FB2F.07C: Disable Inspector Recording
+00000000FB30.07C: Hace que el inspector del Taller deje de registrar nuevas entradas. Tiene el beneficio de que reduce la carga de tu script en el servidor, especialmente al modificar matrices.
+00000000FB31.07C: Hace que el inspector del Taller reanude el registro de nuevas entradas (en caso de haberse deshabilitado antes). Permitir los registros en momentos específicos podría facilitar la depuración de aspectos problemáticos de tu lógica.
+00000000FB32.07C: If
+00000000FB33.07C: Else If
+00000000FB34.07C: Else
+00000000FB35.07C: While
+00000000FB37.07C: End
+00000000FB38.07C: Denota el fin de una serie de acciones iniciadas por una acción «If», «Else If», «Else», «While» o «For».
+00000000FB39.07C: Denota el comienzo de una serie de acciones que se ejecutarán en bucle y modificarán la variable de control con cada bucle. La acción «End» correspondiente denota el fin del bucle. Si la variable de control alcanza o supera el valor de detención de intervalo, se abandona el bucle y la ejecución salta a la siguiente acción tras la acción «End».
+00000000FB3A.07C: Denota el comienzo de una serie de acciones que se ejecutarán en bucle mientras la condición especificada sea verdadera. La siguiente acción «End» del nivel actual denota el fin del bucle. Si la condición se evalúa como falsa cuando la ejecución está al principio del bucle, se abandona el bucle y la ejecución salta a la siguiente acción tras la acción «End».
+00000000FB3B.07C: Denota el comienzo de una serie de acciones que solo se ejecutarán si la condición de la anterior acción «If» o «Else If» era falsa.
+00000000FB3C.07C: Denota el comienzo de una serie de acciones que solo se ejecutarán si la condición especificada es verdadera y la condición de la anterior acción «If» o «Else If» era falsa.
+00000000FB3D.07C: Denota el comienzo de una serie de acciones que solo se ejecutarán si la condición especificada es verdadera.
+00000000FB3E.07C: Si se evalúa como verdadera, la ejecución continúa con la siguiente acción. De lo contrario, la ejecución salta a la siguiente acción «Else If», «Else» o «End» del nivel actual.
+00000000FB3F.07C: Si se evalúa como verdadera, la ejecución continúa con la siguiente acción. De lo contrario, la ejecución salta a la siguiente acción «End» del nivel actual.
+00000000FB40.07C: Paso
+00000000FB41.07C: Este valor se añade a la variable de control cuando se alcanza la acción «End». Si esta modificación hace que la variable de control alcance o supere el valor de detención de intervalo, se abandona el bucle y la ejecución salta a la siguiente acción tras la acción «End». De lo contrario, el bucle continúa y la ejecución salta a la siguiente acción tras la acción «For».
+00000000FB42.07C: Variable de control
+00000000FB43.07C: La variable que se modifica en este bucle. Recibe el valor de inicio de intervalo cuando comienza el bucle, y el bucle continúa hasta que la variable de control alcanza o supera el valor de detención de intervalo.
+00000000FB44.07C: Si la variable de control alcanza o supera este valor, se abandona el bucle y la ejecución salta a la siguiente acción tras la acción «End». Que este valor se considere superado o no depende de si el valor del paso es negativo o positivo. Si la variable de control ya ha alcanzado o superado este valor cuando se inicia el bucle, se abandona el bucle.
+00000000FB45.07C: Detención de intervalo
+00000000FB46.07C: La variable de control recibe este valor cuando se inicia el bucle.
+00000000FB47.07C: Inicio de intervalo
 00000000FB62.07C: ALTERNAR LADO DE CÁMARA DE VISTA DE JUGADOR EN 3.ª PERSONA SIMPLE
 00000000FB64.07C: Baréin
 00000000FB69.07C: Samul nori
@@ -26734,6 +26758,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FB97.07C: Disponible en las cajas de botín del Año Nuevo Lunar
 00000000FBAA.07C: ¡Feliz Año Nuevo!
 00000000FBAB.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+00000000FBAC.07C: Editar comentario
 00000000FBB2.07C: ¿Quieres algo?
 00000000FBB3.07C: Disponible en las cajas de botín del Año Nuevo Lunar
 00000000FBB4.07C: ¡Una anomalía!
@@ -26747,10 +26772,176 @@ https://account.blizzard.com/connections/nintendo
 00000000FBDA.07C: Actualizaciones deshabilitadas
 00000000FC5D.07C: Es posible que no puedas jugar si se requiere una actualización
 00000000FC5E.07C: Ocultar superposición de repetición
+00000000FC80.07C: Event Was Health Pack
+00000000FC81.07C: Decide si la sanación ha sido de un pack de salud para el evento que está procesando actualmente esta regla.
+00000000FC8D.07C: Melee
+00000000FC8E.07C: Reload
 00000000FC91.07C: ALTERNAR CÁMARA DE ESPECTADOR EN 3.ª PERSONA NORMAL/SIMPLE
+00000000FCA5.07C: Visible To, Sort Order, and String
+00000000FCA6.07C: Sort Order and String
+00000000FD25.07C: None
+00000000FD26.07C: Receivers and Healers
+00000000FD27.07C: Receivers, Healers, and Healing Percent
+00000000FD2A.07C: Last Healing Modification ID
+00000000FD2B.07C: Una ID que representa la acción «Start Healing Modification» más reciente ejecutada por el «Event Player» (o ejecutada a nivel global).
+00000000FD36.07C: Detiene todas las modificaciones de sanación que se iniciaron mediante la acción «Start Healing Modification».
+00000000FD37.07C: Stop Healing Modification
+00000000FD38.07C: Detiene una modificación de sanación que se inició mediante la acción «Start Healing Modification».
+00000000FD39.07C: Healing Modification ID
+00000000FD3A.07C: Especifica qué instancia de modificación de sanación detiene. Esta ID puede ser «Last Healing Modification ID» o una variable en la que se almacenó previamente «Last Healing Modification ID».
+00000000FD3B.07C: Stop All Healing Modifications
+00000000FD40.07C: Start Healing Modification
+00000000FD42.07C: Comienza a modificar cuánta sanación recibirán uno o más receptores de uno o más sanadores. Se puede obtener una referencia a esta modificación de sanación a partir del valor de «Last Healing Modification ID». Esta acción fallará si se han iniciado demasiadas modificaciones de sanación.
+00000000FD43.07C: Receptores
+00000000FD44.07C: El jugador o jugadores cuya sanación recibida se modificará (al recibir sanación de los sanadores).
+00000000FD45.07C: Sanadores
+00000000FD46.07C: El jugador o jugadores cuya sanación aplicada se modificará (al sanar a los receptores).
+00000000FD47.07C: Porcentaje de sanación
+00000000FD48.07C: El porcentaje de sanación que se aplicará a los receptores cuando reciban sanación de los sanadores.
+00000000FD49.07C: Revaluación
+00000000FD4A.07C: Especifica qué entradas de esta acción se reevaluarán continuamente. Esta acción no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.
 00000000FDBB.07C: Desactivado
+00000000FEBD.07C: Sub%1$s
+00000000FEBE.07C: Subrutina
+00000000FED9.07C: Error: Se esperaba una subrutina tras «%1$s» en la línea %2$s.
+00000000FEDA.07C: Error: La subrutina «%1$s» requiere un nombre.
+00000000FEDB.07C: Error: La subrutina «%1$s» contiene un nombre demasiado largo.
+00000000FEDC.07C: Error: La subrutina «%1$s» contiene un nombre no válido.
+00000000FEDD.07C: Error: La subrutina «%1$s» entra en conflicto con otra.
+00000000FEE1.07C: For Player Variable
+00000000FEE2.07C: For Global Variable
 00000000FFB4.07C: Partidas
 00000000FFCF.07C: SOLICITUD DE AMISTAD RECIBIDA
+00000000FFD0.07C: El jugador cuya variable se modifica en este bucle. Si se especifican varios jugadores, se utiliza el primero.
+00000000FFD1.07C: Jugador de control
+00000000FFDA.07C: Las acciones «Chase» y «For» no pueden utilizar la misma variable.
 00000000FFE7.07C: Overwatch League 2020
 00000000FFE8.07C: Brigitte Cabra
-[Core] Execution finished in 00:00:03.1020116 seconds
+00000000FFF0.07C: Cámara del Taller
+00000000FFF1.07C: Isla del Taller
+00000000FFF2.07C: Terreno del Taller
+00000000FFF3.07C: Editar nombres de subrutinas
+00000000FFF4.07C: Añadir subrutina
+00000000FFF5.07C: Restablecer valores por defecto
+00000000FFF6.07C: Subrutina
+00000000FFFA.07C: subrutinas
+00000000FFFB.07C: Error: Se han encontrado subrutinas inesperadas tras «%1$s» en la línea %2$s.
+00000000FFFC.07C: Error: Se ha encontrado el índice de subrutina fuera de los límites «%1$s» en la línea %2$s.
+00000000FFFD.07C: Error: Se ha encontrado el índice de subrutina duplicado «%1$s» en la línea %2$s.
+00000000FFFE.07C: Error: La subrutina «%1$s» es demasiado larga.
+00000000FFFF.07C: Error: La subrutina «%1$s» tiene un nombre no válido.
+000000010000.07C: Error: Se ha encontrado una subrutina desconocida tras «%1$s» en la línea %2$s.
+000000010017.07C: Competidor de la temporada 21
+000000010018.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 21
+000000010019.07C: Camino a la gloria de 2020
+00000001001A.07C: Camino a la gloria de 2020
+00000001001E.07C: Call Subroutine
+00000001001F.07C: Subroutine
+000000010020.07C: Pausa la ejecución de la regla actual e inicia la ejecución de una regla de subrutina (que es una regla con un tipo de evento de subrutina). Cuando la regla de subrutina finaliza, se reanuda la ejecución de la regla original. La subrutina tendrá acceso a los mismos valores contextuales (como «Event Player») que la regla original.
+000000010021.07C: Especifica a qué subrutina se llama. Si una regla con un tipo de evento de subrutina especifica la misma subrutina, se ejecuta. De lo contrario, esta acción se ignora.
+000000010022.07C: Start Rule
+000000010023.07C: Inicia la ejecución simultánea de una regla de subrutina (que es una regla con un tipo de evento de subrutina). La ejecución de la regla original continúa sin interrupciones. La subrutina tendrá acceso a los mismos valores contextuales (como «Event Player») que la regla original.
+000000010024.07C: Especifica qué subrutina se inicia. Si una regla con un tipo de evento de subrutina especifica la misma subrutina, se ejecuta. De lo contrario, esta acción se ignora.
+000000010025.07C: Restart Rule
+000000010026.07C: Do Nothing
+000000010027.07C: Reinicia la regla especificada con nuevos valores contextuales (incluidos «Event Player», «Attacker», «Victim», etc.).
+000000010028.07C: Permite que la regla termine de ejecutarse sin cambiar sus valores contextuales.
+00000001002A.07C: Si ya se está ejecutando
+00000001002B.07C: Determina lo que debe ocurrir si la regla especificada por la subrutina ya se está ejecutando sobre el mismo jugador o entidad global.
+00000001002D.07C: Las reglas de subrutinas pueden no tener condiciones.
+00000001002E.07C: Copiar ajustes
+00000001002F.07C: Importar ajustes
+000000010030.07C: ajustes
+000000010031.07C: sala
+000000010034.07C: Mardi Grashe
+000000010036.07C: Mardi BOB
+000000010038.07C: Máscara de oro
+00000001003A.07C: Se desbloquea al participar en el desafío Mardi Gras de Ashe
+00000001003F.07C: Héroe de la temporada 21
+000000010040.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 21
+000000010041.07C: mapas no permitidos
+000000010044.07C: modos
+000000010045.07C: mapas permitidos
+000000010046.07C: héroes
+000000010047.07C: Varias reglas definen la misma subrutina.
+000000010051.07C: TcT por equipos
+000000010052.07C: héroes no permitidos
+000000010053.07C: héroes permitidos
+000000010054.07C: Temporada 21
+000000010055.07C: Temporada 21
+00000001005E.07C: %1$s
+00000001005F.07C: %1$s KB
+00000001006B.07C: Importar ajustes desde el portapapeles
+00000001006C.07C: Se reemplazarán todos tus ajustes actuales. ¿Seguro que quieres importar desde el portapapeles?
+00000001006D.07C: Confirmar
+00000001006E.07C: principales
+000000010072.07C: Rotación de héroes
+000000010075.07C: Los héroes disponibles para partidas competitivas cambian de forma periódica.
+000000010078.07C: Héroes fuera de rotación
+00000001007F.07C: Descripción
+000000010086.07C: ACEPTAR
+000000010087.07C: Rotación de héroes
+000000010088.07C: Los héroes disponibles para partidas competitivas cambian de forma periódica.
+000000010089.07C: Héroes fuera de rotación
+00000001008C.07C: Héroes no disponibles
+000000010097.07C: Error: Se esperaba un ajuste de sala tras «%1$s» en la línea %2$s.
+000000010098.07C: Error: Se esperaba un ajuste principal tras «%1$s» en la línea %2$s.
+000000010099.07C: Error: Se esperaba un ajuste de modo de juego tras «%1$s» en la línea %2$s.
+0000000100A3.07C: Mardi Gras
+0000000100AD.07C: Error: Se esperaba un ajuste de héroe tras «%1$s» en la línea %2$s.
+0000000100AE.07C: Error: Se esperaba un ajuste tras «%1$s» en la línea %2$s.
+0000000100AF.07C: Error: Se esperaba una opción de ajuste tras «%1$s» en la línea %2$s.
+0000000100B0.07C: Error: Se ha encontrado un modo de juego duplicado tras «%1$s» en la línea %2$s.
+0000000100B6.07C: Error: Se ha encontrado un equipo duplicado tras «%1$s» en la línea %2$s.
+0000000100B7.07C: Error: Se esperaba un ajuste de equipo tras «%1$s» en la línea %2$s.
+0000000100BB.07C: Error: Se esperaba una opción del centro de datos tras «%1$s» en la línea %2$s.
+0000000100BC.07C: Error: Modo de juego no válido.
+0000000100BD.07C: Error: Héroe no válido.
+0000000100BE.07C: Error: Mapa no válido.
+0000000100BF.07C: Error: Equipo no válido.
+0000000100C0.07C: Error: Ajustes de héroe no válidos.
+0000000100C1.07C: Error: Ajustes de equipo no válidos.
+0000000100C2.07C: Error: Ajustes de modo de juego no válidos.
+0000000100C3.07C: Error: Ajustes de mapa no válidos.
+0000000100C4.07C: Carnaval
+0000000100C6.07C: Semlor
+0000000100C8.07C: Rex
+0000000100CA.07C: Roscón
+0000000100CC.07C: Cuentas
+0000000100CE.07C: Muerte roja
+0000000100D0.07C: Se desbloquea al ver retransmisiones participantes durante el desafío Mardi Gras de Ashe
+0000000100D5.07C: Héroes fuera de rotación
+0000000100DF.07C: Error: Se ha encontrado un héroe duplicado tras «%1$s» en la línea %2$s.
+0000000100E0.07C: Error: Se han encontrado mapas inesperados tras «%1$s» en la línea %2$s.
+0000000100E1.07C: Error: Se ha encontrado un principal inesperado tras «%1$s» en la línea %2$s.
+0000000100E2.07C: Error: Se han encontrado modos inesperados tras «%1$s» en la línea %2$s.
+0000000100E3.07C: Error: Se han encontrado héroes inesperados tras «%1$s» en la línea %2$s.
+0000000100E4.07C: Error: Se ha encontrado una sala inesperada tras «%1$s» en la línea %2$s.
+0000000100E5.07C: Experimental
+0000000100E7.07C: Error: Se esperaba una sección de ajustes tras «%1$s» en la línea %2$s.
+0000000100E8.07C: Error: Ajustes no válidos «%1$s» en la línea %2$s.
+000000010176.07C: Notas del parche
+000000010177.07C: ¡Haz clic abajo para leer las notas del parche y conocer las últimas novedades!
+000000010178.07C: Notas del parche
+00000001017B.07C: Experimental
+00000001017E.07C: Error: Se esperaban modos tras «%1$s» en la línea %2$s.
+0000000101D4.07C: - ¡Prueba las nuevas ideas del equipo y experimenta con las mecánicas de juego!
+
+- Echa un vistazo exclusivo a conceptos experimentales en desarrollo.
+
+- Ofrécenos tu valiosa opinión y contribuye a mejorar la experiencia de juego.
+0000000101D9.07C: Este héroe está fuera de rotación ahora mismo.
+0000000101DF.07C: ¡Prueba las nuevas ideas del equipo y experimenta con las mecánicas de juego!
+000000010214.07C: Tu temporizador ha expirado. Se te desconectará al terminar esta sesión.
+00000001021A.07C: Pasar cámara de muerte a asesino
+000000010237.07C: Desconectado por alcanzar el límite de tiempo del sistema antiadicción de China
+000000010239.07C: Experimental
+000000010243.07C: Ocultar resultados
+00000001024D.07C: Operador
+0000000102D0.07C: pc
+0000000102D1.07C: ps4
+0000000102D2.07C: xb1
+0000000102D3.07C: nintendo-switch
+0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102F5.07C: Usar actualización experimental si está disponible
+[Core] Execution finished in 00:00:02.9232713 seconds

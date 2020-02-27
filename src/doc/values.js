@@ -28,8 +28,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Absolute Value",
         "guid": "00000000C358",
+        "en-US": "Absolute Value",
         "es-MX": "Valor absoluto",
         "fr-FR": "Valeur absolue",
         "ja-JP": "絶対値",
@@ -70,8 +70,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "All Dead Players",
         "guid": "00000000B265",
+        "en-US": "All Dead Players",
         "es-MX": "Todos los jugadores muertos",
         "fr-FR": "Tous les joueurs morts",
         "ja-JP": "倒れたプレイヤー全員",
@@ -81,8 +81,8 @@ var valueFuncKw =
     "getDamageHeroes": {
         "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        ",
         "args": [],
-        "en-US": "All Damage Heroes",
         "guid": "00000000D40A",
+        "en-US": "All Damage Heroes",
         "de-DE": "Alle Schadenshelden",
         "es-MX": "Todos los héroes de daño",
         "fr-FR": "Tous les héros de dégâts",
@@ -112,8 +112,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "All Living Players",
         "guid": "00000000B264",
+        "en-US": "All Living Players",
         "es-MX": "Todos los jugadores vivos",
         "fr-FR": "Tous les joueurs en vie",
         "ja-JP": "生存プレイヤー全員",
@@ -130,8 +130,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "All Players",
         "guid": "00000000B261",
+        "en-US": "All Players",
         "es-MX": "Todos los jugadores",
         "fr-FR": "Tous les joueurs",
         "ja-JP": "すべてのプレイヤー",
@@ -148,8 +148,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "All Players Not On Objective",
         "guid": "00000000B267",
+        "en-US": "All Players Not On Objective",
         "es-MX": "Todos los jugadores que no están en el objetivo",
         "fr-FR": "Tous les joueurs éloignés de l’objectif",
         "ja-JP": "プレイヤー全員が目標を確保中ではない",
@@ -166,8 +166,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "All Players On Objective",
         "guid": "00000000B266",
+        "en-US": "All Players On Objective",
         "es-MX": "Todos los jugadores que están en el objetivo",
         "fr-FR": "Tous les joueurs sur l’objectif",
         "ja-JP": "プレイヤー全員が目標を確保中",
@@ -184,8 +184,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Allowed Heroes",
         "guid": "00000000BBA8",
+        "en-US": "Allowed Heroes",
         "es-MX": "Héroes permitidos",
         "fr-FR": "Héros autorisés",
         "ja-JP": "許可されたヒーロー",
@@ -195,8 +195,8 @@ var valueFuncKw =
     "getSupportHeroes": {
         "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
         "args": [],
-        "en-US": "All Support Heroes",
         "guid": "00000000D40B",
+        "en-US": "All Support Heroes",
         "de-DE": "Alle Unterstützungshelden",
         "es-MX": "Todos los héroes de apoyo",
         "fr-FR": "Tous les héros de soutien",
@@ -208,8 +208,8 @@ var valueFuncKw =
     "getTankHeroes": {
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
         "args": [],
-        "en-US": "All Tank Heroes",
         "guid": "00000000D40C",
+        "en-US": "All Tank Heroes",
         "de-DE": "Alle Tankhelden",
         "es-MX": "Todos los héroes tanques",
         "fr-FR": "Tous les héros tanks",
@@ -228,8 +228,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Altitude Of",
         "guid": "00000000B11D",
+        "en-US": "Altitude Of",
         "es-MX": "Altitud de",
         "fr-FR": "Altitude de",
         "ja-JP": "高度: ",
@@ -252,8 +252,8 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        "en-US": "And",
         "guid": "00000000B273",
+        "en-US": "And",
         "es-MX": "Y",
         "fr-FR": "Et",
         "ja-JP": "AND",
@@ -276,8 +276,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Angle Between Vectors",
         "guid": "00000000C813",
+        "en-US": "Angle Between Vectors",
         "es-MX": "Ángulo entre vectores",
         "fr-FR": "Angle entre deux vecteurs",
         "ja-JP": "ベクトル間角度",
@@ -300,8 +300,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Angle Difference",
         "guid": "00000000B282",
+        "en-US": "Angle Difference",
         "es-MX": "Diferencia de ángulo",
         "fr-FR": "Différence entre angles",
         "ja-JP": "角度差",
@@ -342,8 +342,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Arccosine In Degrees",
         "guid": "00000000C809",
+        "en-US": "Arccosine In Degrees",
         "es-MX": "Arcocoseno en grados",
         "fr-FR": "Arc cosinus en degrés",
         "ja-JP": "度単位のアークコサイン",
@@ -360,8 +360,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Arccosine In Radians",
         "guid": "00000000C807",
+        "en-US": "Arccosine In Radians",
         "es-MX": "Arcocoseno en radianes",
         "fr-FR": "Arc cosinus en radians",
         "ja-JP": "ラジアンのアークコサイン",
@@ -378,8 +378,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Arcsine In Degrees",
         "guid": "00000000C805",
+        "en-US": "Arcsine In Degrees",
         "es-MX": "Arcoseno en grados",
         "fr-FR": "Arc sinus en degrés",
         "ja-JP": "度単位のアークサイン",
@@ -396,8 +396,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Arcsine In Radians",
         "guid": "00000000C803",
+        "en-US": "Arcsine In Radians",
         "es-MX": "Arcoseno en radianes",
         "fr-FR": "Arc sinus en radians",
         "ja-JP": "ラジアンのアークサイン",
@@ -420,8 +420,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Arctangent In Degrees",
         "guid": "00000000C801",
+        "en-US": "Arctangent In Degrees",
         "es-MX": "Arcotangente en grados",
         "fr-FR": "Arc tangente en degrés",
         "ja-JP": "度単位のアークタンジェント",
@@ -444,8 +444,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Arctangent In Radians",
         "guid": "00000000C7FF",
+        "en-US": "Arctangent In Radians",
         "es-MX": "Arcotangente en radianes",
         "fr-FR": "Arc tangente en radians",
         "ja-JP": "ラジアンのアークタンジェント",
@@ -468,8 +468,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Array Contains",
         "guid": "00000000C336",
+        "en-US": "Array Contains",
         "es-MX": "La matriz contiene",
         "fr-FR": "Contenu du tableau",
         "ja-JP": "含む配列",
@@ -498,8 +498,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Array Slice",
         "guid": "00000000B597",
+        "en-US": "Array Slice",
         "es-MX": "Extracción de matriz",
         "fr-FR": "Section de tableau",
         "ja-JP": "配列のスライス",
@@ -544,8 +544,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Closest Player To",
         "guid": "00000000B1DE",
+        "en-US": "Closest Player To",
         "es-MX": "Jugador más cercano a",
         "fr-FR": "Joueur le plus proche de",
         "ja-JP": "最も近いプレイヤー。基準: ",
@@ -574,8 +574,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Compare",
         "guid": "00000000B276",
+        "en-US": "Compare",
         "es-MX": "Comparar",
         "fr-FR": "Comparer",
         "ja-JP": "COMPARE",
@@ -592,8 +592,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Control Mode Scoring Percentage",
         "guid": "00000000B37C",
+        "en-US": "Control Mode Scoring Percentage",
         "es-MX": "Porcentaje de puntuación en el modo Control",
         "fr-FR": "Pourcentage du score en mode Contrôle",
         "ja-JP": "コントロール・モードのスコア・パーセンテージ",
@@ -603,8 +603,8 @@ var valueFuncKw =
     "getControlScoringTeam": {
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
         "args": [],
-        "en-US": "Control Mode Scoring Team",
         "guid": "00000000B39A",
+        "en-US": "Control Mode Scoring Team",
         "es-MX": "Equipo que anota en el modo Control",
         "fr-FR": "Équipe contrôlant le point en mode Contrôle",
         "ja-JP": "コントロール・モードの得点チーム",
@@ -621,8 +621,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Cosine From Degrees",
         "guid": "00000000C33E",
+        "en-US": "Cosine From Degrees",
         "es-MX": "Coseno en grados",
         "fr-FR": "Cosinus en degrés",
         "ja-JP": "度のコサイン",
@@ -639,8 +639,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Cosine From Radians",
         "guid": "00000000C342",
+        "en-US": "Cosine From Radians",
         "es-MX": "Coseno en radianes",
         "fr-FR": "Cosinus en radians",
         "ja-JP": "ラジアンのコサイン",
@@ -657,8 +657,8 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
-        "en-US": "Count Of",
         "guid": "00000000B26E",
+        "en-US": "Count Of",
         "es-MX": "Conteo de",
         "fr-FR": "Décompte de",
         "ja-JP": "カウント: ",
@@ -681,8 +681,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Cross Product",
         "guid": "00000000C35D",
+        "en-US": "Cross Product",
         "es-MX": "Producto vectorial",
         "fr-FR": "Produit croisé",
         "ja-JP": "クロス積",
@@ -692,8 +692,8 @@ var valueFuncKw =
     "_currentArrayElement": {
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": [],
-        "en-US": "Current Array Element",
         "guid": "00000000B5B9",
+        "en-US": "Current Array Element",
         "es-MX": "Elemento de matriz actual",
         "fr-FR": "Élément de tableau actuel",
         "ja-JP": "現在の配列の要素",
@@ -703,15 +703,13 @@ var valueFuncKw =
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
         "args": [],
-        "en-US": "Current Game Mode",
         "guid": "00000000F163",
-        "es-ES": "Modo de juego actual",
+        "en-US": "Current Game Mode",
         "es-MX": "Modo de juego actual",
         "fr-FR": "Mode de jeu actuel",
         "ja-JP": "現在のゲーム・モード",
         "pl-PL": "Bieżący tryb gry",
         "pt-BR": "Modo de jogo atual",
-        "ru-RU": "Текущий игровой режим",
         "zh-CN": "当前比赛模式"
     },
     "getCurrentMap": {
@@ -754,8 +752,8 @@ var valueFuncKw =
                 "default": "NULL"
             }
         ],
-        "en-US": "Custom String",
         "guid": "00000000CE3C",
+        "en-US": "Custom String",
         "es-MX": "Cadena personalizada",
         "fr-FR": "Chaîne personnalisée",
         "ja-JP": "カスタムストリング",
@@ -779,8 +777,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Direction From Angles",
         "guid": "00000000BB2D",
+        "en-US": "Direction From Angles",
         "es-MX": "Dirección desde los ángulos",
         "fr-FR": "Direction depuis des angles",
         "ja-JP": "角度による方向",
@@ -803,8 +801,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Direction Towards",
         "guid": "00000000B1EA",
+        "en-US": "Direction Towards",
         "es-MX": "Dirección hacia",
         "fr-FR": "Direction",
         "ja-JP": "指す方向: ",
@@ -827,8 +825,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Distance Between",
         "guid": "00000000B1E7",
+        "en-US": "Distance Between",
         "es-MX": "Distancia entre",
         "fr-FR": "Distance entre",
         "ja-JP": "2点間の距離",
@@ -875,8 +873,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Dot Product",
         "guid": "00000000C35A",
+        "en-US": "Dot Product",
         "es-MX": "Producto escalar",
         "fr-FR": "Produit scalaire",
         "ja-JP": "ドット積",
@@ -897,8 +895,8 @@ var valueFuncKw =
     "_emptyArray": {
         "description": "An array with no elements.",
         "args": [],
-        "en-US": "Empty Array",
         "guid": "00000000BF5A",
+        "en-US": "Empty Array",
         "es-MX": "Matriz vacía",
         "fr-FR": "Tableau vide",
         "ja-JP": "空の配列",
@@ -915,8 +913,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Entity Exists",
         "guid": "00000000B619",
+        "en-US": "Entity Exists",
         "es-MX": "La entidad existe",
         "fr-FR": "Existence de l’entité",
         "ja-JP": "エンティティが存在している",
@@ -926,8 +924,8 @@ var valueFuncKw =
     "eventDamage": {
         "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
         "args": null,
-        "en-US": "Event Damage",
         "guid": "00000000C635",
+        "en-US": "Event Damage",
         "es-MX": "Daño de evento",
         "fr-FR": "Dégâts d’évènement",
         "ja-JP": "イベント・ダメージ",
@@ -937,11 +935,11 @@ var valueFuncKw =
     "eventHealing": {
         "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
         "args": null,
-        "en-US": "Event Healing",
         "guid": "00000000CC33",
+        "en-US": "Event Healing",
         "es-MX": "Sanación de evento",
         "fr-FR": "Évènement soin",
-        "ja-JP": "イベント・ヒール",
+        "ja-JP": "イベント回復",
         "pl-PL": "Zdarzenie leczenia",
         "pt-BR": "Cura no Evento",
         "zh-CN": "事件治疗"
@@ -949,8 +947,8 @@ var valueFuncKw =
     "eventPlayer": {
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
         "args": null,
-        "en-US": "Event Player",
         "guid": "00000000B331",
+        "en-US": "Event Player",
         "es-MX": "Jugador del evento",
         "fr-FR": "Joueur exécutant",
         "ja-JP": "イベント・プレイヤー",
@@ -960,8 +958,8 @@ var valueFuncKw =
     "eventWasCriticalHit": {
         "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
         "args": null,
-        "en-US": "Event Was Critical Hit",
         "guid": "00000000C637",
+        "en-US": "Event Was Critical Hit",
         "es-MX": "El evento fue un golpe crítico",
         "fr-FR": "L’évènement était un coup critique",
         "ja-JP": "イベントがクリティカル・ヒットだった",
@@ -971,7 +969,13 @@ var valueFuncKw =
     "eventWasHealthPack": {
         "description": "Whether the healing was a health pack for the event currently being processed by this rule.",
         "args": null,
-        "en-US": "Event Was Health Pack"
+        "guid": "00000000FC80",
+        "en-US": "Event Was Health Pack",
+        "es-MX": "Evento fue suministro de salud",
+        "fr-FR": "L’évènement était un kit de soins",
+        "ja-JP": "ライフ・パックのイベントだった",
+        "pt-BR": "Evento foi kit Médico",
+        "zh-CN": "事件为急救包"
     },
     "_&getEyePosition": {
         "guid": "00000000C595",
@@ -1001,8 +1005,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Facing Direction Of",
         "guid": "00000000B281",
+        "en-US": "Facing Direction Of",
         "es-MX": "Dirección de orientación de",
         "fr-FR": "Regard en direction de",
         "ja-JP": "プレイヤーが向いている方向: ",
@@ -1012,8 +1016,8 @@ var valueFuncKw =
     "false": {
         "description": "The boolean value of false.",
         "args": null,
-        "en-US": "False",
         "guid": "00000000AC3A",
+        "en-US": "False",
         "es-MX": "Falso",
         "fr-FR": "Faux",
         "zh-CN": "假"
@@ -1034,8 +1038,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Farthest Player From",
         "guid": "00000000B1DF",
+        "en-US": "Farthest Player From",
         "es-MX": "Jugador más lejos de",
         "fr-FR": "Joueur le plus éloigné de",
         "ja-JP": "最も遠いプレイヤー。基準: ",
@@ -1058,8 +1062,8 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
-        "en-US": "Filtered Array",
         "guid": "00000000B5B7",
+        "en-US": "Filtered Array",
         "es-MX": "Matriz filtrada",
         "fr-FR": "Tableau filtré",
         "ja-JP": "フィルタリングされた配列",
@@ -1076,11 +1080,11 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
-        "en-US": "First Of",
         "guid": "00000000B5C2",
+        "en-US": "First Of",
         "es-MX": "Primero de",
         "fr-FR": "Premier de",
-        "ja-JP": "1番目。最大数は",
+        "ja-JP": "1番目の値",
         "pt-BR": "Primeiro de",
         "zh-CN": "首个"
     },
@@ -1094,8 +1098,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Flag Position",
         "guid": "00000000B3A0",
+        "en-US": "Flag Position",
         "es-MX": "Posición de la bandera",
         "fr-FR": "Position du drapeau",
         "ja-JP": "フラッグの位置",
@@ -1123,8 +1127,8 @@ var valueFuncKw =
                 "default": "A"
             }
         ],
-        "en-US": "Global Variable",
         "guid": "00000000B0F9",
+        "en-US": "Global Variable",
         "es-MX": "Variable global",
         "fr-FR": "Variable globale",
         "ja-JP": "グローバル変数",
@@ -1141,8 +1145,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Has Spawned",
         "guid": "00000000C192",
+        "en-US": "Has Spawned",
         "es-MX": "Ha aparecido",
         "fr-FR": "Apparition",
         "ja-JP": "スポーンした",
@@ -1165,8 +1169,8 @@ var valueFuncKw =
                 "default": "HACKED"
             }
         ],
-        "en-US": "Has Status",
         "guid": "00000000B363",
+        "en-US": "Has Status",
         "es-MX": "Tiene estado",
         "fr-FR": "Statut",
         "ja-JP": "ステータスがある",
@@ -1176,11 +1180,11 @@ var valueFuncKw =
     "healee": {
         "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
         "args": null,
-        "en-US": "Healee",
         "guid": "00000000CC1C",
+        "en-US": "Healee",
         "es-MX": "Sanado",
         "fr-FR": "Soigné",
-        "ja-JP": "ヒール対象",
+        "ja-JP": "回復対象",
         "pl-PL": "Leczony",
         "pt-BR": "Curado",
         "zh-CN": "受治疗者"
@@ -1225,8 +1229,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Normalized Health",
         "guid": "0000000081C3",
+        "en-US": "Normalized Health",
         "es-MX": "Salud normalizada",
         "fr-FR": "Points de vie normalisés",
         "ja-JP": "正規化ライフ",
@@ -1245,10 +1249,14 @@ var valueFuncKw =
             }
         ],
         "en-US": "Hero",
+        "es-ES": "Héroe",
         "es-MX": "Héroe",
         "fr-FR": "Héros",
+        "it-IT": "Eroe",
         "ja-JP": "ヒーロー",
+        "pl-PL": "Bohater",
         "pt-BR": "Herói",
+        "ru-RU": "Герой",
         "zh-CN": "英雄"
     },
     "heroIcon": {
@@ -1261,8 +1269,8 @@ var valueFuncKw =
                 "default": "HERO"
             }
         ],
-        "en-US": "Hero Icon String",
         "guid": "00000000C1FE",
+        "en-US": "Hero Icon String",
         "es-MX": "Cadena de ícono de héroe",
         "fr-FR": "Chaîne d’icône du héros",
         "ja-JP": "ヒーローアイコン文字列",
@@ -1279,11 +1287,11 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Hero Of",
         "guid": "00000000ACA9",
+        "en-US": "Hero Of",
         "es-MX": "Héroe de",
         "fr-FR": "Héros de",
-        "ja-JP": "ヒーロー",
+        "ja-JP": "ヒーロー: ",
         "pt-BR": "Herói de",
         "zh-CN": "所用英雄"
     },
@@ -1297,8 +1305,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Horizontal Angle From Direction",
         "guid": "00000000BB2C",
+        "en-US": "Horizontal Angle From Direction",
         "es-MX": "Ángulo horizontal desde la dirección",
         "fr-FR": "Angle horizontal depuis une direction",
         "ja-JP": "方向からの水平角",
@@ -1321,8 +1329,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Horizontal Angle Towards",
         "guid": "00000000B27D",
+        "en-US": "Horizontal Angle Towards",
         "es-MX": "Ángulo horizontal en dirección a",
         "fr-FR": "Angle horizontal vers",
         "ja-JP": "水平角の方向: ",
@@ -1341,13 +1349,11 @@ var valueFuncKw =
             }
         ],
         "en-US": "Game Mode",
-        "es-ES": "Modo de juego",
         "es-MX": "Modo de juego",
         "fr-FR": "Mode de jeu",
         "ja-JP": "ゲーム・モード",
         "pl-PL": "Tryb gry",
         "pt-BR": "Modo de jogo",
-        "ru-RU": "Игровой режим",
         "zh-CN": "比赛模式"
     },
     "_&getHorizontalFacingAngle": {
@@ -1360,8 +1366,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Horizontal Facing Angle Of",
         "guid": "00000000B27F",
+        "en-US": "Horizontal Facing Angle Of",
         "es-MX": "Ángulo horizontal de orientación de",
         "fr-FR": "Angle horizontal du regard de",
         "ja-JP": "対面水平角: ",
@@ -1378,8 +1384,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Horizontal Speed Of",
         "guid": "00000000B25E",
+        "en-US": "Horizontal Speed Of",
         "es-MX": "Velocidad horizontal de",
         "fr-FR": "Vitesse horizontale de",
         "ja-JP": "水平速度: ",
@@ -1389,8 +1395,8 @@ var valueFuncKw =
     "hostPlayer": {
         "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
         "args": null,
-        "en-US": "Host Player",
         "guid": "00000000CC1E",
+        "en-US": "Host Player",
         "es-MX": "Jugador anfitrión",
         "fr-FR": "Joueur hôte",
         "ja-JP": "ホスト・プレイヤー",
@@ -1408,11 +1414,10 @@ var valueFuncKw =
                 "default": "ARROW: DOWN"
             }
         ],
-        "en-US": "Icon String",
         "guid": "00000000CCDC",
+        "en-US": "Icon String",
         "es-MX": "Cadena de ícono",
         "fr-FR": "Chaîne d’icône",
-        "it-IT": "Icona",
         "ja-JP": "アイコンストリング",
         "pl-PL": "Symbol w ciągu",
         "pt-BR": "String de Ícone",
@@ -1434,8 +1439,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Index Of Array Value",
         "guid": "00000000C330",
+        "en-US": "Index Of Array Value",
         "es-MX": "Índice del valor de la matriz",
         "fr-FR": "Index de la valeur de tableau",
         "ja-JP": "配列値のインデックス",
@@ -1452,8 +1457,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Alive",
         "guid": "00000000B278",
+        "en-US": "Is Alive",
         "es-MX": "Está vivo",
         "fr-FR": "En vie",
         "ja-JP": "生存している",
@@ -1463,8 +1468,8 @@ var valueFuncKw =
     "isAssemblingHeroes": {
         "description": "Whether the match is currently in its assemble heroes phase.",
         "args": [],
-        "en-US": "Is Assembling Heroes",
         "guid": "00000000B35C",
+        "en-US": "Is Assembling Heroes",
         "es-MX": "En Forma tu equipo",
         "fr-FR": "Phase de choix de héros",
         "ja-JP": "ヒーローを編成中",
@@ -1474,8 +1479,8 @@ var valueFuncKw =
     "isMatchBetweenRounds": {
         "description": "Whether the match is between rounds.",
         "args": [],
-        "en-US": "Is Between Rounds",
         "guid": "00000000B35F",
+        "en-US": "Is Between Rounds",
         "es-MX": "Entre rondas",
         "fr-FR": "Entre deux manches",
         "ja-JP": "ラウンドの間",
@@ -1498,8 +1503,8 @@ var valueFuncKw =
                 "default": "PRIMARY FIRE"
             }
         ],
-        "en-US": "Is Button Held",
         "guid": "00000000B2F3",
+        "en-US": "Is Button Held",
         "es-MX": "Botón presionado",
         "fr-FR": "Bouton maintenu enfoncé",
         "ja-JP": "ボタンが長押しされている",
@@ -1522,8 +1527,8 @@ var valueFuncKw =
                 "default": "VOICE LINE UP"
             }
         ],
-        "en-US": "Is Communicating",
         "guid": "00000000B268",
+        "en-US": "Is Communicating",
         "es-MX": "Se está comunicando",
         "fr-FR": "Communication",
         "ja-JP": "コミュニケーションしている",
@@ -1540,8 +1545,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Communicating Any",
         "guid": "00000000B9E5",
+        "en-US": "Is Communicating Any",
         "es-MX": "Comunica algo",
         "fr-FR": "N’importe quelle communication",
         "ja-JP": "任意の方法でコミュニケーションしている",
@@ -1558,8 +1563,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Communicating Any Emote",
         "guid": "00000000B9E8",
+        "en-US": "Is Communicating Any Emote",
         "es-MX": "Comunica un gesto",
         "fr-FR": "Communication par emote",
         "ja-JP": "エモートでコミュニケーションしている",
@@ -1576,8 +1581,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Communicating Any Voice line",
         "guid": "00000000B9E7",
+        "en-US": "Is Communicating Any Voice line",
         "es-MX": "Comunica una línea de voz",
         "fr-FR": "Communication par réplique",
         "ja-JP": "ボイス・ラインでコミュニケーションしている",
@@ -1587,8 +1592,8 @@ var valueFuncKw =
     "isControlPointLocked": {
         "description": "Whether the point is locked in control mode.",
         "args": [],
-        "en-US": "Is Control Mode Point Locked",
         "guid": "00000000B37B",
+        "en-US": "Is Control Mode Point Locked",
         "es-MX": "Punto bloqueado en el modo Control",
         "fr-FR": "Point de contrôle verrouillé",
         "ja-JP": "コントロール・モードでポイントがロックされている",
@@ -1605,8 +1610,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Crouching",
         "guid": "00000000B289",
+        "en-US": "Is Crouching",
         "es-MX": "Agachado",
         "fr-FR": "Accroupi",
         "ja-JP": "しゃがんでいる",
@@ -1616,8 +1621,8 @@ var valueFuncKw =
     "isInSuddenDeath": {
         "description": "Whether the current game of capture the flag is in sudden death.",
         "args": [],
-        "en-US": "Is CTF Mode In Sudden Death",
         "guid": "00000000B3A4",
+        "en-US": "Is CTF Mode In Sudden Death",
         "es-MX": "Modo CLB en muerte súbita",
         "fr-FR": "Capture du drapeau en mort subite",
         "ja-JP": "キャプチャー・ザ・フラッグ・モードがサドンデス中",
@@ -1634,8 +1639,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Dead",
         "guid": "00000000B277",
+        "en-US": "Is Dead",
         "es-MX": "Está muerto",
         "fr-FR": "Mort",
         "ja-JP": "倒れている",
@@ -1652,8 +1657,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Dummy Bot",
         "guid": "00000000CEDF",
+        "en-US": "Is Dummy Bot",
         "es-MX": "Robot de entrenamiento",
         "fr-FR": "Est une I.A.",
         "ja-JP": "ダミーボットである",
@@ -1671,8 +1676,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Firing Primary",
         "guid": "00000000C3E7",
+        "en-US": "Is Firing Primary",
         "es-MX": "Está usando el disparo principal",
         "fr-FR": "Tir principal",
         "ja-JP": "メイン攻撃を使用中",
@@ -1689,8 +1694,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Firing Secondary",
         "guid": "00000000C3E9",
+        "en-US": "Is Firing Secondary",
         "es-MX": "Está usando el disparo secundario",
         "fr-FR": "Tir secondaire",
         "ja-JP": "サブ攻撃を使用中",
@@ -1707,8 +1712,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Is Flag At Base",
         "guid": "00000000B3A1",
+        "en-US": "Is Flag At Base",
         "es-MX": "La bandera está en la base",
         "fr-FR": "Drapeau à la base",
         "ja-JP": "フラッグが陣地にある",
@@ -1725,8 +1730,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Is Flag Being Carried",
         "guid": "00000000B3A2",
+        "en-US": "Is Flag Being Carried",
         "es-MX": "La bandera está siendo transportada",
         "fr-FR": "Drapeau transporté",
         "ja-JP": "フラッグが運ばれている",
@@ -1736,8 +1741,8 @@ var valueFuncKw =
     "isGameInProgress": {
         "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
         "args": [],
-        "en-US": "Is Game In Progress",
         "guid": "00000000B35E",
+        "en-US": "Is Game In Progress",
         "es-MX": "Partida en curso",
         "fr-FR": "Partie en cours",
         "ja-JP": "進行中のゲーム",
@@ -1760,8 +1765,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Is Hero Being Played",
         "guid": "00000000B292",
+        "en-US": "Is Hero Being Played",
         "es-MX": "Jugando con el héroe",
         "fr-FR": "Héros joué",
         "ja-JP": "ヒーローがプレイされているか",
@@ -1778,8 +1783,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is In Air",
         "guid": "00000000B28B",
+        "en-US": "Is In Air",
         "es-MX": "En el aire",
         "fr-FR": "Dans les airs",
         "ja-JP": "空中にいる",
@@ -1808,8 +1813,8 @@ var valueFuncKw =
                 "default": "BARRIERS DO NOT BLOCK LOS"
             }
         ],
-        "en-US": "Is In Line of Sight",
         "guid": "00000000B1EC",
+        "en-US": "Is In Line of Sight",
         "es-MX": "En la línea de visión",
         "fr-FR": "Dans la ligne de vue",
         "ja-JP": "射線が通っている",
@@ -1819,8 +1824,8 @@ var valueFuncKw =
     "isInSetup": {
         "description": "Whether the match is currently in its setup phase.",
         "args": [],
-        "en-US": "Is In Setup",
         "guid": "00000000B35D",
+        "en-US": "Is In Setup",
         "es-MX": "En preparación",
         "fr-FR": "Dans les paramètres",
         "ja-JP": "セットアップ中",
@@ -1837,8 +1842,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is In Spawn Room",
         "guid": "00000000B3B1",
+        "en-US": "Is In Spawn Room",
         "es-MX": "En el cuarto de reaparición",
         "fr-FR": "Dans la salle d’apparition",
         "ja-JP": "リスポーンエリアにいる",
@@ -1867,8 +1872,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Is In View Angle",
         "guid": "00000000BF7C",
+        "en-US": "Is In View Angle",
         "es-MX": "En el ángulo de vista",
         "fr-FR": "Dans le champ de vision",
         "ja-JP": "視角範囲内",
@@ -1878,8 +1883,8 @@ var valueFuncKw =
     "isMatchComplete": {
         "description": "Whether the match has finished.",
         "args": [],
-        "en-US": "Is Match Complete",
         "guid": "00000000B360",
+        "en-US": "Is Match Complete",
         "es-MX": "Partida Completada",
         "fr-FR": "Partie terminée",
         "ja-JP": "マッチが完了している",
@@ -1896,8 +1901,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Moving",
         "guid": "00000000B288",
+        "en-US": "Is Moving",
         "es-MX": "En movimiento",
         "fr-FR": "Se déplace",
         "ja-JP": "移動している",
@@ -1914,8 +1919,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Is Objective Complete",
         "guid": "00000000B378",
+        "en-US": "Is Objective Complete",
         "es-MX": "Objetivo completado",
         "fr-FR": "Objectif accompli",
         "ja-JP": "目標をクリアした",
@@ -1932,8 +1937,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is On Ground",
         "guid": "00000000BF70",
+        "en-US": "Is On Ground",
         "es-MX": "En el suelo",
         "fr-FR": "Au sol",
         "ja-JP": "地上にいる",
@@ -1950,8 +1955,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is On Objective",
         "guid": "00000000B3B2",
+        "en-US": "Is On Objective",
         "es-MX": "En el objetivo",
         "fr-FR": "Sur l’objectif",
         "ja-JP": "目標にいる",
@@ -1968,8 +1973,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is On Wall",
         "guid": "00000000BB0B",
+        "en-US": "Is On Wall",
         "es-MX": "En el muro",
         "fr-FR": "Sur le mur",
         "ja-JP": "壁の上にいる",
@@ -1986,8 +1991,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Portrait On Fire",
         "guid": "00000000B3B3",
+        "en-US": "Is Portrait On Fire",
         "es-MX": "Retrato en llamas",
         "fr-FR": "Portrait « en feu »",
         "ja-JP": "ポートレートに炎エフェクトがついている",
@@ -2004,8 +2009,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Standing",
         "guid": "00000000B287",
+        "en-US": "Is Standing",
         "es-MX": "De pie",
         "fr-FR": "Debout",
         "ja-JP": "立っている",
@@ -2022,8 +2027,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Is Team On Defense",
         "guid": "00000000B359",
+        "en-US": "Is Team On Defense",
         "es-MX": "Equipo defensor",
         "fr-FR": "Équipe en défense",
         "ja-JP": "防衛側のチーム",
@@ -2040,8 +2045,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Is Team On Offense",
         "guid": "00000000B354",
+        "en-US": "Is Team On Offense",
         "es-MX": "Equipo atacante",
         "fr-FR": "Équipe en attaque",
         "ja-JP": "攻撃側のチーム",
@@ -2064,8 +2069,8 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
-        "en-US": "Is True For All",
         "guid": "00000000B5BA",
+        "en-US": "Is True For All",
         "es-MX": "Es verdadero para todos",
         "fr-FR": "Vrai pour tous",
         "ja-JP": "すべてに対して「TRUE」",
@@ -2088,8 +2093,8 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
-        "en-US": "Is True For Any",
         "guid": "00000000B5BB",
+        "en-US": "Is True For Any",
         "es-MX": "Es verdadero para cualquiera",
         "fr-FR": "Vrai pour n’importe qui",
         "ja-JP": "いずれに対しても「TRUE」",
@@ -2106,8 +2111,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Using Ability 1",
         "guid": "00000000C3EB",
+        "en-US": "Is Using Ability 1",
         "es-MX": "Está utilizando la habilidad 1",
         "fr-FR": "Capacité 1 utilisée",
         "ja-JP": "アビリティ1を使用",
@@ -2124,8 +2129,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Using Ability 2",
         "guid": "00000000C3ED",
+        "en-US": "Is Using Ability 2",
         "es-MX": "Está utilizando la habilidad 2",
         "fr-FR": "Capacité 2 utilisée",
         "ja-JP": "アビリティ2を使用",
@@ -2142,8 +2147,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Is Using Ultimate",
         "guid": "00000000B9D4",
+        "en-US": "Is Using Ultimate",
         "es-MX": "Está usando la habilidad máxima",
         "fr-FR": "Capacité ultime utilisée",
         "ja-JP": "アルティメットを使用している",
@@ -2153,8 +2158,8 @@ var valueFuncKw =
     "isWaitingForPlayers": {
         "description": "Whether the match is waiting for players to join before starting.",
         "args": [],
-        "en-US": "Is Waiting For Players",
         "guid": "00000000B35B",
+        "en-US": "Is Waiting For Players",
         "es-MX": "Esperando jugadores",
         "fr-FR": "En attente de joueurs",
         "ja-JP": "ほかのプレイヤーを待っている",
@@ -2164,8 +2169,8 @@ var valueFuncKw =
     "getLastCreatedEntity": {
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": [],
-        "en-US": "Last Created Entity",
         "guid": "00000000B362",
+        "en-US": "Last Created Entity",
         "es-MX": "Última entidad creada",
         "fr-FR": "Dernière entité créée",
         "ja-JP": "最新のエンティティ",
@@ -2175,8 +2180,8 @@ var valueFuncKw =
     "getLastDamageModification": {
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
         "args": [],
-        "en-US": "Last Damage Modification ID",
         "guid": "00000000C64A",
+        "en-US": "Last Damage Modification ID",
         "es-MX": "ID de modificación de daño anterior",
         "fr-FR": "Dernier identifiant de modification de dégâts",
         "ja-JP": "最新のダメージ変更ID",
@@ -2186,8 +2191,8 @@ var valueFuncKw =
     "getLastDoT": {
         "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
         "args": [],
-        "en-US": "Last Damage Over Time ID",
         "guid": "00000000B263",
+        "en-US": "Last Damage Over Time ID",
         "es-MX": "ID de daño con el tiempo anterior",
         "fr-FR": "Dernier identifiant de dégâts sur la durée",
         "ja-JP": "最新の継続ダメージID",
@@ -2197,18 +2202,25 @@ var valueFuncKw =
     "getLastHoT": {
         "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
         "args": [],
-        "en-US": "Last Heal Over Time ID",
         "guid": "00000000B262",
+        "en-US": "Last Heal Over Time ID",
         "es-MX": "ID de sanación con el tiempo anterior",
         "fr-FR": "Dernier identifiant de soins sur la durée",
-        "ja-JP": "最新の継続ヒールID",
+        "ja-JP": "最新の継続回復ID",
         "pt-BR": "ID de Cura ao Longo do Tempo Mais Recente",
         "zh-CN": "上一个持续治疗效果ID"
     },
     "getLastHealingModification": {
         "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
         "args": [],
-        "en-US": "Last Healing Modification ID"
+        "guid": "00000000FD2A",
+        "en-US": "Last Healing Modification ID",
+        "es-MX": "ID de modificación de sanación anterior",
+        "fr-FR": "Dernier identifiant de modification de soins",
+        "ja-JP": "最新の回復変更ID",
+        "pl-PL": "Ostatni identyfikator modyfikacji leczenia",
+        "pt-BR": "ID da última modificação de cura",
+        "zh-CN": "上一个治疗调整ID"
     },
     "_lastOf": {
         "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
@@ -2220,19 +2232,19 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
-        "en-US": "Last Of",
         "guid": "00000000B5C1",
+        "en-US": "Last Of",
         "es-MX": "Último de",
         "fr-FR": "Dernier",
-        "ja-JP": "最後。全体数は",
+        "ja-JP": "最後の値",
         "pt-BR": "Último de",
         "zh-CN": "最后"
     },
     "getLastCreatedText": {
         "description": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action.",
         "args": [],
-        "en-US": "Last Text ID",
         "guid": "00000000BAFE",
+        "en-US": "Last Text ID",
         "es-MX": "ID de texto anterior",
         "fr-FR": "Dernier identifiant de texte",
         "ja-JP": "最新のテキストID",
@@ -2272,8 +2284,8 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
-        "en-US": "Local Vector Of",
         "guid": "00000000B342",
+        "en-US": "Local Vector Of",
         "es-MX": "Vector local de",
         "fr-FR": "Vecteur local de",
         "ja-JP": "ローカルのベクトル: ",
@@ -2306,8 +2318,8 @@ var valueFuncKw =
     "getMatchRound": {
         "description": "The current round of the match, counting up from 1.",
         "args": [],
-        "en-US": "Match Round",
         "guid": "00000000B375",
+        "en-US": "Match Round",
         "es-MX": "Ronda de la partida",
         "fr-FR": "Manche de la partie",
         "ja-JP": "マッチのラウンド",
@@ -2317,8 +2329,8 @@ var valueFuncKw =
     "getMatchTime": {
         "description": "The amount of time in seconds remaining in the current game mode phase.",
         "args": [],
-        "en-US": "Match Time",
         "guid": "00000000AD3B",
+        "en-US": "Match Time",
         "es-MX": "Tiempo de la partida",
         "fr-FR": "Temps de jeu",
         "ja-JP": "マッチ時間",
@@ -2359,8 +2371,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Max Health",
         "guid": "0000000081C4",
+        "en-US": "Max Health",
         "es-MX": "Salud máxima",
         "fr-FR": "Points de vie maximum",
         "ja-JP": "最大ライフ",
@@ -2448,8 +2460,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Nearest Walkable Position",
         "guid": "00000000C324",
+        "en-US": "Nearest Walkable Position",
         "es-MX": "Posición caminable más cercana",
         "fr-FR": "Position la plus proche en marchant",
         "ja-JP": "最も近い歩行可能な位置",
@@ -2466,8 +2478,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Normalize",
         "guid": "00000000C344",
+        "en-US": "Normalize",
         "es-MX": "Normalizar",
         "fr-FR": "Normalisation",
         "ja-JP": "正規化",
@@ -2495,8 +2507,8 @@ var valueFuncKw =
     "null": {
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
         "args": null,
-        "en-US": "Null",
         "guid": "00000000B594",
+        "en-US": "Null",
         "es-MX": "Nulo",
         "fr-FR": "Non applicable",
         "ja-JP": "NULL",
@@ -2513,8 +2525,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Number of Dead Players",
         "guid": "00000000B29A",
+        "en-US": "Number of Dead Players",
         "es-MX": "Cantidad de jugadores muertos",
         "fr-FR": "Nombre de joueurs morts",
         "ja-JP": "倒れたプレイヤーの数",
@@ -2531,8 +2543,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Number of Deaths",
         "guid": "00000000B103",
+        "en-US": "Number of Deaths",
         "es-MX": "Cantidad de muertes",
         "fr-FR": "Nombre de morts",
         "ja-JP": "デス数",
@@ -2549,8 +2561,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Number of Eliminations",
         "guid": "00000000B101",
+        "en-US": "Number of Eliminations",
         "es-MX": "Cantidad de eliminaciones",
         "fr-FR": "Nombre d’éliminations",
         "ja-JP": "キル数",
@@ -2567,8 +2579,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Number of Final Blows",
         "guid": "00000000B102",
+        "en-US": "Number of Final Blows",
         "es-MX": "Cantidad de golpes de gracia",
         "fr-FR": "Nombre de coups de grâce",
         "ja-JP": "ファイナル・ブロウ数",
@@ -2591,8 +2603,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Number of Heroes",
         "guid": "00000000B296",
+        "en-US": "Number of Heroes",
         "es-MX": "Cantidad de héroes",
         "fr-FR": "Nombre de héros",
         "ja-JP": "ヒーローの数",
@@ -2609,8 +2621,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Number of Living Players",
         "guid": "00000000B297",
+        "en-US": "Number of Living Players",
         "es-MX": "Cantidad de jugadores vivos",
         "fr-FR": "Nombre de joueurs en vie",
         "ja-JP": "生存プレイヤーの数",
@@ -2627,8 +2639,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Number of Players",
         "guid": "00000000B295",
+        "en-US": "Number of Players",
         "es-MX": "Cantidad de jugadores",
         "fr-FR": "Nombre de joueurs",
         "ja-JP": "プレイヤーの数",
@@ -2645,8 +2657,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Number of Players On Objective",
         "guid": "00000000B29B",
+        "en-US": "Number of Players On Objective",
         "es-MX": "Cantidad de jugadores en el objetivo",
         "fr-FR": "Nombre de joueurs sur l’objectif",
         "ja-JP": "目標を確保中のプレイヤーの数",
@@ -2656,8 +2668,8 @@ var valueFuncKw =
     "getCurrentObjective": {
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
         "args": [],
-        "en-US": "Objective Index",
         "guid": "00000000B37D",
+        "en-US": "Objective Index",
         "es-MX": "Índice de objetivo",
         "fr-FR": "Index de l’objectif",
         "ja-JP": "コントロール・モードのサブマップ番号",
@@ -2674,8 +2686,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Objective Position",
         "guid": "00000000B355",
+        "en-US": "Objective Position",
         "es-MX": "Posición del objetivo",
         "fr-FR": "Position de l’objectif",
         "ja-JP": "目標の位置",
@@ -2692,8 +2704,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Opposite Team Of",
         "guid": "00000000BB0A",
+        "en-US": "Opposite Team Of",
         "es-MX": "Equipo contrario de",
         "fr-FR": "Équipe opposée à",
         "ja-JP": "相手チーム: ",
@@ -2727,8 +2739,8 @@ var valueFuncKw =
     "getPayloadPosition": {
         "description": "The position in the world of the active payload.",
         "args": [],
-        "en-US": "Payload Position",
         "guid": "00000000B356",
+        "en-US": "Payload Position",
         "es-MX": "Posición de la carga",
         "fr-FR": "Position du convoi",
         "ja-JP": "ペイロードの位置",
@@ -2738,8 +2750,8 @@ var valueFuncKw =
     "getPayloadProgressPercentage": {
         "description": "The current progress towards the destination for the active payload (expressed as a percentage).",
         "args": [],
-        "en-US": "Payload Progress Percentage",
         "guid": "00000000B357",
+        "en-US": "Payload Progress Percentage",
         "es-MX": "Porcentaje de progreso de la carga",
         "fr-FR": "Pourcentage de progression du convoi",
         "ja-JP": "ペイロード進行のパーセンテージ",
@@ -2756,8 +2768,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Player Carrying Flag",
         "guid": "00000000B3A3",
+        "en-US": "Player Carrying Flag",
         "es-MX": "Jugador que transporta la bandera",
         "fr-FR": "Joueur portant le drapeau",
         "ja-JP": "フラッグを運んでいる",
@@ -2780,8 +2792,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Player Closest To Reticle",
         "guid": "00000000C328",
+        "en-US": "Player Closest To Reticle",
         "es-MX": "Jugador más cercano al retículo",
         "fr-FR": "Joueur le plus proche du réticule",
         "ja-JP": "照準に最も近いプレイヤー",
@@ -2804,8 +2816,8 @@ var valueFuncKw =
                 "default": "A"
             }
         ],
-        "en-US": "Player Variable",
         "guid": "00000000B0FD",
+        "en-US": "Player Variable",
         "es-MX": "Variable de jugador",
         "fr-FR": "Variable de joueur",
         "ja-JP": "プレイヤー変数",
@@ -2828,8 +2840,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Players In Slot",
         "guid": "00000000B334",
+        "en-US": "Players In Slot",
         "es-MX": "Jugadores en la posición",
         "fr-FR": "Joueurs dans l’emplacement",
         "ja-JP": "スロットに入ったプレイヤー",
@@ -2858,8 +2870,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Players in View Angle",
         "guid": "00000000C32F",
+        "en-US": "Players in View Angle",
         "es-MX": "Jugadores en el ángulo de vista",
         "fr-FR": "Joueurs dans le champ de vision",
         "ja-JP": "視角範囲内のプレイヤー",
@@ -2882,8 +2894,8 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        "en-US": "Players On Hero",
         "guid": "00000000B338",
+        "en-US": "Players On Hero",
         "es-MX": "Jugadores con el héroe",
         "fr-FR": "Joueurs sur le héros",
         "ja-JP": "ヒーローを使用中のプレイヤー",
@@ -2918,8 +2930,8 @@ var valueFuncKw =
                 "default": "OFF"
             }
         ],
-        "en-US": "Players Within Radius",
         "guid": "00000000B1E0",
+        "en-US": "Players Within Radius",
         "es-MX": "Jugadores dentro del radio",
         "fr-FR": "Joueurs dans un rayon",
         "ja-JP": "範囲内のプレイヤー",
@@ -2929,8 +2941,8 @@ var valueFuncKw =
     "getCapturePercentage": {
         "description": "The current progress towards capture for the active control point (expressed as a percentage).",
         "args": [],
-        "en-US": "Point Capture Percentage",
         "guid": "00000000B358",
+        "en-US": "Point Capture Percentage",
         "es-MX": "Porcentaje de captura de punto",
         "fr-FR": "Pourcentage de capture du point",
         "ja-JP": "ポイント・キャプチャーのパーセンテージ",
@@ -2947,8 +2959,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Position Of",
         "guid": "00000000B11C",
+        "en-US": "Position Of",
         "es-MX": "Posición de",
         "fr-FR": "Position de",
         "ja-JP": "位置: ",
@@ -2995,8 +3007,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Random Integer",
         "guid": "00000000B59B",
+        "en-US": "Random Integer",
         "es-MX": "Número entero aleatorio",
         "fr-FR": "Nombre entier aléatoire",
         "ja-JP": "ランダムな整数",
@@ -3019,8 +3031,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Random Real",
         "guid": "00000000B59A",
+        "en-US": "Random Real",
         "es-MX": "Número real aleatorio",
         "fr-FR": "Nombre réel aléatoire",
         "ja-JP": "ランダムな実数",
@@ -3037,8 +3049,8 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
-        "en-US": "Random Value In Array",
         "guid": "00000000B599",
+        "en-US": "Random Value In Array",
         "es-MX": "Valor aleatorio en matriz",
         "fr-FR": "Valeur aléatoire dans le tableau",
         "ja-JP": "配列内のランダムな値",
@@ -3055,8 +3067,8 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
-        "en-US": "Randomized Array",
         "guid": "00000000B598",
+        "en-US": "Randomized Array",
         "es-MX": "Matriz aleatorizada",
         "fr-FR": "Tableau aléatoire",
         "ja-JP": "ランダム化された配列",
@@ -3097,8 +3109,8 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        "en-US": "Ray Cast Hit Normal",
         "guid": "00000000C613",
+        "en-US": "Ray Cast Hit Normal",
         "es-MX": "Estándar de impacto de lanzamiento de rayo",
         "fr-FR": "Surface intersectée par le rayon émis",
         "ja-JP": "レイ・キャストが当たった法線",
@@ -3139,8 +3151,8 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        "en-US": "Ray Cast Hit Player",
         "guid": "00000000C611",
+        "en-US": "Ray Cast Hit Player",
         "es-MX": "Jugador de impacto de lanzamiento de rayo",
         "fr-FR": "Joueur intersecté par le rayon émis",
         "ja-JP": "レイ・キャストが当たったプレイヤー",
@@ -3181,8 +3193,8 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        "en-US": "Ray Cast Hit Position",
         "guid": "00000000C597",
+        "en-US": "Ray Cast Hit Position",
         "es-MX": "Posición de impacto de lanzamiento de rayo",
         "fr-FR": "Position d’impact du rayon émis",
         "ja-JP": "レイ・キャストのヒット位置",
@@ -3205,8 +3217,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Remove From Array",
         "guid": "00000000C421",
+        "en-US": "Remove From Array",
         "es-MX": "Eliminar de la matriz",
         "fr-FR": "Supprimer du tableau",
         "ja-JP": "配列から削除",
@@ -3240,8 +3252,8 @@ var valueFuncKw =
                 "default": "UP"
             }
         ],
-        "en-US": "Round To Integer",
         "guid": "00000000C354",
+        "en-US": "Round To Integer",
         "es-MX": "Redondear a número entero",
         "fr-FR": "Arrondir à l’entier",
         "ja-JP": "整数への四捨五入",
@@ -3258,8 +3270,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Score Of",
         "guid": "00000000AD3C",
+        "en-US": "Score Of",
         "es-MX": "Puntuación de",
         "fr-FR": "Score de",
         "ja-JP": "スコア: ",
@@ -3312,8 +3324,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Sine From Degrees",
         "guid": "00000000C33C",
+        "en-US": "Sine From Degrees",
         "es-MX": "Seno en grados",
         "fr-FR": "Sinus en degrés",
         "ja-JP": "度のサイン",
@@ -3330,8 +3342,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Sine From Radians",
         "guid": "00000000C340",
+        "en-US": "Sine From Radians",
         "es-MX": "Seno en radianes",
         "fr-FR": "Sinus en radians",
         "ja-JP": "ラジアンのサイン",
@@ -3348,8 +3360,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Slot Of",
         "guid": "00000000BB7F",
+        "en-US": "Slot Of",
         "es-MX": "Posición de",
         "fr-FR": "Emplacement de",
         "ja-JP": "スロット: ",
@@ -3372,8 +3384,8 @@ var valueFuncKw =
                 "default": "CURRENT ARRAY ELEMENT"
             }
         ],
-        "en-US": "Sorted Array",
         "guid": "00000000B5C0",
+        "en-US": "Sorted Array",
         "es-MX": "Matriz ordenada",
         "fr-FR": "Tableau trié",
         "ja-JP": "ソートされた配列",
@@ -3390,8 +3402,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Speed Of",
         "guid": "00000000B25D",
+        "en-US": "Speed Of",
         "es-MX": "Velocidad de",
         "fr-FR": "Vitesse de",
         "ja-JP": "速さ: ",
@@ -3414,8 +3426,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Speed Of In Direction",
         "guid": "00000000B260",
+        "en-US": "Speed Of In Direction",
         "es-MX": "Velocidad de/en dirección",
         "fr-FR": "Vitesse dans la direction donnée de",
         "ja-JP": "速さと方向: ",
@@ -3432,8 +3444,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Square Root",
         "guid": "00000000C356",
+        "en-US": "Square Root",
         "es-MX": "Raíz cuadrada",
         "fr-FR": "Racine carrée",
         "ja-JP": "平方根",
@@ -3509,8 +3521,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Tangent From Degrees",
         "guid": "00000000C7F8",
+        "en-US": "Tangent From Degrees",
         "es-MX": "Tangente en grados",
         "fr-FR": "Tangente en degrés",
         "ja-JP": "度のタンジェント",
@@ -3527,8 +3539,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Tangent From Radians",
         "guid": "00000000C7FD",
+        "en-US": "Tangent From Radians",
         "es-MX": "Tangente en radianes",
         "fr-FR": "Tangente en radians",
         "ja-JP": "ラジアンのタンジェント",
@@ -3545,8 +3557,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Team Of",
         "guid": "00000000B279",
+        "en-US": "Team Of",
         "es-MX": "Equipo de",
         "fr-FR": "Équipe de",
         "ja-JP": "チーム: ",
@@ -3581,8 +3593,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Throttle Of",
         "guid": "00000000B2F5",
+        "en-US": "Throttle Of",
         "es-MX": "Aceleración de",
         "fr-FR": "Accélération de",
         "ja-JP": "スロットル: ",
@@ -3592,8 +3604,8 @@ var valueFuncKw =
     "getTotalTimeElapsed": {
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
         "args": [],
-        "en-US": "Total Time Elapsed",
         "guid": "00000000B361",
+        "en-US": "Total Time Elapsed",
         "es-MX": "Tiempo total transcurrido",
         "fr-FR": "Temps total écoulé",
         "ja-JP": "合計経過時間",
@@ -3603,8 +3615,8 @@ var valueFuncKw =
     "true": {
         "description": "The boolean value of true.",
         "args": null,
-        "en-US": "True",
         "guid": "00000000AC39",
+        "en-US": "True",
         "es-MX": "Verdadero",
         "fr-FR": "Vrai",
         "zh-CN": "真"
@@ -3619,8 +3631,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Ultimate Charge Percent",
         "guid": "0000000081C5",
+        "en-US": "Ultimate Charge Percent",
         "es-MX": "Porcentaje de carga de la habilidad máxima",
         "fr-FR": "Pourcentage de charge de la capacité ultime",
         "ja-JP": "アルティメット・チャージのパーセンテージ",
@@ -3654,8 +3666,8 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        "en-US": "Value In Array",
         "guid": "00000000B52A",
+        "en-US": "Value In Array",
         "es-MX": "Valor en la matriz",
         "fr-FR": "Valeur dans le tableau",
         "ja-JP": "配列内の値",
@@ -3707,8 +3719,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Vector Towards",
         "guid": "00000000B1EB",
+        "en-US": "Vector Towards",
         "es-MX": "Vector hacia",
         "fr-FR": "Vecteur vers",
         "ja-JP": "ベクトルの方向: ",
@@ -3725,8 +3737,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Velocity Of",
         "guid": "00000000B25C",
+        "en-US": "Velocity Of",
         "es-MX": "Velocidad de",
         "fr-FR": "Vélocité de",
         "ja-JP": "速度: ",
@@ -3743,8 +3755,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Vertical Angle From Direction",
         "guid": "00000000BB2B",
+        "en-US": "Vertical Angle From Direction",
         "es-MX": "Ángulo vertical desde la dirección",
         "fr-FR": "Angle vertical depuis une direction",
         "ja-JP": "方向からの頂角",
@@ -3767,8 +3779,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Vertical Angle Towards",
         "guid": "00000000B27E",
+        "en-US": "Vertical Angle Towards",
         "es-MX": "Ángulo vertical en dirección a",
         "fr-FR": "Angle vertical vers",
         "ja-JP": "頂角の方向: ",
@@ -3785,8 +3797,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Vertical Facing Angle Of",
         "guid": "00000000B280",
+        "en-US": "Vertical Facing Angle Of",
         "es-MX": "Ángulo vertical de orientación de",
         "fr-FR": "Angle vertical du regard de",
         "ja-JP": "対面頂角: ",
@@ -3803,8 +3815,8 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "en-US": "Vertical Speed Of",
         "guid": "00000000B25F",
+        "en-US": "Vertical Speed Of",
         "es-MX": "Velocidad vertical de",
         "fr-FR": "Vitesse verticale de",
         "ja-JP": "垂直速度: ",
@@ -3844,8 +3856,8 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
-        "en-US": "World Vector Of",
         "guid": "00000000B33A",
+        "en-US": "World Vector Of",
         "es-MX": "Vector global de",
         "fr-FR": "Vecteur mondial de",
         "ja-JP": "ワールド座標のベクトル: ",
@@ -3862,8 +3874,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "X Component Of",
         "guid": "00000000B26F",
+        "en-US": "X Component Of",
         "es-MX": "Componente X de",
         "fr-FR": "Composante X de",
         "ja-JP": "X成分: ",
@@ -3880,8 +3892,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Y Component Of",
         "guid": "00000000B270",
+        "en-US": "Y Component Of",
         "es-MX": "Componente Y de",
         "fr-FR": "Composante Y de",
         "ja-JP": "Y成分: ",
@@ -3898,8 +3910,8 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        "en-US": "Z Component Of",
         "guid": "00000000B272",
+        "en-US": "Z Component Of",
         "es-MX": "Componente Z de",
         "fr-FR": "Composante Z de",
         "ja-JP": "Z成分: ",

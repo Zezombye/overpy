@@ -1,12 +1,12 @@
-[Core] DataTool v1.44.0.860-git-7d5102deb936ed3a32453c8b05dd4a2c9a628126
+[Core] DataTool v1.45.0.863-git-d08b8ee3b6474c6bd141eb865797b12a3bde1d66
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.exe.args
 [CASC] Set language to enUS
 [CASC] Set speech language to enUS
-[CASC] Overwatch build 1.44.0.1.66085
+[CASC] Overwatch build 1.45.0.0.66302
 [CASC] Initializing...
-[CMF] Using CMF procedure 65513
-[CMF] Using CMF procedure 65513
+[CMF] Using CMF procedure 66302
+[CMF] Using CMF procedure 66302
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -612,8 +612,6 @@
 0000000005F7.07C: When a teammate dies, the location of their corpse is marked by their hero icon visible in the world.
 0000000005F8.07C: Tank heroes excel at taking and holding map objectives, as well as disrupting the enemy team.
 0000000005F9.07C: Support heroes protect and heal their teammates while also providing useful utility capabilities.
-000000000606.07C: <fg%1$s>STUNNED</fg>
-000000000609.07C: <fg%1$s>STUNNED</fg>
 000000000641.07C: HERO SELECT
 000000000642.07C: SCOREBOARD
 000000000657.07C: |Rpl %1$s:Teleporter:Teleporters; Placed
@@ -1332,8 +1330,8 @@
 0000000015AF.07C: MODEL DETAIL
 0000000015B0.07C: EFFECTS DETAIL
 0000000015B1.07C: %1$s x %2$s (%3$s)%4$s
-0000000015B8.07C: Helix |Rpl %1$s:Rocket:Rockets; Kills - Most in Game
-0000000015B9.07C: Helix |Rpl %1$s:Rocket:Rockets; Kills
+0000000015B8.07C: Helix Rocket |Rpl %1$s:Kill:Kills; - Most in Game
+0000000015B9.07C: Helix Rocket |Rpl %1$s:Kill:Kills;
 0000000015BA.07C: Tactical Visor |Rpl %1$s:Kill:Kills;
 0000000015BC.07C: Tactical Visor |Rpl %1$s:Kill:Kills; - Most in Game
 0000000015BE.07C: Transcendence Healing - Best
@@ -2184,14 +2182,14 @@ Experience new ways to play with a changing selection of game modes that include
 0000000020C2.07C: %1$s High Energy |Rpl Kill:Kills;
 0000000020C3.07C: %1$s High Energy |Rpl Kill:Kills; - Most in Game
 0000000020C5.07C: %1$s Graviton Surge |Rpl Kill:Kills; - Most in Game
-0000000020C6.07C: %1$s Helix |Rpl Rocket:Rockets; Kills - Most in Game
+0000000020C6.07C: %1$s Helix Rocket |Rpl Kill:Kills; - Most in Game
 0000000020C7.07C: %1$s Graviton Surge |Rpl Kill:Kills;
 0000000020C9.07C: %1$s Damage Blocked
 0000000020CB.07C: %1$s Kill Streak - Best
 0000000020CF.07C: %1$s Venom Mine |Rpl Kill:Kills; - Most in Game
 0000000020D0.07C: %1$s Scoped Critical |Rpl Hit:Hits; - Most in Game
 0000000020D2.07C: %1$s Damage Blocked - Most in Game
-0000000020D3.07C: %1$s Helix |Rpl Rocket:Rockets; Kills
+0000000020D3.07C: %1$s Helix Rocket |Rpl Kill:Kills;
 0000000020D4.07C: %1$s Tactical Visor |Rpl Kill:Kills;
 0000000020D6.07C: %1$s Rocket Direct |Rpl Hit:Hits; - Most in Game
 0000000020D9.07C: %1$s Tank |Rpl Kill:Kills; - Most in Game
@@ -2404,7 +2402,7 @@ Experience new ways to play with a changing selection of game modes that include
 000000002311.07C: ATTACK
 000000002312.07C: Failed to join custom game. The game may be full.
 000000002313.07C: SOCIAL MENU CHANNELS
-000000002314.07C: TEAM 1
+000000002314.07C: Team 1
 000000002315.07C: SPECTATORS
 000000002317.07C: team
 000000002318.07C: group
@@ -3706,7 +3704,7 @@ Experience new ways to play with a changing selection of game modes that include
 000000002C05.07C: Failed to connect to game server. Please try again later.
 000000002C0B.07C:  started spectating.
 000000002C0D.07C:  (spectator)
-000000002C0E.07C: TEAM 2
+000000002C0E.07C: Team 2
 000000002C10.07C: SELECT AN UNLOCK TO PREVIEW!
 000000002C12.07C: You have %1$s hours until you enter unhealthy time, at which point you will no longer receive experience or loot boxes until you have logged out for 5 hours.
 000000002C13.07C: You have more than 5 hours of online time. You are currently in unhealthy time, and will not be able to gain loot boxes or XP.  Your rest state will reset in 5 hours of offline time. Please log out to get rest and exercise.
@@ -3750,29 +3748,29 @@ Experience new ways to play with a changing selection of game modes that include
 000000002C40.07C: HEROES
 000000002C41.07C: HERO OPTIONS
 000000002C42.07C: MAPS
-000000002C43.07C: MAP
-000000002C44.07C: TEAM
-000000002C45.07C: TEAM BALANCING
-000000002C46.07C: WHEN BALANCING OCCURS
-000000002C4C.07C: RETURN TO LOBBY
-000000002C4D.07C: MAP ORDER
+000000002C43.07C: Map
+000000002C44.07C: Team
+000000002C45.07C: Team Balancing
+000000002C46.07C: When Balancing Occurs
+000000002C4C.07C: Return To Lobby
+000000002C4D.07C: Map Order
 000000002C4E.07C: ROLE SELECTION LIMIT
 000000002C4F.07C: HERO SELECTION LIMIT
-000000002C52.07C: OFF
-000000002C54.07C: AFTER A MIRROR MATCH
-000000002C55.07C: AFTER A GAME
-000000002C57.07C: RANDOM
-000000002C58.07C: LIST ORDER
-000000002C5A.07C: NEVER
-000000002C5B.07C: AFTER A GAME
-000000002C5C.07C: AFTER A MIRROR MATCH
+000000002C52.07C: Off
+000000002C54.07C: After A Mirror Match
+000000002C55.07C: After A Game
+000000002C57.07C: Random
+000000002C58.07C: List Order
+000000002C5A.07C: Never
+000000002C5B.07C: After A Game
+000000002C5C.07C: After A Mirror Match
 000000002C5D.07C: 2 PER GAME
 000000002C5E.07C: 1 PER GAME
 000000002C5F.07C: 2 PER TEAM
 000000002C60.07C: 1 PER TEAM
 000000002C61.07C: NONE
-000000002C62.07C: NONE
-000000002C63.07C: 2 OF EACH ROLE PER TEAM
+000000002C62.07C: None
+000000002C63.07C: 2 Of Each Role Per Team
 000000002C64.07C: Friendly Bot
 000000002C67.07C: Environmental |Rpl %1$s:Kill:Kills;
 000000002C68.07C: %1$s Environmental |Rpl Kill:Kills;
@@ -3950,10 +3948,10 @@ Experience new ways to play with a changing selection of game modes that include
 000000002D66.07C: BACK
 000000002D68.07C: INVITE
 000000002D69.07C: CANCEL
-000000002D71.07C: TEAM 1
-000000002D72.07C: TEAM 2
-000000002D73.07C: SPECTATOR
-000000002D74.07C: BOTH
+000000002D71.07C: Team 1
+000000002D72.07C: Team 2
+000000002D73.07C: Spectator
+000000002D74.07C: Both
 000000002D76.07C: YES
 000000002D77.07C: CANCEL
 000000002D78.07C: LEAVING GAME. ARE YOU SURE?
@@ -7080,10 +7078,10 @@ Andrew Wang
 00000000411C.07C: Repeatedly leaving matches early will result in a penalty.
 00000000411D.07C: You are being penalized for leaving your last match early.
 000000004120.07C: You will not receive experience for this match. You are close to receiving a penalty.
-000000004122.07C: MAP ROTATION
-000000004123.07C: AFTER A MIRROR MATCH
-000000004124.07C: AFTER A GAME
-000000004125.07C: PAUSED
+000000004122.07C: Map Rotation
+000000004123.07C: After A Mirror Match
+000000004124.07C: After A Game
+000000004125.07C: Paused
 000000004126.07C: RES ASSIST
 000000004127.07C: RESURRECTION
 00000000412D.07C: gg :|
@@ -7322,8 +7320,8 @@ Andrew Wang
 00000000431F.07C: %1$s Barrage |Rpl Kill:Kills; - Average
 000000004320.07C: Rocket Direct |Rpl %1$s:Hit:Hits; - Average
 000000004321.07C: %1$s Rocket Direct |Rpl Hit:Hits; - Average
-000000004322.07C: Helix |Rpl %1$s:Rocket:Rockets; Kills - Average
-000000004323.07C: %1$s Helix |Rpl Rocket:Rockets; Kills - Average
+000000004322.07C: Helix Rocket |Rpl %1$s:Kill:Kills; - Average
+000000004323.07C: %1$s Helix Rocket |Rpl Kill:Kills; - Average
 000000004324.07C: Tactical Visor |Rpl %1$s:Kill:Kills; - Average
 000000004325.07C: %1$s Tactical Visor |Rpl Kill:Kills; - Average
 000000004326.07C: Damage Blocked - Average
@@ -7649,9 +7647,9 @@ Andrew Wang
 000000004549.07C: Prepare your Defenses
 00000000454A.07C: Escort the Payload
 00000000454B.07C: Stop the Payload
-00000000454E.07C: OFF
-00000000454F.07C: ON
-000000004550.07C: HIGH BANDWIDTH
+00000000454E.07C: Off
+00000000454F.07C: On
+000000004550.07C: High Bandwidth
 000000004553.07C: Network Quality Notifications
 000000004558.07C: A moment ago
 000000004559.07C: %1$s |Rplminute:minutes; ago
@@ -7920,7 +7918,7 @@ Andrew Wang
 - Earn points by taking objectives
 - Most points win!
 0000000047B1.07C: - New season every 2 months
-- Earn exclusive rewards
+- Earn exclusive rewards at the end of the season
 - Placement starts again each season
 0000000047B2.07C: Skill Rating
 0000000047B3.07C: Competitive Matches
@@ -7944,7 +7942,7 @@ Andrew Wang
 0000000047D5.07C: Placement
 Matches
 0000000047D6.07C: Cannot request an invite to the group
-0000000047D7.07C: You can earn the following rewards at the end of the season by participating in competitive play:
+0000000047D7.07C: - You can earn rewards at the end of the season by participating in competitive play:
 0000000047D8.07C: Unlocked by completing Season 1 placement matches
 0000000047D9.07C: Unlocked by achieving top 500 ranking during Season 1
 0000000047DD.07C: Competitive Play Unlocked!
@@ -8779,10 +8777,10 @@ Matches
 00000000501E.07C: MAKE TOURNAMENT MATCH
 00000000501F.07C: Custom game set as tournament match.
 000000005036.07C: MAP CONTROL POINT
-000000005037.07C: FIRST
-000000005038.07C: SECOND
-000000005039.07C: THIRD
-00000000503A.07C: ALL
+000000005037.07C: First
+000000005038.07C: Second
+000000005039.07C: Third
+00000000503A.07C: All
 00000000503F.07C: Opportunist
 000000005040.07C: You detect critically injured enemies through walls.
 000000005041.07C: Damage Sombra while she's hacking you or a teammate to interrupt the hack.
@@ -9631,41 +9629,41 @@ THIS SOFTWARE.
 00000000587F.07C: %1$s's Game
 000000005886.07C: Capture the Flag
 000000005887.07C: Elimination
-000000005888.07C: Enemy health bars
+000000005888.07C: Enemy Health Bars
 000000005889.07C: Health Pack Respawn Time Scalar
-00000000588A.07C: Spawn Health packs
-00000000588B.07C: Kill feed
+00000000588A.07C: Spawn Health Packs
+00000000588B.07C: Kill Feed
 00000000588C.07C: Skins
-00000000588D.07C: Allow hero switching
-00000000588F.07C: Respawn as Random Hero
-000000005890.07C: Hero limit
+00000000588D.07C: Allow Hero Switching
+00000000588F.07C: Respawn As Random Hero
+000000005890.07C: Hero Limit
 000000005891.07C: Off
 000000005892.07C: 1 Per Team
 000000005893.07C: 1 Per Game
 000000005894.07C: 2 Per Team
 000000005895.07C: 2 Per Game
-000000005897.07C: Competitive rules
-000000005898.07C: Capture speed modifier
+000000005897.07C: Competitive Rules
+000000005898.07C: Capture Speed Modifier
 000000005899.07C: Scoring Speed Modifier
-00000000589A.07C: Score to win
-00000000589B.07C: Hero selection
+00000000589A.07C: Score To Win
+00000000589B.07C: Hero Selection
 00000000589C.07C: Any
 00000000589D.07C: Random
 00000000589E.07C: Random (Mirrored)
-00000000589F.07C: Payload speed modifier
-0000000058A0.07C: Ability cooldown time
-0000000058A1.07C: Damage dealt
-0000000058A2.07C: Damage received
-0000000058A3.07C: Healing dealt
-0000000058A4.07C: Healing received
-0000000058A5.07C: Receive headshots only
-0000000058A6.07C: Movement speed
-0000000058A7.07C: Projectile speed
+00000000589F.07C: Payload Speed Modifier
+0000000058A0.07C: Ability Cooldown Time
+0000000058A1.07C: Damage Dealt
+0000000058A2.07C: Damage Received
+0000000058A3.07C: Healing Dealt
+0000000058A4.07C: Healing Received
+0000000058A5.07C: Receive Headshots Only
+0000000058A6.07C: Movement Speed
+0000000058A7.07C: Projectile Speed
 0000000058A8.07C: Respawn Time Scalar
-0000000058A9.07C: Ultimate ability
-0000000058AA.07C: Ultimate generation
+0000000058A9.07C: Ultimate Ability
+0000000058AA.07C: Ultimate Generation
 0000000058AD.07C: |Rfn %1$s:P0;
-0000000058B0.07C: Team Needs Flag at Base to Score
+0000000058B0.07C: Team Needs Flag At Base To Score
 0000000058B1.07C: |Rfn %1$s:N0;
 0000000058B2.07C: Enabled
 0000000058B3.07C: Disabled
@@ -9677,8 +9675,8 @@ THIS SOFTWARE.
 0000000058BD.07C: For your account safety, please do not share your account information with others or use any unauthorized third-party programs.
 0000000058BE.07C: |Rpl %1$s:Turret:Turrets; Destroyed
 0000000058BF.07C: %1$s |Rpl Turret:Turrets; Destroyed
-0000000058C0.07C: Movement gravity
-0000000058C1.07C: Projectile gravity
+0000000058C0.07C: Movement Gravity
+0000000058C1.07C: Projectile Gravity
 0000000058C2.07C: Capture the Flag
 0000000058C3.07C: Two teams of six players compete to capture the enemy team's flag while defending their own.
 0000000058C4.07C: BACK
@@ -9767,7 +9765,7 @@ THIS SOFTWARE.
 00000000595F.07C: Join
 000000005960.07C: Smooth
 000000005961.07C: Competitive
-00000000596B.07C: Kill cam
+00000000596B.07C: Kill Cam
 00000000596D.07C: Limit Roles
 00000000596F.07C: %1$sv%2$s
 000000005972.07C: Numbani
@@ -9803,8 +9801,8 @@ THIS SOFTWARE.
 0000000059A5.07C: Done
 0000000059A6.07C: Hero Roster
 0000000059A7.07C: General
-0000000059AA.07C: Flag return time
-0000000059AD.07C: Flag pickup time
+0000000059AA.07C: Flag Return Time
+0000000059AD.07C: Flag Pickup Time
 0000000059AF.07C: Kicking Dirt
 0000000059B0.07C: Halt!
 0000000059B1.07C: Heroes
@@ -9815,7 +9813,7 @@ THIS SOFTWARE.
 0000000059B6.07C: Game Modes
 0000000059B7.07C: Maps
 0000000059B8.07C: Heroes
-0000000059B9.07C: Damage interrupts flag interaction
+0000000059B9.07C: Damage Interrupts Flag Interaction
 0000000059BA.07C: Off
 0000000059BB.07C: Include in Queue
 0000000059BC.07C: On
@@ -9842,7 +9840,7 @@ THIS SOFTWARE.
 0000000059D9.07C: Game Length (Minutes)
 0000000059DB.07C: Your flag is not at your base!
 0000000059FA.07C: Health
-0000000059FC.07C: Determined by Mode
+0000000059FC.07C: Determined By Mode
 0000000059FF.07C: Oh!
 000000005A06.07C: !
 000000005A0F.07C: Crusader
@@ -9937,7 +9935,7 @@ THIS SOFTWARE.
 000000005A8D.07C: Spectate Blue Only
 000000005A8E.07C: Spectate Red Only
 000000005A8F.07C: Spectate All
-000000005A91.07C: %1$s max players 
+000000005A91.07C: Max %1$s Players
 000000005A92.07C: Max Spectators
 000000005A93.07C: Orisa
 000000005A94.07C: Protector
@@ -10014,7 +10012,7 @@ THIS SOFTWARE.
 000000005B45.07C: %1$s Maximum Time
 000000005B49.07C: Leap forward and smash the ground.
 000000005B4A.07C: Seismic Slam
-000000005B4B.07C: Primary fire
+000000005B4B.07C: Primary Fire
 000000005B4C.07C: Quick Melee
 000000005B4E.07C: Enabled
 000000005B4F.07C: Disabled
@@ -10028,9 +10026,9 @@ THIS SOFTWARE.
 000000005B66.07C:  was removed from the custom game.
 000000005B68.07C: 
 000000005B6B.07C: Talon
-000000005B84.07C: %1$s cooldown time
-000000005B85.07C: Ultimate ability (%1$s)
-000000005B86.07C: Ultimate generation (%1$s)
+000000005B84.07C: %1$s Cooldown Time
+000000005B85.07C: Ultimate Ability (%1$s)
+000000005B86.07C: Ultimate Generation (%1$s)
 000000005B87.07C: Selfie
 000000005B88.07C: S
 000000005B89.07C: Training
@@ -10657,15 +10655,15 @@ A player name or BattleTag using a language different than your own.
 000000006149.07C: Team Size +3
 00000000615A.07C: Each Anniversary loot box contains a combination of up to 4 cosmetic items and/or in-game credits, including a minimum of one Anniversary item among those items. Anniversary Loot Boxes can be earned through in-game systems.
 00000000615B.07C: Reveal Heroes After Match Time Elapsed
-00000000615C.07C: Draw After Match Time Elapsed with No Tiebreaker
+00000000615C.07C: Draw After Match Time Elapsed With No Tiebreaker
 00000000615D.07C: Tiebreaker After Match Time Elapsed
 00000000615E.07C: Team Deathmatch
 000000006166.07C: Waiting for players
 000000006167.07C: Assemble Heroes
 000000006169.07C: Fight
-00000000616E.07C: Score to win
+00000000616E.07C: Score To Win
 00000000616F.07C: |Rfn %1$s:N0;
-00000000617D.07C: Game Length in Minutes
+00000000617D.07C: Game Length In Minutes
 00000000617E.07C: Team Deathmatch
 000000006193.07C: 480p
 000000006194.07C: 720p
@@ -10675,7 +10673,7 @@ A player name or BattleTag using a language different than your own.
 000000006199.07C: x1
 00000000619A.07C: x2
 00000000619B.07C: x3
-00000000619C.07C: Time to Capture
+00000000619C.07C: Time To Capture
 00000000619D.07C: Aim Assist Window Size
 0000000061A0.07C: MAPS: Dorado, Eichenwalde, Hollywood, King's Row, Numbani, Route 66, Watchpoint: Gibraltar
 0000000061A1.07C: Save
@@ -13104,9 +13102,9 @@ Brian Urbina
 000000006326.07C: Waiting for players
 000000006328.07C: Fight
 000000006329.07C: Deathmatch
-00000000632A.07C: Score to win
+00000000632A.07C: Score To Win
 00000000632B.07C: |Rfn %1$s:N0;
-00000000632C.07C: Game Length in Minutes
+00000000632C.07C: Game Length In Minutes
 00000000632D.07C: Deathmatch
 00000000632E.07C: Deathmatch
 000000006332.07C: Cancel saving?
@@ -13417,8 +13415,8 @@ Brian Urbina
 000000006567.07C: %1$s Barrage |Rpl Kill:Kills; - Avg per 10 Min
 000000006568.07C: Rocket Direct |Rpl %1$s:Hit:Hits; - Avg per 10 Min
 000000006569.07C: %1$s Rocket Direct |Rpl Hit:Hits; - Avg per 10 Min
-00000000656A.07C: Helix |Rpl %1$s:Rocket:Rockets; Kills - Avg per 10 Min
-00000000656B.07C: %1$s Helix |Rpl Rocket:Rockets; Kills - Avg per 10 Min
+00000000656A.07C: Helix Rocket |Rpl %1$s:Kill:Kills; - Avg per 10 Min
+00000000656B.07C: %1$s Helix Rocket |Rpl Kill:Kills; - Avg per 10 Min
 00000000656C.07C: Tactical Visor |Rpl %1$s:Kill:Kills; - Avg per 10 Min
 00000000656D.07C: %1$s Tactical Visor |Rpl Kill:Kills; - Avg per 10 Min
 00000000656E.07C: |Rpl %1$s:Enemy:Enemies; EMP'd - Avg per 10 Min
@@ -13581,7 +13579,7 @@ Brian Urbina
 00000000666E.07C: Whirlwind
 00000000667B.07C: Dot
 00000000668E.07C: Player is saving a highlight
-000000006693.07C: |Rfd %1$s:dd-MMM-yy HH:mm;
+000000006693.07C: |Rfd %1$s: MMMM dd, yyyy;
 000000006694.07C: Highlights unavailable.
 000000006697.07C: In-game credits can be used to unlock many cosmetic items. Each Summer Games loot box contains a combination of up to 4 cosmetic items and/or in-game credits. Summer Games Loot Boxes can be earned through in-game systems.
 000000006698.07C: 5 credits, and a free gift of 2 Summer Games Loot Boxes
@@ -13690,8 +13688,8 @@ Brian Urbina
 000000006709.07C: Available in Summer Games Loot Boxes
 00000000670F.07C: Toast
 000000006712.07C: Toast
-000000006715.07C: Goals Needed to Win
-000000006716.07C: Team Wins upon Scoring Enough Goals
+000000006715.07C: Goals Needed To Win
+000000006716.07C: Team Wins Upon Scoring Enough Goals
 000000006721.07C: Toast
 000000006722.07C: Toast
 000000006724.07C: Soccer Ball Knockback Scalar
@@ -13718,7 +13716,7 @@ Brian Urbina
 000000006758.07C: Available in Lunar Loot Boxes
 00000000675A.07C: Available in Lunar Loot Boxes
 000000006760.07C: Blackhand
-000000006761.07C: Reset Players after Goal Scored
+000000006761.07C: Reset Players After Goal Scored
 000000006765.07C: Reconfigure
 000000006767.07C: Talon
 00000000676A.07C: SHOW CAPTURE PLAY OF THE GAME UI
@@ -13886,7 +13884,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000069FF.07C: VICTORY: First player to earn 20 kills
 000000006A01.07C: MATCH VOICE CHAT
 000000006A02.07C: Marioneta
-000000006A03.07C: MATCH
+000000006A03.07C: Match
 000000006A04.07C: Match Voice Chat
 000000006A06.07C: Disabled
 000000006A07.07C: Château Deathmatch
@@ -14107,9 +14105,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006D5F.07C: Swap to FFA
 000000006D60.07C: Highlight saving is unavailable because a broadcast is in progress.
 000000006D61.07C: Highlight saving is unavailable because game captures are disabled on your system.
-000000006D65.07C: Imbalanced Team Score to Win
-000000006D66.07C: Team 1 Score to Win
-000000006D67.07C: Team 2 Score to Win
+000000006D65.07C: Imbalanced Team Score To Win
+000000006D66.07C: Team 1 Score To Win
+000000006D67.07C: Team 2 Score To Win
 000000006D8D.07C: Unable to invite players to your group while in this mode.
 000000006D8E.07C: You cannot join a group while in this mode.
 000000006D8F.07C: Cannot join this mode
@@ -14345,9 +14343,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000705A.07C: Disabled
 00000000705B.07C: Biotic Energy Recharge Rate
 00000000705C.07C: Biotic Energy Maximum
-00000000705F.07C: SWAP TEAMS AFTER MATCH
+00000000705F.07C: Swap Teams After Match
 000000007060.07C: Carbon Fiber
-000000007063.07C: SWAP TEAMS AFTER MATCH
+000000007063.07C: Swap Teams After Match
 000000007077.07C: Door Health Scalar
 000000007078.07C: |Rfn %1$s:P0;
 000000007083.07C: CAMERA FREE INPUT MODE
@@ -14401,7 +14399,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007107.07C: The Summoner
 000000007108.07C: Dr. Junkenstein
 000000007109.07C: Junkenstein's Monster
-000000007110.07C: Pause game on player disconnect
+000000007110.07C: Pause Game On Player Disconnect
 000000007111.07C: Enable
 000000007112.07C: Hide Models
 000000007113.07C: Freeze Stacking
@@ -14583,7 +14581,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000729E.07C: %1$s Secondary Fire Accuracy - Best in Game
 0000000072AA.07C: Yeti Trap
 0000000072AE.07C: Place a Yeti Trap with a short arming time.
-0000000072AF.07C: Spawn without Mech
+0000000072AF.07C: Spawn Without Mech
 0000000072B4.07C: Retribution
 0000000072B5.07C: Quad Cannons
 0000000072BD.07C: Caution
@@ -14777,7 +14775,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s Sleep Dart |Rpl Hit:Hits;
 000000007460.07C: Pulse Bomb Attach Rate
 000000007461.07C: %1$s Pulse Bomb Attach Rate
-00000000746F.07C: <fg%1$s>STUNNED</fg>
 000000007472.07C: Coalesence - Healing per Use
 000000007473.07C: %1$s Coalesence - Healing per Use
 000000007474.07C: Coalesence - Damage per Use
@@ -14826,7 +14823,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000074B3.07C: This game has two ratings, '12+' and '15+'. The player's age is automatically determined upon log in. Players between the ages of 12 and 15 can access '12+' rated content only and it is unsuitable for players under the age of 12.
 0000000074B4.07C: Remove All Bots
 0000000074B8.07C: 5v1
-0000000074B9.07C: |Rfd %1$s:dd-MMM;
 0000000074BA.07C: |Rfd %1$s:hh:mm a;
 0000000074BB.07C: Schedule
 0000000074BC.07C: Team Shop
@@ -14972,7 +14968,7 @@ Blizzard Support
 0000000075DF.07C: You are a Hunter
 0000000075E0.07C: Teamwork
 0000000075E1.07C: Yeti is revealed while taking damage.
-0000000075E9.07C: Maximum simultaneous meat spawns
+0000000075E9.07C: Maximum Simultaneous Meat Spawns
 0000000075EA.07C: |Rfn %1$s:N0;
 0000000075F9.07C: Change Skin
 0000000075FE.07C: Shanghai
@@ -15021,7 +15017,7 @@ Blizzard Support
 000000007646.07C: UNIQUE HERO: Winston
 000000007648.07C: Boss Mode
 00000000764A.07C: LEAGUE TOKENS
-00000000764B.07C: Time Limit in Minutes
+00000000764B.07C: Time Limit In Minutes
 00000000764D.07C: League Tokens
 00000000764E.07C: Purchase
 000000007656.07C: Thank you for reporting
@@ -15035,13 +15031,13 @@ You have been reported multiple times for Inactivity and/or Gameplay Sabotage, a
 Please help us create the best possible Overwatch community by staying positive and avoiding actions intended to disrupt Overwatch games.
 00000000765B.07C: Ultimate Generation - Combat
 00000000765C.07C: Ultimate Generation - Passive
-00000000765D.07C: Ultimate generation - Combat (%1$s)
-00000000765E.07C: Ultimate generation - Passive (%1$s)
-00000000765F.07C: Spawn with Ultimate Ready
+00000000765D.07C: Ultimate Generation - Combat (%1$s)
+00000000765E.07C: Ultimate Generation - Passive (%1$s)
+00000000765F.07C: Spawn With Ultimate Ready
 000000007665.07C: Or
 000000007671.07C: Ultimate Duration
 000000007672.07C: Infinite Ultimate Duration
-000000007673.07C: Yeti Score to Win
+000000007673.07C: Yeti Score To Win
 000000007674.07C: Seoul Dynasty Logo
 000000007678.07C: San Francisco Shock 2018 Logo
 00000000767A.07C: Shanghai Dragons Logo
@@ -15872,8 +15868,8 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 000000008012.07C: As the tales tell, the Witch of the Wilds had many powerful allies, including the draconic summoner.
 000000008013.07C: Mission Archives
 000000008014.07C: Missions from the Overwatch Archives PH
-000000008015.07C: Flag score respawn time
-000000008017.07C: Flag dropped lock time
+000000008015.07C: Flag Score Respawn Time
+000000008017.07C: Flag Dropped Lock Time
 000000008018.07C: |Rfn %1$s:N1;
 00000000801A.07C: |Rfn %1$s:N1;
 00000000801D.07C: At the gentle urging of his wife, Ingrid, Torbjörn dresses up as Santa for the Lindholm holiday celebrations.
@@ -17440,7 +17436,7 @@ Do you want to cancel?
 000000009282.07C: Deploy your Minefield while in the air to spread the mines over a larger area.
 000000009284.07C: Enabled
 000000009285.07C: Disabled
-000000009286.07C: %1$s cooldown time
+000000009286.07C: %1$s Cooldown Time
 000000009287.07C: |Rfn %1$s:P0;
 000000009288.07C: Grappling Claw Knockback Scalar
 000000009289.07C: Toggle Grappling Claw
@@ -17860,7 +17856,6 @@ and 10 Free Halloween Loot Boxes
 000000009F12.07C: Pumpkimari
 000000009F13.07C: Available in Halloween Loot Boxes
 000000009F21.07C: Overwatch League
-000000009F29.07C: <fg%1$s>STUNNED</fg>
 000000009F34.07C: New Legendary Skins!
 000000009F99.07C: TURRET <fg%1$s>SUPERCHARGED</fg>
 000000009F9A.07C: Pumpkin
@@ -18455,7 +18450,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000AAD8.07C: Data center preference
 00000000AAD9.07C: %1$s %2$s %3$s Ultimate
 00000000AADC.07C: %1$s %2$s %3$s %4$s %5$s Ultimate
-00000000AADE.07C: DATA CENTER PREFERENCE
+00000000AADE.07C: Data Center Preference
 00000000AAE2.07C: Connecting to new server
 00000000AAE4.07C: Preferred data center is no longer available
 00000000AAE5.07C: A Couple Of Flakes
@@ -20089,13 +20084,13 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000BBB9.07C: Prev Event
 00000000BBBA.07C: Next Line
 00000000BBBB.07C: Prev Line
-00000000BBC5.07C: Comment
+00000000BBC5.07C: Rule
 00000000BBC6.07C: Condition
 00000000BBC7.07C: Action
 00000000BBC8.07C: Global
 00000000BBCA.07C: No Condition
 00000000BBCB.07C: Condition:
-00000000BBCC.07C: Comment:
+00000000BBCC.07C: Rule:
 00000000BBCD.07C: Action:
 00000000BBD1.07C: Entry #%1$s
 00000000BBD3.07C: Description
@@ -20152,8 +20147,8 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000BC68.07C: Modifies the score (kill count) of one or more Players. This Action only has an effect in Free-For-All modes.
 00000000BC69.07C: The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.
 00000000BC6A.07C: The Player or Players whose score will change.
-00000000BC6B.07C: Restarts the Action list from the beginning. To prevent an infinite loop, a Wait Action must execute between the start of the Action list and this Action.
-00000000BC6C.07C: Restarts the Action list from the beginning if every Condition in the Condition list is true. If any are false, execution continues with the next Action. To prevent an infinite loop, a Wait Action must execute between the start of the Action list and this Action.
+00000000BC6B.07C: Restarts the Action list from the beginning.
+00000000BC6C.07C: Restarts the Action list from the beginning if every Condition in the Condition list is true. If any are false, execution continues with the next Action.
 00000000BC6D.07C: Provides an instantaneous heal to one or more Players. This heal will not resurrect dead Players.
 00000000BC6E.07C: The Player or Players whose health will be restored.
 00000000BC6F.07C: The Player who will receive credit for the healing. A Healer of Null indicates no Player will receive credit.
@@ -20386,8 +20381,8 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000BD57.07C: Creates in-world text visible to specific Players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the Last Text ID Value. This Action will fail if too many text elements have been created.
 00000000BD58.07C: Destroys in-world text that was created by Create In-World Text.
 00000000BD59.07C: Specifies which in-world text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.
-00000000BD5A.07C: Restarts the Action list from the beginning if this Action's Condition evaluates to true. If it does not, execution continues with the next Action. To prevent an infinite loop, a Wait Action must execute between the start of the Action list and this Action.
-00000000BD5B.07C: Restarts the Action list from the beginning if at least one Condition in the Condition list is false. If all Conditions are true, execution continues with the next Action. To prevent an infinite loop, a Wait Action must execute between the start of the Action list and this Action.
+00000000BD5A.07C: Restarts the Action list from the beginning if this Action's Condition evaluates to true. If it does not, execution continues with the next Action.
+00000000BD5B.07C: Restarts the Action list from the beginning if at least one Condition in the Condition list is false. If all Conditions are true, execution continues with the next Action.
 00000000BD5C.07C: Specifies whether the loop will occur.
 00000000BD5D.07C: Stops execution of the Action list.
 00000000BD5E.07C: Stops execution of the Action list if this Action's Condition evaluates to true. If it does not, execution continues with the next Action.
@@ -22233,7 +22228,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CA0C.07C: You must select a role before your group can queue. Select now?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Week 1: Monk Doomfist
+00000000CA11.07C: Ashe's Mardi Gras Challenge
 00000000CA13.07C: Week 2: Ancient Bronze Winston
 00000000CA14.07C: Week 3: Paper Cutting Wrecking Ball
 00000000CA15.07C: Win 9 games in quick play, arcade, or competitive play!
@@ -22647,7 +22642,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CEE8.07C: Rise up the ranks and compete with the best Elimination players in the world!
 00000000CEE9.07C: Competitive 3v3 Elimination Season 2
 00000000CEEF.07C: Undertaker
-00000000CEF0.07C: Path to Pro
+00000000CEF0.07C: Path to Pro 2019
 00000000CEFF.07C: Inferno
 00000000CF28.07C: 2019
 00000000CF29.07C: Chacko Sonny
@@ -26130,7 +26125,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EB17.07C: Enable High Precision Mouse Input
 00000000EB1E.07C: Error: Player variable '%1$s' requires a name
 00000000EB21.07C: Error: Global variable '%1$s' conflicts with another variable
-00000000EB23.07C: Available Maps
+00000000EB23.07C: Available Maps This Season
 00000000EB24.07C: Hanamura, Temple of Anubis, Volskaya Industries
 00000000EB25.07C: Error: Global variable '%1$s' contains an invalid name
 00000000EB29.07C: Error: Global variable '%1$s' requires a name
@@ -26258,6 +26253,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F0CB.07C: Continue
 00000000F0CC.07C: Training Bot Respawn Time Scalar
 00000000F0CD.07C: |Rfn %1$s:P0;
+00000000F0F3.07C: <fg%1$s>STUNNED</fg>
+00000000F0F4.07C: <fg%1$s>SLEEP</fg>
 00000000F0FE.07C: For California residents only
 00000000F0FF.07C: Do not sell my personal information
 00000000F102.07C: This will open a browser in another window
@@ -26330,7 +26327,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F24B.07C: Black Forest
 00000000F24D.07C: VICTORY: First player to earn 15 kills
 00000000F255.07C: Snowball Deathmatch
-00000000F25B.07C: Allow players who are in queue
+00000000F25B.07C: Allow Players Who Are In Queue
 00000000F25D.07C: CONTINUE
 00000000F25E.07C: Winter Wonderland
 00000000F25F.07C: Back to the Snow
@@ -26383,8 +26380,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F40B.07C: |Rfn %1$s:N1;
 00000000F417.07C: Show Diagnostics
 00000000F418.07C: Script Diagnostics
-00000000F41B.07C: Total Element Count: %1$s
-00000000F41C.07C: Size of Largest Rule: %1$s KB
+00000000F41B.07C: Total Element Count
+00000000F41C.07C: Size of Largest Rule
 00000000F41D.07C: Elements include rules, conditions, actions, and values (up to a max of %1$s)
 00000000F41E.07C: Each rule must be less than %1$s KB
 00000000F420.07C: Holiday surprise
@@ -26621,6 +26618,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F5E8.07C: Florida Mayhem Away
 00000000F5E9.07C: Florida Mayhem Away
 00000000F5EA.07C: Florida Mayhem Away
+00000000F5EB.07C: TEAM 3
+00000000F5EC.07C: TEAM 4
 00000000F8B0.07C: Face Changer
 00000000F8B1.07C: Available in Lunar Loot Boxes
 00000000F8B2.07C: Sombra Mask
@@ -26656,6 +26655,31 @@ https://account.blizzard.com/connections/nintendo
 00000000FABF.07C: %1$s Knockback |Rpl Kill:Kills;
 00000000FAC0.07C: Knockback |Rpl %1$s:Kill:Kills;
 00000000FAC1.07C: %1$s Knockback |Rpl Kill:Kills;
+00000000FB2E.07C: Enable Inspector Recording
+00000000FB2F.07C: Disable Inspector Recording
+00000000FB30.07C: Causes the Workshop Inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.
+00000000FB31.07C: Causes the Workshop Inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.
+00000000FB32.07C: If
+00000000FB33.07C: Else If
+00000000FB34.07C: Else
+00000000FB35.07C: While
+00000000FB37.07C: End
+00000000FB38.07C: Denotes the end of a series of actions started by an If, Else If, Else, While, or For action.
+00000000FB39.07C: Denotes the beginning of a series of actions that will execute in a loop, modifying the Control Variable on each loop. The corresponding End action denotes the end of the loop. If the Control Variable reaches or passes the Range Stop value, then the loop exits, and execution jumps to the next action after the End action.
+00000000FB3A.07C: Denotes the beginning of a series of actions that will execute in a loop as long as the specified Condition is true. The next End action at the current level denotes the end of the loop. If the Condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the End action.
+00000000FB3B.07C: Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's Condition was false.
+00000000FB3C.07C: Denotes the beginning of a series of actions that will only execute if the specified Condition is true and the previous If or Else If action's Condition was false.
+00000000FB3D.07C: Denotes the beginning of a series of actions that will only execute if the specified Condition is true.
+00000000FB3E.07C: If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next Else If, Else, or End action at the current level.
+00000000FB3F.07C: If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next End action at the current level.
+00000000FB40.07C: Step
+00000000FB41.07C: This value is added to the Control Variable when the End action is reached. If this modification causes the Control Variable to reach or pass the Range Stop value, then the loop exits, and execution jumps to the next action after the End action. Otherwise, the loop continues, and execution jumps to the next action after the For action.
+00000000FB42.07C: Control Variable
+00000000FB43.07C: The variable being modified in this loop. It is set to the Range Start value when the loop begins, and the loop continues until the Control Variable reaches or passes the Range Stop value.
+00000000FB44.07C: If the Control Variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the End action. Whether this value is considered passed or not is based on whether the Step value is negative or positive. If the Control Variable has already reached or passed this value when the loop begins, then the loop exits.
+00000000FB45.07C: Range Stop
+00000000FB46.07C: The Control Variable is set to this value when the loop begins.
+00000000FB47.07C: Range Start
 00000000FB62.07C: SPECTATE TOGGLE SIMPLE 3P CAMERA SIDE
 00000000FB64.07C: Bahrain
 00000000FB69.07C: Samul Nori
@@ -26684,6 +26708,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FB97.07C: Available in Lunar Loot Boxes
 00000000FBAA.07C: Happy New Year!
 00000000FBAB.07C: Available in Lunar Loot Boxes
+00000000FBAC.07C: Edit Comment
 00000000FBB2.07C: Need something?
 00000000FBB3.07C: Available in Lunar Loot Boxes
 00000000FBB4.07C: An anomaly!
@@ -26697,10 +26722,176 @@ https://account.blizzard.com/connections/nintendo
 00000000FBDA.07C: Updates Disabled
 00000000FC5D.07C: You may be unable to play if an update is required
 00000000FC5E.07C: Hide Replay Overlay
+00000000FC80.07C: Event Was Health Pack
+00000000FC81.07C: Whether the healing was from a health pack for the Event currently being processed by this Rule.
+00000000FC8D.07C: Melee
+00000000FC8E.07C: Reload
 00000000FC91.07C: TOGGLE NORMAL/ SIMPLE 3P SPECTATOR CAMERA
+00000000FCA5.07C: Visible To, Sort Order, and String
+00000000FCA6.07C: Sort Order and String
+00000000FD25.07C: None
+00000000FD26.07C: Receivers and Healers
+00000000FD27.07C: Receivers, Healers, and Healing Percent
+00000000FD2A.07C: Last Healing Modification ID
+00000000FD2B.07C: An ID representing the most recent Start Healing Modification Action that was executed by the Event Player (or executed at the Global level).
+00000000FD36.07C: Stops all healing modifications that were started using the Start Healing Modification Action.
+00000000FD37.07C: Stop Healing Modification
+00000000FD38.07C: Stops a healing modification that was started by the Start Healing Modification Action.
+00000000FD39.07C: Healing Modification ID
+00000000FD3A.07C: Specifies which healing modification instance to stop. This ID may be Last Healing Modification ID or a Variable into which Last Healing Modification ID was earlier stored.
+00000000FD3B.07C: Stop All Healing Modifications
+00000000FD40.07C: Start Healing Modification
+00000000FD42.07C: Starts modifying how much healing one or more Receivers will receive from one or more Healers. A reference to this healing modification can be obtained from the Last Healing Modification ID Value. This Action will fail if too many healing modifications have been started.
+00000000FD43.07C: Receivers
+00000000FD44.07C: The Player or Players whose incoming healing will be modified (when healed by the Healers).
+00000000FD45.07C: Healers
+00000000FD46.07C: The Player or Players whose outgoing healing will be modified (when healing the Receivers).
+00000000FD47.07C: Healing Percent
+00000000FD48.07C: The percentage of healing that will apply to Receivers when healed by Healers.
+00000000FD49.07C: Reevaluation
+00000000FD4A.07C: Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.
 00000000FDBB.07C: Off
+00000000FEBD.07C: Sub%1$s
+00000000FEBE.07C: Subroutine
+00000000FED9.07C: Error: Expected a subroutine after '%1$s' on line %2$s
+00000000FEDA.07C: Error: Subroutine '%1$s' requires a name
+00000000FEDB.07C: Error: Subroutine '%1$s' contains a name that is too long
+00000000FEDC.07C: Error: Subroutine '%1$s' contains an invalid name
+00000000FEDD.07C: Error: Subroutine '%1$s' conflicts with another subroutine
+00000000FEE1.07C: For Player Variable
+00000000FEE2.07C: For Global Variable
 00000000FFB4.07C: Matches
 00000000FFCF.07C: FRIEND REQUEST RECEIVED
+00000000FFD0.07C: The player whose variable is being modified in this loop. If multiple players are specified, the first player is used.
+00000000FFD1.07C: Control Player
+00000000FFDA.07C: The same variable cannot be used by both a Chase action and a For action.
 00000000FFE7.07C: 2020 Overwatch League
 00000000FFE8.07C: Goat Brigitte
-[Core] Execution finished in 00:00:03.7930838 seconds
+00000000FFF0.07C: Workshop Chamber
+00000000FFF1.07C: Workshop Island
+00000000FFF2.07C: Workshop Expanse
+00000000FFF3.07C: Edit Subroutine Names
+00000000FFF4.07C: Add Subroutine
+00000000FFF5.07C: Reset to Defaults
+00000000FFF6.07C: Subroutine
+00000000FFFA.07C: subroutines
+00000000FFFB.07C: Error: Encountered unexpected subroutines after '%1$s' on line %2$s
+00000000FFFC.07C: Error: Encountered out-of-bounds subroutine index '%1$s' on line %2$s
+00000000FFFD.07C: Error: Encountered duplicate subroutine index '%1$s' on line %2$s
+00000000FFFE.07C: Error: Subroutine '%1$s' is too long
+00000000FFFF.07C: Error: Subroutine '%1$s' has an invalid name
+000000010000.07C: Error: Encountered unrecognized subroutine after '%1$s' on line %2$s.
+000000010017.07C: Season 21 Competitor
+000000010018.07C: Unlocked by completing Season 21 placement matches
+000000010019.07C: Path to Pro 2020
+00000001001A.07C: Path to Pro 2020
+00000001001E.07C: Call Subroutine
+00000001001F.07C: Subroutine
+000000010020.07C: Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a Subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.
+000000010021.07C: Specifies which subroutine to call. If a rule with a Subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.
+000000010022.07C: Start Rule
+000000010023.07C: Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.
+000000010024.07C: Specifies which subroutine to start. If a rule with a Subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.
+000000010025.07C: Restart Rule
+000000010026.07C: Do Nothing
+000000010027.07C: Restart the specified rule with new contextual values (including Event Player, Attacker, Victim, etc.).
+000000010028.07C: Allow the rule to finish executing without changing its contextual values.
+00000001002A.07C: If Already Executing
+00000001002B.07C: Determines what should happen if the rule specified by the Subroutine is already executing on the same player or global entity.
+00000001002D.07C: Subroutine rules may not have conditions.
+00000001002E.07C: Copy Settings
+00000001002F.07C: Import Settings
+000000010030.07C: settings
+000000010031.07C: lobby
+000000010034.07C: Mardi Grashe
+000000010036.07C: Mardi B.O.B.
+000000010038.07C: Gold Mask
+00000001003A.07C: Unlocked by participating in Ashe's Mardi Gras Challenge
+00000001003F.07C: Season 21 Hero
+000000010040.07C: Unlocked by achieving top 500 ranking at the end of Season 21
+000000010041.07C: disabled maps
+000000010044.07C: modes
+000000010045.07C: enabled maps
+000000010046.07C: heroes
+000000010047.07C: Multiple rules define the same subroutine.
+000000010051.07C: Team FFA
+000000010052.07C: disabled heroes
+000000010053.07C: enabled heroes
+000000010054.07C: Season 21
+000000010055.07C: Season 21
+00000001005E.07C: %1$s
+00000001005F.07C: %1$s KB
+00000001006B.07C: Import Settings From Clipboard
+00000001006C.07C: This will replace all of your current settings. Are you sure you would like to import from the clipboard?
+00000001006D.07C: Confirm
+00000001006E.07C: main
+000000010072.07C: Hero Rotation
+000000010075.07C: The heroes available for competitive play periodically rotate.
+000000010078.07C: Heroes out of rotation
+00000001007F.07C: Description
+000000010086.07C: OK
+000000010087.07C: Hero Rotation
+000000010088.07C: The heroes available for competitive play periodically rotate.
+000000010089.07C: Heroes out of rotation
+00000001008C.07C: Unavailable Heroes
+000000010097.07C: Error: Expected a lobby setting after '%1$s' on line %2$s
+000000010098.07C: Error: Expected a main setting after '%1$s' on line %2$s
+000000010099.07C: Error: Expected a game mode setting after '%1$s' on line %2$s
+0000000100A3.07C: Mardi Gras
+0000000100AD.07C: Error: Expected a hero setting after '%1$s' on line %2$s
+0000000100AE.07C: Error: Expected a setting after '%1$s' on line %2$s
+0000000100AF.07C: Error: Expected a setting option after '%1$s' on line %2$s
+0000000100B0.07C: Error: Encountered duplicate game mode after '%1$s' on line %2$s
+0000000100B6.07C: Error: Encountered duplicate team after '%1$s' on line %2$s
+0000000100B7.07C: Error: Expected a team setting after '%1$s' on line %2$s
+0000000100BB.07C: Error: Expected a datacenter option after '%1$s' on line %2$s
+0000000100BC.07C: Error: Invalid game mode
+0000000100BD.07C: Error: Invalid hero
+0000000100BE.07C: Error: Invalid map
+0000000100BF.07C: Error: Invalid team
+0000000100C0.07C: Error: Invalid hero settings
+0000000100C1.07C: Error: Invalid team settings
+0000000100C2.07C: Error: Invalid game mode settings
+0000000100C3.07C: Error: Invalid map settings
+0000000100C4.07C: Carnival
+0000000100C6.07C: Semlor
+0000000100C8.07C: Rex
+0000000100CA.07C: King Cake Ball
+0000000100CC.07C: Beads
+0000000100CE.07C: Red Death
+0000000100D0.07C: Unlocked by watching participating streams during Ashe's Mardi Gras Challenge
+0000000100D5.07C: Heroes out of rotation
+0000000100DF.07C: Error: Encountered duplicate hero after '%1$s' on line %2$s
+0000000100E0.07C: Error: Encountered unexpected maps after '%1$s' on line %2$s
+0000000100E1.07C: Error: Encountered unexpected main after '%1$s' on line %2$s
+0000000100E2.07C: Error: Encountered unexpected modes after '%1$s' on line %2$s
+0000000100E3.07C: Error: Encountered unexpected heroes after '%1$s' on line %2$s
+0000000100E4.07C: Error: Encountered unexpected lobby after '%1$s' on line %2$s
+0000000100E5.07C: Experimental
+0000000100E7.07C: Error: Expected a setting section after '%1$s' on line %2$s
+0000000100E8.07C: Error: Invalid settings '%1$s' on line %2$s
+000000010176.07C: Patch Notes
+000000010177.07C: Click below to read patch notes for the latest updates!
+000000010178.07C: Patch Notes
+00000001017B.07C: Experimental
+00000001017E.07C: Error: Expected modes after '%1$s' on line %2$s
+0000000101D4.07C: - Try out new ideas from the team and experiment with gameplay!
+
+- Get a behind-the-scenes look at experimental, in-progress concepts.
+
+- Give valuable feedback and help improve our gaming experience.
+0000000101D9.07C: This hero is currently out of rotation.
+0000000101DF.07C: Try out new ideas from the team and experiment with gameplay!
+000000010214.07C: Your timer has expired. When this session ends you will be disconnected.
+00000001021A.07C: Snap Death Camera To Killer
+000000010237.07C: Disconnected due to CAIS time limit reached
+000000010239.07C: Experimental
+000000010243.07C: Hide Scores
+00000001024D.07C: Operator
+0000000102D0.07C: pc
+0000000102D1.07C: ps4
+0000000102D2.07C: xb1
+0000000102D3.07C: nintendo-switch
+0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102F5.07C: Use Experimental Update If Available
+[Core] Execution finished in 00:00:07.6391734 seconds

@@ -20,16 +20,16 @@ const constantValues =
 {
     "Transform": {
         "ROTATION": {
-            "en-US": "Rotation",
             "guid": "00000000B33B",
+            "en-US": "Rotation",
             "es-MX": "Rotación",
             "ja-JP": "回転",
             "pt-BR": "Rotação",
             "zh-CN": "旋转"
         },
         "ROTATION_AND_TRANSLATION": {
-            "en-US": "Rotation And Translation",
             "guid": "00000000B33C",
+            "en-US": "Rotation And Translation",
             "es-MX": "Rotación y traslación",
             "fr-FR": "Rotation et Translation",
             "ja-JP": "回転と平行移動",
@@ -62,6 +62,7 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Personne",
             "ja-JP": "なし",
+            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "全部禁用"
         }
@@ -72,7 +73,6 @@ const constantValues =
             "en-US": "Aqua",
             "es-MX": "Aguamarina",
             "fr-FR": "Cyan",
-            "it-IT": "Acquamarina",
             "ja-JP": "アクア",
             "pl-PL": "Akwamaryna",
             "pt-BR": "Azul-piscina",
@@ -101,7 +101,6 @@ const constantValues =
             "en-US": "Lime Green",
             "es-MX": "Verde lima",
             "fr-FR": "Citron vert",
-            "it-IT": "Verde acido",
             "ja-JP": "ライムグリーン",
             "pl-PL": "Limonkowy",
             "pt-BR": "Verde-limão",
@@ -111,7 +110,6 @@ const constantValues =
             "guid": "00000000CDB4",
             "en-US": "Orange",
             "es-MX": "Naranja",
-            "it-IT": "Arancione",
             "ja-JP": "オレンジ",
             "pl-PL": "Pomarańczowy",
             "pt-BR": "Laranja",
@@ -136,11 +134,10 @@ const constantValues =
             "zh-CN": "红色"
         },
         "SKY_BLUE": {
-            "en-US": "Sky Blue",
             "guid": "00000000CDB5",
+            "en-US": "Sky Blue",
             "es-MX": "Azul cielo",
             "fr-FR": "Bleu ciel",
-            "it-IT": "Blu cielo",
             "ja-JP": "スカイブルー",
             "pl-PL": "Błękitny",
             "pt-BR": "Azul-celeste",
@@ -239,7 +236,14 @@ const constantValues =
             "zh-CN": "跳跃"
         },
         "MELEE": {
-            "en-US": "Melee"
+            "guid": "00000000FC8D",
+            "en-US": "Melee",
+            "es-MX": "Melé",
+            "fr-FR": "Mêlée",
+            "ja-JP": "近接",
+            "pl-PL": "Walka wręcz",
+            "pt-BR": "Corpo a corpo",
+            "zh-CN": "近身攻击"
         },
         "PRIMARY_FIRE": {
             "guid": "00000000B17B",
@@ -251,7 +255,14 @@ const constantValues =
             "zh-CN": "主要攻击模式"
         },
         "RELOAD": {
-            "en-US": "Reload"
+            "guid": "00000000FC8E",
+            "en-US": "Reload",
+            "es-MX": "Recargar",
+            "fr-FR": "Rechargement",
+            "ja-JP": "リロード",
+            "pl-PL": "Przeładowanie",
+            "pt-BR": "Recarregar",
+            "zh-CN": "装填"
         },
         "SECONDARY_FIRE": {
             "guid": "00000000B17A",
@@ -272,105 +283,105 @@ const constantValues =
             "zh-CN": "终极技能"
         }
     },
-    "_Operation": {	
-        "_add": {	
-            "guid": "00000000B16D",	
-            "en-US": "Add",	
-            "es-MX": "Agregar",	
-            "fr-FR": "Addition",	
-            "ja-JP": "追加",	
-            "pt-BR": "Adicionar",	
-            "zh-CN": "加"	
-        },	
-        "_appendToArray": {	
-            "guid": "00000000B167",	
-            "en-US": "Append To Array",	
-            "es-MX": "Anexar a la matriz",	
-            "fr-FR": "Ajouter au tableau",	
-            "ja-JP": "追加",	
-            "pt-BR": "Juntar à Matriz",	
-            "zh-CN": "添加至数组"	
-        },	
-        "_divide": {	
-            "guid": "00000000B16A",	
-            "en-US": "Divide",	
-            "es-MX": "Dividir",	
-            "fr-FR": "Division",	
-            "ja-JP": "割る",	
-            "pt-BR": "Dividir",	
-            "zh-CN": "除"	
-        },	
-        "_max": {	
-            "guid": "00000000B18F",	
-            "en-US": "Max",	
-            "es-MX": "Máximo",	
-            "fr-FR": "Maximum",	
-            "ja-JP": "最大",	
-            "pt-BR": "Máx.",	
-            "zh-CN": "最大"	
-        },	
-        "_min": {	
-            "guid": "00000000B190",	
-            "en-US": "Min",	
-            "es-MX": "Mínimo",	
-            "fr-FR": "Minimum",	
-            "ja-JP": "分",	
-            "pt-BR": "Mín.",	
-            "zh-CN": "最小"	
-        },	
-        "_modulo": {	
-            "guid": "00000000B169",	
-            "en-US": "Modulo",	
-            "es-MX": "Módulo",	
-            "ja-JP": "剰余",	
-            "pt-BR": "Modular",	
-            "zh-CN": "余数"	
-        },	
-        "_multiply": {	
-            "guid": "00000000B16B",	
-            "en-US": "Multiply",	
-            "es-MX": "Multiplicar",	
-            "fr-FR": "Multiplication",	
-            "ja-JP": "掛ける",	
-            "pt-BR": "Multiplicar",	
-            "zh-CN": "乘"	
-        },	
-        "_raiseToPower": {	
-            "guid": "00000000B168",	
-            "en-US": "Raise To Power",	
-            "es-MX": "Elevar a la potencia",	
-            "fr-FR": "Élévation à une puissance ",	
-            "ja-JP": "冪乗",	
-            "pt-BR": "Elevar à Potência",	
-            "zh-CN": "乘方"	
-        },	
-        "_removeFromArrayByIndex": {	
-            "en-US": "Remove From Array By Index",	
-            "guid": "00000000C61B",	
-            "es-MX": "Eliminar de la matriz por índice",	
-            "fr-FR": "Supprimer du tableau par index",	
-            "ja-JP": "インデックスを配列から削除",	
-            "pt-BR": "Remover da Matriz por Índice",	
-            "zh-CN": "根据索引从数组中移除"	
-        },	
-        "_removeFromArrayByValue": {	
-            "en-US": "Remove From Array By Value",	
-            "guid": "00000000B166",	
-            "es-MX": "Eliminar de la matriz por valor",	
-            "fr-FR": "Supprimer du tableau par valeur",	
-            "ja-JP": "削除",	
-            "pt-BR": "Remover da Matriz por Valor",	
-            "zh-CN": "根据值从数组中移除"	
-        },	
-        "_subtract": {	
-            "guid": "00000000B16C",	
-            "en-US": "Subtract",	
-            "es-MX": "Restar",	
-            "fr-FR": "Soustraction",	
-            "ja-JP": "引く",	
-            "pt-BR": "Subtrair",	
-            "zh-CN": "减"	
-        }	
+    "_Operation": {
+        "_add": {
+            "guid": "00000000B16D",
+            "en-US": "Add",
+            "es-MX": "Agregar",
+            "fr-FR": "Addition",
+            "ja-JP": "追加",
+            "pt-BR": "Adicionar",
+            "zh-CN": "加"
+        },
+        "_appendToArray": {
+            "guid": "00000000B167",
+            "en-US": "Append To Array",
+            "es-MX": "Anexar a la matriz",
+            "fr-FR": "Ajouter au tableau",
+            "ja-JP": "追加",
+            "pt-BR": "Juntar à Matriz",
+            "zh-CN": "添加至数组"
+        },
+        "_divide": {
+            "guid": "00000000B16A",
+            "en-US": "Divide",
+            "es-MX": "Dividir",
+            "fr-FR": "Division",
+            "ja-JP": "割る",
+            "pt-BR": "Dividir",
+            "zh-CN": "除"
+        },
+        "_max": {
+            "guid": "00000000B18F",
+            "en-US": "Max",
+            "es-MX": "Máximo",
+            "fr-FR": "Maximum",
+            "ja-JP": "最大",
+            "pt-BR": "Máx.",
+            "zh-CN": "最大"
+        },
+        "_min": {
+            "guid": "00000000B190",
+            "en-US": "Min",
+            "es-MX": "Mínimo",
+            "fr-FR": "Minimum",
+            "ja-JP": "分",
+            "pt-BR": "Mín.",
+            "zh-CN": "最小"
+        },
+        "_modulo": {
+            "guid": "00000000B169",
+            "en-US": "Modulo",
+            "es-MX": "Módulo",
+            "ja-JP": "剰余",
+            "pt-BR": "Modular",
+            "zh-CN": "余数"
+        },
+        "_multiply": {
+            "guid": "00000000B16B",
+            "en-US": "Multiply",
+            "es-MX": "Multiplicar",
+            "fr-FR": "Multiplication",
+            "ja-JP": "掛ける",
+            "pt-BR": "Multiplicar",
+            "zh-CN": "乘"
+        },
+        "_raiseToPower": {
+            "guid": "00000000B168",
+            "en-US": "Raise To Power",
+            "es-MX": "Elevar a la potencia",
+            "fr-FR": "Élévation à une puissance ",
+            "ja-JP": "冪乗",
+            "pt-BR": "Elevar à Potência",
+            "zh-CN": "乘方"
+        },
+        "_removeFromArrayByIndex": {
+            "guid": "00000000C61B",
+            "en-US": "Remove From Array By Index",
+            "es-MX": "Eliminar de la matriz por índice",
+            "fr-FR": "Supprimer du tableau par index",
+            "ja-JP": "インデックスを配列から削除",
+            "pt-BR": "Remover da Matriz por Índice",
+            "zh-CN": "根据索引从数组中移除"
+        },
+        "_removeFromArrayByValue": {
+            "guid": "00000000B166",
+            "en-US": "Remove From Array By Value",
+            "es-MX": "Eliminar de la matriz por valor",
+            "fr-FR": "Supprimer du tableau par valeur",
+            "ja-JP": "削除",
+            "pt-BR": "Remover da Matriz por Valor",
+            "zh-CN": "根据值从数组中移除"
+        },
+        "_subtract": {
+            "guid": "00000000B16C",
+            "en-US": "Subtract",
+            "es-MX": "Restar",
+            "fr-FR": "Soustraction",
+            "ja-JP": "引く",
+            "pt-BR": "Subtrair",
+            "zh-CN": "减"
+        }
     },
     "Team": {
         "1": {
@@ -403,8 +414,8 @@ const constantValues =
     },
     "DynamicEffect": {
         "BAD_EXPLOSION": {
-            "en-US": "Bad Explosion",
             "guid": "00000000BC1A",
+            "en-US": "Bad Explosion",
             "es-MX": "Mala explosión",
             "fr-FR": "Mauvaise explosion",
             "ja-JP": "悪い爆発",
@@ -412,8 +423,8 @@ const constantValues =
             "zh-CN": "有害爆炸"
         },
         "BAD_PICKUP_EFFECT": {
-            "en-US": "Bad Pickup Effect",
             "guid": "00000000BC18",
+            "en-US": "Bad Pickup Effect",
             "es-MX": "Mal efecto de captura",
             "fr-FR": "Mauvais effet de ramassage",
             "ja-JP": "悪いピックアップ効果",
@@ -421,8 +432,8 @@ const constantValues =
             "zh-CN": "有害选择效果 "
         },
         "BUFF_EXPLOSION_SOUND": {
-            "en-US": "Buff Explosion Sound",
             "guid": "00000000C400",
+            "en-US": "Buff Explosion Sound",
             "es-MX": "Sonido de explosión de potenciamiento",
             "fr-FR": "Son d’explosion d’amélioration",
             "ja-JP": "爆発音（バフ）",
@@ -430,8 +441,8 @@ const constantValues =
             "zh-CN": "状态爆炸声音"
         },
         "BUFF_IMPACT_SOUND": {
-            "en-US": "Buff Impact Sound",
             "guid": "00000000C3FE",
+            "en-US": "Buff Impact Sound",
             "es-MX": "Sonido de impacto de potenciamiento",
             "fr-FR": "Son d’impact d’amélioration",
             "ja-JP": "衝撃音（バフ）",
@@ -439,8 +450,8 @@ const constantValues =
             "zh-CN": "正面状态施加声音"
         },
         "DEBUFF_IMPACT_SOUND": {
-            "en-US": "Debuff Impact Sound",
             "guid": "00000000C3FD",
+            "en-US": "Debuff Impact Sound",
             "es-MX": "Sonido de impacto de despotenciamiento",
             "fr-FR": "Son d’impact d’affaiblissement",
             "ja-JP": "衝撃音（デバフ）",
@@ -448,8 +459,8 @@ const constantValues =
             "zh-CN": "负面状态施加声音"
         },
         "EXPLOSION_SOUND": {
-            "en-US": "Explosion Sound",
             "guid": "00000000C401",
+            "en-US": "Explosion Sound",
             "es-MX": "Sonido de explosión",
             "fr-FR": "Son de l’explosion",
             "ja-JP": "爆発音",
@@ -457,8 +468,8 @@ const constantValues =
             "zh-CN": "爆炸声音"
         },
         "GOOD_EXPLOSION": {
-            "en-US": "Good Explosion",
             "guid": "00000000BB28",
+            "en-US": "Good Explosion",
             "es-MX": "Buena explosión",
             "fr-FR": "Bonne explosion",
             "ja-JP": "いい爆発",
@@ -466,8 +477,8 @@ const constantValues =
             "zh-CN": "有益爆炸"
         },
         "GOOD_PICKUP_EFFECT": {
-            "en-US": "Good Pickup Effect",
             "guid": "00000000BC19",
+            "en-US": "Good Pickup Effect",
             "es-MX": "Buen efecto de captura",
             "fr-FR": "Bon effet de ramassage",
             "ja-JP": "いいピックアップ効果",
@@ -475,8 +486,8 @@ const constantValues =
             "zh-CN": "有益选择效果 "
         },
         "RING_EXPLOSION": {
-            "en-US": "Ring Explosion",
             "guid": "00000000BC1B",
+            "en-US": "Ring Explosion",
             "es-MX": "Explosión en anillo",
             "fr-FR": "Explosion concentrique",
             "ja-JP": "リングの爆発",
@@ -484,8 +495,8 @@ const constantValues =
             "zh-CN": "环状爆炸"
         },
         "RING_EXPLOSION_SOUND": {
-            "en-US": "Ring Explosion Sound",
             "guid": "00000000C3FF",
+            "en-US": "Ring Explosion Sound",
             "es-MX": "Sonido de explosión en anillo",
             "fr-FR": "Son d’explosion concentrique",
             "ja-JP": "爆発音（リング）",
@@ -495,8 +506,8 @@ const constantValues =
     },
     "Effect": {
         "BAD_AURA": {
-            "en-US": "Bad Aura",
             "guid": "00000000BC17",
+            "en-US": "Bad Aura",
             "es-MX": "Mala Aura",
             "fr-FR": "Mauvaise aura",
             "ja-JP": "悪いオーラ",
@@ -504,8 +515,8 @@ const constantValues =
             "zh-CN": "有害光环"
         },
         "BAD_AURA_SOUND": {
-            "en-US": "Bad Aura Sound",
             "guid": "00000000C4DA",
+            "en-US": "Bad Aura Sound",
             "es-MX": "Sonido de aura mala",
             "fr-FR": "Son de mauvaise aura",
             "ja-JP": "悪いオーラ音",
@@ -513,8 +524,8 @@ const constantValues =
             "zh-CN": "负面光环音效"
         },
         "BEACON_SOUND": {
-            "en-US": "Beacon Sound",
             "guid": "00000000C4D3",
+            "en-US": "Beacon Sound",
             "es-MX": "Sonido de baliza",
             "fr-FR": "Son de balise",
             "ja-JP": "ビーコン音",
@@ -531,8 +542,8 @@ const constantValues =
             "zh-CN": "云"
         },
         "DECAL_SOUND": {
-            "en-US": "Decal Sound",
             "guid": "00000000C4D4",
+            "en-US": "Decal Sound",
             "es-MX": "Sonido de calcomanía",
             "fr-FR": "Son de décal",
             "ja-JP": "デカール音",
@@ -540,8 +551,8 @@ const constantValues =
             "zh-CN": "诱饵声音"
         },
         "ENERGY_SOUND": {
-            "en-US": "Energy Sound",
             "guid": "00000000C3FC",
+            "en-US": "Energy Sound",
             "es-MX": "Sonido de energía",
             "fr-FR": "Son de l’énergie",
             "ja-JP": "エネルギー音",
@@ -549,8 +560,8 @@ const constantValues =
             "zh-CN": "能量声音"
         },
         "GOOD_AURA": {
-            "en-US": "Good Aura",
             "guid": "00000000BC13",
+            "en-US": "Good Aura",
             "es-MX": "Buena aura",
             "fr-FR": "Bonne aura",
             "ja-JP": "いいオーラ",
@@ -558,8 +569,8 @@ const constantValues =
             "zh-CN": "有益光环"
         },
         "GOOD_AURA_SOUND": {
-            "en-US": "Good Aura Sound",
             "guid": "00000000C4D8",
+            "en-US": "Good Aura Sound",
             "es-MX": "Sonido de aura buena",
             "fr-FR": "Son de bonne aura",
             "ja-JP": "いいオーラ音",
@@ -567,8 +578,8 @@ const constantValues =
             "zh-CN": "有益光环声音"
         },
         "LIGHT_SHAFT": {
-            "en-US": "Light Shaft",
             "guid": "00000000B934",
+            "en-US": "Light Shaft",
             "es-MX": "Haz de luz",
             "fr-FR": "Puits de lumière",
             "ja-JP": "光の筋",
@@ -585,8 +596,8 @@ const constantValues =
             "zh-CN": "球"
         },
         "PICKUP_SOUND": {
-            "en-US": "Pick-up Sound",
             "guid": "00000000C4D9",
+            "en-US": "Pick-up Sound",
             "es-MX": "Sonido de objeto recogido",
             "fr-FR": "Son de ramassage",
             "ja-JP": "ピックアップ音",
@@ -594,8 +605,8 @@ const constantValues =
             "zh-CN": "拾取音效"
         },
         "RING": {
-            "en-US": "Ring",
             "guid": "00000000BC16",
+            "en-US": "Ring",
             "es-MX": "Anillo",
             "fr-FR": "Anneau",
             "ja-JP": "リング",
@@ -603,8 +614,8 @@ const constantValues =
             "zh-CN": "环"
         },
         "SMOKE_SOUND": {
-            "en-US": "Smoke Sound",
             "guid": "00000000C4D5",
+            "en-US": "Smoke Sound",
             "es-MX": "Sonido de humo",
             "fr-FR": "Son de la fumée",
             "ja-JP": "スモーク音",
@@ -621,8 +632,8 @@ const constantValues =
             "zh-CN": "火花"
         },
         "SPARKLES_SOUND": {
-            "en-US": "Sparkles Sound",
             "guid": "00000000C4D6",
+            "en-US": "Sparkles Sound",
             "es-MX": "Sonido de chispas",
             "fr-FR": "Son des étincelles",
             "ja-JP": "スパークル音",
@@ -641,8 +652,8 @@ const constantValues =
     },
     "Comms": {
         "ACKNOWLEDGE": {
-            "en-US": "Acknowledge",
             "guid": "00000000B9D5",
+            "en-US": "Acknowledge",
             "es-MX": "De acuerdo",
             "fr-FR": "Bien reçu",
             "ja-JP": "了解",
@@ -677,8 +688,8 @@ const constantValues =
             "zh-CN": "表情（右）"
         },
         "EMOTE_UP": {
-            "en-US": "Emote Up",
             "guid": "00000000B9DE",
+            "en-US": "Emote Up",
             "es-MX": "Gesto hacia arriba",
             "fr-FR": "Emote haut",
             "ja-JP": "エモート上",
@@ -686,8 +697,8 @@ const constantValues =
             "zh-CN": "表情（上）"
         },
         "GROUP_UP": {
-            "en-US": "Group Up",
             "guid": "00000000B9D7",
+            "en-US": "Group Up",
             "es-MX": "Agrúpense",
             "fr-FR": "Regroupement",
             "ja-JP": "集合",
@@ -704,8 +715,8 @@ const constantValues =
             "zh-CN": "问候"
         },
         "NEED_HEALING": {
-            "en-US": "Need Healing",
             "guid": "00000000B9D8",
+            "en-US": "Need Healing",
             "es-MX": "Necesito sanación",
             "fr-FR": "Besoin de soins",
             "ja-JP": "回復が必要",
@@ -722,8 +733,8 @@ const constantValues =
             "zh-CN": "感谢"
         },
         "ULTIMATE_STATUS": {
-            "en-US": "Ultimate Status",
             "guid": "00000000B9DA",
+            "en-US": "Ultimate Status",
             "es-MX": "Estado de habilidad máxima",
             "fr-FR": "Statut de l’ulti",
             "ja-JP": "アルティメットの状態",
@@ -731,8 +742,8 @@ const constantValues =
             "zh-CN": "终极技能状态"
         },
         "VOICE_LINE_DOWN": {
-            "en-US": "Voice Line Down",
             "guid": "00000000B9DF",
+            "en-US": "Voice Line Down",
             "es-MX": "Línea de voz hacia abajo",
             "fr-FR": "Réplique bas",
             "ja-JP": "ボイス・ライン下",
@@ -740,8 +751,8 @@ const constantValues =
             "zh-CN": "语音（下）"
         },
         "VOICE_LINE_LEFT": {
-            "en-US": "Voice Line Left",
             "guid": "00000000B9E1",
+            "en-US": "Voice Line Left",
             "es-MX": "Línea de voz hacia la izquierda",
             "fr-FR": "Réplique gauche",
             "ja-JP": "ボイス・ライン左",
@@ -749,8 +760,8 @@ const constantValues =
             "zh-CN": "语音（左）"
         },
         "VOICE_LINE_RIGHT": {
-            "en-US": "Voice Line Right",
             "guid": "00000000B9E0",
+            "en-US": "Voice Line Right",
             "es-MX": "Línea de voz hacia la derecha",
             "fr-FR": "Réplique droite",
             "ja-JP": "ボイス・ライン右",
@@ -758,8 +769,8 @@ const constantValues =
             "zh-CN": "语音（右）"
         },
         "VOICE_LINE_UP": {
-            "en-US": "Voice Line Up",
             "guid": "00000000B9E2",
+            "en-US": "Voice Line Up",
             "es-MX": "Línea de voz hacia arriba",
             "fr-FR": "Réplique haut",
             "ja-JP": "ボイス・ライン上",
@@ -770,8 +781,8 @@ const constantValues =
     "Icon": {
         "ARROW_DOWN": {
             "description": "![](https://i.imgur.com/hych4AE.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Arrow: Down",
             "guid": "00000000C2C9",
+            "en-US": "Arrow: Down",
             "es-MX": "Flecha: Hacia abajo",
             "fr-FR": "Flèche bas",
             "ja-JP": "矢印:下",
@@ -780,8 +791,8 @@ const constantValues =
         },
         "ARROW_LEFT": {
             "description": "![](https://i.imgur.com/jgpW0Nb.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Arrow: Left",
             "guid": "00000000C2CA",
+            "en-US": "Arrow: Left",
             "es-MX": "Flecha: Hacia la izquierda",
             "fr-FR": "Flèche gauche",
             "ja-JP": "矢印:左",
@@ -790,8 +801,8 @@ const constantValues =
         },
         "ARROW_RIGHT": {
             "description": "![](https://i.imgur.com/0BttENZ.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Arrow: Right",
             "guid": "00000000C2CB",
+            "en-US": "Arrow: Right",
             "es-MX": "Flecha: Hacia la derecha",
             "fr-FR": "Flèche droite",
             "ja-JP": "矢印:右",
@@ -800,8 +811,8 @@ const constantValues =
         },
         "ARROW_UP": {
             "description": "![](https://i.imgur.com/Pr86Pcf.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Arrow: Up",
             "guid": "00000000C2CC",
+            "en-US": "Arrow: Up",
             "es-MX": "Flecha: Hacia arriba",
             "fr-FR": "Flèche haut",
             "ja-JP": "矢印:上",
@@ -810,8 +821,8 @@ const constantValues =
         },
         "ASTERISK": {
             "description": "![](https://i.imgur.com/XTvINuC.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Asterisk",
             "guid": "00000000C2CD",
+            "en-US": "Asterisk",
             "es-MX": "Asterisco",
             "fr-FR": "Astérisque",
             "ja-JP": "アスタリスク",
@@ -820,8 +831,8 @@ const constantValues =
         },
         "BOLT": {
             "description": "![](https://i.imgur.com/ekbDxsT.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Bolt",
             "guid": "00000000C2CE",
+            "en-US": "Bolt",
             "es-MX": "Rayo",
             "fr-FR": "Boulon",
             "ja-JP": "雷光の弓",
@@ -830,8 +841,8 @@ const constantValues =
         },
         "CHECKMARK": {
             "description": "![](https://i.imgur.com/B7V240H.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Checkmark",
             "guid": "00000000C2CF",
+            "en-US": "Checkmark",
             "es-MX": "Marca de control",
             "fr-FR": "Point d’exclamation",
             "ja-JP": "チェックマーク",
@@ -880,8 +891,8 @@ const constantValues =
         },
         "EXCLAMATION_MARK": {
             "description": "![](https://i.imgur.com/1rBcHfz.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Exclamation Mark",
             "guid": "00000000C2D4",
+            "en-US": "Exclamation Mark",
             "es-MX": "Signo de exclamación",
             "fr-FR": "Point d’exclamation",
             "ja-JP": "エクスクラメーションマーク",
@@ -890,18 +901,18 @@ const constantValues =
         },
         "EYE": {
             "description": "![](https://i.imgur.com/pVMPtoH.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Eye",
             "guid": "00000000C2D5",
+            "en-US": "Eye",
             "es-MX": "Ojo",
             "fr-FR": "Œil",
-            "ja-JP": "の眼差し",
+            "ja-JP": "眼差し",
             "pt-BR": "Olho",
             "zh-CN": "眼睛"
         },
         "FIRE": {
             "description": "![](https://i.imgur.com/m3As7B0.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Fire",
             "guid": "00000000C2D6",
+            "en-US": "Fire",
             "es-MX": "Fuego",
             "fr-FR": "Flamme",
             "ja-JP": "砲撃",
@@ -910,8 +921,8 @@ const constantValues =
         },
         "FLAG": {
             "description": "![](https://i.imgur.com/v30lUgy.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Flag",
             "guid": "00000000C2F0",
+            "en-US": "Flag",
             "es-MX": "Bandera",
             "fr-FR": "Drapeau",
             "ja-JP": "通報",
@@ -928,8 +939,8 @@ const constantValues =
         },
         "HAPPY": {
             "description": "![](https://i.imgur.com/CNwSwb1.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Happy",
             "guid": "00000000C2D8",
+            "en-US": "Happy",
             "es-MX": "Feliz",
             "fr-FR": "Smiley content",
             "ja-JP": "ハッピー",
@@ -967,8 +978,8 @@ const constantValues =
         },
         "PLUS": {
             "description": "![](https://i.imgur.com/OLARJ80.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Plus",
             "guid": "00000000C2DC",
+            "en-US": "Plus",
             "es-MX": "Signo de suma",
             "ja-JP": "プラス",
             "pt-BR": "Mais",
@@ -976,8 +987,8 @@ const constantValues =
         },
         "POISON": {
             "description": "![](https://i.imgur.com/w2gsTiI.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Poison",
             "guid": "00000000C2DD",
+            "en-US": "Poison",
             "es-MX": "Veneno",
             "ja-JP": "ポイズン",
             "pt-BR": "Veneno",
@@ -985,8 +996,8 @@ const constantValues =
         },
         "POISON_2": {
             "description": "![](https://i.imgur.com/UWmyDg2.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Poison 2",
             "guid": "00000000C2DE",
+            "en-US": "Poison 2",
             "es-MX": "Veneno 2",
             "fr-FR": "Poison 2",
             "ja-JP": "ポイズン2",
@@ -995,8 +1006,8 @@ const constantValues =
         },
         "QUESTION_MARK": {
             "description": "![](https://i.imgur.com/CZBV4tx.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Question Mark",
             "guid": "00000000C2DF",
+            "en-US": "Question Mark",
             "es-MX": "Signo de interrogación",
             "fr-FR": "Point d’interrogation",
             "ja-JP": "クエスチョンマーク",
@@ -1005,8 +1016,8 @@ const constantValues =
         },
         "RADIOACTIVE": {
             "description": "![](https://i.imgur.com/R1bnNcl.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Radioactive",
             "guid": "00000000C2E4",
+            "en-US": "Radioactive",
             "es-MX": "Radiactivo",
             "fr-FR": "Radioactif",
             "ja-JP": "レディオアクティブ",
@@ -1015,8 +1026,8 @@ const constantValues =
         },
         "RECYCLE": {
             "description": "![](https://i.imgur.com/q2fxb2u.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Recycle",
             "guid": "00000000C2E5",
+            "en-US": "Recycle",
             "es-MX": "Reciclaje",
             "fr-FR": "Recyclage",
             "ja-JP": "リサイクル",
@@ -1025,8 +1036,8 @@ const constantValues =
         },
         "RING_THICK": {
             "description": "![](https://i.imgur.com/lTwuAjX.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Ring Thick",
             "guid": "00000000C2E6",
+            "en-US": "Ring Thick",
             "es-MX": "Anillo grueso",
             "fr-FR": "Anneau épais",
             "ja-JP": "リング太",
@@ -1035,8 +1046,8 @@ const constantValues =
         },
         "RING_THIN": {
             "description": "![](https://i.imgur.com/NDOrzVS.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Ring Thin",
             "guid": "00000000C2E7",
+            "en-US": "Ring Thin",
             "es-MX": "Anillo delgado",
             "fr-FR": "Anneau fin",
             "ja-JP": "リング細",
@@ -1045,8 +1056,8 @@ const constantValues =
         },
         "SAD": {
             "description": "![](https://i.imgur.com/00jyB4n.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Sad",
             "guid": "00000000C2E8",
+            "en-US": "Sad",
             "es-MX": "Triste",
             "fr-FR": "Smiley triste",
             "ja-JP": "サッド",
@@ -1075,8 +1086,8 @@ const constantValues =
         },
         "SPIRAL": {
             "description": "![](https://i.imgur.com/TQLGPww.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Spiral",
             "guid": "00000000C2EB",
+            "en-US": "Spiral",
             "es-MX": "Espiral",
             "fr-FR": "Spirale",
             "ja-JP": "螺旋を描く",
@@ -1094,8 +1105,8 @@ const constantValues =
         },
         "TRASHCAN": {
             "description": "![](https://i.imgur.com/iEtFvyC.jpg) \n\n \n\n \n\n \n\n ",
-            "en-US": "Trashcan",
             "guid": "00000000C2ED",
+            "en-US": "Trashcan",
             "es-MX": "Tacho de basura",
             "fr-FR": "Poubelle",
             "ja-JP": "ゴミ箱",
@@ -1121,8 +1132,8 @@ const constantValues =
     },
     "Relativity": {
         "TO_PLAYER": {
-            "en-US": "To Player",
             "guid": "00000000B16F",
+            "en-US": "To Player",
             "es-MX": "Al jugador",
             "fr-FR": "Au joueur",
             "ja-JP": "対プレイヤー: ",
@@ -1130,8 +1141,8 @@ const constantValues =
             "zh-CN": "至玩家"
         },
         "TO_WORLD": {
-            "en-US": "To World",
             "guid": "00000000B170",
+            "en-US": "To World",
             "es-MX": "Al mundo",
             "fr-FR": "Au monde",
             "ja-JP": "対ワールド: ",
@@ -1141,8 +1152,8 @@ const constantValues =
     },
     "Impulse": {
         "CANCEL_CONTRARY_MOTION": {
-            "en-US": "Cancel Contrary Motion",
             "guid": "00000000B520",
+            "en-US": "Cancel Contrary Motion",
             "es-MX": "Cancelar movimiento contrario",
             "fr-FR": "Annuler le mouvement contraire",
             "ja-JP": "逆モーションをキャンセル",
@@ -1150,8 +1161,8 @@ const constantValues =
             "zh-CN": "取消相反运动"
         },
         "INCORPORATE_CONTRARY_MOTION": {
-            "en-US": "Incorporate Contrary Motion",
             "guid": "00000000B521",
+            "en-US": "Incorporate Contrary Motion",
             "es-MX": "Incorporar movimiento contrario",
             "fr-FR": "Incorporer un mouvement contraire",
             "ja-JP": "逆モーションを組み込む",
@@ -1159,34 +1170,34 @@ const constantValues =
             "zh-CN": "合并相反运动"
         }
     },
-    "_Rounding": {	
-        "_roundUp": {	
-            "guid": "00000000C34F",	
-            "en-US": "Up",	
-            "es-MX": "Hacia arriba",	
-            "fr-FR": "Au-dessus",	
-            "ja-JP": "上",	
-            "pt-BR": "Cima",	
-            "zh-CN": "上"	
-        },	
-        "_roundDown": {	
-            "guid": "00000000C34E",	
-            "en-US": "Down",	
-            "es-MX": "Hacia abajo",	
-            "fr-FR": "En dessous",	
-            "ja-JP": "下",	
-            "pt-BR": "Baixo",	
-            "zh-CN": "下"	
-        },	
-        "_roundToNearest": {	
-            "en-US": "To Nearest",	
-            "guid": "00000000C34D",	
-            "es-MX": "Al más cercano",	
-            "fr-FR": "Au plus près",	
-            "ja-JP": "最も近い数値へ",	
-            "pt-BR": "Ao Mais Próximo",	
-            "zh-CN": "至最近"	
-        }	
+    "_Rounding": {
+        "_roundUp": {
+            "guid": "00000000C34F",
+            "en-US": "Up",
+            "es-MX": "Hacia arriba",
+            "fr-FR": "Au-dessus",
+            "ja-JP": "上",
+            "pt-BR": "Cima",
+            "zh-CN": "上"
+        },
+        "_roundDown": {
+            "guid": "00000000C34E",
+            "en-US": "Down",
+            "es-MX": "Hacia abajo",
+            "fr-FR": "En dessous",
+            "ja-JP": "下",
+            "pt-BR": "Baixo",
+            "zh-CN": "下"
+        },
+        "_roundToNearest": {
+            "guid": "00000000C34D",
+            "en-US": "To Nearest",
+            "es-MX": "Al más cercano",
+            "fr-FR": "Au plus près",
+            "ja-JP": "最も近い数値へ",
+            "pt-BR": "Ao Mais Próximo",
+            "zh-CN": "至最近"
+        }
     },
     "LosCheck": {
         "OFF": {
@@ -1194,21 +1205,21 @@ const constantValues =
             "en-US": "Off",
             "es-MX": "Apagado",
             "fr-FR": "Désactivé",
-            "ja-JP": "オフ",
+            "ja-JP": "OFF",
             "pt-BR": "Desligado",
             "zh-CN": "关闭"
         },
         "SURFACES": {
-            "en-US": "Surfaces",
             "guid": "00000000B1E3",
+            "en-US": "Surfaces",
             "es-MX": "Superficies",
             "ja-JP": "表面",
             "pt-BR": "Superfícies",
             "zh-CN": "表面"
         },
         "SURFACES_AND_ALL_BARRIERS": {
-            "en-US": "Surfaces And All Barriers",
             "guid": "00000000B1E5",
+            "en-US": "Surfaces And All Barriers",
             "es-MX": "Superficies y todas las barreras",
             "fr-FR": "Surfaces et toutes les barrières",
             "ja-JP": "表面とすべてのバリア",
@@ -1216,8 +1227,8 @@ const constantValues =
             "zh-CN": "表面及全部屏障"
         },
         "SURFACES_AND_ENEMY_BARRIERS": {
-            "en-US": "Surfaces And Enemy Barriers",
             "guid": "00000000B1E4",
+            "en-US": "Surfaces And Enemy Barriers",
             "es-MX": "Superficies y barreras enemigas",
             "fr-FR": "Surfaces et barrières ennemies",
             "ja-JP": "表面と敵のバリア",
@@ -1227,8 +1238,8 @@ const constantValues =
     },
     "Clip": {
         "SURFACES": {
-            "en-US": "Clip Against Surfaces",
             "guid": "00000000BAF5",
+            "en-US": "Clip Against Surfaces",
             "es-MX": "Atravesar las superficies",
             "fr-FR": "Masquer derrière les surfaces",
             "ja-JP": "表面に対してクリップ",
@@ -1236,8 +1247,8 @@ const constantValues =
             "zh-CN": "根据表面截取"
         },
         "NONE": {
-            "en-US": "Do Not Clip",
             "guid": "00000000BAF4",
+            "en-US": "Do Not Clip",
             "es-MX": "No atravesar",
             "fr-FR": "Ne pas masquer",
             "ja-JP": "クリップしない",
@@ -1256,8 +1267,8 @@ const constantValues =
             "zh-CN": "左边"
         },
         "TOP": {
-            "en-US": "Top",
             "guid": "00000000BAF7",
+            "en-US": "Top",
             "es-MX": "Arriba",
             "fr-FR": "Haut",
             "ja-JP": "トップ",
@@ -1289,6 +1300,7 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
+            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
@@ -1302,8 +1314,8 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_POSITION": {
-            "en-US": "Visible To and Position",
             "guid": "00000000B8D9",
+            "en-US": "Visible To and Position",
             "es-MX": "Visible para y posición",
             "fr-FR": "Visible pour et Position",
             "ja-JP": "表示される相手、位置",
@@ -1313,8 +1325,8 @@ const constantValues =
     },
     "EffectReeval": {
         "POSITION_AND_RADIUS": {
-            "en-US": "Position and Radius",
             "guid": "00000000B8C5",
+            "en-US": "Position and Radius",
             "es-MX": "Posición y radio",
             "fr-FR": "Position et Rayon",
             "ja-JP": "位置と範囲",
@@ -1327,6 +1339,7 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
+            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
@@ -1359,8 +1372,8 @@ const constantValues =
             "zh-CN": "字符串"
         },
         "VISIBILITY_AND_STRING": {
-            "en-US": "Visible To and String",
             "guid": "00000000BA8C",
+            "en-US": "Visible To and String",
             "es-MX": "Visible para y cadena",
             "fr-FR": "Visible pour et Chaîne de texte",
             "ja-JP": "表示される相手、文字列",
@@ -1378,8 +1391,8 @@ const constantValues =
             "zh-CN": "字符串"
         },
         "VISIBILITY_AND_STRING": {
-            "en-US": "Visible To and String",
             "guid": "00000000BA8C",
+            "en-US": "Visible To and String",
             "es-MX": "Visible para y cadena",
             "fr-FR": "Visible pour et Chaîne de texte",
             "ja-JP": "表示される相手、文字列",
@@ -1398,8 +1411,8 @@ const constantValues =
     },
     "_ChaseRateReeval": {
         "DESTINATION_AND_RATE": {
-            "en-US": "Destination and Rate",
             "guid": "00000000B8CA",
+            "en-US": "Destination and Rate",
             "es-MX": "Destino y tasa",
             "fr-FR": "Destination et Taux",
             "ja-JP": "目的とレート",
@@ -1412,14 +1425,15 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
+            "pl-PL": "Brak",
             "pt-BR": "Nenhuma",
             "zh-CN": "全部禁用"
         }
     },
     "_ChaseTimeReeval": {
         "DESTINATION_AND_DURATION": {
-            "en-US": "Destination and Duration",
             "guid": "00000000C479",
+            "en-US": "Destination and Duration",
             "es-MX": "Destino y duración",
             "fr-FR": "Destination et Durée",
             "ja-JP": "目的と持続時間",
@@ -1432,6 +1446,7 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
+            "pl-PL": "Brak",
             "pt-BR": "Nenhuma",
             "zh-CN": "全部禁用"
         }
@@ -1443,12 +1458,13 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucun",
             "ja-JP": "なし",
+            "pl-PL": "Brak",
             "pt-BR": "Nenhuma",
             "zh-CN": "无"
         },
         "RECEIVERS_AND_DAMAGERS": {
-            "en-US": "Receivers and Damagers",
             "guid": "00000000C644",
+            "en-US": "Receivers and Damagers",
             "es-MX": "Receptores e infligidores de daño",
             "fr-FR": "Récepteurs et émetteurs de dégâts",
             "ja-JP": "レシーバーとダメージャー",
@@ -1467,19 +1483,38 @@ const constantValues =
     },
     "HealingReeval": {
         "NONE": {
-            "en-US": "None"
+            "guid": "00000000FD25",
+            "en-US": "None",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "ja-JP": "なし",
+            "pl-PL": "Brak",
+            "pt-BR": "Nenhum",
+            "zh-CN": "全部禁用"
         },
         "RECEIVERS_AND_HEALERS": {
-            "en-US": "Receivers and Healers"
+            "guid": "00000000FD26",
+            "en-US": "Receivers and Healers",
+            "es-MX": "Receptores y sanadores",
+            "fr-FR": "Récepteurs de soins et soigneurs",
+            "ja-JP": "レシーバーとヒーラー",
+            "pt-BR": "Receptores e Curandeiros",
+            "zh-CN": "受治疗者和治疗者"
         },
         "RECEIVERS_HEALERS_AND_HEALPERCENT": {
-            "en-US": "Receivers Healers and Healing Percent"
+            "guid": "00000000FD27",
+            "en-US": "Receivers Healers and Healing Percent",
+            "es-MX": "Receptores sanadores y porcentaje de sanación",
+            "fr-FR": "Récepteurs de soins soigneurs et pourcentage de soins",
+            "ja-JP": "レシーバー、ヒーラー、回復量のパーセンテージ",
+            "pt-BR": "Receptores Curandeiros e percentual de cura",
+            "zh-CN": "受治疗者，治疗者及治疗百分比"
         }
     },
     "FacingReeval": {
         "DIRECTION_AND_TURN_RATE": {
-            "en-US": "Direction and Turn Rate",
             "guid": "00000000BB1F",
+            "en-US": "Direction and Turn Rate",
             "es-MX": "Dirección y velocidad de giro",
             "fr-FR": "Direction et Taux de rotation",
             "ja-JP": "方向と回転レート",
@@ -1492,14 +1527,15 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
+            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         }
     },
     "Wait": {
         "ABORT_WHEN_FALSE": {
-            "en-US": "Abort When False",
             "guid": "00000000787D",
+            "en-US": "Abort When False",
             "es-ES": "Abortar cuando sea falso",
             "es-MX": "Cancelar cuando es falso",
             "fr-FR": "Interrompre quand faux",
@@ -1510,8 +1546,8 @@ const constantValues =
             "zh-CN": "当为“假”时中止"
         },
         "IGNORE_CONDITION": {
-            "en-US": "Ignore Condition",
             "guid": "00000000787C",
+            "en-US": "Ignore Condition",
             "es-ES": "Ignorar condición",
             "es-MX": "Ignorar condición",
             "fr-FR": "Ignorer la condition",
@@ -1522,8 +1558,8 @@ const constantValues =
             "zh-CN": "无视条件"
         },
         "RESTART_WHEN_TRUE": {
-            "en-US": "Restart When True",
             "guid": "00000000787E",
+            "en-US": "Restart When True",
             "es-ES": "Reiniciar cuando sea verdadero",
             "es-MX": "Reiniciar cuando es verdadero",
             "fr-FR": "Redémarrer quand vrai",
@@ -1536,8 +1572,8 @@ const constantValues =
     },
     "BarrierLos": {
         "BLOCKED_BY_ENEMY_BARRIERS": {
-            "en-US": "Enemy Barriers Block LOS",
             "guid": "00000000B1EE",
+            "en-US": "Enemy Barriers Block LOS",
             "es-MX": "Las barreras enemigas bloquean la LDV",
             "fr-FR": "Les barrières ennemies bloquent la ligne de vue",
             "ja-JP": "敵のバリアが射線を妨げる",
@@ -1545,8 +1581,8 @@ const constantValues =
             "zh-CN": "敌方屏障阻挡视线"
         },
         "BLOCKED_BY_ALL_BARRIERS": {
-            "en-US": "All Barriers Block LOS",
             "guid": "00000000B1EF",
+            "en-US": "All Barriers Block LOS",
             "es-MX": "Todas las barreras bloquean la LDV",
             "fr-FR": "Toutes les barrières bloquent la ligne de vue",
             "ja-JP": "すべてのバリアが射線を妨げる",
@@ -1554,8 +1590,8 @@ const constantValues =
             "zh-CN": "所有屏障阻挡视线"
         },
         "PASS_THROUGH_BARRIERS": {
-            "en-US": "Barriers Do Not Block LOS",
             "guid": "00000000B1ED",
+            "en-US": "Barriers Do Not Block LOS",
             "es-MX": "Las barreras no bloquean la LDV",
             "fr-FR": "Les barrières ne bloquent pas la ligne de vue",
             "ja-JP": "バリアは射線を妨げない",
@@ -1565,8 +1601,8 @@ const constantValues =
     },
     "Status": {
         "ASLEEP": {
-            "en-US": "Asleep",
             "guid": "00000000B36A",
+            "en-US": "Asleep",
             "es-MX": "Dormido",
             "fr-FR": "Endormi",
             "ja-JP": "眠っている",
@@ -1601,16 +1637,16 @@ const constantValues =
             "zh-CN": "被入侵"
         },
         "INVINCIBLE": {
-            "en-US": "Invincible",
             "guid": "00000000B367",
+            "en-US": "Invincible",
             "es-MX": "Invencible",
             "ja-JP": "無敵",
             "pt-BR": "Invencível",
             "zh-CN": "无敌"
         },
         "KNOCKED_DOWN": {
-            "en-US": "Knocked Down",
             "guid": "00000000B36B",
+            "en-US": "Knocked Down",
             "es-MX": "Derribado",
             "fr-FR": "Renversé",
             "ja-JP": "ノックダウンされている",
@@ -1618,8 +1654,8 @@ const constantValues =
             "zh-CN": "击倒"
         },
         "PHASED_OUT": {
-            "en-US": "Phased Out",
             "guid": "00000000B366",
+            "en-US": "Phased Out",
             "es-MX": "Forma etérea",
             "fr-FR": "Déphasé",
             "ja-JP": "フェーズアウト中",
@@ -1627,8 +1663,8 @@ const constantValues =
             "zh-CN": "消散"
         },
         "ROOTED": {
-            "en-US": "Rooted",
             "guid": "00000000B365",
+            "en-US": "Rooted",
             "es-MX": "Arraigado",
             "fr-FR": "Immobilisé",
             "ja-JP": "固定されている",
@@ -1645,8 +1681,8 @@ const constantValues =
             "zh-CN": "昏迷"
         },
         "UNKILLABLE": {
-            "en-US": "Unkillable",
             "guid": "00000000B368",
+            "en-US": "Unkillable",
             "es-MX": "Inmortal",
             "fr-FR": "Intuable",
             "ja-JP": "キル不可",
@@ -1656,8 +1692,8 @@ const constantValues =
     },
     "SpecVisibility": {
         "DEFAULT": {
-            "en-US": "Default Visibility",
             "guid": "00000000CE55",
+            "en-US": "Default Visibility",
             "es-MX": "Visibilidad predeterminada",
             "fr-FR": "Visibilité par défaut",
             "ja-JP": "デフォルト表示",
@@ -1666,8 +1702,8 @@ const constantValues =
             "zh-CN": "默认可见度"
         },
         "ALWAYS": {
-            "en-US": "Visible Always",
             "guid": "00000000CE56",
+            "en-US": "Visible Always",
             "es-MX": "Siempre visible",
             "fr-FR": "Toujours visible",
             "ja-JP": "常に表示",
@@ -1676,8 +1712,8 @@ const constantValues =
             "zh-CN": "始终可见"
         },
         "NEVER": {
-            "en-US": "Visible Never",
             "guid": "00000000CE57",
+            "en-US": "Visible Never",
             "es-MX": "Nunca visible",
             "fr-FR": "Jamais visible",
             "ja-JP": "表示されない",
@@ -1688,8 +1724,8 @@ const constantValues =
     },
     "Beam": {
         "BAD": {
-            "en-US": "Bad Beam",
             "guid": "00000000CE85",
+            "en-US": "Bad Beam",
             "es-MX": "Rayo malo",
             "fr-FR": "Mauvais rayon",
             "ja-JP": "マイナス効果のビーム",
@@ -1698,8 +1734,8 @@ const constantValues =
             "zh-CN": "有害光束"
         },
         "GOOD": {
-            "en-US": "Good Beam",
             "guid": "00000000CE84",
+            "en-US": "Good Beam",
             "es-MX": "Rayo bueno",
             "fr-FR": "Bon rayon",
             "ja-JP": "プラス効果のビーム",
@@ -1708,8 +1744,8 @@ const constantValues =
             "zh-CN": "有益光束"
         },
         "GRAPPLE": {
-            "en-US": "Grapple Beam",
             "guid": "00000000CE9D",
+            "en-US": "Grapple Beam",
             "es-MX": "Rayo de arpeo",
             "fr-FR": "Rayon du grappin",
             "ja-JP": "グラップリング・ビーム",
@@ -1720,8 +1756,8 @@ const constantValues =
     },
     "Throttle": {
         "REPLACE_EXISTING": {
-            "en-US": "Replace existing throttle",
             "guid": "00000000CEB0",
+            "en-US": "Replace existing throttle",
             "es-MX": "Reemplazar aceleración preexistente",
             "fr-FR": "Remplacer l’accélération existante",
             "ja-JP": "既存のスロットルと入れ替え",
@@ -1730,8 +1766,8 @@ const constantValues =
             "zh-CN": "替换现有阈值"
         },
         "ADD_TO_EXISTING": {
-            "en-US": "Add to existing throttle",
             "guid": "00000000CEB1",
+            "en-US": "Add to existing throttle",
             "es-MX": "Agregar a aceleración preexistente",
             "fr-FR": "Ajouter à l’accélération existante",
             "ja-JP": "既存のスロットルに追加",
@@ -1742,8 +1778,8 @@ const constantValues =
     },
     "ThrottleReeval": {
         "DIRECTION_AND_MAGNITUDE": {
-            "en-US": "Direction and Magnitude",
             "guid": "00000000CEB3",
+            "en-US": "Direction and Magnitude",
             "es-MX": "Dirección y magnitud",
             "fr-FR": "Direction et ampleur",
             "ja-JP": "方向と変化の大きさ",
@@ -1756,7 +1792,6 @@ const constantValues =
             "en-US": "None",
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
-            "it-IT": "Nessuno",
             "ja-JP": "なし",
             "pl-PL": "Brak",
             "pt-BR": "Nenhum",
@@ -1779,16 +1814,29 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
+            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         }
     },
     "AsyncBehavior": {
         "RESTART": {
-            "en-US": "Restart Rule"
+            "guid": "000000010025",
+            "en-US": "Restart Rule",
+            "es-MX": "Reiniciar regla",
+            "fr-FR": "Relancer la règle",
+            "ja-JP": "ルールをやり直す",
+            "pt-BR": "Regra de reinício",
+            "zh-CN": "重新开始规则"
         },
         "NOOP": {
-            "en-US": "Do Nothing"
+            "guid": "000000010026",
+            "en-US": "Do Nothing",
+            "es-MX": "Hacer nada",
+            "fr-FR": "Ne rien faire",
+            "ja-JP": "何もしない",
+            "pt-BR": "Não fazer nada",
+            "zh-CN": "无动作"
         }
     }
 }

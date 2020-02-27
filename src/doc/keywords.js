@@ -21,31 +21,106 @@ const customGameSettingsKw =
 //begin-json
 {
     "_on": {
-        "en-US": "On"
+        "guid": "0000000058E0",
+        "en-US": "On",
+        "de-DE": "Ein",
+        "es-ES": "Activado",
+        "es-MX": "Activado",
+        "fr-FR": "Activé",
+        "ja-JP": "ON",
+        "ko-KR": "활성화",
+        "pl-PL": "Wł.",
+        "pt-BR": "Ligado",
+        "ru-RU": "Вкл.",
+        "zh-CN": "开启",
+        "zh-TW": "開啟"
     },
     "_off": {
+        "guid": "0000000058DF",
         "en-US": "Off",
+        "de-DE": "Aus",
+        "es-ES": "Desactivado",
+        "es-MX": "No",
+        "fr-FR": "Désactivé",
+        "ja-JP": "OFF",
+        "ko-KR": "비활성화",
+        "pl-PL": "Wył.",
+        "pt-BR": "Desligado",
+        "ru-RU": "Откл.",
+        "zh-CN": "关闭",
+        "zh-TW": "關閉"
     },
     "_enabled": {
+        "guid": "0000000058B2",
         "en-US": "Enabled",
+        "de-DE": "Aktiviert",
+        "es-ES": "Permitir",
+        "es-MX": "Habilitado",
+        "fr-FR": "Activé",
+        "it-IT": "On",
+        "ja-JP": "有効",
+        "ko-KR": "활성화",
+        "pl-PL": "Wł.",
+        "pt-BR": "Habilitado",
+        "ru-RU": "Вкл.",
+        "zh-CN": "开启",
+        "zh-TW": "啟用"
     },
     "_disabled": {
-        "en-US": "Disabled"
+        "guid": "0000000058B3",
+        "en-US": "Disabled",
+        "de-DE": "Deaktiviert",
+        "es-ES": "No permitir",
+        "es-MX": "Deshabilitado",
+        "fr-FR": "Désactivé",
+        "it-IT": "Off",
+        "ja-JP": "無効",
+        "ko-KR": "비활성화",
+        "pl-PL": "Wył.",
+        "pt-BR": "Desabilitado",
+        "ru-RU": "Откл.",
+        "zh-CN": "禁用",
+        "zh-TW": "停用"
     },
     "_yes": {
-        "en-US": "Yes"
+        "guid": "0000000058F3",
+        "en-US": "Yes",
+        "de-DE": "Ja",
+        "es-ES": "Sí",
+        "es-MX": "Sí",
+        "fr-FR": "Oui",
+        "it-IT": "On",
+        "ja-JP": "はい",
+        "ko-KR": "필요",
+        "pl-PL": "Tak",
+        "pt-BR": "Sim",
+        "ru-RU": "Да",
+        "zh-CN": "是",
+        "zh-TW": "啟用"
     },
     "_no": {
-        "en-US": "No"
+        "guid": "0000000058F4",
+        "en-US": "No",
+        "de-DE": "Nein",
+        "fr-FR": "Non",
+        "it-IT": "Off",
+        "ja-JP": "いいえ",
+        "ko-KR": "필요 없음",
+        "pl-PL": "Nie",
+        "pt-BR": "Não",
+        "ru-RU": "Нет",
+        "zh-CN": "否",
+        "zh-TW": "停用"
     }
 }
+//end-json
 
 const ruleKw = 
 //begin-json
 {
     "@Rule": {
-        "en-US": "rule",
         "guid": "00000000C7B4",
+        "en-US": "rule",
         "de-DE": "regel",
         "es-MX": "regla",
         "fr-FR": "règle",
@@ -57,8 +132,8 @@ const ruleKw =
         "zh-TW": "規則"
     },
     "@Event": {
-        "en-US": "event",
         "guid": "00000000C7B5",
+        "en-US": "event",
         "es-MX": "evento",
         "fr-FR": "évènement",
         "it-IT": "evento",
@@ -69,8 +144,8 @@ const ruleKw =
         "zh-TW": "事件"
     },
     "_conditions": {
-        "en-US": "conditions",
         "guid": "00000000C7B6",
+        "en-US": "conditions",
         "de-DE": "bedingungen",
         "es-MX": "condiciones",
         "it-IT": "condizioni",
@@ -82,8 +157,8 @@ const ruleKw =
         "zh-TW": "條件"
     },
     "_actions": {
-        "en-US": "actions",
         "guid": "00000000C7B7",
+        "en-US": "actions",
         "de-DE": "aktionen",
         "es-MX": "acciones",
         "it-IT": "azioni",
@@ -95,8 +170,8 @@ const ruleKw =
         "zh-TW": "動作"
     },
     "_disabled": {
-        "en-US": "disabled",
         "guid": "00000000C7B8",
+        "en-US": "disabled",
         "de-DE": "deaktiviert",
         "es-MX": "deshabilitado",
         "fr-FR": "désactivé",
@@ -107,12 +182,9 @@ const ruleKw =
         "zh-CN": "禁用",
         "zh-TW": "停用"
     },
-    "_enabled": {
-        "en-US": "enabled"
-    },
     "_variables": {
-        "en-US": "variables",
         "guid": "00000000EB73",
+        "en-US": "variables",
         "de-DE": "Variablen",
         "it-IT": "variabili",
         "ja-JP": "変数",
@@ -122,8 +194,8 @@ const ruleKw =
         "zh-TW": "變數"
     },
     "_global": {
-        "en-US": "global",
         "guid": "00000000EB74",
+        "en-US": "global",
         "fr-FR": "globale",
         "it-IT": "globale",
         "ja-JP": "グローバル",
@@ -132,8 +204,8 @@ const ruleKw =
         "zh-TW": "全域"
     },
     "_player": {
-        "en-US": "player",
         "guid": "00000000EB75",
+        "en-US": "player",
         "es-ES": "jugador",
         "es-MX": "jugador",
         "fr-FR": "de joueur",
@@ -145,6 +217,7 @@ const ruleKw =
         "zh-TW": "玩家"
     },
     "_subroutines": {
+        "guid": "00000000FFFA",
         "en-US": "subroutines",
         "de-DE": "Subroutinen",
         "es-ES": "subrutinas",
@@ -157,7 +230,18 @@ const ruleKw =
         "zh-CN": "子程序"
     },
     "_settings": {
+        "guid": "000000010030",
         "en-US": "settings",
+        "de-DE": "einstellungen",
+        "es-ES": "ajustes",
+        "es-MX": "configuración",
+        "fr-FR": "paramètres",
+        "it-IT": "impostazioni",
+        "ja-JP": "設定",
+        "pl-PL": "ustawienia",
+        "pt-BR": "configurações",
+        "zh-CN": "设置",
+        "zh-TW": "設定"
     }
 }
 //end-json
@@ -167,8 +251,8 @@ const eventKw =
 //begin-json
 {
     "global": {
-        "en-US": "Ongoing - Global",
         "guid": "000000007895",
+        "en-US": "Ongoing - Global",
         "es-MX": "En curso - Global",
         "fr-FR": "Toute la partie - Tout le monde",
         "ja-JP": "進行中 - グローバル",
@@ -176,8 +260,8 @@ const eventKw =
         "zh-CN": "持续 - 全局"
     },
     "eachPlayer": {
-        "en-US": "Ongoing - Each Player",
         "guid": "000000007897",
+        "en-US": "Ongoing - Each Player",
         "es-MX": "En curso - Cada jugador",
         "fr-FR": "Toute la partie - Chaque joueur",
         "ja-JP": "進行中 - 各プレイヤー",
@@ -185,8 +269,8 @@ const eventKw =
         "zh-CN": "持续 - 每名玩家"
     },
     "playerTookDamage": {
-        "en-US": "Player Took Damage",
         "guid": "00000000B313",
+        "en-US": "Player Took Damage",
         "es-MX": "El jugador recibió daño",
         "fr-FR": "Un joueur subit des dégâts",
         "ja-JP": "プレイヤーがダメージを受けた",
@@ -195,8 +279,8 @@ const eventKw =
         "zh-CN": "玩家受到伤害"
     },
     "playerDealtDamage": {
-        "en-US": "Player Dealt Damage",
         "guid": "00000000B52D",
+        "en-US": "Player Dealt Damage",
         "es-MX": "El jugador infligió daño",
         "fr-FR": "Un joueur inflige des dégâts",
         "ja-JP": "プレイヤーがダメージを与えた",
@@ -205,8 +289,8 @@ const eventKw =
         "zh-CN": "玩家造成伤害"
     },
     "playerDealtFinalBlow": {
-        "en-US": "Player Dealt Final Blow",
         "guid": "0000000078F8",
+        "en-US": "Player Dealt Final Blow",
         "es-MX": "El jugador asestó un golpe de gracia",
         "fr-FR": "Un joueur inflige un coup de grâce",
         "ja-JP": "ファイナル・ブロウを獲得",
@@ -215,8 +299,8 @@ const eventKw =
         "zh-CN": "玩家造成最后一击"
     },
     "playerDied": {
-        "en-US": "Player Died",
         "guid": "00000000B314",
+        "en-US": "Player Died",
         "es-MX": "El jugador murió",
         "fr-FR": "Un joueur meurt",
         "ja-JP": "プレイヤーが倒れた",
@@ -224,8 +308,8 @@ const eventKw =
         "zh-CN": "玩家阵亡"
     },
     "playerEarnedElimination": {
-        "en-US": "Player Earned Elimination",
         "guid": "0000000078F7",
+        "en-US": "Player Earned Elimination",
         "es-MX": "El jugador obtuvo una eliminación",
         "fr-FR": "Un joueur obtient une élimination",
         "ja-JP": "プレイヤーがキルを獲得",
@@ -234,28 +318,28 @@ const eventKw =
         "zh-CN": "玩家参与消灭"
     },
     "playerDealtHealing": {
-        "en-US": "Player Dealt Healing",
         "guid": "00000000CC16",
+        "en-US": "Player Dealt Healing",
         "es-MX": "El jugador realizó una sanación",
         "fr-FR": "Un joueur a prodigué des soins",
-        "ja-JP": "プレイヤーがヒールを与えた",
+        "ja-JP": "プレイヤーが回復を与えた",
         "pl-PL": "Gracz wykonał leczenie",
         "pt-BR": "Jogador Realizou Cura",
         "zh-CN": "玩家造成治疗"
     },
     "playerReceivedHealing": {
-        "en-US": "Player Received Healing",
         "guid": "00000000CC17",
+        "en-US": "Player Received Healing",
         "es-MX": "El jugador recibió una sanación",
         "fr-FR": "Un joueur a reçu des soins",
-        "ja-JP": "プレイヤーがヒールを受けた",
+        "ja-JP": "プレイヤーが回復を受けた",
         "pl-PL": "Gracz otrzymał leczenie",
         "pt-BR": "Jogador Recebeu Cura",
         "zh-CN": "玩家受到治疗"
     },
     "playerJoined": {
-        "en-US": "Player Joined Match",
         "guid": "00000000CC18",
+        "en-US": "Player Joined Match",
         "es-MX": "El jugador se unió a la partida",
         "fr-FR": "Un joueur a rejoint la partie",
         "ja-JP": "プレイヤーがマッチに参加",
@@ -264,8 +348,8 @@ const eventKw =
         "zh-CN": "玩家加入比赛"
     },
     "playerLeft": {
-        "en-US": "Player Left Match",
         "guid": "00000000CC19",
+        "en-US": "Player Left Match",
         "es-MX": "El jugador abandonó la partida",
         "fr-FR": "Un joueur a quitté la partie",
         "ja-JP": "プレイヤーがマッチから離脱",
@@ -274,6 +358,7 @@ const eventKw =
         "zh-CN": "玩家离开比赛"
     },
     "_subroutine": {
+        "guid": "00000000FFF6",
         "en-US": "Subroutine",
         "es-ES": "Subrutina",
         "es-MX": "Subrutina",
