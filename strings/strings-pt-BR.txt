@@ -1,12 +1,12 @@
-[Core] DataTool v1.44.0.860-git-7d5102deb936ed3a32453c8b05dd4a2c9a628126
+[Core] DataTool v1.45.0.863-git-d08b8ee3b6474c6bd141eb865797b12a3bde1d66
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.exe.args
 [CASC] Set language to ptBR
 [CASC] Set speech language to ptBR
-[CASC] Overwatch build 1.44.0.1.66085
+[CASC] Overwatch build 1.45.0.0.66302
 [CASC] Initializing...
-[CMF] Using CMF procedure 65513
-[CMF] Using CMF procedure 65513
+[CMF] Using CMF procedure 66302
+[CMF] Using CMF procedure 66302
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -613,8 +613,6 @@
 0000000005F7.07C: Quando um aliado morre, a localização de seu cadáver é marcada no mundo com seu ícone de herói.
 0000000005F8.07C: Heróis tanque são excelentes para tomar e segurar objetivos no mapa, assim como atrapalhar a formação inimiga.
 0000000005F9.07C: Heróis de suporte protegem e curam seus aliados e também fornecem habilidades utilitárias.
-000000000606.07C: <fg%1$s>ATORDOADO</fg>
-000000000609.07C: <fg%1$s>ATORDOADO</fg>
 000000000641.07C: SELECIONAR HERÓI
 000000000642.07C: PLACAR
 000000000657.07C: |Rpl %1$s:Teletransportador implantado:Teletransportadores implantados;
@@ -969,7 +967,7 @@ HABILIDADE SUPREMA
 000000000DFA.07C: NÍVEL DE DETALHES
 000000000DFB.07C: EXIBIÇÃO ALVO
 000000000DFC.07C: ESCALA DE RENDERIZAÇÃO
-000000000DFF.07C: VSNYC
+000000000DFF.07C: VSYNC
 000000000E00.07C: BUFFERING TRIPLO
 000000000E01.07C: ATIVAR SOMBRAS SIMPLES
 000000000E02.07C: DETALHES DAS SOMBRAS
@@ -1334,8 +1332,8 @@ HABILIDADE SUPREMA
 0000000015AF.07C: DETALHES DO MODELO
 0000000015B0.07C: DETALHES DOS EFEITOS
 0000000015B1.07C: %1$s x %2$s (%3$s)%4$s
-0000000015B8.07C: |Rpl %1$s:Abate:Abates; por Foguetes Hélix - maior número em jogo
-0000000015B9.07C: |Rpl %1$s:Abate:Abates; por Foguetes Hélix
+0000000015B8.07C: |Rpl %1$s:abate:abates; com Foguetes Hélix - maior número em jogo
+0000000015B9.07C: |Rpl %1$s:abate:abates; com Foguetes Hélix
 0000000015BA.07C: |Rpl %1$s:Abate:Abates; por Visor Tático
 0000000015BC.07C: |Rpl %1$s:Abate:Abates; por Visor Tático - maior número em jogo
 0000000015BE.07C: Cura por Transcendência - melhor
@@ -2186,14 +2184,14 @@ Experimente novas maneiras de jogar com uma variada seleção de modos de jogo q
 0000000020C2.07C: %1$s |Rpl Abate:Abates; com energia alta
 0000000020C3.07C: %1$s |Rpl Abate:Abates; com energia alta - maior número em jogo
 0000000020C5.07C: %1$s |Rpl Abate:Abates; por Surto de Grávitons - maior número em jogo
-0000000020C6.07C: %1$s |Rpl Abate:Abates; por Foguetes Hélix - maior número em jogo
+0000000020C6.07C: %1$s |Rpl abate:abates; com Foguetes Hélix - maior número em jogo
 0000000020C7.07C: %1$s |Rpl Abate:Abates; por Surto de Grávitons
 0000000020C9.07C: %1$s Dano bloqueado
 0000000020CB.07C: %1$s Abates em série - melhor
 0000000020CF.07C: %1$s |Rpl Abate:Abates; por Mina Venenosa - maior número em jogo
 0000000020D0.07C: %1$s |Rpl Golpe crítico:Golpes críticos; com mira telescópica - maior número em jogo
 0000000020D2.07C: %1$s Dano Bloqueado - maior número em jogo
-0000000020D3.07C: %1$s |Rpl Abate:Abates; por Foguetes Hélix
+0000000020D3.07C: %1$s |Rpl abate:abates; com Foguetes Hélix
 0000000020D4.07C: %1$s |Rpl Abate:Abates; por Visor Tático
 0000000020D6.07C: %1$s |Rpl Golpe direto:Golpes diretos; de foguete - maior número em jogo
 0000000020D9.07C: %1$s |Rpl Abate:Abates; em modo Tanque - maior número em jogo
@@ -2406,7 +2404,7 @@ Experimente novas maneiras de jogar com uma variada seleção de modos de jogo q
 000000002311.07C: ATACAR
 000000002312.07C: Não foi possível entrar no jogo personalizado. O jogo pode estar cheio.
 000000002313.07C: CANAIS DO MENU SOCIAL
-000000002314.07C: EQUIPE 1
+000000002314.07C: Equipe 1
 000000002315.07C: ESPECTADORES
 000000002317.07C: equipe
 000000002318.07C: grupo
@@ -3709,7 +3707,7 @@ para entrar na partida.
 000000002C05.07C: Falha ao conectar com o servidor do jogo. Tente novamente.
 000000002C0B.07C:  começou a assistir.
 000000002C0D.07C:  (espectador)
-000000002C0E.07C: EQUIPE 2
+000000002C0E.07C: Equipe 2
 000000002C10.07C: SELECIONE UM ITEM DESBLOQUEADO PARA VISUALIZAR!
 000000002C12.07C: Você tem %1$s horas até entrar em um tempo não saudável de jogo, no qual você não receberá experiência ou Caixas de Itens até ter estado offline por 5 horas.
 000000002C13.07C: Você está online há mais de 5 horas. Você está no momento não saudável e não receberá Caixas de Itens nem XP. Seu estado de descanso reiniciará após 5 horas de tempo offline. Por favor, saia do jogo para descansar e exercitar-se.
@@ -3753,29 +3751,29 @@ para entrar na partida.
 000000002C40.07C: HERÓIS
 000000002C41.07C: OPÇÕES DE HERÓI
 000000002C42.07C: MAPAS
-000000002C43.07C: MAPA
-000000002C44.07C: EQUIPE
-000000002C45.07C: BALANCEAMENTO DE EQUIPE
-000000002C46.07C: QUANDO OCORRER BALANCEAMENTO
-000000002C4C.07C: VOLTAR AO LOBBY
-000000002C4D.07C: ORDEM DO MAPA
+000000002C43.07C: Mapa
+000000002C44.07C: Equipe
+000000002C45.07C: Balanceamento de equipe
+000000002C46.07C: Quando ocorrer balanceamento
+000000002C4C.07C: Voltar ao lobby
+000000002C4D.07C: Ordem dos mapas
 000000002C4E.07C: LIMITE DE SELEÇÃO DE FUNÇÃO
 000000002C4F.07C: LIMITE DE SELEÇÃO DE HERÓI
-000000002C52.07C: DESLIGADO
-000000002C54.07C: DEPOIS DE UMA PARTIDA ESPELHO
-000000002C55.07C: DEPOIS DE UM JOGO
-000000002C57.07C: ALEATÓRIO
-000000002C58.07C: ORDEM DA LISTA
-000000002C5A.07C: NUNCA
-000000002C5B.07C: DEPOIS DE UM JOGO
-000000002C5C.07C: DEPOIS DE UMA PARTIDA ESPELHO
+000000002C52.07C: Desligado
+000000002C54.07C: Depois de uma partida espelhada
+000000002C55.07C: Depois de um jogo
+000000002C57.07C: Aleatório
+000000002C58.07C: Ordem da lista
+000000002C5A.07C: Nunca
+000000002C5B.07C: Depois de um jogo
+000000002C5C.07C: Depois de uma partida espelhada
 000000002C5D.07C: 2 POR JOGO
 000000002C5E.07C: 1 POR JOGO
 000000002C5F.07C: 2 POR EQUIPE
 000000002C60.07C: 1 POR EQUIPE
 000000002C61.07C: NENHUM
-000000002C62.07C: NENHUM
-000000002C63.07C: 2 DE CADA FUNÇÃO POR EQUIPE
+000000002C62.07C: Nenhum
+000000002C63.07C: 2 de cada função por equipe
 000000002C64.07C: Bot aliado
 000000002C67.07C: |Rpl %1$s:Abate:Abates; no ambiente
 000000002C68.07C: %1$s |Rpl Abate:Abates; no ambiente
@@ -3953,10 +3951,10 @@ para entrar na partida.
 000000002D66.07C: VOLTAR
 000000002D68.07C: CONVIDAR
 000000002D69.07C: CANCELAR
-000000002D71.07C: EQUIPE 1
-000000002D72.07C: EQUIPE 2
-000000002D73.07C: ESPECTADOR
-000000002D74.07C: AMBOS
+000000002D71.07C: Equipe 1
+000000002D72.07C: Equipe 2
+000000002D73.07C: Espectador
+000000002D74.07C: Ambos
 000000002D76.07C: SIM
 000000002D77.07C: CANCELAR
 000000002D78.07C: SAINDO DA PARTIDA. TEM CERTEZA?
@@ -7083,10 +7081,10 @@ Andrew Wang
 00000000411C.07C: Sair de partidas repetidamente resultará em penalidade.
 00000000411D.07C: Você deixou sua última partida antes do fim e está sendo penalizado no momento.
 000000004120.07C: Você não receberá experiência por essa partida. Você está perto de receber uma penalidade.
-000000004122.07C: ROTAÇÃO DO MAPA
-000000004123.07C: DEPOIS DE UMA PARTIDA ESPELHO
-000000004124.07C: DEPOIS DE UM JOGO
-000000004125.07C: PAUSADO
+000000004122.07C: Rotação dos mapas
+000000004123.07C: Depois de uma partida espelhada
+000000004124.07C: Depois de um jogo
+000000004125.07C: Pausado
 000000004126.07C: RES ASSIST
 000000004127.07C: RESURRECTION
 00000000412D.07C: gg :|
@@ -7325,8 +7323,8 @@ Andrew Wang
 00000000431F.07C: %1$s |Rpl Abate:Abates; por Bombardeio - média
 000000004320.07C: |Rpl %1$s:Golpe direto:Golpes diretos; de foguete - média
 000000004321.07C: %1$s |Rpl Golpe direto:Golpes diretos; de foguete - média
-000000004322.07C: |Rpl %1$s:Abate:Abates; por Foguetes Hélix - média
-000000004323.07C: %1$s |Rpl Abate:Abates; por Foguetes Hélix - média
+000000004322.07C: |Rpl %1$s:abate:abates; com Foguetes Hélix - média
+000000004323.07C: %1$s |Rpl abate:abates; com Foguetes Hélix - média
 000000004324.07C: |Rpl %1$s:Abate:Abates; por Visor Tático - média
 000000004325.07C: %1$s |Rpl Abate:Abates; por Visor Tático - média
 000000004326.07C: Dano bloqueado - média
@@ -7652,9 +7650,9 @@ Andrew Wang
 000000004549.07C: Prepare-se para se defender
 00000000454A.07C: Escolte a carga
 00000000454B.07C: Detenha a carga
-00000000454E.07C: DESLIGADO
-00000000454F.07C: LIGADO
-000000004550.07C: ALTA LARGURA DE BANDA
+00000000454E.07C: Desligado
+00000000454F.07C: Ligado
+000000004550.07C: Alta largura de banda
 000000004553.07C: Notificações da qualidade da rede
 000000004558.07C: Há um instante
 000000004559.07C: %1$s |Rplminuto:minutos; atrás
@@ -7923,8 +7921,8 @@ Andrew Wang
 - Ganhe pontos conquistando objetivos
 - Quem fizer mais pontos vence!
 0000000047B1.07C: - Nova temporada a cada 2 meses
-- Ganhe recompensas exclusivas
-- Classificações reiniciadas a cada temporada
+- Ganhe recompensas exclusivas no fim da temporada
+- Posicionamento reiniciado a cada temporada
 0000000047B2.07C: Classificação de habilidade
 0000000047B3.07C: Partidas Competitivas
 0000000047B4.07C: Temporadas
@@ -7946,7 +7944,7 @@ Andrew Wang
 0000000047D4.07C: %1$s/%2$s
 0000000047D5.07C: Partidas de colocação
 0000000047D6.07C: Não é possível solicitar um convite para entrar no grupo
-0000000047D7.07C: Você pode ganhar as seguintes recompensas ao final da temporada se participar do jogo competitivo:
+0000000047D7.07C: - Você pode ganhar recompensas ao final da temporada se participar do jogo competitivo:
 0000000047D8.07C: Desbloqueado ao concluir as partidas de posicionamento da Temporada 1
 0000000047D9.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores durante a Temporada 1
 0000000047DD.07C: Jogo Competitivo desbloqueado!
@@ -8781,10 +8779,10 @@ Andrew Wang
 00000000501E.07C: TORNAR PARTIDA DE TORNEIO
 00000000501F.07C: Jogo personalizado configurado como partida de torneio.
 000000005036.07C: PONTO DE CONTROLE DO MAPA
-000000005037.07C: PRIMEIRO
-000000005038.07C: SEGUNDO
-000000005039.07C: TERCEIRO
-00000000503A.07C: TODOS
+000000005037.07C: Primeiro
+000000005038.07C: Segundo
+000000005039.07C: Terceiro
+00000000503A.07C: Todos
 00000000503F.07C: Oportunista
 000000005040.07C: Permite que você detecte inimigos gravemente feridos do outro lado das paredes.
 000000005041.07C: Cause dano à Sombra enquanto ela hackeia você ou um aliado para interromper o hackeamento.
@@ -9633,7 +9631,7 @@ THIS SOFTWARE.
 00000000587F.07C: Jogo de %1$s
 000000005886.07C: Capture a Bandeira
 000000005887.07C: Eliminação
-000000005888.07C: Barras de vida do inimigo
+000000005888.07C: Barras de vida dos inimigos
 000000005889.07C: Tempo escalar de ressurgimento dos implementos de vida
 00000000588A.07C: Surgimento de kits médicos
 00000000588B.07C: Notificação de abates
@@ -9664,8 +9662,8 @@ THIS SOFTWARE.
 0000000058A6.07C: Velocidade de movimento
 0000000058A7.07C: Velocidade do projétil
 0000000058A8.07C: Tempo escalar de ressurgimento
-0000000058A9.07C: Habilidade suprema
-0000000058AA.07C: Geração de habilidade suprema
+0000000058A9.07C: Habilidade Suprema
+0000000058AA.07C: Geração de Supremo
 0000000058AD.07C: |Rfn %1$s:P0;
 0000000058B0.07C: A equipe precisa de sua bandeira na base para pontuar
 0000000058B1.07C: |Rfn %1$s:N0;
@@ -9805,7 +9803,7 @@ THIS SOFTWARE.
 0000000059A5.07C: Pronto
 0000000059A6.07C: Elenco de heróis
 0000000059A7.07C: Geral
-0000000059AA.07C: Tempo de retorno da bandeira
+0000000059AA.07C: Tempo de devolução da bandeira
 0000000059AD.07C: Tempo de recolhimento da bandeira
 0000000059AF.07C: Levantando poeira
 0000000059B0.07C: Parados!
@@ -9939,7 +9937,7 @@ THIS SOFTWARE.
 000000005A8D.07C: Assistir apenas à equipe azul
 000000005A8E.07C: Assistir apenas à equipe vermelha
 000000005A8F.07C: Assistir a todos
-000000005A91.07C: %1$s máximo de jogadores 
+000000005A91.07C: Máximo de jogadores de %1$s
 000000005A92.07C: Máximo de espectadores
 000000005A93.07C: Orisa
 000000005A94.07C: Protetora
@@ -10031,8 +10029,8 @@ THIS SOFTWARE.
 000000005B68.07C: 
 000000005B6B.07C: Talon
 000000005B84.07C: Tempo de recarga de %1$s
-000000005B85.07C: Habilidade suprema (%1$s)
-000000005B86.07C: Geração de habilidade suprema (%1$s)
+000000005B85.07C: Habilidade Suprema (%1$s)
+000000005B86.07C: Geração de Supremo (%1$s)
 000000005B87.07C: Selfie
 000000005B88.07C: S
 000000005B89.07C: Treinamento
@@ -13419,8 +13417,8 @@ Brian Urbina
 000000006567.07C: %1$s |Rpl Abate:Abates; por Bombardeio - média por 10 min
 000000006568.07C: |Rpl %1$s:Golpe de foguete direto:Golpes de foguete diretos; - média por 10 min
 000000006569.07C: %1$s |Rpl Golpe de foguete direto:Golpes de foguete diretos; - média por 10 min
-00000000656A.07C: |Rpl %1$s:Abate:Abates; por Foguetes Hélix - média por 10 min
-00000000656B.07C: %1$s |Rpl Abate:Abates; por Foguetes Hélix - média por 10 min
+00000000656A.07C: |Rpl %1$s:abate:abates; com Foguetes Hélix - média por 10 min
+00000000656B.07C: %1$s |Rpl abate:abates; com Foguetes Hélix - média por 10 min
 00000000656C.07C: |Rpl %1$s:Abate:Abates; por Visor Tático - média por 10 min
 00000000656D.07C: %1$s |Rpl Abate:Abates; por Visor Tático - média por 10 min
 00000000656E.07C: |Rpl %1$s:Inimigo atingido:Inimigos atingidos; por PEM - média por 10 min
@@ -13583,7 +13581,7 @@ Brian Urbina
 00000000666E.07C: Redemoinho
 00000000667B.07C: Ponto
 00000000668E.07C: O jogador está salvando um destaque
-000000006693.07C: |Rfd %1$s:dd-MMM-yy HH:mm;
+000000006693.07C: |Rfd %1$s: dd de MMMM de yyyy;
 000000006694.07C: Destaques da partida indisponíveis.
 000000006697.07C: Créditos de jogo podem ser usados para desbloquear vários itens cosméticos. Cada Caixa de Itens dos Jogos de Verão contém uma combinação de até 4 itens cosméticos e/ou créditos de jogo. As Caixas de Itens dos Jogos de Verão podem ser conquistadas no jogo.
 000000006698.07C: 5 créditos e um presente gratuito de 2 Caixas de Itens dos Jogos de Verão
@@ -13693,7 +13691,7 @@ Brian Urbina
 00000000670F.07C: Brinde
 000000006712.07C: Brinde
 000000006715.07C: Gols necessários para a vitória
-000000006716.07C: Vence a equipe que marcar gols o suficiente
+000000006716.07C: Vence a equipe que marcar gols suficientes
 000000006721.07C: Brinde
 000000006722.07C: Brinde
 000000006724.07C: Impulso escalar da bola de futebol
@@ -13888,7 +13886,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000069FF.07C: VITÓRIA: Primeiro jogador a conseguir 20 abates
 000000006A01.07C: CHAT DE VOZ DA PARTIDA
 000000006A02.07C: Marionete
-000000006A03.07C: PARTIDA
+000000006A03.07C: Partida
 000000006A04.07C: Chat de voz da partida
 000000006A06.07C: Desativada
 000000006A07.07C: Combate até a Morte no Château Guillard
@@ -14109,9 +14107,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006D5F.07C: Mudar para TCT
 000000006D60.07C: Salvar destaques não está disponível porque há uma transmissão em andamento.
 000000006D61.07C: Salvar destaques não está disponível porque a captura de jogos está desabilitada em seu sistema.
-000000006D65.07C: Equipe desbalanceada para Pontuação para vencer
-000000006D66.07C: Equipe 1 de Pontuação para vencer
-000000006D67.07C: Equipe 2 de Pontuação para vencer
+000000006D65.07C: Pontuação para vencer da equipe desbalanceada
+000000006D66.07C: Pontuação para vencer da Equipe 1
+000000006D67.07C: Pontuação para vencer da Equipe 2
 000000006D8D.07C: Não é possível convidar jogadores para o seu grupo enquanto estiver neste modo.
 000000006D8E.07C: Não é possível entrar em um grupo enquanto estiver neste modo.
 000000006D8F.07C: Não é possível entrar neste modo
@@ -14347,9 +14345,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000705A.07C: Desabilitado
 00000000705B.07C: Taxa de recarga da energia biótica
 00000000705C.07C: Máximo de energia biótica
-00000000705F.07C: MUDAR DE EQUIPE APÓS PARTIDA
+00000000705F.07C: Mudar de equipe após partida
 000000007060.07C: Fibra de Carbono
-000000007063.07C: MUDAR DE EQUIPE APÓS PARTIDA
+000000007063.07C: Mudar de equipe após partida
 000000007077.07C: Escalar da vida da porta
 000000007078.07C: |Rfn %1$s:P0;
 000000007083.07C: MODO DE ENTRADA COM CÂMERA LIVRE
@@ -14779,7 +14777,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s |Rpl Acerto:Acertos; por Dardo Sonífero
 000000007460.07C: Índice de fixação da Bomba Eletromagnética
 000000007461.07C: %1$s Índice de fixação da Bomba Eletromagnética
-00000000746F.07C: <fg%1$s>ATORDOADO</fg>
 000000007472.07C: Coalescência - Cura por uso
 000000007473.07C: %1$s Coalescência - Cura por uso
 000000007474.07C: Coalescência - Dano por uso
@@ -14828,7 +14825,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000074B3.07C: Este jogo tem duas classificações: "12+" e "15+". A idade do jogador é determinada automaticamente ao se conectar. Jogadores entre 12 e 15 anos de idade terão acesso apenas ao conteúdo "12+". O jogo não é apropriado para menores de 12 anos.
 0000000074B4.07C: Remover todos os bots
 0000000074B8.07C: 5v1
-0000000074B9.07C: |Rfd %1$s:dd-MMM;
 0000000074BA.07C: |Rfd %1$s:HH:mm
 0000000074BB.07C: Cronograma
 0000000074BC.07C: Loja da equipe
@@ -15039,7 +15035,7 @@ Nos ajude a criar a melhor comunidade de Overwatch possível mantendo-se positiv
 00000000765C.07C: Geração de Supremo - Passiva
 00000000765D.07C: Geração de Supremo - Combate (%1$s)
 00000000765E.07C: Geração de Supremo - Passiva (%1$s)
-00000000765F.07C: Ressurgir com Supremo pronto
+00000000765F.07C: Surgir com Supremo pronto
 000000007665.07C: Ou
 000000007671.07C: Duração do Supremo
 000000007672.07C: Duração infinita do Supremo
@@ -15749,7 +15745,7 @@ Outros modos de jogo de Overwatch, como Jogo Rápido, o Modo Arcade e o Navegado
 000000007E5B.07C: Matando cachorro a grito
 000000007E5D.07C: Prontos para os fogos de artifício
 000000007E5F.07C: Respeite os mais velhos
-000000007E61.07C: Luar, doce luar
+000000007E61.07C: Lua, doce lua
 000000007E63.07C: Cão que ladra, não morde
 000000007E65.07C: Estou impressionada
 000000007E67.07C: Eu tô na lua
@@ -15874,8 +15870,8 @@ Outros modos de jogo de Overwatch, como Jogo Rápido, o Modo Arcade e o Navegado
 000000008012.07C: Como recontam as histórias, a Bruxa da Floresta já teve muitos aliados poderosos, inclusive invocadores dracônicos.
 000000008013.07C: Arquivos de missão
 000000008014.07C: Missões dos Arquivos de Overwatch
-000000008015.07C: Tempo de ressurgimento da bandeira depois de pontuar
-000000008017.07C: Tempo de bandeira bloqueada depois de ser largada
+000000008015.07C: Tempo de ressurgimento de pontuação de bandeira
+000000008017.07C: Tempo de travamento de bandeira largada
 000000008018.07C: |Rfn %1$s:N1;
 00000000801A.07C: |Rfn %1$s:N1;
 00000000801D.07C: Diante dos pedidos carinhosos de Ingrid, sua mulher, Torbjörn se vestiu de Papai Noel para a festa de Natal dos Lindholm.
@@ -16403,7 +16399,7 @@ Outros modos de jogo de Overwatch, como Jogo Rápido, o Modo Arcade e o Navegado
 00000000851F.07C: Seoul Dynasty (Visitante)
 000000008520.07C: Shanghai Dragons (Visitante)
 000000008523.07C: Piloto da Blackwatch
-00000000852A.07C: Proximity Mine
+00000000852A.07C: Mina de Proximidade
 00000000852B.07C: Boston Uprising (Visitante)
 00000000852C.07C: Dallas Fuel (Visitante)
 00000000852D.07C: Florida Mayhem 2018 (Visitante)
@@ -17445,7 +17441,7 @@ Competitiva 2018
 000000009282.07C: Lance o Campo Minado quando estiver no ar para espalhar as minas por uma área maior.
 000000009284.07C: Habilitado
 000000009285.07C: Desabilitado
-000000009286.07C: %1$s de tempo de recarga
+000000009286.07C: Tempo de recarga de %1$s
 000000009287.07C: |Rfn %1$s:P0;
 000000009288.07C: Repulsão escalar da Garra
 000000009289.07C: Ativar/Desativar Garra
@@ -17865,7 +17861,6 @@ e 10 Caixas de Itens de Halloween de brinde
 000000009F12.07C: Abobomari
 000000009F13.07C: Disponível em Caixas de Itens de Halloween
 000000009F21.07C: Liga Overwatch
-000000009F29.07C: <fg%1$s>ATORDOADO</fg>
 000000009F34.07C: Novos visuais lendários!
 000000009F99.07C: TORRE <fg%1$s>SOBRECARREGADA</fg>
 000000009F9A.07C: Abóbora
@@ -18460,7 +18455,7 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000AAD8.07C: Preferência de central de dados
 00000000AAD9.07C: Suprema %1$s %2$s %3$s
 00000000AADC.07C: Suprema %1$s %2$s %3$s %4$s %5$s
-00000000AADE.07C: PREFERÊNCIA DE CENTRAL DE DADOS
+00000000AADE.07C: Preferência de Central de Dados
 00000000AAE2.07C: Conectando ao novo servidor
 00000000AAE4.07C: A central de dados preferida não está mais disponível
 00000000AAE5.07C: Dois Flocos de Neve
@@ -20094,13 +20089,13 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000BBB9.07C: Evento Anterior
 00000000BBBA.07C: Próxima Linha
 00000000BBBB.07C: Linha Anterior
-00000000BBC5.07C: Comentário
+00000000BBC5.07C: Regra
 00000000BBC6.07C: Condição
 00000000BBC7.07C: Ação
 00000000BBC8.07C: Global
 00000000BBCA.07C: Nenhuma Condição
 00000000BBCB.07C: Condição:
-00000000BBCC.07C: Comentário:
+00000000BBCC.07C: Regra:
 00000000BBCD.07C: Ação:
 00000000BBD1.07C: Entrada #%1$s
 00000000BBD3.07C: Descrição
@@ -20157,8 +20152,8 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000BC68.07C: Modifica a pontuação (contagem de abates) de um ou mais Jogadores. Essa Ação só tem efeito nos modos Todos Contra Todos.
 00000000BC69.07C: A quantidade de mudança na pontuação. Se for positiva, a pontuação aumentará. Se for negativa, a pontuação diminuirá.
 00000000BC6A.07C: O(s) Jogador(es) cuja pontuação mudará.
-00000000BC6B.07C: Reinicia a lista de Ações do começo. Para impedir um loop infinito, uma Ação Esperar deve ser executada entre o início da lista de Ações e essa Ação.
-00000000BC6C.07C: Reinicia a lista de Ações do começo se cada Condição na lista de Condições for verdadeira. Se qualquer uma for falsa, a execução prossegue para a Ação seguinte. Para impedir um loop infinito, uma Ação Esperar deve ser executada entre o início da lista de Ações e essa Ação.
+00000000BC6B.07C: Reinicia a lista de Ações desde o começo.
+00000000BC6C.07C: Reinicia a lista de Ações do começo se cada Condição na lista de Condições for verdadeira. Se qualquer uma for falsa, a execução prossegue para a Ação seguinte.
 00000000BC6D.07C: Proporciona uma cura instantânea para um ou mais Jogadores. Essa cura não ressuscitará Jogadores mortos.
 00000000BC6E.07C: O(s) Jogador(es) cuja vida será restaurada.
 00000000BC6F.07C: O Jogador que receberá crédito pela cura. Um Curandeiro Nulo indica que nenhum Jogador receberá crédito.
@@ -20391,8 +20386,8 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000BD57.07C: Cria texto no mundo visível para Jogadores específicos em uma posição específica no mundo. Esse texto persistirá até ser destruído. Para obter uma referência a esse texto, use o Valor da ID de Texto Mais Recente. Não será possível realizar essa Ação se elementos de texto demais tiverem sido criados.
 00000000BD58.07C: Destrói texto no mundo criado por Criar Texto no Mundo.
 00000000BD59.07C: Especifica qual texto no mundo será destruído. Essa ID pode ser a ID de Texto Mais Recente ou uma Variável na qual a ID de Texto Mais Recente tenha sido armazenada anteriormente.
-00000000BD5A.07C: Reinicia a lista de Ações do começo se a Condição dessa Ação for avaliada como verdadeira. Se não for, a execução passa para a Ação seguinte. Para impedir um loop infinito, uma Ação Esperar deve ser executada entre o início da lista de Ações e essa Ação.
-00000000BD5B.07C: Reinicia a lista de Ações do começo se pelo menos uma Condição na lista de Condições for falsa. Se todas as Condições forem verdadeiras, a execução passa para a Ação seguinte. Para impedir um loop infinito, uma Ação Esperar deve ser executada entre o início da lista de Ações e essa Ação.
+00000000BD5A.07C: Reinicia a lista de Ações desde o começo se a Condição dessa Ação for avaliada como verdadeira. Se não for, a execução passa para a Ação seguinte.
+00000000BD5B.07C: Reinicia da lista de Ações desde o começo se pelo menos uma Condição na lista de Condições for falsa. Se todas as Condições forem verdadeiras, a execução passa para a Ação seguinte.
 00000000BD5C.07C: Especifica se o loop ocorrerá ou não.
 00000000BD5D.07C: Interrompe a execução da lista de Ações.
 00000000BD5E.07C: Interrompe a execução da lista de Ações se a Condição dessa Ação for avaliada como verdadeira. Se não for, a execução passa para a Ação seguinte.
@@ -22238,7 +22233,7 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000CA0C.07C: Você precisa escolher uma função para o seu grupo poder entrar na fila. Selecionar agora?
 00000000CA0D.07C: Lojas
 00000000CA0E.07C: Loja
-00000000CA11.07C: Semana 1: Doomfist Monge
+00000000CA11.07C: Desafio Carnaval da Ashe
 00000000CA13.07C: Semana 2: Winston Bronze Ancestral
 00000000CA14.07C: Semana 3: Wrecking Ball Arte em Papel
 00000000CA15.07C: Vença 9 partidas no Jogo Rápido, no Arcade ou no Competitivo!
@@ -22652,7 +22647,7 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000CEE8.07C: Suba na tabela e enfrente os melhores jogadores de Eliminação do mundo!
 00000000CEE9.07C: Eliminação Competitiva 3v3 - Temporada 2
 00000000CEEF.07C: Coveiro
-00000000CEF0.07C: Trajetória Profissional
+00000000CEF0.07C: Trajetória Profissional 2019
 00000000CEFF.07C: Inferno
 00000000CF28.07C: 2019
 00000000CF29.07C: Chacko Sonny
@@ -26135,7 +26130,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EB17.07C: Habilitar mouse de alta precisão
 00000000EB1E.07C: Erro: A variável de jogador '%1$s' requer um nome
 00000000EB21.07C: Erro: Conflito da variável global '%1$s' com outra variável
-00000000EB23.07C: Mapas disponíveis
+00000000EB23.07C: Mapas disponíveis nesta temporada
 00000000EB24.07C: Hanamura, Templo de Anúbis, Indústrias Volskaya
 00000000EB25.07C: Erro: A variável global '%1$s' contém um nome inválido
 00000000EB29.07C: Erro: A variável global '%1$s' requer um nome
@@ -26263,6 +26258,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F0CB.07C: Continuar
 00000000F0CC.07C: Tempo escalar de ressurgimento de bots de treinamento
 00000000F0CD.07C: |Rfn %1$s:P0;
+00000000F0F3.07C: <fg%1$s>ATORDOADO</fg>
+00000000F0F4.07C: <fg%1$s>ADORMECIDO</fg>
 00000000F0FE.07C: Apenas para residentes da Califórnia
 00000000F0FF.07C: Não vendam minhas informações pessoais
 00000000F102.07C: Isso abrirá um navegador em outra janela
@@ -26388,8 +26385,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F40B.07C: |Rfn %1$s:N1;
 00000000F417.07C: Mostrar diagnóstico
 00000000F418.07C: Diagnóstico de script
-00000000F41B.07C: Total de elementos: %1$s
-00000000F41C.07C: Tamanho da maior regra: %1$s KB
+00000000F41B.07C: Total de elementos
+00000000F41C.07C: Tamanho da maior regra
 00000000F41D.07C: Elementos incluem regras, condições, ações e valores (até %1$s)
 00000000F41E.07C: Cada regra precisa ter menos de %1$s KB
 00000000F420.07C: Presente surpresa
@@ -26626,6 +26623,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F5E8.07C: Florida Mayhem (Visitante)
 00000000F5E9.07C: Florida Mayhem (Visitante)
 00000000F5EA.07C: Florida Mayhem (Visitante)
+00000000F5EB.07C: EQUIPE 3
+00000000F5EC.07C: EQUIPE 4
 00000000F8B0.07C: Mil-faces
 00000000F8B1.07C: Disponível em Caixas de Itens Lunares
 00000000F8B2.07C: Máscara da Sombra
@@ -26661,6 +26660,31 @@ https://account.blizzard.com/connections/nintendo
 00000000FABF.07C: %1$s |Rpl Abate:Abates; por Repulsão
 00000000FAC0.07C: |Rpl %1$s:Abate:Abates; por Repulsão
 00000000FAC1.07C: %1$s |Rpl Abate:Abates; por Repulsão
+00000000FB2E.07C: Ativar gravação do Inspetor
+00000000FB2F.07C: Desativar gravação do Inspetor
+00000000FB30.07C: Faz o Inspetor do Workshop parar de gravar novas entradas. Isso tem a vantagem de reduzir a carga do seu script no servidor, principalmente na modificação de matrizes.
+00000000FB31.07C: Faz o Inspetor do Workshop retomar a gravação de novas entradas (caso tenha sido desabilitado antes). Ativar a gravação em momentos específicos pode facilitar a depuração de áreas problemáticas na sua lógica.
+00000000FB32.07C: If
+00000000FB33.07C: Else If
+00000000FB34.07C: Else
+00000000FB35.07C: While
+00000000FB37.07C: Término
+00000000FB38.07C: Denota o fim de uma série de ações iniciadas por uma ação If, Else If, Else, While ou For.
+00000000FB39.07C: Denota o início de uma série de ações que serão executadas em loop, modificando a Variável de Controle a cada loop. A ação de Término correspondente denota o fim do loop. Se a Variável de Controle atingir ou ultrapassar o valor do Fim do Intervalo, então o loop se encerrará e a execução saltará para a próxima ação após a ação de Término.
+00000000FB3A.07C: Denota o início de uma série de ações que serão executadas em loop desde que a Condição especificada seja verdadeira. A próxima ação de Término do nível atual denota o fim do loop. Se a Condição for avaliada como falsa quando a execução estiver no topo do loop, então o loop se encerrará e a execução saltará para a próxima ação após a ação de Término.
+00000000FB3B.07C: Denota o início de uma série de ações que só serão executadas se a Condição da ação If ou Else If anterior for falsa.
+00000000FB3C.07C: Denota o início de uma série de ações que só serão executadas se a Condição especificada for verdadeira e se a Condição da ação If ou Else If anterior for falsa.
+00000000FB3D.07C: Denota o início de uma série de ações que só serão executadas se a Condição especificada for verdadeira.
+00000000FB3E.07C: Se isso for avaliado como verdadeiro, a execução continua com a próxima ação. Caso contrário, a execução salta para a próxima ação Else If, Else ou ação de Término do nível atual.
+00000000FB3F.07C: Se isso for avaliado como verdadeiro, a execução continua com a próxima ação. Caso contrário, a execução salta para a próxima ação de Término do nível atual.
+00000000FB40.07C: Etapa
+00000000FB41.07C: Esse valor é adicionado à Variável de Controle quando a ação Final é atingida. Essa modificação faz com que a Variável de Controle atinja ou ultrapasse o valor do Fim do Intervalo, então o loop se encerra e a execução salta para a próxima ação após a ação de Término. Caso contrário, o loop continua e a execução salta para a próxima ação após a ação For.
+00000000FB42.07C: Variável de controle
+00000000FB43.07C: A variável modificada neste loop. Ela é definida para o valor do Início do Intervalo quando o loop começa, e o loop continua até que a Variável de Controle atinja ou ultrapasse o valor do Fim do Intervalo.
+00000000FB44.07C: Se a Variável de Controle atingir ou ultrapassar este valor, o loop se encerrará, e a execução saltará para a próxima ação após a ação de Término. O que define se esse valor foi ultrapassado ou não é o fato de o valor da Etapa ser negativo ou positivo. Se a Variável de Controle já tiver atingido ou ultrapassado esse valor quando o loop começar, ele se encerrará.
+00000000FB45.07C: Fim do intervalo
+00000000FB46.07C: A Variável de Controle é definida para esse valor quando o loop começa.
+00000000FB47.07C: Início do intervalo
 00000000FB62.07C: ALTERNAR ESPECTADOR 3P SIMPLES - LADO DA CÂMERA
 00000000FB64.07C: Bahrain
 00000000FB69.07C: Samul Nori
@@ -26689,6 +26713,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FB97.07C: Disponível em Caixas de Itens Lunares
 00000000FBAA.07C: Feliz Ano Novo!
 00000000FBAB.07C: Disponível em Caixas de Itens Lunares
+00000000FBAC.07C: Editar comentário
 00000000FBB2.07C: Precisa de alguma coisa?
 00000000FBB3.07C: Disponível em Caixas de Itens Lunares
 00000000FBB4.07C: Uma anomalia!
@@ -26702,10 +26727,176 @@ https://account.blizzard.com/connections/nintendo
 00000000FBDA.07C: Atualizações desativadas
 00000000FC5D.07C: Talvez você não consiga jogar se uma atualização estiver pendente
 00000000FC5E.07C: Ocultar sobreposição de replay
+00000000FC80.07C: Evento foi kit Médico
+00000000FC81.07C: Se a cura foi ou não de um kit médico no Evento que está sendo processado por esta Regra.
+00000000FC8D.07C: Corpo a corpo
+00000000FC8E.07C: Recarregar
 00000000FC91.07C: ALTERNAR CÂMERA DE ESPECTADOR NORMAL/ 3P SIMPLES
+00000000FCA5.07C: Visível para, ordem de classificação e string
+00000000FCA6.07C: Ordem de classificação e string
+00000000FD25.07C: Nenhum
+00000000FD26.07C: Receptores e Curandeiros
+00000000FD27.07C: Receptores, Curandeiros e percentual de cura
+00000000FD2A.07C: ID da última modificação de cura
+00000000FD2B.07C: Uma ID representando a Ação Começar Modificação de Cura mais recente executada pelo Jogador do Evento (ou executada em nível Global).
+00000000FD36.07C: Interrompe todas as modificações de cura iniciadas usando a Ação Começar Modificação de Cura.
+00000000FD37.07C: Parar modificação de cura
+00000000FD38.07C: Interrompe uma modificação de cura iniciada pela Ação Começar Modificação de Cura.
+00000000FD39.07C: ID de modificação de cura
+00000000FD3A.07C: Especifica qual instância de modificação de cura será interrompida. Essa ID pode ser a ID da Última Modificação de Cura ou uma Variável na qual a ID da Última Modificação de Cura tenha sido armazenada anteriormente.
+00000000FD3B.07C: Parar todas as modificações de cura
+00000000FD40.07C: Começar modificação de cura
+00000000FD42.07C: Começa a modificar a quantidade de cura que um ou mais Receptores receberão de um ou mais Curandeiros. Uma referência para essa modificação de cura pode ser obtida com o Valor da ID da Última Modificação de Cura. Não será possível realizar esta Ação se forem criadas modificações de cura excessivas.
+00000000FD43.07C: Receptores
+00000000FD44.07C: O(s) Jogador(es) cuja cura recebida será modificada (quando curado(s) pelos Curandeiros).
+00000000FD45.07C: Curandeiros
+00000000FD46.07C: O(s) Jogador(es) cuja cura causada será modificada (ao curar os Receptores).
+00000000FD47.07C: Percentual de cura
+00000000FD48.07C: A porcentagem de cura que será aplicada aos Receptores quando forem curados pelos Curandeiros.
+00000000FD49.07C: Reavaliação
+00000000FD4A.07C: Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.
 00000000FDBB.07C: Desligado
+00000000FEBD.07C: Sub%1$s
+00000000FEBE.07C: Sub-rotina
+00000000FED9.07C: Erro: Sub-rotina esperada após '%1$s' na linha %2$s
+00000000FEDA.07C: Erro: Sub-rotina '%1$s' requer um nome
+00000000FEDB.07C: Erro: Sub-rotina '%1$s' contém um nome muito longo
+00000000FEDC.07C: Erro: Sub-rotina '%1$s' contém nome inválido
+00000000FEDD.07C: Erro: Sub-rotina '%1$s' está em conflito com outra
+00000000FEE1.07C: For variável de jogador
+00000000FEE2.07C: For variável global
 00000000FFB4.07C: Confrontos
 00000000FFCF.07C: CONVITE DE AMIZADE RECEBIDO
+00000000FFD0.07C: O jogador cuja variável será modificada neste loop. Se vários jogadores forem especificados, será usado o primeiro.
+00000000FFD1.07C: Controlar jogador
+00000000FFDA.07C: Não é possível usar a mesma variável para uma ação de Perseguição e uma ação For.
 00000000FFE7.07C: Overwatch League 2020
 00000000FFE8.07C: Brigitte GOATS
-[Core] Execution finished in 00:00:02.9384402 seconds
+00000000FFF0.07C: Câmara do Workshop
+00000000FFF1.07C: Ilha do Workshop
+00000000FFF2.07C: Expansão do Workshop
+00000000FFF3.07C: Editar nomes de sub-rotinas
+00000000FFF4.07C: Adicionar sub-rotina
+00000000FFF5.07C: Restaurar predefinições
+00000000FFF6.07C: Sub-rotina
+00000000FFFA.07C: sub-rotinas
+00000000FFFB.07C: Erro: Sub-rotinas inesperadas encontradas após '%1$s' na linha %2$s
+00000000FFFC.07C: Erro: Índice de sub-rotina fora dos limites '%1$s' encontrado na linha %2$s
+00000000FFFD.07C: Erro: Índice de sub-rotina repetido encontrado após '%1$s' na linha %2$s
+00000000FFFE.07C: Erro: Sub-rotina '%1$s' está longa demais
+00000000FFFF.07C: Erro: Sub-rotina '%1$s' tem nome inválido
+000000010000.07C: Erro: Sub-rotina não reconhecida encontrada após '%1$s' na linha %2$s
+000000010017.07C: Competidor da Temporada 21
+000000010018.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 21
+000000010019.07C: Trajetória Profissional 2020
+00000001001A.07C: Trajetória Profissional 2020
+00000001001E.07C: Chamar sub-rotina
+00000001001F.07C: Sub-rotina
+000000010020.07C: Pausa a execução da regra atual e inicia a execução da regra de sub-rotina (que é uma regra com um evento do tipo Sub-rotina). Quando a regra de sub-rotina é encerrada, a execução da regra original é retomada. A sub-rotina terá acesso aos mesmos valores contextuais (como Jogador do Evento) que a regra original.
+000000010021.07C: Especifica qual sub-rotina será chamada. Se uma regra contendo um evento do tipo Sub-rotina especificar a mesma sub-rotina, então ela será executada. Caso contrário, a ação é ignorada.
+000000010022.07C: Regra de início
+000000010023.07C: Começa a execução simultânea de uma regra de sub-rotina (que é uma regra com um evento do tipo Sub-rotina). A execução da regra original continua sem interrupções. A sub-rotina terá acesso aos mesmos valores contextuais (como Jogador do Evento) como regra original.
+000000010024.07C: Especifica qual sub-rotina será iniciada. Se uma regra contendo um evento do tipo Sub-rotina especificar a mesma sub-rotina, então ela será executada. Caso contrário, a ação é ignorada.
+000000010025.07C: Regra de reinício
+000000010026.07C: Não fazer nada
+000000010027.07C: Reiniciar a regra especificada com novos valores contextuais (inclusive Jogador do Evento, Atacante, Vítima, etc.).
+000000010028.07C: Permitir que a regra termine de executar sem mudar os valores contextuais.
+00000001002A.07C: Se já em execução
+00000001002B.07C: Define o que deve acontecer se uma regra especificada pela Sub-rotina já estiver sendo executada no mesmo jogador ou entidade global.
+00000001002D.07C: As regras de sub-rotina não precisam ter condições.
+00000001002E.07C: Copiar Configurações
+00000001002F.07C: Importar Configurações
+000000010030.07C: configurações
+000000010031.07C: lobby
+000000010034.07C: Carnaval
+000000010036.07C: Carna B.O.B.
+000000010038.07C: Máscara Dourada
+00000001003A.07C: Desbloqueado ao participar do Desafio Carnaval da Ashe
+00000001003F.07C: Herói da Temporada 21
+000000010040.07C: Desbloqueado ao ficar entre os 500 melhores no fim da Temporada 21
+000000010041.07C: mapas desativados
+000000010044.07C: modos
+000000010045.07C: mapas ativados
+000000010046.07C: heróis
+000000010047.07C: Várias regras definem a mesma sub-rotina.
+000000010051.07C: TCT em equipe
+000000010052.07C: heróis desativados
+000000010053.07C: heróis ativados
+000000010054.07C: Temporada 21
+000000010055.07C: Temporada 21
+00000001005E.07C: %1$s
+00000001005F.07C: %1$s KB
+00000001006B.07C: Importar Configurações da Área de Transferência
+00000001006C.07C: Isso substituirá todas as suas configurações atuais. Tem certeza de que deseja importar da área de transferência?
+00000001006D.07C: Confirmar
+00000001006E.07C: principal
+000000010072.07C: Rodízio de heróis
+000000010075.07C: Os heróis disponíveis para o jogo competitivo mudam periodicamente.
+000000010078.07C: Heróis fora do rodízio
+00000001007F.07C: Descrição
+000000010086.07C: OK
+000000010087.07C: Rodízio de heróis
+000000010088.07C: Os heróis disponíveis para o jogo competitivo mudam periodicamente.
+000000010089.07C: Heróis fora do rodízio
+00000001008C.07C: Heróis Indisponíveis
+000000010097.07C: Erro: Configuração de lobby esperada após '%1$s' na linha %2$s
+000000010098.07C: Erro: Configuração principal esperada após '%1$s' na linha %2$s
+000000010099.07C: Erro: Configuração de modo de jogo esperada após '%1$s' na linha %2$s
+0000000100A3.07C: Carnaval
+0000000100AD.07C: Erro: Configuração de herói esperada após '%1$s' na linha %2$s
+0000000100AE.07C: Erro: Configuração esperada após '%1$s' na linha %2$s
+0000000100AF.07C: Erro: Opção de configuração esperada após '%1$s' na linha %2$s
+0000000100B0.07C: Erro: Modo de jogo duplicado encontrado após '%1$s' na linha %2$s
+0000000100B6.07C: Erro: Equipe duplicada encontrada após '%1$s' na linha %2$s
+0000000100B7.07C: Erro: Configuração de equipe esperada após '%1$s' na linha %2$s
+0000000100BB.07C: Erro: Opção de base de dados esperada após '%1$s' na linha %2$s
+0000000100BC.07C: Erro: Modo de jogo inválido
+0000000100BD.07C: Erro: Herói inválido
+0000000100BE.07C: Erro: Mapa inválido
+0000000100BF.07C: Erro: Equipe inválida
+0000000100C0.07C: Erro: Configurações de herói inválidas
+0000000100C1.07C: Erro: Configurações de equipe inválidas
+0000000100C2.07C: Erro: Configurações de modo de jogo inválidas
+0000000100C3.07C: Erro: Configurações de mapa inválidas
+0000000100C4.07C: Folia
+0000000100C6.07C: Fartura
+0000000100C8.07C: Rei
+0000000100CA.07C: Bolo de Demolição
+0000000100CC.07C: Missangas
+0000000100CE.07C: Mascarado
+0000000100D0.07C: Desbloqueado ao assistir a transmissões participantes durante o Desafio Carnaval da Ashe
+0000000100D5.07C: Heróis fora do rodízio
+0000000100DF.07C: Erro: Herói duplicado encontrado após '%1$s' na linha %2$s
+0000000100E0.07C: Erro: Mapas inesperados encontrados após '%1$s' na linha %2$s
+0000000100E1.07C: Erro: Principal inesperado encontrado após '%1$s' na linha %2$s
+0000000100E2.07C: Erro: Modos inesperados encontrados após '%1$s' na linha %2$s
+0000000100E3.07C: Erro: Heróis inesperados encontrados após '%1$s' na linha %2$s
+0000000100E4.07C: Erro: Lobby inesperado encontrado após '%1$s' na linha %2$s
+0000000100E5.07C: Laboratório
+0000000100E7.07C: Erro: Seção de configuração esperada após '%1$s' na linha %2$s
+0000000100E8.07C: Erro: Configurações inválidas '%1$s' na linha %2$s
+000000010176.07C: Notas de atualização
+000000010177.07C: Clique a seguir para ver os detalhes da última atualização!
+000000010178.07C: Notas de atualização
+00000001017B.07C: Laboratório
+00000001017E.07C: Erro: Modos esperados após '%1$s' na linha %2$s
+0000000101D4.07C: Teste novas ideias da equipe e faça experimentações com a jogabilidade!
+
+- Confira os bastidores de conceitos experimentais, ainda em desenvolvimento.
+
+- Diga o que achou e ajude a melhorar a experiência de jogo.
+0000000101D9.07C: Este herói está fora do rodízio no momento.
+0000000101DF.07C: Teste novas ideias da equipe e faça experimentações com a jogabilidade!
+000000010214.07C: Seu tempo acabou. Quando esta sessão terminar, você será desconectado.
+00000001021A.07C: Mudar a câmera de morte para o matador
+000000010237.07C: Desconectado por chegar ao limite de tempo da CAIS
+000000010239.07C: Laboratório
+000000010243.07C: Ocultar placares
+00000001024D.07C: Operador
+0000000102D0.07C: pc
+0000000102D1.07C: ps4
+0000000102D2.07C: xb1
+0000000102D3.07C: nintendo-switch
+0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102F5.07C: Usar atualização do Laboratório se disponível
+[Core] Execution finished in 00:00:02.5191460 seconds

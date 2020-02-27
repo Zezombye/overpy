@@ -1,12 +1,12 @@
-[Core] DataTool v1.44.0.860-git-7d5102deb936ed3a32453c8b05dd4a2c9a628126
+[Core] DataTool v1.45.0.863-git-d08b8ee3b6474c6bd141eb865797b12a3bde1d66
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.exe.args
 [CASC] Set language to plPL
 [CASC] Set speech language to plPL
-[CASC] Overwatch build 1.44.0.1.66085
+[CASC] Overwatch build 1.45.0.0.66302
 [CASC] Initializing...
-[CMF] Using CMF procedure 65513
-[CMF] Using CMF procedure 65513
+[CMF] Using CMF procedure 66302
+[CMF] Using CMF procedure 66302
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -631,8 +631,6 @@ się poruszasz, po czym przeładowujesz broń.
 0000000005F7.07C: Ciała zabitych członków twojej drużyny są oznaczone w grze ikonami bohaterów.
 0000000005F8.07C: Bohaterowie typu tank świetnie sprawdzają się w zajmowaniu i utrzymywaniu celów oraz zakłócaniu działań drużyny wroga.
 0000000005F9.07C: Bohaterowie wsparcia ochraniają i leczą członków swojej drużyny oraz zapewniają przydatne wzmocnienia.
-000000000606.07C: <fg%1$s>OGŁUSZENIE</fg>
-000000000609.07C: <fg%1$s>OGŁUSZENIE</fg>
 000000000641.07C: WYBÓR BOHATERA
 000000000642.07C: TABELA WYNIKÓW
 000000000657.07C: |Rpl %1$s:umieszczone teleportery:umieszczone teleportery:umieszczone teleportery;
@@ -1353,7 +1351,7 @@ którą możesz zdalnie zdetonować.
 0000000015AF.07C: SZCZEGÓŁOWOŚĆ MODELI
 0000000015B0.07C: SZCZEGÓŁOWOŚĆ EFEKTÓW
 0000000015B1.07C: %1$s x %2$s (%3$s)%4$s
-0000000015B8.07C: |Rpl %1$s:zabici:zabici:zabici; Rakietami Helix – najwięcej w meczu
+0000000015B8.07C: %1$s |Rpl zabity:zabitych:zabitych; Rakietami Helix – najwięcej w meczu
 0000000015B9.07C: |Rpl %1$s:zabici:zabici:zabici; Rakietami Helix
 0000000015BA.07C: |Rpl %1$s:zabici:zabici:zabici; Wizjerem Taktycznym
 0000000015BC.07C: |Rpl %1$s:zabici:zabici:zabici; Wizjerem Taktycznym – najwięcej w meczu
@@ -2427,7 +2425,7 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000002311.07C: ATAK
 000000002312.07C: Nie udało się dołączyć do gry dowolnej. Możliwe, że jest pełna.
 000000002313.07C: KANAŁY MENU SPOŁECZNOŚCIOWEGO
-000000002314.07C: DRUŻYNA 1
+000000002314.07C: Drużyna 1
 000000002315.07C: OBSERWATORZY
 000000002317.07C: Sojusznicy
 000000002318.07C: ekipa
@@ -3729,7 +3727,7 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000002C05.07C: Nieudana próba połączenia z serwerem gry. Spróbuj ponownie później.
 000000002C0B.07C:  rozpoczyna obserwację.
 000000002C0D.07C:  (widz)
-000000002C0E.07C: DRUŻYNA 2
+000000002C0E.07C: Drużyna 2
 000000002C10.07C: WYBIERZ ELEMENT, ABY WYŚWIETLIĆ PODGLĄD!
 000000002C12.07C: Za %1$s godzin osiągniesz niebezpieczny czas gry. Przestaniesz wówczas otrzymywać punkty doświadczenia oraz skrzynki z łupami do momentu, gdy będziesz wylogowany przez 5 godzin.
 000000002C13.07C: Jesteś już w grze od ponad 5 godzin. Zaczął się niebezpieczny czas gry, w którym nie będziesz otrzymywać punktów doświadczenia ani skrzynek z łupami. Stan wypoczęcia zostanie odnowiony po spędzeniu 5 godzin poza grą. Wyloguj się, odpocznij i poćwicz trochę.
@@ -3773,29 +3771,29 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000002C40.07C: BOHATEROWIE
 000000002C41.07C: OPCJE BOHATERÓW
 000000002C42.07C: MAPY
-000000002C43.07C: MAPA
-000000002C44.07C: OPCJE DRUŻYNY
-000000002C45.07C: WYRÓWNYWANIE SIŁ DRUŻYN
-000000002C46.07C: BALANS
-000000002C4C.07C: POWRÓT DO POCZEKALNI
-000000002C4D.07C: KOLEJNOŚĆ MAP
+000000002C43.07C: Mapa
+000000002C44.07C: Drużyna
+000000002C45.07C: Wyrównywanie sił drużyn
+000000002C46.07C: Balans
+000000002C4C.07C: Powrót do poczekalni
+000000002C4D.07C: Kolejność map
 000000002C4E.07C: OGRANICZENIE WYBORU RÓL
 000000002C4F.07C: OGRANICZENIE WYBORU BOHATERÓW
-000000002C52.07C: WYŁ.
-000000002C54.07C: PO DWÓCH RUNDACH
-000000002C55.07C: PO MECZU
-000000002C57.07C: LOSOWA
-000000002C58.07C: KOLEJNOŚĆ NA LIŚCIE
-000000002C5A.07C: NIGDY
-000000002C5B.07C: PO MECZU
-000000002C5C.07C: PO DWÓCH RUNDACH
+000000002C52.07C: Wył.
+000000002C54.07C: Po dwóch rundach
+000000002C55.07C: Po meczu
+000000002C57.07C: Losowo
+000000002C58.07C: Kolejność na liście
+000000002C5A.07C: Nigdy
+000000002C5B.07C: Po meczu
+000000002C5C.07C: Po dwóch rundach
 000000002C5D.07C: 2 NA MECZ
 000000002C5E.07C: 1 NA MECZ
 000000002C5F.07C: 2 NA DRUŻYNĘ
 000000002C60.07C: 1 NA DRUŻYNĘ
 000000002C61.07C: BRAK
-000000002C62.07C: BRAK
-000000002C63.07C: 2 Z KAŻDEJ ROLI NA DRUŻYNĘ
+000000002C62.07C: Brak
+000000002C63.07C: 2 z każdej roli na drużynę
 000000002C64.07C: Przyjazny bot
 000000002C67.07C: |Rpl %1$s:zabici:zabici:zabici; elementami otoczenia
 000000002C68.07C: %1$s |Rpl zabity:zabitych:zabitych; elementami otoczenia
@@ -3973,10 +3971,10 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000002D66.07C: WSTECZ
 000000002D68.07C: ZAPROŚ
 000000002D69.07C: ANULUJ
-000000002D71.07C: DRUŻYNA 1
-000000002D72.07C: DRUŻYNA 2
-000000002D73.07C: OBSERWATOR
-000000002D74.07C: OBYDWIE
+000000002D71.07C: Drużyna 1
+000000002D72.07C: Drużyna 2
+000000002D73.07C: Widz
+000000002D74.07C: Obie
 000000002D76.07C: TAK
 000000002D77.07C: ANULUJ
 000000002D78.07C: CZY CHCESZ OPUŚCIĆ MECZ?
@@ -7103,10 +7101,10 @@ Andrew Wang
 00000000411C.07C: Częste opuszczanie meczów może spowodować nałożenie kary.
 00000000411D.07C: Obecnie podlegasz karze za opuszczenie ostatniego meczu.
 000000004120.07C: Nie otrzymasz doświadczenia za ten mecz. Wkrótce możesz otrzymać karę.
-000000004122.07C: ROTACJA MAP
-000000004123.07C: PO DWÓCH RUNDACH
-000000004124.07C: PO MECZU
-000000004125.07C: PAUZA
+000000004122.07C: Rotacja map
+000000004123.07C: Po dwóch rundach
+000000004124.07C: Po meczu
+000000004125.07C: Pauza
 000000004126.07C: RES ASSIST
 000000004127.07C: RESURRECTION
 00000000412D.07C: gg :|
@@ -7346,7 +7344,7 @@ Andrew Wang
 000000004320.07C: Bezpośrednie trafienia rakietami |Rpl %1$s:–:–:–; średnia
 000000004321.07C: Bezpośrednie trafienia rakietami |Rpl –:–:–; średnia: %1$s
 000000004322.07C: |Rpl %1$s:zabici:zabici:zabici; Rakietami Helix – średnia
-000000004323.07C: |Rpl :zabici:zabici:zabici; Rakietami Helix – średnia: %1$s
+000000004323.07C: Rakiety Helix |Rpl –:–:–; średnia zabitych: %1$s
 000000004324.07C: |Rpl %1$s:zabici:zabici:zabici; Wizjerem Taktycznym – średnia
 000000004325.07C: Wizjer Taktyczny |Rpl –:–:–; średnia zabitych: %1$s
 000000004326.07C: Zablokowane obrażenia – średnia
@@ -7672,9 +7670,9 @@ Andrew Wang
 000000004549.07C: Przygotuj się do obrony
 00000000454A.07C: Eskortuj ładunek
 00000000454B.07C: Zatrzymaj ładunek
-00000000454E.07C: WYŁ.
-00000000454F.07C: WŁ.
-000000004550.07C: DUŻA PRZEPUSTOWOŚĆ
+00000000454E.07C: Wył.
+00000000454F.07C: Wł.
+000000004550.07C: Duża przepustowość
 000000004553.07C: Komunikaty o jakości połączenia
 000000004558.07C: Chwilę temu
 000000004559.07C: %1$s |Rplmin.:min.:min.; temu
@@ -7943,7 +7941,7 @@ Andrew Wang
 – Zajmowanie celów zapewnia punkty
 – O wygranej decyduje przewaga punktowa
 0000000047B1.07C: – Nowy sezon co 2 miesiące
-– Wyjątkowe nagrody
+– Zdobywaj wyjątkowe nagrody pod koniec sezonu
 – Ponowna klasyfikacja na początku sezonu
 0000000047B2.07C: Ranga umiejętności
 0000000047B3.07C: Rywalizacja – mecze
@@ -7967,7 +7965,7 @@ Andrew Wang
 0000000047D5.07C: Mecze
 klasyfikacyjne
 0000000047D6.07C: Nie można prosić o zaproszenie do tej ekipy
-0000000047D7.07C: Rozgrywaj mecze w trybie rywalizacji, aby zdobyć poniższe nagrody na koniec sezonu.
+0000000047D7.07C: Rozgrywaj mecze w trybie rywalizacji, aby zdobyć nagrody na koniec sezonu.
 0000000047D8.07C: Nagroda za mecze klasyfikacyjne
 w 1. sezonie
 0000000047D9.07C: Nagroda za miejsce wśród 500 najlepszych w 1. sezonie
@@ -8807,10 +8805,10 @@ w 4. sezonie
 00000000501E.07C: STWÓRZ MECZ TURNIEJOWY
 00000000501F.07C: Gra dowolna ustawiona jako mecz turniejowy.
 000000005036.07C: PUNKTY KONTROLNY
-000000005037.07C: PIERWSZY
-000000005038.07C: DRUGI
-000000005039.07C: TRZECI
-00000000503A.07C: WSZYSTKIE
+000000005037.07C: Pierwsza
+000000005038.07C: Druga
+000000005039.07C: Trzecia
+00000000503A.07C: Wszystkie
 00000000503F.07C: Zmysł Łowcy
 000000005040.07C: Wykrywasz krytycznie rannych wrogów przez ściany.
 000000005041.07C: Aby powstrzymać Sombrę przed hakowaniem ciebie lub sojusznika, zadaj jej obrażenia.
@@ -10058,7 +10056,7 @@ premiery Diablo.
 000000005B66.07C:  został usunięty z gry dowolnej.
 000000005B68.07C: 
 000000005B6B.07C: Szpon
-000000005B84.07C: Czas odnowienia (%1$s)
+000000005B84.07C: Czas odnowienia: %1$s
 000000005B85.07C: Superzdolność (%1$s)
 000000005B86.07C: Ładowanie Superzdolności (%1$s)
 000000005B87.07C: Selfie
@@ -13615,7 +13613,7 @@ w 7. sezonie
 00000000666E.07C: Wyskok
 00000000667B.07C: Kropka
 00000000668E.07C: Gracz zapisuje najciekawszy moment
-000000006693.07C: |Rfd %1$s:dd-MMM-yy HH:mm;
+000000006693.07C: |Rfd %1$s: dd MMMM yyyy;
 000000006694.07C: Nagrania niedostępne.
 000000006697.07C: Kredyty wewnątrz gry mogą zostać wykorzystane do odblokowania wielu elementów ozdobnych. Każda skrzynka z letnich igrzysk zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze. Skrzynki z letnich igrzysk można zdobywać dzięki systemom w grze.
 000000006698.07C: 5 kredytów i 2 darmowe skrzynki z letnich igrzysk
@@ -13959,7 +13957,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000069FF.07C: ZWYCIĘSTWO: Pierwszy gracz, który zdobędzie 20 eliminacji
 000000006A01.07C: CZAT GŁOSOWY MECZU
 000000006A02.07C: Marionetka
-000000006A03.07C: MECZ
+000000006A03.07C: Mecz
 000000006A04.07C: Czat głosowy meczu
 000000006A06.07C: Wyłączono
 000000006A07.07C: Deathmatch w Château
@@ -14180,9 +14178,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006D5F.07C: Zamień na FFA
 000000006D60.07C: Zapisywanie najciekawszych momentów jest niemożliwe, ponieważ prowadzona jest transmisja.
 000000006D61.07C: Zapisywanie najciekawszych momentów jest niemożliwe, ponieważ zostało wyłączone na twoim systemie.
-000000006D65.07C: Eliminacje potrzebne do wygranej (Brak balansu)
-000000006D66.07C: Eliminacje potrzebne do wygranej (Drużyna 2)
-000000006D67.07C: Eliminacje potrzebne do wygranej (Drużyna 1)
+000000006D65.07C: Eliminacje potrzebne do wygranej (brak balansu)
+000000006D66.07C: Eliminacje potrzebne do wygranej (drużyna 1)
+000000006D67.07C: Eliminacje potrzebne do wygranej (drużyna 2)
 000000006D8D.07C: Nie możesz zapraszać graczy do swojej ekipy, kiedy jesteś w tym trybie.
 000000006D8E.07C: W tym trybie nie możesz dołączyć do ekipy.
 000000006D8F.07C: Nie można dołączyć do tego trybu gry
@@ -14418,9 +14416,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000705A.07C: Wyłączono
 00000000705B.07C: Tempo odnawiania energii biotycznej
 00000000705C.07C: Maksymalny poziom energii biotycznej
-00000000705F.07C: ZMIEŃ DRUŻYNĘ PO MECZU
+00000000705F.07C: Zmień drużynę po meczu
 000000007060.07C: Włókno węglowe
-000000007063.07C: ZMIEŃ DRUŻYNĘ PO MECZU
+000000007063.07C: Zmień drużynę po meczu
 000000007077.07C: Współczynnik skalowania wytrzymałości wrót
 000000007078.07C: |Rfn %1$s:P0;
 000000007083.07C: TRYB WPROWADZANIA SWOBODNEJ KAMERY
@@ -14850,7 +14848,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s |Rpl trafienie:trafienia:trafień; Strzałką Usypiającą
 000000007460.07C: Tempo doczepiania Bomby Pulsacyjnej
 000000007461.07C: Tempo doczepiania Bomby Pulsacyjnej: %1$s
-00000000746F.07C: <fg%1$s>OGŁUSZENIE</fg>
 000000007472.07C: Koalescencja – leczenie na każde użycie
 000000007473.07C: Koalescencja – leczenie na każde użycie: %1$s
 000000007474.07C: Koalescencja – obrażenia na każde użycie
@@ -14899,7 +14896,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000074B3.07C: Ta gra posiada dwie kategorie wiekowe – „12+” oraz „15+”. Wiek gracza jest automatycznie określany po zalogowaniu. Osoby w wieku 12-15 lat mają dostęp jedynie do zawartości z kategorii „12+”. Gra nie jest przeznaczona dla osób poniżej 12 roku życia.
 0000000074B4.07C: Usuń wszystkie boty
 0000000074B8.07C: 5 NA 1
-0000000074B9.07C: |Rfd %1$s:dd.MM;
 0000000074BA.07C: |Rfd %1$s:hh:mm;
 0000000074BB.07C: Harmonogram
 0000000074BC.07C: Sklep drużyny
@@ -17592,7 +17588,7 @@ z letnich igrzysk
 000000009282.07C: Aby Pole Minowe zajmowało większy obszar, rozstawiaj je, kiedy znajdujesz się w powietrzu.
 000000009284.07C: Wł.
 000000009285.07C: Wył.
-000000009286.07C: Czas odnowienia (%1$s)
+000000009286.07C: Czas odnowienia: %1$s
 000000009287.07C: |Rfn %1$s:P0;
 000000009288.07C: Skalowanie odrzucenia (Pazur)
 000000009289.07C: Przełączanie Pazura
@@ -18026,7 +18022,6 @@ i dodatkowo 10 darmowych
 000000009F12.07C: Dyniomari
 000000009F13.07C: Zawartość skrzynek halloweenowych
 000000009F21.07C: Overwatch League
-000000009F29.07C: <fg%1$s>OGŁUSZENIE</fg>
 000000009F34.07C: Nowych legendarnych skórek!
 000000009F99.07C: WIEŻYCZKA <fg%1$s>TURBODOŁADOWANA</fg>
 000000009F9A.07C: Dynia
@@ -18621,7 +18616,7 @@ Prosimy o przesyłanie komentarzy i opinii, które pomogą nam usprawnić dział
 00000000AAD8.07C: Preferowane centrum danych
 00000000AAD9.07C: %1$s %2$s Superzdolność %3$s
 00000000AADC.07C: %1$s %2$s %3$s %4$s Superzdolność %5$s
-00000000AADE.07C: PREFEROWANE CENTRUM DANYCH
+00000000AADE.07C: Preferowane centrum danych
 00000000AAE2.07C: Łączenie z nowym serwerem
 00000000AAE4.07C: Wybrane centrum danych nie jest już dostępne
 00000000AAE5.07C: Jak z płatka śniegu
@@ -19983,11 +19978,11 @@ w trybie Deathmatch 2019
 00000000B8B5.07C: KONTYNUUJ
 00000000B8B6.07C: Nowa mapa typu eskorta
 00000000B8B7.07C: Hawana
-00000000B8C3.07C: None
+00000000B8C3.07C: Brak
 00000000B8C4.07C: Visible To
 00000000B8C5.07C: Position and Radius
 00000000B8C6.07C: Visible To, Position, and Radius
-00000000B8C9.07C: None
+00000000B8C9.07C: Brak
 00000000B8CA.07C: Destination and Rate
 00000000B8D0.07C: Arena bohaterów
 00000000B8D2.07C: Arena bohaterów <tx0C0000000001FEE9>
@@ -20091,7 +20086,7 @@ w trybie Deathmatch 2019
 00000000B9E8.07C: Is Communicating Any Emote
 00000000B9EA.07C: Enemies
 00000000B9EB.07C: All
-00000000B9EC.07C: None
+00000000B9EC.07C: Brak
 00000000B9ED.07C: Set Invisible
 00000000B9EE.07C: Niewidzialne dla
 00000000B9EF.07C: Pause Match Time
@@ -20142,7 +20137,7 @@ w trybie Deathmatch 2019
 00000000BA87.07C: Small Message
 00000000BA88.07C: Big Message
 00000000BA89.07C: Nagłówek
-00000000BA8A.07C: None
+00000000BA8A.07C: Brak
 00000000BA8C.07C: Visible To and String
 00000000BA8D.07C: Ponowne oszacowanie
 00000000BA8E.07C: Gwishin
@@ -20278,13 +20273,13 @@ w trybie Deathmatch 2019
 00000000BBB9.07C: Poprzednie zdarzenie
 00000000BBBA.07C: Następna linia
 00000000BBBB.07C: Poprzednia linia
-00000000BBC5.07C: Komentarz
+00000000BBC5.07C: Reguła
 00000000BBC6.07C: Warunek
 00000000BBC7.07C: Działanie
 00000000BBC8.07C: Globalnie
 00000000BBCA.07C: Brak warunku
 00000000BBCB.07C: Warunek:
-00000000BBCC.07C: Komentarz:
+00000000BBCC.07C: Reguła:
 00000000BBCD.07C: Działanie:
 00000000BBD1.07C: Wpis #%1$s
 00000000BBD3.07C: Opis
@@ -20341,8 +20336,8 @@ w trybie Deathmatch 2019
 00000000BC68.07C: Modyfikuj wynik (liczbę likwidacji) jednego lub więcej graczy. Działanie to dotyczy tylko trybów każdy na każdego.
 00000000BC69.07C: Wartość o jaką zwiększy lub zmniejszy się wynik. Jeśli jest dodatnia, wynik się zwiększy. Jeśli ujemna – wynik się zmniejszy.
 00000000BC6A.07C: Gracz lub gracze, których wynik się zmieni.
-00000000BC6B.07C: Restartuje listę działań od początku. Aby zapobiec zapętleniu, między uruchomieniem listy działań a tym działaniem musi wystąpić działanie „Wait”.
-00000000BC6C.07C: Restartuje listę działań od początku, jeśli każdy warunek na liście warunków jest prawdą. Jeśli któryś jest fałszem, uruchomienie będzie kontynuowane od następnego działania. Aby zapobiec zapętleniu, między uruchomieniem listy działań a tym działaniem musi wystąpić działanie „Wait”.
+00000000BC6B.07C: Restartuje listę działań do początku.
+00000000BC6C.07C: Restartuje listę działań od początku, jeśli każdy warunek na liście warunków jest prawdą. Jeśli któryś jest fałszem, uruchomienie będzie kontynuowane od następnego działania.
 00000000BC6D.07C: Zapewnia natychmiastowe leczenie jednemu lub więcej graczom. Leczenie nie ożywi martwych graczy.
 00000000BC6E.07C: Gracz lub gracze, których zdrowie zostanie przywrócone.
 00000000BC6F.07C: Gracz, któremu zaliczone zostanie zapewnione leczenie. „Null” oznacza, że nie zostanie zaliczone nikomu.
@@ -20426,7 +20421,7 @@ w trybie Deathmatch 2019
 00000000BCC2.07C: Określa, którą ze zmiennych gracza stopniowo modyfikować.
 00000000BCC3.07C: Wartość, którą osiągnie ostatecznie zmienna „Player Variable”. Typem tej wartości może być albo „Number” (Liczba) albo „Vector”, chociaż istniejąca wartość zmiennej musi być tego samego typu, aby rozpoczęto stopniową modyfikację.
 00000000BCC4.07C: Liczba zmian, które nastąpią w każdej sekundzie dla wartości zmiennej.
-00000000BCC5.07C: Określa, które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych danych wejściowych.
+00000000BCC5.07C: Określa, które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.
 00000000BCC6.07C: Zatrzymuje trwającą stopniową modyfikację zmiennej „Global Variable”, pozostawiając jej bieżącą wartość.
 00000000BCC7.07C: Określa, którą ze zmiennych „Global Variable” przestać modyfikować.
 00000000BCC8.07C: Zatrzymuje trwającą stopniową modyfikację zmiennej „Player Variable”, pozostawiając jej bieżącą wartość.
@@ -20575,8 +20570,8 @@ w trybie Deathmatch 2019
 00000000BD57.07C: Tworzy tekst w świecie widziany przez określonych graczy w określonej pozycji w świecie. Tekst będzie się utrzymywać do usunięcia. Aby pozyskać odniesienie do tego tekstu, użyj wartości „Last Text ID”. To działanie nie powiedzie się, jeśli stworzono zbyt dużo elementów tekstu.
 00000000BD58.07C: Usuwa tekst w świecie stworzony działaniem „Create In-World Text”.
 00000000BD59.07C: Określa, który tekst w świecie usunąć. Identyfikatorem może być „Last Text ID” lub zmienna, w której wcześniej zmagazynowano „Last Text ID”.
-00000000BD5A.07C: Restartuje listę działań od początku, jeśli warunek tego działania jest prawdą. Jeśli nie, uruchomienie będzie kontynuowane od następnego działania. Aby zapobiec nieskończonemu zapętleniu, między uruchomieniem listy działań a tym działaniem musi wystąpić działanie „Wait”.
-00000000BD5B.07C: Restartuje listę działań od początku, jeśli przynajmniej jeden warunek na liście warunków jest fałszem. Jeśli wszystkie są prawdą, uruchomienie będzie kontynuowane od następnego działania. Aby zapobiec nieskończonemu zapętleniu, między uruchomieniem listy działań a tym działaniem musi wystąpić działanie „Wait”.
+00000000BD5A.07C: Restartuje listę działań do początku, jeśli warunek działania jest prawdą. Jeśli nie, uruchomienie będzie kontynuowane od następnego działania.
+00000000BD5B.07C: Restartuje uruchomienie listy działań, jeśli przynajmniej jeden warunek z listy warunków jest fałszem. Jeśli wszystkie warunki są prawdą, uruchomienie będzie kontynuowane od następnego działania.
 00000000BD5C.07C: Określa, czy występuje zapętlenie.
 00000000BD5D.07C: Zatrzymuje uruchomienie listy działań.
 00000000BD5E.07C: Zatrzymuje uruchomienie listy działań, jeśli warunek działania jest prawdą. Jeśli nie, uruchomienie będzie kontynuowane od następnego działania.
@@ -20599,7 +20594,7 @@ w trybie Deathmatch 2019
 00000000BD6F.07C: Cofa efekt działania „Start Forcing Throttle” dla jednego lub więcej graczy.
 00000000BD70.07C: Gracz lub gracze, których dane wejściowe ruchu zostaną przywrócone.
 00000000BD71.07C: Zaczyna przyspieszać jednego lub więcej graczy w określonym kierunku.
-00000000BD72.07C: Określa, które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych danych wejściowych.
+00000000BD72.07C: Określa, które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.
 00000000BD73.07C: Określa, czy kierunek ma odniesienie do współrzędnych świata, czy też lokalnych współrzędnych gracza lub graczy.
 00000000BD74.07C: Szybkość, przy której zatrzyma się przyspieszanie dla gracza lub graczy. Jej osiągnięcie może okazać się niemożliwe z powodu grawitacji i/lub tarcia powierzchniowego.
 00000000BD75.07C: Tempo przyspieszenia w metrach na sekundę do kwadratu. Wartość ta może wymagać dość wysokiego poziomu, aby przezwyciężyć grawitację i/lub tarcie powierzchniowe.
@@ -22124,9 +22119,9 @@ w trybie Deathmatch 2019
 00000000C63E.07C: Gracz lub gracze, których wyjściowe dane obrażeń będą modyfikowane (podczas ataku raniących).
 00000000C63F.07C: Procent obrażeń zastosowanych na ranionych atakowanych przez raniących.
 00000000C640.07C: Gracz lub gracze, obrażenia otrzymywane przez których będą modyfikowane (podczas ataku raniących).
-00000000C641.07C: Ranieni
+00000000C641.07C: Odbiorcy
 00000000C642.07C: Określa, które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.
-00000000C643.07C: None
+00000000C643.07C: Brak
 00000000C644.07C: Receivers and Damagers
 00000000C645.07C: Receivers, Damagers, and Damage Percent
 00000000C646.07C: Zatrzymuje wszystkie modyfikacje obrażeń rozpoczęte przez działanie „Start Damage Modification”.
@@ -22437,7 +22432,7 @@ z letnich igrzysk
 00000000CA0C.07C: Musisz wybrać rolę zanim twoja grupa dołączy do kolejki. Chcesz wybrać teraz?
 00000000CA0D.07C: Sklepy
 00000000CA0E.07C: Sklep
-00000000CA11.07C: Tydzień 1: Pięść Zagłady (Mnich)
+00000000CA11.07C: Wyzwanie Ashe: Mardi Gras
 00000000CA13.07C: Tydzień 2: Winston (Starożytny brąz)
 00000000CA14.07C: Tydzień 3: Burzyciel (Wycinanka)
 00000000CA15.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
@@ -22860,7 +22855,7 @@ Overwatch League 2019.
 00000000CEE8.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Eliminacji i pnij się w tabeli wyników!
 00000000CEE9.07C: Rywalizacja w trybie Eliminacji 3 na 3 – Sezon 2
 00000000CEEF.07C: Grabarz
-00000000CEF0.07C: Droga do zawodowstwa
+00000000CEF0.07C: Droga do zawodowstwa 2019
 00000000CEFF.07C: Piekielnik
 00000000CF28.07C: 2019
 00000000CF29.07C: Chacko Sonny
@@ -26349,7 +26344,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EB17.07C: Włącz precyzyjne dane wejściowe myszy
 00000000EB1E.07C: Błąd: Zmienna gracza (%1$s) wymaga nazwy
 00000000EB21.07C: Błąd: Występuje konflikt globalnej zmiennej „%1$s” z inną zmienną
-00000000EB23.07C: Dostępne mapy
+00000000EB23.07C: Dostępne mapy w tym sezonie
 00000000EB24.07C: Hanamura, Świątynia Anubisa, Zakłady Volskaya Industries
 00000000EB25.07C: Błąd: Zmienna globalna (%1$s) zawiera nieprawidłową nazwę
 00000000EB29.07C: Błąd: Zmienna globalna (%1$s) wymaga nazwy
@@ -26483,6 +26478,8 @@ w Drużynowym Deathmatchu 2019
 00000000F0CB.07C: Kontynuuj
 00000000F0CC.07C: Skalowanie czasu odświeżania botów treningowych
 00000000F0CD.07C: |Rfn %1$s:P0;
+00000000F0F3.07C: <fg%1$s>OGŁUSZENIE</fg>
+00000000F0F4.07C: <fg%1$s>DRZEMKA</fg>
 00000000F0FE.07C: Tylko dla mieszkańców Kalifornii
 00000000F0FF.07C: Nie udostępniaj moich danych osobowych
 00000000F102.07C: Nastąpi otwarcie przeglądarki w nowym oknie
@@ -26608,8 +26605,8 @@ w Drużynowym Deathmatchu 2019
 00000000F40B.07C: |Rfn %1$s:N1;
 00000000F417.07C: Pokaż diagnostykę
 00000000F418.07C: Diagnostyka skryptu
-00000000F41B.07C: Łączna liczba elementów: %1$s
-00000000F41C.07C: Rozmiar największej reguły: %1$s KB
+00000000F41B.07C: Łączna liczba elementów
+00000000F41C.07C: Rozmiar największej reguły
 00000000F41D.07C: Do elementów zaliczają się reguły, warunki, działania i wartości (maksymalnie %1$s)
 00000000F41E.07C: Każda reguła musi mieć mniej niż %1$s KB
 00000000F420.07C: Świąteczna niespodzianka
@@ -26849,6 +26846,8 @@ aby zdobyć flagę wrogiej drużyny!
 00000000F5E8.07C: Florida Mayhem (Goście)
 00000000F5E9.07C: Florida Mayhem (Goście)
 00000000F5EA.07C: Florida Mayhem (Goście)
+00000000F5EB.07C: DRUŻYNA 3
+00000000F5EC.07C: DRUŻYNA 4
 00000000F8B0.07C: Żonglerka masek
 00000000F8B1.07C: Zawartość księżycowych skrzynek
 00000000F8B2.07C: Maska Sombry
@@ -26889,6 +26888,31 @@ flagi 2020
 00000000FABF.07C: %1$s |Rpl zabity:zabitych:zabitych; Odrzuceniem
 00000000FAC0.07C: |Rpl %1$s:zabici:zabici:zabici; Odrzuceniem
 00000000FAC1.07C: %1$s |Rpl zabity:zabitych:zabitych; Odrzuceniem
+00000000FB2E.07C: Włącz nagrywanie Inspektora
+00000000FB2F.07C: Wyłącz nagrywanie Inspektora
+00000000FB30.07C: Powoduje, że Inspektor Warsztatu przestaje rejestrować nowe wpisy. Ma to tę zaletę, że zmniejsza obciążenie serwera przez twój skrypt, szczególnie podczas modyfikacji tablic.
+00000000FB31.07C: Powoduje, że Inspektor Warsztatu wznawia rejestrowanie nowych wpisów (w przypadku, gdy zostało wcześniej wyłączone). Włączenie nagrywania w określonych godzinach może ułatwić debugowanie problematycznych obszarów w twojej logice.
+00000000FB32.07C: Jeśli
+00000000FB33.07C: Inaczej jeśli
+00000000FB34.07C: Inaczej
+00000000FB35.07C: Kiedy
+00000000FB37.07C: End
+00000000FB38.07C: Oznacza koniec serii działań rozpoczętych przez If, Else If, Else, While lub For.
+00000000FB39.07C: Oznacza początek serii działań, które zostaną wykonane w pętli, modyfikując Control Variable w każdej pętli. Odpowiednie działanie End oznacza koniec pętli. Jeśli Control Variable osiągnie lub przekroczy wartość Range Stop, to pętla kończy się, a wykonanie przeskakuje do następnego działania po End.
+00000000FB3A.07C: Oznacza początek serii działań, które zostaną wykonane w pętli, o ile określony warunek jest prawdziwy. Następne działanie End na bieżącym poziomie oznacza koniec pętli. Jeśli warunek jest fałszywy, gdy wykonanie jest na szczycie pętli, to pętla kończy się, a wykonanie przeskakuje do następnego działania po End.
+00000000FB3B.07C: Oznacza początek serii działań, które zostaną wykonane tylko wtedy, gdy warunek poprzedniego działania If lub Else If był fałszem.
+00000000FB3C.07C: Oznacza początek serii działań, które zostaną wykonane tylko wtedy, gdy określony warunek jest prawdziwy a warunek poprzedniego działania If lub Else If był fałszem.
+00000000FB3D.07C: Oznacza początek serii działań, które zostaną wykonane tylko wtedy, gdy określony warunek jest prawdziwy.
+00000000FB3E.07C: Jeśli to okaże się prawdą, uruchomienie będzie kontynuowane przy następnym działaniu. W przeciwnym razie przeskakuje do następnego działania Else If, Else lub End na bieżącym poziomie.
+00000000FB3F.07C: Jeśli to okaże się prawdą, uruchomienie będzie kontynuowane przy następnym działaniu. W przeciwnym razie przeskakuje do następnego działania End na bieżącym poziomie.
+00000000FB40.07C: Krok
+00000000FB41.07C: Wartość ta jest dodawana do Control Variable po osiągnięciu działania End. Jeżeli ta modyfikacja spowoduje, że zmienna kontrolna osiągnie lub przekroczy wartość Range Stop, to pętla zostanie zakończona, a wykonanie skoczy do następnej działania po End. W przeciwnym razie pętla będzie kontynuowana, a uruchomienie przeskoczy do następnego działania po For.
+00000000FB42.07C: Control Variable
+00000000FB43.07C: Zmienna modyfikowana w tej pętli. Jest ona ustawiona na wartość Range Start w momencie rozpoczęcia pętli, a pętla jest kontynuowana aż do momentu, gdy zmienna sterująca osiągnie lub przekroczy wartość Range Stop.
+00000000FB44.07C: Jeśli Control Variable osiągnie lub przekroczy tę wartość, to pętla zostanie zakończona, a wykonanie skoczy do następnego działania po End. To, czy ta wartość jest uważana za przekroczoną czy nie, zależy od tego, czy wartość kroku jest ujemna czy dodatnia. Jeśli Control Variable już osiągnęła lub przekroczyła tę wartość, gdy pętla się zaczyna, to pętla się kończy.
+00000000FB45.07C: Range Stop
+00000000FB46.07C: Control Variable jest ustawiona na tę wartość, kiedy rozpoczyna się pętla.
+00000000FB47.07C: Range Start
 00000000FB62.07C: OBSERWACJA W PROSTYM WIDOKU 3 OS. – STRONA KAMERY
 00000000FB64.07C: Bahrajn
 00000000FB69.07C: Samul Nori
@@ -26917,6 +26941,7 @@ flagi 2020
 00000000FB97.07C: Zawartość księżycowych skrzynek
 00000000FBAA.07C: Szczęśliwego Nowego Roku!
 00000000FBAB.07C: Zawartość księżycowych skrzynek
+00000000FBAC.07C: Edytuj komentarz
 00000000FBB2.07C: Czegoś ci trzeba?
 00000000FBB3.07C: Zawartość księżycowych skrzynek
 00000000FBB4.07C: Anomalia!
@@ -26930,10 +26955,177 @@ flagi 2020
 00000000FBDA.07C: Aktualizacje wyłączone
 00000000FC5D.07C: Możesz nie mieć możliwości gry, gdy wymagana będzie aktualizacja
 00000000FC5E.07C: Ukryj nakładkę powtórek
+00000000FC80.07C: Event Was Health Pack
+00000000FC81.07C: Czy leczenie pochodziło od apteczki w zdarzeniu aktualnie przetwarzanym przez tę regułę.
+00000000FC8D.07C: Walka wręcz
+00000000FC8E.07C: Przeładowanie
 00000000FC91.07C: UŻYJ NORMALNEJ/PROSTEJ KAMERY TRZECIOOSOBOWEJ
+00000000FCA5.07C: Visible To, Sort Order, and String
+00000000FCA6.07C: Kolejność sortowania i ciąg
+00000000FD25.07C: Brak
+00000000FD26.07C: Receivers and Healers
+00000000FD27.07C: Receivers, Healers, and Healing Percent
+00000000FD2A.07C: Ostatni identyfikator modyfikacji leczenia
+00000000FD2B.07C: Identyfikator reprezentujący ostatnie działanie rozpoczęcia modyfikacji leczenia przez „Event Player” (lub na poziomie globalnym).
+00000000FD36.07C: Zatrzymuje wszystkie modyfikacje leczenia rozpoczęte przez działanie „Start Healing Modification”.
+00000000FD37.07C: Stop Healing Modification
+00000000FD38.07C: Zatrzymuje modyfikację leczenia rozpoczętą przez działanie „Start Healing Modification”.
+00000000FD39.07C: Identyfikator modyfikacji leczenia
+00000000FD3A.07C: Określa, którą instancję modyfikacji leczenia zatrzymać. Identyfikatorem może być „Last Healing Modification ID” lub zmienna, w której wcześniej zmagazynowano „Last Healing Modification ID”.
+00000000FD3B.07C: Stop All Healing Modifications
+00000000FD40.07C: Start Healing Modification
+00000000FD42.07C: Zaczyna modyfikować to, ile leczenia otrzyma jeden lub więcej odbiorców od jednego lub więcej leczących. Odniesienie do tej modyfikacji leczenia można pobrać z wartości „Last Healing Modification ID”. To działanie nie powiedzie się, jeśli uruchomiono zbyt dużo modyfikacji leczenia.
+00000000FD43.07C: Odbiorcy
+00000000FD44.07C: Gracz lub gracze, których otrzymywane leczenie będzie modyfikowane (podczas leczenia przez leczących).
+00000000FD45.07C: Leczący
+00000000FD46.07C: Gracz lub gracze, których wyjściowe dane leczenia będą modyfikowane (podczas leczenia odbiorców).
+00000000FD47.07C: Procentowe leczenie
+00000000FD48.07C: Procent leczenia zastosowanego na odbiorców leczonych przez leczących.
+00000000FD49.07C: Ponowne oszacowanie
+00000000FD4A.07C: Określa, które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.
 00000000FDBB.07C: Wył.
+00000000FEBD.07C: Sub%1$s
+00000000FEBE.07C: Podprogram
+00000000FED9.07C: Błąd: Oczekiwano podprogramu po „%1$s” w linii %2$s
+00000000FEDA.07C: Błąd: Podprogram „%1$s” wymaga nazwy
+00000000FEDB.07C: Błąd: Podprogram „%1$s” zawiera zbyt długą nazwę
+00000000FEDC.07C: Błąd: Podprogram „%1$s” zawiera nieprawidłową nazwę
+00000000FEDD.07C: Błąd: Konflikt podprogramu „%1$s” z innym podprogramem
+00000000FEE1.07C: For Player Variable
+00000000FEE2.07C: For Global Variable
 00000000FFB4.07C: Mecze
 00000000FFCF.07C: OTRZYMANO ZAPROSZENIE DO ZNAJOMYCH
+00000000FFD0.07C: Gracz, którego zmienna jest modyfikowana w tej pętli. Jeśli podano kilku graczy, używany jest pierwszy z nich.
+00000000FFD1.07C: Kontroluj gracza
+00000000FFDA.07C: Tej samej zmiennej nie mogą używać jednocześnie działania Chase i For.
 00000000FFE7.07C: Overwatch League 2020
 00000000FFE8.07C: Brigitte Koza(k)
-[Core] Execution finished in 00:00:04.1770524 seconds
+00000000FFF0.07C: Warsztat: Komnata
+00000000FFF1.07C: Warsztat: Wyspa
+00000000FFF2.07C: Warsztat: Przestwór
+00000000FFF3.07C: Edytuj nazwy podprogramów
+00000000FFF4.07C: Dodaj podprogram
+00000000FFF5.07C: Przywróć domyślne
+00000000FFF6.07C: Podprogram
+00000000FFFA.07C: podprogramy
+00000000FFFB.07C: Błąd: Napotkano nieoczekiwany podprogram po „%1$s” w linii %2$s.
+00000000FFFC.07C: Błąd: Napotkano niedostępny podprogram indeksu „%1$s” zmiennej w linii %2$s.
+00000000FFFD.07C: Błąd: Napotkano duplikat podprogramu indeksu „%1$s” zmiennej w linii %2$s.
+00000000FFFE.07C: Błąd: Podprogram „%1$s” jest za długi
+00000000FFFF.07C: Błąd: Podprogram „%1$s” ma nieprawidłową nazwę
+000000010000.07C: Błąd: Napotkano nieznany podprogram po „%1$s” w linii %2$s.
+000000010017.07C: Uczestnik 21. sezonu
+000000010018.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 21.
+000000010019.07C: Droga do zawodowstwa 2020
+00000001001A.07C: Droga do zawodowstwa 2020
+00000001001E.07C: Wywołaj podprogram
+00000001001F.07C: Podprogram
+000000010020.07C: Wstrzymuje uruchomienie bieżącej reguły i rozpoczyna uruchomienie reguły podprogramowej (która jest regułą z typem zdarzenia podprogramowego). Kiedy wykonywanie reguły podprogramowej się zakończy, wykonywanie oryginalnej reguły zostanie wznowione. Podprogram będzie miał dostęp do tych samych wartości kontekstowych (np. Event Player) co reguła oryginalna.
+000000010021.07C: Określa, które podprogramy mają być wywoływane. Jeśli reguła z typem zdarzenia podprogramowego określa tę samą podprogramową procedurę, to zostanie ona wykonana. W przeciwnym razie to działanie zostanie pominięte.
+000000010022.07C: Start Rule
+000000010023.07C: Rozpoczyna jednoczesne uruchomienie reguły podprogramowej (która jest regułą z typem zdarzenia podprogramowego). Wykonanie oryginalnej reguły jest kontynuowane bez przerwy. Reguła podrzędna będzie miała dostęp do tych samych wartości kontekstowych (np. Event Player) co reguła oryginalna.
+000000010024.07C: Określa, które podprogramy uruchomić. Jeśli reguła z typem zdarzenia podprogramowego określa tę samą podprogramową procedurę, to zostanie ona uruchomiona. W przeciwnym razie działanie to zostanie pominięte.
+000000010025.07C: Restart Rule
+000000010026.07C: Do Nothing
+000000010027.07C: Uruchom ponownie określoną regułę z nowymi wartościami kontekstowymi (włączając Event Player, Attacker, Victim itd.).
+000000010028.07C: Pozwól na zakończenie wykonywania reguły bez zmiany jej wartości kontekstowych.
+00000001002A.07C: If Already Executing
+00000001002B.07C: Określa, co powinno się stać, jeśli reguła określona w podprogramie jest już uruchomiona dla tego samego gracza lub encji globalnej.
+00000001002D.07C: Reguły podprogramów nie mogą mieć warunków.
+00000001002E.07C: Kopiuj ustawienia
+00000001002F.07C: Importuj ustawienia
+000000010030.07C: ustawienia
+000000010031.07C: poczekalnia
+000000010034.07C: Mardi Grashe
+000000010036.07C: Mardi B.O.B.
+000000010038.07C: Złota maska
+00000001003A.07C: Nagroda za udział w wyzwaniu Ashe: Mardi Gras.
+00000001003F.07C: Bohater 21. sezonu
+000000010040.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 21.
+000000010041.07C: niedostępne mapy
+000000010044.07C: tryby gry
+000000010045.07C: dostępne mapy
+000000010046.07C: bohaterowie
+000000010047.07C: Kilka reguł określa ten sam podprogram.
+000000010051.07C: Drużynowe FFA
+000000010052.07C: niedostępni bohaterowie
+000000010053.07C: dostępni bohaterowie
+000000010054.07C: Sezon 21
+000000010055.07C: Sezon 21
+00000001005E.07C: %1$s
+00000001005F.07C: %1$s KB
+00000001006B.07C: Importuj ustawienia ze schowka
+00000001006C.07C: Wszystkie twoje bieżące ustawienia zostaną zastąpione. Czy na pewno chcesz dokonać importu ze schowka?
+00000001006D.07C: Potwierdź
+00000001006E.07C: główne
+000000010072.07C: Rotacja bohaterów
+000000010075.07C: Pula bohaterów dostępnych w trybie rywalizacji podlega regularnej rotacji.
+000000010078.07C: Bohaterowie poza rotacją
+00000001007F.07C: Opis
+000000010086.07C: OK
+000000010087.07C: Rotacja bohaterów
+000000010088.07C: Pula bohaterów dostępnych w trybie rywalizacji podlega regularnej rotacji.
+000000010089.07C: Bohaterowie poza rotacją
+00000001008C.07C: Niedostępni bohaterowie
+000000010097.07C: Błąd: oczekiwano ustawień poczekalni po „%1$s” w linii %2$s.
+000000010098.07C: Błąd: oczekiwano ustawień głównych po „%1$s” w linii %2$s.
+000000010099.07C: Błąd: oczekiwano ustawień trybu gry po „%1$s” w linii %2$s
+0000000100A3.07C: Mardi Gras
+0000000100AD.07C: Błąd: oczekiwano ustawień bohatera po „%1$s” w linii %2$s.
+0000000100AE.07C: Błąd: oczekiwano ustawień po „%1$s” w linii %2$s.
+0000000100AF.07C: Błąd: oczekiwano opcji ustawień po „%1$s” w linii %2$s.
+0000000100B0.07C: Błąd: napotkano duplikat trybu gry po „%1$s” w linii %2$s.
+0000000100B6.07C: Błąd: napotkano duplikat po „%1$s” w linii %2$s.
+0000000100B7.07C: Błąd: oczekiwano ustawień drużyny po „%1$s” w linii %2$s.
+0000000100BB.07C: Błąd: oczekiwano opcji centrum danych po „%1$s” w linii %2$s.
+0000000100BC.07C: Błąd: nieprawidłowy tryb gry.
+0000000100BD.07C: Błąd: nieprawidłowy bohater.
+0000000100BE.07C: Błąd: nieprawidłowa mapa.
+0000000100BF.07C: Błąd: nieprawidłowa drużyna.
+0000000100C0.07C: Błąd: nieprawidłowe ustawienia bohatera.
+0000000100C1.07C: Błąd: nieprawidłowe ustawienia drużyny.
+0000000100C2.07C: Błąd: nieprawidłowe ustawienia trybu gry.
+0000000100C3.07C: Błąd: nieprawidłowe ustawienia mapy.
+0000000100C4.07C: Karnawał
+0000000100C6.07C: Semlor
+0000000100C8.07C: Król Karnawału
+0000000100CA.07C: Karnawałowe ciasto
+0000000100CC.07C: Korale
+0000000100CE.07C: Czerwona Śmierć
+0000000100D0.07C: Nagroda za oglądanie transmisji biorących udział w promocji podczas Wyzwania Ashe: Mardi Gras.
+0000000100D5.07C: Bohaterowie poza rotacją
+0000000100DF.07C: Błąd: napotkano duplikat bohatera po „%1$s” w linii %2$s.
+0000000100E0.07C: Błąd: napotkano nieoczekiwane mapy po „%1$s” w linii %2$s.
+0000000100E1.07C: Błąd: napotkano nieoczekiwane główne po „%1$s” w linii %2$s.
+0000000100E2.07C: Błąd: napotkano nieoczekiwane tryby po „%1$s” w linii %2$s.
+0000000100E3.07C: Błąd: napotkano nieoczekiwanych bohaterów po „%1$s” w linii %2$s.
+0000000100E4.07C: Błąd: napotkano nieoczekiwaną poczekalnię po „%1$s” w linii %2$s.
+0000000100E5.07C: Eksperymenty
+0000000100E7.07C: Błąd: oczekiwano sekcji ustawień po „%1$s” w linii %2$s.
+0000000100E8.07C: Błąd: nieprawidłowe ustawienia „%1$s” w linii %2$s.
+000000010176.07C: Informacje o aktualizacji
+000000010177.07C: Kliknij poniżej, aby przeczytać informacje o zmianach w najnowszej aktualizacji!
+000000010178.07C: Informacje o aktualizacji
+00000001017B.07C: Eksperymenty
+00000001017E.07C: Błąd: oczekiwano trybów po „%1$s” w linii %2$s.
+0000000101D4.07C: – Sprawdź nowe pomysły naszego zespołu i eksperymentuj z rozgrywką!
+
+– Zajrzyj za kulisy procesów realizacji eksperymentalnych pomysłów.
+
+– Dziel się swoimi cennymi opiniami i pomóż nam usprawniać rozgrywkę.
+0000000101D9.07C: Ten bohater jest obecnie poza rotacją.
+0000000101DF.07C: Sprawdź nowe pomysły naszego zespołu i eksperymentuj z rozgrywką!
+000000010214.07C: Czas minął. Kiedy sesja dobiegnie końca, nastąpi rozłączenie.
+00000001021A.07C: Przypnij kamerę do zabójcy w powtórkach
+000000010237.07C: Rozłączono z powodu osiągnięcia limitu czasu gry (system CAIS).
+000000010239.07C: Eksperymenty
+000000010243.07C: Ukryj wyniki
+00000001024D.07C: Operator
+0000000102D0.07C: pc
+0000000102D1.07C: ps4
+0000000102D2.07C: xb1
+0000000102D3.07C: nintendo-switch
+0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102F5.07C: Użyj eksperymentalnej aktualizacji, jeśli jest dostępna
+[Core] Execution finished in 00:00:03.9974335 seconds

@@ -1,12 +1,12 @@
-[Core] DataTool v1.44.0.860-git-7d5102deb936ed3a32453c8b05dd4a2c9a628126
+[Core] DataTool v1.45.0.863-git-d08b8ee3b6474c6bd141eb865797b12a3bde1d66
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.exe.args
 [CASC] Set language to deDE
 [CASC] Set speech language to deDE
-[CASC] Overwatch build 1.44.0.1.66085
+[CASC] Overwatch build 1.45.0.0.66302
 [CASC] Initializing...
-[CMF] Using CMF procedure 65513
-[CMF] Using CMF procedure 65513
+[CMF] Using CMF procedure 66302
+[CMF] Using CMF procedure 66302
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -613,8 +613,6 @@
 0000000005F7.07C: Wenn ein Teammitglied stirbt, wird die Position seiner Leiche durch ein überall sichtbares Heldensymbol gekennzeichnet.
 0000000005F8.07C: Tanks sind in ihrem Element, wenn sie strategische Ziele erobern und verteidigen oder das gegnerische Team stören.
 0000000005F9.07C: Unterstützungs<hy>helden schützen und heilen ihre Teammitglieder und verfügen über nützliche unterstützende Fähigkeiten.
-000000000606.07C: <fg%1$s>BETÄUBT</fg>
-000000000609.07C: <fg%1$s>BETÄUBT</fg>
 000000000641.07C: HELDENAUSWAHL
 000000000642.07C: STATISTIK
 000000000657.07C: Teleporter platziert
@@ -2405,7 +2403,7 @@ Entdecke neue Spielweisen mit einer sich verändernden Auswahl an Spielmodi, die
 000000002311.07C: ANGRIFF
 000000002312.07C: Fehler beim Beitritt zum benutzerdefinierten Spiel. Unter Umständen ist das Spiel bereits voll.
 000000002313.07C: GRUPPEN
-000000002314.07C: TEAM 1
+000000002314.07C: Team 1
 000000002315.07C: ZUSCHAUER
 000000002317.07C: Team
 000000002318.07C: Gruppe
@@ -3708,7 +3706,7 @@ Tag noch!
 000000002C05.07C: Verbindung mit dem Spielserver fehlgeschlagen. Bitte versuchen Sie es später erneut.
 000000002C0B.07C:  schaut jetzt zu.
 000000002C0D.07C:  (Zuschauer)
-000000002C0E.07C: TEAM 2
+000000002C0E.07C: Team 2
 000000002C10.07C: EXTRA AUSWÄHLEN ZUR VORSCHAU!
 000000002C12.07C: In %1$s Stunden erreichen Sie die ungesunde Phase, ab der Sie keine Erfahrung oder Lootboxen mehr erhalten können. Dieser Zustand endet erst, wenn Sie sich für mindestens 5 Stunden ausgeloggt haben.
 000000002C13.07C: Sie sind schon seit mehr als 5 Stunden online. Damit haben Sie den Zeitpunkt erreicht, ab dem weiteres Spielen als ungesund eingestuft wird. Ab jetzt erhalten Sie keine Erfahrung und keine Lootboxen mehr. Dieser Zustand wird erst aufgehoben, wenn Sie mindestens 5 Stunden offline waren. Bitte loggen Sie sich aus, ruhen Sie sich aus und bewegen Sie sich etwas.
@@ -3752,29 +3750,29 @@ Tag noch!
 000000002C40.07C: HELDEN
 000000002C41.07C: HELDENOPTIONEN
 000000002C42.07C: KARTEN
-000000002C43.07C: KARTE
-000000002C44.07C: TEAM
-000000002C45.07C: TEAMS AUSGLEICHEN
-000000002C46.07C: ZEITPUNKT DES TEAMAUSGLEICHS
-000000002C4C.07C: ZURÜCK ZUR LOBBY
-000000002C4D.07C: KARTENREIHENFOLGE
+000000002C43.07C: Karte
+000000002C44.07C: Team
+000000002C45.07C: Teams ausgleichen
+000000002C46.07C: Zeitpunkt des Teamausgleichs
+000000002C4C.07C: Zurück zur Lobby
+000000002C4D.07C: Kartenreihenfolge
 000000002C4E.07C: BEGRENZTE ROLLENAUSWAHL
 000000002C4F.07C: BEGRENZTE HELDENAUSWAHL
-000000002C52.07C: AUS
-000000002C54.07C: NACH HIN- UND RÜCKMATCH
-000000002C55.07C: NACH EINEM MATCH
-000000002C57.07C: ZUFÄLLIG
-000000002C58.07C: DER REIHE NACH
-000000002C5A.07C: NIE
-000000002C5B.07C: NACH EINEM MATCH
-000000002C5C.07C: NACH HIN- UND RÜCKMATCH
+000000002C52.07C: Aus
+000000002C54.07C: Nach Hin- und Rückmatch
+000000002C55.07C: Nach einem Match
+000000002C57.07C: Zufällig
+000000002C58.07C: Der Reihe nach
+000000002C5A.07C: Nie
+000000002C5B.07C: Nach einem Match
+000000002C5C.07C: Nach Hin- und Rückmatch
 000000002C5D.07C: 2 PRO MATCH
 000000002C5E.07C: 1 PRO MATCH
 000000002C5F.07C: 2 PRO TEAM
 000000002C60.07C: 1 PRO TEAM
 000000002C61.07C: KEINE
-000000002C62.07C: KEINE
-000000002C63.07C: 2 JEDER ROLLE IM TEAM
+000000002C62.07C: Keine
+000000002C63.07C: 2 jeder Rolle im Team
 000000002C64.07C: Verbündeter Bot
 000000002C67.07C: |Rpl %1$s:Kill:Kills; aufgrund der Umgebung
 000000002C68.07C: Kills aufgrund der Umgebung: %1$s
@@ -3952,10 +3950,10 @@ Tag noch!
 000000002D66.07C: ZURÜCK
 000000002D68.07C: EINLADEN
 000000002D69.07C: ABBRECHEN
-000000002D71.07C: TEAM 1
-000000002D72.07C: TEAM 2
-000000002D73.07C: ZUSCHAUER
-000000002D74.07C: BEIDE
+000000002D71.07C: Team 1
+000000002D72.07C: Team 2
+000000002D73.07C: Zuschauer
+000000002D74.07C: Beide
 000000002D76.07C: JA
 000000002D77.07C: ABBRECHEN
 000000002D78.07C: MATCH WIRD VERLASSEN. BIST DU SICHER?
@@ -7082,10 +7080,10 @@ Andrew Wang
 00000000411C.07C: Nach dem wiederholten Verlassen von Matches erhältst du eine Deserteurstrafe.
 00000000411D.07C: Du erhältst eine Deserteur<hy>strafe, weil du das letzte Match zu früh verlassen hast.
 000000004120.07C: Für dieses Match erhältst du keine Erfahrungspunkte. Du stehst kurz davor, mit einer Deserteurstrafe belegt zu werden.
-000000004122.07C: KARTENROTATION
-000000004123.07C: NACH HIN- UND RÜCKMATCH
-000000004124.07C: NACH EINEM MATCH
-000000004125.07C: PAUSIERT
+000000004122.07C: Kartenrotation
+000000004123.07C: Nach Hin- und Rückmatch
+000000004124.07C: Nach einem Match
+000000004125.07C: Pausiert
 000000004126.07C: RES ASSIST
 000000004127.07C: RESURRECTION
 00000000412D.07C: gg :|
@@ -7653,9 +7651,9 @@ Andrew Wang
 000000004549.07C: Bezieht Verteidigungspositionen
 00000000454A.07C: Begleitet die Fracht
 00000000454B.07C: Haltet die Fracht auf
-00000000454E.07C: AUS
-00000000454F.07C: EIN
-000000004550.07C: HOHE BANDBREITE
+00000000454E.07C: Aus
+00000000454F.07C: Ein
+000000004550.07C: Hohe Bandbreite
 000000004553.07C: Meldungen zur Qualität der Netzwerkverbindung
 000000004558.07C: Gerade eben
 000000004559.07C: vor %1$s |RplMinute:Minuten;
@@ -7925,7 +7923,7 @@ Endet in %1$s.
 - Erreiche Ziele, um Punkte zu holen
 - Das Team mit den meisten Punkten gewinnt!
 0000000047B1.07C: - Alle 2 Monate eine neue Saison
-- Exklusive Belohnungen
+- Exklusive Belohnungen am Ende der Saison
 - Platzierungsmatches vor jeder Saison
 0000000047B2.07C: Spielniveau
 0000000047B3.07C: Ranglistenmatches
@@ -7950,7 +7948,7 @@ von Saison 1
 0000000047D5.07C: Platzierungs-
 matches
 0000000047D6.07C: Anfrage auf Einladung in die Gruppe nicht möglich
-0000000047D7.07C: Du kannst durch die Teilnahme an Ranglistenmatches am Ende der Saison die folgenden Belohnungen erhalten:
+0000000047D7.07C: - Du kannst durch die Teilnahme an Ranglistenmatches am Ende der Saison Belohnungen erhalten:
 0000000047D8.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 1
 0000000047D9.07C: Freigeschaltet durch das Erreichen der Top 500 in Saison 1
 0000000047DD.07C: Rangliste freigeschaltet!
@@ -8806,10 +8804,10 @@ von Saison 4
 00000000501E.07C: ZUM TURNIERMATCH MACHEN
 00000000501F.07C: Benutzerdefiniertes Spiel wurde als Turniermatch definiert.
 000000005036.07C: KARTENKONTROLLPUNKT
-000000005037.07C: ERSTE
-000000005038.07C: ZWEITE
-000000005039.07C: DRITTE
-00000000503A.07C: ALLE
+000000005037.07C: Erste
+000000005038.07C: Zweite
+000000005039.07C: Dritte
+00000000503A.07C: Alle
 00000000503F.07C: Opportunistin
 000000005040.07C: Kann schwer verwundete Gegner durch Wände erkennen.
 000000005041.07C: Füge Sombra Schaden zu, während sie dich oder ein Teammitglied hackt, um den Hack zu unterbrechen.
@@ -13706,7 +13704,7 @@ von Saison 7
 00000000666E.07C: Wirbelwind
 00000000667B.07C: Punkt
 00000000668E.07C: Spieler speichert ein Highlight.
-000000006693.07C: |Rfd %1$s:dd. MMMM yyyy HH:mm;
+000000006693.07C: |Rfd %1$s:dd. MMM. yyyy;
 000000006694.07C: Highlights nicht verfügbar.
 000000006697.07C: Spielcredits können verwendet werden, um viele kosmetische Extras freizuschalten. Jede Sommerspiele-Lootbox enthält bis zu 4 kosmetische Extras und/oder Credits im Spiel. Sommerspiele-Lootboxen können im Spiel auf verschiedene Arten verdient werden.
 000000006698.07C: 5 Credits und dazu 2 Sommerspiele-Lootboxen geschenkt
@@ -14019,7 +14017,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000069FF.07C: SIEG: Erziele als erster Spieler 20 Kills
 000000006A01.07C: VOICECHAT (MATCH)
 000000006A02.07C: Marioneta
-000000006A03.07C: MATCH
+000000006A03.07C: Match
 000000006A04.07C: Voicechat (Match)
 000000006A06.07C: Deaktiviert
 000000006A07.07C: Deathmatch im Château
@@ -14488,9 +14486,9 @@ punkte
 00000000705A.07C: Deaktiviert
 00000000705B.07C: Biotische Energie – Aufladungsrate
 00000000705C.07C: Biotische Energie – Maximum
-00000000705F.07C: SEITENWECHSEL NACH MATCH
+00000000705F.07C: Seitenwechsel nach Match
 000000007060.07C: Kohlefaser
-000000007063.07C: SEITENWECHSEL NACH MATCH
+000000007063.07C: Seitenwechsel nach Match
 000000007077.07C: Tortrefferpunkte
 000000007078.07C: |Rfn %1$s:P0;
 000000007083.07C: CAMERA FREE INPUT MODE
@@ -14544,7 +14542,7 @@ punkte
 000000007107.07C: Die Beschwörerin
 000000007108.07C: Dr. Junkenstein
 000000007109.07C: Junkensteins Monster
-000000007110.07C: Spiel pausieren bei Verbindungsabbruch eines Spielers
+000000007110.07C: Bei Verbindungsabbruch Spiel pausieren
 000000007111.07C: Aktivieren
 000000007112.07C: Modelle ausblenden
 000000007113.07C: Einfriereffekt stapelbar
@@ -14922,7 +14920,6 @@ punkte
 00000000745F.07C: Treffer mit Betäubungspfeilen: %1$s
 000000007460.07C: Anheftquote von Impulsbombe
 000000007461.07C: Anheftquote von Impulsbombe: %1$s
-00000000746F.07C: <fg%1$s>BETÄUBT</fg>
 000000007472.07C: Koaleszenz – Heilung pro Einsatz
 000000007473.07C: Koaleszenz – Heilung pro Einsatz: %1$s
 000000007474.07C: Koaleszenz – Schaden pro Einsatz
@@ -14971,7 +14968,6 @@ punkte
 0000000074B3.07C: Dieses Spiel hat zwei Einstufungen: 12+ und 15+. Das Alter des Spielers wird beim Einloggen automatisch bestimmt. Spieler im Alter von 12–14 Jahren erhalten nur Zugriff auf Inhalte, die als 12+ eingestuft wurden. Jegliche Inhalte sind für Spieler unter 12 Jahren ungeeignet.
 0000000074B4.07C: Alle Bots entfernen
 0000000074B8.07C: 5v1
-0000000074B9.07C: |Rfd %1$s:dd.MM.;
 0000000074BA.07C: |Rfd %1$s:H:mm;
 0000000074BB.07C: Spielplan
 0000000074BC.07C: Teamshop
@@ -18051,7 +18047,6 @@ Lootboxen erhältlich
 000000009F13.07C: In Halloween-
 Lootboxen erhältlich
 000000009F21.07C: Overwatch League
-000000009F29.07C: <fg%1$s>BETÄUBT</fg>
 000000009F34.07C: Neue legendäre Skins!
 000000009F99.07C: GESCHÜTZ <fg%1$s>ÜBERLADEN</fg>
 000000009F9A.07C: Kürbis
@@ -18658,7 +18653,7 @@ Schick uns dein Feedback und deine Kommentare, damit wir den Viewer weiter verbe
 00000000AAD8.07C: Bevorzugtes Rechenzentrum
 00000000AAD9.07C: %1$s %2$s %3$s Ultimate
 00000000AADC.07C: %1$s %2$s %3$s %4$s %5$s Ultimate
-00000000AADE.07C: BEVORZUGTES RECHENZENTRUM
+00000000AADE.07C: Bevorzugtes Rechenzentrum
 00000000AAE2.07C: Verbinde mit neuem Server ...
 00000000AAE4.07C: Bevorzugtes Rechenzentrum nicht mehr verfügbar
 00000000AAE5.07C: Schneekanone
@@ -20304,13 +20299,13 @@ erhaltungs<hy>feld verhindert
 00000000BBB9.07C: Vorheriges Event
 00000000BBBA.07C: Nächste Zeile
 00000000BBBB.07C: Vorherige Zeile
-00000000BBC5.07C: Kommentar
+00000000BBC5.07C: Regel
 00000000BBC6.07C: Bedingung
 00000000BBC7.07C: Aktion
 00000000BBC8.07C: Global
 00000000BBCA.07C: No Condition
 00000000BBCB.07C: Bedingung:
-00000000BBCC.07C: Kommentar:
+00000000BBCC.07C: Regel:
 00000000BBCD.07C: Aktion:
 00000000BBD1.07C: Eintrag %1$s
 00000000BBD3.07C: Beschreibung
@@ -20367,8 +20362,8 @@ erhaltungs<hy>feld verhindert
 00000000BC68.07C: Modifiziert den Punktestand (Kill-Zähler) von einem Spieler oder mehreren Spielern. Diese Aktion ist nur in klassischen Deathmatch-Modi wirksam.
 00000000BC69.07C: Die Menge, um die der Punktestand erhöht oder gesenkt wird. Falls positiv, wird der Punktestand erhöht. Falls negativ, wird der Punktestand gesenkt.
 00000000BC6A.07C: Der oder die Spieler, deren Punktestand geändert wird.
-00000000BC6B.07C: Startet die Aktionsliste von ihrem Anfang neu. Um eine Endlosschleife zu vermeiden, muss eine Aktion [Wait] zwischen dem Start der Aktionsliste und dieser Aktion ausgeführt werden.
-00000000BC6C.07C: Startet die Aktionsliste von ihrem Anfang neu, wenn jede Bedingung in der Bedingungsliste True ist. Sind Bedingungen False, fährt die Ausführung mit der nächsten Aktion fort. Um eine Endlosschleife zu vermeiden, muss eine Aktion [Wait] zwischen dem Start der Aktionsliste und dieser Aktion ausgeführt werden.
+00000000BC6B.07C: Startet die Aktionsliste von ihrem Anfang neu.
+00000000BC6C.07C: Startet die Aktionsliste von ihrem Anfang neu, wenn jede Bedingung in der Bedingungsliste True ist. Sind Bedingungen False, fährt die Ausführung mit der nächsten Aktion fort.
 00000000BC6D.07C: Heilt sofort einen oder mehrere Spieler. Durch diese Heilung werden gestorbene Spieler nicht wiederbelebt.
 00000000BC6E.07C: Der oder die Spieler, deren Trefferpunkte wiederhergestellt werden.
 00000000BC6F.07C: Der Spieler, dem die Heilung angerechnet wird. Beträgt [Healer] Null, dann wird die Heilung keinem Spieler angerechnet.
@@ -20601,8 +20596,8 @@ erhaltungs<hy>feld verhindert
 00000000BD57.07C: Erstellt Text in der Welt, der für bestimmte Spieler an einer bestimmten Position in der Welt sichtbar ist. Dieser Text bleibt sichtbar, bis er zerstört wird. Zum Abrufen einer Referenz zu diesem Text wird der Wert [Last Text ID] verwendet. Diese Aktion schlägt fehl, wenn zu viele Textelemente erstellt wurden.
 00000000BD58.07C: Zerstört Text in der Welt, der durch [Create In-World Text] erstellt wurde.
 00000000BD59.07C: Legt fest, welcher Text in der Welt zerstört werden soll. Diese ID kann [Last Text ID] oder eine Variable sein, in der [Last Text ID] zuvor gespeichert wurde.
-00000000BD5A.07C: Startet die Aktionsliste von ihrem Anfang neu, wenn die Bedingung dieser Aktion True ist. Ist sie es nicht, fährt die Ausführung mit der nächsten Aktion fort. Um eine Endlosschleife zu vermeiden, muss eine Aktion [Wait] zwischen dem Start der Aktionsliste und dieser Aktion ausgeführt werden.
-00000000BD5B.07C: Startet die Aktionsliste von ihrem Anfang neu, wenn mindestens eine Bedingung in der Bedingungsliste False ist. Wenn alle Bedingungen True sind, fährt die Ausführung mit der nächsten Aktion fort. Um eine Endlosschleife zu vermeiden, muss eine Aktion [Wait] zwischen dem Start der Aktionsliste und dieser Aktion ausgeführt werden.
+00000000BD5A.07C: Startet die Aktionsliste von ihrem Anfang neu, wenn die Bedingung dieser Aktion True ist. Ist sie es nicht, fährt die Ausführung mit der nächsten Aktion fort.
+00000000BD5B.07C: Startet die Aktionsliste von ihrem Anfang neu, wenn mindestens eine Bedingung in der Bedingungsliste False ist. Wenn alle Bedingungen True sind, fährt die Ausführung mit der nächsten Aktion fort.
 00000000BD5C.07C: Legt fest, ob die Schleife auftritt.
 00000000BD5D.07C: Beendet die Ausführung der Aktionsliste.
 00000000BD5E.07C: Beendet die Ausführung der Aktionsliste, wenn die Bedingung dieser Aktion True ist. Ist sie es nicht, fährt die Ausführung mit der nächsten Aktion fort.
@@ -22454,7 +22449,7 @@ Hinweis: Variablen und Programmiersprache sind in Englisch gehalten. Die Benutze
 00000000CA0C.07C: Du musst eine Rolle wählen, bevor deine Gruppe ein Spiel suchen kann. Jetzt wählen?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Woche 1: Doomfist-Skin Mönch
+00000000CA11.07C: Ashes Mardi-Gras-Herausforderung
 00000000CA13.07C: Woche 2: Winston-Skin Antike Bronze
 00000000CA14.07C: Woche 3: Wrecking Ball-Skin Scherenschnitt
 00000000CA15.07C: Gewinne 9 Spiele in den Modi Schnellsuche, Arcade oder Rangliste!
@@ -22884,7 +22879,7 @@ punkte
 00000000CEE8.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Eliminierungs<hy>spieler der Welt an!
 00000000CEE9.07C: Kompetitive Eliminierung (3v3): Saison 2
 00000000CEEF.07C: Totengräber
-00000000CEF0.07C: Der Weg zum Profi
+00000000CEF0.07C: Der Weg zum Profi 2019
 00000000CEFF.07C: Inferno
 00000000CF28.07C: 2019
 00000000CF29.07C: Chacko Sonny
@@ -26400,7 +26395,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EB17.07C: Erhöhte Abtastrate aktivieren
 00000000EB1E.07C: Fehler: Spielervariable [%1$s] benötigt einen Namen.
 00000000EB21.07C: Fehler: Globale Variable [%1$s] steht in Konflikt mit einer anderen Variable.
-00000000EB23.07C: Verfügbare Karten
+00000000EB23.07C: Verfügbare Karten diese Saison
 00000000EB24.07C: Hanamura, Tempel des Anubis, Volskaya Industries
 00000000EB25.07C: Fehler: Globale Variable [%1$s] enthält einen ungültigen Namen.
 00000000EB29.07C: Fehler: Globale Variable [%1$s] benötigt einen Namen.
@@ -26528,6 +26523,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F0CB.07C: Fortfahren
 00000000F0CC.07C: Wiederbelebungszeit von Trainingsbots
 00000000F0CD.07C: |Rfn %1$s:P0;
+00000000F0F3.07C: <fg%1$s>BETÄUBT</fg>
+00000000F0F4.07C: <fg%1$s>SCHLAF</fg>
 00000000F0FE.07C: Nur für Einwohner von Kalifornien
 00000000F0FF.07C: Meine persönlichen Informationen nicht weiterverkaufen
 00000000F102.07C: Dies öffnet einen Browser in einem anderen Fenster.
@@ -26653,8 +26650,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F40B.07C: |Rfn %1$s:N1;
 00000000F417.07C: Diagnostik anzeigen
 00000000F418.07C: Skriptdiagnostik
-00000000F41B.07C: Gesamtanzahl aller Elemente: %1$s
-00000000F41C.07C: Größe der größten Regel: %1$s KB
+00000000F41B.07C: Gesamtanzahl aller Elemente
+00000000F41C.07C: Größe der größten Regel
 00000000F41D.07C: Elemente schließen Regeln, Konditionen, Aktionen und Werte ein (bis zu einem Maximum von %1$s)
 00000000F41E.07C: Jede Regel muss kleiner als %1$s KB sein
 00000000F420.07C: Festtagsüberraschung
@@ -26891,6 +26888,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F5E8.07C: Florida Mayhem (auswärts)
 00000000F5E9.07C: Florida Mayhem (auswärts)
 00000000F5EA.07C: Florida Mayhem (auswärts)
+00000000F5EB.07C: TEAM 3
+00000000F5EC.07C: TEAM 4
 00000000F8B0.07C: Gesichtswandlerin
 00000000F8B1.07C: In Neujahr-Lootboxen erhältlich
 00000000F8B2.07C: Sombramaske
@@ -26926,6 +26925,31 @@ https://account.blizzard.com/connections/nintendo
 00000000FABF.07C: Kills mit Rückstoßeffekten: %1$s
 00000000FAC0.07C: |Rpl %1$s:Kill:Kills; mit Rückstoßeffekten
 00000000FAC1.07C: Kills mit Rückstoßeffekten: %1$s
+00000000FB2E.07C: Enable Inspector Recording
+00000000FB2F.07C: Disable Inspector Recording
+00000000FB30.07C: Veranlasst den Workshop Inspector dazu, keine neuen Einträge mehr zu erfassen. Dadurch verringert sich die Serverauslastung deines Skripts, vor allem beim Modifizieren von Arrays.
+00000000FB31.07C: Veranlasst den Workshop Inspector dazu, wieder neue Einträge zu erfassen (falls diese Option deaktiviert wurde). Das Aktivieren zu bestimmten Zeitpunkten erleichtert das Debugging von problematischen Stellen in der Logik.
+00000000FB32.07C: If
+00000000FB33.07C: Else If
+00000000FB34.07C: Else
+00000000FB35.07C: While
+00000000FB37.07C: End
+00000000FB38.07C: Markiert das Ende einer Reihe von Aktionen, die von der Aktion [If], [Else If], [Else], [While] oder [For] gestartet wurden.
+00000000FB39.07C: Markiert den Beginn einer Reihe von Aktionen, die in einer Schleife ausgeführt werden und mit jeder Schleife die Kontrollvariable modifizieren. Die entsprechende Aktion [End] markiert das Ende der Schleife. Wenn die Kontrollvariable den Wert [Range Stop] erreicht oder überschreitet, wird die Schleife beendet und die Ausführung springt zur nächsten Aktion nach der Aktion [End].
+00000000FB3A.07C: Markiert den Beginn einer Reihe von Aktionen, die in einer Schleife ausgeführt werden, solange die festgelegte Bedingung True ist. Die nächste Aktion [End] auf der aktuellen Ebene markiert das Ende der Schleife. Wenn die Bedingung während der Ausführung am Anfang der Schleife False ist, wird die Schleife beendet und die Ausführung springt zur nächsten Aktion nach der Aktion [End].
+00000000FB3B.07C: Markiert den Beginn einer Reihe von Aktionen, die nur ausgeführt werden, wenn die Bedingung der vorherigen Aktion [If] oder [Else If] False war.
+00000000FB3C.07C: Markiert den Beginn einer Reihe von Aktionen, die nur ausgeführt werden, wenn die festgelegte Bedingung True ist und die Bedingung der vorherigen Aktion [If] oder [Else If] False war.
+00000000FB3D.07C: Markiert den Beginn einer Reihe von Aktionen, die nur ausgeführt werden, wenn die festgelegte Bedingung True ist.
+00000000FB3E.07C: Wenn diese Bedingung True ist, fährt die Ausführung mit der nächsten Aktion fort. Ansonsten springt die Ausführung zur nächsten Aktion [Else If], [Else] oder [End] auf der aktuellen Ebene.
+00000000FB3F.07C: Wenn diese Bedingung True ist, fährt die Ausführung mit der nächsten Aktion fort. Ansonsten springt die Ausführung zur nächsten Aktion [End] auf der aktuellen Ebene.
+00000000FB40.07C: Step
+00000000FB41.07C: Dieser Wert wird der Kontrollvariable hinzugefügt, wenn die Aktion [End] erreicht wird. Wenn diese Modifikation dazu führt, dass die Kontrollvariable den Wert [Range Stop] erreicht oder überschreitet, wird die Schleife beendet und die Ausführung springt zur nächsten Aktion nach der Aktion [End]. Ansonsten wird die Schleife weiter ausgeführt und die Ausführung springt zur nächsten Aktion nach der Aktion [For].
+00000000FB42.07C: Control Variable
+00000000FB43.07C: Die Variable, die in dieser Schleife modifiziert wird. Wenn die Schleife beginnt, wird sie auf den Wert [Range Start] gesetzt. Die Schleife wird ausgeführt, bis die Kontrollvariable den Wert [Range Stop] erreicht oder überschreitet.
+00000000FB44.07C: Wenn die Kontrollvariable diesen Wert erreicht oder überschreitet, wird die Schleife beendet und die Ausführung springt zur nächsten Aktion nach der Aktion [End]. Ob dieser Wert als überschritten gilt, hängt davon ab, ob der Wert [Step] negativ oder positiv ist. Falls die Kontrollvariable diesen Wert bei Beginn der Schleife bereits erreicht oder überschritten hat, wird die Schleife beendet.
+00000000FB45.07C: Range Stop
+00000000FB46.07C: Die Kontrollvariable wird bei Beginn der Schleife auf diesen Wert gesetzt.
+00000000FB47.07C: Range Start
 00000000FB62.07C: EINFACHE VERFOLGERPERSPEKTIVE – KAMERASEITE
 00000000FB64.07C: Bahrain
 00000000FB69.07C: Samulnori
@@ -26954,6 +26978,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FB97.07C: In Neujahr-Lootboxen erhältlich
 00000000FBAA.07C: Frohes neues Jahr!
 00000000FBAB.07C: In Neujahr-Lootboxen erhältlich
+00000000FBAC.07C: Kommentar bearbeiten
 00000000FBB2.07C: Kann ich helfen?
 00000000FBB3.07C: In Neujahr-Lootboxen erhältlich
 00000000FBB4.07C: Eine Anomalie!
@@ -26967,10 +26992,176 @@ https://account.blizzard.com/connections/nintendo
 00000000FBDA.07C: Updates deaktiviert
 00000000FC5D.07C: Du kannst eventuell nicht weiterspielen, wenn ein Update benötigt wird.
 00000000FC5E.07C: Replay-Overlay ausblenden
+00000000FC80.07C: Event Was Health Pack
+00000000FC81.07C: Prüft für das aktuell durch diese Regel verarbeitete Event, ob die Heilung von einem Medikit verursacht wurde.
+00000000FC8D.07C: Melee
+00000000FC8E.07C: Reload
 00000000FC91.07C: NORMALE/EINFACHE VERFOLGERPERSPEKTIVE – EIN/AUS
+00000000FCA5.07C: Visible To, Sort Order, and String
+00000000FCA6.07C: Sort Order and String
+00000000FD25.07C: None
+00000000FD26.07C: Receivers and Healers
+00000000FD27.07C: Receivers, Healers, and Healing Percent
+00000000FD2A.07C: Last Healing Modification ID
+00000000FD2B.07C: Eine ID, die die aktuellste [Start Healing Modification]-Aktion darstellt, die durch [Event Player] (oder auf globaler Ebene) ausgeführt wurde.
+00000000FD36.07C: Beendet alle Heilungsmodifikationen, die durch die Aktion [Start Healing Modification] gestartet wurden.
+00000000FD37.07C: Stop Healing Modification
+00000000FD38.07C: Beendet eine Heilungsmodifikation, die durch die Aktion [Start Healing Modification] gestartet wurde.
+00000000FD39.07C: Healing Modification ID
+00000000FD3A.07C: Legt fest, welche Instanz der Heilungsmodifikation beendet werden soll. Diese ID kann [Last Healing Modification ID] oder eine Variable sein, in der [Last Healing Modification ID] zuvor gespeichert wurde.
+00000000FD3B.07C: Stop All Healing Modifications
+00000000FD40.07C: Start Healing Modification
+00000000FD42.07C: Beginnt die Höhe der Heilung zu modifizieren, den ein oder mehrere Heilungsempfänger durch einen oder mehrere Heiler erhalten werden. Eine Referenz zu dieser Heilungsmodifikation kann durch den Wert [Last Healing Modification ID] erhalten werden. Diese Aktion schlägt fehl, wenn zu viele Heilungsmodifikationen gestartet wurden.
+00000000FD43.07C: Receivers
+00000000FD44.07C: Der oder die Spieler, deren erhaltene Heilung modifiziert wird (wenn sie von den Heilern geheilt werden).
+00000000FD45.07C: Healers
+00000000FD46.07C: Der oder die Spieler, deren verursachte Heilung modifiziert werden wird (wenn sie Heilungsempfänger heilen).
+00000000FD47.07C: Healing Percent
+00000000FD48.07C: Der Prozentsatz an Heilung, den die Heilungsempfänger erhalten, wenn sie von Heilern geheilt werden.
+00000000FD49.07C: Reevaluation
+00000000FD4A.07C: Legt fest, welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Diese Aktion fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.
 00000000FDBB.07C: Aus
+00000000FEBD.07C: Sub%1$s
+00000000FEBE.07C: Subroutine
+00000000FED9.07C: Fehler: Subroutine nach [%1$s] in Zeile %2$s erwartet.
+00000000FEDA.07C: Fehler: Subroutine [%1$s] benötigt einen Namen.
+00000000FEDB.07C: Fehler: Subroutine [%1$s] enthält einen zu langen Namen.
+00000000FEDC.07C: Fehler: Subroutine [%1$s] enthält einen ungültigen Namen.
+00000000FEDD.07C: Fehler: Subroutine [%1$s] steht in Konflikt mit einer anderen Subroutine.
+00000000FEE1.07C: For Player Variable
+00000000FEE2.07C: For Global Variable
 00000000FFB4.07C: Matches
 00000000FFCF.07C: FREUNDSCHAFTSANFRAGE ERHALTEN
+00000000FFD0.07C: Der Spieler, dessen Variable in dieser Schleife modifiziert wird. Wenn mehrere Spieler festgelegt sind, wird der erste Spieler verwendet.
+00000000FFD1.07C: Control Player
+00000000FFDA.07C: Die Aktionen [Chase] und [For] dürfen nicht dieselbe Variable verwenden.
 00000000FFE7.07C: Overwatch League 2020
 00000000FFE8.07C: GOAT-Brigitte
-[Core] Execution finished in 00:00:09.5023911 seconds
+00000000FFF0.07C: Workshop-Raum
+00000000FFF1.07C: Workshop-Insel
+00000000FFF2.07C: Workshop-Gebiet
+00000000FFF3.07C: Subroutinennamen ändern
+00000000FFF4.07C: Subroutine hinzufügen
+00000000FFF5.07C: Einstellungen zurücksetzen
+00000000FFF6.07C: Subroutine
+00000000FFFA.07C: Subroutinen
+00000000FFFB.07C: Fehler: Unerwartete Subroutinen nach [%1$s] in Zeile %2$s.
+00000000FFFC.07C: Fehler: Grenzüberschreitung durch Subroutinenindex [%1$s] in Zeile %2$s.
+00000000FFFD.07C: Fehler: Doppelter Subroutinenindex [%1$s] in Zeile %2$s.
+00000000FFFE.07C: Fehler: Subroutine [%1$s] ist zu lang.
+00000000FFFF.07C: Fehler: Subroutine [%1$s] hat einen ungültigen Namen.
+000000010000.07C: Fehler: Unbekannte Subroutine nach [%1$s] in Zeile %2$s.
+000000010017.07C: Teilnehmer von Saison 21
+000000010018.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 21
+000000010019.07C: Der Weg zum Profi 2020
+00000001001A.07C: Der Weg zum Profi 2020
+00000001001E.07C: Call Subroutine
+00000001001F.07C: Subroutine
+000000010020.07C: Pausiert die Ausführung der aktuellen Regel und beginnt mit der Ausführung einer Subroutinenregel (einer Regel mit dem Eventtyp [Subroutine]). Wenn die Subroutinenregel endet, wird die ursprüngliche Regel weiter ausgeführt. Die Subroutine erhält Zugriff auf die gleichen Kontextwerte wie die ursprüngliche Regel (z. B. [Event Player]).
+000000010021.07C: Legt fest, welche Subroutine aufgerufen wird. Wenn eine Regel mit dem Eventtyp [Subroutine] die gleiche Subroutine festlegt, wird es ausgeführt. Ansonsten wird diese Aktion ignoriert.
+000000010022.07C: Start Rule
+000000010023.07C: Beginnt mit der gleichzeitigen Ausführung einer Subroutinenregel (einer Regel mit dem Eventtyp [Subroutine]). Die Ausführung der ursprünglichen Regel wird nicht unterbrochen. Die Subroutine erhält Zugriff auf die gleichen Kontextwerte wie die ursprüngliche Regel (z. B. [Event Player].
+000000010024.07C: Legt fest, welche Subroutine gestartet wird. Wenn eine Regel mit dem Eventtyp [Subroutine] die gleiche Subroutine festlegt, wird sie ausgeführt. Ansonsten wird diese Aktion ignoriert.
+000000010025.07C: Restart Rule
+000000010026.07C: Do Nothing
+000000010027.07C: Die festgelegte Regel mit neuen Kontextwerten neu starten (einschließlich [Event Player], [Attacker], [Victim] usw.).
+000000010028.07C: Ausführen der Regel ohne Änderung der Kontextwerte zulassen.
+00000001002A.07C: If Already Executing
+00000001002B.07C: Bestimmt, was passiert, wenn die von der Subroutine festgelegte Regel bereits für den gleichen Spieler oder die gleiche globale Entität ausgeführt wird.
+00000001002D.07C: Subroutinen dürfen keine Bedingungen haben.
+00000001002E.07C: Einstellungen kopieren
+00000001002F.07C: Einstellungen importieren
+000000010030.07C: einstellungen
+000000010031.07C: Lobby
+000000010034.07C: Mardi Grashe
+000000010036.07C: Mardi-B.O.B.
+000000010038.07C: Goldene Maske
+00000001003A.07C: Freigeschaltet durch die Teilnahme an Ashes Mardi-Gras-Herausforderung
+00000001003F.07C: Held von Saison 21
+000000010040.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 21
+000000010041.07C: deaktivierte karten
+000000010044.07C: modi
+000000010045.07C: verfügbare karten
+000000010046.07C: helden
+000000010047.07C: Mehrere Regeln definieren die gleiche Subroutine.
+000000010051.07C: Team-FFA
+000000010052.07C: deaktivierte helden
+000000010053.07C: verfügbare helden
+000000010054.07C: Saison 21
+000000010055.07C: Saison 21
+00000001005E.07C: %1$s
+00000001005F.07C: %1$s KB
+00000001006B.07C: Einstellungen aus der Zwischenablage importieren
+00000001006C.07C: Dadurch werden deine aktuellen Einstellungen vollständig ersetzt. Bist du sicher, dass du die Einstellungen aus der Zwischenablage importieren möchtest?
+00000001006D.07C: Bestätigen
+00000001006E.07C: hauptregeln
+000000010072.07C: Heldenrotation
+000000010075.07C: Die verfügbaren Helden für Ranglistenmatches ändern sich regelmäßig.
+000000010078.07C: Nicht verfügbare Helden
+00000001007F.07C: Beschreibung
+000000010086.07C: OK
+000000010087.07C: Heldenrotation
+000000010088.07C: Die verfügbaren Helden für Ranglistenmatches ändern sich regelmäßig.
+000000010089.07C: Nicht verfügbare Helden
+00000001008C.07C: Nicht verfügbare Helden
+000000010097.07C: Fehler: Lobbyeinstellung nach [%1$s] in Zeile %2$s erwartet
+000000010098.07C: Fehler: Hauptregeleinstellung nach [%1$s] in Zeile %2$s erwartet
+000000010099.07C: Fehler: Spielmoduseinstellung nach [%1$s] in Zeile %2$s erwartet
+0000000100A3.07C: Mardi Gras
+0000000100AD.07C: Fehler: Heldeneinstellung nach [%1$s] in Zeile %2$s erwartet
+0000000100AE.07C: Fehler: Einstellung nach [%1$s] in Zeile %2$s erwartet
+0000000100AF.07C: Fehler: Einstellungsoption nach [%1$s] in Zeile %2$s erwartet
+0000000100B0.07C: Fehler: Doppelter Spielmodus nach [%1$s] in Zeile %2$s
+0000000100B6.07C: Fehler: Doppeltes Team nach [%1$s] in Zeile %2$s
+0000000100B7.07C: Fehler: Teameinstellung nach [%1$s] in Zeile %2$s erwartet
+0000000100BB.07C: Fehler: Auswahloption für Rechenzentrum nach [%1$s] in Zeile %2$s erwartet
+0000000100BC.07C: Fehler: Ungültiger Spielmodus
+0000000100BD.07C: Fehler: Ungültiger Held
+0000000100BE.07C: Fehler: Ungültige Karte
+0000000100BF.07C: Fehler: Ungültiges Team
+0000000100C0.07C: Fehler: Ungültige Heldeneinstellungen
+0000000100C1.07C: Fehler: Ungültige Teameinstellungen
+0000000100C2.07C: Fehler: Ungültige Spielmoduseinstellungen
+0000000100C3.07C: Fehler: Ungültige Karteneinstellungen
+0000000100C4.07C: Karneval
+0000000100C6.07C: Semlor
+0000000100C8.07C: Rex
+0000000100CA.07C: Abbisskugel
+0000000100CC.07C: Perlenketten
+0000000100CE.07C: Roter Tod
+0000000100D0.07C: Freigeschaltet durch das Einschalten bei ausgewählten Streams während Ashes Mardi-Gras-Herausforderung
+0000000100D5.07C: Nicht verfügbare Helden
+0000000100DF.07C: Fehler: Doppelter Held nach [%1$s] in Zeile %2$s
+0000000100E0.07C: Fehler: Unerwartete Karten nach [%1$s] in Zeile %2$s
+0000000100E1.07C: Fehler: Unerwartete Hauptregel nach [%1$s] in Zeile %2$s
+0000000100E2.07C: Fehler: Unerwartete Modi nach [%1$s] in Zeile %2$s.
+0000000100E3.07C: Fehler: Unerwartete Helden nach [%1$s] in Zeile %2$s
+0000000100E4.07C: Fehler: Unerwartete Lobby nach [%1$s] in Zeile %2$s
+0000000100E5.07C: Testlabor
+0000000100E7.07C: Fehler: Einstellungsabschnitt nach [%1$s] in Zeile %2$s erwartet
+0000000100E8.07C: Fehler: Ungültige Einstellungen [%1$s] in Zeile %2$s
+000000010176.07C: Patchnotes
+000000010177.07C: Hier findest du die Patchnotes des neuesten Updates.
+000000010178.07C: Patchnotes
+00000001017B.07C: Testlabor
+00000001017E.07C: Fehler: Modi nach [%1$s] in Zeile %2$s erwartet
+0000000101D4.07C: - Probier neue Ideen des Teams aus und experimentiere mit dem Gameplay!
+
+- Schau hinter die Kulissen und entdecke experimentelle neue Konzepte.
+
+- Gib konstruktives Feedback, mit dem wir das Spielerlebnis verbessern können.
+0000000101D9.07C: Dieser Held ist aktuell nicht Teil der Rotation.
+0000000101DF.07C: Probier neue Ideen des Teams aus und experimentiere mit dem Gameplay!
+000000010214.07C: Deine Spielzeit ist abgelaufen. Sobald das Match beendet ist, wird die Verbindung getrennt.
+00000001021A.07C: Todeskamera auf Verursacher bewegen
+000000010237.07C: Verbindungsabbruch aufgrund von CAIS-Zeitüberschreitung
+000000010239.07C: Testlabor
+000000010243.07C: Punktestände verbergen
+00000001024D.07C: Operator
+0000000102D0.07C: pc
+0000000102D1.07C: ps4
+0000000102D2.07C: xb1
+0000000102D3.07C: nintendo-switch
+0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102F5.07C: Testlabor-Update verwenden, wenn möglich
+[Core] Execution finished in 00:00:04.4544532 seconds

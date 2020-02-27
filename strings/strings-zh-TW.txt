@@ -1,12 +1,12 @@
-[Core] DataTool v1.44.0.860-git-7d5102deb936ed3a32453c8b05dd4a2c9a628126
+[Core] DataTool v1.45.0.863-git-d08b8ee3b6474c6bd141eb865797b12a3bde1d66
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.exe.args
 [CASC] Set language to zhTW
 [CASC] Set speech language to zhTW
-[CASC] Overwatch build 1.44.0.1.66085
+[CASC] Overwatch build 1.45.0.0.66302
 [CASC] Initializing...
-[CMF] Using CMF procedure 65513
-[CMF] Using CMF procedure 65513
+[CMF] Using CMF procedure 66302
+[CMF] Using CMF procedure 66302
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -613,8 +613,6 @@
 0000000005F7.07C: 隊友死亡時，畫面上的英雄圖示，代表他們的死亡地點。
 0000000005F8.07C: 肉盾型英雄非常適合用來佔領地圖目標，也能打亂敵方行動。
 0000000005F9.07C: 輔助型英雄會保護及治療隊友，還能使用其他強大的獨特能力。
-000000000606.07C: <fg%1$s>昏迷</fg>
-000000000609.07C: <fg%1$s>昏迷</fg>
 000000000641.07C: 選擇英雄
 000000000642.07C: 得分面板
 000000000657.07C: 放置的傳送器
@@ -7923,7 +7921,7 @@ Andrew Wang
 - 完成目標可獲得分數
 - 分數最高的那一隊獲勝！
 0000000047B1.07C: - 每兩個月為一賽季
-- 可獲得獨特獎勵
+- 賽季結束時可獲得獨特獎勵
 - 每個賽季都必須重新進行預選賽
 0000000047B2.07C: 實力排名
 0000000047B3.07C: 競技對戰
@@ -7946,7 +7944,7 @@ Andrew Wang
 0000000047D4.07C: %1$s/%2$s
 0000000047D5.07C: 預選賽
 0000000047D6.07C: 無法請求該團隊邀請你
-0000000047D7.07C: 參加競技對戰，可在該賽季結束時獲得下列獎勵：
+0000000047D7.07C: - 參加競技對戰，可在該賽季結束時獲得獎勵：
 0000000047D8.07C: 完成第1賽季預選賽即可解鎖
 0000000047D9.07C: 在第1賽季進入前500名即可解鎖
 0000000047DD.07C: 已解鎖競技對戰！
@@ -9939,7 +9937,7 @@ THIS SOFTWARE.
 000000005A8D.07C: 僅看藍隊
 000000005A8E.07C: 僅看紅隊
 000000005A8F.07C: 觀看所有人
-000000005A91.07C: %1$s人數上限
+000000005A91.07C: 玩家上限%1$s人
 000000005A92.07C: 觀戰人數上限
 000000005A93.07C: 歐瑞莎
 000000005A94.07C: 保護者
@@ -13583,7 +13581,7 @@ Brian Urbina
 00000000666E.07C: 旋空斬
 00000000667B.07C: 點狀
 00000000668E.07C: 玩家正在儲存精彩回顧
-000000006693.07C: |Rfd %1$s:yyyy年MM月dd日 HH:mm;
+000000006693.07C: |Rfd %1$s:yyyy年MMMM月dd日;
 000000006694.07C: 無法使用精彩回顧。
 000000006697.07C: 鬥陣幣可以用來解鎖許多外觀物品，每箱夏季運動會戰利品內含最多4個外觀物品或鬥陣幣。在遊戲內升級時也可獲得夏季運動會戰利品。
 000000006698.07C: 5枚鬥陣幣，以及免費2箱夏季運動會戰利品
@@ -14779,7 +14777,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: 睡眠鏢命中數%1$s
 000000007460.07C: 脈衝炸彈附著率
 000000007461.07C: 脈衝炸彈附著率%1$s
-00000000746F.07C: <fg%1$s>昏迷</fg>
 000000007472.07C: 單次聚合光束治療量
 000000007473.07C: 單次聚合光束治療量%1$s
 000000007474.07C: 單次聚合光束傷害量
@@ -14828,7 +14825,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000074B3.07C: 本遊戲分級為「12+」與「15+」。在登入時會自動判明玩家年齡。介於12歲到15歲的玩家，僅能使用分級為「12+」之遊戲內容，本遊戲不適於低於12歲之玩家。
 0000000074B4.07C: 移除所有A.I.
 0000000074B8.07C: 5v1
-0000000074B9.07C: |Rfd %1$s:MM月dd日
 0000000074BA.07C: |Rfd %1$s:HH:mm;
 0000000074BB.07C: 賽程表
 0000000074BC.07C: 戰隊商店
@@ -17859,7 +17855,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000009F12.07C: 南瓜桃子
 000000009F13.07C: 經由萬聖節戰利品解鎖
 000000009F21.07C: 職業電競聯賽
-000000009F29.07C: <fg%1$s>昏迷</fg>
 000000009F34.07C: 新傳奇造型！
 000000009F99.07C: 砲塔<fg%1$s>超載</fg>
 000000009F9A.07C: 南瓜
@@ -20088,13 +20083,13 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BBB9.07C: 上一個活動
 00000000BBBA.07C: 下一列
 00000000BBBB.07C: 上一列
-00000000BBC5.07C: 註解
+00000000BBC5.07C: 規則
 00000000BBC6.07C: 條件
 00000000BBC7.07C: 動作
 00000000BBC8.07C: Global
 00000000BBCA.07C: 無條件
 00000000BBCB.07C: 條件：
-00000000BBCC.07C: 註解：
+00000000BBCC.07C: 規則：
 00000000BBCD.07C: 動作：
 00000000BBD1.07C: 項目#%1$s
 00000000BBD3.07C: 敘述
@@ -20151,8 +20146,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BC68.07C: Modifies the score (kill count) of one or more Players. This Action only has an effect in Free-For-All modes.
 00000000BC69.07C: The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.
 00000000BC6A.07C: The Player or Players whose score will change.
-00000000BC6B.07C: Restarts the Action list from the beginning. To prevent an infinite loop, a Wait Action must execute between the start of the Action list and this Action.
-00000000BC6C.07C: Restarts the Action list from the beginning if every Condition in the Condition list is true. If any are false, execution continues with the next Action. To prevent an infinite loop, a Wait Action must execute between the start of the Action list and this Action.
+00000000BC6B.07C: Restarts the Action list from the beginning.
+00000000BC6C.07C: Restarts the Action list from the beginning if every Condition in the Condition list is true. If any are false, execution continues with the next Action.
 00000000BC6D.07C: Provides an instantaneous heal to one or more Players. This heal will not resurrect dead Players.
 00000000BC6E.07C: The Player or Players whose health will be restored.
 00000000BC6F.07C: The Player who will receive credit for the healing. A Healer of Null indicates no Player will receive credit.
@@ -20385,8 +20380,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BD57.07C: Creates in-world text visible to specific Players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the Last Text ID Value. This Action will fail if too many text elements have been created.
 00000000BD58.07C: Destroys in-world text that was created by Create In-World Text.
 00000000BD59.07C: Specifies which in-world text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.
-00000000BD5A.07C: Restarts the Action list from the beginning if this Action's Condition evaluates to true. If it does not, execution continues with the next Action. To prevent an infinite loop, a Wait Action must execute between the start of the Action list and this Action.
-00000000BD5B.07C: Restarts the Action list from the beginning if at least one Condition in the Condition list is false. If all Conditions are true, execution continues with the next Action. To prevent an infinite loop, a Wait Action must execute between the start of the Action list and this Action.
+00000000BD5A.07C: Restarts the Action list from the beginning if this Action's Condition evaluates to true. If it does not, execution continues with the next Action.
+00000000BD5B.07C: Restarts the Action list from the beginning if at least one Condition in the Condition list is false. If all Conditions are true, execution continues with the next Action.
 00000000BD5C.07C: Specifies whether the loop will occur.
 00000000BD5D.07C: Stops execution of the Action list.
 00000000BD5E.07C: Stops execution of the Action list if this Action's Condition evaluates to true. If it does not, execution continues with the next Action.
@@ -22232,7 +22227,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA0C.07C: 你必須先選擇角色類型，團隊才能加入佇列。要現在選擇嗎？
 00000000CA0D.07C: 商店
 00000000CA0E.07C: 商店
-00000000CA11.07C: 第1週：毀滅拳僧
+00000000CA11.07C: 艾西的狂歡舞會大挑戰
 00000000CA13.07C: 第2週：青銅溫斯頓
 00000000CA14.07C: 第3週：火爆紙球
 00000000CA15.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
@@ -22646,7 +22641,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CEE8.07C: 提高排名，和全世界頂尖的鎖定對決好手一同競賽吧！
 00000000CEE9.07C: 3v3鎖定對決競技模式第2賽季
 00000000CEEF.07C: 送葬者
-00000000CEF0.07C: 職業之路
+00000000CEF0.07C: 2019年職業之路
 00000000CEFF.07C: 煉獄
 00000000CF28.07C: 2019
 00000000CF29.07C: Chacko Sonny
@@ -26130,7 +26125,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EB17.07C: 啟用高準確度滑鼠輸入
 00000000EB1E.07C: 錯誤：玩家變數'%1$s'需要命名
 00000000EB21.07C: 錯誤：全域變數'%1$s'與其它變數相衝突
-00000000EB23.07C: 會出現的地圖
+00000000EB23.07C: 本賽季會出現的地圖
 00000000EB24.07C: 花村、阿努比斯神廟和伏斯凱亞工業
 00000000EB25.07C: 錯誤：全域變數'%1$s'包含無效命名
 00000000EB29.07C: 錯誤：全域變數'%1$s'需要命名
@@ -26258,6 +26253,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F0CB.07C: 繼續
 00000000F0CC.07C: 訓練機器人重生時間
 00000000F0CD.07C: |Rfn %1$s:P0;
+00000000F0F3.07C: <fg%1$s>昏迷</fg>
+00000000F0F4.07C: <fg%1$s>沉睡</fg>
 00000000F0FE.07C: 僅適用於加州居民
 00000000F0FF.07C: 請勿將我的個人資料用在其他地方
 00000000F102.07C: 這樣會另外開啟一個瀏覽器視窗
@@ -26383,8 +26380,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F40B.07C: |Rfn %1$s:N1;
 00000000F417.07C: 顯示診斷分析
 00000000F418.07C: 腳本診斷分析
-00000000F41B.07C: 元件數量：%1$s
-00000000F41C.07C: 最大規則的大小：%1$s KB
+00000000F41B.07C: 元件數量
+00000000F41C.07C: 最大規則的大小
 00000000F41D.07C: 元件包括規則、條件、動作和數值（最高為%1$s）
 00000000F41E.07C: 規則必須小於%1$s KB
 00000000F420.07C: 佳節驚喜
@@ -26621,6 +26618,8 @@ https://account.blizzard.com/connections/nintendo
 00000000F5E8.07C: Florida Mayhem(客場)
 00000000F5E9.07C: Florida Mayhem(客場)
 00000000F5EA.07C: Florida Mayhem(客場)
+00000000F5EB.07C: 隊伍3
+00000000F5EC.07C: 隊伍4
 00000000F8B0.07C: 變臉
 00000000F8B1.07C: 經由春節戰利品解鎖
 00000000F8B2.07C: 駭影面具
@@ -26656,7 +26655,32 @@ https://account.blizzard.com/connections/nintendo
 00000000FABF.07C: 擊退擊殺數%1$s
 00000000FAC0.07C: 擊退擊殺數
 00000000FAC1.07C: 擊退擊殺數%1$s
-00000000FB62.07C: 切換至簡易第三人稱視角
+00000000FB2E.07C: Enable Inspector Recording
+00000000FB2F.07C: Disable Inspector Recording
+00000000FB30.07C: Causes the Workshop Inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.
+00000000FB31.07C: Causes the Workshop Inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.
+00000000FB32.07C: If
+00000000FB33.07C: Else If
+00000000FB34.07C: Else
+00000000FB35.07C: While
+00000000FB37.07C: End
+00000000FB38.07C: Denotes the end of a series of actions started by an If, Else If, Else, While, or For action.
+00000000FB39.07C: Denotes the beginning of a series of actions that will execute in a loop, modifying the Control Variable on each loop. The corresponding End action denotes the end of the loop. If the Control Variable reaches or passes the Range Stop value, then the loop exits, and execution jumps to the next action after the End action.
+00000000FB3A.07C: Denotes the beginning of a series of actions that will execute in a loop as long as the specified Condition is true. The next End action at the current level denotes the end of the loop. If the Condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the End action.
+00000000FB3B.07C: Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's Condition was false.
+00000000FB3C.07C: Denotes the beginning of a series of actions that will only execute if the specified Condition is true and the previous If or Else If action's Condition was false.
+00000000FB3D.07C: Denotes the beginning of a series of actions that will only execute if the specified Condition is true.
+00000000FB3E.07C: If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next Else If, Else, or End action at the current level.
+00000000FB3F.07C: If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next End action at the current level.
+00000000FB40.07C: Step
+00000000FB41.07C: This value is added to the Control Variable when the End action is reached. If this modification causes the Control Variable to reach or pass the Range Stop value, then the loop exits, and execution jumps to the next action after the End action. Otherwise, the loop continues, and execution jumps to the next action after the For action.
+00000000FB42.07C: Control Variable
+00000000FB43.07C: The variable being modified in this loop. It is set to the Range Start value when the loop begins, and the loop continues until the Control Variable reaches or passes the Range Stop value.
+00000000FB44.07C: If the Control Variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the End action. Whether this value is considered passed or not is based on whether the Step value is negative or positive. If the Control Variable has already reached or passed this value when the loop begins, then the loop exits.
+00000000FB45.07C: Range Stop
+00000000FB46.07C: The Control Variable is set to this value when the loop begins.
+00000000FB47.07C: Range Start
+00000000FB62.07C: 切換至簡易第三人稱觀戰視角
 00000000FB64.07C: 巴林
 00000000FB69.07C: 四物打擊樂
 00000000FB6B.07C: 京劇士兵
@@ -26684,6 +26708,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FB97.07C: 經由春節戰利品解鎖
 00000000FBAA.07C: 新年快樂！
 00000000FBAB.07C: 經由春節戰利品解鎖
+00000000FBAC.07C: 編輯註解
 00000000FBB2.07C: 怎麼了？
 00000000FBB3.07C: 經由春節戰利品解鎖
 00000000FBB4.07C: 異常現象！
@@ -26697,10 +26722,176 @@ https://account.blizzard.com/connections/nintendo
 00000000FBDA.07C: 無法更新
 00000000FC5D.07C: 如果需要更新，你可能無法進行遊戲
 00000000FC5E.07C: 隱藏重播視窗
+00000000FC80.07C: Event Was Health Pack
+00000000FC81.07C: Whether the healing was from a health pack for the Event currently being processed by this Rule.
+00000000FC8D.07C: Melee
+00000000FC8E.07C: Reload
 00000000FC91.07C: 切換正常/簡易第三人稱觀戰視角
+00000000FCA5.07C: Visible To, Sort Order, and String
+00000000FCA6.07C: Sort Order and String
+00000000FD25.07C: None
+00000000FD26.07C: Receivers and Healers
+00000000FD27.07C: Receivers, Healers, and Healing Percent
+00000000FD2A.07C: Last Healing Modification ID
+00000000FD2B.07C: An ID representing the most recent Start Healing Modification Action that was executed by the Event Player (or executed at the Global level).
+00000000FD36.07C: Stops all healing modifications that were started using the Start Healing Modification Action.
+00000000FD37.07C: Stop Healing Modification
+00000000FD38.07C: Stops a healing modification that was started by the Start Healing Modification Action.
+00000000FD39.07C: Healing Modification ID
+00000000FD3A.07C: Specifies which healing modification instance to stop. This ID may be Last Healing Modification ID or a Variable into which Last Healing Modification ID was earlier stored.
+00000000FD3B.07C: Stop All Healing Modifications
+00000000FD40.07C: Start Healing Modification
+00000000FD42.07C: Starts modifying how much healing one or more Receivers will receive from one or more Healers. A reference to this healing modification can be obtained from the Last Healing Modification ID Value. This Action will fail if too many healing modifications have been started.
+00000000FD43.07C: Receivers
+00000000FD44.07C: The Player or Players whose incoming healing will be modified (when healed by the Healers).
+00000000FD45.07C: Healers
+00000000FD46.07C: The Player or Players whose outgoing healing will be modified (when healing the Receivers).
+00000000FD47.07C: Healing Percent
+00000000FD48.07C: The percentage of healing that will apply to Receivers when healed by Healers.
+00000000FD49.07C: Reevaluation
+00000000FD4A.07C: Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.
 00000000FDBB.07C: 關閉
+00000000FEBD.07C: Sub%1$s
+00000000FEBE.07C: 子程序
+00000000FED9.07C: 錯誤：第%2$s行的'%1$s'之後預期要有子程序
+00000000FEDA.07C: 錯誤：子程序'%1$s'需要命名
+00000000FEDB.07C: 錯誤：子程序'%1$s'包含過長的命名
+00000000FEDC.07C: 錯誤：子程序'%1$s'的命名無效
+00000000FEDD.07C: 錯誤：子程序'%1$s'與其它子程序相衝突
+00000000FEE1.07C: For Player Variable
+00000000FEE2.07C: For Global Variable
 00000000FFB4.07C: 對戰
 00000000FFCF.07C: 收到好友邀請
+00000000FFD0.07C: The player whose variable is being modified in this loop. If multiple players are specified, the first player is used.
+00000000FFD1.07C: Control Player
+00000000FFDA.07C: 追逐動作和為了動作無法使用同樣的變數。
 00000000FFE7.07C: 2020年《鬥陣特攻》職業電競聯賽
 00000000FFE8.07C: 無敵碧姬
-[Core] Execution finished in 00:00:03.2135136 seconds
+00000000FFF0.07C: 工作坊房間
+00000000FFF1.07C: 工作坊島嶼
+00000000FFF2.07C: 工作坊延伸區域
+00000000FFF3.07C: 編輯子程序命名
+00000000FFF4.07C: 新增子程序
+00000000FFF5.07C: 恢復為預設值
+00000000FFF6.07C: Subroutine
+00000000FFFA.07C: subroutines
+00000000FFFB.07C: Error: Encountered unexpected subroutines after '%1$s' on line %2$s
+00000000FFFC.07C: Error: Encountered out-of-bounds subroutine index '%1$s' on line %2$s
+00000000FFFD.07C: Error: Encountered duplicate subroutine index '%1$s' on line %2$s
+00000000FFFE.07C: Error: Subroutine '%1$s' is too long
+00000000FFFF.07C: Error: Subroutine '%1$s' has an invalid name
+000000010000.07C: Error: Encountered unrecognized subroutine after '%1$s' on line %2$s.
+000000010017.07C: 第21賽季選手
+000000010018.07C: 完成第21賽季預選賽即可解鎖
+000000010019.07C: 2020年職業之路
+00000001001A.07C: 2020年職業之路
+00000001001E.07C: Call Subroutine
+00000001001F.07C: Subroutine
+000000010020.07C: Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a Subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.
+000000010021.07C: Specifies which subroutine to call. If a rule with a Subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.
+000000010022.07C: Start Rule
+000000010023.07C: Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.
+000000010024.07C: Specifies which subroutine to start. If a rule with a Subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.
+000000010025.07C: Restart Rule
+000000010026.07C: Do Nothing
+000000010027.07C: Restart the specified rule with new contextual values (including Event Player, Attacker, Victim, etc.).
+000000010028.07C: Allow the rule to finish executing without changing its contextual values.
+00000001002A.07C: If Already Executing
+00000001002B.07C: Determines what should happen if the rule specified by the Subroutine is already executing on the same player or global entity.
+00000001002D.07C: 子程序規則不能帶有條件。
+00000001002E.07C: 複製設定
+00000001002F.07C: 匯出設定
+000000010030.07C: 設定
+000000010031.07C: 大廳
+000000010034.07C: 狂歡艾西
+000000010036.07C: 狂歡鮑伯
+000000010038.07C: 金面具
+00000001003A.07C: 參與艾西的狂歡舞會大挑戰即可解鎖
+00000001003F.07C: 第21賽季精英
+000000010040.07C: 在第21賽季進入前500名即可解鎖
+000000010041.07C: 停用的地圖
+000000010044.07C: 模式
+000000010045.07C: 啟用的地圖
+000000010046.07C: 英雄
+000000010047.07C: 相同的子程序由多重規則定義。
+000000010051.07C: 隊伍自由混戰
+000000010052.07C: 停用的英雄
+000000010053.07C: 啟用的英雄
+000000010054.07C: 第21賽季
+000000010055.07C: 第21賽季
+00000001005E.07C: %1$s
+00000001005F.07C: %1$s KB
+00000001006B.07C: 從剪貼簿匯出設定
+00000001006C.07C: 這樣做會取代你目前所有設定。確定要從剪貼簿匯出設定嗎？
+00000001006D.07C: 確定
+00000001006E.07C: 主要
+000000010072.07C: 英雄輪替
+000000010075.07C: 競技對戰可使用的英雄會週期性輪替。
+000000010078.07C: 輪替外的英雄
+00000001007F.07C: 敘述
+000000010086.07C: 確定
+000000010087.07C: 英雄輪替
+000000010088.07C: 競技對戰可使用的英雄會週期性輪替。
+000000010089.07C: 輪替外的英雄
+00000001008C.07C: 無法使用的英雄
+000000010097.07C: 錯誤：第%2$s行的'%1$s'之後預期要有大廳設定
+000000010098.07C: 錯誤：第%2$s行的'%1$s'之後預期要有主要設定
+000000010099.07C: 錯誤：第%2$s行的'%1$s'之後預期要有遊戲模式設定
+0000000100A3.07C: 狂歡舞會
+0000000100AD.07C: 錯誤：第%2$s行的'%1$s'之後預期要有英雄設定
+0000000100AE.07C: 錯誤：第%2$s行的'%1$s'之後預期要有設定
+0000000100AF.07C: 錯誤：第%2$s行的'%1$s'之後預期要有設定選項
+0000000100B0.07C: 錯誤：第%2$s行的'%1$s'之後出現重複的遊戲模式
+0000000100B6.07C: 錯誤：第%2$s行的'%1$s'之後出現重複的隊伍
+0000000100B7.07C: 錯誤：第%2$s行的'%1$s'之後出現重複的隊伍設定
+0000000100BB.07C: 錯誤：第%2$s行的'%1$s'之後出現重複的資料庫選項
+0000000100BC.07C: 錯誤：無效的遊戲模式
+0000000100BD.07C: 錯誤：無效的英雄
+0000000100BE.07C: 錯誤：無效的地圖
+0000000100BF.07C: 錯誤：無效的隊伍
+0000000100C0.07C: 錯誤：無效的英雄設定
+0000000100C1.07C: 錯誤：無效的隊伍設定
+0000000100C2.07C: 錯誤：無效的遊戲模式設定
+0000000100C3.07C: 錯誤：無效的地圖設定
+0000000100C4.07C: 嘉年華
+0000000100C6.07C: 甜麵包
+0000000100C8.07C: 嘉年華之王
+0000000100CA.07C: 國王派球
+0000000100CC.07C: 串珠
+0000000100CE.07C: 腥紅死神
+0000000100D0.07C: 於艾西的狂歡舞會大挑戰期間觀看相關直播即可解鎖
+0000000100D5.07C: 輪替外的英雄
+0000000100DF.07C: 錯誤：第%2$s行的'%1$s'之後出現重複的英雄
+0000000100E0.07C: 錯誤：第%2$s行的'%1$s'之後出現預期之外的地圖
+0000000100E1.07C: 錯誤：第%2$s行的'%1$s'之後出現預期之外的主要設定
+0000000100E2.07C: 錯誤：第%2$s行的'%1$s'之後出現預期之外的模式
+0000000100E3.07C: 錯誤：第%2$s行的'%1$s'之後出現預期之外的英雄
+0000000100E4.07C: 錯誤：第%2$s行的'%1$s'之後出現預期之外的大廳
+0000000100E5.07C: 實驗性
+0000000100E7.07C: 錯誤：第%2$s行的'%1$s'之後預期要有設定區塊
+0000000100E8.07C: 錯誤：第%2$s行的'%1$s'出現無效設定
+000000010176.07C: 更新檔
+000000010177.07C: 點擊下方來閱讀最新版本的更新說明！
+000000010178.07C: 更新檔
+00000001017B.07C: 實驗性
+00000001017E.07C: 錯誤：第%2$s行的'%1$s'之後預期要有模式
+0000000101D4.07C: - 來看看研發團隊想出的新點子，同時試玩一下吧！
+
+- 了解實驗性質遊戲的幕後過程，以及目前正在醞釀的概念。
+
+- 提供寶貴的意見，協助我們改善遊戲體驗。
+0000000101D9.07C: 這名英雄目前在輪替之外。
+0000000101DF.07C: 來看看研發團隊想出的新點子，同時試玩一下吧！
+000000010214.07C: 你的剩餘時間用完了，等這場結束，你會自動斷線。
+00000001021A.07C: 把死亡鏡頭轉到擊殺者視角
+000000010237.07C: CAIS時限已到達，中斷連線。
+000000010239.07C: 實驗性
+000000010243.07C: 隱藏戰績
+00000001024D.07C: 運算子
+0000000102D0.07C: pc
+0000000102D1.07C: ps4
+0000000102D2.07C: xb1
+0000000102D3.07C: nintendo-switch
+0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102F5.07C: 可用時使用實驗性更新
+[Core] Execution finished in 00:00:02.9907951 seconds

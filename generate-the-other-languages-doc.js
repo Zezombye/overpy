@@ -4,7 +4,7 @@ var languages = ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", 
 var docFolder = "./src/doc/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
 
-var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(9)\\DataTool.exe"
+var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(10)\\DataTool.exe"
 var overwatchPath = "D:\\Overwatch"
 var outputFolder = "strings"
 var guids = {};
@@ -77,7 +77,7 @@ function iterateOnObject(content) {
     }
 
     for (var key of Object.keys(content)) {
-        if (typeof content[key] === "object") {
+        if (typeof content[key] === "object" && content[key] !== null) {
             content[key] = iterateOnObject(content[key]);
         }
     }
@@ -141,16 +141,17 @@ function normalizeName(content) {
 
 //generateStringFiles();
 getGuids();
-//replaceJsonObjectsInFile(docFolder+"actions.js");
-//replaceJsonObjectsInFile(docFolder+"values.js");
-//replaceJsonObjectsInFile(docFolder+"constants.js");
-//replaceJsonObjectsInFile(docFolder+"keywords.js");
+/*replaceJsonObjectsInFile(docFolder+"actions.js");
+replaceJsonObjectsInFile(docFolder+"values.js");
+replaceJsonObjectsInFile(docFolder+"constants.js");
+replaceJsonObjectsInFile(docFolder+"keywords.js");
 replaceJsonObjectsInFile(docFolder+"heroes.js");
-//replaceJsonObjectsInFile(docFolder+"maps.js");
-replaceJsonObjectsInFile(docFolder+"gamemodes.js");
-//removeParentheses = false;
-//replaceJsonObjectsInFile(docFolder+"stringKw.js");
-//replaceJsonObjectsInFile(docFolder+"keywords.js");
+replaceJsonObjectsInFile(docFolder+"maps.js");
+replaceJsonObjectsInFile(docFolder+"gamemodes.js");*/
+replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
+/*removeParentheses = false;
+replaceJsonObjectsInFile(docFolder+"stringKw.js");
+replaceJsonObjectsInFile(docFolder+"keywords.js");*/
 
 function sleep(ms){
     return new Promise(resolve=>{
