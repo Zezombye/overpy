@@ -29,25 +29,30 @@ const opyMemberFuncs = {
             }
         ]
     },
-    "slice": {
-        "description": "A copy of the specified array containing only values from a specified index range.",
+    "exclude": {
+        "description": "A copy of the array with one or more values removed (if found).",
         "args": [
             {
-                "name": "START INDEX",
-                "description": "The first index of the range.",
-                "type": "Number",
-                "default": "NUMBER"
-            },
-            {
-                "name": "COUNT",
-                "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
-                "type": "Number",
+                "name": "VALUE",
+                "description": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed.",
+                "type": "Any",
                 "default": "NUMBER"
             }
         ]
     },
+    "format": {
+        "description": "The values that will be converted to text and used to replace the format placeholders (such as `{}` or `{0}`). Only usable on a string. Can have as much arguments as there are placeholders. The n-th argument replaces the n-th placeholder.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value used to replace the matching placeholder.",
+                "type": "Any",
+                "default": "NULL"
+            }
+        ]
+    },
     "index": {
-        "description": "The index of a value within an array or -1 if no such value can be found.",
+        "description": "The index of a value within the array or -1 if no such value can be found.",
         "args": [
             {
                 "name": "VALUE",
@@ -72,5 +77,45 @@ const opyMemberFuncs = {
     "getHitPosition": {
         "description": "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs).",
         "args": []
+    },
+    "remove": {
+        "description": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value to remove from the array (if found).",
+                "type": "Any",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    "slice": {
+        "description": "A copy of the specified array containing only values from a specified index range.",
+        "args": [
+            {
+                "name": "START INDEX",
+                "description": "The first index of the range.",
+                "type": "Number",
+                "default": "NUMBER"
+            },
+            {
+                "name": "COUNT",
+                "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
+                "type": "Number",
+                "default": "NUMBER"
+            }
+        ]
+    },
+    "x": {
+        description: "The x component of the specified vector, usually representing a leftward amount.",
+        args: null,
+    },
+    "y": {
+        description: "The y component of the specified vector, usually representing an upward amount.",
+        args: null,
+    },
+    "z": {
+        description: "The z component of the specified vector, usually representing a forward amount.",
+        args: null,
     }
 }

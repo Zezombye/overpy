@@ -75,7 +75,7 @@ function decompileAllRules(content, language="en-US") {
 		var globalVariableDeclarations = "";
 		for (var variable of globalVariables) {
 			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-				globalVariableDeclarations += "#!declareGlobal "+translateVarToPy(variable.name, true)+" "+variable.index+"\n";
+				globalVariableDeclarations += "globalvar "+translateVarToPy(variable.name, true)+" "+variable.index+"\n";
 			}
 		}
 		if (globalVariableDeclarations !== "") {
@@ -87,7 +87,7 @@ function decompileAllRules(content, language="en-US") {
 		var playerVariableDeclarations = "";
 		for (var variable of playerVariables) {
 			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-				playerVariableDeclarations += "#!declarePlayer "+translateVarToPy(variable.name, false)+" "+variable.index+"\n";
+				playerVariableDeclarations += "playervar "+translateVarToPy(variable.name, false)+" "+variable.index+"\n";
 			}
 		}
 		if (playerVariableDeclarations !== "") {
@@ -100,7 +100,7 @@ function decompileAllRules(content, language="en-US") {
 		subroutines.sort((a,b) => a.index-b.index);
 		for (var subroutine of subroutines) {
 			if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
-				subroutineDeclarations += "#!declareSubroutine "+translateSubroutineToPy(subroutine.name)+" "+subroutine.index+"\n";
+				subroutineDeclarations += "subroutine "+translateSubroutineToPy(subroutine.name)+" "+subroutine.index+"\n";
 			}
 		}
 		if (subroutineDeclarations !== "") {
@@ -116,8 +116,7 @@ function decompileAllRules(content, language="en-US") {
 function decompileCustomGameSettings(content) {
 	console.log(content);
 	var result = {};
-	var wsDisabled = tows("_disabled", ruleKw)+" ";
-	var wsEnabled = tows("_enabled", ruleKw)+" ";
+	var wsDisabled = tows("_disabled", ruleKw);
 
 	//Convert the settings to an object (without even translating).
 	var serialized = {};
@@ -155,7 +154,7 @@ function decompileCustomGameSettings(content) {
 			}
 
 		} else {
-			currentObject[lines[i]] = {};
+			currentObject[lines[i]] = null;
 		}
 	}
 
@@ -186,21 +185,19 @@ function decompileCustomGameSettings(content) {
 				}
 
 				var dict = [];
-				for (var property of Object.keys(serialized[category][gamemode])) {
-					if (Object.entries(serialized[category][gamemode][property]).length === 0) {
-						//empty object - is actually part of a dict
-						dict.push(property);
-
-					} else {
-						//the only object in a gamemode should be disabled/enabled maps
-						if (property === wsDisabled+tows("_maps", customGameSettingsSchema.gamemodes.values.general.values) || property === wsEnabled+tows("_maps", customGameSettingsSchema.gamemodes.values.general.values)) {
-							var opyPropName = (property.startsWith(wsDisabled) ? "disabledMaps" : "enabledMaps");
+				if (serialized[category][gamemode] !== null) {
+					for (var property of Object.keys(serialized[category][gamemode])) {
+						if (serialized[category][gamemode][property] === null) {
+							//empty object - is actually part of a dict
+							dict.push(property);
+	
+						} else {
+							//The only object in a gamemode should be disabled/enabled maps, which is an array
+							var opyPropName = topy(property, customGameSettingsSchema.gamemodes.values.general.values);
 							result[opyCategory][opyGamemode][opyPropName] = [];
 							for (var map of Object.keys(serialized[category][gamemode][property])) {
 								result[opyCategory][opyGamemode][opyPropName].push(topy(map, mapKw))
 							}
-						} else {
-							error("Unknown property '"+property+"'");
 						}
 					}
 				}
@@ -215,17 +212,15 @@ function decompileCustomGameSettings(content) {
 
 				var dict = [];
 				for (var property of Object.keys(serialized[category][team])) {
-					if (Object.entries(serialized[category][team][property]).length === 0) {
+					if (serialized[category][team][property] === null) {
 						//empty object - is actually part of a dict
 						dict.push(property);
 
 					} else {
 						//check if it's disabled/enabled heroes
-						if (property === wsDisabled+tows("_heroes", customGameSettingsSchema.heroes.values) || property === wsEnabled+tows("_heroes", customGameSettingsSchema.heroes.values)) {
-							var opyPropName = (property.startsWith(wsDisabled) ? "disabledHeroes" : "enabledHeroes");
+						if (property === tows("disabledHeroes", customGameSettingsSchema.heroes.values) || property === tows("enabledHeroes", customGameSettingsSchema.heroes.values)) {
+							var opyPropName = topy(property, customGameSettingsSchema.heroes.values);
 							result[opyCategory][opyTeam][opyPropName] = [];
-							console.log(property);
-							console.log(serialized);
 							for (var hero of Object.keys(serialized[category][team][property])) {
 								result[opyCategory][opyTeam][opyPropName].push(topy(hero, heroKw))
 							}
@@ -1004,7 +999,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 			texts = header+", "+subheader+", "+subtext;
 			colors = headerColor+", "+subheaderColor+", "+subtextColor;
 		}
-		return funcName+"("+decompile(args[0])+", "+texts+", Position."+decompile(args[4], constantValues["Position"])+", "+decompile(args[5])+", "+colors+", "+decompile(args[9])+specVisibility+")";
+		return funcName+"("+decompile(args[0])+", "+texts+", HudPosition."+decompile(args[4], constantValues["HudPosition"])+", "+decompile(args[5])+", "+colors+", "+decompile(args[9])+specVisibility+")";
 	}
 
 	//If
@@ -1133,6 +1128,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	//Multiply
 	if (name === "_multiply") {
 		return decompileOperator(args[0], "*", args[1]);
+	}
+
+	//Not
+	if (name === "_not") {
+		return decompileOperator(args[0], "not", null);
 	}
 	
 	//Or

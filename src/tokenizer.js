@@ -97,7 +97,7 @@ function tokenize(content) {
 	var currentStrCommentDelimiter = "";
 	var bracketsLevel = 0;
 	var isInRule = false;
-	var currentRule = {};
+	var currentRule = {}
 	var currentRuleLine = {};
 	//var currentToken = {"text":""};
 	var currentMacro = {};
@@ -112,7 +112,12 @@ function tokenize(content) {
         "currentLineNb": 1,
         "currentColNb": 0,
         "remainingChars": content.length+1, //does not matter
-    }];
+	}];
+	
+	currentRule = {
+		"fileStack":getFileStackCopy(),
+		"lines":[]
+	};
 	
 	var i = 0;
 	
@@ -207,7 +212,7 @@ function tokenize(content) {
 			}
 			
 			//Do not end the instruction if there is a line break inside a function, or the line is backslashed.
-			if (bracketsLevel === 0 && isInRule && !isBackslashed) {
+			if (bracketsLevel === 0 && !isBackslashed) {
 				newRuleLine();
 				
             }
@@ -269,53 +274,23 @@ function tokenize(content) {
 				} else if (content.startsWith("#!noEdit", i)) {
 					enableNoEdit = true;
 					isInLineComment = true;
-				} else if (content.startsWith("#!declareGlobal", i) || content.startsWith("#!declarePlayer", i)) {
-					var isGlobalVariable = content.startsWith("#!declareGlobal", i);
-					var lineIndex = content.indexOf("\n", i);
-					var firstSpaceIndex = content.indexOf(" ", i);
-					if (lineIndex === -1 || firstSpaceIndex === -1) {
-						error("Malformed variable declaration")
-					}
-					var line = content.substring(firstSpaceIndex, lineIndex).trim();
-					var args = line.split(" ");
-					if (args.length !== 1 && args.length !== 2) {
-						error("Malformed variable declaration (directive should have 1 or 2 arguments)");
-					}
-					var varName = args[0].trim();
-					if (args.length === 1 || args[1].trim().length === 0) {
-						var varIndex = null;
-					} else {
-						var varIndex = args[1].trim();
-					}
-					addVariable(varName, isGlobalVariable, varIndex);
-
-					isInLineComment = true;
-				} else if (content.startsWith("#!declareSubroutine", i)) {
-
-					var lineIndex = content.indexOf("\n", i);
-					var firstSpaceIndex = content.indexOf(" ", i);
-					if (lineIndex === -1 || firstSpaceIndex === -1) {
-						error("Malformed subroutine declaration")
-					}
-					var line = content.substring(firstSpaceIndex, lineIndex).trim();
-					var args = line.split(" ");
-					if (args.length !== 1 && args.length !== 2) {
-						error("Malformed subroutine declaration (directive should have 1 or 2 arguments)");
-					}
-					var subroutineName = args[0].trim();
-					if (args.length === 1 || args[1].trim().length === 0) {
-						var subroutineIndex = null;
-					} else {
-						var subroutineIndex = args[1].trim();
-					}
-					addSubroutine(subroutineName, subroutineIndex);
-
-					isInLineComment = true;
 				} else if (content.startsWith("#!suppressWarnings ", i)) {
 					var lineIndex = content.indexOf("\n", i);
 					var firstSpaceIndex = content.indexOf(" ", i);
 					globalSuppressedWarnings = content.substring(firstSpaceIndex, lineIndex).trim().split(" ").map(x => x.trim());
 					isInLineComment = true;
+				} else if (content.startsWith("#!include ", i)) {
+					
+					var endOfLine = content.indexOf('\n', i);
+					var space = content.indexOf(" ", i);
+					var path = getFilePath(content.substring(space, endOfLine));
+					var importedFileContent = getFileContent(path);
+					
+					content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
+					addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 1);
+					i--;
+					fileStack[fileStack.length-1].remainingChars++;
+
 				} else {
 					error("Unknown preprocessor directive");
 				}
@@ -370,7 +345,7 @@ function tokenize(content) {
                 //Increases j as long as there are characters that can compose a word
 				for (; j < content.length && isVarChar(content[j]); j++);
                 
-                //If j == i, then there wasn't a word (but an operator)
+                //If j >= i, then there was a word, instead of an operator
 				if (j > i) {
 					if (content.substring(i, j) === "@Rule") {
 						if (bracketsLevel > 0) {
@@ -383,22 +358,10 @@ function tokenize(content) {
 							"lines":[]
 						};
 						newRuleLine();
-					} else if (content.substring(i, j) === "import") {
 
-                        var endOfLine = content.indexOf('\n', i);
-                        var path = getFilePath(content.substring(j, endOfLine));
-                        var importedFileContent = getFileContent(path);
-                        
-                        content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
-                        addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 1);
-                        i--;
-                        fileStack[fileStack.length-1].remainingChars++;
-
-                        continue;
-
-                    } else if (!isInRule) {
+					} /*else if (!isInRule) {
 						error("Found code outside a rule : "+content[i]);
-					}
+					}*/
 
 					var macroWasFound = false;
 
@@ -502,7 +465,7 @@ function tokenize(content) {
 	//console.log(macros);
 	//console.log(rules);
 	
-	return rules.slice(1)
+	return rules
 	
 }
 

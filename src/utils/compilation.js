@@ -17,6 +17,53 @@
 
 "use strict";
 
+function compileCustomGameSettingsDict(dict, refDict) {
+	var result = {};
+	for (var key of Object.keys(dict)) {
+		var wsKey = tows(key, refDict);
+
+		if (typeof refDict[key].values === "object") {
+			result[wsKey] = tows(dict[key], refDict[key].values);
+
+		} else if (refDict[key].values === "_string") {
+			if (getUtf8Length(dict[key]) > refDict[key].maxBytes) {
+				error("String for '"+key+"' must not have more than "+refDict[key].maxBytes+" bytes");
+			}
+			result[wsKey] = '"'+dict[key].replace(/\\/g, '\\\\').replace(/"/g, '\\"')+'"';
+
+		} else if (refDict[key].values === "_percent" || refDict[key].values === "_int" || refDict[key].values === "_float") {
+			if (dict[key] > refDict[key].max) {
+				error("Value for '"+key+"' must not exceed "+refDict[key].max+"%");
+			}
+			if (dict[key] < refDict[key].min) {
+				error("Value for '"+key+"' must be higher than "+refDict[key].min+"%");
+			}
+			if (refDict[key].values === "_int") {
+				if (!Number.isInteger(dict[key])) {
+					error("Value for '"+key+"' must be an integer");
+				}
+			}
+			if (refDict[key].values === "_percent") {
+				result[wsKey] = dict[key]+"%";
+			} else {
+				result[wsKey] = dict[key];
+			}
+
+		} else if (refDict[key].values === "_boolYesNo") {
+			result[wsKey] = (dict[key] === true ? tows("_yes", customGameSettingsKw) : tows("_no", customGameSettingsKw));
+		} else if (refDict[key].values === "_boolEnabled") {
+			result[wsKey] = (dict[key] === true ? tows("_enabled", customGameSettingsKw) : tows("_disabled", customGameSettingsKw));
+		} else if (refDict[key].values === "_boolOnOff") {
+			result[wsKey] = (dict[key] === true ? tows("_on", customGameSettingsKw) : tows("_off", customGameSettingsKw));
+		} else if (refDict[key].values === "_boolReverseEnabled") {
+			result[wsKey] = (dict[key] === true ? tows("_disabled", customGameSettingsKw) : tows("_enabled", customGameSettingsKw));
+		} else {
+			error("Unknown value type "+refDict[key].values);
+		}
+	}
+	return result;
+}
+
 //As the workshop does not accept numbers that are too long (such as 0.22585181552505867), trim all numbers to 15 decimal places.
 function trimNb(x) {
 	var result = ""+x;
@@ -119,13 +166,7 @@ function getTokenBracketPos(tokens, returnFirstPair=false) {
 //Converts a token list, or a token object to string.
 function dispTokens(content) {
 	if (content instanceof Array) {
-		var result = "";
-		for (var i = 0; i < content.length; i++) {
-			result += content[i].text;
-			if (i < content.length-1) {
-				result += " ";
-			}
-		}
+		var result = content.map(x => x.text).join(" ");
 		return result;
 	} else if (typeof content === "string") {
 		return content;

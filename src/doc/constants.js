@@ -37,6 +37,35 @@ const constantValues =
             "zh-CN": "旋转并转换"
         }
     },
+    "Team": {
+        "1": {
+            "guid": "00000000B472",
+            "en-US": "Team 1",
+            "es-MX": "Equipo 1",
+            "fr-FR": "Équipe 1",
+            "ja-JP": "チーム1",
+            "pt-BR": "Equipe 1",
+            "zh-CN": "队伍1"
+        },
+        "2": {
+            "guid": "00000000B471",
+            "en-US": "Team 2",
+            "es-MX": "Equipo 2",
+            "fr-FR": "Équipe 2",
+            "ja-JP": "チーム2",
+            "pt-BR": "Equipe 2",
+            "zh-CN": "队伍2"
+        },
+        "ALL": {
+            "guid": "00000000B470",
+            "en-US": "All Teams",
+            "es-MX": "Todos los equipos",
+            "fr-FR": "Toutes les équipes",
+            "ja-JP": "すべてのチーム",
+            "pt-BR": "Todas as Equipes",
+            "zh-CN": "所有队伍"
+        }
+    },
     "Invis": {
         "ALL": {
             "guid": "00000000B9EB",
@@ -381,35 +410,6 @@ const constantValues =
             "ja-JP": "引く",
             "pt-BR": "Subtrair",
             "zh-CN": "减"
-        }
-    },
-    "Team": {
-        "1": {
-            "guid": "00000000B472",
-            "en-US": "Team 1",
-            "es-MX": "Equipo 1",
-            "fr-FR": "Équipe 1",
-            "ja-JP": "チーム1",
-            "pt-BR": "Equipe 1",
-            "zh-CN": "队伍1"
-        },
-        "2": {
-            "guid": "00000000B471",
-            "en-US": "Team 2",
-            "es-MX": "Equipo 2",
-            "fr-FR": "Équipe 2",
-            "ja-JP": "チーム2",
-            "pt-BR": "Equipe 2",
-            "zh-CN": "队伍2"
-        },
-        "ALL": {
-            "guid": "00000000B470",
-            "en-US": "All Teams",
-            "es-MX": "Todos los equipos",
-            "fr-FR": "Toutes les équipes",
-            "ja-JP": "すべてのチーム",
-            "pt-BR": "Todas as Equipes",
-            "zh-CN": "所有队伍"
         }
     },
     "DynamicEffect": {
@@ -1256,7 +1256,7 @@ const constantValues =
             "zh-CN": "不要截取"
         }
     },
-    "Position": {
+    "HudPosition": {
         "LEFT": {
             "guid": "00000000BAF6",
             "en-US": "Left",
@@ -1409,6 +1409,7 @@ const constantValues =
             "zh-CN": "可见，位置和字符串"
         }
     },
+    "ChaseReeval": {},
     "_ChaseRateReeval": {
         "DESTINATION_AND_RATE": {
             "guid": "00000000B8CA",
