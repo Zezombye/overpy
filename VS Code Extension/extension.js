@@ -146,110 +146,87 @@ const decompilerUI = [`
  * @param {vscode.ExtensionContext} context
  */
 
-const funcDoc = JSON.parse(JSON.stringify(overpy.actionKw.concat(overpy.valueFuncKw)));
+const funcDoc = JSON.parse(JSON.stringify(Object.assign({}, overpy.actionKw, overpy.valueFuncKw)));
 
-var constTypes = JSON.parse(JSON.stringify(overpy.constantValues));
+const constValues = JSON.parse(JSON.stringify(overpy.constantValues));
+for (var key of Object.keys(constValues)) {
+    if (key.startsWith("_")) {
+        delete constValues[key];
+    }
+}
+const funcList = JSON.parse(JSON.stringify(overpy.opyFuncs));
 
-console.log(constTypes);
-const funcList = JSON.parse(JSON.stringify(overpy.specialFuncs));
-
-for (var func of funcDoc) {
-    if (func.opy.startsWith("_!") || !func.opy.startsWith("_")) {
-        if (func.opy.startsWith("_!")) {
-            func.opy = func.opy.substring(2);
-        }
-        funcList.push(func);
+for (var func of Object.keys(funcDoc)) {
+    if (!func.startsWith("_")) {
+        funcList[func] = funcDoc[func];
     }
 }
 
-const metaRuleParams = [
-    {
-        "opy": "@Rule",
+const metaRuleParams = {
+    "@Rule": {
         "description": "Declares a new rule. Must be followed by the rule title.",
         "values": []
-    },{
-        "opy": "@Event",
+    },
+    "@Event": {
         "description": "Defines the event type for the current rule.",
-        "values": overpy.eventKw,
-    },{
-        "opy": "@Team",
+        "values": Object.keys(overpy.eventKw),
+    },
+    "@Team": {
         "description": "Defines which team the current rule applies for. If omitted, defaults to 'all'.",
-        "values": overpy.eventTeamKw,
-    },{
-        "opy": "@Slot",
+        "values": Object.keys(overpy.eventTeamKw),
+    },
+    "@Slot": {
         "description": "Defines which slot the current rule applies for. If omitted, defaults to all slots. Cannot be used with `@Hero`.",
-        "values": overpy.eventSlotKw,
-    },{
-        "opy": "@Hero",
+        "values": Object.keys(overpy.eventSlotKw),
+    },
+    "@Hero": {
         "description": "Defines which hero the current rule applies for. If omitted, defaults to all heroes. Cannot be used with `@Slot`.",
-        "values": constTypes["HERO CONSTANT"].values.map(x => ({
-            ...x,
-            opy: x.opy.substring("Hero.".length).toLowerCase()
-        })),
-    },{
-        "opy": "@SuppressWarnings",
+        "values": Object.keys(overpy.heroKw).map(x => x.toLowerCase),
+    },
+    "@SuppressWarnings": {
         "description": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces.",
         "values": [],
-    },{
-        "opy": "@Disabled",
+    },
+    "@Disabled": {
         "description": "Generates the rule as disabled.",
         "values": [],
     }
-]
+}
 
 const preprocessingDirectivesCompList = makeCompList(JSON.parse(JSON.stringify(overpy.preprocessingDirectives)));
 
 //Functions that come after a dot.
-const memberFuncList = JSON.parse(JSON.stringify(overpy.specialMemberFuncs));
+const memberFuncList = JSON.parse(JSON.stringify(overpy.opyMemberFuncs));
 
-for (func of funcDoc) {
-    if (func.opy.startsWith("_&")) {
-        func.opy = func.opy.substring(2);
-        func.isMember = true;
-        memberFuncList.push(func);
+for (var func of Object.keys(funcDoc)) {
+    if (func.startsWith("_&")) {
+        var funcName = func.substring(2);
+        funcDoc[funcName] = funcDoc[func];
+        delete funcDoc[func];
+        funcDoc[funcName].isMember = true;
+        memberFuncList[funcName] = funcDoc[funcName];
     }
 }
 
-const memberConstList = [
-    //Vector constants
-    {
-        opy: "x",
-        description: "The x component of the specified vector, usually representing a leftward amount.",
-        args: null,
-    },{
-        opy: "y",
-        description: "The y component of the specified vector, usually representing an upward amount.",
-        args: null,
-    },{
-        opy: "z",
-        description: "The z component of the specified vector, usually representing a forward amount.",
-        args: null,
-    }
-];
-
-
-const constValues = getConstValues();
-const constTypeList = Object.keys(constValues).map(x => ({opy: x})).filter(x => x.opy !== "Operation" && x.opy !== "Variable");
-const constTypeListOpy = constTypeList.map(x => x.opy);
 
 const metaRuleParamsCompList = makeCompList(metaRuleParams);
 
 var defaultCompList;
 var allFuncList;
 var memberCompItem;
-var normalMacros = [];
-var memberMacros = [];
-var globalVariables = [];
-var playerVariables = [];
-var subroutines = [];
+var normalMacros = {};
+var memberMacros = {};
+var globalVariables = {};
+var playerVariables = {};
+var subroutines = {};
 function refreshAutoComplete() {
 
-    defaultCompList = makeCompList(funcList.concat(constTypeList).concat(normalMacros).concat(globalVariables).concat(subroutines));
-    allFuncList = funcList.concat(memberFuncList).concat(normalMacros).concat(memberMacros);
-    for (var func of allFuncList) {
-        func.sigHelp = makeSignatureHelp(func);
+    defaultCompList = makeCompList(Object.assign({}, funcList, constValues, normalMacros, globalVariables, subroutines));
+    allFuncList = Object.assign({}, funcList, memberFuncList, normalMacros, memberMacros);
+    for (var func of Object.keys(allFuncList)) {
+        allFuncList[func].sigHelp = makeSignatureHelp(func, allFuncList[func]);
     }
-    memberCompItem = makeCompList(memberFuncList.concat(memberConstList).concat(memberMacros).concat(playerVariables))
+    memberCompItem = makeCompList(Object.assign({}, memberFuncList, memberMacros, playerVariables))
 }
 refreshAutoComplete();
 
@@ -264,7 +241,6 @@ function activate(context) {
         panel.webview.onDidReceiveMessage(message => {
 
             try {
-
                 var decompiled = overpy.decompileAllRules(message.content, message.language);
 
                 vscode.window.showSaveDialog({
@@ -349,7 +325,7 @@ function activate(context) {
                         return memberCompItem;
                     } else {
                         var word = document.getText(range);
-                        if (constTypeListOpy.indexOf(word) === -1) {
+                        if (word in constValues) {
                             return memberCompItem;
                         }
                         console.log("Autocomplete for class "+word);
@@ -407,7 +383,7 @@ function activate(context) {
                             currentArgNb++;
                         }
                     } else {
-                        if (currentChar === currentStringChar) {
+                        if (currentChar === currentStringChar && !(i > 0 && document.getText(new vscode.Range(position.translate(0, i), position.translate(0, i-1))) === "\\")) {
                             isInString = false;
                         }
                     }
@@ -419,13 +395,13 @@ function activate(context) {
                     return;
                 }
 
-                for (var func of allFuncList) {
-                    console.log(func.opy);
-                    if (func.opy === funcName) {
-                        console.log(func);
-                        if ("sigHelp" in func && func.sigHelp !== null) {
-                            func.sigHelp.activeParameter = currentArgNb;
-                            return func.sigHelp;
+                for (var func of Object.keys(allFuncList)) {
+                    //console.log(func);
+                    if (func === funcName) {
+                        //console.log(func);
+                        if ("sigHelp" in allFuncList[func] && allFuncList[func].sigHelp !== null) {
+                            allFuncList[func].sigHelp.activeParameter = currentArgNb;
+                            return allFuncList[func].sigHelp;
                         } else {
                             break;
                         }
@@ -450,58 +426,27 @@ exports.activate = activate;
 // this method is called when your extension is deactivated
 function deactivate() {}
 
-//Populates all consts (LosCheck, Reeval, Button etc) based on the doc.
-//This is needed because some consts (LosCheck/Reeval) are divided into different consts in the doc.
-function getConstValues() {
-    var result = {};
-    for (var constType of Object.values(constTypes)) {
-        if (!("opy" in constType)) {
-            continue;
-        }
-        if (!result.hasOwnProperty(constType.opy)) {
-            result[constType.opy] = [];
-        }
-        for (var value of constType.values) {
-            value.opy = value.opy.substring(value.opy.indexOf(".")+1);
-        }
-        result[constType.opy] = result[constType.opy].concat(constType.values);
-    }
-
-    //Remove duplicates
-    Object.keys(result).forEach(function(key, index) {
-        result[key] = result[key].filter(function(item, pos) {
-            return result[key].indexOf(item) === pos;
-        })
-        result[key] = makeCompList(result[key]);
-    })
-    //console.log(result);
-    return result;
+function makeCompList(obj) {
+    return new vscode.CompletionList(Object.keys(obj).map(x => makeCompItem(x, obj[x])));
 }
 
-function makeCompList(array) {
-    return new vscode.CompletionList(array.map(x => makeCompItem(x)));
-}
-
-function makeCompItem(item) {
+function makeCompItem(itemName, item) {
     var compItem = new vscode.CompletionItem();
-    compItem.label = item.opy.endsWith("()") ? item.opy.substring(0, item.opy.length-2) : item.opy;
-    /*if (compItem.label.startsWith('@')) {
-        compItem.label = compItem.label.substring(1);
-    }*/
-    compItem.documentation = generateDocFromDoc(item);
-    compItem.insertText = generateSnippetFromDoc(item);
+    compItem.label = itemName.endsWith("()") ? itemName.substring(0, itemName.length-2) : itemName;
+    compItem.documentation = generateDocFromDoc(itemName, item);
+    compItem.insertText = generateSnippetFromDoc(itemName, item);
     return compItem;
 }
 
 function fillAutocompletionMacros(macros) {
-    normalMacros = [];
-    memberMacros = [];
+    normalMacros = {};
+    memberMacros = {};
     for (var macro of macros) {
         var convertedMacro = {};
-        convertedMacro.opy = macro.name;
+        var macroName = macro.name;
         if (macro.isFunction) {
             if (macro.args.length === 0) {
-                convertedMacro.opy += "()";
+                macroName += "()";
             } else {
                 convertedMacro.args = [];
                 for (var arg of macro.args) {
@@ -518,32 +463,36 @@ function fillAutocompletionMacros(macros) {
             convertedMacro.description = "This macro resolves to:\n\n"+macro.replacement;
         }
         if (macro.isMember) {
-            memberMacros.push(convertedMacro);
+            memberMacros[macroName] = convertedMacro;
         } else {
-            normalMacros.push(convertedMacro);
+            normalMacros[macroName] = convertedMacro;
         }
     }
 }
 
 function fillAutocompletionVariables(globalVars, playerVars) {
-    globalVariables = globalVars.map(x => ({
-        opy: x.name,
-        description: x.index !== null ? "A global variable. (index: "+x.index+")" : "A global variable.",
-    }));
-    playerVariables = playerVars.map(x => ({
-        opy: x.name,
-        description: x.index !== null ? "A player variable. (index: "+x.index+")" : "A player variable.",
-    }));
+    for (var globalVar in globalVars) {
+        globalVariables[globalVar.name] = ({
+            description: globalVar.index !== null ? "A global variable. (index: "+globalVar.index+")" : "A global variable.",
+        })
+    }
+    for (var playerVar in playerVars) {
+        playerVariables[playerVar.name] = ({
+            description: playerVar.index !== null ? "A player variable. (index: "+playerVar.index+")" : "A player variable.",
+        })
+    }
 }
 
 function fillAutocompletionSubroutines(subroutineNames) {
-    subroutines = subroutineNames.map(x => ({
-        opy: x.name+"()",
-        description: x.index ? "A subroutine. (index: "+x.index+")" : "A subroutine.",
-    }));
+    for (var subroutine in subroutineNames) {
+        subroutines[subroutine.name+"()"] = ({
+            args: [],
+            description: subroutine.index ? "A subroutine. (index: "+subroutine.index+")" : "A subroutine.",
+        })
+    }
 }
 
-function generateDocFromDoc(item) {
+function generateDocFromDoc(itemName, item) {
 
     var isMemberFunction = false;
     if ("isMember" in item) {
@@ -555,7 +504,7 @@ function generateDocFromDoc(item) {
         doc = item.description;
     }
     if (doc === null) {
-        console.log("No documentation found for "+item.opy);
+        console.log("No documentation found for "+itemName);
         return "No documentation was found for this function.";
     }
 
@@ -581,10 +530,10 @@ function generateDocFromDoc(item) {
     return new vscode.MarkdownString(result);
 
 }
-function generateSnippetFromDoc(item) {
+function generateSnippetFromDoc(itemName, item) {
     
-    if (item.opy.startsWith('@')) {
-        return new vscode.SnippetString(getSnippetForMetaRuleParam(item.opy));
+    if (itemName.startsWith('@')) {
+        return new vscode.SnippetString(getSnippetForMetaRuleParam(itemName));
     }
 
     if (item.snippet !== undefined) {
@@ -599,18 +548,16 @@ function generateSnippetFromDoc(item) {
             isMemberFunction = item.isMember;
         }
         if (item.args.length === 0 || item.args.length === 1 && isMemberFunction) {
-            if (!item.opy.endsWith("()")) {
-                item.opy += "()";
+            if (!itemName.endsWith("()")) {
+                itemName += "()";
             }
-            return new vscode.SnippetString(item.opy);
+            return new vscode.SnippetString(itemName);
         } else {
-            return new vscode.SnippetString(item.opy/*+"("*/);
+            return new vscode.SnippetString(itemName);
         }
     }
     
 }
-
-
 
 function getSnippetForMetaRuleParam(param) {
 
@@ -619,20 +566,15 @@ function getSnippetForMetaRuleParam(param) {
     }
 
     var result = param.substring(1);
-    var ruleParam = null;
-    for (var metaRuleParam of metaRuleParams) {
-        if (metaRuleParam.opy === param) {
-            ruleParam = metaRuleParam;
-            break;
-        }
-    }
-    if (ruleParam === null) {
+    try {
+        var ruleParam = metaRuleParams[param];
+    } catch (e) {
         console.log("Could not find param "+param);
         return param;
     }
     if (ruleParam.values.length > 0) {
         result += " ${1|";
-        result += ruleParam.values.map(x => x.opy).join(",");
+        result += ruleParam.values.join(",");
         result += "|}$0";
     }
     return result;
@@ -643,15 +585,15 @@ function getSnippetFromArg(index, arg) {
     var result = "";
 
     if ([
-        "PLAYER",
-        "POSITION",
-        "ANY",
-        "NUMBER",
-        "TEAM",
-        "BOOLEAN",
-        "VECTOR",
-        "HERO",
-        "DIRECTION",
+        "Player",
+        "Position",
+        "Any",
+        "Number",
+        "Team",
+        "Boolean",
+        "Vector",
+        "Hero",
+        "Direction",
     ].indexOf(arg.type) > -1) {
         //Generic type (not an enum)
         return "${"+index+":"+getSuitableArgName(arg.name)+"}";
@@ -686,14 +628,10 @@ function getSuitableArgName(arg) {
 
 function getSuitableArgType(type) {
 
-    if (type in constTypes) {
-        return constTypes[type].opy;
-    } else if (type === "ANY") {
+    if (type === "Any") {
         return "Object";
-    } else if (type === "ARRAY") {
+    } else if (type === "Array") {
         return "Object[]";
-    } else if (type === "POSITION") {
-        return "Location";
     } else {
         type = type[0].toUpperCase() + type.substring(1).toLowerCase();
     }
@@ -701,7 +639,7 @@ function getSuitableArgType(type) {
     return type;
 }
 
-function makeSignatureHelp(func) {
+function makeSignatureHelp(funcName, func) {
     if (func.args === null || func.args === undefined || func.args.length === 0) {
         return null;
     }
@@ -712,10 +650,10 @@ function makeSignatureHelp(func) {
     }
 
     var paramInfo = [];
-    var sigStr = func.opy + "(";
+    var sigStr = funcName + "(";
 
     for (var i = 0; i < func.args.length; i++) {
-        if (!(i === 0 && func.args[i].type === "PLAYER" && isMemberFunction)) {
+        if (!(i === 0 && func.args[i].type === "Player" && isMemberFunction)) {
             paramInfo.push(new vscode.ParameterInformation(getSuitableArgName(func.args[i].name), func.args[i].description));
             sigStr += getSuitableArgType(func.args[i].type)+" "+getSuitableArgName(func.args[i].name);
             if (i < func.args.length-1) {

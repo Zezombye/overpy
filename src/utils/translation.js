@@ -65,6 +65,9 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 			} else {
 				var keywordComparing = keywordObj[key]["en-US"];
 			}
+			if (keywordComparing === undefined) {
+				error("No language found for '"+key+"'");
+			}
 			keywordComparing = keywordComparing.toLowerCase();
 			if (keywordObj !== stringKw) {
 				keywordComparing = keywordComparing.replace(/\s/g, "")

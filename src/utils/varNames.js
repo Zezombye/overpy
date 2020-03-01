@@ -138,7 +138,7 @@ function addVariable(content, isGlobalVariable, index) {
 		error("Index is undefined");
 	}
 	if (reservedNames.includes(content)) {
-		error("Variable name '"+content+"' is a keyword");
+		error("Variable name '"+content+"' is a reserved word");
 	}
 	if (isGlobalVariable) {
 		globalVariables.push({

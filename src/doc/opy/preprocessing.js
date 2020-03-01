@@ -30,15 +30,6 @@ const preprocessingDirectives = {
     "noEdit": {
         "description": "Adds 2500 empty rules to the preset, which should make it absolutely impossible to open the rules (as you get a \"connection lost\" error). Therefore, it is the ultimate form of obfuscation, as you simply cannot even see the code.\n\nHowever, pasting the generated code could trigger a \"connection lost\" error as well, and a huge lag. As such, this directive should only be used on finalized gamemodes, before you publish it; it should not be used every time.\n\nYou will very likely have to paste the generated code in an editor, then paste the rules by sets of 800, 1200 then 500 to be able to insert them.\n"
     },
-    "declareGlobal": {
-        "description": "Declares a global variable. The index (0-127) can optionally be specified. Example:\n\n    #!declareGlobal myVar 127\n"
-    },
-    "declarePlayer": {
-        "description": "Declares a player variable. The index (0-127) can optionally be specified. Example:\n\n    #!declarePlayer myVar 127\n"
-    },
-    "declareSubroutine": {
-        "description": "Declares a subroutine. The index (0-127) can optionally be specified. Example:\n\n    #!declareSubroutine mySubroutine 127\n"
-    },
     "suppressWarnings": {
         "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
     },
@@ -47,5 +38,8 @@ const preprocessingDirectives = {
     },
     "mainFile": {
         "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file."
+    },
+    "include": {
+        "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file."
     }
 }

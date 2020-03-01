@@ -2486,7 +2486,7 @@ var valueFuncKw =
         "pt-BR": "Normalizar",
         "zh-CN": "归一化"
     },
-    "not": {
+    "_not": {
         "guid": "00000000B275",
         "description": "Whether the input is false (or equivalent to false).",
         "args": [

@@ -64,10 +64,13 @@ var importedFiles;
 
 var disableUnusedVars;
 
-//Decompilation variables
+var compiledCustomGameSettings;
 
 //The stack of the files (macros count as "files").
 var fileStack;
+
+//Decompilation variables
+
 
 //Global variable used for "skip ifs", to keep track of where the skip if ends.
 //Is reset at each rule.
@@ -93,7 +96,7 @@ function resetGlobalVariables(language) {
 	wsTrue = tows("true", valueFuncKw);
 	wsFalse = tows("false", valueFuncKw);
 	wsNull = tows("null", valueFuncKw);
-	wsNot = tows("not", valueFuncKw);
+	wsNot = tows("_not", valueFuncKw);
 	wsRandInt = tows("random.randint", valueFuncKw);
 	wsRandReal = tows("random.uniform", valueFuncKw);
 	wsRandShuffle = tows("random.shuffle", valueFuncKw);
@@ -115,6 +118,7 @@ function resetGlobalVariables(language) {
 	importedFiles = [];
 	enableNoEdit = false;
 	disableUnusedVars = false;
+	compiledCustomGameSettings = "";
 }
 
 //Other constants
@@ -193,11 +197,22 @@ const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
 const defaultSubroutineNames = Array(128).fill().map((e,i)=>i).map(x => "Sub"+x);
 
 //Names that cannot be used for variables.
-const reservedNames = ["if", "else", "elif", "do", "while", "for", "return", "continue", "false", "true", "null", "goto", "lambda", "del", "import", "break", "def", "pass", "and", "or", "not", "in", "eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", "hostPlayer", "loc", "RULE_CONDITION", "RULE_START", "x", "y", "z", "math", "pi", "e", "random", "Vector", "switch", "case", "default", "settings", "globalvar", "playervar", "int", "float", "disabled"].concat(Object.keys(constantValues).map(x => constantValues[x].opy));
+const reservedNames = [
+	"if", "else", "elif", "do", "while", "for", "return", "continue", "switch", "case", "default", "break", "pass",
+	"false", "true", "null", 
+	"goto", "lambda", "del", "import", "def", 
+	"and", "or", "not", "in", 
+	"eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", 
+	"hostPlayer", 
+	"loc", "RULE_CONDITION", "RULE_START", 
+	"x", "y", "z", "math", "pi", "e", "random", 
+	"Vector", "int", "float",
+	"settings",
+	"globalvar", "playervar", "subroutine", "disabled"].concat(Object.keys(constantValues));
 
 //Names that cannot be used for subroutines.
 const reservedFuncNames = [];
-for (var func of Object.keys(actionKw).concat(Object.keys(specialFuncs))) {
+for (var func of Object.keys(actionKw).concat(Object.keys(opyFuncs))) {
 	if (!func.startsWith("_")) {
 		if (func.includes("(")) {
 			reservedFuncNames.push(func.substring(0, func.indexOf("(")));

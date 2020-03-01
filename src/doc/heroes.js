@@ -290,6 +290,9 @@ const heroKw =
             "zh-CN": "恢复包",
             "zh-TW": "修復包"
         },
+        "ability3": {
+            "en-US": "Shield Bash",
+        },
         "ultimate": {
             "guid": "0000000076C6",
             "en-US": "Rally",
@@ -547,6 +550,9 @@ const heroKw =
             "ru-RU": "Шквал",
             "zh-CN": "岚",
             "zh-TW": "暴風箭"
+        },
+        "ability3": {
+            "en-US": "Lunge",
         },
         "ultimate": {
             "guid": "0000000003A7",
@@ -846,6 +852,9 @@ const heroKw =
             "ru-RU": "Воскрешение",
             "zh-CN": "重生",
             "zh-TW": "復活"
+        },
+        "passive": {
+            "en-US": "Regeneration",
         },
         "ultimate": {
             "guid": "000000006DAA",
@@ -1812,6 +1821,9 @@ const heroKw =
             "ru-RU": "Адаптивный щит",
             "zh-CN": "感应护盾",
             "zh-TW": "自動調整型護盾"
+        },
+        "ability3": {
+            "en-US": "Piledriver",
         },
         "ultimate": {
             "guid": "00000000866F",

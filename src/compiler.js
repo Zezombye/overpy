@@ -49,7 +49,11 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var result = "";
 	var compiledRules = [];
-	for (var i = 0; i < rules.length; i++) {
+
+	//First rule contains variable declarations.
+	compileVarDeclarationRule(rules[0])
+
+	for (var i = 1; i < rules.length; i++) {
 		compiledRules.push(compileRule(rules[i]));
 	}
 
@@ -59,7 +63,7 @@ function compile(content, language="en-US", _rootPath="") {
 		compiledRules = compiledRules.join("");
 	}
 
-	result = generateVariablesField()+generateSubroutinesField()+compiledRules;
+	result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
 
 	if (typeof window !== "undefined") {
 		var t1 = performance.now();
@@ -225,6 +229,135 @@ function generateSubroutinesField() {
 
 }
 
+function compileVarDeclarationRule(rule) {
+	
+	for (var line of rule.lines) {
+		if (line.tokens.length === 0) continue;
+		fileStack = line.tokens[0].fileStack;
+
+		if (line.tokens[0].text === "globalvar" || line.tokens[0].text === "playervar" || line.tokens[0].text === "subroutine") {
+			if (line.tokens.length < 2 || line.tokens.length > 3) {
+				error("Malformed "+line.tokens[0].text+" declaration");
+			}
+			var index = line.tokens.length > 2 ? line.tokens[2].text : null
+
+			if (line.tokens[0].text === "globalvar") {
+				addVariable(line.tokens[1].text, true, index);
+			} else if (line.tokens[0].text === "playervar") {
+				addVariable(line.tokens[1].text, false, index);
+			} else {
+				addSubroutine(line.tokens[1].text, index);
+			}
+
+		} else if (line.tokens[0].text === "settings") {
+			var customGameSettings = eval("("+dispTokens(line.tokens.slice(1))+")");
+			compileCustomGameSettings(customGameSettings);
+		} else {
+			error("Found code outside a rule: "+line.tokens[0]);
+		}
+	}
+}
+
+function compileCustomGameSettings(customGameSettings) {
+
+	if (typeof customGameSettings !== "object" || customGameSettings === null) {
+		error("Expected an object for custom game settings");
+	}
+	var result = {};
+	for (var key of Object.keys(customGameSettings)) {
+		if (key === "main" || key === "lobby") {
+			result[tows(key, customGameSettingsSchema)] = compileCustomGameSettingsDict(customGameSettings[key], customGameSettingsSchema[key].values);
+
+		} else if (key === "gamemodes") {
+			var wsGamemodes = tows("gamemodes", customGameSettingsSchema);
+			result[wsGamemodes] = {};
+			for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
+				var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
+				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
+					wsGamemode = tows("_disabled", ruleKw)+" "+wsGamemode;
+					delete customGameSettings.gamemodes[gamemode].enabled;
+				}
+				result[wsGamemodes][wsGamemode] = {};
+				if ("enabledMaps" in customGameSettings.gamemodes[gamemode] || "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
+					if ("enabledMaps" in customGameSettings.gamemodes[gamemode] && "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
+						error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '"+gamemode+"'");
+					}
+					var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
+					var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
+					result[wsGamemodes][wsGamemode][wsMapsKey] = [];
+					for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
+						result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw))
+					}
+					delete customGameSettings.gamemodes[gamemode][mapsKey];
+				}
+
+				Object.assign(result[wsGamemodes][wsGamemode], compileCustomGameSettingsDict(customGameSettings.gamemodes[gamemode], customGameSettingsSchema.gamemodes.values[gamemode].values));
+			}
+
+		} else if (key === "heroes") {
+			var wsHeroes = tows("heroes", customGameSettingsSchema);
+			result[wsHeroes] = {};
+			for (var team of Object.keys(customGameSettings.heroes)) {
+				var wsTeam = tows(team, customGameSettingsSchema.heroes.teams);
+				result[wsHeroes][wsTeam] = {};
+				var wsHeroesKey = null;
+				var wsHeroesKeyObj = [];
+				if ("enabledHeroes" in customGameSettings.heroes[team] || "disabledHeroes" in customGameSettings.heroes[team]) {
+					if ("enabledHeroes" in customGameSettings.heroes[team] && "disabledHeroes" in customGameSettings.heroes[team]) {
+						error("Cannot have both 'enabledHeroes' and 'disabledHeroes' in team '"+team+"'");
+					}
+					var heroesKey = "enabledHeroes" in customGameSettings.heroes[team] ? "enabledHeroes" : "disabledHeroes";
+					wsHeroesKey = tows(heroesKey, customGameSettingsSchema.heroes.values);
+					for (var hero of customGameSettings.heroes[team][heroesKey]) {
+						wsHeroesKeyObj.push(tows(hero, heroKw));
+					}
+					delete customGameSettings.heroes[team][heroesKey];
+				}
+
+				if ("general" in customGameSettings.heroes[team]) {
+					Object.assign(result[wsHeroes][wsTeam], compileCustomGameSettingsDict(customGameSettings.heroes[team].general, customGameSettingsSchema.heroes.values.general));
+					delete customGameSettings.heroes[team].general;
+				}
+
+				for (var hero of Object.keys(customGameSettings.heroes[team])) {
+					var wsHero = tows(hero, heroKw);
+					result[wsHeroes][wsTeam][wsHero] = compileCustomGameSettingsDict(customGameSettings.heroes[team][hero], customGameSettingsSchema.heroes.values[hero].values);
+				}
+
+				if (wsHeroesKey !== null) {
+					result[wsHeroes][wsTeam][wsHeroesKey] = wsHeroesKeyObj;
+				}
+
+			}
+		} else {
+			error("Unknown key '"+key+"'");
+		}
+	}
+
+
+	nbTabs = 0;
+	function deserializeObject(obj) {
+		var result = " {\n";
+		nbTabs++;
+		for (var key of Object.keys(obj)) {
+			if (obj[key].constructor === Array) {
+				result += tabLevel(nbTabs)+key+" {\n"+obj[key].map(x => tabLevel(nbTabs+1)+x+"\n").join("");
+				result += tabLevel(nbTabs)+"}\n";
+			} else if (typeof obj[key] === "object" && obj[key] !== null) {
+				result += tabLevel(nbTabs)+key+deserializeObject(obj[key])+"\n";
+			} else {
+				result += tabLevel(nbTabs)+key+": "+obj[key]+"\n";
+			}
+		}
+		nbTabs--;
+		result += tabLevel(nbTabs)+"}";
+		return result;
+	}
+
+	compiledCustomGameSettings = tows("_settings", ruleKw) + deserializeObject(result)+"\n";
+
+
+}
 
 function compileRule(rule) {
 	
@@ -1181,7 +1314,7 @@ function parse(content, parseArgs={}) {
 					return trueExpr;
 				}
 				//A if condition else B -> [B,A][1*not condition]
-				return tows("_valueInArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_emptyArray", valueFuncKw)+", "+trueExpr+"), "+falseExpr+"), "+tows("_multiply", valueFuncKw)+"(1, "+tows("not", valueFuncKw)+"("+condition+")))";
+				return tows("_valueInArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_emptyArray", valueFuncKw)+", "+trueExpr+"), "+falseExpr+"), "+tows("_multiply", valueFuncKw)+"(1, "+tows("_not", valueFuncKw)+"("+condition+")))";
 
 			} else if (pyOperators[i] === "or") {
 
@@ -1256,7 +1389,7 @@ function parse(content, parseArgs={}) {
 				if (op1.startsWith(wsNot+"(")) {
 					return op1.substring((wsNot+"(").length, op1.length-1);
 				}
-				return tows("not", valueFuncKw)+"("+op1+")";
+				return tows("_not", valueFuncKw)+"("+op1+")";
 
 			} else if (pyOperators[i] === "in") {
 				return tows("_arrayContains", valueFuncKw)+"("+parse(operands[1])+", "+parse(operands[0])+")";
@@ -1672,7 +1805,7 @@ function parse(content, parseArgs={}) {
 
 	if (name === "debug") {
 		//probably the longest line of code in all this codebase
-		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("ALL", constantValues["Team"])+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("LEFT", constantValues["Position"])+", 0, "+tows("ORANGE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("VISIBILITY_AND_STRING", constantValues["Color"])+", "+tows("ALWAYS", constantValues["Color"])+")";
+		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("ALL", constantValues["Team"])+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("LEFT", constantValues["HudPosition"])+", 0, "+tows("ORANGE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("VISIBILITY_AND_STRING", constantValues["Color"])+", "+tows("ALWAYS", constantValues["Color"])+")";
 	}
 
 	if (name === "__for__") {
