@@ -337,11 +337,11 @@ function compileCustomGameSettings(customGameSettings) {
 
 	nbTabs = 0;
 	function deserializeObject(obj) {
-		var result = " {\n";
+		var result = "\n"+tabLevel(nbTabs)+"{\n";
 		nbTabs++;
 		for (var key of Object.keys(obj)) {
 			if (obj[key].constructor === Array) {
-				result += tabLevel(nbTabs)+key+" {\n"+obj[key].map(x => tabLevel(nbTabs+1)+x+"\n").join("");
+				result += tabLevel(nbTabs)+key+"\n"+tabLevel(nbTabs)+"{\n"+obj[key].map(x => tabLevel(nbTabs+1)+x+"\n").join("");
 				result += tabLevel(nbTabs)+"}\n";
 			} else if (typeof obj[key] === "object" && obj[key] !== null) {
 				result += tabLevel(nbTabs)+key+deserializeObject(obj[key])+"\n";
