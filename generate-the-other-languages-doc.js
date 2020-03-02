@@ -141,14 +141,14 @@ function normalizeName(content) {
 
 //generateStringFiles();
 getGuids();
-/*replaceJsonObjectsInFile(docFolder+"actions.js");
+//replaceJsonObjectsInFile(docFolder+"actions.js");
 replaceJsonObjectsInFile(docFolder+"values.js");
-replaceJsonObjectsInFile(docFolder+"constants.js");
+//replaceJsonObjectsInFile(docFolder+"constants.js");
 replaceJsonObjectsInFile(docFolder+"keywords.js");
 replaceJsonObjectsInFile(docFolder+"heroes.js");
-replaceJsonObjectsInFile(docFolder+"maps.js");
-replaceJsonObjectsInFile(docFolder+"gamemodes.js");*/
-replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
+//replaceJsonObjectsInFile(docFolder+"maps.js");
+//replaceJsonObjectsInFile(docFolder+"gamemodes.js");
+//replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
 /*removeParentheses = false;
 replaceJsonObjectsInFile(docFolder+"stringKw.js");
 replaceJsonObjectsInFile(docFolder+"keywords.js");*/

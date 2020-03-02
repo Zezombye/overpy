@@ -154,6 +154,9 @@ for (var key of Object.keys(constValues)) {
         delete constValues[key];
     }
 }
+for (var key of Object.keys(constValues)) {
+    constValues[key] = makeCompList(constValues[key]);
+}
 const funcList = JSON.parse(JSON.stringify(overpy.opyFuncs));
 
 for (var func of Object.keys(funcDoc)) {
@@ -326,14 +329,9 @@ function activate(context) {
                     } else {
                         var word = document.getText(range);
                         if (word in constValues) {
-                            return memberCompItem;
-                        }
-                        console.log("Autocomplete for class "+word);
-                        console.log(constValues[word]);
-                        try {
                             return constValues[word];
-                        } catch (KeyError) {
-                            return;
+                        } else {
+                            return memberCompItem;
                         }
                     }
                 } else if (context.triggerCharacter === '@') {
@@ -432,6 +430,7 @@ function makeCompList(obj) {
 
 function makeCompItem(itemName, item) {
     var compItem = new vscode.CompletionItem();
+    //console.log("item name = "+itemName+", item = "+item);
     compItem.label = itemName.endsWith("()") ? itemName.substring(0, itemName.length-2) : itemName;
     compItem.documentation = generateDocFromDoc(itemName, item);
     compItem.insertText = generateSnippetFromDoc(itemName, item);
@@ -471,12 +470,12 @@ function fillAutocompletionMacros(macros) {
 }
 
 function fillAutocompletionVariables(globalVars, playerVars) {
-    for (var globalVar in globalVars) {
+    for (var globalVar of globalVars) {
         globalVariables[globalVar.name] = ({
             description: globalVar.index !== null ? "A global variable. (index: "+globalVar.index+")" : "A global variable.",
         })
     }
-    for (var playerVar in playerVars) {
+    for (var playerVar of playerVars) {
         playerVariables[playerVar.name] = ({
             description: playerVar.index !== null ? "A player variable. (index: "+playerVar.index+")" : "A player variable.",
         })
@@ -484,7 +483,7 @@ function fillAutocompletionVariables(globalVars, playerVars) {
 }
 
 function fillAutocompletionSubroutines(subroutineNames) {
-    for (var subroutine in subroutineNames) {
+    for (var subroutine of subroutineNames) {
         subroutines[subroutine.name+"()"] = ({
             args: [],
             description: subroutine.index ? "A subroutine. (index: "+subroutine.index+")" : "A subroutine.",
@@ -541,7 +540,7 @@ function generateSnippetFromDoc(itemName, item) {
     }
 
     if (item.args === null || item.args === undefined) {
-        return new vscode.SnippetString(item.opy);
+        return new vscode.SnippetString(itemName);
     } else {
         var isMemberFunction = false;
         if ("isMember" in item) {
@@ -580,7 +579,7 @@ function getSnippetForMetaRuleParam(param) {
     return result;
 }
 
-function getSnippetFromArg(index, arg) {
+/*function getSnippetFromArg(index, arg) {
 
     var result = "";
 
@@ -614,7 +613,7 @@ function getSnippetFromArg(index, arg) {
 
     }
 
-}
+}*/
 
 function getSuitableArgName(arg) {
     arg = arg.toLowerCase()

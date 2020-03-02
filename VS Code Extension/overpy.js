@@ -4879,7 +4879,7 @@ var valueFuncKw =
         "zh-CN": "标准化生命值"
     },
     "_hero": {
-        "guid": "00000000BA5C",
+        "guid": "00000000ACAA",
         "description": "A hero constant.",
         "args": [
             {
@@ -4890,14 +4890,10 @@ var valueFuncKw =
             }
         ],
         "en-US": "Hero",
-        "es-ES": "Héroe",
         "es-MX": "Héroe",
         "fr-FR": "Héros",
-        "it-IT": "Eroe",
         "ja-JP": "ヒーロー",
-        "pl-PL": "Bohater",
         "pt-BR": "Herói",
-        "ru-RU": "Герой",
         "zh-CN": "英雄"
     },
     "heroIcon": {
@@ -9053,7 +9049,20 @@ const heroKw =
             "zh-TW": "修復包"
         },
         "ability3": {
+            "guid": "000000008030",
             "en-US": "Shield Bash",
+            "de-DE": "Schildstoß",
+            "es-ES": "Carga con escudo",
+            "es-MX": "Azote de escudo",
+            "fr-FR": "Charge de bouclier",
+            "it-IT": "Colpo di Scudo",
+            "ja-JP": "シールド･バッシュ",
+            "ko-KR": "방패 밀쳐내기",
+            "pl-PL": "Rąbnięcie Tarczą",
+            "pt-BR": "Golpe de Escudo",
+            "ru-RU": "Удар щитом",
+            "zh-CN": "能量盾击",
+            "zh-TW": "持盾衝鋒"
         },
         "ultimate": {
             "guid": "0000000076C6",
@@ -9314,7 +9323,20 @@ const heroKw =
             "zh-TW": "暴風箭"
         },
         "ability3": {
+            "guid": "0000000088D4",
             "en-US": "Lunge",
+            "de-DE": "Ninjasprung",
+            "es-ES": "Agilidad de dragón",
+            "es-MX": "Zancada",
+            "fr-FR": "Impulsion",
+            "it-IT": "Balzo",
+            "ja-JP": "体術",
+            "ko-KR": "이단뛰기",
+            "pl-PL": "Wypad",
+            "pt-BR": "Salto",
+            "ru-RU": "Выпад",
+            "zh-CN": "跃",
+            "zh-TW": "突進跳躍"
         },
         "ultimate": {
             "guid": "0000000003A7",
@@ -9616,7 +9638,19 @@ const heroKw =
             "zh-TW": "復活"
         },
         "passive": {
+            "guid": "000000006DA7",
             "en-US": "Regeneration",
+            "es-ES": "Regeneración",
+            "es-MX": "Regeneración",
+            "fr-FR": "Régénération",
+            "it-IT": "Rigenerazione",
+            "ja-JP": "リジェネレーション",
+            "ko-KR": "재생",
+            "pl-PL": "Regeneracja",
+            "pt-BR": "Regeneração",
+            "ru-RU": "Регенерация",
+            "zh-CN": "自动恢复",
+            "zh-TW": "再生"
         },
         "ultimate": {
             "guid": "000000006DAA",
@@ -10585,7 +10619,20 @@ const heroKw =
             "zh-TW": "自動調整型護盾"
         },
         "ability3": {
+            "guid": "000000007547",
             "en-US": "Piledriver",
+            "de-DE": "Kollisionskurs",
+            "es-ES": "Impacto demoledor",
+            "es-MX": "Martinete",
+            "fr-FR": "Pilonnage",
+            "it-IT": "Stella Cadente",
+            "ja-JP": "パイルドライバー",
+            "ko-KR": "파일드라이버",
+            "pl-PL": "Kafar",
+            "pt-BR": "Bate-estaca",
+            "ru-RU": "Копер",
+            "zh-CN": "重力坠击",
+            "zh-TW": "垂直打樁機"
         },
         "ultimate": {
             "guid": "00000000866F",
@@ -12877,23 +12924,23 @@ const customGameSettingsKw =
         "zh-TW": "關閉"
     },
     "_enabled": {
-        "guid": "0000000058B2",
+        "guid": "000000005923",
         "en-US": "Enabled",
         "de-DE": "Aktiviert",
         "es-ES": "Permitir",
         "es-MX": "Habilitado",
         "fr-FR": "Activé",
-        "it-IT": "On",
+        "it-IT": "Attivata",
         "ja-JP": "有効",
         "ko-KR": "활성화",
-        "pl-PL": "Wł.",
-        "pt-BR": "Habilitado",
+        "pl-PL": "Tryb aktywny",
+        "pt-BR": "Ativado",
         "ru-RU": "Вкл.",
-        "zh-CN": "开启",
+        "zh-CN": "启用",
         "zh-TW": "啟用"
     },
     "_disabled": {
-        "guid": "0000000058B3",
+        "guid": "000000006A06",
         "en-US": "Disabled",
         "de-DE": "Deaktiviert",
         "es-ES": "No permitir",
@@ -12902,8 +12949,8 @@ const customGameSettingsKw =
         "it-IT": "Off",
         "ja-JP": "無効",
         "ko-KR": "비활성화",
-        "pl-PL": "Wył.",
-        "pt-BR": "Desabilitado",
+        "pl-PL": "Wyłączono",
+        "pt-BR": "Desativada",
         "ru-RU": "Откл.",
         "zh-CN": "禁用",
         "zh-TW": "停用"
@@ -18462,7 +18509,7 @@ const opyMemberFuncs = {
 
 const preprocessingDirectives = {
     "define": {
-        "description": "Creates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type    wait(0.1)    getFirstAvailableMei().teleport(location)    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special __script__ function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n"
+        "description": "Creates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n"
     },
     "defineMember": {
         "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion."

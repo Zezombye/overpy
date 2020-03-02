@@ -291,7 +291,20 @@ const heroKw =
             "zh-TW": "修復包"
         },
         "ability3": {
+            "guid": "000000008030",
             "en-US": "Shield Bash",
+            "de-DE": "Schildstoß",
+            "es-ES": "Carga con escudo",
+            "es-MX": "Azote de escudo",
+            "fr-FR": "Charge de bouclier",
+            "it-IT": "Colpo di Scudo",
+            "ja-JP": "シールド･バッシュ",
+            "ko-KR": "방패 밀쳐내기",
+            "pl-PL": "Rąbnięcie Tarczą",
+            "pt-BR": "Golpe de Escudo",
+            "ru-RU": "Удар щитом",
+            "zh-CN": "能量盾击",
+            "zh-TW": "持盾衝鋒"
         },
         "ultimate": {
             "guid": "0000000076C6",
@@ -552,7 +565,20 @@ const heroKw =
             "zh-TW": "暴風箭"
         },
         "ability3": {
+            "guid": "0000000088D4",
             "en-US": "Lunge",
+            "de-DE": "Ninjasprung",
+            "es-ES": "Agilidad de dragón",
+            "es-MX": "Zancada",
+            "fr-FR": "Impulsion",
+            "it-IT": "Balzo",
+            "ja-JP": "体術",
+            "ko-KR": "이단뛰기",
+            "pl-PL": "Wypad",
+            "pt-BR": "Salto",
+            "ru-RU": "Выпад",
+            "zh-CN": "跃",
+            "zh-TW": "突進跳躍"
         },
         "ultimate": {
             "guid": "0000000003A7",
@@ -854,7 +880,19 @@ const heroKw =
             "zh-TW": "復活"
         },
         "passive": {
+            "guid": "000000006DA7",
             "en-US": "Regeneration",
+            "es-ES": "Regeneración",
+            "es-MX": "Regeneración",
+            "fr-FR": "Régénération",
+            "it-IT": "Rigenerazione",
+            "ja-JP": "リジェネレーション",
+            "ko-KR": "재생",
+            "pl-PL": "Regeneracja",
+            "pt-BR": "Regeneração",
+            "ru-RU": "Регенерация",
+            "zh-CN": "自动恢复",
+            "zh-TW": "再生"
         },
         "ultimate": {
             "guid": "000000006DAA",
@@ -1823,7 +1861,20 @@ const heroKw =
             "zh-TW": "自動調整型護盾"
         },
         "ability3": {
+            "guid": "000000007547",
             "en-US": "Piledriver",
+            "de-DE": "Kollisionskurs",
+            "es-ES": "Impacto demoledor",
+            "es-MX": "Martinete",
+            "fr-FR": "Pilonnage",
+            "it-IT": "Stella Cadente",
+            "ja-JP": "パイルドライバー",
+            "ko-KR": "파일드라이버",
+            "pl-PL": "Kafar",
+            "pt-BR": "Bate-estaca",
+            "ru-RU": "Копер",
+            "zh-CN": "重力坠击",
+            "zh-TW": "垂直打樁機"
         },
         "ultimate": {
             "guid": "00000000866F",

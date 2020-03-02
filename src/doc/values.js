@@ -1238,7 +1238,7 @@ var valueFuncKw =
         "zh-CN": "标准化生命值"
     },
     "_hero": {
-        "guid": "00000000BA5C",
+        "guid": "00000000ACAA",
         "description": "A hero constant.",
         "args": [
             {
@@ -1249,14 +1249,10 @@ var valueFuncKw =
             }
         ],
         "en-US": "Hero",
-        "es-ES": "Héroe",
         "es-MX": "Héroe",
         "fr-FR": "Héros",
-        "it-IT": "Eroe",
         "ja-JP": "ヒーロー",
-        "pl-PL": "Bohater",
         "pt-BR": "Herói",
-        "ru-RU": "Герой",
         "zh-CN": "英雄"
     },
     "heroIcon": {
