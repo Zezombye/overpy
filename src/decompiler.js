@@ -423,6 +423,7 @@ function decompileConditions(content) {
 	
 	var conditions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
 	
+	var comments = "";
 	var result = "";
 	result += "if ";
 	var condStrs = [];
@@ -430,6 +431,12 @@ function decompileConditions(content) {
 		
 		var currentCondIsDisabled = false;
 		conditions[i] = conditions[i].trim();
+		
+		if (conditions[i].startsWith('"')) {
+			var conditionComment = getPrefixString(conditions[i]);
+			conditions[i] = conditions[i].substring(conditionComment.length).trim();
+			comments += "#"+conditionComment+"\n"+tabLevel(nbTabs);
+		}
 		if (conditions[i].startsWith(tows("_disabled", ruleKw))) {
 			currentCondIsDisabled = true;
 			conditions[i] = conditions[i].substring(tows("_disabled", ruleKw).length);
@@ -470,7 +477,8 @@ function decompileConditions(content) {
 	}
 	result += condStrResult;
 	
-	result += ":\n"
+	result += ":\n";
+	result = comments + result;
 	nbTabs = 1;
 	
 	return result;
@@ -484,7 +492,7 @@ function decompileActions(content) {
 	//Detect the last loop to know where to place the "while"
 	for (var i = 0; i < actions.length; i++) {
 		var actionName = getName(actions[i]);
-		if (!actionName.startsWith(tows("_disabled", ruleKw)) && topy(actionName, actionKw).startsWith("_loop")) {
+		if (!actionName.startsWith('"') && !actionName.startsWith(tows("_disabled", ruleKw)) && topy(actionName, actionKw).startsWith("_loop")) {
 			//It is a loop; update the loop position
 			lastLoop = i;
 		}
@@ -530,6 +538,12 @@ function decompileAction(content, actionNb) {
 	}
 	var isCurrentActionDisabled = false;
 	content = content.trim();
+	
+	if (content.startsWith('"')) {
+		var conditionComment = getPrefixString(content);
+		content = content.substring(conditionComment.length).trim();
+		result += "#"+conditionComment+"\n"+tabLevel(nbTabs);
+	}
 	if (content.startsWith(tows("_disabled", ruleKw)+" ")) {
 		isCurrentActionDisabled = true;
 		content = content.substring((tows("_disabled", ruleKw)+" ").length);
@@ -556,6 +570,7 @@ function decompileAction(content, actionNb) {
 function decompileRuleCondition(content) {
 	
 	debug("Decompiling condition '"+content+"'");
+
 	
 	//Reset variable
 	operatorPrecedenceStack = [];

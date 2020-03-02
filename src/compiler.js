@@ -1805,7 +1805,7 @@ function parse(content, parseArgs={}) {
 
 	if (name === "debug") {
 		//probably the longest line of code in all this codebase
-		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("ALL", constantValues["Team"])+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("LEFT", constantValues["HudPosition"])+", 0, "+tows("ORANGE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("VISIBILITY_AND_STRING", constantValues["Color"])+", "+tows("ALWAYS", constantValues["Color"])+")";
+		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("ALL", constantValues["Team"])+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("LEFT", constantValues["HudPosition"])+", 0, "+tows("ORANGE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("VISIBILITY_AND_STRING", constantValues["HudReeval"])+", "+tows("ALWAYS", constantValues["SpecVisibility"])+")";
 	}
 
 	if (name === "__for__") {

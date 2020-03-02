@@ -88,6 +88,14 @@ function startsWithParenthesis(content) {
 	return false;
 }
 
+function unBackslashString(content) {
+	return content.substring(1, value.length-1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+}
+
+function backslashString(content) {
+	return content.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+}
+
 //Returns true if c is [A-Za-z\d_@].
 function isVarChar(c) {
 	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_' || c === '@';

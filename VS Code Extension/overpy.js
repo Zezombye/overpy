@@ -88,6 +88,14 @@ function startsWithParenthesis(content) {
 	return false;
 }
 
+function unBackslashString(content) {
+	return content.substring(1, value.length-1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+}
+
+function backslashString(content) {
+	return content.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+}
+
 //Returns true if c is [A-Za-z\d_@].
 function isVarChar(c) {
 	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_' || c === '@';
@@ -18564,7 +18572,7 @@ function compileCustomGameSettingsDict(dict, refDict) {
 			if (getUtf8Length(dict[key]) > refDict[key].maxBytes) {
 				error("String for '"+key+"' must not have more than "+refDict[key].maxBytes+" bytes");
 			}
-			result[wsKey] = '"'+dict[key].replace(/\\/g, '\\\\').replace(/"/g, '\\"')+'"';
+			result[wsKey] = '"'+backslashString(dict[key])+'"';
 
 		} else if (refDict[key].values === "_percent" || refDict[key].values === "_int" || refDict[key].values === "_float") {
 			if (dict[key] > refDict[key].max) {
@@ -18783,7 +18791,7 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 			value = topy(value, kwObj[keyName].values);
 
 		} else if (kwObj[keyName].values === "_string") {
-			value = value.substring(1, value.length-1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+			value = unBackslashString(value);
 
 		} else if (kwObj[keyName].values === "_percent") {
 			if (!value.endsWith("%")) {
@@ -18833,6 +18841,30 @@ function splitInstructions(content) {
 //Returns an array of arguments (delimited by a comma).
 function getArgs(content) {
 	return splitStrOnDelimiter(content, [',']);
+}
+
+//Returns the prefix string (used for condition/action comments).
+function getPrefixString(content) {
+	content = content.trim();
+	if (!content.startsWith('"')) {
+		error("Expected a string at the start of '"+content+"'");
+	}
+	var i = 1;
+	var endOfStringFound = false;
+	for (; i < content.length; i++) {
+		if (content.charAt(i) === "\\") {
+			i++;
+		} else if (content.charAt(i) === '"') {
+			i++;
+			endOfStringFound = true;
+			break;
+		}
+	}
+	if (!endOfStringFound) {
+		error("Could not find end of string for '"+content+"'");
+	}
+	return content.substring(0, i);
+
 }
 
 //Returns an array of strings that are delimited by the given string(s).
@@ -20246,6 +20278,7 @@ function decompileConditions(content) {
 	
 	var conditions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
 	
+	var comments = "";
 	var result = "";
 	result += "if ";
 	var condStrs = [];
@@ -20253,6 +20286,12 @@ function decompileConditions(content) {
 		
 		var currentCondIsDisabled = false;
 		conditions[i] = conditions[i].trim();
+		
+		if (conditions[i].startsWith('"')) {
+			var conditionComment = getPrefixString(conditions[i]);
+			conditions[i] = conditions[i].substring(conditionComment.length).trim();
+			comments += "#"+conditionComment+"\n"+tabLevel(nbTabs);
+		}
 		if (conditions[i].startsWith(tows("_disabled", ruleKw))) {
 			currentCondIsDisabled = true;
 			conditions[i] = conditions[i].substring(tows("_disabled", ruleKw).length);
@@ -20293,7 +20332,8 @@ function decompileConditions(content) {
 	}
 	result += condStrResult;
 	
-	result += ":\n"
+	result += ":\n";
+	result = comments + result;
 	nbTabs = 1;
 	
 	return result;
@@ -20307,7 +20347,7 @@ function decompileActions(content) {
 	//Detect the last loop to know where to place the "while"
 	for (var i = 0; i < actions.length; i++) {
 		var actionName = getName(actions[i]);
-		if (!actionName.startsWith(tows("_disabled", ruleKw)) && topy(actionName, actionKw).startsWith("_loop")) {
+		if (!actionName.startsWith('"') && !actionName.startsWith(tows("_disabled", ruleKw)) && topy(actionName, actionKw).startsWith("_loop")) {
 			//It is a loop; update the loop position
 			lastLoop = i;
 		}
@@ -20353,6 +20393,12 @@ function decompileAction(content, actionNb) {
 	}
 	var isCurrentActionDisabled = false;
 	content = content.trim();
+	
+	if (content.startsWith('"')) {
+		var conditionComment = getPrefixString(content);
+		content = content.substring(conditionComment.length).trim();
+		result += "#"+conditionComment+"\n"+tabLevel(nbTabs);
+	}
 	if (content.startsWith(tows("_disabled", ruleKw)+" ")) {
 		isCurrentActionDisabled = true;
 		content = content.substring((tows("_disabled", ruleKw)+" ").length);
@@ -20379,6 +20425,7 @@ function decompileAction(content, actionNb) {
 function decompileRuleCondition(content) {
 	
 	debug("Decompiling condition '"+content+"'");
+
 	
 	//Reset variable
 	operatorPrecedenceStack = [];
@@ -22335,11 +22382,11 @@ function compileCustomGameSettings(customGameSettings) {
 
 	nbTabs = 0;
 	function deserializeObject(obj) {
-		var result = " {\n";
+		var result = "\n"+tabLevel(nbTabs)+"{\n";
 		nbTabs++;
 		for (var key of Object.keys(obj)) {
 			if (obj[key].constructor === Array) {
-				result += tabLevel(nbTabs)+key+" {\n"+obj[key].map(x => tabLevel(nbTabs+1)+x+"\n").join("");
+				result += tabLevel(nbTabs)+key+"\n"+tabLevel(nbTabs)+"{\n"+obj[key].map(x => tabLevel(nbTabs+1)+x+"\n").join("");
 				result += tabLevel(nbTabs)+"}\n";
 			} else if (typeof obj[key] === "object" && obj[key] !== null) {
 				result += tabLevel(nbTabs)+key+deserializeObject(obj[key])+"\n";
@@ -23803,7 +23850,7 @@ function parse(content, parseArgs={}) {
 
 	if (name === "debug") {
 		//probably the longest line of code in all this codebase
-		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("ALL", constantValues["Team"])+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("LEFT", constantValues["HudPosition"])+", 0, "+tows("ORANGE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("VISIBILITY_AND_STRING", constantValues["Color"])+", "+tows("ALWAYS", constantValues["Color"])+")";
+		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("ALL", constantValues["Team"])+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("LEFT", constantValues["HudPosition"])+", 0, "+tows("ORANGE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("VISIBILITY_AND_STRING", constantValues["HudReeval"])+", "+tows("ALWAYS", constantValues["SpecVisibility"])+")";
 	}
 
 	if (name === "__for__") {

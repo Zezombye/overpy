@@ -29,7 +29,7 @@ function compileCustomGameSettingsDict(dict, refDict) {
 			if (getUtf8Length(dict[key]) > refDict[key].maxBytes) {
 				error("String for '"+key+"' must not have more than "+refDict[key].maxBytes+" bytes");
 			}
-			result[wsKey] = '"'+dict[key].replace(/\\/g, '\\\\').replace(/"/g, '\\"')+'"';
+			result[wsKey] = '"'+backslashString(dict[key])+'"';
 
 		} else if (refDict[key].values === "_percent" || refDict[key].values === "_int" || refDict[key].values === "_float") {
 			if (dict[key] > refDict[key].max) {

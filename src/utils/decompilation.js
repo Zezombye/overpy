@@ -63,7 +63,7 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 			value = topy(value, kwObj[keyName].values);
 
 		} else if (kwObj[keyName].values === "_string") {
-			value = value.substring(1, value.length-1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+			value = unBackslashString(value);
 
 		} else if (kwObj[keyName].values === "_percent") {
 			if (!value.endsWith("%")) {
@@ -113,6 +113,30 @@ function splitInstructions(content) {
 //Returns an array of arguments (delimited by a comma).
 function getArgs(content) {
 	return splitStrOnDelimiter(content, [',']);
+}
+
+//Returns the prefix string (used for condition/action comments).
+function getPrefixString(content) {
+	content = content.trim();
+	if (!content.startsWith('"')) {
+		error("Expected a string at the start of '"+content+"'");
+	}
+	var i = 1;
+	var endOfStringFound = false;
+	for (; i < content.length; i++) {
+		if (content.charAt(i) === "\\") {
+			i++;
+		} else if (content.charAt(i) === '"') {
+			i++;
+			endOfStringFound = true;
+			break;
+		}
+	}
+	if (!endOfStringFound) {
+		error("Could not find end of string for '"+content+"'");
+	}
+	return content.substring(0, i);
+
 }
 
 //Returns an array of strings that are delimited by the given string(s).
