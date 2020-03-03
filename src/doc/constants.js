@@ -1379,6 +1379,27 @@ const constantValues =
             "ja-JP": "表示される相手、文字列",
             "pt-BR": "Visível para e String",
             "zh-CN": "可见和字符串"
+        },
+        "VISIBILITY_SORT_ORDER_AND_STRING": {
+            "guid": "00000000FCA5",
+            "en-US": "Visible To Sort Order and String",
+            "es-MX": "Visible para clasificar orden y cadena",
+            "fr-FR": "Visible pour Tri et Chaîne de texte",
+            "it-IT": "Sort Order and String",
+            "ja-JP": "表示される相手、ソート順、文字列",
+            "ko-KR": "Visible To Sort Order String",
+            "pt-BR": "Visível para ordem de classificação e string",
+            "zh-CN": "可见性，排序规则，以及字符串"
+        },
+        "SORT_ORDER_AND_STRING": {
+            "guid": "00000000FCA6",
+            "en-US": "Sort Order and String",
+            "es-MX": "Clasificar orden y cadena",
+            "fr-FR": "Tri et Chaîne de texte",
+            "ja-JP": "ソート順、文字列",
+            "pl-PL": "Kolejność sortowania i ciąg",
+            "pt-BR": "Ordem de classificação e string",
+            "zh-CN": "排序规则与字符串"
         }
     },
     "WorldTextReeval": {

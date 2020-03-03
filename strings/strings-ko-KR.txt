@@ -26892,4 +26892,4 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000102D3.07C: nintendo-switch
 0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
 0000000102F5.07C: 가능하다면 체험 업데이트 사용
-[Core] Execution finished in 00:00:02.8682726 seconds
+[Core] Execution finished in 00:00:02.7854461 seconds

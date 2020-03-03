@@ -21917,7 +21917,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C614.07C: The surface normal at the ray cast hit position (or from End Pos to Start Pos if no hit occurs).
 00000000C615.07C: The Player hit by the ray cast (or Null if no Player is hit).
 00000000C61A.07C: Removes the Element specified by the Index from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.
-00000000C61B.07C: Removes the ElementRemove From Array By Index
+00000000C61B.07C: Remove From Array By Index
 00000000C635.07C: Event Damage
 00000000C636.07C: The amount of damage received by the Victim for the Event currently being processed by this Rule.
 00000000C637.07C: Event Was Critical Hit
@@ -26894,4 +26894,4 @@ https://account.blizzard.com/connections/nintendo
 0000000102D3.07C: nintendo-switch
 0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
 0000000102F5.07C: Use Experimental Update If Available
-[Core] Execution finished in 00:00:07.6391734 seconds
+[Core] Execution finished in 00:00:07.5772062 seconds
