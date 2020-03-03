@@ -89,7 +89,7 @@ function startsWithParenthesis(content) {
 }
 
 function unBackslashString(content) {
-	return content.substring(1, value.length-1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+	return content.substring(1, content.length-1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
 }
 
 function backslashString(content) {
