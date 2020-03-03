@@ -536,6 +536,7 @@ function decompileAction(content, actionNb) {
 			result += "lbl_"+i+":\n"+tabLevel(nbTabs);
 		}
 	}
+	
 	var isCurrentActionDisabled = false;
 	content = content.trim();
 	
