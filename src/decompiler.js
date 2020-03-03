@@ -435,7 +435,7 @@ function decompileConditions(content) {
 		if (conditions[i].startsWith('"')) {
 			var conditionComment = getPrefixString(conditions[i]);
 			conditions[i] = conditions[i].substring(conditionComment.length).trim();
-			comments += "#"+conditionComment+"\n"+tabLevel(nbTabs);
+			comments += "#"+unBackslashString(conditionComment)+"\n"+tabLevel(nbTabs);
 		}
 		if (conditions[i].startsWith(tows("_disabled", ruleKw))) {
 			currentCondIsDisabled = true;
@@ -542,7 +542,7 @@ function decompileAction(content, actionNb) {
 	if (content.startsWith('"')) {
 		var conditionComment = getPrefixString(content);
 		content = content.substring(conditionComment.length).trim();
-		result += "#"+conditionComment+"\n"+tabLevel(nbTabs);
+		result += "#"+unBackslashString(conditionComment)+"\n"+tabLevel(nbTabs);
 	}
 	if (content.startsWith(tows("_disabled", ruleKw)+" ")) {
 		isCurrentActionDisabled = true;
