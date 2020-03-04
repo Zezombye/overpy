@@ -73,7 +73,11 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 				keywordComparing = keywordComparing.replace(/\s/g, "")
 			}
 			if (keywordComparing === keyword) {
-				return key;
+				var result = key;
+				if ("args" in keywordObj[key] && keywordObj[key].args !== null && keywordObj[key].args.length === 0) {
+					result += "()";
+				}
+				return result;
 			}
 		}
 		

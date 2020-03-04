@@ -89,7 +89,7 @@ function startsWithParenthesis(content) {
 }
 
 function unBackslashString(content) {
-	return content.substring(1, value.length-1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+	return content.substring(1, content.length-1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
 }
 
 function backslashString(content) {
@@ -12401,6 +12401,27 @@ const constantValues =
             "ja-JP": "表示される相手、文字列",
             "pt-BR": "Visível para e String",
             "zh-CN": "可见和字符串"
+        },
+        "VISIBILITY_SORT_ORDER_AND_STRING": {
+            "guid": "00000000FCA5",
+            "en-US": "Visible To Sort Order and String",
+            "es-MX": "Visible para clasificar orden y cadena",
+            "fr-FR": "Visible pour Tri et Chaîne de texte",
+            "it-IT": "Sort Order and String",
+            "ja-JP": "表示される相手、ソート順、文字列",
+            "ko-KR": "Visible To Sort Order String",
+            "pt-BR": "Visível para ordem de classificação e string",
+            "zh-CN": "可见性，排序规则，以及字符串"
+        },
+        "SORT_ORDER_AND_STRING": {
+            "guid": "00000000FCA6",
+            "en-US": "Sort Order and String",
+            "es-MX": "Clasificar orden y cadena",
+            "fr-FR": "Tri et Chaîne de texte",
+            "ja-JP": "ソート順、文字列",
+            "pl-PL": "Kolejność sortowania i ciąg",
+            "pt-BR": "Ordem de classificação e string",
+            "zh-CN": "排序规则与字符串"
         }
     },
     "WorldTextReeval": {
@@ -19345,7 +19366,11 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 				keywordComparing = keywordComparing.replace(/\s/g, "")
 			}
 			if (keywordComparing === keyword) {
-				return key;
+				var result = key;
+				if ("args" in keywordObj[key] && keywordObj[key].args !== null && keywordObj[key].args.length === 0) {
+					result += "()";
+				}
+				return result;
 			}
 		}
 		
@@ -20290,7 +20315,7 @@ function decompileConditions(content) {
 		if (conditions[i].startsWith('"')) {
 			var conditionComment = getPrefixString(conditions[i]);
 			conditions[i] = conditions[i].substring(conditionComment.length).trim();
-			comments += "#"+conditionComment+"\n"+tabLevel(nbTabs);
+			comments += "#"+unBackslashString(conditionComment)+"\n"+tabLevel(nbTabs);
 		}
 		if (conditions[i].startsWith(tows("_disabled", ruleKw))) {
 			currentCondIsDisabled = true;
@@ -20311,17 +20336,22 @@ function decompileConditions(content) {
 		});
 	}
 	var condStrResult = "";
+	var nbEnabledConditions = 0;
 	for (var i = 0; i < condStrs.length; i++) {
+
 		//console.log(i)
 		//console.log(condStrs[i]);
 		var condStr = condStrs[i].text;
-		if (i < condStrs.length-2 && !condStrs[i+1].isDisabled) {
+		if (i < condStrs.length-1 && condStrs[i].isDisabled && !condStrs[i+1].isDisabled && nbEnabledConditions === 0) {
 			condStr += " and ";
-		} else if (condStrs.length >= 2 && (i === condStrs.length-1 || condStrs[i].isDisabled && i > 0)) {
+		}
+		if (i > 0 && (nbEnabledConditions > 0 || condStrs[i].isDisabled)) {
 			condStr = " and "+condStr;
 		}
 		if (condStrs[i].isDisabled) {
 			condStr = "'''"+condStr+"'''";
+		} else {
+			nbEnabledConditions++;
 		}
 		condStrResult += condStr;
 	}
@@ -20391,13 +20421,14 @@ function decompileAction(content, actionNb) {
 			result += "lbl_"+i+":\n"+tabLevel(nbTabs);
 		}
 	}
+	
 	var isCurrentActionDisabled = false;
 	content = content.trim();
 	
 	if (content.startsWith('"')) {
 		var conditionComment = getPrefixString(content);
 		content = content.substring(conditionComment.length).trim();
-		result += "#"+conditionComment+"\n"+tabLevel(nbTabs);
+		result += "#"+unBackslashString(conditionComment)+"\n"+tabLevel(nbTabs);
 	}
 	if (content.startsWith(tows("_disabled", ruleKw)+" ")) {
 		isCurrentActionDisabled = true;
@@ -20521,6 +20552,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		name = content;
 	}
 	name = topy(name.toLowerCase().replace(/\s/g, ""), keywordArray);
+	var hasNoArgs = false;
+	if (name.endsWith("()")) {
+		hasNoArgs = true;
+		name = name.substring(0, name.length-2);
+	}
 	
 	if (name !== "_compare" && decompileArgs.invertCondition === true) {
 		return parseOperator(content, "not", null);
@@ -21186,6 +21222,10 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 			}
 		}
 		result += ")";
+	}
+
+	if (hasNoArgs) {
+		result += "()";
 	}
 	
 	return result;
@@ -23704,7 +23744,9 @@ function parse(content, parseArgs={}) {
 		}
 
 		if (stringModifiers.localizedString === true) {
-			return parseLocalizedString(tokenizeLocalizedString(string), parseArgs.formatArgs);
+			warn("w_localized_strings", "Localized strings are currently transformed to custom strings due to a bug.")
+			return parseString(string, parseArgs.formatArgs, stringModifiers);
+			//return parseLocalizedString(tokenizeLocalizedString(string), parseArgs.formatArgs);
 		} else {
 			return parseString(string, parseArgs.formatArgs, stringModifiers);
 		}
@@ -24568,7 +24610,9 @@ function parseRuleCondition(content) {
 	for (var condition of conditions) {
 		
 		debug("Parsing condition '"+dispTokens(condition)+"'");
-		//console.log(andOperands);
+		if (condition.length === 0) {
+			error("Expected a rule condition, but got nothing");
+		}
 
 		
 		var comparisonOperators = ["==", "!=", "<=", ">=", "<", ">"];

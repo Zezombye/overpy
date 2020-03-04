@@ -184,7 +184,7 @@ const metaRuleParams = {
     },
     "@Hero": {
         "description": "Defines which hero the current rule applies for. If omitted, defaults to all heroes. Cannot be used with `@Slot`.",
-        "values": Object.keys(overpy.heroKw).map(x => x.toLowerCase),
+        "values": Object.keys(overpy.heroKw).map(x => x.toLowerCase()),
     },
     "@SuppressWarnings": {
         "description": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces.",

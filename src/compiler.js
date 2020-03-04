@@ -1659,7 +1659,9 @@ function parse(content, parseArgs={}) {
 		}
 
 		if (stringModifiers.localizedString === true) {
-			return parseLocalizedString(tokenizeLocalizedString(string), parseArgs.formatArgs);
+			warn("w_localized_strings", "Localized strings are currently transformed to custom strings due to a bug.")
+			return parseString(string, parseArgs.formatArgs, stringModifiers);
+			//return parseLocalizedString(tokenizeLocalizedString(string), parseArgs.formatArgs);
 		} else {
 			return parseString(string, parseArgs.formatArgs, stringModifiers);
 		}
@@ -2523,7 +2525,9 @@ function parseRuleCondition(content) {
 	for (var condition of conditions) {
 		
 		debug("Parsing condition '"+dispTokens(condition)+"'");
-		//console.log(andOperands);
+		if (condition.length === 0) {
+			error("Expected a rule condition, but got nothing");
+		}
 
 		
 		var comparisonOperators = ["==", "!=", "<=", ">=", "<", ">"];

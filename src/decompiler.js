@@ -456,17 +456,22 @@ function decompileConditions(content) {
 		});
 	}
 	var condStrResult = "";
+	var nbEnabledConditions = 0;
 	for (var i = 0; i < condStrs.length; i++) {
+
 		//console.log(i)
 		//console.log(condStrs[i]);
 		var condStr = condStrs[i].text;
-		if (i < condStrs.length-2 && !condStrs[i+1].isDisabled) {
+		if (i < condStrs.length-1 && condStrs[i].isDisabled && !condStrs[i+1].isDisabled && nbEnabledConditions === 0) {
 			condStr += " and ";
-		} else if (condStrs.length >= 2 && (i === condStrs.length-1 || condStrs[i].isDisabled && i > 0)) {
+		}
+		if (i > 0 && (nbEnabledConditions > 0 || condStrs[i].isDisabled)) {
 			condStr = " and "+condStr;
 		}
 		if (condStrs[i].isDisabled) {
 			condStr = "'''"+condStr+"'''";
+		} else {
+			nbEnabledConditions++;
 		}
 		condStrResult += condStr;
 	}
@@ -667,6 +672,11 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		name = content;
 	}
 	name = topy(name.toLowerCase().replace(/\s/g, ""), keywordArray);
+	var hasNoArgs = false;
+	if (name.endsWith("()")) {
+		hasNoArgs = true;
+		name = name.substring(0, name.length-2);
+	}
 	
 	if (name !== "_compare" && decompileArgs.invertCondition === true) {
 		return parseOperator(content, "not", null);
@@ -1332,6 +1342,10 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 			}
 		}
 		result += ")";
+	}
+
+	if (hasNoArgs) {
+		result += "()";
 	}
 	
 	return result;
