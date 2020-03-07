@@ -21521,7 +21521,6 @@ function tokenize(content) {
 	var rules = [];
 	macros = [];
 	
-	var isInSpecial = false;
 	//var isInString = false;
 	var currentStrDelimiter = "";
 	var isInLineComment = false;
@@ -21536,9 +21535,6 @@ function tokenize(content) {
 	var currentMacro = {};
 	var isBackslashed = false;
 	var isInTextToken = false;
-	
-	//"Timer" used for the end of a multiline string.
-    var strCommentTimer = 0;
     
     fileStack = [{
         "name": "<main>",
@@ -21609,8 +21605,6 @@ function tokenize(content) {
 		//console.log(i);
         //await sleep(5);
         //console.log(JSON.stringify(fileStack));
-
-        isInSpecial = (isInLineComment || isInStrComment || isInMacro);
 		
 		if (fileStack[fileStack.length-1].remainingChars > 0) {
 			fileStack[fileStack.length-1].remainingChars--;
@@ -21624,14 +21618,7 @@ function tokenize(content) {
         }
         
         fileStack[fileStack.length-1].currentColNb++;
-				
-		if (strCommentTimer > 0) {
-			strCommentTimer--;
-			if (strCommentTimer === 0) {
-				isInStrComment = false;
-			}
-		}
-		
+						
 		if (content[i] === '\n') {
 			if (!isBackslashed) {
 				if (isInMacro) {
@@ -21876,8 +21863,8 @@ function tokenize(content) {
 			}
 			
 		} else if (isInStrComment && content.startsWith(currentStrCommentDelimiter, i)) {
-			strCommentTimer = 3;
-			
+			i += currentStrCommentDelimiter.length-1;
+			isInStrComment = false;
 		}
 		
 		
@@ -21890,6 +21877,10 @@ function tokenize(content) {
 		if (isInMacro) {
 			currentMacro.content += content[i];
 		}
+	}
+
+	if (isInStrComment) {
+		error("String comment isn't terminated (found end of file, but still in string comment)")
 	}
 	
 	rules.push(currentRule);
@@ -24739,7 +24730,7 @@ function parseString(content, formatArgs, stringModifiers) {
 
 		//Workshop bug: if the last character of a string is 2 bytes or more, it will be "eaten".
 		//Fix it by adding a zero-width space.
-		console.log(content);
+		//console.log(content);
 		if (content.length >= 1 && getUtf8Length(content[content.length-1]) >= 2) {
 			content += "\u200B";
 		}
@@ -24815,8 +24806,8 @@ function parseString(content, formatArgs, stringModifiers) {
 		error("Could not convert the string to big letters. The string must have one of the following chars: '"+Object.keys(bigLettersMappings).join("")+"'");
 	}
 
-	console.log(tokens);
-	console.log(stringModifiers);
+	//console.log(tokens);
+	//console.log(stringModifiers);
 
 	result = parseStringTokens(tokens, args);
 

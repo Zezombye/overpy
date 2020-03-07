@@ -2654,7 +2654,7 @@ function parseString(content, formatArgs, stringModifiers) {
 
 		//Workshop bug: if the last character of a string is 2 bytes or more, it will be "eaten".
 		//Fix it by adding a zero-width space.
-		console.log(content);
+		//console.log(content);
 		if (content.length >= 1 && getUtf8Length(content[content.length-1]) >= 2) {
 			content += "\u200B";
 		}
@@ -2730,8 +2730,8 @@ function parseString(content, formatArgs, stringModifiers) {
 		error("Could not convert the string to big letters. The string must have one of the following chars: '"+Object.keys(bigLettersMappings).join("")+"'");
 	}
 
-	console.log(tokens);
-	console.log(stringModifiers);
+	//console.log(tokens);
+	//console.log(stringModifiers);
 
 	result = parseStringTokens(tokens, args);
 
