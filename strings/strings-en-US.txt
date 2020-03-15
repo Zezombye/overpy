@@ -1,12 +1,12 @@
-[Core] DataTool v1.45.0.863-git-d08b8ee3b6474c6bd141eb865797b12a3bde1d66
+[Core] DataTool v1.46.0.864-git-ec7bc2fdc94d326652d08645a2d8c25464721f88
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.exe.args
 [CASC] Set language to enUS
 [CASC] Set speech language to enUS
-[CASC] Overwatch build 1.45.0.0.66302
+[CASC] Overwatch build 1.46.0.0.66607
 [CASC] Initializing...
-[CMF] Using CMF procedure 66302
-[CMF] Using CMF procedure 66302
+[CMF] Using CMF procedure 66607
+[CMF] Using CMF procedure 66607
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -910,7 +910,7 @@
 000000000D8C.07C: LEAVE GAME
 000000000D8D.07C: EXIT TO DESKTOP
 000000000D8E.07C: You are vulnerable as you fade away and reappear with Shadowstep.
-000000000D8F.07C: © 2016 - 2019 Blizzard Entertainment, Inc. All rights reserved.
+000000000D8F.07C: © 2016 - 2020 Blizzard Entertainment, Inc. All rights reserved.
 000000000D94.07C: Move in and out of cover to protect yourself while sniping.
 000000000D97.07C: Heroes with weapons that do not rely on accuracy, such as Winston or Symmetra, can be problematic for Tracer.
 000000000D98.07C: OPTIONS
@@ -10397,7 +10397,7 @@ A player name or BattleTag using a language different than your own.
 000000005EA3.07C: 5 Archives Loot Boxes
 000000005EA4.07C: 11 Archives Loot Boxes
 000000005EA5.07C: 24 Archives Loot Boxes
-000000005EA6.07C: 50 Archives Loot Boxes
+000000005EA6.07C: 50 + 10 Archives Loot Boxes
 000000005EA7.07C: DEFEND
 000000005EA8.07C: ATTACK
 000000005EA9.07C: Save Preset
@@ -16058,7 +16058,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 000000008210.07C: 15 credits, and a free gift of 5 Archives Loot Boxes
 000000008211.07C: 30 credits, and a free gift of 11 Archives Loot Boxes
 000000008212.07C: 60 credits, and a free gift of 24 Archives Loot Boxes
-000000008213.07C: 120 credits, and a free gift of 50 Archives Loot Boxes
+000000008213.07C: 120 credits, and a free gift of 60 Archives Loot Boxes
 000000008219.07C: Shieldmaiden
 00000000823A.07C: Warning
 00000000823B.07C: You have been marked with the “Avoid as Teammate” status by a considerable number of players. This can result in longer queue times when attempting to find a match. 
@@ -16612,6 +16612,10 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 00000000865F.07C: %1$s Valkyrie Healing Efficiency
 000000008660.07C: Intercom
 000000008661.07C: CANCEL
+000000008662.07C: Rialto
+000000008663.07C: DEFEND
+000000008664.07C: ATTACK
+000000008665.07C: falling
 000000008669.07C: %1$s
 00000000866E.07C: Select a Teammate to Endorse
 00000000866F.07C: Minefield
@@ -18177,7 +18181,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000A58C.07C: Survive the Incoming Talon Forces
 00000000A590.07C: Storm Rising
 00000000A597.07C: Storm Rising All Heroes
-00000000A599.07C: A team of four heroes heads to Havana to deal with a new threat.
+00000000A599.07C: A new Overwatch strike team heads to Havana to capture a critical Talon asset.
 00000000A5A2.07C: OWL ATL Away
 00000000A5A3.07C: OWL ATL Home
 00000000A5AB.07C: 81d5b473-4edf-40fb-9204-0d7b6dabb61f
@@ -19504,7 +19508,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000B52B.07C: Index
 00000000B52C.07C: Array
 00000000B52D.07C: Player Dealt Damage
-00000000B530.07C: View Replay
+00000000B530.07C: View
 00000000B532.07C: %1$s - %2$s
 00000000B533.07C: Mode: %1$s
 00000000B534.07C: All Modes
@@ -20055,13 +20059,13 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000BB38.07C: Create Condition
 00000000BB39.07C: Create Action
 00000000BB5C.07C: Havana
+00000000BB5D.07C: Havana
 00000000BB66.07C: Share Code
 00000000BB67.07C: Import Code
 00000000BB68.07C: High Roller
 00000000BB69.07C: Talon
 00000000BB6A.07C: Scientist
 00000000BB6C.07C: Archives 2019
-00000000BB6D.07C: Available in Archives Loot Boxes
 00000000BB74.07C: Creating game settings code
 00000000BB75.07C: Game Settings Code Created!
 00000000BB76.07C: Error creating Game Settings Code.
@@ -21480,7 +21484,6 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C306.07C: Hero Gauntlet
 00000000C307.07C: Mirrored Deathmatch
 00000000C310.07C: Share this code to import Game Settings:
-%1$s
 00000000C31C.07C: Share Preset
 00000000C322.07C: Round {0}
 00000000C323.07C: Congratulations
@@ -22228,9 +22231,9 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CA0C.07C: You must select a role before your group can queue. Select now?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Ashe's Mardi Gras Challenge
-00000000CA13.07C: Week 2: Ancient Bronze Winston
-00000000CA14.07C: Week 3: Paper Cutting Wrecking Ball
+00000000CA11.07C: Week 1: Holi Symmetra
+00000000CA13.07C: Week 2: Rustclad Torbjorn
+00000000CA14.07C: Week 3: Bear Mei
 00000000CA15.07C: Win 9 games in quick play, arcade, or competitive play!
 00000000CA16.07C: Win 9 games in quick play, arcade, or competitive play!
 00000000CA17.07C: Win 9 games in quick play, arcade, or competitive play!
@@ -22582,11 +22585,11 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CE55.07C: Default Visibility
 00000000CE56.07C: Visible Always
 00000000CE57.07C: Visible Never
-00000000CE58.07C: Spectators
-00000000CE59.07C: Whether spectators can see the text or not.
-00000000CE5A.07C: Spectators can see text when all players can see it.
-00000000CE5B.07C: Spectators can always see text.
-00000000CE5C.07C: Spectators can never see text.
+00000000CE58.07C: Non-Team Spectators
+00000000CE59.07C: Whether non-team spectators can see the text or not.
+00000000CE5A.07C: Non-team spectators can see text when all players can see it.
+00000000CE5B.07C: Non-team spectators can always see text.
+00000000CE5C.07C: Non-team spectators can never see text.
 00000000CE5F.07C: Unlocked by participating in the Bastion’s Brick Challenge
 00000000CE61.07C: Rime
 00000000CE64.07C: Text
@@ -22635,6 +22638,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CED0.07C: Unlocked by participating in the 2019 OWL Grand Finals event
 00000000CED1.07C: Path to Pro 2019
 00000000CED3.07C: Grand Finals 2019
+00000000CEDE.07C: Militia
 00000000CEDF.07C: Is Dummy Bot
 00000000CEE0.07C: Whether a Player is a Dummy Bot.
 00000000CEE2.07C: Player to consider.
@@ -25878,6 +25882,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D1FF.07C: Outdated Voice Pack
 00000000D202.07C: English
 00000000D203.07C: Castilian Spanish
+00000000D20E.07C: Aviator
 00000000D20F.07C: Don't cry
 00000000D210.07C: Available in Halloween Loot Boxes
 00000000D211.07C: Bandage or bullet?
@@ -26122,6 +26127,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EB07.07C: %1$s |Rplseconds:seconds; ago
 00000000EB0A.07C: Paper Cutting
 00000000EB0E.07C: Reset to Defaults
+00000000EB14.07C: King Jamison
 00000000EB17.07C: Enable High Precision Mouse Input
 00000000EB1E.07C: Error: Player variable '%1$s' requires a name
 00000000EB21.07C: Error: Global variable '%1$s' conflicts with another variable
@@ -26369,6 +26375,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F39D.07C: Kite Flying
 00000000F3A3.07C: When a match is found, you will be pulled into the game you queued for.
 00000000F3AE.07C: Entering Game
+00000000F3C9.07C: Sniper
 00000000F3CD.07C: Finding beauty
 00000000F3CE.07C: Available in Winter Loot Boxes
 00000000F405.07C: Blitz Flag Locations
@@ -26428,10 +26435,13 @@ https://account.blizzard.com/connections/nintendo
 00000000F4BA.07C: Dumpling Grasp
 00000000F4BB.07C: Available in Lunar Loot Boxes
 00000000F4BE.07C: Select
+00000000F4DF.07C: Observation
+00000000F4E0.07C: Available in Archives Loot Boxes
 00000000F523.07C: Unlocked by logging into the game during the Winter Wonderland 2019 event
 00000000F528.07C: Year of the Rat 2020
 00000000F529.07C: Year of the Rat
 00000000F52A.07C: Available in Lunar Loot Boxes
+00000000F52E.07C: Workout
 00000000F531.07C: Los Angeles Valiant Away
 00000000F532.07C: San Francisco Shock Away
 00000000F533.07C: San Francisco Shock Away
@@ -26620,6 +26630,11 @@ https://account.blizzard.com/connections/nintendo
 00000000F5EA.07C: Florida Mayhem Away
 00000000F5EB.07C: TEAM 3
 00000000F5EC.07C: TEAM 4
+00000000F652.07C: Blood Moon Rising
+00000000F653.07C: Storm Rising. Only damage heroes. Healing is reduced. Heal yourself by doing damage.
+00000000F674.07C: Storm Rising Vampiric
+00000000F842.07C: Challenge Missions
+00000000F843.07C: Archives missions with a twist.
 00000000F8B0.07C: Face Changer
 00000000F8B1.07C: Available in Lunar Loot Boxes
 00000000F8B2.07C: Sombra Mask
@@ -26642,6 +26657,9 @@ https://account.blizzard.com/connections/nintendo
 00000000F8C3.07C: Unlocked by completing Competitive Capture the Flag 2020 placement matches
 00000000F8C4.07C: Competitive CTF Hero 2020
 00000000F8C5.07C: Unlocked by achieving top 500 ranking at the end of Competitive Capture the Flag 2020
+00000000F8C6.07C: Glass Cannon
+00000000F8C7.07C: Uprising. Players have reduced health and increased damage.
+00000000F8C8.07C: Uprising Frailty
 00000000F949.07C: Off
 00000000FA3D.07C: Competitive CTF Competitor 2020
 00000000FA3F.07C: Competitive CTF Hero 2020
@@ -26651,10 +26669,16 @@ https://account.blizzard.com/connections/nintendo
 00000000FA49.07C: Ancient Bronze
 00000000FA4B.07C: Rat
 00000000FA4D.07C: Spring
+00000000FA86.07C: Retribution Crits
+00000000FA87.07C: Surgical Strike
+00000000FA88.07C: Retribution. Only critical hits do damage.
 00000000FABE.07C: Knockback |Rpl %1$s:Kill:Kills;
 00000000FABF.07C: %1$s Knockback |Rpl Kill:Kills;
 00000000FAC0.07C: Knockback |Rpl %1$s:Kill:Kills;
 00000000FAC1.07C: %1$s Knockback |Rpl Kill:Kills;
+00000000FAC6.07C: Uprising Lava
+00000000FAD9.07C: Molten Cores
+00000000FADA.07C: Uprising. Enemies drop lava on death.
 00000000FB2E.07C: Enable Inspector Recording
 00000000FB2F.07C: Disable Inspector Recording
 00000000FB30.07C: Causes the Workshop Inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.
@@ -26724,8 +26748,11 @@ https://account.blizzard.com/connections/nintendo
 00000000FC5E.07C: Hide Replay Overlay
 00000000FC80.07C: Event Was Health Pack
 00000000FC81.07C: Whether the healing was from a health pack for the Event currently being processed by this Rule.
+00000000FC8C.07C: Storm Rising DeathBuff
 00000000FC8D.07C: Melee
 00000000FC8E.07C: Reload
+00000000FC8F.07C: Storm Raging
+00000000FC90.07C: Storm Rising. Some enemies are enraged. Killing them spreads the rage.
 00000000FC91.07C: TOGGLE NORMAL/ SIMPLE 3P SPECTATOR CAMERA
 00000000FCA5.07C: Visible To, Sort Order, and String
 00000000FCA6.07C: Sort Order and String
@@ -26751,6 +26778,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FD49.07C: Reevaluation
 00000000FD4A.07C: Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.
 00000000FDBB.07C: Off
+00000000FEBC.07C: Postulating
 00000000FEBD.07C: Sub%1$s
 00000000FEBE.07C: Subroutine
 00000000FED9.07C: Error: Expected a subroutine after '%1$s' on line %2$s
@@ -26765,8 +26793,6 @@ https://account.blizzard.com/connections/nintendo
 00000000FFD0.07C: The player whose variable is being modified in this loop. If multiple players are specified, the first player is used.
 00000000FFD1.07C: Control Player
 00000000FFDA.07C: The same variable cannot be used by both a Chase action and a For action.
-00000000FFE7.07C: 2020 Overwatch League
-00000000FFE8.07C: Goat Brigitte
 00000000FFF0.07C: Workshop Chamber
 00000000FFF1.07C: Workshop Island
 00000000FFF2.07C: Workshop Expanse
@@ -26834,6 +26860,8 @@ https://account.blizzard.com/connections/nintendo
 000000010088.07C: The heroes available for competitive play periodically rotate.
 000000010089.07C: Heroes out of rotation
 00000001008C.07C: Unavailable Heroes
+000000010091.07C: Cackle
+000000010093.07C: The Spoils
 000000010097.07C: Error: Expected a lobby setting after '%1$s' on line %2$s
 000000010098.07C: Error: Expected a main setting after '%1$s' on line %2$s
 000000010099.07C: Error: Expected a game mode setting after '%1$s' on line %2$s
@@ -26861,6 +26889,7 @@ https://account.blizzard.com/connections/nintendo
 0000000100CE.07C: Red Death
 0000000100D0.07C: Unlocked by watching participating streams during Ashe's Mardi Gras Challenge
 0000000100D5.07C: Heroes out of rotation
+0000000100D8.07C: Pin
 0000000100DF.07C: Error: Encountered duplicate hero after '%1$s' on line %2$s
 0000000100E0.07C: Error: Encountered unexpected maps after '%1$s' on line %2$s
 0000000100E1.07C: Error: Encountered unexpected main after '%1$s' on line %2$s
@@ -26875,23 +26904,219 @@ https://account.blizzard.com/connections/nintendo
 000000010178.07C: Patch Notes
 00000001017B.07C: Experimental
 00000001017E.07C: Error: Expected modes after '%1$s' on line %2$s
+000000010188.07C: Competitive 6v6 Elimination Season 3
+00000001018A.07C: Competitive Elimination
+00000001018B.07C: Rise up the ranks and compete with the best Elimination players in the world!
+0000000101B1.07C: Holi
+0000000101B3.07C: Holi
+0000000101B5.07C: Unlocked by participating in the Archives 2020 week 1 challenge
+0000000101C9.07C: Retribution CQB
+0000000101CA.07C: Close Quarters
+0000000101CB.07C: Retribution. Enemies can only be damaged if a player is nearby.
+0000000101CC.07C: Creating Replay Link Code. Please wait.
+0000000101CD.07C: Replay link code created!
+0000000101CE.07C: Error creating link code.
+0000000101CF.07C: Error creating link code: Replay not found.
+0000000101D3.07C: Share
 0000000101D4.07C: - Try out new ideas from the team and experiment with gameplay!
 
 - Get a behind-the-scenes look at experimental, in-progress concepts.
 
 - Give valuable feedback and help improve our gaming experience.
+0000000101D8.07C: Share this code in order to let others import your replay:
 0000000101D9.07C: This hero is currently out of rotation.
 0000000101DF.07C: Try out new ideas from the team and experiment with gameplay!
+0000000101E0.07C: Translocating
+0000000101E4.07C: Katt
+0000000101E5.07C: Loading match. Please wait.
+0000000101E6.07C: Match Loaded.
+0000000101E7.07C: Load Failed: Internal Error
+0000000101E8.07C: Load Failed: Replay not found.
 000000010214.07C: Your timer has expired. When this session ends you will be disconnected.
+000000010215.07C: Please wait.
+000000010216.07C: Please wait.
+000000010217.07C: Pin/Unpin Failed: Internal Error
+000000010218.07C: Pin/Unpin Failed: Replay not found.
+000000010219.07C: Pin Failed: Too many pinned replays
 00000001021A.07C: Snap Death Camera To Killer
+00000001021C.07C: Attraction
+00000001022E.07C: Difficulty: Expert
 000000010237.07C: Disconnected due to CAIS time limit reached
 000000010239.07C: Experimental
+00000001023B.07C: This Replay is not in your recently played list. Unpinning this Replay will cause it to be lost. Continue?
 000000010243.07C: Hide Scores
+000000010248.07C: Bear
+000000010249.07C: Holi
+00000001024A.07C: Rustclad
 00000001024D.07C: Operator
+00000001024E.07C: Enter Shared Replay Link Code
+00000001025B.07C: Molten Cores
+00000001025C.07C: Complete the Molten Cores Archives challenge mission.
+00000001025D.07C: Glass Cannon
+00000001025E.07C: Complete the Glass Cannon Archives challenge mission.
+00000001025F.07C: Surgical Strike
+000000010260.07C: Complete the Surgical Strike Archives challenge mission.
+000000010261.07C: Close Quarters
+000000010262.07C: Complete the Close Quarters Archives challenge mission.
+000000010263.07C: Blood Moon Rising
+000000010264.07C: Complete the Blood Moon Rising Archives challenge mission.
+000000010265.07C: Storm Raging
+000000010266.07C: Complete the Storm Raging Archives challenge mission.
+000000010267.07C: Unlocked by participating in the Archives 2020 week 3 challenge
+000000010268.07C: Unlocked by participating in the Archives 2020 week 2 challenge
+00000001026A.07C: Available in: %1$s
+00000001026D.07C: Washington Justice Homestand 2020
+00000001026E.07C: Unlocked by attending a 2020 Homestand Event
+000000010270.07C: Unlocked by attending a 2020 Homestand Event
+000000010271.07C: Philadelphia Fusion Homestand 2020
+000000010273.07C: Unlocked by attending a 2020 Homestand Event
+000000010274.07C: Dallas Fuel Homestand 2020
+000000010276.07C: Unlocked by attending a 2020 Homestand Event
+000000010277.07C: Guangzhou Charge Homestand 2020
+000000010279.07C: Unlocked by attending a 2020 Homestand Event
+00000001027A.07C: Hangzhou Spark Homestand 2020
+00000001027C.07C: Unlocked by attending a 2020 Homestand Event
+00000001027D.07C: Houston Outlaws Homestand 2020
+00000001027F.07C: Unlocked by attending a 2020 Homestand Event
+000000010280.07C: New York Excelsior Homestand 2020
+000000010283.07C:  
+000000010284.07C: Adding Note. Please wait.
+000000010285.07C: Note Added.
+000000010286.07C: Add/Edit Note Failed: Internal Error
+000000010287.07C: Add/Edit Note Failed: Replay not found.
+000000010289.07C: Available in Archives Loot Boxes
+00000001028A.07C: That’s enough out of you
+00000001028C.07C: Available in Archives Loot Boxes
+00000001028D.07C: That went against my better nature
+00000001028F.07C: Available in Archives Loot Boxes
+000000010290.07C: Such potential wasted
+000000010292.07C: Available in Archives Loot Boxes
+000000010293.07C: Show some respect
+000000010295.07C: Available in Archives Loot Boxes
+000000010296.07C: Ryu-Ichimonji strikes
+000000010298.07C: Available in Archives Loot Boxes
+000000010299.07C: Reality is rarely what it seems
+00000001029A.07C: The results are inconclusive
+00000001029B.07C: Available in Archives Loot Boxes
+00000001029C.07C: Extraordinary claims
+00000001029D.07C: Available in Archives Loot Boxes
+00000001029F.07C: Available in Archives Loot Boxes
+0000000102A0.07C: It never gets fast enough for me
+0000000102A2.07C: Available in Archives Loot Boxes
+0000000102A3.07C: Hard work pays off
+0000000102A5.07C: Available in Archives Loot Boxes
+0000000102A6.07C: Empathy module not responding
+0000000102A9.07C: 
+0000000102AB.07C: Detonated
+0000000102AC.07C: Aggressive
+0000000102AD.07C: 
+0000000102AE.07C: Deadeye Strike
+0000000102AF.07C: 
+0000000102B0.07C: After the Australian government displaced Mako Rutledge and other residents of the Outback from their homes, they turned to violent rebellion, forming the Australian Liberation Front.
+0000000102B1.07C: After escaping from the Australian Outback, Junkrat and Roadhog went on an international crime spree, earning them great notoriety across the world, and living up to their motto of, “No job too big, no score too small!”
+0000000102B2.07C: During the Omnic Crisis, the Egyptian military outfitted their elite snipers, including Ana Amari, with cybernetic ocular implants, greatly improving their efficiency in the defense of their country.
+0000000102B5.07C: Feeling Invincible
+0000000102B6.07C: 
+0000000102B7.07C: Blood Moon Rising
+0000000102B8.07C: 
+0000000102B9.07C: Carry
+0000000102BA.07C: 
+0000000102BC.07C: Unlocked by attending a 2020 Homestand Event
+0000000102BD.07C: Shanghai Dragons Homestand 2020
+0000000102BE.07C: Aviator
+0000000102BF.07C: Available in Archives Loot Boxes
+0000000102C0.07C: Militia
+0000000102C1.07C: Available in Archives Loot Boxes
+0000000102C2.07C: King Jamison
+0000000102C3.07C: Available in Archives Loot Boxes
+0000000102C4.07C: Sniper
+0000000102C5.07C: Available in Archives Loot Boxes
+0000000102C6.07C: Workout
+0000000102C7.07C: Available in Archives Loot Boxes
+0000000102C8.07C: Rustclad
+0000000102CA.07C: Snowbear
+0000000102CC.07C: Indigestion
+0000000102CE.07C: Bear Hug
 0000000102D0.07C: pc
 0000000102D1.07C: ps4
 0000000102D2.07C: xb1
 0000000102D3.07C: nintendo-switch
 0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102D5.07C: Import
+0000000102D8.07C: Imported
+0000000102E0.07C: Unlocked by attending a 2020 Homestand Event
+0000000102E1.07C: Florida Mayhem Homestand 2020
+0000000102E3.07C: Unlocked by attending a 2020 Homestand Event
+0000000102E4.07C: Seoul Dynasty Homestand 2020
+0000000102E5.07C: In the Zone
+0000000102E6.07C: Available in Archives Loot Boxes
+0000000102E7.07C: Ghillie Suit
+0000000102E8.07C: Available in Archives Loot Boxes
+0000000102E9.07C: ALF
+0000000102EA.07C: Available in Archives Loot Boxes
+0000000102EB.07C: Crown Jewels
+0000000102EC.07C: Available in Archives Loot Boxes
+0000000102ED.07C: Pulse
+0000000102EE.07C: Available in Archives Loot Boxes
+0000000102EF.07C: Enemies drop lava on death.
+0000000102F0.07C: Players have reduced health and increased damage.
+0000000102F1.07C: Only critical hits do damage.
+0000000102F2.07C: Enemies can only be damaged if a player is nearby.
+0000000102F3.07C: Only damage heroes and healing is reduced. Heal yourself by doing damage.
+0000000102F4.07C: Some enemies are enraged. Killing them spreads the rage.
 0000000102F5.07C: Use Experimental Update If Available
-[Core] Execution finished in 00:00:07.5772062 seconds
+000000010301.07C: 
+000000010306.07C: Competitive 6v6 Elimination Competitor 2020
+000000010307.07C: Unlocked by completing Competitive 6v6 Elimination 2020 placement matches
+000000010308.07C: Competitive 6v6 Elimination Hero 2020
+000000010309.07C: Unlocked by achieving top 500 ranking at the end of Competitive 6v6 Elimination 2020
+000000010311.07C: Strike
+000000010312.07C: Available in Archives Loot Boxes
+00000001031E.07C: Archives 2020
+00000001031F.07C: Available in Archives Loot Boxes
+00000001036C.07C: CONTINUE
+00000001036D.07C: Challenge Missions
+00000001036F.07C: Play games to earn limited edition Archives loot boxes. new skins, highlight intros, and more!
+000000010370.07C: Archives Loot
+000000010372.07C: Play the Archives missions with special modifications that increase the challenge!
+000000010374.07C: Event Ends April 2
+000000010375.07C: Unlock New Skins
+000000010376.07C: Weekly Challenges
+000000010377.07C: Week 1
+000000010378.07C: Week 2
+000000010379.07C: Week 3
+000000010385.07C: Unpin
+000000010389.07C: Unable to view replay due to account restrictions.
+00000001038C.07C: Unable to share replay due to account restrictions.
+00000001038E.07C: Cannot download replays from that platform.
+00000001038F.07C: The replay is not supported by your platform.
+0000000103BF.07C: Load Failed: Incompatible version.
+0000000103CC.07C: Report Shared Replay Link Code
+0000000103D7.07C: Thank you for reporting replay link code %1$s. Reports like yours help make Overwatch a better and friendlier place to play.
+000000010412.07C: That replay already exists in your list.
+00000001043B.07C: Report
+0000000105BD.07C: Best Molten Cores Score
+0000000105BE.07C: %1$s Best Molten Cores Score
+0000000105BF.07C: Best Glass Cannon Score
+0000000105C0.07C: %1$s Best Glass Cannon Score
+0000000105C1.07C: Best Surgical Strike Score
+0000000105C2.07C: %1$s Best Surgical Strike Score
+0000000105C3.07C: Best Close Quarters Score
+0000000105C4.07C: %1$s Best Close Quarters Score
+0000000105C5.07C: Best Blood Moon Rising Score
+0000000105C6.07C: %1$s Best Blood Moon Rising Score
+0000000105C7.07C: Best Storm Raging Score
+0000000105C8.07C: %1$s Best Storm Raging Score
+0000000105CC.07C: Best Molten Cores Score
+0000000105CD.07C: %1$s Best Molten Cores Score
+0000000105CE.07C: Best Glass Cannon Score
+0000000105CF.07C: %1$s Best Glass Cannon Score
+0000000105D0.07C: Best Surgical Strike Score
+0000000105D1.07C: %1$s Best Surgical Strike Score
+0000000105D2.07C: Best Close Quarters Score
+0000000105D3.07C: %1$s Best Close Quarters Score
+0000000105D4.07C: Best Blood Moon Rising Score
+0000000105D5.07C: %1$s Best Blood Moon Rising Score
+0000000105D6.07C: Best Storm Raging Score
+0000000105D7.07C: %1$s Best Storm Raging Score
+[Core] Execution finished in 00:00:07.1179378 seconds

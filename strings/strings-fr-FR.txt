@@ -1,12 +1,12 @@
-[Core] DataTool v1.45.0.863-git-d08b8ee3b6474c6bd141eb865797b12a3bde1d66
+[Core] DataTool v1.46.0.864-git-ec7bc2fdc94d326652d08645a2d8c25464721f88
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.exe.args
 [CASC] Set language to frFR
 [CASC] Set speech language to frFR
-[CASC] Overwatch build 1.45.0.0.66302
+[CASC] Overwatch build 1.46.0.0.66607
 [CASC] Initializing...
-[CMF] Using CMF procedure 66302
-[CMF] Using CMF procedure 66302
+[CMF] Using CMF procedure 66607
+[CMF] Using CMF procedure 66607
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -911,7 +911,7 @@
 000000000D8C.07C: QUITTER LA PARTIE
 000000000D8D.07C: RETOUR AU BUREAU
 000000000D8E.07C: Vous êtes vulnérable lorsque vous disparaissez et réapparaissez avec votre Voie des ombres.
-000000000D8F.07C: © 2016 - 2019 Blizzard Entertainment, Inc. Tous droits réservés.
+000000000D8F.07C: © 2016 - 2020 Blizzard Entertainment, Inc. Tous droits réservés.
 000000000D94.07C: Mettez-vous à couvert aussi souvent que possible quand vous effectuez des tirs à longue portée.
 000000000D97.07C: Les héros qui n’ont pas besoin d’être précis pour que leur arme soit efficace, comme Winston et Symmetra, peuvent être dangereux pour Tracer.
 000000000D98.07C: OPTIONS
@@ -10460,7 +10460,7 @@ portable
 000000005EA3.07C: 5 coffres des archives
 000000005EA4.07C: 11 coffres des archives
 000000005EA5.07C: 24 coffres des archives
-000000005EA6.07C: 50 coffres des archives
+000000005EA6.07C: 50 + 10 coffres des archives
 000000005EA7.07C: DÉFENSE
 000000005EA8.07C: ATTAQUE
 000000005EA9.07C: Sauvegarder les paramètres prédéfinis
@@ -16159,7 +16159,7 @@ chats
 000000008210.07C: 15 crédits, plus 5 coffres des archives offerts
 000000008211.07C: 30 crédits, plus 11 coffres des archives offerts
 000000008212.07C: 60 crédits, plus 24 coffres des archives offerts
-000000008213.07C: 120 crédits, plus 50 coffres des archives offerts
+000000008213.07C: 120 crédits, plus 60 coffres des archives offerts
 000000008219.07C: Vierge guerrière
 00000000823A.07C: Avertissement
 00000000823B.07C: Un nombre important de joueurs a choisi de vous éviter en tant qu’équipier. Cela peut engendrer des files d’attentes plus longues quand vous tentez de trouver une partie.
@@ -16713,6 +16713,10 @@ chats
 00000000865F.07C: Efficacité des soins de Valkyrie : %1$s
 000000008660.07C: Interphone
 000000008661.07C: ANNULER
+000000008662.07C: Rialto
+000000008663.07C: DÉFENSE
+000000008664.07C: ATTAQUE
+000000008665.07C: une chute
 000000008669.07C: %1$s
 00000000866E.07C: Sélectionner un équipier à recommander
 00000000866F.07C: Champ de mines
@@ -18283,7 +18287,7 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000A58C.07C: Survivre aux troupes de la Griffe
 00000000A590.07C: Avis de tempête
 00000000A597.07C: Avis de tempête (tous les héros)
-00000000A599.07C: Une équipe de quatre héros se rend à la Havane pour parer à une nouvelle menace.
+00000000A599.07C: Une nouvelle équipe d’intervention d’Overwatch se rend à La Havane pour capturer une figure importante de la Griffe.
 00000000A5A2.07C: Atlanta (extérieur)
 00000000A5A3.07C: Atlanta (domicile)
 00000000A5AB.07C: 81d5b473-4edf-40fb-9204-0d7b6dabb61f
@@ -19610,7 +19614,7 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000B52B.07C: Index
 00000000B52C.07C: Tableau
 00000000B52D.07C: Un joueur inflige des dégâts
-00000000B530.07C: Voir l’enregistrement
+00000000B530.07C: Voir
 00000000B532.07C: %1$s - %2$s
 00000000B533.07C: Mode : %1$s
 00000000B534.07C: Tous les modes
@@ -20161,13 +20165,13 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000BB38.07C: Créer une condition
 00000000BB39.07C: Créer une action
 00000000BB5C.07C: La Havane
+00000000BB5D.07C: La Havane
 00000000BB66.07C: Partager le code
 00000000BB67.07C: Importer un code
 00000000BB68.07C: Roulette
 00000000BB69.07C: La Griffe
 00000000BB6A.07C: Scientifique
 00000000BB6C.07C: Archives 2019
-00000000BB6D.07C: Disponible dans les coffres des archives
 00000000BB74.07C: Encodage des paramètres de jeu
 00000000BB75.07C: Encodage des paramètres de jeu terminé !
 00000000BB76.07C: Erreur lors de l’encodage des paramètres de jeu.
@@ -21586,7 +21590,7 @@ miroir
 00000000C305.07C: Combat à mort mystère
 00000000C306.07C: Épreuve des héros
 00000000C307.07C: Combat à mort miroir
-00000000C310.07C: Partagez ce code pour importer les paramètres de jeu : %1$s
+00000000C310.07C: Partagez ce code pour importer les paramètres de jeu :
 00000000C31C.07C: Partager les paramètres prédéfinis
 00000000C322.07C: Manche {0}
 00000000C323.07C: Félicitations
@@ -22337,9 +22341,9 @@ Copa Lúcioball
 00000000CA0C.07C: Vous devez choisir un rôle pour que votre escouade accède à la file d’attente. Choisir maintenant ?
 00000000CA0D.07C: Boutiques
 00000000CA0E.07C: Boutique
-00000000CA11.07C: Défi Mardi gras d’Ashe
-00000000CA13.07C: Semaine 2 : Winston bronze antique
-00000000CA14.07C: Semaine 3 : Bouldozer lampion de papier
+00000000CA11.07C: Semaine 1 : Symmetra Holi
+00000000CA13.07C: Semaine 2 : Torbjörn rouillassé
+00000000CA14.07C: Semaine 3 : Mei ourson
 00000000CA15.07C: Obtenez 9 victoires en arcade,
 partie rapide ou compétitive !
 00000000CA16.07C: Obtenez 9 victoires en arcade,
@@ -22694,11 +22698,11 @@ partie rapide ou compétitive !
 00000000CE55.07C: Visibilité par défaut
 00000000CE56.07C: Toujours visible
 00000000CE57.07C: Jamais visible
-00000000CE58.07C: Spectateurs
-00000000CE59.07C: Indique si les spectateurs peuvent voir le texte.
-00000000CE5A.07C: Les spectateurs peuvent voir le texte lorsque tous les joueurs peuvent le voir.
-00000000CE5B.07C: Les spectateurs peuvent toujours voir le texte.
-00000000CE5C.07C: Les spectateurs ne peuvent jamais voir le texte.
+00000000CE58.07C: Spectateurs neutres
+00000000CE59.07C: Indique si les spectateurs neutres peuvent voir le texte.
+00000000CE5A.07C: Les spectateurs neutres peuvent voir le texte lorsque tous les joueurs peuvent le voir.
+00000000CE5B.07C: Les spectateurs neutres peuvent toujours voir le texte.
+00000000CE5C.07C: Les spectateurs neutres ne peuvent jamais voir le texte.
 00000000CE5F.07C: Obtenu en participant au défi Brique de Bastion
 00000000CE61.07C: Frigma
 00000000CE64.07C: Texte
@@ -22747,6 +22751,7 @@ partie rapide ou compétitive !
 00000000CED0.07C: Obtenu en participant à l’évènement de la finale de l’Overwatch League 2019
 00000000CED1.07C: La voie des pros 2019
 00000000CED3.07C: Finale 2019
+00000000CEDE.07C: Milice
 00000000CEDF.07C: Est une I.A.
 00000000CEE0.07C: Si un joueur est une I.A.
 00000000CEE2.07C: Joueur à prendre en compte.
@@ -25990,6 +25995,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D1FF.07C: Pack audio obsolète
 00000000D202.07C: Anglais
 00000000D203.07C: Espagnol castillan
+00000000D20E.07C: Aviatrice
 00000000D20F.07C: Arrête de pleurer
 00000000D210.07C: Disponible dans les coffres d’Halloween
 00000000D211.07C: Un bandage ou une balle ?
@@ -26233,6 +26239,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000EB07.07C: Il y a %1$s |Rplseconde:secondes;
 00000000EB0A.07C: Lampion de papier
 00000000EB0E.07C: Réglages par défaut
+00000000EB14.07C: Roi Jamison
 00000000EB17.07C: Activer l’entrée haute précision de la souris
 00000000EB1E.07C: Erreur : la variable de joueur « %1$s » doit être nommée
 00000000EB21.07C: Erreur : la variable globale « %1$s » entre en conflit avec une autre variable
@@ -26480,6 +26487,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F39D.07C: Cerf-volant
 00000000F3A3.07C: Quand une partie correspondant à votre file d'attente sera trouvée, vous la rejoindrez automatiquement.
 00000000F3AE.07C: Chargement de la partie
+00000000F3C9.07C: Sniper
 00000000F3CD.07C: Fruit de l’harmonie
 00000000F3CE.07C: Disponible dans les coffres hivernaux
 00000000F405.07C: Emplacement des drapeaux Éclair
@@ -26539,10 +26547,13 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F4BA.07C: Captation de raviolis
 00000000F4BB.07C: Disponible dans les coffres lunaires
 00000000F4BE.07C: Sélectionner
+00000000F4DF.07C: Observation
+00000000F4E0.07C: Disponible dans les coffres des archives
 00000000F523.07C: Obtenu en se connectant au jeu pendant la Féerie hivernale 2019
 00000000F528.07C: Année du rat 2020
 00000000F529.07C: Année du rat
 00000000F52A.07C: Disponible dans les coffres lunaires
+00000000F52E.07C: Exercice
 00000000F531.07C: Los Angeles Valiant (extérieur)
 00000000F532.07C: San Francisco Shock (extérieur)
 00000000F533.07C: San Francisco Shock (extérieur)
@@ -26731,6 +26742,11 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F5EA.07C: Florida Mayhem (extérieur)
 00000000F5EB.07C: ÉQUIPE 3
 00000000F5EC.07C: ÉQUIPE 4
+00000000F652.07C: Lune de sang
+00000000F653.07C: Avis de tempête. Héros de dégâts uniquement. Soins réduits. Soignez-vous en infligeant des dégâts.
+00000000F674.07C: Avis de tempête : Vampirisme
+00000000F842.07C: Missions défi
+00000000F843.07C: Des missions d’archive pimentées.
 00000000F8B0.07C: Visage fluctuant
 00000000F8B1.07C: Disponible dans les coffres lunaires
 00000000F8B2.07C: Masque de Sombra
@@ -26753,6 +26769,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F8C3.07C: Obtenu en effectuant toutes les parties de placement du mode Capture du drapeau en 2020
 00000000F8C4.07C: Héros Capture du drapeau 2020
 00000000F8C5.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Capture du drapeau en 2020
+00000000F8C6.07C: Dragon de papier
+00000000F8C7.07C: Insurrection. Les joueurs ont moins de points de vie et infligent plus de dégâts.
+00000000F8C8.07C: Insurrection : Dragon de papier
 00000000F949.07C: Désactivé
 00000000FA3D.07C: Compétiteur Capture du drapeau 2020
 00000000FA3F.07C: Héros Capture du drapeau 2020
@@ -26762,10 +26781,16 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000FA49.07C: Bronze antique
 00000000FA4B.07C: Rat
 00000000FA4D.07C: Printemps
+00000000FA86.07C: Représailles : Coups critiques
+00000000FA87.07C: Frappe chirurgicale
+00000000FA88.07C: Représailles. Seuls les coups critiques infligent des dégâts.
 00000000FABE.07C: |Rpl %1$s:Victime:Victimes; de recul
 00000000FABF.07C: %1$s |Rpl Victime:Victimes; de recul
 00000000FAC0.07C: |Rpl %1$s:Victime:Victimes; de recul
 00000000FAC1.07C: %1$s |Rpl Victime:Victimes; de recul
+00000000FAC6.07C: Insurrection : Lave
+00000000FAD9.07C: Cœurs de magma
+00000000FADA.07C: Insurrection. Les ennemis forment une flaque de lave en mourant.
 00000000FB2E.07C: Activer l’enregistrement du contrôleur
 00000000FB2F.07C: Désactiver l’enregistrement du contrôleur
 00000000FB30.07C: Force le contrôleur de la Forge à cesser d’enregistrer de nouvelles entrées. Cela permet de réduire la charge de votre script sur le serveur, en particulier lors des modifications de tableaux.
@@ -26835,8 +26860,11 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000FC5E.07C: Masquer l’interface des enregistrements
 00000000FC80.07C: L’évènement était un kit de soins
 00000000FC81.07C: Si les soins provenaient d’un kit de soins pour l’évènement actuellement traité par cette règle.
+00000000FC8C.07C: Avis de tempête : Vendetta
 00000000FC8D.07C: Mêlée
 00000000FC8E.07C: Rechargement
+00000000FC8F.07C: La tempête fait rage
+00000000FC90.07C: Avis de tempête. Certains ennemis sont enragés. Les tuer propage la rage.
 00000000FC91.07C: VUE DE SPECTATEUR EN 3E PERSONNE NORMALE/SIMPLE
 00000000FCA5.07C: Visible pour, Tri et Chaîne de texte
 00000000FCA6.07C: Tri et Chaîne de texte
@@ -26862,6 +26890,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000FD49.07C: Réévaluation
 00000000FD4A.07C: Spécifie quelles entrées de cette action seront continuellement réévaluées. Cette action continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.
 00000000FDBB.07C: Désactivé
+00000000FEBC.07C: Postulat
 00000000FEBD.07C: Sub%1$s
 00000000FEBE.07C: Sous-programme
 00000000FED9.07C: Erreur : un sous-programme doit normalement suivre « %1$s » sur la ligne %2$s
@@ -26876,8 +26905,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000FFD0.07C: Le joueur dont la variable est modifiée dans cette boucle. Si plusieurs joueurs sont spécifiés, c’est le premier joueur qui sera utilisé.
 00000000FFD1.07C: Joueur de contrôle
 00000000FFDA.07C: La même variable ne peut pas être utilisée pour une action « Poursuivre » et une action « Pour ».
-00000000FFE7.07C: Overwatch League 2020
-00000000FFE8.07C: Brigitte bélier
 00000000FFF0.07C: Salle de la Forge
 00000000FFF1.07C: Île de la Forge
 00000000FFF2.07C: Étendue de la Forge
@@ -26945,6 +26972,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010088.07C: Les héros disponibles pour les parties compétitives changent régulièrement.
 000000010089.07C: Héros hors sélection
 00000001008C.07C: Héros non disponibles
+000000010091.07C: Rire démoniaque
+000000010093.07C: Butin
 000000010097.07C: Erreur : un paramétrage de salon doit normalement suivre « %1$s » sur la ligne %2$s
 000000010098.07C: Erreur : un paramétrage principal doit normalement suivre « %1$s » sur la ligne %2$s
 000000010099.07C: Erreur : un paramétrage de mode de jeu doit normalement suivre « %1$s » sur la ligne %2$s
@@ -26972,6 +27001,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000100CE.07C: Mort rouge
 0000000100D0.07C: Obtenu en regardant les streams participant à l’opération pendant le défi Mardi gras d’Ashe
 0000000100D5.07C: Héros hors sélection
+0000000100D8.07C: Épingler
 0000000100DF.07C: Erreur : héros en doublon après « %1$s » sur la ligne %2$s
 0000000100E0.07C: Erreur : cartes inattendues après « %1$s » sur la ligne %2$s
 0000000100E1.07C: Erreur : éléments principaux inattendus après « %1$s » sur la ligne %2$s
@@ -26986,23 +27016,219 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010178.07C: Notes de mise à jour
 00000001017B.07C: Laboratoire
 00000001017E.07C: Erreur : des modes doivent normalement suivre « %1$s » sur la ligne %2$s
+000000010188.07C: Élimination en 6c6 en compétitif - Saison 3
+00000001018A.07C: Élimination en mode compétitif
+00000001018B.07C: Gravissez les échelons et affrontez les meilleurs joueurs d’élimination au monde !
+0000000101B1.07C: Holi
+0000000101B3.07C: Holi
+0000000101B5.07C: Obtenu en participant au défi de la semaine 1 des archives 2020
+0000000101C9.07C: Représailles : Combat rapproché
+0000000101CA.07C: Combat rapproché
+0000000101CB.07C: Représailles. Les ennemis ne peuvent subir des dégâts que lorsqu’un joueur est près d’eux.
+0000000101CC.07C: Création du code-lien de l’enregistrement. Veuillez patienter.
+0000000101CD.07C: code-lien de l’enregistrement créé !
+0000000101CE.07C: Erreur lors de la création du code-lien
+0000000101CF.07C: Erreur lors de la création du code-lien : enregistrement non trouvé
+0000000101D3.07C: Partager
 0000000101D4.07C: - Testez les nouvelles idées de l’équipe et faites des expériences en jeu !
 
 - Découvrez un aperçu des concepts en cours de développement.
 
 - Partagez vos commentaires avec nous et aidez-nous à améliorer l’expérience de jeu.
+0000000101D8.07C: Partagez ce code avec d’autres joueurs pour qu’ils importent votre enregistrement :
 0000000101D9.07C: Ce héros ne fait pas partie de la sélection actuellement.
 0000000101DF.07C: Testez les nouvelles idées de l’équipe et expérimentez de nouveaux styles de jeu !
+0000000101E0.07C: Transduction
+0000000101E4.07C: Katt
+0000000101E5.07C: Chargement de la partie en cours. Veuillez patienter.
+0000000101E6.07C: Partie chargée.
+0000000101E7.07C: Chargement impossible : erreur interne
+0000000101E8.07C: Chargement impossible : enregistrement non trouvé
 000000010214.07C: Votre temps de jeu a expiré. Lorsque cette partie sera terminée, vous serez déconnecté.
+000000010215.07C: Veuillez patienter.
+000000010216.07C: Veuillez patienter.
+000000010217.07C: Épinglage/désépinglage impossible : erreur interne
+000000010218.07C: Épinglage/désépinglage impossible : enregistrement non trouvé
+000000010219.07C: Épinglage impossible : trop d’enregistrements épinglés
 00000001021A.07C: Passer la caméra de mort sur le meurtrier
+00000001021C.07C: Attraction
+00000001022E.07C: Mode expert
 000000010237.07C: Limite de temps du système de restriction atteinte.
 000000010239.07C: Laboratoire
+00000001023B.07C: Cet enregistrement n’est pas dans votre liste de vidéos récentes. Si vous le désépinglez, il sera perdu. Voulez-vous continuer ?
 000000010243.07C: Masquer les scores
+000000010248.07C: Ourson
+000000010249.07C: Holi
+00000001024A.07C: Rouillassé
 00000001024D.07C: Opérateur
+00000001024E.07C: Entrez le code-lien de partage de l’enregistrement
+00000001025B.07C: Cœurs de magma
+00000001025C.07C: Réussir la mission défi des archives Cœurs de magma.
+00000001025D.07C: Dragon de papier
+00000001025E.07C: Réussir la mission défi des archives Dragon de papier.
+00000001025F.07C: Frappe chirurgicale
+000000010260.07C: Réussir la mission défi des archives Frappe chirurgicale.
+000000010261.07C: Combat rapproché
+000000010262.07C: Réussir la mission défi des archives Combat rapproché.
+000000010263.07C: Lune de sang
+000000010264.07C: Réussir la mission défi des archives Lune de sang.
+000000010265.07C: La tempête fait rage
+000000010266.07C: Réussir la mission défi des archives La tempête fait rage.
+000000010267.07C: Obtenu en participant au défi de la semaine 3 des archives 2020
+000000010268.07C: Obtenu en participant au défi de la semaine 2 des archives 2020
+00000001026A.07C: Disponibles dans : %1$s
+00000001026D.07C: Washington Justice à domicile 2020
+00000001026E.07C: Obtenu en participant à un évènement à domicile en 2020
+000000010270.07C: Obtenu en participant à un évènement à domicile en 2020
+000000010271.07C: Philadelphia Fusion à domicile 2020
+000000010273.07C: Obtenu en participant à un évènement à domicile en 2020
+000000010274.07C: Dallas Fuel à domicile 2020
+000000010276.07C: Obtenu en participant à un évènement à domicile en 2020
+000000010277.07C: Guangzhou Charge à domicile 2020
+000000010279.07C: Obtenu en participant à un évènement à domicile en 2020
+00000001027A.07C: Hangzhou Spark à domicile 2020
+00000001027C.07C: Obtenu en participant à un évènement à domicile en 2020
+00000001027D.07C: Houston Outlaws à domicile 2020
+00000001027F.07C: Obtenu en participant à un évènement à domicile en 2020
+000000010280.07C: New York Excelsior à domicile 2020
+000000010283.07C:  
+000000010284.07C: Ajout de la note en cours. Veuillez patienter.
+000000010285.07C: Note ajoutée.
+000000010286.07C: Ajout/modification de note impossible : erreur interne
+000000010287.07C: Ajout/modification de note impossible : enregistrement non trouvé
+000000010289.07C: Disponible dans les coffres des archives
+00000001028A.07C: Trop de bruit
+00000001028C.07C: Disponible dans les coffres des archives
+00000001028D.07C: Je ne voulais pas en arriver là
+00000001028F.07C: Disponible dans les coffres des archives
+000000010290.07C: Quel gâchis
+000000010292.07C: Disponible dans les coffres des archives
+000000010293.07C: Un peu de respect
+000000010295.07C: Disponible dans les coffres des archives
+000000010296.07C: Ryu-Ichimonji
+000000010298.07C: Disponible dans les coffres des archives
+000000010299.07C: La réalité est rarement ce qu’elle paraît
+00000001029A.07C: Résultats non concluants
+00000001029B.07C: Disponible dans les coffres des archives
+00000001029C.07C: Hypothèses extraordinaires
+00000001029D.07C: Disponible dans les coffres des archives
+00000001029F.07C: Disponible dans les coffres des archives
+0000000102A0.07C: À tombeau ouvert
+0000000102A2.07C: Disponible dans les coffres des archives
+0000000102A3.07C: Le boulot bien fait
+0000000102A5.07C: Disponible dans les coffres des archives
+0000000102A6.07C: Module d’empathie
+0000000102A9.07C: 
+0000000102AB.07C: Fondu
+0000000102AC.07C: Agressif
+0000000102AD.07C: 
+0000000102AE.07C: Frappe implacable
+0000000102AF.07C: 
+0000000102B0.07C: Après s’être fait expulser de leurs terres par le gouvernement australien, Mako Rutledge et les autres habitants de l’outback se rebellèrent violemment et créèrent le Front de Libération Australien.
+0000000102B1.07C: Après avoir fui l’outback australien, Chacal et Chopper commirent une vaste série de délits à travers le globe, ce qui leur fit gagner une notoriété mondiale à la hauteur de leur célèbre devise : « Aucun coup n’est trop gros, aucun butin trop maigre ! ».
+0000000102B2.07C: Lors de la crise des Omniums, l’armée égyptienne fournit à ses tireurs d’élite, dont Ana Amari, des implants oculaires cybernétiques qui leur permirent de défendre plus efficacement leur pays.
+0000000102B5.07C: Sentiment d’invincibilité
+0000000102B6.07C: 
+0000000102B7.07C: Lune de sang
+0000000102B8.07C: 
+0000000102B9.07C: Porteur d’équipe
+0000000102BA.07C: 
+0000000102BC.07C: Obtenu en participant à un évènement à domicile en 2020
+0000000102BD.07C: Shanghai Dragons à domicile 2020
+0000000102BE.07C: Aviatrice
+0000000102BF.07C: Disponible dans les coffres des archives
+0000000102C0.07C: Milice
+0000000102C1.07C: Disponible dans les coffres des archives
+0000000102C2.07C: Roi Jamison
+0000000102C3.07C: Disponible dans les coffres des archives
+0000000102C4.07C: Sniper
+0000000102C5.07C: Disponible dans les coffres des archives
+0000000102C6.07C: Exercice
+0000000102C7.07C: Disponible dans les coffres des archives
+0000000102C8.07C: Rouillassé
+0000000102CA.07C: Ourson
+0000000102CC.07C: Indigestion
+0000000102CE.07C: Câlin d’ourson
 0000000102D0.07C: pc
 0000000102D1.07C: ps4
 0000000102D2.07C: xb1
 0000000102D3.07C: nintendo-switch
 0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102D5.07C: Importer
+0000000102D8.07C: Importé
+0000000102E0.07C: Obtenu en participant à un évènement à domicile en 2020
+0000000102E1.07C: Florida Mayhem à domicile 2020
+0000000102E3.07C: Obtenu en participant à un évènement à domicile en 2020
+0000000102E4.07C: Seoul Dynasty à domicile 2020
+0000000102E5.07C: Dans son élément
+0000000102E6.07C: Disponible dans les coffres des archives
+0000000102E7.07C: Ghillie
+0000000102E8.07C: Disponible dans les coffres des archives
+0000000102E9.07C: FLA
+0000000102EA.07C: Disponible dans les coffres des archives
+0000000102EB.07C: Les joyaux de la couronne
+0000000102EC.07C: Disponible dans les coffres des archives
+0000000102ED.07C: Pouls
+0000000102EE.07C: Disponible dans les coffres des archives
+0000000102EF.07C: Les ennemis forment une flaque de lave en mourant.
+0000000102F0.07C: Les joueurs ont moins de points de vie et infligent plus de dégâts.
+0000000102F1.07C: Seuls les coups critiques infligent des dégâts.
+0000000102F2.07C: Les ennemis ne peuvent subir des dégâts que lorsqu’un joueur est près d’eux.
+0000000102F3.07C: Héros de dégâts uniquement. Soins réduits. Soignez-vous en infligeant des dégâts.
+0000000102F4.07C: Certains ennemis sont enragés. Les tuer propage la rage.
 0000000102F5.07C: Utiliser les mises à jour du Laboratoire s’il y en a
-[Core] Execution finished in 00:00:03.6126896 seconds
+000000010301.07C: 
+000000010306.07C: Compétiteur Élimination 6c6 2020
+000000010307.07C: Obtenu en effectuant toutes les parties de placement du mode Élimination en 6c6 en 2020
+000000010308.07C: Héros Élimination 6c6 2020
+000000010309.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Élimination en 6c6 en 2020
+000000010311.07C: Équipe d’intervention
+000000010312.07C: Disponible dans les coffres des archives
+00000001031E.07C: Archives 2020
+00000001031F.07C: Disponible dans les coffres des archives
+00000001036C.07C: CONTINUER
+00000001036D.07C: Missions défi
+00000001036F.07C: Jouez pour gagner des coffres des archives en édition limitée. De nouveaux modèles, entrées en scène et bien plus à gagner !
+000000010370.07C: Butin des archives
+000000010372.07C: Jouez aux missions des archives avec des modifications spéciales qui en augmentent le défi !
+000000010374.07C: Fin de l’évènement le 2 avril
+000000010375.07C: Obtenez de nouveaux modèles
+000000010376.07C: Défis hebdomadaires
+000000010377.07C: Semaine 1
+000000010378.07C: Semaine 2
+000000010379.07C: Semaine 3
+000000010385.07C: Désépingler
+000000010389.07C: Impossible de visionner l’enregistrement en raison des restrictions liées au compte.
+00000001038C.07C: Impossible de partager l’enregistrement en raison des restrictions liées au compte.
+00000001038E.07C: Impossible de télécharger des enregistrements à partir de cette plateforme.
+00000001038F.07C: L’enregistrement n’est pas pris en charge par votre plateforme.
+0000000103BF.07C: Échec du chargement : version incompatible.
+0000000103CC.07C: Signaler le code-lien de partage de l’enregistrement
+0000000103D7.07C: Merci d’avoir signalé le code-lien d’enregistrement %1$s. Des signalements tels que celui-ci contribuent à rendre l’expérience Overwatch plus saine et conviviale.
+000000010412.07C: Cet enregistrement se trouve déjà dans votre liste.
+00000001043B.07C: Signaler
+0000000105BD.07C: Best Molten Cores Score
+0000000105BE.07C: %1$s Best Molten Cores Score
+0000000105BF.07C: Best Glass Cannon Score
+0000000105C0.07C: %1$s Best Glass Cannon Score
+0000000105C1.07C: Best Surgical Strike Score
+0000000105C2.07C: %1$s Best Surgical Strike Score
+0000000105C3.07C: Best Close Quarters Score
+0000000105C4.07C: %1$s Best Close Quarters Score
+0000000105C5.07C: Best Blood Moon Rising Score
+0000000105C6.07C: %1$s Best Blood Moon Rising Score
+0000000105C7.07C: Best Storm Raging Score
+0000000105C8.07C: %1$s Best Storm Raging Score
+0000000105CC.07C: Best Molten Cores Score
+0000000105CD.07C: %1$s Best Molten Cores Score
+0000000105CE.07C: Best Glass Cannon Score
+0000000105CF.07C: %1$s Best Glass Cannon Score
+0000000105D0.07C: Best Surgical Strike Score
+0000000105D1.07C: %1$s Best Surgical Strike Score
+0000000105D2.07C: Best Close Quarters Score
+0000000105D3.07C: %1$s Best Close Quarters Score
+0000000105D4.07C: Best Blood Moon Rising Score
+0000000105D5.07C: %1$s Best Blood Moon Rising Score
+0000000105D6.07C: Best Storm Raging Score
+0000000105D7.07C: %1$s Best Storm Raging Score
+[Core] Execution finished in 00:00:03.7278380 seconds

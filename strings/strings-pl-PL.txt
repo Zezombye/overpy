@@ -1,12 +1,12 @@
-[Core] DataTool v1.45.0.863-git-d08b8ee3b6474c6bd141eb865797b12a3bde1d66
+[Core] DataTool v1.46.0.864-git-ec7bc2fdc94d326652d08645a2d8c25464721f88
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.exe.args
 [CASC] Set language to plPL
 [CASC] Set speech language to plPL
-[CASC] Overwatch build 1.45.0.0.66302
+[CASC] Overwatch build 1.46.0.0.66607
 [CASC] Initializing...
-[CMF] Using CMF procedure 66302
-[CMF] Using CMF procedure 66302
+[CMF] Using CMF procedure 66607
+[CMF] Using CMF procedure 66607
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -930,7 +930,7 @@ by po niej jechać.
 000000000D8C.07C: OPUŚĆ MECZ
 000000000D8D.07C: WYJDŹ DO PULPITU
 000000000D8E.07C: Ponowne pojawienie się po użyciu Kroku w Cień naraża cię na atak ze strony wroga.
-000000000D8F.07C: © 2016 – 2019 Blizzard Entertainment, Inc. Wszystkie prawa zastrzeżone.
+000000000D8F.07C: © 2016 – 2020 Blizzard Entertainment, Inc. Wszystkie prawa zastrzeżone.
 000000000D94.07C: Aby nie dać się zabić snajperowi, chowaj się co chwilę za przeszkodami.
 000000000D97.07C: Bohaterowie, których broń nie wymaga dużej celności, tacy jak Winston czy Symmetra, mogą być groźni dla Smugi.
 000000000D98.07C: OPCJE
@@ -10428,7 +10428,7 @@ Nazwa gracza lub BattleTag w języku innym niż twój.
 000000005EA3.07C: 5 archiwalnych skrzynek z łupami
 000000005EA4.07C: 11 archiwalnych skrzynek z łupami
 000000005EA5.07C: 24 archiwalne skrzynki z łupami
-000000005EA6.07C: 50 archiwalnych skrzynek z łupami
+000000005EA6.07C: 50 +10 archiwalnych skrzynek z łupami
 000000005EA7.07C: OBRONA
 000000005EA8.07C: ATAK
 000000005EA9.07C: Zapisz ustawienia
@@ -16148,7 +16148,7 @@ serii StarCraft.
 000000008210.07C: 15 kredytów i 5 darmowych skrzynek archiwalnych
 000000008211.07C: 30 kredytów i 11 darmowych skrzynek archiwalnych
 000000008212.07C: 60 kredytów i 24 darmowe skrzynki archiwalne
-000000008213.07C: 120 kredytów i 50 darmowych skrzynek archiwalnych
+000000008213.07C: 120 kredytów i 60 darmowych skrzynek archiwalnych
 000000008219.07C: Brunhilda
 00000000823A.07C: Ostrzeżenie
 00000000823B.07C: Znaczna liczba graczy oznaczyła cię statusem „Unikaj jako sojusznika”. Może to skutkować dłuższymi czasami oczekiwania w kolejce podczas wyszukiwania meczów.
@@ -16708,6 +16708,10 @@ w trybie Eliminacji 6 na 6 w 2018
 00000000865F.07C: Skuteczność leczenia przez Walkirię: %1$s
 000000008660.07C: Interkom
 000000008661.07C: ANULUJ
+000000008662.07C: Rialto
+000000008663.07C: OBROŃ
+000000008664.07C: ATAKUJ
+000000008665.07C: upadek
 000000008669.07C: %1$s
 00000000866E.07C: Wybierz sojusznika, aby go pochwalić
 00000000866F.07C: Pole Minowe
@@ -18343,7 +18347,7 @@ Prosimy o przesyłanie komentarzy i opinii, które pomogą nam usprawnić dział
 00000000A58C.07C: Przetrwajcie atak sił Szponu
 00000000A590.07C: Czarne Chmury
 00000000A597.07C: Czarne Chmury – Wszyscy bohaterowie
-00000000A599.07C: Wyrusz wraz z czteroosobowym zespołem na Hawanę, aby zażegnać nowe zagrożenie.
+00000000A599.07C: Nowa grupa szturmowa Overwatch wyrusza na Hawanę, aby pojmać ważnego członka Szponu.
 00000000A5A2.07C: Atlanta (Goście)
 00000000A5A3.07C: Atlanta (Gospodarze)
 00000000A5AB.07C: 81d5b473-4edf-40fb-9204-0d7b6dabb61f
@@ -19681,7 +19685,7 @@ w sezonie 19.
 00000000B52B.07C: Indeks
 00000000B52C.07C: Tabela
 00000000B52D.07C: Player Dealt Damage
-00000000B530.07C: Obejrzyj powtórkę
+00000000B530.07C: Pokaż
 00000000B532.07C: %1$s – %2$s
 00000000B533.07C: Tryb gry: %1$s
 00000000B534.07C: Wszystkie tryby
@@ -20244,13 +20248,13 @@ w trybie Deathmatch 2019
 00000000BB38.07C: Stwórz warunek
 00000000BB39.07C: Stwórz działanie
 00000000BB5C.07C: Hawana
+00000000BB5D.07C: Hawana
 00000000BB66.07C: Udostępnij kod
 00000000BB67.07C: Importuj kod
 00000000BB68.07C: Obrotny gracz
 00000000BB69.07C: Szpon
 00000000BB6A.07C: Naukowiec
 00000000BB6C.07C: Archiwa 2019
-00000000BB6D.07C: Zawartość archiwalnych skrzynek
 00000000BB74.07C: Tworzenie kodu ustawień gry
 00000000BB75.07C: Stworzono kod ustawień gry!
 00000000BB76.07C: Błąd przy tworzeniu kodu ustawień gry.
@@ -21669,7 +21673,6 @@ w trybie Deathmatch 2019
 00000000C306.07C: Arena bohaterów
 00000000C307.07C: Lustrzany Deathmatch
 00000000C310.07C: Udostępnij ten kod ustawień gry:
-%1$s
 00000000C31C.07C: Udostępnij ustawienie
 00000000C322.07C: Runda {0}
 00000000C323.07C: Gratulacje
@@ -22432,9 +22435,9 @@ z letnich igrzysk
 00000000CA0C.07C: Musisz wybrać rolę zanim twoja grupa dołączy do kolejki. Chcesz wybrać teraz?
 00000000CA0D.07C: Sklepy
 00000000CA0E.07C: Sklep
-00000000CA11.07C: Wyzwanie Ashe: Mardi Gras
-00000000CA13.07C: Tydzień 2: Winston (Starożytny brąz)
-00000000CA14.07C: Tydzień 3: Burzyciel (Wycinanka)
+00000000CA11.07C: Tydzień 1: Holi (Symmetra)
+00000000CA13.07C: Tydzień 2: Rdzawobrody (Torbjörn)
+00000000CA14.07C: Tydzień 3: Misia (Mei)
 00000000CA15.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
 00000000CA16.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
 00000000CA17.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
@@ -22792,11 +22795,11 @@ letnich igrzysk 2019
 00000000CE55.07C: Domyślna widoczność
 00000000CE56.07C: Zawsze widoczny
 00000000CE57.07C: Zawsze niewidoczny
-00000000CE58.07C: Obserwatorzy
-00000000CE59.07C: Czy obserwatorzy widzą tekst, czy nie.
-00000000CE5A.07C: Obserwatorzy widzą tekst, kiedy widzą go wszyscy gracze.
-00000000CE5B.07C: Obserwatorzy zawsze widzą tekst.
-00000000CE5C.07C: Obserwatorzy nigdy nie widzą tekstu.
+00000000CE58.07C: Obserwatorzy spoza drużyny
+00000000CE59.07C: Czy obserwatorzy spoza drużyny widzą tekst, czy nie.
+00000000CE5A.07C: Obserwatorzy spoza drużyny widzą tekst, kiedy widzą go wszyscy gracze.
+00000000CE5B.07C: Obserwatorzy spoza drużyny zawsze widzą tekst.
+00000000CE5C.07C: Obserwatorzy spoza drużyny nigdy nie widzą tekstu.
 00000000CE5F.07C: Nagroda za udział
 w wyzwaniu Klockowy Bastion.
 00000000CE61.07C: Szron
@@ -22848,6 +22851,7 @@ w wielkich finałach
 Overwatch League 2019.
 00000000CED1.07C: Droga do zawodowstwa 2019
 00000000CED3.07C: Wielkie finały 2019
+00000000CEDE.07C: Bojówkarz
 00000000CEDF.07C: Jest atrapą bota.
 00000000CEE0.07C: Czy gracz jest atrapą bota.
 00000000CEE2.07C: Gracze do uwzględnienia.
@@ -26093,6 +26097,7 @@ w wyzwaniu Klockowy Bastion.
 00000000D1FF.07C: Nieaktualny pakiet głosowy
 00000000D202.07C: Angielski
 00000000D203.07C: Kastylijski hiszpański
+00000000D20E.07C: Awiatorka
 00000000D20F.07C: Nie płacz
 00000000D210.07C: Zawartość skrzynek halloweenowych
 00000000D211.07C: Lekarstwo czy kula?
@@ -26341,6 +26346,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EB07.07C: %1$s |Rplsek.:sek.:sek.; temu
 00000000EB0A.07C: Wycinanka
 00000000EB0E.07C: Przywróć domyślne
+00000000EB14.07C: Król Jamison
 00000000EB17.07C: Włącz precyzyjne dane wejściowe myszy
 00000000EB1E.07C: Błąd: Zmienna gracza (%1$s) wymaga nazwy
 00000000EB21.07C: Błąd: Występuje konflikt globalnej zmiennej „%1$s” z inną zmienną
@@ -26594,6 +26600,7 @@ w Drużynowym Deathmatchu 2019
 00000000F39D.07C: Puszczanie latawca
 00000000F3A3.07C: Kiedy znajdziemy mecz z danej kolejki, włączymy cię do gry.
 00000000F3AE.07C: Dołączanie do meczu
+00000000F3C9.07C: Snajper
 00000000F3CD.07C: Piękno i harmonia
 00000000F3CE.07C: Zawartość zimowych skrzynek
 00000000F405.07C: Lokalizacje błyskawicznej flagi
@@ -26656,10 +26663,13 @@ aby zdobyć flagę wrogiej drużyny!
 00000000F4BA.07C: Chwyt pierożkowy
 00000000F4BB.07C: Zawartość księżycowych skrzynek
 00000000F4BE.07C: Wybierz
+00000000F4DF.07C: Obserwacja
+00000000F4E0.07C: Zawartość archiwalnych skrzynek
 00000000F523.07C: Odblokowanie poprzez zalogowanie się do gry podczas wydarzenia Zimowa Kraina Czarów 2019
 00000000F528.07C: Rok Szczura 2020
 00000000F529.07C: Rok Szczura
 00000000F52A.07C: Zawartość księżycowych skrzynek
+00000000F52E.07C: Trening
 00000000F531.07C: Los Angeles Valiant (Goście)
 00000000F532.07C: San Francisco Shock (Goście)
 00000000F533.07C: San Francisco Shock (Goście)
@@ -26848,6 +26858,11 @@ aby zdobyć flagę wrogiej drużyny!
 00000000F5EA.07C: Florida Mayhem (Goście)
 00000000F5EB.07C: DRUŻYNA 3
 00000000F5EC.07C: DRUŻYNA 4
+00000000F652.07C: Wzejście Krwawego Księżyca
+00000000F653.07C: Czarne Chmury. Tylko bohaterowie natarcia. Leczenie jest ograniczone. Leczysz się, zadając obrażenia.
+00000000F674.07C: Wampiryczne Czarne Chmury
+00000000F842.07C: Misje-wyzwania
+00000000F843.07C: Wariacje na temat misji archiwalnych.
 00000000F8B0.07C: Żonglerka masek
 00000000F8B1.07C: Zawartość księżycowych skrzynek
 00000000F8B2.07C: Maska Sombry
@@ -26875,6 +26890,9 @@ w Zdobywanie flagi 2020
 00000000F8C5.07C: Nagroda za miejsce wśród
 500 najlepszych pod koniec Rywalizacji w Zdobywanie
 flagi 2020
+00000000F8C6.07C: Szklane działo
+00000000F8C7.07C: Insurekcja. Gracze mają mniej zdrowia i zadają więcej obrażeń.
+00000000F8C8.07C: Krucha Insurekcja
 00000000F949.07C: Wył.
 00000000FA3D.07C: Uczestnik Zdobywania flagi 2020
 00000000FA3F.07C: Bohater Zdobywania flagi 2020
@@ -26884,10 +26902,16 @@ flagi 2020
 00000000FA49.07C: Starożytny brąz
 00000000FA4B.07C: Szczur
 00000000FA4D.07C: Wiosna
+00000000FA86.07C: Krytyczny Odwet
+00000000FA87.07C: Precyzyjne uderzenie
+00000000FA88.07C: Odwet. Tylko trafienia krytyczne zadają obrażenia.
 00000000FABE.07C: |Rpl %1$s:zabici:zabici:zabici; Odrzuceniem
 00000000FABF.07C: %1$s |Rpl zabity:zabitych:zabitych; Odrzuceniem
 00000000FAC0.07C: |Rpl %1$s:zabici:zabici:zabici; Odrzuceniem
 00000000FAC1.07C: %1$s |Rpl zabity:zabitych:zabitych; Odrzuceniem
+00000000FAC6.07C: Lawowa Insurekcja
+00000000FAD9.07C: Przygrzanie
+00000000FADA.07C: Insurekcja. Po zabitych wrogach pozostaje lawa.
 00000000FB2E.07C: Włącz nagrywanie Inspektora
 00000000FB2F.07C: Wyłącz nagrywanie Inspektora
 00000000FB30.07C: Powoduje, że Inspektor Warsztatu przestaje rejestrować nowe wpisy. Ma to tę zaletę, że zmniejsza obciążenie serwera przez twój skrypt, szczególnie podczas modyfikacji tablic.
@@ -26957,8 +26981,11 @@ flagi 2020
 00000000FC5E.07C: Ukryj nakładkę powtórek
 00000000FC80.07C: Event Was Health Pack
 00000000FC81.07C: Czy leczenie pochodziło od apteczki w zdarzeniu aktualnie przetwarzanym przez tę regułę.
+00000000FC8C.07C: Śmierciomocne Czarne Chmury
 00000000FC8D.07C: Walka wręcz
 00000000FC8E.07C: Przeładowanie
+00000000FC8F.07C: Wściekłe Chmury
+00000000FC90.07C: Czarne Chmury. Niektórzy wrogowie są rozwścieczeni. Zabicie ich przenosi szał na innych.
 00000000FC91.07C: UŻYJ NORMALNEJ/PROSTEJ KAMERY TRZECIOOSOBOWEJ
 00000000FCA5.07C: Visible To, Sort Order, and String
 00000000FCA6.07C: Kolejność sortowania i ciąg
@@ -26984,6 +27011,7 @@ flagi 2020
 00000000FD49.07C: Ponowne oszacowanie
 00000000FD4A.07C: Określa, które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.
 00000000FDBB.07C: Wył.
+00000000FEBC.07C: Postulowanie
 00000000FEBD.07C: Sub%1$s
 00000000FEBE.07C: Podprogram
 00000000FED9.07C: Błąd: Oczekiwano podprogramu po „%1$s” w linii %2$s
@@ -26998,8 +27026,6 @@ flagi 2020
 00000000FFD0.07C: Gracz, którego zmienna jest modyfikowana w tej pętli. Jeśli podano kilku graczy, używany jest pierwszy z nich.
 00000000FFD1.07C: Kontroluj gracza
 00000000FFDA.07C: Tej samej zmiennej nie mogą używać jednocześnie działania Chase i For.
-00000000FFE7.07C: Overwatch League 2020
-00000000FFE8.07C: Brigitte Koza(k)
 00000000FFF0.07C: Warsztat: Komnata
 00000000FFF1.07C: Warsztat: Wyspa
 00000000FFF2.07C: Warsztat: Przestwór
@@ -27068,6 +27094,8 @@ w sezonie 21.
 000000010088.07C: Pula bohaterów dostępnych w trybie rywalizacji podlega regularnej rotacji.
 000000010089.07C: Bohaterowie poza rotacją
 00000001008C.07C: Niedostępni bohaterowie
+000000010091.07C: Złowieszczy rechot
+000000010093.07C: Łupy
 000000010097.07C: Błąd: oczekiwano ustawień poczekalni po „%1$s” w linii %2$s.
 000000010098.07C: Błąd: oczekiwano ustawień głównych po „%1$s” w linii %2$s.
 000000010099.07C: Błąd: oczekiwano ustawień trybu gry po „%1$s” w linii %2$s
@@ -27095,6 +27123,7 @@ w sezonie 21.
 0000000100CE.07C: Czerwona Śmierć
 0000000100D0.07C: Nagroda za oglądanie transmisji biorących udział w promocji podczas Wyzwania Ashe: Mardi Gras.
 0000000100D5.07C: Bohaterowie poza rotacją
+0000000100D8.07C: Przypnij
 0000000100DF.07C: Błąd: napotkano duplikat bohatera po „%1$s” w linii %2$s.
 0000000100E0.07C: Błąd: napotkano nieoczekiwane mapy po „%1$s” w linii %2$s.
 0000000100E1.07C: Błąd: napotkano nieoczekiwane główne po „%1$s” w linii %2$s.
@@ -27109,23 +27138,223 @@ w sezonie 21.
 000000010178.07C: Informacje o aktualizacji
 00000001017B.07C: Eksperymenty
 00000001017E.07C: Błąd: oczekiwano trybów po „%1$s” w linii %2$s.
+000000010188.07C: Rywalizacja w trybie Eliminacji 6 na 6 – Sezon 3
+00000001018A.07C: Rywalizacja w trybie Eliminacji
+00000001018B.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Eliminacji i pnij się w tabeli wyników!
+0000000101B1.07C: Holi
+0000000101B3.07C: Holi
+0000000101B5.07C: Nagroda za udział w wyzwaniu 1. tygodnia Archiwów 2020
+0000000101C9.07C: Odwet w zwarciu
+0000000101CA.07C: Walka w zwarciu
+0000000101CB.07C: Odwet. Wrogowie otrzymują obrażenia tylko wtedy, kiedy w ich pobliżu znajduje się gracz.
+0000000101CC.07C: Tworzenie kodu odnośnika do powtórki. Prosimy czekać.
+0000000101CD.07C: Stworzono kod odnośnika do powtórki!
+0000000101CE.07C: Błąd tworzenia kodu odnośnika
+0000000101CF.07C: Błąd tworzenia kodu odnośnika: nie znaleziono powtórki
+0000000101D3.07C: Udostępnij
 0000000101D4.07C: – Sprawdź nowe pomysły naszego zespołu i eksperymentuj z rozgrywką!
 
 – Zajrzyj za kulisy procesów realizacji eksperymentalnych pomysłów.
 
 – Dziel się swoimi cennymi opiniami i pomóż nam usprawniać rozgrywkę.
+0000000101D8.07C: Udostępnij ten kod innym, aby mogli importować twoją powtórkę:
 0000000101D9.07C: Ten bohater jest obecnie poza rotacją.
 0000000101DF.07C: Sprawdź nowe pomysły naszego zespołu i eksperymentuj z rozgrywką!
+0000000101E0.07C: Translokalizacja
+0000000101E4.07C: Katt
+0000000101E5.07C: Wczytywanie meczy. Prosimy czekać.
+0000000101E6.07C: Wczytano mecz.
+0000000101E7.07C: Wczytywanie nieudane: błąd wewnętrzny
+0000000101E8.07C: Wczytywanie nieudane: nie znaleziono powtórki
 000000010214.07C: Czas minął. Kiedy sesja dobiegnie końca, nastąpi rozłączenie.
+000000010215.07C: Prosimy czekać.
+000000010216.07C: Prosimy czekać.
+000000010217.07C: Przypięcie/Odpięcie nieudane: błąd wewnętrzny
+000000010218.07C: Przypięcie/Odpięcie nieudane: nie znaleziono powtórki
+000000010219.07C: Przypięcie nieudane: za dużo przypiętych powtórek
 00000001021A.07C: Przypnij kamerę do zabójcy w powtórkach
+00000001021C.07C: Przyciąganie
+00000001022E.07C: Poziom trudności: Ekspercki
 000000010237.07C: Rozłączono z powodu osiągnięcia limitu czasu gry (system CAIS).
 000000010239.07C: Eksperymenty
+00000001023B.07C: Ta powtórka nie znajduje się na twojej liście ostatnio rozegranych meczów. Odpięcie jej spowoduje jej utratę. Kontynuować?
 000000010243.07C: Ukryj wyniki
+000000010248.07C: Misia
+000000010249.07C: Holi
+00000001024A.07C: Rdzawobrody
 00000001024D.07C: Operator
+00000001024E.07C: Wpisz kod z odnośnikiem do udostępnionej powtórki
+00000001025B.07C: Przygrzanie
+00000001025C.07C: Ukończ archiwalną misję-wyzwanie Przygrzanie.
+00000001025D.07C: Kruche działo
+00000001025E.07C: Ukończ archiwalną misję-wyzwanie Szklane działo.
+00000001025F.07C: Precyzyjne uderzenie
+000000010260.07C: Ukończ archiwalną misję-wyzwanie Precyzyjne uderzenie.
+000000010261.07C: Walka w zwarciu
+000000010262.07C: Ukończ archiwalną misję-wyzwanie Walka w zwarciu.
+000000010263.07C: Wzejście Krwawego Księżyca
+000000010264.07C: Ukończ archiwalną misję-wyzwanie Wzejście Krwawego Księżyca.
+000000010265.07C: Wściekłe Chmury
+000000010266.07C: Ukończ archiwalną misję-wyzwanie Wściekłe Chmury.
+000000010267.07C: Nagroda za udział w wyzwaniu 3. tygodnia Archiwów 2020
+000000010268.07C: Nagroda za udział w wyzwaniu 2. tygodnia Archiwów 2020
+00000001026A.07C: Dostępne w: %1$s
+00000001026D.07C: Washington Justice Homestand 2020
+00000001026E.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+000000010270.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+000000010271.07C: Philadelphia Fusion Homestand 2020
+000000010273.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+000000010274.07C: Dallas Fuel Homestand 2020
+000000010276.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+000000010277.07C: Guangzhou Charge Homestand 2020
+000000010279.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+00000001027A.07C: Hangzhou Spark Homestand 2020
+00000001027C.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+00000001027D.07C: Houston Outlaws Homestand 2020
+00000001027F.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+000000010280.07C: New York Excelsior Homestand 2020
+000000010283.07C:  
+000000010284.07C: Dodawanie notatki. Prosimy czekać.
+000000010285.07C: Notatka dodana.
+000000010286.07C: Dodanie/Edycja notatki nieudana: błąd wewnętrzny
+000000010287.07C: Dodanie/Edycja notatki nieudana: nie znaleziono powtórki
+000000010289.07C: Zawartość archiwalnych skrzynek
+00000001028A.07C: Tobie już dziękujemy
+00000001028C.07C: Zawartość archiwalnych skrzynek
+00000001028D.07C: Ja tu tylko strzelam
+00000001028F.07C: Zawartość archiwalnych skrzynek
+000000010290.07C: Taki potencjał zmarnowany
+000000010292.07C: Zawartość archiwalnych skrzynek
+000000010293.07C: Okażcie trochę szacunku
+000000010295.07C: Zawartość archiwalnych skrzynek
+000000010296.07C: Ryu-Ichimonji zadaje cios
+000000010298.07C: Zawartość archiwalnych skrzynek
+000000010299.07C: Rzeczywistość rzadko jest taka
+00000001029A.07C: Wyniki są niejednoznaczne
+00000001029B.07C: Zawartość archiwalnych skrzynek
+00000001029C.07C: Nadzwyczajne twierdzenia
+00000001029D.07C: Zawartość archiwalnych skrzynek
+00000001029F.07C: Zawartość archiwalnych skrzynek
+0000000102A0.07C: Życie nigdy nie toczy się za szybko
+0000000102A2.07C: Zawartość archiwalnych skrzynek
+0000000102A3.07C: Ciężka praca się opłaca
+0000000102A5.07C: Zawartość archiwalnych skrzynek
+0000000102A6.07C: Moduł empatii nie odpowiada
+0000000102A9.07C: 
+0000000102AB.07C: Detonacja
+0000000102AC.07C: Agresja
+0000000102AD.07C: 
+0000000102AE.07C: Atak z Przycelowania
+0000000102AF.07C: 
+0000000102B0.07C: Kiedy rząd Australii wysiedlił Mako Rutledge'a i innych mieszkańców interioru, ci rozpoczęli zbrojny bunt i stworzyli Front Wyzwolenia Australii (ALF).
+0000000102B1.07C: Po ucieczce z australijskiego interioru Złomiarz i Wieprzu rozpoczęli przestępczą wędrówkę po świecie, zyskując międzynarodową niesławę i realizując swoje motto: „Nie ma zbyt dużych wyzwań i za małych wyników!".
+0000000102B2.07C: Podczas kryzysu omnicznego egipskie wojsko wyposażyło swoich elitarnych snajperów, w tym Anę Amari, w cybernetyczne implanty oczne, które znacznie poprawiły skuteczność strzelców wyborowych broniących kraju.
+0000000102B5.07C: Niezniszczalność
+0000000102B6.07C: 
+0000000102B7.07C: Wzejście Krwawego Księżyca
+0000000102B8.07C: 
+0000000102B9.07C: Pomoc rannemu
+0000000102BA.07C: 
+0000000102BC.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+0000000102BD.07C: Shanghai Dragons Homestand 2020
+0000000102BE.07C: Awiatorka
+0000000102BF.07C: Zawartość archiwalnych skrzynek
+0000000102C0.07C: Bojówkarz
+0000000102C1.07C: Zawartość archiwalnych skrzynek
+0000000102C2.07C: Król Jamison
+0000000102C3.07C: Zawartość archiwalnych skrzynek
+0000000102C4.07C: Snajper
+0000000102C5.07C: Zawartość archiwalnych skrzynek
+0000000102C6.07C: Trening
+0000000102C7.07C: Zawartość archiwalnych skrzynek
+0000000102C8.07C: Rdzawobrody
+0000000102CA.07C: Miś polarny
+0000000102CC.07C: Niestrawność
+0000000102CE.07C: Niedźwiedzi uścisk
 0000000102D0.07C: pc
 0000000102D1.07C: ps4
 0000000102D2.07C: xb1
 0000000102D3.07C: nintendo-switch
 0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102D5.07C: Importuj
+0000000102D8.07C: Zaimportowano
+0000000102E0.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+0000000102E1.07C: Florida Mayhem Homestand 2020
+0000000102E3.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+0000000102E4.07C: Seoul Dynasty Homestand 2020
+0000000102E5.07C: Na topie
+0000000102E6.07C: Zawartość archiwalnych skrzynek
+0000000102E7.07C: Strój maskujący
+0000000102E8.07C: Zawartość archiwalnych skrzynek
+0000000102E9.07C: Front Wyzwolenia Australii
+0000000102EA.07C: Zawartość archiwalnych skrzynek
+0000000102EB.07C: Klejnoty koronne
+0000000102EC.07C: Zawartość archiwalnych skrzynek
+0000000102ED.07C: Puls
+0000000102EE.07C: Zawartość archiwalnych skrzynek
+0000000102EF.07C: Po zabitych wrogach pozostaje lawa.
+0000000102F0.07C: Gracze mają mniej zdrowia i zadają więcej obrażeń.
+0000000102F1.07C: Tylko trafienia krytyczne zadają obrażenia.
+0000000102F2.07C: Wrogowie otrzymują obrażenia tylko wtedy, kiedy w ich pobliżu znajduje się gracz.
+0000000102F3.07C: Tylko bohaterowie natarcia. Leczenie jest ograniczone. Leczysz się, zadając obrażenia.
+0000000102F4.07C: Niektórzy wrogowie są rozwścieczeni. Zabicie ich przenosi szał na innych.
 0000000102F5.07C: Użyj eksperymentalnej aktualizacji, jeśli jest dostępna
-[Core] Execution finished in 00:00:04.0378069 seconds
+000000010301.07C: 
+000000010306.07C: Uczestnik Rywalizacji w trybie Eliminacji 6 na 6 w 2020
+000000010307.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+w trybie Eliminacji 6 na 6 w 2020
+000000010308.07C: Bohater Rywalizacji w trybie Eliminacji 6 na 6 w 2020
+000000010309.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w trybie Eliminacji 6 na 6 w 2020
+000000010311.07C: Grupa szturmowa
+000000010312.07C: Zawartość archiwalnych skrzynek
+00000001031E.07C: Archiwa 2020
+00000001031F.07C: Zawartość archiwalnych skrzynek
+00000001036C.07C: KONTYNUUJ
+00000001036D.07C: Misje-wyzwania
+00000001036F.07C: Rozgrywaj mecze, aby zdobywać dostępne
+przez ograniczony czas archiwalne skrzynki z łupami, nowe skórki, prezentacje zagrań i inne elementy!
+000000010370.07C: Archiwalny łup
+000000010372.07C: Graj w misje archiwalne ze specjalnymi modyfikacjami, zwiększającymi wyzwanie!
+000000010374.07C: Koniec wydarzenia 2 kwietnia
+000000010375.07C: Odblokuj nowe skórki
+000000010376.07C: Cotygodniowe wyzwania
+000000010377.07C: Tydzień 1
+000000010378.07C: Tydzień 2
+000000010379.07C: Tydzień 3
+000000010385.07C: Odepnij
+000000010389.07C: Nie można obejrzeć powtórki z powodu ograniczeń konta.
+00000001038C.07C: Nie można udostępnić powtórki z powodu ograniczeń konta.
+00000001038E.07C: Nie można pobierać powtórek z tej platformy.
+00000001038F.07C: Ta powtórka nie jest obsługiwana przez twoją platformę.
+0000000103BF.07C: Wczytywanie nieudane: niekompatybilna wersja.
+0000000103CC.07C: Zgłoś kod z odnośnikiem do udostępnionej powtórki
+0000000103D7.07C: Dziękujemy za zgłoszenie kodu z odnośnikiem do powtórki %1$s. Zgłoszenia takie jak twoje pomagają nam uczynić z Overwatch lepsze i przyjaźniejsze środowisko do gry.
+000000010412.07C: Ta powtórka już istnieje na twojej liście.
+00000001043B.07C: Zgłoś
+0000000105BD.07C: Best Molten Cores Score
+0000000105BE.07C: %1$s Best Molten Cores Score
+0000000105BF.07C: Best Glass Cannon Score
+0000000105C0.07C: %1$s Best Glass Cannon Score
+0000000105C1.07C: Best Surgical Strike Score
+0000000105C2.07C: %1$s Best Surgical Strike Score
+0000000105C3.07C: Best Close Quarters Score
+0000000105C4.07C: %1$s Best Close Quarters Score
+0000000105C5.07C: Best Blood Moon Rising Score
+0000000105C6.07C: %1$s Best Blood Moon Rising Score
+0000000105C7.07C: Best Storm Raging Score
+0000000105C8.07C: %1$s Best Storm Raging Score
+0000000105CC.07C: Best Molten Cores Score
+0000000105CD.07C: %1$s Best Molten Cores Score
+0000000105CE.07C: Best Glass Cannon Score
+0000000105CF.07C: %1$s Best Glass Cannon Score
+0000000105D0.07C: Best Surgical Strike Score
+0000000105D1.07C: %1$s Best Surgical Strike Score
+0000000105D2.07C: Best Close Quarters Score
+0000000105D3.07C: %1$s Best Close Quarters Score
+0000000105D4.07C: Best Blood Moon Rising Score
+0000000105D5.07C: %1$s Best Blood Moon Rising Score
+0000000105D6.07C: Best Storm Raging Score
+0000000105D7.07C: %1$s Best Storm Raging Score
+[Core] Execution finished in 00:00:04.1199162 seconds

@@ -1,0 +1,13 @@
+
+- Play a normal game until the end
+- Player joins late (after first infection)
+- Player selects his hero late
+- Player selects his hero before first infection
+- Trigger is triggered by a zombie
+- All humans are infected
+- A zombie is killed by a human
+- Player joins late, during a boss fight
+- All humans are killed by the boss
+- A human is infected during the boss fight
+- Timer runs out
+- Start game mode immediately

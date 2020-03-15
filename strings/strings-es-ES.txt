@@ -1,12 +1,12 @@
-[Core] DataTool v1.45.0.863-git-d08b8ee3b6474c6bd141eb865797b12a3bde1d66
+[Core] DataTool v1.46.0.864-git-ec7bc2fdc94d326652d08645a2d8c25464721f88
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.exe.args
 [CASC] Set language to esES
 [CASC] Set speech language to esES
-[CASC] Overwatch build 1.45.0.0.66302
+[CASC] Overwatch build 1.46.0.0.66607
 [CASC] Initializing...
-[CMF] Using CMF procedure 66302
-[CMF] Using CMF procedure 66302
+[CMF] Using CMF procedure 66607
+[CMF] Using CMF procedure 66607
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -937,7 +937,7 @@
 000000000D8C.07C: ABANDONAR PARTIDA
 000000000D8D.07C: SALIR AL ESCRITORIO
 000000000D8E.07C: Eres vulnerable mientras te desvaneces y reapareces con Paso de las tinieblas.
-000000000D8F.07C: © 2016 - 2019 Blizzard Entertainment, Inc. Todos los derechos reservados.
+000000000D8F.07C: © 2016 - 2020 Blizzard Entertainment, Inc. Todos los derechos reservados.
 000000000D94.07C: Regresa a cubierto tras disparar para protegerte como francotiradora.
 000000000D97.07C: Los héroes con armas que no se basan en la puntería, como Winston o Symmetra, pueden dar problemas a Tracer.
 000000000D98.07C: OPCIONES
@@ -10433,7 +10433,7 @@ Un nombre de jugador o BattleTag que esté en un idioma distinto.
 000000005EA3.07C: 5 cajas de botín de los Archivos
 000000005EA4.07C: 11 cajas de botín de los Archivos
 000000005EA5.07C: 24 cajas de botín de los Archivos
-000000005EA6.07C: 50 cajas de botín de los Archivos
+000000005EA6.07C: 50 + 10 cajas de botín de los Archivos
 000000005EA7.07C: DEFENSA
 000000005EA8.07C: ATAQUE
 000000005EA9.07C: Guardar regla predefinida
@@ -16103,7 +16103,7 @@ de la temporada 13
 000000008210.07C: 15 créditos y, de regalo, 5 cajas de botín de los Archivos
 000000008211.07C: 30 créditos y, de regalo, 11 cajas de botín de los Archivos
 000000008212.07C: 60 créditos y, de regalo, 24 cajas de botín de los Archivos
-000000008213.07C: 120 créditos y, de regalo, 50 cajas de botín de los Archivos
+000000008213.07C: 120 créditos y, de regalo, 60 cajas de botín de los Archivos
 000000008219.07C: Doncella escudera
 00000000823A.07C: Aviso
 00000000823B.07C: Un número considerable de jugadores te ha marcado como "Evitar como compañero". Puede que, como consecuencia, experimentes tiempos de espera más largos al intentar buscar una partida.
@@ -16657,6 +16657,10 @@ de la temporada 13
 00000000865F.07C: %1$s de eficiencia de sanación de Valkiria
 000000008660.07C: Intercomunicador
 000000008661.07C: CANCELAR
+000000008662.07C: Rialto
+000000008663.07C: DEFENSA
+000000008664.07C: ATAQUE
+000000008665.07C: por una caída
 000000008669.07C: %1$s
 00000000866E.07C: Selecciona a un compañero al que elogiar
 00000000866F.07C: Campo de minas
@@ -18225,7 +18229,7 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000A58C.07C: Sobrevivid al asalto de las tropas de Talon
 00000000A590.07C: Tormenta inminente
 00000000A597.07C: Tormenta inminente (todos los héroes)
-00000000A599.07C: Un equipo de cuatro héroes acude a La Habana para ocuparse de una nueva amenaza.
+00000000A599.07C: Un nuevo equipo de asalto de Overwatch se dirige a La Habana para capturar a un individuo clave de Talon.
 00000000A5A2.07C: Atlanta (visitante)
 00000000A5A3.07C: Atlanta (local)
 00000000A5AB.07C: 81d5b473-4edf-40fb-9204-0d7b6dabb61f
@@ -19552,7 +19556,7 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000B52B.07C: Índice
 00000000B52C.07C: Matriz
 00000000B52D.07C: Player Dealt Damage
-00000000B530.07C: Ver repetición
+00000000B530.07C: Ver
 00000000B532.07C: %1$s - %2$s
 00000000B533.07C: Modo: %1$s
 00000000B534.07C: Todos los modos
@@ -20103,13 +20107,13 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000BB38.07C: Crear condición
 00000000BB39.07C: Crear acción
 00000000BB5C.07C: La Habana
+00000000BB5D.07C: La Habana
 00000000BB66.07C: Compartir código
 00000000BB67.07C: Importar código
 00000000BB68.07C: Ricachón
 00000000BB69.07C: Talon
 00000000BB6A.07C: Científica
 00000000BB6C.07C: Archivos 2019
-00000000BB6D.07C: Disponible en las cajas de botín de los Archivos
 00000000BB74.07C: Creando código de ajustes de partida
 00000000BB75.07C: ¡Código de ajustes de partida creado!
 00000000BB76.07C: Error al crear código de ajustes de partida.
@@ -21528,7 +21532,6 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000C306.07C: Relevos
 00000000C307.07C: Combate a muerte: Héroe idéntico
 00000000C310.07C: Comparte este código para importar los ajustes de la partida:
-%1$s
 00000000C31C.07C: Compartir regla predefinida
 00000000C322.07C: Ronda {0}
 00000000C323.07C: Enhorabuena
@@ -21792,7 +21795,7 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000C4C2.07C: Impedir que el propio modo de juego declare al ganador
 00000000C4C6.07C: Informar sobre un código de ajustes de partida
 00000000C4C7.07C: Motivo de informe:
-00000000C4C8.07C: Gracias for informar sobre el código de ajustes de partida %1$s. Los informes como este nos ayudan a hacer de Overwatch un lugar mejor y más acogedor para los jugadores.
+00000000C4C8.07C: Gracias por informar sobre el código de ajustes de partida %1$s. Los informes como este nos ayudan a hacer de Overwatch un lugar mejor y más acogedor para los jugadores.
 00000000C4C9.07C: Gracias
 00000000C4CA.07C: Una sola Widowmaker da caza a seis Tracers. Solo tiene que verlas para eliminarlas. ¡Las Tracers deben evitar su mirada para ganar!
 00000000C4CB.07C: ¡Empiezas con tu habilidad definitiva, pero una vez que la uses ya no la tendrás hasta la siguiente ronda!
@@ -22278,9 +22281,9 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000CA0C.07C: Selecciona una función para poner en cola a tu equipo. ¿Seleccionarla ahora?
 00000000CA0D.07C: Tiendas
 00000000CA0E.07C: Tienda
-00000000CA11.07C: Desafío Mardi Gras de Ashe
-00000000CA13.07C: Semana 2: Winston bronce antiguo
-00000000CA14.07C: Semana 3: Wrecking Ball papel recortado
+00000000CA11.07C: Semana 1: Symmetra Holi
+00000000CA13.07C: Semana 2: Torbjörn oxidado
+00000000CA14.07C: Semana 3: Mei osa
 00000000CA15.07C: ¡Gana 9 partidas rápidas, de Arcade o competitivas!
 00000000CA16.07C: ¡Gana 9 partidas rápidas, de Arcade o competitivas!
 00000000CA17.07C: ¡Gana 9 partidas rápidas, de Arcade o competitivas!
@@ -22632,11 +22635,11 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000CE55.07C: Default Visibility
 00000000CE56.07C: Visible Always
 00000000CE57.07C: Visible Never
-00000000CE58.07C: Observadores
-00000000CE59.07C: Determina si los observadores pueden ver el texto o no.
-00000000CE5A.07C: Los observadores ven el texto cuando todos los jugadores también lo ven.
-00000000CE5B.07C: Los observadores siempre ven el texto.
-00000000CE5C.07C: Los observadores nunca ven el texto.
+00000000CE58.07C: Observadores fuera del equipo
+00000000CE59.07C: Determina si los observadores fuera del equipo pueden ver el texto o no.
+00000000CE5A.07C: Los observadores fuera del equipo ven el texto cuando todos los jugadores pueden verlo.
+00000000CE5B.07C: Los observadores fuera del equipo siempre ven el texto.
+00000000CE5C.07C: Los observadores fuera del equipo nunca ven el texto.
 00000000CE5F.07C: Se desbloquea al participar en el desafío Bloque de Bastion
 00000000CE61.07C: Escarchado
 00000000CE64.07C: Texto
@@ -22685,6 +22688,7 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000CED0.07C: Se desbloquea al participar en el evento de la gran final de la OWL de 2019
 00000000CED1.07C: Camino a la gloria de 2019
 00000000CED3.07C: Gran final de 2019
+00000000CEDE.07C: Milicia
 00000000CEDF.07C: Is Dummy Bot
 00000000CEE0.07C: Si un jugador es un robot.
 00000000CEE2.07C: Jugador que se considera.
@@ -25928,6 +25932,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D1FF.07C: Paquete de voz desactualizado
 00000000D202.07C: Inglés
 00000000D203.07C: Español (España)
+00000000D20E.07C: Aviadora
 00000000D20F.07C: No llores
 00000000D210.07C: Disponible en las cajas de botín de Halloween
 00000000D211.07C: ¿Tiro o tirita?
@@ -26172,6 +26177,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EB07.07C: Hace %1$s s
 00000000EB0A.07C: Papel recortado
 00000000EB0E.07C: Restablecer valores por defecto
+00000000EB14.07C: Rey Jamison
 00000000EB17.07C: Habilitar entrada de alta precisión del ratón
 00000000EB1E.07C: Error: La variable de jugador «%1$s» requiere un nombre.
 00000000EB21.07C: Error: La variable global «%1$s» entra en conflicto con otra variable.
@@ -26419,6 +26425,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F39D.07C: Cometa
 00000000F3A3.07C: Cuando se encuentre una partida, se te meterá en la partida para la que estabas haciendo cola.
 00000000F3AE.07C: Entrando en la partida
+00000000F3C9.07C: Francotiradora
 00000000F3CD.07C: Belleza en la armonía
 00000000F3CE.07C: Disponible en las cajas de botín de Inverlandia
 00000000F405.07C: Ubicaciones de bandera relámpago
@@ -26478,10 +26485,13 @@ https://account.blizzard.com/connections/nintendo
 00000000F4BA.07C: Agarre empanadillo
 00000000F4BB.07C: Disponible en las cajas de botín del Año Nuevo Lunar
 00000000F4BE.07C: Seleccionar
+00000000F4DF.07C: Observación
+00000000F4E0.07C: Disponible en las cajas de botín de los Archivos
 00000000F523.07C: Se desbloquea al entrar en el juego durante el evento de Inverlandia de 2019
 00000000F528.07C: Año de la Rata 2020
 00000000F529.07C: Año de la Rata
 00000000F52A.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+00000000F52E.07C: Entrenamiento
 00000000F531.07C: Los Angeles Valiant (visitante)
 00000000F532.07C: San Francisco Shock (visitante)
 00000000F533.07C: San Francisco Shock (visitante)
@@ -26670,6 +26680,11 @@ https://account.blizzard.com/connections/nintendo
 00000000F5EA.07C: Florida Mayhem (visitante)
 00000000F5EB.07C: EQUIPO 3
 00000000F5EC.07C: EQUIPO 4
+00000000F652.07C: Luna de sangre inminente
+00000000F653.07C: Tormenta inminente. Solo héroes de daño. Sanación reducida. Te sanas al infligir daño.
+00000000F674.07C: Tormenta inminente vampírica
+00000000F842.07C: Misiones de desafío
+00000000F843.07C: Misiones de los Archivos con un giro.
 00000000F8B0.07C: Cambiarrostros
 00000000F8B1.07C: Disponible en las cajas de botín del Año Nuevo Lunar
 00000000F8B2.07C: Máscara de Sombra
@@ -26692,6 +26707,9 @@ https://account.blizzard.com/connections/nintendo
 00000000F8C3.07C: Se desbloquea al completar las partidas de posicionamiento del modo competitivo de Captura la bandera de 2020
 00000000F8C4.07C: Héroe de CLB competitivo 2020
 00000000F8C5.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo de Captura la bandera de 2020
+00000000F8C6.07C: Mírame y no me toques
+00000000F8C7.07C: Rebelión. Los jugadores tienen salud reducida y daño aumentado.
+00000000F8C8.07C: Rebelión frágil
 00000000F949.07C: Desactivado
 00000000FA3D.07C: Competidor de CLB competitivo 2020
 00000000FA3F.07C: Héroe de CLB competitivo 2020
@@ -26701,10 +26719,16 @@ https://account.blizzard.com/connections/nintendo
 00000000FA49.07C: Bronce antiguo
 00000000FA4B.07C: Rata
 00000000FA4D.07C: Primavera
+00000000FA86.07C: Ajuste de cuentas crítico
+00000000FA87.07C: Ataque preciso
+00000000FA88.07C: Ajuste de cuentas. Solo los golpes críticos infligen daño.
 00000000FABE.07C: |Rpl %1$s:Asesinato:Asesinatos; por repulsión
 00000000FABF.07C: %1$s |Rplasesinato:asesinatos; por repulsión
 00000000FAC0.07C: |Rpl %1$s:Asesinato:Asesinatos; por repulsión
 00000000FAC1.07C: %1$s |Rplasesinato:asesinatos; por repulsión
+00000000FAC6.07C: Rebelión con lava
+00000000FAD9.07C: Fusiones nucleares
+00000000FADA.07C: Rebelión. Los enemigos sueltan lava al morir.
 00000000FB2E.07C: Enable Inspector Recording
 00000000FB2F.07C: Disable Inspector Recording
 00000000FB30.07C: Hace que el inspector del Taller deje de registrar nuevas entradas. Tiene el beneficio de que reduce la carga de tu script en el servidor, especialmente al modificar matrices.
@@ -26774,8 +26798,11 @@ https://account.blizzard.com/connections/nintendo
 00000000FC5E.07C: Ocultar superposición de repetición
 00000000FC80.07C: Event Was Health Pack
 00000000FC81.07C: Decide si la sanación ha sido de un pack de salud para el evento que está procesando actualmente esta regla.
+00000000FC8C.07C: Tormenta inminente con beneficio de muerte
 00000000FC8D.07C: Melee
 00000000FC8E.07C: Reload
+00000000FC8F.07C: Tormenta salvaje
+00000000FC90.07C: Tormenta inminente. Algunos enemigos están enfurecidos. Al matarlos, se propaga la furia.
 00000000FC91.07C: ALTERNAR CÁMARA DE ESPECTADOR EN 3.ª PERSONA NORMAL/SIMPLE
 00000000FCA5.07C: Visible To, Sort Order, and String
 00000000FCA6.07C: Sort Order and String
@@ -26801,6 +26828,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FD49.07C: Revaluación
 00000000FD4A.07C: Especifica qué entradas de esta acción se reevaluarán continuamente. Esta acción no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.
 00000000FDBB.07C: Desactivado
+00000000FEBC.07C: Postulado
 00000000FEBD.07C: Sub%1$s
 00000000FEBE.07C: Subrutina
 00000000FED9.07C: Error: Se esperaba una subrutina tras «%1$s» en la línea %2$s.
@@ -26815,8 +26843,6 @@ https://account.blizzard.com/connections/nintendo
 00000000FFD0.07C: El jugador cuya variable se modifica en este bucle. Si se especifican varios jugadores, se utiliza el primero.
 00000000FFD1.07C: Jugador de control
 00000000FFDA.07C: Las acciones «Chase» y «For» no pueden utilizar la misma variable.
-00000000FFE7.07C: Overwatch League 2020
-00000000FFE8.07C: Brigitte Cabra
 00000000FFF0.07C: Cámara del Taller
 00000000FFF1.07C: Isla del Taller
 00000000FFF2.07C: Terreno del Taller
@@ -26884,6 +26910,8 @@ https://account.blizzard.com/connections/nintendo
 000000010088.07C: Los héroes disponibles para partidas competitivas cambian de forma periódica.
 000000010089.07C: Héroes fuera de rotación
 00000001008C.07C: Héroes no disponibles
+000000010091.07C: Risa siniestra
+000000010093.07C: Botín
 000000010097.07C: Error: Se esperaba un ajuste de sala tras «%1$s» en la línea %2$s.
 000000010098.07C: Error: Se esperaba un ajuste principal tras «%1$s» en la línea %2$s.
 000000010099.07C: Error: Se esperaba un ajuste de modo de juego tras «%1$s» en la línea %2$s.
@@ -26911,6 +26939,7 @@ https://account.blizzard.com/connections/nintendo
 0000000100CE.07C: Muerte roja
 0000000100D0.07C: Se desbloquea al ver retransmisiones participantes durante el desafío Mardi Gras de Ashe
 0000000100D5.07C: Héroes fuera de rotación
+0000000100D8.07C: Anclar
 0000000100DF.07C: Error: Se ha encontrado un héroe duplicado tras «%1$s» en la línea %2$s.
 0000000100E0.07C: Error: Se han encontrado mapas inesperados tras «%1$s» en la línea %2$s.
 0000000100E1.07C: Error: Se ha encontrado un principal inesperado tras «%1$s» en la línea %2$s.
@@ -26925,23 +26954,219 @@ https://account.blizzard.com/connections/nintendo
 000000010178.07C: Notas del parche
 00000001017B.07C: Experimental
 00000001017E.07C: Error: Se esperaban modos tras «%1$s» en la línea %2$s.
+000000010188.07C: Temporada 3 del modo competitivo de Eliminación 6c6
+00000001018A.07C: Modo competitivo de Eliminación
+00000001018B.07C: ¡Salta al campo de batalla y compite con los mejores jugadores de Eliminación del mundo!
+0000000101B1.07C: Holi
+0000000101B3.07C: Holi
+0000000101B5.07C: Se desbloquea al participar en el desafío de la semana 1 de los Archivos de 2020
+0000000101C9.07C: Ajuste de cuentas BCC
+0000000101CA.07C: Codo con codo
+0000000101CB.07C: Ajuste de cuentas. Los enemigos solo pueden recibir daño si hay un jugador cerca.
+0000000101CC.07C: Creando código de enlace a repetición. Espera.
+0000000101CD.07C: ¡Código de enlace a repetición creado!
+0000000101CE.07C: Error al crear código de enlace.
+0000000101CF.07C: Error al crear código de enlace: No se ha encontrado la repetición.
+0000000101D3.07C: Compartir
 0000000101D4.07C: - ¡Prueba las nuevas ideas del equipo y experimenta con las mecánicas de juego!
 
 - Echa un vistazo exclusivo a conceptos experimentales en desarrollo.
 
 - Ofrécenos tu valiosa opinión y contribuye a mejorar la experiencia de juego.
+0000000101D8.07C: Comparte este código para que otras personas puedan importar tu repetición:
 0000000101D9.07C: Este héroe está fuera de rotación ahora mismo.
 0000000101DF.07C: ¡Prueba las nuevas ideas del equipo y experimenta con las mecánicas de juego!
+0000000101E0.07C: Translocación
+0000000101E4.07C: Gato
+0000000101E5.07C: Cargando partida. Espera.
+0000000101E6.07C: Partida cargada.
+0000000101E7.07C: Error al cargar: Error interno.
+0000000101E8.07C: Error al cargar: No se ha encontrado la repetición.
 000000010214.07C: Tu temporizador ha expirado. Se te desconectará al terminar esta sesión.
+000000010215.07C: Espera.
+000000010216.07C: Espera.
+000000010217.07C: Error al anclar/desanclar: Error interno.
+000000010218.07C: Error al anclar/desanclar: No se ha encontrado la repetición.
+000000010219.07C: Error al anclar: Demasiadas repeticiones ancladas.
 00000001021A.07C: Pasar cámara de muerte a asesino
+00000001021C.07C: Atracción
+00000001022E.07C: Dificultad: Experta
 000000010237.07C: Desconectado por alcanzar el límite de tiempo del sistema antiadicción de China
 000000010239.07C: Experimental
+00000001023B.07C: 
 000000010243.07C: Ocultar resultados
+000000010248.07C: Osa
+000000010249.07C: Holi
+00000001024A.07C: Oxidado
 00000001024D.07C: Operador
+00000001024E.07C: Introduce el código de enlace a repetición compartido
+00000001025B.07C: Fusiones nucleares
+00000001025C.07C: Completa la misión de desafío de los Archivos Fusiones nucleares.
+00000001025D.07C: Mírame y no me toques
+00000001025E.07C: Completa la misión de desafío de los Archivos Mírame y no me toques.
+00000001025F.07C: Ataque preciso
+000000010260.07C: Completa la misión de desafío de los Archivos Ataque preciso.
+000000010261.07C: Codo con codo
+000000010262.07C: Completa la misión de desafío de los Archivos Codo con codo.
+000000010263.07C: Luna de sangre inminente
+000000010264.07C: Completa la misión de desafío de los Archivos Luna de sangre inminente.
+000000010265.07C: Tormenta salvaje
+000000010266.07C: Completa la misión de desafío de los Archivos Tormenta salvaje.
+000000010267.07C: Se desbloquea al participar en el desafío de la semana 3 de los Archivos de 2020
+000000010268.07C: Se desbloquea al participar en el desafío de la semana 2 de los Archivos de 2020
+00000001026A.07C: Disponible dentro de: %1$s
+00000001026D.07C: Homestand 2020 de los Washington Justice
+00000001026E.07C: Se desbloquea al asistir a un evento Homestand en 2020
+000000010270.07C: Se desbloquea al asistir a un evento Homestand en 2020
+000000010271.07C: Homestand 2020 de los Philadelphia Fusion
+000000010273.07C: Se desbloquea al asistir a un evento Homestand en 2020
+000000010274.07C: Homestand 2020 de los Dallas Fuel
+000000010276.07C: Se desbloquea al asistir a un evento Homestand en 2020
+000000010277.07C: Homestand 2020 de los Guangzhou Charge
+000000010279.07C: Se desbloquea al asistir a un evento Homestand en 2020
+00000001027A.07C: Homestand 2020 de los Hangzhou Spark
+00000001027C.07C: Se desbloquea al asistir a un evento Homestand en 2020
+00000001027D.07C: Homestand 2020 de los Houston Outlaws
+00000001027F.07C: Se desbloquea al asistir a un evento Homestand en 2020
+000000010280.07C: Homestand 2020 de los New York Excelsior
+000000010283.07C:  
+000000010284.07C: Añadiendo nota. Espera.
+000000010285.07C: Nota añadida.
+000000010286.07C: Error al añadir/editar nota: Error interno.
+000000010287.07C: Error al añadir/editar nota: No se ha encontrado la repetición.
+000000010289.07C: Disponible en las cajas de botín de los Archivos
+00000001028A.07C: Ya me he hartado de ti
+00000001028C.07C: Disponible en las cajas de botín de los Archivos
+00000001028D.07C: Me he visto obligado a hacerlo
+00000001028F.07C: Disponible en las cajas de botín de los Archivos
+000000010290.07C: Tanto potencial... desperdiciado
+000000010292.07C: Disponible en las cajas de botín de los Archivos
+000000010293.07C: Un respeto
+000000010295.07C: Disponible en las cajas de botín de los Archivos
+000000010296.07C: ¡Ataca, Ryu-Ichimonji!
+000000010298.07C: Disponible en las cajas de botín de los Archivos
+000000010299.07C: La realidad no suele ser lo que parece
+00000001029A.07C: Los resultados no son... concluyentes
+00000001029B.07C: Disponible en las cajas de botín de los Archivos
+00000001029C.07C: Afirmaciones extraordinarias
+00000001029D.07C: Disponible en las cajas de botín de los Archivos
+00000001029F.07C: Disponible en las cajas de botín de los Archivos
+0000000102A0.07C: Nunca es lo bastante rápido para mí
+0000000102A2.07C: Disponible en las cajas de botín de los Archivos
+0000000102A3.07C: El esfuerzo da sus frutos
+0000000102A5.07C: Disponible en las cajas de botín de los Archivos
+0000000102A6.07C: El módulo de empatía no responde
+0000000102A9.07C: 
+0000000102AB.07C: Detonación
+0000000102AC.07C: Agresividad
+0000000102AD.07C: 
+0000000102AE.07C: Ataque sin perdón
+0000000102AF.07C: 
+0000000102B0.07C: Después de que el gobierno australiano desalojase de sus casas a Mako Rutledge y a otros habitantes del desierto, estos formaron el Frente Australiano de Liberación e iniciaron una violenta rebelión.
+0000000102B1.07C: Tras escapar del desierto australiano, Junkrat y Roadhog cometieron una ola de crímenes que les granjeó muy mala fama en todo el planeta y que se ajustaba perfectamente a su lema: «No te harás rico si no te creen ladrón y asesino».
+0000000102B2.07C: Durante la Crisis Ómnica, el ejército egipcio equipó a sus tiradores de élite, Ana Amari incluida, con implantes oculares cibernéticos que mejoraban en gran medida su eficiencia en la defensa del país.
+0000000102B5.07C: Me siento invencible
+0000000102B6.07C: 
+0000000102B7.07C: Luna de sangre inminente
+0000000102B8.07C: 
+0000000102B9.07C: Venganza
+0000000102BA.07C: 
+0000000102BC.07C: Se desbloquea al asistir a un evento Homestand en 2020
+0000000102BD.07C: Homestand 2020 de los Shanghai Dragons
+0000000102BE.07C: Aviadora
+0000000102BF.07C: Disponible en las cajas de botín de los Archivos
+0000000102C0.07C: Milicia
+0000000102C1.07C: Disponible en las cajas de botín de los Archivos
+0000000102C2.07C: Rey Jamison
+0000000102C3.07C: Disponible en las cajas de botín de los Archivos
+0000000102C4.07C: Francotiradora
+0000000102C5.07C: Disponible en las cajas de botín de los Archivos
+0000000102C6.07C: Entrenamiento
+0000000102C7.07C: Disponible en las cajas de botín de los Archivos
+0000000102C8.07C: Oxidado
+0000000102CA.07C: Oso de las nieves
+0000000102CC.07C: Indigestión
+0000000102CE.07C: Abrazo de oso
 0000000102D0.07C: pc
 0000000102D1.07C: ps4
 0000000102D2.07C: xb1
 0000000102D3.07C: nintendo-switch
 0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102D5.07C: Importar
+0000000102D8.07C: Importado
+0000000102E0.07C: Se desbloquea al asistir a un evento Homestand en 2020
+0000000102E1.07C: Homestand 2020 de los Florida Mayhem
+0000000102E3.07C: Se desbloquea al asistir a un evento Homestand en 2020
+0000000102E4.07C: Homestand 2020 de los Seoul Dynasty
+0000000102E5.07C: Libertad
+0000000102E6.07C: Disponible en las cajas de botín de los Archivos
+0000000102E7.07C: Traje de camuflaje
+0000000102E8.07C: Disponible en las cajas de botín de los Archivos
+0000000102E9.07C: FAL
+0000000102EA.07C: Disponible en las cajas de botín de los Archivos
+0000000102EB.07C: Joyas de la corona
+0000000102EC.07C: Disponible en las cajas de botín de los Archivos
+0000000102ED.07C: Pulso
+0000000102EE.07C: Disponible en las cajas de botín de los Archivos
+0000000102EF.07C: Los enemigos sueltan lava al morir.
+0000000102F0.07C: Los jugadores tienen salud reducida y daño aumentado.
+0000000102F1.07C: Solo los golpes críticos infligen daño.
+0000000102F2.07C: Los enemigos solo pueden sufrir daño si el jugador está cerca.
+0000000102F3.07C: Solo héroes de daño; sanación reducida. Te sanas al infligir daño.
+0000000102F4.07C: Algunos enemigos están enfurecidos. Al matarlos, se propaga la furia.
 0000000102F5.07C: Usar actualización experimental si está disponible
-[Core] Execution finished in 00:00:02.8792653 seconds
+000000010301.07C: 
+000000010306.07C: Competidor de Eliminación 6c6 competitivo de 2020
+000000010307.07C: Se desbloquea al completar las partidas de posicionamiento del modo competitivo de Eliminación 6c6 de 2020
+000000010308.07C: Héroe competitivo de Eliminación 6c6 de 2020
+000000010309.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo de Eliminación 6c6 de 2020
+000000010311.07C: Asalto
+000000010312.07C: Disponible en las cajas de botín de los Archivos
+00000001031E.07C: Archivos 2020
+00000001031F.07C: Disponible en las cajas de botín de los Archivos
+00000001036C.07C: CONTINUAR
+00000001036D.07C: Misiones de desafío
+00000001036F.07C: Juega para obtener cajas de botín de los Archivos. ¡Nuevos aspectos, jugadas destacadas y más!
+000000010370.07C: Botín de los Archivos
+000000010372.07C: ¡Juega las misiones de los Archivos con modificaciones especiales que intensifican el desafío!
+000000010374.07C: El evento termina el 2 de abril
+000000010375.07C: Desbloquea nuevos aspectos
+000000010376.07C: Desafíos semanales
+000000010377.07C: Semana 1
+000000010378.07C: Semana 2
+000000010379.07C: Semana 3
+000000010385.07C: Desanclar
+000000010389.07C: Imposible ver repetición debido a restricciones de cuenta.
+00000001038C.07C: Imposible compartir repetición debido a restricciones de cuenta.
+00000001038E.07C: No se pueden cargar repeticiones de esa plataforma.
+00000001038F.07C: La repetición no es compatible con tu plataforma.
+0000000103BF.07C: Error al cargar: Versión incompatible.
+0000000103CC.07C: Informar del código de enlace a repetición compartido
+0000000103D7.07C: Gracias por informar sobre el código de enlace de repetición %1$s. Los informes como este nos ayudan a hacer de Overwatch un lugar mejor y más acogedor para los jugadores.
+000000010412.07C: Esa repetición ya está en tu lista.
+00000001043B.07C: Informar
+0000000105BD.07C: Best Molten Cores Score
+0000000105BE.07C: %1$s Best Molten Cores Score
+0000000105BF.07C: Best Glass Cannon Score
+0000000105C0.07C: %1$s Best Glass Cannon Score
+0000000105C1.07C: Best Surgical Strike Score
+0000000105C2.07C: %1$s Best Surgical Strike Score
+0000000105C3.07C: Best Close Quarters Score
+0000000105C4.07C: %1$s Best Close Quarters Score
+0000000105C5.07C: Best Blood Moon Rising Score
+0000000105C6.07C: %1$s Best Blood Moon Rising Score
+0000000105C7.07C: Best Storm Raging Score
+0000000105C8.07C: %1$s Best Storm Raging Score
+0000000105CC.07C: Best Molten Cores Score
+0000000105CD.07C: %1$s Best Molten Cores Score
+0000000105CE.07C: Best Glass Cannon Score
+0000000105CF.07C: %1$s Best Glass Cannon Score
+0000000105D0.07C: Best Surgical Strike Score
+0000000105D1.07C: %1$s Best Surgical Strike Score
+0000000105D2.07C: Best Close Quarters Score
+0000000105D3.07C: %1$s Best Close Quarters Score
+0000000105D4.07C: Best Blood Moon Rising Score
+0000000105D5.07C: %1$s Best Blood Moon Rising Score
+0000000105D6.07C: Best Storm Raging Score
+0000000105D7.07C: %1$s Best Storm Raging Score
+[Core] Execution finished in 00:00:03.1648045 seconds
