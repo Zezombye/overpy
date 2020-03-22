@@ -44,7 +44,10 @@ function compile(content, language="en-US", _rootPath="") {
 		importedFiles.push(rootPath);
 	}
 
-	var rules = tokenize(content);
+	var lines = tokenize(content);
+
+	opyToAst(lines);
+
 	//console.log(rules);
 
 	var result = "";
@@ -522,11 +525,6 @@ function compileRule(rule) {
 				return "";
 			}
 
-			//Check if the "if" is special
-			if (rule.lines[i+1].tokens[0].text === "goto" || rule.lines[i+1].tokens[0].text === "continue" || rule.lines[i+1].tokens[0].text === "return" || rule.lines[i+1].tokens[0].text === "break") {
-				break;
-			}
-
 			//Check if the "if" covers the whole rule
 			var areAllLinesAfterCurrentLineIndented = true;
 			for (var j = i+1; j < rule.lines.length; j++) {
@@ -596,14 +594,44 @@ function compileRule(rule) {
 	return result;
 }
 
-//Parses a list of actions (not metadata, rule condition, or "do").
-function parseInstructions(lines, nbDo) {
+
+const LineType = {
+	"IF": "if",
+	"IF_RULE_CONDITION": "ifRuleCondition",
+	"IF_NOT_RULE_CONDITION": "ifNotRuleCondition",
+	"ELSE": "else",
+	"FAKE_ELSE": "fakeElse",
+	"GHOST_ELSE": "ghostElse",
+	"FAKE_GHOST_ELSE": "fakeGhostElse",
+	"IF_END": "ifEnd",
+
+	"SKIP": "skip",
+	"SKIP_IF": "skipIf",
+	"LABEL": "label",
+
+	"FOR_LOOP": "forLoop",
+	"WHILE_LOOP": "whileLoop",
+	"CONTINUE": "continue",
+	"BREAK": "break",
+	"LOOP_END": "loopEnd",
+	"SWITCH": "switch",
+	"CASE": "case",
+
+	"DO": "do",
+	"DO_WHILE_LOOP": "doWhileLoop",
+
+	"OTHER": "other",
+	"OPTIMIZED": "optimized",
+}
+
+//Parses a list of actions (not metadata or rule condition).
+function parseInstructions(lines) {
 
 	//Note: a "fake" else is the else that is generated for an elif.
 	//A "ghost" else is an else that does not generate a "skip" (if the previous 'if' didn't have its condition inverted).
 
 	//Array of objects: {
-	//	"type": "if"|"else"|"fakeelse"|"ghostelse"|"fakeghostelse"|"skip"|"skipif"|"label"|"other"|"forloop"|"optimized"|"switch"|"case"|"break"|"end"|"whileloop"|"continue"
+	//	"type": a type from LineType
 	//	"condition": compiled content of the condition, if type not in ["label", "other"] or "skip" is not a skip if
 	//	"content": compiled content of the instruction
 	//	"label": if type == "skip", the label to search for, if type == "label", the name of the label
@@ -615,7 +643,6 @@ function parseInstructions(lines, nbDo) {
 	//Do a first pass to compile lines and to fill the resultLines array.
 	for (var i = 0; i < lines.length; i++) {
 
-		
 		if (lines[i].tokens.length === 0) {
 			continue;
 		}
@@ -629,9 +656,11 @@ function parseInstructions(lines, nbDo) {
 		var skipNextLine = false;
 		fileStack = lines[i].tokens[0].fileStack;
 
-		//As we already handled all "do" actions before calling this function, encountering a "do" means it can't be at the beginning of the rule.
 		if (lines[i].tokens[0].text === "do") {
-			error("Do instructions must be at the beginning of the rule");
+			if (lines[i].tokens.length !== 2 || lines[i].tokens[1].text !== ':') {
+				error("Do instruction must be 'do:'");
+			}
+			currentResultLineType = LineType.DO;
 		}
 		
 		//Check for "if"
@@ -649,7 +678,7 @@ function parseInstructions(lines, nbDo) {
 			if (i+1 >= lines.length) {
 				error("If/Elif instruction must have at least one sub-instruction");
 			}
- 
+
 			if (lines[i+1].tokens[0].text === "goto") {
 				if (lines[i+1].tokens.length < 2) {
 					error("Malformed goto");
@@ -662,77 +691,56 @@ function parseInstructions(lines, nbDo) {
 					warn("w_dynamic_goto", "Dynamic gotos are unreliable as OverPy can optimize out some actions.")
 					var skipIfOffset = parse(lines[i+1].tokens.slice(3))
 					var compiledCondition = parse(condition);
+
 					if (isWsFalse(compiledCondition) || isWs0(skipIfOffset)) {
-						currentResultLineType = "optimized";
+						currentResultLineType = LineType.OPTIMIZED;
+
 					} else if (isWsTrue(compiledCondition)) {
-						currentResultLineType="other";
+						currentResultLineType = LineType.OTHER;
 						currentResultLineContent = tows("_skip", actionKw)+"("+skipIfOffset+")";
+
 					} else {
-						currentResultLineType="other";
+						currentResultLineType = LineType.OTHER;
 						currentResultLineContent = tows("_skipIf", actionKw)+"("+compiledCondition+", "+skipIfOffset+")";
 					}
 					
 				} else {
 					//Search for label
 					var label = lines[i+1].tokens[1].text;
-					currentResultLineType = "skipif";
+					currentResultLineType = LineType.SKIP_IF;
 					currentResultLineCondition = parse(condition);
 					currentResultLineLabel = label;
 				}
 				skipNextLine = true;
-				
-			} else if (lines[i+1].tokens[0].text === "return" || lines[i+1].tokens[0].text === "continue") {
-				var ifFunction = "";
-				if (lines[i+1].tokens[0].text === "return") {
-					ifFunction = "_abortIf";
-				} else {
-					ifFunction = "_loopIf";
+			
+			} else if (lines[i+1].tokens[0].text === "continue") {
+				if (lines[i+1].tokens.length !== 1) {
+					error("Malformed continue statement");
 				}
 
-				if (condition[0].text === "RULE_CONDITION" && condition.length === 1) {
+			} if (condition[0].text === "RULE_CONDITION" && condition.length === 1) {
 					
-					currentResultLineType = "other";
-					currentResultLineContent = tows(ifFunction+"ConditionIsTrue", actionKw);
+					currentResultLineType = LineType.IF_RULE_CONDITION;
 
-				} else if (condition[0].text === "not" && condition[1].text === "RULE_CONDITION" && condition.length === 2) {
-					
-					currentResultLineType = "other";
-					currentResultLineContent = tows(ifFunction+"ConditionIsFalse", actionKw);
-
-				} else {
-					var compiledCondition = parse(condition);
-					if (isWsFalse(compiledCondition)) {
-						currentResultLineType = "optimized";
-					} else if (isWsTrue(compiledCondition)) {
-						currentResultLineType = "other";
-						if (ifFunction === "_abortIf") {
-							currentResultLineContent = tows("return", actionKw);
-						} else {
-							currentResultLineContent = tows("_loop", actionKw);
-						}
-					} else {
-						currentResultLineType = "other";
-						currentResultLineContent = tows(ifFunction, actionKw)+"("+compiledCondition+")";
-					}
-				}
-				skipNextLine = true;
-
+			} else if (condition[0].text === "not" && condition[1].text === "RULE_CONDITION" && condition.length === 2) {
 				
+				currentResultLineType = LineType.IF_NOT_RULE_CONDITION;
+
 			} else {
-				currentResultLineType = "if";
+				currentResultLineType = LineType.IF;
 				currentResultLineCondition = parse(condition, {invertCondition: true, isCondition: true});
 			}
 
 			if (lines[i].tokens[0].text === "elif") {
 				if (resultLines[resultLines.length-1].indentLevel <= lines[i].indentLevel) {
 					resultLines.push({
-						type: "fakeghostelse",
+						type: LineType.FAKE_GHOST_ELSE,
 						indentLevel: lines[i].indentLevel,
 						fileStack: fileStack,
 					})
 				} else {
 					resultLines.push({
-						type: "fakeelse",
+						type: LineType.FAKE_ELSE,
 						indentLevel: lines[i].indentLevel,
 						fileStack: fileStack,
 					})
@@ -752,9 +760,9 @@ function parseInstructions(lines, nbDo) {
 				error("Found 'else', but no 'if'");
 			} else if (resultLines[resultLines.length-1].indentLevel <= lines[i].indentLevel) {
 				//If this is the case, then there is no need to replace the else for a "skip" as the previous if wasn't inverted.
-				currentResultLineType = "ghostelse";
+				currentResultLineType = LineType.GHOST_ELSE;
 			} else {
-				currentResultLineType = "else";
+				currentResultLineType = LineType.ELSE;
 			}
 
 		//Check for "switch"
@@ -766,7 +774,7 @@ function parseInstructions(lines, nbDo) {
 				error("Malformed switch");
 			}
 
-			currentResultLineType = "switch";
+			currentResultLineType = LineType.SWITCH;
 			currentResultLineSwitch = parse(lines[i].tokens.slice(1, lines[i].tokens.length-1));
 
 		} else if (lines[i].tokens[0].text === "case") {
@@ -776,14 +784,14 @@ function parseInstructions(lines, nbDo) {
 				error("Malformed case");
 			}
 
-			currentResultLineType = "case";
+			currentResultLineType = LineType.CASE;
 			currentResultLineCase = parse(lines[i].tokens.slice(1, lines[i].tokens.length-1));
 		} else if (lines[i].tokens[0].text === "default") {
 			
 			if (lines[i].tokens.length !== 2 || lines[i].tokens[1].text !== ':') {
 				error("Default instruction must be 'default:'");
 			}
-			currentResultLineType = "case";
+			currentResultLineType = LineType.CASE;
 			currentResultLineCase = "__default__";
 
 
@@ -791,7 +799,13 @@ function parseInstructions(lines, nbDo) {
 			if (lines[i].tokens.length !== 1) {
 				error("Malformed break statement");
 			}
-			currentResultLineType = "break";
+			currentResultLineType = LineType.BREAK;
+
+		} else if (lines[i].tokens[0].text === "continue") {
+			if (lines[i].tokens.length !== 1) {
+				error("Malformed continue statement");
+			}
+			currentResultLineType = LineType.CONTINUE;
 
 		//Check for "for"
 		} else if (lines[i].tokens[0].text === "for") {
@@ -845,17 +859,17 @@ function parseInstructions(lines, nbDo) {
 			currentResultLineContent += ", "+rangeStart+", "+rangeEnd+", "+rangeStep;
 			currentResultLineContent = tows(funcName, actionKw)+"("+currentResultLineContent+")";
 
-			currentResultLineType = "forloop";
+			currentResultLineType = LineType.FOR_LOOP;
 			
 		//Check for "while"
 		} else if (lines[i].tokens[0].text === "while") {
 
 			if (lines[i].tokens.length === 1) {
-				error("Expected code after 'while'");
+				error("Expected a condition after 'while'");
 			}
 
 			if (lines[i].tokens[lines[i].tokens.length-1].text === ":") {
-				currentResultLineType = "whileloop";
+				currentResultLineType = LineType.WHILE_LOOP;
 				currentResultLineContent = tows("__while__", actionKw)+"("+parse(lines[i].tokens.slice(1, lines[i].tokens.length-1))+")";
 
 			} else {
@@ -866,27 +880,27 @@ function parseInstructions(lines, nbDo) {
 				nbDo--;
 
 				if (lines[i].tokens[1].text === "true" && lines[i].tokens.length === 2) {
-					currentResultLineType = "other";
+					currentResultLineType = LineType.OTHER;
 					currentResultLineContent = tows("_loop", actionKw);
 	
 				} else {
 					if (lines[i].tokens[1].text === "RULE_CONDITION") {
-						currentResultLineType = "other";
+						currentResultLineType = LineType.OTHER;
 						currentResultLineContent = tows("_loopIfConditionIsTrue", actionKw);
 	
 					} else if (lines[i].tokens[1].text === "not" && lines[i].tokens[2].text === "RULE_CONDITION") {
-						currentResultLineType = "other";
+						currentResultLineType = LineType.OTHER;
 						currentResultLineContent = tows("_loopIfConditionIsFalse", actionKw);
 	
 					} else {
 						var compiledCondition = parse(lines[i].tokens.slice(1));
 						if (isWsFalse(compiledCondition)) {
-							currentResultLineType = "optimized";
+							currentResultLineType = LineType.OPTIMIZED;
 						} else if (isWsTrue(compiledCondition)) {
-							currentResultLineType = "other";
+							currentResultLineType = LineType.OTHER;
 							currentResultLineContent = tows("_loop", actionKw);
 						} else {
-							currentResultLineType = "other";
+							currentResultLineType = LineType.OTHER;
 							currentResultLineContent = tows("_loopIf", actionKw)+"("+compiledCondition+")";
 						}
 					}
@@ -904,12 +918,12 @@ function parseInstructions(lines, nbDo) {
 
 				var skipOffset = parse(lines[i].tokens.slice(3));
 
-				currentResultLineType="other";
+				currentResultLineType = LineType.OTHER;
 				currentResultLineContent = tows("_skip", actionKw)+"("+skipOffset+")";
 
 			} else {
 				var label = lines[i].tokens[1].text;
-				currentResultLineType = "skip";
+				currentResultLineType = LineType.SKIP;
 				currentResultLineLabel = label;
 			}
 
@@ -927,7 +941,7 @@ function parseInstructions(lines, nbDo) {
 			
 			debug("Parsing del keyword with var = '"+dispTokens(variable)+"' and member = '"+dispTokens(member)+"'");
 			
-			currentResultLineType = "other";
+			currentResultLineType = LineType.OTHER;
 			currentResultLineContent = parseAssignment(variable, member, true, "_removeFromArrayByIndex");
 			
 		//Check for label
@@ -936,7 +950,7 @@ function parseInstructions(lines, nbDo) {
 				error("Incorrectly formatted label");
 			}
 			var label = lines[i].tokens[0].text;
-			currentResultLineType = "label";
+			currentResultLineType = LineType.LABEL;
 			currentResultLineLabel = label;
 
 		//Check for pass
@@ -944,15 +958,15 @@ function parseInstructions(lines, nbDo) {
 			if (lines[i].tokens.length !== 1) {
 				error("Unexpected token after 'pass'");
 			}
-			currentResultLineType = "optimized";
+			currentResultLineType = LineType.OPTIMIZED;
 
 		//Any other instruction
 		} else {
 			currentResultLineContent = parse(lines[i].tokens, {"isWholeInstruction":true});
 			if (currentResultLineContent.length > 0) {
-				currentResultLineType = "other";
+				currentResultLineType = LineType.OTHER;
 			} else {
-				currentResultLineType = "optimized";
+				currentResultLineType = LineType.OPTIMIZED;
 			}
 		}
 
@@ -967,16 +981,6 @@ function parseInstructions(lines, nbDo) {
 			fileStack: lines[i].tokens[0].fileStack,
 		});
 
-		if (currentResultLineType === "switch") {
-			//add an useless instruction cause no skip(0)
-			resultLines.push({
-				type: "other",
-				content: tows("_disabled", ruleKw)+" "+tows("return", actionKw),
-				indentLevel: lines[i].indentLevel+4,
-				fileStack: lines[i].tokens[0].fileStack,
-			});
-		}
-
 		if (skipNextLine) {
 			i++;
 		}
@@ -986,7 +990,7 @@ function parseInstructions(lines, nbDo) {
 	var result = "";
 
 	function getNbLinesForType(type) {
-		if (["label", "ghostelse", "fakeghostelse", "optimized", "case"].includes(type)) {
+		if ([LineType.LABEL, LineType.GHOST_ELSE, LineType.FAKE_GHOST_ELSE, LineType.OPTIMIZED, LineType.CASE].includes(type)) {
 			return 0;
 		} else {
 			return 1;
@@ -998,7 +1002,7 @@ function parseInstructions(lines, nbDo) {
 		
 		fileStack = resultLines[i].fileStack;
 
-		if (resultLines[i].type === "forloop" || resultLines[i].type === "whileloop") {
+		if (resultLines[i].type === LineType.FOR_LOOP || resultLines[i].type === LineType.WHILE_LOOP) {
 
 			//Get the first non-indented line
 			var j = i+1;
@@ -1008,7 +1012,7 @@ function parseInstructions(lines, nbDo) {
 				error("Expected an indented block");
 			}
 			resultLines.splice(j, 0, ({
-				"type": "end",
+				"type": LineType.LOOP_END,
 				"indentLevel": resultLines[i].indentLevel,
 				"fileStack": resultLines[i].fileStack,
 			}))
@@ -1021,16 +1025,16 @@ function parseInstructions(lines, nbDo) {
 
 		fileStack = resultLines[i].fileStack;
 
-		if (resultLines[i].type === "other" || resultLines[i].type === "forloop" || resultLines[i].type === "whileloop") {
+		if (resultLines[i].type === LineType.OTHER || resultLines[i].type === LineType.FOR_LOOP || resultLines[i].type === LineType.WHILE_LOOP) {
 			result = tabLevel(2)+resultLines[i].content+";\n"+result;
 
-			if (i > 0 && (resultLines[i-1].type === "other" || resultLines[i-1].type === "skip" || resultLines[i-1].type === "label")) {
+			if (i > 0 && (resultLines[i-1].type === LineType.OTHER || resultLines[i-1].type === LineType.SKIP || resultLines[i-1].type === LineType.LABEL)) {
 				if (resultLines[i].indentLevel > resultLines[i-1].indentLevel) {
 					error("Unexpected indent or unreachable code");
 				}
 			}
 
-		} else if (["label", "ghostelse", "fakeghostelse", "optimized", "case"].includes(resultLines[i].type)) {
+		} else if (getNbLinesForType(resultLines[i].type) === 0) {
 			//do nothing
 
 		} else if (resultLines[i].type === "if") {
@@ -1043,7 +1047,7 @@ function parseInstructions(lines, nbDo) {
 				gotoOffset += getNbLinesForType(resultLines[j].type);
 			}
 
-			if (j < resultLines.length && (resultLines[j].type === "else" || resultLines[j].type === "fakeelse")) {
+			if (j < resultLines.length && (resultLines[j].type === LineType.ELSE || resultLines[j].type === LineType.FAKE_ELSE)) {
 				gotoOffset++;
 			}
 
@@ -1051,21 +1055,21 @@ function parseInstructions(lines, nbDo) {
 
 			if (isWsFalse(compiledCondition) || gotoOffset === 0) {
 				//Optimize away
-				resultLines[i].type = "optimized";
+				resultLines[i].type = LineType.OPTIMIZED;
 			} else if (isWsTrue(compiledCondition)) {
 				result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
 			} else {
 				result = tabLevel(2)+tows("_skipIf", actionKw)+"("+resultLines[i].condition+", "+gotoOffset+");\n"+result;
 			}
 
-		} else if (resultLines[i].type === "skip" || resultLines[i].type === "skipif") {
+		} else if (resultLines[i].type === LineType.SKIP || resultLines[i].type === LineType.SKIP_IF) {
 			
 			var gotoOffset = 0;
 			var foundLabel = false;
 			
 			for (var j = i+1; j < resultLines.length; j++) {
 				gotoOffset += getNbLinesForType(resultLines[j].type);
-				if (resultLines[j].type === "label" && resultLines[j].label === resultLines[i].label) {
+				if (resultLines[j].type === LineType.LABEL && resultLines[j].label === resultLines[i].label) {
 					foundLabel = true;
 					break;
 				}
@@ -1075,18 +1079,18 @@ function parseInstructions(lines, nbDo) {
 				error("Could not find label "+label);
 			}
 
-			var compiledCondition = resultLines[i].type === "skipif" ? resultLines[i].condition : wsTrue;
+			var compiledCondition = resultLines[i].type === LineType.SKIP_IF ? resultLines[i].condition : wsTrue;
 
 			if (isWsFalse(compiledCondition) || gotoOffset === 0) {
 				//Optimize away
-				resultLines[i].type = "optimized";
+				resultLines[i].type = LineType.OPTIMIZED;
 			} else if (isWsTrue(compiledCondition)) {
 				result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
 			} else {
 				result = tabLevel(2)+tows("_skipIf", actionKw)+"("+resultLines[i].condition+", "+gotoOffset+");\n"+result;
 			}
 
-		} else if (resultLines[i].type === "else") {
+		} else if (resultLines[i].type === LineType.ELSE) {
 			
 			//Get number of indented lines within the else
 			var gotoOffset = 0;
@@ -1101,12 +1105,12 @@ function parseInstructions(lines, nbDo) {
 			result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
 
 
-		} else if (resultLines[i].type === "fakeelse") {
+		} else if (resultLines[i].type === LineType.FAKE_ELSE) {
 			
 			var gotoOffset = 0;
 
 			//If the line following the "fake else" is "other" then it's a special elif.
-			if (resultLines[i+1].type === "other") {
+			if (resultLines[i+1].type === LineType.OTHER) {
 				gotoOffset++;
 			}
 
@@ -1115,12 +1119,12 @@ function parseInstructions(lines, nbDo) {
 			for (var j = i+1+gotoOffset; j < resultLines.length; j++) {
 				console.log(resultLines[j]);
 				if (resultLines[j].indentLevel <= resultLines[i].indentLevel 
-						&& resultLines[j-1].type !== "fakeelse" 
-						&& resultLines[j-1].type !== "fakeghostelse" 
-						&& resultLines[j].type !== "else" 
-						&& resultLines[j].type !== "fakeelse" 
-						&& resultLines[j].type !== "ghostelse"
-						&& resultLines[j].type !== "fakeghostelse") {
+						&& resultLines[j-1].type !== LineType.FAKE_ELSE 
+						&& resultLines[j-1].type !== LineType.FAKE_GHOST_ELSE 
+						&& resultLines[j].type !== LineType.ELSE
+						&& resultLines[j].type !== LineType.FAKE_ELSE
+						&& resultLines[j].type !== LineType.GHOST_ELSE
+						&& resultLines[j].type !== LineType.FAKE_GHOST_ELSE) {
 					break;
 				}
 				gotoOffset += getNbLinesForType(resultLines[j].type);
@@ -1131,18 +1135,18 @@ function parseInstructions(lines, nbDo) {
 			}
 			result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
 			
-		} else if (resultLines[i].type === "switch") {
+		} else if (resultLines[i].type === LineType.SWITCH) {
 			var caseOffsets = [];
 			var caseValues = [];
 			var currentCaseOffset = 0;
 			var wasDefaultEncountered = false;
 
-			if (i === resultLines.length-2 || resultLines[i+2].type !== "case") {
+			if (i === resultLines.length-2 || resultLines[i+1].type !== LineType.CASE) {
 				error("A switch must be followed by a 'case' or 'default' instruction");
 			}
 
 			for (var j = i+1; j < resultLines.length && resultLines[j].indentLevel > resultLines[i].indentLevel; j++) {
-				if (resultLines[j].type === "case") {
+				if (resultLines[j].type === LineType.CASE) {
 					if (resultLines[j].case === "__default__") {
 						if (wasDefaultEncountered) {
 							error("The 'default' case was already declared in the switch");
@@ -1188,28 +1192,38 @@ function parseInstructions(lines, nbDo) {
 
 			result = tabLevel(2)+tows("_skip", actionKw)+"("+switchResult+");\n"+result;
 
-		} else if (resultLines[i].type === "break") {
-			var breakOutOfSwitch = false;
-			var switchIndentLevel = 0;
+		} else if (resultLines[i].type === LineType.BREAK) {
+			var structureToBreakOutOf = null;
+			var structureIndentLevel = null;
 			var breakOffset = 0;
 
-			//If the indentation level is 0, it cannot be within a switch.
-			if (resultLines[i].indentLevel === 0) {
-				breakOutOfSwitch = false;
 
-			} else {
-				//Go up until we encounter a switch statement
-				for (var j = i-1; j >= 0; j--) {
-					if (resultLines[j].type === "switch") {
-						breakOutOfSwitch = true;
-						switchIndentLevel = resultLines[j].indentLevel;
-						break;
-					}
+			//Go up until we encounter a statement
+			var maxIndentLevel = resultLines[i].indentLevel-1;
+			for (var j = i-1; j >= 0; j--) {
+				if (resultLines[j].type === LineType.SWITCH) {
+					structureToBreakOutOf = resultLines[j].type;
+					structureIndentLevel = resultLines[j].indentLevel;
+					break;
+				} else if (resultLines[j].type === LineType.WHILE_LOOP) {
+					structureToBreakOutOf = resultLines[j].type;
+					structureIndentLevel = resultLines[j].indentLevel;
+					break;
+				} else if (resultLines[j].type === LineType.FOR_LOOP) {
+					structureToBreakOutOf = resultLines[j].type;
+					structureIndentLevel = resultLines[j].indentLevel;
+					break;
+				} else if (resultLines[j].type === LineType.DO) {
+					structureToBreakOutOf = resultLines[j].type;
+					structureIndentLevel = resultLines[j].indentLevel;
+					break;
+				} else {
+					error("Found break, but no loop");
 				}
 			}
 
 			if (breakOutOfSwitch) {
-				console.log("finding end of switch, indent level = "+switchIndentLevel);
+				debug("finding end of switch, indent level = "+switchIndentLevel);
 				//Go down until we find the end of the switch
 				for (var j = i+1; j < resultLines.length && resultLines[j].indentLevel > switchIndentLevel; j++) {
 					breakOffset += getNbLinesForType(resultLines[j].type);
@@ -1222,7 +1236,7 @@ function parseInstructions(lines, nbDo) {
 				var foundWhile = false;
 				for (var j = i+1; j < resultLines.length; j++) {
 					breakOffset += getNbLinesForType(resultLines[j].type);
-					if (resultLines[j].type === "other" && (resultLines[j].content.startsWith(loopWs) || resultLines[j].content.startsWith(loopIfWs))) {
+					if (resultLines[j].type === LineType.OTHER && (resultLines[j].content.startsWith(loopWs) || resultLines[j].content.startsWith(loopIfWs))) {
 						foundWhile = true;
 						break;
 					}
@@ -1683,11 +1697,6 @@ function parse(content, parseArgs={}) {
 
 	if (args === null) {
 
-		//Check for "continue"
-		if (name === "continue") {
-			return tows("_loop", actionKw);
-		}
-
 		//Check for current array element variable name
 		if (currentArrayElementNames.indexOf(name) >= 0) {
 			return tows("_currentArrayElement", valueFuncKw);
@@ -1761,8 +1770,8 @@ function parse(content, parseArgs={}) {
 			error("Function async takes 2 arguments, received "+args.length);
 		}
 		//Check if first arg is indeed a subroutine
-		if (args[0].length !== 3 || args[0][1].text !== "(" || args[0][2].text !== ")") {
-			error("Expected subroutine call as first argument");
+		if (args[0].length !== 1) {
+			error("Expected subroutine name as first argument");
 		}
 		console.log(args);
 		return tows("_startRule", actionKw)+"("+translateSubroutineToWs(args[0][0].text)+", "+parse(args[1])+")";
@@ -1782,11 +1791,17 @@ function parse(content, parseArgs={}) {
 		if (operands.length === 2) {
 			funcName += "PlayerVariable";
 			result += parse(operands[0])+", ";
+			if (operands[1].length !== 1) {
+				error("Expected a player variable");
+			}
 			//encounteredPlayerVars.add(operands[1][0].text);
 			result += translateVarToWs(operands[1][0].text, false);
 		} else {
 			funcName += "GlobalVariable";
 			//encounteredGlobalVars.add(args[0][0].text);
+			if (args[0].length !== 1) {
+				error("Expected a global variable");
+			}
 			result += translateVarToWs(args[0][0].text, true);
 		}
 		

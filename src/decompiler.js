@@ -1218,7 +1218,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 
 	//Start rule
 	if (name === "_startRule") {
-		return "async("+translateSubroutineToPy(args[0])+"(), "+decompile(args[1])+")";
+		return "async("+translateSubroutineToPy(args[0])+", "+decompile(args[1])+")";
 	}
 	
 	//Stop chasing player variable

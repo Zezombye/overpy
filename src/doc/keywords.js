@@ -83,7 +83,7 @@ const customGameSettingsKw =
         "zh-TW": "停用"
     },
     "_yes": {
-        "guid": "0000000058F3",
+        "guid": "00000000F406",
         "en-US": "Yes",
         "de-DE": "Ja",
         "es-ES": "Sí",
@@ -99,7 +99,7 @@ const customGameSettingsKw =
         "zh-TW": "啟用"
     },
     "_no": {
-        "guid": "0000000058F4",
+        "guid": "00000000F407",
         "en-US": "No",
         "de-DE": "Nein",
         "fr-FR": "Non",
