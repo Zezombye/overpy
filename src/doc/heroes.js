@@ -473,6 +473,18 @@ const heroKw =
         "zh-CN": "末日铁拳",
         "zh-TW": "毀滅拳王"
     },
+    "echo": {
+        "ability1": {
+            "en-US": "Flight",
+        },
+        "ability2": {
+            "en-US": "Focusing Beam",
+        },
+        "ultimate": {
+            "en-US": "Duplicate",
+        },
+        "en-US": "Echo",
+    },
     "genji": {
         "guid": "000000000029",
         "ability1": {
