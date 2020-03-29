@@ -69,3 +69,28 @@ function splitStrTokens(tokens, str1, str2) {
 	}
 	
 }
+
+function unescapeString(content) {
+	if (content.length < 2) {
+		error("Expected a string, but got '"+content+"'");
+	}
+	if (content.startsWith("'") && content.endsWith("'")) {
+		content = content.substring(1, content.length-1).replace(/\\'/g, "'");
+
+	} else if (content.startsWith('"') && content.endsWith('"')) {
+		content = content.substring(1, content.length-1).replace(/\\"/g, '"');
+
+	} else {
+		error("Expected a string, but got '"+content+"'");
+	}
+	if (content.includes("\n")) {
+		error("Newlines in strings are not supported by the workshop");
+	}
+	content = content.replace(/\\\\/g, "\\");
+	return content;
+}
+
+function escapeString(content) {
+	return content.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, "\\n");
+}
+

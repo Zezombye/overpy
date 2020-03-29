@@ -291,7 +291,13 @@ function tokenize(content) {
 				//Get to the end of the comment. Note: backslashes don't work to continue a line comment.
 				var j = i+1;
 				for (; j < content.length && content[j] !== "\n"; j++);
-				addToken(content.substring(i, j))
+
+				//To facilitate parsing, do not add the comment if it is in parentheses, as it won't be used for action comments.
+				if (bracketsLevel !== 0) {
+					moveCursor(j-i-1);
+				} else {
+					addToken(content.substring(i, j))
+				}
 			
 			} else if (content.startsWith("/*", i)) {
 				
@@ -438,7 +444,7 @@ function tokenize(content) {
 	//console.log(macros);
 	//console.log(rules);
 	console.log(result.join("\n"));
-	console.log(result);
+	//console.log(result);
 	
 	return result;
 	

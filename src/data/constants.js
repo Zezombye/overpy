@@ -312,8 +312,8 @@ const constantValues =
             "zh-CN": "终极技能"
         }
     },
-    "_Operation": {
-        "_add": {
+    "__Operation__": {
+        "__add__": {
             "guid": "00000000B16D",
             "en-US": "Add",
             "es-MX": "Agregar",
@@ -322,7 +322,7 @@ const constantValues =
             "pt-BR": "Adicionar",
             "zh-CN": "加"
         },
-        "_appendToArray": {
+        "__appendToArray__": {
             "guid": "00000000B167",
             "en-US": "Append To Array",
             "es-MX": "Anexar a la matriz",
@@ -331,7 +331,7 @@ const constantValues =
             "pt-BR": "Juntar à Matriz",
             "zh-CN": "添加至数组"
         },
-        "_divide": {
+        "__divide__": {
             "guid": "00000000B16A",
             "en-US": "Divide",
             "es-MX": "Dividir",
@@ -340,7 +340,7 @@ const constantValues =
             "pt-BR": "Dividir",
             "zh-CN": "除"
         },
-        "_max": {
+        "__max__": {
             "guid": "00000000B18F",
             "en-US": "Max",
             "es-MX": "Máximo",
@@ -349,7 +349,7 @@ const constantValues =
             "pt-BR": "Máx.",
             "zh-CN": "最大"
         },
-        "_min": {
+        "__min__": {
             "guid": "00000000B190",
             "en-US": "Min",
             "es-MX": "Mínimo",
@@ -358,7 +358,7 @@ const constantValues =
             "pt-BR": "Mín.",
             "zh-CN": "最小"
         },
-        "_modulo": {
+        "__modulo__": {
             "guid": "00000000B169",
             "en-US": "Modulo",
             "es-MX": "Módulo",
@@ -366,7 +366,7 @@ const constantValues =
             "pt-BR": "Modular",
             "zh-CN": "余数"
         },
-        "_multiply": {
+        "__multiply__": {
             "guid": "00000000B16B",
             "en-US": "Multiply",
             "es-MX": "Multiplicar",
@@ -375,7 +375,7 @@ const constantValues =
             "pt-BR": "Multiplicar",
             "zh-CN": "乘"
         },
-        "_raiseToPower": {
+        "__raiseToPower__": {
             "guid": "00000000B168",
             "en-US": "Raise To Power",
             "es-MX": "Elevar a la potencia",
@@ -384,7 +384,7 @@ const constantValues =
             "pt-BR": "Elevar à Potência",
             "zh-CN": "乘方"
         },
-        "_removeFromArrayByIndex": {
+        "__removeFromArrayByIndex__": {
             "guid": "00000000C61B",
             "en-US": "Remove From Array By Index",
             "es-MX": "Eliminar de la matriz por índice",
@@ -393,7 +393,7 @@ const constantValues =
             "pt-BR": "Remover da Matriz por Índice",
             "zh-CN": "根据索引从数组中移除"
         },
-        "_removeFromArrayByValue": {
+        "__removeFromArrayByValue__": {
             "guid": "00000000B166",
             "en-US": "Remove From Array By Value",
             "es-MX": "Eliminar de la matriz por valor",
@@ -402,7 +402,7 @@ const constantValues =
             "pt-BR": "Remover da Matriz por Valor",
             "zh-CN": "根据值从数组中移除"
         },
-        "_subtract": {
+        "__subtract__": {
             "guid": "00000000B16C",
             "en-US": "Subtract",
             "es-MX": "Restar",
@@ -1170,8 +1170,8 @@ const constantValues =
             "zh-CN": "合并相反运动"
         }
     },
-    "_Rounding": {
-        "_roundUp": {
+    "__Rounding__": {
+        "__roundUp__": {
             "guid": "00000000C34F",
             "en-US": "Up",
             "es-MX": "Hacia arriba",
@@ -1180,7 +1180,7 @@ const constantValues =
             "pt-BR": "Cima",
             "zh-CN": "上"
         },
-        "_roundDown": {
+        "__roundDown__": {
             "guid": "00000000C34E",
             "en-US": "Down",
             "es-MX": "Hacia abajo",
@@ -1189,7 +1189,7 @@ const constantValues =
             "pt-BR": "Baixo",
             "zh-CN": "下"
         },
-        "_roundToNearest": {
+        "__roundToNearest__": {
             "guid": "00000000C34D",
             "en-US": "To Nearest",
             "es-MX": "Al más cercano",
@@ -1431,7 +1431,7 @@ const constantValues =
         }
     },
     "ChaseReeval": {},
-    "_ChaseRateReeval": {
+    "__ChaseRateReeval__": {
         "DESTINATION_AND_RATE": {
             "guid": "00000000B8CA",
             "en-US": "Destination and Rate",
@@ -1452,7 +1452,7 @@ const constantValues =
             "zh-CN": "全部禁用"
         }
     },
-    "_ChaseTimeReeval": {
+    "__ChaseTimeReeval__": {
         "DESTINATION_AND_DURATION": {
             "guid": "00000000C479",
             "en-US": "Destination and Duration",
@@ -1877,4 +1877,4 @@ for (var key of Object.keys(gamemodeKw)) {
     constantValues["Gamemode"][camelCaseToUpperCase(key)] = gamemodeKw[key]
 }
 
-constantValues["ChaseReeval"] = Object.assign({}, constantValues["_ChaseRateReeval"], constantValues["_ChaseTimeReeval"])
+constantValues["ChaseReeval"] = Object.assign({}, constantValues["__ChaseRateReeval__"], constantValues["__ChaseTimeReeval__"])

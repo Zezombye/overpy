@@ -1,12 +1,12 @@
-[Core] DataTool v1.46.0.864-git-ec7bc2fdc94d326652d08645a2d8c25464721f88
+[Core] DataTool v1.46.0.866-git-53565d47153728a60a0a8d7984fda5f7b64203a6
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.exe.args
 [CASC] Set language to enUS
 [CASC] Set speech language to enUS
-[CASC] Overwatch build 1.46.0.0.66607
+[CASC] Overwatch build 1.46.1.0.67071
 [CASC] Initializing...
-[CMF] Using CMF procedure 66607
-[CMF] Using CMF procedure 66607
+[CMF] Using CMF procedure 67071
+[CMF] Using CMF procedure 67071
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -26630,6 +26630,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F5EA.07C: Florida Mayhem Away
 00000000F5EB.07C: TEAM 3
 00000000F5EC.07C: TEAM 4
+00000000F5F8.07C: Thunder
 00000000F652.07C: Blood Moon Rising
 00000000F653.07C: Storm Rising. Only damage heroes. Healing is reduced. Heal yourself by doing damage.
 00000000F674.07C: Storm Rising Vampiric
@@ -27070,6 +27071,9 @@ https://account.blizzard.com/connections/nintendo
 000000010307.07C: Unlocked by completing Competitive 6v6 Elimination 2020 placement matches
 000000010308.07C: Competitive 6v6 Elimination Hero 2020
 000000010309.07C: Unlocked by achieving top 500 ranking at the end of Competitive 6v6 Elimination 2020
+00000001030E.07C: Thunder Doomfist
+00000001030F.07C: 2019 Overwatch League Champions
+San Francisco Shock
 000000010311.07C: Strike
 000000010312.07C: Available in Archives Loot Boxes
 00000001031E.07C: Archives 2020
@@ -27119,4 +27123,4 @@ https://account.blizzard.com/connections/nintendo
 0000000105D5.07C: %1$s Best Blood Moon Rising Score
 0000000105D6.07C: Best Storm Raging Score
 0000000105D7.07C: %1$s Best Storm Raging Score
-[Core] Execution finished in 00:00:07.1179378 seconds
+[Core] Execution finished in 00:00:06.3256659 seconds

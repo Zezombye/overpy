@@ -89,30 +89,6 @@ function startsWithParenthesis(content) {
 	return false;
 }
 
-function unBackslashString(content) {
-	if (content.length < 2) {
-		error("Expected a string, but got '"+content+"'");
-	}
-	if (content.startsWith("'") && content.endsWith("'")) {
-		content = content.substring(1, content.length-1).replace(/\\'/g, "'");
-
-	} else if (content.startsWith('"') && content.endsWith('"')) {
-		content = content.substring(1, content.length-1).replace(/\\"/g, '"');
-
-	} else {
-		error("Expected a string, but got '"+content+"'");
-	}
-	if (content.includes("\n")) {
-		error("Newlines in strings are not supported by the workshop");
-	}
-	content = content.replace(/\\\\/g, "\\");
-	return content;
-}
-
-function backslashString(content) {
-	return content.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-}
-
 //Returns true if c is [A-Za-z\d_@].
 function isVarChar(c) {
 	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_' || c === '@';

@@ -29,7 +29,7 @@ const actionKw =
         "pt-BR": "Anular",
         "zh-CN": "中止"
     },
-    "_abortIf": {
+    "__abortIf__": {
         "description": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
         "args": [
             {
@@ -47,7 +47,7 @@ const actionKw =
         "pt-BR": "Anular se",
         "zh-CN": "根据条件中止"
     },
-    "_abortIfConditionIsFalse": {
+    "__abortIfConditionIsFalse__": {
         "description": "Stops execution of the action list if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
         "args": [],
         "guid": "00000000BB02",
@@ -58,7 +58,7 @@ const actionKw =
         "pt-BR": "Anular se a Condição for Falsa",
         "zh-CN": "如条件为“假”则中止"
     },
-    "_abortIfConditionIsTrue": {
+    "__abortIfConditionIsTrue__": {
         "description": "Stops execution of the action list if all conditions in the condition list are true. If any are false, execution continues with the next action.",
         "args": [],
         "guid": "00000000BB03",
@@ -159,7 +159,7 @@ const actionKw =
         "pt-BR": "Mensagem Grande",
         "zh-CN": "大字体信息"
     },
-    "_callSubroutine": {
+    "__callSubroutine__": {
         "description": "Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
         "args": [
             {
@@ -178,7 +178,7 @@ const actionKw =
         "pt-BR": "Chamar sub-rotina",
         "zh-CN": "调用子程序"
     },
-    "_chaseGlobalVariableAtRate": {
+    "__chaseGlobalVariableAtRate__": {
         "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
         "args": [
             {
@@ -214,7 +214,7 @@ const actionKw =
         "pt-BR": "Acompanhar Variável Global na Medida",
         "zh-CN": "追踪全局变量频率"
     },
-    "_chaseGlobalVariableOverTime": {
+    "__chaseGlobalVariableOverTime__": {
         "description": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)",
         "args": [
             {
@@ -250,7 +250,7 @@ const actionKw =
         "pt-BR": "Acompanhar Variável Global ao Longo do Tempo",
         "zh-CN": "持续追踪全局变量"
     },
-    "_chasePlayerVariableAtRate": {
+    "__chasePlayerVariableAtRate__": {
         "description": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)",
         "args": [
             {
@@ -292,7 +292,7 @@ const actionKw =
         "pt-BR": "Acompanhar Variável de Jogador na Medida",
         "zh-CN": "追踪玩家变量频率"
     },
-    "_chasePlayerVariableOverTime": {
+    "__chasePlayerVariableOverTime__": {
         "description": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)",
         "args": [
             {
@@ -522,7 +522,7 @@ const actionKw =
         "pt-BR": "Criar Efeito",
         "zh-CN": "创建效果"
     },
-    "_hudText": {
+    "__hudText__": {
         "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
         "args": [
             {
@@ -1236,7 +1236,7 @@ const actionKw =
         "ja-JP": "終了",
         "pt-BR": "Término"
     },
-    "_forGlobalVar": {
+    "__forGlobalVar__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
         "args": [
             {
@@ -1272,7 +1272,7 @@ const actionKw =
         "pt-BR": "For variável global",
         "zh-CN": "For 全局变量"
     },
-    "_forPlayerVar": {
+    "__forPlayerVar__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
         "args": [
             {
@@ -1396,7 +1396,7 @@ const actionKw =
         "pt-BR": "Abater",
         "zh-CN": "击杀"
     },
-    "_loop": {
+    "__loop__": {
         "guid": "0000000078F5",
         "description": "Restarts the action list from the beginning. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
@@ -1407,7 +1407,7 @@ const actionKw =
         "pt-BR": "Gerar Loop",
         "zh-CN": "循环"
     },
-    "_loopIf": {
+    "__loopIf__": {
         "description": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [
             {
@@ -1425,7 +1425,7 @@ const actionKw =
         "pt-BR": "Gerar Loop se",
         "zh-CN": "根据条件循环"
     },
-    "_loopIfConditionIsFalse": {
+    "__loopIfConditionIsFalse__": {
         "description": "Restarts the action list from the beginning if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
         "guid": "00000000BB05",
@@ -1436,7 +1436,7 @@ const actionKw =
         "pt-BR": "Gerar Loop se a Condição for Falsa",
         "zh-CN": "如条件为“假”则循环"
     },
-    "_loopIfConditionIsTrue": {
+    "__loopIfConditionIsTrue__": {
         "description": "Restarts the action list from the beginning if every condition in the condition list is true. If any are false, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
         "guid": "000000007874",
@@ -1447,7 +1447,7 @@ const actionKw =
         "pt-BR": "Gerar Loop se a Condição for Verdadeira",
         "zh-CN": "如条件为”真“则循环"
     },
-    "_modifyGlobalVar": {
+    "__modifyGlobalVar__": {
         "description": "Modifies the value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -1459,7 +1459,7 @@ const actionKw =
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "_Operation",
+                "type": "__Operation__",
                 "default": "ADD"
             },
             {
@@ -1477,7 +1477,7 @@ const actionKw =
         "pt-BR": "Modificar Variável Global",
         "zh-CN": "修改全局变量"
     },
-    "_modifyGlobalVarAtIndex": {
+    "__modifyGlobalVarAtIndex__": {
         "description": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -1495,7 +1495,7 @@ const actionKw =
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "_Operation",
+                "type": "__Operation__",
                 "default": "ADD"
             },
             {
@@ -1537,7 +1537,7 @@ const actionKw =
         "pt-BR": "Modificar Pontuação do Jogador",
         "zh-CN": "修改玩家分数"
     },
-    "_modifyPlayerVar": {
+    "__modifyPlayerVar__": {
         "description": "Modifies the value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -1555,7 +1555,7 @@ const actionKw =
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "_Operation",
+                "type": "__Operation__",
                 "default": "ADD"
             },
             {
@@ -1573,7 +1573,7 @@ const actionKw =
         "pt-BR": "Modificar Variável de Jogador",
         "zh-CN": "修改玩家变量"
     },
-    "_modifyPlayerVarAtIndex": {
+    "__modifyPlayerVarAtIndex__": {
         "description": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -1597,7 +1597,7 @@ const actionKw =
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "_Operation",
+                "type": "__Operation__",
                 "default": "ADD"
             },
             {
@@ -1944,7 +1944,7 @@ const actionKw =
         "pt-BR": "Definir Encarar",
         "zh-CN": "设置朝向"
     },
-    "_setGlobalVar": {
+    "__setGlobalVar__": {
         "description": "Stores a value into a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -1968,7 +1968,7 @@ const actionKw =
         "pt-BR": "Definir Variável Global",
         "zh-CN": "设置全局变量"
     },
-    "_setGlobalVarAtIndex": {
+    "__setGlobalVarAtIndex__": {
         "description": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index.",
         "args": [
             {
@@ -2238,7 +2238,7 @@ const actionKw =
         "pt-BR": "Definir Pontuação do Jogador",
         "zh-CN": "设置玩家分数"
     },
-    "_setPlayerVar": {
+    "__setPlayerVar__": {
         "description": "Stores a value into a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -2268,7 +2268,7 @@ const actionKw =
         "pt-BR": "Definir Variável de Jogador",
         "zh-CN": "设置玩家变量"
     },
-    "_setPlayerVarAtIndex": {
+    "__setPlayerVarAtIndex__": {
         "description": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index.",
         "args": [
             {
@@ -2550,7 +2550,7 @@ const actionKw =
         "pt-BR": "Definir Carga da Suprema",
         "zh-CN": "设置终极技能充能"
     },
-    "_skip": {
+    "__skip__": {
         "guid": "00000000BB01",
         "description": "Skips execution of a certain number of actions in the action list.",
         "args": [
@@ -2568,7 +2568,7 @@ const actionKw =
         "pt-BR": "Ignorar",
         "zh-CN": "跳过"
     },
-    "_skipIf": {
+    "__skipIf__": {
         "description": "Skips execution of a certain number of actions in the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
         "args": [
             {
@@ -3012,7 +3012,7 @@ const actionKw =
         "pt-BR": "Começar a Segurar Botão",
         "zh-CN": "开始按下按钮"
     },
-    "_startRule": {
+    "__startRule__": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
         "args": [
             {
@@ -3214,7 +3214,7 @@ const actionKw =
         "pt-BR": "Parar Câmera",
         "zh-CN": "停止镜头"
     },
-    "_stopChasingGlobalVariable": {
+    "__stopChasingGlobalVariable__": {
         "description": "Stops an in-progress chase of a global variable, leaving it at its current value.",
         "args": [
             {
@@ -3232,7 +3232,7 @@ const actionKw =
         "pt-BR": "Parar de Acompanhar Variável Global",
         "zh-CN": "停止追踪全局变量"
     },
-    "_stopChasingPlayerVariable": {
+    "__stopChasingPlayerVariable__": {
         "description": "Stops an in-progress chase of a player variable, leaving it at its current value.",
         "args": [
             {
@@ -3495,7 +3495,7 @@ const actionKw =
         "pt-BR": "Retomar Tempo da Partida",
         "zh-CN": "比赛时间继续"
     },
-    "_wait": {
+    "__wait__": {
         "guid": "000000007872",
         "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
         "args": [

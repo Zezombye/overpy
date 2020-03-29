@@ -1,12 +1,12 @@
-[Core] DataTool v1.46.0.864-git-ec7bc2fdc94d326652d08645a2d8c25464721f88
+[Core] DataTool v1.46.0.866-git-53565d47153728a60a0a8d7984fda5f7b64203a6
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=jaJP", "-T=jaJP"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.exe.args
 [CASC] Set language to jaJP
 [CASC] Set speech language to jaJP
-[CASC] Overwatch build 1.46.0.0.66607
+[CASC] Overwatch build 1.46.1.0.67071
 [CASC] Initializing...
-[CMF] Using CMF procedure 66607
-[CMF] Using CMF procedure 66607
+[CMF] Using CMF procedure 67071
+[CMF] Using CMF procedure 67071
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -26628,6 +26628,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F5EA.07C: Florida Mayhem （アウェイ）
 00000000F5EB.07C: チーム3
 00000000F5EC.07C: チーム4
+00000000F5F8.07C: サンダー
 00000000F652.07C: ブラッドムーン・ライジング
 00000000F653.07C: ストーム・ライジング。ダメージヒーロー限定で回復が制限される。ダメージを与えることで自身を回復する
 00000000F674.07C: ストーム・ライジング ヴァンピリック
@@ -27068,6 +27069,9 @@ https://account.blizzard.com/connections/nintendo
 000000010307.07C: ライバル 6VS6 エリミネーション 2020<br>の<br>スキル<br>認定<br>マッチ<br>完了で<br>アンロック
 000000010308.07C: ライバル 6VS6 エリミネーション 2020 ヒーロー
 000000010309.07C: ライバル 6VS6 エリミネーション 2020<br>終了時に<br>トップ<br>500に<br>ランク<br>イン<br>して<br>アン<br>ロック
+00000001030E.07C: ドゥームフィスト用スキン「サンダー」
+00000001030F.07C: 2019 オーバーウォッチ リーグ チャンピオン
+San Francisco Shock
 000000010311.07C: ストライク
 000000010312.07C: アーカイブ <br>トレジャー・<br>ボックスで<br>入手<br>可能
 00000001031E.07C: アーカイブ 2020
@@ -27117,4 +27121,4 @@ https://account.blizzard.com/connections/nintendo
 0000000105D5.07C: %1$s Best Blood Moon Rising Score
 0000000105D6.07C: Best Storm Raging Score
 0000000105D7.07C: %1$s Best Storm Raging Score
-[Core] Execution finished in 00:00:04.2525701 seconds
+[Core] Execution finished in 00:00:04.4153694 seconds

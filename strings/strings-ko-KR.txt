@@ -1,12 +1,12 @@
-[Core] DataTool v1.46.0.864-git-ec7bc2fdc94d326652d08645a2d8c25464721f88
+[Core] DataTool v1.46.0.866-git-53565d47153728a60a0a8d7984fda5f7b64203a6
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.exe.args
 [CASC] Set language to koKR
 [CASC] Set speech language to koKR
-[CASC] Overwatch build 1.46.0.0.66607
+[CASC] Overwatch build 1.46.1.0.67071
 [CASC] Initializing...
-[CMF] Using CMF procedure 66607
-[CMF] Using CMF procedure 66607
+[CMF] Using CMF procedure 67071
+[CMF] Using CMF procedure 67071
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -26628,6 +26628,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F5EA.07C: 플로리다 메이헴 어웨이
 00000000F5EB.07C: 3팀
 00000000F5EC.07C: 4팀
+00000000F5F8.07C: 천둥
 00000000F652.07C: 떠오르는 핏빛 달
 00000000F653.07C: 폭풍의 서막. 공격 영웅만 선택 가능합니다. 치유량이 감소합니다. 피해를 주면 생명력을 회복합니다.
 00000000F674.07C: 폭풍의 서막 떠오르는 핏빛 달
@@ -27068,6 +27069,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010307.07C: 2020 6대6 섬멸전 경쟁전 배치 경기를 완료하여 획득
 000000010308.07C: 2020 6대6 섬멸전 경쟁전 영웅
 000000010309.07C: 2020 6대6 섬멸전 경쟁전에서 상위 500위를 달성하여 획득
+00000001030E.07C: 천둥 둠피스트
+00000001030F.07C: 2019 오버워치 리그 챔피언
+샌프란시스코 쇼크
 000000010311.07C: 타격팀
 000000010312.07C: 지난 기록의 전리품 상자에서 획득
 00000001031E.07C: 2020 기록 보관소
@@ -27117,4 +27121,4 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000105D5.07C: %1$s Best Blood Moon Rising Score
 0000000105D6.07C: Best Storm Raging Score
 0000000105D7.07C: %1$s Best Storm Raging Score
-[Core] Execution finished in 00:00:03.1846789 seconds
+[Core] Execution finished in 00:00:03.1220011 seconds

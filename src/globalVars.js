@@ -93,14 +93,6 @@ function resetGlobalVariables(language) {
 	rootPath = "";
 	currentArrayElementNames = [];
 	currentLanguage = language;
-	wsTrue = tows("true", valueFuncKw);
-	wsFalse = tows("false", valueFuncKw);
-	wsNull = tows("null", valueFuncKw);
-	wsNot = tows("_not", valueFuncKw);
-	wsRandInt = tows("random.randint", valueFuncKw);
-	wsRandReal = tows("random.uniform", valueFuncKw);
-	wsRandShuffle = tows("random.shuffle", valueFuncKw);
-	wsRandChoice = tows("random.choice", valueFuncKw);
 	currentRuleEvent = "";
 	obfuscateRules = false;
 	macros = [];
@@ -156,8 +148,6 @@ const pyOperators = [
 	"**=",
 	"min=",
 	"max=",
-	"++",
-	"--",
 	"if",
 	"or",
 	"and",
@@ -169,6 +159,8 @@ const pyOperators = [
 	">=",
 	">",
 	"<",
+	"++",
+	"--",
 	"+",
 	"-",
 	"*",

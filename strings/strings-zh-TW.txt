@@ -1,12 +1,12 @@
-[Core] DataTool v1.46.0.864-git-ec7bc2fdc94d326652d08645a2d8c25464721f88
+[Core] DataTool v1.46.0.866-git-53565d47153728a60a0a8d7984fda5f7b64203a6
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.exe.args
 [CASC] Set language to zhTW
 [CASC] Set speech language to zhTW
-[CASC] Overwatch build 1.46.0.0.66607
+[CASC] Overwatch build 1.46.1.0.67071
 [CASC] Initializing...
-[CMF] Using CMF procedure 66607
-[CMF] Using CMF procedure 66607
+[CMF] Using CMF procedure 67071
+[CMF] Using CMF procedure 67071
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -26630,6 +26630,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F5EA.07C: Florida Mayhem(客場)
 00000000F5EB.07C: 隊伍3
 00000000F5EC.07C: 隊伍4
+00000000F5F8.07C: 雷霆
 00000000F652.07C: 血月獵殺
 00000000F653.07C: 失控倒數。只能使用攻擊英雄。治療效果降低，造成傷害可恢復生命值。
 00000000F674.07C: 失控倒數吸血模式
@@ -27070,6 +27071,9 @@ https://account.blizzard.com/connections/nintendo
 000000010307.07C: 完成2020年6v6鎖定對決競技模式預選賽即可解鎖
 000000010308.07C: 2020年6v6鎖定對決競技模式精英
 000000010309.07C: 在2020年6v6鎖定對決競技模式進入前500名即可解鎖
+00000001030E.07C: 雷霆毀滅拳王
+00000001030F.07C: 2019《鬥陣特攻》職業電競聯賽冠軍
+San Francisco Shock
 000000010311.07C: 特遣隊
 000000010312.07C: 經由捍衛密令戰利品解鎖
 00000001031E.07C: 2020年捍衛密令
@@ -27119,4 +27123,4 @@ https://account.blizzard.com/connections/nintendo
 0000000105D5.07C: %1$s Best Blood Moon Rising Score
 0000000105D6.07C: Best Storm Raging Score
 0000000105D7.07C: %1$s Best Storm Raging Score
-[Core] Execution finished in 00:00:03.0412291 seconds
+[Core] Execution finished in 00:00:03.0817388 seconds

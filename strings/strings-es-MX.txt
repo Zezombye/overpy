@@ -1,12 +1,12 @@
-[Core] DataTool v1.46.0.864-git-ec7bc2fdc94d326652d08645a2d8c25464721f88
+[Core] DataTool v1.46.0.866-git-53565d47153728a60a0a8d7984fda5f7b64203a6
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=esMX", "-T=esMX"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.exe.args
 [CASC] Set language to esMX
 [CASC] Set speech language to esMX
-[CASC] Overwatch build 1.46.0.0.66607
+[CASC] Overwatch build 1.46.1.0.67071
 [CASC] Initializing...
-[CMF] Using CMF procedure 66607
-[CMF] Using CMF procedure 66607
+[CMF] Using CMF procedure 67071
+[CMF] Using CMF procedure 67071
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -26640,6 +26640,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F5EA.07C: Florida Mayhem (visitante)
 00000000F5EB.07C: EQUIPO 3
 00000000F5EC.07C: EQUIPO 4
+00000000F5F8.07C: Trueno
 00000000F652.07C: Luna de sangre creciente
 00000000F653.07C: Tormenta inminente. Solo héroes de daño. La sanación se reduce. Te sanas al infligir daño.
 00000000F674.07C: Tormenta inminente vampírica
@@ -27080,6 +27081,9 @@ https://account.blizzard.com/connections/nintendo
 000000010307.07C: Se desbloquea al completar las partidas de colocación de Eliminación 6 vs. 6 competitiva 2020
 000000010308.07C: Héroe de Eliminación 6 vs. 6 competitiva 2020
 000000010309.07C: Se desbloquea al estar entre los 500 mejores al final de Eliminación 6 vs. 6 competitiva 2020
+00000001030E.07C: Doomfist Trueno
+00000001030F.07C: Campeón de la Liga Overwatch 2019
+San Francisco Shock
 000000010311.07C: Golpe
 000000010312.07C: Disponible en cajas de botín de archivos
 00000001031E.07C: Archivos 2020
@@ -27129,4 +27133,4 @@ https://account.blizzard.com/connections/nintendo
 0000000105D5.07C: %1$s Best Blood Moon Rising Score
 0000000105D6.07C: Best Storm Raging Score
 0000000105D7.07C: %1$s Best Storm Raging Score
-[Core] Execution finished in 00:00:03.5203677 seconds
+[Core] Execution finished in 00:00:03.3727482 seconds

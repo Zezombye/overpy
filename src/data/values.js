@@ -36,7 +36,7 @@ var valueFuncKw =
         "pt-BR": "Valor Absoluto",
         "zh-CN": "绝对值"
     },
-    "_add": {
+    "__add__": {
         "guid": "00000000C408",
         "description": "The sum of two numbers or vectors.",
         "args": [
@@ -236,7 +236,7 @@ var valueFuncKw =
         "pt-BR": "Altitude de",
         "zh-CN": "高度"
     },
-    "_and": {
+    "__and__": {
         "description": "Whether both of the two inputs are true (or equivalent to true).",
         "args": [
             {
@@ -308,7 +308,7 @@ var valueFuncKw =
         "pt-BR": "Diferença de Ângulo",
         "zh-CN": "角度差"
     },
-    "_appendToArray": {
+    "__appendToArray__": {
         "guid": "00000000C41A",
         "description": "A copy of an array with one or more values appended to the end.",
         "args": [
@@ -452,7 +452,7 @@ var valueFuncKw =
         "pt-BR": "Arco Tangente em Radianos",
         "zh-CN": "以弧度为单位的反正切值"
     },
-    "_arrayContains": {
+    "__arrayContains__": {
         "description": "Whether the specified array contains the specified value.",
         "args": [
             {
@@ -476,7 +476,7 @@ var valueFuncKw =
         "pt-BR": "Matriz Contém",
         "zh-CN": "数组包含"
     },
-    "_arraySlice": {
+    "__arraySlice__": {
         "description": "A copy of the specified array containing only values from a specified index range.",
         "args": [
             {
@@ -552,7 +552,7 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo a",
         "zh-CN": "距离最近的玩家"
     },
-    "_compare": {
+    "__compare__": {
         "description": "Whether the comparison of the two inputs is true.",
         "args": [
             {
@@ -689,7 +689,7 @@ var valueFuncKw =
         "pt-BR": "Produto Vetorial",
         "zh-CN": "矢量积"
     },
-    "_currentArrayElement": {
+    "__currentArrayElement__": {
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": [],
         "guid": "00000000B5B9",
@@ -724,7 +724,7 @@ var valueFuncKw =
         "pt-BR": "Mapa Atual",
         "zh-CN": "当前地图"
     },
-    "_customString": {
+    "__customString__": {
         "description": "ty magzie for adding that",
         "args": [
             {
@@ -833,7 +833,7 @@ var valueFuncKw =
         "pt-BR": "Distância entre",
         "zh-CN": "相距距离"
     },
-    "_divide": {
+    "__divide__": {
         "guid": "00000000C40F",
         "description": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero.",
         "args": [
@@ -892,7 +892,7 @@ var valueFuncKw =
         "pt-BR": "Baixo",
         "zh-CN": "下"
     },
-    "_emptyArray": {
+    "__emptyArray__": {
         "description": "An array with no elements.",
         "args": [],
         "guid": "00000000BF5A",
@@ -1046,7 +1046,7 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Distante de",
         "zh-CN": "距离最远的玩家"
     },
-    "_filteredArray": {
+    "__filteredArray__": {
         "description": "A copy of the specified array with any values that do not match the specified condition removed.",
         "args": [
             {
@@ -1070,7 +1070,7 @@ var valueFuncKw =
         "pt-BR": "Matriz Filtrada",
         "zh-CN": "已过滤的数组"
     },
-    "_firstOf": {
+    "__firstOf__": {
         "description": "The value at the start of the specified array. Results in 0 if the specified array is empty.",
         "args": [
             {
@@ -1117,7 +1117,7 @@ var valueFuncKw =
         "pt-BR": "Para a Frente",
         "zh-CN": "前"
     },
-    "_globalVar": {
+    "__globalVar__": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -1237,7 +1237,7 @@ var valueFuncKw =
         "pt-BR": "Vida Normalizada",
         "zh-CN": "标准化生命值"
     },
-    "_hero": {
+    "__hero__": {
         "guid": "00000000ACAA",
         "description": "A hero constant.",
         "args": [
@@ -1333,7 +1333,7 @@ var valueFuncKw =
         "pt-BR": "Ângulo Horizontal Rumo a",
         "zh-CN": "水平方向夹角"
     },
-    "_gamemode": {
+    "__gamemode__": {
         "guid": "00000000F161",
         "description": "A game mode constant.",
         "args": [
@@ -1419,7 +1419,7 @@ var valueFuncKw =
         "pt-BR": "String de Ícone",
         "zh-CN": "图标字符串"
     },
-    "_indexOfArrayValue": {
+    "__indexOfArrayValue__": {
         "description": "The index of a value within an array or -1 if no such value can be found.",
         "args": [
             {
@@ -1787,7 +1787,7 @@ var valueFuncKw =
         "pt-BR": "É no Ar",
         "zh-CN": "正在空中"
     },
-    "_isInLineOfSight": {
+    "__isInLineOfSight__": {
         "description": "Whether two positions have line of sight with each other.",
         "args": [
             {
@@ -2049,7 +2049,7 @@ var valueFuncKw =
         "pt-BR": "É Equipe no Ataque",
         "zh-CN": "作为进攻队伍"
     },
-    "_all": {
+    "__all__": {
         "description": "Whether the specified condition evaluates to true for every value in the specified array.",
         "args": [
             {
@@ -2073,7 +2073,7 @@ var valueFuncKw =
         "pt-BR": "É Verdadeiro para Todos",
         "zh-CN": "对全部为”真“"
     },
-    "_any": {
+    "__any__": {
         "description": "Whether the specified condition evaluates to true for any value in the specified array.",
         "args": [
             {
@@ -2218,7 +2218,7 @@ var valueFuncKw =
         "pt-BR": "ID da última modificação de cura",
         "zh-CN": "上一个治疗调整ID"
     },
-    "_lastOf": {
+    "__lastOf__": {
         "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
         "args": [
             {
@@ -2288,7 +2288,7 @@ var valueFuncKw =
         "pt-BR": "Vetor Local de",
         "zh-CN": "本地矢量"
     },
-    "_map": {
+    "__map__": {
         "guid": "00000000D411",
         "description": "A map constant.",
         "args": [
@@ -2399,7 +2399,7 @@ var valueFuncKw =
         "pt-BR": "Mín.",
         "zh-CN": "较小"
     },
-    "_modulo": {
+    "__modulo__": {
         "guid": "00000000C410",
         "description": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero.",
         "args": [
@@ -2422,7 +2422,7 @@ var valueFuncKw =
         "pt-BR": "Modular",
         "zh-CN": "余数"
     },
-    "_multiply": {
+    "__multiply__": {
         "guid": "00000000C40D",
         "description": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector.",
         "args": [
@@ -2482,7 +2482,7 @@ var valueFuncKw =
         "pt-BR": "Normalizar",
         "zh-CN": "归一化"
     },
-    "_not": {
+    "__not__": {
         "guid": "00000000B275",
         "description": "Whether the input is false (or equivalent to false).",
         "args": [
@@ -2708,7 +2708,7 @@ var valueFuncKw =
         "pt-BR": "Equipe Adversária de",
         "zh-CN": "对方队伍"
     },
-    "_or": {
+    "__or__": {
         "guid": "00000000B274",
         "description": "Whether either of the two inputs are true (or equivalent to true).",
         "args": [
@@ -2796,7 +2796,7 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo da Mira",
         "zh-CN": "距离准星最近的玩家"
     },
-    "_playerVar": {
+    "__playerVar__": {
         "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -2963,7 +2963,7 @@ var valueFuncKw =
         "pt-BR": "Posição de",
         "zh-CN": "所选位置"
     },
-    "_raiseToPower": {
+    "__raiseToPower__": {
         "guid": "00000000C414",
         "description": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero.",
         "args": [
@@ -3071,7 +3071,7 @@ var valueFuncKw =
         "pt-BR": "Matriz Randomizada",
         "zh-CN": "随机数组"
     },
-    "_getNormal": {
+    "__getNormal__": {
         "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
         "args": [
             {
@@ -3113,7 +3113,7 @@ var valueFuncKw =
         "pt-BR": "Normal de Acerto do Lançamento de Raio",
         "zh-CN": "射线命中法线"
     },
-    "_getPlayerHit": {
+    "__getPlayerHit__": {
         "description": "The player hit by the ray cast (or null if no player is hit).",
         "args": [
             {
@@ -3155,7 +3155,7 @@ var valueFuncKw =
         "pt-BR": "Jogador Atingido pelo Lançamento de Raio",
         "zh-CN": "射线命中玩家"
     },
-    "_getHitPosition": {
+    "__getHitPosition__": {
         "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
         "args": [
             {
@@ -3197,7 +3197,7 @@ var valueFuncKw =
         "pt-BR": "Posição de Acerto do Lançamento de Raio",
         "zh-CN": "射线命中位置"
     },
-    "_removeFromArray": {
+    "__removeFromArray__": {
         "description": "A copy of an array with one or more values removed (if found).",
         "args": [
             {
@@ -3232,7 +3232,7 @@ var valueFuncKw =
         "pt-BR": "Direita",
         "zh-CN": "右"
     },
-    "_round": {
+    "__round__": {
         "description": "The integer to which the specified value rounds.",
         "args": [
             {
@@ -3244,7 +3244,7 @@ var valueFuncKw =
             {
                 "name": "ROUNDING TYPE",
                 "description": "Determines the direction in which the value will be rounded.",
-                "type": "_Rounding",
+                "type": "__Rounding__",
                 "default": "UP"
             }
         ],
@@ -3364,7 +3364,7 @@ var valueFuncKw =
         "pt-BR": "Espaço de",
         "zh-CN": "位置"
     },
-    "_sortedArray": {
+    "__sortedArray__": {
         "description": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element.",
         "args": [
             {
@@ -3448,7 +3448,7 @@ var valueFuncKw =
         "pt-BR": "Raiz Quadrada",
         "zh-CN": "平方根"
     },
-    "_localizedString": {
+    "__localizedString__": {
         "guid": "00000000BA60",
         "description": "Text formed from a selection of strings and specified values.",
         "args": [
@@ -3483,7 +3483,7 @@ var valueFuncKw =
         "ja-JP": "文字列",
         "zh-CN": "字符串"
     },
-    "_subtract": {
+    "__subtract__": {
         "guid": "00000000C40A",
         "description": "The difference between two numbers or vectors.",
         "args": [
@@ -3646,7 +3646,7 @@ var valueFuncKw =
         "pt-BR": "Cima",
         "zh-CN": "上"
     },
-    "_valueInArray": {
+    "__valueInArray__": {
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
         "args": [
             {
@@ -3860,7 +3860,7 @@ var valueFuncKw =
         "pt-BR": "Vetor do Mundo de",
         "zh-CN": "地图矢量"
     },
-    "_xComponentOf": {
+    "__xComponentOf__": {
         "description": "The x component of the specified vector, usually representing a leftward amount.",
         "args": [
             {
@@ -3878,7 +3878,7 @@ var valueFuncKw =
         "pt-BR": "Componente X de",
         "zh-CN": "X方向分量"
     },
-    "_yComponentOf": {
+    "__yComponentOf__": {
         "description": "The y component of the specified vector, usually representing an upward amount.",
         "args": [
             {
@@ -3896,7 +3896,7 @@ var valueFuncKw =
         "pt-BR": "Componente Y de",
         "zh-CN": "Y方向分量"
     },
-    "_zComponentOf": {
+    "__zComponentOf__": {
         "description": "The z component of the specified vector, usually representing a forward amount.",
         "args": [
             {

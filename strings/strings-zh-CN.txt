@@ -1,12 +1,12 @@
-[Core] DataTool v1.46.0.864-git-ec7bc2fdc94d326652d08645a2d8c25464721f88
+[Core] DataTool v1.46.0.866-git-53565d47153728a60a0a8d7984fda5f7b64203a6
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=zhCN", "-T=zhCN"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.exe.args
 [CASC] Set language to zhCN
 [CASC] Set speech language to zhCN
-[CASC] Overwatch build 1.46.0.0.66607
+[CASC] Overwatch build 1.46.1.0.67071
 [CASC] Initializing...
-[CMF] Using CMF procedure 66607
-[CMF] Using CMF procedure 66607
+[CMF] Using CMF procedure 67071
+[CMF] Using CMF procedure 67071
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -26759,6 +26759,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F5EA.07C: 佛罗里达狂欢队客场
 00000000F5EB.07C: 队伍3
 00000000F5EC.07C: 队伍4
+00000000F5F8.07C: 雷霆重拳
 00000000F652.07C: 血月之夜
 00000000F653.07C: 哈瓦那行动。只能选择输出英雄。治疗量降低。造成伤害时会为自己恢复生命。
 00000000F674.07C: 哈瓦那行动：吸血
@@ -27211,6 +27212,9 @@ https://account.blizzard.com/connections/nintendo
 000000010308.07C: 2020决斗先锋6v6
 竞技英雄
 000000010309.07C: 在2020决斗先锋6v6竞技比赛中达到前500名后解锁
+00000001030E.07C: 雷霆重拳“末日铁拳”
+00000001030F.07C: 《守望先锋联赛》2019赛季冠军
+旧金山震动队
 000000010311.07C: 突击小队
 000000010312.07C: 可在行动补给中开出
 00000001031E.07C: 2020行动档案
@@ -27260,4 +27264,4 @@ https://account.blizzard.com/connections/nintendo
 0000000105D5.07C: %1$s Best Blood Moon Rising Score
 0000000105D6.07C: Best Storm Raging Score
 0000000105D7.07C: %1$s Best Storm Raging Score
-[Core] Execution finished in 00:00:03.8507239 seconds
+[Core] Execution finished in 00:00:03.7285750 seconds
