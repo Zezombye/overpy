@@ -2226,7 +2226,7 @@ const actionKw =
             {
                 "name": "SCORE",
                 "description": "The score that will be set.",
-                "type": "unsigned int",
+                "type": "int",
                 "default": "NUMBER"
             }
         ],
@@ -2490,7 +2490,7 @@ const actionKw =
             {
                 "name": "SCORE",
                 "description": "The score that will be set.",
-                "type": "unsigned int",
+                "type": "int",
                 "default": "NUMBER"
             }
         ],
