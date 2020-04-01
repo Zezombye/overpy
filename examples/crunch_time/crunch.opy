@@ -109,28 +109,28 @@ if challenge == 2:
     countdownTimer()
     hostPlayer.setAbility1Enabled(true)
 
-@Rule "challenge 2 dummies - rein"
 @Event eachPlayer
 @Team 1
 @Hero reinhardt
-if challenge == 2:
-    do:
-        eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-        wait(2)
-        eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
-        wait(2)
-    while RULE_CONDITION
+@Condition challenge == 2
+rule "challenge 2 dummies - rein":
+do:
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+    wait(2)
+    eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
+    wait(2)
+while RULE_CONDITION
 
 @Rule "challenge 2 dummies - zarya"
 @Event eachPlayer
 @Team 1
 @Hero zarya
 if challenge == 2:
-    do:
-        wait(2)
-        eventPlayer.forceButtonPress(Button.ABILITY_1)
-        wait(2)
-    while RULE_CONDITION
+do:
+    wait(2)
+    eventPlayer.forceButtonPress(Button.ABILITY_1)
+    wait(2)
+while RULE_CONDITION
 
 @Rule "challenge 2 finished"
 @Event global
@@ -139,23 +139,23 @@ if challenge == 2 and nbPlayersKilled == 6:
 
 @Rule "challenge 3"
 @Event global
-if challenge == 3:
-    hostPlayer.teleport(vect(20.51, 1.61, -68.87))
-    hostPlayer.setFacing(vect(-1, 0, 0), Relativity.TO_WORLD)
-    bigMessage(hostPlayer, "Kill em all (hold rclick)!")
-    hostPlayer.startForcingHero(Hero.MCCREE)
-    additionalTime = 20
-    countdownTimer()
-    hostPlayer.setSecondaryFireEnabled(true)
-    hostPlayer.setPrimaryFireEnabled(true)
-    hostPlayer.setAbility1Enabled(true)
-    hostPlayer.setAbility2Enabled(true)
-    createDummy(Hero.HAMMOND, Team.1, -1, vect(2.12, 5.74, -69.48), vect(0,0,0))
-    createDummy(Hero.HAMMOND, Team.1, -1, vect(2.12, 5.74, -72.61), vect(0,0,0))
-    createDummy(Hero.HAMMOND, Team.1, -1, vect(2.12, 5.74, -54.41), vect(0,0,0))
-    createDummy(Hero.HAMMOND, Team.1, -1, vect(14, -1.25, -53), vect(0,0,0))
-    createDummy(Hero.HAMMOND, Team.1, -1, vect(31.37, -0.25, -58.23), vect(0,0,0))
-    createDummy(Hero.HAMMOND, Team.1, -1, vect(33.97, 6.75, -66.66), vect(0,0,0))
+@Condition challenge == 3
+hostPlayer.teleport(vect(20.51, 1.61, -68.87))
+hostPlayer.setFacing(vect(-1, 0, 0), Relativity.TO_WORLD)
+bigMessage(hostPlayer, "Kill em all (hold rclick)!")
+hostPlayer.startForcingHero(Hero.MCCREE)
+additionalTime = 20
+countdownTimer()
+hostPlayer.setSecondaryFireEnabled(true)
+hostPlayer.setPrimaryFireEnabled(true)
+hostPlayer.setAbility1Enabled(true)
+hostPlayer.setAbility2Enabled(true)
+createDummy(Hero.HAMMOND, Team.1, -1, vect(2.12, 5.74, -69.48), vect(0,0,0))
+createDummy(Hero.HAMMOND, Team.1, -1, vect(2.12, 5.74, -72.61), vect(0,0,0))
+createDummy(Hero.HAMMOND, Team.1, -1, vect(2.12, 5.74, -54.41), vect(0,0,0))
+createDummy(Hero.HAMMOND, Team.1, -1, vect(14, -1.25, -53), vect(0,0,0))
+createDummy(Hero.HAMMOND, Team.1, -1, vect(31.37, -0.25, -58.23), vect(0,0,0))
+createDummy(Hero.HAMMOND, Team.1, -1, vect(33.97, 6.75, -66.66), vect(0,0,0))
 
 @Rule "challenge 3 stun"
 @Event global

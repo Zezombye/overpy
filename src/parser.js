@@ -94,7 +94,12 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var lines = tokenize(content);
 
-	parseLinesToRules(lines);
+    var ast = parseLines(lines);
+    
+    console.log(ast);
+    for (var elem of ast) {
+        console.log(displayAst(elem));
+    }
 
 	//console.log(rules);
 /*
@@ -132,108 +137,10 @@ function compile(content, language="en-US", _rootPath="") {
 
 function parseLinesToRules(lines) {
 
-    var rules = [];
 
-    var currentRule = null;
-    var i = 0;
 
-    //Get all the lines before the first rule, and parse them
-    for (; i < lines.length; i++) {
-        if (lines[i].tokens[0].text.startsWith("@")) {
-            break;
-        }
-    }
-
-    parseLines(lines.slice(0, i), false);
-
-    for (; i < lines.length; i++) {
-        if (lines[i].tokens.length === 0) {
-            error("Empty line, tokenizer broken?");
-        }
-        fileStack = lines[i].tokens[0].fileStack;
-
-        if (lines[i].indentLevel === 0 && lines[i].tokens[0].text.startsWith("@")) {
-            
-            //Make a new rule
-            rules.push(new Rule());
-            currentRule = rules[rules.length-1];
-
-            var j = i;
-            for (; j < lines.length; j++) {
-                //Get all the annotation lines, skipping comments only if they are followed by another comment or an annotation 
-                if (lines[j].tokens[0].text.startsWith("#")) {
-                    if (j < lines.length-1 && (lines[j+1].tokens[0].text.startsWith("#") || lines[j+1].tokens[0].text.startsWith("@"))) {
-                        lines.splice(j, 1);
-                        j--;
-                    }
-                } else if (lines[j].tokens[0].text.startsWith("@")) {
-                    
-                    fileStack = lines[j].tokens[0].fileStack;
-                    var annotation = lines[j].tokens[0].text;
-
-                    if (["@Rule", "@Event", "@Team", "@Slot", "@Hero"].includes(annotation)) {
-                        const ruleProperties = {
-                            "@Rule": {
-                                prop: "name",
-                                display: "name",
-                            },
-                            "@Event": {
-                                prop: "event",
-                                display: "event",
-                            },
-                            "@Team": {
-                                prop: "eventTeam",
-                                display: "event team",
-                            },
-                            "@Slot": {
-                                prop: "eventPlayer",
-                                display: "event player (@Hero/@Slot)",
-                            },
-                            "@Hero": {
-                                prop: "eventPlayer",
-                                display: "event player (@Hero/@Slot)",
-                            }
-                        };
-
-                        if (lines[j].tokens.length !== 2) {
-                            error("Malformed rule "+ruleProperties[annotation].display+" declaration (found "+lines[j].tokens.length+") tokens");
-                        }
-                        if (currentRule[ruleProperties[annotation].prop] !== null) {
-                            error("Rule "+ruleProperties[annotation].display+" was already declared");
-                        }
-
-                        if (annotation === "@Rule") {
-                            currentRule[ruleProperties[annotation].prop] = unescapeString(lines[j].tokens[1].text);
-                        } else {
-                            currentRule[ruleProperties[annotation].prop] = lines[j].tokens[1].text;
-                        }
-                        
-                    } else if (annotation === "@SuppressWarnings") {
-                        if (lines[j].tokens.length === 1) {
-                            error("Expected at least one token after @SuppressWarnings")
-                        }
-                        for (var token of lines[j].tokens) {
-                            suppressedWarnings.push(token.text);
-                        }
-
-                    } else if (annotation === "@Disabled") {
-                        currentRule.isDisabled = true;
-
-                    } else if (annotation === "@Condition") {
-                        currentRule.conditions.push(parse(lines[j].tokens.slice(1)));
-
-                    } else {
-                        error("Unknown annotation '"+annotation+"'");
-                    }
-
-                } else {
-                    break;
-                }
-
-            }
-            if (currentRule.name === null) {
-                error("Missing @Rule annotation");
-            }
+    /*
+    
             if (currentRule.event === null) {
                 currentRule.event = "global";
             }
@@ -249,37 +156,17 @@ function parseLinesToRules(lines) {
                     currentRule.eventPlayer = "all";
                 }
             }
-            //Skip to the end of the annotations
-            i += j-i;
-
-            //Get to the end of the rule
-            j = i;
-            for (; j < lines.length; j++) {
-                if (lines[j].tokens[0].text.startsWith("@")) {
-                    break;
-                }
-            }
-
-            currentRule.actions = parseLines(lines.slice(i, j), true);
-            //Skip to the end of the rule
-            i += j-i;
-
-        } else {
-            error("Parser broken: expected an annotation, but got '"+lines[i].tokens[0].text+"'");
-        }
-    }
-    console.log("Rules:");
-    console.log(rules);
+    */
 
 
 }
 
-        
-function parseLines(lines, isInRule) {
+function parseLines(lines) {
 
     //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
     var result = [];
     var currentComment = null;
+    var ruleProperties = {};
     
     for (var i = 0; i < lines.length; i++) {
         fileStack = lines[i].tokens[0].fileStack;
@@ -305,10 +192,56 @@ function parseLines(lines, isInRule) {
             var customGameSettings = eval("("+dispTokens(lines[i].tokens.slice(1))+")");
             compileCustomGameSettings(customGameSettings);
         
-        } else if (["if", "elif", "else", "do", "for", "def", "while", "switch", "case"].includes(lines[i].tokens[0].text)) {
-            if (!isInRule) {
-                error("Found code outside a rule");
+        } else if (lines[i].tokens[0].text.startsWith("@")) {
+
+            var annotation = lines[i].tokens[0].text;
+
+            if (["@Name", "@Event", "@Team", "@Slot", "@Hero"].includes(annotation)) {
+                const annotationToPropMap = {
+                    "@Name": {prop: "name", display: "name"},
+                    "@Event": {prop: "event", display: "event"},
+                    "@Team": {prop: "eventTeam", display: "event team"},
+                    "@Slot": {prop: "eventPlayer", display: "event player (@Hero/@Slot)"},
+                    "@Hero": {prop: "eventPlayer", display: "event player (@Hero/@Slot)"},
+                };
+
+                if (lines[i].tokens.length !== 2) {
+                    error("Malformed rule "+annotationToPropMap[annotation].display+" declaration (found "+lines[i].tokens.length+") tokens");
+                }
+                if (annotationToPropMap[annotation].prop in ruleProperties) {
+                    error("Rule "+annotationToPropMap[annotation].display+" was already declared");
+                }
+
+                if (annotation === "@Name") {
+                    ruleProperties[annotationToPropMap[annotation].prop] = unescapeString(lines[i].tokens[1].text);
+                } else {
+                    ruleProperties[annotationToPropMap[annotation].prop] = lines[i].tokens[1].text;
+                }
+                
+            } else if (annotation === "@SuppressWarnings") {
+                if (lines[i].tokens.length === 1) {
+                    error("Expected at least one token after @SuppressWarnings")
+                }
+                for (var token of lines[i].tokens) {
+                    suppressedWarnings.push(token.text);
+                }
+
+            } else if (annotation === "@Disabled") {
+                ruleProperties.isDisabled = true;
+
+            } else if (annotation === "@Condition") {
+                if (!("conditions" in ruleProperties)) {
+                    ruleProperties.conditions = [];
+                }
+                var parsedCondition = parse(lines[i].tokens.slice(1));
+                ruleProperties.conditions.push(parsedCondition);
+
+            } else {
+                error("Unknown annotation '"+annotation+"'");
             }
+
+        } else if (["rule", "if", "elif", "else", "do", "for", "def", "while", "switch", "case"].includes(lines[i].tokens[0].text)) {
+
             var funcName = "__"+lines[i].tokens[0].text+"__";
             var lineMembers = splitTokens(lines[i].tokens, ":", true);
             if (lineMembers.length === 1) {
@@ -316,7 +249,7 @@ function parseLines(lines, isInRule) {
             }
             //console.log(lineMembers);
             var instruction = new Ast(funcName);
-    
+
             if (funcName !== "__else__" && funcName !== "__do__") {
                 instruction.args = [parse(lineMembers[0].slice(1))];
             }
@@ -333,8 +266,8 @@ function parseLines(lines, isInRule) {
             for (; j < lines.length; j++) {
                 fileStack = lines[j].tokens[0].fileStack;
 
-                //Ignore comments and standalone strings
-                if (["#", "'", '"'].includes(lines[j].tokens[0][0])) {
+                //Ignore comments
+                if (!["#"].includes(lines[j].tokens[0][0])) {
                     if (lines[j].indentLevel <= currentLineIndent) {
                         break;
                     } else if (lines[j].indentLevel > currentLineIndent && nextIndentLevel !== null && lines[j].indentLevel < nextIndentLevel) {
@@ -361,14 +294,17 @@ function parseLines(lines, isInRule) {
             }
 
             i += j-i-1;
-            instruction.children = parseLines(childrenLines, isInRule);
+            instruction.children = parseLines(childrenLines);
             instruction.comment = currentComment;
+            
+            if (funcName === "__rule__" || funcName === "__def__") {
+                instruction.ruleProperties = ruleProperties;
+                ruleProperties = {};
+            }
+    
             result.push(instruction);
     
         } else {
-            if (!isInRule) {
-                error("Found code outside a rule");
-            }
             var currentLineAst = parse(lines[i].tokens);
             currentLineAst.comment = currentComment;
             result.push(currentLineAst);
@@ -619,8 +555,8 @@ function parse(content) {
         }
         
         //Check for global variable
-        if (globalVariables.includes(name) || defaultVarNames.includes(name)) {
-            return new Ast("__globalVar__", [new Ast(name, [], [], "GlobalVarLiteral")]);
+        if (isVarName(name, true)) {
+            return new Ast("__globalVar__", [new Ast(name, [], [], "GlobalVariable")]);
         }
 
 		return new Ast(name);
@@ -636,11 +572,11 @@ function parse(content) {
 		}
         //Check if first arg is indeed a subroutine
         var subroutineArg = args[0][0].text;
-		if (!(subroutines.includes(subroutineArg) || defaultSubroutineNames.includes(subroutineArg))) {
+		if (!isSubroutineName(subroutineArg)) {
 			error("Expected subroutine name as first argument");
         }
         
-        return new Ast("__startRule__", [new Ast(subroutineArg, [], [], "SubroutineLiteral"), parse(args[1])])
+        return new Ast("__startRule__", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])])
 	}
 		
 	if (name === "chase") {
@@ -725,10 +661,191 @@ function parse(content) {
 		
 	//Check for subroutine call
 	if (args.length === 0) {
-        if (subroutines.includes(name) || defaultSubroutineNames.includes(name)) {
-            return new Ast("__callSubroutine__", [Ast(name, [], [], "__SubroutineLiteral__")]);
+        if (isSubroutineName(name)) {
+            return new Ast("__callSubroutine__", [Ast(name, [], [], "Subroutine")]);
         }
     }
     
     return new Ast(name, args.map(x => parse(x)));
+}
+
+function parseMember(object, member) {
+
+	debug("Parsing member '"+member+"' of object '"+object+"'");
+	
+	var name = member[0].text;
+	//debug("name = "+name);
+	var args = null;
+	if (member.length > 1) {
+		if (member[1].text === '(') {
+			args = splitTokens(member.slice(2, member.length-1), ",");
+		} else {
+			error("Expected '(' after '"+name+"', but got '"+member[1].text+"'");
+		}
+	}
+
+	if (args === null) {
+		if (["x", "y", "z"].includes(name)) {
+            return new Ast(`__${name}ComponentOf__`, [parse(object)]);
+		}
+        
+        if (object.length === 1) {
+
+            //Check enums
+            if (Object.keys(constantValues).includes(object[0].text)) {
+
+                var result = tows(object[0].text+"."+name, constantKw);
+                if (object[0].text === "Hero") {
+                    return new Ast("__hero__", [new Ast(name, [], [], "HeroLiteral")])
+
+                } else if (object[0].text === "Map") {
+                    return new Ast("__map__", [new Ast(name, [], [], "MapLiteral")])
+
+                } else if (object[0].text === "Gamemode") {
+                    return new Ast("__gamemode__", [new Ast(name, [], [], "GamemodeLiteral")])
+
+                } else {
+                    return new Ast(name, [], [], object[0].text);
+                }
+
+            //Check the pseudo-enum "math"
+            } else if (object[0].text === "math") {
+                if (name === "pi") {
+                    return new Ast("3.14159265359");
+                } else if (name === "e") {
+                    return new Ast("2.71828182846");
+                } else {
+                    error("Unhandled member 'math."+name+"'");
+                }
+        
+            //Check the pseudo-enum "Vector"
+            } else if (object[0].text === "Vector") {
+                return new Ast("Vector."+name);
+
+            } else {
+                //Should be a player variable.
+                if (!isVarName(name, false)) {
+                    error("Unknown member '"+name+"'");
+                }
+                return new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
+            }
+        } else {
+            error("Invalid object '"+object+"' for member '"+member+"'");
+        }
+	} else {
+	
+		if (["append", "exclude", "index", "remove"].includes(name)) {
+            if (args.length !== 1) {
+                error("Function '"+name+"' takes 1 argument, received "+args.length);
+            }
+            var funcToInternalFuncMap = {
+                "append": "__appendToArray__",
+                "exclude": "__removeFromArray__",
+                "index": "__indexOfArrayValue__",
+                "remove": "__removeFromArrayByValue__",
+            };
+
+            return new Ast("__"+funcToInternalFuncMap[name]+"__", [parse(object), parse(args[0])])
+			
+		} else if (name === "exclude") {
+            if (args.length !== 1) {
+                error("Function 'exclude' takes 1 argument, received "+args.length);
+            }
+			return new Ast("__removeFromArray__", [parse(object), parse(args[0])])
+			
+		} else if (name === "format") {
+            return new Ast("__format__", args.map(x => parse(x)));
+			
+		} else if ("getHitPosition", "getNormal", "getPlayerHit", "hasLoS".includes(name)) {
+            if (args.length !== 0) {
+                error("Function '"+name+"' takes no argument, received "+args.length);
+            }
+            return new Ast("__"+name+"__", [parse(object)]);
+			
+		} else if (object[0].text === "random" && object.length === 1) {
+			if (name === "randint" || name === "uniform") {
+                if (args.length !== 2) {
+                    error("Function 'random."+name+"' takes 2 arguments, received "+args.length);
+                }
+                return new Ast("random."+name, [parse(args[0]), parse(args[1])]);
+                
+			} else if (name === "shuffle" || name === "choice") {
+                if (args.length !== 1) {
+                    error("Function 'random."+name+"' takes 1 argument, received "+args.length);
+                }
+                return new Ast("random."+name, [parse(args[0])]);
+                
+			} else {
+				error("Unhandled member 'random."+name+"'");
+			}
+			
+		} else if (name === "slice") {
+            if (args.length !== 2) {
+                error("Function 'slice' takes 2 arguments, received "+args.length);
+            }
+			return new Ast("__arraySlice__", [parse(object), parse(args[0]), parse(args[1])]);
+			
+		} else {
+            //Assume it is a player function
+            return new Ast("_&"+name, args.map(x => parse(x)));
+		}
+	}
+	
+	error("This shouldn't happen");
+}
+
+//Parses a literal array such as [1,2,3] or [i for i in x if cond].
+function parseLiteralArray(content) {
+		
+	if (content.length === 2) {
+        return new Ast("__emptyArray__");
+    }
+
+    //Check for "in" keyword
+    var inOperands = splitTokens(content.slice(1, content.length-1), "in", false);
+    if (inOperands.length === 2) {
+
+        var ifOperands = splitTokens(inOperands[1], "if");
+
+        if (ifOperands.length !== 2) {
+            //Expect something like "[x == y for x in z]"
+            //Parse as the pseudo "map" function. Used for the "any"/"all" functions.
+            //And well, maybe they will eventually add a map function...
+
+            if (inOperands[0].length < 3 || inOperands[0][inOperands.length-2].text !== "for") {
+                error("Malformed '[x for y in z]'")
+            }
+            currentArrayElementNames.push(inOperands[0][inOperands[0].length-1].text);
+            var mappingFunction = parse(inOperands[0].slice(0, inOperands[0].length-2));
+            currentArrayElementNames.pop();
+
+            return new Ast("__mappedArray__", [parse(inOperands[1]), mappingFunction]);
+            
+        } else {
+            //Filtered array
+            if (inOperands[0].length !== 3 || inOperands[0][1].text !== "for" || inOperands[0][0].text !== inOperands[0][2].text) {
+                error("Malformed 'x for x in y'");
+            }
+            debug("Parsing 'x for x in y if z', x='"+inOperands[0][0].text+"', y='"+ifOperands[0]+"', z='"+ifOperands[1]+"'");
+            
+            currentArrayElementNames.push(inOperands[0][0].text);
+            var condition = parse(ifOperands[1]);
+            currentArrayElementNames.pop();
+
+            return new Ast("__filteredArray__", [parse(ifOperands[0]), condition]);
+        }
+    } else {
+        
+        //Literal array with only values ([1,2,3])
+        var args = splitTokens(content.slice(1, content.length-1), ",");
+        //Allow trailing comma
+        if (args[args.length-1].length === 0) {
+            args.pop()
+        }
+
+        return new Ast("__array__", args.map(x => parse(x)));
+    }
+	
+	error("This shouldn't happen");
+	
 }

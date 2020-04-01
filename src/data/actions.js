@@ -35,7 +35,7 @@ const actionKw =
             {
                 "name": "CONDITION",
                 "description": "Specifies whether the execution is stopped.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
@@ -75,7 +75,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose button is being reenabled.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -99,7 +99,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose velocity will be changed.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -111,7 +111,7 @@ const actionKw =
             {
                 "name": "SPEED",
                 "description": "The magnitude of the change to the velocities of the player or players.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
@@ -141,13 +141,13 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The message to be displayed.",
-                "type": "Any",
+                "type": "Object",
                 "default": "STRING"
             }
         ],
@@ -184,19 +184,19 @@ const actionKw =
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to modify gradually.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             },
             {
                 "name": "RATE",
                 "description": "The amount of change that will happen to the variable's value each second.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
@@ -220,19 +220,19 @@ const actionKw =
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to modify gradually.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             },
             {
                 "name": "DURATION",
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
@@ -256,25 +256,25 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify gradually.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             },
             {
                 "name": "RATE",
                 "description": "The amount of change that will happen to the variable's value each second.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
@@ -298,25 +298,25 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify gradually.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "VARIABLE"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             },
             {
                 "name": "DURATION",
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
-                "type": "Any",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
@@ -340,7 +340,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players from whom the status will be removed.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -364,7 +364,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to perform the communication.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -388,25 +388,25 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "TYPE",
                 "description": "The type of effect to be created.",
-                "type": "BEAM EFFECT",
+                "type": "Beam",
                 "default": "GOOD BEAM"
             },
             {
                 "name": "START POSITION",
                 "description": "The effect's start position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "END POSITION",
                 "description": "The effect's end position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "EVENT PLAYER"
             },
             {
@@ -437,13 +437,13 @@ const actionKw =
             {
                 "name": "HERO",
                 "description": "The hero that the bot will be. If more than one hero is provided, one will be chosen at random.",
-                "type": "HeroValue",
+                "type": "Hero",
                 "default": "HERO"
             },
             {
                 "name": "TEAM",
                 "description": "The team on which to create the bot. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
@@ -455,7 +455,7 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The initial position where the bot will appear.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
@@ -480,7 +480,7 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "ALL PLAYERS"
             },
             {
@@ -498,13 +498,13 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "RADIUS",
                 "description": "The radius of this effect.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -528,37 +528,37 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the hud text.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The text to be displayed (can be blank)",
-                "type": "Any",
+                "type": "Object",
                 "default": "STRING"
             },
             {
                 "name": "SUBHEADER",
                 "description": "The subheader text to be displayed (can be blank)",
-                "type": "Any",
+                "type": "Object",
                 "default": "NULL"
             },
             {
                 "name": "TEXT",
                 "description": "The body text to be displayed (can be blank)",
-                "type": "Any",
+                "type": "Object",
                 "default": "NULL"
             },
             {
                 "name": "LOCATION",
                 "description": "The location on the screen where the text will appear.",
-                "type": "Position",
+                "type": "HudPosition",
                 "default": "LEFT"
             },
             {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
@@ -606,13 +606,13 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the icon.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "POSITION",
                 "description": "The icon's position. If this value is a player, then the icon will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
@@ -636,7 +636,7 @@ const actionKw =
             {
                 "name": "SHOW WHEN OFFSCREEN",
                 "description": "Should this icon appear even when it is behind you?",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -654,25 +654,25 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the in-world text.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The text to be displayed.",
-                "type": "Any",
+                "type": "Object",
                 "default": "STRING"
             },
             {
                 "name": "POSITION",
                 "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "SCALE",
                 "description": "The text's scale.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
@@ -715,7 +715,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will receive damage.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -727,7 +727,7 @@ const actionKw =
             {
                 "name": "AMOUNT",
                 "description": "The amount of damage to apply. This amount may be modified by buffs, debuffs, or armor.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
@@ -773,7 +773,7 @@ const actionKw =
             {
                 "name": "ROUND WINNING TEAM",
                 "description": "Round winning team",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
@@ -791,7 +791,7 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The winning team.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
@@ -864,13 +864,13 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The team to remove the dummy bot from. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
                 "name": "SLOT",
                 "description": "The slot to remove the dummy bot from.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             }
         ],
@@ -889,7 +889,7 @@ const actionKw =
             {
                 "name": "ENTITY",
                 "description": "Specifies which effect entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
-                "type": "Player",
+                "type": "EntityId",
                 "default": "LAST CREATED ENTITY"
             }
         ],
@@ -907,7 +907,7 @@ const actionKw =
             {
                 "name": "TEXT ID",
                 "description": "Specifies which hud text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
-                "type": "Number",
+                "type": "TextId",
                 "default": "LAST TEXT ID"
             }
         ],
@@ -925,7 +925,7 @@ const actionKw =
             {
                 "name": "ENTITY",
                 "description": "Specifies which icon entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
-                "type": "Player",
+                "type": "EntityId",
                 "default": "LAST CREATED ENTITY"
             }
         ],
@@ -943,7 +943,7 @@ const actionKw =
             {
                 "name": "TEXT ID",
                 "description": "Specifies which in-world text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
-                "type": "Number",
+                "type": "TextId",
                 "default": "LAST TEXT ID"
             }
         ],
@@ -994,7 +994,7 @@ const actionKw =
             {
                 "name": "PLAYERS",
                 "description": "The player or players whose respawning is affected.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1023,7 +1023,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose default death spectate behavior is restored.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1041,7 +1041,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will revert to seeing their own hud while death spectating.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1071,7 +1071,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose button is being disabled.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1105,7 +1105,7 @@ const actionKw =
             {
                 "name": "CONDITION",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
@@ -1155,7 +1155,7 @@ const actionKw =
             {
                 "name": "PLAYERS",
                 "description": "The player or players whose respawning is affected.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1184,7 +1184,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be allowed to spectate all players.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1202,7 +1202,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will begin seeing their spectate targets hud while death spectating.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1242,25 +1242,25 @@ const actionKw =
             {
                 "name": "CONTROL VARIABLE",
                 "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "RANGE START",
                 "description": "The control variable is set to this value when the loop begins.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "RANGE STOP",
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
-                "type": "Number",
+                "type": "float",
                 "default": "COUNT OF"
             },
             {
                 "name": "STEP",
                 "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
@@ -1284,25 +1284,25 @@ const actionKw =
             {
                 "name": "CONTROL VARIABLE",
                 "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
                 "name": "RANGE START",
                 "description": "The control variable is set to this value when the loop begins.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "RANGE STOP",
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
-                "type": "Number",
+                "type": "float",
                 "default": "COUNT OF"
             },
             {
                 "name": "STEP",
                 "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
@@ -1332,7 +1332,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose health will be restored.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1344,7 +1344,7 @@ const actionKw =
             {
                 "name": "AMOUNT",
                 "description": "The amount of healing to apply. This amount may be modified by buff or debuffs. Healing is capped by each player's max health.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
@@ -1361,7 +1361,7 @@ const actionKw =
             {
                 "name": "CONDITION",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
@@ -1379,7 +1379,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be killed.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1413,7 +1413,7 @@ const actionKw =
             {
                 "name": "CONDITION",
                 "description": "Specifies whether the loop will occur.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
@@ -1453,7 +1453,7 @@ const actionKw =
             {
                 "name": "VARIABLE",
                 "description": "The global variable to modify.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
@@ -1465,7 +1465,7 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NUMBER"
             }
         ],
@@ -1483,13 +1483,13 @@ const actionKw =
             {
                 "name": "VARIABLE",
                 "description": "The global variable to modify.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
@@ -1501,7 +1501,7 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NUMBER"
             }
         ],
@@ -1519,13 +1519,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose score will change.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             }
         ],
@@ -1543,13 +1543,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
@@ -1561,7 +1561,7 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NUMBER"
             }
         ],
@@ -1579,19 +1579,19 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
@@ -1603,7 +1603,7 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NUMBER"
             }
         ],
@@ -1621,13 +1621,13 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams whose score will be changed.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             }
         ],
@@ -1656,7 +1656,7 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "ALL PLAYERS"
             },
             {
@@ -1674,13 +1674,13 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The effect's position. If this value is a player, then the effect will play at the player's position. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "RADIUS",
                 "description": "The effect's radius in meters.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -1698,13 +1698,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will begin preloading a hero or heroes. Only one preload hero action will be active at a time for a given player.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HERO",
                 "description": "The hero or heroes to begin preloading for the specified player or players. When multiple heroes are specified in an array, the heroes towards the beginning of the array are prioritized.",
-                "type": "HeroValue",
+                "type": ["Hero", {Array: "Hero"}],
                 "default": "HERO"
             }
         ],
@@ -1722,7 +1722,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players for whom the virtual button input will be forced.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1746,7 +1746,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose hero list is being reset.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1764,7 +1764,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to respawn.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1783,7 +1783,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be resurrected.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1800,13 +1800,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to ability 1 is affected.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use ability 1. Expects a boolean value such as true, false, or compare.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -1824,13 +1824,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to ability 2 is affected.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use ability 2. Expects a boolean value such as true, false, or compare.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -1848,13 +1848,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose aim speed will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TURN SPEED PERCENT",
                 "description": "The percentage of normal aim speed to which the player or players will set their aim speed.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -1872,13 +1872,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose damage dealt will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGE DEALT PERCENT",
                 "description": "The percentage of raw damage dealt to which the player or players will set their damage dealt.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -1896,13 +1896,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose damage received will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGE RECEIVED PERCENT",
                 "description": "The percentage of raw damage received to which the player or players will set their damage received.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -1920,7 +1920,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose facing will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1950,13 +1950,13 @@ const actionKw =
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to store the value into.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
@@ -1974,19 +1974,19 @@ const actionKw =
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored into the array.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
@@ -2004,13 +2004,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement gravity will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "GRAVITY PERCENT",
                 "description": "The percentage of regular movement gravity to which the player or players will set their personal movement gravity.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2028,13 +2028,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose healing dealt will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALING DEALT PERCENT",
                 "description": "",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2052,13 +2052,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose healing received will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALING RECEIVED PERCENT",
                 "description": "The percentage of raw healing received to which the player or players will set their healing received.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2076,7 +2076,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will become invisible.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2100,7 +2100,7 @@ const actionKw =
             {
                 "name": "TIME",
                 "description": "The match time in seconds.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2118,13 +2118,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose max health will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALTH PERCENT",
                 "description": "The percentage of raw max health to which the player or players will set their max health.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2142,13 +2142,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose move speed will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "MOVE SPEED PERCENT",
                 "description": "The percentage of raw move speed to which the player or players will set their move speed.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2166,13 +2166,13 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The message to be displayed.",
-                "type": "Any",
+                "type": "Object",
                 "default": "STRING"
             },
             {
@@ -2196,13 +2196,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose hero list is being set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HERO",
                 "description": "The hero or heroes that will be available. If no heroes are provided, the action has no effect.",
-                "type": "HeroValue",
+                "type": ["Hero", {Array: "Hero"}],
                 "default": "HERO"
             }
         ],
@@ -2220,13 +2220,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose score will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "SCORE",
                 "description": "The score that will be set.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2244,19 +2244,19 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be set. If multiple players are provided, each of their variables will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to store the value into.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
@@ -2274,25 +2274,25 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which player variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored into the array.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
@@ -2310,13 +2310,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to primary fire is affected.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use primary fire. Expects a boolean value such as true, false, or compare.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -2334,13 +2334,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose projectile gravity will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "PROJECTILE GRAVITY PERCENT",
                 "description": "The percentage of regular projectile gravity to which the player or players will set their personal projectile gravity.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2353,18 +2353,18 @@ const actionKw =
         "zh-CN": "设置弹道引力"
     },
     "_&setProjectileSpeed": {
-        "description": "Iets the projectile speed for one or more players to a percentage of projectile speed.",
+        "description": "Sets the projectile speed for one or more players to a percentage of projectile speed.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose projectile speed will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "PROJECTILE SPEED PERCENT",
                 "description": "The percentage of regular projectile speed to which the player or players will set their personal projectile speed.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2382,13 +2382,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose respawn max time is being defined.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TIME",
                 "description": "The duration between death and respawn in seconds.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2406,13 +2406,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to secondary fire is affected.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use secondary fire. Expects a boolean value such as true, false, or compare.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -2430,7 +2430,7 @@ const actionKw =
             {
                 "name": "SPEED PERCENT",
                 "description": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2448,7 +2448,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to whom the status will be applied.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2466,7 +2466,7 @@ const actionKw =
             {
                 "name": "DURATION",
                 "description": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 9999.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2484,13 +2484,13 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams whose score will be set.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
                 "name": "SCORE",
                 "description": "The score that will be set.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2508,13 +2508,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to their ultimate ability is affected.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use their ultimate ability. Expects a boolean value such as true, false, or compare.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -2532,13 +2532,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose ultimate charge will be set.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "CHARGE PERCENT",
                 "description": "The percentage of maximum charge.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2557,7 +2557,7 @@ const actionKw =
             {
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2574,13 +2574,13 @@ const actionKw =
             {
                 "name": "CONDITION",
                 "description": "Specifies whether the skip occurs.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             },
             {
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2598,13 +2598,13 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The message to be displayed.",
-                "type": "Any",
+                "type": "Object",
                 "default": "STRING"
             }
         ],
@@ -2622,7 +2622,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players that will begin accelerating.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2634,13 +2634,13 @@ const actionKw =
             {
                 "name": "RATE",
                 "description": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity and/or surface friction.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX SPEED",
                 "description": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -2670,25 +2670,25 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose cameras will be placed at the location.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "EYE POSITION",
                 "description": "The position of the camera. Reevaluates continuously.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "LOOK AT POSITION",
                 "description": "Where the camera looks at. Reevaluates continuously.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "BLEND SPEED",
                 "description": "How fast to blend the camera speed as positions change. 0 means do not blend at all, and just change positions instantly.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2706,19 +2706,19 @@ const actionKw =
             {
                 "name": "RECEIVERS",
                 "description": "The player or players whose incoming damage will be modified (when attacked by the damagers).",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGERS",
                 "description": "The player or players whose outgoing damage will be modified (when attacking the receivers).",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "DAMAGE PERCENT",
                 "description": "The percentage of damage that will apply to receivers when attacked by damagers.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -2742,7 +2742,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "One or more players who will receive the damage over time.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2754,13 +2754,13 @@ const actionKw =
             {
                 "name": "DURATION",
                 "description": "The duration of the damage over time in seconds. To have a dot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "DAMAGE PER SECOND",
                 "description": "The damage per second for the damage over time.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2778,7 +2778,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will start turning.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2790,7 +2790,7 @@ const actionKw =
             {
                 "name": "TURN RATE",
                 "description": "The turn rate in degrees per second.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -2820,13 +2820,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be forced to be a specific hero.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HERO",
                 "description": "The hero that the player or players will be forced to be.",
-                "type": "HeroValue",
+                "type": "Hero",
                 "default": "HERO"
             }
         ],
@@ -2844,13 +2844,13 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The team whose spawn room will be forced.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
                 "name": "ROOM",
                 "description": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2868,43 +2868,43 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement will be forced or limited.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "MIN FORWARD",
                 "description": "Sets the minimum run forward amount. 0 allows the player or players to stop while 1 forces full forward movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX FORWARD",
                 "description": "Sets the maximum run forward amount. 0 prevents the player or players from moving forward while 1 allows full forward movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MIN BACKWARD",
                 "description": "Sets the minimum run backward amount. 0 allows the player or players to stop while 1 forces full backward movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX BACKWARD",
                 "description": "Sets the maximum run backward amount. 0 prevents the player or players from moving backward while 1 allows full backward movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MIN SIDEWAYS",
                 "description": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX SIDEWAYS",
                 "description": "Sets the maximum run sideways amount. 0 prevents the player or players from moving SIDEWAYS while 1 allows full sideways movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2922,7 +2922,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "One or more players who will receive the heal over time.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2934,13 +2934,13 @@ const actionKw =
             {
                 "name": "DURATION",
                 "description": "The duration of the heal over time in seconds. To have a hot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "HEALING PER SECOND",
                 "description": "The healing per second for the heal over time.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2958,19 +2958,19 @@ const actionKw =
             {
                 "name": "RECEIVERS",
                 "description": "The player or players whose incoming healing will be modified (when healed by the healers).",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALERS",
                 "description": "The player or players whose outgoing healing will be modified (when healing the receivers).",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEALING PERCENT",
                 "description": "The percentage of healing that will apply to receivers when healed by healers.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -2994,7 +2994,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who are holding a button virtually.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -3042,19 +3042,19 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will be set or added to.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DIRECTION",
                 "description": "The unit direction in which the throttle will be set or added to. This value is normalized internally.",
-                "type": "Vector",
+                "type": "Direction",
                 "default": "VECTOR"
             },
             {
                 "name": "MAGNITUDE",
                 "description": "The amount of throttle (or change to throttle). A value of 1 denotes full throttle.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -3090,25 +3090,25 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will be transformed.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "X AXIS SCALAR",
                 "description": "The player or players will have their throttle X axis (left to right) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "Y AXIS SCALAR",
                 "description": "The player or players will have their throttle Y axis (front to back) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "RELATIVE DIRECTION",
                 "description": "After the axis scalars are applied, the player or players will have their throttle transformed so that it is relative to this unit direction vector. For example, to make the throttle camera relative, provide the direction that the camera is facing. This value is evaluated continuously (meaning it updates every frame) and normalized internally.",
-                "type": "Vector",
+                "type": "Direction",
                 "default": "VECTOR"
             }
         ],
@@ -3126,7 +3126,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will stop accelerating.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3166,7 +3166,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose scripted damage over time will stop.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3184,7 +3184,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose scripted heal over time will stop.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3202,7 +3202,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose cameras will be put back to the default view.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3220,7 +3220,7 @@ const actionKw =
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to stop modifying.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             }
         ],
@@ -3238,13 +3238,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will stop changing. If multiple players are provided, each of their variables will stop changing.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to stop modifying.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             }
         ],
@@ -3262,7 +3262,7 @@ const actionKw =
             {
                 "name": "DAMAGE MODIFICATION",
                 "description": "Specifies which damage modification instance to stop. This id may be last damage modification id or a variable into which last damage modification id was earlier stored.",
-                "type": "Number",
+                "type": "DamageModificationId",
                 "default": "LAST DAMAGE MODIFICATION ID"
             }
         ],
@@ -3280,7 +3280,7 @@ const actionKw =
             {
                 "name": "DAMAGE OVER TIME ID",
                 "description": "Specifies which damage over time instance to stop. This id may be last damage over time id or a variable into which last damage over time id was earlier stored.",
-                "type": "Number",
+                "type": "DotId",
                 "default": "LAST DAMAGE OVER TIME ID"
             }
         ],
@@ -3298,7 +3298,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will stop turning.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3316,7 +3316,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will no longer be forced to be a specific hero.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3334,7 +3334,7 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The team that will resume using their normal spawn room.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
@@ -3352,7 +3352,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement input will be restored.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3370,7 +3370,7 @@ const actionKw =
             {
                 "name": "HEAL OVER TIME ID",
                 "description": "Specifies which heal over time instance to stop. This id may be last heal over time id or a variable into which last heal over time id was earlier stored.",
-                "type": "Number",
+                "type": "HotId",
                 "default": "PLAYER VARIABLE"
             }
         ],
@@ -3388,7 +3388,7 @@ const actionKw =
             {
                 "name": "HEALING MODIFICATION ID",
                 "description": "Specifies which healing modification instance to stop. This id may be last healing modification id or a variable into which last healing modification id was earlier stored.",
-                "type": "Number",
+                "type": "HealingModificationId",
                 "default": "LAST HEALING MODIFICATION ID"
             }
         ],
@@ -3406,7 +3406,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who are no longer holding a button virtually.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
@@ -3430,7 +3430,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose default throttle control will be restored.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3448,7 +3448,7 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will stop being transformed.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3467,13 +3467,13 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to teleport.",
-                "type": "Player",
+                "type": ["Player", {Array: "Player"}],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "POSITION",
                 "description": "The position to which the player or players will teleport. If a player is provided, the position of the player is used.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             }
         ],
@@ -3502,7 +3502,7 @@ const actionKw =
             {
                 "name": "TIME",
                 "description": "The duration of the pause.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -3525,7 +3525,7 @@ const actionKw =
             {
                 "name": "CONDITION",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next end action at the current level.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],

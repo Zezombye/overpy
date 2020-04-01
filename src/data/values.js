@@ -24,10 +24,11 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The real number value whose absolute value will be computed.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000C358",
         "en-US": "Absolute Value",
         "es-MX": "Valor absoluto",
@@ -43,16 +44,17 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             }
         ],
+        return: ["float", "Vector"],
         "en-US": "Add",
         "es-MX": "Sumar",
         "fr-FR": "Addition",
@@ -66,10 +68,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B265",
         "en-US": "All Dead Players",
         "es-MX": "Todos los jugadores muertos",
@@ -81,6 +84,7 @@ var valueFuncKw =
     "getDamageHeroes": {
         "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        ",
         "args": [],
+        return: {Array: "Hero"},
         "guid": "00000000D40A",
         "en-US": "All Damage Heroes",
         "de-DE": "Alle Schadenshelden",
@@ -95,6 +99,7 @@ var valueFuncKw =
         "guid": "00000000BF58",
         "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Baptiste \n        30. Sigma    \n        ",
         "args": [],
+        return: {Array: "Hero"},
         "en-US": "All Heroes",
         "es-MX": "Todos los héroes",
         "fr-FR": "Tous les héros",
@@ -108,10 +113,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B264",
         "en-US": "All Living Players",
         "es-MX": "Todos los jugadores vivos",
@@ -126,10 +132,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B261",
         "en-US": "All Players",
         "es-MX": "Todos los jugadores",
@@ -144,10 +151,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B267",
         "en-US": "All Players Not On Objective",
         "es-MX": "Todos los jugadores que no están en el objetivo",
@@ -162,10 +170,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B266",
         "en-US": "All Players On Objective",
         "es-MX": "Todos los jugadores que están en el objetivo",
@@ -184,6 +193,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: {Array: "Hero"},
         "guid": "00000000BBA8",
         "en-US": "Allowed Heroes",
         "es-MX": "Héroes permitidos",
@@ -195,6 +205,7 @@ var valueFuncKw =
     "getSupportHeroes": {
         "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
         "args": [],
+        return: {Array: "Hero"},
         "guid": "00000000D40B",
         "en-US": "All Support Heroes",
         "de-DE": "Alle Unterstützungshelden",
@@ -208,6 +219,7 @@ var valueFuncKw =
     "getTankHeroes": {
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
         "args": [],
+        return: {Array: "Hero"},
         "guid": "00000000D40C",
         "en-US": "All Tank Heroes",
         "de-DE": "Alle Tankhelden",
@@ -228,6 +240,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000B11D",
         "en-US": "Altitude Of",
         "es-MX": "Altitud de",
@@ -242,16 +255,17 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             },
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
+        return: "bool",
         "guid": "00000000B273",
         "en-US": "And",
         "es-MX": "Y",
@@ -266,16 +280,17 @@ var valueFuncKw =
             {
                 "name": "VECTOR",
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
-                "type": "Vector",
+                "type": "Direction",
                 "default": "VECTOR"
             },
             {
                 "name": "VECTOR",
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
-                "type": "Vector",
+                "type": "Direction",
                 "default": "VECTOR"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000C813",
         "en-US": "Angle Between Vectors",
         "es-MX": "Ángulo entre vectores",
@@ -290,16 +305,17 @@ var valueFuncKw =
             {
                 "name": "ANGLE",
                 "description": "One of the two angles between which to measure the resulting angle.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "ANGLE",
                 "description": "One of the two angles between which to measure the resulting angle.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000B282",
         "en-US": "Angle Difference",
         "es-MX": "Diferencia de ángulo",
@@ -315,16 +331,17 @@ var valueFuncKw =
             {
                 "name": "ARRAY",
                 "description": "The array to which to append.",
-                "type": "Any",
+                "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "VALUE",
                 "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
+        return: "Array",
         "en-US": "Append To Array",
         "es-MX": "Anexar a la matriz",
         "fr-FR": "Ajouter au tableau",
@@ -338,10 +355,11 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C809",
         "en-US": "Arccosine In Degrees",
         "es-MX": "Arcocoseno en grados",
@@ -356,10 +374,11 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C807",
         "en-US": "Arccosine In Radians",
         "es-MX": "Arcocoseno en radianes",
@@ -374,10 +393,11 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C805",
         "en-US": "Arcsine In Degrees",
         "es-MX": "Arcoseno en grados",
@@ -392,10 +412,11 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C803",
         "en-US": "Arcsine In Radians",
         "es-MX": "Arcoseno en radianes",
@@ -410,16 +431,17 @@ var valueFuncKw =
             {
                 "name": "NUMERATOR",
                 "description": "Numerator input for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "DENOMINATOR",
                 "description": "Denominator input for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C801",
         "en-US": "Arctangent In Degrees",
         "es-MX": "Arcotangente en grados",
@@ -434,16 +456,17 @@ var valueFuncKw =
             {
                 "name": "NUMERATOR",
                 "description": "Numerator input for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "DENOMINATOR",
                 "description": "Denominator input for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C7FF",
         "en-US": "Arctangent In Radians",
         "es-MX": "Arcotangente en radianes",
@@ -458,16 +481,17 @@ var valueFuncKw =
             {
                 "name": "ARRAY",
                 "description": "The array in which to search for the specified value.",
-                "type": "Any",
+                "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "VALUE",
                 "description": "The value for which to search.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NUMBER"
             }
         ],
+        return: "bool",
         "guid": "00000000C336",
         "en-US": "Array Contains",
         "es-MX": "La matriz contiene",
@@ -482,22 +506,23 @@ var valueFuncKw =
             {
                 "name": "ARRAY",
                 "description": "The array from which to make a copy.",
-                "type": "Any",
+                "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "START INDEX",
                 "description": "The first index of the range.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
                 "name": "COUNT",
                 "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
+        return: "Array",
         "guid": "00000000B597",
         "en-US": "Array Slice",
         "es-MX": "Extracción de matriz",
@@ -510,6 +535,7 @@ var valueFuncKw =
         "guid": "00000000B32F",
         "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
         "args": null,
+        return: "Player",
         "en-US": "Attacker",
         "es-MX": "Atacante",
         "fr-FR": "Attaquant",
@@ -521,6 +547,7 @@ var valueFuncKw =
         "guid": "00000000B11B",
         "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
         "args": null,
+        return: "Direction",
         "en-US": "Backward",
         "es-MX": "Atrás",
         "fr-FR": "Arrière",
@@ -534,16 +561,17 @@ var valueFuncKw =
             {
                 "name": "CENTER",
                 "description": "The position from which to measure proximity.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams from which the closest player will come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "Player",
         "guid": "00000000B1DE",
         "en-US": "Closest Player To",
         "es-MX": "Jugador más cercano a",
@@ -558,22 +586,23 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             },
             {
                 "name": "COMPARISON",
                 "description": "",
-                "type": "COMPARE OPERATOR",
+                "type": "__Operator__",
                 "default": "=="
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
+        return: "bool",
         "guid": "00000000B276",
         "en-US": "Compare",
         "es-MX": "Comparar",
@@ -588,10 +617,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team whose score percentage to acquire.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000B37C",
         "en-US": "Control Mode Scoring Percentage",
         "es-MX": "Porcentaje de puntuación en el modo Control",
@@ -603,6 +633,7 @@ var valueFuncKw =
     "getControlScoringTeam": {
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
         "args": [],
+        return: "Team",
         "guid": "00000000B39A",
         "en-US": "Control Mode Scoring Team",
         "es-MX": "Equipo que anota en el modo Control",
@@ -617,10 +648,11 @@ var valueFuncKw =
             {
                 "name": "ANGLE",
                 "description": "Angle in degrees.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C33E",
         "en-US": "Cosine From Degrees",
         "es-MX": "Coseno en grados",
@@ -635,10 +667,11 @@ var valueFuncKw =
             {
                 "name": "ANGLE",
                 "description": "Angle in radians.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C342",
         "en-US": "Cosine From Radians",
         "es-MX": "Coseno en radianes",
@@ -653,10 +686,11 @@ var valueFuncKw =
             {
                 "name": "ARRAY",
                 "description": "The array whose elements will be counted.",
-                "type": "Any",
+                "type": "Array",
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000B26E",
         "en-US": "Count Of",
         "es-MX": "Conteo de",
@@ -681,6 +715,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        return: "Vector",
         "guid": "00000000C35D",
         "en-US": "Cross Product",
         "es-MX": "Producto vectorial",

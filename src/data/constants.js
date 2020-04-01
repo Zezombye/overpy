@@ -1860,6 +1860,26 @@ const constantValues =
             "pt-BR": "Não fazer nada",
             "zh-CN": "无动作"
         }
+    },
+    "__Operator__": {
+        "==": {
+            "en-US": "==",
+        },
+        "!=": {
+            "en-Us": "!=",
+        },
+        "<=": {
+            "en-US": "<=",
+        },
+        ">=": {
+            "en-US": ">=",
+        },
+        "<": {
+            "en-US": "<",
+        },
+        ">": {
+            "en-US": ">",
+        },
     }
 }
 //end-json

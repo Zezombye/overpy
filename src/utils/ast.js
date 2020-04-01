@@ -17,3 +17,17 @@
 
 "use strict";
 
+function displayAst(ast, nbTabs=0) {
+    var result = "";
+    result += ast.name;
+    if (ast.args.length > 0) {
+        result += "(" + ast.args.map(x => displayAst(x)).join(", ")+")";
+    }
+    if (ast.children.length > 0) {
+        result += ":\n";
+        for (var child of ast.children) {
+            result += tabLevel(nbTabs+1) + displayAst(child, nbTabs+1)+"\n";
+        }
+    }
+    return result;
+}

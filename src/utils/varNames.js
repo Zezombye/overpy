@@ -152,3 +152,30 @@ function addVariable(content, isGlobalVariable, index) {
 		});
 	}
 }
+
+//Checks if the given name is a variable name
+function isVarName(content, checkForGlobalVar) {
+	var varArray = checkForGlobalVar ? globalVariables : playerVariables;
+	if (defaultVarNames.includes(content)) {
+		return true;
+	}
+	for (var variable of varArray) {
+		if (variable.name === content) {
+			return true;
+		}
+	}
+	return false;
+}
+
+//Checks if the given name is a subroutine name
+function isSubroutineName(content, checkForGlobalVar) {
+	if (defaultSubroutineNames.includes(content)) {
+		return true;
+	}
+	for (var subroutine of subroutines) {
+		if (subroutine.name === content) {
+			return true;
+		}
+	}
+	return false;
+}
