@@ -15,17 +15,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-compileTest = `
-globalvar owo
-globalvar uwu
+"use strict";
 
-rule "rule 1":
- if A == 2:
-  B = 3
+astParsingFunctions.__add__ = function(content) {
 
-@Condition A == 3
-@Event eachPlayer
-rule "rule 2":
- if owo == uwu:
-  A = 3.5
-`
+
+}

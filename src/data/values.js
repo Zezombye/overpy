@@ -1508,7 +1508,7 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The value for which to search.",
-                "type": "Number",
+                "type": "Object",
                 "default": "NUMBER"
             }
         ],
@@ -1885,7 +1885,7 @@ var valueFuncKw =
         "pt-BR": "É no Ar",
         "zh-CN": "正在空中"
     },
-    "__isInLineOfSight__": {
+    "isInLoS": {
         "description": "Whether two positions have line of sight with each other.",
         "args": [
             {

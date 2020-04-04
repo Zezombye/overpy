@@ -17,17 +17,104 @@
 
 "use strict";
 
-function displayAst(ast, nbTabs=0) {
-    var result = "";
-    result += ast.name;
-    if (ast.args.length > 0) {
-        result += "(" + ast.args.map(x => displayAst(x)).join(", ")+")";
+/*
+A type is suitable if each type of the receivedType is suitable for any of the types in expectedType.
+Eg: ["unsigned float", "Vector"] is suitable for ["float", "Direction"].
+However ["float", "Vector"] is not suitable for ["float"].
+
+A type is defined as "suitable" if it is the type, or a child type, of expectedType.
+Eg: "float" is suitable for "Object". However "Object" is not suitable for "float".
+Moreover, {Array: "Player"} is not suitable for "Array".
+
+The special "Value" type is suitable for any child type of object or array.
+*/
+function isTypeSuitable(expectedType, receivedType) {
+
+    //console.log("expected type = "+JSON.stringify(expectedType)+", received type = "+JSON.stringify(receivedType));
+
+    if (receivedType instanceof Array) {
+        //Check if each of the received type is valid for the expected type.
+        return receivedType.every(x => isTypeSuitable(expectedType, x));
     }
-    if (ast.children.length > 0) {
-        result += ":\n";
-        for (var child of ast.children) {
-            result += tabLevel(nbTabs+1) + displayAst(child, nbTabs+1)+"\n";
+
+    if (expectedType instanceof Array) {
+        //Check if the received type is valid for any of the expected types.
+        return expectedType.some(x => isTypeSuitable(x, receivedType));
+    }
+
+    if (typeof receivedType === "string") {
+        if (typeof expectedType === "string") {
+            //Handle the special "value" type.
+            if (receivedType === "Value") {
+                return expectedType === "Array" || typeMatrix["Object"].includes(expectedType);
+            } else {
+                //The most simple case: both types are string. Simply use the type matrix to see if the received type is a child (or the type itself) of the expected type.
+                return typeMatrix[expectedType].includes(receivedType);
+            }
+
+        } else if (typeof expectedType === "object") {
+            var expectedTypeName = Object.keys(expectedType)[0];
+            if (expectedTypeName === "Array") {
+                //The only string type that would be suitable for Array is the special "value" type.
+                return receivedType === "Value";
+
+            } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
+                return isTypeSuitable(expectedTypeName, receivedType);
+
+            }
+        }
+    } else if (typeof receivedType === "object") {
+        var receivedTypeName = Object.keys(receivedType)[0];
+        if (receivedTypeName === "Array") {
+            if (typeof expectedType === "string") {
+                //The only string type that is suitable for an array is "Array".
+                return expectedType === "Array";
+
+            } else if (typeof expectedType === "object") {
+                
+                var expectedTypeName = Object.keys(expectedType)[0];
+                if (expectedTypeName === "Array") {
+                    return isTypeSuitable(expectedType[expectedTypeName], receivedType[receivedTypeName]);
+
+                } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
+                    //An array cannot be suitable for a vector
+                    return false;
+                }
+            }
+        } else if (["Vector", "Direction", "Position", "Velocity"].includes(receivedTypeName)) {
+            if (typeof expectedType === "string") {
+                //The default type for vectors is float.
+                return receivedType[receivedTypeName].every(x => isTypeSuitable("float", x));
+
+            } else if (typeof expectedType === "object") {
+                
+                var expectedTypeName = Object.keys(expectedType)[0];
+                if (expectedTypeName === "Array") {
+                    //An vector cannot be suitable for a array
+                    return false;
+
+                } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
+                    if (isTypeSuitable(expectedTypeName, receivedTypeName)) {
+                        if (expectedType[expectedTypeName].length !== receivedType[receivedTypeName].length) {
+                            return false;
+
+                        } else {
+                            for (var i = 0; i < expectedType[expectedTypeName].length; i++) {
+                                if (!isTypeSuitable(expectedType[expectedTypeName][i], receivedType[receivedTypeName][i])) {
+                                    return false;
+                                }
+                            }
+                            return true;
+                        }
+
+                    } else {
+                        return false;
+                    }
+                }
+            }
         }
     }
-    return result;
+
+    error("Unhandled expected type '"+JSON.stringify(expectedType)+"' or received type '"+JSON.stringify(receivedTypeName)+"'");
+
 }

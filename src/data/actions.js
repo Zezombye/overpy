@@ -27,7 +27,8 @@ const actionKw =
         "fr-FR": "Interrompre",
         "ja-JP": "中止",
         "pt-BR": "Anular",
-        "zh-CN": "中止"
+        "zh-CN": "中止",
+        "return": "void"
     },
     "__abortIf__": {
         "description": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
@@ -45,7 +46,8 @@ const actionKw =
         "fr-FR": "Interrompre si",
         "ja-JP": "中止する条件",
         "pt-BR": "Anular se",
-        "zh-CN": "根据条件中止"
+        "zh-CN": "根据条件中止",
+        "return": "void"
     },
     "__abortIfConditionIsFalse__": {
         "description": "Stops execution of the action list if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
@@ -56,7 +58,8 @@ const actionKw =
         "fr-FR": "Interrompre si la condition est fausse",
         "ja-JP": "条件が「FALSE」の場合中止",
         "pt-BR": "Anular se a Condição for Falsa",
-        "zh-CN": "如条件为“假”则中止"
+        "zh-CN": "如条件为“假”则中止",
+        "return": "void"
     },
     "__abortIfConditionIsTrue__": {
         "description": "Stops execution of the action list if all conditions in the condition list are true. If any are false, execution continues with the next action.",
@@ -67,7 +70,8 @@ const actionKw =
         "fr-FR": "Interrompre si la condition est vraie",
         "ja-JP": "条件が「TRUE」の場合中止",
         "pt-BR": "Anular se a Condição for Verdadeira",
-        "zh-CN": "如条件为”真“则中止"
+        "zh-CN": "如条件为”真“则中止",
+        "return": "void"
     },
     "_&allowButton": {
         "description": "Undoes the effect of the disallow button action for one or more players.",
@@ -75,7 +79,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose button is being reenabled.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -91,7 +100,8 @@ const actionKw =
         "fr-FR": "Autoriser un bouton",
         "ja-JP": "ボタンを有効化",
         "pt-BR": "Permitir Botão",
-        "zh-CN": "可用按钮"
+        "zh-CN": "可用按钮",
+        "return": "void"
     },
     "_&applyImpulse": {
         "description": "Applies an instantaneous change in velocity to the movement of one or more players.",
@@ -99,7 +109,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose velocity will be changed.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -133,7 +148,8 @@ const actionKw =
         "fr-FR": "Appliquer une impulsion",
         "ja-JP": "推進力を適用",
         "pt-BR": "Aplicar Impulso",
-        "zh-CN": "施加推力"
+        "zh-CN": "施加推力",
+        "return": "void"
     },
     "bigMessage": {
         "description": "Displays a large message above the reticle that is visible to specific players.",
@@ -141,7 +157,12 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -157,7 +178,8 @@ const actionKw =
         "fr-FR": "Message en grand",
         "ja-JP": "大きなメッセージ",
         "pt-BR": "Mensagem Grande",
-        "zh-CN": "大字体信息"
+        "zh-CN": "大字体信息",
+        "return": "void"
     },
     "__callSubroutine__": {
         "description": "Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
@@ -176,7 +198,8 @@ const actionKw =
         "ja-JP": "サブルーチンの呼び出し",
         "pl-PL": "Wywołaj podprogram",
         "pt-BR": "Chamar sub-rotina",
-        "zh-CN": "调用子程序"
+        "zh-CN": "调用子程序",
+        "return": "void"
     },
     "__chaseGlobalVariableAtRate__": {
         "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
@@ -190,7 +213,10 @@ const actionKw =
             {
                 "name": "DESTINATION",
                 "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
@@ -212,7 +238,8 @@ const actionKw =
         "fr-FR": "Modifier une variable globale selon une cadence",
         "ja-JP": "グローバル変数を特定のレートで追跡",
         "pt-BR": "Acompanhar Variável Global na Medida",
-        "zh-CN": "追踪全局变量频率"
+        "zh-CN": "追踪全局变量频率",
+        "return": "void"
     },
     "__chaseGlobalVariableOverTime__": {
         "description": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)",
@@ -226,7 +253,10 @@ const actionKw =
             {
                 "name": "DESTINATION",
                 "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
@@ -248,7 +278,8 @@ const actionKw =
         "fr-FR": "Modifier une variable globale sur la durée",
         "ja-JP": "グローバル変数を継続的に追跡",
         "pt-BR": "Acompanhar Variável Global ao Longo do Tempo",
-        "zh-CN": "持续追踪全局变量"
+        "zh-CN": "持续追踪全局变量",
+        "return": "void"
     },
     "__chasePlayerVariableAtRate__": {
         "description": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)",
@@ -256,7 +287,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -268,7 +304,10 @@ const actionKw =
             {
                 "name": "DESTINATION",
                 "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
@@ -290,7 +329,8 @@ const actionKw =
         "fr-FR": "Modifier une variable de joueur selon une cadence",
         "ja-JP": "プレイヤー変数を特定のレートで追跡",
         "pt-BR": "Acompanhar Variável de Jogador na Medida",
-        "zh-CN": "追踪玩家变量频率"
+        "zh-CN": "追踪玩家变量频率",
+        "return": "void"
     },
     "__chasePlayerVariableOverTime__": {
         "description": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)",
@@ -298,7 +338,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -310,7 +355,10 @@ const actionKw =
             {
                 "name": "DESTINATION",
                 "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
@@ -332,7 +380,8 @@ const actionKw =
         "fr-FR": "Modifier une variable de joueur sur la durée",
         "ja-JP": "プレイヤー変数を継続的に追跡",
         "pt-BR": "Acompanhar Variável de Jogador ao Longo do Tempo",
-        "zh-CN": "持续追踪玩家变量"
+        "zh-CN": "持续追踪玩家变量",
+        "return": "void"
     },
     "_&clearStatusEffect": {
         "description": "Clears a status that was applied from a set status action from one or more players.",
@@ -340,7 +389,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players from whom the status will be removed.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -356,7 +410,8 @@ const actionKw =
         "fr-FR": "Effacer le statut",
         "ja-JP": "ステータスをクリア",
         "pt-BR": "Apagar Status",
-        "zh-CN": "清除状态"
+        "zh-CN": "清除状态",
+        "return": "void"
     },
     "_&communicate": {
         "description": "Causes one or more players to use an emote, voice line, or other equipped communication.",
@@ -364,7 +419,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to perform the communication.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -380,7 +440,8 @@ const actionKw =
         "fr-FR": "Communiquer",
         "ja-JP": "コミュニケーション",
         "pt-BR": "Comunicar",
-        "zh-CN": "交流"
+        "zh-CN": "交流",
+        "return": "void"
     },
     "createBeam": {
         "description": "Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -388,7 +449,12 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -429,7 +495,8 @@ const actionKw =
         "ja-JP": "ビーム・エフェクトを作成",
         "pl-PL": "Stwórz efekt wiązki",
         "pt-BR": "Criar Efeito de Feixe",
-        "zh-CN": "创建光束效果"
+        "zh-CN": "创建光束效果",
+        "return": "void"
     },
     "createDummy": {
         "description": "Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing workshop actions.",
@@ -472,7 +539,8 @@ const actionKw =
         "ja-JP": "ダミーボットを作成",
         "pl-PL": "Stwórz atrapę bota",
         "pt-BR": "Criar Bot",
-        "zh-CN": "生成机器人"
+        "zh-CN": "生成机器人",
+        "return": "void"
     },
     "createEffect": {
         "description": "Creates an in-world effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -480,7 +548,12 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -520,7 +593,8 @@ const actionKw =
         "fr-FR": "Créer un effet",
         "ja-JP": "エフェクトを作成",
         "pt-BR": "Criar Efeito",
-        "zh-CN": "创建效果"
+        "zh-CN": "创建效果",
+        "return": "void"
     },
     "__hudText__": {
         "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
@@ -528,7 +602,12 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the hud text.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -598,7 +677,8 @@ const actionKw =
         "fr-FR": "Créer du texte d’interface",
         "ja-JP": "HUDテキストを作成",
         "pt-BR": "Criar Texto de HUD",
-        "zh-CN": "创建HUD文本"
+        "zh-CN": "创建HUD文本",
+        "return": "void"
     },
     "createIcon": {
         "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -606,7 +686,12 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the icon.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -646,7 +731,8 @@ const actionKw =
         "fr-FR": "Créer une icône",
         "ja-JP": "アイコンを作成",
         "pt-BR": "Criar Ícone",
-        "zh-CN": "创建图标"
+        "zh-CN": "创建图标",
+        "return": "void"
     },
     "createInWorldText": {
         "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
@@ -654,7 +740,12 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the in-world text.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -706,7 +797,8 @@ const actionKw =
         "fr-FR": "Créer du texte en jeu",
         "ja-JP": "ワールド内テキストを作成",
         "pt-BR": "Criar Texto no Mundo",
-        "zh-CN": "创建地图文本"
+        "zh-CN": "创建地图文本",
+        "return": "void"
     },
     "damage": {
         "guid": "000000007876",
@@ -715,7 +807,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will receive damage.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -736,7 +833,8 @@ const actionKw =
         "fr-FR": "Infliger des dégâts",
         "ja-JP": "ダメージ",
         "pt-BR": "Dano",
-        "zh-CN": "伤害"
+        "zh-CN": "伤害",
+        "return": "void"
     },
     "declareDraw": {
         "description": "Instantly ends the match in a draw. This action has no effect in free-for-all modes.",
@@ -747,7 +845,8 @@ const actionKw =
         "fr-FR": "Déclarer le match nul",
         "ja-JP": "マッチの引き分けを宣言",
         "pt-BR": "Declarar Empate na Partida",
-        "zh-CN": "宣布比赛为平局"
+        "zh-CN": "宣布比赛为平局",
+        "return": "void"
     },
     "declarePlayerVictory": {
         "description": "Instantly ends the match with the specific player as the winner. This action only has an effect in free-for-all modes.",
@@ -765,7 +864,8 @@ const actionKw =
         "fr-FR": "Déclarer la victoire d’un joueur",
         "ja-JP": "チームの勝利を宣言",
         "pt-BR": "Declarar Vitória do Jogador",
-        "zh-CN": "宣告玩家胜利"
+        "zh-CN": "宣告玩家胜利",
+        "return": "void"
     },
     "declareRoundVictory": {
         "description": "Declare a team as the current round winner. This only works in the control and elimination game modes",
@@ -783,7 +883,8 @@ const actionKw =
         "fr-FR": "Déclarer la victoire de la manche",
         "ja-JP": "ラウンドの勝利を宣言",
         "pt-BR": "Declarar Vitória na Rodada",
-        "zh-CN": "宣告回合胜利"
+        "zh-CN": "宣告回合胜利",
+        "return": "void"
     },
     "declareTeamVictory": {
         "description": "Instantly ends the match with the specified team as the winner. This action has no effect in free-for-all modes.",
@@ -801,7 +902,8 @@ const actionKw =
         "fr-FR": "Déclarer la victoire d’une équipe",
         "ja-JP": "チームの勝利を宣言",
         "pt-BR": "Declarar Vitória da Equipe",
-        "zh-CN": "宣告队伍胜利"
+        "zh-CN": "宣告队伍胜利",
+        "return": "void"
     },
     "destroyAllDummies": {
         "description": "Removes all dummy bots from the match.",
@@ -812,7 +914,8 @@ const actionKw =
         "fr-FR": "Détruire toutes les I.A.",
         "ja-JP": "すべてのダミーボットを破棄",
         "pt-BR": "Destruir Todos os Bots",
-        "zh-CN": "移除所有机器人"
+        "zh-CN": "移除所有机器人",
+        "return": "void"
     },
     "destroyAllEffects": {
         "description": "Destroys all effect entities created by create effect.",
@@ -823,7 +926,8 @@ const actionKw =
         "fr-FR": "Détruire tous les effets",
         "ja-JP": "すべてのエフェクトを破棄",
         "pt-BR": "Destruir Todos os Efeitos",
-        "zh-CN": "消除所有效果"
+        "zh-CN": "消除所有效果",
+        "return": "void"
     },
     "destroyAllHudTexts": {
         "description": "Destroys all hud text that was created by the create hud text action.",
@@ -834,7 +938,8 @@ const actionKw =
         "fr-FR": "Détruire tous les textes d’interface",
         "ja-JP": "すべてのHUDテキストを破棄",
         "pt-BR": "Destruir Todo o Texto de HUD",
-        "zh-CN": "消除所有HUD文本"
+        "zh-CN": "消除所有HUD文本",
+        "return": "void"
     },
     "destroyAllIcons": {
         "description": "Destroys all icon entities created by create icon.",
@@ -845,7 +950,8 @@ const actionKw =
         "fr-FR": "Détruire toutes les icônes",
         "ja-JP": "すべてのアイコンを破棄",
         "pt-BR": "Destruir Todos os Ícones",
-        "zh-CN": "消除所有图标"
+        "zh-CN": "消除所有图标",
+        "return": "void"
     },
     "destroyAllInWorldText": {
         "description": "Destroys all in-world text created by create in-world text.",
@@ -856,7 +962,8 @@ const actionKw =
         "fr-FR": "Détruire tous les textes en jeu",
         "ja-JP": "すべてのワールド内テキストを破棄",
         "pt-BR": "Destruir Todo o Texto no Mundo",
-        "zh-CN": "消除所有地图文本"
+        "zh-CN": "消除所有地图文本",
+        "return": "void"
     },
     "destroyDummy": {
         "description": "Removes the specified dummy bot from the match.",
@@ -881,7 +988,8 @@ const actionKw =
         "ja-JP": "ダミーボットを破壊する",
         "pl-PL": "Zniszcz atrapę bota",
         "pt-BR": "Destruir Bot",
-        "zh-CN": "移除机器人"
+        "zh-CN": "移除机器人",
+        "return": "void"
     },
     "destroyEffect": {
         "description": "Destroys an effect entity that was created by create effect.",
@@ -899,7 +1007,8 @@ const actionKw =
         "fr-FR": "Détruire un effet",
         "ja-JP": "エフェクトを破棄",
         "pt-BR": "Destruir Efeito",
-        "zh-CN": "消除效果"
+        "zh-CN": "消除效果",
+        "return": "void"
     },
     "destroyHudText": {
         "description": "Destroys hud text that was created by create hud text.",
@@ -917,7 +1026,8 @@ const actionKw =
         "fr-FR": "Détruire du texte d’interface",
         "ja-JP": "HUDテキストを破棄",
         "pt-BR": "Destruir Texto de HUD",
-        "zh-CN": "消除HUD文本"
+        "zh-CN": "消除HUD文本",
+        "return": "void"
     },
     "destroyIcon": {
         "description": "Destroys an icon entity that was created by create icon.",
@@ -935,7 +1045,8 @@ const actionKw =
         "fr-FR": "Détruire une icône",
         "ja-JP": "アイコンを破棄",
         "pt-BR": "Destruir Ícone",
-        "zh-CN": "消除图标"
+        "zh-CN": "消除图标",
+        "return": "void"
     },
     "destroyInWorldText": {
         "description": "Destroys in-world text that was created by create in-world text.",
@@ -953,7 +1064,8 @@ const actionKw =
         "fr-FR": "Détruire du texte en jeu",
         "ja-JP": "ワールド内テキストを破棄",
         "pt-BR": "Destruir Texto no Mundo",
-        "zh-CN": "消除地图文本"
+        "zh-CN": "消除地图文本",
+        "return": "void"
     },
     "disableAnnouncer": {
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
@@ -964,7 +1076,8 @@ const actionKw =
         "fr-FR": "Désactiver l’annonceur prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの通知を無効化",
         "pt-BR": "Desativar Narração Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设通告模式"
+        "zh-CN": "关闭游戏预设通告模式",
+        "return": "void"
     },
     "disableGamemodeCompletion": {
         "description": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands.",
@@ -975,7 +1088,8 @@ const actionKw =
         "fr-FR": "Désactiver l’accomplissement prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準完了を無効化",
         "pt-BR": "Desativar Conclusão Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设完成条件"
+        "zh-CN": "关闭游戏预设完成条件",
+        "return": "void"
     },
     "disableMusic": {
         "description": "Disables all game mode music until reenabled or the match ends.",
@@ -986,7 +1100,8 @@ const actionKw =
         "fr-FR": "Désactiver la musique prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードのBGMを無効化",
         "pt-BR": "Desativar Música Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设音乐模式"
+        "zh-CN": "关闭游戏预设音乐模式",
+        "return": "void"
     },
     "_&disableRespawn": {
         "description": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands.",
@@ -994,7 +1109,12 @@ const actionKw =
             {
                 "name": "PLAYERS",
                 "description": "The player or players whose respawning is affected.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1004,7 +1124,8 @@ const actionKw =
         "fr-FR": "Désactiver la réapparition prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準リスポーンを無効化",
         "pt-BR": "Desativar Ressurgimento Integrado ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设重生模式"
+        "zh-CN": "关闭游戏预设重生模式",
+        "return": "void"
     },
     "disableScoring": {
         "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
@@ -1015,7 +1136,8 @@ const actionKw =
         "fr-FR": "Désactiver le calcul des points prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準スコアリングを無効化",
         "pt-BR": "Desativar Pontuação Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设计分模式"
+        "zh-CN": "关闭游戏预设计分模式",
+        "return": "void"
     },
     "_&disableDeathSpectateAllPlayers": {
         "description": "Undoes the effect of the enable death spectate all players action for or more players.",
@@ -1023,7 +1145,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose default death spectate behavior is restored.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1033,7 +1160,8 @@ const actionKw =
         "fr-FR": "Empêcher d’observer n’importe qui après la mort",
         "ja-JP": "観戦時に全プレイヤー選択可能を無効化",
         "pt-BR": "Desativar Visualização de Todos os Jogadores na Morte",
-        "zh-CN": "对所有玩家禁用死亡回放"
+        "zh-CN": "对所有玩家禁用死亡回放",
+        "return": "void"
     },
     "_&disableDeathSpectateTargetHud": {
         "description": "Undoes the effect of the enable death spectate target hud action for or more players.",
@@ -1041,7 +1169,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will revert to seeing their own hud while death spectating.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1051,7 +1184,8 @@ const actionKw =
         "fr-FR": "Empêcher de voir l’interface de la cible après la mort",
         "ja-JP": "観戦中のターゲットHUD表示を無効化",
         "pt-BR": "Desativar HUD do Alvo de Visualização na Morte",
-        "zh-CN": "禁用死亡回放时目标的HUD"
+        "zh-CN": "禁用死亡回放时目标的HUD",
+        "return": "void"
     },
     "disableInspector": {
         "description": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.",
@@ -1063,7 +1197,8 @@ const actionKw =
         "ja-JP": "インスペクターでの記録を無効化",
         "pl-PL": "Wyłącz nagrywanie Inspektora",
         "pt-BR": "Desativar gravação do Inspetor",
-        "zh-CN": "禁用查看器录制"
+        "zh-CN": "禁用查看器录制",
+        "return": "void"
     },
     "_&disallowButton": {
         "description": "Disables a logical button for one or more players such that pressing it has no effect.",
@@ -1071,7 +1206,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose button is being disabled.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1087,7 +1227,8 @@ const actionKw =
         "fr-FR": "Interdire le bouton",
         "ja-JP": "ボタンを無効化",
         "pt-BR": "Proibir Botão",
-        "zh-CN": "禁用按钮"
+        "zh-CN": "禁用按钮",
+        "return": "void"
     },
     "__else__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
@@ -1097,7 +1238,8 @@ const actionKw =
         "es-MX": "Si no",
         "fr-FR": "Sinon",
         "ja-JP": "ELSE",
-        "pl-PL": "Inaczej"
+        "pl-PL": "Inaczej",
+        "return": "void"
     },
     "__elif__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true and the previous If or Else If action's condition was false.",
@@ -1114,7 +1256,8 @@ const actionKw =
         "es-MX": "Si no si",
         "fr-FR": "Sinon Si",
         "ja-JP": "ELSE IF",
-        "pl-PL": "Inaczej jeśli"
+        "pl-PL": "Inaczej jeśli",
+        "return": "void"
     },
     "enableAnnouncer": {
         "description": "Undoes the effect of the disable built-in game mode announcer action.",
@@ -1125,7 +1268,8 @@ const actionKw =
         "fr-FR": "Activer l’annonceur prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの通知を有効化",
         "pt-BR": "Ativar Narração Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设通告模式"
+        "zh-CN": "开启游戏预设通告模式",
+        "return": "void"
     },
     "enableGamemodeCompletion": {
         "description": "Undoes the effect of the disable built-in game mode completion action.",
@@ -1136,7 +1280,8 @@ const actionKw =
         "fr-FR": "Activer l’accomplissement prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準完了を有効化",
         "pt-BR": "Ativar Conclusão Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设完成条件"
+        "zh-CN": "开启游戏预设完成条件",
+        "return": "void"
     },
     "enableMusic": {
         "description": "Undoes the effect of the disable built-in game mode music action.",
@@ -1147,7 +1292,8 @@ const actionKw =
         "fr-FR": "Activer la musique prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードのBGMを有効化",
         "pt-BR": "Ativar Música Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设音乐模式"
+        "zh-CN": "开启游戏预设音乐模式",
+        "return": "void"
     },
     "_&enableRespawn": {
         "description": "Undoes the effect of the disable built-in game mode respawning action for one or more players.",
@@ -1155,7 +1301,12 @@ const actionKw =
             {
                 "name": "PLAYERS",
                 "description": "The player or players whose respawning is affected.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1165,7 +1316,8 @@ const actionKw =
         "fr-FR": "Activer la réapparition prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準リスポーンを有効化",
         "pt-BR": "Ativar Ressurgimento Integrado ao Modo de Jogo",
-        "zh-CN": "开启游戏预设重生模式"
+        "zh-CN": "开启游戏预设重生模式",
+        "return": "void"
     },
     "enableScoring": {
         "description": "Undoes the effect of the disable built-in game mode scoring action.",
@@ -1176,7 +1328,8 @@ const actionKw =
         "fr-FR": "Activer le calcul des points prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準スコアリングを有効化",
         "pt-BR": "Ativar Pontuação Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设计分模式"
+        "zh-CN": "开启游戏预设计分模式",
+        "return": "void"
     },
     "_&enableDeathSpectateAllPlayers": {
         "description": "Allows one or more players to spectate all players when dead, as opposed to only allies.",
@@ -1184,7 +1337,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be allowed to spectate all players.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1194,7 +1352,8 @@ const actionKw =
         "fr-FR": "Permettre d’observer n’importe qui après la mort",
         "ja-JP": "観戦時に全プレイヤー選択可能を有効化",
         "pt-BR": "Ativar Visualização de Todos os Jogadores na Morte",
-        "zh-CN": "对所有玩家启用死亡回放"
+        "zh-CN": "对所有玩家启用死亡回放",
+        "return": "void"
     },
     "_&enableDeathSpectateTargetHud": {
         "description": "Causes one or more players to see their spectate target's hud instead of their own while death spectating.",
@@ -1202,7 +1361,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will begin seeing their spectate targets hud while death spectating.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1212,7 +1376,8 @@ const actionKw =
         "fr-FR": "Permettre de voir l’interface de la cible après la mort",
         "ja-JP": "観戦中のターゲットHUD表示を有効化",
         "pt-BR": "Ativar HUD do Alvo de Visualização na Morte",
-        "zh-CN": "启用死亡回放时目标的HUD"
+        "zh-CN": "启用死亡回放时目标的HUD",
+        "return": "void"
     },
     "enableInspector": {
         "description": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.",
@@ -1224,7 +1389,8 @@ const actionKw =
         "ja-JP": "インスペクターでの記録を有効化",
         "pl-PL": "Włącz nagrywanie Inspektora",
         "pt-BR": "Ativar gravação do Inspetor",
-        "zh-CN": "启用查看器录制"
+        "zh-CN": "启用查看器录制",
+        "return": "void"
     },
     "__end__": {
         "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
@@ -1234,7 +1400,8 @@ const actionKw =
         "es-MX": "Fin",
         "fr-FR": "Fin",
         "ja-JP": "終了",
-        "pt-BR": "Término"
+        "pt-BR": "Término",
+        "return": "void"
     },
     "__forGlobalVar__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
@@ -1270,7 +1437,8 @@ const actionKw =
         "fr-FR": "Pour variable globale",
         "ja-JP": "グローバル変数",
         "pt-BR": "For variável global",
-        "zh-CN": "For 全局变量"
+        "zh-CN": "For 全局变量",
+        "return": "void"
     },
     "__forPlayerVar__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
@@ -1312,7 +1480,8 @@ const actionKw =
         "fr-FR": "Pour variable de joueur",
         "ja-JP": "プレイヤー変数",
         "pt-BR": "For variável de jogador",
-        "zh-CN": "For 玩家变量"
+        "zh-CN": "For 玩家变量",
+        "return": "void"
     },
     "goToAssembleHeroes": {
         "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
@@ -1323,7 +1492,8 @@ const actionKw =
         "fr-FR": "Aller à Choisissez vos héros",
         "ja-JP": "「ヒーローを編成しよう」に移行",
         "pt-BR": "Ir para Escolher Heróis",
-        "zh-CN": "前往集结英雄"
+        "zh-CN": "前往集结英雄",
+        "return": "void"
     },
     "heal": {
         "guid": "000000007875",
@@ -1332,7 +1502,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose health will be restored.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1353,7 +1528,8 @@ const actionKw =
         "fr-FR": "Soigner",
         "ja-JP": "回復",
         "pt-BR": "Cura",
-        "zh-CN": "治疗"
+        "zh-CN": "治疗",
+        "return": "void"
     },
     "__if__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true.",
@@ -1370,7 +1546,8 @@ const actionKw =
         "es-MX": "Si",
         "fr-FR": "Si",
         "ja-JP": "IF",
-        "pl-PL": "Jeśli"
+        "pl-PL": "Jeśli",
+        "return": "void"
     },
     "kill": {
         "guid": "000000007877",
@@ -1379,7 +1556,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be killed.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1394,7 +1576,8 @@ const actionKw =
         "fr-FR": "Tuer",
         "ja-JP": "キル",
         "pt-BR": "Abater",
-        "zh-CN": "击杀"
+        "zh-CN": "击杀",
+        "return": "void"
     },
     "__loop__": {
         "guid": "0000000078F5",
@@ -1405,7 +1588,8 @@ const actionKw =
         "fr-FR": "Boucle",
         "ja-JP": "ループ",
         "pt-BR": "Gerar Loop",
-        "zh-CN": "循环"
+        "zh-CN": "循环",
+        "return": "void"
     },
     "__loopIf__": {
         "description": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
@@ -1423,7 +1607,8 @@ const actionKw =
         "fr-FR": "Boucle si",
         "ja-JP": "ループする条件",
         "pt-BR": "Gerar Loop se",
-        "zh-CN": "根据条件循环"
+        "zh-CN": "根据条件循环",
+        "return": "void"
     },
     "__loopIfConditionIsFalse__": {
         "description": "Restarts the action list from the beginning if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
@@ -1434,7 +1619,8 @@ const actionKw =
         "fr-FR": "Boucle si la condition est fausse",
         "ja-JP": "条件が「FALSE」の場合ループ",
         "pt-BR": "Gerar Loop se a Condição for Falsa",
-        "zh-CN": "如条件为“假”则循环"
+        "zh-CN": "如条件为“假”则循环",
+        "return": "void"
     },
     "__loopIfConditionIsTrue__": {
         "description": "Restarts the action list from the beginning if every condition in the condition list is true. If any are false, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
@@ -1445,7 +1631,8 @@ const actionKw =
         "fr-FR": "Boucle si la condition est vraie",
         "ja-JP": "条件が「TRUE」の場合ループ",
         "pt-BR": "Gerar Loop se a Condição for Verdadeira",
-        "zh-CN": "如条件为”真“则循环"
+        "zh-CN": "如条件为”真“则循环",
+        "return": "void"
     },
     "__modifyGlobalVar__": {
         "description": "Modifies the value of a global variable, which is a variable that belongs to the game itself.",
@@ -1475,7 +1662,8 @@ const actionKw =
         "fr-FR": "Modifier une variable globale",
         "ja-JP": "グローバル変数を変更",
         "pt-BR": "Modificar Variável Global",
-        "zh-CN": "修改全局变量"
+        "zh-CN": "修改全局变量",
+        "return": "void"
     },
     "__modifyGlobalVarAtIndex__": {
         "description": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself.",
@@ -1511,7 +1699,8 @@ const actionKw =
         "fr-FR": "Modifier une variable globale à l’index",
         "ja-JP": "インデックスのグローバル変数を変更",
         "pt-BR": "Modificar Variável Global no Índice",
-        "zh-CN": "在索引处修改全局变量"
+        "zh-CN": "在索引处修改全局变量",
+        "return": "void"
     },
     "_&addToScore": {
         "description": "Modifies the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
@@ -1519,7 +1708,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose score will change.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1535,7 +1729,8 @@ const actionKw =
         "fr-FR": "Modifier le score d’un joueur",
         "ja-JP": "プレイヤー・スコアを変更",
         "pt-BR": "Modificar Pontuação do Jogador",
-        "zh-CN": "修改玩家分数"
+        "zh-CN": "修改玩家分数",
+        "return": "void"
     },
     "__modifyPlayerVar__": {
         "description": "Modifies the value of a player variable, which is a variable that belongs to a specific player.",
@@ -1543,7 +1738,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1571,7 +1771,8 @@ const actionKw =
         "fr-FR": "Modifier une variable de joueur",
         "ja-JP": "プレイヤー変数を変更",
         "pt-BR": "Modificar Variável de Jogador",
-        "zh-CN": "修改玩家变量"
+        "zh-CN": "修改玩家变量",
+        "return": "void"
     },
     "__modifyPlayerVarAtIndex__": {
         "description": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player.",
@@ -1579,7 +1780,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1613,7 +1819,8 @@ const actionKw =
         "fr-FR": "Modifier une variable de joueur à l’index",
         "ja-JP": "インデックスのプレイヤー変数を変更",
         "pt-BR": "Modificar Variável de Jogador no Índice",
-        "zh-CN": "在索引处修改玩家变量"
+        "zh-CN": "在索引处修改玩家变量",
+        "return": "void"
     },
     "addToTeamScore": {
         "description": "Modifies the score of one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
@@ -1637,7 +1844,8 @@ const actionKw =
         "fr-FR": "Modifier le score de l’équipe",
         "ja-JP": "チーム・スコアを変更",
         "pt-BR": "Modificar Pontuação da Equipe",
-        "zh-CN": "修改队伍分数"
+        "zh-CN": "修改队伍分数",
+        "return": "void"
     },
     "pauseMatchTime": {
         "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
@@ -1648,7 +1856,8 @@ const actionKw =
         "fr-FR": "Mettre en pause le temps de jeu",
         "ja-JP": "マッチ時間をポーズする",
         "pt-BR": "Pausar Tempo da Partida",
-        "zh-CN": "比赛时间暂停"
+        "zh-CN": "比赛时间暂停",
+        "return": "void"
     },
     "playEffect": {
         "description": "Plays an effect at a position in the world. The lifetime of this effect is short, so it does not need to be updated or destroyed.",
@@ -1656,7 +1865,12 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -1690,7 +1904,8 @@ const actionKw =
         "fr-FR": "Jouer un effet",
         "ja-JP": "エフェクトを再生",
         "pt-BR": "Reproduzir Efeito",
-        "zh-CN": "播放效果"
+        "zh-CN": "播放效果",
+        "return": "void"
     },
     "_&preloadHero": {
         "description": "Preemptively loads the specified hero or heroes into memory using the skins of the specified player or players, available memory permitting. Useful whenever rapid hero changing is possible and the next hero is known.",
@@ -1698,13 +1913,23 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will begin preloading a hero or heroes. Only one preload hero action will be active at a time for a given player.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HERO",
                 "description": "The hero or heroes to begin preloading for the specified player or players. When multiple heroes are specified in an array, the heroes towards the beginning of the array are prioritized.",
-                "type": ["Hero", {Array: "Hero"}],
+                "type": [
+                    "Hero",
+                    {
+                        "Array": "Hero"
+                    }
+                ],
                 "default": "HERO"
             }
         ],
@@ -1714,7 +1939,8 @@ const actionKw =
         "fr-FR": "Précharger un héros",
         "ja-JP": "ヒーローをプリロード",
         "pt-BR": "Pré-carregar Herói",
-        "zh-CN": "预加载英雄"
+        "zh-CN": "预加载英雄",
+        "return": "void"
     },
     "_&forceButtonPress": {
         "description": "Forces one or more players to press a button virtually for a single frame.",
@@ -1722,7 +1948,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players for whom the virtual button input will be forced.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1738,7 +1969,8 @@ const actionKw =
         "fr-FR": "Appuyer sur un bouton",
         "ja-JP": "ボタンを押してください",
         "pt-BR": "Pressionar Botão",
-        "zh-CN": "按下按键"
+        "zh-CN": "按下按键",
+        "return": "void"
     },
     "_&resetHeroAvailability": {
         "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
@@ -1746,7 +1978,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose hero list is being reset.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1756,7 +1993,8 @@ const actionKw =
         "fr-FR": "Réinitialiser la disponibilité du héros pour un joueur",
         "ja-JP": "プレイヤーが使用できるヒーローをリセット",
         "pt-BR": "Redefinir Disponibilidade de Heróis para o Jogador",
-        "zh-CN": "重置玩家英雄可选状态"
+        "zh-CN": "重置玩家英雄可选状态",
+        "return": "void"
     },
     "_&respawn": {
         "description": "Respawns one or more players at an appropriate spawn location with full health, even if they were already alive.",
@@ -1764,7 +2002,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to respawn.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1774,7 +2017,8 @@ const actionKw =
         "fr-FR": "Réapparaître",
         "ja-JP": "リスポーン",
         "pt-BR": "Ressurgir",
-        "zh-CN": "重生"
+        "zh-CN": "重生",
+        "return": "void"
     },
     "_&resurrect": {
         "guid": "000000007878",
@@ -1783,7 +2027,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be resurrected.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1792,7 +2041,8 @@ const actionKw =
         "fr-FR": "Ressusciter",
         "ja-JP": "蘇生",
         "pt-BR": "Ressuscitar",
-        "zh-CN": "重生"
+        "zh-CN": "重生",
+        "return": "void"
     },
     "_&setAbility1Enabled": {
         "description": "Enables or disables ability 1 for one or more players.",
@@ -1800,7 +2050,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to ability 1 is affected.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1816,7 +2071,8 @@ const actionKw =
         "fr-FR": "Définir l’activation de la capacité 1",
         "ja-JP": "アビリティ1を有効化",
         "pt-BR": "Definir Habilidade 1 como Ativada",
-        "zh-CN": "设置启用技能 1"
+        "zh-CN": "设置启用技能 1",
+        "return": "void"
     },
     "_&setAbility2Enabled": {
         "description": "Enables or disables ability 2 for one or more players.",
@@ -1824,7 +2080,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to ability 2 is affected.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1840,7 +2101,8 @@ const actionKw =
         "fr-FR": "Définir l’activation de la capacité 2",
         "ja-JP": "アビリティ2を有効化",
         "pt-BR": "Definir Habilidade 2 como Ativada",
-        "zh-CN": "设置启用技能 2"
+        "zh-CN": "设置启用技能 2",
+        "return": "void"
     },
     "_&setAimSpeed": {
         "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
@@ -1848,7 +2110,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose aim speed will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1864,7 +2131,8 @@ const actionKw =
         "fr-FR": "Définir la vitesse de visée",
         "ja-JP": "照準速度を設定",
         "pt-BR": "Definir Velocidade de Mira",
-        "zh-CN": "设置瞄准速度"
+        "zh-CN": "设置瞄准速度",
+        "return": "void"
     },
     "_&setDamageDealt": {
         "description": "Sets the damage dealt of one or more players to a percentage of their raw damage dealt.",
@@ -1872,7 +2140,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose damage dealt will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1888,7 +2161,8 @@ const actionKw =
         "fr-FR": "Définir les dégâts infligés",
         "ja-JP": "与えるダメージを設定",
         "pt-BR": "Definir Dano Causado",
-        "zh-CN": "设置造成伤害"
+        "zh-CN": "设置造成伤害",
+        "return": "void"
     },
     "_&setDamageReceived": {
         "description": "Sets the damage received of one or more players to a percentage of their raw damage received.",
@@ -1896,7 +2170,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose damage received will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1912,7 +2191,8 @@ const actionKw =
         "fr-FR": "Définir les dégâts subis",
         "ja-JP": "受けるダメージを設定",
         "pt-BR": "Definir Dano Recebido",
-        "zh-CN": "设置受到伤害"
+        "zh-CN": "设置受到伤害",
+        "return": "void"
     },
     "_&setFacing": {
         "description": "Sets the facing of one or more players to the specified direction.",
@@ -1920,7 +2200,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose facing will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1942,7 +2227,8 @@ const actionKw =
         "fr-FR": "Définir la direction du regard",
         "ja-JP": "向き変更を設定",
         "pt-BR": "Definir Encarar",
-        "zh-CN": "设置朝向"
+        "zh-CN": "设置朝向",
+        "return": "void"
     },
     "__setGlobalVar__": {
         "description": "Stores a value into a global variable, which is a variable that belongs to the game itself.",
@@ -1956,7 +2242,10 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value that will be stored.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
@@ -1966,7 +2255,8 @@ const actionKw =
         "fr-FR": "Définir une variable globale",
         "ja-JP": "グローバル変数を設定",
         "pt-BR": "Definir Variável Global",
-        "zh-CN": "设置全局变量"
+        "zh-CN": "设置全局变量",
+        "return": "void"
     },
     "__setGlobalVarAtIndex__": {
         "description": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index.",
@@ -1986,7 +2276,10 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value that will be stored into the array.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
@@ -1996,7 +2289,8 @@ const actionKw =
         "fr-FR": "Définir une variable globale à l’index",
         "ja-JP": "インデックスのグローバル変数を設定",
         "pt-BR": "Definir Variável Global no Índice",
-        "zh-CN": "在索引处设置全局变量"
+        "zh-CN": "在索引处设置全局变量",
+        "return": "void"
     },
     "_&setGravity": {
         "description": "Sets the movement gravity for one or more players to a percentage regular movement gravity.",
@@ -2004,7 +2298,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement gravity will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2020,7 +2319,8 @@ const actionKw =
         "fr-FR": "Définir la gravité",
         "ja-JP": "重力を設定",
         "pt-BR": "Definir Gravidade",
-        "zh-CN": "设置引力"
+        "zh-CN": "设置引力",
+        "return": "void"
     },
     "_&setHealingDealt": {
         "description": "Sets the healing dealt of one or more players to a percentage of their raw healing dealt.",
@@ -2028,7 +2328,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose healing dealt will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2044,7 +2349,8 @@ const actionKw =
         "fr-FR": "Définir les soins prodigués",
         "ja-JP": "与える回復を設定",
         "pt-BR": "Definir Cura Realizada",
-        "zh-CN": "设置造成治疗"
+        "zh-CN": "设置造成治疗",
+        "return": "void"
     },
     "_&setHealingReceived": {
         "description": "Sets the healing received of one or more players to a percentage of their raw healing received.",
@@ -2052,7 +2358,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose healing received will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2068,7 +2379,8 @@ const actionKw =
         "fr-FR": "Définir les soins reçus",
         "ja-JP": "受ける回復量を設定",
         "pt-BR": "Definir Cura Recebida",
-        "zh-CN": "设置受到治疗"
+        "zh-CN": "设置受到治疗",
+        "return": "void"
     },
     "_&setInvisibility": {
         "description": "Causes one or more players to become invisible to either all other players or just enemies.",
@@ -2076,7 +2388,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will become invisible.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2092,7 +2409,8 @@ const actionKw =
         "fr-FR": "Définir l’invisibilité",
         "ja-JP": "目視可否を設定",
         "pt-BR": "Definir como Invisível",
-        "zh-CN": "设置不可见"
+        "zh-CN": "设置不可见",
+        "return": "void"
     },
     "setMatchTime": {
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
@@ -2110,7 +2428,8 @@ const actionKw =
         "fr-FR": "Définir le temps de jeu",
         "ja-JP": "マッチ時間を設定",
         "pt-BR": "Definir Tempo da Partida",
-        "zh-CN": "设置比赛时间"
+        "zh-CN": "设置比赛时间",
+        "return": "void"
     },
     "_&setMaxHealth": {
         "description": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health.",
@@ -2118,7 +2437,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose max health will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2134,7 +2458,8 @@ const actionKw =
         "fr-FR": "Définir les points de vie maximum",
         "ja-JP": "最大ライフを設定",
         "pt-BR": "Definir Vida Máxima",
-        "zh-CN": "设置最大生命值"
+        "zh-CN": "设置最大生命值",
+        "return": "void"
     },
     "_&setMoveSpeed": {
         "description": "Sets the move speed of one or more players to a percentage of their raw move speed.",
@@ -2142,7 +2467,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose move speed will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2158,7 +2488,8 @@ const actionKw =
         "fr-FR": "Définir la vitesse de déplacement",
         "ja-JP": "移動速度を設定",
         "pt-BR": "Definir Velocidade de Movimento",
-        "zh-CN": "设置移动速度"
+        "zh-CN": "设置移动速度",
+        "return": "void"
     },
     "setObjectiveDescription": {
         "description": "Sets the text at the top center of the screen that normally describes the objective to a message visible to specific players.",
@@ -2166,7 +2497,12 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -2188,7 +2524,8 @@ const actionKw =
         "fr-FR": "Définir la description d’objectif",
         "ja-JP": "目標の説明を設定",
         "pt-BR": "Definir Descrição do Objetivo",
-        "zh-CN": "设置目标点描述"
+        "zh-CN": "设置目标点描述",
+        "return": "void"
     },
     "_&setAllowedHeroes": {
         "description": "Sets the list of heroes available to one or more players. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
@@ -2196,13 +2533,23 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose hero list is being set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HERO",
                 "description": "The hero or heroes that will be available. If no heroes are provided, the action has no effect.",
-                "type": ["Hero", {Array: "Hero"}],
+                "type": [
+                    "Hero",
+                    {
+                        "Array": "Hero"
+                    }
+                ],
                 "default": "HERO"
             }
         ],
@@ -2212,7 +2559,8 @@ const actionKw =
         "fr-FR": "Définir les héros autorisés pour un joueur",
         "ja-JP": "プレイヤーが使用できるヒーローを設定",
         "pt-BR": "Definir Heróis Permitidos para o Jogador",
-        "zh-CN": "设置玩家可选的英雄"
+        "zh-CN": "设置玩家可选的英雄",
+        "return": "void"
     },
     "_&setScore": {
         "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
@@ -2220,7 +2568,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose score will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2236,7 +2589,8 @@ const actionKw =
         "fr-FR": "Définir le score d’un joueur",
         "ja-JP": "プレイヤー・スコアを設定する",
         "pt-BR": "Definir Pontuação do Jogador",
-        "zh-CN": "设置玩家分数"
+        "zh-CN": "设置玩家分数",
+        "return": "void"
     },
     "__setPlayerVar__": {
         "description": "Stores a value into a player variable, which is a variable that belongs to a specific player.",
@@ -2244,7 +2598,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be set. If multiple players are provided, each of their variables will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2256,7 +2615,10 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value that will be stored.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
@@ -2266,7 +2628,8 @@ const actionKw =
         "fr-FR": "Définir une variable de joueur",
         "ja-JP": "プレイヤー変数を設定",
         "pt-BR": "Definir Variável de Jogador",
-        "zh-CN": "设置玩家变量"
+        "zh-CN": "设置玩家变量",
+        "return": "void"
     },
     "__setPlayerVarAtIndex__": {
         "description": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index.",
@@ -2274,7 +2637,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2292,7 +2660,10 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value that will be stored into the array.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
@@ -2302,7 +2673,8 @@ const actionKw =
         "fr-FR": "Définir une variable de joueur à l’index",
         "ja-JP": "インデックスのプレイヤー変数を設定",
         "pt-BR": "Definir Variável de Jogador no Índice",
-        "zh-CN": "在索引处设置玩家变量"
+        "zh-CN": "在索引处设置玩家变量",
+        "return": "void"
     },
     "_&setPrimaryFireEnabled": {
         "description": "Enables or disables primary fire for one or more players.",
@@ -2310,7 +2682,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to primary fire is affected.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2326,7 +2703,8 @@ const actionKw =
         "fr-FR": "Définir l’activation du tir principal",
         "ja-JP": "メイン攻撃を許可",
         "pt-BR": "Definir Disparo Primário Ativado",
-        "zh-CN": "设置主要攻击模式启用"
+        "zh-CN": "设置主要攻击模式启用",
+        "return": "void"
     },
     "_&setProjectileGravity": {
         "description": "Sets the projectile gravity for one or more players to a percentage of regular projectile gravity.",
@@ -2334,7 +2712,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose projectile gravity will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2350,7 +2733,8 @@ const actionKw =
         "fr-FR": "Définir la gravité des projectiles",
         "ja-JP": "弾の重力を設定",
         "pt-BR": "Definir Gravidade de Projétil",
-        "zh-CN": "设置弹道引力"
+        "zh-CN": "设置弹道引力",
+        "return": "void"
     },
     "_&setProjectileSpeed": {
         "description": "Sets the projectile speed for one or more players to a percentage of projectile speed.",
@@ -2358,7 +2742,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose projectile speed will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2374,7 +2763,8 @@ const actionKw =
         "fr-FR": "Définir la vitesse des projectiles",
         "ja-JP": "弾速を設定",
         "pt-BR": "Definir Velocidade de Projétil",
-        "zh-CN": "设置弹道速度"
+        "zh-CN": "设置弹道速度",
+        "return": "void"
     },
     "_&setRespawnTime": {
         "description": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death.",
@@ -2382,7 +2772,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose respawn max time is being defined.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2398,7 +2793,8 @@ const actionKw =
         "fr-FR": "Définir la durée maximum avant réapparition",
         "ja-JP": "最大リスポーン時間を設定",
         "pt-BR": "Definir Tempo Máximo de Ressurgimento",
-        "zh-CN": "设置最大重生时间"
+        "zh-CN": "设置最大重生时间",
+        "return": "void"
     },
     "_&setSecondaryFireEnabled": {
         "description": "Enables or disables secondary fire for one or more players.",
@@ -2406,7 +2802,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to secondary fire is affected.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2422,7 +2823,8 @@ const actionKw =
         "fr-FR": "Définir l’activation du tir secondaire",
         "ja-JP": "サブ攻撃を許可",
         "pt-BR": "Definir Disparo Secundário Ativado",
-        "zh-CN": "设置辅助攻击模式启用"
+        "zh-CN": "设置辅助攻击模式启用",
+        "return": "void"
     },
     "setSlowMotion": {
         "description": "Sets the simulation rate for the entire game, including all players, projectiles, effects, and game mode logic.",
@@ -2440,7 +2842,8 @@ const actionKw =
         "fr-FR": "Définir un ralenti",
         "ja-JP": "スローモーションを設定",
         "pt-BR": "Definir Câmera Lenta",
-        "zh-CN": "设置慢动作"
+        "zh-CN": "设置慢动作",
+        "return": "void"
     },
     "_&setStatusEffect": {
         "description": "Applies a status to one or more players. This status will remain in effect for the specified duration or until it is cleared by the clear status action.",
@@ -2448,7 +2851,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to whom the status will be applied.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2476,7 +2884,8 @@ const actionKw =
         "fr-FR": "Définir un statut",
         "ja-JP": "ステータスを設定",
         "pt-BR": "Definir Status",
-        "zh-CN": "设置状态"
+        "zh-CN": "设置状态",
+        "return": "void"
     },
     "setTeamScore": {
         "description": "Sets the score for one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
@@ -2500,7 +2909,8 @@ const actionKw =
         "fr-FR": "Définir le score d’une équipe",
         "ja-JP": "チーム・スコアを設定",
         "pt-BR": "Definir Pontuação da Equipe",
-        "zh-CN": "设置队伍分数"
+        "zh-CN": "设置队伍分数",
+        "return": "void"
     },
     "_&setUltEnabled": {
         "description": "Enables or disables the ultimate ability of one or more players.",
@@ -2508,7 +2918,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to their ultimate ability is affected.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2524,7 +2939,8 @@ const actionKw =
         "fr-FR": "Définir l’activation de la capacité ultime",
         "ja-JP": "アルティメット・アビリティを有効化",
         "pt-BR": "Definir Habilidade Suprema como Ativada",
-        "zh-CN": "设置启用终极技能"
+        "zh-CN": "设置启用终极技能",
+        "return": "void"
     },
     "_&setUltCharge": {
         "description": "Sets the ultimate charge for one or more players as a percentage of maximum charge.",
@@ -2532,7 +2948,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose ultimate charge will be set.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2548,7 +2969,8 @@ const actionKw =
         "fr-FR": "Définir la charge de la capacité ultime",
         "ja-JP": "アルティメット・チャージを設定",
         "pt-BR": "Definir Carga da Suprema",
-        "zh-CN": "设置终极技能充能"
+        "zh-CN": "设置终极技能充能",
+        "return": "void"
     },
     "__skip__": {
         "guid": "00000000BB01",
@@ -2566,7 +2988,8 @@ const actionKw =
         "fr-FR": "Passer",
         "ja-JP": "スキップ",
         "pt-BR": "Ignorar",
-        "zh-CN": "跳过"
+        "zh-CN": "跳过",
+        "return": "void"
     },
     "__skipIf__": {
         "description": "Skips execution of a certain number of actions in the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
@@ -2590,7 +3013,8 @@ const actionKw =
         "fr-FR": "Passer si",
         "ja-JP": "スキップする条件",
         "pt-BR": "Ignorar se",
-        "zh-CN": "根据条件跳过"
+        "zh-CN": "根据条件跳过",
+        "return": "void"
     },
     "smallMessage": {
         "description": "Displays a small message beneath the reticle that is visible to specific players.",
@@ -2598,7 +3022,12 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -2614,7 +3043,8 @@ const actionKw =
         "fr-FR": "Message en petit",
         "ja-JP": "小さなメッセージ",
         "pt-BR": "Mensagem Pequena",
-        "zh-CN": "小字体信息"
+        "zh-CN": "小字体信息",
+        "return": "void"
     },
     "_&startAcceleration": {
         "description": "Starts accelerating one or more players in a specified direction.",
@@ -2622,7 +3052,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players that will begin accelerating.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2662,7 +3097,8 @@ const actionKw =
         "fr-FR": "Accélérer",
         "ja-JP": "加速の開始",
         "pt-BR": "Começar a Acelerar",
-        "zh-CN": "开始加速"
+        "zh-CN": "开始加速",
+        "return": "void"
     },
     "_&setCamera": {
         "description": "Places your camera at a location, facing a direction.",
@@ -2670,7 +3106,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose cameras will be placed at the location.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2698,7 +3139,8 @@ const actionKw =
         "fr-FR": "Lancer la caméra",
         "ja-JP": "カメラの始動",
         "pt-BR": "Iniciar Câmera",
-        "zh-CN": "开始镜头"
+        "zh-CN": "开始镜头",
+        "return": "void"
     },
     "startDamageModification": {
         "description": "Starts modifying how much damage one or more receivers will receive from one or more damagers. A reference to this damage modification can be obtained from the last damage modification id value. This action will fail if too many damage modifications have been started.",
@@ -2706,13 +3148,23 @@ const actionKw =
             {
                 "name": "RECEIVERS",
                 "description": "The player or players whose incoming damage will be modified (when attacked by the damagers).",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGERS",
                 "description": "The player or players whose outgoing damage will be modified (when attacking the receivers).",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -2734,7 +3186,8 @@ const actionKw =
         "fr-FR": "Lancer la modification des dégâts",
         "ja-JP": "ダメージ変更を開始",
         "pt-BR": "Começar Modificação de Dano",
-        "zh-CN": "开始伤害调整"
+        "zh-CN": "开始伤害调整",
+        "return": "void"
     },
     "_&startDoT": {
         "description": "Starts an instance of damage over time. This dot will persist for the specified duration or until stopped by script. To obtain a reference to this dot, use the last damage over time id value.",
@@ -2742,7 +3195,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "One or more players who will receive the damage over time.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2770,7 +3228,8 @@ const actionKw =
         "fr-FR": "Infliger des dégâts sur la durée",
         "ja-JP": "継続ダメージを開始",
         "pt-BR": "Começar Dano ao Longo do Tempo",
-        "zh-CN": "开始持续伤害"
+        "zh-CN": "开始持续伤害",
+        "return": "void"
     },
     "_&startFacing": {
         "description": "Starts turning one or more players to face the specified direction.",
@@ -2778,7 +3237,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will start turning.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2812,7 +3276,8 @@ const actionKw =
         "fr-FR": "Regarder vers",
         "ja-JP": "向き変更を開始",
         "pt-BR": "Começar a Encarar",
-        "zh-CN": "开始朝向"
+        "zh-CN": "开始朝向",
+        "return": "void"
     },
     "_&startForcingHero": {
         "description": "Starts forcing one or more players to be a specific hero and, if necessary, respawns them immediately in their current location. This will be the only hero available to the player or players until the stop forcing player to be hero action is executed.",
@@ -2820,7 +3285,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be forced to be a specific hero.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2836,7 +3306,8 @@ const actionKw =
         "fr-FR": "Forcer un héros",
         "ja-JP": "プレイヤーへのヒーロー強制を開始",
         "pt-BR": "Começar a Forçar Jogador a Ser o Herói",
-        "zh-CN": "开始强制玩家选择英雄"
+        "zh-CN": "开始强制玩家选择英雄",
+        "return": "void"
     },
     "startForcingSpawn": {
         "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
@@ -2860,7 +3331,8 @@ const actionKw =
         "fr-FR": "Forcer une salle d’apparition",
         "ja-JP": "リスポーンエリアの強制を開始",
         "pt-BR": "Começar a Forçar Sala de Ressurgimento",
-        "zh-CN": "开始强制重生室"
+        "zh-CN": "开始强制重生室",
+        "return": "void"
     },
     "_&startForcingThrottle": {
         "description": "Defines minimum and maximum movement input values for one or more players, possibly forcing or preventing movement.",
@@ -2868,7 +3340,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement will be forced or limited.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2914,7 +3391,8 @@ const actionKw =
         "fr-FR": "Forcer l’accélération",
         "ja-JP": "強制スロットル開始",
         "pt-BR": "Começar a Forçar Aceleração",
-        "zh-CN": "开始限制阈值"
+        "zh-CN": "开始限制阈值",
+        "return": "void"
     },
     "_&startHoT": {
         "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
@@ -2922,7 +3400,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "One or more players who will receive the heal over time.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2950,7 +3433,8 @@ const actionKw =
         "fr-FR": "Prodiguer des soins sur la durée",
         "ja-JP": "継続回復を開始",
         "pt-BR": "Começar Cura ao Longo do Tempo",
-        "zh-CN": "开始持续治疗"
+        "zh-CN": "开始持续治疗",
+        "return": "void"
     },
     "startHealingModification": {
         "description": "Starts modifying how much healing one or more receivers will receive from one or more healers. A reference to this healing modification can be obtained from the last healing modification id value. This action will fail if too many healing modifications have been started.",
@@ -2958,13 +3442,23 @@ const actionKw =
             {
                 "name": "RECEIVERS",
                 "description": "The player or players whose incoming healing will be modified (when healed by the healers).",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALERS",
                 "description": "The player or players whose outgoing healing will be modified (when healing the receivers).",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -2986,7 +3480,8 @@ const actionKw =
         "fr-FR": "Lancer la modification des dégâts",
         "ja-JP": "ダメージ変更を開始",
         "pt-BR": "Começar Modificação de Dano",
-        "zh-CN": "开始伤害调整"
+        "zh-CN": "开始伤害调整",
+        "return": "void"
     },
     "_&startForcingButton": {
         "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
@@ -2994,7 +3489,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who are holding a button virtually.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -3010,7 +3510,8 @@ const actionKw =
         "fr-FR": "Maintenir un bouton enfoncé",
         "ja-JP": "ボタン長押し開始",
         "pt-BR": "Começar a Segurar Botão",
-        "zh-CN": "开始按下按钮"
+        "zh-CN": "开始按下按钮",
+        "return": "void"
     },
     "__startRule__": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
@@ -3034,7 +3535,8 @@ const actionKw =
         "fr-FR": "Lancer la règle",
         "ja-JP": "ルールを開始",
         "pt-BR": "Regra de início",
-        "zh-CN": "开始规则"
+        "zh-CN": "开始规则",
+        "return": "void"
     },
     "_&startThrottleInDirection": {
         "description": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled.",
@@ -3042,7 +3544,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will be set or added to.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -3082,7 +3589,8 @@ const actionKw =
         "fr-FR": "Commencer l’accélération directionnelle",
         "ja-JP": "指定方向にスロットル開始",
         "pt-BR": "Iniciar Aceleração na Direção",
-        "zh-CN": "开始定向阈值"
+        "zh-CN": "开始定向阈值",
+        "return": "void"
     },
     "_&startTransformingThrottle": {
         "description": "Starts transforming (scaling and rotating) the throttle (directional input control) of a player or players. Cancels any existing start transforming throttle behavior.",
@@ -3090,7 +3598,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will be transformed.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -3118,7 +3631,8 @@ const actionKw =
         "fr-FR": "Début de modification de l’accélération",
         "ja-JP": "スロットルの変化を開始",
         "pt-BR": "Iniciar Transformação de Aceleração",
-        "zh-CN": "开始转换阈值"
+        "zh-CN": "开始转换阈值",
+        "return": "void"
     },
     "_&stopAcceleration": {
         "description": "Stops the acceleration started by the start accelerating action for one or more players.",
@@ -3126,7 +3640,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will stop accelerating.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3136,7 +3655,8 @@ const actionKw =
         "fr-FR": "Arrêter l’accélération",
         "ja-JP": "加速の中止",
         "pt-BR": "Parar de Acelerar",
-        "zh-CN": "停止加速"
+        "zh-CN": "停止加速",
+        "return": "void"
     },
     "stopAllDamageModifications": {
         "description": "Stops all damage modifications that were started using the start damage modification action.",
@@ -3147,7 +3667,8 @@ const actionKw =
         "fr-FR": "Arrêter toutes les modifications de dégâts",
         "ja-JP": "すべてのダメージ変更を停止",
         "pt-BR": "Parar Todas as Modificações de Dano",
-        "zh-CN": "停止所有伤害调整"
+        "zh-CN": "停止所有伤害调整",
+        "return": "void"
     },
     "stopAllHealingModifications": {
         "description": "Stops all healing modifications that were started using the start healing modification action.",
@@ -3158,7 +3679,8 @@ const actionKw =
         "fr-FR": "Terminer toutes les modifications de soins",
         "ja-JP": "すべての回復変更を停止",
         "pt-BR": "Parar todas as modificações de cura",
-        "zh-CN": "停止所有治疗调整"
+        "zh-CN": "停止所有治疗调整",
+        "return": "void"
     },
     "_&stopAllDoT": {
         "description": "Stops all damage over time started by start damage over time for one or more players.",
@@ -3166,7 +3688,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose scripted damage over time will stop.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3176,7 +3703,8 @@ const actionKw =
         "fr-FR": "Arrêter tous les dégâts sur la durée",
         "ja-JP": "すべての継続ダメージを停止",
         "pt-BR": "Parar Todo o Dano ao Longo do Tempo",
-        "zh-CN": "停止所有持续伤害"
+        "zh-CN": "停止所有持续伤害",
+        "return": "void"
     },
     "_&stopAllHoT": {
         "description": "Stops all heal over time started by start heal over time for one or more players.",
@@ -3184,7 +3712,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose scripted heal over time will stop.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3194,7 +3727,8 @@ const actionKw =
         "fr-FR": "Arrêter tous les soins sur la durée",
         "ja-JP": "すべての継続回復を停止",
         "pt-BR": "Parar Toda a Cura ao Longo do Tempo",
-        "zh-CN": "停止所有持续治疗"
+        "zh-CN": "停止所有持续治疗",
+        "return": "void"
     },
     "_&stopCamera": {
         "description": "None",
@@ -3202,7 +3736,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose cameras will be put back to the default view.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3212,7 +3751,8 @@ const actionKw =
         "fr-FR": "Arrêter la caméra",
         "ja-JP": "カメラの停止",
         "pt-BR": "Parar Câmera",
-        "zh-CN": "停止镜头"
+        "zh-CN": "停止镜头",
+        "return": "void"
     },
     "__stopChasingGlobalVariable__": {
         "description": "Stops an in-progress chase of a global variable, leaving it at its current value.",
@@ -3230,7 +3770,8 @@ const actionKw =
         "fr-FR": "Arrêter de modifier une variable globale",
         "ja-JP": "グローバル変数の追跡を中止",
         "pt-BR": "Parar de Acompanhar Variável Global",
-        "zh-CN": "停止追踪全局变量"
+        "zh-CN": "停止追踪全局变量",
+        "return": "void"
     },
     "__stopChasingPlayerVariable__": {
         "description": "Stops an in-progress chase of a player variable, leaving it at its current value.",
@@ -3238,7 +3779,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will stop changing. If multiple players are provided, each of their variables will stop changing.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -3254,7 +3800,8 @@ const actionKw =
         "fr-FR": "Arrêter de modifier une variable de joueur",
         "ja-JP": "プレイヤー変数の追跡を中止",
         "pt-BR": "Parar de Acompanhar Variável de Jogador",
-        "zh-CN": "停止追踪玩家变量"
+        "zh-CN": "停止追踪玩家变量",
+        "return": "void"
     },
     "stopDamageModification": {
         "description": "Stops a damage modification that was started by the start damage modification action.",
@@ -3272,7 +3819,8 @@ const actionKw =
         "fr-FR": "Arrêter la modification des dégâts",
         "ja-JP": "ダメージ変更を停止",
         "pt-BR": "Parar Modificação de Dano",
-        "zh-CN": "停止伤害调整"
+        "zh-CN": "停止伤害调整",
+        "return": "void"
     },
     "stopDoT": {
         "description": "Stops an instance of damage over time started by the start damage over time action.",
@@ -3290,7 +3838,8 @@ const actionKw =
         "fr-FR": "Arrêter des dégâts sur la durée",
         "ja-JP": "継続ダメージを停止",
         "pt-BR": "Parar Dano ao Longo do Tempo",
-        "zh-CN": "停止持续伤害"
+        "zh-CN": "停止持续伤害",
+        "return": "void"
     },
     "_&stopFacing": {
         "description": "Stops the turning started by the start facing action for one or more players.",
@@ -3298,7 +3847,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will stop turning.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3308,7 +3862,8 @@ const actionKw =
         "fr-FR": "Arrêter de regarder vers",
         "ja-JP": "向き変更を停止",
         "pt-BR": "Parar de Encarar",
-        "zh-CN": "停止朝向"
+        "zh-CN": "停止朝向",
+        "return": "void"
     },
     "_&stopForcingCurrentHero": {
         "description": "Stops forcing one or more players to be a specific hero. This will not respawn the player or players, but it will restore their hero availability the next time they go to select a hero.",
@@ -3316,7 +3871,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will no longer be forced to be a specific hero.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3326,7 +3886,8 @@ const actionKw =
         "fr-FR": "Arrêter de forcer un héros",
         "ja-JP": "プレイヤーへのヒーロー強制を停止",
         "pt-BR": "Parar de Forçar Jogador a Ser o Herói",
-        "zh-CN": "停止强制玩家选择英雄"
+        "zh-CN": "停止强制玩家选择英雄",
+        "return": "void"
     },
     "stopForcingSpawn": {
         "description": "Undoes the effect of the start forcing spawn room action for the specified team.",
@@ -3344,7 +3905,8 @@ const actionKw =
         "fr-FR": "Arrêter de forcer une salle d’apparition",
         "ja-JP": "リスポーンエリアの強制を停止",
         "pt-BR": "Parar de Forçar Sala de Ressurgimento",
-        "zh-CN": "停止强制重生室"
+        "zh-CN": "停止强制重生室",
+        "return": "void"
     },
     "_&stopForcingThrottle": {
         "description": "Undoes the effect of the start forcing throttle action for one or more players.",
@@ -3352,7 +3914,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement input will be restored.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3362,7 +3929,8 @@ const actionKw =
         "fr-FR": "Arrêter de forcer l’accélération",
         "ja-JP": "強制スロットル中止",
         "pt-BR": "Parar de Forçar Aceleração",
-        "zh-CN": "停止限制阈值"
+        "zh-CN": "停止限制阈值",
+        "return": "void"
     },
     "stopHoT": {
         "description": "Stops an instance of heal over time started by the start heal over time action.",
@@ -3380,7 +3948,8 @@ const actionKw =
         "fr-FR": "Arrêter des soins sur la durée",
         "ja-JP": "継続回復を停止",
         "pt-BR": "Parar Cura ao Longo do Tempo",
-        "zh-CN": "停止持续治疗"
+        "zh-CN": "停止持续治疗",
+        "return": "void"
     },
     "stopHealingModification": {
         "description": "Stops a healing modification that was started by the start healing modification action.",
@@ -3398,7 +3967,8 @@ const actionKw =
         "fr-FR": "Terminer la modification de soins",
         "ja-JP": "回復変更を停止",
         "pt-BR": "Parar modificação de cura",
-        "zh-CN": "停止治疗调整"
+        "zh-CN": "停止治疗调整",
+        "return": "void"
     },
     "_&stopForcingButton": {
         "description": "Undoes the effect of the start holding button action for one or more players.",
@@ -3406,7 +3976,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who are no longer holding a button virtually.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -3422,7 +3997,8 @@ const actionKw =
         "fr-FR": "Arrêter de maintenir un bouton enfoncé",
         "ja-JP": "ボタン長押し解除",
         "pt-BR": "Parar de Segurar Botão",
-        "zh-CN": "停止按下按钮"
+        "zh-CN": "停止按下按钮",
+        "return": "void"
     },
     "_&stopThrottleInDirection": {
         "description": "Cancels the behavior caused by start throttle in direction.",
@@ -3430,7 +4006,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose default throttle control will be restored.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3440,7 +4021,8 @@ const actionKw =
         "fr-FR": "Arrêter l’accélération directionnelle",
         "ja-JP": "指定方向にスロットル終了",
         "pt-BR": "Parar Aceleração na Direção",
-        "zh-CN": "停止定向阈值"
+        "zh-CN": "停止定向阈值",
+        "return": "void"
     },
     "_&stopTransformingThrottle": {
         "description": "Stops the throttle transform started by start transforming throttle for one or more players.",
@@ -3448,7 +4030,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will stop being transformed.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3458,7 +4045,8 @@ const actionKw =
         "fr-FR": "Arrêt de modification de l’accélération",
         "ja-JP": "スロットルの変化を停止",
         "pt-BR": "Parar Transformação de Aceleração",
-        "zh-CN": "停止转换阈值"
+        "zh-CN": "停止转换阈值",
+        "return": "void"
     },
     "_&teleport": {
         "guid": "00000000B9BA",
@@ -3467,7 +4055,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to teleport.",
-                "type": ["Player", {Array: "Player"}],
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -3482,7 +4075,8 @@ const actionKw =
         "fr-FR": "Téléportation",
         "ja-JP": "テレポート",
         "pt-BR": "Teletransportar",
-        "zh-CN": "传送"
+        "zh-CN": "传送",
+        "return": "void"
     },
     "unpauseMatchTime": {
         "description": "Unpauses the match time.",
@@ -3493,7 +4087,8 @@ const actionKw =
         "fr-FR": "Reprendre le temps de jeu",
         "ja-JP": "マッチ時間のポーズを解除",
         "pt-BR": "Retomar Tempo da Partida",
-        "zh-CN": "比赛时间继续"
+        "zh-CN": "比赛时间继续",
+        "return": "void"
     },
     "__wait__": {
         "guid": "000000007872",
@@ -3517,7 +4112,8 @@ const actionKw =
         "fr-FR": "Attente",
         "ja-JP": "待機",
         "pt-BR": "Esperar",
-        "zh-CN": "等待"
+        "zh-CN": "等待",
+        "return": "void"
     },
     "__while__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action.",
@@ -3534,7 +4130,8 @@ const actionKw =
         "es-MX": "Mientras",
         "fr-FR": "Tant que",
         "ja-JP": "WHILE",
-        "pl-PL": "Kiedy"
+        "pl-PL": "Kiedy",
+        "return": "void"
     }
 }
 //end-json

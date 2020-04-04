@@ -118,7 +118,7 @@ const customGameSettingsKw =
 const ruleKw = 
 //begin-json
 {
-    "@Rule": {
+    "__rule__": {
         "guid": "00000000C7B4",
         "en-US": "rule",
         "de-DE": "regel",
@@ -131,7 +131,7 @@ const ruleKw =
         "zh-CN": "规则",
         "zh-TW": "規則"
     },
-    "@Event": {
+    "__event__": {
         "guid": "00000000C7B5",
         "en-US": "event",
         "es-MX": "evento",
@@ -472,4 +472,6 @@ for (var constant of Object.keys(constantValues)) {
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
 const valueKw = Object.assign({}, valueFuncKw, constantKw);
 
-const funcKw = Object.assign({}, actionKw, valueFuncKw);
+const wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
+
+const funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs);

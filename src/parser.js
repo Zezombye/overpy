@@ -32,20 +32,24 @@ class Ast {
 
         if (!type) {
             //todo: autodetect type
-            this.type = "Any";
+            if (name in funcKw) {
+                this.type = funcKw[name].return;
+            } else {
+                error("Unknown function name '"+name+"'");
+            }
         } else {
             this.type = type;
         }
 
         for (var arg of this.args) {
             if (!(arg instanceof Ast)) {
-                error("Arg '"+arg+"' is not an AST");
+                error("Arg '"+arg+"' of '"+name+"' is not an AST");
             }
             arg.parent = this;
         }
         for (var child of this.children) {
             if (!(child instanceof Ast)) {
-                error("Child '"+child+"' is not an AST");
+                error("Child '"+child+"' of '"+name+"' is not an AST");
             }
             child.parent = this;
         }
@@ -94,13 +98,18 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var lines = tokenize(content);
 
-    var ast = parseLines(lines);
+    var astRules = parseLines(lines);
     
-    console.log(ast);
-    for (var elem of ast) {
-        console.log(displayAst(elem));
+    console.log(astRules);
+    for (var elem of astRules) {
+        console.log(astToString(elem));
     }
 
+    var parsedAstRules = parseAstRules(astRules);
+
+    for (var elem of parsedAstRules) {
+        console.log(astToString(elem));
+    }
 	//console.log(rules);
 /*
 	var result = "";
@@ -133,32 +142,6 @@ function compile(content, language="en-US", _rootPath="") {
 		subroutines: subroutines,
 		encounteredWarnings: encounteredWarnings,
 	};*/
-}
-
-function parseLinesToRules(lines) {
-
-
-
-    /*
-    
-            if (currentRule.event === null) {
-                currentRule.event = "global";
-            }
-            if (currentRule.event === "global") {
-                if (currentRule.eventTeam !== null || currentRule.eventPlayer !== null) {
-                    error("Cannot declare event team or event player with event type 'global'");
-                }
-            } else {
-                if (currentRule.eventTeam === null) {
-                    currentRule.eventTeam = "all";
-                }
-                if (currentRule.eventPlayer === null) {
-                    currentRule.eventPlayer = "all";
-                }
-            }
-    */
-
-
 }
 
 function parseLines(lines) {
@@ -374,7 +357,15 @@ function parse(content) {
 
 				var op1 = parse(operands[0]);
                 var op2 = parse(operands[1]);
-                return new Ast("__compare__", [op1, new Ast(operator, [], [], "__Operator__"), op2]);
+                var opToFuncMapping = {
+                    "==": "__equals__",
+                    "!=": "__inequals__",
+                    "<=": "__lessThanOrEquals__",
+                    ">=": "__greaterThanOrEquals__",
+                    "<": "__lessThan__",
+                    ">": "__greaterThan__",
+                }
+                return new Ast(opToFuncMapping[operator], [op1, op2]);
 
 			} else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
                 //Actually de-optimize so we can keep the logic in one place.
@@ -559,6 +550,13 @@ function parse(content) {
             return new Ast("__globalVar__", [new Ast(name, [], [], "GlobalVariable")]);
         }
 
+        //Check for number
+        if (isNumber(name)) {
+            //It is an int, else it would have a dot, and wouldn't be processed here.
+            //It is also an unsigned int, as the negative sign is not part of the name.
+            return new Ast("__number__", [new Ast(name, [], [], "NumberLiteral")], [], "unsigned int");
+        }
+
 		return new Ast(name);
     }
     
@@ -600,27 +598,21 @@ function parse(content) {
 	if (name === "raycast") {
 
         if (args.length === 5) {
-			if (args[2][0].text !== "include" || args[2][1].text !== "=") {
-				error("3rd arg for this raycast must be 'include = xxxx'");
-			} else if (args[3][0].text !== "exclude" || args[3][1].text !== "=") {
-				error("4th arg for this raycast must be 'exclude = xxxx'");
-			} else if (args[4][0].text !== "includePlayerObjects" || args[4][1].text !== "=") {
-				error("5th arg for this raycast must be 'includePlayerObjects = xxxx'");
-            }
+			if (args[2].length >= 2 && args[2][0].text === "include" || args[2][1].text === "=") {
+				args[2] = args[2].slice(2);
+            } 
+            if (args[3].length >= 2 && args[3][0].text === "exclude" || args[3][1].text === "=") {
+				args[3] = args[3].slice(2);
+            } 
+            if (args[4].length >= 2 && args[4][0].text === "includePlayerObjects" || args[4][1].text === "=") {
+				args[4] = args[4].slice(2);
+            } 
             var raycastInclude = parse(args[2].slice(2));
             var raycastExclude = parse(args[3].slice(2));
             var raycastIncludePlayersObjects = parse(args[4].slice(2));
 
-            return new Ast("__normalRaycast__", [parse(args[0]), parse(args[1]), raycastInclude, raycastExclude, raycastIncludePlayersObjects]);
+            return new Ast("__raycast__", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])], [], "Raycast");
             
-        } else if (args.length === 3) {
-			if (args[2][0].text !== "los" || args[2][1].text !== "=") {
-				error("3rd arg for line of sight check must be 'los = LosCheck.xxxx'");
-            }
-            var raycastLosCheck = parse(args[2].slice(2));
-
-            return new Ast("__losRaycast__", [parse(args[0]), parse(args[1]), raycastLosCheck]);
-
         } else {
 			error("Function 'raycast' takes 3 or 5 arguments, received "+args.length);
         }
@@ -721,6 +713,13 @@ function parseMember(object, member) {
             //Check the pseudo-enum "Vector"
             } else if (object[0].text === "Vector") {
                 return new Ast("Vector."+name);
+
+            //Check for number
+            } else if (isNumber(object[0].text)) {
+                if (!isNumber(name)) {
+                    error("Expected a number after '.' but got '"+name+"'");
+                }
+                return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "NumberLiteral")], [], "unsigned float");
 
             } else {
                 //Should be a player variable.
