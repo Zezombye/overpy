@@ -768,7 +768,7 @@ var valueFuncKw =
             {
                 "name": "STRING",
                 "description": "",
-                "type": "CustomStringLiteral",
+                "type": "StringLiteral",
                 "default": "HELLO"
             },
             {
@@ -1187,7 +1187,7 @@ var valueFuncKw =
                 "default": "A"
             }
         ],
-        return: ["Object", "Array"],
+        return: "Value",
         "guid": "00000000B0F9",
         "en-US": "Global Variable",
         "es-MX": "Variable global",
@@ -2967,7 +2967,7 @@ var valueFuncKw =
                 "default": "A"
             }
         ],
-        return: ["Object", "Array"],
+        return: "Value",
         "guid": "00000000B0FD",
         "en-US": "Player Variable",
         "es-MX": "Variable de jugador",
@@ -3639,7 +3639,7 @@ var valueFuncKw =
             {
                 "name": "STRING",
                 "description": "",
-                "type": "LocalizedString",
+                "type": "LocalizedStringLiteral",
                 "default": "HELLO"
             },
             {

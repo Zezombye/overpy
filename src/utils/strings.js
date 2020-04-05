@@ -83,14 +83,33 @@ function unescapeString(content) {
 	} else {
 		error("Expected a string, but got '"+content+"'");
 	}
-	if (content.includes("\n")) {
-		error("Newlines in strings are not supported by the workshop");
+	var result = "";
+	for (var i = 0; i < content.length; i++) {
+		if (content[i] === "\\") {
+			if (i === content.length-1) {
+				error("Cannot unescape string: expected a character after the ending backslash (\\)");
+			}
+			if (content[i+1] === "\"") {
+				result += '"';
+			} else if (content[i+1] === "'") {
+				result += "'";
+			} else if (content[i+1] === "\\") {
+				result += "\\";
+			} else if (content[i+1] === "n") {
+				error("Strings containing newlines cannot be pasted in the workshop");
+			} else {
+				error("Unknown escape sequence '\\"+content[i+1]+"'");
+			}
+		} else if (content[i] === "\n") {
+			error("Strings containing newlines cannot be pasted in the workshop");
+		} else {
+			result += content[i];
+		}
 	}
-	content = content.replace(/\\\\/g, "\\");
-	return content;
+	return result;
 }
 
 function escapeString(content) {
-	return content.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, "\\n");
+	return '"'+content.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, "\\n")+'"';
 }
 

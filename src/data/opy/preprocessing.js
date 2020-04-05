@@ -33,9 +33,6 @@ const preprocessingDirectives = {
     "suppressWarnings": {
         "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
     },
-    "disableUnusedVars": {
-        "description": "Do not put 'unused_var_xxx' in the compilation. Not recommended if compiling regularly, as this could lead to not being able to paste the generated output if variable offsets have been modified."
-    },
     "mainFile": {
         "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file."
     },

@@ -44,11 +44,18 @@ function isTypeSuitable(expectedType, receivedType) {
 
     if (typeof receivedType === "string") {
         if (typeof expectedType === "string") {
+            //Do not check for type "Variable". Functions with such a type are checked manually.
+            if (expectedType === "Variable") {
+                return true;
+            }
             //Handle the special "value" type.
             if (receivedType === "Value") {
                 return expectedType === "Array" || typeMatrix["Object"].includes(expectedType);
             } else {
                 //The most simple case: both types are string. Simply use the type matrix to see if the received type is a child (or the type itself) of the expected type.
+                if (!(expectedType in typeMatrix)) {
+                    error("Unhandled type '"+expectedType+"'");
+                }
                 return typeMatrix[expectedType].includes(receivedType);
             }
 
@@ -117,4 +124,72 @@ function isTypeSuitable(expectedType, receivedType) {
 
     error("Unhandled expected type '"+JSON.stringify(expectedType)+"' or received type '"+JSON.stringify(receivedTypeName)+"'");
 
+}
+
+//https://workshop.elohell.gg/wiki/bRQhecrRn/Data+type+comparisons/
+//Returns true if, when compared to "false", it returns true.
+function isDefinitelyFalsy(content) {
+    if (["__emptyArray__", "false", "null"].includes(content.name)) {
+        return true;
+    }
+    //Test for null vector: vect(0,0,0)
+    if (content.name === "vect") {
+        return (isDefinitelyFalsy(content.args[0]) && isDefinitelyFalsy(content.args[1]) && isDefinitelyFalsy(content.args[2]));
+    }
+    //Test for number 0
+    if (content.name === "__number__") {
+        return (content.args[0].name === 0);
+    }
+    //Test for arrays, cast as 1st element
+    if (content.name === "__array__") {
+        return isDefinitelyFalsy(content.args[0]);
+    }
+    return false;
+}
+
+//Returns true if, when compared to "false", it returns false.
+//Not the exact opposite of isDefinitelyFalsy, as in most cases, we can't know either.
+function isDefinitelyTruthy(content) {
+    if (content.name === "true") {
+        return true;
+    }
+    //Test for null vector: vect(0,0,0)
+    if (content.name === "vect") {
+        return (isDefinitelyTruthy(content.args[0]) || isDefinitelyTruthy(content.args[1]) || isDefinitelyTruthy(content.args[2]));
+    }
+    //Test for number other than 0
+    if (content.name === "__number__") {
+        return (content.args[0].name !== 0);
+    }
+    //Test for arrays, cast as 1st element
+    if (content.name === "__array__") {
+        return isDefinitelyTruthy(content.args[0]);
+    }
+    return false;
+}
+
+//Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
+function getAstFor0() {
+    return new Ast("__number__", [new Ast(0, [], [], "NumberLiteral")], [], "int");
+}
+function getAstFor1() {
+    return new Ast("__number__", [new Ast(1, [], [], "NumberLiteral")], [], "int");
+}
+function getAstForMinus1() {
+    return new Ast("__number__", [new Ast(-1, [], [], "NumberLiteral")], [], "unsigned int");
+}
+function getAstFor0_016() {
+    return new Ast("__number__", [new Ast(0.016, [], [], "NumberLiteral")], [], "unsigned float");
+}
+function getAstForNull() {
+    return new Ast("null", [], [], "Player");
+}
+function getAstForColorWhite() {
+    return new Ast("WHITE", [], [], "Color");
+}
+function getAstForTeamAll() {
+    return new Ast("__team__", [new Ast("ALL", [], [], "TeamLiteral")], [], "Team");
+}
+function getAstForUselessInstruction() {
+    return new Ast("pass");
 }

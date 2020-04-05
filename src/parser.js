@@ -23,7 +23,11 @@ class Ast {
         if (!name) {
             error("Got no name for ast");
         }
-        if (typeof name !== "string") {
+        if (type === "NumberLiteral") {
+            if (typeof name !== "number") {
+                error("Expected a number for type NumberLiteral, but got '"+typeof name+"'");
+            }
+        } else if (typeof name !== "string") {
             error("Expected a string, but got '"+name+"'");
         }
         this.name = name;
@@ -31,7 +35,6 @@ class Ast {
         this.children = children ? children : [];
 
         if (!type) {
-            //todo: autodetect type
             if (name in funcKw) {
                 this.type = funcKw[name].return;
             } else {
@@ -54,6 +57,8 @@ class Ast {
             child.parent = this;
         }
         this.fileStack = fileStack;
+        this.argIndex = 0;
+        this.childIndex = 0;
     }
 }
 
@@ -76,88 +81,21 @@ class Rule {
     }
 }
 
-function compile(content, language="en-US", _rootPath="") {
-	
-	if (typeof window !== "undefined") {
-		var t0 = performance.now();
-	}
-
-	resetGlobalVariables(language);
-	rootPath = _rootPath;
-
-	//Handle #!mainfile directive
-	if (content.startsWith("#!mainFile ")) {
-		var mainFilePath = getFilePath(content.substring("#!mainFile ".length, content.indexOf("\n")));
-		rootPath = mainFilePath.substring(0, mainFilePath.lastIndexOf("/")+1);
-		content = getFileContent(mainFilePath);
-		console.log("content = ");
-		console.log(content);
-	} else {
-		importedFiles.push(rootPath);
-	}
-
-	var lines = tokenize(content);
-
-    var astRules = parseLines(lines);
-    
-    console.log(astRules);
-    for (var elem of astRules) {
-        console.log(astToString(elem));
-    }
-
-    var parsedAstRules = parseAstRules(astRules);
-
-    for (var elem of parsedAstRules) {
-        console.log(astToString(elem));
-    }
-	//console.log(rules);
-/*
-	var result = "";
-	var compiledRules = [];
-
-	//First rule contains variable declarations.
-	compileVarDeclarationRule(rules[0])
-
-	for (var i = 1; i < rules.length; i++) {
-		compiledRules.push(compileRule(rules[i]));
-	}
-
-	if (obfuscateRules || enableNoEdit) {
-		compiledRules = addEmptyRules(compiledRules);
-	} else {
-		compiledRules = compiledRules.join("");
-	}
-
-	result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
-
-	if (typeof window !== "undefined") {
-		var t1 = performance.now();
-		console.log("Compilation time: "+(t1-t0)+"ms");
-	}
-	return {
-		result: result,
-		macros: macros,
-		globalVariables: globalVariables,
-		playerVariables: playerVariables,
-		subroutines: subroutines,
-		encounteredWarnings: encounteredWarnings,
-	};*/
-}
-
 function parseLines(lines) {
 
     //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
     var result = [];
     var currentComment = null;
-    var ruleProperties = {};
+    var ruleAttributes = {};
     
     for (var i = 0; i < lines.length; i++) {
         fileStack = lines[i].tokens[0].fileStack;
         
         if (lines[i].tokens[0].text.startsWith("#")) {
             currentComment = lines[i].tokens[0].text.substring(1);
-
-        } else if (lines[i].tokens[0].text === "globalvar" || lines[i].tokens[0].text === "playervar" || lines[i].tokens[0].text === "subroutine") {
+            continue;
+        }
+        if (lines[i].tokens[0].text === "globalvar" || lines[i].tokens[0].text === "playervar" || lines[i].tokens[0].text === "subroutine") {
 			if (lines[i].tokens.length < 2 || lines[i].tokens.length > 3) {
 				error("Malformed "+lines[i].tokens[0].text+" declaration");
 			}
@@ -189,16 +127,16 @@ function parseLines(lines) {
                 };
 
                 if (lines[i].tokens.length !== 2) {
-                    error("Malformed rule "+annotationToPropMap[annotation].display+" declaration (found "+lines[i].tokens.length+") tokens");
+                    error("Malformed rule "+annotationToPropMap[annotation].display+" declaration (found "+lines[i].tokens.length+" tokens, expected 2)");
                 }
-                if (annotationToPropMap[annotation].prop in ruleProperties) {
+                if (annotationToPropMap[annotation].prop in ruleAttributes) {
                     error("Rule "+annotationToPropMap[annotation].display+" was already declared");
                 }
 
                 if (annotation === "@Name") {
-                    ruleProperties[annotationToPropMap[annotation].prop] = unescapeString(lines[i].tokens[1].text);
+                    ruleAttributes[annotationToPropMap[annotation].prop] = unescapeString(lines[i].tokens[1].text);
                 } else {
-                    ruleProperties[annotationToPropMap[annotation].prop] = lines[i].tokens[1].text;
+                    ruleAttributes[annotationToPropMap[annotation].prop] = lines[i].tokens[1].text;
                 }
                 
             } else if (annotation === "@SuppressWarnings") {
@@ -210,14 +148,14 @@ function parseLines(lines) {
                 }
 
             } else if (annotation === "@Disabled") {
-                ruleProperties.isDisabled = true;
+                ruleAttributes.isDisabled = true;
 
             } else if (annotation === "@Condition") {
-                if (!("conditions" in ruleProperties)) {
-                    ruleProperties.conditions = [];
+                if (!("conditions" in ruleAttributes)) {
+                    ruleAttributes.conditions = [];
                 }
                 var parsedCondition = parse(lines[i].tokens.slice(1));
-                ruleProperties.conditions.push(parsedCondition);
+                ruleAttributes.conditions.push(parsedCondition);
 
             } else {
                 error("Unknown annotation '"+annotation+"'");
@@ -225,16 +163,50 @@ function parseLines(lines) {
 
         } else if (["rule", "if", "elif", "else", "do", "for", "def", "while", "switch", "case"].includes(lines[i].tokens[0].text)) {
 
-            var funcName = "__"+lines[i].tokens[0].text+"__";
+            var tokenToFuncMapping = {
+                "rule": "__rule__",
+                "if": "__if__",
+                "elif": "__elif__",
+                "else": "__else__",
+                "do": "__doWhile__",
+                "for": "__for__",
+                "def": "__def__",
+                "while": "__while__",
+                "switch": "__switch__",
+                "case": "__case__",
+            }
+            var funcName = tokenToFuncMapping[lines[i].tokens[0].text];
+            var args = [];
+            var children = [];
+            var instructionRuleAttributes = undefined;
             var lineMembers = splitTokens(lines[i].tokens, ":", true);
             if (lineMembers.length === 1) {
                 error("Expected a ':' at the end of the line");
             }
             //console.log(lineMembers);
-            var instruction = new Ast(funcName);
 
-            if (funcName !== "__else__" && funcName !== "__do__") {
-                instruction.args = [parse(lineMembers[0].slice(1))];
+            if (funcName === "__rule__" || funcName === "__def__") {
+                if (funcName === "__rule__") {
+                    if (ruleAttributes.name !== undefined) {
+                        error("Cannot use the '@Name' annotation on a rule");
+                    }
+                    if (lineMembers[0].length !== 2) {
+                        error("Malformatted 'rule' declaration");
+                    }
+                    ruleAttributes.name = unescapeString(lineMembers[0][1].text);
+
+                } else {
+                    if (lineMembers[0].length !== 4 || lineMembers[0][2].text !== "(" || lineMembers[0][3].text !== ")") {
+                        error("Malformatted 'def' declaration");
+                    }
+                    ruleAttributes.subroutineName = lineMembers[0][1].text;
+                }
+                instructionRuleAttributes = ruleAttributes;
+                ruleAttributes = {};
+            }
+
+            if (!["__else__", "__doWhile__", "__rule__", "__def__"].includes(funcName)) {
+                args = [parse(lineMembers[0].slice(1))];
             }
             
             var currentLineIndent = lines[i].indentLevel;
@@ -250,7 +222,7 @@ function parseLines(lines) {
                 fileStack = lines[j].tokens[0].fileStack;
 
                 //Ignore comments
-                if (!["#"].includes(lines[j].tokens[0][0])) {
+                if (!lines[j].tokens[0][0] !== "#") {
                     if (lines[j].indentLevel <= currentLineIndent) {
                         break;
                     } else if (lines[j].indentLevel > currentLineIndent && nextIndentLevel !== null && lines[j].indentLevel < nextIndentLevel) {
@@ -266,10 +238,10 @@ function parseLines(lines) {
                 childrenLines.push(lines[j]);
             }
 
-            if (funcName === "__do__") {
+            if (funcName === "__doWhile__") {
                 //There should be a "while" matching the "do"
-                if (j < lines.length-1 && lines[j+1].tokens[0].text === "while") {
-                    instruction.args = parse(lines[j+1].tokens.slice(1));
+                if (j < lines.length && lines[j].tokens[0].text === "while") {
+                    args = [parse(lines[j].tokens.slice(1))];
                     j++;
                 } else {
                     error("Found 'do', but no matching 'while'");
@@ -277,14 +249,12 @@ function parseLines(lines) {
             }
 
             i += j-i-1;
-            instruction.children = parseLines(childrenLines);
+            children = parseLines(childrenLines);
+
+            var instruction = new Ast(funcName, args, children);
             instruction.comment = currentComment;
+            instruction.ruleAttributes = instructionRuleAttributes;
             
-            if (funcName === "__rule__" || funcName === "__def__") {
-                instruction.ruleProperties = ruleProperties;
-                ruleProperties = {};
-            }
-    
             result.push(instruction);
     
         } else {
@@ -292,6 +262,7 @@ function parseLines(lines) {
             currentLineAst.comment = currentComment;
             result.push(currentLineAst);
         }
+        currentComment = null;
     }
     
     //console.log(result);
@@ -307,7 +278,7 @@ function parse(content) {
     }
     
     fileStack = content[0].fileStack;
-	debug("Parsing '"+content+"'");
+	debug("Parsing '"+dispTokens(content)+"'");
     
     //Parse operators, according to the operator precedence in pyOperators.
     for (var operator of pyOperators) {
@@ -401,7 +372,7 @@ function parse(content) {
                     return new Ast("__add__", [op1, op2]);
 
                 } else {
-                    return new Ast("__assignTo__", [op1, new Ast(opToFuncMapping[operator], [op1, new Ast("1")])])
+                    return new Ast("__assignTo__", [op1, new Ast(opToFuncMapping[operator], [op1, getAstFor1()])])
                 }
 
 			} else if (["/", "*", "%", "**"].includes(operator)) {
@@ -500,7 +471,7 @@ function parse(content) {
 
 	//Check for strings
 	if (content[content.length-1].text.startsWith('"') || content[content.length-1].text.startsWith("'")) {
-		var stringFunc = "__customString__";
+		var stringType = "StringLiteral";
 		var string = "";
 		for (var i = content.length-1; i >= 0; i--) {
 			if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
@@ -510,11 +481,11 @@ function parse(content) {
 				if (i === 0) {
 					//string modifier?
 					if (content[0].text === "l") {
-						stringFunc = "__localizedString__";
+						stringType = "LocalizedStringLiteral";
 					} else if (content[0].text === "b") {
-						stringFunc = "__bigLettersString__";
+						stringType = "BigLettersStringLiteral";
 					} else if (content[0].text === "w") {
-						stringFunc = "__fullwidthString__";
+						stringType = "FullwidthStringLiteral";
 					} else {
 						error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters) and 'w' (fullwidth)");
 					}
@@ -524,7 +495,7 @@ function parse(content) {
 			}
         }
         
-        return new Ast(stringFunc, [new Ast(string, [], [], "StringLiteral")]);
+        return new Ast(string, [], [], stringType);
 	}
 	
 	//Parse args and name of function.
@@ -554,13 +525,13 @@ function parse(content) {
         if (isNumber(name)) {
             //It is an int, else it would have a dot, and wouldn't be processed here.
             //It is also an unsigned int, as the negative sign is not part of the name.
-            return new Ast("__number__", [new Ast(name, [], [], "NumberLiteral")], [], "unsigned int");
+            return new Ast("__number__", [new Ast(Number(name), [], [], "NumberLiteral")], [], "unsigned int");
         }
 
 		return new Ast(name);
     }
     
-	debug("args: "+args.join(","));
+	debug("args: "+args.map(x => "'"+dispTokens(x)+"'").join(", "));
 	
 	//Special functions
 
@@ -586,13 +557,18 @@ function parse(content) {
 			error("3rd argument of function 'chase' must be 'rate = xxxx' or 'duration = xxxx'");
         }
         
+        if (args[3].length !== 3 || args[3][0].text !== "ChaseReeval" || args[3][1].text !== ".") {
+            error("Expected a member of the 'ChaseReeval' enum as 4th argument for function 'chase', but got '"+dispTokens(args[3])+"'");
+        }
         if (args[2][0].text === "rate") {
             var funcName = "__chaseAtRate__";
+            args[3][0].text = "__ChaseRateReeval__";
         } else {
-            var funcName = "__chaseAtDuration__";
+            var funcName = "__chaseOverTime__";
+            args[3][0].text = "__ChaseTimeReeval__";
         }
 
-        return new Ast(funcName, [parse(args[0]), parse(args[1]), parse(args[3])]);
+        return new Ast(funcName, [parse(args[0]), parse(args[1]), parse(args[2].slice(2)), parse(args[3])]);
 	}
 	
 	if (name === "raycast") {
@@ -606,15 +582,12 @@ function parse(content) {
             } 
             if (args[4].length >= 2 && args[4][0].text === "includePlayerObjects" || args[4][1].text === "=") {
 				args[4] = args[4].slice(2);
-            } 
-            var raycastInclude = parse(args[2].slice(2));
-            var raycastExclude = parse(args[3].slice(2));
-            var raycastIncludePlayersObjects = parse(args[4].slice(2));
+            }
 
             return new Ast("__raycast__", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])], [], "Raycast");
             
         } else {
-			error("Function 'raycast' takes 3 or 5 arguments, received "+args.length);
+			error("Function 'raycast' takes 5 arguments, received "+args.length);
         }
 	}
 	
@@ -649,12 +622,12 @@ function parse(content) {
             astArgs.push(sortedCondition);
         }
         return new Ast("sorted", astArgs);
-	}
+    }
 		
 	//Check for subroutine call
 	if (args.length === 0) {
         if (isSubroutineName(name)) {
-            return new Ast("__callSubroutine__", [Ast(name, [], [], "Subroutine")]);
+            return new Ast("__callSubroutine__", [new Ast(name, [], [], "Subroutine")]);
         }
     }
     
@@ -663,13 +636,17 @@ function parse(content) {
 
 function parseMember(object, member) {
 
-	debug("Parsing member '"+member+"' of object '"+object+"'");
+	debug("Parsing member '"+dispTokens(member)+"' of object '"+dispTokens(object)+"'");
 	
 	var name = member[0].text;
 	//debug("name = "+name);
 	var args = null;
 	if (member.length > 1) {
 		if (member[1].text === '(') {
+            if (member[member.length-1].text !== ")") {
+                fileStack = member[member.length-1].fileStack;
+                error("Unexpected token '"+member[member.length-1].text+"'");
+            }
 			args = splitTokens(member.slice(2, member.length-1), ",");
 		} else {
 			error("Expected '(' after '"+name+"', but got '"+member[1].text+"'");
@@ -695,6 +672,9 @@ function parseMember(object, member) {
 
                 } else if (object[0].text === "Gamemode") {
                     return new Ast("__gamemode__", [new Ast(name, [], [], "GamemodeLiteral")])
+
+                } else if (object[0].text === "Team") {
+                    return new Ast("__team__", [new Ast(name, [], [], "TeamLiteral")])
 
                 } else {
                     return new Ast(name, [], [], object[0].text);
@@ -753,7 +733,7 @@ function parseMember(object, member) {
 			return new Ast("__removeFromArray__", [parse(object), parse(args[0])])
 			
 		} else if (name === "format") {
-            return new Ast("__format__", args.map(x => parse(x)));
+            return new Ast("__format__", [parse(object)].concat(args.map(x => parse(x))));
 			
 		} else if ("getHitPosition", "getNormal", "getPlayerHit", "hasLoS".includes(name)) {
             if (args.length !== 0) {
@@ -786,7 +766,7 @@ function parseMember(object, member) {
 			
 		} else {
             //Assume it is a player function
-            return new Ast("_&"+name, args.map(x => parse(x)));
+            return new Ast("_&"+name, [parse(object)].concat(args.map(x => parse(x))));
 		}
 	}
 	

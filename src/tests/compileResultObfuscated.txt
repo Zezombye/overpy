@@ -1,0 +1,848 @@
+variables {
+	global:
+		31: IllllIIlIIll
+		88: IllllIlIIIll
+		12: IIlIlIIllIlI
+		107: IIIlIIIIIIIl
+		99: lIllllIIIlIl
+		59: IllIlIllIlII
+		40: llIllIllllII
+		25: lllllIlIIllI
+		103: IIIIlIIIIlll
+		64: IIlIlIIlllll
+		92: IIlIlIIIlIII
+		13: IlllIlIllllI
+		42: llIIIIlllIll
+		70: lIIllIIlllII
+		44: IllIllIllIlI
+		75: lIlIIIIIIlll
+		72: IllllIIlIlII
+		71: IlIllIlIIIII
+		113: IlIlIIlIIlIl
+		86: IIIllIlllIll
+		35: lIlIlIIllIIl
+		125: IlIIIIlIllIl
+		124: IlIIlIllIIll
+		28: IIllIllIIlII
+		20: lllllIllllll
+		111: lIIIllIIlllI
+		54: lIIIIllIIlIl
+		1: IlllIllllllI
+		22: lIIlIIIIlllI
+		68: IIIlllIlIIII
+		115: IIlIIllllIlI
+		4: IllIIIIIllll
+		34: lIIlIllIIIIl
+		63: llllIlIIIlII
+		82: IIIIIIllIIII
+		0: IIlllIIIIIll
+		43: IIlllllllIlI
+		96: lIlIIlIlllII
+		81: lllIlIIIIlll
+		116: llIIIllIlllI
+		101: IIIllllIIIII
+		79: lIIIIIlIlIII
+		55: IIlIlIIIIIII
+		69: llIllIlIIllI
+		73: IIlllIlllIII
+		117: IIlllIIllIlI
+		45: lIIllIlIIllI
+		19: llIlIIlllllI
+		17: lIIllIllIllI
+		33: IllIllllIlll
+		62: IlllIlllIllI
+		8: lIIllIllIIIl
+		80: IlllIlIlllll
+		127: IIIlllIlIlll
+		122: llllIIlIlIII
+		108: IllIIIlIIlII
+		41: IllIIIIIIIll
+		106: IlIIIIIllllI
+		47: llIlIlllllIl
+		100: lllllIlIllIl
+		49: IllIllllllll
+		53: IlIllIIIIIll
+		2: IlllllIlIIIl
+		94: lllIIIllIllI
+		91: IIllIlllIIll
+		78: IlIIllIlllll
+		10: lIIIIIlllIll
+		95: IllIIlIlIIIl
+		121: IIIlIllIIlIl
+		83: lIllIllIlIlI
+		89: llllllllllII
+		46: IlllllIlIlIl
+		56: lllIIIlllIlI
+		112: llIIllIIIlIl
+		3: IllIIllIIlII
+		67: lIIIlIllIIlI
+		39: lIIllllIllll
+		60: lllIlllIIIIl
+		87: IIllIIIllIlI
+		26: IIIIllIIIIII
+		120: lIlllllIllIl
+		29: llllIlIlIlII
+		21: lIlIIIIIIlIl
+		11: IIlIIlIIlIll
+		9: IlIIlIIIlIII
+		24: lIllIIlIIlIl
+		109: lIIlIllIllll
+		110: llIlIIIlIlll
+		123: lllIIIIIIIlI
+		76: lIIIlIIlIlIl
+		84: IlllIlllIlll
+		105: IlllIIlIlIlI
+		93: IIIIlIIIlIlI
+		6: llIIlIIIlllI
+		52: lIIlIIlIIlll
+		5: lIIIllIIIlIl
+		30: lIlllIIlIIll
+		57: lllIlIIlIIIl
+		118: llllIllIIIII
+		66: lllIlIlIlIIl
+		37: llIIIIIIllIl
+		48: lIllIIllIlIl
+		102: lIIlIlIllIll
+		98: lIllIIlIllIl
+		51: IIllIlIlIlIl
+		27: IlllllIlIIll
+		32: llIIlllIlllI
+		7: lIIIlllllIIl
+		18: IlllllIIlllI
+		119: lIIIllllIIll
+		36: IIlIIIIlllII
+		16: IIllIIlIIlIl
+		74: IIllIIIIIlll
+		15: IlIIIlIIllIl
+		61: lIlIIlIlIlII
+		104: lIlIlIlIllII
+		97: lIllIllllllI
+		58: lIllllIIIIIl
+		50: IlllIlIIlIII
+		85: lIlIlIlIIIll
+		114: IlIIIIllIIII
+		77: IlIlIIIIlIII
+		90: IlllIlIIIIII
+		23: IIlllllIlllI
+		38: lIlIIIIlIIlI
+		126: IllllllIIlIl
+		14: lIllIIIlIlII
+		65: llIIlIlllIII
+	player:
+		124: IllllIIlIIll
+		47: IllllIlIIIll
+		87: IIlIlIIllIlI
+		31: IIIlIIIIIIIl
+		55: lIllllIIIlIl
+		37: IllIlIllIlII
+		52: llIllIllllII
+		29: lllllIlIIllI
+		123: IIIIlIIIIlll
+		17: IIlIlIIlllll
+		120: IIlIlIIIlIII
+		91: IlllIlIllllI
+		119: llIIIIlllIll
+		49: lIIllIIlllII
+		15: IllIllIllIlI
+		71: lIlIIIIIIlll
+		27: IllllIIlIlII
+		7: IlIllIlIIIII
+		24: IlIlIIlIIlIl
+		110: IIIllIlllIll
+		67: lIlIlIIllIIl
+		35: IlIIIIlIllIl
+		70: IlIIlIllIIll
+		26: IIllIllIIlII
+		1: lllllIllllll
+		112: lIIIllIIlllI
+		42: lIIIIllIIlIl
+		90: IlllIllllllI
+		28: lIIlIIIIlllI
+		64: IIIlllIlIIII
+		104: IIlIIllllIlI
+		45: IllIIIIIllll
+		80: lIIlIllIIIIl
+		51: llllIlIIIlII
+		109: IIIIIIllIIII
+		66: IIlllIIIIIll
+		10: IIlllllllIlI
+		2: lIlIIlIlllII
+		19: lllIlIIIIlll
+		46: llIIIllIlllI
+		96: IIIllllIIIII
+		77: lIIIIIlIlIII
+		116: IIlIlIIIIIII
+		53: llIllIlIIllI
+		93: IIlllIlllIII
+		48: IIlllIIllIlI
+		13: lIIllIlIIllI
+		122: llIlIIlllllI
+		5: lIIllIllIllI
+		125: IllIllllIlll
+		38: IlllIlllIllI
+		8: lIIllIllIIIl
+		12: IlllIlIlllll
+		79: IIIlllIlIlll
+		101: llllIIlIlIII
+		30: IllIIIlIIlII
+		99: IllIIIIIIIll
+		118: IlIIIIIllllI
+		9: llIlIlllllIl
+		114: lllllIlIllIl
+		82: IllIllllllll
+		126: IlIllIIIIIll
+		102: IlllllIlIIIl
+		111: lllIIIllIllI
+		44: IIllIlllIIll
+		83: IlIIllIlllll
+		86: lIIIIIlllIll
+		3: IllIIlIlIIIl
+		75: IIIlIllIIlIl
+		97: lIllIllIlIlI
+		14: llllllllllII
+		11: IlllllIlIlIl
+		39: lllIIIlllIlI
+		105: llIIllIIIlIl
+		23: IllIIllIIlII
+		92: lIIIlIllIIlI
+		18: lIIllllIllll
+		33: lllIlllIIIIl
+		88: IIllIIIllIlI
+		65: IIIIllIIIIII
+		62: lIlllllIllIl
+		98: llllIlIlIlII
+		107: lIlIIIIIIlIl
+		34: IIlIIlIIlIll
+		74: IlIIlIIIlIII
+		41: lIllIIlIIlIl
+		72: lIIlIllIllll
+		25: llIlIIIlIlll
+		59: lllIIIIIIIlI
+		68: lIIIlIIlIlIl
+		113: IlllIlllIlll
+		57: IlllIIlIlIlI
+		127: IIIIlIIIlIlI
+		108: llIIlIIIlllI
+		0: lIIlIIlIIlll
+		100: lIIIllIIIlIl
+		94: lIlllIIlIIll
+		76: lllIlIIlIIIl
+		21: llllIllIIIII
+		60: lllIlIlIlIIl
+		36: llIIIIIIllIl
+		22: lIllIIllIlIl
+		121: lIIlIlIllIll
+		4: lIllIIlIllIl
+		81: IIllIlIlIlIl
+		115: IlllllIlIIll
+		84: llIIlllIlllI
+		69: lIIIlllllIIl
+		20: IlllllIIlllI
+		16: lIIIllllIIll
+		89: IIlIIIIlllII
+		85: IIllIIlIIlIl
+		63: IIllIIIIIlll
+		78: IlIIIlIIllIl
+		103: lIlIIlIlIlII
+		61: lIlIlIlIllII
+		54: lIllIllllllI
+		50: lIllllIIIIIl
+		6: IlllIlIIlIII
+		95: lIlIlIlIIIll
+		56: IlIIIIllIIII
+		58: IlIlIIIIlIII
+		40: IlllIlIIIIII
+		43: IIlllllIlllI
+		32: lIlIIIIlIIlI
+		106: IllllllIIlIl
+		73: lIllIIIlIlII
+		117: llIIlIlllIII
+}
+subroutines {
+	9: IllllIIlIIll
+	65: IllllIlIIIll
+	102: IIlIlIIllIlI
+	18: IIIlIIIIIIIl
+	1: lIllllIIIlIl
+	63: IllIlIllIlII
+	87: llIllIllllII
+	107: lllllIlIIllI
+	47: IIIIlIIIIlll
+	11: IIlIlIIlllll
+	24: IIlIlIIIlIII
+	78: IlllIlIllllI
+	109: llIIIIlllIll
+	54: lIIllIIlllII
+	8: IllIllIllIlI
+	97: lIlIIIIIIlll
+	77: IllllIIlIlII
+	4: IlIllIlIIIII
+	23: IlIlIIlIIlIl
+	119: IIIllIlllIll
+	67: lIlIlIIllIIl
+	12: IlIIIIlIllIl
+	124: IlIIlIllIIll
+	25: IIllIllIIlII
+	81: lllllIllllll
+	28: lIIIllIIlllI
+	43: lIIIIllIIlIl
+	126: IlllIllllllI
+	27: lIIlIIIIlllI
+	32: IIIlllIlIIII
+	84: IIlIIllllIlI
+	29: IllIIIIIllll
+	37: lIIlIllIIIIl
+	113: llllIlIIIlII
+	93: IIIIIIllIIII
+	44: IIlllIIIIIll
+	127: IIlllllllIlI
+	34: lIlIIlIlllII
+	85: lllIlIIIIlll
+	6: llIIIllIlllI
+	7: IIIllllIIIII
+	91: lIIIIIlIlIII
+	79: IIlIlIIIIIII
+	103: llIllIlIIllI
+	70: IIlllIlllIII
+	89: IIlllIIllIlI
+	99: lIIllIlIIllI
+	36: llIlIIlllllI
+	20: lIIllIllIllI
+	3: IllIllllIlll
+	42: IlllIlllIllI
+	66: lIIllIllIIIl
+	53: IlllIlIlllll
+	31: IIIlllIlIlll
+	26: llllIIlIlIII
+	80: IllIIIlIIlII
+	30: IllIIIIIIIll
+	19: IlIIIIIllllI
+	90: llIlIlllllIl
+	38: lllllIlIllIl
+	51: IllIllllllll
+	76: IlIllIIIIIll
+	116: IlllllIlIIIl
+	39: lllIIIllIllI
+	110: IIllIlllIIll
+	68: IlIIllIlllll
+	17: lIIIIIlllIll
+	98: IllIIlIlIIIl
+	122: IIIlIllIIlIl
+	75: lIllIllIlIlI
+	112: llllllllllII
+	94: IlllllIlIlIl
+	61: lllIIIlllIlI
+	86: llIIllIIIlIl
+	74: IllIIllIIlII
+	45: lIIIlIllIIlI
+	114: lIIllllIllll
+	59: lllIlllIIIIl
+	64: IIllIIIllIlI
+	48: IIIIllIIIIII
+	104: lIlllllIllIl
+	5: llllIlIlIlII
+	33: lIlIIIIIIlIl
+	2: IIlIIlIIlIll
+	57: IlIIlIIIlIII
+	123: lIllIIlIIlIl
+	15: lIIlIllIllll
+	82: llIlIIIlIlll
+	95: lllIIIIIIIlI
+	120: lIIIlIIlIlIl
+	111: IlllIlllIlll
+	55: IlllIIlIlIlI
+	14: IIIIlIIIlIlI
+	10: llIIlIIIlllI
+	71: lIIlIIlIIlll
+	72: lIIIllIIIlIl
+	46: lIlllIIlIIll
+	101: lllIlIIlIIIl
+	125: llllIllIIIII
+	52: lllIlIlIlIIl
+	88: llIIIIIIllIl
+	92: lIllIIllIlIl
+	105: lIIlIlIllIll
+	22: lIllIIlIllIl
+	56: IIllIlIlIlIl
+	115: IlllllIlIIll
+	96: llIIlllIlllI
+	16: lIIIlllllIIl
+	83: IlllllIIlllI
+	117: lIIIllllIIll
+	13: IIlIIIIlllII
+	106: IIllIIlIIlIl
+	73: IIllIIIIIlll
+	121: IlIIIlIIllIl
+	35: lIlIIlIlIlII
+	40: lIlIlIlIllII
+	118: lIllIllllllI
+	69: lIllllIIIIIl
+	0: IlllIlIIlIII
+	100: lIlIlIlIIIll
+	49: IlIIIIllIIII
+	60: IlIlIIIIlIII
+	21: IlllIlIIIIII
+	50: IIlllllIlllI
+	62: lIlIIIIlIIlI
+	108: IllllllIIlIl
+	41: lIllIIIlIlII
+	58: llIIlIlllIII
+}
+rule("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy)."){event{Ongoing - Global;}}
+rule("Please respect its author's wishes and do not edit it. Thanks!"){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    actions {
+        Create HUD Text(All Players(All Teams), Global Variable(IllllIIlIIll), Null, Null, Top, 0, White, White, White, Visible To Sort Order and String, Visible Always);
+        Set Global Variable(IllllIIlIIll, 5);
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Is Button Held(Host Player, Interact) == True;
+    }
+
+    actions {
+        Set Global Variable(IllllIIlIIll, 0);
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Player Earned Elimination;
+        All;
+        All;
+    }
+
+    conditions {
+        Attacker == Host Player;
+    }
+
+    actions {
+        Modify Global Variable(IIlIlIIllIlI, Add, 1);
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Subroutine;
+        IllllIIlIIll;
+    }
+
+    actions {
+        Set Status(Host Player, Null, Rooted, 9999);
+        Set Ability 1 Enabled(Host Player, False);
+        Set Ability 2 Enabled(Host Player, False);
+        Skip If(Not(Compare(Hero Of(Host Player), ==, Value In Array(All Heroes, 8))), 4);
+        Set Ultimate Ability Enabled(Host Player, True);
+        Wait(0.016, Ignore Condition);
+        Set Ultimate Charge(Host Player, 100);
+        Skip(1);
+        Set Ultimate Ability Enabled(Host Player, False);
+        Set Primary Fire Enabled(Host Player, False);
+        Set Secondary Fire Enabled(Host Player, False);
+        Set Global Variable(lIllllIIIlIl, Add(Global Variable(IllllIIlIIll), Global Variable(IIIlIIIIIIIl)));
+        Chase Global Variable Over Time(IllllIIlIIll, Global Variable(lIllllIIIlIl), 2, None);
+        Small Message(All Players(All Teams), 3);
+        Wait(1, Ignore Condition);
+        Small Message(All Players(All Teams), 2);
+        Wait(1, Ignore Condition);
+        Small Message(All Players(All Teams), 1);
+        Wait(1, Ignore Condition);
+        Stop Chasing Global Variable(IllllIIlIIll);
+        Chase Global Variable At Rate(IllllIIlIIll, 0, 1, None);
+        Small Message(All Players(All Teams), Custom String("󠁇󠁯󠀡​", Null, Null, Null));
+        Clear Status(Host Player, Rooted);
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Subroutine;
+        IllllIlIIIll;
+    }
+
+    actions {
+        Destroy All Effects;
+        Destroy All Dummy Bots;
+        Stop Chasing Global Variable(IllllIIlIIll);
+        Set Global Variable(IIlIlIIllIlI, 0);
+        Modify Global Variable(IllllIlIIIll, Add, 1);
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Has Spawned(Host Player) == True;
+    }
+
+    actions {
+        Wait(1, Ignore Condition);
+        Set Global Variable(IllllIlIIIll, 1);
+        Set Objective Description(All Players(All Teams), Custom String("󠁃󠁨󠁡󠁬󠁬󠁥󠁮󠁧󠁥󠀠​{0}", Global Variable(IllllIlIIIll), Null, Null), Visible To Sort Order and String);
+        Set Global Variable(IIlIlIIllIlI, 0);
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 1;
+    }
+
+    actions {
+        Teleport(Host Player, Vector(116.11, -1.22, -21));
+        Set Facing(Host Player, Vector(1, 0, 0), To World);
+        Big Message(Host Player, Custom String("󠁇󠁥󠁴󠀠󠁴󠁯󠀠󠁴󠁨󠁥󠀠󠁶󠁯󠁲󠁴󠁥󠁸󠀡​", Null, Null, Null));
+        Set Global Variable(IIIlIIIIIIIl, 5);
+        Start Forcing Player To Be Hero(Host Player, Value In Array(All Heroes, 18));
+        Create Effect(All Players(All Teams), Bad Aura, Green, Vector(144, 9, -21), 2, Visible To Position and Radius);
+        Call Subroutine(IllllIIlIIll);
+        Set Ability 1 Enabled(Host Player, True);
+        Set Ability 2 Enabled(Host Player, True);
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 1;
+        Distance Between(Position Of(Host Player), Vector(144, 9, -21)) < 2;
+    }
+
+    actions {
+        Call Subroutine(IllllIlIIIll);
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 2;
+    }
+
+    actions {
+        Teleport(Host Player, Vector(96.45, -1.41, -21));
+        Set Facing(Host Player, Vector(-1, 0, 0), To World);
+        Big Message(Host Player, Custom String("󠁈󠁯󠁯󠁫󠀠󠁥󠁭󠀠󠁡󠁬󠁬󠀡​", Null, Null, Null));
+        Start Forcing Player To Be Hero(Host Player, Value In Array(All Tank Heroes, 2));
+        Set Global Variable(IIIlIIIIIIIl, 20);
+        Create Dummy Bot(Value In Array(All Tank Heroes, 0), Team 1, -1, Vector(81.96, -1.32, -23.8), Vector(1, 0, 0));
+        Create Dummy Bot(Value In Array(All Tank Heroes, 0), Team 1, -1, Vector(81.96, -1.32, -21.06), Vector(1, 0, 0));
+        Create Dummy Bot(Value In Array(All Heroes, 5), Team 1, -1, Vector(81.96, -1.32, -18.34), Vector(1, 0, 0));
+        Create Dummy Bot(Value In Array(All Heroes, 16), Team 1, -1, Vector(80.05, -1.4, -19.82), Vector(1, 0, 0));
+        Create Dummy Bot(Value In Array(All Heroes, 16), Team 1, -1, Vector(80.05, -1.4, -22.72), Vector(1, 0, 0));
+        Create Dummy Bot(Value In Array(All Heroes, 16), Team 1, -1, Vector(84.73, -1.36, -21), Vector(1, 0, 0));
+        Call Subroutine(IllllIIlIIll);
+        Set Ability 1 Enabled(Host Player, True);
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Each Player;
+        Team 1;
+        Reinhardt;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 2;
+    }
+
+    actions {
+        Start Holding Button(Event Player, Secondary Fire);
+        Wait(2, Ignore Condition);
+        Stop Holding Button(Event Player, Secondary Fire);
+        Wait(2, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Each Player;
+        Team 1;
+        Zarya;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 2;
+    }
+
+    actions {
+        Wait(2, Ignore Condition);
+        Press Button(Event Player, Ability 1);
+        Wait(2, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 2;
+        Global Variable(IIlIlIIllIlI) == 6;
+    }
+
+    actions {
+        Call Subroutine(IllllIlIIIll);
+    }
+}
+
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 3;
+    }
+
+    actions {
+        Teleport(Host Player, Vector(20.51, 1.61, -68.87));
+        Set Facing(Host Player, Vector(-1, 0, 0), To World);
+        Big Message(Host Player, Custom String("󠁋󠁩󠁬󠁬󠀠󠁥󠁭󠀠󠁡󠁬󠁬󠀠󠀨󠁨󠁯󠁬󠁤󠀠​{0}", Custom String("󠁲󠁣󠁬󠁩󠁣󠁫󠀩󠀡​", Null, Null, Null), Null, Null));
+        Start Forcing Player To Be Hero(Host Player, Value In Array(All Heroes, 14));
+        Set Global Variable(IIIlIIIIIIIl, 20);
+        Call Subroutine(IllllIIlIIll);
+        Set Secondary Fire Enabled(Host Player, True);
+        Set Primary Fire Enabled(Host Player, True);
+        Set Ability 1 Enabled(Host Player, True);
+        Set Ability 2 Enabled(Host Player, True);
+        Create Dummy Bot(Value In Array(All Heroes, 27), Team 1, -1, Vector(2.12, 5.74, -69.48), Vector(0, 0, 0));
+        Create Dummy Bot(Value In Array(All Tank Heroes, 6), Team 1, -1, Vector(2.12, 5.74, -72.61), Vector(0, 0, 0));
+        Create Dummy Bot(Value In Array(All Heroes, 27), Team 1, -1, Vector(2.12, 5.74, -54.41), Vector(0, 0, 0));
+        Create Dummy Bot(Value In Array(All Tank Heroes, 6), Team 1, -1, Vector(14, -1.25, -53), Vector(0, 0, 0));
+        Create Dummy Bot(Value In Array(All Heroes, 27), Team 1, -1, Vector(31.37, -0.25, -58.23), Vector(0, 0, 0));
+        Create Dummy Bot(Value In Array(All Tank Heroes, 6), Team 1, -1, Vector(33.97, 6.75, -66.66), Vector(0, 0, 0));
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 3;
+        Hero Of(Host Player) == Value In Array(All Heroes, 14);
+    }
+
+    actions {
+        Set Status(Host Player, Null, Knocked Down, 0.016);
+        Wait(0.016, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 3;
+        Global Variable(IIlIlIIllIlI) == 6;
+    }
+
+    actions {
+        Call Subroutine(IllllIlIIIll);
+    }
+}
+
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 4;
+    }
+
+    actions {
+        Teleport(Host Player, Vector(-20, -1, -47.46));
+        Set Facing(Host Player, Vector(0, 0, -1), To World);
+        Big Message(Host Player, Custom String("󠁈󠁥󠁡󠁤󠁳󠁨󠁯󠁴󠀠󠁍󠁯󠁮󠁤󠁡󠁴󠁴󠁡󠀡​", Null, Null, Null));
+        Start Forcing Player To Be Hero(Host Player, Value In Array(All Damage Heroes, 5));
+        Set Global Variable(IIIlIIIIIIIl, 20);
+        Call Subroutine(IllllIIlIIll);
+        Set Ability 1 Enabled(Host Player, True);
+        Set Primary Fire Enabled(Host Player, True);
+        Set Secondary Fire Enabled(Host Player, True);
+        Create Dummy Bot(Value In Array(All Support Heroes, 1), Team 1, -1, Vector(-57, 2.8, -131.51), Vector(0, 0, 1));
+        Create Dummy Bot(Value In Array(All Heroes, 5), Team 1, -1, Vector(-57.05, 2.80, -128.62), Vector(0, 0, 1));
+        Create Dummy Bot(Value In Array(All Tank Heroes, 0), Team 1, -1, Vector(-59.12, 2.8, -131.5), Vector(-1, 0, 0));
+        Create Dummy Bot(Value In Array(All Heroes, 5), Team 1, -1, Vector(-57, 2.80, -134.54), Vector(0, 0, -1));
+        Create Dummy Bot(Value In Array(All Tank Heroes, 0), Team 1, -1, Vector(-55.11, 2.80, -131.51), Vector(1, 0, 0));
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}
+rule ("") {
+    event {
+        Ongoing - Each Player;
+        Team 1;
+        Reinhardt;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 4;
+    }
+
+    actions {
+        Start Holding Button(Event Player, Secondary Fire);
+    }
+}
+
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(IllllIlIIIll) == 4;
+        Global Variable(IIlIlIIllIlI) == 1;
+    }
+
+    actions {
+        Declare Team Victory(Team 2);
+    }
+}
+
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(IllllIIlIIll) == 0;
+    }
+
+    actions {
+        Declare Team Victory(Team 1);
+    }
+}
+
+rule(""){event{Ongoing - Global;}}
+rule(""){event{Ongoing - Global;}}

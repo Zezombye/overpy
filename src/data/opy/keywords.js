@@ -113,20 +113,8 @@ const opyKeywords = {
         "description": "Whether either of the two operands are true (or equivalent to true). Does short-circuiting.",
         "args": null
     },
-    "pass": {
-        "description": "Does nothing. Used when OverPy's grammar requires an instruction, such as having an empty block. Is parsed as an action for the purposes of runtime `goto`s.",
-        "args": null
-    },
     "playervar": {
         "description": "Declares a player variable. The index (0-127) can optionally be specified. Example: `playervar myVar 127`",
-        "args": null
-    },
-    "RULE_CONDITION": {
-        "description": "Equivalent to true if every rule condition is true. Can only be used in the following cases:\n\n- `while RULE_CONDITION` (in a do/while loop)\n- `while not RULE_CONDITION` (in a do/while loop)\n- `if RULE_CONDITION: continue` (and not in a while/for loop)\n- `if not RULE_CONDITION: continue` (and not in a while/for loop)\n- `if RULE_CONDITION: return`\n- `if not RULE_CONDITION: return`",
-        "args": null
-    },
-    "RULE_START": {
-        "description": "Denotes the start of the rule. Can only be used as an argument to a `goto` statement.",
         "args": null
     },
     "settings": {

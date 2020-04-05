@@ -22,6 +22,8 @@ var playerVariables;
 var subroutines;
 var currentLanguage;
 
+const ELEMENT_LIMIT = 20000;
+
 //Compilation variables - are reset at each compilation.
 
 //The absolute path of the folder containing the main file. Used for relative paths.
@@ -31,18 +33,6 @@ var rootPath;
 //Should be the empty array at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
 var currentArrayElementNames;
 
-//The keywords "true" and "false", in the workshop.
-//Used to avoid translating back when comparing to true/false.
-//Generated at each compilation.
-var wsTrue;
-var wsFalse;
-var wsNull;
-var wsNot;
-var wsRandInt;
-var wsRandReal;
-var wsRandShuffle;
-var wsRandChoice;
-
 //Set at each rule, to check whether it is legal to use "eventPlayer" and related.
 var currentRuleEvent;
 
@@ -51,6 +41,8 @@ var obfuscateRules;
 
 //If set to true, puts 3000 empty rules, effectively making it impossible to open the preset (you get kicked by the server).
 var enableNoEdit;
+
+var enableOptimization;
 
 //Contains all macros.
 var macros;
@@ -68,6 +60,9 @@ var compiledCustomGameSettings;
 
 //The stack of the files (macros count as "files").
 var fileStack;
+
+//Whether to allow removing instructions. If there is a dynamic goto, set to false.
+var allowRemovingInstructions;
 
 //Decompilation variables
 
@@ -111,6 +106,8 @@ function resetGlobalVariables(language) {
 	enableNoEdit = false;
 	disableUnusedVars = false;
 	compiledCustomGameSettings = "";
+	allowRemovingInstructions = true;
+	enableOptimization = true;
 }
 
 //Other constants
@@ -264,8 +261,12 @@ const typeTree = [
     {"Object": [
 		"Player",
 		{"float": [
-			"unsigned float",
-			"signed float",
+			{"unsigned float": [
+				"unsigned int",
+			]},
+			{"signed float": [
+				"signed int",
+			]},
 			{"int": [
 				"unsigned int",
 				"signed int",
@@ -288,6 +289,7 @@ const typeTree = [
 	]},
 	"Array",
 	"void",
+	"Label",
 	"Subroutine",
 	"GlobalVariable",
 	"PlayerVariable",
@@ -296,6 +298,12 @@ const typeTree = [
 	"HeroLiteral",
 	"MapLiteral",
 	"GamemodeLiteral",
+	"TeamLiteral",
+	{"StringLiteral": [
+		"LocalizedStringLiteral",
+		"FullwidthStringLiteral",
+		"BigLettersStringLiteral",
+	]}
 
 ].concat(Object.keys(constantValues));
 

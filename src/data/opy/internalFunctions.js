@@ -23,16 +23,83 @@ const opyInternalFuncs = {
         "args": [
             {
                 "name": "VARIABLE",
-                "description": "",
                 "type": ["Object", "Array"],
                 "default": "GLOBAL VARIABLE",
             },
             {
                 "name": "VALUE",
-                "description": "",
                 "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
+        ],
+        return: "void",
+    },"__chaseAtRate__": {
+        "args": [
+            {
+                "name": "VARIABLE",
+                "type": "Variable",
+                "default": "A"
+            },
+            {
+                "name": "DESTINATION",
+                "type": [
+                    "float",
+                    "Vector"
+                ],
+                "default": "NUMBER"
+            },
+            {
+                "name": "RATE",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "type": "__ChaseRateReeval__",
+                "default": "DESTINATION AND RATE"
+            }
+        ],
+        "return": "void"
+    },
+    "__chaseOverTime__": {
+        "args": [
+            {
+                "name": "VARIABLE",
+                "type": "GlobalVariable",
+                "default": "A"
+            },
+            {
+                "name": "DESTINATION",
+                "type": [
+                    "float",
+                    "Vector"
+                ],
+                "default": "NUMBER"
+            },
+            {
+                "name": "DURATION",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "type": "__ChaseTimeReeval__",
+                "default": "DESTINATION AND DURATION"
+            }
+        ],
+        "return": "void"
+    },
+    "__def__": {
+        "args": null,
+        return: "void",
+    },
+    "__doWhile__": {
+        "args": [
+            {
+                "name": "CONDITION",
+                "type": "bool",
+                "default": "COMPARE"
+            },
         ],
         return: "void",
     },
@@ -40,30 +107,41 @@ const opyInternalFuncs = {
         "args": [
             {
                 "name": "VALUE",
-                "description": "The left-hand side of the comparison.",
                 "type": ["Object", "Array"],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
-                "description": "The right-hand side of the comparison.",
                 "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
         return: "bool",
     },
+    "__format__": {
+        "args": [
+            {
+                "name": "STRING",
+                "type": "StringLiteral",
+                "default": "NULL"
+            },
+            {
+                "name": "VALUE",
+                "type": "Object",
+                "default": "NULL"
+            }
+        ],
+        return: "String",
+    },
     "__greaterThan__": {
         "args": [
             {
                 "name": "VALUE",
-                "description": "The left-hand side of the comparison.",
                 "type": ["float"],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
-                "description": "The right-hand side of the comparison.",
                 "type": ["float"],
                 "default": "NUMBER"
             }
@@ -75,13 +153,11 @@ const opyInternalFuncs = {
         "args": [
             {
                 "name": "VALUE",
-                "description": "The left-hand side of the comparison.",
                 "type": ["float"],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
-                "description": "The right-hand side of the comparison.",
                 "type": ["float"],
                 "default": "NUMBER"
             }
@@ -92,13 +168,11 @@ const opyInternalFuncs = {
         "args": [
             {
                 "name": "VALUE",
-                "description": "The left-hand side of the comparison.",
                 "type": ["Object", "Array"],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
-                "description": "The right-hand side of the comparison.",
                 "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
@@ -109,13 +183,11 @@ const opyInternalFuncs = {
         "args": [
             {
                 "name": "VALUE",
-                "description": "The left-hand side of the comparison.",
                 "type": ["float"],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
-                "description": "The right-hand side of the comparison.",
                 "type": ["float"],
                 "default": "NUMBER"
             }
@@ -126,24 +198,31 @@ const opyInternalFuncs = {
         "args": [
             {
                 "name": "VALUE",
-                "description": "The left-hand side of the comparison.",
                 "type": ["float"],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
-                "description": "The right-hand side of the comparison.",
                 "type": ["float"],
                 "default": "NUMBER"
             }
         ],
         return: "bool",
     },
+    "__negate__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": ["float", "Vector"],
+                "default": "NUMBER"
+            },
+        ],
+        return: ["float", "Vector"],
+    },
     "__number__": {
         "args": [
             {
                 "name": "NUMBER",
-                "description": "The number.",
                 "type": "NumberLiteral",
                 "default": "0",
             },
@@ -154,5 +233,15 @@ const opyInternalFuncs = {
     "__rule__": {
         "args": null,
         return: "void",
+    },
+    "__team__": {
+        "args": [
+            {
+                "name": "TEAM",
+                "type": "TeamLiteral",
+                "default": "ALL",
+            }
+        ],
+        return: "Team",
     }
 }

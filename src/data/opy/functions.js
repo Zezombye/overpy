@@ -358,6 +358,11 @@ const opyFuncs = {
         "args": null,
         return: "unsigned float",
     },
+    "pass": {
+        "description": "Does nothing. Used when OverPy's grammar requires an instruction, such as having an empty block. Is parsed as an action for the purposes of runtime `goto`s.",
+        "args": null,
+        return: "void",
+    },
     "print": {
         "description": "Creates an orange HUD text at the top left. Should be used for quick debugging of a value.",
         "args": [
@@ -441,6 +446,16 @@ const opyFuncs = {
             }
         ],
         return: "int"
+    },
+    "RULE_CONDITION": {
+        "description": "Equivalent to true if every rule condition is true. Can only be used in the following cases:\n\n- `while RULE_CONDITION` (in a do/while loop)\n- `while not RULE_CONDITION` (in a do/while loop)\n- `if RULE_CONDITION: continue` (and not in a while/for loop)\n- `if not RULE_CONDITION: continue` (and not in a while/for loop)\n- `if RULE_CONDITION: return`\n- `if not RULE_CONDITION: return`",
+        "args": null,
+        return: "bool",
+    },
+    "RULE_START": {
+        "description": "Denotes the start of the rule. Can only be used as an argument to a `goto` statement.",
+        "args": null,
+        return: "Label",
     },
     "sorted": {
         "description": "A copy of the specified array with the values sorted according to the lambda function that is evaluated for each element.\n\nExample: `sorted(getAllPlayers(), key=lambda x: x.getScore())`",

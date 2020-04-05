@@ -228,7 +228,7 @@ const actionKw =
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "ChaseRateReeval",
+                "type": "__ChaseRateReeval__",
                 "default": "DESTINATION AND RATE"
             }
         ],
@@ -268,7 +268,7 @@ const actionKw =
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "ChaseTimeReeval",
+                "type": "__ChaseTimeReeval__",
                 "default": "DESTINATION AND DURATION"
             }
         ],
@@ -319,7 +319,7 @@ const actionKw =
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "ChaseRateReeval",
+                "type": "__ChaseRateReeval__",
                 "default": "DESTINATION AND RATE"
             }
         ],
@@ -370,7 +370,7 @@ const actionKw =
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "ChaseTimeReeval",
+                "type": "__ChaseTimeReeval__",
                 "default": "DESTINATION AND DURATION"
             }
         ],
@@ -516,7 +516,7 @@ const actionKw =
             {
                 "name": "SLOT",
                 "description": "The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             },
             {
@@ -868,7 +868,7 @@ const actionKw =
         "return": "void"
     },
     "declareRoundVictory": {
-        "description": "Declare a team as the current round winner. This only works in the control and elimination game modes",
+        "description": "Declare a team as the current round winner. This only works in the control and elimination game modes.",
         "args": [
             {
                 "name": "ROUND WINNING TEAM",

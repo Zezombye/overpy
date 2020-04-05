@@ -15,17 +15,27 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-compileTest = `
+"use strict";
+
+var compileTest = `
 globalvar owo
 globalvar uwu
+
+subroutine sub
 
 rule "rule 1":
  if A == 2:
   B = 3
+  if B == 4:
+   C = 5
+  D = 6
 
 @Condition A == 3
 @Event eachPlayer
 rule "rule 2":
  if owo == uwu:
   A = 3.5
+
+def sub():
+  D = -3*5
 `

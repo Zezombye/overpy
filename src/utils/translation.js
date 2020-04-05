@@ -32,7 +32,7 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 	if (toWorkshop) {
 		for (var i = 0; i < currentArrayElementNames.length; i++) {
 			if (keyword === currentArrayElementNames[i]) {
-				return translate("_currentArrayElement", true, valueFuncKw);
+				return translate("__currentArrayElement__", true, valueFuncKw);
 			}
 		}
 	}
@@ -81,15 +81,6 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 			}
 		}
 		
-	}
-
-	
-	
-	//Check for numbers
-	if (!isNaN(keyword)) {
-		//Convert to int then to string to remove unnecessary 0s.
-		keyword = trimNb(Number(keyword).toString());
-		return keyword;
 	}
 	
 	error("No match found for keyword '"+keyword+"'");	

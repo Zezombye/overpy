@@ -60,7 +60,7 @@ function warn(warnType, message) {
 	}
 }
 
-function debug(str, arg) {
+function debug(str) {
 	//return;
 	console.debug("DEBUG: "+str);
 }
@@ -76,6 +76,10 @@ function getTypeCheckFailedMessage(content, argNb, expectedType, received) {
 }
 
 function functionNameToString(content) {
+
+	if (typeof content === "string") {
+		error("Expected an object for internal function 'functionNameToString' but got '"+content+"'");
+	}
 
 	var funcToOperatorMapping = {
 		"__add__": "'+' or '+='",
@@ -106,9 +110,11 @@ function functionNameToString(content) {
 	if (content.name in funcToOperatorMapping) {
 		funcDisplayName = "operator "+funcToOperatorMapping[content.name];
 	} else if (content.name in funcToDisplayMapping) {
-		funcDisplayName = "function "+funcToDisplayMapping[content.name];
+		funcDisplayName = "function '"+funcToDisplayMapping[content.name]+"'";
+	} else if (isTypeSuitable("StringLiteral", content.type)) {
+		funcDisplayName = "string "+escapeString(content.name);
 	} else {
-		funcDisplayName = "function "+content.name;
+		funcDisplayName = "function '"+content.name+"'";
 	}
 
 	return funcDisplayName;
@@ -149,11 +155,17 @@ function nthOfNumber(nb) {
 
 function astToString(ast, nbTabs=0) {
     var result = "";
-    result += ast.name;
-    if (ast.args.length > 0) {
-        result += "(" + ast.args.map(x => astToString(x)).join(", ")+")";
-    }
-    if (ast.children.length > 0) {
+	result += ast.name;
+	if (ast.args === undefined) {
+		result += "(__undefined__)";
+
+	} else if (ast.args.length > 0) {
+		result += "(" + ast.args.map(x => astToString(x)).join(", ")+")";
+	}
+	if (ast.children === undefined) {
+		result += ":__undefined__";
+
+	} else if (ast.children.length > 0) {
         result += ":\n";
         for (var child of ast.children) {
             result += tabLevel(nbTabs+1) + astToString(child, nbTabs+1)+"\n";
