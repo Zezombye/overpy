@@ -154,7 +154,10 @@ function nthOfNumber(nb) {
 
 
 function astToString(ast, nbTabs=0) {
-    var result = "";
+	var result = "";
+	if (ast === undefined) {
+		return "__undefined__";
+	}
 	result += ast.name;
 	if (ast.args === undefined) {
 		result += "(__undefined__)";

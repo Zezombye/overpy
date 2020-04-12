@@ -187,6 +187,7 @@ function astToWs(content) {
 
     } else if (content.name === "__team__") {
         content.name = content.args[0].name;
+        content.args = [];
         content.type = "TeamLiteral";
 
     } else if (content.name === "getAllPlayers") {

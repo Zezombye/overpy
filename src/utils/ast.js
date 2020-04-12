@@ -170,16 +170,16 @@ function isDefinitelyTruthy(content) {
 
 //Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
 function getAstFor0() {
-    return new Ast("__number__", [new Ast(0, [], [], "NumberLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("0", [], [], "NumberLiteral")], [], "int");
 }
 function getAstFor1() {
-    return new Ast("__number__", [new Ast(1, [], [], "NumberLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("1", [], [], "NumberLiteral")], [], "int");
 }
 function getAstForMinus1() {
-    return new Ast("__number__", [new Ast(-1, [], [], "NumberLiteral")], [], "unsigned int");
+    return new Ast("__number__", [new Ast("-1", [], [], "NumberLiteral")], [], "unsigned int");
 }
 function getAstFor0_016() {
-    return new Ast("__number__", [new Ast(0.016, [], [], "NumberLiteral")], [], "unsigned float");
+    return new Ast("__number__", [new Ast("0.016", [], [], "NumberLiteral")], [], "unsigned float");
 }
 function getAstForNull() {
     return new Ast("null", [], [], "Player");
@@ -192,4 +192,7 @@ function getAstForTeamAll() {
 }
 function getAstForUselessInstruction() {
     return new Ast("pass");
+}
+function getAstForEnd() {
+    return new Ast("__end__");
 }

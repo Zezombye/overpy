@@ -23,12 +23,11 @@ class Ast {
         if (!name) {
             error("Got no name for ast");
         }
+        if (typeof name !== "string") {
+            error("Expected a string, but got '"+name+"' of type '"+typeof name+"'");
+        }
         if (type === "NumberLiteral") {
-            if (typeof name !== "number") {
-                error("Expected a number for type NumberLiteral, but got '"+typeof name+"'");
-            }
-        } else if (typeof name !== "string") {
-            error("Expected a string, but got '"+name+"'");
+            this.numValue = Number(name);
         }
         this.name = name;
         this.args = args ? args : [];
@@ -86,7 +85,6 @@ function parseLines(lines) {
     //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
     var result = [];
     var currentComment = null;
-    var ruleAttributes = {};
     
     for (var i = 0; i < lines.length; i++) {
         fileStack = lines[i].tokens[0].fileStack;
@@ -98,7 +96,10 @@ function parseLines(lines) {
         if (lines[i].tokens[0].text === "globalvar" || lines[i].tokens[0].text === "playervar" || lines[i].tokens[0].text === "subroutine") {
 			if (lines[i].tokens.length < 2 || lines[i].tokens.length > 3) {
 				error("Malformed "+lines[i].tokens[0].text+" declaration");
-			}
+            }
+            if (lines[i].indentLevel !== 0) {
+                error(lines[i].tokens[0].text+" directive cannot be indented");
+            }
 			var index = lines[i].tokens.length > 2 ? lines[i].tokens[2].text : null
 
 			if (lines[i].tokens[0].text === "globalvar") {
@@ -115,50 +116,12 @@ function parseLines(lines) {
         
         } else if (lines[i].tokens[0].text.startsWith("@")) {
 
-            var annotation = lines[i].tokens[0].text;
-
-            if (["@Name", "@Event", "@Team", "@Slot", "@Hero"].includes(annotation)) {
-                const annotationToPropMap = {
-                    "@Name": {prop: "name", display: "name"},
-                    "@Event": {prop: "event", display: "event"},
-                    "@Team": {prop: "eventTeam", display: "event team"},
-                    "@Slot": {prop: "eventPlayer", display: "event player (@Hero/@Slot)"},
-                    "@Hero": {prop: "eventPlayer", display: "event player (@Hero/@Slot)"},
-                };
-
-                if (lines[i].tokens.length !== 2) {
-                    error("Malformed rule "+annotationToPropMap[annotation].display+" declaration (found "+lines[i].tokens.length+" tokens, expected 2)");
-                }
-                if (annotationToPropMap[annotation].prop in ruleAttributes) {
-                    error("Rule "+annotationToPropMap[annotation].display+" was already declared");
-                }
-
-                if (annotation === "@Name") {
-                    ruleAttributes[annotationToPropMap[annotation].prop] = unescapeString(lines[i].tokens[1].text);
-                } else {
-                    ruleAttributes[annotationToPropMap[annotation].prop] = lines[i].tokens[1].text;
-                }
-                
-            } else if (annotation === "@SuppressWarnings") {
-                if (lines[i].tokens.length === 1) {
-                    error("Expected at least one token after @SuppressWarnings")
-                }
-                for (var token of lines[i].tokens) {
-                    suppressedWarnings.push(token.text);
-                }
-
-            } else if (annotation === "@Disabled") {
-                ruleAttributes.isDisabled = true;
-
-            } else if (annotation === "@Condition") {
-                if (!("conditions" in ruleAttributes)) {
-                    ruleAttributes.conditions = [];
-                }
-                var parsedCondition = parse(lines[i].tokens.slice(1));
-                ruleAttributes.conditions.push(parsedCondition);
+            if (lines[i].tokens[0].text === "@Condition" || lines[i].tokens[0].text === "@Name") {
+                result.push(new Ast(lines[i].tokens[0].text, [parse(lines[i].tokens.slice(1))], [], "__Annotation__"));
 
             } else {
-                error("Unknown annotation '"+annotation+"'");
+                result.push(new Ast(lines[i].tokens[0].text, lines[i].tokens.slice(1).map(x => new Ast(x.text, [], [], "__AnnotationArg__")), [], "__Annotation__"));
+
             }
 
         } else if (["rule", "if", "elif", "else", "do", "for", "def", "while", "switch", "case"].includes(lines[i].tokens[0].text)) {
@@ -178,31 +141,26 @@ function parseLines(lines) {
             var funcName = tokenToFuncMapping[lines[i].tokens[0].text];
             var args = [];
             var children = [];
-            var instructionRuleAttributes = undefined;
+            var instructionRuleAttributes = null;
             var lineMembers = splitTokens(lines[i].tokens, ":", true);
             if (lineMembers.length === 1) {
                 error("Expected a ':' at the end of the line");
             }
             //console.log(lineMembers);
 
-            if (funcName === "__rule__" || funcName === "__def__") {
-                if (funcName === "__rule__") {
-                    if (ruleAttributes.name !== undefined) {
-                        error("Cannot use the '@Name' annotation on a rule");
-                    }
-                    if (lineMembers[0].length !== 2) {
-                        error("Malformatted 'rule' declaration");
-                    }
-                    ruleAttributes.name = unescapeString(lineMembers[0][1].text);
-
-                } else {
-                    if (lineMembers[0].length !== 4 || lineMembers[0][2].text !== "(" || lineMembers[0][3].text !== ")") {
-                        error("Malformatted 'def' declaration");
-                    }
-                    ruleAttributes.subroutineName = lineMembers[0][1].text;
+            if (funcName === "__rule__") {
+                if (lineMembers[0].length !== 2) {
+                    error("Malformatted 'rule' declaration");
                 }
-                instructionRuleAttributes = ruleAttributes;
-                ruleAttributes = {};
+                instructionRuleAttributes = {};
+                instructionRuleAttributes.name = unescapeString(lineMembers[0][1].text);
+
+            } else if (funcName === "__def__") {
+                if (lineMembers[0].length !== 4 || lineMembers[0][2].text !== "(" || lineMembers[0][3].text !== ")") {
+                    error("Malformatted 'def' declaration");
+                }
+                instructionRuleAttributes = {};
+                instructionRuleAttributes.subroutineName = lineMembers[0][1].text;
             }
 
             if (!["__else__", "__doWhile__", "__rule__", "__def__"].includes(funcName)) {
@@ -252,8 +210,12 @@ function parseLines(lines) {
             children = parseLines(childrenLines);
 
             var instruction = new Ast(funcName, args, children);
-            instruction.comment = currentComment;
-            instruction.ruleAttributes = instructionRuleAttributes;
+            if (currentComment !== null) {
+                instruction.comment = currentComment;
+            }
+            if (instructionRuleAttributes !== null) {
+                instruction.ruleAttributes = instructionRuleAttributes;
+            }
             
             result.push(instruction);
     
@@ -525,7 +487,7 @@ function parse(content) {
         if (isNumber(name)) {
             //It is an int, else it would have a dot, and wouldn't be processed here.
             //It is also an unsigned int, as the negative sign is not part of the name.
-            return new Ast("__number__", [new Ast(Number(name), [], [], "NumberLiteral")], [], "unsigned int");
+            return new Ast("__number__", [new Ast(name, [], [], "NumberLiteral")], [], "unsigned int");
         }
 
 		return new Ast(name);

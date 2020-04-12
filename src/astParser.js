@@ -22,7 +22,69 @@ function parseAstRules(rules) {
 
         fileStack = rule.fileStack;
 
+        //Parse annotations
+        var i = 0;
+        for (; i < rule.children.length; i++) {
+
+            if (!rule.children[i].name.startsWith("@")) {
+                break;
+            }
+            fileStack = rule.children[i].fileStack;
+
+            if (["@Name", "@Event", "@Team", "@Slot", "@Hero"].includes(rule.children[i].name)) {
+                const annotationToPropMap = {
+                    "@Name": {prop: "name", display: "name"},
+                    "@Event": {prop: "event", display: "event"},
+                    "@Team": {prop: "eventTeam", display: "event team"},
+                    "@Slot": {prop: "eventPlayer", display: "event player (@Hero/@Slot)"},
+                    "@Hero": {prop: "eventPlayer", display: "event player (@Hero/@Slot)"},
+                };
+
+                if (rule.children[i].args.length !== 1) {
+                    error("Annotation '"+rule.children[i].name+"' takes 1 argument, received "+rule.children[i].args.length);
+                }
+                if (annotationToPropMap[rule.children[i].name].prop in rule.ruleAttributes) {
+                    error("Rule "+annotationToPropMap[rule.children[i].name].display+" was already declared");
+                }
+
+                if (rule.children[i].name === "@Name") {
+                    if (rule.children[i].args[0].type !== "StringLiteral") {
+                        error("Expected a string as argument of '@Name'");
+                    }
+                    rule.ruleAttributes[annotationToPropMap[rule.children[i].name].prop] = rule.children[i].args[0].name;
+                } else {
+                    rule.ruleAttributes[annotationToPropMap[rule.children[i].name].prop] = rule.children[i].args[0].name;
+                }
+                
+            } else if (rule.children[i].name === "@SuppressWarnings") {
+
+                if (rule.children[i].args.length < 1) {
+                    error("Annotation '"+rule.children[i].name+"' takes at least 1 argument, received "+rule.children[i].args.length);
+                }
+                for (var arg of rule.children[i].args) {
+                    suppressedWarnings.push(arg.name);
+                }
+
+            } else if (rule.children[i].name === "@Disabled") {
+                rule.ruleAttributes.isDisabled = true;
+
+            } else if (rule.children[i].name === "@Condition") {
+                if (!("conditions" in rule.ruleAttributes)) {
+                    rule.ruleAttributes.conditions = [];
+                }
+                rule.ruleAttributes.conditions.push(rule.children[i].args[0]);
+
+            } else {
+                error("Unknown annotation '"+rule.children[i].name+"'");
+            }
+        }
+        //Remove the annotations from the children
+        rule.children = rule.children.slice(i);
+        fileStack = rule.fileStack;
+        
+
         if (rule.name === "__rule__") {
+
             if (rule.ruleAttributes.event === undefined) {
                 rule.ruleAttributes.event = "global";
             }
@@ -42,6 +104,9 @@ function parseAstRules(rules) {
         } else if (rule.name === "__def__") {
             if (rule.ruleAttributes.event !== undefined) {
                 error("Cannot declare event for a subroutine");
+            }
+            if (rule.ruleAttributes.conditions !== undefined) {
+                error("Cannot declare rule conditions for a subroutine");
             }
             rule.ruleAttributes.event = "__subroutine__";
             if (rule.ruleAttributes.eventTeam !== undefined || rule.ruleAttributes.eventPlayer !== undefined) {
@@ -66,6 +131,7 @@ function parseAst(content) {
         error("Content is not object: "+content);
     }
 
+    fileStack = content.fileStack;
     debug("Parsing AST of '"+content.name+"'");
 
     if (!(content.args instanceof Array)) {
@@ -73,6 +139,10 @@ function parseAst(content) {
     }
     if (!(content.children instanceof Array)) {
         error("Function '"+content.name+"' has '"+content.children+"' for args, expected array");
+    }
+    if (content.name.startsWith("@")) {
+        //Annotations are processed in the parseAstRules function. If we encounter an annotation here, then it wasn't at the beginning of a rule.
+        error("Annotations must be at the beginning of the rule");
     }
 
     for (var i = 0; i < content.args.length; i++) {
@@ -82,13 +152,9 @@ function parseAst(content) {
 
     for (var i = 0; i < content.children.length; i++) {
         content.childIndex = i;
-        for (var child of content.children) {
-            console.log(astToString(child));
-        }
         content.children[i] = parseAst(content.children[i]);
     }
     
-    fileStack = content.fileStack;
 
     //Skip if it's a literal or a constant
     if ([
@@ -171,6 +237,7 @@ function parseAst(content) {
     } else {
         error("Unknown function '"+content.name+"'");
     }
+
 
     if (content.name in astParsingFunctions) {
         content = astParsingFunctions[content.name](content);
