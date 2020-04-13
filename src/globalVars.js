@@ -36,6 +36,14 @@ var currentArrayElementNames;
 //Set at each rule, to check whether it is legal to use "eventPlayer" and related.
 var currentRuleEvent;
 
+//The encountered labels throughout the rule, to not have duplicate labels. Set at each rule.
+var currentRuleLabels;
+
+//The number of times the specified label is referenced. If that number is 0, then the label is considered as not accessed.
+var currentRuleLabelAccess;
+
+var currentRuleHasVariableGoto;
+
 //If set to true, sets all rule titles to empty.
 var obfuscateRules;
 
@@ -61,8 +69,9 @@ var compiledCustomGameSettings;
 //The stack of the files (macros count as "files").
 var fileStack;
 
-//Whether to allow removing instructions. If there is a dynamic goto, set to false.
-var allowRemovingInstructions;
+//An unique number for automatically generated labels.
+var uniqueNumber;
+
 
 //Decompilation variables
 
@@ -106,8 +115,8 @@ function resetGlobalVariables(language) {
 	enableNoEdit = false;
 	disableUnusedVars = false;
 	compiledCustomGameSettings = "";
-	allowRemovingInstructions = true;
 	enableOptimization = true;
+	uniqueNumber = 0;
 }
 
 //Other constants
@@ -289,6 +298,7 @@ const typeTree = [
 	]},
 	"Array",
 	"void",
+	"Lambda",
 	"Label",
 	"Subroutine",
 	"GlobalVariable",

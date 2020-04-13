@@ -99,4 +99,9 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+//Used for automatically generated names.
+function getUniqueNumber() {
+	uniqueNumber++;
+	return uniqueNumber;
+}
 

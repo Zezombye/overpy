@@ -17,11 +17,21 @@
 
 "use strict";
 
-astParsingFunctions.__while__ = function(content) {
+astParsingFunctions.print = function(content) {
 
-    //Add the "end" function.
-    content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
-    
-    return content;
-
+    var result = new Ast("__hudText__", [
+        new Ast("getAllPlayers"),
+        content.args[0],
+        getAstForNull(),
+        getAstForNull(),
+        new Ast("LEFT", [], [], "HudPosition"),
+        getAstFor0(),
+        getAstForColorWhite(),
+        getAstForColorWhite(),
+        getAstForColorWhite(),
+        new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"),
+        new Ast("DEFAULT", [], [], "SpecVisibility"),
+    ]);
+    result.originalName = "print";
+    return parseAst(result);
 }

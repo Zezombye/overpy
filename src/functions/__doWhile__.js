@@ -38,21 +38,22 @@ astParsingFunctions.__doWhile__ = function(content) {
     } else {
         loopFunc = new Ast("__loopIf__", content.args);
     }
+    loopFunc.originalName = "__doWhile__";
 
-    console.log(content.parent.childIndex);
+    //console.log(content.parent.childIndex);
     //Insert the children in the parent
-    console.log("parent children")
-    for (var child of content.parent.children) {
+    //console.log("parent children")
+    /*for (var child of content.parent.children) {
         console.log(astToString(child));
-    }
-    console.log("do/while children");
-    for (var child of content.children) {
+    }*/
+    //console.log("do/while children");
+    /*for (var child of content.children) {
         console.log(astToString(child));
-    }
+    }*/
     content.parent.children.splice(content.parent.childIndex+1, 0, ...content.children, loopFunc);
-    console.log("parent children after splice");
-    for (var child of content.parent.children) {
+    //console.log("parent children after splice");
+    /*for (var child of content.parent.children) {
         console.log(astToString(child));
-    }
+    }*/
     return getAstForUselessInstruction();
 }

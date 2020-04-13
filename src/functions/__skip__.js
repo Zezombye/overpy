@@ -17,11 +17,9 @@
 
 "use strict";
 
-astParsingFunctions.__while__ = function(content) {
-
-    //Add the "end" function.
-    content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
-    
+astParsingFunctions.__skip__ = function(content) {
+    if (content.args[0].name !== "__distanceTo__") {
+        currentRuleHasVariableGoto = true;
+    }
     return content;
-
 }

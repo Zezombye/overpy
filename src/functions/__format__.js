@@ -22,6 +22,7 @@ astParsingFunctions.__format__ = function(content) {
     if (content.args[0].type === "LocalizedStringLiteral") {
         return parseLocalizedString(content.args[0], content.args.slice(1));
     } else {
+		console.log(content);
         return parseCustomString(content.args[0], content.args.slice(1));
     }
 
@@ -268,3 +269,16 @@ function parseStringTokens(tokens, args) {
 	return new Ast("__customString__", [new Ast(result, [], [], "StringLiteral")].concat(resultArgs));
 }
 
+//Parses localized string
+function parseLocalizedString(content, formatArgs) {
+
+	if (formatArgs.length > 3) {
+		error("A localized string cannot have more than 3 arguments in the 'format' function");
+	}
+	while (formatArgs.length < 3) {
+		formatArgs.push(getAstForNull());
+	}
+	
+	return new Ast("__localizedString__", [content, ...formatArgs]);
+	
+}

@@ -547,7 +547,9 @@ var valueFuncKw =
         "guid": "00000000B11B",
         "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
         "args": null,
-        return: "Direction",
+        return: {
+            "Direction": ["unsigned int", "unsigned int", "signed int"]
+        },
         "en-US": "Backward",
         "es-MX": "Atrás",
         "fr-FR": "Arrière",
@@ -727,7 +729,7 @@ var valueFuncKw =
     "__currentArrayElement__": {
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": [],
-        return: "Array",
+        return: ["Object", "Array"],
         "guid": "00000000B5B9",
         "en-US": "Current Array Element",
         "es-MX": "Elemento de matriz actual",
@@ -929,7 +931,9 @@ var valueFuncKw =
         "guid": "00000000B119",
         "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
         "args": null,
-        return: "Direction",
+        return: {
+            "Direction": ["unsigned int", "signed int", "unsigned int"]
+        },
         "en-US": "Down",
         "es-MX": "Abajo",
         "fr-FR": "Bas",
@@ -1169,7 +1173,9 @@ var valueFuncKw =
         "guid": "00000000B11A",
         "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
         "args": null,
-        return: "Direction",
+        return: {
+            "Direction": ["unsigned int", "unsigned int", "unsigned int"]
+        },
         "en-US": "Forward",
         "es-MX": "Adelante",
         "fr-FR": "Avant",
@@ -2376,7 +2382,9 @@ var valueFuncKw =
         "guid": "00000000B116",
         "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
         "args": null,
-        return: "Direction",
+        return: {
+            "Direction": ["unsigned int", "unsigned int", "unsigned int"]
+        },
         "en-US": "Left",
         "es-MX": "Izquierda",
         "fr-FR": "Gauche",
@@ -3396,7 +3404,9 @@ var valueFuncKw =
         "guid": "00000000B117",
         "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
         "args": null,
-        return: "Direction",
+        return: {
+            "Direction": ["signed int", "unsigned int", "unsigned int"]
+        },
         "en-US": "Right",
         "es-MX": "Derecha",
         "fr-FR": "Droite",
@@ -3831,9 +3841,11 @@ var valueFuncKw =
     },
     "Vector.UP": {
         "guid": "00000000B118",
-        "description": "Shorthand for the directional vector(0, l, 0), which points upward.",
+        "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
         "args": null,
-        return: "direction",
+        return: {
+            "Direction": ["unsigned int", "unsigned int", "unsigned int"]
+        },
         "en-US": "Up",
         "es-MX": "Arriba",
         "fr-FR": "Haut",

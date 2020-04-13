@@ -17,11 +17,14 @@
 
 "use strict";
 
-astParsingFunctions.__while__ = function(content) {
-
-    //Add the "end" function.
-    content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
-    
+astParsingFunctions.__distanceTo__ = function(content) {
+    //Increment the number of times this label is accessed.
+    var label = content.args[0].name;
+    if (!(label in currentRuleLabelAccess)) {
+        currentRuleLabelAccess[label] = 0;
+    }
+    if (content.parent.name === "__skip__" || content.parent.name === "__skipIf__") {
+        currentRuleLabelAccess[label]++;
+    }
     return content;
-
 }

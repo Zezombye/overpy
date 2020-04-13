@@ -21,6 +21,9 @@
 <style>
 textarea {
 	resize: vertical;
+    -moz-tab-size : 4;
+      -o-tab-size : 4;
+         tab-size : 4;
 }
 
 body, textarea {
@@ -111,16 +114,24 @@ a {
 <script src="src/obfuscation.js"></script>
 <script src="src/globalVars.js"></script>
 <script src="src/tests/decompileTest.js"></script>
-<script src="src/tests/compileTest.js"></script>
 <script src="src/decompiler.js"></script>
 
+<script src="src/functions/__del__.js"></script>
+<script src="src/functions/__distanceTo__.js"></script>
 <script src="src/functions/__doWhile__.js"></script>
 <script src="src/functions/__elif__.js"></script>
 <script src="src/functions/__else__.js"></script>
 <script src="src/functions/__for__.js"></script>
 <script src="src/functions/__format__.js"></script>
 <script src="src/functions/__if__.js"></script>
+<script src="src/functions/__remove__.js"></script>
+<script src="src/functions/__rule__.js"></script>
+<script src="src/functions/__skip__.js"></script>
 <script src="src/functions/__while__.js"></script>
+<script src="src/functions/all.js"></script>
+<script src="src/functions/any.js"></script>
+<script src="src/functions/print.js"></script>
+<script src="src/functions/sorted.js"></script>
 
 <script src="src/tokenizer.js"></script>
 <script src="src/astParser.js"></script>
@@ -166,9 +177,9 @@ function demoCompile() {
 			strWarn += "*/\n";
 			str = strWarn+str;
 		}
-	} catch (Error) {
-		console.log(Error);
-		str = "An error occurred. Press F12 (Firefox) or Ctrl+Shift+J (Chrome)";
+	} catch (e) {
+		console.log(e);
+		str = e;
 	}
 	document.getElementById("compiled-textarea").value = str;
 }

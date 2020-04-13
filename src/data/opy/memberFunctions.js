@@ -93,7 +93,7 @@ const opyMemberFuncs = {
         "args": [
             {
                 "name": "VALUE",
-                "description": "The value to remove from the array (if found).",
+                "description": "The value to remove from the array (if found). If an array is given, each value is removed from the array.",
                 "type": ["Object", "Array"],
                 "default": "NUMBER"
             }

@@ -115,11 +115,17 @@ function parseAstRules(rules) {
             if (rule.ruleAttributes.name === undefined) {
                 rule.ruleAttributes.name = "Subroutine "+rule.ruleAttributes.subroutineName;
             }
+            rule.name = "__rule__";
+            rule.originalName = "__def__";
         } else {
             error("Unexpected function '"+rule.name+"' outside a rule");
         }
         
         currentRuleEvent = rule.ruleAttributes.event;
+        currentRuleLabels = [];
+        currentRuleLabelAccess = {};
+        currentRuleHasVariableGoto = false;
+        
         rule = parseAst(rule);
     }
     return rules;
@@ -130,6 +136,7 @@ function parseAst(content) {
     if (!(typeof content === "object")) {
         error("Content is not object: "+content);
     }
+    console.log(currentRuleLabels);
 
     fileStack = content.fileStack;
     debug("Parsing AST of '"+content.name+"'");
@@ -149,12 +156,8 @@ function parseAst(content) {
         content.argIndex = i;
         content.args[i] = parseAst(content.args[i]);
     }
+    content.argIndex = 0;
 
-    for (var i = 0; i < content.children.length; i++) {
-        content.childIndex = i;
-        content.children[i] = parseAst(content.children[i]);
-    }
-    
 
     //Skip if it's a literal or a constant
     if ([
@@ -165,19 +168,30 @@ function parseAst(content) {
         return content;
     }
 
-    //For string literals, check if they are a child of __format__. If not, wrap them with the __format__ function.
+    //For labels, just check if they are already declared.
+    if (content.type === "Label") {
+        if (content.parent.name !== "__distanceTo__") {
+            if (currentRuleLabels.includes(content.name)) {
+                error("Label '"+content.name+"' is already declared in this rule");
+            }
+            currentRuleLabels.push(content.name);
+        }
+        return content;
+    }
+
+    //For string literals, check if they are a child of __format__ (or of a string function). If not, wrap them with the __format__ function.
     if (["StringLiteral", "LocalizedStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
-        if (content.parent.name === "__format__") {
+        if (["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
             return content;
         } else {
-            content = new Ast("__format__", [content, getAstForNull()]);
+            content = new Ast("__format__", [content]);
         }
     }
 
     //Manually check types and arguments for the __format__ function, as it is the only function that can take an infinite number of arguments.
     if (content.name === "__format__") {
-        if (content.args.length < 2) {
-            error("Function 'format' takes at least 2 arguments, received "+content.args.length);
+        if (content.args.length < 1) {
+            error("Function '__format__' takes at least 1 argument, received "+content.args.length);
         }
         //Check types
         if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[0].type)) {
@@ -242,6 +256,12 @@ function parseAst(content) {
     if (content.name in astParsingFunctions) {
         content = astParsingFunctions[content.name](content);
     }
+
+    for (var i = 0; i < content.children.length; i++) {
+        content.childIndex = i;
+        content.children[i] = parseAst(content.children[i]);
+    }
+    content.childIndex = 0;
 
     return content;
 }

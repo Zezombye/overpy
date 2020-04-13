@@ -21,10 +21,10 @@ class Ast {
 
     constructor(name, args, children, type) {
         if (!name) {
-            error("Got no name for ast");
+            error("Got no name for AST");
         }
         if (typeof name !== "string") {
-            error("Expected a string, but got '"+name+"' of type '"+typeof name+"'");
+            error("Expected a string for AST name, but got '"+name+"' of type '"+typeof name+"'");
         }
         if (type === "NumberLiteral") {
             this.numValue = Number(name);
@@ -240,7 +240,38 @@ function parse(content) {
     }
     
     fileStack = content[0].fileStack;
-	debug("Parsing '"+dispTokens(content)+"'");
+    debug("Parsing '"+dispTokens(content)+"'");
+    
+    //Handle the "del" directive.
+    if (content[0].text === "del") {
+        return new Ast("__del__", [parse(content.slice(1))]);
+    }
+
+    //Parse the "goto" directive.
+    if (content[0].text === "goto") {
+        if (content.length < 2) {
+            error("Expected a label or a formula after 'goto'");
+        }
+        if (content.length === 2) {
+            //Check for the special "RULE_START" and convert to the "Loop" instruction.
+            if (content[1].text === "RULE_START") {
+                return new Ast("__loop__");
+            }
+            //The goto goes to a label.
+            return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(content[1].text, [], [], "Label")])])
+        } else {
+            //The goto should be of the format "loc+XXX".
+            if (content[1].text !== "loc" || content[2].text !== "+") {
+                error("Expected a label or 'loc+XXX' after 'goto'");
+            }
+            return new Ast("__skip__", [parse(content.slice(3))]);
+        }
+    }
+
+    //Parse labels. We do not need to care about 'else:' as they are already parsed in the parseLines function.
+    if (content.length === 2 && content[1].text === ":") {
+        return new Ast(content[0].text, [], [], "Label");
+    }
     
     //Parse operators, according to the operator precedence in pyOperators.
     for (var operator of pyOperators) {
@@ -311,8 +342,8 @@ function parse(content) {
                     "/=": "__divide__",
                     "%=": "__modulo__",
                     "**=": "__raiseToPower__",
-                    "min=": "__min__",
-                    "max=": "__max__",
+                    "min=": "min",
+                    "max=": "max",
                 };
 
                 var variable = parse(operands[0]);
@@ -467,7 +498,7 @@ function parse(content) {
 		if (content[1].text === '(') {
 			args = splitTokens(content.slice(2, content.length-1), ",");
 		} else {
-			error("Syntax error: expected '(' after '"+name+"', but got '"+content[1].text+"'");
+			error("Expected '(' after '"+name+"', but got '"+content[1].text+"'");
 		}
 	}
 
@@ -475,7 +506,9 @@ function parse(content) {
 
 		//Check for current array element variable name
 		if (currentArrayElementNames.indexOf(name) >= 0) {
-			return new Ast("__currentArrayElement__");
+            var result = new Ast("__currentArrayElement__");
+            result.originalName = name;
+            return result;
         }
         
         //Check for global variable
@@ -582,6 +615,8 @@ function parse(content) {
         var astArgs = [parse(args[0])];
         if (args.length === 2) {
             astArgs.push(sortedCondition);
+        } else {
+            astArgs.push(new Ast("__currentArrayElement__"));
         }
         return new Ast("sorted", astArgs);
     }
@@ -663,16 +698,15 @@ function parseMember(object, member) {
                 }
                 return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "NumberLiteral")], [], "unsigned float");
 
-            } else {
-                //Should be a player variable.
-                if (!isVarName(name, false)) {
-                    error("Unknown member '"+name+"'");
-                }
-                return new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
             }
-        } else {
-            error("Invalid object '"+object+"' for member '"+member+"'");
         }
+
+        //Should be a player variable.
+        if (!isVarName(name, false)) {
+            error("Unknown member '"+name+"'");
+        }
+        return new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
+
 	} else {
 	
 		if (["append", "exclude", "index", "remove"].includes(name)) {
@@ -683,10 +717,10 @@ function parseMember(object, member) {
                 "append": "__appendToArray__",
                 "exclude": "__removeFromArray__",
                 "index": "__indexOfArrayValue__",
-                "remove": "__removeFromArrayByValue__",
+                "remove": "__remove__",
             };
 
-            return new Ast("__"+funcToInternalFuncMap[name]+"__", [parse(object), parse(args[0])])
+            return new Ast(funcToInternalFuncMap[name], [parse(object), parse(args[0])])
 			
 		} else if (name === "exclude") {
             if (args.length !== 1) {
@@ -753,8 +787,11 @@ function parseLiteralArray(content) {
             //Parse as the pseudo "map" function. Used for the "any"/"all" functions.
             //And well, maybe they will eventually add a map function...
 
-            if (inOperands[0].length < 3 || inOperands[0][inOperands.length-2].text !== "for") {
-                error("Malformed '[x for y in z]'")
+            if (inOperands[0].length < 3) {
+                error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected at least 3");
+            }
+            if (inOperands[0][inOperands[0].length-2].text !== "for") {
+                error("Malformed '[x for y in z]': expected 'for' but found '"+inOperands[0][inOperands[0].length-2].text+"'");
             }
             currentArrayElementNames.push(inOperands[0][inOperands[0].length-1].text);
             var mappingFunction = parse(inOperands[0].slice(0, inOperands[0].length-2));

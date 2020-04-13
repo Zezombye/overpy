@@ -17,11 +17,12 @@
 
 "use strict";
 
-astParsingFunctions.__while__ = function(content) {
-
-    //Add the "end" function.
-    content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
-    
-    return content;
-
+astParsingFunctions.__remove__ = function(content) {
+    var result = new Ast("__modifyVar__", [
+        content.args[0],
+        new Ast("__removeFromArrayByValue__", [], [], "__Operation__"),
+        content.args[1],
+    ])
+    result.originalName = "__remove__";
+    return result;
 }

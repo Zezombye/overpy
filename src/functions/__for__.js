@@ -20,9 +20,8 @@
 astParsingFunctions.__for__ = function(content) {
 
     //Add the "end" function.
-    if (content.parent.childIndex < content.parent.children.length-1) {
-        content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
-    }
+    content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
+    
     return content;
 
 }

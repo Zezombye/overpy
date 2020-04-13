@@ -17,25 +17,9 @@
 
 "use strict";
 
-var compileTest = `
-globalvar owo
-globalvar uwu
+astParsingFunctions.sorted = function(content) {
 
-subroutine sub
-
-rule "rule 1":
- if A == 2:
-  B = 3
-  if B == 4:
-   C = 5
-  D = 6
-
-@Condition A == 3
-@Event eachPlayer
-rule "rule 2":
- if owo == uwu:
-  A = 3.5
-
-def sub():
-  D = -3*5
-`
+    content.name = "__sortedArray__";
+    content.type = content.args[0].type;
+    return parseAst(content);
+}

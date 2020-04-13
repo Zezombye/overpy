@@ -93,6 +93,24 @@ const opyInternalFuncs = {
         "args": null,
         return: "void",
     },
+    "__del__": {
+        "args": [
+            {
+                "name": "ARRAY INDEX",
+                "type": "unsigned int",
+            },
+        ],
+        return: "void",
+    },
+    "__distanceTo__": {
+        "args": [
+            {
+                "name": "LABEL",
+                "type": "Label",
+            },
+        ],
+        return: "unsigned int",
+    },
     "__doWhile__": {
         "args": [
             {
@@ -133,32 +151,50 @@ const opyInternalFuncs = {
         ],
         return: "String",
     },
+    "__gotoLabel__": {
+        "args": [
+            {
+                "name": "LABEL",
+                "type": "Label",
+            }
+        ],
+        return: "void",
+    },
+    "__gotoLoc__": {
+        "args": [
+            {
+                "name": "LOC",
+                "type": "unsigned int",
+            }
+        ],
+        return: "void",
+    },
     "__greaterThan__": {
         "args": [
             {
                 "name": "VALUE",
-                "type": ["float"],
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
-                "type": ["float"],
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
         return: "bool",
     },
     
-    "__greaterThanOrEqual__": {
+    "__greaterThanOrEquals__": {
         "args": [
             {
                 "name": "VALUE",
-                "type": ["float"],
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
-                "type": ["float"],
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
@@ -183,31 +219,68 @@ const opyInternalFuncs = {
         "args": [
             {
                 "name": "VALUE",
-                "type": ["float"],
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
-                "type": ["float"],
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
         return: "bool",
     },
-    "__lessThanOrEqual__": {
+    "__lessThanOrEquals__": {
         "args": [
             {
                 "name": "VALUE",
-                "type": ["float"],
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
-                "type": ["float"],
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
         return: "bool",
+    },
+    "__mappedArray__": {
+        "args": [
+            {
+                "name": "ARRAY",
+                "type": "Array",
+            },
+            {
+                "name": "CONDITION",
+                "type": "bool",
+            }
+        ],
+        "return": {"Array": "bool"},
+    },
+    "__modifyVar__": {
+        "args": [
+            {
+                "name": "VARIABLE",
+                "type": "Variable",
+            },
+            {
+                "name": "OPERATION",
+                "type": "__Operation__",
+            },
+            {
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+            }
+        ],
+        "guid": "00000000786E",
+        "en-US": "Modify Global Variable",
+        "es-MX": "Modificar variable global",
+        "fr-FR": "Modifier une variable globale",
+        "ja-JP": "グローバル変数を変更",
+        "pt-BR": "Modificar Variável Global",
+        "zh-CN": "修改全局变量",
+        "return": "void"
     },
     "__negate__": {
         "args": [
@@ -229,6 +302,18 @@ const opyInternalFuncs = {
         ],
         return: "float",
         "en-US": "Number",
+    },
+    "__remove__": {
+        "args": [
+            {
+                "name": "ARRAY",
+                "type": "Variable",
+            },{
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+            }
+        ],
+        return: "void",
     },
     "__rule__": {
         "args": null,

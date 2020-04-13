@@ -126,6 +126,50 @@ function isTypeSuitable(expectedType, receivedType) {
 
 }
 
+//Used for when the body of a control flow statement will never execute, such as "if false".
+function makeChildrenUseless(children) {
+
+    var foundLabel = false;
+
+    //Recursively check through the tree to see if there are labels that we must decrement the amount of references to.
+    function checkForDistanceTo(content) {
+        for (var arg of content.args) {
+            if (arg.name === "__distanceTo__") {
+                currentRuleLabelAccess[arg.args[0].name]--;
+            } else {
+                checkForDistanceTo(arg);
+            }
+        }
+    }
+
+    function _makeChildrenUseless(children) {
+        for (var i = 0; i < children.length; i++) {
+            //Check if there is a label that is accessed at least once. If yes, then the actions below could still be executed; therefore, don't make them useless.
+
+            if (foundLabel) {
+                break;
+            }
+            checkForDistanceTo(children[i].args);
+            makeChildrenUseless(children[i].children);
+            if (children[i].type === "Label") {
+                if (currentRuleLabelAccess[children[i].name] > 0) {
+                    foundLabel = true;
+                }
+            } else {
+                children[i] = getAstForUselessInstruction();
+            }
+        }
+    }
+
+    //If the current rule has a variable goto, then we cannot make the isntructions useless, as we don't know whether they will execute.
+    if (!currentRuleHasVariableGoto) {
+        _makeChildrenUseless(children);
+    }
+
+    return children;
+
+}
+
 //https://workshop.elohell.gg/wiki/bRQhecrRn/Data+type+comparisons/
 //Returns true if, when compared to "false", it returns true.
 function isDefinitelyFalsy(content) {

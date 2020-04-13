@@ -55,7 +55,7 @@ function warn(warnType, message) {
 			}
 		}
 		console.warn(warning);
-		suppressedWarnings.push(warnType);
+		//suppressedWarnings.push(warnType);
 		encounteredWarnings.push(warning);
 	}
 }

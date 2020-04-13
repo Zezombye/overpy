@@ -20,9 +20,28 @@
 astParsingFunctions.__else__ = function(content) {
 
     //Add the "end" function.
-    if (content.parent.childIndex < content.parent.children.length-1) {
+    //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent.
+    var includeEnd = true;
+    if (enableOptimization && content.parent.childIndex === content.parent.children.length-1) {
+
+        var root = content;
+        includeEnd = false;
+    
+        while (root.name !== "__rule__") {
+            root = root.parent;
+            if (root.name === "__while__" || root.name === "__for__") {
+                includeEnd = true;
+                break;
+            } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent.childIndex !== root.parent.children.length-1) {
+                includeEnd = true;
+                break;
+            }
+        }
+    }
+    if (includeEnd) {
         content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
     }
+    
     return content;
 
 }

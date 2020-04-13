@@ -1652,7 +1652,7 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Object",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
@@ -1689,7 +1689,7 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Object",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
@@ -1761,7 +1761,7 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Object",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
@@ -1809,7 +1809,7 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Object",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],

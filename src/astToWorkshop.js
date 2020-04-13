@@ -95,6 +95,9 @@ function astRuleConditionToWs(condition) {
 
 function astActionToWs(action, nbTabs) {
 
+    if (action.type === "Label") {
+        return "";
+    }
     var result = tabLevel(nbTabs)+astToWs(action)+";\n"
     for (var child of action.children) {
         result += astActionToWs(child, nbTabs+1);
@@ -113,6 +116,8 @@ function astToWs(content) {
         "__greaterThan__": ">",
     }
 
+    fileStack = content.fileStack;
+
     if (content.type === "GlobalVariable") {
         return translateVarToWs(content.name, true);
 
@@ -122,8 +127,11 @@ function astToWs(content) {
     } else if (content.type === "Subroutine") {
         return translateSubroutineToWs(content.name);
 
-    } else if (["StringLiteral", "LocalizedStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
+    } else if (["StringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
         return escapeString(content.name);
+
+    } else if (content.type === "LocalizedStringLiteral") {
+        return escapeString(tows(content.name, stringKw));
     }
     
     if (content.name in equalityFuncToOpMapping) {
@@ -190,6 +198,14 @@ function astToWs(content) {
         content.args = [];
         content.type = "TeamLiteral";
 
+    } else if (content.name === "ceil") {
+        content.name = "__round__";
+        content.args = [content.args[0], new Ast("__roundUp__", [], [], "__Rounding__")];
+
+    } else if (content.name === "floor") {
+        content.name = "__round__";
+        content.args = [content.args[0], new Ast("__roundDown__", [], [], "__Rounding__")];
+
     } else if (content.name === "getAllPlayers") {
         content.name = "getPlayers";
         content.args = [getAstForTeamAll()];
@@ -220,6 +236,10 @@ function astToWs(content) {
     } else if (content.name === "pass") {
         content.name = "return";
         content.isDisabled = true;
+
+    } else if (content.name === "round") {
+        content.name = "__round__";
+        content.args = [content.args[0], new Ast("__roundToNearest__", [], [], "__Rounding__")];
 
     } else if (content.name === "stopChasingVariable") {
         var newName = "";

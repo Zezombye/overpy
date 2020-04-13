@@ -26,7 +26,7 @@ const opyFuncs = {
             {
                 "name": "Array",
                 "description": "The array whose values will be considered.",
-                "type": "Array",
+                "type": {"Array": "bool"},
                 "default": "GLOBAL VARIABLE"
             }
         ],
@@ -38,7 +38,7 @@ const opyFuncs = {
             {
                 "name": "Array",
                 "description": "The array whose values will be considered.",
-                "type": "Array",
+                "type": {"Array": "bool"},
                 "default": "GLOBAL VARIABLE"
             }
         ],
