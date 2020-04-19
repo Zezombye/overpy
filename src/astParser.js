@@ -73,6 +73,7 @@ function parseAstRules(rules) {
                     rule.ruleAttributes.conditions = [];
                 }
                 rule.ruleAttributes.conditions.push(rule.children[i].args[0]);
+                rule.ruleAttributes.conditions[rule.ruleAttributes.conditions.length-1].comment = rule.children[i].comment;
 
             } else {
                 error("Unknown annotation '"+rule.children[i].name+"'");
@@ -136,7 +137,7 @@ function parseAst(content) {
     if (!(typeof content === "object")) {
         error("Content is not object: "+content);
     }
-    console.log(currentRuleLabels);
+    //console.log(currentRuleLabels);
 
     fileStack = content.fileStack;
     debug("Parsing AST of '"+content.name+"'");
@@ -188,7 +189,7 @@ function parseAst(content) {
         }
     }
 
-    //Manually check types and arguments for the __format__ function, as it is the only function that can take an infinite number of arguments.
+    //Manually check types and arguments for the __format__ or __array__ function, as they are the only functions that can take an infinite number of arguments.
     if (content.name === "__format__") {
         if (content.args.length < 1) {
             error("Function '__format__' takes at least 1 argument, received "+content.args.length);
@@ -200,6 +201,14 @@ function parseAst(content) {
         for (var i = 1; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name].args[1].type, content.args[i].type)) {
                 warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[1].type, content.args[i]));
+            }
+        }
+
+    } else if (content.name === "__array__") {
+        //Check types
+        for (var i = 0; i < content.args.length; i++) {
+            if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[i].type)) {
+                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[0].type, content.args[i]));
             }
         }
 

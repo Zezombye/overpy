@@ -116,13 +116,23 @@ function parseLines(lines) {
         
         } else if (lines[i].tokens[0].text.startsWith("@")) {
 
+             
+            //Check for end of line comment
+            if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
+                currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
+                lines[i].tokens.pop();
+            }            
             if (lines[i].tokens[0].text === "@Condition" || lines[i].tokens[0].text === "@Name") {
-                result.push(new Ast(lines[i].tokens[0].text, [parse(lines[i].tokens.slice(1))], [], "__Annotation__"));
+                var currentLineAst = new Ast(lines[i].tokens[0].text, [parse(lines[i].tokens.slice(1))], [], "__Annotation__");
 
             } else {
-                result.push(new Ast(lines[i].tokens[0].text, lines[i].tokens.slice(1).map(x => new Ast(x.text, [], [], "__AnnotationArg__")), [], "__Annotation__"));
+                var currentLineAst = new Ast(lines[i].tokens[0].text, lines[i].tokens.slice(1).map(x => new Ast(x.text, [], [], "__AnnotationArg__")), [], "__Annotation__");
 
             }
+            if (currentComment !== null) {
+                currentLineAst.comment = currentComment;
+            }
+            result.push(currentLineAst);
 
         } else if (["rule", "if", "elif", "else", "do", "for", "def", "while", "switch", "case"].includes(lines[i].tokens[0].text)) {
 
@@ -138,6 +148,13 @@ function parseLines(lines) {
                 "switch": "__switch__",
                 "case": "__case__",
             }
+
+            //Check for end of line comment
+            if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
+                currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
+                lines[i].tokens.pop();
+            }
+
             var funcName = tokenToFuncMapping[lines[i].tokens[0].text];
             var args = [];
             var children = [];
@@ -220,6 +237,11 @@ function parseLines(lines) {
             result.push(instruction);
     
         } else {
+            //Check for end of line comment
+            if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
+                currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
+                lines[i].tokens.pop();
+            }
             var currentLineAst = parse(lines[i].tokens);
             currentLineAst.comment = currentComment;
             result.push(currentLineAst);
@@ -356,6 +378,10 @@ function parse(content) {
                     "++": "__add__",
                     "--": "__subtract__",
                 };
+                if (operands[0].length === 0) {
+                    //Probably a double negation such as "--A".
+                    return parse(operands[1]);
+                }
                 var op1 = parse(operands[0]);
 
                 //Check if there is something after the operator. If yes, treat it like an operation.
@@ -709,24 +735,19 @@ function parseMember(object, member) {
 
 	} else {
 	
-		if (["append", "exclude", "index", "remove"].includes(name)) {
+		if (["append", "concat", "exclude", "index", "remove"].includes(name)) {
             if (args.length !== 1) {
                 error("Function '"+name+"' takes 1 argument, received "+args.length);
             }
             var funcToInternalFuncMap = {
-                "append": "__appendToArray__",
+                "append": "__append__",
+                "concat": "__concat__",
                 "exclude": "__removeFromArray__",
                 "index": "__indexOfArrayValue__",
                 "remove": "__remove__",
             };
 
             return new Ast(funcToInternalFuncMap[name], [parse(object), parse(args[0])])
-			
-		} else if (name === "exclude") {
-            if (args.length !== 1) {
-                error("Function 'exclude' takes 1 argument, received "+args.length);
-            }
-			return new Ast("__removeFromArray__", [parse(object), parse(args[0])])
 			
 		} else if (name === "format") {
             return new Ast("__format__", [parse(object)].concat(args.map(x => parse(x))));

@@ -1,12 +1,12 @@
-[Core] DataTool v1.46.0.866-git-53565d47153728a60a0a8d7984fda5f7b64203a6
+[Core] DataTool v1.47.0.868-git-222ad70efeb849673104456adc9548418298e5b1
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.exe.args
 [CASC] Set language to plPL
 [CASC] Set speech language to plPL
-[CASC] Overwatch build 1.46.1.0.67071
+[CASC] Overwatch build 1.47.0.0.67664
 [CASC] Initializing...
-[CMF] Using CMF procedure 67071
-[CMF] Using CMF procedure 67071
+[CMF] Using CMF procedure 67664
+[CMF] Using CMF procedure 67664
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -442,14 +442,10 @@ z lekkim działkiem automatycznym.
 0000000003CA.07C: Stacjonarny tryb bojowy z potężnym działem obrotowym.
 0000000003CB.07C: Przegrzanie
 0000000003CC.07C: Zwiększasz szybkość ataku, otrzymujesz dodatkowy pancerz i na krótko ulepszasz wieżyczkę poziomu 2 do poziomu 3.
-0000000003CD.07C: Wieżyczka
-0000000003CE.07C: Stawiasz wieżyczkę, którą możesz ulepszać.
 0000000003D1.07C: Nitownica
 0000000003D2.07C: Wolno strzelająca broń dalekiego zasięgu.
 0000000003D3.07C: Nitownica – Miotacz
 0000000003D4.07C: Nieprecyzyjna, lecz potężna broń krótkiego zasięgu.
-0000000003D5.07C: Młot Kowalski
-0000000003D6.07C: Użyteczny przy ulepszaniu wieżyczki lub jako broń.
 0000000003DC.07C: Umożliwiasz członkom drużyny obserwację pozycji wroga.
 0000000003DD.07C: Infrawizja
 0000000003DE.07C: Jadowita Mina
@@ -9760,7 +9756,7 @@ premiery Diablo.
 000000005908.07C: ZIMNA PUSTKA
 000000005915.07C: Czułość Kuli Harmonii
 000000005916.07C: Czułość Kuli Rozdarcia
-000000005917.07C: Czułość Nanowzmocnienia
+000000005917.07C: Czułość Duplikacji
 000000005918.07C: %1$s: %2$s
 00000000591F.07C: Ogólne
 000000005921.07C: Eskorta
@@ -10323,7 +10319,7 @@ Nazwa gracza lub BattleTag w języku innym niż twój.
 000000005DC5.07C: Wczytywanie zapisanych ustawień...
 000000005DC6.07C: Zniszczenie omnium w Australii i powstanie Junkertown sprawiło, że Pustkowia stały się jeszcze groźniejszym miejscem.
 000000005DC7.07C: W młodości Lúcio, poza swoją pierwszą miłością, hokejem, pasjonował się również piłką nożną i grał z innymi dziećmi z Rio de Janeiro.
-000000005DC8.07C: Młody Jesse McCree został zwerbowany do Blackwatch, kiedy Gabriel Reyes dostrzegł w nim potencjał i dał mu wybór: więzienie lub służba.
+000000005DC8.07C: Młody Jesse McCree został zwerbowany do Blackwatch, kiedy Gabriel Reyes dostrzegł w nim potencjał i dał mu wybór: więzienie albo służba.
 000000005DC9.07C: Łaska przywdziewała na misje Overwatch swój kombinezon szybkiego reagowania Walkiria.
 000000005DCA.07C: Wiedźma z Dziczy to tajemnicza postać, która pojawia się między innymi w opowieści o doktorze Złomensteinie i ofiarowuje ludziom to, czego pragną... za odpowiednią cenę.
 000000005DCB.07C: Orisę zbudowano z części robotów obronnych OR15 z Numbani. Pomimo faktu, że wciąż musi się wiele nauczyć to ona teraz stoi na straży miasta.
@@ -14244,7 +14240,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E64.07C: ATAK
 000000006E6A.07C: Zabójczyni
 000000006E6B.07C: Eichenwalde (Halloween)
-000000006E6F.07C: Wskrześ: %2$s
+000000006E6F.07C: Wskrześ: %1$s
 000000006E70.07C: Ruch względem kamery przy rozglądaniu się z barierą
 000000006E72.07C: NANO
 000000006E73.07C: OGŁUSZENIE
@@ -14848,6 +14844,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s |Rpl trafienie:trafienia:trafień; Strzałką Usypiającą
 000000007460.07C: Tempo doczepiania Bomby Pulsacyjnej
 000000007461.07C: Tempo doczepiania Bomby Pulsacyjnej: %1$s
+000000007465.07C: ANULUJ
 000000007472.07C: Koalescencja – leczenie na każde użycie
 000000007473.07C: Koalescencja – leczenie na każde użycie: %1$s
 000000007474.07C: Koalescencja – obrażenia na każde użycie
@@ -16718,6 +16715,7 @@ w trybie Eliminacji 6 na 6 w 2018
 000000008670.07C: Rozstawiasz miny zbliżeniowe na dużym obszarze.
 000000008671.07C: |Rpl %1$s:zdobyte:zdobyte:zdobyte; superzdolności – Ułamkowo
 000000008672.07C: %1$s |Rpl zdobyta superzdolność:zdobyte superzdolności:zdobytych superzdolności; – Ułamkowo
+000000008684.07C: Echo
 000000008687.07C: Moja drużyna
 000000008688.07C: Drużyna przeciwna
 00000000868A.07C: All-Star dywizja atlantycka OWL
@@ -17249,6 +17247,7 @@ z letnich igrzysk
 000000008F7B.07C: Wstecz
 000000008F7D.07C: Kulowrotek
 000000008FE9.07C: Nie można przejść do kolejki z twoimi ustawieniami ekipy.
+000000008FEA.07C: 
 000000008FEC.07C: Pokój
 000000008FED.07C: Leniuchowanie
 000000008FEE.07C: Zwycięzca
@@ -17328,7 +17327,6 @@ z letnich igrzysk
 0000000090E1.07C: Pilotem Burzyciela jest inteligentny, zmodyfikowany genetycznie chomik o imieniu Hammond, który przemierza świat w poszukiwaniu przygód.
 0000000090E2.07C: Ashe to przywódczyni Gangu Zadymiarzy, grupy bandytów, którzy sieją postrach na południowym zachodzie Ameryki.
 0000000090E7.07C: Sklep
-0000000090E8.07C: Skórki dywizji!
 0000000090F2.07C: Japonia (Goście)
 0000000090F3.07C: Tajwan (Goście)
 0000000090F4.07C: Rosja (Goście)
@@ -17735,8 +17733,6 @@ Overwatch League 2018.
 0000000093F6.07C: Rywalizacja
 000000009411.07C: Baptiste
 000000009413.07C: All-Star
-000000009414.07C: Dywizja pacyficzna
-000000009415.07C: Dywizja atlantycka
 000000009419.07C: PH Text
 00000000941A.07C: Kupić wszystkie elementy %1$s?
 00000000941B.07C: Nagroda za udział w wyzwaniu Nano Cola D.Vy.
@@ -17957,12 +17953,12 @@ i dodatkowo 10 darmowych
 000000009E9C.07C: VS
 000000009E9E.07C: Sigma
 000000009E9F.07C: Podstawowa
-000000009EB1.07C: Eksperymentalna Bariera może przemieszczać się na duże odległości i chronić twoich sojuszników.
-000000009EB2.07C: Wezwij z powrotem Eksperymentalną Barierę, aby ją doładować.
-000000009EB3.07C: Ataki z broni Sigmy implodują po krótkim czasie, zadając obrażenia na obszarze. Wymierz właściwą odległość i zadawaj obrażenia nad przeszkodami takimi jak bariery wroga.
-000000009EB4.07C: Akrecja powala tylko tych wrogów, których trafi bezpośrednio.
-000000009EB5.07C: Chwyt Kinetyczny ma długi czas odnowienia. Wykorzystuj chwyt, aby chronić się, kiedy Eksperymentalna Bariera się ładuje.
-000000009EB6.07C: Używaj Strumienia Grawitacyjnego, aby podnosić wrogów w powietrze, z dala od ich drużyny lub celu.
+000000009EB1.07C: Przytrzymanie skoku podczas korzystania z umiejętności Lot powoduje podniesienie pułapu.
+000000009EB2.07C: Aktywacja Duplikacji leczy cię całkowicie i pozwala ci przeżyć, kiedy masz mało zdrowia.
+000000009EB3.07C: Skupiona Wiązka zadaje niewielkie obrażenia przeciwnikom mającym powyżej połowy zdrowia, ale bardzo duże przeciwnikom mającym poniżej połowy.
+000000009EB4.07C: Używaj Skupionej Wiązki, aby wykańczać przeciwników, których twoi sojusznicy osłabili do połowy punktów zdrowia.
+000000009EB5.07C: Aby szybko zadać duże obrażenia, zastosuj Bomby Przyczepne, a następnie od razu użyj Skupionej Wiązki.
+000000009EB6.07C: Użyj zdolności Duplikacji podczas Lotu, aby zaskoczyć przeciwnika z powietrza.
 000000009EBB.07C: Kulanie
 000000009EBF.07C: Cukierek albo psikus
 000000009EC0.07C: Zawartość skrzynek halloweenowych
@@ -18438,6 +18434,14 @@ Prosimy o przesyłanie komentarzy i opinii, które pomogą nam usprawnić dział
 00000000A913.07C: Rywalizacja w Zdobywanie flagi – Sezon 2
 00000000A914.07C: Zdobywanie flagi: Pusan
 00000000A915.07C: Dwie sześcioosobowe drużyny walczą na mapie Pusan o zdobycie flagi przeciwników, jednocześnie broniąc własnej.
+00000000A91F.07C: Bomby Przyczepne
+00000000A920.07C: Wystrzeliwujesz salwę przyczepnych bomb, które wybuchają po krótkim czasie.
+00000000A922.07C: Duplikacja
+00000000A923.07C: Stajesz się kopią wskazanego, wrogiego bohatera. Sterujący nim gracz nie może przez ten czas zmienić postaci.
+00000000A927.07C: Trójstrzał
+00000000A928.07C: Wystrzeliwujesz jednocześnie trzy pociski, układające się w trójkąt.
+00000000A929.07C: Lot
+00000000A92A.07C: Szybko lecisz do przodu, a następnie szybujesz przez chwilę.
 00000000A933.07C: Blizzard World (Zima)
 00000000A939.07C: Toronto (Goście)
 00000000A93A.07C: Chengdu (Goście)
@@ -19952,8 +19956,6 @@ w trybie Deathmatch 2019
 00000000B842.07C: Chase Global Variable Over Time
 00000000B843.07C: Czas trwania
 00000000B844.07C: Tempo
-00000000B861.07C: Pacyficzny Lúcio
-00000000B862.07C: Atlantycka Łaska
 00000000B878.07C: Enable Built-In Game Mode Respawning
 00000000B879.07C: Gracze
 00000000B87A.07C: Disable Built-In Game Mode Respawning
@@ -21508,6 +21510,8 @@ w trybie Deathmatch 2019
 00000000C1DF.07C: Uruchom HUD dla każdego gracza
 00000000C1E0.07C: Zdobywasz punkt i przełączasz bohatera (D) po dokonaniu likwidacji
 00000000C1E3.07C: Jeśli bohater gracza różni się od wybranej przez niego postaci (D), wymuś wybór bohatera
+00000000C1E6.07C: Szybowanie
+00000000C1E7.07C: Przytrzymaj skok, aby szybować podczas opadania.
 00000000C1E8.07C: |Rfd %1$s:MMM dd;
 00000000C1EA.07C: Sezon 2019 – Faza 3
 00000000C1F2.07C: Niedokończony
@@ -22218,6 +22222,8 @@ w trybie Deathmatch 2019
 00000000C7F7.07C: Zamaskowana tancerka
 00000000C7F8.07C: Tangent From Degrees
 00000000C7F9.07C: Tangens określonego kąta wyrażony w stopniach.
+00000000C7FA.07C: Skupiona Wiązka
+00000000C7FB.07C: Przez kilka sekund podtrzymujesz działanie wiązki, która zadaje bardzo duże obrażenia celom, mającym mniej niż połowa wytrzymałości.
 00000000C7FC.07C: Tangens określonego kąta wyrażony w radianach.
 00000000C7FD.07C: Tangent From Radians
 00000000C7FE.07C: Arcus tangens określonego licznika i mianownika wyrażony w radianach (często nazywany „Atan2”).
@@ -22590,6 +22596,7 @@ letnich igrzysk 2019
 00000000CB7C.07C: B.O.B.
 00000000CB7E.07C: Deckard
 00000000CB7F.07C: Cain
+00000000CB82.07C: Echo
 00000000CB84.07C: Interkom
 00000000CB86.07C: Gondolier
 00000000CB87.07C: HAL-fred
@@ -26331,8 +26338,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: Wyłącz żyroskop podczas użycia drążka
 00000000EA2F.07C: Doktor Ziegler
 00000000EA3E.07C: Odwróć oś Z celowania żyroskopem
-00000000EA40.07C: Tryb Rywalizacji
-00000000EA41.07C: ZDOBĘDZIESZ NASTĘPUJĄCE NAGRODY ZA UDZIAŁ:
 00000000EA51.07C: Koza(k)
 00000000EA59.07C: Odwróć oś X celowania żyroskopem
 00000000EA5A.07C: (posiadasz)
@@ -26349,8 +26354,9 @@ https://account.blizzard.com/connections/nintendo
 00000000EB14.07C: Król Jamison
 00000000EB17.07C: Włącz precyzyjne dane wejściowe myszy
 00000000EB1E.07C: Błąd: Zmienna gracza (%1$s) wymaga nazwy
+00000000EB1F.07C: Globalnie
 00000000EB21.07C: Błąd: Występuje konflikt globalnej zmiennej „%1$s” z inną zmienną
-00000000EB23.07C: Dostępne mapy w tym sezonie
+00000000EB23.07C: Dostępne mapy
 00000000EB24.07C: Hanamura, Świątynia Anubisa, Zakłady Volskaya Industries
 00000000EB25.07C: Błąd: Zmienna globalna (%1$s) zawiera nieprawidłową nazwę
 00000000EB29.07C: Błąd: Zmienna globalna (%1$s) wymaga nazwy
@@ -26547,6 +26553,7 @@ w Drużynowym Deathmatchu 2019
 00000000F229.07C: 
 00000000F22A.07C: 
 00000000F22B.07C: 
+00000000F239.07C: Echo została zaprojektowana przez doktor Minę Liao z Overwatch. Jest robotem z błyskawicznie adaptującą się sztuczną inteligencją.
 00000000F23D.07C: Pokazuje jedynie gry, które pozwalają na dołączenie graczom z kolejki.
 00000000F23E.07C: Uwaga! Może to wpłynąć na wydajność twojego systemu!
 00000000F241.07C: +100 dodatkowych żetonów
@@ -26598,6 +26605,7 @@ w Drużynowym Deathmatchu 2019
 00000000F396.07C: Lampion
 00000000F39C.07C: Wyżerka
 00000000F39D.07C: Puszczanie latawca
+00000000F3A2.07C: Wybór postaci zablokowany przez Echo
 00000000F3A3.07C: Kiedy znajdziemy mecz z danej kolejki, włączymy cię do gry.
 00000000F3AE.07C: Dołączanie do meczu
 00000000F3C9.07C: Snajper
@@ -27080,6 +27088,8 @@ w sezonie 21.
 000000010053.07C: dostępni bohaterowie
 000000010054.07C: Sezon 21
 000000010055.07C: Sezon 21
+000000010056.07C: Sezon 22
+000000010057.07C: Sezon 22
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Importuj ustawienia ze schowka
@@ -27179,7 +27189,6 @@ w sezonie 21.
 000000010237.07C: Rozłączono z powodu osiągnięcia limitu czasu gry (system CAIS).
 000000010239.07C: Eksperymenty
 00000001023B.07C: Ta powtórka nie znajduje się na twojej liście ostatnio rozegranych meczów. Odpięcie jej spowoduje jej utratę. Kontynuować?
-000000010243.07C: Ukryj wyniki
 000000010248.07C: Misia
 000000010249.07C: Holi
 00000001024A.07C: Rdzawobrody
@@ -27188,7 +27197,7 @@ w sezonie 21.
 00000001025B.07C: Przygrzanie
 00000001025C.07C: Ukończ archiwalną misję-wyzwanie Przygrzanie.
 00000001025D.07C: Kruche działo
-00000001025E.07C: Ukończ archiwalną misję-wyzwanie Szklane działo.
+00000001025E.07C: Ukończ archiwalną misję-wyzwanie Kruche działo.
 00000001025F.07C: Precyzyjne uderzenie
 000000010260.07C: Ukończ archiwalną misję-wyzwanie Precyzyjne uderzenie.
 000000010261.07C: Walka w zwarciu
@@ -27272,13 +27281,14 @@ w sezonie 21.
 0000000102CA.07C: Miś polarny
 0000000102CC.07C: Niestrawność
 0000000102CE.07C: Niedźwiedzi uścisk
-0000000102D0.07C: pc
 0000000102D1.07C: ps4
 0000000102D2.07C: xb1
 0000000102D3.07C: nintendo-switch
-0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102D4.07C: https://playoverwatch.com/console-patch-notes/%1$s
 0000000102D5.07C: Importuj
 0000000102D8.07C: Zaimportowano
+0000000102D9.07C: DUPLIKACJA
+0000000102DA.07C: ANULUJ
 0000000102E0.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
 0000000102E1.07C: Florida Mayhem Homestand 2020
 0000000102E3.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
@@ -27308,57 +27318,340 @@ w Rywalizacji
 w trybie Eliminacji 6 na 6 w 2020
 000000010308.07C: Bohater Rywalizacji w trybie Eliminacji 6 na 6 w 2020
 000000010309.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w trybie Eliminacji 6 na 6 w 2020
-00000001030E.07C: Pięść Gromu
-00000001030F.07C: Mistrzowie Overwatch League 2019
-San Francisco Shock
 000000010311.07C: Grupa szturmowa
 000000010312.07C: Zawartość archiwalnych skrzynek
+00000001031A.07C: Zalicz 2 trafienia kończące jedną Skupioną Wiązką Echo w Szybkiej grze/Rywalizacji.
+00000001031B.07C: Skupienie
+00000001031C.07C: Użyj superzdolności 2 innych bohaterów jako Echo, nie ginąc, w Szybkiej grze/Rywalizacji.
+00000001031D.07C: Adaptacja
 00000001031E.07C: Archiwa 2020
 00000001031F.07C: Zawartość archiwalnych skrzynek
-00000001036C.07C: KONTYNUUJ
-00000001036D.07C: Misje-wyzwania
-00000001036F.07C: Rozgrywaj mecze, aby zdobywać dostępne
-przez ograniczony czas archiwalne skrzynki z łupami, nowe skórki, prezentacje zagrań i inne elementy!
-000000010370.07C: Archiwalny łup
-000000010372.07C: Graj w misje archiwalne ze specjalnymi modyfikacjami, zwiększającymi wyzwanie!
-000000010374.07C: Koniec wydarzenia 2 kwietnia
-000000010375.07C: Odblokuj nowe skórki
-000000010376.07C: Cotygodniowe wyzwania
-000000010377.07C: Tydzień 1
-000000010378.07C: Tydzień 2
-000000010379.07C: Tydzień 3
+000000010351.07C: Zemsta dr. Złomensteina
+000000010369.07C: Duplikacja wymaga potwierdzenia celu
+00000001036A.07C: NANOWZMOCNIENIE
+00000001036B.07C: ANULUJ
+00000001037A.07C: Nanowzmocnienie wymaga potwierdzenia celu
+00000001037B.07C: Czułość Nanowzmocnienia
+000000010381.07C: %1$s
 000000010385.07C: Odepnij
 000000010389.07C: Nie można obejrzeć powtórki z powodu ograniczeń konta.
 00000001038C.07C: Nie można udostępnić powtórki z powodu ograniczeń konta.
 00000001038E.07C: Nie można pobierać powtórek z tej platformy.
 00000001038F.07C: Ta powtórka nie jest obsługiwana przez twoją platformę.
+0000000103A8.07C: INFORMACJE O AKTUALIZACJI
 0000000103BF.07C: Wczytywanie nieudane: niekompatybilna wersja.
 0000000103CC.07C: Zgłoś kod z odnośnikiem do udostępnionej powtórki
 0000000103D7.07C: Dziękujemy za zgłoszenie kodu z odnośnikiem do powtórki %1$s. Zgłoszenia takie jak twoje pomagają nam uczynić z Overwatch lepsze i przyjaźniejsze środowisko do gry.
+000000010410.07C: Duplikacja
+000000010411.07C: s
 000000010412.07C: Ta powtórka już istnieje na twojej liście.
+000000010416.07C: Uczestnik 22. sezonu
+000000010418.07C: Bohater 22. sezonu
+00000001041A.07C: Uczestnik 22. sezonu
+00000001041C.07C: Bohater 22. sezonu
+00000001041E.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 22.
+00000001041F.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 22.
 00000001043B.07C: Zgłoś
-0000000105BD.07C: Best Molten Cores Score
-0000000105BE.07C: %1$s Best Molten Cores Score
-0000000105BF.07C: Best Glass Cannon Score
-0000000105C0.07C: %1$s Best Glass Cannon Score
-0000000105C1.07C: Best Surgical Strike Score
-0000000105C2.07C: %1$s Best Surgical Strike Score
-0000000105C3.07C: Best Close Quarters Score
-0000000105C4.07C: %1$s Best Close Quarters Score
-0000000105C5.07C: Best Blood Moon Rising Score
-0000000105C6.07C: %1$s Best Blood Moon Rising Score
-0000000105C7.07C: Best Storm Raging Score
-0000000105C8.07C: %1$s Best Storm Raging Score
-0000000105CC.07C: Best Molten Cores Score
-0000000105CD.07C: %1$s Best Molten Cores Score
-0000000105CE.07C: Best Glass Cannon Score
-0000000105CF.07C: %1$s Best Glass Cannon Score
-0000000105D0.07C: Best Surgical Strike Score
-0000000105D1.07C: %1$s Best Surgical Strike Score
-0000000105D2.07C: Best Close Quarters Score
-0000000105D3.07C: %1$s Best Close Quarters Score
-0000000105D4.07C: Best Blood Moon Rising Score
-0000000105D5.07C: %1$s Best Blood Moon Rising Score
-0000000105D6.07C: Best Storm Raging Score
-0000000105D7.07C: %1$s Best Storm Raging Score
-[Core] Execution finished in 00:00:04.0749573 seconds
+000000010479.07C: Punkty potrzebne do wygranej
+0000000104F0.07C: Dygnięcie
+0000000104F2.07C: Klasyczna
+0000000104F3.07C: Podstawowa
+0000000104F5.07C: Podstawowa
+0000000104F6.07C: Analiza
+0000000104F7.07C: Usadowienie
+0000000104F9.07C: Usadowienie
+0000000104FC.07C: Śmiech
+000000010500.07C: Przebudzenie
+00000001058B.07C: Unik
+00000001058C.07C: Manewry
+00000001058D.07C: Wzlot
+000000010592.07C: Fantom
+0000000105BD.07C: Najlepszy wynik w Przygrzaniu
+0000000105BE.07C: Najlepszy wynik w Przygrzaniu: %1$s
+0000000105BF.07C: Najlepszy wynik w Kruchym dziale
+0000000105C0.07C: Najlepszy wynik w Kruchym dziale: %1$s
+0000000105C1.07C: Najlepszy wynik w Precyzyjnym uderzeniu
+0000000105C2.07C: Najlepszy wynik w Precyzyjnym uderzeniu: %1$s
+0000000105C3.07C: Najlepszy wynik w Walce w zwarciu
+0000000105C4.07C: Najlepszy wynik w Walce w zwarciu: %1$s
+0000000105C5.07C: Najlepszy wynik we Wzejściu Krwawego Księżyca
+0000000105C6.07C: Najlepszy wynik we Wzejściu Krwawego Księżyca: %1$s
+0000000105C7.07C: Najlepszy wynik we Wściekłych Chmurach
+0000000105C8.07C: Najlepszy wynik we Wściekłych Chmurach: %1$s
+0000000105CC.07C: Najlepszy wynik w Przygrzaniu
+0000000105CD.07C: Najlepszy wynik w Przygrzaniu: %1$s
+0000000105CE.07C: Najlepszy wynik w Kruchym dziale
+0000000105CF.07C: Najlepszy wynik w Kruchym dziale: %1$s
+0000000105D0.07C: Najlepszy wynik w Precyzyjnym uderzeniu
+0000000105D1.07C: Najlepszy wynik w Precyzyjnym uderzeniu: %1$s
+0000000105D2.07C: Najlepszy wynik w Walce w zwarciu
+0000000105D3.07C: Najlepszy wynik w Walce w zwarciu: %1$s
+0000000105D4.07C: Najlepszy wynik we Wzejściu Krwawego Księżyca
+0000000105D5.07C: Najlepszy wynik we Wzejściu Krwawego Księżyca: %1$s
+0000000105D6.07C: Najlepszy wynik we Wściekłych Chmurach
+0000000105D7.07C: Najlepszy wynik we Wściekłych Chmurach: %1$s
+0000000105D8.07C: Partner treningowy
+0000000105F1.07C: Kiedy przychodził czas na odpoczynek i relaks, Ana pakowała walizki i wybierała się na Hawaje.
+0000000105F2.07C: Czarnoksiężniczka, mistrzyni zakazanej magii, potrafi podporządkować swej woli nawet najpotężniejsze z demonów.
+0000000105F3.07C: W okresie współpracy z Koalicją Karaibską, Baptiste był wysyłany w różne rejony Karaibów.
+0000000105F4.07C: Brunhilda jest główną bohaterką wielu legend, ale znana jest również jako córka Wikinga z opowieści o doktorze Złomensteinie.
+0000000105F7.07C: Jako spadkobiercy rodzinnej firmy protetyczno-technicznej, Pięści Zagłady nie były obce luksusy.
+0000000106F4.07C: Ćma
+000000010778.07C: LOSOWA
+00000001077A.07C: Podstawowa
+00000001077B.07C: LOSOWA
+00000001077C.07C: Symbol
+00000001077D.07C: Wzmocnienie
+00000001077E.07C: Uśpienie
+00000001077F.07C: Błazen rozstaje się z pieniędzmi szybko... i wybuchowo!
+000000010780.07C: Kucharka
+000000010781.07C: Echo przeszłości
+000000010799.07C: Prawie bez ograniczeń
+00000001079A.07C: Pokonaj drużynę wroga prawie bez ograniczeń ról przy wyborze bohaterów.
+00000001079B.07C: Szturm – Bez ograniczeń – Maks. 4
+00000001079C.07C: Kontrola – Bez ograniczeń – Maks. 4
+00000001079D.07C: Hybryda – Bez ograniczeń – Maks. 4
+00000001079E.07C: Ładunek – Bez ograniczeń – Maks. 4
+0000000107A3.07C: Durian
+0000000107A6.07C: Limit 4 graczy dla roli
+0000000107A7.07C: Vanda
+0000000107A8.07C: Papaja
+0000000107A9.07C: Błękit morski
+0000000107AA.07C: Hot Rod
+0000000107AB.07C: Włókno węglowe
+0000000107CC.07C: Porucznik Fareeha „Fara” Amari została wybrana przez firmę Helix z uwagi na pełną zasług służbę w egipskich siłach zbrojnych. Ze względu na sławę rodziny, z której pochodzi Fara, jej zwerbowanie odbiło się szerokim echem.
+0000000107CE.07C: Ci, którzy znali Wieprza od dawna, mówią mu po imieniu – „Mako”.
+0000000107DA.07C: „...jak apogeum tysiąca koszmarów. To jakieś żarty?”
+0000000107DB.07C: Torbjörn był wybitnym członkiem Żelaznej Gildii, której siedziba znajdowała się w Göteborgu w Szwecji.
+0000000107E1.07C: ?
+0000000107E2.07C: ZBIERZ DRUŻYNĘ:
+0000000107E3.07C: WYBIERZ
+0000000107E4.07C: Kontynuuj
+0000000107E5.07C: POPRZEDNIA SKÓRKA
+0000000107E6.07C: NASTĘPNA SKÓRKA
+0000000107E7.07C: GOTOWOŚĆ DO WALKI
+0000000107E8.07C: ZMIEŃ BOHATERA
+0000000107E9.07C: PERSONALIZUJ
+0000000107EA.07C: <tx%1$s> Wybierz
+0000000107EB.07C: <tx%1$s> Personalizuj bohatera
+0000000107EC.07C: <tx%1$s> Opis bohatera
+0000000107ED.07C: <tx%1$s> Anuluj
+0000000107EE.07C: <tx%1$s> Dołącz do czatu drużynowego
+0000000107EF.07C: Dołącz do czatu drużynowego
+0000000107F0.07C: WYBIERZ POSTAĆ:
+0000000107F1.07C: Dołącz do czatu meczowego
+0000000107F2.07C: WYBIERZ SKÓRKĘ
+0000000107F3.07C: Zmień skórkę
+0000000107F4.07C: <tx%1$s> Wybierz skórkę
+0000000107F5.07C: Ten bohater jest obecnie poza rotacją.
+0000000107F6.07C: Wybierz partnera treningowego
+000000010803.07C: OGLĄDAJ
+000000010847.07C: DOMYŚLNA
+000000010848.07C: ZŁOTA
+000000010849.07C: 2.05 i 3.05 (czasy pacyficznego)
+000000010862.07C: Obietnica
+000000010863.07C: Echo
+000000010869.07C: Symetria
+00000001086B.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+00000001086C.07C: Vancouver Titans Homestand 2020
+00000001086E.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+00000001086F.07C: Toronto Defiant Homestand 2020
+000000010871.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+000000010872.07C: San Francisco Shock Homestand 2020
+000000010874.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+000000010875.07C: Paris Eternal Homestand 2020
+000000010877.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+000000010878.07C: Los Angeles Valiant Homestand 2020
+00000001087A.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+00000001087B.07C: Los Angeles Gladiators Homestand 2020
+00000001087C.07C: WCIŚNIJ %1$s, ABY ZMIENIĆ PARTNERA TRENINGOWEGO
+00000001087D.07C: PRZYTRZYMAJ %1$s, ABY ZMIENIĆ PARTNERA TRENINGOWEGO
+000000010884.07C: Mina Liao
+000000010885.07C: Kung-fu
+000000010886.07C: Motyl
+000000010887.07C: Echo Pięści
+000000010888.07C: Echo Szału
+000000010889.07C: Echo Ostrza
+00000001088A.07C: Bomba Przyczepna
+00000001088B.07C: Słodziak
+00000001088C.07C: Piksel
+00000001088D.07C: Aktywacja
+00000001088E.07C: Echohardt
+00000001088F.07C: Skupienie
+000000010890.07C: Echomorf
+000000010891.07C: Systemy aktywne
+000000010892.07C: Autostopowiczka
+000000010893.07C: Strzelanie z palców
+000000010894.07C: Oko
+000000010895.07C: Ogrodniczka
+000000010896.07C: Lądowanie
+000000010897.07C: Wczytywanie...
+000000010898.07C: Duch w maszynie
+000000010899.07C: Znak
+0000000108A2.07C: Wpisz „echo”
+0000000108A3.07C: Alamak!
+0000000108A4.07C: Wczytywanie modułów
+0000000108A5.07C: Potwierdzam podwójnie
+0000000108A6.07C: Może czy nie?
+0000000108A7.07C: Rozmowy o niczym
+0000000108A8.07C: Jialat!
+0000000108A9.07C: So shiok!
+0000000108AA.07C: To było coś innego
+0000000108AB.07C: Ze wszystkiego nauka
+0000000108AC.07C: Muszę spróbować wszystkiego
+0000000108C5.07C: Echo
+0000000108C7.07C: Kontynuuj
+0000000108C8.07C: Nowa bohaterka natarcia!
+0000000108DF.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+0000000108E0.07C: London Spitfire Homestand 2020
+0000000108E2.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+0000000108E3.07C: Chengdu Hunters Homestand 2020
+0000000108E5.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+0000000108E6.07C: Boston Uprising Homestand 2020
+0000000108E8.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
+0000000108E9.07C: Atlanta Reign Homestand 2020
+0000000108F8.07C: Droga 66
+0000000108FE.07C: Plan lotu
+000000010950.07C: Nagroda za oglądanie transmisji biorących udział w promocji podczas wydarzenia z okazji wprowadzenia postaci Echo do gry.
+000000010951.07C: W chmurach
+000000010952.07C: Lot
+000000010953.07C: Eureka
+000000010954.07C: Moje dziedzictwo
+000000010955.07C: Echo aktywna
+000000010956.07C: Duplikacja
+000000010997.07C: Wejdź w Opcje > Sterowanie, aby przypisać przycisk nagrywania.
+0000000109C6.07C: Kamuflaż
+0000000109E5.07C: Otwarta Rywalizacja
+0000000109E6.07C: Rywalizuj z najlepszymi graczami na świecie i pnij się w tabeli wyników bez ograniczeń ról przy wyborze bohaterów.
+0000000109E7.07C: Otwarta Rywalizacja – sezon 1
+0000000109E8.07C: Szturm – Rywalizacja
+0000000109E9.07C: Kontrola – Rywalizacja
+0000000109EA.07C: Hybryda – Rywalizacja
+0000000109EB.07C: Ładunek – Rywalizacja
+0000000109EC.07C: Przytrzymaj, aby polecieć
+0000000109F1.07C: Otwarta Rywalizacja
+0000000109F2.07C: Otwarta Rywalizacja
+0000000109F5.07C: 40
+0000000109F6.07C: 75
+0000000109F7.07C: 150
+0000000109F8.07C: 300
+0000000109F9.07C: 450
+0000000109FA.07C: 750
+0000000109FB.07C: 1000
+0000000109FC.07C: Zdobędziesz następujące nagrody za udział:
+0000000109FD.07C: Dziękujemy za grę!
+0000000109FE.07C: – Mecze składają się z wielu rund
+– Zajmowanie celów zapewnia punkty
+– O wygranej decyduje przewaga punktowa!
+000000010A0B.07C: Uczestnik Otwartej Rywalizacji
+000000010A0C.07C: Nagroda
+za mecze klasyfikacyjne
+w Otwartej Rywalizacji
+000000010A0D.07C: Bohater Otwartej Rywalizacji
+000000010A0E.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Otwartej Rywalizacji.
+000000010A0F.07C: Uczestnik Otwartej Rywalizacji
+000000010A11.07C: Bohater Otwartej Rywalizacji
+000000010A16.07C: Szybowanie
+000000010A17.07C: %1$s: %2$s
+000000010A1C.07C: Szybko skupiaj ataki na Echo, kiedy użyje ona Duplikacji, aby uniemożliwić jej użycie niszczycielskiej superzdolności.
+000000010A1D.07C: Aby utrudnić Echo trafienie, staraj się zachować dystans i poruszać w sposób nieregularny.
+000000010A1E.07C: Szukaj możliwości zaatakowania Echo, gdy jej zdolność Lotu jest w trakcie odnowienia i postać nie ma możliwości łatwej ucieczki.
+000000010A24.07C: Obrażenia – Broń
+000000010A25.07C: %1$s Damage Done
+000000010A28.07C: Obrażenia – Bomby Przyczepne
+000000010A29.07C: %1$s Damage Done
+000000010A2A.07C: Obrażenia – Skupiona Wiązka
+000000010A2B.07C: %1$s Damage Done
+000000010A2C.07C: |Rpl %1$s:zabici:zabici:zabici; Skupioną Wiązką
+000000010A2D.07C: %1$s |Rpl zabity:zabitych:zabitych; Skupioną Wiązką
+000000010A2E.07C: |Rpl %1$s:zabici:zabici:zabici; Skupioną Wiązką – średnio na 10 min.
+000000010A2F.07C: %1$s |Rpl zabity:zabitych:zabitych; Skupioną Wiązką – średnio na 10 min.
+000000010A30.07C: |Rpl %1$s:zabici:zabici:zabici; Skupioną Wiązką – najwięcej w meczu
+000000010A31.07C: %1$s |Rpl zabity:zabitych:zabitych; Skupioną Wiązką – najwięcej w meczu
+000000010A32.07C: |Rpl %1$s:zabici:zabici:zabici; Bombami Przyczepnymi
+000000010A33.07C: %1$s |Rpl zabity:zabitych:zabitych; Bombami Przyczepnymi
+000000010A34.07C: |Rpl %1$s:zabici:zabici:zabici; Bombami Przyczepnymi – średnio na 10 min.
+000000010A35.07C: %1$s |Rpl zabity:zabitych:zabitych; Bombami Przyczepnymi – średnio na 10 min.
+000000010A36.07C: |Rpl %1$s:zabici:zabici:zabici; Bombami Przyczepnymi – najwięcej w meczu
+000000010A37.07C: %1$s |Rpl zabity:zabitych:zabitych; Bombami Przyczepnymi – najwięcej w meczu
+000000010A38.07C: |Rpl %1$s:zabici:zabici:zabici; podczas Duplikacji
+000000010A39.07C: %1$s |Rpl zabity:zabitych:zabitych; podczas Duplikacji
+000000010A3A.07C: |Rpl %1$s:zabici:zabici:zabici; podczas Duplikacji – średnio na 10 min.
+000000010A3B.07C: %1$s |Rpl zabity:zabitych:zabitych; podczas Duplikacji – średnio na 10 min.
+000000010A3C.07C: |Rpl %1$s:zabici:zabici:zabici; podczas Duplikacji – najwięcej w meczu
+000000010A3D.07C: %1$s |Rpl zabity:zabitych:zabitych; podczas Duplikacji – najwięcej w meczu
+000000010A3F.07C: Celność trafień bezpośrednich Bombami Przyczepnymi
+000000010A40.07C: Celność trafień bezpośrednich Bombami Przyczepnymi: %1$s
+000000010A47.07C: |Rpl %1$s:wystrzelenia:wystrzelenia:wystrzelenia; Bomb Przyczepnych
+000000010A48.07C: %1$s |Rpl wystrzelenie:wystrzelenia:wystrzeleń; Bomb Przyczepnych
+000000010A49.07C: |Rpl %1$s:bezpośrednie trafienia:bezpośrednie trafienia:bezpośrednie trafienia; Bombami Przyczepnymi
+000000010A4A.07C: %1$s |Rpl bezpośrednie trafienie:bezpośrednie trafienia:bezpośrednich trafień; Bombami Przyczepnymi
+000000010A51.07C: Kiedy zdolność Lotu przechodzi w czas odnowienia, użyj Szybowania do przemieszczania się w powietrzu.
+000000010A59.07C: |Rpl %1$s:użycia:użycia:użycia; Bomb Przyczepnych
+000000010A5A.07C: %1$s |Rpl użycie:użycia:użyć; Bomb Przyczepnych
+000000010A5E.07C: |Rpl %1$s:sekundy:sekundy:sekundy; działania Skupionej Wiązki
+000000010A5F.07C: %1$s |Rpl zabity:zabitych:zabitych; Skupioną Wiązką
+000000010A61.07C: BOHATEROWIE: Rotacja bohaterów w trybie Rywalizacji
+000000010A62.07C: Obrażenia – Skupiona Wiązka – Tylko obrażenia dodatkowe
+000000010A63.07C: %1$s Bonus Damage Done
+000000010A65.07C: Atlanta Reign
+000000010A66.07C: Atlanta Reign (Goście)
+000000010A67.07C: Boston Uprising
+000000010A68.07C: Boston Uprising (Goście)
+000000010A69.07C: Chengdu Hunters
+000000010A6A.07C: Chengdu Hunters (Goście)
+000000010A6B.07C: Contenders (Gospodarze)
+000000010A6C.07C: Contenders (Goście)
+000000010A6D.07C: Dallas Fuel
+000000010A6E.07C: Dallas Fuel (Goście)
+000000010A6F.07C: Florida Mayhem 2018
+000000010A70.07C: Florida Mayhem 2018 (Goście)
+000000010A71.07C: Florida Mayhem (Goście)
+000000010A72.07C: Florida Mayhem
+000000010A73.07C: Guangzhou Charge
+000000010A74.07C: Guangzhou Charge (Goście)
+000000010A75.07C: Hangzhou Spark
+000000010A76.07C: Hangzhou Spark (Goście)
+000000010A77.07C: Houston Outlaws
+000000010A78.07C: Houston Outlaws (Goście)
+000000010A79.07C: London Spitfire
+000000010A7A.07C: London Spitfire (Goście)
+000000010A7B.07C: Los Angeles Gladiators
+000000010A7C.07C: Los Angeles Gladiators (Goście)
+000000010A7D.07C: Los Angeles Valiant 2018
+000000010A7E.07C: Los Angeles Valiant 2018 (Goście)
+000000010A7F.07C: Los Angeles Valiant (Goście)
+000000010A80.07C: Los Angeles Valiant
+000000010A81.07C: New York Excelsior
+000000010A82.07C: New York Excelsior (Goście)
+000000010A83.07C: Paris Eternal
+000000010A84.07C: Paris Eternal (Goście)
+000000010A85.07C: Philadelphia Fusion
+000000010A86.07C: Philadelphia Fusion (Goście)
+000000010A87.07C: San Francisco Shock 2018
+000000010A88.07C: San Francisco Shock 2018 (Goście)
+000000010A89.07C: San Francisco Shock (Goście)
+000000010A8A.07C: San Francisco Shock
+000000010A8B.07C: Seoul Dynasty
+000000010A8C.07C: Seoul Dynasty (Goście)
+000000010A8D.07C: Shanghai Dragons
+000000010A8E.07C: Shanghai Dragons (Goście)
+000000010A8F.07C: Toronto Defiant
+000000010A90.07C: Toronto Defiant (Goście)
+000000010A91.07C: Vancouver Titans
+000000010A92.07C: Vancouver Titans (Goście)
+000000010A93.07C: Washington Justice
+000000010A94.07C: Washington Justice (Goście)
+000000010A96.07C: Obrażenia – Duplikacja
+000000010A97.07C: %1$s Duplicate Damage Done
+000000010A98.07C: |Rpl %1$s:bezpośrednie trafienia:bezpośrednie trafienia:bezpośrednie trafienia; Bombami Przyczepnymi – najwięcej w meczu
+000000010A99.07C: %1$s |Rpl bezpośrednie trafienie:bezpośrednie trafienia:bezpośrednich trafień; Bombami Przyczepnymi – najwięcej w meczu
+000000010A9A.07C: |Rpl %1$s:trafienia:trafienia:trafienia; Skupioną Wiązką – średnio na 10 min.
+000000010A9B.07C: %1$s |Rpl trafienie:trafienia:trafień; Skupioną Wiązką – średnio na 10 min.
+000000010A9C.07C: Celność Skupionej Wiązki
+000000010A9D.07C: Celność Skupionej Wiązki: %1$s
+000000010A9E.07C: |Rpl %1$s:sekundy:sekundy:sekundy; zadawania obrażeń Skupioną Wiązką
+000000010A9F.07C: %1$s |Rpl zabity:zabitych:zabitych; Skupioną Wiązką
+000000010B39.07C: –
+[Core] Execution finished in 00:00:04.1984440 seconds

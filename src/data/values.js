@@ -324,7 +324,7 @@ var valueFuncKw =
         "pt-BR": "Diferença de Ângulo",
         "zh-CN": "角度差"
     },
-    "__appendToArray__": {
+    "__concat__": {
         "guid": "00000000C41A",
         "description": "A copy of an array with one or more values appended to the end.",
         "args": [

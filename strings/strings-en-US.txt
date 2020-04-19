@@ -1,12 +1,12 @@
-[Core] DataTool v1.46.0.866-git-53565d47153728a60a0a8d7984fda5f7b64203a6
+[Core] DataTool v1.47.0.868-git-222ad70efeb849673104456adc9548418298e5b1
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.exe.args
 [CASC] Set language to enUS
 [CASC] Set speech language to enUS
-[CASC] Overwatch build 1.46.1.0.67071
+[CASC] Overwatch build 1.47.0.0.67664
 [CASC] Initializing...
-[CMF] Using CMF procedure 67071
-[CMF] Using CMF procedure 67071
+[CMF] Using CMF procedure 67664
+[CMF] Using CMF procedure 67664
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -431,14 +431,10 @@
 0000000003CA.07C: Immobile with a powerful rotary cannon.
 0000000003CB.07C: Molten Core
 0000000003CC.07C: Increase your weapon attack speed, gain additional armor, and temporarily upgrade a level 2 turret to level 3.
-0000000003CD.07C: Build Turret
-0000000003CE.07C: Build an upgradable turret.
 0000000003D1.07C: Rivet Gun
 0000000003D2.07C: Slow firing, long-ranged weapon.
 0000000003D3.07C: Rivet Gun - Alt Fire
 0000000003D4.07C: Inaccurate but powerful short-range weapon.
-0000000003D5.07C: Forge Hammer
-0000000003D6.07C: Swing to improve your turret or damage an enemy.
 0000000003DC.07C: Provide your team with a view of the enemy's location.
 0000000003DD.07C: Infra-Sight
 0000000003DE.07C: Venom Mine
@@ -7942,7 +7938,7 @@ Andrew Wang
 0000000047D5.07C: Placement
 Matches
 0000000047D6.07C: Cannot request an invite to the group
-0000000047D7.07C: - You can earn rewards at the end of the season by participating in competitive play:
+0000000047D7.07C: You can earn rewards at the end of the season by participating in competitive play:
 0000000047D8.07C: Unlocked by completing Season 1 placement matches
 0000000047D9.07C: Unlocked by achieving top 500 ranking during Season 1
 0000000047DD.07C: Competitive Play Unlocked!
@@ -9730,7 +9726,7 @@ THIS SOFTWARE.
 000000005908.07C: THE UNFEELING VOID
 000000005915.07C: Orb of Harmony Sensitivity
 000000005916.07C: Orb of Discord Sensitivity
-000000005917.07C: Nano Boost Sensitivity
+000000005917.07C: Duplicate Sensitivity
 000000005918.07C: %1$s: %2$s
 00000000591F.07C: General
 000000005921.07C: Escort
@@ -10292,7 +10288,7 @@ A player name or BattleTag using a language different than your own.
 000000005DC5.07C: Loading saved presets...
 000000005DC6.07C: The destruction of the omnium in Australia and the formation of Junkertown made the Outback an even more dangerous place to live.
 000000005DC7.07C: When Lúcio was younger, in addition to his first love, hockey, he also found the time to play football with the other kids in Rio de Janeiro.
-000000005DC8.07C: A young Jesse McCree was recruited into Blackwatch after Gabriel Reyes saw his potential and gave him a choice: join Blackwatch, or rot in prison.
+000000005DC8.07C: A young Jesse McCree was recruited into Blackwatch after Gabriel Reyes saw his potential and gave him a choice: join Blackwatch or rot in prison.
 000000005DC9.07C: When called upon, Mercy would don her Valkyrie swift-response suit to participate in Overwatch missions.
 000000005DCA.07C: The Witch of the Wilds is a mysterious figure who appears in the tale of Dr. Junkenstein and others, offering people the object of their desire, for a price.
 000000005DCB.07C: Built from parts of one of Numbani's short-lived OR15 defense robots, Orisa is the city's newest protector, though she still has much to learn.
@@ -14171,7 +14167,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E64.07C: ATTACK
 000000006E6A.07C: Assassin
 000000006E6B.07C: Eichenwalde (Halloween)
-000000006E6F.07C: Revive %2$s
+000000006E6F.07C: Revive %1$s
 000000006E70.07C: Movement Relative to Camera During Barrier Free Look
 000000006E72.07C: NANO
 000000006E73.07C: STUN
@@ -14775,6 +14771,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s Sleep Dart |Rpl Hit:Hits;
 000000007460.07C: Pulse Bomb Attach Rate
 000000007461.07C: %1$s Pulse Bomb Attach Rate
+000000007465.07C: CANCEL
 000000007472.07C: Coalesence - Healing per Use
 000000007473.07C: %1$s Coalesence - Healing per Use
 000000007474.07C: Coalesence - Damage per Use
@@ -16622,6 +16619,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 000000008670.07C: Deploy a massive field of proximity mines.
 000000008671.07C: |Rpl %1$s:Ultimate:Ultimates; Earned - Fractional
 000000008672.07C: %1$s |Rpl Ultimate:Ultimates; Earned - Fractional
+000000008684.07C: Echo
 000000008687.07C: My Team
 000000008688.07C: Enemy Team
 00000000868A.07C: OWL All Stars 2018 Atlantic
@@ -17141,6 +17139,7 @@ Do you want to cancel?
 000000008F7B.07C: Back
 000000008F7D.07C: Running
 000000008FE9.07C: Cannot queue with your group settings
+000000008FEA.07C: 
 000000008FEC.07C: Peace
 000000008FED.07C: Lounging
 000000008FEE.07C: On Top
@@ -17210,7 +17209,6 @@ Do you want to cancel?
 0000000090E1.07C: Wrecking Ball is piloted by an intelligent, genetically engineered hamster named Hammond, who explores the world, searching for adventure.
 0000000090E2.07C: Ashe is the leader of the Deadlock Gang, a group of bandits and criminals who menace the American Southwest.
 0000000090E7.07C: Shop
-0000000090E8.07C: Division Skins!
 0000000090F2.07C: WC Japan Away
 0000000090F3.07C: WC Taipei Away
 0000000090F4.07C: WC Russia Away
@@ -17575,8 +17573,6 @@ Do you want to cancel?
 0000000093F6.07C: Competitive
 000000009411.07C: Baptiste
 000000009413.07C: All-Star
-000000009414.07C: Pacific
-000000009415.07C: Atlantic
 000000009419.07C: PH Text
 00000000941A.07C: Purchase all %1$s unlocks?
 00000000941B.07C: Unlocked by participating in D.Va's Nano Cola Challenge
@@ -17791,12 +17787,12 @@ and 10 Free Halloween Loot Boxes
 000000009E9C.07C: VS
 000000009E9E.07C: Sigma
 000000009E9F.07C: Heroic
-000000009EB1.07C: Experimental Barrier can be moved long distances to protect your teammates.
-000000009EB2.07C: Recall the Experimental Barrier to recharge it.
-000000009EB3.07C: Sigma's weapon attacks implode after a short time, dealing damage in an area. Find the right distance to deal damage over obstacles such as enemy barriers.
-000000009EB4.07C: Accretion will only knock down enemies with a direct hit.
-000000009EB5.07C: Kinetic Grasp has a long cooldown. Use it to protect yourself while Experimental Barrier is recharging.
-000000009EB6.07C: Use Gravitic Flux to lift enemies into the air, away from their team or the objective.
+000000009EB1.07C: Holding Jump when using the Flight ability launches you up into the air.
+000000009EB2.07C: Duplicate completely heals you when activated, allowing you to save yourself at low health.
+000000009EB3.07C: Focusing beam deals low damage to enemies above half health, but very high damage to enemies below half health.
+000000009EB4.07C: Use Focusing Beam to finish off any enemies brought below half health by your teammates.
+000000009EB5.07C: Use Sticky Bombs immediately followed up with Focusing Beam to deal a large burst of damage quickly.
+000000009EB6.07C: Use Duplicate while using Flight to surprise the enemy team from above.
 000000009EBB.07C: Bullet Walk
 000000009EBF.07C: Trick or treat
 000000009EC0.07C: Available in Halloween Loot Boxes
@@ -18272,6 +18268,14 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000A913.07C: Competitive CTF Season 2
 00000000A914.07C: CTF: Busan
 00000000A915.07C: Two teams of six players compete on Busan to capture the enemy team's flag while defending their own.
+00000000A91F.07C: Sticky Bombs
+00000000A920.07C: Fire a volley of sticky bombs that detonate after a delay.
+00000000A922.07C: Duplicate
+00000000A923.07C: Become a copy of the targeted enemy hero. They cannot swap heroes for the duration.
+00000000A927.07C: Tri-Shot
+00000000A928.07C: Fires 3 shots at once, in a triangle pattern.
+00000000A929.07C: Flight
+00000000A92A.07C: Fly forward quickly and then free-fly briefly.
 00000000A933.07C: Blizzard World (Winter)
 00000000A939.07C: OWL TOR Away
 00000000A93A.07C: OWL CDH Away
@@ -19763,8 +19767,6 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000B842.07C: Chase Global Variable Over Time
 00000000B843.07C: Duration
 00000000B844.07C: Rate
-00000000B861.07C: Pacific Lucio
-00000000B862.07C: Atlantic Mercy
 00000000B878.07C: Enable Built-In Game Mode Respawning
 00000000B879.07C: Players
 00000000B87A.07C: Disable Built-In Game Mode Respawning
@@ -21319,6 +21321,8 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C1DF.07C: Initialize HUD for each player
 00000000C1E0.07C: Gain score and advance desired hero (D) when earning a kill
 00000000C1E3.07C: If a player's actual hero differs from the player's desired hero (D), force the hero
+00000000C1E6.07C: Glide
+00000000C1E7.07C: Hold jump to glide while falling.
 00000000C1E8.07C: |Rfd %1$s:MMM dd;
 00000000C1EA.07C: 2019 Season - Stage 3
 00000000C1F2.07C: Incomplete
@@ -22029,6 +22033,8 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C7F7.07C: Mask Dancer
 00000000C7F8.07C: Tangent From Degrees
 00000000C7F9.07C: Tangent of the specified Angle in degrees.
+00000000C7FA.07C: Focusing Beam
+00000000C7FB.07C: Channel a beam for a few seconds. Deals very high damage to targets under half health.
 00000000C7FC.07C: Tangent of the specified Angle in radians.
 00000000C7FD.07C: Tangent From Radians
 00000000C7FE.07C: Arctangent in radians of the specified Numerator and Denominator (often referred to as Atan2).
@@ -22380,6 +22386,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CB7C.07C: B.O.B.
 00000000CB7E.07C: Deckard
 00000000CB7F.07C: Cain
+00000000CB82.07C: Echo
 00000000CB84.07C: Intercom
 00000000CB86.07C: Gondolier
 00000000CB87.07C: HAL-Fred
@@ -26112,8 +26119,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: Disable Gyro While Using Stick
 00000000EA2F.07C: Dr. Ziegler
 00000000EA3E.07C: Invert Gyro-Aiming Yaw Axis
-00000000EA40.07C: Competitive Play
-00000000EA41.07C: EARN THESE REWARDS BY PARTICIPATING
 00000000EA51.07C: Goat
 00000000EA59.07C: Invert Gyro-Aiming Roll Axis
 00000000EA5A.07C: (Owned)
@@ -26130,8 +26135,9 @@ https://account.blizzard.com/connections/nintendo
 00000000EB14.07C: King Jamison
 00000000EB17.07C: Enable High Precision Mouse Input
 00000000EB1E.07C: Error: Player variable '%1$s' requires a name
+00000000EB1F.07C: Global
 00000000EB21.07C: Error: Global variable '%1$s' conflicts with another variable
-00000000EB23.07C: Available Maps This Season
+00000000EB23.07C: Available Maps
 00000000EB24.07C: Hanamura, Temple of Anubis, Volskaya Industries
 00000000EB25.07C: Error: Global variable '%1$s' contains an invalid name
 00000000EB29.07C: Error: Global variable '%1$s' requires a name
@@ -26322,6 +26328,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F229.07C: 
 00000000F22A.07C: 
 00000000F22B.07C: 
+00000000F239.07C: Programmed and designed by Overwatch's Dr. Mina Liao, Echo is a robot with a rapidly adapting artificial intelligence.
 00000000F23D.07C: Only showing games that allow players who are in queue.
 00000000F23E.07C: Warning! This may impact your system performance!
 00000000F241.07C: + 100 Bonus Tokens
@@ -26373,6 +26380,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F396.07C: Sky Lantern
 00000000F39C.07C: Feast
 00000000F39D.07C: Kite Flying
+00000000F3A2.07C: Hero Select Disabled by Echo
 00000000F3A3.07C: When a match is found, you will be pulled into the game you queued for.
 00000000F3AE.07C: Entering Game
 00000000F3C9.07C: Sniper
@@ -26846,6 +26854,8 @@ https://account.blizzard.com/connections/nintendo
 000000010053.07C: enabled heroes
 000000010054.07C: Season 21
 000000010055.07C: Season 21
+000000010056.07C: Season 22
+000000010057.07C: Season 22
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Import Settings From Clipboard
@@ -26945,7 +26955,6 @@ https://account.blizzard.com/connections/nintendo
 000000010237.07C: Disconnected due to CAIS time limit reached
 000000010239.07C: Experimental
 00000001023B.07C: This Replay is not in your recently played list. Unpinning this Replay will cause it to be lost. Continue?
-000000010243.07C: Hide Scores
 000000010248.07C: Bear
 000000010249.07C: Holi
 00000001024A.07C: Rustclad
@@ -27038,13 +27047,14 @@ https://account.blizzard.com/connections/nintendo
 0000000102CA.07C: Snowbear
 0000000102CC.07C: Indigestion
 0000000102CE.07C: Bear Hug
-0000000102D0.07C: pc
 0000000102D1.07C: ps4
 0000000102D2.07C: xb1
 0000000102D3.07C: nintendo-switch
-0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102D4.07C: https://playoverwatch.com/console-patch-notes/%1$s
 0000000102D5.07C: Import
 0000000102D8.07C: Imported
+0000000102D9.07C: DUPLICATE
+0000000102DA.07C: CANCEL
 0000000102E0.07C: Unlocked by attending a 2020 Homestand Event
 0000000102E1.07C: Florida Mayhem Homestand 2020
 0000000102E3.07C: Unlocked by attending a 2020 Homestand Event
@@ -27071,34 +27081,54 @@ https://account.blizzard.com/connections/nintendo
 000000010307.07C: Unlocked by completing Competitive 6v6 Elimination 2020 placement matches
 000000010308.07C: Competitive 6v6 Elimination Hero 2020
 000000010309.07C: Unlocked by achieving top 500 ranking at the end of Competitive 6v6 Elimination 2020
-00000001030E.07C: Thunder Doomfist
-00000001030F.07C: 2019 Overwatch League Champions
-San Francisco Shock
 000000010311.07C: Strike
 000000010312.07C: Available in Archives Loot Boxes
+00000001031A.07C: Earn 2 killing blows with a single use of Echo’s Focusing Beam in Quick or Competitive Play.
+00000001031B.07C: Focused
+00000001031C.07C: Use 2 other heroes’ ultimates without dying as Echo in Quick or Competitive Play.
+00000001031D.07C: Adaptability
 00000001031E.07C: Archives 2020
 00000001031F.07C: Available in Archives Loot Boxes
-00000001036C.07C: CONTINUE
-00000001036D.07C: Challenge Missions
-00000001036F.07C: Play games to earn limited edition Archives loot boxes. new skins, highlight intros, and more!
-000000010370.07C: Archives Loot
-000000010372.07C: Play the Archives missions with special modifications that increase the challenge!
-000000010374.07C: Event Ends April 2
-000000010375.07C: Unlock New Skins
-000000010376.07C: Weekly Challenges
-000000010377.07C: Week 1
-000000010378.07C: Week 2
-000000010379.07C: Week 3
+000000010351.07C: Junkenstein's Revenge
+000000010369.07C: Duplicate Requires Target Confirmation
+00000001036A.07C: NANO BOOST
+00000001036B.07C: CANCEL
+00000001037A.07C: Nano Boost Requires Target Confirmation
+00000001037B.07C: Nano Boost Sensitivity
+000000010381.07C: %1$s
 000000010385.07C: Unpin
 000000010389.07C: Unable to view replay due to account restrictions.
 00000001038C.07C: Unable to share replay due to account restrictions.
 00000001038E.07C: Cannot download replays from that platform.
 00000001038F.07C: The replay is not supported by your platform.
+0000000103A8.07C: PATCH NOTES
 0000000103BF.07C: Load Failed: Incompatible version.
 0000000103CC.07C: Report Shared Replay Link Code
 0000000103D7.07C: Thank you for reporting replay link code %1$s. Reports like yours help make Overwatch a better and friendlier place to play.
+000000010410.07C: Duplicating
+000000010411.07C: s
 000000010412.07C: That replay already exists in your list.
+000000010416.07C: Season 22 Competitor
+000000010418.07C: Season 22 Hero
+00000001041A.07C: Season 22 Competitor
+00000001041C.07C: Season 22 Hero
+00000001041E.07C: Unlocked by completing Season 22 placement matches
+00000001041F.07C: Unlocked by achieving top 500 ranking at the end of Season 22
 00000001043B.07C: Report
+000000010479.07C: Score Lead Needed To Win
+0000000104F0.07C: Curtsy
+0000000104F2.07C: Classic
+0000000104F3.07C: Heroic
+0000000104F5.07C: Heroic
+0000000104F6.07C: Analysis
+0000000104F7.07C: Sit
+0000000104F9.07C: Prim
+0000000104FC.07C: Laugh
+000000010500.07C: Awakening
+00000001058B.07C: Evasion
+00000001058C.07C: Maneuvers
+00000001058D.07C: Flourish
+000000010592.07C: Stealth
 0000000105BD.07C: Best Molten Cores Score
 0000000105BE.07C: %1$s Best Molten Cores Score
 0000000105BF.07C: Best Glass Cannon Score
@@ -27123,4 +27153,265 @@ San Francisco Shock
 0000000105D5.07C: %1$s Best Blood Moon Rising Score
 0000000105D6.07C: Best Storm Raging Score
 0000000105D7.07C: %1$s Best Storm Raging Score
-[Core] Execution finished in 00:00:06.3256659 seconds
+0000000105D8.07C: Training Partner
+0000000105F1.07C: When it was time for rest and relaxation, Ana's favorite choice was to pack her bags and head to Hawaii.
+0000000105F2.07C: A master of forbidden magic, the Warlock bound even the most powerful demons to her will.
+0000000105F3.07C: During his time with the Caribbean Coalition, Baptiste was deployed into different environments throughout the region.
+0000000105F4.07C: A prominent figure in her own legends, the Shieldmaiden is also known as the Viking's daughter in the tale of Junkenstein.
+0000000105F7.07C: As the heir to his family's prosthetic-technology company, Doomfist was no stranger to the finer things in life.
+0000000106F4.07C: Moth
+000000010778.07C: RANDOM
+00000001077A.07C: Heroic
+00000001077B.07C: RANDOM
+00000001077C.07C: Icon
+00000001077D.07C: Empowered
+00000001077E.07C: Stasis
+00000001077F.07C: A fool and his money are soon... blown up!
+000000010780.07C: Cooking
+000000010781.07C: Echoes
+000000010799.07C: Almost No Limits
+00000001079A.07C: Defeat the enemy team with almost no limits on hero selection.
+00000001079B.07C: Assault - No Limits - Max4
+00000001079C.07C: Control - No Limits - Max4
+00000001079D.07C: Hybrid - No Limits - Max4
+00000001079E.07C: Payload - No Limits - Max4
+0000000107A3.07C: Durian
+0000000107A6.07C: Limit 4 Players Per Role
+0000000107A7.07C: Vanda
+0000000107A8.07C: Papaya
+0000000107A9.07C: Marina
+0000000107AA.07C: Hot Rod
+0000000107AB.07C: Carbon Fiber
+0000000107CC.07C: Lieutenant Fareeha “Pharah” Amari was hand-picked by Helix after her meritorious career in the Egyptian armed forces. Bearing the famous Amari family name, she was considered a recruitment coup.
+0000000107CE.07C: Those who knew Roadhog from before call him by his real name, "Mako."
+0000000107DA.07C: "...like the terrible culmination of a thousand of my worst nightmares. Are you kidding me?"
+0000000107DB.07C: Torbjörn was a prominent member of the Ironclad Guild, whose headquarters were in Gothenburg, Sweden.
+0000000107E1.07C: ?
+0000000107E2.07C: ASSEMBLE YOUR TEAM:
+0000000107E3.07C: SELECT
+0000000107E4.07C: Continue
+0000000107E5.07C: PREV SKIN
+0000000107E6.07C: NEXT SKIN
+0000000107E7.07C: READY FOR BATTLE
+0000000107E8.07C: CHANGE HERO
+0000000107E9.07C: CUSTOMIZE
+0000000107EA.07C: <tx%1$s> Select
+0000000107EB.07C: <tx%1$s> Customize Hero
+0000000107EC.07C: <tx%1$s> Hero Details
+0000000107ED.07C: <tx%1$s> Cancel
+0000000107EE.07C: <tx%1$s> Join Team Chat
+0000000107EF.07C: Join Team Chat
+0000000107F0.07C: SELECT YOUR HERO:
+0000000107F1.07C: Join Match Chat
+0000000107F2.07C: SELECT SKIN
+0000000107F3.07C: Change Skin
+0000000107F4.07C: <tx%1$s> Select Skin
+0000000107F5.07C: This hero is currently out of rotation.
+0000000107F6.07C: Select a Training Partner
+000000010803.07C: TUNE IN
+000000010847.07C: DEFAULT
+000000010848.07C: GOLDEN
+000000010849.07C: 5/2 & 5/3 (PDT)
+000000010862.07C: Promise
+000000010863.07C: Echo
+000000010869.07C: Symmetry
+00000001086B.07C: Unlocked by attending a 2020 Homestand Event
+00000001086C.07C: Vancouver Titans Homestand 2020
+00000001086E.07C: Unlocked by attending a 2020 Homestand Event
+00000001086F.07C: Toronto Defiant Homestand 2020
+000000010871.07C: Unlocked by attending a 2020 Homestand Event
+000000010872.07C: San Francisco Shock Homestand 2020
+000000010874.07C: Unlocked by attending a 2020 Homestand Event
+000000010875.07C: Paris Eternal Homestand 2020
+000000010877.07C: Unlocked by attending a 2020 Homestand Event
+000000010878.07C: Los Angeles Valiant Homestand 2020
+00000001087A.07C: Unlocked by attending a 2020 Homestand Event
+00000001087B.07C: Los Angeles Gladiators Homestand 2020
+00000001087C.07C: PRESS %1$s TO CHANGE TRAINING PARTNER
+00000001087D.07C: HOLD %1$s TO CHANGE TRAINING PARTNER
+000000010884.07C: Mina
+000000010885.07C: Kung Fu
+000000010886.07C: Butterfly
+000000010887.07C: Echofist
+000000010888.07C: Echo Rage
+000000010889.07C: Echoblade
+00000001088A.07C: Sticky Bomb
+00000001088B.07C: Cute
+00000001088C.07C: Pixel
+00000001088D.07C: Activation
+00000001088E.07C: Echohardt
+00000001088F.07C: Focus
+000000010890.07C: Echomorph
+000000010891.07C: System Online
+000000010892.07C: Hitchhiking
+000000010893.07C: Finger Guns
+000000010894.07C: Eye
+000000010895.07C: Gardening
+000000010896.07C: Alight
+000000010897.07C: Loading...
+000000010898.07C: Ghost
+000000010899.07C: Symbol
+0000000108A2.07C: Type: Echo
+0000000108A3.07C: Alamak!
+0000000108A4.07C: Loading Modules
+0000000108A5.07C: Double confirmed
+0000000108A6.07C: Can or not?
+0000000108A7.07C: Non-relevant?
+0000000108A8.07C: Jialat!
+0000000108A9.07C: So awesome!
+0000000108AA.07C: That was different
+0000000108AB.07C: Every Situation
+0000000108AC.07C: I’ll try anything once
+0000000108C5.07C: Echo
+0000000108C7.07C: Continue
+0000000108C8.07C: New Damage Hero!
+0000000108DF.07C: Unlocked by attending a 2020 Homestand Event
+0000000108E0.07C: London Spitfire Homestand 2020
+0000000108E2.07C: Unlocked by attending a 2020 Homestand Event
+0000000108E3.07C: Chengdu Hunters Homestand 2020
+0000000108E5.07C: Unlocked by attending a 2020 Homestand Event
+0000000108E6.07C: Boston Uprising Homestand 2020
+0000000108E8.07C: Unlocked by attending a 2020 Homestand Event
+0000000108E9.07C: Atlanta Reign Homestand 2020
+0000000108F8.07C: Route 66
+0000000108FE.07C: Flight Plan
+000000010950.07C: Unlocked by watching participating streams during the Echo hero launch event
+000000010951.07C: Lift Off
+000000010952.07C: Taking Flight
+000000010953.07C: Bright Idea
+000000010954.07C: My Legacy
+000000010955.07C: Echo Online
+000000010956.07C: Duplicate
+000000010997.07C: Visit Options > Controls to bind the Capture button.
+0000000109C6.07C: Camo
+0000000109E5.07C: Competitive Open Queue
+0000000109E6.07C: Rise up the ranks and compete with the best players in the world with no role limits on hero selection.
+0000000109E7.07C: Competitive Open Queue Season 1
+0000000109E8.07C: Assault - Competitive
+0000000109E9.07C: Control - Competitive
+0000000109EA.07C: Hybrid - Competitive
+0000000109EB.07C: Payload - Competitive
+0000000109EC.07C: Hold for Flight
+0000000109F1.07C: Competitive Open Queue
+0000000109F2.07C: Competitive Open Queue
+0000000109F5.07C: 40
+0000000109F6.07C: 75
+0000000109F7.07C: 150
+0000000109F8.07C: 300
+0000000109F9.07C: 450
+0000000109FA.07C: 750
+0000000109FB.07C: 1000
+0000000109FC.07C: Earn these rewards by participating
+0000000109FD.07C: Thanks for playing!
+0000000109FE.07C: - Matches last multiple rounds
+- Earn points by taking objectives
+- Most points win!
+000000010A0B.07C: Competitive Open Queue Competitor
+000000010A0C.07C: Unlocked by completing Competitive Open Queue placement matches
+000000010A0D.07C: Competitive Open Queue Hero
+000000010A0E.07C: Unlocked by achieving top 500 ranking at the end of Competitive Open Queue
+000000010A0F.07C: Competitive Open Queue Competitor
+000000010A11.07C: Competitive Open Queue Hero
+000000010A16.07C: Glide
+000000010A17.07C: %1$s %2$s
+000000010A1C.07C: Quickly focus attacks on Echo after she uses Duplicate to prevent her from using a devastating ultimate ability.
+000000010A1D.07C: Keep your distance and move erratically to make it more difficult for Echo to land her attacks.
+000000010A1E.07C: Look for opportunities to attack Echo when her Flight ability is on cooldown and she has no easy means of escape.
+000000010A24.07C: Damage - Weapon
+000000010A25.07C: %1$s Damage Done
+000000010A28.07C: Damage - Sticky Bombs
+000000010A29.07C: %1$s Damage Done
+000000010A2A.07C: Damage - Focusing Beam
+000000010A2B.07C: %1$s Damage Done
+000000010A2C.07C: Focusing Beam |Rpl %1$s:Kill:Kills;
+000000010A2D.07C: %1$s Focusing Beam |Rpl Kill:Kills;
+000000010A2E.07C: Focusing Beam |Rpl %1$s:Kill:Kills; - Avg per 10 Min
+000000010A2F.07C: %1$s Focusing Beam |Rpl Kill:Kills; - Avg per 10 Min
+000000010A30.07C: Focusing Beam |Rpl %1$s:Kill:Kills; - Most in Game
+000000010A31.07C: %1$s Focusing Beam |Rpl Kill:Kills; - Most in Game
+000000010A32.07C: Sticky Bombs |Rpl %1$s:Kill:Kills;
+000000010A33.07C: %1$s Sticky Bombs |Rpl Kill:Kills;
+000000010A34.07C: Sticky Bombs |Rpl %1$s:Kill:Kills; - Avg per 10 Min
+000000010A35.07C: %1$s Sticky Bombs |Rpl Kill:Kills; - Avg per 10 Min
+000000010A36.07C: Sticky Bombs |Rpl %1$s:Kill:Kills; - Most in Game
+000000010A37.07C: %1$s Sticky Bombs |Rpl Kill:Kills; - Most in Game
+000000010A38.07C: Duplicate |Rpl %1$s:Kill:Kills;
+000000010A39.07C: %1$s Duplicate |Rpl Kill:Kills;
+000000010A3A.07C: Duplicate |Rpl %1$s:Kill:Kills; - Avg per 10 Min
+000000010A3B.07C: %1$s Duplicate |Rpl Kill:Kills; - Avg per 10 Min
+000000010A3C.07C: Duplicate |Rpl %1$s:Kill:Kills; - Most in Game
+000000010A3D.07C: %1$s Duplicate |Rpl Kill:Kills; - Most in Game
+000000010A3F.07C: Sticky Bombs Direct Hit Accuracy
+000000010A40.07C: %1$s Sticky Bombs Direct Hit Accuracy
+000000010A47.07C: |Rpl %1$s:Sticky Bombs Shot:Shots; Fired
+000000010A48.07C: %1$s |Rpl Sticky Bomb Shot:Shots; Fired
+000000010A49.07C: Sticky Bombs Direct |Rpl %1$s:Hit:Hits;
+000000010A4A.07C: %1$s Sticky Bombs Direct |Rpl Hit:Hits;
+000000010A51.07C: Use Glide to maneuver around in the air while Flight is on cooldown.
+000000010A59.07C: Sticky Bombs |Rpl %1$s:Used:Used;
+000000010A5A.07C: %1$s Sticky Bombs |Rpl Used:Used;
+000000010A5E.07C: Focusing Beam |Rpl %1$s:Second:Seconds;
+000000010A5F.07C: %1$s Focusing Beam |Rpl Kill:Kills;
+000000010A61.07C: HEROES: Competitive Play Hero Rotation
+000000010A62.07C: Damage - Focusing Beam - Bonus Damage Only
+000000010A63.07C: %1$s Bonus Damage Done
+000000010A65.07C: Atlanta Reign
+000000010A66.07C: Atlanta Reign Away
+000000010A67.07C: Boston Uprising
+000000010A68.07C: Boston Uprising Away
+000000010A69.07C: Chengdu Hunters
+000000010A6A.07C: Chengdu Hunters Away
+000000010A6B.07C: Contenders Away
+000000010A6C.07C: Contenders Home
+000000010A6D.07C: Dallas Fuel
+000000010A6E.07C: Dallas Fuel Away
+000000010A6F.07C: Florida Mayhem 2018
+000000010A70.07C: Florida Mayhem Away 2018
+000000010A71.07C: Florida Mayhem Away
+000000010A72.07C: Florida Mayhem
+000000010A73.07C: Guangzhou Charge
+000000010A74.07C: Guangzhou Charge Away
+000000010A75.07C: Hangzhou Spark
+000000010A76.07C: Hangzhou Spark Away
+000000010A77.07C: Houston Outlaws
+000000010A78.07C: Houston Outlaws Away
+000000010A79.07C: London Spitfire
+000000010A7A.07C: London Spitfire Away
+000000010A7B.07C: Los Angeles Gladiators
+000000010A7C.07C: Los Angeles Gladiators Away
+000000010A7D.07C: Los Angeles Valiant 2018
+000000010A7E.07C: Los Angeles Valiant Away 2018
+000000010A7F.07C: Los Angeles Valiant Away
+000000010A80.07C: Los Angeles Valiant
+000000010A81.07C: New York Excelsior
+000000010A82.07C: New York Excelsior Away
+000000010A83.07C: Paris Eternal
+000000010A84.07C: Paris Eternal Away
+000000010A85.07C: Philadelphia Fusion
+000000010A86.07C: Philadelphia Fusion Away
+000000010A87.07C: San Francisco Shock 2018
+000000010A88.07C: San Francisco Shock Away 2018
+000000010A89.07C: San Francisco Shock Away
+000000010A8A.07C: San Francisco Shock
+000000010A8B.07C: Seoul Dynasty
+000000010A8C.07C: Seoul Dynasty Away
+000000010A8D.07C: Shanghai Dragons
+000000010A8E.07C: Shanghai Dragons Away
+000000010A8F.07C: Toronto Defiant
+000000010A90.07C: Toronto Defiant Away
+000000010A91.07C: Vancouver Titans
+000000010A92.07C: Vancouver Titans Away
+000000010A93.07C: Washington Justice
+000000010A94.07C: Washington Justice Away
+000000010A96.07C: Damage - Duplicate
+000000010A97.07C: %1$s Duplicate Damage Done
+000000010A98.07C: Sticky Bombs Direct |Rpl %1$s:Hit:Hits; - Most in Game
+000000010A99.07C: %1$s Sticky Bombs Direct |Rpl Hit:Hits; - Most in Game
+000000010A9A.07C: Sticky Bombs Direct |Rpl %1$s:Hit:Hits; - Avg per 10 Min
+000000010A9B.07C: %1$s Sticky Bombs Direct |Rpl Hit:Hits; - Avg per 10 Min
+000000010A9C.07C: Focusing Beam Accuracy
+000000010A9D.07C: %1$s Focusing Beam Accuracy
+000000010A9E.07C: Focusing Beam Dealing Damage |Rpl %1$s:Seconds:Seconds;
+000000010A9F.07C: %1$s Focusing Beam |Rpl Kill:Kills;
+000000010B39.07C: -
+[Core] Execution finished in 00:00:08.2316904 seconds

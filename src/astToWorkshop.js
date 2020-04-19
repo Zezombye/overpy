@@ -46,7 +46,7 @@ function astRulesToWs(rules) {
         if (rule.ruleAttributes.conditions !== undefined && rule.ruleAttributes.conditions.length > 0) {
             result += tabLevel(1)+tows("__conditions__", ruleKw)+" {\n";
             for (var condition of rule.ruleAttributes.conditions) {
-                result += tabLevel(2)+astRuleConditionToWs(condition)+";\n"
+                result += astRuleConditionToWs(condition);
             }
             result += tabLevel(1)+"}\n";
         }
@@ -78,19 +78,24 @@ function astRuleConditionToWs(condition) {
         "__lessThan__": "<",
         "__greaterThan__": ">",
     }
+    var result = "";
+    console.log(condition);
+    if (condition.comment) {
+        result += tabLevel(2)+escapeString(condition.comment)+"\n";
+    }
 
     if (condition.name in funcToOpMapping) {
-        return astToWs(condition.args[0])+" "+funcToOpMapping[condition.name]+" "+astToWs(condition.args[1]);
+        result += tabLevel(2)+astToWs(condition.args[0])+" "+funcToOpMapping[condition.name]+" "+astToWs(condition.args[1])+";\n";
 
     } else {
         if (condition.type === "bool") {
-            return astToWs(condition)+" == "+tows("true", valueFuncKw);
+            result += tabLevel(2)+astToWs(condition)+" == "+tows("true", valueFuncKw)+";\n";
 
         } else {
-            return astToWs(condition)+" != "+tows("false", valueFuncKw);
+            result += tabLevel(2)+astToWs(condition)+" != "+tows("false", valueFuncKw)+";\n";
         }
     }
-
+    return result;
 }
 
 function astActionToWs(action, nbTabs) {
@@ -98,7 +103,11 @@ function astActionToWs(action, nbTabs) {
     if (action.type === "Label") {
         return "";
     }
-    var result = tabLevel(nbTabs)+astToWs(action)+";\n"
+    var result = "";
+    if (action.comment) {
+        result += tabLevel(nbTabs)+escapeString(action.comment)+"\n";
+    }
+    result += tabLevel(nbTabs)+astToWs(action)+";\n"
     for (var child of action.children) {
         result += astActionToWs(child, nbTabs+1);
     }
@@ -139,6 +148,14 @@ function astToWs(content) {
         content.args.splice(1, 0, new Ast(equalityFuncToOpMapping[content.name], [], [], "__Operator__"));
         content.name = "__compare__";
 
+    } else if (content.name === "__array__") {
+        //Convert the array to a bunch of appends.
+        var newContent = new Ast("__emptyArray__");
+        for (var arg of content.args) {
+            newContent = new Ast("__concat__", [newContent, arg]);
+        }
+        content = newContent;
+
     } else if (content.name === "__assignTo__" || content.name === "__modifyVar__") {
         var newName = content.name === "__assignTo__" ? "__set" : "__modify";
         if (content.args[0].name === "__globalVar__") {
@@ -163,10 +180,10 @@ function astToWs(content) {
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[1]].concat(content.args.slice(1));
 
             } else {
-                error("Cannot assign to "+functionNameToString(content.args[0].args[0].name))
+                error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0].name))
             }
         } else {
-            error("Cannot assign to "+functionNameToString(content.args[0].name))
+            error("Cannot modify or assign to "+functionNameToString(content.args[0].name))
         }
         content.name = newName;
 

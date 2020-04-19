@@ -19,6 +19,27 @@
 
 const opyInternalFuncs = {
 
+    "__append__": {
+        "args": [
+            {
+                "name": "ARRAY",
+                "type": "Variable",
+            },{
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+            }
+        ],
+        return: "void",
+    },
+    "__array__": {
+        "args": [
+            {
+                "name": "ELEMENT",
+                "type": ["Object", "Array"]
+            }
+        ],
+        return: "Array",
+    },
     "__assignTo__": {
         "args": [
             {
@@ -33,7 +54,8 @@ const opyInternalFuncs = {
             }
         ],
         return: "void",
-    },"__chaseAtRate__": {
+    },
+    "__chaseAtRate__": {
         "args": [
             {
                 "name": "VARIABLE",

@@ -1,12 +1,12 @@
-[Core] DataTool v1.46.0.866-git-53565d47153728a60a0a8d7984fda5f7b64203a6
+[Core] DataTool v1.47.0.868-git-222ad70efeb849673104456adc9548418298e5b1
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.exe.args
 [CASC] Set language to itIT
 [CASC] Set speech language to itIT
-[CASC] Overwatch build 1.46.1.0.67071
+[CASC] Overwatch build 1.47.0.0.67664
 [CASC] Initializing...
-[CMF] Using CMF procedure 67071
-[CMF] Using CMF procedure 67071
+[CMF] Using CMF procedure 67664
+[CMF] Using CMF procedure 67664
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -432,14 +432,10 @@
 0000000003CA.07C: Immobile, dotato di una potente mitragliatrice a canne rotanti.
 0000000003CB.07C: Nucleo Ardente
 0000000003CC.07C: Aumenta la cadenza di fuoco, fornisce armatura aggiuntiva e potenzia temporaneamente una Torretta di livello 2 al livello 3.
-0000000003CD.07C: Torretta
-0000000003CE.07C: Costruisce una torretta potenziabile.
 0000000003D1.07C: Sparachiodi
 0000000003D2.07C: Arma a lunga gittata e a bassa cadenza di fuoco.
 0000000003D3.07C: Sparachiodi - Modalità di fuoco alternativa
 0000000003D4.07C: Arma a corta gittata, potente ma poco precisa.
-0000000003D5.07C: Martello da Forgia
-0000000003D6.07C: Migliora la torretta o danneggia i nemici.
 0000000003DC.07C: Permette alla tua squadra di visualizzare la posizione del nemico.
 0000000003DD.07C: Visore Termico
 0000000003DE.07C: Mina Venefica
@@ -7943,8 +7939,7 @@ Andrew Wang
 0000000047D5.07C: Partite
 di piazzamento
 0000000047D6.07C: Impossibile richiedere un invito alla formazione
-0000000047D7.07C: - Otterrai ricompense alla fine della stagione
-dopo aver partecipato alle partite competitive:
+0000000047D7.07C: Otterrai ricompense alla fine della stagione dopo aver partecipato alle partite competitive:
 0000000047D8.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 1
 0000000047D9.07C: Sbloccato per essere entrato nella Top 500 della Stagione 1
 0000000047DD.07C: Gioco competitivo sbloccato!
@@ -9098,7 +9093,7 @@ THIS SOFTWARE.
 000000005364.07C: Marzamari
 000000005366.07C: Calza
 000000005368.07C: 2017
-00000000536C.07C: CONQUISTA
+00000000536C.07C: CATTURA
 00000000536D.07C: Festa
 00000000536F.07C: Tannenbaum
 000000005371.07C: Bollicine
@@ -9732,7 +9727,7 @@ THIS SOFTWARE.
 000000005908.07C: VUOTO SPIETATO
 000000005915.07C: Sensibilità Globo dell'Armonia
 000000005916.07C: Sensibilità Globo della Discordia
-000000005917.07C: Sensibilità Biostimolatore
+000000005917.07C: Sensibilità Duplicazione
 000000005918.07C: %1$s: %2$s
 00000000591F.07C: Generale
 000000005921.07C: Trasporto
@@ -13536,7 +13531,7 @@ Brian Urbina
 000000006630.07C: Coalescenza
 000000006631.07C: Spara un raggio che cura gli alleati e infligge danni ai nemici.
 000000006632.07C: Bombardamento
-000000006633.07C: Metti a segno un colpo letale con Slancio Sismico di Doomfist (Rapida/Competitiva).
+000000006633.07C: Metti a segno un colpo letale con Slancio Sismico di Doomfist a piena potenza (Rapida/Competitiva).
 000000006634.07C: Cratere mortale
 000000006635.07C: Colpisci 6 nemici con un singolo Impatto Devastante di Doomfist (Rapida/Competitiva).
 000000006636.07C: %1$s Danni inflitti con le abilità
@@ -14173,7 +14168,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E64.07C: ATTACCA
 000000006E6A.07C: Assassino
 000000006E6B.07C: Eichenwalde (Halloween)
-000000006E6F.07C: Resuscita %2$s
+000000006E6F.07C: Resuscita %1$s
 000000006E70.07C: Movimento relativo alla visuale libera con Barriera attivata
 000000006E72.07C: BIO
 000000006E73.07C: STORDIMENTO
@@ -14777,6 +14772,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s |Rpl Colpo:Colpi; con Dardo Soporifero
 000000007460.07C: Bomba a Impulsi - Frequenza di aggancio
 000000007461.07C: %1$s Bomba a Impulsi - Frequenza di aggancio
+000000007465.07C: ANNULLA
 000000007472.07C: Coalescenza - Cure per utilizzo
 000000007473.07C: %1$s Coalescenza - Cure per utilizzo
 000000007474.07C: Coalescenza - Danni per utilizzo
@@ -16628,6 +16624,7 @@ Puoi ancora accedere alle altre modalità di Overwatch, incluse le partite rapid
 000000008670.07C: Posiziona un gran numero di mine di prossimità.
 000000008671.07C: |Rpl %1$s:Ultra ottenuta:Ultra ottenute; - Frazionario
 000000008672.07C: %1$s |Rpl Ultra ottenuta:Ultra ottenute; - Frazionario
+000000008684.07C: Echo
 000000008687.07C: La mia squadra
 000000008688.07C: Squadra nemica
 00000000868A.07C: OWL All Stars Atlantic
@@ -17149,6 +17146,7 @@ Vuoi annullare?
 000000008F7B.07C: Indietro
 000000008F7D.07C: Corsa
 000000008FE9.07C: Impossibile mettersi in coda con le impostazioni della tua formazione
+000000008FEA.07C: 
 000000008FEC.07C: D.VO
 000000008FED.07C: Sdraiato
 000000008FEE.07C: Campione
@@ -17222,7 +17220,6 @@ Vuoi annullare?
 0000000090E1.07C: Wrecking Ball è pilotato da un criceto intelligente geneticamente modificato di nome Hammond, che esplora il mondo in cerca di avventure.
 0000000090E2.07C: Ashe è il capo della Deadlock Gang, un gruppo di banditi e criminali che imperversa nel sudovest americano.
 0000000090E7.07C: Negozio
-0000000090E8.07C: Modelli divisione
 0000000090F2.07C: Giappone (trasferta)
 0000000090F3.07C: Taipei (trasferta)
 0000000090F4.07C: Russia (trasferta)
@@ -17589,8 +17586,6 @@ Infligge danni aggiuntivi all'armatura.
 0000000093F6.07C: Competitiva
 000000009411.07C: Baptiste
 000000009413.07C: All-Star
-000000009414.07C: Pacific
-000000009415.07C: Atlantic
 000000009419.07C: PH Text
 00000000941A.07C: Vuoi acquistare tutti gli oggetti sbloccabili di: %1$s?
 00000000941B.07C: Sbloccato per aver partecipato alla Sfida Nano Cola di D.VA
@@ -17805,12 +17800,12 @@ e 10 Forzieri di Halloween gratuiti
 000000009E9C.07C: VS
 000000009E9E.07C: Sigma
 000000009E9F.07C: Eroica
-000000009EB1.07C: La Barriera Sperimentale può essere spostata lungo grandi distanze per proteggere i tuoi compagni di squadra.
-000000009EB2.07C: Richiama la Barriera Sperimentale per ricaricarla.
-000000009EB3.07C: Gli attacchi con l'arma di Sigma implodono dopo breve tempo, infliggendo danni nell'area circostante. Calcola la distanza giusta per colpire i nemici evitando ostacoli come le barriere.
-000000009EB4.07C: Accrescimento abbatte i nemici solo con un colpo diretto.
-000000009EB5.07C: Presa Cinetica ha un tempo di recupero piuttosto lungo. Usala per proteggerti mentre la Barriera Sperimentale si sta ricaricando.
-000000009EB6.07C: Usa Flusso Gravitazionale per scagliare in aria i nemici, lontano dalla loro squadra o dall'obiettivo.
+000000009EB1.07C: Tieni premuto il pulsante Salto mentre usi l'abilità Volo per scagliarti in aria.
+000000009EB2.07C: Duplicazione rigenera completamente la tua salute all'attivazione, permettendoti di salvarti quando la salute scarseggia.
+000000009EB3.07C: Il Raggio Focalizzante infligge danni lievi ai nemici con più di metà salute restante, ma molto ingenti a quelli con meno di metà salute.
+000000009EB4.07C: Usa il Raggio Focalizzante per dare il colpo di grazia ai nemici portati a meno di metà salute restante dai tuoi compagni di squadra.
+000000009EB5.07C: Usa le Bombe Adesive in combinazione con il Raggio Focalizzante per infliggere ingenti danni rapidamente.
+000000009EB6.07C: Lancia Duplicazione mentre stai usando Volo per sorprendere la squadra nemica dall'alto.
 000000009EBB.07C: Passatempo
 000000009EBF.07C: Dolcetto o scherzetto?
 000000009EC0.07C: Disponibile nei Forzieri di Halloween
@@ -18286,6 +18281,14 @@ Inviaci feedback e commenti per aiutarci a migliorarla.
 00000000A913.07C: CLB (competitiva) - Stagione 2
 00000000A914.07C: CLB: Busan
 00000000A915.07C: Due squadre di sei giocatori si affrontano a Busan per catturare la bandiera nemica e difendere la propria.
+00000000A91F.07C: Bombe Adesive
+00000000A920.07C: Echo lancia una salva di bombe adesive che esplodono dopo un breve intervallo di tempo.
+00000000A922.07C: Duplicazione
+00000000A923.07C: Echo diventa una copia di un eroe nemico bersaglio, che non può cambiare eroe per la durata dell'abilità.
+00000000A927.07C: Colpo Triplo
+00000000A928.07C: Echo spara tre colpi contemporaneamente, seguendo uno schema triangolare.
+00000000A929.07C: Volo
+00000000A92A.07C: Echo vola in avanti rapidamente, poi effettua un volo libero per un breve periodo.
 00000000A933.07C: Blizzard World (Inverno)
 00000000A939.07C: Toronto (trasferta)
 00000000A93A.07C: Chengdu (trasferta)
@@ -19783,8 +19786,6 @@ Deathmatch competitivo 2019
 00000000B842.07C: Chase Global Variable Over Time
 00000000B843.07C: Durata
 00000000B844.07C: Frequenza
-00000000B861.07C: Lúcio Pacific
-00000000B862.07C: Mercy Atlantic
 00000000B878.07C: Enable Built-In Game Mode Respawning
 00000000B879.07C: Giocatori
 00000000B87A.07C: Disable Built-In Game Mode Respawning
@@ -21339,6 +21340,8 @@ Deathmatch competitivo 2019
 00000000C1DF.07C: Inizializza interfaccia per ogni giocatore
 00000000C1E0.07C: Ottieni punteggio e fai avanzare l'eroe desiderato (D) quando si mette a segno un'uccisione
 00000000C1E3.07C: Se l'eroe attuale del giocatore è diverso dall'eroe desiderato del giocatore (D), forza l'eroe
+00000000C1E6.07C: Planata
+00000000C1E7.07C: Echo può planare durante la caduta tenendo premuto il salto.
 00000000C1E8.07C: |Rfd %1$s:dd MMM;
 00000000C1EA.07C: Stagione 2019 - Fase 3
 00000000C1F2.07C: Incompleta
@@ -22049,6 +22052,8 @@ Deathmatch competitivo 2019
 00000000C7F7.07C: Danzatrice Mascherata
 00000000C7F8.07C: Tangent From Degrees
 00000000C7F9.07C: Tangente dell'Angolo specificato in gradi.
+00000000C7FA.07C: Raggio Focalizzante
+00000000C7FB.07C: Echo emette un raggio per alcuni secondi, infliggendo danni ingenti ai bersagli con meno di metà salute.
 00000000C7FC.07C: Tangente dell'Angolo specificato in radianti.
 00000000C7FD.07C: Tangent From Radians
 00000000C7FE.07C: Arcotangente in radianti del Numeratore e Denominatore specificati (spesso chiamata Atan2)
@@ -22400,6 +22405,7 @@ Deathmatch competitivo 2019
 00000000CB7C.07C: B.O.B.
 00000000CB7E.07C: Deckard
 00000000CB7F.07C: Cain
+00000000CB82.07C: Echo
 00000000CB84.07C: Interfono
 00000000CB86.07C: Gondoliere
 00000000CB87.07C: HAL-Fred
@@ -26136,8 +26142,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: Disattiva giroscopio durante l'uso dello stick
 00000000EA2F.07C: Dottoressa Ziegler
 00000000EA3E.07C: Inverti asse imbardata mira giroscopio
-00000000EA40.07C: Partite competitive
-00000000EA41.07C: PARTECIPANDO, OTTIENI QUESTE RICOMPENSE
 00000000EA51.07C: Goat
 00000000EA59.07C: Inverti asse rollata mira giroscopio
 00000000EA5A.07C: (Possiedi)
@@ -26154,8 +26158,9 @@ https://account.blizzard.com/connections/nintendo
 00000000EB14.07C: Re Jamison
 00000000EB17.07C: Attiva input alta precisione puntatore mouse
 00000000EB1E.07C: Errore: la Variabile Giocatore '%1$s' richiede un nome
+00000000EB1F.07C: Globale
 00000000EB21.07C: Errore: la Variabile Globale '%1$s' è in conflitto con un'altra variabile
-00000000EB23.07C: Mappe disponibili in questa stagione
+00000000EB23.07C: Mappe disponibili
 00000000EB24.07C: Hanamura, Tempio di Anubi, Industrie Volskaya
 00000000EB25.07C: Errore: la Variabile Globale '%1$s' contiene un nome non valido
 00000000EB29.07C: Errore: la Variabile Globale '%1$s' richiede un nome
@@ -26347,6 +26352,7 @@ che inizi la tua partita:
 00000000F229.07C: 
 00000000F22A.07C: 
 00000000F22B.07C: 
+00000000F239.07C: Programmata e progettata dalla Dott.ssa Mina Liao di Overwatch, Echo è un robot con un'intelligenza artificiale in grado di adattarsi rapidamente.
 00000000F23D.07C: Sono mostrate solo le partite che ammettono giocatori in coda.
 00000000F23E.07C: Attenzione! Questa impostazione potrebbe influenzare le prestazioni del tuo sistema!
 00000000F241.07C: + 100 Gettoni Bonus
@@ -26398,6 +26404,7 @@ che inizi la tua partita:
 00000000F396.07C: Lanterna Volante
 00000000F39C.07C: Abbuffata
 00000000F39D.07C: Aquilone
+00000000F3A2.07C: Selezione eroe disabilitata da Echo
 00000000F3A3.07C: Quando sarà disponibile, verrai trasferito nella partita per cui ti eri messo in coda.
 00000000F3AE.07C: Accesso in corso
 00000000F3C9.07C: Cecchino
@@ -26871,6 +26878,8 @@ che inizi la tua partita:
 000000010053.07C: eroi abilitati
 000000010054.07C: Stagione 21
 000000010055.07C: Stagione 21
+000000010056.07C: Stagione 22
+000000010057.07C: Stagione 22
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Importa impostazioni dagli appunti
@@ -26970,24 +26979,23 @@ che inizi la tua partita:
 000000010237.07C: Disconnesso per aver raggiunto il tempo limite del CAIS
 000000010239.07C: Modalità sperimentale
 00000001023B.07C: Questo replay non è nella tua cronologia recente. Rimuovere questo replay dai preferiti ne causerà la perdita. Vuoi continuare?
-000000010243.07C: Nascondi punteggi
 000000010248.07C: Orsacchiotta
 000000010249.07C: Holi
 00000001024A.07C: Rustclad
 00000001024D.07C: Operatore
 00000001024E.07C: Inserisci codice di collegamento al replay condiviso
 00000001025B.07C: Nuclei ardenti
-00000001025C.07C: Completa la missione sfida degli Archivi Nuclei ardenti
+00000001025C.07C: Completa la missione sfida degli Archivi Nuclei ardenti.
 00000001025D.07C: Potenza fragile
-00000001025E.07C: Completa la missione sfida degli Archivi Potenza fragile
+00000001025E.07C: Completa la missione sfida degli Archivi Potenza fragile.
 00000001025F.07C: Assalto chirurgico
-000000010260.07C: Completa la missione sfida degli Archivi Assalto chirurgico
+000000010260.07C: Completa la missione sfida degli Archivi Assalto chirurgico.
 000000010261.07C: Corpo a corpo
-000000010262.07C: Completa la missione sfida degli Archivi Corpo a corpo
+000000010262.07C: Completa la missione sfida degli Archivi Corpo a corpo.
 000000010263.07C: Luna di sangue
-000000010264.07C: Completa la missione sfida degli Archivi Luna di sangue
+000000010264.07C: Completa la missione sfida degli Archivi Luna di sangue.
 000000010265.07C: Tempesta impetuosa
-000000010266.07C: Completa la missione sfida degli Archivi Tempesta impetuosa
+000000010266.07C: Completa la missione sfida degli Archivi Tempesta impetuosa.
 000000010267.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2020, settimana 3
 000000010268.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2020, settimana 2
 00000001026A.07C: Disponibile tra: %1$s
@@ -27063,13 +27071,14 @@ che inizi la tua partita:
 0000000102CA.07C: Orsacchiotta delle Nevi
 0000000102CC.07C: Indigestione
 0000000102CE.07C: Abbraccio Forte
-0000000102D0.07C: pc
 0000000102D1.07C: ps4
 0000000102D2.07C: xb1
 0000000102D3.07C: nintendo-switch
-0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102D4.07C: https://playoverwatch.com/console-patch-notes/%1$s
 0000000102D5.07C: Importa
 0000000102D8.07C: Importato
+0000000102D9.07C: DUPLICA
+0000000102DA.07C: ANNULLA
 0000000102E0.07C: Sbloccato per aver partecipato all'Homestand Event 2020
 0000000102E1.07C: Florida Mayhem Homestand 2020
 0000000102E3.07C: Sbloccato per aver partecipato all'Homestand Event 2020
@@ -27098,56 +27107,337 @@ che inizi la tua partita:
 000000010308.07C: Eroe Eliminazione
 6v6 (competitiva) 2020
 000000010309.07C: Sbloccato per essere entrato nella Top 500 di Eliminazione 6v6 (competitiva) 2020
-00000001030E.07C: Doomfist Tuono
-00000001030F.07C: Campioni Overwatch League 2019
-San Francisco Shock
 000000010311.07C: Assalto
 000000010312.07C: Disponibile nei Forzieri Archivi
+00000001031A.07C: Metti a segno 2 colpi letali con un singolo Raggio Focalizzante di Echo (Rapida/Competitiva).
+00000001031B.07C: Focalizzazione
+00000001031C.07C: Usa 2 Ultra di altri eroi senza morire con Echo (Rapida/Competitiva).
+00000001031D.07C: Adattabilità
 00000001031E.07C: Archivi 2020
 00000001031F.07C: Disponibile nei Forzieri Archivi
-00000001036C.07C: CONTINUA
-00000001036D.07C: Missioni Sfida
-00000001036F.07C: Gioca e ottieni Forzieri Archivi in edizione limitata. Nuovi modelli, highlight e altro!
-000000010370.07C: Bottino degli Archivi
-000000010372.07C: Gioca le missioni degli Archivi con modifiche speciali che ne alzano il livello di sfida!
-000000010374.07C: L'evento termina il 2 aprile
-000000010375.07C: Sblocca nuovi modelli
-000000010376.07C: Sfide Settimanali
-000000010377.07C: Settimana 1
-000000010378.07C: Settimana 2
-000000010379.07C: Settimana 3
+000000010351.07C: La vendetta di Junkenstein
+000000010369.07C: Duplicazione richiede conferma bersaglio
+00000001036A.07C: BIOSTIMOLATORE
+00000001036B.07C: ANNULLA
+00000001037A.07C: Biostimolatore richiede conferma bersaglio
+00000001037B.07C: Sensibilità Biostimolatore
+000000010381.07C: %1$s
 000000010385.07C: Rimuovi
 000000010389.07C: Impossibile guardare il replay a causa di restrizioni dell'account
 00000001038C.07C: Impossibile condividere il replay a causa di restrizioni dell'account
 00000001038E.07C: Impossibile scaricare replay da quella piattaforma
 00000001038F.07C: Il replay non è supportato dalla tua piattaforma
+0000000103A8.07C: NOTE DELLA PATCH
 0000000103BF.07C: Caricamento fallito: versione incompatibile
 0000000103CC.07C: Segnala codice di collegamento al replay condiviso
 0000000103D7.07C: Grazie per aver segnalato il codice di collegamento al replay %1$s. Segnalazioni come queste ci aiutano a rendere Overwatch un posto migliore in cui giocare.
+000000010410.07C: Duplicazione di
+000000010411.07C: s
 000000010412.07C: Quel replay è già presente nel tuo elenco.
+000000010416.07C: Concorrente Stagione 22
+000000010418.07C: Eroe Stagione 22
+00000001041A.07C: Concorrente Stagione 22
+00000001041C.07C: Eroe Stagione 22
+00000001041E.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 22
+00000001041F.07C: Sbloccato per essere entrato nella Top 500 della Stagione 22
 00000001043B.07C: Segnala
-0000000105BD.07C: Best Molten Cores Score
-0000000105BE.07C: %1$s Best Molten Cores Score
-0000000105BF.07C: Best Glass Cannon Score
-0000000105C0.07C: %1$s Best Glass Cannon Score
-0000000105C1.07C: Best Surgical Strike Score
-0000000105C2.07C: %1$s Best Surgical Strike Score
-0000000105C3.07C: Best Close Quarters Score
-0000000105C4.07C: %1$s Best Close Quarters Score
-0000000105C5.07C: Best Blood Moon Rising Score
-0000000105C6.07C: %1$s Best Blood Moon Rising Score
-0000000105C7.07C: Best Storm Raging Score
-0000000105C8.07C: %1$s Best Storm Raging Score
-0000000105CC.07C: Best Molten Cores Score
-0000000105CD.07C: %1$s Best Molten Cores Score
-0000000105CE.07C: Best Glass Cannon Score
-0000000105CF.07C: %1$s Best Glass Cannon Score
-0000000105D0.07C: Best Surgical Strike Score
-0000000105D1.07C: %1$s Best Surgical Strike Score
-0000000105D2.07C: Best Close Quarters Score
-0000000105D3.07C: %1$s Best Close Quarters Score
-0000000105D4.07C: Best Blood Moon Rising Score
-0000000105D5.07C: %1$s Best Blood Moon Rising Score
-0000000105D6.07C: Best Storm Raging Score
-0000000105D7.07C: %1$s Best Storm Raging Score
-[Core] Execution finished in 00:00:03.2661030 seconds
+000000010479.07C: Vantaggio nel punteggio necessario per vincere
+0000000104F0.07C: Riverente
+0000000104F2.07C: Standard
+0000000104F3.07C: Eroica
+0000000104F5.07C: Eroica
+0000000104F6.07C: Analisi
+0000000104F7.07C: Seduta
+0000000104F9.07C: Compassata
+0000000104FC.07C: Risata
+000000010500.07C: Risveglio
+00000001058B.07C: Evasione
+00000001058C.07C: Manovre
+00000001058D.07C: Prosperità
+000000010592.07C: Occultamento
+0000000105BD.07C: Miglior punteggio Nuclei ardenti
+0000000105BE.07C: %1$s Miglior punteggio Nuclei ardenti
+0000000105BF.07C: Miglior punteggio Potenza fragile
+0000000105C0.07C: %1$s Miglior punteggio Potenza fragile
+0000000105C1.07C: Miglior punteggio Assalto chirurgico
+0000000105C2.07C: %1$s Miglior punteggio Assalto chirurgico
+0000000105C3.07C: Miglior punteggio Corpo a corpo
+0000000105C4.07C: %1$s Miglior punteggio Corpo a corpo
+0000000105C5.07C: Miglior punteggio Luna di sangue
+0000000105C6.07C: %1$s Miglior punteggio Luna di sangue
+0000000105C7.07C: Miglior punteggio Tempesta impetuosa
+0000000105C8.07C: %1$s Miglior punteggio Tempesta impetuosa
+0000000105CC.07C: Miglior punteggio Nuclei ardenti
+0000000105CD.07C: %1$s Miglior punteggio Nuclei ardenti
+0000000105CE.07C: Miglior punteggio Potenza fragile
+0000000105CF.07C: %1$s Miglior punteggio Potenza fragile
+0000000105D0.07C: Miglior punteggio Assalto chirurgico
+0000000105D1.07C: %1$s Miglior punteggio Assalto chirurgico
+0000000105D2.07C: Miglior punteggio Corpo a corpo
+0000000105D3.07C: %1$s Miglior punteggio Corpo a corpo
+0000000105D4.07C: Miglior punteggio Luna di sangue
+0000000105D5.07C: %1$s Miglior punteggio Luna di sangue
+0000000105D6.07C: Miglior punteggio Tempesta impetuosa
+0000000105D7.07C: %1$s Miglior punteggio Tempesta impetuosa
+0000000105D8.07C: Assistente d'Addestramento
+0000000105F1.07C: Le Hawaii sono la meta preferita di Ana quando vuole prendersi un po' di tempo per se stessa e staccare dal lavoro.
+0000000105F2.07C: La Strega è una maestra della magia proibita che ha soggiogato perfino i demoni più potenti.
+0000000105F3.07C: Durante la sua militanza nella Coalizione Caraibica, Baptiste si è ritrovato ad attraversare la regione in lungo e in largo.
+0000000105F4.07C: La Donna Guerriero non è solo la figlia del Vichingo nei racconti di Junkenstein, ma anche un personaggio importante in altre leggende.
+0000000105F7.07C: In quanto erede di una famiglia proprietaria di un'azienda di tecnologia protesica, Doomfist ha sempre vissuto nel lusso.
+0000000106F4.07C: Falena
+000000010778.07C: CASUALE
+00000001077A.07C: Eroica
+00000001077B.07C: CASUALE
+00000001077C.07C: Icona
+00000001077D.07C: Potenziata
+00000001077E.07C: Stasi
+00000001077F.07C: Uno sciocco e i suoi soldi stanno per... esplodere!
+000000010780.07C: Cucina
+000000010781.07C: Echi
+000000010799.07C: Quasi nessun limite
+00000001079A.07C: Sconfiggi la squadra nemica senza limiti di ruoli (o quasi) alla selezione degli eroi.
+00000001079B.07C: Conquista - Nessun limite - Massimo 4
+00000001079C.07C: Controllo - Nessun limite - Massimo 4
+00000001079D.07C: Ibrida - Nessun limite - Massimo 4
+00000001079E.07C: Trasporto - Nessun limite - Massimo 4
+0000000107A3.07C: Durio
+0000000107A6.07C: Limite di 4 giocatori per ruolo
+0000000107A7.07C: Vanda
+0000000107A8.07C: Papaya
+0000000107A9.07C: Marina
+0000000107AA.07C: Rosso Fuoco
+0000000107AB.07C: Fibra di Carbonio
+0000000107CC.07C: Il tenente Fareeha "Pharah" Amari fu selezionata dalla Helix per i meriti della sua brillante carriera nelle forze armate egiziane. Considerato il famoso retaggio della sua famiglia, il suo arruolamento venne considerato un gran colpo per l'organizzazione.
+0000000107CE.07C: Nei tempi andati, Roadhog era conosciuto da tutti semplicemente come "Mako".
+0000000107DA.07C: "...è veramente un posto da incubo. Cos'è, uno scherzo?"
+0000000107DB.07C: Torbjörn era un membro importante della Gilda Ironclad, che aveva il proprio quartier generale a Göteborg, Svezia.
+0000000107E1.07C: ?
+0000000107E2.07C: FORMAZIONE SQUADRA:
+0000000107E3.07C: SELEZIONA
+0000000107E4.07C: Continua
+0000000107E5.07C: MODELLO PRECEDENTE
+0000000107E6.07C: MODELLO SUCCESSIVO
+0000000107E7.07C: PRONTI ALLA BATTAGLIA
+0000000107E8.07C: CAMBIA EROE
+0000000107E9.07C: PERSONALIZZA
+0000000107EA.07C: <tx%1$s> Seleziona
+0000000107EB.07C: <tx%1$s> Personalizza eroe
+0000000107EC.07C: <tx%1$s> Dettagli eroe
+0000000107ED.07C: <tx%1$s> Annulla
+0000000107EE.07C: <tx%1$s> Unisciti alla chat di squadra
+0000000107EF.07C: Unisciti alla chat di squadra
+0000000107F0.07C: SCEGLI IL TUO EROE:
+0000000107F1.07C: Unisciti alla chat della partita
+0000000107F2.07C: SELEZIONA MODELLO
+0000000107F3.07C: Cambia modello
+0000000107F4.07C: <tx%1$s> Seleziona modello
+0000000107F5.07C: Questo eroe è attualmente fuori dalla rotazione.
+0000000107F6.07C: Scegli un Assistente d'Addestramento
+000000010803.07C: SINTONIZZATI
+000000010847.07C: PREDEFINITA
+000000010848.07C: DORATA
+000000010849.07C: 02/05 e 03/05 (PDT)
+000000010862.07C: Promessa
+000000010863.07C: Echo
+000000010869.07C: Simmetria
+00000001086B.07C: Sbloccato per aver partecipato all'Homestand Event 2020
+00000001086C.07C: Vancouver Titans Homestand 2020
+00000001086E.07C: Sbloccato per aver partecipato all'Homestand Event 2020
+00000001086F.07C: Toronto Defiant Homestand 2020
+000000010871.07C: Sbloccato per aver partecipato all'Homestand Event 2020
+000000010872.07C: San Francisco Shock Homestand 2020
+000000010874.07C: Sbloccato per aver partecipato all'Homestand Event 2020
+000000010875.07C: Paris Eternal Homestand 2020
+000000010877.07C: Sbloccato per aver partecipato all'Homestand Event 2020
+000000010878.07C: Los Angeles Valiant Homestand 2020
+00000001087A.07C: Sbloccato per aver partecipato all'Homestand Event 2020
+00000001087B.07C: Los Angeles Gladiators Homestand 2020
+00000001087C.07C: PREMI %1$s PER CAMBIARE ASSISTENTE D'ADDESTRAMENTO
+00000001087D.07C: TIENI PREMUTO %1$s PER CAMBIARE ASSISTENTE D'ADDESTRAMENTO
+000000010884.07C: Mina
+000000010885.07C: Kung Fu
+000000010886.07C: Farfalla
+000000010887.07C: Echopugno
+000000010888.07C: Echorabbia
+000000010889.07C: Echospada
+00000001088A.07C: Bomba Adesiva
+00000001088B.07C: Carina
+00000001088C.07C: Pixel
+00000001088D.07C: Attivazione
+00000001088E.07C: Echohardt
+00000001088F.07C: Focalizzazione
+000000010890.07C: Echomorfosi
+000000010891.07C: Sistemi Online
+000000010892.07C: Autostop
+000000010893.07C: Bang! Bang!
+000000010894.07C: Occhio
+000000010895.07C: Giardinaggio
+000000010896.07C: Atterraggio
+000000010897.07C: Caricamento...
+000000010898.07C: Fantasma
+000000010899.07C: Simbolo
+0000000108A2.07C: Digitare "Echo"
+0000000108A3.07C: Oh, cielo!
+0000000108A4.07C: Carico moduli
+0000000108A5.07C: Al cento percento
+0000000108A6.07C: Sì o no?
+0000000108A7.07C: Conversazione non rilevante
+0000000108A8.07C: Brutta roba!
+0000000108A9.07C: Fantastico!
+0000000108AA.07C: Che strana sensazione
+0000000108AB.07C: Da qualsiasi situazione
+0000000108AC.07C: Amo sperimentare
+0000000108C5.07C: Echo
+0000000108C7.07C: Continua
+0000000108C8.07C: Nuovo eroe d'attacco!
+0000000108DF.07C: Sbloccato per aver partecipato all'Homestand Event 2020
+0000000108E0.07C: London Spitfire Homestand 2020
+0000000108E2.07C: Sbloccato per aver partecipato all'Homestand Event 2020
+0000000108E3.07C: Chengdu Hunters Homestand 2020
+0000000108E5.07C: Sbloccato per aver partecipato all'Homestand Event 2020
+0000000108E6.07C: Boston Uprising Homestand 2020
+0000000108E8.07C: Sbloccato per aver partecipato all'Homestand Event 2020
+0000000108E9.07C: Atlanta Reign Homestand 2020
+0000000108F8.07C: Route 66
+0000000108FE.07C: Piano di volo
+000000010950.07C: Sbloccato per aver guardato gli streaming partecipanti durante l'evento di lancio dell'eroe Echo
+000000010951.07C: Volo
+000000010952.07C: Decollo
+000000010953.07C: Idea Brillante
+000000010954.07C: Retaggio
+000000010955.07C: Echo Online
+000000010956.07C: Duplicazione
+000000010997.07C: Vai su Opzioni > Comandi per assegnare il pulsante Cattura.
+0000000109C6.07C: Mimetica
+0000000109E5.07C: Coda aperta competitiva
+0000000109E6.07C: Scala la classifica e affronta i migliori giocatori del mondo senza limiti di ruolo nella selezione degli eroi.
+0000000109E7.07C: Stagione 1 coda aperta competitiva
+0000000109E8.07C: Conquista - Competitiva
+0000000109E9.07C: Controllo - Competitiva
+0000000109EA.07C: Ibrida - Competitiva
+0000000109EB.07C: Trasporto - Competitiva
+0000000109EC.07C: Tieni premuto per usare Volo
+0000000109F1.07C: Coda aperta competitiva
+0000000109F2.07C: Coda aperta competitiva
+0000000109F5.07C: 40
+0000000109F6.07C: 75
+0000000109F7.07C: 150
+0000000109F8.07C: 300
+0000000109F9.07C: 450
+0000000109FA.07C: 750
+0000000109FB.07C: 1000
+0000000109FC.07C: Partecipando, ottieni queste ricompense
+0000000109FD.07C: Grazie per aver giocato!
+0000000109FE.07C: - Le partite durano più round
+- Ottieni punti conquistando gli obiettivi
+- Chi ha più punti vince!
+000000010A0B.07C: Concorrente coda aperta competitiva
+000000010A0C.07C: Sbloccato per aver completato le partite di piazzamento nella coda aperta competitiva
+000000010A0D.07C: Eroe coda aperta competitiva
+000000010A0E.07C: Sbloccato per essere entrato nella Top 500 della coda aperta competitiva
+000000010A0F.07C: Concorrente coda aperta competitiva
+000000010A11.07C: Eroe coda aperta competitiva
+000000010A16.07C: Planata
+000000010A17.07C: %1$s %2$s
+000000010A1C.07C: Concentra gli attacchi su Echo dopo un suo utilizzo di Duplicazione per impedirle di lanciare una devastante Ultra.
+000000010A1D.07C: Tieniti a distanza e muoviti in modo imprevedibile per non permettere a Echo di attaccarti con facilità.
+000000010A1E.07C: Il momento migliore per attaccare Echo è durante il tempo di recupero della sua abilità Volo. La sua scarsa mobilità in quel frangente non le permetterà di fuggire.
+000000010A24.07C: Danni - Arma
+000000010A25.07C: %1$s Damage Done
+000000010A28.07C: Danni - Bombe Adesive
+000000010A29.07C: %1$s Damage Done
+000000010A2A.07C: Danni - Raggio Focalizzante
+000000010A2B.07C: %1$s Damage Done
+000000010A2C.07C: |Rpl %1$s:Uccisione:Uccisioni; con Raggio Focalizzante
+000000010A2D.07C: %1$s |Rpl Uccisione:Uccisioni; con Raggio Focalizzante
+000000010A2E.07C: |Rpl %1$s:Uccisione:Uccisioni; con Raggio Focalizzante - Media 10 min.
+000000010A2F.07C: %1$s |Rpl Uccisione:Uccisioni; con Raggio Focalizzante - Media 10 min.
+000000010A30.07C: |Rpl %1$s:Uccisione:Uccisioni; con Raggio Focalizzante - Record partita
+000000010A31.07C: %1$s |Rpl Uccisione:Uccisioni; con Raggio Focalizzante - Record partita
+000000010A32.07C: |Rpl %1$s:Uccisione:Uccisioni; con Bombe Adesive
+000000010A33.07C: %1$s |Rpl Uccisione:Uccisioni; con Bombe Adesive
+000000010A34.07C: |Rpl %1$s:Uccisione:Uccisioni; con Bombe Adesive - Media 10 min.
+000000010A35.07C: %1$s |Rpl Uccisione:Uccisioni; con Bombe Adesive - Media 10 min.
+000000010A36.07C: |Rpl %1$s:Uccisione:Uccisioni; con Bombe Adesive - Record partita
+000000010A37.07C: %1$s |Rpl Uccisione:Uccisioni; con Bombe Adesive - Record partita
+000000010A38.07C: |Rpl %1$s:Uccisione:Uccisioni; con Duplicazione
+000000010A39.07C: %1$s |Rpl Uccisione:Uccisioni; con Duplicazione
+000000010A3A.07C: |Rpl %1$s:Uccisione:Uccisioni; con Duplicazione - Media 10 min.
+000000010A3B.07C: %1$s |Rpl Uccisione:Uccisioni; con Duplicazione - Media 10 min.
+000000010A3C.07C: |Rpl %1$s:Uccisione:Uccisioni; con Duplicazione - Record partita
+000000010A3D.07C: %1$s |Rpl Uccisione:Uccisioni; con Duplicazione - Record partita
+000000010A3F.07C: Precisione colpo diretto Bombe Adesive
+000000010A40.07C: %1$s Precisione colpo diretto Bombe Adesive
+000000010A47.07C: |Rpl %1$s:Lancio:Lanci; di Bombe Adesive
+000000010A48.07C: %1$s |Rpl Lancio:Lanci; di Bombe Adesive
+000000010A49.07C: |Rpl %1$s:Colpo diretto:Colpi diretti; con Bombe Adesive
+000000010A4A.07C: %1$s |Rpl Colpo diretto:Colpi diretti; con Bombe Adesive
+000000010A51.07C: Usa Planata per cambiare direzione in aria mentre Volo è in fase di tempo di recupero.
+000000010A59.07C: |Rpl %1$s:Utilizzo:Utilizzi; di Bombe Adesive
+000000010A5A.07C: %1$s |Rpl Utilizzo:Utilizzi; di Bombe Adesive
+000000010A5E.07C: |Rpl %1$s:Secondo:Secondi; di Raggio Focalizzante
+000000010A5F.07C: %1$s |Rpl Uccisione:Uccisioni; con Raggio Focalizzante
+000000010A61.07C: EROI: rotazione eroi modalità competitiva
+000000010A62.07C: Danni - Raggio Focalizzante - Solo danni bonus
+000000010A63.07C: %1$s Bonus Damage Done
+000000010A65.07C: Atlanta Reign
+000000010A66.07C: Atlanta Reign (trasferta)
+000000010A67.07C: Boston Uprising
+000000010A68.07C: Boston Uprising (trasferta)
+000000010A69.07C: Chengdu Hunters
+000000010A6A.07C: Chengdu Hunters (trasferta)
+000000010A6B.07C: Contenders (trasferta)
+000000010A6C.07C: Contenders
+000000010A6D.07C: Dallas Fuel
+000000010A6E.07C: Dallas Fuel (trasferta)
+000000010A6F.07C: Florida Mayhem 2018
+000000010A70.07C: Florida Mayhem 2018 (trasferta)
+000000010A71.07C: Florida Mayhem (trasferta)
+000000010A72.07C: Florida Mayhem
+000000010A73.07C: Guangzhou Charge
+000000010A74.07C: Guangzhou Charge (trasferta)
+000000010A75.07C: Hangzhou Spark
+000000010A76.07C: Hangzhou Spark (trasferta)
+000000010A77.07C: Houston Outlaws
+000000010A78.07C: Houston Outlaws (trasferta)
+000000010A79.07C: London Spitfire
+000000010A7A.07C: London Spitfire (trasferta)
+000000010A7B.07C: Los Angeles Gladiators
+000000010A7C.07C: Los Angeles Gladiators (trasferta)
+000000010A7D.07C: Los Angeles Valiant 2018
+000000010A7E.07C: Los Angeles Valiant 2018 (trasferta)
+000000010A7F.07C: Los Angeles Valiant (trasferta)
+000000010A80.07C: Los Angeles Valiant
+000000010A81.07C: New York Excelsior
+000000010A82.07C: New York Excelsior (trasferta)
+000000010A83.07C: Paris Eternal
+000000010A84.07C: Paris Eternal (trasferta)
+000000010A85.07C: Philadelphia Fusion
+000000010A86.07C: Philadelphia Fusion (trasferta)
+000000010A87.07C: San Francisco Shock 2018
+000000010A88.07C: San Francisco Shock 2018 (trasferta)
+000000010A89.07C: San Francisco Shock (trasferta)
+000000010A8A.07C: San Francisco Shock
+000000010A8B.07C: Seoul Dynasty
+000000010A8C.07C: Seoul Dynasty (trasferta)
+000000010A8D.07C: Shanghai Dragons
+000000010A8E.07C: Shanghai Dragons (trasferta)
+000000010A8F.07C: Toronto Defiant
+000000010A90.07C: Toronto Defiant (trasferta)
+000000010A91.07C: Vancouver Titans
+000000010A92.07C: Vancouver Titans (trasferta)
+000000010A93.07C: Washington Justice
+000000010A94.07C: Washington Justice (trasferta)
+000000010A96.07C: Danni - Duplicazione
+000000010A97.07C: %1$s Duplicate Damage Done
+000000010A98.07C: |Rpl %1$s:Colpo diretto:Colpi diretti; con Bombe Adesive - Record partita
+000000010A99.07C: %1$s |Rpl Colpo diretto:Colpi diretti; con Bombe Adesive - Record partita
+000000010A9A.07C: |Rpl %1$s:Colpo diretto:Colpi diretti; con Bombe Adesive - Media 10 min.
+000000010A9B.07C: %1$s |Rpl Colpo diretto:Colpi diretti; con Bombe Adesive - Media 10 min.
+000000010A9C.07C: Precisione Raggio Focalizzante
+000000010A9D.07C: %1$s Precisione Raggio Focalizzante
+000000010A9E.07C: |Rpl %1$s:Secondo:Secondi; di Raggio Focalizzante che infligge danni
+000000010A9F.07C: %1$s |Rpl Uccisione:Uccisioni; con Raggio Focalizzante
+000000010B39.07C: -
+[Core] Execution finished in 00:00:03.2981457 seconds

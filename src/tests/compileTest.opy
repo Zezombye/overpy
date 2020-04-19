@@ -21,11 +21,6 @@ rule "operators":
     A **= B
     A max= B
     A min= B
-    del A[1]
-    A.remove(B)
-    A = A.index(B)
-    A.append(B)
-    A = A.append(B)
 
 
 rule "strings":
@@ -46,6 +41,14 @@ rule "arrays":
     A = all(getAllPlayers())
     A = sorted(A, key=lambda x: x+2)
     A = sorted(A)
+    A = [1,2,3]
+    del A[1]
+    A.append(3)
+    A.remove(3)
+    A = B.concat(2)
+    A = B.index(3)
+    A = B.exclude(3)
+    A = B.slice(1, 3)
 
 def sub():
     D = -3*5

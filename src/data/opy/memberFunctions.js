@@ -19,7 +19,20 @@
 
 const opyMemberFuncs = {
     "append": {
-        "description": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. If used without an assignment, modifies the array in-place.\n\nExample: `A.append(3)`",
+        "description": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. Modifies the array in-place; use `concat` to instead return a copy of the array.\n\nExample: `A.append(3)`",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
+                "type": ["Object", {Array: "Object"}],
+                "default": "NUMBER"
+            }
+        ],
+        class: "Array",
+        return: "Array",
+    },
+    "concat": {
+        "description": "A copy of the array with the specified value appended to it.",
         "args": [
             {
                 "name": "VALUE",

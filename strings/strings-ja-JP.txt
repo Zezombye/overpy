@@ -1,12 +1,12 @@
-[Core] DataTool v1.46.0.866-git-53565d47153728a60a0a8d7984fda5f7b64203a6
+[Core] DataTool v1.47.0.868-git-222ad70efeb849673104456adc9548418298e5b1
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=jaJP", "-T=jaJP"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.exe.args
 [CASC] Set language to jaJP
 [CASC] Set speech language to jaJP
-[CASC] Overwatch build 1.46.1.0.67071
+[CASC] Overwatch build 1.47.0.0.67664
 [CASC] Initializing...
-[CMF] Using CMF procedure 67071
-[CMF] Using CMF procedure 67071
+[CMF] Using CMF procedure 67664
+[CMF] Using CMF procedure 67664
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -433,14 +433,10 @@
 0000000003CB.07C: モルテン・コア
 0000000003CC.07C: 攻撃速度が<br>上昇し、<br>アーマーが<br>追加<br>される。<br>また、<br>一時的に<br>レベル2<br>の<br>タレットが<br>レベル3<br>に<br>パワー<br>アップ<br>する
 
-0000000003CD.07C: タレット設置
-0000000003CE.07C: アップグレード<br>可能な<br>タレットを<br>設置<br>する
 0000000003D1.07C: リベット・ガン
 0000000003D2.07C: 連射は<br>効かないが、<br>遠距離<br>攻撃が<br>可能な<br>武器
 0000000003D3.07C: リベット・ガン - サブ攻撃
 0000000003D4.07C: 命中<br>精度は<br>低い<br>ものの、<br>威力の<br>高い<br>近距離用<br>武器
-0000000003D5.07C: フォージ・ハンマー
-0000000003D6.07C: タレットの<br>修復、<br>強化、<br>または<br>近接<br>攻撃<br>武器と<br>して<br>使用<br>できる<br>ハンマー
 0000000003DC.07C: 味方に<br>敵の<br>位置を<br>知らせる
 0000000003DD.07C: インフラサイト
 0000000003DE.07C: ヴェノム・マイン
@@ -7944,7 +7940,7 @@ Andrew Wang
 0000000047D5.07C: スキル認定
 マッチ
 0000000047D6.07C: グループへの招待をリクエストできません
-0000000047D7.07C: - ライバル・プレイに参加して、シーズン終了後にスペシャル報酬をゲット
+0000000047D7.07C: ライバル・プレイに参加して、シーズン終了後にスペシャル報酬をゲット
 0000000047D8.07C: シーズン1の<br>スキル<br>認定<br>マッチ<br>完了で<br>アン<br>ロック
 0000000047D9.07C: シーズン1で<br>トップ<br>500に<br>ランク<br>イン<br>して<br>アン<br>ロック
 0000000047DD.07C: ライバル・プレイをアンロック！
@@ -9732,7 +9728,7 @@ THIS SOFTWARE.
 000000005908.07C: 〈虚無の抱擁〉
 000000005915.07C: 調和のオーブ 感度
 000000005916.07C: 不和のオーブ 感度
-000000005917.07C: ナノ・ブースト 感度
+000000005917.07C: コピー 感度
 000000005918.07C: %1$s: %2$s
 00000000591F.07C: 一般
 000000005921.07C: エスコート
@@ -10294,7 +10290,7 @@ THIS SOFTWARE.
 000000005DC5.07C: 保存された既定設定をロード中…
 000000005DC6.07C: オーストラリアのオムニウム融合炉が爆破されたことで、アウトバックの景観は一変。今はジャンカータウンと呼ばれ、人が住むような場所ではなくなってしまった
 000000005DC7.07C: 若い頃のルシオはホッケーに心を奪われるも、リオデジャネイロで他の子どもたちとサッカーに興じることもあった
-000000005DC8.07C: 若かりし頃のジェシー・マクリーは、その才能をかわれガブリエル・レイエスに二択を迫られた…ブラックウォッチに入るか、刑務所に入るか。マクリーは前者を選んだ
+000000005DC8.07C: 若かりし頃のジェシー・マクリーは、その才能を買われガブリエル・レイエスに二択を迫られた…ブラックウォッチに入るか、刑務所に入るか。マクリーは前者を選んだ
 000000005DC9.07C: 出動要請が入ると、マーシーはヴァルキリースーツを着用し、前線を舞う天使となる
 000000005DCA.07C: 森の魔女はジャンケンシュタイン博士の物語など、数々の伝説に登場する謎めいた人物であり、代償と引き換えに願いを叶えてくれる
 000000005DCB.07C: 余儀なく現役を退いたヌンバーニの警備ロボットOR15のパーツを流用して造られたオリーサは、街の新たな希望だ。だが、まだまだ学ぶべきことは多い
@@ -14173,7 +14169,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E64.07C: 攻撃
 000000006E6A.07C: アサシン
 000000006E6B.07C: EICHENWALDE （ハロウィン）
-000000006E6F.07C: 蘇生 %2$s
+000000006E6F.07C: 蘇生 %1$s
 000000006E70.07C: バリア・フリールック中の相対移動速度
 000000006E72.07C: NANO
 000000006E73.07C: STUN
@@ -14709,34 +14705,34 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000736F.07C: %1$s 〈グラビトン・サージ〉効率
 000000007370.07C: 〈心頭滅却〉効率
 000000007371.07C: %1$s 〈心頭滅却〉効率
-000000007372.07C: オーストラリア （アウェイ）
-000000007373.07C: オーストラリア （アウェイ予備）
-000000007374.07C: カナダ （アウェイ）
-000000007375.07C: カナダ （アウェイ予備）
-000000007376.07C: カナダ （ホーム）
-000000007377.07C: 中国 （アウェイ）
-000000007378.07C: 中国 （アウェイ予備）
-000000007379.07C: 中国 （ホーム）
-00000000737A.07C: フランス （アウェイ）
-00000000737B.07C: フランス （アウェイ予備）
-00000000737C.07C: フランス （ホーム）
-00000000737D.07C: 韓国 （アウェイ）
-00000000737E.07C: 韓国 （アウェイ予備）
-00000000737F.07C: 韓国 （ホーム）
-000000007380.07C: スウェーデン （アウェイ）
-000000007381.07C: スウェーデン （アウェイ予備）
+000000007372.07C: WCオーストラリア - アウェイ
+000000007373.07C: WCオーストラリア - アウェイ - B
+000000007374.07C: WCカナダ - アウェイ
+000000007375.07C: WCカナダ - アウェイ - B
+000000007376.07C: WCカナダ - ホーム
+000000007377.07C: WC中国 - アウェイ
+000000007378.07C: WC中国 - アウェイ - B
+000000007379.07C: WC中国 - ホーム
+00000000737A.07C: WCフランス - アウェイ
+00000000737B.07C: WCフランス - アウェイ - B
+00000000737C.07C: WCフランス - ホーム
+00000000737D.07C: WC韓国 - アウェイ
+00000000737E.07C: WC韓国 - アウェイ - B
+00000000737F.07C: WC韓国 - ホーム
+000000007380.07C: WCスウェーデン - アウェイ
+000000007381.07C: WCスウェーデン - アウェイ - B
 000000007389.07C: ===マッチ完了！===
 00000000738B.07C: <fg%1$s>%2$s</fg><tx%3$s> が <tx%4$s> を使用
 00000000738C.07C: アルティメット獲得 - フラクション
 00000000738D.07C: %1$s アルティメット獲得 - フラクション
-00000000738F.07C: イギリス （アウェイ）
-000000007390.07C: イギリス （アウェイ予備）
-000000007391.07C: スウェーデン （ホーム）
-000000007392.07C: イギリス （ホーム）
-000000007393.07C: オーストラリア （ホーム）
-000000007394.07C: アメリカ合衆国 （アウェイ）
-000000007395.07C: アメリカ合衆国 （アウェイ予備）
-000000007396.07C: アメリカ合衆国 （ホーム）
+00000000738F.07C: WCイギリス - アウェイ
+000000007390.07C: WCイギリス - アウェイ - B
+000000007391.07C: WCスウェーデン - ホーム
+000000007392.07C: WCイギリス - ホーム
+000000007393.07C: WCオーストラリア - ホーム
+000000007394.07C: WCアメリカ合衆国 - アウェイ
+000000007395.07C: WCアメリカ合衆国 - アウェイ - B
+000000007396.07C: WCアメリカ合衆国 - ホーム
 000000007399.07C: リプレイ
 00000000739A.07C: x|Rfn %1$s:F2;
 0000000073BB.07C: CHATEAU GUILLARD
@@ -14746,10 +14742,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000073CC.07C: カスタム・ゲーム コントロール
 0000000073CE.07C: トーナメント・マッチとして強制セット
 0000000073CF.07C: トーナメント・マッチをクリア
-0000000073D0.07C: OWL PHI （アウェイ）
-0000000073D3.07C: OWL PHI （ホーム）
-0000000073D4.07C: OWL SEO （ホーム）
-0000000073D6.07C: OWL SEO （アウェイ）
+0000000073D0.07C: OWL PHI - アウェイ
+0000000073D3.07C: OWL PHI - ホーム
+0000000073D4.07C: OWL SEO - ホーム
+0000000073D6.07C: OWL SEO - アウェイ
 0000000073D8.07C: tournament.createMatch %1$s %2$s
 0000000073E6.07C: バイオティック・オーブ 最大回復 スカラー
 0000000073E7.07C: バイオティック・オーブ 最大ダメージ スカラー
@@ -14777,6 +14773,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s 〈スリープ・ダーツ〉 命中
 000000007460.07C: 〈パルス・ボム〉 付着率
 000000007461.07C: %1$s 〈パルス・ボム〉 付着率
+000000007465.07C: キャンセル
 000000007472.07C: 〈コアレッセンス〉 - 回復/発動
 000000007473.07C: %1$s 〈コアレッセンス〉 - 回復/発動
 000000007474.07C: 〈コアレッセンス〉 - ダメージ/発動
@@ -14793,8 +14790,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007483.07C: %1$s Biotic Orb Maximum Damage
 000000007489.07C: (割り当てなし)
 00000000748C.07C: イエティ・モード マッチ完了数
-00000000748E.07C: OWL BOS （ホーム）
-00000000748F.07C: OWL BOS （アウェイ）
+00000000748E.07C: OWL BOS - ホーム
+00000000748F.07C: OWL BOS - アウェイ
 000000007494.07C: Round
 000000007495.07C: Final Attempt
 000000007496.07C: 変化
@@ -14803,24 +14800,24 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000749C.07C: 毎日更新
 00000000749D.07C: 毎週更新
 00000000749F.07C: キル - フラクション
-0000000074A0.07C: OWL DAL （アウェイ）
-0000000074A1.07C: OWL DAL （ホーム）
-0000000074A2.07C: OWL FLA （アウェイ）
-0000000074A3.07C: OWL FLA （ホーム）
-0000000074A4.07C: OWL HOU （アウェイ）
-0000000074A5.07C: OWL HOU （ホーム）
-0000000074A6.07C: OWL SHD （ホーム）
-0000000074A7.07C: OWL SHD （アウェイ）
-0000000074A8.07C: OWL SFS （ホーム）
-0000000074A9.07C: OWL SFS （アウェイ）
-0000000074AA.07C: OWL NYE （ホーム）
-0000000074AB.07C: OWL NYE （アウェイ）
-0000000074AC.07C: OWL GLA （ホーム）
-0000000074AD.07C: OWL GLA （アウェイ）
-0000000074AE.07C: OWL VAL  （ホーム）
-0000000074AF.07C: OWL VAL  （アウェイ）
-0000000074B0.07C: OWL LDN （アウェイ）
-0000000074B1.07C: OWL LDN （ホーム）
+0000000074A0.07C: OWL DAL - アウェイ
+0000000074A1.07C: OWL DAL - ホーム
+0000000074A2.07C: OWL FLA - アウェイ
+0000000074A3.07C: OWL FLA - ホーム
+0000000074A4.07C: OWL HOU - アウェイ
+0000000074A5.07C: OWL HOU - ホーム
+0000000074A6.07C: OWL SHD - ホーム
+0000000074A7.07C: OWL SHD - アウェイ
+0000000074A8.07C: OWL SFS - ホーム
+0000000074A9.07C: OWL SFS - アウェイ
+0000000074AA.07C: OWL NYE - ホーム
+0000000074AB.07C: OWL NYE - アウェイ
+0000000074AC.07C: OWL GLA - ホーム
+0000000074AD.07C: OWL GLA - アウェイ
+0000000074AE.07C: OWL VAL - ホーム
+0000000074AF.07C: OWL VAL - アウェイ
+0000000074B0.07C: OWL LDN - アウェイ
+0000000074B1.07C: OWL LDN - ホーム
 0000000074B2.07C: お肉を集めてパワーアップ
 0000000074B3.07C: 本ゲームは'12+' 及び '15+'と、2種類のレーティングがあります。プレイヤーの年齢はログインと同時に自動的に判別されます。12歳～15歳のプレイヤーは'12+'のコンテンツのみ利用でき、12歳未満のプレイヤーには適しておりません
 0000000074B4.07C: すべてのボットを削除
@@ -16154,9 +16151,9 @@ Blizzard Support
 000000008360.07C: Outlaws
 000000008368.07C: 跪き
 00000000836A.07C: チームメイト
-00000000837B.07C: Boston Uprising （アウェイ）
-00000000837F.07C: Dallas Fuel （アウェイ）
-000000008380.07C: Florida Mayhem 2018 （アウェイ）
+00000000837B.07C: Boston Uprising - アウェイ
+00000000837F.07C: Dallas Fuel - アウェイ
+000000008380.07C: Florida Mayhem - アウェイ - 2018
 000000008381.07C: London
 000000008382.07C: LDN
 000000008383.07C: Spitfire
@@ -16181,63 +16178,63 @@ Blizzard Support
 000000008396.07C: Shanghai
 000000008397.07C: SH
 000000008398.07C: Dragons
-000000008399.07C: Houston Outlaws （アウェイ）
-00000000839A.07C: London Spitfire （アウェイ）
-00000000839B.07C: Los Angeles Gladiators （アウェイ）
-00000000839C.07C: Los Angeles Valiant 2018 （アウェイ）
-00000000839D.07C: New York Excelsior （アウェイ）
-00000000839E.07C: Philadelphia Fusion （アウェイ）
-00000000839F.07C: San Francisco Shock 2018 （アウェイ）
-0000000083A0.07C: Seoul Dynasty （アウェイ）
-0000000083A1.07C: Shanghai Dragons （アウェイ）
-0000000083A5.07C: Boston Uprising （アウェイ）
-0000000083A6.07C: Dallas Fuel （アウェイ）
-0000000083A7.07C: Florida Mayhem 2018 （アウェイ）
-0000000083A8.07C: Houston Outlaws （アウェイ）
-0000000083A9.07C: London Spitfire （アウェイ）
-0000000083AA.07C: Los Angeles Gladiators （アウェイ）
-0000000083AB.07C: Los Angeles Valiant 2018 （アウェイ）
-0000000083AC.07C: New York Excelsior （アウェイ）
-0000000083AD.07C: Philadelphia Fusion （アウェイ）
-0000000083AE.07C: San Francisco Shock 2018 （アウェイ）
-0000000083AF.07C: Seoul Dynasty （アウェイ）
-0000000083B0.07C: Shanghai Dragons （アウェイ）
-0000000083B1.07C: Boston Uprising （アウェイ）
-0000000083B2.07C: Dallas Fuel （アウェイ）
-0000000083B3.07C: Florida Mayhem 2018 （アウェイ）
-0000000083B4.07C: Houston Outlaws （アウェイ）
-0000000083B5.07C: London Spitfire （アウェイ）
-0000000083B6.07C: Los Angeles Gladiators （アウェイ）
-0000000083B7.07C: Los Angeles Valiant 2018 （アウェイ）
-0000000083B8.07C: New York Excelsior （アウェイ）
-0000000083B9.07C: Philadelphia Fusion （アウェイ）
-0000000083BA.07C: San Francisco Shock 2018 （アウェイ）
-0000000083BB.07C: Seoul Dynasty （アウェイ）
-0000000083BC.07C: Shanghai Dragons （アウェイ）
-0000000083BD.07C: Boston Uprising （アウェイ）
-0000000083C8.07C: Dallas Fuel （アウェイ）
-0000000083C9.07C: Florida Mayhem 2018 （アウェイ）
-0000000083CA.07C: Houston Outlaws （アウェイ）
-0000000083CB.07C: London Spitfire （アウェイ）
-0000000083CC.07C: Los Angeles Gladiators （アウェイ）
-0000000083CD.07C: Los Angeles Valiant 2018 （アウェイ）
-0000000083CE.07C: New York Excelsior （アウェイ）
-0000000083CF.07C: Philadelphia Fusion （アウェイ）
-0000000083D0.07C: San Francisco Shock 2018 （アウェイ）
-0000000083D1.07C: Seoul Dynasty （アウェイ）
-0000000083D2.07C: Shanghai Dragons （アウェイ）
-0000000083D4.07C: Boston Uprising （アウェイ）
-0000000083D5.07C: Dallas Fuel （アウェイ）
-0000000083D6.07C: Florida Mayhem 2018 （アウェイ）
-0000000083D7.07C: Houston Outlaws （アウェイ）
-0000000083D8.07C: London Spitfire （アウェイ）
-0000000083D9.07C: Los Angeles Gladiators （アウェイ）
-0000000083DA.07C: Los Angeles Valiant 2018 （アウェイ）
-0000000083DB.07C: New York Excelsior （アウェイ）
-0000000083DC.07C: Philadelphia Fusion （アウェイ）
-0000000083DD.07C: San Francisco Shock 2018 （アウェイ）
-0000000083DE.07C: Seoul Dynasty （アウェイ）
-0000000083DF.07C: Shanghai Dragons （アウェイ）
+000000008399.07C: Houston Outlaws - アウェイ
+00000000839A.07C: London Spitfire - アウェイ
+00000000839B.07C: Los Angeles Gladiators - アウェイ
+00000000839C.07C: Los Angeles Valiant - アウェイ - 2018
+00000000839D.07C: New York Excelsior - アウェイ
+00000000839E.07C: Philadelphia Fusion - アウェイ
+00000000839F.07C: San Francisco Shock - アウェイ - 2018
+0000000083A0.07C: Seoul Dynasty - アウェイ
+0000000083A1.07C: Shanghai Dragons - アウェイ
+0000000083A5.07C: Boston Uprising - アウェイ
+0000000083A6.07C: Dallas Fuel - アウェイ
+0000000083A7.07C: Florida Mayhem - アウェイ - 2018
+0000000083A8.07C: Houston Outlaws - アウェイ
+0000000083A9.07C: London Spitfire - アウェイ
+0000000083AA.07C: Los Angeles Gladiators - アウェイ
+0000000083AB.07C: Los Angeles Valiant - アウェイ - 2018
+0000000083AC.07C: New York Excelsior - アウェイ
+0000000083AD.07C: Philadelphia Fusion - アウェイ
+0000000083AE.07C: San Francisco Shock - アウェイ - 2018
+0000000083AF.07C: Seoul Dynasty - アウェイ
+0000000083B0.07C: Shanghai Dragons - アウェイ
+0000000083B1.07C: Boston Uprising - アウェイ
+0000000083B2.07C: Dallas Fuel - アウェイ
+0000000083B3.07C: Florida Mayhem - アウェイ - 2018
+0000000083B4.07C: Houston Outlaws - アウェイ
+0000000083B5.07C: London Spitfire - アウェイ
+0000000083B6.07C: Los Angeles Gladiators - アウェイ
+0000000083B7.07C: Los Angeles Valiant - アウェイ - 2018
+0000000083B8.07C: New York Excelsior - アウェイ
+0000000083B9.07C: Philadelphia Fusion - アウェイ
+0000000083BA.07C: San Francisco Shock - アウェイ - 2018
+0000000083BB.07C: Seoul Dynasty - アウェイ
+0000000083BC.07C: Shanghai Dragons - アウェイ
+0000000083BD.07C: Boston Uprising - アウェイ
+0000000083C8.07C: Dallas Fuel - アウェイ
+0000000083C9.07C: Florida Mayhem - アウェイ - 2018
+0000000083CA.07C: Houston Outlaws - アウェイ
+0000000083CB.07C: London Spitfire - アウェイ
+0000000083CC.07C: Los Angeles Gladiators - アウェイ
+0000000083CD.07C: Los Angeles Valiant - アウェイ - 2018
+0000000083CE.07C: New York Excelsior - アウェイ
+0000000083CF.07C: Philadelphia Fusion - アウェイ
+0000000083D0.07C: San Francisco Shock - アウェイ - 2018
+0000000083D1.07C: Seoul Dynasty - アウェイ
+0000000083D2.07C: Shanghai Dragons - アウェイ
+0000000083D4.07C: Boston Uprising - アウェイ
+0000000083D5.07C: Dallas Fuel - アウェイ
+0000000083D6.07C: Florida Mayhem - アウェイ - 2018
+0000000083D7.07C: Houston Outlaws - アウェイ
+0000000083D8.07C: London Spitfire - アウェイ
+0000000083D9.07C: Los Angeles Gladiators - アウェイ
+0000000083DA.07C: Los Angeles Valiant - アウェイ - 2018
+0000000083DB.07C: New York Excelsior - アウェイ
+0000000083DC.07C: Philadelphia Fusion - アウェイ
+0000000083DD.07C: San Francisco Shock - アウェイ - 2018
+0000000083DE.07C: Seoul Dynasty - アウェイ
+0000000083DF.07C: Shanghai Dragons - アウェイ
 0000000083E5.07C: アーカイブ
 0000000083E7.07C: アサシン
 0000000083E9.07C: オデオレイン
@@ -16254,69 +16251,69 @@ Blizzard Support
 0000000083FE.07C: オグンディム
 000000008400.07C: スペシメン28
 000000008402.07C: コルマール
-000000008406.07C: Boston Uprising （アウェイ）
-00000000840A.07C: Dallas Fuel （アウェイ）
-00000000840B.07C: Florida Mayhem 2018 （アウェイ）
-00000000840C.07C: Houston Outlaws （アウェイ）
-00000000840D.07C: London Spitfire （アウェイ）
-00000000840E.07C: Los Angeles Gladiators （アウェイ）
-00000000840F.07C: Los Angeles Valiant 2018 （アウェイ）
-000000008410.07C: New York Excelsior （アウェイ）
-000000008411.07C: Philadelphia Fusion （アウェイ）
-000000008412.07C: San Francisco Shock 2018 （アウェイ）
-000000008413.07C: Seoul Dynasty （アウェイ）
-000000008414.07C: Shanghai Dragons （アウェイ）
-000000008417.07C: Boston Uprising （アウェイ）
-000000008418.07C: Dallas Fuel （アウェイ）
-000000008419.07C: Florida Mayhem 2018 （アウェイ）
-00000000841A.07C: Houston Outlaws （アウェイ）
-00000000841B.07C: London Spitfire （アウェイ）
-00000000841C.07C: Los Angeles Gladiators （アウェイ）
-00000000841D.07C: Los Angeles Valiant 2018 （アウェイ）
-00000000841E.07C: New York Excelsior （アウェイ）
-00000000841F.07C: Philadelphia Fusion （アウェイ）
-000000008420.07C: San Francisco Shock 2018 （アウェイ）
-000000008421.07C: Seoul Dynasty （アウェイ）
-000000008422.07C: Shanghai Dragons （アウェイ）
+000000008406.07C: Boston Uprising - アウェイ
+00000000840A.07C: Dallas Fuel - アウェイ
+00000000840B.07C: Florida Mayhem - アウェイ - 2018
+00000000840C.07C: Houston Outlaws - アウェイ
+00000000840D.07C: London Spitfire - アウェイ
+00000000840E.07C: Los Angeles Gladiators - アウェイ
+00000000840F.07C: Los Angeles Valiant - アウェイ - 2018
+000000008410.07C: New York Excelsior - アウェイ
+000000008411.07C: Philadelphia Fusion - アウェイ
+000000008412.07C: San Francisco Shock - アウェイ - 2018
+000000008413.07C: Seoul Dynasty - アウェイ
+000000008414.07C: Shanghai Dragons - アウェイ
+000000008417.07C: Boston Uprising - アウェイ
+000000008418.07C: Dallas Fuel - アウェイ
+000000008419.07C: Florida Mayhem - アウェイ - 2018
+00000000841A.07C: Houston Outlaws - アウェイ
+00000000841B.07C: London Spitfire - アウェイ
+00000000841C.07C: Los Angeles Gladiators - アウェイ
+00000000841D.07C: Los Angeles Valiant - アウェイ - 2018
+00000000841E.07C: New York Excelsior - アウェイ
+00000000841F.07C: Philadelphia Fusion - アウェイ
+000000008420.07C: San Francisco Shock - アウェイ - 2018
+000000008421.07C: Seoul Dynasty - アウェイ
+000000008422.07C: Shanghai Dragons - アウェイ
 000000008423.07C: レディ
-000000008448.07C: Boston Uprising （アウェイ）
-00000000844F.07C: Dallas Fuel （アウェイ）
-000000008450.07C: Florida Mayhem 2018 （アウェイ）
-000000008451.07C: Houston Outlaws （アウェイ）
-000000008453.07C: London Spitfire （アウェイ）
-000000008454.07C: Los Angeles Gladiators （アウェイ）
-000000008455.07C: Los Angeles Valiant 2018 （アウェイ）
-000000008456.07C: New York Excelsior （アウェイ）
-000000008457.07C: Philadelphia Fusion （アウェイ）
-000000008458.07C: San Francisco Shock 2018 （アウェイ）
-000000008459.07C: Seoul Dynasty （アウェイ）
-00000000845A.07C: Shanghai Dragons （アウェイ）
-000000008460.07C: Boston Uprising （アウェイ）
-000000008463.07C: Dallas Fuel （アウェイ）
-000000008464.07C: Florida Mayhem 2018 （アウェイ）
-000000008465.07C: Houston Outlaws （アウェイ）
-000000008466.07C: London Spitfire （アウェイ）
-000000008467.07C: Los Angeles Gladiators （アウェイ）
-000000008468.07C: Los Angeles Valiant 2018 （アウェイ）
-000000008469.07C: New York Excelsior （アウェイ）
-00000000846A.07C: Philadelphia Fusion （アウェイ）
-00000000846B.07C: San Francisco Shock 2018 （アウェイ）
-00000000846C.07C: Seoul Dynasty （アウェイ）
-00000000846D.07C: Shanghai Dragons （アウェイ）
-00000000846E.07C: Boston Uprising （アウェイ）
+000000008448.07C: Boston Uprising - アウェイ
+00000000844F.07C: Dallas Fuel - アウェイ
+000000008450.07C: Florida Mayhem - アウェイ - 2018
+000000008451.07C: Houston Outlaws - アウェイ
+000000008453.07C: London Spitfire - アウェイ
+000000008454.07C: Los Angeles Gladiators - アウェイ
+000000008455.07C: Los Angeles Valiant - アウェイ - 2018
+000000008456.07C: New York Excelsior - アウェイ
+000000008457.07C: Philadelphia Fusion - アウェイ
+000000008458.07C: San Francisco Shock - アウェイ - 2018
+000000008459.07C: Seoul Dynasty - アウェイ
+00000000845A.07C: Shanghai Dragons - アウェイ
+000000008460.07C: Boston Uprising - アウェイ
+000000008463.07C: Dallas Fuel - アウェイ
+000000008464.07C: Florida Mayhem - アウェイ - 2018
+000000008465.07C: Houston Outlaws - アウェイ
+000000008466.07C: London Spitfire - アウェイ
+000000008467.07C: Los Angeles Gladiators - アウェイ
+000000008468.07C: Los Angeles Valiant - アウェイ - 2018
+000000008469.07C: New York Excelsior - アウェイ
+00000000846A.07C: Philadelphia Fusion - アウェイ
+00000000846B.07C: San Francisco Shock - アウェイ - 2018
+00000000846C.07C: Seoul Dynasty - アウェイ
+00000000846D.07C: Shanghai Dragons - アウェイ
+00000000846E.07C: Boston Uprising - アウェイ
 000000008470.07C: ヒーラーがいません
 000000008471.07C: タンクがいません
-00000000847F.07C: Dallas Fuel （アウェイ）
-000000008480.07C: Florida Mayhem 2018 （アウェイ）
-000000008481.07C: Houston Outlaws （アウェイ）
-000000008482.07C: London Spitfire （アウェイ）
-000000008483.07C: Los Angeles Gladiators （アウェイ）
-000000008484.07C: Los Angeles Valiant 2018 （アウェイ）
-000000008485.07C: New York Excelsior （アウェイ）
-000000008486.07C: Philadelphia Fusion （アウェイ）
-000000008487.07C: San Francisco Shock 2018 （アウェイ）
-000000008488.07C: Seoul Dynasty （アウェイ）
-000000008489.07C: Shanghai Dragons （アウェイ）
+00000000847F.07C: Dallas Fuel - アウェイ
+000000008480.07C: Florida Mayhem - アウェイ - 2018
+000000008481.07C: Houston Outlaws - アウェイ
+000000008482.07C: London Spitfire - アウェイ
+000000008483.07C: Los Angeles Gladiators - アウェイ
+000000008484.07C: Los Angeles Valiant - アウェイ - 2018
+000000008485.07C: New York Excelsior - アウェイ
+000000008486.07C: Philadelphia Fusion - アウェイ
+000000008487.07C: San Francisco Shock - アウェイ - 2018
+000000008488.07C: Seoul Dynasty - アウェイ
+000000008489.07C: Shanghai Dragons - アウェイ
 00000000848A.07C: ヒーラーが1人しかいません
 00000000848B.07C: タンクが1人しかいません
 000000008492.07C: ストライク・チーム
@@ -16341,171 +16338,171 @@ Blizzard Support
 0000000084A8.07C: 与えたダメージ
 0000000084A9.07C: %1$s 与えたダメージ
 0000000084C0.07C: 蘇生中：
-0000000084DA.07C: Shanghai Dragons （アウェイ）
-0000000084DB.07C: Boston Uprising （アウェイ）
-0000000084DC.07C: Dallas Fuel （アウェイ）
-0000000084DD.07C: Florida Mayhem 2018 （アウェイ）
-0000000084DE.07C: Houston Outlaws （アウェイ）
-0000000084DF.07C: London Spitfire （アウェイ）
-0000000084E0.07C: Los Angeles Gladiators （アウェイ）
-0000000084E1.07C: Los Angeles Valiant 2018 （アウェイ）
-0000000084E2.07C: New York Excelsior （アウェイ）
-0000000084E3.07C: Philadelphia Fusion （アウェイ）
-0000000084E4.07C: San Francisco Shock 2018 （アウェイ）
-0000000084E5.07C: Seoul Dynasty （アウェイ）
+0000000084DA.07C: Shanghai Dragons - アウェイ
+0000000084DB.07C: Boston Uprising - アウェイ
+0000000084DC.07C: Dallas Fuel - アウェイ
+0000000084DD.07C: Florida Mayhem - アウェイ - 2018
+0000000084DE.07C: Houston Outlaws - アウェイ
+0000000084DF.07C: London Spitfire - アウェイ
+0000000084E0.07C: Los Angeles Gladiators - アウェイ
+0000000084E1.07C: Los Angeles Valiant - アウェイ - 2018
+0000000084E2.07C: New York Excelsior - アウェイ
+0000000084E3.07C: Philadelphia Fusion - アウェイ
+0000000084E4.07C: San Francisco Shock - アウェイ - 2018
+0000000084E5.07C: Seoul Dynasty - アウェイ
 0000000084E6.07C: 移動中：
 0000000084E9.07C: ペイロード ライフ・ボーナス
 0000000084EA.07C: 三角フラスコ
 0000000084EB.07C: 跪き
-0000000084FC.07C: Boston Uprising （アウェイ）
-0000000084FD.07C: Dallas Fuel （アウェイ）
-0000000084FE.07C: Florida Mayhem 2018 （アウェイ）
-0000000084FF.07C: Houston Outlaws （アウェイ）
-000000008500.07C: London Spitfire （アウェイ）
-000000008501.07C: Los Angeles Gladiators （アウェイ）
-000000008502.07C: Los Angeles Valiant 2018 （アウェイ）
-000000008503.07C: New York Excelsior （アウェイ）
-000000008504.07C: Philadelphia Fusion （アウェイ）
-000000008505.07C: San Francisco Shock 2018 （アウェイ）
-000000008506.07C: Seoul Dynasty （アウェイ）
-000000008507.07C: Shanghai Dragons （アウェイ）
-000000008508.07C: Boston Uprising （アウェイ）
-000000008509.07C: Dallas Fuel （アウェイ）
-00000000850A.07C: Florida Mayhem 2018 （アウェイ）
-00000000850B.07C: Houston Outlaws （アウェイ）
-00000000850C.07C: London Spitfire （アウェイ）
-00000000850D.07C: Los Angeles Gladiators （アウェイ）
-00000000850E.07C: Los Angeles Valiant 2018 （アウェイ）
-00000000850F.07C: New York Excelsior （アウェイ）
-000000008510.07C: Philadelphia Fusion （アウェイ）
-000000008511.07C: San Francisco Shock 2018 （アウェイ）
-000000008512.07C: Seoul Dynasty （アウェイ）
-000000008513.07C: Shanghai Dragons （アウェイ）
-000000008515.07C: Boston Uprising （アウェイ）
-000000008516.07C: Dallas Fuel （アウェイ）
-000000008517.07C: Florida Mayhem 2018 （アウェイ）
-000000008518.07C: Houston Outlaws （アウェイ）
-000000008519.07C: London Spitfire （アウェイ）
-00000000851A.07C: Los Angeles Gladiators （アウェイ）
-00000000851B.07C: Los Angeles Valiant 2018 （アウェイ）
-00000000851C.07C: New York Excelsior （アウェイ）
-00000000851D.07C: Philadelphia Fusion （アウェイ）
-00000000851E.07C: San Francisco Shock 2018 （アウェイ）
-00000000851F.07C: Seoul Dynasty （アウェイ）
-000000008520.07C: Shanghai Dragons （アウェイ）
+0000000084FC.07C: Boston Uprising - アウェイ
+0000000084FD.07C: Dallas Fuel - アウェイ
+0000000084FE.07C: Florida Mayhem - アウェイ - 2018
+0000000084FF.07C: Houston Outlaws - アウェイ
+000000008500.07C: London Spitfire - アウェイ
+000000008501.07C: Los Angeles Gladiators - アウェイ
+000000008502.07C: Los Angeles Valiant - アウェイ - 2018
+000000008503.07C: New York Excelsior - アウェイ
+000000008504.07C: Philadelphia Fusion - アウェイ
+000000008505.07C: San Francisco Shock - アウェイ - 2018
+000000008506.07C: Seoul Dynasty - アウェイ
+000000008507.07C: Shanghai Dragons - アウェイ
+000000008508.07C: Boston Uprising - アウェイ
+000000008509.07C: Dallas Fuel - アウェイ
+00000000850A.07C: Florida Mayhem - アウェイ - 2018
+00000000850B.07C: Houston Outlaws - アウェイ
+00000000850C.07C: London Spitfire - アウェイ
+00000000850D.07C: Los Angeles Gladiators - アウェイ
+00000000850E.07C: Los Angeles Valiant - アウェイ - 2018
+00000000850F.07C: New York Excelsior - アウェイ
+000000008510.07C: Philadelphia Fusion - アウェイ
+000000008511.07C: San Francisco Shock - アウェイ - 2018
+000000008512.07C: Seoul Dynasty - アウェイ
+000000008513.07C: Shanghai Dragons - アウェイ
+000000008515.07C: Boston Uprising - アウェイ
+000000008516.07C: Dallas Fuel - アウェイ
+000000008517.07C: Florida Mayhem - アウェイ - 2018
+000000008518.07C: Houston Outlaws - アウェイ
+000000008519.07C: London Spitfire - アウェイ
+00000000851A.07C: Los Angeles Gladiators - アウェイ
+00000000851B.07C: Los Angeles Valiant - アウェイ - 2018
+00000000851C.07C: New York Excelsior - アウェイ
+00000000851D.07C: Philadelphia Fusion - アウェイ
+00000000851E.07C: San Francisco Shock - アウェイ - 2018
+00000000851F.07C: Seoul Dynasty - アウェイ
+000000008520.07C: Shanghai Dragons - アウェイ
 000000008523.07C: ブラックウォッチ・パイロット
 00000000852A.07C: プロキシミティ・マイン
-00000000852B.07C: Boston Uprising （アウェイ）
-00000000852C.07C: Dallas Fuel （アウェイ）
-00000000852D.07C: Florida Mayhem 2018 （アウェイ）
-00000000852E.07C: Houston Outlaws （アウェイ）
-00000000852F.07C: London Spitfire （アウェイ）
-000000008530.07C: Los Angeles Gladiators （アウェイ）
-000000008531.07C: Los Angeles Valiant 2018 （アウェイ）
-000000008532.07C: New York Excelsior （アウェイ）
-000000008533.07C: Philadelphia Fusion （アウェイ）
-000000008534.07C: San Francisco Shock 2018 （アウェイ）
-000000008535.07C: Seoul Dynasty （アウェイ）
-000000008536.07C: Shanghai Dragons （アウェイ）
-000000008537.07C: Boston Uprising （アウェイ）
-000000008538.07C: Dallas Fuel （アウェイ）
-000000008539.07C: Florida Mayhem 2018 （アウェイ）
-00000000853A.07C: Houston Outlaws （アウェイ）
-00000000853B.07C: London Spitfire （アウェイ）
-00000000853C.07C: Los Angeles Gladiators （アウェイ）
-00000000853D.07C: Los Angeles Valiant 2018 （アウェイ）
-00000000853E.07C: New York Excelsior （アウェイ）
-00000000853F.07C: Philadelphia Fusion （アウェイ）
-000000008540.07C: San Francisco Shock 2018 （アウェイ）
-000000008541.07C: Seoul Dynasty （アウェイ）
-000000008542.07C: Shanghai Dragons （アウェイ）
-000000008544.07C: Boston Uprising （アウェイ）
-000000008545.07C: Dallas Fuel （アウェイ）
-000000008546.07C: Florida Mayhem 2018 （アウェイ）
-000000008547.07C: Houston Outlaws （アウェイ）
-000000008548.07C: London Spitfire （アウェイ）
-000000008549.07C: Los Angeles Gladiators （アウェイ）
-00000000854A.07C: Los Angeles Valiant 2018 （アウェイ）
-00000000854B.07C: New York Excelsior （アウェイ）
-00000000854C.07C: Philadelphia Fusion （アウェイ）
-00000000854D.07C: San Francisco Shock 2018 （アウェイ）
-00000000854E.07C: Seoul Dynasty （アウェイ）
-00000000854F.07C: Shanghai Dragons （アウェイ）
-000000008552.07C: Boston Uprising （アウェイ）
-000000008553.07C: Dallas Fuel （アウェイ）
-000000008554.07C: Florida Mayhem 2018 （アウェイ）
-000000008555.07C: Houston Outlaws （アウェイ）
-000000008556.07C: London Spitfire （アウェイ）
-000000008557.07C: Los Angeles Gladiators （アウェイ）
-000000008558.07C: Los Angeles Valiant 2018 （アウェイ）
-000000008559.07C: New York Excelsior （アウェイ）
-00000000855A.07C: Philadelphia Fusion （アウェイ）
-00000000855B.07C: San Francisco Shock 2018 （アウェイ）
-00000000855C.07C: Seoul Dynasty （アウェイ）
-00000000855D.07C: Shanghai Dragons （アウェイ）
+00000000852B.07C: Boston Uprising - アウェイ
+00000000852C.07C: Dallas Fuel - アウェイ
+00000000852D.07C: Florida Mayhem - アウェイ - 2018
+00000000852E.07C: Houston Outlaws - アウェイ
+00000000852F.07C: London Spitfire - アウェイ
+000000008530.07C: Los Angeles Gladiators - アウェイ
+000000008531.07C: Los Angeles Valiant - アウェイ - 2018
+000000008532.07C: New York Excelsior - アウェイ
+000000008533.07C: Philadelphia Fusion - アウェイ
+000000008534.07C: San Francisco Shock - アウェイ - 2018
+000000008535.07C: Seoul Dynasty - アウェイ
+000000008536.07C: Shanghai Dragons - アウェイ
+000000008537.07C: Boston Uprising - アウェイ
+000000008538.07C: Dallas Fuel - アウェイ
+000000008539.07C: Florida Mayhem - アウェイ - 2018
+00000000853A.07C: Houston Outlaws - アウェイ
+00000000853B.07C: London Spitfire - アウェイ
+00000000853C.07C: Los Angeles Gladiators - アウェイ
+00000000853D.07C: Los Angeles Valiant - アウェイ - 2018
+00000000853E.07C: New York Excelsior - アウェイ
+00000000853F.07C: Philadelphia Fusion - アウェイ
+000000008540.07C: San Francisco Shock - アウェイ - 2018
+000000008541.07C: Seoul Dynasty - アウェイ
+000000008542.07C: Shanghai Dragons - アウェイ
+000000008544.07C: Boston Uprising - アウェイ
+000000008545.07C: Dallas Fuel - アウェイ
+000000008546.07C: Florida Mayhem - アウェイ - 2018
+000000008547.07C: Houston Outlaws - アウェイ
+000000008548.07C: London Spitfire - アウェイ
+000000008549.07C: Los Angeles Gladiators - アウェイ
+00000000854A.07C: Los Angeles Valiant - アウェイ - 2018
+00000000854B.07C: New York Excelsior - アウェイ
+00000000854C.07C: Philadelphia Fusion - アウェイ
+00000000854D.07C: San Francisco Shock - アウェイ - 2018
+00000000854E.07C: Seoul Dynasty - アウェイ
+00000000854F.07C: Shanghai Dragons - アウェイ
+000000008552.07C: Boston Uprising - アウェイ
+000000008553.07C: Dallas Fuel - アウェイ
+000000008554.07C: Florida Mayhem - アウェイ - 2018
+000000008555.07C: Houston Outlaws - アウェイ
+000000008556.07C: London Spitfire - アウェイ
+000000008557.07C: Los Angeles Gladiators - アウェイ
+000000008558.07C: Los Angeles Valiant - アウェイ - 2018
+000000008559.07C: New York Excelsior - アウェイ
+00000000855A.07C: Philadelphia Fusion - アウェイ
+00000000855B.07C: San Francisco Shock - アウェイ - 2018
+00000000855C.07C: Seoul Dynasty - アウェイ
+00000000855D.07C: Shanghai Dragons - アウェイ
 00000000855F.07C: 任務
-000000008563.07C: Boston Uprising （アウェイ）
-000000008564.07C: Dallas Fuel （アウェイ）
-000000008565.07C: Florida Mayhem 2018 （アウェイ）
-000000008566.07C: Houston Outlaws （アウェイ）
-000000008567.07C: London Spitfire （アウェイ）
-000000008568.07C: Los Angeles Gladiators （アウェイ）
-000000008569.07C: Los Angeles Valiant 2018 （アウェイ）
-00000000856A.07C: New York Excelsior （アウェイ）
-00000000856B.07C: Philadelphia Fusion （アウェイ）
-00000000856C.07C: San Francisco Shock 2018 （アウェイ）
-00000000856D.07C: Seoul Dynasty （アウェイ）
-00000000856E.07C: Shanghai Dragons （アウェイ）
-000000008570.07C: Boston Uprising （アウェイ）
-000000008571.07C: Dallas Fuel （アウェイ）
-000000008572.07C: Florida Mayhem 2018 （アウェイ）
-000000008573.07C: Houston Outlaws （アウェイ）
-000000008574.07C: London Spitfire （アウェイ）
-000000008575.07C: Los Angeles Gladiators （アウェイ）
-000000008576.07C: Los Angeles Valiant 2018 （アウェイ）
-000000008577.07C: New York Excelsior （アウェイ）
-000000008578.07C: Philadelphia Fusion （アウェイ）
-000000008579.07C: San Francisco Shock 2018 （アウェイ）
-00000000857A.07C: Seoul Dynasty （アウェイ）
-00000000857B.07C: Shanghai Dragons （アウェイ）
-00000000857F.07C: Boston Uprising （アウェイ）
-000000008580.07C: Dallas Fuel （アウェイ）
-000000008581.07C: Florida Mayhem 2018 （アウェイ）
-000000008582.07C: Houston Outlaws （アウェイ）
-000000008583.07C: London Spitfire （アウェイ）
-000000008584.07C: Los Angeles Gladiators （アウェイ）
-000000008585.07C: Los Angeles Valiant 2018 （アウェイ）
-000000008587.07C: New York Excelsior （アウェイ）
-000000008588.07C: Philadelphia Fusion （アウェイ）
-000000008589.07C: San Francisco Shock 2018 （アウェイ）
-00000000858A.07C: Seoul Dynasty （アウェイ）
-00000000858B.07C: Shanghai Dragons （アウェイ）
+000000008563.07C: Boston Uprising - アウェイ
+000000008564.07C: Dallas Fuel - アウェイ
+000000008565.07C: Florida Mayhem - アウェイ - 2018
+000000008566.07C: Houston Outlaws - アウェイ
+000000008567.07C: London Spitfire - アウェイ
+000000008568.07C: Los Angeles Gladiators - アウェイ
+000000008569.07C: Los Angeles Valiant - アウェイ - 2018
+00000000856A.07C: New York Excelsior - アウェイ
+00000000856B.07C: Philadelphia Fusion - アウェイ
+00000000856C.07C: San Francisco Shock - アウェイ - 2018
+00000000856D.07C: Seoul Dynasty - アウェイ
+00000000856E.07C: Shanghai Dragons - アウェイ
+000000008570.07C: Boston Uprising - アウェイ
+000000008571.07C: Dallas Fuel - アウェイ
+000000008572.07C: Florida Mayhem - アウェイ - 2018
+000000008573.07C: Houston Outlaws - アウェイ
+000000008574.07C: London Spitfire - アウェイ
+000000008575.07C: Los Angeles Gladiators - アウェイ
+000000008576.07C: Los Angeles Valiant - アウェイ - 2018
+000000008577.07C: New York Excelsior - アウェイ
+000000008578.07C: Philadelphia Fusion - アウェイ
+000000008579.07C: San Francisco Shock - アウェイ - 2018
+00000000857A.07C: Seoul Dynasty - アウェイ
+00000000857B.07C: Shanghai Dragons - アウェイ
+00000000857F.07C: Boston Uprising - アウェイ
+000000008580.07C: Dallas Fuel - アウェイ
+000000008581.07C: Florida Mayhem - アウェイ - 2018
+000000008582.07C: Houston Outlaws - アウェイ
+000000008583.07C: London Spitfire - アウェイ
+000000008584.07C: Los Angeles Gladiators - アウェイ
+000000008585.07C: Los Angeles Valiant - アウェイ - 2018
+000000008587.07C: New York Excelsior - アウェイ
+000000008588.07C: Philadelphia Fusion - アウェイ
+000000008589.07C: San Francisco Shock - アウェイ - 2018
+00000000858A.07C: Seoul Dynasty - アウェイ
+00000000858B.07C: Shanghai Dragons - アウェイ
 000000008594.07C: 完了
 000000008595.07C: 失敗
-00000000859D.07C: Boston Uprising （アウェイ）
-00000000859E.07C: Dallas Fuel （アウェイ）
-00000000859F.07C: Florida Mayhem 2018 （アウェイ）
-0000000085A0.07C: Houston Outlaws （アウェイ）
-0000000085A1.07C: London Spitfire （アウェイ）
-0000000085A2.07C: Los Angeles Gladiators （アウェイ）
-0000000085A3.07C: Los Angeles Valiant 2018 （アウェイ）
-0000000085A4.07C: New York Excelsior （アウェイ）
-0000000085A5.07C: Philadelphia Fusion （アウェイ）
-0000000085A6.07C: San Francisco Shock 2018 （アウェイ）
-0000000085A7.07C: Seoul Dynasty （アウェイ）
-0000000085A8.07C: Shanghai Dragons （アウェイ）
-0000000085A9.07C: Boston Uprising （アウェイ）
-0000000085AA.07C: Dallas Fuel （アウェイ）
-0000000085AB.07C: Florida Mayhem 2018 （アウェイ）
-0000000085AC.07C: Houston Outlaws （アウェイ）
-0000000085AD.07C: London Spitfire （アウェイ）
-0000000085AE.07C: Los Angeles Gladiators （アウェイ）
-0000000085AF.07C: Los Angeles Valiant 2018 （アウェイ）
-0000000085B0.07C: New York Excelsior （アウェイ）
-0000000085B1.07C: Philadelphia Fusion （アウェイ）
-0000000085B2.07C: San Francisco Shock 2018 （アウェイ）
-0000000085B3.07C: Seoul Dynasty （アウェイ）
-0000000085B4.07C: Shanghai Dragons （アウェイ）
+00000000859D.07C: Boston Uprising - アウェイ
+00000000859E.07C: Dallas Fuel - アウェイ
+00000000859F.07C: Florida Mayhem - アウェイ - 2018
+0000000085A0.07C: Houston Outlaws - アウェイ
+0000000085A1.07C: London Spitfire - アウェイ
+0000000085A2.07C: Los Angeles Gladiators - アウェイ
+0000000085A3.07C: Los Angeles Valiant - アウェイ - 2018
+0000000085A4.07C: New York Excelsior - アウェイ
+0000000085A5.07C: Philadelphia Fusion - アウェイ
+0000000085A6.07C: San Francisco Shock - アウェイ - 2018
+0000000085A7.07C: Seoul Dynasty - アウェイ
+0000000085A8.07C: Shanghai Dragons - アウェイ
+0000000085A9.07C: Boston Uprising - アウェイ
+0000000085AA.07C: Dallas Fuel - アウェイ
+0000000085AB.07C: Florida Mayhem - アウェイ - 2018
+0000000085AC.07C: Houston Outlaws - アウェイ
+0000000085AD.07C: London Spitfire - アウェイ
+0000000085AE.07C: Los Angeles Gladiators - アウェイ
+0000000085AF.07C: Los Angeles Valiant - アウェイ - 2018
+0000000085B0.07C: New York Excelsior - アウェイ
+0000000085B1.07C: Philadelphia Fusion - アウェイ
+0000000085B2.07C: San Francisco Shock - アウェイ - 2018
+0000000085B3.07C: Seoul Dynasty - アウェイ
+0000000085B4.07C: Shanghai Dragons - アウェイ
 0000000085BB.07C: RIALTO
 0000000085BC.07C: 「ヴェネツィア事件」の舞台となった街に、再び混乱が訪れる…
 0000000085BD.07C: ウェイトロン
@@ -16518,32 +16515,32 @@ Blizzard Support
 0000000085CA.07C: タロン アサシン
 0000000085CB.07C: タロン ヘビー・アサルト
 0000000085CC.07C: ドロップパチ
-0000000085D9.07C: Boston Uprising （アウェイ）
+0000000085D9.07C: Boston Uprising - アウェイ
 0000000085DA.07C: アーカイブ
-0000000085DC.07C: Dallas Fuel （アウェイ）
-0000000085DD.07C: Florida Mayhem 2018 （アウェイ）
-0000000085DE.07C: Houston Outlaws （アウェイ）
-0000000085DF.07C: London Spitfire （アウェイ）
-0000000085E0.07C: Los Angeles Gladiators （アウェイ）
-0000000085E1.07C: Los Angeles Valiant 2018 （アウェイ）
-0000000085E2.07C: New York Excelsior （アウェイ）
-0000000085E3.07C: Philadelphia Fusion （アウェイ）
-0000000085E4.07C: San Francisco Shock 2018 （アウェイ）
-0000000085E5.07C: Seoul Dynasty （アウェイ）
-0000000085E6.07C: Shanghai Dragons （アウェイ）
-0000000085EF.07C: Boston Uprising （アウェイ）
-0000000085F0.07C: Dallas Fuel （アウェイ）
-0000000085F1.07C: Florida Mayhem 2018 （アウェイ）
-0000000085F2.07C: Houston Outlaws （アウェイ）
-0000000085F3.07C: London Spitfire （アウェイ）
-0000000085F4.07C: Los Angeles Gladiators （アウェイ）
-0000000085F5.07C: Los Angeles Valiant 2018 （アウェイ）
-0000000085F6.07C: New York Excelsior （アウェイ）
-0000000085F7.07C: Philadelphia Fusion （アウェイ）
-0000000085F8.07C: San Francisco Shock 2018 （アウェイ）
-0000000085F9.07C: Seoul Dynasty （アウェイ）
-0000000085FA.07C: Shanghai Dragons （アウェイ）
-0000000085FB.07C: Boston Uprising （アウェイ）
+0000000085DC.07C: Dallas Fuel - アウェイ
+0000000085DD.07C: Florida Mayhem - アウェイ - 2018
+0000000085DE.07C: Houston Outlaws - アウェイ
+0000000085DF.07C: London Spitfire - アウェイ
+0000000085E0.07C: Los Angeles Gladiators - アウェイ
+0000000085E1.07C: Los Angeles Valiant - アウェイ - 2018
+0000000085E2.07C: New York Excelsior - アウェイ
+0000000085E3.07C: Philadelphia Fusion - アウェイ
+0000000085E4.07C: San Francisco Shock - アウェイ - 2018
+0000000085E5.07C: Seoul Dynasty - アウェイ
+0000000085E6.07C: Shanghai Dragons - アウェイ
+0000000085EF.07C: Boston Uprising - アウェイ
+0000000085F0.07C: Dallas Fuel - アウェイ
+0000000085F1.07C: Florida Mayhem - アウェイ - 2018
+0000000085F2.07C: Houston Outlaws - アウェイ
+0000000085F3.07C: London Spitfire - アウェイ
+0000000085F4.07C: Los Angeles Gladiators - アウェイ
+0000000085F5.07C: Los Angeles Valiant - アウェイ - 2018
+0000000085F6.07C: New York Excelsior - アウェイ
+0000000085F7.07C: Philadelphia Fusion - アウェイ
+0000000085F8.07C: San Francisco Shock - アウェイ - 2018
+0000000085F9.07C: Seoul Dynasty - アウェイ
+0000000085FA.07C: Shanghai Dragons - アウェイ
+0000000085FB.07C: Boston Uprising - アウェイ
 0000000085FC.07C: 恥をかかずに済んでよかったな
 0000000085FE.07C: お役に立てればと思って
 000000008600.07C: 間に合いましたね
@@ -16568,29 +16565,29 @@ Blizzard Support
 000000008626.07C: 退屈ね
 000000008628.07C: 時間は私の味方だから
 00000000862A.07C: 狩られるより狩れ
-00000000862C.07C: Dallas Fuel （アウェイ）
-00000000862D.07C: Florida Mayhem 2018 （アウェイ）
-00000000862E.07C: Houston Outlaws （アウェイ）
-00000000862F.07C: London Spitfire （アウェイ）
-000000008630.07C: Los Angeles Gladiators （アウェイ）
-000000008631.07C: Los Angeles Valiant 2018 （アウェイ）
-000000008632.07C: New York Excelsior （アウェイ）
-000000008633.07C: Philadelphia Fusion （アウェイ）
-000000008634.07C: San Francisco Shock 2018 （アウェイ）
-000000008635.07C: Seoul Dynasty （アウェイ）
-000000008636.07C: Shanghai Dragons （アウェイ）
-000000008637.07C: Boston Uprising （アウェイ）
-000000008638.07C: Dallas Fuel （アウェイ）
-000000008639.07C: Florida Mayhem 2018 （アウェイ）
-00000000863A.07C: Houston Outlaws （アウェイ）
-00000000863B.07C: London Spitfire （アウェイ）
-00000000863C.07C: Los Angeles Gladiators （アウェイ）
-00000000863D.07C: Los Angeles Valiant 2018 （アウェイ）
-00000000863E.07C: New York Excelsior （アウェイ）
-00000000863F.07C: Philadelphia Fusion （アウェイ）
-000000008640.07C: San Francisco Shock 2018 （アウェイ）
-000000008641.07C: Seoul Dynasty （アウェイ）
-000000008642.07C: Shanghai Dragons （アウェイ）
+00000000862C.07C: Dallas Fuel - アウェイ
+00000000862D.07C: Florida Mayhem - アウェイ - 2018
+00000000862E.07C: Houston Outlaws - アウェイ
+00000000862F.07C: London Spitfire - アウェイ
+000000008630.07C: Los Angeles Gladiators - アウェイ
+000000008631.07C: Los Angeles Valiant - アウェイ - 2018
+000000008632.07C: New York Excelsior - アウェイ
+000000008633.07C: Philadelphia Fusion - アウェイ
+000000008634.07C: San Francisco Shock - アウェイ - 2018
+000000008635.07C: Seoul Dynasty - アウェイ
+000000008636.07C: Shanghai Dragons - アウェイ
+000000008637.07C: Boston Uprising - アウェイ
+000000008638.07C: Dallas Fuel - アウェイ
+000000008639.07C: Florida Mayhem - アウェイ - 2018
+00000000863A.07C: Houston Outlaws - アウェイ
+00000000863B.07C: London Spitfire - アウェイ
+00000000863C.07C: Los Angeles Gladiators - アウェイ
+00000000863D.07C: Los Angeles Valiant - アウェイ - 2018
+00000000863E.07C: New York Excelsior - アウェイ
+00000000863F.07C: Philadelphia Fusion - アウェイ
+000000008640.07C: San Francisco Shock - アウェイ - 2018
+000000008641.07C: Seoul Dynasty - アウェイ
+000000008642.07C: Shanghai Dragons - アウェイ
 000000008643.07C: 貴様の意見など聞いていない
 000000008645.07C: もっとできるヤツだと思っていたが
 000000008647.07C: 私は救世主などではない
@@ -16620,6 +16617,7 @@ Blizzard Support
 000000008670.07C: 広範囲に<br>感知式<br>地雷を<br>展開<br>する
 000000008671.07C: アルティメット獲得 - フラクション
 000000008672.07C: %1$s アルティメット獲得 - フラクション
+000000008684.07C: エコー
 000000008687.07C: 自分のチーム
 000000008688.07C: 敵チーム
 00000000868A.07C: OWL All Stars 2018 Atlantic
@@ -17139,6 +17137,7 @@ Blizzard Support
 000000008F7B.07C: 戻る
 000000008F7D.07C: ランニング
 000000008FE9.07C: 現在のグループ設定ではマッチに参加できません
+000000008FEA.07C: 
 000000008FEC.07C: ピース
 000000008FED.07C: だらり
 000000008FEE.07C: トップ
@@ -17175,23 +17174,23 @@ Blizzard Support
 00000000908D.07C: サーブ
 00000000909E.07C: レッキング・ボール トレジャー・<br>ボックス
 0000000090A1.07C: グループのロール設定:
-0000000090BC.07C: Expansion01 （ホーム）
+0000000090BC.07C: Expansion01 - ホーム
 0000000090BD.07C: %1$s レッキング・ボール トレジャー・<br>ボックス
 0000000090BE.07C: オートマチック・<br>ウェポン
 0000000090BF.07C: プレイヤーを探す
 0000000090C0.07C: プレイヤーを探す
-0000000090C1.07C: フィンランド （ホーム）
+0000000090C1.07C: WCフィンランド - ホーム
 0000000090C2.07C: <tx%1$s> 長押し / プレイヤーを探す
 0000000090C3.07C: %1$s をプレイ
 0000000090C4.07C: %1$s をプレイ
 0000000090C5.07C: <tx%1$s> 長押し / %1$s をプレイ
-0000000090C6.07C: 香港 （ホーム）
-0000000090C7.07C: 台北 （ホーム）
+0000000090C6.07C: WC香港 - ホーム
+0000000090C7.07C: WC台北 - ホーム
 0000000090C8.07C: メダル
-0000000090C9.07C: 日本 （ホーム）
+0000000090C9.07C: WC日本 - ホーム
 0000000090CA.07C: ゴールキーパー
 0000000090CB.07C: サマー・<br>ゲーム <br>トレジャー・<br>ボックスで<br>入手可能
-0000000090CC.07C: ロシア （ホーム）
+0000000090CC.07C: WCロシア - ホーム
 0000000090CD.07C: ハンマー投げ
 0000000090CE.07C: サマー・<br>ゲーム <br>トレジャー・<br>ボックスで<br>入手可能
 0000000090CF.07C: ボウリング
@@ -17208,12 +17207,11 @@ Blizzard Support
 0000000090E1.07C: レッキング・ボールは遺伝子操作され、高い知能を誇るハムスターのハモンドによって操作されている。ハモンドは冒険を求め、今日も世界中を旅している
 0000000090E2.07C: アッシュは<br>アメリカ<br>南西部を<br>縄張りと<br>する、<br>名高き<br>デッド<br>ロック・<br>ギャングの<br>リーダーで<br>ある
 0000000090E7.07C: ショップ
-0000000090E8.07C: ディビジョン・スキン
-0000000090F2.07C: 日本 （アウェイ）
-0000000090F3.07C: 台北 （アウェイ）
-0000000090F4.07C: ロシア （アウェイ）
-0000000090F5.07C: フィンランド （アウェイ）
-0000000090F6.07C: 香港 （アウェイ）
+0000000090F2.07C: WC日本 - アウェイ
+0000000090F3.07C: WC台北 - アウェイ
+0000000090F4.07C: WCロシア - アウェイ
+0000000090F5.07C: WCフィンランド - アウェイ
+0000000090F6.07C: WC香港 - アウェイ
 0000000090F9.07C: レッキング・ボールは、ジャンカータウンの闘技場「スクラップヤード」で数々の勝利を収め、チャンピオンになった
 0000000090FA.07C: ハモンドは自作の脱出ポッドをウィンストンの船に固定し、共にホライゾン・ルナ・コロニーから地球に逃げた
 00000000911A.07C: A
@@ -17221,10 +17219,10 @@ Blizzard Support
 000000009120.07C: ウォッチパーティー: ジブラルタル
 000000009121.07C: No.1 ファン
 000000009122.07C: リビングルーム
-00000000912B.07C: P2Pコンテンダーズ （アウェイ）
-00000000912C.07C: P2Pコンテンダーズ （ホーム）
-00000000912D.07C: OWLキャプチャー （アウェイ）
-00000000912E.07C: OWLキャプチャー （ホーム）
+00000000912B.07C: P2Pコンテンダーズ - アウェイ
+00000000912C.07C: P2Pコンテンダーズ - ホーム
+00000000912D.07C: OWLキャプチャー - アウェイ
+00000000912E.07C: OWLキャプチャー - ホーム
 000000009134.07C: ダメージ - メイン攻撃
 000000009135.07C: %1$s 与えたダメージ
 000000009136.07C: ダメージ - パイルドライバー
@@ -17334,14 +17332,14 @@ Blizzard Support
 0000000091B0.07C: %1$s プレイヤー・ノックバック - 10分平均値
 0000000091B1.07C: 最多ノックバック/マッチ
 0000000091B2.07C: %1$s 最多ノックバック/マッチ
-0000000091B3.07C: ノルウェー （ホーム）
+0000000091B3.07C: WCノルウェー - ホーム
 0000000091B5.07C: 発言禁止アカウントのため利用できません
 0000000091B6.07C: アカウント制限のため利用できません
-0000000091BC.07C: スイス （ホーム）
-0000000091BD.07C: オーストリア （ホーム）
-0000000091BE.07C: ブラジル （ホーム）
-0000000091C7.07C: デンマーク （ホーム）
-0000000091CB.07C: 視聴
+0000000091BC.07C: WCスイス - ホーム
+0000000091BD.07C: WCオーストリア - ホーム
+0000000091BE.07C: WCブラジル - ホーム
+0000000091C7.07C: WCデンマーク - ホーム
+0000000091CB.07C: 配信をチェック！
 0000000091CC.07C: アダプテーション
 0000000091CD.07C: レッキング・ボールを使用し、一度も死なずに〈アダプティブ・シールド〉で1500ダメージを吸収する（クイックもしくはライバル・プレイ）
 0000000091CE.07C: 9月30日（月）04:00
@@ -17453,38 +17451,38 @@ Blizzard Support
 00000000929A.07C: 敵にダメージを<br>与える<br>高熱<br>スラグを<br>地面に<br>ばらまく。<br>アーマーには、<br>より<br>高い<br>ダメージを<br>与える
 00000000929D.07C: フォージ・ハンマー
 00000000929E.07C: ハンマーで<br>タレットの<br>修理を<br>行う。<br>敵を<br>殴打して<br>ダメージを<br>与える<br>ことも<br>可能
-00000000929F.07C: タイ （ホーム）
-0000000092A1.07C: スペイン （ホーム）
-0000000092A2.07C: ポーランド （ホーム）
-0000000092A3.07C: イタリア （ホーム）
-0000000092A4.07C: オランダ （ホーム）
-0000000092A9.07C: オランダ （アウェイ）
-0000000092AA.07C: ポーランド （アウェイ）
-0000000092AB.07C: イタリア （アウェイ）
-0000000092AC.07C: ドイツ （アウェイ）
-0000000092AD.07C: ドイツ （ホーム）
-0000000092AE.07C: オーストリア （アウェイ）
-0000000092AF.07C: ブラジル （アウェイ）
-0000000092B0.07C: ノルウェー （アウェイ）
-0000000092B1.07C: スイス （アウェイ）
-0000000092B2.07C: デンマーク （アウェイ）
-0000000092B3.07C: スペイン （アウェイ）
-0000000092B4.07C: タイ （アウェイ）
-0000000092B5.07C: Expansion02 （ホーム）
-0000000092B6.07C: Expansion03 （ホーム）
-0000000092B7.07C: Expansion04 （ホーム）
-0000000092B8.07C: Expansion05 （ホーム）
-0000000092BD.07C: Expansion09 （ホーム）
+00000000929F.07C: WCタイ - ホーム
+0000000092A1.07C: WCスペイン - ホーム
+0000000092A2.07C: WCポーランド - ホーム
+0000000092A3.07C: WCイタリア - ホーム
+0000000092A4.07C: WCオランダ - ホーム
+0000000092A9.07C: WCオランダ - アウェイ
+0000000092AA.07C: WCポーランド - アウェイ
+0000000092AB.07C: WCイタリア - アウェイ
+0000000092AC.07C: WCドイツ - アウェイ
+0000000092AD.07C: WCドイツ - ホーム
+0000000092AE.07C: WCオーストリア - アウェイ
+0000000092AF.07C: WCブラジル - アウェイ
+0000000092B0.07C: WCノルウェー - アウェイ
+0000000092B1.07C: WCスイス - アウェイ
+0000000092B2.07C: WCデンマーク - アウェイ
+0000000092B3.07C: WCスペイン - アウェイ
+0000000092B4.07C: WCタイ - アウェイ
+0000000092B5.07C: Expansion02 - ホーム
+0000000092B6.07C: Expansion03 - ホーム
+0000000092B7.07C: Expansion04 - ホーム
+0000000092B8.07C: Expansion05 - ホーム
+0000000092BD.07C: Expansion09 - ホーム
 0000000092BE.07C: リフレッシュ
 0000000092BF.07C: 2018 Pacific All-Stars
 0000000092C1.07C: 2018 Atlantic All-Stars
-0000000092C2.07C: Expansion10 （ホーム）
-0000000092C3.07C: Expansion11 （ホーム）
-0000000092C4.07C: Expansion12 （ホーム）
-0000000092C5.07C: Expansion13 （ホーム）
-0000000092C7.07C: Expansion14 （ホーム）
-0000000092C8.07C: Expansion15 （ホーム）
-0000000092C9.07C: Expansion16 （ホーム）
+0000000092C2.07C: Expansion10 - ホーム
+0000000092C3.07C: Expansion11 - ホーム
+0000000092C4.07C: Expansion12 - ホーム
+0000000092C5.07C: Expansion13 - ホーム
+0000000092C7.07C: Expansion14 - ホーム
+0000000092C8.07C: Expansion15 - ホーム
+0000000092C9.07C: Expansion16 - ホーム
 000000009300.07C: ジャック・オー・ランタン
 000000009301.07C: ハーイ！
 000000009303.07C: キラキラ
@@ -17494,8 +17492,8 @@ Blizzard Support
 000000009307.07C: 睡魔
 000000009308.07C: ポップコーン
 000000009309.07C: びっくり
-00000000930A.07C: Expansion17 （ホーム）
-00000000930B.07C: Expansion18 （ホーム）
+00000000930A.07C: Expansion17 - ホーム
+00000000930B.07C: Expansion18 - ホーム
 00000000930C.07C: ミステリー・デスマッチ
 00000000930D.07C: トップを目指せ！リスポーンごとにヒーローがランダムで決まるデスマッチ
 00000000930E.07C: デスマッチ
@@ -17504,7 +17502,7 @@ Blizzard Support
 00000000932F.07C: はい
 000000009330.07C: いいえ
 000000009331.07C: 新着情報
-000000009333.07C: Expansion20 （ホーム）
+000000009333.07C: Expansion20 - ホーム
 000000009334.07C: 報酬
 000000009335.07C: 終了:
 000000009336.07C: 新アイテム
@@ -17537,18 +17535,18 @@ Blizzard Support
 00000000936C.07C: Seoul Dynasty
 00000000936D.07C: Shanghai Dragons
 000000009372.07C: ルシオボール
-00000000937B.07C: Boston Uprising （アウェイ）
-00000000937C.07C: Dallas Fuel （アウェイ）
-00000000937D.07C: Florida Mayhem 2018 （アウェイ）
-00000000937E.07C: Houston Outlaws （アウェイ）
-00000000937F.07C: London Spitfire （アウェイ）
-000000009380.07C: Los Angeles Gladiators （アウェイ）
-000000009381.07C: Los Angeles Valiant 2018 （アウェイ）
-000000009382.07C: New York Excelsior （アウェイ）
-000000009383.07C: Philadelphia Fusion （アウェイ）
-000000009384.07C: San Francisco Shock 2018 （アウェイ）
-000000009385.07C: Seoul Dynasty （アウェイ）
-000000009386.07C: Shanghai Dragons （アウェイ）
+00000000937B.07C: Boston Uprising - アウェイ
+00000000937C.07C: Dallas Fuel - アウェイ
+00000000937D.07C: Florida Mayhem - アウェイ - 2018
+00000000937E.07C: Houston Outlaws - アウェイ
+00000000937F.07C: London Spitfire - アウェイ
+000000009380.07C: Los Angeles Gladiators - アウェイ
+000000009381.07C: Los Angeles Valiant - アウェイ - 2018
+000000009382.07C: New York Excelsior - アウェイ
+000000009383.07C: Philadelphia Fusion - アウェイ
+000000009384.07C: San Francisco Shock - アウェイ - 2018
+000000009385.07C: Seoul Dynasty - アウェイ
+000000009386.07C: Shanghai Dragons - アウェイ
 000000009390.07C: 参加して報酬をゲット！
 000000009393.07C: オーバーウォッチ リーグ - グレー
 000000009394.07C: オーバーウォッチ リーグ - ホワイト
@@ -17573,8 +17571,6 @@ Blizzard Support
 0000000093F6.07C: ライバル・プレイ
 000000009411.07C: バティスト
 000000009413.07C: All-Star
-000000009414.07C: Pacific
-000000009415.07C: Atlantic
 000000009419.07C: PH Text
 00000000941A.07C: すべての %1$s アイテムを購入しますか？
 00000000941B.07C: D.Vaのナノ・コーラ チャレンジに参加してアンロック
@@ -17789,12 +17785,12 @@ Blizzard Support
 000000009E9C.07C: VS
 000000009E9E.07C: シグマ
 000000009E9F.07C: ヒロイック
-000000009EB1.07C: 〈ロケット・<br>ハンマー〉は<br>軌道上の<br>すべての<br>敵に<br>ダメージを<br>与えるぞ
-000000009EB2.07C: 〈ロケット・<br>ハンマー〉は<br>敵の<br>バリアを<br>貫通<br>するぞ
-000000009EB3.07C: 〈バリア・<br>フィールド〉を<br>使えば、<br>自分<br>だけで<br>なく<br>味方も<br>守れるぞ
-000000009EB4.07C: 〈ファイア・<br>ストライク〉は<br>軌道上の<br>すべての<br>敵<br> (バリア<br>含む) を<br>貫通<br>するぞ
-000000009EB5.07C: 〈ファイア・<br>ストライク〉は、<br>タレットや<br>〈セントリー・<br>モード〉の<br>バスティオン<br>など、<br>動けない<br>相手に<br>対して<br>有効だ
-000000009EB6.07C: 〈グラビティ・フラックス〉で<br>敵を<br>宙に<br>持ち上げて<br>敵チームや<br>目標から<br>遠ざける<br>ことも<br>できるぞ
+000000009EB1.07C: 〈フライト〉<br>中に<br>ジャンプ<br>ボタンを<br>長押し<br>すれば<br>上空へ<br>高く<br>飛び上がる<br>ことが<br>できるぞ
+000000009EB2.07C: 〈コピー〉を<br>発動すると<br>ライフを<br>完全に<br>回復するので、<br>瀕死時に<br>使うと<br>効果的だ
+000000009EB3.07C: 〈フォーカス・<br>ビーム〉は<br>ライフが<br>半分以上<br>残っている<br>敵には<br>あまり<br>効果的<br>ではないが、<br>ライフが<br>半分未満の<br>敵には<br>非常に<br>高い<br>ダメージを<br>与えるぞ
+000000009EB4.07C: 仲間が<br>複数の<br>敵の<br>ライフを<br>半分未満に<br>まで<br>削ったら<br>〈フォーカス・<br>ビーム〉で<br>一掃しよう
+000000009EB5.07C: 〈スティッキー・<br>ボム〉の<br>直後に<br>〈フォーカス・<br>ビーム〉を<br>使えば、<br>短い<br>時間で<br>強大な<br>ダメージを<br>与えられるぞ
+000000009EB6.07C: 〈フライト〉<br>発動中に<br>〈コピー〉を<br>使用して<br>上空から<br>奇襲を<br>かけよう
 000000009EBB.07C: バレットウォーク
 000000009EBF.07C: トリック・オア・トリート
 000000009EC0.07C: ハロウィン <br>トレジャー・<br>ボックスで<br>入手<br>可能
@@ -18180,8 +18176,8 @@ Blizzard Support
 00000000A590.07C: ストーム・ライジング
 00000000A597.07C: ストーム・ライジング（全ヒーロー）
 00000000A599.07C: タロンの<br>重要目標を<br>確保<br>すべく、<br>新たな<br>オーバー<br>ウォッチの<br>ストライク・<br>チームが<br>ハバナへ<br>派遣された
-00000000A5A2.07C: OWL ATL （アウェイ）
-00000000A5A3.07C: OWL ATL （ホーム）
+00000000A5A2.07C: OWL ATL - アウェイ
+00000000A5A3.07C: OWL ATL - ホーム
 00000000A5AB.07C: 81d5b473-4edf-40fb-9204-0d7b6dabb61f
 00000000A5AF.07C: 導火線
 00000000A5B8.07C: 花火
@@ -18233,18 +18229,18 @@ Blizzard Support
 00000000A7ED.07C: Philadelphia Fusion
 00000000A7EE.07C: San Francisco Shock 2018
 00000000A7EF.07C: Seoul Dynasty
-00000000A7F0.07C: Boston Uprising （アウェイ）
-00000000A7F1.07C: Dallas Fuel （アウェイ）
-00000000A7F2.07C: Florida Mayhem 2018 （アウェイ）
-00000000A7F3.07C: Houston Outlaws （アウェイ）
-00000000A7F4.07C: Los Angeles Gladiators （アウェイ）
-00000000A7F5.07C: London Spitfire （アウェイ）
-00000000A7F6.07C: Los Angeles Valiant 2018 （アウェイ）
-00000000A7F7.07C: New York Excelsior （アウェイ）
-00000000A7F8.07C: Philadelphia Fusion （アウェイ）
-00000000A7F9.07C: San Francisco Shock 2018 （アウェイ）
-00000000A7FA.07C: Seoul Dynasty （アウェイ）
-00000000A7FB.07C: Shanghai Dragons （アウェイ）
+00000000A7F0.07C: Boston Uprising - アウェイ
+00000000A7F1.07C: Dallas Fuel - アウェイ
+00000000A7F2.07C: Florida Mayhem - アウェイ - 2018
+00000000A7F3.07C: Houston Outlaws - アウェイ
+00000000A7F4.07C: Los Angeles Gladiators - アウェイ
+00000000A7F5.07C: London Spitfire - アウェイ
+00000000A7F6.07C: Los Angeles Valiant - アウェイ - 2018
+00000000A7F7.07C: New York Excelsior - アウェイ
+00000000A7F8.07C: Philadelphia Fusion - アウェイ
+00000000A7F9.07C: San Francisco Shock - アウェイ - 2018
+00000000A7FA.07C: Seoul Dynasty - アウェイ
+00000000A7FB.07C: Shanghai Dragons - アウェイ
 00000000A806.07C: プレイバック速度の減少
 00000000A807.07C: プレイバック速度の上昇
 00000000A808.07C: バステト
@@ -18270,12 +18266,20 @@ Blizzard Support
 00000000A913.07C: ライバル CTF シーズン2
 00000000A914.07C: CTF: BUSAN
 00000000A915.07C: 6人<br>チーム、<br>BUSAN<br>限定。<br>自分の<br>フラッグを<br>守り<br>ながら、<br>敵の<br>フラッグを<br>奪おう
+00000000A91F.07C: スティッキー・ボム
+00000000A920.07C: 時間差で起爆する粘着性の爆弾を一斉に発射する
+00000000A922.07C: コピー
+00000000A923.07C: ターゲットにした敵ヒーローをコピーする。発動中、敵はヒーローを変更できなくなる
+00000000A927.07C: トライ・ショット
+00000000A928.07C: トライアングル状に同時に3発の弾を発射する
+00000000A929.07C: フライト
+00000000A92A.07C: 前方に急上昇し、自由に飛び回る
 00000000A933.07C: BLIZZARD WORLD （ウィンター）
-00000000A939.07C: OWL TOR （アウェイ）
-00000000A93A.07C: OWL CDH （アウェイ）
-00000000A93B.07C: OWL PAR （アウェイ）
-00000000A93C.07C: OWL HZS （アウェイ）
-00000000A93D.07C: OWL WAS （アウェイ）
+00000000A939.07C: OWL TOR - アウェイ
+00000000A93A.07C: OWL CDH - アウェイ
+00000000A93B.07C: OWL PAR - アウェイ
+00000000A93C.07C: OWL HZS - アウェイ
+00000000A93D.07C: OWL WAS - アウェイ
 00000000A945.07C: いい季節
 00000000A946.07C: ウィンター <br>トレジャー・<br>ボックスで<br>入手<br>可能
 00000000A948.07C: ウィンター <br>トレジャー・<br>ボックスで<br>入手<br>可能
@@ -18309,15 +18313,15 @@ Blizzard Support
 00000000A977.07C: ウィンター <br>トレジャー・<br>ボックスで<br>入手<br>可能
 00000000A978.07C: 雪合戦に興じてみないか？
 00000000A97A.07C: 2018年11月の<br>フリー<br>トライアル中に<br>対象<br>配信を<br>視聴<br>して<br>アンロック
-00000000A983.07C: OWL HZS （ホーム）
-00000000A984.07C: OWL GZC （ホーム）
-00000000A985.07C: OWL CDH （ホーム）
-00000000A986.07C: OWL PAR （ホーム）
-00000000A987.07C: OWL TOR （ホーム）
-00000000A988.07C: OWL VAN （ホーム）
-00000000A989.07C: OWL WAS （ホーム）
-00000000A9D5.07C: OWL GZC （アウェイ）
-00000000A9D6.07C: OWL VAN （アウェイ）
+00000000A983.07C: OWL HZS - ホーム
+00000000A984.07C: OWL GZC - ホーム
+00000000A985.07C: OWL CDH - ホーム
+00000000A986.07C: OWL PAR - ホーム
+00000000A987.07C: OWL TOR - ホーム
+00000000A988.07C: OWL VAN - ホーム
+00000000A989.07C: OWL WAS - ホーム
+00000000A9D5.07C: OWL GZC - アウェイ
+00000000A9D6.07C: OWL VAN - アウェイ
 00000000A9D7.07C: オーナメント
 00000000A9D8.07C: ウィンター <br>トレジャー・<br>ボックスで<br>入手<br>可能
 00000000A9D9.07C: オーナメント
@@ -18597,35 +18601,35 @@ Blizzard Support
 00000000ADB8.07C: Reign
 00000000ADEE.07C: Chengdu Hunters
 00000000ADEF.07C: Chengdu Hunters
-00000000ADF0.07C: Chengdu Hunters （アウェイ）
-00000000ADF1.07C: Chengdu Hunters （アウェイ）
-00000000ADF2.07C: Chengdu Hunters （アウェイ）
-00000000ADF3.07C: Chengdu Hunters （アウェイ）
-00000000ADF4.07C: Chengdu Hunters （アウェイ）
-00000000ADF5.07C: Chengdu Hunters （アウェイ）
-00000000ADF6.07C: Chengdu Hunters （アウェイ）
-00000000ADF7.07C: Chengdu Hunters （アウェイ）
-00000000ADF8.07C: Chengdu Hunters （アウェイ）
-00000000ADF9.07C: Chengdu Hunters （アウェイ）
-00000000ADFA.07C: Chengdu Hunters （アウェイ）
-00000000ADFB.07C: Chengdu Hunters （アウェイ）
-00000000ADFC.07C: Chengdu Hunters （アウェイ）
-00000000ADFD.07C: Chengdu Hunters （アウェイ）
-00000000ADFE.07C: Chengdu Hunters （アウェイ）
-00000000ADFF.07C: Chengdu Hunters （アウェイ）
-00000000AE00.07C: Chengdu Hunters （アウェイ）
-00000000AE01.07C: Chengdu Hunters （アウェイ）
-00000000AE02.07C: Chengdu Hunters （アウェイ）
-00000000AE03.07C: Chengdu Hunters （アウェイ）
-00000000AE04.07C: Chengdu Hunters （アウェイ）
-00000000AE05.07C: Chengdu Hunters （アウェイ）
-00000000AE06.07C: Chengdu Hunters （アウェイ）
-00000000AE07.07C: Chengdu Hunters （アウェイ）
-00000000AE08.07C: Chengdu Hunters （アウェイ）
-00000000AE09.07C: Chengdu Hunters （アウェイ）
-00000000AE0A.07C: Chengdu Hunters （アウェイ）
-00000000AE0B.07C: Chengdu Hunters （アウェイ）
-00000000AE0C.07C: Chengdu Hunters （アウェイ）
+00000000ADF0.07C: Chengdu Hunters - アウェイ
+00000000ADF1.07C: Chengdu Hunters - アウェイ
+00000000ADF2.07C: Chengdu Hunters - アウェイ
+00000000ADF3.07C: Chengdu Hunters - アウェイ
+00000000ADF4.07C: Chengdu Hunters - アウェイ
+00000000ADF5.07C: Chengdu Hunters - アウェイ
+00000000ADF6.07C: Chengdu Hunters - アウェイ
+00000000ADF7.07C: Chengdu Hunters - アウェイ
+00000000ADF8.07C: Chengdu Hunters - アウェイ
+00000000ADF9.07C: Chengdu Hunters - アウェイ
+00000000ADFA.07C: Chengdu Hunters - アウェイ
+00000000ADFB.07C: Chengdu Hunters - アウェイ
+00000000ADFC.07C: Chengdu Hunters - アウェイ
+00000000ADFD.07C: Chengdu Hunters - アウェイ
+00000000ADFE.07C: Chengdu Hunters - アウェイ
+00000000ADFF.07C: Chengdu Hunters - アウェイ
+00000000AE00.07C: Chengdu Hunters - アウェイ
+00000000AE01.07C: Chengdu Hunters - アウェイ
+00000000AE02.07C: Chengdu Hunters - アウェイ
+00000000AE03.07C: Chengdu Hunters - アウェイ
+00000000AE04.07C: Chengdu Hunters - アウェイ
+00000000AE05.07C: Chengdu Hunters - アウェイ
+00000000AE06.07C: Chengdu Hunters - アウェイ
+00000000AE07.07C: Chengdu Hunters - アウェイ
+00000000AE08.07C: Chengdu Hunters - アウェイ
+00000000AE09.07C: Chengdu Hunters - アウェイ
+00000000AE0A.07C: Chengdu Hunters - アウェイ
+00000000AE0B.07C: Chengdu Hunters - アウェイ
+00000000AE0C.07C: Chengdu Hunters - アウェイ
 00000000AE0D.07C: Chengdu Hunters
 00000000AE0E.07C: Chengdu Hunters
 00000000AE0F.07C: Chengdu Hunters
@@ -18653,35 +18657,35 @@ Blizzard Support
 00000000AE25.07C: Chengdu Hunters
 00000000AE26.07C: Chengdu Hunters
 00000000AE27.07C: Chengdu Hunters
-00000000AE28.07C: Guangzhou Charge （アウェイ）
-00000000AE29.07C: Guangzhou Charge （アウェイ）
-00000000AE2A.07C: Guangzhou Charge （アウェイ）
-00000000AE2B.07C: Guangzhou Charge （アウェイ）
-00000000AE2C.07C: Guangzhou Charge （アウェイ）
-00000000AE2D.07C: Guangzhou Charge （アウェイ）
-00000000AE2E.07C: Guangzhou Charge （アウェイ）
-00000000AE2F.07C: Guangzhou Charge （アウェイ）
-00000000AE30.07C: Guangzhou Charge （アウェイ）
-00000000AE31.07C: Guangzhou Charge （アウェイ）
-00000000AE32.07C: Guangzhou Charge （アウェイ）
-00000000AE33.07C: Guangzhou Charge （アウェイ）
-00000000AE34.07C: Guangzhou Charge （アウェイ）
-00000000AE35.07C: Guangzhou Charge （アウェイ）
-00000000AE36.07C: Guangzhou Charge （アウェイ）
-00000000AE37.07C: Guangzhou Charge （アウェイ）
-00000000AE38.07C: Guangzhou Charge （アウェイ）
-00000000AE39.07C: Guangzhou Charge （アウェイ）
-00000000AE3A.07C: Guangzhou Charge （アウェイ）
-00000000AE3B.07C: Guangzhou Charge （アウェイ）
-00000000AE3C.07C: Guangzhou Charge （アウェイ）
-00000000AE3D.07C: Guangzhou Charge （アウェイ）
-00000000AE3E.07C: Guangzhou Charge （アウェイ）
-00000000AE3F.07C: Guangzhou Charge （アウェイ）
-00000000AE40.07C: Guangzhou Charge （アウェイ）
-00000000AE41.07C: Guangzhou Charge （アウェイ）
-00000000AE42.07C: Guangzhou Charge （アウェイ）
-00000000AE43.07C: Guangzhou Charge （アウェイ）
-00000000AE44.07C: Guangzhou Charge （アウェイ）
+00000000AE28.07C: Guangzhou Charge - アウェイ
+00000000AE29.07C: Guangzhou Charge - アウェイ
+00000000AE2A.07C: Guangzhou Charge - アウェイ
+00000000AE2B.07C: Guangzhou Charge - アウェイ
+00000000AE2C.07C: Guangzhou Charge - アウェイ
+00000000AE2D.07C: Guangzhou Charge - アウェイ
+00000000AE2E.07C: Guangzhou Charge - アウェイ
+00000000AE2F.07C: Guangzhou Charge - アウェイ
+00000000AE30.07C: Guangzhou Charge - アウェイ
+00000000AE31.07C: Guangzhou Charge - アウェイ
+00000000AE32.07C: Guangzhou Charge - アウェイ
+00000000AE33.07C: Guangzhou Charge - アウェイ
+00000000AE34.07C: Guangzhou Charge - アウェイ
+00000000AE35.07C: Guangzhou Charge - アウェイ
+00000000AE36.07C: Guangzhou Charge - アウェイ
+00000000AE37.07C: Guangzhou Charge - アウェイ
+00000000AE38.07C: Guangzhou Charge - アウェイ
+00000000AE39.07C: Guangzhou Charge - アウェイ
+00000000AE3A.07C: Guangzhou Charge - アウェイ
+00000000AE3B.07C: Guangzhou Charge - アウェイ
+00000000AE3C.07C: Guangzhou Charge - アウェイ
+00000000AE3D.07C: Guangzhou Charge - アウェイ
+00000000AE3E.07C: Guangzhou Charge - アウェイ
+00000000AE3F.07C: Guangzhou Charge - アウェイ
+00000000AE40.07C: Guangzhou Charge - アウェイ
+00000000AE41.07C: Guangzhou Charge - アウェイ
+00000000AE42.07C: Guangzhou Charge - アウェイ
+00000000AE43.07C: Guangzhou Charge - アウェイ
+00000000AE44.07C: Guangzhou Charge - アウェイ
 00000000AE45.07C: Guangzhou Charge
 00000000AE46.07C: Guangzhou Charge
 00000000AE47.07C: Guangzhou Charge
@@ -18711,35 +18715,35 @@ Blizzard Support
 00000000AE5F.07C: Guangzhou Charge
 00000000AE60.07C: Guangzhou Charge
 00000000AE61.07C: Guangzhou Charge
-00000000AE62.07C: Hangzhou Spark （アウェイ）
-00000000AE63.07C: Hangzhou Spark （アウェイ）
-00000000AE64.07C: Hangzhou Spark （アウェイ）
-00000000AE65.07C: Hangzhou Spark （アウェイ）
-00000000AE66.07C: Hangzhou Spark （アウェイ）
-00000000AE67.07C: Hangzhou Spark （アウェイ）
-00000000AE68.07C: Hangzhou Spark （アウェイ）
-00000000AE69.07C: Hangzhou Spark （アウェイ）
-00000000AE6A.07C: Hangzhou Spark （アウェイ）
-00000000AE6B.07C: Hangzhou Spark （アウェイ）
-00000000AE6C.07C: Hangzhou Spark （アウェイ）
-00000000AE6D.07C: Hangzhou Spark （アウェイ）
-00000000AE6E.07C: Hangzhou Spark （アウェイ）
-00000000AE6F.07C: Hangzhou Spark （アウェイ）
-00000000AE70.07C: Hangzhou Spark （アウェイ）
-00000000AE71.07C: Hangzhou Spark （アウェイ）
-00000000AE72.07C: Hangzhou Spark （アウェイ）
-00000000AE73.07C: Hangzhou Spark （アウェイ）
-00000000AE74.07C: Hangzhou Spark （アウェイ）
-00000000AE75.07C: Hangzhou Spark （アウェイ）
-00000000AE76.07C: Hangzhou Spark （アウェイ）
-00000000AE77.07C: Hangzhou Spark （アウェイ）
-00000000AE78.07C: Hangzhou Spark （アウェイ）
-00000000AE79.07C: Hangzhou Spark （アウェイ）
-00000000AE7A.07C: Hangzhou Spark （アウェイ）
-00000000AE7B.07C: Hangzhou Spark （アウェイ）
-00000000AE7C.07C: Hangzhou Spark （アウェイ）
-00000000AE7D.07C: Hangzhou Spark （アウェイ）
-00000000AE7E.07C: Hangzhou Spark （アウェイ）
+00000000AE62.07C: Hangzhou Spark - アウェイ
+00000000AE63.07C: Hangzhou Spark - アウェイ
+00000000AE64.07C: Hangzhou Spark - アウェイ
+00000000AE65.07C: Hangzhou Spark - アウェイ
+00000000AE66.07C: Hangzhou Spark - アウェイ
+00000000AE67.07C: Hangzhou Spark - アウェイ
+00000000AE68.07C: Hangzhou Spark - アウェイ
+00000000AE69.07C: Hangzhou Spark - アウェイ
+00000000AE6A.07C: Hangzhou Spark - アウェイ
+00000000AE6B.07C: Hangzhou Spark - アウェイ
+00000000AE6C.07C: Hangzhou Spark - アウェイ
+00000000AE6D.07C: Hangzhou Spark - アウェイ
+00000000AE6E.07C: Hangzhou Spark - アウェイ
+00000000AE6F.07C: Hangzhou Spark - アウェイ
+00000000AE70.07C: Hangzhou Spark - アウェイ
+00000000AE71.07C: Hangzhou Spark - アウェイ
+00000000AE72.07C: Hangzhou Spark - アウェイ
+00000000AE73.07C: Hangzhou Spark - アウェイ
+00000000AE74.07C: Hangzhou Spark - アウェイ
+00000000AE75.07C: Hangzhou Spark - アウェイ
+00000000AE76.07C: Hangzhou Spark - アウェイ
+00000000AE77.07C: Hangzhou Spark - アウェイ
+00000000AE78.07C: Hangzhou Spark - アウェイ
+00000000AE79.07C: Hangzhou Spark - アウェイ
+00000000AE7A.07C: Hangzhou Spark - アウェイ
+00000000AE7B.07C: Hangzhou Spark - アウェイ
+00000000AE7C.07C: Hangzhou Spark - アウェイ
+00000000AE7D.07C: Hangzhou Spark - アウェイ
+00000000AE7E.07C: Hangzhou Spark - アウェイ
 00000000AE7F.07C: Hangzhou Spark
 00000000AE80.07C: Hangzhou Spark
 00000000AE81.07C: Hangzhou Spark
@@ -18769,35 +18773,35 @@ Blizzard Support
 00000000AE99.07C: Hangzhou Spark
 00000000AE9A.07C: Hangzhou Spark
 00000000AE9B.07C: Hangzhou Spark
-00000000AE9C.07C: Paris Eternal （アウェイ）
-00000000AE9D.07C: Paris Eternal （アウェイ）
-00000000AE9E.07C: Paris Eternal （アウェイ）
-00000000AE9F.07C: Paris Eternal （アウェイ）
-00000000AEA0.07C: Paris Eternal （アウェイ）
-00000000AEA1.07C: Paris Eternal （アウェイ）
-00000000AEA2.07C: Paris Eternal （アウェイ）
-00000000AEA3.07C: Paris Eternal （アウェイ）
-00000000AEA4.07C: Paris Eternal （アウェイ）
-00000000AEA5.07C: Paris Eternal （アウェイ）
-00000000AEA6.07C: Paris Eternal （アウェイ）
-00000000AEA7.07C: Paris Eternal （アウェイ）
-00000000AEA8.07C: Paris Eternal （アウェイ）
-00000000AEA9.07C: Paris Eternal （アウェイ）
-00000000AEAA.07C: Paris Eternal （アウェイ）
-00000000AEAB.07C: Paris Eternal （アウェイ）
-00000000AEAC.07C: Paris Eternal （アウェイ）
-00000000AEAD.07C: Paris Eternal （アウェイ）
-00000000AEAE.07C: Paris Eternal （アウェイ）
-00000000AEAF.07C: Paris Eternal （アウェイ）
-00000000AEB0.07C: Paris Eternal （アウェイ）
-00000000AEB1.07C: Paris Eternal （アウェイ）
-00000000AEB2.07C: Paris Eternal （アウェイ）
-00000000AEB3.07C: Paris Eternal （アウェイ）
-00000000AEB4.07C: Paris Eternal （アウェイ）
-00000000AEB5.07C: Paris Eternal （アウェイ）
-00000000AEB6.07C: Paris Eternal （アウェイ）
-00000000AEB7.07C: Paris Eternal （アウェイ）
-00000000AEB8.07C: Paris Eternal （アウェイ）
+00000000AE9C.07C: Paris Eternal - アウェイ
+00000000AE9D.07C: Paris Eternal - アウェイ
+00000000AE9E.07C: Paris Eternal - アウェイ
+00000000AE9F.07C: Paris Eternal - アウェイ
+00000000AEA0.07C: Paris Eternal - アウェイ
+00000000AEA1.07C: Paris Eternal - アウェイ
+00000000AEA2.07C: Paris Eternal - アウェイ
+00000000AEA3.07C: Paris Eternal - アウェイ
+00000000AEA4.07C: Paris Eternal - アウェイ
+00000000AEA5.07C: Paris Eternal - アウェイ
+00000000AEA6.07C: Paris Eternal - アウェイ
+00000000AEA7.07C: Paris Eternal - アウェイ
+00000000AEA8.07C: Paris Eternal - アウェイ
+00000000AEA9.07C: Paris Eternal - アウェイ
+00000000AEAA.07C: Paris Eternal - アウェイ
+00000000AEAB.07C: Paris Eternal - アウェイ
+00000000AEAC.07C: Paris Eternal - アウェイ
+00000000AEAD.07C: Paris Eternal - アウェイ
+00000000AEAE.07C: Paris Eternal - アウェイ
+00000000AEAF.07C: Paris Eternal - アウェイ
+00000000AEB0.07C: Paris Eternal - アウェイ
+00000000AEB1.07C: Paris Eternal - アウェイ
+00000000AEB2.07C: Paris Eternal - アウェイ
+00000000AEB3.07C: Paris Eternal - アウェイ
+00000000AEB4.07C: Paris Eternal - アウェイ
+00000000AEB5.07C: Paris Eternal - アウェイ
+00000000AEB6.07C: Paris Eternal - アウェイ
+00000000AEB7.07C: Paris Eternal - アウェイ
+00000000AEB8.07C: Paris Eternal - アウェイ
 00000000AEB9.07C: Paris Eternal
 00000000AEBA.07C: Paris Eternal
 00000000AEBB.07C: Paris Eternal
@@ -18827,35 +18831,35 @@ Blizzard Support
 00000000AED3.07C: Paris Eternal
 00000000AED4.07C: Paris Eternal
 00000000AED5.07C: Paris Eternal
-00000000AED6.07C: Toronto Defiant （アウェイ）
-00000000AED7.07C: Toronto Defiant （アウェイ）
-00000000AED8.07C: Toronto Defiant （アウェイ）
-00000000AED9.07C: Toronto Defiant （アウェイ）
-00000000AEDA.07C: Toronto Defiant （アウェイ）
-00000000AEDB.07C: Toronto Defiant （アウェイ）
-00000000AEDC.07C: Toronto Defiant （アウェイ）
-00000000AEDD.07C: Toronto Defiant （アウェイ）
-00000000AEDE.07C: Toronto Defiant （アウェイ）
-00000000AEDF.07C: Toronto Defiant （アウェイ）
-00000000AEE0.07C: Toronto Defiant （アウェイ）
-00000000AEE1.07C: Toronto Defiant （アウェイ）
-00000000AEE2.07C: Toronto Defiant （アウェイ）
-00000000AEE3.07C: Toronto Defiant （アウェイ）
-00000000AEE4.07C: Toronto Defiant （アウェイ）
-00000000AEE5.07C: Toronto Defiant （アウェイ）
-00000000AEE6.07C: Toronto Defiant （アウェイ）
-00000000AEE7.07C: Toronto Defiant （アウェイ）
-00000000AEE8.07C: Toronto Defiant （アウェイ）
-00000000AEE9.07C: Toronto Defiant （アウェイ）
-00000000AEEA.07C: Toronto Defiant （アウェイ）
-00000000AEEB.07C: Toronto Defiant （アウェイ）
-00000000AEEC.07C: Toronto Defiant （アウェイ）
-00000000AEED.07C: Toronto Defiant （アウェイ）
-00000000AEEE.07C: Toronto Defiant （アウェイ）
-00000000AEEF.07C: Toronto Defiant （アウェイ）
-00000000AEF0.07C: Toronto Defiant （アウェイ）
-00000000AEF1.07C: Toronto Defiant （アウェイ）
-00000000AEF2.07C: Toronto Defiant （アウェイ）
+00000000AED6.07C: Toronto Defiant - アウェイ
+00000000AED7.07C: Toronto Defiant - アウェイ
+00000000AED8.07C: Toronto Defiant - アウェイ
+00000000AED9.07C: Toronto Defiant - アウェイ
+00000000AEDA.07C: Toronto Defiant - アウェイ
+00000000AEDB.07C: Toronto Defiant - アウェイ
+00000000AEDC.07C: Toronto Defiant - アウェイ
+00000000AEDD.07C: Toronto Defiant - アウェイ
+00000000AEDE.07C: Toronto Defiant - アウェイ
+00000000AEDF.07C: Toronto Defiant - アウェイ
+00000000AEE0.07C: Toronto Defiant - アウェイ
+00000000AEE1.07C: Toronto Defiant - アウェイ
+00000000AEE2.07C: Toronto Defiant - アウェイ
+00000000AEE3.07C: Toronto Defiant - アウェイ
+00000000AEE4.07C: Toronto Defiant - アウェイ
+00000000AEE5.07C: Toronto Defiant - アウェイ
+00000000AEE6.07C: Toronto Defiant - アウェイ
+00000000AEE7.07C: Toronto Defiant - アウェイ
+00000000AEE8.07C: Toronto Defiant - アウェイ
+00000000AEE9.07C: Toronto Defiant - アウェイ
+00000000AEEA.07C: Toronto Defiant - アウェイ
+00000000AEEB.07C: Toronto Defiant - アウェイ
+00000000AEEC.07C: Toronto Defiant - アウェイ
+00000000AEED.07C: Toronto Defiant - アウェイ
+00000000AEEE.07C: Toronto Defiant - アウェイ
+00000000AEEF.07C: Toronto Defiant - アウェイ
+00000000AEF0.07C: Toronto Defiant - アウェイ
+00000000AEF1.07C: Toronto Defiant - アウェイ
+00000000AEF2.07C: Toronto Defiant - アウェイ
 00000000AEF3.07C: Toronto Defiant
 00000000AEF4.07C: Toronto Defiant
 00000000AEF5.07C: Toronto Defiant
@@ -18914,35 +18918,35 @@ Blizzard Support
 00000000AF2A.07C: Vancouver Titans
 00000000AF2B.07C: Vancouver Titans
 00000000AF2C.07C: Vancouver Titans
-00000000AF2D.07C: Washington Justice （アウェイ）
-00000000AF2E.07C: Washington Justice （アウェイ）
-00000000AF2F.07C: Washington Justice （アウェイ）
-00000000AF30.07C: Washington Justice （アウェイ）
-00000000AF31.07C: Washington Justice （アウェイ）
-00000000AF32.07C: Washington Justice （アウェイ）
-00000000AF33.07C: Washington Justice （アウェイ）
-00000000AF34.07C: Washington Justice （アウェイ）
-00000000AF35.07C: Washington Justice （アウェイ）
-00000000AF36.07C: Washington Justice （アウェイ）
-00000000AF37.07C: Washington Justice （アウェイ）
-00000000AF38.07C: Washington Justice （アウェイ）
-00000000AF39.07C: Washington Justice （アウェイ）
-00000000AF3A.07C: Washington Justice （アウェイ）
-00000000AF3B.07C: Washington Justice （アウェイ）
-00000000AF3C.07C: Washington Justice （アウェイ）
-00000000AF3D.07C: Washington Justice （アウェイ）
-00000000AF3E.07C: Washington Justice （アウェイ）
-00000000AF3F.07C: Washington Justice （アウェイ）
-00000000AF40.07C: Washington Justice （アウェイ）
-00000000AF41.07C: Washington Justice （アウェイ）
-00000000AF42.07C: Washington Justice （アウェイ）
-00000000AF43.07C: Washington Justice （アウェイ）
-00000000AF44.07C: Washington Justice （アウェイ）
-00000000AF45.07C: Washington Justice （アウェイ）
-00000000AF46.07C: Washington Justice （アウェイ）
-00000000AF47.07C: Washington Justice （アウェイ）
-00000000AF48.07C: Washington Justice （アウェイ）
-00000000AF49.07C: Washington Justice （アウェイ）
+00000000AF2D.07C: Washington Justice - アウェイ
+00000000AF2E.07C: Washington Justice - アウェイ
+00000000AF2F.07C: Washington Justice - アウェイ
+00000000AF30.07C: Washington Justice - アウェイ
+00000000AF31.07C: Washington Justice - アウェイ
+00000000AF32.07C: Washington Justice - アウェイ
+00000000AF33.07C: Washington Justice - アウェイ
+00000000AF34.07C: Washington Justice - アウェイ
+00000000AF35.07C: Washington Justice - アウェイ
+00000000AF36.07C: Washington Justice - アウェイ
+00000000AF37.07C: Washington Justice - アウェイ
+00000000AF38.07C: Washington Justice - アウェイ
+00000000AF39.07C: Washington Justice - アウェイ
+00000000AF3A.07C: Washington Justice - アウェイ
+00000000AF3B.07C: Washington Justice - アウェイ
+00000000AF3C.07C: Washington Justice - アウェイ
+00000000AF3D.07C: Washington Justice - アウェイ
+00000000AF3E.07C: Washington Justice - アウェイ
+00000000AF3F.07C: Washington Justice - アウェイ
+00000000AF40.07C: Washington Justice - アウェイ
+00000000AF41.07C: Washington Justice - アウェイ
+00000000AF42.07C: Washington Justice - アウェイ
+00000000AF43.07C: Washington Justice - アウェイ
+00000000AF44.07C: Washington Justice - アウェイ
+00000000AF45.07C: Washington Justice - アウェイ
+00000000AF46.07C: Washington Justice - アウェイ
+00000000AF47.07C: Washington Justice - アウェイ
+00000000AF48.07C: Washington Justice - アウェイ
+00000000AF49.07C: Washington Justice - アウェイ
 00000000AF4A.07C: Washington Justice
 00000000AF4B.07C: Washington Justice
 00000000AF4C.07C: Washington Justice
@@ -18972,35 +18976,35 @@ Blizzard Support
 00000000AF64.07C: Washington Justice
 00000000AF65.07C: Washington Justice
 00000000AF66.07C: Washington Justice
-00000000AF67.07C: Atlanta Reign （アウェイ）
-00000000AF68.07C: Atlanta Reign （アウェイ）
-00000000AF69.07C: Atlanta Reign （アウェイ）
-00000000AF6A.07C: Atlanta Reign （アウェイ）
-00000000AF6B.07C: Atlanta Reign （アウェイ）
-00000000AF6C.07C: Atlanta Reign （アウェイ）
-00000000AF6D.07C: Atlanta Reign （アウェイ）
-00000000AF6E.07C: Atlanta Reign （アウェイ）
-00000000AF6F.07C: Atlanta Reign （アウェイ）
-00000000AF70.07C: Atlanta Reign （アウェイ）
-00000000AF71.07C: Atlanta Reign （アウェイ）
-00000000AF72.07C: Atlanta Reign （アウェイ）
-00000000AF73.07C: Atlanta Reign （アウェイ）
-00000000AF74.07C: Atlanta Reign （アウェイ）
-00000000AF75.07C: Atlanta Reign （アウェイ）
-00000000AF76.07C: Atlanta Reign （アウェイ）
-00000000AF77.07C: Atlanta Reign （アウェイ）
-00000000AF78.07C: Atlanta Reign （アウェイ）
-00000000AF79.07C: Atlanta Reign （アウェイ）
-00000000AF7A.07C: Atlanta Reign （アウェイ）
-00000000AF7B.07C: Atlanta Reign （アウェイ）
-00000000AF7C.07C: Atlanta Reign （アウェイ）
-00000000AF7D.07C: Atlanta Reign （アウェイ）
-00000000AF7E.07C: Atlanta Reign （アウェイ）
-00000000AF7F.07C: Atlanta Reign （アウェイ）
-00000000AF80.07C: Atlanta Reign （アウェイ）
-00000000AF81.07C: Atlanta Reign （アウェイ）
-00000000AF82.07C: Atlanta Reign （アウェイ）
-00000000AF83.07C: Atlanta Reign （アウェイ）
+00000000AF67.07C: Atlanta Reign - アウェイ
+00000000AF68.07C: Atlanta Reign - アウェイ
+00000000AF69.07C: Atlanta Reign - アウェイ
+00000000AF6A.07C: Atlanta Reign - アウェイ
+00000000AF6B.07C: Atlanta Reign - アウェイ
+00000000AF6C.07C: Atlanta Reign - アウェイ
+00000000AF6D.07C: Atlanta Reign - アウェイ
+00000000AF6E.07C: Atlanta Reign - アウェイ
+00000000AF6F.07C: Atlanta Reign - アウェイ
+00000000AF70.07C: Atlanta Reign - アウェイ
+00000000AF71.07C: Atlanta Reign - アウェイ
+00000000AF72.07C: Atlanta Reign - アウェイ
+00000000AF73.07C: Atlanta Reign - アウェイ
+00000000AF74.07C: Atlanta Reign - アウェイ
+00000000AF75.07C: Atlanta Reign - アウェイ
+00000000AF76.07C: Atlanta Reign - アウェイ
+00000000AF77.07C: Atlanta Reign - アウェイ
+00000000AF78.07C: Atlanta Reign - アウェイ
+00000000AF79.07C: Atlanta Reign - アウェイ
+00000000AF7A.07C: Atlanta Reign - アウェイ
+00000000AF7B.07C: Atlanta Reign - アウェイ
+00000000AF7C.07C: Atlanta Reign - アウェイ
+00000000AF7D.07C: Atlanta Reign - アウェイ
+00000000AF7E.07C: Atlanta Reign - アウェイ
+00000000AF7F.07C: Atlanta Reign - アウェイ
+00000000AF80.07C: Atlanta Reign - アウェイ
+00000000AF81.07C: Atlanta Reign - アウェイ
+00000000AF82.07C: Atlanta Reign - アウェイ
+00000000AF83.07C: Atlanta Reign - アウェイ
 00000000AF84.07C: Atlanta Reign
 00000000AF85.07C: Atlanta Reign
 00000000AF86.07C: Atlanta Reign
@@ -19030,35 +19034,35 @@ Blizzard Support
 00000000AF9E.07C: Atlanta Reign
 00000000AF9F.07C: Atlanta Reign
 00000000AFA0.07C: Atlanta Reign
-00000000AFA1.07C: Vancouver Titans （アウェイ）
-00000000AFA2.07C: Vancouver Titans （アウェイ）
-00000000AFA3.07C: Vancouver Titans （アウェイ）
-00000000AFA4.07C: Vancouver Titans （アウェイ）
-00000000AFA5.07C: Vancouver Titans （アウェイ）
-00000000AFA6.07C: Vancouver Titans （アウェイ）
-00000000AFA7.07C: Vancouver Titans （アウェイ）
-00000000AFA8.07C: Vancouver Titans （アウェイ）
-00000000AFA9.07C: Vancouver Titans （アウェイ）
-00000000AFAA.07C: Vancouver Titans （アウェイ）
-00000000AFAB.07C: Vancouver Titans （アウェイ）
-00000000AFAC.07C: Vancouver Titans （アウェイ）
-00000000AFAD.07C: Vancouver Titans （アウェイ）
-00000000AFAE.07C: Vancouver Titans （アウェイ）
-00000000AFAF.07C: Vancouver Titans （アウェイ）
-00000000AFB0.07C: Vancouver Titans （アウェイ）
-00000000AFB1.07C: Vancouver Titans （アウェイ）
-00000000AFB2.07C: Vancouver Titans （アウェイ）
-00000000AFB3.07C: Vancouver Titans （アウェイ）
-00000000AFB4.07C: Vancouver Titans （アウェイ）
-00000000AFB5.07C: Vancouver Titans （アウェイ）
-00000000AFB6.07C: Vancouver Titans （アウェイ）
-00000000AFB7.07C: Vancouver Titans （アウェイ）
-00000000AFB8.07C: Vancouver Titans （アウェイ）
-00000000AFB9.07C: Vancouver Titans （アウェイ）
-00000000AFBA.07C: Vancouver Titans （アウェイ）
-00000000AFBB.07C: Vancouver Titans （アウェイ）
-00000000AFBC.07C: Vancouver Titans （アウェイ）
-00000000AFBD.07C: Vancouver Titans （アウェイ）
+00000000AFA1.07C: Vancouver Titans - アウェイ
+00000000AFA2.07C: Vancouver Titans - アウェイ
+00000000AFA3.07C: Vancouver Titans - アウェイ
+00000000AFA4.07C: Vancouver Titans - アウェイ
+00000000AFA5.07C: Vancouver Titans - アウェイ
+00000000AFA6.07C: Vancouver Titans - アウェイ
+00000000AFA7.07C: Vancouver Titans - アウェイ
+00000000AFA8.07C: Vancouver Titans - アウェイ
+00000000AFA9.07C: Vancouver Titans - アウェイ
+00000000AFAA.07C: Vancouver Titans - アウェイ
+00000000AFAB.07C: Vancouver Titans - アウェイ
+00000000AFAC.07C: Vancouver Titans - アウェイ
+00000000AFAD.07C: Vancouver Titans - アウェイ
+00000000AFAE.07C: Vancouver Titans - アウェイ
+00000000AFAF.07C: Vancouver Titans - アウェイ
+00000000AFB0.07C: Vancouver Titans - アウェイ
+00000000AFB1.07C: Vancouver Titans - アウェイ
+00000000AFB2.07C: Vancouver Titans - アウェイ
+00000000AFB3.07C: Vancouver Titans - アウェイ
+00000000AFB4.07C: Vancouver Titans - アウェイ
+00000000AFB5.07C: Vancouver Titans - アウェイ
+00000000AFB6.07C: Vancouver Titans - アウェイ
+00000000AFB7.07C: Vancouver Titans - アウェイ
+00000000AFB8.07C: Vancouver Titans - アウェイ
+00000000AFB9.07C: Vancouver Titans - アウェイ
+00000000AFBA.07C: Vancouver Titans - アウェイ
+00000000AFBB.07C: Vancouver Titans - アウェイ
+00000000AFBC.07C: Vancouver Titans - アウェイ
+00000000AFBD.07C: Vancouver Titans - アウェイ
 00000000AFBF.07C: Washington Justice
 00000000AFC0.07C: Vancouver Titans
 00000000AFC1.07C: Toronto Defiant
@@ -19291,7 +19295,7 @@ Blizzard Support
 00000000B330.07C: 犠牲者
 00000000B331.07C: イベント・プレイヤー
 00000000B334.07C: スロットに入ったプレイヤー
-00000000B335.07C: OWL （ホーム）
+00000000B335.07C: OWL - ホーム
 00000000B336.07C: チーム
 00000000B337.07C: スロット
 00000000B338.07C: ヒーローを使用中のプレイヤー
@@ -19419,8 +19423,8 @@ Blizzard Support
 00000000B419.07C: ヴァイオレット
 00000000B41A.07C: ブルー
 00000000B41E.07C: %1$s %2$s
-00000000B420.07C: ベルギー （アウェイ）
-00000000B421.07C: ベルギー （ホーム）
+00000000B420.07C: WCベルギー - アウェイ
+00000000B421.07C: WCベルギー - ホーム
 00000000B423.07C: Team: %1$s Slot: %2$s
 00000000B457.07C: HAVANA
 00000000B46D.07C: 不明
@@ -19460,12 +19464,12 @@ Blizzard Support
 00000000B4C4.07C: カモフラージュ
 00000000B4E7.07C: アイコンを破棄
 00000000B4F6.07C: Boston Uprising
-00000000B4F7.07C: Atlanta Reign （アウェイ）
+00000000B4F7.07C: Atlanta Reign - アウェイ
 00000000B4F8.07C: Atlanta Reign
-00000000B4F9.07C: Shanghai Dragons （アウェイ）
-00000000B4FA.07C: Seoul Dynasty （アウェイ）
-00000000B4FB.07C: San Francisco Shock 2018 （アウェイ）
-00000000B4FC.07C: Philadelphia Fusion （アウェイ）
+00000000B4F9.07C: Shanghai Dragons - アウェイ
+00000000B4FA.07C: Seoul Dynasty - アウェイ
+00000000B4FB.07C: San Francisco Shock - アウェイ - 2018
+00000000B4FC.07C: Philadelphia Fusion - アウェイ
 00000000B4FD.07C: Seoul Dynasty
 00000000B4FE.07C: London Spitfire
 00000000B4FF.07C: Dallas Fuel
@@ -19477,28 +19481,28 @@ Blizzard Support
 00000000B505.07C: Philadelphia Fusion
 00000000B506.07C: San Francisco Shock 2018
 00000000B507.07C: Shanghai Dragons
-00000000B508.07C: New York Excelsior （アウェイ）
-00000000B509.07C: Boston Uprising （アウェイ）
-00000000B50A.07C: Dallas Fuel （アウェイ）
-00000000B50B.07C: Florida Mayhem 2018 （アウェイ）
-00000000B50C.07C: Houston Outlaws （アウェイ）
-00000000B50D.07C: London Spitfire （アウェイ）
-00000000B50E.07C: Los Angeles Gladiators （アウェイ）
-00000000B50F.07C: Los Angeles Valiant 2018 （アウェイ）
+00000000B508.07C: New York Excelsior - アウェイ
+00000000B509.07C: Boston Uprising - アウェイ
+00000000B50A.07C: Dallas Fuel - アウェイ
+00000000B50B.07C: Florida Mayhem - アウェイ - 2018
+00000000B50C.07C: Houston Outlaws - アウェイ
+00000000B50D.07C: London Spitfire - アウェイ
+00000000B50E.07C: Los Angeles Gladiators - アウェイ
+00000000B50F.07C: Los Angeles Valiant - アウェイ - 2018
 00000000B510.07C: Washington Justice
-00000000B511.07C: Washington Justice （アウェイ）
+00000000B511.07C: Washington Justice - アウェイ
 00000000B512.07C: Vancouver Titans
 00000000B513.07C: Toronto Defiant
-00000000B514.07C: Toronto Defiant （アウェイ）
+00000000B514.07C: Toronto Defiant - アウェイ
 00000000B515.07C: Paris Eternal
-00000000B516.07C: Paris Eternal （アウェイ）
+00000000B516.07C: Paris Eternal - アウェイ
 00000000B517.07C: Hangzhou Spark
-00000000B518.07C: Hangzhou Spark （アウェイ）
+00000000B518.07C: Hangzhou Spark - アウェイ
 00000000B519.07C: Guangzhou Charge
-00000000B51A.07C: Guangzhou Charge （アウェイ）
+00000000B51A.07C: Guangzhou Charge - アウェイ
 00000000B51B.07C: Chengdu Hunters
-00000000B51C.07C: Chengdu Hunters （アウェイ）
-00000000B51F.07C: Vancouver Titans （アウェイ）
+00000000B51C.07C: Chengdu Hunters - アウェイ
+00000000B51F.07C: Vancouver Titans - アウェイ
 00000000B520.07C: 逆モーションをキャンセル
 00000000B521.07C: 逆モーションを組み込む
 00000000B522.07C: モーション
@@ -19641,7 +19645,7 @@ Blizzard Support
 00000000B65F.07C: 女神
 00000000B660.07C: クラーケン
 00000000B676.07C: 相手<br>の<br>フレンドリスト<br>が<br>いっぱい<br>のため、<br>フレンド<br>登録<br>を<br>完了<br>できません
-00000000B677.07C: OWL VAL 2020 （アウェイ）
+00000000B677.07C: OWL VAL 2020 - アウェイ
 00000000B67A.07C: 強すぎる！
 00000000B67B.07C: ハンモック
 00000000B67C.07C: 原点
@@ -19761,8 +19765,6 @@ Blizzard Support
 00000000B842.07C: グローバル変数を継続的に追跡
 00000000B843.07C: 期間
 00000000B844.07C: レート
-00000000B861.07C: Pacific ルシオ
-00000000B862.07C: Atlantic マーシー
 00000000B878.07C: ゲーム・モードの標準リスポーンを有効化
 00000000B879.07C: プレイヤー
 00000000B87A.07C: ゲーム・モードの標準リスポーンを無効化
@@ -21317,6 +21319,8 @@ Blizzard Support
 00000000C1DF.07C: 各プレイヤーのHUDを初期化する
 00000000C1E0.07C: 敵を倒すとスコアを獲得し、求められるヒーロー（D）へ進む
 00000000C1E3.07C: 使用中のヒーローが求められるヒーロー（D）と異なる場合、強制的に変更される
+00000000C1E6.07C: グライド
+00000000C1E7.07C: ジャンプボタン長押しで降下中に滑空できる
 00000000C1E8.07C: |Rfd %1$s: MMM dd;
 00000000C1EA.07C: 2019年シーズン- ステージ3
 00000000C1F2.07C: 未完了
@@ -22027,6 +22031,8 @@ Blizzard Support
 00000000C7F7.07C: 仮面舞踊
 00000000C7F8.07C: 度のタンジェント
 00000000C7F9.07C: 度単位の指定角度のタンジェント
+00000000C7FA.07C: フォーカス・ビーム
+00000000C7FB.07C: 数秒間にわたってビームを放つ。ライフが半分以下の敵に大ダメージを与える
 00000000C7FC.07C: ラジアンの指定角度のタンジェント
 00000000C7FD.07C: ラジアンのタンジェント
 00000000C7FE.07C: 指定分子および分母のラジアンのアークタンジェント（しばしばAtan2と呼ばれる）
@@ -22306,46 +22312,46 @@ Blizzard Support
 00000000CAC2.07C: ダイヤモンド
 00000000CAC3.07C: スペード
 00000000CAC4.07C: ハート
-00000000CAD1.07C: New York Excelsior （アウェイ）
+00000000CAD1.07C: New York Excelsior - アウェイ
 00000000CAD2.07C: Atlanta Reign
-00000000CAD3.07C: Atlanta Reign （アウェイ）
+00000000CAD3.07C: Atlanta Reign - アウェイ
 00000000CAD4.07C: Boston Uprising
-00000000CAD5.07C: Boston Uprising （アウェイ）
+00000000CAD5.07C: Boston Uprising - アウェイ
 00000000CAD6.07C: Chengdu Hunters
-00000000CAD7.07C: Chengdu Hunters （アウェイ）
+00000000CAD7.07C: Chengdu Hunters - アウェイ
 00000000CADA.07C: Dallas Fuel
-00000000CADB.07C: Dallas Fuel （アウェイ）
+00000000CADB.07C: Dallas Fuel - アウェイ
 00000000CADC.07C: Florida Mayhem 2018
-00000000CADD.07C: Florida Mayhem 2018 （アウェイ）
+00000000CADD.07C: Florida Mayhem - アウェイ - 2018
 00000000CADE.07C: Guangzhou Charge
-00000000CADF.07C: Guangzhou Charge （アウェイ）
+00000000CADF.07C: Guangzhou Charge - アウェイ
 00000000CAE0.07C: Hangzhou Spark
-00000000CAE1.07C: Hangzhou Spark （アウェイ）
+00000000CAE1.07C: Hangzhou Spark - アウェイ
 00000000CAE2.07C: Houston Outlaws
-00000000CAE3.07C: Houston Outlaws （アウェイ）
+00000000CAE3.07C: Houston Outlaws - アウェイ
 00000000CAE4.07C: London Spitfire
-00000000CAE5.07C: London Spitfire （アウェイ）
+00000000CAE5.07C: London Spitfire - アウェイ
 00000000CAE6.07C: Los Angeles Gladiators
-00000000CAE7.07C: Los Angeles Gladiators （アウェイ）
+00000000CAE7.07C: Los Angeles Gladiators - アウェイ
 00000000CAE8.07C: Los Angeles Valiant 2018
-00000000CAE9.07C: Los Angeles Valiant 2018 （アウェイ）
+00000000CAE9.07C: Los Angeles Valiant - アウェイ - 2018
 00000000CAEA.07C: New York Excelsior
 00000000CAEB.07C: Paris Eternal
-00000000CAEC.07C: Paris Eternal （アウェイ）
+00000000CAEC.07C: Paris Eternal - アウェイ
 00000000CAED.07C: Philadelphia Fusion
-00000000CAEE.07C: Philadelphia Fusion （アウェイ）
+00000000CAEE.07C: Philadelphia Fusion - アウェイ
 00000000CAEF.07C: San Francisco Shock 2018
-00000000CAF0.07C: San Francisco Shock 2018 （アウェイ）
+00000000CAF0.07C: San Francisco Shock - アウェイ - 2018
 00000000CAF1.07C: Seoul Dynasty
-00000000CAF2.07C: Seoul Dynasty （アウェイ）
+00000000CAF2.07C: Seoul Dynasty - アウェイ
 00000000CAF3.07C: Shanghai Dragons
-00000000CAF4.07C: Shanghai Dragons （アウェイ）
+00000000CAF4.07C: Shanghai Dragons - アウェイ
 00000000CAF5.07C: Toronto Defiant
-00000000CAF6.07C: Toronto Defiant （アウェイ）
+00000000CAF6.07C: Toronto Defiant - アウェイ
 00000000CAF7.07C: Vancouver Titans
-00000000CAF8.07C: Vancouver Titans （アウェイ）
+00000000CAF8.07C: Vancouver Titans - アウェイ
 00000000CAF9.07C: Washington Justice
-00000000CAFA.07C: Washington Justice （アウェイ）
+00000000CAFA.07C: Washington Justice - アウェイ
 00000000CAFE.07C: %1$s 分未満
 00000000CAFF.07C: %1$sを獲得
 00000000CB09.07C: ボットが最初に現れる位置
@@ -22378,6 +22384,7 @@ Blizzard Support
 00000000CB7C.07C: B.O.B
 00000000CB7E.07C: デッカード
 00000000CB7F.07C: ケイン
+00000000CB82.07C: エコー
 00000000CB84.07C: インターコム
 00000000CB86.07C: ゴンドラの船頭
 00000000CB87.07C: ハルフレッド
@@ -22543,8 +22550,8 @@ Blizzard Support
 00000000CD5A.07C: ハイブリッド
 00000000CD5B.07C: コントロール
 00000000CD5C.07C: エスコート
-00000000CD67.07C: ワールドカップ一般 （ホーム）
-00000000CD81.07C: ワールドカップ一般 （アウェイ）
+00000000CD67.07C: ワールドカップ - ホーム
+00000000CD81.07C: ワールドカップ - アウェイ
 00000000CDA1.07C: ラウンド完了
 00000000CDB1.07C: マッチ後の自動キューを有効化
 00000000CDB2.07C: テキストの色
@@ -26031,7 +26038,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D41C.07C: アイルランド
 00000000D41E.07C: IRL
 00000000D431.07C: シーズン20の<br>スキル<br>認定<br>マッチ<br>完了で<br>アン<br>ロック
-00000000D432.07C: シーズン20で<br>トップ<br>500に<br>ランク<br>イン<br>して<br>アン<br>ロック
+00000000D432.07C: シーズン20<br>終了時に<br>トップ<br>500に<br>ランク<br>イン<br>して<br>アン<br>ロック
 00000000D483.07C: 一般
 00000000D484.07C: 一般
 00000000D485.07C: GEN
@@ -26040,7 +26047,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D49C.07C: アルゼンチン
 00000000D49D.07C: ARG
 00000000D49E.07C: アルゼンチン
-00000000D4A0.07C: ワールドカップ一般 （アウェイ）
+00000000D4A0.07C: ワールドカップ - アウェイ
 00000000D4D8.07C: ベルギー
 00000000D4D9.07C: BEL
 00000000D4DA.07C: ベルギー
@@ -26110,8 +26117,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: スティック使用中はジャイロ機能を無効化
 00000000EA2F.07C: ジーグラー博士
 00000000EA3E.07C: ジャイロエイムのヨー軸反転
-00000000EA40.07C: ライバル・プレイ
-00000000EA41.07C: 参加して報酬をもらおう！
 00000000EA51.07C: GOAT
 00000000EA59.07C: ジャイロエイムのロール軸反転
 00000000EA5A.07C: （入手済）
@@ -26128,8 +26133,9 @@ https://account.blizzard.com/connections/nintendo
 00000000EB14.07C: キング・ジェイミソン
 00000000EB17.07C: マウスの高精度入力を有効化
 00000000EB1E.07C: エラー: プレイヤー変数「%1$s」の名前が必要です
+00000000EB1F.07C: グローバル
 00000000EB21.07C: エラー: グローバル変数「%1$s」が他の変数と矛盾しています
-00000000EB23.07C: 今シーズン利用可能なマップ
+00000000EB23.07C: プレイ可能なマップ
 00000000EB24.07C: HANAMURA、TEMPLE OF ANUBIS、VOLSKAYA INDUSTRIES
 00000000EB25.07C: エラー: グローバル変数「%1$s」に無効な名前が含まれています
 00000000EB29.07C: エラー: グローバル変数「%1$s」の名前が必要です
@@ -26320,11 +26326,12 @@ https://account.blizzard.com/connections/nintendo
 00000000F229.07C: 
 00000000F22A.07C: 
 00000000F22B.07C: 
+00000000F239.07C: オーバーウォッチのミナ・リャオ博士によって設計・プログラムされたロボット。高い適応力を持つ人工知能を備える
 00000000F23D.07C: 待機中のプレイヤーを許可するゲームのみ表示
 00000000F23E.07C: 警告！ システムのパフォーマンスに影響する恐れがあります！
 00000000F241.07C: + 100ボーナストークン
 00000000F242.07C: + 500ボーナストークン
-00000000F244.07C: OWL SFS 2020 （ホーム）
+00000000F244.07C: OWL SFS - ホーム - 2020
 00000000F246.07C: 乾杯
 00000000F248.07C: 待機中のゲーム・モードは現在利用できません
 00000000F24A.07C: BLACK FOREST （ウィンター）
@@ -26347,19 +26354,19 @@ https://account.blizzard.com/connections/nintendo
 00000000F269.07C: 第2週
 00000000F26A.07C: 第3週
 00000000F26C.07C: 勝者となるチーム
-00000000F26D.07C: OWL FLA 2020 （ホーム）
+00000000F26D.07C: OWL FLA - ホーム - 2020
 00000000F275.07C: Los Angeles Valiant ロゴ
 00000000F276.07C: San Francisco Shock ロゴ
 00000000F277.07C: Florida Mayhem ロゴ
 00000000F278.07C: Florida Mayhem
 00000000F279.07C: San Francisco Shock
 00000000F27A.07C: Los Angeles Valiant
-00000000F362.07C: OWL VAL 2020 （ホーム）
-00000000F365.07C: OWL SFS 2020 （アウェイ）
+00000000F362.07C: OWL VAL - ホーム - 2020
+00000000F365.07C: OWL SFS - アウェイ - 2020
 00000000F366.07C: イヤー・オブ・<br>ラット 2020<br>第3週の<br>チャレンジに<br>参加して<br>アンロック
 00000000F367.07C: イヤー・オブ・<br>ラット 2020<br>第2週の<br>チャレンジに<br>参加して<br>アンロック
 00000000F368.07C: イヤー・オブ・<br>ラット 2020<br>第1週の<br>チャレンジに<br>参加して<br>アンロック
-00000000F369.07C: OWL FLA 2020 （アウェイ）
+00000000F369.07C: OWL FLA - アウェイ - 2020
 00000000F36C.07C: キャプチャー・ザ・フラッグ・ブリッツ
 00000000F36D.07C: CTF ブリッツ
 00000000F36E.07C: 6人<br>チーム<br>同士の<br>ハイスピード・<br>バトル。<br>自分の<br>フラッグを<br>守り<br>ながら、<br>敵の<br>フラッグを<br>奪おう
@@ -26371,6 +26378,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F396.07C: 天灯
 00000000F39C.07C: ご馳走
 00000000F39D.07C: 凧揚げ
+00000000F3A2.07C: エコーによってヒーロー選択が無効になっています
 00000000F3A3.07C: マッチが見つかったら、待機していたゲームに移行します
 00000000F3AE.07C: ゲームに参加中
 00000000F3C9.07C: スナイパー
@@ -26440,38 +26448,38 @@ https://account.blizzard.com/connections/nintendo
 00000000F529.07C: イヤー・<br>オブ・<br>ラット
 00000000F52A.07C: 旧正月 トレジャー・<br>ボックスで<br>入手<br>可能
 00000000F52E.07C: ワークアウト
-00000000F531.07C: Los Angeles Valiant （アウェイ）
-00000000F532.07C: San Francisco Shock （アウェイ）
-00000000F533.07C: San Francisco Shock （アウェイ）
-00000000F534.07C: San Francisco Shock （アウェイ）
-00000000F535.07C: San Francisco Shock （アウェイ）
-00000000F536.07C: San Francisco Shock （アウェイ）
-00000000F537.07C: San Francisco Shock （アウェイ）
-00000000F538.07C: San Francisco Shock （アウェイ）
-00000000F539.07C: San Francisco Shock （アウェイ）
-00000000F53A.07C: San Francisco Shock （アウェイ）
-00000000F53B.07C: San Francisco Shock （アウェイ）
-00000000F53C.07C: San Francisco Shock （アウェイ）
-00000000F53D.07C: San Francisco Shock （アウェイ）
-00000000F53E.07C: San Francisco Shock （アウェイ）
-00000000F53F.07C: San Francisco Shock （アウェイ）
-00000000F540.07C: San Francisco Shock （アウェイ）
-00000000F541.07C: San Francisco Shock （アウェイ）
-00000000F542.07C: San Francisco Shock （アウェイ）
-00000000F543.07C: San Francisco Shock （アウェイ）
-00000000F544.07C: San Francisco Shock （アウェイ）
-00000000F545.07C: San Francisco Shock （アウェイ）
-00000000F546.07C: San Francisco Shock （アウェイ）
-00000000F547.07C: San Francisco Shock （アウェイ）
-00000000F548.07C: San Francisco Shock （アウェイ）
-00000000F549.07C: San Francisco Shock （アウェイ）
-00000000F54A.07C: San Francisco Shock （アウェイ）
-00000000F54B.07C: San Francisco Shock （アウェイ）
-00000000F54C.07C: San Francisco Shock （アウェイ）
-00000000F54D.07C: San Francisco Shock （アウェイ）
-00000000F54E.07C: San Francisco Shock （アウェイ）
-00000000F54F.07C: San Francisco Shock （アウェイ）
-00000000F550.07C: San Francisco Shock （アウェイ）
+00000000F531.07C: Los Angeles Valiant - アウェイ
+00000000F532.07C: San Francisco Shock - アウェイ
+00000000F533.07C: San Francisco Shock - アウェイ
+00000000F534.07C: San Francisco Shock - アウェイ
+00000000F535.07C: San Francisco Shock - アウェイ
+00000000F536.07C: San Francisco Shock - アウェイ
+00000000F537.07C: San Francisco Shock - アウェイ
+00000000F538.07C: San Francisco Shock - アウェイ
+00000000F539.07C: San Francisco Shock - アウェイ
+00000000F53A.07C: San Francisco Shock - アウェイ
+00000000F53B.07C: San Francisco Shock - アウェイ
+00000000F53C.07C: San Francisco Shock - アウェイ
+00000000F53D.07C: San Francisco Shock - アウェイ
+00000000F53E.07C: San Francisco Shock - アウェイ
+00000000F53F.07C: San Francisco Shock - アウェイ
+00000000F540.07C: San Francisco Shock - アウェイ
+00000000F541.07C: San Francisco Shock - アウェイ
+00000000F542.07C: San Francisco Shock - アウェイ
+00000000F543.07C: San Francisco Shock - アウェイ
+00000000F544.07C: San Francisco Shock - アウェイ
+00000000F545.07C: San Francisco Shock - アウェイ
+00000000F546.07C: San Francisco Shock - アウェイ
+00000000F547.07C: San Francisco Shock - アウェイ
+00000000F548.07C: San Francisco Shock - アウェイ
+00000000F549.07C: San Francisco Shock - アウェイ
+00000000F54A.07C: San Francisco Shock - アウェイ
+00000000F54B.07C: San Francisco Shock - アウェイ
+00000000F54C.07C: San Francisco Shock - アウェイ
+00000000F54D.07C: San Francisco Shock - アウェイ
+00000000F54E.07C: San Francisco Shock - アウェイ
+00000000F54F.07C: San Francisco Shock - アウェイ
+00000000F550.07C: San Francisco Shock - アウェイ
 00000000F551.07C: San Francisco Shock
 00000000F552.07C: San Francisco Shock
 00000000F553.07C: San Francisco Shock
@@ -26534,36 +26542,36 @@ https://account.blizzard.com/connections/nintendo
 00000000F58C.07C: Los Angeles Valiant
 00000000F58D.07C: Los Angeles Valiant
 00000000F58E.07C: Los Angeles Valiant
-00000000F58F.07C: Los Angeles Valiant （アウェイ）
-00000000F590.07C: Los Angeles Valiant （アウェイ）
-00000000F591.07C: Los Angeles Valiant （アウェイ）
-00000000F592.07C: Los Angeles Valiant （アウェイ）
-00000000F593.07C: Los Angeles Valiant （アウェイ）
-00000000F594.07C: Los Angeles Valiant （アウェイ）
-00000000F595.07C: Los Angeles Valiant （アウェイ）
-00000000F596.07C: Los Angeles Valiant （アウェイ）
-00000000F597.07C: Los Angeles Valiant （アウェイ）
-00000000F598.07C: Los Angeles Valiant （アウェイ）
-00000000F599.07C: Los Angeles Valiant （アウェイ）
-00000000F59A.07C: Los Angeles Valiant （アウェイ）
-00000000F59B.07C: Los Angeles Valiant （アウェイ）
-00000000F59C.07C: Los Angeles Valiant （アウェイ）
-00000000F59D.07C: Los Angeles Valiant （アウェイ）
-00000000F59E.07C: Los Angeles Valiant （アウェイ）
-00000000F59F.07C: Los Angeles Valiant （アウェイ）
-00000000F5A0.07C: Los Angeles Valiant （アウェイ）
-00000000F5A1.07C: Los Angeles Valiant （アウェイ）
-00000000F5A2.07C: Los Angeles Valiant （アウェイ）
-00000000F5A3.07C: Los Angeles Valiant （アウェイ）
-00000000F5A4.07C: Los Angeles Valiant （アウェイ）
-00000000F5A5.07C: Los Angeles Valiant （アウェイ）
-00000000F5A6.07C: Los Angeles Valiant （アウェイ）
-00000000F5A7.07C: Los Angeles Valiant （アウェイ）
-00000000F5A8.07C: Los Angeles Valiant （アウェイ）
-00000000F5A9.07C: Los Angeles Valiant （アウェイ）
-00000000F5AA.07C: Los Angeles Valiant （アウェイ）
-00000000F5AB.07C: Los Angeles Valiant （アウェイ）
-00000000F5AC.07C: Los Angeles Valiant （アウェイ）
+00000000F58F.07C: Los Angeles Valiant - アウェイ
+00000000F590.07C: Los Angeles Valiant - アウェイ
+00000000F591.07C: Los Angeles Valiant - アウェイ
+00000000F592.07C: Los Angeles Valiant - アウェイ
+00000000F593.07C: Los Angeles Valiant - アウェイ
+00000000F594.07C: Los Angeles Valiant - アウェイ
+00000000F595.07C: Los Angeles Valiant - アウェイ
+00000000F596.07C: Los Angeles Valiant - アウェイ
+00000000F597.07C: Los Angeles Valiant - アウェイ
+00000000F598.07C: Los Angeles Valiant - アウェイ
+00000000F599.07C: Los Angeles Valiant - アウェイ
+00000000F59A.07C: Los Angeles Valiant - アウェイ
+00000000F59B.07C: Los Angeles Valiant - アウェイ
+00000000F59C.07C: Los Angeles Valiant - アウェイ
+00000000F59D.07C: Los Angeles Valiant - アウェイ
+00000000F59E.07C: Los Angeles Valiant - アウェイ
+00000000F59F.07C: Los Angeles Valiant - アウェイ
+00000000F5A0.07C: Los Angeles Valiant - アウェイ
+00000000F5A1.07C: Los Angeles Valiant - アウェイ
+00000000F5A2.07C: Los Angeles Valiant - アウェイ
+00000000F5A3.07C: Los Angeles Valiant - アウェイ
+00000000F5A4.07C: Los Angeles Valiant - アウェイ
+00000000F5A5.07C: Los Angeles Valiant - アウェイ
+00000000F5A6.07C: Los Angeles Valiant - アウェイ
+00000000F5A7.07C: Los Angeles Valiant - アウェイ
+00000000F5A8.07C: Los Angeles Valiant - アウェイ
+00000000F5A9.07C: Los Angeles Valiant - アウェイ
+00000000F5AA.07C: Los Angeles Valiant - アウェイ
+00000000F5AB.07C: Los Angeles Valiant - アウェイ
+00000000F5AC.07C: Los Angeles Valiant - アウェイ
 00000000F5AD.07C: Florida Mayhem
 00000000F5AE.07C: Florida Mayhem
 00000000F5AF.07C: Florida Mayhem
@@ -26595,37 +26603,37 @@ https://account.blizzard.com/connections/nintendo
 00000000F5C9.07C: Florida Mayhem
 00000000F5CA.07C: Florida Mayhem
 00000000F5CB.07C: Florida Mayhem
-00000000F5CC.07C: Florida Mayhem （アウェイ）
-00000000F5CD.07C: Florida Mayhem （アウェイ）
-00000000F5CE.07C: Florida Mayhem （アウェイ）
-00000000F5CF.07C: Florida Mayhem （アウェイ）
-00000000F5D0.07C: Florida Mayhem （アウェイ）
-00000000F5D1.07C: Florida Mayhem （アウェイ）
-00000000F5D2.07C: Florida Mayhem （アウェイ）
-00000000F5D3.07C: Florida Mayhem （アウェイ）
-00000000F5D4.07C: Florida Mayhem （アウェイ）
-00000000F5D5.07C: Florida Mayhem （アウェイ）
-00000000F5D6.07C: Florida Mayhem （アウェイ）
-00000000F5D7.07C: Florida Mayhem （アウェイ）
-00000000F5D8.07C: Florida Mayhem （アウェイ）
-00000000F5D9.07C: Florida Mayhem （アウェイ）
-00000000F5DA.07C: Florida Mayhem （アウェイ）
-00000000F5DB.07C: Florida Mayhem （アウェイ）
-00000000F5DC.07C: Florida Mayhem （アウェイ）
-00000000F5DD.07C: Florida Mayhem （アウェイ）
-00000000F5DE.07C: Florida Mayhem （アウェイ）
-00000000F5DF.07C: Florida Mayhem （アウェイ）
-00000000F5E0.07C: Florida Mayhem （アウェイ）
-00000000F5E1.07C: Florida Mayhem （アウェイ）
-00000000F5E2.07C: Florida Mayhem （アウェイ）
-00000000F5E3.07C: Florida Mayhem （アウェイ）
-00000000F5E4.07C: Florida Mayhem （アウェイ）
-00000000F5E5.07C: Florida Mayhem （アウェイ）
-00000000F5E6.07C: Florida Mayhem （アウェイ）
-00000000F5E7.07C: Florida Mayhem （アウェイ）
-00000000F5E8.07C: Florida Mayhem （アウェイ）
-00000000F5E9.07C: Florida Mayhem （アウェイ）
-00000000F5EA.07C: Florida Mayhem （アウェイ）
+00000000F5CC.07C: Florida Mayhem - アウェイ
+00000000F5CD.07C: Florida Mayhem - アウェイ
+00000000F5CE.07C: Florida Mayhem - アウェイ
+00000000F5CF.07C: Florida Mayhem - アウェイ
+00000000F5D0.07C: Florida Mayhem - アウェイ
+00000000F5D1.07C: Florida Mayhem - アウェイ
+00000000F5D2.07C: Florida Mayhem - アウェイ
+00000000F5D3.07C: Florida Mayhem - アウェイ
+00000000F5D4.07C: Florida Mayhem - アウェイ
+00000000F5D5.07C: Florida Mayhem - アウェイ
+00000000F5D6.07C: Florida Mayhem - アウェイ
+00000000F5D7.07C: Florida Mayhem - アウェイ
+00000000F5D8.07C: Florida Mayhem - アウェイ
+00000000F5D9.07C: Florida Mayhem - アウェイ
+00000000F5DA.07C: Florida Mayhem - アウェイ
+00000000F5DB.07C: Florida Mayhem - アウェイ
+00000000F5DC.07C: Florida Mayhem - アウェイ
+00000000F5DD.07C: Florida Mayhem - アウェイ
+00000000F5DE.07C: Florida Mayhem - アウェイ
+00000000F5DF.07C: Florida Mayhem - アウェイ
+00000000F5E0.07C: Florida Mayhem - アウェイ
+00000000F5E1.07C: Florida Mayhem - アウェイ
+00000000F5E2.07C: Florida Mayhem - アウェイ
+00000000F5E3.07C: Florida Mayhem - アウェイ
+00000000F5E4.07C: Florida Mayhem - アウェイ
+00000000F5E5.07C: Florida Mayhem - アウェイ
+00000000F5E6.07C: Florida Mayhem - アウェイ
+00000000F5E7.07C: Florida Mayhem - アウェイ
+00000000F5E8.07C: Florida Mayhem - アウェイ
+00000000F5E9.07C: Florida Mayhem - アウェイ
+00000000F5EA.07C: Florida Mayhem - アウェイ
 00000000F5EB.07C: チーム3
 00000000F5EC.07C: チーム4
 00000000F5F8.07C: サンダー
@@ -26844,6 +26852,8 @@ https://account.blizzard.com/connections/nintendo
 000000010053.07C: 有効なヒーロー
 000000010054.07C: シーズン21
 000000010055.07C: シーズン21
+000000010056.07C: シーズン22
+000000010057.07C: シーズン22
 00000001005E.07C: %1$s
 00000001005F.07C: %1$sKB
 00000001006B.07C: クリップボードから設定をインポート
@@ -26942,8 +26952,7 @@ https://account.blizzard.com/connections/nintendo
 00000001022E.07C: 難易度: EXPERT
 000000010237.07C: CAISの制限時間に達したため切断されました
 000000010239.07C: エクスペリメンタル
-00000001023B.07C: このリプレイは最近のプレイリストに含まれていません。ピン留めを解除するとリプレイのデータは失われます。よろしいですか？
-000000010243.07C: スコアを隠す
+00000001023B.07C: 最近のプレイリストに存在しないリプレイです。ピン留めを解除するとリプレイのデータは失われます。よろしいですか？
 000000010248.07C: ベア
 000000010249.07C: ホーリー
 00000001024A.07C: ラストクラッド
@@ -27036,13 +27045,14 @@ https://account.blizzard.com/connections/nintendo
 0000000102CA.07C: スノーベア
 0000000102CC.07C: 消化不良
 0000000102CE.07C: ベアハグ
-0000000102D0.07C: pc
 0000000102D1.07C: ps4
 0000000102D2.07C: xb1
 0000000102D3.07C: nintendo-switch
-0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102D4.07C: https://playoverwatch.com/console-patch-notes/%1$s
 0000000102D5.07C: インポート
 0000000102D8.07C: インポート済み
+0000000102D9.07C: コピー
+0000000102DA.07C: キャンセル
 0000000102E0.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
 0000000102E1.07C: Florida Mayhem ホームスタンド 2020
 0000000102E3.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
@@ -27069,56 +27079,337 @@ https://account.blizzard.com/connections/nintendo
 000000010307.07C: ライバル 6VS6 エリミネーション 2020<br>の<br>スキル<br>認定<br>マッチ<br>完了で<br>アンロック
 000000010308.07C: ライバル 6VS6 エリミネーション 2020 ヒーロー
 000000010309.07C: ライバル 6VS6 エリミネーション 2020<br>終了時に<br>トップ<br>500に<br>ランク<br>イン<br>して<br>アン<br>ロック
-00000001030E.07C: ドゥームフィスト用スキン「サンダー」
-00000001030F.07C: 2019 オーバーウォッチ リーグ チャンピオン
-San Francisco Shock
 000000010311.07C: ストライク
 000000010312.07C: アーカイブ <br>トレジャー・<br>ボックスで<br>入手<br>可能
+00000001031A.07C: エコーを使用し、1回の「フォーカス・ビーム」で2人の敵にトドメを刺す（クイックもしくはライバル・プレイ）
+00000001031B.07C: 集中
+00000001031C.07C: エコーを使用し、一度も死なずに2人の他のヒーローのアルティメットを使用する（クイックもしくはライバル・プレイ）
+00000001031D.07C: 適応力
 00000001031E.07C: アーカイブ 2020
 00000001031F.07C: アーカイブ <br>トレジャー・<br>ボックスで<br>入手<br>可能
-00000001036C.07C: 続行
-00000001036D.07C: チャレンジ任務
-00000001036F.07C: ゲームをプレイして新しいスキンやハイライト・イントロなどが入った期間限定のアーカイブ トレジャー・ボックスを手に入れよう！
-000000010370.07C: アーカイブ トレジャー・ボックス
-000000010372.07C: 難易度が上がったスペシャルな任務アーカイブをプレイしよう！
-000000010374.07C: 4月3日にイベント終了
-000000010375.07C: 新スキンをアンロック
-000000010376.07C: ウィークリー・チャレンジ
-000000010377.07C: 第1週
-000000010378.07C: 第2週
-000000010379.07C: 第3週
+000000010351.07C: ジャンケンシュタインの復讐
+000000010369.07C: コピー ターゲットの指定を要する
+00000001036A.07C: ナノ・ブースト
+00000001036B.07C: キャンセル
+00000001037A.07C: ナノ・ブースト ターゲットの指定を要する
+00000001037B.07C: ナノ・ブースト 感度
+000000010381.07C: %1$s
 000000010385.07C: ピン留め解除
 000000010389.07C: アカウント制限のためリプレイを再生できません
 00000001038C.07C: アカウント制限のためリプレイをシェアできません
 00000001038E.07C: このプラットフォームからはリプレイをダウンロードできません
 00000001038F.07C: ご利用のプラットフォームにサポートされていないリプレイです
+0000000103A8.07C: パッチノート
 0000000103BF.07C: ロード失敗: 互換性のないバージョン
 0000000103CC.07C: シェアされたリプレイのリンクコードを通報
 0000000103D7.07C: リプレイのリンクコード%1$sに対する通報を受け付けました。オーバーウォッチをよりプレイしやすい環境にできるよう、引き続きご協力いただければ幸いです
+000000010410.07C: コピー中
+000000010411.07C: 秒
 000000010412.07C: このリプレイはすでにリスト内に存在します
+000000010416.07C: シーズン22 コンペティター
+000000010418.07C: シーズン22 ヒーロー
+00000001041A.07C: シーズン22 コンペティター
+00000001041C.07C: シーズン22 ヒーロー
+00000001041E.07C: シーズン22の<br>スキル<br>認定<br>マッチ<br>完了で<br>アン<br>ロック
+00000001041F.07C: シーズン22<br>終了時に<br>トップ<br>500に<br>ランク<br>イン<br>して<br>アン<br>ロック
 00000001043B.07C: 通報
-0000000105BD.07C: Best Molten Cores Score
-0000000105BE.07C: %1$s Best Molten Cores Score
-0000000105BF.07C: Best Glass Cannon Score
-0000000105C0.07C: %1$s Best Glass Cannon Score
-0000000105C1.07C: Best Surgical Strike Score
-0000000105C2.07C: %1$s Best Surgical Strike Score
-0000000105C3.07C: Best Close Quarters Score
-0000000105C4.07C: %1$s Best Close Quarters Score
-0000000105C5.07C: Best Blood Moon Rising Score
-0000000105C6.07C: %1$s Best Blood Moon Rising Score
-0000000105C7.07C: Best Storm Raging Score
-0000000105C8.07C: %1$s Best Storm Raging Score
-0000000105CC.07C: Best Molten Cores Score
-0000000105CD.07C: %1$s Best Molten Cores Score
-0000000105CE.07C: Best Glass Cannon Score
-0000000105CF.07C: %1$s Best Glass Cannon Score
-0000000105D0.07C: Best Surgical Strike Score
-0000000105D1.07C: %1$s Best Surgical Strike Score
-0000000105D2.07C: Best Close Quarters Score
-0000000105D3.07C: %1$s Best Close Quarters Score
-0000000105D4.07C: Best Blood Moon Rising Score
-0000000105D5.07C: %1$s Best Blood Moon Rising Score
-0000000105D6.07C: Best Storm Raging Score
-0000000105D7.07C: %1$s Best Storm Raging Score
-[Core] Execution finished in 00:00:04.4153694 seconds
+000000010479.07C: 勝利に必要なスコア
+0000000104F0.07C: お辞儀
+0000000104F2.07C: クラシック
+0000000104F3.07C: ヒロイック
+0000000104F5.07C: ヒロイック
+0000000104F6.07C: 分析
+0000000104F7.07C: 座り
+0000000104F9.07C: おすまし
+0000000104FC.07C: 笑い
+000000010500.07C: 目覚め
+00000001058B.07C: 翻り
+00000001058C.07C: 機動飛行
+00000001058D.07C: 華麗
+000000010592.07C: ステルス
+0000000105BD.07C: モルテン・コア 最高スコア
+0000000105BE.07C: %1$s モルテン・コア 最高スコア
+0000000105BF.07C: グラスキャノン 最高スコア
+0000000105C0.07C: %1$s グラスキャノン 最高スコア
+0000000105C1.07C: サージカル・ストライク 最高スコア
+0000000105C2.07C: %1$s サージカル・ストライク 最高スコア
+0000000105C3.07C: クロース・クオーター 最高スコア
+0000000105C4.07C: %1$s クロース・クオーター 最高スコア
+0000000105C5.07C: ブラッドムーン・ライジング 最高スコア
+0000000105C6.07C: %1$s ブラッドムーン・ライジング 最高スコア
+0000000105C7.07C: ストーム・レイジング 最高スコア
+0000000105C8.07C: %1$s ストーム・レイジング 最高スコア
+0000000105CC.07C: モルテン・コア 最高スコア
+0000000105CD.07C: %1$s モルテン・コア 最高スコア
+0000000105CE.07C: グラスキャノン 最高スコア
+0000000105CF.07C: %1$s グラスキャノン 最高スコア
+0000000105D0.07C: サージカル・ストライク 最高スコア
+0000000105D1.07C: %1$s サージカル・ストライク 最高スコア
+0000000105D2.07C: クロース・クオーター 最高スコア
+0000000105D3.07C: %1$s クロース・クオーター最高スコア
+0000000105D4.07C: ブラッドムーン・ライジング 最高スコア
+0000000105D5.07C: %1$s ブラッドムーン・ライジング 最高スコア
+0000000105D6.07C: ストーム・レイジング 最高スコア
+0000000105D7.07C: %1$s ストーム・レイジング 最高スコア
+0000000105D8.07C: トレーニング・パートナー
+0000000105F1.07C: 休みを取って思いっきり羽を伸ばしたいとき、アナは決まって荷物をまとめてハワイに行くことにしている
+0000000105F2.07C: 失われし魔術の使い手として、ウォーロックは世にも恐ろしい悪魔でさえも思いのままに使役する
+0000000105F3.07C: カリブ海連合に身を置いていた時期、バティストは世界各地のさまざまな環境下へと派遣された
+0000000105F4.07C: ひときわ目立つ容貌を誇るシールドメイデンは、ジャンケンシュタインの物語に登場するヴァイキングの娘としても知られている
+0000000105F7.07C: 義肢設計会社を営む名家の跡継ぎとして生まれたドゥームフィストは、幼いころから一流の品々に囲まれて育った
+0000000106F4.07C: モス
+000000010778.07C: ランダム
+00000001077A.07C: ヒロイック
+00000001077B.07C: ランダム
+00000001077C.07C: アイコン
+00000001077D.07C: みなぎる力
+00000001077E.07C: 静止
+00000001077F.07C: 愚者とその持ち金は、まもなく…吹き飛ぶ！
+000000010780.07C: クッキング
+000000010781.07C: エコー
+000000010799.07C: ほぼノーリミット
+00000001079A.07C: ほぼ制限なしでヒーローを選び、敵チームを倒そう
+00000001079B.07C: アサルト - ノーリミット - 最大4
+00000001079C.07C: コントロール - ノーリミット - 最大4
+00000001079D.07C: ハイブリッド - ノーリミット - 最大4
+00000001079E.07C: ペイロード - ノーリミット - 最大4
+0000000107A3.07C: ドリアン
+0000000107A6.07C: 各ロール4名制限
+0000000107A7.07C: バンダ
+0000000107A8.07C: パパイヤ
+0000000107A9.07C: マリーナ
+0000000107AA.07C: ホット・ロッド
+0000000107AB.07C: カーボン・ファイバー
+0000000107CC.07C: ファリーハ・“ファラ”・アマリ中尉は、エジプト軍での優れた功績を買われヘリックスにスカウトされた。高名なアマリ家の一員であるファラは、会社にとっても他に代えがたい収穫だったと言える
+0000000107CE.07C: ロードホッグを古くから知る者は、彼のことを「マコ」と呼ぶ
+0000000107DA.07C: 「なんなんじゃ、この地獄のような場所は。イヤじゃ、イヤじゃ、勘弁してくれ！」
+0000000107DB.07C: トールビョーンは、スウェーデンのヨーテボリに本部を構える、アイアンクラッド・ギルドの中心メンバーとして活躍した
+0000000107E1.07C: ?
+0000000107E2.07C: チームを編成:
+0000000107E3.07C: 選択
+0000000107E4.07C: 続行
+0000000107E5.07C: 前のスキン
+0000000107E6.07C: 次のスキン
+0000000107E7.07C: 戦闘準備完了
+0000000107E8.07C: ヒーローを変更
+0000000107E9.07C: カスタマイズ
+0000000107EA.07C: <tx%1$s> 選択
+0000000107EB.07C: <tx%1$s> ヒーローをカスタマイズ
+0000000107EC.07C: <tx%1$s> ヒーロー情報
+0000000107ED.07C: <tx%1$s> キャンセル
+0000000107EE.07C: <tx%1$s> チーム・チャットに参加
+0000000107EF.07C: チーム・チャットに参加
+0000000107F0.07C: ヒーローを選択:
+0000000107F1.07C: マッチ・チャットに参加
+0000000107F2.07C: スキンを選択
+0000000107F3.07C: スキンを変更
+0000000107F4.07C: <tx%1$s> スキンを選択
+0000000107F5.07C: このヒーローは現在のローテーションに入っていません
+0000000107F6.07C: トレーニング・パートナーを選ぶ
+000000010803.07C: 視聴
+000000010847.07C: デフォルト
+000000010848.07C: ゴールデン
+000000010849.07C: 5/2 & 5/3 (PDT)
+000000010862.07C: 約束
+000000010863.07C: エコー
+000000010869.07C: シンメトリー
+00000001086B.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
+00000001086C.07C: Vancouver Titans ホームスタンド 2020
+00000001086E.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
+00000001086F.07C: Toronto Defiant ホームスタンド 2020
+000000010871.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
+000000010872.07C: San Francisco Shock ホームスタンド 2020
+000000010874.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
+000000010875.07C: Paris Eternal ホームスタンド 2020
+000000010877.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
+000000010878.07C: Los Angeles Valiant ホームスタンド 2020
+00000001087A.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
+00000001087B.07C: Los Angeles Gladiators ホームスタンド 2020
+00000001087C.07C: %1$sでトレーニング・パートナーを変更
+00000001087D.07C: %1$s長押しでトレーニング・パートナーを変更
+000000010884.07C: ミナ
+000000010885.07C: カンフー
+000000010886.07C: バタフライ
+000000010887.07C: エコーフィスト
+000000010888.07C: エコー・レイジ
+000000010889.07C: エコーブレード
+00000001088A.07C: スティッキー・ボム
+00000001088B.07C: キュート
+00000001088C.07C: ピクセル
+00000001088D.07C: アクティベーション
+00000001088E.07C: エコーハルト
+00000001088F.07C: フォーカス
+000000010890.07C: エコーモルフ
+000000010891.07C: システム・オンライン
+000000010892.07C: ヒッチハイク
+000000010893.07C: フィンガー・ガン
+000000010894.07C: 眼差し
+000000010895.07C: ガーデニング
+000000010896.07C: 着地
+000000010897.07C: ロード中…
+000000010898.07C: ゴースト
+000000010899.07C: シンボル
+0000000108A2.07C: 明日の天気
+0000000108A3.07C: あらまあ！
+0000000108A4.07C: モジュールをロード中
+0000000108A5.07C: ダブルチェック完了
+0000000108A6.07C: どうなの？
+0000000108A7.07C: 関連性
+0000000108A8.07C: もう！
+0000000108A9.07C: 最高ね！
+0000000108AA.07C: ちょっと違ったわね
+0000000108AB.07C: どんな状況にも
+0000000108AC.07C: なんでも一度はやってみる
+0000000108C5.07C: エコー
+0000000108C7.07C: 続行
+0000000108C8.07C: 新ダメージヒーロー！
+0000000108DF.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
+0000000108E0.07C: London Spitfire ホームスタンド 2020
+0000000108E2.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
+0000000108E3.07C: Chengdu Hunters ホームスタンド 2020
+0000000108E5.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
+0000000108E6.07C: Boston Uprising ホームスタンド 2020
+0000000108E8.07C: ホームスタンド 2020<br>の<br>イベントに<br>参加して<br>アンロック
+0000000108E9.07C: Atlanta Reign ホームスタンド 2020
+0000000108F8.07C: ROUTE 66
+0000000108FE.07C: 平常運航
+000000010950.07C: エコーの<br>ヒーロー<br>登場<br>イベント中に<br>対象<br>配信を<br>視聴<br>して<br>アンロック
+000000010951.07C: リフト・オフ
+000000010952.07C: 空中散歩
+000000010953.07C: ナイスアイデア
+000000010954.07C: 私の意志
+000000010955.07C: エコー：オンライン
+000000010956.07C: コピー
+000000010997.07C: 「オプション」>「操作設定」でキャプチャーボタンの割り当てが行えます
+0000000109C6.07C: カモフラージュ
+0000000109E5.07C: ライバル・プレイ オープンキュー
+0000000109E6.07C: ロール制限なしでヒーローを選び、世界のトッププレイヤーたちと競い合ってランク上位を目指そう
+0000000109E7.07C: ライバル・プレイ オープンキュー シーズン1
+0000000109E8.07C: アサルト - ライバル
+0000000109E9.07C: コントロール - ライバル
+0000000109EA.07C: ハイブリッド - ライバル
+0000000109EB.07C: ペイロード - ライバル
+0000000109EC.07C: 長押しでフライト
+0000000109F1.07C: ライバル・プレイ オープンキュー
+0000000109F2.07C: ライバル・プレイ オープンキュー
+0000000109F5.07C: 40
+0000000109F6.07C: 75
+0000000109F7.07C: 150
+0000000109F8.07C: 300
+0000000109F9.07C: 450
+0000000109FA.07C: 750
+0000000109FB.07C: 1000
+0000000109FC.07C: 参加して報酬をゲット！
+0000000109FD.07C: Thanks for Playing!
+0000000109FE.07C: - マッチは複数ラウンド形式
+- 目標を達成してポイントを獲得
+- より多くのポイントを獲得すると勝利
+000000010A0B.07C: ライバル・プレイ オープンキュー コンペティター
+000000010A0C.07C: ライバル・プレイ <br>オープンキューの<br>スキル<br>認定<br>マッチ<br>完了で<br>アン<br>ロック
+000000010A0D.07C: ライバル・プレイ オープンキュー ヒーロー
+000000010A0E.07C: ライバル・プレイ <br>オープンキュー<br>終了時に<br>トップ<br>500に<br>ランク<br>イン<br>して<br>アン<br>ロック
+000000010A0F.07C: ライバル・プレイ オープンキュー コンペティター
+000000010A11.07C: ライバル・プレイ オープンキュー ヒーロー
+000000010A16.07C: グライド
+000000010A17.07C: %1$s %2$s
+000000010A1C.07C: エコーが<br>〈コピー〉を<br>使用したら、<br>すぐに<br>集中攻撃して<br>アルティメット・<br>アビリティが<br>使用されるのを<br>防ごう
+000000010A1D.07C: エコーからは<br>距離を<br>取り、<br>予想されにくい<br>動きで<br>攻撃が<br>命中するのを<br>避けよう
+000000010A1E.07C: エコーには<br>回避手段が<br>あまり<br>ない。<br>〈フライト〉が<br>クールダウン中に<br>狙うと<br>効果的だ
+000000010A24.07C: ダメージ - メイン攻撃
+000000010A25.07C: %1$s Damage Done
+000000010A28.07C: ダメージ - スティッキー・ボム
+000000010A29.07C: %1$s Damage Done
+000000010A2A.07C: ダメージ - フォーカス・ビーム
+000000010A2B.07C: %1$s Damage Done
+000000010A2C.07C: 〈フォーカス・ビーム〉キル
+000000010A2D.07C: %1$s 〈フォーカス・ビーム〉キル
+000000010A2E.07C: 〈フォーカス・ビーム〉キル - 10分平均値
+000000010A2F.07C: %1$s 〈フォーカス・ビーム〉キル - 10分平均値
+000000010A30.07C: 最多〈フォーカス・ビーム〉キル/マッチ
+000000010A31.07C: %1$s 最多〈フォーカス・ビーム〉キル/マッチ
+000000010A32.07C: 〈スティッキー・ボム〉キル
+000000010A33.07C: %1$s 〈スティッキー・ボム〉キル
+000000010A34.07C: 〈スティッキー・ボム〉キル - 10分平均値
+000000010A35.07C: %1$s 〈スティッキー・ボム〉キル - 10分平均値
+000000010A36.07C: 最多〈スティッキー・ボム〉キル/マッチ
+000000010A37.07C: %1$s 最多〈スティッキー・ボム〉キル/マッチ
+000000010A38.07C: 〈コピー〉キル
+000000010A39.07C: %1$s 〈コピー〉キル
+000000010A3A.07C: 〈コピー〉キル - 10分平均値
+000000010A3B.07C: %1$s 〈コピー〉キル - 10分平均値
+000000010A3C.07C: 最多〈コピー〉キル/マッチ
+000000010A3D.07C: %1$s 最多〈コピー〉キル/マッチ
+000000010A3F.07C: 〈スティッキー・ボム〉直撃 命中率
+000000010A40.07C: %1$s 〈スティッキー・ボム〉直撃 命中率
+000000010A47.07C: 〈スティッキー・ボム〉発射
+000000010A48.07C: %1$s 〈スティッキー・ボム〉発射
+000000010A49.07C: 〈スティッキー・ボム〉直撃
+000000010A4A.07C: %1$s 〈スティッキー・ボム〉直撃 命中率
+000000010A51.07C: 〈フライト〉が<br>クールダウン中は<br>〈グライド〉を<br>うまく<br>使って<br>敵の<br>攻撃を<br>かわそう
+000000010A59.07C: 〈スティッキー・ボム〉使用
+000000010A5A.07C: %1$s 〈スティッキー・ボム〉使用
+000000010A5E.07C: 〈フォーカス・ビーム〉発動時間
+000000010A5F.07C: %1$s 〈フォーカス・ビーム〉発動時間
+000000010A61.07C: ヒーロー：ライバル・プレイ ヒーロー・ローテーション
+000000010A62.07C: ダメージ - フォーカス・ビーム（ボーナスダメージのみ）
+000000010A63.07C: %1$s Bonus Damage Done
+000000010A65.07C: Atlanta Reign
+000000010A66.07C: Atlanta Reign - アウェイ
+000000010A67.07C: Boston Uprising
+000000010A68.07C: Boston Uprising - アウェイ
+000000010A69.07C: Chengdu Hunters
+000000010A6A.07C: Chengdu Hunters - アウェイ
+000000010A6B.07C: コンテンダーズ - アウェイ
+000000010A6C.07C: コンテンダーズ - ホーム
+000000010A6D.07C: Dallas Fuel
+000000010A6E.07C: Dallas Fuel - アウェイ
+000000010A6F.07C: Florida Mayhem 2018
+000000010A70.07C: Florida Mayhem - アウェイ - 2018
+000000010A71.07C: Florida Mayhem - アウェイ
+000000010A72.07C: Florida Mayhem
+000000010A73.07C: Guangzhou Charge
+000000010A74.07C: Guangzhou Charge - アウェイ
+000000010A75.07C: Hangzhou Spark
+000000010A76.07C: Hangzhou Spark - アウェイ
+000000010A77.07C: Houston Outlaws
+000000010A78.07C: Houston Outlaws - アウェイ
+000000010A79.07C: London Spitfire
+000000010A7A.07C: London Spitfire - アウェイ
+000000010A7B.07C: Los Angeles Gladiators
+000000010A7C.07C: Los Angeles Gladiators - アウェイ
+000000010A7D.07C: Los Angeles Valiant 2018
+000000010A7E.07C: Los Angeles Valiant - アウェイ - 2018
+000000010A7F.07C: Los Angeles Valiant - アウェイ
+000000010A80.07C: Los Angeles Valiant
+000000010A81.07C: New York Excelsior
+000000010A82.07C: New York Excelsior - アウェイ
+000000010A83.07C: Paris Eternal
+000000010A84.07C: Paris Eternal - アウェイ
+000000010A85.07C: Philadelphia Fusion
+000000010A86.07C: Philadelphia Fusion - アウェイ
+000000010A87.07C: San Francisco Shock 2018
+000000010A88.07C: San Francisco Shock - アウェイ - 2018
+000000010A89.07C: San Francisco Shock - アウェイ
+000000010A8A.07C: San Francisco Shock
+000000010A8B.07C: Seoul Dynasty
+000000010A8C.07C: Seoul Dynasty - アウェイ
+000000010A8D.07C: Shanghai Dragons
+000000010A8E.07C: Shanghai Dragons - アウェイ
+000000010A8F.07C: Toronto Defiant
+000000010A90.07C: Toronto Defiant - アウェイ
+000000010A91.07C: Vancouver Titans
+000000010A92.07C: Vancouver Titans - アウェイ
+000000010A93.07C: Washington Justice
+000000010A94.07C: Washington Justice - アウェイ
+000000010A96.07C: ダメージ - コピー
+000000010A97.07C: %1$s Duplicate Damage Done
+000000010A98.07C: 最多〈スティッキー・ボム〉直撃/マッチ
+000000010A99.07C: %1$s 最多〈スティッキー・ボム〉直撃/マッチ
+000000010A9A.07C: 〈スティッキー・ボム〉直撃 - 10分平均値
+000000010A9B.07C: %1$s 〈スティッキー・ボム〉直撃 - 10分平均値
+000000010A9C.07C: 〈フォーカス・ビーム〉命中率
+000000010A9D.07C: %1$s 〈フォーカス・ビーム〉命中率
+000000010A9E.07C: 〈フォーカス・ビーム〉攻撃時間
+000000010A9F.07C: %1$s 〈フォーカス・ビーム〉キル
+000000010B39.07C: -
+[Core] Execution finished in 00:00:04.1823180 seconds
