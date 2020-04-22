@@ -23131,7 +23131,7 @@ function parseInstructions(lines, nbDo) {
 				gotoOffset += getNbLinesForType(resultLines[j].type);
 			}
 
-			if (j < resultLines.length && (resultLines[j].type === "else" || resultLines[j].type === "fakeelse")) {
+			if (j < resultLines.length && resultLines[j].indentLevel === resultLines[i].indentLevel && (resultLines[j].type === "else" || resultLines[j].type === "fakeelse")) {
 				gotoOffset++;
 			}
 
