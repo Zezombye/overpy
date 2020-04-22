@@ -79,7 +79,6 @@ function astRuleConditionToWs(condition) {
         "__greaterThan__": ">",
     }
     var result = "";
-    console.log(condition);
     if (condition.comment) {
         result += tabLevel(2)+escapeString(condition.comment)+"\n";
     }

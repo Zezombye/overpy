@@ -17,12 +17,64 @@
 
 "use strict";
 
-astParsingFunctions.__remove__ = function(content) {
-    var result = new Ast("__modifyVar__", [
-        content.args[0],
-        new Ast("__removeFromArrayByValue__", [], [], "__Operation__"),
-        content.args[1],
-    ])
-    result.originalName = "__remove__";
-    return result;
+astParsingFunctions.__negate__ = function(content) {
+
+    const typeNegation = {
+        "unsigned int": "signed int",
+        "unsigned float": "signed float",
+        "signed int": "unsigned int",
+        "signed float": "unsigned float",
+    }
+
+    //negate type
+    console.log(content.type);
+    content.type = replaceType(content.type, typeNegation);
+    console.log(content.type);
+
+    function negateNumber(nb) {
+        nb.args[0].numValue = -nb.args[0].numValue;
+        nb.args[0].name = Number(nb.args[0].numValue);
+    }
+
+    if (enableOptimization) {
+        if (["__multiply__", "__divide__"].includes(content.args[0].name)) {
+            //Apply the negate on a number if that number is literal.
+            //Eg: "-3*5" is will be "(-3)*5".
+            if (content.args[0].args[0].name === "__number__") {
+                negateNumber(content.args[0].args[0]);
+                return content.args[0];
+
+            } else if (content.args[0].args[1].name === "__number__") {
+                negateNumber(content.args[0].args[1]);
+                return content.args[0];
+            } 
+
+        } else if (content.args[0].name === "__modulo__" && content.args[0].args[0].name === "__number__") {
+            negateNumber(content.args[0].args[0]);
+            return content.args[0];
+
+        } else if (content.args[0].name === "__negate__") {
+            //Negating twice is equivalent to null.
+            return content.args[0].args[0];
+
+        } else if (content.args[0].name === "__number__") {
+            negateNumber(content.args[0]);
+            return content.args[0];
+
+        } else if (content.args[0].name === "vect") {
+        //Check if both arguments are vectors containing numbers.
+            if (content.args[0].args[0].name === "__number__" 
+                    && content.args[0].args[1].name === "__number__" 
+                    && content.args[0].args[2].name === "__number__" ) {
+
+                return new Ast("vect", [
+                    getAstForNumber(-content.args[0].args[0].args[0].numValue),
+                    getAstForNumber(-content.args[0].args[1].args[0].numValue),
+                    getAstForNumber(-content.args[0].args[2].args[0].numValue),
+                ])
+            }
+        }
+    }
+
+    return content;
 }

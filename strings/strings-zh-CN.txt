@@ -1,12 +1,12 @@
-[Core] DataTool v1.47.0.868-git-222ad70efeb849673104456adc9548418298e5b1
+[Core] DataTool v1.47.0.869-git-e8b03657a7f90e402e114b4d3084727a3347ee42
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=zhCN", "-T=zhCN"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.exe.args
 [CASC] Set language to zhCN
 [CASC] Set speech language to zhCN
-[CASC] Overwatch build 1.47.0.0.67664
+[CASC] Overwatch build 1.47.1.0.68126
 [CASC] Initializing...
-[CMF] Using CMF procedure 67664
-[CMF] Using CMF procedure 67664
+[CMF] Using CMF procedure 68126
+[CMF] Using CMF procedure 68126
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27512,12 +27512,8 @@ https://account.blizzard.com/connections/nintendo
 000000010A68.07C: 波士顿崛起队客场
 000000010A69.07C: 成都猎人队
 000000010A6A.07C: 成都猎人队客场
-000000010A6B.07C: 挑战者系列赛客场
-000000010A6C.07C: 挑战者系列赛主场
 000000010A6D.07C: 达拉斯燃料队
 000000010A6E.07C: 达拉斯燃料队客场
-000000010A6F.07C: 佛罗里达狂欢队2018
-000000010A70.07C: 佛罗里达狂欢队客场2018
 000000010A71.07C: 佛罗里达狂欢队客场
 000000010A72.07C: 佛罗里达狂欢队
 000000010A73.07C: 广州冲锋队
@@ -27530,8 +27526,6 @@ https://account.blizzard.com/connections/nintendo
 000000010A7A.07C: 伦敦喷火战斗机队客场
 000000010A7B.07C: 洛杉矶角斗士队
 000000010A7C.07C: 洛杉矶角斗士队客场
-000000010A7D.07C: 洛杉矶英勇队2018
-000000010A7E.07C: 洛杉矶英勇队客场2018
 000000010A7F.07C: 洛杉矶英勇队客场
 000000010A80.07C: 洛杉矶英勇队
 000000010A81.07C: 纽约九霄天擎队
@@ -27540,8 +27534,6 @@ https://account.blizzard.com/connections/nintendo
 000000010A84.07C: 巴黎永生队客场
 000000010A85.07C: 费城融合队
 000000010A86.07C: 费城融合队客场
-000000010A87.07C: 旧金山震动队2018
-000000010A88.07C: 旧金山震动队客场2018
 000000010A89.07C: 旧金山震动队客场
 000000010A8A.07C: 旧金山震动队
 000000010A8B.07C: 首尔王朝队
@@ -27565,4 +27557,5 @@ https://account.blizzard.com/connections/nintendo
 000000010A9E.07C: 聚焦光线造成伤害持续时间
 000000010A9F.07C: 聚焦光线消灭 %1$s
 000000010B39.07C: -
-[Core] Execution finished in 00:00:04.2115003 seconds
+000000010CC8.07C: <fg%1$s>%2$s</fg><tx%3$s> used <tx%4$s> on <fg%7$s>%5$s</fg><tx%6$s>
+[Core] Execution finished in 00:00:03.9503441 seconds

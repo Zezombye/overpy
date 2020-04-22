@@ -1,12 +1,12 @@
-[Core] DataTool v1.47.0.868-git-222ad70efeb849673104456adc9548418298e5b1
+[Core] DataTool v1.47.0.869-git-e8b03657a7f90e402e114b4d3084727a3347ee42
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.exe.args
 [CASC] Set language to frFR
 [CASC] Set speech language to frFR
-[CASC] Overwatch build 1.47.0.0.67664
+[CASC] Overwatch build 1.47.1.0.68126
 [CASC] Initializing...
-[CMF] Using CMF procedure 67664
-[CMF] Using CMF procedure 67664
+[CMF] Using CMF procedure 68126
+[CMF] Using CMF procedure 68126
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27473,12 +27473,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010A68.07C: Boston Uprising (extérieur)
 000000010A69.07C: Chengdu Hunters
 000000010A6A.07C: Chengdu Hunters (extérieur)
-000000010A6B.07C: Contenders (extérieur)
-000000010A6C.07C: Contenders (domicile)
 000000010A6D.07C: Dallas Fuel
 000000010A6E.07C: Dallas Fuel (extérieur)
-000000010A6F.07C: Florida Mayhem 2018
-000000010A70.07C: Florida Mayhem 2018 (extérieur)
 000000010A71.07C: Florida Mayhem (extérieur)
 000000010A72.07C: Florida Mayhem
 000000010A73.07C: Guangzhou Charge
@@ -27491,8 +27487,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010A7A.07C: London Spitfire (extérieur)
 000000010A7B.07C: Los Angeles Gladiators
 000000010A7C.07C: Los Angeles Gladiators (extérieur)
-000000010A7D.07C: Los Angeles Valiant 2018
-000000010A7E.07C: Los Angeles Valiant 2018 (extérieur)
 000000010A7F.07C: Los Angeles Valiant (extérieur)
 000000010A80.07C: Los Angeles Valiant
 000000010A81.07C: New York Excelsior
@@ -27501,8 +27495,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010A84.07C: Paris Eternal (extérieur)
 000000010A85.07C: Philadelphia Fusion
 000000010A86.07C: Philadelphia Fusion (extérieur)
-000000010A87.07C: San Francisco Shock 2018
-000000010A88.07C: San Francisco Shock 2018 (extérieur)
 000000010A89.07C: San Francisco Shock (extérieur)
 000000010A8A.07C: San Francisco Shock
 000000010A8B.07C: Seoul Dynasty
@@ -27526,4 +27518,5 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010A9E.07C: |Rpl %1$s:Seconde:Secondes; de dégâts infligés par Rayon focalisé
 000000010A9F.07C: %1$s |Rpl Victime:Victimes; de Rayon focalisé
 000000010B39.07C: -
-[Core] Execution finished in 00:00:04.1204997 seconds
+000000010CC8.07C: <fg%1$s>%2$s</fg><tx%3$s> used <tx%4$s> on <fg%7$s>%5$s</fg><tx%6$s>
+[Core] Execution finished in 00:00:03.8129144 seconds

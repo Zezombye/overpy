@@ -1,12 +1,12 @@
-[Core] DataTool v1.47.0.868-git-222ad70efeb849673104456adc9548418298e5b1
+[Core] DataTool v1.47.0.869-git-e8b03657a7f90e402e114b4d3084727a3347ee42
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=esMX", "-T=esMX"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.exe.args
 [CASC] Set language to esMX
 [CASC] Set speech language to esMX
-[CASC] Overwatch build 1.47.0.0.67664
+[CASC] Overwatch build 1.47.1.0.68126
 [CASC] Initializing...
-[CMF] Using CMF procedure 67664
-[CMF] Using CMF procedure 67664
+[CMF] Using CMF procedure 68126
+[CMF] Using CMF procedure 68126
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27294,16 +27294,16 @@ https://account.blizzard.com/connections/nintendo
 000000010956.07C: Copia
 000000010997.07C: Ve a Opciones > Controles para asignar el botón Capturar.
 0000000109C6.07C: Camuflaje
-0000000109E5.07C: Competitivo clásico 
+0000000109E5.07C: Cola competitiva abierta
 0000000109E6.07C: Sube de rango y compite con los mejores jugadores del mundo sin límite de roles en la selección de héroes.
-0000000109E7.07C: Competitivo clásico Temporada 1
+0000000109E7.07C: Cola competitiva abierta Temporada 1
 0000000109E8.07C: Asalto - Competitivo
 0000000109E9.07C: Control - Competitivo
 0000000109EA.07C: Híbrido - Competitivo
 0000000109EB.07C: Carga - Competitivo
 0000000109EC.07C: Mantener para vuelo
-0000000109F1.07C: Competitivo clásico
-0000000109F2.07C: Competitivo clásico
+0000000109F1.07C: Cola competitiva abierta
+0000000109F2.07C: Cola competitiva abierta
 0000000109F5.07C: 40
 0000000109F6.07C: 75
 0000000109F7.07C: 150
@@ -27316,12 +27316,12 @@ https://account.blizzard.com/connections/nintendo
 0000000109FE.07C: - Las partidas duran varias rondas
 - Logra objetivos para conseguir puntos
 - ¡Gana quien tenga más puntos!
-000000010A0B.07C: Competidor de competitivo clásico  
-000000010A0C.07C: Se desbloquea al completar las partidas de colocación de un competitivo clásico
-000000010A0D.07C: Héroe de competitivo clásico 
-000000010A0E.07C: Se desbloquea al estar entre los 500 mejores al final de un competitivo clásico
-000000010A0F.07C: Competidor de competitivo clásico
-000000010A11.07C: Héroe de competitivo clásico 
+000000010A0B.07C: Competidor de cola competitiva abierta 
+000000010A0C.07C: Se desbloquea al completar las partidas de colocación de cola competitiva abierta
+000000010A0D.07C: Héroe de cola competitiva abierta 
+000000010A0E.07C: Se desbloquea al estar entre los 500 mejores al final de una cola competitiva abierta
+000000010A0F.07C: Competidor de cola competitiva abierta
+000000010A11.07C: Héroe de cola competitiva abierta
 000000010A16.07C: Planeo
 000000010A17.07C: %1$s - %2$s
 000000010A1C.07C: Concentra ataques rápidos en Echo después de que use Copia para evitar que utilice su devastadora habilidad máxima.
@@ -27371,12 +27371,8 @@ https://account.blizzard.com/connections/nintendo
 000000010A68.07C: Boston Uprising (visitante)
 000000010A69.07C: Chengdu Hunters
 000000010A6A.07C: Chengdu Hunters (visitante)
-000000010A6B.07C: Contenders (visitante)
-000000010A6C.07C: Contenders (local)
 000000010A6D.07C: Dallas Fuel
 000000010A6E.07C: Dallas Fuel (visitante)
-000000010A6F.07C: Florida Mayhem 2018
-000000010A70.07C: Florida Mayhem (visitante) 2018
 000000010A71.07C: Florida Mayhem (visitante)
 000000010A72.07C: Florida Mayhem
 000000010A73.07C: Guangzhou Charge
@@ -27389,8 +27385,6 @@ https://account.blizzard.com/connections/nintendo
 000000010A7A.07C: London Spitfire (visitante)
 000000010A7B.07C: Los Angeles Gladiators
 000000010A7C.07C: Los Angeles Gladiators (visitante)
-000000010A7D.07C: Los Angeles Valiant 2018
-000000010A7E.07C: Los Angeles Valiant (visitante) 2018
 000000010A7F.07C: Los Angeles Valiant (visitante)
 000000010A80.07C: Los Angeles Valiant
 000000010A81.07C: New York Excelsior
@@ -27399,8 +27393,6 @@ https://account.blizzard.com/connections/nintendo
 000000010A84.07C: Paris Eternal (visitante)
 000000010A85.07C: Philadelphia Fusion
 000000010A86.07C: Philadelphia Fusion (visitante)
-000000010A87.07C: San Francisco Shock 2018
-000000010A88.07C: San Francisco Shock (visitante) 2018
 000000010A89.07C: San Francisco Shock (visitante)
 000000010A8A.07C: San Francisco Shock
 000000010A8B.07C: Seoul Dynasty
@@ -27424,4 +27416,5 @@ https://account.blizzard.com/connections/nintendo
 000000010A9E.07C: |Rpl %1$s:Segundo:Segundos; de daño infligido por Rayo de concentración
 000000010A9F.07C: |Rpl %1$s:Derribo:Derribos; por Rayo de concentración
 000000010B39.07C: -
-[Core] Execution finished in 00:00:03.7870654 seconds
+000000010CC8.07C: <fg%1$s>%2$s</fg><tx%3$s> used <tx%4$s> on <fg%7$s>%5$s</fg><tx%6$s>
+[Core] Execution finished in 00:00:03.7005406 seconds

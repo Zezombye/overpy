@@ -890,7 +890,7 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": "float",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             }
         ],

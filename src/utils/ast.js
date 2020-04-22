@@ -17,115 +17,6 @@
 
 "use strict";
 
-/*
-A type is suitable if each type of the receivedType is suitable for any of the types in expectedType.
-Eg: ["unsigned float", "Vector"] is suitable for ["float", "Direction"].
-However ["float", "Vector"] is not suitable for ["float"].
-
-A type is defined as "suitable" if it is the type, or a child type, of expectedType.
-Eg: "float" is suitable for "Object". However "Object" is not suitable for "float".
-Moreover, {Array: "Player"} is not suitable for "Array".
-
-The special "Value" type is suitable for any child type of object or array.
-*/
-function isTypeSuitable(expectedType, receivedType) {
-
-    //console.log("expected type = "+JSON.stringify(expectedType)+", received type = "+JSON.stringify(receivedType));
-
-    if (receivedType instanceof Array) {
-        //Check if each of the received type is valid for the expected type.
-        return receivedType.every(x => isTypeSuitable(expectedType, x));
-    }
-
-    if (expectedType instanceof Array) {
-        //Check if the received type is valid for any of the expected types.
-        return expectedType.some(x => isTypeSuitable(x, receivedType));
-    }
-
-    if (typeof receivedType === "string") {
-        if (typeof expectedType === "string") {
-            //Do not check for type "Variable". Functions with such a type are checked manually.
-            if (expectedType === "Variable") {
-                return true;
-            }
-            //Handle the special "value" type.
-            if (receivedType === "Value") {
-                return expectedType === "Array" || typeMatrix["Object"].includes(expectedType);
-            } else {
-                //The most simple case: both types are string. Simply use the type matrix to see if the received type is a child (or the type itself) of the expected type.
-                if (!(expectedType in typeMatrix)) {
-                    error("Unhandled type '"+expectedType+"'");
-                }
-                return typeMatrix[expectedType].includes(receivedType);
-            }
-
-        } else if (typeof expectedType === "object") {
-            var expectedTypeName = Object.keys(expectedType)[0];
-            if (expectedTypeName === "Array") {
-                //The only string type that would be suitable for Array is the special "value" type.
-                return receivedType === "Value";
-
-            } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
-                return isTypeSuitable(expectedTypeName, receivedType);
-
-            }
-        }
-    } else if (typeof receivedType === "object") {
-        var receivedTypeName = Object.keys(receivedType)[0];
-        if (receivedTypeName === "Array") {
-            if (typeof expectedType === "string") {
-                //The only string type that is suitable for an array is "Array".
-                return expectedType === "Array";
-
-            } else if (typeof expectedType === "object") {
-                
-                var expectedTypeName = Object.keys(expectedType)[0];
-                if (expectedTypeName === "Array") {
-                    return isTypeSuitable(expectedType[expectedTypeName], receivedType[receivedTypeName]);
-
-                } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
-                    //An array cannot be suitable for a vector
-                    return false;
-                }
-            }
-        } else if (["Vector", "Direction", "Position", "Velocity"].includes(receivedTypeName)) {
-            if (typeof expectedType === "string") {
-                //The default type for vectors is float.
-                return receivedType[receivedTypeName].every(x => isTypeSuitable("float", x));
-
-            } else if (typeof expectedType === "object") {
-                
-                var expectedTypeName = Object.keys(expectedType)[0];
-                if (expectedTypeName === "Array") {
-                    //An vector cannot be suitable for a array
-                    return false;
-
-                } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
-                    if (isTypeSuitable(expectedTypeName, receivedTypeName)) {
-                        if (expectedType[expectedTypeName].length !== receivedType[receivedTypeName].length) {
-                            return false;
-
-                        } else {
-                            for (var i = 0; i < expectedType[expectedTypeName].length; i++) {
-                                if (!isTypeSuitable(expectedType[expectedTypeName][i], receivedType[receivedTypeName][i])) {
-                                    return false;
-                                }
-                            }
-                            return true;
-                        }
-
-                    } else {
-                        return false;
-                    }
-                }
-            }
-        }
-    }
-
-    error("Unhandled expected type '"+JSON.stringify(expectedType)+"' or received type '"+JSON.stringify(receivedTypeName)+"'");
-
-}
-
 //Used for when the body of a control flow statement will never execute, such as "if false".
 function makeChildrenUseless(children) {
 
@@ -212,6 +103,26 @@ function isDefinitelyTruthy(content) {
     return false;
 }
 
+//Returns true if the ASTs are the same tree (same names) and there is no function that can return a different value if called twice with the same arguments and context (such as a random function).
+function areAstsEqual(a, b) {
+    if (a.name !== b.name) {
+        return false;
+    }
+    if (["random.randint", "random.uniform", "random.choice", "random.shuffle"].includes(a.name)) {
+        return false;
+    }
+    if (a.args.length !== b.args.length) {
+        return false;
+    }
+    for (var i = 0; i < a.args.length; i++) {
+        if (!areAstsEqual(a.args[i], b.args[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
 //Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
 function getAstFor0() {
     return new Ast("__number__", [new Ast("0", [], [], "NumberLiteral")], [], "int");
@@ -222,8 +133,19 @@ function getAstFor1() {
 function getAstForMinus1() {
     return new Ast("__number__", [new Ast("-1", [], [], "NumberLiteral")], [], "unsigned int");
 }
+function getAstFor2() {
+    return new Ast("__number__", [new Ast("2", [], [], "NumberLiteral")], [], "int");
+}
 function getAstFor0_016() {
     return new Ast("__number__", [new Ast("0.016", [], [], "NumberLiteral")], [], "unsigned float");
+}
+function getAstForNumber(nb) {
+    if (typeof nb !== "number") {
+        error("Expected a number, but got '"+nb+"' of type '"+typeof nb+"'");
+    }
+    var type = nb >= 0 ? "unsigned" : "signed";
+    type += " "+(Number.isInteger(nb) ? "int" : "float");
+    return new Ast("__number__", [new Ast(nb.toString(), [], [], "NumberLiteral")], [], type);
 }
 function getAstForNull() {
     return new Ast("null", [], [], "Player");
