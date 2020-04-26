@@ -100,7 +100,7 @@ function astRuleConditionToWs(condition) {
 function astActionToWs(action, nbTabs) {
 
     if (action.type === "Label") {
-        return "";
+        return tabLevel(nbTabs)+"//"+action.name+":\n";
     }
     var result = "";
     if (action.comment) {
@@ -313,6 +313,8 @@ function astToWs(content) {
         result += tows(content.name, constantValues["Team"]);
     } else if (content.type === "GamemodeLiteral") {
         result += tows(content.name, constantValues["Gamemode"]);
+    } else if (content.type === "ButtonLiteral") {
+        result += tows(content.name, constantValues["Button"]);
     } else {
         error("Unknown type '"+content.type+"' of '"+content.name+"'");
     }

@@ -90,7 +90,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being reenabled.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -205,6 +205,24 @@ const actionKw =
         "pl-PL": "Wywołaj podprogram",
         "pt-BR": "Chamar sub-rotina",
         "zh-CN": "调用子程序",
+        "return": "void"
+    },
+    "_&cancelPrimaryAction": {
+        "description": "Cancels the active abilities for one or more players. Equivalent to a short stun.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players to cancel active abilities for.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "en-US": "Cancel Primary Action",
         "return": "void"
     },
     "__chaseGlobalVariableAtRate__": {
@@ -879,6 +897,12 @@ const actionKw =
         "zh-CN": "宣告玩家胜利",
         "return": "void"
     },
+    "declareRoundDraw": {
+        "description": "Declare a draw for the current round. This only works in the elimination game mode.",
+        "args": [],
+        "en-US": "Declare Round Draw",
+        "return": "void"
+    },
     "declareRoundVictory": {
         "description": "Declare a team as the current round winner. This only works in the control and elimination game modes.",
         "args": [
@@ -1229,7 +1253,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being disabled.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -1971,7 +1995,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The button to be pressed.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -2116,6 +2140,36 @@ const actionKw =
         "zh-CN": "设置启用技能 2",
         "return": "void"
     },
+    "_&setAbilityCooldown": {
+        "description": "Set the ability cooldown time for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose ability cooldown time will be modified.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "BUTTON",
+                "description": "The logical button associated with the ability to be modified.",
+                "type": "Button",
+                "default": "PRIMARY FIRE"
+            },
+            {
+                "name": "COOLDOWN",
+                "description": "The cooldown time that will be set in seconds. Max of 1000.",
+                "type": "unsigned float",
+                "default": "NUMBER"
+            }
+        ],
+        "en-US": "Set Ability Cooldown",
+        "return": "void"
+    },
     "_&setAimSpeed": {
         "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
         "args": [
@@ -2144,6 +2198,30 @@ const actionKw =
         "ja-JP": "照準速度を設定",
         "pt-BR": "Definir Velocidade de Mira",
         "zh-CN": "设置瞄准速度",
+        "return": "void"
+    },
+    "_&setCrouchEnabled": {
+        "description": "Enables or disables crouch for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose access to crouch is affected.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ENABLED",
+                "description": "Specifies whether the player or players are able to use crouch. Expects a boolean value such as true, false, or compare.",
+                "type": "bool",
+                "default": "TRUE"
+            }
+        ],
+        "en-US": "Set Crouch Enabled",
         "return": "void"
     },
     "_&setDamageDealt": {
@@ -2424,6 +2502,30 @@ const actionKw =
         "zh-CN": "设置不可见",
         "return": "void"
     },
+    "_&setJumpEnabled": {
+        "description": "Enables or disables jump for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose access to jump is affected.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ENABLED",
+                "description": "Specifies whether the player or players are able to use jump. Expects a boolean value such as true, false, or compare.",
+                "type": "bool",
+                "default": "TRUE"
+            }
+        ],
+        "en-US": "Set Jump Enabled",
+        "return": "void"
+    },
     "setMatchTime": {
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
         "args": [
@@ -2471,6 +2573,30 @@ const actionKw =
         "ja-JP": "最大ライフを設定",
         "pt-BR": "Definir Vida Máxima",
         "zh-CN": "设置最大生命值",
+        "return": "void"
+    },
+    "_&setMeleeEnabled": {
+        "description": "Enables or disables melee for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose access to melee is affected.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ENABLED",
+                "description": "Specifies whether the player or players are able to use melee. Expects a boolean value such as true, false, or compare.",
+                "type": "bool",
+                "default": "TRUE"
+            }
+        ],
+        "en-US": "Set Melee Enabled",
         "return": "void"
     },
     "_&setMoveSpeed": {
@@ -3512,7 +3638,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being held virtually.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -3999,7 +4125,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is no longer being held virtually.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],

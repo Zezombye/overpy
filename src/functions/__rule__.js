@@ -19,6 +19,7 @@
 
 astParsingFunctions.__rule__ = function(content) {
 
+
     //Iterate forward on each action, then remove all useless instructions, unless a relative goto is encountered.
     var isRelativeGotoEncountered = false;
 
@@ -44,17 +45,37 @@ astParsingFunctions.__rule__ = function(content) {
         removeUselessChildren(content.children);
     }
 
+    //Check that there is no duplicate label.
+    var declaredLabels = [];
+    function getExistingLabels(content) {
+        fileStack = content.fileStack;
+        if (content.type === "Label") {
+            if (declaredLabels.includes(content.name)) {
+                error("Label '"+content.name+"' is already declared in this rule");
+            }
+            declaredLabels.push(content.name);
+        } else {
+            for (var child of content.children) {
+                getExistingLabels(child);
+            }
+        }
+    }
+    for (var child of content.children) {
+        getExistingLabels(child);
+    }
+
+    console.log(astToString(content));
     //Now that we have removed all useless instructions, compute each __distanceTo__ function.
-    function findDistanceTo(content) {
+    function resolveDistanceTo(content) {
 
         fileStack = content.fileStack;
 
         for (var i = 0; i < content.args.length; i++) {
-            content.args[i] = findDistanceTo(content.args[i]);
+            content.args[i] = resolveDistanceTo(content.args[i]);
         }
         for (var i = 0; i < content.children.length; i++) {
             content.childIndex = i;
-            content.children[i] = findDistanceTo(content.children[i]);
+            content.children[i] = resolveDistanceTo(content.children[i]);
         }
         content.childIndex = 0;
         if (content.name === "__distanceTo__") {
@@ -84,10 +105,13 @@ astParsingFunctions.__rule__ = function(content) {
             //Remove 1 from the count each time, because the parents will get counted in the count.
             var root = content;
             while (root.name !== "__rule__") {
+                if (root.type === "void") {
+                    count--;
+                }
                 root = root.parent;
-                count--;
             }
             count++; //account for "__rule__"
+            count--; //account for the action in which the __distanceTo__ is
 
             computeDistanceTo(root);
             if (!foundLabel) {
@@ -98,7 +122,7 @@ astParsingFunctions.__rule__ = function(content) {
                 error("Error while calculating distance to label '"+label+"': count is "+count)
             }
 
-            return new Ast("__number__", [new Ast(""+count, [], [], "NumberLiteral")], [], "unsigned int");
+            return getAstForNumber(count);
 
 
         } else {
@@ -106,7 +130,7 @@ astParsingFunctions.__rule__ = function(content) {
         }
     }
 
-    findDistanceTo(content);
+    resolveDistanceTo(content);
 
     return content;
 

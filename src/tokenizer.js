@@ -31,9 +31,9 @@ class Macro {
 }
 
 class LogicalLine {
-	constructor() {
-		this.indentLevel = 0;
-		this.tokens = [];
+	constructor(indentLevel, tokens) {
+		this.indentLevel = indentLevel === undefined ? 0 : indentLevel;
+		this.tokens = tokens === undefined ? [] : tokens;
 	}
 
 	toString() {

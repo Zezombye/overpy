@@ -3,6 +3,8 @@ rule "while loop":
     while A == B:
         while B == C:
             A++
+            if D:
+                break
     B++
 
 
@@ -36,6 +38,7 @@ rule "for loop":
 rule "do/while":
     do:
         A++
+        break
     while A == B
     B++
 
@@ -43,6 +46,8 @@ rule "nested do/while":
     do:
         do:
             A++
+            break
         while true
+        break
     while A == B
     B++

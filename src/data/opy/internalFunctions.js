@@ -124,6 +124,10 @@ const opyInternalFuncs = {
         "args": null,
         return: "void",
     },
+    "__default__": {
+        "args": null,
+        return: "void",
+    },
     "__del__": {
         "args": [
             {

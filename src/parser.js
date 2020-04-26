@@ -58,6 +58,7 @@ class Ast {
         this.fileStack = fileStack;
         this.argIndex = 0;
         this.childIndex = 0;
+        this.wasParsed = false;
     }
 }
 
@@ -85,8 +86,12 @@ function parseLines(lines) {
     //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
     var result = [];
     var currentComment = null;
+
     
     for (var i = 0; i < lines.length; i++) {
+        if (lines[i].tokens.length === 0) {
+            error("Received an empty line");
+        }
         fileStack = lines[i].tokens[0].fileStack;
         
         if (lines[i].tokens[0].text.startsWith("#")) {
@@ -134,7 +139,7 @@ function parseLines(lines) {
             }
             result.push(currentLineAst);
 
-        } else if (["rule", "if", "elif", "else", "do", "for", "def", "while", "switch", "case"].includes(lines[i].tokens[0].text)) {
+        } else if (["rule", "if", "elif", "else", "do", "for", "def", "while", "switch", "case", "default"].includes(lines[i].tokens[0].text)) {
 
             var tokenToFuncMapping = {
                 "rule": "__rule__",
@@ -147,6 +152,7 @@ function parseLines(lines) {
                 "while": "__while__",
                 "switch": "__switch__",
                 "case": "__case__",
+                "default": "__default__",
             }
 
             //Check for end of line comment
@@ -180,15 +186,21 @@ function parseLines(lines) {
                 instructionRuleAttributes.subroutineName = lineMembers[0][1].text;
             }
 
-            if (!["__else__", "__doWhile__", "__rule__", "__def__"].includes(funcName)) {
+            if (!["__else__", "__doWhile__", "__rule__", "__def__", "__default__"].includes(funcName)) {
                 args = [parse(lineMembers[0].slice(1))];
             }
             
             var currentLineIndent = lines[i].indentLevel;
             var childrenLines = [];
+
+            //Handle one-line children such as "if A: B++"
             if (lineMembers[1].length > 0) {
-                childrenLines.append(new LogicalLine(currentLineIndent+1, lineMembers[1]));
+                console.log(JSON.stringify(lineMembers[1], null, 4));
+                console.log(JSON.stringify(childrenLines, null, 4));
+                childrenLines.push(new LogicalLine(currentLineIndent+1, lineMembers[1]));
+                console.log(JSON.stringify(childrenLines, null, 4));
             }
+            
             
             //Get children lines
             var nextIndentLevel = null;
@@ -698,6 +710,9 @@ function parseMember(object, member) {
 
                 } else if (object[0].text === "Team") {
                     return new Ast("__team__", [new Ast(name, [], [], "TeamLiteral")])
+
+                } else if (object[0].text === "Button") {
+                    return new Ast("__button__", [new Ast(name, [], [], "ButtonLiteral")])
 
                 } else {
                     return new Ast(name, [], [], object[0].text);

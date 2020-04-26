@@ -17,27 +17,21 @@
 
 "use strict";
 
-astParsingFunctions.break = function(content) {
+astParsingFunctions.continue = function(content) {
 
     //Determine the innermost loop or switch
     var innermostStructure = content.parent;
     while (innermostStructure.parent !== undefined) {
-        if (["__while__", "__for__", "__switch__", "__doWhile__"].includes(innermostStructure.name)) {
+        if (["__while__", "__for__", "__doWhile__"].includes(innermostStructure.name)) {
             break;
         } else {
             innermostStructure = innermostStructure.parent;
         }
     }
 
-    if (innermostStructure.name === "__switch__" || innermostStructure.name === "__doWhile__") {
-        //Place a label at the end
-        var labelName = "__label_break_"+getUniqueNumber()+"__";
-        var label = new Ast(labelName, [], [], "Label");
-        label.parent = innermostStructure.parent;
-        innermostStructure.parent.children.splice(innermostStructure.parent.childIndex+1, 0, label);
-
-        //Convert the switch to a goto
-        return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
+    if (innermostStructure.name === "__doWhile__") {
+        //Return a loop instruction
+        return new Ast("__loop__");
 
     } else if (innermostStructure.name === "__while__" || innermostStructure.name === "__for__") {
         return content;

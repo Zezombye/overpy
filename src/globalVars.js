@@ -295,21 +295,27 @@ const typeTree = [
 		"Map",
 		"Team",
 		"Gamemode",
+		"Button",
 	]},
 	"Array",
 	"void",
+
 	"Lambda",
 	"Label",
 	"DictElem",
+
 	"Subroutine",
 	"GlobalVariable",
 	"PlayerVariable",
+
 	"NumberLiteral",
-	"StringLiteral",
+
 	"HeroLiteral",
 	"MapLiteral",
 	"GamemodeLiteral",
 	"TeamLiteral",
+	"ButtonLiteral",
+	
 	{"StringLiteral": [
 		"LocalizedStringLiteral",
 		"FullwidthStringLiteral",

@@ -367,6 +367,12 @@ const eventKw =
         "pl-PL": "Podprogram",
         "pt-BR": "Sub-rotina",
         "zh-CN": "子程序"
+    },
+    "playerDealtKnockback": {
+        "en-US": "Player Dealt Knockback",
+    },
+    "playerReceivedKnockback": {
+        "en-US": "Player Received Knockback",
     }
 }
 //end-json

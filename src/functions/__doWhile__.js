@@ -18,7 +18,7 @@
 "use strict";
 
 astParsingFunctions.__doWhile__ = function(content) {
-    if ((content.parent.name !== "__rule__" && content.parent.name !== "__def__")) {
+    if ((content.parent.name !== "__rule__" && content.parent.name !== "__def__" && content.parent.name !== "__doWhile__")) {
         error("Do/While loops can only be at the beginning of a rule: parent is '"+content.parent.name+"' and childIndex is "+content.parent.childIndex);
     }
 

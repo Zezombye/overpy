@@ -161,22 +161,18 @@ function parseAst(content) {
 
 
     //Skip if it's a literal or a constant
-    if ([
-        "NumberLiteral", 
-        "GlobalVariable", "PlayerVariable", "Subroutine", 
-        "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral",
-    ].concat(Object.keys(constantValues)).includes(content.type)) {
-        return content;
+    if (!["Hero", "Map", "Gamemode", "Team", "Button"].includes(content.type)) {
+        if ([
+            "NumberLiteral", 
+            "GlobalVariable", "PlayerVariable", "Subroutine", 
+            "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral",
+        ].concat(Object.keys(constantValues)).includes(content.type)) {
+            return content;
+        }
     }
 
-    //For labels, just check if they are already declared.
+    //For labels, do nothing.
     if (content.type === "Label") {
-        if (content.parent.name !== "__distanceTo__") {
-            if (currentRuleLabels.includes(content.name)) {
-                error("Label '"+content.name+"' is already declared in this rule");
-            }
-            currentRuleLabels.push(content.name);
-        }
         return content;
     }
 
@@ -287,6 +283,7 @@ function parseAst(content) {
             if (!isTypeSuitable(funcKw[content.name].args[i].type, content.args[i].type)) {
                 warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
             }
+            //content.args[i].expectedType = funcKw[content.name].args[i].type;
         }
 
     } else {
@@ -294,18 +291,23 @@ function parseAst(content) {
     }
 
 
-    if (content.name in astParsingFunctions) {
-        content = astParsingFunctions[content.name](content);
-    }
-
     for (var i = 0; i < content.children.length; i++) {
         content.childIndex = i;
-        console.log("name = "+content.name+", childIndex = "+content.childIndex+", children = "+content.children.map(x => x.name).join(", "))
-        console.log("parsing "+content.children[i].name);
+        //console.log("name = "+content.name+", childIndex = "+content.childIndex+", children = "+content.children.map(x => x.name).join(", "))
+        ///console.log("parsing "+content.children[i].name);
         
         content.children[i].parent = content;
-        content.children[i] = parseAst(content.children[i]);
-        content.children[i].parent = content;
+
+        //Safeguard to prevent parsing the same thing twice (and eg ending up with 3 ends for an "if" if the instruction was parsed then moved by a parent instruction).
+        if (!content.children[i].wasParsed) {
+            content.children[i] = parseAst(content.children[i]);
+            content.children[i].parent = content;
+            content.children[i].wasParsed = true;
+        }
+    }
+
+    if (content.name in astParsingFunctions) {
+        content = astParsingFunctions[content.name](content);
     }
     content.childIndex = 0;
 

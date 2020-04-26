@@ -74,3 +74,10 @@ rule "assignment":
     A **= B
     A max= B
     A min= B
+
+rule "ternaries":
+    A = B if C else D
+    A = B if 0 == 0 else D #B
+    A = B if 0 != 0 else D #D
+    A = B if 0 != 0 else C if 0 != 0 else D #D
+

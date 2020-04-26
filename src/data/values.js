@@ -557,6 +557,19 @@ var valueFuncKw =
         "pt-BR": "Para Trás",
         "zh-CN": "后"
     },
+    "__button__": {
+        "description": "A button constant.",
+        "args": [
+            {
+                "name": "BUTTON",
+                "description": "A button constant.",
+                "type": "ButtonLiteral",
+                "default": "PRIMARY FIRE"
+            }
+        ],
+        return: "Button",
+        "en-US": "Button",
+    },
     "getClosestPlayer": {
         "description": "The player closest to a position, optionally restricted by team.",
         "args": [
@@ -1582,7 +1595,7 @@ var valueFuncKw =
             {
                 "name": "BUTTON",
                 "description": "The button to check.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],
