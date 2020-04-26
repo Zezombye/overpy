@@ -53,7 +53,8 @@ function compile(content, language="en-US", _rootPath="") {
     }
     console.log(parsedAstRules);
 
-    var result = generateVariablesField()+generateSubroutinesField()+astRulesToWs(parsedAstRules);
+	var result = astRulesToWs(parsedAstRules);
+	result = generateVariablesField()+generateSubroutinesField()+result;
     
 /*
     var compiledRules = [];
@@ -92,7 +93,7 @@ function compile(content, language="en-US", _rootPath="") {
 
 function generateVariablesField() {
 
-	var result = tows("__variables__", ruleKw)+" {\n";
+	var result = "";
 
 	for (var varType of ["global", "player"]) {
 		var outputVariables = Array(128);
@@ -161,7 +162,11 @@ function generateVariablesField() {
 			result += varTypeResult;
 		}
 	}
-	result += "}\n";
+
+	if (result) {
+		result = tows("__variables__", ruleKw)+" {\n"+result+"}\n";
+	}
+
 	return result;
 }
 

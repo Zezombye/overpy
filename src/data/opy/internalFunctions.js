@@ -55,6 +55,15 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
+    "__case__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": ["Object", "Array"]
+            }
+        ],
+        return: "void",
+    },
     "__chaseAtRate__": {
         "args": [
             {
@@ -124,6 +133,27 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
+    "__dict__": {
+        "args": [
+            {
+                "name": "ELEM",
+                "type": "DictElem",
+            }
+        ],
+        return: ["Object", "Array"],
+    },
+    "__dictElem__": {
+        "args": [
+            {
+                "name": "KEY",
+                "type": ["Object", "Array"],
+            },{
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+            }
+        ],
+        return: "DictElem",
+    },
     "__distanceTo__": {
         "args": [
             {
@@ -157,6 +187,27 @@ const opyInternalFuncs = {
             }
         ],
         return: "bool",
+    },
+    "__for__": {
+        "args": [
+            {
+                "name": "CONTROL VARIABLE",
+                "type": "Variable",
+            },
+            {
+                "name": "RANGE START",
+                "type": "float",
+            },
+            {
+                "name": "RANGE STOP",
+                "type": "float",
+            },
+            {
+                "name": "STEP",
+                "type": "float",
+            }
+        ],
+        return: "void",
     },
     "__format__": {
         "args": [
@@ -339,6 +390,15 @@ const opyInternalFuncs = {
     },
     "__rule__": {
         "args": null,
+        return: "void",
+    },
+    "__switch__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": ["Object", "Array"]
+            }
+        ],
         return: "void",
     },
     "__team__": {

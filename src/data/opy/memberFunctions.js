@@ -101,6 +101,12 @@ const opyMemberFuncs = {
         class: "Raycast",
         return: "Position",
     },
+    "last": {
+        "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
+        "args": [],
+        class: "Array",
+        return: ["Object", "Array"],
+    },
     "remove": {
         "description": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.",
         "args": [

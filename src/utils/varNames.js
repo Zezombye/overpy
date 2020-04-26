@@ -34,7 +34,7 @@ function translateSubroutineToPy(content) {
 		return content;
 	} else if (defaultSubroutineNames.includes(content)) {
 		//Add the subroutine as it doesn't already exist (else it would've been caught by the first if)
-		addVariable(content, defaultSubroutineNames.indexOf(content));
+		addSubroutine(content, defaultSubroutineNames.indexOf(content));
 		return content;
 	} else {
 		error("Unknown subroutine '"+content+"'");
@@ -136,6 +136,9 @@ function translateVarToWs(content, isGlobalVariable) {
 function addVariable(content, isGlobalVariable, index) {
 	if (index === undefined) {
 		error("Index is undefined");
+	}
+	if (typeof index === "string") {
+		index = parseInt(index);
 	}
 	if (reservedNames.includes(content)) {
 		error("Variable name '"+content+"' is a reserved word");

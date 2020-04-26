@@ -749,7 +749,13 @@ function parseMember(object, member) {
 
             return new Ast(funcToInternalFuncMap[name], [parse(object), parse(args[0])])
 			
-		} else if (name === "format") {
+        } else if (name === "last") {
+            if (args.length !== 0) {
+                error("Function '"+name+"' takes 1 argument, received "+args.length);
+            }
+            return new Ast("__lastOf__", [parse(object)]);
+        
+        } else if (name === "format") {
             return new Ast("__format__", [parse(object)].concat(args.map(x => parse(x))));
 			
 		} else if ("getHitPosition", "getNormal", "getPlayerHit", "hasLoS".includes(name)) {
@@ -847,4 +853,24 @@ function parseLiteralArray(content) {
 	
 	error("This shouldn't happen");
 	
+}
+
+//Parses a dictionary.
+function parseDictionary(content) {
+    content = content.slice(1, content.length-1);
+    var elems = splitTokens(content, ",");
+    //support trailing comma
+    if (elems[elems.length-1].length === 0) {
+        elems.pop();
+    }
+    
+    var astElems = [];
+    for (var elem of elems) {
+        var keyValue = splitTokens(elem, ":");
+        if (keyValue.length !== 2) {
+            error("Expected a value of the form 'key: value' but got '"+dispTokens(elem)+"'");
+        }
+        astElems.push(new Ast("__dictElem__", [parse(keyValue[0]), parse(keyValue[1])]));
+    }
+    return new Ast("__dict__", astElems);
 }

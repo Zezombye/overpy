@@ -44,13 +44,16 @@ function unescapeString(content) {
 			} else if (content[i+1] === "\\") {
 				result += "\\";
 			} else if (content[i+1] === "n") {
-				error("Strings containing newlines cannot be pasted in the workshop");
+				//error("Strings containing newlines cannot be pasted in the workshop");
+				result += "\n";
+			} else if (content[i+1] === "r") {
+				//do nothing. remove those pesky carriage returns
 			} else {
 				error("Unknown escape sequence '\\"+content[i+1]+"'");
 			}
-		} else if (content[i] === "\n") {
+		} /*else if (content[i] === "\n") {
 			error("Strings containing newlines cannot be pasted in the workshop");
-		} else {
+		} */else {
 			result += content[i];
 		}
 	}

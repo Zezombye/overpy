@@ -300,6 +300,7 @@ const typeTree = [
 	"void",
 	"Lambda",
 	"Label",
+	"DictElem",
 	"Subroutine",
 	"GlobalVariable",
 	"PlayerVariable",

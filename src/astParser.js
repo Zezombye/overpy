@@ -204,7 +204,7 @@ function parseAst(content) {
             }
         }
 
-    } else if (content.name === "__array__") {
+    } else if (content.name === "__array__" || content.name === "__dict__") {
         //Check types
         for (var i = 0; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[i].type)) {
@@ -214,8 +214,29 @@ function parseAst(content) {
 
     } else if (content.name in funcKw) {
 
-        
-        if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
+        if (content.name === "__for__") {
+
+            if (content.args.length !== 1) {
+                error("Function '"+content.name+"' takes 1 argument, received "+content.args.length);
+            }
+
+            //Check for right arguments.
+            if (content.args[0].name !== "__arrayContains__") {
+                error("Expected the 'in' operator within 'for' directive, but got "+functionNameToString(content.args[0]));
+            }
+            if (content.args[0].args[0].name !== "range") {
+                error("Expected the 'range' function for the 2nd operand of the 'in' operator, but got "+functionNameToString(content.args[0].args[1]));
+            }
+
+            //for (i in range(1,2,3)) -> for(i, 1, 2, 3)
+            content.args = [
+                content.args[0].args[1],
+                content.args[0].args[0].args[0],
+                content.args[0].args[0].args[1],
+                content.args[0].args[0].args[2],
+            ];
+
+        } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
       
             if (content.args.length < 6 || content.args.length > 7) {
                 error("Function '"+content.name+"' takes 6 or 7 arguments, received "+content.args.length);
@@ -230,6 +251,17 @@ function parseAst(content) {
             }
             if (content.args.length === 10) {
                 content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
+            }
+
+        } else if (content.name === "range") {
+            if (content.args.length < 1 || content.args.length > 3) {
+                error("Function '"+content.name+"' takes 1 to 3 arguments, received "+content.args.length);
+            }
+            if (content.args.length === 1) {
+                content.args.unshift(getAstFor0());
+            }
+            if (content.args.length === 2) {
+                content.args.push(getAstFor1());
             }
 
         } else if (content.name === "wait") {
@@ -268,7 +300,12 @@ function parseAst(content) {
 
     for (var i = 0; i < content.children.length; i++) {
         content.childIndex = i;
+        console.log("name = "+content.name+", childIndex = "+content.childIndex+", children = "+content.children.map(x => x.name).join(", "))
+        console.log("parsing "+content.children[i].name);
+        
+        content.children[i].parent = content;
         content.children[i] = parseAst(content.children[i]);
+        content.children[i].parent = content;
     }
     content.childIndex = 0;
 

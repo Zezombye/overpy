@@ -181,6 +181,12 @@ const actionKw =
         "zh-CN": "大字体信息",
         "return": "void"
     },
+    "break": {
+        "description": "Goes to the end of the innermost `switch` statement, or `do/while`, `while` or `for` loop.",
+        "args": null,
+        "en-US": "Break",
+        "return": "void",
+    },
     "__callSubroutine__": {
         "description": "Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
         "args": [
@@ -442,6 +448,12 @@ const actionKw =
         "pt-BR": "Comunicar",
         "zh-CN": "交流",
         "return": "void"
+    },
+    "continue": {
+        "description": "Goes back to the start of the innermost loop.",
+        "args": null,
+        "en-US": "Continue",
+        "return": "void",
     },
     "createBeam": {
         "description": "Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -1403,7 +1415,7 @@ const actionKw =
         "pt-BR": "Término",
         "return": "void"
     },
-    "__forGlobalVar__": {
+    "__forGlobalVariable__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
         "args": [
             {
@@ -1440,7 +1452,7 @@ const actionKw =
         "zh-CN": "For 全局变量",
         "return": "void"
     },
-    "__forPlayerVar__": {
+    "__forPlayerVariable__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
         "args": [
             {
@@ -1634,7 +1646,7 @@ const actionKw =
         "zh-CN": "如条件为”真“则循环",
         "return": "void"
     },
-    "__modifyGlobalVar__": {
+    "__modifyGlobalVariable__": {
         "description": "Modifies the value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -1665,7 +1677,7 @@ const actionKw =
         "zh-CN": "修改全局变量",
         "return": "void"
     },
-    "__modifyGlobalVarAtIndex__": {
+    "__modifyGlobalVariableAtIndex__": {
         "description": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -1732,7 +1744,7 @@ const actionKw =
         "zh-CN": "修改玩家分数",
         "return": "void"
     },
-    "__modifyPlayerVar__": {
+    "__modifyPlayerVariable__": {
         "description": "Modifies the value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -1774,7 +1786,7 @@ const actionKw =
         "zh-CN": "修改玩家变量",
         "return": "void"
     },
-    "__modifyPlayerVarAtIndex__": {
+    "__modifyPlayerVariableAtIndex__": {
         "description": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -2230,7 +2242,7 @@ const actionKw =
         "zh-CN": "设置朝向",
         "return": "void"
     },
-    "__setGlobalVar__": {
+    "__setGlobalVariable__": {
         "description": "Stores a value into a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
@@ -2258,7 +2270,7 @@ const actionKw =
         "zh-CN": "设置全局变量",
         "return": "void"
     },
-    "__setGlobalVarAtIndex__": {
+    "__setGlobalVariableAtIndex__": {
         "description": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index.",
         "args": [
             {
@@ -2592,7 +2604,7 @@ const actionKw =
         "zh-CN": "设置玩家分数",
         "return": "void"
     },
-    "__setPlayerVar__": {
+    "__setPlayerVariable__": {
         "description": "Stores a value into a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -2631,7 +2643,7 @@ const actionKw =
         "zh-CN": "设置玩家变量",
         "return": "void"
     },
-    "__setPlayerVarAtIndex__": {
+    "__setPlayerVariableAtIndex__": {
         "description": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index.",
         "args": [
             {

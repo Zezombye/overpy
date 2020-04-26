@@ -29,16 +29,8 @@ const opyKeywords = {
         "description": "The 'boolean' type. Denotes a boolean such as 'false' or 'true'.",
         "args": null,
     },
-    "break": {
-        "description": "Goes to the end of the innermost `switch` statement, or `do/while`, `while` or `for` loop.",
-        "args": null
-    },
     "case": {
         "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is equal to the value specified in this `case` statement. Literal arrays should not be used. Note that the execution will not jump to the end of the `switch` block after the end of the `case` block; if you want that to be the case, use the `break` instruction.",
-        "args": null
-    },
-    "continue": {
-        "description": "Goes back to the start of the innermost loop.",
         "args": null
     },
     "def": {

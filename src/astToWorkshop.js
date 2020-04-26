@@ -159,23 +159,23 @@ function astToWs(content) {
         var newName = content.name === "__assignTo__" ? "__set" : "__modify";
         if (content.args[0].name === "__globalVar__") {
             //A = 3 -> __setGlobalVariable__(A, 3)
-            newName += "GlobalVar__";
+            newName += "GlobalVariable__";
             content.args = [content.args[0].args[0]].concat(content.args.slice(1));
 
         } else if (content.args[0].name === "__playerVar__") {
             //eventPlayer.A = 3 -> __setPlayerVariable__(eventPlayer, A, 3)
-            newName += "PlayerVar__";
+            newName += "PlayerVariable__";
             content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
         } else if (content.args[0].name === "__valueInArray__") {
             if (content.args[0].args[0].name === "__globalVar__") {
                 //A[0] = 3 -> __setGlobalVariableAtIndex__(A, 0, 3)
-                newName += "GlobalVarAtIndex__";
+                newName += "GlobalVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
             } else if (content.args[0].args[0].name === "__playerVar__") {
                 //eventPlayer.A[0] = 3 -> __setPlayerVariableAtIndex__(eventPlayer, A, 0, 3)
-                newName += "PlayerVarAtIndex__";
+                newName += "PlayerVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[1]].concat(content.args.slice(1));
 
             } else {
@@ -200,6 +200,23 @@ function astToWs(content) {
             error("Expected a variable for 1st argument of "+functionNameToString(content)+", but got "+functionNameToString(content.args[0]));
         }
         newName = "__chase"+newName;
+        content.name = newName;
+
+    } else if (content.name === "__for__") {
+
+        var newName = "";
+        if (content.args[0].name === "__globalVar__") {
+            newName = "GlobalVariable";
+            content.args = [content.args[0].args[0]].concat(content.args.slice(1));
+
+        } else if (content.args[0].name === "__playerVar__") {
+            newName = "PlayerVariable";
+            content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
+
+        } else {
+            error("Expected a variable for 1st argument of "+functionNameToString(content.name)+", but got "+functionNameToString(content.args[0].name));
+        }
+        newName = "__for"+newName+"__";
         content.name = newName;
 
     } else if (content.name === "__negate__") {
@@ -273,7 +290,7 @@ function astToWs(content) {
         newName = "__stopChasing"+newName+"__";
         content.name = newName;
 
-    } 
+    }
 
     var result = "";
     if (content.isDisabled === true) {

@@ -1,0 +1,48 @@
+
+rule "while loop":
+    while A == B:
+        while B == C:
+            A++
+    B++
+
+
+rule "while to the end":
+    while A == B:
+        A++
+
+
+rule "while to the end nested":
+    while A == B:
+        while B == C:
+            A++
+    
+
+rule "while false":
+    while false:
+        A++
+    B++
+
+
+rule "for loop":
+    for I in range(1,3,2):
+        A++
+    for I in range(1,3):
+        A++
+    for I in range(3):
+        A++
+    for eventPlayer.I in range(3):
+        A++
+
+rule "do/while":
+    do:
+        A++
+    while A == B
+    B++
+
+rule "nested do/while":
+    do:
+        do:
+            A++
+        while true
+    while A == B
+    B++

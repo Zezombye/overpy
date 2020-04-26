@@ -18,8 +18,14 @@
 "use strict";
 
 astParsingFunctions.__doWhile__ = function(content) {
-    if ((content.parent.name !== "__rule__" && content.parent.name !== "__def__" && content.parent.name !== "__doWhile__") || content.parent.childIndex !== 0) {
+    if ((content.parent.name !== "__rule__" && content.parent.name !== "__def__")) {
         error("Do/While loops can only be at the beginning of a rule: parent is '"+content.parent.name+"' and childIndex is "+content.parent.childIndex);
+    }
+
+    for (var i = 0; i < content.parent.childIndex; i++) {
+        if (content.parent.children[i].name !== "pass") {
+            error("Do/While loops can only be at the beginning of a rule: parent is '"+content.parent.name+"' and childIndex is "+content.parent.childIndex);
+        }
     }
 
     var loopFunc = null;
@@ -40,20 +46,11 @@ astParsingFunctions.__doWhile__ = function(content) {
     }
     loopFunc.originalName = "__doWhile__";
 
-    //console.log(content.parent.childIndex);
     //Insert the children in the parent
-    //console.log("parent children")
-    /*for (var child of content.parent.children) {
-        console.log(astToString(child));
-    }*/
-    //console.log("do/while children");
-    /*for (var child of content.children) {
-        console.log(astToString(child));
-    }*/
+    for (var child of content.children) {
+        child.parent = content.parent;
+    }
     content.parent.children.splice(content.parent.childIndex+1, 0, ...content.children, loopFunc);
-    //console.log("parent children after splice");
-    /*for (var child of content.parent.children) {
-        console.log(astToString(child));
-    }*/
+    
     return getAstForUselessInstruction();
 }
