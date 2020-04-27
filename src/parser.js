@@ -332,7 +332,7 @@ function parse(content) {
 				var falseExpr = parse(elseOperands[1]);
 				var condition = parse(elseOperands[0]);
 
-                return new Ast("__ifElse__", [condition, trueExpr, falseExpr]);
+                return new Ast("__ifThenElse__", [condition, trueExpr, falseExpr]);
 
 			} else if (["or", "and"].includes(operator)) {
 

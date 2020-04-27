@@ -1,4 +1,29 @@
 
+rule "comparison":
+    A = B == C
+    A = 1 == 0 #false
+    A = B == B #true
+
+    A = B != C
+    A = 1 != 0 #true
+    A = B != B #false
+
+    A = B >= C
+    A = 1 >= 0 #true
+    A = B >= B #true
+
+    A = B <= C
+    A = 1 <= 0 #false
+    A = B <= B #true
+
+    A = B > C
+    A = 1 > 0 #true
+    A = B > B #false
+
+    A = B < C
+    A = 1 < 0 #false
+    A = B < B #false
+
 rule "add":
     A = B+C
     A = B+0 #B

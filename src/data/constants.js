@@ -1965,7 +1965,7 @@ const constantValues =
             "en-US": "==",
         },
         "!=": {
-            "en-Us": "!=",
+            "en-US": "!=",
         },
         "<=": {
             "en-US": "<=",

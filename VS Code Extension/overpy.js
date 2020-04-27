@@ -17,6 +17,7 @@
 
 "use strict";
 
+
 //camelCase -> UPPER_CASE
 function camelCaseToUpperCase(str) {
 	return str.split(/(?=[A-Z])/).join('_').toUpperCase();
@@ -88,14 +89,6 @@ function startsWithParenthesis(content) {
 	return false;
 }
 
-function unBackslashString(content) {
-	return content.substring(1, content.length-1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
-}
-
-function backslashString(content) {
-	return content.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-}
-
 //Returns true if c is [A-Za-z\d_@].
 function isVarChar(c) {
 	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_' || c === '@';
@@ -106,7 +99,1326 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+//Used for automatically generated names.
+function getUniqueNumber() {
+	uniqueNumber++;
+	return uniqueNumber;
+}
 
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+const opyConstants = {
+    
+    "Vector": {
+        "UP": {
+            return: "Direction",
+        },
+        "DOWN": {
+            return: "Direction",
+        },
+        "LEFT": {
+            return: "Direction",
+        },
+        "RIGHT": {
+            return: "Direction",
+        },
+        "FORWARD": {
+            return: "Direction",
+        },
+        "BACKWARD": {
+            return: "Direction",
+        },
+    },
+    "Math": {
+        "PI": {
+            return: "unsigned float",
+        },
+        "E": {
+            return: "unsigned float",
+        }
+    },
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+const opyInternalFuncs = {
+
+    "__append__": {
+        "args": [
+            {
+                "name": "ARRAY",
+                "type": "Variable",
+            },{
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+            }
+        ],
+        return: "void",
+    },
+    "__array__": {
+        "args": [
+            {
+                "name": "ELEMENT",
+                "type": ["Object", "Array"]
+            }
+        ],
+        return: "Array",
+    },
+    "__assignTo__": {
+        "args": [
+            {
+                "name": "VARIABLE",
+                "type": ["Object", "Array"],
+                "default": "GLOBAL VARIABLE",
+            },
+            {
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+                "default": "NUMBER"
+            }
+        ],
+        return: "void",
+    },
+    "__case__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": ["Object", "Array"]
+            }
+        ],
+        return: "void",
+    },
+    "__chaseAtRate__": {
+        "args": [
+            {
+                "name": "VARIABLE",
+                "type": "Variable",
+                "default": "A"
+            },
+            {
+                "name": "DESTINATION",
+                "type": [
+                    "float",
+                    "Vector"
+                ],
+                "default": "NUMBER"
+            },
+            {
+                "name": "RATE",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "type": "__ChaseRateReeval__",
+                "default": "DESTINATION AND RATE"
+            }
+        ],
+        "return": "void"
+    },
+    "__chaseOverTime__": {
+        "args": [
+            {
+                "name": "VARIABLE",
+                "type": "GlobalVariable",
+                "default": "A"
+            },
+            {
+                "name": "DESTINATION",
+                "type": [
+                    "float",
+                    "Vector"
+                ],
+                "default": "NUMBER"
+            },
+            {
+                "name": "DURATION",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "type": "__ChaseTimeReeval__",
+                "default": "DESTINATION AND DURATION"
+            }
+        ],
+        "return": "void"
+    },
+    "__def__": {
+        "args": null,
+        return: "void",
+    },
+    "__default__": {
+        "args": null,
+        return: "void",
+    },
+    "__del__": {
+        "args": [
+            {
+                "name": "ARRAY INDEX",
+                "type": "unsigned int",
+            },
+        ],
+        return: "void",
+    },
+    "__dict__": {
+        "args": [
+            {
+                "name": "ELEM",
+                "type": "DictElem",
+            }
+        ],
+        return: ["Object", "Array"],
+    },
+    "__dictElem__": {
+        "args": [
+            {
+                "name": "KEY",
+                "type": ["Object", "Array"],
+            },{
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+            }
+        ],
+        return: "DictElem",
+    },
+    "__distanceTo__": {
+        "args": [
+            {
+                "name": "LABEL",
+                "type": "Label",
+            },
+        ],
+        return: "unsigned int",
+    },
+    "__doWhile__": {
+        "args": [
+            {
+                "name": "CONDITION",
+                "type": "bool",
+                "default": "COMPARE"
+            },
+        ],
+        return: "void",
+    },
+    "__equals__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+                "default": "NUMBER"
+            }
+        ],
+        return: "bool",
+    },
+    "__for__": {
+        "args": [
+            {
+                "name": "CONTROL VARIABLE",
+                "type": "Variable",
+            },
+            {
+                "name": "RANGE START",
+                "type": "float",
+            },
+            {
+                "name": "RANGE STOP",
+                "type": "float",
+            },
+            {
+                "name": "STEP",
+                "type": "float",
+            }
+        ],
+        return: "void",
+    },
+    "__format__": {
+        "args": [
+            {
+                "name": "STRING",
+                "type": "StringLiteral",
+                "default": "NULL"
+            },
+            {
+                "name": "VALUE",
+                "type": "Object",
+                "default": "NULL"
+            }
+        ],
+        return: "String",
+    },
+    "__gotoLabel__": {
+        "args": [
+            {
+                "name": "LABEL",
+                "type": "Label",
+            }
+        ],
+        return: "void",
+    },
+    "__gotoLoc__": {
+        "args": [
+            {
+                "name": "LOC",
+                "type": "unsigned int",
+            }
+        ],
+        return: "void",
+    },
+    "__greaterThan__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "type": "float",
+                "default": "NUMBER"
+            }
+        ],
+        return: "bool",
+    },
+    
+    "__greaterThanOrEquals__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "type": "float",
+                "default": "NUMBER"
+            }
+        ],
+        return: "bool",
+    },
+    "__inequals__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+                "default": "NUMBER"
+            }
+        ],
+        return: "bool",
+    },
+    "__lessThan__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "type": "float",
+                "default": "NUMBER"
+            }
+        ],
+        return: "bool",
+    },
+    "__lessThanOrEquals__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "VALUE",
+                "type": "float",
+                "default": "NUMBER"
+            }
+        ],
+        return: "bool",
+    },
+    "__mappedArray__": {
+        "args": [
+            {
+                "name": "ARRAY",
+                "type": "Array",
+            },
+            {
+                "name": "CONDITION",
+                "type": "bool",
+            }
+        ],
+        "return": {"Array": "bool"},
+    },
+    "__modifyVar__": {
+        "args": [
+            {
+                "name": "VARIABLE",
+                "type": "Variable",
+            },
+            {
+                "name": "OPERATION",
+                "type": "__Operation__",
+            },
+            {
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+            }
+        ],
+        "guid": "00000000786E",
+        "en-US": "Modify Global Variable",
+        "es-MX": "Modificar variable global",
+        "fr-FR": "Modifier une variable globale",
+        "ja-JP": "グローバル変数を変更",
+        "pt-BR": "Modificar Variável Global",
+        "zh-CN": "修改全局变量",
+        "return": "void"
+    },
+    "__negate__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": ["float", "Vector"],
+                "default": "NUMBER"
+            },
+        ],
+        return: ["float", "Vector"],
+    },
+    "__number__": {
+        "args": [
+            {
+                "name": "NUMBER",
+                "type": "NumberLiteral",
+                "default": "0",
+            },
+        ],
+        return: "float",
+        "en-US": "Number",
+    },
+    "__remove__": {
+        "args": [
+            {
+                "name": "ARRAY",
+                "type": "Variable",
+            },{
+                "name": "VALUE",
+                "type": ["Object", "Array"],
+            }
+        ],
+        return: "void",
+    },
+    "__rule__": {
+        "args": null,
+        return: "void",
+    },
+    "__switch__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": ["Object", "Array"]
+            }
+        ],
+        return: "void",
+    },
+    "__team__": {
+        "args": [
+            {
+                "name": "TEAM",
+                "type": "TeamLiteral",
+                "default": "ALL",
+            }
+        ],
+        return: "Team",
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+const opyFuncs = {
+//Functions
+
+    "all": {
+        "description": "Whether every value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `all([player.A == 2 for player in getAllPlayers()])`",
+        "args": [
+            {
+                "name": "Array",
+                "description": "The array whose values will be considered.",
+                "type": {"Array": "bool"},
+                "default": "GLOBAL VARIABLE"
+            }
+        ],
+        return: "bool",
+    },
+    "any": {
+        "description": "Whether any value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `any([player.A == 2 for player in getAllPlayers()])`",
+        "args": [
+            {
+                "name": "Array",
+                "description": "The array whose values will be considered.",
+                "type": {"Array": "bool"},
+                "default": "GLOBAL VARIABLE"
+            }
+        ],
+        return: "bool",
+    },
+    "async": {
+        "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
+        "args": [
+            {
+                "name": "SUBROUTINE",
+                "description": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
+                "type": "Subroutine",
+                "default": "Sub0"
+            },
+            {
+                "name": "IF ALREADY EXECUTING",
+                "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
+                "type": "AsyncBehavior",
+                "default": "RESTART RULE"
+            }
+        ],
+        return: "void",
+    },
+    "ceil": {
+        "description": "The integer that is the ceiling of the specified value (equivalent to rounding up).",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The real number to get the ceiling of.",
+                "type": "float",
+                "default": "NUMBER"
+            }
+        ],
+        return: "int",
+    },
+    "chase": {
+        "description": "Gradually modifies the value of a variable (global or player) at a specific rate, or over time.",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which variable (global or player) to modify gradually.",
+                "type": "Variable",
+                "default": "A"
+            },
+            {
+                "name": "DESTINATION",
+                "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+                "type": ["float", "Vector"],
+                "default": "NUMBER"
+            },
+            {
+                "name": "RATE OR DURATION",
+                "description": "The amount of change that will happen to the variable's value each second, or the amount of time, in seconds, over which the variable's value will approach the destination.\n\nPut `rate=xxxx` or `duration=xxxx` as argument.",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "ChaseReeval",
+                "default": "DESTINATION AND RATE"
+            }
+        ],
+        return: "void",
+    },
+    "floor": {
+        "description": "The integer that is the floor of the specified value (equivalent to rounding down).",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The real number to get the floor of.",
+                "type": "float",
+                "default": "NUMBER"
+            }
+        ],
+        return: "int",
+    },
+    "getAllPlayers": {
+        "description": "Built-in macro for `getPlayers(Team.ALL)`.",
+        "args": [],
+        return: {"Array": "Player"},
+    },
+    "hudHeader": {
+        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the hud text.",
+                "type": ["Player", {Array: "Player"}],
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "HEADER",
+                "description": "The text to be displayed (can be blank)",
+                "type": "Object",
+                "default": "STRING"
+            },
+            {
+                "name": "LOCATION",
+                "description": "The location on the screen where the text will appear.",
+                "type": "HudPosition",
+                "default": "LEFT"
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "HEADER COLOR",
+                "description": "The color of the header.",
+                "type": "Color",
+                "default": "WHITE"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "type": "HudReeval",
+                "default": "VISIBLE TO AND STRING"
+            },
+            {
+                "name": "SPECTATORS",
+                "description": "Whether spectators can see the text or not. Optional argument.",
+                "type": "SpecVisibility",
+                "default": "DEFAULT VISIBILITY"
+            }
+        ],
+        return: "void",
+    },
+    "hudSubheader": {
+        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the hud text.",
+                "type": ["Player", {Array: "Player"}],
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "SUBHEADER",
+                "description": "The subheader text to be displayed (can be blank)",
+                "type": "Object",
+                "default": "NULL"
+            },
+            {
+                "name": "LOCATION",
+                "description": "The location on the screen where the text will appear.",
+                "type": "HudPosition",
+                "default": "LEFT"
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "SUBHEADER COLOR",
+                "description": "The color of the subheader.",
+                "type": "Color",
+                "default": "WHITE"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "type": "HudReeval",
+                "default": "VISIBLE TO AND STRING"
+            },
+            {
+                "name": "SPECTATORS",
+                "description": "Whether spectators can see the text or not. Optional argument.",
+                "type": "SpecVisibility",
+                "default": "DEFAULT VISIBILITY"
+            }
+        ]
+    },
+    "hudSubtext": {
+        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the hud text.",
+                "type": ["Player", {Array: "Player"}],
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "SUBTEXT",
+                "description": "The body text to be displayed (can be blank)",
+                "type": "Object",
+                "default": "NULL"
+            },
+            {
+                "name": "LOCATION",
+                "description": "The location on the screen where the text will appear.",
+                "type": "HudPosition",
+                "default": "LEFT"
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "TEXT COLOR",
+                "description": "The color of the text.",
+                "type": "Color",
+                "default": "WHITE"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "type": "HudReeval",
+                "default": "VISIBLE TO AND STRING"
+            },
+            {
+                "name": "SPECTATORS",
+                "description": "Whether spectators can see the text or not. Optional argument.",
+                "type": "SpecVisibility",
+                "default": "DEFAULT VISIBILITY"
+            }
+        ],
+        return: "void",
+    },
+    "hudText": {
+        "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.\n\nNote: you can use the macros `hudHeader`, `hudSubheader` and `hudSubtext` to reduce the number of arguments.",
+        "args": [
+            {
+                "name": "VISIBLE TO",
+                "description": "One or more players who will see the hud text.",
+                "type": ["Player", {Array: "Player"}],
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "HEADER",
+                "description": "The text to be displayed (can be blank)",
+                "type": "Object",
+                "default": "STRING"
+            },
+            {
+                "name": "SUBHEADER",
+                "description": "The subheader text to be displayed (can be blank)",
+                "type": "Object",
+                "default": "NULL"
+            },
+            {
+                "name": "TEXT",
+                "description": "The body text to be displayed (can be blank)",
+                "type": "Object",
+                "default": "NULL"
+            },
+            {
+                "name": "LOCATION",
+                "description": "The location on the screen where the text will appear.",
+                "type": "HudPosition",
+                "default": "LEFT"
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "HEADER COLOR",
+                "description": "The color of the header.",
+                "type": "Color",
+                "default": "WHITE"
+            },
+            {
+                "name": "SUBHEADER COLOR",
+                "description": "The color of the subheader.",
+                "type": "Color",
+                "default": "WHITE"
+            },
+            {
+                "name": "TEXT COLOR",
+                "description": "The color of the text.",
+                "type": "Color",
+                "default": "WHITE"
+            },
+            {
+                "name": "REEVALUATION",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "type": "HudReeval",
+                "default": "VISIBLE TO AND STRING"
+            },
+            {
+                "name": "SPECTATORS",
+                "description": "Whether spectators can see the text or not. Optional argument.",
+                "type": "SpecVisibility",
+                "default": "DEFAULT VISIBILITY"
+            }
+        ],
+        return: "void",
+    },
+    "getSign": {
+        "description": "Built-in macro for calculating the sign of a number. Resolves to `(x>0)-(x<0)`. Returns -1, 0 or 1.",
+        "args": [
+            {
+                "name": "NUMBER",
+                "description": "The number to calculate the sign of.",
+                "type": "float",
+                "default": "NUMBER"
+            }
+        ],
+        return: "int",
+    },
+    "math.e": {
+        "description": "The number e = 2.71828182846.",
+        "args": null,
+        return: "unsigned float",
+    },
+    "math.pi": {
+        "description": "The number pi = 3.14159265359.",
+        "args": null,
+        return: "unsigned float",
+    },
+    "pass": {
+        "description": "Does nothing. Used when OverPy's grammar requires an instruction, such as having an empty block. Is parsed as an action for the purposes of runtime `goto`s.",
+        "args": null,
+        return: "void",
+    },
+    "print": {
+        "description": "Creates an orange HUD text at the top left. Should be used for quick debugging of a value.",
+        "args": [
+            {
+                "name": "HEADER",
+                "description": "The text to be displayed (can be blank)",
+                "type": "Object",
+                "default": "STRING"
+            }
+        ],
+        return: "void",
+    },
+    "range": {
+        "description": "Only usable inside a `for` instruction, such as `for i in range(1,3,2)`. If only 2 arguments are provided, they are treated as `range(start, stop)`. If only one argument is provided, it is treated as `range(stop)`.",
+        "args": [
+            {
+                "name": "START",
+                "description": "The control variable is set to this value when the loop begins. If omitted, defaults to 0.",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "STOP",
+                "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
+                "type": "float",
+                "default": "COUNT OF"
+            },
+            {
+                "name": "STEP",
+                "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action. If omitted, defaults to 1.",
+                "type": "float",
+                "default": "NUMBER"
+            }
+        ],
+        return: "Iterator",
+    },
+    "raycast": {
+        "description": "Defines a raycast to be then used with `getPlayerHit()`, `getNormal()` or `getHitPosition()`.",
+        "args": [
+            {
+                "name": "START POS",
+                "description": "The start position for the raycast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "Position",
+                "default": "VECTOR"
+            },
+            {
+                "name": "END POS",
+                "description": "The end position for the raycast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "type": "Position",
+                "default": "VECTOR"
+            },
+            {
+                "name": "players To Include",
+                "description": "Which players can be hit by this raycast.",
+                "type": {Array: "Player"},
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "players To Exclude",
+                "description": "Which players cannot be hit by this raycast. This list takes precedence over players to include.",
+                "type": {Array: "Player"},
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "include Player Objects",
+                "description": "Whether player-owned objects (such as barriers or turrets) should be included in the raycast.",
+                "type": "bool",
+                "default": "TRUE"
+            }
+        ],
+        return: "Raycast",
+    },
+    "round": {
+        "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The real number to get the nearest integer of.",
+                "type": "float",
+                "default": "NUMBER"
+            }
+        ],
+        return: "int"
+    },
+    "RULE_CONDITION": {
+        "description": "Equivalent to true if every rule condition is true. Can only be used in the following cases:\n\n- `while RULE_CONDITION` (in a do/while loop)\n- `while not RULE_CONDITION` (in a do/while loop)\n- `if RULE_CONDITION: continue` (and not in a while/for loop)\n- `if not RULE_CONDITION: continue` (and not in a while/for loop)\n- `if RULE_CONDITION: return`\n- `if not RULE_CONDITION: return`",
+        "args": null,
+        return: "bool",
+    },
+    "RULE_START": {
+        "description": "Denotes the start of the rule. Can only be used as an argument to a `goto` statement.",
+        "args": null,
+        return: "Label",
+    },
+    "sorted": {
+        "description": "A copy of the specified array with the values sorted according to the lambda function that is evaluated for each element.\n\nExample: `sorted(getAllPlayers(), key=lambda x: x.getScore())`",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array whose copy will be sorted.",
+                "type": {Array: "Object"},
+                "default": "GLOBAL VARIABLE"
+            },
+            {
+                "name": "lambda",
+                "description": "The lambda function that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Can be omitted if the array is sorted without a special key (equivalent to `lambda x: x`).",
+                "type": "Lambda",
+                "default": "CURRENT ARRAY ELEMENT"
+            }
+        ],
+        return: {Array: "Object"},
+    },
+    "stopChasingVariable": {
+        "description": "Stops an in-progress chase of a variable (global or player), leaving it at its current value.",
+        "args": [
+            {
+                "name": "VARIABLE",
+                "description": "Specifies which variable (global or player) to stop modifying.",
+                "type": "Variable",
+                "default": "A"
+            }
+        ],
+        return: "void",
+    },
+    "wait": {
+        "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
+        "args": [
+            {
+                "name": "TIME",
+                "description": "The duration of the pause. If omitted, defaults to 0.016.",
+                "type": "unsigned float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "WAIT BEHAVIOR",
+                "description": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart. If omitted, defaults to `Wait.IGNORE_CONDITION`.",
+                "type": "Wait",
+                "default": "IGNORE CONDITION"
+            }
+        ],
+        return: "void",
+    },
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+const opyKeywords = {
+
+//Keywords
+
+    "and": {
+        "description": "Whether both of the two operands are true (or equivalent to true). Does short-circuiting.",
+        "args": null
+    },
+    "bool": {
+        "description": "The 'boolean' type. Denotes a boolean such as 'false' or 'true'.",
+        "args": null,
+    },
+    "case": {
+        "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is equal to the value specified in this `case` statement. Literal arrays should not be used. Note that the execution will not jump to the end of the `switch` block after the end of the `case` block; if you want that to be the case, use the `break` instruction.",
+        "args": null
+    },
+    "def": {
+        "description": "Defines a subroutine. Note that subroutines cannot have any arguments or rule conditions. Example: `def mySubroutine():`",
+        "args": null
+    },
+    "default": {
+        "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is not equal to any value specified in the `case` statements. Note that the execution will not jump to the end of the `switch` block after the end of the `default` block; if you want that to be the case, use the `break` instruction.",
+        "args": null
+    },
+    "del": {
+        "description": "Removes the Element specified by the Index from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs. Example: `del myVar[3]`",
+        "args": null
+    },
+    "do": {
+        "description": "Denotes a do/while loop. Can only be specified at the start of a rule (ignoring the rule condition). The matching `while` must not have an ending colon (`:`).",
+        "args": null
+    },
+    "elif": {
+        "description": "Denotes the beginning of a block that will only execute if the specified condition is true and the previous `if` or `elif` block's condition was false.",
+        "args": null
+    },
+    "else": {
+        "description": `Denotes either:
+        
+- If an instruction, the beginning of a block that will only execute if the previous \`if\` or \`elif\` block's condition was false.
+
+- If a value, an inline "ternary" condition, such as \`A if B else C\`.`,
+        "args": null
+    },
+    "float": {
+        "description": "The 'float' type. Denotes any real number.",
+        "args": null,
+    },
+    "for": {
+        "description": `Denotes either:
+        
+- If an instruction, the beginning of a block that will execute in a loop, modifying the control variable on each loop. The instruction must be \`for <var> in range(start, stop, step):\` See also the \`range\` function.
+
+- If within a list comprehension, a filtered  or mapped array, such as \`[i for i in x if x == 3]\`.`,
+        "args": null
+    },
+    "if": {
+        "description": `Denotes either:
+        
+- If an instruction, the beginning of a block that will only execute if the specified condition is true.
+
+- If a value, an inline "ternary" condition, such as \`A if B else C\`. The \`else\` must be specified.`,
+        "args": null
+    },
+    "int": {
+        "description": "The 'integer' type. A subset of the 'float' type.",
+        "args": null,
+    },
+    "globalvar": {
+        "description": "Declares a global variable. The index (0-127) can optionally be specified. Example: `globalvar myVar 127`",
+        "args": null
+    },
+    "goto": {
+        "description": "Goes to the specified label. Labels can only be placed after the `goto` statement, in the current rule. For example, `goto lbl_1` will continue execution from the `lbl_1:` instruction. Dynamic gotos, although not recommended, can be declared with the `loc+` keyword, such as `goto loc+A` which will move execution 3 actions after the `goto` instruction.",
+        "args": null
+    },
+    "lambda": {
+        "description": "Denotes an inline function. Can only be used in the `sorted` function.",
+        "args": null
+    },
+    "not": {
+        "description": "Whether the given operand is false (or equivalent to false).",
+        "args": null
+    },
+    "or": {
+        "description": "Whether either of the two operands are true (or equivalent to true). Does short-circuiting.",
+        "args": null
+    },
+    "playervar": {
+        "description": "Declares a player variable. The index (0-127) can optionally be specified. Example: `playervar myVar 127`",
+        "args": null
+    },
+    "settings": {
+        "description": "Declares custom game settings. Must be followed by an object containing the settings.",
+        "args": null
+    },
+    "signed": {
+        "description": "Defines the specified type as signed (inferior or equal to 0). Only valid for 'int' or 'float'.",
+        "args": null,
+    },
+    "switch": {
+        "description": "Denotes the beginning of a block that will jump execution to the `case` statement that has the value of the specified variable. If no `case` statement has the value of the specified variable, the execution goes to the `default` statement if it exists, else to the end of the block.",
+        "args": null
+    },
+    "subroutine": {
+        "description": "Declares a subroutine. The index (0-127) can optionally be specified. Example: `subroutine mySubroutine 127`",
+        "args": null
+    },
+    "unsigned": {
+        "description": "Defines the specified type as unsigned (superior or equal to 0). Only valid for 'int' or 'float'.",
+        "args": null,
+    },
+    "while": {
+        "description": "Denotes the beginning of a block that will execute in a loop as long as the specified condition is true. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end of the block. Can also denote the end of a do/while loop, if no `:` is at the end of the instruction.",
+        "args": null
+    },
+};
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+const opyMemberFuncs = {
+    "append": {
+        "description": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. Modifies the array in-place; use `concat` to instead return a copy of the array.\n\nExample: `A.append(3)`",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
+                "type": ["Object", {Array: "Object"}],
+                "default": "NUMBER"
+            }
+        ],
+        class: "Array",
+        return: "Array",
+    },
+    "concat": {
+        "description": "A copy of the array with the specified value appended to it.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
+                "type": ["Object", {Array: "Object"}],
+                "default": "NUMBER"
+            }
+        ],
+        class: "Array",
+        return: "Array",
+    },
+    "exclude": {
+        "description": "A copy of the array with one or more values removed (if found).",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed.",
+                "type": ["Object", "Array"],
+                "default": "NUMBER"
+            }
+        ],
+        class: "Array",
+        return: "Array",
+    },
+    "format": {
+        "description": "The values that will be converted to text and used to replace the format placeholders (such as `{}` or `{0}`). Only usable on a string. Can have as much arguments as there are placeholders. The n-th argument replaces the n-th placeholder.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value used to replace the matching placeholder.",
+                "type": "Object",
+                "default": "NULL"
+            }
+        ],
+        class: "String",
+        return: "String",
+    },
+    "index": {
+        "description": "The index of a value within the array or -1 if no such value can be found. Does not support nested arrays.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value for which to search.",
+                "type": "Object",
+                "default": "NUMBER"
+            }
+        ],
+        class: "Array",
+        return: "Array",
+    },
+    "getNormal": {
+        "description": "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs).",
+        "args": [],
+        class: "Raycast",
+        return: "Direction",
+    },
+    "getPlayerHit": {
+        "description": "The player hit by the raycast (or null if no player is hit).",
+        "args": [],
+        class: "Raycast",
+        return: "Player",
+    },
+    "getHitPosition": {
+        "description": "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs).",
+        "args": [],
+        class: "Raycast",
+        return: "Position",
+    },
+    "last": {
+        "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
+        "args": [],
+        class: "Array",
+        return: ["Object", "Array"],
+    },
+    "remove": {
+        "description": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value to remove from the array (if found). If an array is given, each value is removed from the array.",
+                "type": ["Object", "Array"],
+                "default": "NUMBER"
+            }
+        ],
+        class: "Array",
+        return: "void",
+    },
+    "slice": {
+        "description": "A copy of the specified array containing only values from a specified index range. Does not support nested arrays.",
+        "args": [
+            {
+                "name": "START INDEX",
+                "description": "The first index of the range.",
+                "type": "unsigned int",
+                "default": "NUMBER"
+            },
+            {
+                "name": "COUNT",
+                "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
+                "type": "unsigned int",
+                "default": "NUMBER"
+            }
+        ],
+        class: "Array",
+        return: "Array",
+    },
+    "x": {
+        description: "The x component of the specified vector, usually representing a leftward amount.",
+        args: null,
+        class: "Vector",
+        return: "int",
+    },
+    "y": {
+        description: "The y component of the specified vector, usually representing an upward amount.",
+        args: null,
+        class: "Vector",
+        return: "int",
+    },
+    "z": {
+        description: "The z component of the specified vector, usually representing a forward amount.",
+        args: null,
+        class: "Vector",
+        return: "int",
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+const preprocessingDirectives = {
+    "define": {
+        "description": "Creates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n"
+    },
+    "defineMember": {
+        "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion."
+    },
+    "obfuscate": {
+        "description": "Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.\n\nUsage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)\n\nThe following obfuscation methods are applied:\n\n- Rule filling: several empty rules are inserted.\n- Comment removing: all rule titles are replaced with the empty string.\n- Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.\n- Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.\n"
+    },
+    "noEdit": {
+        "description": "Adds 2500 empty rules to the preset, which should make it absolutely impossible to open the rules (as you get a \"connection lost\" error). Therefore, it is the ultimate form of obfuscation, as you simply cannot even see the code.\n\nHowever, pasting the generated code could trigger a \"connection lost\" error as well, and a huge lag. As such, this directive should only be used on finalized gamemodes, before you publish it; it should not be used every time.\n\nYou will very likely have to paste the generated code in an editor, then paste the rules by sets of 800, 1200 then 500 to be able to insert them.\n"
+    },
+    "suppressWarnings": {
+        "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
+    },
+    "mainFile": {
+        "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file."
+    },
+    "include": {
+        "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file."
+    }
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -136,15 +1448,16 @@ const actionKw =
         "fr-FR": "Interrompre",
         "ja-JP": "中止",
         "pt-BR": "Anular",
-        "zh-CN": "中止"
+        "zh-CN": "中止",
+        "return": "void"
     },
-    "_abortIf": {
+    "__abortIf__": {
         "description": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
         "args": [
             {
                 "name": "CONDITION",
                 "description": "Specifies whether the execution is stopped.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
@@ -154,9 +1467,10 @@ const actionKw =
         "fr-FR": "Interrompre si",
         "ja-JP": "中止する条件",
         "pt-BR": "Anular se",
-        "zh-CN": "根据条件中止"
+        "zh-CN": "根据条件中止",
+        "return": "void"
     },
-    "_abortIfConditionIsFalse": {
+    "__abortIfConditionIsFalse__": {
         "description": "Stops execution of the action list if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
         "args": [],
         "guid": "00000000BB02",
@@ -165,9 +1479,10 @@ const actionKw =
         "fr-FR": "Interrompre si la condition est fausse",
         "ja-JP": "条件が「FALSE」の場合中止",
         "pt-BR": "Anular se a Condição for Falsa",
-        "zh-CN": "如条件为“假”则中止"
+        "zh-CN": "如条件为“假”则中止",
+        "return": "void"
     },
-    "_abortIfConditionIsTrue": {
+    "__abortIfConditionIsTrue__": {
         "description": "Stops execution of the action list if all conditions in the condition list are true. If any are false, execution continues with the next action.",
         "args": [],
         "guid": "00000000BB03",
@@ -176,7 +1491,8 @@ const actionKw =
         "fr-FR": "Interrompre si la condition est vraie",
         "ja-JP": "条件が「TRUE」の場合中止",
         "pt-BR": "Anular se a Condição for Verdadeira",
-        "zh-CN": "如条件为”真“则中止"
+        "zh-CN": "如条件为”真“则中止",
+        "return": "void"
     },
     "_&allowButton": {
         "description": "Undoes the effect of the disallow button action for one or more players.",
@@ -184,13 +1500,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose button is being reenabled.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being reenabled.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -200,7 +1521,8 @@ const actionKw =
         "fr-FR": "Autoriser un bouton",
         "ja-JP": "ボタンを有効化",
         "pt-BR": "Permitir Botão",
-        "zh-CN": "可用按钮"
+        "zh-CN": "可用按钮",
+        "return": "void"
     },
     "_&applyImpulse": {
         "description": "Applies an instantaneous change in velocity to the movement of one or more players.",
@@ -208,7 +1530,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose velocity will be changed.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -220,7 +1547,7 @@ const actionKw =
             {
                 "name": "SPEED",
                 "description": "The magnitude of the change to the velocities of the player or players.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
@@ -242,7 +1569,8 @@ const actionKw =
         "fr-FR": "Appliquer une impulsion",
         "ja-JP": "推進力を適用",
         "pt-BR": "Aplicar Impulso",
-        "zh-CN": "施加推力"
+        "zh-CN": "施加推力",
+        "return": "void"
     },
     "bigMessage": {
         "description": "Displays a large message above the reticle that is visible to specific players.",
@@ -250,13 +1578,18 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The message to be displayed.",
-                "type": "Any",
+                "type": "Object",
                 "default": "STRING"
             }
         ],
@@ -266,9 +1599,16 @@ const actionKw =
         "fr-FR": "Message en grand",
         "ja-JP": "大きなメッセージ",
         "pt-BR": "Mensagem Grande",
-        "zh-CN": "大字体信息"
+        "zh-CN": "大字体信息",
+        "return": "void"
     },
-    "_callSubroutine": {
+    "break": {
+        "description": "Goes to the end of the innermost `switch` statement, or `do/while`, `while` or `for` loop.",
+        "args": null,
+        "en-US": "Break",
+        "return": "void",
+    },
+    "__callSubroutine__": {
         "description": "Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
         "args": [
             {
@@ -285,33 +1625,55 @@ const actionKw =
         "ja-JP": "サブルーチンの呼び出し",
         "pl-PL": "Wywołaj podprogram",
         "pt-BR": "Chamar sub-rotina",
-        "zh-CN": "调用子程序"
+        "zh-CN": "调用子程序",
+        "return": "void"
     },
-    "_chaseGlobalVariableAtRate": {
+    "_&cancelPrimaryAction": {
+        "description": "Cancels the active abilities for one or more players. Equivalent to a short stun.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players to cancel active abilities for.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "en-US": "Cancel Primary Action",
+        "return": "void"
+    },
+    "__chaseGlobalVariableAtRate__": {
         "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to modify gradually.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "Any",
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
                 "name": "RATE",
                 "description": "The amount of change that will happen to the variable's value each second.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "ChaseRateReeval",
+                "type": "__ChaseRateReeval__",
                 "default": "DESTINATION AND RATE"
             }
         ],
@@ -321,33 +1683,37 @@ const actionKw =
         "fr-FR": "Modifier une variable globale selon une cadence",
         "ja-JP": "グローバル変数を特定のレートで追跡",
         "pt-BR": "Acompanhar Variável Global na Medida",
-        "zh-CN": "追踪全局变量频率"
+        "zh-CN": "追踪全局变量频率",
+        "return": "void"
     },
-    "_chaseGlobalVariableOverTime": {
+    "__chaseGlobalVariableOverTime__": {
         "description": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to modify gradually.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "Any",
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
                 "name": "DURATION",
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "ChaseTimeReeval",
+                "type": "__ChaseTimeReeval__",
                 "default": "DESTINATION AND DURATION"
             }
         ],
@@ -357,39 +1723,48 @@ const actionKw =
         "fr-FR": "Modifier une variable globale sur la durée",
         "ja-JP": "グローバル変数を継続的に追跡",
         "pt-BR": "Acompanhar Variável Global ao Longo do Tempo",
-        "zh-CN": "持续追踪全局变量"
+        "zh-CN": "持续追踪全局变量",
+        "return": "void"
     },
-    "_chasePlayerVariableAtRate": {
+    "__chasePlayerVariableAtRate__": {
         "description": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify gradually.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "Any",
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
                 "name": "RATE",
                 "description": "The amount of change that will happen to the variable's value each second.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "ChaseRateReeval",
+                "type": "__ChaseRateReeval__",
                 "default": "DESTINATION AND RATE"
             }
         ],
@@ -399,39 +1774,48 @@ const actionKw =
         "fr-FR": "Modifier une variable de joueur selon une cadence",
         "ja-JP": "プレイヤー変数を特定のレートで追跡",
         "pt-BR": "Acompanhar Variável de Jogador na Medida",
-        "zh-CN": "追踪玩家变量频率"
+        "zh-CN": "追踪玩家变量频率",
+        "return": "void"
     },
-    "_chasePlayerVariableOverTime": {
+    "__chasePlayerVariableOverTime__": {
         "description": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify gradually.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "VARIABLE"
             },
             {
                 "name": "DESTINATION",
                 "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "Any",
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
                 "name": "DURATION",
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
-                "type": "Any",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "REEVALUATION",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "ChaseTimeReeval",
+                "type": "__ChaseTimeReeval__",
                 "default": "DESTINATION AND DURATION"
             }
         ],
@@ -441,7 +1825,8 @@ const actionKw =
         "fr-FR": "Modifier une variable de joueur sur la durée",
         "ja-JP": "プレイヤー変数を継続的に追跡",
         "pt-BR": "Acompanhar Variável de Jogador ao Longo do Tempo",
-        "zh-CN": "持续追踪玩家变量"
+        "zh-CN": "持续追踪玩家变量",
+        "return": "void"
     },
     "_&clearStatusEffect": {
         "description": "Clears a status that was applied from a set status action from one or more players.",
@@ -449,7 +1834,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players from whom the status will be removed.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -465,7 +1855,8 @@ const actionKw =
         "fr-FR": "Effacer le statut",
         "ja-JP": "ステータスをクリア",
         "pt-BR": "Apagar Status",
-        "zh-CN": "清除状态"
+        "zh-CN": "清除状态",
+        "return": "void"
     },
     "_&communicate": {
         "description": "Causes one or more players to use an emote, voice line, or other equipped communication.",
@@ -473,7 +1864,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to perform the communication.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -489,7 +1885,14 @@ const actionKw =
         "fr-FR": "Communiquer",
         "ja-JP": "コミュニケーション",
         "pt-BR": "Comunicar",
-        "zh-CN": "交流"
+        "zh-CN": "交流",
+        "return": "void"
+    },
+    "continue": {
+        "description": "Goes back to the start of the innermost loop.",
+        "args": null,
+        "en-US": "Continue",
+        "return": "void",
     },
     "createBeam": {
         "description": "Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -497,25 +1900,30 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "TYPE",
                 "description": "The type of effect to be created.",
-                "type": "BEAM EFFECT",
+                "type": "Beam",
                 "default": "GOOD BEAM"
             },
             {
                 "name": "START POSITION",
                 "description": "The effect's start position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "END POSITION",
                 "description": "The effect's end position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "EVENT PLAYER"
             },
             {
@@ -538,7 +1946,8 @@ const actionKw =
         "ja-JP": "ビーム・エフェクトを作成",
         "pl-PL": "Stwórz efekt wiązki",
         "pt-BR": "Criar Efeito de Feixe",
-        "zh-CN": "创建光束效果"
+        "zh-CN": "创建光束效果",
+        "return": "void"
     },
     "createDummy": {
         "description": "Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing workshop actions.",
@@ -546,25 +1955,25 @@ const actionKw =
             {
                 "name": "HERO",
                 "description": "The hero that the bot will be. If more than one hero is provided, one will be chosen at random.",
-                "type": "HeroValue",
+                "type": "Hero",
                 "default": "HERO"
             },
             {
                 "name": "TEAM",
                 "description": "The team on which to create the bot. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
                 "name": "SLOT",
                 "description": "The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             },
             {
                 "name": "POSITION",
                 "description": "The initial position where the bot will appear.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
@@ -581,7 +1990,8 @@ const actionKw =
         "ja-JP": "ダミーボットを作成",
         "pl-PL": "Stwórz atrapę bota",
         "pt-BR": "Criar Bot",
-        "zh-CN": "生成机器人"
+        "zh-CN": "生成机器人",
+        "return": "void"
     },
     "createEffect": {
         "description": "Creates an in-world effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -589,7 +1999,12 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -607,13 +2022,13 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "RADIUS",
                 "description": "The radius of this effect.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -629,45 +2044,51 @@ const actionKw =
         "fr-FR": "Créer un effet",
         "ja-JP": "エフェクトを作成",
         "pt-BR": "Criar Efeito",
-        "zh-CN": "创建效果"
+        "zh-CN": "创建效果",
+        "return": "void"
     },
-    "_hudText": {
+    "__hudText__": {
         "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
         "args": [
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the hud text.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The text to be displayed (can be blank)",
-                "type": "Any",
+                "type": "Object",
                 "default": "STRING"
             },
             {
                 "name": "SUBHEADER",
                 "description": "The subheader text to be displayed (can be blank)",
-                "type": "Any",
+                "type": "Object",
                 "default": "NULL"
             },
             {
                 "name": "TEXT",
                 "description": "The body text to be displayed (can be blank)",
-                "type": "Any",
+                "type": "Object",
                 "default": "NULL"
             },
             {
                 "name": "LOCATION",
                 "description": "The location on the screen where the text will appear.",
-                "type": "Position",
+                "type": "HudPosition",
                 "default": "LEFT"
             },
             {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
@@ -707,7 +2128,8 @@ const actionKw =
         "fr-FR": "Créer du texte d’interface",
         "ja-JP": "HUDテキストを作成",
         "pt-BR": "Criar Texto de HUD",
-        "zh-CN": "创建HUD文本"
+        "zh-CN": "创建HUD文本",
+        "return": "void"
     },
     "createIcon": {
         "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -715,13 +2137,18 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the icon.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "POSITION",
                 "description": "The icon's position. If this value is a player, then the icon will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
@@ -745,7 +2172,7 @@ const actionKw =
             {
                 "name": "SHOW WHEN OFFSCREEN",
                 "description": "Should this icon appear even when it is behind you?",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -755,7 +2182,8 @@ const actionKw =
         "fr-FR": "Créer une icône",
         "ja-JP": "アイコンを作成",
         "pt-BR": "Criar Ícone",
-        "zh-CN": "创建图标"
+        "zh-CN": "创建图标",
+        "return": "void"
     },
     "createInWorldText": {
         "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
@@ -763,25 +2191,30 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the in-world text.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The text to be displayed.",
-                "type": "Any",
+                "type": "Object",
                 "default": "STRING"
             },
             {
                 "name": "POSITION",
                 "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "SCALE",
                 "description": "The text's scale.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
@@ -815,7 +2248,8 @@ const actionKw =
         "fr-FR": "Créer du texte en jeu",
         "ja-JP": "ワールド内テキストを作成",
         "pt-BR": "Criar Texto no Mundo",
-        "zh-CN": "创建地图文本"
+        "zh-CN": "创建地图文本",
+        "return": "void"
     },
     "damage": {
         "guid": "000000007876",
@@ -824,7 +2258,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will receive damage.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -836,7 +2275,7 @@ const actionKw =
             {
                 "name": "AMOUNT",
                 "description": "The amount of damage to apply. This amount may be modified by buffs, debuffs, or armor.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
@@ -845,7 +2284,8 @@ const actionKw =
         "fr-FR": "Infliger des dégâts",
         "ja-JP": "ダメージ",
         "pt-BR": "Dano",
-        "zh-CN": "伤害"
+        "zh-CN": "伤害",
+        "return": "void"
     },
     "declareDraw": {
         "description": "Instantly ends the match in a draw. This action has no effect in free-for-all modes.",
@@ -856,7 +2296,8 @@ const actionKw =
         "fr-FR": "Déclarer le match nul",
         "ja-JP": "マッチの引き分けを宣言",
         "pt-BR": "Declarar Empate na Partida",
-        "zh-CN": "宣布比赛为平局"
+        "zh-CN": "宣布比赛为平局",
+        "return": "void"
     },
     "declarePlayerVictory": {
         "description": "Instantly ends the match with the specific player as the winner. This action only has an effect in free-for-all modes.",
@@ -874,15 +2315,22 @@ const actionKw =
         "fr-FR": "Déclarer la victoire d’un joueur",
         "ja-JP": "チームの勝利を宣言",
         "pt-BR": "Declarar Vitória do Jogador",
-        "zh-CN": "宣告玩家胜利"
+        "zh-CN": "宣告玩家胜利",
+        "return": "void"
+    },
+    "declareRoundDraw": {
+        "description": "Declare a draw for the current round. This only works in the elimination game mode.",
+        "args": [],
+        "en-US": "Declare Round Draw",
+        "return": "void"
     },
     "declareRoundVictory": {
-        "description": "Declare a team as the current round winner. This only works in the control and elimination game modes",
+        "description": "Declare a team as the current round winner. This only works in the control and elimination game modes.",
         "args": [
             {
                 "name": "ROUND WINNING TEAM",
                 "description": "Round winning team",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
@@ -892,7 +2340,8 @@ const actionKw =
         "fr-FR": "Déclarer la victoire de la manche",
         "ja-JP": "ラウンドの勝利を宣言",
         "pt-BR": "Declarar Vitória na Rodada",
-        "zh-CN": "宣告回合胜利"
+        "zh-CN": "宣告回合胜利",
+        "return": "void"
     },
     "declareTeamVictory": {
         "description": "Instantly ends the match with the specified team as the winner. This action has no effect in free-for-all modes.",
@@ -900,7 +2349,7 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The winning team.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
@@ -910,7 +2359,8 @@ const actionKw =
         "fr-FR": "Déclarer la victoire d’une équipe",
         "ja-JP": "チームの勝利を宣言",
         "pt-BR": "Declarar Vitória da Equipe",
-        "zh-CN": "宣告队伍胜利"
+        "zh-CN": "宣告队伍胜利",
+        "return": "void"
     },
     "destroyAllDummies": {
         "description": "Removes all dummy bots from the match.",
@@ -921,7 +2371,8 @@ const actionKw =
         "fr-FR": "Détruire toutes les I.A.",
         "ja-JP": "すべてのダミーボットを破棄",
         "pt-BR": "Destruir Todos os Bots",
-        "zh-CN": "移除所有机器人"
+        "zh-CN": "移除所有机器人",
+        "return": "void"
     },
     "destroyAllEffects": {
         "description": "Destroys all effect entities created by create effect.",
@@ -932,7 +2383,8 @@ const actionKw =
         "fr-FR": "Détruire tous les effets",
         "ja-JP": "すべてのエフェクトを破棄",
         "pt-BR": "Destruir Todos os Efeitos",
-        "zh-CN": "消除所有效果"
+        "zh-CN": "消除所有效果",
+        "return": "void"
     },
     "destroyAllHudTexts": {
         "description": "Destroys all hud text that was created by the create hud text action.",
@@ -943,7 +2395,8 @@ const actionKw =
         "fr-FR": "Détruire tous les textes d’interface",
         "ja-JP": "すべてのHUDテキストを破棄",
         "pt-BR": "Destruir Todo o Texto de HUD",
-        "zh-CN": "消除所有HUD文本"
+        "zh-CN": "消除所有HUD文本",
+        "return": "void"
     },
     "destroyAllIcons": {
         "description": "Destroys all icon entities created by create icon.",
@@ -954,7 +2407,8 @@ const actionKw =
         "fr-FR": "Détruire toutes les icônes",
         "ja-JP": "すべてのアイコンを破棄",
         "pt-BR": "Destruir Todos os Ícones",
-        "zh-CN": "消除所有图标"
+        "zh-CN": "消除所有图标",
+        "return": "void"
     },
     "destroyAllInWorldText": {
         "description": "Destroys all in-world text created by create in-world text.",
@@ -965,7 +2419,8 @@ const actionKw =
         "fr-FR": "Détruire tous les textes en jeu",
         "ja-JP": "すべてのワールド内テキストを破棄",
         "pt-BR": "Destruir Todo o Texto no Mundo",
-        "zh-CN": "消除所有地图文本"
+        "zh-CN": "消除所有地图文本",
+        "return": "void"
     },
     "destroyDummy": {
         "description": "Removes the specified dummy bot from the match.",
@@ -973,13 +2428,13 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The team to remove the dummy bot from. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
                 "name": "SLOT",
                 "description": "The slot to remove the dummy bot from.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             }
         ],
@@ -990,7 +2445,8 @@ const actionKw =
         "ja-JP": "ダミーボットを破壊する",
         "pl-PL": "Zniszcz atrapę bota",
         "pt-BR": "Destruir Bot",
-        "zh-CN": "移除机器人"
+        "zh-CN": "移除机器人",
+        "return": "void"
     },
     "destroyEffect": {
         "description": "Destroys an effect entity that was created by create effect.",
@@ -998,7 +2454,7 @@ const actionKw =
             {
                 "name": "ENTITY",
                 "description": "Specifies which effect entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
-                "type": "Player",
+                "type": "EntityId",
                 "default": "LAST CREATED ENTITY"
             }
         ],
@@ -1008,7 +2464,8 @@ const actionKw =
         "fr-FR": "Détruire un effet",
         "ja-JP": "エフェクトを破棄",
         "pt-BR": "Destruir Efeito",
-        "zh-CN": "消除效果"
+        "zh-CN": "消除效果",
+        "return": "void"
     },
     "destroyHudText": {
         "description": "Destroys hud text that was created by create hud text.",
@@ -1016,7 +2473,7 @@ const actionKw =
             {
                 "name": "TEXT ID",
                 "description": "Specifies which hud text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
-                "type": "Number",
+                "type": "TextId",
                 "default": "LAST TEXT ID"
             }
         ],
@@ -1026,7 +2483,8 @@ const actionKw =
         "fr-FR": "Détruire du texte d’interface",
         "ja-JP": "HUDテキストを破棄",
         "pt-BR": "Destruir Texto de HUD",
-        "zh-CN": "消除HUD文本"
+        "zh-CN": "消除HUD文本",
+        "return": "void"
     },
     "destroyIcon": {
         "description": "Destroys an icon entity that was created by create icon.",
@@ -1034,7 +2492,7 @@ const actionKw =
             {
                 "name": "ENTITY",
                 "description": "Specifies which icon entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
-                "type": "Player",
+                "type": "EntityId",
                 "default": "LAST CREATED ENTITY"
             }
         ],
@@ -1044,7 +2502,8 @@ const actionKw =
         "fr-FR": "Détruire une icône",
         "ja-JP": "アイコンを破棄",
         "pt-BR": "Destruir Ícone",
-        "zh-CN": "消除图标"
+        "zh-CN": "消除图标",
+        "return": "void"
     },
     "destroyInWorldText": {
         "description": "Destroys in-world text that was created by create in-world text.",
@@ -1052,7 +2511,7 @@ const actionKw =
             {
                 "name": "TEXT ID",
                 "description": "Specifies which in-world text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
-                "type": "Number",
+                "type": "TextId",
                 "default": "LAST TEXT ID"
             }
         ],
@@ -1062,7 +2521,8 @@ const actionKw =
         "fr-FR": "Détruire du texte en jeu",
         "ja-JP": "ワールド内テキストを破棄",
         "pt-BR": "Destruir Texto no Mundo",
-        "zh-CN": "消除地图文本"
+        "zh-CN": "消除地图文本",
+        "return": "void"
     },
     "disableAnnouncer": {
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
@@ -1073,7 +2533,8 @@ const actionKw =
         "fr-FR": "Désactiver l’annonceur prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの通知を無効化",
         "pt-BR": "Desativar Narração Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设通告模式"
+        "zh-CN": "关闭游戏预设通告模式",
+        "return": "void"
     },
     "disableGamemodeCompletion": {
         "description": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands.",
@@ -1084,7 +2545,8 @@ const actionKw =
         "fr-FR": "Désactiver l’accomplissement prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準完了を無効化",
         "pt-BR": "Desativar Conclusão Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设完成条件"
+        "zh-CN": "关闭游戏预设完成条件",
+        "return": "void"
     },
     "disableMusic": {
         "description": "Disables all game mode music until reenabled or the match ends.",
@@ -1095,7 +2557,8 @@ const actionKw =
         "fr-FR": "Désactiver la musique prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードのBGMを無効化",
         "pt-BR": "Desativar Música Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设音乐模式"
+        "zh-CN": "关闭游戏预设音乐模式",
+        "return": "void"
     },
     "_&disableRespawn": {
         "description": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands.",
@@ -1103,7 +2566,12 @@ const actionKw =
             {
                 "name": "PLAYERS",
                 "description": "The player or players whose respawning is affected.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1113,7 +2581,8 @@ const actionKw =
         "fr-FR": "Désactiver la réapparition prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準リスポーンを無効化",
         "pt-BR": "Desativar Ressurgimento Integrado ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设重生模式"
+        "zh-CN": "关闭游戏预设重生模式",
+        "return": "void"
     },
     "disableScoring": {
         "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
@@ -1124,7 +2593,8 @@ const actionKw =
         "fr-FR": "Désactiver le calcul des points prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準スコアリングを無効化",
         "pt-BR": "Desativar Pontuação Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设计分模式"
+        "zh-CN": "关闭游戏预设计分模式",
+        "return": "void"
     },
     "_&disableDeathSpectateAllPlayers": {
         "description": "Undoes the effect of the enable death spectate all players action for or more players.",
@@ -1132,7 +2602,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose default death spectate behavior is restored.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1142,7 +2617,8 @@ const actionKw =
         "fr-FR": "Empêcher d’observer n’importe qui après la mort",
         "ja-JP": "観戦時に全プレイヤー選択可能を無効化",
         "pt-BR": "Desativar Visualização de Todos os Jogadores na Morte",
-        "zh-CN": "对所有玩家禁用死亡回放"
+        "zh-CN": "对所有玩家禁用死亡回放",
+        "return": "void"
     },
     "_&disableDeathSpectateTargetHud": {
         "description": "Undoes the effect of the enable death spectate target hud action for or more players.",
@@ -1150,7 +2626,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will revert to seeing their own hud while death spectating.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1160,7 +2641,8 @@ const actionKw =
         "fr-FR": "Empêcher de voir l’interface de la cible après la mort",
         "ja-JP": "観戦中のターゲットHUD表示を無効化",
         "pt-BR": "Desativar HUD do Alvo de Visualização na Morte",
-        "zh-CN": "禁用死亡回放时目标的HUD"
+        "zh-CN": "禁用死亡回放时目标的HUD",
+        "return": "void"
     },
     "disableInspector": {
         "description": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.",
@@ -1172,7 +2654,8 @@ const actionKw =
         "ja-JP": "インスペクターでの記録を無効化",
         "pl-PL": "Wyłącz nagrywanie Inspektora",
         "pt-BR": "Desativar gravação do Inspetor",
-        "zh-CN": "禁用查看器录制"
+        "zh-CN": "禁用查看器录制",
+        "return": "void"
     },
     "_&disallowButton": {
         "description": "Disables a logical button for one or more players such that pressing it has no effect.",
@@ -1180,13 +2663,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose button is being disabled.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being disabled.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -1196,7 +2684,8 @@ const actionKw =
         "fr-FR": "Interdire le bouton",
         "ja-JP": "ボタンを無効化",
         "pt-BR": "Proibir Botão",
-        "zh-CN": "禁用按钮"
+        "zh-CN": "禁用按钮",
+        "return": "void"
     },
     "__else__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
@@ -1206,7 +2695,8 @@ const actionKw =
         "es-MX": "Si no",
         "fr-FR": "Sinon",
         "ja-JP": "ELSE",
-        "pl-PL": "Inaczej"
+        "pl-PL": "Inaczej",
+        "return": "void"
     },
     "__elif__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true and the previous If or Else If action's condition was false.",
@@ -1214,7 +2704,7 @@ const actionKw =
             {
                 "name": "CONDITION",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
@@ -1223,7 +2713,8 @@ const actionKw =
         "es-MX": "Si no si",
         "fr-FR": "Sinon Si",
         "ja-JP": "ELSE IF",
-        "pl-PL": "Inaczej jeśli"
+        "pl-PL": "Inaczej jeśli",
+        "return": "void"
     },
     "enableAnnouncer": {
         "description": "Undoes the effect of the disable built-in game mode announcer action.",
@@ -1234,7 +2725,8 @@ const actionKw =
         "fr-FR": "Activer l’annonceur prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの通知を有効化",
         "pt-BR": "Ativar Narração Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设通告模式"
+        "zh-CN": "开启游戏预设通告模式",
+        "return": "void"
     },
     "enableGamemodeCompletion": {
         "description": "Undoes the effect of the disable built-in game mode completion action.",
@@ -1245,7 +2737,8 @@ const actionKw =
         "fr-FR": "Activer l’accomplissement prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準完了を有効化",
         "pt-BR": "Ativar Conclusão Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设完成条件"
+        "zh-CN": "开启游戏预设完成条件",
+        "return": "void"
     },
     "enableMusic": {
         "description": "Undoes the effect of the disable built-in game mode music action.",
@@ -1256,7 +2749,8 @@ const actionKw =
         "fr-FR": "Activer la musique prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードのBGMを有効化",
         "pt-BR": "Ativar Música Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设音乐模式"
+        "zh-CN": "开启游戏预设音乐模式",
+        "return": "void"
     },
     "_&enableRespawn": {
         "description": "Undoes the effect of the disable built-in game mode respawning action for one or more players.",
@@ -1264,7 +2758,12 @@ const actionKw =
             {
                 "name": "PLAYERS",
                 "description": "The player or players whose respawning is affected.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1274,7 +2773,8 @@ const actionKw =
         "fr-FR": "Activer la réapparition prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準リスポーンを有効化",
         "pt-BR": "Ativar Ressurgimento Integrado ao Modo de Jogo",
-        "zh-CN": "开启游戏预设重生模式"
+        "zh-CN": "开启游戏预设重生模式",
+        "return": "void"
     },
     "enableScoring": {
         "description": "Undoes the effect of the disable built-in game mode scoring action.",
@@ -1285,7 +2785,8 @@ const actionKw =
         "fr-FR": "Activer le calcul des points prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準スコアリングを有効化",
         "pt-BR": "Ativar Pontuação Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设计分模式"
+        "zh-CN": "开启游戏预设计分模式",
+        "return": "void"
     },
     "_&enableDeathSpectateAllPlayers": {
         "description": "Allows one or more players to spectate all players when dead, as opposed to only allies.",
@@ -1293,7 +2794,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be allowed to spectate all players.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1303,7 +2809,8 @@ const actionKw =
         "fr-FR": "Permettre d’observer n’importe qui après la mort",
         "ja-JP": "観戦時に全プレイヤー選択可能を有効化",
         "pt-BR": "Ativar Visualização de Todos os Jogadores na Morte",
-        "zh-CN": "对所有玩家启用死亡回放"
+        "zh-CN": "对所有玩家启用死亡回放",
+        "return": "void"
     },
     "_&enableDeathSpectateTargetHud": {
         "description": "Causes one or more players to see their spectate target's hud instead of their own while death spectating.",
@@ -1311,7 +2818,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will begin seeing their spectate targets hud while death spectating.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1321,7 +2833,8 @@ const actionKw =
         "fr-FR": "Permettre de voir l’interface de la cible après la mort",
         "ja-JP": "観戦中のターゲットHUD表示を有効化",
         "pt-BR": "Ativar HUD do Alvo de Visualização na Morte",
-        "zh-CN": "启用死亡回放时目标的HUD"
+        "zh-CN": "启用死亡回放时目标的HUD",
+        "return": "void"
     },
     "enableInspector": {
         "description": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.",
@@ -1333,7 +2846,8 @@ const actionKw =
         "ja-JP": "インスペクターでの記録を有効化",
         "pl-PL": "Włącz nagrywanie Inspektora",
         "pt-BR": "Ativar gravação do Inspetor",
-        "zh-CN": "启用查看器录制"
+        "zh-CN": "启用查看器录制",
+        "return": "void"
     },
     "__end__": {
         "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
@@ -1343,33 +2857,34 @@ const actionKw =
         "es-MX": "Fin",
         "fr-FR": "Fin",
         "ja-JP": "終了",
-        "pt-BR": "Término"
+        "pt-BR": "Término",
+        "return": "void"
     },
-    "_forGlobalVar": {
+    "__forGlobalVariable__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
         "args": [
             {
                 "name": "CONTROL VARIABLE",
                 "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "RANGE START",
                 "description": "The control variable is set to this value when the loop begins.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "RANGE STOP",
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
-                "type": "Number",
+                "type": "float",
                 "default": "COUNT OF"
             },
             {
                 "name": "STEP",
                 "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
@@ -1379,9 +2894,10 @@ const actionKw =
         "fr-FR": "Pour variable globale",
         "ja-JP": "グローバル変数",
         "pt-BR": "For variável global",
-        "zh-CN": "For 全局变量"
+        "zh-CN": "For 全局变量",
+        "return": "void"
     },
-    "_forPlayerVar": {
+    "__forPlayerVariable__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
         "args": [
             {
@@ -1393,25 +2909,25 @@ const actionKw =
             {
                 "name": "CONTROL VARIABLE",
                 "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
                 "name": "RANGE START",
                 "description": "The control variable is set to this value when the loop begins.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "RANGE STOP",
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
-                "type": "Number",
+                "type": "float",
                 "default": "COUNT OF"
             },
             {
                 "name": "STEP",
                 "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
@@ -1421,7 +2937,8 @@ const actionKw =
         "fr-FR": "Pour variable de joueur",
         "ja-JP": "プレイヤー変数",
         "pt-BR": "For variável de jogador",
-        "zh-CN": "For 玩家变量"
+        "zh-CN": "For 玩家变量",
+        "return": "void"
     },
     "goToAssembleHeroes": {
         "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
@@ -1432,7 +2949,8 @@ const actionKw =
         "fr-FR": "Aller à Choisissez vos héros",
         "ja-JP": "「ヒーローを編成しよう」に移行",
         "pt-BR": "Ir para Escolher Heróis",
-        "zh-CN": "前往集结英雄"
+        "zh-CN": "前往集结英雄",
+        "return": "void"
     },
     "heal": {
         "guid": "000000007875",
@@ -1441,7 +2959,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose health will be restored.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1453,7 +2976,7 @@ const actionKw =
             {
                 "name": "AMOUNT",
                 "description": "The amount of healing to apply. This amount may be modified by buff or debuffs. Healing is capped by each player's max health.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
@@ -1462,7 +2985,8 @@ const actionKw =
         "fr-FR": "Soigner",
         "ja-JP": "回復",
         "pt-BR": "Cura",
-        "zh-CN": "治疗"
+        "zh-CN": "治疗",
+        "return": "void"
     },
     "__if__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true.",
@@ -1470,7 +2994,7 @@ const actionKw =
             {
                 "name": "CONDITION",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
@@ -1479,7 +3003,8 @@ const actionKw =
         "es-MX": "Si",
         "fr-FR": "Si",
         "ja-JP": "IF",
-        "pl-PL": "Jeśli"
+        "pl-PL": "Jeśli",
+        "return": "void"
     },
     "kill": {
         "guid": "000000007877",
@@ -1488,7 +3013,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be killed.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -1503,9 +3033,10 @@ const actionKw =
         "fr-FR": "Tuer",
         "ja-JP": "キル",
         "pt-BR": "Abater",
-        "zh-CN": "击杀"
+        "zh-CN": "击杀",
+        "return": "void"
     },
-    "_loop": {
+    "__loop__": {
         "guid": "0000000078F5",
         "description": "Restarts the action list from the beginning. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
@@ -1514,15 +3045,16 @@ const actionKw =
         "fr-FR": "Boucle",
         "ja-JP": "ループ",
         "pt-BR": "Gerar Loop",
-        "zh-CN": "循环"
+        "zh-CN": "循环",
+        "return": "void"
     },
-    "_loopIf": {
+    "__loopIf__": {
         "description": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [
             {
                 "name": "CONDITION",
                 "description": "Specifies whether the loop will occur.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
@@ -1532,9 +3064,10 @@ const actionKw =
         "fr-FR": "Boucle si",
         "ja-JP": "ループする条件",
         "pt-BR": "Gerar Loop se",
-        "zh-CN": "根据条件循环"
+        "zh-CN": "根据条件循环",
+        "return": "void"
     },
-    "_loopIfConditionIsFalse": {
+    "__loopIfConditionIsFalse__": {
         "description": "Restarts the action list from the beginning if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
         "guid": "00000000BB05",
@@ -1543,9 +3076,10 @@ const actionKw =
         "fr-FR": "Boucle si la condition est fausse",
         "ja-JP": "条件が「FALSE」の場合ループ",
         "pt-BR": "Gerar Loop se a Condição for Falsa",
-        "zh-CN": "如条件为“假”则循环"
+        "zh-CN": "如条件为“假”则循环",
+        "return": "void"
     },
-    "_loopIfConditionIsTrue": {
+    "__loopIfConditionIsTrue__": {
         "description": "Restarts the action list from the beginning if every condition in the condition list is true. If any are false, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
         "guid": "000000007874",
@@ -1554,27 +3088,28 @@ const actionKw =
         "fr-FR": "Boucle si la condition est vraie",
         "ja-JP": "条件が「TRUE」の場合ループ",
         "pt-BR": "Gerar Loop se a Condição for Verdadeira",
-        "zh-CN": "如条件为”真“则循环"
+        "zh-CN": "如条件为”真“则循环",
+        "return": "void"
     },
-    "_modifyGlobalVar": {
+    "__modifyGlobalVariable__": {
         "description": "Modifies the value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "The global variable to modify.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "_Operation",
+                "type": "__Operation__",
                 "default": "ADD"
             },
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
@@ -1584,33 +3119,34 @@ const actionKw =
         "fr-FR": "Modifier une variable globale",
         "ja-JP": "グローバル変数を変更",
         "pt-BR": "Modificar Variável Global",
-        "zh-CN": "修改全局变量"
+        "zh-CN": "修改全局变量",
+        "return": "void"
     },
-    "_modifyGlobalVarAtIndex": {
+    "__modifyGlobalVariableAtIndex__": {
         "description": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "The global variable to modify.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "_Operation",
+                "type": "__Operation__",
                 "default": "ADD"
             },
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
@@ -1620,7 +3156,8 @@ const actionKw =
         "fr-FR": "Modifier une variable globale à l’index",
         "ja-JP": "インデックスのグローバル変数を変更",
         "pt-BR": "Modificar Variável Global no Índice",
-        "zh-CN": "在索引处修改全局变量"
+        "zh-CN": "在索引处修改全局变量",
+        "return": "void"
     },
     "_&addToScore": {
         "description": "Modifies the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
@@ -1628,13 +3165,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose score will change.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             }
         ],
@@ -1644,33 +3186,39 @@ const actionKw =
         "fr-FR": "Modifier le score d’un joueur",
         "ja-JP": "プレイヤー・スコアを変更",
         "pt-BR": "Modificar Pontuação do Jogador",
-        "zh-CN": "修改玩家分数"
+        "zh-CN": "修改玩家分数",
+        "return": "void"
     },
-    "_modifyPlayerVar": {
+    "__modifyPlayerVariable__": {
         "description": "Modifies the value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "_Operation",
+                "type": "__Operation__",
                 "default": "ADD"
             },
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
@@ -1680,39 +3228,45 @@ const actionKw =
         "fr-FR": "Modifier une variable de joueur",
         "ja-JP": "プレイヤー変数を変更",
         "pt-BR": "Modificar Variável de Jogador",
-        "zh-CN": "修改玩家变量"
+        "zh-CN": "修改玩家变量",
+        "return": "void"
     },
-    "_modifyPlayerVarAtIndex": {
+    "__modifyPlayerVariableAtIndex__": {
         "description": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to modify.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
                 "name": "OPERATION",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
-                "type": "_Operation",
+                "type": "__Operation__",
                 "default": "ADD"
             },
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
@@ -1722,7 +3276,8 @@ const actionKw =
         "fr-FR": "Modifier une variable de joueur à l’index",
         "ja-JP": "インデックスのプレイヤー変数を変更",
         "pt-BR": "Modificar Variável de Jogador no Índice",
-        "zh-CN": "在索引处修改玩家变量"
+        "zh-CN": "在索引处修改玩家变量",
+        "return": "void"
     },
     "addToTeamScore": {
         "description": "Modifies the score of one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
@@ -1730,13 +3285,13 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams whose score will be changed.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             }
         ],
@@ -1746,7 +3301,8 @@ const actionKw =
         "fr-FR": "Modifier le score de l’équipe",
         "ja-JP": "チーム・スコアを変更",
         "pt-BR": "Modificar Pontuação da Equipe",
-        "zh-CN": "修改队伍分数"
+        "zh-CN": "修改队伍分数",
+        "return": "void"
     },
     "pauseMatchTime": {
         "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
@@ -1757,7 +3313,8 @@ const actionKw =
         "fr-FR": "Mettre en pause le temps de jeu",
         "ja-JP": "マッチ時間をポーズする",
         "pt-BR": "Pausar Tempo da Partida",
-        "zh-CN": "比赛时间暂停"
+        "zh-CN": "比赛时间暂停",
+        "return": "void"
     },
     "playEffect": {
         "description": "Plays an effect at a position in the world. The lifetime of this effect is short, so it does not need to be updated or destroyed.",
@@ -1765,7 +3322,12 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will be able to see the effect.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
@@ -1783,13 +3345,13 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The effect's position. If this value is a player, then the effect will play at the player's position. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "RADIUS",
                 "description": "The effect's radius in meters.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -1799,7 +3361,8 @@ const actionKw =
         "fr-FR": "Jouer un effet",
         "ja-JP": "エフェクトを再生",
         "pt-BR": "Reproduzir Efeito",
-        "zh-CN": "播放效果"
+        "zh-CN": "播放效果",
+        "return": "void"
     },
     "_&preloadHero": {
         "description": "Preemptively loads the specified hero or heroes into memory using the skins of the specified player or players, available memory permitting. Useful whenever rapid hero changing is possible and the next hero is known.",
@@ -1807,13 +3370,23 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will begin preloading a hero or heroes. Only one preload hero action will be active at a time for a given player.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HERO",
                 "description": "The hero or heroes to begin preloading for the specified player or players. When multiple heroes are specified in an array, the heroes towards the beginning of the array are prioritized.",
-                "type": "HeroValue",
+                "type": [
+                    "Hero",
+                    {
+                        "Array": "Hero"
+                    }
+                ],
                 "default": "HERO"
             }
         ],
@@ -1823,7 +3396,8 @@ const actionKw =
         "fr-FR": "Précharger un héros",
         "ja-JP": "ヒーローをプリロード",
         "pt-BR": "Pré-carregar Herói",
-        "zh-CN": "预加载英雄"
+        "zh-CN": "预加载英雄",
+        "return": "void"
     },
     "_&forceButtonPress": {
         "description": "Forces one or more players to press a button virtually for a single frame.",
@@ -1831,13 +3405,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players for whom the virtual button input will be forced.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "BUTTON",
                 "description": "The button to be pressed.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -1847,7 +3426,8 @@ const actionKw =
         "fr-FR": "Appuyer sur un bouton",
         "ja-JP": "ボタンを押してください",
         "pt-BR": "Pressionar Botão",
-        "zh-CN": "按下按键"
+        "zh-CN": "按下按键",
+        "return": "void"
     },
     "_&resetHeroAvailability": {
         "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
@@ -1855,7 +3435,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose hero list is being reset.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1865,7 +3450,8 @@ const actionKw =
         "fr-FR": "Réinitialiser la disponibilité du héros pour un joueur",
         "ja-JP": "プレイヤーが使用できるヒーローをリセット",
         "pt-BR": "Redefinir Disponibilidade de Heróis para o Jogador",
-        "zh-CN": "重置玩家英雄可选状态"
+        "zh-CN": "重置玩家英雄可选状态",
+        "return": "void"
     },
     "_&respawn": {
         "description": "Respawns one or more players at an appropriate spawn location with full health, even if they were already alive.",
@@ -1873,7 +3459,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to respawn.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1883,7 +3474,8 @@ const actionKw =
         "fr-FR": "Réapparaître",
         "ja-JP": "リスポーン",
         "pt-BR": "Ressurgir",
-        "zh-CN": "重生"
+        "zh-CN": "重生",
+        "return": "void"
     },
     "_&resurrect": {
         "guid": "000000007878",
@@ -1892,7 +3484,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be resurrected.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -1901,7 +3498,8 @@ const actionKw =
         "fr-FR": "Ressusciter",
         "ja-JP": "蘇生",
         "pt-BR": "Ressuscitar",
-        "zh-CN": "重生"
+        "zh-CN": "重生",
+        "return": "void"
     },
     "_&setAbility1Enabled": {
         "description": "Enables or disables ability 1 for one or more players.",
@@ -1909,13 +3507,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to ability 1 is affected.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use ability 1. Expects a boolean value such as true, false, or compare.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -1925,7 +3528,8 @@ const actionKw =
         "fr-FR": "Définir l’activation de la capacité 1",
         "ja-JP": "アビリティ1を有効化",
         "pt-BR": "Definir Habilidade 1 como Ativada",
-        "zh-CN": "设置启用技能 1"
+        "zh-CN": "设置启用技能 1",
+        "return": "void"
     },
     "_&setAbility2Enabled": {
         "description": "Enables or disables ability 2 for one or more players.",
@@ -1933,13 +3537,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to ability 2 is affected.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use ability 2. Expects a boolean value such as true, false, or compare.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -1949,7 +3558,38 @@ const actionKw =
         "fr-FR": "Définir l’activation de la capacité 2",
         "ja-JP": "アビリティ2を有効化",
         "pt-BR": "Definir Habilidade 2 como Ativada",
-        "zh-CN": "设置启用技能 2"
+        "zh-CN": "设置启用技能 2",
+        "return": "void"
+    },
+    "_&setAbilityCooldown": {
+        "description": "Set the ability cooldown time for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose ability cooldown time will be modified.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "BUTTON",
+                "description": "The logical button associated with the ability to be modified.",
+                "type": "Button",
+                "default": "PRIMARY FIRE"
+            },
+            {
+                "name": "COOLDOWN",
+                "description": "The cooldown time that will be set in seconds. Max of 1000.",
+                "type": "unsigned float",
+                "default": "NUMBER"
+            }
+        ],
+        "en-US": "Set Ability Cooldown",
+        "return": "void"
     },
     "_&setAimSpeed": {
         "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
@@ -1957,13 +3597,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose aim speed will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TURN SPEED PERCENT",
                 "description": "The percentage of normal aim speed to which the player or players will set their aim speed.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -1973,7 +3618,32 @@ const actionKw =
         "fr-FR": "Définir la vitesse de visée",
         "ja-JP": "照準速度を設定",
         "pt-BR": "Definir Velocidade de Mira",
-        "zh-CN": "设置瞄准速度"
+        "zh-CN": "设置瞄准速度",
+        "return": "void"
+    },
+    "_&setCrouchEnabled": {
+        "description": "Enables or disables crouch for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose access to crouch is affected.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ENABLED",
+                "description": "Specifies whether the player or players are able to use crouch. Expects a boolean value such as true, false, or compare.",
+                "type": "bool",
+                "default": "TRUE"
+            }
+        ],
+        "en-US": "Set Crouch Enabled",
+        "return": "void"
     },
     "_&setDamageDealt": {
         "description": "Sets the damage dealt of one or more players to a percentage of their raw damage dealt.",
@@ -1981,13 +3651,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose damage dealt will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGE DEALT PERCENT",
                 "description": "The percentage of raw damage dealt to which the player or players will set their damage dealt.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -1997,7 +3672,8 @@ const actionKw =
         "fr-FR": "Définir les dégâts infligés",
         "ja-JP": "与えるダメージを設定",
         "pt-BR": "Definir Dano Causado",
-        "zh-CN": "设置造成伤害"
+        "zh-CN": "设置造成伤害",
+        "return": "void"
     },
     "_&setDamageReceived": {
         "description": "Sets the damage received of one or more players to a percentage of their raw damage received.",
@@ -2005,13 +3681,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose damage received will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGE RECEIVED PERCENT",
                 "description": "The percentage of raw damage received to which the player or players will set their damage received.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2021,7 +3702,8 @@ const actionKw =
         "fr-FR": "Définir les dégâts subis",
         "ja-JP": "受けるダメージを設定",
         "pt-BR": "Definir Dano Recebido",
-        "zh-CN": "设置受到伤害"
+        "zh-CN": "设置受到伤害",
+        "return": "void"
     },
     "_&setFacing": {
         "description": "Sets the facing of one or more players to the specified direction.",
@@ -2029,7 +3711,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose facing will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2051,21 +3738,25 @@ const actionKw =
         "fr-FR": "Définir la direction du regard",
         "ja-JP": "向き変更を設定",
         "pt-BR": "Definir Encarar",
-        "zh-CN": "设置朝向"
+        "zh-CN": "设置朝向",
+        "return": "void"
     },
-    "_setGlobalVar": {
+    "__setGlobalVariable__": {
         "description": "Stores a value into a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to store the value into.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored.",
-                "type": "Any",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
@@ -2075,27 +3766,31 @@ const actionKw =
         "fr-FR": "Définir une variable globale",
         "ja-JP": "グローバル変数を設定",
         "pt-BR": "Definir Variável Global",
-        "zh-CN": "设置全局变量"
+        "zh-CN": "设置全局变量",
+        "return": "void"
     },
-    "_setGlobalVarAtIndex": {
+    "__setGlobalVariableAtIndex__": {
         "description": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored into the array.",
-                "type": "Any",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
@@ -2105,7 +3800,8 @@ const actionKw =
         "fr-FR": "Définir une variable globale à l’index",
         "ja-JP": "インデックスのグローバル変数を設定",
         "pt-BR": "Definir Variável Global no Índice",
-        "zh-CN": "在索引处设置全局变量"
+        "zh-CN": "在索引处设置全局变量",
+        "return": "void"
     },
     "_&setGravity": {
         "description": "Sets the movement gravity for one or more players to a percentage regular movement gravity.",
@@ -2113,13 +3809,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement gravity will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "GRAVITY PERCENT",
                 "description": "The percentage of regular movement gravity to which the player or players will set their personal movement gravity.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2129,7 +3830,8 @@ const actionKw =
         "fr-FR": "Définir la gravité",
         "ja-JP": "重力を設定",
         "pt-BR": "Definir Gravidade",
-        "zh-CN": "设置引力"
+        "zh-CN": "设置引力",
+        "return": "void"
     },
     "_&setHealingDealt": {
         "description": "Sets the healing dealt of one or more players to a percentage of their raw healing dealt.",
@@ -2137,13 +3839,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose healing dealt will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALING DEALT PERCENT",
                 "description": "",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2153,7 +3860,8 @@ const actionKw =
         "fr-FR": "Définir les soins prodigués",
         "ja-JP": "与える回復を設定",
         "pt-BR": "Definir Cura Realizada",
-        "zh-CN": "设置造成治疗"
+        "zh-CN": "设置造成治疗",
+        "return": "void"
     },
     "_&setHealingReceived": {
         "description": "Sets the healing received of one or more players to a percentage of their raw healing received.",
@@ -2161,13 +3869,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose healing received will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALING RECEIVED PERCENT",
                 "description": "The percentage of raw healing received to which the player or players will set their healing received.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2177,7 +3890,8 @@ const actionKw =
         "fr-FR": "Définir les soins reçus",
         "ja-JP": "受ける回復量を設定",
         "pt-BR": "Definir Cura Recebida",
-        "zh-CN": "设置受到治疗"
+        "zh-CN": "设置受到治疗",
+        "return": "void"
     },
     "_&setInvisibility": {
         "description": "Causes one or more players to become invisible to either all other players or just enemies.",
@@ -2185,7 +3899,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will become invisible.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2201,7 +3920,32 @@ const actionKw =
         "fr-FR": "Définir l’invisibilité",
         "ja-JP": "目視可否を設定",
         "pt-BR": "Definir como Invisível",
-        "zh-CN": "设置不可见"
+        "zh-CN": "设置不可见",
+        "return": "void"
+    },
+    "_&setJumpEnabled": {
+        "description": "Enables or disables jump for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose access to jump is affected.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ENABLED",
+                "description": "Specifies whether the player or players are able to use jump. Expects a boolean value such as true, false, or compare.",
+                "type": "bool",
+                "default": "TRUE"
+            }
+        ],
+        "en-US": "Set Jump Enabled",
+        "return": "void"
     },
     "setMatchTime": {
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
@@ -2209,7 +3953,7 @@ const actionKw =
             {
                 "name": "TIME",
                 "description": "The match time in seconds.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2219,7 +3963,8 @@ const actionKw =
         "fr-FR": "Définir le temps de jeu",
         "ja-JP": "マッチ時間を設定",
         "pt-BR": "Definir Tempo da Partida",
-        "zh-CN": "设置比赛时间"
+        "zh-CN": "设置比赛时间",
+        "return": "void"
     },
     "_&setMaxHealth": {
         "description": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health.",
@@ -2227,13 +3972,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose max health will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALTH PERCENT",
                 "description": "The percentage of raw max health to which the player or players will set their max health.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2243,7 +3993,32 @@ const actionKw =
         "fr-FR": "Définir les points de vie maximum",
         "ja-JP": "最大ライフを設定",
         "pt-BR": "Definir Vida Máxima",
-        "zh-CN": "设置最大生命值"
+        "zh-CN": "设置最大生命值",
+        "return": "void"
+    },
+    "_&setMeleeEnabled": {
+        "description": "Enables or disables melee for one or more players.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose access to melee is affected.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "ENABLED",
+                "description": "Specifies whether the player or players are able to use melee. Expects a boolean value such as true, false, or compare.",
+                "type": "bool",
+                "default": "TRUE"
+            }
+        ],
+        "en-US": "Set Melee Enabled",
+        "return": "void"
     },
     "_&setMoveSpeed": {
         "description": "Sets the move speed of one or more players to a percentage of their raw move speed.",
@@ -2251,13 +4026,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose move speed will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "MOVE SPEED PERCENT",
                 "description": "The percentage of raw move speed to which the player or players will set their move speed.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2267,7 +4047,8 @@ const actionKw =
         "fr-FR": "Définir la vitesse de déplacement",
         "ja-JP": "移動速度を設定",
         "pt-BR": "Definir Velocidade de Movimento",
-        "zh-CN": "设置移动速度"
+        "zh-CN": "设置移动速度",
+        "return": "void"
     },
     "setObjectiveDescription": {
         "description": "Sets the text at the top center of the screen that normally describes the objective to a message visible to specific players.",
@@ -2275,13 +4056,18 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The message to be displayed.",
-                "type": "Any",
+                "type": "Object",
                 "default": "STRING"
             },
             {
@@ -2297,7 +4083,8 @@ const actionKw =
         "fr-FR": "Définir la description d’objectif",
         "ja-JP": "目標の説明を設定",
         "pt-BR": "Definir Descrição do Objetivo",
-        "zh-CN": "设置目标点描述"
+        "zh-CN": "设置目标点描述",
+        "return": "void"
     },
     "_&setAllowedHeroes": {
         "description": "Sets the list of heroes available to one or more players. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
@@ -2305,13 +4092,23 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose hero list is being set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HERO",
                 "description": "The hero or heroes that will be available. If no heroes are provided, the action has no effect.",
-                "type": "HeroValue",
+                "type": [
+                    "Hero",
+                    {
+                        "Array": "Hero"
+                    }
+                ],
                 "default": "HERO"
             }
         ],
@@ -2321,7 +4118,8 @@ const actionKw =
         "fr-FR": "Définir les héros autorisés pour un joueur",
         "ja-JP": "プレイヤーが使用できるヒーローを設定",
         "pt-BR": "Definir Heróis Permitidos para o Jogador",
-        "zh-CN": "设置玩家可选的英雄"
+        "zh-CN": "设置玩家可选的英雄",
+        "return": "void"
     },
     "_&setScore": {
         "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
@@ -2329,13 +4127,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose score will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "SCORE",
                 "description": "The score that will be set.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             }
         ],
@@ -2345,27 +4148,36 @@ const actionKw =
         "fr-FR": "Définir le score d’un joueur",
         "ja-JP": "プレイヤー・スコアを設定する",
         "pt-BR": "Definir Pontuação do Jogador",
-        "zh-CN": "设置玩家分数"
+        "zh-CN": "设置玩家分数",
+        "return": "void"
     },
-    "_setPlayerVar": {
+    "__setPlayerVariable__": {
         "description": "Stores a value into a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be set. If multiple players are provided, each of their variables will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to store the value into.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored.",
-                "type": "Any",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
@@ -2375,33 +4187,42 @@ const actionKw =
         "fr-FR": "Définir une variable de joueur",
         "ja-JP": "プレイヤー変数を設定",
         "pt-BR": "Definir Variável de Jogador",
-        "zh-CN": "设置玩家变量"
+        "zh-CN": "设置玩家变量",
+        "return": "void"
     },
-    "_setPlayerVarAtIndex": {
+    "__setPlayerVariableAtIndex__": {
         "description": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which player variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The value that will be stored into the array.",
-                "type": "Any",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
@@ -2411,7 +4232,8 @@ const actionKw =
         "fr-FR": "Définir une variable de joueur à l’index",
         "ja-JP": "インデックスのプレイヤー変数を設定",
         "pt-BR": "Definir Variável de Jogador no Índice",
-        "zh-CN": "在索引处设置玩家变量"
+        "zh-CN": "在索引处设置玩家变量",
+        "return": "void"
     },
     "_&setPrimaryFireEnabled": {
         "description": "Enables or disables primary fire for one or more players.",
@@ -2419,13 +4241,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to primary fire is affected.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use primary fire. Expects a boolean value such as true, false, or compare.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -2435,7 +4262,8 @@ const actionKw =
         "fr-FR": "Définir l’activation du tir principal",
         "ja-JP": "メイン攻撃を許可",
         "pt-BR": "Definir Disparo Primário Ativado",
-        "zh-CN": "设置主要攻击模式启用"
+        "zh-CN": "设置主要攻击模式启用",
+        "return": "void"
     },
     "_&setProjectileGravity": {
         "description": "Sets the projectile gravity for one or more players to a percentage of regular projectile gravity.",
@@ -2443,13 +4271,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose projectile gravity will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "PROJECTILE GRAVITY PERCENT",
                 "description": "The percentage of regular projectile gravity to which the player or players will set their personal projectile gravity.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2459,21 +4292,27 @@ const actionKw =
         "fr-FR": "Définir la gravité des projectiles",
         "ja-JP": "弾の重力を設定",
         "pt-BR": "Definir Gravidade de Projétil",
-        "zh-CN": "设置弹道引力"
+        "zh-CN": "设置弹道引力",
+        "return": "void"
     },
     "_&setProjectileSpeed": {
-        "description": "Iets the projectile speed for one or more players to a percentage of projectile speed.",
+        "description": "Sets the projectile speed for one or more players to a percentage of projectile speed.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player or players whose projectile speed will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "PROJECTILE SPEED PERCENT",
                 "description": "The percentage of regular projectile speed to which the player or players will set their personal projectile speed.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2483,7 +4322,8 @@ const actionKw =
         "fr-FR": "Définir la vitesse des projectiles",
         "ja-JP": "弾速を設定",
         "pt-BR": "Definir Velocidade de Projétil",
-        "zh-CN": "设置弹道速度"
+        "zh-CN": "设置弹道速度",
+        "return": "void"
     },
     "_&setRespawnTime": {
         "description": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death.",
@@ -2491,13 +4331,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose respawn max time is being defined.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "TIME",
                 "description": "The duration between death and respawn in seconds.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2507,7 +4352,8 @@ const actionKw =
         "fr-FR": "Définir la durée maximum avant réapparition",
         "ja-JP": "最大リスポーン時間を設定",
         "pt-BR": "Definir Tempo Máximo de Ressurgimento",
-        "zh-CN": "设置最大重生时间"
+        "zh-CN": "设置最大重生时间",
+        "return": "void"
     },
     "_&setSecondaryFireEnabled": {
         "description": "Enables or disables secondary fire for one or more players.",
@@ -2515,13 +4361,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to secondary fire is affected.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use secondary fire. Expects a boolean value such as true, false, or compare.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -2531,7 +4382,8 @@ const actionKw =
         "fr-FR": "Définir l’activation du tir secondaire",
         "ja-JP": "サブ攻撃を許可",
         "pt-BR": "Definir Disparo Secundário Ativado",
-        "zh-CN": "设置辅助攻击模式启用"
+        "zh-CN": "设置辅助攻击模式启用",
+        "return": "void"
     },
     "setSlowMotion": {
         "description": "Sets the simulation rate for the entire game, including all players, projectiles, effects, and game mode logic.",
@@ -2539,7 +4391,7 @@ const actionKw =
             {
                 "name": "SPEED PERCENT",
                 "description": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2549,7 +4401,8 @@ const actionKw =
         "fr-FR": "Définir un ralenti",
         "ja-JP": "スローモーションを設定",
         "pt-BR": "Definir Câmera Lenta",
-        "zh-CN": "设置慢动作"
+        "zh-CN": "设置慢动作",
+        "return": "void"
     },
     "_&setStatusEffect": {
         "description": "Applies a status to one or more players. This status will remain in effect for the specified duration or until it is cleared by the clear status action.",
@@ -2557,7 +4410,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to whom the status will be applied.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2575,7 +4433,7 @@ const actionKw =
             {
                 "name": "DURATION",
                 "description": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 9999.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2585,7 +4443,8 @@ const actionKw =
         "fr-FR": "Définir un statut",
         "ja-JP": "ステータスを設定",
         "pt-BR": "Definir Status",
-        "zh-CN": "设置状态"
+        "zh-CN": "设置状态",
+        "return": "void"
     },
     "setTeamScore": {
         "description": "Sets the score for one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
@@ -2593,13 +4452,13 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams whose score will be set.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
                 "name": "SCORE",
                 "description": "The score that will be set.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             }
         ],
@@ -2609,7 +4468,8 @@ const actionKw =
         "fr-FR": "Définir le score d’une équipe",
         "ja-JP": "チーム・スコアを設定",
         "pt-BR": "Definir Pontuação da Equipe",
-        "zh-CN": "设置队伍分数"
+        "zh-CN": "设置队伍分数",
+        "return": "void"
     },
     "_&setUltEnabled": {
         "description": "Enables or disables the ultimate ability of one or more players.",
@@ -2617,13 +4477,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose access to their ultimate ability is affected.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "ENABLED",
                 "description": "Specifies whether the player or players are able to use their ultimate ability. Expects a boolean value such as true, false, or compare.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -2633,7 +4498,8 @@ const actionKw =
         "fr-FR": "Définir l’activation de la capacité ultime",
         "ja-JP": "アルティメット・アビリティを有効化",
         "pt-BR": "Definir Habilidade Suprema como Ativada",
-        "zh-CN": "设置启用终极技能"
+        "zh-CN": "设置启用终极技能",
+        "return": "void"
     },
     "_&setUltCharge": {
         "description": "Sets the ultimate charge for one or more players as a percentage of maximum charge.",
@@ -2641,13 +4507,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose ultimate charge will be set.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "CHARGE PERCENT",
                 "description": "The percentage of maximum charge.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2657,16 +4528,17 @@ const actionKw =
         "fr-FR": "Définir la charge de la capacité ultime",
         "ja-JP": "アルティメット・チャージを設定",
         "pt-BR": "Definir Carga da Suprema",
-        "zh-CN": "设置终极技能充能"
+        "zh-CN": "设置终极技能充能",
+        "return": "void"
     },
-    "_skip": {
+    "__skip__": {
         "guid": "00000000BB01",
         "description": "Skips execution of a certain number of actions in the action list.",
         "args": [
             {
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2675,21 +4547,22 @@ const actionKw =
         "fr-FR": "Passer",
         "ja-JP": "スキップ",
         "pt-BR": "Ignorar",
-        "zh-CN": "跳过"
+        "zh-CN": "跳过",
+        "return": "void"
     },
-    "_skipIf": {
+    "__skipIf__": {
         "description": "Skips execution of a certain number of actions in the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
         "args": [
             {
                 "name": "CONDITION",
                 "description": "Specifies whether the skip occurs.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             },
             {
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2699,7 +4572,8 @@ const actionKw =
         "fr-FR": "Passer si",
         "ja-JP": "スキップする条件",
         "pt-BR": "Ignorar se",
-        "zh-CN": "根据条件跳过"
+        "zh-CN": "根据条件跳过",
+        "return": "void"
     },
     "smallMessage": {
         "description": "Displays a small message beneath the reticle that is visible to specific players.",
@@ -2707,13 +4581,18 @@ const actionKw =
             {
                 "name": "VISIBLE TO",
                 "description": "One or more players who will see the message.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEADER",
                 "description": "The message to be displayed.",
-                "type": "Any",
+                "type": "Object",
                 "default": "STRING"
             }
         ],
@@ -2723,7 +4602,8 @@ const actionKw =
         "fr-FR": "Message en petit",
         "ja-JP": "小さなメッセージ",
         "pt-BR": "Mensagem Pequena",
-        "zh-CN": "小字体信息"
+        "zh-CN": "小字体信息",
+        "return": "void"
     },
     "_&startAcceleration": {
         "description": "Starts accelerating one or more players in a specified direction.",
@@ -2731,7 +4611,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players that will begin accelerating.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2743,13 +4628,13 @@ const actionKw =
             {
                 "name": "RATE",
                 "description": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity and/or surface friction.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX SPEED",
                 "description": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -2771,7 +4656,8 @@ const actionKw =
         "fr-FR": "Accélérer",
         "ja-JP": "加速の開始",
         "pt-BR": "Começar a Acelerar",
-        "zh-CN": "开始加速"
+        "zh-CN": "开始加速",
+        "return": "void"
     },
     "_&setCamera": {
         "description": "Places your camera at a location, facing a direction.",
@@ -2779,25 +4665,30 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose cameras will be placed at the location.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "EYE POSITION",
                 "description": "The position of the camera. Reevaluates continuously.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "LOOK AT POSITION",
                 "description": "Where the camera looks at. Reevaluates continuously.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "BLEND SPEED",
                 "description": "How fast to blend the camera speed as positions change. 0 means do not blend at all, and just change positions instantly.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2807,7 +4698,8 @@ const actionKw =
         "fr-FR": "Lancer la caméra",
         "ja-JP": "カメラの始動",
         "pt-BR": "Iniciar Câmera",
-        "zh-CN": "开始镜头"
+        "zh-CN": "开始镜头",
+        "return": "void"
     },
     "startDamageModification": {
         "description": "Starts modifying how much damage one or more receivers will receive from one or more damagers. A reference to this damage modification can be obtained from the last damage modification id value. This action will fail if too many damage modifications have been started.",
@@ -2815,19 +4707,29 @@ const actionKw =
             {
                 "name": "RECEIVERS",
                 "description": "The player or players whose incoming damage will be modified (when attacked by the damagers).",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DAMAGERS",
                 "description": "The player or players whose outgoing damage will be modified (when attacking the receivers).",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "DAMAGE PERCENT",
                 "description": "The percentage of damage that will apply to receivers when attacked by damagers.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -2843,7 +4745,8 @@ const actionKw =
         "fr-FR": "Lancer la modification des dégâts",
         "ja-JP": "ダメージ変更を開始",
         "pt-BR": "Começar Modificação de Dano",
-        "zh-CN": "开始伤害调整"
+        "zh-CN": "开始伤害调整",
+        "return": "void"
     },
     "_&startDoT": {
         "description": "Starts an instance of damage over time. This dot will persist for the specified duration or until stopped by script. To obtain a reference to this dot, use the last damage over time id value.",
@@ -2851,7 +4754,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "One or more players who will receive the damage over time.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2863,13 +4771,13 @@ const actionKw =
             {
                 "name": "DURATION",
                 "description": "The duration of the damage over time in seconds. To have a dot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "DAMAGE PER SECOND",
                 "description": "The damage per second for the damage over time.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -2879,7 +4787,8 @@ const actionKw =
         "fr-FR": "Infliger des dégâts sur la durée",
         "ja-JP": "継続ダメージを開始",
         "pt-BR": "Começar Dano ao Longo do Tempo",
-        "zh-CN": "开始持续伤害"
+        "zh-CN": "开始持续伤害",
+        "return": "void"
     },
     "_&startFacing": {
         "description": "Starts turning one or more players to face the specified direction.",
@@ -2887,7 +4796,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will start turning.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -2899,7 +4813,7 @@ const actionKw =
             {
                 "name": "TURN RATE",
                 "description": "The turn rate in degrees per second.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -2921,7 +4835,8 @@ const actionKw =
         "fr-FR": "Regarder vers",
         "ja-JP": "向き変更を開始",
         "pt-BR": "Começar a Encarar",
-        "zh-CN": "开始朝向"
+        "zh-CN": "开始朝向",
+        "return": "void"
     },
     "_&startForcingHero": {
         "description": "Starts forcing one or more players to be a specific hero and, if necessary, respawns them immediately in their current location. This will be the only hero available to the player or players until the stop forcing player to be hero action is executed.",
@@ -2929,13 +4844,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will be forced to be a specific hero.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HERO",
                 "description": "The hero that the player or players will be forced to be.",
-                "type": "HeroValue",
+                "type": "Hero",
                 "default": "HERO"
             }
         ],
@@ -2945,7 +4865,8 @@ const actionKw =
         "fr-FR": "Forcer un héros",
         "ja-JP": "プレイヤーへのヒーロー強制を開始",
         "pt-BR": "Começar a Forçar Jogador a Ser o Herói",
-        "zh-CN": "开始强制玩家选择英雄"
+        "zh-CN": "开始强制玩家选择英雄",
+        "return": "void"
     },
     "startForcingSpawn": {
         "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
@@ -2953,13 +4874,13 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The team whose spawn room will be forced.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
                 "name": "ROOM",
                 "description": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
@@ -2969,7 +4890,8 @@ const actionKw =
         "fr-FR": "Forcer une salle d’apparition",
         "ja-JP": "リスポーンエリアの強制を開始",
         "pt-BR": "Começar a Forçar Sala de Ressurgimento",
-        "zh-CN": "开始强制重生室"
+        "zh-CN": "开始强制重生室",
+        "return": "void"
     },
     "_&startForcingThrottle": {
         "description": "Defines minimum and maximum movement input values for one or more players, possibly forcing or preventing movement.",
@@ -2977,43 +4899,48 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement will be forced or limited.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "MIN FORWARD",
                 "description": "Sets the minimum run forward amount. 0 allows the player or players to stop while 1 forces full forward movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX FORWARD",
                 "description": "Sets the maximum run forward amount. 0 prevents the player or players from moving forward while 1 allows full forward movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MIN BACKWARD",
                 "description": "Sets the minimum run backward amount. 0 allows the player or players to stop while 1 forces full backward movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX BACKWARD",
                 "description": "Sets the maximum run backward amount. 0 prevents the player or players from moving backward while 1 allows full backward movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MIN SIDEWAYS",
                 "description": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX SIDEWAYS",
                 "description": "Sets the maximum run sideways amount. 0 prevents the player or players from moving SIDEWAYS while 1 allows full sideways movement.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -3023,7 +4950,8 @@ const actionKw =
         "fr-FR": "Forcer l’accélération",
         "ja-JP": "強制スロットル開始",
         "pt-BR": "Começar a Forçar Aceleração",
-        "zh-CN": "开始限制阈值"
+        "zh-CN": "开始限制阈值",
+        "return": "void"
     },
     "_&startHoT": {
         "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
@@ -3031,7 +4959,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "One or more players who will receive the heal over time.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
@@ -3043,13 +4976,13 @@ const actionKw =
             {
                 "name": "DURATION",
                 "description": "The duration of the heal over time in seconds. To have a hot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "HEALING PER SECOND",
                 "description": "The healing per second for the heal over time.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
@@ -3059,7 +4992,8 @@ const actionKw =
         "fr-FR": "Prodiguer des soins sur la durée",
         "ja-JP": "継続回復を開始",
         "pt-BR": "Começar Cura ao Longo do Tempo",
-        "zh-CN": "开始持续治疗"
+        "zh-CN": "开始持续治疗",
+        "return": "void"
     },
     "startHealingModification": {
         "description": "Starts modifying how much healing one or more receivers will receive from one or more healers. A reference to this healing modification can be obtained from the last healing modification id value. This action will fail if too many healing modifications have been started.",
@@ -3067,19 +5001,29 @@ const actionKw =
             {
                 "name": "RECEIVERS",
                 "description": "The player or players whose incoming healing will be modified (when healed by the healers).",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "HEALERS",
                 "description": "The player or players whose outgoing healing will be modified (when healing the receivers).",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "HEALING PERCENT",
                 "description": "The percentage of healing that will apply to receivers when healed by healers.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -3095,7 +5039,8 @@ const actionKw =
         "fr-FR": "Lancer la modification des dégâts",
         "ja-JP": "ダメージ変更を開始",
         "pt-BR": "Começar Modificação de Dano",
-        "zh-CN": "开始伤害调整"
+        "zh-CN": "开始伤害调整",
+        "return": "void"
     },
     "_&startForcingButton": {
         "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
@@ -3103,13 +5048,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who are holding a button virtually.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being held virtually.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -3119,9 +5069,10 @@ const actionKw =
         "fr-FR": "Maintenir un bouton enfoncé",
         "ja-JP": "ボタン長押し開始",
         "pt-BR": "Começar a Segurar Botão",
-        "zh-CN": "开始按下按钮"
+        "zh-CN": "开始按下按钮",
+        "return": "void"
     },
-    "_startRule": {
+    "__startRule__": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
         "args": [
             {
@@ -3143,7 +5094,8 @@ const actionKw =
         "fr-FR": "Lancer la règle",
         "ja-JP": "ルールを開始",
         "pt-BR": "Regra de início",
-        "zh-CN": "开始规则"
+        "zh-CN": "开始规则",
+        "return": "void"
     },
     "_&startThrottleInDirection": {
         "description": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled.",
@@ -3151,19 +5103,24 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will be set or added to.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "DIRECTION",
                 "description": "The unit direction in which the throttle will be set or added to. This value is normalized internally.",
-                "type": "Vector",
+                "type": "Direction",
                 "default": "VECTOR"
             },
             {
                 "name": "MAGNITUDE",
                 "description": "The amount of throttle (or change to throttle). A value of 1 denotes full throttle.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -3191,7 +5148,8 @@ const actionKw =
         "fr-FR": "Commencer l’accélération directionnelle",
         "ja-JP": "指定方向にスロットル開始",
         "pt-BR": "Iniciar Aceleração na Direção",
-        "zh-CN": "开始定向阈值"
+        "zh-CN": "开始定向阈值",
+        "return": "void"
     },
     "_&startTransformingThrottle": {
         "description": "Starts transforming (scaling and rotating) the throttle (directional input control) of a player or players. Cancels any existing start transforming throttle behavior.",
@@ -3199,25 +5157,30 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will be transformed.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "X AXIS SCALAR",
                 "description": "The player or players will have their throttle X axis (left to right) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "Y AXIS SCALAR",
                 "description": "The player or players will have their throttle Y axis (front to back) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "RELATIVE DIRECTION",
                 "description": "After the axis scalars are applied, the player or players will have their throttle transformed so that it is relative to this unit direction vector. For example, to make the throttle camera relative, provide the direction that the camera is facing. This value is evaluated continuously (meaning it updates every frame) and normalized internally.",
-                "type": "Vector",
+                "type": "Direction",
                 "default": "VECTOR"
             }
         ],
@@ -3227,7 +5190,8 @@ const actionKw =
         "fr-FR": "Début de modification de l’accélération",
         "ja-JP": "スロットルの変化を開始",
         "pt-BR": "Iniciar Transformação de Aceleração",
-        "zh-CN": "开始转换阈值"
+        "zh-CN": "开始转换阈值",
+        "return": "void"
     },
     "_&stopAcceleration": {
         "description": "Stops the acceleration started by the start accelerating action for one or more players.",
@@ -3235,7 +5199,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will stop accelerating.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3245,7 +5214,8 @@ const actionKw =
         "fr-FR": "Arrêter l’accélération",
         "ja-JP": "加速の中止",
         "pt-BR": "Parar de Acelerar",
-        "zh-CN": "停止加速"
+        "zh-CN": "停止加速",
+        "return": "void"
     },
     "stopAllDamageModifications": {
         "description": "Stops all damage modifications that were started using the start damage modification action.",
@@ -3256,7 +5226,8 @@ const actionKw =
         "fr-FR": "Arrêter toutes les modifications de dégâts",
         "ja-JP": "すべてのダメージ変更を停止",
         "pt-BR": "Parar Todas as Modificações de Dano",
-        "zh-CN": "停止所有伤害调整"
+        "zh-CN": "停止所有伤害调整",
+        "return": "void"
     },
     "stopAllHealingModifications": {
         "description": "Stops all healing modifications that were started using the start healing modification action.",
@@ -3267,7 +5238,8 @@ const actionKw =
         "fr-FR": "Terminer toutes les modifications de soins",
         "ja-JP": "すべての回復変更を停止",
         "pt-BR": "Parar todas as modificações de cura",
-        "zh-CN": "停止所有治疗调整"
+        "zh-CN": "停止所有治疗调整",
+        "return": "void"
     },
     "_&stopAllDoT": {
         "description": "Stops all damage over time started by start damage over time for one or more players.",
@@ -3275,7 +5247,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose scripted damage over time will stop.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3285,7 +5262,8 @@ const actionKw =
         "fr-FR": "Arrêter tous les dégâts sur la durée",
         "ja-JP": "すべての継続ダメージを停止",
         "pt-BR": "Parar Todo o Dano ao Longo do Tempo",
-        "zh-CN": "停止所有持续伤害"
+        "zh-CN": "停止所有持续伤害",
+        "return": "void"
     },
     "_&stopAllHoT": {
         "description": "Stops all heal over time started by start heal over time for one or more players.",
@@ -3293,7 +5271,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose scripted heal over time will stop.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3303,7 +5286,8 @@ const actionKw =
         "fr-FR": "Arrêter tous les soins sur la durée",
         "ja-JP": "すべての継続回復を停止",
         "pt-BR": "Parar Toda a Cura ao Longo do Tempo",
-        "zh-CN": "停止所有持续治疗"
+        "zh-CN": "停止所有持续治疗",
+        "return": "void"
     },
     "_&stopCamera": {
         "description": "None",
@@ -3311,7 +5295,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose cameras will be put back to the default view.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3321,15 +5310,16 @@ const actionKw =
         "fr-FR": "Arrêter la caméra",
         "ja-JP": "カメラの停止",
         "pt-BR": "Parar Câmera",
-        "zh-CN": "停止镜头"
+        "zh-CN": "停止镜头",
+        "return": "void"
     },
-    "_stopChasingGlobalVariable": {
+    "__stopChasingGlobalVariable__": {
         "description": "Stops an in-progress chase of a global variable, leaving it at its current value.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "Specifies which global variable to stop modifying.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             }
         ],
@@ -3339,21 +5329,27 @@ const actionKw =
         "fr-FR": "Arrêter de modifier une variable globale",
         "ja-JP": "グローバル変数の追跡を中止",
         "pt-BR": "Parar de Acompanhar Variável Global",
-        "zh-CN": "停止追踪全局变量"
+        "zh-CN": "停止追踪全局变量",
+        "return": "void"
     },
-    "_stopChasingPlayerVariable": {
+    "__stopChasingPlayerVariable__": {
         "description": "Stops an in-progress chase of a player variable, leaving it at its current value.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose variable will stop changing. If multiple players are provided, each of their variables will stop changing.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "VARIABLE",
                 "description": "Specifies which of the player's variables to stop modifying.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             }
         ],
@@ -3363,7 +5359,8 @@ const actionKw =
         "fr-FR": "Arrêter de modifier une variable de joueur",
         "ja-JP": "プレイヤー変数の追跡を中止",
         "pt-BR": "Parar de Acompanhar Variável de Jogador",
-        "zh-CN": "停止追踪玩家变量"
+        "zh-CN": "停止追踪玩家变量",
+        "return": "void"
     },
     "stopDamageModification": {
         "description": "Stops a damage modification that was started by the start damage modification action.",
@@ -3371,7 +5368,7 @@ const actionKw =
             {
                 "name": "DAMAGE MODIFICATION",
                 "description": "Specifies which damage modification instance to stop. This id may be last damage modification id or a variable into which last damage modification id was earlier stored.",
-                "type": "Number",
+                "type": "DamageModificationId",
                 "default": "LAST DAMAGE MODIFICATION ID"
             }
         ],
@@ -3381,7 +5378,8 @@ const actionKw =
         "fr-FR": "Arrêter la modification des dégâts",
         "ja-JP": "ダメージ変更を停止",
         "pt-BR": "Parar Modificação de Dano",
-        "zh-CN": "停止伤害调整"
+        "zh-CN": "停止伤害调整",
+        "return": "void"
     },
     "stopDoT": {
         "description": "Stops an instance of damage over time started by the start damage over time action.",
@@ -3389,7 +5387,7 @@ const actionKw =
             {
                 "name": "DAMAGE OVER TIME ID",
                 "description": "Specifies which damage over time instance to stop. This id may be last damage over time id or a variable into which last damage over time id was earlier stored.",
-                "type": "Number",
+                "type": "DotId",
                 "default": "LAST DAMAGE OVER TIME ID"
             }
         ],
@@ -3399,7 +5397,8 @@ const actionKw =
         "fr-FR": "Arrêter des dégâts sur la durée",
         "ja-JP": "継続ダメージを停止",
         "pt-BR": "Parar Dano ao Longo do Tempo",
-        "zh-CN": "停止持续伤害"
+        "zh-CN": "停止持续伤害",
+        "return": "void"
     },
     "_&stopFacing": {
         "description": "Stops the turning started by the start facing action for one or more players.",
@@ -3407,7 +5406,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will stop turning.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3417,7 +5421,8 @@ const actionKw =
         "fr-FR": "Arrêter de regarder vers",
         "ja-JP": "向き変更を停止",
         "pt-BR": "Parar de Encarar",
-        "zh-CN": "停止朝向"
+        "zh-CN": "停止朝向",
+        "return": "void"
     },
     "_&stopForcingCurrentHero": {
         "description": "Stops forcing one or more players to be a specific hero. This will not respawn the player or players, but it will restore their hero availability the next time they go to select a hero.",
@@ -3425,7 +5430,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who will no longer be forced to be a specific hero.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3435,7 +5445,8 @@ const actionKw =
         "fr-FR": "Arrêter de forcer un héros",
         "ja-JP": "プレイヤーへのヒーロー強制を停止",
         "pt-BR": "Parar de Forçar Jogador a Ser o Herói",
-        "zh-CN": "停止强制玩家选择英雄"
+        "zh-CN": "停止强制玩家选择英雄",
+        "return": "void"
     },
     "stopForcingSpawn": {
         "description": "Undoes the effect of the start forcing spawn room action for the specified team.",
@@ -3443,7 +5454,7 @@ const actionKw =
             {
                 "name": "TEAM",
                 "description": "The team that will resume using their normal spawn room.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
@@ -3453,7 +5464,8 @@ const actionKw =
         "fr-FR": "Arrêter de forcer une salle d’apparition",
         "ja-JP": "リスポーンエリアの強制を停止",
         "pt-BR": "Parar de Forçar Sala de Ressurgimento",
-        "zh-CN": "停止强制重生室"
+        "zh-CN": "停止强制重生室",
+        "return": "void"
     },
     "_&stopForcingThrottle": {
         "description": "Undoes the effect of the start forcing throttle action for one or more players.",
@@ -3461,7 +5473,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose movement input will be restored.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3471,7 +5488,8 @@ const actionKw =
         "fr-FR": "Arrêter de forcer l’accélération",
         "ja-JP": "強制スロットル中止",
         "pt-BR": "Parar de Forçar Aceleração",
-        "zh-CN": "停止限制阈值"
+        "zh-CN": "停止限制阈值",
+        "return": "void"
     },
     "stopHoT": {
         "description": "Stops an instance of heal over time started by the start heal over time action.",
@@ -3479,7 +5497,7 @@ const actionKw =
             {
                 "name": "HEAL OVER TIME ID",
                 "description": "Specifies which heal over time instance to stop. This id may be last heal over time id or a variable into which last heal over time id was earlier stored.",
-                "type": "Number",
+                "type": "HotId",
                 "default": "PLAYER VARIABLE"
             }
         ],
@@ -3489,7 +5507,8 @@ const actionKw =
         "fr-FR": "Arrêter des soins sur la durée",
         "ja-JP": "継続回復を停止",
         "pt-BR": "Parar Cura ao Longo do Tempo",
-        "zh-CN": "停止持续治疗"
+        "zh-CN": "停止持续治疗",
+        "return": "void"
     },
     "stopHealingModification": {
         "description": "Stops a healing modification that was started by the start healing modification action.",
@@ -3497,7 +5516,7 @@ const actionKw =
             {
                 "name": "HEALING MODIFICATION ID",
                 "description": "Specifies which healing modification instance to stop. This id may be last healing modification id or a variable into which last healing modification id was earlier stored.",
-                "type": "Number",
+                "type": "HealingModificationId",
                 "default": "LAST HEALING MODIFICATION ID"
             }
         ],
@@ -3507,7 +5526,8 @@ const actionKw =
         "fr-FR": "Terminer la modification de soins",
         "ja-JP": "回復変更を停止",
         "pt-BR": "Parar modificação de cura",
-        "zh-CN": "停止治疗调整"
+        "zh-CN": "停止治疗调整",
+        "return": "void"
     },
     "_&stopForcingButton": {
         "description": "Undoes the effect of the start holding button action for one or more players.",
@@ -3515,13 +5535,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players who are no longer holding a button virtually.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "BUTTON",
                 "description": "The logical button that is no longer being held virtually.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -3531,7 +5556,8 @@ const actionKw =
         "fr-FR": "Arrêter de maintenir un bouton enfoncé",
         "ja-JP": "ボタン長押し解除",
         "pt-BR": "Parar de Segurar Botão",
-        "zh-CN": "停止按下按钮"
+        "zh-CN": "停止按下按钮",
+        "return": "void"
     },
     "_&stopThrottleInDirection": {
         "description": "Cancels the behavior caused by start throttle in direction.",
@@ -3539,7 +5565,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose default throttle control will be restored.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3549,7 +5580,8 @@ const actionKw =
         "fr-FR": "Arrêter l’accélération directionnelle",
         "ja-JP": "指定方向にスロットル終了",
         "pt-BR": "Parar Aceleração na Direção",
-        "zh-CN": "停止定向阈值"
+        "zh-CN": "停止定向阈值",
+        "return": "void"
     },
     "_&stopTransformingThrottle": {
         "description": "Stops the throttle transform started by start transforming throttle for one or more players.",
@@ -3557,7 +5589,12 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose throttle will stop being transformed.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
@@ -3567,7 +5604,8 @@ const actionKw =
         "fr-FR": "Arrêt de modification de l’accélération",
         "ja-JP": "スロットルの変化を停止",
         "pt-BR": "Parar Transformação de Aceleração",
-        "zh-CN": "停止转换阈值"
+        "zh-CN": "停止转换阈值",
+        "return": "void"
     },
     "_&teleport": {
         "guid": "00000000B9BA",
@@ -3576,13 +5614,18 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players to teleport.",
-                "type": "Player",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "POSITION",
                 "description": "The position to which the player or players will teleport. If a player is provided, the position of the player is used.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             }
         ],
@@ -3591,7 +5634,8 @@ const actionKw =
         "fr-FR": "Téléportation",
         "ja-JP": "テレポート",
         "pt-BR": "Teletransportar",
-        "zh-CN": "传送"
+        "zh-CN": "传送",
+        "return": "void"
     },
     "unpauseMatchTime": {
         "description": "Unpauses the match time.",
@@ -3602,16 +5646,17 @@ const actionKw =
         "fr-FR": "Reprendre le temps de jeu",
         "ja-JP": "マッチ時間のポーズを解除",
         "pt-BR": "Retomar Tempo da Partida",
-        "zh-CN": "比赛时间继续"
+        "zh-CN": "比赛时间继续",
+        "return": "void"
     },
-    "_wait": {
+    "__wait__": {
         "guid": "000000007872",
         "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
         "args": [
             {
                 "name": "TIME",
                 "description": "The duration of the pause.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
@@ -3626,7 +5671,8 @@ const actionKw =
         "fr-FR": "Attente",
         "ja-JP": "待機",
         "pt-BR": "Esperar",
-        "zh-CN": "等待"
+        "zh-CN": "等待",
+        "return": "void"
     },
     "__while__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action.",
@@ -3634,7 +5680,7 @@ const actionKw =
             {
                 "name": "CONDITION",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next end action at the current level.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
@@ -3643,7 +5689,8 @@ const actionKw =
         "es-MX": "Mientras",
         "fr-FR": "Tant que",
         "ja-JP": "WHILE",
-        "pl-PL": "Kiedy"
+        "pl-PL": "Kiedy",
+        "return": "void"
     }
 }
 //end-json
@@ -3667,16 +5714,53 @@ const actionKw =
 var valueFuncKw = 
 //begin-json
 {
+    "_&getAbilityCooldown": {
+        "description": "The ability cooldown time in seconds for a player associated by button.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose ability to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            },{
+                "name": "BUTTON",
+                "description": "The ability to check associated by button.",
+                "type": "Button",
+                "default": "BUTTON",
+            }
+        ],
+        return: "unsigned float",
+        "en-US": "Ability Cooldown",
+    },
+    "abilityIconString": {
+        "description": "Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string).",
+        "args": [
+            {
+                "name": "HERO",
+                "description": "The hero for the ability that will be converted to an icon.",
+                "type": "Hero",
+                "default": "HERO",
+            },{
+                "name": "Button",
+                "description": "The button for the ability that will be converted to an icon.",
+                "type": "Button",
+                "default": "Button",
+            }
+        ],
+        return: "String",
+        "en-US": "Ability Icon String",
+    },
     "abs": {
         "description": "The absolute value of the specified value.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The real number value whose absolute value will be computed.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000C358",
         "en-US": "Absolute Value",
         "es-MX": "Valor absoluto",
@@ -3685,23 +5769,24 @@ var valueFuncKw =
         "pt-BR": "Valor Absoluto",
         "zh-CN": "绝对值"
     },
-    "_add": {
+    "__add__": {
         "guid": "00000000C408",
         "description": "The sum of two numbers or vectors.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             }
         ],
+        return: ["float", "Vector"],
         "en-US": "Add",
         "es-MX": "Sumar",
         "fr-FR": "Addition",
@@ -3715,10 +5800,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B265",
         "en-US": "All Dead Players",
         "es-MX": "Todos los jugadores muertos",
@@ -3730,6 +5816,7 @@ var valueFuncKw =
     "getDamageHeroes": {
         "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        ",
         "args": [],
+        return: {Array: "Hero"},
         "guid": "00000000D40A",
         "en-US": "All Damage Heroes",
         "de-DE": "Alle Schadenshelden",
@@ -3744,6 +5831,7 @@ var valueFuncKw =
         "guid": "00000000BF58",
         "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Baptiste \n        30. Sigma    \n        ",
         "args": [],
+        return: {Array: "Hero"},
         "en-US": "All Heroes",
         "es-MX": "Todos los héroes",
         "fr-FR": "Tous les héros",
@@ -3757,10 +5845,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B264",
         "en-US": "All Living Players",
         "es-MX": "Todos los jugadores vivos",
@@ -3775,10 +5864,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B261",
         "en-US": "All Players",
         "es-MX": "Todos los jugadores",
@@ -3793,10 +5883,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B267",
         "en-US": "All Players Not On Objective",
         "es-MX": "Todos los jugadores que no están en el objetivo",
@@ -3811,10 +5902,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B266",
         "en-US": "All Players On Objective",
         "es-MX": "Todos los jugadores que están en el objetivo",
@@ -3833,6 +5925,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: {Array: "Hero"},
         "guid": "00000000BBA8",
         "en-US": "Allowed Heroes",
         "es-MX": "Héroes permitidos",
@@ -3844,6 +5937,7 @@ var valueFuncKw =
     "getSupportHeroes": {
         "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
         "args": [],
+        return: {Array: "Hero"},
         "guid": "00000000D40B",
         "en-US": "All Support Heroes",
         "de-DE": "Alle Unterstützungshelden",
@@ -3857,6 +5951,7 @@ var valueFuncKw =
     "getTankHeroes": {
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
         "args": [],
+        return: {Array: "Hero"},
         "guid": "00000000D40C",
         "en-US": "All Tank Heroes",
         "de-DE": "Alle Tankhelden",
@@ -3877,6 +5972,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000B11D",
         "en-US": "Altitude Of",
         "es-MX": "Altitud de",
@@ -3885,22 +5981,23 @@ var valueFuncKw =
         "pt-BR": "Altitude de",
         "zh-CN": "高度"
     },
-    "_and": {
+    "__and__": {
         "description": "Whether both of the two inputs are true (or equivalent to true).",
         "args": [
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             },
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
+        return: "bool",
         "guid": "00000000B273",
         "en-US": "And",
         "es-MX": "Y",
@@ -3915,16 +6012,17 @@ var valueFuncKw =
             {
                 "name": "VECTOR",
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
-                "type": "Vector",
+                "type": "Direction",
                 "default": "VECTOR"
             },
             {
                 "name": "VECTOR",
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
-                "type": "Vector",
+                "type": "Direction",
                 "default": "VECTOR"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000C813",
         "en-US": "Angle Between Vectors",
         "es-MX": "Ángulo entre vectores",
@@ -3939,16 +6037,17 @@ var valueFuncKw =
             {
                 "name": "ANGLE",
                 "description": "One of the two angles between which to measure the resulting angle.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "ANGLE",
                 "description": "One of the two angles between which to measure the resulting angle.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000B282",
         "en-US": "Angle Difference",
         "es-MX": "Diferencia de ángulo",
@@ -3957,23 +6056,24 @@ var valueFuncKw =
         "pt-BR": "Diferença de Ângulo",
         "zh-CN": "角度差"
     },
-    "_appendToArray": {
+    "__concat__": {
         "guid": "00000000C41A",
         "description": "A copy of an array with one or more values appended to the end.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array to which to append.",
-                "type": "Any",
+                "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "VALUE",
                 "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
-                "type": "Any",
+                "type": ["Object", {Array: "Object"}],
                 "default": "NUMBER"
             }
         ],
+        return: "Array",
         "en-US": "Append To Array",
         "es-MX": "Anexar a la matriz",
         "fr-FR": "Ajouter au tableau",
@@ -3987,10 +6087,11 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C809",
         "en-US": "Arccosine In Degrees",
         "es-MX": "Arcocoseno en grados",
@@ -4005,10 +6106,11 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C807",
         "en-US": "Arccosine In Radians",
         "es-MX": "Arcocoseno en radianes",
@@ -4023,10 +6125,11 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C805",
         "en-US": "Arcsine In Degrees",
         "es-MX": "Arcoseno en grados",
@@ -4041,10 +6144,11 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "Input value for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C803",
         "en-US": "Arcsine In Radians",
         "es-MX": "Arcoseno en radianes",
@@ -4059,16 +6163,17 @@ var valueFuncKw =
             {
                 "name": "NUMERATOR",
                 "description": "Numerator input for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "DENOMINATOR",
                 "description": "Denominator input for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C801",
         "en-US": "Arctangent In Degrees",
         "es-MX": "Arcotangente en grados",
@@ -4083,16 +6188,17 @@ var valueFuncKw =
             {
                 "name": "NUMERATOR",
                 "description": "Numerator input for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "DENOMINATOR",
                 "description": "Denominator input for the function.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C7FF",
         "en-US": "Arctangent In Radians",
         "es-MX": "Arcotangente en radianes",
@@ -4101,22 +6207,36 @@ var valueFuncKw =
         "pt-BR": "Arco Tangente em Radianos",
         "zh-CN": "以弧度为单位的反正切值"
     },
-    "_arrayContains": {
+    "__array__": {
+        "description": "An array constructed from the listed values.",
+        "args": [
+            {
+                "name": "[0]",
+                "description": "The value that will be stored in the array at index [0].",
+                "type": ["Object", "Array"],
+                "default": "NULL",
+            }
+        ],
+        return: "Array",
+        "en-US": "Array",
+    },
+    "__arrayContains__": {
         "description": "Whether the specified array contains the specified value.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array in which to search for the specified value.",
-                "type": "Any",
+                "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "VALUE",
                 "description": "The value for which to search.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NUMBER"
             }
         ],
+        return: "bool",
         "guid": "00000000C336",
         "en-US": "Array Contains",
         "es-MX": "La matriz contiene",
@@ -4125,28 +6245,29 @@ var valueFuncKw =
         "pt-BR": "Matriz Contém",
         "zh-CN": "数组包含"
     },
-    "_arraySlice": {
+    "__arraySlice__": {
         "description": "A copy of the specified array containing only values from a specified index range.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array from which to make a copy.",
-                "type": "Any",
+                "type": {Array: "Object"},
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "START INDEX",
                 "description": "The first index of the range.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
                 "name": "COUNT",
                 "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
+        return: {Array: "Object"},
         "guid": "00000000B597",
         "en-US": "Array Slice",
         "es-MX": "Extracción de matriz",
@@ -4159,6 +6280,7 @@ var valueFuncKw =
         "guid": "00000000B32F",
         "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
         "args": null,
+        return: "Player",
         "en-US": "Attacker",
         "es-MX": "Atacante",
         "fr-FR": "Attaquant",
@@ -4170,6 +6292,9 @@ var valueFuncKw =
         "guid": "00000000B11B",
         "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
         "args": null,
+        return: {
+            "Direction": ["unsigned int", "unsigned int", "signed int"]
+        },
         "en-US": "Backward",
         "es-MX": "Atrás",
         "fr-FR": "Arrière",
@@ -4177,22 +6302,36 @@ var valueFuncKw =
         "pt-BR": "Para Trás",
         "zh-CN": "后"
     },
+    "__button__": {
+        "description": "A button constant.",
+        "args": [
+            {
+                "name": "BUTTON",
+                "description": "A button constant.",
+                "type": "ButtonLiteral",
+                "default": "PRIMARY FIRE"
+            }
+        ],
+        return: "Button",
+        "en-US": "Button",
+    },
     "getClosestPlayer": {
         "description": "The player closest to a position, optionally restricted by team.",
         "args": [
             {
                 "name": "CENTER",
                 "description": "The position from which to measure proximity.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams from which the closest player will come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "Player",
         "guid": "00000000B1DE",
         "en-US": "Closest Player To",
         "es-MX": "Jugador más cercano a",
@@ -4201,28 +6340,29 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo a",
         "zh-CN": "距离最近的玩家"
     },
-    "_compare": {
+    "__compare__": {
         "description": "Whether the comparison of the two inputs is true.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             },
             {
                 "name": "COMPARISON",
                 "description": "",
-                "type": "COMPARE OPERATOR",
+                "type": "__Operator__",
                 "default": "=="
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
+        return: "bool",
         "guid": "00000000B276",
         "en-US": "Compare",
         "es-MX": "Comparar",
@@ -4237,10 +6377,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team whose score percentage to acquire.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000B37C",
         "en-US": "Control Mode Scoring Percentage",
         "es-MX": "Porcentaje de puntuación en el modo Control",
@@ -4252,6 +6393,7 @@ var valueFuncKw =
     "getControlScoringTeam": {
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
         "args": [],
+        return: "Team",
         "guid": "00000000B39A",
         "en-US": "Control Mode Scoring Team",
         "es-MX": "Equipo que anota en el modo Control",
@@ -4266,10 +6408,11 @@ var valueFuncKw =
             {
                 "name": "ANGLE",
                 "description": "Angle in degrees.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C33E",
         "en-US": "Cosine From Degrees",
         "es-MX": "Coseno en grados",
@@ -4284,10 +6427,11 @@ var valueFuncKw =
             {
                 "name": "ANGLE",
                 "description": "Angle in radians.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C342",
         "en-US": "Cosine From Radians",
         "es-MX": "Coseno en radianes",
@@ -4302,10 +6446,11 @@ var valueFuncKw =
             {
                 "name": "ARRAY",
                 "description": "The array whose elements will be counted.",
-                "type": "Any",
+                "type": "Array",
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000B26E",
         "en-US": "Count Of",
         "es-MX": "Conteo de",
@@ -4330,6 +6475,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        return: "Vector",
         "guid": "00000000C35D",
         "en-US": "Cross Product",
         "es-MX": "Producto vectorial",
@@ -4338,9 +6484,10 @@ var valueFuncKw =
         "pt-BR": "Produto Vetorial",
         "zh-CN": "矢量积"
     },
-    "_currentArrayElement": {
+    "__currentArrayElement__": {
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": [],
+        return: ["Object", "Array"],
         "guid": "00000000B5B9",
         "en-US": "Current Array Element",
         "es-MX": "Elemento de matriz actual",
@@ -4352,6 +6499,7 @@ var valueFuncKw =
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
         "args": [],
+        return: "Gamemode",
         "guid": "00000000F163",
         "en-US": "Current Game Mode",
         "es-MX": "Modo de juego actual",
@@ -4365,6 +6513,7 @@ var valueFuncKw =
         "guid": "00000000D418",
         "description": "The current map of the custom game.",
         "args": [],
+        return: "Map",
         "en-US": "Current Map",
         "es-MX": "Mapa actual",
         "fr-FR": "Carte actuelle",
@@ -4373,34 +6522,35 @@ var valueFuncKw =
         "pt-BR": "Mapa Atual",
         "zh-CN": "当前地图"
     },
-    "_customString": {
+    "__customString__": {
         "description": "ty magzie for adding that",
         "args": [
             {
                 "name": "STRING",
                 "description": "",
-                "type": "LocalizedString",
+                "type": "StringLiteral",
                 "default": "HELLO"
             },
             {
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NULL"
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NULL"
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NULL"
             }
         ],
+        return: "String",
         "guid": "00000000CE3C",
         "en-US": "Custom String",
         "es-MX": "Cadena personalizada",
@@ -4416,16 +6566,17 @@ var valueFuncKw =
             {
                 "name": "HORIZONTAL ANGLE",
                 "description": "The horizontal angle in degrees used to construct the resulting vector.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "VERTICAL ANGLE",
                 "description": "The vertical angle in degrees used to construct the resulting vector.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "Direction",
         "guid": "00000000BB2D",
         "en-US": "Direction From Angles",
         "es-MX": "Dirección desde los ángulos",
@@ -4440,16 +6591,17 @@ var valueFuncKw =
             {
                 "name": "START POS",
                 "description": "The position from which the resulting direction vector will point.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The position to which the resulting direction vector will point.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             }
         ],
+        return: "Direction",
         "guid": "00000000B1EA",
         "en-US": "Direction Towards",
         "es-MX": "Dirección hacia",
@@ -4464,16 +6616,17 @@ var valueFuncKw =
             {
                 "name": "START POS",
                 "description": "One of the two positions used in the distance measurement.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "One of the two positions used in the distance measurement.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000B1E7",
         "en-US": "Distance Between",
         "es-MX": "Distancia entre",
@@ -4482,23 +6635,24 @@ var valueFuncKw =
         "pt-BR": "Distância entre",
         "zh-CN": "相距距离"
     },
-    "_divide": {
+    "__divide__": {
         "guid": "00000000C40F",
         "description": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             }
         ],
+        return: ["float", "Vector"],
         "en-US": "Divide",
         "es-MX": "Dividir",
         "fr-FR": "Division",
@@ -4522,6 +6676,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        return: "float",
         "guid": "00000000C35A",
         "en-US": "Dot Product",
         "es-MX": "Producto escalar",
@@ -4534,6 +6689,9 @@ var valueFuncKw =
         "guid": "00000000B119",
         "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
         "args": null,
+        return: {
+            "Direction": ["unsigned int", "signed int", "unsigned int"]
+        },
         "en-US": "Down",
         "es-MX": "Abajo",
         "fr-FR": "Bas",
@@ -4541,9 +6699,10 @@ var valueFuncKw =
         "pt-BR": "Baixo",
         "zh-CN": "下"
     },
-    "_emptyArray": {
+    "__emptyArray__": {
         "description": "An array with no elements.",
         "args": [],
+        return: "Array",
         "guid": "00000000BF5A",
         "en-US": "Empty Array",
         "es-MX": "Matriz vacía",
@@ -4558,10 +6717,11 @@ var valueFuncKw =
             {
                 "name": "ENTITY",
                 "description": "The player, icon entity, or effect entity whose existence to check.",
-                "type": "Player",
+                "type": ["Player", "EntityId"],
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B619",
         "en-US": "Entity Exists",
         "es-MX": "La entidad existe",
@@ -4570,9 +6730,16 @@ var valueFuncKw =
         "pt-BR": "Entidade Existe",
         "zh-CN": "实体存在"
     },
+    "eventAbility": {
+        "description": "The ability for the event currently being processed by this rule associated by button.",
+        "args": null,
+        return: "Button",
+        "en-US": "Event Ability",
+    },
     "eventDamage": {
         "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
         "args": null,
+        return: "unsigned float",
         "guid": "00000000C635",
         "en-US": "Event Damage",
         "es-MX": "Daño de evento",
@@ -4581,9 +6748,16 @@ var valueFuncKw =
         "pt-BR": "Dano do Evento",
         "zh-CN": "事件伤害"
     },
+    "eventDirection": {
+        "description": "The incoming direction for the event currently being processed by this rule.",
+        "args": null,
+        return: "Direction",
+        "en-US": "Event Direction",
+    },
     "eventHealing": {
         "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
         "args": null,
+        return: "unsigned float",
         "guid": "00000000CC33",
         "en-US": "Event Healing",
         "es-MX": "Sanación de evento",
@@ -4596,6 +6770,7 @@ var valueFuncKw =
     "eventPlayer": {
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
         "args": null,
+        return: "Player",
         "guid": "00000000B331",
         "en-US": "Event Player",
         "es-MX": "Jugador del evento",
@@ -4607,6 +6782,7 @@ var valueFuncKw =
     "eventWasCriticalHit": {
         "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
         "args": null,
+        return: "bool",
         "guid": "00000000C637",
         "en-US": "Event Was Critical Hit",
         "es-MX": "El evento fue un golpe crítico",
@@ -4618,6 +6794,7 @@ var valueFuncKw =
     "eventWasHealthPack": {
         "description": "Whether the healing was a health pack for the event currently being processed by this rule.",
         "args": null,
+        return: "bool",
         "guid": "00000000FC80",
         "en-US": "Event Was Health Pack",
         "es-MX": "Evento fue suministro de salud",
@@ -4637,6 +6814,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "Position",
         "en-US": "Eye Position",
         "es-MX": "Posición de la vista",
         "fr-FR": "Position des yeux",
@@ -4654,6 +6832,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "Direction",
         "guid": "00000000B281",
         "en-US": "Facing Direction Of",
         "es-MX": "Dirección de orientación de",
@@ -4665,6 +6844,7 @@ var valueFuncKw =
     "false": {
         "description": "The boolean value of false.",
         "args": null,
+        return: "bool",
         "guid": "00000000AC3A",
         "en-US": "False",
         "es-MX": "Falso",
@@ -4677,16 +6857,17 @@ var valueFuncKw =
             {
                 "name": "CENTER",
                 "description": "The position from which to measure distance.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams from which the farthest player will come.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "Player",
         "guid": "00000000B1DF",
         "en-US": "Farthest Player From",
         "es-MX": "Jugador más lejos de",
@@ -4695,22 +6876,23 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Distante de",
         "zh-CN": "距离最远的玩家"
     },
-    "_filteredArray": {
+    "__filteredArray__": {
         "description": "A copy of the specified array with any values that do not match the specified condition removed.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose copy will be filtered.",
-                "type": "Any",
+                "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "CONDITION",
                 "description": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
+        return: "Array",
         "guid": "00000000B5B7",
         "en-US": "Filtered Array",
         "es-MX": "Matriz filtrada",
@@ -4719,16 +6901,17 @@ var valueFuncKw =
         "pt-BR": "Matriz Filtrada",
         "zh-CN": "已过滤的数组"
     },
-    "_firstOf": {
+    "__firstOf__": {
         "description": "The value at the start of the specified array. Results in 0 if the specified array is empty.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array from which the value is acquired.",
-                "type": "Any",
+                "type": "Array",
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        return: ["Object", "Array"],
         "guid": "00000000B5C2",
         "en-US": "First Of",
         "es-MX": "Primero de",
@@ -4743,10 +6926,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team whose flag position to acquire.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "Position",
         "guid": "00000000B3A0",
         "en-US": "Flag Position",
         "es-MX": "Posición de la bandera",
@@ -4759,6 +6943,9 @@ var valueFuncKw =
         "guid": "00000000B11A",
         "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
         "args": null,
+        return: {
+            "Direction": ["unsigned int", "unsigned int", "unsigned int"]
+        },
         "en-US": "Forward",
         "es-MX": "Adelante",
         "fr-FR": "Avant",
@@ -4766,16 +6953,17 @@ var valueFuncKw =
         "pt-BR": "Para a Frente",
         "zh-CN": "前"
     },
-    "_globalVar": {
+    "__globalVar__": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
                 "name": "VARIABLE",
                 "description": "The variable whose value to acquire.",
-                "type": "Variable",
+                "type": "GlobalVariable",
                 "default": "A"
             }
         ],
+        return: "Value",
         "guid": "00000000B0F9",
         "en-US": "Global Variable",
         "es-MX": "Variable global",
@@ -4794,6 +6982,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000C192",
         "en-US": "Has Spawned",
         "es-MX": "Ha aparecido",
@@ -4818,6 +7007,7 @@ var valueFuncKw =
                 "default": "HACKED"
             }
         ],
+        return: "bool",
         "guid": "00000000B363",
         "en-US": "Has Status",
         "es-MX": "Tiene estado",
@@ -4829,6 +7019,7 @@ var valueFuncKw =
     "healee": {
         "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
         "args": null,
+        return: "Player",
         "guid": "00000000CC1C",
         "en-US": "Healee",
         "es-MX": "Sanado",
@@ -4842,6 +7033,7 @@ var valueFuncKw =
         "guid": "00000000CC1A",
         "description": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player.",
         "args": null,
+        return: "Player",
         "en-US": "Healer",
         "es-MX": "Sanador",
         "fr-FR": "Soigneur",
@@ -4861,6 +7053,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned float",
         "en-US": "Health",
         "es-MX": "Salud",
         "fr-FR": "Points de vie",
@@ -4878,6 +7071,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned float",
         "guid": "0000000081C3",
         "en-US": "Normalized Health",
         "es-MX": "Salud normalizada",
@@ -4886,17 +7080,18 @@ var valueFuncKw =
         "pt-BR": "Vida Normalizada",
         "zh-CN": "标准化生命值"
     },
-    "_hero": {
+    "__hero__": {
         "guid": "00000000ACAA",
         "description": "A hero constant.",
         "args": [
             {
                 "name": "HERO",
                 "description": "A hero constant.",
-                "type": "Hero",
+                "type": "HeroLiteral",
                 "default": "ANA"
             }
         ],
+        return: "Hero",
         "en-US": "Hero",
         "es-MX": "Héroe",
         "fr-FR": "Héros",
@@ -4910,10 +7105,11 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The hero that will be converted to an icon.",
-                "type": "HeroValue",
+                "type": "Hero",
                 "default": "HERO"
             }
         ],
+        return: "String",
         "guid": "00000000C1FE",
         "en-US": "Hero Icon String",
         "es-MX": "Cadena de ícono de héroe",
@@ -4932,6 +7128,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "Hero",
         "guid": "00000000ACA9",
         "en-US": "Hero Of",
         "es-MX": "Héroe de",
@@ -4946,10 +7143,11 @@ var valueFuncKw =
             {
                 "name": "DIRECTION",
                 "description": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins.",
-                "type": "Vector",
+                "type": "Direction",
                 "default": "VECTOR"
             }
         ],
+        return: "float",
         "guid": "00000000BB2C",
         "en-US": "Horizontal Angle From Direction",
         "es-MX": "Ángulo horizontal desde la dirección",
@@ -4970,10 +7168,11 @@ var valueFuncKw =
             {
                 "name": "POSITION",
                 "description": "The position in the world where the angle ends.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             }
         ],
+        return: "float",
         "guid": "00000000B27D",
         "en-US": "Horizontal Angle Towards",
         "es-MX": "Ángulo horizontal en dirección a",
@@ -4982,17 +7181,18 @@ var valueFuncKw =
         "pt-BR": "Ângulo Horizontal Rumo a",
         "zh-CN": "水平方向夹角"
     },
-    "_gamemode": {
+    "__gamemode__": {
         "guid": "00000000F161",
         "description": "A game mode constant.",
         "args": [
             {
                 "name": "GAME MODE",
                 "description": "A game mode constant.",
-                "type": "Gamemode",
+                "type": "GamemodeLiteral",
                 "default": "ASSAULT"
             }
         ],
+        return: "Gamemode",
         "en-US": "Game Mode",
         "es-MX": "Modo de juego",
         "fr-FR": "Mode de jeu",
@@ -5011,6 +7211,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "float",
         "guid": "00000000B27F",
         "en-US": "Horizontal Facing Angle Of",
         "es-MX": "Ángulo horizontal de orientación de",
@@ -5029,6 +7230,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000B25E",
         "en-US": "Horizontal Speed Of",
         "es-MX": "Velocidad horizontal de",
@@ -5040,6 +7242,7 @@ var valueFuncKw =
     "hostPlayer": {
         "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
         "args": null,
+        return: "Player",
         "guid": "00000000CC1E",
         "en-US": "Host Player",
         "es-MX": "Jugador anfitrión",
@@ -5059,6 +7262,7 @@ var valueFuncKw =
                 "default": "ARROW: DOWN"
             }
         ],
+        return: "String",
         "guid": "00000000CCDC",
         "en-US": "Icon String",
         "es-MX": "Cadena de ícono",
@@ -5068,22 +7272,46 @@ var valueFuncKw =
         "pt-BR": "String de Ícone",
         "zh-CN": "图标字符串"
     },
-    "_indexOfArrayValue": {
+    "__ifThenElse__": {
+        "description": "Results in the Then value when the If condition is true; otherwise, results in the Else value.",
+        "args": [
+            {
+                "name": "IF",
+                "description": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else.",
+                "type": "bool",
+                "default": "TRUE",
+            },{
+                "name": "THEN",
+                "description": "The result of the value when the if condition evaluates to true.",
+                "type": ["Object", "Array"],
+                "default": "NUMBER",
+            },{
+                "name": "ELSE",
+                "description": "The result of the value when the if condition evaluates to false.",
+                "type": ["Object", "Array"],
+                "default": "NUMBER",
+            }
+        ],
+        "en-US": "If-Then-Else",
+        return: ["Object", "Array"],
+    },
+    "__indexOfArrayValue__": {
         "description": "The index of a value within an array or -1 if no such value can be found.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array in which to search for the specified value.",
-                "type": "Any",
+                "type": {Array: "Object"},
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "VALUE",
                 "description": "The value for which to search.",
-                "type": "Number",
+                "type": "Object",
                 "default": "NUMBER"
             }
         ],
+        return: "int",
         "guid": "00000000C330",
         "en-US": "Index Of Array Value",
         "es-MX": "Índice del valor de la matriz",
@@ -5102,6 +7330,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B278",
         "en-US": "Is Alive",
         "es-MX": "Está vivo",
@@ -5113,6 +7342,7 @@ var valueFuncKw =
     "isAssemblingHeroes": {
         "description": "Whether the match is currently in its assemble heroes phase.",
         "args": [],
+        return: "bool",
         "guid": "00000000B35C",
         "en-US": "Is Assembling Heroes",
         "es-MX": "En Forma tu equipo",
@@ -5124,6 +7354,7 @@ var valueFuncKw =
     "isMatchBetweenRounds": {
         "description": "Whether the match is between rounds.",
         "args": [],
+        return: "bool",
         "guid": "00000000B35F",
         "en-US": "Is Between Rounds",
         "es-MX": "Entre rondas",
@@ -5144,10 +7375,11 @@ var valueFuncKw =
             {
                 "name": "BUTTON",
                 "description": "The button to check.",
-                "type": "Button",
+                "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
             }
         ],
+        return: "bool",
         "guid": "00000000B2F3",
         "en-US": "Is Button Held",
         "es-MX": "Botón presionado",
@@ -5172,6 +7404,7 @@ var valueFuncKw =
                 "default": "VOICE LINE UP"
             }
         ],
+        return: "bool",
         "guid": "00000000B268",
         "en-US": "Is Communicating",
         "es-MX": "Se está comunicando",
@@ -5190,6 +7423,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B9E5",
         "en-US": "Is Communicating Any",
         "es-MX": "Comunica algo",
@@ -5208,6 +7442,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B9E8",
         "en-US": "Is Communicating Any Emote",
         "es-MX": "Comunica un gesto",
@@ -5226,6 +7461,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B9E7",
         "en-US": "Is Communicating Any Voice line",
         "es-MX": "Comunica una línea de voz",
@@ -5237,6 +7473,7 @@ var valueFuncKw =
     "isControlPointLocked": {
         "description": "Whether the point is locked in control mode.",
         "args": [],
+        return: "bool",
         "guid": "00000000B37B",
         "en-US": "Is Control Mode Point Locked",
         "es-MX": "Punto bloqueado en el modo Control",
@@ -5255,6 +7492,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B289",
         "en-US": "Is Crouching",
         "es-MX": "Agachado",
@@ -5266,6 +7504,7 @@ var valueFuncKw =
     "isInSuddenDeath": {
         "description": "Whether the current game of capture the flag is in sudden death.",
         "args": [],
+        return: "bool",
         "guid": "00000000B3A4",
         "en-US": "Is CTF Mode In Sudden Death",
         "es-MX": "Modo CLB en muerte súbita",
@@ -5284,6 +7523,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B277",
         "en-US": "Is Dead",
         "es-MX": "Está muerto",
@@ -5302,6 +7542,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000CEDF",
         "en-US": "Is Dummy Bot",
         "es-MX": "Robot de entrenamiento",
@@ -5321,6 +7562,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000C3E7",
         "en-US": "Is Firing Primary",
         "es-MX": "Está usando el disparo principal",
@@ -5339,6 +7581,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000C3E9",
         "en-US": "Is Firing Secondary",
         "es-MX": "Está usando el disparo secundario",
@@ -5353,10 +7596,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team whose flag to check.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "bool",
         "guid": "00000000B3A1",
         "en-US": "Is Flag At Base",
         "es-MX": "La bandera está en la base",
@@ -5371,10 +7615,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team whose flag to check.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "bool",
         "guid": "00000000B3A2",
         "en-US": "Is Flag Being Carried",
         "es-MX": "La bandera está siendo transportada",
@@ -5386,6 +7631,7 @@ var valueFuncKw =
     "isGameInProgress": {
         "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
         "args": [],
+        return: "bool",
         "guid": "00000000B35E",
         "en-US": "Is Game In Progress",
         "es-MX": "Partida en curso",
@@ -5400,16 +7646,17 @@ var valueFuncKw =
             {
                 "name": "HERO",
                 "description": "The hero to check for play.",
-                "type": "HeroValue",
+                "type": "Hero",
                 "default": "HERO"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to check for the hero being played.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "bool",
         "guid": "00000000B292",
         "en-US": "Is Hero Being Played",
         "es-MX": "Jugando con el héroe",
@@ -5428,6 +7675,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B28B",
         "en-US": "Is In Air",
         "es-MX": "En el aire",
@@ -5436,19 +7684,19 @@ var valueFuncKw =
         "pt-BR": "É no Ar",
         "zh-CN": "正在空中"
     },
-    "_isInLineOfSight": {
+    "isInLoS": {
         "description": "Whether two positions have line of sight with each other.",
         "args": [
             {
                 "name": "START POS",
                 "description": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "Location",
+                "type": ["Position", "Player"],
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "Location",
+                "type": ["Position", "Player"],
                 "default": "VECTOR"
             },
             {
@@ -5458,6 +7706,7 @@ var valueFuncKw =
                 "default": "BARRIERS DO NOT BLOCK LOS"
             }
         ],
+        return: "bool",
         "guid": "00000000B1EC",
         "en-US": "Is In Line of Sight",
         "es-MX": "En la línea de visión",
@@ -5469,6 +7718,7 @@ var valueFuncKw =
     "isInSetup": {
         "description": "Whether the match is currently in its setup phase.",
         "args": [],
+        return: "bool",
         "guid": "00000000B35D",
         "en-US": "Is In Setup",
         "es-MX": "En preparación",
@@ -5487,6 +7737,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B3B1",
         "en-US": "Is In Spawn Room",
         "es-MX": "En el cuarto de reaparición",
@@ -5507,16 +7758,17 @@ var valueFuncKw =
             {
                 "name": "LOCATION",
                 "description": "The location to test if it's within view.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "VIEW ANGLE",
                 "description": "The view angle to compare against in degrees.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "bool",
         "guid": "00000000BF7C",
         "en-US": "Is In View Angle",
         "es-MX": "En el ángulo de vista",
@@ -5525,9 +7777,23 @@ var valueFuncKw =
         "pt-BR": "É No Ângulo de Visão",
         "zh-CN": "在视野内"
     },
+    "_&isJumping": {
+        "description": "Whether the specified player is jumping.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose jump usage to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "en-US": "Is Jumping",
+        return: "bool",
+    },
     "isMatchComplete": {
         "description": "Whether the match has finished.",
         "args": [],
+        return: "bool",
         "guid": "00000000B360",
         "en-US": "Is Match Complete",
         "es-MX": "Partida Completada",
@@ -5535,6 +7801,19 @@ var valueFuncKw =
         "ja-JP": "マッチが完了している",
         "pt-BR": "É Partida Concluída",
         "zh-CN": "比赛结束"
+    },
+    "_&isMeleeing": {
+        "description": "Whether the specified player is meleeing.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose melee usage to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "en-US": "Is Meleeing",
+        return: "bool",
     },
     "_&isMoving": {
         "description": "Whether a player is moving (defined as having a nonzero current speed).",
@@ -5546,6 +7825,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B288",
         "en-US": "Is Moving",
         "es-MX": "En movimiento",
@@ -5560,10 +7840,11 @@ var valueFuncKw =
             {
                 "name": "NUMBER",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
+        return: "bool",
         "guid": "00000000B378",
         "en-US": "Is Objective Complete",
         "es-MX": "Objetivo completado",
@@ -5582,6 +7863,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000BF70",
         "en-US": "Is On Ground",
         "es-MX": "En el suelo",
@@ -5600,6 +7882,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B3B2",
         "en-US": "Is On Objective",
         "es-MX": "En el objetivo",
@@ -5618,6 +7901,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000BB0B",
         "en-US": "Is On Wall",
         "es-MX": "En el muro",
@@ -5636,6 +7920,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B3B3",
         "en-US": "Is Portrait On Fire",
         "es-MX": "Retrato en llamas",
@@ -5654,6 +7939,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B287",
         "en-US": "Is Standing",
         "es-MX": "De pie",
@@ -5668,10 +7954,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team whose role to check.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "bool",
         "guid": "00000000B359",
         "en-US": "Is Team On Defense",
         "es-MX": "Equipo defensor",
@@ -5686,10 +7973,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team whose role to check.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "bool",
         "guid": "00000000B354",
         "en-US": "Is Team On Offense",
         "es-MX": "Equipo atacante",
@@ -5698,22 +7986,23 @@ var valueFuncKw =
         "pt-BR": "É Equipe no Ataque",
         "zh-CN": "作为进攻队伍"
     },
-    "_all": {
+    "__all__": {
         "description": "Whether the specified condition evaluates to true for every value in the specified array.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose values will be considered.",
-                "type": "Any",
+                "type": "Array",
                 "default": "GLOBAL VARIABLE"
             },
             {
                 "name": "CONDITION",
                 "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
+        return: "bool",
         "guid": "00000000B5BA",
         "en-US": "Is True For All",
         "es-MX": "Es verdadero para todos",
@@ -5722,22 +8011,23 @@ var valueFuncKw =
         "pt-BR": "É Verdadeiro para Todos",
         "zh-CN": "对全部为”真“"
     },
-    "_any": {
+    "__any__": {
         "description": "Whether the specified condition evaluates to true for any value in the specified array.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose values will be considered.",
-                "type": "Any",
+                "type": "Array",
                 "default": "GLOBAL VARIABLE"
             },
             {
                 "name": "CONDITION",
                 "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "COMPARE"
             }
         ],
+        return: "bool",
         "guid": "00000000B5BB",
         "en-US": "Is True For Any",
         "es-MX": "Es verdadero para cualquiera",
@@ -5756,6 +8046,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000C3EB",
         "en-US": "Is Using Ability 1",
         "es-MX": "Está utilizando la habilidad 1",
@@ -5774,6 +8065,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000C3ED",
         "en-US": "Is Using Ability 2",
         "es-MX": "Está utilizando la habilidad 2",
@@ -5792,6 +8084,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "bool",
         "guid": "00000000B9D4",
         "en-US": "Is Using Ultimate",
         "es-MX": "Está usando la habilidad máxima",
@@ -5803,6 +8096,7 @@ var valueFuncKw =
     "isWaitingForPlayers": {
         "description": "Whether the match is waiting for players to join before starting.",
         "args": [],
+        return: "bool",
         "guid": "00000000B35B",
         "en-US": "Is Waiting For Players",
         "es-MX": "Esperando jugadores",
@@ -5814,6 +8108,7 @@ var valueFuncKw =
     "getLastCreatedEntity": {
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": [],
+        return: "EntityId",
         "guid": "00000000B362",
         "en-US": "Last Created Entity",
         "es-MX": "Última entidad creada",
@@ -5825,6 +8120,7 @@ var valueFuncKw =
     "getLastDamageModification": {
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
         "args": [],
+        return: "DamageModificationId",
         "guid": "00000000C64A",
         "en-US": "Last Damage Modification ID",
         "es-MX": "ID de modificación de daño anterior",
@@ -5836,6 +8132,7 @@ var valueFuncKw =
     "getLastDoT": {
         "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
         "args": [],
+        return: "DotId",
         "guid": "00000000B263",
         "en-US": "Last Damage Over Time ID",
         "es-MX": "ID de daño con el tiempo anterior",
@@ -5847,6 +8144,7 @@ var valueFuncKw =
     "getLastHoT": {
         "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
         "args": [],
+        return: "HotId",
         "guid": "00000000B262",
         "en-US": "Last Heal Over Time ID",
         "es-MX": "ID de sanación con el tiempo anterior",
@@ -5858,6 +8156,7 @@ var valueFuncKw =
     "getLastHealingModification": {
         "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
         "args": [],
+        return: "HealingModificationId",
         "guid": "00000000FD2A",
         "en-US": "Last Healing Modification ID",
         "es-MX": "ID de modificación de sanación anterior",
@@ -5867,16 +8166,17 @@ var valueFuncKw =
         "pt-BR": "ID da última modificação de cura",
         "zh-CN": "上一个治疗调整ID"
     },
-    "_lastOf": {
+    "__lastOf__": {
         "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array from which the value is acquired.",
-                "type": "Any",
+                "type": "Array",
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        return: ["Object", "Array"],
         "guid": "00000000B5C1",
         "en-US": "Last Of",
         "es-MX": "Último de",
@@ -5888,6 +8188,7 @@ var valueFuncKw =
     "getLastCreatedText": {
         "description": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action.",
         "args": [],
+        return: "TextId",
         "guid": "00000000BAFE",
         "en-US": "Last Text ID",
         "es-MX": "ID de texto anterior",
@@ -5900,6 +8201,9 @@ var valueFuncKw =
         "guid": "00000000B116",
         "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
         "args": null,
+        return: {
+            "Direction": ["unsigned int", "unsigned int", "unsigned int"]
+        },
         "en-US": "Left",
         "es-MX": "Izquierda",
         "fr-FR": "Gauche",
@@ -5913,7 +8217,7 @@ var valueFuncKw =
             {
                 "name": "WORLD VECTOR",
                 "description": "The vector in world coordinates that will be converted to local coordinates.",
-                "type": "Location",
+                "type": "Vector",
                 "default": "VECTOR"
             },
             {
@@ -5929,6 +8233,7 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
+        return: "Vector",
         "guid": "00000000B342",
         "en-US": "Local Vector Of",
         "es-MX": "Vector local de",
@@ -5937,17 +8242,18 @@ var valueFuncKw =
         "pt-BR": "Vetor Local de",
         "zh-CN": "本地矢量"
     },
-    "_map": {
+    "__map__": {
         "guid": "00000000D411",
         "description": "A map constant.",
         "args": [
             {
                 "name": "MAP",
                 "description": "A map constant.",
-                "type": "Map",
+                "type": "MapLiteral",
                 "default": "AYUTTHAYA"
             }
         ],
+        return: "Map",
         "en-US": "Map",
         "es-ES": "Mapa",
         "es-MX": "Mapa",
@@ -5963,6 +8269,7 @@ var valueFuncKw =
     "getMatchRound": {
         "description": "The current round of the match, counting up from 1.",
         "args": [],
+        return: "unsigned int",
         "guid": "00000000B375",
         "en-US": "Match Round",
         "es-MX": "Ronda de la partida",
@@ -5974,6 +8281,7 @@ var valueFuncKw =
     "getMatchTime": {
         "description": "The amount of time in seconds remaining in the current game mode phase.",
         "args": [],
+        return: "unsigned float",
         "guid": "00000000AD3B",
         "en-US": "Match Time",
         "es-MX": "Tiempo de la partida",
@@ -5989,16 +8297,17 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "en-US": "Max",
         "es-MX": "Máximo",
         "fr-FR": "Maximum",
@@ -6016,6 +8325,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned float",
         "guid": "0000000081C4",
         "en-US": "Max Health",
         "es-MX": "Salud máxima",
@@ -6031,16 +8341,17 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "en-US": "Min",
         "es-MX": "Mínimo",
         "fr-FR": "Minimum",
@@ -6048,46 +8359,48 @@ var valueFuncKw =
         "pt-BR": "Mín.",
         "zh-CN": "较小"
     },
-    "_modulo": {
+    "__modulo__": {
         "guid": "00000000C410",
         "description": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "en-US": "Modulo",
         "es-MX": "Módulo",
         "ja-JP": "剰余",
         "pt-BR": "Modular",
         "zh-CN": "余数"
     },
-    "_multiply": {
+    "__multiply__": {
         "guid": "00000000C40D",
         "description": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             }
         ],
+        return: ["float", "Vector"],
         "en-US": "Multiply",
         "es-MX": "Multiplicar",
         "fr-FR": "Multiplication",
@@ -6101,10 +8414,11 @@ var valueFuncKw =
             {
                 "name": "POSITION",
                 "description": "The position from which to search for the nearest walkable position.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             }
         ],
+        return: "Position",
         "guid": "00000000C324",
         "en-US": "Nearest Walkable Position",
         "es-MX": "Posición caminable más cercana",
@@ -6123,6 +8437,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        return: "Vector",
         "guid": "00000000C344",
         "en-US": "Normalize",
         "es-MX": "Normalizar",
@@ -6131,17 +8446,18 @@ var valueFuncKw =
         "pt-BR": "Normalizar",
         "zh-CN": "归一化"
     },
-    "_not": {
+    "__not__": {
         "guid": "00000000B275",
         "description": "Whether the input is false (or equivalent to false).",
         "args": [
             {
                 "name": "VALUE",
                 "description": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
+        return: "bool",
         "en-US": "Not",
         "es-MX": "No",
         "fr-FR": "Pas",
@@ -6152,6 +8468,7 @@ var valueFuncKw =
     "null": {
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
         "args": null,
+        return: "Player",
         "guid": "00000000B594",
         "en-US": "Null",
         "es-MX": "Nulo",
@@ -6166,10 +8483,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000B29A",
         "en-US": "Number of Dead Players",
         "es-MX": "Cantidad de jugadores muertos",
@@ -6188,6 +8506,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000B103",
         "en-US": "Number of Deaths",
         "es-MX": "Cantidad de muertes",
@@ -6206,6 +8525,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000B101",
         "en-US": "Number of Eliminations",
         "es-MX": "Cantidad de eliminaciones",
@@ -6224,6 +8544,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000B102",
         "en-US": "Number of Final Blows",
         "es-MX": "Cantidad de golpes de gracia",
@@ -6238,16 +8559,17 @@ var valueFuncKw =
             {
                 "name": "HERO",
                 "description": "The hero to check for play.",
-                "type": "HeroValue",
+                "type": "Hero",
                 "default": "HERO"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to check for the hero being played.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000B296",
         "en-US": "Number of Heroes",
         "es-MX": "Cantidad de héroes",
@@ -6262,10 +8584,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000B297",
         "en-US": "Number of Living Players",
         "es-MX": "Cantidad de jugadores vivos",
@@ -6280,10 +8603,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000B295",
         "en-US": "Number of Players",
         "es-MX": "Cantidad de jugadores",
@@ -6298,10 +8622,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000B29B",
         "en-US": "Number of Players On Objective",
         "es-MX": "Cantidad de jugadores en el objetivo",
@@ -6313,6 +8638,7 @@ var valueFuncKw =
     "getCurrentObjective": {
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
         "args": [],
+        return: "unsigned int",
         "guid": "00000000B37D",
         "en-US": "Objective Index",
         "es-MX": "Índice de objetivo",
@@ -6327,10 +8653,11 @@ var valueFuncKw =
             {
                 "name": "NUMBER",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000B355",
         "en-US": "Objective Position",
         "es-MX": "Posición del objetivo",
@@ -6345,10 +8672,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team whose opposite to acquire. If all, the result will be all.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "Team",
         "guid": "00000000BB0A",
         "en-US": "Opposite Team Of",
         "es-MX": "Equipo contrario de",
@@ -6357,23 +8685,24 @@ var valueFuncKw =
         "pt-BR": "Equipe Adversária de",
         "zh-CN": "对方队伍"
     },
-    "_or": {
+    "__or__": {
         "guid": "00000000B274",
         "description": "Whether either of the two inputs are true (or equivalent to true).",
         "args": [
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             },
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
+        return: "bool",
         "en-US": "Or",
         "es-MX": "O",
         "fr-FR": "Ou",
@@ -6384,6 +8713,7 @@ var valueFuncKw =
     "getPayloadPosition": {
         "description": "The position in the world of the active payload.",
         "args": [],
+        return: "Position",
         "guid": "00000000B356",
         "en-US": "Payload Position",
         "es-MX": "Posición de la carga",
@@ -6395,6 +8725,7 @@ var valueFuncKw =
     "getPayloadProgressPercentage": {
         "description": "The current progress towards the destination for the active payload (expressed as a percentage).",
         "args": [],
+        return: "unsigned float",
         "guid": "00000000B357",
         "en-US": "Payload Progress Percentage",
         "es-MX": "Porcentaje de progreso de la carga",
@@ -6409,10 +8740,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team whose flag to check.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "Player",
         "guid": "00000000B3A3",
         "en-US": "Player Carrying Flag",
         "es-MX": "Jugador que transporta la bandera",
@@ -6433,10 +8765,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to search for the closest player.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "Player",
         "guid": "00000000C328",
         "en-US": "Player Closest To Reticle",
         "es-MX": "Jugador más cercano al retículo",
@@ -6445,7 +8778,7 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo da Mira",
         "zh-CN": "距离准星最近的玩家"
     },
-    "_playerVar": {
+    "__playerVar__": {
         "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
@@ -6457,10 +8790,11 @@ var valueFuncKw =
             {
                 "name": "VARIABLE",
                 "description": "The variable whose value to acquire.",
-                "type": "Variable",
+                "type": "PlayerVariable",
                 "default": "A"
             }
         ],
+        return: "Value",
         "guid": "00000000B0FD",
         "en-US": "Player Variable",
         "es-MX": "Variable de jugador",
@@ -6475,16 +8809,17 @@ var valueFuncKw =
             {
                 "name": "SLOT",
                 "description": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams from which to acquire a player or players.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: ["Player", {Array: "Player"}],
         "guid": "00000000B334",
         "en-US": "Players In Slot",
         "es-MX": "Jugadores en la posición",
@@ -6505,16 +8840,17 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to consider players.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
                 "name": "VIEW ANGLE",
                 "description": "The view angle to compare against in degrees.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000C32F",
         "en-US": "Players in View Angle",
         "es-MX": "Jugadores en el ángulo de vista",
@@ -6529,16 +8865,17 @@ var valueFuncKw =
             {
                 "name": "HERO",
                 "description": "The hero to check for play.",
-                "type": "HeroValue",
+                "type": "Hero",
                 "default": "HERO"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to check for the hero being played.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B338",
         "en-US": "Players On Hero",
         "es-MX": "Jugadores con el héroe",
@@ -6553,19 +8890,19 @@ var valueFuncKw =
             {
                 "name": "CENTER",
                 "description": "The center position from which to measure distance.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "RADIUS",
                 "description": "The radius in meters inside which players must be in order to be included in the resulting array.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams to which a player must belong to be included in the resulting array.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             },
             {
@@ -6575,6 +8912,7 @@ var valueFuncKw =
                 "default": "OFF"
             }
         ],
+        return: {Array: "Player"},
         "guid": "00000000B1E0",
         "en-US": "Players Within Radius",
         "es-MX": "Jugadores dentro del radio",
@@ -6586,6 +8924,7 @@ var valueFuncKw =
     "getCapturePercentage": {
         "description": "The current progress towards capture for the active control point (expressed as a percentage).",
         "args": [],
+        return: "float",
         "guid": "00000000B358",
         "en-US": "Point Capture Percentage",
         "es-MX": "Porcentaje de captura de punto",
@@ -6604,6 +8943,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "Position",
         "guid": "00000000B11C",
         "en-US": "Position Of",
         "es-MX": "Posición de",
@@ -6612,23 +8952,24 @@ var valueFuncKw =
         "pt-BR": "Posição de",
         "zh-CN": "所选位置"
     },
-    "_raiseToPower": {
+    "__raiseToPower__": {
         "guid": "00000000C414",
         "description": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "unsigned float",
         "en-US": "Raise To Power",
         "es-MX": "Elevar a la potencia",
         "fr-FR": "Élévation à une puissance ",
@@ -6642,16 +8983,17 @@ var valueFuncKw =
             {
                 "name": "MIN",
                 "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX",
                 "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
-                "type": "Number",
+                "type": "int",
                 "default": "NUMBER"
             }
         ],
+        return: "int",
         "guid": "00000000B59B",
         "en-US": "Random Integer",
         "es-MX": "Número entero aleatorio",
@@ -6666,16 +9008,17 @@ var valueFuncKw =
             {
                 "name": "MIN",
                 "description": "The smallest real number allowed.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "MAX",
                 "description": "The largest real number allowed.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000B59A",
         "en-US": "Random Real",
         "es-MX": "Número real aleatorio",
@@ -6690,10 +9033,11 @@ var valueFuncKw =
             {
                 "name": "ARRAY",
                 "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
-                "type": "Any",
+                "type": "Array",
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        return: ["Object", "Array"],
         "guid": "00000000B599",
         "en-US": "Random Value In Array",
         "es-MX": "Valor aleatorio en matriz",
@@ -6708,10 +9052,11 @@ var valueFuncKw =
             {
                 "name": "ARRAY",
                 "description": "The array whose copy will be randomized.",
-                "type": "Any",
+                "type": "Array",
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        return: "Array",
         "guid": "00000000B598",
         "en-US": "Randomized Array",
         "es-MX": "Matriz aleatorizada",
@@ -6720,40 +9065,41 @@ var valueFuncKw =
         "pt-BR": "Matriz Randomizada",
         "zh-CN": "随机数组"
     },
-    "_getNormal": {
+    "__getNormal__": {
         "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
         "args": [
             {
                 "name": "START POS",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "PLAYERS TO INCLUDE",
                 "description": "Which players can be hit by this ray cast.",
-                "type": "Player",
+                "type": {Array: "Player"},
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
-                "type": "Player",
+                "type": {Array: "Player"},
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "INCLUDE PLAYER OWNED OBJECTS",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
+        return: "Direction",
         "guid": "00000000C613",
         "en-US": "Ray Cast Hit Normal",
         "es-MX": "Estándar de impacto de lanzamiento de rayo",
@@ -6762,40 +9108,41 @@ var valueFuncKw =
         "pt-BR": "Normal de Acerto do Lançamento de Raio",
         "zh-CN": "射线命中法线"
     },
-    "_getPlayerHit": {
+    "__getPlayerHit__": {
         "description": "The player hit by the ray cast (or null if no player is hit).",
         "args": [
             {
                 "name": "START POS",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "PLAYERS TO INCLUDE",
                 "description": "Which players can be hit by this ray cast.",
-                "type": "Player",
+                "type": {Array: "Player"},
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
-                "type": "Player",
+                "type": {Array: "Player"},
                 "default": "EVENT PLAYER"
             },
             {
                 "name": "INCLUDE PLAYER OWNED OBJECTS",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
+        return: "Player",
         "guid": "00000000C611",
         "en-US": "Ray Cast Hit Player",
         "es-MX": "Jugador de impacto de lanzamiento de rayo",
@@ -6804,31 +9151,31 @@ var valueFuncKw =
         "pt-BR": "Jogador Atingido pelo Lançamento de Raio",
         "zh-CN": "射线命中玩家"
     },
-    "_getHitPosition": {
+    "__getHitPosition__": {
         "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
         "args": [
             {
                 "name": "START POS",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "PLAYERS TO INCLUDE",
                 "description": "Which players can be hit by this ray cast.",
-                "type": "Player",
+                "type": {Array: "Player"},
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
-                "type": "Player",
+                "type": {Array: "Player"},
                 "default": "EVENT PLAYER"
             },
             {
@@ -6838,6 +9185,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        return: "Position",
         "guid": "00000000C597",
         "en-US": "Ray Cast Hit Position",
         "es-MX": "Posición de impacto de lanzamiento de rayo",
@@ -6846,22 +9194,23 @@ var valueFuncKw =
         "pt-BR": "Posição de Acerto do Lançamento de Raio",
         "zh-CN": "射线命中位置"
     },
-    "_removeFromArray": {
+    "__removeFromArray__": {
         "description": "A copy of an array with one or more values removed (if found).",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array from which to remove values.",
-                "type": "Any",
+                "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "VALUE",
                 "description": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
         ],
+        return: "Array",
         "guid": "00000000C421",
         "en-US": "Remove From Array",
         "es-MX": "Eliminar de la matriz",
@@ -6874,6 +9223,9 @@ var valueFuncKw =
         "guid": "00000000B117",
         "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
         "args": null,
+        return: {
+            "Direction": ["signed int", "unsigned int", "unsigned int"]
+        },
         "en-US": "Right",
         "es-MX": "Derecha",
         "fr-FR": "Droite",
@@ -6881,22 +9233,23 @@ var valueFuncKw =
         "pt-BR": "Direita",
         "zh-CN": "右"
     },
-    "_round": {
+    "__round__": {
         "description": "The integer to which the specified value rounds.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The real number to round.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "ROUNDING TYPE",
                 "description": "Determines the direction in which the value will be rounded.",
-                "type": "_Rounding",
+                "type": "__Rounding__",
                 "default": "UP"
             }
         ],
+        return: "int",
         "guid": "00000000C354",
         "en-US": "Round To Integer",
         "es-MX": "Redondear a número entero",
@@ -6915,6 +9268,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "int",
         "guid": "00000000AD3C",
         "en-US": "Score Of",
         "es-MX": "Puntuación de",
@@ -6927,6 +9281,7 @@ var valueFuncKw =
         "guid": "00000000C961",
         "description": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
+        return: "unsigned float",
         "en-US": "Server Load",
         "es-MX": "Uso del servidor",
         "fr-FR": "Charge du serveur",
@@ -6939,6 +9294,7 @@ var valueFuncKw =
         "guid": "00000000C997",
         "description": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
+        return: "unsigned float",
         "en-US": "Server Load Average",
         "es-MX": "Uso promedio del servidor",
         "fr-FR": "Charge moyenne du serveur",
@@ -6951,6 +9307,7 @@ var valueFuncKw =
         "guid": "00000000C996",
         "description": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
+        return: "unsigned float",
         "en-US": "Server Load Peak",
         "es-MX": "Uso máximo del servidor",
         "fr-FR": "Pic de charge du serveur",
@@ -6965,10 +9322,11 @@ var valueFuncKw =
             {
                 "name": "ANGLE",
                 "description": "Angle in degrees.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C33C",
         "en-US": "Sine From Degrees",
         "es-MX": "Seno en grados",
@@ -6983,10 +9341,11 @@ var valueFuncKw =
             {
                 "name": "ANGLE",
                 "description": "Angle in radians.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C340",
         "en-US": "Sine From Radians",
         "es-MX": "Seno en radianes",
@@ -7005,6 +9364,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned int",
         "guid": "00000000BB7F",
         "en-US": "Slot Of",
         "es-MX": "Posición de",
@@ -7013,22 +9373,23 @@ var valueFuncKw =
         "pt-BR": "Espaço de",
         "zh-CN": "位置"
     },
-    "_sortedArray": {
+    "__sortedArray__": {
         "description": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose copy will be sorted.",
-                "type": "Any",
+                "type": {Array: "Object"},
                 "default": "GLOBAL VARIABLE"
             },
             {
                 "name": "VALUE RANK",
                 "description": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered.",
-                "type": "Number",
+                "type": "Object",
                 "default": "CURRENT ARRAY ELEMENT"
             }
         ],
+        return: {Array: "Object"},
         "guid": "00000000B5C0",
         "en-US": "Sorted Array",
         "es-MX": "Matriz ordenada",
@@ -7047,6 +9408,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000B25D",
         "en-US": "Speed Of",
         "es-MX": "Velocidad de",
@@ -7071,6 +9433,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000B260",
         "en-US": "Speed Of In Direction",
         "es-MX": "Velocidad de/en dirección",
@@ -7085,10 +9448,11 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The real number value whose square root will be computed. Negative values result in zero.",
-                "type": "Number",
+                "type": "unsigned float",
                 "default": "NUMBER"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000C356",
         "en-US": "Square Root",
         "es-MX": "Raíz cuadrada",
@@ -7097,58 +9461,60 @@ var valueFuncKw =
         "pt-BR": "Raiz Quadrada",
         "zh-CN": "平方根"
     },
-    "_localizedString": {
+    "__localizedString__": {
         "guid": "00000000BA60",
         "description": "Text formed from a selection of strings and specified values.",
         "args": [
             {
                 "name": "STRING",
                 "description": "",
-                "type": "LocalizedString",
+                "type": "LocalizedStringLiteral",
                 "default": "HELLO"
             },
             {
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NULL"
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NULL"
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NULL"
             }
         ],
+        return: "String",
         "en-US": "String",
         "es-MX": "Cadena",
         "fr-FR": "Chaîne de texte",
         "ja-JP": "文字列",
         "zh-CN": "字符串"
     },
-    "_subtract": {
+    "__subtract__": {
         "guid": "00000000C40A",
         "description": "The difference between two numbers or vectors.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": "Any",
+                "type": ["float", "Vector"],
                 "default": "NUMBER"
             }
         ],
+        return: ["float", "Vector"],
         "en-US": "Subtract",
         "es-MX": "Restar",
         "fr-FR": "Soustraction",
@@ -7162,10 +9528,11 @@ var valueFuncKw =
             {
                 "name": "ANGLE",
                 "description": "Angle in degrees.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C7F8",
         "en-US": "Tangent From Degrees",
         "es-MX": "Tangente en grados",
@@ -7180,10 +9547,11 @@ var valueFuncKw =
             {
                 "name": "ANGLE",
                 "description": "Angle in radians.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "float",
         "guid": "00000000C7FD",
         "en-US": "Tangent From Radians",
         "es-MX": "Tangente en radianes",
@@ -7202,6 +9570,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "Team",
         "guid": "00000000B279",
         "en-US": "Team Of",
         "es-MX": "Equipo de",
@@ -7217,10 +9586,11 @@ var valueFuncKw =
             {
                 "name": "TEAM",
                 "description": "The team whose score to acquire.",
-                "type": "TeamValue",
+                "type": "Team",
                 "default": "TEAM"
             }
         ],
+        return: "int",
         "en-US": "Team Score",
         "es-MX": "Puntuación del equipo",
         "fr-FR": "Score de l’équipe",
@@ -7238,6 +9608,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "Direction",
         "guid": "00000000B2F5",
         "en-US": "Throttle Of",
         "es-MX": "Aceleración de",
@@ -7249,6 +9620,7 @@ var valueFuncKw =
     "getTotalTimeElapsed": {
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
         "args": [],
+        return: "unsigned float",
         "guid": "00000000B361",
         "en-US": "Total Time Elapsed",
         "es-MX": "Tiempo total transcurrido",
@@ -7260,6 +9632,7 @@ var valueFuncKw =
     "true": {
         "description": "The boolean value of true.",
         "args": null,
+        return: "bool",
         "guid": "00000000AC39",
         "en-US": "True",
         "es-MX": "Verdadero",
@@ -7276,6 +9649,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned float",
         "guid": "0000000081C5",
         "en-US": "Ultimate Charge Percent",
         "es-MX": "Porcentaje de carga de la habilidad máxima",
@@ -7286,8 +9660,11 @@ var valueFuncKw =
     },
     "Vector.UP": {
         "guid": "00000000B118",
-        "description": "Shorthand for the directional vector(0, l, 0), which points upward.",
+        "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
         "args": null,
+        return: {
+            "Direction": ["unsigned int", "unsigned int", "unsigned int"]
+        },
         "en-US": "Up",
         "es-MX": "Arriba",
         "fr-FR": "Haut",
@@ -7295,22 +9672,23 @@ var valueFuncKw =
         "pt-BR": "Cima",
         "zh-CN": "上"
     },
-    "_valueInArray": {
+    "__valueInArray__": {
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
         "args": [
             {
                 "name": "ARRAY",
                 "description": "The array whose element to acquire.",
-                "type": "Any",
+                "type": "Array",
                 "default": "GLOBAL VARIABLE"
             },
             {
                 "name": "INDEX",
                 "description": "The index of the element to acquire.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
         ],
+        return: ["Object", "Array"],
         "guid": "00000000B52A",
         "en-US": "Value In Array",
         "es-MX": "Valor en la matriz",
@@ -7326,22 +9704,23 @@ var valueFuncKw =
             {
                 "name": "X",
                 "description": "The x value of the vector.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "Y",
                 "description": "The y value of the vector.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             },
             {
                 "name": "Z",
                 "description": "The z value of the vector.",
-                "type": "Number",
+                "type": "float",
                 "default": "NUMBER"
             }
         ],
+        return: "Vector",
         "en-US": "Vector",
         "fr-FR": "Vecteur",
         "ja-JP": "ベクトル",
@@ -7354,16 +9733,17 @@ var valueFuncKw =
             {
                 "name": "START POS",
                 "description": "The position from which the resulting displacement vector begins.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The position at which the resulting displacement vector ends.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             }
         ],
+        return: "Direction",
         "guid": "00000000B1EB",
         "en-US": "Vector Towards",
         "es-MX": "Vector hacia",
@@ -7382,6 +9762,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "Velocity",
         "guid": "00000000B25C",
         "en-US": "Velocity Of",
         "es-MX": "Velocidad de",
@@ -7396,10 +9777,11 @@ var valueFuncKw =
             {
                 "name": "DIRECTION",
                 "description": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins.",
-                "type": "Vector",
+                "type": "Direction",
                 "default": "VECTOR"
             }
         ],
+        return: "float",
         "guid": "00000000BB2B",
         "en-US": "Vertical Angle From Direction",
         "es-MX": "Ángulo vertical desde la dirección",
@@ -7420,10 +9802,11 @@ var valueFuncKw =
             {
                 "name": "POSITION",
                 "description": "The position in the world where the angle ends.",
-                "type": "Location",
+                "type": "Position",
                 "default": "VECTOR"
             }
         ],
+        return: "float",
         "guid": "00000000B27E",
         "en-US": "Vertical Angle Towards",
         "es-MX": "Ángulo vertical en dirección a",
@@ -7442,6 +9825,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "float",
         "guid": "00000000B280",
         "en-US": "Vertical Facing Angle Of",
         "es-MX": "Ángulo vertical de orientación de",
@@ -7460,6 +9844,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        return: "unsigned float",
         "guid": "00000000B25F",
         "en-US": "Vertical Speed Of",
         "es-MX": "Velocidad vertical de",
@@ -7472,6 +9857,7 @@ var valueFuncKw =
         "guid": "00000000B330",
         "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
         "args": null,
+        return: "Player",
         "en-US": "Victim",
         "es-MX": "Víctima",
         "fr-FR": "Victime",
@@ -7501,6 +9887,7 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
+        return: "Vector",
         "guid": "00000000B33A",
         "en-US": "World Vector Of",
         "es-MX": "Vector global de",
@@ -7509,7 +9896,7 @@ var valueFuncKw =
         "pt-BR": "Vetor do Mundo de",
         "zh-CN": "地图矢量"
     },
-    "_xComponentOf": {
+    "__xComponentOf__": {
         "description": "The x component of the specified vector, usually representing a leftward amount.",
         "args": [
             {
@@ -7519,6 +9906,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        return: "float",
         "guid": "00000000B26F",
         "en-US": "X Component Of",
         "es-MX": "Componente X de",
@@ -7527,7 +9915,7 @@ var valueFuncKw =
         "pt-BR": "Componente X de",
         "zh-CN": "X方向分量"
     },
-    "_yComponentOf": {
+    "__yComponentOf__": {
         "description": "The y component of the specified vector, usually representing an upward amount.",
         "args": [
             {
@@ -7537,6 +9925,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        return: "float",
         "guid": "00000000B270",
         "en-US": "Y Component Of",
         "es-MX": "Componente Y de",
@@ -7545,7 +9934,7 @@ var valueFuncKw =
         "pt-BR": "Componente Y de",
         "zh-CN": "Y方向分量"
     },
-    "_zComponentOf": {
+    "__zComponentOf__": {
         "description": "The z component of the specified vector, usually representing a forward amount.",
         "args": [
             {
@@ -7555,6 +9944,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        return: "float",
         "guid": "00000000B272",
         "en-US": "Z Component Of",
         "es-MX": "Componente Z de",
@@ -11047,7 +13437,8 @@ const constantValues =
             "es-MX": "Rotación",
             "ja-JP": "回転",
             "pt-BR": "Rotação",
-            "zh-CN": "旋转"
+            "zh-CN": "旋转",
+            "description": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity.",
         },
         "ROTATION_AND_TRANSLATION": {
             "guid": "00000000B33C",
@@ -11056,7 +13447,8 @@ const constantValues =
             "fr-FR": "Rotation et Translation",
             "ja-JP": "回転と平行移動",
             "pt-BR": "Rotação e Translação",
-            "zh-CN": "旋转并转换"
+            "zh-CN": "旋转并转换",
+            "description": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position."
         }
     },
     "Team": {
@@ -11334,8 +13726,8 @@ const constantValues =
             "zh-CN": "终极技能"
         }
     },
-    "_Operation": {
-        "_add": {
+    "__Operation__": {
+        "__add__": {
             "guid": "00000000B16D",
             "en-US": "Add",
             "es-MX": "Agregar",
@@ -11344,7 +13736,7 @@ const constantValues =
             "pt-BR": "Adicionar",
             "zh-CN": "加"
         },
-        "_appendToArray": {
+        "__appendToArray__": {
             "guid": "00000000B167",
             "en-US": "Append To Array",
             "es-MX": "Anexar a la matriz",
@@ -11353,7 +13745,7 @@ const constantValues =
             "pt-BR": "Juntar à Matriz",
             "zh-CN": "添加至数组"
         },
-        "_divide": {
+        "__divide__": {
             "guid": "00000000B16A",
             "en-US": "Divide",
             "es-MX": "Dividir",
@@ -11362,7 +13754,7 @@ const constantValues =
             "pt-BR": "Dividir",
             "zh-CN": "除"
         },
-        "_max": {
+        "__max__": {
             "guid": "00000000B18F",
             "en-US": "Max",
             "es-MX": "Máximo",
@@ -11371,7 +13763,7 @@ const constantValues =
             "pt-BR": "Máx.",
             "zh-CN": "最大"
         },
-        "_min": {
+        "__min__": {
             "guid": "00000000B190",
             "en-US": "Min",
             "es-MX": "Mínimo",
@@ -11380,7 +13772,7 @@ const constantValues =
             "pt-BR": "Mín.",
             "zh-CN": "最小"
         },
-        "_modulo": {
+        "__modulo__": {
             "guid": "00000000B169",
             "en-US": "Modulo",
             "es-MX": "Módulo",
@@ -11388,7 +13780,7 @@ const constantValues =
             "pt-BR": "Modular",
             "zh-CN": "余数"
         },
-        "_multiply": {
+        "__multiply__": {
             "guid": "00000000B16B",
             "en-US": "Multiply",
             "es-MX": "Multiplicar",
@@ -11397,7 +13789,7 @@ const constantValues =
             "pt-BR": "Multiplicar",
             "zh-CN": "乘"
         },
-        "_raiseToPower": {
+        "__raiseToPower__": {
             "guid": "00000000B168",
             "en-US": "Raise To Power",
             "es-MX": "Elevar a la potencia",
@@ -11406,7 +13798,7 @@ const constantValues =
             "pt-BR": "Elevar à Potência",
             "zh-CN": "乘方"
         },
-        "_removeFromArrayByIndex": {
+        "__removeFromArrayByIndex__": {
             "guid": "00000000C61B",
             "en-US": "Remove From Array By Index",
             "es-MX": "Eliminar de la matriz por índice",
@@ -11415,7 +13807,7 @@ const constantValues =
             "pt-BR": "Remover da Matriz por Índice",
             "zh-CN": "根据索引从数组中移除"
         },
-        "_removeFromArrayByValue": {
+        "__removeFromArrayByValue__": {
             "guid": "00000000B166",
             "en-US": "Remove From Array By Value",
             "es-MX": "Eliminar de la matriz por valor",
@@ -11424,7 +13816,7 @@ const constantValues =
             "pt-BR": "Remover da Matriz por Valor",
             "zh-CN": "根据值从数组中移除"
         },
-        "_subtract": {
+        "__subtract__": {
             "guid": "00000000B16C",
             "en-US": "Subtract",
             "es-MX": "Restar",
@@ -11682,6 +14074,15 @@ const constantValues =
             "pt-BR": "Reconhecer",
             "zh-CN": "收到"
         },
+        "ATTACKING": {
+            "en-US": "Attacking",
+        },
+        "COUNTDOWN": {
+            "en-US": "Countdown",
+        },
+        "DEFENDING": {
+            "en-US": "Defending",
+        },
         "EMOTE_DOWN": {
             "guid": "00000000B9DB",
             "en-US": "Emote Down",
@@ -11718,6 +14119,18 @@ const constantValues =
             "pt-BR": "Emote Acima",
             "zh-CN": "表情（上）"
         },
+        "FALL_BACK": {
+            "en-US": "Fall Back",
+        },
+        "GO": {
+            "en-US": "Go",
+        },
+        "GOING_IN": {
+            "en-US": "Going In",
+        },
+        "GOODBYE": {
+            "en-US": "Goodbye",
+        },
         "GROUP_UP": {
             "guid": "00000000B9D7",
             "en-US": "Group Up",
@@ -11736,6 +14149,9 @@ const constantValues =
             "pt-BR": "Olá",
             "zh-CN": "问候"
         },
+        "INCOMING": {
+            "en-US": "Incoming",
+        },
         "NEED_HEALING": {
             "guid": "00000000B9D8",
             "en-US": "Need Healing",
@@ -11744,6 +14160,27 @@ const constantValues =
             "ja-JP": "回復が必要",
             "pt-BR": "Preciso de Cura",
             "zh-CN": "需要治疗"
+        },
+        "NEED_HELP": {
+            "en-US": "Need Help",
+        },
+        "NO": {
+            "en-US": "No",
+        },
+        "ON_MY_WAY": {
+            "en-US": "On My Way",
+        },
+        "PRESS_THE_ATTACK": {
+            "en-US": "Press The Attack",
+        },
+        "PUSH_FORWARD": {
+            "en-US": "Push Forward",
+        },
+        "READY": {
+            "en-US": "Ready",
+        },
+        "SORRY": {
+            "en-US": "Sorry",
         },
         "THANKS": {
             "guid": "00000000B9D6",
@@ -11798,7 +14235,16 @@ const constantValues =
             "ja-JP": "ボイス・ライン上",
             "pt-BR": "Fala Acima",
             "zh-CN": "语音（上）"
-        }
+        },
+        "WITH_YOU": {
+            "en-US": "With You",
+        },
+        "YES": {
+            "en-US": "Yes",
+        },
+        "YOURE_WELCOME": {
+            "en-US": "You Are Welcome",
+        },
     },
     "Icon": {
         "ARROW_DOWN": {
@@ -12160,7 +14606,8 @@ const constantValues =
             "fr-FR": "Au joueur",
             "ja-JP": "対プレイヤー: ",
             "pt-BR": "Ao Jogador",
-            "zh-CN": "至玩家"
+            "zh-CN": "至玩家",
+            "description": "Relative to the player's local coordinate system (which moves and rotates with the player).",
         },
         "TO_WORLD": {
             "guid": "00000000B170",
@@ -12169,7 +14616,8 @@ const constantValues =
             "fr-FR": "Au monde",
             "ja-JP": "対ワールド: ",
             "pt-BR": "Ao Mundo",
-            "zh-CN": "至地图"
+            "zh-CN": "至地图",
+            "description": "Relative to the world's coordinate system."
         }
     },
     "Impulse": {
@@ -12180,7 +14628,8 @@ const constantValues =
             "fr-FR": "Annuler le mouvement contraire",
             "ja-JP": "逆モーションをキャンセル",
             "pt-BR": "Cancelar Deslocamento Contrário",
-            "zh-CN": "取消相反运动"
+            "zh-CN": "取消相反运动",
+            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied.",
         },
         "INCORPORATE_CONTRARY_MOTION": {
             "guid": "00000000B521",
@@ -12189,11 +14638,12 @@ const constantValues =
             "fr-FR": "Incorporer un mouvement contraire",
             "ja-JP": "逆モーションを組み込む",
             "pt-BR": "Incorporar Deslocamento Contrário",
-            "zh-CN": "合并相反运动"
+            "zh-CN": "合并相反运动",
+            "description": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect.",
         }
     },
-    "_Rounding": {
-        "_roundUp": {
+    "__Rounding__": {
+        "__roundUp__": {
             "guid": "00000000C34F",
             "en-US": "Up",
             "es-MX": "Hacia arriba",
@@ -12202,7 +14652,7 @@ const constantValues =
             "pt-BR": "Cima",
             "zh-CN": "上"
         },
-        "_roundDown": {
+        "__roundDown__": {
             "guid": "00000000C34E",
             "en-US": "Down",
             "es-MX": "Hacia abajo",
@@ -12211,7 +14661,7 @@ const constantValues =
             "pt-BR": "Baixo",
             "zh-CN": "下"
         },
-        "_roundToNearest": {
+        "__roundToNearest__": {
             "guid": "00000000C34D",
             "en-US": "To Nearest",
             "es-MX": "Al más cercano",
@@ -12229,7 +14679,8 @@ const constantValues =
             "fr-FR": "Désactivé",
             "ja-JP": "OFF",
             "pt-BR": "Desligado",
-            "zh-CN": "关闭"
+            "zh-CN": "关闭",
+            "description": "Line of sight is never blocked, allowing results through walls.",
         },
         "SURFACES": {
             "guid": "00000000B1E3",
@@ -12237,7 +14688,8 @@ const constantValues =
             "es-MX": "Superficies",
             "ja-JP": "表面",
             "pt-BR": "Superfícies",
-            "zh-CN": "表面"
+            "zh-CN": "表面",
+            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles.",
         },
         "SURFACES_AND_ALL_BARRIERS": {
             "guid": "00000000B1E5",
@@ -12246,7 +14698,8 @@ const constantValues =
             "fr-FR": "Surfaces et toutes les barrières",
             "ja-JP": "表面とすべてのバリア",
             "pt-BR": "Superfícies e Todas as Barreiras",
-            "zh-CN": "表面及全部屏障"
+            "zh-CN": "表面及全部屏障",
+            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers.",
         },
         "SURFACES_AND_ENEMY_BARRIERS": {
             "guid": "00000000B1E4",
@@ -12255,7 +14708,8 @@ const constantValues =
             "fr-FR": "Surfaces et barrières ennemies",
             "ja-JP": "表面と敵のバリア",
             "pt-BR": "Superfícies e Barreiras Inimigas",
-            "zh-CN": "表面及敌方屏障"
+            "zh-CN": "表面及敌方屏障",
+            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team.",
         }
     },
     "Clip": {
@@ -12266,7 +14720,8 @@ const constantValues =
             "fr-FR": "Masquer derrière les surfaces",
             "ja-JP": "表面に対してクリップ",
             "pt-BR": "Cortar nas Superfícies",
-            "zh-CN": "根据表面截取"
+            "zh-CN": "根据表面截取",
+            "description": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects.",
         },
         "NONE": {
             "guid": "00000000BAF4",
@@ -12275,7 +14730,8 @@ const constantValues =
             "fr-FR": "Ne pas masquer",
             "ja-JP": "クリップしない",
             "pt-BR": "Não Cortar",
-            "zh-CN": "不要截取"
+            "zh-CN": "不要截取",
+            "description": "The text will always be fully visible, even if it is behind a wall or solid object.",
         }
     },
     "HudPosition": {
@@ -12385,6 +14841,22 @@ const constantValues =
         }
     },
     "HudReeval": {
+        "NONE": {
+            "en-US": "None",
+        },
+        "SORT_ORDER": {
+            "en-US": "Sort Order",
+        },
+        "SORT_ORDER_AND_STRING": {
+            "guid": "00000000FCA6",
+            "en-US": "Sort Order and String",
+            "es-MX": "Clasificar orden y cadena",
+            "fr-FR": "Tri et Chaîne de texte",
+            "ja-JP": "ソート順、文字列",
+            "pl-PL": "Kolejność sortowania i ciąg",
+            "pt-BR": "Ordem de classificação e string",
+            "zh-CN": "排序规则与字符串"
+        },
         "STRING": {
             "guid": "00000000BB31",
             "en-US": "String",
@@ -12392,6 +14864,12 @@ const constantValues =
             "fr-FR": "Chaîne de texte",
             "ja-JP": "文字列",
             "zh-CN": "字符串"
+        },
+        "VISIBILITY": {
+            "en-US": "Visible To",
+        },
+        "VISIBILITY_AND_SORT_ORDER": {
+            "en-US": "Visible To and Sort Order",
         },
         "VISIBILITY_AND_STRING": {
             "guid": "00000000BA8C",
@@ -12413,16 +14891,6 @@ const constantValues =
             "pt-BR": "Visível para ordem de classificação e string",
             "zh-CN": "可见性，排序规则，以及字符串"
         },
-        "SORT_ORDER_AND_STRING": {
-            "guid": "00000000FCA6",
-            "en-US": "Sort Order and String",
-            "es-MX": "Clasificar orden y cadena",
-            "fr-FR": "Tri et Chaîne de texte",
-            "ja-JP": "ソート順、文字列",
-            "pl-PL": "Kolejność sortowania i ciąg",
-            "pt-BR": "Ordem de classificação e string",
-            "zh-CN": "排序规则与字符串"
-        }
     },
     "WorldTextReeval": {
         "STRING": {
@@ -12453,7 +14921,7 @@ const constantValues =
         }
     },
     "ChaseReeval": {},
-    "_ChaseRateReeval": {
+    "__ChaseRateReeval__": {
         "DESTINATION_AND_RATE": {
             "guid": "00000000B8CA",
             "en-US": "Destination and Rate",
@@ -12474,7 +14942,7 @@ const constantValues =
             "zh-CN": "全部禁用"
         }
     },
-    "_ChaseTimeReeval": {
+    "__ChaseTimeReeval__": {
         "DESTINATION_AND_DURATION": {
             "guid": "00000000C479",
             "en-US": "Destination and Duration",
@@ -12587,7 +15055,8 @@ const constantValues =
             "ja-JP": "「FALSE」の場合中止",
             "pl-PL": "Przerwij kiedy to fałsz",
             "pt-BR": "Anular Quando For Falso",
-            "zh-CN": "当为“假”时中止"
+            "zh-CN": "当为“假”时中止",
+            "description": "The execution of the action list is aborted if any condition on this rule becomes false.",
         },
         "IGNORE_CONDITION": {
             "guid": "00000000787C",
@@ -12599,7 +15068,8 @@ const constantValues =
             "ja-JP": "条件無視",
             "pl-PL": "Zignoruj warunek",
             "pt-BR": "Ignorar Condição",
-            "zh-CN": "无视条件"
+            "zh-CN": "无视条件",
+            "description": "The execution of the action list is never interrupted.",
         },
         "RESTART_WHEN_TRUE": {
             "guid": "00000000787E",
@@ -12611,7 +15081,8 @@ const constantValues =
             "ja-JP": "「TRUE」の場合リスタート",
             "pl-PL": "Zrestartuj kiedy to prawda",
             "pt-BR": "Reiniciar Quando For Verdadeiro",
-            "zh-CN": "当为“真”时重新开始"
+            "zh-CN": "当为“真”时重新开始",
+            "description": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions.",
         }
     },
     "BarrierLos": {
@@ -12622,7 +15093,8 @@ const constantValues =
             "fr-FR": "Les barrières ennemies bloquent la ligne de vue",
             "ja-JP": "敵のバリアが射線を妨げる",
             "pt-BR": "Barreiras Inimigas Bloqueiam LdV",
-            "zh-CN": "敌方屏障阻挡视线"
+            "zh-CN": "敌方屏障阻挡视线",
+            "description": "Line of sight is blocked by barriers created by the enemy team.",
         },
         "BLOCKED_BY_ALL_BARRIERS": {
             "guid": "00000000B1EF",
@@ -12631,7 +15103,8 @@ const constantValues =
             "fr-FR": "Toutes les barrières bloquent la ligne de vue",
             "ja-JP": "すべてのバリアが射線を妨げる",
             "pt-BR": "Todas as Barreiras Bloqueiam LdV",
-            "zh-CN": "所有屏障阻挡视线"
+            "zh-CN": "所有屏障阻挡视线",
+            "description": "Line of sight is blocked by all barriers.",
         },
         "PASS_THROUGH_BARRIERS": {
             "guid": "00000000B1ED",
@@ -12640,8 +15113,9 @@ const constantValues =
             "fr-FR": "Les barrières ne bloquent pas la ligne de vue",
             "ja-JP": "バリアは射線を妨げない",
             "pt-BR": "Barreiras Não Bloqueiam LdV",
-            "zh-CN": "屏障不会阻挡视线"
-        }
+            "zh-CN": "屏障不会阻挡视线",
+            "description": "Line of sight is not blocked by any barriers.",
+        },
     },
     "Status": {
         "ASLEEP": {
@@ -12651,7 +15125,8 @@ const constantValues =
             "fr-FR": "Endormi",
             "ja-JP": "眠っている",
             "pt-BR": "Dormindo",
-            "zh-CN": "沉睡"
+            "zh-CN": "沉睡",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status.",
         },
         "BURNING": {
             "guid": "00000000B36C",
@@ -12660,7 +15135,8 @@ const constantValues =
             "fr-FR": "Enflammé",
             "ja-JP": "燃焼中",
             "pt-BR": "Queimando",
-            "zh-CN": "点燃"
+            "zh-CN": "点燃",
+            "description": "The player is burning. For example, Ashe's dynamite causes this status.",
         },
         "FROZEN": {
             "guid": "00000000B369",
@@ -12669,7 +15145,8 @@ const constantValues =
             "fr-FR": "Gelé",
             "ja-JP": "凍っている",
             "pt-BR": "Congelado",
-            "zh-CN": "冻结"
+            "zh-CN": "冻结",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status."
         },
         "HACKED": {
             "guid": "00000000B36D",
@@ -12678,7 +15155,8 @@ const constantValues =
             "fr-FR": "Piraté",
             "ja-JP": "ハックされている",
             "pt-BR": "Hackeado",
-            "zh-CN": "被入侵"
+            "zh-CN": "被入侵",
+            "description": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status."
         },
         "INVINCIBLE": {
             "guid": "00000000B367",
@@ -12686,7 +15164,8 @@ const constantValues =
             "es-MX": "Invencible",
             "ja-JP": "無敵",
             "pt-BR": "Invencível",
-            "zh-CN": "无敌"
+            "zh-CN": "无敌",
+            "description": "The player does not take damage."
         },
         "KNOCKED_DOWN": {
             "guid": "00000000B36B",
@@ -12695,7 +15174,8 @@ const constantValues =
             "fr-FR": "Renversé",
             "ja-JP": "ノックダウンされている",
             "pt-BR": "Nocauteado",
-            "zh-CN": "击倒"
+            "zh-CN": "击倒",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status."
         },
         "PHASED_OUT": {
             "guid": "00000000B366",
@@ -12704,7 +15184,8 @@ const constantValues =
             "fr-FR": "Déphasé",
             "ja-JP": "フェーズアウト中",
             "pt-BR": "Intangível",
-            "zh-CN": "消散"
+            "zh-CN": "消散",
+            "description": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status."
         },
         "ROOTED": {
             "guid": "00000000B365",
@@ -12713,7 +15194,8 @@ const constantValues =
             "fr-FR": "Immobilisé",
             "ja-JP": "固定されている",
             "pt-BR": "Enraizado",
-            "zh-CN": "定身"
+            "zh-CN": "定身",
+            "description": "The player cannot move unless moved by another player or object. Aiming is unaffected."
         },
         "STUNNED": {
             "guid": "00000000B565",
@@ -12722,7 +15204,8 @@ const constantValues =
             "fr-FR": "Étourdi",
             "ja-JP": "スタンされている",
             "pt-BR": "Atordoado",
-            "zh-CN": "昏迷"
+            "zh-CN": "昏迷",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, McCree's flashbang causes this status."
         },
         "UNKILLABLE": {
             "guid": "00000000B368",
@@ -12731,7 +15214,8 @@ const constantValues =
             "fr-FR": "Intuable",
             "ja-JP": "キル不可",
             "pt-BR": "Imortal",
-            "zh-CN": "无法杀死"
+            "zh-CN": "无法杀死",
+            "description": "The player's health will not drop below 1."
         }
     },
     "SpecVisibility": {
@@ -12743,7 +15227,8 @@ const constantValues =
             "ja-JP": "デフォルト表示",
             "pl-PL": "Domyślna widoczność",
             "pt-BR": "Visibilidade-padrão",
-            "zh-CN": "默认可见度"
+            "zh-CN": "默认可见度",
+            "description": "Non-team spectators can see text when all players can see it.",
         },
         "ALWAYS": {
             "guid": "00000000CE56",
@@ -12753,7 +15238,8 @@ const constantValues =
             "ja-JP": "常に表示",
             "pl-PL": "Zawsze widoczny",
             "pt-BR": "Sempre Visível",
-            "zh-CN": "始终可见"
+            "zh-CN": "始终可见",
+            "description": "Non-team spectators can always see text."
         },
         "NEVER": {
             "guid": "00000000CE57",
@@ -12763,7 +15249,8 @@ const constantValues =
             "ja-JP": "表示されない",
             "pl-PL": "Zawsze niewidoczny",
             "pt-BR": "Nunca Visível",
-            "zh-CN": "始终不可见"
+            "zh-CN": "始终不可见",
+            "description": "Non-team spectators can never see text."
         }
     },
     "Beam": {
@@ -12871,7 +15358,8 @@ const constantValues =
             "fr-FR": "Relancer la règle",
             "ja-JP": "ルールをやり直す",
             "pt-BR": "Regra de reinício",
-            "zh-CN": "重新开始规则"
+            "zh-CN": "重新开始规则",
+            "description": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc)."
         },
         "NOOP": {
             "guid": "000000010026",
@@ -12880,8 +15368,29 @@ const constantValues =
             "fr-FR": "Ne rien faire",
             "ja-JP": "何もしない",
             "pt-BR": "Não fazer nada",
-            "zh-CN": "无动作"
+            "zh-CN": "无动作",
+            "description": "Allow the rule to finish executing without changing its contextual values.",
         }
+    },
+    "__Operator__": {
+        "==": {
+            "en-US": "==",
+        },
+        "!=": {
+            "en-US": "!=",
+        },
+        "<=": {
+            "en-US": "<=",
+        },
+        ">=": {
+            "en-US": ">=",
+        },
+        "<": {
+            "en-US": "<",
+        },
+        ">": {
+            "en-US": ">",
+        },
     }
 }
 //end-json
@@ -12899,7 +15408,7 @@ for (var key of Object.keys(gamemodeKw)) {
     constantValues["Gamemode"][camelCaseToUpperCase(key)] = gamemodeKw[key]
 }
 
-constantValues["ChaseReeval"] = Object.assign({}, constantValues["_ChaseRateReeval"], constantValues["_ChaseTimeReeval"])
+constantValues["ChaseReeval"] = Object.assign({}, constantValues["__ChaseRateReeval__"], constantValues["__ChaseTimeReeval__"])
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -12922,7 +15431,7 @@ constantValues["ChaseReeval"] = Object.assign({}, constantValues["_ChaseRateReev
 const customGameSettingsKw =
 //begin-json
 {
-    "_on": {
+    "__on__": {
         "guid": "0000000058E0",
         "en-US": "On",
         "de-DE": "Ein",
@@ -12937,7 +15446,7 @@ const customGameSettingsKw =
         "zh-CN": "开启",
         "zh-TW": "開啟"
     },
-    "_off": {
+    "__off__": {
         "guid": "0000000058DF",
         "en-US": "Off",
         "de-DE": "Aus",
@@ -12952,7 +15461,7 @@ const customGameSettingsKw =
         "zh-CN": "关闭",
         "zh-TW": "關閉"
     },
-    "_enabled": {
+    "__enabled__": {
         "guid": "000000005923",
         "en-US": "Enabled",
         "de-DE": "Aktiviert",
@@ -12968,7 +15477,7 @@ const customGameSettingsKw =
         "zh-CN": "启用",
         "zh-TW": "啟用"
     },
-    "_disabled": {
+    "__disabled__": {
         "guid": "000000006A06",
         "en-US": "Disabled",
         "de-DE": "Deaktiviert",
@@ -12984,8 +15493,8 @@ const customGameSettingsKw =
         "zh-CN": "禁用",
         "zh-TW": "停用"
     },
-    "_yes": {
-        "guid": "0000000058F3",
+    "__yes__": {
+        "guid": "00000000F406",
         "en-US": "Yes",
         "de-DE": "Ja",
         "es-ES": "Sí",
@@ -13000,8 +15509,8 @@ const customGameSettingsKw =
         "zh-CN": "是",
         "zh-TW": "啟用"
     },
-    "_no": {
-        "guid": "0000000058F4",
+    "__no__": {
+        "guid": "00000000F407",
         "en-US": "No",
         "de-DE": "Nein",
         "fr-FR": "Non",
@@ -13020,7 +15529,7 @@ const customGameSettingsKw =
 const ruleKw = 
 //begin-json
 {
-    "@Rule": {
+    "__rule__": {
         "guid": "00000000C7B4",
         "en-US": "rule",
         "de-DE": "regel",
@@ -13033,7 +15542,7 @@ const ruleKw =
         "zh-CN": "规则",
         "zh-TW": "規則"
     },
-    "@Event": {
+    "__event__": {
         "guid": "00000000C7B5",
         "en-US": "event",
         "es-MX": "evento",
@@ -13045,7 +15554,7 @@ const ruleKw =
         "zh-CN": "事件",
         "zh-TW": "事件"
     },
-    "_conditions": {
+    "__conditions__": {
         "guid": "00000000C7B6",
         "en-US": "conditions",
         "de-DE": "bedingungen",
@@ -13058,7 +15567,7 @@ const ruleKw =
         "zh-CN": "条件",
         "zh-TW": "條件"
     },
-    "_actions": {
+    "__actions__": {
         "guid": "00000000C7B7",
         "en-US": "actions",
         "de-DE": "aktionen",
@@ -13071,7 +15580,7 @@ const ruleKw =
         "zh-CN": "动作",
         "zh-TW": "動作"
     },
-    "_disabled": {
+    "__disabled__": {
         "guid": "00000000C7B8",
         "en-US": "disabled",
         "de-DE": "deaktiviert",
@@ -13084,7 +15593,7 @@ const ruleKw =
         "zh-CN": "禁用",
         "zh-TW": "停用"
     },
-    "_variables": {
+    "__variables__": {
         "guid": "00000000EB73",
         "en-US": "variables",
         "de-DE": "Variablen",
@@ -13095,7 +15604,7 @@ const ruleKw =
         "zh-CN": "变量",
         "zh-TW": "變數"
     },
-    "_global": {
+    "__global__": {
         "guid": "00000000EB74",
         "en-US": "global",
         "fr-FR": "globale",
@@ -13105,7 +15614,7 @@ const ruleKw =
         "zh-CN": "全局",
         "zh-TW": "全域"
     },
-    "_player": {
+    "__player__": {
         "guid": "00000000EB75",
         "en-US": "player",
         "es-ES": "jugador",
@@ -13118,7 +15627,7 @@ const ruleKw =
         "zh-CN": "玩家",
         "zh-TW": "玩家"
     },
-    "_subroutines": {
+    "__subroutines__": {
         "guid": "00000000FFFA",
         "en-US": "subroutines",
         "de-DE": "Subroutinen",
@@ -13131,7 +15640,7 @@ const ruleKw =
         "pt-BR": "sub-rotinas",
         "zh-CN": "子程序"
     },
-    "_settings": {
+    "__settings__": {
         "guid": "000000010030",
         "en-US": "settings",
         "de-DE": "einstellungen",
@@ -13259,7 +15768,7 @@ const eventKw =
         "pt-BR": "Jogador Saiu da Partida",
         "zh-CN": "玩家离开比赛"
     },
-    "_subroutine": {
+    "__subroutine__": {
         "guid": "00000000FFF6",
         "en-US": "Subroutine",
         "es-ES": "Subrutina",
@@ -13269,6 +15778,12 @@ const eventKw =
         "pl-PL": "Podprogram",
         "pt-BR": "Sub-rotina",
         "zh-CN": "子程序"
+    },
+    "playerDealtKnockback": {
+        "en-US": "Player Dealt Knockback",
+    },
+    "playerReceivedKnockback": {
+        "en-US": "Player Received Knockback",
     }
 }
 //end-json
@@ -13374,7 +15889,9 @@ for (var constant of Object.keys(constantValues)) {
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
 const valueKw = Object.assign({}, valueFuncKw, constantKw);
 
-const funcKw = Object.assign({}, actionKw, valueFuncKw);
+const wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
+
+const funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs);
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -13401,7 +15918,7 @@ const customGameSettingsSchema =
         "values": {
             "description": {
                 "guid": "00000001007F",
-                "values": "_string",
+                "values": "__string__",
                 "maxBytes": 512,
                 "en-US": "Description",
                 "de-DE": "Beschreibung",
@@ -13634,7 +16151,7 @@ const customGameSettingsSchema =
             },
             "swapTeamsAfterMatch": {
                 "guid": "00000000705F",
-                "values": "_boolYesNo",
+                "values": "__boolYesNo__",
                 "default": "yes",
                 "en-US": "Swap Teams After Match",
                 "de-DE": "Seitenwechsel nach Match",
@@ -13652,7 +16169,7 @@ const customGameSettingsSchema =
             },
             "team1Slots": {
                 "guid": "000000005A91",
-                "values": "_int",
+                "values": "__int__",
                 "min": 0,
                 "max": 6,
                 "default": 6,
@@ -13672,7 +16189,7 @@ const customGameSettingsSchema =
             },
             "team2Slots": {
                 "guid": "000000005A91",
-                "values": "_int",
+                "values": "__int__",
                 "min": 0,
                 "max": 6,
                 "default": 6,
@@ -13692,7 +16209,7 @@ const customGameSettingsSchema =
             },
             "ffaSlots": {
                 "guid": "000000006ABB",
-                "values": "_int",
+                "values": "__int__",
                 "min": 0,
                 "max": 12,
                 "default": 12,
@@ -13711,7 +16228,7 @@ const customGameSettingsSchema =
                 "zh-TW": "自由混戰人數上限"
             },
             "spectatorSlots": {
-                "values": "_int",
+                "values": "__int__",
                 "min": 0,
                 "max": 12,
                 "default": 2,
@@ -13731,7 +16248,7 @@ const customGameSettingsSchema =
                 "zh-TW": "觀戰人數上限"
             },
             "allowPlayersInQueue": {
-                "values": "_boolYesNo",
+                "values": "__boolYesNo__",
                 "default": "no",
                 "guid": "00000000F25B",
                 "en-US": "Allow Players Who Are In Queue",
@@ -13749,7 +16266,7 @@ const customGameSettingsSchema =
                 "zh-TW": "佇列中的玩家可進行"
             },
             "useExperimentalUpdate": {
-                "values": "_boolYesNo",
+                "values": "__boolYesNo__",
                 "default": "no",
                 "guid": "0000000102F5",
                 "en-US": "Use Experimental Update If Available",
@@ -13767,7 +16284,7 @@ const customGameSettingsSchema =
                 "zh-TW": "可用時使用實驗性更新"
             },
             "enableMatchVoiceChat": {
-                "values": "_boolEnabled",
+                "values": "__boolEnabled__",
                 "default": "disabled",
                 "guid": "000000006A04",
                 "en-US": "Match Voice Chat",
@@ -13785,7 +16302,7 @@ const customGameSettingsSchema =
                 "zh-TW": "對戰語音聊天"
             },
             "pauseGameOnDisconnect": {
-                "values": "_boolYesNo",
+                "values": "__boolYesNo__",
                 "default": "no",
                 "guid": "000000007110",
                 "en-US": "Pause Game On Player Disconnect",
@@ -13960,7 +16477,7 @@ const customGameSettingsSchema =
                 "guid": "0000000058DA",
                 "values": {
                     "enableEnemyHealthBars": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "000000005888",
                         "en-US": "Enemy Health Bars",
@@ -14042,7 +16559,7 @@ const customGameSettingsSchema =
                         "zh-TW": "開始遊戲模式"
                     },
                     "healthPackRespawnTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -14062,7 +16579,7 @@ const customGameSettingsSchema =
                         "zh-TW": "治療包重生時間"
                     },
                     "enableKillCam": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "00000000596B",
                         "en-US": "Kill Cam",
@@ -14080,7 +16597,7 @@ const customGameSettingsSchema =
                         "zh-TW": "死亡重播"
                     },
                     "enableKillFeed": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "00000000588B",
                         "en-US": "Kill Feed",
@@ -14099,7 +16616,7 @@ const customGameSettingsSchema =
                     },
                     "enableSkins": {
                         "guid": "00000000588C",
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "en-US": "Skins",
                         "es-ES": "Aspectos",
@@ -14182,7 +16699,7 @@ const customGameSettingsSchema =
                         "zh-TW": "治療包重生"
                     },
                     "enableHeroSwitching": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "00000000588D",
                         "en-US": "Allow Hero Switching",
@@ -14348,7 +16865,7 @@ const customGameSettingsSchema =
                         "zh-TW": "角色類型限制"
                     },
                     "enableRandomHeroes": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "00000000588F",
                         "en-US": "Respawn As Random Hero",
@@ -14366,7 +16883,7 @@ const customGameSettingsSchema =
                         "zh-TW": "重生時隨機更換英雄"
                     },
                     "respawnTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 100,
                         "default": 100,
@@ -14429,7 +16946,7 @@ const customGameSettingsSchema =
             "assault": {
                 "values": {
                     "captureSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -14449,7 +16966,7 @@ const customGameSettingsSchema =
                         "zh-TW": "調整佔領速度"
                     },
                     "enableCompetitiveRules": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
@@ -14471,7 +16988,7 @@ const customGameSettingsSchema =
             "control": {
                 "values": {
                     "captureSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -14491,7 +17008,7 @@ const customGameSettingsSchema =
                         "zh-TW": "調整佔領速度"
                     },
                     "enableCompetitiveRules": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
@@ -14593,7 +17110,7 @@ const customGameSettingsSchema =
                     },
                     "scoreToWin": {
                         "guid": "00000000589A",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 3,
                         "default": 2,
@@ -14612,7 +17129,7 @@ const customGameSettingsSchema =
                         "zh-TW": "獲勝分數"
                     },
                     "scoringSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -14636,7 +17153,7 @@ const customGameSettingsSchema =
             "escort": {
                 "values": {
                     "enableCompetitiveRules": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
@@ -14654,7 +17171,7 @@ const customGameSettingsSchema =
                         "zh-TW": "競技對戰規則"
                     },
                     "payloadSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -14678,7 +17195,7 @@ const customGameSettingsSchema =
             "hybrid": {
                 "values": {
                     "captureSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -14698,7 +17215,7 @@ const customGameSettingsSchema =
                         "zh-TW": "調整佔領速度"
                     },
                     "enableCompetitiveRules": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
@@ -14716,7 +17233,7 @@ const customGameSettingsSchema =
                         "zh-TW": "競技對戰規則"
                     },
                     "payloadSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -14740,7 +17257,7 @@ const customGameSettingsSchema =
             "ctf": {
                 "values": {
                     "enableBlitzFlagLocations": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "00000000F405",
                         "en-US": "Blitz Flag Locations",
@@ -14758,7 +17275,7 @@ const customGameSettingsSchema =
                         "zh-TW": "閃擊戰旗幟位置"
                     },
                     "enableDropFlagOnDmg": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "0000000059B9",
                         "en-US": "Damage Interrupts Flag Interaction",
@@ -14843,7 +17360,7 @@ const customGameSettingsSchema =
                         "zh-TW": "持旗時的技能限制"
                     },
                     "flagDroppedLockTime": {
-                        "values": "_float",
+                        "values": "__float__",
                         "min": 0,
                         "max": 10,
                         "default": 5,
@@ -14863,7 +17380,7 @@ const customGameSettingsSchema =
                         "zh-TW": "旗幟掉落的拾取無效時間"
                     },
                     "flagPickupTime": {
-                        "values": "_float",
+                        "values": "__float__",
                         "min": 0,
                         "max": 5,
                         "default": 0,
@@ -14883,7 +17400,7 @@ const customGameSettingsSchema =
                         "zh-TW": "旗幟撿拾時間"
                     },
                     "flagReturnTime": {
-                        "values": "_float",
+                        "values": "__float__",
                         "min": 0,
                         "max": 5,
                         "default": 4,
@@ -14903,7 +17420,7 @@ const customGameSettingsSchema =
                         "zh-TW": "旗幟歸位時間"
                     },
                     "flagScoreRespawnTime": {
-                        "values": "_float",
+                        "values": "__float__",
                         "min": 0,
                         "max": 20,
                         "default": 15,
@@ -14924,7 +17441,7 @@ const customGameSettingsSchema =
                     },
                     "gameLengthInMn": {
                         "guid": "0000000059D9",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 5,
                         "max": 15,
                         "default": 8,
@@ -14943,7 +17460,7 @@ const customGameSettingsSchema =
                         "zh-TW": "遊戲時間（分鐘）"
                     },
                     "respawnSpeedBuffDuration": {
-                        "values": "_float",
+                        "values": "__float__",
                         "min": 0,
                         "max": 60,
                         "default": 0,
@@ -14964,7 +17481,7 @@ const customGameSettingsSchema =
                     },
                     "scoreToWin": {
                         "guid": "00000000589A",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 9,
                         "default": 3,
@@ -14983,7 +17500,7 @@ const customGameSettingsSchema =
                         "zh-TW": "獲勝分數"
                     },
                     "teamNeedsFlagAtBaseToScore": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "0000000058B0",
                         "en-US": "Team Needs Flag At Base To Score",
@@ -15006,7 +17523,7 @@ const customGameSettingsSchema =
                 "values": {
                     "gameLengthInMn": {
                         "guid": "00000000632C",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 5,
                         "max": 15,
                         "default": 10,
@@ -15026,7 +17543,7 @@ const customGameSettingsSchema =
                     },
                     "scoreToWin": {
                         "guid": "00000000632A",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 50,
                         "default": 20,
@@ -15045,7 +17562,7 @@ const customGameSettingsSchema =
                         "zh-TW": "獲勝分數"
                     },
                     "enableSelfInitiatedRespawn": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "000000006884",
                         "en-US": "Self Initiated Respawn",
@@ -15067,7 +17584,7 @@ const customGameSettingsSchema =
             "elimination": {
                 "values": {
                     "heroSelectionTime": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 20,
                         "max": 60,
                         "default": 20,
@@ -15088,7 +17605,7 @@ const customGameSettingsSchema =
                     },
                     "scoreToWin": {
                         "guid": "00000000589A",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 9,
                         "default": 3,
@@ -15338,7 +17855,7 @@ const customGameSettingsSchema =
                         "zh-TW": "限定選擇人數"
                     },
                     "enableTiebreaker": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "000000005FC9",
                         "en-US": "Capture Objective Tiebreaker",
@@ -15356,7 +17873,7 @@ const customGameSettingsSchema =
                         "zh-TW": "以佔領區分出勝負"
                     },
                     "tiebreakerTime": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 30,
                         "max": 300,
                         "default": 105,
@@ -15376,7 +17893,7 @@ const customGameSettingsSchema =
                         "zh-TW": "啟動佔領區的時間"
                     },
                     "tiebreakerCaptureTime": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 7,
                         "default": 3,
@@ -15396,7 +17913,7 @@ const customGameSettingsSchema =
                         "zh-TW": "佔領所需的時間"
                     },
                     "drawTime": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 60,
                         "max": 300,
                         "default": 135,
@@ -15416,7 +17933,7 @@ const customGameSettingsSchema =
                         "zh-TW": "平手倒數計時（未搶下佔領區）"
                     },
                     "enableWallhack": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005FC8",
                         "en-US": "Reveal Heroes",
@@ -15434,7 +17951,7 @@ const customGameSettingsSchema =
                         "zh-TW": "顯示英雄位置"
                     },
                     "wallhackEnabledTime": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 0,
                         "max": 180,
                         "default": 75,
@@ -15459,7 +17976,7 @@ const customGameSettingsSchema =
                 "values": {
                     "gameLengthInMn": {
                         "guid": "00000000617D",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 5,
                         "max": 15,
                         "default": 10,
@@ -15478,7 +17995,7 @@ const customGameSettingsSchema =
                         "zh-TW": "遊戲時間（分鐘）"
                     },
                     "enableMercyRezKillCancel": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "00000000688A",
                         "en-US": "Mercy Resurrect Counteracts Kills",
@@ -15497,7 +18014,7 @@ const customGameSettingsSchema =
                     },
                     "scoreToWin": {
                         "guid": "00000000616E",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 200,
                         "default": 30,
@@ -15516,7 +18033,7 @@ const customGameSettingsSchema =
                         "zh-TW": "獲勝分數"
                     },
                     "enableSelfInitiatedRespawn": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "000000006884",
                         "en-US": "Self Initiated Respawn",
@@ -15534,7 +18051,7 @@ const customGameSettingsSchema =
                         "zh-TW": "按重生鍵復活"
                     },
                     "needsImbalancedTeamScoreToWin": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000006D65",
                         "en-US": "Imbalanced Team Score To Win",
@@ -15552,7 +18069,7 @@ const customGameSettingsSchema =
                         "zh-TW": "隊伍各自設定獲勝分數"
                     },
                     "team1ScoreToWin": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 200,
                         "default": 30,
@@ -15572,7 +18089,7 @@ const customGameSettingsSchema =
                         "zh-TW": "隊伍1獲勝分數"
                     },
                     "team2ScoreToWin": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 200,
                         "default": 30,
@@ -15596,7 +18113,7 @@ const customGameSettingsSchema =
             "practiceRange": {
                 "values": {
                     "spawnTrainingBots": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "00000000EC7E",
                         "en-US": "Spawn Training Bots",
@@ -15614,7 +18131,7 @@ const customGameSettingsSchema =
                         "zh-TW": "產生訓練機器人"
                     },
                     "trainingBotsRespawnTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -15700,9 +18217,9 @@ const customGameSettingsSchema =
             }
         },
         "values": {
-            "_generalButNotEachHero": {
+            "__generalButNotEachHero__": {
                 "abilityCooldown%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -15722,9 +18239,9 @@ const customGameSettingsSchema =
                     "zh-TW": "技能冷卻時間"
                 }
             },
-            "_generalAndEachHero": {
+            "__generalAndEachHero__": {
                 "enableMelee": {
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "guid": "000000005B4C",
                     "en-US": "Quick Melee",
@@ -15743,7 +18260,7 @@ const customGameSettingsSchema =
                 },
                 "enableUlt": {
                     "guid": "0000000058A9",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "en-US": "Ultimate Ability",
                     "de-DE": "Ultimative Fähigkeit",
@@ -15760,7 +18277,7 @@ const customGameSettingsSchema =
                     "zh-TW": "絕招"
                 },
                 "ultGen%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -15780,7 +18297,7 @@ const customGameSettingsSchema =
                     "zh-TW": "絕招蓄力速度"
                 },
                 "combatUltGen%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -15800,7 +18317,7 @@ const customGameSettingsSchema =
                     "zh-TW": "戰鬥時的絕招蓄力速度"
                 },
                 "passiveUltGen%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -15820,7 +18337,7 @@ const customGameSettingsSchema =
                     "zh-TW": "絕招自動蓄力速度"
                 },
                 "enableSpawningWithUlt": {
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "off",
                     "guid": "00000000765F",
                     "en-US": "Spawn With Ultimate Ready",
@@ -15838,7 +18355,7 @@ const customGameSettingsSchema =
                     "zh-TW": "重生時絕招立即蓄力完畢"
                 },
                 "ultDuration%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 25,
                     "max": 500,
                     "default": 100,
@@ -15871,7 +18388,7 @@ const customGameSettingsSchema =
                     "zh-TW": "絕招持續時間"
                 },
                 "enableInfiniteUlt": {
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "off",
                     "include": [
                         "ashe",
@@ -15902,7 +18419,7 @@ const customGameSettingsSchema =
                     "zh-TW": "絕招持續時間無限"
                 },
                 "damageDealt%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -15922,7 +18439,7 @@ const customGameSettingsSchema =
                     "zh-TW": "造成的傷害"
                 },
                 "damageReceived%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -15942,7 +18459,7 @@ const customGameSettingsSchema =
                     "zh-TW": "受到的傷害"
                 },
                 "healingDealt%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -15963,7 +18480,7 @@ const customGameSettingsSchema =
                 },
                 "healingReceived%": {
                     "guid": "0000000058A4",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -15983,7 +18500,7 @@ const customGameSettingsSchema =
                 },
                 "health%": {
                     "guid": "0000000059FA",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -16002,7 +18519,7 @@ const customGameSettingsSchema =
                     "zh-TW": "生命值"
                 },
                 "jumpVerticalSpeed%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 25,
                     "max": 800,
                     "default": 100,
@@ -16022,7 +18539,7 @@ const customGameSettingsSchema =
                     "zh-TW": "垂直跳躍速度"
                 },
                 "movementGravity%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 25,
                     "max": 400,
                     "default": 100,
@@ -16042,7 +18559,7 @@ const customGameSettingsSchema =
                     "zh-TW": "影響移動的重力"
                 },
                 "movementSpeed%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 50,
                     "max": 300,
                     "default": 100,
@@ -16062,7 +18579,7 @@ const customGameSettingsSchema =
                     "zh-TW": "移動速度"
                 },
                 "projectileGravity%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -16082,7 +18599,7 @@ const customGameSettingsSchema =
                     "zh-TW": "影響投射武器的重力"
                 },
                 "projectileSpeed%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -16102,7 +18619,7 @@ const customGameSettingsSchema =
                     "zh-TW": "子彈移動速度"
                 },
                 "enableHeadshotsOnly": {
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "off",
                     "guid": "0000000058A5",
                     "en-US": "Receive Headshots Only",
@@ -16121,7 +18638,7 @@ const customGameSettingsSchema =
                 },
                 "enablePrimaryFire": {
                     "guid": "000000005B4B",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "en-US": "Primary Fire",
                     "de-DE": "Primärer Feuermodus",
@@ -16138,7 +18655,7 @@ const customGameSettingsSchema =
                     "zh-TW": "主要攻擊"
                 },
                 "ammoClipSize%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 25,
                     "max": 500,
                     "default": 100,
@@ -16165,7 +18682,7 @@ const customGameSettingsSchema =
                     "zh-TW": "彈匣大小"
                 },
                 "enableInfiniteAmmo": {
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "off",
                     "exclude": [
                         "brigitte",
@@ -16191,17 +18708,17 @@ const customGameSettingsSchema =
                     "zh-TW": "無限彈藥"
                 }
             },
-            "_eachHero": {
+            "__eachHero__": {
                 "enableAbility1": {
                     "guid": "00000001005E",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "en-US": "%1$s",
                     "ko-KR": "%1$s회"
                 },
                 "ability1Cooldown%": {
                     "guid": "000000005B84",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -16228,7 +18745,7 @@ const customGameSettingsSchema =
                 },
                 "enableAbility2": {
                     "guid": "00000001005E",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "exclude": [
                         "bastion"
@@ -16238,7 +18755,7 @@ const customGameSettingsSchema =
                 },
                 "ability2Cooldown%": {
                     "guid": "000000005B84",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -16262,7 +18779,7 @@ const customGameSettingsSchema =
                 },
                 "enableAbility3": {
                     "guid": "00000001005E",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
                         "brigitte",
@@ -16274,7 +18791,7 @@ const customGameSettingsSchema =
                 },
                 "ability3Cooldown%": {
                     "guid": "000000005B84",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -16297,7 +18814,7 @@ const customGameSettingsSchema =
                 },
                 "enablePassive": {
                     "guid": "00000001005E",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
                         "mercy",
@@ -16307,7 +18824,7 @@ const customGameSettingsSchema =
                 },
                 "enableSecondaryFire": {
                     "guid": "00000001005E",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
                         "bastion",
@@ -16328,7 +18845,7 @@ const customGameSettingsSchema =
                 },
                 "secondaryFireCooldown%": {
                     "guid": "000000005B84",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -16359,7 +18876,7 @@ const customGameSettingsSchema =
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "secondaryFireMaximumTime%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 20,
                     "max": 500,
                     "default": 100,
@@ -16384,7 +18901,7 @@ const customGameSettingsSchema =
                     "zh-TW": "%1$s的最大持續時間"
                 },
                 "secondaryFireRechargeRate%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -16413,7 +18930,7 @@ const customGameSettingsSchema =
                 },
                 "enableGenericSecondaryFire": {
                     "guid": "000000006029",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
                         "baptiste",
@@ -16444,7 +18961,7 @@ const customGameSettingsSchema =
                 },
                 "enableAutomaticFire": {
                     "guid": "00000000A2AD",
-                    "values": "_boolReverseOnOff",
+                    "values": "__boolReverseOnOff__",
                     "default": "off",
                     "include": [
                         "ana",
@@ -16467,7 +18984,7 @@ const customGameSettingsSchema =
                 },
                 "enableScoping": {
                     "guid": "00000000A2B0",
-                    "values": "_boolReverseOnOff",
+                    "values": "__boolReverseOnOff__",
                     "default": "off",
                     "include": [
                         "ana",
@@ -16520,7 +19037,7 @@ const customGameSettingsSchema =
             "ashe": {
                 "values": {
                     "ability1EnemyKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -16540,7 +19057,7 @@ const customGameSettingsSchema =
                         "zh-TW": "雙管散彈槍擊退距離（敵人）"
                     },
                     "ability1SelfKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -16560,7 +19077,7 @@ const customGameSettingsSchema =
                         "zh-TW": "雙管散彈槍擊退距離（自己）"
                     },
                     "ability2FuseTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 1,
                         "max": 500,
                         "default": 100,
@@ -16584,7 +19101,7 @@ const customGameSettingsSchema =
             "bastion": {
                 "values": {
                     "ultKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -16608,7 +19125,7 @@ const customGameSettingsSchema =
             "brigitte": {
                 "values": {
                     "shieldBashCooldown%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -16628,7 +19145,7 @@ const customGameSettingsSchema =
                         "zh-TW": "持盾衝鋒冷卻時間"
                     },
                     "shieldBashKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -16648,7 +19165,7 @@ const customGameSettingsSchema =
                         "zh-TW": "持盾衝鋒擊退距離"
                     },
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -16672,7 +19189,7 @@ const customGameSettingsSchema =
             "dva": {
                 "values": {
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -16692,7 +19209,7 @@ const customGameSettingsSchema =
                         "zh-TW": "噴射推進擊退距離"
                     },
                     "callMechKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -16712,7 +19229,7 @@ const customGameSettingsSchema =
                         "zh-TW": "空投機甲擊退距離"
                     },
                     "selfDestructKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 200,
                         "default": 100,
@@ -16732,7 +19249,7 @@ const customGameSettingsSchema =
                         "zh-TW": "自爆擊退距離"
                     },
                     "spawnWithoutMech": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "0000000072AF",
                         "en-US": "Spawn Without Mech",
@@ -16754,7 +19271,7 @@ const customGameSettingsSchema =
             "doomfist": {
                 "values": {
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -16774,7 +19291,7 @@ const customGameSettingsSchema =
                         "zh-TW": "天鉤拳擊退距離"
                     },
                     "secondaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -16794,7 +19311,7 @@ const customGameSettingsSchema =
                         "zh-TW": "火箭拳擊退距離"
                     },
                     "ultKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -16814,7 +19331,7 @@ const customGameSettingsSchema =
                         "zh-TW": "流星墜擊退距離"
                     },
                     "ammoRegenerationTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 33,
                         "max": 500,
                         "default": 100,
@@ -16838,7 +19355,7 @@ const customGameSettingsSchema =
             "hanzo": {
                 "values": {
                     "ability3Cooldown%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -16858,7 +19375,7 @@ const customGameSettingsSchema =
                         "zh-TW": "突進跳躍冷卻時間"
                     },
                     "ability3Distance%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 20,
                         "max": 300,
                         "default": 100,
@@ -16878,7 +19395,7 @@ const customGameSettingsSchema =
                         "zh-TW": "突進跳躍距離"
                     },
                     "ability2Quantity%": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 3,
                         "max": 12,
                         "default": 100,
@@ -16902,7 +19419,7 @@ const customGameSettingsSchema =
             "junkrat": {
                 "values": {
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 200,
                         "default": 100,
@@ -16922,7 +19439,7 @@ const customGameSettingsSchema =
                         "zh-TW": "震盪地雷擊退距離"
                     },
                     "primaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -16946,7 +19463,7 @@ const customGameSettingsSchema =
             "lucio": {
                 "values": {
                     "secondaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -16970,7 +19487,7 @@ const customGameSettingsSchema =
             "mei": {
                 "values": {
                     "ultFreezeMinimum%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 100,
                         "default": 50,
@@ -16990,7 +19507,7 @@ const customGameSettingsSchema =
                         "zh-TW": "暴風雪冰凍最小值"
                     },
                     "ultFreezeRate%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -17010,7 +19527,7 @@ const customGameSettingsSchema =
                         "zh-TW": "暴風雪冰凍敵人的速度"
                     },
                     "enablePrimaryFireFreezeStack": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000007113",
                         "en-US": "Freeze Stacking",
@@ -17028,7 +19545,7 @@ const customGameSettingsSchema =
                         "zh-TW": "冰凍效果疊加"
                     },
                     "primaryFireFreezeDuration%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 20,
                         "max": 500,
                         "default": 100,
@@ -17048,7 +19565,7 @@ const customGameSettingsSchema =
                         "zh-TW": "冷凍槍凍結敵人的時間長短"
                     },
                     "primaryFireFreezeMinimum%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 100,
                         "default": 30,
@@ -17068,7 +19585,7 @@ const customGameSettingsSchema =
                         "zh-TW": "冷凍槍冰凍最小值"
                     },
                     "primaryFireFreezeRate%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -17163,7 +19680,7 @@ const customGameSettingsSchema =
             "moira": {
                 "values": {
                     "ability2MaxDamage%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -17183,7 +19700,7 @@ const customGameSettingsSchema =
                         "zh-TW": "生化球最大傷害值"
                     },
                     "ability2MaxHealing%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -17203,7 +19720,7 @@ const customGameSettingsSchema =
                         "zh-TW": "生化球最大治療值"
                     },
                     "primaryFireMaximumTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 20,
                         "max": 500,
                         "default": 100,
@@ -17223,7 +19740,7 @@ const customGameSettingsSchema =
                         "zh-TW": "生化能量上限"
                     },
                     "primaryFireRechargeRate%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -17247,7 +19764,7 @@ const customGameSettingsSchema =
             "pharah": {
                 "values": {
                     "ability2Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -17267,7 +19784,7 @@ const customGameSettingsSchema =
                         "zh-TW": "震盪爆破擊退距離"
                     },
                     "enableSecondaryFireUnlimitedFuel": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005B51",
                         "en-US": "Hover Jets Unlimited Fuel",
@@ -17285,7 +19802,7 @@ const customGameSettingsSchema =
                         "zh-TW": "滯空無限燃料"
                     },
                     "secondaryFireVerticalSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -17305,7 +19822,7 @@ const customGameSettingsSchema =
                         "zh-TW": "滯空垂直爬升速度"
                     },
                     "ability1Acceleration%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -17325,7 +19842,7 @@ const customGameSettingsSchema =
                         "zh-TW": "跳躍噴射速度"
                     },
                     "primaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -17349,7 +19866,7 @@ const customGameSettingsSchema =
             "reinhardt": {
                 "values": {
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -17369,7 +19886,7 @@ const customGameSettingsSchema =
                         "zh-TW": "衝鋒擊退距離"
                     },
                     "primaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -17393,7 +19910,7 @@ const customGameSettingsSchema =
             "roadhog": {
                 "values": {
                     "ultKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -17417,7 +19934,7 @@ const customGameSettingsSchema =
             "sigma": {
                 "values": {
                     "ability2Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -17441,7 +19958,7 @@ const customGameSettingsSchema =
             "soldier": {
                 "values": {
                     "secondaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -17465,7 +19982,7 @@ const customGameSettingsSchema =
             "torbjorn": {
                 "values": {
                     "ability2Duration%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -17556,7 +20073,7 @@ const customGameSettingsSchema =
             "winston": {
                 "values": {
                     "ability1Acceleration%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -17576,7 +20093,7 @@ const customGameSettingsSchema =
                         "zh-TW": "噴射跳躍速度"
                     },
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -17596,7 +20113,7 @@ const customGameSettingsSchema =
                         "zh-TW": "噴射跳躍擊退距離"
                     },
                     "ultKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -17620,7 +20137,7 @@ const customGameSettingsSchema =
             "hammond": {
                 "values": {
                     "enableRollOnly": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "00000000928D",
                         "en-US": "Roll Always Active",
@@ -17638,7 +20155,7 @@ const customGameSettingsSchema =
                         "zh-TW": "永遠啟動滾球形態"
                     },
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -17658,7 +20175,7 @@ const customGameSettingsSchema =
                         "zh-TW": "穩固爪鉤擊退距離"
                     },
                     "ultKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -17682,7 +20199,7 @@ const customGameSettingsSchema =
             "zarya": {
                 "values": {
                     "secondaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -17749,7 +20266,7 @@ for (var key of Object.keys(customGameSettingsSchema.gamemodes.values)) {
 }
 
 //Generate settings for heroes.general
-customGameSettingsSchema.heroes.values.general = Object.assign({}, customGameSettingsSchema.heroes.values._generalAndEachHero, customGameSettingsSchema.heroes.values._generalButNotEachHero)
+customGameSettingsSchema.heroes.values.general = Object.assign({}, customGameSettingsSchema.heroes.values.__generalAndEachHero__, customGameSettingsSchema.heroes.values.__generalButNotEachHero__)
 
 //Generate settings for each hero
 for (var hero of Object.keys(heroKw)) {
@@ -17759,7 +20276,7 @@ for (var hero of Object.keys(heroKw)) {
         customGameSettingsSchema.heroes.values[hero].values = {};
     }
 
-    var eachHero = Object.assign({}, customGameSettingsSchema.heroes.values._generalAndEachHero, customGameSettingsSchema.heroes.values._eachHero)
+    var eachHero = Object.assign({}, customGameSettingsSchema.heroes.values.__generalAndEachHero__, customGameSettingsSchema.heroes.values.__eachHero__)
 
     for (var key of Object.keys(eachHero)) {
         if ("include" in eachHero[key] && eachHero[key].include.includes(hero)
@@ -17803,9 +20320,9 @@ for (var hero of Object.keys(heroKw)) {
     }
 }
 
-delete customGameSettingsSchema.heroes.values._generalAndEachHero
-delete customGameSettingsSchema.heroes.values._eachHero
-delete customGameSettingsSchema.heroes.values._generalButNotEachHero
+delete customGameSettingsSchema.heroes.values.__generalAndEachHero__
+delete customGameSettingsSchema.heroes.values.__eachHero__
+delete customGameSettingsSchema.heroes.values.__generalButNotEachHero__
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -17825,576 +20342,223 @@ delete customGameSettingsSchema.heroes.values._generalButNotEachHero
 
 "use strict";
 
-const opyFuncs = {
+const opyAnnotations = {
+    "@Name": {
+        "description": "For subroutines, specifies the name of the rule.",
+        args: [{
+            "name": "NAME",
+            "description": "A string literal containing the name of the rule."
+        }]
+    },
+    "@Event": {
+        "description": "Defines the event type for the current rule. If omitted, default to `global`. Not applicable for subroutines.",
+        args: [{
+            "name": "TYPE",
+            "description": "The type of the event.",
+            "values": Object.keys(eventKw),
+        }]
+    },
+    "@Team": {
+        "description": "Defines which team the current rule applies for. If omitted, defaults to `all`. Not applicable for subroutines.",
+        args: [{
+            "name": "TEAM",
+            "description": "The team of the event.",
+            "values": Object.keys(eventTeamKw),
+        }]
+    },
+    "@Slot": {
+        "description": "Defines which slot the current rule applies for. If omitted, defaults to all slots. Cannot be used with `@Hero`. Not applicable for subroutines.",
+        args: [{
+            "name": "SLOT",
+            "description": "The slot of the event.",
+            "values": Object.keys(eventSlotKw),
+        }]
+    },
+    "@Hero": {
+        "description": "Defines which hero the current rule applies for. If omitted, defaults to all heroes. Cannot be used with `@Slot`. Not applicable for subroutines.",
+        args: [{
+            "name": "HERO",
+            "description": "The hero of the event.",
+            "values": Object.keys(heroKw).map(x => x.toLowerCase()),
+        }]
+    },
+    "@Condition": {
+        "description": "Specifies a condition that must be fulfilled for the rule to be run. Not applicable for subroutines.",
+        args: [{
+            "name": "CONDITION",
+            "description": "The condition that must be fulfilled.",
+        }]
+    },
+    "@SuppressWarnings": {
+        "description": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces.",
+    },
+    "@Disabled": {
+        "description": "Generates the rule as disabled.",
+        args: [],
+    }
+}/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
-//Keywords
+"use strict";
 
-    "and": {
-        "description": "Whether both of the two operands are true (or equivalent to true). Does short-circuiting.",
-        "args": null
-    },
-    "break": {
-        "description": "Goes to the end of the innermost `switch` statement, or do/while loop. In the future, this instruction will go to the end of the innermost loop or `switch` statement.",
-        "args": null
-    },
-    "case": {
-        "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is equal to the value specified in this `case` statement. Literal arrays should not be used. Note that the execution will not jump to the end of the `switch` block after the end of the `case` block; if you want that to be the case, use the `break` instruction.",
-        "args": null
-    },
-    "continue": {
-        "description": "Goes back to the start of the rule. In the future, this instruction will go back to the start of the innermost loop.",
-        "args": null
-    },
-    "def": {
-        "description": "Defines a subroutine. Note that subroutines cannot have any arguments or rule conditions. Example: `def mySubroutine():`",
-        "args": null
-    },
-    "default": {
-        "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is not equal to any value specified in the `case` statements. Note that the execution will not jump to the end of the `switch` block after the end of the `default` block; if you want that to be the case, use the `break` instruction.",
-        "args": null
-    },
-    "del": {
-        "description": "Removes the Element specified by the Index from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs. Example: `del myVar[3]`",
-        "args": null
-    },
-    "do": {
-        "description": "Denotes a do/while loop. Can only be specified at the start of a rule (ignoring the rule condition). The matching `while` must not have an ending colon (`:`).",
-        "args": null
-    },
-    "elif": {
-        "description": "Denotes the beginning of a block that will only execute if the specified condition is true and the previous `if` or `elif` block's condition was false.",
-        "args": null
-    },
-    "else": {
-        "description": "Denotes the beginning of a block that will only execute if the previous `if` or `elif` block's condition was false.",
-        "description": `Denotes either:
-        
-- If an instruction, the beginning of a block that will only execute if the previous \`if\` or \`elif\` block's condition was false.
+//Used for when the body of a control flow statement will never execute, such as "if false".
+function makeChildrenUseless(children) {
 
-- If a value, an inline "ternary" condition, such as \`A if B else C\`.`,
-        "args": null
-    },
-    "for": {
-        "description": `Denotes either:
-        
-- If an instruction, the beginning of a block that will execute in a loop, modifying the control variable on each loop. The instruction must be \`for <var> in range(start, stop, step):\` See also the \`range\` function.
+    var foundLabel = false;
 
-- If within a list comprehension, a filtered array, such as \`[i for i in x if x == 3]\`. In that case, an \`if\` block must be present.`,
-        "args": null
-    },
-    "if": {
-        "description": `Denotes either:
-        
-- If an instruction, the beginning of a block that will only execute if the specified condition is true.
+    //Recursively check through the tree to see if there are labels that we must decrement the amount of references to.
+    function checkForDistanceTo(content) {
+        for (var arg of content.args) {
+            if (arg.name === "__distanceTo__") {
+                currentRuleLabelAccess[arg.args[0].name]--;
+            } else {
+                checkForDistanceTo(arg);
+            }
+        }
+    }
 
-- If a value, an inline "ternary" condition, such as \`A if B else C\`. The \`else\` must be specified.`,
-        "args": null
-    },
-    "globalvar": {
-        "description": "Declares a global variable. The index (0-127) can optionally be specified. Example: `globalvar myVar 127`",
-        "args": null
-    },
-    "goto": {
-        "description": "Goes to the specified label. Labels can only be placed after the `goto` statement, in the current rule. For example, `goto lbl_1` will continue execution from the `lbl_1:` instruction. Dynamic gotos, although not recommended, can be declared with the `loc+` keyword, such as `goto loc+A` which will move execution 3 actions after the `goto` instruction.",
-        "args": null
-    },
-    "lambda": {
-        "description": "Denotes an inline function. Can only be used in the `sorted` function.",
-        "args": null
-    },
-    "not": {
-        "description": "Whether the given operand is false (or equivalent to false).",
-        "args": null
-    },
-    "or": {
-        "description": "Whether either of the two operands are true (or equivalent to true). Does short-circuiting.",
-        "args": null
-    },
-    "pass": {
-        "description": "Does nothing. Used when OverPy's grammar requires an instruction, such as having an empty block.",
-        "args": null
-    },
-    "playervar": {
-        "description": "Declares a player variable. The index (0-127) can optionally be specified. Example: `playervar myVar 127`",
-        "args": null
-    },
-    "RULE_CONDITION": {
-        "description": "Equivalent to true if every rule condition is true. Can only be used in the following cases:\n\n- `while RULE_CONDITION` (in a do/while loop)\n- `while not RULE_CONDITION` (in a do/while loop)\n- `if RULE_CONDITION: continue` (and not in a while/for loop)\n- `if not RULE_CONDITION: continue` (and not in a while/for loop)\n- `if RULE_CONDITION: return`\n- `if not RULE_CONDITION: return`",
-        "args": null
-    },
-    "RULE_START": {
-        "description": "Denotes the start of the rule. Can only be used as an argument to a `goto` statement. Will be implemented in the future.",
-        "args": null
-    },
-    "settings": {
-        "description": "Declares custom game settings. Must be followed by an object containing the settings.",
-        "args": null
-    },
-    "switch": {
-        "description": "Denotes the beginning of a block that will jump execution to the `case` statement that has the value of the specified variable. If no `case` statement has the value of the specified variable, the execution goes to the `default` statement if it exists, else to the end of the block.",
-        "args": null
-    },
-    "subroutine": {
-        "description": "Declares a subroutine. The index (0-127) can optionally be specified. Example: `subroutine mySubroutine 127`",
-        "args": null
-    },
-    "while": {
-        "description": "Denotes the beginning of a block that will execute in a loop as long as the specified condition is true. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end of the block. Can also denote the end of a do/while loop, if no `:` is at the end of the instruction.",
-        "args": null
-    },
+    function _makeChildrenUseless(children) {
+        for (var i = 0; i < children.length; i++) {
+            //Check if there is a label that is accessed at least once. If yes, then the actions below could still be executed; therefore, don't make them useless.
 
-//Functions
+            if (foundLabel) {
+                break;
+            }
+            checkForDistanceTo(children[i].args);
+            makeChildrenUseless(children[i].children);
+            if (children[i].type === "Label") {
+                if (currentRuleLabelAccess[children[i].name] > 0) {
+                    foundLabel = true;
+                }
+            } else {
+                children[i] = getAstForUselessInstruction();
+            }
+        }
+    }
 
-    "all": {
-        "description": "Whether the specified condition evaluates to true for every value in the specified iterable. Requires a condition.\n\nExample: `all(player for player in getAllPlayers() if player.A == 2)`",
-        "args": [
-            {
-                "name": "iterable",
-                "description": "The iterable whose values will be considered.",
-                "type": "Iterable",
-                "default": "GLOBAL VARIABLE"
-            }
-        ]
-    },
-    "any": {
-        "description": "Whether the specified condition evaluates to true for any value in the specified iterable. Requires a condition.\n\nExample: `any(player for player in getAllPlayers() if player.A == 2)`",
-        "args": [
-            {
-                "name": "iterable",
-                "description": "The iterable whose values will be considered.",
-                "type": "Iterable",
-                "default": "GLOBAL VARIABLE"
-            }
-        ]
-    },
-    "async": {
-        "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
-        "args": [
-            {
-                "name": "SUBROUTINE",
-                "description": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
-                "type": "Subroutine",
-                "default": "Sub0"
-            },
-            {
-                "name": "IF ALREADY EXECUTING",
-                "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
-                "type": "AsyncBehavior",
-                "default": "RESTART RULE"
-            }
-        ]
-    },
-    "ceil": {
-        "description": "The integer that is the ceiling of the specified value (equivalent to rounding up).",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The real number to get the ceiling of.",
-                "type": "Number",
-                "default": "NUMBER"
-            }
-        ]
-    },
-    "chase": {
-        "description": "Gradually modifies the value of a variable (global or player) at a specific rate, or over time.",
-        "args": [
-            {
-                "name": "VARIABLE",
-                "description": "Specifies which variable (global or player) to modify gradually.",
-                "type": "Variable",
-                "default": "A"
-            },
-            {
-                "name": "DESTINATION",
-                "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": "Any",
-                "default": "NUMBER"
-            },
-            {
-                "name": "RATE OR DURATION",
-                "description": "The amount of change that will happen to the variable's value each second, or the amount of time, in seconds, over which the variable's value will approach the destination.\n\nPut `rate=xxxx` or `duration=xxxx` as argument.",
-                "type": "Number",
-                "default": "NUMBER"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "ChaseReeval",
-                "default": "DESTINATION AND RATE"
-            }
-        ]
-    },
-    "debug": {
-        "description": "Creates an orange HUD text at the top left. Should be used for quick debugging of a value.",
-        "args": [
-            {
-                "name": "HEADER",
-                "description": "The text to be displayed (can be blank)",
-                "type": "Any",
-                "default": "STRING"
-            }
-        ]
-    },
-    "floor": {
-        "description": "The integer that is the floor of the specified value (equivalent to rounding down).",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The real number to get the floor of.",
-                "type": "Number",
-                "default": "NUMBER"
-            }
-        ]
-    },
-    "getAllPlayers": {
-        "description": "Built-in macro for `getPlayers(Team.ALL)`.",
-        "args": []
-    },
-    "hudHeader": {
-        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
-        "args": [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": "Player",
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "HEADER",
-                "description": "The text to be displayed (can be blank)",
-                "type": "Any",
-                "default": "STRING"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "Position",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "Number",
-                "default": "NUMBER"
-            },
-            {
-                "name": "HEADER COLOR",
-                "description": "The color of the header.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ]
-    },
-    "hudSubheader": {
-        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
-        "args": [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": "Player",
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "SUBHEADER",
-                "description": "The subheader text to be displayed (can be blank)",
-                "type": "Any",
-                "default": "NULL"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "Position",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "Number",
-                "default": "NUMBER"
-            },
-            {
-                "name": "SUBHEADER COLOR",
-                "description": "The color of the subheader.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ]
-    },
-    "hudSubtext": {
-        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
-        "args": [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": "Player",
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "SUBTEXT",
-                "description": "The body text to be displayed (can be blank)",
-                "type": "Any",
-                "default": "NULL"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "Position",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "Number",
-                "default": "NUMBER"
-            },
-            {
-                "name": "TEXT COLOR",
-                "description": "The color of the text.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ]
-    },
-    "hudText": {
-        "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.\n\nNote: you can use the macros `hudHeader`, `hudSubheader` and `hudSubtext` to reduce the number of arguments.",
-        "args": [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": "Player",
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "HEADER",
-                "description": "The text to be displayed (can be blank)",
-                "type": "Any",
-                "default": "STRING"
-            },
-            {
-                "name": "SUBHEADER",
-                "description": "The subheader text to be displayed (can be blank)",
-                "type": "Any",
-                "default": "NULL"
-            },
-            {
-                "name": "TEXT",
-                "description": "The body text to be displayed (can be blank)",
-                "type": "Any",
-                "default": "NULL"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "Position",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "Number",
-                "default": "NUMBER"
-            },
-            {
-                "name": "HEADER COLOR",
-                "description": "The color of the header.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "SUBHEADER COLOR",
-                "description": "The color of the subheader.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "TEXT COLOR",
-                "description": "The color of the text.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ]
-    },
-    "getSign": {
-        "description": "Built-in macro for calculating the sign of a number. Resolves to `(((x)>0)-((x)<0))`. Returns -1, 0 or 1.",
-        "args": [
-            {
-                "name": "NUMBER",
-                "description": "The number to calculate the sign of.",
-                "type": "Number",
-                "default": "NUMBER"
-            }
-        ]
-    },
-    "math.e": {
-        "description": "The number e = 2.71828182846.",
-        "args": null
-    },
-    "math.pi": {
-        "description": "The number pi = 3.14159265359.",
-        "args": null
-    },
-    "range": {
-        "description": "Only usable inside a `for` instruction, such as `for i in range(1,3,2)`. If only 2 arguments are provided, they are treated as `range(start, stop)`. If only one argument is provided, it is treated as `range(stop)`.",
-        "args": [
-            {
-                "name": "START",
-                "description": "The control variable is set to this value when the loop begins. If omitted, defaults to 0.",
-                "type": "Number",
-                "default": "NUMBER"
-            },
-            {
-                "name": "STOP",
-                "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
-                "type": "Number",
-                "default": "COUNT OF"
-            },
-            {
-                "name": "STEP",
-                "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action. If omitted, defaults to 1.",
-                "type": "Number",
-                "default": "NUMBER"
-            }
-        ]
-    },
-    "raycast": {
-        "description": "Defines a raycast to be then used with `hasLoS()`, `getPlayerHit()`, `getNormal()` or `getHitPosition()`.\nFor line of sight, the 3rd argument must be `los=` and the 4th and 5th arguments must be omitted.\n\nExamples:\n- `raycast(A, B, include=C, exclude=D, includePlayerObjects=false).getHitPosition()`\n- `raycast(A, B, los=BarrierLos.BLOCKED_BY_ALL_BARRIERS).hasLoS()`",
-        "args": [
-            {
-                "name": "START POS",
-                "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "Location",
-                "default": "VECTOR"
-            },
-            {
-                "name": "END POS",
-                "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": "Location",
-                "default": "VECTOR"
-            },
-            {
-                "name": "include=players To Include",
-                "description": "Which players can be hit by this ray cast. Note: if doing a line-of-sight check, use `los=BarrierLos.xxxx` instead.",
-                "type": "Player",
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "exclude=players To Exclude",
-                "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
-                "type": "Player",
-                "default": "EVENT PLAYER"
-            },
-            {
-                "name": "include Player Objects=bool",
-                "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
-                "type": "BooleanValue",
-                "default": "TRUE"
-            }
-        ]
-    },
-    "round": {
-        "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The real number to get the nearest integer of.",
-                "type": "Number",
-                "default": "NUMBER"
-            }
-        ]
-    },
-    "sorted": {
-        "description": "A copy of the specified array with the values sorted according to the lambda function that is evaluated for each element.\n\nExample: `sorted(getAllPlayers(), key=lambda x: x.getScore())`",
-        "args": [
-            {
-                "name": "ARRAY",
-                "description": "The array whose copy will be sorted.",
-                "type": "Any",
-                "default": "GLOBAL VARIABLE"
-            },
-            {
-                "name": "key=lambda",
-                "description": "The lambda function that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Can be omitted if the array is sorted without a special key (equivalent to `lambda x: x`).",
-                "type": "Lambda",
-                "default": "CURRENT ARRAY ELEMENT"
-            }
-        ]
-    },
-    "stopChasingVariable": {
-        "description": "Stops an in-progress chase of a variable (global or player), leaving it at its current value.",
-        "args": [
-            {
-                "name": "VARIABLE",
-                "description": "Specifies which variable (global or player) to stop modifying.",
-                "type": "Variable",
-                "default": "A"
-            }
-        ]
-    },
-    "wait": {
-        "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
-        "args": [
-            {
-                "name": "TIME",
-                "description": "The duration of the pause. If omitted, defaults to 0.016.",
-                "type": "Number",
-                "default": "NUMBER"
-            },
-            {
-                "name": "WAIT BEHAVIOR",
-                "description": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart. If omitted, defaults to `Wait.IGNORE_CONDITION`.",
-                "type": "Wait",
-                "default": "IGNORE CONDITION"
-            }
-        ]
-    },
+    //If the current rule has a variable goto, then we cannot make the isntructions useless, as we don't know whether they will execute.
+    if (!currentRuleHasVariableGoto) {
+        _makeChildrenUseless(children);
+    }
+
+    return children;
+
+}
+
+//https://workshop.elohell.gg/wiki/bRQhecrRn/Data+type+comparisons/
+//Returns true if, when compared to "false", it returns true.
+function isDefinitelyFalsy(content) {
+    if (["__emptyArray__", "false", "null"].includes(content.name)) {
+        return true;
+    }
+    //Test for null vector: vect(0,0,0)
+    if (content.name === "vect") {
+        return (isDefinitelyFalsy(content.args[0]) && isDefinitelyFalsy(content.args[1]) && isDefinitelyFalsy(content.args[2]));
+    }
+    //Test for number 0
+    if (content.name === "__number__") {
+        return (content.args[0].name === 0);
+    }
+    //Test for arrays, cast as 1st element
+    if (content.name === "__array__") {
+        return isDefinitelyFalsy(content.args[0]);
+    }
+    return false;
+}
+
+//Returns true if, when compared to "false", it returns false.
+//Not the exact opposite of isDefinitelyFalsy, as in most cases, we can't know either.
+function isDefinitelyTruthy(content) {
+    if (content.name === "true") {
+        return true;
+    }
+    //Test for null vector: vect(0,0,0)
+    if (content.name === "vect") {
+        return (isDefinitelyTruthy(content.args[0]) || isDefinitelyTruthy(content.args[1]) || isDefinitelyTruthy(content.args[2]));
+    }
+    //Test for number other than 0
+    if (content.name === "__number__") {
+        return (content.args[0].name !== 0);
+    }
+    //Test for arrays, cast as 1st element
+    if (content.name === "__array__") {
+        return isDefinitelyTruthy(content.args[0]);
+    }
+    return false;
+}
+
+//Returns true if the ASTs are the same tree (same names) and there is no function that can return a different value if called twice with the same arguments and context (such as a random function).
+function areAstsEqual(a, b) {
+    if (a.name !== b.name) {
+        return false;
+    }
+    if (["random.randint", "random.uniform", "random.choice", "random.shuffle"].includes(a.name)) {
+        return false;
+    }
+    if (a.args.length !== b.args.length) {
+        return false;
+    }
+    for (var i = 0; i < a.args.length; i++) {
+        if (!areAstsEqual(a.args[i], b.args[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+//Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
+function getAstFor0() {
+    return new Ast("__number__", [new Ast("0", [], [], "NumberLiteral")], [], "int");
+}
+function getAstFor1() {
+    return new Ast("__number__", [new Ast("1", [], [], "NumberLiteral")], [], "int");
+}
+function getAstForMinus1() {
+    return new Ast("__number__", [new Ast("-1", [], [], "NumberLiteral")], [], "unsigned int");
+}
+function getAstFor2() {
+    return new Ast("__number__", [new Ast("2", [], [], "NumberLiteral")], [], "int");
+}
+function getAstFor0_016() {
+    return new Ast("__number__", [new Ast("0.016", [], [], "NumberLiteral")], [], "unsigned float");
+}
+function getAstForNumber(nb) {
+    if (typeof nb !== "number") {
+        error("Expected a number, but got '"+nb+"' of type '"+typeof nb+"'");
+    }
+    var type = nb >= 0 ? "unsigned" : "signed";
+    type += " "+(Number.isInteger(nb) ? "int" : "float");
+    return new Ast("__number__", [new Ast(nb.toString(), [], [], "NumberLiteral")], [], type);
+}
+function getAstForNull() {
+    return new Ast("null", [], [], "Player");
+}
+function getAstForColorWhite() {
+    return new Ast("WHITE", [], [], "Color");
+}
+function getAstForTeamAll() {
+    return new Ast("__team__", [new Ast("ALL", [], [], "TeamLiteral")], [], "Team");
+}
+function getAstForUselessInstruction() {
+    return new Ast("pass");
+}
+function getAstForEnd() {
+    return new Ast("__end__");
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -18415,152 +20579,137 @@ const opyFuncs = {
 
 "use strict";
 
-const opyMemberFuncs = {
-    "append": {
-        "description": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. If used without an assignment, modifies the array in-place.\n\nExample: `A.append(3)`",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
-                "type": "Any",
-                "default": "NUMBER"
-            }
-        ]
-    },
-    "exclude": {
-        "description": "A copy of the array with one or more values removed (if found).",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed.",
-                "type": "Any",
-                "default": "NUMBER"
-            }
-        ]
-    },
-    "format": {
-        "description": "The values that will be converted to text and used to replace the format placeholders (such as `{}` or `{0}`). Only usable on a string. Can have as much arguments as there are placeholders. The n-th argument replaces the n-th placeholder.",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The value used to replace the matching placeholder.",
-                "type": "Any",
-                "default": "NULL"
-            }
-        ]
-    },
-    "index": {
-        "description": "The index of a value within the array or -1 if no such value can be found.",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The value for which to search.",
-                "type": "Number",
-                "default": "NUMBER"
-            }
-        ]
-    },
-    "hasLoS": {
-        "description": "Whether the start and end position of a raycast have line of sight with each other.",
-        "args": []
-    },
-    "getNormal": {
-        "description": "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs).",
-        "args": []
-    },
-    "getPlayerHit": {
-        "description": "The player hit by the raycast (or null if no player is hit).",
-        "args": []
-    },
-    "getHitPosition": {
-        "description": "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs).",
-        "args": []
-    },
-    "remove": {
-        "description": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.",
-        "args": [
-            {
-                "name": "VALUE",
-                "description": "The value to remove from the array (if found).",
-                "type": "Any",
-                "default": "NUMBER"
-            }
-        ]
-    },
-    "slice": {
-        "description": "A copy of the specified array containing only values from a specified index range.",
-        "args": [
-            {
-                "name": "START INDEX",
-                "description": "The first index of the range.",
-                "type": "Number",
-                "default": "NUMBER"
-            },
-            {
-                "name": "COUNT",
-                "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
-                "type": "Number",
-                "default": "NUMBER"
-            }
-        ]
-    },
-    "x": {
-        description: "The x component of the specified vector, usually representing a leftward amount.",
-        args: null,
-    },
-    "y": {
-        description: "The y component of the specified vector, usually representing an upward amount.",
-        args: null,
-    },
-    "z": {
-        description: "The z component of the specified vector, usually representing a forward amount.",
-        args: null,
+
+/*
+A type is suitable if each type of the receivedType is suitable for any of the types in expectedType.
+Eg: ["unsigned float", "Vector"] is suitable for ["float", "Direction"].
+However ["float", "Vector"] is not suitable for ["float"].
+
+A type is defined as "suitable" if it is the type, or a child type, of expectedType.
+Eg: "float" is suitable for "Object". However "Object" is not suitable for "float".
+Moreover, {Array: "Player"} is not suitable for "Array".
+
+The special "Value" type is suitable for any child type of object or array.
+*/
+function isTypeSuitable(expectedType, receivedType) {
+
+    //console.log("expected type = "+JSON.stringify(expectedType)+", received type = "+JSON.stringify(receivedType));
+
+    if (receivedType instanceof Array) {
+        //Check if each of the received type is valid for the expected type.
+        return receivedType.every(x => isTypeSuitable(expectedType, x));
     }
+
+    if (expectedType instanceof Array) {
+        //Check if the received type is valid for any of the expected types.
+        return expectedType.some(x => isTypeSuitable(x, receivedType));
+    }
+
+    if (typeof receivedType === "string") {
+        if (typeof expectedType === "string") {
+            //Do not check for type "Variable". Functions with such a type are checked manually.
+            if (expectedType === "Variable") {
+                return true;
+            }
+            //Handle the special "value" type.
+            if (receivedType === "Value") {
+                return expectedType === "Value" || expectedType === "Array" || typeMatrix["Object"].includes(expectedType);
+            } else if (expectedType === "Value") {
+                return receivedType === "Array" || typeMatrix["Object"].includes(receivedType);
+            } else {
+                //The most simple case: both types are string. Simply use the type matrix to see if the received type is a child (or the type itself) of the expected type.
+                if (!(expectedType in typeMatrix)) {
+                    error("Unhandled type '"+expectedType+"'");
+                }
+                return typeMatrix[expectedType].includes(receivedType);
+            }
+
+        } else if (typeof expectedType === "object") {
+            var expectedTypeName = Object.keys(expectedType)[0];
+            if (expectedTypeName === "Array") {
+                //The only string type that would be suitable for Array is the special "value" type.
+                return receivedType === "Value";
+
+            } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
+                return isTypeSuitable(expectedTypeName, receivedType);
+
+            }
+        }
+    } else if (typeof receivedType === "object") {
+        var receivedTypeName = Object.keys(receivedType)[0];
+        if (receivedTypeName === "Array") {
+            if (typeof expectedType === "string") {
+                //The only string type that is suitable for an array is "Array".
+                return expectedType === "Array";
+
+            } else if (typeof expectedType === "object") {
+                
+                var expectedTypeName = Object.keys(expectedType)[0];
+                if (expectedTypeName === "Array") {
+                    return isTypeSuitable(expectedType[expectedTypeName], receivedType[receivedTypeName]);
+
+                } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
+                    //An array cannot be suitable for a vector
+                    return false;
+                }
+            }
+        } else if (["Vector", "Direction", "Position", "Velocity"].includes(receivedTypeName)) {
+            if (typeof expectedType === "string") {
+                //The default type for vectors is float.
+                return receivedType[receivedTypeName].every(x => isTypeSuitable("float", x));
+
+            } else if (typeof expectedType === "object") {
+                
+                var expectedTypeName = Object.keys(expectedType)[0];
+                if (expectedTypeName === "Array") {
+                    //An vector cannot be suitable for a array
+                    return false;
+
+                } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
+                    if (isTypeSuitable(expectedTypeName, receivedTypeName)) {
+                        if (expectedType[expectedTypeName].length !== receivedType[receivedTypeName].length) {
+                            return false;
+
+                        } else {
+                            for (var i = 0; i < expectedType[expectedTypeName].length; i++) {
+                                if (!isTypeSuitable(expectedType[expectedTypeName][i], receivedType[receivedTypeName][i])) {
+                                    return false;
+                                }
+                            }
+                            return true;
+                        }
+
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+
+    error("Unhandled expected type '"+JSON.stringify(expectedType)+"' or received type '"+JSON.stringify(receivedTypeName)+"'");
+
 }
-/* 
- * This file is part of OverPy (https://github.com/Zezombye/overpy).
- * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
- * the Free Software Foundation, version 3.
- *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License 
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
 
-"use strict";
-
-const preprocessingDirectives = {
-    "define": {
-        "description": "Creates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n"
-    },
-    "defineMember": {
-        "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion."
-    },
-    "obfuscate": {
-        "description": "Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.\n\nUsage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)\n\nThe following obfuscation methods are applied:\n\n- Rule filling: several empty rules are inserted.\n- Comment removing: all rule titles are replaced with the empty string.\n- Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.\n- Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.\n"
-    },
-    "noEdit": {
-        "description": "Adds 2500 empty rules to the preset, which should make it absolutely impossible to open the rules (as you get a \"connection lost\" error). Therefore, it is the ultimate form of obfuscation, as you simply cannot even see the code.\n\nHowever, pasting the generated code could trigger a \"connection lost\" error as well, and a huge lag. As such, this directive should only be used on finalized gamemodes, before you publish it; it should not be used every time.\n\nYou will very likely have to paste the generated code in an editor, then paste the rules by sets of 800, 1200 then 500 to be able to insert them.\n"
-    },
-    "suppressWarnings": {
-        "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
-    },
-    "disableUnusedVars": {
-        "description": "Do not put 'unused_var_xxx' in the compilation. Not recommended if compiling regularly, as this could lead to not being able to paste the generated output if variable offsets have been modified."
-    },
-    "mainFile": {
-        "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file."
-    },
-    "include": {
-        "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file."
+function replaceType(type, matchReplacementObj) {
+    if (typeof matchReplacementObj !== "object") {
+        error("Expected type object but got '"+matchReplacementObj+"' of type '"+typeof matchReplacementObj+"'");
     }
+    if (typeof type === "string") {
+        if (type in matchReplacementObj) {
+            return matchReplacementObj[type];
+        } else {
+            return type;
+        }
+    } else if (type instanceof Array) {
+        return type.map(x => replaceType(x, matchReplacementObj));
+    } else {
+        for (var key in type) {
+            type[key] = replaceType(type[key], matchReplacementObj);
+        }
+        return type;
+    }
+    error("This shouldn't happen");
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -18638,112 +20787,6 @@ function trimNb(x) {
 }
 
 
-//Same as splitStrOnDelimiter but for a token list.
-//If getAllTokens = false, this will only split on the first occurrence of the token.
-function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
-	
-	var result = [];
-	var bracketsLevel = 0;
-	
-	if (rtl) {
-		var start = tokens.length-1;
-		var end = -1;
-		var step = -1;
-		var latestDelimiterPos = tokens.length;
-	} else {
-		var start = 0;
-		var end = tokens.length;
-		var step = 1;
-		var latestDelimiterPos = -1;
-	}
-	
-	//console.log("Splitting tokens '"+dispTokens(tokens)+"' on "+str);
-	
-	for (var i = start; i != end; i+=step) {
-		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
-			bracketsLevel += step;
-		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
-			bracketsLevel -= step;
-		} else if (tokens[i].text === str && bracketsLevel === 0) {
-			if (rtl) {
-				result.push(tokens.slice(i+1, latestDelimiterPos));
-			} else {
-				result.push(tokens.slice(latestDelimiterPos+1, i));
-			}
-			latestDelimiterPos = i;
-			if (!getAllTokens) {
-				break;
-			}
-		}
-	}
-	
-	if (bracketsLevel !== 0) {
-		error("Lexer broke (bracket level is "+bracketsLevel+")");
-	}
-	
-	if (rtl) {
-		result.unshift(tokens.slice(end+1, latestDelimiterPos));
-	} else {
-		result.push(tokens.slice(latestDelimiterPos+1, end));
-	}
-		
-	if (result[0].length === 0 && result.length === 1) {
-		return [];
-	} else {
-		return result;
-	}
-	
-}
-
-
-//Same as getBracketPositions but for tokens.
-function getTokenBracketPos(tokens, returnFirstPair=false) {
-	var bracketsPos = []
-	var bracketsLevel = 0;
-	var currentPositionIsString = false;
-	var currentStrDelimiter = "";
-	for (var i = 0; i < tokens.length; i++) {
-		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
-			bracketsLevel++;
-			if (bracketsLevel == 1) {
-				bracketsPos.push(i);
-			}
-		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
-			bracketsLevel--;
-			if (bracketsLevel === 0) {
-				bracketsPos.push(i);
-				if (returnFirstPair) {
-					break;
-				}
-			}
-		} 
-	}
-	if (bracketsLevel > 0) {
-		error("Brackets level above 0! (missing closing bracket)");
-	}
-	
-	return bracketsPos;
-}
-
-
-
-//Converts a token list, or a token object to string.
-function dispTokens(content) {
-	if (content instanceof Array) {
-		var result = content.map(x => x.text).join(" ");
-		return result;
-	} else if (typeof content === "string") {
-		return content;
-	} else if (typeof content === "object") {
-		if (content.text === undefined) {
-			error("Object is not a token or token list");
-		} else {
-			return content.text;
-		}
-	} else {
-		error("Undefined content "+content);
-	}
-}
 
 
 
@@ -19157,14 +21200,126 @@ function warn(warnType, message) {
 			}
 		}
 		console.warn(warning);
-		suppressedWarnings.push(warnType);
+		//suppressedWarnings.push(warnType);
 		encounteredWarnings.push(warning);
 	}
 }
 
-function debug(str, arg) {
+function debug(str) {
 	//return;
 	console.debug("DEBUG: "+str);
+}
+
+function getTypeCheckFailedMessage(content, argNb, expectedType, received) {
+
+	var funcDisplayName = functionNameToString(content);
+	var argKind = funcDisplayName.startsWith("operator ") ? "operand": "argument";
+
+	var receivedFuncName = functionNameToString(received);
+
+	return `Expected type '${typeToString(expectedType)}' for the ${nthOfNumber(argNb+1)} ${argKind} of ${funcDisplayName}, but got ${receivedFuncName} of type '${typeToString(received.type)}'`;
+}
+
+function functionNameToString(content) {
+
+	if (typeof content === "string") {
+		error("Expected an object for internal function 'functionNameToString' but got '"+content+"'");
+	}
+
+	var funcToOperatorMapping = {
+		"__add__": "'+' or '+='",
+		"__assignTo__": "'='",
+		"__divide__": "'/' or '/='",
+		"__equals__": "'=='",
+		"__inequals__": "'!='",
+		"__greaterThan__": "'>'",
+		"__greaterThanOrEquals__": "'>='",
+		"__lessThan__": "'<'",
+		"__lessThanOrEquals__": "'<='",
+		"__modulo__": "'%' or '%='",
+		"__multiply__": "'*' or '*='",
+		"__raiseToPower__": "'**' or '**='",
+		"__subtract__": "'-' or '-='",
+		//todo
+	}
+
+	var funcToDisplayMapping = {
+		"__chaseAtRate__": "chase",
+		"__chaseOverTime__": "chase",
+		"__raycast__": "raycast",
+		//todo
+	}
+
+	var funcDisplayName = null;
+
+	if (content.name in funcToOperatorMapping) {
+		funcDisplayName = "operator "+funcToOperatorMapping[content.name];
+	} else if (content.name in funcToDisplayMapping) {
+		funcDisplayName = "function '"+funcToDisplayMapping[content.name]+"'";
+	} else if (isTypeSuitable("StringLiteral", content.type)) {
+		funcDisplayName = "string "+escapeString(content.name);
+	} else {
+		funcDisplayName = "function '"+content.name+"'";
+	}
+
+	return funcDisplayName;
+}
+
+function typeToString(type) {
+	if (typeof type === "string") {
+		return type;
+	} else if (type instanceof Array) {
+		return type.map(x => typeToString(x)).join(" | ");
+	} else if (typeof type === "object") {
+		if ("Array" in type) {
+			return typeToString(type["Array"])+"[]";
+
+		} else if ("Vector" in type || "Direction" in type || "Position" in type || "Velocity" in type) {
+			return Object.keys(type)[0]+"<"+type[Object.keys(type)[0]].map(x => typeToString(x)).join(", ")+">";
+
+		} else {
+			error("Could not display type '"+JSON.stringify(type)+"'");
+		}
+	} else {
+		error("Could not display type '"+type+"'");
+	}
+}
+
+function nthOfNumber(nb) {
+	if (nb === 1) {
+		return "1st";
+	} else if (nb === 2) {
+		return "2nd";
+	} else if (nb === 3) {
+		return "3rd";
+	} else {
+		return nb+"th";
+	}
+}
+
+
+function astToString(ast, nbTabs=0) {
+	var result = "";
+	if (ast === undefined) {
+		return "__undefined__";
+	}
+	result += ast.name;
+	if (ast.args === undefined) {
+		result += "(__undefined__)";
+
+	} else if (ast.args.length > 0) {
+		result += "(" + ast.args.map(x => astToString(x)).join(", ")+")";
+	}
+	if (ast.children === undefined) {
+		result += ":__undefined__";
+
+	} else if (ast.children.length > 0) {
+        result += ":\n";
+        for (var child of ast.children) {
+            result += tabLevel(nbTabs+1) + astToString(child, nbTabs+1)+"\n";
+        }
+    }
+    return result;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -19239,58 +21394,53 @@ function isWs0(x) {
 
 "use strict";
 
-//Used for localized string parsing; splits an array of strings on one or two strings.
-//Eg: splitStrTokens(["owo", "uwu", "owo"], "uwu") will return [["owo"], ["owo"]].
-function splitStrTokens(tokens, str1, str2) {
-	
-	var str1Index = -1;
-	var str2Index = -1;
-	var bracketLevel = 0;
-	
-	if (str2 !== undefined) {
-		debug("Splitting str tokens '"+tokens+"' on '"+str1+"' and '"+str2+"'");
+
+function unescapeString(content) {
+	if (content.length < 2) {
+		error("Expected a string, but got '"+content+"'");
+	}
+	if (content.startsWith("'") && content.endsWith("'")) {
+		content = content.substring(1, content.length-1).replace(/\\'/g, "'");
+
+	} else if (content.startsWith('"') && content.endsWith('"')) {
+		content = content.substring(1, content.length-1).replace(/\\"/g, '"');
+
 	} else {
-		debug("Splitting str tokens '"+tokens+"' on '"+str1+"'");
+		error("Expected a string, but got '"+content+"'");
 	}
-	
-	var i;
-	for (i = 0; i < tokens.length; i++) {
-		if (tokens[i] === str1 && bracketLevel === 0) {
-			str1Index = i;
-			break;
-		} else if (tokens[i] === "(" || tokens[i] === "¡" || tokens[i] === "¿") {
-			bracketLevel++;
-		} else if ((tokens[i] === ")" || tokens[i] === "!" || tokens[i] === "?") && bracketLevel > 0) {
-			bracketLevel--;
-		}
-	}
-	
-	i++;
-	
-	if (str2 !== undefined) {
-		for (; i < tokens.length; i++) {
-			if (tokens[i] === str2 && bracketLevel === 0) {
-				str2Index = i;
-				break;
-			} else if (tokens[i] === "(" || tokens[i] === "¡" || tokens[i] === "¿") {
-				bracketLevel++;
-			} else if ((tokens[i] === ")" || tokens[i] === "!" || tokens[i] === "?") && bracketLevel > 0) {
-				bracketLevel--;
+	var result = "";
+	for (var i = 0; i < content.length; i++) {
+		if (content[i] === "\\") {
+			if (i === content.length-1) {
+				error("Cannot unescape string: expected a character after the ending backslash (\\)");
 			}
+			if (content[i+1] === "\"") {
+				result += '"';
+			} else if (content[i+1] === "'") {
+				result += "'";
+			} else if (content[i+1] === "\\") {
+				result += "\\";
+			} else if (content[i+1] === "n") {
+				//error("Strings containing newlines cannot be pasted in the workshop");
+				result += "\n";
+			} else if (content[i+1] === "r") {
+				//do nothing. remove those pesky carriage returns
+			} else {
+				error("Unknown escape sequence '\\"+content[i+1]+"'");
+			}
+		} /*else if (content[i] === "\n") {
+			error("Strings containing newlines cannot be pasted in the workshop");
+		} */else {
+			result += content[i];
 		}
 	}
-	
-	//debug("str1Index = "+str1Index+", str2Index = "+str2Index);
-	
-	if (str1Index === -1) {
-		return [tokens];
-	} else if (str2Index === -1) {
-		return [tokens.slice(0, str1Index), tokens.slice(str1Index+1)]
-	} else {
-		return [tokens.slice(0, str1Index), tokens.slice(str1Index+1, str2Index), tokens.slice(str2Index+1)]
-	}
-	
+	return result;
 }
+
+function escapeString(content) {
+	return '"'+content.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, "\\n")+'"';
+}
+
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -19325,7 +21475,7 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 	if (toWorkshop) {
 		for (var i = 0; i < currentArrayElementNames.length; i++) {
 			if (keyword === currentArrayElementNames[i]) {
-				return translate("_currentArrayElement", true, valueFuncKw);
+				return translate("__currentArrayElement__", true, valueFuncKw);
 			}
 		}
 	}
@@ -19374,15 +21524,6 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 			}
 		}
 		
-	}
-
-	
-	
-	//Check for numbers
-	if (!isNaN(keyword)) {
-		//Convert to int then to string to remove unnecessary 0s.
-		keyword = trimNb(Number(keyword).toString());
-		return keyword;
 	}
 	
 	error("No match found for keyword '"+keyword+"'");	
@@ -19437,7 +21578,7 @@ function translateSubroutineToPy(content) {
 		return content;
 	} else if (defaultSubroutineNames.includes(content)) {
 		//Add the subroutine as it doesn't already exist (else it would've been caught by the first if)
-		addVariable(content, defaultSubroutineNames.indexOf(content));
+		addSubroutine(content, defaultSubroutineNames.indexOf(content));
 		return content;
 	} else {
 		error("Unknown subroutine '"+content+"'");
@@ -19540,6 +21681,9 @@ function addVariable(content, isGlobalVariable, index) {
 	if (index === undefined) {
 		error("Index is undefined");
 	}
+	if (typeof index === "string") {
+		index = parseInt(index);
+	}
 	if (reservedNames.includes(content)) {
 		error("Variable name '"+content+"' is a reserved word");
 	}
@@ -19553,6 +21697,156 @@ function addVariable(content, isGlobalVariable, index) {
 			"name": content,
 			"index": index,
 		});
+	}
+}
+
+//Checks if the given name is a variable name
+function isVarName(content, checkForGlobalVar) {
+	var varArray = checkForGlobalVar ? globalVariables : playerVariables;
+	if (defaultVarNames.includes(content)) {
+		return true;
+	}
+	for (var variable of varArray) {
+		if (variable.name === content) {
+			return true;
+		}
+	}
+	return false;
+}
+
+//Checks if the given name is a subroutine name
+function isSubroutineName(content, checkForGlobalVar) {
+	if (defaultSubroutineNames.includes(content)) {
+		return true;
+	}
+	for (var subroutine of subroutines) {
+		if (subroutine.name === content) {
+			return true;
+		}
+	}
+	return false;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+//Same as splitStrOnDelimiter but for a token list.
+//If getAllTokens = false, this will only split on the first occurrence of the token.
+function splitTokens(tokens, str, getAllTokens=true, rtl=false) {
+	
+	var result = [];
+	var bracketsLevel = 0;
+	
+	if (rtl) {
+		var start = tokens.length-1;
+		var end = -1;
+		var step = -1;
+		var latestDelimiterPos = tokens.length;
+	} else {
+		var start = 0;
+		var end = tokens.length;
+		var step = 1;
+		var latestDelimiterPos = -1;
+	}
+	
+	//console.log("Splitting tokens '"+dispTokens(tokens)+"' on "+str);
+	
+	for (var i = start; i != end; i+=step) {
+		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
+			bracketsLevel += step;
+		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
+			bracketsLevel -= step;
+		} else if (tokens[i].text === str && bracketsLevel === 0) {
+			if (rtl) {
+				result.push(tokens.slice(i+1, latestDelimiterPos));
+			} else {
+				result.push(tokens.slice(latestDelimiterPos+1, i));
+			}
+			latestDelimiterPos = i;
+			if (!getAllTokens) {
+				break;
+			}
+		}
+	}
+	
+	if (bracketsLevel !== 0) {
+		error("Lexer broke (bracket level is "+bracketsLevel+")");
+	}
+	
+	if (rtl) {
+		result.unshift(tokens.slice(end+1, latestDelimiterPos));
+	} else {
+		result.push(tokens.slice(latestDelimiterPos+1, end));
+	}
+		
+	if (result[0].length === 0 && result.length === 1) {
+		return [];
+	} else {
+		return result;
+	}
+	
+}
+
+
+//Same as getBracketPositions but for tokens.
+function getTokenBracketPos(tokens, returnFirstPair=false) {
+	var bracketsPos = []
+	var bracketsLevel = 0;
+	var currentPositionIsString = false;
+	var currentStrDelimiter = "";
+	for (var i = 0; i < tokens.length; i++) {
+		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
+			bracketsLevel++;
+			if (bracketsLevel == 1) {
+				bracketsPos.push(i);
+			}
+		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
+			bracketsLevel--;
+			if (bracketsLevel === 0) {
+				bracketsPos.push(i);
+				if (returnFirstPair) {
+					break;
+				}
+			}
+		} 
+	}
+	if (bracketsLevel > 0) {
+		error("Brackets level above 0! (missing closing bracket)");
+	}
+	
+	return bracketsPos;
+}
+
+//Converts a token list, or a token object to string.
+function dispTokens(content) {
+	if (content instanceof Array) {
+		var result = content.map(x => x.text).join(" ");
+		return result;
+	} else if (typeof content === "string") {
+		return content;
+	} else if (typeof content === "object") {
+		if (content.text === undefined) {
+			error("Object is not a token or token list");
+		} else {
+			return content.text;
+		}
+	} else {
+		error("Undefined content "+content);
 	}
 }
 /* 
@@ -19629,6 +21923,8 @@ var playerVariables;
 var subroutines;
 var currentLanguage;
 
+const ELEMENT_LIMIT = 20000;
+
 //Compilation variables - are reset at each compilation.
 
 //The absolute path of the folder containing the main file. Used for relative paths.
@@ -19638,26 +21934,24 @@ var rootPath;
 //Should be the empty array at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
 var currentArrayElementNames;
 
-//The keywords "true" and "false", in the workshop.
-//Used to avoid translating back when comparing to true/false.
-//Generated at each compilation.
-var wsTrue;
-var wsFalse;
-var wsNull;
-var wsNot;
-var wsRandInt;
-var wsRandReal;
-var wsRandShuffle;
-var wsRandChoice;
-
 //Set at each rule, to check whether it is legal to use "eventPlayer" and related.
 var currentRuleEvent;
+
+//The encountered labels throughout the rule, to not have duplicate labels. Set at each rule.
+var currentRuleLabels;
+
+//The number of times the specified label is referenced. If that number is 0, then the label is considered as not accessed.
+var currentRuleLabelAccess;
+
+var currentRuleHasVariableGoto;
 
 //If set to true, sets all rule titles to empty.
 var obfuscateRules;
 
 //If set to true, puts 3000 empty rules, effectively making it impossible to open the preset (you get kicked by the server).
 var enableNoEdit;
+
+var enableOptimization;
 
 //Contains all macros.
 var macros;
@@ -19675,6 +21969,10 @@ var compiledCustomGameSettings;
 
 //The stack of the files (macros count as "files").
 var fileStack;
+
+//An unique number for automatically generated labels.
+var uniqueNumber;
+
 
 //Decompilation variables
 
@@ -19700,14 +21998,6 @@ function resetGlobalVariables(language) {
 	rootPath = "";
 	currentArrayElementNames = [];
 	currentLanguage = language;
-	wsTrue = tows("true", valueFuncKw);
-	wsFalse = tows("false", valueFuncKw);
-	wsNull = tows("null", valueFuncKw);
-	wsNot = tows("_not", valueFuncKw);
-	wsRandInt = tows("random.randint", valueFuncKw);
-	wsRandReal = tows("random.uniform", valueFuncKw);
-	wsRandShuffle = tows("random.shuffle", valueFuncKw);
-	wsRandChoice = tows("random.choice", valueFuncKw);
 	currentRuleEvent = "";
 	obfuscateRules = false;
 	macros = [];
@@ -19726,6 +22016,8 @@ function resetGlobalVariables(language) {
 	enableNoEdit = false;
 	disableUnusedVars = false;
 	compiledCustomGameSettings = "";
+	enableOptimization = true;
+	uniqueNumber = 0;
 }
 
 //Other constants
@@ -19763,8 +22055,6 @@ const pyOperators = [
 	"**=",
 	"min=",
 	"max=",
-	"++",
-	"--",
 	"if",
 	"or",
 	"and",
@@ -19776,6 +22066,8 @@ const pyOperators = [
 	">=",
 	">",
 	"<",
+	"++",
+	"--",
 	"+",
 	"-",
 	"*",
@@ -19797,29 +22089,24 @@ function vect(x,y,z) {
     });
 }`;
 
-const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length-1;
+const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length;
 
 const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BV', 'BW', 'BX', 'BY', 'BZ', 'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN', 'CO', 'CP', 'CQ', 'CR', 'CS', 'CT', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG', 'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN', 'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DV', 'DW', 'DX'];
 
+//Sub0 to Sub127
 const defaultSubroutineNames = Array(128).fill().map((e,i)=>i).map(x => "Sub"+x);
 
 //Names that cannot be used for variables.
-const reservedNames = [
-	"if", "else", "elif", "do", "while", "for", "return", "continue", "switch", "case", "default", "break", "pass",
-	"false", "true", "null", 
-	"goto", "lambda", "del", "import", "def", 
-	"and", "or", "not", "in", 
-	"eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", 
-	"hostPlayer", 
-	"loc", "RULE_CONDITION", "RULE_START", 
-	"x", "y", "z", "math", "pi", "e", "random", 
-	"Vector", "int", "float",
-	"settings",
-	"globalvar", "playervar", "subroutine", "disabled"].concat(Object.keys(constantValues));
+const reservedNames = Object.keys(opyKeywords);
+for (var func in funcKw) {
+	if (funcKw[func].args === null) {
+		reservedNames.push(func);
+	}
+}
 
 //Names that cannot be used for subroutines.
 const reservedFuncNames = [];
-for (var func of Object.keys(actionKw).concat(Object.keys(opyFuncs))) {
+for (var func of Object.keys(actionKw).concat(Object.keys(opyFuncs), Object.keys(constantValues))) {
 	if (!func.startsWith("_")) {
 		if (func.includes("(")) {
 			reservedFuncNames.push(func.substring(0, func.indexOf("(")));
@@ -19878,7 +22165,1757 @@ var fullwidthMappings = {
 for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
 	fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
 }
+
+
+const typeTree = [
+    {"Object": [
+		"Player",
+		{"float": [
+			{"unsigned float": [
+				"unsigned int",
+			]},
+			{"signed float": [
+				"signed int",
+			]},
+			{"int": [
+				"unsigned int",
+				"signed int",
+			]}
+		]},
+		"bool",
+		"DamageModificationId",
+		"HealingModificationId",
+		"DotId",
+		"HotId",
+		"EntityId",
+		"String",
+		{"Direction": ["Vector"]},
+		{"Position": ["Vector"]},
+		{"Velocity": ["Vector"]},
+		"Hero",
+		"Map",
+		"Team",
+		"Gamemode",
+		"Button",
+	]},
+	"Array",
+	"void",
+
+	"Lambda",
+	"Label",
+	"DictElem",
+
+	"Subroutine",
+	"GlobalVariable",
+	"PlayerVariable",
+
+	"NumberLiteral",
+
+	"HeroLiteral",
+	"MapLiteral",
+	"GamemodeLiteral",
+	"TeamLiteral",
+	"ButtonLiteral",
+	
+	{"StringLiteral": [
+		"LocalizedStringLiteral",
+		"FullwidthStringLiteral",
+		"BigLettersStringLiteral",
+	]}
+
+].concat(Object.keys(constantValues));
+
+//Which types are suitable for a given type.
+//For example, typeMatrix["float"] = ["float", "int", etc].
+const typeMatrix = {};
+
+function fillTypeMatrix(tree) {
+	if (typeof tree === "string") {
+		typeMatrix[tree] = [tree];
+
+	} else {
+		var type = Object.keys(tree)[0];
+		typeMatrix[type] = [type];
+		for (var child of tree[type]) {
+			fillTypeMatrix(child);
+			if (typeof child === "string") {
+				typeMatrix[type].push(...typeMatrix[child]);
+			} else {
+				typeMatrix[type].push(...typeMatrix[Object.keys(child)[0]]);
+			}
+		}
+	}
+}
+for (var elem of typeTree) {
+	fillTypeMatrix(elem);
+}
+typeMatrix["Vector"].push("Direction", "Position", "Velocity");
+
+//An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
+var astParsingFunctions = {};
 /* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+var decompileTest = `
+
+rule("cs:s zombie escape - made by /u/zezombye - discord in description")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Set Global Variable(F, Round To Integer(X Component Of(Nearest Walkable Position(Vector(100, 100, 100))), Up));
+	}
+}
+
+rule("kings row")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 17;
+	}
+
+	actions
+	{
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(1, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(7, 5, 20));
+		Modify Global Variable(S, Append To Array, Vector(12, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(18, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(23, 2, 20));
+		Modify Global Variable(S, Append To Array, Vector(25, 0, 10));
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(62.730, 5.860, -55.220));
+		Modify Global Variable(L, Append To Array, Vector(32.710, 7.460, -31.960));
+		Modify Global Variable(L, Append To Array, Vector(-10.513, 0.937, 41.313));
+		Modify Global Variable(L, Append To Array, Vector(24.319, 5.350, -4.521));
+		Modify Global Variable(L, Append To Array, Vector(-25.564, 1.336, -34.058));
+		Modify Global Variable(L, Append To Array, Vector(-92.891, 2.859, -28.700));
+		Modify Global Variable(L, Append To Array, Vector(-156.650, 1.479, 48.010));
+		Set Global Variable(H, Vector(21.270, 0.580, -48.480));
+		Set Global Variable(D, -15.000);
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 21);
+		Modify Global Variable(M, Append To Array, 16);
+		Modify Global Variable(M, Append To Array, 17);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 25);
+		Modify Global Variable(M, Append To Array, 35);
+		Modify Global Variable(M, Append To Array, 10);
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(30.029, 7.399, -15.740));
+		Modify Global Variable(T, Append To Array, Vector(-17.200, 0.550, 42.439));
+		Modify Global Variable(T, Append To Array, Vector(9.729, 9.350, -8.530));
+		Modify Global Variable(T, Append To Array, Vector(-22.480, 2.350, -16.360));
+		Modify Global Variable(T, Append To Array, Vector(-95.540, -1.141, -46.360));
+		Modify Global Variable(T, Append To Array, Vector(-168.860, 1.160, 35.540));
+		Modify Global Variable(T, Append To Array, Vector(-178.840, 1.540, 37.250));
+		Set Global Variable(W, Empty Array);
+		Modify Global Variable(W, Append To Array, Vector(30.770, 5.960, -8.000));
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(27.600, 5.859, -39.780));
+		Modify Global Variable(W, Append To Array, Vector(31.810, 0.240, -63.221));
+		Modify Global Variable(W, Append To Array, Vector(25, 5.960, -10.971));
+		Modify Global Variable(W, Append To Array, Vector(25.359, 5.859, -51.500));
+		Modify Global Variable(W, Append To Array, Vector(24.880, 5.960, -16.250));
+		Modify Global Variable(W, Append To Array, Vector(19.220, 4, -6.980));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(10.500, 7.350, -16.181));
+		Modify Global Variable(W, Append To Array, Vector(-8.021, 1.240, 3.880));
+		Modify Global Variable(W, Append To Array, Vector(1.109, 1.420, 4.250));
+		Modify Global Variable(W, Append To Array, Vector(-1.590, 1.240, -12.700));
+		Modify Global Variable(W, Append To Array, Vector(4.670, 7, -13.620));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(-11.931, 1.410, -15.030));
+		Modify Global Variable(W, Append To Array, Vector(-2.940, 1.410, -38.690));
+		Modify Global Variable(W, Append To Array, Vector(-19.630, 2.350, -54.021));
+		Modify Global Variable(W, Append To Array, Vector(-15.250, 1.229, -27.730));
+		Modify Global Variable(W, Append To Array, Vector(-15.471, 1.220, -31.960));
+		Modify Global Variable(W, Append To Array, Vector(-17.300, 1.220, -37.000));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(-62.450, 6.300, -17.040));
+		Modify Global Variable(W, Append To Array, Vector(-66.010, 6.370, -12.891));
+		Modify Global Variable(W, Append To Array, Vector(-52.851, 1.200, -36.070));
+		Modify Global Variable(W, Append To Array, Vector(-55.460, 0.950, -32.540));
+		Modify Global Variable(W, Append To Array, Vector(-72.330, 1.160, -12.420));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(-170.521, 1.479, 39.270));
+		Modify Global Variable(W, Append To Array, Vector(-171.641, 1.479, 32.510));
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(42.160, 0.670, 31.960));
+		Modify Global Variable(B, Append To Array, Vector(-20.250, 1.260, 27.649));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(-19.271, 2.350, -16.340));
+		Modify Global Variable(B, Append To Array, Vector(-97.971, -1.141, -47.771));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(62.729, 5.859, -55.221));
+		Modify Global Variable(C, Append To Array, Vector(3.630, 3.550, 52.290));
+		Modify Global Variable(C, Append To Array, Vector(7.409, 1.488, 13.761));
+		Modify Global Variable(C, Append To Array, Vector(11.270, 7.350, -2.210));
+		Modify Global Variable(C, Append To Array, Vector(-29.230, 10.350, -12.990));
+		Modify Global Variable(C, Append To Array, Vector(-102.940, 2.240, -8.070));
+		Modify Global Variable(C, Append To Array, Vector(-102.940, 2.240, -8.070));
+	}
+}
+
+rule("blizz world")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 54;
+	}
+
+	actions
+	{
+		Set Global Variable(W, Empty Array);
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(3, 1.250, 24.290));
+		Modify Global Variable(W, Append To Array, Vector(16.910, -2.650, 25.750));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(-9.130, 3.150, 64.190));
+		Modify Global Variable(W, Append To Array, Vector(-5.100, 2.470, 59.900));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(-1.240, 1.860, 55.560));
+		Modify Global Variable(W, Append To Array, Vector(5.640, 1.770, 55.980));
+		Modify Global Variable(W, Append To Array, Vector(8.030, 1.440, 52.010));
+		Modify Global Variable(W, Append To Array, Vector(16.460, 4.440, 83));
+		Modify Global Variable(W, Append To Array, Vector(16.270, 0.630, 88.900));
+		Modify Global Variable(W, Append To Array, Vector(16.380, 0.380, 95.980));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(-69.170, 7.930, 103.970));
+		Modify Global Variable(W, Append To Array, Vector(-53.750, 1.140, 126.340));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(-59.730, 2.160, 120.330));
+		Modify Global Variable(W, Append To Array, Vector(-63.110, 2.170, 115.720));
+		Set Global Variable(X, 6);
+		Modify Global Variable(W, Append To Array, Vector(-115.740, 0.270, 95.590));
+		Modify Global Variable(W, Append To Array, Vector(-135.510, 2.100, 118.180));
+		Modify Global Variable(W, Append To Array, Vector(-125.930, 0.950, 118.130));
+		Modify Global Variable(W, Append To Array, Vector(-120.980, 1.100, 119.230));
+		Modify Global Variable(W, Append To Array, Vector(-145.590, 2.150, 115.900));
+		Modify Global Variable(W, Append To Array, Vector(-147.460, 2.230, 90.870));
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 2, 20));
+		Modify Global Variable(S, Append To Array, Vector(2, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(4, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(10, 4, 25));
+		Modify Global Variable(S, Append To Array, Vector(12, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(14, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(2.970, -4.650, -85.640));
+		Modify Global Variable(L, Append To Array, Vector(-12.371, -4.201, -57.627));
+		Modify Global Variable(L, Append To Array, Vector(-10.511, -2.848, -0.823));
+		Modify Global Variable(L, Append To Array, Vector(-25.075, 5.251, 39.109));
+		Modify Global Variable(L, Append To Array, Vector(35.927, 3.303, 78.218));
+		Modify Global Variable(L, Append To Array, Vector(-50.660, 5.870, 88.570));
+		Modify Global Variable(L, Append To Array, Vector(-115.069, 2.995, 156.563));
+		Modify Global Variable(L, Append To Array, Vector(-123.480, 1.200, 110.010));
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 21);
+		Modify Global Variable(M, Append To Array, 16);
+		Modify Global Variable(M, Append To Array, 17);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 20);
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(-12.490, -2.650, -34.070));
+		Modify Global Variable(T, Append To Array, Vector(2.730, 1.250, 16.760));
+		Modify Global Variable(T, Append To Array, Vector(-8.830, 7.420, 51.640));
+		Modify Global Variable(T, Append To Array, Vector(22.190, 1.380, 97.410));
+		Modify Global Variable(T, Append To Array, Vector(-55.680, 5.870, 98.160));
+		Modify Global Variable(T, Append To Array, Vector(-109.040, 8, 131.870));
+		Modify Global Variable(T, Append To Array, Vector(-145.550, 2.100, 103.960));
+		Modify Global Variable(T, Append To Array, Vector(-145.550, 2.100, 103.960));
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(-12.510, -2.650, -33.500));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(22.180, 1.520, 96.160));
+		Modify Global Variable(B, Append To Array, Vector(-78.400, 1.950, 129.360));
+		Modify Global Variable(B, Append To Array, Vector(-113.260, 6.100, 130.810));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(2.970, -4.650, -85.640));
+		Modify Global Variable(C, Append To Array, Vector(-12.480, -2.720, -32.040));
+		Modify Global Variable(C, Append To Array, Vector(5.410, 1.420, 11.439));
+		Modify Global Variable(C, Append To Array, Vector(11.270, 7.350, -2.210));
+		Modify Global Variable(C, Append To Array, Vector(-17.940, 3.350, 65.140));
+		Modify Global Variable(C, Append To Array, Vector(-85.120, 0.100, 108.350));
+		Modify Global Variable(C, Append To Array, Vector(-116.570, 1.200, 112.060));
+		Modify Global Variable(C, Append To Array, Vector(-116.570, 1.200, 112.060));
+		Set Global Variable(D, -6.100);
+	}
+}
+
+rule("eichenwalde")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 124;
+	}
+
+	actions
+	{
+		Set Global Variable(W, Empty Array);
+		Modify Global Variable(W, Append To Array, Vector(8.603, 5.397, -34.937));
+		Modify Global Variable(W, Append To Array, Vector(-0.034, 4.280, -25.379));
+		Modify Global Variable(W, Append To Array, Vector(-1.348, 3.689, -27.841));
+		Modify Global Variable(W, Append To Array, Vector(-1.492, 1.359, -11.064));
+		Modify Global Variable(W, Append To Array, Vector(-1.939, 1.356, -6.578));
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(38.464, 10.852, -51.943));
+		Modify Global Variable(W, Append To Array, Vector(13, 5.554, -39.500));
+		Modify Global Variable(W, Append To Array, Vector(8.708, 6.434, -45.911));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(7.928, 6.380, -52.230));
+		Modify Global Variable(W, Append To Array, Vector(22, 6.398, -58.962));
+		Modify Global Variable(W, Append To Array, Vector(27.209, 6.395, -59.248));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(70.735, 8, -78.100));
+		Modify Global Variable(W, Append To Array, Vector(67.838, 8, -89.479));
+		Modify Global Variable(W, Append To Array, Vector(72.732, 8, -85.123));
+		Modify Global Variable(W, Append To Array, Vector(65.018, 18.071, -81.605));
+		Modify Global Variable(W, Append To Array, Vector(51.731, 8.021, -66.974));
+		Modify Global Variable(W, Append To Array, Vector(60.254, 12.454, -94.021));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(104.171, 14.071, -53.970));
+		Modify Global Variable(W, Append To Array, Vector(100.794, 12.071, -29.289));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(98.650, 12.071, -37.693));
+		Modify Global Variable(W, Append To Array, Vector(95.719, 12.071, -44.037));
+		Modify Global Variable(W, Append To Array, Vector(115.603, 10.072, -40.858));
+		Modify Global Variable(W, Append To Array, Vector(115.165, 10.073, -48.097));
+		Modify Global Variable(W, Append To Array, Vector(111.677, 12.090, -7.810));
+		Modify Global Variable(W, Append To Array, Vector(142.352, 12.090, -16.331));
+		Set Global Variable(X, 6);
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(5, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(8, 3, 25));
+		Modify Global Variable(S, Append To Array, Vector(11, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(17, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(19, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(-11.842, 1.351, -9.350));
+		Modify Global Variable(L, Append To Array, Vector(-7.643, 3.377, -28.960));
+		Modify Global Variable(L, Append To Array, Vector(17.593, 6.142, -51.242));
+		Modify Global Variable(L, Append To Array, Vector(10.165, 12.363, -96.497));
+		Modify Global Variable(L, Append To Array, Vector(56.275, 6.161, -98.000));
+		Modify Global Variable(L, Append To Array, Vector(107.763, 12.071, -32.700));
+		Modify Global Variable(L, Append To Array, Vector(128.931, 15.071, -6.823));
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 22);
+		Modify Global Variable(M, Append To Array, 11);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 11);
+		Modify Global Variable(M, Append To Array, 20);
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(-4.208, 3.352, -36.936));
+		Modify Global Variable(T, Append To Array, Vector(31.750, 8.819, -49.356));
+		Modify Global Variable(T, Append To Array, Vector(17.581, 12.364, -88.729));
+		Modify Global Variable(T, Append To Array, Vector(67.373, 6.071, -83.719));
+		Modify Global Variable(T, Append To Array, Vector(105.776, 14.071, -46.755));
+		Modify Global Variable(T, Append To Array, Vector(126.503, 17.516, -15.358));
+		Modify Global Variable(T, Append To Array, Vector(111.545, 16.071, -33.741));
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(21, 11.208, -99.000));
+		Modify Global Variable(B, Append To Array, Vector(26.932, 10.006, -87.287));
+		Modify Global Variable(B, Append To Array, Vector(67.503, 6.071, -83.707));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(125.858, 16.083, -19.069));
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(-12.112, 2.165, -7.337));
+		Modify Global Variable(C, Append To Array, Vector(-12.480, -2.720, -32.040));
+		Modify Global Variable(C, Append To Array, Vector(5.125, 12.613, -84.363));
+		Modify Global Variable(C, Append To Array, Vector(28.763, 9.349, -86.460));
+		Modify Global Variable(C, Append To Array, Vector(73.259, 14.071, -50.833));
+		Modify Global Variable(C, Append To Array, Vector(-85.120, 0.100, 108.350));
+		Modify Global Variable(C, Append To Array, Vector(113.351, 16.071, -27.425));
+		Set Global Variable(D, -2.050);
+	}
+}
+
+rule("oasis city center")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 186;
+	}
+
+	actions
+	{
+		Set Global Variable(W, Empty Array);
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(138.166, 2, 209.031));
+		Modify Global Variable(W, Append To Array, Vector(173.918, 5.451, 238.435));
+		Modify Global Variable(W, Append To Array, Vector(153.992, 4.105, 211.989));
+		Modify Global Variable(W, Append To Array, Vector(170.979, 5.348, 232.410));
+		Modify Global Variable(W, Append To Array, Vector(169.230, 4.230, 221.512));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(146.914, 5.353, 269.272));
+		Modify Global Variable(W, Append To Array, Vector(165.430, 5.353, 251.300));
+		Modify Global Variable(W, Append To Array, Vector(174.073, 5.453, 244.755));
+		Modify Global Variable(W, Append To Array, Vector(152.772, 4.353, 256.830));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(152.202, 5.453, 277.696));
+		Modify Global Variable(W, Append To Array, Vector(169.966, 5.352, 239.374));
+		Modify Global Variable(W, Append To Array, Vector(154.181, 4.298, 236.817));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(80.529, 21, 321.752));
+		Modify Global Variable(W, Append To Array, Vector(58.479, 14, 315.438));
+		Modify Global Variable(W, Append To Array, Vector(68.252, 10, 321.405));
+		Modify Global Variable(W, Append To Array, Vector(73.934, 14, 309.110));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(144.727, 5.348, 216.623));
+		Modify Global Variable(W, Append To Array, Vector(112.532, 5.348, 248.279));
+		Modify Global Variable(W, Append To Array, Vector(124.038, 4.408, 228.053));
+		Modify Global Variable(W, Append To Array, Vector(122.864, 5.352, 246.109));
+		Modify Global Variable(W, Append To Array, Vector(142.109, 5.352, 226.935));
+		Modify Global Variable(W, Append To Array, Vector(137.603, 2, 210.548));
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 5, 20));
+		Modify Global Variable(S, Append To Array, Vector(4, 7, 15));
+		Modify Global Variable(S, Append To Array, Vector(9, 3, 25));
+		Modify Global Variable(S, Append To Array, Vector(12, 4, 20));
+		Modify Global Variable(S, Append To Array, Vector(16, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(220.224, 2.351, 167.747));
+		Modify Global Variable(L, Append To Array, Vector(211.228, 2.351, 181.767));
+		Modify Global Variable(L, Append To Array, Vector(194.838, 2.995, 221.516));
+		Modify Global Variable(L, Append To Array, Vector(153.317, 5.353, 228.670));
+		Modify Global Variable(L, Append To Array, Vector(157.114, 12.871, 256.487));
+		Modify Global Variable(L, Append To Array, Vector(81.267, 8.348, 305.765));
+		Modify Global Variable(L, Append To Array, Vector(139.865, 3.553, 243.895));
+		Modify Global Variable(L, Append To Array, Vector(37.600, -5.314, 141.744));
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 22);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 25);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 20);
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(203.838, 2.351, 193.103));
+		Modify Global Variable(T, Append To Array, Vector(187.465, 3.197, 228.936));
+		Modify Global Variable(T, Append To Array, Vector(164.010, 5.352, 246.529));
+		Modify Global Variable(T, Append To Array, Vector(146.688, 12.871, 272.180));
+		Modify Global Variable(T, Append To Array, Vector(62.132, 9.210, 309.589));
+		Modify Global Variable(T, Append To Array, Vector(128.289, 5.349, 232.291));
+		Modify Global Variable(T, Append To Array, Vector(16.617, -8.500, 120.524));
+		Modify Global Variable(T, Append To Array, Vector(16.617, -8.500, 120.524));
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(202.897, 2.351, 194.546));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(146.278, 12.871, 273.901));
+		Modify Global Variable(B, Append To Array, Vector(62.114, 9.210, 309.601));
+		Modify Global Variable(B, Append To Array, Vector(113.736, 2.148, 217.728));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(201.216, 2.354, 197.171));
+		Modify Global Variable(C, Append To Array, Vector(202.001, 2.349, 195.913));
+		Modify Global Variable(C, Append To Array, Vector(5.125, 12.613, -84.363));
+		Modify Global Variable(C, Append To Array, Vector(28.763, 9.349, -86.460));
+		Modify Global Variable(C, Append To Array, Vector(87.876, 19.998, 314.105));
+		Modify Global Variable(C, Append To Array, Vector(153.019, 5.453, 281.754));
+		Modify Global Variable(C, Append To Array, Vector(112, 2.148, 216));
+		Modify Global Variable(C, Append To Array, Vector(112, 2.148, 216));
+		Set Global Variable(D, -8.900);
+	}
+}
+
+rule("list walls (W)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(W, Empty Array);
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(138.166, 2, 209.031));
+		Modify Global Variable(W, Append To Array, Vector(173.918, 5.451, 238.435));
+		Modify Global Variable(W, Append To Array, Vector(153.992, 4.105, 211.989));
+		Modify Global Variable(W, Append To Array, Vector(170.979, 5.348, 232.410));
+		Modify Global Variable(W, Append To Array, Vector(169.230, 4.230, 221.512));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(146.914, 5.353, 269.272));
+		Modify Global Variable(W, Append To Array, Vector(165.430, 5.353, 251.300));
+		Modify Global Variable(W, Append To Array, Vector(174.073, 5.453, 244.755));
+		Modify Global Variable(W, Append To Array, Vector(152.772, 4.353, 256.830));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(152.202, 5.453, 277.696));
+		Modify Global Variable(W, Append To Array, Vector(169.966, 5.352, 239.374));
+		Modify Global Variable(W, Append To Array, Vector(154.181, 4.298, 236.817));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(58.479, 14, 315.438));
+		Modify Global Variable(W, Append To Array, Vector(68.252, 16, 321.405));
+		Modify Global Variable(W, Append To Array, Vector(73.934, 14, 309.110));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(144.727, 5.348, 216.623));
+		Modify Global Variable(W, Append To Array, Vector(112.532, 5.348, 248.279));
+		Modify Global Variable(W, Append To Array, Vector(124.038, 4.408, 228.053));
+		Modify Global Variable(W, Append To Array, Vector(122.864, 5.352, 246.109));
+		Modify Global Variable(W, Append To Array, Vector(142.109, 5.352, 226.935));
+		Modify Global Variable(W, Append To Array, Vector(137.603, 2, 210.548));
+		Set Global Variable(X, 6);
+	}
+}
+
+rule("list of sections S(wall index start; wall index len; time)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 5, 20));
+		Modify Global Variable(S, Append To Array, Vector(4, 7, 15));
+		Modify Global Variable(S, Append To Array, Vector(9, 3, 25));
+		Modify Global Variable(S, Append To Array, Vector(12, 3, 20));
+		Modify Global Variable(S, Append To Array, Vector(15, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 10));
+		Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
+	}
+}
+
+rule("tps when 5 seconds left")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(220.224, 2.351, 167.747));
+		Modify Global Variable(L, Append To Array, Vector(211.228, 2.351, 181.767));
+		Modify Global Variable(L, Append To Array, Vector(194.838, 2.995, 221.516));
+		Modify Global Variable(L, Append To Array, Vector(153.317, 5.353, 228.670));
+		Modify Global Variable(L, Append To Array, Vector(157.114, 12.871, 256.487));
+		Modify Global Variable(L, Append To Array, Vector(81.267, 8.348, 305.765));
+		Modify Global Variable(L, Append To Array, Vector(139.865, 3.553, 243.895));
+		Modify Global Variable(L, Append To Array, Vector(37.600, -5.314, 141.744));
+	}
+}
+
+rule("list m")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 22);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 15);
+		Modify Global Variable(M, Append To Array, 25);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 20);
+	}
+}
+
+rule("list triggers (t)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(203.838, 2.351, 193.103));
+		Modify Global Variable(T, Append To Array, Vector(187.465, 3.197, 228.936));
+		Modify Global Variable(T, Append To Array, Vector(164.010, 5.352, 246.529));
+		Modify Global Variable(T, Append To Array, Vector(146.688, 12.871, 272.180));
+		Modify Global Variable(T, Append To Array, Vector(62.132, 9.210, 309.589));
+		Modify Global Variable(T, Append To Array, Vector(128.289, 5.349, 232.291));
+		Modify Global Variable(T, Append To Array, Vector(3.100, -9.000, 107.400));
+		Modify Global Variable(T, Append To Array, Vector(3.100, -9.000, 107.400));
+	}
+}
+
+rule("list tp starts (B)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(202.897, 2.351, 194.546));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(146.278, 12.871, 273.901));
+		Modify Global Variable(B, Append To Array, Vector(62.114, 9.210, 309.601));
+		Modify Global Variable(B, Append To Array, Vector(113.736, 2.148, 217.728));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+	}
+}
+
+rule("list tp dest (C)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(201.216, 2.354, 197.171));
+		Modify Global Variable(C, Append To Array, Vector(202.001, 2.349, 195.913));
+		Modify Global Variable(C, Append To Array, Vector(5.125, 12.613, -84.363));
+		Modify Global Variable(C, Append To Array, Vector(28.763, 9.349, -86.460));
+		Modify Global Variable(C, Append To Array, Vector(88.041, 24.348, 313.927));
+		Modify Global Variable(C, Append To Array, Vector(153.019, 5.453, 281.754));
+		Modify Global Variable(C, Append To Array, Vector(112, 2.148, 216));
+		Modify Global Variable(C, Append To Array, Vector(112, 2.148, 216));
+	}
+}
+
+rule("initial zombie hero")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Set Global Variable(Z, Hero(Torbjörn));
+		Set Global Variable(N, 0);
+		Create HUD Text(All Players(All Teams), String("{0} {1} {2}", String("{0} {1} {2}", String("Waiting", Null, Null, Null), 4, String(
+			"Players", Null, Null, Null)), 2, String("{0} {1}", String("Start", Null, Null, Null), String("...", Null, Null, Null), Null)),
+			Null, Null, Left, 0, White, White, White, Visible To and String);
+	}
+}
+
+rule("list kb for each hero (k)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Set Global Variable(K, Empty Array);
+		Modify Global Variable(K, Append To Array, 30);
+		Modify Global Variable(K, Append To Array, 15);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 300);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 50);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 15);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 10);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 0);
+		Modify Global Variable(K, Append To Array, 25);
+		Modify Global Variable(K, Append To Array, 20);
+	}
+}
+
+rule("init round")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(R) <= 1;
+		Match Time != 0;
+	}
+
+	actions
+	{
+		Set Global Variable(P, Match Time);
+		Skip If(Compare(Global Variable(R), !=, 0), 1);
+		Set Global Variable(P, 1200);
+		Set Global Variable(G, 0);
+		Set Global Variable(I, 1);
+		Set Global Variable(N, 0);
+		Set Global Variable(O, 0);
+		Set Global Variable(Q, 0);
+		Set Global Variable(E, 0);
+		Set Player Variable(All Players(All Teams), F, 0);
+		Set Player Variable(All Players(All Teams), Z, 0);
+		Skip If(False, 1);
+		Destroy All HUD Text;
+		Resurrect(All Players(All Teams));
+		Wait(0.250, Ignore Condition);
+		Go To Assemble Heroes;
+		Set Match Time(8.900);
+		Reset Player Hero Availability(All Players(All Teams));
+		Stop Forcing Player To Be Hero(All Players(All Teams));
+		Disable Built-In Game Mode Completion;
+		Wait(9, Ignore Condition);
+		Set Global Variable(I, 0);
+		Set Global Variable(R, 3);
+		Set Match Time(Global Variable(P));
+		Skip If(Compare(Match Time, >, 0), 1);
+		Set Global Variable(J, 4);
+		Set Global Variable(G, 0);
+		Set Global Variable(N, 0);
+		Set Global Variable(O, 0);
+		Set Global Variable(Q, 0);
+		Set Global Variable(E, 0);
+	}
+}
+
+rule("init section (slice + draw tp)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(I) == 0;
+	}
+
+	actions
+	{
+		Set Global Variable(A, Array Slice(Global Variable(W), X Component Of(Value In Array(Global Variable(S), Global Variable(N))),
+			Y Component Of(Value In Array(Global Variable(S), Global Variable(N)))));
+		Create Effect(All Players(All Teams), Orb, Green, Value In Array(Global Variable(B), Global Variable(N)), 0.250,
+			Visible To Position and Radius);
+	}
+}
+
+rule("(debug) section spheres draw")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(I) == 0;
+		False == True;
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Sphere, White, Value In Array(Global Variable(T), Global Variable(N)), Value In Array(
+			Global Variable(M), Global Variable(N)), Visible To);
+	}
+}
+
+rule("trigger draw")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(I) == 0;
+	}
+
+	actions
+	{
+		Destroy All Icons;
+		Create Effect(All Players(All Teams), Sphere, Blue, Value In Array(Global Variable(T), Global Variable(N)), 4, Visible To);
+		Create Icon(All Players(All Teams), Value In Array(Global Variable(T), Global Variable(N)), Arrow: Down, Visible To and Position,
+			Blue, True);
+	}
+}
+
+rule("walls visual effect")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(I) == 0;
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Sphere, Yellow, Value In Array(Global Variable(A), Global Variable(I)), 4, Visible To);
+		Create Effect(All Players(All Teams), Sphere, Yellow, Add(Value In Array(Global Variable(A), Global Variable(I)), Vector(0, 4, 0)),
+			4, Visible To);
+		Modify Global Variable(I, Add, 1);
+		Wait(0.050, Ignore Condition);
+		Loop If(Compare(Global Variable(I), <, Count Of(Global Variable(A))));
+		Skip(1);
+	}
+}
+
+rule("walls kb effect")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		True == True;
+	}
+
+	actions
+	{
+		Skip If(Compare(Y Component Of(Position Of(Event Player)), <, Subtract(Y Component Of(Value In Array(Global Variable(A),
+			Player Variable(Event Player, J))), 4)), 5);
+		Skip If(Compare(Distance Between(Vector(X Component Of(Position Of(Event Player)), 0, Z Component Of(Position Of(Event Player))),
+			Vector(X Component Of(Value In Array(Global Variable(A), Player Variable(Event Player, J))), 0, Z Component Of(Value In Array(
+			Global Variable(A), Player Variable(Event Player, J))))), >, 4.500), 4);
+		Apply Impulse(Event Player, Vector(0, 1, 0), 1, To Player, Cancel Contrary Motion);
+		Apply Impulse(Event Player, Vector(X Component Of(Vector Towards(Value In Array(Global Variable(A), Player Variable(Event Player,
+			J)), Position Of(Event Player))), 0, Z Component Of(Vector Towards(Value In Array(Global Variable(A), Player Variable(
+			Event Player, J)), Position Of(Event Player)))), Add(2.500, Multiply(Horizontal Speed Of(Event Player), 1.500)), To World,
+			Cancel Contrary Motion);
+		Skip If(True, 1);
+		Apply Impulse(Event Player, Divide(Velocity Of(Event Player), Vector(Absolute Value(X Component Of(Velocity Of(Event Player))),
+			Absolute Value(Y Component Of(Velocity Of(Event Player))), Absolute Value(Z Component Of(Velocity Of(Event Player))))),
+			-10.000, To World, Cancel Contrary Motion);
+		Modify Player Variable(Event Player, J, Add, 1);
+		Skip If(Compare(Player Variable(Event Player, J), <, Count Of(Global Variable(A))), 1);
+		Set Player Variable(Event Player, J, 0);
+		Wait(0.016, Ignore Condition);
+		Loop;
+	}
+}
+
+rule("(debug) print coords")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Create HUD Text(All Players(All Teams), Horizontal Speed Of(Event Player), Null, Null, Left, 0, White, White, White,
+			Visible To and String);
+		Create HUD Text(All Players(All Teams), Position Of(Event Player), Null, Null, Left, 0, Green, White, White,
+			Visible To and String);
+		Create HUD Text(All Players(All Teams), Distance Between(Position Of(Event Player), Value In Array(Global Variable(L), Add(
+			Global Variable(N), 1))), Null, Null, Left, 0, Purple, White, White, Visible To and String);
+	}
+}
+
+rule("(debug) tp")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Interact) == True;
+		False == True;
+	}
+
+	actions
+	{
+		Teleport(Event Player, World Vector Of(Vector(0, 0, 5), Event Player, Rotation And Translation));
+	}
+}
+
+rule("use tp")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Array Contains(Players Within Radius(Subtract(Value In Array(Global Variable(B), Global Variable(N)), Vector(0, 1, 0)), 2,
+			All Teams, Off), Event Player) == True;
+	}
+
+	actions
+	{
+		Teleport(Event Player, Value In Array(Global Variable(C), Global Variable(N)));
+	}
+}
+
+rule("trigger")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Count Of(Players Within Radius(Value In Array(Global Variable(T), Global Variable(N)), 5, All Teams, Off)) > 0;
+		Global Variable(Q) == 0;
+		True == True;
+	}
+
+	actions
+	{
+		Set Global Variable(Q, 1);
+		Skip If(Compare(Count Of(Filtered Array(Players Within Radius(Value In Array(Global Variable(T), Global Variable(N)), 5, All Teams,
+			Off), Compare(Player Variable(Current Array Element, Z), ==, 1))), !=, 0), 23);
+		Skip If(Compare(Global Variable(N), ==, Add(Count Of(Global Variable(S)), -1.000)), 11);
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend", Null, Null, Null), String("{0} sec", Z Component Of(
+			Value In Array(Global Variable(S), Global Variable(N))), Null, Null), Null));
+		Wait(Subtract(Z Component Of(Value In Array(Global Variable(S), Global Variable(N))), 8), Ignore Condition);
+		Abort If(Compare(Global Variable(R), <=, 2));
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend", Null, Null, Null), String("{0} sec", 8, Null, Null),
+			Null));
+		Set Global Variable(Q, 1.500);
+		Wait(7, Ignore Condition);
+		Abort If(Compare(Global Variable(R), <=, 2));
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend", Null, Null, Null), String("{0} sec", 1, Null, Null),
+			Null));
+		Set Global Variable(Q, 2);
+		Wait(1, Ignore Condition);
+		Abort If(Compare(Global Variable(R), <=, 2));
+		Set Global Variable(Q, 3);
+		Modify Global Variable(N, Add, 1);
+		Skip If(Compare(Global Variable(N), ==, Add(Count Of(Global Variable(S)), 0)), 1);
+		Big Message(All Players(All Teams), String("{0}!!!", String("Run", Null, Null, Null), Null, Null));
+		Destroy All Effects;
+		Wait(0.250, Ignore Condition);
+		Set Global Variable(I, 0);
+		Set Global Variable(Q, 0);
+		Skip If(Compare(Global Variable(N), !=, Add(Count Of(Global Variable(S)), 0)), 10);
+		Set Global Variable(E, 2);
+		Abort;
+		Set Global Variable(E, 1);
+	}
+}
+
+rule("first infection")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		True == True;
+		Global Variable(R) == 3;
+	}
+
+	actions
+	{
+		Wait(1, Ignore Condition);
+		Big Message(All Players(All Teams), String("{0} {1}", String("Initial", Null, Null, Null), String("{0} {1}", String("{0}:", String(
+			"Dead", Null, Null, Null), Null, Null), String("{0} sec", Subtract(10, Global Variable(O)), Null, Null), Null), Null));
+		Modify Global Variable(O, Add, 1);
+		Loop If(Compare(Global Variable(O), <, 10));
+		Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), <=, 10), 1);
+		Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element),
+			Compare(Player Variable(Current Array Element, L), ==, 0)))), 0, 2), Z, 1);
+		Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), >, 10), 1);
+		Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element),
+			Compare(Player Variable(Current Array Element, L), ==, 0)))), 0, 1), Z, 1);
+		Teleport(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), Value In Array(
+			Global Variable(L), 0));
+		Set Global Variable(G, 1);
+		Set Player Variable(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), L, 1);
+		Set Player Variable(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)), L, 0);
+	}
+}
+
+rule("tp players at 1 sec left")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global Variable(Q) == 2;
+		Not(Array Contains(Players Within Radius(Value In Array(Global Variable(T), Global Variable(N)), Value In Array(Global Variable(M),
+			Global Variable(N)), All Teams, Off), Event Player)) == True;
+	}
+
+	actions
+	{
+		Teleport(Event Player, Value In Array(Global Variable(L), Add(Global Variable(N), 1)));
+	}
+}
+
+rule("deathplane tp")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Y Component Of(Position Of(Event Player)) < Global Variable(D);
+		Global Variable(R) != 0;
+		Global Variable(E) == 0;
+	}
+
+	actions
+	{
+		Teleport(Event Player, Value In Array(Global Variable(L), Global Variable(N)));
+		Resurrect(Event Player);
+	}
+}
+
+rule("infect players")
+{
+	event
+	{
+		Player took damage;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Player Variable(Attacker, Z) == 1;
+		Player Variable(Victim, Z) == 0;
+		Global Variable(E) == 0;
+		Distance Between(Position Of(Attacker), Position Of(Victim)) <= 5.500;
+	}
+
+	actions
+	{
+		Set Player Variable(Victim, Z, 1);
+		Modify Player Score(Attacker, 1);
+		Set Player Variable(Victim, H, Hero Of(Victim));
+		Create HUD Text(All Players(All Teams), String("{0} -> {1}", String("{0} {1}", Hero Icon String(Hero Of(Attacker)), Attacker,
+			Null), String("{0} {1}", Hero Icon String(Player Variable(Victim, H)), Victim, Null), Null), Null, Null, Right, 0, White,
+			White, White, Visible To and String);
+		Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare(
+			Player Variable(Current Array Element, Z), ==, 0))), !=, 0), 10);
+		Set Global Variable(E, 1);
+		Resurrect(Event Player);
+	}
+}
+
+rule("player dies = gets tp'd, +10 pts if zombie kill")
+{
+	event
+	{
+		Player Died;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global Variable(E) == 0;
+		Global Variable(R) != 0;
+	}
+
+	actions
+	{
+		Resurrect(Victim);
+		Teleport(Victim, Value In Array(Global Variable(L), Global Variable(N)));
+		Skip If(Compare(Victim, ==, Attacker), 2);
+		Skip If(Compare(Player Variable(Attacker, Z), ==, 1), 1);
+		Modify Player Score(Attacker, 9);
+	}
+}
+
+rule("humans and zombies cant hurt same")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+	}
+
+	actions
+	{
+		Start Damage Modification(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)),
+			Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)), 0,
+			Receivers Damagers and Damage Percent);
+		Start Damage Modification(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)),
+			Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), 0,
+			Receivers Damagers and Damage Percent);
+	}
+}
+
+rule("humans and zombies can hurt each other + kb")
+{
+	event
+	{
+		Player dealt damage;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Player Variable(Attacker, Z) != Player Variable(Victim, Z);
+		Player Variable(Victim, Z) == 1;
+	}
+
+	actions
+	{
+		Skip If(Compare(Random Integer(1, 4), !=, 1), 1);
+		Apply Impulse(Victim, Vector(0, 1, 0), 1.500, To Player, Cancel Contrary Motion);
+		Apply Impulse(Victim, Divide(Vector Towards(Position Of(Attacker), Position Of(Victim)), Vector(Absolute Value(X Component Of(
+			Vector Towards(Position Of(Attacker), Position Of(Victim)))), 0, Absolute Value(Z Component Of(Vector Towards(Position Of(
+			Attacker), Position Of(Victim)))))), Multiply(Event Damage, 1.050), To World, Cancel Contrary Motion);
+	}
+}
+
+rule("tp dest")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Baptiste);
+		Is Using Ability 1(Event Player) == True;
+	}
+
+	actions
+	{
+		Set Projectile Speed(Event Player, 100);
+		Wait(0.016, Ignore Condition);
+		Modify Player Variable(Event Player, B, Add, 1);
+		Loop If(Compare(Player Variable(Event Player, B), <, 105));
+		Set Player Variable(Event Player, B, 0);
+	}
+}
+
+rule("zombie behavior")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Player Variable(Event Player, Z) == 1;
+	}
+
+	actions
+	{
+		Set Player Variable(Event Player, C, Position Of(Event Player));
+		Start Forcing Player To Be Hero(Event Player, Global Variable(Z));
+		Teleport(Event Player, Player Variable(Event Player, C));
+		Stop All Heal Over Time(Event Player);
+		Set Status(Event Player, Null, Rooted, 2);
+		Big Message(Event Player, String("{0} {1}", String("You", Null, Null, Null), String("Dead", Null, Null, Null), Null));
+		Wait(1, Ignore Condition);
+		Clear Status(Event Player, Rooted);
+		Press Button(Event Player, Ultimate);
+		Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare(
+			Player Variable(Current Array Element, Z), ==, 0))), !=, 0), 10);
+		Set Global Variable(E, 1);
+	}
+}
+
+rule("player selected hero")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Spawned(Event Player) == True;
+		Global Variable(R) >= 3;
+	}
+
+	actions
+	{
+		Disallow Button(Event Player, Crouch);
+		Wait(0.100, Ignore Condition);
+		Teleport(Event Player, Value In Array(Global Variable(L), Global Variable(N)));
+		Skip If(Compare(Global Variable(G), ==, 0), 1);
+		Set Player Variable(Event Player, Z, 1);
+		Start Heal Over Time(Event Player, Null, 9999, 20);
+		Wait(2, Ignore Condition);
+		Allow Button(Event Player, Crouch);
+	}
+}
+
+rule("burn = slow")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Status(Event Player, Burning) == True;
+		Player Variable(Event Player, Z) == 1;
+	}
+
+	actions
+	{
+		Set Move Speed(Event Player, 75);
+		Wait(5, Ignore Condition);
+		Set Move Speed(Event Player, 100);
+	}
+}
+
+rule("no hax for humans")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Status(Event Player, Hacked) == True;
+		False == True;
+	}
+
+	actions
+	{
+		Set Status(Event Player, Null, Hacked, 9999);
+		Wait(0.250, Ignore Condition);
+		Clear Status(Event Player, Hacked);
+	}
+}
+
+rule("no stun for humans")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Status(Event Player, Stunned) == True;
+		Player Variable(Event Player, Z) == 0;
+	}
+
+	actions
+	{
+		Clear Status(Event Player, Stunned);
+	}
+}
+
+rule("red orb")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(Q) == 1.500;
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Orb, Red, Value In Array(Global Variable(L), Add(Global Variable(N), 1)), 1,
+			Visible To Position and Radius);
+	}
+}
+
+rule("normal zombies: rein")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(J) == 1;
+	}
+
+	actions
+	{
+		Set Global Variable(Z, Hero(Reinhardt));
+		Big Message(All Players(All Teams), String("{0}: {1}", String("{0} {1}", String("Level", Null, Null, Null), 2, Null), Hero(
+			Reinhardt), Null));
+	}
+}
+
+rule("hard zombies: winston")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(J) == 2;
+	}
+
+	actions
+	{
+		Set Global Variable(Z, Hero(Winston));
+		Big Message(All Players(All Teams), String("{0}: {1}", String("{0} {1}", String("Level", Null, Null, Null), 3, Null), Hero(
+			Winston), Null));
+	}
+}
+
+rule("expert zombies: brig")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(J) == 3;
+	}
+
+	actions
+	{
+		Set Global Variable(Z, Hero(Brigitte));
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Final Level", String("Level", Null, Null, Null), 2, Null), Hero(
+			Brigitte), Null));
+	}
+}
+
+rule("map finished")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(J) == 4;
+	}
+
+	actions
+	{
+		Declare Player Victory(Last Of(Sorted Array(All Players(All Teams), Score Of(Current Array Element))));
+	}
+}
+
+rule("zombies win")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(E) == 1;
+	}
+
+	actions
+	{
+		Stop All Damage Modifications;
+		Big Message(All Players(All Teams), String("{0} {1}", String("Dead", Null, Null, Null), String("Win", Null, Null, Null), Null));
+		Wait(5, Ignore Condition);
+		Skip If(Compare(Match Time, >, 0), 1);
+		Set Global Variable(J, 4);
+		Set Global Variable(R, 1);
+	}
+}
+
+rule("humans win")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(E) == 2;
+	}
+
+	actions
+	{
+		Stop All Damage Modifications;
+		Big Message(All Players(All Teams), String("{0} {1}", String("Heroes", Null, Null, Null), String("Win", Null, Null, Null), Null));
+		Wait(0, Ignore Condition);
+		Kill(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), Null);
+		Modify Player Score(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)), 100);
+		Wait(1.500, Ignore Condition);
+		Modify Global Variable(J, Add, 1);
+		Wait(3.500, Ignore Condition);
+		Set Match Time(1200);
+		Set Global Variable(R, 1);
+		Teleport(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), Vector(0, -500.000,
+			0));
+	}
+}
+
+rule("kings row")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		False == True;
+	}
+
+	actions
+	{
+		Set Global Variable(S, Empty Array);
+		Modify Global Variable(S, Append To Array, Vector(0, 6, 15));
+		Modify Global Variable(S, Append To Array, Vector(1, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(7, 5, 20));
+		Modify Global Variable(S, Append To Array, Vector(12, 6, 20));
+		Modify Global Variable(S, Append To Array, Vector(18, 5, 15));
+		Modify Global Variable(S, Append To Array, Vector(23, 2, 20));
+		Modify Global Variable(S, Append To Array, Vector(25, 0, 10));
+		Set Global Variable(L, Empty Array);
+		Modify Global Variable(L, Append To Array, Vector(62.730, 5.860, -55.220));
+		Modify Global Variable(L, Append To Array, Vector(32.710, 7.460, -31.960));
+		Modify Global Variable(L, Append To Array, Vector(-14.950, 0.350, 43.630));
+		Modify Global Variable(L, Append To Array, Vector(24.319, 5.350, -4.521));
+		Modify Global Variable(L, Append To Array, Vector(-25.471, 1.240, -32.000));
+		Modify Global Variable(L, Append To Array, Vector(-92.891, 2.859, -28.700));
+		Modify Global Variable(L, Append To Array, Vector(-156.650, 1.479, 48.010));
+		Set Global Variable(H, Vector(21.270, 0.580, -48.480));
+		Set Global Variable(D, -15.000);
+		Set Global Variable(M, Empty Array);
+		Modify Global Variable(M, Append To Array, 21);
+		Modify Global Variable(M, Append To Array, 16);
+		Modify Global Variable(M, Append To Array, 17);
+		Modify Global Variable(M, Append To Array, 20);
+		Modify Global Variable(M, Append To Array, 25);
+		Modify Global Variable(M, Append To Array, 35);
+		Modify Global Variable(M, Append To Array, 10);
+		Set Global Variable(T, Empty Array);
+		Modify Global Variable(T, Append To Array, Vector(30.029, 7.399, -15.740));
+		Modify Global Variable(T, Append To Array, Vector(-17.200, 0.550, 42.439));
+		Modify Global Variable(T, Append To Array, Vector(9.729, 9.350, -8.530));
+		Modify Global Variable(T, Append To Array, Vector(-22.480, 2.350, -16.360));
+		Modify Global Variable(T, Append To Array, Vector(-95.540, -1.141, -46.360));
+		Modify Global Variable(T, Append To Array, Vector(-168.860, 1.160, 35.540));
+		Modify Global Variable(T, Append To Array, Vector(-178.840, 1.540, 37.250));
+		Set Global Variable(W, Empty Array);
+		Modify Global Variable(W, Append To Array, Vector(30.770, 5.960, -8.000));
+		Set Global Variable(X, 1);
+		Modify Global Variable(W, Append To Array, Vector(27.600, 5.859, -39.780));
+		Modify Global Variable(W, Append To Array, Vector(31.810, 0.240, -63.221));
+		Modify Global Variable(W, Append To Array, Vector(25, 5.960, -10.971));
+		Modify Global Variable(W, Append To Array, Vector(25.359, 5.859, -51.500));
+		Modify Global Variable(W, Append To Array, Vector(24.880, 5.960, -16.250));
+		Modify Global Variable(W, Append To Array, Vector(19.220, 4, -6.980));
+		Set Global Variable(X, 2);
+		Modify Global Variable(W, Append To Array, Vector(10.500, 7.350, -16.181));
+		Modify Global Variable(W, Append To Array, Vector(-8.021, 1.240, 3.880));
+		Modify Global Variable(W, Append To Array, Vector(1.109, 1.420, 4.250));
+		Modify Global Variable(W, Append To Array, Vector(-1.590, 1.240, -12.700));
+		Modify Global Variable(W, Append To Array, Vector(4.670, 7, -13.620));
+		Set Global Variable(X, 3);
+		Modify Global Variable(W, Append To Array, Vector(-11.931, 1.410, -15.030));
+		Modify Global Variable(W, Append To Array, Vector(-2.940, 1.410, -38.690));
+		Modify Global Variable(W, Append To Array, Vector(-19.630, 2.350, -54.021));
+		Modify Global Variable(W, Append To Array, Vector(-15.250, 1.229, -27.730));
+		Modify Global Variable(W, Append To Array, Vector(-15.471, 1.220, -31.960));
+		Modify Global Variable(W, Append To Array, Vector(-17.300, 1.220, -37.000));
+		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(-62.450, 6.300, -17.040));
+		Modify Global Variable(W, Append To Array, Vector(-66.010, 6.370, -12.891));
+		Modify Global Variable(W, Append To Array, Vector(-52.851, 1.200, -36.070));
+		Modify Global Variable(W, Append To Array, Vector(-55.460, 0.950, -32.540));
+		Modify Global Variable(W, Append To Array, Vector(-72.330, 1.160, -12.420));
+		Set Global Variable(X, 5);
+		Modify Global Variable(W, Append To Array, Vector(-170.521, 1.479, 39.270));
+		Modify Global Variable(W, Append To Array, Vector(-171.641, 1.479, 32.510));
+		Set Global Variable(B, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(42.160, 0.670, 31.960));
+		Modify Global Variable(B, Append To Array, Vector(-20.250, 1.260, 27.649));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(-19.271, 2.350, -16.340));
+		Modify Global Variable(B, Append To Array, Vector(-97.971, -1.141, -47.771));
+		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Set Global Variable(C, Empty Array);
+		Modify Global Variable(C, Append To Array, Vector(62.729, 5.859, -55.221));
+		Modify Global Variable(C, Append To Array, Vector(3.630, 3.550, 52.290));
+		Modify Global Variable(C, Append To Array, Vector(5.410, 1.420, 11.439));
+		Modify Global Variable(C, Append To Array, Vector(11.270, 7.350, -2.210));
+		Modify Global Variable(C, Append To Array, Vector(-29.230, 10.350, -12.990));
+		Modify Global Variable(C, Append To Array, Vector(-102.940, 2.240, -8.070));
+		Modify Global Variable(C, Append To Array, Vector(-102.940, 2.240, -8.070));
+	}
+}
+
+rule("skirmish rez")
+{
+	event
+	{
+		Player Died;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Match Time == 0;
+		Global Variable(R) == 0;
+	}
+
+	actions
+	{
+		Wait(4, Ignore Condition);
+		Respawn(Victim);
+	}
+}
+
+rule("oasis city center death plane modif 1")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 186;
+		Global Variable(N) == 3;
+	}
+
+	actions
+	{
+		Set Global Variable(D, 3);
+	}
+}
+
+rule("oasis city center death plane modif 2")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 186;
+		Global Variable(N) == 4;
+	}
+
+	actions
+	{
+		Set Global Variable(D, 1.500);
+		Wait(0.250, Ignore Condition);
+		Create Effect(All Players(All Teams), Sphere, Red, Vector(73.298, -96.500, 318.105), 100, Visible To Position and Radius);
+	}
+}
+
+rule("oasis city center death plane modif 3")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global Variable(F) == 186;
+		Or(Compare(Global Variable(N), <, 3), Compare(Global Variable(N), >, 5)) == True;
+	}
+
+	actions
+	{
+		Set Global Variable(D, -8.900);
+	}
+}
+
+rule("baptiste no crouch jump")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Baptiste);
+		Is Crouching(Event Player) == True;
+	}
+
+	actions
+	{
+		Set Status(Event Player, Null, Hacked, 0.016);
+	}
+}
+`/* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
  * 
@@ -19909,7 +23946,7 @@ function decompileAllRules(content, language="en-US") {
 	var bracketPos = getBracketPositions(content);
 
 	//Check for settings
-	if (content.startsWith(tows("_settings", ruleKw))) {
+	if (content.startsWith(tows("__settings__", ruleKw))) {
 		result += decompileCustomGameSettings(content.substring(bracketPos[0]+1, bracketPos[1]));
 		content = content.substring(bracketPos[1]+1)
 	}
@@ -19918,7 +23955,7 @@ function decompileAllRules(content, language="en-US") {
 	bracketPos = getBracketPositions(content);
 
 	//Check for variable names
-	if (content.startsWith(tows("_variables", ruleKw))) {
+	if (content.startsWith(tows("__variables__", ruleKw))) {
 		decompileVarNames(content.substring(bracketPos[0]+1, bracketPos[1]));
 		content = content.substring(bracketPos[1]+1)
 	}
@@ -19927,7 +23964,7 @@ function decompileAllRules(content, language="en-US") {
 	bracketPos = getBracketPositions(content);
 
 	//Check for subroutine names
-	if (content.startsWith(tows("_subroutines", ruleKw))) {
+	if (content.startsWith(tows("__subroutines__", ruleKw))) {
 		decompileSubroutines(content.substring(bracketPos[0]+1, bracketPos[1]));
 		content = content.substring(bracketPos[1]+1);
 
@@ -19996,7 +24033,7 @@ function decompileAllRules(content, language="en-US") {
 function decompileCustomGameSettings(content) {
 	console.log(content);
 	var result = {};
-	var wsDisabled = tows("_disabled", ruleKw);
+	var wsDisabled = tows("__disabled__", ruleKw);
 
 	//Convert the settings to an object (without even translating).
 	var serialized = {};
@@ -20133,9 +24170,9 @@ function decompileVarNames(content) {
 		content[i] = content[i].trim();
 		if (i === 0) {
 			//First element is always a var type
-			if (content[i] === tows("_global", ruleKw)) {
+			if (content[i] === tows("__global__", ruleKw)) {
 				isInGlobalVars = true;
-			} else if (content[i] === tows("_player", ruleKw)) {
+			} else if (content[i] === tows("__player__", ruleKw)) {
 				isInGlobalVars = false;
 			} else {
 				error("Unrecognized var type '"+content[i]+"'");
@@ -20150,9 +24187,9 @@ function decompileVarNames(content) {
 				if (!isNaN(elems[1])) {
 					currentVarIndex = +elems[1];
 				} else {
-					if (elems[1] === tows("_global", ruleKw)) {
+					if (elems[1] === tows("__global__", ruleKw)) {
 						isInGlobalVars = true;
-					} else if (elems[1] === tows("_player", ruleKw)) {
+					} else if (elems[1] === tows("__player__", ruleKw)) {
 						isInGlobalVars = false;
 					} else {
 						error("Unrecognized var type '"+elems[1]+"'");
@@ -20212,14 +24249,14 @@ function decompileRule(content) {
 	
 	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
 	var isCurrentRuleDisabled = false;
-	if (content.trim().startsWith(tows("_disabled", ruleKw))) {
+	if (content.trim().startsWith(tows("__disabled__", ruleKw))) {
 		isCurrentRuleDisabled = true;
 	}
 	
 	debug("Decompiling rule "+ruleName);
 	var result = "";
 	if (isCurrentRuleDisabled) {
-		result += '"""';
+		result += '/*';
 	}
 	result += "@Rule "+ruleName+"\n";
 	
@@ -20235,10 +24272,10 @@ function decompileRule(content) {
 		var fieldName = topy(ruleContent.substring(bracketPos2[i]+1, bracketPos2[i+1]), ruleKw);
 		if (fieldName === "@Event") {
 			eventInst = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]), false);
-		} else if (fieldName === "_conditions") {
+		} else if (fieldName === "__conditions__") {
 			//conditions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
 			conditions = "conditions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
-		} else if (fieldName === "_actions") {
+		} else if (fieldName === "__actions__") {
 			//actions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
 			actions = "actions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
 		} else {
@@ -20250,7 +24287,7 @@ function decompileRule(content) {
 	if (eventInst.length > 0) {
 
 		var eventName = topy(eventInst[0], eventKw);
-		if (eventName === "_subroutine") {
+		if (eventName === "__subroutine__") {
 
 			if (eventInst.length !== 2) {
 				error("Malformed subroutine event");
@@ -20294,7 +24331,7 @@ function decompileRule(content) {
 	}
 	
 	if (isCurrentRuleDisabled) {
-		result += '"""';
+		result += '*/';
 	}
 	return result+"\n\n";
 }
@@ -20303,68 +24340,27 @@ function decompileConditions(content) {
 	
 	var conditions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
 	
-	var comments = "";
 	var result = "";
-	result += "if ";
-	var condStrs = [];
-	for (var i = 0; i < conditions.length; i++) {
+	for (var condition of conditions) {
 		
-		var currentCondIsDisabled = false;
-		conditions[i] = conditions[i].trim();
+		condition = condition.trim();
 		
-		if (conditions[i].startsWith('"')) {
-			var conditionComment = getPrefixString(conditions[i]);
-			conditions[i] = conditions[i].substring(conditionComment.length).trim();
-			comments += "#"+unBackslashString(conditionComment)+"\n"+tabLevel(nbTabs);
+		//Check if there is a comment
+		if (condition.startsWith('"')) {
+			var conditionComment = getPrefixString(condition);
+			condition = condition.substring(conditionComment.length).trim();
+			result += "#"+unBackslashString(conditionComment)+"\n";
 		}
-		if (conditions[i].startsWith(tows("_disabled", ruleKw))) {
-			currentCondIsDisabled = true;
-			conditions[i] = conditions[i].substring(tows("_disabled", ruleKw).length);
-		}
-		var currentCond = decompileRuleCondition(conditions[i]);
-		//Check for and-ing with true
-		if (currentCond === "true") {
-			continue;
-		}
-		
-		if (operatorPrecedenceStack[0] < 2) {
-			currentCond = "("+currentCond+")";
-		}
-		condStrs.push({
-			text: currentCond,
-			isDisabled: currentCondIsDisabled,
-		});
-	}
-	var condStrResult = "";
-	var nbEnabledConditions = 0;
-	for (var i = 0; i < condStrs.length; i++) {
 
-		//console.log(i)
-		//console.log(condStrs[i]);
-		var condStr = condStrs[i].text;
-		if (i < condStrs.length-1 && condStrs[i].isDisabled && !condStrs[i+1].isDisabled && nbEnabledConditions === 0) {
-			condStr += " and ";
+		//Check if the condition is disabled
+		if (condition.startsWith(tows("__disabled__", ruleKw))) {
+			result += "#";
+			condition = condition.substring(tows("__disabled__", ruleKw).length).trim();
 		}
-		if (i > 0 && (nbEnabledConditions > 0 || condStrs[i].isDisabled)) {
-			condStr = " and "+condStr;
-		}
-		if (condStrs[i].isDisabled) {
-			condStr = "'''"+condStr+"'''";
-		} else {
-			nbEnabledConditions++;
-		}
-		condStrResult += condStr;
+		result += "@Condition "+decompileRuleCondition(condition)+"\n";
+		
 	}
-	
-	//This happens if everything is true
-	if (condStrResult === "") {
-		condStrResult = "true";
-	}
-	result += condStrResult;
-	
-	result += ":\n";
-	result = comments + result;
-	nbTabs = 1;
+
 	
 	return result;
 }
@@ -20377,7 +24373,7 @@ function decompileActions(content) {
 	//Detect the last loop to know where to place the "while"
 	for (var i = 0; i < actions.length; i++) {
 		var actionName = getName(actions[i]);
-		if (!actionName.startsWith('"') && !actionName.startsWith(tows("_disabled", ruleKw)) && topy(actionName, actionKw).startsWith("_loop")) {
+		if (!actionName.startsWith('"') && !actionName.startsWith(tows("__disabled__", ruleKw)) && topy(actionName, actionKw).startsWith("__loop__")) {
 			//It is a loop; update the loop position
 			lastLoop = i;
 		}
@@ -20430,9 +24426,9 @@ function decompileAction(content, actionNb) {
 		content = content.substring(conditionComment.length).trim();
 		result += "#"+unBackslashString(conditionComment)+"\n"+tabLevel(nbTabs);
 	}
-	if (content.startsWith(tows("_disabled", ruleKw)+" ")) {
+	if (content.startsWith(tows("__disabled__", ruleKw)+" ")) {
 		isCurrentActionDisabled = true;
-		content = content.substring((tows("_disabled", ruleKw)+" ").length);
+		content = content.substring((tows("__disabled__", ruleKw)+" ").length);
 	}
 	var decompiledAction = "";
 	if (actionNb == lastLoop) {
@@ -20558,7 +24554,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		name = name.substring(0, name.length-2);
 	}
 	
-	if (name !== "_compare" && decompileArgs.invertCondition === true) {
+	if (name !== "__compare__" && decompileArgs.invertCondition === true) {
 		return parseOperator(content, "not", null);
 	}
 	
@@ -20588,7 +24584,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Abort if
-	if (name === "_abortIf") {
+	if (name === "__abortIf__") {
 		result = "if " + decompile(args[0]) + ":\n";
 		result += tabLevel(nbTabs+1) + "return";
 		
@@ -20596,9 +24592,9 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Abort if condition is false/true
-	if (name === "_abortIfConditionIsFalse" || name === "_abortIfConditionIsTrue") {
+	if (name === "__abortIfConditionIsFalse__" || name === "__abortIfConditionIsTrue__") {
 		result = "if ";
-		if (name === "_abortIfConditionIsFalse") {
+		if (name === "__abortIfConditionIsFalse__") {
 			result += "not ";
 		}
 		result += "RULE_CONDITION:\n";
@@ -20608,12 +24604,12 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Add
-	if (name === "_add") {
+	if (name === "__add__") {
 		return decompileOperator(args[0], "+", args[1]);
 	}
 	
 	//Is true for all
-	if (name === "_all") {
+	if (name === "__all__") {
 		
 		if (isPlayerArrayInstruction(args[0])) {
 			var varName = "player";
@@ -20630,7 +24626,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Is true for any
-	if (name === "_any") {
+	if (name === "__any__") {
 		
 		if (isPlayerArrayInstruction(args[0])) {
 			var varName = "player";
@@ -20647,12 +24643,12 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//And
-	if (name === "_and") {
+	if (name === "__and__") {
 		return decompileOperator(args[0], "and", args[1]);
 	}
 	
 	//Append to array
-	if (name === "_appendToArray") {
+	if (name === "__appendToArray__") {
 		
 		//Check for optimization: [].append(123).append(456) -> [123, 456]
 		//Only done if we append a literal number to a literal array.
@@ -20673,35 +24669,35 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Array contains
-	if (name === "_arrayContains") {
+	if (name === "__arrayContains__") {
 		
 		return decompile(args[1])+" in "+decompile(args[0]);
 	}
 	
 	//Array slice
-	if (name === "_arraySlice") {
+	if (name === "__arraySlice__") {
 		return decompile(args[0]) + ".slice(" + decompile(args[1]) + ", " + decompile(args[2])+")";
 	}
 
 	//Call subroutine
-	if (name === "_callSubroutine") {
+	if (name === "__callSubroutine__") {
 		return translateSubroutineToPy(args[0])+"()";
 	}
 	
 	//Chase global variable at rate
-	if (name === "_chaseGlobalVariableAtRate") {
+	if (name === "__chaseGlobalVariableAtRate__") {
 		
 		return "chase("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", rate="+decompile(args[2])+", "+decompile(args[3])+")";
 	}
 	
 	//Chase global variable over time
-	if (name === "_chaseGlobalVariableOverTime") {
+	if (name === "__chaseGlobalVariableOverTime__") {
 		
 		return "chase("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", duration="+decompile(args[2])+", "+decompile(args[3])+")";
 	}
 	
 	//Chase player variable at rate
-	if (name === "_chasePlayerVariableAtRate") {
+	if (name === "__chasePlayerVariableAtRate__") {
 		
 		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, rate={arg2}, {arg3})", args[0], args.slice(1), true, true, true)
 		
@@ -20709,7 +24705,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Chase player variable over time
-	if (name === "_chasePlayerVariableOverTime") {
+	if (name === "__chasePlayerVariableOverTime__") {
 		
 		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, duration={arg2}, {arg3})", args[0], args.slice(1), true, true, true)
 		
@@ -20717,7 +24713,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 		
 	//Compare
-	if (name === "_compare") {
+	if (name === "__compare__") {
 		
 		var op = args[1].trim();
 		if (decompileArgs.invertCondition === true) {
@@ -20729,7 +24725,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Current array element
-	if (name === "_currentArrayElement") {
+	if (name === "__currentArrayElement__") {
 		var currentArrayElementName = currentArrayElementNames[currentArrayElementNames.length-1];
 		if (currentArrayElementName === undefined) {
 			error("currentArrayElementName is undefined");
@@ -20738,7 +24734,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Custom String
-	if (name === "_customString") {
+	if (name === "__customString__") {
 		
 		var result = args[0];
 		var format = [];
@@ -20767,7 +24763,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Divide
-	if (name === "_divide") {
+	if (name === "__divide__") {
 		return decompileOperator(args[0], "/", args[1]);
 	}
 
@@ -20785,7 +24781,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Empty array
-	if (name === "_emptyArray") {
+	if (name === "__emptyArray__") {
 		return "[]";
 	}
 	
@@ -20796,7 +24792,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Filtered array
-	if (name === "_filteredArray") {
+	if (name === "__filteredArray__") {
 		
 		if (isPlayerArrayInstruction(args[0])) {
 			var varName = "player";
@@ -20813,32 +24809,32 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//First of
-	if (name === "_firstOf") {
+	if (name === "__firstOf__") {
 		return decompile(args[0])+"[0]";
 	}
 
 	//For global var
-	if (name === "_forGlobalVar") {
+	if (name === "__forGlobalVar__") {
 		return "__for__("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", "+decompile(args[2])+", "+decompile(args[3])+")";
 	}
 
 	//For player var
-	if (name === "_forPlayerVar") {
+	if (name === "__forPlayerVar__") {
 		return "__for__("+decompile(args[0])+"."+translateVarToPy(args[1], false)+", "+decompile(args[2])+", "+decompile(args[3])+", "+decompile(args[4])+")";
 	}
 	
 	//Raycast hit normal
-	if (name === "_getNormal") {
+	if (name === "__getNormal__") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getNormal()";
 	}
 	
 	//Raycast hit position
-	if (name === "_getHitPosition") {
+	if (name === "__getHitPosition__") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getHitPosition()";
 	}
 	
 	//Raycast hit player
-	if (name === "_getPlayerHit") {
+	if (name === "__getPlayerHit__") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getPlayerHit()";
 	}
 
@@ -20853,22 +24849,22 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Gamemode
-	if (name === "_gamemode") {
+	if (name === "__gamemode__") {
 		return "Gamemode."+decompile(args[0], constantValues["Gamemode"]);
 	}
 		
 	//Global variable
-	if (name === "_globalVar") {
+	if (name === "__globalVar__") {
 		return translateVarToPy(args[0], true);
 	}
 		
 	//Hero
-	if (name === "_hero") {
+	if (name === "__hero__") {
 		return "Hero."+decompile(args[0], constantValues["Hero"]);
 	}
 
 	//Hud text
-	if (name === "_hudText") {
+	if (name === "__hudText__") {
 		var header = decompile(args[1]);
 		var subheader = decompile(args[2]);
 		var subtext = decompile(args[3]);
@@ -20916,22 +24912,22 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Index of array value
-	if (name === "_indexOfArrayValue") {
+	if (name === "__indexOfArrayValue__") {
 		return decompile(args[0])+".index("+decompile(args[1])+")";
 	}
 	
 	//Is in line of sight
-	if (name === "_isInLineOfSight") {
+	if (name === "__isInLineOfSight__") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", los="+decompile(args[2])+").hasLoS()";
 	}
 	
 	//Last of
-	if (name === "_lastOf") {
+	if (name === "__lastOf__") {
 		return decompile(args[0])+"[-1]";
 	}
 	
 	//Localized String
-	if (name === "_localizedString") {
+	if (name === "__localizedString__") {
 		
 		//Blizzard likes making parsing difficult apparently,
 		//cause the "reevaluation on string" used with hud is the same as the "string" function.
@@ -20954,7 +24950,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 			
 	//Loop
-	if (name === "_loop") {
+	if (name === "__loop__") {
 		if (decompileArgs.isLastLoop) {
 			return "while true";
 		} else {
@@ -20963,7 +24959,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Loop if
-	if (name === "_loopIf") {
+	if (name === "__loopIf__") {
 		if (decompileArgs.isLastLoop) {
 			return "while "+decompile(args[0]);
 		} else {
@@ -20974,7 +24970,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Loop if condition is false
-	if (name === "_loopIfConditionIsFalse") {
+	if (name === "__loopIfConditionIsFalse__") {
 		if (decompileArgs.isLastLoop) {
 			return "while not RULE_CONDITION";
 		} else {
@@ -20985,7 +24981,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Loop if condition is true
-	if (name === "_loopIfConditionIsTrue") {
+	if (name === "__loopIfConditionIsTrue__") {
 		if (decompileArgs.isLastLoop) {
 			return "while RULE_CONDITION";
 		} else {
@@ -20996,22 +24992,22 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 
 	//Map
-	if (name === "_map") {
+	if (name === "__map__") {
 		return "Map."+decompile(args[0], constantValues["Map"]);
 	}
 	
 	//Modify global var
-	if (name === "_modifyGlobalVar") {
+	if (name === "__modifyGlobalVar__") {
 		return decompileModifyVar(translateVarToPy(args[0], true), args[1], decompile(args[2]));
 	}
 	
 	//Modify global var at index
-	if (name === "_modifyGlobalVarAtIndex") {
+	if (name === "__modifyGlobalVarAtIndex__") {
 		return decompileModifyVar(translateVarToPy(args[0], true), args[2], decompile(args[3]), decompile(args[1]));
 	}
 	
 	//Modify player var
-	if (name === "_modifyPlayerVar") {
+	if (name === "__modifyPlayerVar__") {
 		
 		var result = decompileModifyVar(decompile(args[0])+"."+translateVarToPy(args[1], false), args[2], decompile(args[3]))
 		
@@ -21019,7 +25015,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Modify player var at index
-	if (name === "_modifyPlayerVarAtIndex") {
+	if (name === "__modifyPlayerVarAtIndex__") {
 		
 		var result = decompileModifyVar(decompile(args[0])+"."+translateVarToPy(args[1], false), args[3], decompile(args[4]), decompile(args[2]))
 		
@@ -21027,49 +25023,49 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Modulo
-	if (name === "_modulo") {
+	if (name === "__modulo__") {
 		return decompileOperator(args[0], "%", args[1]);
 	}
 	
 	//Multiply
-	if (name === "_multiply") {
+	if (name === "__multiply__") {
 		return decompileOperator(args[0], "*", args[1]);
 	}
 
 	//Not
-	if (name === "_not") {
+	if (name === "__not__") {
 		return decompileOperator(args[0], "not", null);
 	}
 	
 	//Or
-	if (name === "_or") {
+	if (name === "__or__") {
 		return decompileOperator(args[0], "or", args[1]);
 	}
 	
 	//Player variable
-	if (name === "_playerVar") {
+	if (name === "__playerVar__") {
 		return decompile(args[0])+"."+translateVarToPy(args[1], false);
 	}
 	
 	//Raise to power
-	if (name === "_raiseToPower") {
+	if (name === "__raiseToPower__") {
 		return decompileOperator(args[0], "**", args[1]);
 	}
 	
 	//Remove from array
-	if (name === "_removeFromArray") {
+	if (name === "__removeFromArray__") {
 		return decompile(args[0])+".exclude("+decompile(args[1])+")";
 	}
 	
 	
 	//Round
-	if (name === "_round") {
-		var roundType = topy(args[1], constantValues["_Rounding"]);
-		if (roundType === "_roundUp") {
+	if (name === "__round__") {
+		var roundType = topy(args[1], constantValues["__Rounding__"]);
+		if (roundType === "__roundUp__") {
 			return "ceil("+decompile(args[0])+")";
-		} else if (roundType === "_roundDown") {
+		} else if (roundType === "__roundDown__") {
 			return "floor("+decompile(args[0])+")";
-		} else if (roundType === "_roundToNearest") {
+		} else if (roundType === "__roundToNearest__") {
 			return "round("+decompile(args[0])+")";
 		} else {
 			error("Unknown round type "+roundType);
@@ -21077,47 +25073,47 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Set global var
-	if (name === "_setGlobalVar") {
+	if (name === "__setGlobalVar__") {
 		return translateVarToPy(args[0], true)+" = "+decompile(args[1]);
 	}
 	
 	//Set global var at index
-	if (name === "_setGlobalVarAtIndex") {
+	if (name === "__setGlobalVarAtIndex__") {
 		return translateVarToPy(args[0], true)+"["+decompile(args[1])+"] = "+decompile(args[2]);
 	}
 	
 	//Set player var
-	if (name === "_setPlayerVar") {
+	if (name === "__setPlayerVar__") {
 		return decompilePlayerFunction("{player}.{arg0} = {arg1}", args[0], args.slice(1), true, true, true);
 	}
 	
 	//Set player var at index
-	if (name === "_setPlayerVarAtIndex") {
+	if (name === "__setPlayerVarAtIndex__") {
 		return decompilePlayerFunction("{player}.{arg0}[{arg1}] = {arg2}", args[0], args.slice(1), true, true, true);
 	}
 
 	//Start rule
-	if (name === "_startRule") {
-		return "async("+translateSubroutineToPy(args[0])+"(), "+decompile(args[1])+")";
+	if (name === "__startRule__") {
+		return "async("+translateSubroutineToPy(args[0])+", "+decompile(args[1])+")";
 	}
 	
 	//Stop chasing player variable
-	if (name === "_stopChasingGlobalVariable") {
+	if (name === "__stopChasingGlobalVariable__") {
 		return "stopChasingVariable("+translateVarToPy(args[0], true)+")";
 	}
 	
 	//Stop chasing player variable
-	if (name === "_stopChasingPlayerVariable") {
+	if (name === "__stopChasingPlayerVariable__") {
 		return decompilePlayerFunction("stopChasingVariable({player}.{args})", args[0], args.slice(1), false, true, true);
 	}
 					
 	//Subtract
-	if (name === "_subtract") {
+	if (name === "__subtract__") {
 		return decompileOperator(args[0], "-", args[1]);
 	}
 	
 	//Skip
-	if (name === "_skip") {
+	if (name === "__skip__") {
 		//Check if the number of skips is hardcoded
 		if (!isNaN(args[0].trim())) {
 			var gotoStr = "lbl_"+decompilerGotos.length;
@@ -21131,7 +25127,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Skip if
-	if (name === "_skipIf") {
+	if (name === "__skipIf__") {
 		result = "if " + decompile(args[0]) + ":\n";
 		
 		//Check if the number of skips is hardcoded
@@ -21149,7 +25145,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Sorted array
-	if (name === "_sortedArray") {
+	if (name === "__sortedArray__") {
 		
 		if (isPlayerArrayInstruction(args[0])) {
 			var varName = "player";
@@ -21162,7 +25158,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		
 		var result = "sorted("+decompile(args[0]);
 		//If key == current array element, do not include it
-		if (topy(getName(args[1]).trim(), valueKw) !== "_currentArrayElement") {
+		if (topy(getName(args[1]).trim(), valueKw) !== "__currentArrayElement__") {
 			result += ", key=lambda "+varName+": "+decompile(args[1]);
 		}
 		result += ")";
@@ -21171,12 +25167,12 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 
 	//Value in array
-	if (name === "_valueInArray") {
+	if (name === "__valueInArray__") {
 		return decompile(args[0])+"["+decompile(args[1])+"]";
 	}
 	
 	//Wait
-	if (name === "_wait") {
+	if (name === "__wait__") {
 		var arg1 = decompile(args[0]);
 		var arg2 = decompile(args[1]);
 		var result = "wait(";
@@ -21197,13 +25193,13 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//X/Y/Z component of
-	if (name === "_xComponentOf") {
+	if (name === "__xComponentOf__") {
 		return decompile(args[0])+".x";
 	}
-	if (name === "_yComponentOf") {
+	if (name === "__yComponentOf__") {
 		return decompile(args[0])+".y";
 	}
-	if (name === "_zComponentOf") {
+	if (name === "__zComponentOf__") {
 		return decompile(args[0])+".z";
 	}
 	
@@ -21348,38 +25344,38 @@ function decompileModifyVar(variable, operation, value, index) {
 	if (index !== undefined) {
 		variable += "["+index+"]";
 	}
-	operation = topy(operation, constantValues["_Operation"]);
-	if (operation === "_appendToArray") {
+	operation = topy(operation, constantValues["__Operation__"]);
+	if (operation === "__appendToArray__") {
 		return variable+".append("+value+")";
-	} else if (operation === "_add") {
+	} else if (operation === "__add__") {
 		//Handle special "++" case
 		if (!isNaN(value) && parseInt(value) == 1) {
 			return variable+"++";
 		} else {
 			return variable+" += "+value;
 		}
-	} else if (operation === "_subtract") {
+	} else if (operation === "__subtract__") {
 		//Handle special "--" case
 		if (!isNaN(value) && parseInt(value) == 1) {
 			return variable+"--";
 		} else {
 			return variable+" -= "+value;
 		}
-	} else if (operation === "_multiply") {
+	} else if (operation === "__multiply__") {
 		return variable+" *= "+value;
-	} else if (operation === "_divide") {
+	} else if (operation === "__divide__") {
 		return variable+" /= "+value;
-	} else if (operation === "_modulo") {
+	} else if (operation === "__modulo__") {
 		return variable+" %= "+value;
-	} else if (operation === "_raiseToPower") {
+	} else if (operation === "__raiseToPower__") {
 		return variable+" **= "+value;
-	} else if (operation === "_min") {
+	} else if (operation === "__min__") {
 		return variable+" min= "+value;
-	} else if (operation === "_max") {
+	} else if (operation === "__max__") {
 		return variable+" max= "+value;
-	} else if (operation === "_removeFromArrayByIndex") {
+	} else if (operation === "__removeFromArrayByIndex__") {
 		return "del "+variable+"["+value+"]";
-	} else if (operation === "_removeFromArrayByValue") {
+	} else if (operation === "__removeFromArrayByValue__") {
 		return variable+".remove("+value+")";
 	} else {
 		error("Unhandled operation "+operation);
@@ -21448,39 +25444,1458 @@ function decompileOperator(operand1, operator, operand2) {
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/*
-Really a class, but I couldn't manage to make the "class" keyword work.
-*/
-function Macro(text, replacement, args) {
+"use strict";
+
+astParsingFunctions.__add__ = function(content) {
+
+    //Check if we are adding both numbers, or both vectors.
+    //If not, throw a type warning and do not optimize to avoid errors in assumptions.
+    if (!isTypeSuitable(content.args[0].type, content.args[1].type) && !isTypeSuitable(content.args[1].type, content.args[0].type)) {
+        warn("w_type_check", getTypeCheckFailedMessage(content, 1, content.args[0].type, content.args[1]));
+        return content;
+    }
+
+    if (enableOptimization) {
+
+        //If both arguments are numbers, return their addition.
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForNumber(content.args[0].args[0].numValue + content.args[1].args[0].numValue);
+        }
+
+        //If one of the arguments is 0, return the other argument.
+        if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) {
+            return content.args[1];
+        }
+        if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+            return content.args[0];
+        }
+
+        //A+A -> 2*A
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return new Ast("__multiply__", [getAstFor2(), content.args[0]]);
+        }
+
+        //Check if both arguments are vectors containing numbers.
+        if (content.args[0].name === "vect" && content.args[1].name === "vect") {
+            var canBeOptimized = true;
+            for (var i = 0; i < 3; i++) {
+                if (content.args[0].args[i].name !== "__number__" || content.args[1].args[i].name !== "__number__") {
+                    canBeOptimized = false;
+                    break;
+                }
+            }
+            if (canBeOptimized) {
+                return new Ast("vect", [
+                    getAstForNumber(content.args[0].args[0].args[0].numValue + content.args[1].args[0].args[0].numValue),
+                    getAstForNumber(content.args[0].args[1].args[0].numValue + content.args[1].args[1].args[0].numValue),
+                    getAstForNumber(content.args[0].args[2].args[0].numValue + content.args[1].args[2].args[0].numValue),
+                ])
+            }
+        }
+
+    }
+
+    return content;
+
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__append__ = function(content) {
+    var result = new Ast("__modifyVar__", [
+        content.args[0],
+        new Ast("__appendToArray__", [], [], "__Operation__"),
+        content.args[1],
+    ])
+    result.originalName = "__append__";
+    return result;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__button__ = function(content) {
+
+    //Check the expected type to check if we need to remove the wrapper "button" function
+    console.log("test");
+    console.log(funcKw[content.parent.name].args[content.parent.argIndex].type);
+    if (funcKw[content.parent.name].args[content.parent.argIndex].type === "ButtonLiteral") {
+        return content.args[0];
+    } else {
+        return content;
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__del__ = function(content) {
+    if (content.args[0].name !== "__valueInArray__") {
+        error("Expected an array access for the 'del' operator, but got "+functionNameToString(content.args[0].name));
+    }
+    var result = new Ast("__modifyVar__", [
+        content.args[0].args[0],
+        new Ast("__removeFromArrayByIndex__", [], [], "__Operation__"),
+        content.args[0].args[1],
+    ])
+    result.originalName = "__del__";
+    return result;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__dict__ = function(content) {
+
+    if (content.parent.name !== "__valueInArray__") {
+        error("Cannot use a dictionary without accessing it");
+    }
+
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__distanceTo__ = function(content) {
+    //Increment the number of times this label is accessed.
+    var label = content.args[0].name;
+    if (!(label in currentRuleLabelAccess)) {
+        currentRuleLabelAccess[label] = 0;
+    }
+    if (content.parent.name === "__skip__" || content.parent.name === "__skipIf__") {
+        currentRuleLabelAccess[label]++;
+    }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__doWhile__ = function(content) {
+    if ((content.parent.name !== "__rule__" && content.parent.name !== "__def__" && content.parent.name !== "__doWhile__")) {
+        error("Do/While loops can only be at the beginning of a rule: parent is '"+content.parent.name+"' and childIndex is "+content.parent.childIndex);
+    }
+
+    for (var i = 0; i < content.parent.childIndex; i++) {
+        if (content.parent.children[i].name !== "pass") {
+            error("Do/While loops can only be at the beginning of a rule: parent is '"+content.parent.name+"' and childIndex is "+content.parent.childIndex);
+        }
+    }
+
+    var loopFunc = null;
+    if (enableOptimization && isDefinitelyFalsy(content.args[0])) {
+        loopFunc = getAstForUselessInstruction();
+
+    } else if (enableOptimization && isDefinitelyTruthy(content.args[0])) {
+        loopFunc = new Ast("__loop__");
+
+    } else if (content.args[0].name === "RULE_CONDITION") {
+        loopFunc = new Ast("__loopIfConditionIsTrue__");
+
+    } else if (content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION") {
+        loopFunc = new Ast("__loopIfConditionIsFalse__");
+
+    } else {
+        loopFunc = new Ast("__loopIf__", content.args);
+    }
+    loopFunc.originalName = "__doWhile__";
+
+    //Insert the children in the parent
+    for (var child of content.children) {
+        child.parent = content.parent;
+    }
+    content.parent.children.splice(content.parent.childIndex+1, 0, ...content.children, loopFunc);
+    
+    return getAstForUselessInstruction();
+}/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__elif__ = function(content) {
+
+    //Add the "end" function.
+    if (content.parent.childIndex === content.parent.children.length-1 || content.parent.childIndex < content.parent.children.length-1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex+1].name)) {
+        //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent.
+        var includeEnd = true;
+        if (enableOptimization && content.parent.childIndex === content.parent.children.length-1) {
+
+            var root = content;
+            includeEnd = false;
+        
+            while (root.name !== "__rule__") {
+                root = root.parent;
+                if (root.name === "__while__" || root.name === "__for__") {
+                    includeEnd = true;
+                    break;
+                } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent.childIndex !== root.parent.children.length-1) {
+                    includeEnd = true;
+                    break;
+                }
+            }
+        }
+        if (includeEnd) {
+            content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
+        }
+    }
+
+    return content;
+
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__else__ = function(content) {
+
+    //Add the "end" function.
+    //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent.
+    var includeEnd = true;
+    if (enableOptimization && content.parent.childIndex === content.parent.children.length-1) {
+
+        var root = content;
+        includeEnd = false;
+    
+        while (root.name !== "__rule__") {
+            root = root.parent;
+            if (root.name === "__while__" || root.name === "__for__") {
+                includeEnd = true;
+                break;
+            } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent.childIndex !== root.parent.children.length-1) {
+                includeEnd = true;
+                break;
+            }
+        }
+    }
+    if (includeEnd) {
+        content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
+    }
+    
+    return content;
+
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__for__ = function(content) {
+
+    //Add the "end" function.
+    content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
+    
+    return content;
+
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__format__ = function(content) {
+
+    if (content.args[0].type === "LocalizedStringLiteral") {
+        return parseLocalizedString(content.args[0], content.args.slice(1));
+    } else {
+		console.log(content);
+        return parseCustomString(content.args[0], content.args.slice(1));
+    }
+
+}
+
+//Parses a custom string.
+function parseCustomString(str, formatArgs) {
+
+	if (!formatArgs) {
+		formatArgs = [];
+    }
+    
+    var isBigLetters = (str.type === "BigLettersStringLiteral");
+    var isFullwidth = (str.type === "FullwidthStringLiteral");
+
+    var content = str.name;
+	var tokens = [];
+	var numberIndex = 0;
+	var args = [];
+	var argsAreNumbered = null;
+	var isConvertedToBigLetters = false;
+
+	//Used to reorder args for easier optimization.
+	//Eg "{1}{0}" is converted to "{0}{1}", with the arguments obviously switched.
+	var numberMapping = {};
+	var containsNonFullwidthChar = false;
+
+	function applyStringModifiers(content) {
+
+		//If big letters, try to map letters until we get one
+		//We only need one letter to convert to big letters
+		if (isBigLetters && !isConvertedToBigLetters) {
+			for (var i = 0; i < content.length; i++) {
+				if (content[i] in bigLettersMappings) {
+					content = content.substring(0,i)+bigLettersMappings[content[i]]+content.substring(i+1);
+					isConvertedToBigLetters = true;
+					break;
+				}
+			}
+		} else if (isFullwidth) {
+			var tmpStr = "";
+			for (var char of content) {
+				if (char in fullwidthMappings) {
+					tmpStr += fullwidthMappings[char];
+				} else {
+					containsNonFullwidthChar = true;
+					tmpStr += char;
+				}
+			}
 	
-	if (args === undefined || args.length === 0) {
-		this.isFunction = false;
-	} else {
-		this.isFunction = true;
-		this.args = args;
+			content = tmpStr;
+			
+		}
+	
+		if (obfuscateRules) {
+			var tmpStr = "";
+			for (var char of content) {
+				if (char in obfuscationMappings) {
+					tmpStr += obfuscationMappings[char];
+				} else {
+					tmpStr += char;
+				}
+			}
+			content = tmpStr;
+        }
+        
+		return content;
 	}
-	this.text = text;
-	this.replacement = replacement;
+
+	//Tokenize string
+	while (true) {
+		var index = content.search(/{\d*}/)
+		if (index >= 0) {
+			if (index > 0) {
+				tokens.push({
+					text: applyStringModifiers(content.substring(0, index)),
+					type: "string"
+				});
+				content = content.substring(index);
+			}
+			var number = content.substring(1, content.indexOf("}"));
+
+			//test for {}
+			if (number === "") {
+				if (argsAreNumbered === true) {
+					error("Cannot switch from automatic field numbering to manual field specification");
+				}
+				argsAreNumbered = false;
+				number = numberIndex;
+
+			} else {
+				if (argsAreNumbered === false) {
+					error("Cannot switch from automatic field numbering to manual field specification");
+				}
+				argsAreNumbered = true;
+				number = parseInt(number);
+			}
+			if (!(number in numberMapping)) {
+				numberMapping[number] = numberIndex;
+				numberIndex++;
+			}
+
+			tokens.push({
+				index: numberMapping[number],
+				type: "arg"
+			});
+			content = content.substring(content.indexOf("}")+1);
+
+		} else {
+
+			tokens.push({
+				text: applyStringModifiers(content),
+				type: "string"
+			});
+			break;
+		}
+	}
+
+	//Sort args if there was (potentially) a reordering
+	for (var key of Object.keys(numberMapping)) {
+		if (formatArgs[key]) {
+			args[numberMapping[key]] = formatArgs[key];
+		} else {
+			error("Too few arguments in format() function: expected "+(numberMapping[key]+1)+" but found "+formatArgs.length);
+		}
+	}
+	//console.log("args = ");
+	//console.log(args);
+
+	if (isFullwidth && containsNonFullwidthChar) {
+		warn("w_not_total_fullwidth", "Could not fully convert this string to fullwidth characters")
+	}
+	if (isBigLetters && !isConvertedToBigLetters) {
+		error("Could not convert the string to big letters. The string must have one of the following chars: '"+Object.keys(bigLettersMappings).join("")+"'");
+	}
+
+	//console.log(tokens);
+	//console.log(stringModifiers);
+
+    return parseStringTokens(tokens, args);
+    
+}
+
+function parseStringTokens(tokens, args) {
+	var result = "";
+	var resultArgs = [];
+	var numbers = [];
+	var numbersEncountered = [];
+	var mappings = {};
+	var stringLength = 0;
+	var currentNbIndex = 0;
+
+
+	//iterate through tokens and figure out the total number of unique numbers
+	for (var token of tokens) {
+		if (token.type === "string") {
+			continue;
+		} else {
+			if (!numbers.includes(token.index)) {
+				numbers.push(token.index);
+			}
+		}
+	}
+
+	//Add tokens
+	//For now, no optimization: just split if more than 3 unique numbers
+	for (var i = 0; i < tokens.length; i++) {
+		//console.log(tokens[i]);
+		//console.log("numbers encountered=");
+		//console.log(numbersEncountered);
+		//debugger;
+
+		//length check
+		if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) >= 125 || tokens[i].type === "arg" && stringLength+3 >= 125) {
+
+			var splitString = false;
+			if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 127 || tokens.length > i)) {
+
+				var tokenText = [...tokens[i].text]
+				var tokenSliceLength = 0;
+				var sliceIndex = 0;
+				for (var j = 0; stringLength+tokenSliceLength < 122; j++) {
+					tokenSliceLength += getUtf8Length(tokenText[j]+"");
+					sliceIndex++;
+				}
+
+				//Workshop bug: if the last character of a string is 2 bytes or more, it will be "eaten".
+				//Fix it by adding a zero-width space.
+				if (getUtf8Length(tokenText[tokenText.length-1]) >= 2) {
+					sliceIndex -= 3;
+					result += tokenText.slice(0, sliceIndex).join("") + "\u200B";
+				} else {
+					result += tokenText.slice(0, sliceIndex).join("")
+				}
+
+				tokens[i].text = tokenText.slice(sliceIndex).join("");
+				splitString = true;
+
+			} else if (tokens[i].type === "arg" && tokens.length > i) {
+				splitString = true;
+			}
+
+			if (splitString) {
+				result += "{"+currentNbIndex+"}";
+				resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
+				break;
+			}
+		}
+
+		if (tokens[i].type === "string") {
+			result += tokens[i].text;
+			stringLength += getUtf8Length(tokens[i].text);
+		} else {
+			if (numbersEncountered.length >= 2 && numbers.length > 3) {
+				//split
+				result += "{2}";
+				resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
+				break;
+			} else {
+				if (!(tokens[i].index in mappings)) {
+					mappings[tokens[i].index] = numbersEncountered.length;
+				}
+				if (!numbersEncountered.includes(tokens[i].index)) {
+					numbersEncountered.push(tokens[i].index);
+					resultArgs.push(args[tokens[i].index]);
+				}
+				result += "{"+mappings[tokens[i].index]+"}";
+				currentNbIndex++;
+				stringLength += 3;
+
+
+			}
+		}
+	}
+
+	while (resultArgs.length < 3) {
+		resultArgs.push(getAstForNull());
+	}
+
+	if (resultArgs.length != 3) {
+		error("Custom string parser broke (string args length is "+resultArgs.length+")");
+	}
+
+	return new Ast("__customString__", [new Ast(result, [], [], "StringLiteral")].concat(resultArgs));
+}
+
+//Parses localized string
+function parseLocalizedString(content, formatArgs) {
+
+	if (formatArgs.length > 3) {
+		error("A localized string cannot have more than 3 arguments in the 'format' function");
+	}
+	while (formatArgs.length < 3) {
+		formatArgs.push(getAstForNull());
+	}
+	
+	return new Ast("__localizedString__", [content, ...formatArgs]);
+	
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__if__ = function(content) {
+
+    //Add the "end" function.
+    if (content.parent.childIndex === content.parent.children.length-1 || content.parent.childIndex < content.parent.children.length-1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex+1].name)) {
+        //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent.
+        var includeEnd = true;
+        if (enableOptimization && content.parent.childIndex === content.parent.children.length-1) {
+
+            var root = content;
+            includeEnd = false;
+        
+            while (root.name !== "__rule__") {
+                root = root.parent;
+                if (root.name === "__while__" || root.name === "__for__") {
+                    includeEnd = true;
+                    break;
+                } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent.childIndex !== root.parent.children.length-1) {
+                    includeEnd = true;
+                    break;
+                }
+            }
+        }
+        if (includeEnd) {
+            content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
+        }
+    }
+
+    return content;
+
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__negate__ = function(content) {
+
+    const typeNegation = {
+        "unsigned int": "signed int",
+        "unsigned float": "signed float",
+        "signed int": "unsigned int",
+        "signed float": "unsigned float",
+    }
+
+    //negate type
+    console.log(content.type);
+    content.type = replaceType(content.type, typeNegation);
+    console.log(content.type);
+
+    function negateNumber(nb) {
+        nb.args[0].numValue = -nb.args[0].numValue;
+        nb.args[0].name = Number(nb.args[0].numValue);
+    }
+
+    if (enableOptimization) {
+        if (["__multiply__", "__divide__"].includes(content.args[0].name)) {
+            //Apply the negate on a number if that number is literal.
+            //Eg: "-3*5" is will be "(-3)*5".
+            if (content.args[0].args[0].name === "__number__") {
+                negateNumber(content.args[0].args[0]);
+                return content.args[0];
+
+            } else if (content.args[0].args[1].name === "__number__") {
+                negateNumber(content.args[0].args[1]);
+                return content.args[0];
+            } 
+
+        } else if (content.args[0].name === "__modulo__" && content.args[0].args[0].name === "__number__") {
+            negateNumber(content.args[0].args[0]);
+            return content.args[0];
+
+        } else if (content.args[0].name === "__negate__") {
+            //Negating twice is equivalent to null.
+            return content.args[0].args[0];
+
+        } else if (content.args[0].name === "__number__") {
+            negateNumber(content.args[0]);
+            return content.args[0];
+
+        } else if (content.args[0].name === "vect") {
+        //Check if both arguments are vectors containing numbers.
+            if (content.args[0].args[0].name === "__number__" 
+                    && content.args[0].args[1].name === "__number__" 
+                    && content.args[0].args[2].name === "__number__" ) {
+
+                return new Ast("vect", [
+                    getAstForNumber(-content.args[0].args[0].args[0].numValue),
+                    getAstForNumber(-content.args[0].args[1].args[0].numValue),
+                    getAstForNumber(-content.args[0].args[2].args[0].numValue),
+                ])
+            }
+        }
+    }
+
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__remove__ = function(content) {
+    var result = new Ast("__modifyVar__", [
+        content.args[0],
+        new Ast("__removeFromArrayByValue__", [], [], "__Operation__"),
+        content.args[1],
+    ])
+    result.originalName = "__remove__";
+    return result;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__rule__ = function(content) {
+
+
+    //Iterate forward on each action, then remove all useless instructions, unless a relative goto is encountered.
+    var isRelativeGotoEncountered = false;
+
+    function removeUselessChildren(children) {
+
+        for (var i = 0; i < children.length; i++) {
+            //Check for a dynamic goto.
+            if (children[i].name === "__skip__" && children[i].args[0].name !== "__distanceTo__" || children[i].name === "__skipIf__" && children[i].args[1].name !== "__distanceTo__") {
+                isRelativeGotoEncountered = true;
+            }
+            if (isRelativeGotoEncountered) {
+                children[i].isUnderRelativeGoto = true;
+            } else {
+                if (children[i].name === "__uselessInstruction__") {
+                    children.splice(i, 1);
+                    i--;
+                }
+            }
+            removeUselessChildren(children[i].children);
+        }
+    }
+    if (enableOptimization) {
+        removeUselessChildren(content.children);
+    }
+
+    //Check that there is no duplicate label.
+    var declaredLabels = [];
+    function getExistingLabels(content) {
+        fileStack = content.fileStack;
+        if (content.type === "Label") {
+            if (declaredLabels.includes(content.name)) {
+                error("Label '"+content.name+"' is already declared in this rule");
+            }
+            declaredLabels.push(content.name);
+        } else {
+            for (var child of content.children) {
+                getExistingLabels(child);
+            }
+        }
+    }
+    for (var child of content.children) {
+        getExistingLabels(child);
+    }
+
+    console.log(astToString(content));
+    //Now that we have removed all useless instructions, compute each __distanceTo__ function.
+    function resolveDistanceTo(content) {
+
+        fileStack = content.fileStack;
+
+        for (var i = 0; i < content.args.length; i++) {
+            content.args[i] = resolveDistanceTo(content.args[i]);
+        }
+        for (var i = 0; i < content.children.length; i++) {
+            content.childIndex = i;
+            content.children[i] = resolveDistanceTo(content.children[i]);
+        }
+        content.childIndex = 0;
+        if (content.name === "__distanceTo__") {
+            var count = 0;
+            var label = content.args[0].name;
+            var foundLabel = false;
+
+            function computeDistanceTo(content) {
+
+                for (var i = content.childIndex; i < content.children.length; i++) {
+                    if (content.children[i].type === "Label" && content.children[i].name === label) {
+                        foundLabel = true;
+                    }
+                    computeDistanceTo(content.children[i]);
+                    if (content.children[i].type !== "Label") {
+                        debug("Increasing distanceTo count for label "+label+": function '"+content.children[i].name+"'");
+                        //console.log(astToString(content.children[i]));
+                        count++;
+                    }
+                    if (foundLabel) {
+                        break;
+                    }
+                }
+            }
+
+            //Get the root of the tree.
+            //Remove 1 from the count each time, because the parents will get counted in the count.
+            var root = content;
+            while (root.name !== "__rule__") {
+                if (root.type === "void") {
+                    count--;
+                }
+                root = root.parent;
+            }
+            count++; //account for "__rule__"
+            count--; //account for the action in which the __distanceTo__ is
+
+            computeDistanceTo(root);
+            if (!foundLabel) {
+                error("Could not find label '"+label+"'");
+            }
+
+            if (count < 0) {
+                error("Error while calculating distance to label '"+label+"': count is "+count)
+            }
+
+            return getAstForNumber(count);
+
+
+        } else {
+            return content;
+        }
+    }
+
+    resolveDistanceTo(content);
+
+    return content;
+
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__skip__ = function(content) {
+    if (content.args[0].name !== "__distanceTo__") {
+        currentRuleHasVariableGoto = true;
+    }
+    return content;
+}/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__subtract__ = function(content) {
+
+    //Check if we are subtracting both numbers, or both vectors.
+    //If not, throw a type warning and do not optimize to avoid errors in assumptions.
+    if (!isTypeSuitable(content.args[0].type, content.args[1].type) && !isTypeSuitable(content.args[1].type, content.args[0].type)) {
+        warn("w_type_check", getTypeCheckFailedMessage(content, 1, content.args[0].type, content.args[1]));
+        return content;
+    }
+
+    if (enableOptimization) {
+
+        //If both arguments are numbers, return their subtraction.
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForNumber(content.args[0].args[0].numValue - content.args[1].args[0].numValue);
+        }
+
+        //A-0 -> A
+        if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+            return content.args[0];
+        }
+
+        //A-A -> 0
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return getAstFor0();
+        }
+
+        //Check if both arguments are vectors containing numbers.
+        if (content.args[0].name === "vect" && content.args[1].name === "vect") {
+            var canBeOptimized = true;
+            for (var i = 0; i < 3; i++) {
+                if (content.args[0].args[i].name !== "__number__" || content.args[1].args[i].name !== "__number__") {
+                    canBeOptimized = false;
+                    break;
+                }
+            }
+            if (canBeOptimized) {
+                return new Ast("vect", [
+                    getAstForNumber(content.args[0].args[0].args[0].numValue - content.args[1].args[0].args[0].numValue),
+                    getAstForNumber(content.args[0].args[1].args[0].numValue - content.args[1].args[1].args[0].numValue),
+                    getAstForNumber(content.args[0].args[2].args[0].numValue - content.args[1].args[2].args[0].numValue),
+                ])
+            }
+        }
+
+    }
+
+    return content;
+
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__switch__ = function(content) {
+
+    var switchCaseArgs = [];
+
+    //A flattened array of all children of cases, plus any labels (either literal labels, or labels made from case/default statements).
+    var casesChildren = [];
+
+    var hasDefault = false;
+    var switchNb = getUniqueNumber();
+
+    //Check if we have only cases or defaults
+    for (var child of content.children) {
+        if (child.name === "__case__") {
+            casesChildren.push(new Ast("__label_switch_"+switchNb+"_"+switchCaseArgs.length+"__", [], [], "Label"));
+            casesChildren.push(...child.children);
+            switchCaseArgs.push(child.args[0]);
+        } else if (child.name === "__default__") {
+            casesChildren.push(new Ast("__label_switch_"+switchNb+"_default__", [], [], "Label"));
+            casesChildren.push(...child.children);
+            hasDefault = true;
+        } else if (child.type === "Label") {
+            casesChildren.push(child);
+        } else {
+            error("Expected a 'case' or 'default' instruction but got "+functionNameToString(child));
+        }
+    }
+
+    if (!hasDefault) {
+        casesChildren.push(new Ast("__label_switch_"+switchNb+"_default__", [], [], "Label"));
+    }
+
+    //Build the cases arg array
+    //[caseOffsets][[caseValues].index(switchValue)+1]
+    var caseOffsets = [];
+    caseOffsets.push(new Ast("__distanceTo__", [new Ast("__label_switch_"+switchNb+"_default__", [], [], "Label")]));
+    for (var i = 0; i < switchCaseArgs.length; i++) {
+        caseOffsets.push(new Ast("__distanceTo__", [new Ast("__label_switch_"+switchNb+"_"+i+"__", [], [], "Label")]));
+    }
+
+    //Insert the children of the cases in the parent
+    for (var child of casesChildren) {
+        child.parent = content.parent;
+    }
+    content.parent.children.splice(content.parent.childIndex+1, 0, ...casesChildren);
+
+    return new Ast("__skip__", [
+        new Ast("__valueInArray__", [
+            new Ast("__array__", caseOffsets),
+            new Ast("__add__", [
+                getAstFor1(),
+                new Ast("__indexOfArrayValue__", [
+                    new Ast("__array__", switchCaseArgs),
+                    content.args[0],
+                ])
+            ])
+        ])
+    ]);
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__valueInArray__ = function(content) {
+
+    if (content.args[0].name === "__dict__") {
+        var dictKeys = content.args[0].args.map(x => x.args[0]);
+        var dictValues = content.args[0].args.map(x => x.args[1]);
+        var index = content.args[1];
+        return new Ast("__valueInArray__", [
+            new Ast("__array__", dictValues),
+            new Ast("__indexOfArrayValue__", [
+                new Ast("__array__", dictKeys),
+                index
+            ])
+        ])
+    }
+
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__while__ = function(content) {
+
+    //Add the "end" function.
+    content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
+    
+    return content;
+
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.all = function(content) {
+
+    if (content.args[0].name === "__mappedArray__") {
+        return new Ast("__all__", [content.args[0].args[0], content.args[0].args[1]]);
+    } else {
+        return new Ast("__all__", [content.args[0], new Ast("__currentArrayElement__")]);
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.any = function(content) {
+
+    if (content.args[0].name === "__mappedArray__") {
+        return new Ast("__any__", [content.args[0].args[0], content.args[0].args[1]]);
+    } else {
+        return new Ast("__any__", [content.args[0], new Ast("__currentArrayElement__")]);
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.break = function(content) {
+
+    //Determine the innermost loop or switch
+    var innermostStructure = content.parent;
+    while (innermostStructure.parent !== undefined) {
+        if (["__while__", "__for__", "__switch__", "__doWhile__"].includes(innermostStructure.name)) {
+            break;
+        } else {
+            innermostStructure = innermostStructure.parent;
+        }
+    }
+
+    if (innermostStructure.name === "__switch__" || innermostStructure.name === "__doWhile__") {
+        //Place a label at the end
+        var labelName = "__label_break_"+getUniqueNumber()+"__";
+        var label = new Ast(labelName, [], [], "Label");
+        label.parent = innermostStructure.parent;
+        innermostStructure.parent.children.splice(innermostStructure.parent.childIndex+1, 0, label);
+
+        //Convert the switch to a goto
+        return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
+
+    } else if (innermostStructure.name === "__while__" || innermostStructure.name === "__for__") {
+        return content;
+
+    } else {
+        error("Found 'break' instruction, but not within a loop");
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.continue = function(content) {
+
+    //Determine the innermost loop or switch
+    var innermostStructure = content.parent;
+    while (innermostStructure.parent !== undefined) {
+        if (["__while__", "__for__", "__doWhile__"].includes(innermostStructure.name)) {
+            break;
+        } else {
+            innermostStructure = innermostStructure.parent;
+        }
+    }
+
+    if (innermostStructure.name === "__doWhile__") {
+        //Return a loop instruction
+        return new Ast("__loop__");
+
+    } else if (innermostStructure.name === "__while__" || innermostStructure.name === "__for__") {
+        return content;
+
+    } else {
+        error("Found 'break' instruction, but not within a loop");
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.print = function(content) {
+
+    var result = new Ast("__hudText__", [
+        new Ast("getAllPlayers"),
+        content.args[0],
+        getAstForNull(),
+        getAstForNull(),
+        new Ast("LEFT", [], [], "HudPosition"),
+        getAstFor0(),
+        getAstForColorWhite(),
+        getAstForColorWhite(),
+        getAstForColorWhite(),
+        new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"),
+        new Ast("DEFAULT", [], [], "SpecVisibility"),
+    ]);
+    result.originalName = "print";
+    return parseAst(result);
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.sorted = function(content) {
+
+    content.name = "__sortedArray__";
+    content.type = content.args[0].type;
+    return parseAst(content);
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+class Macro {
+	
+	constructor(text, replacement, args) {
+		if (args === undefined || args.length === 0) {
+			this.isFunction = false;
+		} else {
+			this.isFunction = true;
+			this.args = args;
+		}
+		this.text = text;
+		this.replacement = replacement;
+	}
+	
+}
+
+class LogicalLine {
+	constructor(indentLevel, tokens) {
+		this.indentLevel = indentLevel === undefined ? 0 : indentLevel;
+		this.tokens = tokens === undefined ? [] : tokens;
+	}
+
+	toString() {
+		return " ".repeat(this.indentLevel)+ this.tokens.join(" ");
+	}
+}
+
+class Token {
+	constructor(text, fileStack) {
+		this.text = text;
+		this.fileStack = fileStack;
+	}
+
+	toString() {
+		return this.text;
+	}
 }
 
 /*
-Splits the content to return an array of rules, with an array of (effective) lines.
-We cannot do split('\n') because we need to handle backslashed lines, and multi-line functions.
-For example, the following will count as 1 line:
-
-function(arg1, arg2,
-	arg3, arg4)
-	
-As well as the following:
-
-#!define owo(x) function(x)\
-function(y)
-
-While we're at it, this function also automatically removes comments,
-and splits rules as well as macros.
-It also resolves macros, and tokenizes.
+Returns an array of logical lines, with their indentation level.
+Logical lines are separated by a '\n', if it is not backslashed, and not within brackets.
 */
-
 function tokenize(content) {
 	
 	if (!content.endsWith('\n')) {
@@ -21514,39 +26929,24 @@ function tokenize(content) {
 		"*",
 		".",
 		":",
+		";",
 		"\\",
 	];
 	
 	
-	var rules = [];
+	var result = [];
 	macros = [];
 	
 	//var isInString = false;
-	var currentStrDelimiter = "";
-	var isInLineComment = false;
-	var isInStrComment = false;
-	var isInMacro = false;
-	var currentStrCommentDelimiter = "";
 	var bracketsLevel = 0;
-	var isInRule = false;
-	var currentRule = {}
-	var currentRuleLine = {};
-	//var currentToken = {"text":""};
-	var currentMacro = {};
-	var isBackslashed = false;
-	var isInTextToken = false;
+	var currentLine = {};
     
     fileStack = [{
         "name": "<main>",
         "currentLineNb": 1,
-        "currentColNb": 0,
+        "currentColNb": 1,
         "remainingChars": content.length+1, //does not matter
 	}];
-	
-	currentRule = {
-		"fileStack":getFileStackCopy(),
-		"lines":[]
-	};
 	
 	var i = 0;
 	
@@ -21558,14 +26958,9 @@ function tokenize(content) {
 		
 		//debug("Adding token '"+text+"' at "+currentLineNb+":"+currentColNb);
 		
-		currentRuleLine.tokens.push({
-			"fileStack": getFileStackCopy(),
-			"text":text
-		});
+		currentLine.tokens.push(new Token(text, getFileStackCopy()));
 		
-		i += text.length-1;
-		fileStack[fileStack.length-1].currentColNb += text.length-1;
-		fileStack[fileStack.length-1].remainingChars -= text.length-1;
+		moveCursor(text.length-1);
     }
     
     //Length = length of the macro resolution
@@ -21586,79 +26981,121 @@ function tokenize(content) {
         //console.log(JSON.stringify(fileStack));
     }
 	
-	function newRuleLine() {
+	function newLogicalLine() {
 		
-		if (currentRuleLine.tokens !== undefined && currentRuleLine.tokens.length > 0) {
-			currentRule.lines.push(currentRuleLine);
+		if (currentLine.tokens !== undefined && currentLine.tokens.length > 0) {
+			result.push(currentLine);
 		}
 		
-		currentRuleLine = {
-			"indentLevel":0,
-			"tokens":[]
-		};
+		currentLine = new LogicalLine();
 	}
 	
-	newRuleLine();
-		
-	for (i = 0; i < content.length; i++) {
-		
-		//console.log(i);
-        //await sleep(5);
-        //console.log(JSON.stringify(fileStack));
-		
-		if (fileStack[fileStack.length-1].remainingChars > 0) {
-			fileStack[fileStack.length-1].remainingChars--;
-			if (fileStack[fileStack.length-1].remainingChars === 0) {
-				//debug("macro lines = "+macroLines+", macro cols = "+macroCols);
-				fileStack[fileStack.length-2].currentLineNb += fileStack[fileStack.length-1].callLines;
-                fileStack[fileStack.length-2].currentColNb += fileStack[fileStack.length-1].callLines-1;
-                fileStack[fileStack.length-2].remainingChars -= fileStack[fileStack.length-1].callNbChars;
-                fileStack.pop();
-			}
-        }
-        
-        fileStack[fileStack.length-1].currentColNb++;
-						
-		if (content[i] === '\n') {
-			if (!isBackslashed) {
-				if (isInMacro) {
-					isInMacro = false;
-					macros.push(parseMacro(currentMacro));
+	newLogicalLine();
+
+	function moveCursor(amount) {
+		for (var j = 0; j < amount; j++) {
+
+			if (fileStack[fileStack.length-1].remainingChars > 0) {
+				fileStack[fileStack.length-1].remainingChars--;
+				if (fileStack[fileStack.length-1].remainingChars === 0) {
+					//debug("macro lines = "+macroLines+", macro cols = "+macroCols);
+					fileStack[fileStack.length-2].currentLineNb += fileStack[fileStack.length-1].callLines;
+					fileStack[fileStack.length-2].currentColNb += fileStack[fileStack.length-1].callLines-1;
+					fileStack[fileStack.length-2].remainingChars -= fileStack[fileStack.length-1].callNbChars;
+					fileStack.pop();
 				}
 			}
-			//For some reason, in Python, line comments aren't affected by backslashes before new lines.
-			if (isInLineComment) {
-				isInLineComment = false;
-			}
 			
-			//Do not end the instruction if there is a line break inside a function, or the line is backslashed.
-			if (bracketsLevel === 0 && !isBackslashed) {
-				newRuleLine();
+			fileStack[fileStack.length-1].currentColNb++;
+			if (content[i+j] === "\n") {
 				
-            }
-            
-            fileStack[fileStack.length-1].currentLineNb++;
-            fileStack[fileStack.length-1].currentColNb = 0;
+				fileStack[fileStack.length-1].currentLineNb++;
+				fileStack[fileStack.length-1].currentColNb = 1;
+			}
+		}
+		i += amount;
+	}
+
+	function parsePreprocessingDirective(content) {
+
+		console.log("Parsing preprocessing directive '"+content+"'");
+		if (content.startsWith("#!define ") || content.startsWith("#!defineMember ")) {
+			macros.push(parseMacro({
+				fileStack: getFileStackCopy(),
+				content: content,
+			}));
+		} else if (content.startsWith("#!mainFile ")) {
+			//we must ignore this preprocessor directive
+
+		} else if (content.startsWith("#!obfuscate")) {
+			obfuscateRules = true;
+
+		} else if (content.startsWith("#!disableUnusedVars")) {
+			disableUnusedVars = true;
+
+		} else if (content.startsWith("#!noEdit")) {
+			enableNoEdit = true;
+
+		} else if (content.startsWith("#!suppressWarnings ")) {
+			var lineIndex = content.indexOf("\n");
+			var firstSpaceIndex = content.indexOf(" ");
+			globalSuppressedWarnings = content.substring(firstSpaceIndex, lineIndex).trim().split(" ").map(x => x.trim());
+
+		} else if (content.startsWith("#!include ")) {
 			
-		} else if (!isInStrComment && !isInMacro && !isInLineComment) {
+			var endOfLine = content.indexOf('\n');
+			var space = content.indexOf(" ");
+			var path = getFilePath(content.substring(space, endOfLine));
+			var importedFileContent = getFileContent(path);
+			
+			content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
+			addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 1);
+			i--;
+			fileStack[fileStack.length-1].remainingChars++;
+
+		} else {
+			error("Unknown preprocessor directive '"+content+"'");
+		}
+	}
+
+	
+	for (i = 0; i < content.length; moveCursor(1)) {
+		
+        //console.log(JSON.stringify(fileStack));
+						
+		if (content[i] === '\n') {
+			
+			//Only end the logical line if the newline is not within brackets.
+			if (bracketsLevel === 0) {
+				newLogicalLine();
+            }
+			
+		} else {
 			
 			if (content[i] === "\t") {
-				if (currentRuleLine.tokens.length === 0) {
-					currentRuleLine.indentLevel += 4;
+				if (currentLine.tokens.length === 0) {
+					currentLine.indentLevel += 4;
 				}
 			} else if (content[i] === ' ') {
                 //increase indentation if no token yet; else, do nothing
-				if (currentRuleLine.tokens.length === 0) {
-			    	currentRuleLine.indentLevel++;
+				if (currentLine.tokens.length === 0) {
+			    	currentLine.indentLevel++;
                 }
-			} else if (content[i] === '\\') {
+			} else if (content[i] === '\r') {
 				//do nothing
 
-			} else if (content[i] === ',') {
-				if (bracketsLevel === 0) {
-					error("Unexpected token ','");
+			} else if (content[i] === '\\') {
+				var j = i+1;
+				for (; j < content.length; j++) {
+					if (content[j] === "\n") {
+						break;
+					} else if (content[j] !== " " && content[j] !== "\r") {
+						error("A backslash can only be put at the end of a line");
+					}
 				}
-				addToken(content[i]);
+				j++;
+				moveCursor(j-i-1);
+
 			} else if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
 				bracketsLevel++;
 				addToken(content[i]);
@@ -21666,122 +27103,100 @@ function tokenize(content) {
 			} else if (content[i] === ')' || content[i] === ']' || content[i] === '}') {
 				bracketsLevel--;
 				if (bracketsLevel < 0) {
-					error("Brackets level below 0");
+					error("Brackets level below 0 (extraneous closing bracket)");
 				}
 				addToken(content[i]);
 				
 			} else if (content.startsWith("#!", i)) {
-				if (content.startsWith("#!define ", i) || content.startsWith("#!defineMember ", i)) {
-					if (!isInRule) {
-						isInMacro = true;
-						currentMacro = {
-							"fileStack":getFileStackCopy(),
-							"content":""
-						};
+				var j = i;
+				var isBackslashed = false;
+				var preprocessingDirectiveContent = "";
+				for (; j < content.length; j++) {
+					if (content[j] === "\\") {
+						isBackslashed = true;
+					} else if (!isBackslashed && content[j] === "\n") {
+						break;
+					} else if (content[j] !== " " && content[j] !== "\r") {
+						isBackslashed = false;
+						preprocessingDirectiveContent += content[j];
 					} else {
-						error("Cannot declare macro inside a rule");
+						preprocessingDirectiveContent += content[j];
 					}
-				} else if (content.startsWith("#!mainFile ", i)) {
-					//we must ignore this preprocessor directive, and it behaves like a line comment
-					isInLineComment = true;
-
-				} else if (content.startsWith("#!obfuscate", i)) {
-					obfuscateRules = true;
-					isInLineComment = true;
-				} else if (content.startsWith("#!disableUnusedVars", i)) {
-					disableUnusedVars = true;
-					isInLineComment = true;
-				} else if (content.startsWith("#!noEdit", i)) {
-					enableNoEdit = true;
-					isInLineComment = true;
-				} else if (content.startsWith("#!suppressWarnings ", i)) {
-					var lineIndex = content.indexOf("\n", i);
-					var firstSpaceIndex = content.indexOf(" ", i);
-					globalSuppressedWarnings = content.substring(firstSpaceIndex, lineIndex).trim().split(" ").map(x => x.trim());
-					isInLineComment = true;
-				} else if (content.startsWith("#!include ", i)) {
-					
-					var endOfLine = content.indexOf('\n', i);
-					var space = content.indexOf(" ", i);
-					var path = getFilePath(content.substring(space, endOfLine));
-					var importedFileContent = getFileContent(path);
-					
-					content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
-					addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 1);
-					i--;
-					fileStack[fileStack.length-1].remainingChars++;
-
-				} else {
-					error("Unknown preprocessor directive");
 				}
-				
+
+				parsePreprocessingDirective(preprocessingDirectiveContent);
+				moveCursor(j-i-1);
+
 			} else if (content[i] === '#') {
-				isInLineComment = true;
+				//Get to the end of the comment. Note: backslashes don't work to continue a line comment.
+				var j = i+1;
+				for (; j < content.length && content[j] !== "\n"; j++);
+
+				//To facilitate parsing, do not add the comment if it is in parentheses, as it won't be used for action comments.
+				if (bracketsLevel !== 0) {
+					moveCursor(j-i-1);
+				} else {
+					addToken(content.substring(i, j))
+				}
 			
-			} else if (content.startsWith("'''", i)) {
-				isInStrComment = true;
-				currentStrCommentDelimiter = "'''";
+			} else if (content.startsWith("/*", i)) {
 				
-			} else if (content.startsWith('"""', i)) {
-				isInStrComment = true;
-				currentStrCommentDelimiter = '"""';
+				//Get to the end of the multiline comment
+				var j = i+"/*".length;
+				var foundEndOfComment = false;
+				for (; j < content.length; j++) {
+					if (content.startsWith("*/", j)) {
+						foundEndOfComment = true;
+						break;
+					}
+				};
+
+				if (!foundEndOfComment) {
+					error("Multiline comment isn't terminated (found end of file while searching for end of comment)");
+				}
+				j += "*/".length;
+				moveCursor(j-i-1);
+
+
+			} else if (content.startsWith("*/", i)) {
+				//All ends should be found when a multiline comment start is found.
+				error("Found end of multiline comment, but no matching beginning");
 				
-			} else if (content[i] === '"' || content[i] === '\'') {
-				currentStrDelimiter = content[i];
+			} else if (content[i] === '"' || content[i] === "'") {
+				var strDelimiter = content[i];
+				var foundEndOfString = false;
+				var isBackslashed = false;
+
 				//Get to the end of the string
 				var j = i+1;
 				for (; j < content.length; j++) {
-					
-					//Test for potentially unclosed string
-					if (!isBackslashed && content[j] === '\n') {
-						error("Unclosed string");
-					}
-					
-					if (!isBackslashed && content[j] === currentStrDelimiter) {
+					if (!isBackslashed && content[j] === strDelimiter) {
+						foundEndOfString = true;
 						break;
 					}
-						
 					if (content[j] === '\\') {
 						isBackslashed = true;
 					} else {
 						isBackslashed = false;
 					}
-					
-					
+				}
+
+				if (!foundEndOfString) {
+					error("String isn't terminated (found end of file while searching for end of string)");
 				}
 				
-				j += 1; //account for closing delimiter
-				
-				if (j > i) {
-					addToken(content.substring(i, j));
-				} else {
-					error("Failed to parse string '"+content.substring(i, j)+"' (malformed string?)");
-				}
+				j += strDelimiter.length; //account for closing delimiter
+				addToken(content.substring(i, j));
+
 			} else {
-				
 				
 				//Get token
                 var j = i;
                 //Increases j as long as there are characters that can compose a word
 				for (; j < content.length && isVarChar(content[j]); j++);
                 
-                //If j >= i, then there was a word, instead of an operator
+                //If j > i, then there was a word, instead of an operator
 				if (j > i) {
-					if (content.substring(i, j) === "@Rule") {
-						if (bracketsLevel > 0) {
-							error("Found '@Rule' within brackets (missing closing bracket in previous rule)");
-						}
-						isInRule = true;
-						rules.push(currentRule);
-						currentRule = {
-							"fileStack":getFileStackCopy(),
-							"lines":[]
-						};
-						newRuleLine();
-
-					} /*else if (!isInRule) {
-						error("Found code outside a rule : "+content[i]);
-					}*/
 
 					var macroWasFound = false;
 
@@ -21799,7 +27214,7 @@ function tokenize(content) {
 								var bracketPos = getBracketPositions(content.substring(i), true, true);
 								text = content.substring(i, i+bracketPos[1]+1);
 								var macroArgs = getArgs(content.substring(i+bracketPos[0]+1, i+bracketPos[1]));
-								replacement = resolveMacro(macros[k], macroArgs, currentRuleLine.indentLevel);
+								replacement = resolveMacro(macros[k], macroArgs, currentLine.indentLevel);
 								
 							} else {
 								//debug("Resolving normal macro "+macros[k].name);
@@ -21853,43 +27268,25 @@ function tokenize(content) {
 					}
 					
 					if (!hasTokenBeenFound) {
-						if (content[i] === "\r") {
-							warn("w_crlf", "File is in CRLF mode. This could cause bugs as CRLF is not supported.");
-						} else {
-							error("Unknown token '"+content[i]+"'");
-						}
+						error("Unknown token '"+content[i]+"'");
 					}
 				}
 			}
 			
-		} else if (isInStrComment && content.startsWith(currentStrCommentDelimiter, i)) {
-			i += currentStrCommentDelimiter.length-1;
-			isInStrComment = false;
-		}
-		
-		
-		if (content[i] === '\\') {
-			isBackslashed = true;
-		} else {
-			isBackslashed = false;
-		}
-		
-		if (isInMacro) {
-			currentMacro.content += content[i];
 		}
 	}
 
-	if (isInStrComment) {
-		error("String comment isn't terminated (found end of file, but still in string comment)")
+	if (bracketsLevel > 0) {
+		error("Found end of file, but a bracket isn't closed");
 	}
-	
-	rules.push(currentRule);
 	
 	//console.log("macros = ");
 	//console.log(macros);
 	//console.log(rules);
+	console.log(result.join("\n"));
+	//console.log(result);
 	
-	return rules
+	return result;
 	
 }
 
@@ -22005,74 +27402,644 @@ function parseMacro(macro) {
 	return macro;
 	
 }
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
-//Tokenizes string
-function tokenizeLocalizedString(str) {
-	
-	var tokenList = []
-	var originalColNb = fileStack[fileStack.length-1].currentColNb;
-	
-	debug("Tokenizing string '"+str+"'");
-	
-	str = str.toLowerCase();
-	
-	for (var i = 0; i < str.length; i++) {
-		
-		fileStack[fileStack.length-1].currentColNb = originalColNb+i;
-		var currentToken = "";
-		var hasTokenBeenFound = false;
-		
-		//Test tokens
-		for (var j = 0; j < strTokens.length; j++) {
-			if (str.startsWith(strTokens[j], i)) {
-				currentToken = strTokens[j];
-				hasTokenBeenFound = true;
-				break;
-			}
-		}
-		
-		if (!hasTokenBeenFound) {
-			//Test numbers
-			var j = i;
-			for (; (str[j] >= '0' && str[j] <= '9') || str[j] === '.' || str[j] === '-'; j++);
-			
-			if (j !== i) {
-				currentToken = str.substring(i, j);
-				hasTokenBeenFound = true;
-			}
-		}
-		
-		//Test for formatting
-		if (!hasTokenBeenFound) {
-			if (str.startsWith("{}", i)) {
-				currentToken = "{}";
-				hasTokenBeenFound = true;
-			}
-		}
+"use strict";
 
-		//Test for heroes
-		if (!hasTokenBeenFound) {
-			for (var hero of Object.keys(heroKw)) {
-				if (str.startsWith(hero, i)) {
-					currentToken = "_h"+hero;
-					hasTokenBeenFound = true;
-					break;
-				}
-			}
+function parseAstRules(rules) {
+    for (var rule of rules) {
+
+        fileStack = rule.fileStack;
+
+        //Parse annotations
+        var i = 0;
+        for (; i < rule.children.length; i++) {
+
+            if (!rule.children[i].name.startsWith("@")) {
+                break;
+            }
+            fileStack = rule.children[i].fileStack;
+
+            if (["@Name", "@Event", "@Team", "@Slot", "@Hero"].includes(rule.children[i].name)) {
+                const annotationToPropMap = {
+                    "@Name": {prop: "name", display: "name"},
+                    "@Event": {prop: "event", display: "event"},
+                    "@Team": {prop: "eventTeam", display: "event team"},
+                    "@Slot": {prop: "eventPlayer", display: "event player (@Hero/@Slot)"},
+                    "@Hero": {prop: "eventPlayer", display: "event player (@Hero/@Slot)"},
+                };
+
+                if (rule.children[i].args.length !== 1) {
+                    error("Annotation '"+rule.children[i].name+"' takes 1 argument, received "+rule.children[i].args.length);
+                }
+                if (annotationToPropMap[rule.children[i].name].prop in rule.ruleAttributes) {
+                    error("Rule "+annotationToPropMap[rule.children[i].name].display+" was already declared");
+                }
+
+                if (rule.children[i].name === "@Name") {
+                    if (rule.children[i].args[0].type !== "StringLiteral") {
+                        error("Expected a string as argument of '@Name'");
+                    }
+                    rule.ruleAttributes[annotationToPropMap[rule.children[i].name].prop] = rule.children[i].args[0].name;
+                } else {
+                    rule.ruleAttributes[annotationToPropMap[rule.children[i].name].prop] = rule.children[i].args[0].name;
+                }
+                
+            } else if (rule.children[i].name === "@SuppressWarnings") {
+
+                if (rule.children[i].args.length < 1) {
+                    error("Annotation '"+rule.children[i].name+"' takes at least 1 argument, received "+rule.children[i].args.length);
+                }
+                for (var arg of rule.children[i].args) {
+                    suppressedWarnings.push(arg.name);
+                }
+
+            } else if (rule.children[i].name === "@Disabled") {
+                rule.ruleAttributes.isDisabled = true;
+
+            } else if (rule.children[i].name === "@Condition") {
+                if (!("conditions" in rule.ruleAttributes)) {
+                    rule.ruleAttributes.conditions = [];
+                }
+                rule.ruleAttributes.conditions.push(rule.children[i].args[0]);
+                rule.ruleAttributes.conditions[rule.ruleAttributes.conditions.length-1].comment = rule.children[i].comment;
+
+            } else {
+                error("Unknown annotation '"+rule.children[i].name+"'");
+            }
+        }
+        //Remove the annotations from the children
+        rule.children = rule.children.slice(i);
+        fileStack = rule.fileStack;
+        
+
+        if (rule.name === "__rule__") {
+
+            if (rule.ruleAttributes.event === undefined) {
+                rule.ruleAttributes.event = "global";
+            }
+            if (rule.ruleAttributes.event === "global") {
+                if (rule.ruleAttributes.eventTeam !== undefined || rule.ruleAttributes.eventPlayer !== undefined) {
+                    error("Cannot declare event team or event player with event type '"+rule.ruleAttributes.event+"'");
+                }
+            } else {
+                if (rule.ruleAttributes.eventTeam === undefined) {
+                    rule.ruleAttributes.eventTeam = "all";
+                }
+                if (rule.ruleAttributes.eventPlayer === undefined) {
+                    rule.ruleAttributes.eventPlayer = "all";
+                }
+            }
+            
+        } else if (rule.name === "__def__") {
+            if (rule.ruleAttributes.event !== undefined) {
+                error("Cannot declare event for a subroutine");
+            }
+            if (rule.ruleAttributes.conditions !== undefined) {
+                error("Cannot declare rule conditions for a subroutine");
+            }
+            rule.ruleAttributes.event = "__subroutine__";
+            if (rule.ruleAttributes.eventTeam !== undefined || rule.ruleAttributes.eventPlayer !== undefined) {
+                error("Cannot declare event team or event player for a subroutine");
+            }
+            if (rule.ruleAttributes.name === undefined) {
+                rule.ruleAttributes.name = "Subroutine "+rule.ruleAttributes.subroutineName;
+            }
+            rule.name = "__rule__";
+            rule.originalName = "__def__";
+        } else {
+            error("Unexpected function '"+rule.name+"' outside a rule");
+        }
+        
+        currentRuleEvent = rule.ruleAttributes.event;
+        currentRuleLabels = [];
+        currentRuleLabelAccess = {};
+        currentRuleHasVariableGoto = false;
+        
+        rule = parseAst(rule);
+    }
+    return rules;
+}
+
+function parseAst(content) {
+
+    if (!(typeof content === "object")) {
+        error("Content is not object: "+content);
+    }
+    //console.log(currentRuleLabels);
+
+    fileStack = content.fileStack;
+    debug("Parsing AST of '"+content.name+"'");
+
+    if (!(content.args instanceof Array)) {
+        error("Function '"+content.name+"' has '"+content.args+"' for args, expected array");
+    }
+    if (!(content.children instanceof Array)) {
+        error("Function '"+content.name+"' has '"+content.children+"' for args, expected array");
+    }
+    if (content.name.startsWith("@")) {
+        //Annotations are processed in the parseAstRules function. If we encounter an annotation here, then it wasn't at the beginning of a rule.
+        error("Annotations must be at the beginning of the rule");
+    }
+
+    for (var i = 0; i < content.args.length; i++) {
+        content.argIndex = i;
+        content.args[i] = parseAst(content.args[i]);
+    }
+    content.argIndex = 0;
+
+
+    //Skip if it's a literal or a constant
+    if (!["Hero", "Map", "Gamemode", "Team", "Button"].includes(content.type)) {
+        if ([
+            "NumberLiteral", 
+            "GlobalVariable", "PlayerVariable", "Subroutine", 
+            "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral",
+        ].concat(Object.keys(constantValues)).includes(content.type)) {
+            return content;
+        }
+    }
+
+    //For labels, do nothing.
+    if (content.type === "Label") {
+        return content;
+    }
+
+    //For string literals, check if they are a child of __format__ (or of a string function). If not, wrap them with the __format__ function.
+    if (["StringLiteral", "LocalizedStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
+        if (["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
+            return content;
+        } else {
+            content = new Ast("__format__", [content]);
+        }
+    }
+
+    //Manually check types and arguments for the __format__ or __array__ function, as they are the only functions that can take an infinite number of arguments.
+    if (content.name === "__format__") {
+        if (content.args.length < 1) {
+            error("Function '__format__' takes at least 1 argument, received "+content.args.length);
+        }
+        //Check types
+        if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[0].type)) {
+            warn("w_type_check", getTypeCheckFailedMessage(content, 0, funcKw[content.name].args[0].type, content.args[0]));
+        }
+        for (var i = 1; i < content.args.length; i++) {
+            if (!isTypeSuitable(funcKw[content.name].args[1].type, content.args[i].type)) {
+                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[1].type, content.args[i]));
+            }
+        }
+
+    } else if (content.name === "__array__" || content.name === "__dict__") {
+        //Check types
+        for (var i = 0; i < content.args.length; i++) {
+            if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[i].type)) {
+                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[0].type, content.args[i]));
+            }
+        }
+
+    } else if (content.name in funcKw) {
+
+        if (content.name === "__for__") {
+
+            if (content.args.length !== 1) {
+                error("Function '"+content.name+"' takes 1 argument, received "+content.args.length);
+            }
+
+            //Check for right arguments.
+            if (content.args[0].name !== "__arrayContains__") {
+                error("Expected the 'in' operator within 'for' directive, but got "+functionNameToString(content.args[0]));
+            }
+            if (content.args[0].args[0].name !== "range") {
+                error("Expected the 'range' function for the 2nd operand of the 'in' operator, but got "+functionNameToString(content.args[0].args[1]));
+            }
+
+            //for (i in range(1,2,3)) -> for(i, 1, 2, 3)
+            content.args = [
+                content.args[0].args[1],
+                content.args[0].args[0].args[0],
+                content.args[0].args[0].args[1],
+                content.args[0].args[0].args[2],
+            ];
+
+        } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
+      
+            if (content.args.length < 6 || content.args.length > 7) {
+                error("Function '"+content.name+"' takes 6 or 7 arguments, received "+content.args.length);
+            }
+            if (content.args.length === 6) {
+                content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
+            }
+
+        } else if (content.name === "hudText") {
+            if (content.args.length < 10 || content.args.length > 11) {
+                error("Function '"+content.name+"' takes 10 or 11 arguments, received "+content.args.length);
+            }
+            if (content.args.length === 10) {
+                content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
+            }
+
+        } else if (content.name === "range") {
+            if (content.args.length < 1 || content.args.length > 3) {
+                error("Function '"+content.name+"' takes 1 to 3 arguments, received "+content.args.length);
+            }
+            if (content.args.length === 1) {
+                content.args.unshift(getAstFor0());
+            }
+            if (content.args.length === 2) {
+                content.args.push(getAstFor1());
+            }
+
+        } else if (content.name === "wait") {
+            if (content.args.length > 2) {
+                error("Function 'wait' takes 0 to 2 arguments, received "+args.length);
+            }
+            if (content.args.length === 0) {
+                content.args.push(getAstFor0_016());
+            }
+            if (content.args.length === 1) {
+                content.args.push(new Ast("IGNORE_CONDITION", [], [], "Wait"));
+            }
+            content.name = "__wait__";
+        }
+        
+        var nbExpectedArgs = (funcKw[content.name].args === null ? 0 : funcKw[content.name].args.length);
+        if (content.args.length !== nbExpectedArgs) {
+            error("Function '"+content.name+"' takes "+nbExpectedArgs+" arguments, received "+content.args.length);
+        }
+
+        //Type check
+        for (var i = 0; i < content.args.length; i++) {
+            if (!isTypeSuitable(funcKw[content.name].args[i].type, content.args[i].type)) {
+                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+            }
+            //content.args[i].expectedType = funcKw[content.name].args[i].type;
+        }
+
+    } else {
+        error("Unknown function '"+content.name+"'");
+    }
+
+
+    for (var i = 0; i < content.children.length; i++) {
+        content.childIndex = i;
+        //console.log("name = "+content.name+", childIndex = "+content.childIndex+", children = "+content.children.map(x => x.name).join(", "))
+        ///console.log("parsing "+content.children[i].name);
+        
+        content.children[i].parent = content;
+
+        //Safeguard to prevent parsing the same thing twice (and eg ending up with 3 ends for an "if" if the instruction was parsed then moved by a parent instruction).
+        if (!content.children[i].wasParsed) {
+            content.children[i] = parseAst(content.children[i]);
+            content.children[i].parent = content;
+            content.children[i].wasParsed = true;
+        }
+    }
+
+    if (content.name in astParsingFunctions) {
+        content = astParsingFunctions[content.name](content);
+    }
+    content.childIndex = 0;
+
+    return content;
+}/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+function astRulesToWs(rules) {
+
+    var result = "";
+
+    for (var rule of rules) {
+        if (rule.ruleAttributes.isDisabled) {
+            result += tows("__disabled__", ruleKw)+" ";
+        }
+
+        result += tows("__rule__", ruleKw)+" ("+escapeString(rule.ruleAttributes.name)+") {\n";
+
+        //Rule event
+        result += tabLevel(1)+tows("__event__", ruleKw)+" {\n";
+        result += tabLevel(2)+tows(rule.ruleAttributes.event, eventKw)+";\n";
+        if (rule.ruleAttributes.eventTeam) {
+            result += tabLevel(2)+tows(rule.ruleAttributes.eventTeam, eventTeamKw)+";\n";
+        }
+        if (rule.ruleAttributes.eventPlayer) {
+            result += tabLevel(2)+tows(rule.ruleAttributes.eventPlayer, eventPlayerKw)+";\n";
+        }
+        if (rule.ruleAttributes.subroutineName) {
+            result += tabLevel(2)+translateSubroutineToWs(rule.ruleAttributes.subroutineName)+";\n";
+        }
+        result += tabLevel(1)+"}\n";
+
+        //Rule conditions
+        if (rule.ruleAttributes.conditions !== undefined && rule.ruleAttributes.conditions.length > 0) {
+            result += tabLevel(1)+tows("__conditions__", ruleKw)+" {\n";
+            for (var condition of rule.ruleAttributes.conditions) {
+                result += astRuleConditionToWs(condition);
+            }
+            result += tabLevel(1)+"}\n";
+        }
+
+        //Rule actions
+        if (rule.children.length > 0) {
+            result += tabLevel(1)+tows("__actions__", ruleKw)+" {\n";
+            for (var child of rule.children) {
+                result += astActionToWs(child, 2);
+            }
+            result += tabLevel(1)+"}\n";
+        }
+
+        result += "}\n\n";
+    }
+
+    
+    return result;
+
+}
+
+function astRuleConditionToWs(condition) {
+
+    var funcToOpMapping = {
+        "__equals__": "==",
+        "__inequals__": "!=",
+        "__lessThanOrEquals__": "<=",
+        "__greaterThanOrEquals__": ">=",
+        "__lessThan__": "<",
+        "__greaterThan__": ">",
+    }
+    var result = "";
+    if (condition.comment) {
+        result += tabLevel(2)+escapeString(condition.comment)+"\n";
+    }
+
+    if (condition.name in funcToOpMapping) {
+        result += tabLevel(2)+astToWs(condition.args[0])+" "+funcToOpMapping[condition.name]+" "+astToWs(condition.args[1])+";\n";
+
+    } else {
+        if (condition.type === "bool") {
+            result += tabLevel(2)+astToWs(condition)+" == "+tows("true", valueFuncKw)+";\n";
+
+        } else {
+            result += tabLevel(2)+astToWs(condition)+" != "+tows("false", valueFuncKw)+";\n";
+        }
+    }
+    return result;
+}
+
+function astActionToWs(action, nbTabs) {
+
+    if (action.type === "Label") {
+        return tabLevel(nbTabs)+"//"+action.name+":\n";
+    }
+    var result = "";
+    if (action.comment) {
+        result += tabLevel(nbTabs)+escapeString(action.comment)+"\n";
+    }
+    result += tabLevel(nbTabs)+astToWs(action)+";\n"
+    for (var child of action.children) {
+        result += astActionToWs(child, nbTabs+1);
+    }
+    return result;
+}
+
+function astToWs(content) {
+
+    var equalityFuncToOpMapping = {
+        "__equals__": "==",
+        "__inequals__": "!=",
+        "__lessThanOrEquals__": "<=",
+        "__greaterThanOrEquals__": ">=",
+        "__lessThan__": "<",
+        "__greaterThan__": ">",
+    }
+
+    fileStack = content.fileStack;
+
+    if (content.type === "GlobalVariable") {
+        return translateVarToWs(content.name, true);
+
+    } else if (content.type === "PlayerVariable") {
+        return translateVarToWs(content.name, false);
+
+    } else if (content.type === "Subroutine") {
+        return translateSubroutineToWs(content.name);
+
+    } else if (["StringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
+        return escapeString(content.name);
+
+    } else if (content.type === "LocalizedStringLiteral") {
+        return escapeString(tows(content.name, stringKw));
+    }
+    
+    if (content.name in equalityFuncToOpMapping) {
+        //Convert functions such as __equals__(1,2) to __compare__(1, ==, 2).
+        content.args.splice(1, 0, new Ast(equalityFuncToOpMapping[content.name], [], [], "__Operator__"));
+        content.name = "__compare__";
+
+    } /*else if (content.name === "__array__") {
+        //Convert the array to a bunch of appends.
+        var newContent = new Ast("__emptyArray__");
+        for (var arg of content.args) {
+            newContent = new Ast("__concat__", [newContent, arg]);
+        }
+        content = newContent;
+
+    } */else if (content.name === "__assignTo__" || content.name === "__modifyVar__") {
+        var newName = content.name === "__assignTo__" ? "__set" : "__modify";
+        if (content.args[0].name === "__globalVar__") {
+            //A = 3 -> __setGlobalVariable__(A, 3)
+            newName += "GlobalVariable__";
+            content.args = [content.args[0].args[0]].concat(content.args.slice(1));
+
+        } else if (content.args[0].name === "__playerVar__") {
+            //eventPlayer.A = 3 -> __setPlayerVariable__(eventPlayer, A, 3)
+            newName += "PlayerVariable__";
+            content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
+
+        } else if (content.args[0].name === "__valueInArray__") {
+            if (content.args[0].args[0].name === "__globalVar__") {
+                //A[0] = 3 -> __setGlobalVariableAtIndex__(A, 0, 3)
+                newName += "GlobalVariableAtIndex__";
+                content.args = [content.args[0].args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
+
+            } else if (content.args[0].args[0].name === "__playerVar__") {
+                //eventPlayer.A[0] = 3 -> __setPlayerVariableAtIndex__(eventPlayer, A, 0, 3)
+                newName += "PlayerVariableAtIndex__";
+                content.args = [content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[1]].concat(content.args.slice(1));
+
+            } else {
+                error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0].name))
+            }
+        } else {
+            error("Cannot modify or assign to "+functionNameToString(content.args[0].name))
+        }
+        content.name = newName;
+
+    } else if (content.name === "__chaseAtRate__" || content.name === "__chaseOverTime__") {
+        var newName = content.name === "__chaseAtRate__" ? "AtRate__" : "OverTime__";
+        if (content.args[0].name === "__globalVar__") {
+            newName = "GlobalVariable"+newName;
+            content.args = [content.args[0].args[0]].concat(content.args.slice(1));
+
+        } else if (content.args[0].name === "__playerVar__") {
+            newName = "PlayerVariable"+newName;
+            content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
+
+        } else {
+            error("Expected a variable for 1st argument of "+functionNameToString(content)+", but got "+functionNameToString(content.args[0]));
+        }
+        newName = "__chase"+newName;
+        content.name = newName;
+
+    } else if (content.name === "__for__") {
+
+        var newName = "";
+        if (content.args[0].name === "__globalVar__") {
+            newName = "GlobalVariable";
+            content.args = [content.args[0].args[0]].concat(content.args.slice(1));
+
+        } else if (content.args[0].name === "__playerVar__") {
+            newName = "PlayerVariable";
+            content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
+
+        } else {
+            error("Expected a variable for 1st argument of "+functionNameToString(content.name)+", but got "+functionNameToString(content.args[0].name));
+        }
+        newName = "__for"+newName+"__";
+        content.name = newName;
+
+    } else if (content.name === "__negate__") {
+        content.name = "__multiply__";
+        content.args = [getAstForMinus1(), content.args[0]];
+
+    } else if (content.name === "__number__") {
+        return trimNb(content.args[0].name);
+
+    } else if (content.name === "__team__") {
+        content.name = content.args[0].name;
+        content.args = [];
+        content.type = "TeamLiteral";
+
+    } else if (content.name === "ceil") {
+        content.name = "__round__";
+        content.args = [content.args[0], new Ast("__roundUp__", [], [], "__Rounding__")];
+
+    } else if (content.name === "floor") {
+        content.name = "__round__";
+        content.args = [content.args[0], new Ast("__roundDown__", [], [], "__Rounding__")];
+
+    } else if (content.name === "getAllPlayers") {
+        content.name = "getPlayers";
+        content.args = [getAstForTeamAll()];
+
+    } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
+      
+		if (content.name === "hudHeader") {
+			content.args.splice(2, 0, getAstForNull());
+			content.args.splice(3, 0, getAstForNull());
+			content.args.splice(7, 0, getAstForColorWhite());
+			content.args.splice(8, 0, getAstForColorWhite());
+		} else if (content.name === "hudSubheader") {
+			content.args.splice(1, 0, getAstForNull());
+			content.args.splice(3, 0, getAstForNull());
+			content.args.splice(6, 0, getAstForColorWhite());
+			content.args.splice(8, 0, getAstForColorWhite());
+		} else {
+			content.args.splice(1, 0, getAstForNull());
+			content.args.splice(2, 0, getAstForNull());
+			content.args.splice(6, 0, getAstForColorWhite());
+			content.args.splice(7, 0, getAstForColorWhite());
 		}
-				
-		if (!hasTokenBeenFound) {
-			var j = i+1;
-			for (; str[j] >= 'a' && str[j] <= 'z'; j++);
-			error("No string translation found for '"+str.substring(i, j)+"'");
-		}
-		
-		tokenList.push(currentToken);
-		i += currentToken.length-1;
-		
-	}
-	
-	return tokenList;
+        content.name = "__hudText__";
+        
+    } else if (content.name === "hudText") {
+        content.name = "__hudText__";
+
+    } else if (content.name === "pass") {
+        content.name = "return";
+        content.isDisabled = true;
+
+    } else if (content.name === "round") {
+        content.name = "__round__";
+        content.args = [content.args[0], new Ast("__roundToNearest__", [], [], "__Rounding__")];
+
+    } else if (content.name === "stopChasingVariable") {
+        var newName = "";
+        if (content.args[0].name === "__globalVar__") {
+            newName = "GlobalVariable";
+            content.args = [content.args[0].args[0]].concat(content.args.slice(1));
+
+        } else if (content.args[0].name === "__playerVar__") {
+            newName = "PlayerVariable";
+            content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
+
+        } else {
+            error("Expected a variable for 1st argument of "+functionNameToString(content.name)+", but got "+functionNameToString(content.args[0].name));
+        }
+        newName = "__stopChasing"+newName+"__";
+        content.name = newName;
+
+    }
+
+    var result = "";
+    if (content.isDisabled === true) {
+        result += tows("__disabled__", ruleKw)+" ";
+    }
+    if (content.type === undefined) {
+        error("Type of '"+content.name+"' is undefined");
+    }
+    if (content.type === "void") {
+        result += tows(content.name, actionKw);
+    } else if (isTypeSuitable(["Object", "Array"], content.type)){
+        result += tows(content.name, valueKw);
+    } else if (content.type in constantValues) {
+        result += tows(content.name, constantValues[content.type]);
+    } else if (content.type === "HeroLiteral") {
+        result += tows(content.name, constantValues["Hero"]);
+    } else if (content.type === "MapLiteral") {
+        result += tows(content.name, constantValues["Map"]);
+    } else if (content.type === "TeamLiteral") {
+        result += tows(content.name, constantValues["Team"]);
+    } else if (content.type === "GamemodeLiteral") {
+        result += tows(content.name, constantValues["Gamemode"]);
+    } else if (content.type === "ButtonLiteral") {
+        result += tows(content.name, constantValues["Button"]);
+    } else {
+        error("Unknown type '"+content.type+"' of '"+content.name+"'");
+    }
+    if (content.args.length > 0) {
+        result += "(" + content.args.map(x => astToWs(x)).join(", ")+")";
+    }
+    return result;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -22093,12 +28060,896 @@ function tokenizeLocalizedString(str) {
 
 "use strict";
 
-//OverPy Compiler (OverPy -> Workshop)
+class Ast {
+
+    constructor(name, args, children, type) {
+        if (!name) {
+            error("Got no name for AST");
+        }
+        if (typeof name !== "string") {
+            error("Expected a string for AST name, but got '"+name+"' of type '"+typeof name+"'");
+        }
+        if (type === "NumberLiteral") {
+            this.numValue = Number(name);
+        }
+        this.name = name;
+        this.args = args ? args : [];
+        this.children = children ? children : [];
+
+        if (!type) {
+            if (name in funcKw) {
+                this.type = funcKw[name].return;
+            } else {
+                error("Unknown function name '"+name+"'");
+            }
+        } else {
+            this.type = type;
+        }
+
+        for (var arg of this.args) {
+            if (!(arg instanceof Ast)) {
+                error("Arg '"+arg+"' of '"+name+"' is not an AST");
+            }
+            arg.parent = this;
+        }
+        for (var child of this.children) {
+            if (!(child instanceof Ast)) {
+                error("Child '"+child+"' of '"+name+"' is not an AST");
+            }
+            child.parent = this;
+        }
+        this.fileStack = fileStack;
+        this.argIndex = 0;
+        this.childIndex = 0;
+        this.wasParsed = false;
+    }
+}
+
+class WorkshopVar {
+    constructor(name, index) {
+        this.name = name;
+        this.index = index === undefined ? null : index;
+    }
+}
+
+class Rule {
+    constructor() {
+        this.name = null;
+        this.conditions = [];
+        this.actions = [];
+        this.event = null;
+        this.eventTeam = null;
+        this.eventPlayer = null;
+        this.isDisabled = false;
+    }
+}
+
+function parseLines(lines) {
+
+    //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
+    var result = [];
+    var currentComment = null;
+
+    
+    for (var i = 0; i < lines.length; i++) {
+        if (lines[i].tokens.length === 0) {
+            error("Received an empty line");
+        }
+        fileStack = lines[i].tokens[0].fileStack;
+        
+        if (lines[i].tokens[0].text.startsWith("#")) {
+            currentComment = lines[i].tokens[0].text.substring(1);
+            continue;
+        }
+        if (lines[i].tokens[0].text === "globalvar" || lines[i].tokens[0].text === "playervar" || lines[i].tokens[0].text === "subroutine") {
+			if (lines[i].tokens.length < 2 || lines[i].tokens.length > 3) {
+				error("Malformed "+lines[i].tokens[0].text+" declaration");
+            }
+            if (lines[i].indentLevel !== 0) {
+                error(lines[i].tokens[0].text+" directive cannot be indented");
+            }
+			var index = lines[i].tokens.length > 2 ? lines[i].tokens[2].text : null
+
+			if (lines[i].tokens[0].text === "globalvar") {
+				addVariable(lines[i].tokens[1].text, true, index);
+			} else if (lines[i].tokens[0].text === "playervar") {
+				addVariable(lines[i].tokens[1].text, false, index);
+			} else {
+				addSubroutine(lines[i].tokens[1].text, index);
+            }
+            
+        } else if (lines[i].tokens[0].text === "settings") {
+            var customGameSettings = eval("("+dispTokens(lines[i].tokens.slice(1))+")");
+            compileCustomGameSettings(customGameSettings);
+        
+        } else if (lines[i].tokens[0].text.startsWith("@")) {
+
+             
+            //Check for end of line comment
+            if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
+                currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
+                lines[i].tokens.pop();
+            }            
+            if (lines[i].tokens[0].text === "@Condition" || lines[i].tokens[0].text === "@Name") {
+                var currentLineAst = new Ast(lines[i].tokens[0].text, [parse(lines[i].tokens.slice(1))], [], "__Annotation__");
+
+            } else {
+                var currentLineAst = new Ast(lines[i].tokens[0].text, lines[i].tokens.slice(1).map(x => new Ast(x.text, [], [], "__AnnotationArg__")), [], "__Annotation__");
+
+            }
+            if (currentComment !== null) {
+                currentLineAst.comment = currentComment;
+            }
+            result.push(currentLineAst);
+
+        } else if (["rule", "if", "elif", "else", "do", "for", "def", "while", "switch", "case", "default"].includes(lines[i].tokens[0].text)) {
+
+            var tokenToFuncMapping = {
+                "rule": "__rule__",
+                "if": "__if__",
+                "elif": "__elif__",
+                "else": "__else__",
+                "do": "__doWhile__",
+                "for": "__for__",
+                "def": "__def__",
+                "while": "__while__",
+                "switch": "__switch__",
+                "case": "__case__",
+                "default": "__default__",
+            }
+
+            //Check for end of line comment
+            if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
+                currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
+                lines[i].tokens.pop();
+            }
+
+            var funcName = tokenToFuncMapping[lines[i].tokens[0].text];
+            var args = [];
+            var children = [];
+            var instructionRuleAttributes = null;
+            var lineMembers = splitTokens(lines[i].tokens, ":", true);
+            if (lineMembers.length === 1) {
+                error("Expected a ':' at the end of the line");
+            }
+            //console.log(lineMembers);
+
+            if (funcName === "__rule__") {
+                if (lineMembers[0].length !== 2) {
+                    error("Malformatted 'rule' declaration");
+                }
+                instructionRuleAttributes = {};
+                instructionRuleAttributes.name = unescapeString(lineMembers[0][1].text);
+
+            } else if (funcName === "__def__") {
+                if (lineMembers[0].length !== 4 || lineMembers[0][2].text !== "(" || lineMembers[0][3].text !== ")") {
+                    error("Malformatted 'def' declaration");
+                }
+                instructionRuleAttributes = {};
+                instructionRuleAttributes.subroutineName = lineMembers[0][1].text;
+            }
+
+            if (!["__else__", "__doWhile__", "__rule__", "__def__", "__default__"].includes(funcName)) {
+                args = [parse(lineMembers[0].slice(1))];
+            }
+            
+            var currentLineIndent = lines[i].indentLevel;
+            var childrenLines = [];
+
+            //Handle one-line children such as "if A: B++"
+            if (lineMembers[1].length > 0) {
+                console.log(JSON.stringify(lineMembers[1], null, 4));
+                console.log(JSON.stringify(childrenLines, null, 4));
+                childrenLines.push(new LogicalLine(currentLineIndent+1, lineMembers[1]));
+                console.log(JSON.stringify(childrenLines, null, 4));
+            }
+            
+            
+            //Get children lines
+            var nextIndentLevel = null;
+            var j = i+1;
+            for (; j < lines.length; j++) {
+                fileStack = lines[j].tokens[0].fileStack;
+
+                //Ignore comments
+                if (!lines[j].tokens[0][0] !== "#") {
+                    if (lines[j].indentLevel <= currentLineIndent) {
+                        break;
+                    } else if (lines[j].indentLevel > currentLineIndent && nextIndentLevel !== null && lines[j].indentLevel < nextIndentLevel) {
+                        error("Indentation does not match any outer indentation level");
+                    }
+                }
+                if (nextIndentLevel = null) {
+                    nextIndentLevel = lines[j].indentLevel;
+                    if (childrenLines.length > 0) {
+                        childrenLines[0].indentLevel = nextIndentLevel;
+                    }
+                }
+                childrenLines.push(lines[j]);
+            }
+
+            if (funcName === "__doWhile__") {
+                //There should be a "while" matching the "do"
+                if (j < lines.length && lines[j].tokens[0].text === "while") {
+                    args = [parse(lines[j].tokens.slice(1))];
+                    j++;
+                } else {
+                    error("Found 'do', but no matching 'while'");
+                }
+            }
+
+            i += j-i-1;
+            children = parseLines(childrenLines);
+
+            var instruction = new Ast(funcName, args, children);
+            if (currentComment !== null) {
+                instruction.comment = currentComment;
+            }
+            if (instructionRuleAttributes !== null) {
+                instruction.ruleAttributes = instructionRuleAttributes;
+            }
+            
+            result.push(instruction);
+    
+        } else {
+            //Check for end of line comment
+            if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
+                currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
+                lines[i].tokens.pop();
+            }
+            var currentLineAst = parse(lines[i].tokens);
+            currentLineAst.comment = currentComment;
+            result.push(currentLineAst);
+        }
+        currentComment = null;
+    }
+    
+    //console.log(result);
+    return result;
+}
+
+function parse(content) {
+
+	if (content === undefined) {
+		error("Content is undefined");
+	} else if (content.length === 0) {
+		error("Content is empty (missing operand or argument?)");
+    }
+    
+    fileStack = content[0].fileStack;
+    debug("Parsing '"+dispTokens(content)+"'");
+    
+    //Handle the "del" directive.
+    if (content[0].text === "del") {
+        return new Ast("__del__", [parse(content.slice(1))]);
+    }
+
+    //Parse the "goto" directive.
+    if (content[0].text === "goto") {
+        if (content.length < 2) {
+            error("Expected a label or a formula after 'goto'");
+        }
+        if (content.length === 2) {
+            //Check for the special "RULE_START" and convert to the "Loop" instruction.
+            if (content[1].text === "RULE_START") {
+                return new Ast("__loop__");
+            }
+            //The goto goes to a label.
+            return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(content[1].text, [], [], "Label")])])
+        } else {
+            //The goto should be of the format "loc+XXX".
+            if (content[1].text !== "loc" || content[2].text !== "+") {
+                error("Expected a label or 'loc+XXX' after 'goto'");
+            }
+            return new Ast("__skip__", [parse(content.slice(3))]);
+        }
+    }
+
+    //Parse labels. We do not need to care about 'else:' as they are already parsed in the parseLines function.
+    if (content.length === 2 && content[1].text === ":") {
+        return new Ast(content[0].text, [], [], "Label");
+    }
+    
+    //Parse operators, according to the operator precedence in pyOperators.
+    for (var operator of pyOperators) {
+		
+		if (operator === "not" || operator === "if") {
+			var operands = splitTokens(content, operator, false, false);
+		} else {
+			var operands = splitTokens(content, operator, false, true);
+		}
+		if (operands.length === 2) {
+			
+			//The operator is present; parse it
+			if (operator === "=") {
+                return new Ast("__assignTo__", [parse(operands[0]), parse(operands[1])]);
+                
+			} else if (operator === "if") {
+                //"true if condition else false"
+				
+				var trueExpr = parse(operands[0]);
+				var elseOperands = splitTokens(operands[1], "else", false, false);
+				if (elseOperands.length !== 2) {
+					error("Found 'if', but no 'else'");
+				}
+				var falseExpr = parse(elseOperands[1]);
+				var condition = parse(elseOperands[0]);
+
+                return new Ast("__ifThenElse__", [condition, trueExpr, falseExpr]);
+
+			} else if (["or", "and"].includes(operator)) {
+
+				var op1 = parse(operands[0]);
+                var op2 = parse(operands[1]);
+                return new Ast("__"+operator+"__", [op1, op2]);
+
+			} else if (operator === "not") {
+
+				var op1 = parse(operands[1]);
+                return new Ast("__not__", [op1]);
+
+			} else if (operator === "in") {
+                
+                var value = parse(operands[0]);
+                var array = parse(operands[1]);
+                return new Ast("__arrayContains__", [array, value]);
+
+			} else if (["==", "!=", "<=", ">=", "<", ">"].includes(operator)) {
+
+				var op1 = parse(operands[0]);
+                var op2 = parse(operands[1]);
+                var opToFuncMapping = {
+                    "==": "__equals__",
+                    "!=": "__inequals__",
+                    "<=": "__lessThanOrEquals__",
+                    ">=": "__greaterThanOrEquals__",
+                    "<": "__lessThan__",
+                    ">": "__greaterThan__",
+                }
+                return new Ast(opToFuncMapping[operator], [op1, op2]);
+
+			} else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
+                //Actually de-optimize so we can keep the logic in one place.
+                //Transform "A += 1" to "A = A + 1".
+
+                var opToFuncMapping = {
+                    "+=": "__add__",
+                    "-=": "__subtract__",
+                    "*=": "__multiply__",
+                    "/=": "__divide__",
+                    "%=": "__modulo__",
+                    "**=": "__raiseToPower__",
+                    "min=": "min",
+                    "max=": "max",
+                };
+
+                var variable = parse(operands[0]);
+                var value = parse(operands[1]);
+                return new Ast("__assignTo__", [variable, new Ast(opToFuncMapping[operator], [variable, value])]);
+
+			} else if (["++", "--"].includes(operator)) {
+                //De-optimise as well: A++ -> A = A + 1.
+                var opToFuncMapping = {
+                    "++": "__add__",
+                    "--": "__subtract__",
+                };
+                if (operands[0].length === 0) {
+                    //Probably a double negation such as "--A".
+                    return parse(operands[1]);
+                }
+                var op1 = parse(operands[0]);
+
+                //Check if there is something after the operator. If yes, treat it like an operation.
+                //Eg: "A -- B" = "A ++ B" = "A + B"
+                if (operands[1].length > 0) {
+                    var op2 = parse(operands[1]);
+                    return new Ast("__add__", [op1, op2]);
+
+                } else {
+                    return new Ast("__assignTo__", [op1, new Ast(opToFuncMapping[operator], [op1, getAstFor1()])])
+                }
+
+			} else if (["/", "*", "%", "**"].includes(operator)) {
+
+                var opToFuncMapping = {
+                    "/": "__divide__",
+                    "*": "__multiply__",
+                    "%": "__modulo__",
+                    "**": "__raiseToPower__",
+                }
+				var op1 = parse(operands[0]);
+                var op2 = parse(operands[1]);
+                return new Ast(opToFuncMapping[operator], [op1, op2]);
+
+			} else if (operator === "-") {
+				
+                //Handle things like "3*-5" by checking if the 1st operand ends by another operator
+                //Note: we only need to check operators with an equal or higher precedence than "-"
+				if (operands[0].length > 0 && ["-", "*", "/", "%", "**"].includes(operands[0][operands[0].length-1].text)) {
+					continue;
+				}
+
+                var op2 = parse(operands[1]);
+                if (operands[0].length === 0) {
+                    return new Ast("__negate__", [op2]);
+
+                } else {
+                    var op1 = operands[0].length === 0 ? new Ast("-1") : parse(operands[0]);
+                    return new Ast("__subtract__", [op1, op2]);
+                }
 
 
-//console.log(compileTest);
+			} else if (operator === "+") {
 
-//console.log(compile(compileTest));
+                //Handle things like "3*+5" by checking if the 1st operand ends by another operator
+                //Note: we only need to check operators with an equal or higher precedence than "+"
+				if (operands[0].length > 0 && ["+", "-", "*", "/", "%", "**"].includes(operands[0][operands[0].length-1].text)) {
+					continue;
+                }
+                
+                var op2 = parse(operands[1]);
+                if (operands[0].length === 0) {
+                    return op2;
+                } else {
+
+                    var op1 = operands[0].length === 0 ? "0" : parse(operands[0]);
+                    return new Ast("__add__", [op1, op2]);
+                }
+
+			} else {
+				error("Unhandled operator "+operator);
+			}
+			
+			break;
+		}
+    }
+    		
+	//Parse array
+	if (content[content.length-1].text === ']') {
+		var bracketPos = getTokenBracketPos(content);
+		
+		if (bracketPos.length === 2 && bracketPos[0] === 0) {
+            //It is a literal array such as [1,2,3] or [i for i in A if x].
+            return parseLiteralArray(content);
+            
+		} else {
+            var array = parse(content.slice(0, bracketPos[bracketPos.length-2]));
+            var value = parse(content.slice(bracketPos[bracketPos.length-2]+1, content.length-1))
+            return new Ast("__valueInArray__", [array, value])
+		}
+	}
+
+	//Parse dictionary
+	if (content[0].text === "{") {
+		return parseDictionary(content);
+	}
+	
+	//Check for parentheses
+	if (content[0].text === '(') {
+		var bracketPos = getTokenBracketPos(content);
+		if (bracketPos.length === 2 && bracketPos[1] === content.length-1) {
+            //All the expression is in parentheses; just remove them
+            return parse(content.slice(1, content.length-1));
+
+        } else {
+            error("Malformatted parentheses");
+        }
+	}
+	
+	//Check for "." operator, which has the highest precedence.
+	//It must be parsed from right to left.
+	var operands = splitTokens(content, ".", false, true);
+	if (operands.length === 2) {
+		return parseMember(operands[0], operands[1]);
+	}
+
+	//Check for strings
+	if (content[content.length-1].text.startsWith('"') || content[content.length-1].text.startsWith("'")) {
+		var stringType = "StringLiteral";
+		var string = "";
+		for (var i = content.length-1; i >= 0; i--) {
+			if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
+				string = unescapeString(content[i].text)+string;
+
+			} else {
+				if (i === 0) {
+					//string modifier?
+					if (content[0].text === "l") {
+						stringType = "LocalizedStringLiteral";
+					} else if (content[0].text === "b") {
+						stringType = "BigLettersStringLiteral";
+					} else if (content[0].text === "w") {
+						stringType = "FullwidthStringLiteral";
+					} else {
+						error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters) and 'w' (fullwidth)");
+					}
+				} else {
+					error("Expected string, but got '"+content[i].text+"'");
+				}
+			}
+        }
+        
+        return new Ast(string, [], [], stringType);
+	}
+	
+	//Parse args and name of function.
+	var name = content[0].text;
+	var args = null;
+	if (content.length > 1) {
+		if (content[1].text === '(') {
+			args = splitTokens(content.slice(2, content.length-1), ",");
+		} else {
+			error("Expected '(' after '"+name+"', but got '"+content[1].text+"'");
+		}
+	}
+
+	if (args === null) {
+
+		//Check for current array element variable name
+		if (currentArrayElementNames.indexOf(name) >= 0) {
+            var result = new Ast("__currentArrayElement__");
+            result.originalName = name;
+            return result;
+        }
+        
+        //Check for global variable
+        if (isVarName(name, true)) {
+            return new Ast("__globalVar__", [new Ast(name, [], [], "GlobalVariable")]);
+        }
+
+        //Check for number
+        if (isNumber(name)) {
+            //It is an int, else it would have a dot, and wouldn't be processed here.
+            //It is also an unsigned int, as the negative sign is not part of the name.
+            return new Ast("__number__", [new Ast(name, [], [], "NumberLiteral")], [], "unsigned int");
+        }
+
+		return new Ast(name);
+    }
+    
+	debug("args: "+args.map(x => "'"+dispTokens(x)+"'").join(", "));
+	
+	//Special functions
+
+	if (name === "async") {
+		if (args.length != 2) {
+			error("Function 'async' takes 2 arguments, received "+args.length);
+		}
+        //Check if first arg is indeed a subroutine
+        var subroutineArg = args[0][0].text;
+		if (!isSubroutineName(subroutineArg)) {
+			error("Expected subroutine name as first argument");
+        }
+        
+        return new Ast("__startRule__", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])])
+	}
+		
+	if (name === "chase") {
+		
+		if (args.length !== 4) {
+			error("Function 'chase' takes 4 arguments, received "+args.length);
+        }
+        if ((args[2][0].text !== "rate" && args[2][0].text !== "duration") || args[2][1].text !== "=") {
+			error("3rd argument of function 'chase' must be 'rate = xxxx' or 'duration = xxxx'");
+        }
+        
+        if (args[3].length !== 3 || args[3][0].text !== "ChaseReeval" || args[3][1].text !== ".") {
+            error("Expected a member of the 'ChaseReeval' enum as 4th argument for function 'chase', but got '"+dispTokens(args[3])+"'");
+        }
+        if (args[2][0].text === "rate") {
+            var funcName = "__chaseAtRate__";
+            args[3][0].text = "__ChaseRateReeval__";
+        } else {
+            var funcName = "__chaseOverTime__";
+            args[3][0].text = "__ChaseTimeReeval__";
+        }
+
+        return new Ast(funcName, [parse(args[0]), parse(args[1]), parse(args[2].slice(2)), parse(args[3])]);
+	}
+	
+	if (name === "raycast") {
+
+        if (args.length === 5) {
+			if (args[2].length >= 2 && args[2][0].text === "include" || args[2][1].text === "=") {
+				args[2] = args[2].slice(2);
+            } 
+            if (args[3].length >= 2 && args[3][0].text === "exclude" || args[3][1].text === "=") {
+				args[3] = args[3].slice(2);
+            } 
+            if (args[4].length >= 2 && args[4][0].text === "includePlayerObjects" || args[4][1].text === "=") {
+				args[4] = args[4].slice(2);
+            }
+
+            return new Ast("__raycast__", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])], [], "Raycast");
+            
+        } else {
+			error("Function 'raycast' takes 5 arguments, received "+args.length);
+        }
+	}
+	
+	if (name === "sorted") {
+		if (args.length === 2) {
+            var lambdaArgs = splitTokens(args[1], ':');
+            if (lambdaArgs.length !== 2) {
+                error("Syntax for sorted array condition is 'lambda x: condition(x)'");
+            }
+            if (lambdaArgs[0].length < 2) {
+                error("Expected 'lambda x' before ':'");
+            }
+            if (lambdaArgs[0][0].text === "key" && lambdaArgs[0][1].text === "=") {
+                lambdaArgs[0] = lambdaArgs[0].slice(2);
+            }
+            if (lambdaArgs[0][0].text !== "lambda") {
+                error("Expected 'lambda x' before ':'");
+            }
+            if (lambdaArgs[0].length !== 2) {
+                error("Expected a single token after 'lambda'");
+            }
+            
+            currentArrayElementNames.push(lambdaArgs[0][1].text);
+            var sortedCondition = parse(lambdaArgs[1]);
+            currentArrayElementNames.pop();
+
+        } else if (args.length !== 1) {
+            error("Function 'sorted' takes 1 or 2 arguments, received "+args.length);
+        }
+        var astArgs = [parse(args[0])];
+        if (args.length === 2) {
+            astArgs.push(sortedCondition);
+        } else {
+            astArgs.push(new Ast("__currentArrayElement__"));
+        }
+        return new Ast("sorted", astArgs);
+    }
+		
+	//Check for subroutine call
+	if (args.length === 0) {
+        if (isSubroutineName(name)) {
+            return new Ast("__callSubroutine__", [new Ast(name, [], [], "Subroutine")]);
+        }
+    }
+    
+    return new Ast(name, args.map(x => parse(x)));
+}
+
+function parseMember(object, member) {
+
+	debug("Parsing member '"+dispTokens(member)+"' of object '"+dispTokens(object)+"'");
+	
+	var name = member[0].text;
+	//debug("name = "+name);
+	var args = null;
+	if (member.length > 1) {
+		if (member[1].text === '(') {
+            if (member[member.length-1].text !== ")") {
+                fileStack = member[member.length-1].fileStack;
+                error("Unexpected token '"+member[member.length-1].text+"'");
+            }
+			args = splitTokens(member.slice(2, member.length-1), ",");
+		} else {
+			error("Expected '(' after '"+name+"', but got '"+member[1].text+"'");
+		}
+	}
+
+	if (args === null) {
+		if (["x", "y", "z"].includes(name)) {
+            return new Ast(`__${name}ComponentOf__`, [parse(object)]);
+		}
+        
+        if (object.length === 1) {
+
+            //Check enums
+            if (Object.keys(constantValues).includes(object[0].text)) {
+
+                var result = tows(object[0].text+"."+name, constantKw);
+                if (object[0].text === "Hero") {
+                    return new Ast("__hero__", [new Ast(name, [], [], "HeroLiteral")])
+
+                } else if (object[0].text === "Map") {
+                    return new Ast("__map__", [new Ast(name, [], [], "MapLiteral")])
+
+                } else if (object[0].text === "Gamemode") {
+                    return new Ast("__gamemode__", [new Ast(name, [], [], "GamemodeLiteral")])
+
+                } else if (object[0].text === "Team") {
+                    return new Ast("__team__", [new Ast(name, [], [], "TeamLiteral")])
+
+                } else if (object[0].text === "Button") {
+                    return new Ast("__button__", [new Ast(name, [], [], "ButtonLiteral")])
+
+                } else {
+                    return new Ast(name, [], [], object[0].text);
+                }
+
+            //Check the pseudo-enum "math"
+            } else if (object[0].text === "math") {
+                if (name === "pi") {
+                    return new Ast("3.14159265359");
+                } else if (name === "e") {
+                    return new Ast("2.71828182846");
+                } else {
+                    error("Unhandled member 'math."+name+"'");
+                }
+        
+            //Check the pseudo-enum "Vector"
+            } else if (object[0].text === "Vector") {
+                return new Ast("Vector."+name);
+
+            //Check for number
+            } else if (isNumber(object[0].text)) {
+                if (!isNumber(name)) {
+                    error("Expected a number after '.' but got '"+name+"'");
+                }
+                return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "NumberLiteral")], [], "unsigned float");
+
+            }
+        }
+
+        //Should be a player variable.
+        if (!isVarName(name, false)) {
+            error("Unknown member '"+name+"'");
+        }
+        return new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
+
+	} else {
+	
+		if (["append", "concat", "exclude", "index", "remove"].includes(name)) {
+            if (args.length !== 1) {
+                error("Function '"+name+"' takes 1 argument, received "+args.length);
+            }
+            var funcToInternalFuncMap = {
+                "append": "__append__",
+                "concat": "__concat__",
+                "exclude": "__removeFromArray__",
+                "index": "__indexOfArrayValue__",
+                "remove": "__remove__",
+            };
+
+            return new Ast(funcToInternalFuncMap[name], [parse(object), parse(args[0])])
+			
+        } else if (name === "last") {
+            if (args.length !== 0) {
+                error("Function '"+name+"' takes 1 argument, received "+args.length);
+            }
+            return new Ast("__lastOf__", [parse(object)]);
+        
+        } else if (name === "format") {
+            return new Ast("__format__", [parse(object)].concat(args.map(x => parse(x))));
+			
+		} else if ("getHitPosition", "getNormal", "getPlayerHit", "hasLoS".includes(name)) {
+            if (args.length !== 0) {
+                error("Function '"+name+"' takes no argument, received "+args.length);
+            }
+            return new Ast("__"+name+"__", [parse(object)]);
+			
+		} else if (object[0].text === "random" && object.length === 1) {
+			if (name === "randint" || name === "uniform") {
+                if (args.length !== 2) {
+                    error("Function 'random."+name+"' takes 2 arguments, received "+args.length);
+                }
+                return new Ast("random."+name, [parse(args[0]), parse(args[1])]);
+                
+			} else if (name === "shuffle" || name === "choice") {
+                if (args.length !== 1) {
+                    error("Function 'random."+name+"' takes 1 argument, received "+args.length);
+                }
+                return new Ast("random."+name, [parse(args[0])]);
+                
+			} else {
+				error("Unhandled member 'random."+name+"'");
+			}
+			
+		} else if (name === "slice") {
+            if (args.length !== 2) {
+                error("Function 'slice' takes 2 arguments, received "+args.length);
+            }
+			return new Ast("__arraySlice__", [parse(object), parse(args[0]), parse(args[1])]);
+			
+		} else {
+            //Assume it is a player function
+            return new Ast("_&"+name, [parse(object)].concat(args.map(x => parse(x))));
+		}
+	}
+	
+	error("This shouldn't happen");
+}
+
+//Parses a literal array such as [1,2,3] or [i for i in x if cond].
+function parseLiteralArray(content) {
+		
+	if (content.length === 2) {
+        return new Ast("__emptyArray__");
+    }
+
+    //Check for "in" keyword
+    var inOperands = splitTokens(content.slice(1, content.length-1), "in", false);
+    if (inOperands.length === 2) {
+
+        var ifOperands = splitTokens(inOperands[1], "if");
+
+        if (ifOperands.length !== 2) {
+            //Expect something like "[x == y for x in z]"
+            //Parse as the pseudo "map" function. Used for the "any"/"all" functions.
+            //And well, maybe they will eventually add a map function...
+
+            if (inOperands[0].length < 3) {
+                error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected at least 3");
+            }
+            if (inOperands[0][inOperands[0].length-2].text !== "for") {
+                error("Malformed '[x for y in z]': expected 'for' but found '"+inOperands[0][inOperands[0].length-2].text+"'");
+            }
+            currentArrayElementNames.push(inOperands[0][inOperands[0].length-1].text);
+            var mappingFunction = parse(inOperands[0].slice(0, inOperands[0].length-2));
+            currentArrayElementNames.pop();
+
+            return new Ast("__mappedArray__", [parse(inOperands[1]), mappingFunction]);
+            
+        } else {
+            //Filtered array
+            if (inOperands[0].length !== 3 || inOperands[0][1].text !== "for" || inOperands[0][0].text !== inOperands[0][2].text) {
+                error("Malformed 'x for x in y'");
+            }
+            debug("Parsing 'x for x in y if z', x='"+inOperands[0][0].text+"', y='"+ifOperands[0]+"', z='"+ifOperands[1]+"'");
+            
+            currentArrayElementNames.push(inOperands[0][0].text);
+            var condition = parse(ifOperands[1]);
+            currentArrayElementNames.pop();
+
+            return new Ast("__filteredArray__", [parse(ifOperands[0]), condition]);
+        }
+    } else {
+        
+        //Literal array with only values ([1,2,3])
+        var args = splitTokens(content.slice(1, content.length-1), ",");
+        //Allow trailing comma
+        if (args[args.length-1].length === 0) {
+            args.pop()
+        }
+
+        return new Ast("__array__", args.map(x => parse(x)));
+    }
+	
+	error("This shouldn't happen");
+	
+}
+
+//Parses a dictionary.
+function parseDictionary(content) {
+    content = content.slice(1, content.length-1);
+    var elems = splitTokens(content, ",");
+    //support trailing comma
+    if (elems[elems.length-1].length === 0) {
+        elems.pop();
+    }
+    
+    var astElems = [];
+    for (var elem of elems) {
+        var keyValue = splitTokens(elem, ":");
+        if (keyValue.length !== 2) {
+            error("Expected a value of the form 'key: value' but got '"+dispTokens(elem)+"'");
+        }
+        astElems.push(new Ast("__dictElem__", [parse(keyValue[0]), parse(keyValue[1])]));
+    }
+    return new Ast("__dict__", astElems);
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
 
 function compile(content, language="en-US", _rootPath="") {
 	
@@ -22120,11 +28971,27 @@ function compile(content, language="en-US", _rootPath="") {
 		importedFiles.push(rootPath);
 	}
 
-	var rules = tokenize(content);
-	//console.log(rules);
+	var lines = tokenize(content);
 
-	var result = "";
-	var compiledRules = [];
+    var astRules = parseLines(lines);
+    
+    for (var elem of astRules) {
+        console.log(astToString(elem));
+    }
+    
+   	console.log(astRules);
+    var parsedAstRules = parseAstRules(astRules);
+
+    for (var elem of parsedAstRules) {
+        console.log(astToString(elem));
+    }
+    console.log(parsedAstRules);
+
+	var result = astRulesToWs(parsedAstRules);
+	result = generateVariablesField()+generateSubroutinesField()+result;
+    
+/*
+    var compiledRules = [];
 
 	//First rule contains variable declarations.
 	compileVarDeclarationRule(rules[0])
@@ -22140,6 +29007,7 @@ function compile(content, language="en-US", _rootPath="") {
 	}
 
 	result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
+*/
 
 	if (typeof window !== "undefined") {
 		var t1 = performance.now();
@@ -22155,9 +29023,11 @@ function compile(content, language="en-US", _rootPath="") {
 	};
 }
 
+
+
 function generateVariablesField() {
 
-	var result = tows("_variables", ruleKw)+" {\n";
+	var result = "";
 
 	for (var varType of ["global", "player"]) {
 		var outputVariables = Array(128);
@@ -22214,32 +29084,31 @@ function generateVariablesField() {
 		var varTypeResult = "";
 		for (var i = 0; i < 128; i++) {
 			if (obfuscateRules) {
-				varTypeResult += "\t\t"+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
+				varTypeResult += tabLevel(2)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 			} else {
 				if (outputVariables[i] !== undefined) {
-					varTypeResult += "\t\t"+i+": "+outputVariables[i]+"\n";
-				} else if (!disableUnusedVars) {
-					varTypeResult += "\t\t"+i+": _unused_var_"+i+"\n";
+					varTypeResult += tabLevel(2)+i+": "+outputVariables[i]+"\n";
 				}
 			}
 		}
 		if (varTypeResult !== "") {
-			varTypeResult = "\t"+tows("_"+varType, ruleKw)+":\n" + varTypeResult;
+			varTypeResult = tabLevel(1)+tows("__"+varType+"__", ruleKw)+":\n" + varTypeResult;
 			result += varTypeResult;
 		}
-
 	}
 
-	result += "}\n";
-	return result;
+	if (result) {
+		result = tows("__variables__", ruleKw)+" {\n"+result+"}\n";
+	}
 
+	return result;
 }
+
 
 function generateSubroutinesField() {
 
 	var result = "";
 
-	
 	var outputSubroutines = Array(128);
 	var subNames = [];
 	var unassignedSubroutines = [];
@@ -22287,2636 +29156,22 @@ function generateSubroutinesField() {
 	}
 	for (var i = 0; i < 128; i++) {
 		if (obfuscateRules) {
-			result += "\t"+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
+			result += tabLevel(1)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 		} else {
 			if (outputSubroutines[i] !== undefined) {
-				result += "\t"+i+": "+outputSubroutines[i]+"\n";
-			} else if (!disableUnusedVars) {
-				result += "\t"+i+": _unused_sub_"+i+"\n";
+				result += tabLevel(1)+i+": "+outputSubroutines[i]+"\n";
 			}
 		}
 	}
 
 	if (result) {
-		result = tows("_subroutines", ruleKw)+" {\n" + result + "}\n";
+		result = tows("__subroutines__", ruleKw)+" {\n" + result + "}\n";
 	}
 	
 	return result;
 
 }
 
-function compileVarDeclarationRule(rule) {
-	
-	for (var line of rule.lines) {
-		if (line.tokens.length === 0) continue;
-		fileStack = line.tokens[0].fileStack;
-
-		if (line.tokens[0].text === "globalvar" || line.tokens[0].text === "playervar" || line.tokens[0].text === "subroutine") {
-			if (line.tokens.length < 2 || line.tokens.length > 3) {
-				error("Malformed "+line.tokens[0].text+" declaration");
-			}
-			var index = line.tokens.length > 2 ? line.tokens[2].text : null
-
-			if (line.tokens[0].text === "globalvar") {
-				addVariable(line.tokens[1].text, true, index);
-			} else if (line.tokens[0].text === "playervar") {
-				addVariable(line.tokens[1].text, false, index);
-			} else {
-				addSubroutine(line.tokens[1].text, index);
-			}
-
-		} else if (line.tokens[0].text === "settings") {
-			var customGameSettings = eval("("+dispTokens(line.tokens.slice(1))+")");
-			compileCustomGameSettings(customGameSettings);
-		} else {
-			error("Found code outside a rule: "+line.tokens[0]);
-		}
-	}
-}
-
-function compileCustomGameSettings(customGameSettings) {
-
-	if (typeof customGameSettings !== "object" || customGameSettings === null) {
-		error("Expected an object for custom game settings");
-	}
-	var result = {};
-	for (var key of Object.keys(customGameSettings)) {
-		if (key === "main" || key === "lobby") {
-			result[tows(key, customGameSettingsSchema)] = compileCustomGameSettingsDict(customGameSettings[key], customGameSettingsSchema[key].values);
-
-		} else if (key === "gamemodes") {
-			var wsGamemodes = tows("gamemodes", customGameSettingsSchema);
-			result[wsGamemodes] = {};
-			for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
-				var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
-				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
-					wsGamemode = tows("_disabled", ruleKw)+" "+wsGamemode;
-					delete customGameSettings.gamemodes[gamemode].enabled;
-				}
-				result[wsGamemodes][wsGamemode] = {};
-				if ("enabledMaps" in customGameSettings.gamemodes[gamemode] || "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
-					if ("enabledMaps" in customGameSettings.gamemodes[gamemode] && "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
-						error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '"+gamemode+"'");
-					}
-					var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
-					var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
-					result[wsGamemodes][wsGamemode][wsMapsKey] = [];
-					for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
-						result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw))
-					}
-					delete customGameSettings.gamemodes[gamemode][mapsKey];
-				}
-
-				Object.assign(result[wsGamemodes][wsGamemode], compileCustomGameSettingsDict(customGameSettings.gamemodes[gamemode], customGameSettingsSchema.gamemodes.values[gamemode].values));
-			}
-
-		} else if (key === "heroes") {
-			var wsHeroes = tows("heroes", customGameSettingsSchema);
-			result[wsHeroes] = {};
-			for (var team of Object.keys(customGameSettings.heroes)) {
-				var wsTeam = tows(team, customGameSettingsSchema.heroes.teams);
-				result[wsHeroes][wsTeam] = {};
-				var wsHeroesKey = null;
-				var wsHeroesKeyObj = [];
-				if ("enabledHeroes" in customGameSettings.heroes[team] || "disabledHeroes" in customGameSettings.heroes[team]) {
-					if ("enabledHeroes" in customGameSettings.heroes[team] && "disabledHeroes" in customGameSettings.heroes[team]) {
-						error("Cannot have both 'enabledHeroes' and 'disabledHeroes' in team '"+team+"'");
-					}
-					var heroesKey = "enabledHeroes" in customGameSettings.heroes[team] ? "enabledHeroes" : "disabledHeroes";
-					wsHeroesKey = tows(heroesKey, customGameSettingsSchema.heroes.values);
-					for (var hero of customGameSettings.heroes[team][heroesKey]) {
-						wsHeroesKeyObj.push(tows(hero, heroKw));
-					}
-					delete customGameSettings.heroes[team][heroesKey];
-				}
-
-				if ("general" in customGameSettings.heroes[team]) {
-					Object.assign(result[wsHeroes][wsTeam], compileCustomGameSettingsDict(customGameSettings.heroes[team].general, customGameSettingsSchema.heroes.values.general));
-					delete customGameSettings.heroes[team].general;
-				}
-
-				for (var hero of Object.keys(customGameSettings.heroes[team])) {
-					var wsHero = tows(hero, heroKw);
-					result[wsHeroes][wsTeam][wsHero] = compileCustomGameSettingsDict(customGameSettings.heroes[team][hero], customGameSettingsSchema.heroes.values[hero].values);
-				}
-
-				if (wsHeroesKey !== null) {
-					result[wsHeroes][wsTeam][wsHeroesKey] = wsHeroesKeyObj;
-				}
-
-			}
-		} else {
-			error("Unknown key '"+key+"'");
-		}
-	}
-
-
-	nbTabs = 0;
-	function deserializeObject(obj) {
-		var result = "\n"+tabLevel(nbTabs)+"{\n";
-		nbTabs++;
-		for (var key of Object.keys(obj)) {
-			if (obj[key].constructor === Array) {
-				result += tabLevel(nbTabs)+key+"\n"+tabLevel(nbTabs)+"{\n"+obj[key].map(x => tabLevel(nbTabs+1)+x+"\n").join("");
-				result += tabLevel(nbTabs)+"}\n";
-			} else if (typeof obj[key] === "object" && obj[key] !== null) {
-				result += tabLevel(nbTabs)+key+deserializeObject(obj[key])+"\n";
-			} else {
-				result += tabLevel(nbTabs)+key+": "+obj[key]+"\n";
-			}
-		}
-		nbTabs--;
-		result += tabLevel(nbTabs)+"}";
-		return result;
-	}
-
-	compiledCustomGameSettings = tows("_settings", ruleKw) + deserializeObject(result)+"\n";
-
-
-}
-
-function compileRule(rule) {
-	
-	fileStack = rule.fileStack;
-	suppressedWarnings = [...globalSuppressedWarnings];
-	var result = "";
-	
-	if (currentArrayElementNames.length !== 0) {
-		error("Current array element names length isn't 0");
-	}
-	
-	//The first line should always start with @Rule.
-	if (rule.lines[0].tokens[0].text !== "@Rule") {
-		error("Lexer broke (rule not starting with '@Rule'?)");
-	} else if (rule.lines[0].tokens.length !== 2) {
-		error("Malformed rule declaration (found "+rule.lines[0].tokens.length+") tokens");
-	}
-	
-	result += tows("@Rule", ruleKw)+" (";
-	if (obfuscateRules) {
-		result += '""';
-	} else {
-		result += rule.lines[0].tokens[1].text;
-	}
-	result += ") {\n";
-	result += tabLevel(1)+tows("@Event", ruleKw)+" {\n";
-	
-	var eventType = null;
-	var eventTeam = null;
-	var eventPlayer = null;
-	var subroutineName = null;
-
-	//Loop until we reach the actions; parse metadata
-	var i = 1;
-	for (; i < rule.lines.length; i++) {
-		if (rule.lines[i].tokens.length === 0) {
-			continue;
-		}
-		fileStack = rule.lines[i].tokens[0].fileStack;
-
-		if (rule.lines[i].tokens[0].text.startsWith("@")) {
-			if (rule.lines[i].tokens[0].text === "@Event") {
-				if (eventType) {
-					error("Event type is defined twice;");
-				}
-				if (rule.lines.length === 2) {
-					eventType = "global";
-				} else {
-					eventType = rule.lines[i].tokens[1].text;
-				}
-				
-			} else if (rule.lines[i].tokens[0].text === "@Team") {
-				if (rule.lines[i].tokens.length !== 2) {
-					error("Expected one token after @Team")
-				}
-				if (eventTeam) {
-					error("Event team is defined twice");
-				}
-				eventTeam = tows(rule.lines[i].tokens[1], eventTeamKw);
-				
-			} else if (rule.lines[i].tokens[0].text === "@Hero") {
-				if (rule.lines[i].tokens.length !== 2) {
-					error("Expected one token after @Hero")
-				}
-				if (eventPlayer) {
-					error("Event player (@Hero/@Slot) is defined twice");
-				}
-				eventPlayer = tows(rule.lines[i].tokens[1].text.toLowerCase(), heroKw);
-				
-			} else if (rule.lines[i].tokens[0].text === "@Slot") {
-				if (rule.lines[i].tokens.length !== 2) {
-					error("Expected one token after @Slot")
-				}
-				if (eventPlayer) {
-					error("Event player (@Hero/@Slot) is defined twice");
-				}
-				eventPlayer = tows(rule.lines[i].tokens[1].text, eventSlotKw);
-				
-			} else if (rule.lines[i].tokens[0].text === "@SuppressWarnings") {
-				if (rule.lines[i].tokens.length === 1) {
-					error("Expected at least one token after @SuppressWarnings")
-				}
-				for (var j = 1; j < rule.lines[i].tokens.length; j++) {
-					suppressedWarnings.push(rule.lines[i].tokens[j].text);
-				}
-			} else if (rule.lines[i].tokens[0].text === "@Disabled") {
-				result = tows("_disabled", ruleKw)+" "+result;
-			} else {
-				error("Unknown annotation '"+rule.lines[i].tokens[0].text+"'");
-			}
-		} else if (rule.lines[i].tokens[0].text === "def") {
-			if (eventType) {
-				error("Cannot declare an event type for a subroutine");
-			}
-			eventType = "_subroutine";
-			
-			if (rule.lines[i].tokens.length !== 5) {
-				error("Malformed def statement, must be 'def func_name():'")
-			}
-			if (rule.lines[i].tokens[rule.lines[i].tokens.length-1].text !== ":") {
-				error("Def statement must end with ':'")
-			}
-
-			for (var j = i+1; j < rule.lines.length; j++) {
-				if (rule.lines[j].indentLevel <= rule.lines[i].indentLevel) {
-					error("Def statement must cover the whole rule");
-				}
-			}
-
-			subroutineName = rule.lines[i].tokens[1].text;
-		} else {
-			break;
-		}
-	}
-	
-	if (!eventType) {
-		error("An event must be specified");
-	}
-	result += tabLevel(2)+tows(eventType, eventKw)+";\n";
-	
-	//Add missing metadata
-	if (eventType === "global" || eventType === "_subroutine") {
-		if (eventTeam) {
-			error("Cannot declare an event team for event type '"+eventType+"'");
-		}
-		if (eventPlayer) {
-			error("Cannot declare an event player (@Hero/@Slot) for event type '"+eventType+"'");
-		}
-		if (eventType === "_subroutine") {
-			result += tabLevel(2)+translateSubroutineToWs(subroutineName)+";\n";
-		}
-	} else {
-		if (!eventTeam) {
-			eventTeam = tows("all", eventTeamKw);
-		}
-		result += tabLevel(2)+eventTeam+";\n";
-		if (!eventPlayer) {
-			eventPlayer = tows("all", eventPlayerKw);
-		}
-		result += tabLevel(2)+eventPlayer+";\n";
-	}
-
-	currentRuleEvent = eventType;
-	result += tabLevel(1)+"}\n\n";
-
-	//Parse the eventual rule condition, as well as the "do:".
-	//This loop breaks when it hits an actual action.
-
-	var nbDo = 0;
-	for (; i < rule.lines.length; i++) {
-		if (rule.lines[i].tokens.length === 0) {
-			continue;
-		}
-
-		fileStack = rule.lines[i].tokens[0].fileStack;
-
-		//Rule condition: 
-		if (rule.lines[i].tokens[0].text === "if" && nbDo === 0 && rule.lines[i].indentLevel === 0) {
-
-			//Check if there are instructions after the if; if not, return nothing as the rule is useless
-			if (i+1 >= rule.lines.length) {
-				return "";
-			}
-
-			//Check if the "if" is special
-			if (rule.lines[i+1].tokens[0].text === "goto" || rule.lines[i+1].tokens[0].text === "continue" || rule.lines[i+1].tokens[0].text === "return" || rule.lines[i+1].tokens[0].text === "break") {
-				break;
-			}
-
-			//Check if the "if" covers the whole rule
-			var areAllLinesAfterCurrentLineIndented = true;
-			for (var j = i+1; j < rule.lines.length; j++) {
-				if (rule.lines[j].indentLevel <= rule.lines[i].indentLevel) {
-					areAllLinesAfterCurrentLineIndented = false;
-					break;
-				}
-			}
-			if (areAllLinesAfterCurrentLineIndented) {
-				var compiledConditions = parseRuleCondition(rule.lines[i].tokens);
-				if (compiledConditions === "__false__") {
-					return ""; //rule will never execute, as one of the condition is false
-				} else if (compiledConditions === "") {
-					//do nothing
-				} else {
-					result += tabLevel(1)+tows("_conditions", ruleKw)+" {\n";
-					result += compiledConditions;
-					result += tabLevel(1)+"}\n\n";
-				}
-			} else {
-				break;
-			}
-		} else if (rule.lines[i].tokens[0].text === "do") {
-			if (rule.lines[i].tokens.length !== 2 || rule.lines[i].tokens[1].text !== ':') {
-				error("Do instruction must be 'do:'");
-			}
-			nbDo++;
-
-			//Check if the "do" eventually hits a "while"
-			var foundWhile = false;
-			for (var j = i+1; j < rule.lines.length; j++) {
-				if (rule.lines[j].indentLevel > rule.lines[i].indentLevel) {
-					continue;
-				} else if (rule.lines[j].indentLevel < rule.lines[i].indentLevel){
-					error("Unexpected unindent in 'do' body");
-				} else {
-					if (rule.lines[j].tokens.length >= 1 && rule.lines[j].tokens[0].text === "while"  && rule.lines[j].tokens[rule.lines[j].tokens.length-1].text != ":") {
-						foundWhile = true;
-					}
-				}
-			}
-			if (!foundWhile) {
-				error("'do' instruction does not have a matched 'while'");
-			}
-
-		} else {
-			break;
-		}
-	}
-
-	result += tabLevel(1)+tows("_actions", ruleKw)+" {\n";
-
-	var actions = parseInstructions(rule.lines.slice(i), nbDo);
-	if (actions === "") {
-		//No actions = useless rule.
-		return "";
-	} else {
-		result += actions;
-	}
-	
-	//End actions
-	result += tabLevel(1)+"}\n";
-	
-	//End rules
-	result += "}\n\n";
-	
-	return result;
-}
-
-//Parses a list of actions (not metadata, rule condition, or "do").
-function parseInstructions(lines, nbDo) {
-
-	//Note: a "fake" else is the else that is generated for an elif.
-	//A "ghost" else is an else that does not generate a "skip" (if the previous 'if' didn't have its condition inverted).
-
-	//Array of objects: {
-	//	"type": "if"|"else"|"fakeelse"|"ghostelse"|"fakeghostelse"|"skip"|"skipif"|"label"|"other"|"forloop"|"optimized"|"switch"|"case"|"break"|"end"|"whileloop"|"continue"
-	//	"condition": compiled content of the condition, if type not in ["label", "other"] or "skip" is not a skip if
-	//	"content": compiled content of the instruction
-	//	"label": if type == "skip", the label to search for, if type == "label", the name of the label
-	//	"indentLevel": the indent level of the line
-	//	"fileStack": the file stack of the first token of the line
-	//}
-	var resultLines = [];
-
-	//Do a first pass to compile lines and to fill the resultLines array.
-	for (var i = 0; i < lines.length; i++) {
-
-		
-		if (lines[i].tokens.length === 0) {
-			continue;
-		}
-
-		var currentResultLineType = undefined;
-		var currentResultLineContent = undefined;
-		var currentResultLineCondition = undefined;
-		var currentResultLineSwitch = undefined;
-		var currentResultLineCase = undefined;
-		var currentResultLineLabel = undefined;
-		var skipNextLine = false;
-		fileStack = lines[i].tokens[0].fileStack;
-
-		//As we already handled all "do" actions before calling this function, encountering a "do" means it can't be at the beginning of the rule.
-		if (lines[i].tokens[0].text === "do") {
-			error("Do instructions must be at the beginning of the rule");
-		}
-		
-		//Check for "if"
-		if (lines[i].tokens[0].text === "if" || lines[i].tokens[0].text === "elif") {
-
-			if (lines[i].tokens[lines[i].tokens.length-1].text !== ':') {
-				error("If/Elif statement must end with ':'");
-			}
-
-			var condition = lines[i].tokens.slice(1, lines[i].tokens.length-1);
-			if (condition.length === 0) {
-				error("If/Elif statement must have a condition");
-			}
-
-			if (i+1 >= lines.length) {
-				error("If/Elif instruction must have at least one sub-instruction");
-			}
- 
-			if (lines[i+1].tokens[0].text === "goto") {
-				if (lines[i+1].tokens.length < 2) {
-					error("Malformed goto");
-				}
-				
-
-				//Check if the goto is of the form "goto loc+xxx"
-				if (lines[i+1].tokens[1].text === "loc") {
-					
-					warn("w_dynamic_goto", "Dynamic gotos are unreliable as OverPy can optimize out some actions.")
-					var skipIfOffset = parse(lines[i+1].tokens.slice(3))
-					var compiledCondition = parse(condition);
-					if (isWsFalse(compiledCondition) || isWs0(skipIfOffset)) {
-						currentResultLineType = "optimized";
-					} else if (isWsTrue(compiledCondition)) {
-						currentResultLineType="other";
-						currentResultLineContent = tows("_skip", actionKw)+"("+skipIfOffset+")";
-					} else {
-						currentResultLineType="other";
-						currentResultLineContent = tows("_skipIf", actionKw)+"("+compiledCondition+", "+skipIfOffset+")";
-					}
-					
-				} else {
-					//Search for label
-					var label = lines[i+1].tokens[1].text;
-					currentResultLineType = "skipif";
-					currentResultLineCondition = parse(condition);
-					currentResultLineLabel = label;
-				}
-				skipNextLine = true;
-				
-			} else if (lines[i+1].tokens[0].text === "return" || lines[i+1].tokens[0].text === "continue") {
-				var ifFunction = "";
-				if (lines[i+1].tokens[0].text === "return") {
-					ifFunction = "_abortIf";
-				} else {
-					ifFunction = "_loopIf";
-				}
-
-				if (condition[0].text === "RULE_CONDITION" && condition.length === 1) {
-					
-					currentResultLineType = "other";
-					currentResultLineContent = tows(ifFunction+"ConditionIsTrue", actionKw);
-
-				} else if (condition[0].text === "not" && condition[1].text === "RULE_CONDITION" && condition.length === 2) {
-					
-					currentResultLineType = "other";
-					currentResultLineContent = tows(ifFunction+"ConditionIsFalse", actionKw);
-
-				} else {
-					var compiledCondition = parse(condition);
-					if (isWsFalse(compiledCondition)) {
-						currentResultLineType = "optimized";
-					} else if (isWsTrue(compiledCondition)) {
-						currentResultLineType = "other";
-						if (ifFunction === "_abortIf") {
-							currentResultLineContent = tows("return", actionKw);
-						} else {
-							currentResultLineContent = tows("_loop", actionKw);
-						}
-					} else {
-						currentResultLineType = "other";
-						currentResultLineContent = tows(ifFunction, actionKw)+"("+compiledCondition+")";
-					}
-				}
-				skipNextLine = true;
-
-				
-			} else {
-				currentResultLineType = "if";
-				currentResultLineCondition = parse(condition, {invertCondition: true, isCondition: true});
-			}
-
-			if (lines[i].tokens[0].text === "elif") {
-				if (resultLines[resultLines.length-1].indentLevel <= lines[i].indentLevel) {
-					resultLines.push({
-						type: "fakeghostelse",
-						indentLevel: lines[i].indentLevel,
-						fileStack: fileStack,
-					})
-				} else {
-					resultLines.push({
-						type: "fakeelse",
-						indentLevel: lines[i].indentLevel,
-						fileStack: fileStack,
-					})
-				}
-			}
-
-			
-
-		//Check for "else"
-		} else if (lines[i].tokens[0].text === "else") {
-			
-			if (lines[i].tokens.length !== 2 || lines[i].tokens[1].text !== ':') {
-				error("Else instruction must be 'else:'");
-			}
-
-			if (i === 0) {
-				error("Found 'else', but no 'if'");
-			} else if (resultLines[resultLines.length-1].indentLevel <= lines[i].indentLevel) {
-				//If this is the case, then there is no need to replace the else for a "skip" as the previous if wasn't inverted.
-				currentResultLineType = "ghostelse";
-			} else {
-				currentResultLineType = "else";
-			}
-
-		//Check for "switch"
-		} else if (lines[i].tokens[0].text === "switch") {
-
-			if (lines[i].tokens[lines[i].tokens.length-1].text !== ':') {
-				error("Switch instruction must end with ':'");
-			} else if (lines[i].tokens.length <= 2) {
-				error("Malformed switch");
-			}
-
-			currentResultLineType = "switch";
-			currentResultLineSwitch = parse(lines[i].tokens.slice(1, lines[i].tokens.length-1));
-
-		} else if (lines[i].tokens[0].text === "case") {
-			if (lines[i].tokens[lines[i].tokens.length-1].text !== ':') {
-				error("Case instruction must end with ':'");
-			} else if (lines[i].tokens.length <= 2) {
-				error("Malformed case");
-			}
-
-			currentResultLineType = "case";
-			currentResultLineCase = parse(lines[i].tokens.slice(1, lines[i].tokens.length-1));
-		} else if (lines[i].tokens[0].text === "default") {
-			
-			if (lines[i].tokens.length !== 2 || lines[i].tokens[1].text !== ':') {
-				error("Default instruction must be 'default:'");
-			}
-			currentResultLineType = "case";
-			currentResultLineCase = "__default__";
-
-
-		} else if (lines[i].tokens[0].text === "break") {
-			if (lines[i].tokens.length !== 1) {
-				error("Malformed break statement");
-			}
-			currentResultLineType = "break";
-
-		//Check for "for"
-		} else if (lines[i].tokens[0].text === "for") {
-			if (lines[i].tokens[lines[i].tokens.length-1].text !== ':') {
-				error("For instruction must end with ':'");
-			}
-			
-			var inOperands = splitTokens(lines[i].tokens.slice(1, lines[i].tokens.length-1), "in", false);
-			if (inOperands.length !== 2) {
-				error("For instruction must contain 'in'");
-			}
-
-			var funcName = "_for";
-			currentResultLineContent = "";
-			
-
-			if (inOperands[1].length <= 3 || inOperands[1][0].text != "range" || inOperands[1][1].text != "(" || inOperands[1][inOperands[1].length-1].text != ")") {
-				error("For loop must be 'for var in range(start, stop, step)'");
-			}
-
-			
-			//Check for dot; if it is present, it can only be a player variable
-			var varOperands = splitTokens(inOperands[0], ".", false, true);
-			if (varOperands.length === 2) {
-				funcName += "PlayerVar";
-				currentResultLineContent += parse(varOperands[0])+", ";
-				currentResultLineContent += translateVarToWs(varOperands[1][0].text, false);
-			} else {
-				funcName += "GlobalVar";
-				currentResultLineContent += translateVarToWs(varOperands[0][0].text, true);
-			}
-
-			var rangeArgs = splitTokens(inOperands[1].slice(2, inOperands[1].length-1), ",");
-			var rangeStart, rangeEnd, rangeStep;
-			if (rangeArgs.length > 3) {
-				error("range() function takes a maximum of 3 arguments");
-			}
-			if (rangeArgs.length >= 3) {
-				rangeStep = parse(rangeArgs[2]);
-			} else {
-				rangeStep = 1;
-			}
-			if (rangeArgs.length >= 2) {
-				rangeEnd = parse(rangeArgs[1]);
-				rangeStart = parse(rangeArgs[0]);
-			} else {
-				rangeEnd = parse(rangeArgs[0]);
-				rangeStart = 0;
-			}
-
-			currentResultLineContent += ", "+rangeStart+", "+rangeEnd+", "+rangeStep;
-			currentResultLineContent = tows(funcName, actionKw)+"("+currentResultLineContent+")";
-
-			currentResultLineType = "forloop";
-			
-		//Check for "while"
-		} else if (lines[i].tokens[0].text === "while") {
-
-			if (lines[i].tokens.length === 1) {
-				error("Expected code after 'while'");
-			}
-
-			if (lines[i].tokens[lines[i].tokens.length-1].text === ":") {
-				currentResultLineType = "whileloop";
-				currentResultLineContent = tows("__while__", actionKw)+"("+parse(lines[i].tokens.slice(1, lines[i].tokens.length-1))+")";
-
-			} else {
-				//it is a while from do/while				
-				if (nbDo === 0) {
-					error("Found 'while' without matching 'do'");
-				}
-				nbDo--;
-
-				if (lines[i].tokens[1].text === "true" && lines[i].tokens.length === 2) {
-					currentResultLineType = "other";
-					currentResultLineContent = tows("_loop", actionKw);
-	
-				} else {
-					if (lines[i].tokens[1].text === "RULE_CONDITION") {
-						currentResultLineType = "other";
-						currentResultLineContent = tows("_loopIfConditionIsTrue", actionKw);
-	
-					} else if (lines[i].tokens[1].text === "not" && lines[i].tokens[2].text === "RULE_CONDITION") {
-						currentResultLineType = "other";
-						currentResultLineContent = tows("_loopIfConditionIsFalse", actionKw);
-	
-					} else {
-						var compiledCondition = parse(lines[i].tokens.slice(1));
-						if (isWsFalse(compiledCondition)) {
-							currentResultLineType = "optimized";
-						} else if (isWsTrue(compiledCondition)) {
-							currentResultLineType = "other";
-							currentResultLineContent = tows("_loop", actionKw);
-						} else {
-							currentResultLineType = "other";
-							currentResultLineContent = tows("_loopIf", actionKw)+"("+compiledCondition+")";
-						}
-					}
-				}
-			}
-	
-		//Check goto
-		} else if (lines[i].tokens[0].text === 'goto') {
-			if (lines[i].tokens.length < 2) {
-				error("Malformed goto");
-			}
-			//Check if the goto is of the form "goto loc+xxx"
-			if (lines[i].tokens[1].text === "loc") {
-				warn("w_dynamic_goto", "Dynamic gotos are unreliable as OverPy can optimize out some actions.")
-
-				var skipOffset = parse(lines[i].tokens.slice(3));
-
-				currentResultLineType="other";
-				currentResultLineContent = tows("_skip", actionKw)+"("+skipOffset+")";
-
-			} else {
-				var label = lines[i].tokens[1].text;
-				currentResultLineType = "skip";
-				currentResultLineLabel = label;
-			}
-
-		//Check for del
-		} else if (lines[i].tokens[0].text === 'del') {
-						
-			if (lines[i].tokens[lines[i].tokens.length-1].text !== ']') {
-				error("Del keyword must be followed by an array membership");
-			}
-			
-			var bracketPos = getTokenBracketPos(lines[i].tokens);
-			
-			var variable = lines[i].tokens.slice(1, bracketPos[bracketPos.length-2])
-			var member = lines[i].tokens.slice(bracketPos[bracketPos.length-2]+1, lines[i].tokens.length-1)
-			
-			debug("Parsing del keyword with var = '"+dispTokens(variable)+"' and member = '"+dispTokens(member)+"'");
-			
-			currentResultLineType = "other";
-			currentResultLineContent = parseAssignment(variable, member, true, "_removeFromArrayByIndex");
-			
-		//Check for label
-		} else if (lines[i].tokens[lines[i].tokens.length-1].text === ':') {
-			if (lines[i].tokens.length !== 2) {
-				error("Incorrectly formatted label");
-			}
-			var label = lines[i].tokens[0].text;
-			currentResultLineType = "label";
-			currentResultLineLabel = label;
-
-		//Check for pass
-		} else if (lines[i].tokens[0].text === "pass") {
-			if (lines[i].tokens.length !== 1) {
-				error("Unexpected token after 'pass'");
-			}
-			currentResultLineType = "optimized";
-
-		//Any other instruction
-		} else {
-			currentResultLineContent = parse(lines[i].tokens, {"isWholeInstruction":true});
-			if (currentResultLineContent.length > 0) {
-				currentResultLineType = "other";
-			} else {
-				currentResultLineType = "optimized";
-			}
-		}
-
-		resultLines.push({
-			type: currentResultLineType,
-			condition: currentResultLineCondition,
-			switch: currentResultLineSwitch,
-			case: currentResultLineCase,
-			content: currentResultLineContent,
-			label: currentResultLineLabel,
-			indentLevel: lines[i].indentLevel,
-			fileStack: lines[i].tokens[0].fileStack,
-		});
-
-		if (currentResultLineType === "switch") {
-			//add an useless instruction cause no skip(0)
-			resultLines.push({
-				type: "other",
-				content: tows("_disabled", ruleKw)+" "+tows("return", actionKw),
-				indentLevel: lines[i].indentLevel+4,
-				fileStack: lines[i].tokens[0].fileStack,
-			});
-		}
-
-		if (skipNextLine) {
-			i++;
-		}
-	}
-
-	lines = undefined;
-	var result = "";
-
-	function getNbLinesForType(type) {
-		if (["label", "ghostelse", "fakeghostelse", "optimized", "case"].includes(type)) {
-			return 0;
-		} else {
-			return 1;
-		}
-	}
-
-	//Do a pass to add the "end"s when necessary
-	for (var i = 0; i < resultLines.length; i++) {
-		
-		fileStack = resultLines[i].fileStack;
-
-		if (resultLines[i].type === "forloop" || resultLines[i].type === "whileloop") {
-
-			//Get the first non-indented line
-			var j = i+1;
-			for (; j < resultLines.length && resultLines[j].indentLevel > resultLines[i].indentLevel; j++);
-
-			if (j === i+1) {
-				error("Expected an indented block");
-			}
-			resultLines.splice(j, 0, ({
-				"type": "end",
-				"indentLevel": resultLines[i].indentLevel,
-				"fileStack": resultLines[i].fileStack,
-			}))
-		}
-	}
-
-	//Then, do a second pass to handle the "if"s.
-	//Go in reverse, to be able to optimize away "skip 0" and still calculate the correct length.
-	for (var i = resultLines.length-1; i >= 0; i--) {
-
-		fileStack = resultLines[i].fileStack;
-
-		if (resultLines[i].type === "other" || resultLines[i].type === "forloop" || resultLines[i].type === "whileloop") {
-			result = tabLevel(2)+resultLines[i].content+";\n"+result;
-
-			if (i > 0 && (resultLines[i-1].type === "other" || resultLines[i-1].type === "skip" || resultLines[i-1].type === "label")) {
-				if (resultLines[i].indentLevel > resultLines[i-1].indentLevel) {
-					error("Unexpected indent or unreachable code");
-				}
-			}
-
-		} else if (["label", "ghostelse", "fakeghostelse", "optimized", "case"].includes(resultLines[i].type)) {
-			//do nothing
-
-		} else if (resultLines[i].type === "if") {
-			
-			var gotoOffset = 0;
-			var j = i+1;
-
-			//Get number of indented lines within the if
-			for (; j < resultLines.length && resultLines[j].indentLevel > resultLines[i].indentLevel; j++) {
-				gotoOffset += getNbLinesForType(resultLines[j].type);
-			}
-
-			if (j < resultLines.length && (resultLines[j].type === "else" || resultLines[j].type === "fakeelse")) {
-				gotoOffset++;
-			}
-
-			var compiledCondition = resultLines[i].condition;
-
-			if (isWsFalse(compiledCondition) || gotoOffset === 0) {
-				//Optimize away
-				resultLines[i].type = "optimized";
-			} else if (isWsTrue(compiledCondition)) {
-				result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
-			} else {
-				result = tabLevel(2)+tows("_skipIf", actionKw)+"("+resultLines[i].condition+", "+gotoOffset+");\n"+result;
-			}
-
-		} else if (resultLines[i].type === "skip" || resultLines[i].type === "skipif") {
-			
-			var gotoOffset = 0;
-			var foundLabel = false;
-			
-			for (var j = i+1; j < resultLines.length; j++) {
-				gotoOffset += getNbLinesForType(resultLines[j].type);
-				if (resultLines[j].type === "label" && resultLines[j].label === resultLines[i].label) {
-					foundLabel = true;
-					break;
-				}
-			}
-
-			if (!foundLabel) {
-				error("Could not find label "+label);
-			}
-
-			var compiledCondition = resultLines[i].type === "skipif" ? resultLines[i].condition : wsTrue;
-
-			if (isWsFalse(compiledCondition) || gotoOffset === 0) {
-				//Optimize away
-				resultLines[i].type = "optimized";
-			} else if (isWsTrue(compiledCondition)) {
-				result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
-			} else {
-				result = tabLevel(2)+tows("_skipIf", actionKw)+"("+resultLines[i].condition+", "+gotoOffset+");\n"+result;
-			}
-
-		} else if (resultLines[i].type === "else") {
-			
-			//Get number of indented lines within the else
-			var gotoOffset = 0;
-			for (var j = i+1; j < resultLines.length && resultLines[j].indentLevel > resultLines[i].indentLevel; j++) {
-				gotoOffset += getNbLinesForType(resultLines[j].type);
-			}
-
-			if (gotoOffset === 0) {
-				error("Else instruction must have at least one sub-instruction");
-			}
-
-			result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
-
-
-		} else if (resultLines[i].type === "fakeelse") {
-			
-			var gotoOffset = 0;
-
-			//If the line following the "fake else" is "other" then it's a special elif.
-			if (resultLines[i+1].type === "other") {
-				gotoOffset++;
-			}
-
-			//Go to the end of the elif/else chain.
-			//Stop when encountering a line which type is not "else", or preceded by a "fakeelse", that is not on a greater indentation level than the current line.
-			for (var j = i+1+gotoOffset; j < resultLines.length; j++) {
-				console.log(resultLines[j]);
-				if (resultLines[j].indentLevel <= resultLines[i].indentLevel 
-						&& resultLines[j-1].type !== "fakeelse" 
-						&& resultLines[j-1].type !== "fakeghostelse" 
-						&& resultLines[j].type !== "else" 
-						&& resultLines[j].type !== "fakeelse" 
-						&& resultLines[j].type !== "ghostelse"
-						&& resultLines[j].type !== "fakeghostelse") {
-					break;
-				}
-				gotoOffset += getNbLinesForType(resultLines[j].type);
-			}
-
-			if (gotoOffset === 0) {
-				error("Parser broke (offset for fake else is 0)");
-			}
-			result = tabLevel(2)+tows("_skip", actionKw)+"("+gotoOffset+");\n"+result;
-			
-		} else if (resultLines[i].type === "switch") {
-			var caseOffsets = [];
-			var caseValues = [];
-			var currentCaseOffset = 0;
-			var wasDefaultEncountered = false;
-
-			if (i === resultLines.length-2 || resultLines[i+2].type !== "case") {
-				error("A switch must be followed by a 'case' or 'default' instruction");
-			}
-
-			for (var j = i+1; j < resultLines.length && resultLines[j].indentLevel > resultLines[i].indentLevel; j++) {
-				if (resultLines[j].type === "case") {
-					if (resultLines[j].case === "__default__") {
-						if (wasDefaultEncountered) {
-							error("The 'default' case was already declared in the switch");
-						} else {
-							wasDefaultEncountered = true;
-						}
-						caseOffsets.unshift(currentCaseOffset);
-
-					} else {
-						if (caseValues.includes(resultLines[j].case)) {
-							error("This case is already declared in the switch");
-						}
-						caseOffsets.push(currentCaseOffset);
-						caseValues.push(resultLines[j].case);
-
-					}
-
-				} else {
-					currentCaseOffset += getNbLinesForType(resultLines[j].type);
-				}
-			}
-
-			if (caseValues.length === 0) {
-				error("Switch does not contain cases");
-			}
-			if (!wasDefaultEncountered) {
-				caseOffsets.unshift(currentCaseOffset);
-			}
-
-			//[caseOffsets][[caseValues].index(switchValue)+1]
-			var switchResult = tows("_valueInArray", valueFuncKw)+"(";
-			var caseOffsetsResult = tows("_emptyArray", valueFuncKw);
-			var appendFunc = tows("_appendToArray", valueFuncKw);
-			for (var caseOffset of caseOffsets) {
-				caseOffsetsResult = appendFunc+"("+caseOffsetsResult+", "+caseOffset+")";
-			}
-			switchResult += caseOffsetsResult+", "+tows("_add", valueFuncKw)+"(1, "+tows("_indexOfArrayValue", valueFuncKw)+"(";
-			var caseValuesResult = tows("_emptyArray", valueFuncKw);
-			for (var caseValue of caseValues) {
-				caseValuesResult = appendFunc+"("+caseValuesResult+", "+caseValue+")";
-			}
-			switchResult += caseValuesResult + ", "+resultLines[i].switch+")))";
-
-			result = tabLevel(2)+tows("_skip", actionKw)+"("+switchResult+");\n"+result;
-
-		} else if (resultLines[i].type === "break") {
-			var breakOutOfSwitch = false;
-			var switchIndentLevel = 0;
-			var breakOffset = 0;
-
-			//If the indentation level is 0, it cannot be within a switch.
-			if (resultLines[i].indentLevel === 0) {
-				breakOutOfSwitch = false;
-
-			} else {
-				//Go up until we encounter a switch statement
-				for (var j = i-1; j >= 0; j--) {
-					if (resultLines[j].type === "switch") {
-						breakOutOfSwitch = true;
-						switchIndentLevel = resultLines[j].indentLevel;
-						break;
-					}
-				}
-			}
-
-			if (breakOutOfSwitch) {
-				console.log("finding end of switch, indent level = "+switchIndentLevel);
-				//Go down until we find the end of the switch
-				for (var j = i+1; j < resultLines.length && resultLines[j].indentLevel > switchIndentLevel; j++) {
-					breakOffset += getNbLinesForType(resultLines[j].type);
-				}
-
-			} else {
-				//Go down until we find a "while"
-				var loopWs = tows("_loop", actionKw);
-				var loopIfWs = tows("_loopIf", actionKw);
-				var foundWhile = false;
-				for (var j = i+1; j < resultLines.length; j++) {
-					breakOffset += getNbLinesForType(resultLines[j].type);
-					if (resultLines[j].type === "other" && (resultLines[j].content.startsWith(loopWs) || resultLines[j].content.startsWith(loopIfWs))) {
-						foundWhile = true;
-						break;
-					}
-				}
-				if (!foundWhile) {
-					error("Found 'break', but no switch or loop to break out of");
-				}
-
-			}
-
-			if (breakOffset === 0) {
-				resultLines[i].type = "optimized";
-			} else {
-				result = tabLevel(2)+tows("_skip", actionKw)+"("+breakOffset+");\n"+result;
-			}
-
-		} else if (resultLines[i].type === "end") {
-			result = tabLevel(2)+tows("__end__", actionKw)+";\n"+result;
-		} else {
-			error("Unhandled rule line type "+resultLines[i].type);
-		}
-	}
-	
-	return result;
-}
-
-/*
-The main parse function.
-
-parseArgs options:
-
-- "invertCondition": true/false
-- "raycastType": "getHitPosition"|"getNormal"|"getPlayerHit"|"hasLoS"
-- "isWholeInstruction": true/false
-- "isLocalizedString": true/false
-- "formatArgs": token array
-*/
-function parse(content, parseArgs={}) {
-	
-	if (content === undefined) {
-		error("Content is undefined");
-	} else if (content.length === 0) {
-		error("Content is empty (missing operand or argument?)");
-	}
-	
-	fileStack = content[0].fileStack;
-	if (parseArgs.invertCondition === true) {
-		//add "not(...)"
-		content.unshift({text: "(",});
-		content.unshift({text: "not"});
-		content.push({text: ")"});
-	}
-	
-	debug("Parsing '"+dispTokens(content)+"'");
-	
-	//Parse operators
-	for (var i = 0; i < pyOperators.length; i++) {
-		
-		if (pyOperators[i] === "not" || pyOperators[i] === "if") {
-			var operands = splitTokens(content, pyOperators[i], false, false);
-		} else {
-			var operands = splitTokens(content, pyOperators[i], false, true);
-		}
-		if (operands.length === 2) {
-			
-			//The operator is present; parse it
-			if (pyOperators[i] === "=") {
-				return parseAssignment(operands[0], operands[1], false);
-			} else if (pyOperators[i] === "if") {
-				
-				var trueExpr = parse(operands[0]);
-				var elseOperands = splitTokens(operands[1], "else", false, false);
-				if (elseOperands.length !== 2) {
-					error("Found 'if', but no 'else'");
-				}
-				var falseExpr = parse(elseOperands[1]);
-				var condition = parse(elseOperands[0]);
-
-				//A if true else B -> A
-				if (isWsTrue(condition)) {
-					return trueExpr;
-				}
-				//A if false else B -> B
-				if (isWsFalse(condition)) {
-					return falseExpr;
-				}
-				//A if condition else A -> A
-				if (trueExpr === falseExpr && !containsRandom(trueExpr)) {
-					return trueExpr;
-				}
-				//A if condition else B -> [B,A][1*not condition]
-				return tows("_valueInArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_appendToArray", valueFuncKw)+"("+tows("_emptyArray", valueFuncKw)+", "+trueExpr+"), "+falseExpr+"), "+tows("_multiply", valueFuncKw)+"(1, "+tows("_not", valueFuncKw)+"("+condition+")))";
-
-			} else if (pyOperators[i] === "or") {
-
-				var op1 = parse(operands[0]);
-				var op2 = parse(operands[1]);
-
-				//A or false = false or A = A
-				if (isWsFalse(op1)) {
-					return op2;
-				}
-				if (isWsFalse(op2)) {
-					return op1;
-				}
-				//A or true = true or A = true
-				if (isWsTrue(op1)) {
-					return op1;
-				}
-				if (isWs1(op2)) {
-					return wsTrue;
-				}
-				//A or A = A
-				if (op1 === op2 && !containsRandom(op1)) {
-					return op1;
-				}
-				//A or not A = not A or A = true
-				if ((op1 === wsNot+"("+op2+")" || wsNot+"("+op1+")" === op2) && !containsRandom(op1)) {
-					return wsTrue;
-				}
-
-				return tows("_or", valueFuncKw)+"("+op1+", "+op2+")";
-
-			} else if (pyOperators[i] === "and") {
-
-				var op1 = parse(operands[0]);
-				var op2 = parse(operands[1]);
-
-				//A and true = true and A = A
-				if (isWsTrue(op1)) {
-					return op2;
-				}
-				//Here, we do not use isWsTrue but isWs1 (strictly true) because "A and 3" returns 3 if A is true.
-				if (isWs1(op2)) {
-					return op1;
-				}
-				//A and false = false and A = false
-				if (isWsFalse(op1) || isWsFalse(op2)) {
-					return wsFalse;
-				}
-				//A and A = A
-				if (op1 === op2 && !containsRandom(op1)) {
-					return op1;
-				}
-				//A and not A = not A and A = true
-				if ((op1 === wsNot+"("+op2+")" || wsNot+"("+op1+")" === op2) && !containsRandom(op1)) {
-					return wsFalse;
-				}
-				return tows("_and", valueFuncKw)+"("+op1+", "+op2+")";
-
-			} else if (pyOperators[i] === "not") {
-
-				var op1 = parse(operands[1]);
-
-				//not true = false
-				if (isWsTrue(op1)) {
-					return wsFalse;
-				}
-				//not false = true
-				if (isWsFalse(op1)) {
-					return wsTrue;
-				}
-				//not not A = A
-				if (op1.startsWith(wsNot+"(")) {
-					return op1.substring((wsNot+"(").length, op1.length-1);
-				}
-				return tows("_not", valueFuncKw)+"("+op1+")";
-
-			} else if (pyOperators[i] === "in") {
-				return tows("_arrayContains", valueFuncKw)+"("+parse(operands[1])+", "+parse(operands[0])+")";
-			} else if (pyOperators[i] === "==" || pyOperators[i] === '!=' || pyOperators[i] === '<=' || pyOperators[i] === '>=' || pyOperators[i] === '<' || pyOperators[i] === '>' ) {
-				var pyOperator = pyOperators[i];
-				var op1 = parse(operands[0]);
-				var op2 = parse(operands[1]);
-
-				if (pyOperator === "==") {
-					//A == A = true
-					if (op1 === op2 && !containsRandom(op1)) {
-						return wsTrue;
-					} else if (isNumber(op1) && isNumber(op2)) {
-						return boolToWs(parseFloat(op1) == parseFloat(op2));
-					}
-				} else if (pyOperator === "!=") {
-					//A != A = false
-					if (op1 === op2 && !containsRandom(op1)) {
-						return wsFalse;
-					} else if (isNumber(op1) && isNumber(op2)) {
-						return boolToWs(parseFloat(op1) != parseFloat(op2));
-					}
-				} else if (pyOperator === ">") {
-					//A > A = false
-					if (op1 === op2 && !containsRandom(op1)) {
-						return wsFalse;
-					} else if (isNumber(op1) && isNumber(op2)) {
-						return boolToWs(parseFloat(op1) > parseFloat(op2));
-					}
-				} else if (pyOperator === "<") {
-					//A < A = false
-					if (op1 === op2 && !containsRandom(op1)) {
-						return wsFalse;
-					} else if (isNumber(op1) && isNumber(op2)) {
-						return boolToWs(parseFloat(op1) < parseFloat(op2));
-					}
-				} else if (pyOperator === ">=") {
-					//A >= A = false
-					if (op1 === op2 && !containsRandom(op1)) {
-						return wsTrue;
-					} else if (isNumber(op1) && isNumber(op2)) {
-						return boolToWs(parseFloat(op1) >= parseFloat(op2));
-					}
-				} else if (pyOperator === "<=") {
-					//A <= A = false
-					if (op1 === op2 && !containsRandom(op1)) {
-						return wsTrue;
-					} else if (isNumber(op1) && isNumber(op2)) {
-						return boolToWs(parseFloat(op1) <= parseFloat(op2));
-					}
-				}
-
-				return tows("_compare", valueFuncKw)+"("+op1+", "+pyOperator+", "+op2+")";
-			} else if (pyOperators[i] === "+=") {
-				//A += 0 -> nothing
-				if (isWs0(parse(operands[1]))) {
-					return "";
-				}
-				return parseAssignment(operands[0], operands[1], true, "_add");
-			} else if (pyOperators[i] === "-=") {
-				//A -= 0 -> nothing
-				if (isWs0(parse(operands[1]))) {
-					return "";
-				}
-				return parseAssignment(operands[0], operands[1], true, "_subtract");
-			} else if (pyOperators[i] === "*=") {
-				//A *= 1 -> nothing
-				if (isWs1(parse(operands[1]))) {
-					return "";
-				}
-				return parseAssignment(operands[0], operands[1], true, "_multiply");
-			} else if (pyOperators[i] === "/=") {
-				//A /= 1 -> nothing
-				if (isWs1(parse(operands[1]))) {
-					return "";
-				}
-				return parseAssignment(operands[0], operands[1], true, "_divide");
-			} else if (pyOperators[i] === "%=") {
-				return parseAssignment(operands[0], operands[1], true, "_modulo");
-			} else if (pyOperators[i] === "**=") {
-				return parseAssignment(operands[0], operands[1], true, "_raiseToPower");
-			} else if (pyOperators[i] === "min=") {
-				return parseAssignment(operands[0], operands[1], true, "_min");
-			} else if (pyOperators[i] === "max=") {
-				return parseAssignment(operands[0], operands[1], true, "_max");
-			} else if (pyOperators[i] === "++") {
-				return parseAssignment(operands[0], [{"text":"1"}], true, "_add");
-			} else if (pyOperators[i] === "--") {
-				return parseAssignment(operands[0], [{"text":"1"}], true, "_subtract");
-			} else if (pyOperators[i] === "/") {
-
-				var op1 = parse(operands[0]);
-				var op2 = parse(operands[1]);
-
-				//pre-calculate nb/nb
-				if (isNumber(op1) && isNumber(op2)) {
-					return trimNb(parseFloat(op1)/parseFloat(op2));
-				}
-				//A/0 = 0/A = 0
-				if (isWs0(op1) || isWs0(op2)) {
-					return "0";
-				}
-				//A/1 = A
-				if (isWs1(op2)) {
-					return op1;
-				}
-				
-				return tows("_divide", valueFuncKw)+"("+op1+", "+op2+")";
-
-			} else if (pyOperators[i] === "*") {
-
-				var op1 = parse(operands[0]);
-				var op2 = parse(operands[1]);
-
-				//pre-calculate nb*nb
-				if (isNumber(op1) && isNumber(op2)) {
-					return trimNb(parseFloat(op1)*parseFloat(op2));
-				}
-				//A*0 = 0*A = 0
-				if (isWs0(op1) || isWs0(op2)) {
-					return "0";
-				}
-				//A*1 = 1*A = A
-				if (isWs1(op1)) {
-					return op2;
-				}
-				if (isWs1(op2)) {
-					return op1;
-				}
-				//A*A = A**2
-				//Do not do this because of the weird behavior with negative numbers to power.
-				//Eg (-1)*(-1) = 1 but (-1)**2 = 0.
-				/*if (op1 === op2 && !containsRandom(op1)) {
-					return tows("_raiseToPower", valueFuncKw)+"(2, "+op1+")";
-				}*/
-				
-				return tows("_multiply", valueFuncKw)+"("+op1+", "+op2+")";
-
-			} else if (pyOperators[i] === "%") {
-				return tows("_modulo", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
-			} else if (pyOperators[i] === "**") {
-				return tows("_raiseToPower", valueFuncKw)+"("+parse(operands[0])+", "+parse(operands[1])+")";
-			} else if (pyOperators[i] === "-") {
-				
-				//Handle things like "3*-5" by checking if the 1st operand ends by another operator
-				if (operands[0].length > 0 && ["*", "/", "%"].includes(operands[0][operands[0].length-1].text)) {
-					continue;
-				}
-
-				//A - -B -> A+B
-				if (operands[0].length > 0 && operands[0][operands[0].length-1].text === "-") {
-					return parse(operands[0].slice(0, operands[0].length-1).concat([{"text":"+"}]).concat(operands[1]));
-				}
-
-				var op1 = operands[0].length === 0 ? "0" : parse(operands[0]);
-				var op2 = parse(operands[1]);
-
-				//pre-calculate nb-nb
-				if (isNumber(op1) && isNumber(op2)) {
-					return trimNb(parseFloat(op1)-parseFloat(op2));
-				}
-				//A-0 = A
-				if (isWs0(op2)) {
-					return op1;
-				}
-				//A-A = 0
-				if (op1 === op2 && !containsRandom(op1)) {
-					return "0";
-				}
-
-				return tows("_subtract", valueFuncKw)+"("+op1+", "+op2+")";
-
-			} else if (pyOperators[i] === "+") {
-
-				var op1 = operands[0].length === 0 ? "0" : parse(operands[0]);
-				var op2 = parse(operands[1]);
-
-				//pre-calculate nb+nb
-				 
-				if (isNumber(op1) && isNumber(op2)) {
-					return trimNb(parseFloat(op1)+parseFloat(op2));
-				}
-				//A+0 = 0+A = A
-				if (isWs0(op1)) {
-					return op2;
-				}
-				if (isWs0(op2)) {
-					return op1;
-				}
-				//A+A = 2*A
-				if (op1 === op2 && !containsRandom(op1)) {
-					return tows("_multiply", valueFuncKw)+"(2, "+op1+")";
-				}
-
-				return tows("_add", valueFuncKw)+"("+op1+", "+op2+")";
-
-			} else {
-				error("Unhandled operator "+pyOperators[i]);
-			}
-			
-			break;
-			
-		}
-	}
-	
-	
-	//Check for literal number
-	var nbTest = dispTokens(content).replace(/ /g, "")
-	if (!isNaN(nbTest)) {
-		return trimNb(nbTest);
-	}
-		
-	//Parse array
-	if (content[content.length-1].text === ']') {
-		var bracketPos = getTokenBracketPos(content);
-		
-		if (bracketPos.length === 2 && bracketPos[0] === 0) {
-			
-			return parseLiteralArray(content);
-		} else {
-			return parseArrayMembership(content.slice(0, bracketPos[bracketPos.length-2]), content.slice(bracketPos[bracketPos.length-2]+1, content.length-1));
-		}
-	}
-
-	//Dictionaries aren't allowed without array indexes
-	if (content[0].text === "{") {
-		error("Cannot use a dictionary without accessing it");
-	}
-	
-	
-	//Check for "." operator, which has the highest precedence.
-	//It must be parsed from right to left.
-	var operands = splitTokens(content, ".", false, true);
-	if (operands.length === 2) {
-		return parseMember(operands[0], operands[1], parseArgs);
-	}
-	
-	//Check for parentheses
-	if (content[0].text === '(') {
-		return parse(content.slice(1, content.length-1));
-	}
-
-	//Check for strings
-	if (content[content.length-1].text.startsWith('"') || content[content.length-1].text.startsWith("'")) {
-		var stringModifiers = {};
-		var string = "";
-		for (var i = content.length-1; i >= 0; i--) {
-			if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
-				string = content[i].text.substring(1, content[i].text.length-1)+string;
-
-			} else {
-				if (i === 0) {
-					//string modifier?
-					if (content[0].text === "l") {
-						stringModifiers.localizedString = true;
-					} else if (content[0].text === "b") {
-						stringModifiers.bigLetters = true;
-					} else if (content[0].text === "w") {
-						stringModifiers.fullWidth = true;
-					} else {
-						error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters) and 'w' (fullwidth)");
-					}
-				} else {
-					error("Syntax error: expected string or string modifier");
-				}
-			}
-		}
-
-		if (stringModifiers.localizedString === true) {
-			warn("w_localized_strings", "Localized strings are currently transformed to custom strings due to a bug.")
-			return parseString(string, parseArgs.formatArgs, stringModifiers);
-			//return parseLocalizedString(tokenizeLocalizedString(string), parseArgs.formatArgs);
-		} else {
-			return parseString(string, parseArgs.formatArgs, stringModifiers);
-		}
-	}
-
-	
-	//Parse args and name of function.
-	var name = content[0].text;
-	var args = null;
-	if (content.length > 1) {
-		if (content[1].text === '(') {
-			args = splitTokens(content.slice(2, content.length-1), ",");
-		} else if (content[1].text === '[') {
-			return parseArrayMembership(content);
-		} else {
-			error("Syntax error: expected '(' or '[' after '"+name+"'");
-		}
-	}
-
-	if (args === null) {
-
-		//Check for "continue"
-		if (name === "continue") {
-			return tows("_loop", actionKw);
-		}
-
-		//Check for current array element variable name
-		if (currentArrayElementNames.indexOf(name) >= 0) {
-			return tows("_currentArrayElement", valueFuncKw);
-		}
-
-		//Check if it is legal to use the event variables.
-		if (name === "eventPlayer") {
-			if (!(["eachPlayer", "playerJoined", "playerLeft", "playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "playerDealtHealing", "playerReceivedHealing", "_subroutine"].includes(currentRuleEvent))) {
-				error("Cannot use 'eventPlayer' with event type '"+currentRuleEvent+"'");
-
-			} else if (!(["eachPlayer", "playerJoined", "playerLeft", "_subroutine"].includes(currentRuleEvent))) {
-				warn("w_unsuitable_event", "Use of 'eventPlayer' with event type '"+currentRuleEvent+"' is ambiguous. Use 'attacker' or 'victim' instead.")
-			}
-
-		} else if ((name === "attacker" || name === "victim" || name === "eventDamage" || name === "eventWasCriticalHit") && !(["playerEarnedElimination", "playerDealtDamage", "playerTookDamage", "playerDealtFinalBlow", "playerDied", "_subroutine"].includes(currentRuleEvent))) {
-			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
-
-		} else if ((name === "healer" || name === "healee" || name === "eventHealing" || name === "eventWasHealthPack") && !(["playerDealtHealing", "playerReceivedHealing", "_subroutine"].includes(currentRuleEvent))) {
-			error("Cannot use '"+name+"' with event type '"+currentRuleEvent+"'");
-
-		}
-
-		try {
-			return tows(name, funcKw);
-		} catch (e) {
-			//No translation found? Must be a global variable.
-			//encounteredGlobalVars.add(name);
-			return tows("_globalVar", valueFuncKw)+"("+translateVarToWs(name, true)+")";
-		}
-	}
-
-	
-	var str = "args: "
-	for (var i = 0; i < args.length; i++) {
-		str += "'"+dispTokens(args[i])+"'";
-		if (i < args.length-1) {
-			str += ", ";
-		}
-	}
-	debug(str);
-	
-	
-	//Special functions
-	
-	if (name === "all" || name === "any") {
-		var result = tows("_"+name, valueFuncKw)+"(";
-		
-		if (args[0][0].text !== "[" || args[0][args[0].length-1].text !== "]") {
-			error(name+" function must have [x == y for x in z] as argument (no literal array found)")
-		}
-		
-		var forArgs = splitTokens(args[0].slice(1, args[0].length-1), "for");
-		if (forArgs.length !== 2) {
-			error(name+" function must have [x == y for x in z] as argument (no 'for' found)")
-		}
-		
-		var inArgs = splitTokens(forArgs[1], "in", false);
-		if (inArgs.length !== 2) {
-			error(name+" function must have [x == y for x in z] as argument (no 'in' found)")
-		}
-		result += parse(inArgs[1]) + ", ";
-		currentArrayElementNames.push(inArgs[0][0].text);
-		result += parse(forArgs[0])
-		currentArrayElementNames.pop();
-		result += ")";
-		return result;
-	}
-
-	if (name === "async") {
-		if (args.length != 2) {
-			error("Function async takes 2 arguments, received "+args.length);
-		}
-		//Check if first arg is indeed a subroutine
-		if (args[0].length !== 3 || args[0][1].text !== "(" || args[0][2].text !== ")") {
-			error("Expected subroutine call as first argument");
-		}
-		console.log(args);
-		return tows("_startRule", actionKw)+"("+translateSubroutineToWs(args[0][0].text)+", "+parse(args[1])+")";
-	}
-	
-	if (name === "ceil") {
-		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundUp", constantValues["_Rounding"])+")";
-	}
-	
-	if (name === "chase") {
-		
-		var funcName = "_chase";
-		var result = "";
-		
-		//Check for dot; if it is present, it can only be a player variable
-		var operands = splitTokens(args[0], ".", false, true);
-		if (operands.length === 2) {
-			funcName += "PlayerVariable";
-			result += parse(operands[0])+", ";
-			//encounteredPlayerVars.add(operands[1][0].text);
-			result += translateVarToWs(operands[1][0].text, false);
-		} else {
-			funcName += "GlobalVariable";
-			//encounteredGlobalVars.add(args[0][0].text);
-			result += translateVarToWs(args[0][0].text, true);
-		}
-		
-		if (args.length !== 4) {
-			error("Chase function must have 4 arguments");
-		} else if ((args[2][0].text !== "rate" && args[2][0].text !== "duration") || args[2][1].text !== "=") {
-			error("3rd argument of chase must be 'rate = xxxx' or 'duration = xxxx'");
-		}
-		
-		if (args[2][0].text === "rate") {
-			funcName += "AtRate";
-		} else {
-			funcName += "OverTime";
-		}
-		
-		return tows(funcName, actionKw)+"("+result+", "+parse(args[1])+", "+parse(args[2].slice(2))+", "+parse(args[3])+")";
-	}
-
-	if (name === "debug") {
-		//probably the longest line of code in all this codebase
-		return tows("_hudText", actionKw)+"("+tows("getPlayers", valueFuncKw)+"("+tows("ALL", constantValues["Team"])+"), "+parse(args[0])+", "+tows("null", valueFuncKw)+", "+tows("null", valueFuncKw)+", "+tows("LEFT", constantValues["HudPosition"])+", 0, "+tows("ORANGE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("WHITE", constantValues["Color"])+", "+tows("VISIBILITY_AND_STRING", constantValues["HudReeval"])+", "+tows("ALWAYS", constantValues["SpecVisibility"])+")";
-	}
-
-	if (name === "__for__") {
-		var funcName = "_for";
-		var result = "";
-		
-		//Check for dot; if it is present, it can only be a player variable
-		var operands = splitTokens(args[0], ".", false, true);
-		if (operands.length === 2) {
-			funcName += "PlayerVar";
-			result += parse(operands[0])+", ";
-			result += translateVarToWs(operands[1][0].text, false);
-		} else {
-			funcName += "GlobalVar";
-			result += translateVarToWs(args[0][0].text, true);
-		}
-		
-		if (args.length !== 4) {
-			error("__for__ function must have 4 arguments");
-		}
-		return tows(funcName, actionKw)+"("+result+", "+parse(args[1])+", "+parse(args[2])+", "+parse(args[3])+")";
-	}
-	
-	if (name === "floor") {
-		return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundDown", constantValues["_Rounding"])+")";
-	}
-
-	if (name === "hudHeader" || name === "hudText" || name === "hudSubheader" || name === "hudSubtext") {
-		if (name !== "hudText" && (args.length < 6 || args.length > 7)) {
-			error("Function "+name+" takes 6 or 7 arguments, received "+args.length);
-		} else if (name === "hudText" && (args.length < 10 || args.length > 11)) {
-			error("Function "+name+" takes 9 or 10 arguments, received "+args.length);
-		}
-		var defaultColor = [
-			{text: "Color"},
-			{text: "."},
-			{text: "WHITE"}
-		];
-		var opynull = [{
-			text: "null",
-		}]
-		if (name === "hudHeader") {
-			args.splice(2, 0, opynull);
-			args.splice(3, 0, opynull);
-
-			args.splice(7, 0, defaultColor);
-			args.splice(8, 0, defaultColor);
-		} else if (name === "hudSubheader") {
-			args.splice(1, 0, opynull);
-			args.splice(3, 0, opynull);
-
-			args.splice(6, 0, defaultColor);
-			args.splice(8, 0, defaultColor);
-		} else if (name === "hudSubtext") {
-			args.splice(1, 0, opynull);
-			args.splice(2, 0, opynull);
-
-			args.splice(6, 0, defaultColor);
-			args.splice(7, 0, defaultColor);
-		}
-		if (args.length === 10) {
-			//Add the spectator visibility
-			args.push([
-				{text: "SpecVisibility"},
-				{text: "."},
-				{text: "DEFAULT"},
-			])
-		}
-		name = "_hudText";
-		//go on to treat it as a normal function
-	}
-
-	if (name === "getAllPlayers") {
-		return tows("getPlayers", valueFuncKw)+"("+tows("ALL", constantValues["Team"])+")";
-	}
-
-	if (name === "getMapId") {
-		error("getMapId() has been removed; use getCurrentMap().");
-	}
-
-	if (name === "getSign") {
-		if (args.length !== 1) {
-			error("Function getSign() takes one argument, received "+args.length);
-		} else {
-			//(((x)>0)-((x)<0))
-			return parse([{"text":"("},{"text":"("},{"text":"("}].concat(args[0]).concat([{"text":")"},{"text":">"},{"text":"0"},{"text":")"},{"text":"-"},{"text":"("},{"text":"("}].concat(args[0]).concat([{"text":")"},{"text":"<"},{"text":"0"},{"text":")"},{"text":")"}])));
-		}
-	}
-
-	if (name === "localizedStr") {
-		error("localizedStr() has been removed, use the 'l' string modifier instead.");
-	}
-	
-	if (name === "round") {
-		if (args.length !== 1) {
-			error("round() only takes one argument, you maybe meant to use ceil() or floor().");
-		} else {
-			return tows("_round", valueFuncKw)+"("+parse(args[0])+", "+tows("_roundToNearest", constantValues["_Rounding"])+")";
-		}
-	}
-	
-	if (name === "raycast") {
-		if (parseArgs.raycastType === undefined) {
-			error("Raycast function must be followed by a member (eg. getHitPosition)");
-		}
-		
-		if (parseArgs.raycastType === "getHitPosition" || parseArgs.raycastType === "getPlayerHit" || parseArgs.raycastType === "getNormal") {
-			var result = tows("_"+parseArgs.raycastType, valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+", ";
-			
-			if (args[2][0].text !== "include" || args[2][1].text !== "=") {
-				error("3rd arg for this raycast must be 'include = xxxx'");
-			} else if (args[3][0].text !== "exclude" || args[3][1].text !== "=") {
-				error("4th arg for this raycast must be 'exclude = xxxx'");
-			} else if (args[4][0].text !== "includePlayerObjects" || args[4][1].text !== "=") {
-				error("5th arg for this raycast must be 'includePlayerObjects = xxxx'");
-			}
-			
-			result += parse(args[2].slice(2))+", "+parse(args[3].slice(2))+", "+parse(args[4].slice(2))+")";
-			return result;
-		} else if (parseArgs.raycastType === "hasLoS") {
-			var result = tows("_isInLineOfSight", valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+", ";
-			if (args[2][0].text !== "los" || args[2][1].text !== "=") {
-				error("3rd arg for line of sight check must be 'los = LosCheck.xxxx'");
-			} 
-			result += parse(args[2].slice(2))+")";
-			return result;
-		} else {
-			error("Unknown raycast member '"+parseArgs.raycastType+"'");
-		}
-	}
-	
-	if (name === "sorted") {
-		if (args.length !== 2) {
-			error("sorted() takes 2 arguments");
-		} else {
-			
-			var result = tows("_sortedArray", valueFuncKw)+"("+parse(args[0]);
-			
-			var lambdaArgs = splitTokens(args[1], ':');
-			if (lambdaArgs.length !== 2 || lambdaArgs[0].length !== 4 || lambdaArgs[0][0].text !== "key" || lambdaArgs[0][1].text !== "=" || lambdaArgs[0][2].text !== "lambda") {
-				error("Syntax for sorted array condition is 'key=lambda x: condition(x)'");
-			}
-			
-			currentArrayElementNames.push(lambdaArgs[0][3].text);
-			result += ", "+parse(lambdaArgs[1])+")";
-			currentArrayElementNames.pop();
-			return result;
-			
-		}
-	}
-	
-	if (name === "stopChasingVariable") {
-		
-		var funcName = "_stopChasing";
-		var result = "";
-		
-
-		//Check for dot; if it is present, it can only be a player variable
-		var operands = splitTokens(args[0], ".", false, true);
-		if (operands.length === 2) {
-			funcName += "PlayerVariable";
-			result += parse(operands[0])+", ";
-			//encounteredPlayerVars.add(operands[1][0].text);
-			result += translateVarToWs(operands[1][0].text, false);
-		} else {
-			funcName += "GlobalVariable";
-			//encounteredGlobalVars.add(args[0][0].text);
-			result += translateVarToWs(args[0][0].text, true);
-		}
-		
-		return tows(funcName, actionKw)+"("+result+")";
-	}
-		
-	
-	if (name === "wait") {
-		var result = tows("_wait", actionKw)+"(";
-		if (args.length === 0) {
-			result += "0.016, ";
-		} else {
-			result += parse(args[0])+", ";
-		}
-		if (args.length <= 1) {
-			result += tows("IGNORE_CONDITION", constantValues["Wait"])
-		} else {
-			result += parse(args[1]);
-		}
-		result += ")";
-		return result;
-	}
-	
-	//Handle functions with no arguments
-	if (args.length === 0) {
-		try {
-			return tows(name, funcKw);
-		} catch (e) {
-			//No translation found? May be a subroutine.
-			try {
-				return tows("_callSubroutine", actionKw)+"("+translateSubroutineToWs(name)+")";
-			} catch (e) {
-				error("Unknown function "+name);
-			}
-		}
-	}
-	
-	//Default case (not a special function).
-	var result = tows(name, funcKw, {nbArgs:args.length})+"(";
-	for (var i = 0; i < args.length; i++) {
-		result += parse(args[i]);
-		if (i < args.length-1) {
-			result += ", ";
-		}
-	}
-	result += ")";
-	return result;
-	
-}
-
-//Parses localized string
-function parseLocalizedString(content, formatArgs) {
-	if (!content instanceof Array) {
-		error("Content must be list of str");
-	}
-	if (!formatArgs) {
-		formatArgs = [];
-	}
-	
-	var matchStr;
-	var tokens = [];
-	var hasMatchBeenFound = false;
-	
-	debug("Parsing string '"+content+"'");
-	
-	//Test surround strings
-	for (var key of Object.keys(surroundStrKw)) {
-		var token1 = key.substring(0, key.indexOf("{0}")).toLowerCase();
-		var token2 = key.substring(key.indexOf("{0}")+"{0}".length).toLowerCase();
-		debug("Testing str match on '"+token1+"{0}"+token2+"'");
-		if (content[0] === token1 && content[content.length-1] === token2) {
-			hasMatchBeenFound = true;
-			matchStr = tows(key, surroundStrKw);
-			//Note: it is assumed all surround strings have a length of only 1 character for each side.
-			tokens.push(content.slice(1, content.length-1));
-			break;
-		}
-		tokens = []
-	}
-	
-	//Test ternary string
-	for (var key of Object.keys(ternaryStrKw)) {
-		var token1 = key.substring("{0}".length, key.indexOf("{1}")).toLowerCase();
-		var token2 = key.substring(key.indexOf("{1}")+"{1}".length, key.indexOf("{2}")).toLowerCase();
-		tokens = splitStrTokens(content, token1, token2);
-		if (tokens.length === 3) {
-			hasMatchBeenFound = true;
-			matchStr = tows(key, ternaryStrKw);
-			break;
-		}
-		tokens = []
-	}
-	
-	//Test binary strings
-	for (var key of Object.keys(binaryStrKw)) {
-		var token1 = key.substring("{0}".length, key.indexOf("{1}")).toLowerCase();
-		var tokens = splitStrTokens(content, token1);
-		if (tokens.length === 2) {
-			hasMatchBeenFound = true;
-			matchStr = tows(key, binaryStrKw);
-			break;
-		}
-		tokens = []
-	}
-	
-	//Test prefix strings
-	for (var key of Object.keys(prefixStrKw)) {
-		var token1 = key.substring(0, key.indexOf("{0}")).toLowerCase();
-		if (content[0] === token1) {
-			hasMatchBeenFound = true;
-			matchStr = tows(key, prefixStrKw);
-			tokens.push(splitStrTokens(content, token1)[1]);
-			break;
-		}
-		tokens = []
-	}
-	
-	//Test postfix strings
-	for (var key of Object.keys(postfixStrKw)) {
-		var token1 = key.substring("{0}".length).toLowerCase();
-		if (content[content.length-1] === token1) {
-			hasMatchBeenFound = true;
-			matchStr = tows(key, postfixStrKw);
-			tokens.push(splitStrTokens(content, token1)[0]);
-			break;
-		}
-		tokens = []
-	}
-	
-	
-	//Test normal strings
-	if (content.length === 1) {
-		for (var key of Object.keys(normalStrKw)) {
-			var token1 = key.toLowerCase();
-			if (content[0] === token1) {
-				hasMatchBeenFound = true;
-				if (currentLanguage in normalStrKw[key]) {
-					matchStr = normalStrKw[key][currentLanguage];
-				} else {
-					matchStr = normalStrKw[key]["en-US"];
-				}
-				break;
-			}
-		}
-	}
-	
-	//Test for empty string
-	if (!hasMatchBeenFound && (content.length === 0 || content[0] === "")) {
-		hasMatchBeenFound = true;
-		matchStr = "";
-	}
-	
-	//Test if no token (probably not a string)
-	if (tokens.length === 0 && !hasMatchBeenFound) {
-		if (content.length !== 1) {
-			console.log(content);
-			error("Parser broke I guess? (content = '"+JSON.stringify(content)+"')");
-		}
-		
-		if (content[0].startsWith("_h")) {
-			return tows("_hero", valueFuncKw)+"("+tows(content[0].substring(2).toLowerCase(), heroKw)+")";
-		} else if (!isNaN(content[0])) {
-			return parse(content[0]);
-		} else if (content[0] === "{}") {
-			if (formatArgs.length === 0) {
-				error("Too few arguments supplied for string");
-			}
-			var result = parse(formatArgs[0]);
-			formatArgs.shift();
-			return result;
-			
-		}
-	}
-	
-	var result = tows("_localizedString", valueFuncKw)+"(\""+matchStr+'"';
-	//debug("tokens = ")
-	//console.log(tokens);
-	
-	for (var i = 0; i < 3; i++) {
-		if (tokens.length > i) {
-			result += ", "+parseLocalizedString(tokens[i], formatArgs);
-		} else {
-			result += ", "+tows("null", valueFuncKw);
-		}
-	}
-	
-	result += ")";
-	return result;
-	
-}
-
-
-//Parses membership (the "." operator).
-function parseMember(object, member, parseArgs={}) {
-	
-	//debug("Parsing member "+dispTokens(member)+" of object "+dispTokens(object));
-	
-	var name = member[0].text;
-	//debug("name = "+name);
-	var args = null;
-	if (member.length > 1) {
-		if (member[1].text === '(') {
-			args = splitTokens(member.slice(2, member.length-1), ",");
-		} else {
-			error("Invalid syntax (member function isn't followed by parenthesis)");
-		}
-	}
-
-	if (args === null) {
-		if (name === "x") {
-			return tows("_xComponentOf", valueFuncKw)+"("+parse(object)+")";
-		} else if (name === "y") {
-			return tows("_yComponentOf", valueFuncKw)+"("+parse(object)+")";
-		} else if (name === "z") {
-			return tows("_zComponentOf", valueFuncKw)+"("+parse(object)+")";
-			
-		//Check enums
-		} else if (Object.keys(constantValues).indexOf(object[0].text) >= 0) {
-			if (object[0].text === "Hero" && obfuscateRules) {
-				//Obfuscate heroes, eg Reaper -> getAllHeroes[0]
-				if (Math.random() < 0.5) {
-					if (allTankHeroes.includes(name)) {
-						result = tows("_valueInArray", valueFuncKw)+"("+tows("getTankHeroes", valueFuncKw)+", "+allTankHeroes.indexOf(name)+")";
-					} else if (allDamageHeroes.includes(name)) {
-						result = tows("_valueInArray", valueFuncKw)+"("+tows("getDamageHeroes", valueFuncKw)+", "+allDamageHeroes.indexOf(name)+")";
-					} else if (allSupportHeroes.includes(name)) {
-						result = tows("_valueInArray", valueFuncKw)+"("+tows("getSupportHeroes", valueFuncKw)+", "+allSupportHeroes.indexOf(name)+")";
-					} else {
-						error("Could not find category for hero '"+name+"'");
-					}
-				} else {
-					result = tows("_valueInArray", valueFuncKw)+"("+tows("getAllHeroes", valueFuncKw)+", "+allHeroes.indexOf(name)+")";
-				}
-			} else {
-				var result = tows(object[0].text+"."+name, constantKw);
-				if (object[0].text === "Hero") {
-					result = tows("_hero", valueFuncKw)+"("+result+")";
-				} else if (object[0].text === "Map") {
-					result = tows("_map", valueFuncKw)+"("+result+")";
-				} else if (object[0].text === "Gamemode") {
-					result = tows("_gamemode", valueFuncKw)+"("+result+")";
-				}
-			}
-			
-			return result;
-		} else if (object[0].text === "math" && object.length === 1) {
-			if (name === "pi") {
-				return "3.14159265359";
-			} else if (name === "e") {
-				return "2.71828182846";
-			} else {
-				error("Unhandled member 'math."+name+"'");
-			}
-	
-		} else if (object[0].text === "Vector") {
-			return tows("Vector."+name, valueFuncKw);
-
-		} else {
-			//Should be a player variable.
-			//encounteredPlayerVars.add(name);
-			return tows("_playerVar", valueFuncKw)+"("+parse(object)+", "+translateVarToWs(name, false)+")";
-		}
-	} else {
-	
-		if (name === "append") {
-			if (parseArgs.isWholeInstruction === true) {
-				return parseAssignment(object, args[0], true, "_appendToArray");
-				
-			} else {
-				return tows("_appendToArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
-			}
-			
-		} else if (name === "exclude") {
-			return tows("_removeFromArray", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
-			
-		} else if (name === "format") {
-			return parse(object, {formatArgs: args});
-			/*if (parseArgs.isLocalizedString === true) {
-				var result = parseLocalizedString(tokenizeLocalizedString(object[0].text.substring(1, object[0].text.length-1)), args);
-			} else {
-				var result = parseString(object[0].text, args);
-			}
-			return result;*/
-			
-		} else if (name === "getHitPosition") {
-			return parse(object, {raycastType:"getHitPosition"});
-			
-		} else if (name === "getNormal") {
-			return parse(object, {raycastType:"getNormal"});
-			
-		} else if (name === "getPlayerHit") {
-			return parse(object, {raycastType:"getPlayerHit"});
-			
-		} else if (name === "hasLoS") {
-			return parse(object, {raycastType:"hasLoS"});
-			
-		} else if (name === "index") {
-			return tows("_indexOfArrayValue", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+")";
-			
-		} else if (object[0].text === "random" && object.length === 1) {
-			if (name === "randint" || name === "uniform") {
-				return tows("random."+name, valueFuncKw)+"("+parse(args[0])+", "+parse(args[1])+")";
-			} else if (name === "shuffle" || name === "choice") {
-				return tows("random."+name, valueFuncKw)+"("+parse(args[0])+")";
-			} else {
-				error("Unhandled member 'random."+name+"'");
-			}
-			
-		} else if (name === "remove") {
-			return parseAssignment(object, args[0], true, "_removeFromArrayByValue");
-			
-		} else if (name === "slice") {
-			return tows("_arraySlice", valueFuncKw)+"("+parse(object)+", "+parse(args[0])+", "+parse(args[1])+")";
-			
-		} else {
-			
-			//Check for player function
-			try {
-				var translation = tows("_&"+name, funcKw);
-			} catch (e) {
-				error("Unhandled member ", member[0]);
-			}
-			
-			var result = translation+"("+parse(object);
-			for (var i = 0; i < args.length; i++) {
-				result += ", "+parse(args[i]);
-			}
-			result += ")";
-			return result;
-		}
-	}
-	
-	error("This shouldn't happen");
-	
-}
-
-//Parses an assignment of value to variable.
-//Determines the function to use for modify/set global/player variable (at index).
-function parseAssignment(variable, value, modify, modifyArg=null) {
-	
-	debug("Parsing assignment of '"+dispTokens(value)+"' to '"+dispTokens(variable)+"'");
-	
-	var func = "";
-	if (modify) {
-		func += "modify";
-	} else {
-		func += "set";
-	}
-	
-	var result = "";
-	
-	if (variable.length === 1) {
-		//It is a global variable
-		//addVariable(variable[0].text, true)
-		result += tows("_"+func+"GlobalVar", actionKw)+"("+translateVarToWs(variable[0].text, true)+", ";
-		
-	} else {
-		//Check for dot; if it is present, it can only be a player variable
-		var operands = splitTokens(variable, ".", false, true);
-		if (operands.length === 2) {
-			
-			//console.log(operands);
-			
-			//Check for array
-			if (operands[1].length > 1 && operands[1][1].text === '[') {
-				//addVariable(operands[1][0].text, false);
-				result += tows("_"+func+"PlayerVarAtIndex", actionKw)
-						+"("+parse(operands[0])+", "+translateVarToWs(operands[1][0].text, false)+", "
-						+parse(operands[1].slice(2, operands[1].length-1))+", ";
-			} else {
-				if (operands[1].length > 1) {
-					error("Unauthorised player variable ", operands[1]);
-				}
-				//addVariable(operands[1][0].text, false);
-				result += tows("_"+func+"PlayerVar", actionKw)+"("+parse(operands[0])+", "+translateVarToWs(operands[1][0].text, false)+", ";
-			}
-			
-		} else {
-			if (variable[1].text === '[') {
-				//addVariable(variable[0].text, true)
-				result += tows("_"+func+"GlobalVarAtIndex", actionKw)+"("+translateVarToWs(variable[0].text, true)+", "+parse(variable.slice(2, variable.length-1))+", ";
-			} else {
-				error("Unauthorized global variable", variable);
-			}
-		}
-	}
-	
-	if (modify) {
-		result += tows(modifyArg, constantValues["_Operation"])+", ";
-	}
-	
-	result += parse(value)+")";
-	return result;
-}
-
-//Parses an array index such as A[1].
-function parseArrayMembership(array, membership) {
-	
-	//check for dictionary
-	if (array[0].text === "{" && array[array.length-1].text === "}") {
-		array = array.slice(1, array.length-1);
-		var elements = splitTokens(array, ",", true, false);
-		if (elements[elements.length-1].length === 0) {
-			//handle trailing comma
-			elements.pop();
-		}
-		if (elements.length === 0) {
-			error("Cannot declare an empty dictionary");
-		}
-		console.log(elements);
-		var keys = [];
-		var values = [];
-		for (var elem of elements) {
-			var keyValue = splitTokens(elem, ":", true, false);
-			if (keyValue.length !== 2) {
-				error("Malformed entry in dictionary: found "+keyValue.length+" values composing element, expected 2");
-			}
-			var compiledKey = parse(keyValue[0]);
-			if (keys.includes(compiledKey)) {
-				error("Duplicate key '"+dispTokens(keyValue[0])+"'");
-			}
-			keys.push(compiledKey);
-			values.push(parse(keyValue[1]));
-		}
-
-		var selectedKey = parse(membership);
-		//if the chosen value is a constant, optimize the dictionary out
-		if (!containsRandom(selectedKey) && keys.includes(selectedKey)) {
-			return values[keys.indexOf(selectedKey)];
-		}
-		
-		var wsAppend = tows("_appendToArray", valueFuncKw);
-		var result = tows("_valueInArray", valueFuncKw)+"(";
-		var valuesResult = tows("_emptyArray", valueFuncKw);
-		for (var value of values) {
-			valuesResult = wsAppend+"("+valuesResult+", "+value+")";
-		}
-		result += valuesResult+", "+tows("_indexOfArrayValue", valueFuncKw)+"(";
-		var keysResult = tows("_emptyArray", valueFuncKw);
-		for (var key of keys) {
-			keysResult = wsAppend+"("+keysResult+", "+key+")";
-		}
-		result += keysResult+", "+parse(membership)+"))";
-		return result;
-
-	} else {
-		//normal array
-
-		//[0] -> first of
-		if (membership.length === 1 && membership[0].text === '0') {
-			return tows("_firstOf", valueFuncKw)+"("+parse(array)+")";
-			
-		//[-1] -> last of
-		} else if (membership.length === 2 && membership[0].text === '-' && membership[1].text === '1') {
-			return tows("_lastOf", valueFuncKw)+"("+parse(array)+")";
-			
-		} else {
-			return tows("_valueInArray", valueFuncKw)+"("+parse(array)+", "+parse(membership)+")";
-		}
-	}
-
-	
-	
-	error("This shouldn't happen");
-	
-}
-
-//Parses a literal array such as [1,2,3] or [i for i in x if cond].
-function parseLiteralArray(content) {
-	
-	if (content[0].text !== '[' || content[content.length-1].text !== ']') {
-		error("Literal array is not actually a literal array");
-	}
-	
-	if (content.length === 2) {
-		return tows("_emptyArray", valueFuncKw);
-	} else {
-		//check for "in" keyword
-		//format is "var for var in array if condition"
-		var inOperands = splitTokens(content.slice(1, content.length-1), "in", false);
-		if (inOperands.length === 2) {
-			var ifOperands = splitTokens(inOperands[1], "if");
-			if (ifOperands.length !== 2) {
-
-				//There is not a proper map() function so the previous hack has been removed as too misleading.
-				error("Cannot use list comprehension without a condition (eg [i for i in array if x])");
-				
-			} else {
-				//Filtered array
-				if (inOperands[0].length !== 3 || inOperands[0][1].text !== "for" || inOperands[0][0].text !== inOperands[0][2].text) {
-					error("Malformed 'x for x in y'");
-				}
-				debug("Parsing 'x for x in y if z', x='"+inOperands[0][0].text+"', y='"+dispTokens(ifOperands[0])+"', z='"+dispTokens(ifOperands[1])+"'");
-				
-				currentArrayElementNames.push(inOperands[0][0].text);
-				var result = tows("_filteredArray", valueFuncKw)+"("+parse(ifOperands[0])+", "+parse(ifOperands[1])+")";
-				currentArrayElementNames.pop();
-				return result;
-			}
-		} else {
-			
-			//Literal array with only values ([1,2,3])
-			var args = splitTokens(content.slice(1, content.length-1), ",");
-			//Allow trailing comma
-			if (args[args.length-1].length === 0) {
-				args = args.slice(0, args.length-1);
-			}
-			var appendFunc = tows("_appendToArray", valueFuncKw);
-			var result = tows("_emptyArray", valueFuncKw);
-			for (var i = 0; i < args.length; i++) {
-				result = appendFunc+"("+result+", "+parse(args[i])+")";
-			}
-			return result;
-		}
-	}
-	
-	error("This shouldn't happen");
-	
-}
-
-//Parses a rule condition; expects a token list.
-function parseRuleCondition(content) {
-	
-	//console.log(content);
-	debug("Parsing rule condition(s) '"+dispTokens(content)+"'");
-	
-	var result = "";
-	
-	if (content[content.length-1].text !== ":") {
-		error("If statement must end with ':'");
-	}
-	
-	content = content.slice(1, content.length-1);
-	var conditions = [];
-	
-	//If there is any "or" in the condition, there is only one instruction.
-	var orOperands = splitTokens(content, "or");
-	
-	if (orOperands.length > 1) {
-		debug("Condition contains 'or'");
-		conditions = [[{text:"("}].concat(content).concat([{text:")"}])];
-	} else {
-		var andOperands = splitTokens(content, "and");
-		conditions = andOperands;
-	}
-
-
-	for (var condition of conditions) {
-		
-		debug("Parsing condition '"+dispTokens(condition)+"'");
-		if (condition.length === 0) {
-			error("Expected a rule condition, but got nothing");
-		}
-
-		
-		var comparisonOperators = ["==", "!=", "<=", ">=", "<", ">"];
-		var comparisonOperands;
-		var hasComparisonOperand = false;
-		var op1 = "";
-		var op2 = "";
-		var operator = "";
-		
-		for (var j = 0; j < comparisonOperators.length; j++) {
-			comparisonOperands = splitTokens(condition, comparisonOperators[j]);
-			if (comparisonOperands.length > 1) {
-				if (comparisonOperands.length != 2) {
-					error("Chained comparisons are not allowed (eg: a == b == c)");
-				}
-				op1 = parse(comparisonOperands[0]);
-				op2 = parse(comparisonOperands[1]);
-				operator = comparisonOperators[j];
-				hasComparisonOperand = true;
-				break;
-			}
-		}
-		
-		if (!hasComparisonOperand) {
-			operator = "==";
-			if (condition[0].text === "not") {
-				op1 = parse(condition.slice(1));
-				op2 = tows("false", valueFuncKw);
-			} else {
-				op1 = parse(condition);
-				op2 = tows("true", valueFuncKw);
-			}
-		}
-		//tests for optimizations
-		var isOp1True = isWsTrue(op1);
-		var isOp2True = isWsTrue(op2);
-		var isOp1False = isWsFalse(op1);
-		var isOp2False = isWsFalse(op2);
-
-		if (operator === "==") {
-			//true == true or false == false -> true
-			if (isOp1True && isOp2True || isOp1False && isOp2False) {
-				continue;
-
-			//true == false or false == true -> false
-			} else if (isOp1True && isOp2False || isOp1False && isOp2True) {
-				return "__false__";
-			}
-		} else if (operator === "!=") {
-			//true != false or false != true -> true
-			if (isOp1True && isOp2False || isOp1False && isOp2True) {
-				continue;
-			
-			//true != true or false != false -> false
-			} else if (isOp1True && isOp2True || isOp1False && isOp2False) {
-				return "__false__";
-			}
-		}
-
-
-		result += tabLevel(2)+op1+" "+operator+" "+op2+";\n";
-	}
-	
-	return result;
-}
-
-
-//Parses a custom string.
-function parseString(content, formatArgs, stringModifiers) {
-
-	if (!formatArgs) {
-		formatArgs = [];
-	}
-	var result = "";
-	var tokens = [];
-	var numberIndex = 0;
-	var args = [];
-	var argsAreNumbered = null;
-	var isConvertedToBigLetters = false;
-
-	//Used to reorder args for easier optimization.
-	//Eg "{1}{0}" is converted to "{0}{1}", with the arguments obviously switched.
-	var numberMapping = {};
-	var containsNonFullwidthChar = false;
-
-	function applyStringModifiers(content) {
-
-		//If big letters, try to map letters until we get one
-		//We only need one letter to convert to big letters
-		if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
-			for (var i = 0; i < content.length; i++) {
-				if (content[i] in bigLettersMappings) {
-					content = content.substring(0,i)+bigLettersMappings[content[i]]+content.substring(i+1);
-					isConvertedToBigLetters = true;
-					break;
-				}
-			}
-		} else if (stringModifiers.fullWidth) {
-			var tmpStr = "";
-			for (var char of content) {
-				if (char in fullwidthMappings) {
-					tmpStr += fullwidthMappings[char];
-				} else {
-					containsNonFullwidthChar = true;
-					tmpStr += char;
-				}
-			}
-	
-			content = tmpStr;
-			
-		}
-	
-		if (obfuscateRules) {
-			var tmpStr = "";
-			for (var char of content) {
-				if (char in obfuscationMappings) {
-					tmpStr += obfuscationMappings[char];
-				} else {
-					tmpStr += char;
-				}
-			}
-			content = tmpStr;
-		}
-
-		//Workshop bug: if the last character of a string is 2 bytes or more, it will be "eaten".
-		//Fix it by adding a zero-width space.
-		//console.log(content);
-		if (content.length >= 1 && getUtf8Length(content[content.length-1]) >= 2) {
-			content += "\u200B";
-		}
-
-		return content;
-	}
-
-	//Tokenize string
-	while (true) {
-		var index = content.search(/{\d*}/)
-		if (index >= 0) {
-			if (index > 0) {
-				tokens.push({
-					text: applyStringModifiers(content.substring(0, index), stringModifiers, isConvertedToBigLetters),
-					type: "string"
-				});
-				content = content.substring(index);
-			}
-			var number = content.substring(1, content.indexOf("}"));
-
-			//test for {}
-			if (number === "") {
-				if (argsAreNumbered === true) {
-					error("Cannot switch from automatic field numbering to manual field specification");
-				}
-				argsAreNumbered = false;
-				number = numberIndex;
-
-			} else {
-				if (argsAreNumbered === false) {
-					error("Cannot switch from automatic field numbering to manual field specification");
-				}
-				argsAreNumbered = true;
-				number = parseInt(number);
-			}
-			if (!(number in numberMapping)) {
-				numberMapping[number] = numberIndex;
-				numberIndex++;
-			}
-
-			tokens.push({
-				index: numberMapping[number],
-				type: "arg"
-			});
-			content = content.substring(content.indexOf("}")+1);
-
-		} else {
-
-			tokens.push({
-				text: applyStringModifiers(content, stringModifiers, isConvertedToBigLetters),
-				type: "string"
-			});
-			break;
-		}
-	}
-
-
-	//sort args if there was (potentially) a reordering
-	for (var key of Object.keys(numberMapping)) {
-		if (formatArgs[key]) {
-			args[numberMapping[key]] = parse(formatArgs[key]);
-		} else {
-			error("Too few arguments in format() function: expected "+numberMapping[key]+" but found "+formatArgs.length);
-		}
-	}
-	//console.log("args = ");
-	//console.log(args);
-
-	if (containsNonFullwidthChar && stringModifiers.fullWidth) {
-		warn("w_not_total_fullwidth", "Could not fully convert this string to fullwidth characters")
-	}
-	if (stringModifiers.bigLetters && !isConvertedToBigLetters) {
-		error("Could not convert the string to big letters. The string must have one of the following chars: '"+Object.keys(bigLettersMappings).join("")+"'");
-	}
-
-	//console.log(tokens);
-	//console.log(stringModifiers);
-
-	result = parseStringTokens(tokens, args);
-
-	return result;
-
-}
-
-function parseStringTokens(tokens, args) {
-	var result = "";
-	var resultArgs = [];
-	var numbers = [];
-	var numbersEncountered = [];
-	var mappings = {};
-	var stringLength = 0;
-	var currentNbIndex = 0;
-
-
-	//iterate through tokens and figure out the total number of unique numbers
-	for (var token of tokens) {
-		if (token.type === "string") {
-			continue;
-		} else {
-			if (!numbers.includes(token.index)) {
-				numbers.push(token.index);
-			}
-		}
-	}
-
-	//Add tokens
-	//For now, no optimization: just split if more than 3 unique numbers
-	for (var i = 0; i < tokens.length; i++) {
-		//console.log(tokens[i]);
-		//console.log("numbers encountered=");
-		//console.log(numbersEncountered);
-		//debugger;
-
-		//length check
-		if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) >= 125 || tokens[i].type === "arg" && stringLength+3 >= 125) {
-
-			var splitString = false;
-			if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 127 || tokens.length > i)) {
-
-				var tokenText = [...tokens[i].text]
-				var tokenSliceLength = 0;
-				var sliceIndex = 0;
-				for (var j = 0; stringLength+tokenSliceLength < 122; j++) {
-					tokenSliceLength += getUtf8Length(tokenText[j]+"");
-					sliceIndex++;
-				}
-
-				//Workshop bug: if the last character of a string is 2 bytes or more, it will be "eaten".
-				//Fix it by adding a zero-width space.
-				if (getUtf8Length(tokenText[tokenText.length-1]) >= 2) {
-					sliceIndex -= 3;
-					result += tokenText.slice(0, sliceIndex).join("") + "\u200B";
-				} else {
-					result += tokenText.slice(0, sliceIndex).join("")
-				}
-
-				tokens[i].text = tokenText.slice(sliceIndex).join("");
-				splitString = true;
-
-			} else if (tokens[i].type === "arg" && tokens.length > i) {
-				splitString = true;
-			}
-
-			if (splitString) {
-				result += "{"+currentNbIndex+"}";
-				resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
-				break;
-			}
-		}
-
-		if (tokens[i].type === "string") {
-			result += tokens[i].text;
-			stringLength += getUtf8Length(tokens[i].text);
-		} else {
-			if (numbersEncountered.length >= 2 && numbers.length > 3) {
-				//split
-				result += "{2}";
-				resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
-				break;
-			} else {
-				if (!(tokens[i].index in mappings)) {
-					mappings[tokens[i].index] = numbersEncountered.length;
-				}
-				if (!numbersEncountered.includes(tokens[i].index)) {
-					numbersEncountered.push(tokens[i].index);
-					resultArgs.push(args[tokens[i].index]);
-				}
-				result += "{"+mappings[tokens[i].index]+"}";
-				currentNbIndex++;
-				stringLength += 3;
-
-
-			}
-		}
-	}
-
-	while (resultArgs.length < 3) {
-		resultArgs.push(wsNull);
-	}
-
-	if (resultArgs.length != 3) {
-		error("Custom string parser broke (string args length is "+resultArgs.length+")");
-	}
-
-	return tows("_customString", valueFuncKw)+"(\""+result+"\", "+resultArgs.join(", ")+")";
-}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.

@@ -29,7 +29,7 @@
         ["'", "'"]
     ],
     "indentationRules": {
-        "increaseIndentPattern": "^\\s*(if |else|elif |for |def |switch |case |while |do).*:$",
+        "increaseIndentPattern": "^\\s*(if |else|elif |for |def |switch |case |while |do|rule ).*:$",
         "decreaseIndentPattern": ".^"
     }
 }

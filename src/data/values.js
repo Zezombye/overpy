@@ -18,6 +18,42 @@
 var valueFuncKw = 
 //begin-json
 {
+    "_&getAbilityCooldown": {
+        "description": "The ability cooldown time in seconds for a player associated by button.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose ability to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            },{
+                "name": "BUTTON",
+                "description": "The ability to check associated by button.",
+                "type": "Button",
+                "default": "BUTTON",
+            }
+        ],
+        return: "unsigned float",
+        "en-US": "Ability Cooldown",
+    },
+    "abilityIconString": {
+        "description": "Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string).",
+        "args": [
+            {
+                "name": "HERO",
+                "description": "The hero for the ability that will be converted to an icon.",
+                "type": "Hero",
+                "default": "HERO",
+            },{
+                "name": "Button",
+                "description": "The button for the ability that will be converted to an icon.",
+                "type": "Button",
+                "default": "Button",
+            }
+        ],
+        return: "String",
+        "en-US": "Ability Icon String",
+    },
     "abs": {
         "description": "The absolute value of the specified value.",
         "args": [
@@ -474,6 +510,19 @@ var valueFuncKw =
         "ja-JP": "ラジアンのアークタンジェント",
         "pt-BR": "Arco Tangente em Radianos",
         "zh-CN": "以弧度为单位的反正切值"
+    },
+    "__array__": {
+        "description": "An array constructed from the listed values.",
+        "args": [
+            {
+                "name": "[0]",
+                "description": "The value that will be stored in the array at index [0].",
+                "type": ["Object", "Array"],
+                "default": "NULL",
+            }
+        ],
+        return: "Array",
+        "en-US": "Array",
     },
     "__arrayContains__": {
         "description": "Whether the specified array contains the specified value.",
@@ -985,6 +1034,12 @@ var valueFuncKw =
         "pt-BR": "Entidade Existe",
         "zh-CN": "实体存在"
     },
+    "eventAbility": {
+        "description": "The ability for the event currently being processed by this rule associated by button.",
+        "args": null,
+        return: "Button",
+        "en-US": "Event Ability",
+    },
     "eventDamage": {
         "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
         "args": null,
@@ -996,6 +1051,12 @@ var valueFuncKw =
         "ja-JP": "イベント・ダメージ",
         "pt-BR": "Dano do Evento",
         "zh-CN": "事件伤害"
+    },
+    "eventDirection": {
+        "description": "The incoming direction for the event currently being processed by this rule.",
+        "args": null,
+        return: "Direction",
+        "en-US": "Event Direction",
     },
     "eventHealing": {
         "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
@@ -1515,6 +1576,29 @@ var valueFuncKw =
         "pt-BR": "String de Ícone",
         "zh-CN": "图标字符串"
     },
+    "__ifThenElse__": {
+        "description": "Results in the Then value when the If condition is true; otherwise, results in the Else value.",
+        "args": [
+            {
+                "name": "IF",
+                "description": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else.",
+                "type": "bool",
+                "default": "TRUE",
+            },{
+                "name": "THEN",
+                "description": "The result of the value when the if condition evaluates to true.",
+                "type": ["Object", "Array"],
+                "default": "NUMBER",
+            },{
+                "name": "ELSE",
+                "description": "The result of the value when the if condition evaluates to false.",
+                "type": ["Object", "Array"],
+                "default": "NUMBER",
+            }
+        ],
+        "en-US": "If-Then-Else",
+        return: ["Object", "Array"],
+    },
     "__indexOfArrayValue__": {
         "description": "The index of a value within an array or -1 if no such value can be found.",
         "args": [
@@ -1997,6 +2081,19 @@ var valueFuncKw =
         "pt-BR": "É No Ângulo de Visão",
         "zh-CN": "在视野内"
     },
+    "_&isJumping": {
+        "description": "Whether the specified player is jumping.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose jump usage to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "en-US": "Is Jumping",
+        return: "bool",
+    },
     "isMatchComplete": {
         "description": "Whether the match has finished.",
         "args": [],
@@ -2008,6 +2105,19 @@ var valueFuncKw =
         "ja-JP": "マッチが完了している",
         "pt-BR": "É Partida Concluída",
         "zh-CN": "比赛结束"
+    },
+    "_&isMeleeing": {
+        "description": "Whether the specified player is meleeing.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose melee usage to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "en-US": "Is Meleeing",
+        return: "bool",
     },
     "_&isMoving": {
         "description": "Whether a player is moving (defined as having a nonzero current speed).",
