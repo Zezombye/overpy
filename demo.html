@@ -21,6 +21,9 @@
 <style>
 textarea {
 	resize: vertical;
+    -moz-tab-size : 4;
+      -o-tab-size : 4;
+         tab-size : 4;
 }
 
 body, textarea {
@@ -80,18 +83,24 @@ a {
 
 <script src="src/utils/other.js"></script>
 
-<script src="src/doc/actions.js"></script>
-<script src="src/doc/values.js"></script>
-<script src="src/doc/maps.js"></script>
-<script src="src/doc/heroes.js"></script>
-<script src="src/doc/gamemodes.js"></script>
-<script src="src/doc/constants.js"></script>
-<script src="src/doc/keywords.js"></script>
-<script src="src/doc/customGameSettings.js"></script>
-<script src="src/doc/opy/functions.js"></script>
-<script src="src/doc/opy/memberFunctions.js"></script>
-<script src="src/doc/opy/preprocessing.js"></script>
+<script src="src/data/opy/constants.js"></script>
+<script src="src/data/opy/internalFunctions.js"></script>
+<script src="src/data/opy/functions.js"></script>
+<script src="src/data/opy/keywords.js"></script>
+<script src="src/data/opy/memberFunctions.js"></script>
+<script src="src/data/opy/preprocessing.js"></script>
+<script src="src/data/actions.js"></script>
+<script src="src/data/values.js"></script>
+<script src="src/data/maps.js"></script>
+<script src="src/data/heroes.js"></script>
+<script src="src/data/gamemodes.js"></script>
+<script src="src/data/constants.js"></script>
+<script src="src/data/other.js"></script>
+<script src="src/data/customGameSettings.js"></script>
+<script src="src/data/opy/annotations.js"></script>
 
+<script src="src/utils/ast.js"></script>
+<script src="src/utils/types.js"></script>
 <script src="src/utils/compilation.js"></script>
 <script src="src/utils/decompilation.js"></script>
 <script src="src/utils/file.js"></script>
@@ -100,15 +109,46 @@ a {
 <script src="src/utils/strings.js"></script>
 <script src="src/utils/translation.js"></script>
 <script src="src/utils/varNames.js"></script>
+<script src="src/utils/tokens.js"></script>
 
 <script src="src/obfuscation.js"></script>
 <script src="src/globalVars.js"></script>
 <script src="src/tests/decompileTest.js"></script>
-<script src="src/tests/compileTest.js"></script>
 <script src="src/decompiler.js"></script>
+
+<script src="src/functions/__add__.js"></script>
+<script src="src/functions/__append__.js"></script>
+<script src="src/functions/__button__.js"></script>
+<script src="src/functions/__del__.js"></script>
+<script src="src/functions/__dict__.js"></script>
+<script src="src/functions/__distanceTo__.js"></script>
+<script src="src/functions/__doWhile__.js"></script>
+<script src="src/functions/__elif__.js"></script>
+<script src="src/functions/__else__.js"></script>
+<script src="src/functions/__for__.js"></script>
+<script src="src/functions/__format__.js"></script>
+<script src="src/functions/__if__.js"></script>
+<script src="src/functions/__negate__.js"></script>
+<script src="src/functions/__remove__.js"></script>
+<script src="src/functions/__rule__.js"></script>
+<script src="src/functions/__skip__.js"></script>
+<script src="src/functions/__subtract__.js"></script>
+<script src="src/functions/__switch__.js"></script>
+<script src="src/functions/__valueInArray__.js"></script>
+<script src="src/functions/__while__.js"></script>
+<script src="src/functions/all.js"></script>
+<script src="src/functions/any.js"></script>
+<script src="src/functions/break.js"></script>
+<script src="src/functions/continue.js"></script>
+<script src="src/functions/print.js"></script>
+<script src="src/functions/sorted.js"></script>
+
 <script src="src/tokenizer.js"></script>
+<script src="src/astParser.js"></script>
+<script src="src/astToWorkshop.js"></script>
+<script src="src/parser.js"></script>
 <script src="src/compiler.js"></script>
-<script src="src/doc/stringKw.js"></script>
+<script src="src/data/localizedStrings.js"></script>
 
 <script>
 
@@ -125,9 +165,9 @@ function demoDecompile() {
     
 	try {
         str = decompileAllRules(document.getElementById("workshop-textarea").value, language);
-	} catch (Error) {
-		console.log(Error);
-		str = "An error occurred. Press F12 (Firefox) or Ctrl+Shift+J (Chrome)";
+	} catch (e) {
+		console.log(e);
+		str = e;
 	}
 	document.getElementById("overpy-textarea").value = str;
 }
@@ -147,9 +187,9 @@ function demoCompile() {
 			strWarn += "*/\n";
 			str = strWarn+str;
 		}
-	} catch (Error) {
-		console.log(Error);
-		str = "An error occurred. Press F12 (Firefox) or Ctrl+Shift+J (Chrome)";
+	} catch (e) {
+		console.log(e);
+		str = e;
 	}
 	document.getElementById("compiled-textarea").value = str;
 }

@@ -23,12 +23,15 @@ for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\
 var obfuscatedVarNames = shuffleArray(Array(4096).fill().map((e,i)=>i).map(x => x.toString(2).padStart(12, "0").replace(/0/g, "I").replace(/1/g, "l"))).slice(0,128);
 
 function addEmptyRules(rules) {
-	var nbEmptyRules = (enableNoEdit ? 2500 : 100);
+	if (!compiledCustomGameSettings) {
+		error("Cannot use obfuscation without custom game settings declared");
+	}
+	var nbEmptyRules = 2500;
 	var nbTotalRules = nbEmptyRules + rules.length;
-	var emptyRule = tows("@Rule", ruleKw)+'(""){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
 	var result = "";
-	result += tows("@Rule", ruleKw)+'("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy)."){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
-	result += tows("@Rule", ruleKw)+'("Please respect its author\'s wishes and do not edit it. Thanks!"){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	result += tows("__rule__", ruleKw)+'("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy)."){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	result += tows("__rule__", ruleKw)+'("Please respect its author\'s wishes and do not edit it. Thanks!"){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
 	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
 	var ruleIndex = 0;
 	for (var i = 0; i < nbTotalRules; i++) {
@@ -43,8 +46,8 @@ function addEmptyRules(rules) {
 
 }
 
-var allHeroes = ["REAPER","TRACER","MERCY","HANZO","TORBJORN","REINHARDT","PHARAH","WINSTON","WIDOWMAKER","BASTION","SYMMETRA","ZENYATTA","GENJI","ROADHOG","MCCREE","JUNKRAT","ZARYA","SOLDIER","LUCIO","DVA","MEI","SOMBRA","DOOMFIST","ANA","ORISA","BRIGITTE","MOIRA","HAMMOND","ASHE","BAPTISTE","SIGMA"]
+var allHeroes = ["REAPER","TRACER","MERCY","HANZO","TORBJORN","REINHARDT","PHARAH","WINSTON","WIDOWMAKER","BASTION","SYMMETRA","ZENYATTA","GENJI","ROADHOG","MCCREE","JUNKRAT","ZARYA","SOLDIER","LUCIO","DVA","MEI","SOMBRA","DOOMFIST","ANA","ORISA","BRIGITTE","MOIRA","HAMMOND","ASHE","ECHO","BAPTISTE","SIGMA"]
 
 var allTankHeroes = ["REINHARDT","WINSTON","ROADHOG","ZARYA","DVA","ORISA","HAMMOND","SIGMA"]
-var allDamageHeroes = ["REAPER","TRACER","HANZO","TORBJORN","PHARAH","WIDOWMAKER","BASTION","SYMMETRA","GENJI","MCCREE","JUNKRAT","SOLDIER","MEI","SOMBRA","DOOMFIST","ASHE"]
+var allDamageHeroes = ["REAPER","TRACER","HANZO","TORBJORN","PHARAH","WIDOWMAKER","BASTION","SYMMETRA","GENJI","MCCREE","JUNKRAT","SOLDIER","MEI","SOMBRA","DOOMFIST","ASHE","ECHO"]
 var allSupportHeroes = ["MERCY","ZENYATTA","LUCIO","ANA","BRIGITTE","MOIRA","BAPTISTE"]

@@ -34,7 +34,7 @@ function translateSubroutineToPy(content) {
 		return content;
 	} else if (defaultSubroutineNames.includes(content)) {
 		//Add the subroutine as it doesn't already exist (else it would've been caught by the first if)
-		addVariable(content, defaultSubroutineNames.indexOf(content));
+		addSubroutine(content, defaultSubroutineNames.indexOf(content));
 		return content;
 	} else {
 		error("Unknown subroutine '"+content+"'");
@@ -137,6 +137,9 @@ function addVariable(content, isGlobalVariable, index) {
 	if (index === undefined) {
 		error("Index is undefined");
 	}
+	if (typeof index === "string") {
+		index = parseInt(index);
+	}
 	if (reservedNames.includes(content)) {
 		error("Variable name '"+content+"' is a reserved word");
 	}
@@ -151,4 +154,31 @@ function addVariable(content, isGlobalVariable, index) {
 			"index": index,
 		});
 	}
+}
+
+//Checks if the given name is a variable name
+function isVarName(content, checkForGlobalVar) {
+	var varArray = checkForGlobalVar ? globalVariables : playerVariables;
+	if (defaultVarNames.includes(content)) {
+		return true;
+	}
+	for (var variable of varArray) {
+		if (variable.name === content) {
+			return true;
+		}
+	}
+	return false;
+}
+
+//Checks if the given name is a subroutine name
+function isSubroutineName(content, checkForGlobalVar) {
+	if (defaultSubroutineNames.includes(content)) {
+		return true;
+	}
+	for (var subroutine of subroutines) {
+		if (subroutine.name === content) {
+			return true;
+		}
+	}
+	return false;
 }

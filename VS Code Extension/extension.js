@@ -34,6 +34,8 @@ const decompilerUI = [`
 </head>
 <body>
     <div id="wrapper">
+        <h1>OverPy Decompiler</h1>
+        <p>Note: if you have an error, you will need to reload the page.</p>
         <div id="decompiler-input">
             <textarea id="decompiler-input-text" placeholder="Copy paste your workshop code here"></textarea>
         </div>
@@ -157,7 +159,7 @@ for (var key of Object.keys(constValues)) {
 for (var key of Object.keys(constValues)) {
     constValues[key] = makeCompList(constValues[key]);
 }
-const funcList = JSON.parse(JSON.stringify(overpy.opyFuncs));
+const funcList = JSON.parse(JSON.stringify(Object.assign({}, overpy.opyFuncs, overpy.opyKeywords)));
 
 for (var func of Object.keys(funcDoc)) {
     if (!func.startsWith("_")) {
@@ -165,36 +167,7 @@ for (var func of Object.keys(funcDoc)) {
     }
 }
 
-const metaRuleParams = {
-    "@Rule": {
-        "description": "Declares a new rule. Must be followed by the rule title.",
-        "values": []
-    },
-    "@Event": {
-        "description": "Defines the event type for the current rule.",
-        "values": Object.keys(overpy.eventKw),
-    },
-    "@Team": {
-        "description": "Defines which team the current rule applies for. If omitted, defaults to 'all'.",
-        "values": Object.keys(overpy.eventTeamKw),
-    },
-    "@Slot": {
-        "description": "Defines which slot the current rule applies for. If omitted, defaults to all slots. Cannot be used with `@Hero`.",
-        "values": Object.keys(overpy.eventSlotKw),
-    },
-    "@Hero": {
-        "description": "Defines which hero the current rule applies for. If omitted, defaults to all heroes. Cannot be used with `@Slot`.",
-        "values": Object.keys(overpy.heroKw).map(x => x.toLowerCase()),
-    },
-    "@SuppressWarnings": {
-        "description": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces.",
-        "values": [],
-    },
-    "@Disabled": {
-        "description": "Generates the rule as disabled.",
-        "values": [],
-    }
-}
+const metaRuleParams = JSON.parse(JSON.stringify(overpy.annotations));
 
 const preprocessingDirectivesCompList = makeCompList(JSON.parse(JSON.stringify(overpy.preprocessingDirectives)));
 
@@ -498,33 +471,44 @@ function generateDocFromDoc(itemName, item) {
         isMemberFunction = item.isMember;
     }
 
-    var doc = null;
+    var doc = "";
     if ("description" in item) {
         doc = item.description;
-    }
-    if (doc === null) {
-        console.log("No documentation found for "+itemName);
-        return "No documentation was found for this function.";
     }
 
     
     var result = "";
+    var infoStr = "";
     var argStr = "";
 
     result += doc;
-    if ("args" in item && item.args !== null && item.args.length > 0) {
-        //TODO 1er arg player
-        for (var arg of item.args) {
-            if (!(isMemberFunction && arg.type === "PLAYER")) {
-                argStr += "- `"+getSuitableArgName(arg.name)+"`: "+arg.description+"\n";
-            }
+    if ("args" in item && item.args !== null && (item.args.length > 0 && !isMemberFunction || item.args.length > 1)) {
+        for (var i = (isMemberFunction ? 1 : 0); i < item.args.length; i++) {
+            argStr += "- `"+getSuitableArgName(item.args[i].name)+"`: "+item.args[i].description+"\n";
         }
     }
 
     if (argStr !== "") {
-        result += "\n\nArguments:\n" + argStr;
+        infoStr += "Arguments:\n" + argStr+"\n";
+    }
+    if (isMemberFunction) {
+        infoStr += "Class: `Player`  \n";
+    } else if ("class" in item) {
+        infoStr += "Class: `"+item.class + "`  \n";
+    }
+
+    if ("return" in item) {
+        infoStr += "Returns: `"+overpy.typeToString(item.return)+"`  \n";
+    }
+
+    if (infoStr) {
+        result += "\n\n"+infoStr;
     }
      
+    if (result === "") {
+        console.log("No documentation found for "+itemName);
+        return "No documentation was found for this function.";
+    }
 
     return new vscode.MarkdownString(result);
 
@@ -560,8 +544,8 @@ function generateSnippetFromDoc(itemName, item) {
 
 function getSnippetForMetaRuleParam(param) {
 
-    if (param === "@Rule") {
-        return 'Rule "$0"';
+    if (param === "@Name") {
+        return 'Name "$0"';
     }
 
     var result = param.substring(1);
@@ -571,49 +555,18 @@ function getSnippetForMetaRuleParam(param) {
         console.log("Could not find param "+param);
         return param;
     }
-    if (ruleParam.values.length > 0) {
-        result += " ${1|";
-        result += ruleParam.values.join(",");
-        result += "|}$0";
+    console.log(ruleParam);
+    if (ruleParam.args && ruleParam.args.length > 0) {
+        if (ruleParam.args[0].values) {
+            result += " ${1|";
+            result += ruleParam.args[0].values.filter(x => !x.startsWith("__")).join(",");
+            result += "|}";
+        } else {
+            result += " ";
+        }
     }
     return result;
 }
-
-/*function getSnippetFromArg(index, arg) {
-
-    var result = "";
-
-    if ([
-        "Player",
-        "Position",
-        "Any",
-        "Number",
-        "Team",
-        "Boolean",
-        "Vector",
-        "Hero",
-        "Direction",
-    ].indexOf(arg.type) > -1) {
-        //Generic type (not an enum)
-        return "${"+index+":"+getSuitableArgName(arg.name)+"}";
-    } else {
-        //Enum
-        var constTypeMatch = null;
-        for (var constType of constTypes) {
-            if (constType.name === arg.type) {
-                constTypeMatch = constType;
-                break;
-            }
-        }
-        if (constTypeMatch === null) {
-            console.log("Could not find arg type "+arg.type);
-            return "${"+index+":"+getSuitableArgName(arg.name)+"}";
-        }
-        return constTypeMatch.opy+"."+"${"+index+"|"+constTypeMatch.values.map(x => x.replace(/ /g, "_")).join(",")+"|}";
-
-    }
-
-}*/
 
 function getSuitableArgName(arg) {
     arg = arg.toLowerCase()
@@ -626,16 +579,7 @@ function getSuitableArgName(arg) {
 }
 
 function getSuitableArgType(type) {
-
-    if (type === "Any") {
-        return "Object";
-    } else if (type === "Array") {
-        return "Object[]";
-    } else {
-        type = type[0].toUpperCase() + type.substring(1).toLowerCase();
-    }
-    //console.log(type);
-    return type;
+    return overpy.typeToString(type);
 }
 
 function makeSignatureHelp(funcName, func) {
@@ -649,12 +593,20 @@ function makeSignatureHelp(funcName, func) {
     }
 
     var paramInfo = [];
-    var sigStr = funcName + "(";
+    var sigStr = "";
+
+    if (isMemberFunction) {
+        sigStr += "Player.";
+    } else if ("class" in func) {
+        sigStr += func.class + ".";
+    }
+    
+    sigStr += funcName+"(";
 
     for (var i = 0; i < func.args.length; i++) {
-        if (!(i === 0 && func.args[i].type === "Player" && isMemberFunction)) {
+        if (!(i === 0 && isMemberFunction)) {
             paramInfo.push(new vscode.ParameterInformation(getSuitableArgName(func.args[i].name), func.args[i].description));
-            sigStr += getSuitableArgType(func.args[i].type)+" "+getSuitableArgName(func.args[i].name);
+            sigStr += getSuitableArgName(func.args[i].name)+": "+getSuitableArgType(func.args[i].type);
             if (i < func.args.length-1) {
                 sigStr += ", ";
             }
@@ -662,6 +614,11 @@ function makeSignatureHelp(funcName, func) {
     }
 
     sigStr += ")";
+
+    if (func.return) {
+        sigStr += " -> "+overpy.typeToString(func.return);
+        //throw new Error("Function '"+funcName+"' has no Return type");
+    }
     
     var sigInfo = new vscode.SignatureInformation(sigStr);
     sigInfo.parameters = paramInfo;
@@ -680,4 +637,5 @@ module.exports = {
 
 } catch (e) {
     console.log(e);
+    throw e;
 }

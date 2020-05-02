@@ -22,6 +22,8 @@ var playerVariables;
 var subroutines;
 var currentLanguage;
 
+const ELEMENT_LIMIT = 20000;
+
 //Compilation variables - are reset at each compilation.
 
 //The absolute path of the folder containing the main file. Used for relative paths.
@@ -31,26 +33,21 @@ var rootPath;
 //Should be the empty array at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
 var currentArrayElementNames;
 
-//The keywords "true" and "false", in the workshop.
-//Used to avoid translating back when comparing to true/false.
-//Generated at each compilation.
-var wsTrue;
-var wsFalse;
-var wsNull;
-var wsNot;
-var wsRandInt;
-var wsRandReal;
-var wsRandShuffle;
-var wsRandChoice;
-
 //Set at each rule, to check whether it is legal to use "eventPlayer" and related.
 var currentRuleEvent;
 
-//If set to true, sets all rule titles to empty.
+//The encountered labels throughout the rule, to not have duplicate labels. Set at each rule.
+var currentRuleLabels;
+
+//The number of times the specified label is referenced. If that number is 0, then the label is considered as not accessed.
+var currentRuleLabelAccess;
+
+var currentRuleHasVariableGoto;
+
+//If set to true, applies various obfuscation techniques on the gamemode.
 var obfuscateRules;
 
-//If set to true, puts 3000 empty rules, effectively making it impossible to open the preset (you get kicked by the server).
-var enableNoEdit;
+var enableOptimization;
 
 //Contains all macros.
 var macros;
@@ -68,6 +65,10 @@ var compiledCustomGameSettings;
 
 //The stack of the files (macros count as "files").
 var fileStack;
+
+//An unique number for automatically generated labels.
+var uniqueNumber;
+
 
 //Decompilation variables
 
@@ -93,14 +94,6 @@ function resetGlobalVariables(language) {
 	rootPath = "";
 	currentArrayElementNames = [];
 	currentLanguage = language;
-	wsTrue = tows("true", valueFuncKw);
-	wsFalse = tows("false", valueFuncKw);
-	wsNull = tows("null", valueFuncKw);
-	wsNot = tows("_not", valueFuncKw);
-	wsRandInt = tows("random.randint", valueFuncKw);
-	wsRandReal = tows("random.uniform", valueFuncKw);
-	wsRandShuffle = tows("random.shuffle", valueFuncKw);
-	wsRandChoice = tows("random.choice", valueFuncKw);
 	currentRuleEvent = "";
 	obfuscateRules = false;
 	macros = [];
@@ -116,9 +109,10 @@ function resetGlobalVariables(language) {
 	suppressedWarnings = [];
 	globalSuppressedWarnings = [];
 	importedFiles = [];
-	enableNoEdit = false;
 	disableUnusedVars = false;
 	compiledCustomGameSettings = "";
+	enableOptimization = true;
+	uniqueNumber = 0;
 }
 
 //Other constants
@@ -156,8 +150,6 @@ const pyOperators = [
 	"**=",
 	"min=",
 	"max=",
-	"++",
-	"--",
 	"if",
 	"or",
 	"and",
@@ -169,6 +161,8 @@ const pyOperators = [
 	">=",
 	">",
 	"<",
+	"++",
+	"--",
 	"+",
 	"-",
 	"*",
@@ -194,25 +188,20 @@ const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length;
 
 const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BV', 'BW', 'BX', 'BY', 'BZ', 'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN', 'CO', 'CP', 'CQ', 'CR', 'CS', 'CT', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG', 'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN', 'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DV', 'DW', 'DX'];
 
+//Sub0 to Sub127
 const defaultSubroutineNames = Array(128).fill().map((e,i)=>i).map(x => "Sub"+x);
 
 //Names that cannot be used for variables.
-const reservedNames = [
-	"if", "else", "elif", "do", "while", "for", "return", "continue", "switch", "case", "default", "break", "pass",
-	"false", "true", "null", 
-	"goto", "lambda", "del", "import", "def", 
-	"and", "or", "not", "in", 
-	"eventPlayer", "attacker", "victim", "eventDamage", "eventHealing", "eventWasCriticalHit", "eventWasHealthPack", "healee", "healer", 
-	"hostPlayer", 
-	"loc", "RULE_CONDITION", "RULE_START", 
-	"x", "y", "z", "math", "pi", "e", "random", 
-	"Vector", "int", "float",
-	"settings",
-	"globalvar", "playervar", "subroutine", "disabled"].concat(Object.keys(constantValues));
+const reservedNames = Object.keys(opyKeywords);
+for (var func in funcKw) {
+	if (funcKw[func].args === null) {
+		reservedNames.push(func);
+	}
+}
 
 //Names that cannot be used for subroutines.
 const reservedFuncNames = [];
-for (var func of Object.keys(actionKw).concat(Object.keys(opyFuncs))) {
+for (var func of Object.keys(actionKw).concat(Object.keys(opyFuncs), Object.keys(constantValues))) {
 	if (!func.startsWith("_")) {
 		if (func.includes("(")) {
 			reservedFuncNames.push(func.substring(0, func.indexOf("(")));
@@ -271,3 +260,92 @@ var fullwidthMappings = {
 for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
 	fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
 }
+
+
+const typeTree = [
+    {"Object": [
+		"Player",
+		{"float": [
+			{"unsigned float": [
+				"unsigned int",
+			]},
+			{"signed float": [
+				"signed int",
+			]},
+			{"int": [
+				"unsigned int",
+				"signed int",
+			]}
+		]},
+		"bool",
+		"DamageModificationId",
+		"HealingModificationId",
+		"DotId",
+		"HotId",
+		"EntityId",
+		"TextId",
+		"String",
+		{"Direction": ["Vector"]},
+		{"Position": ["Vector"]},
+		{"Velocity": ["Vector"]},
+		"Hero",
+		"Map",
+		"Team",
+		"Gamemode",
+		"Button",
+	]},
+	"Array",
+	"void",
+
+	"Lambda",
+	"Label",
+	"DictElem",
+
+	"Subroutine",
+	"GlobalVariable",
+	"PlayerVariable",
+
+	"NumberLiteral",
+
+	"HeroLiteral",
+	"MapLiteral",
+	"GamemodeLiteral",
+	"TeamLiteral",
+	"ButtonLiteral",
+	
+	{"StringLiteral": [
+		"LocalizedStringLiteral",
+		"FullwidthStringLiteral",
+		"BigLettersStringLiteral",
+	]},
+
+].concat(Object.keys(constantValues));
+
+//Which types are suitable for a given type.
+//For example, typeMatrix["float"] = ["float", "int", etc].
+const typeMatrix = {};
+
+function fillTypeMatrix(tree) {
+	if (typeof tree === "string") {
+		typeMatrix[tree] = [tree];
+
+	} else {
+		var type = Object.keys(tree)[0];
+		typeMatrix[type] = [type];
+		for (var child of tree[type]) {
+			fillTypeMatrix(child);
+			if (typeof child === "string") {
+				typeMatrix[type].push(...typeMatrix[child]);
+			} else {
+				typeMatrix[type].push(...typeMatrix[Object.keys(child)[0]]);
+			}
+		}
+	}
+}
+for (var elem of typeTree) {
+	fillTypeMatrix(elem);
+}
+typeMatrix["Vector"].push("Direction", "Position", "Velocity");
+
+//An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
+var astParsingFunctions = {};

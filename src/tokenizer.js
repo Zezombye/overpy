@@ -15,39 +15,47 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/*
-Really a class, but I couldn't manage to make the "class" keyword work.
-*/
-function Macro(text, replacement, args) {
+class Macro {
 	
-	if (args === undefined || args.length === 0) {
-		this.isFunction = false;
-	} else {
-		this.isFunction = true;
-		this.args = args;
+	constructor(text, replacement, args) {
+		if (args === undefined || args.length === 0) {
+			this.isFunction = false;
+		} else {
+			this.isFunction = true;
+			this.args = args;
+		}
+		this.text = text;
+		this.replacement = replacement;
 	}
-	this.text = text;
-	this.replacement = replacement;
+	
+}
+
+class LogicalLine {
+	constructor(indentLevel, tokens) {
+		this.indentLevel = indentLevel === undefined ? 0 : indentLevel;
+		this.tokens = tokens === undefined ? [] : tokens;
+	}
+
+	toString() {
+		return " ".repeat(this.indentLevel)+ this.tokens.join(" ");
+	}
+}
+
+class Token {
+	constructor(text, fileStack) {
+		this.text = text;
+		this.fileStack = fileStack;
+	}
+
+	toString() {
+		return this.text;
+	}
 }
 
 /*
-Splits the content to return an array of rules, with an array of (effective) lines.
-We cannot do split('\n') because we need to handle backslashed lines, and multi-line functions.
-For example, the following will count as 1 line:
-
-function(arg1, arg2,
-	arg3, arg4)
-	
-As well as the following:
-
-#!define owo(x) function(x)\
-function(y)
-
-While we're at it, this function also automatically removes comments,
-and splits rules as well as macros.
-It also resolves macros, and tokenizes.
+Returns an array of logical lines, with their indentation level.
+Logical lines are separated by a '\n', if it is not backslashed, and not within brackets.
 */
-
 function tokenize(content) {
 	
 	if (!content.endsWith('\n')) {
@@ -81,39 +89,24 @@ function tokenize(content) {
 		"*",
 		".",
 		":",
+		";",
 		"\\",
 	];
 	
 	
-	var rules = [];
+	var result = [];
 	macros = [];
 	
 	//var isInString = false;
-	var currentStrDelimiter = "";
-	var isInLineComment = false;
-	var isInStrComment = false;
-	var isInMacro = false;
-	var currentStrCommentDelimiter = "";
 	var bracketsLevel = 0;
-	var isInRule = false;
-	var currentRule = {}
-	var currentRuleLine = {};
-	//var currentToken = {"text":""};
-	var currentMacro = {};
-	var isBackslashed = false;
-	var isInTextToken = false;
+	var currentLine = {};
     
     fileStack = [{
         "name": "<main>",
         "currentLineNb": 1,
-        "currentColNb": 0,
+        "currentColNb": 1,
         "remainingChars": content.length+1, //does not matter
 	}];
-	
-	currentRule = {
-		"fileStack":getFileStackCopy(),
-		"lines":[]
-	};
 	
 	var i = 0;
 	
@@ -125,14 +118,9 @@ function tokenize(content) {
 		
 		//debug("Adding token '"+text+"' at "+currentLineNb+":"+currentColNb);
 		
-		currentRuleLine.tokens.push({
-			"fileStack": getFileStackCopy(),
-			"text":text
-		});
+		currentLine.tokens.push(new Token(text, getFileStackCopy()));
 		
-		i += text.length-1;
-		fileStack[fileStack.length-1].currentColNb += text.length-1;
-		fileStack[fileStack.length-1].remainingChars -= text.length-1;
+		moveCursor(text.length-1);
     }
     
     //Length = length of the macro resolution
@@ -153,79 +141,105 @@ function tokenize(content) {
         //console.log(JSON.stringify(fileStack));
     }
 	
-	function newRuleLine() {
+	function newLogicalLine() {
 		
-		if (currentRuleLine.tokens !== undefined && currentRuleLine.tokens.length > 0) {
-			currentRule.lines.push(currentRuleLine);
+		if (currentLine.tokens !== undefined && currentLine.tokens.length > 0) {
+			result.push(currentLine);
 		}
 		
-		currentRuleLine = {
-			"indentLevel":0,
-			"tokens":[]
-		};
+		currentLine = new LogicalLine();
 	}
 	
-	newRuleLine();
-		
-	for (i = 0; i < content.length; i++) {
-		
-		//console.log(i);
-        //await sleep(5);
-        //console.log(JSON.stringify(fileStack));
-		
-		if (fileStack[fileStack.length-1].remainingChars > 0) {
-			fileStack[fileStack.length-1].remainingChars--;
-			if (fileStack[fileStack.length-1].remainingChars === 0) {
-				//debug("macro lines = "+macroLines+", macro cols = "+macroCols);
-				fileStack[fileStack.length-2].currentLineNb += fileStack[fileStack.length-1].callLines;
-                fileStack[fileStack.length-2].currentColNb += fileStack[fileStack.length-1].callLines-1;
-                fileStack[fileStack.length-2].remainingChars -= fileStack[fileStack.length-1].callNbChars;
-                fileStack.pop();
-			}
-        }
-        
-        fileStack[fileStack.length-1].currentColNb++;
-						
-		if (content[i] === '\n') {
-			if (!isBackslashed) {
-				if (isInMacro) {
-					isInMacro = false;
-					macros.push(parseMacro(currentMacro));
+	newLogicalLine();
+
+	function moveCursor(amount) {
+		for (var j = 0; j < amount; j++) {
+
+			if (fileStack[fileStack.length-1].remainingChars > 0) {
+				fileStack[fileStack.length-1].remainingChars--;
+				if (fileStack[fileStack.length-1].remainingChars === 0) {
+					//debug("macro lines = "+macroLines+", macro cols = "+macroCols);
+					fileStack[fileStack.length-2].currentLineNb += fileStack[fileStack.length-1].callLines;
+					fileStack[fileStack.length-2].currentColNb += fileStack[fileStack.length-1].callLines-1;
+					fileStack[fileStack.length-2].remainingChars -= fileStack[fileStack.length-1].callNbChars;
+					fileStack.pop();
 				}
 			}
-			//For some reason, in Python, line comments aren't affected by backslashes before new lines.
-			if (isInLineComment) {
-				isInLineComment = false;
-			}
 			
-			//Do not end the instruction if there is a line break inside a function, or the line is backslashed.
-			if (bracketsLevel === 0 && !isBackslashed) {
-				newRuleLine();
+			fileStack[fileStack.length-1].currentColNb++;
+			if (content[i+j] === "\n") {
 				
-            }
-            
-            fileStack[fileStack.length-1].currentLineNb++;
-            fileStack[fileStack.length-1].currentColNb = 0;
+				fileStack[fileStack.length-1].currentLineNb++;
+				fileStack[fileStack.length-1].currentColNb = 1;
+			}
+		}
+		i += amount;
+	}
+
+	function parsePreprocessingDirective(content) {
+
+		debug("Parsing preprocessing directive '"+content+"'");
+		if (content.startsWith("#!define ") || content.startsWith("#!defineMember ")) {
+			macros.push(parseMacro({
+				fileStack: getFileStackCopy(),
+				content: content,
+			}));
+		} else if (content.startsWith("#!mainFile ")) {
+			//we must ignore this preprocessor directive
+
+		} else if (content.startsWith("#!obfuscate")) {
+			obfuscateRules = true;
+
+		} else if (content.startsWith("#!disableUnusedVars")) {
+			disableUnusedVars = true;
+
+		} else if (content.startsWith("#!suppressWarnings ")) {
+			var firstSpaceIndex = content.indexOf(" ");
+			globalSuppressedWarnings = content.substring(firstSpaceIndex).trim().split(" ").map(x => x.trim());
+
+		} else {
+			error("Unknown preprocessor directive '"+content+"'");
+		}
+	}
+
+	
+	for (i = 0; i < content.length; moveCursor(1)) {
+		
+        //console.log(JSON.stringify(fileStack));
+						
+		if (content[i] === '\n') {
 			
-		} else if (!isInStrComment && !isInMacro && !isInLineComment) {
+			//Only end the logical line if the newline is not within brackets.
+			if (bracketsLevel === 0) {
+				newLogicalLine();
+            }
+			
+		} else {
 			
 			if (content[i] === "\t") {
-				if (currentRuleLine.tokens.length === 0) {
-					currentRuleLine.indentLevel += 4;
+				if (currentLine.tokens.length === 0) {
+					currentLine.indentLevel += 4;
 				}
 			} else if (content[i] === ' ') {
                 //increase indentation if no token yet; else, do nothing
-				if (currentRuleLine.tokens.length === 0) {
-			    	currentRuleLine.indentLevel++;
+				if (currentLine.tokens.length === 0) {
+			    	currentLine.indentLevel++;
                 }
-			} else if (content[i] === '\\') {
+			} else if (content[i] === '\r') {
 				//do nothing
 
-			} else if (content[i] === ',') {
-				if (bracketsLevel === 0) {
-					error("Unexpected token ','");
+			} else if (content[i] === '\\') {
+				var j = i+1;
+				for (; j < content.length; j++) {
+					if (content[j] === "\n") {
+						break;
+					} else if (content[j] !== " " && content[j] !== "\r") {
+						error("A backslash can only be put at the end of a line");
+					}
 				}
-				addToken(content[i]);
+				j++;
+				moveCursor(j-i-1);
+
 			} else if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
 				bracketsLevel++;
 				addToken(content[i]);
@@ -233,122 +247,113 @@ function tokenize(content) {
 			} else if (content[i] === ')' || content[i] === ']' || content[i] === '}') {
 				bracketsLevel--;
 				if (bracketsLevel < 0) {
-					error("Brackets level below 0");
+					error("Brackets level below 0 (extraneous closing bracket)");
 				}
 				addToken(content[i]);
 				
 			} else if (content.startsWith("#!", i)) {
-				if (content.startsWith("#!define ", i) || content.startsWith("#!defineMember ", i)) {
-					if (!isInRule) {
-						isInMacro = true;
-						currentMacro = {
-							"fileStack":getFileStackCopy(),
-							"content":""
-						};
+				var j = i;
+				var isBackslashed = false;
+				var preprocessingDirectiveContent = "";
+				for (; j < content.length; j++) {
+					if (content[j] === "\\") {
+						isBackslashed = true;
+						preprocessingDirectiveContent += content[j];
+					} else if (!isBackslashed && content[j] === "\n") {
+						break;
+					} else if (content[j] !== " " && content[j] !== "\r") {
+						isBackslashed = false;
+						preprocessingDirectiveContent += content[j];
 					} else {
-						error("Cannot declare macro inside a rule");
+						preprocessingDirectiveContent += content[j];
 					}
-				} else if (content.startsWith("#!mainFile ", i)) {
-					//we must ignore this preprocessor directive, and it behaves like a line comment
-					isInLineComment = true;
+				}
 
-				} else if (content.startsWith("#!obfuscate", i)) {
-					obfuscateRules = true;
-					isInLineComment = true;
-				} else if (content.startsWith("#!disableUnusedVars", i)) {
-					disableUnusedVars = true;
-					isInLineComment = true;
-				} else if (content.startsWith("#!noEdit", i)) {
-					enableNoEdit = true;
-					isInLineComment = true;
-				} else if (content.startsWith("#!suppressWarnings ", i)) {
-					var lineIndex = content.indexOf("\n", i);
-					var firstSpaceIndex = content.indexOf(" ", i);
-					globalSuppressedWarnings = content.substring(firstSpaceIndex, lineIndex).trim().split(" ").map(x => x.trim());
-					isInLineComment = true;
-				} else if (content.startsWith("#!include ", i)) {
+				if (preprocessingDirectiveContent.startsWith("#!include ")) {
 					
-					var endOfLine = content.indexOf('\n', i);
-					var space = content.indexOf(" ", i);
-					var path = getFilePath(content.substring(space, endOfLine));
+					var space = preprocessingDirectiveContent.indexOf(" ");
+					var path = getFilePath(preprocessingDirectiveContent.substring(space));
 					var importedFileContent = getFileContent(path);
 					
-					content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
-					addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 1);
+					content = content.substring(0, i) + importedFileContent + content.substring(i+preprocessingDirectiveContent.length);
+					addFile(importedFileContent.length, preprocessingDirectiveContent.length-i, preprocessingDirectiveContent.length-i, 0, getFilenameFromPath(path), 0, 1);
 					i--;
 					fileStack[fileStack.length-1].remainingChars++;
-
 				} else {
-					error("Unknown preprocessor directive");
+					parsePreprocessingDirective(preprocessingDirectiveContent);
+					moveCursor(j-i-1);
 				}
-				
+
 			} else if (content[i] === '#') {
-				isInLineComment = true;
+				//Get to the end of the comment. Note: backslashes don't work to continue a line comment.
+				var j = i+1;
+				for (; j < content.length && content[j] !== "\n"; j++);
+
+				//To facilitate parsing, do not add the comment if it is in parentheses, as it won't be used for action comments.
+				if (bracketsLevel !== 0) {
+					moveCursor(j-i-1);
+				} else {
+					addToken(content.substring(i, j))
+				}
 			
-			} else if (content.startsWith("'''", i)) {
-				isInStrComment = true;
-				currentStrCommentDelimiter = "'''";
+			} else if (content.startsWith("/*", i)) {
 				
-			} else if (content.startsWith('"""', i)) {
-				isInStrComment = true;
-				currentStrCommentDelimiter = '"""';
+				//Get to the end of the multiline comment
+				var j = i+"/*".length;
+				var foundEndOfComment = false;
+				for (; j < content.length; j++) {
+					if (content.startsWith("*/", j)) {
+						foundEndOfComment = true;
+						break;
+					}
+				};
+
+				if (!foundEndOfComment) {
+					error("Multiline comment isn't terminated (found end of file while searching for end of comment)");
+				}
+				j += "*/".length;
+				moveCursor(j-i-1);
+
+
+			} else if (content.startsWith("*/", i)) {
+				//All ends should be found when a multiline comment start is found.
+				error("Found end of multiline comment, but no matching beginning");
 				
-			} else if (content[i] === '"' || content[i] === '\'') {
-				currentStrDelimiter = content[i];
+			} else if (content[i] === '"' || content[i] === "'") {
+				var strDelimiter = content[i];
+				var foundEndOfString = false;
+				var isBackslashed = false;
+
 				//Get to the end of the string
 				var j = i+1;
 				for (; j < content.length; j++) {
-					
-					//Test for potentially unclosed string
-					if (!isBackslashed && content[j] === '\n') {
-						error("Unclosed string");
-					}
-					
-					if (!isBackslashed && content[j] === currentStrDelimiter) {
+					if (!isBackslashed && content[j] === strDelimiter) {
+						foundEndOfString = true;
 						break;
 					}
-						
 					if (content[j] === '\\') {
 						isBackslashed = true;
 					} else {
 						isBackslashed = false;
 					}
-					
-					
+				}
+
+				if (!foundEndOfString) {
+					error("String isn't terminated (found end of file while searching for end of string)");
 				}
 				
-				j += 1; //account for closing delimiter
-				
-				if (j > i) {
-					addToken(content.substring(i, j));
-				} else {
-					error("Failed to parse string '"+content.substring(i, j)+"' (malformed string?)");
-				}
+				j += strDelimiter.length; //account for closing delimiter
+				addToken(content.substring(i, j));
+
 			} else {
-				
 				
 				//Get token
                 var j = i;
                 //Increases j as long as there are characters that can compose a word
 				for (; j < content.length && isVarChar(content[j]); j++);
                 
-                //If j >= i, then there was a word, instead of an operator
+                //If j > i, then there was a word, instead of an operator
 				if (j > i) {
-					if (content.substring(i, j) === "@Rule") {
-						if (bracketsLevel > 0) {
-							error("Found '@Rule' within brackets (missing closing bracket in previous rule)");
-						}
-						isInRule = true;
-						rules.push(currentRule);
-						currentRule = {
-							"fileStack":getFileStackCopy(),
-							"lines":[]
-						};
-						newRuleLine();
-
-					} /*else if (!isInRule) {
-						error("Found code outside a rule : "+content[i]);
-					}*/
 
 					var macroWasFound = false;
 
@@ -366,7 +371,7 @@ function tokenize(content) {
 								var bracketPos = getBracketPositions(content.substring(i), true, true);
 								text = content.substring(i, i+bracketPos[1]+1);
 								var macroArgs = getArgs(content.substring(i+bracketPos[0]+1, i+bracketPos[1]));
-								replacement = resolveMacro(macros[k], macroArgs, currentRuleLine.indentLevel);
+								replacement = resolveMacro(macros[k], macroArgs, currentLine.indentLevel);
 								
 							} else {
 								//debug("Resolving normal macro "+macros[k].name);
@@ -420,43 +425,25 @@ function tokenize(content) {
 					}
 					
 					if (!hasTokenBeenFound) {
-						if (content[i] === "\r") {
-							warn("w_crlf", "File is in CRLF mode. This could cause bugs as CRLF is not supported.");
-						} else {
-							error("Unknown token '"+content[i]+"'");
-						}
+						error("Unknown token '"+content[i]+"'");
 					}
 				}
 			}
 			
-		} else if (isInStrComment && content.startsWith(currentStrCommentDelimiter, i)) {
-			i += currentStrCommentDelimiter.length-1;
-			isInStrComment = false;
-		}
-		
-		
-		if (content[i] === '\\') {
-			isBackslashed = true;
-		} else {
-			isBackslashed = false;
-		}
-		
-		if (isInMacro) {
-			currentMacro.content += content[i];
 		}
 	}
 
-	if (isInStrComment) {
-		error("String comment isn't terminated (found end of file, but still in string comment)")
+	if (bracketsLevel > 0) {
+		error("Found end of file, but a bracket isn't closed");
 	}
-	
-	rules.push(currentRule);
 	
 	//console.log("macros = ");
 	//console.log(macros);
 	//console.log(rules);
+	console.log(result.join("\n"));
+	//console.log(result);
 	
-	return rules
+	return result;
 	
 }
 
@@ -571,73 +558,4 @@ function parseMacro(macro) {
 
 	return macro;
 	
-}
-
-//Tokenizes string
-function tokenizeLocalizedString(str) {
-	
-	var tokenList = []
-	var originalColNb = fileStack[fileStack.length-1].currentColNb;
-	
-	debug("Tokenizing string '"+str+"'");
-	
-	str = str.toLowerCase();
-	
-	for (var i = 0; i < str.length; i++) {
-		
-		fileStack[fileStack.length-1].currentColNb = originalColNb+i;
-		var currentToken = "";
-		var hasTokenBeenFound = false;
-		
-		//Test tokens
-		for (var j = 0; j < strTokens.length; j++) {
-			if (str.startsWith(strTokens[j], i)) {
-				currentToken = strTokens[j];
-				hasTokenBeenFound = true;
-				break;
-			}
-		}
-		
-		if (!hasTokenBeenFound) {
-			//Test numbers
-			var j = i;
-			for (; (str[j] >= '0' && str[j] <= '9') || str[j] === '.' || str[j] === '-'; j++);
-			
-			if (j !== i) {
-				currentToken = str.substring(i, j);
-				hasTokenBeenFound = true;
-			}
-		}
-		
-		//Test for formatting
-		if (!hasTokenBeenFound) {
-			if (str.startsWith("{}", i)) {
-				currentToken = "{}";
-				hasTokenBeenFound = true;
-			}
-		}
-
-		//Test for heroes
-		if (!hasTokenBeenFound) {
-			for (var hero of Object.keys(heroKw)) {
-				if (str.startsWith(hero, i)) {
-					currentToken = "_h"+hero;
-					hasTokenBeenFound = true;
-					break;
-				}
-			}
-		}
-				
-		if (!hasTokenBeenFound) {
-			var j = i+1;
-			for (; str[j] >= 'a' && str[j] <= 'z'; j++);
-			error("No string translation found for '"+str.substring(i, j)+"'");
-		}
-		
-		tokenList.push(currentToken);
-		i += currentToken.length-1;
-		
-	}
-	
-	return tokenList;
 }

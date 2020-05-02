@@ -19,15 +19,30 @@
 
 const opyMemberFuncs = {
     "append": {
-        "description": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. If used without an assignment, modifies the array in-place.\n\nExample: `A.append(3)`",
+        "description": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. Modifies the array in-place; use `concat` to instead return a copy of the array.\n\nExample: `A.append(3)`",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
-                "type": "Any",
+                "type": ["Object", {Array: "Object"}],
                 "default": "NUMBER"
             }
-        ]
+        ],
+        class: "Array",
+        return: "Array",
+    },
+    "concat": {
+        "description": "A copy of the array with the specified value appended to it.",
+        "args": [
+            {
+                "name": "VALUE",
+                "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
+                "type": ["Object", {Array: "Object"}],
+                "default": "NUMBER"
+            }
+        ],
+        class: "Array",
+        return: "Array",
     },
     "exclude": {
         "description": "A copy of the array with one or more values removed (if found).",
@@ -35,10 +50,12 @@ const opyMemberFuncs = {
             {
                 "name": "VALUE",
                 "description": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed.",
-                "type": "Any",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
-        ]
+        ],
+        class: "Array",
+        return: "Array",
     },
     "format": {
         "description": "The values that will be converted to text and used to replace the format placeholders (such as `{}` or `{0}`). Only usable on a string. Can have as much arguments as there are placeholders. The n-th argument replaces the n-th placeholder.",
@@ -46,76 +63,98 @@ const opyMemberFuncs = {
             {
                 "name": "VALUE",
                 "description": "The value used to replace the matching placeholder.",
-                "type": "Any",
+                "type": "Object",
                 "default": "NULL"
             }
-        ]
+        ],
+        class: "String",
+        return: "String",
     },
     "index": {
-        "description": "The index of a value within the array or -1 if no such value can be found.",
+        "description": "The index of a value within the array or -1 if no such value can be found. Does not support nested arrays.",
         "args": [
             {
                 "name": "VALUE",
                 "description": "The value for which to search.",
-                "type": "Number",
+                "type": "Object",
                 "default": "NUMBER"
             }
-        ]
-    },
-    "hasLoS": {
-        "description": "Whether the start and end position of a raycast have line of sight with each other.",
-        "args": []
+        ],
+        class: "Array",
+        return: "Array",
     },
     "getNormal": {
         "description": "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs).",
-        "args": []
+        "args": [],
+        class: "Raycast",
+        return: "Direction",
     },
     "getPlayerHit": {
         "description": "The player hit by the raycast (or null if no player is hit).",
-        "args": []
+        "args": [],
+        class: "Raycast",
+        return: "Player",
     },
     "getHitPosition": {
         "description": "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs).",
-        "args": []
+        "args": [],
+        class: "Raycast",
+        return: "Position",
+    },
+    "last": {
+        "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
+        "args": [],
+        class: "Array",
+        return: ["Object", "Array"],
     },
     "remove": {
         "description": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.",
         "args": [
             {
                 "name": "VALUE",
-                "description": "The value to remove from the array (if found).",
-                "type": "Any",
+                "description": "The value to remove from the array (if found). If an array is given, each value is removed from the array.",
+                "type": ["Object", "Array"],
                 "default": "NUMBER"
             }
-        ]
+        ],
+        class: "Array",
+        return: "void",
     },
     "slice": {
-        "description": "A copy of the specified array containing only values from a specified index range.",
+        "description": "A copy of the specified array containing only values from a specified index range. Does not support nested arrays.",
         "args": [
             {
                 "name": "START INDEX",
                 "description": "The first index of the range.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             },
             {
                 "name": "COUNT",
                 "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
-                "type": "Number",
+                "type": "unsigned int",
                 "default": "NUMBER"
             }
-        ]
+        ],
+        class: "Array",
+        return: "Array",
     },
     "x": {
         description: "The x component of the specified vector, usually representing a leftward amount.",
         args: null,
+        class: "Vector",
+        return: "int",
     },
     "y": {
         description: "The y component of the specified vector, usually representing an upward amount.",
         args: null,
+        class: "Vector",
+        return: "int",
     },
     "z": {
         description: "The z component of the specified vector, usually representing a forward amount.",
         args: null,
+        class: "Vector",
+        return: "int",
     }
 }

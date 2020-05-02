@@ -1,12 +1,12 @@
-[Core] DataTool v1.46.0.864-git-ec7bc2fdc94d326652d08645a2d8c25464721f88
+[Core] DataTool v1.47.0.869-git-e8b03657a7f90e402e114b4d3084727a3347ee42
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.exe.args
 [CASC] Set language to deDE
 [CASC] Set speech language to deDE
-[CASC] Overwatch build 1.46.0.0.66607
+[CASC] Overwatch build 1.47.1.0.68126
 [CASC] Initializing...
-[CMF] Using CMF procedure 66607
-[CMF] Using CMF procedure 66607
+[CMF] Using CMF procedure 68126
+[CMF] Using CMF procedure 68126
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -432,14 +432,10 @@
 0000000003CA.07C: Ein stationärer Geschützturm mit einer Hochgeschwin<hy>digkeitskanone.
 0000000003CB.07C: Geschmolzener Kern
 0000000003CC.07C: Erhöht die Waffenfeuerrate und verleiht Rüstung. Rüstet ein Geschütz kurz<hy>zeitig von Stufe 2 auf 3 auf.
-0000000003CD.07C: Geschütz aufstellen
-0000000003CE.07C: Konstruiert ein aufrüst<hy>bares Geschütz.
 0000000003D1.07C: Bolzenkanone
 0000000003D2.07C: Langsamer Einzel<hy>schuss<hy>modus mit hoher Reichweite.
 0000000003D3.07C: Bolzenkanone – Alternativer Feuermodus
 0000000003D4.07C: Unpräziser Feuer<hy>modus, verheerend auf kurze Distanz.
-0000000003D5.07C: Schmiedehammer
-0000000003D6.07C: Verbessert das Ge<hy>schütz oder prügelt auf Gegner ein.
 0000000003DC.07C: Deckt die Position von Gegnern für dein Team auf.
 0000000003DD.07C: Infrasicht
 0000000003DE.07C: Giftmine
@@ -7948,7 +7944,7 @@ von Saison 1
 0000000047D5.07C: Platzierungs-
 matches
 0000000047D6.07C: Anfrage auf Einladung in die Gruppe nicht möglich
-0000000047D7.07C: - Du kannst durch die Teilnahme an Ranglistenmatches am Ende der Saison Belohnungen erhalten:
+0000000047D7.07C: Du kannst durch die Teilnahme an Ranglistenmatches am Ende der Saison Belohnungen erhalten:
 0000000047D8.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 1
 0000000047D9.07C: Freigeschaltet durch das Erreichen der Top 500 in Saison 1
 0000000047DD.07C: Rangliste freigeschaltet!
@@ -9761,7 +9757,7 @@ nachgeladen
 000000005908.07C: DER ERBARMUNGSLOSEN LEERE
 000000005915.07C: Empfindlichkeit von Sphäre der Harmonie
 000000005916.07C: Empfindlichkeit von Sphäre der Zwietracht
-000000005917.07C: Empfindlichkeit von Nanoboost
+000000005917.07C: Empfindlichkeit von Duplikat
 000000005918.07C: %1$s: %2$s
 00000000591F.07C: Allgemein
 000000005921.07C: Eskorte
@@ -10195,10 +10191,10 @@ Ein in einer anderen Sprache verfasster Spielername oder ein in einer anderen Sp
 000000005CC6.07C: Chopper
 000000005CC8.07C: Klötzchen<hy>turm
 000000005CCA.07C: Ramen
-000000005CD0.07C: Höchste Aufstand-Punktzahl (Story)
-000000005CD1.07C: Höchste Aufstand-Punktzahl (Story): %1$s
-000000005CD2.07C: Höchste Aufstand-Punktzahl (Story)
-000000005CD3.07C: Höchste Aufstand-Punktzahl (Story): %1$s
+000000005CD0.07C: Höchste Punktzahl für Aufstand (Story)
+000000005CD1.07C: Höchste Punktzahl für Aufstand (Story): %1$s
+000000005CD2.07C: Höchste Punktzahl für Aufstand (Story)
+000000005CD3.07C: Höchste Punktzahl für Aufstand (Story): %1$s
 000000005CD4.07C: %1$s wird gemeldet (%2$s)
 000000005CD5.07C: Senden
 000000005CD6.07C: Hier können Sie weiteres Feedback zum Spieler hinterlassen:
@@ -10436,10 +10432,10 @@ Ordnung
 000000005EA9.07C: Vorlage speichern
 000000005EAA.07C: HACKEN
 000000005EAD.07C: Vorlagenoptionen
-000000005EAE.07C: Höchste Aufstand-Punktzahl (alle Helden)
-000000005EAF.07C: Höchste Aufstand-Punktzahl (alle Helden): %1$s
-000000005EB0.07C: Höchste Aufstand-Punktzahl (alle Helden)
-000000005EB1.07C: Höchste Aufstand-Punktzahl (alle Helden): %1$s
+000000005EAE.07C: Höchste Punktzahl für Aufstand (alle Helden)
+000000005EAF.07C: Höchste Punktzahl für Aufstand (alle Helden): %1$s
+000000005EB0.07C: Höchste Punktzahl für Aufstand (alle Helden)
+000000005EB1.07C: Höchste Punktzahl für Aufstand (alle Helden): %1$s
 000000005EB3.07C: Heroisch
 000000005EBC.07C: Übersicht
 000000005EC4.07C: Dein aktuelles Ziel wird immer am oberen Rand des Bildschirms angezeigt.
@@ -14312,7 +14308,7 @@ punkte
 000000006E64.07C: ANGRIFF
 000000006E6A.07C: Assassine
 000000006E6B.07C: Eichenwalde (Halloween)
-000000006E6F.07C: %2$s wiederbeleben
+000000006E6F.07C: %1$s wiederbeleben
 000000006E70.07C: Bewegung relativ zur Kamera bei Barrierenperspektive
 000000006E72.07C: NANO
 000000006E73.07C: BETÄUBT
@@ -14461,8 +14457,8 @@ punkte
 00000000702F.07C: %1$s Damage Done
 000000007030.07C: Schaden – Koaleszenz
 000000007031.07C: %1$s Damage Done
-000000007032.07C: Höchste Halloween-Punktzahl
-000000007033.07C: Höchste Halloween-Punktzahl: %1$s
+000000007032.07C: Höchste Punktzahl für Halloween
+000000007033.07C: Höchste Punktzahl für Halloween: %1$s
 000000007034.07C: GOLDEN
 000000007035.07C: Koaleszenz-Heilung
 000000007036.07C: Koaleszenz-Heilung: %1$s
@@ -14920,6 +14916,7 @@ punkte
 00000000745F.07C: Treffer mit Betäubungspfeilen: %1$s
 000000007460.07C: Anheftquote von Impulsbombe
 000000007461.07C: Anheftquote von Impulsbombe: %1$s
+000000007465.07C: ABBRECHEN
 000000007472.07C: Koaleszenz – Heilung pro Einsatz
 000000007473.07C: Koaleszenz – Heilung pro Einsatz: %1$s
 000000007474.07C: Koaleszenz – Schaden pro Einsatz
@@ -16156,10 +16153,10 @@ punkte
 000000008135.07C: %1$s möchte die Flagge verteidigen!
 000000008136.07C: %1$s möchte die Flagge erobern!
 00000000813F.07C: [%1$s (%2$s)]
-000000008140.07C: Höchste Vergeltung-Punktzahl (alle Helden)
-000000008141.07C: Höchste Vergeltung-Punktzahl (alle Helden): %1$s
-000000008142.07C: Höchste Vergeltung-Punktzahl (Story)
-000000008143.07C: Höchste Vergeltung-Punktzahl (Story): %1$s
+000000008140.07C: Höchste Punktzahl für Vergeltung (alle Helden)
+000000008141.07C: Höchste Punktzahl für Vergeltung (alle Helden): %1$s
+000000008142.07C: Höchste Punktzahl für Vergeltung (Story)
+000000008143.07C: Höchste Punktzahl für Vergeltung (Story): %1$s
 000000008149.07C: Catcher
 000000008151.07C: Reanimiere Teammitglieder, bevor sie sterben, indem du dich in ihre Nähe bewegst.
 000000008152.07C: Dein aktuelles Ziel wird immer am oberen Rand des Bildschirms angezeigt.
@@ -16780,6 +16777,7 @@ punkte
 000000008670.07C: Legt ein großes Feld aus Annäherungsminen.
 000000008671.07C: |Rpl %1$s:Ultimate:Ultimates; erhalten – Bruchteile
 000000008672.07C: Ultimates erhalten – Bruchteile: %1$s
+000000008684.07C: Echo
 000000008687.07C: Mein Team
 000000008688.07C: Gegnerisches Team
 00000000868A.07C: OWL All-Stars Atlantic
@@ -17303,6 +17301,7 @@ Möchtest du abbrechen?
 000000008F7B.07C: Zurück
 000000008F7D.07C: Hamsterrad
 000000008FE9.07C: Spielsuche mit diesen Gruppen<hy>einstellungen nicht möglich
+000000008FEA.07C: 
 000000008FEC.07C: Peace
 000000008FED.07C: Auf der faulen Haut
 000000008FEE.07C: Hoch hinaus
@@ -17372,7 +17371,6 @@ Möchtest du abbrechen?
 0000000090E1.07C: Wrecking Ball wird von einem intelligenten genmanipulierten Hamster namens Hammond gesteuert, der auf der Suche nach Abenteuern durch die Welt streift.
 0000000090E2.07C: Ashe ist die Anführerin der Deadlock Gang, einer Gruppe von Banditen und Kriminellen, die den Südwesten der USA unsicher macht.
 0000000090E7.07C: Shop
-0000000090E8.07C: Divisionskins!
 0000000090F2.07C: Japan (auswärts)
 0000000090F3.07C: Taipeh (auswärts)
 0000000090F4.07C: Russland (auswärts)
@@ -17741,8 +17739,6 @@ Möchtest du abbrechen?
 0000000093F6.07C: Rangliste
 000000009411.07C: Baptiste
 000000009413.07C: All-Stars
-000000009414.07C: Pacific
-000000009415.07C: Atlantic
 000000009419.07C: PH Text
 00000000941A.07C: Alle Extras des Teams "%1$s" freischalten?
 00000000941B.07C: Freigeschaltet durch die Teilnahme an D.Vas Nano-Cola-Herausforderung
@@ -17957,12 +17953,12 @@ Möchtest du abbrechen?
 000000009E9C.07C: VS
 000000009E9E.07C: Sigma
 000000009E9F.07C: Heroisch
-000000009EB1.07C: Die Experimentelle Barriere kann über weite Entfernung eingesetzt werden, um Teammitglieder zu schützen.
-000000009EB2.07C: Hol die Experimentelle Barriere zurück, um sie aufzuladen.
-000000009EB3.07C: Sigmas Hypersphären implodieren nach kurzer Zeit und verursachen Flächenschaden. Schätz die Entfernung richtig ab, um damit Hindernisse wie feindliche Barrieren zu überwinden.
-000000009EB4.07C: Gegner werden von Akkretion nur zu Boden gestoßen, wenn sie direkt getroffen werden.
-000000009EB5.07C: Die Kinetische Konversion hat eine lange Abklingzeit. Setz diese Fähigkeit ein, um dich zu schützen, wenn die Experimentelle Barrriere noch lädt.
-000000009EB6.07C: Setz Gravitationsfluss ein, um Gegner in die Luft zu heben und von ihrem Team oder dem Ziel wegzuschleudern.
+000000009EB1.07C: Wenn du beim Einsatz von Flug die Sprungtaste gedrückt hältst, wirst du in die Luft katapultiert.
+000000009EB2.07C: Duplikat heilt dich beim Aktivieren vollständig. So kannst du dich retten, wenn du nur noch wenig Trefferpunkte hast.
+000000009EB3.07C: Der Gebündelte Strahl fügt Gegnern mit mehr als der Hälfte ihrer Trefferpunkte wenig Schaden zu, ist aber verheerend für Gegner mit weniger als der Hälfte ihrer Trefferpunkte.
+000000009EB4.07C: Verwende den Gebündelten Strahl, um Gegner auszuschalten, die im Kampf gegen deine Teammitglieder bereits die Hälfte ihrer Trefferpunkte verloren haben.
+000000009EB5.07C: Setz den Gebündelten Strahl direkt nach den Haftbomben ein, um in kürzester Zeit hohen Schaden zu verursachen.
+000000009EB6.07C: Setz beim Flug Duplikat ein, um das gegnerische Team von oben zu überraschen.
 000000009EBB.07C: Fingerspitzengefühl
 000000009EBF.07C: Süßes oder Saures
 000000009EC0.07C: In Halloween-
@@ -18287,12 +18283,12 @@ Schick uns dein Feedback und deine Kommentare, damit wir den Viewer weiter verbe
 00000000A402.07C: Egoperspektive
 00000000A403.07C: Gewehr geschultert
 00000000A404.07C: VS
-00000000A40F.07C: Höchste Halloween-Punktzahl
-00000000A410.07C: Höchste Halloween-Punktzahl: %1$s
+00000000A40F.07C: Höchste Punktzahl für Halloween
+00000000A410.07C: Höchste Punktzahl für Halloween: %1$s
 00000000A411.07C: Höchste Punktzahl im endlosen Halloween-Brawl
 00000000A412.07C: Höchste Punktzahl im endlosen Halloween-Brawl: %1$s
-00000000A417.07C: Höchste Halloween-Punktzahl
-00000000A418.07C: Höchste Halloween-Punktzahl: %1$s
+00000000A417.07C: Höchste Punktzahl für Halloween
+00000000A418.07C: Höchste Punktzahl für Halloween: %1$s
 00000000A419.07C: Höchste Punktzahl im endlosen Halloween-Brawl
 00000000A41A.07C: Höchste Punktzahl im endlosen Halloween-Brawl: %1$s
 00000000A422.07C: TÄGLICHES EP-LIMIT FÜR BENUTZERDEFINIERTE SPIELE ERREICHT
@@ -18473,6 +18469,14 @@ Schick uns dein Feedback und deine Kommentare, damit wir den Viewer weiter verbe
 00000000A913.07C: Kompetitive Flaggeneroberung: Saison 2
 00000000A914.07C: Flaggeneroberung: Busan
 00000000A915.07C: Zwei Teams mit jeweils sechs Spielern versuchen, in Busan die Flagge des gegnerischen Teams zu erobern, während sie ihre eigene verteidigen müssen.
+00000000A91F.07C: Haftbomben
+00000000A920.07C: Feuert eine Salve Haftbomben ab, die nach kurzer Zeit explodieren.
+00000000A922.07C: Duplikat
+00000000A923.07C: Macht dich zu einer Kopie des anvisierten gegnerischen Helden. In dieser Zeit kann er nicht den Helden wechseln.
+00000000A927.07C: Tri-Schuss
+00000000A928.07C: Feuert 3 Geschosse auf einmal in Dreiecksformation ab.
+00000000A929.07C: Flug
+00000000A92A.07C: Fliegt schnell vorwärts und kann dann kurzzeitig frei fliegen.
 00000000A933.07C: Blizzard World (Winter)
 00000000A939.07C: Toronto (auswärts)
 00000000A93A.07C: Chengdu (auswärts)
@@ -19604,14 +19608,14 @@ von Saison 18
 00000000B3DC.07C: Schließ Sturmzeichen (alle Helden) auf Schwer ab.
 00000000B3DD.07C: Auge des Hurrikans
 00000000B3DE.07C: Schließ Sturmzeichen (alle Helden) auf Legendär ab, ohne dass ein Verbündeter kampfunfähig wird.
-00000000B3DF.07C: Höchste Sturmzeichen-Punktzahl (Story)
-00000000B3E0.07C: Höchste Sturmzeichen-Punktzahl (Story): %1$s
-00000000B3E1.07C: Höchste Sturmzeichen-Punktzahl (alle Helden)
-00000000B3E2.07C: Höchste Sturmzeichen-Punktzahl (alle Helden): %1$s
-00000000B3E3.07C: Höchste Sturmzeichen-Punktzahl (Story)
-00000000B3E4.07C: Höchste Sturmzeichen-Punktzahl (Story): %1$s
-00000000B3E5.07C: Höchste Sturmzeichen-Punktzahl (alle Helden)
-00000000B3E6.07C: Höchste Sturmzeichen-Punktzahl (alle Helden): %1$s
+00000000B3DF.07C: Höchste Punktzahl für Sturmzeichen (Story)
+00000000B3E0.07C: Höchste Punktzahl für Sturmzeichen (Story): %1$s
+00000000B3E1.07C: Höchste Punktzahl für Sturmzeichen (alle Helden)
+00000000B3E2.07C: Höchste Punktzahl für Sturmzeichen (alle Helden): %1$s
+00000000B3E3.07C: Höchste Punktzahl für Sturmzeichen (Story)
+00000000B3E4.07C: Höchste Punktzahl für Sturmzeichen (Story): %1$s
+00000000B3E5.07C: Höchste Punktzahl für Sturmzeichen (alle Helden)
+00000000B3E6.07C: Höchste Punktzahl für Sturmzeichen (alle Helden): %1$s
 00000000B3E7.07C: Schaden gegen Spezialeinheiten
 00000000B3E8.07C: Schaden gegen Talon-Spezialeinheiten: %1$s
 00000000B3E9.07C: Schaden gegen Talon-Spezialeinheiten
@@ -19960,8 +19964,8 @@ erhaltungs<hy>feld verhindert
 00000000B801.07C: Einsätze der Verstärkungsmatrix – Bestleistung: %1$s
 00000000B802.07C: Effizienz der Verstärkungsmatrix
 00000000B803.07C: Effizienz der Verstärkungsmatrix: %1$s
-00000000B81C.07C: Höchste Vergeltung-Punktzahl (alle Helden): %1$s
-00000000B81D.07C: Höchste Vergeltung-Punktzahl (alle Helden)
+00000000B81C.07C: Höchste Punktzahl für Vergeltung (alle Helden): %1$s
+00000000B81D.07C: Höchste Punktzahl für Vergeltung (alle Helden)
 00000000B81F.07C: Konpatanz
 00000000B824.07C: Verhinderter Schaden
 00000000B825.07C: Verhinderter Schaden: %1$s
@@ -19977,8 +19981,6 @@ erhaltungs<hy>feld verhindert
 00000000B842.07C: Chase Global Variable Over Time
 00000000B843.07C: Duration
 00000000B844.07C: Rate
-00000000B861.07C: Pacific-Lúcio
-00000000B862.07C: Atlantic-Mercy
 00000000B878.07C: Enable Built-In Game Mode Respawning
 00000000B879.07C: Players
 00000000B87A.07C: Disable Built-In Game Mode Respawning
@@ -21537,6 +21539,8 @@ erhaltungs<hy>feld verhindert
 00000000C1DF.07C: HUD für alle Spieler initialisieren
 00000000C1E0.07C: Punkte vergeben und zu gewünschtem Helden (D) wechseln, wenn ein Todesstoß erzielt wird
 00000000C1E3.07C: Wenn tatsächlicher Held eines Spielers sich vom gewünschten Helden (D) unterscheidet, Held erzwingen
+00000000C1E6.07C: Gleitflug
+00000000C1E7.07C: Springen gedrückt halten, um beim Fallen zu gleiten.
 00000000C1E8.07C: |Rfd %1$s:d. MMMM;
 00000000C1EA.07C: Saison 2019 – Phase 3
 00000000C1F2.07C: Abgebrochen
@@ -22251,6 +22255,8 @@ Hinweis: Variablen und Programmiersprache sind in Englisch gehalten. Die Benutze
 00000000C7F7.07C: Maskentänzerin
 00000000C7F8.07C: Tangent From Degrees
 00000000C7F9.07C: Tangens des festgelegten Winkels in Grad.
+00000000C7FA.07C: Gebündelter Strahl
+00000000C7FB.07C: Kanalisiert einige Sekunden lang einen Strahl. Fügt Gegnern mit weniger als der Hälfte ihrer Trefferpunkte sehr hohen Schaden zu.
 00000000C7FC.07C: Tangens des festgelegten Winkels in Radiant.
 00000000C7FD.07C: Tangent From Radians
 00000000C7FE.07C: Arkustangens in Radiant des festgelegten Dividenden und Divisors (oft als arctan2 bezeichnet).
@@ -22603,6 +22609,7 @@ Hinweis: Variablen und Programmiersprache sind in Englisch gehalten. Die Benutze
 00000000CB7C.07C: B.O.B.
 00000000CB7E.07C: Deckard
 00000000CB7F.07C: Cain
+00000000CB82.07C: Echo
 00000000CB84.07C: Sprechanlage
 00000000CB86.07C: Gondoliere
 00000000CB87.07C: HAL-Fred
@@ -22892,12 +22899,12 @@ punkte
 00000000CF2B.07C: Matt Wyble
 00000000CF2C.07C: Project Audio Director
 00000000CF2D.07C: Scott Lawlor
-00000000CF44.07C: Höchste Halloween-Punktzahl
-00000000CF45.07C: Höchste Halloween-Punktzahl: %1$s
+00000000CF44.07C: Höchste Punktzahl für Halloween
+00000000CF45.07C: Höchste Punktzahl für Halloween: %1$s
 00000000CF46.07C: Höchste Punktzahl im endlosen Halloween-Brawl
 00000000CF47.07C: Höchste Punktzahl im endlosen Halloween-Brawl: %1$s
-00000000CF48.07C: Höchste Halloween-Punktzahl
-00000000CF49.07C: Höchste Halloween-Punktzahl: %1$s
+00000000CF48.07C: Höchste Punktzahl für Halloween
+00000000CF49.07C: Höchste Punktzahl für Halloween: %1$s
 00000000CF4A.07C: Höchste Punktzahl im endlosen Halloween-Brawl
 00000000CF4B.07C: Höchste Punktzahl im endlosen Halloween-Brawl: %1$s
 00000000CF4C.07C: Gorgone
@@ -26383,8 +26390,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: Bewegungssensor bei Sticknutzung deaktivieren
 00000000EA2F.07C: Dr. Ziegler
 00000000EA3E.07C: Bewegungssensor-Zielfunktion: Gier-Achse umkehren
-00000000EA40.07C: Rangliste
-00000000EA41.07C: MACH MIT, UM DIR BELOHNUNGEN ZU VERDIENEN:
 00000000EA51.07C: GOAT
 00000000EA59.07C: Bewegungssensor-Zielfunktion: Roll-Achse umkehren
 00000000EA5A.07C: (freigeschaltet)
@@ -26401,8 +26406,9 @@ https://account.blizzard.com/connections/nintendo
 00000000EB14.07C: König Jamison
 00000000EB17.07C: Erhöhte Abtastrate aktivieren
 00000000EB1E.07C: Fehler: Spielervariable [%1$s] benötigt einen Namen.
+00000000EB1F.07C: Global
 00000000EB21.07C: Fehler: Globale Variable [%1$s] steht in Konflikt mit einer anderen Variable.
-00000000EB23.07C: Verfügbare Karten diese Saison
+00000000EB23.07C: Verfügbare Karten
 00000000EB24.07C: Hanamura, Tempel des Anubis, Volskaya Industries
 00000000EB25.07C: Fehler: Globale Variable [%1$s] enthält einen ungültigen Namen.
 00000000EB29.07C: Fehler: Globale Variable [%1$s] benötigt einen Namen.
@@ -26593,6 +26599,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F229.07C: 
 00000000F22A.07C: 
 00000000F22B.07C: 
+00000000F239.07C: Echo ist ein Roboter mit einer extrem anpassungsfähigen künstlichen Intelligenz, der von Dr. Mina Liao programmiert und entwickelt wurde.
 00000000F23D.07C: Zeigt nur Spiele an, die Spieler in der Spielsuche zulassen.
 00000000F23E.07C: Achtung! Das kann deine Spielleistung beeinflussen!
 00000000F241.07C: +100 Bonusmarken
@@ -26644,6 +26651,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F396.07C: Himmelslaterne
 00000000F39C.07C: Festmahl
 00000000F39D.07C: Drachensteigen
+00000000F3A2.07C: Heldenauswahl durch Echo deaktiviert
 00000000F3A3.07C: Sobald ein Match gefunden wurde, für das du dich eingereiht hast, wechselst du automatisch in dieses Spiel.
 00000000F3AE.07C: Trete Match bei
 00000000F3C9.07C: Scharfschützin
@@ -26901,6 +26909,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F5EA.07C: Florida Mayhem (auswärts)
 00000000F5EB.07C: TEAM 3
 00000000F5EC.07C: TEAM 4
+00000000F5F8.07C: Donner
 00000000F652.07C: Aufgehender Blutmond
 00000000F653.07C: Sturmzeichen. Nur Schadenshelden. Heilung verringert. Verursachter Schaden heilt.
 00000000F674.07C: Sturmzeichen - Vampirisch
@@ -27116,6 +27125,8 @@ https://account.blizzard.com/connections/nintendo
 000000010053.07C: verfügbare helden
 000000010054.07C: Saison 21
 000000010055.07C: Saison 21
+000000010056.07C: Saison 22
+000000010057.07C: Saison 22
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Einstellungen aus der Zwischenablage importieren
@@ -27214,8 +27225,7 @@ https://account.blizzard.com/connections/nintendo
 00000001022E.07C: Schwierigkeit: Experte
 000000010237.07C: Verbindungsabbruch aufgrund von CAIS-Zeitüberschreitung
 000000010239.07C: Testlabor
-00000001023B.07C: Dieses Replay befindet sich nicht in deiner Liste kürzlich aufgenommener Replays. Wenn du dieses Replay löst, geht es verloren. Trotzdem fortfahren?
-000000010243.07C: Punktestände verbergen
+00000001023B.07C: Dieses Replay ist nicht in deiner Liste kürzlich aufgenommener Replays. Wenn du dieses Replay löst, geht es verloren. Trotzdem fortfahren?
 000000010248.07C: Bär
 000000010249.07C: Holi
 00000001024A.07C: Angerostet
@@ -27308,13 +27318,14 @@ https://account.blizzard.com/connections/nintendo
 0000000102CA.07C: Flöckchenbär
 0000000102CC.07C: Magenverstimmung
 0000000102CE.07C: Kuschelbär
-0000000102D0.07C: pc
 0000000102D1.07C: ps4
 0000000102D2.07C: xb1
 0000000102D3.07C: nintendo-switch
-0000000102D4.07C: https://playoverwatch.com/news/patch-notes/%1$s
+0000000102D4.07C: https://playoverwatch.com/console-patch-notes/%1$s
 0000000102D5.07C: Import
 0000000102D8.07C: Importiert
+0000000102D9.07C: DUPLIKAT
+0000000102DA.07C: ABBRECHEN
 0000000102E0.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
 0000000102E1.07C: Homestand 2020 von Florida Mayhem
 0000000102E3.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
@@ -27329,12 +27340,12 @@ https://account.blizzard.com/connections/nintendo
 0000000102EC.07C: In Archiv-Lootboxen erhältlich
 0000000102ED.07C: Puls
 0000000102EE.07C: In Archiv-Lootboxen erhältlich
-0000000102EF.07C: Feinde rufen Lava hervor, sobald sie sterben.
+0000000102EF.07C: Gegner hinterlassen Lava, wenn sie sterben.
 0000000102F0.07C: Spieler haben weniger Trefferpunkte und verursachen mehr Schaden.
 0000000102F1.07C: Nur kritische Treffer verursachen Schaden.
 0000000102F2.07C: Gegner können nur Schaden erleiden, wenn ein Spieler in der Nähe ist.
 0000000102F3.07C: Nur Schadenshelden und Heilung ist verringert. Verursachter Schaden heilt.
-0000000102F4.07C: Manche Gegner sind wütend. Die Wut verbreitet sich, sobald sie sterben.
+0000000102F4.07C: Manche Gegner sind wütend. Die Wut verbreitet sich, wenn sie sterben.
 0000000102F5.07C: Testlabor-Update verwenden, wenn möglich
 000000010301.07C: 
 000000010306.07C: Teilnehmer der 6v6-Eliminierung 2020
@@ -27343,51 +27354,332 @@ https://account.blizzard.com/connections/nintendo
 000000010309.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der kompe<hy>titiven Eliminierung 2020 (6v6)
 000000010311.07C: Strike Team
 000000010312.07C: In Archiv-Lootboxen erhältlich
+00000001031A.07C: Töte 2 Gegner im kompetitiven Spiel mit einem einzigen Einsatz von Echos Gebündeltem Strahl.
+00000001031B.07C: Gebündelt
+00000001031C.07C: Setze als Echo im kompetitiven Spiel 2 fremde ultimative Fähigkeiten ein, ohne zu sterben.
+00000001031D.07C: Anpassungsfähigkeit
 00000001031E.07C: Archiv 2020
 00000001031F.07C: In Archiv-Lootboxen erhältlich
-00000001036C.07C: WEITER
-00000001036D.07C: Herausforderungsmissionen
-00000001036F.07C: Bestreite Matches, um limitierte Archiv-Lootboxen, neue Skins, Highlight-Intros und vieles mehr zu erhalten!
-000000010370.07C: Archivbeute
-000000010372.07C: Spiel die Archiv-Missionen mit speziellen Modifikationen, die die Schwierigkeit erhöhen!
-000000010374.07C: Event endet am 02.04.
-000000010375.07C: Schalte neue Skins frei
-000000010376.07C: Wöchentliche Herausforderungen
-000000010377.07C: Woche 1
-000000010378.07C: Woche 2
-000000010379.07C: Woche 3
+000000010351.07C: Junkensteins Rache
+000000010369.07C: Duplikat benötigt Zielbestätigung
+00000001036A.07C: NANOBOOST
+00000001036B.07C: ABBRECHEN
+00000001037A.07C: Nanoboost benötigt Zielbestätigung
+00000001037B.07C: Empfindlichkeit von Nanoboost
+000000010381.07C: %1$s
 000000010385.07C: Pin entfernen
 000000010389.07C: Konnte Replay aufgrund von Accounteinschränkungen nicht abspielen.
 00000001038C.07C: Konnte Replay aufgrund von Accounteinschränkungen nicht teilen.
 00000001038E.07C: Kann keine Replays von dieser Plattform herunterladen.
 00000001038F.07C: Das Replay wird von deiner Plattform nicht unterstützt.
+0000000103A8.07C: PATCHNOTES
 0000000103BF.07C: Ladevorgang gescheitert: Inkompatible Version
 0000000103CC.07C: Geteilten Replay-Link-Code melden
 0000000103D7.07C: Vielen Dank, dass Sie den Replay-Link-Code %1$s gemeldet haben. Berichte wie dieser machen Overwatch-Spiele zu einem freundlicheren und besseren Erlebnis.
+000000010410.07C: Duplizieren
+000000010411.07C:  Sek.
 000000010412.07C: Dieses Replay gibt es schon in deiner Liste.
+000000010416.07C: Teilnehmer von Saison 22
+000000010418.07C: Held von Saison 22
+00000001041A.07C: Teilnehmer von Saison 22
+00000001041C.07C: Held von Saison 22
+00000001041E.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 22
+00000001041F.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 22
 00000001043B.07C: Melden
-0000000105BD.07C: Best Molten Cores Score
-0000000105BE.07C: %1$s Best Molten Cores Score
-0000000105BF.07C: Best Glass Cannon Score
-0000000105C0.07C: %1$s Best Glass Cannon Score
-0000000105C1.07C: Best Surgical Strike Score
-0000000105C2.07C: %1$s Best Surgical Strike Score
-0000000105C3.07C: Best Close Quarters Score
-0000000105C4.07C: %1$s Best Close Quarters Score
-0000000105C5.07C: Best Blood Moon Rising Score
-0000000105C6.07C: %1$s Best Blood Moon Rising Score
-0000000105C7.07C: Best Storm Raging Score
-0000000105C8.07C: %1$s Best Storm Raging Score
-0000000105CC.07C: Best Molten Cores Score
-0000000105CD.07C: %1$s Best Molten Cores Score
-0000000105CE.07C: Best Glass Cannon Score
-0000000105CF.07C: %1$s Best Glass Cannon Score
-0000000105D0.07C: Best Surgical Strike Score
-0000000105D1.07C: %1$s Best Surgical Strike Score
-0000000105D2.07C: Best Close Quarters Score
-0000000105D3.07C: %1$s Best Close Quarters Score
-0000000105D4.07C: Best Blood Moon Rising Score
-0000000105D5.07C: %1$s Best Blood Moon Rising Score
-0000000105D6.07C: Best Storm Raging Score
-0000000105D7.07C: %1$s Best Storm Raging Score
-[Core] Execution finished in 00:00:04.7300502 seconds
+000000010479.07C: Punktevorsprung für Sieg
+0000000104F0.07C: Knicks
+0000000104F2.07C: Klassisch
+0000000104F3.07C: Heroisch
+0000000104F5.07C: Heroisch
+0000000104F6.07C: Analyse
+0000000104F7.07C: Sitzend
+0000000104F9.07C: Vornehm
+0000000104FC.07C: Lachen
+000000010500.07C: Erwachen
+00000001058B.07C: Ausweichen
+00000001058C.07C: Manöver
+00000001058D.07C: Schwungvoll
+000000010592.07C: Stealth
+0000000105BD.07C: Höchste Punktzahl für Geschmolzene Kerne
+0000000105BE.07C: Höchste Punktzahl für Geschmolzene Kerne: %1$s
+0000000105BF.07C: Höchste Punktzahl für Glaskanone
+0000000105C0.07C: Höchste Punktzahl für Glaskanone: %1$s
+0000000105C1.07C: Höchste Punktzahl für Präzisionsschlag
+0000000105C2.07C: Höchste Punktzahl für Präzisionsschlag: %1$s
+0000000105C3.07C: Höchste Punktzahl für Auge in Auge
+0000000105C4.07C: Höchste Punktzahl für Auge in Auge: %1$s
+0000000105C5.07C: Höchste Punktzahl für Aufgehender Blutmond
+0000000105C6.07C: Höchste Punktzahl für Aufgehender Blutmond: %1$s
+0000000105C7.07C: Höchste Punktzahl für Tobender Sturm
+0000000105C8.07C: Höchste Punktzahl für Tobender Sturm: %1$s
+0000000105CC.07C: Höchste Punktzahl für Geschmolzene Kerne
+0000000105CD.07C: Höchste Punktzahl für Geschmolzene Kerne: %1$s
+0000000105CE.07C: Höchste Punktzahl für Glaskanone
+0000000105CF.07C: Höchste Punktzahl für Glaskanone: %1$s
+0000000105D0.07C: Höchste Punktzahl für Präzisionsschlag
+0000000105D1.07C: Höchste Punktzahl für Präzisionsschlag: %1$s
+0000000105D2.07C: Höchste Punktzahl für Auge in Auge
+0000000105D3.07C: Höchste Punktzahl für Auge in Auge: %1$s
+0000000105D4.07C: Höchste Punktzahl für Aufgehender Blutmond
+0000000105D5.07C: Höchste Punktzahl für Aufgehender Blutmond: %1$s
+0000000105D6.07C: Höchste Punktzahl für Tobender Sturm
+0000000105D7.07C: Höchste Punktzahl für Tobender Sturm: %1$s
+0000000105D8.07C: Trainingspartner
+0000000105F1.07C: Um zu entspannen und sich zu erholen gab es für Ana keinen besseren Ort als Hawaii.
+0000000105F2.07C: Als wahre Adeptin der verbotenen Magie unterwarf die Hexenmeisterin selbst die mächtigsten Dämonen ihrem Willen.
+0000000105F3.07C: Während seiner Zeit bei der Karibischen Koalition war Baptiste in verschiedenen Umgebungen der Region im Einsatz.
+0000000105F4.07C: Die Schildmaid ist eine Figur, um die sich viele Legenden ranken. Aber in der Geschichte von Junkenstein ist sie auch als die Tochter des Wikingers bekannt.
+0000000105F7.07C: Als Erbe des Familienunternehmens für Prothesentechnologie war Doomfist mit den schönen Dingen des Lebens durchaus vertraut.
+0000000106F4.07C: Motte
+000000010778.07C: ZUFÄLLIG
+00000001077A.07C: Heroisch
+00000001077B.07C: ZUFÄLLIG
+00000001077C.07C: Icon
+00000001077D.07C: Ermächtigt
+00000001077E.07C: Stasis
+00000001077F.07C: Zwei Schelme braucht Geld und Gut. Einen, der's gewinnt, und einen, der … explodiert.
+000000010780.07C: Köchin
+000000010781.07C: Echos
+000000010799.07C: Fast keine Beschränkungen
+00000001079A.07C: Besiege das gegnerische Team. Bei der Heldenauswahl bestehen fast keine Einschränkungen.
+00000001079B.07C: Angriff – Keine Beschränkungen – Max. 4
+00000001079C.07C: Kontrolle – Keine Beschränkungen – Max. 4
+00000001079D.07C: Hybrid – Keine Beschränkungen – Max. 4
+00000001079E.07C: Fracht – Keine Beschränkungen – Max. 4
+0000000107A3.07C: Durian
+0000000107A6.07C: Maximal 4 Spieler pro Rolle
+0000000107A7.07C: Vanda
+0000000107A8.07C: Papaya
+0000000107A9.07C: Marina
+0000000107AA.07C: Hot Rod
+0000000107AB.07C: Kohlefaser
+0000000107CC.07C: Lieutenant Fareeha "Pharah“ Amari ist eine herausragende Agentin von Helix Security International. Nach ihrer verdienstvollen Karriere beim ägyptischen Militär wurde sie von dem privaten Militärunternehmen handverlesen. Die Organisation feierte ihre Rekrutierung als großen Erfolg, da sie den berühmten Familiennamen Amari trägt.
+0000000107CE.07C: Jene, die Roadhog noch aus seinem früheren Leben kennen, nennen ihn "Mako".
+0000000107DA.07C: … die Großmutter aller Alpträume. Ist das euer Ernst?
+0000000107DB.07C: Torbjörn war ein angesehenes Mitglied der Ironclad-Gilde, die ihren Hauptsitz in Göteborg, Schweden hatte.
+0000000107E1.07C: ?
+0000000107E2.07C: STELLT EUER TEAM ZUSAMMEN
+0000000107E3.07C: AUSWÄHLEN
+0000000107E4.07C: Fortfahren
+0000000107E5.07C: VORHERIGER SKIN
+0000000107E6.07C: NÄCHSTER SKIN
+0000000107E7.07C: KAMPFBEREIT
+0000000107E8.07C: HELD WECHSELN
+0000000107E9.07C: ANPASSEN
+0000000107EA.07C: <tx%1$s> Auswählen
+0000000107EB.07C: <tx%1$s> Helden anpassen
+0000000107EC.07C: <tx%1$s> Heldeninfo
+0000000107ED.07C: <tx%1$s> Abbrechen
+0000000107EE.07C: <tx%1$s> Teamchat beitreten
+0000000107EF.07C: Teamchat beitreten
+0000000107F0.07C: WÄHLE EINEN HELDEN:
+0000000107F1.07C: Match-Chat beitreten
+0000000107F2.07C: SKIN WÄHLEN
+0000000107F3.07C: Skin wechseln
+0000000107F4.07C: <tx%1$s> Skin wählen
+0000000107F5.07C: Dieser Held ist aktuell nicht Teil der Rotation.
+0000000107F6.07C: Wähle einen Trainingspartner
+000000010803.07C: ZUR WEBSITE
+000000010847.07C: STANDARD
+000000010848.07C: GOLDEN
+000000010849.07C: 02.05. & 03.05.
+000000010862.07C: Versprechen
+000000010863.07C: Echo
+000000010869.07C: Symmetrie
+00000001086B.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
+00000001086C.07C: Homestand 2020 der Vancouver Titans
+00000001086E.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
+00000001086F.07C: Homestand 2020 von Toronto Defiant
+000000010871.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
+000000010872.07C: Homestand 2020 von San Francisco Shock
+000000010874.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
+000000010875.07C: Homestand 2020 von Paris Eternal
+000000010877.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
+000000010878.07C: Homestand 2020 von Los Angeles Valiant
+00000001087A.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
+00000001087B.07C: Homestand 2020 der Los Angeles Gladiators
+00000001087C.07C: %1$s DRÜCKEN, UM DEN TRAININGSPARTNER ZU WECHSELN
+00000001087D.07C: %1$s GEDRÜCKT HALTEN, UM DEN TRAININGSPARTNER ZU WECHSELN
+000000010884.07C: Mina
+000000010885.07C: Kung Fu
+000000010886.07C: Schmetterling
+000000010887.07C: Echofist
+000000010888.07C: Echowut
+000000010889.07C: Echoklinge
+00000001088A.07C: Haftbombe
+00000001088B.07C: Süß
+00000001088C.07C: Pixel
+00000001088D.07C: Aktivierung
+00000001088E.07C: Echohardt
+00000001088F.07C: Gebündelt
+000000010890.07C: Echomorph
+000000010891.07C: System online
+000000010892.07C: Tramperin
+000000010893.07C: Lässig
+000000010894.07C: Auge
+000000010895.07C: Gärtnerin
+000000010896.07C: Landung
+000000010897.07C: Lädt …
+000000010898.07C: Ghost
+000000010899.07C: Symbol
+0000000108A2.07C: Eingabe: Echo
+0000000108A3.07C: Alamak!
+0000000108A4.07C: Lade Module
+0000000108A5.07C: Bestätigt und bestätigt
+0000000108A6.07C: Ja oder nein?
+0000000108A7.07C: Nicht-relevant?
+0000000108A8.07C: Jialat!
+0000000108A9.07C: So großartig!
+0000000108AA.07C: Etwas anderes
+0000000108AB.07C: Aus jeder Situation
+0000000108AC.07C: Mindestens einmal
+0000000108C5.07C: Echo
+0000000108C7.07C: Fortfahren
+0000000108C8.07C: Neue Schadensheldin!
+0000000108DF.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
+0000000108E0.07C: Homestand 2020 von London Spitfire
+0000000108E2.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
+0000000108E3.07C: Homestand 2020 der Chengdu Hunters
+0000000108E5.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
+0000000108E6.07C: Homestand 2020 von Boston Uprising
+0000000108E8.07C: Freigeschaltet durch den Besuch eines Homestand-Events 2020
+0000000108E9.07C: Homestand 2020 von Atlanta Reign
+0000000108F8.07C: Route 66
+0000000108FE.07C: Flugplan
+000000010950.07C: Freigeschaltet durch das Einschalten bei ausgewählten Streams während Echos Heldenveröffentlichung
+000000010951.07C: Durchstarter
+000000010952.07C: Abheben
+000000010953.07C: Tolle Idee
+000000010954.07C: Mein Erbe
+000000010955.07C: Echo online
+000000010956.07C: Duplikat
+000000010997.07C: Unter Optionen > Steuerung kannst du eine Taste zum Aufnehmen zuweisen.
+0000000109C6.07C: Flecktarn
+0000000109E5.07C: Kompetitiv – Freie Rollenwahl
+0000000109E6.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Spieler der Welt an! Bei der Heldenauswahl bestehen keine Rolleneinschränkungen.
+0000000109E7.07C: Kompetitiv – Freie Rollenwahl – Saison 1
+0000000109E8.07C: Angriff – Ranglistenregeln
+0000000109E9.07C: Kontrolle – Ranglistenregeln
+0000000109EA.07C: Hybrid – Ranglistenregeln
+0000000109EB.07C: Eskorte – Ranglistenregeln
+0000000109EC.07C: Zum Fliegen gedrückt halten
+0000000109F1.07C: Kompetitiv – Freie Rollenwahl
+0000000109F2.07C: Kompetitiv – Freie Rollenwahl
+0000000109F5.07C: 40
+0000000109F6.07C: 75
+0000000109F7.07C: 150
+0000000109F8.07C: 300
+0000000109F9.07C: 450
+0000000109FA.07C: 750
+0000000109FB.07C: 1000
+0000000109FC.07C: Mach mit, um dir Belohnungen zu verdienen:
+0000000109FD.07C: Vielen Dank fürs Spielen!
+0000000109FE.07C: - Matches dauern mehrere Runden
+- Erreiche Ziele, um Punkte zu holen
+- Das Team mit den meisten Punkten gewinnt!
+000000010A0B.07C: Teilnehmer am kompetitiven Modus mit freier Rollenwahl
+000000010A0C.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches im kompe<hy>titiven Modus mit freier Rollenwahl
+000000010A0D.07C: Held des kompetitiven Modus mit freier Rollenwahl
+000000010A0E.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende des kompe<hy>titiven Modus mit freier Rollenwahl
+000000010A0F.07C: Teilnehmer am kompetitiven Modus mit freier Rollenwahl
+000000010A11.07C: Held des kompetitiven Modus mit freier Rollenwahl
+000000010A16.07C: Gleitflug
+000000010A17.07C: %2$s (%1$s)
+000000010A1C.07C: Konzentriere deine Angriffe sofort auf Echo, wenn sie Duplikat einsetzt, um zu verhindern, dass sie eine verheerende ultimative Fähigkeit entfesselt.
+000000010A1D.07C: Bleib auf Abstand und beweg dich unberechenbar, um es Echo zu erschweren, dich zu treffen.
+000000010A1E.07C: Warte mit dem Angriff, bis Echos Flug gerade nicht einsatzbereit ist und sie keine schnelle Fluchtmöglichkeit hat.
+000000010A24.07C: Schaden – Waffe
+000000010A25.07C: %1$s Damage Done
+000000010A28.07C: Schaden – Haftbomben
+000000010A29.07C: %1$s Damage Done
+000000010A2A.07C: Schaden – Gebündelter Strahl
+000000010A2B.07C: %1$s Damage Done
+000000010A2C.07C: |Rpl %1$s:Kill:Kills; mit Gebündeltem Strahl
+000000010A2D.07C: Kills mit Gebündeltem Strahl: %1$s
+000000010A2E.07C: Kills mit Gebündeltem Strahl –
+Ø pro 10 Min.
+000000010A2F.07C: Kills mit Gebündeltem Strahl – Ø pro 10 Min.: %1$s
+000000010A30.07C: Kills mit Gebündeltem Strahl – Bestleistung
+000000010A31.07C: Kills mit Gebündeltem Strahl – Bestleistung: %1$s
+000000010A32.07C: |Rpl %1$s:Kill:Kills; mit Haftbomben
+000000010A33.07C: Kills mit Haftbomben: %1$s
+000000010A34.07C: Kills mit Haftbomben –
+Ø pro 10 Min.
+000000010A35.07C: Kills mit Haftbomben – Ø pro 10 Min.: %1$s
+000000010A36.07C: Kills mit Haftbomben – Bestleistung
+000000010A37.07C: Kills mit Haftbomben – Bestleistung: %1$s
+000000010A38.07C: |Rpl %1$s:Kill:Kills; mit Duplikat
+000000010A39.07C: Kills mit Duplikat: %1$s
+000000010A3A.07C: Kills mit Duplikat –
+Ø pro 10 Min.
+000000010A3B.07C: Kills mit Duplikat – Ø pro 10 Min.: %1$s
+000000010A3C.07C: Kills mit Duplikat – Bestleistung
+000000010A3D.07C: Kills mit Duplikat – Bestleistung: %1$s
+000000010A3F.07C: Quote direkter Treffer mit Haftbomben
+000000010A40.07C: Quote direkter Treffer mit Haftbomben: %1$s
+000000010A47.07C: |Rpl %1$s:Abgefeuerte Haftbombe:Abgefeuerte Haftbomben;
+000000010A48.07C: Abgefeuerte Haftbomben: %1$s
+000000010A49.07C: |Rpl %1$s:direkter Treffer:direkte Treffer; mit Haftbomben
+000000010A4A.07C: Direkte Treffer mit Haftbomben: %1$s
+000000010A51.07C: Verwende den Gleitflug für Flugmanöver, wenn Flug gerade nicht einsatzbereit ist.
+000000010A59.07C: |Rpl %1$s:Haftbombe:Harftbomben; eingesetzt
+000000010A5A.07C: Eingesetzte Haftbomben: %1$s
+000000010A5E.07C: %1$s Sek. mit Gebündeltem Strahl
+000000010A5F.07C: Kills mit Gebündeltem Strahl: %1$s
+000000010A61.07C: HELDEN: Heldenrotation für Ranglistenmatches
+000000010A62.07C: Schaden – Gebündelter Strahl – nur Bonusschaden
+000000010A63.07C: %1$s Bonus Damage Done
+000000010A65.07C: Atlanta Reign
+000000010A66.07C: Atlanta Reign (auswärts)
+000000010A67.07C: Boston Uprising
+000000010A68.07C: Boston Uprising (auswärts)
+000000010A69.07C: Chengdu Hunters
+000000010A6A.07C: Chengdu Hunters (auswärts)
+000000010A6D.07C: Dallas Fuel
+000000010A6E.07C: Dallas Fuel (auswärts)
+000000010A71.07C: Florida Mayhem (auswärts)
+000000010A72.07C: Florida Mayhem
+000000010A73.07C: Guangzhou Charge
+000000010A74.07C: Guangzhou Charge (auswärts)
+000000010A75.07C: Hangzhou Spark
+000000010A76.07C: Hangzhou Spark (auswärts)
+000000010A77.07C: Houston Outlaws
+000000010A78.07C: Houston Outlaws (auswärts)
+000000010A79.07C: London Spitfire
+000000010A7A.07C: London Spitfire (auswärts)
+000000010A7B.07C: Los Angeles Gladiators
+000000010A7C.07C: Los Angeles Gladiators (auswärts)
+000000010A7F.07C: Los Angeles Valiant (auswärts)
+000000010A80.07C: Los Angeles Valiant
+000000010A81.07C: New York Excelsior
+000000010A82.07C: New York Excelsior (auswärts)
+000000010A83.07C: Paris Eternal
+000000010A84.07C: Paris Eternal (auswärts)
+000000010A85.07C: Philadelphia Fusion
+000000010A86.07C: Philadelphia Fusion (auswärts)
+000000010A89.07C: San Francisco Shock (auswärts)
+000000010A8A.07C: San Francisco Shock
+000000010A8B.07C: Seoul Dynasty
+000000010A8C.07C: Seoul Dynasty (auswärts)
+000000010A8D.07C: Shanghai Dragons
+000000010A8E.07C: Shanghai Dragons (auswärts)
+000000010A8F.07C: Toronto Defiant
+000000010A90.07C: Toronto Defiant (auswärts)
+000000010A91.07C: Vancouver Titans
+000000010A92.07C: Vancouver Titans (auswärts)
+000000010A93.07C: Washington Justice
+000000010A94.07C: Washington Justice (auswärts)
+000000010A96.07C: Schaden – Duplikat
+000000010A97.07C: %1$s Duplicate Damage Done
+000000010A98.07C: Direkttreffer mit Haftbomben – Bestleistung
+000000010A99.07C: Direkttreffer mit Haftbomben – Bestleistung: %1$s
+000000010A9A.07C: Direkttreffer mit Haftbomben –
+Ø pro 10 Min.
+000000010A9B.07C: Direkttreffer mit Haftbomben – Ø pro 10 Min.: %1$s
+000000010A9C.07C: Trefferquote mit Gebündeltem Strahl
+000000010A9D.07C: Trefferquote mit Gebündeltem Strahl: %1$s
+000000010A9E.07C: %1$s Sek. mit Gebündeltem Strahl getroffen
+000000010A9F.07C: Kills mit Gebündeltem Strahl: %1$s
+000000010B39.07C: -
+000000010CC8.07C: <fg%1$s>%2$s</fg><tx%3$s> used <tx%4$s> on <fg%7$s>%5$s</fg><tx%6$s>
+[Core] Execution finished in 00:00:04.9359900 seconds

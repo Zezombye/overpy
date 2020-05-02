@@ -62,40 +62,41 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 		if (typeof kwObj[keyName].values === "object") {
 			value = topy(value, kwObj[keyName].values);
 
-		} else if (kwObj[keyName].values === "_string") {
-			value = unBackslashString(value);
+		} else if (kwObj[keyName].values === "__string__") {
+			value = unescapeString(value);
 
-		} else if (kwObj[keyName].values === "_percent") {
+		} else if (kwObj[keyName].values === "__percent__") {
 			if (!value.endsWith("%")) {
 				error("Expected a percentage for value of elem '"+elem+"'");
 			}
 			value = parseInt(value.substring(0, value.length-1));
 
-		} else if (kwObj[keyName].values === "_int") {
+		} else if (kwObj[keyName].values === "__int__") {
 			value = parseInt(value);
 			
-		} else if (kwObj[keyName].values === "_float") {
+		} else if (kwObj[keyName].values === "__float__") {
 			value = parseFloat(value);
 			
-		} else if (["_boolYesNo", "_boolOnOff", "_boolEnabled"].includes(kwObj[keyName].values)) {
+		} else if (["__boolYesNo__", "__boolOnOff__", "__boolEnabled__"].includes(kwObj[keyName].values)) {
 			value = topy(value, customGameSettingsKw);
-			if (["_yes", "_enabled", "_on"].includes(value)) {
+			if (["__yes__", "__enabled__", "__on__"].includes(value)) {
 				value = true;
-			} else if (["_no", "_disabled", "_off"].includes(value)) {
+			} else if (["__no__", "__disabled__", "__off__"].includes(value)) {
 				value = false;
 			} else {
 				error("Unknown value '"+value+"'");
 			}
 
-		} else if (kwObj[keyName].values === "_boolReverseEnabled") {
+		} else if (["__boolReverseYesNo__", "__boolReverseOnOff__", "__boolReverseEnabled__"].includes(kwObj[keyName].values)) {
 			value = topy(value, customGameSettingsKw);
-			if (value === "_disabled") {
-				value = true;
-			} else if (value === "_enabled") {
+			if (["__yes__", "__enabled__", "__on__"].includes(value)) {
 				value = false;
+			} else if (["__no__", "__disabled__", "__off__"].includes(value)) {
+				value = true;
 			} else {
 				error("Unknown value '"+value+"'");
 			}
+
 		} else {
 			error("Unknown value type '"+kwObj[keyName].values+"' for '"+keyName+"'");
 		}

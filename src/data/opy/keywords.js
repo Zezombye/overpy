@@ -1,0 +1,141 @@
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+const opyKeywords = {
+
+//Keywords
+
+    "and": {
+        "description": "Whether both of the two operands are true (or equivalent to true). Does short-circuiting.",
+        "args": null
+    },
+    "bool": {
+        "description": "The 'boolean' type. Denotes a boolean such as 'false' or 'true'.",
+        "args": null,
+    },
+    "case": {
+        "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is equal to the value specified in this `case` statement. Literal arrays should not be used. Note that the execution will not jump to the end of the `switch` block after the end of the `case` block; if you want that to be the case, use the `break` instruction.",
+        "args": null
+    },
+    "def": {
+        "description": "Defines a subroutine. Note that subroutines cannot have any arguments or rule conditions. Example: `def mySubroutine():`",
+        "args": null
+    },
+    "default": {
+        "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is not equal to any value specified in the `case` statements. Note that the execution will not jump to the end of the `switch` block after the end of the `default` block; if you want that to be the case, use the `break` instruction.",
+        "args": null
+    },
+    "del": {
+        "description": "Removes the Element specified by the Index from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs. Example: `del myVar[3]`",
+        "args": null
+    },
+    "do": {
+        "description": "Denotes a do/while loop. Can only be specified at the start of a rule (ignoring the rule condition). The matching `while` must not have an ending colon (`:`).",
+        "args": null
+    },
+    "elif": {
+        "description": "Denotes the beginning of a block that will only execute if the specified condition is true and the previous `if` or `elif` block's condition was false.",
+        "args": null
+    },
+    "else": {
+        "description": `Denotes either:
+        
+- If an instruction, the beginning of a block that will only execute if the previous \`if\` or \`elif\` block's condition was false.
+
+- If a value, an inline "ternary" condition, such as \`A if B else C\`.`,
+        "args": null
+    },
+    "float": {
+        "description": "The 'float' type. Denotes any real number.",
+        "args": null,
+    },
+    "for": {
+        "description": `Denotes either:
+        
+- If an instruction, the beginning of a block that will execute in a loop, modifying the control variable on each loop. The instruction must be \`for <var> in range(start, stop, step):\` See also the \`range\` function.
+
+- If within a list comprehension, a filtered  or mapped array, such as \`[i for i in x if x == 3]\`.`,
+        "args": null
+    },
+    "if": {
+        "description": `Denotes either:
+        
+- If an instruction, the beginning of a block that will only execute if the specified condition is true.
+
+- If a value, an inline "ternary" condition, such as \`A if B else C\`. The \`else\` must be specified.`,
+        "args": null
+    },
+    "int": {
+        "description": "The 'integer' type. A subset of the 'float' type.",
+        "args": null,
+    },
+    "globalvar": {
+        "description": "Declares a global variable. The index (0-127) can optionally be specified. Example: `globalvar myVar 127`",
+        "args": null
+    },
+    "goto": {
+        "description": "Goes to the specified label. Labels can only be placed after the `goto` statement, in the current rule. For example, `goto lbl_1` will continue execution from the `lbl_1:` instruction. Dynamic gotos, although not recommended, can be declared with the `loc+` keyword, such as `goto loc+A` which will move execution 3 actions after the `goto` instruction.",
+        "args": null
+    },
+    "lambda": {
+        "description": "Denotes an inline function. Can only be used in the `sorted` function.",
+        "args": null
+    },
+    "not": {
+        "description": "Whether the given operand is false (or equivalent to false).",
+        "args": null
+    },
+    "or": {
+        "description": "Whether either of the two operands are true (or equivalent to true). Does short-circuiting.",
+        "args": null
+    },
+    "playervar": {
+        "description": "Declares a player variable. The index (0-127) can optionally be specified. Example: `playervar myVar 127`",
+        "args": null
+    },
+    "rule": {
+        "description": "Declares a rule.",
+        "args": null,
+        "snippet": "rule \"$0\"",
+    },
+    "settings": {
+        "description": "Declares custom game settings. Must be followed by an object containing the settings.",
+        "args": null
+    },
+    "signed": {
+        "description": "Defines the specified type as signed (inferior or equal to 0). Only valid for 'int' or 'float'.",
+        "args": null,
+    },
+    "switch": {
+        "description": "Denotes the beginning of a block that will jump execution to the `case` statement that has the value of the specified variable. If no `case` statement has the value of the specified variable, the execution goes to the `default` statement if it exists, else to the end of the block.",
+        "args": null
+    },
+    "subroutine": {
+        "description": "Declares a subroutine. The index (0-127) can optionally be specified. Example: `subroutine mySubroutine 127`",
+        "args": null
+    },
+    "unsigned": {
+        "description": "Defines the specified type as unsigned (superior or equal to 0). Only valid for 'int' or 'float'.",
+        "args": null,
+    },
+    "while": {
+        "description": "Denotes the beginning of a block that will execute in a loop as long as the specified condition is true. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end of the block. Can also denote the end of a do/while loop, if no `:` is at the end of the instruction.",
+        "args": null
+    },
+};

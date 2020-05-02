@@ -1,35 +1,34 @@
 
-#!declareGlobal timer
-#!declareGlobal challenge
-#!declareGlobal nbPlayersKilled
-#!declareGlobal additionalTime
-#!declareGlobal timeTarget
+globalvar timer
+globalvar challenge
+globalvar nbPlayersKilled
+globalvar additionalTime
+globalvar timeTarget
 
-#!declareSubroutine countdownTimer
-#!declareSubroutine nextChallenge
+subroutine countdownTimer
+subroutine nextChallenge
 
-#!obfuscate
+rule "timer":
+    #debug(timer)
+    #debug("Position: {}".format(hostPlayer.getPosition()))
+    #debug("Facing direction: {}".format(hostPlayer.getFacingDirection()))
+    hudHeader(getAllPlayers(), timer, HudPosition.TOP, 0, Color.WHITE, HudReeval.VISIBILITY_SORT_ORDER_AND_STRING, SpecVisibility.ALWAYS)
+    timer = 5
 
-@Rule "timer"
-@Event global
-#debug(timer)
-#debug("Position: {}".format(hostPlayer.getPosition()))
-#debug("Facing direction: {}".format(hostPlayer.getFacingDirection()))
-hudHeader(getAllPlayers(), timer, Position.TOP, 0, Color.WHITE, HudReeval.VISIBILITY_SORT_ORDER_AND_STRING, SpecVisibility.ALWAYS)
-timer = 5
+rule "reset time":
+    @Condition hostPlayer.isHoldingButton(Button.INTERACT)
 
-@Rule "reset time"
-@Event global
-if hostPlayer.isHoldingButton(Button.INTERACT):
     timer = 0
 
-@Rule "player got kill"
-@Event playerEarnedElimination
-if attacker == hostPlayer:
+rule "player got kill":
+    @Event playerEarnedElimination
+    @Condition attacker == hostPlayer
+
     nbPlayersKilled++
 
-@Rule "countdown timer"
 def countdownTimer():
+    @Name "countdown timer"
+
     hostPlayer.setStatusEffect(null, Status.ROOTED, 9999)
     hostPlayer.setAbility1Enabled(false)
     hostPlayer.setAbility2Enabled(false)
@@ -54,17 +53,16 @@ def countdownTimer():
     smallMessage(getAllPlayers(), "Go!")
     hostPlayer.clearStatusEffect(Status.ROOTED)
 
-@Rule "challenge finished"
 def nextChallenge():
+    @Name "challenge finished"
     destroyAllEffects()
     destroyAllDummies()
     stopChasingVariable(timer)
     nbPlayersKilled = 0
     challenge++
 
-@Rule "player spawned in"
-@Event global
-if hostPlayer.hasSpawned():
+rule "player spawned in":
+    @Condition hostPlayer.hasSpawned()
     wait(1)
     challenge = 1
     setObjectiveDescription(getAllPlayers(), "Challenge {}".format(challenge), HudReeval.VISIBILITY_SORT_ORDER_AND_STRING)
@@ -73,9 +71,8 @@ if hostPlayer.hasSpawned():
     nbPlayersKilled = 0
 
 #10 seconds - possible in 5 though
-@Rule "challenge 1"
-@Event global
-if challenge == 1:
+rule "challenge 1":
+    @Condition challenge == 1
     hostPlayer.teleport(vect(116.11, -1.22, -21))
     hostPlayer.setFacing(vect(1, 0, 0), Relativity.TO_WORLD)
     bigMessage(hostPlayer, "Get to the vortex!")
@@ -86,15 +83,13 @@ if challenge == 1:
     hostPlayer.setAbility1Enabled(true)
     hostPlayer.setAbility2Enabled(true)
 
-@Rule "challenge 1 finished"
-@Event global
-if challenge == 1 and distance(hostPlayer.getPosition(), vect(144, 9, -21)) < 2:
+rule "challenge 1 finished":
+    @Condition challenge == 1 and distance(hostPlayer.getPosition(), vect(144, 9, -21)) < 2 
     nextChallenge()
 
 #10 seconds - actually takes like 12
-@Rule "challenge 2"
-@Event global
-if challenge == 2:
+rule "challenge 2":
+    @Condition challenge == 2
     hostPlayer.teleport(vect(96.45, -1.41, -21))
     hostPlayer.setFacing(vect(-1, 0, 0), Relativity.TO_WORLD)
     bigMessage(hostPlayer, "Hook em all!")
@@ -109,11 +104,12 @@ if challenge == 2:
     countdownTimer()
     hostPlayer.setAbility1Enabled(true)
 
-@Rule "challenge 2 dummies - rein"
-@Event eachPlayer
-@Team 1
-@Hero reinhardt
-if challenge == 2:
+rule "challenge 2 dummies - rein":
+    @Event eachPlayer
+    @Team 1
+    @Hero reinhardt
+    @Condition challenge == 2
+
     do:
         eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
         wait(2)
@@ -121,25 +117,24 @@ if challenge == 2:
         wait(2)
     while RULE_CONDITION
 
-@Rule "challenge 2 dummies - zarya"
-@Event eachPlayer
-@Team 1
-@Hero zarya
-if challenge == 2:
+rule "challenge 2 dummies - zarya":
+    @Event eachPlayer
+    @Team 1
+    @Hero zarya
+    @Condition challenge == 2
     do:
         wait(2)
         eventPlayer.forceButtonPress(Button.ABILITY_1)
         wait(2)
     while RULE_CONDITION
 
-@Rule "challenge 2 finished"
-@Event global
-if challenge == 2 and nbPlayersKilled == 6:
+rule "challenge 2 finished":
+    @Condition challenge == 2 and nbPlayersKilled == 6
     nextChallenge()
 
-@Rule "challenge 3"
-@Event global
-if challenge == 3:
+rule "challenge 3":
+    @Condition challenge == 3
+
     hostPlayer.teleport(vect(20.51, 1.61, -68.87))
     hostPlayer.setFacing(vect(-1, 0, 0), Relativity.TO_WORLD)
     bigMessage(hostPlayer, "Kill em all (hold rclick)!")
@@ -157,22 +152,22 @@ if challenge == 3:
     createDummy(Hero.HAMMOND, Team.1, -1, vect(31.37, -0.25, -58.23), vect(0,0,0))
     createDummy(Hero.HAMMOND, Team.1, -1, vect(33.97, 6.75, -66.66), vect(0,0,0))
 
-@Rule "challenge 3 stun"
-@Event global
-if challenge == 3 and hostPlayer.getCurrentHero() == Hero.MCCREE:
+
+rule "challenge 3 stun":
+    @Condition challenge == 3 and hostPlayer.getCurrentHero() == Hero.MCCREE
+
     do:
         hostPlayer.setStatusEffect(null, Status.KNOCKED_DOWN, 0.016)
         wait()
     while RULE_CONDITION
 
-@Rule "challenge 3 finished"
-@Event global
-if challenge == 3 and nbPlayersKilled == 6:
+
+rule "challenge 3 finished":
+    @Condition challenge == 3 and nbPlayersKilled == 6
     nextChallenge()
 
-@Rule "challenge 4"
-@Event global
-if challenge == 4:
+rule "challenge 4":
+    @Condition challenge == 4
     hostPlayer.teleport(vect(-20, -1, -47.46))
     hostPlayer.setFacing(vect(0,0,-1), Relativity.TO_WORLD)
     bigMessage(hostPlayer, "Headshot Mondatta!")
@@ -188,19 +183,18 @@ if challenge == 4:
     createDummy(Hero.REINHARDT, Team.1, -1, vect(-57, 2.80, -134.54), vect(0,0,-1))
     createDummy(Hero.REINHARDT, Team.1, -1, vect(-55.11, 2.80, -131.51), vect(1,0,0))
 
-@Rule "challenge 4 reins"
-@Event eachPlayer
-@Team 1
-@Hero reinhardt
-if challenge == 4:
+
+rule "challenge 4 reins":
+    @Event eachPlayer
+    @Team 1
+    @Hero reinhardt
+    @Condition challenge == 4
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
 
-@Rule "challenge 4 end"
-@Event global
-if challenge == 4 and nbPlayersKilled == 1:
+rule "challenge 4 end":
+    @Condition challenge == 4 and nbPlayersKilled == 1
     declareTeamVictory(Team.2)
 
-@Rule "lost"
-@Event global
-if timer == 0:
+rule "lost":
+    @Condition timer == 0
     declareTeamVictory(Team.1)

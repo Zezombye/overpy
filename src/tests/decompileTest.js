@@ -15,7 +15,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-decompileTest = `
+"use strict";
+
+var decompileTest = `
 
 rule("cs:s zombie escape - made by /u/zezombye - discord in description")
 {

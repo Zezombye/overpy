@@ -25,16 +25,22 @@ const preprocessingDirectives = {
         "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion."
     },
     "obfuscate": {
-        "description": "Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.\n\nUsage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)\n\nThe following obfuscation methods are applied:\n\n- Rule filling: several empty rules are inserted.\n- Comment removing: all rule titles are replaced with the empty string.\n- Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.\n- Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.\n"
-    },
-    "noEdit": {
-        "description": "Adds 2500 empty rules to the preset, which should make it absolutely impossible to open the rules (as you get a \"connection lost\" error). Therefore, it is the ultimate form of obfuscation, as you simply cannot even see the code.\n\nHowever, pasting the generated code could trigger a \"connection lost\" error as well, and a huge lag. As such, this directive should only be used on finalized gamemodes, before you publish it; it should not be used every time.\n\nYou will very likely have to paste the generated code in an editor, then paste the rules by sets of 800, 1200 then 500 to be able to insert them.\n"
+        "description": 
+`Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.
+
+Usage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)
+
+The following obfuscation methods are applied:
+
+- Rule filling: 2500 empty rules are inserted, making it impossible to view the gamemode within the workshop UI. It must be copy-pasted to be able to be edited (you can then apply various anti copy-paste integrity checks).
+- Comment removing: all rule titles are replaced with the empty string.
+- Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.
+- Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
+- Value replacement: some values, such as heroes, are replaced with other values that compute to the original value.
+`
     },
     "suppressWarnings": {
         "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
-    },
-    "disableUnusedVars": {
-        "description": "Do not put 'unused_var_xxx' in the compilation. Not recommended if compiling regularly, as this could lead to not being able to paste the generated output if variable offsets have been modified."
     },
     "mainFile": {
         "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file."

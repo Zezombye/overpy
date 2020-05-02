@@ -1,0 +1,368 @@
+variables {
+	global:
+		0: timer
+		1: challenge
+		2: nbPlayersKilled
+		3: additionalTime
+		4: timeTarget
+}
+subroutines {
+	0: countdownTimer
+	1: nextChallenge
+}
+rule ("timer") {
+    event {
+        Ongoing - Global;
+    }
+
+    actions {
+        Create HUD Text(All Players(All Teams), Global Variable(timer), Null, Null, Top, 0, White, White, White, Visible To Sort Order and String, Visible Always);
+        Set Global Variable(timer, 5);
+    }
+}
+
+rule ("reset time") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Is Button Held(Host Player, Interact) == True;
+    }
+
+    actions {
+        Set Global Variable(timer, 0);
+    }
+}
+
+rule ("player got kill") {
+    event {
+        Player Earned Elimination;
+        All;
+        All;
+    }
+
+    conditions {
+        Attacker == Host Player;
+    }
+
+    actions {
+        Modify Global Variable(nbPlayersKilled, Add, 1);
+    }
+}
+
+rule ("countdown timer") {
+    event {
+        Subroutine;
+        countdownTimer;
+    }
+
+    actions {
+        Set Status(Host Player, Null, Rooted, 9999);
+        Set Ability 1 Enabled(Host Player, False);
+        Set Ability 2 Enabled(Host Player, False);
+        Skip If(Not(Compare(Hero Of(Host Player), ==, Hero(Widowmaker))), 4);
+        Set Ultimate Ability Enabled(Host Player, True);
+        Wait(0.016, Ignore Condition);
+        Set Ultimate Charge(Host Player, 100);
+        Skip(1);
+        Set Ultimate Ability Enabled(Host Player, False);
+        Set Primary Fire Enabled(Host Player, False);
+        Set Secondary Fire Enabled(Host Player, False);
+        Set Global Variable(timeTarget, Add(Global Variable(timer), Global Variable(additionalTime)));
+        Chase Global Variable Over Time(timer, Global Variable(timeTarget), 2, None);
+        Small Message(All Players(All Teams), 3);
+        Wait(1, Ignore Condition);
+        Small Message(All Players(All Teams), 2);
+        Wait(1, Ignore Condition);
+        Small Message(All Players(All Teams), 1);
+        Wait(1, Ignore Condition);
+        Stop Chasing Global Variable(timer);
+        Chase Global Variable At Rate(timer, 0, 1, None);
+        Small Message(All Players(All Teams), Custom String("Go!", Null, Null, Null));
+        Clear Status(Host Player, Rooted);
+    }
+}
+
+rule ("challenge finished") {
+    event {
+        Subroutine;
+        nextChallenge;
+    }
+
+    actions {
+        Destroy All Effects;
+        Destroy All Dummy Bots;
+        Stop Chasing Global Variable(timer);
+        Set Global Variable(nbPlayersKilled, 0);
+        Modify Global Variable(challenge, Add, 1);
+    }
+}
+
+rule ("player spawned in") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Has Spawned(Host Player) == True;
+    }
+
+    actions {
+        Wait(1, Ignore Condition);
+        Set Global Variable(challenge, 1);
+        Set Objective Description(All Players(All Teams), Custom String("Challenge {0}", Global Variable(challenge), Null, Null), Visible To Sort Order and String);
+        Set Global Variable(nbPlayersKilled, 0);
+    }
+}
+
+rule ("challenge 1") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(challenge) == 1;
+    }
+
+    actions {
+        Teleport(Host Player, Vector(116.11, -1.22, -21));
+        Set Facing(Host Player, Vector(1, 0, 0), To World);
+        Big Message(Host Player, Custom String("Get to the vortex!", Null, Null, Null));
+        Set Global Variable(additionalTime, 5);
+        Start Forcing Player To Be Hero(Host Player, Hero(Lúcio));
+        Create Effect(All Players(All Teams), Bad Aura, Green, Vector(144, 9, -21), 2, Visible To Position and Radius);
+        Call Subroutine(countdownTimer);
+        Set Ability 1 Enabled(Host Player, True);
+        Set Ability 2 Enabled(Host Player, True);
+    }
+}
+
+rule ("challenge 1 finished") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(challenge) == 1;
+        Distance Between(Position Of(Host Player), Vector(144, 9, -21)) < 2;
+    }
+
+    actions {
+        Call Subroutine(nextChallenge);
+    }
+}
+
+rule ("challenge 2") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(challenge) == 2;
+    }
+
+    actions {
+        Teleport(Host Player, Vector(96.45, -1.41, -21));
+        Set Facing(Host Player, Vector(-1, 0, 0), To World);
+        Big Message(Host Player, Custom String("Hook em all!", Null, Null, Null));
+        Start Forcing Player To Be Hero(Host Player, Hero(Roadhog));
+        Set Global Variable(additionalTime, 20);
+        Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(81.96, -1.32, -23.8), Vector(1, 0, 0));
+        Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(81.96, -1.32, -21.06), Vector(1, 0, 0));
+        Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(81.96, -1.32, -18.34), Vector(1, 0, 0));
+        Create Dummy Bot(Hero(Zarya), Team 1, -1, Vector(80.05, -1.4, -19.82), Vector(1, 0, 0));
+        Create Dummy Bot(Hero(Zarya), Team 1, -1, Vector(80.05, -1.4, -22.72), Vector(1, 0, 0));
+        Create Dummy Bot(Hero(Zarya), Team 1, -1, Vector(84.73, -1.36, -21), Vector(1, 0, 0));
+        Call Subroutine(countdownTimer);
+        Set Ability 1 Enabled(Host Player, True);
+    }
+}
+
+rule ("challenge 2 dummies - rein") {
+    event {
+        Ongoing - Each Player;
+        Team 1;
+        Reinhardt;
+    }
+
+    conditions {
+        Global Variable(challenge) == 2;
+    }
+
+    actions {
+        Start Holding Button(Event Player, Secondary Fire);
+        Wait(2, Ignore Condition);
+        Stop Holding Button(Event Player, Secondary Fire);
+        Wait(2, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule ("challenge 2 dummies - zarya") {
+    event {
+        Ongoing - Each Player;
+        Team 1;
+        Zarya;
+    }
+
+    conditions {
+        Global Variable(challenge) == 2;
+    }
+
+    actions {
+        Wait(2, Ignore Condition);
+        Press Button(Event Player, Ability 1);
+        Wait(2, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule ("challenge 2 finished") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(challenge) == 2;
+        Global Variable(nbPlayersKilled) == 6;
+    }
+
+    actions {
+        Call Subroutine(nextChallenge);
+    }
+}
+
+rule ("challenge 3") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(challenge) == 3;
+    }
+
+    actions {
+        Teleport(Host Player, Vector(20.51, 1.61, -68.87));
+        Set Facing(Host Player, Vector(-1, 0, 0), To World);
+        Big Message(Host Player, Custom String("Kill em all (hold rclick)!", Null, Null, Null));
+        Start Forcing Player To Be Hero(Host Player, Hero(McCree));
+        Set Global Variable(additionalTime, 20);
+        Call Subroutine(countdownTimer);
+        Set Secondary Fire Enabled(Host Player, True);
+        Set Primary Fire Enabled(Host Player, True);
+        Set Ability 1 Enabled(Host Player, True);
+        Set Ability 2 Enabled(Host Player, True);
+        Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(2.12, 5.74, -69.48), Vector(0, 0, 0));
+        Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(2.12, 5.74, -72.61), Vector(0, 0, 0));
+        Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(2.12, 5.74, -54.41), Vector(0, 0, 0));
+        Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(14, -1.25, -53), Vector(0, 0, 0));
+        Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(31.37, -0.25, -58.23), Vector(0, 0, 0));
+        Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(33.97, 6.75, -66.66), Vector(0, 0, 0));
+    }
+}
+
+rule ("challenge 3 stun") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(challenge) == 3;
+        Hero Of(Host Player) == Hero(McCree);
+    }
+
+    actions {
+        Set Status(Host Player, Null, Knocked Down, 0.016);
+        Wait(0.016, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule ("challenge 3 finished") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(challenge) == 3;
+        Global Variable(nbPlayersKilled) == 6;
+    }
+
+    actions {
+        Call Subroutine(nextChallenge);
+    }
+}
+
+rule ("challenge 4") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(challenge) == 4;
+    }
+
+    actions {
+        Teleport(Host Player, Vector(-20, -1, -47.46));
+        Set Facing(Host Player, Vector(0, 0, -1), To World);
+        Big Message(Host Player, Custom String("Headshot Mondatta!", Null, Null, Null));
+        Start Forcing Player To Be Hero(Host Player, Hero(Widowmaker));
+        Set Global Variable(additionalTime, 20);
+        Call Subroutine(countdownTimer);
+        Set Ability 1 Enabled(Host Player, True);
+        Set Primary Fire Enabled(Host Player, True);
+        Set Secondary Fire Enabled(Host Player, True);
+        Create Dummy Bot(Hero(Zenyatta), Team 1, -1, Vector(-57, 2.8, -131.51), Vector(0, 0, 1));
+        Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-57.05, 2.80, -128.62), Vector(0, 0, 1));
+        Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-59.12, 2.8, -131.5), Vector(-1, 0, 0));
+        Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-57, 2.80, -134.54), Vector(0, 0, -1));
+        Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-55.11, 2.80, -131.51), Vector(1, 0, 0));
+    }
+}
+
+rule ("challenge 4 reins") {
+    event {
+        Ongoing - Each Player;
+        Team 1;
+        Reinhardt;
+    }
+
+    conditions {
+        Global Variable(challenge) == 4;
+    }
+
+    actions {
+        Start Holding Button(Event Player, Secondary Fire);
+    }
+}
+
+rule ("challenge 4 end") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(challenge) == 4;
+        Global Variable(nbPlayersKilled) == 1;
+    }
+
+    actions {
+        Declare Team Victory(Team 2);
+    }
+}
+
+rule ("lost") {
+    event {
+        Ongoing - Global;
+    }
+
+    conditions {
+        Global Variable(timer) == 0;
+    }
+
+    actions {
+        Declare Team Victory(Team 1);
+    }
+}
+

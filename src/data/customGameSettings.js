@@ -24,7 +24,7 @@ const customGameSettingsSchema =
         "values": {
             "description": {
                 "guid": "00000001007F",
-                "values": "_string",
+                "values": "__string__",
                 "maxBytes": 512,
                 "en-US": "Description",
                 "de-DE": "Beschreibung",
@@ -257,7 +257,7 @@ const customGameSettingsSchema =
             },
             "swapTeamsAfterMatch": {
                 "guid": "00000000705F",
-                "values": "_boolYesNo",
+                "values": "__boolYesNo__",
                 "default": "yes",
                 "en-US": "Swap Teams After Match",
                 "de-DE": "Seitenwechsel nach Match",
@@ -275,7 +275,7 @@ const customGameSettingsSchema =
             },
             "team1Slots": {
                 "guid": "000000005A91",
-                "values": "_int",
+                "values": "__int__",
                 "min": 0,
                 "max": 6,
                 "default": 6,
@@ -295,7 +295,7 @@ const customGameSettingsSchema =
             },
             "team2Slots": {
                 "guid": "000000005A91",
-                "values": "_int",
+                "values": "__int__",
                 "min": 0,
                 "max": 6,
                 "default": 6,
@@ -315,7 +315,7 @@ const customGameSettingsSchema =
             },
             "ffaSlots": {
                 "guid": "000000006ABB",
-                "values": "_int",
+                "values": "__int__",
                 "min": 0,
                 "max": 12,
                 "default": 12,
@@ -334,7 +334,7 @@ const customGameSettingsSchema =
                 "zh-TW": "自由混戰人數上限"
             },
             "spectatorSlots": {
-                "values": "_int",
+                "values": "__int__",
                 "min": 0,
                 "max": 12,
                 "default": 2,
@@ -354,7 +354,7 @@ const customGameSettingsSchema =
                 "zh-TW": "觀戰人數上限"
             },
             "allowPlayersInQueue": {
-                "values": "_boolYesNo",
+                "values": "__boolYesNo__",
                 "default": "no",
                 "guid": "00000000F25B",
                 "en-US": "Allow Players Who Are In Queue",
@@ -372,7 +372,7 @@ const customGameSettingsSchema =
                 "zh-TW": "佇列中的玩家可進行"
             },
             "useExperimentalUpdate": {
-                "values": "_boolYesNo",
+                "values": "__boolYesNo__",
                 "default": "no",
                 "guid": "0000000102F5",
                 "en-US": "Use Experimental Update If Available",
@@ -390,7 +390,7 @@ const customGameSettingsSchema =
                 "zh-TW": "可用時使用實驗性更新"
             },
             "enableMatchVoiceChat": {
-                "values": "_boolEnabled",
+                "values": "__boolEnabled__",
                 "default": "disabled",
                 "guid": "000000006A04",
                 "en-US": "Match Voice Chat",
@@ -408,7 +408,7 @@ const customGameSettingsSchema =
                 "zh-TW": "對戰語音聊天"
             },
             "pauseGameOnDisconnect": {
-                "values": "_boolYesNo",
+                "values": "__boolYesNo__",
                 "default": "no",
                 "guid": "000000007110",
                 "en-US": "Pause Game On Player Disconnect",
@@ -583,7 +583,7 @@ const customGameSettingsSchema =
                 "guid": "0000000058DA",
                 "values": {
                     "enableEnemyHealthBars": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "000000005888",
                         "en-US": "Enemy Health Bars",
@@ -665,7 +665,7 @@ const customGameSettingsSchema =
                         "zh-TW": "開始遊戲模式"
                     },
                     "healthPackRespawnTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -685,7 +685,7 @@ const customGameSettingsSchema =
                         "zh-TW": "治療包重生時間"
                     },
                     "enableKillCam": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "00000000596B",
                         "en-US": "Kill Cam",
@@ -703,7 +703,7 @@ const customGameSettingsSchema =
                         "zh-TW": "死亡重播"
                     },
                     "enableKillFeed": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "00000000588B",
                         "en-US": "Kill Feed",
@@ -722,7 +722,7 @@ const customGameSettingsSchema =
                     },
                     "enableSkins": {
                         "guid": "00000000588C",
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "en-US": "Skins",
                         "es-ES": "Aspectos",
@@ -805,7 +805,7 @@ const customGameSettingsSchema =
                         "zh-TW": "治療包重生"
                     },
                     "enableHeroSwitching": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "00000000588D",
                         "en-US": "Allow Hero Switching",
@@ -971,7 +971,7 @@ const customGameSettingsSchema =
                         "zh-TW": "角色類型限制"
                     },
                     "enableRandomHeroes": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "00000000588F",
                         "en-US": "Respawn As Random Hero",
@@ -989,7 +989,7 @@ const customGameSettingsSchema =
                         "zh-TW": "重生時隨機更換英雄"
                     },
                     "respawnTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 100,
                         "default": 100,
@@ -1052,7 +1052,7 @@ const customGameSettingsSchema =
             "assault": {
                 "values": {
                     "captureSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -1072,7 +1072,7 @@ const customGameSettingsSchema =
                         "zh-TW": "調整佔領速度"
                     },
                     "enableCompetitiveRules": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
@@ -1094,7 +1094,7 @@ const customGameSettingsSchema =
             "control": {
                 "values": {
                     "captureSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -1114,7 +1114,7 @@ const customGameSettingsSchema =
                         "zh-TW": "調整佔領速度"
                     },
                     "enableCompetitiveRules": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
@@ -1216,7 +1216,7 @@ const customGameSettingsSchema =
                     },
                     "scoreToWin": {
                         "guid": "00000000589A",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 3,
                         "default": 2,
@@ -1235,7 +1235,7 @@ const customGameSettingsSchema =
                         "zh-TW": "獲勝分數"
                     },
                     "scoringSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -1259,7 +1259,7 @@ const customGameSettingsSchema =
             "escort": {
                 "values": {
                     "enableCompetitiveRules": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
@@ -1277,7 +1277,7 @@ const customGameSettingsSchema =
                         "zh-TW": "競技對戰規則"
                     },
                     "payloadSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -1301,7 +1301,7 @@ const customGameSettingsSchema =
             "hybrid": {
                 "values": {
                     "captureSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -1321,7 +1321,7 @@ const customGameSettingsSchema =
                         "zh-TW": "調整佔領速度"
                     },
                     "enableCompetitiveRules": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
@@ -1339,7 +1339,7 @@ const customGameSettingsSchema =
                         "zh-TW": "競技對戰規則"
                     },
                     "payloadSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -1363,7 +1363,7 @@ const customGameSettingsSchema =
             "ctf": {
                 "values": {
                     "enableBlitzFlagLocations": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "00000000F405",
                         "en-US": "Blitz Flag Locations",
@@ -1381,7 +1381,7 @@ const customGameSettingsSchema =
                         "zh-TW": "閃擊戰旗幟位置"
                     },
                     "enableDropFlagOnDmg": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "0000000059B9",
                         "en-US": "Damage Interrupts Flag Interaction",
@@ -1466,7 +1466,7 @@ const customGameSettingsSchema =
                         "zh-TW": "持旗時的技能限制"
                     },
                     "flagDroppedLockTime": {
-                        "values": "_float",
+                        "values": "__float__",
                         "min": 0,
                         "max": 10,
                         "default": 5,
@@ -1486,7 +1486,7 @@ const customGameSettingsSchema =
                         "zh-TW": "旗幟掉落的拾取無效時間"
                     },
                     "flagPickupTime": {
-                        "values": "_float",
+                        "values": "__float__",
                         "min": 0,
                         "max": 5,
                         "default": 0,
@@ -1506,7 +1506,7 @@ const customGameSettingsSchema =
                         "zh-TW": "旗幟撿拾時間"
                     },
                     "flagReturnTime": {
-                        "values": "_float",
+                        "values": "__float__",
                         "min": 0,
                         "max": 5,
                         "default": 4,
@@ -1526,7 +1526,7 @@ const customGameSettingsSchema =
                         "zh-TW": "旗幟歸位時間"
                     },
                     "flagScoreRespawnTime": {
-                        "values": "_float",
+                        "values": "__float__",
                         "min": 0,
                         "max": 20,
                         "default": 15,
@@ -1547,7 +1547,7 @@ const customGameSettingsSchema =
                     },
                     "gameLengthInMn": {
                         "guid": "0000000059D9",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 5,
                         "max": 15,
                         "default": 8,
@@ -1566,7 +1566,7 @@ const customGameSettingsSchema =
                         "zh-TW": "遊戲時間（分鐘）"
                     },
                     "respawnSpeedBuffDuration": {
-                        "values": "_float",
+                        "values": "__float__",
                         "min": 0,
                         "max": 60,
                         "default": 0,
@@ -1587,7 +1587,7 @@ const customGameSettingsSchema =
                     },
                     "scoreToWin": {
                         "guid": "00000000589A",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 9,
                         "default": 3,
@@ -1606,7 +1606,7 @@ const customGameSettingsSchema =
                         "zh-TW": "獲勝分數"
                     },
                     "teamNeedsFlagAtBaseToScore": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "0000000058B0",
                         "en-US": "Team Needs Flag At Base To Score",
@@ -1629,7 +1629,7 @@ const customGameSettingsSchema =
                 "values": {
                     "gameLengthInMn": {
                         "guid": "00000000632C",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 5,
                         "max": 15,
                         "default": 10,
@@ -1649,7 +1649,7 @@ const customGameSettingsSchema =
                     },
                     "scoreToWin": {
                         "guid": "00000000632A",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 50,
                         "default": 20,
@@ -1668,7 +1668,7 @@ const customGameSettingsSchema =
                         "zh-TW": "獲勝分數"
                     },
                     "enableSelfInitiatedRespawn": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "000000006884",
                         "en-US": "Self Initiated Respawn",
@@ -1690,7 +1690,7 @@ const customGameSettingsSchema =
             "elimination": {
                 "values": {
                     "heroSelectionTime": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 20,
                         "max": 60,
                         "default": 20,
@@ -1711,7 +1711,7 @@ const customGameSettingsSchema =
                     },
                     "scoreToWin": {
                         "guid": "00000000589A",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 9,
                         "default": 3,
@@ -1961,7 +1961,7 @@ const customGameSettingsSchema =
                         "zh-TW": "限定選擇人數"
                     },
                     "enableTiebreaker": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "000000005FC9",
                         "en-US": "Capture Objective Tiebreaker",
@@ -1979,7 +1979,7 @@ const customGameSettingsSchema =
                         "zh-TW": "以佔領區分出勝負"
                     },
                     "tiebreakerTime": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 30,
                         "max": 300,
                         "default": 105,
@@ -1999,7 +1999,7 @@ const customGameSettingsSchema =
                         "zh-TW": "啟動佔領區的時間"
                     },
                     "tiebreakerCaptureTime": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 7,
                         "default": 3,
@@ -2019,7 +2019,7 @@ const customGameSettingsSchema =
                         "zh-TW": "佔領所需的時間"
                     },
                     "drawTime": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 60,
                         "max": 300,
                         "default": 135,
@@ -2039,7 +2039,7 @@ const customGameSettingsSchema =
                         "zh-TW": "平手倒數計時（未搶下佔領區）"
                     },
                     "enableWallhack": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005FC8",
                         "en-US": "Reveal Heroes",
@@ -2057,7 +2057,7 @@ const customGameSettingsSchema =
                         "zh-TW": "顯示英雄位置"
                     },
                     "wallhackEnabledTime": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 0,
                         "max": 180,
                         "default": 75,
@@ -2082,7 +2082,7 @@ const customGameSettingsSchema =
                 "values": {
                     "gameLengthInMn": {
                         "guid": "00000000617D",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 5,
                         "max": 15,
                         "default": 10,
@@ -2101,7 +2101,7 @@ const customGameSettingsSchema =
                         "zh-TW": "遊戲時間（分鐘）"
                     },
                     "enableMercyRezKillCancel": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "00000000688A",
                         "en-US": "Mercy Resurrect Counteracts Kills",
@@ -2120,7 +2120,7 @@ const customGameSettingsSchema =
                     },
                     "scoreToWin": {
                         "guid": "00000000616E",
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 200,
                         "default": 30,
@@ -2139,7 +2139,7 @@ const customGameSettingsSchema =
                         "zh-TW": "獲勝分數"
                     },
                     "enableSelfInitiatedRespawn": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "000000006884",
                         "en-US": "Self Initiated Respawn",
@@ -2157,7 +2157,7 @@ const customGameSettingsSchema =
                         "zh-TW": "按重生鍵復活"
                     },
                     "needsImbalancedTeamScoreToWin": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000006D65",
                         "en-US": "Imbalanced Team Score To Win",
@@ -2175,7 +2175,7 @@ const customGameSettingsSchema =
                         "zh-TW": "隊伍各自設定獲勝分數"
                     },
                     "team1ScoreToWin": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 200,
                         "default": 30,
@@ -2195,7 +2195,7 @@ const customGameSettingsSchema =
                         "zh-TW": "隊伍1獲勝分數"
                     },
                     "team2ScoreToWin": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 1,
                         "max": 200,
                         "default": 30,
@@ -2219,7 +2219,7 @@ const customGameSettingsSchema =
             "practiceRange": {
                 "values": {
                     "spawnTrainingBots": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "on",
                         "guid": "00000000EC7E",
                         "en-US": "Spawn Training Bots",
@@ -2237,7 +2237,7 @@ const customGameSettingsSchema =
                         "zh-TW": "產生訓練機器人"
                     },
                     "trainingBotsRespawnTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -2323,9 +2323,9 @@ const customGameSettingsSchema =
             }
         },
         "values": {
-            "_generalButNotEachHero": {
+            "__generalButNotEachHero__": {
                 "abilityCooldown%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -2345,9 +2345,9 @@ const customGameSettingsSchema =
                     "zh-TW": "技能冷卻時間"
                 }
             },
-            "_generalAndEachHero": {
+            "__generalAndEachHero__": {
                 "enableMelee": {
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "guid": "000000005B4C",
                     "en-US": "Quick Melee",
@@ -2366,7 +2366,7 @@ const customGameSettingsSchema =
                 },
                 "enableUlt": {
                     "guid": "0000000058A9",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "en-US": "Ultimate Ability",
                     "de-DE": "Ultimative Fähigkeit",
@@ -2383,7 +2383,7 @@ const customGameSettingsSchema =
                     "zh-TW": "絕招"
                 },
                 "ultGen%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -2403,7 +2403,7 @@ const customGameSettingsSchema =
                     "zh-TW": "絕招蓄力速度"
                 },
                 "combatUltGen%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -2423,7 +2423,7 @@ const customGameSettingsSchema =
                     "zh-TW": "戰鬥時的絕招蓄力速度"
                 },
                 "passiveUltGen%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -2443,7 +2443,7 @@ const customGameSettingsSchema =
                     "zh-TW": "絕招自動蓄力速度"
                 },
                 "enableSpawningWithUlt": {
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "off",
                     "guid": "00000000765F",
                     "en-US": "Spawn With Ultimate Ready",
@@ -2461,7 +2461,7 @@ const customGameSettingsSchema =
                     "zh-TW": "重生時絕招立即蓄力完畢"
                 },
                 "ultDuration%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 25,
                     "max": 500,
                     "default": 100,
@@ -2494,7 +2494,7 @@ const customGameSettingsSchema =
                     "zh-TW": "絕招持續時間"
                 },
                 "enableInfiniteUlt": {
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "off",
                     "include": [
                         "ashe",
@@ -2525,7 +2525,7 @@ const customGameSettingsSchema =
                     "zh-TW": "絕招持續時間無限"
                 },
                 "damageDealt%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -2545,7 +2545,7 @@ const customGameSettingsSchema =
                     "zh-TW": "造成的傷害"
                 },
                 "damageReceived%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -2565,7 +2565,7 @@ const customGameSettingsSchema =
                     "zh-TW": "受到的傷害"
                 },
                 "healingDealt%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -2586,7 +2586,7 @@ const customGameSettingsSchema =
                 },
                 "healingReceived%": {
                     "guid": "0000000058A4",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -2606,7 +2606,7 @@ const customGameSettingsSchema =
                 },
                 "health%": {
                     "guid": "0000000059FA",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 10,
                     "max": 500,
                     "default": 100,
@@ -2625,7 +2625,7 @@ const customGameSettingsSchema =
                     "zh-TW": "生命值"
                 },
                 "jumpVerticalSpeed%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 25,
                     "max": 800,
                     "default": 100,
@@ -2645,7 +2645,7 @@ const customGameSettingsSchema =
                     "zh-TW": "垂直跳躍速度"
                 },
                 "movementGravity%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 25,
                     "max": 400,
                     "default": 100,
@@ -2665,7 +2665,7 @@ const customGameSettingsSchema =
                     "zh-TW": "影響移動的重力"
                 },
                 "movementSpeed%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 50,
                     "max": 300,
                     "default": 100,
@@ -2685,7 +2685,7 @@ const customGameSettingsSchema =
                     "zh-TW": "移動速度"
                 },
                 "projectileGravity%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -2705,7 +2705,7 @@ const customGameSettingsSchema =
                     "zh-TW": "影響投射武器的重力"
                 },
                 "projectileSpeed%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -2725,7 +2725,7 @@ const customGameSettingsSchema =
                     "zh-TW": "子彈移動速度"
                 },
                 "enableHeadshotsOnly": {
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "off",
                     "guid": "0000000058A5",
                     "en-US": "Receive Headshots Only",
@@ -2744,7 +2744,7 @@ const customGameSettingsSchema =
                 },
                 "enablePrimaryFire": {
                     "guid": "000000005B4B",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "en-US": "Primary Fire",
                     "de-DE": "Primärer Feuermodus",
@@ -2761,7 +2761,7 @@ const customGameSettingsSchema =
                     "zh-TW": "主要攻擊"
                 },
                 "ammoClipSize%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 25,
                     "max": 500,
                     "default": 100,
@@ -2788,7 +2788,7 @@ const customGameSettingsSchema =
                     "zh-TW": "彈匣大小"
                 },
                 "enableInfiniteAmmo": {
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "off",
                     "exclude": [
                         "brigitte",
@@ -2814,17 +2814,17 @@ const customGameSettingsSchema =
                     "zh-TW": "無限彈藥"
                 }
             },
-            "_eachHero": {
+            "__eachHero__": {
                 "enableAbility1": {
                     "guid": "00000001005E",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "en-US": "%1$s",
                     "ko-KR": "%1$s회"
                 },
                 "ability1Cooldown%": {
                     "guid": "000000005B84",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -2851,7 +2851,7 @@ const customGameSettingsSchema =
                 },
                 "enableAbility2": {
                     "guid": "00000001005E",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "exclude": [
                         "bastion"
@@ -2861,7 +2861,7 @@ const customGameSettingsSchema =
                 },
                 "ability2Cooldown%": {
                     "guid": "000000005B84",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -2885,7 +2885,7 @@ const customGameSettingsSchema =
                 },
                 "enableAbility3": {
                     "guid": "00000001005E",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
                         "brigitte",
@@ -2897,7 +2897,7 @@ const customGameSettingsSchema =
                 },
                 "ability3Cooldown%": {
                     "guid": "000000005B84",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -2920,7 +2920,7 @@ const customGameSettingsSchema =
                 },
                 "enablePassive": {
                     "guid": "00000001005E",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
                         "mercy",
@@ -2930,7 +2930,7 @@ const customGameSettingsSchema =
                 },
                 "enableSecondaryFire": {
                     "guid": "00000001005E",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
                         "bastion",
@@ -2951,7 +2951,7 @@ const customGameSettingsSchema =
                 },
                 "secondaryFireCooldown%": {
                     "guid": "000000005B84",
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -2982,7 +2982,7 @@ const customGameSettingsSchema =
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "secondaryFireMaximumTime%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 20,
                     "max": 500,
                     "default": 100,
@@ -3007,7 +3007,7 @@ const customGameSettingsSchema =
                     "zh-TW": "%1$s的最大持續時間"
                 },
                 "secondaryFireRechargeRate%": {
-                    "values": "_percent",
+                    "values": "__percent__",
                     "min": 0,
                     "max": 500,
                     "default": 100,
@@ -3036,7 +3036,7 @@ const customGameSettingsSchema =
                 },
                 "enableGenericSecondaryFire": {
                     "guid": "000000006029",
-                    "values": "_boolOnOff",
+                    "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
                         "baptiste",
@@ -3067,7 +3067,7 @@ const customGameSettingsSchema =
                 },
                 "enableAutomaticFire": {
                     "guid": "00000000A2AD",
-                    "values": "_boolReverseOnOff",
+                    "values": "__boolReverseOnOff__",
                     "default": "off",
                     "include": [
                         "ana",
@@ -3090,7 +3090,7 @@ const customGameSettingsSchema =
                 },
                 "enableScoping": {
                     "guid": "00000000A2B0",
-                    "values": "_boolReverseOnOff",
+                    "values": "__boolReverseOnOff__",
                     "default": "off",
                     "include": [
                         "ana",
@@ -3143,7 +3143,7 @@ const customGameSettingsSchema =
             "ashe": {
                 "values": {
                     "ability1EnemyKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -3163,7 +3163,7 @@ const customGameSettingsSchema =
                         "zh-TW": "雙管散彈槍擊退距離（敵人）"
                     },
                     "ability1SelfKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -3183,7 +3183,7 @@ const customGameSettingsSchema =
                         "zh-TW": "雙管散彈槍擊退距離（自己）"
                     },
                     "ability2FuseTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 1,
                         "max": 500,
                         "default": 100,
@@ -3207,7 +3207,7 @@ const customGameSettingsSchema =
             "bastion": {
                 "values": {
                     "ultKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -3231,7 +3231,7 @@ const customGameSettingsSchema =
             "brigitte": {
                 "values": {
                     "shieldBashCooldown%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -3251,7 +3251,7 @@ const customGameSettingsSchema =
                         "zh-TW": "持盾衝鋒冷卻時間"
                     },
                     "shieldBashKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -3271,7 +3271,7 @@ const customGameSettingsSchema =
                         "zh-TW": "持盾衝鋒擊退距離"
                     },
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -3295,7 +3295,7 @@ const customGameSettingsSchema =
             "dva": {
                 "values": {
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -3315,7 +3315,7 @@ const customGameSettingsSchema =
                         "zh-TW": "噴射推進擊退距離"
                     },
                     "callMechKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -3335,7 +3335,7 @@ const customGameSettingsSchema =
                         "zh-TW": "空投機甲擊退距離"
                     },
                     "selfDestructKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 200,
                         "default": 100,
@@ -3355,7 +3355,7 @@ const customGameSettingsSchema =
                         "zh-TW": "自爆擊退距離"
                     },
                     "spawnWithoutMech": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "0000000072AF",
                         "en-US": "Spawn Without Mech",
@@ -3377,7 +3377,7 @@ const customGameSettingsSchema =
             "doomfist": {
                 "values": {
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -3397,7 +3397,7 @@ const customGameSettingsSchema =
                         "zh-TW": "天鉤拳擊退距離"
                     },
                     "secondaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -3417,7 +3417,7 @@ const customGameSettingsSchema =
                         "zh-TW": "火箭拳擊退距離"
                     },
                     "ultKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -3437,7 +3437,7 @@ const customGameSettingsSchema =
                         "zh-TW": "流星墜擊退距離"
                     },
                     "ammoRegenerationTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 33,
                         "max": 500,
                         "default": 100,
@@ -3461,7 +3461,7 @@ const customGameSettingsSchema =
             "hanzo": {
                 "values": {
                     "ability3Cooldown%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -3481,7 +3481,7 @@ const customGameSettingsSchema =
                         "zh-TW": "突進跳躍冷卻時間"
                     },
                     "ability3Distance%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 20,
                         "max": 300,
                         "default": 100,
@@ -3501,7 +3501,7 @@ const customGameSettingsSchema =
                         "zh-TW": "突進跳躍距離"
                     },
                     "ability2Quantity%": {
-                        "values": "_int",
+                        "values": "__int__",
                         "min": 3,
                         "max": 12,
                         "default": 100,
@@ -3525,7 +3525,7 @@ const customGameSettingsSchema =
             "junkrat": {
                 "values": {
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 200,
                         "default": 100,
@@ -3545,7 +3545,7 @@ const customGameSettingsSchema =
                         "zh-TW": "震盪地雷擊退距離"
                     },
                     "primaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -3569,7 +3569,7 @@ const customGameSettingsSchema =
             "lucio": {
                 "values": {
                     "secondaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -3593,7 +3593,7 @@ const customGameSettingsSchema =
             "mei": {
                 "values": {
                     "ultFreezeMinimum%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 100,
                         "default": 50,
@@ -3613,7 +3613,7 @@ const customGameSettingsSchema =
                         "zh-TW": "暴風雪冰凍最小值"
                     },
                     "ultFreezeRate%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -3633,7 +3633,7 @@ const customGameSettingsSchema =
                         "zh-TW": "暴風雪冰凍敵人的速度"
                     },
                     "enablePrimaryFireFreezeStack": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000007113",
                         "en-US": "Freeze Stacking",
@@ -3651,7 +3651,7 @@ const customGameSettingsSchema =
                         "zh-TW": "冰凍效果疊加"
                     },
                     "primaryFireFreezeDuration%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 20,
                         "max": 500,
                         "default": 100,
@@ -3671,7 +3671,7 @@ const customGameSettingsSchema =
                         "zh-TW": "冷凍槍凍結敵人的時間長短"
                     },
                     "primaryFireFreezeMinimum%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 100,
                         "default": 30,
@@ -3691,7 +3691,7 @@ const customGameSettingsSchema =
                         "zh-TW": "冷凍槍冰凍最小值"
                     },
                     "primaryFireFreezeRate%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -3786,7 +3786,7 @@ const customGameSettingsSchema =
             "moira": {
                 "values": {
                     "ability2MaxDamage%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -3806,7 +3806,7 @@ const customGameSettingsSchema =
                         "zh-TW": "生化球最大傷害值"
                     },
                     "ability2MaxHealing%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 10,
                         "max": 500,
                         "default": 100,
@@ -3826,7 +3826,7 @@ const customGameSettingsSchema =
                         "zh-TW": "生化球最大治療值"
                     },
                     "primaryFireMaximumTime%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 20,
                         "max": 500,
                         "default": 100,
@@ -3846,7 +3846,7 @@ const customGameSettingsSchema =
                         "zh-TW": "生化能量上限"
                     },
                     "primaryFireRechargeRate%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -3870,7 +3870,7 @@ const customGameSettingsSchema =
             "pharah": {
                 "values": {
                     "ability2Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -3890,7 +3890,7 @@ const customGameSettingsSchema =
                         "zh-TW": "震盪爆破擊退距離"
                     },
                     "enableSecondaryFireUnlimitedFuel": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005B51",
                         "en-US": "Hover Jets Unlimited Fuel",
@@ -3908,7 +3908,7 @@ const customGameSettingsSchema =
                         "zh-TW": "滯空無限燃料"
                     },
                     "secondaryFireVerticalSpeed%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -3928,7 +3928,7 @@ const customGameSettingsSchema =
                         "zh-TW": "滯空垂直爬升速度"
                     },
                     "ability1Acceleration%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -3948,7 +3948,7 @@ const customGameSettingsSchema =
                         "zh-TW": "跳躍噴射速度"
                     },
                     "primaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -3972,7 +3972,7 @@ const customGameSettingsSchema =
             "reinhardt": {
                 "values": {
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -3992,7 +3992,7 @@ const customGameSettingsSchema =
                         "zh-TW": "衝鋒擊退距離"
                     },
                     "primaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -4016,7 +4016,7 @@ const customGameSettingsSchema =
             "roadhog": {
                 "values": {
                     "ultKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -4040,7 +4040,7 @@ const customGameSettingsSchema =
             "sigma": {
                 "values": {
                     "ability2Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
@@ -4064,7 +4064,7 @@ const customGameSettingsSchema =
             "soldier": {
                 "values": {
                     "secondaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -4088,7 +4088,7 @@ const customGameSettingsSchema =
             "torbjorn": {
                 "values": {
                     "ability2Duration%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
@@ -4179,7 +4179,7 @@ const customGameSettingsSchema =
             "winston": {
                 "values": {
                     "ability1Acceleration%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -4199,7 +4199,7 @@ const customGameSettingsSchema =
                         "zh-TW": "噴射跳躍速度"
                     },
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -4219,7 +4219,7 @@ const customGameSettingsSchema =
                         "zh-TW": "噴射跳躍擊退距離"
                     },
                     "ultKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 25,
                         "max": 300,
                         "default": 100,
@@ -4243,7 +4243,7 @@ const customGameSettingsSchema =
             "hammond": {
                 "values": {
                     "enableRollOnly": {
-                        "values": "_boolOnOff",
+                        "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "00000000928D",
                         "en-US": "Roll Always Active",
@@ -4261,7 +4261,7 @@ const customGameSettingsSchema =
                         "zh-TW": "永遠啟動滾球形態"
                     },
                     "ability1Kb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -4281,7 +4281,7 @@ const customGameSettingsSchema =
                         "zh-TW": "穩固爪鉤擊退距離"
                     },
                     "ultKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -4305,7 +4305,7 @@ const customGameSettingsSchema =
             "zarya": {
                 "values": {
                     "secondaryFireKb%": {
-                        "values": "_percent",
+                        "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
@@ -4367,12 +4367,17 @@ for (var gamemode of Object.keys(gamemodeKw)) {
 }
 
 //Apply general settings to each gamemode
-for (var key of Object.keys(customGameSettingsSchema.gamemodes.values)) {
-    Object.assign(customGameSettingsSchema.gamemodes.values[key].values, customGameSettingsSchema.gamemodes.values.general.values);
+for (var gamemode in customGameSettingsSchema.gamemodes.values) {
+    Object.assign(customGameSettingsSchema.gamemodes.values[gamemode].values, customGameSettingsSchema.gamemodes.values.general.values);
+}
+
+//Apply each gamemode's settings to general settings
+for (var gamemode in customGameSettingsSchema.gamemodes.values) {
+    Object.assign(customGameSettingsSchema.gamemodes.values.general.values, customGameSettingsSchema.gamemodes.values[gamemode].values);
 }
 
 //Generate settings for heroes.general
-customGameSettingsSchema.heroes.values.general = Object.assign({}, customGameSettingsSchema.heroes.values._generalAndEachHero, customGameSettingsSchema.heroes.values._generalButNotEachHero)
+customGameSettingsSchema.heroes.values.general = Object.assign({}, customGameSettingsSchema.heroes.values.__generalAndEachHero__, customGameSettingsSchema.heroes.values.__generalButNotEachHero__)
 
 //Generate settings for each hero
 for (var hero of Object.keys(heroKw)) {
@@ -4382,7 +4387,7 @@ for (var hero of Object.keys(heroKw)) {
         customGameSettingsSchema.heroes.values[hero].values = {};
     }
 
-    var eachHero = Object.assign({}, customGameSettingsSchema.heroes.values._generalAndEachHero, customGameSettingsSchema.heroes.values._eachHero)
+    var eachHero = Object.assign({}, customGameSettingsSchema.heroes.values.__generalAndEachHero__, customGameSettingsSchema.heroes.values.__eachHero__)
 
     for (var key of Object.keys(eachHero)) {
         if ("include" in eachHero[key] && eachHero[key].include.includes(hero)
@@ -4426,6 +4431,6 @@ for (var hero of Object.keys(heroKw)) {
     }
 }
 
-delete customGameSettingsSchema.heroes.values._generalAndEachHero
-delete customGameSettingsSchema.heroes.values._eachHero
-delete customGameSettingsSchema.heroes.values._generalButNotEachHero
+delete customGameSettingsSchema.heroes.values.__generalAndEachHero__
+delete customGameSettingsSchema.heroes.values.__eachHero__
+delete customGameSettingsSchema.heroes.values.__generalButNotEachHero__

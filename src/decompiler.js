@@ -29,7 +29,7 @@ function decompileAllRules(content, language="en-US") {
 	var bracketPos = getBracketPositions(content);
 
 	//Check for settings
-	if (content.startsWith(tows("_settings", ruleKw))) {
+	if (content.startsWith(tows("__settings__", ruleKw))) {
 		result += decompileCustomGameSettings(content.substring(bracketPos[0]+1, bracketPos[1]));
 		content = content.substring(bracketPos[1]+1)
 	}
@@ -38,7 +38,7 @@ function decompileAllRules(content, language="en-US") {
 	bracketPos = getBracketPositions(content);
 
 	//Check for variable names
-	if (content.startsWith(tows("_variables", ruleKw))) {
+	if (content.startsWith(tows("__variables__", ruleKw))) {
 		decompileVarNames(content.substring(bracketPos[0]+1, bracketPos[1]));
 		content = content.substring(bracketPos[1]+1)
 	}
@@ -47,7 +47,7 @@ function decompileAllRules(content, language="en-US") {
 	bracketPos = getBracketPositions(content);
 
 	//Check for subroutine names
-	if (content.startsWith(tows("_subroutines", ruleKw))) {
+	if (content.startsWith(tows("__subroutines__", ruleKw))) {
 		decompileSubroutines(content.substring(bracketPos[0]+1, bracketPos[1]));
 		content = content.substring(bracketPos[1]+1);
 
@@ -116,7 +116,7 @@ function decompileAllRules(content, language="en-US") {
 function decompileCustomGameSettings(content) {
 	console.log(content);
 	var result = {};
-	var wsDisabled = tows("_disabled", ruleKw);
+	var wsDisabled = tows("__disabled__", ruleKw);
 
 	//Convert the settings to an object (without even translating).
 	var serialized = {};
@@ -253,9 +253,9 @@ function decompileVarNames(content) {
 		content[i] = content[i].trim();
 		if (i === 0) {
 			//First element is always a var type
-			if (content[i] === tows("_global", ruleKw)) {
+			if (content[i] === tows("__global__", ruleKw)) {
 				isInGlobalVars = true;
-			} else if (content[i] === tows("_player", ruleKw)) {
+			} else if (content[i] === tows("__player__", ruleKw)) {
 				isInGlobalVars = false;
 			} else {
 				error("Unrecognized var type '"+content[i]+"'");
@@ -270,9 +270,9 @@ function decompileVarNames(content) {
 				if (!isNaN(elems[1])) {
 					currentVarIndex = +elems[1];
 				} else {
-					if (elems[1] === tows("_global", ruleKw)) {
+					if (elems[1] === tows("__global__", ruleKw)) {
 						isInGlobalVars = true;
-					} else if (elems[1] === tows("_player", ruleKw)) {
+					} else if (elems[1] === tows("__player__", ruleKw)) {
 						isInGlobalVars = false;
 					} else {
 						error("Unrecognized var type '"+elems[1]+"'");
@@ -314,6 +314,8 @@ function decompileSubroutines(content) {
 }
 
 function decompileRule(content) {
+
+	error("The decompiler currently cannot decompile rules.");
 	
 	//Reset rule-specific global variables
 	decompilerGotos = [];
@@ -332,14 +334,14 @@ function decompileRule(content) {
 	
 	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
 	var isCurrentRuleDisabled = false;
-	if (content.trim().startsWith(tows("_disabled", ruleKw))) {
+	if (content.trim().startsWith(tows("__disabled__", ruleKw))) {
 		isCurrentRuleDisabled = true;
 	}
 	
 	debug("Decompiling rule "+ruleName);
 	var result = "";
 	if (isCurrentRuleDisabled) {
-		result += '"""';
+		result += '/*';
 	}
 	result += "@Rule "+ruleName+"\n";
 	
@@ -355,10 +357,10 @@ function decompileRule(content) {
 		var fieldName = topy(ruleContent.substring(bracketPos2[i]+1, bracketPos2[i+1]), ruleKw);
 		if (fieldName === "@Event") {
 			eventInst = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]), false);
-		} else if (fieldName === "_conditions") {
+		} else if (fieldName === "__conditions__") {
 			//conditions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
 			conditions = "conditions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
-		} else if (fieldName === "_actions") {
+		} else if (fieldName === "__actions__") {
 			//actions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
 			actions = "actions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
 		} else {
@@ -370,7 +372,7 @@ function decompileRule(content) {
 	if (eventInst.length > 0) {
 
 		var eventName = topy(eventInst[0], eventKw);
-		if (eventName === "_subroutine") {
+		if (eventName === "__subroutine__") {
 
 			if (eventInst.length !== 2) {
 				error("Malformed subroutine event");
@@ -414,7 +416,7 @@ function decompileRule(content) {
 	}
 	
 	if (isCurrentRuleDisabled) {
-		result += '"""';
+		result += '*/';
 	}
 	return result+"\n\n";
 }
@@ -423,68 +425,27 @@ function decompileConditions(content) {
 	
 	var conditions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
 	
-	var comments = "";
 	var result = "";
-	result += "if ";
-	var condStrs = [];
-	for (var i = 0; i < conditions.length; i++) {
+	for (var condition of conditions) {
 		
-		var currentCondIsDisabled = false;
-		conditions[i] = conditions[i].trim();
+		condition = condition.trim();
 		
-		if (conditions[i].startsWith('"')) {
-			var conditionComment = getPrefixString(conditions[i]);
-			conditions[i] = conditions[i].substring(conditionComment.length).trim();
-			comments += "#"+unBackslashString(conditionComment)+"\n"+tabLevel(nbTabs);
+		//Check if there is a comment
+		if (condition.startsWith('"')) {
+			var conditionComment = getPrefixString(condition);
+			condition = condition.substring(conditionComment.length).trim();
+			result += "#"+unBackslashString(conditionComment)+"\n";
 		}
-		if (conditions[i].startsWith(tows("_disabled", ruleKw))) {
-			currentCondIsDisabled = true;
-			conditions[i] = conditions[i].substring(tows("_disabled", ruleKw).length);
-		}
-		var currentCond = decompileRuleCondition(conditions[i]);
-		//Check for and-ing with true
-		if (currentCond === "true") {
-			continue;
-		}
-		
-		if (operatorPrecedenceStack[0] < 2) {
-			currentCond = "("+currentCond+")";
-		}
-		condStrs.push({
-			text: currentCond,
-			isDisabled: currentCondIsDisabled,
-		});
-	}
-	var condStrResult = "";
-	var nbEnabledConditions = 0;
-	for (var i = 0; i < condStrs.length; i++) {
 
-		//console.log(i)
-		//console.log(condStrs[i]);
-		var condStr = condStrs[i].text;
-		if (i < condStrs.length-1 && condStrs[i].isDisabled && !condStrs[i+1].isDisabled && nbEnabledConditions === 0) {
-			condStr += " and ";
+		//Check if the condition is disabled
+		if (condition.startsWith(tows("__disabled__", ruleKw))) {
+			result += "#";
+			condition = condition.substring(tows("__disabled__", ruleKw).length).trim();
 		}
-		if (i > 0 && (nbEnabledConditions > 0 || condStrs[i].isDisabled)) {
-			condStr = " and "+condStr;
-		}
-		if (condStrs[i].isDisabled) {
-			condStr = "'''"+condStr+"'''";
-		} else {
-			nbEnabledConditions++;
-		}
-		condStrResult += condStr;
+		result += "@Condition "+decompileRuleCondition(condition)+"\n";
+		
 	}
-	
-	//This happens if everything is true
-	if (condStrResult === "") {
-		condStrResult = "true";
-	}
-	result += condStrResult;
-	
-	result += ":\n";
-	result = comments + result;
-	nbTabs = 1;
+
 	
 	return result;
 }
@@ -497,7 +458,7 @@ function decompileActions(content) {
 	//Detect the last loop to know where to place the "while"
 	for (var i = 0; i < actions.length; i++) {
 		var actionName = getName(actions[i]);
-		if (!actionName.startsWith('"') && !actionName.startsWith(tows("_disabled", ruleKw)) && topy(actionName, actionKw).startsWith("_loop")) {
+		if (!actionName.startsWith('"') && !actionName.startsWith(tows("__disabled__", ruleKw)) && topy(actionName, actionKw).startsWith("__loop__")) {
 			//It is a loop; update the loop position
 			lastLoop = i;
 		}
@@ -550,9 +511,9 @@ function decompileAction(content, actionNb) {
 		content = content.substring(conditionComment.length).trim();
 		result += "#"+unBackslashString(conditionComment)+"\n"+tabLevel(nbTabs);
 	}
-	if (content.startsWith(tows("_disabled", ruleKw)+" ")) {
+	if (content.startsWith(tows("__disabled__", ruleKw)+" ")) {
 		isCurrentActionDisabled = true;
-		content = content.substring((tows("_disabled", ruleKw)+" ").length);
+		content = content.substring((tows("__disabled__", ruleKw)+" ").length);
 	}
 	var decompiledAction = "";
 	if (actionNb == lastLoop) {
@@ -678,7 +639,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		name = name.substring(0, name.length-2);
 	}
 	
-	if (name !== "_compare" && decompileArgs.invertCondition === true) {
+	if (name !== "__compare__" && decompileArgs.invertCondition === true) {
 		return parseOperator(content, "not", null);
 	}
 	
@@ -708,7 +669,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Abort if
-	if (name === "_abortIf") {
+	if (name === "__abortIf__") {
 		result = "if " + decompile(args[0]) + ":\n";
 		result += tabLevel(nbTabs+1) + "return";
 		
@@ -716,9 +677,9 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Abort if condition is false/true
-	if (name === "_abortIfConditionIsFalse" || name === "_abortIfConditionIsTrue") {
+	if (name === "__abortIfConditionIsFalse__" || name === "__abortIfConditionIsTrue__") {
 		result = "if ";
-		if (name === "_abortIfConditionIsFalse") {
+		if (name === "__abortIfConditionIsFalse__") {
 			result += "not ";
 		}
 		result += "RULE_CONDITION:\n";
@@ -728,12 +689,12 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Add
-	if (name === "_add") {
+	if (name === "__add__") {
 		return decompileOperator(args[0], "+", args[1]);
 	}
 	
 	//Is true for all
-	if (name === "_all") {
+	if (name === "__all__") {
 		
 		if (isPlayerArrayInstruction(args[0])) {
 			var varName = "player";
@@ -750,7 +711,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Is true for any
-	if (name === "_any") {
+	if (name === "__any__") {
 		
 		if (isPlayerArrayInstruction(args[0])) {
 			var varName = "player";
@@ -767,12 +728,12 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//And
-	if (name === "_and") {
+	if (name === "__and__") {
 		return decompileOperator(args[0], "and", args[1]);
 	}
 	
 	//Append to array
-	if (name === "_appendToArray") {
+	if (name === "__appendToArray__") {
 		
 		//Check for optimization: [].append(123).append(456) -> [123, 456]
 		//Only done if we append a literal number to a literal array.
@@ -793,35 +754,35 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Array contains
-	if (name === "_arrayContains") {
+	if (name === "__arrayContains__") {
 		
 		return decompile(args[1])+" in "+decompile(args[0]);
 	}
 	
 	//Array slice
-	if (name === "_arraySlice") {
+	if (name === "__arraySlice__") {
 		return decompile(args[0]) + ".slice(" + decompile(args[1]) + ", " + decompile(args[2])+")";
 	}
 
 	//Call subroutine
-	if (name === "_callSubroutine") {
+	if (name === "__callSubroutine__") {
 		return translateSubroutineToPy(args[0])+"()";
 	}
 	
 	//Chase global variable at rate
-	if (name === "_chaseGlobalVariableAtRate") {
+	if (name === "__chaseGlobalVariableAtRate__") {
 		
 		return "chase("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", rate="+decompile(args[2])+", "+decompile(args[3])+")";
 	}
 	
 	//Chase global variable over time
-	if (name === "_chaseGlobalVariableOverTime") {
+	if (name === "__chaseGlobalVariableOverTime__") {
 		
 		return "chase("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", duration="+decompile(args[2])+", "+decompile(args[3])+")";
 	}
 	
 	//Chase player variable at rate
-	if (name === "_chasePlayerVariableAtRate") {
+	if (name === "__chasePlayerVariableAtRate__") {
 		
 		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, rate={arg2}, {arg3})", args[0], args.slice(1), true, true, true)
 		
@@ -829,7 +790,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Chase player variable over time
-	if (name === "_chasePlayerVariableOverTime") {
+	if (name === "__chasePlayerVariableOverTime__") {
 		
 		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, duration={arg2}, {arg3})", args[0], args.slice(1), true, true, true)
 		
@@ -837,7 +798,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 		
 	//Compare
-	if (name === "_compare") {
+	if (name === "__compare__") {
 		
 		var op = args[1].trim();
 		if (decompileArgs.invertCondition === true) {
@@ -849,7 +810,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Current array element
-	if (name === "_currentArrayElement") {
+	if (name === "__currentArrayElement__") {
 		var currentArrayElementName = currentArrayElementNames[currentArrayElementNames.length-1];
 		if (currentArrayElementName === undefined) {
 			error("currentArrayElementName is undefined");
@@ -858,7 +819,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Custom String
-	if (name === "_customString") {
+	if (name === "__customString__") {
 		
 		var result = args[0];
 		var format = [];
@@ -887,7 +848,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Divide
-	if (name === "_divide") {
+	if (name === "__divide__") {
 		return decompileOperator(args[0], "/", args[1]);
 	}
 
@@ -905,7 +866,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Empty array
-	if (name === "_emptyArray") {
+	if (name === "__emptyArray__") {
 		return "[]";
 	}
 	
@@ -916,7 +877,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Filtered array
-	if (name === "_filteredArray") {
+	if (name === "__filteredArray__") {
 		
 		if (isPlayerArrayInstruction(args[0])) {
 			var varName = "player";
@@ -933,32 +894,32 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//First of
-	if (name === "_firstOf") {
+	if (name === "__firstOf__") {
 		return decompile(args[0])+"[0]";
 	}
 
 	//For global var
-	if (name === "_forGlobalVar") {
+	if (name === "__forGlobalVar__") {
 		return "__for__("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", "+decompile(args[2])+", "+decompile(args[3])+")";
 	}
 
 	//For player var
-	if (name === "_forPlayerVar") {
+	if (name === "__forPlayerVar__") {
 		return "__for__("+decompile(args[0])+"."+translateVarToPy(args[1], false)+", "+decompile(args[2])+", "+decompile(args[3])+", "+decompile(args[4])+")";
 	}
 	
 	//Raycast hit normal
-	if (name === "_getNormal") {
+	if (name === "__getNormal__") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getNormal()";
 	}
 	
 	//Raycast hit position
-	if (name === "_getHitPosition") {
+	if (name === "__getHitPosition__") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getHitPosition()";
 	}
 	
 	//Raycast hit player
-	if (name === "_getPlayerHit") {
+	if (name === "__getPlayerHit__") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getPlayerHit()";
 	}
 
@@ -973,22 +934,22 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Gamemode
-	if (name === "_gamemode") {
+	if (name === "__gamemode__") {
 		return "Gamemode."+decompile(args[0], constantValues["Gamemode"]);
 	}
 		
 	//Global variable
-	if (name === "_globalVar") {
+	if (name === "__globalVar__") {
 		return translateVarToPy(args[0], true);
 	}
 		
 	//Hero
-	if (name === "_hero") {
+	if (name === "__hero__") {
 		return "Hero."+decompile(args[0], constantValues["Hero"]);
 	}
 
 	//Hud text
-	if (name === "_hudText") {
+	if (name === "__hudText__") {
 		var header = decompile(args[1]);
 		var subheader = decompile(args[2]);
 		var subtext = decompile(args[3]);
@@ -1036,22 +997,22 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Index of array value
-	if (name === "_indexOfArrayValue") {
+	if (name === "__indexOfArrayValue__") {
 		return decompile(args[0])+".index("+decompile(args[1])+")";
 	}
 	
 	//Is in line of sight
-	if (name === "_isInLineOfSight") {
+	if (name === "__isInLineOfSight__") {
 		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", los="+decompile(args[2])+").hasLoS()";
 	}
 	
 	//Last of
-	if (name === "_lastOf") {
+	if (name === "__lastOf__") {
 		return decompile(args[0])+"[-1]";
 	}
 	
 	//Localized String
-	if (name === "_localizedString") {
+	if (name === "__localizedString__") {
 		
 		//Blizzard likes making parsing difficult apparently,
 		//cause the "reevaluation on string" used with hud is the same as the "string" function.
@@ -1074,7 +1035,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 			
 	//Loop
-	if (name === "_loop") {
+	if (name === "__loop__") {
 		if (decompileArgs.isLastLoop) {
 			return "while true";
 		} else {
@@ -1083,7 +1044,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Loop if
-	if (name === "_loopIf") {
+	if (name === "__loopIf__") {
 		if (decompileArgs.isLastLoop) {
 			return "while "+decompile(args[0]);
 		} else {
@@ -1094,7 +1055,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Loop if condition is false
-	if (name === "_loopIfConditionIsFalse") {
+	if (name === "__loopIfConditionIsFalse__") {
 		if (decompileArgs.isLastLoop) {
 			return "while not RULE_CONDITION";
 		} else {
@@ -1105,7 +1066,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Loop if condition is true
-	if (name === "_loopIfConditionIsTrue") {
+	if (name === "__loopIfConditionIsTrue__") {
 		if (decompileArgs.isLastLoop) {
 			return "while RULE_CONDITION";
 		} else {
@@ -1116,22 +1077,22 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 
 	//Map
-	if (name === "_map") {
+	if (name === "__map__") {
 		return "Map."+decompile(args[0], constantValues["Map"]);
 	}
 	
 	//Modify global var
-	if (name === "_modifyGlobalVar") {
+	if (name === "__modifyGlobalVar__") {
 		return decompileModifyVar(translateVarToPy(args[0], true), args[1], decompile(args[2]));
 	}
 	
 	//Modify global var at index
-	if (name === "_modifyGlobalVarAtIndex") {
+	if (name === "__modifyGlobalVarAtIndex__") {
 		return decompileModifyVar(translateVarToPy(args[0], true), args[2], decompile(args[3]), decompile(args[1]));
 	}
 	
 	//Modify player var
-	if (name === "_modifyPlayerVar") {
+	if (name === "__modifyPlayerVar__") {
 		
 		var result = decompileModifyVar(decompile(args[0])+"."+translateVarToPy(args[1], false), args[2], decompile(args[3]))
 		
@@ -1139,7 +1100,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Modify player var at index
-	if (name === "_modifyPlayerVarAtIndex") {
+	if (name === "__modifyPlayerVarAtIndex__") {
 		
 		var result = decompileModifyVar(decompile(args[0])+"."+translateVarToPy(args[1], false), args[3], decompile(args[4]), decompile(args[2]))
 		
@@ -1147,49 +1108,49 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Modulo
-	if (name === "_modulo") {
+	if (name === "__modulo__") {
 		return decompileOperator(args[0], "%", args[1]);
 	}
 	
 	//Multiply
-	if (name === "_multiply") {
+	if (name === "__multiply__") {
 		return decompileOperator(args[0], "*", args[1]);
 	}
 
 	//Not
-	if (name === "_not") {
+	if (name === "__not__") {
 		return decompileOperator(args[0], "not", null);
 	}
 	
 	//Or
-	if (name === "_or") {
+	if (name === "__or__") {
 		return decompileOperator(args[0], "or", args[1]);
 	}
 	
 	//Player variable
-	if (name === "_playerVar") {
+	if (name === "__playerVar__") {
 		return decompile(args[0])+"."+translateVarToPy(args[1], false);
 	}
 	
 	//Raise to power
-	if (name === "_raiseToPower") {
+	if (name === "__raiseToPower__") {
 		return decompileOperator(args[0], "**", args[1]);
 	}
 	
 	//Remove from array
-	if (name === "_removeFromArray") {
+	if (name === "__removeFromArray__") {
 		return decompile(args[0])+".exclude("+decompile(args[1])+")";
 	}
 	
 	
 	//Round
-	if (name === "_round") {
-		var roundType = topy(args[1], constantValues["_Rounding"]);
-		if (roundType === "_roundUp") {
+	if (name === "__round__") {
+		var roundType = topy(args[1], constantValues["__Rounding__"]);
+		if (roundType === "__roundUp__") {
 			return "ceil("+decompile(args[0])+")";
-		} else if (roundType === "_roundDown") {
+		} else if (roundType === "__roundDown__") {
 			return "floor("+decompile(args[0])+")";
-		} else if (roundType === "_roundToNearest") {
+		} else if (roundType === "__roundToNearest__") {
 			return "round("+decompile(args[0])+")";
 		} else {
 			error("Unknown round type "+roundType);
@@ -1197,47 +1158,47 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Set global var
-	if (name === "_setGlobalVar") {
+	if (name === "__setGlobalVar__") {
 		return translateVarToPy(args[0], true)+" = "+decompile(args[1]);
 	}
 	
 	//Set global var at index
-	if (name === "_setGlobalVarAtIndex") {
+	if (name === "__setGlobalVarAtIndex__") {
 		return translateVarToPy(args[0], true)+"["+decompile(args[1])+"] = "+decompile(args[2]);
 	}
 	
 	//Set player var
-	if (name === "_setPlayerVar") {
+	if (name === "__setPlayerVar__") {
 		return decompilePlayerFunction("{player}.{arg0} = {arg1}", args[0], args.slice(1), true, true, true);
 	}
 	
 	//Set player var at index
-	if (name === "_setPlayerVarAtIndex") {
+	if (name === "__setPlayerVarAtIndex__") {
 		return decompilePlayerFunction("{player}.{arg0}[{arg1}] = {arg2}", args[0], args.slice(1), true, true, true);
 	}
 
 	//Start rule
-	if (name === "_startRule") {
-		return "async("+translateSubroutineToPy(args[0])+"(), "+decompile(args[1])+")";
+	if (name === "__startRule__") {
+		return "async("+translateSubroutineToPy(args[0])+", "+decompile(args[1])+")";
 	}
 	
 	//Stop chasing player variable
-	if (name === "_stopChasingGlobalVariable") {
+	if (name === "__stopChasingGlobalVariable__") {
 		return "stopChasingVariable("+translateVarToPy(args[0], true)+")";
 	}
 	
 	//Stop chasing player variable
-	if (name === "_stopChasingPlayerVariable") {
+	if (name === "__stopChasingPlayerVariable__") {
 		return decompilePlayerFunction("stopChasingVariable({player}.{args})", args[0], args.slice(1), false, true, true);
 	}
 					
 	//Subtract
-	if (name === "_subtract") {
+	if (name === "__subtract__") {
 		return decompileOperator(args[0], "-", args[1]);
 	}
 	
 	//Skip
-	if (name === "_skip") {
+	if (name === "__skip__") {
 		//Check if the number of skips is hardcoded
 		if (!isNaN(args[0].trim())) {
 			var gotoStr = "lbl_"+decompilerGotos.length;
@@ -1251,7 +1212,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Skip if
-	if (name === "_skipIf") {
+	if (name === "__skipIf__") {
 		result = "if " + decompile(args[0]) + ":\n";
 		
 		//Check if the number of skips is hardcoded
@@ -1269,7 +1230,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//Sorted array
-	if (name === "_sortedArray") {
+	if (name === "__sortedArray__") {
 		
 		if (isPlayerArrayInstruction(args[0])) {
 			var varName = "player";
@@ -1282,7 +1243,7 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 		
 		var result = "sorted("+decompile(args[0]);
 		//If key == current array element, do not include it
-		if (topy(getName(args[1]).trim(), valueKw) !== "_currentArrayElement") {
+		if (topy(getName(args[1]).trim(), valueKw) !== "__currentArrayElement__") {
 			result += ", key=lambda "+varName+": "+decompile(args[1]);
 		}
 		result += ")";
@@ -1291,12 +1252,12 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 
 	//Value in array
-	if (name === "_valueInArray") {
+	if (name === "__valueInArray__") {
 		return decompile(args[0])+"["+decompile(args[1])+"]";
 	}
 	
 	//Wait
-	if (name === "_wait") {
+	if (name === "__wait__") {
 		var arg1 = decompile(args[0]);
 		var arg2 = decompile(args[1]);
 		var result = "wait(";
@@ -1317,13 +1278,13 @@ function decompile(content, keywordArray=valueKw, decompileArgs={}) {
 	}
 	
 	//X/Y/Z component of
-	if (name === "_xComponentOf") {
+	if (name === "__xComponentOf__") {
 		return decompile(args[0])+".x";
 	}
-	if (name === "_yComponentOf") {
+	if (name === "__yComponentOf__") {
 		return decompile(args[0])+".y";
 	}
-	if (name === "_zComponentOf") {
+	if (name === "__zComponentOf__") {
 		return decompile(args[0])+".z";
 	}
 	
@@ -1468,38 +1429,38 @@ function decompileModifyVar(variable, operation, value, index) {
 	if (index !== undefined) {
 		variable += "["+index+"]";
 	}
-	operation = topy(operation, constantValues["_Operation"]);
-	if (operation === "_appendToArray") {
+	operation = topy(operation, constantValues["__Operation__"]);
+	if (operation === "__appendToArray__") {
 		return variable+".append("+value+")";
-	} else if (operation === "_add") {
+	} else if (operation === "__add__") {
 		//Handle special "++" case
 		if (!isNaN(value) && parseInt(value) == 1) {
 			return variable+"++";
 		} else {
 			return variable+" += "+value;
 		}
-	} else if (operation === "_subtract") {
+	} else if (operation === "__subtract__") {
 		//Handle special "--" case
 		if (!isNaN(value) && parseInt(value) == 1) {
 			return variable+"--";
 		} else {
 			return variable+" -= "+value;
 		}
-	} else if (operation === "_multiply") {
+	} else if (operation === "__multiply__") {
 		return variable+" *= "+value;
-	} else if (operation === "_divide") {
+	} else if (operation === "__divide__") {
 		return variable+" /= "+value;
-	} else if (operation === "_modulo") {
+	} else if (operation === "__modulo__") {
 		return variable+" %= "+value;
-	} else if (operation === "_raiseToPower") {
+	} else if (operation === "__raiseToPower__") {
 		return variable+" **= "+value;
-	} else if (operation === "_min") {
+	} else if (operation === "__min__") {
 		return variable+" min= "+value;
-	} else if (operation === "_max") {
+	} else if (operation === "__max__") {
 		return variable+" max= "+value;
-	} else if (operation === "_removeFromArrayByIndex") {
+	} else if (operation === "__removeFromArrayByIndex__") {
 		return "del "+variable+"["+value+"]";
-	} else if (operation === "_removeFromArrayByValue") {
+	} else if (operation === "__removeFromArrayByValue__") {
 		return variable+".remove("+value+")";
 	} else {
 		error("Unhandled operation "+operation);

@@ -17,6 +17,7 @@
 
 "use strict";
 
+
 //camelCase -> UPPER_CASE
 function camelCaseToUpperCase(str) {
 	return str.split(/(?=[A-Z])/).join('_').toUpperCase();
@@ -88,14 +89,6 @@ function startsWithParenthesis(content) {
 	return false;
 }
 
-function unBackslashString(content) {
-	return content.substring(1, content.length-1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
-}
-
-function backslashString(content) {
-	return content.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-}
-
 //Returns true if c is [A-Za-z\d_@].
 function isVarChar(c) {
 	return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c === '_' || c === '@';
@@ -106,4 +99,9 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+//Used for automatically generated names.
+function getUniqueNumber() {
+	uniqueNumber++;
+	return uniqueNumber;
+}
 

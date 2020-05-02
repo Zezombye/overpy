@@ -20,7 +20,7 @@
 const customGameSettingsKw =
 //begin-json
 {
-    "_on": {
+    "__on__": {
         "guid": "0000000058E0",
         "en-US": "On",
         "de-DE": "Ein",
@@ -35,7 +35,7 @@ const customGameSettingsKw =
         "zh-CN": "开启",
         "zh-TW": "開啟"
     },
-    "_off": {
+    "__off__": {
         "guid": "0000000058DF",
         "en-US": "Off",
         "de-DE": "Aus",
@@ -50,7 +50,7 @@ const customGameSettingsKw =
         "zh-CN": "关闭",
         "zh-TW": "關閉"
     },
-    "_enabled": {
+    "__enabled__": {
         "guid": "000000005923",
         "en-US": "Enabled",
         "de-DE": "Aktiviert",
@@ -66,7 +66,7 @@ const customGameSettingsKw =
         "zh-CN": "启用",
         "zh-TW": "啟用"
     },
-    "_disabled": {
+    "__disabled__": {
         "guid": "000000006A06",
         "en-US": "Disabled",
         "de-DE": "Deaktiviert",
@@ -82,8 +82,8 @@ const customGameSettingsKw =
         "zh-CN": "禁用",
         "zh-TW": "停用"
     },
-    "_yes": {
-        "guid": "0000000058F3",
+    "__yes__": {
+        "guid": "00000000F406",
         "en-US": "Yes",
         "de-DE": "Ja",
         "es-ES": "Sí",
@@ -98,8 +98,8 @@ const customGameSettingsKw =
         "zh-CN": "是",
         "zh-TW": "啟用"
     },
-    "_no": {
-        "guid": "0000000058F4",
+    "__no__": {
+        "guid": "00000000F407",
         "en-US": "No",
         "de-DE": "Nein",
         "fr-FR": "Non",
@@ -118,7 +118,7 @@ const customGameSettingsKw =
 const ruleKw = 
 //begin-json
 {
-    "@Rule": {
+    "__rule__": {
         "guid": "00000000C7B4",
         "en-US": "rule",
         "de-DE": "regel",
@@ -131,7 +131,7 @@ const ruleKw =
         "zh-CN": "规则",
         "zh-TW": "規則"
     },
-    "@Event": {
+    "__event__": {
         "guid": "00000000C7B5",
         "en-US": "event",
         "es-MX": "evento",
@@ -143,7 +143,7 @@ const ruleKw =
         "zh-CN": "事件",
         "zh-TW": "事件"
     },
-    "_conditions": {
+    "__conditions__": {
         "guid": "00000000C7B6",
         "en-US": "conditions",
         "de-DE": "bedingungen",
@@ -156,7 +156,7 @@ const ruleKw =
         "zh-CN": "条件",
         "zh-TW": "條件"
     },
-    "_actions": {
+    "__actions__": {
         "guid": "00000000C7B7",
         "en-US": "actions",
         "de-DE": "aktionen",
@@ -169,7 +169,7 @@ const ruleKw =
         "zh-CN": "动作",
         "zh-TW": "動作"
     },
-    "_disabled": {
+    "__disabled__": {
         "guid": "00000000C7B8",
         "en-US": "disabled",
         "de-DE": "deaktiviert",
@@ -182,7 +182,7 @@ const ruleKw =
         "zh-CN": "禁用",
         "zh-TW": "停用"
     },
-    "_variables": {
+    "__variables__": {
         "guid": "00000000EB73",
         "en-US": "variables",
         "de-DE": "Variablen",
@@ -193,7 +193,7 @@ const ruleKw =
         "zh-CN": "变量",
         "zh-TW": "變數"
     },
-    "_global": {
+    "__global__": {
         "guid": "00000000EB74",
         "en-US": "global",
         "fr-FR": "globale",
@@ -203,7 +203,7 @@ const ruleKw =
         "zh-CN": "全局",
         "zh-TW": "全域"
     },
-    "_player": {
+    "__player__": {
         "guid": "00000000EB75",
         "en-US": "player",
         "es-ES": "jugador",
@@ -216,7 +216,7 @@ const ruleKw =
         "zh-CN": "玩家",
         "zh-TW": "玩家"
     },
-    "_subroutines": {
+    "__subroutines__": {
         "guid": "00000000FFFA",
         "en-US": "subroutines",
         "de-DE": "Subroutinen",
@@ -229,7 +229,7 @@ const ruleKw =
         "pt-BR": "sub-rotinas",
         "zh-CN": "子程序"
     },
-    "_settings": {
+    "__settings__": {
         "guid": "000000010030",
         "en-US": "settings",
         "de-DE": "einstellungen",
@@ -357,7 +357,7 @@ const eventKw =
         "pt-BR": "Jogador Saiu da Partida",
         "zh-CN": "玩家离开比赛"
     },
-    "_subroutine": {
+    "__subroutine__": {
         "guid": "00000000FFF6",
         "en-US": "Subroutine",
         "es-ES": "Subrutina",
@@ -367,6 +367,12 @@ const eventKw =
         "pl-PL": "Podprogram",
         "pt-BR": "Sub-rotina",
         "zh-CN": "子程序"
+    },
+    "playerDealtKnockback": {
+        "en-US": "Player Dealt Knockback",
+    },
+    "playerReceivedKnockback": {
+        "en-US": "Player Received Knockback",
     }
 }
 //end-json
@@ -472,4 +478,6 @@ for (var constant of Object.keys(constantValues)) {
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
 const valueKw = Object.assign({}, valueFuncKw, constantKw);
 
-const funcKw = Object.assign({}, actionKw, valueFuncKw);
+const wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
+
+const funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs);
