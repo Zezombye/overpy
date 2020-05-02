@@ -25,38 +25,40 @@ function compileCustomGameSettingsDict(dict, refDict) {
 		if (typeof refDict[key].values === "object") {
 			result[wsKey] = tows(dict[key], refDict[key].values);
 
-		} else if (refDict[key].values === "_string") {
+		} else if (refDict[key].values === "__string__") {
 			if (getUtf8Length(dict[key]) > refDict[key].maxBytes) {
 				error("String for '"+key+"' must not have more than "+refDict[key].maxBytes+" bytes");
 			}
-			result[wsKey] = '"'+backslashString(dict[key])+'"';
+			result[wsKey] = escapeString(dict[key]);
 
-		} else if (refDict[key].values === "_percent" || refDict[key].values === "_int" || refDict[key].values === "_float") {
+		} else if (refDict[key].values === "__percent__" || refDict[key].values === "__int__" || refDict[key].values === "__float__") {
 			if (dict[key] > refDict[key].max) {
 				error("Value for '"+key+"' must not exceed "+refDict[key].max+"%");
 			}
 			if (dict[key] < refDict[key].min) {
 				error("Value for '"+key+"' must be higher than "+refDict[key].min+"%");
 			}
-			if (refDict[key].values === "_int") {
+			if (refDict[key].values === "__int__") {
 				if (!Number.isInteger(dict[key])) {
 					error("Value for '"+key+"' must be an integer");
 				}
 			}
-			if (refDict[key].values === "_percent") {
+			if (refDict[key].values === "__percent__") {
 				result[wsKey] = dict[key]+"%";
 			} else {
 				result[wsKey] = dict[key];
 			}
 
-		} else if (refDict[key].values === "_boolYesNo") {
-			result[wsKey] = (dict[key] === true ? tows("_yes", customGameSettingsKw) : tows("_no", customGameSettingsKw));
-		} else if (refDict[key].values === "_boolEnabled") {
-			result[wsKey] = (dict[key] === true ? tows("_enabled", customGameSettingsKw) : tows("_disabled", customGameSettingsKw));
-		} else if (refDict[key].values === "_boolOnOff") {
-			result[wsKey] = (dict[key] === true ? tows("_on", customGameSettingsKw) : tows("_off", customGameSettingsKw));
-		} else if (refDict[key].values === "_boolReverseEnabled") {
-			result[wsKey] = (dict[key] === true ? tows("_disabled", customGameSettingsKw) : tows("_enabled", customGameSettingsKw));
+		} else if (refDict[key].values === "__boolYesNo__") {
+			result[wsKey] = (dict[key] === true ? tows("__yes__", customGameSettingsKw) : tows("__no__", customGameSettingsKw));
+		} else if (refDict[key].values === "__boolEnabled__") {
+			result[wsKey] = (dict[key] === true ? tows("__enabled__", customGameSettingsKw) : tows("__disabled__", customGameSettingsKw));
+		} else if (refDict[key].values === "__boolOnOff__") {
+			result[wsKey] = (dict[key] === true ? tows("__on__", customGameSettingsKw) : tows("__off__", customGameSettingsKw));
+		} else if (refDict[key].values === "__boolReverseEnabled__") {
+			result[wsKey] = (dict[key] === true ? tows("__disabled__", customGameSettingsKw) : tows("__enabled__", customGameSettingsKw));
+		} else if (refDict[key].values === "__boolReverseOnOff__") {
+			result[wsKey] = (dict[key] === true ? tows("__off__", customGameSettingsKw) : tows("__on__", customGameSettingsKw));
 		} else {
 			error("Unknown value type "+refDict[key].values);
 		}

@@ -64,7 +64,7 @@ astParsingFunctions.__rule__ = function(content) {
         getExistingLabels(child);
     }
 
-    console.log(astToString(content));
+    //console.log(astToString(content));
     //Now that we have removed all useless instructions, compute each __distanceTo__ function.
     function resolveDistanceTo(content) {
 

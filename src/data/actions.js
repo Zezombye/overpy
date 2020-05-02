@@ -3869,7 +3869,7 @@ const actionKw =
         "return": "void"
     },
     "_&stopCamera": {
-        "description": "None",
+        "description": "Restores the camera to the default view.",
         "args": [
             {
                 "name": "PLAYER",

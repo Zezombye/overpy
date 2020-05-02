@@ -4367,8 +4367,13 @@ for (var gamemode of Object.keys(gamemodeKw)) {
 }
 
 //Apply general settings to each gamemode
-for (var key of Object.keys(customGameSettingsSchema.gamemodes.values)) {
-    Object.assign(customGameSettingsSchema.gamemodes.values[key].values, customGameSettingsSchema.gamemodes.values.general.values);
+for (var gamemode in customGameSettingsSchema.gamemodes.values) {
+    Object.assign(customGameSettingsSchema.gamemodes.values[gamemode].values, customGameSettingsSchema.gamemodes.values.general.values);
+}
+
+//Apply each gamemode's settings to general settings
+for (var gamemode in customGameSettingsSchema.gamemodes.values) {
+    Object.assign(customGameSettingsSchema.gamemodes.values.general.values, customGameSettingsSchema.gamemodes.values[gamemode].values);
 }
 
 //Generate settings for heroes.general

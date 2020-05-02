@@ -66,6 +66,7 @@ const opyAnnotations = {
     },
     "@SuppressWarnings": {
         "description": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces.",
+        args: [],
     },
     "@Disabled": {
         "description": "Generates the rule as disabled.",

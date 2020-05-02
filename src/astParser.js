@@ -72,7 +72,7 @@ function parseAstRules(rules) {
                 if (!("conditions" in rule.ruleAttributes)) {
                     rule.ruleAttributes.conditions = [];
                 }
-                rule.ruleAttributes.conditions.push(rule.children[i].args[0]);
+                rule.ruleAttributes.conditions.push(parseAst(rule.children[i].args[0]));
                 rule.ruleAttributes.conditions[rule.ruleAttributes.conditions.length-1].comment = rule.children[i].comment;
 
             } else {

@@ -1,5 +1,7 @@
 
 rule "enums":
+    @Condition eventPlayer.isHoldingButton(Button.INTERACT)
+    @Condition A
     A = Team.ALL
     B = Hero.BRIGITTE
     C = Map.BLACK_FOREST_WINTER

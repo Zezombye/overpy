@@ -24,14 +24,8 @@ function getFilenameFromPath(path) {
 function getFilePath(pathStr) {
 	pathStr = pathStr.trim();
 	debug("path str = "+pathStr);
-	if (!(pathStr.startsWith("'") && pathStr.endsWith("'")) && !(pathStr.startsWith('"') && pathStr.endsWith('"'))) {
-		error("Expected a string but found '"+pathStr+"'");
-	}
-	pathStr = pathStr.substring(1, pathStr.length-1);
-	//parse backslashes
-	pathStr = pathStr.replace(/\\("|')/g, "$1");
-	pathStr = pathStr.replace(/\\\\/g, "\\");
-
+	pathStr = unescapeString(pathStr);
+	
 	//convert backslashes to normal slashes
 	pathStr = pathStr.replace(/\\/g, "/");
 	debug("Path str is now '"+pathStr+"'");

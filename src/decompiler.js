@@ -314,6 +314,8 @@ function decompileSubroutines(content) {
 }
 
 function decompileRule(content) {
+
+	error("The decompiler currently cannot decompile rules.");
 	
 	//Reset rule-specific global variables
 	decompilerGotos = [];

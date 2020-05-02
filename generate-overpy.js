@@ -78,11 +78,12 @@ overpyCode += `
 module.exports = {
 	decompileAllRules: decompileAllRules,
 	decompileActions: decompileActions,
-    decompileConditions: decompileConditions,
+	decompileConditions: decompileConditions,
 	compile: compile,
 	actionKw: actionKw,
 	valueFuncKw: valueFuncKw,
 	constantValues: constantValues,
+	annotations: opyAnnotations,
 	eventKw: eventKw,
 	eventTeamKw: eventTeamKw,
 	eventSlotKw: eventSlotKw,
@@ -92,11 +93,12 @@ module.exports = {
 	heroKw: heroKw,
 	opyFuncs: opyFuncs,
 	opyMemberFuncs: opyMemberFuncs,
+	opyKeywords: opyKeywords,
 	currentLanguage: currentLanguage,
 	macros: macros,
 	resetGlobalVariables: resetGlobalVariables,
 	preprocessingDirectives: preprocessingDirectives,
-
+	typeToString: typeToString,
 };
 `
 

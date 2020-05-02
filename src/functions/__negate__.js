@@ -27,9 +27,9 @@ astParsingFunctions.__negate__ = function(content) {
     }
 
     //negate type
-    console.log(content.type);
+    //console.log(content.type);
     content.type = replaceType(content.type, typeNegation);
-    console.log(content.type);
+    //console.log(content.type);
 
     function negateNumber(nb) {
         nb.args[0].numValue = -nb.args[0].numValue;

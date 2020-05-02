@@ -789,7 +789,8 @@ const opyFuncs = {
                 "type": "SpecVisibility",
                 "default": "DEFAULT VISIBILITY"
             }
-        ]
+        ],
+        return: "void",
     },
     "hudSubtext": {
         "description": "Built-in macro for `hudText` to reduce the number of arguments.",
@@ -1192,6 +1193,11 @@ const opyKeywords = {
         "description": "Declares a player variable. The index (0-127) can optionally be specified. Example: `playervar myVar 127`",
         "args": null
     },
+    "rule": {
+        "description": "Declares a rule.",
+        "args": null,
+        "snippet": "rule \"$0\"",
+    },
     "settings": {
         "description": "Declares custom game settings. Must be followed by an object containing the settings.",
         "args": null
@@ -1404,10 +1410,19 @@ const preprocessingDirectives = {
         "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion."
     },
     "obfuscate": {
-        "description": "Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.\n\nUsage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)\n\nThe following obfuscation methods are applied:\n\n- Rule filling: several empty rules are inserted.\n- Comment removing: all rule titles are replaced with the empty string.\n- Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.\n- Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.\n"
-    },
-    "noEdit": {
-        "description": "Adds 2500 empty rules to the preset, which should make it absolutely impossible to open the rules (as you get a \"connection lost\" error). Therefore, it is the ultimate form of obfuscation, as you simply cannot even see the code.\n\nHowever, pasting the generated code could trigger a \"connection lost\" error as well, and a huge lag. As such, this directive should only be used on finalized gamemodes, before you publish it; it should not be used every time.\n\nYou will very likely have to paste the generated code in an editor, then paste the rules by sets of 800, 1200 then 500 to be able to insert them.\n"
+        "description": 
+`Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.
+
+Usage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)
+
+The following obfuscation methods are applied:
+
+- Rule filling: 2500 empty rules are inserted, making it impossible to view the gamemode within the workshop UI. It must be copy-pasted to be able to be edited (you can then apply various anti copy-paste integrity checks).
+- Comment removing: all rule titles are replaced with the empty string.
+- Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.
+- Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
+- Value replacement: some values, such as heroes, are replaced with other values that compute to the original value.
+`
     },
     "suppressWarnings": {
         "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
@@ -5290,7 +5305,7 @@ const actionKw =
         "return": "void"
     },
     "_&stopCamera": {
-        "description": "None",
+        "description": "Restores the camera to the default view.",
         "args": [
             {
                 "name": "PLAYER",
@@ -5814,7 +5829,7 @@ var valueFuncKw =
         "zh-CN": "所有死亡玩家"
     },
     "getDamageHeroes": {
-        "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        ",
+        "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        16. Echo  \n",
         "args": [],
         return: {Array: "Hero"},
         "guid": "00000000D40A",
@@ -5829,7 +5844,7 @@ var valueFuncKw =
     },
     "getAllHeroes": {
         "guid": "00000000BF58",
-        "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Baptiste \n        30. Sigma    \n        ",
+        "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Echo \n        30. Baptiste    \n        31. Sigma    \n",
         "args": [],
         return: {Array: "Hero"},
         "en-US": "All Heroes",
@@ -20261,8 +20276,13 @@ for (var gamemode of Object.keys(gamemodeKw)) {
 }
 
 //Apply general settings to each gamemode
-for (var key of Object.keys(customGameSettingsSchema.gamemodes.values)) {
-    Object.assign(customGameSettingsSchema.gamemodes.values[key].values, customGameSettingsSchema.gamemodes.values.general.values);
+for (var gamemode in customGameSettingsSchema.gamemodes.values) {
+    Object.assign(customGameSettingsSchema.gamemodes.values[gamemode].values, customGameSettingsSchema.gamemodes.values.general.values);
+}
+
+//Apply each gamemode's settings to general settings
+for (var gamemode in customGameSettingsSchema.gamemodes.values) {
+    Object.assign(customGameSettingsSchema.gamemodes.values.general.values, customGameSettingsSchema.gamemodes.values[gamemode].values);
 }
 
 //Generate settings for heroes.general
@@ -20391,6 +20411,7 @@ const opyAnnotations = {
     },
     "@SuppressWarnings": {
         "description": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces.",
+        args: [],
     },
     "@Disabled": {
         "description": "Generates the rule as disabled.",
@@ -20738,38 +20759,40 @@ function compileCustomGameSettingsDict(dict, refDict) {
 		if (typeof refDict[key].values === "object") {
 			result[wsKey] = tows(dict[key], refDict[key].values);
 
-		} else if (refDict[key].values === "_string") {
+		} else if (refDict[key].values === "__string__") {
 			if (getUtf8Length(dict[key]) > refDict[key].maxBytes) {
 				error("String for '"+key+"' must not have more than "+refDict[key].maxBytes+" bytes");
 			}
-			result[wsKey] = '"'+backslashString(dict[key])+'"';
+			result[wsKey] = escapeString(dict[key]);
 
-		} else if (refDict[key].values === "_percent" || refDict[key].values === "_int" || refDict[key].values === "_float") {
+		} else if (refDict[key].values === "__percent__" || refDict[key].values === "__int__" || refDict[key].values === "__float__") {
 			if (dict[key] > refDict[key].max) {
 				error("Value for '"+key+"' must not exceed "+refDict[key].max+"%");
 			}
 			if (dict[key] < refDict[key].min) {
 				error("Value for '"+key+"' must be higher than "+refDict[key].min+"%");
 			}
-			if (refDict[key].values === "_int") {
+			if (refDict[key].values === "__int__") {
 				if (!Number.isInteger(dict[key])) {
 					error("Value for '"+key+"' must be an integer");
 				}
 			}
-			if (refDict[key].values === "_percent") {
+			if (refDict[key].values === "__percent__") {
 				result[wsKey] = dict[key]+"%";
 			} else {
 				result[wsKey] = dict[key];
 			}
 
-		} else if (refDict[key].values === "_boolYesNo") {
-			result[wsKey] = (dict[key] === true ? tows("_yes", customGameSettingsKw) : tows("_no", customGameSettingsKw));
-		} else if (refDict[key].values === "_boolEnabled") {
-			result[wsKey] = (dict[key] === true ? tows("_enabled", customGameSettingsKw) : tows("_disabled", customGameSettingsKw));
-		} else if (refDict[key].values === "_boolOnOff") {
-			result[wsKey] = (dict[key] === true ? tows("_on", customGameSettingsKw) : tows("_off", customGameSettingsKw));
-		} else if (refDict[key].values === "_boolReverseEnabled") {
-			result[wsKey] = (dict[key] === true ? tows("_disabled", customGameSettingsKw) : tows("_enabled", customGameSettingsKw));
+		} else if (refDict[key].values === "__boolYesNo__") {
+			result[wsKey] = (dict[key] === true ? tows("__yes__", customGameSettingsKw) : tows("__no__", customGameSettingsKw));
+		} else if (refDict[key].values === "__boolEnabled__") {
+			result[wsKey] = (dict[key] === true ? tows("__enabled__", customGameSettingsKw) : tows("__disabled__", customGameSettingsKw));
+		} else if (refDict[key].values === "__boolOnOff__") {
+			result[wsKey] = (dict[key] === true ? tows("__on__", customGameSettingsKw) : tows("__off__", customGameSettingsKw));
+		} else if (refDict[key].values === "__boolReverseEnabled__") {
+			result[wsKey] = (dict[key] === true ? tows("__disabled__", customGameSettingsKw) : tows("__enabled__", customGameSettingsKw));
+		} else if (refDict[key].values === "__boolReverseOnOff__") {
+			result[wsKey] = (dict[key] === true ? tows("__off__", customGameSettingsKw) : tows("__on__", customGameSettingsKw));
 		} else {
 			error("Unknown value type "+refDict[key].values);
 		}
@@ -20854,40 +20877,41 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 		if (typeof kwObj[keyName].values === "object") {
 			value = topy(value, kwObj[keyName].values);
 
-		} else if (kwObj[keyName].values === "_string") {
-			value = unBackslashString(value);
+		} else if (kwObj[keyName].values === "__string__") {
+			value = unescapeString(value);
 
-		} else if (kwObj[keyName].values === "_percent") {
+		} else if (kwObj[keyName].values === "__percent__") {
 			if (!value.endsWith("%")) {
 				error("Expected a percentage for value of elem '"+elem+"'");
 			}
 			value = parseInt(value.substring(0, value.length-1));
 
-		} else if (kwObj[keyName].values === "_int") {
+		} else if (kwObj[keyName].values === "__int__") {
 			value = parseInt(value);
 			
-		} else if (kwObj[keyName].values === "_float") {
+		} else if (kwObj[keyName].values === "__float__") {
 			value = parseFloat(value);
 			
-		} else if (["_boolYesNo", "_boolOnOff", "_boolEnabled"].includes(kwObj[keyName].values)) {
+		} else if (["__boolYesNo__", "__boolOnOff__", "__boolEnabled__"].includes(kwObj[keyName].values)) {
 			value = topy(value, customGameSettingsKw);
-			if (["_yes", "_enabled", "_on"].includes(value)) {
+			if (["__yes__", "__enabled__", "__on__"].includes(value)) {
 				value = true;
-			} else if (["_no", "_disabled", "_off"].includes(value)) {
+			} else if (["__no__", "__disabled__", "__off__"].includes(value)) {
 				value = false;
 			} else {
 				error("Unknown value '"+value+"'");
 			}
 
-		} else if (kwObj[keyName].values === "_boolReverseEnabled") {
+		} else if (["__boolReverseYesNo__", "__boolReverseOnOff__", "__boolReverseEnabled__"].includes(kwObj[keyName].values)) {
 			value = topy(value, customGameSettingsKw);
-			if (value === "_disabled") {
-				value = true;
-			} else if (value === "_enabled") {
+			if (["__yes__", "__enabled__", "__on__"].includes(value)) {
 				value = false;
+			} else if (["__no__", "__disabled__", "__off__"].includes(value)) {
+				value = true;
 			} else {
 				error("Unknown value '"+value+"'");
 			}
+
 		} else {
 			error("Unknown value type '"+kwObj[keyName].values+"' for '"+keyName+"'");
 		}
@@ -21085,14 +21109,8 @@ function getFilenameFromPath(path) {
 function getFilePath(pathStr) {
 	pathStr = pathStr.trim();
 	debug("path str = "+pathStr);
-	if (!(pathStr.startsWith("'") && pathStr.endsWith("'")) && !(pathStr.startsWith('"') && pathStr.endsWith('"'))) {
-		error("Expected a string but found '"+pathStr+"'");
-	}
-	pathStr = pathStr.substring(1, pathStr.length-1);
-	//parse backslashes
-	pathStr = pathStr.replace(/\\("|')/g, "$1");
-	pathStr = pathStr.replace(/\\\\/g, "\\");
-
+	pathStr = unescapeString(pathStr);
+	
 	//convert backslashes to normal slashes
 	pathStr = pathStr.replace(/\\/g, "/");
 	debug("Path str is now '"+pathStr+"'");
@@ -21191,7 +21209,7 @@ function error(str, token) {
 
 function warn(warnType, message) {
 	
-	if (!suppressedWarnings.includes(warnType)) {
+	if (!suppressedWarnings.includes(warnType) && warnType !== "w_type_check") {
 		var warning = message+" ("+warnType+")";
 		if (fileStack.length !== 0) {
 			fileStack.reverse();
@@ -21874,12 +21892,15 @@ for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\
 var obfuscatedVarNames = shuffleArray(Array(4096).fill().map((e,i)=>i).map(x => x.toString(2).padStart(12, "0").replace(/0/g, "I").replace(/1/g, "l"))).slice(0,128);
 
 function addEmptyRules(rules) {
-	var nbEmptyRules = (enableNoEdit ? 2500 : 100);
+	if (!compiledCustomGameSettings) {
+		error("Cannot use obfuscation without custom game settings declared");
+	}
+	var nbEmptyRules = 2500;
 	var nbTotalRules = nbEmptyRules + rules.length;
-	var emptyRule = tows("@Rule", ruleKw)+'(""){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
 	var result = "";
-	result += tows("@Rule", ruleKw)+'("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy)."){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
-	result += tows("@Rule", ruleKw)+'("Please respect its author\'s wishes and do not edit it. Thanks!"){'+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	result += tows("__rule__", ruleKw)+'("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy)."){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	result += tows("__rule__", ruleKw)+'("Please respect its author\'s wishes and do not edit it. Thanks!"){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
 	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
 	var ruleIndex = 0;
 	for (var i = 0; i < nbTotalRules; i++) {
@@ -21894,10 +21915,10 @@ function addEmptyRules(rules) {
 
 }
 
-var allHeroes = ["REAPER","TRACER","MERCY","HANZO","TORBJORN","REINHARDT","PHARAH","WINSTON","WIDOWMAKER","BASTION","SYMMETRA","ZENYATTA","GENJI","ROADHOG","MCCREE","JUNKRAT","ZARYA","SOLDIER","LUCIO","DVA","MEI","SOMBRA","DOOMFIST","ANA","ORISA","BRIGITTE","MOIRA","HAMMOND","ASHE","BAPTISTE","SIGMA"]
+var allHeroes = ["REAPER","TRACER","MERCY","HANZO","TORBJORN","REINHARDT","PHARAH","WINSTON","WIDOWMAKER","BASTION","SYMMETRA","ZENYATTA","GENJI","ROADHOG","MCCREE","JUNKRAT","ZARYA","SOLDIER","LUCIO","DVA","MEI","SOMBRA","DOOMFIST","ANA","ORISA","BRIGITTE","MOIRA","HAMMOND","ASHE","ECHO","BAPTISTE","SIGMA"]
 
 var allTankHeroes = ["REINHARDT","WINSTON","ROADHOG","ZARYA","DVA","ORISA","HAMMOND","SIGMA"]
-var allDamageHeroes = ["REAPER","TRACER","HANZO","TORBJORN","PHARAH","WIDOWMAKER","BASTION","SYMMETRA","GENJI","MCCREE","JUNKRAT","SOLDIER","MEI","SOMBRA","DOOMFIST","ASHE"]
+var allDamageHeroes = ["REAPER","TRACER","HANZO","TORBJORN","PHARAH","WIDOWMAKER","BASTION","SYMMETRA","GENJI","MCCREE","JUNKRAT","SOLDIER","MEI","SOMBRA","DOOMFIST","ASHE","ECHO"]
 var allSupportHeroes = ["MERCY","ZENYATTA","LUCIO","ANA","BRIGITTE","MOIRA","BAPTISTE"]
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -21945,11 +21966,8 @@ var currentRuleLabelAccess;
 
 var currentRuleHasVariableGoto;
 
-//If set to true, sets all rule titles to empty.
+//If set to true, applies various obfuscation techniques on the gamemode.
 var obfuscateRules;
-
-//If set to true, puts 3000 empty rules, effectively making it impossible to open the preset (you get kicked by the server).
-var enableNoEdit;
 
 var enableOptimization;
 
@@ -22013,7 +22031,6 @@ function resetGlobalVariables(language) {
 	suppressedWarnings = [];
 	globalSuppressedWarnings = [];
 	importedFiles = [];
-	enableNoEdit = false;
 	disableUnusedVars = false;
 	compiledCustomGameSettings = "";
 	enableOptimization = true;
@@ -22188,6 +22205,7 @@ const typeTree = [
 		"DotId",
 		"HotId",
 		"EntityId",
+		"TextId",
 		"String",
 		{"Direction": ["Vector"]},
 		{"Position": ["Vector"]},
@@ -22221,7 +22239,7 @@ const typeTree = [
 		"LocalizedStringLiteral",
 		"FullwidthStringLiteral",
 		"BigLettersStringLiteral",
-	]}
+	]},
 
 ].concat(Object.keys(constantValues));
 
@@ -24231,6 +24249,8 @@ function decompileSubroutines(content) {
 }
 
 function decompileRule(content) {
+
+	error("The decompiler currently cannot decompile rules.");
 	
 	//Reset rule-specific global variables
 	decompilerGotos = [];
@@ -25548,7 +25568,7 @@ astParsingFunctions.__append__ = function(content) {
 astParsingFunctions.__button__ = function(content) {
 
     //Check the expected type to check if we need to remove the wrapper "button" function
-    console.log("test");
+    console.log("parent name: '"+content.parent.name+"', parent arg index: "+content.parent.argIndex);
     console.log(funcKw[content.parent.name].args[content.parent.argIndex].type);
     if (funcKw[content.parent.name].args[content.parent.argIndex].type === "ButtonLiteral") {
         return content.args[0];
@@ -26184,9 +26204,9 @@ astParsingFunctions.__negate__ = function(content) {
     }
 
     //negate type
-    console.log(content.type);
+    //console.log(content.type);
     content.type = replaceType(content.type, typeNegation);
-    console.log(content.type);
+    //console.log(content.type);
 
     function negateNumber(nb) {
         nb.args[0].numValue = -nb.args[0].numValue;
@@ -26329,7 +26349,7 @@ astParsingFunctions.__rule__ = function(content) {
         getExistingLabels(child);
     }
 
-    console.log(astToString(content));
+    //console.log(astToString(content));
     //Now that we have removed all useless instructions, compute each __distanceTo__ function.
     function resolveDistanceTo(content) {
 
@@ -26601,6 +26621,10 @@ astParsingFunctions.__valueInArray__ = function(content) {
                 index
             ])
         ])
+    }
+
+    if (content.args[1].name === "__number__" && content.args[1].args[0].numValue < 0) {
+        error("Cannot access the negative index '"+content.args[1].args[0].numValue+"' of an array");
     }
 
     return content;
@@ -27018,7 +27042,7 @@ function tokenize(content) {
 
 	function parsePreprocessingDirective(content) {
 
-		console.log("Parsing preprocessing directive '"+content+"'");
+		debug("Parsing preprocessing directive '"+content+"'");
 		if (content.startsWith("#!define ") || content.startsWith("#!defineMember ")) {
 			macros.push(parseMacro({
 				fileStack: getFileStackCopy(),
@@ -27033,25 +27057,9 @@ function tokenize(content) {
 		} else if (content.startsWith("#!disableUnusedVars")) {
 			disableUnusedVars = true;
 
-		} else if (content.startsWith("#!noEdit")) {
-			enableNoEdit = true;
-
 		} else if (content.startsWith("#!suppressWarnings ")) {
-			var lineIndex = content.indexOf("\n");
 			var firstSpaceIndex = content.indexOf(" ");
-			globalSuppressedWarnings = content.substring(firstSpaceIndex, lineIndex).trim().split(" ").map(x => x.trim());
-
-		} else if (content.startsWith("#!include ")) {
-			
-			var endOfLine = content.indexOf('\n');
-			var space = content.indexOf(" ");
-			var path = getFilePath(content.substring(space, endOfLine));
-			var importedFileContent = getFileContent(path);
-			
-			content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
-			addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 1);
-			i--;
-			fileStack[fileStack.length-1].remainingChars++;
+			globalSuppressedWarnings = content.substring(firstSpaceIndex).trim().split(" ").map(x => x.trim());
 
 		} else {
 			error("Unknown preprocessor directive '"+content+"'");
@@ -27114,6 +27122,7 @@ function tokenize(content) {
 				for (; j < content.length; j++) {
 					if (content[j] === "\\") {
 						isBackslashed = true;
+						preprocessingDirectiveContent += content[j];
 					} else if (!isBackslashed && content[j] === "\n") {
 						break;
 					} else if (content[j] !== " " && content[j] !== "\r") {
@@ -27124,8 +27133,20 @@ function tokenize(content) {
 					}
 				}
 
-				parsePreprocessingDirective(preprocessingDirectiveContent);
-				moveCursor(j-i-1);
+				if (preprocessingDirectiveContent.startsWith("#!include ")) {
+					
+					var space = preprocessingDirectiveContent.indexOf(" ");
+					var path = getFilePath(preprocessingDirectiveContent.substring(space));
+					var importedFileContent = getFileContent(path);
+					
+					content = content.substring(0, i) + importedFileContent + content.substring(i+preprocessingDirectiveContent.length);
+					addFile(importedFileContent.length, preprocessingDirectiveContent.length-i, preprocessingDirectiveContent.length-i, 0, getFilenameFromPath(path), 0, 1);
+					i--;
+					fileStack[fileStack.length-1].remainingChars++;
+				} else {
+					parsePreprocessingDirective(preprocessingDirectiveContent);
+					moveCursor(j-i-1);
+				}
 
 			} else if (content[i] === '#') {
 				//Get to the end of the comment. Note: backslashes don't work to continue a line comment.
@@ -27476,7 +27497,7 @@ function parseAstRules(rules) {
                 if (!("conditions" in rule.ruleAttributes)) {
                     rule.ruleAttributes.conditions = [];
                 }
-                rule.ruleAttributes.conditions.push(rule.children[i].args[0]);
+                rule.ruleAttributes.conditions.push(parseAst(rule.children[i].args[0]));
                 rule.ruleAttributes.conditions[rule.ruleAttributes.conditions.length-1].comment = rule.children[i].comment;
 
             } else {
@@ -27737,9 +27758,10 @@ function parseAst(content) {
 
 function astRulesToWs(rules) {
 
-    var result = "";
+    var compiledRules = [];
 
     for (var rule of rules) {
+        var result = "";
         if (rule.ruleAttributes.isDisabled) {
             result += tows("__disabled__", ruleKw)+" ";
         }
@@ -27779,10 +27801,11 @@ function astRulesToWs(rules) {
         }
 
         result += "}\n\n";
+        compiledRules.push(result);
     }
 
     
-    return result;
+    return compiledRules;
 
 }
 
@@ -27953,6 +27976,13 @@ function astToWs(content) {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundUp__", [], [], "__Rounding__")];
 
+    } else if (content.name === "getSign") {
+        //getSign(x) -> (x>0)-(x<0)
+        content.name = "__subtract__";
+        content.args = [
+            new Ast("__greaterThan__", [content.args[0], getAstFor0()]),
+            new Ast("__lessThan__", [content.args[0], getAstFor0()]),
+        ];
     } else if (content.name === "floor") {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundDown__", [], [], "__Rounding__")];
@@ -28982,13 +29012,19 @@ function compile(content, language="en-US", _rootPath="") {
    	console.log(astRules);
     var parsedAstRules = parseAstRules(astRules);
 
-    for (var elem of parsedAstRules) {
+    /*for (var elem of parsedAstRules) {
         console.log(astToString(elem));
-    }
+    }*/
     console.log(parsedAstRules);
 
-	var result = astRulesToWs(parsedAstRules);
-	result = generateVariablesField()+generateSubroutinesField()+result;
+	var compiledRules = astRulesToWs(parsedAstRules);
+	if (obfuscateRules) {
+		compiledRules = addEmptyRules(compiledRules);
+	} else {
+		compiledRules = compiledRules.join("");
+	}
+
+	var result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
     
 /*
     var compiledRules = [];
@@ -29171,6 +29207,108 @@ function generateSubroutinesField() {
 	return result;
 
 }
+
+function compileCustomGameSettings(customGameSettings) {
+
+	if (typeof customGameSettings !== "object" || customGameSettings === null) {
+		error("Expected an object for custom game settings");
+	}
+	var result = {};
+	for (var key of Object.keys(customGameSettings)) {
+		if (key === "main" || key === "lobby") {
+			result[tows(key, customGameSettingsSchema)] = compileCustomGameSettingsDict(customGameSettings[key], customGameSettingsSchema[key].values);
+
+		} else if (key === "gamemodes") {
+			var wsGamemodes = tows("gamemodes", customGameSettingsSchema);
+			result[wsGamemodes] = {};
+			for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
+				var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
+				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
+					wsGamemode = tows("_disabled", ruleKw)+" "+wsGamemode;
+					delete customGameSettings.gamemodes[gamemode].enabled;
+				}
+				result[wsGamemodes][wsGamemode] = {};
+				if ("enabledMaps" in customGameSettings.gamemodes[gamemode] || "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
+					if ("enabledMaps" in customGameSettings.gamemodes[gamemode] && "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
+						error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '"+gamemode+"'");
+					}
+					var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
+					var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
+					result[wsGamemodes][wsGamemode][wsMapsKey] = [];
+					for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
+						result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw))
+					}
+					delete customGameSettings.gamemodes[gamemode][mapsKey];
+				}
+
+				Object.assign(result[wsGamemodes][wsGamemode], compileCustomGameSettingsDict(customGameSettings.gamemodes[gamemode], customGameSettingsSchema.gamemodes.values[gamemode].values));
+			}
+
+		} else if (key === "heroes") {
+			var wsHeroes = tows("heroes", customGameSettingsSchema);
+			result[wsHeroes] = {};
+			for (var team of Object.keys(customGameSettings.heroes)) {
+				var wsTeam = tows(team, customGameSettingsSchema.heroes.teams);
+				result[wsHeroes][wsTeam] = {};
+				var wsHeroesKey = null;
+				var wsHeroesKeyObj = [];
+				if ("enabledHeroes" in customGameSettings.heroes[team] || "disabledHeroes" in customGameSettings.heroes[team]) {
+					if ("enabledHeroes" in customGameSettings.heroes[team] && "disabledHeroes" in customGameSettings.heroes[team]) {
+						error("Cannot have both 'enabledHeroes' and 'disabledHeroes' in team '"+team+"'");
+					}
+					var heroesKey = "enabledHeroes" in customGameSettings.heroes[team] ? "enabledHeroes" : "disabledHeroes";
+					wsHeroesKey = tows(heroesKey, customGameSettingsSchema.heroes.values);
+					for (var hero of customGameSettings.heroes[team][heroesKey]) {
+						wsHeroesKeyObj.push(tows(hero, heroKw));
+					}
+					delete customGameSettings.heroes[team][heroesKey];
+				}
+
+				if ("general" in customGameSettings.heroes[team]) {
+					Object.assign(result[wsHeroes][wsTeam], compileCustomGameSettingsDict(customGameSettings.heroes[team].general, customGameSettingsSchema.heroes.values.general));
+					delete customGameSettings.heroes[team].general;
+				}
+
+				for (var hero of Object.keys(customGameSettings.heroes[team])) {
+					var wsHero = tows(hero, heroKw);
+					result[wsHeroes][wsTeam][wsHero] = compileCustomGameSettingsDict(customGameSettings.heroes[team][hero], customGameSettingsSchema.heroes.values[hero].values);
+				}
+
+				if (wsHeroesKey !== null) {
+					result[wsHeroes][wsTeam][wsHeroesKey] = wsHeroesKeyObj;
+				}
+
+			}
+		} else {
+			error("Unknown key '"+key+"'");
+		}
+	}
+
+
+	nbTabs = 0;
+	function deserializeObject(obj) {
+		var result = "\n"+tabLevel(nbTabs)+"{\n";
+		nbTabs++;
+		for (var key of Object.keys(obj)) {
+			if (obj[key].constructor === Array) {
+				result += tabLevel(nbTabs)+key+"\n"+tabLevel(nbTabs)+"{\n"+obj[key].map(x => tabLevel(nbTabs+1)+x+"\n").join("");
+				result += tabLevel(nbTabs)+"}\n";
+			} else if (typeof obj[key] === "object" && obj[key] !== null) {
+				result += tabLevel(nbTabs)+key+deserializeObject(obj[key])+"\n";
+			} else {
+				result += tabLevel(nbTabs)+key+": "+obj[key]+"\n";
+			}
+		}
+		nbTabs--;
+		result += tabLevel(nbTabs)+"}";
+		return result;
+	}
+
+	compiledCustomGameSettings = tows("__settings__", ruleKw) + deserializeObject(result)+"\n";
+
+
+}
+
 
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -39445,11 +39583,12 @@ strTokens = strTokens.sort().reverse();
 module.exports = {
 	decompileAllRules: decompileAllRules,
 	decompileActions: decompileActions,
-    decompileConditions: decompileConditions,
+	decompileConditions: decompileConditions,
 	compile: compile,
 	actionKw: actionKw,
 	valueFuncKw: valueFuncKw,
 	constantValues: constantValues,
+	annotations: opyAnnotations,
 	eventKw: eventKw,
 	eventTeamKw: eventTeamKw,
 	eventSlotKw: eventSlotKw,
@@ -39459,9 +39598,10 @@ module.exports = {
 	heroKw: heroKw,
 	opyFuncs: opyFuncs,
 	opyMemberFuncs: opyMemberFuncs,
+	opyKeywords: opyKeywords,
 	currentLanguage: currentLanguage,
 	macros: macros,
 	resetGlobalVariables: resetGlobalVariables,
 	preprocessingDirectives: preprocessingDirectives,
-
+	typeToString: typeToString,
 };

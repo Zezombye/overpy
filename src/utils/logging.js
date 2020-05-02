@@ -46,7 +46,7 @@ function error(str, token) {
 
 function warn(warnType, message) {
 	
-	if (!suppressedWarnings.includes(warnType)) {
+	if (!suppressedWarnings.includes(warnType) && warnType !== "w_type_check") {
 		var warning = message+" ("+warnType+")";
 		if (fileStack.length !== 0) {
 			fileStack.reverse();

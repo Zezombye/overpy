@@ -48,13 +48,19 @@ function compile(content, language="en-US", _rootPath="") {
    	console.log(astRules);
     var parsedAstRules = parseAstRules(astRules);
 
-    for (var elem of parsedAstRules) {
+    /*for (var elem of parsedAstRules) {
         console.log(astToString(elem));
-    }
+    }*/
     console.log(parsedAstRules);
 
-	var result = astRulesToWs(parsedAstRules);
-	result = generateVariablesField()+generateSubroutinesField()+result;
+	var compiledRules = astRulesToWs(parsedAstRules);
+	if (obfuscateRules) {
+		compiledRules = addEmptyRules(compiledRules);
+	} else {
+		compiledRules = compiledRules.join("");
+	}
+
+	var result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
     
 /*
     var compiledRules = [];
@@ -237,4 +243,106 @@ function generateSubroutinesField() {
 	return result;
 
 }
+
+function compileCustomGameSettings(customGameSettings) {
+
+	if (typeof customGameSettings !== "object" || customGameSettings === null) {
+		error("Expected an object for custom game settings");
+	}
+	var result = {};
+	for (var key of Object.keys(customGameSettings)) {
+		if (key === "main" || key === "lobby") {
+			result[tows(key, customGameSettingsSchema)] = compileCustomGameSettingsDict(customGameSettings[key], customGameSettingsSchema[key].values);
+
+		} else if (key === "gamemodes") {
+			var wsGamemodes = tows("gamemodes", customGameSettingsSchema);
+			result[wsGamemodes] = {};
+			for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
+				var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
+				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
+					wsGamemode = tows("_disabled", ruleKw)+" "+wsGamemode;
+					delete customGameSettings.gamemodes[gamemode].enabled;
+				}
+				result[wsGamemodes][wsGamemode] = {};
+				if ("enabledMaps" in customGameSettings.gamemodes[gamemode] || "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
+					if ("enabledMaps" in customGameSettings.gamemodes[gamemode] && "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
+						error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '"+gamemode+"'");
+					}
+					var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
+					var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
+					result[wsGamemodes][wsGamemode][wsMapsKey] = [];
+					for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
+						result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw))
+					}
+					delete customGameSettings.gamemodes[gamemode][mapsKey];
+				}
+
+				Object.assign(result[wsGamemodes][wsGamemode], compileCustomGameSettingsDict(customGameSettings.gamemodes[gamemode], customGameSettingsSchema.gamemodes.values[gamemode].values));
+			}
+
+		} else if (key === "heroes") {
+			var wsHeroes = tows("heroes", customGameSettingsSchema);
+			result[wsHeroes] = {};
+			for (var team of Object.keys(customGameSettings.heroes)) {
+				var wsTeam = tows(team, customGameSettingsSchema.heroes.teams);
+				result[wsHeroes][wsTeam] = {};
+				var wsHeroesKey = null;
+				var wsHeroesKeyObj = [];
+				if ("enabledHeroes" in customGameSettings.heroes[team] || "disabledHeroes" in customGameSettings.heroes[team]) {
+					if ("enabledHeroes" in customGameSettings.heroes[team] && "disabledHeroes" in customGameSettings.heroes[team]) {
+						error("Cannot have both 'enabledHeroes' and 'disabledHeroes' in team '"+team+"'");
+					}
+					var heroesKey = "enabledHeroes" in customGameSettings.heroes[team] ? "enabledHeroes" : "disabledHeroes";
+					wsHeroesKey = tows(heroesKey, customGameSettingsSchema.heroes.values);
+					for (var hero of customGameSettings.heroes[team][heroesKey]) {
+						wsHeroesKeyObj.push(tows(hero, heroKw));
+					}
+					delete customGameSettings.heroes[team][heroesKey];
+				}
+
+				if ("general" in customGameSettings.heroes[team]) {
+					Object.assign(result[wsHeroes][wsTeam], compileCustomGameSettingsDict(customGameSettings.heroes[team].general, customGameSettingsSchema.heroes.values.general));
+					delete customGameSettings.heroes[team].general;
+				}
+
+				for (var hero of Object.keys(customGameSettings.heroes[team])) {
+					var wsHero = tows(hero, heroKw);
+					result[wsHeroes][wsTeam][wsHero] = compileCustomGameSettingsDict(customGameSettings.heroes[team][hero], customGameSettingsSchema.heroes.values[hero].values);
+				}
+
+				if (wsHeroesKey !== null) {
+					result[wsHeroes][wsTeam][wsHeroesKey] = wsHeroesKeyObj;
+				}
+
+			}
+		} else {
+			error("Unknown key '"+key+"'");
+		}
+	}
+
+
+	nbTabs = 0;
+	function deserializeObject(obj) {
+		var result = "\n"+tabLevel(nbTabs)+"{\n";
+		nbTabs++;
+		for (var key of Object.keys(obj)) {
+			if (obj[key].constructor === Array) {
+				result += tabLevel(nbTabs)+key+"\n"+tabLevel(nbTabs)+"{\n"+obj[key].map(x => tabLevel(nbTabs+1)+x+"\n").join("");
+				result += tabLevel(nbTabs)+"}\n";
+			} else if (typeof obj[key] === "object" && obj[key] !== null) {
+				result += tabLevel(nbTabs)+key+deserializeObject(obj[key])+"\n";
+			} else {
+				result += tabLevel(nbTabs)+key+": "+obj[key]+"\n";
+			}
+		}
+		nbTabs--;
+		result += tabLevel(nbTabs)+"}";
+		return result;
+	}
+
+	compiledCustomGameSettings = tows("__settings__", ruleKw) + deserializeObject(result)+"\n";
+
+
+}
+
 

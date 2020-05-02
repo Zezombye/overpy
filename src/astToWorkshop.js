@@ -19,9 +19,10 @@
 
 function astRulesToWs(rules) {
 
-    var result = "";
+    var compiledRules = [];
 
     for (var rule of rules) {
+        var result = "";
         if (rule.ruleAttributes.isDisabled) {
             result += tows("__disabled__", ruleKw)+" ";
         }
@@ -61,10 +62,11 @@ function astRulesToWs(rules) {
         }
 
         result += "}\n\n";
+        compiledRules.push(result);
     }
 
     
-    return result;
+    return compiledRules;
 
 }
 
@@ -235,6 +237,13 @@ function astToWs(content) {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundUp__", [], [], "__Rounding__")];
 
+    } else if (content.name === "getSign") {
+        //getSign(x) -> (x>0)-(x<0)
+        content.name = "__subtract__";
+        content.args = [
+            new Ast("__greaterThan__", [content.args[0], getAstFor0()]),
+            new Ast("__lessThan__", [content.args[0], getAstFor0()]),
+        ];
     } else if (content.name === "floor") {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundDown__", [], [], "__Rounding__")];

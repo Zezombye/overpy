@@ -109,6 +109,11 @@ const opyKeywords = {
         "description": "Declares a player variable. The index (0-127) can optionally be specified. Example: `playervar myVar 127`",
         "args": null
     },
+    "rule": {
+        "description": "Declares a rule.",
+        "args": null,
+        "snippet": "rule \"$0\"",
+    },
     "settings": {
         "description": "Declares custom game settings. Must be followed by an object containing the settings.",
         "args": null

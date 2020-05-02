@@ -5,17 +5,15 @@
 		{
 			"include": "#classes"
 		},{
+			"include": "#comments"
+		},{
+			"include": "#multiline-comments"
+		},{
 			"include": "#keywords"
 		},{
 			"include": "#labels"
 		},{
 			"include": "#strings"
-		},{
-			"include": "#comments"
-		},{
-			"include": "#string-comments-quotes"
-		},{
-			"include": "#string-comments-apos"
 		},{
 			"include": "#macros"
 		},{
@@ -80,7 +78,7 @@
 		},
 		"strings": {
 			"name": "string.quoted.double.overpy",
-			"begin": "\"(?!\"\")",
+			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
@@ -103,15 +101,10 @@
 			"end": "(?<!\\\\)\\n"
 			
 		},
-		"string-comments-apos": {
-			"begin": "'''",
-			"end": "'''",
-			"name": "comment.block"
-		},
-		"string-comments-quotes": {
-			"begin": "\"\"\"",
-			"end": "\"\"\"",
-			"name": "comment.block"
+		"multiline-comments": {
+			"name": "comment.line",
+			"begin": "\\/\\*",
+			"end": "\\*\\/"
 		},
 		"invalid": {
 			"patterns": [

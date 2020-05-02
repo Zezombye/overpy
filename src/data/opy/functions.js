@@ -214,7 +214,8 @@ const opyFuncs = {
                 "type": "SpecVisibility",
                 "default": "DEFAULT VISIBILITY"
             }
-        ]
+        ],
+        return: "void",
     },
     "hudSubtext": {
         "description": "Built-in macro for `hudText` to reduce the number of arguments.",

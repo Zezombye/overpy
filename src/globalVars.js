@@ -44,11 +44,8 @@ var currentRuleLabelAccess;
 
 var currentRuleHasVariableGoto;
 
-//If set to true, sets all rule titles to empty.
+//If set to true, applies various obfuscation techniques on the gamemode.
 var obfuscateRules;
-
-//If set to true, puts 3000 empty rules, effectively making it impossible to open the preset (you get kicked by the server).
-var enableNoEdit;
 
 var enableOptimization;
 
@@ -112,7 +109,6 @@ function resetGlobalVariables(language) {
 	suppressedWarnings = [];
 	globalSuppressedWarnings = [];
 	importedFiles = [];
-	enableNoEdit = false;
 	disableUnusedVars = false;
 	compiledCustomGameSettings = "";
 	enableOptimization = true;
@@ -287,6 +283,7 @@ const typeTree = [
 		"DotId",
 		"HotId",
 		"EntityId",
+		"TextId",
 		"String",
 		{"Direction": ["Vector"]},
 		{"Position": ["Vector"]},
@@ -320,7 +317,7 @@ const typeTree = [
 		"LocalizedStringLiteral",
 		"FullwidthStringLiteral",
 		"BigLettersStringLiteral",
-	]}
+	]},
 
 ].concat(Object.keys(constantValues));
 

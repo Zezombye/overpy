@@ -20,7 +20,7 @@
 astParsingFunctions.__button__ = function(content) {
 
     //Check the expected type to check if we need to remove the wrapper "button" function
-    console.log("test");
+    console.log("parent name: '"+content.parent.name+"', parent arg index: "+content.parent.argIndex);
     console.log(funcKw[content.parent.name].args[content.parent.argIndex].type);
     if (funcKw[content.parent.name].args[content.parent.argIndex].type === "ButtonLiteral") {
         return content.args[0];

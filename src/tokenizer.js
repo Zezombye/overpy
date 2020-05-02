@@ -178,7 +178,7 @@ function tokenize(content) {
 
 	function parsePreprocessingDirective(content) {
 
-		console.log("Parsing preprocessing directive '"+content+"'");
+		debug("Parsing preprocessing directive '"+content+"'");
 		if (content.startsWith("#!define ") || content.startsWith("#!defineMember ")) {
 			macros.push(parseMacro({
 				fileStack: getFileStackCopy(),
@@ -193,25 +193,9 @@ function tokenize(content) {
 		} else if (content.startsWith("#!disableUnusedVars")) {
 			disableUnusedVars = true;
 
-		} else if (content.startsWith("#!noEdit")) {
-			enableNoEdit = true;
-
 		} else if (content.startsWith("#!suppressWarnings ")) {
-			var lineIndex = content.indexOf("\n");
 			var firstSpaceIndex = content.indexOf(" ");
-			globalSuppressedWarnings = content.substring(firstSpaceIndex, lineIndex).trim().split(" ").map(x => x.trim());
-
-		} else if (content.startsWith("#!include ")) {
-			
-			var endOfLine = content.indexOf('\n');
-			var space = content.indexOf(" ");
-			var path = getFilePath(content.substring(space, endOfLine));
-			var importedFileContent = getFileContent(path);
-			
-			content = content.substring(0, i) + importedFileContent + content.substring(endOfLine);
-			addFile(importedFileContent.length, endOfLine-i, endOfLine-i, 0, getFilenameFromPath(path), 0, 1);
-			i--;
-			fileStack[fileStack.length-1].remainingChars++;
+			globalSuppressedWarnings = content.substring(firstSpaceIndex).trim().split(" ").map(x => x.trim());
 
 		} else {
 			error("Unknown preprocessor directive '"+content+"'");
@@ -274,6 +258,7 @@ function tokenize(content) {
 				for (; j < content.length; j++) {
 					if (content[j] === "\\") {
 						isBackslashed = true;
+						preprocessingDirectiveContent += content[j];
 					} else if (!isBackslashed && content[j] === "\n") {
 						break;
 					} else if (content[j] !== " " && content[j] !== "\r") {
@@ -284,8 +269,20 @@ function tokenize(content) {
 					}
 				}
 
-				parsePreprocessingDirective(preprocessingDirectiveContent);
-				moveCursor(j-i-1);
+				if (preprocessingDirectiveContent.startsWith("#!include ")) {
+					
+					var space = preprocessingDirectiveContent.indexOf(" ");
+					var path = getFilePath(preprocessingDirectiveContent.substring(space));
+					var importedFileContent = getFileContent(path);
+					
+					content = content.substring(0, i) + importedFileContent + content.substring(i+preprocessingDirectiveContent.length);
+					addFile(importedFileContent.length, preprocessingDirectiveContent.length-i, preprocessingDirectiveContent.length-i, 0, getFilenameFromPath(path), 0, 1);
+					i--;
+					fileStack[fileStack.length-1].remainingChars++;
+				} else {
+					parsePreprocessingDirective(preprocessingDirectiveContent);
+					moveCursor(j-i-1);
+				}
 
 			} else if (content[i] === '#') {
 				//Get to the end of the comment. Note: backslashes don't work to continue a line comment.

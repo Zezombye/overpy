@@ -32,5 +32,9 @@ astParsingFunctions.__valueInArray__ = function(content) {
         ])
     }
 
+    if (content.args[1].name === "__number__" && content.args[1].args[0].numValue < 0) {
+        error("Cannot access the negative index '"+content.args[1].args[0].numValue+"' of an array");
+    }
+
     return content;
 }
