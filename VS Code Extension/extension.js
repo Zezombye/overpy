@@ -36,31 +36,28 @@ const decompilerUI = [`
     <div id="wrapper">
         <h1>OverPy Decompiler</h1>
         <p>Note: if you have an error, you will need to reload the page.</p>
-        <div id="decompiler-input">
-            <textarea id="decompiler-input-text" placeholder="Copy paste your workshop code here"></textarea>
-        </div>
-    </div>
-    
-    <div id="button-container">
+        <textarea id="decompiler-input-text" placeholder="Copy paste your workshop code here"></textarea>
+        <br>
         Language: <select id="language-select">
-            <option value="en-US">English</option>
-            <option value="de-DE">German</option>
-            <option value="es-ES">Spanish (Spain)</option>
-            <option value="es-MX">Spanish (Mexico)</option>
-            <option value="fr-FR">French</option>
-            <option value="it-IT">Italian</option>
-            <option value="ja-JP">Japanese</option>
-            <option value="ko-KR">Korean</option>
-            <option value="pl-PL">Polish</option>
-            <option value="pt-BR">Portugese (Brazil)</option>
-            <option value="ru-RU">Russian</option>
-            <option value="zh-CN">Chinese (Simplified)</option>
-            <option value="zh-TW">Chinese (Traditional)</option>
+            <option value="en-US">English (en-US)</option>
+            <option value="de-DE">German (de-DE)</option>
+            <option value="es-ES">Spanish (Spain) (es-ES)</option>
+            <option value="es-MX">Spanish (Mexico) (es-MX)</option>
+            <option value="fr-FR">French (fr-FR)</option>
+            <option value="it-IT">Italian (it-IT)</option>
+            <option value="ja-JP">Japanese (ja-JP)</option>
+            <option value="ko-KR">Korean (ko-KR)</option>
+            <option value="pl-PL">Polish (pl-PL)</option>
+            <option value="pt-BR">Portugese (Brazil) (pt-BR)</option>
+            <option value="ru-RU">Russian (ru-RU)</option>
+            <option value="zh-CN">Chinese (Simplified) (zh-CN)</option>
+            <option value="zh-TW">Chinese (Traditional) (zh-TW)</option>
         </select>
         <br>
         <br>
         <button type="button" onclick="decompile()">Decompile</button>
     </div>
+    
 
     <style>
         
@@ -82,18 +79,6 @@ const decompilerUI = [`
             height: 450px;
             top: 50%;
             transform: translateY(-50%);
-        }
-
-        div#var-input {
-            float: right;
-            width: 250px;
-        }
-
-        #global-var-input, #player-var-input {
-            height: 200px;
-            overflow-y: scroll;
-            text-align: right;
-            font-family: monospace;
         }
 
         textarea#decompiler-input-text {
@@ -138,6 +123,7 @@ const decompilerUI = [`
     
     </script>
 </body>
+
 
 `];
 

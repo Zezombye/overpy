@@ -300,6 +300,7 @@ const typeTree = [
 	"Lambda",
 	"Label",
 	"DictElem",
+	"Raycast",
 
 	"Subroutine",
 	"GlobalVariable",

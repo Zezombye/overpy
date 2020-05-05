@@ -20,7 +20,7 @@
 class Ast {
 
     constructor(name, args, children, type) {
-        if (!name) {
+        if (name === null || name === undefined) {
             error("Got no name for AST");
         }
         if (typeof name !== "string") {
@@ -45,12 +45,14 @@ class Ast {
 
         for (var arg of this.args) {
             if (!(arg instanceof Ast)) {
+                console.log(arg);
                 error("Arg '"+arg+"' of '"+name+"' is not an AST");
             }
             arg.parent = this;
         }
         for (var child of this.children) {
             if (!(child instanceof Ast)) {
+                console.log(child);
                 error("Child '"+child+"' of '"+name+"' is not an AST");
             }
             child.parent = this;
@@ -69,7 +71,7 @@ class WorkshopVar {
     }
 }
 
-class Rule {
+/*class Rule {
     constructor() {
         this.name = null;
         this.conditions = [];
@@ -79,7 +81,7 @@ class Rule {
         this.eventPlayer = null;
         this.isDisabled = false;
     }
-}
+}*/
 
 function parseLines(lines) {
 
@@ -607,17 +609,19 @@ function parse(content) {
 	if (name === "raycast") {
 
         if (args.length === 5) {
-			if (args[2].length >= 2 && args[2][0].text === "include" || args[2][1].text === "=") {
+            console.log(args[2])
+            console.log(args[2].length)
+			if (args[2].length >= 2 && (args[2][0].text === "include" || args[2][1].text === "=")) {
 				args[2] = args[2].slice(2);
             } 
-            if (args[3].length >= 2 && args[3][0].text === "exclude" || args[3][1].text === "=") {
+            if (args[3].length >= 2 && (args[3][0].text === "exclude" || args[3][1].text === "=")) {
 				args[3] = args[3].slice(2);
             } 
-            if (args[4].length >= 2 && args[4][0].text === "includePlayerObjects" || args[4][1].text === "=") {
+            if (args[4].length >= 2 && (args[4][0].text === "includePlayerObjects" || args[4][1].text === "=")) {
 				args[4] = args[4].slice(2);
             }
 
-            return new Ast("__raycast__", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])], [], "Raycast");
+            return new Ast("raycast", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])]);
             
         } else {
 			error("Function 'raycast' takes 5 arguments, received "+args.length);
@@ -773,7 +777,7 @@ function parseMember(object, member) {
         } else if (name === "format") {
             return new Ast("__format__", [parse(object)].concat(args.map(x => parse(x))));
 			
-		} else if ("getHitPosition", "getNormal", "getPlayerHit", "hasLoS".includes(name)) {
+		} else if (["getHitPosition", "getNormal", "getPlayerHit"].includes(name)) {
             if (args.length !== 0) {
                 error("Function '"+name+"' takes no argument, received "+args.length);
             }

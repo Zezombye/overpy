@@ -260,7 +260,7 @@ function compileCustomGameSettings(customGameSettings) {
 			for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
 				var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
 				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
-					wsGamemode = tows("_disabled", ruleKw)+" "+wsGamemode;
+					wsGamemode = tows("__disabled__", ruleKw)+" "+wsGamemode;
 					delete customGameSettings.gamemodes[gamemode].enabled;
 				}
 				result[wsGamemodes][wsGamemode] = {};

@@ -313,9 +313,7 @@ function decompileSubroutines(content) {
 	}
 }
 
-function decompileRule(content) {
-
-	error("The decompiler currently cannot decompile rules.");
+function decompileRuleToAst(content) {
 	
 	//Reset rule-specific global variables
 	decompilerGotos = [];
@@ -331,19 +329,18 @@ function decompileRule(content) {
 	if (bracketPos.length != 4) {
 		error("Invalid rule (mismatched brackets): has "+bracketPos.length+" top-level brackets, should be 4");
 	}
+
+	var astRule = new Ast("__rule__");
+	astRule.ruleAttributes = {};
 	
 	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
-	var isCurrentRuleDisabled = false;
+	astRule.ruleAttributes.name = ruleName;
+	
 	if (content.trim().startsWith(tows("__disabled__", ruleKw))) {
-		isCurrentRuleDisabled = true;
+		astRule.isDisabled = true;
 	}
 	
 	debug("Decompiling rule "+ruleName);
-	var result = "";
-	if (isCurrentRuleDisabled) {
-		result += '/*';
-	}
-	result += "@Rule "+ruleName+"\n";
 	
 	var ruleContent = content.substring(bracketPos[2]+1, bracketPos[3]);
 	
@@ -372,13 +369,14 @@ function decompileRule(content) {
 	if (eventInst.length > 0) {
 
 		var eventName = topy(eventInst[0], eventKw);
+		astRule.ruleAttributes.event = eventName;
+		
 		if (eventName === "__subroutine__") {
 
 			if (eventInst.length !== 2) {
 				error("Malformed subroutine event");
 			}
 			var subroutineName = translateSubroutineToPy(eventInst[1].trim());
-
 			result += "def "+subroutineName+"():\n";
 			nbTabs = 1;
 
@@ -415,9 +413,6 @@ function decompileRule(content) {
 		result += decompileActions(actions);
 	}
 	
-	if (isCurrentRuleDisabled) {
-		result += '*/';
-	}
 	return result+"\n\n";
 }
 

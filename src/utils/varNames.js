@@ -171,7 +171,7 @@ function isVarName(content, checkForGlobalVar) {
 }
 
 //Checks if the given name is a subroutine name
-function isSubroutineName(content, checkForGlobalVar) {
+function isSubroutineName(content) {
 	if (defaultSubroutineNames.includes(content)) {
 		return true;
 	}

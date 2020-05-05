@@ -188,15 +188,6 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
-    "__array__": {
-        "args": [
-            {
-                "name": "ELEMENT",
-                "type": ["Object", "Array"]
-            }
-        ],
-        return: "Array",
-    },
     "__assignTo__": {
         "args": [
             {
@@ -384,6 +375,33 @@ const opyInternalFuncs = {
             }
         ],
         return: "String",
+    },
+    "__getNormal__": {
+        "args": [
+            {
+                "name": "RAYCAST",
+                "type": "Raycast",
+            }
+        ],
+        return: "Direction",
+    },
+    "__getPlayerHit__": {
+        "args": [
+            {
+                "name": "RAYCAST",
+                "type": "Raycast",
+            }
+        ],
+        return: "Player",
+    },
+    "__getHitPosition__": {
+        "args": [
+            {
+                "name": "RAYCAST",
+                "type": "Raycast",
+            }
+        ],
+        return: "Position",
     },
     "__gotoLabel__": {
         "args": [
@@ -6968,6 +6986,10 @@ var valueFuncKw =
         "pt-BR": "Para a Frente",
         "zh-CN": "前"
     },
+    "__global__": {
+        return: "GlobalVariable",
+        "en-US": "Global",
+    },
     "__globalVar__": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
@@ -9080,7 +9102,7 @@ var valueFuncKw =
         "pt-BR": "Matriz Randomizada",
         "zh-CN": "随机数组"
     },
-    "__getNormal__": {
+    "__raycastHitNormal__": {
         "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
         "args": [
             {
@@ -9123,7 +9145,7 @@ var valueFuncKw =
         "pt-BR": "Normal de Acerto do Lançamento de Raio",
         "zh-CN": "射线命中法线"
     },
-    "__getPlayerHit__": {
+    "__raycastHitPlayer__": {
         "description": "The player hit by the ray cast (or null if no player is hit).",
         "args": [
             {
@@ -9166,7 +9188,7 @@ var valueFuncKw =
         "pt-BR": "Jogador Atingido pelo Lançamento de Raio",
         "zh-CN": "射线命中玩家"
     },
-    "__getHitPosition__": {
+    "__raycastHitPosition__": {
         "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
         "args": [
             {
@@ -20935,12 +20957,12 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 
 //Returns an array of workshop instructions (delimited by a semicolon).
 function splitInstructions(content) {
-	return splitStrOnDelimiter(content, [';']);
+	return splitStrOnDelimiter(content, ';');
 }
 
 //Returns an array of arguments (delimited by a comma).
 function getArgs(content) {
-	return splitStrOnDelimiter(content, [',']);
+	return splitStrOnDelimiter(content, ',');
 }
 
 //Returns the prefix string (used for condition/action comments).
@@ -20970,7 +20992,7 @@ function getPrefixString(content) {
 //Returns an array of strings that are delimited by the given string(s).
 //The delimiter is only taken into account if it is not within parentheses and not within a string.
 //Example: "azer(1,2), reaz(',,,,')" will return ["azer(1,2)","reaz(',,,,')"] for a comma separator.
-function splitStrOnDelimiter(content, delimiter) {
+function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) {
 	
 	content = content.trim();
 	var bracketPos = getBracketPositions(content);
@@ -20997,8 +21019,8 @@ function splitStrOnDelimiter(content, delimiter) {
 		}
 
 	}
-	
 	delimiterPos.push(content.length);
+
 	
 	var result = [];
 	for (var i = 0; i < delimiterPos.length-1; i++) {
@@ -21006,6 +21028,14 @@ function splitStrOnDelimiter(content, delimiter) {
 		currentStr = currentStr.trim();
 		if (currentStr.length > 0) {
 			result.push(currentStr);
+		}
+	}
+
+	if (!getAllMembers && result.length > 2) {
+		if (rtl) {
+			result = [result.slice(0, result.length-1).join(delimiter), result[result.length-1]];
+		} else {
+			result = [result[0], result.slice(1).join(delimiter)];
 		}
 	}
 	
@@ -21745,7 +21775,7 @@ function isVarName(content, checkForGlobalVar) {
 }
 
 //Checks if the given name is a subroutine name
-function isSubroutineName(content, checkForGlobalVar) {
+function isSubroutineName(content) {
 	if (defaultSubroutineNames.includes(content)) {
 		return true;
 	}
@@ -22234,6 +22264,7 @@ const typeTree = [
 	"Lambda",
 	"Label",
 	"DictElem",
+	"Raycast",
 
 	"Subroutine",
 	"GlobalVariable",
@@ -22303,7 +22334,6 @@ var astParsingFunctions = {};
 "use strict";
 
 var decompileTest = `
-
 rule("cs:s zombie escape - made by /u/zezombye - discord in description")
 {
 	event
@@ -22313,7 +22343,7 @@ rule("cs:s zombie escape - made by /u/zezombye - discord in description")
 
 	actions
 	{
-		Set Global Variable(F, Round To Integer(X Component Of(Nearest Walkable Position(Vector(100, 100, 100))), Up));
+		Global.F = Round To Integer(X Component Of(Nearest Walkable Position(Vector(100, 100, 100))), Up);
 	}
 }
 
@@ -22326,12 +22356,12 @@ rule("kings row")
 
 	conditions
 	{
-		Global Variable(F) == 17;
+		Global.F == 17;
 	}
 
 	actions
 	{
-		Set Global Variable(S, Empty Array);
+		Global.S = Empty Array;
 		Modify Global Variable(S, Append To Array, Vector(0, 6, 15));
 		Modify Global Variable(S, Append To Array, Vector(1, 6, 20));
 		Modify Global Variable(S, Append To Array, Vector(7, 5, 20));
@@ -22339,7 +22369,7 @@ rule("kings row")
 		Modify Global Variable(S, Append To Array, Vector(18, 5, 15));
 		Modify Global Variable(S, Append To Array, Vector(23, 2, 20));
 		Modify Global Variable(S, Append To Array, Vector(25, 0, 10));
-		Set Global Variable(L, Empty Array);
+		Global.L = Empty Array;
 		Modify Global Variable(L, Append To Array, Vector(62.730, 5.860, -55.220));
 		Modify Global Variable(L, Append To Array, Vector(32.710, 7.460, -31.960));
 		Modify Global Variable(L, Append To Array, Vector(-10.513, 0.937, 41.313));
@@ -22347,9 +22377,9 @@ rule("kings row")
 		Modify Global Variable(L, Append To Array, Vector(-25.564, 1.336, -34.058));
 		Modify Global Variable(L, Append To Array, Vector(-92.891, 2.859, -28.700));
 		Modify Global Variable(L, Append To Array, Vector(-156.650, 1.479, 48.010));
-		Set Global Variable(H, Vector(21.270, 0.580, -48.480));
-		Set Global Variable(D, -15.000);
-		Set Global Variable(M, Empty Array);
+		Global.H = Vector(21.270, 0.580, -48.480);
+		Global.D = -15;
+		Global.M = Empty Array;
 		Modify Global Variable(M, Append To Array, 21);
 		Modify Global Variable(M, Append To Array, 16);
 		Modify Global Variable(M, Append To Array, 17);
@@ -22357,7 +22387,7 @@ rule("kings row")
 		Modify Global Variable(M, Append To Array, 25);
 		Modify Global Variable(M, Append To Array, 35);
 		Modify Global Variable(M, Append To Array, 10);
-		Set Global Variable(T, Empty Array);
+		Global.T = Empty Array;
 		Modify Global Variable(T, Append To Array, Vector(30.029, 7.399, -15.740));
 		Modify Global Variable(T, Append To Array, Vector(-17.200, 0.550, 42.439));
 		Modify Global Variable(T, Append To Array, Vector(9.729, 9.350, -8.530));
@@ -22365,46 +22395,46 @@ rule("kings row")
 		Modify Global Variable(T, Append To Array, Vector(-95.540, -1.141, -46.360));
 		Modify Global Variable(T, Append To Array, Vector(-168.860, 1.160, 35.540));
 		Modify Global Variable(T, Append To Array, Vector(-178.840, 1.540, 37.250));
-		Set Global Variable(W, Empty Array);
-		Modify Global Variable(W, Append To Array, Vector(30.770, 5.960, -8.000));
-		Set Global Variable(X, 1);
+		Global.W = Empty Array;
+		Modify Global Variable(W, Append To Array, Vector(30.770, 5.960, -8));
+		Global.X = 1;
 		Modify Global Variable(W, Append To Array, Vector(27.600, 5.859, -39.780));
 		Modify Global Variable(W, Append To Array, Vector(31.810, 0.240, -63.221));
 		Modify Global Variable(W, Append To Array, Vector(25, 5.960, -10.971));
 		Modify Global Variable(W, Append To Array, Vector(25.359, 5.859, -51.500));
 		Modify Global Variable(W, Append To Array, Vector(24.880, 5.960, -16.250));
 		Modify Global Variable(W, Append To Array, Vector(19.220, 4, -6.980));
-		Set Global Variable(X, 2);
+		Global.X = 2;
 		Modify Global Variable(W, Append To Array, Vector(10.500, 7.350, -16.181));
 		Modify Global Variable(W, Append To Array, Vector(-8.021, 1.240, 3.880));
 		Modify Global Variable(W, Append To Array, Vector(1.109, 1.420, 4.250));
 		Modify Global Variable(W, Append To Array, Vector(-1.590, 1.240, -12.700));
 		Modify Global Variable(W, Append To Array, Vector(4.670, 7, -13.620));
-		Set Global Variable(X, 3);
+		Global.X = 3;
 		Modify Global Variable(W, Append To Array, Vector(-11.931, 1.410, -15.030));
 		Modify Global Variable(W, Append To Array, Vector(-2.940, 1.410, -38.690));
 		Modify Global Variable(W, Append To Array, Vector(-19.630, 2.350, -54.021));
 		Modify Global Variable(W, Append To Array, Vector(-15.250, 1.229, -27.730));
 		Modify Global Variable(W, Append To Array, Vector(-15.471, 1.220, -31.960));
-		Modify Global Variable(W, Append To Array, Vector(-17.300, 1.220, -37.000));
-		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(-17.300, 1.220, -37));
+		Global.X = 4;
 		Modify Global Variable(W, Append To Array, Vector(-62.450, 6.300, -17.040));
 		Modify Global Variable(W, Append To Array, Vector(-66.010, 6.370, -12.891));
 		Modify Global Variable(W, Append To Array, Vector(-52.851, 1.200, -36.070));
 		Modify Global Variable(W, Append To Array, Vector(-55.460, 0.950, -32.540));
 		Modify Global Variable(W, Append To Array, Vector(-72.330, 1.160, -12.420));
-		Set Global Variable(X, 5);
+		Global.X = 5;
 		Modify Global Variable(W, Append To Array, Vector(-170.521, 1.479, 39.270));
 		Modify Global Variable(W, Append To Array, Vector(-171.641, 1.479, 32.510));
-		Set Global Variable(B, Empty Array);
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Global.B = Empty Array;
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 		Modify Global Variable(B, Append To Array, Vector(42.160, 0.670, 31.960));
 		Modify Global Variable(B, Append To Array, Vector(-20.250, 1.260, 27.649));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 		Modify Global Variable(B, Append To Array, Vector(-19.271, 2.350, -16.340));
 		Modify Global Variable(B, Append To Array, Vector(-97.971, -1.141, -47.771));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
-		Set Global Variable(C, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+		Global.C = Empty Array;
 		Modify Global Variable(C, Append To Array, Vector(62.729, 5.859, -55.221));
 		Modify Global Variable(C, Append To Array, Vector(3.630, 3.550, 52.290));
 		Modify Global Variable(C, Append To Array, Vector(7.409, 1.488, 13.761));
@@ -22424,39 +22454,39 @@ rule("blizz world")
 
 	conditions
 	{
-		Global Variable(F) == 54;
+		Global.F == 54;
 	}
 
 	actions
 	{
-		Set Global Variable(W, Empty Array);
-		Set Global Variable(X, 1);
+		Global.W = Empty Array;
+		Global.X = 1;
 		Modify Global Variable(W, Append To Array, Vector(3, 1.250, 24.290));
 		Modify Global Variable(W, Append To Array, Vector(16.910, -2.650, 25.750));
-		Set Global Variable(X, 2);
+		Global.X = 2;
 		Modify Global Variable(W, Append To Array, Vector(-9.130, 3.150, 64.190));
 		Modify Global Variable(W, Append To Array, Vector(-5.100, 2.470, 59.900));
-		Set Global Variable(X, 3);
+		Global.X = 3;
 		Modify Global Variable(W, Append To Array, Vector(-1.240, 1.860, 55.560));
 		Modify Global Variable(W, Append To Array, Vector(5.640, 1.770, 55.980));
 		Modify Global Variable(W, Append To Array, Vector(8.030, 1.440, 52.010));
 		Modify Global Variable(W, Append To Array, Vector(16.460, 4.440, 83));
 		Modify Global Variable(W, Append To Array, Vector(16.270, 0.630, 88.900));
 		Modify Global Variable(W, Append To Array, Vector(16.380, 0.380, 95.980));
-		Set Global Variable(X, 4);
+		Global.X = 4;
 		Modify Global Variable(W, Append To Array, Vector(-69.170, 7.930, 103.970));
 		Modify Global Variable(W, Append To Array, Vector(-53.750, 1.140, 126.340));
-		Set Global Variable(X, 5);
+		Global.X = 5;
 		Modify Global Variable(W, Append To Array, Vector(-59.730, 2.160, 120.330));
 		Modify Global Variable(W, Append To Array, Vector(-63.110, 2.170, 115.720));
-		Set Global Variable(X, 6);
+		Global.X = 6;
 		Modify Global Variable(W, Append To Array, Vector(-115.740, 0.270, 95.590));
 		Modify Global Variable(W, Append To Array, Vector(-135.510, 2.100, 118.180));
 		Modify Global Variable(W, Append To Array, Vector(-125.930, 0.950, 118.130));
 		Modify Global Variable(W, Append To Array, Vector(-120.980, 1.100, 119.230));
 		Modify Global Variable(W, Append To Array, Vector(-145.590, 2.150, 115.900));
 		Modify Global Variable(W, Append To Array, Vector(-147.460, 2.230, 90.870));
-		Set Global Variable(S, Empty Array);
+		Global.S = Empty Array;
 		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
 		Modify Global Variable(S, Append To Array, Vector(0, 2, 20));
 		Modify Global Variable(S, Append To Array, Vector(2, 5, 15));
@@ -22465,7 +22495,7 @@ rule("blizz world")
 		Modify Global Variable(S, Append To Array, Vector(12, 6, 20));
 		Modify Global Variable(S, Append To Array, Vector(14, 6, 15));
 		Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
-		Set Global Variable(L, Empty Array);
+		Global.L = Empty Array;
 		Modify Global Variable(L, Append To Array, Vector(2.970, -4.650, -85.640));
 		Modify Global Variable(L, Append To Array, Vector(-12.371, -4.201, -57.627));
 		Modify Global Variable(L, Append To Array, Vector(-10.511, -2.848, -0.823));
@@ -22474,7 +22504,7 @@ rule("blizz world")
 		Modify Global Variable(L, Append To Array, Vector(-50.660, 5.870, 88.570));
 		Modify Global Variable(L, Append To Array, Vector(-115.069, 2.995, 156.563));
 		Modify Global Variable(L, Append To Array, Vector(-123.480, 1.200, 110.010));
-		Set Global Variable(M, Empty Array);
+		Global.M = Empty Array;
 		Modify Global Variable(M, Append To Array, 21);
 		Modify Global Variable(M, Append To Array, 16);
 		Modify Global Variable(M, Append To Array, 17);
@@ -22483,7 +22513,7 @@ rule("blizz world")
 		Modify Global Variable(M, Append To Array, 15);
 		Modify Global Variable(M, Append To Array, 20);
 		Modify Global Variable(M, Append To Array, 20);
-		Set Global Variable(T, Empty Array);
+		Global.T = Empty Array;
 		Modify Global Variable(T, Append To Array, Vector(-12.490, -2.650, -34.070));
 		Modify Global Variable(T, Append To Array, Vector(2.730, 1.250, 16.760));
 		Modify Global Variable(T, Append To Array, Vector(-8.830, 7.420, 51.640));
@@ -22492,16 +22522,16 @@ rule("blizz world")
 		Modify Global Variable(T, Append To Array, Vector(-109.040, 8, 131.870));
 		Modify Global Variable(T, Append To Array, Vector(-145.550, 2.100, 103.960));
 		Modify Global Variable(T, Append To Array, Vector(-145.550, 2.100, 103.960));
-		Set Global Variable(B, Empty Array);
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Global.B = Empty Array;
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 		Modify Global Variable(B, Append To Array, Vector(-12.510, -2.650, -33.500));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 		Modify Global Variable(B, Append To Array, Vector(22.180, 1.520, 96.160));
 		Modify Global Variable(B, Append To Array, Vector(-78.400, 1.950, 129.360));
 		Modify Global Variable(B, Append To Array, Vector(-113.260, 6.100, 130.810));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
-		Set Global Variable(C, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+		Global.C = Empty Array;
 		Modify Global Variable(C, Append To Array, Vector(2.970, -4.650, -85.640));
 		Modify Global Variable(C, Append To Array, Vector(-12.480, -2.720, -32.040));
 		Modify Global Variable(C, Append To Array, Vector(5.410, 1.420, 11.439));
@@ -22510,7 +22540,7 @@ rule("blizz world")
 		Modify Global Variable(C, Append To Array, Vector(-85.120, 0.100, 108.350));
 		Modify Global Variable(C, Append To Array, Vector(-116.570, 1.200, 112.060));
 		Modify Global Variable(C, Append To Array, Vector(-116.570, 1.200, 112.060));
-		Set Global Variable(D, -6.100);
+		Global.D = -6.100;
 	}
 }
 
@@ -22523,44 +22553,44 @@ rule("eichenwalde")
 
 	conditions
 	{
-		Global Variable(F) == 124;
+		Global.F == 124;
 	}
 
 	actions
 	{
-		Set Global Variable(W, Empty Array);
+		Global.W = Empty Array;
 		Modify Global Variable(W, Append To Array, Vector(8.603, 5.397, -34.937));
 		Modify Global Variable(W, Append To Array, Vector(-0.034, 4.280, -25.379));
 		Modify Global Variable(W, Append To Array, Vector(-1.348, 3.689, -27.841));
 		Modify Global Variable(W, Append To Array, Vector(-1.492, 1.359, -11.064));
 		Modify Global Variable(W, Append To Array, Vector(-1.939, 1.356, -6.578));
-		Set Global Variable(X, 1);
+		Global.X = 1;
 		Modify Global Variable(W, Append To Array, Vector(38.464, 10.852, -51.943));
 		Modify Global Variable(W, Append To Array, Vector(13, 5.554, -39.500));
 		Modify Global Variable(W, Append To Array, Vector(8.708, 6.434, -45.911));
-		Set Global Variable(X, 2);
+		Global.X = 2;
 		Modify Global Variable(W, Append To Array, Vector(7.928, 6.380, -52.230));
 		Modify Global Variable(W, Append To Array, Vector(22, 6.398, -58.962));
 		Modify Global Variable(W, Append To Array, Vector(27.209, 6.395, -59.248));
-		Set Global Variable(X, 3);
+		Global.X = 3;
 		Modify Global Variable(W, Append To Array, Vector(70.735, 8, -78.100));
 		Modify Global Variable(W, Append To Array, Vector(67.838, 8, -89.479));
 		Modify Global Variable(W, Append To Array, Vector(72.732, 8, -85.123));
 		Modify Global Variable(W, Append To Array, Vector(65.018, 18.071, -81.605));
 		Modify Global Variable(W, Append To Array, Vector(51.731, 8.021, -66.974));
 		Modify Global Variable(W, Append To Array, Vector(60.254, 12.454, -94.021));
-		Set Global Variable(X, 4);
+		Global.X = 4;
 		Modify Global Variable(W, Append To Array, Vector(104.171, 14.071, -53.970));
 		Modify Global Variable(W, Append To Array, Vector(100.794, 12.071, -29.289));
-		Set Global Variable(X, 5);
+		Global.X = 5;
 		Modify Global Variable(W, Append To Array, Vector(98.650, 12.071, -37.693));
 		Modify Global Variable(W, Append To Array, Vector(95.719, 12.071, -44.037));
 		Modify Global Variable(W, Append To Array, Vector(115.603, 10.072, -40.858));
 		Modify Global Variable(W, Append To Array, Vector(115.165, 10.073, -48.097));
 		Modify Global Variable(W, Append To Array, Vector(111.677, 12.090, -7.810));
 		Modify Global Variable(W, Append To Array, Vector(142.352, 12.090, -16.331));
-		Set Global Variable(X, 6);
-		Set Global Variable(S, Empty Array);
+		Global.X = 6;
+		Global.S = Empty Array;
 		Modify Global Variable(S, Append To Array, Vector(0, 5, 15));
 		Modify Global Variable(S, Append To Array, Vector(5, 6, 15));
 		Modify Global Variable(S, Append To Array, Vector(8, 3, 25));
@@ -22568,15 +22598,15 @@ rule("eichenwalde")
 		Modify Global Variable(S, Append To Array, Vector(17, 6, 20));
 		Modify Global Variable(S, Append To Array, Vector(19, 6, 20));
 		Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
-		Set Global Variable(L, Empty Array);
+		Global.L = Empty Array;
 		Modify Global Variable(L, Append To Array, Vector(-11.842, 1.351, -9.350));
 		Modify Global Variable(L, Append To Array, Vector(-7.643, 3.377, -28.960));
 		Modify Global Variable(L, Append To Array, Vector(17.593, 6.142, -51.242));
 		Modify Global Variable(L, Append To Array, Vector(10.165, 12.363, -96.497));
-		Modify Global Variable(L, Append To Array, Vector(56.275, 6.161, -98.000));
+		Modify Global Variable(L, Append To Array, Vector(56.275, 6.161, -98));
 		Modify Global Variable(L, Append To Array, Vector(107.763, 12.071, -32.700));
 		Modify Global Variable(L, Append To Array, Vector(128.931, 15.071, -6.823));
-		Set Global Variable(M, Empty Array);
+		Global.M = Empty Array;
 		Modify Global Variable(M, Append To Array, 15);
 		Modify Global Variable(M, Append To Array, 22);
 		Modify Global Variable(M, Append To Array, 11);
@@ -22584,7 +22614,7 @@ rule("eichenwalde")
 		Modify Global Variable(M, Append To Array, 15);
 		Modify Global Variable(M, Append To Array, 11);
 		Modify Global Variable(M, Append To Array, 20);
-		Set Global Variable(T, Empty Array);
+		Global.T = Empty Array;
 		Modify Global Variable(T, Append To Array, Vector(-4.208, 3.352, -36.936));
 		Modify Global Variable(T, Append To Array, Vector(31.750, 8.819, -49.356));
 		Modify Global Variable(T, Append To Array, Vector(17.581, 12.364, -88.729));
@@ -22592,15 +22622,15 @@ rule("eichenwalde")
 		Modify Global Variable(T, Append To Array, Vector(105.776, 14.071, -46.755));
 		Modify Global Variable(T, Append To Array, Vector(126.503, 17.516, -15.358));
 		Modify Global Variable(T, Append To Array, Vector(111.545, 16.071, -33.741));
-		Set Global Variable(B, Empty Array);
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
-		Modify Global Variable(B, Append To Array, Vector(21, 11.208, -99.000));
+		Global.B = Empty Array;
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+		Modify Global Variable(B, Append To Array, Vector(21, 11.208, -99));
 		Modify Global Variable(B, Append To Array, Vector(26.932, 10.006, -87.287));
 		Modify Global Variable(B, Append To Array, Vector(67.503, 6.071, -83.707));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 		Modify Global Variable(B, Append To Array, Vector(125.858, 16.083, -19.069));
-		Set Global Variable(C, Empty Array);
+		Global.C = Empty Array;
 		Modify Global Variable(C, Append To Array, Vector(-12.112, 2.165, -7.337));
 		Modify Global Variable(C, Append To Array, Vector(-12.480, -2.720, -32.040));
 		Modify Global Variable(C, Append To Array, Vector(5.125, 12.613, -84.363));
@@ -22608,7 +22638,7 @@ rule("eichenwalde")
 		Modify Global Variable(C, Append To Array, Vector(73.259, 14.071, -50.833));
 		Modify Global Variable(C, Append To Array, Vector(-85.120, 0.100, 108.350));
 		Modify Global Variable(C, Append To Array, Vector(113.351, 16.071, -27.425));
-		Set Global Variable(D, -2.050);
+		Global.D = -2.050;
 	}
 }
 
@@ -22621,40 +22651,40 @@ rule("oasis city center")
 
 	conditions
 	{
-		Global Variable(F) == 186;
+		Global.F == 186;
 	}
 
 	actions
 	{
-		Set Global Variable(W, Empty Array);
-		Set Global Variable(X, 1);
+		Global.W = Empty Array;
+		Global.X = 1;
 		Modify Global Variable(W, Append To Array, Vector(138.166, 2, 209.031));
 		Modify Global Variable(W, Append To Array, Vector(173.918, 5.451, 238.435));
 		Modify Global Variable(W, Append To Array, Vector(153.992, 4.105, 211.989));
 		Modify Global Variable(W, Append To Array, Vector(170.979, 5.348, 232.410));
 		Modify Global Variable(W, Append To Array, Vector(169.230, 4.230, 221.512));
-		Set Global Variable(X, 2);
+		Global.X = 2;
 		Modify Global Variable(W, Append To Array, Vector(146.914, 5.353, 269.272));
 		Modify Global Variable(W, Append To Array, Vector(165.430, 5.353, 251.300));
 		Modify Global Variable(W, Append To Array, Vector(174.073, 5.453, 244.755));
 		Modify Global Variable(W, Append To Array, Vector(152.772, 4.353, 256.830));
-		Set Global Variable(X, 3);
+		Global.X = 3;
 		Modify Global Variable(W, Append To Array, Vector(152.202, 5.453, 277.696));
 		Modify Global Variable(W, Append To Array, Vector(169.966, 5.352, 239.374));
 		Modify Global Variable(W, Append To Array, Vector(154.181, 4.298, 236.817));
-		Set Global Variable(X, 4);
+		Global.X = 4;
 		Modify Global Variable(W, Append To Array, Vector(80.529, 21, 321.752));
 		Modify Global Variable(W, Append To Array, Vector(58.479, 14, 315.438));
 		Modify Global Variable(W, Append To Array, Vector(68.252, 10, 321.405));
 		Modify Global Variable(W, Append To Array, Vector(73.934, 14, 309.110));
-		Set Global Variable(X, 5);
+		Global.X = 5;
 		Modify Global Variable(W, Append To Array, Vector(144.727, 5.348, 216.623));
 		Modify Global Variable(W, Append To Array, Vector(112.532, 5.348, 248.279));
 		Modify Global Variable(W, Append To Array, Vector(124.038, 4.408, 228.053));
 		Modify Global Variable(W, Append To Array, Vector(122.864, 5.352, 246.109));
 		Modify Global Variable(W, Append To Array, Vector(142.109, 5.352, 226.935));
 		Modify Global Variable(W, Append To Array, Vector(137.603, 2, 210.548));
-		Set Global Variable(S, Empty Array);
+		Global.S = Empty Array;
 		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
 		Modify Global Variable(S, Append To Array, Vector(0, 5, 20));
 		Modify Global Variable(S, Append To Array, Vector(4, 7, 15));
@@ -22663,7 +22693,7 @@ rule("oasis city center")
 		Modify Global Variable(S, Append To Array, Vector(16, 5, 15));
 		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
 		Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
-		Set Global Variable(L, Empty Array);
+		Global.L = Empty Array;
 		Modify Global Variable(L, Append To Array, Vector(220.224, 2.351, 167.747));
 		Modify Global Variable(L, Append To Array, Vector(211.228, 2.351, 181.767));
 		Modify Global Variable(L, Append To Array, Vector(194.838, 2.995, 221.516));
@@ -22672,7 +22702,7 @@ rule("oasis city center")
 		Modify Global Variable(L, Append To Array, Vector(81.267, 8.348, 305.765));
 		Modify Global Variable(L, Append To Array, Vector(139.865, 3.553, 243.895));
 		Modify Global Variable(L, Append To Array, Vector(37.600, -5.314, 141.744));
-		Set Global Variable(M, Empty Array);
+		Global.M = Empty Array;
 		Modify Global Variable(M, Append To Array, 15);
 		Modify Global Variable(M, Append To Array, 15);
 		Modify Global Variable(M, Append To Array, 22);
@@ -22681,7 +22711,7 @@ rule("oasis city center")
 		Modify Global Variable(M, Append To Array, 25);
 		Modify Global Variable(M, Append To Array, 20);
 		Modify Global Variable(M, Append To Array, 20);
-		Set Global Variable(T, Empty Array);
+		Global.T = Empty Array;
 		Modify Global Variable(T, Append To Array, Vector(203.838, 2.351, 193.103));
 		Modify Global Variable(T, Append To Array, Vector(187.465, 3.197, 228.936));
 		Modify Global Variable(T, Append To Array, Vector(164.010, 5.352, 246.529));
@@ -22690,16 +22720,16 @@ rule("oasis city center")
 		Modify Global Variable(T, Append To Array, Vector(128.289, 5.349, 232.291));
 		Modify Global Variable(T, Append To Array, Vector(16.617, -8.500, 120.524));
 		Modify Global Variable(T, Append To Array, Vector(16.617, -8.500, 120.524));
-		Set Global Variable(B, Empty Array);
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Global.B = Empty Array;
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 		Modify Global Variable(B, Append To Array, Vector(202.897, 2.351, 194.546));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 		Modify Global Variable(B, Append To Array, Vector(146.278, 12.871, 273.901));
 		Modify Global Variable(B, Append To Array, Vector(62.114, 9.210, 309.601));
 		Modify Global Variable(B, Append To Array, Vector(113.736, 2.148, 217.728));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
-		Set Global Variable(C, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+		Global.C = Empty Array;
 		Modify Global Variable(C, Append To Array, Vector(201.216, 2.354, 197.171));
 		Modify Global Variable(C, Append To Array, Vector(202.001, 2.349, 195.913));
 		Modify Global Variable(C, Append To Array, Vector(5.125, 12.613, -84.363));
@@ -22708,7 +22738,7 @@ rule("oasis city center")
 		Modify Global Variable(C, Append To Array, Vector(153.019, 5.453, 281.754));
 		Modify Global Variable(C, Append To Array, Vector(112, 2.148, 216));
 		Modify Global Variable(C, Append To Array, Vector(112, 2.148, 216));
-		Set Global Variable(D, -8.900);
+		Global.D = -8.900;
 	}
 }
 
@@ -22726,34 +22756,34 @@ rule("list walls (W)")
 
 	actions
 	{
-		Set Global Variable(W, Empty Array);
-		Set Global Variable(X, 1);
+		Global.W = Empty Array;
+		Global.X = 1;
 		Modify Global Variable(W, Append To Array, Vector(138.166, 2, 209.031));
 		Modify Global Variable(W, Append To Array, Vector(173.918, 5.451, 238.435));
 		Modify Global Variable(W, Append To Array, Vector(153.992, 4.105, 211.989));
 		Modify Global Variable(W, Append To Array, Vector(170.979, 5.348, 232.410));
 		Modify Global Variable(W, Append To Array, Vector(169.230, 4.230, 221.512));
-		Set Global Variable(X, 2);
+		Global.X = 2;
 		Modify Global Variable(W, Append To Array, Vector(146.914, 5.353, 269.272));
 		Modify Global Variable(W, Append To Array, Vector(165.430, 5.353, 251.300));
 		Modify Global Variable(W, Append To Array, Vector(174.073, 5.453, 244.755));
 		Modify Global Variable(W, Append To Array, Vector(152.772, 4.353, 256.830));
-		Set Global Variable(X, 3);
+		Global.X = 3;
 		Modify Global Variable(W, Append To Array, Vector(152.202, 5.453, 277.696));
 		Modify Global Variable(W, Append To Array, Vector(169.966, 5.352, 239.374));
 		Modify Global Variable(W, Append To Array, Vector(154.181, 4.298, 236.817));
-		Set Global Variable(X, 4);
+		Global.X = 4;
 		Modify Global Variable(W, Append To Array, Vector(58.479, 14, 315.438));
 		Modify Global Variable(W, Append To Array, Vector(68.252, 16, 321.405));
 		Modify Global Variable(W, Append To Array, Vector(73.934, 14, 309.110));
-		Set Global Variable(X, 5);
+		Global.X = 5;
 		Modify Global Variable(W, Append To Array, Vector(144.727, 5.348, 216.623));
 		Modify Global Variable(W, Append To Array, Vector(112.532, 5.348, 248.279));
 		Modify Global Variable(W, Append To Array, Vector(124.038, 4.408, 228.053));
 		Modify Global Variable(W, Append To Array, Vector(122.864, 5.352, 246.109));
 		Modify Global Variable(W, Append To Array, Vector(142.109, 5.352, 226.935));
 		Modify Global Variable(W, Append To Array, Vector(137.603, 2, 210.548));
-		Set Global Variable(X, 6);
+		Global.X = 6;
 	}
 }
 
@@ -22771,7 +22801,7 @@ rule("list of sections S(wall index start; wall index len; time)")
 
 	actions
 	{
-		Set Global Variable(S, Empty Array);
+		Global.S = Empty Array;
 		Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
 		Modify Global Variable(S, Append To Array, Vector(0, 5, 20));
 		Modify Global Variable(S, Append To Array, Vector(4, 7, 15));
@@ -22797,7 +22827,7 @@ rule("tps when 5 seconds left")
 
 	actions
 	{
-		Set Global Variable(L, Empty Array);
+		Global.L = Empty Array;
 		Modify Global Variable(L, Append To Array, Vector(220.224, 2.351, 167.747));
 		Modify Global Variable(L, Append To Array, Vector(211.228, 2.351, 181.767));
 		Modify Global Variable(L, Append To Array, Vector(194.838, 2.995, 221.516));
@@ -22823,7 +22853,7 @@ rule("list m")
 
 	actions
 	{
-		Set Global Variable(M, Empty Array);
+		Global.M = Empty Array;
 		Modify Global Variable(M, Append To Array, 15);
 		Modify Global Variable(M, Append To Array, 15);
 		Modify Global Variable(M, Append To Array, 22);
@@ -22849,15 +22879,15 @@ rule("list triggers (t)")
 
 	actions
 	{
-		Set Global Variable(T, Empty Array);
+		Global.T = Empty Array;
 		Modify Global Variable(T, Append To Array, Vector(203.838, 2.351, 193.103));
 		Modify Global Variable(T, Append To Array, Vector(187.465, 3.197, 228.936));
 		Modify Global Variable(T, Append To Array, Vector(164.010, 5.352, 246.529));
 		Modify Global Variable(T, Append To Array, Vector(146.688, 12.871, 272.180));
 		Modify Global Variable(T, Append To Array, Vector(62.132, 9.210, 309.589));
 		Modify Global Variable(T, Append To Array, Vector(128.289, 5.349, 232.291));
-		Modify Global Variable(T, Append To Array, Vector(3.100, -9.000, 107.400));
-		Modify Global Variable(T, Append To Array, Vector(3.100, -9.000, 107.400));
+		Modify Global Variable(T, Append To Array, Vector(3.100, -9, 107.400));
+		Modify Global Variable(T, Append To Array, Vector(3.100, -9, 107.400));
 	}
 }
 
@@ -22875,15 +22905,15 @@ rule("list tp starts (B)")
 
 	actions
 	{
-		Set Global Variable(B, Empty Array);
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Global.B = Empty Array;
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 		Modify Global Variable(B, Append To Array, Vector(202.897, 2.351, 194.546));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 		Modify Global Variable(B, Append To Array, Vector(146.278, 12.871, 273.901));
 		Modify Global Variable(B, Append To Array, Vector(62.114, 9.210, 309.601));
 		Modify Global Variable(B, Append To Array, Vector(113.736, 2.148, 217.728));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 	}
 }
 
@@ -22901,7 +22931,7 @@ rule("list tp dest (C)")
 
 	actions
 	{
-		Set Global Variable(C, Empty Array);
+		Global.C = Empty Array;
 		Modify Global Variable(C, Append To Array, Vector(201.216, 2.354, 197.171));
 		Modify Global Variable(C, Append To Array, Vector(202.001, 2.349, 195.913));
 		Modify Global Variable(C, Append To Array, Vector(5.125, 12.613, -84.363));
@@ -22922,11 +22952,11 @@ rule("initial zombie hero")
 
 	actions
 	{
-		Set Global Variable(Z, Hero(Torbjörn));
-		Set Global Variable(N, 0);
-		Create HUD Text(All Players(All Teams), String("{0} {1} {2}", String("{0} {1} {2}", String("Waiting", Null, Null, Null), 4, String(
-			"Players", Null, Null, Null)), 2, String("{0} {1}", String("Start", Null, Null, Null), String("...", Null, Null, Null), Null)),
-			Null, Null, Left, 0, White, White, White, Visible To and String);
+		Global.Z = Hero(Torbjörn);
+		Global.N = 0;
+		Create HUD Text(All Players(All Teams), String("{0} {1} {2}", String("{0} {1} {2}", String("Waiting"), 4, String("Players")), 2,
+			String("{0} {1}", String("Start"), String("..."))), Null, Null, Left, 0, White, White, White, Visible To and String,
+			Default Visibility);
 	}
 }
 
@@ -22939,7 +22969,7 @@ rule("list kb for each hero (k)")
 
 	actions
 	{
-		Set Global Variable(K, Empty Array);
+		Global.K = Empty Array;
 		Modify Global Variable(K, Append To Array, 30);
 		Modify Global Variable(K, Append To Array, 15);
 		Modify Global Variable(K, Append To Array, 0);
@@ -22982,23 +23012,23 @@ rule("init round")
 
 	conditions
 	{
-		Global Variable(R) <= 1;
+		Global.R <= 1;
 		Match Time != 0;
 	}
 
 	actions
 	{
-		Set Global Variable(P, Match Time);
-		Skip If(Compare(Global Variable(R), !=, 0), 1);
-		Set Global Variable(P, 1200);
-		Set Global Variable(G, 0);
-		Set Global Variable(I, 1);
-		Set Global Variable(N, 0);
-		Set Global Variable(O, 0);
-		Set Global Variable(Q, 0);
-		Set Global Variable(E, 0);
-		Set Player Variable(All Players(All Teams), F, 0);
-		Set Player Variable(All Players(All Teams), Z, 0);
+		Global.P = Match Time;
+		Skip If(Global.R != 0, 1);
+		Global.P = 1200;
+		Global.G = 0;
+		Global.I = 1;
+		Global.N = 0;
+		Global.O = 0;
+		Global.Q = 0;
+		Global.E = 0;
+		All Players(All Teams).F = 0;
+		All Players(All Teams).Z = 0;
 		Skip If(False, 1);
 		Destroy All HUD Text;
 		Resurrect(All Players(All Teams));
@@ -23009,16 +23039,16 @@ rule("init round")
 		Stop Forcing Player To Be Hero(All Players(All Teams));
 		Disable Built-In Game Mode Completion;
 		Wait(9, Ignore Condition);
-		Set Global Variable(I, 0);
-		Set Global Variable(R, 3);
-		Set Match Time(Global Variable(P));
-		Skip If(Compare(Match Time, >, 0), 1);
-		Set Global Variable(J, 4);
-		Set Global Variable(G, 0);
-		Set Global Variable(N, 0);
-		Set Global Variable(O, 0);
-		Set Global Variable(Q, 0);
-		Set Global Variable(E, 0);
+		Global.I = 0;
+		Global.R = 3;
+		Set Match Time(Global.P);
+		Skip If(Match Time > 0, 1);
+		Global.J = 4;
+		Global.G = 0;
+		Global.N = 0;
+		Global.O = 0;
+		Global.Q = 0;
+		Global.E = 0;
 	}
 }
 
@@ -23031,15 +23061,13 @@ rule("init section (slice + draw tp)")
 
 	conditions
 	{
-		Global Variable(I) == 0;
+		Global.I == 0;
 	}
 
 	actions
 	{
-		Set Global Variable(A, Array Slice(Global Variable(W), X Component Of(Value In Array(Global Variable(S), Global Variable(N))),
-			Y Component Of(Value In Array(Global Variable(S), Global Variable(N)))));
-		Create Effect(All Players(All Teams), Orb, Green, Value In Array(Global Variable(B), Global Variable(N)), 0.250,
-			Visible To Position and Radius);
+		Global.A = Array Slice(Global.W, X Component Of(Global.S[Global.N]), Y Component Of(Global.S[Global.N]));
+		Create Effect(All Players(All Teams), Orb, Green, Global.B[Global.N], 0.250, Visible To Position and Radius);
 	}
 }
 
@@ -23052,14 +23080,13 @@ rule("(debug) section spheres draw")
 
 	conditions
 	{
-		Global Variable(I) == 0;
+		Global.I == 0;
 		False == True;
 	}
 
 	actions
 	{
-		Create Effect(All Players(All Teams), Sphere, White, Value In Array(Global Variable(T), Global Variable(N)), Value In Array(
-			Global Variable(M), Global Variable(N)), Visible To);
+		Create Effect(All Players(All Teams), Sphere, White, Global.T[Global.N], Global.M[Global.N], Visible To);
 	}
 }
 
@@ -23072,15 +23099,14 @@ rule("trigger draw")
 
 	conditions
 	{
-		Global Variable(I) == 0;
+		Global.I == 0;
 	}
 
 	actions
 	{
 		Destroy All Icons;
-		Create Effect(All Players(All Teams), Sphere, Blue, Value In Array(Global Variable(T), Global Variable(N)), 4, Visible To);
-		Create Icon(All Players(All Teams), Value In Array(Global Variable(T), Global Variable(N)), Arrow: Down, Visible To and Position,
-			Blue, True);
+		Create Effect(All Players(All Teams), Sphere, Blue, Global.T[Global.N], 4, Visible To);
+		Create Icon(All Players(All Teams), Global.T[Global.N], Arrow: Down, Visible To and Position, Blue, True);
 	}
 }
 
@@ -23093,17 +23119,16 @@ rule("walls visual effect")
 
 	conditions
 	{
-		Global Variable(I) == 0;
+		Global.I == 0;
 	}
 
 	actions
 	{
-		Create Effect(All Players(All Teams), Sphere, Yellow, Value In Array(Global Variable(A), Global Variable(I)), 4, Visible To);
-		Create Effect(All Players(All Teams), Sphere, Yellow, Add(Value In Array(Global Variable(A), Global Variable(I)), Vector(0, 4, 0)),
-			4, Visible To);
-		Modify Global Variable(I, Add, 1);
+		Create Effect(All Players(All Teams), Sphere, Yellow, Global.A[Global.I], 4, Visible To);
+		Create Effect(All Players(All Teams), Sphere, Yellow, Global.A[Global.I] + Vector(0, 4, 0), 4, Visible To);
+		Global.I += 1;
 		Wait(0.050, Ignore Condition);
-		Loop If(Compare(Global Variable(I), <, Count Of(Global Variable(A))));
+		Loop If(Global.I < Count Of(Global.A));
 		Skip(1);
 	}
 }
@@ -23124,23 +23149,20 @@ rule("walls kb effect")
 
 	actions
 	{
-		Skip If(Compare(Y Component Of(Position Of(Event Player)), <, Subtract(Y Component Of(Value In Array(Global Variable(A),
-			Player Variable(Event Player, J))), 4)), 5);
-		Skip If(Compare(Distance Between(Vector(X Component Of(Position Of(Event Player)), 0, Z Component Of(Position Of(Event Player))),
-			Vector(X Component Of(Value In Array(Global Variable(A), Player Variable(Event Player, J))), 0, Z Component Of(Value In Array(
-			Global Variable(A), Player Variable(Event Player, J))))), >, 4.500), 4);
+		Skip If(Y Component Of(Position Of(Event Player)) < Y Component Of(Global.A[Event Player.J]) - 4, 5);
+		Skip If(Distance Between(Vector(X Component Of(Position Of(Event Player)), 0, Z Component Of(Position Of(Event Player))), Vector(
+			X Component Of(Global.A[Event Player.J]), 0, Z Component Of(Global.A[Event Player.J]))) > 4.500, 4);
 		Apply Impulse(Event Player, Vector(0, 1, 0), 1, To Player, Cancel Contrary Motion);
-		Apply Impulse(Event Player, Vector(X Component Of(Vector Towards(Value In Array(Global Variable(A), Player Variable(Event Player,
-			J)), Position Of(Event Player))), 0, Z Component Of(Vector Towards(Value In Array(Global Variable(A), Player Variable(
-			Event Player, J)), Position Of(Event Player)))), Add(2.500, Multiply(Horizontal Speed Of(Event Player), 1.500)), To World,
-			Cancel Contrary Motion);
+		Apply Impulse(Event Player, Vector(X Component Of(Vector Towards(Global.A[Event Player.J], Position Of(Event Player))), 0,
+			Z Component Of(Vector Towards(Global.A[Event Player.J], Position Of(Event Player)))), 2.500 + Horizontal Speed Of(Event Player)
+			* 1.500, To World, Cancel Contrary Motion);
 		Skip If(True, 1);
-		Apply Impulse(Event Player, Divide(Velocity Of(Event Player), Vector(Absolute Value(X Component Of(Velocity Of(Event Player))),
-			Absolute Value(Y Component Of(Velocity Of(Event Player))), Absolute Value(Z Component Of(Velocity Of(Event Player))))),
-			-10.000, To World, Cancel Contrary Motion);
-		Modify Player Variable(Event Player, J, Add, 1);
-		Skip If(Compare(Player Variable(Event Player, J), <, Count Of(Global Variable(A))), 1);
-		Set Player Variable(Event Player, J, 0);
+		Apply Impulse(Event Player, Velocity Of(Event Player) / Vector(Absolute Value(X Component Of(Velocity Of(Event Player))),
+			Absolute Value(Y Component Of(Velocity Of(Event Player))), Absolute Value(Z Component Of(Velocity Of(Event Player)))), -10,
+			To World, Cancel Contrary Motion);
+		Event Player.J += 1;
+		Skip If(Event Player.J < Count Of(Global.A), 1);
+		Event Player.J = 0;
 		Wait(0.016, Ignore Condition);
 		Loop;
 	}
@@ -23163,11 +23185,11 @@ rule("(debug) print coords")
 	actions
 	{
 		Create HUD Text(All Players(All Teams), Horizontal Speed Of(Event Player), Null, Null, Left, 0, White, White, White,
-			Visible To and String);
-		Create HUD Text(All Players(All Teams), Position Of(Event Player), Null, Null, Left, 0, Green, White, White,
-			Visible To and String);
-		Create HUD Text(All Players(All Teams), Distance Between(Position Of(Event Player), Value In Array(Global Variable(L), Add(
-			Global Variable(N), 1))), Null, Null, Left, 0, Purple, White, White, Visible To and String);
+			Visible To and String, Default Visibility);
+		Create HUD Text(All Players(All Teams), Position Of(Event Player), Null, Null, Left, 0, Green, White, White, Visible To and String,
+			Default Visibility);
+		Create HUD Text(All Players(All Teams), Distance Between(Position Of(Event Player), Global.L[Global.N + 1]), Null, Null, Left, 0,
+			Purple, White, White, Visible To and String, Default Visibility);
 	}
 }
 
@@ -23203,13 +23225,12 @@ rule("use tp")
 
 	conditions
 	{
-		Array Contains(Players Within Radius(Subtract(Value In Array(Global Variable(B), Global Variable(N)), Vector(0, 1, 0)), 2,
-			All Teams, Off), Event Player) == True;
+		Array Contains(Players Within Radius(Global.B[Global.N] - Vector(0, 1, 0), 2, All Teams, Off), Event Player) == True;
 	}
 
 	actions
 	{
-		Teleport(Event Player, Value In Array(Global Variable(C), Global Variable(N)));
+		Teleport(Event Player, Global.C[Global.N]);
 	}
 }
 
@@ -23222,43 +23243,40 @@ rule("trigger")
 
 	conditions
 	{
-		Count Of(Players Within Radius(Value In Array(Global Variable(T), Global Variable(N)), 5, All Teams, Off)) > 0;
-		Global Variable(Q) == 0;
+		Count Of(Players Within Radius(Global.T[Global.N], 5, All Teams, Off)) > 0;
+		Global.Q == 0;
 		True == True;
 	}
 
 	actions
 	{
-		Set Global Variable(Q, 1);
-		Skip If(Compare(Count Of(Filtered Array(Players Within Radius(Value In Array(Global Variable(T), Global Variable(N)), 5, All Teams,
-			Off), Compare(Player Variable(Current Array Element, Z), ==, 1))), !=, 0), 23);
-		Skip If(Compare(Global Variable(N), ==, Add(Count Of(Global Variable(S)), -1.000)), 11);
-		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend", Null, Null, Null), String("{0} sec", Z Component Of(
-			Value In Array(Global Variable(S), Global Variable(N))), Null, Null), Null));
-		Wait(Subtract(Z Component Of(Value In Array(Global Variable(S), Global Variable(N))), 8), Ignore Condition);
-		Abort If(Compare(Global Variable(R), <=, 2));
-		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend", Null, Null, Null), String("{0} sec", 8, Null, Null),
-			Null));
-		Set Global Variable(Q, 1.500);
+		Global.Q = 1;
+		Skip If(Count Of(Filtered Array(Players Within Radius(Global.T[Global.N], 5, All Teams, Off), Current Array Element.Z == 1)) != 0,
+			23);
+		Skip If(Global.N == Count Of(Global.S) + -1, 11);
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend"), String("{0} sec", Z Component Of(Global.S[Global.N]))));
+		Wait(Z Component Of(Global.S[Global.N]) - 8, Ignore Condition);
+		Abort If(Global.R <= 2);
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend"), String("{0} sec", 8)));
+		Global.Q = 1.500;
 		Wait(7, Ignore Condition);
-		Abort If(Compare(Global Variable(R), <=, 2));
-		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend", Null, Null, Null), String("{0} sec", 1, Null, Null),
-			Null));
-		Set Global Variable(Q, 2);
+		Abort If(Global.R <= 2);
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Defend"), String("{0} sec", 1)));
+		Global.Q = 2;
 		Wait(1, Ignore Condition);
-		Abort If(Compare(Global Variable(R), <=, 2));
-		Set Global Variable(Q, 3);
-		Modify Global Variable(N, Add, 1);
-		Skip If(Compare(Global Variable(N), ==, Add(Count Of(Global Variable(S)), 0)), 1);
-		Big Message(All Players(All Teams), String("{0}!!!", String("Run", Null, Null, Null), Null, Null));
+		Abort If(Global.R <= 2);
+		Global.Q = 3;
+		Global.N += 1;
+		Skip If(Global.N == Count Of(Global.S) + 0, 1);
+		Big Message(All Players(All Teams), String("{0}!!!", String("Run")));
 		Destroy All Effects;
 		Wait(0.250, Ignore Condition);
-		Set Global Variable(I, 0);
-		Set Global Variable(Q, 0);
-		Skip If(Compare(Global Variable(N), !=, Add(Count Of(Global Variable(S)), 0)), 10);
-		Set Global Variable(E, 2);
+		Global.I = 0;
+		Global.Q = 0;
+		Skip If(Global.N != Count Of(Global.S) + 0, 10);
+		Global.E = 2;
 		Abort;
-		Set Global Variable(E, 1);
+		Global.E = 1;
 	}
 }
 
@@ -23272,27 +23290,26 @@ rule("first infection")
 	conditions
 	{
 		True == True;
-		Global Variable(R) == 3;
+		Global.R == 3;
 	}
 
 	actions
 	{
 		Wait(1, Ignore Condition);
-		Big Message(All Players(All Teams), String("{0} {1}", String("Initial", Null, Null, Null), String("{0} {1}", String("{0}:", String(
-			"Dead", Null, Null, Null), Null, Null), String("{0} sec", Subtract(10, Global Variable(O)), Null, Null), Null), Null));
-		Modify Global Variable(O, Add, 1);
-		Loop If(Compare(Global Variable(O), <, 10));
-		Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), <=, 10), 1);
-		Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element),
-			Compare(Player Variable(Current Array Element, L), ==, 0)))), 0, 2), Z, 1);
-		Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), >, 10), 1);
-		Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element),
-			Compare(Player Variable(Current Array Element, L), ==, 0)))), 0, 1), Z, 1);
-		Teleport(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), Value In Array(
-			Global Variable(L), 0));
-		Set Global Variable(G, 1);
-		Set Player Variable(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), L, 1);
-		Set Player Variable(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)), L, 0);
+		Big Message(All Players(All Teams), String("{0} {1}", String("Initial"), String("{0} {1}", String("{0}:", String("Dead")), String(
+			"{0} sec", 10 - Global.O))));
+		Global.O += 1;
+		Loop If(Global.O < 10);
+		Skip If(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))) <= 10, 1);
+		Array Slice(Randomized Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)
+			&& Current Array Element.L == 0)), 0, 2).Z = 1;
+		Skip If(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))) > 10, 1);
+		Array Slice(Randomized Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)
+			&& Current Array Element.L == 0)), 0, 1).Z = 1;
+		Teleport(Filtered Array(All Players(All Teams), Current Array Element.Z == 1), Global.L[0]);
+		Global.G = 1;
+		Filtered Array(All Players(All Teams), Current Array Element.Z == 1).L = 1;
+		Filtered Array(All Players(All Teams), Current Array Element.Z == 0).L = 0;
 	}
 }
 
@@ -23307,14 +23324,13 @@ rule("tp players at 1 sec left")
 
 	conditions
 	{
-		Global Variable(Q) == 2;
-		Not(Array Contains(Players Within Radius(Value In Array(Global Variable(T), Global Variable(N)), Value In Array(Global Variable(M),
-			Global Variable(N)), All Teams, Off), Event Player)) == True;
+		Global.Q == 2;
+		!Array Contains(Players Within Radius(Global.T[Global.N], Global.M[Global.N], All Teams, Off), Event Player) == True;
 	}
 
 	actions
 	{
-		Teleport(Event Player, Value In Array(Global Variable(L), Add(Global Variable(N), 1)));
+		Teleport(Event Player, Global.L[Global.N + 1]);
 	}
 }
 
@@ -23329,14 +23345,14 @@ rule("deathplane tp")
 
 	conditions
 	{
-		Y Component Of(Position Of(Event Player)) < Global Variable(D);
-		Global Variable(R) != 0;
-		Global Variable(E) == 0;
+		Y Component Of(Position Of(Event Player)) < Global.D;
+		Global.R != 0;
+		Global.E == 0;
 	}
 
 	actions
 	{
-		Teleport(Event Player, Value In Array(Global Variable(L), Global Variable(N)));
+		Teleport(Event Player, Global.L[Global.N]);
 		Resurrect(Event Player);
 	}
 }
@@ -23345,30 +23361,30 @@ rule("infect players")
 {
 	event
 	{
-		Player took damage;
+		Player Took Damage;
 		All;
 		All;
 	}
 
 	conditions
 	{
-		Player Variable(Attacker, Z) == 1;
-		Player Variable(Victim, Z) == 0;
-		Global Variable(E) == 0;
+		Attacker.Z == 1;
+		Victim.Z == 0;
+		Global.E == 0;
 		Distance Between(Position Of(Attacker), Position Of(Victim)) <= 5.500;
 	}
 
 	actions
 	{
-		Set Player Variable(Victim, Z, 1);
+		Victim.Z = 1;
 		Modify Player Score(Attacker, 1);
-		Set Player Variable(Victim, H, Hero Of(Victim));
-		Create HUD Text(All Players(All Teams), String("{0} -> {1}", String("{0} {1}", Hero Icon String(Hero Of(Attacker)), Attacker,
-			Null), String("{0} {1}", Hero Icon String(Player Variable(Victim, H)), Victim, Null), Null), Null, Null, Right, 0, White,
-			White, White, Visible To and String);
-		Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare(
-			Player Variable(Current Array Element, Z), ==, 0))), !=, 0), 10);
-		Set Global Variable(E, 1);
+		Victim.H = Hero Of(Victim);
+		Create HUD Text(All Players(All Teams), String("{0} -> {1}", String("{0} {1}", Hero Icon String(Hero Of(Attacker)), Attacker),
+			String("{0} {1}", Hero Icon String(Victim.H), Victim)), Null, Null, Right, 0, White, White, White, Visible To and String,
+			Default Visibility);
+		Skip If(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)),
+			Current Array Element.Z == 0)) != 0, 10);
+		Global.E = 1;
 		Resurrect(Event Player);
 	}
 }
@@ -23384,16 +23400,16 @@ rule("player dies = gets tp'd, +10 pts if zombie kill")
 
 	conditions
 	{
-		Global Variable(E) == 0;
-		Global Variable(R) != 0;
+		Global.E == 0;
+		Global.R != 0;
 	}
 
 	actions
 	{
 		Resurrect(Victim);
-		Teleport(Victim, Value In Array(Global Variable(L), Global Variable(N)));
-		Skip If(Compare(Victim, ==, Attacker), 2);
-		Skip If(Compare(Player Variable(Attacker, Z), ==, 1), 1);
+		Teleport(Victim, Global.L[Global.N]);
+		Skip If(Victim == Attacker, 2);
+		Skip If(Attacker.Z == 1, 1);
 		Modify Player Score(Attacker, 9);
 	}
 }
@@ -23412,12 +23428,10 @@ rule("humans and zombies cant hurt same")
 
 	actions
 	{
-		Start Damage Modification(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)),
-			Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)), 0,
-			Receivers Damagers and Damage Percent);
-		Start Damage Modification(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)),
-			Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), 0,
-			Receivers Damagers and Damage Percent);
+		Start Damage Modification(Filtered Array(All Players(All Teams), Current Array Element.Z == 0), Filtered Array(All Players(
+			All Teams), Current Array Element.Z == 0), 0, Receivers Damagers and Damage Percent);
+		Start Damage Modification(Filtered Array(All Players(All Teams), Current Array Element.Z == 1), Filtered Array(All Players(
+			All Teams), Current Array Element.Z == 1), 0, Receivers Damagers and Damage Percent);
 	}
 }
 
@@ -23425,24 +23439,24 @@ rule("humans and zombies can hurt each other + kb")
 {
 	event
 	{
-		Player dealt damage;
+		Player Dealt Damage;
 		All;
 		All;
 	}
 
 	conditions
 	{
-		Player Variable(Attacker, Z) != Player Variable(Victim, Z);
-		Player Variable(Victim, Z) == 1;
+		Attacker.Z != Victim.Z;
+		Victim.Z == 1;
 	}
 
 	actions
 	{
-		Skip If(Compare(Random Integer(1, 4), !=, 1), 1);
+		Skip If(Random Integer(1, 4) != 1, 1);
 		Apply Impulse(Victim, Vector(0, 1, 0), 1.500, To Player, Cancel Contrary Motion);
-		Apply Impulse(Victim, Divide(Vector Towards(Position Of(Attacker), Position Of(Victim)), Vector(Absolute Value(X Component Of(
+		Apply Impulse(Victim, Vector Towards(Position Of(Attacker), Position Of(Victim)) / Vector(Absolute Value(X Component Of(
 			Vector Towards(Position Of(Attacker), Position Of(Victim)))), 0, Absolute Value(Z Component Of(Vector Towards(Position Of(
-			Attacker), Position Of(Victim)))))), Multiply(Event Damage, 1.050), To World, Cancel Contrary Motion);
+			Attacker), Position Of(Victim))))), Event Damage * 1.050, To World, Cancel Contrary Motion);
 	}
 }
 
@@ -23465,9 +23479,9 @@ rule("tp dest")
 	{
 		Set Projectile Speed(Event Player, 100);
 		Wait(0.016, Ignore Condition);
-		Modify Player Variable(Event Player, B, Add, 1);
-		Loop If(Compare(Player Variable(Event Player, B), <, 105));
-		Set Player Variable(Event Player, B, 0);
+		Event Player.B += 1;
+		Loop If(Event Player.B < 105);
+		Event Player.B = 0;
 	}
 }
 
@@ -23482,23 +23496,23 @@ rule("zombie behavior")
 
 	conditions
 	{
-		Player Variable(Event Player, Z) == 1;
+		Event Player.Z == 1;
 	}
 
 	actions
 	{
-		Set Player Variable(Event Player, C, Position Of(Event Player));
-		Start Forcing Player To Be Hero(Event Player, Global Variable(Z));
-		Teleport(Event Player, Player Variable(Event Player, C));
+		Event Player.C = Position Of(Event Player);
+		Start Forcing Player To Be Hero(Event Player, Global.Z);
+		Teleport(Event Player, Event Player.C);
 		Stop All Heal Over Time(Event Player);
 		Set Status(Event Player, Null, Rooted, 2);
-		Big Message(Event Player, String("{0} {1}", String("You", Null, Null, Null), String("Dead", Null, Null, Null), Null));
+		Big Message(Event Player, String("{0} {1}", String("You"), String("Dead")));
 		Wait(1, Ignore Condition);
 		Clear Status(Event Player, Rooted);
 		Press Button(Event Player, Ultimate);
-		Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare(
-			Player Variable(Current Array Element, Z), ==, 0))), !=, 0), 10);
-		Set Global Variable(E, 1);
+		Skip If(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)),
+			Current Array Element.Z == 0)) != 0, 10);
+		Global.E = 1;
 	}
 }
 
@@ -23514,16 +23528,16 @@ rule("player selected hero")
 	conditions
 	{
 		Has Spawned(Event Player) == True;
-		Global Variable(R) >= 3;
+		Global.R >= 3;
 	}
 
 	actions
 	{
 		Disallow Button(Event Player, Crouch);
 		Wait(0.100, Ignore Condition);
-		Teleport(Event Player, Value In Array(Global Variable(L), Global Variable(N)));
-		Skip If(Compare(Global Variable(G), ==, 0), 1);
-		Set Player Variable(Event Player, Z, 1);
+		Teleport(Event Player, Global.L[Global.N]);
+		Skip If(Global.G == 0, 1);
+		Event Player.Z = 1;
 		Start Heal Over Time(Event Player, Null, 9999, 20);
 		Wait(2, Ignore Condition);
 		Allow Button(Event Player, Crouch);
@@ -23542,7 +23556,7 @@ rule("burn = slow")
 	conditions
 	{
 		Has Status(Event Player, Burning) == True;
-		Player Variable(Event Player, Z) == 1;
+		Event Player.Z == 1;
 	}
 
 	actions
@@ -23588,7 +23602,7 @@ rule("no stun for humans")
 	conditions
 	{
 		Has Status(Event Player, Stunned) == True;
-		Player Variable(Event Player, Z) == 0;
+		Event Player.Z == 0;
 	}
 
 	actions
@@ -23606,13 +23620,12 @@ rule("red orb")
 
 	conditions
 	{
-		Global Variable(Q) == 1.500;
+		Global.Q == 1.500;
 	}
 
 	actions
 	{
-		Create Effect(All Players(All Teams), Orb, Red, Value In Array(Global Variable(L), Add(Global Variable(N), 1)), 1,
-			Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Orb, Red, Global.L[Global.N + 1], 1, Visible To Position and Radius);
 	}
 }
 
@@ -23625,14 +23638,13 @@ rule("normal zombies: rein")
 
 	conditions
 	{
-		Global Variable(J) == 1;
+		Global.J == 1;
 	}
 
 	actions
 	{
-		Set Global Variable(Z, Hero(Reinhardt));
-		Big Message(All Players(All Teams), String("{0}: {1}", String("{0} {1}", String("Level", Null, Null, Null), 2, Null), Hero(
-			Reinhardt), Null));
+		Global.Z = Hero(Reinhardt);
+		Big Message(All Players(All Teams), String("{0}: {1}", String("{0} {1}", String("Level"), 2), Hero(Reinhardt)));
 	}
 }
 
@@ -23645,14 +23657,13 @@ rule("hard zombies: winston")
 
 	conditions
 	{
-		Global Variable(J) == 2;
+		Global.J == 2;
 	}
 
 	actions
 	{
-		Set Global Variable(Z, Hero(Winston));
-		Big Message(All Players(All Teams), String("{0}: {1}", String("{0} {1}", String("Level", Null, Null, Null), 3, Null), Hero(
-			Winston), Null));
+		Global.Z = Hero(Winston);
+		Big Message(All Players(All Teams), String("{0}: {1}", String("{0} {1}", String("Level"), 3), Hero(Winston)));
 	}
 }
 
@@ -23665,14 +23676,13 @@ rule("expert zombies: brig")
 
 	conditions
 	{
-		Global Variable(J) == 3;
+		Global.J == 3;
 	}
 
 	actions
 	{
-		Set Global Variable(Z, Hero(Brigitte));
-		Big Message(All Players(All Teams), String("{0}: {1}", String("Final Level", String("Level", Null, Null, Null), 2, Null), Hero(
-			Brigitte), Null));
+		Global.Z = Hero(Brigitte);
+		Big Message(All Players(All Teams), String("{0}: {1}", String("Final Level", String("Level"), 2), Hero(Brigitte)));
 	}
 }
 
@@ -23685,7 +23695,7 @@ rule("map finished")
 
 	conditions
 	{
-		Global Variable(J) == 4;
+		Global.J == 4;
 	}
 
 	actions
@@ -23703,17 +23713,17 @@ rule("zombies win")
 
 	conditions
 	{
-		Global Variable(E) == 1;
+		Global.E == 1;
 	}
 
 	actions
 	{
 		Stop All Damage Modifications;
-		Big Message(All Players(All Teams), String("{0} {1}", String("Dead", Null, Null, Null), String("Win", Null, Null, Null), Null));
+		Big Message(All Players(All Teams), String("{0} {1}", String("Dead"), String("Win")));
 		Wait(5, Ignore Condition);
-		Skip If(Compare(Match Time, >, 0), 1);
-		Set Global Variable(J, 4);
-		Set Global Variable(R, 1);
+		Skip If(Match Time > 0, 1);
+		Global.J = 4;
+		Global.R = 1;
 	}
 }
 
@@ -23726,23 +23736,22 @@ rule("humans win")
 
 	conditions
 	{
-		Global Variable(E) == 2;
+		Global.E == 2;
 	}
 
 	actions
 	{
 		Stop All Damage Modifications;
-		Big Message(All Players(All Teams), String("{0} {1}", String("Heroes", Null, Null, Null), String("Win", Null, Null, Null), Null));
+		Big Message(All Players(All Teams), String("{0} {1}", String("Heroes"), String("Win")));
 		Wait(0, Ignore Condition);
-		Kill(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), Null);
-		Modify Player Score(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 0)), 100);
+		Kill(Filtered Array(All Players(All Teams), Current Array Element.Z == 1), Null);
+		Modify Player Score(Filtered Array(All Players(All Teams), Current Array Element.Z == 0), 100);
 		Wait(1.500, Ignore Condition);
-		Modify Global Variable(J, Add, 1);
+		Global.J += 1;
 		Wait(3.500, Ignore Condition);
 		Set Match Time(1200);
-		Set Global Variable(R, 1);
-		Teleport(Filtered Array(All Players(All Teams), Compare(Player Variable(Current Array Element, Z), ==, 1)), Vector(0, -500.000,
-			0));
+		Global.R = 1;
+		Teleport(Filtered Array(All Players(All Teams), Current Array Element.Z == 1), Vector(0, -500, 0));
 	}
 }
 
@@ -23760,7 +23769,7 @@ rule("kings row")
 
 	actions
 	{
-		Set Global Variable(S, Empty Array);
+		Global.S = Empty Array;
 		Modify Global Variable(S, Append To Array, Vector(0, 6, 15));
 		Modify Global Variable(S, Append To Array, Vector(1, 6, 20));
 		Modify Global Variable(S, Append To Array, Vector(7, 5, 20));
@@ -23768,17 +23777,17 @@ rule("kings row")
 		Modify Global Variable(S, Append To Array, Vector(18, 5, 15));
 		Modify Global Variable(S, Append To Array, Vector(23, 2, 20));
 		Modify Global Variable(S, Append To Array, Vector(25, 0, 10));
-		Set Global Variable(L, Empty Array);
+		Global.L = Empty Array;
 		Modify Global Variable(L, Append To Array, Vector(62.730, 5.860, -55.220));
 		Modify Global Variable(L, Append To Array, Vector(32.710, 7.460, -31.960));
 		Modify Global Variable(L, Append To Array, Vector(-14.950, 0.350, 43.630));
 		Modify Global Variable(L, Append To Array, Vector(24.319, 5.350, -4.521));
-		Modify Global Variable(L, Append To Array, Vector(-25.471, 1.240, -32.000));
+		Modify Global Variable(L, Append To Array, Vector(-25.471, 1.240, -32));
 		Modify Global Variable(L, Append To Array, Vector(-92.891, 2.859, -28.700));
 		Modify Global Variable(L, Append To Array, Vector(-156.650, 1.479, 48.010));
-		Set Global Variable(H, Vector(21.270, 0.580, -48.480));
-		Set Global Variable(D, -15.000);
-		Set Global Variable(M, Empty Array);
+		Global.H = Vector(21.270, 0.580, -48.480);
+		Global.D = -15;
+		Global.M = Empty Array;
 		Modify Global Variable(M, Append To Array, 21);
 		Modify Global Variable(M, Append To Array, 16);
 		Modify Global Variable(M, Append To Array, 17);
@@ -23786,7 +23795,7 @@ rule("kings row")
 		Modify Global Variable(M, Append To Array, 25);
 		Modify Global Variable(M, Append To Array, 35);
 		Modify Global Variable(M, Append To Array, 10);
-		Set Global Variable(T, Empty Array);
+		Global.T = Empty Array;
 		Modify Global Variable(T, Append To Array, Vector(30.029, 7.399, -15.740));
 		Modify Global Variable(T, Append To Array, Vector(-17.200, 0.550, 42.439));
 		Modify Global Variable(T, Append To Array, Vector(9.729, 9.350, -8.530));
@@ -23794,46 +23803,46 @@ rule("kings row")
 		Modify Global Variable(T, Append To Array, Vector(-95.540, -1.141, -46.360));
 		Modify Global Variable(T, Append To Array, Vector(-168.860, 1.160, 35.540));
 		Modify Global Variable(T, Append To Array, Vector(-178.840, 1.540, 37.250));
-		Set Global Variable(W, Empty Array);
-		Modify Global Variable(W, Append To Array, Vector(30.770, 5.960, -8.000));
-		Set Global Variable(X, 1);
+		Global.W = Empty Array;
+		Modify Global Variable(W, Append To Array, Vector(30.770, 5.960, -8));
+		Global.X = 1;
 		Modify Global Variable(W, Append To Array, Vector(27.600, 5.859, -39.780));
 		Modify Global Variable(W, Append To Array, Vector(31.810, 0.240, -63.221));
 		Modify Global Variable(W, Append To Array, Vector(25, 5.960, -10.971));
 		Modify Global Variable(W, Append To Array, Vector(25.359, 5.859, -51.500));
 		Modify Global Variable(W, Append To Array, Vector(24.880, 5.960, -16.250));
 		Modify Global Variable(W, Append To Array, Vector(19.220, 4, -6.980));
-		Set Global Variable(X, 2);
+		Global.X = 2;
 		Modify Global Variable(W, Append To Array, Vector(10.500, 7.350, -16.181));
 		Modify Global Variable(W, Append To Array, Vector(-8.021, 1.240, 3.880));
 		Modify Global Variable(W, Append To Array, Vector(1.109, 1.420, 4.250));
 		Modify Global Variable(W, Append To Array, Vector(-1.590, 1.240, -12.700));
 		Modify Global Variable(W, Append To Array, Vector(4.670, 7, -13.620));
-		Set Global Variable(X, 3);
+		Global.X = 3;
 		Modify Global Variable(W, Append To Array, Vector(-11.931, 1.410, -15.030));
 		Modify Global Variable(W, Append To Array, Vector(-2.940, 1.410, -38.690));
 		Modify Global Variable(W, Append To Array, Vector(-19.630, 2.350, -54.021));
 		Modify Global Variable(W, Append To Array, Vector(-15.250, 1.229, -27.730));
 		Modify Global Variable(W, Append To Array, Vector(-15.471, 1.220, -31.960));
-		Modify Global Variable(W, Append To Array, Vector(-17.300, 1.220, -37.000));
-		Set Global Variable(X, 4);
+		Modify Global Variable(W, Append To Array, Vector(-17.300, 1.220, -37));
+		Global.X = 4;
 		Modify Global Variable(W, Append To Array, Vector(-62.450, 6.300, -17.040));
 		Modify Global Variable(W, Append To Array, Vector(-66.010, 6.370, -12.891));
 		Modify Global Variable(W, Append To Array, Vector(-52.851, 1.200, -36.070));
 		Modify Global Variable(W, Append To Array, Vector(-55.460, 0.950, -32.540));
 		Modify Global Variable(W, Append To Array, Vector(-72.330, 1.160, -12.420));
-		Set Global Variable(X, 5);
+		Global.X = 5;
 		Modify Global Variable(W, Append To Array, Vector(-170.521, 1.479, 39.270));
 		Modify Global Variable(W, Append To Array, Vector(-171.641, 1.479, 32.510));
-		Set Global Variable(B, Empty Array);
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Global.B = Empty Array;
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 		Modify Global Variable(B, Append To Array, Vector(42.160, 0.670, 31.960));
 		Modify Global Variable(B, Append To Array, Vector(-20.250, 1.260, 27.649));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
 		Modify Global Variable(B, Append To Array, Vector(-19.271, 2.350, -16.340));
 		Modify Global Variable(B, Append To Array, Vector(-97.971, -1.141, -47.771));
-		Modify Global Variable(B, Append To Array, Vector(0, -30.000, 0));
-		Set Global Variable(C, Empty Array);
+		Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+		Global.C = Empty Array;
 		Modify Global Variable(C, Append To Array, Vector(62.729, 5.859, -55.221));
 		Modify Global Variable(C, Append To Array, Vector(3.630, 3.550, 52.290));
 		Modify Global Variable(C, Append To Array, Vector(5.410, 1.420, 11.439));
@@ -23856,7 +23865,7 @@ rule("skirmish rez")
 	conditions
 	{
 		Match Time == 0;
-		Global Variable(R) == 0;
+		Global.R == 0;
 	}
 
 	actions
@@ -23875,13 +23884,13 @@ rule("oasis city center death plane modif 1")
 
 	conditions
 	{
-		Global Variable(F) == 186;
-		Global Variable(N) == 3;
+		Global.F == 186;
+		Global.N == 3;
 	}
 
 	actions
 	{
-		Set Global Variable(D, 3);
+		Global.D = 3;
 	}
 }
 
@@ -23894,13 +23903,13 @@ rule("oasis city center death plane modif 2")
 
 	conditions
 	{
-		Global Variable(F) == 186;
-		Global Variable(N) == 4;
+		Global.F == 186;
+		Global.N == 4;
 	}
 
 	actions
 	{
-		Set Global Variable(D, 1.500);
+		Global.D = 1.500;
 		Wait(0.250, Ignore Condition);
 		Create Effect(All Players(All Teams), Sphere, Red, Vector(73.298, -96.500, 318.105), 100, Visible To Position and Radius);
 	}
@@ -23915,13 +23924,13 @@ rule("oasis city center death plane modif 3")
 
 	conditions
 	{
-		Global Variable(F) == 186;
-		Or(Compare(Global Variable(N), <, 3), Compare(Global Variable(N), >, 5)) == True;
+		Global.F == 186;
+		(Global.N < 3 || Global.N > 5) == True;
 	}
 
 	actions
 	{
-		Set Global Variable(D, -8.900);
+		Global.D = -8.900;
 	}
 }
 
@@ -23946,6 +23955,424 @@ rule("baptiste no crouch jump")
 	}
 }
 `/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+function decompileRuleToAst(content) {
+	
+	error("The decompiler currently cannot decompile rules.");
+
+	//Reset rule-specific global variables
+	decompilerGotos = [];
+	nbTabs = 0;
+	lastLoop = -1;
+	
+	//Check for potential error
+	if (currentArrayElementNames.length != 0) {
+		error("Current array element names weren't cleared");
+	}
+	
+	var bracketPos = getBracketPositions(content);
+	if (bracketPos.length != 4) {
+		error("Invalid rule (mismatched brackets): has "+bracketPos.length+" top-level brackets, should be 4");
+	}
+
+	var ruleAttributes = {};
+	
+	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
+	ruleAttributes.name = ruleName;
+	
+	var currentRuleIsDisabled = false;
+	if (content.trim().startsWith(tows("__disabled__", ruleKw))) {
+		currentRuleIsDisabled = true;
+	}
+	
+	debug("Decompiling rule "+ruleName);
+	
+	var ruleContent = content.substring(bracketPos[2]+1, bracketPos[3]);
+	
+	var bracketPos2 = [-1].concat(getBracketPositions(ruleContent));
+	
+	var eventInst = [];
+ 	var conditions = "";
+	var actions = "";
+	
+	for (var i = 0; i < bracketPos2.length-2; i += 2) {
+		var fieldName = topy(ruleContent.substring(bracketPos2[i]+1, bracketPos2[i+1]), ruleKw);
+		if (fieldName === "__event__") {
+			eventInst = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]), false);
+		} else if (fieldName === "__conditions__") {
+			//conditions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+			conditions = "conditions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
+		} else if (fieldName === "__actions__") {
+			//actions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+			actions = "actions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
+		} else {
+			error("Unknown field name "+fieldName+" in rule "+ruleName);
+		}
+	}
+	
+	//Parse events
+	if (eventInst.length > 0) {
+
+		var eventName = topy(eventInst[0], eventKw);
+		ruleAttributes.event = eventName;
+
+		if (eventName === "__subroutine__") {
+
+			if (eventInst.length !== 2) {
+				error("Malformed subroutine event");
+			}
+			var subroutineName = translateSubroutineToPy(eventInst[1].trim());
+			ruleAttributes.subroutineName = subroutineName;
+
+		} else {
+			if (eventInst.length > 1) {
+				//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
+				if (topy(eventInst[1], eventTeamKw) !== "all") {
+					ruleAttributes.eventTeam = topy(eventInst[1], eventTeamKw);
+				}
+
+				ruleAttributes.eventPlayer = topy(eventInst[2], eventPlayerKw);
+			}
+		}
+	}
+	
+	//Parse conditions
+	if (conditions !== "") {
+		ruleAttributes.conditions = decompileConditions(conditions);
+	}
+		
+	//Parse actions
+	if (actions !== "") {
+		var astActions = decompileActions(actions);
+	} else {
+		var astActions = [];
+	}
+
+	var astRule = new Ast("__rule__", [], astActions);
+	astRule.isDisabled = currentRuleIsDisabled;
+	astRule.ruleAttributes = ruleAttributes;
+	
+	return astRule;
+}
+
+function decompileConditions(content) {
+	
+	var conditions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
+	
+	var astConditions = [];
+	for (var condition of conditions) {
+		
+		condition = condition.trim();
+		
+		var currentConditionComment = null;
+		var isCurrentConditionDisabled = false;
+		//Check if there is a comment
+		if (condition.startsWith('"')) {
+			var conditionComment = getPrefixString(condition);
+			condition = condition.substring(conditionComment.length).trim();
+			currentConditionComment = unescapeString(conditionComment);
+		}
+
+		//Check if the condition is disabled
+		if (condition.startsWith(tows("__disabled__", ruleKw))) {
+			isCurrentConditionDisabled = true;
+			condition = condition.substring(tows("__disabled__", ruleKw).length).trim();
+		}
+
+		var astCondition = decompile(condition);
+		astCondition.comment = currentConditionComment;
+        astCondition.isDisabled = isCurrentConditionDisabled;
+        astConditions.push(astCondition);
+		
+	}
+
+	
+	return astConditions;
+}
+
+function decompileActions(content) {
+	
+	var astActions = [];
+	var actions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
+	
+	for (var action of actions) {
+		astActions.push(decompileAction(action));
+	}
+	
+	return astActions;
+}
+
+function decompileAction(content) {
+		
+	var isCurrentActionDisabled = false;
+	var currentActionComment = null;
+	content = content.trim();
+	
+	if (content.startsWith('"')) {
+		var actionComment = getPrefixString(content);
+		content = content.substring(actionComment.length).trim();
+		currentActionComment = unescapeString(actionComment);
+	}
+	if (content.startsWith(tows("__disabled__", ruleKw)+" ")) {
+		isCurrentActionDisabled = true;
+		content = content.substring((tows("__disabled__", ruleKw)+" ").length);
+	}
+
+    var decompiledAction = decompile(content);
+    decompiledAction.isDisabled = isCurrentActionDisabled;
+    decompiledAction.comment = currentActionComment;
+
+	return decompiledAction;
+}
+
+
+//Main parser function for workshop -> overpy.
+function decompile(content) {
+	
+	if (content === undefined) {
+		error("Content is undefined");
+	}
+    content = content.trim();
+    content = content.replace(/[\t\n]/g, " ");
+	debug("Decompiling '"+content+"'");
+
+	//Workshop operators, from lowest to highest precedence.
+	const wsOperators = [
+		"+=",
+		"-=",
+		"*=",
+		"/=",
+		"%=",
+		"^=",
+		"=",
+		"?",
+		"||",
+		"&&",
+		"==",
+		"!=",
+		"<=",
+		">=",
+		">",
+		"<",
+		"+",
+		"-",
+		"*",
+		"/",
+		"%",
+        "^",
+	];
+
+	const binaryOpToFuncMapping = {
+		"=": "__assignTo__",
+		"||": "__or__",
+		"&&": "__and__",
+		"==": "__equals__",
+		"!=": "__inequals__",
+		"<=": "__lessThanOrEquals__",
+		">=": "__greaterThanOrEquals__",
+		"<": "__lessThan__",
+		">": "__greaterThan__",
+		"+": "__add__",
+		"-": "__subtract__",
+		"*": "__multiply__",
+		"/": "__divide__",
+		"%": "__modulo__",
+        "^": "__raiseToPower__",
+	}
+
+	const modifyOpToFuncMapping = {
+		"+=": "__add__",
+		"-=": "__subtract__",
+		"*=": "__multiply__",
+		"/=": "__divide__",
+		"%=": "__modulo__",
+		"^=": "__raiseToPower__",
+	}
+
+	//Split on operators
+	for (var operator of wsOperators) {
+        var operands = splitStrOnDelimiter(content, " "+operator+" ", false);
+
+		if (operands.length === 2) {
+			if (operator in binaryOpToFuncMapping) {
+				return new Ast(binaryOpToFuncMapping[operator], [decompile(operands[0]), decompile(operands[1])]);
+
+			} else if (operator in modifyOpToFuncMapping) {
+				return new Ast("__modifyVar__", [decompile(operands[0]), new Ast(modifyOpToFuncMapping[operator], [], [], "__Operation__"), decompile(operands[1])])
+
+			} else if (operator === "?") {
+				var elseOperands = splitStrOnDelimiter(operands[1], ":", false);
+				if (elseOperands.length !== 2) {
+					error("Found '?', but no ':'");
+				}
+				return new Ast("__ifThenElse__", [decompile(operands[0]), decompile(elseOperands[0]), decompile(elseOperands[1])]);
+
+			} else {
+				error("Unhandled operator '"+operator+"'");
+			}
+		}
+    }
+
+    //Check for "!" operator
+    if (content.startsWith("!")) {
+        return new Ast("__not__", [decompile(content.substring(1))]);
+    }
+    
+    //Check for array index
+    if (content.endsWith("]")) {
+        var bracketPos = getBracketPositions(content);
+        return new Ast("__valueInArray__", [
+            decompile(content.substring(0, bracketPos[bracketPos.length-2])),
+            decompile(content.substring(bracketPos[bracketPos.length-2]+1, bracketPos[bracketPos.length-1])),
+        ])
+    }
+
+    //Check for the "." operator
+
+    var dotOperands = splitStrOnDelimiter(content, ".", false, true);
+    if (dotOperands.length === 2) {
+
+        if (isNumber(dotOperands[0])) {
+            return getAstForNumber(Number(content));
+        }
+        if (dotOperands[0].trim() === tows("__global__", valueFuncKw)) {
+            return new Ast("__globalVar__", [new Ast(translateVarToPy(dotOperands[1], true), [], [], "GlobalVariable")]);
+        } else {
+            return new Ast("__playerVar__", [decompile(dotOperands[0]), new Ast(translateVarToPy(dotOperands[1], false), [], [], "PlayerVariable")]);
+        }
+    }
+
+	var bracketPos = getBracketPositions(content);
+	
+	
+	var hasArgs = false
+	if (bracketPos.length == 2) {
+		hasArgs = true;
+	} else if (bracketPos.length != 0) {
+		error("Mismatched top-level brackets in action "+content+": expected 0 or 2, found "+bracketPos.length)
+	}
+
+	//Check if the whole string is in parentheses
+	if (bracketPos.length === 2 && bracketPos[0] === 0 && bracketPos[1] === content.length-1) {
+		return decompile(content.substring(1, content.length-1));
+	}
+	
+	//Check if there are empty parentheses
+	if (bracketPos.length == 2 && content.substring(bracketPos[0]+1, bracketPos[1]).trim().length == 0) {
+		hasArgs = false;
+		content = content.substring(0, bracketPos[0]);
+	}
+		
+	var name = "";
+	if (bracketPos.length == 2) {
+		name = content.substring(0, bracketPos[0]);
+	} else {
+		name = content;
+    }
+    
+    //Check for string literals
+    if (name.startsWith('"')) {
+        return new Ast(name, [], [], "StringLiteral");
+    }
+    
+    //Check for numbers
+    if (isNumber(name)) {
+        return getAstForNumber(Number(name));
+    }
+    try {
+        name = topy(name.toLowerCase().replace(/\s/g, ""), wsFuncKw);
+    } catch (e) {
+        //Is it a constant instead of a function?
+        name = topy(name.toLowerCase().replace(/\s/g, ""), constantKw);
+        var type = name.substring(0, name.indexOf("."));
+        var elem = name.substring(name.indexOf(".")+1);
+        return new Ast(elem, [], [], type);
+    }
+
+	var hasNoArgs = false;
+	if (name.endsWith("()")) {
+		hasNoArgs = true;
+		name = name.substring(0, name.length-2);
+	}
+	
+	var args = [];
+	if (hasArgs) {
+        var args = getArgs(content.substring(bracketPos[0]+1, bracketPos[1]), false);
+        
+	}
+    debug("Arguments: "+args);
+
+    //Special functions
+
+	if (name === "__modifyGlobalVariable__") {
+		return new Ast("__modifyVar__", [
+            new Ast(translateVarToPy(args[0], true), [], [], "GlobalVariable"), 
+            new Ast(topy(args[1], constantValues["__Operation__"]), [], [], "__Operation__"),
+            decompile(args[2]),
+        ]);
+	}
+	if (name === "__modifyGlobalVariableAtIndex__") {
+		return new Ast("__modifyVar__", [
+            new Ast("__valueInArray__", [
+                new Ast(translateVarToPy(args[0], true), [], [], "GlobalVariable"),
+                decompile(args[1]),
+            ]),
+            new Ast(topy(args[2], constantValues["__Operation__"]), [], [], "__Operation__"),
+            decompile(args[3]),
+        ]);
+	}
+	if (name === "__modifyPlayerVariable__") {
+		return new Ast("__modifyVar__", [
+            new Ast("__playerVar__", [
+                decompile(args[0]),
+                new Ast(translateVarToPy(args[1], false), [], [], "PlayerVariable"),
+            ]),
+            new Ast(topy(args[2], constantValues["__Operation__"]), [], [], "__Operation__"),
+            decompile(args[3]),
+        ]);
+	}
+	if (name === "__modifyPlayerVariableAtIndex__") {
+		return new Ast("__modifyVar__", [
+            new Ast("__valueInArray__", [
+                new Ast("__playerVar__", [
+                    decompile(args[0]),
+                    new Ast(translateVarToPy(args[1], false), [], [], "PlayerVariable"),
+                ]),
+                decompile(args[2])
+            ]),
+            new Ast(topy(args[3], constantValues["__Operation__"]), [], [], "__Operation__"),
+            decompile(args[4]),
+        ]);
+    }
+    if (name === "__round__") {
+        return new Ast("__round__", [decompile(args[0]), new Ast(topy(args[1].trim(), constantValues.__Rounding__), [], [], "__Rounding__")]);
+    }
+    if (name === "__localizedString__" && args.length === 0) {
+        return new Ast("STRING", [], [], "HudReeval");
+    }
+
+	return new Ast(name, args.map(x => decompile(x)));
+		
+}
+
+/* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
  * 
@@ -24010,11 +24437,20 @@ function decompileAllRules(content, language="en-US") {
 	//rule(title) {...}
 	//Therefore, each rule ends every 4th bracket position
 	
+	var astRules = [];
+
 	for (var i = 0; i < bracketPos.length-1; i += 4) {
 	//for (var i = 0; i < 4; i += 4) {
-		if (i >= bracketPos.length-1) break;
-		result += decompileRule(content.substring(bracketPos[i]+1, bracketPos[i+4]+1));
+		if (i >= bracketPos.length-1) {
+			break;
+		}
+		astRules.push(decompileRuleToAst(content.substring(bracketPos[i]+1, bracketPos[i+4]+1)));
 	}
+
+	for (var rule of astRules) {
+		console.log(astToString(rule));
+	}
+	console.log(astRules);
 
 	var variableDeclarations = "";	
 	if (globalVariables.length > 0) {
@@ -24259,1206 +24695,6 @@ function decompileSubroutines(content) {
 		addSubroutine(subName, index);
 	}
 }
-
-function decompileRule(content) {
-
-	error("The decompiler currently cannot decompile rules.");
-	
-	//Reset rule-specific global variables
-	decompilerGotos = [];
-	nbTabs = 0;
-	lastLoop = -1;
-	
-	//Check for potential error
-	if (currentArrayElementNames.length != 0) {
-		error("Current array element names weren't cleared");
-	}
-	
-	var bracketPos = getBracketPositions(content);
-	if (bracketPos.length != 4) {
-		error("Invalid rule (mismatched brackets): has "+bracketPos.length+" top-level brackets, should be 4");
-	}
-	
-	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
-	var isCurrentRuleDisabled = false;
-	if (content.trim().startsWith(tows("__disabled__", ruleKw))) {
-		isCurrentRuleDisabled = true;
-	}
-	
-	debug("Decompiling rule "+ruleName);
-	var result = "";
-	if (isCurrentRuleDisabled) {
-		result += '/*';
-	}
-	result += "@Rule "+ruleName+"\n";
-	
-	var ruleContent = content.substring(bracketPos[2]+1, bracketPos[3]);
-	
-	var bracketPos2 = [-1].concat(getBracketPositions(ruleContent));
-	
-	var eventInst = [];
- 	var conditions = "";
-	var actions = "";
-	
-	for (var i = 0; i < bracketPos2.length-2; i += 2) {
-		var fieldName = topy(ruleContent.substring(bracketPos2[i]+1, bracketPos2[i+1]), ruleKw);
-		if (fieldName === "@Event") {
-			eventInst = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]), false);
-		} else if (fieldName === "__conditions__") {
-			//conditions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
-			conditions = "conditions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
-		} else if (fieldName === "__actions__") {
-			//actions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
-			actions = "actions {"+ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2])+"}";
-		} else {
-			error("Unknown field name "+fieldName+" in rule "+ruleName);
-		}
-	}
-	
-	//Parse events
-	if (eventInst.length > 0) {
-
-		var eventName = topy(eventInst[0], eventKw);
-		if (eventName === "__subroutine__") {
-
-			if (eventInst.length !== 2) {
-				error("Malformed subroutine event");
-			}
-			var subroutineName = translateSubroutineToPy(eventInst[1].trim());
-
-			result += "def "+subroutineName+"():\n";
-			nbTabs = 1;
-
-		} else {
-			result += "@Event "+eventName+"\n";
-			if (eventInst.length > 1) {
-				//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
-				if (topy(eventInst[1], eventTeamKw) !== "all") {
-					result += "@Team "+topy(eventInst[1], eventTeamKw)+"\n";
-				}
-				
-				//Parse the 3rd event instruction
-				//Detect if it is a slot or hero
-				var eventInst3 = topy(eventInst[2], eventPlayerKw)
-				if (eventInst3 !== "all") {
-					if (isNumber(eventInst3)) {
-						result += "@Slot "+eventInst3+"\n";
-					} else {
-						//We assume it is a hero
-						result += "@Hero "+eventInst3.toLowerCase() + "\n";
-					}
-				}
-			}
-		}
-	}
-	
-	//Parse conditions
-	if (conditions !== "") {
-		result += decompileConditions(conditions);
-	}
-		
-	//Parse actions
-	if (actions !== "") {
-		result += decompileActions(actions);
-	}
-	
-	if (isCurrentRuleDisabled) {
-		result += '*/';
-	}
-	return result+"\n\n";
-}
-
-function decompileConditions(content) {
-	
-	var conditions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
-	
-	var result = "";
-	for (var condition of conditions) {
-		
-		condition = condition.trim();
-		
-		//Check if there is a comment
-		if (condition.startsWith('"')) {
-			var conditionComment = getPrefixString(condition);
-			condition = condition.substring(conditionComment.length).trim();
-			result += "#"+unBackslashString(conditionComment)+"\n";
-		}
-
-		//Check if the condition is disabled
-		if (condition.startsWith(tows("__disabled__", ruleKw))) {
-			result += "#";
-			condition = condition.substring(tows("__disabled__", ruleKw).length).trim();
-		}
-		result += "@Condition "+decompileRuleCondition(condition)+"\n";
-		
-	}
-
-	
-	return result;
-}
-
-function decompileActions(content) {
-	
-	var result = "";
-	var actions = splitInstructions(content.substring(content.indexOf("{")+1, content.lastIndexOf("}")), false);
-	
-	//Detect the last loop to know where to place the "while"
-	for (var i = 0; i < actions.length; i++) {
-		var actionName = getName(actions[i]);
-		if (!actionName.startsWith('"') && !actionName.startsWith(tows("__disabled__", ruleKw)) && topy(actionName, actionKw).startsWith("__loop__")) {
-			//It is a loop; update the loop position
-			lastLoop = i;
-		}
-	}
-	
-	//If a loop was detected, add the "do:" and increment the indentation level.
-	if (lastLoop >= 0) {
-		result += tabLevel(nbTabs)+"do:\n";
-		nbTabs++;
-	}
-		
-	for (var i = 0; i < actions.length; i++) {
-		if (i == lastLoop) {
-			nbTabs--;
-		}
-		result += tabLevel(nbTabs) + decompileAction(actions[i], i) + "\n";
-	}
-
-	//Add the remaining gotos (caused eg. by a skip 50 in a rule with 10 actions).
-	for (var i = 0; i < decompilerGotos.length; i++) {
-		if (decompilerGotos[i] > 0) {
-			result += tabLevel(nbTabs)+"lbl_"+i+":\n";
-		}
-	}
-	
-	return result;
-}
-
-function decompileAction(content, actionNb) {
-	
-	var result = "";
-	
-	//Reset variable
-	operatorPrecedenceStack = [];
-	
-	//Decrement each goto (for skips)
-	for (var i = 0; i < decompilerGotos.length; i++) {
-		decompilerGotos[i]--;
-		//Check if the goto has reached its destination
-		if (decompilerGotos[i] == 0) {
-			result += "lbl_"+i+":\n"+tabLevel(nbTabs);
-		}
-	}
-	
-	var isCurrentActionDisabled = false;
-	content = content.trim();
-	
-	if (content.startsWith('"')) {
-		var conditionComment = getPrefixString(content);
-		content = content.substring(conditionComment.length).trim();
-		result += "#"+unBackslashString(conditionComment)+"\n"+tabLevel(nbTabs);
-	}
-	if (content.startsWith(tows("__disabled__", ruleKw)+" ")) {
-		isCurrentActionDisabled = true;
-		content = content.substring((tows("__disabled__", ruleKw)+" ").length);
-	}
-	var decompiledAction = "";
-	if (actionNb == lastLoop) {
-		decompiledAction = decompile(content, actionKw, {"isLastLoop":true});
-	} else {
-		
-		decompiledAction = decompile(content, actionKw, 0, {"isLastLoop":false});
-	}
-	if (isCurrentActionDisabled) {
-		if (decompiledAction.includes('\n')) {
-			decompiledAction = "'''"+decompiledAction+"'''";
-		} else {
-			decompiledAction = "#"+decompiledAction;
-		}
-	}
-	return result+decompiledAction;
-}
-
-//This function only decompiles conditions that are in the "condition" section of a rule.
-//This is needed to handle the binary operators.
-function decompileRuleCondition(content) {
-	
-	debug("Decompiling condition '"+content+"'");
-
-	
-	//Reset variable
-	operatorPrecedenceStack = [];
-	var operators = ["==", "!=", "<=", ">=", "<", ">"];
-	
-	for (var i = 0; i < operators.length; i++) {
-		var operands = splitStrOnDelimiter(content, operators[i], false);
-		if (operands.length == 2) {
-			return decompileCondition(operands[0], operators[i], operands[1]);
-		}
-	}
-	
-	error("Could not decompile condition "+content);
-	
-}
-
-//Decompiles conditions (whether rule conditions or compare() conditions).
-//Used to optimise some stuff (eg: condition==true -> condition, condition==false -> not condition).
-
-function decompileCondition(operand1, operator, operand2) {
-	var result = "";
-	var isOneOperandFalse = false;
-	var operands = [operand1, operand2];
-	operator = operator.trim();
-	if (operator == "==") {
-		//condition == true check
-		for (var i = 0; i < operands.length; i++) {
-			var translated = topy(getName(operands[i]), valueKw);
-			if (translated === "true") {
-				operands[i] = "";
-			} else if (translated === "false") {
-				operands[i] = "";
-				isOneOperandFalse = true;
-			}
-		}
-	}
-	
-	
-	if (operands[0] !== "" && operands[1] !== "") {
-		result = decompileOperator(operands[0], operator, operands[1])
-	} else if (operands[0] !== "") {
-		if (isOneOperandFalse) {
-			result = decompileOperator(operands[0], "not", "");
-		} else {
-			result = decompile(operands[0]);
-		}
-	} else if (operands[1] !== "") {
-		if (isOneOperandFalse) {
-			result = decompileOperator(operands[1], "not", "");
-		} else {
-			result = decompile(operands[1]);
-		}
-	} else if (isOneOperandFalse) {
-		result = "false";
-	} else {
-		result = "true";
-	}
-	
-	
-	return result;
-}
-
-//Main parser function for workshop -> overpy.
-function decompile(content, keywordArray=valueKw, decompileArgs={}) {
-	
-	if (keywordArray === undefined) {
-		error("KeywordArray is undefined");
-	} else if (content === undefined) {
-		error("Content is undefined");
-	}
-	
-	debug("Decompiling '"+content+"'");
-	var bracketPos = getBracketPositions(content);
-	
-	
-	var hasArgs = false
-	if (bracketPos.length == 2) {
-		hasArgs = true;
-	} else if (bracketPos.length != 0) {
-		error("Mismatched top-level brackets in action "+content+": expected 0 or 2, found "+bracketPos.length)
-	}
-	
-	//Check if there are empty parentheses
-	if (bracketPos.length == 2 && content.substring(bracketPos[0]+1, bracketPos[1]).trim().length == 0) {
-		hasArgs = false;
-		content = content.substring(0, bracketPos[0]);
-	}
-		
-	var name = "";
-	if (bracketPos.length == 2) {
-		name = content.substring(0, bracketPos[0]);
-	} else {
-		name = content;
-	}
-	name = topy(name.toLowerCase().replace(/\s/g, ""), keywordArray);
-	var hasNoArgs = false;
-	if (name.endsWith("()")) {
-		hasNoArgs = true;
-		name = name.substring(0, name.length-2);
-	}
-	
-	if (name !== "__compare__" && decompileArgs.invertCondition === true) {
-		return parseOperator(content, "not", null);
-	}
-	
-	var args = [];
-	if (hasArgs) {
-		var args = getArgs(content.substring(bracketPos[0]+1, bracketPos[1]), false);
-	}
-	debug("Arguments: "+args);
-	var result = "";
-	
-	//Handle special functions that can't be directly translated
-	//Special functions are sorted alphabetically.
-	
-	//Player functions can't be translated, but most of them are generic.
-	//They begin by "_&".
-	
-	if (name.startsWith("_&")) {
-		return decompileGenericPlayerFunction(name.substring("_&".length), args, keywordArray === actionKw ? true : false);
-	}
-	
-	//Functions beginning with "_!" have their arguments swapped (assuming there are only 2 arguments).
-	if (name.startsWith("_!")) {
-		if (args.length !== 2) {
-			error("Argument length for swapped function must be 2");
-		}
-		return name.substring("_!".length)+"("+decompile(args[1])+", "+decompile(args[0])+")";
-	}
-	
-	//Abort if
-	if (name === "__abortIf__") {
-		result = "if " + decompile(args[0]) + ":\n";
-		result += tabLevel(nbTabs+1) + "return";
-		
-		return result;
-	}
-	
-	//Abort if condition is false/true
-	if (name === "__abortIfConditionIsFalse__" || name === "__abortIfConditionIsTrue__") {
-		result = "if ";
-		if (name === "__abortIfConditionIsFalse__") {
-			result += "not ";
-		}
-		result += "RULE_CONDITION:\n";
-		result += tabLevel(nbTabs+1) + "return";
-		
-		return result;
-	}
-	
-	//Add
-	if (name === "__add__") {
-		return decompileOperator(args[0], "+", args[1]);
-	}
-	
-	//Is true for all
-	if (name === "__all__") {
-		
-		if (isPlayerArrayInstruction(args[0])) {
-			var varName = "player";
-		} else {
-			var varName = "i";
-		}
-		
-		debug("Pushing currentArrayElementName "+varName);
-		currentArrayElementNames.push(varName);
-		
-		var result = "all(["+decompile(args[1])+" for "+varName+" in "+decompile(args[0])+"])";
-		currentArrayElementNames.pop();
-		return result;
-	}
-	
-	//Is true for any
-	if (name === "__any__") {
-		
-		if (isPlayerArrayInstruction(args[0])) {
-			var varName = "player";
-		} else {
-			var varName = "i";
-		}
-		
-		debug("Pushing currentArrayElementName "+varName);
-		currentArrayElementNames.push(varName);
-		
-		var result = "any(["+decompile(args[1])+" for "+varName+" in "+decompile(args[0])+"])";
-		currentArrayElementNames.pop();
-		return result;
-	}
-	
-	//And
-	if (name === "__and__") {
-		return decompileOperator(args[0], "and", args[1]);
-	}
-	
-	//Append to array
-	if (name === "__appendToArray__") {
-		
-		//Check for optimization: [].append(123).append(456) -> [123, 456]
-		//Only done if we append a literal number to a literal array.
-		
-		var decompiledArg0 = decompile(args[0]);
-		var decompiledArg1 = decompile(args[1]);
-		
-		if (decompiledArg0.startsWith('[') && decompiledArg0.endsWith(']') && !isNaN(decompiledArg1)) {
-			var result = decompiledArg0.substring(0, decompiledArg0.length-1);
-			if (decompiledArg0 !== "[]") {
-				result += ", ";
-			}
-			result += decompiledArg1+"]";
-			return result;
-		} else {
-			return decompiledArg0+".append("+decompiledArg1+")";
-		}
-	}
-	
-	//Array contains
-	if (name === "__arrayContains__") {
-		
-		return decompile(args[1])+" in "+decompile(args[0]);
-	}
-	
-	//Array slice
-	if (name === "__arraySlice__") {
-		return decompile(args[0]) + ".slice(" + decompile(args[1]) + ", " + decompile(args[2])+")";
-	}
-
-	//Call subroutine
-	if (name === "__callSubroutine__") {
-		return translateSubroutineToPy(args[0])+"()";
-	}
-	
-	//Chase global variable at rate
-	if (name === "__chaseGlobalVariableAtRate__") {
-		
-		return "chase("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", rate="+decompile(args[2])+", "+decompile(args[3])+")";
-	}
-	
-	//Chase global variable over time
-	if (name === "__chaseGlobalVariableOverTime__") {
-		
-		return "chase("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", duration="+decompile(args[2])+", "+decompile(args[3])+")";
-	}
-	
-	//Chase player variable at rate
-	if (name === "__chasePlayerVariableAtRate__") {
-		
-		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, rate={arg2}, {arg3})", args[0], args.slice(1), true, true, true)
-		
-		return result;
-	}
-	
-	//Chase player variable over time
-	if (name === "__chasePlayerVariableOverTime__") {
-		
-		var result = decompilePlayerFunction("chase({player}.{arg0}, {arg1}, duration={arg2}, {arg3})", args[0], args.slice(1), true, true, true)
-		
-		return result;
-	}
-		
-	//Compare
-	if (name === "__compare__") {
-		
-		var op = args[1].trim();
-		if (decompileArgs.invertCondition === true) {
-			op = reverseOperator(op);
-		}
-		
-		return decompileCondition(args[0], op, args[2]);
-		//return "("+decompile(args[0]) + ") " + args[1].trim() + " (" + decompile(args[2])+")";
-	}
-	
-	//Current array element
-	if (name === "__currentArrayElement__") {
-		var currentArrayElementName = currentArrayElementNames[currentArrayElementNames.length-1];
-		if (currentArrayElementName === undefined) {
-			error("currentArrayElementName is undefined");
-		}
-		return currentArrayElementName;
-	}
-	
-	//Custom String
-	if (name === "__customString__") {
-		
-		var result = args[0];
-		var format = [];
-		if (result.includes("{0}")) {
-			format.push(decompile(args[1]));
-		}
-		if (result.includes("{1}")) {
-			if (format.length === 0) {
-				result = result.replace("{1}", "{0}");
-			}
-			format.push(decompile(args[2]));
-		}
-		if (result.includes("{2}")) {
-			if (format.length === 0) {
-				result = result.replace("{2}", "{0}");
-			} else if (format.length === 1) {
-				result = result.replace("{2}", "{1}");
-			}
-			format.push(decompile(args[3]));
-		}
-		
-		if (format.length > 0) {
-			result += '.format(' + format.join(", ") + ")";
-		}
-		return result;
-	}
-	
-	//Divide
-	if (name === "__divide__") {
-		return decompileOperator(args[0], "/", args[1]);
-	}
-
-	//Elif
-	if (name === "__elif__") {
-		var arg1 = decompile(args[0]);
-		var result = "__elif__("+arg1+")";
-		return result;
-	}
-
-	//Else
-	if (name === "__else__") {
-		var result = "__else__()";
-		return result;
-	}
-	
-	//Empty array
-	if (name === "__emptyArray__") {
-		return "[]";
-	}
-	
-	//End
-	if (name === "__end__") {
-		var result = "__end__()";
-		return result;
-	}
-	
-	//Filtered array
-	if (name === "__filteredArray__") {
-		
-		if (isPlayerArrayInstruction(args[0])) {
-			var varName = "player";
-		} else {
-			var varName = "i";
-		}
-		
-		debug("Pushing currentArrayElementName "+varName);
-		currentArrayElementNames.push(varName);
-		
-		var result = "["+varName+" for "+varName+" in "+decompile(args[0])+" if "+decompile(args[1])+"]";
-		currentArrayElementNames.pop();
-		return result;
-	}
-	
-	//First of
-	if (name === "__firstOf__") {
-		return decompile(args[0])+"[0]";
-	}
-
-	//For global var
-	if (name === "__forGlobalVar__") {
-		return "__for__("+translateVarToPy(args[0], true)+", "+decompile(args[1])+", "+decompile(args[2])+", "+decompile(args[3])+")";
-	}
-
-	//For player var
-	if (name === "__forPlayerVar__") {
-		return "__for__("+decompile(args[0])+"."+translateVarToPy(args[1], false)+", "+decompile(args[2])+", "+decompile(args[3])+", "+decompile(args[4])+")";
-	}
-	
-	//Raycast hit normal
-	if (name === "__getNormal__") {
-		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getNormal()";
-	}
-	
-	//Raycast hit position
-	if (name === "__getHitPosition__") {
-		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getHitPosition()";
-	}
-	
-	//Raycast hit player
-	if (name === "__getPlayerHit__") {
-		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", include="+decompile(args[2])+", exclude="+decompile(args[3])+", includePlayerObjects="+decompile(args[4])+").getPlayerHit()";
-	}
-
-	//All Players
-	if (name === "getPlayers") {
-		var team = decompile(args[0], valueKw);
-		if (team === "Team.ALL") {
-			return "getAllPlayers()";
-		} else {
-			return "getPlayers("+team+")";
-		}
-	}
-	
-	//Gamemode
-	if (name === "__gamemode__") {
-		return "Gamemode."+decompile(args[0], constantValues["Gamemode"]);
-	}
-		
-	//Global variable
-	if (name === "__globalVar__") {
-		return translateVarToPy(args[0], true);
-	}
-		
-	//Hero
-	if (name === "__hero__") {
-		return "Hero."+decompile(args[0], constantValues["Hero"]);
-	}
-
-	//Hud text
-	if (name === "__hudText__") {
-		var header = decompile(args[1]);
-		var subheader = decompile(args[2]);
-		var subtext = decompile(args[3]);
-		var specVisibility = "";
-		if (args.length > 11) {
-			specVisibility = "SpecVisibility."+decompile(args[10], constantValues["SpecVisibility"]);
-			if (specVisibility === "SpecVisibility.DEFAULT") {
-				specVisibility = "";
-			} else {
-				specVisibility = ", "+specVisibility;
-			}
-		}
-		var funcName = "";
-		var texts = "";
-
-		var headerColor = "Color."+decompile(args[6], constantValues["Color"])
-		var subheaderColor = "Color."+decompile(args[7], constantValues["Color"])
-		var subtextColor = "Color."+decompile(args[8], constantValues["Color"])
-		var colors = "";
-		if (subheader === "null" && subtext === "null") {
-			funcName = "hudHeader";
-			texts = header;
-			colors = headerColor;
-		} else if (header === "null" && subtext === "null") {
-			funcName = "hudSubheader";
-			texts = subheader;
-			colors = subheaderColor;
-		} else if (subheader === "null" && subheader === "null") {
-			funcName = "hudSubtext";
-			texts = subtext;
-			colors = subtextColor;
-		} else {
-			funcName = "hudText";
-			texts = header+", "+subheader+", "+subtext;
-			colors = headerColor+", "+subheaderColor+", "+subtextColor;
-		}
-		return funcName+"("+decompile(args[0])+", "+texts+", HudPosition."+decompile(args[4], constantValues["HudPosition"])+", "+decompile(args[5])+", "+colors+", "+decompile(args[9])+specVisibility+")";
-	}
-
-	//If
-	if (name === "__if__") {
-		var arg1 = decompile(args[0]);
-		var result = "__if__("+arg1+")";
-		return result;
-	}
-	
-	//Index of array value
-	if (name === "__indexOfArrayValue__") {
-		return decompile(args[0])+".index("+decompile(args[1])+")";
-	}
-	
-	//Is in line of sight
-	if (name === "__isInLineOfSight__") {
-		return "raycast("+decompile(args[0])+", "+decompile(args[1])+", los="+decompile(args[2])+").hasLoS()";
-	}
-	
-	//Last of
-	if (name === "__lastOf__") {
-		return decompile(args[0])+"[-1]";
-	}
-	
-	//Localized String
-	if (name === "__localizedString__") {
-		
-		//Blizzard likes making parsing difficult apparently,
-		//cause the "reevaluation on string" used with hud is the same as the "string" function.
-		
-		if (args.length == 0) {
-			return "HudReeval.STRING";
-		}
-				
-		var [str, format] = decompileLocalizedString(args[0], args[1], args[2], args[3], decompileArgs.strDepth);
-				
-		if (decompileArgs.strDepth !== 0 && decompileArgs.strDepth !== undefined) {
-			return [str, format];
-		}
-		
-		result = '"'+str+'"';
-		if (format.length > 0) {
-			result += '.format(' + format.join(", ") + ")";
-		}
-		return "l"+result+"";
-	}
-			
-	//Loop
-	if (name === "__loop__") {
-		if (decompileArgs.isLastLoop) {
-			return "while true";
-		} else {
-			return "continue";
-		}
-	}
-	
-	//Loop if
-	if (name === "__loopIf__") {
-		if (decompileArgs.isLastLoop) {
-			return "while "+decompile(args[0]);
-		} else {
-			var result = "if "+decompile(args[0])+":\n";
-			result += tabLevel(nbTabs+1)+"continue";
-			return result;
-		}
-	}
-	
-	//Loop if condition is false
-	if (name === "__loopIfConditionIsFalse__") {
-		if (decompileArgs.isLastLoop) {
-			return "while not RULE_CONDITION";
-		} else {
-			var result = "if not RULE_CONDITION:\n";
-			result += tabLevel(nbTabs+1)+"continue";
-			return result;
-		}
-	}
-	
-	//Loop if condition is true
-	if (name === "__loopIfConditionIsTrue__") {
-		if (decompileArgs.isLastLoop) {
-			return "while RULE_CONDITION";
-		} else {
-			var result = "if RULE_CONDITION:\n";
-			result += tabLevel(nbTabs+1)+"continue";
-			return result;
-		}
-	}
-
-	//Map
-	if (name === "__map__") {
-		return "Map."+decompile(args[0], constantValues["Map"]);
-	}
-	
-	//Modify global var
-	if (name === "__modifyGlobalVar__") {
-		return decompileModifyVar(translateVarToPy(args[0], true), args[1], decompile(args[2]));
-	}
-	
-	//Modify global var at index
-	if (name === "__modifyGlobalVarAtIndex__") {
-		return decompileModifyVar(translateVarToPy(args[0], true), args[2], decompile(args[3]), decompile(args[1]));
-	}
-	
-	//Modify player var
-	if (name === "__modifyPlayerVar__") {
-		
-		var result = decompileModifyVar(decompile(args[0])+"."+translateVarToPy(args[1], false), args[2], decompile(args[3]))
-		
-		return decompilePlayerFunction(result, args[0], []);
-	}
-	
-	//Modify player var at index
-	if (name === "__modifyPlayerVarAtIndex__") {
-		
-		var result = decompileModifyVar(decompile(args[0])+"."+translateVarToPy(args[1], false), args[3], decompile(args[4]), decompile(args[2]))
-		
-		return decompilePlayerFunction(result, args[0], []);
-	}
-	
-	//Modulo
-	if (name === "__modulo__") {
-		return decompileOperator(args[0], "%", args[1]);
-	}
-	
-	//Multiply
-	if (name === "__multiply__") {
-		return decompileOperator(args[0], "*", args[1]);
-	}
-
-	//Not
-	if (name === "__not__") {
-		return decompileOperator(args[0], "not", null);
-	}
-	
-	//Or
-	if (name === "__or__") {
-		return decompileOperator(args[0], "or", args[1]);
-	}
-	
-	//Player variable
-	if (name === "__playerVar__") {
-		return decompile(args[0])+"."+translateVarToPy(args[1], false);
-	}
-	
-	//Raise to power
-	if (name === "__raiseToPower__") {
-		return decompileOperator(args[0], "**", args[1]);
-	}
-	
-	//Remove from array
-	if (name === "__removeFromArray__") {
-		return decompile(args[0])+".exclude("+decompile(args[1])+")";
-	}
-	
-	
-	//Round
-	if (name === "__round__") {
-		var roundType = topy(args[1], constantValues["__Rounding__"]);
-		if (roundType === "__roundUp__") {
-			return "ceil("+decompile(args[0])+")";
-		} else if (roundType === "__roundDown__") {
-			return "floor("+decompile(args[0])+")";
-		} else if (roundType === "__roundToNearest__") {
-			return "round("+decompile(args[0])+")";
-		} else {
-			error("Unknown round type "+roundType);
-		}
-	}
-	
-	//Set global var
-	if (name === "__setGlobalVar__") {
-		return translateVarToPy(args[0], true)+" = "+decompile(args[1]);
-	}
-	
-	//Set global var at index
-	if (name === "__setGlobalVarAtIndex__") {
-		return translateVarToPy(args[0], true)+"["+decompile(args[1])+"] = "+decompile(args[2]);
-	}
-	
-	//Set player var
-	if (name === "__setPlayerVar__") {
-		return decompilePlayerFunction("{player}.{arg0} = {arg1}", args[0], args.slice(1), true, true, true);
-	}
-	
-	//Set player var at index
-	if (name === "__setPlayerVarAtIndex__") {
-		return decompilePlayerFunction("{player}.{arg0}[{arg1}] = {arg2}", args[0], args.slice(1), true, true, true);
-	}
-
-	//Start rule
-	if (name === "__startRule__") {
-		return "async("+translateSubroutineToPy(args[0])+", "+decompile(args[1])+")";
-	}
-	
-	//Stop chasing player variable
-	if (name === "__stopChasingGlobalVariable__") {
-		return "stopChasingVariable("+translateVarToPy(args[0], true)+")";
-	}
-	
-	//Stop chasing player variable
-	if (name === "__stopChasingPlayerVariable__") {
-		return decompilePlayerFunction("stopChasingVariable({player}.{args})", args[0], args.slice(1), false, true, true);
-	}
-					
-	//Subtract
-	if (name === "__subtract__") {
-		return decompileOperator(args[0], "-", args[1]);
-	}
-	
-	//Skip
-	if (name === "__skip__") {
-		//Check if the number of skips is hardcoded
-		if (!isNaN(args[0].trim())) {
-			var gotoStr = "lbl_"+decompilerGotos.length;
-			//Init the goto countdown
-			decompilerGotos.push(parseInt(args[0])+1);
-		} else {
-			var gotoStr = "loc + "+decompile(args[0]);
-		}
-		
-		return "goto "+gotoStr;
-	}
-	
-	//Skip if
-	if (name === "__skipIf__") {
-		result = "if " + decompile(args[0]) + ":\n";
-		
-		//Check if the number of skips is hardcoded
-		if (!isNaN(args[1].trim())) {
-			var gotoStr = "lbl_"+decompilerGotos.length;
-			//Init the goto countdown
-			decompilerGotos.push(parseInt(args[1])+1);
-		} else {
-			var gotoStr = "loc + "+decompile(args[1]);
-		}
-		
-		result += tabLevel(nbTabs+1) + "goto "+gotoStr;
-		
-		return result;
-	}
-	
-	//Sorted array
-	if (name === "__sortedArray__") {
-		
-		if (isPlayerArrayInstruction(args[0])) {
-			var varName = "player";
-		} else {
-			var varName = "i";
-		}
-		
-		debug("Pushing currentArrayElementName "+varName);
-		currentArrayElementNames.push(varName);
-		
-		var result = "sorted("+decompile(args[0]);
-		//If key == current array element, do not include it
-		if (topy(getName(args[1]).trim(), valueKw) !== "__currentArrayElement__") {
-			result += ", key=lambda "+varName+": "+decompile(args[1]);
-		}
-		result += ")";
-		currentArrayElementNames.pop();
-		return result;
-	}
-
-	//Value in array
-	if (name === "__valueInArray__") {
-		return decompile(args[0])+"["+decompile(args[1])+"]";
-	}
-	
-	//Wait
-	if (name === "__wait__") {
-		var arg1 = decompile(args[0]);
-		var arg2 = decompile(args[1]);
-		var result = "wait(";
-		if (arg1 !== "0.016" || arg2 !== "Wait.IGNORE_CONDITION") {
-			result += arg1;
-		}
-		if (arg2 !== "Wait.IGNORE_CONDITION") {
-			result += ", "+arg2;
-		}
-		return result+")";
-	}
-
-	//While
-	if (name === "__while__") {
-		var arg1 = decompile(args[0]);
-		var result = "__while__("+arg1+")";
-		return result;
-	}
-	
-	//X/Y/Z component of
-	if (name === "__xComponentOf__") {
-		return decompile(args[0])+".x";
-	}
-	if (name === "__yComponentOf__") {
-		return decompile(args[0])+".y";
-	}
-	if (name === "__zComponentOf__") {
-		return decompile(args[0])+".z";
-	}
-	
-	if (name.startsWith('_')) {
-		error("Unhandled special function "+name);
-	}
-	
-	//Default case (not a special function).
-	result = name;
-	if (args.length > 0) {
-		result += "("
-		for (var i = 0; i < args.length; i++) {
-			result += decompile(args[i]);
-			if (i < args.length-1) {
-				result += ", ";
-			}
-		}
-		result += ")";
-	}
-
-	if (hasNoArgs) {
-		result += "()";
-	}
-	
-	return result;
-	
-}
-
-function decompileLocalizedString(content, arg1, arg2, arg3, strDepth) {
-		
-	var result = content;
-	var format = [];
-	var args = [arg1, arg2, arg3];
-	
-	var nbArgs = 0;
-	if (content.indexOf("{0}") > -1) nbArgs++;
-	if (content.indexOf("{1}") > -1) nbArgs++;
-	if (content.indexOf("{2}") > -1) nbArgs++;
-	
-	//debug("Parsing string '"+content+"' with nbargs = "+nbArgs);
-	
-	//Remove additional quotes
-	if (result.startsWith('"') && result.endsWith('"')) {
-		result = topy(result.substring(1, result.length-1), stringKw);
-	}
-	
-	for (var i = 0; i < nbArgs; i++) {
-		
-		//Check if the string result must be put in the format array
-		var isInFormat = true;
-		
-		var decompiledArg = decompile(args[i], valueKw, {"strDepth":1});
-		
-		//Skip nulls
-		/*if (decompiledArg === "null") {
-			continue;
-		}*/
-		
-		if (decompiledArg.constructor !== Array) {
-			decompiledArg = [decompiledArg];
-		}
-		
-		//If the decompile function returned 2 arguments, the argument is a string
-		if (decompiledArg.length > 1) {
-			isInFormat = false;
-			format = format.concat(decompiledArg[1]);
-			
-		//Else, check if the argument is a number
-		} else if (!isNaN(decompiledArg[0])) {
-			isInFormat = false;
-			
-		//Else, check if the argument is in the list of string keywords
-		} else if (decompiledArg[0] in stringKw) {
-			isInFormat = false;
-		}
-		
-		if (isInFormat) {
-			format = format.concat(decompiledArg);
-			result = result.replace("\{"+i+"\}", "{}");
-		} else {
-			//Remove the "Hero." prefix for heroes
-			if (decompiledArg[0].startsWith("Hero.")) {
-				decompiledArg[0] = decompiledArg[0].replace("Hero.","").toLowerCase();
-				decompiledArg[0] = decompiledArg[0][0].toUpperCase() + decompiledArg[0].substring(1);
-			}
-			result = result.replace("\{"+i+"\}", decompiledArg[0]);
-		}
-	}
-		
-	
-	debug("Format = "+format+", arg = "+decompiledArg);
-	return [result, format];
-	
-}
-
-//Function for the player functions, eg set projectile speed, has status, etc.
-//There were so many of them, it was polluting the special functions table.
-function decompileGenericPlayerFunction(name, args, isAction) {
-	if (isAction === undefined) {
-		error("isAction is undefined");
-	}
-	return decompilePlayerFunction("{player}."+name+"({args})", args[0], args.slice(1), false, isAction);
-}
-
-//The content is a python translation and must contain {player} and {args} to replace strings by the args.
-//If separateArgs = true, {arg0}, {arg1} etc must be provided instead of {args}.
-function decompilePlayerFunction(content, player, args, separateArgs=false, isAction=true, firstArgIsVar=false) {
-	
-	var result = "";
-	result += content.replace("\{player\}", decompile(player))
-	
-	
-	//Parse arguments
-	if (!separateArgs) {
-		var argsStr = "";
-		for (var i = 0; i < args.length; i++) {
-			if (i === 0 && firstArgIsVar) {
-				argsStr += translateVarToPy(args[i], false);
-			} else {
-				argsStr += decompile(args[i]);
-			}
-			if (i < args.length-1) {
-				argsStr += ", ";
-			}
-		}
-		result = result.replace("\{args\}", argsStr)
-	} else {
-		for (var i = 0; i < args.length; i++) {
-			if (i === 0 && firstArgIsVar) {
-				result = result.replace("\{arg"+i+"\}", translateVarToPy(args[i], false))
-			} else {
-				result = result.replace("\{arg"+i+"\}", decompile(args[i]))
-			}
-		}
-	}
-	return result;
-}
-
-//Function used for "modify player variable" and "modify global variable".
-//Note: arguments passed to this function must already be decompiled.
-function decompileModifyVar(variable, operation, value, index) {
-	if (index !== undefined) {
-		variable += "["+index+"]";
-	}
-	operation = topy(operation, constantValues["__Operation__"]);
-	if (operation === "__appendToArray__") {
-		return variable+".append("+value+")";
-	} else if (operation === "__add__") {
-		//Handle special "++" case
-		if (!isNaN(value) && parseInt(value) == 1) {
-			return variable+"++";
-		} else {
-			return variable+" += "+value;
-		}
-	} else if (operation === "__subtract__") {
-		//Handle special "--" case
-		if (!isNaN(value) && parseInt(value) == 1) {
-			return variable+"--";
-		} else {
-			return variable+" -= "+value;
-		}
-	} else if (operation === "__multiply__") {
-		return variable+" *= "+value;
-	} else if (operation === "__divide__") {
-		return variable+" /= "+value;
-	} else if (operation === "__modulo__") {
-		return variable+" %= "+value;
-	} else if (operation === "__raiseToPower__") {
-		return variable+" **= "+value;
-	} else if (operation === "__min__") {
-		return variable+" min= "+value;
-	} else if (operation === "__max__") {
-		return variable+" max= "+value;
-	} else if (operation === "__removeFromArrayByIndex__") {
-		return "del "+variable+"["+value+"]";
-	} else if (operation === "__removeFromArrayByValue__") {
-		return variable+".remove("+value+")";
-	} else {
-		error("Unhandled operation "+operation);
-	}
-}
-
-//Function to handle operators and check whether any of the operands need parentheses.
-//Eg: Decompiling Multiply(Add(1,2), 3) would produce "(1+2)*3". As one operand of the multiply
-//function has another operand with lower precedence, it needs parentheses.
-function decompileOperator(operand1, operator, operand2) {
-	
-
-	
-	operatorPrecedenceStack.push(operatorPrecedence[operator]);
-	var currentPrecedenceIndex = operatorPrecedenceStack.length-1;
-	debug("precedence stack = "+operatorPrecedenceStack);
-	
-	var operands = [operand1];
-	if (operator !== "not") {
-		operands.push(operand2);
-	}
-	
-	for (var h = 0; h < operands.length; h++) {
-		var operandDecompiled = decompile(operands[h]);
-	
-		var currentPrecedence = operatorPrecedence[operator];
-		var needsParentheses = false;
-		
-		for (var i = currentPrecedenceIndex+1; i < operatorPrecedenceStack.length; i++) {
-			if (operatorPrecedenceStack[i] < currentPrecedence || (operatorPrecedenceStack[i] == currentPrecedence && (operator === "-" || operator === "/") && h === 1)) {
-				needsParentheses = true;
-				operatorPrecedenceStack[currentPrecedenceIndex] = operatorPrecedenceStack[i];
-			}
-		}
-		operatorPrecedenceStack = operatorPrecedenceStack.slice(0, currentPrecedenceIndex+1);
-		if (needsParentheses) {
-			operandDecompiled = "("+operandDecompiled+")";
-		}
-		operands[h] = operandDecompiled;
-	}
-	
-	
-	
-	if (operator === "not") {
-		return "not "+operands[0];
-	} else {
-		return operands[0] + " "+operator+" "+operands[1];
-	}
-	
-}
-
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -27955,6 +27191,17 @@ function astToWs(content) {
         newName = "__chase"+newName;
         content.name = newName;
 
+    } else if (["__getHitPosition__", "__getPlayerHit__", "__getNormal__"].includes(content.name)) {
+        if (content.args[0].name !== "raycast") {
+            error("Cannot use "+functionNameToString(content)+" with "+functionNameToString(content.args[0]));
+        }
+        content.args = content.args[0].args;
+        content.name = {
+            "__getHitPosition__": "__raycastHitPosition__",
+            "__getPlayerHit__": "__raycastHitPlayer__",
+            "__getNormal__": "__raycastHitNormal__",
+        }[content.name];
+
     } else if (content.name === "__for__") {
 
         var newName = "";
@@ -28105,7 +27352,7 @@ function astToWs(content) {
 class Ast {
 
     constructor(name, args, children, type) {
-        if (!name) {
+        if (name === null || name === undefined) {
             error("Got no name for AST");
         }
         if (typeof name !== "string") {
@@ -28130,12 +27377,14 @@ class Ast {
 
         for (var arg of this.args) {
             if (!(arg instanceof Ast)) {
+                console.log(arg);
                 error("Arg '"+arg+"' of '"+name+"' is not an AST");
             }
             arg.parent = this;
         }
         for (var child of this.children) {
             if (!(child instanceof Ast)) {
+                console.log(child);
                 error("Child '"+child+"' of '"+name+"' is not an AST");
             }
             child.parent = this;
@@ -28154,7 +27403,7 @@ class WorkshopVar {
     }
 }
 
-class Rule {
+/*class Rule {
     constructor() {
         this.name = null;
         this.conditions = [];
@@ -28164,7 +27413,7 @@ class Rule {
         this.eventPlayer = null;
         this.isDisabled = false;
     }
-}
+}*/
 
 function parseLines(lines) {
 
@@ -28692,17 +27941,19 @@ function parse(content) {
 	if (name === "raycast") {
 
         if (args.length === 5) {
-			if (args[2].length >= 2 && args[2][0].text === "include" || args[2][1].text === "=") {
+            console.log(args[2])
+            console.log(args[2].length)
+			if (args[2].length >= 2 && (args[2][0].text === "include" || args[2][1].text === "=")) {
 				args[2] = args[2].slice(2);
             } 
-            if (args[3].length >= 2 && args[3][0].text === "exclude" || args[3][1].text === "=") {
+            if (args[3].length >= 2 && (args[3][0].text === "exclude" || args[3][1].text === "=")) {
 				args[3] = args[3].slice(2);
             } 
-            if (args[4].length >= 2 && args[4][0].text === "includePlayerObjects" || args[4][1].text === "=") {
+            if (args[4].length >= 2 && (args[4][0].text === "includePlayerObjects" || args[4][1].text === "=")) {
 				args[4] = args[4].slice(2);
             }
 
-            return new Ast("__raycast__", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])], [], "Raycast");
+            return new Ast("raycast", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])]);
             
         } else {
 			error("Function 'raycast' takes 5 arguments, received "+args.length);
@@ -28858,7 +28109,7 @@ function parseMember(object, member) {
         } else if (name === "format") {
             return new Ast("__format__", [parse(object)].concat(args.map(x => parse(x))));
 			
-		} else if ("getHitPosition", "getNormal", "getPlayerHit", "hasLoS".includes(name)) {
+		} else if (["getHitPosition", "getNormal", "getPlayerHit"].includes(name)) {
             if (args.length !== 0) {
                 error("Function '"+name+"' takes no argument, received "+args.length);
             }
@@ -29236,7 +28487,7 @@ function compileCustomGameSettings(customGameSettings) {
 			for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
 				var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
 				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
-					wsGamemode = tows("_disabled", ruleKw)+" "+wsGamemode;
+					wsGamemode = tows("__disabled__", ruleKw)+" "+wsGamemode;
 					delete customGameSettings.gamemodes[gamemode].enabled;
 				}
 				result[wsGamemodes][wsGamemode] = {};

@@ -108,12 +108,12 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 
 //Returns an array of workshop instructions (delimited by a semicolon).
 function splitInstructions(content) {
-	return splitStrOnDelimiter(content, [';']);
+	return splitStrOnDelimiter(content, ';');
 }
 
 //Returns an array of arguments (delimited by a comma).
 function getArgs(content) {
-	return splitStrOnDelimiter(content, [',']);
+	return splitStrOnDelimiter(content, ',');
 }
 
 //Returns the prefix string (used for condition/action comments).
@@ -143,7 +143,7 @@ function getPrefixString(content) {
 //Returns an array of strings that are delimited by the given string(s).
 //The delimiter is only taken into account if it is not within parentheses and not within a string.
 //Example: "azer(1,2), reaz(',,,,')" will return ["azer(1,2)","reaz(',,,,')"] for a comma separator.
-function splitStrOnDelimiter(content, delimiter) {
+function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) {
 	
 	content = content.trim();
 	var bracketPos = getBracketPositions(content);
@@ -170,8 +170,8 @@ function splitStrOnDelimiter(content, delimiter) {
 		}
 
 	}
-	
 	delimiterPos.push(content.length);
+
 	
 	var result = [];
 	for (var i = 0; i < delimiterPos.length-1; i++) {
@@ -179,6 +179,14 @@ function splitStrOnDelimiter(content, delimiter) {
 		currentStr = currentStr.trim();
 		if (currentStr.length > 0) {
 			result.push(currentStr);
+		}
+	}
+
+	if (!getAllMembers && result.length > 2) {
+		if (rtl) {
+			result = [result.slice(0, result.length-1).join(delimiter), result[result.length-1]];
+		} else {
+			result = [result[0], result.slice(1).join(delimiter)];
 		}
 	}
 	

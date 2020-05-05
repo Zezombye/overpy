@@ -3,6 +3,8 @@ rule "strings":
     print("custom string")
     print("new\nline")
     print("qu\"o\"tes")
+    print("")
+    print(l"")
     print('single quotes')
     print(w"fullwidth string")
     print(b"big letters string")

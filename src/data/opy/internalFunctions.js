@@ -31,15 +31,6 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
-    "__array__": {
-        "args": [
-            {
-                "name": "ELEMENT",
-                "type": ["Object", "Array"]
-            }
-        ],
-        return: "Array",
-    },
     "__assignTo__": {
         "args": [
             {
@@ -227,6 +218,33 @@ const opyInternalFuncs = {
             }
         ],
         return: "String",
+    },
+    "__getNormal__": {
+        "args": [
+            {
+                "name": "RAYCAST",
+                "type": "Raycast",
+            }
+        ],
+        return: "Direction",
+    },
+    "__getPlayerHit__": {
+        "args": [
+            {
+                "name": "RAYCAST",
+                "type": "Raycast",
+            }
+        ],
+        return: "Player",
+    },
+    "__getHitPosition__": {
+        "args": [
+            {
+                "name": "RAYCAST",
+                "type": "Raycast",
+            }
+        ],
+        return: "Position",
     },
     "__gotoLabel__": {
         "args": [

@@ -1257,6 +1257,10 @@ var valueFuncKw =
         "pt-BR": "Para a Frente",
         "zh-CN": "前"
     },
+    "__global__": {
+        return: "GlobalVariable",
+        "en-US": "Global",
+    },
     "__globalVar__": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
@@ -3369,7 +3373,7 @@ var valueFuncKw =
         "pt-BR": "Matriz Randomizada",
         "zh-CN": "随机数组"
     },
-    "__getNormal__": {
+    "__raycastHitNormal__": {
         "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
         "args": [
             {
@@ -3412,7 +3416,7 @@ var valueFuncKw =
         "pt-BR": "Normal de Acerto do Lançamento de Raio",
         "zh-CN": "射线命中法线"
     },
-    "__getPlayerHit__": {
+    "__raycastHitPlayer__": {
         "description": "The player hit by the ray cast (or null if no player is hit).",
         "args": [
             {
@@ -3455,7 +3459,7 @@ var valueFuncKw =
         "pt-BR": "Jogador Atingido pelo Lançamento de Raio",
         "zh-CN": "射线命中玩家"
     },
-    "__getHitPosition__": {
+    "__raycastHitPosition__": {
         "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
         "args": [
             {

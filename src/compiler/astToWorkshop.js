@@ -204,6 +204,17 @@ function astToWs(content) {
         newName = "__chase"+newName;
         content.name = newName;
 
+    } else if (["__getHitPosition__", "__getPlayerHit__", "__getNormal__"].includes(content.name)) {
+        if (content.args[0].name !== "raycast") {
+            error("Cannot use "+functionNameToString(content)+" with "+functionNameToString(content.args[0]));
+        }
+        content.args = content.args[0].args;
+        content.name = {
+            "__getHitPosition__": "__raycastHitPosition__",
+            "__getPlayerHit__": "__raycastHitPlayer__",
+            "__getNormal__": "__raycastHitNormal__",
+        }[content.name];
+
     } else if (content.name === "__for__") {
 
         var newName = "";
