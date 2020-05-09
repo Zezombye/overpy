@@ -26,3 +26,8 @@ rule "other directives":
     @Event playerDied
     @Disabled
     @SuppressWarnings w_type_check
+
+rule "conditions":
+    @Condition A and B
+    @Condition C
+    B++

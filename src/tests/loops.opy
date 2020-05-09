@@ -51,3 +51,12 @@ rule "nested do/while":
         break
     while A == B
     B++
+
+rule "do/while rule condition":
+    @Condition A == B
+    do:
+        wait()
+        A++
+        if A > getNumberOfPlayers(Team.2):
+            A = 0
+    while RULE_CONDITION

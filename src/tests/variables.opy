@@ -1,7 +1,7 @@
 globalvar foo 
 globalvar bar 2
-playervar foo
-playervar bar 2
+playervar foo #comment
+playervar bar 2 #comment
 
 rule "variables":
     @Event eachPlayer

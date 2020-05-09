@@ -1173,6 +1173,15 @@ const mapKw =
         "zh-CN": "地图工坊室外",
         "zh-TW": "工作坊延伸區域"
     },
+    "workshopExpanseNight": {
+        "gamemodes": [
+            "skirmish",
+            "elimination",
+            "ffa",
+            "tdm"
+        ],
+        "en-US": "Workshop Expanse Night",
+    },
     "workshopIsland": {
         "gamemodes": [
             "skirmish",
@@ -1194,6 +1203,15 @@ const mapKw =
         "ru-RU": "Мастерская: остров",
         "zh-CN": "地图工坊岛屿",
         "zh-TW": "工作坊島嶼"
+    },
+    "workshopIslandNight": {
+        "gamemodes": [
+            "skirmish",
+            "elimination",
+            "ffa",
+            "tdm"
+        ],
+        "en-US": "Workshop Island Night",
     }
 }
 //end-json

@@ -30,7 +30,7 @@ astParsingFunctions.__elif__ = function(content) {
         
             while (root.name !== "__rule__") {
                 root = root.parent;
-                if (root.name === "__while__" || root.name === "__for__") {
+                if (root.name === "__while__" || root.name === "__for__" || root.name === "__doWhile__") {
                     includeEnd = true;
                     break;
                 } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent.childIndex !== root.parent.children.length-1) {

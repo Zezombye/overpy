@@ -100,7 +100,16 @@ function parseLines(lines) {
             currentComment = lines[i].tokens[0].text.substring(1);
             continue;
         }
+
+        
+        //Check for end of line comment
+        if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
+            currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
+            lines[i].tokens.pop();
+        }
+
         if (lines[i].tokens[0].text === "globalvar" || lines[i].tokens[0].text === "playervar" || lines[i].tokens[0].text === "subroutine") {
+
 			if (lines[i].tokens.length < 2 || lines[i].tokens.length > 3) {
 				error("Malformed "+lines[i].tokens[0].text+" declaration");
             }
@@ -118,17 +127,12 @@ function parseLines(lines) {
             }
             
         } else if (lines[i].tokens[0].text === "settings") {
+
             var customGameSettings = eval("("+dispTokens(lines[i].tokens.slice(1))+")");
             compileCustomGameSettings(customGameSettings);
         
         } else if (lines[i].tokens[0].text.startsWith("@")) {
 
-             
-            //Check for end of line comment
-            if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
-                currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
-                lines[i].tokens.pop();
-            }            
             if (lines[i].tokens[0].text === "@Condition" || lines[i].tokens[0].text === "@Name") {
                 var currentLineAst = new Ast(lines[i].tokens[0].text, [parse(lines[i].tokens.slice(1))], [], "__Annotation__");
 
@@ -157,11 +161,6 @@ function parseLines(lines) {
                 "default": "__default__",
             }
 
-            //Check for end of line comment
-            if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
-                currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
-                lines[i].tokens.pop();
-            }
 
             var funcName = tokenToFuncMapping[lines[i].tokens[0].text];
             var args = [];
@@ -251,11 +250,6 @@ function parseLines(lines) {
             result.push(instruction);
     
         } else {
-            //Check for end of line comment
-            if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
-                currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
-                lines[i].tokens.pop();
-            }
             var currentLineAst = parse(lines[i].tokens);
             currentLineAst.comment = currentComment;
             result.push(currentLineAst);
