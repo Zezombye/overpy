@@ -1446,10 +1446,12 @@ The following obfuscation methods are applied:
         "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
     },
     "mainFile": {
-        "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file."
+        "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file.",
+        "snippet": "mainFile \"$0\"",
     },
     "include": {
-        "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file."
+        "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file.",
+        "snippet": "include \"$0\"",
     }
 }
 /* 
@@ -11685,6 +11687,9 @@ const heroKw =
         "zh-TW": "毀滅拳王"
     },
     "echo": {
+        "secondaryFire": {
+            "en-US": "Sticky Bombs",
+        },
         "ability1": {
             "en-US": "Flight",
         },
@@ -11693,6 +11698,9 @@ const heroKw =
         },
         "ultimate": {
             "en-US": "Duplicate",
+        },
+        "passive": {
+            "en-US": "Glide",
         },
         "en-US": "Echo",
     },
@@ -18650,6 +18658,27 @@ const customGameSettingsSchema =
                     "min": 0,
                     "max": 500,
                     "default": 100,
+                    "exclude": [
+                        "ana",
+                        "bastion",
+                        "brigitte",
+                        "dva",
+                        "doomfist",
+                        "echo",
+                        "genji",
+                        "lucio",
+                        "mccree",
+                        "mercy",
+                        "moira",
+                        "pharah",
+                        "reaper",
+                        "reinhardt",
+                        "roadhog",
+                        "soldier",
+                        "symmetra",
+                        "winston",
+                        "zenyatta",
+                    ],
                     "guid": "0000000058C1",
                     "en-US": "Projectile Gravity",
                     "de-DE": "Schwerkraft bei Projektilen",
@@ -18670,6 +18699,11 @@ const customGameSettingsSchema =
                     "min": 0,
                     "max": 500,
                     "default": 100,
+                    "exclude": [
+                        "brigitte",
+                        "reaper",
+                        "winston",
+                    ],
                     "guid": "0000000058A7",
                     "en-US": "Projectile Speed",
                     "de-DE": "Projektilgeschwindigkeit",
@@ -18885,6 +18919,7 @@ const customGameSettingsSchema =
                     "default": "on",
                     "include": [
                         "mercy",
+                        "echo",
                     ],
                     "en-US": "%1$s",
                     "ko-KR": "%1$s회"
@@ -18898,6 +18933,7 @@ const customGameSettingsSchema =
                         "brigitte",
                         "dva",
                         "doomfist",
+                        "echo",
                         "lucio",
                         "orisa",
                         "pharah",
@@ -18905,7 +18941,7 @@ const customGameSettingsSchema =
                         "sigma",
                         "soldier",
                         "sombra",
-                        "hammond"
+                        "hammond",
                     ],
                     "en-US": "%1$s",
                     "ko-KR": "%1$s회"
@@ -18920,6 +18956,7 @@ const customGameSettingsSchema =
                         "bastion",
                         "brigitte",
                         "doomfist",
+                        "echo",
                         "lucio",
                         "orisa",
                         "reinhardt",
@@ -21959,8 +21996,16 @@ function addEmptyRules(rules) {
 	var nbTotalRules = nbEmptyRules + rules.length;
 	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
 	var result = "";
-	result += tows("__rule__", ruleKw)+'("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy)."){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
-	result += tows("__rule__", ruleKw)+'("Please respect its author\'s wishes and do not edit it. Thanks!"){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	result += `
+${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!"){
+	${tows("__event__", ruleKw)}{
+		${tows("global", eventKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("disableInspector", actionKw)};
+	}
+}
+`;
 	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
 	var ruleIndex = 0;
 	for (var i = 0; i < nbTotalRules; i++) {
@@ -26085,6 +26130,60 @@ astParsingFunctions.continue = function(content) {
 
 "use strict";
 
+astParsingFunctions.disableInspector = function(content) {
+
+    if (obfuscateRules) {
+        return getAstForUselessInstruction();
+    } else {
+        return content;
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.enableInspector = function(content) {
+
+    if (obfuscateRules) {
+        return getAstForUselessInstruction();
+    } else {
+        return content;
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.print = function(content) {
 
     var result = new Ast("__hudText__", [
@@ -27032,7 +27131,13 @@ function astRulesToWs(rules) {
             result += tows("__disabled__", ruleKw)+" ";
         }
 
-        result += tows("__rule__", ruleKw)+" ("+escapeString(rule.ruleAttributes.name)+") {\n";
+        result += tows("__rule__", ruleKw)+" (";
+        if (obfuscateRules) {
+            result += '""';
+        } else {
+            result += escapeString(rule.ruleAttributes.name);
+        }
+        result += ") {\n";
 
         //Rule event
         result += tabLevel(1)+tows("__event__", ruleKw)+" {\n";
@@ -27086,7 +27191,7 @@ function astRuleConditionToWs(condition) {
         "__greaterThan__": ">",
     }
     var result = "";
-    if (condition.comment) {
+    if (!obfuscateRules && condition.comment) {
         result += tabLevel(2)+escapeString(condition.comment)+"\n";
     }
 
@@ -27110,7 +27215,10 @@ function astActionToWs(action, nbTabs) {
         return tabLevel(nbTabs)+"//"+action.name+":\n";
     }
     var result = "";
-    if (action.comment) {
+    if (action.name === "pass" && !action.comment) {
+        action.comment = "pass";
+    }
+    if (!obfuscateRules && action.comment) {
         result += tabLevel(nbTabs)+escapeString(action.comment)+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"

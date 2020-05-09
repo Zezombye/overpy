@@ -474,6 +474,9 @@ const heroKw =
         "zh-TW": "毀滅拳王"
     },
     "echo": {
+        "secondaryFire": {
+            "en-US": "Sticky Bombs",
+        },
         "ability1": {
             "en-US": "Flight",
         },
@@ -482,6 +485,9 @@ const heroKw =
         },
         "ultimate": {
             "en-US": "Duplicate",
+        },
+        "passive": {
+            "en-US": "Glide",
         },
         "en-US": "Echo",
     },

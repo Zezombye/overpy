@@ -60,6 +60,8 @@ overpyFiles = [
 "compiler/functions/any.js",
 "compiler/functions/break.js",
 "compiler/functions/continue.js",
+"compiler/functions/disableInspector.js",
+"compiler/functions/enableInspector.js",
 "compiler/functions/print.js",
 "compiler/functions/sorted.js",
 "compiler/tokenizer.js",

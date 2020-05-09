@@ -27,7 +27,13 @@ function astRulesToWs(rules) {
             result += tows("__disabled__", ruleKw)+" ";
         }
 
-        result += tows("__rule__", ruleKw)+" ("+escapeString(rule.ruleAttributes.name)+") {\n";
+        result += tows("__rule__", ruleKw)+" (";
+        if (obfuscateRules) {
+            result += '""';
+        } else {
+            result += escapeString(rule.ruleAttributes.name);
+        }
+        result += ") {\n";
 
         //Rule event
         result += tabLevel(1)+tows("__event__", ruleKw)+" {\n";
@@ -81,7 +87,7 @@ function astRuleConditionToWs(condition) {
         "__greaterThan__": ">",
     }
     var result = "";
-    if (condition.comment) {
+    if (!obfuscateRules && condition.comment) {
         result += tabLevel(2)+escapeString(condition.comment)+"\n";
     }
 
@@ -105,7 +111,10 @@ function astActionToWs(action, nbTabs) {
         return tabLevel(nbTabs)+"//"+action.name+":\n";
     }
     var result = "";
-    if (action.comment) {
+    if (action.name === "pass" && !action.comment) {
+        action.comment = "pass";
+    }
+    if (!obfuscateRules && action.comment) {
         result += tabLevel(nbTabs)+escapeString(action.comment)+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"

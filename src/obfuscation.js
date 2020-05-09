@@ -30,8 +30,16 @@ function addEmptyRules(rules) {
 	var nbTotalRules = nbEmptyRules + rules.length;
 	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
 	var result = "";
-	result += tows("__rule__", ruleKw)+'("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy)."){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
-	result += tows("__rule__", ruleKw)+'("Please respect its author\'s wishes and do not edit it. Thanks!"){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	result += `
+${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!"){
+	${tows("__event__", ruleKw)}{
+		${tows("global", eventKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("disableInspector", actionKw)};
+	}
+}
+`;
 	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
 	var ruleIndex = 0;
 	for (var i = 0; i < nbTotalRules; i++) {
