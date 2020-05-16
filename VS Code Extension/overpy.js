@@ -27585,8 +27585,11 @@ function parseLines(lines) {
             }
             
         } else if (lines[i].tokens[0].text === "settings") {
-
-            var customGameSettings = eval("("+dispTokens(lines[i].tokens.slice(1))+")");
+            try {
+                var customGameSettings = eval("("+dispTokens(lines[i].tokens.slice(1))+")");
+            } catch (e) {
+                error(e);
+            }
             compileCustomGameSettings(customGameSettings);
         
         } else if (lines[i].tokens[0].text.startsWith("@")) {
