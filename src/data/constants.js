@@ -1481,6 +1481,9 @@ const constantValues =
         },
     },
     "WorldTextReeval": {
+        "NONE": {
+            "en-US": "None",
+        },
         "STRING": {
             "guid": "00000000BB31",
             "en-US": "String",
@@ -1488,6 +1491,12 @@ const constantValues =
             "fr-FR": "Chaîne de texte",
             "ja-JP": "文字列",
             "zh-CN": "字符串"
+        },
+        "VISIBILITY": {
+            "en-US": "Visible To",
+        },
+        "VISIBILITY_AND_POSITION": {
+            "en-US": "Visible To and Position",
         },
         "VISIBILITY_AND_STRING": {
             "guid": "00000000BA8C",
