@@ -1478,13 +1478,13 @@ const actionKw =
         "description": "Stops execution of the action list.",
         "args": null,
         "guid": "00000000BB09",
+        "return": "void",
         "en-US": "Abort",
         "es-MX": "Abortar",
         "fr-FR": "Interrompre",
         "ja-JP": "中止",
         "pt-BR": "Anular",
-        "zh-CN": "中止",
-        "return": "void"
+        "zh-CN": "中止"
     },
     "__abortIf__": {
         "description": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
@@ -1497,37 +1497,37 @@ const actionKw =
             }
         ],
         "guid": "00000000BB04",
+        "return": "void",
         "en-US": "Abort If",
         "es-MX": "Abortar si",
         "fr-FR": "Interrompre si",
         "ja-JP": "中止する条件",
         "pt-BR": "Anular se",
-        "zh-CN": "根据条件中止",
-        "return": "void"
+        "zh-CN": "根据条件中止"
     },
     "__abortIfConditionIsFalse__": {
         "description": "Stops execution of the action list if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
         "args": [],
         "guid": "00000000BB02",
+        "return": "void",
         "en-US": "Abort If Condition Is False",
         "es-MX": "Abortar si la condición es falsa",
         "fr-FR": "Interrompre si la condition est fausse",
         "ja-JP": "条件が「FALSE」の場合中止",
         "pt-BR": "Anular se a Condição for Falsa",
-        "zh-CN": "如条件为“假”则中止",
-        "return": "void"
+        "zh-CN": "如条件为“假”则中止"
     },
     "__abortIfConditionIsTrue__": {
         "description": "Stops execution of the action list if all conditions in the condition list are true. If any are false, execution continues with the next action.",
         "args": [],
         "guid": "00000000BB03",
+        "return": "void",
         "en-US": "Abort If Condition Is True",
         "es-MX": "Abortar si la condición es verdadera",
         "fr-FR": "Interrompre si la condition est vraie",
         "ja-JP": "条件が「TRUE」の場合中止",
         "pt-BR": "Anular se a Condição for Verdadeira",
-        "zh-CN": "如条件为”真“则中止",
-        "return": "void"
+        "zh-CN": "如条件为”真“则中止"
     },
     "_&allowButton": {
         "description": "Undoes the effect of the disallow button action for one or more players.",
@@ -1551,13 +1551,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9D0",
+        "return": "void",
         "en-US": "Allow Button",
         "es-MX": "Habilitar botón",
         "fr-FR": "Autoriser un bouton",
         "ja-JP": "ボタンを有効化",
         "pt-BR": "Permitir Botão",
-        "zh-CN": "可用按钮",
-        "return": "void"
+        "zh-CN": "可用按钮"
     },
     "_&applyImpulse": {
         "description": "Applies an instantaneous change in velocity to the movement of one or more players.",
@@ -1599,13 +1599,13 @@ const actionKw =
             }
         ],
         "guid": "0000000078F6",
+        "return": "void",
         "en-US": "Apply Impulse",
         "es-MX": "Aplicar impulso",
         "fr-FR": "Appliquer une impulsion",
         "ja-JP": "推進力を適用",
         "pt-BR": "Aplicar Impulso",
-        "zh-CN": "施加推力",
-        "return": "void"
+        "zh-CN": "施加推力"
     },
     "bigMessage": {
         "description": "Displays a large message above the reticle that is visible to specific players.",
@@ -1629,19 +1629,24 @@ const actionKw =
             }
         ],
         "guid": "00000000BA88",
+        "return": "void",
         "en-US": "Big Message",
         "es-MX": "Mensaje grande",
         "fr-FR": "Message en grand",
         "ja-JP": "大きなメッセージ",
         "pt-BR": "Mensagem Grande",
-        "zh-CN": "大字体信息",
-        "return": "void"
+        "zh-CN": "大字体信息"
     },
     "break": {
         "description": "Goes to the end of the innermost `switch` statement, or `do/while`, `while` or `for` loop.",
         "args": null,
-        "en-US": "Break",
         "return": "void",
+        "guid": "0000000105B6",
+        "en-US": "Break",
+        "fr-FR": "Arrêter",
+        "ja-JP": "BREAK",
+        "pt-BR": "Interromper",
+        "zh-CN": "中断"
     },
     "__callSubroutine__": {
         "description": "Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
@@ -1654,14 +1659,13 @@ const actionKw =
             }
         ],
         "guid": "00000001001E",
+        "return": "void",
         "en-US": "Call Subroutine",
         "es-MX": "Llamada a subrutina",
         "fr-FR": "Sous-programme à appeler",
         "ja-JP": "サブルーチンの呼び出し",
-        "pl-PL": "Wywołaj podprogram",
         "pt-BR": "Chamar sub-rotina",
-        "zh-CN": "调用子程序",
-        "return": "void"
+        "zh-CN": "调用子程序"
     },
     "_&cancelPrimaryAction": {
         "description": "Cancels the active abilities for one or more players. Equivalent to a short stun.",
@@ -1678,8 +1682,14 @@ const actionKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        "return": "void",
+        "guid": "0000000109CB",
         "en-US": "Cancel Primary Action",
-        "return": "void"
+        "es-MX": "Cancelar acción primaria",
+        "fr-FR": "Annuler l’action principale",
+        "ja-JP": "メインアクションをキャンセル",
+        "pt-BR": "Cancelar Ação Primária",
+        "zh-CN": "取消主要动作"
     },
     "__chaseGlobalVariableAtRate__": {
         "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
@@ -1713,13 +1723,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B840",
+        "return": "void",
         "en-US": "Chase Global Variable At Rate",
         "es-MX": "Seguir variable global según la tasa",
         "fr-FR": "Modifier une variable globale selon une cadence",
         "ja-JP": "グローバル変数を特定のレートで追跡",
         "pt-BR": "Acompanhar Variável Global na Medida",
-        "zh-CN": "追踪全局变量频率",
-        "return": "void"
+        "zh-CN": "追踪全局变量频率"
     },
     "__chaseGlobalVariableOverTime__": {
         "description": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)",
@@ -1753,13 +1763,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B842",
+        "return": "void",
         "en-US": "Chase Global Variable Over Time",
         "es-MX": "Seguir variable global con el tiempo",
         "fr-FR": "Modifier une variable globale sur la durée",
         "ja-JP": "グローバル変数を継続的に追跡",
         "pt-BR": "Acompanhar Variável Global ao Longo do Tempo",
-        "zh-CN": "持续追踪全局变量",
-        "return": "void"
+        "zh-CN": "持续追踪全局变量"
     },
     "__chasePlayerVariableAtRate__": {
         "description": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)",
@@ -1804,13 +1814,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B83F",
+        "return": "void",
         "en-US": "Chase Player Variable At Rate",
         "es-MX": "Seguir variable de jugador según la tasa",
         "fr-FR": "Modifier une variable de joueur selon une cadence",
         "ja-JP": "プレイヤー変数を特定のレートで追跡",
         "pt-BR": "Acompanhar Variável de Jogador na Medida",
-        "zh-CN": "追踪玩家变量频率",
-        "return": "void"
+        "zh-CN": "追踪玩家变量频率"
     },
     "__chasePlayerVariableOverTime__": {
         "description": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)",
@@ -1855,13 +1865,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B841",
+        "return": "void",
         "en-US": "Chase Player Variable Over Time",
         "es-MX": "Seguir variable del jugador con el tiempo",
         "fr-FR": "Modifier une variable de joueur sur la durée",
         "ja-JP": "プレイヤー変数を継続的に追跡",
         "pt-BR": "Acompanhar Variável de Jogador ao Longo do Tempo",
-        "zh-CN": "持续追踪玩家变量",
-        "return": "void"
+        "zh-CN": "持续追踪玩家变量"
     },
     "_&clearStatusEffect": {
         "description": "Clears a status that was applied from a set status action from one or more players.",
@@ -1885,13 +1895,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B595",
+        "return": "void",
         "en-US": "Clear Status",
         "es-MX": "Eliminar estado",
         "fr-FR": "Effacer le statut",
         "ja-JP": "ステータスをクリア",
         "pt-BR": "Apagar Status",
-        "zh-CN": "清除状态",
-        "return": "void"
+        "zh-CN": "清除状态"
     },
     "_&communicate": {
         "description": "Causes one or more players to use an emote, voice line, or other equipped communication.",
@@ -1915,19 +1925,25 @@ const actionKw =
             }
         ],
         "guid": "00000000B9E3",
+        "return": "void",
         "en-US": "Communicate",
         "es-MX": "Comunicar",
         "fr-FR": "Communiquer",
         "ja-JP": "コミュニケーション",
         "pt-BR": "Comunicar",
-        "zh-CN": "交流",
-        "return": "void"
+        "zh-CN": "交流"
     },
     "continue": {
         "description": "Goes back to the start of the innermost loop.",
         "args": null,
-        "en-US": "Continue",
+        "guid": "0000000105B7",
         "return": "void",
+        "en-US": "Continue",
+        "es-MX": "Continuar",
+        "fr-FR": "Continuer",
+        "ja-JP": "CONTINUE",
+        "pt-BR": "Continuar",
+        "zh-CN": "继续"
     },
     "createBeam": {
         "description": "Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -1975,14 +1991,13 @@ const actionKw =
             }
         ],
         "guid": "00000000CE80",
+        "return": "void",
         "en-US": "Create Beam Effect",
         "es-MX": "Crear efecto de rayo",
         "fr-FR": "Créer un effet de rayon",
         "ja-JP": "ビーム・エフェクトを作成",
-        "pl-PL": "Stwórz efekt wiązki",
         "pt-BR": "Criar Efeito de Feixe",
-        "zh-CN": "创建光束效果",
-        "return": "void"
+        "zh-CN": "创建光束效果"
     },
     "createDummy": {
         "description": "Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing workshop actions.",
@@ -2019,14 +2034,13 @@ const actionKw =
             }
         ],
         "guid": "00000000CA6A",
+        "return": "void",
         "en-US": "Create Dummy Bot",
         "es-MX": "Crear robot de entrenamiento",
         "fr-FR": "Créer une I.A.",
         "ja-JP": "ダミーボットを作成",
-        "pl-PL": "Stwórz atrapę bota",
         "pt-BR": "Criar Bot",
-        "zh-CN": "生成机器人",
-        "return": "void"
+        "zh-CN": "生成机器人"
     },
     "createEffect": {
         "description": "Creates an in-world effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -2074,13 +2088,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B8AF",
+        "return": "void",
         "en-US": "Create Effect",
         "es-MX": "Crear efecto",
         "fr-FR": "Créer un effet",
         "ja-JP": "エフェクトを作成",
         "pt-BR": "Criar Efeito",
-        "zh-CN": "创建效果",
-        "return": "void"
+        "zh-CN": "创建效果"
     },
     "__hudText__": {
         "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
@@ -2158,13 +2172,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BAD3",
+        "return": "void",
         "en-US": "Create HUD Text",
         "es-MX": "Crear texto del HUD",
         "fr-FR": "Créer du texte d’interface",
         "ja-JP": "HUDテキストを作成",
         "pt-BR": "Criar Texto de HUD",
-        "zh-CN": "创建HUD文本",
-        "return": "void"
+        "zh-CN": "创建HUD文本"
     },
     "createIcon": {
         "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -2212,13 +2226,13 @@ const actionKw =
             }
         ],
         "guid": "00000000ACFA",
+        "return": "void",
         "en-US": "Create Icon",
         "es-MX": "Crear ícono",
         "fr-FR": "Créer une icône",
         "ja-JP": "アイコンを作成",
         "pt-BR": "Criar Ícone",
-        "zh-CN": "创建图标",
-        "return": "void"
+        "zh-CN": "创建图标"
     },
     "createInWorldText": {
         "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
@@ -2278,13 +2292,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BAD0",
+        "return": "void",
         "en-US": "Create In-World Text",
         "es-MX": "Crear texto dentro del mundo",
         "fr-FR": "Créer du texte en jeu",
         "ja-JP": "ワールド内テキストを作成",
         "pt-BR": "Criar Texto no Mundo",
-        "zh-CN": "创建地图文本",
-        "return": "void"
+        "zh-CN": "创建地图文本"
     },
     "damage": {
         "guid": "000000007876",
@@ -2314,25 +2328,25 @@ const actionKw =
                 "default": "NUMBER"
             }
         ],
+        "return": "void",
         "en-US": "Damage",
         "es-MX": "Infligir daño",
         "fr-FR": "Infliger des dégâts",
         "ja-JP": "ダメージ",
         "pt-BR": "Dano",
-        "zh-CN": "伤害",
-        "return": "void"
+        "zh-CN": "伤害"
     },
     "declareDraw": {
         "description": "Instantly ends the match in a draw. This action has no effect in free-for-all modes.",
         "args": [],
         "guid": "00000000B9F1",
+        "return": "void",
         "en-US": "Declare Match Draw",
         "es-MX": "Declarar empate de la partida",
         "fr-FR": "Déclarer le match nul",
         "ja-JP": "マッチの引き分けを宣言",
         "pt-BR": "Declarar Empate na Partida",
-        "zh-CN": "宣布比赛为平局",
-        "return": "void"
+        "zh-CN": "宣布比赛为平局"
     },
     "declarePlayerVictory": {
         "description": "Instantly ends the match with the specific player as the winner. This action only has an effect in free-for-all modes.",
@@ -2345,19 +2359,25 @@ const actionKw =
             }
         ],
         "guid": "00000000AD30",
+        "return": "void",
         "en-US": "Declare Player Victory",
         "es-MX": "Declarar victoria del jugador",
         "fr-FR": "Déclarer la victoire d’un joueur",
         "ja-JP": "チームの勝利を宣言",
         "pt-BR": "Declarar Vitória do Jogador",
-        "zh-CN": "宣告玩家胜利",
-        "return": "void"
+        "zh-CN": "宣告玩家胜利"
     },
     "declareRoundDraw": {
         "description": "Declare a draw for the current round. This only works in the elimination game mode.",
         "args": [],
+        "return": "void",
+        "guid": "00000001098F",
         "en-US": "Declare Round Draw",
-        "return": "void"
+        "es-MX": "Declarar ronda empatada",
+        "fr-FR": "Déclarer la manche nulle",
+        "ja-JP": "ラウンドの引き分けを宣言",
+        "pt-BR": "Declarar Empate na Rodada",
+        "zh-CN": "宣布回合为平局"
     },
     "declareRoundVictory": {
         "description": "Declare a team as the current round winner. This only works in the control and elimination game modes.",
@@ -2370,13 +2390,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BF93",
+        "return": "void",
         "en-US": "Declare Round Victory",
         "es-MX": "Declarar victoria de la ronda",
         "fr-FR": "Déclarer la victoire de la manche",
         "ja-JP": "ラウンドの勝利を宣言",
         "pt-BR": "Declarar Vitória na Rodada",
-        "zh-CN": "宣告回合胜利",
-        "return": "void"
+        "zh-CN": "宣告回合胜利"
     },
     "declareTeamVictory": {
         "description": "Instantly ends the match with the specified team as the winner. This action has no effect in free-for-all modes.",
@@ -2389,73 +2409,73 @@ const actionKw =
             }
         ],
         "guid": "0000000078FD",
+        "return": "void",
         "en-US": "Declare Team Victory",
         "es-MX": "Declarar la victoria del equipo",
         "fr-FR": "Déclarer la victoire d’une équipe",
         "ja-JP": "チームの勝利を宣言",
         "pt-BR": "Declarar Vitória da Equipe",
-        "zh-CN": "宣告队伍胜利",
-        "return": "void"
+        "zh-CN": "宣告队伍胜利"
     },
     "destroyAllDummies": {
         "description": "Removes all dummy bots from the match.",
         "args": [],
         "guid": "00000000D1D4",
+        "return": "void",
         "en-US": "Destroy All Dummy Bots",
         "es-MX": "Destruir todos los robots de entrenamiento",
         "fr-FR": "Détruire toutes les I.A.",
         "ja-JP": "すべてのダミーボットを破棄",
         "pt-BR": "Destruir Todos os Bots",
-        "zh-CN": "移除所有机器人",
-        "return": "void"
+        "zh-CN": "移除所有机器人"
     },
     "destroyAllEffects": {
         "description": "Destroys all effect entities created by create effect.",
         "args": [],
         "guid": "00000000B8AD",
+        "return": "void",
         "en-US": "Destroy All Effects",
         "es-MX": "Destruir todos los efectos",
         "fr-FR": "Détruire tous les effets",
         "ja-JP": "すべてのエフェクトを破棄",
         "pt-BR": "Destruir Todos os Efeitos",
-        "zh-CN": "消除所有效果",
-        "return": "void"
+        "zh-CN": "消除所有效果"
     },
     "destroyAllHudTexts": {
         "description": "Destroys all hud text that was created by the create hud text action.",
         "args": [],
         "guid": "00000000BAD1",
+        "return": "void",
         "en-US": "Destroy All HUD Text",
         "es-MX": "Destruir todo el texto del HUD",
         "fr-FR": "Détruire tous les textes d’interface",
         "ja-JP": "すべてのHUDテキストを破棄",
         "pt-BR": "Destruir Todo o Texto de HUD",
-        "zh-CN": "消除所有HUD文本",
-        "return": "void"
+        "zh-CN": "消除所有HUD文本"
     },
     "destroyAllIcons": {
         "description": "Destroys all icon entities created by create icon.",
         "args": [],
         "guid": "00000000B8AC",
+        "return": "void",
         "en-US": "Destroy All Icons",
         "es-MX": "Destruir todos los íconos",
         "fr-FR": "Détruire toutes les icônes",
         "ja-JP": "すべてのアイコンを破棄",
         "pt-BR": "Destruir Todos os Ícones",
-        "zh-CN": "消除所有图标",
-        "return": "void"
+        "zh-CN": "消除所有图标"
     },
     "destroyAllInWorldText": {
         "description": "Destroys all in-world text created by create in-world text.",
         "args": [],
         "guid": "00000000B8AB",
+        "return": "void",
         "en-US": "Destroy All In-World Text",
         "es-MX": "Destruir todo el texto dentro del mundo",
         "fr-FR": "Détruire tous les textes en jeu",
         "ja-JP": "すべてのワールド内テキストを破棄",
         "pt-BR": "Destruir Todo o Texto no Mundo",
-        "zh-CN": "消除所有地图文本",
-        "return": "void"
+        "zh-CN": "消除所有地图文本"
     },
     "destroyDummy": {
         "description": "Removes the specified dummy bot from the match.",
@@ -2474,14 +2494,13 @@ const actionKw =
             }
         ],
         "guid": "00000000CC21",
+        "return": "void",
         "en-US": "Destroy Dummy Bot",
         "es-MX": "Destruir robot de entrenamiento",
         "fr-FR": "Détruire une I.A.",
         "ja-JP": "ダミーボットを破壊する",
-        "pl-PL": "Zniszcz atrapę bota",
         "pt-BR": "Destruir Bot",
-        "zh-CN": "移除机器人",
-        "return": "void"
+        "zh-CN": "移除机器人"
     },
     "destroyEffect": {
         "description": "Destroys an effect entity that was created by create effect.",
@@ -2494,13 +2513,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B8AE",
+        "return": "void",
         "en-US": "Destroy Effect",
         "es-MX": "Destruir efecto",
         "fr-FR": "Détruire un effet",
         "ja-JP": "エフェクトを破棄",
         "pt-BR": "Destruir Efeito",
-        "zh-CN": "消除效果",
-        "return": "void"
+        "zh-CN": "消除效果"
     },
     "destroyHudText": {
         "description": "Destroys hud text that was created by create hud text.",
@@ -2513,13 +2532,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BAD2",
+        "return": "void",
         "en-US": "Destroy HUD Text",
         "es-MX": "Destruir texto del HUD",
         "fr-FR": "Détruire du texte d’interface",
         "ja-JP": "HUDテキストを破棄",
         "pt-BR": "Destruir Texto de HUD",
-        "zh-CN": "消除HUD文本",
-        "return": "void"
+        "zh-CN": "消除HUD文本"
     },
     "destroyIcon": {
         "description": "Destroys an icon entity that was created by create icon.",
@@ -2532,13 +2551,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B4E7",
+        "return": "void",
         "en-US": "Destroy Icon",
         "es-MX": "Destruir ícono",
         "fr-FR": "Détruire une icône",
         "ja-JP": "アイコンを破棄",
         "pt-BR": "Destruir Ícone",
-        "zh-CN": "消除图标",
-        "return": "void"
+        "zh-CN": "消除图标"
     },
     "destroyInWorldText": {
         "description": "Destroys in-world text that was created by create in-world text.",
@@ -2551,49 +2570,49 @@ const actionKw =
             }
         ],
         "guid": "00000000BACF",
+        "return": "void",
         "en-US": "Destroy In-World Text",
         "es-MX": "Destruir texto dentro del mundo",
         "fr-FR": "Détruire du texte en jeu",
         "ja-JP": "ワールド内テキストを破棄",
         "pt-BR": "Destruir Texto no Mundo",
-        "zh-CN": "消除地图文本",
-        "return": "void"
+        "zh-CN": "消除地图文本"
     },
     "disableAnnouncer": {
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
         "args": [],
         "guid": "00000000C3F8",
+        "return": "void",
         "en-US": "Disable Built-In Game Mode Announcer",
         "es-MX": "Deshabilitar el presentador integrado del modo de juego",
         "fr-FR": "Désactiver l’annonceur prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの通知を無効化",
         "pt-BR": "Desativar Narração Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设通告模式",
-        "return": "void"
+        "zh-CN": "关闭游戏预设通告模式"
     },
     "disableGamemodeCompletion": {
         "description": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands.",
         "args": [],
         "guid": "00000000AD2D",
+        "return": "void",
         "en-US": "Disable Built-In Game Mode Completion",
         "es-MX": "Deshabilitar la finalización integrada del modo de juego",
         "fr-FR": "Désactiver l’accomplissement prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準完了を無効化",
         "pt-BR": "Desativar Conclusão Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设完成条件",
-        "return": "void"
+        "zh-CN": "关闭游戏预设完成条件"
     },
     "disableMusic": {
         "description": "Disables all game mode music until reenabled or the match ends.",
         "args": [],
         "guid": "00000000C3F4",
+        "return": "void",
         "en-US": "Disable Built-In Game Mode Music",
         "es-MX": "Deshabilitar la música integrada del modo de juego",
         "fr-FR": "Désactiver la musique prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードのBGMを無効化",
         "pt-BR": "Desativar Música Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设音乐模式",
-        "return": "void"
+        "zh-CN": "关闭游戏预设音乐模式"
     },
     "_&disableRespawn": {
         "description": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands.",
@@ -2611,25 +2630,25 @@ const actionKw =
             }
         ],
         "guid": "00000000B87A",
+        "return": "void",
         "en-US": "Disable Built-In Game Mode Respawning",
         "es-MX": "Deshabilitar la reaparición integrada del modo de juego",
         "fr-FR": "Désactiver la réapparition prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準リスポーンを無効化",
         "pt-BR": "Desativar Ressurgimento Integrado ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设重生模式",
-        "return": "void"
+        "zh-CN": "关闭游戏预设重生模式"
     },
     "disableScoring": {
         "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
         "args": [],
         "guid": "00000000ABFA",
+        "return": "void",
         "en-US": "Disable Built-In Game Mode Scoring",
         "es-MX": "Deshabilitar el sistema de puntuación integrado del modo de juego",
         "fr-FR": "Désactiver le calcul des points prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準スコアリングを無効化",
         "pt-BR": "Desativar Pontuação Integrada ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设计分模式",
-        "return": "void"
+        "zh-CN": "关闭游戏预设计分模式"
     },
     "_&disableDeathSpectateAllPlayers": {
         "description": "Undoes the effect of the enable death spectate all players action for or more players.",
@@ -2647,13 +2666,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9B5",
+        "return": "void",
         "en-US": "Disable Death Spectate All Players",
         "es-MX": "Deshabilitar la observación de todos los jugadores como espectador muerto",
         "fr-FR": "Empêcher d’observer n’importe qui après la mort",
         "ja-JP": "観戦時に全プレイヤー選択可能を無効化",
         "pt-BR": "Desativar Visualização de Todos os Jogadores na Morte",
-        "zh-CN": "对所有玩家禁用死亡回放",
-        "return": "void"
+        "zh-CN": "对所有玩家禁用死亡回放"
     },
     "_&disableDeathSpectateTargetHud": {
         "description": "Undoes the effect of the enable death spectate target hud action for or more players.",
@@ -2671,26 +2690,25 @@ const actionKw =
             }
         ],
         "guid": "00000000B9B3",
+        "return": "void",
         "en-US": "Disable Death Spectate Target HUD",
         "es-MX": "Deshabilitar la observación del HUD objetivo como espectador muerto",
         "fr-FR": "Empêcher de voir l’interface de la cible après la mort",
         "ja-JP": "観戦中のターゲットHUD表示を無効化",
         "pt-BR": "Desativar HUD do Alvo de Visualização na Morte",
-        "zh-CN": "禁用死亡回放时目标的HUD",
-        "return": "void"
+        "zh-CN": "禁用死亡回放时目标的HUD"
     },
     "disableInspector": {
         "description": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.",
         "args": [],
         "guid": "00000000FB2F",
+        "return": "void",
         "en-US": "Disable Inspector Recording",
         "es-MX": "Desactivar registro de Inspector",
         "fr-FR": "Désactiver l’enregistrement du contrôleur",
         "ja-JP": "インスペクターでの記録を無効化",
-        "pl-PL": "Wyłącz nagrywanie Inspektora",
         "pt-BR": "Desativar gravação do Inspetor",
-        "zh-CN": "禁用查看器录制",
-        "return": "void"
+        "zh-CN": "禁用查看器录制"
     },
     "_&disallowButton": {
         "description": "Disables a logical button for one or more players such that pressing it has no effect.",
@@ -2714,24 +2732,23 @@ const actionKw =
             }
         ],
         "guid": "00000000B9CF",
+        "return": "void",
         "en-US": "Disallow Button",
         "es-MX": "Deshabilitar botón",
         "fr-FR": "Interdire le bouton",
         "ja-JP": "ボタンを無効化",
         "pt-BR": "Proibir Botão",
-        "zh-CN": "禁用按钮",
-        "return": "void"
+        "zh-CN": "禁用按钮"
     },
     "__else__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
         "args": [],
         "guid": "00000000FB34",
+        "return": "void",
         "en-US": "Else",
         "es-MX": "Si no",
         "fr-FR": "Sinon",
-        "ja-JP": "ELSE",
-        "pl-PL": "Inaczej",
-        "return": "void"
+        "ja-JP": "ELSE"
     },
     "__elif__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true and the previous If or Else If action's condition was false.",
@@ -2744,48 +2761,47 @@ const actionKw =
             }
         ],
         "guid": "00000000FB33",
+        "return": "void",
         "en-US": "Else If",
         "es-MX": "Si no si",
         "fr-FR": "Sinon Si",
-        "ja-JP": "ELSE IF",
-        "pl-PL": "Inaczej jeśli",
-        "return": "void"
+        "ja-JP": "ELSE IF"
     },
     "enableAnnouncer": {
         "description": "Undoes the effect of the disable built-in game mode announcer action.",
         "args": [],
         "guid": "00000000C3FA",
+        "return": "void",
         "en-US": "Enable Built-In Game Mode Announcer",
         "es-MX": "Habilitar presentador integrado del modo de juego",
         "fr-FR": "Activer l’annonceur prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの通知を有効化",
         "pt-BR": "Ativar Narração Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设通告模式",
-        "return": "void"
+        "zh-CN": "开启游戏预设通告模式"
     },
     "enableGamemodeCompletion": {
         "description": "Undoes the effect of the disable built-in game mode completion action.",
         "args": [],
         "guid": "00000000AD2F",
+        "return": "void",
         "en-US": "Enable Built-In Game Mode Completion",
         "es-MX": "Habilitar la finalización integrada del modo de juego",
         "fr-FR": "Activer l’accomplissement prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準完了を有効化",
         "pt-BR": "Ativar Conclusão Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设完成条件",
-        "return": "void"
+        "zh-CN": "开启游戏预设完成条件"
     },
     "enableMusic": {
         "description": "Undoes the effect of the disable built-in game mode music action.",
         "args": [],
         "guid": "00000000C3F6",
+        "return": "void",
         "en-US": "Enable Built-In Game Mode Music",
         "es-MX": "Habilitar la música integrada del modo de juego",
         "fr-FR": "Activer la musique prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードのBGMを有効化",
         "pt-BR": "Ativar Música Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设音乐模式",
-        "return": "void"
+        "zh-CN": "开启游戏预设音乐模式"
     },
     "_&enableRespawn": {
         "description": "Undoes the effect of the disable built-in game mode respawning action for one or more players.",
@@ -2803,25 +2819,25 @@ const actionKw =
             }
         ],
         "guid": "00000000B878",
+        "return": "void",
         "en-US": "Enable Built-In Game Mode Respawning",
         "es-MX": "Habilitar la reaparición integrada del modo de juego",
         "fr-FR": "Activer la réapparition prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準リスポーンを有効化",
         "pt-BR": "Ativar Ressurgimento Integrado ao Modo de Jogo",
-        "zh-CN": "开启游戏预设重生模式",
-        "return": "void"
+        "zh-CN": "开启游戏预设重生模式"
     },
     "enableScoring": {
         "description": "Undoes the effect of the disable built-in game mode scoring action.",
         "args": [],
         "guid": "00000000ABF8",
+        "return": "void",
         "en-US": "Enable Built-In Game Mode Scoring",
         "es-MX": "Habilitar el sistema de puntuación integrado del modo de juego",
         "fr-FR": "Activer le calcul des points prédéfini par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準スコアリングを有効化",
         "pt-BR": "Ativar Pontuação Integrada ao Modo de Jogo",
-        "zh-CN": "开启游戏预设计分模式",
-        "return": "void"
+        "zh-CN": "开启游戏预设计分模式"
     },
     "_&enableDeathSpectateAllPlayers": {
         "description": "Allows one or more players to spectate all players when dead, as opposed to only allies.",
@@ -2839,13 +2855,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9AE",
+        "return": "void",
         "en-US": "Enable Death Spectate All Players",
         "es-MX": "Habilitar la observación de todos los jugadores como espectador muerto",
         "fr-FR": "Permettre d’observer n’importe qui après la mort",
         "ja-JP": "観戦時に全プレイヤー選択可能を有効化",
         "pt-BR": "Ativar Visualização de Todos os Jogadores na Morte",
-        "zh-CN": "对所有玩家启用死亡回放",
-        "return": "void"
+        "zh-CN": "对所有玩家启用死亡回放"
     },
     "_&enableDeathSpectateTargetHud": {
         "description": "Causes one or more players to see their spectate target's hud instead of their own while death spectating.",
@@ -2863,37 +2879,36 @@ const actionKw =
             }
         ],
         "guid": "00000000B9B4",
+        "return": "void",
         "en-US": "Enable Death Spectate Target HUD",
         "es-MX": "Habilitar la observación del HUD objetivo como espectador muerto",
         "fr-FR": "Permettre de voir l’interface de la cible après la mort",
         "ja-JP": "観戦中のターゲットHUD表示を有効化",
         "pt-BR": "Ativar HUD do Alvo de Visualização na Morte",
-        "zh-CN": "启用死亡回放时目标的HUD",
-        "return": "void"
+        "zh-CN": "启用死亡回放时目标的HUD"
     },
     "enableInspector": {
         "description": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.",
         "args": [],
         "guid": "00000000FB2E",
+        "return": "void",
         "en-US": "Enable Inspector Recording",
         "es-MX": "Activar registro de Inspector",
         "fr-FR": "Activer l’enregistrement du contrôleur",
         "ja-JP": "インスペクターでの記録を有効化",
-        "pl-PL": "Włącz nagrywanie Inspektora",
         "pt-BR": "Ativar gravação do Inspetor",
-        "zh-CN": "启用查看器录制",
-        "return": "void"
+        "zh-CN": "启用查看器录制"
     },
     "__end__": {
         "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
         "args": [],
         "guid": "00000000FB37",
+        "return": "void",
         "en-US": "End",
         "es-MX": "Fin",
         "fr-FR": "Fin",
         "ja-JP": "終了",
-        "pt-BR": "Término",
-        "return": "void"
+        "pt-BR": "Término"
     },
     "__forGlobalVariable__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
@@ -2924,13 +2939,13 @@ const actionKw =
             }
         ],
         "guid": "00000000FEE2",
+        "return": "void",
         "en-US": "For Global Variable",
         "es-MX": "Para variable global",
         "fr-FR": "Pour variable globale",
         "ja-JP": "グローバル変数",
         "pt-BR": "For variável global",
-        "zh-CN": "For 全局变量",
-        "return": "void"
+        "zh-CN": "For 全局变量"
     },
     "__forPlayerVariable__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
@@ -2967,25 +2982,25 @@ const actionKw =
             }
         ],
         "guid": "00000000FEE1",
+        "return": "void",
         "en-US": "For Player Variable",
         "es-MX": "Para variable de jugador",
         "fr-FR": "Pour variable de joueur",
         "ja-JP": "プレイヤー変数",
         "pt-BR": "For variável de jogador",
-        "zh-CN": "For 玩家变量",
-        "return": "void"
+        "zh-CN": "For 玩家变量"
     },
     "goToAssembleHeroes": {
         "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
         "args": [],
         "guid": "00000000C5B5",
+        "return": "void",
         "en-US": "Go To Assemble Heroes",
         "es-MX": "Ir a Forma tu equipo",
         "fr-FR": "Aller à Choisissez vos héros",
         "ja-JP": "「ヒーローを編成しよう」に移行",
         "pt-BR": "Ir para Escolher Heróis",
-        "zh-CN": "前往集结英雄",
-        "return": "void"
+        "zh-CN": "前往集结英雄"
     },
     "heal": {
         "guid": "000000007875",
@@ -3015,13 +3030,13 @@ const actionKw =
                 "default": "NUMBER"
             }
         ],
+        "return": "void",
         "en-US": "Heal",
         "es-MX": "Sanar",
         "fr-FR": "Soigner",
         "ja-JP": "回復",
         "pt-BR": "Cura",
-        "zh-CN": "治疗",
-        "return": "void"
+        "zh-CN": "治疗"
     },
     "__if__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true.",
@@ -3034,12 +3049,11 @@ const actionKw =
             }
         ],
         "guid": "00000000FB32",
+        "return": "void",
         "en-US": "If",
         "es-MX": "Si",
         "fr-FR": "Si",
-        "ja-JP": "IF",
-        "pl-PL": "Jeśli",
-        "return": "void"
+        "ja-JP": "IF"
     },
     "kill": {
         "guid": "000000007877",
@@ -3063,25 +3077,25 @@ const actionKw =
                 "default": "NULL"
             }
         ],
+        "return": "void",
         "en-US": "Kill",
         "es-MX": "Matar",
         "fr-FR": "Tuer",
         "ja-JP": "キル",
         "pt-BR": "Abater",
-        "zh-CN": "击杀",
-        "return": "void"
+        "zh-CN": "击杀"
     },
     "__loop__": {
         "guid": "0000000078F5",
         "description": "Restarts the action list from the beginning. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
+        "return": "void",
         "en-US": "Loop",
         "es-MX": "Bucle",
         "fr-FR": "Boucle",
         "ja-JP": "ループ",
         "pt-BR": "Gerar Loop",
-        "zh-CN": "循环",
-        "return": "void"
+        "zh-CN": "循环"
     },
     "__loopIf__": {
         "description": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
@@ -3094,37 +3108,37 @@ const actionKw =
             }
         ],
         "guid": "00000000BB06",
+        "return": "void",
         "en-US": "Loop If",
         "es-MX": "Repetir si",
         "fr-FR": "Boucle si",
         "ja-JP": "ループする条件",
         "pt-BR": "Gerar Loop se",
-        "zh-CN": "根据条件循环",
-        "return": "void"
+        "zh-CN": "根据条件循环"
     },
     "__loopIfConditionIsFalse__": {
         "description": "Restarts the action list from the beginning if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
         "guid": "00000000BB05",
+        "return": "void",
         "en-US": "Loop If Condition Is False",
         "es-MX": "Repetir si la condición es falsa",
         "fr-FR": "Boucle si la condition est fausse",
         "ja-JP": "条件が「FALSE」の場合ループ",
         "pt-BR": "Gerar Loop se a Condição for Falsa",
-        "zh-CN": "如条件为“假”则循环",
-        "return": "void"
+        "zh-CN": "如条件为“假”则循环"
     },
     "__loopIfConditionIsTrue__": {
         "description": "Restarts the action list from the beginning if every condition in the condition list is true. If any are false, execution continues with the next action. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
         "args": [],
         "guid": "000000007874",
+        "return": "void",
         "en-US": "Loop If Condition Is True",
         "es-MX": "Repetir si la condición es verdadera",
         "fr-FR": "Boucle si la condition est vraie",
         "ja-JP": "条件が「TRUE」の場合ループ",
         "pt-BR": "Gerar Loop se a Condição for Verdadeira",
-        "zh-CN": "如条件为”真“则循环",
-        "return": "void"
+        "zh-CN": "如条件为”真“则循环"
     },
     "__modifyGlobalVariable__": {
         "description": "Modifies the value of a global variable, which is a variable that belongs to the game itself.",
@@ -3144,18 +3158,21 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
         "guid": "00000000786E",
+        "return": "void",
         "en-US": "Modify Global Variable",
         "es-MX": "Modificar variable global",
         "fr-FR": "Modifier une variable globale",
         "ja-JP": "グローバル変数を変更",
         "pt-BR": "Modificar Variável Global",
-        "zh-CN": "修改全局变量",
-        "return": "void"
+        "zh-CN": "修改全局变量"
     },
     "__modifyGlobalVariableAtIndex__": {
         "description": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself.",
@@ -3181,18 +3198,21 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
         "guid": "00000000C7E1",
+        "return": "void",
         "en-US": "Modify Global Variable At Index",
         "es-MX": "Modificar variable global según el índice",
         "fr-FR": "Modifier une variable globale à l’index",
         "ja-JP": "インデックスのグローバル変数を変更",
         "pt-BR": "Modificar Variável Global no Índice",
-        "zh-CN": "在索引处修改全局变量",
-        "return": "void"
+        "zh-CN": "在索引处修改全局变量"
     },
     "_&addToScore": {
         "description": "Modifies the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
@@ -3216,13 +3236,13 @@ const actionKw =
             }
         ],
         "guid": "000000007873",
+        "return": "void",
         "en-US": "Modify Player Score",
         "es-MX": "Modificar puntuación del jugador",
         "fr-FR": "Modifier le score d’un joueur",
         "ja-JP": "プレイヤー・スコアを変更",
         "pt-BR": "Modificar Pontuação do Jogador",
-        "zh-CN": "修改玩家分数",
-        "return": "void"
+        "zh-CN": "修改玩家分数"
     },
     "__modifyPlayerVariable__": {
         "description": "Modifies the value of a player variable, which is a variable that belongs to a specific player.",
@@ -3253,18 +3273,21 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
         "guid": "00000000786F",
+        "return": "void",
         "en-US": "Modify Player Variable",
         "es-MX": "Modificar variable de jugador",
         "fr-FR": "Modifier une variable de joueur",
         "ja-JP": "プレイヤー変数を変更",
         "pt-BR": "Modificar Variável de Jogador",
-        "zh-CN": "修改玩家变量",
-        "return": "void"
+        "zh-CN": "修改玩家变量"
     },
     "__modifyPlayerVariableAtIndex__": {
         "description": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player.",
@@ -3301,18 +3324,21 @@ const actionKw =
             {
                 "name": "VALUE",
                 "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
         "guid": "00000000C7DF",
+        "return": "void",
         "en-US": "Modify Player Variable At Index",
         "es-MX": "Modificar variable de jugador según el índice",
         "fr-FR": "Modifier une variable de joueur à l’index",
         "ja-JP": "インデックスのプレイヤー変数を変更",
         "pt-BR": "Modificar Variável de Jogador no Índice",
-        "zh-CN": "在索引处修改玩家变量",
-        "return": "void"
+        "zh-CN": "在索引处修改玩家变量"
     },
     "addToTeamScore": {
         "description": "Modifies the score of one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
@@ -3331,25 +3357,25 @@ const actionKw =
             }
         ],
         "guid": "00000000BB24",
+        "return": "void",
         "en-US": "Modify Team Score",
         "es-MX": "Modificar puntuación del equipo",
         "fr-FR": "Modifier le score de l’équipe",
         "ja-JP": "チーム・スコアを変更",
         "pt-BR": "Modificar Pontuação da Equipe",
-        "zh-CN": "修改队伍分数",
-        "return": "void"
+        "zh-CN": "修改队伍分数"
     },
     "pauseMatchTime": {
         "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
         "args": [],
         "guid": "00000000B9EF",
+        "return": "void",
         "en-US": "Pause Match Time",
         "es-MX": "Pausar tiempo de la partida",
         "fr-FR": "Mettre en pause le temps de jeu",
         "ja-JP": "マッチ時間をポーズする",
         "pt-BR": "Pausar Tempo da Partida",
-        "zh-CN": "比赛时间暂停",
-        "return": "void"
+        "zh-CN": "比赛时间暂停"
     },
     "playEffect": {
         "description": "Plays an effect at a position in the world. The lifetime of this effect is short, so it does not need to be updated or destroyed.",
@@ -3391,13 +3417,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BB27",
+        "return": "void",
         "en-US": "Play Effect",
         "es-MX": "Reproducir efecto",
         "fr-FR": "Jouer un effet",
         "ja-JP": "エフェクトを再生",
         "pt-BR": "Reproduzir Efeito",
-        "zh-CN": "播放效果",
-        "return": "void"
+        "zh-CN": "播放效果"
     },
     "_&preloadHero": {
         "description": "Preemptively loads the specified hero or heroes into memory using the skins of the specified player or players, available memory permitting. Useful whenever rapid hero changing is possible and the next hero is known.",
@@ -3426,13 +3452,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9B1",
+        "return": "void",
         "en-US": "Preload Hero",
         "es-MX": "Precargar héroe",
         "fr-FR": "Précharger un héros",
         "ja-JP": "ヒーローをプリロード",
         "pt-BR": "Pré-carregar Herói",
-        "zh-CN": "预加载英雄",
-        "return": "void"
+        "zh-CN": "预加载英雄"
     },
     "_&forceButtonPress": {
         "description": "Forces one or more players to press a button virtually for a single frame.",
@@ -3456,13 +3482,13 @@ const actionKw =
             }
         ],
         "guid": "0000000078FB",
+        "return": "void",
         "en-US": "Press Button",
         "es-MX": "Presionar botón",
         "fr-FR": "Appuyer sur un bouton",
-        "ja-JP": "ボタンを押してください",
+        "ja-JP": "ボタンを押させる",
         "pt-BR": "Pressionar Botão",
-        "zh-CN": "按下按键",
-        "return": "void"
+        "zh-CN": "按下按键"
     },
     "_&resetHeroAvailability": {
         "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
@@ -3480,13 +3506,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BA5A",
+        "return": "void",
         "en-US": "Reset Player Hero Availability",
         "es-MX": "Restablecer disponibilidad de héroes de los jugadores",
         "fr-FR": "Réinitialiser la disponibilité du héros pour un joueur",
         "ja-JP": "プレイヤーが使用できるヒーローをリセット",
         "pt-BR": "Redefinir Disponibilidade de Heróis para o Jogador",
-        "zh-CN": "重置玩家英雄可选状态",
-        "return": "void"
+        "zh-CN": "重置玩家英雄可选状态"
     },
     "_&respawn": {
         "description": "Respawns one or more players at an appropriate spawn location with full health, even if they were already alive.",
@@ -3504,13 +3530,13 @@ const actionKw =
             }
         ],
         "guid": "0000000078FC",
+        "return": "void",
         "en-US": "Respawn",
         "es-MX": "Reaparecer",
         "fr-FR": "Réapparaître",
         "ja-JP": "リスポーン",
         "pt-BR": "Ressurgir",
-        "zh-CN": "重生",
-        "return": "void"
+        "zh-CN": "重生"
     },
     "_&resurrect": {
         "guid": "000000007878",
@@ -3528,13 +3554,13 @@ const actionKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        "return": "void",
         "en-US": "Resurrect",
         "es-MX": "Resucitar",
         "fr-FR": "Ressusciter",
         "ja-JP": "蘇生",
         "pt-BR": "Ressuscitar",
-        "zh-CN": "重生",
-        "return": "void"
+        "zh-CN": "重生"
     },
     "_&setAbility1Enabled": {
         "description": "Enables or disables ability 1 for one or more players.",
@@ -3558,13 +3584,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9B8",
+        "return": "void",
         "en-US": "Set Ability 1 Enabled",
         "es-MX": "Establecer habilidad 1 habilitada",
         "fr-FR": "Définir l’activation de la capacité 1",
         "ja-JP": "アビリティ1を有効化",
         "pt-BR": "Definir Habilidade 1 como Ativada",
-        "zh-CN": "设置启用技能 1",
-        "return": "void"
+        "zh-CN": "设置启用技能 1"
     },
     "_&setAbility2Enabled": {
         "description": "Enables or disables ability 2 for one or more players.",
@@ -3588,13 +3614,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9B7",
+        "return": "void",
         "en-US": "Set Ability 2 Enabled",
         "es-MX": "Establecer habilidad 2 habilitada",
         "fr-FR": "Définir l’activation de la capacité 2",
         "ja-JP": "アビリティ2を有効化",
         "pt-BR": "Definir Habilidade 2 como Ativada",
-        "zh-CN": "设置启用技能 2",
-        "return": "void"
+        "zh-CN": "设置启用技能 2"
     },
     "_&setAbilityCooldown": {
         "description": "Set the ability cooldown time for one or more players.",
@@ -3623,8 +3649,14 @@ const actionKw =
                 "default": "NUMBER"
             }
         ],
+        "return": "void",
+        "guid": "0000000109CA",
         "en-US": "Set Ability Cooldown",
-        "return": "void"
+        "es-MX": "Establecer Reutilización de habilidad",
+        "fr-FR": "Définir le temps de recharge de la capacité",
+        "ja-JP": "アビリティのクールダウンを設定",
+        "pt-BR": "Definir Tempo de Recarga da Habilidade",
+        "zh-CN": "设置技能冷却"
     },
     "_&setAimSpeed": {
         "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
@@ -3648,13 +3680,13 @@ const actionKw =
             }
         ],
         "guid": "00000000C364",
+        "return": "void",
         "en-US": "Set Aim Speed",
         "es-MX": "Establecer velocidad al apuntar",
         "fr-FR": "Définir la vitesse de visée",
         "ja-JP": "照準速度を設定",
         "pt-BR": "Definir Velocidade de Mira",
-        "zh-CN": "设置瞄准速度",
-        "return": "void"
+        "zh-CN": "设置瞄准速度"
     },
     "_&setCrouchEnabled": {
         "description": "Enables or disables crouch for one or more players.",
@@ -3677,8 +3709,14 @@ const actionKw =
                 "default": "TRUE"
             }
         ],
+        "return": "void",
+        "guid": "0000000105A3",
         "en-US": "Set Crouch Enabled",
-        "return": "void"
+        "es-MX": "Establecer acción de agacharse activado",
+        "fr-FR": "Définir l’activation de S’accroupir",
+        "ja-JP": "しゃがみを有効化",
+        "pt-BR": "Definir Agachar Ativado",
+        "zh-CN": "设置启用蹲下"
     },
     "_&setDamageDealt": {
         "description": "Sets the damage dealt of one or more players to a percentage of their raw damage dealt.",
@@ -3702,13 +3740,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B995",
+        "return": "void",
         "en-US": "Set Damage Dealt",
         "es-MX": "Establecer daño infligido",
         "fr-FR": "Définir les dégâts infligés",
         "ja-JP": "与えるダメージを設定",
         "pt-BR": "Definir Dano Causado",
-        "zh-CN": "设置造成伤害",
-        "return": "void"
+        "zh-CN": "设置造成伤害"
     },
     "_&setDamageReceived": {
         "description": "Sets the damage received of one or more players to a percentage of their raw damage received.",
@@ -3732,13 +3770,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B997",
+        "return": "void",
         "en-US": "Set Damage Received",
         "es-MX": "Establecer daño recibido",
         "fr-FR": "Définir les dégâts subis",
         "ja-JP": "受けるダメージを設定",
         "pt-BR": "Definir Dano Recebido",
-        "zh-CN": "设置受到伤害",
-        "return": "void"
+        "zh-CN": "设置受到伤害"
     },
     "_&setFacing": {
         "description": "Sets the facing of one or more players to the specified direction.",
@@ -3768,13 +3806,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BB29",
+        "return": "void",
         "en-US": "Set Facing",
         "es-MX": "Establecer orientación",
         "fr-FR": "Définir la direction du regard",
         "ja-JP": "向き変更を設定",
         "pt-BR": "Definir Encarar",
-        "zh-CN": "设置朝向",
-        "return": "void"
+        "zh-CN": "设置朝向"
     },
     "__setGlobalVariable__": {
         "description": "Stores a value into a global variable, which is a variable that belongs to the game itself.",
@@ -3796,13 +3834,13 @@ const actionKw =
             }
         ],
         "guid": "0000000077DE",
+        "return": "void",
         "en-US": "Set Global Variable",
         "es-MX": "Establecer variable global",
         "fr-FR": "Définir une variable globale",
         "ja-JP": "グローバル変数を設定",
         "pt-BR": "Definir Variável Global",
-        "zh-CN": "设置全局变量",
-        "return": "void"
+        "zh-CN": "设置全局变量"
     },
     "__setGlobalVariableAtIndex__": {
         "description": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index.",
@@ -3830,13 +3868,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BBAA",
+        "return": "void",
         "en-US": "Set Global Variable At Index",
         "es-MX": "Establecer variable global según el índice",
         "fr-FR": "Définir une variable globale à l’index",
         "ja-JP": "インデックスのグローバル変数を設定",
         "pt-BR": "Definir Variável Global no Índice",
-        "zh-CN": "在索引处设置全局变量",
-        "return": "void"
+        "zh-CN": "在索引处设置全局变量"
     },
     "_&setGravity": {
         "description": "Sets the movement gravity for one or more players to a percentage regular movement gravity.",
@@ -3860,13 +3898,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B999",
+        "return": "void",
         "en-US": "Set Gravity",
         "es-MX": "Establecer gravedad",
         "fr-FR": "Définir la gravité",
         "ja-JP": "重力を設定",
         "pt-BR": "Definir Gravidade",
-        "zh-CN": "设置引力",
-        "return": "void"
+        "zh-CN": "设置引力"
     },
     "_&setHealingDealt": {
         "description": "Sets the healing dealt of one or more players to a percentage of their raw healing dealt.",
@@ -3890,13 +3928,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B991",
+        "return": "void",
         "en-US": "Set Healing Dealt",
         "es-MX": "Establecer sanación realizada",
         "fr-FR": "Définir les soins prodigués",
         "ja-JP": "与える回復を設定",
         "pt-BR": "Definir Cura Realizada",
-        "zh-CN": "设置造成治疗",
-        "return": "void"
+        "zh-CN": "设置造成治疗"
     },
     "_&setHealingReceived": {
         "description": "Sets the healing received of one or more players to a percentage of their raw healing received.",
@@ -3920,13 +3958,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B993",
+        "return": "void",
         "en-US": "Set Healing Received",
         "es-MX": "Establecer sanación recibida",
         "fr-FR": "Définir les soins reçus",
         "ja-JP": "受ける回復量を設定",
         "pt-BR": "Definir Cura Recebida",
-        "zh-CN": "设置受到治疗",
-        "return": "void"
+        "zh-CN": "设置受到治疗"
     },
     "_&setInvisibility": {
         "description": "Causes one or more players to become invisible to either all other players or just enemies.",
@@ -3950,13 +3988,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9ED",
+        "return": "void",
         "en-US": "Set Invisible",
         "es-MX": "Establecer invisibilidad",
         "fr-FR": "Définir l’invisibilité",
         "ja-JP": "目視可否を設定",
         "pt-BR": "Definir como Invisível",
-        "zh-CN": "设置不可见",
-        "return": "void"
+        "zh-CN": "设置不可见"
     },
     "_&setJumpEnabled": {
         "description": "Enables or disables jump for one or more players.",
@@ -3979,8 +4017,14 @@ const actionKw =
                 "default": "TRUE"
             }
         ],
+        "return": "void",
+        "guid": "0000000105A5",
         "en-US": "Set Jump Enabled",
-        "return": "void"
+        "es-MX": "Establecer salto activado",
+        "fr-FR": "Définir l’activation de Sauter",
+        "ja-JP": "ジャンプを有効化",
+        "pt-BR": "Definir Pular Ativado",
+        "zh-CN": "设置启用跳跃"
     },
     "setMatchTime": {
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
@@ -3993,13 +4037,13 @@ const actionKw =
             }
         ],
         "guid": "00000000AD31",
+        "return": "void",
         "en-US": "Set Match Time",
         "es-MX": "Establecer tiempo de la partida",
         "fr-FR": "Définir le temps de jeu",
         "ja-JP": "マッチ時間を設定",
         "pt-BR": "Definir Tempo da Partida",
-        "zh-CN": "设置比赛时间",
-        "return": "void"
+        "zh-CN": "设置比赛时间"
     },
     "_&setMaxHealth": {
         "description": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health.",
@@ -4023,13 +4067,13 @@ const actionKw =
             }
         ],
         "guid": "0000000078FA",
+        "return": "void",
         "en-US": "Set Max Health",
         "es-MX": "Establecer salud máxima",
         "fr-FR": "Définir les points de vie maximum",
         "ja-JP": "最大ライフを設定",
         "pt-BR": "Definir Vida Máxima",
-        "zh-CN": "设置最大生命值",
-        "return": "void"
+        "zh-CN": "设置最大生命值"
     },
     "_&setMeleeEnabled": {
         "description": "Enables or disables melee for one or more players.",
@@ -4052,8 +4096,14 @@ const actionKw =
                 "default": "TRUE"
             }
         ],
+        "return": "void",
+        "guid": "000000010596",
         "en-US": "Set Melee Enabled",
-        "return": "void"
+        "es-MX": "Establecer ataques melé activado",
+        "fr-FR": "Définir l’activation de Mêlée",
+        "ja-JP": "近接攻撃を有効化",
+        "pt-BR": "Definir Corpo a Corpo Ativado",
+        "zh-CN": "设置启用近战攻击"
     },
     "_&setMoveSpeed": {
         "description": "Sets the move speed of one or more players to a percentage of their raw move speed.",
@@ -4077,13 +4127,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B998",
+        "return": "void",
         "en-US": "Set Move Speed",
         "es-MX": "Establecer velocidad de movimiento",
         "fr-FR": "Définir la vitesse de déplacement",
         "ja-JP": "移動速度を設定",
         "pt-BR": "Definir Velocidade de Movimento",
-        "zh-CN": "设置移动速度",
-        "return": "void"
+        "zh-CN": "设置移动速度"
     },
     "setObjectiveDescription": {
         "description": "Sets the text at the top center of the screen that normally describes the objective to a message visible to specific players.",
@@ -4113,13 +4163,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BA85",
+        "return": "void",
         "en-US": "Set Objective Description",
         "es-MX": "Establecer descripción de objetivo",
         "fr-FR": "Définir la description d’objectif",
         "ja-JP": "目標の説明を設定",
         "pt-BR": "Definir Descrição do Objetivo",
-        "zh-CN": "设置目标点描述",
-        "return": "void"
+        "zh-CN": "设置目标点描述"
     },
     "_&setAllowedHeroes": {
         "description": "Sets the list of heroes available to one or more players. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
@@ -4148,13 +4198,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BA5B",
+        "return": "void",
         "en-US": "Set Player Allowed Heroes",
         "es-MX": "Establecer héroes permitidos para los jugadores",
         "fr-FR": "Définir les héros autorisés pour un joueur",
         "ja-JP": "プレイヤーが使用できるヒーローを設定",
         "pt-BR": "Definir Heróis Permitidos para o Jogador",
-        "zh-CN": "设置玩家可选的英雄",
-        "return": "void"
+        "zh-CN": "设置玩家可选的英雄"
     },
     "_&setScore": {
         "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
@@ -4178,13 +4228,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BB22",
+        "return": "void",
         "en-US": "Set Player Score",
         "es-MX": "Establecer puntuación del jugador",
         "fr-FR": "Définir le score d’un joueur",
         "ja-JP": "プレイヤー・スコアを設定する",
         "pt-BR": "Definir Pontuação do Jogador",
-        "zh-CN": "设置玩家分数",
-        "return": "void"
+        "zh-CN": "设置玩家分数"
     },
     "__setPlayerVariable__": {
         "description": "Stores a value into a player variable, which is a variable that belongs to a specific player.",
@@ -4217,13 +4267,13 @@ const actionKw =
             }
         ],
         "guid": "0000000077DF",
+        "return": "void",
         "en-US": "Set Player Variable",
         "es-MX": "Establecer variable de jugador",
         "fr-FR": "Définir une variable de joueur",
         "ja-JP": "プレイヤー変数を設定",
         "pt-BR": "Definir Variável de Jogador",
-        "zh-CN": "设置玩家变量",
-        "return": "void"
+        "zh-CN": "设置玩家变量"
     },
     "__setPlayerVariableAtIndex__": {
         "description": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index.",
@@ -4262,13 +4312,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BBA9",
+        "return": "void",
         "en-US": "Set Player Variable At Index",
         "es-MX": "Establecer variable de jugador según el índice",
         "fr-FR": "Définir une variable de joueur à l’index",
         "ja-JP": "インデックスのプレイヤー変数を設定",
         "pt-BR": "Definir Variável de Jogador no Índice",
-        "zh-CN": "在索引处设置玩家变量",
-        "return": "void"
+        "zh-CN": "在索引处设置玩家变量"
     },
     "_&setPrimaryFireEnabled": {
         "description": "Enables or disables primary fire for one or more players.",
@@ -4292,13 +4342,13 @@ const actionKw =
             }
         ],
         "guid": "00000000C6C5",
+        "return": "void",
         "en-US": "Set Primary Fire Enabled",
         "es-MX": "Establecer disparo principal habilitado",
         "fr-FR": "Définir l’activation du tir principal",
         "ja-JP": "メイン攻撃を許可",
         "pt-BR": "Definir Disparo Primário Ativado",
-        "zh-CN": "设置主要攻击模式启用",
-        "return": "void"
+        "zh-CN": "设置主要攻击模式启用"
     },
     "_&setProjectileGravity": {
         "description": "Sets the projectile gravity for one or more players to a percentage of regular projectile gravity.",
@@ -4322,13 +4372,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B99B",
+        "return": "void",
         "en-US": "Set Projectile Gravity",
         "es-MX": "Establecer gravedad del proyectil",
         "fr-FR": "Définir la gravité des projectiles",
         "ja-JP": "弾の重力を設定",
         "pt-BR": "Definir Gravidade de Projétil",
-        "zh-CN": "设置弹道引力",
-        "return": "void"
+        "zh-CN": "设置弹道引力"
     },
     "_&setProjectileSpeed": {
         "description": "Sets the projectile speed for one or more players to a percentage of projectile speed.",
@@ -4352,13 +4402,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B99D",
+        "return": "void",
         "en-US": "Set Projectile Speed",
         "es-MX": "Establecer velocidad del proyectil",
         "fr-FR": "Définir la vitesse des projectiles",
         "ja-JP": "弾速を設定",
         "pt-BR": "Definir Velocidade de Projétil",
-        "zh-CN": "设置弹道速度",
-        "return": "void"
+        "zh-CN": "设置弹道速度"
     },
     "_&setRespawnTime": {
         "description": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death.",
@@ -4382,13 +4432,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9CD",
+        "return": "void",
         "en-US": "Set Respawn Max Time",
         "es-MX": "Establecer tiempo máximo de reaparición",
         "fr-FR": "Définir la durée maximum avant réapparition",
         "ja-JP": "最大リスポーン時間を設定",
         "pt-BR": "Definir Tempo Máximo de Ressurgimento",
-        "zh-CN": "设置最大重生时间",
-        "return": "void"
+        "zh-CN": "设置最大重生时间"
     },
     "_&setSecondaryFireEnabled": {
         "description": "Enables or disables secondary fire for one or more players.",
@@ -4412,13 +4462,13 @@ const actionKw =
             }
         ],
         "guid": "00000000C6C4",
+        "return": "void",
         "en-US": "Set Secondary Fire Enabled",
         "es-MX": "Establecer disparo secundario habilitado",
         "fr-FR": "Définir l’activation du tir secondaire",
         "ja-JP": "サブ攻撃を許可",
         "pt-BR": "Definir Disparo Secundário Ativado",
-        "zh-CN": "设置辅助攻击模式启用",
-        "return": "void"
+        "zh-CN": "设置辅助攻击模式启用"
     },
     "setSlowMotion": {
         "description": "Sets the simulation rate for the entire game, including all players, projectiles, effects, and game mode logic.",
@@ -4431,13 +4481,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9F2",
+        "return": "void",
         "en-US": "Set Slow Motion",
         "es-MX": "Establecer cámara lenta",
         "fr-FR": "Définir un ralenti",
         "ja-JP": "スローモーションを設定",
         "pt-BR": "Definir Câmera Lenta",
-        "zh-CN": "设置慢动作",
-        "return": "void"
+        "zh-CN": "设置慢动作"
     },
     "_&setStatusEffect": {
         "description": "Applies a status to one or more players. This status will remain in effect for the specified duration or until it is cleared by the clear status action.",
@@ -4473,13 +4523,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B588",
+        "return": "void",
         "en-US": "Set Status",
         "es-MX": "Establecer estado",
         "fr-FR": "Définir un statut",
         "ja-JP": "ステータスを設定",
         "pt-BR": "Definir Status",
-        "zh-CN": "设置状态",
-        "return": "void"
+        "zh-CN": "设置状态"
     },
     "setTeamScore": {
         "description": "Sets the score for one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
@@ -4498,13 +4548,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BB25",
+        "return": "void",
         "en-US": "Set Team Score",
         "es-MX": "Establecer puntuación del equipo",
         "fr-FR": "Définir le score d’une équipe",
         "ja-JP": "チーム・スコアを設定",
         "pt-BR": "Definir Pontuação da Equipe",
-        "zh-CN": "设置队伍分数",
-        "return": "void"
+        "zh-CN": "设置队伍分数"
     },
     "_&setUltEnabled": {
         "description": "Enables or disables the ultimate ability of one or more players.",
@@ -4528,13 +4578,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9B6",
+        "return": "void",
         "en-US": "Set Ultimate Ability Enabled",
         "es-MX": "Establecer habilidad máxima habilitada",
         "fr-FR": "Définir l’activation de la capacité ultime",
         "ja-JP": "アルティメット・アビリティを有効化",
         "pt-BR": "Definir Habilidade Suprema como Ativada",
-        "zh-CN": "设置启用终极技能",
-        "return": "void"
+        "zh-CN": "设置启用终极技能"
     },
     "_&setUltCharge": {
         "description": "Sets the ultimate charge for one or more players as a percentage of maximum charge.",
@@ -4558,13 +4608,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BB1C",
+        "return": "void",
         "en-US": "Set Ultimate Charge",
         "es-MX": "Establecer carga de habilidad máxima",
         "fr-FR": "Définir la charge de la capacité ultime",
         "ja-JP": "アルティメット・チャージを設定",
         "pt-BR": "Definir Carga da Suprema",
-        "zh-CN": "设置终极技能充能",
-        "return": "void"
+        "zh-CN": "设置终极技能充能"
     },
     "__skip__": {
         "guid": "00000000BB01",
@@ -4577,13 +4627,13 @@ const actionKw =
                 "default": "NUMBER"
             }
         ],
+        "return": "void",
         "en-US": "Skip",
         "es-MX": "Omitir",
         "fr-FR": "Passer",
         "ja-JP": "スキップ",
         "pt-BR": "Ignorar",
-        "zh-CN": "跳过",
-        "return": "void"
+        "zh-CN": "跳过"
     },
     "__skipIf__": {
         "description": "Skips execution of a certain number of actions in the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
@@ -4602,13 +4652,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BB00",
+        "return": "void",
         "en-US": "Skip If",
         "es-MX": "Omitir si",
         "fr-FR": "Passer si",
         "ja-JP": "スキップする条件",
         "pt-BR": "Ignorar se",
-        "zh-CN": "根据条件跳过",
-        "return": "void"
+        "zh-CN": "根据条件跳过"
     },
     "smallMessage": {
         "description": "Displays a small message beneath the reticle that is visible to specific players.",
@@ -4632,13 +4682,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BA87",
+        "return": "void",
         "en-US": "Small Message",
         "es-MX": "Mensaje pequeño",
         "fr-FR": "Message en petit",
         "ja-JP": "小さなメッセージ",
         "pt-BR": "Mensagem Pequena",
-        "zh-CN": "小字体信息",
-        "return": "void"
+        "zh-CN": "小字体信息"
     },
     "_&startAcceleration": {
         "description": "Starts accelerating one or more players in a specified direction.",
@@ -4686,13 +4736,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BB0D",
+        "return": "void",
         "en-US": "Start Accelerating",
         "es-MX": "Comenzar la aceleración",
         "fr-FR": "Accélérer",
         "ja-JP": "加速の開始",
         "pt-BR": "Começar a Acelerar",
-        "zh-CN": "开始加速",
-        "return": "void"
+        "zh-CN": "开始加速"
     },
     "_&setCamera": {
         "description": "Places your camera at a location, facing a direction.",
@@ -4728,13 +4778,13 @@ const actionKw =
             }
         ],
         "guid": "00000000C393",
+        "return": "void",
         "en-US": "Start Camera",
         "es-MX": "Comenzar cámara",
         "fr-FR": "Lancer la caméra",
         "ja-JP": "カメラの始動",
         "pt-BR": "Iniciar Câmera",
-        "zh-CN": "开始镜头",
-        "return": "void"
+        "zh-CN": "开始镜头"
     },
     "startDamageModification": {
         "description": "Starts modifying how much damage one or more receivers will receive from one or more damagers. A reference to this damage modification can be obtained from the last damage modification id value. This action will fail if too many damage modifications have been started.",
@@ -4775,13 +4825,13 @@ const actionKw =
             }
         ],
         "guid": "00000000C639",
+        "return": "void",
         "en-US": "Start Damage Modification",
         "es-MX": "Comenzar modificación de daño",
         "fr-FR": "Lancer la modification des dégâts",
         "ja-JP": "ダメージ変更を開始",
         "pt-BR": "Começar Modificação de Dano",
-        "zh-CN": "开始伤害调整",
-        "return": "void"
+        "zh-CN": "开始伤害调整"
     },
     "_&startDoT": {
         "description": "Starts an instance of damage over time. This dot will persist for the specified duration or until stopped by script. To obtain a reference to this dot, use the last damage over time id value.",
@@ -4817,13 +4867,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9C5",
+        "return": "void",
         "en-US": "Start Damage Over Time",
         "es-MX": "Comenzar daño con el tiempo",
         "fr-FR": "Infliger des dégâts sur la durée",
         "ja-JP": "継続ダメージを開始",
         "pt-BR": "Começar Dano ao Longo do Tempo",
-        "zh-CN": "开始持续伤害",
-        "return": "void"
+        "zh-CN": "开始持续伤害"
     },
     "_&startFacing": {
         "description": "Starts turning one or more players to face the specified direction.",
@@ -4865,13 +4915,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BB20",
+        "return": "void",
         "en-US": "Start Facing",
         "es-MX": "Comenzar orientación",
         "fr-FR": "Regarder vers",
         "ja-JP": "向き変更を開始",
         "pt-BR": "Começar a Encarar",
-        "zh-CN": "开始朝向",
-        "return": "void"
+        "zh-CN": "开始朝向"
     },
     "_&startForcingHero": {
         "description": "Starts forcing one or more players to be a specific hero and, if necessary, respawns them immediately in their current location. This will be the only hero available to the player or players until the stop forcing player to be hero action is executed.",
@@ -4895,13 +4945,13 @@ const actionKw =
             }
         ],
         "guid": "00000000ABFB",
+        "return": "void",
         "en-US": "Start Forcing Player To Be Hero",
         "es-MX": "Comenzar a forzar a un jugador a usar un héroe",
         "fr-FR": "Forcer un héros",
         "ja-JP": "プレイヤーへのヒーロー強制を開始",
         "pt-BR": "Começar a Forçar Jogador a Ser o Herói",
-        "zh-CN": "开始强制玩家选择英雄",
-        "return": "void"
+        "zh-CN": "开始强制玩家选择英雄"
     },
     "startForcingSpawn": {
         "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
@@ -4920,13 +4970,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B573",
+        "return": "void",
         "en-US": "Start Forcing Spawn Room",
         "es-MX": "Comenzar a forzar cuarto de reaparición",
         "fr-FR": "Forcer une salle d’apparition",
         "ja-JP": "リスポーンエリアの強制を開始",
         "pt-BR": "Começar a Forçar Sala de Ressurgimento",
-        "zh-CN": "开始强制重生室",
-        "return": "void"
+        "zh-CN": "开始强制重生室"
     },
     "_&startForcingThrottle": {
         "description": "Defines minimum and maximum movement input values for one or more players, possibly forcing or preventing movement.",
@@ -4980,13 +5030,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BB0F",
+        "return": "void",
         "en-US": "Start Forcing Throttle",
         "es-MX": "Comenzar a forzar la aceleración",
         "fr-FR": "Forcer l’accélération",
         "ja-JP": "強制スロットル開始",
         "pt-BR": "Começar a Forçar Aceleração",
-        "zh-CN": "开始限制阈值",
-        "return": "void"
+        "zh-CN": "开始限制阈值"
     },
     "_&startHoT": {
         "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
@@ -5022,13 +5072,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9C2",
+        "return": "void",
         "en-US": "Start Heal Over Time",
         "es-MX": "Comenzar sanación con el tiempo",
         "fr-FR": "Prodiguer des soins sur la durée",
         "ja-JP": "継続回復を開始",
         "pt-BR": "Começar Cura ao Longo do Tempo",
-        "zh-CN": "开始持续治疗",
-        "return": "void"
+        "zh-CN": "开始持续治疗"
     },
     "startHealingModification": {
         "description": "Starts modifying how much healing one or more receivers will receive from one or more healers. A reference to this healing modification can be obtained from the last healing modification id value. This action will fail if too many healing modifications have been started.",
@@ -5069,13 +5119,13 @@ const actionKw =
             }
         ],
         "guid": "00000000C639",
+        "return": "void",
         "en-US": "Start Damage Modification",
         "es-MX": "Comenzar modificación de daño",
         "fr-FR": "Lancer la modification des dégâts",
         "ja-JP": "ダメージ変更を開始",
         "pt-BR": "Começar Modificação de Dano",
-        "zh-CN": "开始伤害调整",
-        "return": "void"
+        "zh-CN": "开始伤害调整"
     },
     "_&startForcingButton": {
         "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
@@ -5099,13 +5149,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9D3",
+        "return": "void",
         "en-US": "Start Holding Button",
         "es-MX": "Comenzar a mantener el botón presionado",
         "fr-FR": "Maintenir un bouton enfoncé",
         "ja-JP": "ボタン長押し開始",
         "pt-BR": "Começar a Segurar Botão",
-        "zh-CN": "开始按下按钮",
-        "return": "void"
+        "zh-CN": "开始按下按钮"
     },
     "__startRule__": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
@@ -5124,13 +5174,13 @@ const actionKw =
             }
         ],
         "guid": "000000010022",
+        "return": "void",
         "en-US": "Start Rule",
         "es-MX": "Comenzar regla",
         "fr-FR": "Lancer la règle",
         "ja-JP": "ルールを開始",
         "pt-BR": "Regra de início",
-        "zh-CN": "开始规则",
-        "return": "void"
+        "zh-CN": "开始规则"
     },
     "_&startThrottleInDirection": {
         "description": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled.",
@@ -5178,13 +5228,13 @@ const actionKw =
             }
         ],
         "guid": "00000000CEA4",
+        "return": "void",
         "en-US": "Start Throttle In Direction",
         "es-MX": "Comenzar aceleración en dirección",
         "fr-FR": "Commencer l’accélération directionnelle",
         "ja-JP": "指定方向にスロットル開始",
         "pt-BR": "Iniciar Aceleração na Direção",
-        "zh-CN": "开始定向阈值",
-        "return": "void"
+        "zh-CN": "开始定向阈值"
     },
     "_&startTransformingThrottle": {
         "description": "Starts transforming (scaling and rotating) the throttle (directional input control) of a player or players. Cancels any existing start transforming throttle behavior.",
@@ -5220,13 +5270,13 @@ const actionKw =
             }
         ],
         "guid": "00000000CC26",
+        "return": "void",
         "en-US": "Start Transforming Throttle",
         "es-MX": "Comenzar a transformar la aceleración",
         "fr-FR": "Début de modification de l’accélération",
         "ja-JP": "スロットルの変化を開始",
         "pt-BR": "Iniciar Transformação de Aceleração",
-        "zh-CN": "开始转换阈值",
-        "return": "void"
+        "zh-CN": "开始转换阈值"
     },
     "_&stopAcceleration": {
         "description": "Stops the acceleration started by the start accelerating action for one or more players.",
@@ -5244,37 +5294,37 @@ const actionKw =
             }
         ],
         "guid": "00000000BB0C",
+        "return": "void",
         "en-US": "Stop Accelerating",
         "es-MX": "Detener la aceleración",
         "fr-FR": "Arrêter l’accélération",
         "ja-JP": "加速の中止",
         "pt-BR": "Parar de Acelerar",
-        "zh-CN": "停止加速",
-        "return": "void"
+        "zh-CN": "停止加速"
     },
     "stopAllDamageModifications": {
         "description": "Stops all damage modifications that were started using the start damage modification action.",
         "args": [],
         "guid": "00000000C647",
+        "return": "void",
         "en-US": "Stop All Damage Modifications",
         "es-MX": "Detener todas las modificaciones de daño",
         "fr-FR": "Arrêter toutes les modifications de dégâts",
         "ja-JP": "すべてのダメージ変更を停止",
         "pt-BR": "Parar Todas as Modificações de Dano",
-        "zh-CN": "停止所有伤害调整",
-        "return": "void"
+        "zh-CN": "停止所有伤害调整"
     },
     "stopAllHealingModifications": {
         "description": "Stops all healing modifications that were started using the start healing modification action.",
         "args": [],
         "guid": "00000000FD3B",
+        "return": "void",
         "en-US": "Stop All Healing Modifications",
         "es-MX": "Detener todas las modificaciones de sanación",
         "fr-FR": "Terminer toutes les modifications de soins",
         "ja-JP": "すべての回復変更を停止",
         "pt-BR": "Parar todas as modificações de cura",
-        "zh-CN": "停止所有治疗调整",
-        "return": "void"
+        "zh-CN": "停止所有治疗调整"
     },
     "_&stopAllDoT": {
         "description": "Stops all damage over time started by start damage over time for one or more players.",
@@ -5292,13 +5342,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9C3",
+        "return": "void",
         "en-US": "Stop All Damage Over Time",
         "es-MX": "Detener todo el daño con el tiempo",
         "fr-FR": "Arrêter tous les dégâts sur la durée",
         "ja-JP": "すべての継続ダメージを停止",
         "pt-BR": "Parar Todo o Dano ao Longo do Tempo",
-        "zh-CN": "停止所有持续伤害",
-        "return": "void"
+        "zh-CN": "停止所有持续伤害"
     },
     "_&stopAllHoT": {
         "description": "Stops all heal over time started by start heal over time for one or more players.",
@@ -5316,13 +5366,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9C0",
+        "return": "void",
         "en-US": "Stop All Heal Over Time",
         "es-MX": "Detener toda la sanación con el tiempo",
         "fr-FR": "Arrêter tous les soins sur la durée",
         "ja-JP": "すべての継続回復を停止",
         "pt-BR": "Parar Toda a Cura ao Longo do Tempo",
-        "zh-CN": "停止所有持续治疗",
-        "return": "void"
+        "zh-CN": "停止所有持续治疗"
     },
     "_&stopCamera": {
         "description": "Restores the camera to the default view.",
@@ -5340,13 +5390,13 @@ const actionKw =
             }
         ],
         "guid": "00000000C3B1",
+        "return": "void",
         "en-US": "Stop Camera",
         "es-MX": "Detener cámara",
         "fr-FR": "Arrêter la caméra",
         "ja-JP": "カメラの停止",
         "pt-BR": "Parar Câmera",
-        "zh-CN": "停止镜头",
-        "return": "void"
+        "zh-CN": "停止镜头"
     },
     "__stopChasingGlobalVariable__": {
         "description": "Stops an in-progress chase of a global variable, leaving it at its current value.",
@@ -5359,13 +5409,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B83E",
+        "return": "void",
         "en-US": "Stop Chasing Global Variable",
         "es-MX": "Detener seguimiento de variable global",
         "fr-FR": "Arrêter de modifier une variable globale",
         "ja-JP": "グローバル変数の追跡を中止",
         "pt-BR": "Parar de Acompanhar Variável Global",
-        "zh-CN": "停止追踪全局变量",
-        "return": "void"
+        "zh-CN": "停止追踪全局变量"
     },
     "__stopChasingPlayerVariable__": {
         "description": "Stops an in-progress chase of a player variable, leaving it at its current value.",
@@ -5389,13 +5439,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B83D",
+        "return": "void",
         "en-US": "Stop Chasing Player Variable",
         "es-MX": "Detener seguimiento de variable de jugador",
         "fr-FR": "Arrêter de modifier une variable de joueur",
         "ja-JP": "プレイヤー変数の追跡を中止",
         "pt-BR": "Parar de Acompanhar Variável de Jogador",
-        "zh-CN": "停止追踪玩家变量",
-        "return": "void"
+        "zh-CN": "停止追踪玩家变量"
     },
     "stopDamageModification": {
         "description": "Stops a damage modification that was started by the start damage modification action.",
@@ -5408,13 +5458,13 @@ const actionKw =
             }
         ],
         "guid": "00000000C649",
+        "return": "void",
         "en-US": "Stop Damage Modification",
         "es-MX": "Detener modificación de daño",
         "fr-FR": "Arrêter la modification des dégâts",
         "ja-JP": "ダメージ変更を停止",
         "pt-BR": "Parar Modificação de Dano",
-        "zh-CN": "停止伤害调整",
-        "return": "void"
+        "zh-CN": "停止伤害调整"
     },
     "stopDoT": {
         "description": "Stops an instance of damage over time started by the start damage over time action.",
@@ -5427,13 +5477,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9C4",
+        "return": "void",
         "en-US": "Stop Damage Over Time",
         "es-MX": "Detener daño con el tiempo",
         "fr-FR": "Arrêter des dégâts sur la durée",
         "ja-JP": "継続ダメージを停止",
         "pt-BR": "Parar Dano ao Longo do Tempo",
-        "zh-CN": "停止持续伤害",
-        "return": "void"
+        "zh-CN": "停止持续伤害"
     },
     "_&stopFacing": {
         "description": "Stops the turning started by the start facing action for one or more players.",
@@ -5451,13 +5501,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BB21",
+        "return": "void",
         "en-US": "Stop Facing",
         "es-MX": "Detener orientación",
         "fr-FR": "Arrêter de regarder vers",
         "ja-JP": "向き変更を停止",
         "pt-BR": "Parar de Encarar",
-        "zh-CN": "停止朝向",
-        "return": "void"
+        "zh-CN": "停止朝向"
     },
     "_&stopForcingCurrentHero": {
         "description": "Stops forcing one or more players to be a specific hero. This will not respawn the player or players, but it will restore their hero availability the next time they go to select a hero.",
@@ -5475,13 +5525,13 @@ const actionKw =
             }
         ],
         "guid": "00000000AC1B",
+        "return": "void",
         "en-US": "Stop Forcing Player To Be Hero",
         "es-MX": "Dejar de forzar a un jugador a usar un héroe",
         "fr-FR": "Arrêter de forcer un héros",
         "ja-JP": "プレイヤーへのヒーロー強制を停止",
         "pt-BR": "Parar de Forçar Jogador a Ser o Herói",
-        "zh-CN": "停止强制玩家选择英雄",
-        "return": "void"
+        "zh-CN": "停止强制玩家选择英雄"
     },
     "stopForcingSpawn": {
         "description": "Undoes the effect of the start forcing spawn room action for the specified team.",
@@ -5494,13 +5544,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B574",
+        "return": "void",
         "en-US": "Stop Forcing Spawn Room",
         "es-MX": "Dejar de forzar cuarto de reaparición",
         "fr-FR": "Arrêter de forcer une salle d’apparition",
         "ja-JP": "リスポーンエリアの強制を停止",
         "pt-BR": "Parar de Forçar Sala de Ressurgimento",
-        "zh-CN": "停止强制重生室",
-        "return": "void"
+        "zh-CN": "停止强制重生室"
     },
     "_&stopForcingThrottle": {
         "description": "Undoes the effect of the start forcing throttle action for one or more players.",
@@ -5518,13 +5568,13 @@ const actionKw =
             }
         ],
         "guid": "00000000BB0E",
+        "return": "void",
         "en-US": "Stop Forcing Throttle",
         "es-MX": "Dejar de forzar la aceleración",
         "fr-FR": "Arrêter de forcer l’accélération",
         "ja-JP": "強制スロットル中止",
         "pt-BR": "Parar de Forçar Aceleração",
-        "zh-CN": "停止限制阈值",
-        "return": "void"
+        "zh-CN": "停止限制阈值"
     },
     "stopHoT": {
         "description": "Stops an instance of heal over time started by the start heal over time action.",
@@ -5537,13 +5587,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9C1",
+        "return": "void",
         "en-US": "Stop Heal Over Time",
         "es-MX": "Detener sanación con el tiempo",
         "fr-FR": "Arrêter des soins sur la durée",
         "ja-JP": "継続回復を停止",
         "pt-BR": "Parar Cura ao Longo do Tempo",
-        "zh-CN": "停止持续治疗",
-        "return": "void"
+        "zh-CN": "停止持续治疗"
     },
     "stopHealingModification": {
         "description": "Stops a healing modification that was started by the start healing modification action.",
@@ -5556,13 +5606,13 @@ const actionKw =
             }
         ],
         "guid": "00000000FD37",
+        "return": "void",
         "en-US": "Stop Healing Modification",
         "es-MX": "Detener modificación de sanación",
         "fr-FR": "Terminer la modification de soins",
         "ja-JP": "回復変更を停止",
         "pt-BR": "Parar modificação de cura",
-        "zh-CN": "停止治疗调整",
-        "return": "void"
+        "zh-CN": "停止治疗调整"
     },
     "_&stopForcingButton": {
         "description": "Undoes the effect of the start holding button action for one or more players.",
@@ -5586,13 +5636,13 @@ const actionKw =
             }
         ],
         "guid": "00000000B9D2",
+        "return": "void",
         "en-US": "Stop Holding Button",
         "es-MX": "Dejar de mantener el botón presionado",
         "fr-FR": "Arrêter de maintenir un bouton enfoncé",
         "ja-JP": "ボタン長押し解除",
         "pt-BR": "Parar de Segurar Botão",
-        "zh-CN": "停止按下按钮",
-        "return": "void"
+        "zh-CN": "停止按下按钮"
     },
     "_&stopThrottleInDirection": {
         "description": "Cancels the behavior caused by start throttle in direction.",
@@ -5610,13 +5660,13 @@ const actionKw =
             }
         ],
         "guid": "00000000CEA3",
+        "return": "void",
         "en-US": "Stop Throttle In Direction",
         "es-MX": "Detener aceleración en dirección",
         "fr-FR": "Arrêter l’accélération directionnelle",
         "ja-JP": "指定方向にスロットル終了",
         "pt-BR": "Parar Aceleração na Direção",
-        "zh-CN": "停止定向阈值",
-        "return": "void"
+        "zh-CN": "停止定向阈值"
     },
     "_&stopTransformingThrottle": {
         "description": "Stops the throttle transform started by start transforming throttle for one or more players.",
@@ -5634,13 +5684,13 @@ const actionKw =
             }
         ],
         "guid": "00000000CC25",
+        "return": "void",
         "en-US": "Stop Transforming Throttle",
         "es-MX": "Dejar de transformar la aceleración",
         "fr-FR": "Arrêt de modification de l’accélération",
         "ja-JP": "スロットルの変化を停止",
         "pt-BR": "Parar Transformação de Aceleração",
-        "zh-CN": "停止转换阈值",
-        "return": "void"
+        "zh-CN": "停止转换阈值"
     },
     "_&teleport": {
         "guid": "00000000B9BA",
@@ -5664,25 +5714,25 @@ const actionKw =
                 "default": "VECTOR"
             }
         ],
+        "return": "void",
         "en-US": "Teleport",
         "es-MX": "Transportar",
         "fr-FR": "Téléportation",
         "ja-JP": "テレポート",
         "pt-BR": "Teletransportar",
-        "zh-CN": "传送",
-        "return": "void"
+        "zh-CN": "传送"
     },
     "unpauseMatchTime": {
         "description": "Unpauses the match time.",
         "args": [],
         "guid": "00000000B9F0",
+        "return": "void",
         "en-US": "Unpause Match Time",
         "es-MX": "Despausar tiempo de la partida",
         "fr-FR": "Reprendre le temps de jeu",
         "ja-JP": "マッチ時間のポーズを解除",
         "pt-BR": "Retomar Tempo da Partida",
-        "zh-CN": "比赛时间继续",
-        "return": "void"
+        "zh-CN": "比赛时间继续"
     },
     "__wait__": {
         "guid": "000000007872",
@@ -5701,13 +5751,13 @@ const actionKw =
                 "default": "IGNORE CONDITION"
             }
         ],
+        "return": "void",
         "en-US": "Wait",
         "es-MX": "Esperar",
         "fr-FR": "Attente",
         "ja-JP": "待機",
         "pt-BR": "Esperar",
-        "zh-CN": "等待",
-        "return": "void"
+        "zh-CN": "等待"
     },
     "__while__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action.",
@@ -5720,12 +5770,11 @@ const actionKw =
             }
         ],
         "guid": "00000000FB35",
+        "return": "void",
         "en-US": "While",
         "es-MX": "Mientras",
         "fr-FR": "Tant que",
-        "ja-JP": "WHILE",
-        "pl-PL": "Kiedy",
-        "return": "void"
+        "ja-JP": "WHILE"
     }
 }
 //end-json
@@ -5757,15 +5806,22 @@ var valueFuncKw =
                 "description": "The player whose ability to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
-            },{
+            },
+            {
                 "name": "BUTTON",
                 "description": "The ability to check associated by button.",
                 "type": "Button",
-                "default": "BUTTON",
+                "default": "BUTTON"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
+        "guid": "0000000109B3",
         "en-US": "Ability Cooldown",
+        "es-MX": "Reutilización de habilidad",
+        "fr-FR": "Temps de recharge de la capacité",
+        "ja-JP": "アビリティのクールダウン",
+        "pt-BR": "Tempo de Recarga da Habilidade",
+        "zh-CN": "技能冷却时间"
     },
     "abilityIconString": {
         "description": "Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string).",
@@ -5774,16 +5830,23 @@ var valueFuncKw =
                 "name": "HERO",
                 "description": "The hero for the ability that will be converted to an icon.",
                 "type": "Hero",
-                "default": "HERO",
-            },{
+                "default": "HERO"
+            },
+            {
                 "name": "Button",
                 "description": "The button for the ability that will be converted to an icon.",
                 "type": "Button",
-                "default": "Button",
+                "default": "Button"
             }
         ],
-        return: "String",
+        "return": "String",
+        "guid": "000000010B52",
         "en-US": "Ability Icon String",
+        "es-MX": "Cadena de ícono de habilidad",
+        "fr-FR": "Chaîne d’icône de la capacité",
+        "ja-JP": "アビリティアイコンストリング",
+        "pt-BR": "String de Ícone de Habilidade",
+        "zh-CN": "技能图标字符串"
     },
     "abs": {
         "description": "The absolute value of the specified value.",
@@ -5795,7 +5858,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000C358",
         "en-US": "Absolute Value",
         "es-MX": "Valor absoluto",
@@ -5811,17 +5874,26 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             }
         ],
-        return: ["float", "Vector"],
+        "return": [
+            "float",
+            "Vector"
+        ],
         "en-US": "Add",
         "es-MX": "Sumar",
         "fr-FR": "Addition",
@@ -5839,7 +5911,9 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: {Array: "Player"},
+        "return": {
+            "Array": "Player"
+        },
         "guid": "00000000B265",
         "en-US": "All Dead Players",
         "es-MX": "Todos los jugadores muertos",
@@ -5851,14 +5925,15 @@ var valueFuncKw =
     "getDamageHeroes": {
         "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        16. Echo  \n",
         "args": [],
-        return: {Array: "Hero"},
+        "return": {
+            "Array": "Hero"
+        },
         "guid": "00000000D40A",
         "en-US": "All Damage Heroes",
         "de-DE": "Alle Schadenshelden",
         "es-MX": "Todos los héroes de daño",
         "fr-FR": "Tous les héros de dégâts",
         "ja-JP": "全ダメージヒーロー",
-        "pl-PL": "Wszyscy bohaterowie natarcia",
         "pt-BR": "Todos os Heróis de Dano",
         "zh-CN": "所有输出英雄"
     },
@@ -5866,7 +5941,9 @@ var valueFuncKw =
         "guid": "00000000BF58",
         "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Echo \n        30. Baptiste    \n        31. Sigma    \n",
         "args": [],
-        return: {Array: "Hero"},
+        "return": {
+            "Array": "Hero"
+        },
         "en-US": "All Heroes",
         "es-MX": "Todos los héroes",
         "fr-FR": "Tous les héros",
@@ -5884,7 +5961,9 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: {Array: "Player"},
+        "return": {
+            "Array": "Player"
+        },
         "guid": "00000000B264",
         "en-US": "All Living Players",
         "es-MX": "Todos los jugadores vivos",
@@ -5903,7 +5982,9 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: {Array: "Player"},
+        "return": {
+            "Array": "Player"
+        },
         "guid": "00000000B261",
         "en-US": "All Players",
         "es-MX": "Todos los jugadores",
@@ -5922,7 +6003,9 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: {Array: "Player"},
+        "return": {
+            "Array": "Player"
+        },
         "guid": "00000000B267",
         "en-US": "All Players Not On Objective",
         "es-MX": "Todos los jugadores que no están en el objetivo",
@@ -5941,7 +6024,9 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: {Array: "Player"},
+        "return": {
+            "Array": "Player"
+        },
         "guid": "00000000B266",
         "en-US": "All Players On Objective",
         "es-MX": "Todos los jugadores que están en el objetivo",
@@ -5960,7 +6045,9 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: {Array: "Hero"},
+        "return": {
+            "Array": "Hero"
+        },
         "guid": "00000000BBA8",
         "en-US": "Allowed Heroes",
         "es-MX": "Héroes permitidos",
@@ -5972,28 +6059,30 @@ var valueFuncKw =
     "getSupportHeroes": {
         "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
         "args": [],
-        return: {Array: "Hero"},
+        "return": {
+            "Array": "Hero"
+        },
         "guid": "00000000D40B",
         "en-US": "All Support Heroes",
         "de-DE": "Alle Unterstützungshelden",
         "es-MX": "Todos los héroes de apoyo",
         "fr-FR": "Tous les héros de soutien",
         "ja-JP": "全サポートヒーロー",
-        "pl-PL": "Wszyscy bohaterowie wsparcia",
         "pt-BR": "Todos os Heróis de Suporte",
         "zh-CN": "所有支援英雄"
     },
     "getTankHeroes": {
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
         "args": [],
-        return: {Array: "Hero"},
+        "return": {
+            "Array": "Hero"
+        },
         "guid": "00000000D40C",
         "en-US": "All Tank Heroes",
         "de-DE": "Alle Tankhelden",
         "es-MX": "Todos los héroes tanques",
         "fr-FR": "Tous les héros tanks",
         "ja-JP": "全タンクヒーロー",
-        "pl-PL": "Wszyscy bohaterowie tanki",
         "pt-BR": "Todos os Heróis de Tanque",
         "zh-CN": "所有重装英雄"
     },
@@ -6007,7 +6096,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000B11D",
         "en-US": "Altitude Of",
         "es-MX": "Altitud de",
@@ -6032,7 +6121,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B273",
         "en-US": "And",
         "es-MX": "Y",
@@ -6057,7 +6146,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000C813",
         "en-US": "Angle Between Vectors",
         "es-MX": "Ángulo entre vectores",
@@ -6082,7 +6171,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000B282",
         "en-US": "Angle Difference",
         "es-MX": "Diferencia de ángulo",
@@ -6104,11 +6193,16 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
-                "type": ["Object", {Array: "Object"}],
+                "type": [
+                    "Object",
+                    {
+                        "Array": "Object"
+                    }
+                ],
                 "default": "NUMBER"
             }
         ],
-        return: "Array",
+        "return": "Array",
         "en-US": "Append To Array",
         "es-MX": "Anexar a la matriz",
         "fr-FR": "Ajouter au tableau",
@@ -6126,7 +6220,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C809",
         "en-US": "Arccosine In Degrees",
         "es-MX": "Arcocoseno en grados",
@@ -6145,7 +6239,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C807",
         "en-US": "Arccosine In Radians",
         "es-MX": "Arcocoseno en radianes",
@@ -6164,7 +6258,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C805",
         "en-US": "Arcsine In Degrees",
         "es-MX": "Arcoseno en grados",
@@ -6183,7 +6277,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C803",
         "en-US": "Arcsine In Radians",
         "es-MX": "Arcoseno en radianes",
@@ -6208,7 +6302,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C801",
         "en-US": "Arctangent In Degrees",
         "es-MX": "Arcotangente en grados",
@@ -6233,7 +6327,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C7FF",
         "en-US": "Arctangent In Radians",
         "es-MX": "Arcotangente en radianes",
@@ -6248,12 +6342,25 @@ var valueFuncKw =
             {
                 "name": "[0]",
                 "description": "The value that will be stored in the array at index [0].",
-                "type": ["Object", "Array"],
-                "default": "NULL",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
+                "default": "NULL"
             }
         ],
-        return: "Array",
+        "return": "Array",
+        "guid": "000000010BC0",
         "en-US": "Array",
+        "es-ES": "Matriz",
+        "es-MX": "Matriz",
+        "fr-FR": "Tableau",
+        "ja-JP": "配列",
+        "pl-PL": "Tabela",
+        "pt-BR": "Matriz",
+        "ru-RU": "Массив",
+        "zh-CN": "数组",
+        "zh-TW": "陣列"
     },
     "__arrayContains__": {
         "description": "Whether the specified array contains the specified value.",
@@ -6271,7 +6378,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000C336",
         "en-US": "Array Contains",
         "es-MX": "La matriz contiene",
@@ -6286,7 +6393,9 @@ var valueFuncKw =
             {
                 "name": "ARRAY",
                 "description": "The array from which to make a copy.",
-                "type": {Array: "Object"},
+                "type": {
+                    "Array": "Object"
+                },
                 "default": "ALL PLAYERS"
             },
             {
@@ -6302,7 +6411,9 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: {Array: "Object"},
+        "return": {
+            "Array": "Object"
+        },
         "guid": "00000000B597",
         "en-US": "Array Slice",
         "es-MX": "Extracción de matriz",
@@ -6315,7 +6426,7 @@ var valueFuncKw =
         "guid": "00000000B32F",
         "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
         "args": null,
-        return: "Player",
+        "return": "Player",
         "en-US": "Attacker",
         "es-MX": "Atacante",
         "fr-FR": "Attaquant",
@@ -6327,8 +6438,12 @@ var valueFuncKw =
         "guid": "00000000B11B",
         "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
         "args": null,
-        return: {
-            "Direction": ["unsigned int", "unsigned int", "signed int"]
+        "return": {
+            "Direction": [
+                "unsigned int",
+                "unsigned int",
+                "signed int"
+            ]
         },
         "en-US": "Backward",
         "es-MX": "Atrás",
@@ -6347,8 +6462,14 @@ var valueFuncKw =
                 "default": "PRIMARY FIRE"
             }
         ],
-        return: "Button",
+        "return": "Button",
+        "guid": "000000010B3B",
         "en-US": "Button",
+        "es-MX": "Botón",
+        "fr-FR": "Bouton",
+        "ja-JP": "ボタン",
+        "pt-BR": "Botão",
+        "zh-CN": "按钮"
     },
     "getClosestPlayer": {
         "description": "The player closest to a position, optionally restricted by team.",
@@ -6366,7 +6487,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "Player",
+        "return": "Player",
         "guid": "00000000B1DE",
         "en-US": "Closest Player To",
         "es-MX": "Jugador más cercano a",
@@ -6381,7 +6502,10 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             },
             {
@@ -6393,11 +6517,14 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B276",
         "en-US": "Compare",
         "es-MX": "Comparar",
@@ -6416,7 +6543,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000B37C",
         "en-US": "Control Mode Scoring Percentage",
         "es-MX": "Porcentaje de puntuación en el modo Control",
@@ -6428,7 +6555,7 @@ var valueFuncKw =
     "getControlScoringTeam": {
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
         "args": [],
-        return: "Team",
+        "return": "Team",
         "guid": "00000000B39A",
         "en-US": "Control Mode Scoring Team",
         "es-MX": "Equipo que anota en el modo Control",
@@ -6447,7 +6574,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C33E",
         "en-US": "Cosine From Degrees",
         "es-MX": "Coseno en grados",
@@ -6466,7 +6593,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C342",
         "en-US": "Cosine From Radians",
         "es-MX": "Coseno en radianes",
@@ -6485,7 +6612,7 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B26E",
         "en-US": "Count Of",
         "es-MX": "Conteo de",
@@ -6510,7 +6637,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "Vector",
+        "return": "Vector",
         "guid": "00000000C35D",
         "en-US": "Cross Product",
         "es-MX": "Producto vectorial",
@@ -6522,7 +6649,10 @@ var valueFuncKw =
     "__currentArrayElement__": {
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": [],
-        return: ["Object", "Array"],
+        "return": [
+            "Object",
+            "Array"
+        ],
         "guid": "00000000B5B9",
         "en-US": "Current Array Element",
         "es-MX": "Elemento de matriz actual",
@@ -6534,13 +6664,12 @@ var valueFuncKw =
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
         "args": [],
-        return: "Gamemode",
+        "return": "Gamemode",
         "guid": "00000000F163",
         "en-US": "Current Game Mode",
         "es-MX": "Modo de juego actual",
         "fr-FR": "Mode de jeu actuel",
         "ja-JP": "現在のゲーム・モード",
-        "pl-PL": "Bieżący tryb gry",
         "pt-BR": "Modo de jogo atual",
         "zh-CN": "当前比赛模式"
     },
@@ -6548,12 +6677,11 @@ var valueFuncKw =
         "guid": "00000000D418",
         "description": "The current map of the custom game.",
         "args": [],
-        return: "Map",
+        "return": "Map",
         "en-US": "Current Map",
         "es-MX": "Mapa actual",
         "fr-FR": "Carte actuelle",
         "ja-JP": "現在のマップ",
-        "pl-PL": "Aktualna mapa",
         "pt-BR": "Mapa Atual",
         "zh-CN": "当前地图"
     },
@@ -6585,13 +6713,12 @@ var valueFuncKw =
                 "default": "NULL"
             }
         ],
-        return: "String",
+        "return": "String",
         "guid": "00000000CE3C",
         "en-US": "Custom String",
         "es-MX": "Cadena personalizada",
         "fr-FR": "Chaîne personnalisée",
         "ja-JP": "カスタムストリング",
-        "pl-PL": "Niestandardowy ciąg",
         "pt-BR": "String Personalizada",
         "zh-CN": "自定义字符串"
     },
@@ -6611,7 +6738,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "Direction",
+        "return": "Direction",
         "guid": "00000000BB2D",
         "en-US": "Direction From Angles",
         "es-MX": "Dirección desde los ángulos",
@@ -6636,7 +6763,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "Direction",
+        "return": "Direction",
         "guid": "00000000B1EA",
         "en-US": "Direction Towards",
         "es-MX": "Dirección hacia",
@@ -6661,7 +6788,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000B1E7",
         "en-US": "Distance Between",
         "es-MX": "Distancia entre",
@@ -6677,17 +6804,26 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             }
         ],
-        return: ["float", "Vector"],
+        "return": [
+            "float",
+            "Vector"
+        ],
         "en-US": "Divide",
         "es-MX": "Dividir",
         "fr-FR": "Division",
@@ -6711,7 +6847,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C35A",
         "en-US": "Dot Product",
         "es-MX": "Producto escalar",
@@ -6724,8 +6860,12 @@ var valueFuncKw =
         "guid": "00000000B119",
         "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
         "args": null,
-        return: {
-            "Direction": ["unsigned int", "signed int", "unsigned int"]
+        "return": {
+            "Direction": [
+                "unsigned int",
+                "signed int",
+                "unsigned int"
+            ]
         },
         "en-US": "Down",
         "es-MX": "Abajo",
@@ -6737,7 +6877,7 @@ var valueFuncKw =
     "__emptyArray__": {
         "description": "An array with no elements.",
         "args": [],
-        return: "Array",
+        "return": "Array",
         "guid": "00000000BF5A",
         "en-US": "Empty Array",
         "es-MX": "Matriz vacía",
@@ -6752,11 +6892,14 @@ var valueFuncKw =
             {
                 "name": "ENTITY",
                 "description": "The player, icon entity, or effect entity whose existence to check.",
-                "type": ["Player", "EntityId"],
+                "type": [
+                    "Player",
+                    "EntityId"
+                ],
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B619",
         "en-US": "Entity Exists",
         "es-MX": "La entidad existe",
@@ -6768,13 +6911,19 @@ var valueFuncKw =
     "eventAbility": {
         "description": "The ability for the event currently being processed by this rule associated by button.",
         "args": null,
-        return: "Button",
+        "return": "Button",
+        "guid": "0000000109CF",
         "en-US": "Event Ability",
+        "es-MX": "Evento de habilidad",
+        "fr-FR": "Capacité d’évènement",
+        "ja-JP": "イベントアビリティ",
+        "pt-BR": "Habilidade do Evento",
+        "zh-CN": "事件技能"
     },
     "eventDamage": {
         "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
         "args": null,
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000C635",
         "en-US": "Event Damage",
         "es-MX": "Daño de evento",
@@ -6786,26 +6935,31 @@ var valueFuncKw =
     "eventDirection": {
         "description": "The incoming direction for the event currently being processed by this rule.",
         "args": null,
-        return: "Direction",
+        "return": "Direction",
+        "guid": "0000000107D5",
         "en-US": "Event Direction",
+        "es-MX": "Dirección del evento",
+        "fr-FR": "Direction de l’évènement",
+        "ja-JP": "イベント方向",
+        "pt-BR": "Direção do Evento",
+        "zh-CN": "事件方向"
     },
     "eventHealing": {
         "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
         "args": null,
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000CC33",
         "en-US": "Event Healing",
         "es-MX": "Sanación de evento",
         "fr-FR": "Évènement soin",
         "ja-JP": "イベント回復",
-        "pl-PL": "Zdarzenie leczenia",
         "pt-BR": "Cura no Evento",
         "zh-CN": "事件治疗"
     },
     "eventPlayer": {
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
         "args": null,
-        return: "Player",
+        "return": "Player",
         "guid": "00000000B331",
         "en-US": "Event Player",
         "es-MX": "Jugador del evento",
@@ -6817,7 +6971,7 @@ var valueFuncKw =
     "eventWasCriticalHit": {
         "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
         "args": null,
-        return: "bool",
+        "return": "bool",
         "guid": "00000000C637",
         "en-US": "Event Was Critical Hit",
         "es-MX": "El evento fue un golpe crítico",
@@ -6829,7 +6983,7 @@ var valueFuncKw =
     "eventWasHealthPack": {
         "description": "Whether the healing was a health pack for the event currently being processed by this rule.",
         "args": null,
-        return: "bool",
+        "return": "bool",
         "guid": "00000000FC80",
         "en-US": "Event Was Health Pack",
         "es-MX": "Evento fue suministro de salud",
@@ -6849,7 +7003,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "Position",
+        "return": "Position",
         "en-US": "Eye Position",
         "es-MX": "Posición de la vista",
         "fr-FR": "Position des yeux",
@@ -6867,7 +7021,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "Direction",
+        "return": "Direction",
         "guid": "00000000B281",
         "en-US": "Facing Direction Of",
         "es-MX": "Dirección de orientación de",
@@ -6879,7 +7033,7 @@ var valueFuncKw =
     "false": {
         "description": "The boolean value of false.",
         "args": null,
-        return: "bool",
+        "return": "bool",
         "guid": "00000000AC3A",
         "en-US": "False",
         "es-MX": "Falso",
@@ -6902,7 +7056,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "Player",
+        "return": "Player",
         "guid": "00000000B1DF",
         "en-US": "Farthest Player From",
         "es-MX": "Jugador más lejos de",
@@ -6927,7 +7081,7 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
-        return: "Array",
+        "return": "Array",
         "guid": "00000000B5B7",
         "en-US": "Filtered Array",
         "es-MX": "Matriz filtrada",
@@ -6946,7 +7100,10 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
-        return: ["Object", "Array"],
+        "return": [
+            "Object",
+            "Array"
+        ],
         "guid": "00000000B5C2",
         "en-US": "First Of",
         "es-MX": "Primero de",
@@ -6965,7 +7122,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "Position",
+        "return": "Position",
         "guid": "00000000B3A0",
         "en-US": "Flag Position",
         "es-MX": "Posición de la bandera",
@@ -6978,8 +7135,12 @@ var valueFuncKw =
         "guid": "00000000B11A",
         "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
         "args": null,
-        return: {
-            "Direction": ["unsigned int", "unsigned int", "unsigned int"]
+        "return": {
+            "Direction": [
+                "unsigned int",
+                "unsigned int",
+                "unsigned int"
+            ]
         },
         "en-US": "Forward",
         "es-MX": "Adelante",
@@ -6989,8 +7150,15 @@ var valueFuncKw =
         "zh-CN": "前"
     },
     "__global__": {
-        return: "GlobalVariable",
+        "return": "GlobalVariable",
+        "guid": "00000000EAFB",
         "en-US": "Global",
+        "it-IT": "Globale",
+        "ja-JP": "グローバル",
+        "pl-PL": "Globalnie",
+        "ru-RU": "Глобальные",
+        "zh-CN": "全局",
+        "zh-TW": "全域"
     },
     "__globalVar__": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
@@ -7002,7 +7170,7 @@ var valueFuncKw =
                 "default": "A"
             }
         ],
-        return: "Value",
+        "return": "Value",
         "guid": "00000000B0F9",
         "en-US": "Global Variable",
         "es-MX": "Variable global",
@@ -7021,7 +7189,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000C192",
         "en-US": "Has Spawned",
         "es-MX": "Ha aparecido",
@@ -7046,7 +7214,7 @@ var valueFuncKw =
                 "default": "HACKED"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B363",
         "en-US": "Has Status",
         "es-MX": "Tiene estado",
@@ -7058,13 +7226,12 @@ var valueFuncKw =
     "healee": {
         "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
         "args": null,
-        return: "Player",
+        "return": "Player",
         "guid": "00000000CC1C",
         "en-US": "Healee",
         "es-MX": "Sanado",
         "fr-FR": "Soigné",
         "ja-JP": "回復対象",
-        "pl-PL": "Leczony",
         "pt-BR": "Curado",
         "zh-CN": "受治疗者"
     },
@@ -7072,12 +7239,11 @@ var valueFuncKw =
         "guid": "00000000CC1A",
         "description": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player.",
         "args": null,
-        return: "Player",
+        "return": "Player",
         "en-US": "Healer",
         "es-MX": "Sanador",
         "fr-FR": "Soigneur",
         "ja-JP": "ヒーラー",
-        "pl-PL": "Leczący",
         "pt-BR": "Curandeiro",
         "zh-CN": "治疗者"
     },
@@ -7092,7 +7258,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "en-US": "Health",
         "es-MX": "Salud",
         "fr-FR": "Points de vie",
@@ -7110,7 +7276,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "0000000081C3",
         "en-US": "Normalized Health",
         "es-MX": "Salud normalizada",
@@ -7130,7 +7296,7 @@ var valueFuncKw =
                 "default": "ANA"
             }
         ],
-        return: "Hero",
+        "return": "Hero",
         "en-US": "Hero",
         "es-MX": "Héroe",
         "fr-FR": "Héros",
@@ -7148,7 +7314,7 @@ var valueFuncKw =
                 "default": "HERO"
             }
         ],
-        return: "String",
+        "return": "String",
         "guid": "00000000C1FE",
         "en-US": "Hero Icon String",
         "es-MX": "Cadena de ícono de héroe",
@@ -7167,7 +7333,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "Hero",
+        "return": "Hero",
         "guid": "00000000ACA9",
         "en-US": "Hero Of",
         "es-MX": "Héroe de",
@@ -7186,7 +7352,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000BB2C",
         "en-US": "Horizontal Angle From Direction",
         "es-MX": "Ángulo horizontal desde la dirección",
@@ -7211,7 +7377,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000B27D",
         "en-US": "Horizontal Angle Towards",
         "es-MX": "Ángulo horizontal en dirección a",
@@ -7231,12 +7397,11 @@ var valueFuncKw =
                 "default": "ASSAULT"
             }
         ],
-        return: "Gamemode",
+        "return": "Gamemode",
         "en-US": "Game Mode",
         "es-MX": "Modo de juego",
         "fr-FR": "Mode de jeu",
         "ja-JP": "ゲーム・モード",
-        "pl-PL": "Tryb gry",
         "pt-BR": "Modo de jogo",
         "zh-CN": "比赛模式"
     },
@@ -7250,7 +7415,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000B27F",
         "en-US": "Horizontal Facing Angle Of",
         "es-MX": "Ángulo horizontal de orientación de",
@@ -7269,7 +7434,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000B25E",
         "en-US": "Horizontal Speed Of",
         "es-MX": "Velocidad horizontal de",
@@ -7281,13 +7446,12 @@ var valueFuncKw =
     "hostPlayer": {
         "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
         "args": null,
-        return: "Player",
+        "return": "Player",
         "guid": "00000000CC1E",
         "en-US": "Host Player",
         "es-MX": "Jugador anfitrión",
         "fr-FR": "Joueur hôte",
         "ja-JP": "ホスト・プレイヤー",
-        "pl-PL": "Gracz gospodarz",
         "pt-BR": "Jogador Anfitrião",
         "zh-CN": "主机玩家"
     },
@@ -7301,13 +7465,12 @@ var valueFuncKw =
                 "default": "ARROW: DOWN"
             }
         ],
-        return: "String",
+        "return": "String",
         "guid": "00000000CCDC",
         "en-US": "Icon String",
         "es-MX": "Cadena de ícono",
         "fr-FR": "Chaîne d’icône",
         "ja-JP": "アイコンストリング",
-        "pl-PL": "Symbol w ciągu",
         "pt-BR": "String de Ícone",
         "zh-CN": "图标字符串"
     },
@@ -7318,21 +7481,35 @@ var valueFuncKw =
                 "name": "IF",
                 "description": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else.",
                 "type": "bool",
-                "default": "TRUE",
-            },{
+                "default": "TRUE"
+            },
+            {
                 "name": "THEN",
                 "description": "The result of the value when the if condition evaluates to true.",
-                "type": ["Object", "Array"],
-                "default": "NUMBER",
-            },{
+                "type": [
+                    "Object",
+                    "Array"
+                ],
+                "default": "NUMBER"
+            },
+            {
                 "name": "ELSE",
                 "description": "The result of the value when the if condition evaluates to false.",
-                "type": ["Object", "Array"],
-                "default": "NUMBER",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
+                "default": "NUMBER"
             }
         ],
+        "return": [
+            "Object",
+            "Array"
+        ],
+        "guid": "000000010BC7",
         "en-US": "If-Then-Else",
-        return: ["Object", "Array"],
+        "fr-FR": "Si-Alors-Sinon",
+        "ja-JP": "IF-THEN-ELSE"
     },
     "__indexOfArrayValue__": {
         "description": "The index of a value within an array or -1 if no such value can be found.",
@@ -7340,7 +7517,9 @@ var valueFuncKw =
             {
                 "name": "ARRAY",
                 "description": "The array in which to search for the specified value.",
-                "type": {Array: "Object"},
+                "type": {
+                    "Array": "Object"
+                },
                 "default": "ALL PLAYERS"
             },
             {
@@ -7350,7 +7529,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "int",
+        "return": "int",
         "guid": "00000000C330",
         "en-US": "Index Of Array Value",
         "es-MX": "Índice del valor de la matriz",
@@ -7369,7 +7548,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B278",
         "en-US": "Is Alive",
         "es-MX": "Está vivo",
@@ -7381,7 +7560,7 @@ var valueFuncKw =
     "isAssemblingHeroes": {
         "description": "Whether the match is currently in its assemble heroes phase.",
         "args": [],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B35C",
         "en-US": "Is Assembling Heroes",
         "es-MX": "En Forma tu equipo",
@@ -7393,7 +7572,7 @@ var valueFuncKw =
     "isMatchBetweenRounds": {
         "description": "Whether the match is between rounds.",
         "args": [],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B35F",
         "en-US": "Is Between Rounds",
         "es-MX": "Entre rondas",
@@ -7418,7 +7597,7 @@ var valueFuncKw =
                 "default": "PRIMARY FIRE"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B2F3",
         "en-US": "Is Button Held",
         "es-MX": "Botón presionado",
@@ -7443,7 +7622,7 @@ var valueFuncKw =
                 "default": "VOICE LINE UP"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B268",
         "en-US": "Is Communicating",
         "es-MX": "Se está comunicando",
@@ -7462,7 +7641,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B9E5",
         "en-US": "Is Communicating Any",
         "es-MX": "Comunica algo",
@@ -7481,7 +7660,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B9E8",
         "en-US": "Is Communicating Any Emote",
         "es-MX": "Comunica un gesto",
@@ -7500,7 +7679,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B9E7",
         "en-US": "Is Communicating Any Voice line",
         "es-MX": "Comunica una línea de voz",
@@ -7512,7 +7691,7 @@ var valueFuncKw =
     "isControlPointLocked": {
         "description": "Whether the point is locked in control mode.",
         "args": [],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B37B",
         "en-US": "Is Control Mode Point Locked",
         "es-MX": "Punto bloqueado en el modo Control",
@@ -7531,7 +7710,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B289",
         "en-US": "Is Crouching",
         "es-MX": "Agachado",
@@ -7543,7 +7722,7 @@ var valueFuncKw =
     "isInSuddenDeath": {
         "description": "Whether the current game of capture the flag is in sudden death.",
         "args": [],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B3A4",
         "en-US": "Is CTF Mode In Sudden Death",
         "es-MX": "Modo CLB en muerte súbita",
@@ -7562,7 +7741,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B277",
         "en-US": "Is Dead",
         "es-MX": "Está muerto",
@@ -7581,13 +7760,12 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000CEDF",
         "en-US": "Is Dummy Bot",
         "es-MX": "Robot de entrenamiento",
         "fr-FR": "Est une I.A.",
         "ja-JP": "ダミーボットである",
-        "pl-PL": "Jest atrapą bota.",
         "pt-BR": "É Bot",
         "zh-CN": "是否是机器人"
     },
@@ -7601,7 +7779,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000C3E7",
         "en-US": "Is Firing Primary",
         "es-MX": "Está usando el disparo principal",
@@ -7620,7 +7798,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000C3E9",
         "en-US": "Is Firing Secondary",
         "es-MX": "Está usando el disparo secundario",
@@ -7639,7 +7817,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B3A1",
         "en-US": "Is Flag At Base",
         "es-MX": "La bandera está en la base",
@@ -7658,7 +7836,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B3A2",
         "en-US": "Is Flag Being Carried",
         "es-MX": "La bandera está siendo transportada",
@@ -7670,7 +7848,7 @@ var valueFuncKw =
     "isGameInProgress": {
         "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
         "args": [],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B35E",
         "en-US": "Is Game In Progress",
         "es-MX": "Partida en curso",
@@ -7695,7 +7873,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B292",
         "en-US": "Is Hero Being Played",
         "es-MX": "Jugando con el héroe",
@@ -7714,7 +7892,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B28B",
         "en-US": "Is In Air",
         "es-MX": "En el aire",
@@ -7729,13 +7907,19 @@ var valueFuncKw =
             {
                 "name": "START POS",
                 "description": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": ["Position", "Player"],
+                "type": [
+                    "Position",
+                    "Player"
+                ],
                 "default": "VECTOR"
             },
             {
                 "name": "END POS",
                 "description": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
-                "type": ["Position", "Player"],
+                "type": [
+                    "Position",
+                    "Player"
+                ],
                 "default": "VECTOR"
             },
             {
@@ -7745,7 +7929,7 @@ var valueFuncKw =
                 "default": "BARRIERS DO NOT BLOCK LOS"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B1EC",
         "en-US": "Is In Line of Sight",
         "es-MX": "En la línea de visión",
@@ -7757,7 +7941,7 @@ var valueFuncKw =
     "isInSetup": {
         "description": "Whether the match is currently in its setup phase.",
         "args": [],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B35D",
         "en-US": "Is In Setup",
         "es-MX": "En preparación",
@@ -7776,7 +7960,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B3B1",
         "en-US": "Is In Spawn Room",
         "es-MX": "En el cuarto de reaparición",
@@ -7807,7 +7991,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000BF7C",
         "en-US": "Is In View Angle",
         "es-MX": "En el ángulo de vista",
@@ -7826,13 +8010,19 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        "return": "bool",
+        "guid": "0000000105A0",
         "en-US": "Is Jumping",
-        return: "bool",
+        "es-MX": "Está saltando",
+        "fr-FR": "Utilise Saut",
+        "ja-JP": "ジャンプ中",
+        "pt-BR": "Está Pulando",
+        "zh-CN": "正在跳跃"
     },
     "isMatchComplete": {
         "description": "Whether the match has finished.",
         "args": [],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B360",
         "en-US": "Is Match Complete",
         "es-MX": "Partida Completada",
@@ -7851,8 +8041,14 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        "return": "bool",
+        "guid": "00000001059A",
         "en-US": "Is Meleeing",
-        return: "bool",
+        "es-MX": "Está usando un ataque melé",
+        "fr-FR": "Utilise Mêlée",
+        "ja-JP": "近接攻撃中",
+        "pt-BR": "Está Usando Corpo a Corpo",
+        "zh-CN": "正在近战攻击"
     },
     "_&isMoving": {
         "description": "Whether a player is moving (defined as having a nonzero current speed).",
@@ -7864,7 +8060,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B288",
         "en-US": "Is Moving",
         "es-MX": "En movimiento",
@@ -7883,7 +8079,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B378",
         "en-US": "Is Objective Complete",
         "es-MX": "Objetivo completado",
@@ -7902,7 +8098,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000BF70",
         "en-US": "Is On Ground",
         "es-MX": "En el suelo",
@@ -7921,7 +8117,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B3B2",
         "en-US": "Is On Objective",
         "es-MX": "En el objetivo",
@@ -7940,7 +8136,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000BB0B",
         "en-US": "Is On Wall",
         "es-MX": "En el muro",
@@ -7959,7 +8155,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B3B3",
         "en-US": "Is Portrait On Fire",
         "es-MX": "Retrato en llamas",
@@ -7978,7 +8174,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B287",
         "en-US": "Is Standing",
         "es-MX": "De pie",
@@ -7997,7 +8193,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B359",
         "en-US": "Is Team On Defense",
         "es-MX": "Equipo defensor",
@@ -8016,7 +8212,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B354",
         "en-US": "Is Team On Offense",
         "es-MX": "Equipo atacante",
@@ -8041,7 +8237,7 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B5BA",
         "en-US": "Is True For All",
         "es-MX": "Es verdadero para todos",
@@ -8066,7 +8262,7 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B5BB",
         "en-US": "Is True For Any",
         "es-MX": "Es verdadero para cualquiera",
@@ -8085,7 +8281,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000C3EB",
         "en-US": "Is Using Ability 1",
         "es-MX": "Está utilizando la habilidad 1",
@@ -8104,7 +8300,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000C3ED",
         "en-US": "Is Using Ability 2",
         "es-MX": "Está utilizando la habilidad 2",
@@ -8123,7 +8319,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B9D4",
         "en-US": "Is Using Ultimate",
         "es-MX": "Está usando la habilidad máxima",
@@ -8135,7 +8331,7 @@ var valueFuncKw =
     "isWaitingForPlayers": {
         "description": "Whether the match is waiting for players to join before starting.",
         "args": [],
-        return: "bool",
+        "return": "bool",
         "guid": "00000000B35B",
         "en-US": "Is Waiting For Players",
         "es-MX": "Esperando jugadores",
@@ -8147,7 +8343,7 @@ var valueFuncKw =
     "getLastCreatedEntity": {
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": [],
-        return: "EntityId",
+        "return": "EntityId",
         "guid": "00000000B362",
         "en-US": "Last Created Entity",
         "es-MX": "Última entidad creada",
@@ -8159,7 +8355,7 @@ var valueFuncKw =
     "getLastDamageModification": {
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
         "args": [],
-        return: "DamageModificationId",
+        "return": "DamageModificationId",
         "guid": "00000000C64A",
         "en-US": "Last Damage Modification ID",
         "es-MX": "ID de modificación de daño anterior",
@@ -8171,7 +8367,7 @@ var valueFuncKw =
     "getLastDoT": {
         "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
         "args": [],
-        return: "DotId",
+        "return": "DotId",
         "guid": "00000000B263",
         "en-US": "Last Damage Over Time ID",
         "es-MX": "ID de daño con el tiempo anterior",
@@ -8183,7 +8379,7 @@ var valueFuncKw =
     "getLastHoT": {
         "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
         "args": [],
-        return: "HotId",
+        "return": "HotId",
         "guid": "00000000B262",
         "en-US": "Last Heal Over Time ID",
         "es-MX": "ID de sanación con el tiempo anterior",
@@ -8195,13 +8391,12 @@ var valueFuncKw =
     "getLastHealingModification": {
         "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
         "args": [],
-        return: "HealingModificationId",
+        "return": "HealingModificationId",
         "guid": "00000000FD2A",
         "en-US": "Last Healing Modification ID",
         "es-MX": "ID de modificación de sanación anterior",
         "fr-FR": "Dernier identifiant de modification de soins",
         "ja-JP": "最新の回復変更ID",
-        "pl-PL": "Ostatni identyfikator modyfikacji leczenia",
         "pt-BR": "ID da última modificação de cura",
         "zh-CN": "上一个治疗调整ID"
     },
@@ -8215,7 +8410,10 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
-        return: ["Object", "Array"],
+        "return": [
+            "Object",
+            "Array"
+        ],
         "guid": "00000000B5C1",
         "en-US": "Last Of",
         "es-MX": "Último de",
@@ -8227,7 +8425,7 @@ var valueFuncKw =
     "getLastCreatedText": {
         "description": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action.",
         "args": [],
-        return: "TextId",
+        "return": "TextId",
         "guid": "00000000BAFE",
         "en-US": "Last Text ID",
         "es-MX": "ID de texto anterior",
@@ -8240,8 +8438,12 @@ var valueFuncKw =
         "guid": "00000000B116",
         "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
         "args": null,
-        return: {
-            "Direction": ["unsigned int", "unsigned int", "unsigned int"]
+        "return": {
+            "Direction": [
+                "unsigned int",
+                "unsigned int",
+                "unsigned int"
+            ]
         },
         "en-US": "Left",
         "es-MX": "Izquierda",
@@ -8272,7 +8474,7 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
-        return: "Vector",
+        "return": "Vector",
         "guid": "00000000B342",
         "en-US": "Local Vector Of",
         "es-MX": "Vector local de",
@@ -8292,7 +8494,7 @@ var valueFuncKw =
                 "default": "AYUTTHAYA"
             }
         ],
-        return: "Map",
+        "return": "Map",
         "en-US": "Map",
         "es-ES": "Mapa",
         "es-MX": "Mapa",
@@ -8308,7 +8510,7 @@ var valueFuncKw =
     "getMatchRound": {
         "description": "The current round of the match, counting up from 1.",
         "args": [],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B375",
         "en-US": "Match Round",
         "es-MX": "Ronda de la partida",
@@ -8320,7 +8522,7 @@ var valueFuncKw =
     "getMatchTime": {
         "description": "The amount of time in seconds remaining in the current game mode phase.",
         "args": [],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000AD3B",
         "en-US": "Match Time",
         "es-MX": "Tiempo de la partida",
@@ -8346,7 +8548,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "en-US": "Max",
         "es-MX": "Máximo",
         "fr-FR": "Maximum",
@@ -8364,7 +8566,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "0000000081C4",
         "en-US": "Max Health",
         "es-MX": "Salud máxima",
@@ -8390,7 +8592,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "en-US": "Min",
         "es-MX": "Mínimo",
         "fr-FR": "Minimum",
@@ -8415,7 +8617,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "en-US": "Modulo",
         "es-MX": "Módulo",
         "ja-JP": "剰余",
@@ -8429,17 +8631,26 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             }
         ],
-        return: ["float", "Vector"],
+        "return": [
+            "float",
+            "Vector"
+        ],
         "en-US": "Multiply",
         "es-MX": "Multiplicar",
         "fr-FR": "Multiplication",
@@ -8457,7 +8668,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "Position",
+        "return": "Position",
         "guid": "00000000C324",
         "en-US": "Nearest Walkable Position",
         "es-MX": "Posición caminable más cercana",
@@ -8476,7 +8687,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "Vector",
+        "return": "Vector",
         "guid": "00000000C344",
         "en-US": "Normalize",
         "es-MX": "Normalizar",
@@ -8496,7 +8707,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "en-US": "Not",
         "es-MX": "No",
         "fr-FR": "Pas",
@@ -8507,7 +8718,7 @@ var valueFuncKw =
     "null": {
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
         "args": null,
-        return: "Player",
+        "return": "Player",
         "guid": "00000000B594",
         "en-US": "Null",
         "es-MX": "Nulo",
@@ -8526,7 +8737,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B29A",
         "en-US": "Number of Dead Players",
         "es-MX": "Cantidad de jugadores muertos",
@@ -8545,7 +8756,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B103",
         "en-US": "Number of Deaths",
         "es-MX": "Cantidad de muertes",
@@ -8564,7 +8775,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B101",
         "en-US": "Number of Eliminations",
         "es-MX": "Cantidad de eliminaciones",
@@ -8583,7 +8794,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B102",
         "en-US": "Number of Final Blows",
         "es-MX": "Cantidad de golpes de gracia",
@@ -8608,7 +8819,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B296",
         "en-US": "Number of Heroes",
         "es-MX": "Cantidad de héroes",
@@ -8627,7 +8838,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B297",
         "en-US": "Number of Living Players",
         "es-MX": "Cantidad de jugadores vivos",
@@ -8646,7 +8857,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B295",
         "en-US": "Number of Players",
         "es-MX": "Cantidad de jugadores",
@@ -8665,7 +8876,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B29B",
         "en-US": "Number of Players On Objective",
         "es-MX": "Cantidad de jugadores en el objetivo",
@@ -8677,7 +8888,7 @@ var valueFuncKw =
     "getCurrentObjective": {
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
         "args": [],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B37D",
         "en-US": "Objective Index",
         "es-MX": "Índice de objetivo",
@@ -8696,7 +8907,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000B355",
         "en-US": "Objective Position",
         "es-MX": "Posición del objetivo",
@@ -8715,7 +8926,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "Team",
+        "return": "Team",
         "guid": "00000000BB0A",
         "en-US": "Opposite Team Of",
         "es-MX": "Equipo contrario de",
@@ -8741,7 +8952,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        return: "bool",
+        "return": "bool",
         "en-US": "Or",
         "es-MX": "O",
         "fr-FR": "Ou",
@@ -8752,7 +8963,7 @@ var valueFuncKw =
     "getPayloadPosition": {
         "description": "The position in the world of the active payload.",
         "args": [],
-        return: "Position",
+        "return": "Position",
         "guid": "00000000B356",
         "en-US": "Payload Position",
         "es-MX": "Posición de la carga",
@@ -8764,7 +8975,7 @@ var valueFuncKw =
     "getPayloadProgressPercentage": {
         "description": "The current progress towards the destination for the active payload (expressed as a percentage).",
         "args": [],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000B357",
         "en-US": "Payload Progress Percentage",
         "es-MX": "Porcentaje de progreso de la carga",
@@ -8783,7 +8994,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "Player",
+        "return": "Player",
         "guid": "00000000B3A3",
         "en-US": "Player Carrying Flag",
         "es-MX": "Jugador que transporta la bandera",
@@ -8808,7 +9019,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "Player",
+        "return": "Player",
         "guid": "00000000C328",
         "en-US": "Player Closest To Reticle",
         "es-MX": "Jugador más cercano al retículo",
@@ -8833,7 +9044,7 @@ var valueFuncKw =
                 "default": "A"
             }
         ],
-        return: "Value",
+        "return": "Value",
         "guid": "00000000B0FD",
         "en-US": "Player Variable",
         "es-MX": "Variable de jugador",
@@ -8858,7 +9069,12 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: ["Player", {Array: "Player"}],
+        "return": [
+            "Player",
+            {
+                "Array": "Player"
+            }
+        ],
         "guid": "00000000B334",
         "en-US": "Players In Slot",
         "es-MX": "Jugadores en la posición",
@@ -8889,7 +9105,9 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: {Array: "Player"},
+        "return": {
+            "Array": "Player"
+        },
         "guid": "00000000C32F",
         "en-US": "Players in View Angle",
         "es-MX": "Jugadores en el ángulo de vista",
@@ -8914,7 +9132,9 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: {Array: "Player"},
+        "return": {
+            "Array": "Player"
+        },
         "guid": "00000000B338",
         "en-US": "Players On Hero",
         "es-MX": "Jugadores con el héroe",
@@ -8951,7 +9171,9 @@ var valueFuncKw =
                 "default": "OFF"
             }
         ],
-        return: {Array: "Player"},
+        "return": {
+            "Array": "Player"
+        },
         "guid": "00000000B1E0",
         "en-US": "Players Within Radius",
         "es-MX": "Jugadores dentro del radio",
@@ -8963,7 +9185,7 @@ var valueFuncKw =
     "getCapturePercentage": {
         "description": "The current progress towards capture for the active control point (expressed as a percentage).",
         "args": [],
-        return: "float",
+        "return": "float",
         "guid": "00000000B358",
         "en-US": "Point Capture Percentage",
         "es-MX": "Porcentaje de captura de punto",
@@ -8982,7 +9204,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "Position",
+        "return": "Position",
         "guid": "00000000B11C",
         "en-US": "Position Of",
         "es-MX": "Posición de",
@@ -9008,7 +9230,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "en-US": "Raise To Power",
         "es-MX": "Elevar a la potencia",
         "fr-FR": "Élévation à une puissance ",
@@ -9032,7 +9254,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "int",
+        "return": "int",
         "guid": "00000000B59B",
         "en-US": "Random Integer",
         "es-MX": "Número entero aleatorio",
@@ -9057,7 +9279,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000B59A",
         "en-US": "Random Real",
         "es-MX": "Número real aleatorio",
@@ -9076,7 +9298,10 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
-        return: ["Object", "Array"],
+        "return": [
+            "Object",
+            "Array"
+        ],
         "guid": "00000000B599",
         "en-US": "Random Value In Array",
         "es-MX": "Valor aleatorio en matriz",
@@ -9095,7 +9320,7 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
-        return: "Array",
+        "return": "Array",
         "guid": "00000000B598",
         "en-US": "Randomized Array",
         "es-MX": "Matriz aleatorizada",
@@ -9122,13 +9347,17 @@ var valueFuncKw =
             {
                 "name": "PLAYERS TO INCLUDE",
                 "description": "Which players can be hit by this ray cast.",
-                "type": {Array: "Player"},
+                "type": {
+                    "Array": "Player"
+                },
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
-                "type": {Array: "Player"},
+                "type": {
+                    "Array": "Player"
+                },
                 "default": "EVENT PLAYER"
             },
             {
@@ -9138,7 +9367,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        return: "Direction",
+        "return": "Direction",
         "guid": "00000000C613",
         "en-US": "Ray Cast Hit Normal",
         "es-MX": "Estándar de impacto de lanzamiento de rayo",
@@ -9165,13 +9394,17 @@ var valueFuncKw =
             {
                 "name": "PLAYERS TO INCLUDE",
                 "description": "Which players can be hit by this ray cast.",
-                "type": {Array: "Player"},
+                "type": {
+                    "Array": "Player"
+                },
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
-                "type": {Array: "Player"},
+                "type": {
+                    "Array": "Player"
+                },
                 "default": "EVENT PLAYER"
             },
             {
@@ -9181,7 +9414,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        return: "Player",
+        "return": "Player",
         "guid": "00000000C611",
         "en-US": "Ray Cast Hit Player",
         "es-MX": "Jugador de impacto de lanzamiento de rayo",
@@ -9208,13 +9441,17 @@ var valueFuncKw =
             {
                 "name": "PLAYERS TO INCLUDE",
                 "description": "Which players can be hit by this ray cast.",
-                "type": {Array: "Player"},
+                "type": {
+                    "Array": "Player"
+                },
                 "default": "ALL PLAYERS"
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
-                "type": {Array: "Player"},
+                "type": {
+                    "Array": "Player"
+                },
                 "default": "EVENT PLAYER"
             },
             {
@@ -9224,7 +9461,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        return: "Position",
+        "return": "Position",
         "guid": "00000000C597",
         "en-US": "Ray Cast Hit Position",
         "es-MX": "Posición de impacto de lanzamiento de rayo",
@@ -9245,11 +9482,14 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
                 "default": "NUMBER"
             }
         ],
-        return: "Array",
+        "return": "Array",
         "guid": "00000000C421",
         "en-US": "Remove From Array",
         "es-MX": "Eliminar de la matriz",
@@ -9262,8 +9502,12 @@ var valueFuncKw =
         "guid": "00000000B117",
         "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
         "args": null,
-        return: {
-            "Direction": ["signed int", "unsigned int", "unsigned int"]
+        "return": {
+            "Direction": [
+                "signed int",
+                "unsigned int",
+                "unsigned int"
+            ]
         },
         "en-US": "Right",
         "es-MX": "Derecha",
@@ -9288,7 +9532,7 @@ var valueFuncKw =
                 "default": "UP"
             }
         ],
-        return: "int",
+        "return": "int",
         "guid": "00000000C354",
         "en-US": "Round To Integer",
         "es-MX": "Redondear a número entero",
@@ -9307,7 +9551,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "int",
+        "return": "int",
         "guid": "00000000AD3C",
         "en-US": "Score Of",
         "es-MX": "Puntuación de",
@@ -9320,12 +9564,11 @@ var valueFuncKw =
         "guid": "00000000C961",
         "description": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
-        return: "unsigned float",
+        "return": "unsigned float",
         "en-US": "Server Load",
         "es-MX": "Uso del servidor",
         "fr-FR": "Charge du serveur",
         "ja-JP": "サーバー負荷",
-        "pl-PL": "Obciążenie serwera",
         "pt-BR": "Uso do Servidor",
         "zh-CN": "服务器负载"
     },
@@ -9333,12 +9576,11 @@ var valueFuncKw =
         "guid": "00000000C997",
         "description": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
-        return: "unsigned float",
+        "return": "unsigned float",
         "en-US": "Server Load Average",
         "es-MX": "Uso promedio del servidor",
         "fr-FR": "Charge moyenne du serveur",
         "ja-JP": "サーバー負荷平均",
-        "pl-PL": "Średnie obciążenie serwera",
         "pt-BR": "Média de Uso do Servidor",
         "zh-CN": "服务器负载平均值"
     },
@@ -9346,12 +9588,11 @@ var valueFuncKw =
         "guid": "00000000C996",
         "description": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
         "args": [],
-        return: "unsigned float",
+        "return": "unsigned float",
         "en-US": "Server Load Peak",
         "es-MX": "Uso máximo del servidor",
         "fr-FR": "Pic de charge du serveur",
         "ja-JP": "サーバー負荷ピーク",
-        "pl-PL": "Szczytowe obciążenie serwera",
         "pt-BR": "Pico de Uso do Servidor",
         "zh-CN": "服务器负载峰值"
     },
@@ -9365,7 +9606,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C33C",
         "en-US": "Sine From Degrees",
         "es-MX": "Seno en grados",
@@ -9384,7 +9625,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C340",
         "en-US": "Sine From Radians",
         "es-MX": "Seno en radianes",
@@ -9403,7 +9644,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned int",
+        "return": "unsigned int",
         "guid": "00000000BB7F",
         "en-US": "Slot Of",
         "es-MX": "Posición de",
@@ -9418,7 +9659,9 @@ var valueFuncKw =
             {
                 "name": "ARRAY",
                 "description": "The array whose copy will be sorted.",
-                "type": {Array: "Object"},
+                "type": {
+                    "Array": "Object"
+                },
                 "default": "GLOBAL VARIABLE"
             },
             {
@@ -9428,7 +9671,9 @@ var valueFuncKw =
                 "default": "CURRENT ARRAY ELEMENT"
             }
         ],
-        return: {Array: "Object"},
+        "return": {
+            "Array": "Object"
+        },
         "guid": "00000000B5C0",
         "en-US": "Sorted Array",
         "es-MX": "Matriz ordenada",
@@ -9447,7 +9692,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000B25D",
         "en-US": "Speed Of",
         "es-MX": "Velocidad de",
@@ -9472,7 +9717,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000B260",
         "en-US": "Speed Of In Direction",
         "es-MX": "Velocidad de/en dirección",
@@ -9491,7 +9736,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000C356",
         "en-US": "Square Root",
         "es-MX": "Raíz cuadrada",
@@ -9529,7 +9774,7 @@ var valueFuncKw =
                 "default": "NULL"
             }
         ],
-        return: "String",
+        "return": "String",
         "en-US": "String",
         "es-MX": "Cadena",
         "fr-FR": "Chaîne de texte",
@@ -9543,17 +9788,26 @@ var valueFuncKw =
             {
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             }
         ],
-        return: ["float", "Vector"],
+        "return": [
+            "float",
+            "Vector"
+        ],
         "en-US": "Subtract",
         "es-MX": "Restar",
         "fr-FR": "Soustraction",
@@ -9571,7 +9825,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C7F8",
         "en-US": "Tangent From Degrees",
         "es-MX": "Tangente en grados",
@@ -9590,7 +9844,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000C7FD",
         "en-US": "Tangent From Radians",
         "es-MX": "Tangente en radianes",
@@ -9609,7 +9863,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "Team",
+        "return": "Team",
         "guid": "00000000B279",
         "en-US": "Team Of",
         "es-MX": "Equipo de",
@@ -9629,7 +9883,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        return: "int",
+        "return": "int",
         "en-US": "Team Score",
         "es-MX": "Puntuación del equipo",
         "fr-FR": "Score de l’équipe",
@@ -9647,7 +9901,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "Direction",
+        "return": "Direction",
         "guid": "00000000B2F5",
         "en-US": "Throttle Of",
         "es-MX": "Aceleración de",
@@ -9659,7 +9913,7 @@ var valueFuncKw =
     "getTotalTimeElapsed": {
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
         "args": [],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000B361",
         "en-US": "Total Time Elapsed",
         "es-MX": "Tiempo total transcurrido",
@@ -9671,7 +9925,7 @@ var valueFuncKw =
     "true": {
         "description": "The boolean value of true.",
         "args": null,
-        return: "bool",
+        "return": "bool",
         "guid": "00000000AC39",
         "en-US": "True",
         "es-MX": "Verdadero",
@@ -9688,7 +9942,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "0000000081C5",
         "en-US": "Ultimate Charge Percent",
         "es-MX": "Porcentaje de carga de la habilidad máxima",
@@ -9701,8 +9955,12 @@ var valueFuncKw =
         "guid": "00000000B118",
         "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
         "args": null,
-        return: {
-            "Direction": ["unsigned int", "unsigned int", "unsigned int"]
+        "return": {
+            "Direction": [
+                "unsigned int",
+                "unsigned int",
+                "unsigned int"
+            ]
         },
         "en-US": "Up",
         "es-MX": "Arriba",
@@ -9727,7 +9985,10 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: ["Object", "Array"],
+        "return": [
+            "Object",
+            "Array"
+        ],
         "guid": "00000000B52A",
         "en-US": "Value In Array",
         "es-MX": "Valor en la matriz",
@@ -9759,7 +10020,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
-        return: "Vector",
+        "return": "Vector",
         "en-US": "Vector",
         "fr-FR": "Vecteur",
         "ja-JP": "ベクトル",
@@ -9782,7 +10043,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "Direction",
+        "return": "Direction",
         "guid": "00000000B1EB",
         "en-US": "Vector Towards",
         "es-MX": "Vector hacia",
@@ -9801,7 +10062,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "Velocity",
+        "return": "Velocity",
         "guid": "00000000B25C",
         "en-US": "Velocity Of",
         "es-MX": "Velocidad de",
@@ -9820,7 +10081,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000BB2B",
         "en-US": "Vertical Angle From Direction",
         "es-MX": "Ángulo vertical desde la dirección",
@@ -9845,7 +10106,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000B27E",
         "en-US": "Vertical Angle Towards",
         "es-MX": "Ángulo vertical en dirección a",
@@ -9864,7 +10125,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000B280",
         "en-US": "Vertical Facing Angle Of",
         "es-MX": "Ángulo vertical de orientación de",
@@ -9883,7 +10144,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        return: "unsigned float",
+        "return": "unsigned float",
         "guid": "00000000B25F",
         "en-US": "Vertical Speed Of",
         "es-MX": "Velocidad vertical de",
@@ -9896,7 +10157,7 @@ var valueFuncKw =
         "guid": "00000000B330",
         "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
         "args": null,
-        return: "Player",
+        "return": "Player",
         "en-US": "Victim",
         "es-MX": "Víctima",
         "fr-FR": "Victime",
@@ -9926,7 +10187,7 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
-        return: "Vector",
+        "return": "Vector",
         "guid": "00000000B33A",
         "en-US": "World Vector Of",
         "es-MX": "Vector global de",
@@ -9945,7 +10206,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000B26F",
         "en-US": "X Component Of",
         "es-MX": "Componente X de",
@@ -9964,7 +10225,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000B270",
         "en-US": "Y Component Of",
         "es-MX": "Componente Y de",
@@ -9983,7 +10244,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        return: "float",
+        "return": "float",
         "guid": "00000000B272",
         "en-US": "Z Component Of",
         "es-MX": "Componente Z de",
@@ -10621,7 +10882,7 @@ const mapKw =
         "ko-KR": "리장 관제 센터 설날",
         "pl-PL": "Wieża Lijiang: Centrum sterowania Księżycowy Nowy Rok",
         "pt-BR": "Centro de Controle Lijiang Ano Novo Lunar",
-        "ru-RU": "Командный центр Лицзян Лунный Новый год",
+        "ru-RU": "Лицзян: командный центр Лунный Новый год",
         "zh-CN": "春节漓江塔控制中心",
         "zh-TW": "灕江控制中心（春節）"
     },
@@ -10665,7 +10926,7 @@ const mapKw =
         "ko-KR": "리장 정원 설날",
         "pl-PL": "Wieża Lijiang: Ogród Księżycowy Nowy Rok",
         "pt-BR": "Jardim Lijiang Ano Novo Lunar",
-        "ru-RU": "Сад Лицзян Лунный Новый год",
+        "ru-RU": "Лицзян: сад Лунный Новый год",
         "zh-CN": "春节漓江塔庭院",
         "zh-TW": "灕江花園（春節）"
     },
@@ -10709,7 +10970,7 @@ const mapKw =
         "ko-KR": "리장 야시장 설날",
         "pl-PL": "Wieża Lijiang: Nocny bazar Księżycowy Nowy Rok",
         "pt-BR": "Mercado Noturno de Lijiang Ano Novo Lunar",
-        "ru-RU": "Ночной рынок Лицзян Лунный Новый год",
+        "ru-RU": "Лицзян: ночной рынок Лунный Новый год",
         "zh-CN": "春节漓江塔夜市",
         "zh-TW": "灕江夜市（春節）"
     },
@@ -11166,7 +11427,7 @@ const mapKw =
         "pl-PL": "Warsztat: Przestwór",
         "pt-BR": "Expansão do Workshop",
         "ru-RU": "Мастерская: поле",
-        "zh-CN": "地图工坊室外",
+        "zh-CN": "地图工坊空地",
         "zh-TW": "工作坊延伸區域"
     },
     "workshopExpanseNight": {
@@ -11176,7 +11437,20 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        "guid": "000000010C6D",
         "en-US": "Workshop Expanse Night",
+        "de-DE": "Workshop-Gebiet Nacht",
+        "es-ES": "Terreno del Taller nocturno",
+        "es-MX": "Expansión de Workshop noche",
+        "fr-FR": "Étendue de la Forge Nuit",
+        "it-IT": "Distesa del Workshop Notte",
+        "ja-JP": "WORKSHOP EXPANSE（NIGHT）",
+        "ko-KR": "워크샵 개활지 밤",
+        "pl-PL": "Warsztat: Przestwór noc",
+        "pt-BR": "Expansão do Workshop Noite",
+        "ru-RU": "Мастерская: поле ночь",
+        "zh-CN": "地图工坊空地（夜间）",
+        "zh-TW": "工作坊延伸區域（夜晚）"
     },
     "workshopIsland": {
         "gamemodes": [
@@ -11207,7 +11481,20 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        "guid": "000000010C71",
         "en-US": "Workshop Island Night",
+        "de-DE": "Workshop-Insel Nacht",
+        "es-ES": "Isla del Taller nocturno",
+        "es-MX": "Isla de Workshop noche",
+        "fr-FR": "Île de la Forge Nuit",
+        "it-IT": "Isola del Workshop Notte",
+        "ja-JP": "WORKSHOP ISLAND（NIGHT）",
+        "ko-KR": "워크샵 섬 밤",
+        "pl-PL": "Warsztat: Wyspa noc",
+        "pt-BR": "Ilha do Workshop Noite",
+        "ru-RU": "Мастерская: остров ночь",
+        "zh-CN": "地图工坊岛屿（夜间）",
+        "zh-TW": "工作坊島嶼（夜晚）"
     }
 }
 //end-json
@@ -11688,21 +11975,93 @@ const heroKw =
     },
     "echo": {
         "secondaryFire": {
+            "guid": "00000000A91F",
             "en-US": "Sticky Bombs",
+            "de-DE": "Haftbomben",
+            "es-ES": "Bombas lapa",
+            "es-MX": "Bombas pegajosas",
+            "fr-FR": "Bombes collantes",
+            "it-IT": "Bombe Adesive",
+            "ja-JP": "スティッキー・ボム",
+            "ko-KR": "점착 폭탄",
+            "pl-PL": "Bomby Przyczepne",
+            "pt-BR": "Bombas Aderentes",
+            "ru-RU": "Бомбы-липучки",
+            "zh-CN": "黏性炸弹",
+            "zh-TW": "黏性炸彈"
         },
         "ability1": {
+            "guid": "00000000A929",
             "en-US": "Flight",
+            "de-DE": "Flug",
+            "es-ES": "Vuelo",
+            "es-MX": "Vuelo",
+            "fr-FR": "Vol",
+            "it-IT": "Volo",
+            "ja-JP": "フライト",
+            "ko-KR": "비행",
+            "pl-PL": "Lot",
+            "pt-BR": "Voo",
+            "ru-RU": "Полет",
+            "zh-CN": "飞行",
+            "zh-TW": "飛空"
         },
         "ability2": {
+            "guid": "00000000C7FA",
             "en-US": "Focusing Beam",
+            "de-DE": "Gebündelter Strahl",
+            "es-ES": "Haz enfocado",
+            "es-MX": "Rayo de concentración",
+            "fr-FR": "Rayon focalisé",
+            "it-IT": "Raggio Focalizzante",
+            "ja-JP": "フォーカス・ビーム",
+            "ko-KR": "광선 집중",
+            "pl-PL": "Skupiona Wiązka",
+            "pt-BR": "Feixe Concentrado",
+            "ru-RU": "Направленный луч",
+            "zh-CN": "聚焦光线",
+            "zh-TW": "聚能光束"
         },
         "ultimate": {
+            "guid": "00000000A922",
             "en-US": "Duplicate",
+            "de-DE": "Duplikat",
+            "es-ES": "Duplicado",
+            "es-MX": "Copia",
+            "fr-FR": "Duplication",
+            "it-IT": "Duplicazione",
+            "ja-JP": "コピー",
+            "ko-KR": "복제",
+            "pl-PL": "Duplikacja",
+            "pt-BR": "Duplicar",
+            "ru-RU": "Дубликация",
+            "zh-CN": "人格复制",
+            "zh-TW": "複製"
         },
         "passive": {
+            "guid": "00000000C1E6",
             "en-US": "Glide",
+            "de-DE": "Gleitflug",
+            "es-ES": "Planeo",
+            "es-MX": "Planeo",
+            "fr-FR": "Planeur",
+            "it-IT": "Planata",
+            "ja-JP": "グライド",
+            "ko-KR": "활공",
+            "pl-PL": "Szybowanie",
+            "pt-BR": "Planar",
+            "ru-RU": "Планирование",
+            "zh-CN": "滑翔",
+            "zh-TW": "滑翔"
         },
+        "guid": "0000000108C5",
         "en-US": "Echo",
+        "fr-FR": "Écho",
+        "ja-JP": "エコー",
+        "ko-KR": "에코",
+        "ru-RU": "Эхо",
+        "zh-CN": "回声",
+        "zh-TW": "迴音"
     },
     "genji": {
         "guid": "000000000029",
@@ -12520,7 +12879,7 @@ const heroKw =
             "de-DE": "Fleischwolf",
             "es-ES": "Juego sucio",
             "es-MX": "A todo jabalí",
-            "fr-FR": "Équarisseur",
+            "fr-FR": "Équarrisseur",
             "it-IT": "Porcata",
             "ja-JP": "ホール・ホッグ",
             "ko-KR": "돼재앙",
@@ -13452,6 +13811,9 @@ const gamemodeKw = {
         "zh-CN": "突击模式",
         "zh-TW": "衝突戰"
     },
+    "snowballFfa": {
+        "en-US": "Snowball Deathmatch",
+    },
     "tdm": {
         "guid": "000000006854",
         "en-US": "Team Deathmatch",
@@ -13508,22 +13870,22 @@ const constantValues =
     "Transform": {
         "ROTATION": {
             "guid": "00000000B33B",
+            "description": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity.",
             "en-US": "Rotation",
             "es-MX": "Rotación",
             "ja-JP": "回転",
             "pt-BR": "Rotação",
-            "zh-CN": "旋转",
-            "description": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity.",
+            "zh-CN": "旋转"
         },
         "ROTATION_AND_TRANSLATION": {
             "guid": "00000000B33C",
+            "description": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position.",
             "en-US": "Rotation And Translation",
             "es-MX": "Rotación y traslación",
             "fr-FR": "Rotation et Translation",
             "ja-JP": "回転と平行移動",
             "pt-BR": "Rotação e Translação",
-            "zh-CN": "旋转并转换",
-            "description": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position."
+            "zh-CN": "旋转并转换"
         }
     },
     "Team": {
@@ -13580,7 +13942,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Personne",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "全部禁用"
         }
@@ -13592,7 +13953,6 @@ const constantValues =
             "es-MX": "Aguamarina",
             "fr-FR": "Cyan",
             "ja-JP": "アクア",
-            "pl-PL": "Akwamaryna",
             "pt-BR": "Azul-piscina",
             "zh-CN": "水绿色"
         },
@@ -13620,7 +13980,6 @@ const constantValues =
             "es-MX": "Verde lima",
             "fr-FR": "Citron vert",
             "ja-JP": "ライムグリーン",
-            "pl-PL": "Limonkowy",
             "pt-BR": "Verde-limão",
             "zh-CN": "灰绿色"
         },
@@ -13629,7 +13988,6 @@ const constantValues =
             "en-US": "Orange",
             "es-MX": "Naranja",
             "ja-JP": "オレンジ",
-            "pl-PL": "Pomarańczowy",
             "pt-BR": "Laranja",
             "zh-CN": "橙色"
         },
@@ -13657,7 +14015,6 @@ const constantValues =
             "es-MX": "Azul cielo",
             "fr-FR": "Bleu ciel",
             "ja-JP": "スカイブルー",
-            "pl-PL": "Błękitny",
             "pt-BR": "Azul-celeste",
             "zh-CN": "天蓝色"
         },
@@ -13684,7 +14041,6 @@ const constantValues =
             "en-US": "Turquoise",
             "es-MX": "Turquesa",
             "ja-JP": "ターコイズ",
-            "pl-PL": "Turkusowy",
             "pt-BR": "Turquesa",
             "zh-CN": "青绿色"
         },
@@ -13759,7 +14115,6 @@ const constantValues =
             "es-MX": "Melé",
             "fr-FR": "Mêlée",
             "ja-JP": "近接",
-            "pl-PL": "Walka wręcz",
             "pt-BR": "Corpo a corpo",
             "zh-CN": "近身攻击"
         },
@@ -13778,7 +14133,6 @@ const constantValues =
             "es-MX": "Recargar",
             "fr-FR": "Rechargement",
             "ja-JP": "リロード",
-            "pl-PL": "Przeładowanie",
             "pt-BR": "Recarregar",
             "zh-CN": "装填"
         },
@@ -14150,13 +14504,31 @@ const constantValues =
             "zh-CN": "收到"
         },
         "ATTACKING": {
+            "guid": "000000010BEF",
             "en-US": "Attacking",
+            "es-MX": "Atacando",
+            "fr-FR": "J’attaque",
+            "ja-JP": "攻撃中",
+            "pt-BR": "Atacando",
+            "zh-CN": "正在进攻"
         },
         "COUNTDOWN": {
+            "guid": "000000010BF3",
             "en-US": "Countdown",
+            "es-MX": "Conteo regresivo",
+            "fr-FR": "Compte à rebours",
+            "ja-JP": "カウントダウン",
+            "pt-BR": "Contagem Regressiva",
+            "zh-CN": "倒计时"
         },
         "DEFENDING": {
+            "guid": "000000010BF0",
             "en-US": "Defending",
+            "es-MX": "Defendiendo",
+            "fr-FR": "Je défends",
+            "ja-JP": "防衛中",
+            "pt-BR": "Defendendo",
+            "zh-CN": "正在防守"
         },
         "EMOTE_DOWN": {
             "guid": "00000000B9DB",
@@ -14195,16 +14567,40 @@ const constantValues =
             "zh-CN": "表情（上）"
         },
         "FALL_BACK": {
+            "guid": "000000010BE9",
             "en-US": "Fall Back",
+            "es-MX": "Retroceder",
+            "fr-FR": "Repli",
+            "ja-JP": "退却しよう",
+            "pt-BR": "Recuar",
+            "zh-CN": "撤退"
         },
         "GO": {
+            "guid": "000000010BE7",
             "en-US": "Go",
+            "es-MX": "Vamos",
+            "fr-FR": "On y va",
+            "ja-JP": "行け",
+            "pt-BR": "Vai",
+            "zh-CN": "前进"
         },
         "GOING_IN": {
+            "guid": "000000010BED",
             "en-US": "Going In",
+            "es-MX": "Entrando",
+            "fr-FR": "J’y vais",
+            "ja-JP": "突入する",
+            "pt-BR": "Vou Avançar",
+            "zh-CN": "我上了"
         },
         "GOODBYE": {
+            "guid": "000000010BE6",
             "en-US": "Goodbye",
+            "es-MX": "Adiós",
+            "fr-FR": "Au revoir",
+            "ja-JP": "さようなら",
+            "pt-BR": "Tchau",
+            "zh-CN": "再见"
         },
         "GROUP_UP": {
             "guid": "00000000B9D7",
@@ -14225,7 +14621,13 @@ const constantValues =
             "zh-CN": "问候"
         },
         "INCOMING": {
+            "guid": "000000010BEB",
             "en-US": "Incoming",
+            "es-MX": "Enemigos aproximándose",
+            "fr-FR": "En approche",
+            "ja-JP": "敵接近中",
+            "pt-BR": "Chegando",
+            "zh-CN": "敌人来袭"
         },
         "NEED_HEALING": {
             "guid": "00000000B9D8",
@@ -14237,25 +14639,66 @@ const constantValues =
             "zh-CN": "需要治疗"
         },
         "NEED_HELP": {
+            "guid": "000000010BF1",
             "en-US": "Need Help",
+            "es-MX": "Necesito ayuda",
+            "fr-FR": "À l’aide",
+            "ja-JP": "手を貸して",
+            "pt-BR": "Preciso de Ajuda",
+            "zh-CN": "需要帮助"
         },
         "NO": {
+            "guid": "000000010BE5",
             "en-US": "No",
+            "fr-FR": "Non",
+            "ja-JP": "いいえ",
+            "pt-BR": "Não",
+            "zh-CN": "不行"
         },
         "ON_MY_WAY": {
+            "guid": "000000010BEE",
             "en-US": "On My Way",
+            "es-MX": "En camino",
+            "fr-FR": "J’arrive",
+            "ja-JP": "今向かう",
+            "pt-BR": "A Caminho",
+            "zh-CN": "正在赶来"
         },
         "PRESS_THE_ATTACK": {
-            "en-US": "Press The Attack",
+            "guid": "000000010BE2",
+            "en-US": "Press the Attack",
+            "es-MX": "Al ataque",
+            "fr-FR": "Poursuivons l’offensive",
+            "ja-JP": "攻撃の手を緩めるな",
+            "pt-BR": "Force o Ataque",
+            "zh-CN": "继续攻击"
         },
         "PUSH_FORWARD": {
+            "guid": "000000010BEA",
             "en-US": "Push Forward",
+            "es-MX": "Avancen",
+            "fr-FR": "En avant",
+            "ja-JP": "前進しよう",
+            "pt-BR": "Avançar",
+            "zh-CN": "推进"
         },
         "READY": {
+            "guid": "000000010BE8",
             "en-US": "Ready",
+            "es-MX": "Listo",
+            "fr-FR": "Prêt",
+            "ja-JP": "準備完了",
+            "pt-BR": "Pronto",
+            "zh-CN": "做好准备"
         },
         "SORRY": {
+            "guid": "000000010BF2",
             "en-US": "Sorry",
+            "es-MX": "Lo siento",
+            "fr-FR": "Désolé",
+            "ja-JP": "ごめん",
+            "pt-BR": "Desculpe",
+            "zh-CN": "抱歉"
         },
         "THANKS": {
             "guid": "00000000B9D6",
@@ -14312,14 +14755,32 @@ const constantValues =
             "zh-CN": "语音（上）"
         },
         "WITH_YOU": {
+            "guid": "000000010BEC",
             "en-US": "With You",
+            "es-MX": "Contigo",
+            "fr-FR": "Je te suis",
+            "ja-JP": "ついていく",
+            "pt-BR": "Com Você",
+            "zh-CN": "你先上"
         },
         "YES": {
+            "guid": "000000010BE4",
             "en-US": "Yes",
+            "es-MX": "Sí",
+            "fr-FR": "Oui",
+            "ja-JP": "はい",
+            "pt-BR": "Sim",
+            "zh-CN": "好的"
         },
         "YOURE_WELCOME": {
-            "en-US": "You Are Welcome",
-        },
+            "guid": "000000010BE3",
+            "en-US": "You are Welcome",
+            "es-MX": "De nada",
+            "fr-FR": "C’est tout naturel",
+            "ja-JP": "どういたしまして",
+            "pt-BR": "De Nada",
+            "zh-CN": "不用谢"
+        }
     },
     "Icon": {
         "ARROW_DOWN": {
@@ -14676,45 +15137,45 @@ const constantValues =
     "Relativity": {
         "TO_PLAYER": {
             "guid": "00000000B16F",
+            "description": "Relative to the player's local coordinate system (which moves and rotates with the player).",
             "en-US": "To Player",
             "es-MX": "Al jugador",
             "fr-FR": "Au joueur",
             "ja-JP": "対プレイヤー: ",
             "pt-BR": "Ao Jogador",
-            "zh-CN": "至玩家",
-            "description": "Relative to the player's local coordinate system (which moves and rotates with the player).",
+            "zh-CN": "至玩家"
         },
         "TO_WORLD": {
             "guid": "00000000B170",
+            "description": "Relative to the world's coordinate system.",
             "en-US": "To World",
             "es-MX": "Al mundo",
             "fr-FR": "Au monde",
             "ja-JP": "対ワールド: ",
             "pt-BR": "Ao Mundo",
-            "zh-CN": "至地图",
-            "description": "Relative to the world's coordinate system."
+            "zh-CN": "至地图"
         }
     },
     "Impulse": {
         "CANCEL_CONTRARY_MOTION": {
             "guid": "00000000B520",
+            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied.",
             "en-US": "Cancel Contrary Motion",
             "es-MX": "Cancelar movimiento contrario",
             "fr-FR": "Annuler le mouvement contraire",
             "ja-JP": "逆モーションをキャンセル",
             "pt-BR": "Cancelar Deslocamento Contrário",
-            "zh-CN": "取消相反运动",
-            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied.",
+            "zh-CN": "取消相反运动"
         },
         "INCORPORATE_CONTRARY_MOTION": {
             "guid": "00000000B521",
+            "description": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect.",
             "en-US": "Incorporate Contrary Motion",
             "es-MX": "Incorporar movimiento contrario",
             "fr-FR": "Incorporer un mouvement contraire",
             "ja-JP": "逆モーションを組み込む",
             "pt-BR": "Incorporar Deslocamento Contrário",
-            "zh-CN": "合并相反运动",
-            "description": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect.",
+            "zh-CN": "合并相反运动"
         }
     },
     "__Rounding__": {
@@ -14749,64 +15210,64 @@ const constantValues =
     "LosCheck": {
         "OFF": {
             "guid": "00000000B1E2",
+            "description": "Line of sight is never blocked, allowing results through walls.",
             "en-US": "Off",
             "es-MX": "Apagado",
             "fr-FR": "Désactivé",
             "ja-JP": "OFF",
             "pt-BR": "Desligado",
-            "zh-CN": "关闭",
-            "description": "Line of sight is never blocked, allowing results through walls.",
+            "zh-CN": "关闭"
         },
         "SURFACES": {
             "guid": "00000000B1E3",
+            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles.",
             "en-US": "Surfaces",
             "es-MX": "Superficies",
             "ja-JP": "表面",
             "pt-BR": "Superfícies",
-            "zh-CN": "表面",
-            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles.",
+            "zh-CN": "表面"
         },
         "SURFACES_AND_ALL_BARRIERS": {
             "guid": "00000000B1E5",
+            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers.",
             "en-US": "Surfaces And All Barriers",
             "es-MX": "Superficies y todas las barreras",
             "fr-FR": "Surfaces et toutes les barrières",
             "ja-JP": "表面とすべてのバリア",
             "pt-BR": "Superfícies e Todas as Barreiras",
-            "zh-CN": "表面及全部屏障",
-            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers.",
+            "zh-CN": "表面及全部屏障"
         },
         "SURFACES_AND_ENEMY_BARRIERS": {
             "guid": "00000000B1E4",
+            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team.",
             "en-US": "Surfaces And Enemy Barriers",
             "es-MX": "Superficies y barreras enemigas",
             "fr-FR": "Surfaces et barrières ennemies",
             "ja-JP": "表面と敵のバリア",
             "pt-BR": "Superfícies e Barreiras Inimigas",
-            "zh-CN": "表面及敌方屏障",
-            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team.",
+            "zh-CN": "表面及敌方屏障"
         }
     },
     "Clip": {
         "SURFACES": {
             "guid": "00000000BAF5",
+            "description": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects.",
             "en-US": "Clip Against Surfaces",
             "es-MX": "Atravesar las superficies",
             "fr-FR": "Masquer derrière les surfaces",
             "ja-JP": "表面に対してクリップ",
             "pt-BR": "Cortar nas Superfícies",
-            "zh-CN": "根据表面截取",
-            "description": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects.",
+            "zh-CN": "根据表面截取"
         },
         "NONE": {
             "guid": "00000000BAF4",
+            "description": "The text will always be fully visible, even if it is behind a wall or solid object.",
             "en-US": "Do Not Clip",
             "es-MX": "No atravesar",
             "fr-FR": "Ne pas masquer",
             "ja-JP": "クリップしない",
             "pt-BR": "Não Cortar",
-            "zh-CN": "不要截取",
-            "description": "The text will always be fully visible, even if it is behind a wall or solid object.",
+            "zh-CN": "不要截取"
         }
     },
     "HudPosition": {
@@ -14853,7 +15314,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
@@ -14892,7 +15352,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
@@ -14917,10 +15376,22 @@ const constantValues =
     },
     "HudReeval": {
         "NONE": {
+            "guid": "00000000B8C3",
             "en-US": "None",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "ja-JP": "なし",
+            "pt-BR": "Ninguém",
+            "zh-CN": "无"
         },
         "SORT_ORDER": {
+            "guid": "00000001095F",
             "en-US": "Sort Order",
+            "es-MX": "Orden de vista",
+            "fr-FR": "Tri",
+            "ja-JP": "ソート順",
+            "pt-BR": "Ordem de Classificação",
+            "zh-CN": "排序"
         },
         "SORT_ORDER_AND_STRING": {
             "guid": "00000000FCA6",
@@ -14928,7 +15399,6 @@ const constantValues =
             "es-MX": "Clasificar orden y cadena",
             "fr-FR": "Tri et Chaîne de texte",
             "ja-JP": "ソート順、文字列",
-            "pl-PL": "Kolejność sortowania i ciąg",
             "pt-BR": "Ordem de classificação e string",
             "zh-CN": "排序规则与字符串"
         },
@@ -14941,10 +15411,22 @@ const constantValues =
             "zh-CN": "字符串"
         },
         "VISIBILITY": {
+            "guid": "00000000B8C4",
             "en-US": "Visible To",
+            "es-MX": "Visible para",
+            "fr-FR": "Visible pour",
+            "ja-JP": "目視可能: ",
+            "pt-BR": "Visível para",
+            "zh-CN": "可见"
         },
         "VISIBILITY_AND_SORT_ORDER": {
+            "guid": "00000001095E",
             "en-US": "Visible To and Sort Order",
+            "es-MX": "Visible para y orden de vista",
+            "fr-FR": "Visible pour et Tri",
+            "ja-JP": "表示される相手、ソート順",
+            "pt-BR": "Visível para e Ordem de Classificação",
+            "zh-CN": "可见性和排序"
         },
         "VISIBILITY_AND_STRING": {
             "guid": "00000000BA8C",
@@ -14965,11 +15447,17 @@ const constantValues =
             "ko-KR": "Visible To Sort Order String",
             "pt-BR": "Visível para ordem de classificação e string",
             "zh-CN": "可见性，排序规则，以及字符串"
-        },
+        }
     },
     "WorldTextReeval": {
         "NONE": {
+            "guid": "00000000B8C3",
             "en-US": "None",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "ja-JP": "なし",
+            "pt-BR": "Ninguém",
+            "zh-CN": "无"
         },
         "STRING": {
             "guid": "00000000BB31",
@@ -14980,10 +15468,22 @@ const constantValues =
             "zh-CN": "字符串"
         },
         "VISIBILITY": {
+            "guid": "00000000B8C4",
             "en-US": "Visible To",
+            "es-MX": "Visible para",
+            "fr-FR": "Visible pour",
+            "ja-JP": "目視可能: ",
+            "pt-BR": "Visível para",
+            "zh-CN": "可见"
         },
         "VISIBILITY_AND_POSITION": {
+            "guid": "00000000B8D9",
             "en-US": "Visible To and Position",
+            "es-MX": "Visible para y posición",
+            "fr-FR": "Visible pour et Position",
+            "ja-JP": "表示される相手、位置",
+            "pt-BR": "Visível para e Posição",
+            "zh-CN": "可见和位置"
         },
         "VISIBILITY_AND_STRING": {
             "guid": "00000000BA8C",
@@ -15021,7 +15521,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Nenhuma",
             "zh-CN": "全部禁用"
         }
@@ -15042,7 +15541,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Nenhuma",
             "zh-CN": "全部禁用"
         }
@@ -15054,7 +15552,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucun",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Nenhuma",
             "zh-CN": "无"
         },
@@ -15084,7 +15581,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Nenhum",
             "zh-CN": "全部禁用"
         },
@@ -15123,7 +15619,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         }
@@ -15131,6 +15626,7 @@ const constantValues =
     "Wait": {
         "ABORT_WHEN_FALSE": {
             "guid": "00000000787D",
+            "description": "The execution of the action list is aborted if any condition on this rule becomes false.",
             "en-US": "Abort When False",
             "es-ES": "Abortar cuando sea falso",
             "es-MX": "Cancelar cuando es falso",
@@ -15139,11 +15635,11 @@ const constantValues =
             "ja-JP": "「FALSE」の場合中止",
             "pl-PL": "Przerwij kiedy to fałsz",
             "pt-BR": "Anular Quando For Falso",
-            "zh-CN": "当为“假”时中止",
-            "description": "The execution of the action list is aborted if any condition on this rule becomes false.",
+            "zh-CN": "当为“假”时中止"
         },
         "IGNORE_CONDITION": {
             "guid": "00000000787C",
+            "description": "The execution of the action list is never interrupted.",
             "en-US": "Ignore Condition",
             "es-ES": "Ignorar condición",
             "es-MX": "Ignorar condición",
@@ -15152,11 +15648,11 @@ const constantValues =
             "ja-JP": "条件無視",
             "pl-PL": "Zignoruj warunek",
             "pt-BR": "Ignorar Condição",
-            "zh-CN": "无视条件",
-            "description": "The execution of the action list is never interrupted.",
+            "zh-CN": "无视条件"
         },
         "RESTART_WHEN_TRUE": {
             "guid": "00000000787E",
+            "description": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions.",
             "en-US": "Restart When True",
             "es-ES": "Reiniciar cuando sea verdadero",
             "es-MX": "Reiniciar cuando es verdadero",
@@ -15165,176 +15661,172 @@ const constantValues =
             "ja-JP": "「TRUE」の場合リスタート",
             "pl-PL": "Zrestartuj kiedy to prawda",
             "pt-BR": "Reiniciar Quando For Verdadeiro",
-            "zh-CN": "当为“真”时重新开始",
-            "description": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions.",
+            "zh-CN": "当为“真”时重新开始"
         }
     },
     "BarrierLos": {
         "BLOCKED_BY_ENEMY_BARRIERS": {
             "guid": "00000000B1EE",
+            "description": "Line of sight is blocked by barriers created by the enemy team.",
             "en-US": "Enemy Barriers Block LOS",
             "es-MX": "Las barreras enemigas bloquean la LDV",
             "fr-FR": "Les barrières ennemies bloquent la ligne de vue",
             "ja-JP": "敵のバリアが射線を妨げる",
             "pt-BR": "Barreiras Inimigas Bloqueiam LdV",
-            "zh-CN": "敌方屏障阻挡视线",
-            "description": "Line of sight is blocked by barriers created by the enemy team.",
+            "zh-CN": "敌方屏障阻挡视线"
         },
         "BLOCKED_BY_ALL_BARRIERS": {
             "guid": "00000000B1EF",
+            "description": "Line of sight is blocked by all barriers.",
             "en-US": "All Barriers Block LOS",
             "es-MX": "Todas las barreras bloquean la LDV",
             "fr-FR": "Toutes les barrières bloquent la ligne de vue",
             "ja-JP": "すべてのバリアが射線を妨げる",
             "pt-BR": "Todas as Barreiras Bloqueiam LdV",
-            "zh-CN": "所有屏障阻挡视线",
-            "description": "Line of sight is blocked by all barriers.",
+            "zh-CN": "所有屏障阻挡视线"
         },
         "PASS_THROUGH_BARRIERS": {
             "guid": "00000000B1ED",
+            "description": "Line of sight is not blocked by any barriers.",
             "en-US": "Barriers Do Not Block LOS",
             "es-MX": "Las barreras no bloquean la LDV",
             "fr-FR": "Les barrières ne bloquent pas la ligne de vue",
             "ja-JP": "バリアは射線を妨げない",
             "pt-BR": "Barreiras Não Bloqueiam LdV",
-            "zh-CN": "屏障不会阻挡视线",
-            "description": "Line of sight is not blocked by any barriers.",
-        },
+            "zh-CN": "屏障不会阻挡视线"
+        }
     },
     "Status": {
         "ASLEEP": {
             "guid": "00000000B36A",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status.",
             "en-US": "Asleep",
             "es-MX": "Dormido",
             "fr-FR": "Endormi",
             "ja-JP": "眠っている",
             "pt-BR": "Dormindo",
-            "zh-CN": "沉睡",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status.",
+            "zh-CN": "沉睡"
         },
         "BURNING": {
             "guid": "00000000B36C",
+            "description": "The player is burning. For example, Ashe's dynamite causes this status.",
             "en-US": "Burning",
             "es-MX": "En llamas",
             "fr-FR": "Enflammé",
             "ja-JP": "燃焼中",
             "pt-BR": "Queimando",
-            "zh-CN": "点燃",
-            "description": "The player is burning. For example, Ashe's dynamite causes this status.",
+            "zh-CN": "点燃"
         },
         "FROZEN": {
             "guid": "00000000B369",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status.",
             "en-US": "Frozen",
             "es-MX": "Congelado",
             "fr-FR": "Gelé",
             "ja-JP": "凍っている",
             "pt-BR": "Congelado",
-            "zh-CN": "冻结",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status."
+            "zh-CN": "冻结"
         },
         "HACKED": {
             "guid": "00000000B36D",
+            "description": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status.",
             "en-US": "Hacked",
             "es-MX": "Hackeado",
             "fr-FR": "Piraté",
             "ja-JP": "ハックされている",
             "pt-BR": "Hackeado",
-            "zh-CN": "被入侵",
-            "description": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status."
+            "zh-CN": "被入侵"
         },
         "INVINCIBLE": {
             "guid": "00000000B367",
+            "description": "The player does not take damage.",
             "en-US": "Invincible",
             "es-MX": "Invencible",
             "ja-JP": "無敵",
             "pt-BR": "Invencível",
-            "zh-CN": "无敌",
-            "description": "The player does not take damage."
+            "zh-CN": "无敌"
         },
         "KNOCKED_DOWN": {
             "guid": "00000000B36B",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status.",
             "en-US": "Knocked Down",
             "es-MX": "Derribado",
             "fr-FR": "Renversé",
             "ja-JP": "ノックダウンされている",
             "pt-BR": "Nocauteado",
-            "zh-CN": "击倒",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status."
+            "zh-CN": "击倒"
         },
         "PHASED_OUT": {
             "guid": "00000000B366",
+            "description": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status.",
             "en-US": "Phased Out",
             "es-MX": "Forma etérea",
             "fr-FR": "Déphasé",
             "ja-JP": "フェーズアウト中",
             "pt-BR": "Intangível",
-            "zh-CN": "消散",
-            "description": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status."
+            "zh-CN": "消散"
         },
         "ROOTED": {
             "guid": "00000000B365",
+            "description": "The player cannot move unless moved by another player or object. Aiming is unaffected.",
             "en-US": "Rooted",
             "es-MX": "Arraigado",
             "fr-FR": "Immobilisé",
             "ja-JP": "固定されている",
             "pt-BR": "Enraizado",
-            "zh-CN": "定身",
-            "description": "The player cannot move unless moved by another player or object. Aiming is unaffected."
+            "zh-CN": "定身"
         },
         "STUNNED": {
             "guid": "00000000B565",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, McCree's flashbang causes this status.",
             "en-US": "Stunned",
             "es-MX": "Aturdido",
             "fr-FR": "Étourdi",
             "ja-JP": "スタンされている",
             "pt-BR": "Atordoado",
-            "zh-CN": "昏迷",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, McCree's flashbang causes this status."
+            "zh-CN": "昏迷"
         },
         "UNKILLABLE": {
             "guid": "00000000B368",
+            "description": "The player's health will not drop below 1.",
             "en-US": "Unkillable",
             "es-MX": "Inmortal",
             "fr-FR": "Intuable",
             "ja-JP": "キル不可",
             "pt-BR": "Imortal",
-            "zh-CN": "无法杀死",
-            "description": "The player's health will not drop below 1."
+            "zh-CN": "无法杀死"
         }
     },
     "SpecVisibility": {
         "DEFAULT": {
             "guid": "00000000CE55",
+            "description": "Non-team spectators can see text when all players can see it.",
             "en-US": "Default Visibility",
             "es-MX": "Visibilidad predeterminada",
             "fr-FR": "Visibilité par défaut",
             "ja-JP": "デフォルト表示",
-            "pl-PL": "Domyślna widoczność",
             "pt-BR": "Visibilidade-padrão",
-            "zh-CN": "默认可见度",
-            "description": "Non-team spectators can see text when all players can see it.",
+            "zh-CN": "默认可见度"
         },
         "ALWAYS": {
             "guid": "00000000CE56",
+            "description": "Non-team spectators can always see text.",
             "en-US": "Visible Always",
             "es-MX": "Siempre visible",
             "fr-FR": "Toujours visible",
             "ja-JP": "常に表示",
-            "pl-PL": "Zawsze widoczny",
             "pt-BR": "Sempre Visível",
-            "zh-CN": "始终可见",
-            "description": "Non-team spectators can always see text."
+            "zh-CN": "始终可见"
         },
         "NEVER": {
             "guid": "00000000CE57",
+            "description": "Non-team spectators can never see text.",
             "en-US": "Visible Never",
             "es-MX": "Nunca visible",
             "fr-FR": "Jamais visible",
             "ja-JP": "表示されない",
-            "pl-PL": "Zawsze niewidoczny",
             "pt-BR": "Nunca Visível",
-            "zh-CN": "始终不可见",
-            "description": "Non-team spectators can never see text."
+            "zh-CN": "始终不可见"
         }
     },
     "Beam": {
@@ -15344,7 +15836,6 @@ const constantValues =
             "es-MX": "Rayo malo",
             "fr-FR": "Mauvais rayon",
             "ja-JP": "マイナス効果のビーム",
-            "pl-PL": "Zła wiązka",
             "pt-BR": "Feixe Mau",
             "zh-CN": "有害光束"
         },
@@ -15354,7 +15845,6 @@ const constantValues =
             "es-MX": "Rayo bueno",
             "fr-FR": "Bon rayon",
             "ja-JP": "プラス効果のビーム",
-            "pl-PL": "Dobra wiązka",
             "pt-BR": "Feixe Bom",
             "zh-CN": "有益光束"
         },
@@ -15364,7 +15854,6 @@ const constantValues =
             "es-MX": "Rayo de arpeo",
             "fr-FR": "Rayon du grappin",
             "ja-JP": "グラップリング・ビーム",
-            "pl-PL": "Wiązka kotwiczki",
             "pt-BR": "Feixe de Arpéu",
             "zh-CN": "抓钩光束"
         }
@@ -15376,7 +15865,6 @@ const constantValues =
             "es-MX": "Reemplazar aceleración preexistente",
             "fr-FR": "Remplacer l’accélération existante",
             "ja-JP": "既存のスロットルと入れ替え",
-            "pl-PL": "Zastąp istniejący pęd",
             "pt-BR": "Substituir a aceleração existente",
             "zh-CN": "替换现有阈值"
         },
@@ -15386,7 +15874,6 @@ const constantValues =
             "es-MX": "Agregar a aceleración preexistente",
             "fr-FR": "Ajouter à l’accélération existante",
             "ja-JP": "既存のスロットルに追加",
-            "pl-PL": "Dodaj do istniejącego pędu",
             "pt-BR": "Somar à aceleração existente",
             "zh-CN": "添加至现有阈值"
         }
@@ -15398,7 +15885,6 @@ const constantValues =
             "es-MX": "Dirección y magnitud",
             "fr-FR": "Direction et ampleur",
             "ja-JP": "方向と変化の大きさ",
-            "pl-PL": "Kierunek i wielkość",
             "pt-BR": "Direção e Magnitude",
             "zh-CN": "方向和幅度"
         },
@@ -15408,7 +15894,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Nenhum",
             "zh-CN": "无"
         }
@@ -15429,7 +15914,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         }
@@ -15437,44 +15921,57 @@ const constantValues =
     "AsyncBehavior": {
         "RESTART": {
             "guid": "000000010025",
+            "description": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc).",
             "en-US": "Restart Rule",
             "es-MX": "Reiniciar regla",
             "fr-FR": "Relancer la règle",
             "ja-JP": "ルールをやり直す",
             "pt-BR": "Regra de reinício",
-            "zh-CN": "重新开始规则",
-            "description": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc)."
+            "zh-CN": "重新开始规则"
         },
         "NOOP": {
             "guid": "000000010026",
+            "description": "Allow the rule to finish executing without changing its contextual values.",
             "en-US": "Do Nothing",
             "es-MX": "Hacer nada",
             "fr-FR": "Ne rien faire",
             "ja-JP": "何もしない",
             "pt-BR": "Não fazer nada",
-            "zh-CN": "无动作",
-            "description": "Allow the rule to finish executing without changing its contextual values.",
+            "zh-CN": "无动作"
         }
     },
     "__Operator__": {
         "==": {
+            "guid": "00000000780E",
             "en-US": "==",
+            "fr-FR": "== égal à",
+            "ja-JP": " =="
         },
         "!=": {
+            "guid": "00000000780F",
             "en-US": "!=",
+            "fr-FR": "!= différent de"
         },
         "<=": {
+            "guid": "000000007811",
             "en-US": "<=",
+            "fr-FR": "<= inférieur ou égal à"
         },
         ">=": {
+            "guid": "000000007814",
             "en-US": ">=",
+            "fr-FR": ">= supérieur ou égal à"
         },
         "<": {
+            "guid": "000000007810",
             "en-US": "<",
+            "fr-FR": "< inférieur à"
         },
         ">": {
+            "guid": "000000007812",
             "en-US": ">",
-        },
+            "fr-FR": "> supérieur à"
+        }
     }
 }
 //end-json
@@ -15584,28 +16081,27 @@ const customGameSettingsKw =
         "es-ES": "Sí",
         "es-MX": "Sí",
         "fr-FR": "Oui",
-        "it-IT": "On",
+        "it-IT": "Sì",
         "ja-JP": "はい",
-        "ko-KR": "필요",
+        "ko-KR": "네",
         "pl-PL": "Tak",
         "pt-BR": "Sim",
         "ru-RU": "Да",
         "zh-CN": "是",
-        "zh-TW": "啟用"
+        "zh-TW": "是"
     },
     "__no__": {
         "guid": "00000000F407",
         "en-US": "No",
         "de-DE": "Nein",
         "fr-FR": "Non",
-        "it-IT": "Off",
         "ja-JP": "いいえ",
-        "ko-KR": "필요 없음",
+        "ko-KR": "아니요",
         "pl-PL": "Nie",
         "pt-BR": "Não",
         "ru-RU": "Нет",
         "zh-CN": "否",
-        "zh-TW": "停用"
+        "zh-TW": "否"
     }
 }
 //end-json
@@ -15818,7 +16314,6 @@ const eventKw =
         "es-MX": "El jugador realizó una sanación",
         "fr-FR": "Un joueur a prodigué des soins",
         "ja-JP": "プレイヤーが回復を与えた",
-        "pl-PL": "Gracz wykonał leczenie",
         "pt-BR": "Jogador Realizou Cura",
         "zh-CN": "玩家造成治疗"
     },
@@ -15828,7 +16323,6 @@ const eventKw =
         "es-MX": "El jugador recibió una sanación",
         "fr-FR": "Un joueur a reçu des soins",
         "ja-JP": "プレイヤーが回復を受けた",
-        "pl-PL": "Gracz otrzymał leczenie",
         "pt-BR": "Jogador Recebeu Cura",
         "zh-CN": "玩家受到治疗"
     },
@@ -15838,7 +16332,6 @@ const eventKw =
         "es-MX": "El jugador se unió a la partida",
         "fr-FR": "Un joueur a rejoint la partie",
         "ja-JP": "プレイヤーがマッチに参加",
-        "pl-PL": "Gracz dołączył do meczu",
         "pt-BR": "Jogador Entrou na Partida",
         "zh-CN": "玩家加入比赛"
     },
@@ -15848,7 +16341,6 @@ const eventKw =
         "es-MX": "El jugador abandonó la partida",
         "fr-FR": "Un joueur a quitté la partie",
         "ja-JP": "プレイヤーがマッチから離脱",
-        "pl-PL": "Gracz opuścił mecz",
         "pt-BR": "Jogador Saiu da Partida",
         "zh-CN": "玩家离开比赛"
     },
@@ -15859,15 +16351,28 @@ const eventKw =
         "es-MX": "Subrutina",
         "fr-FR": "Sous-programme",
         "ja-JP": "サブルーチン",
-        "pl-PL": "Podprogram",
         "pt-BR": "Sub-rotina",
         "zh-CN": "子程序"
     },
     "playerDealtKnockback": {
+        "guid": "0000000105BB",
         "en-US": "Player Dealt Knockback",
+        "es-ES": "Repulsión infligida por el jugador",
+        "es-MX": "El jugador infligió un derribo",
+        "fr-FR": "Un joueur a infligé un recul",
+        "ja-JP": "プレイヤーがノックバックを与えた",
+        "pt-BR": "Jogador Causou Repulsão",
+        "zh-CN": "玩家造成击退"
     },
     "playerReceivedKnockback": {
+        "guid": "0000000105BC",
         "en-US": "Player Received Knockback",
+        "es-ES": "Repulsión sufrida por el jugador",
+        "es-MX": "El jugador recibió un derribo",
+        "fr-FR": "Un joueur a reçu un recul",
+        "ja-JP": "プレイヤーがノックバックを受けた",
+        "pt-BR": "Jogador Recebeu Repulsão",
+        "zh-CN": "玩家受到击退"
     }
 }
 //end-json
@@ -16098,7 +16603,7 @@ const customGameSettingsSchema =
                 "pt-BR": "Rotação dos mapas",
                 "ru-RU": "Смена полей боя",
                 "zh-CN": "地图轮换",
-                "zh-TW": "更換地圖"
+                "zh-TW": "地圖輪替"
             },
             "returnToLobby": {
                 "values": {
@@ -16359,7 +16864,7 @@ const customGameSettingsSchema =
                 "es-MX": "Usar actualización experimental si está disponible",
                 "fr-FR": "Utiliser les mises à jour du Laboratoire s’il y en a",
                 "it-IT": "Usa aggiornamento Modalità sperimentale se disponibile",
-                "ja-JP": "利用可能時にエクスペリメンタルのアップデートを適用",
+                "ja-JP": "利用可能時にエクスペリメンタルのアップデートを適用する",
                 "ko-KR": "가능하다면 체험 업데이트 사용",
                 "pl-PL": "Użyj eksperymentalnej aktualizacji jeśli jest dostępna",
                 "pt-BR": "Usar atualização do Laboratório se disponível",
@@ -17185,7 +17690,7 @@ const customGameSettingsSchema =
                         "fr-FR": "Limite de points de contrôle valides",
                         "it-IT": "Punti di controllo attivi",
                         "ja-JP": "コントロール・ポイント制限",
-                        "ko-KR": "점령 가능한 지점 제한",
+                        "ko-KR": "점령 가능한 거점 제한",
                         "pl-PL": "Ogranicz prawidłowe punkty kontrolne",
                         "pt-BR": "Limitar pontos de controle válidos",
                         "ru-RU": "Ограничение контрольных точек",
@@ -18235,6 +18740,364 @@ const customGameSettingsSchema =
                         "zh-TW": "訓練機器人重生時間"
                     }
                 }
+            },
+            "junkenstein": {
+                "values": {
+                    "difficulty": {
+                        "values": {
+                            "normal": {
+                                "default": true,
+                                "guid": "0000000068C6",
+                                "en-US": "NORMAL",
+                                "it-IT": "NORMALE",
+                                "ko-KR": "중수",
+                                "pl-PL": "NORMALNY",
+                                "ru-RU": "БОЕЦ",
+                                "zh-CN": "普通",
+                                "zh-TW": "普通"
+                            },
+                            "hard": {
+                                "guid": "0000000068CA",
+                                "en-US": "HARD",
+                                "de-DE": "SCHWER",
+                                "es-ES": "DIFÍCIL",
+                                "es-MX": "DIFÍCIL",
+                                "fr-FR": "DIFFICILE",
+                                "it-IT": "DIFFICILE",
+                                "ko-KR": "고수",
+                                "pl-PL": "WYSOKI",
+                                "pt-BR": "DIFÍCIL",
+                                "ru-RU": "ВЕТЕРАН",
+                                "zh-CN": "困难",
+                                "zh-TW": "困難"
+                            },
+                            "expert": {
+                                "guid": "000000006CEA",
+                                "en-US": "EXPERT",
+                                "de-DE": "EXPERTE",
+                                "es-ES": "EXPERTA",
+                                "es-MX": "EXPERTO",
+                                "it-IT": "ESTREMA",
+                                "ko-KR": "초고수",
+                                "pl-PL": "EKSPERCKI",
+                                "pt-BR": "ESPECIALISTA",
+                                "ru-RU": "ЭКСПЕРТ",
+                                "zh-CN": "专家",
+                                "zh-TW": "專家"
+                            },
+                            "legendary": {
+                                "guid": "0000000068CE",
+                                "en-US": "LEGENDARY",
+                                "de-DE": "LEGENDÄR",
+                                "es-ES": "LEGENDARIA",
+                                "es-MX": "LEGENDARIO",
+                                "fr-FR": "LÉGENDAIRE",
+                                "it-IT": "LEGGENDARIA",
+                                "ko-KR": "전설",
+                                "pl-PL": "LEGENDARNY",
+                                "pt-BR": "LENDÁRIO",
+                                "ru-RU": "ЛЕГЕНДА",
+                                "zh-CN": "传奇",
+                                "zh-TW": "傳奇"
+                            }
+                        },
+                        "guid": "000000006FB3",
+                        "en-US": "Difficulty",
+                        "de-DE": "Schwierigkeit",
+                        "es-ES": "Dificultad",
+                        "es-MX": "Dificultad",
+                        "fr-FR": "Difficulté",
+                        "it-IT": "Difficoltà",
+                        "ja-JP": "難易度",
+                        "ko-KR": "난이도",
+                        "pl-PL": "Poziom trudności",
+                        "pt-BR": "Dificuldade",
+                        "ru-RU": "Сложность",
+                        "zh-CN": "难度",
+                        "zh-TW": "難度"
+                    },
+                    "doorHealth%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "guid": "000000007077",
+                        "en-US": "Door Health Scalar",
+                        "de-DE": "Tortrefferpunkte",
+                        "es-ES": "Salud de la puerta",
+                        "es-MX": "Escala de estado de puerta",
+                        "fr-FR": "Points de vie de la porte",
+                        "it-IT": "Porta - Quantità di salute",
+                        "ja-JP": "扉ライフ・スカラー",
+                        "ko-KR": "문 내구도 조정",
+                        "pl-PL": "Współczynnik skalowania wytrzymałości wrót",
+                        "pt-BR": "Escalar da vida da porta",
+                        "ru-RU": "Прочность ворот",
+                        "zh-CN": "大门生命值",
+                        "zh-TW": "大門生命值"
+                    },
+                    "enableEndless": {
+                        "values": "__boolOnOff__",
+                        "guid": "000000006FB1",
+                        "en-US": "Endless Mode",
+                        "de-DE": "Endlosmodus",
+                        "es-ES": "Modo infinito",
+                        "es-MX": "Modo Interminable",
+                        "fr-FR": "Mode sans fin",
+                        "it-IT": "Modalità Infinita",
+                        "ja-JP": "エンドレス・モード",
+                        "ko-KR": "무한 모드",
+                        "pl-PL": "Wieczna zemsta",
+                        "pt-BR": "Modo Sem Fim",
+                        "ru-RU": "Бесконечный режим",
+                        "zh-CN": "无尽模式",
+                        "zh-TW": "無盡模式"
+                    }
+                }
+            },
+            "lucioball": {
+                "values": {
+                    "gameLengthInSec": {
+                        "values": "__int__",
+                        "min": 60,
+                        "max": 900,
+                        "default": 240,
+                        "guid": "000000006964",
+                        "en-US": "Game Length Seconds",
+                        "de-DE": "Spiellänge in Sekunden",
+                        "es-ES": "Tiempo de partida segundos",
+                        "es-MX": "Duración del juego segundos",
+                        "fr-FR": "Durée de la partie secondes",
+                        "it-IT": "Durata della partita secondi",
+                        "ja-JP": "マッチ時間（秒）",
+                        "ko-KR": "게임 시간초",
+                        "pl-PL": "Długość meczu w sekundach",
+                        "pt-BR": "Duração do jogo segundos",
+                        "ru-RU": "Время матча в секундах",
+                        "zh-CN": "比赛时长（秒）",
+                        "zh-TW": "遊戲時間（秒）"
+                    },
+                    "scoreLeadToWin": {
+                        "values": "__int__",
+                        "min": 1,
+                        "max": 100,
+                        "default": 10,
+                        "guid": "000000010479",
+                        "en-US": "Score Lead Needed To Win",
+                        "de-DE": "Punktevorsprung für Sieg",
+                        "es-ES": "Ventaja necesaria para ganar",
+                        "es-MX": "Puntuación necesaria para ganar",
+                        "fr-FR": "Avance nécessaire pour gagner",
+                        "it-IT": "Vantaggio nel punteggio necessario per vincere",
+                        "ja-JP": "勝利に必要なスコア",
+                        "ko-KR": "승점",
+                        "pl-PL": "Punkty potrzebne do wygranej",
+                        "pt-BR": "Vantagem de placar necessária para a vitória",
+                        "ru-RU": "Разница по очкам для победы",
+                        "zh-CN": "获胜需要达到分数",
+                        "zh-TW": "獲勝所需的領先得分數"
+                    },
+                    "ballKb%": {
+                        "values": "__percent__",
+                        "min": 100,
+                        "max": 500,
+                        "default": 500,
+                        "guid": "000000006724",
+                        "en-US": "Soccer Ball Knockback Scalar",
+                        "de-DE": "Fußball – Rückstoß",
+                        "es-ES": "Repulsión del balón de fútbol",
+                        "es-MX": "Escala de derribos del balón de fútbol",
+                        "fr-FR": "Recul du ballon de football",
+                        "it-IT": "Pallone - Intensità di respinta",
+                        "ja-JP": "サッカーボール ノックバック・スカラー",
+                        "ko-KR": "축구공 밀쳐내는 힘 조정",
+                        "pl-PL": "Skalowanie odrzucenia piłki nożnej",
+                        "pt-BR": "Impulso escalar da bola de futebol",
+                        "ru-RU": "Сила отбрасывания мяча",
+                        "zh-CN": "斗球推力倍率 ",
+                        "zh-TW": "調整推球距離"
+                    },
+                    "enableWinIfEnoughGoalsScored": {
+                        "values": "__boolOnOff__",
+                        "guid": "000000006716",
+                        "en-US": "Team Wins Upon Scoring Enough Goals",
+                        "de-DE": "Team gewinnt sobald genug Tore erzielt wurden",
+                        "es-ES": "El equipo que marque los goles necesarios gana",
+                        "es-MX": "El equipo gana tras anotar suficientes goles",
+                        "fr-FR": "L’équipe gagne en marquant assez de buts",
+                        "it-IT": "Vince la squadra che segna abbastanza gol",
+                        "ja-JP": "特定数のゴール獲得で勝利",
+                        "ko-KR": "충분한 골을 넣으면 승리",
+                        "pl-PL": "Drużyna wygrywa po zdobyciu określonej liczby goli",
+                        "pt-BR": "Vence a equipe que marcar gols suficientes",
+                        "ru-RU": "Команда побеждает забив достаточно голов",
+                        "zh-CN": "获得足够进球数即可获胜",
+                        "zh-TW": "先取得足夠分數的隊伍獲勝"
+                    },
+                    "scoreToWin": {
+                        "values": "__int__",
+                        "min": 1,
+                        "max": 9,
+                        "default": 3,
+                        "guid": "000000006715",
+                        "en-US": "Goals Needed To Win",
+                        "de-DE": "Tore für Sieg",
+                        "es-ES": "Goles necesarios para ganar",
+                        "es-MX": "Goles necesarios para ganar",
+                        "fr-FR": "Buts nécessaires pour gagner",
+                        "it-IT": "Gol necessari per vincere",
+                        "ja-JP": "勝利に必要なゴール数",
+                        "ko-KR": "승점",
+                        "pl-PL": "Gole potrzebne do wygranej",
+                        "pt-BR": "Gols necessários para a vitória",
+                        "ru-RU": "Голы для победы",
+                        "zh-CN": "获胜所需进球数",
+                        "zh-TW": "勝利所需分數"
+                    },
+                    "resetPlayersAfterGoalScored": {
+                        "values": "__boolOnOff__",
+                        "guid": "000000006761",
+                        "en-US": "Reset Players After Goal Scored",
+                        "de-DE": "Spielerpositionen nach Tor zurücksetzen",
+                        "es-ES": "Reiniciar jugadores después de un gol",
+                        "es-MX": "Restablecer los jugadores después de que se anote un gol",
+                        "fr-FR": "Réinitialisation de la position après chaque but marqué",
+                        "it-IT": "Reimposta i giocatori dopo un gol",
+                        "ja-JP": "ゴール後にプレイヤーをリセット",
+                        "ko-KR": "득점 후 플레이어 초기화",
+                        "pl-PL": "Resetuj graczy po zdobytym golu",
+                        "pt-BR": "Redefinir jogadores após gol ser marcado",
+                        "ru-RU": "Сброс положения игроков после гола",
+                        "zh-CN": "进球后重置玩家",
+                        "zh-TW": "進球得分後重置玩家狀態"
+                    }
+                }
+            },
+            "yetiHunter": {
+                "values": {
+                    "maximumSimultaneousMeatSpawns": {
+                        "values": "__int__",
+                        "min": 1,
+                        "max": 6,
+                        "default": 3,
+                        "guid": "0000000075E9",
+                        "en-US": "Maximum Simultaneous Meat Spawns",
+                        "de-DE": "Maximal gleichzeitig verfügbare Fleischstücke",
+                        "es-ES": "Máxima generación de carne al mismo tiempo",
+                        "es-MX": "Máximo de reapariciones simultáneas de trozos de carne",
+                        "fr-FR": "Maximum de morceaux de viande simultanés",
+                        "it-IT": "Pezzi di carne attivi simultaneamente",
+                        "ja-JP": "お肉 最大同時出現数",
+                        "ko-KR": "최대 고기 동시 생성 수",
+                        "pl-PL": "Maksimum sztuk mięsa lokowanych naraz",
+                        "pt-BR": "Máximo de surgimentos simultâneos de carne",
+                        "ru-RU": "Одновременное появление кусков мяса макс.",
+                        "zh-CN": "肉块刷新上限",
+                        "zh-TW": "同時在場上出現的最大肉塊數量"
+                    },
+                    "gameLengthInMn": {
+                        "values": "__int__",
+                        "min": 3,
+                        "max": 10,
+                        "default": 6,
+                        "guid": "00000000764B",
+                        "en-US": "Time Limit In Minutes",
+                        "de-DE": "Zeitlimit in Minuten",
+                        "es-ES": "Límite de tiempo en minutos",
+                        "es-MX": "Límite de tiempo en minutos",
+                        "fr-FR": "Limite de temps en minutes",
+                        "it-IT": "Limite di tempo in minuti",
+                        "ja-JP": "タイムリミット（分）",
+                        "ko-KR": "제한 시간분",
+                        "pl-PL": "Limit czasu w minutach",
+                        "pt-BR": "Tempo limite em minutos",
+                        "ru-RU": "Ограничение по времени в минутах",
+                        "zh-CN": "时间限制（分钟）",
+                        "zh-TW": "時間限制（分鐘"
+                    },
+                    "yetiScoreToWin": {
+                        "values": "__int__",
+                        "min": 1,
+                        "max": 12,
+                        "default": 5,
+                        "guid": "000000007673",
+                        "en-US": "Yeti Score To Win",
+                        "de-DE": "Siegpunktzahl für den Yeti",
+                        "es-ES": "Puntuación para que gane el yeti",
+                        "es-MX": "Puntuación de yeti para ganar",
+                        "fr-FR": "Score à atteindre par le yéti",
+                        "it-IT": "Punteggio Yeti per vincere",
+                        "ja-JP": "イエティ 勝利スコア",
+                        "ko-KR": "예티 승점",
+                        "pl-PL": "Punkty do wygranej Yeti",
+                        "pt-BR": "Pontuação do Yeti para vencer",
+                        "ru-RU": "Очков для победы йети",
+                        "zh-CN": "雪人获胜得分",
+                        "zh-TW": "雪怪獲勝分數"
+                    }
+                }
+            },
+            "snowballFfa": {
+                "values": {
+                    "gameLengthInMn": {
+                        "guid": "00000000632C",
+                        "values": "__int__",
+                        "min": 5,
+                        "max": 15,
+                        "default": 10,
+                        "en-US": "Game Length In Minutes",
+                        "de-DE": "Spiellänge in Minuten",
+                        "es-ES": "Duración de la partida en minutos",
+                        "es-MX": "Duración de la partida en minutos",
+                        "fr-FR": "Durée de la partie en minutes",
+                        "it-IT": "Durata della partita in minuti",
+                        "ja-JP": "マッチ時間（分）",
+                        "ko-KR": "게임 진행 시간분",
+                        "pl-PL": "Długość meczu w minutach",
+                        "pt-BR": "Duração do jogo em minutos",
+                        "ru-RU": "Время матча в минутах",
+                        "zh-CN": "比赛时长（分钟）",
+                        "zh-TW": "遊戲時間（分鐘）"
+                    },
+                    "scoreToWin": {
+                        "guid": "00000000632A",
+                        "values": "__int__",
+                        "min": 1,
+                        "max": 50,
+                        "default": 20,
+                        "en-US": "Score To Win",
+                        "de-DE": "Siegpunktzahl",
+                        "es-ES": "Puntuación para ganar",
+                        "es-MX": "Puntos para ganar",
+                        "fr-FR": "Score à atteindre pour gagner",
+                        "it-IT": "Punti necessari per vincere",
+                        "ja-JP": "勝利スコア",
+                        "ko-KR": "승점",
+                        "pl-PL": "Eliminacje potrzebne do wygranej",
+                        "pt-BR": "Pontuação para vencer",
+                        "ru-RU": "Очков для победы",
+                        "zh-CN": "获胜得分",
+                        "zh-TW": "獲勝分數"
+                    },
+                    "enableSelfInitiatedRespawn": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "000000006884",
+                        "en-US": "Self Initiated Respawn",
+                        "de-DE": "Selbst ausgelöste Wiederbelebung",
+                        "es-ES": "Reaparición iniciada por el jugador",
+                        "es-MX": "Reaparición autoiniciada",
+                        "fr-FR": "Réapparition active",
+                        "it-IT": "Resurrezione a comando veloce",
+                        "ja-JP": "自主的リスポーン",
+                        "ko-KR": "직접 부활",
+                        "pl-PL": "Samoczynne odrodzenie",
+                        "pt-BR": "Ressurgimento auto iniciado",
+                        "ru-RU": "Возрождение вручную",
+                        "zh-CN": "主动重生",
+                        "zh-TW": "按重生鍵復活"
+                    }
+                }
             }
         },
         "guid": "000000010044",
@@ -18686,7 +19549,7 @@ const customGameSettingsSchema =
                         "soldier",
                         "symmetra",
                         "winston",
-                        "zenyatta",
+                        "zenyatta"
                     ],
                     "guid": "0000000058C1",
                     "en-US": "Projectile Gravity",
@@ -18711,7 +19574,7 @@ const customGameSettingsSchema =
                     "exclude": [
                         "brigitte",
                         "reaper",
-                        "winston",
+                        "winston"
                     ],
                     "guid": "0000000058A7",
                     "en-US": "Projectile Speed",
@@ -18894,7 +19757,7 @@ const customGameSettingsSchema =
                     "include": [
                         "brigitte",
                         "hanzo",
-                        "hammond",
+                        "hammond"
                     ],
                     "en-US": "%1$s",
                     "ko-KR": "%1$s회"
@@ -18906,7 +19769,7 @@ const customGameSettingsSchema =
                     "max": 500,
                     "default": 100,
                     "include": [
-                        "hammond",
+                        "hammond"
                     ],
                     "en-US": "%1$s Cooldown Time",
                     "de-DE": "%1$s – Abklingzeit",
@@ -18928,7 +19791,7 @@ const customGameSettingsSchema =
                     "default": "on",
                     "include": [
                         "mercy",
-                        "echo",
+                        "echo"
                     ],
                     "en-US": "%1$s",
                     "ko-KR": "%1$s회"
@@ -18950,7 +19813,7 @@ const customGameSettingsSchema =
                         "sigma",
                         "soldier",
                         "sombra",
-                        "hammond",
+                        "hammond"
                     ],
                     "en-US": "%1$s",
                     "ko-KR": "%1$s회"
@@ -37493,6 +38356,7 @@ var normalStrKw =
         "fr-FR": "Temps de recharge",
         "it-IT": "Tempi di recupero",
         "ja-JP": "クールダウン",
+        "pl-PL": "Czasy odnowienia",
         "pt-BR": "Tempos de Recarga",
         "ru-RU": "Время восстановления способностей",
         "zh-CN": "冷却时间",

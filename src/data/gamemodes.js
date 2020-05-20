@@ -201,6 +201,9 @@ const gamemodeKw = {
         "zh-CN": "突击模式",
         "zh-TW": "衝突戰"
     },
+    "snowballFfa": {
+        "en-US": "Snowball Deathmatch",
+    },
     "tdm": {
         "guid": "000000006854",
         "en-US": "Team Deathmatch",

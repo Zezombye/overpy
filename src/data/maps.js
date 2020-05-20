@@ -625,7 +625,7 @@ const mapKw =
         "ko-KR": "리장 관제 센터 설날",
         "pl-PL": "Wieża Lijiang: Centrum sterowania Księżycowy Nowy Rok",
         "pt-BR": "Centro de Controle Lijiang Ano Novo Lunar",
-        "ru-RU": "Командный центр Лицзян Лунный Новый год",
+        "ru-RU": "Лицзян: командный центр Лунный Новый год",
         "zh-CN": "春节漓江塔控制中心",
         "zh-TW": "灕江控制中心（春節）"
     },
@@ -669,7 +669,7 @@ const mapKw =
         "ko-KR": "리장 정원 설날",
         "pl-PL": "Wieża Lijiang: Ogród Księżycowy Nowy Rok",
         "pt-BR": "Jardim Lijiang Ano Novo Lunar",
-        "ru-RU": "Сад Лицзян Лунный Новый год",
+        "ru-RU": "Лицзян: сад Лунный Новый год",
         "zh-CN": "春节漓江塔庭院",
         "zh-TW": "灕江花園（春節）"
     },
@@ -713,7 +713,7 @@ const mapKw =
         "ko-KR": "리장 야시장 설날",
         "pl-PL": "Wieża Lijiang: Nocny bazar Księżycowy Nowy Rok",
         "pt-BR": "Mercado Noturno de Lijiang Ano Novo Lunar",
-        "ru-RU": "Ночной рынок Лицзян Лунный Новый год",
+        "ru-RU": "Лицзян: ночной рынок Лунный Новый год",
         "zh-CN": "春节漓江塔夜市",
         "zh-TW": "灕江夜市（春節）"
     },
@@ -1170,7 +1170,7 @@ const mapKw =
         "pl-PL": "Warsztat: Przestwór",
         "pt-BR": "Expansão do Workshop",
         "ru-RU": "Мастерская: поле",
-        "zh-CN": "地图工坊室外",
+        "zh-CN": "地图工坊空地",
         "zh-TW": "工作坊延伸區域"
     },
     "workshopExpanseNight": {
@@ -1180,7 +1180,20 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        "guid": "000000010C6D",
         "en-US": "Workshop Expanse Night",
+        "de-DE": "Workshop-Gebiet Nacht",
+        "es-ES": "Terreno del Taller nocturno",
+        "es-MX": "Expansión de Workshop noche",
+        "fr-FR": "Étendue de la Forge Nuit",
+        "it-IT": "Distesa del Workshop Notte",
+        "ja-JP": "WORKSHOP EXPANSE（NIGHT）",
+        "ko-KR": "워크샵 개활지 밤",
+        "pl-PL": "Warsztat: Przestwór noc",
+        "pt-BR": "Expansão do Workshop Noite",
+        "ru-RU": "Мастерская: поле ночь",
+        "zh-CN": "地图工坊空地（夜间）",
+        "zh-TW": "工作坊延伸區域（夜晚）"
     },
     "workshopIsland": {
         "gamemodes": [
@@ -1211,7 +1224,20 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        "guid": "000000010C71",
         "en-US": "Workshop Island Night",
+        "de-DE": "Workshop-Insel Nacht",
+        "es-ES": "Isla del Taller nocturno",
+        "es-MX": "Isla de Workshop noche",
+        "fr-FR": "Île de la Forge Nuit",
+        "it-IT": "Isola del Workshop Notte",
+        "ja-JP": "WORKSHOP ISLAND（NIGHT）",
+        "ko-KR": "워크샵 섬 밤",
+        "pl-PL": "Warsztat: Wyspa noc",
+        "pt-BR": "Ilha do Workshop Noite",
+        "ru-RU": "Мастерская: остров ночь",
+        "zh-CN": "地图工坊岛屿（夜间）",
+        "zh-TW": "工作坊島嶼（夜晚）"
     }
 }
 //end-json

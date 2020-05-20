@@ -8785,6 +8785,7 @@ var normalStrKw =
         "fr-FR": "Temps de recharge",
         "it-IT": "Tempi di recupero",
         "ja-JP": "クールダウン",
+        "pl-PL": "Czasy odnowienia",
         "pt-BR": "Tempos de Recarga",
         "ru-RU": "Время восстановления способностей",
         "zh-CN": "冷却时间",

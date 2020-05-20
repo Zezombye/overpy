@@ -89,28 +89,27 @@ const customGameSettingsKw =
         "es-ES": "Sí",
         "es-MX": "Sí",
         "fr-FR": "Oui",
-        "it-IT": "On",
+        "it-IT": "Sì",
         "ja-JP": "はい",
-        "ko-KR": "필요",
+        "ko-KR": "네",
         "pl-PL": "Tak",
         "pt-BR": "Sim",
         "ru-RU": "Да",
         "zh-CN": "是",
-        "zh-TW": "啟用"
+        "zh-TW": "是"
     },
     "__no__": {
         "guid": "00000000F407",
         "en-US": "No",
         "de-DE": "Nein",
         "fr-FR": "Non",
-        "it-IT": "Off",
         "ja-JP": "いいえ",
-        "ko-KR": "필요 없음",
+        "ko-KR": "아니요",
         "pl-PL": "Nie",
         "pt-BR": "Não",
         "ru-RU": "Нет",
         "zh-CN": "否",
-        "zh-TW": "停用"
+        "zh-TW": "否"
     }
 }
 //end-json
@@ -323,7 +322,6 @@ const eventKw =
         "es-MX": "El jugador realizó una sanación",
         "fr-FR": "Un joueur a prodigué des soins",
         "ja-JP": "プレイヤーが回復を与えた",
-        "pl-PL": "Gracz wykonał leczenie",
         "pt-BR": "Jogador Realizou Cura",
         "zh-CN": "玩家造成治疗"
     },
@@ -333,7 +331,6 @@ const eventKw =
         "es-MX": "El jugador recibió una sanación",
         "fr-FR": "Un joueur a reçu des soins",
         "ja-JP": "プレイヤーが回復を受けた",
-        "pl-PL": "Gracz otrzymał leczenie",
         "pt-BR": "Jogador Recebeu Cura",
         "zh-CN": "玩家受到治疗"
     },
@@ -343,7 +340,6 @@ const eventKw =
         "es-MX": "El jugador se unió a la partida",
         "fr-FR": "Un joueur a rejoint la partie",
         "ja-JP": "プレイヤーがマッチに参加",
-        "pl-PL": "Gracz dołączył do meczu",
         "pt-BR": "Jogador Entrou na Partida",
         "zh-CN": "玩家加入比赛"
     },
@@ -353,7 +349,6 @@ const eventKw =
         "es-MX": "El jugador abandonó la partida",
         "fr-FR": "Un joueur a quitté la partie",
         "ja-JP": "プレイヤーがマッチから離脱",
-        "pl-PL": "Gracz opuścił mecz",
         "pt-BR": "Jogador Saiu da Partida",
         "zh-CN": "玩家离开比赛"
     },
@@ -364,15 +359,28 @@ const eventKw =
         "es-MX": "Subrutina",
         "fr-FR": "Sous-programme",
         "ja-JP": "サブルーチン",
-        "pl-PL": "Podprogram",
         "pt-BR": "Sub-rotina",
         "zh-CN": "子程序"
     },
     "playerDealtKnockback": {
+        "guid": "0000000105BB",
         "en-US": "Player Dealt Knockback",
+        "es-ES": "Repulsión infligida por el jugador",
+        "es-MX": "El jugador infligió un derribo",
+        "fr-FR": "Un joueur a infligé un recul",
+        "ja-JP": "プレイヤーがノックバックを与えた",
+        "pt-BR": "Jogador Causou Repulsão",
+        "zh-CN": "玩家造成击退"
     },
     "playerReceivedKnockback": {
+        "guid": "0000000105BC",
         "en-US": "Player Received Knockback",
+        "es-ES": "Repulsión sufrida por el jugador",
+        "es-MX": "El jugador recibió un derribo",
+        "fr-FR": "Un joueur a reçu un recul",
+        "ja-JP": "プレイヤーがノックバックを受けた",
+        "pt-BR": "Jogador Recebeu Repulsão",
+        "zh-CN": "玩家受到击退"
     }
 }
 //end-json

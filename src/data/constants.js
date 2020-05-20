@@ -21,22 +21,22 @@ const constantValues =
     "Transform": {
         "ROTATION": {
             "guid": "00000000B33B",
+            "description": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity.",
             "en-US": "Rotation",
             "es-MX": "Rotación",
             "ja-JP": "回転",
             "pt-BR": "Rotação",
-            "zh-CN": "旋转",
-            "description": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity.",
+            "zh-CN": "旋转"
         },
         "ROTATION_AND_TRANSLATION": {
             "guid": "00000000B33C",
+            "description": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position.",
             "en-US": "Rotation And Translation",
             "es-MX": "Rotación y traslación",
             "fr-FR": "Rotation et Translation",
             "ja-JP": "回転と平行移動",
             "pt-BR": "Rotação e Translação",
-            "zh-CN": "旋转并转换",
-            "description": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position."
+            "zh-CN": "旋转并转换"
         }
     },
     "Team": {
@@ -93,7 +93,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Personne",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "全部禁用"
         }
@@ -105,7 +104,6 @@ const constantValues =
             "es-MX": "Aguamarina",
             "fr-FR": "Cyan",
             "ja-JP": "アクア",
-            "pl-PL": "Akwamaryna",
             "pt-BR": "Azul-piscina",
             "zh-CN": "水绿色"
         },
@@ -133,7 +131,6 @@ const constantValues =
             "es-MX": "Verde lima",
             "fr-FR": "Citron vert",
             "ja-JP": "ライムグリーン",
-            "pl-PL": "Limonkowy",
             "pt-BR": "Verde-limão",
             "zh-CN": "灰绿色"
         },
@@ -142,7 +139,6 @@ const constantValues =
             "en-US": "Orange",
             "es-MX": "Naranja",
             "ja-JP": "オレンジ",
-            "pl-PL": "Pomarańczowy",
             "pt-BR": "Laranja",
             "zh-CN": "橙色"
         },
@@ -170,7 +166,6 @@ const constantValues =
             "es-MX": "Azul cielo",
             "fr-FR": "Bleu ciel",
             "ja-JP": "スカイブルー",
-            "pl-PL": "Błękitny",
             "pt-BR": "Azul-celeste",
             "zh-CN": "天蓝色"
         },
@@ -197,7 +192,6 @@ const constantValues =
             "en-US": "Turquoise",
             "es-MX": "Turquesa",
             "ja-JP": "ターコイズ",
-            "pl-PL": "Turkusowy",
             "pt-BR": "Turquesa",
             "zh-CN": "青绿色"
         },
@@ -272,7 +266,6 @@ const constantValues =
             "es-MX": "Melé",
             "fr-FR": "Mêlée",
             "ja-JP": "近接",
-            "pl-PL": "Walka wręcz",
             "pt-BR": "Corpo a corpo",
             "zh-CN": "近身攻击"
         },
@@ -291,7 +284,6 @@ const constantValues =
             "es-MX": "Recargar",
             "fr-FR": "Rechargement",
             "ja-JP": "リロード",
-            "pl-PL": "Przeładowanie",
             "pt-BR": "Recarregar",
             "zh-CN": "装填"
         },
@@ -663,13 +655,31 @@ const constantValues =
             "zh-CN": "收到"
         },
         "ATTACKING": {
+            "guid": "000000010BEF",
             "en-US": "Attacking",
+            "es-MX": "Atacando",
+            "fr-FR": "J’attaque",
+            "ja-JP": "攻撃中",
+            "pt-BR": "Atacando",
+            "zh-CN": "正在进攻"
         },
         "COUNTDOWN": {
+            "guid": "000000010BF3",
             "en-US": "Countdown",
+            "es-MX": "Conteo regresivo",
+            "fr-FR": "Compte à rebours",
+            "ja-JP": "カウントダウン",
+            "pt-BR": "Contagem Regressiva",
+            "zh-CN": "倒计时"
         },
         "DEFENDING": {
+            "guid": "000000010BF0",
             "en-US": "Defending",
+            "es-MX": "Defendiendo",
+            "fr-FR": "Je défends",
+            "ja-JP": "防衛中",
+            "pt-BR": "Defendendo",
+            "zh-CN": "正在防守"
         },
         "EMOTE_DOWN": {
             "guid": "00000000B9DB",
@@ -708,16 +718,40 @@ const constantValues =
             "zh-CN": "表情（上）"
         },
         "FALL_BACK": {
+            "guid": "000000010BE9",
             "en-US": "Fall Back",
+            "es-MX": "Retroceder",
+            "fr-FR": "Repli",
+            "ja-JP": "退却しよう",
+            "pt-BR": "Recuar",
+            "zh-CN": "撤退"
         },
         "GO": {
+            "guid": "000000010BE7",
             "en-US": "Go",
+            "es-MX": "Vamos",
+            "fr-FR": "On y va",
+            "ja-JP": "行け",
+            "pt-BR": "Vai",
+            "zh-CN": "前进"
         },
         "GOING_IN": {
+            "guid": "000000010BED",
             "en-US": "Going In",
+            "es-MX": "Entrando",
+            "fr-FR": "J’y vais",
+            "ja-JP": "突入する",
+            "pt-BR": "Vou Avançar",
+            "zh-CN": "我上了"
         },
         "GOODBYE": {
+            "guid": "000000010BE6",
             "en-US": "Goodbye",
+            "es-MX": "Adiós",
+            "fr-FR": "Au revoir",
+            "ja-JP": "さようなら",
+            "pt-BR": "Tchau",
+            "zh-CN": "再见"
         },
         "GROUP_UP": {
             "guid": "00000000B9D7",
@@ -738,7 +772,13 @@ const constantValues =
             "zh-CN": "问候"
         },
         "INCOMING": {
+            "guid": "000000010BEB",
             "en-US": "Incoming",
+            "es-MX": "Enemigos aproximándose",
+            "fr-FR": "En approche",
+            "ja-JP": "敵接近中",
+            "pt-BR": "Chegando",
+            "zh-CN": "敌人来袭"
         },
         "NEED_HEALING": {
             "guid": "00000000B9D8",
@@ -750,25 +790,66 @@ const constantValues =
             "zh-CN": "需要治疗"
         },
         "NEED_HELP": {
+            "guid": "000000010BF1",
             "en-US": "Need Help",
+            "es-MX": "Necesito ayuda",
+            "fr-FR": "À l’aide",
+            "ja-JP": "手を貸して",
+            "pt-BR": "Preciso de Ajuda",
+            "zh-CN": "需要帮助"
         },
         "NO": {
+            "guid": "000000010BE5",
             "en-US": "No",
+            "fr-FR": "Non",
+            "ja-JP": "いいえ",
+            "pt-BR": "Não",
+            "zh-CN": "不行"
         },
         "ON_MY_WAY": {
+            "guid": "000000010BEE",
             "en-US": "On My Way",
+            "es-MX": "En camino",
+            "fr-FR": "J’arrive",
+            "ja-JP": "今向かう",
+            "pt-BR": "A Caminho",
+            "zh-CN": "正在赶来"
         },
         "PRESS_THE_ATTACK": {
-            "en-US": "Press The Attack",
+            "guid": "000000010BE2",
+            "en-US": "Press the Attack",
+            "es-MX": "Al ataque",
+            "fr-FR": "Poursuivons l’offensive",
+            "ja-JP": "攻撃の手を緩めるな",
+            "pt-BR": "Force o Ataque",
+            "zh-CN": "继续攻击"
         },
         "PUSH_FORWARD": {
+            "guid": "000000010BEA",
             "en-US": "Push Forward",
+            "es-MX": "Avancen",
+            "fr-FR": "En avant",
+            "ja-JP": "前進しよう",
+            "pt-BR": "Avançar",
+            "zh-CN": "推进"
         },
         "READY": {
+            "guid": "000000010BE8",
             "en-US": "Ready",
+            "es-MX": "Listo",
+            "fr-FR": "Prêt",
+            "ja-JP": "準備完了",
+            "pt-BR": "Pronto",
+            "zh-CN": "做好准备"
         },
         "SORRY": {
+            "guid": "000000010BF2",
             "en-US": "Sorry",
+            "es-MX": "Lo siento",
+            "fr-FR": "Désolé",
+            "ja-JP": "ごめん",
+            "pt-BR": "Desculpe",
+            "zh-CN": "抱歉"
         },
         "THANKS": {
             "guid": "00000000B9D6",
@@ -825,14 +906,32 @@ const constantValues =
             "zh-CN": "语音（上）"
         },
         "WITH_YOU": {
+            "guid": "000000010BEC",
             "en-US": "With You",
+            "es-MX": "Contigo",
+            "fr-FR": "Je te suis",
+            "ja-JP": "ついていく",
+            "pt-BR": "Com Você",
+            "zh-CN": "你先上"
         },
         "YES": {
+            "guid": "000000010BE4",
             "en-US": "Yes",
+            "es-MX": "Sí",
+            "fr-FR": "Oui",
+            "ja-JP": "はい",
+            "pt-BR": "Sim",
+            "zh-CN": "好的"
         },
         "YOURE_WELCOME": {
-            "en-US": "You Are Welcome",
-        },
+            "guid": "000000010BE3",
+            "en-US": "You are Welcome",
+            "es-MX": "De nada",
+            "fr-FR": "C’est tout naturel",
+            "ja-JP": "どういたしまして",
+            "pt-BR": "De Nada",
+            "zh-CN": "不用谢"
+        }
     },
     "Icon": {
         "ARROW_DOWN": {
@@ -1189,45 +1288,45 @@ const constantValues =
     "Relativity": {
         "TO_PLAYER": {
             "guid": "00000000B16F",
+            "description": "Relative to the player's local coordinate system (which moves and rotates with the player).",
             "en-US": "To Player",
             "es-MX": "Al jugador",
             "fr-FR": "Au joueur",
             "ja-JP": "対プレイヤー: ",
             "pt-BR": "Ao Jogador",
-            "zh-CN": "至玩家",
-            "description": "Relative to the player's local coordinate system (which moves and rotates with the player).",
+            "zh-CN": "至玩家"
         },
         "TO_WORLD": {
             "guid": "00000000B170",
+            "description": "Relative to the world's coordinate system.",
             "en-US": "To World",
             "es-MX": "Al mundo",
             "fr-FR": "Au monde",
             "ja-JP": "対ワールド: ",
             "pt-BR": "Ao Mundo",
-            "zh-CN": "至地图",
-            "description": "Relative to the world's coordinate system."
+            "zh-CN": "至地图"
         }
     },
     "Impulse": {
         "CANCEL_CONTRARY_MOTION": {
             "guid": "00000000B520",
+            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied.",
             "en-US": "Cancel Contrary Motion",
             "es-MX": "Cancelar movimiento contrario",
             "fr-FR": "Annuler le mouvement contraire",
             "ja-JP": "逆モーションをキャンセル",
             "pt-BR": "Cancelar Deslocamento Contrário",
-            "zh-CN": "取消相反运动",
-            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied.",
+            "zh-CN": "取消相反运动"
         },
         "INCORPORATE_CONTRARY_MOTION": {
             "guid": "00000000B521",
+            "description": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect.",
             "en-US": "Incorporate Contrary Motion",
             "es-MX": "Incorporar movimiento contrario",
             "fr-FR": "Incorporer un mouvement contraire",
             "ja-JP": "逆モーションを組み込む",
             "pt-BR": "Incorporar Deslocamento Contrário",
-            "zh-CN": "合并相反运动",
-            "description": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect.",
+            "zh-CN": "合并相反运动"
         }
     },
     "__Rounding__": {
@@ -1262,64 +1361,64 @@ const constantValues =
     "LosCheck": {
         "OFF": {
             "guid": "00000000B1E2",
+            "description": "Line of sight is never blocked, allowing results through walls.",
             "en-US": "Off",
             "es-MX": "Apagado",
             "fr-FR": "Désactivé",
             "ja-JP": "OFF",
             "pt-BR": "Desligado",
-            "zh-CN": "关闭",
-            "description": "Line of sight is never blocked, allowing results through walls.",
+            "zh-CN": "关闭"
         },
         "SURFACES": {
             "guid": "00000000B1E3",
+            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles.",
             "en-US": "Surfaces",
             "es-MX": "Superficies",
             "ja-JP": "表面",
             "pt-BR": "Superfícies",
-            "zh-CN": "表面",
-            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles.",
+            "zh-CN": "表面"
         },
         "SURFACES_AND_ALL_BARRIERS": {
             "guid": "00000000B1E5",
+            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers.",
             "en-US": "Surfaces And All Barriers",
             "es-MX": "Superficies y todas las barreras",
             "fr-FR": "Surfaces et toutes les barrières",
             "ja-JP": "表面とすべてのバリア",
             "pt-BR": "Superfícies e Todas as Barreiras",
-            "zh-CN": "表面及全部屏障",
-            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers.",
+            "zh-CN": "表面及全部屏障"
         },
         "SURFACES_AND_ENEMY_BARRIERS": {
             "guid": "00000000B1E4",
+            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team.",
             "en-US": "Surfaces And Enemy Barriers",
             "es-MX": "Superficies y barreras enemigas",
             "fr-FR": "Surfaces et barrières ennemies",
             "ja-JP": "表面と敵のバリア",
             "pt-BR": "Superfícies e Barreiras Inimigas",
-            "zh-CN": "表面及敌方屏障",
-            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team.",
+            "zh-CN": "表面及敌方屏障"
         }
     },
     "Clip": {
         "SURFACES": {
             "guid": "00000000BAF5",
+            "description": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects.",
             "en-US": "Clip Against Surfaces",
             "es-MX": "Atravesar las superficies",
             "fr-FR": "Masquer derrière les surfaces",
             "ja-JP": "表面に対してクリップ",
             "pt-BR": "Cortar nas Superfícies",
-            "zh-CN": "根据表面截取",
-            "description": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects.",
+            "zh-CN": "根据表面截取"
         },
         "NONE": {
             "guid": "00000000BAF4",
+            "description": "The text will always be fully visible, even if it is behind a wall or solid object.",
             "en-US": "Do Not Clip",
             "es-MX": "No atravesar",
             "fr-FR": "Ne pas masquer",
             "ja-JP": "クリップしない",
             "pt-BR": "Não Cortar",
-            "zh-CN": "不要截取",
-            "description": "The text will always be fully visible, even if it is behind a wall or solid object.",
+            "zh-CN": "不要截取"
         }
     },
     "HudPosition": {
@@ -1366,7 +1465,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
@@ -1405,7 +1503,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
@@ -1430,10 +1527,22 @@ const constantValues =
     },
     "HudReeval": {
         "NONE": {
+            "guid": "00000000B8C3",
             "en-US": "None",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "ja-JP": "なし",
+            "pt-BR": "Ninguém",
+            "zh-CN": "无"
         },
         "SORT_ORDER": {
+            "guid": "00000001095F",
             "en-US": "Sort Order",
+            "es-MX": "Orden de vista",
+            "fr-FR": "Tri",
+            "ja-JP": "ソート順",
+            "pt-BR": "Ordem de Classificação",
+            "zh-CN": "排序"
         },
         "SORT_ORDER_AND_STRING": {
             "guid": "00000000FCA6",
@@ -1441,7 +1550,6 @@ const constantValues =
             "es-MX": "Clasificar orden y cadena",
             "fr-FR": "Tri et Chaîne de texte",
             "ja-JP": "ソート順、文字列",
-            "pl-PL": "Kolejność sortowania i ciąg",
             "pt-BR": "Ordem de classificação e string",
             "zh-CN": "排序规则与字符串"
         },
@@ -1454,10 +1562,22 @@ const constantValues =
             "zh-CN": "字符串"
         },
         "VISIBILITY": {
+            "guid": "00000000B8C4",
             "en-US": "Visible To",
+            "es-MX": "Visible para",
+            "fr-FR": "Visible pour",
+            "ja-JP": "目視可能: ",
+            "pt-BR": "Visível para",
+            "zh-CN": "可见"
         },
         "VISIBILITY_AND_SORT_ORDER": {
+            "guid": "00000001095E",
             "en-US": "Visible To and Sort Order",
+            "es-MX": "Visible para y orden de vista",
+            "fr-FR": "Visible pour et Tri",
+            "ja-JP": "表示される相手、ソート順",
+            "pt-BR": "Visível para e Ordem de Classificação",
+            "zh-CN": "可见性和排序"
         },
         "VISIBILITY_AND_STRING": {
             "guid": "00000000BA8C",
@@ -1478,11 +1598,17 @@ const constantValues =
             "ko-KR": "Visible To Sort Order String",
             "pt-BR": "Visível para ordem de classificação e string",
             "zh-CN": "可见性，排序规则，以及字符串"
-        },
+        }
     },
     "WorldTextReeval": {
         "NONE": {
+            "guid": "00000000B8C3",
             "en-US": "None",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "ja-JP": "なし",
+            "pt-BR": "Ninguém",
+            "zh-CN": "无"
         },
         "STRING": {
             "guid": "00000000BB31",
@@ -1493,10 +1619,22 @@ const constantValues =
             "zh-CN": "字符串"
         },
         "VISIBILITY": {
+            "guid": "00000000B8C4",
             "en-US": "Visible To",
+            "es-MX": "Visible para",
+            "fr-FR": "Visible pour",
+            "ja-JP": "目視可能: ",
+            "pt-BR": "Visível para",
+            "zh-CN": "可见"
         },
         "VISIBILITY_AND_POSITION": {
+            "guid": "00000000B8D9",
             "en-US": "Visible To and Position",
+            "es-MX": "Visible para y posición",
+            "fr-FR": "Visible pour et Position",
+            "ja-JP": "表示される相手、位置",
+            "pt-BR": "Visível para e Posição",
+            "zh-CN": "可见和位置"
         },
         "VISIBILITY_AND_STRING": {
             "guid": "00000000BA8C",
@@ -1534,7 +1672,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Nenhuma",
             "zh-CN": "全部禁用"
         }
@@ -1555,7 +1692,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Nenhuma",
             "zh-CN": "全部禁用"
         }
@@ -1567,7 +1703,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucun",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Nenhuma",
             "zh-CN": "无"
         },
@@ -1597,7 +1732,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Nenhum",
             "zh-CN": "全部禁用"
         },
@@ -1636,7 +1770,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         }
@@ -1644,6 +1777,7 @@ const constantValues =
     "Wait": {
         "ABORT_WHEN_FALSE": {
             "guid": "00000000787D",
+            "description": "The execution of the action list is aborted if any condition on this rule becomes false.",
             "en-US": "Abort When False",
             "es-ES": "Abortar cuando sea falso",
             "es-MX": "Cancelar cuando es falso",
@@ -1652,11 +1786,11 @@ const constantValues =
             "ja-JP": "「FALSE」の場合中止",
             "pl-PL": "Przerwij kiedy to fałsz",
             "pt-BR": "Anular Quando For Falso",
-            "zh-CN": "当为“假”时中止",
-            "description": "The execution of the action list is aborted if any condition on this rule becomes false.",
+            "zh-CN": "当为“假”时中止"
         },
         "IGNORE_CONDITION": {
             "guid": "00000000787C",
+            "description": "The execution of the action list is never interrupted.",
             "en-US": "Ignore Condition",
             "es-ES": "Ignorar condición",
             "es-MX": "Ignorar condición",
@@ -1665,11 +1799,11 @@ const constantValues =
             "ja-JP": "条件無視",
             "pl-PL": "Zignoruj warunek",
             "pt-BR": "Ignorar Condição",
-            "zh-CN": "无视条件",
-            "description": "The execution of the action list is never interrupted.",
+            "zh-CN": "无视条件"
         },
         "RESTART_WHEN_TRUE": {
             "guid": "00000000787E",
+            "description": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions.",
             "en-US": "Restart When True",
             "es-ES": "Reiniciar cuando sea verdadero",
             "es-MX": "Reiniciar cuando es verdadero",
@@ -1678,176 +1812,172 @@ const constantValues =
             "ja-JP": "「TRUE」の場合リスタート",
             "pl-PL": "Zrestartuj kiedy to prawda",
             "pt-BR": "Reiniciar Quando For Verdadeiro",
-            "zh-CN": "当为“真”时重新开始",
-            "description": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions.",
+            "zh-CN": "当为“真”时重新开始"
         }
     },
     "BarrierLos": {
         "BLOCKED_BY_ENEMY_BARRIERS": {
             "guid": "00000000B1EE",
+            "description": "Line of sight is blocked by barriers created by the enemy team.",
             "en-US": "Enemy Barriers Block LOS",
             "es-MX": "Las barreras enemigas bloquean la LDV",
             "fr-FR": "Les barrières ennemies bloquent la ligne de vue",
             "ja-JP": "敵のバリアが射線を妨げる",
             "pt-BR": "Barreiras Inimigas Bloqueiam LdV",
-            "zh-CN": "敌方屏障阻挡视线",
-            "description": "Line of sight is blocked by barriers created by the enemy team.",
+            "zh-CN": "敌方屏障阻挡视线"
         },
         "BLOCKED_BY_ALL_BARRIERS": {
             "guid": "00000000B1EF",
+            "description": "Line of sight is blocked by all barriers.",
             "en-US": "All Barriers Block LOS",
             "es-MX": "Todas las barreras bloquean la LDV",
             "fr-FR": "Toutes les barrières bloquent la ligne de vue",
             "ja-JP": "すべてのバリアが射線を妨げる",
             "pt-BR": "Todas as Barreiras Bloqueiam LdV",
-            "zh-CN": "所有屏障阻挡视线",
-            "description": "Line of sight is blocked by all barriers.",
+            "zh-CN": "所有屏障阻挡视线"
         },
         "PASS_THROUGH_BARRIERS": {
             "guid": "00000000B1ED",
+            "description": "Line of sight is not blocked by any barriers.",
             "en-US": "Barriers Do Not Block LOS",
             "es-MX": "Las barreras no bloquean la LDV",
             "fr-FR": "Les barrières ne bloquent pas la ligne de vue",
             "ja-JP": "バリアは射線を妨げない",
             "pt-BR": "Barreiras Não Bloqueiam LdV",
-            "zh-CN": "屏障不会阻挡视线",
-            "description": "Line of sight is not blocked by any barriers.",
-        },
+            "zh-CN": "屏障不会阻挡视线"
+        }
     },
     "Status": {
         "ASLEEP": {
             "guid": "00000000B36A",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status.",
             "en-US": "Asleep",
             "es-MX": "Dormido",
             "fr-FR": "Endormi",
             "ja-JP": "眠っている",
             "pt-BR": "Dormindo",
-            "zh-CN": "沉睡",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status.",
+            "zh-CN": "沉睡"
         },
         "BURNING": {
             "guid": "00000000B36C",
+            "description": "The player is burning. For example, Ashe's dynamite causes this status.",
             "en-US": "Burning",
             "es-MX": "En llamas",
             "fr-FR": "Enflammé",
             "ja-JP": "燃焼中",
             "pt-BR": "Queimando",
-            "zh-CN": "点燃",
-            "description": "The player is burning. For example, Ashe's dynamite causes this status.",
+            "zh-CN": "点燃"
         },
         "FROZEN": {
             "guid": "00000000B369",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status.",
             "en-US": "Frozen",
             "es-MX": "Congelado",
             "fr-FR": "Gelé",
             "ja-JP": "凍っている",
             "pt-BR": "Congelado",
-            "zh-CN": "冻结",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status."
+            "zh-CN": "冻结"
         },
         "HACKED": {
             "guid": "00000000B36D",
+            "description": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status.",
             "en-US": "Hacked",
             "es-MX": "Hackeado",
             "fr-FR": "Piraté",
             "ja-JP": "ハックされている",
             "pt-BR": "Hackeado",
-            "zh-CN": "被入侵",
-            "description": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status."
+            "zh-CN": "被入侵"
         },
         "INVINCIBLE": {
             "guid": "00000000B367",
+            "description": "The player does not take damage.",
             "en-US": "Invincible",
             "es-MX": "Invencible",
             "ja-JP": "無敵",
             "pt-BR": "Invencível",
-            "zh-CN": "无敌",
-            "description": "The player does not take damage."
+            "zh-CN": "无敌"
         },
         "KNOCKED_DOWN": {
             "guid": "00000000B36B",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status.",
             "en-US": "Knocked Down",
             "es-MX": "Derribado",
             "fr-FR": "Renversé",
             "ja-JP": "ノックダウンされている",
             "pt-BR": "Nocauteado",
-            "zh-CN": "击倒",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status."
+            "zh-CN": "击倒"
         },
         "PHASED_OUT": {
             "guid": "00000000B366",
+            "description": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status.",
             "en-US": "Phased Out",
             "es-MX": "Forma etérea",
             "fr-FR": "Déphasé",
             "ja-JP": "フェーズアウト中",
             "pt-BR": "Intangível",
-            "zh-CN": "消散",
-            "description": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status."
+            "zh-CN": "消散"
         },
         "ROOTED": {
             "guid": "00000000B365",
+            "description": "The player cannot move unless moved by another player or object. Aiming is unaffected.",
             "en-US": "Rooted",
             "es-MX": "Arraigado",
             "fr-FR": "Immobilisé",
             "ja-JP": "固定されている",
             "pt-BR": "Enraizado",
-            "zh-CN": "定身",
-            "description": "The player cannot move unless moved by another player or object. Aiming is unaffected."
+            "zh-CN": "定身"
         },
         "STUNNED": {
             "guid": "00000000B565",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, McCree's flashbang causes this status.",
             "en-US": "Stunned",
             "es-MX": "Aturdido",
             "fr-FR": "Étourdi",
             "ja-JP": "スタンされている",
             "pt-BR": "Atordoado",
-            "zh-CN": "昏迷",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, McCree's flashbang causes this status."
+            "zh-CN": "昏迷"
         },
         "UNKILLABLE": {
             "guid": "00000000B368",
+            "description": "The player's health will not drop below 1.",
             "en-US": "Unkillable",
             "es-MX": "Inmortal",
             "fr-FR": "Intuable",
             "ja-JP": "キル不可",
             "pt-BR": "Imortal",
-            "zh-CN": "无法杀死",
-            "description": "The player's health will not drop below 1."
+            "zh-CN": "无法杀死"
         }
     },
     "SpecVisibility": {
         "DEFAULT": {
             "guid": "00000000CE55",
+            "description": "Non-team spectators can see text when all players can see it.",
             "en-US": "Default Visibility",
             "es-MX": "Visibilidad predeterminada",
             "fr-FR": "Visibilité par défaut",
             "ja-JP": "デフォルト表示",
-            "pl-PL": "Domyślna widoczność",
             "pt-BR": "Visibilidade-padrão",
-            "zh-CN": "默认可见度",
-            "description": "Non-team spectators can see text when all players can see it.",
+            "zh-CN": "默认可见度"
         },
         "ALWAYS": {
             "guid": "00000000CE56",
+            "description": "Non-team spectators can always see text.",
             "en-US": "Visible Always",
             "es-MX": "Siempre visible",
             "fr-FR": "Toujours visible",
             "ja-JP": "常に表示",
-            "pl-PL": "Zawsze widoczny",
             "pt-BR": "Sempre Visível",
-            "zh-CN": "始终可见",
-            "description": "Non-team spectators can always see text."
+            "zh-CN": "始终可见"
         },
         "NEVER": {
             "guid": "00000000CE57",
+            "description": "Non-team spectators can never see text.",
             "en-US": "Visible Never",
             "es-MX": "Nunca visible",
             "fr-FR": "Jamais visible",
             "ja-JP": "表示されない",
-            "pl-PL": "Zawsze niewidoczny",
             "pt-BR": "Nunca Visível",
-            "zh-CN": "始终不可见",
-            "description": "Non-team spectators can never see text."
+            "zh-CN": "始终不可见"
         }
     },
     "Beam": {
@@ -1857,7 +1987,6 @@ const constantValues =
             "es-MX": "Rayo malo",
             "fr-FR": "Mauvais rayon",
             "ja-JP": "マイナス効果のビーム",
-            "pl-PL": "Zła wiązka",
             "pt-BR": "Feixe Mau",
             "zh-CN": "有害光束"
         },
@@ -1867,7 +1996,6 @@ const constantValues =
             "es-MX": "Rayo bueno",
             "fr-FR": "Bon rayon",
             "ja-JP": "プラス効果のビーム",
-            "pl-PL": "Dobra wiązka",
             "pt-BR": "Feixe Bom",
             "zh-CN": "有益光束"
         },
@@ -1877,7 +2005,6 @@ const constantValues =
             "es-MX": "Rayo de arpeo",
             "fr-FR": "Rayon du grappin",
             "ja-JP": "グラップリング・ビーム",
-            "pl-PL": "Wiązka kotwiczki",
             "pt-BR": "Feixe de Arpéu",
             "zh-CN": "抓钩光束"
         }
@@ -1889,7 +2016,6 @@ const constantValues =
             "es-MX": "Reemplazar aceleración preexistente",
             "fr-FR": "Remplacer l’accélération existante",
             "ja-JP": "既存のスロットルと入れ替え",
-            "pl-PL": "Zastąp istniejący pęd",
             "pt-BR": "Substituir a aceleração existente",
             "zh-CN": "替换现有阈值"
         },
@@ -1899,7 +2025,6 @@ const constantValues =
             "es-MX": "Agregar a aceleración preexistente",
             "fr-FR": "Ajouter à l’accélération existante",
             "ja-JP": "既存のスロットルに追加",
-            "pl-PL": "Dodaj do istniejącego pędu",
             "pt-BR": "Somar à aceleração existente",
             "zh-CN": "添加至现有阈值"
         }
@@ -1911,7 +2036,6 @@ const constantValues =
             "es-MX": "Dirección y magnitud",
             "fr-FR": "Direction et ampleur",
             "ja-JP": "方向と変化の大きさ",
-            "pl-PL": "Kierunek i wielkość",
             "pt-BR": "Direção e Magnitude",
             "zh-CN": "方向和幅度"
         },
@@ -1921,7 +2045,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Nenhum",
             "zh-CN": "无"
         }
@@ -1942,7 +2065,6 @@ const constantValues =
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
             "ja-JP": "なし",
-            "pl-PL": "Brak",
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         }
@@ -1950,44 +2072,57 @@ const constantValues =
     "AsyncBehavior": {
         "RESTART": {
             "guid": "000000010025",
+            "description": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc).",
             "en-US": "Restart Rule",
             "es-MX": "Reiniciar regla",
             "fr-FR": "Relancer la règle",
             "ja-JP": "ルールをやり直す",
             "pt-BR": "Regra de reinício",
-            "zh-CN": "重新开始规则",
-            "description": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc)."
+            "zh-CN": "重新开始规则"
         },
         "NOOP": {
             "guid": "000000010026",
+            "description": "Allow the rule to finish executing without changing its contextual values.",
             "en-US": "Do Nothing",
             "es-MX": "Hacer nada",
             "fr-FR": "Ne rien faire",
             "ja-JP": "何もしない",
             "pt-BR": "Não fazer nada",
-            "zh-CN": "无动作",
-            "description": "Allow the rule to finish executing without changing its contextual values.",
+            "zh-CN": "无动作"
         }
     },
     "__Operator__": {
         "==": {
+            "guid": "00000000780E",
             "en-US": "==",
+            "fr-FR": "== égal à",
+            "ja-JP": " =="
         },
         "!=": {
+            "guid": "00000000780F",
             "en-US": "!=",
+            "fr-FR": "!= différent de"
         },
         "<=": {
+            "guid": "000000007811",
             "en-US": "<=",
+            "fr-FR": "<= inférieur ou égal à"
         },
         ">=": {
+            "guid": "000000007814",
             "en-US": ">=",
+            "fr-FR": ">= supérieur ou égal à"
         },
         "<": {
+            "guid": "000000007810",
             "en-US": "<",
+            "fr-FR": "< inférieur à"
         },
         ">": {
+            "guid": "000000007812",
             "en-US": ">",
-        },
+            "fr-FR": "> supérieur à"
+        }
     }
 }
 //end-json

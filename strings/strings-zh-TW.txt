@@ -1,12 +1,14 @@
-[Core] DataTool v1.47.0.869-git-e8b03657a7f90e402e114b4d3084727a3347ee42
+[Core] DataTool v1.48.0.872-git-388eaf2c98e84f9acbee236d068a6fd0dd9b9c8d
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.exe.args
 [CASC] Set language to zhTW
 [CASC] Set speech language to zhTW
-[CASC] Overwatch build 1.47.1.0.68126
+[CASC] Overwatch build 1.48.0.0.68780
 [CASC] Initializing...
-[CMF] Using CMF procedure 68126
-[CMF] Using CMF procedure 68126
+[Manifest] Using TRG procedure 68780 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
+[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -659,10 +661,6 @@
 0000000008DA.07C: 觀看玩家12
 000000000939.07C: %1$s想要攻擊這個控制點！
 00000000093A.07C: %1$s想要防禦這個控制點！
-000000000943.07C: 需要治療
-000000000944.07C: 集合
-000000000945.07C: 絕招狀態
-000000000946.07C: 自訂語音
 00000000094D.07C: %1$s(%2$s)：跟我一起走！
 00000000094E.07C: %1$s(%2$s)：我的絕招(%3$s)%4$s準備就緒！
 00000000099D.07C: 無法加入團隊
@@ -876,6 +874,8 @@
 000000000CC9.07C: 士兵76在啟動戰術鎖定後，應該立即尋求掩護。萬一無處可躲，試著在對方殺死你之前解決對方。
 000000000CF9.07C: 音波槍
 000000000CFA.07C: 音波發射器
+000000000CFB.07C: 治療曲目
+000000000CFC.07C: 能治療附近盟友的歌曲。再次使用會切換成加速曲目
 000000000CFD.07C: 音浪衝擊
 000000000CFE.07C: 產生短程衝擊波擊退敵人
 000000000D01.07C: 音量全開
@@ -1174,7 +1174,6 @@
 0000000012E2.07C: 吃我一鎚
 0000000012E9.07C: 捍衛者(白)
 0000000012FD.07C: 引爆
-0000000012FE.07C: 取消
 00000000133B.07C: 距離控制點開放還有：|Rfn %1$s:F0;
 00000000134F.07C: 單場最佳命中率
 000000001356.07C: 總傷害量
@@ -1959,10 +1958,6 @@
 000000001B75.07C: 佔全隊死亡數的
 000000001B79.07C: 助攻擊殺數
 000000001B7A.07C: 摘要
-000000001B7B.07C: 哈囉
-000000001B7C.07C: 謝謝你
-000000001B7D.07C: 收到
-000000001B7E.07C: 表情
 000000001B7F.07C: 已解鎖
 000000001B80.07C: 檢視
 000000001BA1.07C: %1$s說：謝謝你！
@@ -1984,7 +1979,7 @@
 000000001BBA.07C: 需要治療或增益
 000000001BBB.07C: 集合
 000000001BBC.07C: 絕招狀態
-000000001BBD.07C: 自訂語音（預設）
+000000001BBD.07C: 自訂語音（上）
 000000001BBE.07C: 收到
 000000001BBF.07C: 謝謝
 000000001BC2.07C: 地裂擊擊昏數
@@ -1998,7 +1993,7 @@
 000000001BE6.07C: %1$s(%2$s)對你說：我需要護盾！
 000000001BE7.07C: %1$s(%2$s)對你說：我需要裝甲！
 000000001BE8.07C: %1$s(%2$s)對你說：治療我！%3$s
-000000001BEB.07C: 表情（預設）
+000000001BEB.07C: 表情（上）
 000000001BED.07C: 以「/」開啟聊天頻道
 000000001BEE.07C: 麥卡利
 000000001BEF.07C: 慈悲
@@ -2139,7 +2134,7 @@
 000000001D2B.07C: 按下Enter開始聊天
 000000001D2C.07C: 按下Tab可切換頻道
 000000001D2D.07C: 時間：
-000000001D30.07C: 噴漆（預設）
+000000001D30.07C: 噴漆（上）
 000000002086.07C: 擊殺數%1$s
 000000002087.07C: 單場最高玩家復活數%1$s
 000000002088.07C: 復活玩家數%1$s
@@ -7093,7 +7088,6 @@ Andrew Wang
 000000004142.07C: 在進行對戰前，可以先進入訓練中心熟悉你的武器和技能
 000000004145.07C: 練習戰
 000000004146.07C: 和玩家對戰之前，可以先跟A.I.控制的敵人練習一下。
-000000004147.07C: CHARGE PIN SAVE - KILL
 000000004148.07C: 進行訓練模式
 00000000414A.07C: 每一名玩家都會在重生時隨機更換英雄，努力擊敗敵方隊伍吧。
 000000004153.07C: 充分暢快，大肆破壞。
@@ -7108,7 +7102,6 @@ Andrew Wang
 000000004166.07C: 你隨時能從訓練模式的選單進入訓練中心
 000000004167.07C: 你隨時能從訓練模式和對戰的選單中進行練習戰
 00000000417B.07C: 推薦
-000000004194.07C: STUN SAVE
 000000004195.07C: 都不顯示
 000000004196.07C: 全部顯示
 000000004197.07C: 聊天
@@ -7747,7 +7740,6 @@ Andrew Wang
 00000000461B.07C: 並未取得《鬥陣特攻》的遊戲授權。
 00000000461C.07C: www.buyoverwatch.com
 00000000461D.07C: #%1$s
-000000004624.07C: support/%1$s
 000000004625.07C: 接受邀請時發生錯誤
 000000004626.07C: 必須先登出才能與暴雪帳號進行連結。確定要這麼做嗎？
 000000004627.07C: 取消封鎖
@@ -7812,10 +7804,10 @@ Andrew Wang
 0000000046D4.07C: 目前不開放競技對戰
 0000000046D5.07C: 綠洲城
 0000000046D6.07C: 預選賽
-0000000046D7.07C: +20%%經驗值（網咖加成）
+0000000046D7.07C: +30%%經驗值（網咖加成）
 0000000046D8.07C: 網咖加成
-0000000046D9.07C: 20%%經驗值獎勵
-0000000046DA.07C: 解鎖啟元版造型
+0000000046D9.07C: 30%%經驗值獎勵
+0000000046DA.07C: 解鎖傳奇版造型
 0000000046DB.07C: 預選賽結束
 0000000046DC.07C: 你的實力排名：
 0000000046E7.07C: 第%1$s回合結束
@@ -9813,8 +9805,6 @@ THIS SOFTWARE.
 0000000059B8.07C: 英雄
 0000000059B9.07C: 受到傷害會中斷奪旗
 0000000059BA.07C: 關閉
-0000000059BB.07C: 包含候補的空位
-0000000059BC.07C: 開啟
 0000000059BD.07C: 好友
 0000000059BE.07C: 全部
 0000000059BF.07C: 持旗時的技能限制
@@ -14773,7 +14763,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: 睡眠鏢命中數%1$s
 000000007460.07C: 脈衝炸彈附著率
 000000007461.07C: 脈衝炸彈附著率%1$s
-000000007465.07C: 取消
+000000007470.07C: 取消
 000000007472.07C: 單次聚合光束治療量
 000000007473.07C: 單次聚合光束治療量%1$s
 000000007474.07C: 單次聚合光束傷害量
@@ -15864,7 +15854,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008011.07C: 駭影有著自己的盤算，常利用利爪的資源與力量來達成自己的目標。
 000000008012.07C: 如同故事所說，森林女巫有許多強大的盟友，當中包括崇信巨龍的召喚師。
 000000008013.07C: 捍衛密令
-000000008014.07C: Missions from the Overwatch Archives PH
+000000008014.07C: 捍衛者任務資料庫的任務紀錄。
 000000008015.07C: 旗幟重生時間
 000000008017.07C: 旗幟掉落的拾取無效時間
 000000008018.07C: |Rfn%1$s:N1;
@@ -17067,7 +17057,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008DEC.07C: 需要使用綁定手機號碼。
 000000008DEE.07C: 綁定簡訊安全通知
 000000008DEF.07C: 惡魔
-000000008DF2.07C: https://nydus.battle.net/Pro/zhTW/client/support/blizzard-sms-protect?targetRegion=TW
+000000008DF2.07C: https://account.blizzard.com/details/sms/setup/add
 000000008DF3.07C: 此帳號需要綁定手機號碼。
 000000008E00.07C: 地平線（無限制）
 000000008E01.07C: 沒有英雄選擇限制，目標是擊敗敵方隊伍。
@@ -17139,7 +17129,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008F7B.07C: 返回
 000000008F7D.07C: 跑跑倉鼠
 000000008FE9.07C: 無法以這個團隊設定加入
-000000008FEA.07C: 
 000000008FEC.07C: V字手勢
 000000008FED.07C: 懶洋洋
 000000008FEE.07C: 舉高高
@@ -17508,6 +17497,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000009334.07C: 獎勵
 000000009335.07C: 結束還剩
 000000009336.07C: 全新物品
+000000009341.07C: TRAVEL BONUS
 00000000934A.07C: 普通
 00000000934B.07C: 稀有
 00000000934C.07C: 史詩
@@ -18108,6 +18098,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000A44C.07C: 增幅矩陣
 00000000A44D.07C: 投射出一個會產生力場的矩陣，可使隊友發射的傷害與治療量加倍
 00000000A451.07C: 三發點放型槍械
+00000000A48E.07C: 確認
 00000000A496.07C: 寺院
 00000000A49C.07C: 亡鎖幫
 00000000A49E.07C: 角色輪廓強度
@@ -18257,8 +18248,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000A84F.07C: 
 00000000A856.07C: 目標完成
 00000000A857.07C: 目標完成
-00000000A85A.07C: Overwatch League Promo Skins Away
-00000000A85B.07C: Overwatch League Promo Skins
+00000000A85A.07C: 《鬥陣特攻》職業電競聯賽限定造型(客場)
+00000000A85B.07C: 《鬥陣特攻》職業電競聯賽限定造型
 00000000A866.07C: 歡慶佳節
 00000000A905.07C: 資料立方體
 00000000A90F.07C: 監視
@@ -19755,7 +19746,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B824.07C: 降低的傷害量
 00000000B825.07C: 降低的傷害量%1$s
 00000000B834.07C: 團隊有尚未處理的邀請，無法進行此模式。
-00000000B836.07C:  
+00000000B836.07C: Array
 00000000B83B.07C: 2019年全明星賽太平洋隊
 00000000B83C.07C: 2019年全明星賽大西洋隊
 00000000B83D.07C: Stop Chasing Player Variable
@@ -19979,6 +19970,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BABF.07C: 運動
 00000000BAC0.07C: 經由捍衛密令戰利品解鎖
 00000000BAC1.07C: 項目%1$s
+00000000BAC2.07C: 長度為%1$s的陣列
 00000000BAC5.07C: 鬼神智械來自東海的智械生產中心，而為了對抗它們持續不懈的攻擊，韓國成立了機甲戰鬥部隊（MEKA）。
 00000000BAC6.07C: 直到現在，歐卓藍博士仍然是基因學的爭議人物。她的才華向來無庸質疑，然而她的道德時常備受質疑。
 00000000BAC7.07C: 傑克‧莫里森在捍衛者服役時，其領導能力榮獲許多表揚。
@@ -20748,8 +20740,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BF30.07C: The array whose copy will be sorted.
 00000000BF31.07C: Whether the specified Player, icon entity, or effect entity still exists. Useful for determining if a Player has left the match or an entity has been destroyed.
 00000000BF32.07C: The Player, icon entity, or effect entity whose existence to check.
-00000000BF33.07C:  
-00000000BF34.07C:  
+00000000BF33.07C: An Array constructed from the listed Values.
+00000000BF34.07C: The Value that will be stored in the Array at index [%1$s]
 00000000BF35.07C: Whether a Player is using an ultimate ability.
 00000000BF36.07C: The Player whose ultimate ability usage to check.
 00000000BF37.07C: Whether a Player is using any communication type (such as emoting, using a voice line, etc.).
@@ -22236,9 +22228,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA0C.07C: 你必須先選擇角色類型，團隊才能加入佇列。要現在選擇嗎？
 00000000CA0D.07C: 商店
 00000000CA0E.07C: 商店
-00000000CA11.07C: 第1週：侯麗節辛梅塔
-00000000CA13.07C: 第2週：鐵鏽工匠托比昂
-00000000CA14.07C: 第3週：熊熊小美
+00000000CA11.07C: 第1週：碳纖黑席格馬
+00000000CA13.07C: 第2週：百合花飾奪命女
+00000000CA14.07C: 第3週：蒙面人麥卡利
 00000000CA15.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
 00000000CA16.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
 00000000CA17.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
@@ -22512,7 +22504,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CCDA.07C: 競技點數
 00000000CCDB.07C: Specifies the color of the in-world text to use
 00000000CCDC.07C: Icon String
-00000000CCDD.07C: Allows you to use an icon inside of a string
+00000000CCDD.07C: Allows you to use an icon inside of a string (up to 4 per string).
 00000000CCDE.07C: The icon to display
 00000000CD3B.07C:  - 每種角色類型各5場預選賽
  - 完成實力評估（1-5000）
@@ -22584,10 +22576,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CE4B.07C: 寫入權限不足
 00000000CE4C.07C: 無法下載資料
 00000000CE4D.07C: 未知的錯誤
-00000000CE4F.07C: insufficient-disk-space
-00000000CE50.07C: insufficient-write-permissions
-00000000CE51.07C: unable-to-download
-00000000CE52.07C: miscellaneous
+00000000CE4F.07C: 000243876
+00000000CE50.07C: 000243879
+00000000CE51.07C: 000243884
+00000000CE52.07C: 00028343
 00000000CE55.07C: Default Visibility
 00000000CE56.07C: Visible Always
 00000000CE57.07C: Visible Never
@@ -22606,8 +22598,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CE75.07C: 這樣會另外開啟一個瀏覽器視窗
 00000000CE76.07C: 確認
 00000000CE77.07C: 取消
-00000000CE78.07C: support/%1$s
-00000000CE7D.07C: client
 00000000CE80.07C: Create Beam Effect
 00000000CE81.07C: Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the Last Created Entity Value. This Action will fail if too many entities have been created.
 00000000CE82.07C: Start Position
@@ -26050,6 +26040,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D49D.07C: ARG
 00000000D49E.07C: 阿根廷
 00000000D4A0.07C: 世界盃一般客場
+00000000D4B9.07C: 化裝舞會
 00000000D4D8.07C: 比利時
 00000000D4D9.07C: BEL
 00000000D4DA.07C: 比利時
@@ -26119,6 +26110,8 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: 使用搖桿時停用陀螺儀
 00000000EA2F.07C: 齊格勒醫生
 00000000EA3E.07C: 反轉陀螺儀瞄準垂直軸
+00000000EA40.07C: 競技對戰
+00000000EA41.07C: 加入對戰，贏得獎勵！
 00000000EA51.07C: 無敵陣容
 00000000EA59.07C: 反轉陀螺儀瞄準翻滾軸
 00000000EA5A.07C: （已擁有）
@@ -26301,11 +26294,9 @@ https://account.blizzard.com/connections/nintendo
 00000000F19E.07C: 離開遊戲
 00000000F19F.07C: 離開遊戲和佇列
 00000000F1A2.07C: 搜尋配對
-00000000F1A3.07C: account/management
 00000000F1AB.07C: support/ccpa
 00000000F1B1.07C: 錯誤：過多自訂字串
 00000000F1B6.07C: 青銅
-00000000F1BD.07C: client
 00000000F1C0.07C: 正在離開遊戲和佇列，確定要離開嗎？
 00000000F1C5.07C: <fg%1$s>接住雪球</fg>
 00000000F1C6.07C: 2020
@@ -26715,6 +26706,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FB47.07C: Range Start
 00000000FB62.07C: 切換至簡易第三人稱觀戰視角
 00000000FB64.07C: 巴林
+00000000FB67.07C: 阿茲特克戰神
 00000000FB69.07C: 四物打擊樂
 00000000FB6B.07C: 京劇士兵
 00000000FB6F.07C: 假面劇
@@ -26753,6 +26745,8 @@ https://account.blizzard.com/connections/nintendo
 00000000FBD7.07C: 藍色面具
 00000000FBD8.07C: 經由春節戰利品解鎖
 00000000FBDA.07C: 無法更新
+00000000FBF0.07C: 按%1$s以重置籃球
+00000000FBF1.07C: RESETTING
 00000000FC5D.07C: 如果需要更新，你可能無法進行遊戲
 00000000FC5E.07C: 隱藏重播視窗
 00000000FC80.07C: Event Was Health Pack
@@ -26765,6 +26759,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FC91.07C: 切換正常/簡易第三人稱觀戰視角
 00000000FCA5.07C: Visible To, Sort Order, and String
 00000000FCA6.07C: Sort Order and String
+00000000FCC6.07C: 小紅帽
 00000000FD25.07C: None
 00000000FD26.07C: Receivers and Healers
 00000000FD27.07C: Receivers, Healers, and Healing Percent
@@ -26900,6 +26895,7 @@ https://account.blizzard.com/connections/nintendo
 0000000100CE.07C: 腥紅死神
 0000000100D0.07C: 於艾西的狂歡舞會大挑戰期間觀看相關直播即可解鎖
 0000000100D5.07C: 輪替外的英雄
+0000000100D7.07C: 潛水艇
 0000000100D8.07C: 釘選
 0000000100DF.07C: 錯誤：第%2$s行的'%1$s'之後出現重複的英雄
 0000000100E0.07C: 錯誤：第%2$s行的'%1$s'之後出現預期之外的地圖
@@ -27047,14 +27043,11 @@ https://account.blizzard.com/connections/nintendo
 0000000102CA.07C: 雪寶熊
 0000000102CC.07C: 消化不良
 0000000102CE.07C: 熊抱
-0000000102D1.07C: ps4
-0000000102D2.07C: xb1
-0000000102D3.07C: nintendo-switch
-0000000102D4.07C: https://playoverwatch.com/console-patch-notes/%1$s
 0000000102D5.07C: 匯入
 0000000102D8.07C: 匯入完成
 0000000102D9.07C: 複製
 0000000102DA.07C: 取消
+0000000102DE.07C: 龍騎兵
 0000000102E0.07C: 參與一場2020主場賽活動即可解鎖
 0000000102E1.07C: Florida Mayhem 2020年主場賽
 0000000102E3.07C: 參與一場2020主場賽活動即可解鎖
@@ -27089,7 +27082,12 @@ https://account.blizzard.com/connections/nintendo
 00000001031D.07C: 模組適應
 00000001031E.07C: 2020年捍衛密令
 00000001031F.07C: 經由捍衛密令戰利品解鎖
+00000001034E.07C: 死鬥競技模式
+00000001034F.07C: 提高排名，和全世界頂尖的死鬥好手一同競賽吧！
+000000010350.07C: 死鬥競技模式第3賽季
 000000010351.07C: 鼠肯斯坦復仇記
+000000010352.07C: 冬境鬥陣爭霸
+000000010353.07C: 冬境鬥陣爭霸。
 000000010369.07C: 複製需要目標確認
 00000001036A.07C: 奈米強化
 00000001036B.07C: 取消
@@ -27129,6 +27127,30 @@ https://account.blizzard.com/connections/nintendo
 00000001058C.07C: 飛行閃擊
 00000001058D.07C: 飛旋
 000000010592.07C: 匿蹤戰甲
+000000010596.07C: Set Melee Enabled
+000000010597.07C: Enables or disables Melee for one or more Players.
+000000010598.07C: The Player or Players whose access to Melee is affected.
+000000010599.07C: Specifies whether the Player or Players are able to use Melee. Expects a Boolean Value such as True, False, or Compare.
+00000001059A.07C: Is Meleeing
+00000001059B.07C: Whether the specified Player is Meleeing
+00000001059C.07C: The Player whose Melee usage to check.
+0000000105A0.07C: Is Jumping
+0000000105A1.07C: Whether the specified Player is Jumping
+0000000105A2.07C: The Player whose Jumping status to check.
+0000000105A3.07C: Set Crouch Enabled
+0000000105A4.07C: Enables or disables Crouch for one or more Players.
+0000000105A5.07C: Set Jump Enabled
+0000000105A6.07C: Enables or disables Jump for one or more Players.
+0000000105A7.07C: The Player or Players whose access to Crouch is affected.
+0000000105A8.07C: The Player or Players whose access to Jump is affected.
+0000000105A9.07C: Specifies whether the Player or Players are able to use Crouch. Expects a Boolean Value such as True, False, or Compare.
+0000000105AA.07C: Specifies whether the Player or Players are able to use Jump. Expects a Boolean Value such as True, False, or Compare.
+0000000105B6.07C: Break
+0000000105B7.07C: Continue
+0000000105B8.07C: Denotes an action that will jump back to the top of the current While or For loop.
+0000000105B9.07C: Denotes an action that will abort execution of the current While or For loop. Execution jumps to the next action after the End action.
+0000000105BB.07C: Player Dealt Knockback
+0000000105BC.07C: Player Received Knockback
 0000000105BD.07C: 熔岩之地最佳分數
 0000000105BE.07C: 熔岩之地最佳分數%1$s
 0000000105BF.07C: 棄防強攻最佳分數
@@ -27159,7 +27181,14 @@ https://account.blizzard.com/connections/nintendo
 0000000105F3.07C: 在加入加勒比海聯盟的期間，巴帝斯特被部署到該區域的各種環境執行任務。
 0000000105F4.07C: 女盾侍是個具有傳奇色彩的角色，她同時也是鼠肯斯坦故事中維京人的女兒。
 0000000105F7.07C: 身為義肢科技公司的家族繼承人，毀滅拳王對人生的奢侈品再熟悉不過了。
+000000010644.07C: 零度叛亂
+000000010645.07C: 捍衛者任務資料庫的任務紀錄。
+000000010646.07C: 制裁行動
+000000010647.07C: 捍衛者任務資料庫的任務紀錄。
+000000010648.07C: 失控倒數
+000000010649.07C: 捍衛者任務資料庫的任務紀錄。
 0000000106F4.07C: 飛蛾
+000000010719.07C: 碳纖黑
 000000010778.07C: 隨機
 00000001077A.07C: 預設
 00000001077B.07C: 隨機
@@ -27183,7 +27212,10 @@ https://account.blizzard.com/connections/nintendo
 0000000107AA.07C: 跑車紅
 0000000107AB.07C: 碳纖黑
 0000000107CC.07C: 法里哈‧阿瑪利中尉，代號「法拉」，她在埃及軍隊中表現傑出，因而被螺旋國際安全公司所雇用。由於阿瑪利家族的盛名，也使她成為招募人員中最成功的案例。
+0000000107CD.07C: 「在最魯莽的人心中也有和弦，只有透過感情才能觸動。即便是迷失淪喪，視生與死為同樣可笑的人，有些事他們也無法嘲笑。」
 0000000107CE.07C: 以前就認識攔路豬的人都叫他的名字：馬可，是大鯊魚的意思。
+0000000107D5.07C: Event Direction
+0000000107D8.07C: The incoming direction for the Event currently being processed by this Rule.
 0000000107DA.07C: 「...這裡簡直糟透了。這到底是個什麼鬼地方啊？」
 0000000107DB.07C: 托比昂是鐵甲工匠公會的重要成員。他們的總部位於瑞典的哥特堡。
 0000000107E1.07C: ？
@@ -27209,9 +27241,26 @@ https://account.blizzard.com/connections/nintendo
 0000000107F5.07C: 這名英雄目前在輪替之外。
 0000000107F6.07C: 選擇訓練夥伴
 000000010803.07C: 準時收看
+00000001081E.07C: 在沙漠裡面
+00000001081F.07C: 經由週年戰利品解鎖
+000000010820.07C: 聽懂了嗎？
+000000010822.07C: 潛水艇當然不會游泳
+000000010824.07C: 好
+000000010826.07C: 相當有趣
+000000010828.07C: 受人擺布
+00000001082A.07C: 需要幫忙嗎？
+00000001082E.07C: 你是有完沒完啊？
+000000010832.07C: 我是天空的守護者
+000000010836.07C: 我沒什麼好隱瞞的
+00000001083C.07C: 宇宙是立體投影
+00000001083E.07C: 錯誤：第%2$s行的'%1$s'之前出現不相容類型的數值
 000000010847.07C: 預設
 000000010848.07C: 尊爵金
 000000010849.07C: 5/2和5/3（美西時間）
+00000001084A.07C: 球形乳牛
+00000001084B.07C: 經由週年戰利品解鎖
+00000001084C.07C: 期望值
+00000001084D.07C: 經由週年戰利品解鎖
 000000010862.07C: 承諾
 000000010863.07C: 迴音
 000000010869.07C: 對稱美
@@ -27251,6 +27300,8 @@ https://account.blizzard.com/connections/nintendo
 000000010897.07C: 載入中...
 000000010898.07C: 幽魂
 000000010899.07C: 標誌
+00000001089A.07C: 錯誤：第%2$s行的'%1$s'之前預期要有變數
+00000001089B.07C: 錯誤：第%2$s行的'%1$s'之後預期要有指派運算子
 0000000108A2.07C: 輸入：迴音
 0000000108A3.07C: 我的媽呀！
 0000000108A4.07C: 載入模組
@@ -27282,8 +27333,27 @@ https://account.blizzard.com/connections/nintendo
 000000010954.07C: 傳承
 000000010955.07C: 迴音啟動
 000000010956.07C: 複製
+00000001095C.07C: <Icon String>
+00000001095E.07C: Visible To and Sort Order
+00000001095F.07C: Sort Order
+00000001098F.07C: Declare Round Draw
+000000010990.07C: Declare a draw for the current round. This only works in the Elimination game mode.
 000000010997.07C: 前往選項>控制可設定記錄按鈕。
+0000000109B3.07C: Ability Cooldown
+0000000109B4.07C: The ability cooldown time in seconds for a Player associated by button.
+0000000109BB.07C: Cooldown
+0000000109BC.07C: The Player whose ability to check.
+0000000109BD.07C: The ability to check associated by button.
 0000000109C6.07C: 迷彩
+0000000109CA.07C: Set Ability Cooldown
+0000000109CB.07C: Cancel Primary Action
+0000000109CC.07C: Set the ability cooldown time for one or more Players.
+0000000109CD.07C: Cancels the active abilities for one or more Players.
+0000000109CE.07C: The Player or Players to cancel active abilities for.
+0000000109CF.07C: Event Ability
+0000000109D0.07C: The Player or Players whose ability cooldown time will be modified.
+0000000109D1.07C: The logical button associated with the ability to be modified.
+0000000109D2.07C: The cooldown time that will be set in seconds.
 0000000109E5.07C: 自由佇列競技對戰
 0000000109E6.07C: 提高排名，和全世界頂尖的好手一同競賽，選擇英雄時沒有角色類型限制。
 0000000109E7.07C: 自由佇列競技對戰第1賽季
@@ -27306,6 +27376,7 @@ https://account.blizzard.com/connections/nintendo
 0000000109FE.07C: - 必須進行複數回合方能完成一局對戰
 - 完成目標可獲得分數
 - 分數最高的那一隊獲勝！
+0000000109FF.07C: The ability for the Event currently being processed by this Rule associated by button.
 000000010A0B.07C: 自由佇列競技選手
 000000010A0C.07C: 完成自由佇列競技對戰預選賽即可解鎖
 000000010A0D.07C: 自由佇列競技精英
@@ -27341,12 +27412,14 @@ https://account.blizzard.com/connections/nintendo
 000000010A3B.07C: 複製平均每十分鐘擊殺數%1$s
 000000010A3C.07C: 複製單場最高擊殺數
 000000010A3D.07C: 複製單場最高擊殺數%1$s
+000000010A3E.07C: 跳舞
 000000010A3F.07C: 黏性炸彈直接命中精準度
 000000010A40.07C: 黏性炸彈直接命中精準度%1$s
 000000010A47.07C: 黏性炸彈攻擊次數
 000000010A48.07C: 黏性炸彈攻擊次數%1$s
 000000010A49.07C: 黏性炸彈直接命中數
 000000010A4A.07C: 黏性炸彈直接命中數%1$s
+000000010A4C.07C: 大個子
 000000010A51.07C: 飛空技能冷卻時可使用滑翔在空中移動。
 000000010A59.07C: 黏性炸彈使用次數
 000000010A5A.07C: 黏性炸彈使用次數%1$s
@@ -27395,6 +27468,7 @@ https://account.blizzard.com/connections/nintendo
 000000010A92.07C: Vancouver Titans(客場)
 000000010A93.07C: Washington Justice
 000000010A94.07C: Washington Justice(客場)
+000000010A95.07C: Button
 000000010A96.07C: 複製傷害量
 000000010A97.07C: %1$s Duplicate Damage Done
 000000010A98.07C: 黏性炸彈單場最高直接命中數
@@ -27405,6 +27479,222 @@ https://account.blizzard.com/connections/nintendo
 000000010A9D.07C: 聚能光束命中率%1$s
 000000010A9E.07C: 聚能光束造成的傷害秒數
 000000010A9F.07C: 聚能光束擊殺數%1$s
+000000010AAC.07C: 全力進攻
+000000010AAD.07C: 不用客氣
+000000010AAE.07C: 好
+000000010AAF.07C: 不行
+000000010AB0.07C: 再見
+000000010AB1.07C: 行動
+000000010AB2.07C: 準備好了
+000000010AB3.07C: 撤退
+000000010AB4.07C: 前進
+000000010AB5.07C: 敵人來襲
+000000010AB6.07C: 一起行動
+000000010AB7.07C: 我要行動了
+000000010AB8.07C: 馬上來
+000000010AB9.07C: 進攻
+000000010ABA.07C: 防守
+000000010ABB.07C: 需要支援
+000000010ABE.07C: 抱歉
+000000010AC0.07C: 倒數計時
+000000010AC7.07C: %1$s對你說：全力進攻！
+000000010AC8.07C: %1$s對%2$s說：全力進攻！
+000000010AC9.07C: %1$s對你說：不行。
+000000010ACA.07C: %1$s對%2$s說：不行。
+000000010ACB.07C: %1$s對你說：好。
+000000010ACC.07C: %1$s對%2$s說：好。
+000000010ACD.07C: %1$s對你說：不用客氣。
+000000010ACE.07C: %1$s對%2$s說：不用客氣。
+000000010ACF.07C: %1$s對你說：撤退！
+000000010AD0.07C: %1$s對%2$s說：撤退！
+000000010AD1.07C: %1$s對你說：前進！
+000000010AD2.07C: %1$s對%2$s說：前進！
+000000010AD3.07C: %1$s對你說：敵人來襲！
+000000010AD4.07C: %1$s對%2$s說：敵人來襲！
+000000010AD5.07C: %1$s對你說：我準備好了。
+000000010AD6.07C: %1$s對%2$s說：我準備好了。
+000000010AD7.07C: %1$s對你說：行動！
+000000010AD8.07C: %1$s對%2$s說：行動！
+000000010AD9.07C: %1$s對你說：再見。
+000000010ADA.07C: %1$s對%2$s說：再見。
+000000010ADB.07C: %1$s對你說：我跟你一起行動。
+000000010ADC.07C: %1$s對%2$s說：我跟你一起行動。
+000000010ADD.07C: %1$s對你說：跟我一起進攻！
+000000010ADE.07C: %1$s對%2$s說：跟我一起進攻！
+000000010ADF.07C: %1$s對你說：我馬上來！
+000000010AE0.07C: %1$s對%2$s說：我馬上來！
+000000010AE1.07C: %1$s對你說：我要行動了！
+000000010AE2.07C: %1$s對%2$s說：我要行動了！
+000000010AE3.07C: %1$s對你說：跟我一起防守！
+000000010AE4.07C: %1$s對%2$s說：跟我一起防守！
+000000010AE5.07C: %1$s對你說：我需要支援！
+000000010AE6.07C: %1$s對%2$s說：我需要支援！
+000000010AEB.07C: %1$s對你說：我很抱歉。
+000000010AEC.07C: %1$s對%2$s說：我很抱歉。
+000000010AF0.07C: %1$s對你說：倒數計時...3...2...1。
+000000010AF1.07C: %1$s對%2$s說：倒數計時...3...2...1。
+000000010AF3.07C: %1$s說：全力進攻！
+000000010AF4.07C: %1$s說：不用客氣。
+000000010AF5.07C: %1$s說：好。
+000000010AF6.07C: %1$s說：不行。
+000000010AF7.07C: %1$s說：再見。
+000000010AF8.07C: %1$s說：行動！
+000000010AF9.07C: %1$s說：我準備好了。
+000000010AFA.07C: %1$s說：撤退！
+000000010AFB.07C: %1$s說：前進！
+000000010AFC.07C: %1$s說：敵人來襲！
+000000010AFD.07C: %1$s說：我跟你一起行動！
+000000010AFE.07C: %1$s說：我要行動了！
+000000010AFF.07C: %1$s說：我馬上來。
+000000010B00.07C: %1$s說：跟我一起進攻！
+000000010B03.07C: %1$s說：跟我一起防守！
+000000010B04.07C: %1$s說：我需要支援！
+000000010B07.07C: %1$s說：我很抱歉。
+000000010B14.07C: 開發者註解
+000000010B15.07C: 參與2020週年活動第3週挑戰即可解鎖
+000000010B16.07C: 蒙面人
+000000010B1A.07C: 敬禮
+000000010B1B.07C: 閃光彈
+000000010B1C.07C: 打贏了
+000000010B1D.07C: 無重力
+000000010B1F.07C: %1$s說：倒數計時...3...2...1。
+000000010B2A.07C: 2020週年活動
+000000010B2B.07C: 經由週年戰利品解鎖
+000000010B2C.07C: 週年席格馬
+000000010B2D.07C: 經由週年戰利品解鎖
+000000010B2E.07C: 週年迴音
+000000010B2F.07C: 經由週年戰利品解鎖
+000000010B31.07C: 參與2020週年活動第1週挑戰即可解鎖
 000000010B39.07C: -
+000000010B3B.07C: Button
+000000010B3C.07C: A Button constant.
+000000010B3D.07C: A Button constant.
+000000010B3E.07C: 錯誤：預期第%2$s行'%1$s'之後出現按鈕名稱
+000000010B52.07C: Ability Icon String
+000000010B53.07C: Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string).
+000000010B54.07C: The hero for the ability that will be converted to an icon.
+000000010B55.07C: The button for the ability that will be converted to an icon
+000000010B57.07C: 近戰攻擊
+000000010B5F.07C: 謝謝你回報影響遊戲體驗的行為
+000000010B60.07C: 你近期的舉報，有助於幫我們尋找違反遊戲規範的玩家，避免破壞大家在《鬥陣特攻》的體驗。
+
+雖然我們不能公開相關的細節，但是你的舉報能讓《鬥陣特攻》的環境變得更加友善。
+
+非常感謝！
+
+如果你遇到玩家做出其他不良行為，請繼續舉報，讓《鬥陣特攻》社群日益成長。
+
+暴雪客服支援團隊敬上
+000000010B80.07C: 其他通訊交流
+000000010B83.07C: 分享遊戲設定代碼
+000000010B84.07C: 建立新的代碼
+000000010B87.07C: 上傳現有代碼
+000000010BA0.07C: 全面開戰
+000000010BA1.07C: 全面破壞
+000000010BA4.07C: 百合花飾
+000000010BAE.07C: 參與2020週年活動第2週挑戰即可解鎖
+000000010BB3.07C: 大野狼鮑伯
+000000010BB4.07C: 經由週年戰利品解鎖
+000000010BB5.07C: 小紅帽
+000000010BB7.07C: 龍騎兵
+000000010BB9.07C: 化裝舞會
+000000010BBA.07C: 潛水艇
+000000010BBB.07C: 阿茲特克戰神
+000000010BBC.07C: 蒙面人
+000000010BBE.07C: 百合花飾
+000000010BBF.07C: 碳纖黑
+000000010BC0.07C: 陣列
+000000010BC7.07C: If-Then-Else
+000000010BC8.07C: Results in the Then value when the If condition is true; otherwise, results in the Else value.
+000000010BC9.07C: If
+000000010BCA.07C: If this condition evaluates to true, the result of the value is Then; otherwise, the result is Else.
+000000010BCB.07C: Then
+000000010BCC.07C: The result of the value when the If condition evaluates to true.
+000000010BCD.07C: Else
+000000010BCE.07C: The result of the value when the If condition evaluates to false.
+000000010BE1.07C: [%1$s]
+000000010BE2.07C: Press the Attack
+000000010BE3.07C: You are Welcome
+000000010BE4.07C: Yes
+000000010BE5.07C: No
+000000010BE6.07C: Goodbye
+000000010BE7.07C: Go
+000000010BE8.07C: Ready
+000000010BE9.07C: Fall Back
+000000010BEA.07C: Push Forward
+000000010BEB.07C: Incoming
+000000010BEC.07C: With You
+000000010BED.07C: Going In
+000000010BEE.07C: On My Way
+000000010BEF.07C: Attacking
+000000010BF0.07C: Defending
+000000010BF1.07C: Need Help
+000000010BF2.07C: Sorry
+000000010BF3.07C: Countdown
+000000010BF6.07C: 確定
+000000010C16.07C: 慶典結束時間
+000000010C17.07C: 6月10日
+000000010C18.07C: 全新週年活動正式開始，活動物品強勢回歸、遊戲模式重新開放！
+000000010C19.07C: 全新模式：英雄交鋒和同英雄對決死鬥！
+000000010C1A.07C: 特別活動全數開放！
+000000010C1B.07C: 工作坊
+000000010C1C.07C: 在工作坊打造新玩法吧！
+000000010C24.07C: TOTAL SHARPSHOOTER BONUS
+000000010C25.07C: 錄音室建議
+000000010C26.07C: 家庭劇院
+000000010C27.07C: 電視
+000000010C28.07C: 頭戴式耳機
+000000010C29.07C: 手持式
+000000010C2A.07C: 混音
+000000010C2B.07C: 紅心7
+000000010C2C.07C: 經由週年戰利品解鎖
+000000010C2D.07C: 黑桃8
+000000010C2E.07C: 經由週年戰利品解鎖
+000000010C2F.07C: 碳纖黑
+000000010C31.07C: 百合花飾
+000000010C33.07C: 蒙面人
+000000010C34.07C: 2020年死鬥競技精英
+000000010C36.07C: 2020年死鬥競技選手
+000000010C38.07C: 2020年死鬥競技精英
+000000010C39.07C: 在2020年死鬥競技進入前500名即可解鎖
+000000010C3A.07C: 2020年死鬥競技選手
+000000010C3B.07C: 完成2020年死鬥競技模式預選賽即可解鎖
+000000010C40.07C: 潛水艇
+000000010C41.07C: 經由週年戰利品解鎖
+000000010C42.07C: 化裝舞會
+000000010C43.07C: 經由週年戰利品解鎖
+000000010C44.07C: 阿茲特克戰神
+000000010C45.07C: 經由週年戰利品解鎖
+000000010C46.07C: 小紅帽
+000000010C47.07C: 經由週年戰利品解鎖
+000000010C48.07C: 龍騎兵
+000000010C49.07C: 經由週年戰利品解鎖
+000000010C4C.07C:  
+000000010C54.07C: 一個陣列最多只能加入%1$s個元件。
+000000010C55.07C: 齋戒月燈籠
+000000010C56.07C: 經由週年戰利品解鎖
+000000010C57.07C: 齋戒月禁食
+000000010C58.07C: 經由週年戰利品解鎖
+000000010C59.07C: 開齋飯
+000000010C5A.07C: 經由週年戰利品解鎖
+000000010C6D.07C: 工作坊延伸區域（夜晚）
+000000010C71.07C: 工作坊島嶼（夜晚）
+000000010C7E.07C: https://support.blizzard.com/help/product/services/1702/1711/solution
+000000010C7F.07C: https://account.blizzard.com/
+000000010C80.07C: https://support.blizzard.com/article/%1$s
+000000010CAF.07C: 總數：%1$s
+000000010CBC.07C:  
 000000010CC8.07C: <fg%1$s>%2$s</fg><tx%3$s> used <tx%4$s> on <fg%7$s>%5$s</fg><tx%6$s>
-[Core] Execution finished in 00:00:03.5584253 seconds
+000000010CCC.07C:  
+000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
+000000010CD0.07C: 返回
+000000010CED.07C:  
+000000010D17.07C: 更新說明（新）
+000000010D1E.07C:  
+000000010D22.07C: 取消
+000000010D2B.07C: 表情
+000000010D2C.07C: 語音
+000000010D86.07C: 大廳有足夠位置
+000000010D88.07C: 遊戲有足夠位置
+000000010D8F.07C: 更新
+[Core] Execution finished in 00:00:00.4308976 seconds

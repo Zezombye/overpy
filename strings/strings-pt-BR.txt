@@ -1,12 +1,14 @@
-[Core] DataTool v1.47.0.869-git-e8b03657a7f90e402e114b4d3084727a3347ee42
+[Core] DataTool v1.48.0.872-git-388eaf2c98e84f9acbee236d068a6fd0dd9b9c8d
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.exe.args
 [CASC] Set language to ptBR
 [CASC] Set speech language to ptBR
-[CASC] Overwatch build 1.47.1.0.68126
+[CASC] Overwatch build 1.48.0.0.68780
 [CASC] Initializing...
-[CMF] Using CMF procedure 68126
-[CMF] Using CMF procedure 68126
+[Manifest] Using TRG procedure 68780 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -659,11 +661,6 @@
 0000000008DA.07C: ASSISTIR JOGADOR 12
 000000000939.07C: %1$s quer atacar o ponto de controle!
 00000000093A.07C: %1$s quer defender o ponto de controle!
-000000000943.07C: PRECISA DE CURA
-000000000944.07C: AGRUPEM-SE
-000000000945.07C: ESTADO DA
-HABILIDADE SUPREMA
-000000000946.07C: FALA
 00000000094D.07C: %1$s (%2$s): Agrupem-se comigo!
 00000000094E.07C: %1$s (%2$s): Minha habilidade suprema (%3$s) %4$s está pronta!
 00000000099D.07C:  não conseguiu entrar no grupo.
@@ -877,6 +874,8 @@ HABILIDADE SUPREMA
 000000000CC9.07C: Quando o Soldado: 76 ativar seu Visor Tático, busque abrigo imediatamente. Se você for pego em campo aberto, tente matá-lo antes que ele o mate.
 000000000CF9.07C: Amplificador Sônico
 000000000CFA.07C: Lançador de projéteis sônicos.
+000000000CFB.07C: Impulso de Cura
+000000000CFC.07C: Música que cura aliados próximos. Ative de novo para trocar para o Impulso de Velocidade.
 000000000CFD.07C: Onda Sonora
 000000000CFE.07C: Cria um impulso de curto alcance que joga os inimigos para longe de você.
 000000000D01.07C: Solta o Som
@@ -1175,7 +1174,6 @@ HABILIDADE SUPREMA
 0000000012E2.07C: Sinta o peso do martelo
 0000000012E9.07C: Logo
 0000000012FD.07C: DETONAR
-0000000012FE.07C: CANCEL
 00000000133B.07C: O PONTO DE CONTROLE SERÁ DESBLOQUEADO EM: |Rfn %1$s:F0;
 00000000134F.07C: Precisão da arma - melhor no jogo
 000000001356.07C: Todo dano causado
@@ -1960,10 +1958,6 @@ Experimente novas maneiras de jogar com uma variada seleção de modos de jogo q
 000000001B75.07C: de |Rpl %1$s:morte:mortes; da equipe
 000000001B79.07C: Participação em abates
 000000001B7A.07C: Resumo
-000000001B7B.07C: OLÁ
-000000001B7C.07C: AGRADECER
-000000001B7D.07C: CONFIRMAR
-000000001B7E.07C: EMOTE
 000000001B7F.07C: Destravado
 000000001B80.07C: Exibir
 000000001BA1.07C: %1$s: Obrigado!
@@ -1985,7 +1979,7 @@ Experimente novas maneiras de jogar com uma variada seleção de modos de jogo q
 000000001BBA.07C: PRECISO DE CURA/SUPORTE
 000000001BBB.07C: AGRUPAR
 000000001BBC.07C: STATUS DA HABILIDADE SUPREMA
-000000001BBD.07C: FALA (Padrão)
+000000001BBD.07C: FALA (ACIMA)
 000000001BBE.07C: CONFIRMAR
 000000001BBF.07C: AGRADECER
 000000001BC2.07C: |Rpl %1$s:Atordoamento:Atordoamentos; por Abalo Terrestre
@@ -1999,7 +1993,7 @@ Experimente novas maneiras de jogar com uma variada seleção de modos de jogo q
 000000001BE6.07C: %1$s (%2$s): Eu preciso de escudos!
 000000001BE7.07C: %1$s (%2$s): Eu preciso de armadura!
 000000001BE8.07C: %1$s (%2$s): Eu preciso de cura! %3$s
-000000001BEB.07C: EMOTE (Padrão)
+000000001BEB.07C: EMOTE (ACIMA)
 000000001BED.07C: Abre o bate-papo com barra
 000000001BEE.07C: McCree
 000000001BEF.07C: Mercy
@@ -2140,7 +2134,7 @@ Experimente novas maneiras de jogar com uma variada seleção de modos de jogo q
 000000001D2B.07C: APERTE ENTER PARA USAR O BATE-PAPO
 000000001D2C.07C: APERTE TAB PARA ALTERNAR ENTRE OS CANAIS
 000000001D2D.07C: TEMPO:
-000000001D30.07C: SPRAY (Padrão)
+000000001D30.07C: SPRAY (ACIMA)
 000000002086.07C: %1$s |Rpl Eliminação:Eliminações;
 000000002087.07C: %1$s |Rpl Jogador ressuscitado:Jogadores ressuscitados; - maior número em jogo
 000000002088.07C: %1$s |Rpl Jogador ressuscitado:Jogadores ressuscitados;
@@ -7095,7 +7089,6 @@ Andrew Wang
 000000004142.07C: Dê uma passada no Campo de Treinamento e teste suas armas e habilidades antes de jogar uma partida.
 000000004145.07C: PRATICAR VS. IA
 000000004146.07C: Experimente uma partida contra inimigos controlados por IA antes de enfrentar outros jogadores.
-000000004147.07C: CHARGE PIN SAVE - KILL
 000000004148.07C: Ir para o treinamento
 00000000414A.07C: Derrote a equipe inimiga com todos os jogadores usando heróis que mudam aleatoriamente sempre que ressurgem.
 000000004153.07C: Enfrente o caos com força total.
@@ -7110,7 +7103,6 @@ Andrew Wang
 000000004166.07C: Você pode acessar o campo de treinamento a qualquer momento no menu de treinamento
 000000004167.07C: Você pode acessar o modo Jogador vs. IA a qualquer momento tanto no menu de jogo quanto no menu de treinamento
 00000000417B.07C: Recomendado
-000000004194.07C: STUN SAVE
 000000004195.07C: NENHUM
 000000004196.07C: AMBOS
 000000004197.07C: BATE-PAPO
@@ -7747,7 +7739,6 @@ Andrew Wang
 00000000461B.07C: NENHUMA LICENÇA DE OVERWATCH ENCONTRADA.
 00000000461C.07C: www.buyoverwatch.com
 00000000461D.07C: #%1$s
-000000004624.07C: support/%1$s
 000000004625.07C: Ocorreu um erro ao aceitar o convite.
 000000004626.07C: Ao vincular uma conta Blizzard, você será desconectado. Tem certeza que deseja continuar?
 000000004627.07C: Desbloquear
@@ -7812,10 +7803,10 @@ Andrew Wang
 0000000046D4.07C: O Jogo Competitivo não está disponível no momento.
 0000000046D5.07C: Oasis
 0000000046D6.07C: Partidas de posicionamento
-0000000046D7.07C: +20%% Exp (Benefício premium da IGR)
+0000000046D7.07C: +30%% Exp (Benefício premium da IGR)
 0000000046D8.07C: BENEFÍCIO PREMIUM DA IGR
-0000000046D9.07C: +20%% EXP ADICIONAL
-0000000046DA.07C: VISUAIS ORIGINS DESBLOQUEADOS!
+0000000046D9.07C: +30%% EXP ADICIONAL
+0000000046DA.07C: VISUAIS DA LEGENDARY EDITION DESBLOQUEADOS!
 0000000046DB.07C: Partidas de posicionamento concluídas
 0000000046DC.07C: Seu ranque:
 0000000046E7.07C: RODADA %1$s CONCLUÍDA
@@ -9233,13 +9224,13 @@ THIS SOFTWARE.
 00000000547C.07C: Continuar na equipe?
 00000000547D.07C: Pendente
 00000000547E.07C: Cancelar
-000000005480.07C: FALA À ESQUERDA
-000000005481.07C: FALA PARA BAIXO
-000000005482.07C: FALA À DIREITA
+000000005480.07C: FALA (À ESQUERDA)
+000000005481.07C: FALA (ABAIXO)
+000000005482.07C: FALA (À DIREITA)
 000000005483.07C: MENU DE FALAS
-000000005484.07C: Emote à esquerda
-000000005485.07C: Emote para baixo
-000000005486.07C: Emote à direita
+000000005484.07C: EMOTE (À ESQUERDA)
+000000005485.07C: EMOTE (ABAIXO)
+000000005486.07C: EMOTE (À DIREITA)
 000000005487.07C: Menu de emotes
 000000005489.07C: Aguardando jogadores
 00000000548A.07C: Configuração
@@ -9256,10 +9247,10 @@ THIS SOFTWARE.
 000000005495.07C: 11 Caixas de Itens Congelados
 0000000054AF.07C: AGUARDANDO JOGADORES...
 0000000054B0.07C: CARREGANDO...
-0000000054C2.07C: SPRAY PARA BAIXO
-0000000054C3.07C: SPRAY À ESQUERDA
+0000000054C2.07C: SPRAY (ABAIXO)
+0000000054C3.07C: SPRAY (À ESQUERDA)
 0000000054C4.07C: MENU DE SPRAYS
-0000000054C5.07C: SPRAY À DIREITA
+0000000054C5.07C: SPRAY (À DIREITA)
 0000000054C6.07C: Rosa
 0000000054C7.07C: |Rpl %1$s:Bola de neve recarregada:Bolas de neve recarregadas;
 0000000054C8.07C: %1$s |Rpl Bola de neve recarregada:Bolas de neve recarregadas;
@@ -9813,8 +9804,6 @@ THIS SOFTWARE.
 0000000059B8.07C: Heróis
 0000000059B9.07C: Dano interrompe a interação com a bandeira
 0000000059BA.07C: Desligado
-0000000059BB.07C: Incluir na fila
-0000000059BC.07C: Ligado
 0000000059BD.07C: Amigos
 0000000059BE.07C: Todos
 0000000059BF.07C: Habilidades do portador da bandeira
@@ -14773,7 +14762,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s |Rpl Acerto:Acertos; por Dardo Sonífero
 000000007460.07C: Índice de fixação da Bomba Eletromagnética
 000000007461.07C: %1$s Índice de fixação da Bomba Eletromagnética
-000000007465.07C: CANCELAR
+000000007470.07C: CANCELAR
 000000007472.07C: Coalescência - Cura por uso
 000000007473.07C: %1$s Coalescência - Cura por uso
 000000007474.07C: Coalescência - Dano por uso
@@ -15866,7 +15855,7 @@ Outros modos de jogo de Overwatch, como Jogo Rápido, o Modo Arcade e o Navegado
 000000008011.07C: Sombra fica mais que contente em ter à disposição o poderio e o alcance da Talon para correr atrás dos seus próprios objetivos.
 000000008012.07C: Como recontam as histórias, a Bruxa da Floresta já teve muitos aliados poderosos, inclusive invocadores dracônicos.
 000000008013.07C: Arquivos de missão
-000000008014.07C: Missões dos Arquivos de Overwatch
+000000008014.07C: Missões dos Arquivos de Overwatch.
 000000008015.07C: Tempo de ressurgimento de pontuação de bandeira
 000000008017.07C: Tempo de travamento de bandeira largada
 000000008018.07C: |Rfn %1$s:N1;
@@ -17070,7 +17059,7 @@ Deseja cancelar?
 000000008DEC.07C: FORNEÇA UM TELEFONE.
 000000008DEE.07C: VINCULAR ALERTA SMS
 000000008DEF.07C: Demônio
-000000008DF2.07C: https://nydus.battle.net/Pro/ptBR/client/support/blizzard-sms-protect?targetRegion=US
+000000008DF2.07C: https://account.blizzard.com/details/sms/setup/add
 000000008DF3.07C: A conta requer um telefone.
 000000008E00.07C: Horizon Sem Limites
 000000008E01.07C: Derrote a equipe inimiga sem nenhuma limitação na seleção de heróis.
@@ -17142,7 +17131,6 @@ Deseja cancelar?
 000000008F7B.07C: Voltar
 000000008F7D.07C: Corrida
 000000008FE9.07C: Não é possível entrar na fila com suas configurações de grupo
-000000008FEA.07C: 
 000000008FEC.07C: Paz
 000000008FED.07C: Relaxando
 000000008FEE.07C: Por cima
@@ -17513,6 +17501,7 @@ Competitiva 2018
 000000009334.07C: Recompensas
 000000009335.07C: Acaba em
 000000009336.07C: Novos desbloqueios
+000000009341.07C: TRAVEL BONUS
 00000000934A.07C: Comum
 00000000934B.07C: Raro
 00000000934C.07C: Épico
@@ -18114,6 +18103,7 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000A44C.07C: Matriz Amplificadora
 00000000A44D.07C: Projeta uma matriz que dobra o dano e a cura de projéteis de aliados.
 00000000A451.07C: Arma que dispara rajadas de três tiros.
+00000000A48E.07C: OK
 00000000A496.07C: Santuário
 00000000A49C.07C: Deadlock
 00000000A49E.07C: Intensidade do contorno do jogador
@@ -18263,8 +18253,8 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000A84F.07C: 
 00000000A856.07C: Objetivo concluído
 00000000A857.07C: Objetivo concluído
-00000000A85A.07C: Overwatch League Promo Skins Away
-00000000A85B.07C: Overwatch League Promo Skins
+00000000A85A.07C: Visuais Promocionais de Visitante da Liga
+00000000A85B.07C: Visuais Promocionais da Liga Overwatch
 00000000A866.07C: Natalino
 00000000A905.07C: Cubo de Dados
 00000000A90F.07C: Vigiando
@@ -19761,7 +19751,7 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000B824.07C: Dano evitado
 00000000B825.07C: %1$s de dano evitado
 00000000B834.07C: Indisponível: o grupo tem convites pendentes.
-00000000B836.07C:  
+00000000B836.07C: Matriz
 00000000B83B.07C: OWL All Stars Pacífico 2019
 00000000B83C.07C: OWL All Stars Atlântico 2019
 00000000B83D.07C: Parar de Acompanhar Variável de Jogador
@@ -19985,6 +19975,7 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000BABF.07C: Exercício
 00000000BAC0.07C: Disponível em Caixas de Itens de Arquivos
 00000000BAC1.07C: Entidade %1$s
+00000000BAC2.07C: Matriz de %1$s
 00000000BAC5.07C: O ômnico colossal Kishin surgiu do ômnium submerso no Mar da China Oriental. O exército coreano de exoforça móvel, conhecido como MEKA, foi criado em resposta aos ataques constantes.
 00000000BAC6.07C: A Dra. O'Deorain é uma figura controversa no campo da pesquisa genética até hoje. Sua genialidade nunca foi questionada, mas sua ética, quase sempre.
 00000000BAC7.07C: Durante seu tempo de serviço na Overwatch, Jack Morrison recebeu muitas condecorações pela sua liderança.
@@ -20754,8 +20745,8 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000BF30.07C: A matriz cuja cópia será ordenada.
 00000000BF31.07C: Se o Jogador, entidade de ícone ou entidade de efeito especificada ainda existe. Útil para determinar se um Jogador saiu da partida ou se uma entidade foi destruída.
 00000000BF32.07C: O Jogador, entidade de ícone ou entidade de efeito cuja existência será verificada.
-00000000BF33.07C:  
-00000000BF34.07C:  
+00000000BF33.07C: Uma Matriz construída a partir dos Valores listados.
+00000000BF34.07C: O Valor que será armazenado na Matriz no índice [%1$s].
 00000000BF35.07C: Se um Jogador está usando uma habilidade suprema ou não.
 00000000BF36.07C: O Jogador cujo uso de habilidade suprema será verificado.
 00000000BF37.07C: Se um Jogador está usando ou não qualquer tipo de comunicação (como emotes, uma fala etc.).
@@ -22242,9 +22233,9 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000CA0C.07C: Você precisa escolher uma função para o seu grupo poder entrar na fila. Selecionar agora?
 00000000CA0D.07C: Lojas
 00000000CA0E.07C: Loja
-00000000CA11.07C: 1ª Semana: Symmetra Holi
-00000000CA13.07C: 2ª Semana: Torbjorn Ferrugem
-00000000CA14.07C: 3ª Semana: Mei Urso
+00000000CA11.07C: Semana 1: Sigma Fibra de Carbono
+00000000CA13.07C: Semana 2: Widowmaker Fleur de Lis
+00000000CA14.07C: Semana 3: McCree Mascarado
 00000000CA15.07C: Vença 9 partidas no Jogo Rápido, no Arcade ou no Competitivo!
 00000000CA16.07C: Vença 9 partidas no Jogo Rápido, no Arcade ou no Competitivo!
 00000000CA17.07C: Vença 9 partidas no Jogo Rápido, no Arcade ou no Competitivo!
@@ -22518,7 +22509,7 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000CCDA.07C: Pontos Competitivos
 00000000CCDB.07C: Especifica a cor do texto no mundo.
 00000000CCDC.07C: String de Ícone
-00000000CCDD.07C: Permite que você use um ícone no lugar de uma string.
+00000000CCDD.07C: Permite que você use um ícone dentro de uma string (até 4 por string).
 00000000CCDE.07C: O ícone a ser exibido.
 00000000CD3B.07C: - 5 partidas de posicionamento por função
 - Classificação de Habilidade determinada (1-5000)
@@ -22590,10 +22581,10 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000CE4B.07C: Permissões de gravação insuficientes
 00000000CE4C.07C: Não foi possível baixar os dados
 00000000CE4D.07C: Erro desconhecido
-00000000CE4F.07C: insufficient-disk-space
-00000000CE50.07C: insufficient-write-permissions
-00000000CE51.07C: unable-to-download
-00000000CE52.07C: miscellaneous
+00000000CE4F.07C: 000243876
+00000000CE50.07C: 000243879
+00000000CE51.07C: 000243884
+00000000CE52.07C: 00028343
 00000000CE55.07C: Visibilidade-padrão
 00000000CE56.07C: Sempre Visível
 00000000CE57.07C: Nunca Visível
@@ -22612,8 +22603,6 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000CE75.07C: Isso abrirá um navegador em outra janela
 00000000CE76.07C: OK
 00000000CE77.07C: Cancelar
-00000000CE78.07C: support/%1$s
-00000000CE7D.07C: client
 00000000CE80.07C: Criar Efeito de Feixe
 00000000CE81.07C: Cria uma entidade de efeito de feixe no mundo. Essa entidade de efeito persistirá até ser destruída. Para obter uma referência a ela, use o Valor da Entidade Criada por Último. Não será possível realizar essa Ação se entidades demais tiverem sido criadas.
 00000000CE82.07C: Posição Inicial
@@ -26055,6 +26044,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D49D.07C: ARG
 00000000D49E.07C: Argentina
 00000000D4A0.07C: CM Genérico (Visitante)
+00000000D4B9.07C: Baile de Máscaras
 00000000D4D8.07C: Bélgica
 00000000D4D9.07C: BEL
 00000000D4DA.07C: Bélgica
@@ -26124,6 +26114,8 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: Desativar Giroscópio ao Usar o Controle Analógico
 00000000EA2F.07C: Dr.ª Ziegler
 00000000EA3E.07C: Inverter Eixo Vertical da Mira Giroscópica
+00000000EA40.07C: Jogo Competitivo
+00000000EA41.07C: PARTICIPE PARA GANHAR ESTES PRÊMIOS
 00000000EA51.07C: Goats
 00000000EA59.07C: Inverter Eixo Longitudinal da Mira Giroscópica
 00000000EA5A.07C: (Já tem)
@@ -26306,11 +26298,9 @@ https://account.blizzard.com/connections/nintendo
 00000000F19E.07C: SAIR DO JOGO
 00000000F19F.07C: SAIR DO JOGO E DA FILA
 00000000F1A2.07C: Buscando partida
-00000000F1A3.07C: account/management
 00000000F1AB.07C: support/ccpa
 00000000F1B1.07C: Erro: Excesso de strings personalizadas.
 00000000F1B6.07C: Bronze Ancestral
-00000000F1BD.07C: client
 00000000F1C0.07C: SAIR DO JOGO E DA FILA. TEM CERTEZA?
 00000000F1C5.07C: <fg%1$s>PEGOU</fg>
 00000000F1C6.07C: 2020
@@ -26720,6 +26710,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FB47.07C: Início do intervalo
 00000000FB62.07C: ALTERNAR ESPECTADOR 3P SIMPLES - LADO DA CÂMERA
 00000000FB64.07C: Bahrain
+00000000FB67.07C: Huitzilopochtli
 00000000FB69.07C: Samul Nori
 00000000FB6B.07C: Guerreira da Ópera
 00000000FB6F.07C: Talchum
@@ -26758,6 +26749,8 @@ https://account.blizzard.com/connections/nintendo
 00000000FBD7.07C: Máscara Azul
 00000000FBD8.07C: Disponível em Caixas de Itens Lunares
 00000000FBDA.07C: Atualizações desativadas
+00000000FBF0.07C: PRESSIONE %1$s PARA REINICIAR A BOLA
+00000000FBF1.07C: RESETTING
 00000000FC5D.07C: Talvez você não consiga jogar se uma atualização estiver pendente
 00000000FC5E.07C: Ocultar sobreposição de replay
 00000000FC80.07C: Evento foi kit Médico
@@ -26770,6 +26763,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FC91.07C: ALTERNAR CÂMERA DE ESPECTADOR NORMAL/ 3P SIMPLES
 00000000FCA5.07C: Visível para, ordem de classificação e string
 00000000FCA6.07C: Ordem de classificação e string
+00000000FCC6.07C: Chapeuzinho Vermelho
 00000000FD25.07C: Nenhum
 00000000FD26.07C: Receptores e Curandeiros
 00000000FD27.07C: Receptores, Curandeiros e percentual de cura
@@ -26905,6 +26899,7 @@ https://account.blizzard.com/connections/nintendo
 0000000100CE.07C: Mascarado
 0000000100D0.07C: Desbloqueado ao assistir a transmissões participantes durante o Desafio Carnaval da Ashe
 0000000100D5.07C: Heróis fora do rodízio
+0000000100D7.07C: Submarino
 0000000100D8.07C: Marcar
 0000000100DF.07C: Erro: Herói duplicado encontrado após '%1$s' na linha %2$s
 0000000100E0.07C: Erro: Mapas inesperados encontrados após '%1$s' na linha %2$s
@@ -27052,14 +27047,11 @@ https://account.blizzard.com/connections/nintendo
 0000000102CA.07C: Ursinho da Neve
 0000000102CC.07C: Indigestão
 0000000102CE.07C: Abraço de Urso
-0000000102D1.07C: ps4
-0000000102D2.07C: xb1
-0000000102D3.07C: nintendo-switch
-0000000102D4.07C: https://playoverwatch.com/console-patch-notes/%1$s
 0000000102D5.07C: Importar
 0000000102D8.07C: Importado
 0000000102D9.07C: DUPLICAR
 0000000102DA.07C: CANCELAR
+0000000102DE.07C: Dragão
 0000000102E0.07C: Desbloqueado ao participar do Evento Homestand 2020
 0000000102E1.07C: Homestand da Florida Mayhem 2020
 0000000102E3.07C: Desbloqueado ao participar do Evento Homestand 2020
@@ -27094,7 +27086,12 @@ https://account.blizzard.com/connections/nintendo
 00000001031D.07C: Adaptação
 00000001031E.07C: Arquivos 2020
 00000001031F.07C: Disponível em Caixas de Itens de Arquivos
+00000001034E.07C: Combate até a Morte Competitivo
+00000001034F.07C: Suba na tabela e enfrente os melhores jogadores de Combate até a Morte do mundo!
+000000010350.07C: 3ª Temporada do Combate até a Morte Competitivo
 000000010351.07C: A Vingança de Junkenstein
+000000010352.07C: Contendas Congeladas
+000000010353.07C: Contendas do Paraíso Congelado
 000000010369.07C: Duplicar requer confirmação de alvo
 00000001036A.07C: ESTIMULANTE
 00000001036B.07C: CANCELAR
@@ -27134,6 +27131,30 @@ https://account.blizzard.com/connections/nintendo
 00000001058C.07C: Manobras
 00000001058D.07C: Floreio
 000000010592.07C: Furtividade
+000000010596.07C: Definir Corpo a Corpo Ativado
+000000010597.07C: Ativa ou desativa Corpo a Corpo para um ou mais Jogadores.
+000000010598.07C: O(s) Jogador(es) cujo acesso ao Corpo a Corpo é afetado.
+000000010599.07C: Especifica se o(s) Jogador(es) poderá(ão) usar Corpo a Corpo. Espera um Valor Booleano como Verdadeiro, Falso ou Comparativo.
+00000001059A.07C: Está Usando Corpo a Corpo
+00000001059B.07C: Se o Jogador especificado está usando Corpo a Corpo
+00000001059C.07C: O Jogador cujo uso de Corpo a Corpo será verificado.
+0000000105A0.07C: Está Pulando
+0000000105A1.07C: Se o Jogador especificado está Pulando
+0000000105A2.07C: O Jogador cujo status de Pulo será verificado.
+0000000105A3.07C: Definir Agachar Ativado
+0000000105A4.07C: Ativa ou desativa Agachar para um ou mais Jogadores.
+0000000105A5.07C: Definir Pular Ativado
+0000000105A6.07C: Ativa ou desativa Pular para um ou mais Jogadores.
+0000000105A7.07C: O(s) Jogador(es) cujo acesso a Agachar é afetado.
+0000000105A8.07C: O(s) Jogador(es) cujo acesso a Pular é afetado.
+0000000105A9.07C: Especifica se o(s) Jogador(es) poderá(ão) usar Agachar. Espera um Valor Booleano como Verdadeiro, Falso ou Comparativo.
+0000000105AA.07C: Especifica se o(s) Jogador(es) poderá(ão) usar Pular. Espera um Valor Booleano como Verdadeiro, Falso ou Comparativo.
+0000000105B6.07C: Interromper
+0000000105B7.07C: Continuar
+0000000105B8.07C: Denota uma ação que voltará para o topo do loop While ou For atual.
+0000000105B9.07C: Denota uma ação que anulará a execução do loop While ou For atual. A execução pula para a próxima ação após a ação de Término.
+0000000105BB.07C: Jogador Causou Repulsão
+0000000105BC.07C: Jogador Recebeu Repulsão
 0000000105BD.07C: Melhor pontuação de Núcleos Fundidos
 0000000105BE.07C: %1$s Melhor pontuação de Núcleos Fundidos
 0000000105BF.07C: Melhor pontuação de Canhão de Vidro
@@ -27164,7 +27185,14 @@ https://account.blizzard.com/connections/nintendo
 0000000105F3.07C: Durante sua época na Coalizão Caribenha, Baptiste participou de missões nas mais variadas paisagens da região.
 0000000105F4.07C: Figura de destaque em suas próprias lendas, a Dama Escudeira também é conhecida como a filha do viking no conto de Junkenstein.
 0000000105F7.07C: Como herdeiro da empresa de tecnologia protética de sua família, Doomfist está acostumado a ter tudo do bom e do melhor.
+000000010644.07C: Insurreição
+000000010645.07C: Missões dos Arquivos de Overwatch.
+000000010646.07C: Retaliação
+000000010647.07C: Missões dos Arquivos de Overwatch.
+000000010648.07C: Tempestade Iminente
+000000010649.07C: Missões dos Arquivos de Overwatch.
 0000000106F4.07C: Mariposa
+000000010719.07C: Fibra de Carbono
 000000010778.07C: ALEATÓRIO
 00000001077A.07C: Heroico
 00000001077B.07C: ALEATÓRIO
@@ -27188,7 +27216,10 @@ https://account.blizzard.com/connections/nintendo
 0000000107AA.07C: Possante
 0000000107AB.07C: Fibra de carbono
 0000000107CC.07C: A tenente Fareeha “Pharah” Amari foi escolhida a dedo pela Helix após uma carreira exemplar nas forças armadas egípcias. Com seu prestigiado sobrenome Amari, ela foi considerada um ótimo reforço para a organização.
+0000000107CD.07C: “Há notas no coração dos inclementes que não podem ser tocadas sem emoção. Até mesmo para os irremediavelmente perdidos, para quem vida e morte não passam de uma piada, há questões que não devemos ridicularizar.”
 0000000107CE.07C: Quem conhece o Roadhog de antigamente ainda o chama pelo seu verdadeiro nome: Mako.
+0000000107D5.07C: Direção do Evento
+0000000107D8.07C: A direção de chegada do Evento que está sendo processado por esta Regra.
 0000000107DA.07C: "... é a culminação terrível de todos os meus pesadelos. É alguma brincadeira?"
 0000000107DB.07C: Torbjörn era um membro de destaque da Guilda Couraça, cujo quartel-general ficava em Gotemburgo, na Suécia.
 0000000107E1.07C: ?
@@ -27214,9 +27245,26 @@ https://account.blizzard.com/connections/nintendo
 0000000107F5.07C: Este herói está fora do rodízio no momento.
 0000000107F6.07C: Selecione um parceiro de treinamento
 000000010803.07C: ACOMPANHE
+00000001081E.07C: No deserto
+00000001081F.07C: Disponível em Caixas de Itens de Aniversário
+000000010820.07C: Tá me entendendo?
+000000010822.07C: Submarino não nada
+000000010824.07C: Isso!
+000000010826.07C: Intrigante
+000000010828.07C: Marionete
+00000001082A.07C: Quer mais?
+00000001082E.07C: Você já acabou?
+000000010832.07C: Fique de olho nos céus
+000000010836.07C: Não tenho nada a esconder
+00000001083C.07C: O universo é um holovídeo
+00000001083E.07C: Erro: Valor de tipo incompatível encontrado antes de '%1$s' na linha %2$s
 000000010847.07C: PADRÃO
 000000010848.07C: DOURADO
 000000010849.07C: 02/05 e 03/05
+00000001084A.07C: Igualzinho a uma vaca esférica
+00000001084B.07C: Disponível em Caixas de Itens de Aniversário
+00000001084C.07C: Reduza suas expectativas
+00000001084D.07C: Disponível em Caixas de Itens de Aniversário
 000000010862.07C: Promessa
 000000010863.07C: Echo
 000000010869.07C: Simetria
@@ -27256,6 +27304,8 @@ https://account.blizzard.com/connections/nintendo
 000000010897.07C: Carregando...
 000000010898.07C: Fantasma
 000000010899.07C: Símbolo
+00000001089A.07C: Erro: Variável esperada antes de '%1$s' na linha %2$s
+00000001089B.07C: Erro: Operador de atribuição esperado após '%1$s' na linha %2$s
 0000000108A2.07C: Tipo: Echo
 0000000108A3.07C: Alamak!
 0000000108A4.07C: Carregando módulos
@@ -27287,8 +27337,27 @@ https://account.blizzard.com/connections/nintendo
 000000010954.07C: Meu legado
 000000010955.07C: Echo online
 000000010956.07C: Duplicar
+00000001095C.07C: <String de Ícone>
+00000001095E.07C: Visível para e Ordem de Classificação
+00000001095F.07C: Ordem de Classificação
+00000001098F.07C: Declarar Empate na Rodada
+000000010990.07C: Declare um empate na rodada atual. Só funciona no modo de jogo Eliminação.
 000000010997.07C: Vá em Opções > Controles para vincular a tecla de Captura.
+0000000109B3.07C: Tempo de Recarga da Habilidade
+0000000109B4.07C: O tempo de recarga da habilidade em segundos para o Jogador, associado por botão.
+0000000109BB.07C: Tempo de Recarga
+0000000109BC.07C: O Jogador cuja Habilidade será verificada.
+0000000109BD.07C: A habilidade a ser verificada, associada por botão.
 0000000109C6.07C: Camuflagem
+0000000109CA.07C: Definir Tempo de Recarga da Habilidade
+0000000109CB.07C: Cancelar Ação Primária
+0000000109CC.07C: Define o tempo de recarga de habilidade para um ou mais Jogadores.
+0000000109CD.07C: Cancela as habilidades ativas de um ou mais Jogadores.
+0000000109CE.07C: O(s) Jogador(es) cujas habilidades ativas serão canceladas.
+0000000109CF.07C: Habilidade do Evento
+0000000109D0.07C: O(s) Jogador(es) cujo tempo de recarga de habilidade será modificado.
+0000000109D1.07C: O botão lógico associado à habilidade a ser modificada.
+0000000109D2.07C: O tempo de recarga que será definido em segundos.
 0000000109E5.07C: Competitivo - Fila Aberta
 0000000109E6.07C: Suba na tabela e enfrente os melhores jogadores do mundo sem restrições de função na seleção de heróis.
 0000000109E7.07C: Temporada 1 do Competitivo - Fila Aberta
@@ -27311,6 +27380,7 @@ https://account.blizzard.com/connections/nintendo
 0000000109FE.07C: - As partidas duram várias rodadas
 - Conquiste objetivos para ganhar pontos
 - Vence quem fizer mais pontos!
+0000000109FF.07C: A habilidade do Evento que está sendo processado por esta Regra, associada por botão.
 000000010A0B.07C: Competidor do Competitivo - Fila Aberta
 000000010A0C.07C: Desbloqueado ao concluir as partidas de posicionamento do Competitivo - Fila Aberta
 000000010A0D.07C: Herói do Competitivo - Fila Aberta
@@ -27346,12 +27416,14 @@ https://account.blizzard.com/connections/nintendo
 000000010A3B.07C: %1$s |Rpl abate:abates; com Duplicar - média por 10 min
 000000010A3C.07C: |Rpl %1$s:abate:abates; com Duplicar - maior número em jogo
 000000010A3D.07C: %1$s |Rpl abate:abates; com Duplicar - maior número em jogo
+000000010A3E.07C: Dans
 000000010A3F.07C: Precisão dos acertos diretos com as Bombas Aderentes
 000000010A40.07C: %1$s precisão dos acertos diretos com as Bombas Aderentes
 000000010A47.07C: |Rpl %1$s:Bomba Aderente disparada:Bombas Aderentes disparadas;
 000000010A48.07C: %1$s |Rpl Bomba Aderente disparada:Bombas Aderentes disparadas;
 000000010A49.07C: |Rpl %1$s:acerto direto:acertos diretos; com Bombas Aderentes
 000000010A4A.07C: %1$s |Rpl acerto direto:acertos diretos; com Bombas Aderentes
+000000010A4C.07C: Grandão
 000000010A51.07C: Use Planar para manobrar pelo ar enquanto Voo estiver em recarga.
 000000010A59.07C: |Rpl %1$s:uso:usos; de Bombas Aderentes
 000000010A5A.07C: %1$s |Rpl uso:usos; de Bombas Aderentes
@@ -27400,6 +27472,7 @@ https://account.blizzard.com/connections/nintendo
 000000010A92.07C: Vancouver Titans (Visitante)
 000000010A93.07C: Washington Justice
 000000010A94.07C: Washington Justice (Visitante)
+000000010A95.07C: Botão
 000000010A96.07C: Dano - Duplicar
 000000010A97.07C: %1$s Duplicate Damage Done
 000000010A98.07C: |Rpl %1$s:Acerto direto:Acertos diretos; com Bombas Aderentes - maior número em jogo
@@ -27410,6 +27483,223 @@ https://account.blizzard.com/connections/nintendo
 000000010A9D.07C: %1$s Precisão do Feixe Concentrado
 000000010A9E.07C: |Rpl %1$s:segundo:segundos; de dano com Feixe Concentrado
 000000010A9F.07C: %1$s |Rpl abate:abates; com Feixe Concentrado
+000000010AAC.07C: FORCE O ATAQUE
+000000010AAD.07C: DE NADA
+000000010AAE.07C: SIM
+000000010AAF.07C: NÃO
+000000010AB0.07C: TCHAU
+000000010AB1.07C: VAI
+000000010AB2.07C: PRONTO
+000000010AB3.07C: RECUAR
+000000010AB4.07C: AVANÇAR
+000000010AB5.07C: CHEGANDO
+000000010AB6.07C: COM VOCÊ
+000000010AB7.07C: VOU AVANÇAR
+000000010AB8.07C: A CAMINHO
+000000010AB9.07C: ATACANDO
+000000010ABA.07C: DEFENDENDO
+000000010ABB.07C: PRECISO DE AJUDA
+000000010ABE.07C: DESCULPE
+000000010AC0.07C: CONTAGEM REGRESSIVA
+000000010AC7.07C: %1$s para você: Force o ataque!
+000000010AC8.07C: %1$s para %2$s: Force o ataque!
+000000010AC9.07C: %1$s para você: Não.
+000000010ACA.07C: %1$s para %2$s: Não.
+000000010ACB.07C: %1$s para você: Sim.
+000000010ACC.07C: %1$s para %2$s: Sim.
+000000010ACD.07C: %1$s para você: De nada.
+000000010ACE.07C: %1$s para %2$s: De nada.
+000000010ACF.07C: %1$s para você: Recuar!
+000000010AD0.07C: %1$s para %2$s: Recuar!
+000000010AD1.07C: %1$s para você: Avançar!
+000000010AD2.07C: %1$s para %2$s: Avançar!
+000000010AD3.07C: %1$s para você: Chegando!
+000000010AD4.07C: %1$s para %2$s: Chegando!
+000000010AD5.07C: %1$s para você: Pronto.
+000000010AD6.07C: %1$s para %2$s: Pronto.
+000000010AD7.07C: %1$s para você: Vai!
+000000010AD8.07C: %1$s para %2$s: Vai!
+000000010AD9.07C: %1$s para você: Tchau.
+000000010ADA.07C: %1$s para %2$s: Tchau.
+000000010ADB.07C: %1$s para você: Estou com você.
+000000010ADC.07C: %1$s para %2$s: Estou com você.
+000000010ADD.07C: %1$s para você: Ataque comigo!
+000000010ADE.07C: %1$s para %2$s: Ataque comigo!
+000000010ADF.07C: %1$s para você: Estou a caminho!
+000000010AE0.07C: %1$s para %2$s: Estou a caminho!
+000000010AE1.07C: %1$s para você: Vou avançar!
+000000010AE2.07C: %1$s para %2$s: Vou avançar!
+000000010AE3.07C: %1$s para você: Defenda comigo!
+000000010AE4.07C: %1$s para %2$s: Defenda comigo!
+000000010AE5.07C: %1$s para você: Preciso de ajuda!
+000000010AE6.07C: %1$s para %2$s: Preciso de ajuda!
+000000010AEB.07C: %1$s para você: Desculpe.
+000000010AEC.07C: %1$s para %2$s: Desculpe.
+000000010AF0.07C: %1$s para você: Contando: 3... 2... 1
+000000010AF1.07C: %1$s para %2$s: Contando: 3... 2... 1
+000000010AF3.07C: %1$s: Force o ataque!
+000000010AF4.07C: %1$s: De nada.
+000000010AF5.07C: %1$s: Sim.
+000000010AF6.07C: %1$s: Não.
+000000010AF7.07C: %1$s: Tchau.
+000000010AF8.07C: %1$s: Vai!
+000000010AF9.07C: %1$s: Pronto.
+000000010AFA.07C: %1$s: Recuar!
+000000010AFB.07C: %1$s: Avançar!
+000000010AFC.07C: %1$s: Chegando!
+000000010AFD.07C: %1$s: Estou com você!
+000000010AFE.07C: %1$s: Vou avançar!
+000000010AFF.07C: %1$s: Estou a caminho.
+000000010B00.07C: %1$s: Ataque comigo!
+000000010B03.07C: %1$s: Defenda comigo!
+000000010B04.07C: %1$s: Preciso de ajuda!
+000000010B07.07C: %1$s: Desculpe.
+000000010B14.07C: Comentário dos desenvolvedores
+000000010B15.07C: Desbloqueado ao participar do desafio da 3ª semana do Aniversário de 2020
+000000010B16.07C: Mascarado
+000000010B1A.07C: Saudação
+000000010B1B.07C: Clarão
+000000010B1C.07C: Surra
+000000010B1D.07C: Levinha
+000000010B1F.07C: %1$s: Contando: 3... 2... 1
+000000010B2A.07C: Aniversário de 2020
+000000010B2B.07C: Disponível em Caixas de Itens de Aniversário
+000000010B2C.07C: Sigmaversário
+000000010B2D.07C: Disponível em Caixas de Itens de Aniversário
+000000010B2E.07C: Echoversário
+000000010B2F.07C: Disponível em Caixas de Itens de Aniversário
+000000010B31.07C: Desbloqueado ao participar do desafio da 1ª semana do Aniversário de 2020
 000000010B39.07C: -
+000000010B3B.07C: Botão
+000000010B3C.07C: Uma constante de Botão.
+000000010B3D.07C: Uma constante de Botão.
+000000010B3E.07C: Erro: Botão esperado após '%1$s' na linha %2$s
+000000010B52.07C: String de Ícone de Habilidade
+000000010B53.07C: Converte um parâmetro de Herói e Botão em uma string que aparece como ícone (até 4 por string).
+000000010B54.07C: O herói da habilidade que será convertido em ícone.
+000000010B55.07C: O botão da habilidade que será convertido em ícone.
+000000010B57.07C: Ataque corpo a corpo.
+000000010B5F.07C: Agradecemos sua denúncia de comportamento inconveniente
+000000010B60.07C: Suas denúncias recentes geraram ações contra jogadores que violaram nossas políticas e atrapalharam as partidas de Overwatch para todos. 
+
+Não podemos dar detalhes, mas suas denúncias deixaram Overwatch mais justo e agradável.
+
+Obrigado!
+
+Se você se deparar com mais comportamentos inadequados, esperamos que continue a ajudar a comunidade de Overwatch denunciando-os para nós.
+
+Muito obrigado,
+Suporte da Blizzard
+000000010B80.07C: COMUNICADOS ADICIONAIS
+000000010B83.07C: Compartilhar um código de configurações de jogo
+000000010B84.07C: Criar um novo código
+000000010B87.07C: Carregar em um código existente
+000000010BA0.07C: Sem Limites
+000000010BA1.07C: Caos Total
+000000010BA4.07C: Fleur de Lis
+000000010BAE.07C: Desbloqueado ao participar do desafio da 2ª semana do Aniversário de 2020
+000000010BB3.07C: LoBOB Mau
+000000010BB4.07C: Disponível em Caixas de Itens de Aniversário
+000000010BB5.07C: Chapeuzinho Vermelho
+000000010BB7.07C: Dragão
+000000010BB9.07C: Baile de Máscaras
+000000010BBA.07C: Submarino
+000000010BBB.07C: Huitzilopochtli
+000000010BBC.07C: Mascarado
+000000010BBE.07C: Fleur de Lis
+000000010BBF.07C: Fibra de Carbono
+000000010BC0.07C: Matriz
+000000010BC7.07C: If-Then-Else
+000000010BC8.07C: Resulta no valor Then quando a condição If for verdadeira; caso contrário, resulta no valor Else.
+000000010BC9.07C: If
+000000010BCA.07C: Se essa condição for avaliada como verdadeira, o resultado do valor será Then; caso contrário, o resultado será Else.
+000000010BCB.07C: Then
+000000010BCC.07C: O resultado do valor se a condição If for avaliada como verdadeira.
+000000010BCD.07C: Else
+000000010BCE.07C: O resultado do valor se a condição If for avaliada como falsa.
+000000010BE1.07C: [%1$s]
+000000010BE2.07C: Force o Ataque
+000000010BE3.07C: De Nada
+000000010BE4.07C: Sim
+000000010BE5.07C: Não
+000000010BE6.07C: Tchau
+000000010BE7.07C: Vai
+000000010BE8.07C: Pronto
+000000010BE9.07C: Recuar
+000000010BEA.07C: Avançar
+000000010BEB.07C: Chegando
+000000010BEC.07C: Com Você
+000000010BED.07C: Vou Avançar
+000000010BEE.07C: A Caminho
+000000010BEF.07C: Atacando
+000000010BF0.07C: Defendendo
+000000010BF1.07C: Preciso de Ajuda
+000000010BF2.07C: Desculpe
+000000010BF3.07C: Contagem Regressiva
+000000010BF6.07C: OK
+000000010C16.07C: Fim da festa
+000000010C17.07C: 9 de junho
+000000010C18.07C: Novos itens desbloqueáveis de aniversário disponíveis junto com modos de jogo e itens antigos!
+000000010C19.07C: Novos modos: Desafio de Heróis e Combate até a Morte Espelhado!
+000000010C1A.07C: De volta à temporada!
+000000010C1B.07C: Workshop
+000000010C1C.07C: Crie novas formas de jogar no Workshop!
+000000010C24.07C: TOTAL SHARPSHOOTER BONUS
+000000010C25.07C: Estúdio
+000000010C26.07C: Home theater
+000000010C27.07C: Televisão
+000000010C28.07C: Fones de ouvido
+000000010C29.07C: Modo portátil
+000000010C2A.07C: Equalização de áudio
+000000010C2B.07C: Sete de Copas
+000000010C2C.07C: Disponível em Caixas de Itens de Aniversário
+000000010C2D.07C: Oito de Espadas
+000000010C2E.07C: Disponível em Caixas de Itens de Aniversário
+000000010C2F.07C: Fibra de Carbono
+000000010C31.07C: Fleur de Lis
+000000010C33.07C: Mascarado
+000000010C34.07C: Herói do Combate até a Morte Competitivo de 2020
+000000010C36.07C: Competidor do Combate até a Morte Competitivo de 2020
+000000010C38.07C: Herói do Combate até a Morte Competitivo de 2020
+000000010C39.07C: Desbloqueado ao ficar entre os 500 melhores no fim do Combate até a Morte Competitivo em 2020
+000000010C3A.07C: Competidor do Combate até a Morte Competitivo de 2020
+000000010C3B.07C: Desbloqueado ao concluir as partidas de posicionamento do Combate até a Morte Competitivo em 2020
+000000010C40.07C: Submarino
+000000010C41.07C: Disponível em Caixas de Itens de Aniversário
+000000010C42.07C: Baile de Máscaras
+000000010C43.07C: Disponível em Caixas de Itens de Aniversário
+000000010C44.07C: Huitzilopochtli
+000000010C45.07C: Disponível em Caixas de Itens de Aniversário
+000000010C46.07C: Chapeuzinho Vermelho
+000000010C47.07C: Disponível em Caixas de Itens de Aniversário
+000000010C48.07C: Dragão
+000000010C49.07C: Disponível em Caixas de Itens de Aniversário
+000000010C4C.07C:  
+000000010C54.07C: Você só pode inserir até %1$s elementos em uma matriz.
+000000010C55.07C: Fanus
+000000010C56.07C: Disponível em Caixas de Itens de Aniversário
+000000010C57.07C: Jejum
+000000010C58.07C: Disponível em Caixas de Itens de Aniversário
+000000010C59.07C: Banquete
+000000010C5A.07C: Disponível em Caixas de Itens de Aniversário
+000000010C6D.07C: Expansão do Workshop (Noite)
+000000010C71.07C: Ilha do Workshop (Noite)
+000000010C7E.07C: https://support.blizzard.com/help/product/services/1702/1711/solution
+000000010C7F.07C: https://account.blizzard.com/
+000000010C80.07C: https://support.blizzard.com/article/%1$s
+000000010CAF.07C: Total: %1$s
+000000010CBC.07C:  
 000000010CC8.07C: <fg%1$s>%2$s</fg><tx%3$s> used <tx%4$s> on <fg%7$s>%5$s</fg><tx%6$s>
-[Core] Execution finished in 00:00:03.1636882 seconds
+000000010CCC.07C:  
+000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
+000000010CD0.07C: VOLTAR
+000000010CED.07C:  
+000000010D17.07C: NOTAS DO PATCH (NOVO)
+000000010D1E.07C:  
+000000010D22.07C: CANCELAR
+000000010D2B.07C: EMOTE
+000000010D2C.07C: FALA
+000000010D86.07C: Sala no lobby
+000000010D88.07C: Sala no jogo
+000000010D8F.07C: Atualizar
+[Core] Execution finished in 00:00:00.4515973 seconds
