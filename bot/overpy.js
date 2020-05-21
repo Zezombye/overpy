@@ -22408,13 +22408,13 @@ function unescapeString(content) {
 			} else if (content[i+1] === "\\") {
 				result += "\\";
 			} else if (content[i+1] === "n") {
-				//error("Strings containing newlines cannot be pasted in the workshop");
 				result += "\n";
 			} else if (content[i+1] === "r") {
 				//do nothing. remove those pesky carriage returns
 			} else {
 				error("Unknown escape sequence '\\"+content[i+1]+"'");
 			}
+			i++;
 		} /*else if (content[i] === "\n") {
 			error("Strings containing newlines cannot be pasted in the workshop");
 		} */else {
@@ -23060,10 +23060,10 @@ const pyOperators = [
 	">=",
 	">",
 	"<",
-	"++",
-	"--",
 	"+",
 	"-",
+	"++",
+	"--",
 	"*",
 	"/",
 	"%",
@@ -27338,7 +27338,7 @@ function tokenize(content) {
 						error("A backslash can only be put at the end of a line");
 					}
 				}
-				j++;
+				//j++;
 				moveCursor(j-i-1);
 
 			} else if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
@@ -27432,7 +27432,7 @@ function tokenize(content) {
 						foundEndOfString = true;
 						break;
 					}
-					if (content[j] === '\\') {
+					if (content[j] === '\\' && !isBackslashed) {
 						isBackslashed = true;
 					} else {
 						isBackslashed = false;
@@ -28166,10 +28166,10 @@ function astToWs(content) {
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[1]].concat(content.args.slice(1));
 
             } else {
-                error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0].name))
+                error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0]))
             }
         } else {
-            error("Cannot modify or assign to "+functionNameToString(content.args[0].name))
+            error("Cannot modify or assign to "+functionNameToString(content.args[0]))
         }
         content.name = newName;
 
@@ -28212,7 +28212,7 @@ function astToWs(content) {
             content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
         } else {
-            error("Expected a variable for 1st argument of "+functionNameToString(content.name)+", but got "+functionNameToString(content.args[0].name));
+            error("Expected a variable for 1st argument of "+functionNameToString(content)+", but got "+functionNameToString(content.args[0]));
         }
         newName = "__for"+newName+"__";
         content.name = newName;
@@ -28290,7 +28290,7 @@ function astToWs(content) {
             content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
         } else {
-            error("Expected a variable for 1st argument of "+functionNameToString(content.name)+", but got "+functionNameToString(content.args[0].name));
+            error("Expected a variable for 1st argument of "+functionNameToString(content)+", but got "+functionNameToString(content.args[0]));
         }
         newName = "__stopChasing"+newName+"__";
         content.name = newName;
@@ -28714,26 +28714,72 @@ function parse(content) {
                 var value = parse(operands[1]);
                 return new Ast("__assignTo__", [variable, new Ast(opToFuncMapping[operator], [variable, value])]);
 
-			} else if (["++", "--"].includes(operator)) {
-                //De-optimise as well: A++ -> A = A + 1.
-                var opToFuncMapping = {
-                    "++": "__add__",
-                    "--": "__subtract__",
-                };
-                if (operands[0].length === 0) {
-                    //Probably a double negation such as "--A".
-                    return parse(operands[1]);
-                }
-                var op1 = parse(operands[0]);
+			} else if (["++", "--", "+", "-"].includes(operator)) {
 
-                //Check if there is something after the operator. If yes, treat it like an operation.
-                //Eg: "A -- B" = "A ++ B" = "A + B"
-                if (operands[1].length > 0) {
-                    var op2 = parse(operands[1]);
-                    return new Ast("__add__", [op1, op2]);
+                console.debug("Handling operator '"+operator+"'");
+
+                if ((operator === "++" || operator === "--") && operands[1].length === 0) {
+                    //Operation such as A++ or A--.
+                    
+                    //De-optimise as well: A++ -> A = A + 1.
+                    var opToFuncMapping = {
+                        "++": "__add__",
+                        "--": "__subtract__",
+                    };
+                    var op1 = parse(operands[0]);
+                    return new Ast("__assignTo__", [op1, new Ast(opToFuncMapping[operator], [op1, getAstFor1()])])
+                }
+
+                //console.log(operands[0]);
+                if (operands[0].length === 0) {
+                    if (operator === "-") {
+                        return new Ast("__negate__", [parse(operands[1])]);
+                    } else {
+                        return parse(operands[1]);
+                    }
+                }
+
+                //Check if there is another operator and not only unaries
+                //Eg: A * - + -- - B
+                //or A + - ++++---- - B
+                var i = operands[0].length-1;
+                var foundNotUnaryOperator = false;
+                for (; i >= 0; i--) {
+                    if (!["-", "+", "--", "++"].includes(operands[0][i].text)) {
+                        foundNotUnaryOperator = true;
+                        break;
+                    }
+                }
+                if (foundNotUnaryOperator) {
+                    //console.log(i);
+                    //console.log("found not unary operator: "+foundNotUnaryOperator+", '"+operands[0][i].text+"'");
+                    if (["*", "/", "%", "**"].includes(operands[0][i].text)) {
+                        continue;
+                    }
+                    if (i < operands[0].length-1) {
+                        if (operands[0][i+1].text === "-") {
+                            return new Ast("__subtract__", [parse(operands[0].slice(0, i+1)), parse(content.slice(i+2))]);
+                        } else if (["+", "--", "++"].includes(operands[0][i+1].text)) {
+                            return new Ast("__add__", [parse(operands[0].slice(0, i+1)), parse(content.slice(i+2))]);
+                        } else {
+                            error("Error in parser: expected an unary operator but found '"+operands[0][i+1]+"'");
+                        }
+                    } else {
+                        if (operator === "-") {
+                            return new Ast("__subtract__", [parse(operands[0]), parse(operands[1])]);
+                        } else {
+                            return new Ast("__add__", [parse(operands[0]), parse(operands[1])]);
+                        }
+                    }
 
                 } else {
-                    return new Ast("__assignTo__", [op1, new Ast(opToFuncMapping[operator], [op1, getAstFor1()])])
+                    if (operands[0][0].text === "-") {
+                        return new Ast("__negate__", [parse(content.slice(1))]);
+                    } else if (["+", "--", "++"].includes(operands[0][0].text)) {
+                        return parse(content.slice(1));
+                    } else {
+                        error("Error in parser: expected an unary operator but found '"+operands[0][0]+"'");
+                    }
                 }
 
 			} else if (["/", "*", "%", "**"].includes(operator)) {
@@ -28747,41 +28793,6 @@ function parse(content) {
 				var op1 = parse(operands[0]);
                 var op2 = parse(operands[1]);
                 return new Ast(opToFuncMapping[operator], [op1, op2]);
-
-			} else if (operator === "-") {
-				
-                //Handle things like "3*-5" by checking if the 1st operand ends by another operator
-                //Note: we only need to check operators with an equal or higher precedence than "-"
-				if (operands[0].length > 0 && ["-", "*", "/", "%", "**"].includes(operands[0][operands[0].length-1].text)) {
-					continue;
-				}
-
-                var op2 = parse(operands[1]);
-                if (operands[0].length === 0) {
-                    return new Ast("__negate__", [op2]);
-
-                } else {
-                    var op1 = operands[0].length === 0 ? new Ast("-1") : parse(operands[0]);
-                    return new Ast("__subtract__", [op1, op2]);
-                }
-
-
-			} else if (operator === "+") {
-
-                //Handle things like "3*+5" by checking if the 1st operand ends by another operator
-                //Note: we only need to check operators with an equal or higher precedence than "+"
-				if (operands[0].length > 0 && ["+", "-", "*", "/", "%", "**"].includes(operands[0][operands[0].length-1].text)) {
-					continue;
-                }
-                
-                var op2 = parse(operands[1]);
-                if (operands[0].length === 0) {
-                    return op2;
-                } else {
-
-                    var op1 = operands[0].length === 0 ? "0" : parse(operands[0]);
-                    return new Ast("__add__", [op1, op2]);
-                }
 
 			} else {
 				error("Unhandled operator "+operator);
@@ -29076,7 +29087,7 @@ function parseMember(object, member) {
 
         //Should be a player variable.
         if (!isVarName(name, false)) {
-            error("Unknown member '"+name+"'");
+            error("Unknown member '"+name+"' of '"+dispTokens(object)+"'");
         }
         return new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
 

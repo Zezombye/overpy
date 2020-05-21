@@ -190,10 +190,10 @@ function astToWs(content) {
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[1]].concat(content.args.slice(1));
 
             } else {
-                error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0].name))
+                error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0]))
             }
         } else {
-            error("Cannot modify or assign to "+functionNameToString(content.args[0].name))
+            error("Cannot modify or assign to "+functionNameToString(content.args[0]))
         }
         content.name = newName;
 
@@ -236,7 +236,7 @@ function astToWs(content) {
             content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
         } else {
-            error("Expected a variable for 1st argument of "+functionNameToString(content.name)+", but got "+functionNameToString(content.args[0].name));
+            error("Expected a variable for 1st argument of "+functionNameToString(content)+", but got "+functionNameToString(content.args[0]));
         }
         newName = "__for"+newName+"__";
         content.name = newName;
@@ -314,7 +314,7 @@ function astToWs(content) {
             content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
         } else {
-            error("Expected a variable for 1st argument of "+functionNameToString(content.name)+", but got "+functionNameToString(content.args[0].name));
+            error("Expected a variable for 1st argument of "+functionNameToString(content)+", but got "+functionNameToString(content.args[0]));
         }
         newName = "__stopChasing"+newName+"__";
         content.name = newName;

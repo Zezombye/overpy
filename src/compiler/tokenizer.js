@@ -237,7 +237,7 @@ function tokenize(content) {
 						error("A backslash can only be put at the end of a line");
 					}
 				}
-				j++;
+				//j++;
 				moveCursor(j-i-1);
 
 			} else if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
@@ -331,7 +331,7 @@ function tokenize(content) {
 						foundEndOfString = true;
 						break;
 					}
-					if (content[j] === '\\') {
+					if (content[j] === '\\' && !isBackslashed) {
 						isBackslashed = true;
 					} else {
 						isBackslashed = false;

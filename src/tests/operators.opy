@@ -51,6 +51,7 @@ rule "negate":
     A = --A #A
     A = ---1 #-1
     A = ---A #-A
+    A = - - 0.01 #0.01
 
 rule "multiply":
     A = B*C
