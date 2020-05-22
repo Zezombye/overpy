@@ -35,6 +35,7 @@ overpyFiles = [
 "globalVars.js",
 "tests/decompileTest.js",
 "decompiler/workshopToAst.js",
+"decompiler/astToOpy.js",
 "decompiler/decompiler.js",
 "compiler/functions/__add__.js",
 "compiler/functions/__append__.js",

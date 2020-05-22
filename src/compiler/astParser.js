@@ -148,7 +148,7 @@ function parseAst(content) {
     if (!(content.children instanceof Array)) {
         error("Function '"+content.name+"' has '"+content.children+"' for args, expected array");
     }
-    if (content.name.startsWith("@")) {
+    if (content.name.startsWith("@") && !isTypeSuitable("StringLiteral", content.type)) {
         //Annotations are processed in the parseAstRules function. If we encounter an annotation here, then it wasn't at the beginning of a rule.
         error("Annotations must be at the beginning of the rule");
     }
@@ -177,7 +177,8 @@ function parseAst(content) {
     }
 
     //For string literals, check if they are a child of __format__ (or of a string function). If not, wrap them with the __format__ function.
-    if (["StringLiteral", "LocalizedStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
+    //Do not use isTypeSuitable as that can return true for "value".
+    if (["StringLiteral", "LocalizedStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral"].includes(content.type)) {
         if (["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
             return content;
         } else {

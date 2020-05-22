@@ -318,6 +318,7 @@ const typeTree = [
 		"LocalizedStringLiteral",
 		"FullwidthStringLiteral",
 		"BigLettersStringLiteral",
+		"PlaintextStringLiteral",
 	]},
 
 ].concat(Object.keys(constantValues));

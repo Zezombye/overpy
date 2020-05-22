@@ -4,7 +4,7 @@
     "displayName": "OverPy",
     "repository": "https://github.com/Zezombye/overpy",
     "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
-    "version": "5.1.1",
+    "version": "5.2.5",
     "readme": "README.md",
     "engines": {
         "vscode": "^1.36.0"

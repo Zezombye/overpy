@@ -94,7 +94,7 @@ function isTypeSuitable(expectedType, receivedType) {
         } else if (["Vector", "Direction", "Position", "Velocity"].includes(receivedTypeName)) {
             if (typeof expectedType === "string") {
                 //The default type for vectors is float.
-                return receivedType[receivedTypeName].every(x => isTypeSuitable("float", x));
+                return isTypeSuitable(expectedType, receivedTypeName) && receivedType[receivedTypeName].every(x => isTypeSuitable("float", x));
 
             } else if (typeof expectedType === "object") {
                 

@@ -49,7 +49,7 @@ function getUtf8Length(s){
 }
 
 function isNumber(x) {
-	if (x.trim() === "") {
+	if ((""+x).trim() === "" || x === null) {
 		return false;
 	}
 	return !isNaN(x);
@@ -1607,6 +1607,29 @@ const actionKw =
         "pt-BR": "Aplicar Impulso",
         "zh-CN": "施加推力"
     },
+    "_&attachTo": {
+        "description": "Attaches the player (the 'child') to another player (the 'parent'). Once attached, the child will be unable to move freely until detached or teleported away. Multiple children may be attached to the same parent, but not vice versa.",
+        "args": [
+            {
+                "name": "CHILD",
+                "description": "The player that will attach to the parent. This player will be unable to move freely until detached or teleported away.",
+                "type": "Player",
+                "default": "EVENT PLAYER",
+            },{
+                "name": "PARENT",
+                "description": "The player to whom the child will attach. This player's movement will be unaffected and will determine the child's position.",
+                "type": "Player",
+                "default": "LAST CREATED ENTITY",
+            },{
+                "name": "OFFSET",
+                "description": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head.",
+                "type": "Position",
+                "default": "VECTOR",
+            }
+        ],
+        "return": "void",
+        "en-US": "Attach Players",
+    },
     "bigMessage": {
         "description": "Displays a large message above the reticle that is visible to specific players.",
         "args": [
@@ -2577,6 +2600,19 @@ const actionKw =
         "ja-JP": "ワールド内テキストを破棄",
         "pt-BR": "Destruir Texto no Mundo",
         "zh-CN": "消除地图文本"
+    },
+    "_&detach": {
+        "description": "Undoes the attachment caused by the 'attachTo' action for one or more players. These players will resume normal movement from their current position.",
+        "args": [
+            {
+                "name": "CHILDREN",
+                "description": "The player or players that will become detached from their parent.",
+                "type": ["Player", {"Array": "Player"}],
+                "default": "EVENT PLAYER",
+            }
+        ],
+        "return": "void",
+        "en-US": "Detach Players",
     },
     "disableAnnouncer": {
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
@@ -4953,6 +4989,29 @@ const actionKw =
         "pt-BR": "Começar a Forçar Jogador a Ser o Herói",
         "zh-CN": "开始强制玩家选择英雄"
     },
+    "_&startForcingPosition": {
+        "description": "Starts forcing a player to be in a given position. IF reevaluation is enabled, then the position is evaluated every frame, allowing the player to be moved around over time.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose position will be forced. (The reevaluation option does not apply to this value.)",
+                "type": "Player",
+                "default": "EVENT PLAYER",
+            },{
+                "name": "POSITION",
+                "description": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time.",
+                "type": "Position",
+                "default": "VECTOR",
+            },{
+                "name": "REEVALUATE",
+                "description": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the posiiton is only evaluated once when the action begins.",
+                "type": "bool",
+                "default": "TRUE",
+            }
+        ],
+        "return": "void",
+        "en-US": "Start Forcing Player Position",
+    },
     "startForcingSpawn": {
         "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
         "args": [
@@ -5532,6 +5591,19 @@ const actionKw =
         "ja-JP": "プレイヤーへのヒーロー強制を停止",
         "pt-BR": "Parar de Forçar Jogador a Ser o Herói",
         "zh-CN": "停止强制玩家选择英雄"
+    },
+    "_&stopForcingPosition": {
+        "description": "Cancels the behavior of `startForcingPosition()` for the specified player or players. Regular movement will resume from the last forced position(s).",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose positions will stop being forced.",
+                "type": ["Player", {"Array": "Player"}],
+                "default": "EVENT PLAYER",
+            },
+        ],
+        "return": "void",
+        "en-US": "Stop Forcing Player Position",
     },
     "stopForcingSpawn": {
         "description": "Undoes the effect of the start forcing spawn room action for the specified team.",
@@ -7304,6 +7376,19 @@ var valueFuncKw =
         "pt-BR": "Herói",
         "zh-CN": "英雄"
     },
+    "_&getHeroOfDuplication": {
+        "description": "The hero currently being duplicated by the specified player. If no hero is being duplicated, the resulting value is 0.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player performing the duplication.",
+                "type": "Player",
+                "default": "EVENT PLAYER",
+            }
+        ],
+        "return": "Hero",
+        "en-US": "Hero Being Duplicated",
+    },
     "heroIcon": {
         "description": "Converts a hero parameter into a string that shows up as an icon.",
         "args": [
@@ -7719,6 +7804,28 @@ var valueFuncKw =
         "pt-BR": "É Agachado",
         "zh-CN": "正在蹲下"
     },
+    "_&isInAlternateForm": {
+        "description": `Whether the specified player is currently in an alternate form:
+        
+- Hammond's ball form
+- Baby Dva
+- Bastion's turret and tank forms
+- Lucio's speed song
+- Mercy's pistol
+- Torbjorn's hammer
+
+For Echo duplication, use the Is Duplicating value instead.`,
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose form to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER",
+            }
+        ],
+        "return": "bool",
+        "en-US": "Is In Alternate Form",
+    },
     "isInSuddenDeath": {
         "description": "Whether the current game of capture the flag is in sudden death.",
         "args": [],
@@ -7768,6 +7875,19 @@ var valueFuncKw =
         "ja-JP": "ダミーボットである",
         "pt-BR": "É Bot",
         "zh-CN": "是否是机器人"
+    },
+    "_&isDuplicatingAHero": {
+        "description": "Whether the specified player is duplicating another hero. To check which hero, use the Hero Being Duplicated value.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose duplication status to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "return": "bool",
+        "en-US": "Is Duplicating",
     },
     "_&isFiringPrimaryFire": {
         "description": "Whether the specified player's primary weapon attack is being used.",
@@ -21530,6 +21650,9 @@ function getAstForNumber(nb) {
 function getAstForNull() {
     return new Ast("null", [], [], "Player");
 }
+function getAstForFalse() {
+    return new Ast("false", [], [], "bool");
+}
 function getAstForColorWhite() {
     return new Ast("WHITE", [], [], "Color");
 }
@@ -21638,7 +21761,7 @@ function isTypeSuitable(expectedType, receivedType) {
         } else if (["Vector", "Direction", "Position", "Velocity"].includes(receivedTypeName)) {
             if (typeof expectedType === "string") {
                 //The default type for vectors is float.
-                return receivedType[receivedTypeName].every(x => isTypeSuitable("float", x));
+                return isTypeSuitable(expectedType, receivedTypeName) && receivedType[receivedTypeName].every(x => isTypeSuitable("float", x));
 
             } else if (typeof expectedType === "object") {
                 
@@ -23217,6 +23340,7 @@ const typeTree = [
 		"LocalizedStringLiteral",
 		"FullwidthStringLiteral",
 		"BigLettersStringLiteral",
+		"PlaintextStringLiteral",
 	]},
 
 ].concat(Object.keys(constantValues));
@@ -24930,7 +25054,7 @@ function decompileRuleToAst(content) {
 	var ruleAttributes = {};
 	
 	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
-	ruleAttributes.name = ruleName;
+	ruleAttributes.name = unescapeString(ruleName);
 	
 	var currentRuleIsDisabled = false;
 	if (content.trim().startsWith(tows("__disabled__", ruleKw))) {
@@ -25224,7 +25348,7 @@ function decompile(content) {
     
     //Check for string literals
     if (name.startsWith('"')) {
-        return new Ast(name, [], [], "StringLiteral");
+        return new Ast(unescapeString(name), [], [], "StringLiteral");
     }
     
     //Check for numbers
@@ -25301,13 +25425,234 @@ function decompile(content) {
     }
     if (name === "__localizedString__" && args.length === 0) {
         return new Ast("STRING", [], [], "HudReeval");
-    }
+	}
+	
+	if (!(name in wsFuncKw)) {
+		error("Function '"+name+"' is not in the function list");
+	}
+	if (wsFuncKw[name].args === null) {
+		if (args.length !== 0) {
+			error("Function '"+name+"' has "+args.length+"args, expected 0");
+		}
+	} else {
+		if (args.length !== wsFuncKw[name].args.length) {
+			error("Function '"+name+"' has "+args.length+"args, expected "+funcKw[name].args.length);
+		}
+	}
+	var astArgs = [];
+	for (var i = 0; i < args.length; i++) {
+		console.log(i);
+		console.log(wsFuncKw[name].args[i].type);
+		if (wsFuncKw[name].args[i].type in constantValues) {
+			astArgs.push(new Ast(topy(args[i].trim(), constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
+		} else {
+			astArgs.push(decompile(args[i]));
+		}
+	}
+	
 
-	return new Ast(name, args.map(x => decompile(x)));
+	return new Ast(name, astArgs);
 		
 }
 
 /* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+function astRulesToOpy(rules) {
+
+    var result = "";
+
+    for (var rule of rules) {
+        var decompiledRule = "";
+
+        decompiledRule += "rule "+escapeString(rule.ruleAttributes.name)+":\n";
+        nbTabs = 1;
+        
+        //Decompile the rule attributes
+        var decompiledRuleAttributes = "";
+
+        if (rule.ruleAttributes.event !== "global") {
+            decompiledRuleAttributes += tabLevel(nbTabs)+"@Event "+rule.ruleAttributes.event+"\n";
+        }
+        if (rule.ruleAttributes.eventTeam) {
+            decompiledRuleAttributes += tabLevel(nbTabs)+"@Team "+rule.ruleAttributes.eventTeam+"\n";
+        }
+        if (rule.ruleAttributes.eventPlayer) {
+            if (rule.ruleAttributes.eventPlayer in eventSlotKw) {
+                decompiledRuleAttributes += tabLevel(nbTabs)+"@Slot "+rule.ruleAttributes.eventPlayer+"\n";
+            } else {
+                decompiledRuleAttributes += tabLevel(nbTabs)+"@Hero "+rule.ruleAttributes.eventPlayer+"\n";
+            }
+        }
+        if (rule.ruleAttributes.conditions) {
+            for (var condition of rule.ruleAttributes.conditions) {
+                if (condition.comment) {
+                    decompiledRuleAttributes += tabLevel(nbTabs)+"#"+condition.comment+"\n";
+                }
+                decompiledRuleAttributes += tabLevel(nbTabs);
+                if (condition.isDisabled) {
+                    decompiledRuleAttributes += "#";
+                }
+                decompiledRuleAttributes += "@Condition "+astToOpy(condition)+"\n";
+            }
+        }
+        if (decompiledRuleAttributes) {
+            decompiledRuleAttributes += tabLevel(nbTabs)+"\n";
+        }
+        decompiledRule += decompiledRuleAttributes;
+
+        //Decompile the rule actions
+        decompiledRule += astActionsToOpy(rule.children);
+
+        if (rule.isDisabled) {
+            decompiledRule = "/*" + decompiledRule + "*/";
+        }
+        decompiledRule += "\n\n";
+        result += decompiledRule;
+    }
+    return result;
+
+}
+
+function astActionsToOpy(actions) {
+
+    var result = "";
+    for (var i = 0; i < actions.length; i++) {
+        if (actions[i].comment) {
+            result += tabLevel(nbTabs)+"#"+actions[i].comment+"\n";
+        }
+        var decompiledAction = "";
+        if (["__elif__", "__else__", "__while__", "__for__"].includes(actions[i].name)) {
+            //Check if there is an "end" (or elif/else) and if we must modify the action
+            var isEndFound = false;
+            var depth = 0;
+            for (var j = i+1; j < actions.length; j++) {
+                if (actions[i].name === "__elif__" && ["__elif__", "__else__"].includes(actions[j].name)) {
+                    isEndFound = true;
+                    break;
+                }
+                //The workshop actually doesn't care about lone elif/else when matching them with ends.
+                if (["__if__", "__while__", "__for__"].includes(actions[j].name)) {
+                    depth++;
+                }
+                if (actions[j].name === "__end__") {
+                    if (depth === 0) {
+                        isEndFound = true;
+                        break;
+                    } else {
+                        depth--;
+                    }
+                }
+            }
+
+            if (!isEndFound) {
+                result += tabLevel(nbTabs)+"#Note: this '"+actions[i].name+"' had no 'end' action.\n";
+
+                if (actions[i].name === "__elif__" || actions[i].name === "__else__") {
+                    actions[i] = new Ast("__if__", [getAstForFalse()]);
+                } else if (actions[i].name === "__while__") {
+                    actions[i].name = "__if__";
+                } else if (actions[i].name === "__for__") {
+
+                    //args[0] = start, args[1] = end, args[2] = step
+                    //step > 0 && start <= end || step <= 0 && start >= end
+                    actions[i] = new Ast("__if__", [
+                        new Ast("__or__", [
+                            new Ast("__and__", [
+                                new Ast("__greaterThan__", [
+                                    actions[i].args[2],
+                                    getAstFor0(),
+                                ]),
+                                new Ast("__lessThanOrEquals__", [
+                                    actions[i].args[0],
+                                    actions[i].args[1],
+                                ])
+                            ]),
+                            new Ast("__and__", [
+                                new Ast("__lessThanOrEquals__", [
+                                    actions[i].args[2],
+                                    getAstFor0(),
+                                ]),
+                                new Ast("__greaterThanOrEquals__", [
+                                    actions[i].args[0],
+                                    actions[i].args[1],
+                                ])
+                            ]),
+                        ])
+                    ])
+
+                } else {
+                    error("Unexpected name '"+actions[i].name+"'");
+                }
+            }
+        }
+
+        if (["__if__", "__elif__", "__else__", "__while__", "__for__"].includes(actions[i].name)) {
+            var nameToKeywordMapping = {
+                "__if__": "if",
+                "__elif__": "elif",
+                "__else__": "else",
+                "__while__": "while",
+                "__for__": "for",
+            }
+            decompiledAction = tabLevel(nbTabs)+nameToKeywordMapping[actions[i].name]+" "+astToOpy(actions[i].args[0])+":\n";
+            nbTabs++;
+
+        } else if (actions[i].name === "__end__") {
+            nbTabs--;
+            if (nbTabs < 1) {
+                nbTabs = 1;
+            }
+
+        } else {
+            decompiledAction = tabLevel(nbTabs)+actions[i].name+"("+actions[i].args.map(x => astToOpy(x)).join(", ")+")\n";
+        }
+        result += decompiledAction;
+    }
+
+    return result;
+
+}
+
+function astToOpy(content) {
+
+    if (isNumber(content.name)) {
+        return content.name;
+    }
+
+    if (content.type in constantValues) {
+        return content.type+"."+content.name;
+    }
+
+    if (content.type === "StringLiteral") {
+        return escapeString(content.name);
+    }
+
+    if (!(content.name in funcKw)) {
+        error("Unregistered function '"+content.name+"'");
+    }
+    if (funcKw[content.name].args === null) {
+        return content.name;
+    } else {
+        return content.name+"("+content.args.map(x => astToOpy(x)).join(", ")+")";
+    }
+}/* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
  * 
@@ -25382,11 +25727,6 @@ function decompileAllRules(content, language="en-US") {
 		astRules.push(decompileRuleToAst(content.substring(bracketPos[i]+1, bracketPos[i+4]+1)));
 	}
 
-	for (var rule of astRules) {
-		console.log(astToString(rule));
-	}
-	console.log(astRules);
-
 	var variableDeclarations = "";	
 	if (globalVariables.length > 0) {
 		globalVariables.sort((a,b) => a.index-b.index);
@@ -25425,7 +25765,14 @@ function decompileAllRules(content, language="en-US") {
 			subroutineDeclarations = "#Subroutine names\n\n"+subroutineDeclarations+"\n\n";
 		}
 	}
-	result = variableDeclarations + subroutineDeclarations + result;
+	result += variableDeclarations + subroutineDeclarations;
+	
+	for (var rule of astRules) {
+		console.log(astToString(rule));
+	}
+	console.log(astRules);
+
+	result += astRulesToOpy(astRules);
 		
 	return result;
 	
@@ -26064,6 +26411,7 @@ function parseCustomString(str, formatArgs) {
     
     var isBigLetters = (str.type === "BigLettersStringLiteral");
     var isFullwidth = (str.type === "FullwidthStringLiteral");
+    var isPlaintext = (str.type === "PlaintextStringLiteral");
 
     var content = str.name;
 	var tokens = [];
@@ -26104,7 +26452,7 @@ function parseCustomString(str, formatArgs) {
 			
 		}
 	
-		if (obfuscateRules) {
+		if (obfuscateRules && !isPlaintext) {
 			var tmpStr = "";
 			for (var char of content) {
 				if (char in obfuscationMappings) {
@@ -27810,7 +28158,7 @@ function parseAst(content) {
     if (!(content.children instanceof Array)) {
         error("Function '"+content.name+"' has '"+content.children+"' for args, expected array");
     }
-    if (content.name.startsWith("@")) {
+    if (content.name.startsWith("@") && !isTypeSuitable("StringLiteral", content.type)) {
         //Annotations are processed in the parseAstRules function. If we encounter an annotation here, then it wasn't at the beginning of a rule.
         error("Annotations must be at the beginning of the rule");
     }
@@ -27839,7 +28187,8 @@ function parseAst(content) {
     }
 
     //For string literals, check if they are a child of __format__ (or of a string function). If not, wrap them with the __format__ function.
-    if (["StringLiteral", "LocalizedStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
+    //Do not use isTypeSuitable as that can return true for "value".
+    if (["StringLiteral", "LocalizedStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral"].includes(content.type)) {
         if (["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
             return content;
         } else {
@@ -28858,8 +29207,10 @@ function parse(content) {
 						stringType = "BigLettersStringLiteral";
 					} else if (content[0].text === "w") {
 						stringType = "FullwidthStringLiteral";
+					} else if (content[0].text === "p") {
+						stringType = "PlaintextStringLiteral";
 					} else {
-						error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters) and 'w' (fullwidth)");
+						error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters), 'p' (plaintext) and 'w' (fullwidth)");
 					}
 				} else {
 					error("Expected string, but got '"+content[i].text+"'");
@@ -29279,7 +29630,7 @@ function compile(content, language="en-US", _rootPath="") {
         console.log(astToString(elem));
     }
     
-   	console.log(astRules);
+	console.log(astRules);
     var parsedAstRules = parseAstRules(astRules);
 
     /*for (var elem of parsedAstRules) {
@@ -29358,7 +29709,7 @@ function generateVariablesField() {
 			if (variable.index === undefined || variable.index === null) {
 				unassignedVariables.push(variable.name);
 			} else {
-				if (isNaN(variable.index) || variable.index >= 128 || variable.index < 0) {
+				if (!isNumber(variable.index) || variable.index >= 128 || variable.index < 0) {
 					error("Invalid index '"+variable.index+"' for "+varType+" variable '"+variable.name+"', must be from 0 to 127");
 				}
 				outputVariables[variable.index] = variable.name;

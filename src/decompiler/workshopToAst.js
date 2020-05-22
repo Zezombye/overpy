@@ -39,7 +39,7 @@ function decompileRuleToAst(content) {
 	var ruleAttributes = {};
 	
 	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
-	ruleAttributes.name = ruleName;
+	ruleAttributes.name = unescapeString(ruleName);
 	
 	var currentRuleIsDisabled = false;
 	if (content.trim().startsWith(tows("__disabled__", ruleKw))) {
@@ -333,7 +333,7 @@ function decompile(content) {
     
     //Check for string literals
     if (name.startsWith('"')) {
-        return new Ast(name, [], [], "StringLiteral");
+        return new Ast(unescapeString(name), [], [], "StringLiteral");
     }
     
     //Check for numbers
@@ -410,9 +410,33 @@ function decompile(content) {
     }
     if (name === "__localizedString__" && args.length === 0) {
         return new Ast("STRING", [], [], "HudReeval");
-    }
+	}
+	
+	if (!(name in wsFuncKw)) {
+		error("Function '"+name+"' is not in the function list");
+	}
+	if (wsFuncKw[name].args === null) {
+		if (args.length !== 0) {
+			error("Function '"+name+"' has "+args.length+"args, expected 0");
+		}
+	} else {
+		if (args.length !== wsFuncKw[name].args.length) {
+			error("Function '"+name+"' has "+args.length+"args, expected "+funcKw[name].args.length);
+		}
+	}
+	var astArgs = [];
+	for (var i = 0; i < args.length; i++) {
+		console.log(i);
+		console.log(wsFuncKw[name].args[i].type);
+		if (wsFuncKw[name].args[i].type in constantValues) {
+			astArgs.push(new Ast(topy(args[i].trim(), constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
+		} else {
+			astArgs.push(decompile(args[i]));
+		}
+	}
+	
 
-	return new Ast(name, args.map(x => decompile(x)));
+	return new Ast(name, astArgs);
 		
 }
 

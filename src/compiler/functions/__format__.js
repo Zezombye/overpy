@@ -37,6 +37,7 @@ function parseCustomString(str, formatArgs) {
     
     var isBigLetters = (str.type === "BigLettersStringLiteral");
     var isFullwidth = (str.type === "FullwidthStringLiteral");
+    var isPlaintext = (str.type === "PlaintextStringLiteral");
 
     var content = str.name;
 	var tokens = [];
@@ -77,7 +78,7 @@ function parseCustomString(str, formatArgs) {
 			
 		}
 	
-		if (obfuscateRules) {
+		if (obfuscateRules && !isPlaintext) {
 			var tmpStr = "";
 			for (var char of content) {
 				if (char in obfuscationMappings) {

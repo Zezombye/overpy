@@ -73,11 +73,6 @@ function decompileAllRules(content, language="en-US") {
 		astRules.push(decompileRuleToAst(content.substring(bracketPos[i]+1, bracketPos[i+4]+1)));
 	}
 
-	for (var rule of astRules) {
-		console.log(astToString(rule));
-	}
-	console.log(astRules);
-
 	var variableDeclarations = "";	
 	if (globalVariables.length > 0) {
 		globalVariables.sort((a,b) => a.index-b.index);
@@ -116,7 +111,14 @@ function decompileAllRules(content, language="en-US") {
 			subroutineDeclarations = "#Subroutine names\n\n"+subroutineDeclarations+"\n\n";
 		}
 	}
-	result = variableDeclarations + subroutineDeclarations + result;
+	result += variableDeclarations + subroutineDeclarations;
+	
+	for (var rule of astRules) {
+		console.log(astToString(rule));
+	}
+	console.log(astRules);
+
+	result += astRulesToOpy(astRules);
 		
 	return result;
 	

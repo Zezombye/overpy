@@ -592,6 +592,7 @@ function makeSignatureHelp(funcName, func) {
     for (var i = 0; i < func.args.length; i++) {
         if (!(i === 0 && isMemberFunction)) {
             paramInfo.push(new vscode.ParameterInformation(getSuitableArgName(func.args[i].name), func.args[i].description));
+            //console.log(func.args[i].name);
             sigStr += getSuitableArgName(func.args[i].name)+": "+getSuitableArgType(func.args[i].type);
             if (i < func.args.length-1) {
                 sigStr += ", ";

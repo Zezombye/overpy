@@ -151,6 +151,29 @@ const actionKw =
         "pt-BR": "Aplicar Impulso",
         "zh-CN": "施加推力"
     },
+    "_&attachTo": {
+        "description": "Attaches the player (the 'child') to another player (the 'parent'). Once attached, the child will be unable to move freely until detached or teleported away. Multiple children may be attached to the same parent, but not vice versa.",
+        "args": [
+            {
+                "name": "CHILD",
+                "description": "The player that will attach to the parent. This player will be unable to move freely until detached or teleported away.",
+                "type": "Player",
+                "default": "EVENT PLAYER",
+            },{
+                "name": "PARENT",
+                "description": "The player to whom the child will attach. This player's movement will be unaffected and will determine the child's position.",
+                "type": "Player",
+                "default": "LAST CREATED ENTITY",
+            },{
+                "name": "OFFSET",
+                "description": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head.",
+                "type": "Position",
+                "default": "VECTOR",
+            }
+        ],
+        "return": "void",
+        "en-US": "Attach Players",
+    },
     "bigMessage": {
         "description": "Displays a large message above the reticle that is visible to specific players.",
         "args": [
@@ -1121,6 +1144,19 @@ const actionKw =
         "ja-JP": "ワールド内テキストを破棄",
         "pt-BR": "Destruir Texto no Mundo",
         "zh-CN": "消除地图文本"
+    },
+    "_&detach": {
+        "description": "Undoes the attachment caused by the 'attachTo' action for one or more players. These players will resume normal movement from their current position.",
+        "args": [
+            {
+                "name": "CHILDREN",
+                "description": "The player or players that will become detached from their parent.",
+                "type": ["Player", {"Array": "Player"}],
+                "default": "EVENT PLAYER",
+            }
+        ],
+        "return": "void",
+        "en-US": "Detach Players",
     },
     "disableAnnouncer": {
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
@@ -3497,6 +3533,29 @@ const actionKw =
         "pt-BR": "Começar a Forçar Jogador a Ser o Herói",
         "zh-CN": "开始强制玩家选择英雄"
     },
+    "_&startForcingPosition": {
+        "description": "Starts forcing a player to be in a given position. IF reevaluation is enabled, then the position is evaluated every frame, allowing the player to be moved around over time.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose position will be forced. (The reevaluation option does not apply to this value.)",
+                "type": "Player",
+                "default": "EVENT PLAYER",
+            },{
+                "name": "POSITION",
+                "description": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time.",
+                "type": "Position",
+                "default": "VECTOR",
+            },{
+                "name": "REEVALUATE",
+                "description": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the posiiton is only evaluated once when the action begins.",
+                "type": "bool",
+                "default": "TRUE",
+            }
+        ],
+        "return": "void",
+        "en-US": "Start Forcing Player Position",
+    },
     "startForcingSpawn": {
         "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
         "args": [
@@ -4076,6 +4135,19 @@ const actionKw =
         "ja-JP": "プレイヤーへのヒーロー強制を停止",
         "pt-BR": "Parar de Forçar Jogador a Ser o Herói",
         "zh-CN": "停止强制玩家选择英雄"
+    },
+    "_&stopForcingPosition": {
+        "description": "Cancels the behavior of `startForcingPosition()` for the specified player or players. Regular movement will resume from the last forced position(s).",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player or players whose positions will stop being forced.",
+                "type": ["Player", {"Array": "Player"}],
+                "default": "EVENT PLAYER",
+            },
+        ],
+        "return": "void",
+        "en-US": "Stop Forcing Player Position",
     },
     "stopForcingSpawn": {
         "description": "Undoes the effect of the start forcing spawn room action for the specified team.",

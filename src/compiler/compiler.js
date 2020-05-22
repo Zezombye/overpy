@@ -45,7 +45,7 @@ function compile(content, language="en-US", _rootPath="") {
         console.log(astToString(elem));
     }
     
-   	console.log(astRules);
+	console.log(astRules);
     var parsedAstRules = parseAstRules(astRules);
 
     /*for (var elem of parsedAstRules) {
@@ -124,7 +124,7 @@ function generateVariablesField() {
 			if (variable.index === undefined || variable.index === null) {
 				unassignedVariables.push(variable.name);
 			} else {
-				if (isNaN(variable.index) || variable.index >= 128 || variable.index < 0) {
+				if (!isNumber(variable.index) || variable.index >= 128 || variable.index < 0) {
 					error("Invalid index '"+variable.index+"' for "+varType+" variable '"+variable.name+"', must be from 0 to 127");
 				}
 				outputVariables[variable.index] = variable.name;

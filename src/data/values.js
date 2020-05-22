@@ -1524,6 +1524,19 @@ var valueFuncKw =
         "pt-BR": "Herói",
         "zh-CN": "英雄"
     },
+    "_&getHeroOfDuplication": {
+        "description": "The hero currently being duplicated by the specified player. If no hero is being duplicated, the resulting value is 0.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player performing the duplication.",
+                "type": "Player",
+                "default": "EVENT PLAYER",
+            }
+        ],
+        "return": "Hero",
+        "en-US": "Hero Being Duplicated",
+    },
     "heroIcon": {
         "description": "Converts a hero parameter into a string that shows up as an icon.",
         "args": [
@@ -1939,6 +1952,28 @@ var valueFuncKw =
         "pt-BR": "É Agachado",
         "zh-CN": "正在蹲下"
     },
+    "_&isInAlternateForm": {
+        "description": `Whether the specified player is currently in an alternate form:
+        
+- Hammond's ball form
+- Baby Dva
+- Bastion's turret and tank forms
+- Lucio's speed song
+- Mercy's pistol
+- Torbjorn's hammer
+
+For Echo duplication, use the Is Duplicating value instead.`,
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose form to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER",
+            }
+        ],
+        "return": "bool",
+        "en-US": "Is In Alternate Form",
+    },
     "isInSuddenDeath": {
         "description": "Whether the current game of capture the flag is in sudden death.",
         "args": [],
@@ -1988,6 +2023,19 @@ var valueFuncKw =
         "ja-JP": "ダミーボットである",
         "pt-BR": "É Bot",
         "zh-CN": "是否是机器人"
+    },
+    "_&isDuplicatingAHero": {
+        "description": "Whether the specified player is duplicating another hero. To check which hero, use the Hero Being Duplicated value.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose duplication status to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "return": "bool",
+        "en-US": "Is Duplicating",
     },
     "_&isFiringPrimaryFire": {
         "description": "Whether the specified player's primary weapon attack is being used.",

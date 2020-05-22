@@ -150,6 +150,9 @@ function getAstForNumber(nb) {
 function getAstForNull() {
     return new Ast("null", [], [], "Player");
 }
+function getAstForFalse() {
+    return new Ast("false", [], [], "bool");
+}
 function getAstForColorWhite() {
     return new Ast("WHITE", [], [], "Color");
 }

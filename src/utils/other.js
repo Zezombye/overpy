@@ -49,7 +49,7 @@ function getUtf8Length(s){
 }
 
 function isNumber(x) {
-	if (x.trim() === "") {
+	if ((""+x).trim() === "" || x === null) {
 		return false;
 	}
 	return !isNaN(x);

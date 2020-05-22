@@ -528,8 +528,10 @@ function parse(content) {
 						stringType = "BigLettersStringLiteral";
 					} else if (content[0].text === "w") {
 						stringType = "FullwidthStringLiteral";
+					} else if (content[0].text === "p") {
+						stringType = "PlaintextStringLiteral";
 					} else {
-						error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters) and 'w' (fullwidth)");
+						error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters), 'p' (plaintext) and 'w' (fullwidth)");
 					}
 				} else {
 					error("Expected string, but got '"+content[i].text+"'");
