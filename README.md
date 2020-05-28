@@ -3,12 +3,6 @@ High-level language for the Overwatch Workshop with support for compilation and 
 
 Join the EloHell discord for feedback: https://discord.gg/zwF7KQm #highlevel-scripting
 
-# Demo page
+Check the wiki to get started: https://github.com/Zezombye/overpy/wiki
 
-https://zezombye.github.io/overpy/demo
-
-![owo](https://i.imgur.com/MGru5kS.png)
-
-# Getting started
-
-Check the wiki: https://github.com/Zezombye/overpy/wiki
+Play around with the demo: https://zezombye.github.io/overpy/demo
