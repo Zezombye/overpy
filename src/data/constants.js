@@ -39,7 +39,7 @@ const constantValues =
             "zh-CN": "旋转并转换"
         }
     },
-    "Team": {
+    "TeamLiteral": {
         "1": {
             "guid": "00000000B472",
             "en-US": "Team 1",
@@ -214,7 +214,7 @@ const constantValues =
             "zh-CN": "黄色"
         }
     },
-    "Button": {
+    "ButtonLiteral": {
         "ABILITY_1": {
             "guid": "00000000B179",
             "en-US": "Ability 1",
@@ -2127,17 +2127,17 @@ const constantValues =
 }
 //end-json
 
-constantValues["Hero"] = {};
+constantValues["HeroLiteral"] = {};
 for (var key of Object.keys(heroKw)) {
-    constantValues["Hero"][camelCaseToUpperCase(key)] = heroKw[key]
+    constantValues["HeroLiteral"][camelCaseToUpperCase(key)] = heroKw[key]
 }
-constantValues["Map"] = {};
+constantValues["MapLiteral"] = {};
 for (var key of Object.keys(mapKw)) {
-    constantValues["Map"][camelCaseToUpperCase(key)] = mapKw[key]
+    constantValues["MapLiteral"][camelCaseToUpperCase(key)] = mapKw[key]
 }
-constantValues["Gamemode"] = {};
+constantValues["GamemodeLiteral"] = {};
 for (var key of Object.keys(gamemodeKw)) {
-    constantValues["Gamemode"][camelCaseToUpperCase(key)] = gamemodeKw[key]
+    constantValues["GamemodeLiteral"][camelCaseToUpperCase(key)] = gamemodeKw[key]
 }
 
 constantValues["ChaseReeval"] = Object.assign({}, constantValues["__ChaseRateReeval__"], constantValues["__ChaseTimeReeval__"])

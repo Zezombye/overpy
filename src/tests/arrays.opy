@@ -8,6 +8,8 @@ rule "arrays":
     A = sorted(A)
     A = []
     A = [1,2,3]
+    A = A[B]
+    A = [1,2,3][1] #2
     A = [[1,2],[3,4]]
     del A[1]
     A.append(3)

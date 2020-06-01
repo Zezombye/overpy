@@ -33,7 +33,7 @@ overpyFiles = [
 "utils/tokens.js",
 "obfuscation.js",
 "globalVars.js",
-"tests/decompileTest.js",
+"decompiler/decompileTest.js",
 "decompiler/workshopToAst.js",
 "decompiler/astToOpy.js",
 "decompiler/decompiler.js",

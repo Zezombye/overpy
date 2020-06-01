@@ -303,6 +303,10 @@ function astToWs(content) {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundToNearest__", [], [], "__Rounding__")];
 
+    } else if (content.name === "RULE_CONDITION" || content.name === "RULE_START") {
+        //If we encounter that keyword here, it means it hasn't been converted to "loop if condition is true" or similar.
+        error("Cannot use '"+content.name+"' in that context");
+
     } else if (content.name === "stopChasingVariable") {
         var newName = "";
         if (content.args[0].name === "__globalVar__") {

@@ -19,6 +19,11 @@
 
 astParsingFunctions.__elif__ = function(content) {
 
+    //Check if the elif is directly preceded by an if.
+    if (content.parent.childIndex === 0 || content.parent.children[content.parent.childIndex-1].name !== "__if__") {
+        error("Found 'elif', but no 'if'");
+    }
+
     //Add the "end" function.
     if (content.parent.childIndex === content.parent.children.length-1 || content.parent.childIndex < content.parent.children.length-1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex+1].name)) {
         //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent.

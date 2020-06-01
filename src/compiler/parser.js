@@ -712,33 +712,30 @@ function parseMember(object, member) {
 
             //Check enums
             if (Object.keys(constantValues).includes(object[0].text)) {
+                return new Ast(name, [], [], object[0].text);
+            
+            } else if (object[0].text === "Hero") {
+                return new Ast("__hero__", [new Ast(name, [], [], "HeroLiteral")])
 
-                var result = tows(object[0].text+"."+name, constantKw);
-                if (object[0].text === "Hero") {
-                    return new Ast("__hero__", [new Ast(name, [], [], "HeroLiteral")])
+            } else if (object[0].text === "Map") {
+                return new Ast("__map__", [new Ast(name, [], [], "MapLiteral")])
 
-                } else if (object[0].text === "Map") {
-                    return new Ast("__map__", [new Ast(name, [], [], "MapLiteral")])
+            } else if (object[0].text === "Gamemode") {
+                return new Ast("__gamemode__", [new Ast(name, [], [], "GamemodeLiteral")])
 
-                } else if (object[0].text === "Gamemode") {
-                    return new Ast("__gamemode__", [new Ast(name, [], [], "GamemodeLiteral")])
+            } else if (object[0].text === "Team") {
+                return new Ast("__team__", [new Ast(name, [], [], "TeamLiteral")])
 
-                } else if (object[0].text === "Team") {
-                    return new Ast("__team__", [new Ast(name, [], [], "TeamLiteral")])
+            } else if (object[0].text === "Button") {
+                return new Ast("__button__", [new Ast(name, [], [], "ButtonLiteral")])
 
-                } else if (object[0].text === "Button") {
-                    return new Ast("__button__", [new Ast(name, [], [], "ButtonLiteral")])
-
-                } else {
-                    return new Ast(name, [], [], object[0].text);
-                }
 
             //Check the pseudo-enum "math"
             } else if (object[0].text === "math") {
                 if (name === "pi") {
-                    return new Ast("3.14159265359");
+                    return getAstForNumber(3.14159265359);
                 } else if (name === "e") {
-                    return new Ast("2.71828182846");
+                    return getAstForNumber(2.71828182846);
                 } else {
                     error("Unhandled member 'math."+name+"'");
                 }

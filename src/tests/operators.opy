@@ -101,6 +101,44 @@ rule "assignment":
     A max= B
     A min= B
 
+rule "and":
+    A = A and B
+    A = A and true #A
+    A = A and false #false
+    A = A and A #A
+    A = A and not A #false
+
+rule "or":
+    A = A or B
+    A = A or A #A
+    A = A or true #true
+    A = A or false #A
+    A = A or not A #true
+
+rule "not":
+    A = not B
+    A = not not A #A
+    A = not true #false
+    A = not false #true
+
+
+/*
+actions
+{
+    Global.A += 0;
+    Global.A -= 0;
+    Global.A *= 0;
+    Global.A /= 0;
+    Global.A %= 0;
+    Global.A ^= 0;
+    Modify Global Variable(A, Min, 0);
+    Modify Global Variable(A, Max, 0);
+    Modify Global Variable(A, Append To Array, 0);
+    Modify Global Variable(A, Remove From Array By Value, 0);
+    Modify Global Variable(A, Remove From Array By Index, 0);
+}
+*/
+
 rule "ternaries":
     A = B if C else D
     A = B if 0 == 0 else D #B

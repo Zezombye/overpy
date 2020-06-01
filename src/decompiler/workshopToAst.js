@@ -19,7 +19,7 @@
 
 function decompileRuleToAst(content) {
 	
-	error("The decompiler currently cannot decompile rules.");
+	//error("The decompiler currently cannot decompile rules.");
 
 	//Reset rule-specific global variables
 	decompilerGotos = [];
@@ -292,11 +292,15 @@ function decompile(content) {
 
     var dotOperands = splitStrOnDelimiter(content, ".", false, true);
     if (dotOperands.length === 2) {
-
+		dotOperands = dotOperands.map(x => x.trim());
         if (isNumber(dotOperands[0])) {
-            return getAstForNumber(Number(content));
+			if (dotOperands[0].startsWith("-")) {
+				return new Ast("__negate__", [getAstForNumber(Number(content.substring(1)))]);
+			} else {
+				return getAstForNumber(Number(content));
+			}
         }
-        if (dotOperands[0].trim() === tows("__global__", valueFuncKw)) {
+        if (dotOperands[0] === tows("__global__", valueFuncKw)) {
             return new Ast("__globalVar__", [new Ast(translateVarToPy(dotOperands[1], true), [], [], "GlobalVariable")]);
         } else {
             return new Ast("__playerVar__", [decompile(dotOperands[0]), new Ast(translateVarToPy(dotOperands[1], false), [], [], "PlayerVariable")]);
@@ -338,7 +342,11 @@ function decompile(content) {
     
     //Check for numbers
     if (isNumber(name)) {
-        return getAstForNumber(Number(name));
+		if (name.startsWith("-")) {
+			return new Ast("__negate__", [getAstForNumber(Number(name.substring(1)))]);
+		} else {
+			return getAstForNumber(Number(name));
+		}
     }
     try {
         name = topy(name.toLowerCase().replace(/\s/g, ""), wsFuncKw);
@@ -367,7 +375,7 @@ function decompile(content) {
 
 	if (name === "__modifyGlobalVariable__") {
 		return new Ast("__modifyVar__", [
-            new Ast(translateVarToPy(args[0], true), [], [], "GlobalVariable"), 
+            new Ast("__globalVar__", [new Ast(translateVarToPy(args[0], true), [], [], "GlobalVariable")]),
             new Ast(topy(args[1], constantValues["__Operation__"]), [], [], "__Operation__"),
             decompile(args[2]),
         ]);
@@ -375,7 +383,7 @@ function decompile(content) {
 	if (name === "__modifyGlobalVariableAtIndex__") {
 		return new Ast("__modifyVar__", [
             new Ast("__valueInArray__", [
-                new Ast(translateVarToPy(args[0], true), [], [], "GlobalVariable"),
+				new Ast("__globalVar__", [new Ast(translateVarToPy(args[0], true), [], [], "GlobalVariable")]),
                 decompile(args[1]),
             ]),
             new Ast(topy(args[2], constantValues["__Operation__"]), [], [], "__Operation__"),
@@ -397,16 +405,35 @@ function decompile(content) {
             new Ast("__valueInArray__", [
                 new Ast("__playerVar__", [
                     decompile(args[0]),
-                    new Ast(translateVarToPy(args[1], false), [], [], "PlayerVariable"),
+					new Ast(translateVarToPy(args[1], false), [], [], "PlayerVariable"),
                 ]),
                 decompile(args[2])
             ]),
             new Ast(topy(args[3], constantValues["__Operation__"]), [], [], "__Operation__"),
             decompile(args[4]),
         ]);
-    }
+	}
+	if (name === "__forGlobalVariable__") {
+		return new Ast("__for__", [
+			new Ast("__globalVar__", [new Ast(translateVarToPy(args[0], true), [], [], "GlobalVariable")]),
+			decompile(args[1]),
+			decompile(args[2]),
+			decompile(args[3]),
+		])
+	}
+	if (name === "__forPlayerVariable__") {
+		return new Ast("__for__", [
+			new Ast("__playerVar__", [
+				decompile(args[0]),
+                new Ast(translateVarToPy(args[1], false), [], [], "PlayerVariable"),
+			]),
+			decompile(args[2]),
+			decompile(args[3]),
+			decompile(args[4]),
+		])
+	}
     if (name === "__round__") {
-        return new Ast("__round__", [decompile(args[0]), new Ast(topy(args[1].trim(), constantValues.__Rounding__), [], [], "__Rounding__")]);
+        return new Ast("__round__", [decompile(args[0]), new Ast(topy(args[1], constantValues.__Rounding__), [], [], "__Rounding__")]);
     }
     if (name === "__localizedString__" && args.length === 0) {
         return new Ast("STRING", [], [], "HudReeval");
@@ -420,16 +447,33 @@ function decompile(content) {
 			error("Function '"+name+"' has "+args.length+"args, expected 0");
 		}
 	} else {
-		if (args.length !== wsFuncKw[name].args.length) {
-			error("Function '"+name+"' has "+args.length+"args, expected "+funcKw[name].args.length);
+		if (name === "__array__" || name === "__localizedString__" || name === "__customString__") {
+			if (args.length < 1) {
+				error("Function '"+name+"' has "+args.length+"args, expected at least 1");
+			}
+		} else {
+			if (args.length !== wsFuncKw[name].args.length) {
+				error("Function '"+name+"' has "+args.length+"args, expected "+funcKw[name].args.length);
+			}
 		}
 	}
 	var astArgs = [];
 	for (var i = 0; i < args.length; i++) {
-		console.log(i);
-		console.log(wsFuncKw[name].args[i].type);
-		if (wsFuncKw[name].args[i].type in constantValues) {
-			astArgs.push(new Ast(topy(args[i].trim(), constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
+		//console.log(i);
+		if (name !== "__array__") {
+			//console.log(wsFuncKw[name].args[i].type);
+
+			if (wsFuncKw[name].args[i].type in constantValues) {
+				astArgs.push(new Ast(topy(args[i], constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
+			} else if (wsFuncKw[name].args[i].type === "GlobalVariable") {
+				astArgs.push(new Ast(translateVarToPy(args[i], true), [], [], "GlobalVariable"));
+			} else if (wsFuncKw[name].args[i].type === "PlayerVariable") {
+				astArgs.push(new Ast(translateVarToPy(args[i], false), [], [], "PlayerVariable"));
+			} else if (wsFuncKw[name].args[i].type === "Subroutine") {
+				astArgs.push(new Ast(translateSubroutineToPy(args[i]), [], [], "Subroutine"));
+			} else {
+				astArgs.push(decompile(args[i]));
+			}
 		} else {
 			astArgs.push(decompile(args[i]));
 		}

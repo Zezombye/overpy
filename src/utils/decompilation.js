@@ -113,7 +113,7 @@ function splitInstructions(content) {
 
 //Returns an array of arguments (delimited by a comma).
 function getArgs(content) {
-	return splitStrOnDelimiter(content, ',');
+	return splitStrOnDelimiter(content, ',').map(x => x.trim());
 }
 
 //Returns the prefix string (used for condition/action comments).
