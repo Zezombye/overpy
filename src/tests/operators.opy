@@ -34,6 +34,7 @@ rule "add":
     
 rule "subtract":
     A = B-C
+    A = B-C-D
     A = B-0 #B
     A = B-B #0
     A = 1-2 #-1
@@ -42,6 +43,7 @@ rule "subtract":
 
 rule "negate":
     A = -B
+    A = -B%C
     A = -vect(1,B,-2)
     A = -vect(1,2,-3) #vect(-1,-2,3)
     A = -1
@@ -84,6 +86,7 @@ rule "modulo":
 
 rule "power":
     A = B**C
+    A = B**C**D
     A = B**0 #1
     A = B**1 #B
     A = 0**B #0
@@ -92,7 +95,10 @@ rule "power":
     A = 2**3 #8
     
 rule "assignment":
+    A = B
+    A = A #pass
     A += B
+    A += 0 #pass
     A -= B
     A *= B
     A /= B
@@ -120,6 +126,11 @@ rule "not":
     A = not not A #A
     A = not true #false
     A = not false #true
+
+rule "in":
+    A = A in B
+    A = 3 in [1,A,3] #true
+    A = 3 in [A,5,6]
 
 
 /*

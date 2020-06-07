@@ -19,10 +19,12 @@
 
 const preprocessingDirectives = {
     "define": {
-        "description": "Creates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n"
+        "description": "Creates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n",
+        "snippet": "define $0",
     },
     "defineMember": {
-        "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion."
+        "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion.",
+        "snippet": "define $0",
     },
     "obfuscate": {
         "description": 
@@ -40,7 +42,8 @@ The following obfuscation methods are applied:
 `
     },
     "suppressWarnings": {
-        "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
+        "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space.",
+        "snippet": "suppressWarnings $0",
     },
     "mainFile": {
         "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file.",
@@ -49,5 +52,8 @@ The following obfuscation methods are applied:
     "include": {
         "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file.",
         "snippet": "include \"$0\"",
+    },
+    "disableOptimizations": {
+        "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
     }
 }

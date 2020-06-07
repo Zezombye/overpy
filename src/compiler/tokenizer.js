@@ -190,8 +190,8 @@ function tokenize(content) {
 		} else if (content.startsWith("#!obfuscate")) {
 			obfuscateRules = true;
 
-		} else if (content.startsWith("#!disableUnusedVars")) {
-			disableUnusedVars = true;
+		} else if (content.startsWith("#!disableOptimizations")) {
+			enableOptimization = false;
 
 		} else if (content.startsWith("#!suppressWarnings ")) {
 			var firstSpaceIndex = content.indexOf(" ");

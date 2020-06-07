@@ -252,7 +252,12 @@ function decompile(content) {
 
 	//Split on operators
 	for (var operator of wsOperators) {
-        var operands = splitStrOnDelimiter(content, " "+operator+" ", false);
+		//The power operator is right to left, so split left to right
+		if (operator === "^") {
+			var operands = splitStrOnDelimiter(content, " "+operator+" ", false, false);
+		} else {			
+			var operands = splitStrOnDelimiter(content, " "+operator+" ", false, true);
+		}
 
 		if (operands.length === 2) {
 			if (operator in binaryOpToFuncMapping) {
@@ -412,6 +417,20 @@ function decompile(content) {
             new Ast(topy(args[3], constantValues["__Operation__"]), [], [], "__Operation__"),
             decompile(args[4]),
         ]);
+	}
+	if (name === "__compare__") {
+		var funcToOpMapping = {
+			"==": "__equals__",
+			"!=": "__inequals__",
+			"<=": "__lessThanOrEquals__",
+			">=": "__greaterThanOrEquals__",
+			"<": "__lessThan__",
+			">": "__greaterThan__",
+		}
+		if (!(args[1] in funcToOpMapping)) {
+			error("Unknown operator '"+args[1]+"'");
+		}
+		return new Ast(funcToOpMapping[args[1]], [decompile(args[0]), decompile(args[2])]);
 	}
 	if (name === "__forGlobalVariable__") {
 		return new Ast("__for__", [

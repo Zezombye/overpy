@@ -21,8 +21,7 @@ function astRulesToOpy(rules) {
 
     var result = `/*
 The decompiler is functional, but not finished.
-It does not support operator precedence (which is why you will see parentheses everywhere).
-It also does not support gotos, this mean multi-line actions such as "Abort If" or "Loop If" are not properly decompiled as well.
+It does not support gotos, this mean multi-line actions such as "Abort If" or "Loop If" are not properly decompiled as well.
 Some special functions may also not be properly decompiled.
 
 However, decompilation should yield a compilable gamemode. Decompiling then compiling a gamemode should result in the same functional gamemode.
@@ -133,7 +132,7 @@ function astActionsToOpy(actions) {
                 } else if (actions[i].name === "__for__") {
 
                     //args[0] = start, args[1] = end, args[2] = step
-                    //step > 0 && start <= end || step <= 0 && start >= end
+                    //step > 0 && start < end || step <= 0 && start > end
                     actions[i] = new Ast("__if__", [
                         new Ast("__or__", [
                             new Ast("__and__", [
@@ -141,7 +140,7 @@ function astActionsToOpy(actions) {
                                     actions[i].args[2],
                                     getAstFor0(),
                                 ]),
-                                new Ast("__lessThanOrEquals__", [
+                                new Ast("__lessThan__", [
                                     actions[i].args[0],
                                     actions[i].args[1],
                                 ])
@@ -151,7 +150,7 @@ function astActionsToOpy(actions) {
                                     actions[i].args[2],
                                     getAstFor0(),
                                 ]),
-                                new Ast("__greaterThanOrEquals__", [
+                                new Ast("__greaterThan__", [
                                     actions[i].args[0],
                                     actions[i].args[1],
                                 ])
@@ -366,20 +365,54 @@ function astToOpy(content) {
         "__lessThan__": "<",
         "__greaterThan__": ">",
     }
-    if (content.name === "__compare__") {
-        return "("+astToOpy(content.args[0])+") "+content.args[1].name+" ("+astToOpy(content.args[2])+")";
-    }
     if (content.name in funcToOpMapping) {
-        return "("+astToOpy(content.args[0])+") "+funcToOpMapping[content.name]+" ("+astToOpy(content.args[1])+")";
+        var op1 = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[content.name]))) {
+            op1 = "("+op1+")";
+        }
+        var op2 = astToOpy(content.args[1]);
+        
+        if (astContainsFunctions(content.args[1], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]))) {
+            op2 = "("+op2+")";
+        }
+        return op1+" "+funcToOpMapping[content.name]+" "+op2;
     }
+
+    if (content.name === "__arrayContains__") {
+        var op1 = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]))) {
+            op1 = "("+op1+")";
+        }
+        var op2 = astToOpy(content.args[1]);
+        
+        if (astContainsFunctions(content.args[1], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[content.name]))) {
+            op2 = "("+op2+")";
+        }
+        return op2+" in "+op1;
+    }
+
     if (content.name === "__ifThenElse__") {
-        return "("+astToOpy(content.args[1])+") if ("+astToOpy(content.args[0])+") else ("+astToOpy(content.args[2])+")";
+        var opThen = astToOpy(content.args[1]);
+        if (astContainsFunctions(content.args[1], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]))) {
+            opThen = "("+opThen+")";
+        }
+        var opIf = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]))) {
+            opIf = "("+opIf+")";
+        }
+        return opThen+" if "+opIf+" else "+astToOpy(content.args[2]);
     }
-    if (content.name === "__negate__") {
-        return "-("+astToOpy(content.args[0])+")";
-    }
-    if (content.name === "__not__") {
-        return "not ("+astToOpy(content.args[0])+")";
+
+    if (content.name === "__negate__" || content.name === "__not__") {
+        var op1 =  astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[content.name]))) {
+            op1 = "("+op1+")";
+        }
+        if (content.name === "__negate__") {
+            return "-"+op1;
+        } else {
+            return "not "+op1;
+        }
     }
 
     //Array functions
@@ -407,6 +440,57 @@ function astToOpy(content) {
         return astToOpy(content.args[0])+"["+astToOpy(content.args[1])+"]";
     }
 
+    //Array functions that use current array element
+    if (["__all__", "__any__", "__filteredArray__", "__sortedArray__"].includes(content.name)) {
+        //Determine the current array element name
+        var currentArrayElementName = "";
+        if (isTypeSuitable({"Array": "Player"}, content.args[0].type)) {
+            currentArrayElementName = "player";
+        } else {
+            currentArrayElementName = "i";
+        }
+        while (isVarName(currentArrayElementName, true)) {
+            currentArrayElementName += "_";
+        }
+        currentArrayElementNames.push(currentArrayElementName);
+
+        var result = "";
+        if (content.name === "__all__" || content.name === "__any__") {
+            result += content.name.replace(/_/g, "")+"(";
+            if (content.args[1].name === "__currentArrayElement__") {
+                //If there is just "current array element", no need to explicitly put it
+                result += astToOpy(content.args[0]);
+            } else {
+                result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName+" in "+astToOpy(content.args[0])+"]";
+            }
+            result += ")";
+        } else if (content.name === "__filteredArray__") {
+            result += "["+currentArrayElementName+" for "+currentArrayElementName+" in ";
+            var opArray = astToOpy(content.args[0]);
+            if (astContainsFunctions(content.args[0], ["__ifThenElse__"])) {
+                opArray = "("+opArray+")";
+            }
+            result += opArray+" if "+astToOpy(content.args[1])+"]";
+        } else if (content.name === "__sortedArray__") {
+            result += "sorted("+astToOpy(content.args[0]);
+            //If there is just "current array element", no need to explicitly put it
+            if (content.args[1].name !== "__currentArrayElement__") {
+                result += ", lambda "+currentArrayElementName+": "+astToOpy(content.args[1]);
+            }
+            result += ")";
+        }
+
+        currentArrayElementNames.pop();
+        return result;
+    }
+
+    if (content.name === "__currentArrayElement__") {
+        if (currentArrayElementNames.length === 0) {
+            error("currentArrayElementNames is empty");
+        }
+        return currentArrayElementNames[currentArrayElementNames.length-1];
+    }
+
     //Other functions
     if (content.name === "getPlayers" && content.args[0].name === "ALL") {
         return "getAllPlayers()";
@@ -427,6 +511,26 @@ function astToOpy(content) {
             result += ".format("+formatArgs.map(x => astToOpy(x))+")";
         }
         return result;
+    }
+    if (content.name === "__round__") {
+        if (content.args[1].name === "__roundUp__") {
+            return "ceil("+astToOpy(content.args[0])+")";
+        }
+        if (content.args[1].name === "__roundDown__") {
+            return "floor("+astToOpy(content.args[0])+")";
+        }
+        if (content.args[1].name === "__roundToNearest__") {
+            return "round("+astToOpy(content.args[0])+")";
+        }
+    }
+    if (content.name === "__xComponentOf__") {
+        return astToOpy(content.args[0])+".x";
+    }
+    if (content.name === "__yComponentOf__") {
+        return astToOpy(content.args[0])+".y";
+    }
+    if (content.name === "__zComponentOf__") {
+        return astToOpy(content.args[0])+".z";
     }
 
     if (!(content.name in funcKw)) {

@@ -122,6 +122,25 @@ function areAstsEqual(a, b) {
     return true;
 }
 
+function astContainsFunctions(ast, functionNames) {
+
+    if (functionNames.includes(ast.name)) {
+        return true;
+    }
+    for (var arg of ast.args) {
+        if (astContainsFunctions(arg, functionNames)) {
+            return true;
+        }
+    }
+    for (var child of ast.children) {
+        if (astContainsFunctions(child, functionNames)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 
 //Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
 function getAstFor0() {

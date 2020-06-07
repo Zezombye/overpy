@@ -1125,19 +1125,22 @@ const opyKeywords = {
 
     "and": {
         "description": "Whether both of the two operands are true (or equivalent to true). Does short-circuiting.",
-        "args": null
+        "args": null,
+        "snippet": "and $0",
     },
-    "bool": {
+    /*"bool": {
         "description": "The 'boolean' type. Denotes a boolean such as 'false' or 'true'.",
         "args": null,
-    },
+    },*/
     "case": {
         "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is equal to the value specified in this `case` statement. Literal arrays should not be used. Note that the execution will not jump to the end of the `switch` block after the end of the `case` block; if you want that to be the case, use the `break` instruction.",
-        "args": null
+        "args": null,
+        "snippet": "case $0",
     },
     "def": {
         "description": "Defines a subroutine. Note that subroutines cannot have any arguments or rule conditions. Example: `def mySubroutine():`",
-        "args": null
+        "args": null,
+        "snippet": "def $0",
     },
     "default": {
         "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is not equal to any value specified in the `case` statements. Note that the execution will not jump to the end of the `switch` block after the end of the `default` block; if you want that to be the case, use the `break` instruction.",
@@ -1145,7 +1148,8 @@ const opyKeywords = {
     },
     "del": {
         "description": "Removes the Element specified by the Index from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs. Example: `del myVar[3]`",
-        "args": null
+        "args": null,
+        "snippet": "del $0",
     },
     "do": {
         "description": "Denotes a do/while loop. Can only be specified at the start of a rule (ignoring the rule condition). The matching `while` must not have an ending colon (`:`).",
@@ -1153,7 +1157,8 @@ const opyKeywords = {
     },
     "elif": {
         "description": "Denotes the beginning of a block that will only execute if the specified condition is true and the previous `if` or `elif` block's condition was false.",
-        "args": null
+        "args": null,
+        "snippet": "elif $0",
     },
     "else": {
         "description": `Denotes either:
@@ -1163,17 +1168,18 @@ const opyKeywords = {
 - If a value, an inline "ternary" condition, such as \`A if B else C\`.`,
         "args": null
     },
-    "float": {
+    /*"float": {
         "description": "The 'float' type. Denotes any real number.",
         "args": null,
-    },
+    },*/
     "for": {
         "description": `Denotes either:
         
 - If an instruction, the beginning of a block that will execute in a loop, modifying the control variable on each loop. The instruction must be \`for <var> in range(start, stop, step):\` See also the \`range\` function.
 
 - If within a list comprehension, a filtered  or mapped array, such as \`[i for i in x if x == 3]\`.`,
-        "args": null
+        "args": null,
+        "snippet": "for $0",
     },
     "if": {
         "description": `Denotes either:
@@ -1181,35 +1187,42 @@ const opyKeywords = {
 - If an instruction, the beginning of a block that will only execute if the specified condition is true.
 
 - If a value, an inline "ternary" condition, such as \`A if B else C\`. The \`else\` must be specified.`,
-        "args": null
+        "args": null,
+        "snippet": "if $0",
     },
-    "int": {
+    /*"int": {
         "description": "The 'integer' type. A subset of the 'float' type.",
         "args": null,
-    },
+    },*/
     "globalvar": {
         "description": "Declares a global variable. The index (0-127) can optionally be specified. Example: `globalvar myVar 127`",
-        "args": null
+        "args": null,
+        "snippet": "globalvar $0",
     },
     "goto": {
         "description": "Goes to the specified label. Labels can only be placed after the `goto` statement, in the current rule. For example, `goto lbl_1` will continue execution from the `lbl_1:` instruction. Dynamic gotos, although not recommended, can be declared with the `loc+` keyword, such as `goto loc+A` which will move execution 3 actions after the `goto` instruction.",
-        "args": null
+        "args": null,
+        "snippet": "goto $0",
     },
     "lambda": {
         "description": "Denotes an inline function. Can only be used in the `sorted` function.",
-        "args": null
+        "args": null,
+        "snippet": "lambda $0",
     },
     "not": {
         "description": "Whether the given operand is false (or equivalent to false).",
-        "args": null
+        "args": null,
+        "snippet": "not $0",
     },
     "or": {
         "description": "Whether either of the two operands are true (or equivalent to true). Does short-circuiting.",
-        "args": null
+        "args": null,
+        "snippet": "or $0",
     },
     "playervar": {
         "description": "Declares a player variable. The index (0-127) can optionally be specified. Example: `playervar myVar 127`",
-        "args": null
+        "args": null,
+        "snippet": "playervar $0",
     },
     "rule": {
         "description": "Declares a rule.",
@@ -1218,27 +1231,31 @@ const opyKeywords = {
     },
     "settings": {
         "description": "Declares custom game settings. Must be followed by an object containing the settings.",
-        "args": null
+        "args": null,
+        "snippet": "settings $0",
     },
-    "signed": {
+    /*"signed": {
         "description": "Defines the specified type as signed (inferior or equal to 0). Only valid for 'int' or 'float'.",
         "args": null,
-    },
+    },*/
     "switch": {
         "description": "Denotes the beginning of a block that will jump execution to the `case` statement that has the value of the specified variable. If no `case` statement has the value of the specified variable, the execution goes to the `default` statement if it exists, else to the end of the block.",
-        "args": null
+        "args": null,
+        "snippet": "switch $0",
     },
     "subroutine": {
         "description": "Declares a subroutine. The index (0-127) can optionally be specified. Example: `subroutine mySubroutine 127`",
-        "args": null
+        "args": null,
+        "snippet": "subroutine $0",
     },
-    "unsigned": {
+    /*"unsigned": {
         "description": "Defines the specified type as unsigned (superior or equal to 0). Only valid for 'int' or 'float'.",
         "args": null,
-    },
+    },*/
     "while": {
         "description": "Denotes the beginning of a block that will execute in a loop as long as the specified condition is true. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end of the block. Can also denote the end of a do/while loop, if no `:` is at the end of the instruction.",
-        "args": null
+        "args": null,
+        "snippet": "while $0",
     },
 };
 /* 
@@ -1422,10 +1439,12 @@ const opyMemberFuncs = {
 
 const preprocessingDirectives = {
     "define": {
-        "description": "Creates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n"
+        "description": "Creates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n",
+        "snippet": "define $0",
     },
     "defineMember": {
-        "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion."
+        "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion.",
+        "snippet": "define $0",
     },
     "obfuscate": {
         "description": 
@@ -1443,7 +1462,8 @@ The following obfuscation methods are applied:
 `
     },
     "suppressWarnings": {
-        "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space."
+        "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space.",
+        "snippet": "suppressWarnings $0",
     },
     "mainFile": {
         "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file.",
@@ -1452,6 +1472,9 @@ The following obfuscation methods are applied:
     "include": {
         "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file.",
         "snippet": "include \"$0\"",
+    },
+    "disableOptimizations": {
+        "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
     }
 }
 /* 
@@ -21622,6 +21645,25 @@ function areAstsEqual(a, b) {
     return true;
 }
 
+function astContainsFunctions(ast, functionNames) {
+
+    if (functionNames.includes(ast.name)) {
+        return true;
+    }
+    for (var arg of ast.args) {
+        if (astContainsFunctions(arg, functionNames)) {
+            return true;
+        }
+    }
+    for (var child of ast.children) {
+        if (astContainsFunctions(child, functionNames)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 
 //Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
 function getAstFor0() {
@@ -23141,25 +23183,56 @@ function resetGlobalVariables(language) {
 
 //Operator precedence, from lowest to highest.
 const operatorPrecedence = {
-	"or":1,
-	"and":2,
-	"not":3,
-	"==":4,
-	"!=":4,
-	"<=":4,
-	">=":4,
-	">":4,
-	"<":4,
-	"+":5,
-	"-":5,
-	"*":6,
-	"/":6,
-	
-	//Although in Python the modulo operator has the same precedence as * and /,
-	//it must have a higher precedence because (a*b)%c is not the same as a*(b%c).
-	"%":7,
-	"**":8,
+	"=": 1,
+	"+=": 1,
+	"-=": 1,
+	"*=": 1,
+	"/=": 1,
+	"%=": 1,
+	"**=": 1,
+	"min=": 1,
+	"max=": 1,
+	"if": 2,
+	"or": 3,
+	"and": 4,
+	"not": 5,
+	"in": 7,
+	"==": 7,
+	"!=": 7,
+	"<=": 7,
+	">=": 7,
+	">": 7,
+	"<": 7,
+	"+": 8,
+	"-": 8,
+	"++": 8,
+	"--": 8,
+	"*": 9,
+	"/": 9,
+	"%": 9,
+	"**": 10,
 };
+
+const astOperatorPrecedence = {
+	"__ifThenElse__": 2,
+	"__or__": 3,
+	"__and__": 4,
+	"__not__": 5,
+	"__arrayContains__": 6,
+	"__equals__": 6,
+	"__inequals__": 6,
+	"__lessThanOrEquals__": 6,
+	"__greaterThanOrEquals__": 6,
+	"__lessThan__": 6,
+	"__greaterThan__": 6,
+	"__add__": 7,
+	"__subtract__": 7,
+	"__multiply__": 8,
+	"__divide__": 8,
+	"__modulo__": 8,
+	"__negate__": 9,
+	"__raiseToPower__": 9,
+}
 
 //Python operators, from lowest to highest precedence.
 const pyOperators = [
@@ -25267,7 +25340,12 @@ function decompile(content) {
 
 	//Split on operators
 	for (var operator of wsOperators) {
-        var operands = splitStrOnDelimiter(content, " "+operator+" ", false);
+		//The power operator is right to left, so split left to right
+		if (operator === "^") {
+			var operands = splitStrOnDelimiter(content, " "+operator+" ", false, false);
+		} else {			
+			var operands = splitStrOnDelimiter(content, " "+operator+" ", false, true);
+		}
 
 		if (operands.length === 2) {
 			if (operator in binaryOpToFuncMapping) {
@@ -25428,6 +25506,20 @@ function decompile(content) {
             decompile(args[4]),
         ]);
 	}
+	if (name === "__compare__") {
+		var funcToOpMapping = {
+			"==": "__equals__",
+			"!=": "__inequals__",
+			"<=": "__lessThanOrEquals__",
+			">=": "__greaterThanOrEquals__",
+			"<": "__lessThan__",
+			">": "__greaterThan__",
+		}
+		if (!(args[1] in funcToOpMapping)) {
+			error("Unknown operator '"+args[1]+"'");
+		}
+		return new Ast(funcToOpMapping[args[1]], [decompile(args[0]), decompile(args[2])]);
+	}
 	if (name === "__forGlobalVariable__") {
 		return new Ast("__for__", [
 			new Ast("__globalVar__", [new Ast(translateVarToPy(args[0], true), [], [], "GlobalVariable")]),
@@ -25522,8 +25614,7 @@ function astRulesToOpy(rules) {
 
     var result = `/*
 The decompiler is functional, but not finished.
-It does not support operator precedence (which is why you will see parentheses everywhere).
-It also does not support gotos, this mean multi-line actions such as "Abort If" or "Loop If" are not properly decompiled as well.
+It does not support gotos, this mean multi-line actions such as "Abort If" or "Loop If" are not properly decompiled as well.
 Some special functions may also not be properly decompiled.
 
 However, decompilation should yield a compilable gamemode. Decompiling then compiling a gamemode should result in the same functional gamemode.
@@ -25634,7 +25725,7 @@ function astActionsToOpy(actions) {
                 } else if (actions[i].name === "__for__") {
 
                     //args[0] = start, args[1] = end, args[2] = step
-                    //step > 0 && start <= end || step <= 0 && start >= end
+                    //step > 0 && start < end || step <= 0 && start > end
                     actions[i] = new Ast("__if__", [
                         new Ast("__or__", [
                             new Ast("__and__", [
@@ -25642,7 +25733,7 @@ function astActionsToOpy(actions) {
                                     actions[i].args[2],
                                     getAstFor0(),
                                 ]),
-                                new Ast("__lessThanOrEquals__", [
+                                new Ast("__lessThan__", [
                                     actions[i].args[0],
                                     actions[i].args[1],
                                 ])
@@ -25652,7 +25743,7 @@ function astActionsToOpy(actions) {
                                     actions[i].args[2],
                                     getAstFor0(),
                                 ]),
-                                new Ast("__greaterThanOrEquals__", [
+                                new Ast("__greaterThan__", [
                                     actions[i].args[0],
                                     actions[i].args[1],
                                 ])
@@ -25867,20 +25958,54 @@ function astToOpy(content) {
         "__lessThan__": "<",
         "__greaterThan__": ">",
     }
-    if (content.name === "__compare__") {
-        return "("+astToOpy(content.args[0])+") "+content.args[1].name+" ("+astToOpy(content.args[2])+")";
-    }
     if (content.name in funcToOpMapping) {
-        return "("+astToOpy(content.args[0])+") "+funcToOpMapping[content.name]+" ("+astToOpy(content.args[1])+")";
+        var op1 = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[content.name]))) {
+            op1 = "("+op1+")";
+        }
+        var op2 = astToOpy(content.args[1]);
+        
+        if (astContainsFunctions(content.args[1], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]))) {
+            op2 = "("+op2+")";
+        }
+        return op1+" "+funcToOpMapping[content.name]+" "+op2;
     }
+
+    if (content.name === "__arrayContains__") {
+        var op1 = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]))) {
+            op1 = "("+op1+")";
+        }
+        var op2 = astToOpy(content.args[1]);
+        
+        if (astContainsFunctions(content.args[1], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[content.name]))) {
+            op2 = "("+op2+")";
+        }
+        return op2+" in "+op1;
+    }
+
     if (content.name === "__ifThenElse__") {
-        return "("+astToOpy(content.args[1])+") if ("+astToOpy(content.args[0])+") else ("+astToOpy(content.args[2])+")";
+        var opThen = astToOpy(content.args[1]);
+        if (astContainsFunctions(content.args[1], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]))) {
+            opThen = "("+opThen+")";
+        }
+        var opIf = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]))) {
+            opIf = "("+opIf+")";
+        }
+        return opThen+" if "+opIf+" else "+astToOpy(content.args[2]);
     }
-    if (content.name === "__negate__") {
-        return "-("+astToOpy(content.args[0])+")";
-    }
-    if (content.name === "__not__") {
-        return "not ("+astToOpy(content.args[0])+")";
+
+    if (content.name === "__negate__" || content.name === "__not__") {
+        var op1 =  astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[content.name]))) {
+            op1 = "("+op1+")";
+        }
+        if (content.name === "__negate__") {
+            return "-"+op1;
+        } else {
+            return "not "+op1;
+        }
     }
 
     //Array functions
@@ -25908,6 +26033,57 @@ function astToOpy(content) {
         return astToOpy(content.args[0])+"["+astToOpy(content.args[1])+"]";
     }
 
+    //Array functions that use current array element
+    if (["__all__", "__any__", "__filteredArray__", "__sortedArray__"].includes(content.name)) {
+        //Determine the current array element name
+        var currentArrayElementName = "";
+        if (isTypeSuitable({"Array": "Player"}, content.args[0].type)) {
+            currentArrayElementName = "player";
+        } else {
+            currentArrayElementName = "i";
+        }
+        while (isVarName(currentArrayElementName, true)) {
+            currentArrayElementName += "_";
+        }
+        currentArrayElementNames.push(currentArrayElementName);
+
+        var result = "";
+        if (content.name === "__all__" || content.name === "__any__") {
+            result += content.name.replace(/_/g, "")+"(";
+            if (content.args[1].name === "__currentArrayElement__") {
+                //If there is just "current array element", no need to explicitly put it
+                result += astToOpy(content.args[0]);
+            } else {
+                result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName+" in "+astToOpy(content.args[0])+"]";
+            }
+            result += ")";
+        } else if (content.name === "__filteredArray__") {
+            result += "["+currentArrayElementName+" for "+currentArrayElementName+" in ";
+            var opArray = astToOpy(content.args[0]);
+            if (astContainsFunctions(content.args[0], ["__ifThenElse__"])) {
+                opArray = "("+opArray+")";
+            }
+            result += opArray+" if "+astToOpy(content.args[1])+"]";
+        } else if (content.name === "__sortedArray__") {
+            result += "sorted("+astToOpy(content.args[0]);
+            //If there is just "current array element", no need to explicitly put it
+            if (content.args[1].name !== "__currentArrayElement__") {
+                result += ", lambda "+currentArrayElementName+": "+astToOpy(content.args[1]);
+            }
+            result += ")";
+        }
+
+        currentArrayElementNames.pop();
+        return result;
+    }
+
+    if (content.name === "__currentArrayElement__") {
+        if (currentArrayElementNames.length === 0) {
+            error("currentArrayElementNames is empty");
+        }
+        return currentArrayElementNames[currentArrayElementNames.length-1];
+    }
+
     //Other functions
     if (content.name === "getPlayers" && content.args[0].name === "ALL") {
         return "getAllPlayers()";
@@ -25928,6 +26104,26 @@ function astToOpy(content) {
             result += ".format("+formatArgs.map(x => astToOpy(x))+")";
         }
         return result;
+    }
+    if (content.name === "__round__") {
+        if (content.args[1].name === "__roundUp__") {
+            return "ceil("+astToOpy(content.args[0])+")";
+        }
+        if (content.args[1].name === "__roundDown__") {
+            return "floor("+astToOpy(content.args[0])+")";
+        }
+        if (content.args[1].name === "__roundToNearest__") {
+            return "round("+astToOpy(content.args[0])+")";
+        }
+    }
+    if (content.name === "__xComponentOf__") {
+        return astToOpy(content.args[0])+".x";
+    }
+    if (content.name === "__yComponentOf__") {
+        return astToOpy(content.args[0])+".y";
+    }
+    if (content.name === "__zComponentOf__") {
+        return astToOpy(content.args[0])+".z";
     }
 
     if (!(content.name in funcKw)) {
@@ -26364,6 +26560,56 @@ astParsingFunctions.__append__ = function(content) {
     ])
     result.originalName = "__append__";
     return result;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__assignTo__ = function(content) {
+
+    if (enableOptimization) {
+        if ([
+            "__add__",
+            "__subtract__",
+            "__multiply__",
+            "__divide__",
+            "__modulo__",
+            "__raiseToPower__",
+            "min",
+            "max",
+        ].includes(content.args[1].name) && areAstsEqual(content.args[0], content.args[1].args[0])) {
+            var opName = content.args[1].name;
+            if (opName === "min" || opName === "max") {
+                opName = "__"+opName+"__";
+            }
+            return new Ast("__modifyVar__", [
+                content.args[0],
+                new Ast(opName, [], [], "__Operation__"),
+                content.args[1].args[1],
+            ]);
+        }
+
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return getAstForUselessInstruction();
+        }
+    }
+
+    return content;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -27962,8 +28208,8 @@ function tokenize(content) {
 		} else if (content.startsWith("#!obfuscate")) {
 			obfuscateRules = true;
 
-		} else if (content.startsWith("#!disableUnusedVars")) {
-			disableUnusedVars = true;
+		} else if (content.startsWith("#!disableOptimizations")) {
+			enableOptimization = false;
 
 		} else if (content.startsWith("#!suppressWarnings ")) {
 			var firstSpaceIndex = content.indexOf(" ");
@@ -28736,7 +28982,7 @@ function astRuleConditionToWs(condition) {
     }
     var result = "";
     if (!obfuscateRules && condition.comment) {
-        result += tabLevel(2)+escapeString(condition.comment)+"\n";
+        result += tabLevel(2)+escapeString(condition.comment.trim())+"\n";
     }
 
     if (condition.name in funcToOpMapping) {
@@ -28763,7 +29009,7 @@ function astActionToWs(action, nbTabs) {
         action.comment = "pass";
     }
     if (!obfuscateRules && action.comment) {
-        result += tabLevel(nbTabs)+escapeString(action.comment)+"\n";
+        result += tabLevel(nbTabs)+escapeString(action.comment.trim())+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"
     for (var child of action.children) {
