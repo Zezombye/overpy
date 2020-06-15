@@ -111,7 +111,7 @@ function astActionsToOpy(actions) {
                 if (["__if__", "__while__", "__for__"].includes(actions[j].name)) {
                     depth++;
                 }
-                if (actions[j].name === "__end__") {
+                if (actions[j].name === "__end__" && !actions[j].isDisabled) {
                     if (depth === 0) {
                         isEndFound = true;
                         break;
@@ -246,7 +246,7 @@ function astActionsToOpy(actions) {
             } else if (actions[i].args[1].name === "null" && actions[i].args[2].name === "null") {
                 decompiledAction += "hudSubtext("+[0,3,4,5,8,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
             } else {
-                decompiledAction += "hudHeader("+actions[i].args.map(x => astToOpy(x)).join(", ")+")";
+                decompiledAction += "hudText("+actions[i].args.map(x => astToOpy(x)).join(", ")+")";
             }
         } else if (actions[i].name === "__callSubroutine__") {
             decompiledAction += actions[i].args[0].name+"()";
@@ -280,7 +280,7 @@ function astActionsToOpy(actions) {
             decompiledAction += "stopChasingVariable("+actions[i].args[0].name+")";
 
         } else if (actions[i].name === "__stopChasingPlayerVariable__") {
-            decompiledAction += "stopChasingVariable("+astToOpy(actions[i].args[0])+", "+actions[i].args[1].name+")";
+            decompiledAction += "stopChasingVariable("+astToOpy(actions[i].args[0])+"."+actions[i].args[1].name+")";
 
         } else {
             if (!(actions[i].name in funcKw)) {
@@ -523,6 +523,17 @@ function astToOpy(content) {
             return "round("+astToOpy(content.args[0])+")";
         }
     }
+
+    if (content.name === "__raycastHitNormal__") {
+        return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getNormal()";
+    }
+    if (content.name === "__raycastHitPosition__") {
+        return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getHitPosition()";
+    }
+    if (content.name === "__raycastHitPlayer__") {
+        return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getPlayerHit()";
+    }
+
     if (content.name === "__xComponentOf__") {
         return astToOpy(content.args[0])+".x";
     }

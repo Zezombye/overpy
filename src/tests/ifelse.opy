@@ -8,6 +8,16 @@ rule "simple if/else":
         C++
     D++
 
+rule "multiple elif":
+    if A:
+        E++
+    elif B:
+        E++
+    elif C:
+        E++
+    elif D:
+        E++
+
 rule "nested if":
     if A:
         if B:
@@ -15,7 +25,6 @@ rule "nested if":
                 D++
         else:
             E++
-    
     F++
 
 rule "if that goes to the end":

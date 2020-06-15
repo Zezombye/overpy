@@ -1289,7 +1289,7 @@ const opyMemberFuncs = {
             }
         ],
         class: "Array",
-        return: "Array",
+        return: "void",
     },
     "concat": {
         "description": "A copy of the array with the specified value appended to it.",
@@ -1403,19 +1403,19 @@ const opyMemberFuncs = {
         description: "The x component of the specified vector, usually representing a leftward amount.",
         args: null,
         class: "Vector",
-        return: "int",
+        return: "float",
     },
     "y": {
         description: "The y component of the specified vector, usually representing an upward amount.",
         args: null,
         class: "Vector",
-        return: "int",
+        return: "float",
     },
     "z": {
         description: "The z component of the specified vector, usually representing a forward amount.",
         args: null,
         class: "Vector",
-        return: "int",
+        return: "float",
     }
 }
 /* 
@@ -25554,11 +25554,11 @@ function decompile(content) {
 			error("Function '"+name+"' has "+args.length+"args, expected 0");
 		}
 	} else {
-		if (name === "__array__" || name === "__localizedString__" || name === "__customString__") {
+		if (name === "__localizedString__" || name === "__customString__") {
 			if (args.length < 1) {
 				error("Function '"+name+"' has "+args.length+"args, expected at least 1");
 			}
-		} else {
+		} else if (name !== "__array__") {
 			if (args.length !== wsFuncKw[name].args.length) {
 				error("Function '"+name+"' has "+args.length+"args, expected "+funcKw[name].args.length);
 			}
@@ -25704,7 +25704,7 @@ function astActionsToOpy(actions) {
                 if (["__if__", "__while__", "__for__"].includes(actions[j].name)) {
                     depth++;
                 }
-                if (actions[j].name === "__end__") {
+                if (actions[j].name === "__end__" && !actions[j].isDisabled) {
                     if (depth === 0) {
                         isEndFound = true;
                         break;
@@ -25839,7 +25839,7 @@ function astActionsToOpy(actions) {
             } else if (actions[i].args[1].name === "null" && actions[i].args[2].name === "null") {
                 decompiledAction += "hudSubtext("+[0,3,4,5,8,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
             } else {
-                decompiledAction += "hudHeader("+actions[i].args.map(x => astToOpy(x)).join(", ")+")";
+                decompiledAction += "hudText("+actions[i].args.map(x => astToOpy(x)).join(", ")+")";
             }
         } else if (actions[i].name === "__callSubroutine__") {
             decompiledAction += actions[i].args[0].name+"()";
@@ -25873,7 +25873,7 @@ function astActionsToOpy(actions) {
             decompiledAction += "stopChasingVariable("+actions[i].args[0].name+")";
 
         } else if (actions[i].name === "__stopChasingPlayerVariable__") {
-            decompiledAction += "stopChasingVariable("+astToOpy(actions[i].args[0])+", "+actions[i].args[1].name+")";
+            decompiledAction += "stopChasingVariable("+astToOpy(actions[i].args[0])+"."+actions[i].args[1].name+")";
 
         } else {
             if (!(actions[i].name in funcKw)) {
@@ -26116,6 +26116,17 @@ function astToOpy(content) {
             return "round("+astToOpy(content.args[0])+")";
         }
     }
+
+    if (content.name === "__raycastHitNormal__") {
+        return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getNormal()";
+    }
+    if (content.name === "__raycastHitPosition__") {
+        return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getHitPosition()";
+    }
+    if (content.name === "__raycastHitPlayer__") {
+        return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getPlayerHit()";
+    }
+
     if (content.name === "__xComponentOf__") {
         return astToOpy(content.args[0])+".x";
     }
@@ -26806,7 +26817,7 @@ astParsingFunctions.__doWhile__ = function(content) {
 astParsingFunctions.__elif__ = function(content) {
 
     //Check if the elif is directly preceded by an if.
-    if (content.parent.childIndex === 0 || content.parent.children[content.parent.childIndex-1].name !== "__if__") {
+    if (content.parent.childIndex === 0 || !["__elif__", "__if__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
         error("Found 'elif', but no 'if'");
     }
 
@@ -27310,7 +27321,7 @@ astParsingFunctions.__negate__ = function(content) {
 
     function negateNumber(nb) {
         nb.args[0].numValue = -nb.args[0].numValue;
-        nb.args[0].name = Number(nb.args[0].numValue);
+        nb.args[0].name = Number(nb.args[0].numValue).toString();
     }
 
     if (enableOptimization) {

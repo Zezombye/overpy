@@ -466,11 +466,11 @@ function decompile(content) {
 			error("Function '"+name+"' has "+args.length+"args, expected 0");
 		}
 	} else {
-		if (name === "__array__" || name === "__localizedString__" || name === "__customString__") {
+		if (name === "__localizedString__" || name === "__customString__") {
 			if (args.length < 1) {
 				error("Function '"+name+"' has "+args.length+"args, expected at least 1");
 			}
-		} else {
+		} else if (name !== "__array__") {
 			if (args.length !== wsFuncKw[name].args.length) {
 				error("Function '"+name+"' has "+args.length+"args, expected "+funcKw[name].args.length);
 			}

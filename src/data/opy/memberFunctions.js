@@ -29,7 +29,7 @@ const opyMemberFuncs = {
             }
         ],
         class: "Array",
-        return: "Array",
+        return: "void",
     },
     "concat": {
         "description": "A copy of the array with the specified value appended to it.",
@@ -143,18 +143,18 @@ const opyMemberFuncs = {
         description: "The x component of the specified vector, usually representing a leftward amount.",
         args: null,
         class: "Vector",
-        return: "int",
+        return: "float",
     },
     "y": {
         description: "The y component of the specified vector, usually representing an upward amount.",
         args: null,
         class: "Vector",
-        return: "int",
+        return: "float",
     },
     "z": {
         description: "The z component of the specified vector, usually representing a forward amount.",
         args: null,
         class: "Vector",
-        return: "int",
+        return: "float",
     }
 }

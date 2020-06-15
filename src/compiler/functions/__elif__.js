@@ -20,7 +20,7 @@
 astParsingFunctions.__elif__ = function(content) {
 
     //Check if the elif is directly preceded by an if.
-    if (content.parent.childIndex === 0 || content.parent.children[content.parent.childIndex-1].name !== "__if__") {
+    if (content.parent.childIndex === 0 || !["__elif__", "__if__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
         error("Found 'elif', but no 'if'");
     }
 

@@ -33,7 +33,7 @@ astParsingFunctions.__negate__ = function(content) {
 
     function negateNumber(nb) {
         nb.args[0].numValue = -nb.args[0].numValue;
-        nb.args[0].name = Number(nb.args[0].numValue);
+        nb.args[0].name = Number(nb.args[0].numValue).toString();
     }
 
     if (enableOptimization) {
