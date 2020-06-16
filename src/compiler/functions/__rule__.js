@@ -132,6 +132,25 @@ astParsingFunctions.__rule__ = function(content) {
 
     resolveDistanceTo(content);
 
+    //Optimize rule conditions
+    if (enableOptimization && content.ruleAttributes.conditions) {
+        for (var i = 0; i < content.ruleAttributes.conditions.length; i++) {
+            if (isDefinitelyFalsy(content.ruleAttributes.conditions[i])) {
+                console.log("has false condition);");
+                return getAstForUselessInstruction();
+            } else if (isDefinitelyTruthy(content.ruleAttributes.conditions[i])) {
+                content.ruleAttributes.conditions.splice(i, 1);
+                i--;
+            } else if (content.ruleAttributes.conditions[i].name === "__and__") {
+                //insert the 2nd argument of "and" into the array
+                content.ruleAttributes.conditions.splice(i+1, 0, content.ruleAttributes.conditions[i].args[1]);
+                //replace by 1st argument of "and"
+                content.ruleAttributes.conditions[i] = content.ruleAttributes.conditions[i].args[0];
+                i--;
+            }
+        }
+    }
+
     return content;
 
 }

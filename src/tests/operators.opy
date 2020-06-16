@@ -62,6 +62,7 @@ rule "multiply":
     A = B*0 #0
     A = 2*3 #6
     A = 2*vect(3,4,5) #vect(6,8,10)
+    A = vect(3,4,5)*2 #vect(6,8,10)
     A = vect(1,2,3)*vect(4,5,6) #vect(4,10,18)
 
 rule "divide":
@@ -87,12 +88,12 @@ rule "modulo":
 rule "power":
     A = B**C
     A = B**C**D
-    A = B**0 #1
     A = B**1 #B
     A = 0**B #0
     A = 1**B #1
     A = (-1)**B #0
     A = 2**3 #8
+    A = (-2)**3 #0
     
 rule "assignment":
     A = B
@@ -131,24 +132,6 @@ rule "in":
     A = A in B
     A = 3 in [1,A,3] #true
     A = 3 in [A,5,6]
-
-
-/*
-actions
-{
-    Global.A += 0;
-    Global.A -= 0;
-    Global.A *= 0;
-    Global.A /= 0;
-    Global.A %= 0;
-    Global.A ^= 0;
-    Modify Global Variable(A, Min, 0);
-    Modify Global Variable(A, Max, 0);
-    Modify Global Variable(A, Append To Array, 0);
-    Modify Global Variable(A, Remove From Array By Value, 0);
-    Modify Global Variable(A, Remove From Array By Index, 0);
-}
-*/
 
 rule "ternaries":
     A = B if C else D

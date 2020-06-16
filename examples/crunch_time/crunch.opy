@@ -94,7 +94,7 @@ rule "challenge 2":
     hostPlayer.setFacing(vect(-1, 0, 0), Relativity.TO_WORLD)
     bigMessage(hostPlayer, "Hook em all!")
     hostPlayer.startForcingHero(Hero.ROADHOG)
-    additionalTime = 20
+    additionalTime = 10
     createDummy(Hero.REINHARDT, Team.1, -1, vect(81.96, -1.32, -23.80), vect(1, 0, 0))
     createDummy(Hero.REINHARDT, Team.1, -1, vect(81.96, -1.32, -21.06), vect(1, 0, 0))
     createDummy(Hero.REINHARDT, Team.1, -1, vect(81.96, -1.32, -18.34), vect(1, 0, 0))
@@ -139,7 +139,7 @@ rule "challenge 3":
     hostPlayer.setFacing(vect(-1, 0, 0), Relativity.TO_WORLD)
     bigMessage(hostPlayer, "Kill em all (hold rclick)!")
     hostPlayer.startForcingHero(Hero.MCCREE)
-    additionalTime = 20
+    additionalTime = 10
     countdownTimer()
     hostPlayer.setSecondaryFireEnabled(true)
     hostPlayer.setPrimaryFireEnabled(true)
@@ -172,7 +172,7 @@ rule "challenge 4":
     hostPlayer.setFacing(vect(0,0,-1), Relativity.TO_WORLD)
     bigMessage(hostPlayer, "Headshot Mondatta!")
     hostPlayer.startForcingHero(Hero.WIDOWMAKER)
-    additionalTime = 20
+    additionalTime = 10
     countdownTimer()
     hostPlayer.setAbility1Enabled(true)
     hostPlayer.setPrimaryFireEnabled(true)

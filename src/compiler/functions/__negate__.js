@@ -19,38 +19,38 @@
 
 astParsingFunctions.__negate__ = function(content) {
 
-    const typeNegation = {
+    /*const typeNegation = {
         "unsigned int": "signed int",
         "unsigned float": "signed float",
         "signed int": "unsigned int",
         "signed float": "unsigned float",
-    }
+    }*/
 
     //negate type
-    //console.log(content.type);
+    /*console.log(content.type);
     content.type = replaceType(content.type, typeNegation);
-    //console.log(content.type);
+    console.log(content.type);*/
 
-    function negateNumber(nb) {
+    /*function negateNumber(nb) {
         nb.args[0].numValue = -nb.args[0].numValue;
         nb.args[0].name = Number(nb.args[0].numValue).toString();
-    }
+    }*/
 
     if (enableOptimization) {
         if (["__multiply__", "__divide__"].includes(content.args[0].name)) {
             //Apply the negate on a number if that number is literal.
             //Eg: "-3*5" is will be "(-3)*5".
             if (content.args[0].args[0].name === "__number__") {
-                negateNumber(content.args[0].args[0]);
+                content.args[0].args[0] = getAstForNumber(-content.args[0].args[0].numValue);
                 return content.args[0];
 
             } else if (content.args[0].args[1].name === "__number__") {
-                negateNumber(content.args[0].args[1]);
+                content.args[1].args[0] = getAstForNumber(-content.args[1].args[0].numValue);
                 return content.args[0];
             } 
 
         } else if (content.args[0].name === "__modulo__" && content.args[0].args[0].name === "__number__") {
-            negateNumber(content.args[0].args[0]);
+            content.args[0].args[0] = getAstForNumber(-content.args[0].args[0].numValue);
             return content.args[0];
 
         } else if (content.args[0].name === "__negate__") {
@@ -58,8 +58,7 @@ astParsingFunctions.__negate__ = function(content) {
             return content.args[0].args[0];
 
         } else if (content.args[0].name === "__number__") {
-            negateNumber(content.args[0]);
-            return content.args[0];
+            return getAstForNumber(-content.args[0].args[0].numValue);
 
         } else if (content.args[0].name === "vect") {
         //Check if both arguments are vectors containing numbers.

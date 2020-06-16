@@ -23,6 +23,11 @@ function astRulesToWs(rules) {
 
     for (var rule of rules) {
         var result = "";
+
+        if (rule.name === "pass") {
+            continue;
+        }
+
         if (rule.ruleAttributes.isDisabled) {
             result += tows("__disabled__", ruleKw)+" ";
         }

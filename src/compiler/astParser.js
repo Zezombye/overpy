@@ -18,6 +18,8 @@
 "use strict";
 
 function parseAstRules(rules) {
+
+    var rulesResult = [];
     for (var rule of rules) {
 
         fileStack = rule.fileStack;
@@ -127,9 +129,9 @@ function parseAstRules(rules) {
         currentRuleLabelAccess = {};
         currentRuleHasVariableGoto = false;
         
-        rule = parseAst(rule);
+        rulesResult.push(parseAst(rule));
     }
-    return rules;
+    return rulesResult;
 }
 
 function parseAst(content) {

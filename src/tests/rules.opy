@@ -29,5 +29,14 @@ rule "other directives":
 
 rule "conditions":
     @Condition A and B
+    @Condition (X and Y) and (Z and W)
     @Condition C
+    B++
+
+rule "condition that is always true":
+    @Condition A == A
+    B++
+
+rule "condition that is always false":
+    @Condition A != A
     B++
