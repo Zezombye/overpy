@@ -141,6 +141,10 @@ for (var key of Object.keys(constValues)) {
     if (key.startsWith("_")) {
         delete constValues[key];
     }
+    if (["GamemodeLiteral", "MapLiteral", "TeamLiteral", "HeroLiteral", "ButtonLiteral"].includes(key)) {
+        constValues[key.substring(0, key.length-"Literal".length)] = constValues[key]
+        delete constValues[key];
+    }
 }
 for (var key of Object.keys(constValues)) {
     constValues[key] = makeCompList(constValues[key]);

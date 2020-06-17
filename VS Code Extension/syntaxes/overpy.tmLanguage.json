@@ -11,6 +11,8 @@
 		},{
 			"include": "#keywords"
 		},{
+			"include": "#functions"
+		},{
 			"include": "#labels"
 		},{
 			"include": "#strings"
@@ -130,8 +132,16 @@
 		"enums": {
 			"patterns": [
 				{
-					"name": "entity.name.function",
+					"name": "variable.other.enummember",
 					"match": "\\b[A-Z_\\d]+\\b"
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"name": "entity.name.function",
+					"match": "\\b\\w+(?=\\()"
 				}
 			]
 		},

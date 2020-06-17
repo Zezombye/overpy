@@ -17,6 +17,53 @@
 
 "use strict";
 
+class Ast {
+
+    constructor(name, args, children, type) {
+        if (name === null || name === undefined) {
+            error("Got no name for AST");
+        }
+        if (typeof name !== "string") {
+            error("Expected a string for AST name, but got '"+name+"' of type '"+typeof name+"'");
+        }
+        if (type === "NumberLiteral") {
+            this.numValue = Number(name);
+        }
+        this.name = name;
+        this.args = args ? args : [];
+        this.children = children ? children : [];
+
+        if (!type) {
+            if (name in funcKw) {
+                this.type = funcKw[name].return;
+            } else {
+                error("Unknown function name '"+name+"'");
+            }
+        } else {
+            this.type = type;
+        }
+
+        for (var arg of this.args) {
+            if (!(arg instanceof Ast)) {
+                console.log(arg);
+                error("Arg '"+arg+"' of '"+name+"' is not an AST");
+            }
+            arg.parent = this;
+        }
+        for (var child of this.children) {
+            if (!(child instanceof Ast)) {
+                console.log(child);
+                error("Child '"+child+"' of '"+name+"' is not an AST");
+            }
+            child.parent = this;
+        }
+        this.fileStack = fileStack;
+        this.argIndex = 0;
+        this.childIndex = 0;
+        this.wasParsed = false;
+    }
+}
+
 //Used for when the body of a control flow statement will never execute, such as "if false".
 function makeChildrenUseless(children) {
 
@@ -157,6 +204,9 @@ function getAstFor2() {
 }
 function getAstFor0_016() {
     return new Ast("__number__", [new Ast("0.016", [], [], "NumberLiteral")], [], "unsigned float");
+}
+function getAstFor0_001() {
+    return new Ast("__number__", [new Ast("0.001", [], [], "NumberLiteral")], [], "unsigned float");
 }
 function getAstForNumber(nb) {
     if (typeof nb !== "number") {

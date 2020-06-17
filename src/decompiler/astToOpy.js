@@ -33,6 +33,8 @@ However, decompilation should yield a compilable gamemode. Decompiling then comp
         var decompiledRule = "";
         var decompiledRuleAttributes = "";
         nbTabs = 1;
+        decompilationLabelNumber = 0;
+        currentRuleHasVariableGoto = false;
 
         if (rule.ruleAttributes.event === "__subroutine__") {
             decompiledRule += "def "+rule.ruleAttributes.subroutineName+"():\n";
@@ -174,6 +176,18 @@ function astActionsToOpy(actions) {
             "__raiseToPower__": "**=",
         }
 
+        //Check for labels
+        for (var j = 0; j < decompilerGotos.length; j++) {
+            if (decompilerGotos[j].remainingActions <= 0) {
+                result += tabLevel(nbTabs)+decompilerGotos[j].label+":\n";
+                decompilerGotos.splice(j, 1);
+                j--;
+
+            } else {
+                decompilerGotos[j].remainingActions--;
+            }
+        }
+
         var tabLevelForThisAction = nbTabs;
 
         if (["__if__", "__elif__", "__else__", "__while__", "__for__"].includes(actions[i].name)) {
@@ -208,61 +222,18 @@ function astActionsToOpy(actions) {
             }
             decompiledAction += ":";
             nbTabs++;
-
-        } else if (actions[i].name === "__end__" && !actions[i].isDisabled) {
-            if (nbTabs > 1) {
-                nbTabs--;
-            }
-            continue;
-
+        } else if (actions[i].name === "__abortIf__") {
+            decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1)+"return";
+            
+        } else if (actions[i].name === "__abortIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if not RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"return";
+        } else if (actions[i].name === "__abortIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"return";
         } else if (actions[i].name === "__assignTo__") {
             decompiledAction = astToOpy(actions[i].args[0])+" = "+astToOpy(actions[i].args[1]);
             
-        } else if (actions[i].name === "__setGlobalVariable__") {
-            decompiledAction = astToOpy(actions[i].args[0])+" = "+astToOpy(actions[i].args[1]);
-
-        } else if (actions[i].name === "__setPlayerVariable__") {
-            decompiledAction = astToOpy(actions[i].args[0])+"."+astToOpy(actions[i].args[1])+" = "+astToOpy(actions[i].args[2]);
-
-        } else if (actions[i].name === "__modifyVar__") {
-            if (actions[i].args[1].name in funcToOpMapping) {
-                decompiledAction += astToOpy(actions[i].args[0])+" "+funcToOpMapping[actions[i].args[1].name]+" "+astToOpy(actions[i].args[2]);
-            } else if (actions[i].args[1].name === "__min__") {
-                decompiledAction += astToOpy(actions[i].args[0])+" min= "+astToOpy(actions[i].args[2]);
-            } else if (actions[i].args[1].name === "__max__") {
-                decompiledAction += astToOpy(actions[i].args[0])+" max= "+astToOpy(actions[i].args[2]);
-            } else if (actions[i].args[1].name === "__appendToArray__") {
-                decompiledAction += astToOpy(actions[i].args[0])+".append("+astToOpy(actions[i].args[2])+")";
-            } else if (actions[i].args[1].name === "__removeFromArrayByValue__") {
-                decompiledAction += astToOpy(actions[i].args[0])+".remove("+astToOpy(actions[i].args[2])+")";
-            } else if (actions[i].args[1].name === "__removeFromArrayByIndex__") {
-                decompiledAction += "del "+astToOpy(actions[i].args[0])+"["+astToOpy(actions[i].args[2])+"]";
-            }
-        } else if (actions[i].name === "__hudText__") {
-            if (actions[i].args[2].name === "null" && actions[i].args[3].name === "null") {
-                decompiledAction += "hudHeader("+[0,1,4,5,6,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
-            } else if (actions[i].args[1].name === "null" && actions[i].args[3].name === "null") {
-                decompiledAction += "hudSubheader("+[0,2,4,5,7,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
-            } else if (actions[i].args[1].name === "null" && actions[i].args[2].name === "null") {
-                decompiledAction += "hudSubtext("+[0,3,4,5,8,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
-            } else {
-                decompiledAction += "hudText("+actions[i].args.map(x => astToOpy(x)).join(", ")+")";
-            }
         } else if (actions[i].name === "__callSubroutine__") {
             decompiledAction += actions[i].args[0].name+"()";
-
-        } else if (actions[i].name === "__startRule__") {
-            decompiledAction += "async("+actions[i].args[0].name+", "+astToOpy(actions[i].args[1])+")";
-
-        } else if (actions[i].name === "__wait__") {
-            decompiledAction += "wait(";
-            if (!(actions[i].args[0].name === "__number__" && actions[i].args[0].args[0].name === "0.016" && actions[i].args[1].name === "IGNORE_CONDITION")) {
-                decompiledAction += astToOpy(actions[i].args[0]);
-            }
-            if (actions[i].args[1].name !== "IGNORE_CONDITION") {
-                decompiledAction += ", "+astToOpy(actions[i].args[1]);
-            }
-            decompiledAction += ")";
 
         } else if (actions[i].name === "__chaseGlobalVariableAtRate__") {
             decompiledAction += "chase("+actions[i].args[0].name+", "+astToOpy(actions[i].args[1])+", rate="+astToOpy(actions[i].args[2])+", "+astToOpy(actions[i].args[3])+")";
@@ -276,11 +247,100 @@ function astActionsToOpy(actions) {
         } else if (actions[i].name === "__chasePlayerVariableOverTime__") {
             decompiledAction += "chase("+astToOpy(actions[i].args[0])+"."+actions[i].args[1].name+", "+astToOpy(actions[i].args[2])+", duration="+astToOpy(actions[i].args[3])+", "+astToOpy(actions[i].args[4])+")";
 
+        } else if (actions[i].name === "__end__" && !actions[i].isDisabled) {
+            if (nbTabs > 1) {
+                nbTabs--;
+            }
+            continue;
+
+        } else if (actions[i].name === "__hudText__") {
+            if (actions[i].args[2].name === "null" && actions[i].args[3].name === "null") {
+                decompiledAction += "hudHeader("+[0,1,4,5,6,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
+            } else if (actions[i].args[1].name === "null" && actions[i].args[3].name === "null") {
+                decompiledAction += "hudSubheader("+[0,2,4,5,7,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
+            } else if (actions[i].args[1].name === "null" && actions[i].args[2].name === "null") {
+                decompiledAction += "hudSubtext("+[0,3,4,5,8,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
+            } else {
+                decompiledAction += "hudText("+actions[i].args.map(x => astToOpy(x)).join(", ")+")";
+            }
+        } else if (actions[i].name === "__loop__") {
+            decompiledAction += "goto RULE_START";
+        } else if (actions[i].name === "__loopIf__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1)+"goto RULE_START";
+        } else if (actions[i].name === "__loopIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if not RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"goto RULE_START";
+        } else if (actions[i].name === "__loopIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"goto RULE_START";
+        }else if (actions[i].name === "__modifyVar__") {
+            if (actions[i].args[1].name in funcToOpMapping) {
+                decompiledAction += astToOpy(actions[i].args[0])+" "+funcToOpMapping[actions[i].args[1].name]+" "+astToOpy(actions[i].args[2]);
+            } else if (actions[i].args[1].name === "__min__") {
+                decompiledAction += astToOpy(actions[i].args[0])+" min= "+astToOpy(actions[i].args[2]);
+            } else if (actions[i].args[1].name === "__max__") {
+                decompiledAction += astToOpy(actions[i].args[0])+" max= "+astToOpy(actions[i].args[2]);
+            } else if (actions[i].args[1].name === "__appendToArray__") {
+                decompiledAction += astToOpy(actions[i].args[0])+".append("+astToOpy(actions[i].args[2])+")";
+            } else if (actions[i].args[1].name === "__removeFromArrayByValue__") {
+                decompiledAction += astToOpy(actions[i].args[0])+".remove("+astToOpy(actions[i].args[2])+")";
+            } else if (actions[i].args[1].name === "__removeFromArrayByIndex__") {
+                decompiledAction += "del "+astToOpy(actions[i].args[0])+"["+astToOpy(actions[i].args[2])+"]";
+            }
+        } else if (actions[i].name === "__setGlobalVariable__") {
+            decompiledAction = astToOpy(actions[i].args[0])+" = "+astToOpy(actions[i].args[1]);
+
+        } else if (actions[i].name === "__setPlayerVariable__") {
+            var op1 = astToOpy(actions[i].args[0]);
+            if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
+                op1 = "("+op1+")";
+            }
+            decompiledAction = op1+"."+astToOpy(actions[i].args[1])+" = "+astToOpy(actions[i].args[2]);
+
+        } else if (actions[i].name === "__startRule__") {
+            decompiledAction += "async("+actions[i].args[0].name+", "+astToOpy(actions[i].args[1])+")";
+
         } else if (actions[i].name === "__stopChasingGlobalVariable__") {
             decompiledAction += "stopChasingVariable("+actions[i].args[0].name+")";
 
         } else if (actions[i].name === "__stopChasingPlayerVariable__") {
             decompiledAction += "stopChasingVariable("+astToOpy(actions[i].args[0])+"."+actions[i].args[1].name+")";
+
+        } else if (actions[i].name === "__skip__") {
+            if (actions[i].args[0].name === "__number__") {
+                var labelName = "lbl_"+decompilationLabelNumber;
+                decompilationLabelNumber++;
+                decompiledAction += "goto "+labelName;
+                decompilerGotos.push({
+                    remainingActions: actions[i].args[0].args[0].numValue,
+                    label: labelName,
+                });
+            } else {
+                currentRuleHasVariableGoto = true;
+                decompiledAction += "goto loc+"+astToOpy(actions[i].args[0]);
+            }
+        } else if (actions[i].name === "__skipIf__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1);
+            if (actions[i].args[1].name === "__number__") {
+                var labelName = "lbl_"+decompilationLabelNumber;
+                decompilationLabelNumber++;
+                decompiledAction += "goto "+labelName;
+                decompilerGotos.push({
+                    remainingActions: actions[i].args[1].args[0].numValue,
+                    label: labelName,
+                });
+            } else {
+                currentRuleHasVariableGoto = true;
+                decompiledAction += "goto loc+"+astToOpy(actions[i].args[1]);
+            }
+
+        } else if (actions[i].name === "__wait__") {
+            decompiledAction += "wait(";
+            if (!(actions[i].args[0].name === "__number__" && actions[i].args[0].args[0].name === "0.016" && actions[i].args[1].name === "IGNORE_CONDITION")) {
+                decompiledAction += astToOpy(actions[i].args[0]);
+            }
+            if (actions[i].args[1].name !== "IGNORE_CONDITION") {
+                decompiledAction += ", "+astToOpy(actions[i].args[1]);
+            }
+            decompiledAction += ")";
 
         } else {
             if (!(actions[i].name in funcKw)) {
@@ -288,7 +348,11 @@ function astActionsToOpy(actions) {
             }
             
             if (actions[i].name.startsWith("_&")) {
-                decompiledAction = astToOpy(actions[i].args[0])+"."+actions[i].name.substring(2)+"("+actions[i].args.slice(1).map(x => astToOpy(x)).join(", ")+")";
+                var op1 = astToOpy(actions[i].args[0]);
+                if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
+                    op1 = "("+op1+")";
+                }
+                decompiledAction = op1+"."+actions[i].name.substring(2)+"("+actions[i].args.slice(1).map(x => astToOpy(x)).join(", ")+")";
             } else {
 
                 decompiledAction = actions[i].name;
@@ -304,8 +368,18 @@ function astActionsToOpy(actions) {
             } else {
                 decompiledAction = "#"+decompiledAction;
             }
+            if (currentRuleHasVariableGoto) {
+                decompiledAction = "pass "+decompiledAction;
+            }
         }
+
+
         result += tabLevel(tabLevelForThisAction) + decompiledAction + "\n";
+    }
+
+    //Add the remaining labels (if there was eg a skip(9999))
+    for (var j = 0; j < decompilerGotos.length; j++) {
+        result += tabLevel(nbTabs)+decompilerGotos[j].label+":\n";
     }
 
     return result;
@@ -334,7 +408,11 @@ function astToOpy(content) {
         return astToOpy(content.args[0]);
     }
     if (content.name === "__playerVar__") {
-        return astToOpy(content.args[0])+"."+content.args[1].name;
+        var result = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
+            result = "("+result+")";
+        }
+        return result+"."+content.args[1].name;
     }
     
     if (content.type in constantValues) {
@@ -428,16 +506,46 @@ function astToOpy(content) {
         "__indexOfArrayValue__": "index",
     };
     if (content.name in internalFuncToFuncMap) {
-        return astToOpy(content.args[0])+"."+internalFuncToFuncMap[content.name]+"("+astToOpy(content.args[1])+")";
+        
+        var result = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
+            result = "("+result+")";
+        }
+        return result+"."+internalFuncToFuncMap[content.name]+"("+astToOpy(content.args[1])+")";
     }
-    if (content.name === "__arraySlice__") {
-        return astToOpy(content.args[0])+".slice("+astToOpy(content.args[1])+", "+astToOpy(content.args[2])+")";
-    }
-    if (content.name === "__lastOf__") {
-        return astToOpy(content.args[0])+".last()";
-    }
-    if (content.name === "__valueInArray__") {
-        return astToOpy(content.args[0])+"["+astToOpy(content.args[1])+"]";
+
+    //Functions with a dot
+    if ([
+        "__arraySlice__",
+        "__lastOf__",
+        "__valueInArray__",
+        "__xComponentOf__",
+        "__yComponentOf__",
+        "__zComponentOf__",
+    ].includes(content.name)) {
+
+        var result = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
+            result = "("+result+")";
+        }
+        if (content.name === "__arraySlice__") {
+            return result+".slice("+astToOpy(content.args[1])+", "+astToOpy(content.args[2])+")";
+        }
+        if (content.name === "__lastOf__") {
+            return result+".last()";
+        }
+        if (content.name === "__valueInArray__") {        
+            return result+"["+astToOpy(content.args[1])+"]";
+        }
+        if (content.name === "__xComponentOf__") {
+            return result+".x";
+        }
+        if (content.name === "__yComponentOf__") {
+            return result+".y";
+        }
+        if (content.name === "__zComponentOf__") {
+            return result+".z";
+        }
     }
 
     //Array functions that use current array element
@@ -534,15 +642,6 @@ function astToOpy(content) {
         return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getPlayerHit()";
     }
 
-    if (content.name === "__xComponentOf__") {
-        return astToOpy(content.args[0])+".x";
-    }
-    if (content.name === "__yComponentOf__") {
-        return astToOpy(content.args[0])+".y";
-    }
-    if (content.name === "__zComponentOf__") {
-        return astToOpy(content.args[0])+".z";
-    }
 
     if (!(content.name in funcKw)) {
         error("Unregistered function '"+content.name+"'");
@@ -551,7 +650,11 @@ function astToOpy(content) {
         return content.name;
     } else {
         if (content.name.startsWith("_&")) {
-            return astToOpy(content.args[0])+"."+content.name.substring(2)+"("+content.args.slice(1).map(x => astToOpy(x)).join(", ")+")";
+            var result = astToOpy(content.args[0]);
+            if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
+                result = "("+result+")";
+            }
+            return result+"."+content.name.substring(2)+"("+content.args.slice(1).map(x => astToOpy(x)).join(", ")+")";
         }
         return content.name+"("+content.args.map(x => astToOpy(x)).join(", ")+")";
     }

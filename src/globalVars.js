@@ -73,7 +73,7 @@ var uniqueNumber;
 //Decompilation variables
 
 
-//Global variable used for "skip ifs", to keep track of where the skip if ends.
+//Global variable used for "skip", to keep track of where the skip ends.
 //Is reset at each rule.
 var decompilerGotos;
 
@@ -83,7 +83,7 @@ var nbTabs;
 
 //Global variable used to mark the action number of the last loop in the rule.
 //Is reset at each rule.
-var lastLoop;
+var decompilationLabelNumber;
 
 //Global variable used to keep track of operator precedence.
 //Is reset at each action and rule condition.
@@ -100,7 +100,6 @@ function resetGlobalVariables(language) {
 	fileStack = [];
 	decompilerGotos = [];
 	nbTabs = 0;
-	lastLoop = -1;
 	operatorPrecedenceStack = [];
 	globalVariables = [];
 	playerVariables = [];
@@ -112,7 +111,7 @@ function resetGlobalVariables(language) {
 	disableUnusedVars = false;
 	compiledCustomGameSettings = "";
 	enableOptimization = true;
-	uniqueNumber = 0;
+	uniqueNumber = 1;
 }
 
 //Other constants
@@ -141,12 +140,11 @@ const operatorPrecedence = {
 	"<": 7,
 	"+": 8,
 	"-": 8,
-	"++": 8,
-	"--": 8,
 	"*": 9,
 	"/": 9,
 	"%": 9,
-	"**": 10,
+	//unary plus/minus: 10,
+	"**": 11,
 };
 
 const astOperatorPrecedence = {
@@ -169,38 +167,6 @@ const astOperatorPrecedence = {
 	"__negate__": 9,
 	"__raiseToPower__": 9,
 }
-
-//Python operators, from lowest to highest precedence.
-const pyOperators = [
-	"=",
-	"+=",
-	"-=",
-	"*=",
-	"/=",
-	"%=",
-	"**=",
-	"min=",
-	"max=",
-	"if",
-	"or",
-	"and",
-	"not",
-	"in",
-	"==",
-	"!=",
-	"<=",
-	">=",
-	">",
-	"<",
-	"+",
-	"-",
-	"++",
-	"--",
-	"*",
-	"/",
-	"%",
-	"**",
-];
 
 //Text that gets inserted on top of all js scripts.
 const builtInJsFunctions = `

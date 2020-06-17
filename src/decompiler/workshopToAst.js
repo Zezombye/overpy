@@ -24,7 +24,6 @@ function decompileRuleToAst(content) {
 	//Reset rule-specific global variables
 	decompilerGotos = [];
 	nbTabs = 0;
-	lastLoop = -1;
 	
 	//Check for potential error
 	if (currentArrayElementNames.length != 0) {

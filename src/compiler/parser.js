@@ -17,52 +17,6 @@
 
 "use strict";
 
-class Ast {
-
-    constructor(name, args, children, type) {
-        if (name === null || name === undefined) {
-            error("Got no name for AST");
-        }
-        if (typeof name !== "string") {
-            error("Expected a string for AST name, but got '"+name+"' of type '"+typeof name+"'");
-        }
-        if (type === "NumberLiteral") {
-            this.numValue = Number(name);
-        }
-        this.name = name;
-        this.args = args ? args : [];
-        this.children = children ? children : [];
-
-        if (!type) {
-            if (name in funcKw) {
-                this.type = funcKw[name].return;
-            } else {
-                error("Unknown function name '"+name+"'");
-            }
-        } else {
-            this.type = type;
-        }
-
-        for (var arg of this.args) {
-            if (!(arg instanceof Ast)) {
-                console.log(arg);
-                error("Arg '"+arg+"' of '"+name+"' is not an AST");
-            }
-            arg.parent = this;
-        }
-        for (var child of this.children) {
-            if (!(child instanceof Ast)) {
-                console.log(child);
-                error("Child '"+child+"' of '"+name+"' is not an AST");
-            }
-            child.parent = this;
-        }
-        this.fileStack = fileStack;
-        this.argIndex = 0;
-        this.childIndex = 0;
-        this.wasParsed = false;
-    }
-}
 
 class WorkshopVar {
     constructor(name, index) {
@@ -70,18 +24,6 @@ class WorkshopVar {
         this.index = index === undefined ? null : index;
     }
 }
-
-/*class Rule {
-    constructor() {
-        this.name = null;
-        this.conditions = [];
-        this.actions = [];
-        this.event = null;
-        this.eventTeam = null;
-        this.eventPlayer = null;
-        this.isDisabled = false;
-    }
-}*/
 
 function parseLines(lines) {
 
@@ -265,7 +207,53 @@ function parseLines(lines) {
     return result;
 }
 
-function parse(content) {
+function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMinus=false) {
+    
+    var operatorFound = null;
+    var operatorPosition = -1;
+	var bracketsLevel = 0;
+	
+	if (!rtlPrecedence) {
+		var start = tokens.length-1;
+		var end = -1;
+		var step = -1;
+	} else {
+		var start = 0;
+		var end = tokens.length;
+		var step = 1;
+	}
+	
+	console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
+	
+	for (var i = start; i != end; i+=step) {
+
+		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
+            bracketsLevel += step;
+            
+		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
+            bracketsLevel -= step;
+            
+		} else if (bracketsLevel === 0 && operators.includes(tokens[i].text)) {
+            
+            if (allowUnaryPlusOrMinus || (i !== 0 && !Object.keys(operatorPrecedence).includes(tokens[i-1].text))) {
+                operatorFound = tokens[i].text;
+                operatorPosition = i;
+                break;
+            }
+		}
+	}
+	
+	if (bracketsLevel !== 0) {
+		error("Lexer broke (bracket level is "+bracketsLevel+")");
+    }
+    
+    return {
+        operatorFound,
+        operatorPosition,
+    }
+}
+
+function parse(content, kwargs={}) {
 
 	if (content === undefined) {
 		error("Content is undefined");
@@ -307,169 +295,138 @@ function parse(content) {
         return new Ast(content[0].text, [], [], "Label");
     }
     
-    //Parse operators, according to the operator precedence in pyOperators.
-    for (var operator of pyOperators) {
-		
-		if (operator === "not" || operator === "if") {
-			var operands = splitTokens(content, operator, false, false);
-		} else {
-			var operands = splitTokens(content, operator, false, true);
-		}
-		if (operands.length === 2) {
-			
-			//The operator is present; parse it
-			if (operator === "=") {
-                return new Ast("__assignTo__", [parse(operands[0]), parse(operands[1])]);
-                
-			} else if (operator === "if") {
-                //"true if condition else false"
-				
-				var trueExpr = parse(operands[0]);
-				var elseOperands = splitTokens(operands[1], "else", false, false);
-				if (elseOperands.length !== 2) {
-					error("Found 'if', but no 'else'");
-				}
-				var falseExpr = parse(elseOperands[1]);
-				var condition = parse(elseOperands[0]);
+    //Check for ++/--.
+    if (content.length > 2 && content[content.length-1].text === "+" && content[content.length-2].text === "+") {
+        var op1 = parse(content.slice(0, content.length-2));
+        return new Ast("__assignTo__", [op1, new Ast("__add__", [op1, getAstFor1()])])
+    }
+    if (content.length > 2 && content[content.length-1].text === "-" && content[content.length-2].text === "-") {
+        var op1 = parse(content.slice(0, content.length-2));
+        return new Ast("__assignTo__", [op1, new Ast("__subtract__", [op1, getAstFor1()])])
+    }
 
-                return new Ast("__ifThenElse__", [condition, trueExpr, falseExpr]);
+    //Parse operators, according to the operator precedence in operatorPrecedence.
+    if (kwargs.minOperatorPrecedence === undefined) {
+        kwargs.minOperatorPrecedence = 1;
+    }
+    for (var precedence = kwargs.minOperatorPrecedence; precedence <= operatorPrecedence["**"]; precedence++) {
 
-			} else if (["or", "and"].includes(operator)) {
+        var operatorsToCheck = Object.keys(operatorPrecedence).filter(x => operatorPrecedence[x] === precedence);
+        var allowUnary = (precedence === operatorPrecedence["not"]);
 
-				var op1 = parse(operands[0]);
-                var op2 = parse(operands[1]);
-                return new Ast("__"+operator+"__", [op1, op2]);
+        //manually put the unary plus/minus
+        if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
+            operatorsToCheck = ["+", "-"];
+            allowUnary = true;
+        }
+        var rtlPrecedence = (precedence === operatorPrecedence["**"] || precedence === operatorPrecedence["if"] || allowUnary === true);
 
-			} else if (operator === "not") {
+        var operatorCheck = getOperator(content, operatorsToCheck, rtlPrecedence, allowUnary);
+        if (operatorCheck.operatorFound === null) {
+            continue;
+        }
 
-				var op1 = parse(operands[1]);
-                return new Ast("__not__", [op1]);
+        //The operator is present; parse it
+        var operator = operatorCheck.operatorFound;
+        var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition+1, content.length)];
+        
+        if (operator === "=") {
+            return new Ast("__assignTo__", [parse(operands[0]), parse(operands[1])]);
+            
+        } else if (operator === "if") {
+            //"true if condition else false"
+            
+            var trueExpr = parse(operands[0]);
+            var elseOperands = splitTokens(operands[1], "else", false, false);
+            if (elseOperands.length !== 2) {
+                error("Found 'if', but no 'else'");
+            }
+            var falseExpr = parse(elseOperands[1]);
+            var condition = parse(elseOperands[0]);
 
-			} else if (operator === "in") {
-                
-                var value = parse(operands[0]);
-                var array = parse(operands[1]);
-                return new Ast("__arrayContains__", [array, value]);
+            return new Ast("__ifThenElse__", [condition, trueExpr, falseExpr]);
 
-			} else if (["==", "!=", "<=", ">=", "<", ">"].includes(operator)) {
+        } else if (["or", "and"].includes(operator)) {
 
-				var op1 = parse(operands[0]);
-                var op2 = parse(operands[1]);
-                var opToFuncMapping = {
-                    "==": "__equals__",
-                    "!=": "__inequals__",
-                    "<=": "__lessThanOrEquals__",
-                    ">=": "__greaterThanOrEquals__",
-                    "<": "__lessThan__",
-                    ">": "__greaterThan__",
-                }
-                return new Ast(opToFuncMapping[operator], [op1, op2]);
+            var op1 = parse(operands[0]);
+            var op2 = parse(operands[1]);
+            return new Ast("__"+operator+"__", [op1, op2]);
 
-			} else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
-                //Actually de-optimize so we can keep the logic in one place.
-                //Transform "A += 1" to "A = A + 1".
+        } else if (operator === "not") {
 
-                var opToFuncMapping = {
-                    "+=": "__add__",
-                    "-=": "__subtract__",
-                    "*=": "__multiply__",
-                    "/=": "__divide__",
-                    "%=": "__modulo__",
-                    "**=": "__raiseToPower__",
-                    "min=": "min",
-                    "max=": "max",
-                };
+            var op1 = parse(operands[1]);
+            return new Ast("__not__", [op1]);
 
-                var variable = parse(operands[0]);
-                var value = parse(operands[1]);
-                return new Ast("__assignTo__", [variable, new Ast(opToFuncMapping[operator], [variable, value])]);
+        } else if (operator === "in") {
+            
+            var value = parse(operands[0]);
+            var array = parse(operands[1]);
+            return new Ast("__arrayContains__", [array, value]);
 
-			} else if (["++", "--", "+", "-"].includes(operator)) {
+        } else if (["==", "!=", "<=", ">=", "<", ">"].includes(operator)) {
 
-                console.debug("Handling operator '"+operator+"'");
+            var op1 = parse(operands[0]);
+            var op2 = parse(operands[1]);
+            var opToFuncMapping = {
+                "==": "__equals__",
+                "!=": "__inequals__",
+                "<=": "__lessThanOrEquals__",
+                ">=": "__greaterThanOrEquals__",
+                "<": "__lessThan__",
+                ">": "__greaterThan__",
+            }
+            return new Ast(opToFuncMapping[operator], [op1, op2]);
 
-                if ((operator === "++" || operator === "--") && operands[1].length === 0) {
-                    //Operation such as A++ or A--.
-                    
-                    //De-optimise as well: A++ -> A = A + 1.
-                    var opToFuncMapping = {
-                        "++": "__add__",
-                        "--": "__subtract__",
-                    };
-                    var op1 = parse(operands[0]);
-                    return new Ast("__assignTo__", [op1, new Ast(opToFuncMapping[operator], [op1, getAstFor1()])])
-                }
+        } else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
+            //Actually de-optimize so we can keep the logic in one place.
+            //Transform "A += 1" to "A = A + 1".
 
-                //console.log(operands[0]);
-                if (operands[0].length === 0) {
-                    if (operator === "-") {
-                        return new Ast("__negate__", [parse(operands[1])]);
-                    } else {
-                        return parse(operands[1]);
-                    }
-                }
+            var opToFuncMapping = {
+                "+=": "__add__",
+                "-=": "__subtract__",
+                "*=": "__multiply__",
+                "/=": "__divide__",
+                "%=": "__modulo__",
+                "**=": "__raiseToPower__",
+                "min=": "min",
+                "max=": "max",
+            };
 
-                //Check if there is another operator and not only unaries
-                //Eg: A * - + -- - B
-                //or A + - ++++---- - B
-                var i = operands[0].length-1;
-                var foundNotUnaryOperator = false;
-                for (; i >= 0; i--) {
-                    if (!["-", "+", "--", "++"].includes(operands[0][i].text)) {
-                        foundNotUnaryOperator = true;
-                        break;
-                    }
-                }
-                if (foundNotUnaryOperator) {
-                    //console.log(i);
-                    //console.log("found not unary operator: "+foundNotUnaryOperator+", '"+operands[0][i].text+"'");
-                    if (["*", "/", "%", "**"].includes(operands[0][i].text)) {
-                        continue;
-                    }
-                    if (i < operands[0].length-1) {
-                        if (operands[0][i+1].text === "-") {
-                            return new Ast("__subtract__", [parse(operands[0].slice(0, i+1)), parse(content.slice(i+2))]);
-                        } else if (["+", "--", "++"].includes(operands[0][i+1].text)) {
-                            return new Ast("__add__", [parse(operands[0].slice(0, i+1)), parse(content.slice(i+2))]);
-                        } else {
-                            error("Error in parser: expected an unary operator but found '"+operands[0][i+1]+"'");
-                        }
-                    } else {
-                        if (operator === "-") {
-                            return new Ast("__subtract__", [parse(operands[0]), parse(operands[1])]);
-                        } else {
-                            return new Ast("__add__", [parse(operands[0]), parse(operands[1])]);
-                        }
-                    }
+            var variable = parse(operands[0]);
+            var value = parse(operands[1]);
+            return new Ast("__assignTo__", [variable, new Ast(opToFuncMapping[operator], [variable, value])]);
 
+        } else if (["+", "-"].includes(operator)) {
+            
+            if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
+                //unary plus/minus
+                if (operator === "+") {
+                    return parse(operands[1]);
                 } else {
-                    if (operands[0][0].text === "-") {
-                        return new Ast("__negate__", [parse(content.slice(1))]);
-                    } else if (["+", "--", "++"].includes(operands[0][0].text)) {
-                        return parse(content.slice(1));
-                    } else {
-                        error("Error in parser: expected an unary operator but found '"+operands[0][0]+"'");
-                    }
+                    return new Ast("__negate__", [parse(operands[1])]);
                 }
-
-			} else if (["/", "*", "%", "**"].includes(operator)) {
-
-                var opToFuncMapping = {
-                    "/": "__divide__",
-                    "*": "__multiply__",
-                    "%": "__modulo__",
-                    "**": "__raiseToPower__",
+            } else {
+                if (operator === "+") {
+                    return new Ast("__add__", [parse(operands[0]), parse(operands[1])]);
+                } else {
+                    return new Ast("__subtract__", [parse(operands[0]), parse(operands[1])]);
                 }
-				var op1 = parse(operands[0]);
-                var op2 = parse(operands[1]);
-                return new Ast(opToFuncMapping[operator], [op1, op2]);
+            }
 
-			} else {
-				error("Unhandled operator "+operator);
-			}
-			
-			break;
-		}
+        } else if (["/", "*", "%", "**"].includes(operator)) {
+
+            var opToFuncMapping = {
+                "/": "__divide__",
+                "*": "__multiply__",
+                "%": "__modulo__",
+                "**": "__raiseToPower__",
+            }
+            var op1 = parse(operands[0]);
+            var op2 = parse(operands[1]);
+            return new Ast(opToFuncMapping[operator], [op1, op2]);
+
+        }
+        error("Unhandled operator "+operator);
     }
     		
 	//Parse array
@@ -491,7 +448,14 @@ function parse(content) {
 	if (content[0].text === "{") {
 		return parseDictionary(content);
 	}
-	
+		
+	//Check for "." operator, which has the highest precedence.
+	//It must be parsed from right to left.
+	var operands = splitTokens(content, ".", false, true);
+	if (operands.length === 2) {
+		return parseMember(operands[0], operands[1]);
+    }
+    
 	//Check for parentheses
 	if (content[0].text === '(') {
 		var bracketPos = getTokenBracketPos(content);
@@ -502,13 +466,6 @@ function parse(content) {
         } else {
             error("Malformatted parentheses");
         }
-	}
-	
-	//Check for "." operator, which has the highest precedence.
-	//It must be parsed from right to left.
-	var operands = splitTokens(content, ".", false, true);
-	if (operands.length === 2) {
-		return parseMember(operands[0], operands[1]);
 	}
 
 	//Check for strings

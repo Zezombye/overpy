@@ -107,6 +107,8 @@ rule "assignment":
     A **= B
     A max= B
     A min= B
+    A++
+    A--
 
 rule "and":
     A = A and B
