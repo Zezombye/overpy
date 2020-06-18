@@ -222,6 +222,9 @@ function getAstForNull() {
 function getAstForFalse() {
     return new Ast("false", [], [], "bool");
 }
+function getAstForTrue() {
+    return new Ast("true", [], [], "bool");
+}
 function getAstForColorWhite() {
     return new Ast("WHITE", [], [], "Color");
 }

@@ -18,5 +18,19 @@
 "use strict";
 
 astParsingFunctions.__not__ = function(content) {
+    if (enableOptimization) {
+        //not false -> true
+        if (isDefinitelyFalsy(content.args[0])) {
+            return getAstForTrue();
+        }
+        //not true -> false
+        if (isDefinitelyTruthy(content.args[0])) {
+            return getAstForFalse();
+        }
+        //not not A -> A
+        if (content.args[0].name === "__not__") {
+            return content.args[0].args[0];
+        }
+    }
     return content;
 }

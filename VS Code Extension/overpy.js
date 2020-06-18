@@ -21540,6 +21540,53 @@ const opyAnnotations = {
 
 "use strict";
 
+class Ast {
+
+    constructor(name, args, children, type) {
+        if (name === null || name === undefined) {
+            error("Got no name for AST");
+        }
+        if (typeof name !== "string") {
+            error("Expected a string for AST name, but got '"+name+"' of type '"+typeof name+"'");
+        }
+        if (type === "NumberLiteral") {
+            this.numValue = Number(name);
+        }
+        this.name = name;
+        this.args = args ? args : [];
+        this.children = children ? children : [];
+
+        if (!type) {
+            if (name in funcKw) {
+                this.type = funcKw[name].return;
+            } else {
+                error("Unknown function name '"+name+"'");
+            }
+        } else {
+            this.type = type;
+        }
+
+        for (var arg of this.args) {
+            if (!(arg instanceof Ast)) {
+                console.log(arg);
+                error("Arg '"+arg+"' of '"+name+"' is not an AST");
+            }
+            arg.parent = this;
+        }
+        for (var child of this.children) {
+            if (!(child instanceof Ast)) {
+                console.log(child);
+                error("Child '"+child+"' of '"+name+"' is not an AST");
+            }
+            child.parent = this;
+        }
+        this.fileStack = fileStack;
+        this.argIndex = 0;
+        this.childIndex = 0;
+        this.wasParsed = false;
+    }
+}
+
 //Used for when the body of a control flow statement will never execute, such as "if false".
 function makeChildrenUseless(children) {
 
@@ -21681,6 +21728,9 @@ function getAstFor2() {
 function getAstFor0_016() {
     return new Ast("__number__", [new Ast("0.016", [], [], "NumberLiteral")], [], "unsigned float");
 }
+function getAstFor0_001() {
+    return new Ast("__number__", [new Ast("0.001", [], [], "NumberLiteral")], [], "unsigned float");
+}
 function getAstForNumber(nb) {
     if (typeof nb !== "number") {
         error("Expected a number, but got '"+nb+"' of type '"+typeof nb+"'");
@@ -21694,6 +21744,9 @@ function getAstForNull() {
 }
 function getAstForFalse() {
     return new Ast("false", [], [], "bool");
+}
+function getAstForTrue() {
+    return new Ast("true", [], [], "bool");
 }
 function getAstForColorWhite() {
     return new Ast("WHITE", [], [], "Color");
@@ -23137,7 +23190,7 @@ var uniqueNumber;
 //Decompilation variables
 
 
-//Global variable used for "skip ifs", to keep track of where the skip if ends.
+//Global variable used for "skip", to keep track of where the skip ends.
 //Is reset at each rule.
 var decompilerGotos;
 
@@ -23147,7 +23200,7 @@ var nbTabs;
 
 //Global variable used to mark the action number of the last loop in the rule.
 //Is reset at each rule.
-var lastLoop;
+var decompilationLabelNumber;
 
 //Global variable used to keep track of operator precedence.
 //Is reset at each action and rule condition.
@@ -23164,7 +23217,6 @@ function resetGlobalVariables(language) {
 	fileStack = [];
 	decompilerGotos = [];
 	nbTabs = 0;
-	lastLoop = -1;
 	operatorPrecedenceStack = [];
 	globalVariables = [];
 	playerVariables = [];
@@ -23176,7 +23228,7 @@ function resetGlobalVariables(language) {
 	disableUnusedVars = false;
 	compiledCustomGameSettings = "";
 	enableOptimization = true;
-	uniqueNumber = 0;
+	uniqueNumber = 1;
 }
 
 //Other constants
@@ -23205,12 +23257,11 @@ const operatorPrecedence = {
 	"<": 7,
 	"+": 8,
 	"-": 8,
-	"++": 8,
-	"--": 8,
 	"*": 9,
 	"/": 9,
 	"%": 9,
-	"**": 10,
+	//unary plus/minus: 10,
+	"**": 11,
 };
 
 const astOperatorPrecedence = {
@@ -23233,38 +23284,6 @@ const astOperatorPrecedence = {
 	"__negate__": 9,
 	"__raiseToPower__": 9,
 }
-
-//Python operators, from lowest to highest precedence.
-const pyOperators = [
-	"=",
-	"+=",
-	"-=",
-	"*=",
-	"/=",
-	"%=",
-	"**=",
-	"min=",
-	"max=",
-	"if",
-	"or",
-	"and",
-	"not",
-	"in",
-	"==",
-	"!=",
-	"<=",
-	">=",
-	">",
-	"<",
-	"+",
-	"-",
-	"++",
-	"--",
-	"*",
-	"/",
-	"%",
-	"**",
-];
 
 //Text that gets inserted on top of all js scripts.
 const builtInJsFunctions = `
@@ -24034,7 +24053,6 @@ function decompileRuleToAst(content) {
 	//Reset rule-specific global variables
 	decompilerGotos = [];
 	nbTabs = 0;
-	lastLoop = -1;
 	
 	//Check for potential error
 	if (currentArrayElementNames.length != 0) {
@@ -24548,6 +24566,8 @@ However, decompilation should yield a compilable gamemode. Decompiling then comp
         var decompiledRule = "";
         var decompiledRuleAttributes = "";
         nbTabs = 1;
+        decompilationLabelNumber = 0;
+        currentRuleHasVariableGoto = false;
 
         if (rule.ruleAttributes.event === "__subroutine__") {
             decompiledRule += "def "+rule.ruleAttributes.subroutineName+"():\n";
@@ -24689,6 +24709,18 @@ function astActionsToOpy(actions) {
             "__raiseToPower__": "**=",
         }
 
+        //Check for labels
+        for (var j = 0; j < decompilerGotos.length; j++) {
+            if (decompilerGotos[j].remainingActions <= 0) {
+                result += tabLevel(nbTabs)+decompilerGotos[j].label+":\n";
+                decompilerGotos.splice(j, 1);
+                j--;
+
+            } else {
+                decompilerGotos[j].remainingActions--;
+            }
+        }
+
         var tabLevelForThisAction = nbTabs;
 
         if (["__if__", "__elif__", "__else__", "__while__", "__for__"].includes(actions[i].name)) {
@@ -24723,61 +24755,18 @@ function astActionsToOpy(actions) {
             }
             decompiledAction += ":";
             nbTabs++;
-
-        } else if (actions[i].name === "__end__" && !actions[i].isDisabled) {
-            if (nbTabs > 1) {
-                nbTabs--;
-            }
-            continue;
-
+        } else if (actions[i].name === "__abortIf__") {
+            decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1)+"return";
+            
+        } else if (actions[i].name === "__abortIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if not RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"return";
+        } else if (actions[i].name === "__abortIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"return";
         } else if (actions[i].name === "__assignTo__") {
             decompiledAction = astToOpy(actions[i].args[0])+" = "+astToOpy(actions[i].args[1]);
             
-        } else if (actions[i].name === "__setGlobalVariable__") {
-            decompiledAction = astToOpy(actions[i].args[0])+" = "+astToOpy(actions[i].args[1]);
-
-        } else if (actions[i].name === "__setPlayerVariable__") {
-            decompiledAction = astToOpy(actions[i].args[0])+"."+astToOpy(actions[i].args[1])+" = "+astToOpy(actions[i].args[2]);
-
-        } else if (actions[i].name === "__modifyVar__") {
-            if (actions[i].args[1].name in funcToOpMapping) {
-                decompiledAction += astToOpy(actions[i].args[0])+" "+funcToOpMapping[actions[i].args[1].name]+" "+astToOpy(actions[i].args[2]);
-            } else if (actions[i].args[1].name === "__min__") {
-                decompiledAction += astToOpy(actions[i].args[0])+" min= "+astToOpy(actions[i].args[2]);
-            } else if (actions[i].args[1].name === "__max__") {
-                decompiledAction += astToOpy(actions[i].args[0])+" max= "+astToOpy(actions[i].args[2]);
-            } else if (actions[i].args[1].name === "__appendToArray__") {
-                decompiledAction += astToOpy(actions[i].args[0])+".append("+astToOpy(actions[i].args[2])+")";
-            } else if (actions[i].args[1].name === "__removeFromArrayByValue__") {
-                decompiledAction += astToOpy(actions[i].args[0])+".remove("+astToOpy(actions[i].args[2])+")";
-            } else if (actions[i].args[1].name === "__removeFromArrayByIndex__") {
-                decompiledAction += "del "+astToOpy(actions[i].args[0])+"["+astToOpy(actions[i].args[2])+"]";
-            }
-        } else if (actions[i].name === "__hudText__") {
-            if (actions[i].args[2].name === "null" && actions[i].args[3].name === "null") {
-                decompiledAction += "hudHeader("+[0,1,4,5,6,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
-            } else if (actions[i].args[1].name === "null" && actions[i].args[3].name === "null") {
-                decompiledAction += "hudSubheader("+[0,2,4,5,7,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
-            } else if (actions[i].args[1].name === "null" && actions[i].args[2].name === "null") {
-                decompiledAction += "hudSubtext("+[0,3,4,5,8,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
-            } else {
-                decompiledAction += "hudText("+actions[i].args.map(x => astToOpy(x)).join(", ")+")";
-            }
         } else if (actions[i].name === "__callSubroutine__") {
             decompiledAction += actions[i].args[0].name+"()";
-
-        } else if (actions[i].name === "__startRule__") {
-            decompiledAction += "async("+actions[i].args[0].name+", "+astToOpy(actions[i].args[1])+")";
-
-        } else if (actions[i].name === "__wait__") {
-            decompiledAction += "wait(";
-            if (!(actions[i].args[0].name === "__number__" && actions[i].args[0].args[0].name === "0.016" && actions[i].args[1].name === "IGNORE_CONDITION")) {
-                decompiledAction += astToOpy(actions[i].args[0]);
-            }
-            if (actions[i].args[1].name !== "IGNORE_CONDITION") {
-                decompiledAction += ", "+astToOpy(actions[i].args[1]);
-            }
-            decompiledAction += ")";
 
         } else if (actions[i].name === "__chaseGlobalVariableAtRate__") {
             decompiledAction += "chase("+actions[i].args[0].name+", "+astToOpy(actions[i].args[1])+", rate="+astToOpy(actions[i].args[2])+", "+astToOpy(actions[i].args[3])+")";
@@ -24791,11 +24780,100 @@ function astActionsToOpy(actions) {
         } else if (actions[i].name === "__chasePlayerVariableOverTime__") {
             decompiledAction += "chase("+astToOpy(actions[i].args[0])+"."+actions[i].args[1].name+", "+astToOpy(actions[i].args[2])+", duration="+astToOpy(actions[i].args[3])+", "+astToOpy(actions[i].args[4])+")";
 
+        } else if (actions[i].name === "__end__" && !actions[i].isDisabled) {
+            if (nbTabs > 1) {
+                nbTabs--;
+            }
+            continue;
+
+        } else if (actions[i].name === "__hudText__") {
+            if (actions[i].args[2].name === "null" && actions[i].args[3].name === "null") {
+                decompiledAction += "hudHeader("+[0,1,4,5,6,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
+            } else if (actions[i].args[1].name === "null" && actions[i].args[3].name === "null") {
+                decompiledAction += "hudSubheader("+[0,2,4,5,7,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
+            } else if (actions[i].args[1].name === "null" && actions[i].args[2].name === "null") {
+                decompiledAction += "hudSubtext("+[0,3,4,5,8,9,10].map(x => astToOpy(actions[i].args[x])).join(", ")+")";
+            } else {
+                decompiledAction += "hudText("+actions[i].args.map(x => astToOpy(x)).join(", ")+")";
+            }
+        } else if (actions[i].name === "__loop__") {
+            decompiledAction += "goto RULE_START";
+        } else if (actions[i].name === "__loopIf__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1)+"goto RULE_START";
+        } else if (actions[i].name === "__loopIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if not RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"goto RULE_START";
+        } else if (actions[i].name === "__loopIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"goto RULE_START";
+        }else if (actions[i].name === "__modifyVar__") {
+            if (actions[i].args[1].name in funcToOpMapping) {
+                decompiledAction += astToOpy(actions[i].args[0])+" "+funcToOpMapping[actions[i].args[1].name]+" "+astToOpy(actions[i].args[2]);
+            } else if (actions[i].args[1].name === "__min__") {
+                decompiledAction += astToOpy(actions[i].args[0])+" min= "+astToOpy(actions[i].args[2]);
+            } else if (actions[i].args[1].name === "__max__") {
+                decompiledAction += astToOpy(actions[i].args[0])+" max= "+astToOpy(actions[i].args[2]);
+            } else if (actions[i].args[1].name === "__appendToArray__") {
+                decompiledAction += astToOpy(actions[i].args[0])+".append("+astToOpy(actions[i].args[2])+")";
+            } else if (actions[i].args[1].name === "__removeFromArrayByValue__") {
+                decompiledAction += astToOpy(actions[i].args[0])+".remove("+astToOpy(actions[i].args[2])+")";
+            } else if (actions[i].args[1].name === "__removeFromArrayByIndex__") {
+                decompiledAction += "del "+astToOpy(actions[i].args[0])+"["+astToOpy(actions[i].args[2])+"]";
+            }
+        } else if (actions[i].name === "__setGlobalVariable__") {
+            decompiledAction = astToOpy(actions[i].args[0])+" = "+astToOpy(actions[i].args[1]);
+
+        } else if (actions[i].name === "__setPlayerVariable__") {
+            var op1 = astToOpy(actions[i].args[0]);
+            if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
+                op1 = "("+op1+")";
+            }
+            decompiledAction = op1+"."+astToOpy(actions[i].args[1])+" = "+astToOpy(actions[i].args[2]);
+
+        } else if (actions[i].name === "__startRule__") {
+            decompiledAction += "async("+actions[i].args[0].name+", "+astToOpy(actions[i].args[1])+")";
+
         } else if (actions[i].name === "__stopChasingGlobalVariable__") {
             decompiledAction += "stopChasingVariable("+actions[i].args[0].name+")";
 
         } else if (actions[i].name === "__stopChasingPlayerVariable__") {
             decompiledAction += "stopChasingVariable("+astToOpy(actions[i].args[0])+"."+actions[i].args[1].name+")";
+
+        } else if (actions[i].name === "__skip__") {
+            if (actions[i].args[0].name === "__number__") {
+                var labelName = "lbl_"+decompilationLabelNumber;
+                decompilationLabelNumber++;
+                decompiledAction += "goto "+labelName;
+                decompilerGotos.push({
+                    remainingActions: actions[i].args[0].args[0].numValue,
+                    label: labelName,
+                });
+            } else {
+                currentRuleHasVariableGoto = true;
+                decompiledAction += "goto loc+"+astToOpy(actions[i].args[0]);
+            }
+        } else if (actions[i].name === "__skipIf__" && !currentRuleHasVariableGoto) {
+            decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1);
+            if (actions[i].args[1].name === "__number__") {
+                var labelName = "lbl_"+decompilationLabelNumber;
+                decompilationLabelNumber++;
+                decompiledAction += "goto "+labelName;
+                decompilerGotos.push({
+                    remainingActions: actions[i].args[1].args[0].numValue,
+                    label: labelName,
+                });
+            } else {
+                currentRuleHasVariableGoto = true;
+                decompiledAction += "goto loc+"+astToOpy(actions[i].args[1]);
+            }
+
+        } else if (actions[i].name === "__wait__") {
+            decompiledAction += "wait(";
+            if (!(actions[i].args[0].name === "__number__" && actions[i].args[0].args[0].name === "0.016" && actions[i].args[1].name === "IGNORE_CONDITION")) {
+                decompiledAction += astToOpy(actions[i].args[0]);
+            }
+            if (actions[i].args[1].name !== "IGNORE_CONDITION") {
+                decompiledAction += ", "+astToOpy(actions[i].args[1]);
+            }
+            decompiledAction += ")";
 
         } else {
             if (!(actions[i].name in funcKw)) {
@@ -24803,7 +24881,11 @@ function astActionsToOpy(actions) {
             }
             
             if (actions[i].name.startsWith("_&")) {
-                decompiledAction = astToOpy(actions[i].args[0])+"."+actions[i].name.substring(2)+"("+actions[i].args.slice(1).map(x => astToOpy(x)).join(", ")+")";
+                var op1 = astToOpy(actions[i].args[0]);
+                if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
+                    op1 = "("+op1+")";
+                }
+                decompiledAction = op1+"."+actions[i].name.substring(2)+"("+actions[i].args.slice(1).map(x => astToOpy(x)).join(", ")+")";
             } else {
 
                 decompiledAction = actions[i].name;
@@ -24819,8 +24901,18 @@ function astActionsToOpy(actions) {
             } else {
                 decompiledAction = "#"+decompiledAction;
             }
+            if (currentRuleHasVariableGoto) {
+                decompiledAction = "pass "+decompiledAction;
+            }
         }
+
+
         result += tabLevel(tabLevelForThisAction) + decompiledAction + "\n";
+    }
+
+    //Add the remaining labels (if there was eg a skip(9999))
+    for (var j = 0; j < decompilerGotos.length; j++) {
+        result += tabLevel(nbTabs)+decompilerGotos[j].label+":\n";
     }
 
     return result;
@@ -24849,7 +24941,11 @@ function astToOpy(content) {
         return astToOpy(content.args[0]);
     }
     if (content.name === "__playerVar__") {
-        return astToOpy(content.args[0])+"."+content.args[1].name;
+        var result = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
+            result = "("+result+")";
+        }
+        return result+"."+content.args[1].name;
     }
     
     if (content.type in constantValues) {
@@ -24943,16 +25039,46 @@ function astToOpy(content) {
         "__indexOfArrayValue__": "index",
     };
     if (content.name in internalFuncToFuncMap) {
-        return astToOpy(content.args[0])+"."+internalFuncToFuncMap[content.name]+"("+astToOpy(content.args[1])+")";
+        
+        var result = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
+            result = "("+result+")";
+        }
+        return result+"."+internalFuncToFuncMap[content.name]+"("+astToOpy(content.args[1])+")";
     }
-    if (content.name === "__arraySlice__") {
-        return astToOpy(content.args[0])+".slice("+astToOpy(content.args[1])+", "+astToOpy(content.args[2])+")";
-    }
-    if (content.name === "__lastOf__") {
-        return astToOpy(content.args[0])+".last()";
-    }
-    if (content.name === "__valueInArray__") {
-        return astToOpy(content.args[0])+"["+astToOpy(content.args[1])+"]";
+
+    //Functions with a dot
+    if ([
+        "__arraySlice__",
+        "__lastOf__",
+        "__valueInArray__",
+        "__xComponentOf__",
+        "__yComponentOf__",
+        "__zComponentOf__",
+    ].includes(content.name)) {
+
+        var result = astToOpy(content.args[0]);
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
+            result = "("+result+")";
+        }
+        if (content.name === "__arraySlice__") {
+            return result+".slice("+astToOpy(content.args[1])+", "+astToOpy(content.args[2])+")";
+        }
+        if (content.name === "__lastOf__") {
+            return result+".last()";
+        }
+        if (content.name === "__valueInArray__") {        
+            return result+"["+astToOpy(content.args[1])+"]";
+        }
+        if (content.name === "__xComponentOf__") {
+            return result+".x";
+        }
+        if (content.name === "__yComponentOf__") {
+            return result+".y";
+        }
+        if (content.name === "__zComponentOf__") {
+            return result+".z";
+        }
     }
 
     //Array functions that use current array element
@@ -25049,15 +25175,6 @@ function astToOpy(content) {
         return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getPlayerHit()";
     }
 
-    if (content.name === "__xComponentOf__") {
-        return astToOpy(content.args[0])+".x";
-    }
-    if (content.name === "__yComponentOf__") {
-        return astToOpy(content.args[0])+".y";
-    }
-    if (content.name === "__zComponentOf__") {
-        return astToOpy(content.args[0])+".z";
-    }
 
     if (!(content.name in funcKw)) {
         error("Unregistered function '"+content.name+"'");
@@ -25066,7 +25183,11 @@ function astToOpy(content) {
         return content.name;
     } else {
         if (content.name.startsWith("_&")) {
-            return astToOpy(content.args[0])+"."+content.name.substring(2)+"("+content.args.slice(1).map(x => astToOpy(x)).join(", ")+")";
+            var result = astToOpy(content.args[0]);
+            if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
+                result = "("+result+")";
+            }
+            return result+"."+content.name.substring(2)+"("+content.args.slice(1).map(x => astToOpy(x)).join(", ")+")";
         }
         return content.name+"("+content.args.map(x => astToOpy(x)).join(", ")+")";
     }
@@ -25465,6 +25586,59 @@ astParsingFunctions.__add__ = function(content) {
 
     return content;
 
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__and__ = function(content) {
+    
+    if (enableOptimization) {
+        //false and A -> false
+        if (isDefinitelyFalsy(content.args[0])) {
+            return content.args[0];
+        }
+        //A and false -> false
+        if (isDefinitelyFalsy(content.args[1])) {
+            return content.args[1];
+        }
+        //true and A -> A
+        if (isDefinitelyTruthy(content.args[0])) {
+            return content.args[1];
+        }
+        //A and true -> A
+        if (isDefinitelyTruthy(content.args[1])) {
+            return content.args[0];
+        }
+        //A and A -> A
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return content.args[0];
+        }
+        //A and not A -> false
+        if (content.args[1].name === "__not__" && areAstsEqual(content.args[0], content.args[1].args[0])) {
+            return getAstForFalse();
+        }
+        //(not A) and A -> false
+        if (content.args[0].name === "__not__" && areAstsEqual(content.args[0].args[0], content.args[1])) {
+            return getAstForFalse();
+        }
+    }
+    return content;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -26522,6 +26696,94 @@ astParsingFunctions.__negate__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.__not__ = function(content) {
+    if (enableOptimization) {
+        //not false -> true
+        if (isDefinitelyFalsy(content.args[0])) {
+            return getAstForTrue();
+        }
+        //not true -> false
+        if (isDefinitelyTruthy(content.args[0])) {
+            return getAstForFalse();
+        }
+        //not not A -> A
+        if (content.args[0].name === "__not__") {
+            return content.args[0].args[0];
+        }
+    }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__or__ = function(content) {
+    if (enableOptimization) {
+        //false or A -> A
+        if (isDefinitelyFalsy(content.args[0])) {
+            return content.args[1];
+        }
+        //A or false -> A
+        if (isDefinitelyFalsy(content.args[1])) {
+            return content.args[0];
+        }
+        //true or A -> true
+        if (isDefinitelyTruthy(content.args[0])) {
+            return content.args[0];
+        }
+        //A or true -> true
+        if (isDefinitelyTruthy(content.args[1])) {
+            return content.args[1];
+        }
+        //A or A -> A
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return content.args[0];
+        }
+        //A or not A -> true
+        if (content.args[1].name === "__not__" && areAstsEqual(content.args[0], content.args[1].args[0])) {
+            return getAstForTrue();
+        }
+        //(not A) or A -> true
+        if (content.args[0].name === "__not__" && areAstsEqual(content.args[0].args[0], content.args[1])) {
+            return getAstForTrue();
+        }
+    }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__raiseToPower__ = function(content) {
     
     if (enableOptimization) {
@@ -27143,6 +27405,38 @@ astParsingFunctions.continue = function(content) {
 
 "use strict";
 
+astParsingFunctions.createBeam = function(content) {
+
+    //Mitigation for the vertical beam bug.
+    if (content.args[1].name === "GRAPPLE" || content.args[1].name === "BAD") {
+        if (content.args[2].name === "vect" && content.args[3].name === "vect") {
+            if (areAstsEqual(content.args[2].args[0], content.args[3].args[0]) && areAstsEqual(content.args[2].args[2], content.args[3].args[2])) {
+                content.args[2].args[0] = new Ast("__add__", [getAstFor0_001(), content.args[2].args[0]]);
+            }
+        }
+    }
+
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.disableInspector = function(content) {
 
     if (obfuscateRules) {
@@ -27320,8 +27614,6 @@ function tokenize(content) {
 		"<",
 		">",
 		"=",
-		"++",
-		"--",
 		"+",
 		"-",
 		",",
@@ -28500,52 +28792,6 @@ function astToWs(content) {
 
 "use strict";
 
-class Ast {
-
-    constructor(name, args, children, type) {
-        if (name === null || name === undefined) {
-            error("Got no name for AST");
-        }
-        if (typeof name !== "string") {
-            error("Expected a string for AST name, but got '"+name+"' of type '"+typeof name+"'");
-        }
-        if (type === "NumberLiteral") {
-            this.numValue = Number(name);
-        }
-        this.name = name;
-        this.args = args ? args : [];
-        this.children = children ? children : [];
-
-        if (!type) {
-            if (name in funcKw) {
-                this.type = funcKw[name].return;
-            } else {
-                error("Unknown function name '"+name+"'");
-            }
-        } else {
-            this.type = type;
-        }
-
-        for (var arg of this.args) {
-            if (!(arg instanceof Ast)) {
-                console.log(arg);
-                error("Arg '"+arg+"' of '"+name+"' is not an AST");
-            }
-            arg.parent = this;
-        }
-        for (var child of this.children) {
-            if (!(child instanceof Ast)) {
-                console.log(child);
-                error("Child '"+child+"' of '"+name+"' is not an AST");
-            }
-            child.parent = this;
-        }
-        this.fileStack = fileStack;
-        this.argIndex = 0;
-        this.childIndex = 0;
-        this.wasParsed = false;
-    }
-}
 
 class WorkshopVar {
     constructor(name, index) {
@@ -28553,18 +28799,6 @@ class WorkshopVar {
         this.index = index === undefined ? null : index;
     }
 }
-
-/*class Rule {
-    constructor() {
-        this.name = null;
-        this.conditions = [];
-        this.actions = [];
-        this.event = null;
-        this.eventTeam = null;
-        this.eventPlayer = null;
-        this.isDisabled = false;
-    }
-}*/
 
 function parseLines(lines) {
 
@@ -28748,7 +28982,53 @@ function parseLines(lines) {
     return result;
 }
 
-function parse(content) {
+function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMinus=false) {
+    
+    var operatorFound = null;
+    var operatorPosition = -1;
+	var bracketsLevel = 0;
+	
+	if (!rtlPrecedence) {
+		var start = tokens.length-1;
+		var end = -1;
+		var step = -1;
+	} else {
+		var start = 0;
+		var end = tokens.length;
+		var step = 1;
+	}
+	
+	console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
+	
+	for (var i = start; i != end; i+=step) {
+
+		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
+            bracketsLevel += step;
+            
+		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
+            bracketsLevel -= step;
+            
+		} else if (bracketsLevel === 0 && operators.includes(tokens[i].text)) {
+            
+            if (allowUnaryPlusOrMinus || (i !== 0 && !Object.keys(operatorPrecedence).includes(tokens[i-1].text))) {
+                operatorFound = tokens[i].text;
+                operatorPosition = i;
+                break;
+            }
+		}
+	}
+	
+	if (bracketsLevel !== 0) {
+		error("Lexer broke (bracket level is "+bracketsLevel+")");
+    }
+    
+    return {
+        operatorFound,
+        operatorPosition,
+    }
+}
+
+function parse(content, kwargs={}) {
 
 	if (content === undefined) {
 		error("Content is undefined");
@@ -28790,169 +29070,138 @@ function parse(content) {
         return new Ast(content[0].text, [], [], "Label");
     }
     
-    //Parse operators, according to the operator precedence in pyOperators.
-    for (var operator of pyOperators) {
-		
-		if (operator === "not" || operator === "if") {
-			var operands = splitTokens(content, operator, false, false);
-		} else {
-			var operands = splitTokens(content, operator, false, true);
-		}
-		if (operands.length === 2) {
-			
-			//The operator is present; parse it
-			if (operator === "=") {
-                return new Ast("__assignTo__", [parse(operands[0]), parse(operands[1])]);
-                
-			} else if (operator === "if") {
-                //"true if condition else false"
-				
-				var trueExpr = parse(operands[0]);
-				var elseOperands = splitTokens(operands[1], "else", false, false);
-				if (elseOperands.length !== 2) {
-					error("Found 'if', but no 'else'");
-				}
-				var falseExpr = parse(elseOperands[1]);
-				var condition = parse(elseOperands[0]);
+    //Check for ++/--.
+    if (content.length > 2 && content[content.length-1].text === "+" && content[content.length-2].text === "+") {
+        var op1 = parse(content.slice(0, content.length-2));
+        return new Ast("__assignTo__", [op1, new Ast("__add__", [op1, getAstFor1()])])
+    }
+    if (content.length > 2 && content[content.length-1].text === "-" && content[content.length-2].text === "-") {
+        var op1 = parse(content.slice(0, content.length-2));
+        return new Ast("__assignTo__", [op1, new Ast("__subtract__", [op1, getAstFor1()])])
+    }
 
-                return new Ast("__ifThenElse__", [condition, trueExpr, falseExpr]);
+    //Parse operators, according to the operator precedence in operatorPrecedence.
+    if (kwargs.minOperatorPrecedence === undefined) {
+        kwargs.minOperatorPrecedence = 1;
+    }
+    for (var precedence = kwargs.minOperatorPrecedence; precedence <= operatorPrecedence["**"]; precedence++) {
 
-			} else if (["or", "and"].includes(operator)) {
+        var operatorsToCheck = Object.keys(operatorPrecedence).filter(x => operatorPrecedence[x] === precedence);
+        var allowUnary = (precedence === operatorPrecedence["not"]);
 
-				var op1 = parse(operands[0]);
-                var op2 = parse(operands[1]);
-                return new Ast("__"+operator+"__", [op1, op2]);
+        //manually put the unary plus/minus
+        if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
+            operatorsToCheck = ["+", "-"];
+            allowUnary = true;
+        }
+        var rtlPrecedence = (precedence === operatorPrecedence["**"] || precedence === operatorPrecedence["if"] || allowUnary === true);
 
-			} else if (operator === "not") {
+        var operatorCheck = getOperator(content, operatorsToCheck, rtlPrecedence, allowUnary);
+        if (operatorCheck.operatorFound === null) {
+            continue;
+        }
 
-				var op1 = parse(operands[1]);
-                return new Ast("__not__", [op1]);
+        //The operator is present; parse it
+        var operator = operatorCheck.operatorFound;
+        var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition+1, content.length)];
+        
+        if (operator === "=") {
+            return new Ast("__assignTo__", [parse(operands[0]), parse(operands[1])]);
+            
+        } else if (operator === "if") {
+            //"true if condition else false"
+            
+            var trueExpr = parse(operands[0]);
+            var elseOperands = splitTokens(operands[1], "else", false, false);
+            if (elseOperands.length !== 2) {
+                error("Found 'if', but no 'else'");
+            }
+            var falseExpr = parse(elseOperands[1]);
+            var condition = parse(elseOperands[0]);
 
-			} else if (operator === "in") {
-                
-                var value = parse(operands[0]);
-                var array = parse(operands[1]);
-                return new Ast("__arrayContains__", [array, value]);
+            return new Ast("__ifThenElse__", [condition, trueExpr, falseExpr]);
 
-			} else if (["==", "!=", "<=", ">=", "<", ">"].includes(operator)) {
+        } else if (["or", "and"].includes(operator)) {
 
-				var op1 = parse(operands[0]);
-                var op2 = parse(operands[1]);
-                var opToFuncMapping = {
-                    "==": "__equals__",
-                    "!=": "__inequals__",
-                    "<=": "__lessThanOrEquals__",
-                    ">=": "__greaterThanOrEquals__",
-                    "<": "__lessThan__",
-                    ">": "__greaterThan__",
-                }
-                return new Ast(opToFuncMapping[operator], [op1, op2]);
+            var op1 = parse(operands[0]);
+            var op2 = parse(operands[1]);
+            return new Ast("__"+operator+"__", [op1, op2]);
 
-			} else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
-                //Actually de-optimize so we can keep the logic in one place.
-                //Transform "A += 1" to "A = A + 1".
+        } else if (operator === "not") {
 
-                var opToFuncMapping = {
-                    "+=": "__add__",
-                    "-=": "__subtract__",
-                    "*=": "__multiply__",
-                    "/=": "__divide__",
-                    "%=": "__modulo__",
-                    "**=": "__raiseToPower__",
-                    "min=": "min",
-                    "max=": "max",
-                };
+            var op1 = parse(operands[1]);
+            return new Ast("__not__", [op1]);
 
-                var variable = parse(operands[0]);
-                var value = parse(operands[1]);
-                return new Ast("__assignTo__", [variable, new Ast(opToFuncMapping[operator], [variable, value])]);
+        } else if (operator === "in") {
+            
+            var value = parse(operands[0]);
+            var array = parse(operands[1]);
+            return new Ast("__arrayContains__", [array, value]);
 
-			} else if (["++", "--", "+", "-"].includes(operator)) {
+        } else if (["==", "!=", "<=", ">=", "<", ">"].includes(operator)) {
 
-                console.debug("Handling operator '"+operator+"'");
+            var op1 = parse(operands[0]);
+            var op2 = parse(operands[1]);
+            var opToFuncMapping = {
+                "==": "__equals__",
+                "!=": "__inequals__",
+                "<=": "__lessThanOrEquals__",
+                ">=": "__greaterThanOrEquals__",
+                "<": "__lessThan__",
+                ">": "__greaterThan__",
+            }
+            return new Ast(opToFuncMapping[operator], [op1, op2]);
 
-                if ((operator === "++" || operator === "--") && operands[1].length === 0) {
-                    //Operation such as A++ or A--.
-                    
-                    //De-optimise as well: A++ -> A = A + 1.
-                    var opToFuncMapping = {
-                        "++": "__add__",
-                        "--": "__subtract__",
-                    };
-                    var op1 = parse(operands[0]);
-                    return new Ast("__assignTo__", [op1, new Ast(opToFuncMapping[operator], [op1, getAstFor1()])])
-                }
+        } else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
+            //Actually de-optimize so we can keep the logic in one place.
+            //Transform "A += 1" to "A = A + 1".
 
-                //console.log(operands[0]);
-                if (operands[0].length === 0) {
-                    if (operator === "-") {
-                        return new Ast("__negate__", [parse(operands[1])]);
-                    } else {
-                        return parse(operands[1]);
-                    }
-                }
+            var opToFuncMapping = {
+                "+=": "__add__",
+                "-=": "__subtract__",
+                "*=": "__multiply__",
+                "/=": "__divide__",
+                "%=": "__modulo__",
+                "**=": "__raiseToPower__",
+                "min=": "min",
+                "max=": "max",
+            };
 
-                //Check if there is another operator and not only unaries
-                //Eg: A * - + -- - B
-                //or A + - ++++---- - B
-                var i = operands[0].length-1;
-                var foundNotUnaryOperator = false;
-                for (; i >= 0; i--) {
-                    if (!["-", "+", "--", "++"].includes(operands[0][i].text)) {
-                        foundNotUnaryOperator = true;
-                        break;
-                    }
-                }
-                if (foundNotUnaryOperator) {
-                    //console.log(i);
-                    //console.log("found not unary operator: "+foundNotUnaryOperator+", '"+operands[0][i].text+"'");
-                    if (["*", "/", "%", "**"].includes(operands[0][i].text)) {
-                        continue;
-                    }
-                    if (i < operands[0].length-1) {
-                        if (operands[0][i+1].text === "-") {
-                            return new Ast("__subtract__", [parse(operands[0].slice(0, i+1)), parse(content.slice(i+2))]);
-                        } else if (["+", "--", "++"].includes(operands[0][i+1].text)) {
-                            return new Ast("__add__", [parse(operands[0].slice(0, i+1)), parse(content.slice(i+2))]);
-                        } else {
-                            error("Error in parser: expected an unary operator but found '"+operands[0][i+1]+"'");
-                        }
-                    } else {
-                        if (operator === "-") {
-                            return new Ast("__subtract__", [parse(operands[0]), parse(operands[1])]);
-                        } else {
-                            return new Ast("__add__", [parse(operands[0]), parse(operands[1])]);
-                        }
-                    }
+            var variable = parse(operands[0]);
+            var value = parse(operands[1]);
+            return new Ast("__assignTo__", [variable, new Ast(opToFuncMapping[operator], [variable, value])]);
 
+        } else if (["+", "-"].includes(operator)) {
+            
+            if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
+                //unary plus/minus
+                if (operator === "+") {
+                    return parse(operands[1]);
                 } else {
-                    if (operands[0][0].text === "-") {
-                        return new Ast("__negate__", [parse(content.slice(1))]);
-                    } else if (["+", "--", "++"].includes(operands[0][0].text)) {
-                        return parse(content.slice(1));
-                    } else {
-                        error("Error in parser: expected an unary operator but found '"+operands[0][0]+"'");
-                    }
+                    return new Ast("__negate__", [parse(operands[1])]);
                 }
-
-			} else if (["/", "*", "%", "**"].includes(operator)) {
-
-                var opToFuncMapping = {
-                    "/": "__divide__",
-                    "*": "__multiply__",
-                    "%": "__modulo__",
-                    "**": "__raiseToPower__",
+            } else {
+                if (operator === "+") {
+                    return new Ast("__add__", [parse(operands[0]), parse(operands[1])]);
+                } else {
+                    return new Ast("__subtract__", [parse(operands[0]), parse(operands[1])]);
                 }
-				var op1 = parse(operands[0]);
-                var op2 = parse(operands[1]);
-                return new Ast(opToFuncMapping[operator], [op1, op2]);
+            }
 
-			} else {
-				error("Unhandled operator "+operator);
-			}
-			
-			break;
-		}
+        } else if (["/", "*", "%", "**"].includes(operator)) {
+
+            var opToFuncMapping = {
+                "/": "__divide__",
+                "*": "__multiply__",
+                "%": "__modulo__",
+                "**": "__raiseToPower__",
+            }
+            var op1 = parse(operands[0]);
+            var op2 = parse(operands[1]);
+            return new Ast(opToFuncMapping[operator], [op1, op2]);
+
+        }
+        error("Unhandled operator "+operator);
     }
     		
 	//Parse array
@@ -28974,7 +29223,14 @@ function parse(content) {
 	if (content[0].text === "{") {
 		return parseDictionary(content);
 	}
-	
+		
+	//Check for "." operator, which has the highest precedence.
+	//It must be parsed from right to left.
+	var operands = splitTokens(content, ".", false, true);
+	if (operands.length === 2) {
+		return parseMember(operands[0], operands[1]);
+    }
+    
 	//Check for parentheses
 	if (content[0].text === '(') {
 		var bracketPos = getTokenBracketPos(content);
@@ -28985,13 +29241,6 @@ function parse(content) {
         } else {
             error("Malformatted parentheses");
         }
-	}
-	
-	//Check for "." operator, which has the highest precedence.
-	//It must be parsed from right to left.
-	var operands = splitTokens(content, ".", false, true);
-	if (operands.length === 2) {
-		return parseMember(operands[0], operands[1]);
 	}
 
 	//Check for strings

@@ -3,10 +3,13 @@ rule "comparison":
     A = B == C
     A = 1 == 0 #false
     A = B == B #true
+    A = B == 0 #not B
 
     A = B != C
     A = 1 != 0 #true
     A = B != B #false
+    A = B != 0
+    A = not(B != 0) #not B
 
     A = B >= C
     A = 1 >= 0 #true

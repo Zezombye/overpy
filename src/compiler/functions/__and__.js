@@ -18,5 +18,36 @@
 "use strict";
 
 astParsingFunctions.__and__ = function(content) {
+    
+    if (enableOptimization) {
+        //false and A -> false
+        if (isDefinitelyFalsy(content.args[0])) {
+            return content.args[0];
+        }
+        //A and false -> false
+        if (isDefinitelyFalsy(content.args[1])) {
+            return content.args[1];
+        }
+        //true and A -> A
+        if (isDefinitelyTruthy(content.args[0])) {
+            return content.args[1];
+        }
+        //A and true -> A
+        if (isDefinitelyTruthy(content.args[1])) {
+            return content.args[0];
+        }
+        //A and A -> A
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return content.args[0];
+        }
+        //A and not A -> false
+        if (content.args[1].name === "__not__" && areAstsEqual(content.args[0], content.args[1].args[0])) {
+            return getAstForFalse();
+        }
+        //(not A) and A -> false
+        if (content.args[0].name === "__not__" && areAstsEqual(content.args[0].args[0], content.args[1])) {
+            return getAstForFalse();
+        }
+    }
     return content;
 }
