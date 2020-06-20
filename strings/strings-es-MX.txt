@@ -1,14 +1,14 @@
-[Core] DataTool v1.48.0.872-git-388eaf2c98e84f9acbee236d068a6fd0dd9b9c8d
+[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=esMX", "-T=esMX"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
 [CASC] Set language to esMX
 [CASC] Set speech language to esMX
-[CASC] Overwatch build 1.48.0.0.68780
+[CASC] Overwatch build 1.49.0.0.69939
 [CASC] Initializing...
-[Manifest] Using TRG procedure 68780 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -7802,10 +7802,10 @@ Andrew Wang
 0000000046D4.07C: Las partidas competitivas no están disponibles actualmente.
 0000000046D5.07C: Oasis
 0000000046D6.07C: Partidas de colocación
-0000000046D7.07C: +30%% Exp (Bonificación de IGR premium)
+0000000046D7.07C: +20%% Exp (Bonificación de IGR premium)
 0000000046D8.07C: BENEFICIO DE IGR PREMIUM
-0000000046D9.07C: 30 %% DE EXP ADICIONAL
-0000000046DA.07C: ¡DISEÑOS DE LA LEGENDARY EDITION DESBLOQUEADOS!
+0000000046D9.07C: 20 %% DE EXP ADICIONAL
+0000000046DA.07C: ¡DISEÑOS EDICIÓN ORIGIN DESBLOQUEADOS!
 0000000046DB.07C: Partidas de colocación completadas
 0000000046DC.07C: Tu clasificación:
 0000000046E7.07C: RONDA %1$s COMPLETADA
@@ -13694,7 +13694,6 @@ Brian Urbina
 00000000673A.07C: Brindis
 00000000673C.07C: Tiempo extra
 00000000673D.07C: ¡Juega!
-00000000673E.07C: Prepárate para atacar
 00000000673F.07C: Esperando jugadores
 000000006740.07C: Gol
 000000006741.07C: ¡%1$s anotó un GOL!
@@ -16945,7 +16944,7 @@ competitivo 2018
 000000008C78.07C: 
 000000008C7B.07C: Listo
 000000008C7C.07C: Cancelando
-000000008C7D.07C: Mantén presionado <tx%1$s> / Listo 
+000000008C7D.07C: Mantén presionado %1$s / Listo 
 000000008C7F.07C: Heroico
 000000008C80.07C: ALEATORIO
 000000008C81.07C: PREDETERMINADO
@@ -16986,7 +16985,7 @@ competitivo 2018
 000000008CD3.07C: Adorable
 000000008CD4.07C: Pixel
 000000008CE0.07C: Abandonando
-000000008CE1.07C: Mantener presionado <tx%1$s> para abandonar
+000000008CE1.07C: Mantener presionado %1$s para abandonar
 000000008CE2.07C: Huang Zhong
 000000008CE3.07C: Imponer roles
 000000008CE5.07C: ¡Has sido promovido a nivel %1$s!
@@ -17063,8 +17062,7 @@ competitivo 2018
 000000008DB5.07C: Recomendaciones no disponibles para amigos.
 000000008DB6.07C: Has utilizado todas tus recomendaciones para esta partida.
 000000008DCE.07C: Torreta
-000000008DEA.07C: CANCELAR
-000000008DEC.07C: SE REQUIERE NÚMERO DE TELÉFONO.
+000000008DEC.07C: SE REQUIERE UN NÚMERO DE TELÉFONO.
 000000008DEE.07C: INCLUIR SMS
 000000008DEF.07C: Demonio
 000000008DF2.07C: https://account.blizzard.com/details/sms/setup/add
@@ -17181,10 +17179,10 @@ competitivo 2018
 0000000090BF.07C: Encontrar más jugadores
 0000000090C0.07C: Encontrar más jugadores
 0000000090C1.07C: Finlandia (local)
-0000000090C2.07C: Mantén presionado <tx%1$s> / Encontrar más jugadores
+0000000090C2.07C: Mantén presionado %1$s / Encontrar más jugadores
 0000000090C3.07C: Jugar %1$s
 0000000090C4.07C: Jugar %1$s
-0000000090C5.07C: Mantén presionado <tx%1$s> / Jugar %2$s
+0000000090C5.07C: Mantén presionado %1$s / Jugar %2$s
 0000000090C6.07C: Hong Kong (local)
 0000000090C7.07C: Taipéi (local)
 0000000090C8.07C: Medalla
@@ -17349,7 +17347,7 @@ competitivo 2018
 0000000091ED.07C: Rueda sobre 4 enemigos en un lapso de 2 segundos con Wrecking Ball en partida rápida o competitiva.
 0000000091EE.07C: ¡No hay suficientes espacios!
 0000000091EF.07C: Modificar grupo
-0000000091F0.07C: Mantén presionado <tx%1$s> / Modificar grupo
+0000000091F0.07C: Mantén presionado %1$s / Modificar grupo
 0000000091F1.07C: Modificar grupo
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -18423,11 +18421,11 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000AA5D.07C: Países Bajos
 00000000AA5E.07C: Francia
 00000000AA5F.07C: China - Hangzhou
-00000000AA60.07C:  China - Hangzhou 2
+00000000AA60.07C: China - Hangzhou 2
 00000000AA61.07C: Corea del Sur
 00000000AA62.07C: Estados Unidos - Sudoeste
 00000000AA63.07C: Estados Unidos - Oeste
-00000000AA64.07C:  Australia 2
+00000000AA64.07C: Australia 2
 00000000AA65.07C: Australia 3
 00000000AA66.07C: Taiwán
 00000000AA67.07C: Japón
@@ -26120,8 +26118,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: Deshabilitar puntería giroscópica al usar la palanca
 00000000EA2F.07C: Dra. Ziegler
 00000000EA3E.07C: Invertir eje vertical de puntería giroscópica
-00000000EA40.07C: Juego competitivo
-00000000EA41.07C: OBTÉN ESTOS PREMIOS POR PARTICIPAR
 00000000EA51.07C: GOAT
 00000000EA59.07C: Invertir eje longitudinal de puntería giroscópica
 00000000EA5A.07C: (Adquiridos)
@@ -26861,6 +26857,8 @@ https://account.blizzard.com/connections/nintendo
 000000010055.07C: Temporada 21
 000000010056.07C: Temporada 22
 000000010057.07C: Temporada 22
+000000010058.07C: Temporada 23
+000000010059.07C: Temporada 23
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Importar configuración desde el portapapeles
@@ -26868,12 +26866,12 @@ https://account.blizzard.com/connections/nintendo
 00000001006D.07C: Confirmar
 00000001006E.07C: principal
 000000010072.07C: Rotación de héroes
-000000010075.07C: Los héroes disponibles para el modo competitivo cambian periódicamente.
+000000010075.07C: Los héroes disponibles para el modo competitivo en partidas de nivel Maestro y Gran maestro cambian periódicamente.
 000000010078.07C: Héroes fuera de rotación
 00000001007F.07C: Descripción
 000000010086.07C: ACEPTAR
 000000010087.07C: Rotación de héroes
-000000010088.07C: Los héroes disponibles para el modo competitivo cambian periódicamente.
+000000010088.07C: Los héroes disponibles para el modo competitivo en partidas de nivel Maestro y Gran maestro cambian periódicamente.
 000000010089.07C: Héroes fuera de rotación
 00000001008C.07C: Héroes no disponibles
 000000010091.07C: Muerto de risa
@@ -27336,6 +27334,7 @@ https://account.blizzard.com/connections/nintendo
 0000000108E9.07C: Homestand de Atlanta Reign 2020
 0000000108F8.07C: Ruta 66
 0000000108FE.07C: Plan de vuelo
+00000001094D.07C: Alienígena
 000000010950.07C: Se desbloquea al ver transmisiones participantes durante el evento de lanzamiento de héroe de Echo.
 000000010951.07C: Despegue
 000000010952.07C: Elevándose
@@ -27387,12 +27386,12 @@ https://account.blizzard.com/connections/nintendo
 - Logra objetivos para conseguir puntos
 - ¡Gana quien tenga más puntos!
 0000000109FF.07C: La habilidad del evento que está siendo procesado por la regla asociada por botón.
-000000010A0B.07C: Competidor de cola competitiva abierta 
-000000010A0C.07C: Se desbloquea al completar las partidas de colocación de cola competitiva abierta
-000000010A0D.07C: Héroe de cola competitiva abierta 
-000000010A0E.07C: Se desbloquea al estar entre los 500 mejores al final de una cola competitiva abierta
-000000010A0F.07C: Competidor de cola competitiva abierta
-000000010A11.07C: Héroe de cola competitiva abierta
+000000010A0B.07C: Competidor de Cola competitiva abierta Temporada 1
+000000010A0C.07C: Se desbloquea al completar las partidas de colocación de la temporada 1 de la Cola competitiva abierta
+000000010A0D.07C: Héroe de Cola competitiva abierta Temporada 1
+000000010A0E.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 1 de la Cola competitiva abierta
+000000010A0F.07C: Competidor de Cola competitiva abierta Temporada 1
+000000010A11.07C: Héroe de Cola competitiva abierta Temporada 1
 000000010A16.07C: Planeo
 000000010A17.07C: %1$s - %2$s
 000000010A1C.07C: Concentra ataques rápidos en Echo después de que use Copia para evitar que utilice su devastadora habilidad máxima.
@@ -27508,7 +27507,7 @@ https://account.blizzard.com/connections/nintendo
 000000010ABE.07C: LO SIENTO
 000000010AC0.07C: CONTEO REGRESIVO
 000000010AC7.07C: %1$s a ti: ¡Al ataque!
-000000010AC8.07C: %1$s a %2$s: ¡Refuerza el ataque!
+000000010AC8.07C: %1$s a %2$s: ¡Al ataque!
 000000010AC9.07C: %1$s a ti: No.
 000000010ACA.07C: %1$s a %2$s: No.
 000000010ACB.07C: %1$s a ti: Sí.
@@ -27516,7 +27515,7 @@ https://account.blizzard.com/connections/nintendo
 000000010ACD.07C: %1$s a ti: De nada.
 000000010ACE.07C: %1$s a %2$s: De nada.
 000000010ACF.07C: %1$s a ti: ¡Retrocede!
-000000010AD0.07C: %1$s a %2$s: ¡Retírate!
+000000010AD0.07C: %1$s a %2$s: ¡Retrocede!
 000000010AD1.07C: %1$s a ti: ¡Avanza!
 000000010AD2.07C: %1$s a %2$s: ¡Avanza!
 000000010AD3.07C: %1$s a ti: ¡Enemigos!
@@ -27539,27 +27538,27 @@ https://account.blizzard.com/connections/nintendo
 000000010AE4.07C: %1$s a %2$s: ¡Defiende conmigo!
 000000010AE5.07C: %1$s a ti: ¡Necesito ayuda!
 000000010AE6.07C: %1$s a %2$s: ¡Necesito ayuda!
-000000010AEB.07C: %1$s a ti: Lo siento tanto.
-000000010AEC.07C: %1$s a %2$s: Lo siento tanto.
-000000010AF0.07C: %1$s a ti: Contando: 3... 2... 1
-000000010AF1.07C: %1$s a %2$s: Contando: 3... 2... 1
+000000010AEB.07C: %1$s a ti: Lo siento mucho.
+000000010AEC.07C: %1$s a %2$s: Lo siento mucho.
+000000010AF0.07C: %1$s a ti: Contando... 3...2...1
+000000010AF1.07C: %1$s a %2$s: Contando... 3...2...1
 000000010AF3.07C: %1$s: ¡Al ataque!
-000000010AF4.07C: %1$s: De nada
+000000010AF4.07C: %1$s: De nada.
 000000010AF5.07C: %1$s: Sí.
 000000010AF6.07C: %1$s: No.
 000000010AF7.07C: %1$s: Adiós.
 000000010AF8.07C: %1$s: ¡Vamos!
 000000010AF9.07C: %1$s: Todo listo.
-000000010AFA.07C: %1$s: ¡Retirada!
+000000010AFA.07C: %1$s: ¡Retrocedan!
 000000010AFB.07C: %1$s: ¡Avancen!
 000000010AFC.07C: %1$s: ¡Enemigos!
-000000010AFD.07C: %1$s: ¡Estoy contigo!
+000000010AFD.07C: %1$s: ¡Estoy con ustedes!
 000000010AFE.07C: %1$s: ¡Voy a entrar!
 000000010AFF.07C: %1$s: Voy en camino.
 000000010B00.07C: %1$s: ¡Ataquen conmigo!
 000000010B03.07C: %1$s: ¡Defiendan conmigo!
 000000010B04.07C: %1$s: ¡Necesito ayuda!
-000000010B07.07C: %1$s: ¡Lo siento tanto!
+000000010B07.07C: %1$s: Lo siento mucho.
 000000010B14.07C: Comentarios de los desarrolladores
 000000010B15.07C: Se desbloquea al participar del desafío de la semana 3 de Aniversario 2020.
 000000010B16.07C: Enmascarado
@@ -27567,7 +27566,7 @@ https://account.blizzard.com/connections/nintendo
 000000010B1B.07C: Granada aturdidora
 000000010B1C.07C: Aplastar
 000000010B1D.07C: Ligera
-000000010B1F.07C: %1$s: Contando: 3... 2... 1
+000000010B1F.07C: %1$s: Contando... 3...2...1
 000000010B2A.07C: Aniversario 2020
 000000010B2B.07C: Disponible en cajas de botín de aniversario
 000000010B2C.07C: Sigmaversario
@@ -27705,7 +27704,69 @@ El equipo de soporte de Blizzard
 000000010D22.07C: CANCELAR
 000000010D2B.07C: GESTO
 000000010D2C.07C: LÍNEA DE VOZ
+000000010D5A.07C: China - Shenzhen
+000000010D5B.07C: China - Chengdu
+000000010D5C.07C: China - Beijing 2
 000000010D86.07C: Espacio en la sala de espera
 000000010D88.07C: Espacio en la partida
 000000010D8F.07C: Actualizar
-[Core] Execution finished in 00:00:00.4948779 seconds
+000000010DC1.07C: Héroe de la temporada 23
+000000010DC3.07C: Competidor de la temporada 23
+000000010DC5.07C: Héroe de la temporada 23
+000000010DC6.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 23
+000000010DC7.07C: Competidor de la temporada 23
+000000010DC8.07C: Se desbloquea al completar las partidas de colocación de la temporada 23
+000000010E2A.07C: Cola competitiva abierta Temporada 2
+000000010E2B.07C: Cola competitiva abierta
+000000010E2C.07C: Sube de rango y compite con los mejores jugadores del mundo sin límite de roles en la selección de héroes.
+000000010E46.07C: Cola competitiva abierta
+000000010E47.07C: Cola competitiva abierta
+000000010E4F.07C: Anexar jugadores
+000000010E50.07C: Padre
+000000010E51.07C: Hijo
+000000010E52.07C: Separar jugadores
+000000010E53.07C: Hijos
+000000010E55.07C: Compensación
+000000010E5A.07C: Héroe de Cola competitiva abierta Temporada 2
+000000010E5B.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 2 de la Cola competitiva abierta
+000000010E5C.07C: Competidor de Cola competitiva abierta Temporada 2
+000000010E5D.07C: Se desbloquea al completar las partidas de colocación de la temporada 2 de la Cola competitiva abierta
+000000010E5E.07C: Héroe de Cola competitiva abierta Temporada 2
+000000010E5F.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 2 de la Cola competitiva abierta
+000000010E60.07C: Competidor de Cola competitiva abierta Temporada 2
+000000010E61.07C: Se desbloquea al completar las partidas de colocación de la temporada 2 de la Cola competitiva abierta
+000000010E62.07C: Está en su forma alterna
+000000010E63.07C: Si el jugador especificado se encuentra en su forma alterna (por ejemplo, D.Va afuera de su armadura, Lúcio con su canción de velocidad, Bastion en alguna configuración, Mercy o Torbjörn con sus armas secundarias, entre otros). Para efectos de copia de Echo, usa el valor Está copiando.
+000000010E64.07C: El jugador cuya forma se verificará.
+000000010E65.07C: Está copiando
+000000010E66.07C: Si el jugador especificado está copiando a otro héroe. (Para ver cuál héroe, usa el valor Héroe que está siendo copiado).
+000000010E67.07C: El jugador cuyo estado de copia se verificará.
+000000010E68.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 1 de la Cola competitiva abierta
+000000010E69.07C: Se desbloquea al completar las partidas de colocación de la temporada 1 de la Cola competitiva abierta
+000000010E6A.07C: Héroe que está siendo copiado
+000000010E6B.07C: El héroe que está siendo copiado por el jugador especificado. Si no hay un héroe copiado, el valor resultante es 0.
+000000010E6C.07C: Jugador
+000000010E6D.07C: El jugador que realiza la copia.
+000000010E70.07C: Prioridad para volver a la cola
+000000010E7F.07C: Une a un jugador (el Hijo) a otro jugador (el Padre). Una vez unidos, el Hijo no podrá moverse con libertad hasta separarse o ser transportado a otra ubicación. Se pueden unir varios hijos a un mismo Padre, pero no al revés.
+000000010E80.07C: El jugador que se unirá al Padre. Este jugador no podrá moverse libremente hasta ser separado o transportado a otra ubicación.
+000000010E81.07C: El jugador al que se unirá el Hijo. El movimiento de este jugador no será afectado y determinará la posición del Hijo.
+000000010E82.07C: Las coordenadas del Hijo, relativas al Padre. Por ejemplo, el vector(1, 2, 0) representaría que el Hijo está arriba y a la derecha de la cabeza del Padre.
+000000010E83.07C: Deshace la unión de la acción Unir jugadores para uno o más jugadores. Los jugadores volverán a moverse con normalidad desde su posición actual.
+000000010E84.07C: El jugador o los jugadores que se separarán de su Padre.
+000000010E85.07C: Comenzar a forzar la posición del jugador
+000000010E86.07C: Comienza a forzar a un jugador para que esté en cierta posición. Si la reevaluación está activada, la posición se evalúa en cada cuadro, lo que permite mover al jugador a través del tiempo.
+000000010E87.07C: Reevaluación
+000000010E88.07C: Posición
+000000010E89.07C: Jugador
+000000010E8A.07C: El jugador cuya posición se forzará. (La opción de reevaluación no aplica para este valor).
+000000010E8B.07C: La posición que ocupará el jugador. Si la reevaluación está activada, se puede usar este valor para mover al jugador a lo largo del tiempo.
+000000010E8C.07C: Si este valor es Verdadero, la posición se reevaluará y será aplicada al jugador en cada cuadro posible. Si este valor es Falso, la posición se evaluará una sola vez cuando inicie la acción.
+000000010E8D.07C: Dejar de forzar la posición del jugador
+000000010E8E.07C: Cancela el comportamiento de Comenzar a forzar la posición del jugador para el jugador o jugadores especificados. El movimiento normal se restablecerá desde la última posición forzada.
+000000010E8F.07C: Jugador
+000000010E90.07C: El jugador o jugadores cuyas posiciones dejarán de forzarse.
+000000010E95.07C: Sinatraa, MVP de la Liga Overwatch 2019
+000000010E9F.07C: Diseño legendario Alienígena
+000000010EEC.07C: Encontrar más jugadores
+[Core] Execution finished in 00:00:00.4255143 seconds

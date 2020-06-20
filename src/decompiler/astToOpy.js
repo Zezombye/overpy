@@ -19,15 +19,7 @@
 
 function astRulesToOpy(rules) {
 
-    var result = `/*
-The decompiler is functional, but not finished.
-It does not support gotos, this mean multi-line actions such as "Abort If" or "Loop If" are not properly decompiled as well.
-Some special functions may also not be properly decompiled.
-
-However, decompilation should yield a compilable gamemode. Decompiling then compiling a gamemode should result in the same functional gamemode.
-*/
-
-`;
+    var result = "";
 
     for (var rule of rules) {
         var decompiledRule = "";
@@ -123,13 +115,13 @@ function astActionsToOpy(actions) {
                 }
             }
 
-            if (!isEndFound) {
+            //Properly checking for a lone elif/else would be difficult as this AST has no concept of "children".
+            //Moreover, a lone elif/else is very probably unintended, as it makes the actions inside it not execute.
+            if (!isEndFound && actions[i].name !== "__elif__" && actions[i].name !== "__else__") {
                 result += tabLevel(nbTabs)+"#Note: this '"+actions[i].name+"' had no 'end' action.\n";
                 console.log("No end found for "+actions[i].name);
 
-                if (actions[i].name === "__elif__" || actions[i].name === "__else__") {
-                    actions[i] = new Ast("__if__", [getAstForFalse()]);
-                } else if (actions[i].name === "__while__") {
+                if (actions[i].name === "__while__") {
                     actions[i].name = "__if__";
                 } else if (actions[i].name === "__for__") {
 
@@ -222,7 +214,7 @@ function astActionsToOpy(actions) {
             }
             decompiledAction += ":";
             nbTabs++;
-        } else if (actions[i].name === "__abortIf__") {
+        } else if (actions[i].name === "__abortIf__" && !currentRuleHasVariableGoto) {
             decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1)+"return";
             
         } else if (actions[i].name === "__abortIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
@@ -271,7 +263,7 @@ function astActionsToOpy(actions) {
             decompiledAction += "if not RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"goto RULE_START";
         } else if (actions[i].name === "__loopIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
             decompiledAction += "if RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"goto RULE_START";
-        }else if (actions[i].name === "__modifyVar__") {
+        } else if (actions[i].name === "__modifyVar__") {
             if (actions[i].args[1].name in funcToOpMapping) {
                 decompiledAction += astToOpy(actions[i].args[0])+" "+funcToOpMapping[actions[i].args[1].name]+" "+astToOpy(actions[i].args[2]);
             } else if (actions[i].args[1].name === "__min__") {
@@ -569,7 +561,12 @@ function astToOpy(content) {
                 //If there is just "current array element", no need to explicitly put it
                 result += astToOpy(content.args[0]);
             } else {
-                result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName+" in "+astToOpy(content.args[0])+"]";
+                result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName+" in ";
+                var opIn = astToOpy(content.args[0]);
+                if (astContainsFunctions(content.args[0], ["__ifThenElse__"])) {
+                    opIn = "("+opIn+")";
+                }
+                result += opIn+"]";
             }
             result += ")";
         } else if (content.name === "__filteredArray__") {

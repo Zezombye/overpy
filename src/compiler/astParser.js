@@ -155,13 +155,6 @@ function parseAst(content) {
         error("Annotations must be at the beginning of the rule");
     }
 
-    for (var i = 0; i < content.args.length; i++) {
-        content.argIndex = i;
-        content.args[i] = parseAst(content.args[i]);
-    }
-    content.argIndex = 0;
-
-
     //Skip if it's a literal or a constant
     if (!["Hero", "Map", "Gamemode", "Team", "Button"].includes(content.type)) {
         if ([
@@ -187,6 +180,18 @@ function parseAst(content) {
             content = new Ast("__format__", [content]);
         }
     }
+    
+    if (!(content.name in funcKw)) {
+        error("Unknown function '"+content.name+"'");
+    }
+
+    //Parse args
+    for (var i = 0; i < content.args.length; i++) {
+        content.argIndex = i;
+        content.args[i] = parseAst(content.args[i]);
+    }
+    content.argIndex = 0;
+
 
     //Manually check types and arguments for the __format__ or __array__ function, as they are the only functions that can take an infinite number of arguments.
     if (content.name === "__format__") {
@@ -211,8 +216,9 @@ function parseAst(content) {
             }
         }
 
-    } else if (content.name in funcKw) {
+    } else {
 
+        //Normalize arguments
         if (content.name === "__for__") {
 
             if (content.args.length !== 1) {
@@ -286,14 +292,25 @@ function parseAst(content) {
             if (!isTypeSuitable(funcKw[content.name].args[i].type, content.args[i].type)) {
                 warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
             }
-            //content.args[i].expectedType = funcKw[content.name].args[i].type;
         }
-
-    } else {
-        error("Unknown function '"+content.name+"'");
     }
 
+    //Set expected type
+    if (content.name !== "__rule__" && content.parent.argIndex !== null) {
+        if (content.parent.name === "__format__" && content.parent.argIndex > 0) {
+            content.expectedType = funcKw[content.parent.name].args[1].type;
+        } else if (content.parent.name === "__array__" || content.parent.name === "__dict__") {
+            content.expectedType = funcKw[content.parent.name].args[0].type;
+        } else if (content.parent.name === "@Condition") {
+            content.expectedType = "bool";
+        } else if (content.parent.name in funcKw) {
+            content.expectedType = funcKw[content.parent.name].args[content.parent.argIndex].type;
+        } else {
+            error("Unknown parent name '"+content.parent.name+"'");
+        }
+    }
 
+    content.argIndex = null;
     for (var i = 0; i < content.children.length; i++) {
         content.childIndex = i;
         //console.log("name = "+content.name+", childIndex = "+content.childIndex+", children = "+content.children.map(x => x.name).join(", "))
@@ -309,8 +326,15 @@ function parseAst(content) {
         }
     }
 
-    if (content.name in astParsingFunctions) {
+    //Optimize, and re-optimize if the function name changed
+    var oldContentName = content.name;
+    while (content.name in astParsingFunctions) {
         content = astParsingFunctions[content.name](content);
+        if (content.name !== oldContentName) {
+            oldContentName = content.name;
+        } else {
+            break;
+        }
     }
     content.childIndex = 0;
 

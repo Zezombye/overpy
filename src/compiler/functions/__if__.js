@@ -21,6 +21,9 @@ astParsingFunctions.__if__ = function(content) {
 
     //Check for "if (not) RULE_CONDITION: return/continue/goto RULE_START".
     if (content.args[0].name === "RULE_CONDITION" || content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION") {
+        //Add useless instructions to keep gotos happy (one for the if, and one for the end)
+        content.parent.children.splice(content.parent.childIndex+1, 0, getAstForUselessInstruction(), getAstForUselessInstruction());
+
         if (content.children.length !== 1) {
             error("Cannot use 'RULE_CONDITION' in that context");
         }
@@ -39,8 +42,24 @@ astParsingFunctions.__if__ = function(content) {
         } else {            
             error("Cannot use 'RULE_CONDITION' in that context");
         }
+    }
 
-        
+    if (enableOptimization) {
+        //if/loop, if/abort, if/skip -> loop if/abort if/skip if
+        //but only if 1 child and no else/elif after the if
+        if (content.children.length === 1 
+                && (content.parent.childIndex === content.parent.children.length-1 || content.parent.children[content.parent.childIndex+1].name !== "__elif__" && content.parent.children[content.parent.childIndex+1].name !== "__else__")
+                && (content.children[0].name === "return" || content.children[0].name === "__loop__" || content.children[0].name === "__skip__")) {
+            //Add useless instructions to keep gotos happy (one for the if, and one for the end)
+            content.parent.children.splice(content.parent.childIndex+1, 0, getAstForUselessInstruction(), getAstForUselessInstruction());
+            if (content.children[0].name === "return") {
+                return new Ast("__abortIf__", [content.args[0]]);
+            } else if (content.children[0].name === "__loop__") {
+                return new Ast("__loopIf__", [content.args[0]]);
+            } else if (content.children[0].name === "__skip__") {
+                return new Ast("__skipIf__", [content.args[0], content.children[0].args[0]]);
+            }
+        }
     }
 
     //Add the "end" function.

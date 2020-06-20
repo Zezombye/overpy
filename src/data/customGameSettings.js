@@ -2255,6 +2255,11 @@ const customGameSettingsSchema =
                         "ru-RU": "Время возрождения тренировочных роботов",
                         "zh-CN": "训练机器人刷新时间",
                         "zh-TW": "訓練機器人重生時間"
+                    },
+                    "enableTrainingPartner": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "en-US": "Training Partner",
                     }
                 }
             },

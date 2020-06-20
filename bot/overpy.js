@@ -1637,21 +1637,29 @@ const actionKw =
                 "name": "CHILD",
                 "description": "The player that will attach to the parent. This player will be unable to move freely until detached or teleported away.",
                 "type": "Player",
-                "default": "EVENT PLAYER",
-            },{
+                "default": "EVENT PLAYER"
+            },
+            {
                 "name": "PARENT",
                 "description": "The player to whom the child will attach. This player's movement will be unaffected and will determine the child's position.",
                 "type": "Player",
-                "default": "LAST CREATED ENTITY",
-            },{
+                "default": "LAST CREATED ENTITY"
+            },
+            {
                 "name": "OFFSET",
                 "description": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head.",
                 "type": "Position",
-                "default": "VECTOR",
+                "default": "VECTOR"
             }
         ],
         "return": "void",
+        "guid": "000000010E4F",
         "en-US": "Attach Players",
+        "es-MX": "Anexar jugadores",
+        "fr-FR": "Attacher les joueurs",
+        "ja-JP": "プレイヤーをくっつける",
+        "pt-BR": "Unir Jogadores",
+        "zh-CN": "绑定玩家"
     },
     "bigMessage": {
         "description": "Displays a large message above the reticle that is visible to specific players.",
@@ -2630,12 +2638,23 @@ const actionKw =
             {
                 "name": "CHILDREN",
                 "description": "The player or players that will become detached from their parent.",
-                "type": ["Player", {"Array": "Player"}],
-                "default": "EVENT PLAYER",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
+        "guid": "000000010E52",
         "en-US": "Detach Players",
+        "es-MX": "Separar jugadores",
+        "fr-FR": "Détacher les joueurs",
+        "ja-JP": "プレイヤーを離れさせる",
+        "pt-BR": "Separar Jogadores",
+        "zh-CN": "解除绑定"
     },
     "disableAnnouncer": {
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
@@ -2966,7 +2985,7 @@ const actionKw =
         "en-US": "End",
         "es-MX": "Fin",
         "fr-FR": "Fin",
-        "ja-JP": "終了",
+        "ja-JP": "END",
         "pt-BR": "Término"
     },
     "__forGlobalVariable__": {
@@ -3545,7 +3564,7 @@ const actionKw =
         "en-US": "Press Button",
         "es-MX": "Presionar botón",
         "fr-FR": "Appuyer sur un bouton",
-        "ja-JP": "ボタンを押させる",
+        "ja-JP": "ボタンを押してください",
         "pt-BR": "Pressionar Botão",
         "zh-CN": "按下按键"
     },
@@ -5019,21 +5038,29 @@ const actionKw =
                 "name": "PLAYER",
                 "description": "The player whose position will be forced. (The reevaluation option does not apply to this value.)",
                 "type": "Player",
-                "default": "EVENT PLAYER",
-            },{
+                "default": "EVENT PLAYER"
+            },
+            {
                 "name": "POSITION",
                 "description": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time.",
                 "type": "Position",
-                "default": "VECTOR",
-            },{
+                "default": "VECTOR"
+            },
+            {
                 "name": "REEVALUATE",
                 "description": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the posiiton is only evaluated once when the action begins.",
                 "type": "bool",
-                "default": "TRUE",
+                "default": "TRUE"
             }
         ],
         "return": "void",
+        "guid": "000000010E85",
         "en-US": "Start Forcing Player Position",
+        "es-MX": "Comenzar a forzar la posición del jugador",
+        "fr-FR": "Forcer la position du joueur",
+        "ja-JP": "プレイヤーの位置強制を開始",
+        "pt-BR": "Começar a Forçar Posição do Jogador",
+        "zh-CN": "开始强制设置玩家位置"
     },
     "startForcingSpawn": {
         "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
@@ -5621,12 +5648,23 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose positions will stop being forced.",
-                "type": ["Player", {"Array": "Player"}],
-                "default": "EVENT PLAYER",
-            },
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            }
         ],
         "return": "void",
+        "guid": "000000010E8D",
         "en-US": "Stop Forcing Player Position",
+        "es-MX": "Dejar de forzar la posición del jugador",
+        "fr-FR": "Arrêter de forcer la position du joueur",
+        "ja-JP": "プレイヤーの位置強制を停止",
+        "pt-BR": "Parar de Forçar Posição do Jogador",
+        "zh-CN": "停止强制设置玩家位置"
     },
     "stopForcingSpawn": {
         "description": "Undoes the effect of the start forcing spawn room action for the specified team.",
@@ -7406,11 +7444,17 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player performing the duplication.",
                 "type": "Player",
-                "default": "EVENT PLAYER",
+                "default": "EVENT PLAYER"
             }
         ],
         "return": "Hero",
+        "guid": "000000010E6A",
         "en-US": "Hero Being Duplicated",
+        "es-MX": "Héroe que está siendo copiado",
+        "fr-FR": "Héros dupliqué",
+        "ja-JP": "コピーされているヒーロー",
+        "pt-BR": "Herói Sendo Duplicado",
+        "zh-CN": "正在复制的英雄"
     },
     "heroIcon": {
         "description": "Converts a hero parameter into a string that shows up as an icon.",
@@ -7828,26 +7872,23 @@ var valueFuncKw =
         "zh-CN": "正在蹲下"
     },
     "_&isInAlternateForm": {
-        "description": `Whether the specified player is currently in an alternate form:
-        
-- Hammond's ball form
-- Baby Dva
-- Bastion's turret and tank forms
-- Lucio's speed song
-- Mercy's pistol
-- Torbjorn's hammer
-
-For Echo duplication, use the Is Duplicating value instead.`,
+        "description": "Whether the specified player is currently in an alternate form:\n        \n- Hammond's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose form to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER",
+                "default": "EVENT PLAYER"
             }
         ],
         "return": "bool",
+        "guid": "000000010E62",
         "en-US": "Is In Alternate Form",
+        "es-MX": "Está en su forma alterna",
+        "fr-FR": "Est dans une forme alternative",
+        "ja-JP": "異なる形態である",
+        "pt-BR": "Está em uma Forma Alternativa",
+        "zh-CN": "处于非初始状态"
     },
     "isInSuddenDeath": {
         "description": "Whether the current game of capture the flag is in sudden death.",
@@ -7910,7 +7951,13 @@ For Echo duplication, use the Is Duplicating value instead.`,
             }
         ],
         "return": "bool",
+        "guid": "000000010E65",
         "en-US": "Is Duplicating",
+        "es-MX": "Está copiando",
+        "fr-FR": "Effectue une duplication",
+        "ja-JP": "コピー中",
+        "pt-BR": "Está Duplicando",
+        "zh-CN": "正在人格复制"
     },
     "_&isFiringPrimaryFire": {
         "description": "Whether the specified player's primary weapon attack is being used.",
@@ -8539,7 +8586,7 @@ For Echo duplication, use the Is Duplicating value instead.`,
         "en-US": "Last Healing Modification ID",
         "es-MX": "ID de modificación de sanación anterior",
         "fr-FR": "Dernier identifiant de modification de soins",
-        "ja-JP": "最新の回復変更ID",
+        "ja-JP": "最新回復変更ID",
         "pt-BR": "ID da última modificação de cura",
         "zh-CN": "上一个治疗调整ID"
     },
@@ -12993,7 +13040,7 @@ const heroKw =
             "fr-FR": "Traquelard",
             "it-IT": "Gancio",
             "ja-JP": "チェイン・フック",
-            "ko-KR": "사슬 갈고리",
+            "ko-KR": "갈고리 사슬",
             "pl-PL": "Hak na Łańcuchu",
             "pt-BR": "Corrente de Gancho",
             "ru-RU": "Цепной крюк",
@@ -15774,7 +15821,7 @@ const constantValues =
             "es-ES": "Abortar cuando sea falso",
             "es-MX": "Cancelar cuando es falso",
             "fr-FR": "Interrompre quand faux",
-            "it-IT": "Annulla quando è falso",
+            "it-IT": "Annulla quando è False",
             "ja-JP": "「FALSE」の場合中止",
             "pl-PL": "Przerwij kiedy to fałsz",
             "pt-BR": "Anular Quando For Falso",
@@ -15800,7 +15847,7 @@ const constantValues =
             "es-ES": "Reiniciar cuando sea verdadero",
             "es-MX": "Reiniciar cuando es verdadero",
             "fr-FR": "Redémarrer quand vrai",
-            "it-IT": "Riparti quando è vero",
+            "it-IT": "Riparti quando è True",
             "ja-JP": "「TRUE」の場合リスタート",
             "pl-PL": "Zrestartuj kiedy to prawda",
             "pt-BR": "Reiniciar Quando For Verdadeiro",
@@ -18881,6 +18928,11 @@ const customGameSettingsSchema =
                         "ru-RU": "Время возрождения тренировочных роботов",
                         "zh-CN": "训练机器人刷新时间",
                         "zh-TW": "訓練機器人重生時間"
+                    },
+                    "enableTrainingPartner": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "en-US": "Training Partner",
                     }
                 }
             },
@@ -21643,7 +21695,7 @@ function isDefinitelyFalsy(content) {
     }
     //Test for number 0
     if (content.name === "__number__") {
-        return (content.args[0].name === 0);
+        return (content.args[0].numValue === 0);
     }
     //Test for arrays, cast as 1st element
     if (content.name === "__array__") {
@@ -21739,6 +21791,13 @@ function getAstForNumber(nb) {
     type += " "+(Number.isInteger(nb) ? "int" : "float");
     return new Ast("__number__", [new Ast(nb.toString(), [], [], "NumberLiteral")], [], type);
 }
+function getAstForBool(bool) {
+    if (bool) {
+        return getAstForTrue();
+    } else {
+        return getAstForFalse();
+    }
+}
 function getAstForNull() {
     return new Ast("null", [], [], "Player");
 }
@@ -21759,6 +21818,9 @@ function getAstForUselessInstruction() {
 }
 function getAstForEnd() {
     return new Ast("__end__");
+}
+function getAstForEmptyArray() {
+    return new Ast("__emptyArray__");
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -21791,7 +21853,7 @@ Moreover, {Array: "Player"} is not suitable for "Array".
 
 The special "Value" type is suitable for any child type of object or array.
 */
-function isTypeSuitable(expectedType, receivedType) {
+function isTypeSuitable(expectedType, receivedType, valueTypeIsSuitable=true) {
 
     //console.log("expected type = "+JSON.stringify(expectedType)+", received type = "+JSON.stringify(receivedType));
 
@@ -21812,9 +21874,9 @@ function isTypeSuitable(expectedType, receivedType) {
                 return true;
             }
             //Handle the special "value" type.
-            if (receivedType === "Value") {
+            if (receivedType === "Value" && valueTypeIsSuitable) {
                 return expectedType === "Value" || expectedType === "Array" || typeMatrix["Object"].includes(expectedType);
-            } else if (expectedType === "Value") {
+            } else if (expectedType === "Value" && valueTypeIsSuitable) {
                 return receivedType === "Array" || typeMatrix["Object"].includes(receivedType);
             } else {
                 //The most simple case: both types are string. Simply use the type matrix to see if the received type is a child (or the type itself) of the expected type.
@@ -23435,6 +23497,9 @@ const typeTree = [
 		"PlaintextStringLiteral",
 	]},
 
+	"Value",
+	"Raycast",
+
 ].concat(Object.keys(constantValues));
 
 //Which types are suitable for a given type.
@@ -24552,15 +24617,7 @@ function decompile(content) {
 
 function astRulesToOpy(rules) {
 
-    var result = `/*
-The decompiler is functional, but not finished.
-It does not support gotos, this mean multi-line actions such as "Abort If" or "Loop If" are not properly decompiled as well.
-Some special functions may also not be properly decompiled.
-
-However, decompilation should yield a compilable gamemode. Decompiling then compiling a gamemode should result in the same functional gamemode.
-*/
-
-`;
+    var result = "";
 
     for (var rule of rules) {
         var decompiledRule = "";
@@ -24656,13 +24713,13 @@ function astActionsToOpy(actions) {
                 }
             }
 
-            if (!isEndFound) {
+            //Properly checking for a lone elif/else would be difficult as this AST has no concept of "children".
+            //Moreover, a lone elif/else is very probably unintended, as it makes the actions inside it not execute.
+            if (!isEndFound && actions[i].name !== "__elif__" && actions[i].name !== "__else__") {
                 result += tabLevel(nbTabs)+"#Note: this '"+actions[i].name+"' had no 'end' action.\n";
                 console.log("No end found for "+actions[i].name);
 
-                if (actions[i].name === "__elif__" || actions[i].name === "__else__") {
-                    actions[i] = new Ast("__if__", [getAstForFalse()]);
-                } else if (actions[i].name === "__while__") {
+                if (actions[i].name === "__while__") {
                     actions[i].name = "__if__";
                 } else if (actions[i].name === "__for__") {
 
@@ -24755,7 +24812,7 @@ function astActionsToOpy(actions) {
             }
             decompiledAction += ":";
             nbTabs++;
-        } else if (actions[i].name === "__abortIf__") {
+        } else if (actions[i].name === "__abortIf__" && !currentRuleHasVariableGoto) {
             decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1)+"return";
             
         } else if (actions[i].name === "__abortIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
@@ -24804,7 +24861,7 @@ function astActionsToOpy(actions) {
             decompiledAction += "if not RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"goto RULE_START";
         } else if (actions[i].name === "__loopIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
             decompiledAction += "if RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"goto RULE_START";
-        }else if (actions[i].name === "__modifyVar__") {
+        } else if (actions[i].name === "__modifyVar__") {
             if (actions[i].args[1].name in funcToOpMapping) {
                 decompiledAction += astToOpy(actions[i].args[0])+" "+funcToOpMapping[actions[i].args[1].name]+" "+astToOpy(actions[i].args[2]);
             } else if (actions[i].args[1].name === "__min__") {
@@ -25102,7 +25159,12 @@ function astToOpy(content) {
                 //If there is just "current array element", no need to explicitly put it
                 result += astToOpy(content.args[0]);
             } else {
-                result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName+" in "+astToOpy(content.args[0])+"]";
+                result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName+" in ";
+                var opIn = astToOpy(content.args[0]);
+                if (astContainsFunctions(content.args[0], ["__ifThenElse__"])) {
+                    opIn = "("+opIn+")";
+                }
+                result += opIn+"]";
             }
             result += ")";
         } else if (content.name === "__filteredArray__") {
@@ -26095,6 +26157,56 @@ astParsingFunctions.__else__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.__equals__ = function(content) {
+    
+    if (enableOptimization) {
+        //If both arguments are numbers, return their comparison.
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForBool(content.args[0].args[0].numValue === content.args[1].args[0].numValue);
+        }
+
+        //A == A -> true
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return getAstForTrue();
+        }
+
+        //A == falsy -> not A
+        if (isDefinitelyFalsy(content.args[0])) {
+            return new Ast("__not__", [content.args[1]]);
+        }
+        if (isDefinitelyFalsy(content.args[1])) {
+            return new Ast("__not__", [content.args[0]]);
+        }
+
+        //A == true -> A if A is bool
+        if (content.args[1].name === "true" && isTypeSuitable("bool", content.args[0].type, false)) {
+            return content.args[0];
+        }
+        if (content.args[0].name === "true" && isTypeSuitable("bool", content.args[1].type, false)) {
+            return content.args[1];
+        }
+    }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__for__ = function(content) {
 
     //Add the "end" function.
@@ -26407,10 +26519,79 @@ function parseLocalizedString(content, formatArgs) {
 
 "use strict";
 
+astParsingFunctions.__greaterThan__ = function(content) {
+    
+    if (enableOptimization) {
+        //If both arguments are numbers, return their comparison.
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForBool(content.args[0].args[0].numValue > content.args[1].args[0].numValue);
+        }
+        //A > A -> false
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return getAstForFalse();
+        }
+    }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__greaterThanOrEquals__ = function(content) {
+    
+    if (enableOptimization) {
+        //If both arguments are numbers, return their comparison.
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForBool(content.args[0].args[0].numValue >= content.args[1].args[0].numValue);
+        }
+        //A >= A -> true
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return getAstForTrue();
+        }
+    }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__if__ = function(content) {
 
     //Check for "if (not) RULE_CONDITION: return/continue/goto RULE_START".
     if (content.args[0].name === "RULE_CONDITION" || content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION") {
+        //Add useless instructions to keep gotos happy (one for the if, and one for the end)
+        content.parent.children.splice(content.parent.childIndex+1, 0, getAstForUselessInstruction(), getAstForUselessInstruction());
+
         if (content.children.length !== 1) {
             error("Cannot use 'RULE_CONDITION' in that context");
         }
@@ -26429,8 +26610,24 @@ astParsingFunctions.__if__ = function(content) {
         } else {            
             error("Cannot use 'RULE_CONDITION' in that context");
         }
+    }
 
-        
+    if (enableOptimization) {
+        //if/loop, if/abort, if/skip -> loop if/abort if/skip if
+        //but only if 1 child and no else/elif after the if
+        if (content.children.length === 1 
+                && (content.parent.childIndex === content.parent.children.length-1 || content.parent.children[content.parent.childIndex+1].name !== "__elif__" && content.parent.children[content.parent.childIndex+1].name !== "__else__")
+                && (content.children[0].name === "return" || content.children[0].name === "__loop__" || content.children[0].name === "__skip__")) {
+            //Add useless instructions to keep gotos happy (one for the if, and one for the end)
+            content.parent.children.splice(content.parent.childIndex+1, 0, getAstForUselessInstruction(), getAstForUselessInstruction());
+            if (content.children[0].name === "return") {
+                return new Ast("__abortIf__", [content.args[0]]);
+            } else if (content.children[0].name === "__loop__") {
+                return new Ast("__loopIf__", [content.args[0]]);
+            } else if (content.children[0].name === "__skip__") {
+                return new Ast("__skipIf__", [content.args[0], content.children[0].args[0]]);
+            }
+        }
     }
 
     //Add the "end" function.
@@ -26460,6 +26657,124 @@ astParsingFunctions.__if__ = function(content) {
 
     return content;
 
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__inequals__ = function(content) {
+    
+    if (enableOptimization) {
+        //If both arguments are numbers, return their comparison.
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForBool(content.args[0].args[0].numValue !== content.args[1].args[0].numValue);
+        }
+
+        //A != A -> true
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return getAstForFalse();
+        }
+
+        //console.log(content);
+
+        //A != falsy -> A if A is bool or if bool is expected
+        if (isDefinitelyFalsy(content.args[1]) && (isTypeSuitable("bool", content.args[0].type, false) || isTypeSuitable("bool", content.expectedType))) {
+            return content.args[0];
+        }
+        if (isDefinitelyFalsy(content.args[0]) && (isTypeSuitable("bool", content.args[1].type, false) || isTypeSuitable("bool", content.expectedType))) {
+            return content.args[1];
+        }
+
+        //A != true -> not A if A is bool
+        if (content.args[1].name === "true" && isTypeSuitable("bool", content.args[0].type, false)) {
+            return new Ast("__not__", [content.args[0]]);
+        }
+        if (content.args[0].name === "true" && isTypeSuitable("bool", content.args[1].type, false)) {
+            return new Ast("__not__", [content.args[1]]);
+        }
+    }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__lessThan__ = function(content) {
+    
+    if (enableOptimization) {
+        //If both arguments are numbers, return their comparison.
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForBool(content.args[0].args[0].numValue < content.args[1].args[0].numValue);
+        }
+        //A < A -> false
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return getAstForFalse();
+        }
+    }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__lessThanOrEquals__ = function(content) {
+    
+    if (enableOptimization) {
+        //If both arguments are numbers, return their comparison.
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForBool(content.args[0].args[0].numValue <= content.args[1].args[0].numValue);
+        }
+        //A <= A -> true
+        if (areAstsEqual(content.args[0], content.args[1])) {
+            return getAstForTrue();
+        }
+    }
+    return content;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -26707,7 +27022,7 @@ astParsingFunctions.__not__ = function(content) {
             return getAstForFalse();
         }
         //not not A -> A
-        if (content.args[0].name === "__not__") {
+        if (content.args[0].name === "__not__" && isTypeSuitable("bool", content.args[0].args[0].type, false)) {
             return content.args[0].args[0];
         }
     }
@@ -27211,6 +27526,22 @@ astParsingFunctions.__valueInArray__ = function(content) {
 
     if (content.args[1].name === "__number__" && content.args[1].args[0].numValue < 0) {
         error("Cannot access the negative index '"+content.args[1].args[0].numValue+"' of an array");
+    }
+
+    if (enableOptimization) {
+        if (content.args[1].name === "__number__") {
+            var arrayIndex = Math.round(content.args[1].args[0].numValue);
+
+            if (content.args[0].name === "__array__") {
+                if (arrayIndex < content.args[0].args.length) {
+                    return content.args[0].args[arrayIndex];
+                } else {
+                    return getAstForNull();
+                }
+            } else if (arrayIndex === 0) {
+                return new Ast("__firstOf__", [content.args[0]]);
+            }
+        }
     }
 
     return content;
@@ -28250,13 +28581,6 @@ function parseAst(content) {
         error("Annotations must be at the beginning of the rule");
     }
 
-    for (var i = 0; i < content.args.length; i++) {
-        content.argIndex = i;
-        content.args[i] = parseAst(content.args[i]);
-    }
-    content.argIndex = 0;
-
-
     //Skip if it's a literal or a constant
     if (!["Hero", "Map", "Gamemode", "Team", "Button"].includes(content.type)) {
         if ([
@@ -28282,6 +28606,18 @@ function parseAst(content) {
             content = new Ast("__format__", [content]);
         }
     }
+    
+    if (!(content.name in funcKw)) {
+        error("Unknown function '"+content.name+"'");
+    }
+
+    //Parse args
+    for (var i = 0; i < content.args.length; i++) {
+        content.argIndex = i;
+        content.args[i] = parseAst(content.args[i]);
+    }
+    content.argIndex = 0;
+
 
     //Manually check types and arguments for the __format__ or __array__ function, as they are the only functions that can take an infinite number of arguments.
     if (content.name === "__format__") {
@@ -28306,8 +28642,9 @@ function parseAst(content) {
             }
         }
 
-    } else if (content.name in funcKw) {
+    } else {
 
+        //Normalize arguments
         if (content.name === "__for__") {
 
             if (content.args.length !== 1) {
@@ -28381,14 +28718,25 @@ function parseAst(content) {
             if (!isTypeSuitable(funcKw[content.name].args[i].type, content.args[i].type)) {
                 warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
             }
-            //content.args[i].expectedType = funcKw[content.name].args[i].type;
         }
-
-    } else {
-        error("Unknown function '"+content.name+"'");
     }
 
+    //Set expected type
+    if (content.name !== "__rule__" && content.parent.argIndex !== null) {
+        if (content.parent.name === "__format__" && content.parent.argIndex > 0) {
+            content.expectedType = funcKw[content.parent.name].args[1].type;
+        } else if (content.parent.name === "__array__" || content.parent.name === "__dict__") {
+            content.expectedType = funcKw[content.parent.name].args[0].type;
+        } else if (content.parent.name === "@Condition") {
+            content.expectedType = "bool";
+        } else if (content.parent.name in funcKw) {
+            content.expectedType = funcKw[content.parent.name].args[content.parent.argIndex].type;
+        } else {
+            error("Unknown parent name '"+content.parent.name+"'");
+        }
+    }
 
+    content.argIndex = null;
     for (var i = 0; i < content.children.length; i++) {
         content.childIndex = i;
         //console.log("name = "+content.name+", childIndex = "+content.childIndex+", children = "+content.children.map(x => x.name).join(", "))
@@ -28404,8 +28752,15 @@ function parseAst(content) {
         }
     }
 
-    if (content.name in astParsingFunctions) {
+    //Optimize, and re-optimize if the function name changed
+    var oldContentName = content.name;
+    while (content.name in astParsingFunctions) {
         content = astParsingFunctions[content.name](content);
+        if (content.name !== oldContentName) {
+            oldContentName = content.name;
+        } else {
+            break;
+        }
     }
     content.childIndex = 0;
 
@@ -29562,33 +29917,37 @@ function parseLiteralArray(content) {
         return new Ast("__emptyArray__");
     }
 
-    //Check for "in" keyword
-    var inOperands = splitTokens(content.slice(1, content.length-1), "in", false);
-    if (inOperands.length === 2) {
+    //Check for "for" keyword
+    var forOperands = splitTokens(content.slice(1, content.length-1), "for");
+    if (forOperands.length === 2) {
 
+        
+        var inOperands = splitTokens(forOperands[1], "in", false);
+        if (inOperands.length !== 2) {
+            error("Expected 'in' after 'for'");
+        }
         var ifOperands = splitTokens(inOperands[1], "if");
 
-        if (ifOperands.length !== 2) {
+        if (ifOperands.length === 1) {
             //Expect something like "[x == y for x in z]"
             //Parse as the pseudo "map" function. Used for the "any"/"all" functions.
             //And well, maybe they will eventually add a map function...
-
-            if (inOperands[0].length < 3) {
-                error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected at least 3");
+            var inOperands = splitTokens(forOperands[1], "in", false);
+            if (inOperands[0].length !== 1) {
+                error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1");
             }
-            if (inOperands[0][inOperands[0].length-2].text !== "for") {
-                error("Malformed '[x for y in z]': expected 'for' but found '"+inOperands[0][inOperands[0].length-2].text+"'");
-            }
-            currentArrayElementNames.push(inOperands[0][inOperands[0].length-1].text);
-            var mappingFunction = parse(inOperands[0].slice(0, inOperands[0].length-2));
+            currentArrayElementNames.push(inOperands[0][0].text);
+            var mappingFunction = parse(forOperands[0]);
             currentArrayElementNames.pop();
 
             return new Ast("__mappedArray__", [parse(inOperands[1]), mappingFunction]);
             
-        } else {
+        } else if (ifOperands.length === 2) {
             //Filtered array
-            if (inOperands[0].length !== 3 || inOperands[0][1].text !== "for" || inOperands[0][0].text !== inOperands[0][2].text) {
-                error("Malformed 'x for x in y'");
+            //Expect something like "[x for x in y if x == 2]"
+            
+            if (forOperands[0].length !== 1 || inOperands[0].length !== 1 || forOperands[0][0].text !== inOperands[0][0].text) {
+                error("Malformed 'x for x in y if z'");
             }
             debug("Parsing 'x for x in y if z', x='"+inOperands[0][0].text+"', y='"+ifOperands[0]+"', z='"+ifOperands[1]+"'");
             
@@ -29597,8 +29956,10 @@ function parseLiteralArray(content) {
             currentArrayElementNames.pop();
 
             return new Ast("__filteredArray__", [parse(ifOperands[0]), condition]);
+        } else {
+            error("Expected 0 or 1 'if' after 'in', but found "+(ifOperands.length-1));
         }
-    } else {
+    } else if (forOperands.length === 1) {
         
         //Literal array with only values ([1,2,3])
         var args = splitTokens(content.slice(1, content.length-1), ",");
@@ -29608,6 +29969,8 @@ function parseLiteralArray(content) {
         }
 
         return new Ast("__array__", args.map(x => parse(x)));
+    } else {
+        error("Expected 0 or 1 'for', but found "+(forOperands.length-1))
     }
 	
 	error("This shouldn't happen");

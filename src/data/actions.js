@@ -158,21 +158,29 @@ const actionKw =
                 "name": "CHILD",
                 "description": "The player that will attach to the parent. This player will be unable to move freely until detached or teleported away.",
                 "type": "Player",
-                "default": "EVENT PLAYER",
-            },{
+                "default": "EVENT PLAYER"
+            },
+            {
                 "name": "PARENT",
                 "description": "The player to whom the child will attach. This player's movement will be unaffected and will determine the child's position.",
                 "type": "Player",
-                "default": "LAST CREATED ENTITY",
-            },{
+                "default": "LAST CREATED ENTITY"
+            },
+            {
                 "name": "OFFSET",
                 "description": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head.",
                 "type": "Position",
-                "default": "VECTOR",
+                "default": "VECTOR"
             }
         ],
         "return": "void",
+        "guid": "000000010E4F",
         "en-US": "Attach Players",
+        "es-MX": "Anexar jugadores",
+        "fr-FR": "Attacher les joueurs",
+        "ja-JP": "プレイヤーをくっつける",
+        "pt-BR": "Unir Jogadores",
+        "zh-CN": "绑定玩家"
     },
     "bigMessage": {
         "description": "Displays a large message above the reticle that is visible to specific players.",
@@ -1151,12 +1159,23 @@ const actionKw =
             {
                 "name": "CHILDREN",
                 "description": "The player or players that will become detached from their parent.",
-                "type": ["Player", {"Array": "Player"}],
-                "default": "EVENT PLAYER",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
+        "guid": "000000010E52",
         "en-US": "Detach Players",
+        "es-MX": "Separar jugadores",
+        "fr-FR": "Détacher les joueurs",
+        "ja-JP": "プレイヤーを離れさせる",
+        "pt-BR": "Separar Jogadores",
+        "zh-CN": "解除绑定"
     },
     "disableAnnouncer": {
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
@@ -1487,7 +1506,7 @@ const actionKw =
         "en-US": "End",
         "es-MX": "Fin",
         "fr-FR": "Fin",
-        "ja-JP": "終了",
+        "ja-JP": "END",
         "pt-BR": "Término"
     },
     "__forGlobalVariable__": {
@@ -2066,7 +2085,7 @@ const actionKw =
         "en-US": "Press Button",
         "es-MX": "Presionar botón",
         "fr-FR": "Appuyer sur un bouton",
-        "ja-JP": "ボタンを押させる",
+        "ja-JP": "ボタンを押してください",
         "pt-BR": "Pressionar Botão",
         "zh-CN": "按下按键"
     },
@@ -3540,21 +3559,29 @@ const actionKw =
                 "name": "PLAYER",
                 "description": "The player whose position will be forced. (The reevaluation option does not apply to this value.)",
                 "type": "Player",
-                "default": "EVENT PLAYER",
-            },{
+                "default": "EVENT PLAYER"
+            },
+            {
                 "name": "POSITION",
                 "description": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time.",
                 "type": "Position",
-                "default": "VECTOR",
-            },{
+                "default": "VECTOR"
+            },
+            {
                 "name": "REEVALUATE",
                 "description": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the posiiton is only evaluated once when the action begins.",
                 "type": "bool",
-                "default": "TRUE",
+                "default": "TRUE"
             }
         ],
         "return": "void",
+        "guid": "000000010E85",
         "en-US": "Start Forcing Player Position",
+        "es-MX": "Comenzar a forzar la posición del jugador",
+        "fr-FR": "Forcer la position du joueur",
+        "ja-JP": "プレイヤーの位置強制を開始",
+        "pt-BR": "Começar a Forçar Posição do Jogador",
+        "zh-CN": "开始强制设置玩家位置"
     },
     "startForcingSpawn": {
         "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
@@ -4142,12 +4169,23 @@ const actionKw =
             {
                 "name": "PLAYER",
                 "description": "The player or players whose positions will stop being forced.",
-                "type": ["Player", {"Array": "Player"}],
-                "default": "EVENT PLAYER",
-            },
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            }
         ],
         "return": "void",
+        "guid": "000000010E8D",
         "en-US": "Stop Forcing Player Position",
+        "es-MX": "Dejar de forzar la posición del jugador",
+        "fr-FR": "Arrêter de forcer la position du joueur",
+        "ja-JP": "プレイヤーの位置強制を停止",
+        "pt-BR": "Parar de Forçar Posição do Jogador",
+        "zh-CN": "停止强制设置玩家位置"
     },
     "stopForcingSpawn": {
         "description": "Undoes the effect of the start forcing spawn room action for the specified team.",

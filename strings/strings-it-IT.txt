@@ -1,14 +1,14 @@
-[Core] DataTool v1.48.0.872-git-388eaf2c98e84f9acbee236d068a6fd0dd9b9c8d
+[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
 [CASC] Set language to itIT
 [CASC] Set speech language to itIT
-[CASC] Overwatch build 1.48.0.0.68780
+[CASC] Overwatch build 1.49.0.0.69939
 [CASC] Initializing...
-[Manifest] Using TRG procedure 68780 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -7802,10 +7802,10 @@ Andrew Wang
 0000000046D4.07C: Al momento le partite competitive non sono disponibili.
 0000000046D5.07C: Oasi
 0000000046D6.07C: Partite di piazzamento
-0000000046D7.07C: +30%% PE (Premium IGR Benefit)
+0000000046D7.07C: +20%% PE (Premium IGR Benefit)
 0000000046D8.07C: PREMIUM IGR BENEFIT
-0000000046D9.07C: BONUS 30%% PE
-0000000046DA.07C: MODELLI LEGENDARY EDITION SBLOCCATI!
+0000000046D9.07C: BONUS 20%% PE
+0000000046DA.07C: MODELLI ORIGINS SBLOCCATI!
 0000000046DB.07C: Partite di piazzamento completate
 0000000046DC.07C: La tua valutazione:
 0000000046E7.07C: ROUND %1$s CONCLUSO
@@ -13690,7 +13690,6 @@ Brian Urbina
 00000000673A.07C: Brindisi
 00000000673C.07C: Tempo supplementare
 00000000673D.07C: Gioca!
-00000000673E.07C: Preparati ad attaccare
 00000000673F.07C: In attesa di giocatori
 000000006740.07C: Miglior gol
 000000006741.07C: %1$s ha fatto GOL!
@@ -15146,8 +15145,8 @@ Puoi ancora accedere alle altre modalità di Overwatch, incluse le partite rapid
 000000007877.07C: Kill
 000000007878.07C: Resurrect
 00000000787C.07C: Ignora condizione
-00000000787D.07C: Annulla quando è falso
-00000000787E.07C: Riparti quando è vero
+00000000787D.07C: Annulla quando è False
+00000000787E.07C: Riparti quando è True
 000000007895.07C: Ongoing - Global
 000000007897.07C: Ongoing - Each Player
 000000007898.07C: Errore: %1$s
@@ -16942,7 +16941,7 @@ Vuoi annullare?
 000000008C78.07C: 
 000000008C7B.07C: Fatto
 000000008C7C.07C: Annullamento
-000000008C7D.07C: Tieni premuto <tx%1$s> / Fatto
+000000008C7D.07C: Tieni premuto %1$s / Fatto
 000000008C7F.07C: Eroico
 000000008C80.07C: CASUALE
 000000008C81.07C: PREDEFINITA
@@ -16983,7 +16982,7 @@ Vuoi annullare?
 000000008CD3.07C: Chibi
 000000008CD4.07C: Pixel
 000000008CE0.07C: Abbandono
-000000008CE1.07C: Tieni premuto <tx%1$s> per abbandonare
+000000008CE1.07C: Tieni premuto %1$s per abbandonare
 000000008CE2.07C: Huang Zhong
 000000008CE3.07C: Stabilisci ruoli
 000000008CE5.07C: Sei stato promosso al livello %1$s!
@@ -17060,7 +17059,6 @@ Vuoi annullare?
 000000008DB5.07C: Elogi non disponibili per gli amici.
 000000008DB6.07C: Hai usato tutti i tuoi elogi per questa partita.
 000000008DCE.07C: Torretta
-000000008DEA.07C: ANNULLA
 000000008DEC.07C: NUMERO DI TELEFONO RICHIESTO.
 000000008DEE.07C: ASSOCIA GLI AVVISI SUL CELLULARE
 000000008DEF.07C: Demone
@@ -17182,10 +17180,10 @@ Vuoi annullare?
 0000000090BF.07C: Trova altri giocatori
 0000000090C0.07C: Trova altri giocatori
 0000000090C1.07C: Finlandia (casa)
-0000000090C2.07C: Tieni premuto <tx%1$s> / Trova altri giocatori
+0000000090C2.07C: Tieni premuto %1$s / Trova altri giocatori
 0000000090C3.07C: Gioca a: %1$s
 0000000090C4.07C: Gioca a: %1$s
-0000000090C5.07C: Tieni premuto <tx%1$s> / Gioca a: %2$s
+0000000090C5.07C: Tieni premuto %1$s / Gioca a: %2$s
 0000000090C6.07C: Hong Kong (casa)
 0000000090C7.07C: Taipei (casa)
 0000000090C8.07C: Medaglia
@@ -17350,7 +17348,7 @@ Vuoi annullare?
 0000000091ED.07C: Travolgi 4 nemici in 2 secondi con Wrecking Ball (Rapida/Competitiva).
 0000000091EE.07C: Slot insufficienti!
 0000000091EF.07C: Modifica formazione
-0000000091F0.07C: Tieni premuto <tx%1$s> / Modifica formazione
+0000000091F0.07C: Tieni premuto %1$s / Modifica formazione
 0000000091F1.07C: Modifica formazione
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -18426,11 +18424,11 @@ Inviaci feedback e commenti per aiutarci a migliorarla.
 00000000AA5D.07C: Paesi Bassi
 00000000AA5E.07C: Francia
 00000000AA5F.07C: Cina - Hangzhou
-00000000AA60.07C:  Cina - Hangzhou 2
+00000000AA60.07C: Cina - Hangzhou 2
 00000000AA61.07C: Corea del Sud
 00000000AA62.07C: Stati Uniti - Sud-ovest
 00000000AA63.07C: Stati Uniti - Ovest
-00000000AA64.07C:  Australia 2
+00000000AA64.07C: Australia 2
 00000000AA65.07C: Australia 3
 00000000AA66.07C: Taiwan
 00000000AA67.07C: Giappone
@@ -19213,7 +19211,7 @@ Inviaci feedback e commenti per aiutarci a migliorarla.
 00000000B22C.07C: Quantità
 00000000B22D.07C: Quantità
 00000000B22E.07C: Punteggio
-00000000B22F.07C: Attendi comportamento
+00000000B22F.07C: Comportamento di Attesa
 00000000B232.07C: Centro
 00000000B233.07C: Squadra
 00000000B236.07C: Centro
@@ -20115,15 +20113,15 @@ Deathmatch competitivo 2019
 00000000BBE6.07C: Incolla
 00000000BBE7.07C: Incolla regola
 00000000BBE8.07C: Evento avviato, ma le Condizioni non sono state soddisfatte.
-00000000BBE9.07C: Evento avviato, le Condizioni sono attualmente vere. Avvio delle Azioni.
-00000000BBEA.07C: Evento avviato, le Condizioni sono attualmente vere. Riavvio delle Azioni a causa di una richiesta di Attesa.
-00000000BBEB.07C: Evento avviato, ma le Azioni non saranno eseguite a causa di una richiesta di Attesa.
-00000000BBEC.07C: Le Condizioni sono diventate vere. Avvio delle Azioni.
-00000000BBED.07C: Le Condizioni sono diventate vere. Riavvio delle Azioni a causa di una richiesta di Attesa.
-00000000BBEE.07C: Le condizioni si sono avverate, ma le Azioni non saranno eseguite a causa di una richiesta di Attesa.
-00000000BBEF.07C: Le Condizioni sono diventate vere, ma nessuna Azione è in esecuzione, quindi non avrà alcun effetto.
-00000000BBF0.07C: Le Condizioni sono diventate false, quindi le Azioni termineranno a causa di una richiesta di Attesa.
-00000000BBF1.07C: Le Condizioni sono diventate false, ma le Azioni non termineranno a causa di una richiesta di Attesa.
+00000000BBE9.07C: Evento avviato, le Condizioni sono attualmente True. Avvio delle Azioni.
+00000000BBEA.07C: Evento avviato, le Condizioni sono attualmente True. Riavvio delle Azioni a causa di un comportamento di Attesa.
+00000000BBEB.07C: Evento avviato, ma le Azioni non saranno eseguite a causa di un comportamento di Attesa.
+00000000BBEC.07C: Le Condizioni sono diventate True. Avvio delle Azioni.
+00000000BBED.07C: Le Condizioni sono diventate True. Riavvio delle Azioni a causa di un comportamento di Attesa.
+00000000BBEE.07C: Le condizioni sono diventate True, ma le Azioni non saranno eseguite a causa di un comportamento di Attesa.
+00000000BBEF.07C: Le Condizioni sono diventate False, ma nessuna Azione è in esecuzione, quindi non avrà alcun effetto.
+00000000BBF0.07C: Le Condizioni sono diventate False, quindi le Azioni termineranno a causa di un comportamento di Attesa.
+00000000BBF1.07C: Le Condizioni sono diventate False, ma le Azioni non termineranno a causa di un comportamento di Attesa.
 00000000BBF2.07C: Un'Azione eseguita
 00000000BBF6.07C: Esempi del Workshop
 00000000BBF7.07C: 9. Gauntlet eroi
@@ -21395,8 +21393,8 @@ Deathmatch competitivo 2019
 00000000C257.07C: Disponibile nei Forzieri Celebrativi
 00000000C259.07C: Specifica se e come l'Attesa può essere interrotta. Se la lista di Condizioni è ignorata, l'Attesa non sarà interrotta. Altrimenti, la lista di Condizioni determinerà se e quando la lista di Azioni sarà annullata o riavviata.
 00000000C25A.07C: L'esecuzione della lista Azioni non viene mai interrotta.
-00000000C25B.07C: L'esecuzione della lista Azioni è interrotta se qualsiasi Condizione di questa Regola diventa Falsa.
-00000000C25C.07C: L'esecuzione della lista Azioni riparte dalla prima Azione se la lista Condizioni passa da Falso a Vero o se l'Evento della Regola avviene di nuovo con Condizioni Vere.
+00000000C25B.07C: L'esecuzione della lista Azioni è interrotta se qualsiasi Condizione di questa Regola diventa False.
+00000000C25C.07C: L'esecuzione della lista Azioni riparte dalla prima Azione se la lista Condizioni passa da False a True o se l'Evento della Regola avviene di nuovo con Condizioni True.
 00000000C25E.07C: Mentre frequentava la scuola superiore, Hana "D.VA" Song ottenne il primo posto nel Mecha Guardian V e vinse il campionato mondiale, superando la sua compagna di squadra Yuna "D.MON" Lee e il suo più grande rivale, Kyung-soo "King" Han.
 00000000C263.07C: Il brillante astrofisico Siebren de Kuiper ottenne la capacità di controllare la forza di gravità dopo un esperimento andato storto. Ora, Talon lo manipola per perseguire i propri scopi.
 00000000C26E.07C: VITTORIA: ottieni più uccisioni degli altri giocatori
@@ -26133,8 +26131,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: Disattiva giroscopio durante l'uso dello stick
 00000000EA2F.07C: Dottoressa Ziegler
 00000000EA3E.07C: Inverti asse imbardata mira giroscopio
-00000000EA40.07C: Partite competitive
-00000000EA41.07C: PARTECIPANDO, OTTIENI QUESTE RICOMPENSE
 00000000EA51.07C: Goat
 00000000EA59.07C: Inverti asse rollata mira giroscopio
 00000000EA5A.07C: (Possiedi)
@@ -26875,6 +26871,8 @@ che inizi la tua partita:
 000000010055.07C: Stagione 21
 000000010056.07C: Stagione 22
 000000010057.07C: Stagione 22
+000000010058.07C: Stagione 23
+000000010059.07C: Stagione 23
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Importa impostazioni dagli appunti
@@ -26882,12 +26880,12 @@ che inizi la tua partita:
 00000001006D.07C: Conferma
 00000001006E.07C: principale
 000000010072.07C: Rotazione eroi
-000000010075.07C: Gli eroi disponibili per la modalità competitiva ruotano periodicamente.
+000000010075.07C: Gli eroi disponibili per la modalità competitiva nelle partite Master e Grandmaster ruotano periodicamente.
 000000010078.07C: Eroi fuori dalla rotazione
 00000001007F.07C: Descrizione
 000000010086.07C: OK
 000000010087.07C: Rotazione eroi
-000000010088.07C: Gli eroi disponibili per la modalità competitiva ruotano periodicamente.
+000000010088.07C: Gli eroi disponibili per la modalità competitiva nelle partite Master e Grandmaster ruotano periodicamente.
 000000010089.07C: Eroi fuori dalla rotazione
 00000001008C.07C: Eroi non disponibili
 000000010091.07C: Risata
@@ -27352,6 +27350,7 @@ che inizi la tua partita:
 0000000108E9.07C: Atlanta Reign Homestand 2020
 0000000108F8.07C: Route 66
 0000000108FE.07C: Piano di volo
+00000001094D.07C: Aliena
 000000010950.07C: Sbloccato per aver guardato gli streaming partecipanti durante l'evento di lancio dell'eroe Echo
 000000010951.07C: Volo
 000000010952.07C: Decollo
@@ -27403,12 +27402,12 @@ che inizi la tua partita:
 - Ottieni punti conquistando gli obiettivi
 - Chi ha più punti vince!
 0000000109FF.07C: L'abilità per l'Evento attualmente elaborato dalla Regola associata al tasto.
-000000010A0B.07C: Concorrente coda aperta competitiva
-000000010A0C.07C: Sbloccato per aver completato le partite di piazzamento nella coda aperta competitiva
-000000010A0D.07C: Eroe coda aperta competitiva
-000000010A0E.07C: Sbloccato per essere entrato nella Top 500 della coda aperta competitiva
-000000010A0F.07C: Concorrente coda aperta competitiva
-000000010A11.07C: Eroe coda aperta competitiva
+000000010A0B.07C: Concorrente Stagione 1 Coda Aperta
+000000010A0C.07C: Sbloccato per aver completato le partite di piazzamento nella coda aperta competitiva, Stagione 1
+000000010A0D.07C: Eroe Stagione 1 Coda Aperta
+000000010A0E.07C: Sbloccato per essere entrato nella Top 500 della coda aperta competitiva, Stagione 1
+000000010A0F.07C: Concorrente Stagione 1 Coda Aperta
+000000010A11.07C: Eroe Stagione 1 Coda Aperta
 000000010A16.07C: Planata
 000000010A17.07C: %1$s %2$s
 000000010A1C.07C: Concentra gli attacchi su Echo dopo un suo utilizzo di Duplicazione per impedirle di lanciare una devastante Ultra.
@@ -27721,7 +27720,69 @@ Assistenza Blizzard
 000000010D22.07C: ANNULLA
 000000010D2B.07C: EMOTE
 000000010D2C.07C: AUDIO
+000000010D5A.07C: Cina - Shenzhen
+000000010D5B.07C: Cina - Chengdu
+000000010D5C.07C: Cina - Pechino 2
 000000010D86.07C: Stanza in lobby
 000000010D88.07C: Stanza in gioco
 000000010D8F.07C: Aggiorna
-[Core] Execution finished in 00:00:00.4594654 seconds
+000000010DC1.07C: Eroe Stagione 23
+000000010DC3.07C: Concorrente Stagione 23
+000000010DC5.07C: Eroe Stagione 23
+000000010DC6.07C: Sbloccato per essere entrato nella Top 500 della Stagione 23
+000000010DC7.07C: Concorrente Stagione 23
+000000010DC8.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 23
+000000010E2A.07C: Stagione 2 coda aperta competitiva
+000000010E2B.07C: Coda aperta competitiva
+000000010E2C.07C: Scala la classifica e affronta i migliori giocatori del mondo senza limiti di ruolo nella selezione degli eroi.
+000000010E46.07C: Coda aperta competitiva
+000000010E47.07C: Coda aperta competitiva
+000000010E4F.07C: Attach Players
+000000010E50.07C: Genitore
+000000010E51.07C: Figlio
+000000010E52.07C: Detach Players
+000000010E53.07C: Figli
+000000010E55.07C: Compensazione
+000000010E5A.07C: Eroe Stagione 2 Coda Aperta
+000000010E5B.07C: Sbloccato per essere entrato nella Top 500 della coda aperta competitiva, Stagione 2
+000000010E5C.07C: Concorrente Stagione 2 Coda Aperta
+000000010E5D.07C: Sbloccato per aver completato le partite di piazzamento nella coda aperta competitiva, Stagione 2
+000000010E5E.07C: Eroe Stagione 2 Coda Aperta
+000000010E5F.07C: Sbloccato per essere entrato nella Top 500 della coda aperta competitiva, Stagione 2
+000000010E60.07C: Concorrente Stagione 2 Coda Aperta
+000000010E61.07C: Sbloccato per aver completato le partite di piazzamento nella coda aperta competitiva, Stagione 2
+000000010E62.07C: Is In Alternate Form
+000000010E63.07C: Specifica se il Giocatore specificato è attualmente in una forma alternativa (come D.VA fuori dal mech, Lúcio durante Vibrazioni Rapide, Bastion in una diversa configurazione, Mercy e Torbjörn con la loro arma secondaria equipaggiata, ecc.) Per la Duplicazione di Echo, usare invece il valore Is Duplicating.
+000000010E64.07C: Il Giocatore la cui forma sarà controllata.
+000000010E65.07C: Is Duplicating
+000000010E66.07C: Specifica se il Giocatore specificato sta eseguendo la Duplicazione su un altro eroe. Per verificare quale eroe, usare il valore Hero Being Duplicated.
+000000010E67.07C: Il Giocatore il cui stato della Duplicazione sarà controllato.
+000000010E68.07C: Sbloccato per essere entrato nella Top 500 della coda aperta competitiva, Stagione 1
+000000010E69.07C: Sbloccato per aver completato le partite di piazzamento nella coda aperta competitiva, Stagione 1
+000000010E6A.07C: Hero Being Duplicated
+000000010E6B.07C: L'eroe che sta subendo la Duplicazione da parte del Giocatore specificato. Se nessun eroe sta subendo la Duplicazione, il valore risultante è 0.
+000000010E6C.07C: Giocatore
+000000010E6D.07C: Il Giocatore che esegue la Duplicazione.
+000000010E70.07C: Ritorno in coda con priorità
+000000010E7F.07C: Lega un Giocatore (il Figlio) a un altro Giocatore (il Genitore). Una volta legato, il Figlio non potrà muoversi liberamente finché non si separerà o sarà teletrasportato altrove. È possibile legare più Figli allo stesso Genitore, ma non viceversa.
+000000010E80.07C: Il Giocatore che si legherà al Genitore. Questo Giocatore non potrà muoversi liberamente finché non si separerà o sarà teletrasportato altrove.
+000000010E81.07C: Il Giocatore a cui si legherà il Figlio. Il movimento di questo Giocatore non ne sarà influenzato e determinerà la posizione del Figlio.
+000000010E82.07C: Le coordinate del Figlio relativamente al Genitore. Per esempio, Vector(1, 2, 0) indica sopra e a sinistra della testa del Genitore.
+000000010E83.07C: Annulla il legame creato dall'azione Attach Players per uno o più Giocatori. Questi Giocatori riprenderanno il movimento regolare dalla loro posizione attuale.
+000000010E84.07C: Il Giocatore o i Giocatori che si separeranno dal proprio Genitore.
+000000010E85.07C: Start Forcing Player Position
+000000010E86.07C: Inizia a forzare un Giocatore a raggiungere una determinata posizione. Se Rivalutazione è attivata, la Posizione viene valutata a ogni frame, permettendo di spostare il Giocatore nel corso del tempo.
+000000010E87.07C: Rivalutazione
+000000010E88.07C: Posizione
+000000010E89.07C: Giocatore
+000000010E8A.07C: Il Giocatore la cui posizione sarà forzata. L'opzione Rivalutazione non si applica a questo valore.
+000000010E8B.07C: La posizione che occuperà il Giocatore. Se la Rivalutazione è attivata, questo valore può essere usato per spostare il Giocatore nel corso del tempo.
+000000010E8C.07C: Se questo valore è True, la Posizione sarà rivalutata e applicata al Giocatore a ogni frame. Se questo valore è False, la Posizione sarà valutata solo una volta all'inizio dell'azione.
+000000010E8D.07C: Stop Forcing Player Position
+000000010E8E.07C: Annulla il comportamento di Start Forcing Player Position per il Giocatore o i Giocatori specificati. Il movimento regolare riprenderà dall'ultima o dalle ultime posizioni forzate.
+000000010E8F.07C: Giocatore
+000000010E90.07C: Il Giocatore o i Giocatori la cui posizione cesserà di essere forzata.
+000000010E95.07C: MVP sinatraa Overwatch League 2019
+000000010E9F.07C: Modello leggendario Aliena
+000000010EEC.07C: Trova altri giocatori
+[Core] Execution finished in 00:00:00.4135885 seconds

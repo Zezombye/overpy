@@ -54,3 +54,26 @@ rule "special if with RULE_CONDITION":
         
 
     while RULE_CONDITION
+
+rule "abort/loop/skip if":
+    if A:
+        goto loc+B
+    
+    if A:
+        goto lbl_0
+    
+    if A:
+        goto RULE_START
+        B++
+
+    if A:
+        goto RULE_START
+
+    if A:
+        goto RULE_START
+    else:
+        B++
+    
+    lbl_0:
+    if A:
+        return

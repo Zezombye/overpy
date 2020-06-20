@@ -17,17 +17,13 @@
 
 "use strict";
 
-astParsingFunctions.__greaterThan__ = function(content) {
-    
+astParsingFunctions.__xComponentOf__ = function(content) {
+
     if (enableOptimization) {
-        //If both arguments are numbers, return their comparison.
-        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            return getAstForBool(content.args[0].args[0].numValue > content.args[1].args[0].numValue);
-        }
-        //A > A -> false
-        if (areAstsEqual(content.args[0], content.args[1])) {
-            return getAstForFalse();
+        if (content.args[0].name === "vect") {
+            return content.args[0].args[0];
         }
     }
+    
     return content;
 }

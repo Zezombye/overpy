@@ -1,14 +1,14 @@
-[Core] DataTool v1.48.0.872-git-388eaf2c98e84f9acbee236d068a6fd0dd9b9c8d
+[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
 [CASC] Set language to zhTW
 [CASC] Set speech language to zhTW
-[CASC] Overwatch build 1.48.0.0.68780
+[CASC] Overwatch build 1.49.0.0.69939
 [CASC] Initializing...
-[Manifest] Using TRG procedure 68780 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
+[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -7804,10 +7804,10 @@ Andrew Wang
 0000000046D4.07C: 目前不開放競技對戰
 0000000046D5.07C: 綠洲城
 0000000046D6.07C: 預選賽
-0000000046D7.07C: +30%%經驗值（網咖加成）
+0000000046D7.07C: +20%%經驗值（網咖加成）
 0000000046D8.07C: 網咖加成
-0000000046D9.07C: 30%%經驗值獎勵
-0000000046DA.07C: 解鎖傳奇版造型
+0000000046D9.07C: 20%%經驗值獎勵
+0000000046DA.07C: 解鎖啟元版造型
 0000000046DB.07C: 預選賽結束
 0000000046DC.07C: 你的實力排名：
 0000000046E7.07C: 第%1$s回合結束
@@ -13691,7 +13691,6 @@ Brian Urbina
 00000000673A.07C: 舉杯
 00000000673C.07C: 延長賽
 00000000673D.07C: 進行中！
-00000000673E.07C: 準備進攻
 00000000673F.07C: 等待玩家
 000000006740.07C: 最佳進球
 000000006741.07C: %1$s進球得分！
@@ -16935,7 +16934,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008C78.07C: 
 000000008C7B.07C: 完成
 000000008C7C.07C: 正在取消
-000000008C7D.07C: 按住<tx%1$s>停止組隊
+000000008C7D.07C: 按住%1$s停止組隊
 000000008C7F.07C: 預設
 000000008C80.07C: 隨機
 000000008C81.07C: 預設
@@ -16976,7 +16975,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008CD3.07C: 可愛版
 000000008CD4.07C: 像素化
 000000008CE0.07C: 正在離開
-000000008CE1.07C: 按住<tx%1$s>以離開
+000000008CE1.07C: 按住%1$s以離開
 000000008CE2.07C: 黃忠
 000000008CE3.07C: 強制選擇角色類型
 000000008CE5.07C: 你的表揚等級提升至等級%1$s！
@@ -17053,8 +17052,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008DB5.07C: 無法表揚好友
 000000008DB6.07C: 你已經用完了本次對戰可用的表揚次數。
 000000008DCE.07C: 砲塔
-000000008DEA.07C: 取消
-000000008DEC.07C: 需要使用綁定手機號碼。
+000000008DEC.07C: 需綁定手機號碼
 000000008DEE.07C: 綁定簡訊安全通知
 000000008DEF.07C: 惡魔
 000000008DF2.07C: https://account.blizzard.com/details/sms/setup/add
@@ -17171,10 +17169,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000090BF.07C: 尋找更多玩家
 0000000090C0.07C: 尋找更多玩家
 0000000090C1.07C: 芬蘭（主場）
-0000000090C2.07C: 按住<tx%1$s>尋找更多玩家
+0000000090C2.07C: 按住%1$s尋找更多玩家
 0000000090C3.07C: 進行%1$s
 0000000090C4.07C: 進行%1$s
-0000000090C5.07C: 按住<tx%1$s>進行%2$s
+0000000090C5.07C: 按住%1$s進行%2$s
 0000000090C6.07C: 香港（主場）
 0000000090C7.07C: 中華台北（主場）
 0000000090C8.07C: 奪牌
@@ -17339,7 +17337,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000091ED.07C: 在快速對戰或競技對戰中，在2秒內以火爆鋼球輾過4名敵人
 0000000091EE.07C: 團隊空位不足！
 0000000091EF.07C: 編輯團隊
-0000000091F0.07C: 按住<tx%1$s>編輯團隊
+0000000091F0.07C: 按住%1$s編輯團隊
 0000000091F1.07C: 編輯團隊
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -26110,8 +26108,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: 使用搖桿時停用陀螺儀
 00000000EA2F.07C: 齊格勒醫生
 00000000EA3E.07C: 反轉陀螺儀瞄準垂直軸
-00000000EA40.07C: 競技對戰
-00000000EA41.07C: 加入對戰，贏得獎勵！
 00000000EA51.07C: 無敵陣容
 00000000EA59.07C: 反轉陀螺儀瞄準翻滾軸
 00000000EA5A.07C: （已擁有）
@@ -26851,6 +26847,8 @@ https://account.blizzard.com/connections/nintendo
 000000010055.07C: 第21賽季
 000000010056.07C: 第22賽季
 000000010057.07C: 第22賽季
+000000010058.07C: 第23賽季
+000000010059.07C: 第23賽季
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: 從剪貼簿匯出設定
@@ -26858,12 +26856,12 @@ https://account.blizzard.com/connections/nintendo
 00000001006D.07C: 確定
 00000001006E.07C: 主要
 000000010072.07C: 英雄輪替
-000000010075.07C: 競技對戰可使用的英雄會週期性輪替。
+000000010075.07C: 大師與宗師階級競技對戰可使用的英雄會週期性輪替。
 000000010078.07C: 輪替外的英雄
 00000001007F.07C: 敘述
 000000010086.07C: 確定
 000000010087.07C: 英雄輪替
-000000010088.07C: 競技對戰可使用的英雄會週期性輪替。
+000000010088.07C: 大師與宗師階級競技對戰可使用的英雄會週期性輪替。
 000000010089.07C: 輪替外的英雄
 00000001008C.07C: 無法使用的英雄
 000000010091.07C: 狂氣之笑
@@ -27326,6 +27324,7 @@ https://account.blizzard.com/connections/nintendo
 0000000108E9.07C: Atlanta Reign 2020年主場賽
 0000000108F8.07C: 66號公路
 0000000108FE.07C: 飛行計畫
+00000001094D.07C: 外星人
 000000010950.07C: 迴音推出活動期間觀看相關直播即可解鎖
 000000010951.07C: 升空
 000000010952.07C: 起飛
@@ -27377,12 +27376,12 @@ https://account.blizzard.com/connections/nintendo
 - 完成目標可獲得分數
 - 分數最高的那一隊獲勝！
 0000000109FF.07C: The ability for the Event currently being processed by this Rule associated by button.
-000000010A0B.07C: 自由佇列競技選手
-000000010A0C.07C: 完成自由佇列競技對戰預選賽即可解鎖
-000000010A0D.07C: 自由佇列競技精英
-000000010A0E.07C: 在自由佇列競技對戰進入前500名即可解鎖
-000000010A0F.07C: 自由佇列競技選手
-000000010A11.07C: 自由佇列競技精英
+000000010A0B.07C: 自由佇列第1賽季選手
+000000010A0C.07C: 完成自由佇列競技對戰第1賽季預選賽即可解鎖
+000000010A0D.07C: 自由佇列第1賽季精英
+000000010A0E.07C: 在自由佇列競技對戰第1賽季進入前500名即可解鎖
+000000010A0F.07C: 自由佇列第1賽季選手
+000000010A11.07C: 自由佇列第1賽季精英
 000000010A16.07C: 滑翔
 000000010A17.07C: %1$s %2$s
 000000010A1C.07C: 迴音使用複製後，快速對她集中攻擊以阻止她使用強大的絕招。
@@ -27521,8 +27520,8 @@ https://account.blizzard.com/connections/nintendo
 000000010ADC.07C: %1$s對%2$s說：我跟你一起行動。
 000000010ADD.07C: %1$s對你說：跟我一起進攻！
 000000010ADE.07C: %1$s對%2$s說：跟我一起進攻！
-000000010ADF.07C: %1$s對你說：我馬上來！
-000000010AE0.07C: %1$s對%2$s說：我馬上來！
+000000010ADF.07C: %1$s對你說：我馬上到！
+000000010AE0.07C: %1$s對%2$s說：我馬上到！
 000000010AE1.07C: %1$s對你說：我要行動了！
 000000010AE2.07C: %1$s對%2$s說：我要行動了！
 000000010AE3.07C: %1$s對你說：跟我一起防守！
@@ -27545,7 +27544,7 @@ https://account.blizzard.com/connections/nintendo
 000000010AFC.07C: %1$s說：敵人來襲！
 000000010AFD.07C: %1$s說：我跟你一起行動！
 000000010AFE.07C: %1$s說：我要行動了！
-000000010AFF.07C: %1$s說：我馬上來。
+000000010AFF.07C: %1$s說：我馬上到。
 000000010B00.07C: %1$s說：跟我一起進攻！
 000000010B03.07C: %1$s說：跟我一起防守！
 000000010B04.07C: %1$s說：我需要支援！
@@ -27694,7 +27693,69 @@ https://account.blizzard.com/connections/nintendo
 000000010D22.07C: 取消
 000000010D2B.07C: 表情
 000000010D2C.07C: 語音
+000000010D5A.07C: 深圳
+000000010D5B.07C: 成都
+000000010D5C.07C: 北京2
 000000010D86.07C: 大廳有足夠位置
 000000010D88.07C: 遊戲有足夠位置
 000000010D8F.07C: 更新
-[Core] Execution finished in 00:00:00.4308976 seconds
+000000010DC1.07C: 第23賽季精英
+000000010DC3.07C: 第23賽季選手
+000000010DC5.07C: 第23賽季精英
+000000010DC6.07C: 在第23賽季進入前500名即可解鎖
+000000010DC7.07C: 第23賽季選手
+000000010DC8.07C: 完成第23賽季預選賽即可解鎖
+000000010E2A.07C: 自由佇列競技對戰第2賽季
+000000010E2B.07C: 自由佇列競技對戰
+000000010E2C.07C: 提高排名，和全世界頂尖的好手一同競賽，選擇英雄時沒有角色類型限制。
+000000010E46.07C: 自由佇列競技對戰
+000000010E47.07C: 自由佇列競技對戰
+000000010E4F.07C: Attach Players
+000000010E50.07C: Parent
+000000010E51.07C: Child
+000000010E52.07C: Detach Players
+000000010E53.07C: Children
+000000010E55.07C: Offset
+000000010E5A.07C: 自由佇列第2賽季精英
+000000010E5B.07C: 在自由佇列競技對戰第2賽季進入前500名即可解鎖
+000000010E5C.07C: 自由佇列第2賽季選手
+000000010E5D.07C: 完成自由佇列競技對戰第2賽季預選賽即可解鎖
+000000010E5E.07C: 自由佇列第2賽季精英
+000000010E5F.07C: 在自由佇列競技對戰第2賽季進入前500名即可解鎖
+000000010E60.07C: 自由佇列第2賽季選手
+000000010E61.07C: 完成自由佇列競技對戰第2賽季預選賽即可解鎖
+000000010E62.07C: Is In Alternate Form
+000000010E63.07C: Whether the specified Player is currently in an alternate form (such as D.Va outside of mech, Lúcio using his speed song, Bastion in a different configuration, Mercy and Torbjörn with their secondary weapon equipped, etc.). For Echo duplication, use the Is Duplicating value instead.
+000000010E64.07C: The Player whose form to check.
+000000010E65.07C: Is Duplicating
+000000010E66.07C: Whether the specified Player is duplicating another hero. (To check which hero, use the Hero Being Duplicated value.)
+000000010E67.07C: The Player whose duplication status to check.
+000000010E68.07C: 在自由佇列競技對戰第1賽季進入前500名即可解鎖
+000000010E69.07C: 完成自由佇列競技對戰第1賽季預選賽即可解鎖
+000000010E6A.07C: Hero Being Duplicated
+000000010E6B.07C: The hero currently being duplicated by the specified Player. If no hero is being duplicated, the resulting value is 0.
+000000010E6C.07C: Player
+000000010E6D.07C: The Player performing the duplication.
+000000010E70.07C: 優先重新加入佇列
+000000010E7F.07C: Attaches one Player (the Child) to another Player (the Parent). Once attached, the Child will be unable to move freely until detached or teleported away. Multiple children may be attached to the same Parent (but not vice versa).
+000000010E80.07C: The Player that will attach to the Parent. This Player will be unable to move freely until detached or teleported away.
+000000010E81.07C: The Player to whom the Child will attach. This Player's movement will be unaffected and will determine the Child's position.
+000000010E82.07C: The coordinates of the Child relative to the Parent. For example, Vector(1, 2, 0) would be above and to the left of the Parent's head.
+000000010E83.07C: Undoes the attachment caused by the Attach Players action for one or more Players. These Players will resume normal movement from their current position.
+000000010E84.07C: The Player or Players that will become detached from their Parent.
+000000010E85.07C: Start Forcing Player Position
+000000010E86.07C: Starts forcing a Player to be in a given position. If Reevaluation is enabled, then the Position is evaluated every frame, allowing the Player to be moved around over time.
+000000010E87.07C: Reevaluation
+000000010E88.07C: Position
+000000010E89.07C: Player
+000000010E8A.07C: The Player whose position will be forced. (The Reevaluation option does not apply to this value.)
+000000010E8B.07C: The position the Player will occupy. If Reevaluation is enabled, this value can be used to move the Player around over time.
+000000010E8C.07C: If this value is True, then Position will be reevaluated and applied to the Player every frame. If this value is False, then the Position is only evaluated once when the action begins.
+000000010E8D.07C: Stop Forcing Player Position
+000000010E8E.07C: Cancels the behavior of Start Forcing Player Position for the specified Player or Players. Regular movement will resume from the last forced position(s).
+000000010E8F.07C: Player
+000000010E90.07C: The Player or Players whose positions will stop being forced.
+000000010E95.07C: 2019年《鬥陣特攻》職業電競聯賽MVP sinatraa
+000000010E9F.07C: 外星人傳奇造型
+000000010EEC.07C: 尋找更多玩家
+[Core] Execution finished in 00:00:00.4187445 seconds

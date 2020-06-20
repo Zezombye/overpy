@@ -36,5 +36,21 @@ astParsingFunctions.__valueInArray__ = function(content) {
         error("Cannot access the negative index '"+content.args[1].args[0].numValue+"' of an array");
     }
 
+    if (enableOptimization) {
+        if (content.args[1].name === "__number__") {
+            var arrayIndex = Math.round(content.args[1].args[0].numValue);
+
+            if (content.args[0].name === "__array__") {
+                if (arrayIndex < content.args[0].args.length) {
+                    return content.args[0].args[arrayIndex];
+                } else {
+                    return getAstForNull();
+                }
+            } else if (arrayIndex === 0) {
+                return new Ast("__firstOf__", [content.args[0]]);
+            }
+        }
+    }
+
     return content;
 }

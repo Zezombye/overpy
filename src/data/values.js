@@ -1531,11 +1531,17 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player performing the duplication.",
                 "type": "Player",
-                "default": "EVENT PLAYER",
+                "default": "EVENT PLAYER"
             }
         ],
         "return": "Hero",
+        "guid": "000000010E6A",
         "en-US": "Hero Being Duplicated",
+        "es-MX": "Héroe que está siendo copiado",
+        "fr-FR": "Héros dupliqué",
+        "ja-JP": "コピーされているヒーロー",
+        "pt-BR": "Herói Sendo Duplicado",
+        "zh-CN": "正在复制的英雄"
     },
     "heroIcon": {
         "description": "Converts a hero parameter into a string that shows up as an icon.",
@@ -1953,26 +1959,23 @@ var valueFuncKw =
         "zh-CN": "正在蹲下"
     },
     "_&isInAlternateForm": {
-        "description": `Whether the specified player is currently in an alternate form:
-        
-- Hammond's ball form
-- Baby Dva
-- Bastion's turret and tank forms
-- Lucio's speed song
-- Mercy's pistol
-- Torbjorn's hammer
-
-For Echo duplication, use the Is Duplicating value instead.`,
+        "description": "Whether the specified player is currently in an alternate form:\n        \n- Hammond's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead.",
         "args": [
             {
                 "name": "PLAYER",
                 "description": "The player whose form to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER",
+                "default": "EVENT PLAYER"
             }
         ],
         "return": "bool",
+        "guid": "000000010E62",
         "en-US": "Is In Alternate Form",
+        "es-MX": "Está en su forma alterna",
+        "fr-FR": "Est dans une forme alternative",
+        "ja-JP": "異なる形態である",
+        "pt-BR": "Está em uma Forma Alternativa",
+        "zh-CN": "处于非初始状态"
     },
     "isInSuddenDeath": {
         "description": "Whether the current game of capture the flag is in sudden death.",
@@ -2035,7 +2038,13 @@ For Echo duplication, use the Is Duplicating value instead.`,
             }
         ],
         "return": "bool",
+        "guid": "000000010E65",
         "en-US": "Is Duplicating",
+        "es-MX": "Está copiando",
+        "fr-FR": "Effectue une duplication",
+        "ja-JP": "コピー中",
+        "pt-BR": "Está Duplicando",
+        "zh-CN": "正在人格复制"
     },
     "_&isFiringPrimaryFire": {
         "description": "Whether the specified player's primary weapon attack is being used.",
@@ -2664,7 +2673,7 @@ For Echo duplication, use the Is Duplicating value instead.`,
         "en-US": "Last Healing Modification ID",
         "es-MX": "ID de modificación de sanación anterior",
         "fr-FR": "Dernier identifiant de modification de soins",
-        "ja-JP": "最新の回復変更ID",
+        "ja-JP": "最新回復変更ID",
         "pt-BR": "ID da última modificação de cura",
         "zh-CN": "上一个治疗调整ID"
     },

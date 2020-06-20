@@ -120,7 +120,7 @@ function isDefinitelyFalsy(content) {
     }
     //Test for number 0
     if (content.name === "__number__") {
-        return (content.args[0].name === 0);
+        return (content.args[0].numValue === 0);
     }
     //Test for arrays, cast as 1st element
     if (content.name === "__array__") {
@@ -216,6 +216,13 @@ function getAstForNumber(nb) {
     type += " "+(Number.isInteger(nb) ? "int" : "float");
     return new Ast("__number__", [new Ast(nb.toString(), [], [], "NumberLiteral")], [], type);
 }
+function getAstForBool(bool) {
+    if (bool) {
+        return getAstForTrue();
+    } else {
+        return getAstForFalse();
+    }
+}
 function getAstForNull() {
     return new Ast("null", [], [], "Player");
 }
@@ -236,4 +243,7 @@ function getAstForUselessInstruction() {
 }
 function getAstForEnd() {
     return new Ast("__end__");
+}
+function getAstForEmptyArray() {
+    return new Ast("__emptyArray__");
 }

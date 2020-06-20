@@ -1,14 +1,14 @@
-[Core] DataTool v1.48.0.872-git-388eaf2c98e84f9acbee236d068a6fd0dd9b9c8d
+[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
 [CASC] Set language to ptBR
 [CASC] Set speech language to ptBR
-[CASC] Overwatch build 1.48.0.0.68780
+[CASC] Overwatch build 1.49.0.0.69939
 [CASC] Initializing...
-[Manifest] Using TRG procedure 68780 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -7803,10 +7803,10 @@ Andrew Wang
 0000000046D4.07C: O Jogo Competitivo não está disponível no momento.
 0000000046D5.07C: Oasis
 0000000046D6.07C: Partidas de posicionamento
-0000000046D7.07C: +30%% Exp (Benefício premium da IGR)
+0000000046D7.07C: +20%% Exp (Benefício premium da IGR)
 0000000046D8.07C: BENEFÍCIO PREMIUM DA IGR
-0000000046D9.07C: +30%% EXP ADICIONAL
-0000000046DA.07C: VISUAIS DA LEGENDARY EDITION DESBLOQUEADOS!
+0000000046D9.07C: +20%% EXP ADICIONAL
+0000000046DA.07C: VISUAIS ORIGINS DESBLOQUEADOS!
 0000000046DB.07C: Partidas de posicionamento concluídas
 0000000046DC.07C: Seu ranque:
 0000000046E7.07C: RODADA %1$s CONCLUÍDA
@@ -13690,7 +13690,6 @@ Brian Urbina
 00000000673A.07C: Brinde
 00000000673C.07C: Prorrogação
 00000000673D.07C: Jogar!
-00000000673E.07C: Prepare-se para atacar
 00000000673F.07C: Aguardando jogadores
 000000006740.07C: Gol no futebol
 000000006741.07C: %1$s marcou um GOL!
@@ -16937,7 +16936,7 @@ Deseja cancelar?
 000000008C78.07C: 
 000000008C7B.07C: Pronto
 000000008C7C.07C: Cancelando
-000000008C7D.07C: Segure <tx%1$s> / Pronto 
+000000008C7D.07C: Segure %1$s / Pronto 
 000000008C7F.07C: Heroico
 000000008C80.07C: ALEATÓRIO
 000000008C81.07C: PADRÃO
@@ -16978,7 +16977,7 @@ Deseja cancelar?
 000000008CD3.07C: Fofinho
 000000008CD4.07C: Pixel
 000000008CE0.07C: Saindo
-000000008CE1.07C: Segure <tx%1$s> para sair
+000000008CE1.07C: Segure %1$s para sair
 000000008CE2.07C: Huang Zhong
 000000008CE3.07C: Impor funções
 000000008CE5.07C: Você recebeu uma promoção para o nível %1$s!
@@ -17055,7 +17054,6 @@ Deseja cancelar?
 000000008DB5.07C: Indicações indisponíveis para amigos.
 000000008DB6.07C: Você usou todas as suas indicações para este confronto.
 000000008DCE.07C: Torre
-000000008DEA.07C: CANCELAR
 000000008DEC.07C: FORNEÇA UM TELEFONE.
 000000008DEE.07C: VINCULAR ALERTA SMS
 000000008DEF.07C: Demônio
@@ -17175,10 +17173,10 @@ Competitiva 2018
 0000000090BF.07C: Encontrar mais jogadores
 0000000090C0.07C: Encontrar mais jogadores
 0000000090C1.07C: Finlândia (Casa)
-0000000090C2.07C: Segure <tx%1$s> / Encontrar mais jogadores
+0000000090C2.07C: Segure %1$s / Encontrar mais jogadores
 0000000090C3.07C: Jogar %1$s
 0000000090C4.07C: Jogar %1$s
-0000000090C5.07C: Segure <tx%1$s> / Jogar %2$s
+0000000090C5.07C: Segure %1$s / Jogar %2$s
 0000000090C6.07C: Hong Kong (Casa)
 0000000090C7.07C: Taipé (Casa)
 0000000090C8.07C: Medalha
@@ -17343,7 +17341,7 @@ Competitiva 2018
 0000000091ED.07C: Passe rolando por cima de 4 inimigos em 2 segundos com Wrecking Ball no Jogo Rápido ou Competitivo.
 0000000091EE.07C: Sem vagas suficientes!
 0000000091EF.07C: Editar grupo
-0000000091F0.07C: Segurar <tx%1$s>/Editar grupo
+0000000091F0.07C: Segure %1$s / Editar grupo
 0000000091F1.07C: Editar grupo
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -18417,11 +18415,11 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000AA5D.07C: Holanda
 00000000AA5E.07C: França
 00000000AA5F.07C: China - Hangzhou
-00000000AA60.07C:  China - Hangzhou 2
+00000000AA60.07C: China - Hangzhou 2
 00000000AA61.07C: Coreia do Sul
 00000000AA62.07C: EUA - Sudeste
 00000000AA63.07C: EUA - Oeste
-00000000AA64.07C:  Austrália 2
+00000000AA64.07C: Austrália 2
 00000000AA65.07C: Austrália 3
 00000000AA66.07C: Taiwan
 00000000AA67.07C: Japão
@@ -21725,7 +21723,7 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000C478.07C: O texto sempre ficará totalmente visível, mesmo que esteja atrás de uma parede ou objeto sólido.
 00000000C479.07C: Destino e Duração
 00000000C47D.07C: Boas-vindas ao Workshop!
-00000000C47E.07C: Crie novas formas de jogar! Acesse os fóruns da Oficina para tirar dúvidas, compartilhar ideias e encontrar exemplos!
+00000000C47E.07C: Crie novas formas de jogar! Acesse os fóruns do Workshop para tirar dúvidas, compartilhar ideias e encontrar exemplos!
 00000000C47F.07C: Acessar fóruns
 00000000C480.07C: https://us.forums.blizzard.com/en/overwatch/c/workshop
 00000000C481.07C: Isso abrirá um navegador em outra janela
@@ -26114,8 +26112,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: Desativar Giroscópio ao Usar o Controle Analógico
 00000000EA2F.07C: Dr.ª Ziegler
 00000000EA3E.07C: Inverter Eixo Vertical da Mira Giroscópica
-00000000EA40.07C: Jogo Competitivo
-00000000EA41.07C: PARTICIPE PARA GANHAR ESTES PRÊMIOS
 00000000EA51.07C: Goats
 00000000EA59.07C: Inverter Eixo Longitudinal da Mira Giroscópica
 00000000EA5A.07C: (Já tem)
@@ -26855,6 +26851,8 @@ https://account.blizzard.com/connections/nintendo
 000000010055.07C: Temporada 21
 000000010056.07C: Temporada 22
 000000010057.07C: Temporada 22
+000000010058.07C: Temporada 23
+000000010059.07C: Temporada 23
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Importar Configurações da Área de Transferência
@@ -26862,12 +26860,12 @@ https://account.blizzard.com/connections/nintendo
 00000001006D.07C: Confirmar
 00000001006E.07C: principal
 000000010072.07C: Rodízio de heróis
-000000010075.07C: Os heróis disponíveis para o jogo competitivo mudam periodicamente.
+000000010075.07C: Os heróis disponíveis no jogo competitivo mudam periodicamente nas partidas Mestre e Grão-mestre.
 000000010078.07C: Heróis fora do rodízio
 00000001007F.07C: Descrição
 000000010086.07C: OK
 000000010087.07C: Rodízio de heróis
-000000010088.07C: Os heróis disponíveis para o jogo competitivo mudam periodicamente.
+000000010088.07C: Os heróis disponíveis no jogo competitivo mudam periodicamente nas partidas Mestre e Grão-mestre.
 000000010089.07C: Heróis fora do rodízio
 00000001008C.07C: Heróis Indisponíveis
 000000010091.07C: Gargalhada
@@ -27330,6 +27328,7 @@ https://account.blizzard.com/connections/nintendo
 0000000108E9.07C: Homestand da Atlanta Reign 2020
 0000000108F8.07C: Rota 66
 0000000108FE.07C: Plano de voo
+00000001094D.07C: Alienígena
 000000010950.07C: Desbloqueado ao assistir a transmissões durante o evento de lançamento da Echo
 000000010951.07C: Decolar
 000000010952.07C: Alçando voo
@@ -27381,12 +27380,12 @@ https://account.blizzard.com/connections/nintendo
 - Conquiste objetivos para ganhar pontos
 - Vence quem fizer mais pontos!
 0000000109FF.07C: A habilidade do Evento que está sendo processado por esta Regra, associada por botão.
-000000010A0B.07C: Competidor do Competitivo - Fila Aberta
-000000010A0C.07C: Desbloqueado ao concluir as partidas de posicionamento do Competitivo - Fila Aberta
-000000010A0D.07C: Herói do Competitivo - Fila Aberta
-000000010A0E.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim do Competitivo - Fila Aberta
-000000010A0F.07C: Competidor do Competitivo - Fila Aberta
-000000010A11.07C: Herói do Competitivo - Fila Aberta
+000000010A0B.07C: Competidor da Temporada 1 da Fila Aberta
+000000010A0C.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 1 do Competitivo - Fila Aberta
+000000010A0D.07C: Herói da Temporada 1 da Fila Aberta
+000000010A0E.07C: Desbloqueado ao ficar entre os 500 melhores no fim da Temporada 1 do Competitivo - Fila Aberta
+000000010A0F.07C: Competidor da Temporada 1 da Fila Aberta
+000000010A11.07C: Herói da Temporada 1 da Fila Aberta
 000000010A16.07C: Planar
 000000010A17.07C: %1$s %2$s
 000000010A1C.07C: Concentre seus ataques em Echo assim que ela usar Duplicar, impedindo-a de lançar uma habilidade suprema devastadora.
@@ -27699,7 +27698,69 @@ Suporte da Blizzard
 000000010D22.07C: CANCELAR
 000000010D2B.07C: EMOTE
 000000010D2C.07C: FALA
+000000010D5A.07C: China - Shenzhen
+000000010D5B.07C: China - Chengdu
+000000010D5C.07C: China - Pequim 2
 000000010D86.07C: Sala no lobby
 000000010D88.07C: Sala no jogo
 000000010D8F.07C: Atualizar
-[Core] Execution finished in 00:00:00.4515973 seconds
+000000010DC1.07C: Herói da Temporada 23
+000000010DC3.07C: Competidor da Temporada 23
+000000010DC5.07C: Herói da Temporada 23
+000000010DC6.07C: Desbloqueado ao ficar entre os 500 melhores no fim da Temporada 23
+000000010DC7.07C: Competidor da Temporada 23
+000000010DC8.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 23
+000000010E2A.07C: Temporada 2 do Competitivo - Fila Aberta
+000000010E2B.07C: Competitivo - Fila Aberta
+000000010E2C.07C: Suba na tabela e enfrente os melhores jogadores do mundo sem restrições de função na seleção de heróis.
+000000010E46.07C: Competitivo - Fila Aberta
+000000010E47.07C: Competitivo - Fila Aberta
+000000010E4F.07C: Unir Jogadores
+000000010E50.07C: Pai
+000000010E51.07C: Filho
+000000010E52.07C: Separar Jogadores
+000000010E53.07C: Filhos
+000000010E55.07C: Deslocamento
+000000010E5A.07C: Herói da Temporada 2 da Fila Aberta
+000000010E5B.07C: Desbloqueado ao ficar entre os 500 melhores no fim da Temporada 2 do Competitivo - Fila Aberta
+000000010E5C.07C: Competidor da Temporada 2 da Fila Aberta
+000000010E5D.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 2 do Competitivo - Fila Aberta
+000000010E5E.07C: Herói da Temporada 2 da Fila Aberta
+000000010E5F.07C: Desbloqueado ao ficar entre os 500 melhores no fim da Temporada 2 do Competitivo - Fila Aberta
+000000010E60.07C: Competidor da Temporada 2 da Fila Aberta
+000000010E61.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 2 do Competitivo - Fila Aberta
+000000010E62.07C: Está em uma Forma Alternativa
+000000010E63.07C: Se o jogador está ou não em uma forma alternativa no momento (como D.Va fora do mecha, Lúcio usando sua música de velocidade, Bastion em uma configuração diferente, Mercy e Torbjörn com a arma secundária equipada, etc.). Para a duplicação de Echo, use o valor Está Duplicando.
+000000010E64.07C: O Jogador cuja forma será verificada.
+000000010E65.07C: Está Duplicando
+000000010E66.07C: Se o Jogador especificado está ou não duplicando outro herói (para verificar qual herói, use o valor Herói Sendo Duplicado).
+000000010E67.07C: O Jogador cujo status de duplicação será verificado.
+000000010E68.07C: Desbloqueado ao ficar entre os 500 melhores no fim da Temporada 1 do Competitivo - Fila Aberta
+000000010E69.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 1 do Competitivo - Fila Aberta
+000000010E6A.07C: Herói Sendo Duplicado
+000000010E6B.07C: O herói que o Jogador especificado está duplicando no momento. Se nenhum herói estiver sendo duplicado, o valor resultante é 0.
+000000010E6C.07C: Jogador
+000000010E6D.07C: O Jogador realizando a duplicação.
+000000010E70.07C: Fila Prioritária
+000000010E7F.07C: Une um Jogador (o Filho) a outro Jogador (o Pai). Uma vez unido, o Filho não poderá se mover livremente até ser separado ou teleportado. Vários Filhos podem ser unidos ao mesmo Pai (mas não o contrário).
+000000010E80.07C: O Jogador que será unido ao Pai. Este Jogador não poderá se mover livremente até ser separado ou teleportado.
+000000010E81.07C: O Jogador a quem o Filho será unido. A movimentação deste Jogador não será afetada e determinará a posição do Filho.
+000000010E82.07C: As coordenadas do Filho em relação ao Pai. Por exemplo, Vetor (1, 2, 0) seria acima e à esquerda da cabeça do Pai.
+000000010E83.07C: Desfaz a união criada pela ação Unir Jogadores em um ou mais Jogadores. Esses Jogadores voltarão a se mover normalmente a partir da posição atual.
+000000010E84.07C: O(s) Jogador(es) que será(ão) separado(s) de seu Pai.
+000000010E85.07C: Começar a Forçar Posição do Jogador
+000000010E86.07C: Começa a forçar o Jogador a ficar em uma posição selecionada. Se a Reavaliação for ativada, a Posição será avaliada a cada quadro, permitindo que o jogador seja movido ao longo do tempo.
+000000010E87.07C: Reavaliação
+000000010E88.07C: Posição
+000000010E89.07C: Jogador
+000000010E8A.07C: O Jogador cuja posição será forçada (a opção de Reavaliação não se aplica a este valor).
+000000010E8B.07C: A posição que o Jogador ocupará. Se a Reavaliação for ativada, este valor poderá ser usado para mover o Jogador ao longo do tempo.
+000000010E8C.07C: Se o valor for Verdadeiro, a Posição será reavaliada e aplicada ao Jogador a cada quadro. Se o valor for Falso, a Posição só será avaliada quando a ação começar.
+000000010E8D.07C: Parar de Forçar Posição do Jogador
+000000010E8E.07C: Cancela o comportamento de Começar a Forçar Posição do Jogador para o(s) Jogador(es) especificado(s). A movimentação normal voltará na(s) última(s) posição(ões) forçada(s).
+000000010E8F.07C: Jogador
+000000010E90.07C: O(s) Jogador(es) cuja posição deixará de ser forçada.
+000000010E95.07C: sinatraa, MVP da Liga Overwatch 2019
+000000010E9F.07C: Visual Lendário Alienígena
+000000010EEC.07C: Encontrar mais jogadores
+[Core] Execution finished in 00:00:00.4093605 seconds

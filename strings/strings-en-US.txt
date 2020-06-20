@@ -1,14 +1,14 @@
-[Core] DataTool v1.48.0.872-git-388eaf2c98e84f9acbee236d068a6fd0dd9b9c8d
+[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
 [CASC] Set language to enUS
 [CASC] Set speech language to enUS
-[CASC] Overwatch build 1.48.0.0.68780
+[CASC] Overwatch build 1.49.0.0.69939
 [CASC] Initializing...
-[Manifest] Using TRG procedure 68780 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -7801,7 +7801,7 @@ Andrew Wang
 0000000046D4.07C: Competitive play currently not available.
 0000000046D5.07C: Oasis
 0000000046D6.07C: Placement Matches
-0000000046D7.07C: +30%% Exp (Premium IGR Benefit)
+0000000046D7.07C: +20%% Exp (Premium IGR Benefit)
 0000000046D8.07C: PREMIUM IGR BENEFIT
 0000000046D9.07C: 20%% XP BONUS
 0000000046DA.07C: ORIGIN SKINS UNLOCKED!
@@ -13689,7 +13689,6 @@ Brian Urbina
 00000000673A.07C: Toast
 00000000673C.07C: Overtime
 00000000673D.07C: Play!
-00000000673E.07C: Prepare To Attack
 00000000673F.07C: Waiting For Players
 000000006740.07C: Soccer Goal
 000000006741.07C: %1$s scored a GOAL!
@@ -16935,7 +16934,7 @@ Do you want to cancel?
 000000008C78.07C: 
 000000008C7B.07C: Done
 000000008C7C.07C: Canceling
-000000008C7D.07C: Hold <tx%1$s> / Done 
+000000008C7D.07C: Hold %1$s / Done 
 000000008C7F.07C: Heroic
 000000008C80.07C: RANDOM
 000000008C81.07C: DEFAULT
@@ -16976,7 +16975,7 @@ Do you want to cancel?
 000000008CD3.07C: Cute
 000000008CD4.07C: Pixel
 000000008CE0.07C: Leaving
-000000008CE1.07C: Hold <tx%1$s> to leave
+000000008CE1.07C: Hold %1$s to leave
 000000008CE2.07C: Huang Zhong
 000000008CE3.07C: Enforce Roles
 000000008CE5.07C: You have been promoted to level %1$s!
@@ -17053,7 +17052,6 @@ Do you want to cancel?
 000000008DB5.07C: Endorsements unavailable for friends.
 000000008DB6.07C: You have used all of your endorsements for this match.
 000000008DCE.07C: Turret
-000000008DEA.07C: CANCEL
 000000008DEC.07C: PHONE NUMBER REQUIRED.
 000000008DEE.07C: ATTACH SMS
 000000008DEF.07C: Demon
@@ -17171,10 +17169,10 @@ Do you want to cancel?
 0000000090BF.07C: Find More Players
 0000000090C0.07C: Find More Players
 0000000090C1.07C: WC Finland Home
-0000000090C2.07C: Hold <tx%1$s> / Find More Players
+0000000090C2.07C: Hold %1$s / Find More Players
 0000000090C3.07C: Play %1$s
 0000000090C4.07C: Play %1$s
-0000000090C5.07C: Hold <tx%1$s> / Play %2$s
+0000000090C5.07C: Hold %1$s / Play %2$s
 0000000090C6.07C: WC HongKong Home
 0000000090C7.07C: WC Taipei Home
 0000000090C8.07C: Medal
@@ -17339,7 +17337,7 @@ Do you want to cancel?
 0000000091ED.07C: Roll through 4 enemies within 2 seconds as Wrecking Ball in Quick or Competitive Play.
 0000000091EE.07C: Not enough slots!
 0000000091EF.07C: Edit Group
-0000000091F0.07C: Hold <tx%1$s> / Edit Group
+0000000091F0.07C: Hold %1$s / Edit Group
 0000000091F1.07C: Edit Group
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -18413,11 +18411,11 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000AA5D.07C: Netherlands
 00000000AA5E.07C: France
 00000000AA5F.07C: China - Hangzhou
-00000000AA60.07C:  China - Hangzhou 2
+00000000AA60.07C: China - Hangzhou 2
 00000000AA61.07C: South Korea
 00000000AA62.07C: USA - Southwest
 00000000AA63.07C: USA - West
-00000000AA64.07C:  Australia 2
+00000000AA64.07C: Australia 2
 00000000AA65.07C: Australia 3
 00000000AA66.07C: Taiwan
 00000000AA67.07C: Japan
@@ -26110,8 +26108,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: Disable Gyro While Using Stick
 00000000EA2F.07C: Dr. Ziegler
 00000000EA3E.07C: Invert Gyro-Aiming Yaw Axis
-00000000EA40.07C: Competitive Play
-00000000EA41.07C: EARN THESE REWARDS BY PARTICIPATING
 00000000EA51.07C: Goat
 00000000EA59.07C: Invert Gyro-Aiming Roll Axis
 00000000EA5A.07C: (Owned)
@@ -26851,6 +26847,8 @@ https://account.blizzard.com/connections/nintendo
 000000010055.07C: Season 21
 000000010056.07C: Season 22
 000000010057.07C: Season 22
+000000010058.07C: Season 23
+000000010059.07C: Season 23
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Import Settings From Clipboard
@@ -26858,12 +26856,12 @@ https://account.blizzard.com/connections/nintendo
 00000001006D.07C: Confirm
 00000001006E.07C: main
 000000010072.07C: Hero Rotation
-000000010075.07C: The heroes available for competitive play periodically rotate.
+000000010075.07C: The heroes available for competitive play in Master and Grandmaster matches periodically rotate.
 000000010078.07C: Heroes out of rotation
 00000001007F.07C: Description
 000000010086.07C: OK
 000000010087.07C: Hero Rotation
-000000010088.07C: The heroes available for competitive play periodically rotate.
+000000010088.07C: The heroes available for competitive play in Master and Grandmaster matches periodically rotate.
 000000010089.07C: Heroes out of rotation
 00000001008C.07C: Unavailable Heroes
 000000010091.07C: Cackle
@@ -27326,6 +27324,7 @@ https://account.blizzard.com/connections/nintendo
 0000000108E9.07C: Atlanta Reign Homestand 2020
 0000000108F8.07C: Route 66
 0000000108FE.07C: Flight Plan
+00000001094D.07C: Alien
 000000010950.07C: Unlocked by watching participating streams during the Echo hero launch event
 000000010951.07C: Lift Off
 000000010952.07C: Taking Flight
@@ -27377,12 +27376,12 @@ https://account.blizzard.com/connections/nintendo
 - Earn points by taking objectives
 - Most points win!
 0000000109FF.07C: The ability for the Event currently being processed by this Rule associated by button.
-000000010A0B.07C: Competitive Open Queue Competitor
-000000010A0C.07C: Unlocked by completing Competitive Open Queue placement matches
-000000010A0D.07C: Competitive Open Queue Hero
-000000010A0E.07C: Unlocked by achieving top 500 ranking at the end of Competitive Open Queue
-000000010A0F.07C: Competitive Open Queue Competitor
-000000010A11.07C: Competitive Open Queue Hero
+000000010A0B.07C: Open Queue Season 1 Competitor
+000000010A0C.07C: Unlocked by completing Competitive Open Queue Season 1 placement matches
+000000010A0D.07C: Open Queue Season 1 Hero
+000000010A0E.07C: Unlocked by achieving top 500 ranking at the end of Competitive Open Queue Season 1
+000000010A0F.07C: Open Queue Season 1 Competitor
+000000010A11.07C: Open Queue Season 1 Hero
 000000010A16.07C: Glide
 000000010A17.07C: %1$s %2$s
 000000010A1C.07C: Quickly focus attacks on Echo after she uses Duplicate to prevent her from using a devastating ultimate ability.
@@ -27533,7 +27532,7 @@ https://account.blizzard.com/connections/nintendo
 000000010AEC.07C: %1$s to %2$s: I am so sorry.
 000000010AF0.07C: %1$s to you: Counting down: 3…2…1
 000000010AF1.07C: %1$s to %2$s: Counting down: 3…2…1
-000000010AF3.07C: %1$s: Press The Attack!
+000000010AF3.07C: %1$s: Press the attack!
 000000010AF4.07C: %1$s: You are welcome.
 000000010AF5.07C: %1$s: Yes.
 000000010AF6.07C: %1$s: No.
@@ -27695,7 +27694,69 @@ Blizzard Support
 000000010D22.07C: CANCEL
 000000010D2B.07C: EMOTE
 000000010D2C.07C: VOICE LINE
+000000010D5A.07C: China - Shenzhen
+000000010D5B.07C: China - Chengdu
+000000010D5C.07C: China - Beijing 2
 000000010D86.07C: Room In Lobby
 000000010D88.07C: Room In Game
 000000010D8F.07C: Refresh
-[Core] Execution finished in 00:00:00.5637635 seconds
+000000010DC1.07C: Season 23 Hero
+000000010DC3.07C: Season 23 Competitor
+000000010DC5.07C: Season 23 Hero
+000000010DC6.07C: Unlocked by achieving top 500 ranking at the end of Season 23
+000000010DC7.07C: Season 23 Competitor
+000000010DC8.07C: Unlocked by completing Season 23 placement matches
+000000010E2A.07C: Competitive Open Queue Season 2
+000000010E2B.07C: Competitive Open Queue
+000000010E2C.07C: Rise up the ranks and compete with the best players in the world with no role limits on hero selection.
+000000010E46.07C: Competitive Open Queue
+000000010E47.07C: Competitive Open Queue
+000000010E4F.07C: Attach Players
+000000010E50.07C: Parent
+000000010E51.07C: Child
+000000010E52.07C: Detach Players
+000000010E53.07C: Children
+000000010E55.07C: Offset
+000000010E5A.07C: Open Queue Season 2 Hero
+000000010E5B.07C: Unlocked by achieving top 500 ranking at the end of Competitive Open Queue Season 2
+000000010E5C.07C: Open Queue Season 2 Competitor
+000000010E5D.07C: Unlocked by completing Competitive Open Queue Season 2 placement matches
+000000010E5E.07C: Open Queue Season 2 Hero
+000000010E5F.07C: Unlocked by achieving top 500 ranking at the end of Competitive Open Queue Season 2
+000000010E60.07C: Open Queue Season 2 Competitor
+000000010E61.07C: Unlocked by completing Competitive Open Queue Season 2 placement matches
+000000010E62.07C: Is In Alternate Form
+000000010E63.07C: Whether the specified Player is currently in an alternate form (such as D.Va outside of mech, Lúcio using his speed song, Bastion in a different configuration, Mercy and Torbjörn with their secondary weapon equipped, etc.). For Echo duplication, use the Is Duplicating value instead.
+000000010E64.07C: The Player whose form to check.
+000000010E65.07C: Is Duplicating
+000000010E66.07C: Whether the specified Player is duplicating another hero. (To check which hero, use the Hero Being Duplicated value.)
+000000010E67.07C: The Player whose duplication status to check.
+000000010E68.07C: Unlocked by achieving top 500 ranking at the end of Competitive Open Queue Season 1
+000000010E69.07C: Unlocked by completing Competitive Open Queue Season 1 placement matches
+000000010E6A.07C: Hero Being Duplicated
+000000010E6B.07C: The hero currently being duplicated by the specified Player. If no hero is being duplicated, the resulting value is 0.
+000000010E6C.07C: Player
+000000010E6D.07C: The Player performing the duplication.
+000000010E70.07C: Priority Requeue
+000000010E7F.07C: Attaches one Player (the Child) to another Player (the Parent). Once attached, the Child will be unable to move freely until detached or teleported away. Multiple children may be attached to the same Parent (but not vice versa).
+000000010E80.07C: The Player that will attach to the Parent. This Player will be unable to move freely until detached or teleported away.
+000000010E81.07C: The Player to whom the Child will attach. This Player's movement will be unaffected and will determine the Child's position.
+000000010E82.07C: The coordinates of the Child relative to the Parent. For example, Vector(1, 2, 0) would be above and to the left of the Parent's head.
+000000010E83.07C: Undoes the attachment caused by the Attach Players action for one or more Players. These Players will resume normal movement from their current position.
+000000010E84.07C: The Player or Players that will become detached from their Parent.
+000000010E85.07C: Start Forcing Player Position
+000000010E86.07C: Starts forcing a Player to be in a given position. If Reevaluation is enabled, then the Position is evaluated every frame, allowing the Player to be moved around over time.
+000000010E87.07C: Reevaluation
+000000010E88.07C: Position
+000000010E89.07C: Player
+000000010E8A.07C: The Player whose position will be forced. (The Reevaluation option does not apply to this value.)
+000000010E8B.07C: The position the Player will occupy. If Reevaluation is enabled, this value can be used to move the Player around over time.
+000000010E8C.07C: If this value is True, then Position will be reevaluated and applied to the Player every frame. If this value is False, then the Position is only evaluated once when the action begins.
+000000010E8D.07C: Stop Forcing Player Position
+000000010E8E.07C: Cancels the behavior of Start Forcing Player Position for the specified Player or Players. Regular movement will resume from the last forced position(s).
+000000010E8F.07C: Player
+000000010E90.07C: The Player or Players whose positions will stop being forced.
+000000010E95.07C: 2019 Overwatch League MVP sinatraa
+000000010E9F.07C: Alien Legendary Skin
+000000010EEC.07C: Find More Players
+[Core] Execution finished in 00:00:00.4587238 seconds

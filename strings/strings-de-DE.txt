@@ -1,14 +1,14 @@
-[Core] DataTool v1.48.0.872-git-388eaf2c98e84f9acbee236d068a6fd0dd9b9c8d
+[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
 [CASC] Set language to deDE
 [CASC] Set speech language to deDE
-[CASC] Overwatch build 1.48.0.0.68780
+[CASC] Overwatch build 1.49.0.0.69939
 [CASC] Initializing...
-[Manifest] Using TRG procedure 68780 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -7805,10 +7805,10 @@ Andrew Wang
 0000000046D4.07C: Ranglistenmatches sind derzeit nicht verfügbar.
 0000000046D5.07C: Oasis
 0000000046D6.07C: Platzierungsmatches
-0000000046D7.07C: +30%% EP (Premium-IGR-Bonus)
+0000000046D7.07C: +20%% EP (Premium-IGR-Bonus)
 0000000046D8.07C: PREMIUM-IGR-VORTEIL
-0000000046D9.07C: 30%% EP-BONUS
-0000000046DA.07C: SKINS DER LEGENDARY-EDITION WURDEN FREIGESCHALTET!
+0000000046D9.07C: 20%% EP-BONUS
+0000000046DA.07C: ORIGIN-SKINS WURDEN FREIGESCHALTET!
 0000000046DB.07C: Platzierungsmatches wurden abgeschlossen
 0000000046DC.07C: Dein Spielniveau:
 0000000046E7.07C: RUNDE %1$s BEENDET
@@ -13814,7 +13814,6 @@ von Saison 7
 00000000673A.07C: Santé
 00000000673C.07C: Verlängerung
 00000000673D.07C: Schießt Tore!
-00000000673E.07C: Bereitet den Angriff vor
 00000000673F.07C: Warte auf Spieler
 000000006740.07C: Tor des Spiels
 000000006741.07C: %1$s hat ein TOR geschossen!
@@ -17096,7 +17095,7 @@ Möchtest du abbrechen?
 000000008C78.07C: 
 000000008C7B.07C: Fertig
 000000008C7C.07C: Abbruch ...
-000000008C7D.07C: <tx%1$s> gedrückt halten wenn fertig
+000000008C7D.07C: %1$s gedrückt halten wenn fertig
 000000008C7F.07C: Heroisch
 000000008C80.07C: ZUFÄLLIG
 000000008C81.07C: STANDARD
@@ -17137,7 +17136,7 @@ Möchtest du abbrechen?
 000000008CD3.07C: Süß
 000000008CD4.07C: Pixel
 000000008CE0.07C: Verlassen ...
-000000008CE1.07C: Zum Verlassen <tx%1$s> gedrückt halten
+000000008CE1.07C: Zum Verlassen %1$s gedrückt halten
 000000008CE2.07C: Huang Zhong
 000000008CE3.07C: Feste Rollen
 000000008CE5.07C: Du bist auf Stufe %1$s aufgestiegen!
@@ -17215,9 +17214,8 @@ Möchtest du abbrechen?
 000000008DB5.07C: Freunde können nicht anerkannt werden.
 000000008DB6.07C: Du kannst in diesem Match keine weiteren Anerkennungen vergeben.
 000000008DCE.07C: Geschütz
-000000008DEA.07C: ABBRECHEN
 000000008DEC.07C: TELEFONNUMMER ERFORDERLICH.
-000000008DEE.07C: AKTIVIEREN
+000000008DEE.07C: MOBILE BENACHRICHTIGUNGEN HINZUFÜGEN
 000000008DEF.07C: Dämonin
 000000008DF2.07C: https://account.blizzard.com/details/sms/setup/add
 000000008DF3.07C: Account erfordert eine Telefonnummer.
@@ -17333,10 +17331,10 @@ Möchtest du abbrechen?
 0000000090BF.07C: Mehr Spieler suchen
 0000000090C0.07C: Mehr Spieler suchen
 0000000090C1.07C: Finnland (Heim)
-0000000090C2.07C: <tx%1$s> gedrückt halten, um mehr Spieler zu suchen
+0000000090C2.07C: %1$s gedrückt halten, um mehr Spieler zu suchen
 0000000090C3.07C: %1$s spielen
 0000000090C4.07C: %1$s spielen
-0000000090C5.07C: <tx%1$s> gedrückt halten, um %2$s zu spielen
+0000000090C5.07C: %1$s gedrückt halten, um %2$s zu spielen
 0000000090C6.07C: Hongkong (Heim)
 0000000090C7.07C: Taipeh (Heim)
 0000000090C8.07C: Medaille
@@ -17505,7 +17503,7 @@ Möchtest du abbrechen?
 0000000091ED.07C: Stoße mit Wrecking Ball als Kugel im kompetitiven Spiel in 2 Sek. 4 Gegner zurück.
 0000000091EE.07C: Nicht genug Plätze!
 0000000091EF.07C: Gruppe bearbeiten
-0000000091F0.07C: <tx%1$s> gedrückt halten, um Gruppe zu bearbeiten
+0000000091F0.07C: %1$s gedrückt halten, um Gruppe zu bearbeiten
 0000000091F1.07C: Gruppe bearbeiten
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -26381,8 +26379,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: Bewegungssensor bei Sticknutzung deaktivieren
 00000000EA2F.07C: Dr. Ziegler
 00000000EA3E.07C: Bewegungssensor-Zielfunktion: Gier-Achse umkehren
-00000000EA40.07C: Rangliste
-00000000EA41.07C: MACH MIT, UM DIR BELOHNUNGEN ZU VERDIENEN:
 00000000EA51.07C: GOAT
 00000000EA59.07C: Bewegungssensor-Zielfunktion: Roll-Achse umkehren
 00000000EA5A.07C: (freigeschaltet)
@@ -27122,6 +27118,8 @@ https://account.blizzard.com/connections/nintendo
 000000010055.07C: Saison 21
 000000010056.07C: Saison 22
 000000010057.07C: Saison 22
+000000010058.07C: Saison 23
+000000010059.07C: Saison 23
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Einstellungen aus der Zwischenablage importieren
@@ -27129,12 +27127,12 @@ https://account.blizzard.com/connections/nintendo
 00000001006D.07C: Bestätigen
 00000001006E.07C: hauptregeln
 000000010072.07C: Heldenrotation
-000000010075.07C: Die verfügbaren Helden für Ranglistenmatches ändern sich regelmäßig.
+000000010075.07C: Die verfügbaren Helden für Ranglistenmatches der Ränge Meister und Großmeister ändern sich regelmäßig.
 000000010078.07C: Nicht verfügbare Helden
 00000001007F.07C: Beschreibung
 000000010086.07C: OK
 000000010087.07C: Heldenrotation
-000000010088.07C: Die verfügbaren Helden für Ranglistenmatches ändern sich regelmäßig.
+000000010088.07C: Die verfügbaren Helden für Ranglistenmatches der Ränge Meister und Großmeister ändern sich regelmäßig.
 000000010089.07C: Nicht verfügbare Helden
 00000001008C.07C: Nicht verfügbare Helden
 000000010091.07C: Fieses Lachen
@@ -27597,6 +27595,7 @@ https://account.blizzard.com/connections/nintendo
 0000000108E9.07C: Homestand 2020 von Atlanta Reign
 0000000108F8.07C: Route 66
 0000000108FE.07C: Flugplan
+00000001094D.07C: Alien
 000000010950.07C: Freigeschaltet durch das Einschalten bei ausgewählten Streams während Echos Heldenveröffentlichung
 000000010951.07C: Durchstarter
 000000010952.07C: Abheben
@@ -27648,12 +27647,12 @@ https://account.blizzard.com/connections/nintendo
 - Erreiche Ziele, um Punkte zu holen
 - Das Team mit den meisten Punkten gewinnt!
 0000000109FF.07C: Die per Taste zugeordnete Fähigkeit für das aktuell durch diese Regel verarbeitete Event.
-000000010A0B.07C: Teilnehmer am kompetitiven Modus mit freier Rollenwahl
-000000010A0C.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches im kompe<hy>titiven Modus mit freier Rollenwahl
-000000010A0D.07C: Held des kompetitiven Modus mit freier Rollenwahl
-000000010A0E.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende des kompe<hy>titiven Modus mit freier Rollenwahl
-000000010A0F.07C: Teilnehmer am kompetitiven Modus mit freier Rollenwahl
-000000010A11.07C: Held des kompetitiven Modus mit freier Rollenwahl
+000000010A0B.07C: Teilnehmer von Saison 1 der freien Rollenwahl
+000000010A0C.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 1 des kompe<hy>titiven Modus mit freier Rollenwahl
+000000010A0D.07C: Held von Saison 1 der freien Rollenwahl
+000000010A0E.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 1 des kompe<hy>titiven Modus mit freier Rollenwahl
+000000010A0F.07C: Teilnehmer von Saison 1 der freien Rollenwahl
+000000010A11.07C: Held von Saison 1 der freien Rollenwahl
 000000010A16.07C: Gleitflug
 000000010A17.07C: %2$s (%1$s)
 000000010A1C.07C: Konzentriere deine Angriffe sofort auf Echo, wenn sie Duplikat einsetzt, um zu verhindern, dass sie eine verheerende ultimative Fähigkeit entfesselt.
@@ -27804,10 +27803,10 @@ https://account.blizzard.com/connections/nintendo
 000000010AE4.07C: %1$s zu %2$s: Verteidige mit mir!
 000000010AE5.07C: %1$s zu dir: Ich brauche Hilfe!
 000000010AE6.07C: %1$s zu %2$s: Ich brauche Hilfe!
-000000010AEB.07C: %1$s zu dir: Es tut mir leid.
-000000010AEC.07C: %1$s zu %2$s: Es tut mir leid.
-000000010AF0.07C: %1$s zu dir: Auf mein Zeichen: 3 ... 2 ... 1
-000000010AF1.07C: %1$s zu %2$s: Auf mein Zeichen: 3 ... 2 ... 1
+000000010AEB.07C: %1$s zu dir: Tut mir leid.
+000000010AEC.07C: %1$s zu %2$s: Tut mir leid.
+000000010AF0.07C: %1$s zu dir: Auf mein Zeichen: 3 … 2 … 1
+000000010AF1.07C: %1$s zu %2$s: Auf mein Zeichen: 3 … 2 … 1
 000000010AF3.07C: %1$s: Nicht nachlassen!
 000000010AF4.07C: %1$s: Gern geschehen.
 000000010AF5.07C: %1$s: Ja.
@@ -27824,7 +27823,7 @@ https://account.blizzard.com/connections/nintendo
 000000010B00.07C: %1$s: Greift mit mir an!
 000000010B03.07C: %1$s: Verteidigt mit mir!
 000000010B04.07C: %1$s: Ich brauche Hilfe!
-000000010B07.07C: %1$s: Es tut mir leid.
+000000010B07.07C: %1$s: Tut mir leid.
 000000010B14.07C: Entwicklerkommentar
 000000010B15.07C: Freigeschaltet durch die Teilnahme an der Jubiläums-Herausforderung 2020, Woche 3
 000000010B16.07C: Desperado
@@ -27832,7 +27831,7 @@ https://account.blizzard.com/connections/nintendo
 000000010B1B.07C: Blendgranate
 000000010B1C.07C: Prügel
 000000010B1D.07C: Schwerelos
-000000010B1F.07C: %1$s: Auf mein Zeichen: 3 ... 2 ... 1
+000000010B1F.07C: %1$s: Auf mein Zeichen: 3 … 2 … 1
 000000010B2A.07C: Jubiläum 2020
 000000010B2B.07C: In Jubiläums-Lootboxen erhältlich
 000000010B2C.07C: Jubisigma
@@ -27970,7 +27969,69 @@ Der Blizzard-Kundendienst
 000000010D22.07C: ABBRECHEN
 000000010D2B.07C: EMOTE
 000000010D2C.07C: SPRUCH
+000000010D5A.07C: China – Shenzhen
+000000010D5B.07C: China – Chengdu
+000000010D5C.07C: China – Peking 2
 000000010D86.07C: Platz in der Lobby
 000000010D88.07C: Platz im Spiel
 000000010D8F.07C: Aktualisieren
-[Core] Execution finished in 00:00:00.4611749 seconds
+000000010DC1.07C: Held von Saison 23
+000000010DC3.07C: Teilnehmer von Saison 23
+000000010DC5.07C: Held von Saison 23
+000000010DC6.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 23
+000000010DC7.07C: Teilnehmer von Saison 23
+000000010DC8.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 23
+000000010E2A.07C: Kompetitiv – Freie Rollenwahl – Saison 2
+000000010E2B.07C: Kompetitiv – Freie Rollenwahl
+000000010E2C.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Spieler der Welt an! Bei der Heldenauswahl bestehen keine Rolleneinschränkungen.
+000000010E46.07C: Kompetitiv – Freie Rollenwahl
+000000010E47.07C: Kompetitiv – Freie Rollenwahl
+000000010E4F.07C: Attach Players
+000000010E50.07C: Parent
+000000010E51.07C: Child
+000000010E52.07C: Detach Players
+000000010E53.07C: Children
+000000010E55.07C: Offset
+000000010E5A.07C: Held von Saison 2 der freien Rollenwahl
+000000010E5B.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 2 des kompe<hy>titiven Modus mit freier Rollenwahl
+000000010E5C.07C: Teilnehmer von Saison 2 der freien Rollenwahl
+000000010E5D.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 2 des kompe<hy>titiven Modus mit freier Rollenwahl
+000000010E5E.07C: Held von Saison 2 der freien Rollenwahl
+000000010E5F.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 2 des kompe<hy>titiven Modus mit freier Rollenwahl
+000000010E60.07C: Teilnehmer von Saison 2 der freien Rollenwahl
+000000010E61.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 2 des kompe<hy>titiven Modus mit freier Rollenwahl
+000000010E62.07C: Is In Alternate Form
+000000010E63.07C: Ob der festgelegte Spieler sich gerade in einer alternativen Form befindet (wie D.Va außerhalb ihres Mechs, Lúcio beim Einsatz seines Temposongs, Bastion in einer anderen Konfiguration, Mercy oder Torbjörn mit ihrer sekundären Waffe usw.). Für Echos Duplikat muss stattdessen der Wert [Is Duplicating] verwendet werden.
+000000010E64.07C: Der Spieler, dessen Form geprüft werden soll.
+000000010E65.07C: Is Duplicating
+000000010E66.07C: Ob der festgelegte Spieler einen anderen Helden dupliziert. (Um festzustellen, welcher Held dupliziert wird, muss der Wert [Hero Being Duplicated] verwendet werden.)
+000000010E67.07C: Der Spieler, dessen Duplikationsstatus geprüft werden soll.
+000000010E68.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 1 des kompe<hy>titiven Modus mit freier Rollenwahl
+000000010E69.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 1 des kompe<hy>titiven Modus mit freier Rollenwahl
+000000010E6A.07C: Hero Being Duplicated
+000000010E6B.07C: Der Held, der gerade vom festgelegten Spieler dupliziert wird. Wenn kein Held dupliziert wird, ist der Wert 0.
+000000010E6C.07C: Player
+000000010E6D.07C: Der Spieler, der die Duplikation durchführt.
+000000010E70.07C: Warteschlangen-VIP
+000000010E7F.07C: Bindet einen Spieler ([Child]) an einen anderen Spieler ([Parent]). Anschließend kann sich das [Child] nicht mehr unabhängig bewegen, bis die Bindung wieder gelöst oder der Spieler wegteleportiert wird. Mehrere [Children] können an einen [Parent] gebunden werden (aber nicht umgekehrt).
+000000010E80.07C: Der Spieler, der an den [Parent] gebunden wird. Er kann sich nicht mehr unabhängig bewegen, bis die Bindung wieder gelöst oder der Spieler wegteleportiert wird.
+000000010E81.07C: Der Spieler, an den das [Child] gebunden wird. Er kann sich weiter frei bewegen und bestimmt die Position des [Child].
+000000010E82.07C: Die Koordinaten des [Child] relativ zum [Parent]. Zum Beispiel: Vektor(1, 2, 0) wäre links oberhalb vom Kopf des [Parent].
+000000010E83.07C: Entfernt die Bindung durch [Attach Players] von einem oder mehreren Spielern. Sie können sich von ihrer aktuellen Position aus wieder normal bewegen.
+000000010E84.07C: Der oder die Spieler, deren Bindung an ihren [Parent] entfernt wird.
+000000010E85.07C: Start Forcing Player Position
+000000010E86.07C: Beginnt, einen Spieler zu zwingen, sich an einer bestimmten Position aufzuhalten. Wenn [Reevaluation] aktiv ist, wird die Position in jedem Frame bewertet, wodurch der Spieler nach und nach fortbewegt werden kann.
+000000010E87.07C: Reevaluation
+000000010E88.07C: Position
+000000010E89.07C: Player
+000000010E8A.07C: Der Spieler, dessen Position erzwungen wird. (Die Option [Reevaluation] wird nicht auf diesen Wert angewendet.)
+000000010E8B.07C: Die Position, die der Spieler einnehmen wird. Wenn [Reevaluation] aktiviert ist, kann dieser Wert genutzt werden, um den Spieler nach und nach fortzubewegen.
+000000010E8C.07C: Wenn dieser Wert True ist, wird die Position in jedem Frame neu bewertet und auf den Spieler angewendet. Wenn der Wert False ist, wird die Position nur einmal zu Beginn der Aktion bewertet.
+000000010E8D.07C: Stop Forcing Player Position
+000000010E8E.07C: Stoppt das durch [Start Forcing Player Position] begonnene Erzwingen der Position für den oder die festgelegten Spieler. Sie können sich von der jeweils letzten erzwungenen Position aus wieder normal bewegen.
+000000010E8F.07C: Player
+000000010E90.07C: Der oder die Spieler, deren Positionen nicht mehr erzwungen werden.
+000000010E95.07C: MVP der Overwatch League 2019: sinatraa
+000000010E9F.07C: Legendärer Skin Alien
+000000010EEC.07C: Mehr Spieler suchen
+[Core] Execution finished in 00:00:00.4142269 seconds

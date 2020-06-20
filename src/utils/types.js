@@ -29,7 +29,7 @@ Moreover, {Array: "Player"} is not suitable for "Array".
 
 The special "Value" type is suitable for any child type of object or array.
 */
-function isTypeSuitable(expectedType, receivedType) {
+function isTypeSuitable(expectedType, receivedType, valueTypeIsSuitable=true) {
 
     //console.log("expected type = "+JSON.stringify(expectedType)+", received type = "+JSON.stringify(receivedType));
 
@@ -50,9 +50,9 @@ function isTypeSuitable(expectedType, receivedType) {
                 return true;
             }
             //Handle the special "value" type.
-            if (receivedType === "Value") {
+            if (receivedType === "Value" && valueTypeIsSuitable) {
                 return expectedType === "Value" || expectedType === "Array" || typeMatrix["Object"].includes(expectedType);
-            } else if (expectedType === "Value") {
+            } else if (expectedType === "Value" && valueTypeIsSuitable) {
                 return receivedType === "Array" || typeMatrix["Object"].includes(receivedType);
             } else {
                 //The most simple case: both types are string. Simply use the type matrix to see if the received type is a child (or the type itself) of the expected type.

@@ -1,14 +1,14 @@
-[Core] DataTool v1.48.0.872-git-388eaf2c98e84f9acbee236d068a6fd0dd9b9c8d
+[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
 [CASC] Set language to koKR
 [CASC] Set speech language to koKR
-[CASC] Overwatch build 1.48.0.0.68780
+[CASC] Overwatch build 1.49.0.0.69939
 [CASC] Initializing...
-[Manifest] Using TRG procedure 68780 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -639,7 +639,7 @@
 00000000079A.07C: 중거리에 방사 피해를 줍니다.
 00000000079B.07C: 숨 돌리기
 00000000079C.07C: 짧은 시간 동안 자신을 치유합니다. 치유하는 동안 받는 피해가 감소합니다.
-00000000079D.07C: 사슬 갈고리
+00000000079D.07C: 갈고리 사슬
 00000000079E.07C: 적을 자신에게 끌어당깁니다.
 0000000007B5.07C: 팀 공격력 낮음
 000000000835.07C: 사용자 지정 게임 중에는 게임 찾기를 할 수 없습니다.
@@ -7802,10 +7802,10 @@ Andrew Wang
 0000000046D4.07C: 지금은 경쟁전을 이용할 수 없습니다.
 0000000046D5.07C: 오아시스
 0000000046D6.07C: 배치 경기
-0000000046D7.07C: +30%% XP (PC방 프리미엄 혜택)
+0000000046D7.07C: +20%% XP (PC방 프리미엄 혜택)
 0000000046D8.07C: PC방 프리미엄 혜택
-0000000046D9.07C: 30%% XP 보너스
-0000000046DA.07C: 레전더리 에디션 스킨 착용 가능
+0000000046D9.07C: 20%% XP 보너스
+0000000046DA.07C: 오리진 스킨 착용 가능
 0000000046DB.07C: 배치 경기 완료
 0000000046DC.07C: 내 실력 평점:
 0000000046E7.07C: %1$s라운드 종료
@@ -13691,7 +13691,6 @@ Brian Urbina
 00000000673A.07C: 건배
 00000000673C.07C: 추가 시간
 00000000673D.07C: 득점하십시오!
-00000000673E.07C: 공격을 준비하십시오
 00000000673F.07C: 다른 플레이어를 기다리는 중
 000000006740.07C: 득점
 000000006741.07C: %1$s|Rjs이;가; 득점했습니다!
@@ -16933,7 +16932,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008C78.07C: 
 000000008C7B.07C: 완료
 000000008C7C.07C: 취소 중
-000000008C7D.07C: <tx%1$s> 길게 눌러 완료
+000000008C7D.07C: %1$s 길게 눌러 완료
 000000008C7F.07C: 영웅
 000000008C80.07C: 무작위
 000000008C81.07C: 기본
@@ -16974,7 +16973,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008CD3.07C: 귀요미
 000000008CD4.07C: 픽셀
 000000008CE0.07C: 나가는 중
-000000008CE1.07C: <tx%1$s> 길게 눌러 나가기
+000000008CE1.07C: %1$s 길게 눌러 나가기
 000000008CE2.07C: 황충
 000000008CE3.07C: 역할 제한
 000000008CE5.07C: %1$s레벨로 승격하였습니다!
@@ -17051,8 +17050,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008DB5.07C: 친구는 추천할 수 없습니다.
 000000008DB6.07C: 이 경기에서 추천할 수 있는 횟수가 소진되었습니다.
 000000008DCE.07C: 포탑
-000000008DEA.07C: 취소
-000000008DEC.07C: 전화번호가 필요합니다.
+000000008DEC.07C: 휴대전화번호 등록이 필요합니다.
 000000008DEE.07C: SMS 알림이 등록
 000000008DEF.07C: 악마
 000000008DF2.07C: https://account.blizzard.com/details/sms/setup/add
@@ -17169,10 +17167,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000090BF.07C: 플레이어 더 찾기
 0000000090C0.07C: 플레이어 더 찾기
 0000000090C1.07C: 핀란드 (홈)
-0000000090C2.07C: <tx%1$s>길게 눌러 플레이어 더 찾기
+0000000090C2.07C: %1$s길게 눌러 플레이어 더 찾기
 0000000090C3.07C: %1$s 플레이
 0000000090C4.07C: %1$s 플레이
-0000000090C5.07C: <tx%1$s>길게 눌러 %2$s 플레이
+0000000090C5.07C: %1$s길게 눌러 %2$s 플레이
 0000000090C6.07C: 홍콩 (홈)
 0000000090C7.07C: 타이페이 (홈)
 0000000090C8.07C: 메달
@@ -17337,7 +17335,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000091ED.07C: 레킹볼로 2초 안에 적 4명을 뚫고 굴러가기 (빠른 대전 또는 경쟁전)
 0000000091EE.07C: 자리가 부족합니다!
 0000000091EF.07C: 그룹 편집
-0000000091F0.07C: <tx%1$s>길게 눌러 그룹 편집
+0000000091F0.07C: %1$s길게 눌러 그룹 편집
 0000000091F1.07C: 그룹 편집
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -26039,7 +26037,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D49D.07C: ARG
 00000000D49E.07C: 아르헨티나
 00000000D4A0.07C: 월드컵 일반 어웨이
-00000000D4B9.07C: 가면
+00000000D4B9.07C: 가장무도회
 00000000D4D8.07C: 벨기에
 00000000D4D9.07C: BEL
 00000000D4DA.07C: 벨기에
@@ -26108,8 +26106,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000DA5C.07C: 스틱 사용 중에는 자이로 비활성화
 00000000EA2F.07C: 치글러 박사
 00000000EA3E.07C: 자이로 조준 수직축 회전 (Yaw) 반전
-00000000EA40.07C: 경쟁전
-00000000EA41.07C: 참여하여 다음 보상을 획득하세요
 00000000EA51.07C: 염소
 00000000EA59.07C: 자이로 조준 세로축 회전 (Roll) 반전
 00000000EA5A.07C: (보유)
@@ -26849,6 +26845,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010055.07C: 21시즌
 000000010056.07C: 22시즌
 000000010057.07C: 22시즌
+000000010058.07C: 23시즌
+000000010059.07C: 23시즌
 00000001005E.07C: %1$s회
 00000001005F.07C: %1$s KB
 00000001006B.07C: 클립보드에서 설정 가져오기
@@ -26856,12 +26854,12 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000001006D.07C: 확인
 00000001006E.07C: main
 000000010072.07C: 영웅 로테이션
-000000010075.07C: 영웅 로테이션은 주기적으로 바뀝니다.
+000000010075.07C: 마스터와 그랜드 마스터 경쟁전에 적용되는 영웅 로테이션은 주기적으로 바뀝니다.
 000000010078.07C: 사용할 수 없는 영웅
 00000001007F.07C: 설명
 000000010086.07C: 확인
 000000010087.07C: 영웅 로테이션
-000000010088.07C: 경쟁전에서 사용할 수 있는 영웅은 주기적으로 바뀝니다.
+000000010088.07C: 마스터와 그랜드 마스터 경쟁전에서 사용할 수 있는 영웅은 주기적으로 바뀝니다.
 000000010089.07C: 사용할 수 없는 영웅
 00000001008C.07C: 사용할 수 없는 영웅
 000000010091.07C: 크큭
@@ -27324,6 +27322,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000108E9.07C: 2020 애틀랜타 레인 홈스탠드
 0000000108F8.07C: 66번 국도
 0000000108FE.07C: 비행 계획
+00000001094D.07C: 외계 요원
 000000010950.07C: 에코 영웅 출시 이벤트 중 이벤트 스트림을 시청하여 획득
 000000010951.07C: 이륙
 000000010952.07C: 비행 중
@@ -27375,12 +27374,12 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 - 전장 목표를 달성하여 점수 획득
 - 고득점 팀이 승리!
 0000000109FF.07C: 버튼으로 확인할 이벤트의 기술입니다. 현재 이 규칙에 의해 처리되고 있습니다.
-000000010A0B.07C: 자유 경쟁전 참가자
-000000010A0C.07C: 자유 경쟁전 배치 경기를 완료하여 획득
-000000010A0D.07C: 자유 경쟁전 영웅
-000000010A0E.07C: 자유 경쟁전에서 상위 500위를 달성하여 획득
-000000010A0F.07C: 자유 경쟁전 참가자
-000000010A11.07C: 자유 경쟁전 영웅
+000000010A0B.07C: 자유 경쟁전 1시즌 참가자
+000000010A0C.07C: 자유 경쟁전 1시즌 배치 경기를 완료하여 획득
+000000010A0D.07C: 자유 경쟁전 1시즌 영웅
+000000010A0E.07C: 자유 경쟁전 1시즌에서 상위 500위를 달성하여 획득
+000000010A0F.07C: 자유 경쟁전 1시즌 참가자
+000000010A11.07C: 자유 경쟁전 1시즌 영웅
 000000010A16.07C: 활공
 000000010A17.07C: %2$s %1$s
 000000010A1C.07C: 에코가 복제를 사용하면 빠르게 집중 공격해야 복제한 영웅의 궁극기를 사용하는 걸 막을 수 있습니다.
@@ -27594,7 +27593,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010BB4.07C: 감사제 전리품 상자에서 획득
 000000010BB5.07C: 빨간 모자
 000000010BB7.07C: 용기수
-000000010BB9.07C: 가면
+000000010BB9.07C: 가장무도회
 000000010BBA.07C: 잠수함
 000000010BBB.07C: 위칠로포치틀리
 000000010BBC.07C: 복면
@@ -27658,7 +27657,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010C3B.07C: 2020 데스매치 경쟁전 배치 경기를 완료하여 획득
 000000010C40.07C: 잠수함
 000000010C41.07C: 감사제 전리품 상자에서 획득
-000000010C42.07C: 가면
+000000010C42.07C: 가장무도회
 000000010C43.07C: 감사제 전리품 상자에서 획득
 000000010C44.07C: 위칠로포치틀리
 000000010C45.07C: 감사제 전리품 상자에서 획득
@@ -27691,7 +27690,69 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010D22.07C: 취소
 000000010D2B.07C: 감정 표현
 000000010D2C.07C: 음성 대사
+000000010D5A.07C: 중국 - 선전
+000000010D5B.07C: 중국 - 청두
+000000010D5C.07C: 중국 - 베이징 2
 000000010D86.07C: 유효한 대기실 방
 000000010D88.07C: 유효한 게임 내 방
 000000010D8F.07C: 새로 고침
-[Core] Execution finished in 00:00:00.4507453 seconds
+000000010DC1.07C: 23시즌 영웅
+000000010DC3.07C: 23시즌 참가자
+000000010DC5.07C: 23시즌 영웅
+000000010DC6.07C: 23시즌에서 상위 500위를 달성하여 획득
+000000010DC7.07C: 23시즌 참가자
+000000010DC8.07C: 23시즌 배치 경기를 완료하여 획득
+000000010E2A.07C: 자유 경쟁전 2시즌
+000000010E2B.07C: 자유 경쟁전
+000000010E2C.07C: 다른 플레이어와 경쟁하고 등급을 올리세요. 아무 역할 제약 없이 영웅을 선택할 수 있습니다.
+000000010E46.07C: 자유 경쟁전
+000000010E47.07C: 자유 경쟁전
+000000010E4F.07C: Attach Players
+000000010E50.07C: Parent
+000000010E51.07C: Child
+000000010E52.07C: Detach Players
+000000010E53.07C: Children
+000000010E55.07C: Offset
+000000010E5A.07C: 자유 경쟁전 2시즌 영웅
+000000010E5B.07C: 자유 경쟁전 2시즌에서 상위 500위를 달성하여 획득
+000000010E5C.07C: 자유 경쟁전 2시즌 참가자
+000000010E5D.07C: 자유 경쟁전 2시즌 배치 경기를 완료하여 획득
+000000010E5E.07C: 자유 경쟁전 2시즌 영웅
+000000010E5F.07C: 자유 경쟁전 2시즌에서 상위 500위를 달성하여 획득
+000000010E60.07C: 자유 경쟁전 2시즌 참가자
+000000010E61.07C: 자유 경쟁전 2시즌 배치 경기를 완료하여 획득
+000000010E62.07C: Is In Alternate Form
+000000010E63.07C: 지정된 플레이어가 변형된 모습(메카에서 나온 D.Va, 속도 음악을 사용 중인 루시우, 다른 설정을 사용 중인 바스티온, 보조 무기를 장착한 메르시 또는 토르비욘 등)을 가졌는지 여부입니다. 에코의 복제는 Is Duplicating 값을 사용해 주세요.
+000000010E64.07C: 모습을 확인할 플레이어입니다.
+000000010E65.07C: Is Duplicating
+000000010E66.07C: 지정된 플레이어가 다른 영웅을 복제했는지 여부입니다. (어느 영웅을 복제했는지 확인하려면 Hero Being Duplicated 값을 사용해 주세요.)
+000000010E67.07C: 복제 상태를 확인할 플레이어입니다.
+000000010E68.07C: 자유 경쟁전 1시즌에서 상위 500위를 달성하여 획득
+000000010E69.07C: 자유 경쟁전 1시즌 배치 경기를 완료하여 획득
+000000010E6A.07C: Hero Being Duplicated
+000000010E6B.07C: 지정된 플레이어가 현재 복제한 영웅입니다. 영웅을 복제하지 않았다면, 결과값이 0이 됩니다.
+000000010E6C.07C: Player
+000000010E6D.07C: 복제를 실행 중인 플레이어입니다.
+000000010E70.07C: 우선 순위 대기열
+000000010E7F.07C: 플레이어(자녀)를 다른 플레이어(부모)와 연결합니다. 연결된 자녀(Child)는 분리되거나 순간이동으로 멀어지기 전에 자유롭게 움직일 수 없습니다. 다수의 자녀를 같은 부모(Parent)에 연결할 수 있지만 그 반대는 불가능합니다.
+000000010E80.07C: 부모(Parent)에게 연결할 플레이어입니다. 이 플레이어는 분리되거나 순간이동으로 멀어지기 전에 자유롭게 움직일 수 없습니다.
+000000010E81.07C: 자녀(Child)가 연결할 플레이어입니다. 이 플레이어의 움직임은 영향을 받지 않으며 자녀의 위치를 지정하게 됩니다.
+000000010E82.07C: 부모(Parent)와 연결된 자녀의 좌표입니다. 예를 들어, 벡터(1, 2, 0)은 부모의 머리의 좌상단에 위치합니다.
+000000010E83.07C: 플레이어에게 적용된 Attach Players 액션을 해제합니다. 이 플레이어들은 위치에서 정상적으로 움직일 수 있습니다.
+000000010E84.07C: 부모(Parent)로부터 분리할 플레이어입니다.
+000000010E85.07C: Start Forcing Player Position
+000000010E86.07C: 플레이어가 지정된 위치에 있도록 강제합니다. Reevaluation이 활성화되면, Position을 매 프레임마다 평가하여 플레이어를 그동안 이동시킬 수 있습니다.
+000000010E87.07C: Reevaluation
+000000010E88.07C: Position
+000000010E89.07C: Player
+000000010E8A.07C: 위치를 강제할 플레이어입니다. (Reevaluation 설정은 이 값에 영향을 주지 않습니다.)
+000000010E8B.07C: 플레이어가 있을 위치입니다. Reevaluation이 활성화되면, 이 값을 사용하여 플레이어를 그동안 움직일 수 있습니다.
+000000010E8C.07C: 값이 참이면, Position이 재평가되며 매 프레임마다 Player에게 적용됩니다. 값이 거짓이면, Position은 액션이 시작될 때 한 번만 평가됩니다.
+000000010E8D.07C: Stop Forcing Player Position
+000000010E8E.07C: 지정된 플레이어의 Start Forcing Player Position을 취소합니다. 마지막으로 강제된 위치에서 움직임을 정상적으로 재개할 수 있습니다.
+000000010E8F.07C: Player
+000000010E90.07C: 위치를 강제하지 않을 플레이어입니다.
+000000010E95.07C: 2019 오버워치 리그 MVP sinatraa
+000000010E9F.07C: 외계 요원 전설 스킨
+000000010EEC.07C: 플레이어 더 찾기
+[Core] Execution finished in 00:00:00.4306150 seconds

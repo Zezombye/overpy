@@ -17,16 +17,20 @@
 
 "use strict";
 
-astParsingFunctions.__greaterThan__ = function(content) {
+astParsingFunctions.__ifThenElse__ = function(content) {
     
     if (enableOptimization) {
-        //If both arguments are numbers, return their comparison.
-        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            return getAstForBool(content.args[0].args[0].numValue > content.args[1].args[0].numValue);
+        //ifThenElse(true, A, B) -> A
+        if (isDefinitelyTruthy(content.args[0])) {
+            return content.args[1];
         }
-        //A > A -> false
-        if (areAstsEqual(content.args[0], content.args[1])) {
-            return getAstForFalse();
+        //ifThenElse(false, A, B) -> B
+        if (isDefinitelyFalsy(content.args[0])) {
+            return content.args[2];
+        }
+        //ifThenElse(A, B, B) -> B
+        if (areAstsEqual(content.args[1], content.args[2])) {
+            return content.args[1];
         }
     }
     return content;

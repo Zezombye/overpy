@@ -1350,7 +1350,7 @@ const heroKw =
             "fr-FR": "Traquelard",
             "it-IT": "Gancio",
             "ja-JP": "チェイン・フック",
-            "ko-KR": "사슬 갈고리",
+            "ko-KR": "갈고리 사슬",
             "pl-PL": "Hak na Łańcuchu",
             "pt-BR": "Corrente de Gancho",
             "ru-RU": "Цепной крюк",

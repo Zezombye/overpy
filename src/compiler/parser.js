@@ -787,33 +787,37 @@ function parseLiteralArray(content) {
         return new Ast("__emptyArray__");
     }
 
-    //Check for "in" keyword
-    var inOperands = splitTokens(content.slice(1, content.length-1), "in", false);
-    if (inOperands.length === 2) {
+    //Check for "for" keyword
+    var forOperands = splitTokens(content.slice(1, content.length-1), "for");
+    if (forOperands.length === 2) {
 
+        
+        var inOperands = splitTokens(forOperands[1], "in", false);
+        if (inOperands.length !== 2) {
+            error("Expected 'in' after 'for'");
+        }
         var ifOperands = splitTokens(inOperands[1], "if");
 
-        if (ifOperands.length !== 2) {
+        if (ifOperands.length === 1) {
             //Expect something like "[x == y for x in z]"
             //Parse as the pseudo "map" function. Used for the "any"/"all" functions.
             //And well, maybe they will eventually add a map function...
-
-            if (inOperands[0].length < 3) {
-                error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected at least 3");
+            var inOperands = splitTokens(forOperands[1], "in", false);
+            if (inOperands[0].length !== 1) {
+                error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1");
             }
-            if (inOperands[0][inOperands[0].length-2].text !== "for") {
-                error("Malformed '[x for y in z]': expected 'for' but found '"+inOperands[0][inOperands[0].length-2].text+"'");
-            }
-            currentArrayElementNames.push(inOperands[0][inOperands[0].length-1].text);
-            var mappingFunction = parse(inOperands[0].slice(0, inOperands[0].length-2));
+            currentArrayElementNames.push(inOperands[0][0].text);
+            var mappingFunction = parse(forOperands[0]);
             currentArrayElementNames.pop();
 
             return new Ast("__mappedArray__", [parse(inOperands[1]), mappingFunction]);
             
-        } else {
+        } else if (ifOperands.length === 2) {
             //Filtered array
-            if (inOperands[0].length !== 3 || inOperands[0][1].text !== "for" || inOperands[0][0].text !== inOperands[0][2].text) {
-                error("Malformed 'x for x in y'");
+            //Expect something like "[x for x in y if x == 2]"
+            
+            if (forOperands[0].length !== 1 || inOperands[0].length !== 1 || forOperands[0][0].text !== inOperands[0][0].text) {
+                error("Malformed 'x for x in y if z'");
             }
             debug("Parsing 'x for x in y if z', x='"+inOperands[0][0].text+"', y='"+ifOperands[0]+"', z='"+ifOperands[1]+"'");
             
@@ -822,8 +826,10 @@ function parseLiteralArray(content) {
             currentArrayElementNames.pop();
 
             return new Ast("__filteredArray__", [parse(ifOperands[0]), condition]);
+        } else {
+            error("Expected 0 or 1 'if' after 'in', but found "+(ifOperands.length-1));
         }
-    } else {
+    } else if (forOperands.length === 1) {
         
         //Literal array with only values ([1,2,3])
         var args = splitTokens(content.slice(1, content.length-1), ",");
@@ -833,6 +839,8 @@ function parseLiteralArray(content) {
         }
 
         return new Ast("__array__", args.map(x => parse(x)));
+    } else {
+        error("Expected 0 or 1 'for', but found "+(forOperands.length-1))
     }
 	
 	error("This shouldn't happen");

@@ -28,7 +28,7 @@ astParsingFunctions.__not__ = function(content) {
             return getAstForFalse();
         }
         //not not A -> A
-        if (content.args[0].name === "__not__") {
+        if (content.args[0].name === "__not__" && isTypeSuitable("bool", content.args[0].args[0].type, false)) {
             return content.args[0].args[0];
         }
     }

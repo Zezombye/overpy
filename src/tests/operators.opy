@@ -4,12 +4,14 @@ rule "comparison":
     A = 1 == 0 #false
     A = B == B #true
     A = B == 0 #not B
+    A = isGameInProgress() == true #isGameInProgress()
 
     A = B != C
     A = 1 != 0 #true
     A = B != B #false
     A = B != 0
     A = not(B != 0) #not B
+    A = isGameInProgress() != true #not isGameInProgress()
 
     A = B >= C
     A = 1 >= 0 #true
@@ -142,5 +144,6 @@ rule "ternaries":
     A = B if C else D
     A = B if 0 == 0 else D #B
     A = B if 0 != 0 else D #D
+    A = B if C else B #B
     A = B if 0 != 0 else C if 0 != 0 else D #D
 

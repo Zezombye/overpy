@@ -318,6 +318,9 @@ const typeTree = [
 		"PlaintextStringLiteral",
 	]},
 
+	"Value",
+	"Raycast",
+
 ].concat(Object.keys(constantValues));
 
 //Which types are suitable for a given type.

@@ -1,14 +1,14 @@
-[Core] DataTool v1.48.0.872-git-388eaf2c98e84f9acbee236d068a6fd0dd9b9c8d
+[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
 [CASC] Set language to plPL
 [CASC] Set speech language to plPL
-[CASC] Overwatch build 1.48.0.0.68780
+[CASC] Overwatch build 1.49.0.0.69939
 [CASC] Initializing...
-[Manifest] Using TRG procedure 68780 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -7824,10 +7824,10 @@ Andrew Wang
 0000000046D4.07C: Rywalizacja jest obecnie niedostępna.
 0000000046D5.07C: Oaza
 0000000046D6.07C: Mecze klasyfikacyjne
-0000000046D7.07C: +30%% PD (premia za grę w kafejce internetowej)
+0000000046D7.07C: +20%% PD (premia za grę w kafejce internetowej)
 0000000046D8.07C: PREMIA ZA IGR PREMIUM
-0000000046D9.07C: PREMIA +30%% PD
-0000000046DA.07C: ODBLOKOWANO SKÓRKI Z LEGENDARY EDITION!
+0000000046D9.07C: PREMIA +20%% PD
+0000000046DA.07C: ODBLOKOWANO SKÓRKI Z ORIGINS EDITION!
 0000000046DB.07C: Ukończone mecze klasyfikacyjne
 0000000046DC.07C: Twoja ranga:
 0000000046E7.07C: KONIEC RUNDY %1$s
@@ -13760,7 +13760,6 @@ z letnich igrzysk
 00000000673A.07C: Toast
 00000000673C.07C: Dogrywka
 00000000673D.07C: Graj!
-00000000673E.07C: Przygotuj się do ataku
 00000000673F.07C: Oczekiwanie na graczy
 000000006740.07C: Bramka
 000000006741.07C: %1$s zdobywa BRAMKĘ!
@@ -17040,7 +17039,7 @@ Czy chcesz anulować?
 000000008C78.07C: 
 000000008C7B.07C: Gotowe
 000000008C7C.07C: Anulowanie
-000000008C7D.07C: Przytrzymaj <tx%1$s> / Gotowe
+000000008C7D.07C: Przytrzymaj %1$s / Gotowe
 000000008C7F.07C: Podstawowa
 000000008C80.07C: LOSOWA
 000000008C81.07C: DOMYŚLNA
@@ -17081,7 +17080,7 @@ Czy chcesz anulować?
 000000008CD3.07C: Słodziak
 000000008CD4.07C: Piksel
 000000008CE0.07C: Wychodzenie
-000000008CE1.07C: Przytrzymaj <tx%1$s>, aby wyjść.
+000000008CE1.07C: Przytrzymaj %1$s, aby wyjść.
 000000008CE2.07C: Huang Zhong
 000000008CE3.07C: Wymuś role
 000000008CE5.07C: Awansujesz na poziom %1$s!
@@ -17161,9 +17160,8 @@ z letnich igrzysk
 000000008DB5.07C: Wystawianie pochwał znajomym jest niedostępne.
 000000008DB6.07C: Wystawiono wszystkie pochwały za mecz.
 000000008DCE.07C: Wieżyczka
-000000008DEA.07C: ANULUJ
 000000008DEC.07C: WYMAGANE PODANIE NUMERU TELEFONU.
-000000008DEE.07C: DODAJ NUMER
+000000008DEE.07C: DODAJ WERYFIKACJĘ SMS
 000000008DEF.07C: Demon
 000000008DF2.07C: https://account.blizzard.com/details/sms/setup/add
 000000008DF3.07C: Konto wymaga podania numeru telefonu.
@@ -17282,10 +17280,10 @@ w trybie Eliminacji 3 na 3 w 2018
 0000000090BF.07C: Znajdź więcej graczy
 0000000090C0.07C: Znajdź więcej graczy
 0000000090C1.07C: Finlandia (Gospodarze)
-0000000090C2.07C: Przytrzymaj <tx%1$s> / Znajdź więcej graczy
+0000000090C2.07C: Przytrzymaj %1$s / Znajdź więcej graczy
 0000000090C3.07C: Graj w tryb: %1$s
 0000000090C4.07C: Graj w tryb: %1$s
-0000000090C5.07C: Przytrzymaj <tx%1$s> / Graj w tryb: %2$s
+0000000090C5.07C: Przytrzymaj %1$s / Graj w tryb: %2$s
 0000000090C6.07C: Hongkong (Gospodarze)
 0000000090C7.07C: Tajwan (Gospodarze)
 0000000090C8.07C: Medal
@@ -17480,7 +17478,7 @@ w Copa Futbolúcio 2018.
 0000000091ED.07C: Przetocz się po 4 wrogach w 2 sekundy jako Burzyciel w Szybkiej grze/Rywalizacji.
 0000000091EE.07C: Za mało miejsc!
 0000000091EF.07C: Edytuj ekipę
-0000000091F0.07C: Przytrzymaj <tx%1$s> / Edytuj ekipę
+0000000091F0.07C: Przytrzymaj %1$s / Edytuj ekipę
 0000000091F1.07C: Edytuj ekipę
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -18579,11 +18577,11 @@ Prosimy o przesyłanie komentarzy i opinii, które pomogą nam usprawnić dział
 00000000AA5D.07C: Holandia
 00000000AA5E.07C: Francja
 00000000AA5F.07C: Chiny – Hangzhou
-00000000AA60.07C:  Chiny – Hangzhou 2
+00000000AA60.07C: Chiny – Hangzhou 2
 00000000AA61.07C: Korea Południowa
 00000000AA62.07C: Stany Zjednoczone – Południowy zachód
 00000000AA63.07C: Stany Zjednoczone – Zachód
-00000000AA64.07C:  Australia 2
+00000000AA64.07C: Australia 2
 00000000AA65.07C: Australia 3
 00000000AA66.07C: Tajwan
 00000000AA67.07C: Japonia
@@ -20483,7 +20481,7 @@ w trybie Deathmatch 2019
 00000000BD02.07C: Określa czy gracz lub gracze mogą użyć zdolności „Ability 2” (Zdolność 2). Oczekiwany jest logiczny typ danych taki jak „True” (Prawda), „False” (Fałsz) lub „Compare” (Porównaj).
 00000000BD03.07C: Gracz lub gracze, których dostęp do zdolności „Ability 1” (Zdolność 1) jest uwzględniony.
 00000000BD04.07C: Włącza lub wyłącza zdolność „Ability 2” (Zdolność 2) dla jednego lub więcej graczy.
-00000000BD05.07C: Określa czy gracz lub gracze mogą użyć swojej superzdolności. Oczekiwany jest logiczny typ danych taki jak Prawda, Fałsz lub Porównaj.
+00000000BD05.07C: Określa czy gracz lub gracze mogą użyć swojej superzdolności. Oczekiwany jest logiczny typ danych taki jak „True” (Prawda), „False” (Fałsz) lub „Compare” (Porównaj).
 00000000BD06.07C: Gracz lub gracze, których dostęp do superzdolności jest uwzględniony.
 00000000BD07.07C: Włącza lub wyłącza superzdolność dla jednego lub więcej graczy.
 00000000BD08.07C: Pozycja, do której teleportowany będzie gracz lub gracze. Jeśli podany zostanie gracz, użyta będzie jego pozycja.
@@ -22140,9 +22138,9 @@ w trybie Deathmatch 2019
 00000000C6BA.07C: Graj/Pauzuj
 00000000C6BC.07C: 
 00000000C6BE.07C: Gracz lub gracze, których dostęp do podstawowego trybu ataku jest uwzględniony.
-00000000C6BF.07C: Określa, czy gracz lub gracze mogą użyć podstawowego trybu ataku. Oczekiwany jest logiczny typ danych taki jak „Prawda” (True), „Fałsz” (False) lub „Porównaj” (Compare).
+00000000C6BF.07C: Określa, czy gracz lub gracze mogą użyć podstawowego trybu ataku. Oczekiwany jest logiczny typ danych taki jak „True” (Prawda), „False” (Fałsz) lub „Compare”.
 00000000C6C0.07C: Gracz lub gracze, których dostęp do alternatywnego trybu ataku jest uwzględniony.
-00000000C6C1.07C: Określa, czy gracz lub gracze mogą użyć alternatywnego trybu ataku. Oczekiwany jest logiczny typ danych taki jak „Prawda” (True), „Fałsz” (False) lub „Porównaj” (Compare).
+00000000C6C1.07C: Określa, czy gracz lub gracze mogą użyć alternatywnego trybu ataku. Oczekiwany jest logiczny typ danych taki jak „True” (Prawda), „False” (Fałsz) lub „Compare”.
 00000000C6C2.07C: Włącza lub wyłącza podstawowy tryb ataku dla jednego lub więcej graczy.
 00000000C6C3.07C: Włącza lub wyłącza alternatywny tryb ataku dla jednego lub więcej graczy.
 00000000C6C4.07C: Set Secondary Fire Enabled
@@ -22215,7 +22213,7 @@ w trybie Deathmatch 2019
 00000000C7F8.07C: Tangent From Degrees
 00000000C7F9.07C: Tangens określonego kąta wyrażony w stopniach.
 00000000C7FA.07C: Skupiona Wiązka
-00000000C7FB.07C: Przez kilka sekund podtrzymujesz działanie wiązki, która zadaje bardzo duże obrażenia celom, mającym mniej niż połowa wytrzymałości.
+00000000C7FB.07C: Przez kilka sekund podtrzymujesz działanie wiązki, która zadaje bardzo duże obrażenia celom, mającym mniej niż połowę wytrzymałości.
 00000000C7FC.07C: Tangens określonego kąta wyrażony w radianach.
 00000000C7FD.07C: Tangent From Radians
 00000000C7FE.07C: Arcus tangens określonego licznika i mianownika wyrażony w radianach (często nazywany „Atan2”).
@@ -26329,8 +26327,6 @@ https://account.blizzard.com/connections/nintendo
 00000000DA5C.07C: Wyłącz żyroskop podczas użycia drążka
 00000000EA2F.07C: Doktor Ziegler
 00000000EA3E.07C: Odwróć oś Z celowania żyroskopem
-00000000EA40.07C: Tryb Rywalizacji
-00000000EA41.07C: ZDOBĘDZIESZ NASTĘPUJĄCE NAGRODY ZA UDZIAŁ:
 00000000EA51.07C: Koza(k)
 00000000EA59.07C: Odwróć oś X celowania żyroskopem
 00000000EA5A.07C: (posiadasz)
@@ -27085,6 +27081,8 @@ w sezonie 21.
 000000010055.07C: Sezon 21
 000000010056.07C: Sezon 22
 000000010057.07C: Sezon 22
+000000010058.07C: Sezon 23
+000000010059.07C: Sezon 23
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Importuj ustawienia ze schowka
@@ -27092,12 +27090,12 @@ w sezonie 21.
 00000001006D.07C: Potwierdź
 00000001006E.07C: główne
 000000010072.07C: Rotacja bohaterów
-000000010075.07C: Pula bohaterów dostępnych w trybie rywalizacji podlega regularnej rotacji.
+000000010075.07C: Pula bohaterów dostępnych w meczach mistrzowskich i arcymistrzowskich w trybie Rywalizacji podlega regularnej rotacji.
 000000010078.07C: Bohaterowie poza rotacją
 00000001007F.07C: Opis
 000000010086.07C: OK
 000000010087.07C: Rotacja bohaterów
-000000010088.07C: Pula bohaterów dostępnych w trybie rywalizacji podlega regularnej rotacji.
+000000010088.07C: Pula bohaterów dostępnych w meczach mistrzowskich i arcymistrzowskich w trybie Rywalizacji podlega regularnej rotacji.
 000000010089.07C: Bohaterowie poza rotacją
 00000001008C.07C: Niedostępni bohaterowie
 000000010091.07C: Złowieszczy rechot
@@ -27564,6 +27562,7 @@ w sezonie 22.
 0000000108E9.07C: Atlanta Reign Homestand 2020
 0000000108F8.07C: Droga 66
 0000000108FE.07C: Plan lotu
+00000001094D.07C: Facetka w Czerni
 000000010950.07C: Nagroda za oglądanie transmisji biorących udział w promocji podczas wydarzenia z okazji wprowadzenia postaci Echo do gry.
 000000010951.07C: W chmurach
 000000010952.07C: Lot
@@ -27615,14 +27614,14 @@ w sezonie 22.
 – Zajmowanie celów zapewnia punkty
 – O wygranej decyduje przewaga punktowa!
 0000000109FF.07C: Zdolność dla zdarzenia aktualnie przetwarzanego przez tę regułę powiązaną z przyciskiem.
-000000010A0B.07C: Uczestnik Otwartej Rywalizacji
+000000010A0B.07C: Uczestnik 1. sezonu Otwartej Rywalizacji
 000000010A0C.07C: Nagroda
 za mecze klasyfikacyjne
-w Otwartej Rywalizacji
-000000010A0D.07C: Bohater Otwartej Rywalizacji
-000000010A0E.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Otwartej Rywalizacji.
-000000010A0F.07C: Uczestnik Otwartej Rywalizacji
-000000010A11.07C: Bohater Otwartej Rywalizacji
+w 1. sezonie Otwartej Rywalizacji
+000000010A0D.07C: Bohater 1. sezonu Otwartej Rywalizacji
+000000010A0E.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec 1. sezonu Otwartej Rywalizacji.
+000000010A0F.07C: Uczestnik 1. sezonu Otwartej Rywalizacji
+000000010A11.07C: Bohater 1. sezonu Otwartej Rywalizacji
 000000010A16.07C: Szybowanie
 000000010A17.07C: %1$s: %2$s
 000000010A1C.07C: Szybko skupiaj ataki na Echo, kiedy użyje ona Duplikacji, aby uniemożliwić jej użycie niszczycielskiej superzdolności.
@@ -27939,7 +27938,76 @@ w trybie Deathmatch 2020
 000000010D22.07C: ANULUJ
 000000010D2B.07C: EMOTKA
 000000010D2C.07C: KWESTIA
+000000010D5A.07C: Chiny – Shenzhen
+000000010D5B.07C: Chiny – Chengdu
+000000010D5C.07C: Chiny – Pekin 2
 000000010D86.07C: Miejsce w poczekalni
 000000010D88.07C: Miejsce w meczu
 000000010D8F.07C: Odśwież
-[Core] Execution finished in 00:00:00.4548486 seconds
+000000010DC1.07C: Bohater 23. sezonu
+000000010DC3.07C: Uczestnik 23. sezonu
+000000010DC5.07C: Bohater 23. sezonu
+000000010DC6.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 23.
+000000010DC7.07C: Uczestnik 23. sezonu
+000000010DC8.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 23.
+000000010E2A.07C: Otwarta Rywalizacja – sezon 2.
+000000010E2B.07C: Otwarta Rywalizacja
+000000010E2C.07C: Rywalizuj z najlepszymi graczami na świecie i pnij się w tabeli wyników bez ograniczeń ról przy wyborze bohaterów.
+000000010E46.07C: Otwarta Rywalizacja
+000000010E47.07C: Otwarta Rywalizacja
+000000010E4F.07C: Attach Players
+000000010E50.07C: Nadrzędny
+000000010E51.07C: Potomny
+000000010E52.07C: Detach Players
+000000010E53.07C: Potomne
+000000010E55.07C: Wyrównanie
+000000010E5A.07C: Bohater 2. sezonu Otwartej Rywalizacji
+000000010E5B.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec 2. sezonu Otwartej Rywalizacji.
+000000010E5C.07C: Uczestnik 2. sezonu Otwartej Rywalizacji
+000000010E5D.07C: Nagroda
+za mecze klasyfikacyjne
+w 2. sezonie Otwartej Rywalizacji.
+000000010E5E.07C: Bohater 2. sezonu Otwartej Rywalizacji
+000000010E5F.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec 2. sezonu Otwartej Rywalizacji.
+000000010E60.07C: Uczestnik 2. sezonu Otwartej Rywalizacji
+000000010E61.07C: Nagroda
+za mecze klasyfikacyjne
+w 2. sezonie Otwartej Rywalizacji.
+000000010E62.07C: Is In Alternate Form
+000000010E63.07C: Czy określony gracz jest obecnie w postaci alternatywnej (np. D.Va poza mechem, Lúcio używający aury szybkości, Bastion w innej konfiguracji, Łaska i Torbjörn korzystający z ataku alternatywnego itp.) W przypadku Echo i zdolności Duplikacja, użyj wartości „Is Duplicating” (W trakcie duplikacji).
+000000010E64.07C: Gracz, którego postać zostanie sprawdzona.
+000000010E65.07C: Is Duplicating
+000000010E66.07C: Czy określony gracz duplikuje inną postać, aby sprawdzić którą, użyj wartości „Hero Being Duplicated” (Duplikowany bohater).
+000000010E67.07C: Gracz, którego status duplikacji zostanie sprawdzony.
+000000010E68.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec 1. sezonu Otwartej Rywalizacji.
+000000010E69.07C: Nagroda
+za mecze klasyfikacyjne
+w 1. sezonie Otwartej Rywalizacji
+000000010E6A.07C: Hero Being Duplicated
+000000010E6B.07C: Aktualnie duplikowana przez określonego gracza postać. Jeśli nie jest duplikowana żadna, wynikiem jest wartość 0.
+000000010E6C.07C: Gracz
+000000010E6D.07C: Gracz wykonujący duplikację.
+000000010E70.07C: Kolejka priorytetowa
+000000010E7F.07C: Przyłącza jednego gracza „Child” (Potomna) do drugiego „Parent” (Nadrzędna). Po dołączeniu, potomna nie będzie mogła się swobodnie poruszać, dopóki nie zostanie odłączona lub teleportowana. Do tej samej nadrzędnej można przyłączyć kilka potomnych (ale nie na odwrót).
+000000010E80.07C: Gracz, który przyłączy się do drugiego „Parent” (Nadrzędna). Gracz ten nie będzie mógł się swobodnie poruszać, dopóki nie zostanie odłączony lub teleportowany.
+000000010E81.07C: Gracz, do którego zostanie przyłączony gracz „Child” (Potomna). Ruch tego gracza pozostanie niezmienny i określi pozycję potomnej.
+000000010E82.07C: Współrzędne gracza „Child” (Potomna) w stosunku do „Parent” (Nadrzędna). Na przykład wektor(1, 2, 0) byłby nad i na lewo od głowy nadrzędnej.
+000000010E83.07C: Cofa przyłączenie spowodowanego przez działanie „Attach Players” (Przyłącz graczy) dla jednego lub więcej graczy. Gracze ci wznowią normalny ruch od bieżącej pozycji.
+000000010E84.07C: Gracz lub gracze, którzy zostaną odłączeni od gracza „Parent” (Nadrzędna).
+000000010E85.07C: Start Forcing Player Position
+000000010E86.07C: Zaczyna wymuszać u gracza daną pozycję. Jeżeli opcja „Reevaluation” (Ponowne oszacowanie) jest włączona, wówczas „Position” (Pozycja) jest szacowana w każdej klatce, co pozwala na przemieszczanie gracza z upływem czasu.
+000000010E87.07C: Ponowne oszacowanie
+000000010E88.07C: Pozycja
+000000010E89.07C: Gracz
+000000010E8A.07C: Gracz, którego pozycja zostanie wymuszona (opcja „Reevaluation” – Ponowne oszacowanie – nie ma zastosowania dla tej wartości).
+000000010E8B.07C: Pozycja, którą zajmie gracz. Jeśli „Reevaluation” (Ponowne oszacowanie) jest włączone, wartość ta może być użyta do przemieszczania gracza z upływem czasu.
+000000010E8C.07C: Jeśli ta wartość jest prawdziwa, wówczas pozycja zostanie ponownie oszacowana i zastosowana dla każdej klatki gracza. Jeżeli ta wartość jest fałszywa, wówczas pozycja jest oceniana tylko raz, gdy rozpoczyna się działanie.
+000000010E8D.07C: Stop Forcing Player Position
+000000010E8E.07C: Anuluje zachowanie „Start Forcing Player Position” (Rozpocznij wymuszanie pozycji gracza) dla określonego gracza lub graczy. Regularny ruch zostanie wznowiony od ostatniej wymuszonej pozycji.
+000000010E8F.07C: Gracz
+000000010E90.07C: Gracz lub gracze, których pozycje przestaną być wymuszane.
+000000010E95.07C: MVP Overwatch League 2019 – sinatraa
+000000010E9F.07C: Legendarna skórka – Facetka w Czerni
+000000010EEC.07C: Znajdź więcej graczy
+[Core] Execution finished in 00:00:00.4125399 seconds

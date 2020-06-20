@@ -1,14 +1,14 @@
-[Core] DataTool v1.48.0.872-git-388eaf2c98e84f9acbee236d068a6fd0dd9b9c8d
+[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
 [CASC] Set language to frFR
 [CASC] Set speech language to frFR
-[CASC] Overwatch build 1.48.0.0.68780
+[CASC] Overwatch build 1.49.0.0.69939
 [CASC] Initializing...
-[Manifest] Using TRG procedure 68780 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 68780 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -7822,10 +7822,10 @@ d’entraînement
 0000000046D4.07C: Parties compétitives actuellement indisponibles.
 0000000046D5.07C: Oasis
 0000000046D6.07C: Parties de placement
-0000000046D7.07C: + 30 %% d’EXP (avantage premium de salle de jeux Internet)
+0000000046D7.07C: + 20 %% d’EXP (avantage premium de salle de jeux Internet)
 0000000046D8.07C: AVANTAGE PREMIUM DE SALLE DE JEUX INTERNET
-0000000046D9.07C: BONUS DE 30 %% À L’EXP
-0000000046DA.07C: MODÈLES LEGENDARY EDITION OBTENUS !
+0000000046D9.07C: BONUS DE 20 %% À L’EXP
+0000000046DA.07C: MODÈLES ORIGINES OBTENUS !
 0000000046DB.07C: Parties de placement terminées
 0000000046DC.07C: Votre cote :
 0000000046E7.07C: MANCHE %1$s TERMINÉE
@@ -13759,7 +13759,6 @@ Saison 7
 00000000673A.07C: Santé
 00000000673C.07C: Prolongations
 00000000673D.07C: C’est parti !
-00000000673E.07C: Préparez-vous à attaquer
 00000000673F.07C: En attente de joueurs
 000000006740.07C: But
 000000006741.07C: %1$s a marqué un BUT !
@@ -17036,7 +17035,7 @@ Annuler ?
 000000008C78.07C: 
 000000008C7B.07C: Terminé
 000000008C7C.07C: Annulation
-000000008C7D.07C: Maintenir <tx%1$s> / Terminé
+000000008C7D.07C: Maintenir %1$s / Terminé
 000000008C7F.07C: Classique
 000000008C80.07C: ALÉATOIRE
 000000008C81.07C: PAR DÉFAUT
@@ -17077,7 +17076,7 @@ Annuler ?
 000000008CD3.07C: Mignon
 000000008CD4.07C: Pixel
 000000008CE0.07C: En train de quitter…
-000000008CE1.07C: Maintenir <tx%1$s> pour quitter
+000000008CE1.07C: Maintenir %1$s pour quitter
 000000008CE2.07C: Huang Zhong
 000000008CE3.07C: Imposer les rôles
 000000008CE5.07C: Vous avez atteint le niveau de recommandation %1$s !
@@ -17154,7 +17153,6 @@ Annuler ?
 000000008DB5.07C: Recommandation des amis non disponible.
 000000008DB6.07C: Vous avez accordé toutes vos recommandations pour cette partie.
 000000008DCE.07C: Tourelle
-000000008DEA.07C: ANNULER
 000000008DEC.07C: NUMÉRO DE TÉLÉPHONE REQUIS.
 000000008DEE.07C: ASSOCIER UN NUMÉRO DE TÉLÉPHONE PORTABLE.
 000000008DEF.07C: Démon
@@ -17272,10 +17270,10 @@ Annuler ?
 0000000090BF.07C: Trouver d’autres joueurs
 0000000090C0.07C: Trouver d’autres joueurs
 0000000090C1.07C: Finlande (domicile)
-0000000090C2.07C: Maintenir <tx%1$s> / Trouver d’autres joueurs
+0000000090C2.07C: Maintenir %1$s / Trouver d’autres joueurs
 0000000090C3.07C: Jouer en %1$s
 0000000090C4.07C: Jouer en %1$s
-0000000090C5.07C: Maintenir <tx%1$s> / Jouer en %2$s
+0000000090C5.07C: Maintenir %1$s / Jouer en %2$s
 0000000090C6.07C: Hong Kong (domicile)
 0000000090C7.07C: Taipei (domicile)
 0000000090C8.07C: Médaille
@@ -17445,7 +17443,7 @@ Lúcioball 2018
 0000000091ED.07C: Rouler sur 4 adversaires en 2 secondes avec Bouldozer en partie rapide ou compétitive.
 0000000091EE.07C: Pas assez d’emplacements !
 0000000091EF.07C: Modifier l’escouade
-0000000091F0.07C: Maintenir <tx%1$s> / Modifier l’escouade
+0000000091F0.07C: Maintenir %1$s / Modifier l’escouade
 0000000091F1.07C: Modifier l’escouade
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -18519,7 +18517,7 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000AA5D.07C: Pays-Bas
 00000000AA5E.07C: France
 00000000AA5F.07C:  Chine - Hangzhou
-00000000AA60.07C:  Chine - Hangzhou 2
+00000000AA60.07C: Chine - Hangzhou 2
 00000000AA61.07C: Corée du Sud
 00000000AA62.07C: États-Unis - Sud-ouest
 00000000AA63.07C: États-Unis - Ouest
@@ -26222,8 +26220,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000DA5C.07C: Gyroscope désactivé lors de l’utilisation du stick
 00000000EA2F.07C: Dr Ziegler
 00000000EA3E.07C: Inverser l’axe de lacet pour la visée gyroscopique
-00000000EA40.07C: Partie compétitive
-00000000EA41.07C: GAGNEZ CES RÉCOMPENSES EN PARTICIPANT
 00000000EA51.07C: Bélier
 00000000EA59.07C: Inverser l’axe de roulis pour la visée gyroscopique
 00000000EA5A.07C: (débloqué)
@@ -26963,6 +26959,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010055.07C: Saison 21
 000000010056.07C: Saison 22
 000000010057.07C: Saison 22
+000000010058.07C: Saison 23
+000000010059.07C: Saison 23
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s ko
 00000001006B.07C: Importer les paramètres depuis le presse-papiers
@@ -26970,12 +26968,12 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000001006D.07C: Confirmer
 00000001006E.07C: principal
 000000010072.07C: Rotation des héros
-000000010075.07C: Les héros disponibles pour les parties compétitives changent régulièrement.
+000000010075.07C: Les héros disponibles pour les parties compétitives aux niveaux Maître et Grand maître changent régulièrement.
 000000010078.07C: Héros hors sélection
 00000001007F.07C: Description
 000000010086.07C: OK
 000000010087.07C: Rotation des héros
-000000010088.07C: Les héros disponibles pour les parties compétitives changent régulièrement.
+000000010088.07C: Les héros disponibles pour les parties compétitives aux niveaux Maître et Grand maître changent régulièrement.
 000000010089.07C: Héros hors sélection
 00000001008C.07C: Héros non disponibles
 000000010091.07C: Rire démoniaque
@@ -27438,6 +27436,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000108E9.07C: Atlanta Reign à domicile 2020
 0000000108F8.07C: Route 66
 0000000108FE.07C: Plan de vol
+00000001094D.07C: Extraterrestre
 000000010950.07C: Obtenu en regardant les streams participant à l’opération pendant le lancement d’Écho
 000000010951.07C: Décollage
 000000010952.07C: Envol
@@ -27489,12 +27488,12 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 - Marquez des points en prenant les objectifs.
 - L’équipe qui a le plus de points gagne !
 0000000109FF.07C: La capacité associée à un bouton pour l’évènement actuellement traité par cette règle.
-000000010A0B.07C: Compétiteur Compétitif en sélection libre
-000000010A0C.07C: Obtenu en effectuant toutes les parties de placement du mode Compétitif en sélection libre
-000000010A0D.07C: Héros Compétitif en sélection libre
-000000010A0E.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Compétitif en sélection libre
-000000010A0F.07C: Compétiteur Compétitif en sélection libre
-000000010A11.07C: Héros Compétitif en sélection libre
+000000010A0B.07C: Compétiteur Saison 1 en sélection libre
+000000010A0C.07C: Obtenu en effectuant toutes les parties de placement de la saison 1 du mode Compétitif en sélection libre
+000000010A0D.07C: Héros Saison 1 en sélection libre
+000000010A0E.07C: Obtenu en se classant parmi les 500 meilleurs joueurs de la saison 1 du mode Compétitif en sélection libre
+000000010A0F.07C: Compétiteur Saison 1 en sélection libre
+000000010A11.07C: Héros Saison 1 en sélection libre
 000000010A16.07C: Planeur
 000000010A17.07C: %1$s : %2$s
 000000010A1C.07C: Concentrez rapidement les attaques sur Écho après qu’elle a utilisé Duplication pour l’empêcher d’utiliser une capacité ultime dévastatrice.
@@ -27807,7 +27806,69 @@ L’assistance Blizzard
 000000010D22.07C: ANNULER
 000000010D2B.07C: EMOTE
 000000010D2C.07C: RÉPLIQUE
+000000010D5A.07C: Chine - Shenzhen
+000000010D5B.07C: Chine - Chengdu
+000000010D5C.07C: Chine - Pékin 2
 000000010D86.07C: Place dans le salon
 000000010D88.07C: Place dans le jeu
 000000010D8F.07C: Actualiser
-[Core] Execution finished in 00:00:00.4551151 seconds
+000000010DC1.07C: Héros Saison 23
+000000010DC3.07C: Compétiteur Saison 23
+000000010DC5.07C: Héros Saison 23
+000000010DC6.07C: Obtenu en se classant parmi les 500 meilleurs joueurs lors de la saison 23
+000000010DC7.07C: Compétiteur Saison 23
+000000010DC8.07C: Obtenu en effectuant toutes les parties de placement de la saison 23
+000000010E2A.07C: Compétitif en sélection libre - Saison 2
+000000010E2B.07C: Compétitif en sélection libre
+000000010E2C.07C: Gravissez les échelons et affrontez les meilleurs joueurs au monde sans limites de rôle pour la sélection des héros.
+000000010E46.07C: Compétitif en sélection libre
+000000010E47.07C: Compétitif en sélection libre
+000000010E4F.07C: Attacher les joueurs
+000000010E50.07C: Parent
+000000010E51.07C: Enfant
+000000010E52.07C: Détacher les joueurs
+000000010E53.07C: Enfants
+000000010E55.07C: Décalage
+000000010E5A.07C: Héros Saison 2 en sélection libre
+000000010E5B.07C: Obtenu en se classant parmi les 500 meilleurs joueurs de la saison 2 du mode Compétitif en sélection libre
+000000010E5C.07C: Compétiteur Saison 2 en sélection libre
+000000010E5D.07C: Obtenu en effectuant toutes les parties de placement de la saison 2 du mode Compétitif en sélection libre
+000000010E5E.07C: Héros Saison 2 en sélection libre
+000000010E5F.07C: Obtenu en se classant parmi les 500 meilleurs joueurs de la saison 2 du mode Compétitif en sélection libre
+000000010E60.07C: Compétiteur Saison 2 en sélection libre
+000000010E61.07C: Obtenu en effectuant toutes les parties de placement de la saison 2 du mode Compétitif en sélection libre
+000000010E62.07C: Est dans une forme alternative
+000000010E63.07C: Si le joueur spécifié est actuellement dans une forme alternative (telle que D.Va en dehors du méca, Lúcio utilisant son beat de vitesse, Bastion dans une configuration différente, Ange et Torbjörn équipés de leur arme secondaire, etc.). Pour la duplication d’Écho, utilisez plutôt la valeur « Effectue une duplication ».
+000000010E64.07C: Le joueur dont il faut vérifier la forme.
+000000010E65.07C: Effectue une duplication
+000000010E66.07C: Si le joueur spécifié duplique un autre héros. (Pour vérifier quel héros, utilisez la valeur « Héros dupliqué »).
+000000010E67.07C: Le joueur dont il faut vérifier le statut de duplication.
+000000010E68.07C: Obtenu en se classant parmi les 500 meilleurs joueurs de la saison 1 du mode Compétitif en sélection libre
+000000010E69.07C: Obtenu en effectuant toutes les parties de placement de la saison 1 du mode Compétitif en sélection libre
+000000010E6A.07C: Héros dupliqué
+000000010E6B.07C: Le héros actuellement dupliqué par le joueur spécifié. Si aucun héros n’est dupliqué, la valeur résultante est 0.
+000000010E6C.07C: Joueur
+000000010E6D.07C: Le joueur qui effectue la duplication.
+000000010E70.07C: Nouvelle file d’attente prioritaire
+000000010E7F.07C: Attache un joueur (l’enfant) à un autre joueur (le parent). Une fois attaché, l’enfant ne peut plus se déplacer librement ou se téléporter jusqu’à ce qu’il soit détaché. Plusieurs enfants peuvent être attachés au même parent (mais pas l’inverse).
+000000010E80.07C: Le joueur qui s’attachera au parent. Ce joueur ne pourra pas se déplacer librement tant qu’il ne sera pas détaché ou téléporté.
+000000010E81.07C: Le joueur auquel l’enfant s’attachera. Les déplacements de ce joueur ne seront pas affectés et détermineront la position de l’enfant.
+000000010E82.07C: Les coordonnées de l’enfant par rapport au parent. Par exemple, Vecteur(1, 2, 0) serait au-dessus et à gauche de la tête du Parent.
+000000010E83.07C: Défait l’attachement causé par l’action « Attacher les joueurs » pour un ou plusieurs joueurs. Ces joueurs reprendront leurs déplacements normaux à partir de leur position actuelle.
+000000010E84.07C: Le ou les joueurs qui seront détachés de leur parent.
+000000010E85.07C: Forcer la position du joueur
+000000010E86.07C: Force un joueur à être dans une position donnée. Si « Réévaluation » est activée, alors la position est évaluée à chaque image, permettant au joueur d’être déplacé au fil du temps.
+000000010E87.07C: Réévaluation
+000000010E88.07C: Position
+000000010E89.07C: Joueur
+000000010E8A.07C: Le joueur dont la position sera forcée. (L’option « Réévaluation » ne s’applique pas à cette valeur).
+000000010E8B.07C: La position qu’occupera le joueur. Si « Réévaluation » est activée, cette valeur peut être utilisée pour déplacer le joueur au fil du temps.
+000000010E8C.07C: Si cette valeur est vraie, alors la position sera réévaluée et appliquée au joueur à chaque image. Si cette valeur est fausse, alors la position est évaluée uniquement après que l’action a commencé.
+000000010E8D.07C: Arrêter de forcer la position du joueur
+000000010E8E.07C: Annule le comportement de « Forcer la position du joueur » pour le ou les joueurs spécifiés. Les déplacements habituels reprendront à partir de la ou des dernières positions forcées.
+000000010E8F.07C: Joueur
+000000010E90.07C: Le joueur ou les joueurs dont les positions cesseront d’être forcées.
+000000010E95.07C: Sinatraa, MVP de l’Overwatch League 2019
+000000010E9F.07C: Modèle légendaire Extraterrestre
+000000010EEC.07C: Trouver d’autres joueurs
+[Core] Execution finished in 00:00:00.4198004 seconds
