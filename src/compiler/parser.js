@@ -223,7 +223,7 @@ function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMin
 		var step = 1;
 	}
 	
-	console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
+	//console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
 	
 	for (var i = start; i != end; i+=step) {
 

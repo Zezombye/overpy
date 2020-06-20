@@ -26519,6 +26519,45 @@ function parseLocalizedString(content, formatArgs) {
 
 "use strict";
 
+astParsingFunctions.__filteredArray__ = function(content) {
+    
+    if (enableOptimization) {
+        //filtered array with no constant -> if/else
+        if (!astContainsFunctions(content.args[1], ["__currentArrayElement__"])) {
+            return new Ast("__ifThenElse__", [content.args[1], content.args[0], getAstForEmptyArray()]);
+        }
+
+        //filtered array with condition "currentArrayElement != A" -> remove from array(array, A)
+        if (content.args[1].name === "__inequals__") {
+            if (content.args[1].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__"])) {
+                return new Ast("__removeFromArray__", [content.args[0], content.args[1].args[1]]);
+            }
+            if (content.args[1].args[1].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__"])) {
+                return new Ast("__removeFromArray__", [content.args[0], content.args[1].args[1]]);
+            }
+        }
+    }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__greaterThan__ = function(content) {
     
     if (enableOptimization) {
@@ -26677,6 +26716,43 @@ astParsingFunctions.__if__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.__ifThenElse__ = function(content) {
+    
+    if (enableOptimization) {
+        //ifThenElse(true, A, B) -> A
+        if (isDefinitelyTruthy(content.args[0])) {
+            return content.args[1];
+        }
+        //ifThenElse(false, A, B) -> B
+        if (isDefinitelyFalsy(content.args[0])) {
+            return content.args[2];
+        }
+        //ifThenElse(A, B, B) -> B
+        if (areAstsEqual(content.args[1], content.args[2])) {
+            return content.args[1];
+        }
+    }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__inequals__ = function(content) {
     
     if (enableOptimization) {
@@ -26708,6 +26784,35 @@ astParsingFunctions.__inequals__ = function(content) {
             return new Ast("__not__", [content.args[1]]);
         }
     }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__lastOf__ = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__array__" && content.args[0].args.length > 0) {
+            return content.args[0].args[content.args[0].args.length-1];
+        }
+    }
+
     return content;
 }
 /* 
@@ -27592,6 +27697,93 @@ astParsingFunctions.__while__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.__xComponentOf__ = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "vect") {
+            return content.args[0].args[0];
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__yComponentOf__ = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "vect") {
+            return content.args[0].args[1];
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__zComponentOf__ = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "vect") {
+            return content.args[0].args[2];
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.all = function(content) {
 
     if (content.args[0].name === "__mappedArray__") {
@@ -27824,7 +28016,7 @@ astParsingFunctions.enableInspector = function(content) {
 
 astParsingFunctions.print = function(content) {
 
-    var result = new Ast("__hudText__", [
+    return new Ast("__hudText__", [
         new Ast("getAllPlayers"),
         content.args[0],
         getAstForNull(),
@@ -27837,8 +28029,6 @@ astParsingFunctions.print = function(content) {
         new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"),
         new Ast("DEFAULT", [], [], "SpecVisibility"),
     ]);
-    result.originalName = "print";
-    return parseAst(result);
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -27864,6 +28054,53 @@ astParsingFunctions.sorted = function(content) {
     content.name = "__sortedArray__";
     content.type = content.args[0].type;
     return parseAst(content);
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.vect = function(content) {
+
+    if (enableOptimization) {
+        //Check for each of the 6 vector constants
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__" && content.args[2].name === "__number__") {
+            if (content.args[0].numValue === 1 && content.args[1].numValue === 0 && content.args[2].numValue === 0) {
+                return new Ast("Vector.LEFT");
+            }
+            if (content.args[0].numValue === -1 && content.args[1].numValue === 0 && content.args[2].numValue === 0) {
+                return new Ast("Vector.RIGHT");
+            }
+            if (content.args[0].numValue === 0 && content.args[1].numValue === 1 && content.args[2].numValue === 0) {
+                return new Ast("Vector.UP");
+            }
+            if (content.args[0].numValue === 0 && content.args[1].numValue === -1 && content.args[2].numValue === 0) {
+                return new Ast("Vector.DOWN");
+            }
+            if (content.args[0].numValue === 0 && content.args[1].numValue === 0 && content.args[2].numValue === 1) {
+                return new Ast("Vector.FORWARD");
+            }
+            if (content.args[0].numValue === 0 && content.args[1].numValue === 0 && content.args[2].numValue === -1) {
+                return new Ast("Vector.BACKWARD");
+            }
+        }
+    }
+    
+    return content;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -28603,7 +28840,9 @@ function parseAst(content) {
         if (["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
             return content;
         } else {
+            var tmpParent = content.parent;
             content = new Ast("__format__", [content]);
+            content.parent = tmpParent;
         }
     }
     
@@ -28722,6 +28961,9 @@ function parseAst(content) {
     }
 
     //Set expected type
+    if (content.name !== "__rule__" && !content.parent) {
+        error("No parent found for '"+content.name+"', please report to Zezombye");
+    }
     if (content.name !== "__rule__" && content.parent.argIndex !== null) {
         if (content.parent.name === "__format__" && content.parent.argIndex > 0) {
             content.expectedType = funcKw[content.parent.name].args[1].type;
@@ -28867,7 +29109,10 @@ function astRuleConditionToWs(condition) {
         result += tabLevel(2)+astToWs(condition.args[0])+" "+funcToOpMapping[condition.name]+" "+astToWs(condition.args[1])+";\n";
 
     } else {
-        if (condition.type === "bool") {
+        if (condition.name === "__not__") {
+            result += tabLevel(2)+astToWs(condition.args[0])+" == "+tows("false", valueFuncKw)+";\n";
+            
+        } else if (condition.type === "bool") {
             result += tabLevel(2)+astToWs(condition)+" == "+tows("true", valueFuncKw)+";\n";
 
         } else {
@@ -29353,7 +29598,7 @@ function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMin
 		var step = 1;
 	}
 	
-	console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
+	//console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
 	
 	for (var i = start; i != end; i+=step) {
 

@@ -177,7 +177,9 @@ function parseAst(content) {
         if (["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
             return content;
         } else {
+            var tmpParent = content.parent;
             content = new Ast("__format__", [content]);
+            content.parent = tmpParent;
         }
     }
     
@@ -296,6 +298,9 @@ function parseAst(content) {
     }
 
     //Set expected type
+    if (content.name !== "__rule__" && !content.parent) {
+        error("No parent found for '"+content.name+"', please report to Zezombye");
+    }
     if (content.name !== "__rule__" && content.parent.argIndex !== null) {
         if (content.parent.name === "__format__" && content.parent.argIndex > 0) {
             content.expectedType = funcKw[content.parent.name].args[1].type;

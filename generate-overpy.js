@@ -3,6 +3,7 @@ const fs = require("fs");
 //import overpy files
 overpyFiles = [
 
+
 "utils/other.js",
 "data/opy/constants.js",
 "data/opy/internalFunctions.js",
@@ -51,10 +52,13 @@ overpyFiles = [
 "compiler/functions/__equals__.js",
 "compiler/functions/__for__.js",
 "compiler/functions/__format__.js",
+"compiler/functions/__filteredArray__.js",
 "compiler/functions/__greaterThan__.js",
 "compiler/functions/__greaterThanOrEquals__.js",
 "compiler/functions/__if__.js",
+"compiler/functions/__ifThenElse__.js",
 "compiler/functions/__inequals__.js",
+"compiler/functions/__lastOf__.js",
 "compiler/functions/__lessThan__.js",
 "compiler/functions/__lessThanOrEquals__.js",
 "compiler/functions/__modulo__.js",
@@ -70,6 +74,9 @@ overpyFiles = [
 "compiler/functions/__switch__.js",
 "compiler/functions/__valueInArray__.js",
 "compiler/functions/__while__.js",
+"compiler/functions/__xComponentOf__.js",
+"compiler/functions/__yComponentOf__.js",
+"compiler/functions/__zComponentOf__.js",
 "compiler/functions/all.js",
 "compiler/functions/any.js",
 "compiler/functions/break.js",
@@ -79,6 +86,7 @@ overpyFiles = [
 "compiler/functions/enableInspector.js",
 "compiler/functions/print.js",
 "compiler/functions/sorted.js",
+"compiler/functions/vect.js",
 "compiler/tokenizer.js",
 "compiler/astParser.js",
 "compiler/astToWorkshop.js",

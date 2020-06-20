@@ -100,7 +100,10 @@ function astRuleConditionToWs(condition) {
         result += tabLevel(2)+astToWs(condition.args[0])+" "+funcToOpMapping[condition.name]+" "+astToWs(condition.args[1])+";\n";
 
     } else {
-        if (condition.type === "bool") {
+        if (condition.name === "__not__") {
+            result += tabLevel(2)+astToWs(condition.args[0])+" == "+tows("false", valueFuncKw)+";\n";
+            
+        } else if (condition.type === "bool") {
             result += tabLevel(2)+astToWs(condition)+" == "+tows("true", valueFuncKw)+";\n";
 
         } else {

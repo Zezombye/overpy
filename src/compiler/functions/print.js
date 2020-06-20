@@ -19,7 +19,7 @@
 
 astParsingFunctions.print = function(content) {
 
-    var result = new Ast("__hudText__", [
+    return new Ast("__hudText__", [
         new Ast("getAllPlayers"),
         content.args[0],
         getAstForNull(),
@@ -32,6 +32,4 @@ astParsingFunctions.print = function(content) {
         new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"),
         new Ast("DEFAULT", [], [], "SpecVisibility"),
     ]);
-    result.originalName = "print";
-    return parseAst(result);
 }
