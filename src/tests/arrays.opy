@@ -12,6 +12,7 @@ rule "array literals":
     A = [B,C,D][1.7] #D
     A = [B,C,D][2.6] #0
     A = [[1,2],[3,4]]
+    A[0] = B[0]
 
 rule "last":
     A = B.last()

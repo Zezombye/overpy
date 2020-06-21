@@ -24878,12 +24878,22 @@ function astActionsToOpy(actions) {
         } else if (actions[i].name === "__setGlobalVariable__") {
             decompiledAction = astToOpy(actions[i].args[0])+" = "+astToOpy(actions[i].args[1]);
 
+        } else if (actions[i].name === "__setGlobalVariableAtIndex__") {
+            decompiledAction = astToOpy(actions[i].args[0])+"["+astToOpy(actions[i].args[1])+"] = "+astToOpy(actions[i].args[2]);
+
         } else if (actions[i].name === "__setPlayerVariable__") {
             var op1 = astToOpy(actions[i].args[0]);
             if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
                 op1 = "("+op1+")";
             }
             decompiledAction = op1+"."+astToOpy(actions[i].args[1])+" = "+astToOpy(actions[i].args[2]);
+
+        } else if (actions[i].name === "__setPlayerVariableAtIndex__") {
+            var op1 = astToOpy(actions[i].args[0]);
+            if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
+                op1 = "("+op1+")";
+            }
+            decompiledAction = op1+"."+astToOpy(actions[i].args[1])+"["+astToOpy(actions[i].args[2])+"] = "+astToOpy(actions[i].args[3]);
 
         } else if (actions[i].name === "__startRule__") {
             decompiledAction += "async("+actions[i].args[0].name+", "+astToOpy(actions[i].args[1])+")";
@@ -27643,7 +27653,7 @@ astParsingFunctions.__valueInArray__ = function(content) {
                 } else {
                     return getAstForNull();
                 }
-            } else if (arrayIndex === 0) {
+            } else if (arrayIndex === 0 && !(content.parent.name === "__assignTo__" && content.parent.argIndex === 0)) {
                 return new Ast("__firstOf__", [content.args[0]]);
             }
         }

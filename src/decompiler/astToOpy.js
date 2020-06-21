@@ -280,12 +280,22 @@ function astActionsToOpy(actions) {
         } else if (actions[i].name === "__setGlobalVariable__") {
             decompiledAction = astToOpy(actions[i].args[0])+" = "+astToOpy(actions[i].args[1]);
 
+        } else if (actions[i].name === "__setGlobalVariableAtIndex__") {
+            decompiledAction = astToOpy(actions[i].args[0])+"["+astToOpy(actions[i].args[1])+"] = "+astToOpy(actions[i].args[2]);
+
         } else if (actions[i].name === "__setPlayerVariable__") {
             var op1 = astToOpy(actions[i].args[0]);
             if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
                 op1 = "("+op1+")";
             }
             decompiledAction = op1+"."+astToOpy(actions[i].args[1])+" = "+astToOpy(actions[i].args[2]);
+
+        } else if (actions[i].name === "__setPlayerVariableAtIndex__") {
+            var op1 = astToOpy(actions[i].args[0]);
+            if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
+                op1 = "("+op1+")";
+            }
+            decompiledAction = op1+"."+astToOpy(actions[i].args[1])+"["+astToOpy(actions[i].args[2])+"] = "+astToOpy(actions[i].args[3]);
 
         } else if (actions[i].name === "__startRule__") {
             decompiledAction += "async("+actions[i].args[0].name+", "+astToOpy(actions[i].args[1])+")";
@@ -506,7 +516,7 @@ function astToOpy(content) {
         return result+"."+internalFuncToFuncMap[content.name]+"("+astToOpy(content.args[1])+")";
     }
 
-    //Functions with a dot
+    //Functions with a dot/index
     if ([
         "__arraySlice__",
         "__lastOf__",
@@ -522,6 +532,9 @@ function astToOpy(content) {
         }
         if (content.name === "__arraySlice__") {
             return result+".slice("+astToOpy(content.args[1])+", "+astToOpy(content.args[2])+")";
+        }
+        if (content.name === "__firstOf__") {
+            return result+"[0]";
         }
         if (content.name === "__lastOf__") {
             return result+".last()";

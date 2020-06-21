@@ -46,7 +46,7 @@ astParsingFunctions.__valueInArray__ = function(content) {
                 } else {
                     return getAstForNull();
                 }
-            } else if (arrayIndex === 0) {
+            } else if (arrayIndex === 0 && !(content.parent.name === "__assignTo__" && content.parent.argIndex === 0)) {
                 return new Ast("__firstOf__", [content.args[0]]);
             }
         }

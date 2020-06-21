@@ -102,6 +102,9 @@ rule "power":
     
 rule "assignment":
     A = B
+    A[0] = B
+    eventPlayer.A = B
+    eventPlayer.A[0] = B
     A = A #pass
     A += B
     A += 0 #pass
@@ -146,4 +149,3 @@ rule "ternaries":
     A = B if 0 != 0 else D #D
     A = B if C else B #B
     A = B if 0 != 0 else C if 0 != 0 else D #D
-
