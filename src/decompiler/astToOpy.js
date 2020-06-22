@@ -519,6 +519,7 @@ function astToOpy(content) {
     //Functions with a dot/index
     if ([
         "__arraySlice__",
+        "__firstOf__",
         "__lastOf__",
         "__valueInArray__",
         "__xComponentOf__",
@@ -588,7 +589,12 @@ function astToOpy(content) {
             if (astContainsFunctions(content.args[0], ["__ifThenElse__"])) {
                 opArray = "("+opArray+")";
             }
-            result += opArray+" if "+astToOpy(content.args[1])+"]";
+            result += opArray+" if ";
+            var opIf = astToOpy(content.args[1]);
+            if (astContainsFunctions(content.args[1], ["__ifThenElse__"])) {
+                opIf = "("+opIf+")";
+            }
+            result += opIf+"]";
         } else if (content.name === "__sortedArray__") {
             result += "sorted("+astToOpy(content.args[0]);
             //If there is just "current array element", no need to explicitly put it

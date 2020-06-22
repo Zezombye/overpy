@@ -132,3 +132,48 @@ module.exports = {
 
 fs.writeFileSync("./VS Code Extension/overpy.js", overpyCode);
 fs.writeFileSync("./bot/overpy.js", overpyCode);
+
+//Generate functions.md
+
+const overpy = require("./bot/overpy.js");
+
+var functionsMd = `
+
+Some functions (such as operators) have transformations applied to them. If you cannot find the function here, then it is in the [special functions page](https://github.com/Zezombye/overpy/wiki/Functions).
+
+## Normal functions
+
+Workshop function | OverPy function
+----------------- | ---------------
+`;
+
+var allFunctions = Object.assign({}, overpy.actionKw, overpy.valueFuncKw);
+var normalFunctions = Object.keys(allFunctions).filter(x => !x.startsWith("_")).sort();
+
+for (var func of normalFunctions) {
+	functionsMd += allFunctions[func]["en-US"]+" | "+func;
+	if (allFunctions[func].args !== null) {
+		functionsMd += "()";
+	}
+	functionsMd += "\n";
+}
+
+functionsMd += `
+
+## Player functions
+
+These functions take a player as first argument. The first argument is removed and put before the function.
+
+Example: \`Teleport(Event Player, Vector(1,2,3))\` is written as \`eventPlayer.teleport(vect(1,2,3))\`.
+
+Workshop function | OverPy function
+----------------- | ---------------
+`
+
+var playerFunctions = Object.keys(allFunctions).filter(x => x.startsWith("_&")).sort();
+for (var func of playerFunctions) {
+	functionsMd += allFunctions[func]["en-US"]+" | \\<player\\>."+func.substring(2)+"()";
+	functionsMd += "\n";
+}
+
+fs.writeFileSync("./FUNCTIONS.md", functionsMd);
