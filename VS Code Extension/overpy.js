@@ -25850,7 +25850,7 @@ astParsingFunctions.__button__ = function(content) {
 
 astParsingFunctions.__del__ = function(content) {
     if (content.args[0].name !== "__valueInArray__") {
-        error("Expected an array access for the 'del' operator, but got "+functionNameToString(content.args[0].name));
+        error("Expected an array access for the 'del' operator, but got "+functionNameToString(content.args[0]));
     }
     var result = new Ast("__modifyVar__", [
         content.args[0].args[0],
@@ -27662,8 +27662,6 @@ astParsingFunctions.__valueInArray__ = function(content) {
                 } else {
                     return getAstForNull();
                 }
-            } else if (arrayIndex === 0 && !(content.parent.name === "__assignTo__" && content.parent.argIndex === 0)) {
-                return new Ast("__firstOf__", [content.args[0]]);
             }
         }
     }
@@ -29188,21 +29186,17 @@ function astToWs(content) {
     } else if (content.type === "LocalizedStringLiteral") {
         return escapeString(tows(content.name, stringKw));
     }
+
+    if (content.name === "__firstOf__" && enableOptimization) {
+        content = new Ast("__valueInArray__", [content.args[0], getAstFor0()]);
+    }
     
     if (content.name in equalityFuncToOpMapping) {
         //Convert functions such as __equals__(1,2) to __compare__(1, ==, 2).
         content.args.splice(1, 0, new Ast(equalityFuncToOpMapping[content.name], [], [], "__Operator__"));
         content.name = "__compare__";
 
-    } /*else if (content.name === "__array__") {
-        //Convert the array to a bunch of appends.
-        var newContent = new Ast("__emptyArray__");
-        for (var arg of content.args) {
-            newContent = new Ast("__concat__", [newContent, arg]);
-        }
-        content = newContent;
-
-    } */else if (content.name === "__assignTo__" || content.name === "__modifyVar__") {
+    } else if (content.name === "__assignTo__" || content.name === "__modifyVar__") {
         var newName = content.name === "__assignTo__" ? "__set" : "__modify";
         if (content.args[0].name === "__globalVar__") {
             //A = 3 -> __setGlobalVariable__(A, 3)

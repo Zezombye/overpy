@@ -19,7 +19,7 @@
 
 astParsingFunctions.__del__ = function(content) {
     if (content.args[0].name !== "__valueInArray__") {
-        error("Expected an array access for the 'del' operator, but got "+functionNameToString(content.args[0].name));
+        error("Expected an array access for the 'del' operator, but got "+functionNameToString(content.args[0]));
     }
     var result = new Ast("__modifyVar__", [
         content.args[0].args[0],
