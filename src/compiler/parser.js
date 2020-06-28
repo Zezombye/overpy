@@ -29,7 +29,7 @@ function parseLines(lines) {
 
     //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
     var result = [];
-    var currentComment = null;
+    var currentComments = [];
 
     
     for (var i = 0; i < lines.length; i++) {
@@ -39,18 +39,28 @@ function parseLines(lines) {
         fileStack = lines[i].tokens[0].fileStack;
         
         if (lines[i].tokens[0].text.startsWith("#")) {
-            currentComment = lines[i].tokens[0].text.substring(1);
+            currentComments.push(lines[i].tokens[0].text.substring(1));
             continue;
         }
-
         
         //Check for end of line comment
         if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
-            currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
+            currentComments.push(lines[i].tokens[lines[i].tokens.length-1].text.substring(1));
             lines[i].tokens.pop();
         }
 
         if (lines[i].tokens[0].text === "globalvar" || lines[i].tokens[0].text === "playervar" || lines[i].tokens[0].text === "subroutine") {
+
+            var initDirective = null;
+            //Check for assignment
+            for (var j = 0; j < lines[i].tokens.length; j++) {
+                if (lines[i].tokens[j].text === "=") {
+                    initDirective = lines[i].tokens.slice(j+1);
+                    lines[i].tokens = lines[i].tokens.slice(0, j);
+                    console.log("init directive : "+dispTokens(initDirective));
+                    break;
+                }
+            }
 
 			if (lines[i].tokens.length < 2 || lines[i].tokens.length > 3) {
 				error("Malformed "+lines[i].tokens[0].text+" declaration");
@@ -61,9 +71,9 @@ function parseLines(lines) {
 			var index = lines[i].tokens.length > 2 ? lines[i].tokens[2].text : null
 
 			if (lines[i].tokens[0].text === "globalvar") {
-				addVariable(lines[i].tokens[1].text, true, index);
+				addVariable(lines[i].tokens[1].text, true, index, initDirective);
 			} else if (lines[i].tokens[0].text === "playervar") {
-				addVariable(lines[i].tokens[1].text, false, index);
+				addVariable(lines[i].tokens[1].text, false, index, initDirective);
 			} else {
 				addSubroutine(lines[i].tokens[1].text, index);
             }
@@ -86,8 +96,8 @@ function parseLines(lines) {
                 var currentLineAst = new Ast(lines[i].tokens[0].text, lines[i].tokens.slice(1).map(x => new Ast(x.text, [], [], "__AnnotationArg__")), [], "__Annotation__");
 
             }
-            if (currentComment !== null) {
-                currentLineAst.comment = currentComment;
+            if (currentComments !== []) {
+                currentLineAst.comment = commentArrayToString(currentComments);
             }
             result.push(currentLineAst);
 
@@ -186,8 +196,8 @@ function parseLines(lines) {
             children = parseLines(childrenLines);
 
             var instruction = new Ast(funcName, args, children);
-            if (currentComment !== null) {
-                instruction.comment = currentComment;
+            if (currentComments !== []) {
+                instruction.comment = commentArrayToString(currentComments);
             }
             if (instructionRuleAttributes !== null) {
                 instruction.ruleAttributes = instructionRuleAttributes;
@@ -197,13 +207,36 @@ function parseLines(lines) {
     
         } else {
             var currentLineAst = parse(lines[i].tokens);
-            currentLineAst.comment = currentComment;
+            if (currentComments !== []) {
+                currentLineAst.comment = commentArrayToString(currentComments);
+            }
             result.push(currentLineAst);
         }
-        currentComment = null;
+        currentComments = [];
     }
     
     //console.log(result);
+    return result;
+}
+
+function commentArrayToString(comments) {
+    if (comments.length === 0) {
+        return "";
+    }
+    var result = comments[comments.length-1];
+    var nbBytes = getUtf8Length(result);
+    if (nbBytes > 256) {
+        return result;
+    }
+    for (var i = comments.length-2; i >= 0; i--) {
+        var addedBytes = getUtf8Length(comments[i]);
+        if (nbBytes + addedBytes + 1 <= 256) {
+            result = comments[i]+"\n"+result;
+            nbBytes += addedBytes+1;
+        } else {
+            break;
+        }
+    }
     return result;
 }
 

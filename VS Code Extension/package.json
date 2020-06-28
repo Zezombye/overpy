@@ -2,13 +2,17 @@
     "name": "overpy",
     "publisher": "Zezombye",
     "displayName": "OverPy",
-    "repository": "https://github.com/Zezombye/overpy",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Zezombye/overpy"
+    },
     "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
     "version": "5.7.4",
     "readme": "README.md",
     "engines": {
         "vscode": "^1.36.0"
     },
+    "icon": "/img/overpy.png",
     "keywords": [
         "overpy",
         "overwatch",

@@ -69,6 +69,10 @@ var fileStack;
 //An unique number for automatically generated labels.
 var uniqueNumber;
 
+//Initialization directives for global and player variables.
+var globalInitDirectives = [];
+var playerInitDirectives = [];
+
 
 //Decompilation variables
 
@@ -112,6 +116,8 @@ function resetGlobalVariables(language) {
 	compiledCustomGameSettings = "";
 	enableOptimization = true;
 	uniqueNumber = 1;
+	globalInitDirectives = [];
+	playerInitDirectives = [];
 }
 
 //Other constants

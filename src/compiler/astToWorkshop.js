@@ -161,8 +161,8 @@ function astToWs(content) {
         return escapeString(tows(content.name, stringKw));
     }
 
-    if (content.name === "__firstOf__" && enableOptimization) {
-        content = new Ast("__valueInArray__", [content.args[0], getAstFor0()]);
+    if (content.name === "__valueInArray__" && enableOptimization && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+        content = new Ast("__firstOf__", [content.args[0]]);
     }
     
     if (content.name in equalityFuncToOpMapping) {

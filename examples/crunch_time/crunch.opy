@@ -17,7 +17,6 @@ rule "timer":
 
 rule "reset time":
     @Condition hostPlayer.isHoldingButton(Button.INTERACT)
-
     timer = 0
 
 rule "player got kill":

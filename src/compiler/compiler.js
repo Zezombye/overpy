@@ -39,7 +39,13 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var lines = tokenize(content);
 
-    var astRules = parseLines(lines);
+	if (obfuscateRules) {
+		addVariable("__obfuscationConstants__", true, 127);
+		//globalInitDirectives.push(obfuscationConstantsAst);
+	}
+	
+	var astRules = parseLines(lines);
+	astRules.unshift(...getInitDirectivesRules());
     
     for (var elem of astRules) {
         console.log(astToString(elem));
@@ -62,25 +68,6 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
     
-/*
-    var compiledRules = [];
-
-	//First rule contains variable declarations.
-	compileVarDeclarationRule(rules[0])
-
-	for (var i = 1; i < rules.length; i++) {
-		compiledRules.push(compileRule(rules[i]));
-	}
-
-	if (obfuscateRules || enableNoEdit) {
-		compiledRules = addEmptyRules(compiledRules);
-	} else {
-		compiledRules = compiledRules.join("");
-	}
-
-	result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
-*/
-
 	if (typeof window !== "undefined") {
 		var t1 = performance.now();
 		console.log("Compilation time: "+(t1-t0)+"ms");
@@ -95,7 +82,30 @@ function compile(content, language="en-US", _rootPath="") {
 	};
 }
 
-
+function getInitDirectivesRules() {
+	var result = [];
+	if (globalInitDirectives.length > 0) {
+		var rule = new Ast("__rule__");
+		rule.ruleAttributes = {
+			name: "Initialize global variables",
+			event: "global",
+		};
+		rule.children = globalInitDirectives;
+		result.push(rule);
+	}
+	if (playerInitDirectives.length > 0) {
+		var rule = new Ast("__rule__");
+		rule.ruleAttributes = {
+			name: "Initialize player variables",
+			event: "eachPlayer",
+			eventPlayer: "all",
+			eventTeam: "all",
+		};
+		rule.children = playerInitDirectives;
+		result.push(rule);
+	}
+	return result;
+}
 
 function generateVariablesField() {
 

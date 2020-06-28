@@ -133,7 +133,7 @@ function translateVarToWs(content, isGlobalVariable) {
 }
 
 //Adds a variable to the global/player variable arrays.
-function addVariable(content, isGlobalVariable, index) {
+function addVariable(content, isGlobalVariable, index, initValue=null) {
 	if (index === undefined) {
 		error("Index is undefined");
 	}
@@ -148,11 +148,25 @@ function addVariable(content, isGlobalVariable, index) {
 			"name": content,
 			"index": index,
 		});
+		if (initValue) {
+			globalInitDirectives.push(new Ast("__assignTo__", [
+				new Ast("__globalVar__", [new Ast(content, [], [], "GlobalVariable")]),
+				parse(initValue)
+			]));
+		}
 	} else {
 		playerVariables.push({
 			"name": content,
 			"index": index,
 		});
+		if (initValue) {
+			playerInitDirectives.push(new Ast("__assignTo__", [
+				new Ast("__playerVar__", [
+					new Ast("eventPlayer"), new Ast(content, [], [], "PlayerVariable"),
+				]),
+				parse(initValue),
+			]));
+		}
 	}
 }
 

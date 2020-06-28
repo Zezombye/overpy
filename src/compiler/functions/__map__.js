@@ -17,18 +17,12 @@
 
 "use strict";
 
-astParsingFunctions.__button__ = function(content) {
+astParsingFunctions.__map__ = function(content) {
 
-    //Check the expected type to check if we need to remove the wrapper "button" function
-    //console.log("parent name: '"+content.parent.name+"', parent arg index: "+content.parent.argIndex);
-    //console.log(funcKw[content.parent.name].args[content.parent.argIndex].type);
-    //console.log(content);
-    if (content.expectedType === "ButtonLiteral") {
-        return content.args[0];
-    } else if (obfuscateRules) {
+    if (obfuscateRules) {
         return new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            getAstForNumber(obfuscationConstantsMapping.ButtonLiteral[content.args[0].name]),
+            getAstForNumber(obfuscationConstantsMapping.MapLiteral[content.args[0].name]),
         ]);
     } else {
         return content;

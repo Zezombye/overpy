@@ -44,6 +44,7 @@ class Ast {
         }
 
         for (var arg of this.args) {
+            //console.log(arg);
             if (!(arg instanceof Ast)) {
                 console.log(arg);
                 error("Arg '"+arg+"' of '"+name+"' is not an AST");
@@ -115,9 +116,9 @@ function isDefinitelyFalsy(content) {
         return true;
     }
     //Test for null vector: vect(0,0,0)
-    if (content.name === "vect") {
+    /*if (content.name === "vect") {
         return (isDefinitelyFalsy(content.args[0]) && isDefinitelyFalsy(content.args[1]) && isDefinitelyFalsy(content.args[2]));
-    }
+    }*/
     //Test for number 0
     if (content.name === "__number__") {
         return (content.args[0].numValue === 0);

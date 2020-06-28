@@ -320,7 +320,10 @@ function parseAst(content) {
         content.childIndex = i;
         //console.log("name = "+content.name+", childIndex = "+content.childIndex+", children = "+content.children.map(x => x.name).join(", "))
         ///console.log("parsing "+content.children[i].name);
-        
+        var childComment = null;
+        if (content.name === "__rule__") {
+            var childComment = content.children[i].comment;
+        }
         content.children[i].parent = content;
 
         //Safeguard to prevent parsing the same thing twice (and eg ending up with 3 ends for an "if" if the instruction was parsed then moved by a parent instruction).
@@ -328,6 +331,9 @@ function parseAst(content) {
             content.children[i] = parseAst(content.children[i]);
             content.children[i].parent = content;
             content.children[i].wasParsed = true;
+        }
+        if (childComment) {
+            content.children[i].comment = childComment;
         }
     }
 
