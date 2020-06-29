@@ -17,6 +17,8 @@
 
 "use strict";
 
+const { log } = require('console');
+
 try{
 
 // The module 'vscode' contains the VS Code extensibility API
@@ -25,6 +27,8 @@ const vscode = require('vscode');
 const path = require("path");
 const overpy = require("./overpy.js");
 const clipboard = require("copy-paste");
+const overpyExtension = vscode.extensions.getExtension("zezombye.overpy");
+const overpyExtensionPath = encodeURI(overpyExtension.extensionPath.replace(/\\/g, "/"));
 
 //Defined as an array because VSCode doesn't collapse multiline strings.
 const decompilerUI = [`
@@ -137,6 +141,7 @@ const decompilerUI = [`
 const funcDoc = JSON.parse(JSON.stringify(Object.assign({}, overpy.actionKw, overpy.valueFuncKw)));
 
 const constValues = JSON.parse(JSON.stringify(overpy.constantValues));
+const heroKw = JSON.parse(JSON.stringify(overpy.heroKw));
 for (var key of Object.keys(constValues)) {
     if (key.startsWith("_")) {
         delete constValues[key];
@@ -325,10 +330,12 @@ function activate(context) {
                 var currentArgNb = 0;
                 var parenthesisLevel = 0;
                 var i = -1;
+                var isInString = false;
+                var currentStringChar = "";
+                //console.log("Finding position");
                 for (; i >= -position.character+1; i--) {
                     var currentChar = document.getText(new vscode.Range(position.translate(0, i+1), position.translate(0, i)));
-                    var isInString = false;
-                    var currentStringChar = "";
+                    //console.log("char: "+currentChar+", is in string: "+isInString+", string char: "+currentStringChar);
                     if (!isInString) {
                         if (currentChar === ')' || currentChar === ']' || currentChar === '}') {
                             parenthesisLevel++;
@@ -344,10 +351,13 @@ function activate(context) {
                             currentArgNb++;
                         }
                     } else {
-                        if (currentChar === currentStringChar && !(i > 0 && document.getText(new vscode.Range(position.translate(0, i), position.translate(0, i-1))) === "\\")) {
+                        if (currentChar === currentStringChar && (i === 0 || document.getText(new vscode.Range(position.translate(0, i), position.translate(0, i-1))) !== "\\")) {
                             isInString = false;
                         }
                     }
+                }
+                if (isInString) {
+                    return;
                 }
                 var range = document.getWordRangeAtPosition(position.translate(0, i));
                 if (range !== undefined) {
@@ -356,16 +366,12 @@ function activate(context) {
                     return;
                 }
 
-                for (var func of Object.keys(allFuncList)) {
+                if (funcName in allFuncList) {
                     //console.log(func);
-                    if (func === funcName) {
-                        //console.log(func);
-                        if ("sigHelp" in allFuncList[func] && allFuncList[func].sigHelp !== null) {
-                            allFuncList[func].sigHelp.activeParameter = currentArgNb;
-                            return allFuncList[func].sigHelp;
-                        } else {
-                            break;
-                        }
+                    //console.log("current arg for func "+funcName+" is "+currentArgNb)
+                    if ("sigHelp" in allFuncList[funcName] && allFuncList[funcName].sigHelp !== null) {
+                        allFuncList[funcName].sigHelp.activeParameter = currentArgNb;
+                        return allFuncList[funcName].sigHelp;
                     }
                 }
                 return;
@@ -380,7 +386,6 @@ function activate(context) {
             vscode.commands.executeCommand("extension.compile");
         }
     })
-
 }
 exports.activate = activate;
 
@@ -466,6 +471,14 @@ function generateDocFromDoc(itemName, item) {
         doc = item.description;
     }
 
+    if (doc === "__iconDescription__") {
+        return new vscode.MarkdownString("![](file:///"+overpyExtensionPath+"/img/icons/"+itemName.toLowerCase()+".png) \n\n \n\n \n\n \n\n ")
+    }
+
+    /*if (itemName === "abilityIconString") {
+        doc = getAbilityIconsDoc();
+    }*/
+
     
     var result = "";
     var infoStr = "";
@@ -501,12 +514,37 @@ function generateDocFromDoc(itemName, item) {
     }
 
     return new vscode.MarkdownString(result);
-
 }
+
+/*function getAbilityIconsDoc() {
+    var result = `
+Hero | Ability 1 | Ability 2 | Ultimate
+---- | --------- | --------- | --------
+`;
+    for (var hero in heroKw) {
+        console.log(hero);
+        result += heroKw[hero]["en-US"]+" | ";
+        result += "![](file:///"+overpyExtensionPath+"/img/abilities/"+encodeURI(heroKw[hero].ability1["en-US"])+".png) | ";
+        if (heroKw[hero].ability2) {
+            result += "![](file:///"+overpyExtensionPath+"/img/abilities/"+encodeURI(heroKw[hero].ability2["en-US"])+".png)";
+        } else {
+            result += "/";
+        }
+        result += " | ";
+        result += "![](file:///"+overpyExtensionPath+"/img/abilities/"+encodeURI(heroKw[hero].ultimate["en-US"])+".png)\n";
+    }
+    console.log(result);
+    return result;
+}*/
+
 function generateSnippetFromDoc(itemName, item) {
     
     if (itemName.startsWith('@')) {
         return new vscode.SnippetString(getSnippetForMetaRuleParam(itemName));
+    }
+
+    if (itemName === "ARROW_DOWN") {
+        console.log(item);
     }
 
     if (item.snippet !== undefined) {
@@ -595,9 +633,10 @@ function makeSignatureHelp(funcName, func) {
 
     for (var i = 0; i < func.args.length; i++) {
         if (!(i === 0 && isMemberFunction)) {
-            paramInfo.push(new vscode.ParameterInformation(getSuitableArgName(func.args[i].name), func.args[i].description));
+            var argName = getSuitableArgName(func.args[i].name);
+            paramInfo.push(new vscode.ParameterInformation([sigStr.length, sigStr.length+argName.length], func.args[i].description));
             //console.log(func.args[i].name);
-            sigStr += getSuitableArgName(func.args[i].name)+": "+getSuitableArgType(func.args[i].type);
+            sigStr += argName+": "+getSuitableArgType(func.args[i].type);
             if (i < func.args.length-1) {
                 sigStr += ", ";
             }

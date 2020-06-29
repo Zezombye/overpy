@@ -23,45 +23,75 @@ astParsingFunctions.__rule__ = function(content) {
     //Iterate forward on each action, then remove all useless instructions, unless a relative goto is encountered.
     var isRelativeGotoEncountered = false;
 
-    function removeUselessChildren(children) {
+    //Check if an instruction other than a control flow statement has been encountered.
+    var hasMeaningfulInstructionBeenEncountered = false;
+
+    //To check that there is no duplicate label.
+    var declaredLabels = [];
+
+    function iterateOnRuleActions(children) {
+        //Remove useless instructions and check for meaningful intructions.
 
         for (var i = 0; i < children.length; i++) {
+            fileStack = content.fileStack;
+
             //Check for a dynamic goto.
             if (children[i].name === "__skip__" && children[i].args[0].name !== "__distanceTo__" || children[i].name === "__skipIf__" && children[i].args[1].name !== "__distanceTo__") {
                 isRelativeGotoEncountered = true;
             }
-            if (isRelativeGotoEncountered) {
-                children[i].isUnderRelativeGoto = true;
-            } else {
-                if (children[i].name === "__uselessInstruction__") {
-                    children.splice(i, 1);
-                    i--;
+
+            //Check that the label isn't already declared.
+            if (content.type === "Label") {
+                if (declaredLabels.includes(content.name)) {
+                    error("Label '"+content.name+"' is already declared in this rule");
                 }
+                declaredLabels.push(content.name);
             }
-            removeUselessChildren(children[i].children);
+
+            //Check if the instruction is meaningful.
+            if (!hasMeaningfulInstructionBeenEncountered && ![
+                "__abortIf__",
+                "__abortIfConditionIsFalse__",
+                "__abortIfConditionIsTrue__",
+                "break",
+                "continue",
+                "__else__",
+                "__elif__",
+                "__end__",
+                "__for__",
+                "__forGlobalVariable__",
+                "__forPlayerVariable__",
+                "__if__",
+                "__loop__",
+                "__loopIf__",
+                "__loopIfConditionIsFalse__",
+                "__loopIfConditionIsTrue__",
+                "pass",
+                "return",
+                "__skip__",
+                "__skipIf__",
+                "__wait__",
+                "__while__",
+            ].includes(children[i].name) && children[i].type !== "Label") {
+                console.log("meaningful instruction :"+children[i].name);
+                hasMeaningfulInstructionBeenEncountered = true;
+            }
+
+            iterateOnRuleActions(children[i].children);
+
+            //Remove useless instructions, if no relative goto has been encountered.
+            if (!isRelativeGotoEncountered && children[i].name === "pass") {
+                children.splice(i, 1);
+                i--;
+            }
         }
     }
     if (enableOptimization) {
-        removeUselessChildren(content.children);
+        iterateOnRuleActions(content.children);
     }
 
-    //Check that there is no duplicate label.
-    var declaredLabels = [];
-    function getExistingLabels(content) {
-        fileStack = content.fileStack;
-        if (content.type === "Label") {
-            if (declaredLabels.includes(content.name)) {
-                error("Label '"+content.name+"' is already declared in this rule");
-            }
-            declaredLabels.push(content.name);
-        } else {
-            for (var child of content.children) {
-                getExistingLabels(child);
-            }
-        }
-    }
-    for (var child of content.children) {
-        getExistingLabels(child);
+    if (enableOptimization && !hasMeaningfulInstructionBeenEncountered) {
+        return getAstForUselessInstruction();
     }
 
     //console.log(astToString(content));

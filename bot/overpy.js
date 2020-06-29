@@ -14974,7 +14974,7 @@ const constantValues =
     },
     "Icon": {
         "ARROW_DOWN": {
-            "description": "![](https://i.imgur.com/hych4AE.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2C9",
             "en-US": "Arrow: Down",
             "es-MX": "Flecha: Hacia abajo",
@@ -14984,7 +14984,7 @@ const constantValues =
             "zh-CN": "箭头：向下"
         },
         "ARROW_LEFT": {
-            "description": "![](https://i.imgur.com/jgpW0Nb.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CA",
             "en-US": "Arrow: Left",
             "es-MX": "Flecha: Hacia la izquierda",
@@ -14994,7 +14994,7 @@ const constantValues =
             "zh-CN": "箭头：向左"
         },
         "ARROW_RIGHT": {
-            "description": "![](https://i.imgur.com/0BttENZ.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CB",
             "en-US": "Arrow: Right",
             "es-MX": "Flecha: Hacia la derecha",
@@ -15004,7 +15004,7 @@ const constantValues =
             "zh-CN": "箭头：向右"
         },
         "ARROW_UP": {
-            "description": "![](https://i.imgur.com/Pr86Pcf.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CC",
             "en-US": "Arrow: Up",
             "es-MX": "Flecha: Hacia arriba",
@@ -15014,7 +15014,7 @@ const constantValues =
             "zh-CN": "箭头：向上"
         },
         "ASTERISK": {
-            "description": "![](https://i.imgur.com/XTvINuC.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CD",
             "en-US": "Asterisk",
             "es-MX": "Asterisco",
@@ -15024,7 +15024,7 @@ const constantValues =
             "zh-CN": "星形"
         },
         "BOLT": {
-            "description": "![](https://i.imgur.com/ekbDxsT.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CE",
             "en-US": "Bolt",
             "es-MX": "Rayo",
@@ -15034,7 +15034,7 @@ const constantValues =
             "zh-CN": "箭矢"
         },
         "CHECKMARK": {
-            "description": "![](https://i.imgur.com/B7V240H.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CF",
             "en-US": "Checkmark",
             "es-MX": "Marca de control",
@@ -15045,7 +15045,7 @@ const constantValues =
         },
         "CIRCLE": {
             "guid": "00000000C2D0",
-            "description": "![](https://i.imgur.com/6lNvrqD.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Circle",
             "es-MX": "Círculo",
             "fr-FR": "Cercle",
@@ -15055,7 +15055,7 @@ const constantValues =
         },
         "CLUB": {
             "guid": "00000000C2D1",
-            "description": "![](https://i.imgur.com/HYWor8w.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Club",
             "es-MX": "Trébol",
             "fr-FR": "Trèfle",
@@ -15065,7 +15065,7 @@ const constantValues =
         },
         "DIAMOND": {
             "guid": "00000000C2D2",
-            "description": "![](https://i.imgur.com/5aLqsHf.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Diamond",
             "es-MX": "Diamante",
             "fr-FR": "Carreau",
@@ -15075,7 +15075,7 @@ const constantValues =
         },
         "DIZZY": {
             "guid": "00000000C2D3",
-            "description": "![](https://i.imgur.com/P1Qi43N.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Dizzy",
             "es-MX": "Mareado",
             "fr-FR": "Étourdi",
@@ -15084,7 +15084,7 @@ const constantValues =
             "zh-CN": "晕眩"
         },
         "EXCLAMATION_MARK": {
-            "description": "![](https://i.imgur.com/1rBcHfz.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2D4",
             "en-US": "Exclamation Mark",
             "es-MX": "Signo de exclamación",
@@ -15094,7 +15094,7 @@ const constantValues =
             "zh-CN": "感叹号"
         },
         "EYE": {
-            "description": "![](https://i.imgur.com/pVMPtoH.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2D5",
             "en-US": "Eye",
             "es-MX": "Ojo",
@@ -15104,7 +15104,7 @@ const constantValues =
             "zh-CN": "眼睛"
         },
         "FIRE": {
-            "description": "![](https://i.imgur.com/m3As7B0.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2D6",
             "en-US": "Fire",
             "es-MX": "Fuego",
@@ -15114,7 +15114,7 @@ const constantValues =
             "zh-CN": "火焰"
         },
         "FLAG": {
-            "description": "![](https://i.imgur.com/v30lUgy.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2F0",
             "en-US": "Flag",
             "es-MX": "Bandera",
@@ -15125,14 +15125,14 @@ const constantValues =
         },
         "HALO": {
             "guid": "00000000C2D7",
-            "description": "![](https://i.imgur.com/FWR9HAQ.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Halo",
             "ja-JP": "光輪",
             "pt-BR": "Auréola",
             "zh-CN": "光晕"
         },
         "HAPPY": {
-            "description": "![](https://i.imgur.com/CNwSwb1.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2D8",
             "en-US": "Happy",
             "es-MX": "Feliz",
@@ -15143,7 +15143,7 @@ const constantValues =
         },
         "HEART": {
             "guid": "00000000C2D9",
-            "description": "![](https://i.imgur.com/1KPOyZa.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Heart",
             "es-MX": "Corazón",
             "fr-FR": "Cœur",
@@ -15153,7 +15153,7 @@ const constantValues =
         },
         "MOON": {
             "guid": "00000000C2DA",
-            "description": "![](https://i.imgur.com/2uxcKF0.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Moon",
             "es-MX": "Luna",
             "fr-FR": "Lune",
@@ -15163,7 +15163,7 @@ const constantValues =
         },
         "NO": {
             "guid": "00000000C2DB",
-            "description": "![](https://i.imgur.com/TZ4zFso.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "No",
             "fr-FR": "Interdit",
             "ja-JP": "いいえ",
@@ -15171,7 +15171,7 @@ const constantValues =
             "zh-CN": "拒绝"
         },
         "PLUS": {
-            "description": "![](https://i.imgur.com/OLARJ80.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2DC",
             "en-US": "Plus",
             "es-MX": "Signo de suma",
@@ -15180,7 +15180,7 @@ const constantValues =
             "zh-CN": "加号"
         },
         "POISON": {
-            "description": "![](https://i.imgur.com/w2gsTiI.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2DD",
             "en-US": "Poison",
             "es-MX": "Veneno",
@@ -15189,7 +15189,7 @@ const constantValues =
             "zh-CN": "剧毒"
         },
         "POISON_2": {
-            "description": "![](https://i.imgur.com/UWmyDg2.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2DE",
             "en-US": "Poison 2",
             "es-MX": "Veneno 2",
@@ -15199,7 +15199,7 @@ const constantValues =
             "zh-CN": "剧毒2"
         },
         "QUESTION_MARK": {
-            "description": "![](https://i.imgur.com/CZBV4tx.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2DF",
             "en-US": "Question Mark",
             "es-MX": "Signo de interrogación",
@@ -15209,7 +15209,7 @@ const constantValues =
             "zh-CN": "问号"
         },
         "RADIOACTIVE": {
-            "description": "![](https://i.imgur.com/R1bnNcl.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2E4",
             "en-US": "Radioactive",
             "es-MX": "Radiactivo",
@@ -15219,7 +15219,7 @@ const constantValues =
             "zh-CN": "辐射"
         },
         "RECYCLE": {
-            "description": "![](https://i.imgur.com/q2fxb2u.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2E5",
             "en-US": "Recycle",
             "es-MX": "Reciclaje",
@@ -15229,7 +15229,7 @@ const constantValues =
             "zh-CN": "回收"
         },
         "RING_THICK": {
-            "description": "![](https://i.imgur.com/lTwuAjX.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2E6",
             "en-US": "Ring Thick",
             "es-MX": "Anillo grueso",
@@ -15239,7 +15239,7 @@ const constantValues =
             "zh-CN": "宽环"
         },
         "RING_THIN": {
-            "description": "![](https://i.imgur.com/NDOrzVS.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2E7",
             "en-US": "Ring Thin",
             "es-MX": "Anillo delgado",
@@ -15249,7 +15249,7 @@ const constantValues =
             "zh-CN": "细环"
         },
         "SAD": {
-            "description": "![](https://i.imgur.com/00jyB4n.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2E8",
             "en-US": "Sad",
             "es-MX": "Triste",
@@ -15260,7 +15260,7 @@ const constantValues =
         },
         "SKULL": {
             "guid": "00000000C2E9",
-            "description": "![](https://i.imgur.com/TKKtSIa.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Skull",
             "es-MX": "Cráneo",
             "fr-FR": "Crâne",
@@ -15270,7 +15270,7 @@ const constantValues =
         },
         "SPADE": {
             "guid": "00000000C2EA",
-            "description": "![](https://i.imgur.com/AJNBYA3.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Spade",
             "es-MX": "Pica",
             "fr-FR": "Pique",
@@ -15279,7 +15279,7 @@ const constantValues =
             "zh-CN": "黑桃"
         },
         "SPIRAL": {
-            "description": "![](https://i.imgur.com/TQLGPww.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2EB",
             "en-US": "Spiral",
             "es-MX": "Espiral",
@@ -15290,7 +15290,7 @@ const constantValues =
         },
         "STOP": {
             "guid": "00000000C2EC",
-            "description": "![](https://i.imgur.com/af56Ghv.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Stop",
             "es-MX": "Alto",
             "ja-JP": "停止",
@@ -15298,7 +15298,7 @@ const constantValues =
             "zh-CN": "停止"
         },
         "TRASHCAN": {
-            "description": "![](https://i.imgur.com/iEtFvyC.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2ED",
             "en-US": "Trashcan",
             "es-MX": "Tacho de basura",
@@ -15309,7 +15309,7 @@ const constantValues =
         },
         "WARNING": {
             "guid": "00000000C2EE",
-            "description": "![](https://i.imgur.com/SXDld9l.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Warning",
             "es-MX": "Advertencia",
             "fr-FR": "Avertissement",
@@ -15319,7 +15319,7 @@ const constantValues =
         },
         "CROSS": {
             "guid": "00000000C2EF",
-            "description": "![](https://i.imgur.com/05HFEnd.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "X",
             "fr-FR": "Croix"
         }
@@ -21619,6 +21619,7 @@ class Ast {
         }
 
         for (var arg of this.args) {
+            //console.log(arg);
             if (!(arg instanceof Ast)) {
                 console.log(arg);
                 error("Arg '"+arg+"' of '"+name+"' is not an AST");
@@ -21642,6 +21643,12 @@ class Ast {
 //Used for when the body of a control flow statement will never execute, such as "if false".
 function makeChildrenUseless(children) {
 
+    /*for (var i = 0; i < children.length; i++) {
+        makeChildrenUseless(children[i].children);
+        children[i].isPotentiallyUseless = true;
+    }
+    return;*/
+
     var foundLabel = false;
 
     //Recursively check through the tree to see if there are labels that we must decrement the amount of references to.
@@ -21662,7 +21669,7 @@ function makeChildrenUseless(children) {
             if (foundLabel) {
                 break;
             }
-            checkForDistanceTo(children[i].args);
+            checkForDistanceTo(children[i]);
             makeChildrenUseless(children[i].children);
             if (children[i].type === "Label") {
                 if (currentRuleLabelAccess[children[i].name] > 0) {
@@ -21690,9 +21697,9 @@ function isDefinitelyFalsy(content) {
         return true;
     }
     //Test for null vector: vect(0,0,0)
-    if (content.name === "vect") {
+    /*if (content.name === "vect") {
         return (isDefinitelyFalsy(content.args[0]) && isDefinitelyFalsy(content.args[1]) && isDefinitelyFalsy(content.args[2]));
-    }
+    }*/
     //Test for number 0
     if (content.name === "__number__") {
         return (content.args[0].numValue === 0);
@@ -22944,7 +22951,7 @@ function translateVarToWs(content, isGlobalVariable) {
 }
 
 //Adds a variable to the global/player variable arrays.
-function addVariable(content, isGlobalVariable, index) {
+function addVariable(content, isGlobalVariable, index, initValue=null) {
 	if (index === undefined) {
 		error("Index is undefined");
 	}
@@ -22959,11 +22966,25 @@ function addVariable(content, isGlobalVariable, index) {
 			"name": content,
 			"index": index,
 		});
+		if (initValue) {
+			globalInitDirectives.push(new Ast("__assignTo__", [
+				new Ast("__globalVar__", [new Ast(content, [], [], "GlobalVariable")]),
+				parse(initValue)
+			]));
+		}
 	} else {
 		playerVariables.push({
 			"name": content,
 			"index": index,
 		});
+		if (initValue) {
+			playerInitDirectives.push(new Ast("__assignTo__", [
+				new Ast("__playerVar__", [
+					new Ast("eventPlayer"), new Ast(content, [], [], "PlayerVariable"),
+				]),
+				parse(initValue),
+			]));
+		}
 	}
 }
 
@@ -23133,67 +23154,6 @@ function dispTokens(content) {
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var obfuscationMappings = {};
-for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
-	obfuscationMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xE0000);
-}
-
-var obfuscatedVarNames = shuffleArray(Array(4096).fill().map((e,i)=>i).map(x => x.toString(2).padStart(12, "0").replace(/0/g, "I").replace(/1/g, "l"))).slice(0,128);
-
-function addEmptyRules(rules) {
-	if (!compiledCustomGameSettings) {
-		error("Cannot use obfuscation without custom game settings declared");
-	}
-	var nbEmptyRules = 2500;
-	var nbTotalRules = nbEmptyRules + rules.length;
-	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
-	var result = "";
-	result += `
-${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!"){
-	${tows("__event__", ruleKw)}{
-		${tows("global", eventKw)};
-	}
-	${tows("__actions__", ruleKw)} {
-		${tows("disableInspector", actionKw)};
-	}
-}
-`;
-	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
-	var ruleIndex = 0;
-	for (var i = 0; i < nbTotalRules; i++) {
-		if (putEmptyRuleArray[i]) {
-			result += emptyRule;
-		} else {
-			result += rules[ruleIndex];
-			ruleIndex++;
-		}
-	}
-	return result;
-
-}
-
-var allHeroes = ["REAPER","TRACER","MERCY","HANZO","TORBJORN","REINHARDT","PHARAH","WINSTON","WIDOWMAKER","BASTION","SYMMETRA","ZENYATTA","GENJI","ROADHOG","MCCREE","JUNKRAT","ZARYA","SOLDIER","LUCIO","DVA","MEI","SOMBRA","DOOMFIST","ANA","ORISA","BRIGITTE","MOIRA","HAMMOND","ASHE","ECHO","BAPTISTE","SIGMA"]
-
-var allTankHeroes = ["REINHARDT","WINSTON","ROADHOG","ZARYA","DVA","ORISA","HAMMOND","SIGMA"]
-var allDamageHeroes = ["REAPER","TRACER","HANZO","TORBJORN","PHARAH","WIDOWMAKER","BASTION","SYMMETRA","GENJI","MCCREE","JUNKRAT","SOLDIER","MEI","SOMBRA","DOOMFIST","ASHE","ECHO"]
-var allSupportHeroes = ["MERCY","ZENYATTA","LUCIO","ANA","BRIGITTE","MOIRA","BAPTISTE"]
-/* 
- * This file is part of OverPy (https://github.com/Zezombye/overpy).
- * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
- * the Free Software Foundation, version 3.
- *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License 
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
 "use strict";
 
 var globalVariables;
@@ -23248,6 +23208,10 @@ var fileStack;
 //An unique number for automatically generated labels.
 var uniqueNumber;
 
+//Initialization directives for global and player variables.
+var globalInitDirectives = [];
+var playerInitDirectives = [];
+
 
 //Decompilation variables
 
@@ -23291,6 +23255,8 @@ function resetGlobalVariables(language) {
 	compiledCustomGameSettings = "";
 	enableOptimization = true;
 	uniqueNumber = 1;
+	globalInitDirectives = [];
+	playerInitDirectives = [];
 }
 
 //Other constants
@@ -25614,15 +25580,104 @@ function decompileSubroutines(content) {
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+var obfuscationMappings = {};
+for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
+	obfuscationMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xE0000);
+}
+
+var obfuscatedVarNames = shuffleArray(Array(4096).fill().map((e,i)=>i).map(x => x.toString(2).padStart(12, "0").replace(/0/g, "I").replace(/1/g, "l"))).slice(0,128);
+
+function addEmptyRules(rules) {
+	if (!compiledCustomGameSettings) {
+		error("Cannot use obfuscation without custom game settings declared");
+	}
+	var nbEmptyRules = 2500;
+	var nbTotalRules = nbEmptyRules + rules.length;
+	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+	var result = "";
+	result += `
+${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("disableInspector", actionKw)};
+		${astActionToWs(obfuscationConstantsAst, 0)}
+	}
+}
+`;
+	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
+	var ruleIndex = 0;
+	for (var i = 0; i < nbTotalRules; i++) {
+		if (putEmptyRuleArray[i]) {
+			result += emptyRule;
+		} else {
+			result += rules[ruleIndex];
+			ruleIndex++;
+		}
+	}
+	return result;
+
+}
+
+//Gather all constants to obfuscate and shuffle them
+var constantsToObfuscate = [];
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral"]) {
+	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x));
+}
+constantsToObfuscate = shuffleArray(constantsToObfuscate);
+//console.log(constantsToObfuscate);
+
+//Create the asts and map them to the index
+var constantsToObfuscateAsts = Array(constantsToObfuscate.length);
+var obfuscationConstantsMapping = {}
+
+var typeToAstFuncMapping = {
+	"HeroLiteral": "__hero__",
+	"MapLiteral": "__map__",
+	"GamemodeLiteral": "__gamemode__",
+	"ButtonLiteral": "__button__",
+}
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral"]) {
+	obfuscationConstantsMapping[constantType] = {};
+
+	for (var constant of Object.keys(constantValues[constantType])) {
+		obfuscationConstantsMapping[constantType][constant] = constantsToObfuscate.indexOf(constantType+constant);
+		constantsToObfuscateAsts[constantsToObfuscate.indexOf(constantType+constant)] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
+	}
+}
+
+//console.log(constantsToObfuscateAsts);
+var obfuscationConstantsAst = new Ast("__assignTo__", [
+	new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
+	new Ast("__array__", constantsToObfuscateAsts),
+]);
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 "use strict";
 
 astParsingFunctions.__add__ = function(content) {
 
     //Check if we are adding both numbers, or both vectors.
-    //If not, throw a type warning and do not optimize to avoid errors in assumptions.
+    //If not, throw a type warning.
     if (!isTypeSuitable(content.args[0].type, content.args[1].type) && !isTypeSuitable(content.args[1].type, content.args[0].type)) {
         warn("w_type_check", getTypeCheckFailedMessage(content, 1, content.args[0].type, content.args[1]));
-        return content;
+        //return content;
     }
 
     if (enableOptimization) {
@@ -25768,6 +25823,79 @@ astParsingFunctions.__append__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.__array__ = function(content) {
+
+    if (enableOptimization) {
+        if (content.args.length === 0) {
+            return getAstForEmptyArray();
+        }
+    }
+
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__arraySlice__ = function(content) {
+
+    if (enableOptimization) {
+        var sliceStart = null;
+        var sliceLength = null;
+
+        if (content.args[2].name === "__number__") {
+            sliceLength = Math.round(content.args[2].args[0].numValue);
+        }
+        if (sliceLength < 0) {
+            return getAstForEmptyArray();
+        }
+
+        if (content.args[0].name === "__array__" && content.args[1].name === "__number__" && sliceLength !== null) {
+            sliceStart = Math.round(content.args[1].args[0].numValue);
+            if (sliceStart < 0) {
+                sliceLength += sliceStart;
+                sliceStart = 0;
+            }
+            return new Ast("__array__", content.args[0].args.slice(sliceStart, sliceStart+sliceLength));
+        }
+    }
+
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__assignTo__ = function(content) {
 
     if (enableOptimization) {
@@ -25821,10 +25949,16 @@ astParsingFunctions.__assignTo__ = function(content) {
 astParsingFunctions.__button__ = function(content) {
 
     //Check the expected type to check if we need to remove the wrapper "button" function
-    console.log("parent name: '"+content.parent.name+"', parent arg index: "+content.parent.argIndex);
-    console.log(funcKw[content.parent.name].args[content.parent.argIndex].type);
-    if (funcKw[content.parent.name].args[content.parent.argIndex].type === "ButtonLiteral") {
+    //console.log("parent name: '"+content.parent.name+"', parent arg index: "+content.parent.argIndex);
+    //console.log(funcKw[content.parent.name].args[content.parent.argIndex].type);
+    //console.log(content);
+    if (content.expectedType === "ButtonLiteral") {
         return content.args[0];
+    } else if (obfuscateRules) {
+        return new Ast("__valueInArray__", [
+            new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
+            getAstForNumber(obfuscationConstantsMapping.ButtonLiteral[content.args[0].name]),
+        ]);
     } else {
         return content;
     }
@@ -26255,6 +26389,43 @@ astParsingFunctions.__for__ = function(content) {
 
 astParsingFunctions.__format__ = function(content) {
 
+	//Localized strings take one element more than custom strings.
+	//Therefore, convert localized strings into custom strings if they are a localized string that is the same in every language.
+	if (enableOptimization && content.args[0].type === "LocalizedStringLiteral" && [
+		"",
+		"*",
+		"----------",
+		"#{0}",
+		"-> {0}",
+		"<-> {0}",
+		"<- {0}",
+		"{0} ->",
+		"{0} <->",
+		"{0} <-",
+		"{0} -> {1}",
+		"{0} - {1}",
+		"{0} != {1}",
+		"{0} * {1}",
+		"{0} / {1}",
+		"{0} + {1}",
+		"{0} <-> {1}",
+		"{0} <- {1}",
+		"{0} <= {1}",
+		"{0} < {1}",
+		"{0} == {1}",
+		"{0} = {1}",
+		"{0} >= {1}",
+		"{0} > {1}",
+		"{0} {1}",
+		"{0} : {1} : {2}",
+		"{0} {1} {2}",
+		"({0})",
+		"¡{0}!",
+		"¿{0}?",
+	].includes(content.args[0].name)) {
+		content.args[0].type = "StringLiteral";
+	}
+
     if (content.args[0].type === "LocalizedStringLiteral") {
         return parseLocalizedString(content.args[0], content.args.slice(1));
     } else {
@@ -26577,6 +26748,36 @@ astParsingFunctions.__filteredArray__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.__gamemode__ = function(content) {
+
+    if (obfuscateRules) {
+        return new Ast("__valueInArray__", [
+            new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
+            getAstForNumber(obfuscationConstantsMapping.GamemodeLiteral[content.args[0].name]),
+        ]);
+    } else {
+        return content;
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__greaterThan__ = function(content) {
     
     if (enableOptimization) {
@@ -26643,12 +26844,47 @@ astParsingFunctions.__greaterThanOrEquals__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.__hero__ = function(content) {
+
+    if (obfuscateRules) {
+        console.log(content);
+        console.log(content.args[0].name);
+        return new Ast("__valueInArray__", [
+            new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
+            getAstForNumber(obfuscationConstantsMapping.HeroLiteral[content.args[0].name]),
+        ]);
+    } else {
+        return content;
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__if__ = function(content) {
 
     //Check for "if (not) RULE_CONDITION: return/continue/goto RULE_START".
     if (content.args[0].name === "RULE_CONDITION" || content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION") {
-        //Add useless instructions to keep gotos happy (one for the if, and one for the end)
-        content.parent.children.splice(content.parent.childIndex+1, 0, getAstForUselessInstruction(), getAstForUselessInstruction());
+
+        if (currentRuleHasVariableGoto) {
+            //Keep the child and add a "pass" for the "end"
+            content.parent.children.splice(content.parent.childIndex+1, 0, content.children[0], getAstForUselessInstruction());
+        }
 
         if (content.children.length !== 1) {
             error("Cannot use 'RULE_CONDITION' in that context");
@@ -26672,12 +26908,24 @@ astParsingFunctions.__if__ = function(content) {
 
     if (enableOptimization) {
         //if/loop, if/abort, if/skip -> loop if/abort if/skip if
-        //but only if 1 child and no else/elif after the if
+        //but only if no relative goto, 1 child, and no else/elif after the if
         if (content.children.length === 1 
                 && (content.parent.childIndex === content.parent.children.length-1 || content.parent.children[content.parent.childIndex+1].name !== "__elif__" && content.parent.children[content.parent.childIndex+1].name !== "__else__")
-                && (content.children[0].name === "return" || content.children[0].name === "__loop__" || content.children[0].name === "__skip__")) {
-            //Add useless instructions to keep gotos happy (one for the if, and one for the end)
-            content.parent.children.splice(content.parent.childIndex+1, 0, getAstForUselessInstruction(), getAstForUselessInstruction());
+                && ["return", "__loop__", "__skip__"].includes(content.children[0].name)) {
+
+            
+            if (currentRuleHasVariableGoto) {
+                //Keep the child and add a "pass" for the "end"
+                content.parent.children.splice(content.parent.childIndex+1, 0, content.children[0], getAstForUselessInstruction());
+            }
+
+            if (isDefinitelyFalsy(content.args[0])) {
+                return getAstForUselessInstruction();
+            }
+            if (isDefinitelyTruthy(content.args[0])) {
+                return content.children[0];
+            }
+            
             if (content.children[0].name === "return") {
                 return new Ast("__abortIf__", [content.args[0]]);
             } else if (content.children[0].name === "__loop__") {
@@ -26685,6 +26933,11 @@ astParsingFunctions.__if__ = function(content) {
             } else if (content.children[0].name === "__skip__") {
                 return new Ast("__skipIf__", [content.args[0], content.children[0].args[0]]);
             }
+        }
+
+        //if false -> make the children useless
+        if (isDefinitelyFalsy(content.args[0])) {
+            makeChildrenUseless(content.children);
         }
     }
 
@@ -26751,6 +27004,39 @@ astParsingFunctions.__ifThenElse__ = function(content) {
             return content.args[1];
         }
     }
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__indexOfArrayValue__ = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__array__") {
+            for (var i = 0; i < content.args[0].args.length; i++) {
+                if (areAstsEqual(content.args[0].args[i], content.args[1])) {
+                    return getAstForNumber(i);
+                }
+            }
+        }
+    }
+
     return content;
 }
 /* 
@@ -26899,6 +27185,36 @@ astParsingFunctions.__lessThanOrEquals__ = function(content) {
         }
     }
     return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__map__ = function(content) {
+
+    if (obfuscateRules) {
+        return new Ast("__valueInArray__", [
+            new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
+            getAstForNumber(obfuscationConstantsMapping.MapLiteral[content.args[0].name]),
+        ]);
+    } else {
+        return content;
+    }
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -27314,45 +27630,75 @@ astParsingFunctions.__rule__ = function(content) {
     //Iterate forward on each action, then remove all useless instructions, unless a relative goto is encountered.
     var isRelativeGotoEncountered = false;
 
-    function removeUselessChildren(children) {
+    //Check if an instruction other than a control flow statement has been encountered.
+    var hasMeaningfulInstructionBeenEncountered = false;
+
+    //To check that there is no duplicate label.
+    var declaredLabels = [];
+
+    function iterateOnRuleActions(children) {
+        //Remove useless instructions and check for meaningful intructions.
 
         for (var i = 0; i < children.length; i++) {
+            fileStack = content.fileStack;
+
             //Check for a dynamic goto.
             if (children[i].name === "__skip__" && children[i].args[0].name !== "__distanceTo__" || children[i].name === "__skipIf__" && children[i].args[1].name !== "__distanceTo__") {
                 isRelativeGotoEncountered = true;
             }
-            if (isRelativeGotoEncountered) {
-                children[i].isUnderRelativeGoto = true;
-            } else {
-                if (children[i].name === "__uselessInstruction__") {
-                    children.splice(i, 1);
-                    i--;
+
+            //Check that the label isn't already declared.
+            if (content.type === "Label") {
+                if (declaredLabels.includes(content.name)) {
+                    error("Label '"+content.name+"' is already declared in this rule");
                 }
+                declaredLabels.push(content.name);
             }
-            removeUselessChildren(children[i].children);
+
+            //Check if the instruction is meaningful.
+            if (!hasMeaningfulInstructionBeenEncountered && ![
+                "__abortIf__",
+                "__abortIfConditionIsFalse__",
+                "__abortIfConditionIsTrue__",
+                "break",
+                "continue",
+                "__else__",
+                "__elif__",
+                "__end__",
+                "__for__",
+                "__forGlobalVariable__",
+                "__forPlayerVariable__",
+                "__if__",
+                "__loop__",
+                "__loopIf__",
+                "__loopIfConditionIsFalse__",
+                "__loopIfConditionIsTrue__",
+                "pass",
+                "return",
+                "__skip__",
+                "__skipIf__",
+                "__wait__",
+                "__while__",
+            ].includes(children[i].name) && children[i].type !== "Label") {
+                console.log("meaningful instruction :"+children[i].name);
+                hasMeaningfulInstructionBeenEncountered = true;
+            }
+
+            iterateOnRuleActions(children[i].children);
+
+            //Remove useless instructions, if no relative goto has been encountered.
+            if (!isRelativeGotoEncountered && children[i].name === "pass") {
+                children.splice(i, 1);
+                i--;
+            }
         }
     }
     if (enableOptimization) {
-        removeUselessChildren(content.children);
+        iterateOnRuleActions(content.children);
     }
 
-    //Check that there is no duplicate label.
-    var declaredLabels = [];
-    function getExistingLabels(content) {
-        fileStack = content.fileStack;
-        if (content.type === "Label") {
-            if (declaredLabels.includes(content.name)) {
-                error("Label '"+content.name+"' is already declared in this rule");
-            }
-            declaredLabels.push(content.name);
-        } else {
-            for (var child of content.children) {
-                getExistingLabels(child);
-            }
-        }
-    }
-    for (var child of content.children) {
-        getExistingLabels(child);
+    if (enableOptimization && !hasMeaningfulInstructionBeenEncountered) {
+        return getAstForUselessInstruction();
     }
 
     //console.log(astToString(content));
@@ -27491,10 +27837,10 @@ astParsingFunctions.__skip__ = function(content) {
 astParsingFunctions.__subtract__ = function(content) {
 
     //Check if we are subtracting both numbers, or both vectors.
-    //If not, throw a type warning and do not optimize to avoid errors in assumptions.
+    //If not, throw a type warning.
     if (!isTypeSuitable(content.args[0].type, content.args[1].type) && !isTypeSuitable(content.args[1].type, content.args[0].type)) {
         warn("w_type_check", getTypeCheckFailedMessage(content, 1, content.args[0].type, content.args[1]));
-        return content;
+        //return content;
     }
 
     if (enableOptimization) {
@@ -27692,6 +28038,14 @@ astParsingFunctions.__while__ = function(content) {
     //Add the "end" function.
     content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
     
+
+    if (enableOptimization) {
+        //if false -> make the children useless
+        if (isDefinitelyFalsy(content.args[0])) {
+            makeChildrenUseless(content.children);
+        }
+    }
+
     return content;
 
 }
@@ -27923,7 +28277,7 @@ astParsingFunctions.continue = function(content) {
         return content;
 
     } else {
-        error("Found 'break' instruction, but not within a loop");
+        error("Found 'continue' instruction, but not within a loop");
     }
 }
 /* 
@@ -28870,6 +29224,7 @@ function parseAst(content) {
     //Parse args
     for (var i = 0; i < content.args.length; i++) {
         content.argIndex = i;
+        content.args[i].parent = content;
         content.args[i] = parseAst(content.args[i]);
     }
     content.argIndex = 0;
@@ -29000,7 +29355,10 @@ function parseAst(content) {
         content.childIndex = i;
         //console.log("name = "+content.name+", childIndex = "+content.childIndex+", children = "+content.children.map(x => x.name).join(", "))
         ///console.log("parsing "+content.children[i].name);
-        
+        var childComment = null;
+        if (content.name === "__rule__") {
+            var childComment = content.children[i].comment;
+        }
         content.children[i].parent = content;
 
         //Safeguard to prevent parsing the same thing twice (and eg ending up with 3 ends for an "if" if the instruction was parsed then moved by a parent instruction).
@@ -29008,6 +29366,9 @@ function parseAst(content) {
             content.children[i] = parseAst(content.children[i]);
             content.children[i].parent = content;
             content.children[i].wasParsed = true;
+        }
+        if (childComment) {
+            content.children[i].comment = childComment;
         }
     }
 
@@ -29187,8 +29548,8 @@ function astToWs(content) {
         return escapeString(tows(content.name, stringKw));
     }
 
-    if (content.name === "__firstOf__" && enableOptimization) {
-        content = new Ast("__valueInArray__", [content.args[0], getAstFor0()]);
+    if (content.name === "__valueInArray__" && enableOptimization && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+        content = new Ast("__firstOf__", [content.args[0]]);
     }
     
     if (content.name in equalityFuncToOpMapping) {
@@ -29417,7 +29778,7 @@ function parseLines(lines) {
 
     //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
     var result = [];
-    var currentComment = null;
+    var currentComments = [];
 
     
     for (var i = 0; i < lines.length; i++) {
@@ -29427,18 +29788,28 @@ function parseLines(lines) {
         fileStack = lines[i].tokens[0].fileStack;
         
         if (lines[i].tokens[0].text.startsWith("#")) {
-            currentComment = lines[i].tokens[0].text.substring(1);
+            currentComments.push(lines[i].tokens[0].text.substring(1));
             continue;
         }
-
         
         //Check for end of line comment
         if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
-            currentComment = lines[i].tokens[lines[i].tokens.length-1].text.substring(1);
+            currentComments.push(lines[i].tokens[lines[i].tokens.length-1].text.substring(1));
             lines[i].tokens.pop();
         }
 
         if (lines[i].tokens[0].text === "globalvar" || lines[i].tokens[0].text === "playervar" || lines[i].tokens[0].text === "subroutine") {
+
+            var initDirective = null;
+            //Check for assignment
+            for (var j = 0; j < lines[i].tokens.length; j++) {
+                if (lines[i].tokens[j].text === "=") {
+                    initDirective = lines[i].tokens.slice(j+1);
+                    lines[i].tokens = lines[i].tokens.slice(0, j);
+                    console.log("init directive : "+dispTokens(initDirective));
+                    break;
+                }
+            }
 
 			if (lines[i].tokens.length < 2 || lines[i].tokens.length > 3) {
 				error("Malformed "+lines[i].tokens[0].text+" declaration");
@@ -29449,9 +29820,9 @@ function parseLines(lines) {
 			var index = lines[i].tokens.length > 2 ? lines[i].tokens[2].text : null
 
 			if (lines[i].tokens[0].text === "globalvar") {
-				addVariable(lines[i].tokens[1].text, true, index);
+				addVariable(lines[i].tokens[1].text, true, index, initDirective);
 			} else if (lines[i].tokens[0].text === "playervar") {
-				addVariable(lines[i].tokens[1].text, false, index);
+				addVariable(lines[i].tokens[1].text, false, index, initDirective);
 			} else {
 				addSubroutine(lines[i].tokens[1].text, index);
             }
@@ -29474,8 +29845,8 @@ function parseLines(lines) {
                 var currentLineAst = new Ast(lines[i].tokens[0].text, lines[i].tokens.slice(1).map(x => new Ast(x.text, [], [], "__AnnotationArg__")), [], "__Annotation__");
 
             }
-            if (currentComment !== null) {
-                currentLineAst.comment = currentComment;
+            if (currentComments !== []) {
+                currentLineAst.comment = commentArrayToString(currentComments);
             }
             result.push(currentLineAst);
 
@@ -29574,8 +29945,8 @@ function parseLines(lines) {
             children = parseLines(childrenLines);
 
             var instruction = new Ast(funcName, args, children);
-            if (currentComment !== null) {
-                instruction.comment = currentComment;
+            if (currentComments !== []) {
+                instruction.comment = commentArrayToString(currentComments);
             }
             if (instructionRuleAttributes !== null) {
                 instruction.ruleAttributes = instructionRuleAttributes;
@@ -29585,13 +29956,36 @@ function parseLines(lines) {
     
         } else {
             var currentLineAst = parse(lines[i].tokens);
-            currentLineAst.comment = currentComment;
+            if (currentComments !== []) {
+                currentLineAst.comment = commentArrayToString(currentComments);
+            }
             result.push(currentLineAst);
         }
-        currentComment = null;
+        currentComments = [];
     }
     
     //console.log(result);
+    return result;
+}
+
+function commentArrayToString(comments) {
+    if (comments.length === 0) {
+        return "";
+    }
+    var result = comments[comments.length-1];
+    var nbBytes = getUtf8Length(result);
+    if (nbBytes > 256) {
+        return result;
+    }
+    for (var i = comments.length-2; i >= 0; i--) {
+        var addedBytes = getUtf8Length(comments[i]);
+        if (nbBytes + addedBytes + 1 <= 256) {
+            result = comments[i]+"\n"+result;
+            nbBytes += addedBytes+1;
+        } else {
+            break;
+        }
+    }
     return result;
 }
 
@@ -30295,7 +30689,13 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var lines = tokenize(content);
 
-    var astRules = parseLines(lines);
+	if (obfuscateRules) {
+		addVariable("__obfuscationConstants__", true, 127);
+		//globalInitDirectives.push(obfuscationConstantsAst);
+	}
+	
+	var astRules = parseLines(lines);
+	astRules.unshift(...getInitDirectivesRules());
     
     for (var elem of astRules) {
         console.log(astToString(elem));
@@ -30318,25 +30718,6 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
     
-/*
-    var compiledRules = [];
-
-	//First rule contains variable declarations.
-	compileVarDeclarationRule(rules[0])
-
-	for (var i = 1; i < rules.length; i++) {
-		compiledRules.push(compileRule(rules[i]));
-	}
-
-	if (obfuscateRules || enableNoEdit) {
-		compiledRules = addEmptyRules(compiledRules);
-	} else {
-		compiledRules = compiledRules.join("");
-	}
-
-	result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
-*/
-
 	if (typeof window !== "undefined") {
 		var t1 = performance.now();
 		console.log("Compilation time: "+(t1-t0)+"ms");
@@ -30351,7 +30732,30 @@ function compile(content, language="en-US", _rootPath="") {
 	};
 }
 
-
+function getInitDirectivesRules() {
+	var result = [];
+	if (globalInitDirectives.length > 0) {
+		var rule = new Ast("__rule__");
+		rule.ruleAttributes = {
+			name: "Initialize global variables",
+			event: "global",
+		};
+		rule.children = globalInitDirectives;
+		result.push(rule);
+	}
+	if (playerInitDirectives.length > 0) {
+		var rule = new Ast("__rule__");
+		rule.ruleAttributes = {
+			name: "Initialize player variables",
+			event: "eachPlayer",
+			eventPlayer: "all",
+			eventTeam: "all",
+		};
+		rule.children = playerInitDirectives;
+		result.push(rule);
+	}
+	return result;
+}
 
 function generateVariablesField() {
 

@@ -37,6 +37,6 @@ astParsingFunctions.continue = function(content) {
         return content;
 
     } else {
-        error("Found 'break' instruction, but not within a loop");
+        error("Found 'continue' instruction, but not within a loop");
     }
 }

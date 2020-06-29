@@ -190,6 +190,7 @@ function parseAst(content) {
     //Parse args
     for (var i = 0; i < content.args.length; i++) {
         content.argIndex = i;
+        content.args[i].parent = content;
         content.args[i] = parseAst(content.args[i]);
     }
     content.argIndex = 0;

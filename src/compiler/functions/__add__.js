@@ -20,10 +20,10 @@
 astParsingFunctions.__add__ = function(content) {
 
     //Check if we are adding both numbers, or both vectors.
-    //If not, throw a type warning and do not optimize to avoid errors in assumptions.
+    //If not, throw a type warning.
     if (!isTypeSuitable(content.args[0].type, content.args[1].type) && !isTypeSuitable(content.args[1].type, content.args[0].type)) {
         warn("w_type_check", getTypeCheckFailedMessage(content, 1, content.args[0].type, content.args[1]));
-        return content;
+        //return content;
     }
 
     if (enableOptimization) {

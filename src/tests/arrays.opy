@@ -24,6 +24,20 @@ rule "filtered array":
     A = [player for player in getAllPlayers() if player != B] #getAllPlayers.remove(B)
     A = [player for player in getAllPlayers() if A == B] #getAllPlayers() if A == B else []
 
+rule "index":
+    A = B.index(3)
+    A = [A,B,C].index(B) #1
+    A = [A,B,C].index(3)
+
+rule "slice":
+    A = B.slice(1,3)
+    A = [1,2,3,4,5].slice(3, 1) #[4]
+    A = [1,2,3,4,5].slice(3, 5) #[4,5]
+    A = [1,2,3,4,5].slice(3, -2) #[]
+    A = [1,2,3,4,5].slice(5, 2) #[]
+    A = [1,2,3,4,5].slice(-2, 3) #[1]
+    A = [1,2,3,4,5].slice(0.4, 2.5) #[1,2,3]
+
 rule "other array functions":
     A = all([player.A == 2 for player in getAllPlayers()])
     A = any([player.A == 2 for player in getAllPlayers()])
@@ -38,4 +52,3 @@ rule "other array functions":
     A = B.concat(2)
     A = B.index(3)
     A = B.exclude(3)
-    A = B.slice(1, 3)

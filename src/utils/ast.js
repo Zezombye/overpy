@@ -68,6 +68,12 @@ class Ast {
 //Used for when the body of a control flow statement will never execute, such as "if false".
 function makeChildrenUseless(children) {
 
+    /*for (var i = 0; i < children.length; i++) {
+        makeChildrenUseless(children[i].children);
+        children[i].isPotentiallyUseless = true;
+    }
+    return;*/
+
     var foundLabel = false;
 
     //Recursively check through the tree to see if there are labels that we must decrement the amount of references to.
@@ -88,7 +94,7 @@ function makeChildrenUseless(children) {
             if (foundLabel) {
                 break;
             }
-            checkForDistanceTo(children[i].args);
+            checkForDistanceTo(children[i]);
             makeChildrenUseless(children[i].children);
             if (children[i].type === "Label") {
                 if (currentRuleLabelAccess[children[i].name] > 0) {

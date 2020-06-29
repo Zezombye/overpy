@@ -19,6 +19,43 @@
 
 astParsingFunctions.__format__ = function(content) {
 
+	//Localized strings take one element more than custom strings.
+	//Therefore, convert localized strings into custom strings if they are a localized string that is the same in every language.
+	if (enableOptimization && content.args[0].type === "LocalizedStringLiteral" && [
+		"",
+		"*",
+		"----------",
+		"#{0}",
+		"-> {0}",
+		"<-> {0}",
+		"<- {0}",
+		"{0} ->",
+		"{0} <->",
+		"{0} <-",
+		"{0} -> {1}",
+		"{0} - {1}",
+		"{0} != {1}",
+		"{0} * {1}",
+		"{0} / {1}",
+		"{0} + {1}",
+		"{0} <-> {1}",
+		"{0} <- {1}",
+		"{0} <= {1}",
+		"{0} < {1}",
+		"{0} == {1}",
+		"{0} = {1}",
+		"{0} >= {1}",
+		"{0} > {1}",
+		"{0} {1}",
+		"{0} : {1} : {2}",
+		"{0} {1} {2}",
+		"({0})",
+		"¡{0}!",
+		"¿{0}?",
+	].includes(content.args[0].name)) {
+		content.args[0].type = "StringLiteral";
+	}
+
     if (content.args[0].type === "LocalizedStringLiteral") {
         return parseLocalizedString(content.args[0], content.args.slice(1));
     } else {
@@ -27,124 +64,6 @@ astParsingFunctions.__format__ = function(content) {
     }
 
 }
-
-/*
-
-""
-"*":
-"----------":
-
-    "#{0}": {
-        "guid": "00000000BFC2",
-        "en-US": "#{0}"
-    },
-    "-> {0}": {
-        "guid": "00000000BFB0",
-        "en-US": "-> {0}"
-    },
-    "<-> {0}": {
-        "guid": "00000000BFAE",
-        "en-US": "<-> {0}"
-    },
-    "<- {0}": {
-        "guid": "00000000BFAF",
-        "en-US": "<- {0}"
-	},
-	
-	{
-    "{0} ->": {
-        "guid": "00000000BFAD",
-        "en-US": "{0} ->"
-    },
-    "{0} <->": {
-        "guid": "00000000BF99",
-        "en-US": "{0} <->"
-    },
-    "{0} <-": {
-        "guid": "00000000BFAC",
-        "en-US": "{0} <-"
-	},
-	    "{0} -> {1}": {
-        "guid": "00000000BFB2",
-        "en-US": "{0} -> {1}"
-    },
-    "{0} - {1}": {
-        "guid": "00000000BF9D",
-        "en-US": "{0} - {1}"
-    },
-    "{0} != {1}": {
-        "guid": "00000000BFA2",
-        "en-US": "{0} != {1}"
-    },
-    "{0} * {1}": {
-        "guid": "00000000BF9C",
-        "en-US": "{0} * {1}"
-    },
-    "{0} / {1}": {
-        "guid": "00000000BFBB",
-        "en-US": "{0} / {1}"
-    },
-    "{0} + {1}": {
-        "guid": "00000000BF9E",
-        "en-US": "{0} + {1}"
-    },
-    "{0} <-> {1}": {
-        "guid": "00000000BF9A",
-        "en-US": "{0} <-> {1}"
-    },
-    "{0} <- {1}": {
-        "guid": "00000000BFB1",
-        "en-US": "{0} <- {1}"
-    },
-    "{0} <= {1}": {
-        "guid": "00000000BFA1",
-        "en-US": "{0} <= {1}"
-    },
-    "{0} < {1}": {
-        "guid": "00000000BFA6",
-        "en-US": "{0} < {1}"
-    },
-    "{0} == {1}": {
-        "guid": "00000000BFA3",
-        "en-US": "{0} == {1}"
-    },
-    "{0} = {1}": {
-        "guid": "00000000BFA4",
-        "en-US": "{0} = {1}"
-    },
-    "{0} >= {1}": {
-        "guid": "00000000BF9F",
-        "en-US": "{0} >= {1}"
-    },
-    "{0} > {1}": {
-        "guid": "00000000BFA0",
-        "en-US": "{0} > {1}"
-	},
-	    "{0} {1}": {
-        "guid": "00000000C43C",
-        "en-US": "{0} {1}"
-	}
-	    "{0} : {1} : {2}": {
-        "guid": "00000000C5B9",
-        "en-US": "{0} : {1} : {2}"
-    },
-    "{0} {1} {2}": {
-        "guid": "00000000C5B8",
-        "en-US": "{0} {1} {2}"
-	},
-	    "({0})": {
-        "guid": "00000000BFBD",
-        "en-US": "({0})"
-    },
-    "¡{0}!": {
-        "guid": "00000000BFA9",
-        "en-US": "¡{0}!"
-    },
-    "¿{0}?": {
-        "guid": "00000000BFAB",
-        "en-US": "¿{0}?"
-    }
-*/
 
 //Parses a custom string.
 function parseCustomString(str, formatArgs) {

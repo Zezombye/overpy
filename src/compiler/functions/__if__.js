@@ -21,8 +21,11 @@ astParsingFunctions.__if__ = function(content) {
 
     //Check for "if (not) RULE_CONDITION: return/continue/goto RULE_START".
     if (content.args[0].name === "RULE_CONDITION" || content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION") {
-        //Add useless instructions to keep gotos happy (one for the if, and one for the end)
-        content.parent.children.splice(content.parent.childIndex+1, 0, getAstForUselessInstruction(), getAstForUselessInstruction());
+
+        if (currentRuleHasVariableGoto) {
+            //Keep the child and add a "pass" for the "end"
+            content.parent.children.splice(content.parent.childIndex+1, 0, content.children[0], getAstForUselessInstruction());
+        }
 
         if (content.children.length !== 1) {
             error("Cannot use 'RULE_CONDITION' in that context");
@@ -46,12 +49,24 @@ astParsingFunctions.__if__ = function(content) {
 
     if (enableOptimization) {
         //if/loop, if/abort, if/skip -> loop if/abort if/skip if
-        //but only if 1 child and no else/elif after the if
+        //but only if no relative goto, 1 child, and no else/elif after the if
         if (content.children.length === 1 
                 && (content.parent.childIndex === content.parent.children.length-1 || content.parent.children[content.parent.childIndex+1].name !== "__elif__" && content.parent.children[content.parent.childIndex+1].name !== "__else__")
-                && (content.children[0].name === "return" || content.children[0].name === "__loop__" || content.children[0].name === "__skip__")) {
-            //Add useless instructions to keep gotos happy (one for the if, and one for the end)
-            content.parent.children.splice(content.parent.childIndex+1, 0, getAstForUselessInstruction(), getAstForUselessInstruction());
+                && ["return", "__loop__", "__skip__"].includes(content.children[0].name)) {
+
+            
+            if (currentRuleHasVariableGoto) {
+                //Keep the child and add a "pass" for the "end"
+                content.parent.children.splice(content.parent.childIndex+1, 0, content.children[0], getAstForUselessInstruction());
+            }
+
+            if (isDefinitelyFalsy(content.args[0])) {
+                return getAstForUselessInstruction();
+            }
+            if (isDefinitelyTruthy(content.args[0])) {
+                return content.children[0];
+            }
+            
             if (content.children[0].name === "return") {
                 return new Ast("__abortIf__", [content.args[0]]);
             } else if (content.children[0].name === "__loop__") {
@@ -59,6 +74,11 @@ astParsingFunctions.__if__ = function(content) {
             } else if (content.children[0].name === "__skip__") {
                 return new Ast("__skipIf__", [content.args[0], content.children[0].args[0]]);
             }
+        }
+
+        //if false -> make the children useless
+        if (isDefinitelyFalsy(content.args[0])) {
+            makeChildrenUseless(content.children);
         }
     }
 

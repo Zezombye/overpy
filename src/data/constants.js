@@ -935,7 +935,7 @@ const constantValues =
     },
     "Icon": {
         "ARROW_DOWN": {
-            "description": "![](https://i.imgur.com/hych4AE.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2C9",
             "en-US": "Arrow: Down",
             "es-MX": "Flecha: Hacia abajo",
@@ -945,7 +945,7 @@ const constantValues =
             "zh-CN": "箭头：向下"
         },
         "ARROW_LEFT": {
-            "description": "![](https://i.imgur.com/jgpW0Nb.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CA",
             "en-US": "Arrow: Left",
             "es-MX": "Flecha: Hacia la izquierda",
@@ -955,7 +955,7 @@ const constantValues =
             "zh-CN": "箭头：向左"
         },
         "ARROW_RIGHT": {
-            "description": "![](https://i.imgur.com/0BttENZ.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CB",
             "en-US": "Arrow: Right",
             "es-MX": "Flecha: Hacia la derecha",
@@ -965,7 +965,7 @@ const constantValues =
             "zh-CN": "箭头：向右"
         },
         "ARROW_UP": {
-            "description": "![](https://i.imgur.com/Pr86Pcf.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CC",
             "en-US": "Arrow: Up",
             "es-MX": "Flecha: Hacia arriba",
@@ -975,7 +975,7 @@ const constantValues =
             "zh-CN": "箭头：向上"
         },
         "ASTERISK": {
-            "description": "![](https://i.imgur.com/XTvINuC.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CD",
             "en-US": "Asterisk",
             "es-MX": "Asterisco",
@@ -985,7 +985,7 @@ const constantValues =
             "zh-CN": "星形"
         },
         "BOLT": {
-            "description": "![](https://i.imgur.com/ekbDxsT.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CE",
             "en-US": "Bolt",
             "es-MX": "Rayo",
@@ -995,7 +995,7 @@ const constantValues =
             "zh-CN": "箭矢"
         },
         "CHECKMARK": {
-            "description": "![](https://i.imgur.com/B7V240H.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2CF",
             "en-US": "Checkmark",
             "es-MX": "Marca de control",
@@ -1006,7 +1006,7 @@ const constantValues =
         },
         "CIRCLE": {
             "guid": "00000000C2D0",
-            "description": "![](https://i.imgur.com/6lNvrqD.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Circle",
             "es-MX": "Círculo",
             "fr-FR": "Cercle",
@@ -1016,7 +1016,7 @@ const constantValues =
         },
         "CLUB": {
             "guid": "00000000C2D1",
-            "description": "![](https://i.imgur.com/HYWor8w.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Club",
             "es-MX": "Trébol",
             "fr-FR": "Trèfle",
@@ -1026,7 +1026,7 @@ const constantValues =
         },
         "DIAMOND": {
             "guid": "00000000C2D2",
-            "description": "![](https://i.imgur.com/5aLqsHf.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Diamond",
             "es-MX": "Diamante",
             "fr-FR": "Carreau",
@@ -1036,7 +1036,7 @@ const constantValues =
         },
         "DIZZY": {
             "guid": "00000000C2D3",
-            "description": "![](https://i.imgur.com/P1Qi43N.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Dizzy",
             "es-MX": "Mareado",
             "fr-FR": "Étourdi",
@@ -1045,7 +1045,7 @@ const constantValues =
             "zh-CN": "晕眩"
         },
         "EXCLAMATION_MARK": {
-            "description": "![](https://i.imgur.com/1rBcHfz.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2D4",
             "en-US": "Exclamation Mark",
             "es-MX": "Signo de exclamación",
@@ -1055,7 +1055,7 @@ const constantValues =
             "zh-CN": "感叹号"
         },
         "EYE": {
-            "description": "![](https://i.imgur.com/pVMPtoH.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2D5",
             "en-US": "Eye",
             "es-MX": "Ojo",
@@ -1065,7 +1065,7 @@ const constantValues =
             "zh-CN": "眼睛"
         },
         "FIRE": {
-            "description": "![](https://i.imgur.com/m3As7B0.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2D6",
             "en-US": "Fire",
             "es-MX": "Fuego",
@@ -1075,7 +1075,7 @@ const constantValues =
             "zh-CN": "火焰"
         },
         "FLAG": {
-            "description": "![](https://i.imgur.com/v30lUgy.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2F0",
             "en-US": "Flag",
             "es-MX": "Bandera",
@@ -1086,14 +1086,14 @@ const constantValues =
         },
         "HALO": {
             "guid": "00000000C2D7",
-            "description": "![](https://i.imgur.com/FWR9HAQ.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Halo",
             "ja-JP": "光輪",
             "pt-BR": "Auréola",
             "zh-CN": "光晕"
         },
         "HAPPY": {
-            "description": "![](https://i.imgur.com/CNwSwb1.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2D8",
             "en-US": "Happy",
             "es-MX": "Feliz",
@@ -1104,7 +1104,7 @@ const constantValues =
         },
         "HEART": {
             "guid": "00000000C2D9",
-            "description": "![](https://i.imgur.com/1KPOyZa.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Heart",
             "es-MX": "Corazón",
             "fr-FR": "Cœur",
@@ -1114,7 +1114,7 @@ const constantValues =
         },
         "MOON": {
             "guid": "00000000C2DA",
-            "description": "![](https://i.imgur.com/2uxcKF0.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Moon",
             "es-MX": "Luna",
             "fr-FR": "Lune",
@@ -1124,7 +1124,7 @@ const constantValues =
         },
         "NO": {
             "guid": "00000000C2DB",
-            "description": "![](https://i.imgur.com/TZ4zFso.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "No",
             "fr-FR": "Interdit",
             "ja-JP": "いいえ",
@@ -1132,7 +1132,7 @@ const constantValues =
             "zh-CN": "拒绝"
         },
         "PLUS": {
-            "description": "![](https://i.imgur.com/OLARJ80.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2DC",
             "en-US": "Plus",
             "es-MX": "Signo de suma",
@@ -1141,7 +1141,7 @@ const constantValues =
             "zh-CN": "加号"
         },
         "POISON": {
-            "description": "![](https://i.imgur.com/w2gsTiI.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2DD",
             "en-US": "Poison",
             "es-MX": "Veneno",
@@ -1150,7 +1150,7 @@ const constantValues =
             "zh-CN": "剧毒"
         },
         "POISON_2": {
-            "description": "![](https://i.imgur.com/UWmyDg2.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2DE",
             "en-US": "Poison 2",
             "es-MX": "Veneno 2",
@@ -1160,7 +1160,7 @@ const constantValues =
             "zh-CN": "剧毒2"
         },
         "QUESTION_MARK": {
-            "description": "![](https://i.imgur.com/CZBV4tx.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2DF",
             "en-US": "Question Mark",
             "es-MX": "Signo de interrogación",
@@ -1170,7 +1170,7 @@ const constantValues =
             "zh-CN": "问号"
         },
         "RADIOACTIVE": {
-            "description": "![](https://i.imgur.com/R1bnNcl.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2E4",
             "en-US": "Radioactive",
             "es-MX": "Radiactivo",
@@ -1180,7 +1180,7 @@ const constantValues =
             "zh-CN": "辐射"
         },
         "RECYCLE": {
-            "description": "![](https://i.imgur.com/q2fxb2u.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2E5",
             "en-US": "Recycle",
             "es-MX": "Reciclaje",
@@ -1190,7 +1190,7 @@ const constantValues =
             "zh-CN": "回收"
         },
         "RING_THICK": {
-            "description": "![](https://i.imgur.com/lTwuAjX.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2E6",
             "en-US": "Ring Thick",
             "es-MX": "Anillo grueso",
@@ -1200,7 +1200,7 @@ const constantValues =
             "zh-CN": "宽环"
         },
         "RING_THIN": {
-            "description": "![](https://i.imgur.com/NDOrzVS.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2E7",
             "en-US": "Ring Thin",
             "es-MX": "Anillo delgado",
@@ -1210,7 +1210,7 @@ const constantValues =
             "zh-CN": "细环"
         },
         "SAD": {
-            "description": "![](https://i.imgur.com/00jyB4n.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2E8",
             "en-US": "Sad",
             "es-MX": "Triste",
@@ -1221,7 +1221,7 @@ const constantValues =
         },
         "SKULL": {
             "guid": "00000000C2E9",
-            "description": "![](https://i.imgur.com/TKKtSIa.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Skull",
             "es-MX": "Cráneo",
             "fr-FR": "Crâne",
@@ -1231,7 +1231,7 @@ const constantValues =
         },
         "SPADE": {
             "guid": "00000000C2EA",
-            "description": "![](https://i.imgur.com/AJNBYA3.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Spade",
             "es-MX": "Pica",
             "fr-FR": "Pique",
@@ -1240,7 +1240,7 @@ const constantValues =
             "zh-CN": "黑桃"
         },
         "SPIRAL": {
-            "description": "![](https://i.imgur.com/TQLGPww.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2EB",
             "en-US": "Spiral",
             "es-MX": "Espiral",
@@ -1251,7 +1251,7 @@ const constantValues =
         },
         "STOP": {
             "guid": "00000000C2EC",
-            "description": "![](https://i.imgur.com/af56Ghv.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Stop",
             "es-MX": "Alto",
             "ja-JP": "停止",
@@ -1259,7 +1259,7 @@ const constantValues =
             "zh-CN": "停止"
         },
         "TRASHCAN": {
-            "description": "![](https://i.imgur.com/iEtFvyC.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "guid": "00000000C2ED",
             "en-US": "Trashcan",
             "es-MX": "Tacho de basura",
@@ -1270,7 +1270,7 @@ const constantValues =
         },
         "WARNING": {
             "guid": "00000000C2EE",
-            "description": "![](https://i.imgur.com/SXDld9l.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "Warning",
             "es-MX": "Advertencia",
             "fr-FR": "Avertissement",
@@ -1280,7 +1280,7 @@ const constantValues =
         },
         "CROSS": {
             "guid": "00000000C2EF",
-            "description": "![](https://i.imgur.com/05HFEnd.jpg) \n\n \n\n \n\n \n\n ",
+            "description": "__iconDescription__",
             "en-US": "X",
             "fr-FR": "Croix"
         }

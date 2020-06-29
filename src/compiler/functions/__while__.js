@@ -22,6 +22,14 @@ astParsingFunctions.__while__ = function(content) {
     //Add the "end" function.
     content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
     
+
+    if (enableOptimization) {
+        //if false -> make the children useless
+        if (isDefinitelyFalsy(content.args[0])) {
+            makeChildrenUseless(content.children);
+        }
+    }
+
     return content;
 
 }
