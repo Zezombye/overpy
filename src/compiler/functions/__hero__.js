@@ -19,7 +19,7 @@
 
 astParsingFunctions.__hero__ = function(content) {
 
-    if (obfuscateRules) {
+    if (obfuscationSettings.obfuscateConstants) {
         console.log(content);
         console.log(content.args[0].name);
         return new Ast("__valueInArray__", [

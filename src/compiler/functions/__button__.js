@@ -25,7 +25,7 @@ astParsingFunctions.__button__ = function(content) {
     //console.log(content);
     if (content.expectedType === "ButtonLiteral") {
         return content.args[0];
-    } else if (obfuscateRules) {
+    } else if (obfuscationSettings.obfuscateConstants) {
         return new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
             getAstForNumber(obfuscationConstantsMapping.ButtonLiteral[content.args[0].name]),

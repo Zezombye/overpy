@@ -186,7 +186,30 @@ function tokenize(content) {
 			//we must ignore this preprocessor directive
 
 		} else if (content.startsWith("#!obfuscate")) {
-			obfuscateRules = true;
+			obfuscationSettings = {
+				obfuscateNames: true,
+				obfuscateStrings: true,
+				obfuscateConstants: true,
+				obfuscateInspector: true,
+				ruleFilling: true,
+			}
+
+			var disabledObfuscationTechniques = content.substring("#!obfuscate".length).trim().split(" ").map(x => x.trim());
+			for (var tech of disabledObfuscationTechniques) {
+				if (tech === "noNameObfuscation") {
+					obfuscationSettings.obfuscateNames = false;
+				} else if (tech === "noStringObfuscation") {
+					obfuscationSettings.obfuscateStrings = false;
+				} else if (tech === "noConstantObfuscation") {
+					obfuscationSettings.obfuscateConstants = false;
+				} else if (tech === "noInspectorObfuscation") {
+					obfuscationSettings.obfuscateInspector = false;
+				} else if (tech === "noRuleFilling") {
+					obfuscationSettings.ruleFilling = false;
+				} else {
+					error("Unknown obfuscation setting '"+tech+"'");
+				}
+			}
 
 		} else if (content.startsWith("#!disableOptimizations")) {
 			enableOptimization = false;

@@ -31,10 +31,11 @@ astParsingFunctions.__equals__ = function(content) {
         }
 
         //A == falsy -> not A
-        if (isDefinitelyFalsy(content.args[0])) {
+        //Quick fix: only do that if A is bool, because of value restrictions
+        if (isDefinitelyFalsy(content.args[0]) && isTypeSuitable("bool", content.args[1].type, false)) {
             return new Ast("__not__", [content.args[1]]);
         }
-        if (isDefinitelyFalsy(content.args[1])) {
+        if (isDefinitelyFalsy(content.args[1]) && isTypeSuitable("bool", content.args[0].type, false)) {
             return new Ast("__not__", [content.args[0]]);
         }
 

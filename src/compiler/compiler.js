@@ -39,7 +39,7 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var lines = tokenize(content);
 
-	if (obfuscateRules) {
+	if (obfuscationSettings.obfuscateConstants) {
 		addVariable("__obfuscationConstants__", true, 127);
 		//globalInitDirectives.push(obfuscationConstantsAst);
 	}
@@ -60,8 +60,8 @@ function compile(content, language="en-US", _rootPath="") {
     console.log(parsedAstRules);
 
 	var compiledRules = astRulesToWs(parsedAstRules);
-	if (obfuscateRules) {
-		compiledRules = addEmptyRules(compiledRules);
+	if (Object.keys(obfuscationSettings).some(x => obfuscationSettings[x])) {
+		compiledRules = addObfuscationRules(compiledRules);
 	} else {
 		compiledRules = compiledRules.join("");
 	}
@@ -160,12 +160,12 @@ function generateVariablesField() {
 		//console.log(obfuscatedVarNames);
 		//console.log(obfuscatedVarNumbers);
 
-		if (obfuscateRules) {
+		if (obfuscationSettings.obfuscateNames) {
 			var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e,i)=>i));
 		}
 		var varTypeResult = "";
 		for (var i = 0; i < 128; i++) {
-			if (obfuscateRules) {
+			if (obfuscationSettings.obfuscateNames) {
 				varTypeResult += tabLevel(2)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 			} else {
 				if (outputVariables[i] !== undefined) {
@@ -233,11 +233,11 @@ function generateSubroutinesField() {
 		}
 	}
 
-	if (obfuscateRules) {
+	if (obfuscationSettings.obfuscateNames) {
 		var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e,i)=>i));
 	}
 	for (var i = 0; i < 128; i++) {
-		if (obfuscateRules) {
+		if (obfuscationSettings.obfuscateNames) {
 			result += tabLevel(1)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 		} else {
 			if (outputSubroutines[i] !== undefined) {

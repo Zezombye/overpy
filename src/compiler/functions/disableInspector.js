@@ -19,7 +19,7 @@
 
 astParsingFunctions.disableInspector = function(content) {
 
-    if (obfuscateRules) {
+    if (obfuscationSettings.obfuscateInspector) {
         return getAstForUselessInstruction();
     } else {
         return content;

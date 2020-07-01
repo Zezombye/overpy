@@ -44,8 +44,8 @@ var currentRuleLabelAccess;
 
 var currentRuleHasVariableGoto;
 
-//If set to true, applies various obfuscation techniques on the gamemode.
-var obfuscateRules;
+//Settings for whether to enable obfuscation techniques.
+var obfuscationSettings;
 
 var enableOptimization;
 
@@ -99,7 +99,13 @@ function resetGlobalVariables(language) {
 	currentArrayElementNames = [];
 	currentLanguage = language;
 	currentRuleEvent = "";
-	obfuscateRules = false;
+	obfuscationSettings = {
+		obfuscateNames: false,
+		obfuscateStrings: false,
+		obfuscateConstants: false,
+		obfuscateInspector: false,
+		ruleFilling: false,
+	}
 	macros = [];
 	fileStack = [];
 	decompilerGotos = [];

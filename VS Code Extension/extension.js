@@ -478,7 +478,6 @@ function generateDocFromDoc(itemName, item) {
     /*if (itemName === "abilityIconString") {
         doc = getAbilityIconsDoc();
     }*/
-
     
     var result = "";
     var infoStr = "";

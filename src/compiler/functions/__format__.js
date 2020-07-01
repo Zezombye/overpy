@@ -115,7 +115,7 @@ function parseCustomString(str, formatArgs) {
 			
 		}
 	
-		if (obfuscateRules && !isPlaintext) {
+		if (obfuscationSettings.obfuscateStrings && !isPlaintext) {
 			var tmpStr = "";
 			for (var char of content) {
 				if (char in obfuscationMappings) {
@@ -225,36 +225,33 @@ function parseStringTokens(tokens, args) {
 		}
 	}
 
+	console.log(tokens);
+	//debugger;
+
 	//Add tokens
 	//For now, no optimization: just split if more than 3 unique numbers
 	for (var i = 0; i < tokens.length; i++) {
-		//console.log(tokens[i]);
-		//console.log("numbers encountered=");
-		//console.log(numbersEncountered);
+		console.log(tokens[i]);
+		console.log("numbers encountered=");
+		console.log(numbersEncountered);
 		//debugger;
 
 		//length check
-		if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) >= 125 || tokens[i].type === "arg" && stringLength+3 >= 125) {
+		if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) > 128-(i === tokens.length-1 ? 0 : "{0}".length)
+				|| tokens[i].type === "arg" && stringLength+3 > 128-(i === tokens.length-1 ? 0 : "{0}".length)) {
 
 			var splitString = false;
-			if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 127 || tokens.length > i)) {
+			if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 128 || tokens.length > i)) {
 
 				var tokenText = [...tokens[i].text]
 				var tokenSliceLength = 0;
 				var sliceIndex = 0;
-				for (var j = 0; stringLength+tokenSliceLength < 122; j++) {
+				for (var j = 0; stringLength+tokenSliceLength < 128-"{0}".length*2; j++) {
 					tokenSliceLength += getUtf8Length(tokenText[j]+"");
 					sliceIndex++;
 				}
 
-				//Workshop bug: if the last character of a string is 2 bytes or more, it will be "eaten".
-				//Fix it by adding a zero-width space.
-				if (getUtf8Length(tokenText[tokenText.length-1]) >= 2) {
-					sliceIndex -= 3;
-					result += tokenText.slice(0, sliceIndex).join("") + "\u200B";
-				} else {
-					result += tokenText.slice(0, sliceIndex).join("")
-				}
+				result += tokenText.slice(0, sliceIndex).join("")
 
 				tokens[i].text = tokenText.slice(sliceIndex).join("");
 				splitString = true;
@@ -265,6 +262,9 @@ function parseStringTokens(tokens, args) {
 
 			if (splitString) {
 				result += "{"+currentNbIndex+"}";
+				if (currentNbIndex > 2) {
+					error("Custom string parser returned '{"+currentNbIndex+"}', please report to Zezombye")
+				}
 				resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
 				break;
 			}
@@ -288,8 +288,13 @@ function parseStringTokens(tokens, args) {
 					resultArgs.push(args[tokens[i].index]);
 				}
 				result += "{"+mappings[tokens[i].index]+"}";
-				currentNbIndex++;
-				stringLength += 3;
+				if (mappings[tokens[i].index] > 2) {
+					error("Custom string parser returned '{"+mappings[tokens[i].index]+"}', please report to Zezombye")
+				}
+				if (mappings[tokens[i].index] === currentNbIndex) {
+					currentNbIndex++;
+				}
+				stringLength += "{0}".length;
 
 
 			}
@@ -301,7 +306,7 @@ function parseStringTokens(tokens, args) {
 	}
 
 	if (resultArgs.length != 3) {
-		error("Custom string parser broke (string args length is "+resultArgs.length+")");
+		error("Custom string parser broke (string args length is "+resultArgs.length+"), please report to Zezombye");
 	}
 
 	return new Ast("__customString__", [new Ast(result, [], [], "StringLiteral")].concat(resultArgs));

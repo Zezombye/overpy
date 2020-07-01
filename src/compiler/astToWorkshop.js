@@ -33,7 +33,7 @@ function astRulesToWs(rules) {
         }
 
         result += tows("__rule__", ruleKw)+" (";
-        if (obfuscateRules) {
+        if (obfuscationSettings.obfuscateNames) {
             result += '""';
         } else {
             result += escapeString(rule.ruleAttributes.name);
@@ -92,7 +92,7 @@ function astRuleConditionToWs(condition) {
         "__greaterThan__": ">",
     }
     var result = "";
-    if (!obfuscateRules && condition.comment) {
+    if (!obfuscationSettings.obfuscateNames && condition.comment) {
         result += tabLevel(2)+escapeString(condition.comment.trim())+"\n";
     }
 
@@ -122,7 +122,7 @@ function astActionToWs(action, nbTabs) {
     if (action.name === "pass" && !action.comment) {
         action.comment = "pass";
     }
-    if (!obfuscateRules && action.comment) {
+    if (!obfuscationSettings.obfuscateNames && action.comment) {
         result += tabLevel(nbTabs)+escapeString(action.comment.trim())+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"

@@ -44,7 +44,7 @@ function translateSubroutineToPy(content) {
 function translateSubroutineToWs(content) {
 	for (var i = 0; i < subroutines.length; i++) {
 		if (subroutines[i].name === content) {
-			if (obfuscateRules) {
+			if (obfuscationSettings.obfuscateNames) {
 				return obfuscatedVarNames[i];
 			} else {
 				return content;
@@ -56,7 +56,7 @@ function translateSubroutineToWs(content) {
 		//Add the subroutine as it doesn't already exist (else it would've been caught by the for)
 		//However, only do this if it is a default subroutine name
 		addSubroutine(content, defaultSubroutineNames.indexOf(content));
-		if (obfuscateRules) {
+		if (obfuscationSettings.obfuscateNames) {
 			for (var i = 0; i < defaultSubroutineNames.length; i++) {
 				if (defaultSubroutineNames[i].name === content) {
 					return obfuscatedVarNames[i];
@@ -108,7 +108,7 @@ function translateVarToWs(content, isGlobalVariable) {
 	var varArray = isGlobalVariable ? globalVariables : playerVariables;
 	for (var i = 0; i < varArray.length; i++) {
 		if (varArray[i].name === content) {
-			if (obfuscateRules) {
+			if (obfuscationSettings.obfuscateNames) {
 				return obfuscatedVarNames[i]
 			} else {
 				return content;
@@ -119,7 +119,7 @@ function translateVarToWs(content, isGlobalVariable) {
 		//Add the variable as it doesn't already exist (else it would've been caught by the for)
 		//However, only do this if it is a default variable name
 		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
-		if (obfuscateRules) {
+		if (obfuscationSettings.obfuscateNames) {
 			for (var i = 0; i < varArray.length; i++) {
 				if (varArray[i].name === content) {
 					return obfuscatedVarNames[i];

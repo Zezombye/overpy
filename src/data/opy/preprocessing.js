@@ -24,7 +24,7 @@ const preprocessingDirectives = {
     },
     "defineMember": {
         "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion.",
-        "snippet": "define $0",
+        "snippet": "defineMember $0",
     },
     "obfuscate": {
         "description": 
@@ -35,10 +35,12 @@ Usage of this directive will result in a size increase, and a very low performan
 The following obfuscation methods are applied:
 
 - Rule filling: 2500 empty rules are inserted, making it impossible to view the gamemode within the workshop UI. It must be copy-pasted to be able to be edited (you can then apply various anti copy-paste integrity checks).
-- Comment removing: all rule titles are replaced with the empty string.
-- Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.
-- Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
-- Value replacement: some values, such as heroes, are replaced with other values that compute to the original value.
+- Name obfuscation: all rule titles and comments are removed, and all variable/subroutine names are replaced with a combination of capital i and lowercase L.
+- String obfuscation: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
+- Constant obfuscation: some constants, such as heroes or maps, are replaced with other values that compute to the original value.
+- Inspector obfuscation: the inspector is disabled, and all disable/enable inspector actions are removed.
+
+To save elements, it is possible to specify methods to disable, by prefixing them with \`no\`. For example, \`#!obfuscate noRuleFilling noConstantObfuscation\` will disable rule filling and constant obfuscation, which is useful if the obfuscation adds too much elements.
 `
     },
     "suppressWarnings": {

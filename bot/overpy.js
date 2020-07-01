@@ -1444,7 +1444,7 @@ const preprocessingDirectives = {
     },
     "defineMember": {
         "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion.",
-        "snippet": "define $0",
+        "snippet": "defineMember $0",
     },
     "obfuscate": {
         "description": 
@@ -1455,10 +1455,12 @@ Usage of this directive will result in a size increase, and a very low performan
 The following obfuscation methods are applied:
 
 - Rule filling: 2500 empty rules are inserted, making it impossible to view the gamemode within the workshop UI. It must be copy-pasted to be able to be edited (you can then apply various anti copy-paste integrity checks).
-- Comment removing: all rule titles are replaced with the empty string.
-- Variable barcoding: all variable names are replaced with a combination of capital i and lowercase L.
-- Character replacement: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
-- Value replacement: some values, such as heroes, are replaced with other values that compute to the original value.
+- Name obfuscation: all rule titles and comments are removed, and all variable/subroutine names are replaced with a combination of capital i and lowercase L.
+- String obfuscation: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
+- Constant obfuscation: some constants, such as heroes or maps, are replaced with other values that compute to the original value.
+- Inspector obfuscation: the inspector is disabled, and all disable/enable inspector actions are removed.
+
+To save elements, it is possible to specify methods to disable, by prefixing them with \`no\`. For example, \`#!obfuscate noRuleFilling noConstantObfuscation\` will disable rule filling and constant obfuscation, which is useful if the obfuscation adds too much elements.
 `
     },
     "suppressWarnings": {
@@ -22862,7 +22864,7 @@ function translateSubroutineToPy(content) {
 function translateSubroutineToWs(content) {
 	for (var i = 0; i < subroutines.length; i++) {
 		if (subroutines[i].name === content) {
-			if (obfuscateRules) {
+			if (obfuscationSettings.obfuscateNames) {
 				return obfuscatedVarNames[i];
 			} else {
 				return content;
@@ -22874,7 +22876,7 @@ function translateSubroutineToWs(content) {
 		//Add the subroutine as it doesn't already exist (else it would've been caught by the for)
 		//However, only do this if it is a default subroutine name
 		addSubroutine(content, defaultSubroutineNames.indexOf(content));
-		if (obfuscateRules) {
+		if (obfuscationSettings.obfuscateNames) {
 			for (var i = 0; i < defaultSubroutineNames.length; i++) {
 				if (defaultSubroutineNames[i].name === content) {
 					return obfuscatedVarNames[i];
@@ -22926,7 +22928,7 @@ function translateVarToWs(content, isGlobalVariable) {
 	var varArray = isGlobalVariable ? globalVariables : playerVariables;
 	for (var i = 0; i < varArray.length; i++) {
 		if (varArray[i].name === content) {
-			if (obfuscateRules) {
+			if (obfuscationSettings.obfuscateNames) {
 				return obfuscatedVarNames[i]
 			} else {
 				return content;
@@ -22937,7 +22939,7 @@ function translateVarToWs(content, isGlobalVariable) {
 		//Add the variable as it doesn't already exist (else it would've been caught by the for)
 		//However, only do this if it is a default variable name
 		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
-		if (obfuscateRules) {
+		if (obfuscationSettings.obfuscateNames) {
 			for (var i = 0; i < varArray.length; i++) {
 				if (varArray[i].name === content) {
 					return obfuscatedVarNames[i];
@@ -23183,8 +23185,8 @@ var currentRuleLabelAccess;
 
 var currentRuleHasVariableGoto;
 
-//If set to true, applies various obfuscation techniques on the gamemode.
-var obfuscateRules;
+//Settings for whether to enable obfuscation techniques.
+var obfuscationSettings;
 
 var enableOptimization;
 
@@ -23238,7 +23240,13 @@ function resetGlobalVariables(language) {
 	currentArrayElementNames = [];
 	currentLanguage = language;
 	currentRuleEvent = "";
-	obfuscateRules = false;
+	obfuscationSettings = {
+		obfuscateNames: false,
+		obfuscateStrings: false,
+		obfuscateConstants: false,
+		obfuscateInspector: false,
+		ruleFilling: false,
+	}
 	macros = [];
 	fileStack = [];
 	decompilerGotos = [];
@@ -25587,7 +25595,7 @@ for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\
 
 var obfuscatedVarNames = shuffleArray(Array(4096).fill().map((e,i)=>i).map(x => x.toString(2).padStart(12, "0").replace(/0/g, "I").replace(/1/g, "l"))).slice(0,128);
 
-function addEmptyRules(rules) {
+function addObfuscationRules(rules) {
 	if (!compiledCustomGameSettings) {
 		error("Cannot use obfuscation without custom game settings declared");
 	}
@@ -25596,25 +25604,29 @@ function addEmptyRules(rules) {
 	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
 	var result = "";
 	result += `
-${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!") {
+${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!") {
 	${tows("__event__", ruleKw)} {
 		${tows("global", eventKw)};
 	}
 	${tows("__actions__", ruleKw)} {
-		${tows("disableInspector", actionKw)};
-		${astActionToWs(obfuscationConstantsAst, 0)}
+		${obfuscationSettings.obfuscateInspector ? tows("disableInspector", actionKw) : ""};
+		${obfuscationSettings.obfuscateConstants ? astActionToWs(obfuscationConstantsAst, 0) : ""}
 	}
 }
 `;
 	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
 	var ruleIndex = 0;
-	for (var i = 0; i < nbTotalRules; i++) {
-		if (putEmptyRuleArray[i]) {
-			result += emptyRule;
-		} else {
-			result += rules[ruleIndex];
-			ruleIndex++;
+	if (obfuscationSettings.ruleFilling) {
+		for (var i = 0; i < nbTotalRules; i++) {
+			if (putEmptyRuleArray[i]) {
+				result += emptyRule;
+			} else {
+				result += rules[ruleIndex];
+				ruleIndex++;
+			}
 		}
+	} else {
+		result += rules.join("");
 	}
 	return result;
 
@@ -25642,7 +25654,7 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
-		obfuscationConstantsMapping[constantType][constant] = constantsToObfuscate.indexOf(constantType+constant);
+		obfuscationConstantsMapping[constantType][constant] = constantsToObfuscate.indexOf(constantType+constant)+(Math.random()*0.8)-0.4;
 		constantsToObfuscateAsts[constantsToObfuscate.indexOf(constantType+constant)] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
 	}
 }
@@ -25954,7 +25966,7 @@ astParsingFunctions.__button__ = function(content) {
     //console.log(content);
     if (content.expectedType === "ButtonLiteral") {
         return content.args[0];
-    } else if (obfuscateRules) {
+    } else if (obfuscationSettings.obfuscateConstants) {
         return new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
             getAstForNumber(obfuscationConstantsMapping.ButtonLiteral[content.args[0].name]),
@@ -26324,10 +26336,11 @@ astParsingFunctions.__equals__ = function(content) {
         }
 
         //A == falsy -> not A
-        if (isDefinitelyFalsy(content.args[0])) {
+        //Quick fix: only do that if A is bool, because of value restrictions
+        if (isDefinitelyFalsy(content.args[0]) && isTypeSuitable("bool", content.args[1].type, false)) {
             return new Ast("__not__", [content.args[1]]);
         }
-        if (isDefinitelyFalsy(content.args[1])) {
+        if (isDefinitelyFalsy(content.args[1]) && isTypeSuitable("bool", content.args[0].type, false)) {
             return new Ast("__not__", [content.args[0]]);
         }
 
@@ -26485,7 +26498,7 @@ function parseCustomString(str, formatArgs) {
 			
 		}
 	
-		if (obfuscateRules && !isPlaintext) {
+		if (obfuscationSettings.obfuscateStrings && !isPlaintext) {
 			var tmpStr = "";
 			for (var char of content) {
 				if (char in obfuscationMappings) {
@@ -26595,36 +26608,33 @@ function parseStringTokens(tokens, args) {
 		}
 	}
 
+	console.log(tokens);
+	//debugger;
+
 	//Add tokens
 	//For now, no optimization: just split if more than 3 unique numbers
 	for (var i = 0; i < tokens.length; i++) {
-		//console.log(tokens[i]);
-		//console.log("numbers encountered=");
-		//console.log(numbersEncountered);
+		console.log(tokens[i]);
+		console.log("numbers encountered=");
+		console.log(numbersEncountered);
 		//debugger;
 
 		//length check
-		if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) >= 125 || tokens[i].type === "arg" && stringLength+3 >= 125) {
+		if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) > 128-(i === tokens.length-1 ? 0 : "{0}".length)
+				|| tokens[i].type === "arg" && stringLength+3 > 128-(i === tokens.length-1 ? 0 : "{0}".length)) {
 
 			var splitString = false;
-			if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 127 || tokens.length > i)) {
+			if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 128 || tokens.length > i)) {
 
 				var tokenText = [...tokens[i].text]
 				var tokenSliceLength = 0;
 				var sliceIndex = 0;
-				for (var j = 0; stringLength+tokenSliceLength < 122; j++) {
+				for (var j = 0; stringLength+tokenSliceLength < 128-"{0}".length*2; j++) {
 					tokenSliceLength += getUtf8Length(tokenText[j]+"");
 					sliceIndex++;
 				}
 
-				//Workshop bug: if the last character of a string is 2 bytes or more, it will be "eaten".
-				//Fix it by adding a zero-width space.
-				if (getUtf8Length(tokenText[tokenText.length-1]) >= 2) {
-					sliceIndex -= 3;
-					result += tokenText.slice(0, sliceIndex).join("") + "\u200B";
-				} else {
-					result += tokenText.slice(0, sliceIndex).join("")
-				}
+				result += tokenText.slice(0, sliceIndex).join("")
 
 				tokens[i].text = tokenText.slice(sliceIndex).join("");
 				splitString = true;
@@ -26635,6 +26645,9 @@ function parseStringTokens(tokens, args) {
 
 			if (splitString) {
 				result += "{"+currentNbIndex+"}";
+				if (currentNbIndex > 2) {
+					error("Custom string parser returned '{"+currentNbIndex+"}', please report to Zezombye")
+				}
 				resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
 				break;
 			}
@@ -26658,8 +26671,13 @@ function parseStringTokens(tokens, args) {
 					resultArgs.push(args[tokens[i].index]);
 				}
 				result += "{"+mappings[tokens[i].index]+"}";
-				currentNbIndex++;
-				stringLength += 3;
+				if (mappings[tokens[i].index] > 2) {
+					error("Custom string parser returned '{"+mappings[tokens[i].index]+"}', please report to Zezombye")
+				}
+				if (mappings[tokens[i].index] === currentNbIndex) {
+					currentNbIndex++;
+				}
+				stringLength += "{0}".length;
 
 
 			}
@@ -26671,7 +26689,7 @@ function parseStringTokens(tokens, args) {
 	}
 
 	if (resultArgs.length != 3) {
-		error("Custom string parser broke (string args length is "+resultArgs.length+")");
+		error("Custom string parser broke (string args length is "+resultArgs.length+"), please report to Zezombye");
 	}
 
 	return new Ast("__customString__", [new Ast(result, [], [], "StringLiteral")].concat(resultArgs));
@@ -26750,7 +26768,7 @@ astParsingFunctions.__filteredArray__ = function(content) {
 
 astParsingFunctions.__gamemode__ = function(content) {
 
-    if (obfuscateRules) {
+    if (obfuscationSettings.obfuscateConstants) {
         return new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
             getAstForNumber(obfuscationConstantsMapping.GamemodeLiteral[content.args[0].name]),
@@ -26846,7 +26864,7 @@ astParsingFunctions.__greaterThanOrEquals__ = function(content) {
 
 astParsingFunctions.__hero__ = function(content) {
 
-    if (obfuscateRules) {
+    if (obfuscationSettings.obfuscateConstants) {
         console.log(content);
         console.log(content.args[0].name);
         return new Ast("__valueInArray__", [
@@ -27074,10 +27092,10 @@ astParsingFunctions.__inequals__ = function(content) {
         //console.log(content);
 
         //A != falsy -> A if A is bool or if bool is expected
-        if (isDefinitelyFalsy(content.args[1]) && (isTypeSuitable("bool", content.args[0].type, false) || isTypeSuitable("bool", content.expectedType))) {
+        if (isDefinitelyFalsy(content.args[1]) && (isTypeSuitable("bool", content.args[0].type, false) /*|| isTypeSuitable("bool", content.expectedType)*/)) {
             return content.args[0];
         }
-        if (isDefinitelyFalsy(content.args[0]) && (isTypeSuitable("bool", content.args[1].type, false) || isTypeSuitable("bool", content.expectedType))) {
+        if (isDefinitelyFalsy(content.args[0]) && (isTypeSuitable("bool", content.args[1].type, false) /*|| isTypeSuitable("bool", content.expectedType)*/)) {
             return content.args[1];
         }
 
@@ -27207,7 +27225,7 @@ astParsingFunctions.__lessThanOrEquals__ = function(content) {
 
 astParsingFunctions.__map__ = function(content) {
 
-    if (obfuscateRules) {
+    if (obfuscationSettings.obfuscateConstants) {
         return new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
             getAstForNumber(obfuscationConstantsMapping.MapLiteral[content.args[0].name]),
@@ -28333,7 +28351,7 @@ astParsingFunctions.createBeam = function(content) {
 
 astParsingFunctions.disableInspector = function(content) {
 
-    if (obfuscateRules) {
+    if (obfuscationSettings.obfuscateInspector) {
         return getAstForUselessInstruction();
     } else {
         return content;
@@ -28360,7 +28378,7 @@ astParsingFunctions.disableInspector = function(content) {
 
 astParsingFunctions.enableInspector = function(content) {
 
-    if (obfuscateRules) {
+    if (obfuscationSettings.obfuscateInspector) {
         return getAstForUselessInstruction();
     } else {
         return content;
@@ -28661,7 +28679,30 @@ function tokenize(content) {
 			//we must ignore this preprocessor directive
 
 		} else if (content.startsWith("#!obfuscate")) {
-			obfuscateRules = true;
+			obfuscationSettings = {
+				obfuscateNames: true,
+				obfuscateStrings: true,
+				obfuscateConstants: true,
+				obfuscateInspector: true,
+				ruleFilling: true,
+			}
+
+			var disabledObfuscationTechniques = content.substring("#!obfuscate".length).trim().split(" ").map(x => x.trim());
+			for (var tech of disabledObfuscationTechniques) {
+				if (tech === "noNameObfuscation") {
+					obfuscationSettings.obfuscateNames = false;
+				} else if (tech === "noStringObfuscation") {
+					obfuscationSettings.obfuscateStrings = false;
+				} else if (tech === "noConstantObfuscation") {
+					obfuscationSettings.obfuscateConstants = false;
+				} else if (tech === "noInspectorObfuscation") {
+					obfuscationSettings.obfuscateInspector = false;
+				} else if (tech === "noRuleFilling") {
+					obfuscationSettings.ruleFilling = false;
+				} else {
+					error("Unknown obfuscation setting '"+tech+"'");
+				}
+			}
 
 		} else if (content.startsWith("#!disableOptimizations")) {
 			enableOptimization = false;
@@ -29420,7 +29461,7 @@ function astRulesToWs(rules) {
         }
 
         result += tows("__rule__", ruleKw)+" (";
-        if (obfuscateRules) {
+        if (obfuscationSettings.obfuscateNames) {
             result += '""';
         } else {
             result += escapeString(rule.ruleAttributes.name);
@@ -29479,7 +29520,7 @@ function astRuleConditionToWs(condition) {
         "__greaterThan__": ">",
     }
     var result = "";
-    if (!obfuscateRules && condition.comment) {
+    if (!obfuscationSettings.obfuscateNames && condition.comment) {
         result += tabLevel(2)+escapeString(condition.comment.trim())+"\n";
     }
 
@@ -29509,7 +29550,7 @@ function astActionToWs(action, nbTabs) {
     if (action.name === "pass" && !action.comment) {
         action.comment = "pass";
     }
-    if (!obfuscateRules && action.comment) {
+    if (!obfuscationSettings.obfuscateNames && action.comment) {
         result += tabLevel(nbTabs)+escapeString(action.comment.trim())+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"
@@ -30689,7 +30730,7 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var lines = tokenize(content);
 
-	if (obfuscateRules) {
+	if (obfuscationSettings.obfuscateConstants) {
 		addVariable("__obfuscationConstants__", true, 127);
 		//globalInitDirectives.push(obfuscationConstantsAst);
 	}
@@ -30710,8 +30751,8 @@ function compile(content, language="en-US", _rootPath="") {
     console.log(parsedAstRules);
 
 	var compiledRules = astRulesToWs(parsedAstRules);
-	if (obfuscateRules) {
-		compiledRules = addEmptyRules(compiledRules);
+	if (Object.keys(obfuscationSettings).some(x => obfuscationSettings[x])) {
+		compiledRules = addObfuscationRules(compiledRules);
 	} else {
 		compiledRules = compiledRules.join("");
 	}
@@ -30810,12 +30851,12 @@ function generateVariablesField() {
 		//console.log(obfuscatedVarNames);
 		//console.log(obfuscatedVarNumbers);
 
-		if (obfuscateRules) {
+		if (obfuscationSettings.obfuscateNames) {
 			var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e,i)=>i));
 		}
 		var varTypeResult = "";
 		for (var i = 0; i < 128; i++) {
-			if (obfuscateRules) {
+			if (obfuscationSettings.obfuscateNames) {
 				varTypeResult += tabLevel(2)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 			} else {
 				if (outputVariables[i] !== undefined) {
@@ -30883,11 +30924,11 @@ function generateSubroutinesField() {
 		}
 	}
 
-	if (obfuscateRules) {
+	if (obfuscationSettings.obfuscateNames) {
 		var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e,i)=>i));
 	}
 	for (var i = 0; i < 128; i++) {
-		if (obfuscateRules) {
+		if (obfuscationSettings.obfuscateNames) {
 			result += tabLevel(1)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 		} else {
 			if (outputSubroutines[i] !== undefined) {

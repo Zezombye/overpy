@@ -22,7 +22,7 @@ for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\
 
 var obfuscatedVarNames = shuffleArray(Array(4096).fill().map((e,i)=>i).map(x => x.toString(2).padStart(12, "0").replace(/0/g, "I").replace(/1/g, "l"))).slice(0,128);
 
-function addEmptyRules(rules) {
+function addObfuscationRules(rules) {
 	if (!compiledCustomGameSettings) {
 		error("Cannot use obfuscation without custom game settings declared");
 	}
@@ -31,25 +31,29 @@ function addEmptyRules(rules) {
 	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
 	var result = "";
 	result += `
-${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (https://github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!") {
+${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!") {
 	${tows("__event__", ruleKw)} {
 		${tows("global", eventKw)};
 	}
 	${tows("__actions__", ruleKw)} {
-		${tows("disableInspector", actionKw)};
-		${astActionToWs(obfuscationConstantsAst, 0)}
+		${obfuscationSettings.obfuscateInspector ? tows("disableInspector", actionKw) : ""};
+		${obfuscationSettings.obfuscateConstants ? astActionToWs(obfuscationConstantsAst, 0) : ""}
 	}
 }
 `;
 	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
 	var ruleIndex = 0;
-	for (var i = 0; i < nbTotalRules; i++) {
-		if (putEmptyRuleArray[i]) {
-			result += emptyRule;
-		} else {
-			result += rules[ruleIndex];
-			ruleIndex++;
+	if (obfuscationSettings.ruleFilling) {
+		for (var i = 0; i < nbTotalRules; i++) {
+			if (putEmptyRuleArray[i]) {
+				result += emptyRule;
+			} else {
+				result += rules[ruleIndex];
+				ruleIndex++;
+			}
 		}
+	} else {
+		result += rules.join("");
 	}
 	return result;
 
@@ -77,7 +81,7 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
-		obfuscationConstantsMapping[constantType][constant] = constantsToObfuscate.indexOf(constantType+constant);
+		obfuscationConstantsMapping[constantType][constant] = constantsToObfuscate.indexOf(constantType+constant)+(Math.random()*0.8)-0.4;
 		constantsToObfuscateAsts[constantsToObfuscate.indexOf(constantType+constant)] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
 	}
 }

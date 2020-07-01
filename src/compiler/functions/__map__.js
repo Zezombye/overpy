@@ -19,7 +19,7 @@
 
 astParsingFunctions.__map__ = function(content) {
 
-    if (obfuscateRules) {
+    if (obfuscationSettings.obfuscateConstants) {
         return new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
             getAstForNumber(obfuscationConstantsMapping.MapLiteral[content.args[0].name]),

@@ -33,10 +33,10 @@ astParsingFunctions.__inequals__ = function(content) {
         //console.log(content);
 
         //A != falsy -> A if A is bool or if bool is expected
-        if (isDefinitelyFalsy(content.args[1]) && (isTypeSuitable("bool", content.args[0].type, false) || isTypeSuitable("bool", content.expectedType))) {
+        if (isDefinitelyFalsy(content.args[1]) && (isTypeSuitable("bool", content.args[0].type, false) /*|| isTypeSuitable("bool", content.expectedType)*/)) {
             return content.args[0];
         }
-        if (isDefinitelyFalsy(content.args[0]) && (isTypeSuitable("bool", content.args[1].type, false) || isTypeSuitable("bool", content.expectedType))) {
+        if (isDefinitelyFalsy(content.args[0]) && (isTypeSuitable("bool", content.args[1].type, false) /*|| isTypeSuitable("bool", content.expectedType)*/)) {
             return content.args[1];
         }
 
