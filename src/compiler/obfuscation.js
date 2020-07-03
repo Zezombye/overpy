@@ -81,8 +81,9 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
-		obfuscationConstantsMapping[constantType][constant] = constantsToObfuscate.indexOf(constantType+constant)+(Math.random()*0.8)-0.4;
-		constantsToObfuscateAsts[constantsToObfuscate.indexOf(constantType+constant)] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
+		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
+		obfuscationConstantsMapping[constantType][constant] = constantIndex+(constantIndex > 0 ? (Math.random()*0.8)-0.4 : 0);
+		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
 	}
 }
 
