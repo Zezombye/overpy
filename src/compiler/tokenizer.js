@@ -206,7 +206,7 @@ function tokenize(content) {
 					obfuscationSettings.obfuscateInspector = false;
 				} else if (tech === "noRuleFilling") {
 					obfuscationSettings.ruleFilling = false;
-				} else {
+				} else if (tech !== "") {
 					error("Unknown obfuscation setting '"+tech+"'");
 				}
 			}

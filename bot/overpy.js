@@ -18934,7 +18934,20 @@ const customGameSettingsSchema =
                     "enableTrainingPartner": {
                         "values": "__boolOnOff__",
                         "default": "on",
+                        "guid": "0000000105D8",
                         "en-US": "Training Partner",
+                        "de-DE": "Trainingspartner",
+                        "es-ES": "Pareja de entrenamiento",
+                        "es-MX": "Compañero de entrenamiento",
+                        "fr-FR": "Partenaire d’entraînement",
+                        "it-IT": "Assistente d'Addestramento",
+                        "ja-JP": "トレーニング・パートナー",
+                        "ko-KR": "훈련 상대",
+                        "pl-PL": "Partner treningowy",
+                        "pt-BR": "Parceiro de Treinamento",
+                        "ru-RU": "Спарринг-партнер",
+                        "zh-CN": "训练伙伴",
+                        "zh-TW": "訓練夥伴"
                     }
                 }
             },
@@ -28699,7 +28712,7 @@ function tokenize(content) {
 					obfuscationSettings.obfuscateInspector = false;
 				} else if (tech === "noRuleFilling") {
 					obfuscationSettings.ruleFilling = false;
-				} else {
+				} else if (tech !== "") {
 					error("Unknown obfuscation setting '"+tech+"'");
 				}
 			}
