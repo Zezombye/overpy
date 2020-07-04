@@ -52,7 +52,7 @@ function astRulesToOpy(rules) {
             if (rule.ruleAttributes.conditions) {
                 for (var condition of rule.ruleAttributes.conditions) {
                     if (condition.comment) {
-                        decompiledRuleAttributes += tabLevel(nbTabs)+"#"+condition.comment+"\n";
+                        decompiledRuleAttributes += condition.comment.split("\n").map(x => tabLevel(nbTabs)+"#"+x+"\n").join("");
                     }
                     decompiledRuleAttributes += tabLevel(nbTabs);
                     if (condition.isDisabled) {
@@ -89,7 +89,7 @@ function astActionsToOpy(actions) {
         //console.log(actions[i]);
 
         if (actions[i].comment) {
-            result += tabLevel(nbTabs)+"#"+actions[i].comment+"\n";
+            result += actions[i].comment.split("\n").map(x => tabLevel(nbTabs)+"#"+x+"\n").join("");
         }
         var decompiledAction = "";
         if (["__elif__", "__else__", "__while__", "__for__"].includes(actions[i].name)) {
@@ -621,9 +621,12 @@ function astToOpy(content) {
     }
     if (content.name === "__customString__" || content.name === "__localizedString__") {
         var formatArgs = [];
-        for (var i = 0; i < 3; i++) {
-            if (content.args[0].name.includes("{"+i+"}")) {
-                formatArgs.push(content.args[i+1]);
+        //Take all arguments before the highest field
+        var foundField = false;
+        for (var i = 2; i >= 0; i--) {
+            if (foundField || content.args[0].name.includes("{"+i+"}")) {
+                foundField = true;
+                formatArgs.unshift(content.args[i+1]);
             }
         }
         var result = "";
@@ -632,7 +635,7 @@ function astToOpy(content) {
         }
         result += escapeString(content.args[0].name);
         if (formatArgs.length > 0) {
-            result += ".format("+formatArgs.map(x => astToOpy(x))+")";
+            result += ".format("+formatArgs.map(x => astToOpy(x)).join(", ")+")";
         }
         return result;
     }

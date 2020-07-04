@@ -24637,7 +24637,7 @@ function astRulesToOpy(rules) {
             if (rule.ruleAttributes.conditions) {
                 for (var condition of rule.ruleAttributes.conditions) {
                     if (condition.comment) {
-                        decompiledRuleAttributes += tabLevel(nbTabs)+"#"+condition.comment+"\n";
+                        decompiledRuleAttributes += condition.comment.split("\n").map(x => tabLevel(nbTabs)+"#"+x+"\n").join("");
                     }
                     decompiledRuleAttributes += tabLevel(nbTabs);
                     if (condition.isDisabled) {
@@ -24674,7 +24674,7 @@ function astActionsToOpy(actions) {
         //console.log(actions[i]);
 
         if (actions[i].comment) {
-            result += tabLevel(nbTabs)+"#"+actions[i].comment+"\n";
+            result += actions[i].comment.split("\n").map(x => tabLevel(nbTabs)+"#"+x+"\n").join("");
         }
         var decompiledAction = "";
         if (["__elif__", "__else__", "__while__", "__for__"].includes(actions[i].name)) {
@@ -25206,9 +25206,12 @@ function astToOpy(content) {
     }
     if (content.name === "__customString__" || content.name === "__localizedString__") {
         var formatArgs = [];
-        for (var i = 0; i < 3; i++) {
-            if (content.args[0].name.includes("{"+i+"}")) {
-                formatArgs.push(content.args[i+1]);
+        //Take all arguments before the highest field
+        var foundField = false;
+        for (var i = 2; i >= 0; i--) {
+            if (foundField || content.args[0].name.includes("{"+i+"}")) {
+                foundField = true;
+                formatArgs.unshift(content.args[i+1]);
             }
         }
         var result = "";
@@ -25217,7 +25220,7 @@ function astToOpy(content) {
         }
         result += escapeString(content.args[0].name);
         if (formatArgs.length > 0) {
-            result += ".format("+formatArgs.map(x => astToOpy(x))+")";
+            result += ".format("+formatArgs.map(x => astToOpy(x)).join(", ")+")";
         }
         return result;
     }
@@ -26627,76 +26630,83 @@ function parseStringTokens(tokens, args) {
 
 	//Add tokens
 	//For now, no optimization: just split if more than 3 unique numbers
-	for (var i = 0; i < tokens.length; i++) {
-		console.log(tokens[i]);
-		console.log("numbers encountered=");
-		console.log(numbersEncountered);
-		//debugger;
 
-		//length check
-		if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) > 128-(i === tokens.length-1 ? 0 : "{0}".length)
-				|| tokens[i].type === "arg" && stringLength+3 > 128-(i === tokens.length-1 ? 0 : "{0}".length)) {
-
-			var splitString = false;
-			if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 128 || tokens.length > i)) {
-
-				var tokenText = [...tokens[i].text]
-				var tokenSliceLength = 0;
-				var sliceIndex = 0;
-				for (var j = 0; stringLength+tokenSliceLength < 128-"{0}".length*2; j++) {
-					tokenSliceLength += getUtf8Length(tokenText[j]+"");
-					sliceIndex++;
+	//Compilation optimization: do not do this whole loop if the string is "simple" (aka one token that doesn't need to be split)
+	if (tokens.length === 1 && tokens[0].type === "string" && getUtf8Length(tokens[0].text) <= 128) {
+		result = tokens[0].text;
+	} else {
+		for (var i = 0; i < tokens.length; i++) {
+			console.log(tokens[i]);
+			console.log("numbers encountered=");
+			console.log(numbersEncountered);
+			//debugger;
+	
+			//length check
+			if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) > 128-(i === tokens.length-1 ? 0 : "{0}".length)
+					|| tokens[i].type === "arg" && stringLength+3 > 128-(i === tokens.length-1 ? 0 : "{0}".length)) {
+	
+				var splitString = false;
+				if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 128 || tokens.length > i)) {
+	
+					var tokenText = [...tokens[i].text]
+					var tokenSliceLength = 0;
+					var sliceIndex = 0;
+					for (var j = 0; stringLength+tokenSliceLength < 128-"{0}".length*2; j++) {
+						tokenSliceLength += getUtf8Length(tokenText[j]+"");
+						sliceIndex++;
+					}
+	
+					result += tokenText.slice(0, sliceIndex).join("")
+	
+					tokens[i].text = tokenText.slice(sliceIndex).join("");
+					splitString = true;
+	
+				} else if (tokens[i].type === "arg" && tokens.length > i) {
+					splitString = true;
 				}
-
-				result += tokenText.slice(0, sliceIndex).join("")
-
-				tokens[i].text = tokenText.slice(sliceIndex).join("");
-				splitString = true;
-
-			} else if (tokens[i].type === "arg" && tokens.length > i) {
-				splitString = true;
-			}
-
-			if (splitString) {
-				result += "{"+currentNbIndex+"}";
-				if (currentNbIndex > 2) {
-					error("Custom string parser returned '{"+currentNbIndex+"}', please report to Zezombye")
+	
+				if (splitString) {
+					result += "{"+currentNbIndex+"}";
+					if (currentNbIndex > 2) {
+						error("Custom string parser returned '{"+currentNbIndex+"}', please report to Zezombye")
+					}
+					resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
+					break;
 				}
-				resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
-				break;
 			}
-		}
-
-		if (tokens[i].type === "string") {
-			result += tokens[i].text;
-			stringLength += getUtf8Length(tokens[i].text);
-		} else {
-			if (numbersEncountered.length >= 2 && numbers.length > 3) {
-				//split
-				result += "{2}";
-				resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
-				break;
+	
+			if (tokens[i].type === "string") {
+				result += tokens[i].text;
+				stringLength += getUtf8Length(tokens[i].text);
 			} else {
-				if (!(tokens[i].index in mappings)) {
-					mappings[tokens[i].index] = numbersEncountered.length;
+				if (numbersEncountered.length >= 2 && numbers.length > 3) {
+					//split
+					result += "{2}";
+					resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
+					break;
+				} else {
+					if (!(tokens[i].index in mappings)) {
+						mappings[tokens[i].index] = numbersEncountered.length;
+					}
+					if (!numbersEncountered.includes(tokens[i].index)) {
+						numbersEncountered.push(tokens[i].index);
+						resultArgs.push(args[tokens[i].index]);
+					}
+					result += "{"+mappings[tokens[i].index]+"}";
+					if (mappings[tokens[i].index] > 2) {
+						error("Custom string parser returned '{"+mappings[tokens[i].index]+"}', please report to Zezombye")
+					}
+					if (mappings[tokens[i].index] === currentNbIndex) {
+						currentNbIndex++;
+					}
+					stringLength += "{0}".length;
+	
+	
 				}
-				if (!numbersEncountered.includes(tokens[i].index)) {
-					numbersEncountered.push(tokens[i].index);
-					resultArgs.push(args[tokens[i].index]);
-				}
-				result += "{"+mappings[tokens[i].index]+"}";
-				if (mappings[tokens[i].index] > 2) {
-					error("Custom string parser returned '{"+mappings[tokens[i].index]+"}', please report to Zezombye")
-				}
-				if (mappings[tokens[i].index] === currentNbIndex) {
-					currentNbIndex++;
-				}
-				stringLength += "{0}".length;
-
-
 			}
 		}
 	}
+	
 
 	while (resultArgs.length < 3) {
 		resultArgs.push(getAstForNull());

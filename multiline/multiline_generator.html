@@ -112,7 +112,7 @@ Note: Z-index is left &lt; right &lt; top
     </select> 
 </p>
 <p>
-    Language: <select id="language">            
+    <!--Language: <select id="language">            
         <option value="en-US">English</option>
         <option value="de-DE">German</option>
         <option value="es-ES">Spanish (Spain)</option>
@@ -126,11 +126,11 @@ Note: Z-index is left &lt; right &lt; top
         <option value="ru-RU">Russian</option>
         <option value="zh-CN">Chinese (Simplified)</option>
         <option value="zh-TW">Chinese (Traditional)</option>
-    </select>
+    </select>-->
     <input type="checkbox" id="auto-center">Auto-center</input>
     <input type="checkbox" id="add-horizontal-shadow">Add horizontal shadow</input>
     <input type="checkbox" id="add-vertical-shadow">Add vertical shadow</input>
-    <input type="checkbox" id="generate-for-overpy">Generate for OverPy</input>
+    <!--<input type="checkbox" id="generate-for-overpy">Generate for OverPy</input>-->
 </p>
 <br>
 <br>
@@ -139,20 +139,20 @@ Note: Z-index is left &lt; right &lt; top
 <br>
 <textarea id="output">Output</textarea>
 
-<script src="../src/doc/actions.js"></script>
+<!--<script src="../src/doc/actions.js"></script>
 <script src="../src/doc/values.js"></script>
 <script src="../src/doc/constants.js"></script>
 <script src="../src/doc/keywords.js"></script>
 <script src="../src/globalVars.js"></script>
-<script src="../src/utils.js"></script>
+<script src="../src/utils.js"></script>-->
 
 <script>
 "use strict";
 
 //init
 var nbHuds = 0;
-var generateForOverpy = false;
-resetGlobalVariables();
+var generateForOverpy = true;
+//resetGlobalVariables();
 
 
 for (var i of ["left", "top", "right"]) {
@@ -172,7 +172,8 @@ function splitStr(s, position) {
 
     var thinSpace = " ";
     var halfWidthSpace = " ";
-    var fullWidthSpace = "　";
+    //var fullWidthSpace = "　";
+    var fullWidthSpace = " "; //not a fullwidth space, but is effectively fullwidth in ow fonts
 
     if (autoCenter) {
         //var nbSpaces = (132-[...s].length)/2;
@@ -219,12 +220,12 @@ function splitStr(s, position) {
         }
     }
 
-    var wsNull = tows("null", valueFuncKw);
+    //var wsNull = tows("null", valueFuncKw);
 
     if (generateForOverpy) {
         return '"'+s+'"';
 
-    } else {
+    }/* else {
         var result = "";
         var prefix = "";
         var suffix = "";
@@ -247,14 +248,14 @@ function splitStr(s, position) {
         //suffix = wsNull+", "+wsNull+", "+wsNull+")"+suffix;
         suffix = "null, team(Team 1), team(Team 2))"+suffix;
         return result+suffix;
-    }
+    }*/
 }
 
 function generateAll() {
 
     nbHuds = 0;
-    currentLanguage = document.getElementById("language").options[document.getElementById("language").selectedIndex].value;
-    generateForOverpy = document.getElementById("generate-for-overpy").checked;
+    //currentLanguage = document.getElementById("language").options[document.getElementById("language").selectedIndex].value;
+    //generateForOverpy = document.getElementById("generate-for-overpy").checked;
     document.getElementById("output").value = generate("left")+generate("top")+generate("right");
 }
 
@@ -291,7 +292,7 @@ function generate(position, color, sortOffset) {
     }
 
     var mappings = {
-        " ": "　",
+        " ": " ",
         "█": "▒",
         "╗": "┓",
         "╝": "┛",
@@ -327,7 +328,7 @@ function generate(position, color, sortOffset) {
 `;*/
         output += "#"+position+" HUD\n";
     } else {
-        output += tows("@Rule", ruleKw)+"(\""+position+" HUD\") {"+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";} "+tows("_actions", ruleKw)+" {\n";
+        output += tows("__rule__", ruleKw)+"(\""+position+" HUD\") {"+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";} "+tows("__actions__", ruleKw)+" {\n";
     }
 
     for (var key of Object.keys(mappings)) {
@@ -342,9 +343,9 @@ function generate(position, color, sortOffset) {
         var color = document.getElementById("color-"+position).options[document.getElementById("color-"+position).selectedIndex].value;
 
         if (generateForOverpy) {
-            output += "hudSubheader(getAllPlayers(), "+splitStr(lines[i], position)+", Position."+position.toUpperCase()+", "+(i+(+document.getElementById("sort-offset-"+position).value))+", "+color+", HudReeval.VISIBILITY_AND_STRING, SpecVisibility.DEFAULT)\n";
+            output += "hudSubheader(getAllPlayers(), "+splitStr(lines[i], position)+", HudPosition."+position.toUpperCase()+", "+(i+(+document.getElementById("sort-offset-"+position).value))+", "+color+", HudReeval.VISIBILITY_AND_STRING, SpecVisibility.DEFAULT)\n";
         } else {
-            output += "\t"+tows("_hudText", actionKw)+"("
+            output += "\t"+tows("__hudText__", actionKw)+"("
                 +tows("getPlayers", valueFuncKw)+"("
                     +tows("Team.ALL", getConstantKw("TEAM CONSTANT"))
                 +"), "
