@@ -1,14 +1,13 @@
-[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
+[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
-[CASC] Set language to deDE
-[CASC] Set speech language to deDE
-[CASC] Overwatch build 1.49.0.0.69939
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[CASC] Text Language: deDE | Speech Language: deDE
+[CASC] Overwatch build 1.49.1.0.70708
 [CASC] Initializing...
-[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -8481,7 +8480,7 @@ Goodie-Bag der BlizzCon 2016
 000000004C59.07C: Moderator – Spiel pausieren
 000000004C5B.07C: R.I.P.
 000000004C67.07C: Ranglistensaison %1$s
-000000004C6C.07C: Laufende Ranglistensaison
+000000004C6C.07C: Aktuelle Ranglistensaison – Rollenwahl
 000000004C70.07C: Fortfahren
 000000004C72.07C: Overwatch kaufen
 000000004C7B.07C: Zombardier
@@ -17095,7 +17094,7 @@ Möchtest du abbrechen?
 000000008C78.07C: 
 000000008C7B.07C: Fertig
 000000008C7C.07C: Abbruch ...
-000000008C7D.07C: %1$s gedrückt halten wenn fertig
+000000008C7D.07C: %1$s gedrückt halten, wenn fertig
 000000008C7F.07C: Heroisch
 000000008C80.07C: ZUFÄLLIG
 000000008C81.07C: STANDARD
@@ -22745,20 +22744,6 @@ punkte
 00000000CD3B.07C: - 5 Platzierungsmatches pro Rolle
 - Dienen zur Festlegung des Spielniveaus (1–5000)
 - Spielniveau wird nach jedem Match angepasst
-00000000CD3C.07C: Saisons
-00000000CD3D.07C: - Matches dauern mehrere Runden
-- Erreiche Ziele, um Punkte zu holen
-- Das Team mit den meisten Punkten gewinnt!
-00000000CD3E.07C: - Alle 2 Monate eine neue Saison
-- Exklusive Belohnungen
-- Platzierungsmatches vor jeder Saison
-00000000CD3F.07C: 15
-00000000CD40.07C: 30
-00000000CD41.07C: 60
-00000000CD42.07C: 120
-00000000CD43.07C: 200
-00000000CD44.07C: 300
-00000000CD45.07C: 400
 00000000CD47.07C: 25 Credits
 00000000CD48.07C: 10 Credits
 00000000CD49.07C: 20 Credits
@@ -27743,7 +27728,7 @@ https://account.blizzard.com/connections/nintendo
 000000010A94.07C: Washington Justice (auswärts)
 000000010A95.07C: Taste
 000000010A96.07C: Schaden – Duplikat
-000000010A97.07C: %1$s Duplicate Damage Done
+000000010A97.07C: Verursachter Schaden mit Duplikat: %1$s
 000000010A98.07C: Direkttreffer mit Haftbomben – Bestleistung
 000000010A99.07C: Direkttreffer mit Haftbomben – Bestleistung: %1$s
 000000010A9A.07C: Direkttreffer mit Haftbomben –
@@ -28033,5 +28018,32 @@ Der Blizzard-Kundendienst
 000000010E90.07C: Der oder die Spieler, deren Positionen nicht mehr erzwungen werden.
 000000010E95.07C: MVP der Overwatch League 2019: sinatraa
 000000010E9F.07C: Legendärer Skin Alien
+000000010EA4.07C: Rollenwahl
+000000010EA5.07C: Freie Rollenwahl
+000000010EA6.07C: Rolleneinschränkung bei der Heldenauswahl
+000000010EA7.07C: Keine Rolleneinschränkung bei der Heldenauswahl
+000000010EAF.07C: RANGLISTE
+000000010EE1.07C: Saisonpause
 000000010EEC.07C: Mehr Spieler suchen
-[Core] Execution finished in 00:00:00.4142269 seconds
+000000010F5B.07C: Rollenwahl
+000000010F5C.07C: Freie Rollenwahl
+000000010F5D.07C: - 10 Platzierungsmatches
+- Dienen zur Festlegung des Spielniveaus (1–5000)
+- Spielniveau wird nach jedem Match angepasst
+000000010FDD.07C: Das höchstmögliche anfängliche Spielniveau nach dem Abschluss der Platzierungsmatches beträgt 3900.
+000000010FE0.07C: Du hast das höchstmögliche anfängliche Spielniveau nach dem Abschluss deiner Platzierungsmatches erreicht!
+000000010FF8.07C: Alle
+000000010FF9.07C: Tank
+000000010FFA.07C: Schaden
+000000010FFB.07C: Unterstützung
+000000010FFC.07C: Freie Rollenwahl
+000000011020.07C: Ranglistensaison %1$s – Freie Rollenwahl
+000000011021.07C: Aktuelle Ranglistensaison – Freie Rollenwahl
+000000011138.07C: 65
+000000011139.07C: 125
+00000001113A.07C: 250
+00000001113B.07C: 500
+00000001113C.07C: 750
+00000001113D.07C: 1200
+00000001113E.07C: 1750
+[Core] Execution finished in 00:00:00.4439105 seconds

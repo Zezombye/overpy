@@ -1,14 +1,13 @@
-[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
+[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
-[CASC] Set language to itIT
-[CASC] Set speech language to itIT
-[CASC] Overwatch build 1.49.0.0.69939
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[CASC] Text Language: itIT | Speech Language: itIT
+[CASC] Overwatch build 1.49.1.0.70708
 [CASC] Initializing...
-[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -8458,7 +8457,7 @@ di piazzamento
 000000004C59.07C: Moderatore - Pausa gioco
 000000004C5B.07C: R.I.P.
 000000004C67.07C: Stagione competitiva %1$s
-000000004C6C.07C: Stagione competitiva attuale
+000000004C6C.07C: Stagione competitiva attuale - Coda ruoli
 000000004C70.07C: Continua
 000000004C72.07C: Acquista Overwatch
 000000004C7B.07C: Zombardiere
@@ -22527,20 +22526,6 @@ Deathmatch competitivo 2019
 00000000CD3B.07C: - 5 partite di piazzamento per ruolo
 - Indice di valutazione determinato (1-5000)
 - L'indice di valutazione viene regolato dopo ogni vittoria o sconfitta
-00000000CD3C.07C: Stagioni
-00000000CD3D.07C: - Le partite durano più round
-- Ottieni punti conquistando gli obiettivi
-- Chi ha più punti vince!
-00000000CD3E.07C: - Nuova stagione ogni 2 mesi
-- Ottieni ricompense esclusive
-- Il piazzamento ricomincia ogni stagione
-00000000CD3F.07C: 15
-00000000CD40.07C: 30
-00000000CD41.07C: 60
-00000000CD42.07C: 120
-00000000CD43.07C: 200
-00000000CD44.07C: 300
-00000000CD45.07C: 400
 00000000CD47.07C: 25 crediti
 00000000CD48.07C: 10 crediti
 00000000CD49.07C: 20 crediti
@@ -27495,7 +27480,7 @@ che inizi la tua partita:
 000000010A94.07C: Washington Justice (trasferta)
 000000010A95.07C: Tasto
 000000010A96.07C: Danni - Duplicazione
-000000010A97.07C: %1$s Duplicate Damage Done
+000000010A97.07C: %1$s Danni inflitti con Duplicazione
 000000010A98.07C: |Rpl %1$s:Colpo diretto:Colpi diretti; con Bombe Adesive - Record partita
 000000010A99.07C: %1$s |Rpl Colpo diretto:Colpi diretti; con Bombe Adesive - Record partita
 000000010A9A.07C: |Rpl %1$s:Colpo diretto:Colpi diretti; con Bombe Adesive - Media 10 min.
@@ -27784,5 +27769,32 @@ Assistenza Blizzard
 000000010E90.07C: Il Giocatore o i Giocatori la cui posizione cesserà di essere forzata.
 000000010E95.07C: MVP sinatraa Overwatch League 2019
 000000010E9F.07C: Modello leggendario Aliena
+000000010EA4.07C: Coda ruoli
+000000010EA5.07C: Coda aperta
+000000010EA6.07C: Limiti di ruolo alla selezione eroi
+000000010EA7.07C: Nessun limite di ruolo alla selezione eroi
+000000010EAF.07C: PARTITA COMPETITIVA
+000000010EE1.07C: Stagione non attiva
 000000010EEC.07C: Trova altri giocatori
-[Core] Execution finished in 00:00:00.4135885 seconds
+000000010F5B.07C: Coda ruoli
+000000010F5C.07C: Coda aperta
+000000010F5D.07C: - 10 partite di piazzamento
+- Indice di valutazione determinato (1-5000)
+- L'indice di valutazione viene regolato dopo ogni vittoria o sconfitta
+000000010FDD.07C: Dopo aver completato le partite di piazzamento, l'indice di valutazione più alto ottenibile è 3900.
+000000010FE0.07C: Dopo aver completato le partite di piazzamento, hai ottenuto l'indice di valutazione più alto disponibile!
+000000010FF8.07C: Combinati
+000000010FF9.07C: Tank
+000000010FFA.07C: Attacco
+000000010FFB.07C: Supporto
+000000010FFC.07C: Coda aperta
+000000011020.07C: Stagione competitiva %1$s - Coda aperta
+000000011021.07C: Stagione competitiva attuale - Coda aperta
+000000011138.07C: 65
+000000011139.07C: 125
+00000001113A.07C: 250
+00000001113B.07C: 500
+00000001113C.07C: 750
+00000001113D.07C: 1200
+00000001113E.07C: 1750
+[Core] Execution finished in 00:00:00.4435351 seconds

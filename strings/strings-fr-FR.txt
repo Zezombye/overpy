@@ -1,14 +1,13 @@
-[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
+[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
-[CASC] Set language to frFR
-[CASC] Set speech language to frFR
-[CASC] Overwatch build 1.49.0.0.69939
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[CASC] Text Language: frFR | Speech Language: frFR
+[CASC] Overwatch build 1.49.1.0.70708
 [CASC] Initializing...
-[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -8485,7 +8484,7 @@ Saison 2
 000000004C59.07C: Modérateur - Mettre la partie en pause
 000000004C5B.07C: R.I.P.
 000000004C67.07C: Saison de compétition %1$s
-000000004C6C.07C: Saison de compétition actuelle
+000000004C6C.07C: Saison de compétition actuelle - File d’attente par rôle
 000000004C70.07C: Continuer
 000000004C72.07C: Acheter Overwatch
 000000004C7B.07C: Zombardier
@@ -17154,7 +17153,7 @@ Annuler ?
 000000008DB6.07C: Vous avez accordé toutes vos recommandations pour cette partie.
 000000008DCE.07C: Tourelle
 000000008DEC.07C: NUMÉRO DE TÉLÉPHONE REQUIS.
-000000008DEE.07C: ASSOCIER UN NUMÉRO DE TÉLÉPHONE PORTABLE.
+000000008DEE.07C: ASSOCIER UN NUMÉRO DE TÉLÉPHONE PORTABLE
 000000008DEF.07C: Démon
 000000008DF2.07C: https://account.blizzard.com/details/sms/setup/add
 000000008DF3.07C: Ce compte nécessite un numéro de téléphone.
@@ -22621,20 +22620,6 @@ partie rapide ou compétitive !
 00000000CD3B.07C: - 5 matchs de placement par rôle.
 - Cote établie (de 1 à 5 000).
 - Cote ajustée après chaque victoire ou défaite.
-00000000CD3C.07C: Saisons
-00000000CD3D.07C: - Les parties se composent de plusieurs manches.
-- Marquez des points en prenant les objectifs.
-- L’équipe qui a le plus de points gagne !
-00000000CD3E.07C: - Une nouvelle saison tous les 2 mois.
-- Recevez des récompenses exclusives.
-- Le placement recommence à chaque saison.
-00000000CD3F.07C: 15
-00000000CD40.07C: 30
-00000000CD41.07C: 60
-00000000CD42.07C: 120
-00000000CD43.07C: 200
-00000000CD44.07C: 300
-00000000CD45.07C: 400
 00000000CD47.07C: 25 crédits
 00000000CD48.07C: 10 crédits
 00000000CD49.07C: 20 crédits
@@ -27581,7 +27566,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010A94.07C: Washington Justice (extérieur)
 000000010A95.07C: Bouton
 000000010A96.07C: Dégâts - Duplication
-000000010A97.07C: %1$s Duplicate Damage Done
+000000010A97.07C: Dégâts infligés par Duplication : %1$s
 000000010A98.07C: |Rpl %1$s:Tir direct:Tirs directs; de Bombes collantes - Maximum en une partie
 000000010A99.07C: %1$s |Rpl Tir direct:Tirs directs; de Bombes collantes - Maximum en une partie
 000000010A9A.07C: |Rpl %1$s:Tir direct:Tirs directs; de Bombes collantes - Moyenne en 10 min
@@ -27870,5 +27855,32 @@ L’assistance Blizzard
 000000010E90.07C: Le joueur ou les joueurs dont les positions cesseront d’être forcées.
 000000010E95.07C: Sinatraa, MVP de l’Overwatch League 2019
 000000010E9F.07C: Modèle légendaire Extraterrestre
+000000010EA4.07C: File d’attente par rôle
+000000010EA5.07C: Sélection libre
+000000010EA6.07C: Limite de rôle dans la sélection de héros
+000000010EA7.07C: Pas de limite de rôle dans la sélection de héros
+000000010EAF.07C: PARTIE COMPÉTITIVE
+000000010EE1.07C: Saison inactive
 000000010EEC.07C: Trouver d’autres joueurs
-[Core] Execution finished in 00:00:00.4198004 seconds
+000000010F5B.07C: File d’attente par rôle
+000000010F5C.07C: Sélection libre
+000000010F5D.07C: - 10 parties de placement
+- Cote établie (de 1 à 5 000)
+- Cote ajustée après chaque victoire ou défaite
+000000010FDD.07C: La cote initiale la plus élevée obtenue à l’issue des parties de placement est de 3 900.
+000000010FE0.07C: Vous avez obtenu la meilleure cote initiale disponible à l’issue de vos parties de placement !
+000000010FF8.07C: Tous rôles
+000000010FF9.07C: Tank
+000000010FFA.07C: Dégâts
+000000010FFB.07C: Soutien
+000000010FFC.07C: Sélection libre
+000000011020.07C: Saison de compétition %1$s - Sélection libre
+000000011021.07C: Saison de compétition actuelle - Sélection libre
+000000011138.07C: 65
+000000011139.07C: 125
+00000001113A.07C: 250
+00000001113B.07C: 500
+00000001113C.07C: 750
+00000001113D.07C: 1 200
+00000001113E.07C: 1 750
+[Core] Execution finished in 00:00:00.4457783 seconds

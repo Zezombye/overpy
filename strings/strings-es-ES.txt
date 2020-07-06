@@ -1,14 +1,13 @@
-[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
+[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
-[CASC] Set language to esES
-[CASC] Set speech language to esES
-[CASC] Overwatch build 1.49.0.0.69939
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[CASC] Text Language: esES | Speech Language: esES
+[CASC] Overwatch build 1.49.1.0.70708
 [CASC] Initializing...
-[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LesES_text_EExt.cmf
+[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LesES_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -8490,7 +8489,7 @@ de la temporada 2
 000000004C59.07C: Moderador: pausar partida
 000000004C5B.07C: D. E. P.
 000000004C67.07C: Temporada competitiva %1$s
-000000004C6C.07C: Temporada competitiva actual
+000000004C6C.07C: Temporada competitiva actual - Cola por función
 000000004C70.07C: Continuar
 000000004C72.07C: Comprar Overwatch
 000000004C7B.07C: Zombardero
@@ -16979,7 +16978,7 @@ de la temporada 13
 000000008C78.07C: 
 000000008C7B.07C: Listo
 000000008C7C.07C: Cancelando
-000000008C7D.07C: Mantén pulsado %1$s / Listo 
+000000008C7D.07C: Mantén pulsado %1$s / Listo
 000000008C7F.07C: Heroica
 000000008C80.07C: ALEATORIA
 000000008C81.07C: POR DEFECTO
@@ -22556,20 +22555,6 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000CD3B.07C: - 5 partidas de posicionamiento por función
 - Índice de habilidad determinado (1-5000)
 - El índice de habilidad se ajusta con cada victoria o derrota
-00000000CD3C.07C: Temporadas
-00000000CD3D.07C: - Las partidas tienen varias rondas
-- Se obtienen puntos capturando objetivos
-- ¡Gana quien obtenga más puntos!
-00000000CD3E.07C: - Hay una nueva temporada cada 2 meses
-- Increíbles recompensas exclusivas
-- Las partidas de posicionamiento vuelven con cada temporada
-00000000CD3F.07C: 15
-00000000CD40.07C: 30
-00000000CD41.07C: 60
-00000000CD42.07C: 120
-00000000CD43.07C: 200
-00000000CD44.07C: 300
-00000000CD45.07C: 400
 00000000CD47.07C: 25 créditos
 00000000CD48.07C: 10 créditos
 00000000CD49.07C: 20 créditos
@@ -27517,7 +27502,7 @@ https://account.blizzard.com/connections/nintendo
 000000010A94.07C: Washington Justice (visitante)
 000000010A95.07C: Botón
 000000010A96.07C: Daño - Duplicado
-000000010A97.07C: %1$s Duplicate Damage Done
+000000010A97.07C: %1$s de daño infligido con Duplicado
 000000010A98.07C: |Rpl %1$s:Golpe directo:Golpes directos; con Bombas lapa: mayor n.º en una partida
 000000010A99.07C: %1$s |Rplgolpe directo:golpes directos; con Bombas lapa: mayor n.º en una partida
 000000010A9A.07C: |Rpl %1$s:Golpe directo:Golpes directos; con Bombas lapa: media en 10 min
@@ -27806,5 +27791,32 @@ Asistencia de Blizzard
 000000010E90.07C: Jugador o jugadores cuyas posiciones dejarán de forzarse.
 000000010E95.07C: sinatraa, MVP de la Overwatch League 2019
 000000010E9F.07C: Aspecto legendario alienígena
+000000010EA4.07C: Cola por función
+000000010EA5.07C: Cola abierta
+000000010EA6.07C: Con limitaciones de función en la selección de héroe
+000000010EA7.07C: Sin limitaciones de función en la selección de héroe
+000000010EAF.07C: PARTIDA COMPETITIVA
+000000010EE1.07C: Temporada no activa
 000000010EEC.07C: Buscar a más jugadores
-[Core] Execution finished in 00:00:00.4292990 seconds
+000000010F5B.07C: Cola por función
+000000010F5C.07C: Cola abierta
+000000010F5D.07C: - 10 partidas de posicionamiento
+- Índice de habilidad determinado (1-5000)
+- El índice de habilidad se ajusta tras cada victoria o derrota
+000000010FDD.07C: El índice de habilidad inicial más alto obtenido tras completar las partidas de posicionamiento es de 3900.
+000000010FE0.07C: ¡Tras completar las partidas de posicionamiento, has obtenido el índice de habilidad inicial más alto posible!
+000000010FF8.07C: Combinación
+000000010FF9.07C: Tanque
+000000010FFA.07C: Daño
+000000010FFB.07C: Apoyo
+000000010FFC.07C: Cola abierta
+000000011020.07C: Temporada competitiva %1$s - Cola abierta
+000000011021.07C: Temporada competitiva actual - Cola abierta
+000000011138.07C: 65
+000000011139.07C: 125
+00000001113A.07C: 250
+00000001113B.07C: 500
+00000001113C.07C: 750
+00000001113D.07C: 1200
+00000001113E.07C: 1750
+[Core] Execution finished in 00:00:00.4201165 seconds

@@ -1,14 +1,13 @@
-[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
+[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
-[CASC] Set language to koKR
-[CASC] Set speech language to koKR
-[CASC] Overwatch build 1.49.0.0.69939
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[CASC] Text Language: koKR | Speech Language: koKR
+[CASC] Overwatch build 1.49.1.0.70708
 [CASC] Initializing...
-[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -8457,7 +8456,7 @@ Andrew Wang
 000000004C59.07C: 관리자 - 게임 일시정지
 000000004C5B.07C: 묘비
 000000004C67.07C: 경쟁전 %1$s시즌
-000000004C6C.07C: 현재 경쟁전 시즌
+000000004C6C.07C: 현재 경쟁전 시즌 - 역할 고정
 000000004C70.07C: 확인
 000000004C72.07C: 오버워치 구입
 000000004C7B.07C: 좀닉 포병
@@ -16932,7 +16931,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008C78.07C: 
 000000008C7B.07C: 완료
 000000008C7C.07C: 취소 중
-000000008C7D.07C: %1$s 길게 눌러 완료
+000000008C7D.07C: <%1$s> 길게 눌러 완료
 000000008C7F.07C: 영웅
 000000008C80.07C: 무작위
 000000008C81.07C: 기본
@@ -16973,7 +16972,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008CD3.07C: 귀요미
 000000008CD4.07C: 픽셀
 000000008CE0.07C: 나가는 중
-000000008CE1.07C: %1$s 길게 눌러 나가기
+000000008CE1.07C: <%1$s> 길게 눌러 나가기
 000000008CE2.07C: 황충
 000000008CE3.07C: 역할 제한
 000000008CE5.07C: %1$s레벨로 승격하였습니다!
@@ -17167,10 +17166,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000090BF.07C: 플레이어 더 찾기
 0000000090C0.07C: 플레이어 더 찾기
 0000000090C1.07C: 핀란드 (홈)
-0000000090C2.07C: %1$s길게 눌러 플레이어 더 찾기
+0000000090C2.07C: <%1$s>길게 눌러 플레이어 더 찾기
 0000000090C3.07C: %1$s 플레이
 0000000090C4.07C: %1$s 플레이
-0000000090C5.07C: %1$s길게 눌러 %2$s 플레이
+0000000090C5.07C: <%1$s>길게 눌러 %2$s 플레이
 0000000090C6.07C: 홍콩 (홈)
 0000000090C7.07C: 타이페이 (홈)
 0000000090C8.07C: 메달
@@ -17335,7 +17334,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000091ED.07C: 레킹볼로 2초 안에 적 4명을 뚫고 굴러가기 (빠른 대전 또는 경쟁전)
 0000000091EE.07C: 자리가 부족합니다!
 0000000091EF.07C: 그룹 편집
-0000000091F0.07C: %1$s길게 눌러 그룹 편집
+0000000091F0.07C: <%1$s>길게 눌러 그룹 편집
 0000000091F1.07C: 그룹 편집
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -22507,20 +22506,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CD3B.07C: - 역할당 배치 경기 5회 
 - 실력 평점 결정 (1~5000)
 - 실력 평점은 승패에 따라 조정
-00000000CD3C.07C: 시즌
-00000000CD3D.07C: - 여러 라운드로 경기 진행
-- 전장 목표를 달성하여 점수 획득
-- 고득점 팀이 승리!
-00000000CD3E.07C: - 2개월마다 새 시즌 시작 
-- 전용 보상 획득
-- 매 시즌마다 배치 경기 다시 진행
-00000000CD3F.07C: 15
-00000000CD40.07C: 30
-00000000CD41.07C: 60
-00000000CD42.07C: 120
-00000000CD43.07C: 200
-00000000CD44.07C: 300
-00000000CD45.07C: 400
 00000000CD47.07C: 25 크레딧
 00000000CD48.07C: 10 크레딧
 00000000CD49.07C: 20 크레딧
@@ -27467,7 +27452,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010A94.07C: 워싱턴 저스티스 어웨이
 000000010A95.07C: Button
 000000010A96.07C: 피해량 - 복제
-000000010A97.07C: %1$s Duplicate Damage Done
+000000010A97.07C: 복제로 준 피해 %1$s
 000000010A98.07C: 점착 폭탄 명중 - 한 게임 최고기록
 000000010A99.07C: 점착 폭탄 명중 %1$s회 - 한 게임 최고기록
 000000010A9A.07C: 점착 폭탄 명중 - 10분당 평균
@@ -27754,5 +27739,32 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010E90.07C: 위치를 강제하지 않을 플레이어입니다.
 000000010E95.07C: 2019 오버워치 리그 MVP sinatraa
 000000010E9F.07C: 외계 요원 전설 스킨
+000000010EA4.07C: 역할 고정
+000000010EA5.07C: 자유
+000000010EA6.07C: 영웅 선택 역할 고정
+000000010EA7.07C: 영웅 선택 제한 없음
+000000010EAF.07C: 경쟁전
+000000010EE1.07C: 시즌 비활성화 중
 000000010EEC.07C: 플레이어 더 찾기
-[Core] Execution finished in 00:00:00.4306150 seconds
+000000010F5B.07C: 역할 고정
+000000010F5C.07C: 자유
+000000010F5D.07C: - 배치 경기 10회 
+- 실력 평점 결정 (1~5000)
+- 실력 평점은 승패에 따라 조정
+000000010FDD.07C: 배치 경기로 달성할 수 있는 등급 점수의 상한선은 3900점입니다.
+000000010FE0.07C: 배치 경기로 달성할 수 있는 가장 높은 등급 점수를 달성했습니다!
+000000010FF8.07C: 전체
+000000010FF9.07C: 돌격
+000000010FFA.07C: 공격
+000000010FFB.07C: 지원
+000000010FFC.07C: 자유
+000000011020.07C: 경쟁전 %1$s시즌 - 자유
+000000011021.07C: 현재 경쟁전 시즌 - 자유
+000000011138.07C: 65
+000000011139.07C: 125
+00000001113A.07C: 250
+00000001113B.07C: 500
+00000001113C.07C: 750
+00000001113D.07C: 1200
+00000001113E.07C: 1750
+[Core] Execution finished in 00:00:00.4401647 seconds

@@ -9912,7 +9912,7 @@ var valueFuncKw =
         "return": "unsigned float",
         "guid": "00000000B260",
         "en-US": "Speed Of In Direction",
-        "es-MX": "Velocidad de/en dirección",
+        "es-MX": "Velocidad deen dirección",
         "fr-FR": "Vitesse dans la direction donnée de",
         "ja-JP": "速さと方向: ",
         "pt-BR": "Velocidade de na Direção",
@@ -13819,7 +13819,9 @@ const heroKw =
 
 "use strict";
 
-const gamemodeKw = {
+const gamemodeKw =
+//begin-json
+{
     "assault": {
         "guid": "00000000CD59",
         "en-US": "Assault",
@@ -13923,7 +13925,7 @@ const gamemodeKw = {
         "pl-PL": "Hybryda",
         "pt-BR": "Híbrido",
         "ru-RU": "Гибридный режим",
-        "zh-CN": "攻击/护送",
+        "zh-CN": "攻击护送",
         "zh-TW": "混合"
     },
     "junkenstein": {
@@ -14004,7 +14006,20 @@ const gamemodeKw = {
         "zh-TW": "衝突戰"
     },
     "snowballFfa": {
+        "guid": "00000000EC7B",
         "en-US": "Snowball Deathmatch",
+        "de-DE": "Schneeball-Deathmatch",
+        "es-ES": "Pelea de bolas de nieve a muerte",
+        "es-MX": "Combate a muerte Bola de Nieve",
+        "fr-FR": "Combat à mort de boules de neige",
+        "it-IT": "Deathmatch Palle di Neve",
+        "ja-JP": "雪合戦（デスマッチ）",
+        "ko-KR": "눈싸움 데스매치",
+        "pl-PL": "Śnieżkowy Deathmatch",
+        "pt-BR": "Combate até a Morte de Bola de Neve",
+        "ru-RU": "Снежная схватка",
+        "zh-CN": "雪球死斗",
+        "zh-TW": "雪球死鬥大作戰"
     },
     "tdm": {
         "guid": "000000006854",
@@ -14039,6 +14054,7 @@ const gamemodeKw = {
         "zh-TW": "雪怪大作戰"
     }
 }
+//end-json
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -17523,7 +17539,7 @@ const customGameSettingsSchema =
                                 "es-MX": "1 por equipo",
                                 "fr-FR": "1 par équipe",
                                 "it-IT": "1 per squadra",
-                                "ja-JP": "1/チーム",
+                                "ja-JP": "1チーム",
                                 "ko-KR": "팀당 1명",
                                 "pl-PL": "1 na drużynę",
                                 "pt-BR": "1 por equipe",
@@ -17539,7 +17555,7 @@ const customGameSettingsSchema =
                                 "es-MX": "2 por equipo",
                                 "fr-FR": "2 par équipe",
                                 "it-IT": "2 per squadra",
-                                "ja-JP": "2/チーム",
+                                "ja-JP": "2チーム",
                                 "ko-KR": "팀당 2명",
                                 "pl-PL": "2 na drużynę",
                                 "pt-BR": "2 por equipe",
@@ -17555,7 +17571,7 @@ const customGameSettingsSchema =
                                 "es-MX": "1 por partida",
                                 "fr-FR": "1 par partie",
                                 "it-IT": "1 per partita",
-                                "ja-JP": "1/ゲーム",
+                                "ja-JP": "1ゲーム",
                                 "ko-KR": "게임당 1명",
                                 "pl-PL": "1 na mecz",
                                 "pt-BR": "1 por jogo",
@@ -17571,7 +17587,7 @@ const customGameSettingsSchema =
                                 "es-MX": "2 por partida",
                                 "fr-FR": "2 par partie",
                                 "it-IT": "2 per partita",
-                                "ja-JP": "2/ゲーム",
+                                "ja-JP": "2ゲーム",
                                 "ko-KR": "게임당 2명",
                                 "pl-PL": "2 na mecz",
                                 "pt-BR": "2 por jogo",
@@ -20146,7 +20162,7 @@ const customGameSettingsSchema =
                     "zh-TW": "次要攻擊"
                 },
                 "enableAutomaticFire": {
-                    "guid": "00000000A2AD",
+                    "guid": "0000000060EB",
                     "values": "__boolReverseOnOff__",
                     "default": "off",
                     "include": [
@@ -20160,12 +20176,12 @@ const customGameSettingsSchema =
                     "es-MX": "Sin disparo automático",
                     "fr-FR": "Pas de tir automatique",
                     "it-IT": "Niente fuoco automatico",
-                    "ja-JP": "武器のオートマチック・モードなし",
+                    "ja-JP": "オートマチック・モードなし",
                     "ko-KR": "자동 사격 불가",
                     "pl-PL": "Brak automatycznego ataku",
                     "pt-BR": "Sem disparos automáticos",
                     "ru-RU": "Без автоматического режима стрельбы",
-                    "zh-CN": "“毒蛇”无法进行普通攻击",
+                    "zh-CN": "禁止自动射击",
                     "zh-TW": "無法進行一般射擊"
                 },
                 "enableScoping": {
@@ -25217,8 +25233,10 @@ function astToOpy(content) {
         var result = "";
         if (content.name === "__localizedString__") {
             result += "l";
+            result += escapeString(topy(content.args[0].name, stringKw))
+        } else {
+            result += escapeString(content.args[0].name);
         }
-        result += escapeString(content.args[0].name);
         if (formatArgs.length > 0) {
             result += ".format("+formatArgs.map(x => astToOpy(x)).join(", ")+")";
         }
@@ -25625,7 +25643,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 		${tows("global", eventKw)};
 	}
 	${tows("__actions__", ruleKw)} {
-		${obfuscationSettings.obfuscateInspector ? tows("disableInspector", actionKw) : ""};
+		${obfuscationSettings.obfuscateInspector ? tows("disableInspector", actionKw)+";" : ""}
 		${obfuscationSettings.obfuscateConstants ? astActionToWs(obfuscationConstantsAst, 0) : ""}
 	}
 }

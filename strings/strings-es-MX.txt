@@ -1,14 +1,13 @@
-[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
+[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=esMX", "-T=esMX"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
-[CASC] Set language to esMX
-[CASC] Set speech language to esMX
-[CASC] Overwatch build 1.49.0.0.69939
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[CASC] Text Language: esMX | Speech Language: esMX
+[CASC] Overwatch build 1.49.1.0.70708
 [CASC] Initializing...
-[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -7802,7 +7801,7 @@ Andrew Wang
 0000000046D4.07C: Las partidas competitivas no están disponibles actualmente.
 0000000046D5.07C: Oasis
 0000000046D6.07C: Partidas de colocación
-0000000046D7.07C: +20%% Exp (Bonificación de IGR premium)
+0000000046D7.07C: +20 %% Exp (Bonificación de IGR premium)
 0000000046D8.07C: BENEFICIO DE IGR PREMIUM
 0000000046D9.07C: 20 %% DE EXP ADICIONAL
 0000000046DA.07C: ¡DISEÑOS EDICIÓN ORIGIN DESBLOQUEADOS!
@@ -8458,7 +8457,7 @@ de colocación
 000000004C59.07C: Moderador - Pausar Juego
 000000004C5B.07C: R.I.P.
 000000004C67.07C: Temporada competitiva %1$s
-000000004C6C.07C: Temporada competitiva actual
+000000004C6C.07C: Temporada competitiva actual - Cola de roles
 000000004C70.07C: Continuar
 000000004C72.07C: Compra Overwatch
 000000004C7B.07C: Zombardero
@@ -16985,7 +16984,7 @@ competitivo 2018
 000000008CD3.07C: Adorable
 000000008CD4.07C: Pixel
 000000008CE0.07C: Abandonando
-000000008CE1.07C: Mantener presionado %1$s para abandonar
+000000008CE1.07C: Mantén presionado %1$s para abandonar
 000000008CE2.07C: Huang Zhong
 000000008CE3.07C: Imponer roles
 000000008CE5.07C: ¡Has sido promovido a nivel %1$s!
@@ -22518,20 +22517,6 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000CD3B.07C: - 5 partidas de colocación por rol
 - Nivel de habilidad determinado (1-5000)
 - El nivel de habilidad se ajusta luego de cada victoria o derrota
-00000000CD3C.07C: Temporadas
-00000000CD3D.07C: - Las partidas duran varias rondas
-- Logra objetivos para conseguir puntos
-- ¡Gana quien tenga más puntos!
-00000000CD3E.07C: - Una nueva temporada cada 2 meses
-- Gana premios exclusivos
-- La colocación vuelve a comenzar cada temporada
-00000000CD3F.07C: 15
-00000000CD40.07C: 30
-00000000CD41.07C: 60
-00000000CD42.07C: 120
-00000000CD43.07C: 200
-00000000CD44.07C: 300
-00000000CD45.07C: 400
 00000000CD47.07C: 25 créditos
 00000000CD48.07C: 10 créditos
 00000000CD49.07C: 20 créditos
@@ -27388,7 +27373,7 @@ https://account.blizzard.com/connections/nintendo
 0000000109FF.07C: La habilidad del evento que está siendo procesado por la regla asociada por botón.
 000000010A0B.07C: Competidor de Cola competitiva abierta Temporada 1
 000000010A0C.07C: Se desbloquea al completar las partidas de colocación de la temporada 1 de la Cola competitiva abierta
-000000010A0D.07C: Héroe de Cola competitiva abierta Temporada 1
+000000010A0D.07C: Héroe de Cola abierta Temporada 1
 000000010A0E.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 1 de la Cola competitiva abierta
 000000010A0F.07C: Competidor de Cola competitiva abierta Temporada 1
 000000010A11.07C: Héroe de Cola competitiva abierta Temporada 1
@@ -27479,7 +27464,7 @@ https://account.blizzard.com/connections/nintendo
 000000010A94.07C: Washington Justice (visitante)
 000000010A95.07C: Botón
 000000010A96.07C: Daño - Copia
-000000010A97.07C: %1$s Duplicate Damage Done
+000000010A97.07C: %1$s Daño infligido duplicado
 000000010A98.07C: |Rpl %1$s:Impacto directo:Impactos directos; con Bombas pegajosas - Mayor cantidad en una partida
 000000010A99.07C: %1$s |Rpl Impacto directo:Impactos directos; con Bombas pegajosas - Mayor cantidad en una partida
 000000010A9A.07C: |Rpl %1$s:Impacto directo:Impactos directos; con Bombas pegajosas - Promedio por 10 minutos
@@ -27731,7 +27716,7 @@ El equipo de soporte de Blizzard
 000000010E5B.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 2 de la Cola competitiva abierta
 000000010E5C.07C: Competidor de Cola competitiva abierta Temporada 2
 000000010E5D.07C: Se desbloquea al completar las partidas de colocación de la temporada 2 de la Cola competitiva abierta
-000000010E5E.07C: Héroe de Cola competitiva abierta Temporada 2
+000000010E5E.07C: Héroe de Cola abierta Temporada 2
 000000010E5F.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 2 de la Cola competitiva abierta
 000000010E60.07C: Competidor de Cola competitiva abierta Temporada 2
 000000010E61.07C: Se desbloquea al completar las partidas de colocación de la temporada 2 de la Cola competitiva abierta
@@ -27768,5 +27753,32 @@ El equipo de soporte de Blizzard
 000000010E90.07C: El jugador o jugadores cuyas posiciones dejarán de forzarse.
 000000010E95.07C: Sinatraa, MVP de la Liga Overwatch 2019
 000000010E9F.07C: Diseño legendario Alienígena
+000000010EA4.07C: Cola de roles
+000000010EA5.07C: Cola abierta
+000000010EA6.07C: Límite de héroes en la selección de héroe
+000000010EA7.07C: No hay límite de roles en la selección de héroe
+000000010EAF.07C: JUEGO COMPETITIVO
+000000010EE1.07C: Temporada inactiva
 000000010EEC.07C: Encontrar más jugadores
-[Core] Execution finished in 00:00:00.4255143 seconds
+000000010F5B.07C: Cola de roles
+000000010F5C.07C: Cola abierta
+000000010F5D.07C: - 10 partidas de colocación
+- Se determina el nivel de habilidad (1-5000)
+- El nivel de habilidad se ajusta tras cada victoria o derrota
+000000010FDD.07C: El nivel de habilidad inicial más alto obtenido tras completar las partidas de colocación es 3900.
+000000010FE0.07C: ¡Completaste tus partidas de colocación y obtuviste el nivel de habilidad inicial más alto disponible!
+000000010FF8.07C: Combinado
+000000010FF9.07C: Tanque
+000000010FFA.07C: Daño
+000000010FFB.07C: Apoyo
+000000010FFC.07C: Cola abierta
+000000011020.07C: Temporada competitiva %1$s - Cola abierta
+000000011021.07C: Temporada competitiva actual - Cola abierta
+000000011138.07C: 65
+000000011139.07C: 125
+00000001113A.07C: 250
+00000001113B.07C: 500
+00000001113C.07C: 750
+00000001113D.07C: 1200
+00000001113E.07C: 1750
+[Core] Execution finished in 00:00:00.4403285 seconds

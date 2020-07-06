@@ -36,7 +36,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 		${tows("global", eventKw)};
 	}
 	${tows("__actions__", ruleKw)} {
-		${obfuscationSettings.obfuscateInspector ? tows("disableInspector", actionKw) : ""};
+		${obfuscationSettings.obfuscateInspector ? tows("disableInspector", actionKw)+";" : ""}
 		${obfuscationSettings.obfuscateConstants ? astActionToWs(obfuscationConstantsAst, 0) : ""}
 	}
 }

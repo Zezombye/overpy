@@ -4,7 +4,7 @@ var languages = ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", 
 var docFolder = "./src/data/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
 
-var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(17)\\DataTool.exe"
+var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(18)\\DataTool.exe"
 var overwatchPath = "D:\\Overwatch"
 var outputFolder = "strings"
 var guids = {};
@@ -108,7 +108,7 @@ function addTranslations(content) {
             if (elem.guid === content.guid) {
                 elem.string = elem.string.replace(/%%/g, "%");
                 if (removeParentheses) {
-                    elem.string = elem.string.replace(/[,\(\)]/g,"")
+                    elem.string = elem.string.replace(/[,\(\)\/]/g,"")
                 }
                         
                 if (elem.string !== content["en-US"]) {

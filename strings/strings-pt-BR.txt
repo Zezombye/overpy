@@ -1,14 +1,13 @@
-[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
+[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
-[CASC] Set language to ptBR
-[CASC] Set speech language to ptBR
-[CASC] Overwatch build 1.49.0.0.69939
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[CASC] Text Language: ptBR | Speech Language: ptBR
+[CASC] Overwatch build 1.49.1.0.70708
 [CASC] Initializing...
-[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -8458,7 +8457,7 @@ Andrew Wang
 000000004C59.07C: Moderador - Pausar jogo
 000000004C5B.07C: R.I.P.
 000000004C67.07C: Temporada Competitiva %1$s
-000000004C6C.07C: Temporada Competitiva Atual
+000000004C6C.07C: Temporada Competitiva Atual - Fila por função
 000000004C70.07C: Continuar
 000000004C72.07C: Comprar Overwatch
 000000004C7B.07C: Zombardeiro
@@ -17341,7 +17340,7 @@ Competitiva 2018
 0000000091ED.07C: Passe rolando por cima de 4 inimigos em 2 segundos com Wrecking Ball no Jogo Rápido ou Competitivo.
 0000000091EE.07C: Sem vagas suficientes!
 0000000091EF.07C: Editar grupo
-0000000091F0.07C: Segure %1$s / Editar grupo
+0000000091F0.07C: Segure %1$s /Editar grupo
 0000000091F1.07C: Editar grupo
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -22512,20 +22511,6 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000CD3B.07C: - 5 partidas de posicionamento por função
 - Classificação de Habilidade determinada (1-5000)
 - Classificação de Habilidade ajustada após cada vitória ou derrota
-00000000CD3C.07C: Temporadas
-00000000CD3D.07C: - As partidas duram várias rodadas
-- Conquiste objetivos para ganhar pontos
-- Vence quem fizer mais pontos!
-00000000CD3E.07C: - Nova temporada a cada 2 meses
-- Ganhe recompensas exclusivas
-- Posicionamento reiniciado a cada temporada
-00000000CD3F.07C: 15
-00000000CD40.07C: 30
-00000000CD41.07C: 60
-00000000CD42.07C: 120
-00000000CD43.07C: 200
-00000000CD44.07C: 300
-00000000CD45.07C: 400
 00000000CD47.07C: 25 Créditos
 00000000CD48.07C: 10 Créditos
 00000000CD49.07C: 20 Créditos
@@ -27473,7 +27458,7 @@ https://account.blizzard.com/connections/nintendo
 000000010A94.07C: Washington Justice (Visitante)
 000000010A95.07C: Botão
 000000010A96.07C: Dano - Duplicar
-000000010A97.07C: %1$s Duplicate Damage Done
+000000010A97.07C: %1$s de dano duplicado causado
 000000010A98.07C: |Rpl %1$s:Acerto direto:Acertos diretos; com Bombas Aderentes - maior número em jogo
 000000010A99.07C: %1$s |Rpl Acerto direto:Acertos diretos; com Bombas Aderentes - maior número em jogo
 000000010A9A.07C: |Rpl %1$s:Acerto direto:Acertos diretos; com Bombas Aderentes - média por 10 min
@@ -27762,5 +27747,32 @@ Suporte da Blizzard
 000000010E90.07C: O(s) Jogador(es) cuja posição deixará de ser forçada.
 000000010E95.07C: sinatraa, MVP da Liga Overwatch 2019
 000000010E9F.07C: Visual Lendário Alienígena
+000000010EA4.07C: Fila por função
+000000010EA5.07C: Fila Aberta
+000000010EA6.07C: Seleção de heróis limitada por função
+000000010EA7.07C: Seleção de heróis sem limite por função
+000000010EAF.07C: JOGO COMPETITIVO
+000000010EE1.07C: Temporada inativa
 000000010EEC.07C: Encontrar mais jogadores
-[Core] Execution finished in 00:00:00.4093605 seconds
+000000010F5B.07C: Fila por função
+000000010F5C.07C: Fila Aberta
+000000010F5D.07C: - 10 Partidas de posicionamento
+- Classificação de Habilidade determinada (1-5000)
+- A Classificação de Habilidade é ajustada após cada vitória ou derrota
+000000010FDD.07C: A Classificação de Habilidade inicial mais alta obtida ao completar partidas de posicionamento é de 3900.
+000000010FE0.07C: Você obteve a Classificação de Habilidade mais alta possível ao completar suas partidas de posicionamento!
+000000010FF8.07C: Combinada
+000000010FF9.07C: Tanque
+000000010FFA.07C: Dano
+000000010FFB.07C: Suporte
+000000010FFC.07C: Fila Aberta
+000000011020.07C: Temporada Competitiva %1$s - Fila Aberta
+000000011021.07C: Temporada Competitiva Atual - Fila Aberta
+000000011138.07C: 65
+000000011139.07C: 125
+00000001113A.07C: 250
+00000001113B.07C: 500
+00000001113C.07C: 750
+00000001113D.07C: 1200
+00000001113E.07C: 1750
+[Core] Execution finished in 00:00:00.4365824 seconds

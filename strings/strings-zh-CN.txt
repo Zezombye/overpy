@@ -1,14 +1,13 @@
-[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
+[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=zhCN", "-T=zhCN"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
-[CASC] Set language to zhCN
-[CASC] Set speech language to zhCN
-[CASC] Overwatch build 1.49.0.0.69939
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[CASC] Text Language: zhCN | Speech Language: zhCN
+[CASC] Overwatch build 1.49.1.0.70708
 [CASC] Initializing...
-[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -8493,7 +8492,7 @@ Andrew Wang
 000000004C59.07C: 管理员 - 暂停游戏
 000000004C5B.07C: 安息
 000000004C67.07C: 竞技比赛第%1$s赛季
-000000004C6C.07C: 当前竞技比赛赛季
+000000004C6C.07C: 当前竞技比赛赛季 - 预设职责
 000000004C70.07C: 继续
 000000004C72.07C: 购买《守望先锋》
 000000004C7B.07C: 机械僵尸掷弹手
@@ -17040,7 +17039,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008C78.07C: 
 000000008C7B.07C: 完成
 000000008C7C.07C: 正在取消
-000000008C7D.07C: 按住%1$s完成
+000000008C7D.07C: 长按<tx%1$s> / 完成
 000000008C7F.07C: 默认
 000000008C80.07C: 随机
 000000008C81.07C: 默认
@@ -17081,7 +17080,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008CD3.07C: Q版
 000000008CD4.07C: 像素
 000000008CE0.07C: 正在离开
-000000008CE1.07C: 按住%1$s离开
+000000008CE1.07C: 长按<tx%1$s>离开
 000000008CE2.07C: 黄忠
 000000008CE3.07C: 职责限定
 000000008CE5.07C: 你的等级提升到了%1$s！
@@ -17275,10 +17274,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000090BF.07C: 寻找更多玩家
 0000000090C0.07C: 寻找更多玩家
 0000000090C1.07C: 芬兰（主场）
-0000000090C2.07C: 长按%1$s寻找更多玩家
+0000000090C2.07C: 长按<tx%1$s> / 寻找更多玩家
 0000000090C3.07C: 加入%1$s游戏
 0000000090C4.07C: 加入%1$s游戏
-0000000090C5.07C: 长按%1$s加入%2$s游戏
+0000000090C5.07C: 长按<tx%1$s> / 加入%2$s游戏
 0000000090C6.07C: 中国香港（主场）
 0000000090C7.07C: 中国台湾（主场）
 0000000090C8.07C: 获奖
@@ -17443,7 +17442,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000091ED.07C: 在快速或竞技比赛中，使用”破坏球“的动力铁球，在2秒内击中4名敌人
 0000000091EE.07C: 空位不足！
 0000000091EF.07C: 编辑队伍
-0000000091F0.07C: 长按%1$s 编辑队伍
+0000000091F0.07C: 长按<tx%1$s> / 编辑队伍
 0000000091F1.07C: 编辑队伍
 0000000091F3.07C: Grand Finals
 0000000091F4.07C: Champions
@@ -22629,20 +22628,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CD3B.07C: - 每个职责 5 场定级赛
 - 评定竞技等级（1-5000）
 - 胜利/战败将调整竞技等级
-00000000CD3C.07C: 天梯赛季
-00000000CD3D.07C: - 比赛包括多个回合
-- 夺取目标可以得分
-- 得分最多即可获胜！
-00000000CD3E.07C: - 每2个月为一赛季
-- 可获得专属奖励
-- 每赛季开始都必须重新进行定级赛
-00000000CD3F.07C: 15
-00000000CD40.07C: 30
-00000000CD41.07C: 60
-00000000CD42.07C: 120
-00000000CD43.07C: 200
-00000000CD44.07C: 300
-00000000CD45.07C: 400
 00000000CD47.07C: 25货币
 00000000CD48.07C: 10货币
 00000000CD49.07C: 20货币
@@ -27620,7 +27605,7 @@ https://account.blizzard.com/connections/nintendo
 000000010A94.07C: 华盛顿正义队客场
 000000010A95.07C: 按钮
 000000010A96.07C: 人格复制伤害
-000000010A97.07C: %1$s Duplicate Damage Done
+000000010A97.07C: 人格复制造成伤害 %1$s
 000000010A98.07C: 单场最多黏性炸弹直接命中
 000000010A99.07C: 单场最多黏性炸弹直接命中 %1$s
 000000010A9A.07C: 平均每10分钟黏性炸弹直接命中
@@ -27909,5 +27894,32 @@ https://account.blizzard.com/connections/nintendo
 000000010E90.07C: 停止强制设置下列玩家的位置。
 000000010E95.07C: 2019赛季《守望先锋联赛》MVP sinatraa
 000000010E9F.07C: 异化战士传奇皮肤
+000000010EA4.07C: 预设职责
+000000010EA5.07C: 开放排位
+000000010EA6.07C: 英雄选择时有职责限制
+000000010EA7.07C: 英雄选择时没有职责限制
+000000010EAF.07C: 竞技比赛
+000000010EE1.07C: 赛季未激活
 000000010EEC.07C: 寻找更多玩家
-[Core] Execution finished in 00:00:00.4232987 seconds
+000000010F5B.07C: 预设职责
+000000010F5C.07C: 开放排位
+000000010F5D.07C: - 10场定级赛
+- 评定竞技等级（1-5000）
+- 胜利/战败将调整竞技等级
+000000010FDD.07C: 完成定级赛之后的初始竞技等级上限为3900。
+000000010FE0.07C: 您已经达到了定级赛的初始竞技等级上限。
+000000010FF8.07C: 综合
+000000010FF9.07C: 重装
+000000010FFA.07C: 输出
+000000010FFB.07C: 支援
+000000010FFC.07C: 开放排位
+000000011020.07C: 竞技比赛第%1$s赛季 - 开放排位
+000000011021.07C: 当前竞技比赛赛季 - 开放排位
+000000011138.07C: 65
+000000011139.07C: 125
+00000001113A.07C: 250
+00000001113B.07C: 500
+00000001113C.07C: 750
+00000001113D.07C: 1200
+00000001113E.07C: 1750
+[Core] Execution finished in 00:00:00.4356901 seconds

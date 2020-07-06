@@ -1,14 +1,13 @@
-[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
+[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
-[CASC] Set language to enUS
-[CASC] Set speech language to enUS
-[CASC] Overwatch build 1.49.0.0.69939
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[CASC] Text Language: enUS | Speech Language: enUS
+[CASC] Overwatch build 1.49.1.0.70708
 [CASC] Initializing...
-[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -8457,7 +8456,7 @@ Matches
 000000004C59.07C: Moderator - Pause Game
 000000004C5B.07C: R.I.P.
 000000004C67.07C: Competitive Season %1$s
-000000004C6C.07C: Current Competitive Season
+000000004C6C.07C: Current Competitive Season - Role Queue
 000000004C70.07C: Continue
 000000004C72.07C: Buy Overwatch
 000000004C7B.07C: Zombardier
@@ -22508,20 +22507,6 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CD3B.07C: - 5 Placement matches per role
 - Skill rating determined (1-5000)
 - Skill rating adjusts after each win or loss
-00000000CD3C.07C: Seasons
-00000000CD3D.07C: - Matches last multiple rounds
-- Earn points by taking objectives
-- Most points win!
-00000000CD3E.07C: - New season every 2 months
-- Earn exclusive rewards
-- Placement starts again each season
-00000000CD3F.07C: 15
-00000000CD40.07C: 30
-00000000CD41.07C: 60
-00000000CD42.07C: 120
-00000000CD43.07C: 200
-00000000CD44.07C: 300
-00000000CD45.07C: 400
 00000000CD47.07C: 25 Credits
 00000000CD48.07C: 10 Credits
 00000000CD49.07C: 20 Credits
@@ -27758,5 +27743,32 @@ Blizzard Support
 000000010E90.07C: The Player or Players whose positions will stop being forced.
 000000010E95.07C: 2019 Overwatch League MVP sinatraa
 000000010E9F.07C: Alien Legendary Skin
+000000010EA4.07C: Role Queue
+000000010EA5.07C: Open Queue
+000000010EA6.07C: Role limits on hero selection
+000000010EA7.07C: No role limits on hero selection
+000000010EAF.07C: COMPETITIVE PLAY
+000000010EE1.07C: Season Not Active
 000000010EEC.07C: Find More Players
-[Core] Execution finished in 00:00:00.4587238 seconds
+000000010F5B.07C: Role Queue
+000000010F5C.07C: Open Queue
+000000010F5D.07C: - 10 Placement matches
+- Skill rating determined (1-5000)
+- Skill rating adjusts after each win or loss
+000000010FDD.07C: The highest initial Skill Rating earned after completing placement matches is 3900.
+000000010FE0.07C: You earned the highest initial Skill Rating available after completing your placement matches!
+000000010FF8.07C: Combined
+000000010FF9.07C: Tank
+000000010FFA.07C: Damage
+000000010FFB.07C: Support
+000000010FFC.07C: Open Queue
+000000011020.07C: Competitive Season %1$s - Open Queue
+000000011021.07C: Current Competitive Season - Open Queue
+000000011138.07C: 65
+000000011139.07C: 125
+00000001113A.07C: 250
+00000001113B.07C: 500
+00000001113C.07C: 750
+00000001113D.07C: 1200
+00000001113E.07C: 1750
+[Core] Execution finished in 00:00:00.5586901 seconds

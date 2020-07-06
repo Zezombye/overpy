@@ -632,8 +632,10 @@ function astToOpy(content) {
         var result = "";
         if (content.name === "__localizedString__") {
             result += "l";
+            result += escapeString(topy(content.args[0].name, stringKw))
+        } else {
+            result += escapeString(content.args[0].name);
         }
-        result += escapeString(content.args[0].name);
         if (formatArgs.length > 0) {
             result += ".format("+formatArgs.map(x => astToOpy(x)).join(", ")+")";
         }

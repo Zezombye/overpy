@@ -17,7 +17,9 @@
 
 "use strict";
 
-const gamemodeKw = {
+const gamemodeKw =
+//begin-json
+{
     "assault": {
         "guid": "00000000CD59",
         "en-US": "Assault",
@@ -121,7 +123,7 @@ const gamemodeKw = {
         "pl-PL": "Hybryda",
         "pt-BR": "Híbrido",
         "ru-RU": "Гибридный режим",
-        "zh-CN": "攻击/护送",
+        "zh-CN": "攻击护送",
         "zh-TW": "混合"
     },
     "junkenstein": {
@@ -202,7 +204,20 @@ const gamemodeKw = {
         "zh-TW": "衝突戰"
     },
     "snowballFfa": {
+        "guid": "00000000EC7B",
         "en-US": "Snowball Deathmatch",
+        "de-DE": "Schneeball-Deathmatch",
+        "es-ES": "Pelea de bolas de nieve a muerte",
+        "es-MX": "Combate a muerte Bola de Nieve",
+        "fr-FR": "Combat à mort de boules de neige",
+        "it-IT": "Deathmatch Palle di Neve",
+        "ja-JP": "雪合戦（デスマッチ）",
+        "ko-KR": "눈싸움 데스매치",
+        "pl-PL": "Śnieżkowy Deathmatch",
+        "pt-BR": "Combate até a Morte de Bola de Neve",
+        "ru-RU": "Снежная схватка",
+        "zh-CN": "雪球死斗",
+        "zh-TW": "雪球死鬥大作戰"
     },
     "tdm": {
         "guid": "000000006854",
@@ -237,3 +252,4 @@ const gamemodeKw = {
         "zh-TW": "雪怪大作戰"
     }
 }
+//end-json

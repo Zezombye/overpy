@@ -3997,7 +3997,7 @@ var valueFuncKw =
         "return": "unsigned float",
         "guid": "00000000B260",
         "en-US": "Speed Of In Direction",
-        "es-MX": "Velocidad de/en dirección",
+        "es-MX": "Velocidad deen dirección",
         "fr-FR": "Vitesse dans la direction donnée de",
         "ja-JP": "速さと方向: ",
         "pt-BR": "Velocidade de na Direção",

@@ -1,14 +1,13 @@
-[Core] DataTool v1.49.0.876-git-e6d7758bb3a43ed0db11fe5f5d88281e9068e809
+[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(17)\DataTool.exe.args
-[CASC] Set language to plPL
-[CASC] Set speech language to plPL
-[CASC] Overwatch build 1.49.0.0.69939
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[CASC] Text Language: plPL | Speech Language: plPL
+[CASC] Overwatch build 1.49.1.0.70708
 [CASC] Initializing...
-[Manifest] Using TRG procedure 69939 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 69939 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -8483,7 +8482,7 @@ w 2. sezonie
 000000004C59.07C: Moderator – pauza
 000000004C5B.07C: Nagrobek
 000000004C67.07C: Rywalizacja – sezon %1$s
-000000004C6C.07C: Rywalizacja – bieżący sezon
+000000004C6C.07C: Bieżący sezon Rywalizacji – Dobieranie ról
 000000004C70.07C: Kontynuuj
 000000004C72.07C: Kup Overwatch
 000000004C7B.07C: Złombardier
@@ -17080,7 +17079,7 @@ Czy chcesz anulować?
 000000008CD3.07C: Słodziak
 000000008CD4.07C: Piksel
 000000008CE0.07C: Wychodzenie
-000000008CE1.07C: Przytrzymaj %1$s, aby wyjść.
+000000008CE1.07C: Przytrzymaj %1$s, aby wyjść
 000000008CE2.07C: Huang Zhong
 000000008CE3.07C: Wymuś role
 000000008CE5.07C: Awansujesz na poziom %1$s!
@@ -22718,20 +22717,6 @@ letnich igrzysk 2019
 00000000CD3B.07C: – 5 meczów klasyfikacyjnych na rolę
 – Określenie rangi umiejętności (1-5000)
 – Ranga zmienia się po każdej wygranej lub przegranej
-00000000CD3C.07C: Sezony
-00000000CD3D.07C: – Mecze składają się z wielu rund
-– Zajmowanie celów zapewnia punkty
-– O wygranej decyduje przewaga punktowa
-00000000CD3E.07C: – Nowy sezon co 2 miesiące
-– Wyjątkowe nagrody
-– Ponowna klasyfikacja na początku sezonu
-00000000CD3F.07C: 15
-00000000CD40.07C: 30
-00000000CD41.07C: 60
-00000000CD42.07C: 120
-00000000CD43.07C: 200
-00000000CD44.07C: 300
-00000000CD45.07C: 400
 00000000CD47.07C: 25 kredytów
 00000000CD48.07C: 10 kredytów
 00000000CD49.07C: 20 kredytów
@@ -27614,14 +27599,16 @@ w sezonie 22.
 – Zajmowanie celów zapewnia punkty
 – O wygranej decyduje przewaga punktowa!
 0000000109FF.07C: Zdolność dla zdarzenia aktualnie przetwarzanego przez tę regułę powiązaną z przyciskiem.
-000000010A0B.07C: Uczestnik 1. sezonu Otwartej Rywalizacji
+000000010A0B.07C: Uczestnik
+1. sezonu Otwartej Rywalizacji
 000000010A0C.07C: Nagroda
 za mecze klasyfikacyjne
 w 1. sezonie Otwartej Rywalizacji
 000000010A0D.07C: Bohater 1. sezonu Otwartej Rywalizacji
 000000010A0E.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec 1. sezonu Otwartej Rywalizacji.
 000000010A0F.07C: Uczestnik 1. sezonu Otwartej Rywalizacji
-000000010A11.07C: Bohater 1. sezonu Otwartej Rywalizacji
+000000010A11.07C: Bohater
+1. sezonu Otwartej Rywalizacji
 000000010A16.07C: Szybowanie
 000000010A17.07C: %1$s: %2$s
 000000010A1C.07C: Szybko skupiaj ataki na Echo, kiedy użyje ona Duplikacji, aby uniemożliwić jej użycie niszczycielskiej superzdolności.
@@ -27709,7 +27696,7 @@ w 1. sezonie Otwartej Rywalizacji
 000000010A94.07C: Washington Justice (Goście)
 000000010A95.07C: Przycisk
 000000010A96.07C: Obrażenia – Duplikacja
-000000010A97.07C: %1$s Duplicate Damage Done
+000000010A97.07C: Zadane obrażenia podczas Duplikacji: %1$s
 000000010A98.07C: |Rpl %1$s:bezpośrednie trafienia:bezpośrednie trafienia:bezpośrednie trafienia; Bombami Przyczepnymi – najwięcej w meczu
 000000010A99.07C: %1$s |Rpl bezpośrednie trafienie:bezpośrednie trafienia:bezpośrednich trafień; Bombami Przyczepnymi – najwięcej w meczu
 000000010A9A.07C: |Rpl %1$s:trafienia:trafienia:trafienia; Skupioną Wiązką – średnio na 10 min.
@@ -27962,9 +27949,11 @@ w sezonie 23.
 000000010E52.07C: Detach Players
 000000010E53.07C: Potomne
 000000010E55.07C: Wyrównanie
-000000010E5A.07C: Bohater 2. sezonu Otwartej Rywalizacji
+000000010E5A.07C: Bohater
+2. sezonu Otwartej Rywalizacji
 000000010E5B.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec 2. sezonu Otwartej Rywalizacji.
-000000010E5C.07C: Uczestnik 2. sezonu Otwartej Rywalizacji
+000000010E5C.07C: Uczestnik
+2. sezonu Otwartej Rywalizacji
 000000010E5D.07C: Nagroda
 za mecze klasyfikacyjne
 w 2. sezonie Otwartej Rywalizacji.
@@ -28002,12 +27991,39 @@ w 1. sezonie Otwartej Rywalizacji
 000000010E89.07C: Gracz
 000000010E8A.07C: Gracz, którego pozycja zostanie wymuszona (opcja „Reevaluation” – Ponowne oszacowanie – nie ma zastosowania dla tej wartości).
 000000010E8B.07C: Pozycja, którą zajmie gracz. Jeśli „Reevaluation” (Ponowne oszacowanie) jest włączone, wartość ta może być użyta do przemieszczania gracza z upływem czasu.
-000000010E8C.07C: Jeśli ta wartość jest prawdziwa, wówczas pozycja zostanie ponownie oszacowana i zastosowana dla każdej klatki gracza. Jeżeli ta wartość jest fałszywa, wówczas pozycja jest oceniana tylko raz, gdy rozpoczyna się działanie.
+000000010E8C.07C: Jeśli ta wartość jest równa „True” (Prawda), wówczas pozycja zostanie ponownie oszacowana i zastosowana dla każdej klatki gracza. Jeżeli ta wartość jest równa „False” (Fałsz), wówczas pozycja jest oceniana tylko raz, gdy rozpoczyna się działanie.
 000000010E8D.07C: Stop Forcing Player Position
 000000010E8E.07C: Anuluje zachowanie „Start Forcing Player Position” (Rozpocznij wymuszanie pozycji gracza) dla określonego gracza lub graczy. Regularny ruch zostanie wznowiony od ostatniej wymuszonej pozycji.
 000000010E8F.07C: Gracz
 000000010E90.07C: Gracz lub gracze, których pozycje przestaną być wymuszane.
 000000010E95.07C: MVP Overwatch League 2019 – sinatraa
 000000010E9F.07C: Legendarna skórka – Facetka w Czerni
+000000010EA4.07C: Dobieranie ról
+000000010EA5.07C: Otwarta Rywalizacja
+000000010EA6.07C: Ograniczenia ról przy wyborze bohaterów.
+000000010EA7.07C: Brak ograniczeń ról przy wyborze bohaterów.
+000000010EAF.07C: TRYB RYWALIZACJI
+000000010EE1.07C: Sezon nieaktywny
 000000010EEC.07C: Znajdź więcej graczy
-[Core] Execution finished in 00:00:00.4125399 seconds
+000000010F5B.07C: Dobieranie ról
+000000010F5C.07C: Otwarta Rywalizacja
+000000010F5D.07C: – 10 meczów klasyfikacyjnych
+– Określenie rangi umiejętności (1-5000)
+– Ranga zmienia się po każdej wygranej lub przegranej
+000000010FDD.07C: Najwyższa możliwa ranga umiejętności po ukończeniu meczów klasyfikacyjnych to 3900.
+000000010FE0.07C: Udało ci się ukończyć mecze klasyfikacyjne i osiągnąć najwyższą możliwą rangę umiejętności!
+000000010FF8.07C: Połączone
+000000010FF9.07C: Tank
+000000010FFA.07C: Natarcie
+000000010FFB.07C: Wsparcie
+000000010FFC.07C: Otwarta Rywalizacja
+000000011020.07C: %1$s sezon Rywalizacji – Otwarta Rywalizacja
+000000011021.07C: Bieżący sezon Rywalizacji – Otwarta Rywalizacja
+000000011138.07C: 65
+000000011139.07C: 125
+00000001113A.07C: 250
+00000001113B.07C: 500
+00000001113C.07C: 750
+00000001113D.07C: 1200
+00000001113E.07C: 1750
+[Core] Execution finished in 00:00:00.4400769 seconds
