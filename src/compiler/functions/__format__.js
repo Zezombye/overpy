@@ -59,7 +59,7 @@ astParsingFunctions.__format__ = function(content) {
     if (content.args[0].type === "LocalizedStringLiteral") {
         return parseLocalizedString(content.args[0], content.args.slice(1));
     } else {
-		console.log(content);
+		//console.log(content);
         return parseCustomString(content.args[0], content.args.slice(1));
     }
 
@@ -225,7 +225,7 @@ function parseStringTokens(tokens, args) {
 		}
 	}
 
-	console.log(tokens);
+	//console.log(tokens);
 	//debugger;
 
 	//Add tokens
@@ -236,9 +236,9 @@ function parseStringTokens(tokens, args) {
 		result = tokens[0].text;
 	} else {
 		for (var i = 0; i < tokens.length; i++) {
-			console.log(tokens[i]);
-			console.log("numbers encountered=");
-			console.log(numbersEncountered);
+			//console.log(tokens[i]);
+			//console.log("numbers encountered=");
+			//console.log(numbersEncountered);
 			//debugger;
 	
 			//length check

@@ -457,12 +457,15 @@ function tokenize(content) {
 	if (bracketsLevel > 0) {
 		error("Found end of file, but a bracket isn't closed");
 	}
+
+	if (DEBUG_MODE) {
+		//console.log("macros = ");
+		//console.log(macros);
+		//console.log(rules);
+		console.log(result.join("\n"));
+		//console.log(result);
+	}
 	
-	//console.log("macros = ");
-	//console.log(macros);
-	//console.log(rules);
-	console.log(result.join("\n"));
-	//console.log(result);
 	
 	return result;
 	

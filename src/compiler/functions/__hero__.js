@@ -20,8 +20,8 @@
 astParsingFunctions.__hero__ = function(content) {
 
     if (obfuscationSettings.obfuscateConstants) {
-        console.log(content);
-        console.log(content.args[0].name);
+        //console.log(content);
+        //console.log(content.args[0].name);
         return new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
             getAstForNumber(obfuscationConstantsMapping.HeroLiteral[content.args[0].name]),

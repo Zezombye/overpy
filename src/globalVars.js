@@ -363,3 +363,6 @@ typeMatrix["Vector"].push("Direction", "Position", "Velocity");
 
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
 var astParsingFunctions = {};
+
+//If it is in a browser then it is assumed to be in debug mode.
+const DEBUG_MODE = false;//(typeof window !== "undefined");

@@ -73,7 +73,7 @@ astParsingFunctions.__rule__ = function(content) {
                 "__wait__",
                 "__while__",
             ].includes(children[i].name) && children[i].type !== "Label") {
-                console.log("meaningful instruction :"+children[i].name);
+                console.debug("meaningful instruction :"+children[i].name);
                 hasMeaningfulInstructionBeenEncountered = true;
             }
 
@@ -166,7 +166,7 @@ astParsingFunctions.__rule__ = function(content) {
     if (enableOptimization && content.ruleAttributes.conditions) {
         for (var i = 0; i < content.ruleAttributes.conditions.length; i++) {
             if (isDefinitelyFalsy(content.ruleAttributes.conditions[i])) {
-                console.log("has false condition);");
+                console.debug("rule has false condition");
                 return getAstForUselessInstruction();
             } else if (isDefinitelyTruthy(content.ruleAttributes.conditions[i])) {
                 content.ruleAttributes.conditions.splice(i, 1);

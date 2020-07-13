@@ -23,7 +23,7 @@ astParsingFunctions.__raiseToPower__ = function(content) {
 
         //If both arguments are numbers, return their power.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            console.log(content);
+            //console.log(content);
             if (content.args[0].args[0].numValue < 0) {
                 return getAstFor0();
             }
@@ -46,8 +46,8 @@ astParsingFunctions.__raiseToPower__ = function(content) {
         }
 
         //negative number ** A -> 0
-        console.log(content.args[0].args[0].numValue);
-        console.log(content.args[0].type);
+        //console.log(content.args[0].args[0].numValue);
+        //console.log(content.args[0].type);
         if (content.args[0].type !== "Value" && isTypeSuitable("signed float", content.args[0].type)) {
             return getAstFor0();
         }

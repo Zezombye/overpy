@@ -269,7 +269,7 @@ function activate(context) {
             fillAutocompletionVariables(compiledText.globalVariables, compiledText.playerVariables);
             fillAutocompletionSubroutines(compiledText.subroutines);
             refreshAutoComplete();
-            console.log(compiledText.macros);
+            //console.log(compiledText.macros);
         } catch (e) {
             if (e instanceof Error) {
                 console.error(e);
@@ -542,9 +542,9 @@ function generateSnippetFromDoc(itemName, item) {
         return new vscode.SnippetString(getSnippetForMetaRuleParam(itemName));
     }
 
-    if (itemName === "ARROW_DOWN") {
+    /*if (itemName === "ARROW_DOWN") {
         console.log(item);
-    }
+    }*/
 
     if (item.snippet !== undefined) {
         return new vscode.SnippetString(item.snippet);
@@ -582,7 +582,7 @@ function getSnippetForMetaRuleParam(param) {
         console.log("Could not find param "+param);
         return param;
     }
-    console.log(ruleParam);
+    //console.log(ruleParam);
     if (ruleParam.args && ruleParam.args.length > 0) {
         if (ruleParam.args[0].values) {
             result += " ${1|";

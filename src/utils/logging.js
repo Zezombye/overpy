@@ -60,9 +60,12 @@ function warn(warnType, message) {
 	}
 }
 
-function debug(str) {
-	//return;
-	console.debug("DEBUG: "+str);
+if (DEBUG_MODE) {
+	var debug = function(str) {
+		console.debug("DEBUG: "+str);
+	}
+} else {
+	var debug = function(str) {}
 }
 
 function getTypeCheckFailedMessage(content, argNb, expectedType, received) {

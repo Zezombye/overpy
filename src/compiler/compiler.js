@@ -19,7 +19,7 @@
 
 function compile(content, language="en-US", _rootPath="") {
 	
-	if (typeof window !== "undefined") {
+	if (DEBUG_MODE) {
 		var t0 = performance.now();
 	}
 
@@ -31,8 +31,10 @@ function compile(content, language="en-US", _rootPath="") {
 		var mainFilePath = getFilePath(content.substring("#!mainFile ".length, content.indexOf("\n")));
 		rootPath = mainFilePath.substring(0, mainFilePath.lastIndexOf("/")+1);
 		content = getFileContent(mainFilePath);
-		console.log("content = ");
-		console.log(content);
+		if (DEBUG_MODE) {
+			console.log("content = ");
+			console.log(content);
+		}
 	} else {
 		importedFiles.push(rootPath);
 	}
@@ -46,18 +48,21 @@ function compile(content, language="en-US", _rootPath="") {
 	
 	var astRules = parseLines(lines);
 	astRules.unshift(...getInitDirectivesRules());
-    
-    for (var elem of astRules) {
-        console.log(astToString(elem));
-    }
-    
-	console.log(astRules);
+	
+	if (DEBUG_MODE) {
+		for (var elem of astRules) {
+			console.log(astToString(elem));
+		}
+		console.log(astRules);
+	}
     var parsedAstRules = parseAstRules(astRules);
 
-    /*for (var elem of parsedAstRules) {
-        console.log(astToString(elem));
-    }*/
-    console.log(parsedAstRules);
+	if (DEBUG_MODE) {
+		/*for (var elem of parsedAstRules) {
+			console.log(astToString(elem));
+		}*/
+		console.log(parsedAstRules);
+	}
 
 	var compiledRules = astRulesToWs(parsedAstRules);
 	if (Object.keys(obfuscationSettings).some(x => obfuscationSettings[x])) {
@@ -68,7 +73,7 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
     
-	if (typeof window !== "undefined") {
+	if (DEBUG_MODE) {
 		var t1 = performance.now();
 		console.log("Compilation time: "+(t1-t0)+"ms");
 	}

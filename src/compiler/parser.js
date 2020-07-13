@@ -57,7 +57,7 @@ function parseLines(lines) {
                 if (lines[i].tokens[j].text === "=") {
                     initDirective = lines[i].tokens.slice(j+1);
                     lines[i].tokens = lines[i].tokens.slice(0, j);
-                    console.log("init directive : "+dispTokens(initDirective));
+                    //console.log("init directive : "+dispTokens(initDirective));
                     break;
                 }
             }
@@ -152,10 +152,10 @@ function parseLines(lines) {
 
             //Handle one-line children such as "if A: B++"
             if (lineMembers[1].length > 0) {
-                console.log(JSON.stringify(lineMembers[1], null, 4));
-                console.log(JSON.stringify(childrenLines, null, 4));
+                //console.log(JSON.stringify(lineMembers[1], null, 4));
+                //console.log(JSON.stringify(childrenLines, null, 4));
                 childrenLines.push(new LogicalLine(currentLineIndent+1, lineMembers[1]));
-                console.log(JSON.stringify(childrenLines, null, 4));
+                //console.log(JSON.stringify(childrenLines, null, 4));
             }
             
             
@@ -610,8 +610,8 @@ function parse(content, kwargs={}) {
 	if (name === "raycast") {
 
         if (args.length === 5) {
-            console.log(args[2])
-            console.log(args[2].length)
+            //console.log(args[2])
+            //console.log(args[2].length)
 			if (args[2].length >= 2 && (args[2][0].text === "include" || args[2][1].text === "=")) {
 				args[2] = args[2].slice(2);
             } 
