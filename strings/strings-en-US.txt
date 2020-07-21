@@ -1,13 +1,13 @@
-[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
+[Core] DataTool v1.50.0.878-git-14cc6c1bce8898083a3a1bbdd238d6185ae7386e
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(19)\DataTool.exe.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.49.1.0.70708
+[CASC] Overwatch build 1.50.0.0.70665
 [CASC] Initializing...
-[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 70665 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -2794,7 +2794,7 @@ Experience new ways to play with a changing selection of game modes that include
 0000000025C1.07C: Gunspinning
 0000000025C2.07C: Hat Tip
 0000000025C3.07C: Spit
-0000000025C4.07C: Noose
+0000000025C4.07C: Bad Luck
 0000000025C5.07C: Thumbs Up
 0000000025C6.07C: Bang!
 0000000025C8.07C: Deadeye
@@ -7731,9 +7731,6 @@ Andrew Wang
 00000000460A.07C: Cannot join custom game while the game is installing
 00000000460D.07C: Disconnected from server because your profile was signed out.
 00000000460F.07C: Each loot box contains a combination of up to 4 cosmetic items and/or in-game credits. Loot Boxes can be earned through in-game systems.
-000000004619.07C: PURCHASE
-00000000461A.07C: CANCEL
-00000000461B.07C: NO OVERWATCH LICENSE FOUND.
 00000000461C.07C: www.buyoverwatch.com
 00000000461D.07C: #%1$s
 000000004625.07C: An error occurred while accepting the invite
@@ -8503,7 +8500,6 @@ Matches
 000000004CCD.07C: Dr. Junkenstein
 000000004CCE.07C: The Reaper
 000000004CCF.07C: Paused
-000000004CD0.07C: Recent Achievements
 000000004CD1.07C: Concussion Mine
 000000004CD3.07C: The Witch
 000000004CD4.07C: Halloween Terror 2016
@@ -8736,7 +8732,6 @@ Matches
 000000004FB0.07C: %1$s Shotguns Dropped
 000000004FB1.07C: Held The Door
 000000004FB2.07C: Win Junkenstein's Revenge on Legendary difficulty.
-000000004FB6.07C: Special
 000000004FC6.07C: DOOR HEALTH BONUS + %1$s pts
 000000004FC7.07C: ELITE ELIMINATION BONUS + %1$s pts
 000000004FC8.07C: SURVIVAL BONUS + %1$s pts
@@ -14394,7 +14389,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000711F.07C: The Overwatch World Cup
 000000007120.07C: Watch
 000000007121.07C: worldcup.playoverwatch.com
-000000007123.07C: This will open a browser in another window
 000000007124.07C: Ok
 000000007125.07C: Cancel
 000000007133.07C: Icon
@@ -14759,7 +14753,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s Sleep Dart |Rpl Hit:Hits;
 000000007460.07C: Pulse Bomb Attach Rate
 000000007461.07C: %1$s Pulse Bomb Attach Rate
-000000007470.07C: CANCEL
 000000007472.07C: Coalesence - Healing per Use
 000000007473.07C: %1$s Coalesence - Healing per Use
 000000007474.07C: Coalesence - Damage per Use
@@ -15058,7 +15051,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 0000000076AE.07C: 100 League Tokens
 0000000076BD.07C: Launch your flail forward to knock an enemy away from you.
 0000000076BE.07C: Whip Shot
-0000000076C1.07C: Heal an ally. Any healing over maximum health provides armor instead.
+0000000076C1.07C: Heals an ally for a short duration.
 0000000076C2.07C: Repair Pack
 0000000076C5.07C: Move faster and provide armor to nearby allies.
 0000000076C6.07C: Rally
@@ -17051,8 +17044,6 @@ Do you want to cancel?
 000000008DB5.07C: Endorsements unavailable for friends.
 000000008DB6.07C: You have used all of your endorsements for this match.
 000000008DCE.07C: Turret
-000000008DEC.07C: PHONE NUMBER REQUIRED.
-000000008DEE.07C: ATTACH SMS
 000000008DEF.07C: Demon
 000000008DF2.07C: https://account.blizzard.com/details/sms/setup/add
 000000008DF3.07C: Account requires a phone number.
@@ -17364,7 +17355,6 @@ Do you want to cancel?
 00000000920A.07C: Better living through science
 00000000920B.07C: Available in Summer Games Loot Boxes
 000000009215.07C: Achievements
-000000009234.07C: %1$s %2$s
 000000009235.07C: No hard feelings
 000000009236.07C: Frustration detected
 000000009237.07C: Relief detected
@@ -17551,8 +17541,6 @@ Do you want to cancel?
 0000000093B4.07C: Unlocked by participating in the 2018 OWL Grand Finals event
 0000000093BB.07C: Purchase all unlocks?
 0000000093BC.07C: Zhang Fei
-0000000093DE.07C: Contenders
-0000000093DF.07C: Contenders
 0000000093E1.07C: Competitive Team Deathmatch Season 1
 0000000093E2.07C: Team Deathmatch
 0000000093E3.07C: Competitive Team Deathmatch
@@ -18096,7 +18084,6 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000A44C.07C: Amplification Matrix
 00000000A44D.07C: Project a matrix that doubles the damage and healing effects of allied projectiles.
 00000000A451.07C: Three-round burst gun.
-00000000A48E.07C: Ok
 00000000A496.07C: Sanctuary
 00000000A49C.07C: Deadlock
 00000000A49E.07C: Player Outline Strength
@@ -21721,9 +21708,6 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C47E.07C: Create new ways to play!  Visit the Workshop forums to ask questions, share ideas, and find examples!
 00000000C47F.07C: Visit Forums
 00000000C480.07C: https://us.forums.blizzard.com/en/overwatch/c/workshop
-00000000C481.07C: This will open a browser in another window
-00000000C482.07C: Ok
-00000000C483.07C: Cancel
 00000000C4A3.07C: Report Code
 00000000C4A4.07C: 3v3 Elimination
 00000000C4A5.07C: If flag (F) not set, enable ultimate ability, set ultimate charge to 100, and set flag
@@ -22201,7 +22185,6 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C9A4.07C: Display server performance characteristics
 00000000C9A5.07C: Server Load
 00000000C9A8.07C: Displays server performance characteristics. This preset's rule can be copied into any script to measure that script's impact on the server.
-00000000C9DE.07C: %1$s: %2$s
 00000000C9E3.07C: Currently unavailable
 00000000C9E4.07C: Role Filled
 00000000C9E5.07C: Opera
@@ -22226,7 +22209,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CA0C.07C: You must select a role before your group can queue. Select now?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Week 1: Carbon Fiber Sigma
+00000000CA11.07C: Sigma's Maestro Challenge
 00000000CA13.07C: Week 2: Fleur de Lis Widowmaker
 00000000CA14.07C: Week 3: Masked Man McCree
 00000000CA15.07C: Win 9 games in quick play, arcade, or competitive play!
@@ -22579,9 +22562,6 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CE69.07C: Error: Encountered a string literal that lacks closing quotes after '%1$s' on line %2$s
 00000000CE6D.07C: Vampire
 00000000CE6E.07C: Editing text has been disabled on this account.
-00000000CE75.07C: This will open a browser in another window
-00000000CE76.07C: Ok
-00000000CE77.07C: Cancel
 00000000CE80.07C: Create Beam Effect
 00000000CE81.07C: Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the Last Created Entity Value. This Action will fail if too many entities have been created.
 00000000CE82.07C: Start Position
@@ -25910,8 +25890,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D24E.07C: Available in Halloween Loot Boxes
 00000000D24F.07C: Mind the beard
 00000000D250.07C: Available in Halloween Loot Boxes
-00000000D257.07C: https://www.twitch.tv/overwatchleague
-00000000D25B.07C: CANCEL
 00000000D264.07C: New content will only be available on application restart.
 00000000D265.07C: Warning
 00000000D2C9.07C: Busan Downtown (Lunar New Year)
@@ -26159,7 +26137,6 @@ https://account.blizzard.com/connections/nintendo
 00000000EBD7.07C: Suit fitting
 00000000EBD9.07C: Late night
 00000000EBDB.07C: Ascent
-00000000EBE7.07C: https://blizzcon.playoverwatch.com/story
 00000000EBF1.07C: Jötunn
 00000000EBF3.07C: Get Ready
 00000000EC0C.07C: Deathmatch
@@ -26243,9 +26220,6 @@ https://account.blizzard.com/connections/nintendo
 00000000F0F4.07C: <fg%1$s>SLEEP</fg>
 00000000F0FE.07C: For California residents only
 00000000F0FF.07C: Do not sell my personal information
-00000000F102.07C: This will open a browser in another window
-00000000F103.07C: Ok
-00000000F104.07C: CANCEL
 00000000F12D.07C: Rime
 00000000F12E.07C: Available in Winter Loot Boxes
 00000000F12F.07C: Rat King
@@ -26934,6 +26908,7 @@ https://account.blizzard.com/connections/nintendo
 000000010237.07C: Disconnected due to CAIS time limit reached
 000000010239.07C: Experimental
 00000001023B.07C: This Replay is not in your recently played list. Unpinning this Replay will cause it to be lost. Continue?
+00000001023D.07C: Maestro
 000000010248.07C: Bear
 000000010249.07C: Holi
 00000001024A.07C: Rustclad
@@ -27308,6 +27283,7 @@ https://account.blizzard.com/connections/nintendo
 0000000108E8.07C: Unlocked by attending a 2020 Homestand Event
 0000000108E9.07C: Atlanta Reign Homestand 2020
 0000000108F8.07C: Route 66
+0000000108FD.07C: Maestro
 0000000108FE.07C: Flight Plan
 00000001094D.07C: Alien
 000000010950.07C: Unlocked by watching participating streams during the Echo hero launch event
@@ -27361,6 +27337,7 @@ https://account.blizzard.com/connections/nintendo
 - Earn points by taking objectives
 - Most points win!
 0000000109FF.07C: The ability for the Event currently being processed by this Rule associated by button.
+000000010A0A.07C: Invalid Lobby Settings. You must fix or discard your changes.
 000000010A0B.07C: Open Queue Season 1 Competitor
 000000010A0C.07C: Unlocked by completing Competitive Open Queue Season 1 placement matches
 000000010A0D.07C: Open Queue Season 1 Hero
@@ -27559,7 +27536,7 @@ https://account.blizzard.com/connections/nintendo
 000000010B54.07C: The hero for the ability that will be converted to an icon.
 000000010B55.07C: The button for the ability that will be converted to an icon
 000000010B57.07C: Melee attack.
-000000010B5F.07C: Thank you for reporting disruptive behavior
+000000010B5F.07C: Thank you for reporting cheating and / or disruptive behavior
 000000010B60.07C: Your recent reports led to actions against players that have violated our policies and disrupt Overwatch games for everyone. 
 
 We can’t provide any details, but your reports make Overwatch more fair and friendly.
@@ -27670,13 +27647,10 @@ Blizzard Support
 000000010CAF.07C: Total Count: %1$s
 000000010CBC.07C:  
 000000010CC8.07C: <fg%1$s>%2$s</fg><tx%3$s> used <tx%4$s> on <fg%7$s>%5$s</fg><tx%6$s>
-000000010CCC.07C:  
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: BACK
-000000010CED.07C:  
 000000010D17.07C: PATCH NOTES (NEW)
-000000010D1E.07C:  
-000000010D22.07C: CANCEL
+000000010D24.07C: Unlocked by participating in the Sigma's Maestro Challenge
 000000010D2B.07C: EMOTE
 000000010D2C.07C: VOICE LINE
 000000010D5A.07C: China - Shenzhen
@@ -27685,17 +27659,27 @@ Blizzard Support
 000000010D86.07C: Room In Lobby
 000000010D88.07C: Room In Game
 000000010D8F.07C: Refresh
+000000010D94.07C: Maestro
 000000010DC1.07C: Season 23 Hero
 000000010DC3.07C: Season 23 Competitor
 000000010DC5.07C: Season 23 Hero
 000000010DC6.07C: Unlocked by achieving top 500 ranking at the end of Season 23
 000000010DC7.07C: Season 23 Competitor
 000000010DC8.07C: Unlocked by completing Season 23 placement matches
+000000010DEF.07C: Maestro
+000000010DF0.07C: Unlocked by watching participating streams during Sigma's Maestro Challenge
+000000010DF1.07C: Fiddle
+000000010DF3.07C: Sitar
+000000010DF5.07C: Bossa Nova
+000000010DF7.07C: Guzheng
+000000010DF9.07C: Djembe
 000000010E2A.07C: Competitive Open Queue Season 2
 000000010E2B.07C: Competitive Open Queue
 000000010E2C.07C: Rise up the ranks and compete with the best players in the world with no role limits on hero selection.
 000000010E46.07C: Competitive Open Queue
 000000010E47.07C: Competitive Open Queue
+000000010E48.07C: Season 23
+000000010E49.07C: Season 23
 000000010E4F.07C: Attach Players
 000000010E50.07C: Parent
 000000010E51.07C: Child
@@ -27722,7 +27706,14 @@ Blizzard Support
 000000010E6B.07C: The hero currently being duplicated by the specified Player. If no hero is being duplicated, the resulting value is 0.
 000000010E6C.07C: Player
 000000010E6D.07C: The Player performing the duplication.
+000000010E6E.07C: Competitive Season 23 - Open Queue
 000000010E70.07C: Priority Requeue
+000000010E73.07C: Paris
+000000010E74.07C: All
+000000010E75.07C: Unlocked
+000000010E76.07C: Locked
+000000010E77.07C: Date Earned (Descending)
+000000010E78.07C: Date Earned (Ascending)
 000000010E7F.07C: Attaches one Player (the Child) to another Player (the Parent). Once attached, the Child will be unable to move freely until detached or teleported away. Multiple children may be attached to the same Parent (but not vice versa).
 000000010E80.07C: The Player that will attach to the Parent. This Player will be unable to move freely until detached or teleported away.
 000000010E81.07C: The Player to whom the Child will attach. This Player's movement will be unaffected and will determine the Child's position.
@@ -27741,20 +27732,45 @@ Blizzard Support
 000000010E8E.07C: Cancels the behavior of Start Forcing Player Position for the specified Player or Players. Regular movement will resume from the last forced position(s).
 000000010E8F.07C: Player
 000000010E90.07C: The Player or Players whose positions will stop being forced.
-000000010E95.07C: 2019 Overwatch League MVP sinatraa
-000000010E9F.07C: Alien Legendary Skin
+000000010E91.07C: Filters
 000000010EA4.07C: Role Queue
 000000010EA5.07C: Open Queue
 000000010EA6.07C: Role limits on hero selection
 000000010EA7.07C: No role limits on hero selection
 000000010EAF.07C: COMPETITIVE PLAY
+000000010EB4.07C: %1$s/%2$s
+000000010EB5.07C: %1$s/%2$s Earned
+000000010ED0.07C: Events
+000000010EDD.07C: |Rpl %1$s:Game:Games; Won
+000000010EDE.07C: %1$s |Rpl Game:Games; Won
+000000010EDF.07C: Time Played
+000000010EE0.07C: %1$s Time Played
 000000010EE1.07C: Season Not Active
 000000010EEC.07C: Find More Players
+000000010EEE.07C: All
+000000010EEF.07C: Owned
+000000010EF0.07C: Unowned
+000000010EF8.07C: Summer Games
+000000010EF9.07C: Halloween Terror
+000000010EFD.07C: Uprising
+000000010EFE.07C: Winter Wonderland
+000000010F14.07C: Earned
+000000010F57.07C: All Heroes
 000000010F5B.07C: Role Queue
 000000010F5C.07C: Open Queue
 000000010F5D.07C: - 10 Placement matches
 - Skill rating determined (1-5000)
 - Skill rating adjusts after each win or loss
+000000010F5F.07C: Filters
+000000010F60.07C: Listen Now
+000000010FC3.07C: Close
+000000010FC4.07C: Open
+000000010FC7.07C: https://playoverwatch.com/media#music
+000000010FCE.07C: Scan with your mobile device
+000000010FCF.07C: Open in a new browser window
+000000010FD0.07C: Or
+000000010FDA.07C: Overwatch: Cities & Countries Soundtrack
+000000010FDB.07C: External Link
 000000010FDD.07C: The highest initial Skill Rating earned after completing placement matches is 3900.
 000000010FE0.07C: You earned the highest initial Skill Rating available after completing your placement matches!
 000000010FF8.07C: Combined
@@ -27762,8 +27778,97 @@ Blizzard Support
 000000010FFA.07C: Damage
 000000010FFB.07C: Support
 000000010FFC.07C: Open Queue
+000000011002.07C: Stat Highlights
+000000011003.07C: Eliminations
+000000011004.07C: Stat
+000000011005.07C: Avg/10 Min
+000000011006.07C: Total
+000000011007.07C: Best
+00000001101C.07C: Retribution
+00000001101D.07C: Storm Rising
+00000001101E.07C: Archives Challenges
 000000011020.07C: Competitive Season %1$s - Open Queue
 000000011021.07C: Current Competitive Season - Open Queue
+000000011029.07C: Ok
+000000011036.07C: %%
+000000011037.07C: Standard Loot Box Drop Rates
+000000011038.07C: Average Drop Rate Per Loot Box
+000000011039.07C: Common
+00000001103A.07C: Rare
+00000001103B.07C: Epic
+00000001103C.07C: Legendary
+00000001103D.07C: 99
+00000001103E.07C: 94
+00000001103F.07C: 18.5
+000000011040.07C: 7.5
+000000011041.07C: - Each loot box contains 4 items or 3 items and credits.
+000000011042.07C: - Each Loot Box will contain at least one item with Rare or above quality. 
+000000011043.07C: - On average, an epic quality item will be found in one out of 5.5 Loot Boxes. 
+000000011044.07C: - On average, a legendary quality item will be found in one out of 13.5 Loot Boxes.
+000000011048.07C: - All items obtained from Overwatch Loot Boxes are cosmetic only and will not give any additional advantage while playing the game.
+00000001104A.07C: This queue is no longer available
+000000011061.07C: Standard Loot Box Drop Rates
+000000011063.07C: New Soundtrack
+000000011064.07C: Overwatch: Cities & Countries
+00000001107E.07C: Competitive
+0000000110B3.07C: Experimental
+0000000110B4.07C: Quickplay
+0000000110B5.07C: Arcade
+0000000110B6.07C: Competitive
+0000000110B7.07C: Experimental
+0000000110B8.07C: Game Browser
+0000000110CF.07C: Time Played
+0000000110D4.07C: Objective Time
+0000000110D5.07C: Healing Done
+0000000110DA.07C: Final Blows
+0000000110DC.07C: Solo Kills
+0000000110DE.07C: Objective Kills
+0000000110DF.07C: All Damage Done
+0000000110E0.07C: Hero Damage Done
+0000000110E1.07C: Barrier Damage Done
+0000000110E2.07C: Deaths
+0000000110E3.07C: Time Spent on Fire
+0000000110E4.07C: Win Percentage
+0000000110E5.07C: Games Lost
+0000000110E6.07C: Games Tied
+0000000110E7.07C: Most Played Heroes
+0000000110FE.07C: https://us.forums.blizzard.com/en/overwatch/
+0000000110FF.07C: Visit Forums
+00000001110D.07C: Defensive Assists
+00000001110F.07C: Offensive Assists
+000000011110.07C: Recon Assists
+000000011111.07C: Environmental Kills
+000000011112.07C: Melee Final Blows
+000000011113.07C: Best Kill Streak
+000000011114.07C: Multikills
+000000011116.07C: Quick Melee Accuracy
+000000011117.07C: Weapon Accuracy
+000000011118.07C: Turrets Destroyed
+000000011119.07C: Teleporters Destroyed
+00000001111A.07C: Cards
+00000001111B.07C: Medals
+00000001111C.07C: Gold Medals
+00000001111D.07C: Silver Medals
+00000001111E.07C: Bronze Medals
+000000011120.07C: Time Played
+000000011121.07C: Games Played
+000000011122.07C: Games Won
+000000011123.07C: Assists
+000000011124.07C: Saves
+000000011125.07C: Goals
+000000011126.07C: Assists
+000000011127.07C: Interceptions
+000000011128.07C: Flag Captures
+000000011129.07C: Flag Returns
+00000001112B.07C: Critical Hits
+00000001112D.07C: Healing Amplified
+00000001112E.07C: Damage Amplified
+00000001112F.07C: Self Healing
+000000011130.07C: Scoped Critical Kills
+000000011131.07C: Scoped Critical Hits
+000000011132.07C: Scoped Critical Hit Accuracy
+000000011133.07C: Scoped Accuracy
+000000011134.07C: Games Won
 000000011138.07C: 65
 000000011139.07C: 125
 00000001113A.07C: 250
@@ -27771,4 +27876,155 @@ Blizzard Support
 00000001113C.07C: 750
 00000001113D.07C: 1200
 00000001113E.07C: 1750
-[Core] Execution finished in 00:00:00.5586901 seconds
+000000011157.07C: Unscoped Accuracy
+000000011158.07C: Nano Boosts Applied
+000000011159.07C: Nano Boost Assists
+00000001115A.07C: Enemies Slept
+00000001115B.07C: Biotic Grenade Kills
+000000011169.07C: Dynamite Kills
+00000001116A.07C: Coach Gun Kills
+00000001116B.07C: Bob Kills
+00000001116C.07C: Amplification Matrix Casts
+00000001116D.07C: Amplification Matrix Assists
+00000001116E.07C: Immortality Field Deaths Prevented
+00000001116F.07C: Healing Accuracy
+000000011170.07C: Recon Kills
+000000011171.07C: Sentry Kills
+000000011172.07C: Tank Kills
+000000011173.07C: Armor Provided
+000000011174.07C: Damage Blocked
+000000011175.07C: Inspire Uptime Percentage
+000000011176.07C: Damage Blocked
+000000011177.07C: Mech Deaths
+000000011178.07C: Mechs Called
+000000011179.07C: Self-Destruct Kills
+00000001117A.07C: Dragonblade Kills
+00000001117B.07C: Deflection Kills
+00000001117C.07C: Damage Reflected
+00000001117D.07C: Focusing Beam Accuracy
+00000001117E.07C: Sticky Bombs Kills
+00000001117F.07C: Sticky Bombs Direct Hits
+000000011180.07C: Sticky Bombs Direct Hit Accuracy
+000000011181.07C: Focusing Beam Kills
+000000011182.07C: Duplicate Kills
+000000011183.07C: Shields Created
+000000011184.07C: Meteor Strike Kills
+000000011185.07C: Ability Damage Done
+00000001118C.07C: Waiting for players
+00000001118D.07C: Assemble Heroes
+00000001118E.07C: Setup
+00000001118F.07C: ATTACK
+000000011190.07C: DEFEND
+000000011191.07C: Assemble Heroes
+000000011194.07C: Assault Test
+000000011195.07C: Assault Test
+000000011196.07C: Competitive Rules
+000000011197.07C: Enabled
+000000011198.07C: Disabled
+000000011199.07C: Capture Speed Modifier
+00000001119A.07C: |Rfn %1$s:P0;
+00000001119E.07C: Time Played
+0000000111A5.07C: Blizzard Kills
+0000000111A6.07C: Damage Blocked
+0000000111A7.07C: Enemies Frozen
+0000000111A8.07C: Deadeye Kills
+0000000111A9.07C: Fan the Hammer Kills
+0000000111AA.07C: Sound Barriers Provided
+0000000111AB.07C: RIP-Tire Kills
+0000000111AC.07C: Enemies Trapped
+0000000111AD.07C: Concussion Mine Kills
+0000000111AE.07C: Dragonstrike Kills
+0000000111AF.07C: Storm Arrow Kills
+0000000111B0.07C: Scatter Arrow Kills
+0000000111B1.07C: Gravitic Flux Kills
+0000000111B2.07C: Rock Throw Kills
+0000000111B3.07C: Damage Blocked
+0000000111B4.07C: Damage Absorbed
+0000000111BE.07C: Earthshatter Kills
+0000000111BF.07C: Charge Kills
+0000000111C0.07C: Fire Strike Kills
+0000000111C1.07C: Damage Blocked
+0000000111C2.07C: Rocket Hammer Melee Accuracy
+0000000111C3.07C: Death Blossom Kills
+0000000111C4.07C: Barrage Kills
+0000000111C5.07C: Rocket Direct Hits
+0000000111C6.07C: Direct Hit Accuracy
+0000000111C7.07C: Supercharger Assists
+0000000111C8.07C: Damage Blocked
+0000000111C9.07C: Coalescence Kills
+0000000111CA.07C: Coalescence Healing
+0000000111CB.07C: Secondary Fire Accuracy
+0000000111CC.07C: Players Resurrected
+0000000111CD.07C: Blaster Kills
+0000000111CE.07C: Venom Mine Kills
+0000000111CF.07C: Pulse Bomb Kills
+0000000111D0.07C: Pulse Bombs Attached
+0000000111D1.07C: Health Recovered
+0000000111D2.07C: Molten Core Kills
+0000000111D3.07C: Turret Kills
+0000000111D4.07C: Turret Damage
+0000000111D5.07C: Torbjörn Kills
+0000000111D6.07C: Overload Kills
+0000000111D7.07C: Hammer Kills
+0000000111D8.07C: Armor Packs Created
+0000000111D9.07C: Damage Blocked
+0000000111DA.07C: Players Teleported
+0000000111DB.07C: Sentry Turret Kills
+0000000111DC.07C: Secondary Fire Accuracy
+0000000111DD.07C: Secondary Direct Hits
+0000000111DE.07C: Enemies EMP'd
+0000000111DF.07C: Enemies Hacked
+0000000111E0.07C: Tactical Visor Kills
+0000000111E1.07C: Helix Rocket Kills
+0000000111E2.07C: Biotic Fields Deployed
+0000000111E3.07C: Biotic Field Healing Done
+0000000111E4.07C: Whole Hog Kills
+0000000111E5.07C: Enemies Hooked
+0000000111E6.07C: Hook Accuracy
+0000000111E7.07C: Hooks Attempted
+0000000111E8.07C: Transcendence Healing
+0000000111E9.07C: Graviton Surge Kills
+0000000111EA.07C: Projected Barriers Applied
+0000000111EB.07C: Damage Blocked
+0000000111EC.07C: High Energy Kills
+0000000111ED.07C: Average Energy
+0000000111EE.07C: Primary Fire Accuracy
+0000000111EF.07C: Minefield Kills
+0000000111F0.07C: Piledriver Kills
+0000000111F1.07C: Grappling Claw Kills
+0000000111F2.07C: Players Knocked Back
+0000000111F6.07C: Primal Rage Melee Accuracy
+0000000111F7.07C: Primal Rage Kills
+0000000111F8.07C: Players Knocked Back
+0000000111F9.07C: Melee Kills
+0000000111FA.07C: Jump Pack Kills
+0000000111FB.07C: Damage Blocked
+0000000111FC.07C: Tesla Cannon Accuracy
+000000011208.07C: Eliminations per Life
+000000011209.07C: Hero Damage Done per Life
+00000001120A.07C: All Damage Done per Life
+00000001120B.07C: Critical Hits per Life
+00000001124E.07C: Blizzard
+00000001124F.07C: Assault Test
+000000011262.07C: Assault Test
+000000011263.07C: An experimental version of Assault
+00000001126B.07C: Pachimari
+000000011274.07C: Pachimari
+00000001129A.07C: No Games Played
+0000000112D9.07C: Collapse All
+0000000112E0.07C: Career Profile Is Empty
+0000000112E9.07C: Expand All
+0000000112EE.07C: <1 Min
+0000000112F3.07C: No Achievements Unlocked
+000000011350.07C: utm_source
+000000011351.07C: ow-client
+000000011352.07C: pc
+000000011353.07C: qrcode-pc
+000000011354.07C: xbox
+000000011355.07C: ps4
+000000011356.07C: switch
+000000011357.07C: qrcode-xbox
+000000011358.07C: qrcode-ps4
+000000011359.07C: qrcode-switch
+00000001135A.07C: utm_medium
+[Core] Execution finished in 00:00:00.9505563 seconds

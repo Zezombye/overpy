@@ -2123,6 +2123,17 @@ const constantValues =
             "en-US": ">",
             "fr-FR": "> supérieur à"
         }
+    },
+    "Health": {
+        "NORMAL": {
+            "en-US": "Health",
+        },
+        "ARMOR": {
+            "en-US": "Armor",
+        },
+        "SHIELDS": {
+            "en-US": "Shields",
+        }
     }
 }
 //end-json

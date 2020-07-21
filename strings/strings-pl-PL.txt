@@ -1,13 +1,13 @@
-[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
+[Core] DataTool v1.50.0.878-git-14cc6c1bce8898083a3a1bbdd238d6185ae7386e
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(19)\DataTool.exe.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.49.1.0.70708
+[CASC] Overwatch build 1.50.0.0.70665
 [CASC] Initializing...
-[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 70665 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -2817,7 +2817,7 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 0000000025C1.07C: Do kabury
 0000000025C2.07C: Uszanowanko
 0000000025C3.07C: Splunięcie
-0000000025C4.07C: Pętla
+0000000025C4.07C: Peszek
 0000000025C5.07C: Kciuk w górę
 0000000025C6.07C: Pif-paf!
 0000000025C8.07C: Przycelowanie
@@ -7754,9 +7754,6 @@ Andrew Wang
 00000000460A.07C: Nie można dołączyć do gry dowolnej podczas instalacji gry.
 00000000460D.07C: Twój profil został wylogowany i nastąpiło rozłączenie z serwerem.
 00000000460F.07C: Każda skrzynka z łupami zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze. Skrzynki z łupami można zdobywać dzięki systemom w grze.
-000000004619.07C: KUP
-00000000461A.07C: ANULUJ
-00000000461B.07C: NIE ZNALEZIONO LICENCJI GRY OVERWATCH.
 00000000461C.07C: www.buyoverwatch.com
 00000000461D.07C: #%1$s
 000000004625.07C: Wystąpił błąd przy przyjmowaniu zaproszenia
@@ -8529,7 +8526,6 @@ w 2. sezonie
 000000004CCD.07C: Dr Złomenstein
 000000004CCE.07C: Żniwiarz
 000000004CCF.07C: Pauza
-000000004CD0.07C: Ostatnie osiągnięcia
 000000004CD1.07C: Mina Ogłuszająca
 000000004CD3.07C: Wiedźma
 000000004CD4.07C: Halloweenowa Groza 2016
@@ -8764,7 +8760,6 @@ w 4. sezonie
 000000004FB0.07C: Upuszczone strzelby: %1$s
 000000004FB1.07C: Wróg u wrót
 000000004FB2.07C: Ukończ rozróbę „Zemsta dr. Złomensteina” na legendarnym poziomie trudności.
-000000004FB6.07C: Specjalne
 000000004FC6.07C: PREMIA ZA STAN WRÓT +%1$s pkt.
 000000004FC7.07C: PREMIA ZA LIKWIDACJĘ ELITARNEGO WROGA + %1$s pkt.
 000000004FC8.07C: PREMIA ZA PRZEŻYCIE + %1$s pkt.
@@ -14467,7 +14462,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000711F.07C: Overwatch World Cup
 000000007120.07C: Oglądaj
 000000007121.07C: worldcup.playoverwatch.com
-000000007123.07C: Nastąpi otwarcie przeglądarki w nowym oknie
 000000007124.07C: OK
 000000007125.07C: Anuluj
 000000007133.07C: Symbol
@@ -14832,7 +14826,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s |Rpl trafienie:trafienia:trafień; Strzałką Usypiającą
 000000007460.07C: Tempo doczepiania Bomby Pulsacyjnej
 000000007461.07C: Tempo doczepiania Bomby Pulsacyjnej: %1$s
-000000007470.07C: ANULUJ
 000000007472.07C: Koalescencja – leczenie na każde użycie
 000000007473.07C: Koalescencja – leczenie na każde użycie: %1$s
 000000007474.07C: Koalescencja – obrażenia na każde użycie
@@ -17159,8 +17152,6 @@ z letnich igrzysk
 000000008DB5.07C: Wystawianie pochwał znajomym jest niedostępne.
 000000008DB6.07C: Wystawiono wszystkie pochwały za mecz.
 000000008DCE.07C: Wieżyczka
-000000008DEC.07C: WYMAGANE PODANIE NUMERU TELEFONU.
-000000008DEE.07C: DODAJ WERYFIKACJĘ SMS
 000000008DEF.07C: Demon
 000000008DF2.07C: https://account.blizzard.com/details/sms/setup/add
 000000008DF3.07C: Konto wymaga podania numeru telefonu.
@@ -17273,7 +17264,7 @@ w trybie Eliminacji 3 na 3 w 2018
 00000000908D.07C: Serw
 00000000909E.07C: Skrzynka z łupami Burzyciela
 0000000090A1.07C: Preferencje ról w ekipie:
-0000000090BC.07C: Nowi01 (Gospodarze)
+0000000090BC.07C: Dodatek 01 (Gospodarze)
 0000000090BD.07C: %1$s |Rpl SKRZYNKA:SKRZYNKI:SKRZYNEK; Z ŁUPAMI BURZYCIELA
 0000000090BE.07C: Automatyczne uzbrojenie szturmowe.
 0000000090BF.07C: Znajdź więcej graczy
@@ -17511,7 +17502,6 @@ z letnich igrzysk
 00000000920B.07C: Zawartość skrzynek
 z letnich igrzysk
 000000009215.07C: Osiągnięcia
-000000009234.07C: %1$s %2$s
 000000009235.07C: Nic osobistego
 000000009236.07C: Wykrywam rozdrażnienie
 000000009237.07C: Wykryto ulgę
@@ -17608,21 +17598,21 @@ z letnich igrzysk
 0000000092B2.07C: Dania (Goście)
 0000000092B3.07C: Hiszpania (Goście)
 0000000092B4.07C: Tajlandia (Goście)
-0000000092B5.07C: Nowi02 (Gospodarze)
-0000000092B6.07C: Nowi03 (Gospodarze)
-0000000092B7.07C: Nowi04 (Gospodarze)
-0000000092B8.07C: Nowi05 (Gospodarze)
-0000000092BD.07C: Nowi09 (Gospodarze)
+0000000092B5.07C: Dodatek 02 (Gospodarze)
+0000000092B6.07C: Dodatek 03 (Gospodarze)
+0000000092B7.07C: Dodatek 04 (Gospodarze)
+0000000092B8.07C: Dodatek 05 (Gospodarze)
+0000000092BD.07C: Dodatek 09 (Gospodarze)
 0000000092BE.07C: Orzeźwienie!
 0000000092BF.07C: All-Star dywizja pacyficzna 2018
 0000000092C1.07C: All-Star dywizja atlantycka 2018
-0000000092C2.07C: Nowi10 (Gospodarze)
-0000000092C3.07C: Nowi11 (Gospodarze)
-0000000092C4.07C: Nowi12 (Gospodarze)
-0000000092C5.07C: Nowi13 (Gospodarze)
-0000000092C7.07C: Nowi14 (Gospodarze)
-0000000092C8.07C: Nowi15 (Gospodarze)
-0000000092C9.07C: Nowi16 (Gospodarze)
+0000000092C2.07C: Dodatek 10 (Gospodarze)
+0000000092C3.07C: Dodatek 11 (Gospodarze)
+0000000092C4.07C: Dodatek 12 (Gospodarze)
+0000000092C5.07C: Dodatek 13 (Gospodarze)
+0000000092C7.07C: Dodatek 14 (Gospodarze)
+0000000092C8.07C: Dodatek 15 (Gospodarze)
+0000000092C9.07C: Dodatek 16 (Gospodarze)
 000000009300.07C: Strach na wróble
 000000009301.07C: Heja!
 000000009303.07C: Błysk w oku
@@ -17632,8 +17622,8 @@ z letnich igrzysk
 000000009307.07C: Drzemka
 000000009308.07C: Popcorn
 000000009309.07C: Zdziwienie
-00000000930A.07C: Nowi17 (Gospodarze)
-00000000930B.07C: Nowi18 (Gospodarze)
+00000000930A.07C: Dodatek 17 (Gospodarze)
+00000000930B.07C: Dodatek 18 (Gospodarze)
 00000000930C.07C: Tajemniczy Deathmatch
 00000000930D.07C: Wejdź na szczyt tabeli wyników. Każdy gracz dysponuje bohaterami, którzy zmieniają się losowo podczas odradzania się.
 00000000930E.07C: Deathmatch
@@ -17642,7 +17632,7 @@ z letnich igrzysk
 00000000932F.07C: Tak
 000000009330.07C: Nie
 000000009331.07C: Nowości
-000000009333.07C: Nowi20 (Gospodarze)
+000000009333.07C: Dodatek 20 (Gospodarze)
 000000009334.07C: Nagrody
 000000009335.07C: Koniec za
 000000009336.07C: Nowe łupy
@@ -17711,8 +17701,6 @@ w wielkich finałach
 Overwatch League 2018.
 0000000093BB.07C: Kupić wszystkie elementy?
 0000000093BC.07C: Zhang Fei
-0000000093DE.07C: Contenders
-0000000093DF.07C: Contenders
 0000000093E1.07C: Rywalizacja w Drużynowym Deathmatchu – Sezon 1
 0000000093E2.07C: Drużynowy Deathmatch
 0000000093E3.07C: Rywalizacja w Drużynowym Deathmatchu
@@ -18262,7 +18250,6 @@ Prosimy o przesyłanie komentarzy i opinii, które pomogą nam usprawnić dział
 00000000A44C.07C: Matryca Wzmacniająca
 00000000A44D.07C: Ustawiasz matrycę, która podwaja zadawane obrażenia i efekty leczące pocisków sojuszników.
 00000000A451.07C: Broń strzelająca seriami po trzy pociski.
-00000000A48E.07C: Ok
 00000000A496.07C: Sanktuarium
 00000000A49C.07C: Zadymiarz
 00000000A49E.07C: Intensywność obrysu gracza
@@ -21910,9 +21897,6 @@ w trybie Deathmatch 2019
 00000000C47E.07C: Twórz nowe rodzaje rozgrywki! Odwiedź forum Warsztatu, aby zadawać pytania, dzielić się pomysłami i szukać inspiracji. Uwaga, zmienne oraz terminy programistyczne są pozostawione w języku angielskim. Interfejs użytkownika oraz podpowiedzi zostały przełożone na język, którego używa twój klient gry.
 00000000C47F.07C: Odwiedź forum
 00000000C480.07C: https://us.forums.blizzard.com/en/overwatch/c/workshop
-00000000C481.07C: Nastąpi otwarcie przeglądarki w nowym oknie
-00000000C482.07C: Ok
-00000000C483.07C: Anuluj
 00000000C4A3.07C: Zgłoś kod
 00000000C4A4.07C: Eliminacja 3 na 3
 00000000C4A5.07C: Jeśli flaga (F) nie jest ustawiona, włącz superzdolność, ustaw naładowanie na 100 (Set Ultimate Charge) i ustaw flagę
@@ -22404,7 +22388,6 @@ z letnich igrzysk
 00000000C9A4.07C: Pokaż statystyki wydajności serwera
 00000000C9A5.07C: Server Load
 00000000C9A8.07C: Pokazuje statystyki wydajnościowe serwera. Reguły tego ustawienia można skopiować do dowolnego skryptu, aby zmierzyć jego wpływ na serwer.
-00000000C9DE.07C: %1$s: %2$s
 00000000C9E3.07C: Tryb obecnie niedostępny
 00000000C9E4.07C: Rola zajęta
 00000000C9E5.07C: Opera
@@ -22430,7 +22413,7 @@ z letnich igrzysk
 00000000CA0C.07C: Musisz wybrać rolę zanim twoja grupa dołączy do kolejki. Chcesz wybrać teraz?
 00000000CA0D.07C: Sklepy
 00000000CA0E.07C: Sklep
-00000000CA11.07C: Tydzień 1: Włókno węglowe (Sigma)
+00000000CA11.07C: Wyzwanie Sigmy: Maestro
 00000000CA13.07C: Tydzień 2: Fleur de Lis (Trupia Wdowa)
 00000000CA14.07C: Tydzień 3. Zamaskowany (McCree)
 00000000CA15.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
@@ -22790,9 +22773,6 @@ w wyzwaniu Klockowy Bastion.
 00000000CE69.07C: Błąd: Napotkano literał łańcuchowy bez cudzysłowu zamykającego po „%1$s” w linii %2$s
 00000000CE6D.07C: Wampir
 00000000CE6E.07C: Edycja tekstu jest wyłączona na tym koncie.
-00000000CE75.07C: Nastąpi otwarcie przeglądarki w nowym oknie
-00000000CE76.07C: Ok
-00000000CE77.07C: Anuluj
 00000000CE80.07C: Create Beam Effect
 00000000CE81.07C: Tworzy encję efektu wiązki w świecie, która będzie się utrzymywać do jej usunięcia. Aby pozyskać odniesienie do tej encji, użyj wartości „Last Created Entity” (Ostatnia stworzona encja). To działanie nie powiedzie się, jeśli stworzono zbyt dużo encji.
 00000000CE82.07C: Pozycja początkowa
@@ -26125,8 +26105,6 @@ w wyzwaniu Klockowy Bastion.
 00000000D24E.07C: Zawartość skrzynek halloweenowych
 00000000D24F.07C: Uwaga na brodę!
 00000000D250.07C: Zawartość skrzynek halloweenowych
-00000000D257.07C: https://www.twitch.tv/overwatchleague
-00000000D25B.07C: ANULUJ
 00000000D264.07C: Nowa zawartość będzie dostępna dopiero po zrestartowaniu.
 00000000D265.07C: Ostrzeżenie
 00000000D2C9.07C: Pusan: Centrum (Księżycowy Nowy Rok)
@@ -26384,7 +26362,6 @@ w Drużynowym Deathmatchu 2019
 00000000EBD7.07C: Przymiarka pancerza
 00000000EBD9.07C: Późna noc
 00000000EBDB.07C: Wyniesienie
-00000000EBE7.07C: https://blizzcon.playoverwatch.com/story
 00000000EBF1.07C: Jötunn
 00000000EBF3.07C: Przygotuj się
 00000000EC0C.07C: Deathmatch
@@ -26468,9 +26445,6 @@ w Drużynowym Deathmatchu 2019
 00000000F0F4.07C: <fg%1$s>DRZEMKA</fg>
 00000000F0FE.07C: Tylko dla mieszkańców Kalifornii
 00000000F0FF.07C: Nie udostępniaj moich danych osobowych
-00000000F102.07C: Nastąpi otwarcie przeglądarki w nowym oknie
-00000000F103.07C: Ok
-00000000F104.07C: ANULUJ
 00000000F12D.07C: Szron
 00000000F12E.07C: Zawartość zimowych skrzynek
 00000000F12F.07C: Szczurzy Król
@@ -27168,6 +27142,7 @@ w sezonie 21.
 000000010237.07C: Rozłączono z powodu osiągnięcia limitu czasu gry (system CAIS).
 000000010239.07C: Eksperymenty
 00000001023B.07C: Ta powtórka nie znajduje się na twojej liście ostatnio rozegranych meczów. Odpięcie jej spowoduje jej utratę. Kontynuować?
+00000001023D.07C: Maestro
 000000010248.07C: Misia
 000000010249.07C: Holi
 00000001024A.07C: Rdzawobrody
@@ -27546,6 +27521,7 @@ w sezonie 22.
 0000000108E8.07C: Nagroda za uczestnictwo w wydarzeniu Homestand 2020
 0000000108E9.07C: Atlanta Reign Homestand 2020
 0000000108F8.07C: Droga 66
+0000000108FD.07C: Maestro
 0000000108FE.07C: Plan lotu
 00000001094D.07C: Facetka w Czerni
 000000010950.07C: Nagroda za oglądanie transmisji biorących udział w promocji podczas wydarzenia z okazji wprowadzenia postaci Echo do gry.
@@ -27599,16 +27575,15 @@ w sezonie 22.
 – Zajmowanie celów zapewnia punkty
 – O wygranej decyduje przewaga punktowa!
 0000000109FF.07C: Zdolność dla zdarzenia aktualnie przetwarzanego przez tę regułę powiązaną z przyciskiem.
-000000010A0B.07C: Uczestnik
-1. sezonu Otwartej Rywalizacji
+000000010A0A.07C: Nieprawidłowe ustawienia poczekalni. Zmień lub odrzuć swoje zmiany.
+000000010A0B.07C: Uczestnik 1. sezonu Otwartej Rywalizacji
 000000010A0C.07C: Nagroda
 za mecze klasyfikacyjne
 w 1. sezonie Otwartej Rywalizacji
 000000010A0D.07C: Bohater 1. sezonu Otwartej Rywalizacji
 000000010A0E.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec 1. sezonu Otwartej Rywalizacji.
 000000010A0F.07C: Uczestnik 1. sezonu Otwartej Rywalizacji
-000000010A11.07C: Bohater
-1. sezonu Otwartej Rywalizacji
+000000010A11.07C: Bohater 1. sezonu Otwartej Rywalizacji
 000000010A16.07C: Szybowanie
 000000010A17.07C: %1$s: %2$s
 000000010A1C.07C: Szybko skupiaj ataki na Echo, kiedy użyje ona Duplikacji, aby uniemożliwić jej użycie niszczycielskiej superzdolności.
@@ -27801,7 +27776,7 @@ w 1. sezonie Otwartej Rywalizacji
 000000010B54.07C: Bohater dla danej zdolności, który zostanie przekonwertowany na symbol.
 000000010B55.07C: Przycisk zdolności, który zostanie przekonwertowany na symbol.
 000000010B57.07C: Atak wręcz.
-000000010B5F.07C: Dziękujemy za zgłoszenie nieodpowiedniego zachowania
+000000010B5F.07C: Dziękujemy za zgłoszenie oszustwa i/lub nieodpowiedniego zachowania
 000000010B60.07C: Nadesłane przez ciebie ostatnio informacje doprowadziły do podjęcia działań przeciwko graczom, którzy naruszali nasze zasady i psuli innym zabawę w Overwatch.
 
 Chociaż nie możemy ujawniać szczegółów, to twoje zgłoszenia sprawiają, że Overwatch to bardziej przyjazne miejsce dla wszystkich graczy.
@@ -27916,13 +27891,11 @@ w trybie Deathmatch 2020
 000000010CAF.07C: Łączna liczba: %1$s
 000000010CBC.07C:  
 000000010CC8.07C: <fg%1$s>%2$s</fg><tx%3$s> used <tx%4$s> on <fg%7$s>%5$s</fg><tx%6$s>
-000000010CCC.07C:  
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: WSTECZ
-000000010CED.07C:  
 000000010D17.07C: INFORMACJE O AKTUALIZACJI (NOWOŚĆ)
-000000010D1E.07C:  
-000000010D22.07C: ANULUJ
+000000010D24.07C: Nagroda za udział
+w Wyzwaniu Sigmy: Maestro
 000000010D2B.07C: EMOTKA
 000000010D2C.07C: KWESTIA
 000000010D5A.07C: Chiny – Shenzhen
@@ -27931,6 +27904,7 @@ w trybie Deathmatch 2020
 000000010D86.07C: Miejsce w poczekalni
 000000010D88.07C: Miejsce w meczu
 000000010D8F.07C: Odśwież
+000000010D94.07C: Maestro
 000000010DC1.07C: Bohater 23. sezonu
 000000010DC3.07C: Uczestnik 23. sezonu
 000000010DC5.07C: Bohater 23. sezonu
@@ -27938,22 +27912,29 @@ w trybie Deathmatch 2020
 000000010DC7.07C: Uczestnik 23. sezonu
 000000010DC8.07C: Nagroda za mecze klasyfikacyjne
 w sezonie 23.
+000000010DEF.07C: Maestro
+000000010DF0.07C: Nagroda za oglądanie transmisji biorących udział w promocji podczas Wyzwania Sigmy: Maestro.
+000000010DF1.07C: Skrzypce
+000000010DF3.07C: Sitar
+000000010DF5.07C: Bossa Nova
+000000010DF7.07C: Guzheng
+000000010DF9.07C: Djembe
 000000010E2A.07C: Otwarta Rywalizacja – sezon 2.
 000000010E2B.07C: Otwarta Rywalizacja
 000000010E2C.07C: Rywalizuj z najlepszymi graczami na świecie i pnij się w tabeli wyników bez ograniczeń ról przy wyborze bohaterów.
 000000010E46.07C: Otwarta Rywalizacja
 000000010E47.07C: Otwarta Rywalizacja
+000000010E48.07C: Sezon 23
+000000010E49.07C: Sezon 23
 000000010E4F.07C: Attach Players
 000000010E50.07C: Nadrzędny
 000000010E51.07C: Potomny
 000000010E52.07C: Detach Players
 000000010E53.07C: Potomne
 000000010E55.07C: Wyrównanie
-000000010E5A.07C: Bohater
-2. sezonu Otwartej Rywalizacji
+000000010E5A.07C: Bohater 2. sezonu Otwartej Rywalizacji
 000000010E5B.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec 2. sezonu Otwartej Rywalizacji.
-000000010E5C.07C: Uczestnik
-2. sezonu Otwartej Rywalizacji
+000000010E5C.07C: Uczestnik 2. sezonu Otwartej Rywalizacji
 000000010E5D.07C: Nagroda
 za mecze klasyfikacyjne
 w 2. sezonie Otwartej Rywalizacji.
@@ -27977,7 +27958,14 @@ w 1. sezonie Otwartej Rywalizacji
 000000010E6B.07C: Aktualnie duplikowana przez określonego gracza postać. Jeśli nie jest duplikowana żadna, wynikiem jest wartość 0.
 000000010E6C.07C: Gracz
 000000010E6D.07C: Gracz wykonujący duplikację.
+000000010E6E.07C: 23. sezon Rywalizacji – Otwarta Rywalizacja
 000000010E70.07C: Kolejka priorytetowa
+000000010E73.07C: Paryż
+000000010E74.07C: Wszystkie
+000000010E75.07C: Odblokowane
+000000010E76.07C: Zablokowane
+000000010E77.07C: Data zdobycia (malejąco)
+000000010E78.07C: Data zdobycia (rosnąco)
 000000010E7F.07C: Przyłącza jednego gracza „Child” (Potomna) do drugiego „Parent” (Nadrzędna). Po dołączeniu, potomna nie będzie mogła się swobodnie poruszać, dopóki nie zostanie odłączona lub teleportowana. Do tej samej nadrzędnej można przyłączyć kilka potomnych (ale nie na odwrót).
 000000010E80.07C: Gracz, który przyłączy się do drugiego „Parent” (Nadrzędna). Gracz ten nie będzie mógł się swobodnie poruszać, dopóki nie zostanie odłączony lub teleportowany.
 000000010E81.07C: Gracz, do którego zostanie przyłączony gracz „Child” (Potomna). Ruch tego gracza pozostanie niezmienny i określi pozycję potomnej.
@@ -27996,20 +27984,45 @@ w 1. sezonie Otwartej Rywalizacji
 000000010E8E.07C: Anuluje zachowanie „Start Forcing Player Position” (Rozpocznij wymuszanie pozycji gracza) dla określonego gracza lub graczy. Regularny ruch zostanie wznowiony od ostatniej wymuszonej pozycji.
 000000010E8F.07C: Gracz
 000000010E90.07C: Gracz lub gracze, których pozycje przestaną być wymuszane.
-000000010E95.07C: MVP Overwatch League 2019 – sinatraa
-000000010E9F.07C: Legendarna skórka – Facetka w Czerni
+000000010E91.07C: Filtry
 000000010EA4.07C: Dobieranie ról
 000000010EA5.07C: Otwarta Rywalizacja
 000000010EA6.07C: Ograniczenia ról przy wyborze bohaterów.
 000000010EA7.07C: Brak ograniczeń ról przy wyborze bohaterów.
 000000010EAF.07C: TRYB RYWALIZACJI
+000000010EB4.07C: %1$s/%2$s
+000000010EB5.07C: Zdobyto %1$s/%2$s
+000000010ED0.07C: Wydarzenia
+000000010EDD.07C: |Rpl %1$s:Wygrane gry:Wygrane gry:Wygrane gry;
+000000010EDE.07C: %1$s |Rpl wygrany mecz:wygrane mecze:wygranych meczów;
+000000010EDF.07C: Czas rozgrywki
+000000010EE0.07C: Czas rozgrywki: %1$s
 000000010EE1.07C: Sezon nieaktywny
 000000010EEC.07C: Znajdź więcej graczy
+000000010EEE.07C: Wszystkie
+000000010EEF.07C: Posiadane
+000000010EF0.07C: Nieposiadane
+000000010EF8.07C: Letnie igrzyska
+000000010EF9.07C: Halloweenowa Groza
+000000010EFD.07C: Insurekcja
+000000010EFE.07C: Zimowa Kraina Czarów
+000000010F14.07C: Zdobyte
+000000010F57.07C: Wszyscy bohaterowie
 000000010F5B.07C: Dobieranie ról
 000000010F5C.07C: Otwarta Rywalizacja
 000000010F5D.07C: – 10 meczów klasyfikacyjnych
 – Określenie rangi umiejętności (1-5000)
 – Ranga zmienia się po każdej wygranej lub przegranej
+000000010F5F.07C: Filtry
+000000010F60.07C: Słuchaj
+000000010FC3.07C: Zamknij
+000000010FC4.07C: Otwórz
+000000010FC7.07C: https://playoverwatch.com/media#music
+000000010FCE.07C: Zeskanuj urządzeniem mobilnym
+000000010FCF.07C: Otwórz w nowym oknie przeglądarki
+000000010FD0.07C: Lub
+000000010FDA.07C: Ścieżka dźwiękowa Overwatch: Cities & Countries
+000000010FDB.07C: Zewnętrzny odnośnik
 000000010FDD.07C: Najwyższa możliwa ranga umiejętności po ukończeniu meczów klasyfikacyjnych to 3900.
 000000010FE0.07C: Udało ci się ukończyć mecze klasyfikacyjne i osiągnąć najwyższą możliwą rangę umiejętności!
 000000010FF8.07C: Połączone
@@ -28017,8 +28030,97 @@ w 1. sezonie Otwartej Rywalizacji
 000000010FFA.07C: Natarcie
 000000010FFB.07C: Wsparcie
 000000010FFC.07C: Otwarta Rywalizacja
+000000011002.07C: Podsumowanie statystyk
+000000011003.07C: Likwidacje
+000000011004.07C: Statystyka
+000000011005.07C: Średnio/10 min
+000000011006.07C: Suma
+000000011007.07C: Top
+00000001101C.07C: Odwet
+00000001101D.07C: Czarne Chmury
+00000001101E.07C: Wyzwania archiwalne
 000000011020.07C: %1$s sezon Rywalizacji – Otwarta Rywalizacja
 000000011021.07C: Bieżący sezon Rywalizacji – Otwarta Rywalizacja
+000000011029.07C: Ok
+000000011036.07C: %%
+000000011037.07C: Standardowe częstotliwości występowania elementów w skrzynkach z łupami
+000000011038.07C: Średnie częstotliwości występowania elementów w skrzynkach z łupami
+000000011039.07C: Zwykłe
+00000001103A.07C: Rzadkie
+00000001103B.07C: Epickie
+00000001103C.07C: Legendarne
+00000001103D.07C: 99
+00000001103E.07C: 94
+00000001103F.07C: 18,5
+000000011040.07C: 7,5
+000000011041.07C: - Każda skrzynka z łupami zawiera 4 elementy kosmetyczne lub 3 elementy i kredyty.
+000000011042.07C: - Każda skrzynka z łupami zawiera przynajmniej jeden element rzadkiej lub wyższej jakości.
+000000011043.07C: - Epicki element można znaleźć średnio w jednej na 5,5 skrzynek z łupami.
+000000011044.07C: - Legendarny element można znaleźć średnio w jednej na 13,5 skrzynek z łupami.
+000000011048.07C: - Wszystkie elementy ze skrzynek z łupami w Overwatch są wyłącznie kosmetyczne i nie zapewniają przewagi podczas gry.
+00000001104A.07C: Ta kolejka nie jest już dostępna.
+000000011061.07C: Standardowe częstotliwości występowania elementów w skrzynkach z łupami
+000000011063.07C: Nowa ścieżka dźwiękowa
+000000011064.07C: Overwatch: Cities & Countries
+00000001107E.07C: Rywalizacja
+0000000110B3.07C: Eksperymenty
+0000000110B4.07C: Szybka gra
+0000000110B5.07C: Salon gier
+0000000110B6.07C: Rywalizacja
+0000000110B7.07C: Eksperymenty
+0000000110B8.07C: Wyszukiwarka gier
+0000000110CF.07C: Czas rozgrywki
+0000000110D4.07C: Czas przy celu
+0000000110D5.07C: Wyleczone obrażenia
+0000000110DA.07C: Trafienia kończące
+0000000110DC.07C: Zabici w pojedynkę
+0000000110DE.07C: Zabici przy celu
+0000000110DF.07C: Wszystkie zadane obrażenia
+0000000110E0.07C: Obrażenia zadane bohaterom
+0000000110E1.07C: Obrażenia zadane barierom
+0000000110E2.07C: Zgony
+0000000110E3.07C: Czas w płomieniach
+0000000110E4.07C: Procent wygranych
+0000000110E5.07C: Przegrane gry
+0000000110E6.07C: Zremisowane gry
+0000000110E7.07C: Najczęściej wybierani bohaterowie
+0000000110FE.07C: https://us.forums.blizzard.com/en/overwatch/
+0000000110FF.07C: Odwiedź fora
+00000001110D.07C: Asysty defensywne
+00000001110F.07C: Asysty ofensywne
+000000011110.07C: Asysty zwiadowcze
+000000011111.07C: Zabici elementami otoczenia
+000000011112.07C: Trafienia kończące w zwarciu
+000000011113.07C: Najdłuższa mordercza seria
+000000011114.07C: Multilikwidacje
+000000011116.07C: Celność szybkiego ataku wręcz
+000000011117.07C: Celność
+000000011118.07C: Zniszczone wieżyczki
+000000011119.07C: Zniszczone teleportery
+00000001111A.07C: Karty
+00000001111B.07C: Medale
+00000001111C.07C: Złote medale
+00000001111D.07C: Srebrne medale
+00000001111E.07C: Brązowe medale
+000000011120.07C: Czas rozgrywki
+000000011121.07C: Rozegrane mecze
+000000011122.07C: Wygrane gry
+000000011123.07C: Asysty
+000000011124.07C: Obronione gole
+000000011125.07C: Gole
+000000011126.07C: Asysty
+000000011127.07C: Przechwycenia
+000000011128.07C: Zdobycia flagi
+000000011129.07C: Zwrócenia flagi
+00000001112B.07C: Trafienia krytyczne
+00000001112D.07C: Zwiększone leczenie
+00000001112E.07C: Zwiększone obrażenia
+00000001112F.07C: Samoleczenie
+000000011130.07C: Likwidacje po trafieniach krytycznych (luneta)
+000000011131.07C: Trafienia krytyczne (luneta)
+000000011132.07C: Celność trafień krytycznych (luneta)
+000000011133.07C: Celność (luneta)
+000000011134.07C: Wygrane gry
 000000011138.07C: 65
 000000011139.07C: 125
 00000001113A.07C: 250
@@ -28026,4 +28128,155 @@ w 1. sezonie Otwartej Rywalizacji
 00000001113C.07C: 750
 00000001113D.07C: 1200
 00000001113E.07C: 1750
-[Core] Execution finished in 00:00:00.4400769 seconds
+000000011157.07C: Celność (bez lunety)
+000000011158.07C: Zastosowane Nanowzmocnienia
+000000011159.07C: Asysty Nanowzmocnieniem
+00000001115A.07C: Uśpieni wrogowie
+00000001115B.07C: Zabici Granatem Biotycznym
+000000011169.07C: Zabici Dynamitem
+00000001116A.07C: Zabici Obrzynem
+00000001116B.07C: Zabici przez Boba
+00000001116C.07C: Użycia Matrycy Wzmacniającej
+00000001116D.07C: Asysty Matrycą Wzmacniającą
+00000001116E.07C: Zgony powstrzymane Polem Nieśmiertelności
+00000001116F.07C: Celność przy leczeniu
+000000011170.07C: Zabici w Konfiguracji: Zwiadowca
+000000011171.07C: Zabici w Konfiguracji: Wartownik
+000000011172.07C: Zabici w Konfiguracji: Czołg
+000000011173.07C: Zapewniony pancerz
+000000011174.07C: Zablokowane obrażenia
+000000011175.07C: Procentowy czas działania Wsparcia
+000000011176.07C: Zablokowane obrażenia
+000000011177.07C: Zniszczenia mecha
+000000011178.07C: Wezwane mechy
+000000011179.07C: Zabici Samozniszczeniem
+00000001117A.07C: Zabici Smoczym Mieczem
+00000001117B.07C: Zabici Odbiciem
+00000001117C.07C: Odbite obrażenia
+00000001117D.07C: Celność Skupionej Wiązki
+00000001117E.07C: Bomby Przyczepne - likwidacje
+00000001117F.07C: Trafienia bezpośrednie Bombami Przyczepnymi
+000000011180.07C: Celność trafień bezpośrednich Bombami Przyczepnymi
+000000011181.07C: Zabici Skupioną Wiązką
+000000011182.07C: Zabici podczas Duplikacji
+000000011183.07C: Stworzone osłony
+000000011184.07C: Likwidacje Meteorem
+000000011185.07C: Zadane obrażenia od zdolności
+00000001118C.07C: Oczekiwanie na graczy
+00000001118D.07C: Zbierz bohaterów
+00000001118E.07C: Przygotowanie
+00000001118F.07C: ATAK
+000000011190.07C: OBRONA
+000000011191.07C: Zbierz bohaterów
+000000011194.07C: Testowy Szturm
+000000011195.07C: Testowy Szturm
+000000011196.07C: Zasady trybu rywalizacji
+000000011197.07C: Włączono
+000000011198.07C: Wyłączono
+000000011199.07C: Modyfikator czasu przejmowania
+00000001119A.07C: |Rfn %1$s:P0;
+00000001119E.07C: Czas rozgrywki
+0000000111A5.07C: Zabici Zamiecią
+0000000111A6.07C: Zablokowane obrażenia
+0000000111A7.07C: Zamrożeni wrogowie
+0000000111A8.07C: Zabici Przycelowaniem
+0000000111A9.07C: Zabici Szybkostrzelnym Rozjemcą
+0000000111AA.07C: Bariery Dźwiękowe
+0000000111AB.07C: Zabici Mord-Oponą
+0000000111AC.07C: Wrogowie w Potrzasku
+0000000111AD.07C: Zabici Miną Ogłuszającą
+0000000111AE.07C: Zabici Smoczym Strzałem
+0000000111AF.07C: Zabici Strzałą Burzową
+0000000111B0.07C: Zabici Strzałą Rozpryskową
+0000000111B1.07C: Zabici Strumieniem Grawitacyjnym
+0000000111B2.07C: Zabici Rzutem Kamieniem
+0000000111B3.07C: Zablokowane obrażenia
+0000000111B4.07C: Zaabsorbowane obrażenia
+0000000111BE.07C: Zabici Zdruzgotaniem
+0000000111BF.07C: Zabici Szarżą
+0000000111C0.07C: Zabici Ognistym Uderzeniem
+0000000111C1.07C: Zablokowane obrażenia
+0000000111C2.07C: Celność Młota Rakietowego w zwarciu
+0000000111C3.07C: Zabici Wirującą Śmiercią
+0000000111C4.07C: Zabici Salwą
+0000000111C5.07C: Bezpośrednie trafienia rakietami
+0000000111C6.07C: Celność trafień bezpośrednich
+0000000111C7.07C: Asysty Turbodoładowaniem
+0000000111C8.07C: Zablokowane obrażenia
+0000000111C9.07C: Zabici Koalescencją
+0000000111CA.07C: Leczenie Koalescencją
+0000000111CB.07C: Celność ataku alternatywnego
+0000000111CC.07C: Wskrzeszeni gracze
+0000000111CD.07C: Zabici Blasterem
+0000000111CE.07C: Zabici Jadowitą Miną
+0000000111CF.07C: Zabici Bombami Pulsacyjnymi
+0000000111D0.07C: Przylepione Bomby Pulsacyjne
+0000000111D1.07C: Odzyskane zdrowie
+0000000111D2.07C: Zabici Przegraniem
+0000000111D3.07C: Zabici przez Wieżyczkę
+0000000111D4.07C: Obrażenia zadane przez Wieżyczkę
+0000000111D5.07C: Zabici przez Torbjörna
+0000000111D6.07C: Zabici Dopancerzeniem
+0000000111D7.07C: Zabici Młotem
+0000000111D8.07C: Wykute Pancerze
+0000000111D9.07C: Zablokowane obrażenia
+0000000111DA.07C: Teleportowani gracze
+0000000111DB.07C: Zabici Wieżyczką Strażniczą
+0000000111DC.07C: Celność ataku alternatywnego
+0000000111DD.07C: Bezpośrednie trafienie atakiem alternatywnym
+0000000111DE.07C: Wrogowie trafieni impulsem
+0000000111DF.07C: Zhakowani wrogowie
+0000000111E0.07C: Zabici Wizjerem Taktycznym
+0000000111E1.07C: Zabici Rakietami Helix
+0000000111E2.07C: Użycia Pola Biotycznego
+0000000111E3.07C: Leczenie Polem Biotycznym
+0000000111E4.07C: Zabici Wieprznięciem
+0000000111E5.07C: Wrogowie trafieni Hakiem
+0000000111E6.07C: Celność Hakiem
+0000000111E7.07C: Próby użycia Haku
+0000000111E8.07C: Leczenie Transcendencją
+0000000111E9.07C: Zabici Uderzeniem Grawitonowym
+0000000111EA.07C: Zastosowania Bariery Projekcyjnej
+0000000111EB.07C: Zablokowane obrażenia
+0000000111EC.07C: Zabici (wys. poziom energii)
+0000000111ED.07C: Średni poziom energii
+0000000111EE.07C: Celność trybu podstawowego
+0000000111EF.07C: Zabici Polem Minowym
+0000000111F0.07C: Zabici Kafarem
+0000000111F1.07C: Zabici Pazurem
+0000000111F2.07C: Odrzuceni gracze
+0000000111F6.07C: Celność Pierwotnego Szału w zwarciu
+0000000111F7.07C: Zabici w Pierwotnym Szale
+0000000111F8.07C: Odrzuceni gracze
+0000000111F9.07C: Zabici w zwarciu
+0000000111FA.07C: Zabici Plecakiem Odrzutowym
+0000000111FB.07C: Zablokowane obrażenia
+0000000111FC.07C: Celność Działa Tesli
+000000011208.07C: Likwidacje (na życie)
+000000011209.07C: Obrażenia bohaterów (na życie)
+00000001120A.07C: Wszystkie obrażenia (na życie)
+00000001120B.07C: Trafienia krytyczne (na życie)
+00000001124E.07C: Blizzard
+00000001124F.07C: Testowy Szturm
+000000011262.07C: Testowy Szturm
+000000011263.07C: Eksperymentalna wersja Szturmu
+00000001126B.07C: Pachimari
+000000011274.07C: Pachimari
+00000001129A.07C: Nie rozegrano żadnej gry
+0000000112D9.07C: Zwiń wszystko
+0000000112E0.07C: Profil kariery jest pusty
+0000000112E9.07C: Rozwiń wszystkie
+0000000112EE.07C: <1 min.
+0000000112F3.07C: Nie odblokowano żadnych osiągnięć
+000000011350.07C: utm_source
+000000011351.07C: ow-client
+000000011352.07C: pc
+000000011353.07C: qrcode-pc
+000000011354.07C: xbox
+000000011355.07C: ps4
+000000011356.07C: switch
+000000011357.07C: qrcode-xbox
+000000011358.07C: qrcode-ps4
+000000011359.07C: qrcode-switch
+00000001135A.07C: utm_medium
+[Core] Execution finished in 00:00:00.4289391 seconds

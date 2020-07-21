@@ -1,13 +1,13 @@
-[Core] DataTool v1.49.0.877-git-f33ad905edd84c33f6f8df9a82f71dd7e425f416
+[Core] DataTool v1.50.0.878-git-14cc6c1bce8898083a3a1bbdd238d6185ae7386e
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(18)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(19)\DataTool.exe.args
 [CASC] Text Language: esES | Speech Language: esES
-[CASC] Overwatch build 1.49.1.0.70708
+[CASC] Overwatch build 1.50.0.0.70665
 [CASC] Initializing...
-[Manifest] Using TRG procedure 70250 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
-[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 70250 for Win_SPWin_RDEV_LesES_text_EExt.cmf
+[Manifest] Using TRG procedure 70665 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
+[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_LesES_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -2820,7 +2820,7 @@ Descubre nuevas maneras de jugar con una selección variable de modos que incluy
 0000000025C1.07C: Pistolero diestro
 0000000025C2.07C: Saludo con sombrero
 0000000025C3.07C: Escupitajo
-0000000025C4.07C: Nudo corredizo
+0000000025C4.07C: Mala suerte
 0000000025C5.07C: Me gusta
 0000000025C6.07C: ¡Bang!
 0000000025C8.07C: Sin perdón
@@ -7488,7 +7488,7 @@ Andrew Wang
 00000000441C.07C: Pozo
 00000000441D.07C: Ruinas
 00000000441E.07C: PREPARACIÓN:
-00000000441F.07C: TIEMPO DE PARTIDA: 
+00000000441F.07C: TIEMPO DE PARTIDA:
 000000004420.07C: Se han reclamado los obsequios digitales
 000000004421.07C: Canjear obsequios digitales
 000000004423.07C: No puedes volver a realizar la misma compra.
@@ -7758,9 +7758,6 @@ Andrew Wang
 00000000460A.07C: No puedes unirte a una partida personalizada mientras se instala el juego.
 00000000460D.07C: Te has desconectado del servidor porque se ha cerrado la sesión de tu perfil.
 00000000460F.07C: Cada caja de botín contiene una combinación de hasta 4 objetos cosméticos o créditos del juego. Las cajas de botín se pueden obtener jugando.
-000000004619.07C: COMPRAR
-00000000461A.07C: CANCELAR
-00000000461B.07C: NO SE HA ENCONTRADO NINGUNA LICENCIA DE OVERWATCH.
 00000000461C.07C: www.buyoverwatch.com
 00000000461D.07C: #%1$s
 000000004625.07C: Se ha producido un error al aceptar la invitación
@@ -8536,7 +8533,6 @@ de la temporada 2
 000000004CCD.07C: Dr. Junkenstein
 000000004CCE.07C: La parca
 000000004CCF.07C: En pausa
-000000004CD0.07C: Logros recientes
 000000004CD1.07C: Mina de conmoción
 000000004CD3.07C: La bruja
 000000004CD4.07C: Halloween terrorífico 2016
@@ -8770,7 +8766,6 @@ de la temporada 3
 000000004FB0.07C: %1$s |Rplescopeta descargada:escopetas descargadas;
 000000004FB1.07C: Aguantaron el portón
 000000004FB2.07C: Gana La venganza de Junkenstein en dificultad legendaria.
-000000004FB6.07C: Especial
 000000004FC6.07C: BONUS DE SALUD DE PUERTA +%1$s p.
 000000004FC7.07C: BONUS DE ELIMINACIÓN DE ÉLITE +%1$s p.
 000000004FC8.07C: BONUS DE SUPERVIVENCIA +%1$s p.
@@ -14431,7 +14426,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000711F.07C: la Overwatch World Cup
 000000007120.07C: Ver
 000000007121.07C: worldcup.playoverwatch.com
-000000007123.07C: Esto abrirá un navegador en otra ventana.
 000000007124.07C: Aceptar
 000000007125.07C: Cancelar
 000000007133.07C: Icono
@@ -14796,7 +14790,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000745F.07C: %1$s |Rplacierto:aciertos; con Dardo sedante
 000000007460.07C: Índice de adhesión de Bomba de pulsos
 000000007461.07C: %1$s de índice de adhesión de Bomba de pulsos
-000000007470.07C: CANCELAR
 000000007472.07C: Sanación por uso de Coalescencia
 000000007473.07C: %1$s de sanación por uso de Coalescencia
 000000007474.07C: Daño por uso de Coalescencia
@@ -17096,8 +17089,6 @@ de la temporada 13
 000000008DB5.07C: Elogios no disponibles con amigos.
 000000008DB6.07C: Has usado todos tus elogios para esta partida.
 000000008DCE.07C: Torreta
-000000008DEC.07C: NÚMERO DE TELÉFONO REQUERIDO.
-000000008DEE.07C: AÑADIR ALERTAS DE MÓVIL
 000000008DEF.07C: Demonio
 000000008DF2.07C: https://account.blizzard.com/details/sms/setup/add
 000000008DF3.07C: La cuenta requiere un número de teléfono.
@@ -17409,7 +17400,6 @@ de la temporada 13
 00000000920A.07C: Una vida mejor a través de la ciencia
 00000000920B.07C: Disponible en las cajas de botín de los Juegos de Verano
 000000009215.07C: Logros
-000000009234.07C: %1$s %2$s
 000000009235.07C: Sin rencores
 000000009236.07C: Frustración detectada
 000000009237.07C: Alivio detectado
@@ -17597,8 +17587,6 @@ de la temporada 13
 0000000093B4.07C: Se desbloquea al participar en el evento de la gran final de la OWL de 2018
 0000000093BB.07C: ¿Quieres comprar todas las recompensas?
 0000000093BC.07C: Zhang Fei
-0000000093DE.07C: Contenders
-0000000093DF.07C: Contenders
 0000000093E1.07C: Temporada 1 de Combate a muerte por equipos competitivo
 0000000093E2.07C: Combate a muerte por equipos
 0000000093E3.07C: Combate a muerte por equipos competitivo
@@ -18142,7 +18130,6 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000A44C.07C: Matriz amplificadora
 00000000A44D.07C: Proyectas una matriz que duplica el daño y la sanación de los proyectiles aliados.
 00000000A451.07C: Un arma que dispara ráfagas de tres proyectiles.
-00000000A48E.07C: Aceptar
 00000000A496.07C: Santuario
 00000000A49C.07C: Miembro de Deadlock
 00000000A49E.07C: Intensidad de contorno del jugador
@@ -21769,9 +21756,6 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 Nota: Las variables y el lenguaje de programación se han mantenido en inglés. La interfaz de usuario y las descripciones estarán traducidas al idioma que utilice tu cliente.
 00000000C47F.07C: Visitar los foros
 00000000C480.07C: https://us.forums.blizzard.com/en/overwatch/c/workshop
-00000000C481.07C: Esto abrirá un navegador en otra ventana.
-00000000C482.07C: Aceptar
-00000000C483.07C: Cancelar
 00000000C4A3.07C: Informar sobre código
 00000000C4A4.07C: Eliminación 3c3
 00000000C4A5.07C: Si no está establecida la marca (F), habilitar la habilidad definitiva, establecer en 100 la carga de la definitiva y establecer la marca
@@ -22249,7 +22233,6 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000C9A4.07C: Mostrar características de rendimiento del servidor
 00000000C9A5.07C: Carga del servidor
 00000000C9A8.07C: Muestra las características de rendimiento del servidor. La regla de este preajuste se puede copiar a cualquier script para medir el impacto de ese script en el servidor. 
-00000000C9DE.07C: %1$s: %2$s
 00000000C9E3.07C: Actualmente no disponible
 00000000C9E4.07C: Función cubierta
 00000000C9E5.07C: Ópera
@@ -22274,7 +22257,7 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000CA0C.07C: Selecciona una función para poner en cola a tu equipo. ¿Seleccionarla ahora?
 00000000CA0D.07C: Tiendas
 00000000CA0E.07C: Tienda
-00000000CA11.07C: Semana 1: Sigma fibra de carbono
+00000000CA11.07C: Desafío Maestro de Sigma
 00000000CA13.07C: Semana 2: Widowmaker flor de lis
 00000000CA14.07C: Semana 3: McCree enmascarado
 00000000CA15.07C: ¡Gana 9 partidas rápidas, de Arcade o competitivas!
@@ -22627,9 +22610,6 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000CE69.07C: Error: Se ha encontrado un literal de cadena al que le faltan las comillas de cierre tras «%1$s» en la línea %2$s.
 00000000CE6D.07C: Vampiro
 00000000CE6E.07C: La edición de texto está desactivada en esta cuenta.
-00000000CE75.07C: Esto abrirá un navegador en otra ventana.
-00000000CE76.07C: Aceptar
-00000000CE77.07C: Cancelar
 00000000CE80.07C: Create Beam Effect
 00000000CE81.07C: Crea una entidad de efecto de haz en el mundo. Esta entidad de efecto persistirá hasta su destrucción. Para obtener una referencia a esta entidad, utiliza el valor de «Last Created Entity». Esta acción fallará si se han creado demasiadas entidades.
 00000000CE82.07C: Posición inicial
@@ -25958,8 +25938,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D24E.07C: Disponible en las cajas de botín de Halloween
 00000000D24F.07C: Cuidado con la barba
 00000000D250.07C: Disponible en las cajas de botín de Halloween
-00000000D257.07C: https://www.twitch.tv/overwatchleague
-00000000D25B.07C: CANCELAR
 00000000D264.07C: El nuevo contenido solo estará disponible al reiniciar la aplicación.
 00000000D265.07C: Aviso
 00000000D2C9.07C: Centro de Busan (Año Nuevo Lunar)
@@ -26207,7 +26185,6 @@ https://account.blizzard.com/connections/nintendo
 00000000EBD7.07C: A medida
 00000000EBD9.07C: Turno de noche
 00000000EBDB.07C: Ascensión
-00000000EBE7.07C: https://blizzcon.playoverwatch.com/story
 00000000EBF1.07C: Jötunn
 00000000EBF3.07C: Prepárate
 00000000EC0C.07C: Combate a muerte
@@ -26291,9 +26268,6 @@ https://account.blizzard.com/connections/nintendo
 00000000F0F4.07C: <fg%1$s>|RcgDORMIDO:DORMIDA;</fg>
 00000000F0FE.07C: Solo para residentes de California
 00000000F0FF.07C: No vendas mi información personal
-00000000F102.07C: Esto abrirá un navegador en otra ventana.
-00000000F103.07C: Aceptar
-00000000F104.07C: CANCELAR
 00000000F12D.07C: Escarchado
 00000000F12E.07C: Disponible en las cajas de botín de Inverlandia
 00000000F12F.07C: Rey rata
@@ -26982,6 +26956,7 @@ https://account.blizzard.com/connections/nintendo
 000000010237.07C: Desconectado por alcanzar el límite de tiempo del sistema antiadicción de China
 000000010239.07C: Experimental
 00000001023B.07C: 
+00000001023D.07C: Maestro
 000000010248.07C: Osa
 000000010249.07C: Holi
 00000001024A.07C: Oxidado
@@ -27356,6 +27331,7 @@ https://account.blizzard.com/connections/nintendo
 0000000108E8.07C: Se desbloquea al asistir a un evento Homestand en 2020
 0000000108E9.07C: Homestand 2020 de los Atlanta Reign
 0000000108F8.07C: Ruta 66
+0000000108FD.07C: Maestro
 0000000108FE.07C: Plan de vuelo
 00000001094D.07C: Alienígena
 000000010950.07C: Se desbloquea al ver retransmisiones participantes durante el evento de lanzamiento de la heroína Echo
@@ -27409,6 +27385,7 @@ https://account.blizzard.com/connections/nintendo
 - Se obtienen puntos capturando objetivos
 - ¡Gana quien obtenga más puntos!
 0000000109FF.07C: La habilidad para el evento que está procesando actualmente esta regla, asociada por botón.
+000000010A0A.07C: Ajustes de sala no válidos. Debes corregir o descartar tus cambios.
 000000010A0B.07C: Competidor de la temporada 1 de cola abierta
 000000010A0C.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 1 de cola abierta competitiva
 000000010A0D.07C: Héroe de la temporada 1 de cola abierta
@@ -27607,7 +27584,7 @@ https://account.blizzard.com/connections/nintendo
 000000010B54.07C: Héroe de la habilidad que se convertirá en un icono.
 000000010B55.07C: Botón de la habilidad que se convertirá en un icono.
 000000010B57.07C: Ataque cuerpo a cuerpo.
-000000010B5F.07C: Gracias por informarnos sobre comportamientos perturbadores
+000000010B5F.07C: Gracias por informarnos sobre trampas o comportamientos perturbadores
 000000010B60.07C: Tus últimos informes nos han llevado a actuar contra jugadores que han infringido nuestras políticas y perturban las partidas de Overwatch para todos. 
 
 No podemos darte más detalles, pero tus informes hacen de Overwatch un juego más justo y agradable.
@@ -27718,13 +27695,10 @@ Asistencia de Blizzard
 000000010CAF.07C: Recuento total: %1$s
 000000010CBC.07C:  
 000000010CC8.07C: <fg%1$s>%2$s</fg><tx%3$s> used <tx%4$s> on <fg%7$s>%5$s</fg><tx%6$s>
-000000010CCC.07C:  
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: ATRÁS
-000000010CED.07C:  
 000000010D17.07C: NOTAS DEL PARCHE (NUEVO)
-000000010D1E.07C:  
-000000010D22.07C: CANCELAR
+000000010D24.07C: Se desbloquea al participar en el desafío Maestro de Sigma
 000000010D2B.07C: GESTO
 000000010D2C.07C: FRASE
 000000010D5A.07C: China - Shenzhen
@@ -27733,17 +27707,27 @@ Asistencia de Blizzard
 000000010D86.07C: Espacio en la sala
 000000010D88.07C: Espacio en la partida
 000000010D8F.07C: Actualizar
+000000010D94.07C: Maestro
 000000010DC1.07C: Héroe de la temporada 23
 000000010DC3.07C: Competidor de la temporada 23
 000000010DC5.07C: Héroe de la temporada 23
 000000010DC6.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 23
 000000010DC7.07C: Competidor de la temporada 23
 000000010DC8.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 23
+000000010DEF.07C: Maestro
+000000010DF0.07C: Se desbloquea al ver retransmisiones participantes durante el desafío Maestro de Sigma
+000000010DF1.07C: Violín
+000000010DF3.07C: Sitar
+000000010DF5.07C: Bossa nova
+000000010DF7.07C: Guzheng
+000000010DF9.07C: Yembé
 000000010E2A.07C: Temporada 2 de la cola abierta competitiva
 000000010E2B.07C: Cola abierta competitiva
 000000010E2C.07C: Salta al campo de batalla y compite con los mejores jugadores del mundo sin limitaciones en la selección de héroes.
 000000010E46.07C: Cola abierta competitiva
 000000010E47.07C: Cola abierta competitiva
+000000010E48.07C: Temporada 23
+000000010E49.07C: Temporada 23
 000000010E4F.07C: Attach Players
 000000010E50.07C: Elemento primario
 000000010E51.07C: Elemento secundario
@@ -27770,7 +27754,14 @@ Asistencia de Blizzard
 000000010E6B.07C: Héroe que el jugador especificado está duplicando actualmente. Si no se está duplicando ningún héroe, el valor resultante es 0.
 000000010E6C.07C: Jugador
 000000010E6D.07C: Jugador que realiza la duplicación.
+000000010E6E.07C: Temporada competitiva 23: cola abierta
 000000010E70.07C: Vuelta prioritaria a la cola
+000000010E73.07C: París
+000000010E74.07C: Todo
+000000010E75.07C: Desbloqueado
+000000010E76.07C: Bloqueado
+000000010E77.07C: Fecha de obtención (descendiente)
+000000010E78.07C: Fecha de obtención (ascendiente)
 000000010E7F.07C: Acopla un jugador (elemento secundario) a otro (elemento primario). Una vez acoplados, el elemento secundario no podrá moverse con libertad hasta que se desacople o se teletransporte a otro lugar. Se pueden acoplar varios elementos secundarios a un mismo elemento primario (pero no al revés).
 000000010E80.07C: Jugador que se acoplará al elemento primario. Este jugador no podrá moverse con libertad hasta que se desacople o se teletransporte a otro lugar.
 000000010E81.07C: Jugador al que se acoplará el elemento secundario. El movimiento de este jugador no se verá afectado y determinará la posición del elemento secundario.
@@ -27789,20 +27780,45 @@ Asistencia de Blizzard
 000000010E8E.07C: Cancela el comportamiento de «Start Forcing Player Position» para el jugador o los jugadores especificados. El movimiento normal se reanudará desde la última posición forzada.
 000000010E8F.07C: Jugador
 000000010E90.07C: Jugador o jugadores cuyas posiciones dejarán de forzarse.
-000000010E95.07C: sinatraa, MVP de la Overwatch League 2019
-000000010E9F.07C: Aspecto legendario alienígena
+000000010E91.07C: Filtros
 000000010EA4.07C: Cola por función
 000000010EA5.07C: Cola abierta
 000000010EA6.07C: Con limitaciones de función en la selección de héroe
 000000010EA7.07C: Sin limitaciones de función en la selección de héroe
 000000010EAF.07C: PARTIDA COMPETITIVA
+000000010EB4.07C: %1$s/%2$s
+000000010EB5.07C: %1$s/%2$s conseguidos
+000000010ED0.07C: Eventos
+000000010EDD.07C: |Rpl %1$s:Partida ganada:Partidas ganadas;
+000000010EDE.07C: %1$s |Rplpartida ganada:partidas ganadas;
+000000010EDF.07C: Tiempo jugado
+000000010EE0.07C: %1$s de tiempo jugado
 000000010EE1.07C: Temporada no activa
 000000010EEC.07C: Buscar a más jugadores
+000000010EEE.07C: Todo
+000000010EEF.07C: Artículo adquirido
+000000010EF0.07C: Artículo no adquirido
+000000010EF8.07C: Juegos de Verano
+000000010EF9.07C: Halloween terrorífico
+000000010EFD.07C: Rebelión
+000000010EFE.07C: Inverlandia
+000000010F14.07C: Conseguido
+000000010F57.07C: Todos los héroes
 000000010F5B.07C: Cola por función
 000000010F5C.07C: Cola abierta
 000000010F5D.07C: - 10 partidas de posicionamiento
 - Índice de habilidad determinado (1-5000)
 - El índice de habilidad se ajusta tras cada victoria o derrota
+000000010F5F.07C: Filtros
+000000010F60.07C: Escuchar
+000000010FC3.07C: Cerrar
+000000010FC4.07C: Abrir
+000000010FC7.07C: https://playoverwatch.com/media#music
+000000010FCE.07C: Escanear con un dispositivo móvil
+000000010FCF.07C: Abrir en una nueva ventana del navegador
+000000010FD0.07C: o
+000000010FDA.07C: Banda sonora de Overwatch: Cities & Countries
+000000010FDB.07C: Enlace externo
 000000010FDD.07C: El índice de habilidad inicial más alto obtenido tras completar las partidas de posicionamiento es de 3900.
 000000010FE0.07C: ¡Tras completar las partidas de posicionamiento, has obtenido el índice de habilidad inicial más alto posible!
 000000010FF8.07C: Combinación
@@ -27810,8 +27826,97 @@ Asistencia de Blizzard
 000000010FFA.07C: Daño
 000000010FFB.07C: Apoyo
 000000010FFC.07C: Cola abierta
+000000011002.07C: Estadísticas destacadas
+000000011003.07C: Eliminaciones
+000000011004.07C: Estadística
+000000011005.07C: Media/10 min
+000000011006.07C: Total
+000000011007.07C: El mejor
+00000001101C.07C: Ajuste de cuentas
+00000001101D.07C: Tormenta inminente
+00000001101E.07C: Desafíos de los Archivos
 000000011020.07C: Temporada competitiva %1$s - Cola abierta
 000000011021.07C: Temporada competitiva actual - Cola abierta
+000000011029.07C: Aceptar
+000000011036.07C: %%
+000000011037.07C: Probabilidad de caja de botín estándar
+000000011038.07C: Probabilidad media por caja de botín
+000000011039.07C: Común
+00000001103A.07C: Poco común
+00000001103B.07C: Épica
+00000001103C.07C: Legendaria
+00000001103D.07C: 99
+00000001103E.07C: 94
+00000001103F.07C: 18,5
+000000011040.07C: 7,5
+000000011041.07C: - Cada caja de botín contiene 4 objetos o 3 objetos y créditos.
+000000011042.07C: - Cada caja de botín contiene al menos un objeto de calidad rara o superior.
+000000011043.07C: - De media, aparece un objeto de calidad épica en una de cada 5,5 cajas de botín.
+000000011044.07C: - De media, aparece un objeto de calidad legendaria en una de cada 13,5 cajas de botín.
+000000011048.07C: - Los objetos obtenidos en las cajas de botín de Overwatch son únicamente cosméticos y no proporcionan ninguna ventaja al jugar.
+00000001104A.07C: Esta cola ya no está disponible
+000000011061.07C: Probabilidad de caja de botín estándar
+000000011063.07C: Nueva banda sonora
+000000011064.07C: Overwatch: Cities & Countries
+00000001107E.07C: Competitiva
+0000000110B3.07C: Experimental
+0000000110B4.07C: Partida rápida
+0000000110B5.07C: Arcade
+0000000110B6.07C: Competitiva
+0000000110B7.07C: Experimental
+0000000110B8.07C: Explorador de partidas
+0000000110CF.07C: Tiempo jugado
+0000000110D4.07C: Tiempo en objetivos
+0000000110D5.07C: Sanación realizada
+0000000110DA.07C: Golpes de gracia
+0000000110DC.07C: Asesinatos en solitario
+0000000110DE.07C: Asesinatos en objetivos
+0000000110DF.07C: Daño total infligido
+0000000110E0.07C: Daño infligido a héroes
+0000000110E1.07C: Daño infligido a barreras
+0000000110E2.07C: Muertes
+0000000110E3.07C: Tiempo a tope
+0000000110E4.07C: Porcentaje de victorias
+0000000110E5.07C: Partidas perdidas
+0000000110E6.07C: Partidas empatadas
+0000000110E7.07C: Héroes más usados
+0000000110FE.07C: https://eu.forums.blizzard.com/es/overwatch/
+0000000110FF.07C: Visitar los foros
+00000001110D.07C: Asistencias defensivas
+00000001110F.07C: Asistencias ofensivas
+000000011110.07C: Asistencias con enemigos detectados
+000000011111.07C: Asesinatos por entorno
+000000011112.07C: Golpes de gracia cuerpo a cuerpo
+000000011113.07C: Mejor racha de asesinatos
+000000011114.07C: Asesinatos múltiples
+000000011116.07C: Precisión cuerpo a cuerpo rápida
+000000011117.07C: Precisión con armas
+000000011118.07C: Torretas destruidas
+000000011119.07C: Teletransportadores destruidos
+00000001111A.07C: Tarjetas
+00000001111B.07C: Medallas
+00000001111C.07C: Medallas de oro
+00000001111D.07C: Medallas de plata
+00000001111E.07C: Medallas de bronce
+000000011120.07C: Tiempo jugado
+000000011121.07C: Partidas jugadas
+000000011122.07C: Partidas ganadas
+000000011123.07C: Asistencias
+000000011124.07C: Paradas
+000000011125.07C: Goles
+000000011126.07C: Asistencias
+000000011127.07C: Interceptaciones
+000000011128.07C: Capturas de bandera
+000000011129.07C: Devoluciones de bandera
+00000001112B.07C: Golpes críticos
+00000001112D.07C: Sanación amplificada
+00000001112E.07C: Daño amplificado
+00000001112F.07C: Autosanación
+000000011130.07C: Asesinatos críticos con mira telescópica
+000000011131.07C: Golpes críticos con mira telescópica
+000000011132.07C: Precisión de golpes críticos con mira telescópica
+000000011133.07C: Precisión con mira telescópica
+000000011134.07C: Partidas ganadas
 000000011138.07C: 65
 000000011139.07C: 125
 00000001113A.07C: 250
@@ -27819,4 +27924,155 @@ Asistencia de Blizzard
 00000001113C.07C: 750
 00000001113D.07C: 1200
 00000001113E.07C: 1750
-[Core] Execution finished in 00:00:00.4201165 seconds
+000000011157.07C: Precisión sin mira telescópica
+000000011158.07C: Dosis de Nanoestimulantes
+000000011159.07C: Asistencias con Nanoestimulantes
+00000001115A.07C: Enemigos dormidos
+00000001115B.07C: Asesinatos con Granada biótica
+000000011169.07C: Asesinatos con Dinamita
+00000001116A.07C: Asesinatos con Recortada
+00000001116B.07C: Asesinatos de Bob
+00000001116C.07C: Lanzamientos de Matriz amplificadora
+00000001116D.07C: Asistencias con Matriz amplificadora
+00000001116E.07C: Muertes evitadas con Campo de inmortalidad
+00000001116F.07C: Precisión de sanación
+000000011170.07C: Asesinatos en Modo reconocimiento
+000000011171.07C: Asesinatos en Modo centinela
+000000011172.07C: Asesinatos en Modo tanque
+000000011173.07C: Armadura proporcionada
+000000011174.07C: Daño bloqueado
+000000011175.07C: Porcentaje de tiempo con Inspiración activa
+000000011176.07C: Daño bloqueado
+000000011177.07C: Muertes del meca
+000000011178.07C: Mecas solicitados
+000000011179.07C: Asesinatos con Autodestrucción
+00000001117A.07C: Asesinatos con Hoja del dragón
+00000001117B.07C: Asesinatos con Desvío
+00000001117C.07C: Daño reflejado
+00000001117D.07C: Precisión de Haz enfocado
+00000001117E.07C: Asesinatos con Bombas lapa
+00000001117F.07C: Golpes directos con Bombas lapa
+000000011180.07C: Precisión de golpes directos con Bombas lapa
+000000011181.07C: Asesinatos con Haz enfocado
+000000011182.07C: Asesinatos con Duplicado
+000000011183.07C: Escudos creados
+000000011184.07C: Asesinatos con Meteoro
+000000011185.07C: Daño infligido con habilidades
+00000001118C.07C: Esperando jugadores
+00000001118D.07C: Reunid héroes
+00000001118E.07C: Preparación
+00000001118F.07C: ATAQUE
+000000011190.07C: DEFENSA
+000000011191.07C: Reunid héroes
+000000011194.07C: Prueba de asalto
+000000011195.07C: Prueba de asalto
+000000011196.07C: Reglas competitivas
+000000011197.07C: Permitir
+000000011198.07C: No permitir
+000000011199.07C: Modificador de velocidad de captura
+00000001119A.07C: |Rfn %1$s:P0;
+00000001119E.07C: Tiempo jugado
+0000000111A5.07C: Asesinatos con Ventisca
+0000000111A6.07C: Daño bloqueado
+0000000111A7.07C: Enemigos congelados
+0000000111A8.07C: Asesinatos con Sin perdón
+0000000111A9.07C: Asesinatos vaciando el cargador
+0000000111AA.07C: Barreras de sonido proporcionadas
+0000000111AB.07C: Asesinatos con Rueda explosiva
+0000000111AC.07C: Enemigos atrapados
+0000000111AD.07C: Asesinatos con Mina de conmoción
+0000000111AE.07C: Asesinatos con Ataque del dragón
+0000000111AF.07C: Asesinatos con Arco de tormenta
+0000000111B0.07C: Asesinatos con Flecha de dispersión
+0000000111B1.07C: Asesinato con Flujo gravitacional
+0000000111B2.07C: Asesinatos con Lanzamiento de roca
+0000000111B3.07C: Daño bloqueado
+0000000111B4.07C: Daño absorbido
+0000000111BE.07C: Asesinatos con Seísmo
+0000000111BF.07C: Asesinatos con Embestida
+0000000111C0.07C: Asesinatos con Onda de fuego
+0000000111C1.07C: Daño bloqueado
+0000000111C2.07C: Precisión cuerpo a cuerpo de Martillo a reacción
+0000000111C3.07C: Asesinatos con Espiral de muerte
+0000000111C4.07C: Asesinatos con Bombardeo
+0000000111C5.07C: Golpes directos con cohetes
+0000000111C6.07C: Precisión de golpes directos
+0000000111C7.07C: Asistencias con Potenciador
+0000000111C8.07C: Daño bloqueado
+0000000111C9.07C: Asesinatos con Coalescencia
+0000000111CA.07C: Sanación con Coalescencia
+0000000111CB.07C: Precisión de disparo secundario
+0000000111CC.07C: Jugadores resucitados
+0000000111CD.07C: Asesinatos con pistola
+0000000111CE.07C: Asesinatos con Mina venenosa
+0000000111CF.07C: Asesinatos con Bomba de pulsos
+0000000111D0.07C: Bombas de pulsos adheridas
+0000000111D1.07C: Salud recuperada
+0000000111D2.07C: Asesinatos con Fusión nuclear activa
+0000000111D3.07C: Asesinatos con torreta
+0000000111D4.07C: Daño de torreta
+0000000111D5.07C: Asesinatos con Torbjörn
+0000000111D6.07C: Asesinatos con Sobrecarga
+0000000111D7.07C: Asesinatos con martillo
+0000000111D8.07C: Packs de armadura creados
+0000000111D9.07C: Daño bloqueado
+0000000111DA.07C: Jugadores teletransportados
+0000000111DB.07C: Asesinatos con Torreta centinela
+0000000111DC.07C: Precisión de disparo secundario
+0000000111DD.07C: Golpes directos secundarios
+0000000111DE.07C: PEM aplicados a enemigos
+0000000111DF.07C: Enemigos hackeados
+0000000111E0.07C: Asesinatos con Visor táctico
+0000000111E1.07C: Asesinatos con Cohetes hélice
+0000000111E2.07C: Campos bióticos desplegados
+0000000111E3.07C: Sanación realizada con Campo biótico
+0000000111E4.07C: Asesinatos con Juego sucio
+0000000111E5.07C: Enemigos enganchados
+0000000111E6.07C: Precisión de Garfio
+0000000111E7.07C: Garfios lanzados
+0000000111E8.07C: Sanación de Trascendencia
+0000000111E9.07C: Asesinatos con Bomba de gravedad
+0000000111EA.07C: Barreras proyectadas aplicadas
+0000000111EB.07C: Daño bloqueado
+0000000111EC.07C: Asesinatos con energía alta
+0000000111ED.07C: Media de energía
+0000000111EE.07C: Precisión de disparo principal
+0000000111EF.07C: Asesinatos con Campo de minas
+0000000111F0.07C: Asesinatos con Impacto demoledor
+0000000111F1.07C: Asesinatos con Gancho garra
+0000000111F2.07C: Jugadores repelidos
+0000000111F6.07C: Precisión cuerpo a cuerpo de Rabia primigenia
+0000000111F7.07C: Asesinatos con Rabia primigenia
+0000000111F8.07C: Jugadores repelidos
+0000000111F9.07C: Asesinatos cuerpo a cuerpo
+0000000111FA.07C: Asesinatos con Salto potenciado
+0000000111FB.07C: Daño bloqueado
+0000000111FC.07C: Precisión de Cañón tesla
+000000011208.07C: Eliminaciones por vida
+000000011209.07C: Daño infligido a héroes por vida
+00000001120A.07C: Daño total infligido por vida
+00000001120B.07C: Golpes críticos por vida
+00000001124E.07C: Ventisca
+00000001124F.07C: Prueba de asalto
+000000011262.07C: Prueba de asalto
+000000011263.07C: Una versión experimental de asalto
+00000001126B.07C: Pachimari
+000000011274.07C: Pachimari
+00000001129A.07C: Sin partida jugadas
+0000000112D9.07C: Minimizar todo
+0000000112E0.07C: El perfil personal está vacío
+0000000112E9.07C: Maximizar todo
+0000000112EE.07C: <1 min
+0000000112F3.07C: Ningún logro desbloqueado
+000000011350.07C: utm_source
+000000011351.07C: ow-client
+000000011352.07C: pc
+000000011353.07C: qrcode-pc
+000000011354.07C: xbox
+000000011355.07C: ps4
+000000011356.07C: switch
+000000011357.07C: qrcode-xbox
+000000011358.07C: qrcode-ps4
+000000011359.07C: qrcode-switch
+00000001135A.07C: utm_medium
+[Core] Execution finished in 00:00:00.6950818 seconds

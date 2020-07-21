@@ -36,6 +36,9 @@ const gamemodeKw =
         "zh-CN": "攻防作战",
         "zh-TW": "佔領"
     },
+    "assaultTest": {
+        "en-US": "Assault Test",
+    },
     "ctf": {
         "guid": "000000005A56",
         "en-US": "Capture The Flag",

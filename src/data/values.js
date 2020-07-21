@@ -18,6 +18,25 @@
 var valueFuncKw = 
 //begin-json
 {
+    "_&getAbilityCharge": {
+        "description": "The ability charge count for a player associated by button.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose ability to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "BUTTON",
+                "description": "The ability to check associated by button.",
+                "type": "Button",
+                "default": "BUTTON"
+            }
+        ],
+        "return": "unsigned int",
+        "en-US": "Ability Charge",
+    },
     "_&getAbilityCooldown": {
         "description": "The ability cooldown time in seconds for a player associated by button.",
         "args": [
@@ -67,6 +86,25 @@ var valueFuncKw =
         "ja-JP": "アビリティアイコンストリング",
         "pt-BR": "String de Ícone de Habilidade",
         "zh-CN": "技能图标字符串"
+    },
+    "_&getAbilityResource": {
+        "description": "The ability resource percent for a player associated by button.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose ability to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "BUTTON",
+                "description": "The ability to check associated by button.",
+                "type": "Button",
+                "default": "BUTTON"
+            }
+        ],
+        "return": "unsigned float",
+        "en-US": "Ability Resource",
     },
     "abs": {
         "description": "The absolute value of the specified value.",
@@ -324,6 +362,19 @@ var valueFuncKw =
         "ja-JP": "高度: ",
         "pt-BR": "Altitude de",
         "zh-CN": "高度"
+    },
+    "_&getAmmo": {
+        "description": "The current ammo of a player.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose ammo to acquire.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "return": "unsigned float",
+        "en-US": "Ammo",
     },
     "__and__": {
         "description": "Whether both of the two inputs are true (or equivalent to true).",
@@ -1200,6 +1251,12 @@ var valueFuncKw =
         "pt-BR": "Evento foi Golpe Crítico",
         "zh-CN": "事件暴击"
     },
+    "eventWasEnvironment": {
+        "description": "Whether the elimination was due to the environment for the event currently being processed by this rule.",
+        "args": null,
+        "return": "bool",
+        "en-US": "Event Was Environment",
+    },
     "eventWasHealthPack": {
         "description": "Whether the healing was a health pack for the event currently being processed by this rule.",
         "args": null,
@@ -1485,6 +1542,25 @@ var valueFuncKw =
         "ja-JP": "ライフ",
         "pt-BR": "Vida",
         "zh-CN": "生命值"
+    },
+    "_&getHealthOfType": {
+        "guid": "0000000081C2",
+        "description": "The current health of the specified player, filtered by the given health type.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose health to acquire.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            },{
+                "name": "HEALTH",
+                "description": "The type of health to acquire.",
+                "type": "Health",
+                "default": "HEALTH",
+            }
+        ],
+        "return": "unsigned float",
+        "en-US": "Health of Type",
     },
     "_&getNormalizedHealth": {
         "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
@@ -1776,6 +1852,19 @@ var valueFuncKw =
         "ja-JP": "配列値のインデックス",
         "pt-BR": "Índice do Valor da Matriz",
         "zh-CN": "数组值的索引"
+    },
+    "buttonString": {
+        "description": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables.",
+        "args": [
+            {
+                "name": "BUTTON",
+                "description": "The button for the input binding that will be converted to a string.",
+                "type": "Button",
+                "default": "Button",
+            },
+        ],
+        "return": "String",
+        "en-US": "Input Binding String",
     },
     "_&isAlive": {
         "description": "Whether a player is alive.",
@@ -2441,6 +2530,19 @@ var valueFuncKw =
         "pt-BR": "É Retrato Em Chamas",
         "zh-CN": "头像火力全开"
     },
+    "_&isReloading": {
+        "description": "Whether the specified player is reloading.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose reload usage to check.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "return": "bool",
+        "en-US": "Is Reloading",
+    },
     "_&isStanding": {
         "description": "Whether a player is standing (defined as both not moving and not in the air).",
         "args": [
@@ -2628,6 +2730,12 @@ var valueFuncKw =
         "ja-JP": "最新のエンティティ",
         "pt-BR": "Entidade Criada por Último",
         "zh-CN": "最后创建的实体"
+    },
+    "getLastCreatedHealthPool": {
+        "description": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level).",
+        "args": [],
+        "return": "HealthPoolId",
+        "en-US": "Last Created Health Pool",
     },
     "getLastDamageModification": {
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
@@ -2833,6 +2941,19 @@ var valueFuncKw =
         "pt-BR": "Máx.",
         "zh-CN": "较大"
     },
+    "_&getMaxAmmo": {
+        "description": "The current max ammo of a player.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose max ammo to acquire.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "return": "unsigned float",
+        "en-US": "Max Ammo",
+    },
     "_&getMaxHealth": {
         "description": "The max health of a player, including armor and shields.",
         "args": [
@@ -2851,6 +2972,25 @@ var valueFuncKw =
         "ja-JP": "最大ライフ",
         "pt-BR": "Vida Máxima",
         "zh-CN": "最大生命值"
+    },
+    "_&getMaxHealthOfType": {
+        "guid": "0000000081C2",
+        "description": "The max health of the specified player, filtered by the given health type.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose max health to acquire.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            },{
+                "name": "HEALTH",
+                "description": "The type of max health to acquire.",
+                "type": "Health",
+                "default": "HEALTH",
+            }
+        ],
+        "return": "unsigned float",
+        "en-US": "Max Health of Type",
     },
     "min": {
         "guid": "00000000C416",
@@ -4441,6 +4581,19 @@ var valueFuncKw =
         "ja-JP": "犠牲者",
         "pt-BR": "Vítima",
         "zh-CN": "被攻击方"
+    },
+    "_&getCurrentWeapon": {
+        "description": "The currently held weapon of a player. Returns 2 for Baby Dva's gun, Torbjorn's hammer, and Mercy's pistol; 1 otherwise.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player whose weapon to acquire.",
+                "type": "Player",
+                "default": "EVENT PLAYER"
+            }
+        ],
+        "return": "unsigned int",
+        "en-US": "Weapon",
     },
     "worldVector": {
         "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
