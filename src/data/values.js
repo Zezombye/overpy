@@ -1,21 +1,21 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var valueFuncKw = 
+var valueFuncKw =
 //begin-json
 {
     "_&getAbilityCharge": {
@@ -35,7 +35,7 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned int",
-        "en-US": "Ability Charge",
+        "en-US": "Ability Charge"
     },
     "_&getAbilityCooldown": {
         "description": "The ability cooldown time in seconds for a player associated by button.",
@@ -104,7 +104,7 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned float",
-        "en-US": "Ability Resource",
+        "en-US": "Ability Resource"
     },
     "abs": {
         "description": "The absolute value of the specified value.",
@@ -374,7 +374,7 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned float",
-        "en-US": "Ammo",
+        "en-US": "Ammo"
     },
     "__and__": {
         "description": "Whether both of the two inputs are true (or equivalent to true).",
@@ -1255,7 +1255,7 @@ var valueFuncKw =
         "description": "Whether the elimination was due to the environment for the event currently being processed by this rule.",
         "args": null,
         "return": "bool",
-        "en-US": "Event Was Environment",
+        "en-US": "Event Was Environment"
     },
     "eventWasHealthPack": {
         "description": "Whether the healing was a health pack for the event currently being processed by this rule.",
@@ -1556,11 +1556,11 @@ var valueFuncKw =
                 "name": "HEALTH",
                 "description": "The type of health to acquire.",
                 "type": "Health",
-                "default": "HEALTH",
+                "default": "HEALTH"
             }
         ],
         "return": "unsigned float",
-        "en-US": "Health of Type",
+        "en-US": "Health of Type"
     },
     "_&getNormalizedHealth": {
         "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
@@ -1860,11 +1860,11 @@ var valueFuncKw =
                 "name": "BUTTON",
                 "description": "The button for the input binding that will be converted to a string.",
                 "type": "Button",
-                "default": "Button",
-            },
+                "default": "Button"
+            }
         ],
         "return": "String",
-        "en-US": "Input Binding String",
+        "en-US": "Input Binding String"
     },
     "_&isAlive": {
         "description": "Whether a player is alive.",
@@ -2541,7 +2541,7 @@ var valueFuncKw =
             }
         ],
         "return": "bool",
-        "en-US": "Is Reloading",
+        "en-US": "Is Reloading"
     },
     "_&isStanding": {
         "description": "Whether a player is standing (defined as both not moving and not in the air).",
@@ -2735,7 +2735,7 @@ var valueFuncKw =
         "description": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level).",
         "args": [],
         "return": "HealthPoolId",
-        "en-US": "Last Created Health Pool",
+        "en-US": "Last Created Health Pool"
     },
     "getLastDamageModification": {
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
@@ -2952,7 +2952,7 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned float",
-        "en-US": "Max Ammo",
+        "en-US": "Max Ammo"
     },
     "_&getMaxHealth": {
         "description": "The max health of a player, including armor and shields.",
@@ -2986,11 +2986,11 @@ var valueFuncKw =
                 "name": "HEALTH",
                 "description": "The type of max health to acquire.",
                 "type": "Health",
-                "default": "HEALTH",
+                "default": "HEALTH"
             }
         ],
         "return": "unsigned float",
-        "en-US": "Max Health of Type",
+        "en-US": "Max Health of Type"
     },
     "min": {
         "guid": "00000000C416",
@@ -4593,7 +4593,7 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned int",
-        "en-US": "Weapon",
+        "en-US": "Weapon"
     },
     "worldVector": {
         "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
