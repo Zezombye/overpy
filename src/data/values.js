@@ -371,6 +371,11 @@ var valueFuncKw =
                 "description": "The player whose ammo to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
+            },{
+                "name": "CLIP",
+                "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+                "type": "unsigned int",
+                "default": 0,
             }
         ],
         "return": "unsigned float",
@@ -931,6 +936,15 @@ var valueFuncKw =
         "ja-JP": "現在の配列の要素",
         "pt-BR": "Elemento da Matriz Atual",
         "zh-CN": "当前数组元素"
+    },
+    "__currentArrayIndex__": {
+        "description": "The current array index being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
+        "args": [],
+        "return": [
+            "Object",
+            "Array"
+        ],
+        "en-US": "Current Array index",
     },
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
@@ -2892,6 +2906,25 @@ var valueFuncKw =
         "zh-CN": "地图",
         "zh-TW": "地圖"
     },
+    "__mappedArray__": {
+        "description": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array whose copy will be mapped.",
+                "type": "Array",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "CONDITION",
+                "description": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered.",
+                "type": "bool",
+                "default": "COMPARE"
+            }
+        ],
+        "return": "Array",
+        "en-US": "Mapped Array",
+    },
     "getMatchRound": {
         "description": "The current round of the match, counting up from 1.",
         "args": [],
@@ -2949,6 +2982,11 @@ var valueFuncKw =
                 "description": "The player whose max ammo to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
+            },{
+                "name": "CLIP",
+                "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+                "type": "unsigned int",
+                "default": 0,
             }
         ],
         "return": "unsigned float",
@@ -4594,6 +4632,95 @@ var valueFuncKw =
         ],
         "return": "unsigned int",
         "en-US": "Weapon"
+    },
+    "__workshopSettingInteger__": {
+        "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
+        "args": [
+            {
+                "name": "CATEGORY",
+                "description": "The name of the category in which this setting will be found.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "NAME",
+                "description": "The name of this setting.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "DEFAULT",
+                "description": "",
+                "type": "IntLiteral",
+                "default": 0,
+            },{
+                "name": "MIN",
+                "description": "",
+                "type": "IntLiteral",
+                "default": 0,
+            },{
+                "name": "MAX",
+                "description": "",
+                "type": "IntLiteral",
+                "default": 100,
+            }
+        ],
+        "return": "int",
+        "en-US": "Workshop Setting Integer",
+    },
+    "__workshopSettingReal__": {
+        "description": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider.",
+        "args": [
+            {
+                "name": "CATEGORY",
+                "description": "The name of the category in which this setting will be found.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "NAME",
+                "description": "The name of this setting.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "DEFAULT",
+                "description": "",
+                "type": "FloatLiteral",
+                "default": 0,
+            },{
+                "name": "MIN",
+                "description": "",
+                "type": "FloatLiteral",
+                "default": 0,
+            },{
+                "name": "MAX",
+                "description": "",
+                "type": "FloatLiteral",
+                "default": 100,
+            }
+        ],
+        "return": "float",
+        "en-US": "Workshop Setting Real",
+    },
+    "__workshopSettingToggle__": {
+        "description": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox.",
+        "args": [
+            {
+                "name": "CATEGORY",
+                "description": "The name of the category in which this setting will be found.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "NAME",
+                "description": "The name of this setting.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "DEFAULT",
+                "description": "",
+                "type": "BoolLiteral",
+                "default": 0,
+            },
+        ],
+        "return": "bool",
+        "en-US": "Workshop Setting Toggle",
     },
     "worldVector": {
         "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",

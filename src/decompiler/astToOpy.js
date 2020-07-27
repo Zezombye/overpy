@@ -555,7 +555,7 @@ function astToOpy(content) {
     }
 
     //Array functions that use current array element
-    if (["__all__", "__any__", "__filteredArray__", "__sortedArray__"].includes(content.name)) {
+    if (["__all__", "__any__", "__filteredArray__", "__sortedArray__", "__mappedArray__"].includes(content.name)) {
         //Determine the current array element name
         var currentArrayElementName = "";
         if (isTypeSuitable({"Array": "Player"}, content.args[0].type)) {
@@ -583,6 +583,14 @@ function astToOpy(content) {
                 result += opIn+"]";
             }
             result += ")";
+        } else if (content.name === "__mappedArray__") {
+            result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName+" in ";
+            if (content.args[0].name === "__filteredArray__") {
+                result += astToOpy(content.args[0].args[0])+" if "+astToOpy(content.args[0].args[1]);
+            } else {
+                result += astToOpy(content.args[0]);
+            }
+            result += "]";
         } else if (content.name === "__filteredArray__") {
             result += "["+currentArrayElementName+" for "+currentArrayElementName+" in ";
             var opArray = astToOpy(content.args[0]);

@@ -112,7 +112,8 @@ const actionKw =
 				"default": "true"
 			}
 		],
-		"en-US": "Add Health Pool To Player"
+        "en-US": "Add Health Pool To Player",
+        "return": "void",
 	},
     "_&allowButton": {
         "description": "Undoes the effect of the disallow button action for one or more players.",
@@ -1257,7 +1258,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Game Mode HUD"
+		"en-US": "Disable Game Mode HUD",
+        "return": "void",
 	},
 	"_&disableGamemodeInWorldUi": {
 		"description": "Disables the game mode In-World UI for one or more players until reenabled.",
@@ -1274,7 +1276,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Game Mode In-World UI"
+		"en-US": "Disable Game Mode In-World UI",
+        "return": "void",
 	},
 	"_&disableHeroHUD": {
 		"description": "Disables the Hero HUD for one or more players until reenabled.",
@@ -1291,7 +1294,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Hero HUD"
+		"en-US": "Disable Hero HUD",
+        "return": "void",
 	},
 	"_&disableKillFeed": {
 		"description": "Disables the kill feed for one or more players until reenabled.",
@@ -1308,7 +1312,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Kill Feed"
+		"en-US": "Disable Kill Feed",
+        "return": "void",
 	},
 	"_&disableMessages": {
 		"description": "Disables messages for one or more players until reenabled.",
@@ -1325,7 +1330,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Messages"
+		"en-US": "Disable Messages",
+        "return": "void",
 	},
 	"disableEnvironmentCollision": {
 		"description": "Causes a player or players to stop colliding with the environment (walls, ceilings, certain objects, etc.)",
@@ -1348,7 +1354,8 @@ const actionKw =
 				"default": "false"
 			}
 		],
-		"en-US": "Disable Movement Collision With Enviroment"
+		"en-US": "Disable Movement Collision With Environment",
+        "return": "void",
 	},
 	"disablePlayerCollision": {
 		"description": "Causes a player or players to stop colliding with other Players.",
@@ -1365,7 +1372,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Movement Collision With Players"
+		"en-US": "Disable Movement Collision With Players",
+        "return": "void",
 	},
     "disableMusic": {
         "description": "Disables all game mode music until reenabled or the match ends.",
@@ -1405,7 +1413,8 @@ const actionKw =
 				"default": "All Players"
 			}
 		],
-		"en-US": "Disable Nameplates"
+		"en-US": "Disable Nameplates",
+        "return": "void",
 	},
     "_&disableRespawn": {
         "description": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands.",
@@ -1446,7 +1455,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Scoreboard"
+		"en-US": "Disable Scoreboard",
+        "return": "void",
 	},
     "disableScoring": {
         "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
@@ -1616,7 +1626,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enabled Game Mode HUD"
+        "en-US": "Enable Game Mode HUD",
+        "return": "void",
 	},
 	"_&enableGamemodeInWorldUi": {
 		"description": "Undoes the effect of the Disable Game Mode In-World UI Action for one or more players.",
@@ -1633,7 +1644,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Game Mode In-World UI"
+		"en-US": "Enable Game Mode In-World UI",
+        "return": "void",
 	},
 	"_&enableHeroHud": {
 		"description": "Undoes the effect of the Disable Hero HUD Action for one or more players.",
@@ -1650,7 +1662,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Hero HUD"
+		"en-US": "Enable Hero HUD",
+        "return": "void",
 	},
 	"_&enableKillFeed": {
 		"description": "Undoes the effect of the Disable Kill Feed Action for one or more players.",
@@ -1667,7 +1680,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Kill Feed"
+		"en-US": "Enable Kill Feed",
+        "return": "void",
 	},
 	"_&enableMessages": {
 		"description": "Undoes the effect of the Disable Messages Action for one or more players.",
@@ -1684,7 +1698,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Messages"
+		"en-US": "Enable Messages",
+        "return": "void",
 	},
 	"enableEnvironmentCollision": {
 		"description": "Undoes the effect of the Disable Movement Collision With Enviroment action for one or more players.",
@@ -1701,7 +1716,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Movement Collision With Environment"
+		"en-US": "Enable Movement Collision With Environment",
+        "return": "void",
 	},
 	"enablePlayerCollision": {
 		"description": "Undoes the effect of the Disable Movement Collision With Players action for one or more players.",
@@ -1718,7 +1734,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Movement Collision With Players"
+		"en-US": "Enable Movement Collision With Players",
+        "return": "void",
 	},
     "enableMusic": {
         "description": "Undoes the effect of the disable built-in game mode music action.",
@@ -1758,7 +1775,8 @@ const actionKw =
 				"default": "All Players"
 			}
 		],
-		"en-US": "Enable Nameplates"
+		"en-US": "Enable Nameplates",
+        "return": "void",
 	},
     "_&enableRespawn": {
         "description": "Undoes the effect of the disable built-in game mode respawning action for one or more players.",
@@ -1799,7 +1817,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Scoreboard"
+		"en-US": "Enable Scoreboard",
+        "return": "void",
 	},
     "enableScoring": {
         "description": "Undoes the effect of the disable built-in game mode scoring action.",
@@ -2479,7 +2498,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Remove All Health Pools From Player"
+		"en-US": "Remove All Health Pools From Player",
+        "return": "void",
 	},
 	"_&removeHealthPool": {
 		"description": "Removes a health pool that was added via the Add Health Pool action.",
@@ -2491,7 +2511,8 @@ const actionKw =
 				"default": "Last Created Health Pool"
 			}
 		],
-		"en-US": "Remove Health Pool From Player"
+		"en-US": "Remove Health Pool From Player",
+        "return": "void",
 	},
     "_&resetHeroAvailability": {
         "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
@@ -2652,7 +2673,8 @@ const actionKw =
 				"default": 0
 			}
 		],
-		"en-US": "Set Ability Charge"
+		"en-US": "Set Ability Charge",
+        "return": "void",
 	},
     "_&setAbilityCooldown": {
         "description": "Set the ability cooldown time for one or more players.",
@@ -2717,7 +2739,8 @@ const actionKw =
 				"default": 0
 			}
 		],
-		"en-US": "Set Ability Resource"
+		"en-US": "Set Ability Resource",
+        "return": "void",
 	},
     "_&setAimSpeed": {
         "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
@@ -2776,7 +2799,8 @@ const actionKw =
 				"default": 0
 			}
 		],
-		"en-US": "Set Ammo"
+		"en-US": "Set Ammo",
+        "return": "void",
 	},
     "_&setCrouchEnabled": {
         "description": "Enables or disables crouch for one or more players.",
@@ -3137,7 +3161,8 @@ const actionKw =
 				"default": 100
 			}
 		],
-		"en-US": "Set Jump Vertical Speed"
+		"en-US": "Set Jump Vertical Speed",
+        "return": "void",
 	},
     "setMatchTime": {
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
@@ -3185,7 +3210,8 @@ const actionKw =
 				"default": 0
 			}
 		],
-		"en-US": "Set Max Ammo"
+		"en-US": "Set Max Ammo",
+        "return": "void",
 	},
     "_&setMaxHealth": {
         "description": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health.",
@@ -3369,7 +3395,8 @@ const actionKw =
 				"default": 1
 			}
 		],
-		"en-US": "Set Player Health"
+		"en-US": "Set Player Health",
+        "return": "void",
 	},
     "_&setScore": {
         "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
@@ -3596,7 +3623,8 @@ const actionKw =
 				"default": "true"
 			}
 		],
-		"en-US": "Set Reload Enabled"
+		"en-US": "Set Reload Enabled",
+        "return": "void",
 	},
     "_&setRespawnTime": {
         "description": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death.",
@@ -3825,7 +3853,8 @@ const actionKw =
 				"default": 0
 			}
 		],
-		"en-US": "Set Weapon"
+		"en-US": "Set Weapon",
+        "return": "void",
 	},
     "__skip__": {
         "guid": "00000000BB01",
@@ -4172,7 +4201,8 @@ const actionKw =
 				"default": "White"
 			}
 		],
-		"en-US": "Start Forcing Player Outlines"
+		"en-US": "Start Forcing Player Outlines",
+        "return": "void",
 	},
     "_&startForcingPosition": {
         "description": "Starts forcing a player to be in a given position. If reevaluation is enabled, then the position is evaluated every frame, allowing the player to be moved around over time.",
@@ -4465,7 +4495,8 @@ const actionKw =
 				"default": "true"
 			}
 		],
-		"en-US": "Start Modifying Voice Lines"
+		"en-US": "Start Modifying Hero Voice Lines",
+        "return": "void",
 	},
 	"_&startScalingBarriers": {
 		"description": "Start modifying the size of barriers for a player or players.",
@@ -4494,7 +4525,8 @@ const actionKw =
 				"default": "true"
 			}
 		],
-		"en-US": "Start Scaling Barriers"
+		"en-US": "Start Scaling Barriers",
+        "return": "void",
 	},
 	"_&startScalingSize": {
 		"description": "Starts modifying the size of a player or players (including mode, movement collision, hit detection, and certain abilities). Note that large players placed into complex environments will severely impact server load, so consider also applying the Disable Movement Collision With Enviroment action.",
@@ -4523,7 +4555,8 @@ const actionKw =
 				"default": "true"
 			}
 		],
-		"en-US": "Start Scaling Player"
+		"en-US": "Start Scaling Player",
+        "return": "void",
 	},
     "__startRule__": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
@@ -4903,7 +4936,8 @@ const actionKw =
 				"default": "All Players"
 			}
 		],
-		"en-US": "Stop Forcing Player Outlines"
+		"en-US": "Stop Forcing Player Outlines",
+        "return": "void",
 	},
     "_&stopForcingPosition": {
         "description": "Cancels the behavior of `startForcingPosition()` for the specified player or players. Regular movement will resume from the last forced position(s).",
@@ -5079,7 +5113,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Stop Modifying Voice Lines"
+		"en-US": "Stop Modifying Hero Voice Lines",
+        "return": "void",
 	},
 	"_&stopScalingBarriers": {
 		"description": "Stops overriding the size of the barriers of a Player or Players.",
@@ -5096,7 +5131,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Stop Scaling Barriers"
+		"en-US": "Stop Scaling Barriers",
+        "return": "void",
 	},
 	"_&stopScalingSize": {
 		"description": "Stops overring the size of a player or players.",
@@ -5113,7 +5149,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Stop Scaling Player"
+		"en-US": "Stop Scaling Player",
+        "return": "void",
 	},
     "_&stopThrottleInDirection": {
         "description": "Cancels the behavior caused by start throttle in direction.",

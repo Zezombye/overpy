@@ -833,8 +833,7 @@ function parseLiteralArray(content) {
 
         if (ifOperands.length === 1) {
             //Expect something like "[x == y for x in z]"
-            //Parse as the pseudo "map" function. Used for the "any"/"all" functions.
-            //And well, maybe they will eventually add a map function...
+            //Parse as the "mapped array" function.
             var inOperands = splitTokens(forOperands[1], "in", false);
             if (inOperands[0].length !== 1) {
                 error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1");
@@ -847,18 +846,19 @@ function parseLiteralArray(content) {
             
         } else if (ifOperands.length === 2) {
             //Filtered array
-            //Expect something like "[x for x in y if x == 2]"
+            //Expect something like "[a for x in y if z == 2]"
             
-            if (forOperands[0].length !== 1 || inOperands[0].length !== 1 || forOperands[0][0].text !== inOperands[0][0].text) {
-                error("Malformed 'x for x in y if z'");
+            if (inOperands[0].length !== 1) {
+                error("Malformed 'a for x in y if z'");
             }
-            debug("Parsing 'x for x in y if z', x='"+inOperands[0][0].text+"', y='"+ifOperands[0]+"', z='"+ifOperands[1]+"'");
+            debug("Parsing 'a for x in y if z', a='"+forOperands[0]+"', x='"+inOperands[0]+"', y='"+ifOperands[0]+"', z='"+ifOperands[1]+"'");
             
             currentArrayElementNames.push(inOperands[0][0].text);
             var condition = parse(ifOperands[1]);
+            var mappingFunction = parse(forOperands[0]);
             currentArrayElementNames.pop();
 
-            return new Ast("__filteredArray__", [parse(ifOperands[0]), condition]);
+            return new Ast("__mappedArray__", [new Ast("__filteredArray__", [parse(ifOperands[0]), condition]), mappingFunction]);
         } else {
             error("Expected 0 or 1 'if' after 'in', but found "+(ifOperands.length-1));
         }

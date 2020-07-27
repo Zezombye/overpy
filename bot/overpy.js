@@ -1479,24 +1479,24 @@ To save elements, it is possible to specify methods to disable, by prefixing the
         "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
     }
 }
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-const actionKw = 
+const actionKw =
 //begin-json
 {
     "return": {
@@ -1593,7 +1593,8 @@ const actionKw =
 				"default": "true"
 			}
 		],
-		"en-US": "Add Health Pool To Player"
+        "en-US": "Add Health Pool To Player",
+        "return": "void",
 	},
     "_&allowButton": {
         "description": "Undoes the effect of the disallow button action for one or more players.",
@@ -2738,7 +2739,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Game Mode HUD"
+		"en-US": "Disable Game Mode HUD",
+        "return": "void",
 	},
 	"_&disableGamemodeInWorldUi": {
 		"description": "Disables the game mode In-World UI for one or more players until reenabled.",
@@ -2755,7 +2757,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Game Mode In-World UI"
+		"en-US": "Disable Game Mode In-World UI",
+        "return": "void",
 	},
 	"_&disableHeroHUD": {
 		"description": "Disables the Hero HUD for one or more players until reenabled.",
@@ -2772,7 +2775,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Hero HUD"
+		"en-US": "Disable Hero HUD",
+        "return": "void",
 	},
 	"_&disableKillFeed": {
 		"description": "Disables the kill feed for one or more players until reenabled.",
@@ -2789,7 +2793,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Kill Feed"
+		"en-US": "Disable Kill Feed",
+        "return": "void",
 	},
 	"_&disableMessages": {
 		"description": "Disables messages for one or more players until reenabled.",
@@ -2806,7 +2811,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Messages"
+		"en-US": "Disable Messages",
+        "return": "void",
 	},
 	"disableEnvironmentCollision": {
 		"description": "Causes a player or players to stop colliding with the environment (walls, ceilings, certain objects, etc.)",
@@ -2829,7 +2835,8 @@ const actionKw =
 				"default": "false"
 			}
 		],
-		"en-US": "Disable Movement Collision With Enviroment"
+		"en-US": "Disable Movement Collision With Environment",
+        "return": "void",
 	},
 	"disablePlayerCollision": {
 		"description": "Causes a player or players to stop colliding with other Players.",
@@ -2846,7 +2853,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Movement Collision With Players"
+		"en-US": "Disable Movement Collision With Players",
+        "return": "void",
 	},
     "disableMusic": {
         "description": "Disables all game mode music until reenabled or the match ends.",
@@ -2886,7 +2894,8 @@ const actionKw =
 				"default": "All Players"
 			}
 		],
-		"en-US": "Disable Nameplates"
+		"en-US": "Disable Nameplates",
+        "return": "void",
 	},
     "_&disableRespawn": {
         "description": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands.",
@@ -2927,7 +2936,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Disable Scoreboard"
+		"en-US": "Disable Scoreboard",
+        "return": "void",
 	},
     "disableScoring": {
         "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
@@ -3097,7 +3107,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enabled Game Mode HUD"
+        "en-US": "Enable Game Mode HUD",
+        "return": "void",
 	},
 	"_&enableGamemodeInWorldUi": {
 		"description": "Undoes the effect of the Disable Game Mode In-World UI Action for one or more players.",
@@ -3114,7 +3125,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Game Mode In-World UI"
+		"en-US": "Enable Game Mode In-World UI",
+        "return": "void",
 	},
 	"_&enableHeroHud": {
 		"description": "Undoes the effect of the Disable Hero HUD Action for one or more players.",
@@ -3131,7 +3143,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Hero HUD"
+		"en-US": "Enable Hero HUD",
+        "return": "void",
 	},
 	"_&enableKillFeed": {
 		"description": "Undoes the effect of the Disable Kill Feed Action for one or more players.",
@@ -3148,7 +3161,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Kill Feed"
+		"en-US": "Enable Kill Feed",
+        "return": "void",
 	},
 	"_&enableMessages": {
 		"description": "Undoes the effect of the Disable Messages Action for one or more players.",
@@ -3165,7 +3179,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Messages"
+		"en-US": "Enable Messages",
+        "return": "void",
 	},
 	"enableEnvironmentCollision": {
 		"description": "Undoes the effect of the Disable Movement Collision With Enviroment action for one or more players.",
@@ -3182,7 +3197,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Movement Collision With Environment"
+		"en-US": "Enable Movement Collision With Environment",
+        "return": "void",
 	},
 	"enablePlayerCollision": {
 		"description": "Undoes the effect of the Disable Movement Collision With Players action for one or more players.",
@@ -3199,7 +3215,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Movement Collision With Players"
+		"en-US": "Enable Movement Collision With Players",
+        "return": "void",
 	},
     "enableMusic": {
         "description": "Undoes the effect of the disable built-in game mode music action.",
@@ -3239,7 +3256,8 @@ const actionKw =
 				"default": "All Players"
 			}
 		],
-		"en-US": "Enable Nameplates"
+		"en-US": "Enable Nameplates",
+        "return": "void",
 	},
     "_&enableRespawn": {
         "description": "Undoes the effect of the disable built-in game mode respawning action for one or more players.",
@@ -3280,7 +3298,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Enable Scoreboard"
+		"en-US": "Enable Scoreboard",
+        "return": "void",
 	},
     "enableScoring": {
         "description": "Undoes the effect of the disable built-in game mode scoring action.",
@@ -3960,7 +3979,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Remove All Health Pools From Player"
+		"en-US": "Remove All Health Pools From Player",
+        "return": "void",
 	},
 	"_&removeHealthPool": {
 		"description": "Removes a health pool that was added via the Add Health Pool action.",
@@ -3972,7 +3992,8 @@ const actionKw =
 				"default": "Last Created Health Pool"
 			}
 		],
-		"en-US": "Remove Health Pool From Player"
+		"en-US": "Remove Health Pool From Player",
+        "return": "void",
 	},
     "_&resetHeroAvailability": {
         "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
@@ -4133,7 +4154,8 @@ const actionKw =
 				"default": 0
 			}
 		],
-		"en-US": "Set Ability Charge"
+		"en-US": "Set Ability Charge",
+        "return": "void",
 	},
     "_&setAbilityCooldown": {
         "description": "Set the ability cooldown time for one or more players.",
@@ -4198,7 +4220,8 @@ const actionKw =
 				"default": 0
 			}
 		],
-		"en-US": "Set Ability Resource"
+		"en-US": "Set Ability Resource",
+        "return": "void",
 	},
     "_&setAimSpeed": {
         "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
@@ -4257,7 +4280,8 @@ const actionKw =
 				"default": 0
 			}
 		],
-		"en-US": "Set Ammo"
+		"en-US": "Set Ammo",
+        "return": "void",
 	},
     "_&setCrouchEnabled": {
         "description": "Enables or disables crouch for one or more players.",
@@ -4618,7 +4642,8 @@ const actionKw =
 				"default": 100
 			}
 		],
-		"en-US": "Set Jump Vertical Speed"
+		"en-US": "Set Jump Vertical Speed",
+        "return": "void",
 	},
     "setMatchTime": {
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
@@ -4666,7 +4691,8 @@ const actionKw =
 				"default": 0
 			}
 		],
-		"en-US": "Set Max Ammo"
+		"en-US": "Set Max Ammo",
+        "return": "void",
 	},
     "_&setMaxHealth": {
         "description": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health.",
@@ -4850,7 +4876,8 @@ const actionKw =
 				"default": 1
 			}
 		],
-		"en-US": "Set Player Health"
+		"en-US": "Set Player Health",
+        "return": "void",
 	},
     "_&setScore": {
         "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
@@ -5077,7 +5104,8 @@ const actionKw =
 				"default": "true"
 			}
 		],
-		"en-US": "Set Reload Enabled"
+		"en-US": "Set Reload Enabled",
+        "return": "void",
 	},
     "_&setRespawnTime": {
         "description": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death.",
@@ -5306,7 +5334,8 @@ const actionKw =
 				"default": 0
 			}
 		],
-		"en-US": "Set Weapon"
+		"en-US": "Set Weapon",
+        "return": "void",
 	},
     "__skip__": {
         "guid": "00000000BB01",
@@ -5644,7 +5673,7 @@ const actionKw =
 				"name": "Visible",
 				"description": "Whether or not the specified player outlines should be visible.",
 				"type": "bool",
-				"default": "true",
+				"default": "true"
 			},
 			{
 				"name": "Color",
@@ -5653,7 +5682,8 @@ const actionKw =
 				"default": "White"
 			}
 		],
-		"en-US": "Start Forcing Player Outlines"
+		"en-US": "Start Forcing Player Outlines",
+        "return": "void",
 	},
     "_&startForcingPosition": {
         "description": "Starts forcing a player to be in a given position. If reevaluation is enabled, then the position is evaluated every frame, allowing the player to be moved around over time.",
@@ -5946,7 +5976,8 @@ const actionKw =
 				"default": "true"
 			}
 		],
-		"en-US": "Start Modifying Voice Lines"
+		"en-US": "Start Modifying Hero Voice Lines",
+        "return": "void",
 	},
 	"_&startScalingBarriers": {
 		"description": "Start modifying the size of barriers for a player or players.",
@@ -5975,7 +6006,8 @@ const actionKw =
 				"default": "true"
 			}
 		],
-		"en-US": "Start Scaling Barriers"
+		"en-US": "Start Scaling Barriers",
+        "return": "void",
 	},
 	"_&startScalingSize": {
 		"description": "Starts modifying the size of a player or players (including mode, movement collision, hit detection, and certain abilities). Note that large players placed into complex environments will severely impact server load, so consider also applying the Disable Movement Collision With Enviroment action.",
@@ -6004,7 +6036,8 @@ const actionKw =
 				"default": "true"
 			}
 		],
-		"en-US": "Start Scaling Player"
+		"en-US": "Start Scaling Player",
+        "return": "void",
 	},
     "__startRule__": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
@@ -6384,7 +6417,8 @@ const actionKw =
 				"default": "All Players"
 			}
 		],
-		"en-US": "Stop Forcing Player Outlines"
+		"en-US": "Stop Forcing Player Outlines",
+        "return": "void",
 	},
     "_&stopForcingPosition": {
         "description": "Cancels the behavior of `startForcingPosition()` for the specified player or players. Regular movement will resume from the last forced position(s).",
@@ -6560,7 +6594,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Stop Modifying Voice Lines"
+		"en-US": "Stop Modifying Hero Voice Lines",
+        "return": "void",
 	},
 	"_&stopScalingBarriers": {
 		"description": "Stops overriding the size of the barriers of a Player or Players.",
@@ -6577,7 +6612,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Stop Scaling Barriers"
+		"en-US": "Stop Scaling Barriers",
+        "return": "void",
 	},
 	"_&stopScalingSize": {
 		"description": "Stops overring the size of a player or players.",
@@ -6594,7 +6630,8 @@ const actionKw =
 				"default": "EVENT PLAYER"
 			}
 		],
-		"en-US": "Stop Scaling Player"
+		"en-US": "Stop Scaling Player",
+        "return": "void",
 	},
     "_&stopThrottleInDirection": {
         "description": "Cancels the behavior caused by start throttle in direction.",
@@ -6730,24 +6767,24 @@ const actionKw =
     }
 }
 //end-json
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var valueFuncKw = 
+var valueFuncKw =
 //begin-json
 {
     "_&getAbilityCharge": {
@@ -6767,7 +6804,7 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned int",
-        "en-US": "Ability Charge",
+        "en-US": "Ability Charge"
     },
     "_&getAbilityCooldown": {
         "description": "The ability cooldown time in seconds for a player associated by button.",
@@ -6836,7 +6873,7 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned float",
-        "en-US": "Ability Resource",
+        "en-US": "Ability Resource"
     },
     "abs": {
         "description": "The absolute value of the specified value.",
@@ -7103,10 +7140,15 @@ var valueFuncKw =
                 "description": "The player whose ammo to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
+            },{
+                "name": "CLIP",
+                "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+                "type": "unsigned int",
+                "default": 0,
             }
         ],
         "return": "unsigned float",
-        "en-US": "Ammo",
+        "en-US": "Ammo"
     },
     "__and__": {
         "description": "Whether both of the two inputs are true (or equivalent to true).",
@@ -7664,6 +7706,15 @@ var valueFuncKw =
         "pt-BR": "Elemento da Matriz Atual",
         "zh-CN": "当前数组元素"
     },
+    "__currentArrayIndex__": {
+        "description": "The current array index being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
+        "args": [],
+        "return": [
+            "Object",
+            "Array"
+        ],
+        "en-US": "Current Array index",
+    },
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
         "args": [],
@@ -7987,7 +8038,7 @@ var valueFuncKw =
         "description": "Whether the elimination was due to the environment for the event currently being processed by this rule.",
         "args": null,
         "return": "bool",
-        "en-US": "Event Was Environment",
+        "en-US": "Event Was Environment"
     },
     "eventWasHealthPack": {
         "description": "Whether the healing was a health pack for the event currently being processed by this rule.",
@@ -8288,11 +8339,11 @@ var valueFuncKw =
                 "name": "HEALTH",
                 "description": "The type of health to acquire.",
                 "type": "Health",
-                "default": "HEALTH",
+                "default": "HEALTH"
             }
         ],
         "return": "unsigned float",
-        "en-US": "Health of Type",
+        "en-US": "Health of Type"
     },
     "_&getNormalizedHealth": {
         "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
@@ -8592,11 +8643,11 @@ var valueFuncKw =
                 "name": "BUTTON",
                 "description": "The button for the input binding that will be converted to a string.",
                 "type": "Button",
-                "default": "Button",
-            },
+                "default": "Button"
+            }
         ],
         "return": "String",
-        "en-US": "Input Binding String",
+        "en-US": "Input Binding String"
     },
     "_&isAlive": {
         "description": "Whether a player is alive.",
@@ -9273,7 +9324,7 @@ var valueFuncKw =
             }
         ],
         "return": "bool",
-        "en-US": "Is Reloading",
+        "en-US": "Is Reloading"
     },
     "_&isStanding": {
         "description": "Whether a player is standing (defined as both not moving and not in the air).",
@@ -9467,7 +9518,7 @@ var valueFuncKw =
         "description": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level).",
         "args": [],
         "return": "HealthPoolId",
-        "en-US": "Last Created Health Pool",
+        "en-US": "Last Created Health Pool"
     },
     "getLastDamageModification": {
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
@@ -9624,6 +9675,25 @@ var valueFuncKw =
         "zh-CN": "地图",
         "zh-TW": "地圖"
     },
+    "__mappedArray__": {
+        "description": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array whose copy will be mapped.",
+                "type": "Array",
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "CONDITION",
+                "description": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered.",
+                "type": "bool",
+                "default": "COMPARE"
+            }
+        ],
+        "return": "Array",
+        "en-US": "Mapped Array",
+    },
     "getMatchRound": {
         "description": "The current round of the match, counting up from 1.",
         "args": [],
@@ -9681,10 +9751,15 @@ var valueFuncKw =
                 "description": "The player whose max ammo to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
+            },{
+                "name": "CLIP",
+                "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+                "type": "unsigned int",
+                "default": 0,
             }
         ],
         "return": "unsigned float",
-        "en-US": "Max Ammo",
+        "en-US": "Max Ammo"
     },
     "_&getMaxHealth": {
         "description": "The max health of a player, including armor and shields.",
@@ -9718,11 +9793,11 @@ var valueFuncKw =
                 "name": "HEALTH",
                 "description": "The type of max health to acquire.",
                 "type": "Health",
-                "default": "HEALTH",
+                "default": "HEALTH"
             }
         ],
         "return": "unsigned float",
-        "en-US": "Max Health of Type",
+        "en-US": "Max Health of Type"
     },
     "min": {
         "guid": "00000000C416",
@@ -11325,7 +11400,96 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned int",
-        "en-US": "Weapon",
+        "en-US": "Weapon"
+    },
+    "__workshopSettingInteger__": {
+        "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
+        "args": [
+            {
+                "name": "CATEGORY",
+                "description": "The name of the category in which this setting will be found.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "NAME",
+                "description": "The name of this setting.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "DEFAULT",
+                "description": "",
+                "type": "IntLiteral",
+                "default": 0,
+            },{
+                "name": "MIN",
+                "description": "",
+                "type": "IntLiteral",
+                "default": 0,
+            },{
+                "name": "MAX",
+                "description": "",
+                "type": "IntLiteral",
+                "default": 100,
+            }
+        ],
+        "return": "int",
+        "en-US": "Workshop Setting Integer",
+    },
+    "__workshopSettingReal__": {
+        "description": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider.",
+        "args": [
+            {
+                "name": "CATEGORY",
+                "description": "The name of the category in which this setting will be found.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "NAME",
+                "description": "The name of this setting.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "DEFAULT",
+                "description": "",
+                "type": "FloatLiteral",
+                "default": 0,
+            },{
+                "name": "MIN",
+                "description": "",
+                "type": "FloatLiteral",
+                "default": 0,
+            },{
+                "name": "MAX",
+                "description": "",
+                "type": "FloatLiteral",
+                "default": 100,
+            }
+        ],
+        "return": "float",
+        "en-US": "Workshop Setting Real",
+    },
+    "__workshopSettingToggle__": {
+        "description": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox.",
+        "args": [
+            {
+                "name": "CATEGORY",
+                "description": "The name of the category in which this setting will be found.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "NAME",
+                "description": "The name of this setting.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "DEFAULT",
+                "description": "",
+                "type": "BoolLiteral",
+                "default": 0,
+            },
+        ],
+        "return": "bool",
+        "en-US": "Workshop Setting Toggle",
     },
     "worldVector": {
         "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
@@ -15028,24 +15192,24 @@ const gamemodeKw =
     }
 }
 //end-json
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-const constantValues = 
+const constantValues =
 //begin-json
 {
     "Transform": {
@@ -17156,13 +17320,13 @@ const constantValues =
     },
     "Health": {
         "NORMAL": {
-            "en-US": "Health",
+            "en-US": "Health"
         },
         "ARMOR": {
-            "en-US": "Armor",
+            "en-US": "Armor"
         },
         "SHIELDS": {
-            "en-US": "Shields",
+            "en-US": "Shields"
         }
     }
 }
@@ -22865,6 +23029,9 @@ const typeTree = [
     {"Object": [
 		"Player",
 		{"float": [
+			{"FloatLiteral": [
+				"IntLiteral",
+			]},
 			{"unsigned float": [
 				"unsigned int",
 			]},
@@ -22872,17 +23039,19 @@ const typeTree = [
 				"signed int",
 			]},
 			{"int": [
+				"IntLiteral",
 				"unsigned int",
 				"signed int",
 			]}
 		]},
-		"bool",
+		{"bool": ["BoolLiteral"]},
 		"DamageModificationId",
 		"HealingModificationId",
 		"DotId",
 		"HotId",
 		"EntityId",
 		"TextId",
+		"HealthPoolId",
 		"String",
 		{"Direction": ["Vector"]},
 		{"Position": ["Vector"]},
@@ -22915,9 +23084,11 @@ const typeTree = [
 	
 	{"StringLiteral": [
 		"LocalizedStringLiteral",
-		"FullwidthStringLiteral",
-		"BigLettersStringLiteral",
-		"PlaintextStringLiteral",
+		{"CustomStringLiteral": [
+			"FullwidthStringLiteral",
+			"BigLettersStringLiteral",
+			"PlaintextStringLiteral",
+		]}
 	]},
 
 	"Value",
@@ -26146,7 +26317,7 @@ function astToOpy(content) {
     }
 
     //Array functions that use current array element
-    if (["__all__", "__any__", "__filteredArray__", "__sortedArray__"].includes(content.name)) {
+    if (["__all__", "__any__", "__filteredArray__", "__sortedArray__", "__mappedArray__"].includes(content.name)) {
         //Determine the current array element name
         var currentArrayElementName = "";
         if (isTypeSuitable({"Array": "Player"}, content.args[0].type)) {
@@ -26174,6 +26345,14 @@ function astToOpy(content) {
                 result += opIn+"]";
             }
             result += ")";
+        } else if (content.name === "__mappedArray__") {
+            result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName+" in ";
+            if (content.args[0].name === "__filteredArray__") {
+                result += astToOpy(content.args[0].args[0])+" if "+astToOpy(content.args[0].args[1]);
+            } else {
+                result += astToOpy(content.args[0]);
+            }
+            result += "]";
         } else if (content.name === "__filteredArray__") {
             result += "["+currentArrayElementName+" for "+currentArrayElementName+" in ";
             var opArray = astToOpy(content.args[0]);
@@ -28265,6 +28444,36 @@ astParsingFunctions.__map__ = function(content) {
     } else {
         return content;
     }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__mappedArray__ = function(content) {
+    
+    if (enableOptimization) {
+
+        //mapping to current array element -> do nothing to the array
+        if (content.args[1].name === "__currentArrayElement__") {
+            return content.args[0];
+        }
+    }
+    return content;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -31658,8 +31867,7 @@ function parseLiteralArray(content) {
 
         if (ifOperands.length === 1) {
             //Expect something like "[x == y for x in z]"
-            //Parse as the pseudo "map" function. Used for the "any"/"all" functions.
-            //And well, maybe they will eventually add a map function...
+            //Parse as the "mapped array" function.
             var inOperands = splitTokens(forOperands[1], "in", false);
             if (inOperands[0].length !== 1) {
                 error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1");
@@ -31672,18 +31880,19 @@ function parseLiteralArray(content) {
             
         } else if (ifOperands.length === 2) {
             //Filtered array
-            //Expect something like "[x for x in y if x == 2]"
+            //Expect something like "[a for x in y if z == 2]"
             
-            if (forOperands[0].length !== 1 || inOperands[0].length !== 1 || forOperands[0][0].text !== inOperands[0][0].text) {
-                error("Malformed 'x for x in y if z'");
+            if (inOperands[0].length !== 1) {
+                error("Malformed 'a for x in y if z'");
             }
-            debug("Parsing 'x for x in y if z', x='"+inOperands[0][0].text+"', y='"+ifOperands[0]+"', z='"+ifOperands[1]+"'");
+            debug("Parsing 'a for x in y if z', a='"+forOperands[0]+"', x='"+inOperands[0]+"', y='"+ifOperands[0]+"', z='"+ifOperands[1]+"'");
             
             currentArrayElementNames.push(inOperands[0][0].text);
             var condition = parse(ifOperands[1]);
+            var mappingFunction = parse(forOperands[0]);
             currentArrayElementNames.pop();
 
-            return new Ast("__filteredArray__", [parse(ifOperands[0]), condition]);
+            return new Ast("__mappedArray__", [new Ast("__filteredArray__", [parse(ifOperands[0]), condition]), mappingFunction]);
         } else {
             error("Expected 0 or 1 'if' after 'in', but found "+(ifOperands.length-1));
         }

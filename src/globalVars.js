@@ -275,6 +275,9 @@ const typeTree = [
     {"Object": [
 		"Player",
 		{"float": [
+			{"FloatLiteral": [
+				"IntLiteral",
+			]},
 			{"unsigned float": [
 				"unsigned int",
 			]},
@@ -282,17 +285,19 @@ const typeTree = [
 				"signed int",
 			]},
 			{"int": [
+				"IntLiteral",
 				"unsigned int",
 				"signed int",
 			]}
 		]},
-		"bool",
+		{"bool": ["BoolLiteral"]},
 		"DamageModificationId",
 		"HealingModificationId",
 		"DotId",
 		"HotId",
 		"EntityId",
 		"TextId",
+		"HealthPoolId",
 		"String",
 		{"Direction": ["Vector"]},
 		{"Position": ["Vector"]},
@@ -325,9 +330,11 @@ const typeTree = [
 	
 	{"StringLiteral": [
 		"LocalizedStringLiteral",
-		"FullwidthStringLiteral",
-		"BigLettersStringLiteral",
-		"PlaintextStringLiteral",
+		{"CustomStringLiteral": [
+			"FullwidthStringLiteral",
+			"BigLettersStringLiteral",
+			"PlaintextStringLiteral",
+		]}
 	]},
 
 	"Value",
