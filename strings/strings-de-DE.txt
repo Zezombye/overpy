@@ -1,13 +1,13 @@
-[Core] DataTool v1.50.0.878-git-14cc6c1bce8898083a3a1bbdd238d6185ae7386e
+[Core] DataTool v1.50.0.879-git-d61144dfaee4a02dffdf762a46439449a26e1989
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(19)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(20)\DataTool.exe.args
 [CASC] Text Language: deDE | Speech Language: deDE
-[CASC] Overwatch build 1.50.0.0.70665
+[CASC] Overwatch build 1.50.1.0.71344
 [CASC] Initializing...
-[Manifest] Using TRG procedure 70665 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 70665 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using TRG procedure 71213 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 71213 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 71213 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 71213 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -28302,4 +28302,4 @@ Der Blizzard-Kundendienst
 000000011358.07C: qrcode-ps4
 000000011359.07C: qrcode-switch
 00000001135A.07C: utm_medium
-[Core] Execution finished in 00:00:00.9308452 seconds
+[Core] Execution finished in 00:00:00.4396452 seconds

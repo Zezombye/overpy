@@ -626,7 +626,7 @@ var valueFuncKw =
             }
         ],
         "return": "Array",
-        "guid": "000000010BC0",
+        "guid": "000000004FDA",
         "en-US": "Array",
         "es-ES": "Matriz",
         "es-MX": "Matriz",

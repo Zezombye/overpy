@@ -41,7 +41,7 @@ const constantValues =
     },
     "TeamLiteral": {
         "1": {
-            "guid": "00000000B472",
+            "guid": "000000002D71",
             "en-US": "Team 1",
             "es-MX": "Equipo 1",
             "fr-FR": "Équipe 1",
@@ -50,7 +50,7 @@ const constantValues =
             "zh-CN": "队伍1"
         },
         "2": {
-            "guid": "00000000B471",
+            "guid": "000000002D72",
             "en-US": "Team 2",
             "es-MX": "Equipo 2",
             "fr-FR": "Équipe 2",
@@ -2093,35 +2093,22 @@ const constantValues =
     },
     "__Operator__": {
         "==": {
-            "guid": "00000000780E",
             "en-US": "==",
-            "fr-FR": "== égal à",
-            "ja-JP": " =="
         },
         "!=": {
-            "guid": "00000000780F",
             "en-US": "!=",
-            "fr-FR": "!= différent de"
         },
         "<=": {
-            "guid": "000000007811",
             "en-US": "<=",
-            "fr-FR": "<= inférieur ou égal à"
         },
         ">=": {
-            "guid": "000000007814",
             "en-US": ">=",
-            "fr-FR": ">= supérieur ou égal à"
         },
         "<": {
-            "guid": "000000007810",
             "en-US": "<",
-            "fr-FR": "< inférieur à"
         },
         ">": {
-            "guid": "000000007812",
             "en-US": ">",
-            "fr-FR": "> supérieur à"
         }
     },
     "Health": {

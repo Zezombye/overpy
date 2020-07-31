@@ -4430,14 +4430,8 @@ const actionKw =
                 "default": "RECEIVERS, HEALERS, AND HEALING PERCENT"
             }
         ],
-        "guid": "00000000C639",
         "return": "void",
-        "en-US": "Start Damage Modification",
-        "es-MX": "Comenzar modificación de daño",
-        "fr-FR": "Lancer la modification des dégâts",
-        "ja-JP": "ダメージ変更を開始",
-        "pt-BR": "Começar Modificação de Dano",
-        "zh-CN": "开始伤害调整"
+        "en-US": "Start Healing Modification",
     },
     "_&startForcingButton": {
         "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",

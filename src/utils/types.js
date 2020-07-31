@@ -17,7 +17,6 @@
 
 "use strict";
 
-
 /*
 A type is suitable if each type of the receivedType is suitable for any of the types in expectedType.
 Eg: ["unsigned float", "Vector"] is suitable for ["float", "Direction"].
@@ -148,4 +147,14 @@ function replaceType(type, matchReplacementObj) {
         return type;
     }
     error("This shouldn't happen");
+}
+
+function parseType(tokens) {
+    if (tokens.length === 0) {
+        error("Content is empty (expected a type)");
+    }
+    if (!tokens[0].text in Object.keys(typeMatrix)) {
+        error("Expected a type, but got '"+tokens[0].text+"'");
+    }
+    
 }

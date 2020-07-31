@@ -4,7 +4,7 @@ var languages = ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", 
 var docFolder = "./src/data/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
 
-var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(19)\\DataTool.exe"
+var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(20)\\DataTool.exe"
 var overwatchPath = "D:\\Overwatch"
 var outputFolder = "strings"
 var guids = {};
@@ -76,9 +76,13 @@ function iterateOnObject(content) {
         content = addTranslations(content);
     }
 
+
     for (var key of Object.keys(content)) {
         if (typeof content[key] === "object" && content[key] !== null) {
-            content[key] = iterateOnObject(content[key]);
+            //Skip the comparison operators as they must not be translated.
+            if (key !== "__Operator__") {
+                content[key] = iterateOnObject(content[key]);
+            }
         }
     }
     

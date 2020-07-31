@@ -257,7 +257,7 @@ const bigLettersMappings = {
 
 //Fullwidth characters
 var fullwidthMappings = {
-	" ": "　",
+	" ": " ",
 	"¥": "￥",
 	"₩": "￦",
 	"¢": "￠",
@@ -367,6 +367,8 @@ for (var elem of typeTree) {
 	fillTypeMatrix(elem);
 }
 typeMatrix["Vector"].push("Direction", "Position", "Velocity");
+
+reservedNames.push(...Object.keys(typeMatrix));
 
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
 var astParsingFunctions = {};

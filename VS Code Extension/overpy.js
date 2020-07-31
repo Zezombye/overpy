@@ -5911,14 +5911,8 @@ const actionKw =
                 "default": "RECEIVERS, HEALERS, AND HEALING PERCENT"
             }
         ],
-        "guid": "00000000C639",
         "return": "void",
-        "en-US": "Start Damage Modification",
-        "es-MX": "Comenzar modificación de daño",
-        "fr-FR": "Lancer la modification des dégâts",
-        "ja-JP": "ダメージ変更を開始",
-        "pt-BR": "Começar Modificação de Dano",
-        "zh-CN": "开始伤害调整"
+        "en-US": "Start Healing Modification",
     },
     "_&startForcingButton": {
         "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
@@ -7395,7 +7389,7 @@ var valueFuncKw =
             }
         ],
         "return": "Array",
-        "guid": "000000010BC0",
+        "guid": "000000004FDA",
         "en-US": "Array",
         "es-ES": "Matriz",
         "es-MX": "Matriz",
@@ -15235,7 +15229,7 @@ const constantValues =
     },
     "TeamLiteral": {
         "1": {
-            "guid": "00000000B472",
+            "guid": "000000002D71",
             "en-US": "Team 1",
             "es-MX": "Equipo 1",
             "fr-FR": "Équipe 1",
@@ -15244,7 +15238,7 @@ const constantValues =
             "zh-CN": "队伍1"
         },
         "2": {
-            "guid": "00000000B471",
+            "guid": "000000002D72",
             "en-US": "Team 2",
             "es-MX": "Equipo 2",
             "fr-FR": "Équipe 2",
@@ -17287,35 +17281,22 @@ const constantValues =
     },
     "__Operator__": {
         "==": {
-            "guid": "00000000780E",
             "en-US": "==",
-            "fr-FR": "== égal à",
-            "ja-JP": " =="
         },
         "!=": {
-            "guid": "00000000780F",
             "en-US": "!=",
-            "fr-FR": "!= différent de"
         },
         "<=": {
-            "guid": "000000007811",
             "en-US": "<=",
-            "fr-FR": "<= inférieur ou égal à"
         },
         ">=": {
-            "guid": "000000007814",
             "en-US": ">=",
-            "fr-FR": ">= supérieur ou égal à"
         },
         "<": {
-            "guid": "000000007810",
             "en-US": "<",
-            "fr-FR": "< inférieur à"
         },
         ">": {
-            "guid": "000000007812",
             "en-US": ">",
-            "fr-FR": "> supérieur à"
         }
     },
     "Health": {
@@ -18116,7 +18097,7 @@ const customGameSettingsSchema =
                 "guid": "000000005A91",
                 "values": "__int__",
                 "min": 0,
-                "max": 6,
+                "max": 12,
                 "default": 6,
                 "en-US": "Max %1$s Players",
                 "de-DE": "Max. Anzahl Spieler %1$s",
@@ -18136,7 +18117,7 @@ const customGameSettingsSchema =
                 "guid": "000000005A91",
                 "values": "__int__",
                 "min": 0,
-                "max": 6,
+                "max": 12,
                 "default": 6,
                 "en-US": "Max %1$s Players",
                 "de-DE": "Max. Anzahl Spieler %1$s",
@@ -23011,7 +22992,7 @@ const bigLettersMappings = {
 
 //Fullwidth characters
 var fullwidthMappings = {
-	" ": "　",
+	" ": " ",
 	"¥": "￥",
 	"₩": "￦",
 	"¢": "￠",
@@ -23121,6 +23102,8 @@ for (var elem of typeTree) {
 	fillTypeMatrix(elem);
 }
 typeMatrix["Vector"].push("Direction", "Position", "Velocity");
+
+reservedNames.push(...Object.keys(typeMatrix));
 
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
 var astParsingFunctions = {};
@@ -23402,7 +23385,6 @@ function getAstForEmptyArray() {
 
 "use strict";
 
-
 /*
 A type is suitable if each type of the receivedType is suitable for any of the types in expectedType.
 Eg: ["unsigned float", "Vector"] is suitable for ["float", "Direction"].
@@ -23533,6 +23515,16 @@ function replaceType(type, matchReplacementObj) {
         return type;
     }
     error("This shouldn't happen");
+}
+
+function parseType(tokens) {
+    if (tokens.length === 0) {
+        error("Content is empty (expected a type)");
+    }
+    if (!tokens[0].text in Object.keys(typeMatrix)) {
+        error("Expected a type, but got '"+tokens[0].text+"'");
+    }
+    
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
