@@ -26,7 +26,7 @@ class Ast {
         if (typeof name !== "string") {
             error("Expected a string for AST name, but got '"+name+"' of type '"+typeof name+"'");
         }
-        if (type === "NumberLiteral") {
+        if (type === "IntLiteral" || type === "FloatLiteral") {
             this.numValue = Number(name);
         }
         this.name = name;
@@ -198,22 +198,28 @@ function astContainsFunctions(ast, functionNames) {
 
 //Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
 function getAstFor0() {
-    return new Ast("__number__", [new Ast("0", [], [], "NumberLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("0", [], [], "IntLiteral")], [], "int");
 }
 function getAstFor1() {
-    return new Ast("__number__", [new Ast("1", [], [], "NumberLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("1", [], [], "IntLiteral")], [], "int");
 }
 function getAstForMinus1() {
-    return new Ast("__number__", [new Ast("-1", [], [], "NumberLiteral")], [], "unsigned int");
+    return new Ast("__number__", [new Ast("-1", [], [], "IntLiteral")], [], "signed int");
 }
 function getAstFor2() {
-    return new Ast("__number__", [new Ast("2", [], [], "NumberLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("2", [], [], "IntLiteral")], [], "int");
 }
 function getAstFor0_016() {
-    return new Ast("__number__", [new Ast("0.016", [], [], "NumberLiteral")], [], "unsigned float");
+    return new Ast("__number__", [new Ast("0.016", [], [], "FloatLiteral")], [], "unsigned float");
 }
 function getAstFor0_001() {
-    return new Ast("__number__", [new Ast("0.001", [], [], "NumberLiteral")], [], "unsigned float");
+    return new Ast("__number__", [new Ast("0.001", [], [], "FloatLiteral")], [], "unsigned float");
+}
+function getAstForInfinity() {
+    return new Ast("__number__", [new Ast("999999999999", [], [], "IntLiteral")], [], "unsigned int");
+}
+function getAstForMinusInfinity() {
+    return new Ast("__number__", [new Ast("-999999999999", [], [], "IntLiteral")], [], "signed int");
 }
 function getAstForNumber(nb) {
     if (typeof nb !== "number") {
@@ -221,7 +227,7 @@ function getAstForNumber(nb) {
     }
     var type = nb >= 0 ? "unsigned" : "signed";
     type += " "+(Number.isInteger(nb) ? "int" : "float");
-    return new Ast("__number__", [new Ast(nb.toString(), [], [], "NumberLiteral")], [], type);
+    return new Ast("__number__", [new Ast(nb.toString(), [], [], (Number.isInteger(nb) ? "IntLiteral" : "FloatLiteral"))], [], type);
 }
 function getAstForBool(bool) {
     if (bool) {

@@ -506,4 +506,39 @@ const opyFuncs = {
         ],
         return: "void",
     },
+    "createWorkshopSetting": {
+        "description": "Provides the value of a new setting that will appear in the workshop settings card as a slider or checkbox.",
+        "args": [
+            {
+                "name": "TYPE",
+                "description": "The type of the setting. Can be an integer, float, or boolean.",
+                "type": "Type",
+                "default": "",
+            },{
+                "name": "CATEGORY",
+                "description": "The name of the category in which this setting will be found.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "NAME",
+                "description": "The name of this setting.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "DEFAULT",
+                "description": "The default value for this setting.",
+                "type": [
+                    "BoolLiteral",
+                    "IntLiteral",
+                    "FloatLiteral",
+                ],
+                "default": 0,
+            },
+        ],
+        "return": [
+            "bool",
+            "int",
+            "float",
+        ],
+    },
 }

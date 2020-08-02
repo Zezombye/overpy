@@ -557,7 +557,7 @@ function astToOpy(content) {
     //Array functions that use current array element
     if (["__all__", "__any__", "__filteredArray__", "__sortedArray__", "__mappedArray__"].includes(content.name)) {
         //Determine the current array element name
-        var currentArrayElementName = "";
+        currentArrayElementName = "";
         if (isTypeSuitable({"Array": "Player"}, content.args[0].type)) {
             currentArrayElementName = "player";
         } else {
@@ -566,7 +566,6 @@ function astToOpy(content) {
         while (isVarName(currentArrayElementName, true)) {
             currentArrayElementName += "_";
         }
-        currentArrayElementNames.push(currentArrayElementName);
 
         var result = "";
         if (content.name === "__all__" || content.name === "__any__") {
@@ -612,15 +611,15 @@ function astToOpy(content) {
             result += ")";
         }
 
-        currentArrayElementNames.pop();
+        currentArrayElementName = null;
         return result;
     }
 
     if (content.name === "__currentArrayElement__") {
-        if (currentArrayElementNames.length === 0) {
-            error("currentArrayElementNames is empty");
+        if (currentArrayElementName === null) {
+            error("currentArrayElementName is null");
         }
-        return currentArrayElementNames[currentArrayElementNames.length-1];
+        return currentArrayElementName;
     }
 
     //Other functions
@@ -669,6 +668,16 @@ function astToOpy(content) {
     }
     if (content.name === "__raycastHitPlayer__") {
         return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getPlayerHit()";
+    }
+
+    if (content.name === "__workshopSettingToggle__") {
+        return "createWorkshopSetting(bool, "+content.args.map(x => astToOpy(x)).join(", ")+")";
+    }
+    if (content.name === "__workshopSettingInteger__") {
+        return "createWorkshopSetting(int<"+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+">, "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+")";
+    }
+    if (content.name === "__workshopSettingReal__") {
+        return "createWorkshopSetting(float<"+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+">, "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+")";
     }
 
 

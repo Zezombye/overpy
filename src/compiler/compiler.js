@@ -330,6 +330,20 @@ function compileCustomGameSettings(customGameSettings) {
 				}
 
 			}
+		} else if (key === "workshop") {
+			var wsWorkshop = tows(key, customGameSettingsSchema);
+			result[wsWorkshop] = {};
+			for (var workshopSetting of Object.keys(customGameSettings.workshop)) {
+				if (customGameSettings.workshop[workshopSetting] === true) {
+					result[wsWorkshop][workshopSetting] = tows("__on__", customGameSettingsKw);
+				} else if (customGameSettings.workshop[workshopSetting] === false) {
+					result[wsWorkshop][workshopSetting] = tows("__off__", customGameSettingsKw);
+				} else if (isNumber(customGameSettings.workshop[workshopSetting])) {
+					result[wsWorkshop][workshopSetting] = customGameSettings.workshop[workshopSetting];
+				} else {
+					error("Invalid value '"+customGameSettings.workshop[workshopSetting]+"' for workshop setting '"+workshopSetting+"'");
+				}
+			}
 		} else {
 			error("Unknown key '"+key+"'");
 		}

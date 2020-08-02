@@ -24,6 +24,7 @@ rule "filtered array":
     A = [player for player in getAllPlayers() if player != B] #getAllPlayers.remove(B)
     A = [player for player in getAllPlayers() if A == B] #getAllPlayers() if A == B else []
     A = [player for player in getAllPlayers() if true] #getAllPlayers()
+    A = [player for player, i in enumerate(getAllPlayers()) if player != i] #getAllPlayers() if A == B else []
     A = [player.getHealth() for player in getAllPlayers() if player.A == 2]
     A = [player.getHealth() for player in getAllPlayers() if true] #mapped array()
 

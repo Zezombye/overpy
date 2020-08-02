@@ -29,9 +29,10 @@ const ELEMENT_LIMIT = 20000;
 //The absolute path of the folder containing the main file. Used for relative paths.
 var rootPath;
 
-//Global variable used to keep track of each name for the current array element.
-//Should be the empty array at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
-var currentArrayElementNames;
+//Global variables used to keep track of the name for the current array element/index.
+//Should be null at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
+var currentArrayElementName;
+var currentArrayIndexName;
 
 //Set at each rule, to check whether it is legal to use "eventPlayer" and related.
 var currentRuleEvent;
@@ -96,7 +97,8 @@ var operatorPrecedenceStack;
 
 function resetGlobalVariables(language) {
 	rootPath = "";
-	currentArrayElementNames = [];
+	currentArrayElementName = null;
+	currentArrayIndexName = null;
 	currentLanguage = language;
 	currentRuleEvent = "";
 	obfuscationSettings = {
@@ -310,6 +312,7 @@ const typeTree = [
 	]},
 	"Array",
 	"void",
+	"Type",
 
 	"Lambda",
 	"Label",
@@ -319,8 +322,6 @@ const typeTree = [
 	"Subroutine",
 	"GlobalVariable",
 	"PlayerVariable",
-
-	"NumberLiteral",
 
 	"HeroLiteral",
 	"MapLiteral",

@@ -4744,6 +4744,9 @@ const customGameSettingsSchema =
         "pt-BR": "heróis",
         "zh-CN": "英雄",
         "zh-TW": "英雄"
+    },
+    "workshop": {
+        "en-US": "workshop",
     }
 }
 //end-json

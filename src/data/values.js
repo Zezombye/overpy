@@ -944,7 +944,7 @@ var valueFuncKw =
             "Object",
             "Array"
         ],
-        "en-US": "Current Array index",
+        "en-US": "Current Array Index",
     },
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",

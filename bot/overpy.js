@@ -548,7 +548,7 @@ const opyInternalFuncs = {
         "args": [
             {
                 "name": "NUMBER",
-                "type": "NumberLiteral",
+                "type": "FloatLiteral",
                 "default": "0",
             },
         ],
@@ -1099,6 +1099,41 @@ const opyFuncs = {
         ],
         return: "void",
     },
+    "createWorkshopSetting": {
+        "description": "Provides the value of a new setting that will appear in the workshop settings card as a slider or checkbox.",
+        "args": [
+            {
+                "name": "TYPE",
+                "description": "The type of the setting. Can be an integer, float, or boolean.",
+                "type": "Type",
+                "default": "",
+            },{
+                "name": "CATEGORY",
+                "description": "The name of the category in which this setting will be found.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "NAME",
+                "description": "The name of this setting.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "DEFAULT",
+                "description": "The default value for this setting.",
+                "type": [
+                    "BoolLiteral",
+                    "IntLiteral",
+                    "FloatLiteral",
+                ],
+                "default": 0,
+            },
+        ],
+        "return": [
+            "bool",
+            "int",
+            "float",
+        ],
+    },
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -1128,10 +1163,10 @@ const opyKeywords = {
         "args": null,
         "snippet": "and $0",
     },
-    /*"bool": {
+    "bool": {
         "description": "The 'boolean' type. Denotes a boolean such as 'false' or 'true'.",
         "args": null,
-    },*/
+    },
     "case": {
         "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is equal to the value specified in this `case` statement. Literal arrays should not be used. Note that the execution will not jump to the end of the `switch` block after the end of the `case` block; if you want that to be the case, use the `break` instruction.",
         "args": null,
@@ -1168,16 +1203,16 @@ const opyKeywords = {
 - If a value, an inline "ternary" condition, such as \`A if B else C\`.`,
         "args": null
     },
-    /*"float": {
-        "description": "The 'float' type. Denotes any real number.",
+    "float": {
+        "description": "The 'float' type. Denotes any real number.\n\nLimits can be specified: for example, `float<-4.5, 5.5>` denotes all numbers between -4.5 and 5.5, inclusive.",
         "args": null,
-    },*/
+    },
     "for": {
         "description": `Denotes either:
         
 - If an instruction, the beginning of a block that will execute in a loop, modifying the control variable on each loop. The instruction must be \`for <var> in range(start, stop, step):\` See also the \`range\` function.
 
-- If within a list comprehension, a filtered  or mapped array, such as \`[i for i in x if x == 3]\`.`,
+- If within a list comprehension, a filtered or mapped array, such as \`[i for i in x if x == 3]\`.`,
         "args": null,
         "snippet": "for $0",
     },
@@ -1190,10 +1225,10 @@ const opyKeywords = {
         "args": null,
         "snippet": "if $0",
     },
-    /*"int": {
-        "description": "The 'integer' type. A subset of the 'float' type.",
+    "int": {
+        "description": "The 'integer' type. A subset of the 'float' type. Denotes all numbers without decimals.\n\nLimits can be specified: for example, `int<-4, 5>` denotes all integers between -4 and 5, inclusive.",
         "args": null,
-    },*/
+    },
     "globalvar": {
         "description": "Declares a global variable. The index (0-127) can optionally be specified. Example: `globalvar myVar 127`",
         "args": null,
@@ -1234,10 +1269,10 @@ const opyKeywords = {
         "args": null,
         "snippet": "settings $0",
     },
-    /*"signed": {
+    "signed": {
         "description": "Defines the specified type as signed (inferior or equal to 0). Only valid for 'int' or 'float'.",
         "args": null,
-    },*/
+    },
     "switch": {
         "description": "Denotes the beginning of a block that will jump execution to the `case` statement that has the value of the specified variable. If no `case` statement has the value of the specified variable, the execution goes to the `default` statement if it exists, else to the end of the block.",
         "args": null,
@@ -1248,10 +1283,10 @@ const opyKeywords = {
         "args": null,
         "snippet": "subroutine $0",
     },
-    /*"unsigned": {
+    "unsigned": {
         "description": "Defines the specified type as unsigned (superior or equal to 0). Only valid for 'int' or 'float'.",
         "args": null,
-    },*/
+    },
     "while": {
         "description": "Denotes the beginning of a block that will execute in a loop as long as the specified condition is true. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end of the block. Can also denote the end of a do/while loop, if no `:` is at the end of the instruction.",
         "args": null,
@@ -7707,7 +7742,7 @@ var valueFuncKw =
             "Object",
             "Array"
         ],
-        "en-US": "Current Array index",
+        "en-US": "Current Array Index",
     },
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
@@ -22564,6 +22599,9 @@ const customGameSettingsSchema =
         "pt-BR": "heróis",
         "zh-CN": "英雄",
         "zh-TW": "英雄"
+    },
+    "workshop": {
+        "en-US": "workshop",
     }
 }
 //end-json
@@ -22764,9 +22802,10 @@ const ELEMENT_LIMIT = 20000;
 //The absolute path of the folder containing the main file. Used for relative paths.
 var rootPath;
 
-//Global variable used to keep track of each name for the current array element.
-//Should be the empty array at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
-var currentArrayElementNames;
+//Global variables used to keep track of the name for the current array element/index.
+//Should be null at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
+var currentArrayElementName;
+var currentArrayIndexName;
 
 //Set at each rule, to check whether it is legal to use "eventPlayer" and related.
 var currentRuleEvent;
@@ -22831,7 +22870,8 @@ var operatorPrecedenceStack;
 
 function resetGlobalVariables(language) {
 	rootPath = "";
-	currentArrayElementNames = [];
+	currentArrayElementName = null;
+	currentArrayIndexName = null;
 	currentLanguage = language;
 	currentRuleEvent = "";
 	obfuscationSettings = {
@@ -23045,6 +23085,7 @@ const typeTree = [
 	]},
 	"Array",
 	"void",
+	"Type",
 
 	"Lambda",
 	"Label",
@@ -23054,8 +23095,6 @@ const typeTree = [
 	"Subroutine",
 	"GlobalVariable",
 	"PlayerVariable",
-
-	"NumberLiteral",
 
 	"HeroLiteral",
 	"MapLiteral",
@@ -23138,7 +23177,7 @@ class Ast {
         if (typeof name !== "string") {
             error("Expected a string for AST name, but got '"+name+"' of type '"+typeof name+"'");
         }
-        if (type === "NumberLiteral") {
+        if (type === "IntLiteral" || type === "FloatLiteral") {
             this.numValue = Number(name);
         }
         this.name = name;
@@ -23310,22 +23349,28 @@ function astContainsFunctions(ast, functionNames) {
 
 //Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
 function getAstFor0() {
-    return new Ast("__number__", [new Ast("0", [], [], "NumberLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("0", [], [], "IntLiteral")], [], "int");
 }
 function getAstFor1() {
-    return new Ast("__number__", [new Ast("1", [], [], "NumberLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("1", [], [], "IntLiteral")], [], "int");
 }
 function getAstForMinus1() {
-    return new Ast("__number__", [new Ast("-1", [], [], "NumberLiteral")], [], "unsigned int");
+    return new Ast("__number__", [new Ast("-1", [], [], "IntLiteral")], [], "signed int");
 }
 function getAstFor2() {
-    return new Ast("__number__", [new Ast("2", [], [], "NumberLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("2", [], [], "IntLiteral")], [], "int");
 }
 function getAstFor0_016() {
-    return new Ast("__number__", [new Ast("0.016", [], [], "NumberLiteral")], [], "unsigned float");
+    return new Ast("__number__", [new Ast("0.016", [], [], "FloatLiteral")], [], "unsigned float");
 }
 function getAstFor0_001() {
-    return new Ast("__number__", [new Ast("0.001", [], [], "NumberLiteral")], [], "unsigned float");
+    return new Ast("__number__", [new Ast("0.001", [], [], "FloatLiteral")], [], "unsigned float");
+}
+function getAstForInfinity() {
+    return new Ast("__number__", [new Ast("999999999999", [], [], "IntLiteral")], [], "unsigned int");
+}
+function getAstForMinusInfinity() {
+    return new Ast("__number__", [new Ast("-999999999999", [], [], "IntLiteral")], [], "signed int");
 }
 function getAstForNumber(nb) {
     if (typeof nb !== "number") {
@@ -23333,7 +23378,7 @@ function getAstForNumber(nb) {
     }
     var type = nb >= 0 ? "unsigned" : "signed";
     type += " "+(Number.isInteger(nb) ? "int" : "float");
-    return new Ast("__number__", [new Ast(nb.toString(), [], [], "NumberLiteral")], [], type);
+    return new Ast("__number__", [new Ast(nb.toString(), [], [], (Number.isInteger(nb) ? "IntLiteral" : "FloatLiteral"))], [], type);
 }
 function getAstForBool(bool) {
     if (bool) {
@@ -23523,6 +23568,65 @@ function parseType(tokens) {
     }
     if (!tokens[0].text in Object.keys(typeMatrix)) {
         error("Expected a type, but got '"+tokens[0].text+"'");
+    }
+    if (tokens.length === 1) {
+        return tokens[0].text;
+    }
+
+    if (tokens[0].text === "unsigned" || tokens[0].text === "signed") {
+        if (tokens[1].text !== "int" && tokens[1].text !== "float") {
+            error("Expected 'int' or 'float' after '"+tokens[0].text+"', but got '"+tokens[1].text+"'");
+        }
+        if (tokens.length !== 2) {
+            error("Expected end of type after '"+tokens[0].text+" "+tokens[1].text+"', but got '"+tokens[2].text+"'");
+        }
+        return tokens[0].text+" "+tokens[1].text;
+    }
+
+    if (tokens[1].text !== "<") {
+        error("Expected '<' after '"+tokens[0].text+"', but got '"+tokens[1].text+"'");
+    }
+    if (tokens[tokens.length-1].text !== ">") {
+        error("Expected '>' at end of type, but got '"+tokens[tokens.length-1].text+"'");
+    }
+
+    if (tokens[0].text !== "int" && tokens[0].text !== "float") {
+        error("Expected 'int' or 'float' before '<', but got '"+tokens[0].text+"'");
+    }
+
+    var typeParams = tokens.slice(2, tokens.length-1);
+
+    if (tokens[0].text === "int" || tokens[0].text === "float") {
+        //There should be a ":" delimiter.
+        var tokenMinAndMax = splitTokens(typeParams, ":", true);
+        if (tokenMinAndMax.length !== 2) {
+            error("Expected one ':' in parameters for '"+tokens[0].text+"'");
+        }
+        var tokenMin = tokenMinAndMax[0];
+        var tokenMax = tokenMinAndMax[1];
+        if (tokenMin.length === 0) {
+            var min = -9999999999999;
+        } else {
+            if (tokens[0].text === "int") {
+                var min = parseInt(tokenMin.map(x => x.text).join(""));
+            } else {
+                var min = parseFloat(tokenMin.map(x => x.text).join(""));
+            }
+        }
+        if (tokenMax.length === 0) {
+            var max = 9999999999999;
+        } else {
+            if (tokens[0].text === "int") {
+                var max = parseInt(tokenMax.map(x => x.text).join(""));
+            } else {
+                var max = parseFloat(tokenMax.map(x => x.text).join(""));
+            }
+        }
+
+        var result = {};
+        result[tokens[0].text] = {"min": min, "max": max};
+
+        return result;
     }
     
 }
@@ -24294,15 +24398,6 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 	}
 	debug("Translating keyword '"+keyword+"'");
 	
-	//Check for current array element
-	if (toWorkshop) {
-		for (var i = 0; i < currentArrayElementNames.length; i++) {
-			if (keyword === currentArrayElementNames[i]) {
-				return translate("__currentArrayElement__", true, valueFuncKw);
-			}
-		}
-	}
-
 	if (toWorkshop) {
 		try {
 			//Check number of arguments
@@ -25276,7 +25371,7 @@ function decompileRuleToAst(content) {
 	nbTabs = 0;
 	
 	//Check for potential error
-	if (currentArrayElementNames.length != 0) {
+	if (currentArrayElementName !== null && currentArrayIndexName !== null) {
 		error("Current array element names weren't cleared");
 	}
 	
@@ -26311,7 +26406,7 @@ function astToOpy(content) {
     //Array functions that use current array element
     if (["__all__", "__any__", "__filteredArray__", "__sortedArray__", "__mappedArray__"].includes(content.name)) {
         //Determine the current array element name
-        var currentArrayElementName = "";
+        currentArrayElementName = "";
         if (isTypeSuitable({"Array": "Player"}, content.args[0].type)) {
             currentArrayElementName = "player";
         } else {
@@ -26320,7 +26415,6 @@ function astToOpy(content) {
         while (isVarName(currentArrayElementName, true)) {
             currentArrayElementName += "_";
         }
-        currentArrayElementNames.push(currentArrayElementName);
 
         var result = "";
         if (content.name === "__all__" || content.name === "__any__") {
@@ -26366,15 +26460,15 @@ function astToOpy(content) {
             result += ")";
         }
 
-        currentArrayElementNames.pop();
+        currentArrayElementName = null;
         return result;
     }
 
     if (content.name === "__currentArrayElement__") {
-        if (currentArrayElementNames.length === 0) {
-            error("currentArrayElementNames is empty");
+        if (currentArrayElementName === null) {
+            error("currentArrayElementName is null");
         }
-        return currentArrayElementNames[currentArrayElementNames.length-1];
+        return currentArrayElementName;
     }
 
     //Other functions
@@ -26423,6 +26517,16 @@ function astToOpy(content) {
     }
     if (content.name === "__raycastHitPlayer__") {
         return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getPlayerHit()";
+    }
+
+    if (content.name === "__workshopSettingToggle__") {
+        return "createWorkshopSetting(bool, "+content.args.map(x => astToOpy(x)).join(", ")+")";
+    }
+    if (content.name === "__workshopSettingInteger__") {
+        return "createWorkshopSetting(int<"+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+">, "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+")";
+    }
+    if (content.name === "__workshopSettingReal__") {
+        return "createWorkshopSetting(float<"+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+">, "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+")";
     }
 
 
@@ -26690,6 +26794,37 @@ function decompileCustomGameSettings(content) {
 				if (dict.length > 0) {
 					result[opyCategory][opyTeam].general = decompileCustomGameSettingsDict(dict, customGameSettingsSchema.heroes.values.general);
 				}
+			}
+		} else if (opyCategory === "workshop") {
+			var workshopSettings = Object.keys(serialized[category]).map(x => x+"\n").join("");
+			var i = 0;
+			while (i < workshopSettings.length) {
+				var nextColonIndex = workshopSettings.indexOf(":", i);
+				if (nextColonIndex < 0) {
+					error("Expected a ':', but found none, while parsing workshop settings");
+				}
+				var key = workshopSettings.substring(i, nextColonIndex).trim();
+				i = nextColonIndex+1;
+				var nextNewlineIndex = workshopSettings.indexOf("\n", i);
+				if (nextNewlineIndex < 0) {
+					error("Expected a newline, but found none, while parsing workshop settings");
+				}
+				var value = workshopSettings.substring(i, nextNewlineIndex).trim();
+				if (isNumber(value)) {
+					value = parseFloat(value);
+				} else {
+					//It should be a boolean: translate On/Off.
+					value = topy(value, customGameSettingsKw);
+					if (value === "__on__") {
+						value = true;
+					} else if (value === "__off__") {
+						value = false;
+					} else {
+						error("Unhandled value '"+value+"'");
+					}
+				}
+				i = nextNewlineIndex+1;
+				result[opyCategory][key] = value;
 			}
 		}
 	}
@@ -27934,16 +28069,16 @@ astParsingFunctions.__filteredArray__ = function(content) {
     
     if (enableOptimization) {
         //filtered array with no constant -> if/else
-        if (!astContainsFunctions(content.args[1], ["__currentArrayElement__"])) {
+        if (!astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
             return new Ast("__ifThenElse__", [content.args[1], content.args[0], getAstForEmptyArray()]);
         }
 
         //filtered array with condition "currentArrayElement != A" -> remove from array(array, A)
         if (content.args[1].name === "__inequals__") {
-            if (content.args[1].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__"])) {
+            if (content.args[1].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
                 return new Ast("__removeFromArray__", [content.args[0], content.args[1].args[1]]);
             }
-            if (content.args[1].args[1].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__"])) {
+            if (content.args[1].args[1].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__", "__currentArrayIndex__"])) {
                 return new Ast("__removeFromArray__", [content.args[0], content.args[1].args[1]]);
             }
         }
@@ -30469,7 +30604,7 @@ function parseAst(content) {
     //Skip if it's a literal or a constant
     if (!["Hero", "Map", "Gamemode", "Team", "Button"].includes(content.type)) {
         if ([
-            "NumberLiteral", 
+            "IntLiteral", "FloatLiteral", 
             "GlobalVariable", "PlayerVariable", "Subroutine", 
             "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral",
         ].concat(Object.keys(constantValues)).includes(content.type)) {
@@ -31572,8 +31707,15 @@ function parse(content, kwargs={}) {
 	if (args === null) {
 
 		//Check for current array element variable name
-		if (currentArrayElementNames.indexOf(name) >= 0) {
+		if (currentArrayElementName === name) {
             var result = new Ast("__currentArrayElement__");
+            result.originalName = name;
+            return result;
+        }
+        
+		//Check for current array index variable name
+		if (currentArrayIndexName === name) {
+            var result = new Ast("__currentArrayIndex__");
             result.originalName = name;
             return result;
         }
@@ -31587,7 +31729,7 @@ function parse(content, kwargs={}) {
         if (isNumber(name)) {
             //It is an int, else it would have a dot, and wouldn't be processed here.
             //It is also an unsigned int, as the negative sign is not part of the name.
-            return new Ast("__number__", [new Ast(name, [], [], "NumberLiteral")], [], "unsigned int");
+            return new Ast("__number__", [new Ast(name, [], [], "IntLiteral")], [], "unsigned int");
         }
 
 		return new Ast(name);
@@ -31656,6 +31798,14 @@ function parse(content, kwargs={}) {
 	}
 	
 	if (name === "sorted") {
+
+        //Lazy & dirty way of properly parsing "sorted(x, lambda a,b: z)" as the parser also splits on the comma on "lambda a,b".
+        if (args.length === 3) {
+            args[1].push({"text": ","});
+            args[1].push(...args[2]);
+            args = args.slice(0,2);
+        }
+
 		if (args.length === 2) {
             var lambdaArgs = splitTokens(args[1], ':');
             if (lambdaArgs.length !== 2) {
@@ -31670,13 +31820,22 @@ function parse(content, kwargs={}) {
             if (lambdaArgs[0][0].text !== "lambda") {
                 error("Expected 'lambda x' before ':'");
             }
-            if (lambdaArgs[0].length !== 2) {
-                error("Expected a single token after 'lambda'");
+            if (lambdaArgs[0].length === 2) {
+                currentArrayElementName = lambdaArgs[0][1].text;
+                currentArrayIndexName = null;
+            } else if (lambdaArgs[0].length === 4) {
+                if (lambdaArgs[0][2].text !== ",") {
+                    error("Expected ',' after '"+lambdaArgs[0][1].text+"', but found '"+lambdaArgs[0][2].text);
+                }
+                currentArrayElementName = lambdaArgs[0][1].text;
+                currentArrayIndexName = lambdaArgs[0][3].text;
+            } else {
+                error("Expected 1 or 3 tokens after 'lambda', but got "+(lambdaArgs.length-1));
             }
             
-            currentArrayElementNames.push(lambdaArgs[0][1].text);
             var sortedCondition = parse(lambdaArgs[1]);
-            currentArrayElementNames.pop();
+            currentArrayElementName = null;
+            currentArrayIndexName = null;
 
         } else if (args.length !== 1) {
             error("Function 'sorted' takes 1 or 2 arguments, received "+args.length);
@@ -31688,6 +31847,48 @@ function parse(content, kwargs={}) {
             astArgs.push(new Ast("__currentArrayElement__"));
         }
         return new Ast("sorted", astArgs);
+    }
+
+    if (name === "createWorkshopSetting") {
+        if (args.length !== 4) {
+            error("Function 'createWorkshopSetting' takes 4 arguments, received "+args.length);
+        }
+
+        var settingType = parseType(args[0]);
+
+        var settingCategory = parse(args[1]);
+        var settingName = parse(args[2]);
+        var settingDefault = parse(args[3]);
+
+        if (typeof settingType === "string") {
+            if (settingType === "bool") {
+                return new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault]);
+            } else if (settingType === "int") {
+                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
+            } else if (settingType === "unsigned int") {
+                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
+            } else if (settingType === "signed int") {
+                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
+            } else if (settingType === "float") {
+                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
+            } else if (settingType === "unsigned float") {
+                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
+            } else if (settingType === "signed float") {
+                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
+            } else {
+                error("Invalid type '"+settingType+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
+            }
+        } else {
+            var typeName = Object.keys(settingType)[0];
+            var typeOptions = settingType[typeName];
+            if (typeName === "int") {
+                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForNumber(typeOptions.min), getAstForNumber(typeOptions.max)]);
+            } else if (typeName === "float") {
+                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForNumber(typeOptions.min), getAstForNumber(typeOptions.max)]);
+            } else {
+                error("Invalid type '"+typeName+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
+            }
+        }
     }
 		
 	//Check for subroutine call
@@ -31765,7 +31966,7 @@ function parseMember(object, member) {
                 if (!isNumber(name)) {
                     error("Expected a number after '.' but got '"+name+"'");
                 }
-                return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "NumberLiteral")], [], "unsigned float");
+                return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "FloatLiteral")], [], "unsigned float");
 
             }
         }
@@ -31861,28 +32062,51 @@ function parseLiteralArray(content) {
             //Expect something like "[x == y for x in z]"
             //Parse as the "mapped array" function.
             var inOperands = splitTokens(forOperands[1], "in", false);
-            if (inOperands[0].length !== 1) {
-                error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1");
+            var mappingFunction = forOperands[0];
+            if (inOperands[0].length === 1) {
+                //It is the current array element name
+                currentArrayElementName = inOperands[0][0].text;
+                currentArrayIndexName = null;
+            } else if (inOperands[0].length === 3) {
+                if (inOperands[0][1].text !== ",") {
+                    error("Malformed '[x for a, b in z]': expected ',' but found '"+inOperands[0][1].text+"'");
+                }
+                currentArrayElementName = inOperands[0][0].text;
+                currentArrayIndexName = inOperands[0][2].text;
+            } else {
+                error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1 or 3");
             }
-            currentArrayElementNames.push(inOperands[0][0].text);
-            var mappingFunction = parse(forOperands[0]);
-            currentArrayElementNames.pop();
+            var parsedMappingFunction = parse(forOperands[0]);
+            currentArrayElementName = null;
+            currentArrayIndexName = null;
 
-            return new Ast("__mappedArray__", [parse(inOperands[1]), mappingFunction]);
+            return new Ast("__mappedArray__", [parse(inOperands[1]), parsedMappingFunction]);
             
         } else if (ifOperands.length === 2) {
             //Filtered array
             //Expect something like "[a for x in y if z == 2]"
             
-            if (inOperands[0].length !== 1) {
-                error("Malformed 'a for x in y if z'");
+
+            if (inOperands[0].length === 1) {
+                //It is the current array element name
+                currentArrayElementName = inOperands[0][0].text;
+                currentArrayIndexName = null;
+            } else if (inOperands[0].length === 3) {
+                if (inOperands[0][1].text !== ",") {
+                    error("Malformed '[x for a,b in y if z]': expected ',' but found '"+inOperands[0][1].text+"'");
+                }
+                currentArrayElementName = inOperands[0][0].text;
+                currentArrayIndexName = inOperands[0][2].text;
+            } else {
+                error("Malformed '[x for a,b in y if z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1 or 3");
             }
+
             debug("Parsing 'a for x in y if z', a='"+forOperands[0]+"', x='"+inOperands[0]+"', y='"+ifOperands[0]+"', z='"+ifOperands[1]+"'");
-            
-            currentArrayElementNames.push(inOperands[0][0].text);
+
             var condition = parse(ifOperands[1]);
             var mappingFunction = parse(forOperands[0]);
-            currentArrayElementNames.pop();
+            currentArrayElementName = null;
+            currentArrayIndexName = null;
 
             return new Ast("__mappedArray__", [new Ast("__filteredArray__", [parse(ifOperands[0]), condition]), mappingFunction]);
         } else {
@@ -32256,6 +32480,20 @@ function compileCustomGameSettings(customGameSettings) {
 					result[wsHeroes][wsTeam][wsHeroesKey] = wsHeroesKeyObj;
 				}
 
+			}
+		} else if (key === "workshop") {
+			var wsWorkshop = tows(key, customGameSettingsSchema);
+			result[wsWorkshop] = {};
+			for (var workshopSetting of Object.keys(customGameSettings.workshop)) {
+				if (customGameSettings.workshop[workshopSetting] === true) {
+					result[wsWorkshop][workshopSetting] = tows("__on__", customGameSettingsKw);
+				} else if (customGameSettings.workshop[workshopSetting] === false) {
+					result[wsWorkshop][workshopSetting] = tows("__off__", customGameSettingsKw);
+				} else if (isNumber(customGameSettings.workshop[workshopSetting])) {
+					result[wsWorkshop][workshopSetting] = customGameSettings.workshop[workshopSetting];
+				} else {
+					error("Invalid value '"+customGameSettings.workshop[workshopSetting]+"' for workshop setting '"+workshopSetting+"'");
+				}
 			}
 		} else {
 			error("Unknown key '"+key+"'");

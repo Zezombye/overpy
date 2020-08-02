@@ -26,7 +26,7 @@ function decompileRuleToAst(content) {
 	nbTabs = 0;
 	
 	//Check for potential error
-	if (currentArrayElementNames.length != 0) {
+	if (currentArrayElementName !== null && currentArrayIndexName !== null) {
 		error("Current array element names weren't cleared");
 	}
 	

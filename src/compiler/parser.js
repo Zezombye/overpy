@@ -546,8 +546,15 @@ function parse(content, kwargs={}) {
 	if (args === null) {
 
 		//Check for current array element variable name
-		if (currentArrayElementNames.indexOf(name) >= 0) {
+		if (currentArrayElementName === name) {
             var result = new Ast("__currentArrayElement__");
+            result.originalName = name;
+            return result;
+        }
+        
+		//Check for current array index variable name
+		if (currentArrayIndexName === name) {
+            var result = new Ast("__currentArrayIndex__");
             result.originalName = name;
             return result;
         }
@@ -561,7 +568,7 @@ function parse(content, kwargs={}) {
         if (isNumber(name)) {
             //It is an int, else it would have a dot, and wouldn't be processed here.
             //It is also an unsigned int, as the negative sign is not part of the name.
-            return new Ast("__number__", [new Ast(name, [], [], "NumberLiteral")], [], "unsigned int");
+            return new Ast("__number__", [new Ast(name, [], [], "IntLiteral")], [], "unsigned int");
         }
 
 		return new Ast(name);
@@ -630,6 +637,14 @@ function parse(content, kwargs={}) {
 	}
 	
 	if (name === "sorted") {
+
+        //Lazy & dirty way of properly parsing "sorted(x, lambda a,b: z)" as the parser also splits on the comma on "lambda a,b".
+        if (args.length === 3) {
+            args[1].push({"text": ","});
+            args[1].push(...args[2]);
+            args = args.slice(0,2);
+        }
+
 		if (args.length === 2) {
             var lambdaArgs = splitTokens(args[1], ':');
             if (lambdaArgs.length !== 2) {
@@ -644,13 +659,22 @@ function parse(content, kwargs={}) {
             if (lambdaArgs[0][0].text !== "lambda") {
                 error("Expected 'lambda x' before ':'");
             }
-            if (lambdaArgs[0].length !== 2) {
-                error("Expected a single token after 'lambda'");
+            if (lambdaArgs[0].length === 2) {
+                currentArrayElementName = lambdaArgs[0][1].text;
+                currentArrayIndexName = null;
+            } else if (lambdaArgs[0].length === 4) {
+                if (lambdaArgs[0][2].text !== ",") {
+                    error("Expected ',' after '"+lambdaArgs[0][1].text+"', but found '"+lambdaArgs[0][2].text);
+                }
+                currentArrayElementName = lambdaArgs[0][1].text;
+                currentArrayIndexName = lambdaArgs[0][3].text;
+            } else {
+                error("Expected 1 or 3 tokens after 'lambda', but got "+(lambdaArgs.length-1));
             }
             
-            currentArrayElementNames.push(lambdaArgs[0][1].text);
             var sortedCondition = parse(lambdaArgs[1]);
-            currentArrayElementNames.pop();
+            currentArrayElementName = null;
+            currentArrayIndexName = null;
 
         } else if (args.length !== 1) {
             error("Function 'sorted' takes 1 or 2 arguments, received "+args.length);
@@ -662,6 +686,48 @@ function parse(content, kwargs={}) {
             astArgs.push(new Ast("__currentArrayElement__"));
         }
         return new Ast("sorted", astArgs);
+    }
+
+    if (name === "createWorkshopSetting") {
+        if (args.length !== 4) {
+            error("Function 'createWorkshopSetting' takes 4 arguments, received "+args.length);
+        }
+
+        var settingType = parseType(args[0]);
+
+        var settingCategory = parse(args[1]);
+        var settingName = parse(args[2]);
+        var settingDefault = parse(args[3]);
+
+        if (typeof settingType === "string") {
+            if (settingType === "bool") {
+                return new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault]);
+            } else if (settingType === "int") {
+                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
+            } else if (settingType === "unsigned int") {
+                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
+            } else if (settingType === "signed int") {
+                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
+            } else if (settingType === "float") {
+                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
+            } else if (settingType === "unsigned float") {
+                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
+            } else if (settingType === "signed float") {
+                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
+            } else {
+                error("Invalid type '"+settingType+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
+            }
+        } else {
+            var typeName = Object.keys(settingType)[0];
+            var typeOptions = settingType[typeName];
+            if (typeName === "int") {
+                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForNumber(typeOptions.min), getAstForNumber(typeOptions.max)]);
+            } else if (typeName === "float") {
+                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForNumber(typeOptions.min), getAstForNumber(typeOptions.max)]);
+            } else {
+                error("Invalid type '"+typeName+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
+            }
+        }
     }
 		
 	//Check for subroutine call
@@ -739,7 +805,7 @@ function parseMember(object, member) {
                 if (!isNumber(name)) {
                     error("Expected a number after '.' but got '"+name+"'");
                 }
-                return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "NumberLiteral")], [], "unsigned float");
+                return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "FloatLiteral")], [], "unsigned float");
 
             }
         }
@@ -835,28 +901,51 @@ function parseLiteralArray(content) {
             //Expect something like "[x == y for x in z]"
             //Parse as the "mapped array" function.
             var inOperands = splitTokens(forOperands[1], "in", false);
-            if (inOperands[0].length !== 1) {
-                error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1");
+            var mappingFunction = forOperands[0];
+            if (inOperands[0].length === 1) {
+                //It is the current array element name
+                currentArrayElementName = inOperands[0][0].text;
+                currentArrayIndexName = null;
+            } else if (inOperands[0].length === 3) {
+                if (inOperands[0][1].text !== ",") {
+                    error("Malformed '[x for a, b in z]': expected ',' but found '"+inOperands[0][1].text+"'");
+                }
+                currentArrayElementName = inOperands[0][0].text;
+                currentArrayIndexName = inOperands[0][2].text;
+            } else {
+                error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1 or 3");
             }
-            currentArrayElementNames.push(inOperands[0][0].text);
-            var mappingFunction = parse(forOperands[0]);
-            currentArrayElementNames.pop();
+            var parsedMappingFunction = parse(forOperands[0]);
+            currentArrayElementName = null;
+            currentArrayIndexName = null;
 
-            return new Ast("__mappedArray__", [parse(inOperands[1]), mappingFunction]);
+            return new Ast("__mappedArray__", [parse(inOperands[1]), parsedMappingFunction]);
             
         } else if (ifOperands.length === 2) {
             //Filtered array
             //Expect something like "[a for x in y if z == 2]"
             
-            if (inOperands[0].length !== 1) {
-                error("Malformed 'a for x in y if z'");
+
+            if (inOperands[0].length === 1) {
+                //It is the current array element name
+                currentArrayElementName = inOperands[0][0].text;
+                currentArrayIndexName = null;
+            } else if (inOperands[0].length === 3) {
+                if (inOperands[0][1].text !== ",") {
+                    error("Malformed '[x for a,b in y if z]': expected ',' but found '"+inOperands[0][1].text+"'");
+                }
+                currentArrayElementName = inOperands[0][0].text;
+                currentArrayIndexName = inOperands[0][2].text;
+            } else {
+                error("Malformed '[x for a,b in y if z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1 or 3");
             }
+
             debug("Parsing 'a for x in y if z', a='"+forOperands[0]+"', x='"+inOperands[0]+"', y='"+ifOperands[0]+"', z='"+ifOperands[1]+"'");
-            
-            currentArrayElementNames.push(inOperands[0][0].text);
+
             var condition = parse(ifOperands[1]);
             var mappingFunction = parse(forOperands[0]);
-            currentArrayElementNames.pop();
+            currentArrayElementName = null;
+            currentArrayIndexName = null;
 
             return new Ast("__mappedArray__", [new Ast("__filteredArray__", [parse(ifOperands[0]), condition]), mappingFunction]);
         } else {

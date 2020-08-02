@@ -158,7 +158,7 @@ function parseAst(content) {
     //Skip if it's a literal or a constant
     if (!["Hero", "Map", "Gamemode", "Team", "Button"].includes(content.type)) {
         if ([
-            "NumberLiteral", 
+            "IntLiteral", "FloatLiteral", 
             "GlobalVariable", "PlayerVariable", "Subroutine", 
             "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral",
         ].concat(Object.keys(constantValues)).includes(content.type)) {

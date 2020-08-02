@@ -248,6 +248,37 @@ function decompileCustomGameSettings(content) {
 					result[opyCategory][opyTeam].general = decompileCustomGameSettingsDict(dict, customGameSettingsSchema.heroes.values.general);
 				}
 			}
+		} else if (opyCategory === "workshop") {
+			var workshopSettings = Object.keys(serialized[category]).map(x => x+"\n").join("");
+			var i = 0;
+			while (i < workshopSettings.length) {
+				var nextColonIndex = workshopSettings.indexOf(":", i);
+				if (nextColonIndex < 0) {
+					error("Expected a ':', but found none, while parsing workshop settings");
+				}
+				var key = workshopSettings.substring(i, nextColonIndex).trim();
+				i = nextColonIndex+1;
+				var nextNewlineIndex = workshopSettings.indexOf("\n", i);
+				if (nextNewlineIndex < 0) {
+					error("Expected a newline, but found none, while parsing workshop settings");
+				}
+				var value = workshopSettings.substring(i, nextNewlineIndex).trim();
+				if (isNumber(value)) {
+					value = parseFloat(value);
+				} else {
+					//It should be a boolean: translate On/Off.
+					value = topy(value, customGameSettingsKw);
+					if (value === "__on__") {
+						value = true;
+					} else if (value === "__off__") {
+						value = false;
+					} else {
+						error("Unhandled value '"+value+"'");
+					}
+				}
+				i = nextNewlineIndex+1;
+				result[opyCategory][key] = value;
+			}
 		}
 	}
 

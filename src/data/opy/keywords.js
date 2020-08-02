@@ -26,10 +26,10 @@ const opyKeywords = {
         "args": null,
         "snippet": "and $0",
     },
-    /*"bool": {
+    "bool": {
         "description": "The 'boolean' type. Denotes a boolean such as 'false' or 'true'.",
         "args": null,
-    },*/
+    },
     "case": {
         "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is equal to the value specified in this `case` statement. Literal arrays should not be used. Note that the execution will not jump to the end of the `switch` block after the end of the `case` block; if you want that to be the case, use the `break` instruction.",
         "args": null,
@@ -66,16 +66,16 @@ const opyKeywords = {
 - If a value, an inline "ternary" condition, such as \`A if B else C\`.`,
         "args": null
     },
-    /*"float": {
-        "description": "The 'float' type. Denotes any real number.",
+    "float": {
+        "description": "The 'float' type. Denotes any real number.\n\nLimits can be specified: for example, `float<-4.5, 5.5>` denotes all numbers between -4.5 and 5.5, inclusive.",
         "args": null,
-    },*/
+    },
     "for": {
         "description": `Denotes either:
         
 - If an instruction, the beginning of a block that will execute in a loop, modifying the control variable on each loop. The instruction must be \`for <var> in range(start, stop, step):\` See also the \`range\` function.
 
-- If within a list comprehension, a filtered  or mapped array, such as \`[i for i in x if x == 3]\`.`,
+- If within a list comprehension, a filtered or mapped array, such as \`[i for i in x if x == 3]\`.`,
         "args": null,
         "snippet": "for $0",
     },
@@ -88,10 +88,10 @@ const opyKeywords = {
         "args": null,
         "snippet": "if $0",
     },
-    /*"int": {
-        "description": "The 'integer' type. A subset of the 'float' type.",
+    "int": {
+        "description": "The 'integer' type. A subset of the 'float' type. Denotes all numbers without decimals.\n\nLimits can be specified: for example, `int<-4, 5>` denotes all integers between -4 and 5, inclusive.",
         "args": null,
-    },*/
+    },
     "globalvar": {
         "description": "Declares a global variable. The index (0-127) can optionally be specified. Example: `globalvar myVar 127`",
         "args": null,
@@ -132,10 +132,10 @@ const opyKeywords = {
         "args": null,
         "snippet": "settings $0",
     },
-    /*"signed": {
+    "signed": {
         "description": "Defines the specified type as signed (inferior or equal to 0). Only valid for 'int' or 'float'.",
         "args": null,
-    },*/
+    },
     "switch": {
         "description": "Denotes the beginning of a block that will jump execution to the `case` statement that has the value of the specified variable. If no `case` statement has the value of the specified variable, the execution goes to the `default` statement if it exists, else to the end of the block.",
         "args": null,
@@ -146,10 +146,10 @@ const opyKeywords = {
         "args": null,
         "snippet": "subroutine $0",
     },
-    /*"unsigned": {
+    "unsigned": {
         "description": "Defines the specified type as unsigned (superior or equal to 0). Only valid for 'int' or 'float'.",
         "args": null,
-    },*/
+    },
     "while": {
         "description": "Denotes the beginning of a block that will execute in a loop as long as the specified condition is true. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end of the block. Can also denote the end of a do/while loop, if no `:` is at the end of the instruction.",
         "args": null,

@@ -156,5 +156,64 @@ function parseType(tokens) {
     if (!tokens[0].text in Object.keys(typeMatrix)) {
         error("Expected a type, but got '"+tokens[0].text+"'");
     }
+    if (tokens.length === 1) {
+        return tokens[0].text;
+    }
+
+    if (tokens[0].text === "unsigned" || tokens[0].text === "signed") {
+        if (tokens[1].text !== "int" && tokens[1].text !== "float") {
+            error("Expected 'int' or 'float' after '"+tokens[0].text+"', but got '"+tokens[1].text+"'");
+        }
+        if (tokens.length !== 2) {
+            error("Expected end of type after '"+tokens[0].text+" "+tokens[1].text+"', but got '"+tokens[2].text+"'");
+        }
+        return tokens[0].text+" "+tokens[1].text;
+    }
+
+    if (tokens[1].text !== "<") {
+        error("Expected '<' after '"+tokens[0].text+"', but got '"+tokens[1].text+"'");
+    }
+    if (tokens[tokens.length-1].text !== ">") {
+        error("Expected '>' at end of type, but got '"+tokens[tokens.length-1].text+"'");
+    }
+
+    if (tokens[0].text !== "int" && tokens[0].text !== "float") {
+        error("Expected 'int' or 'float' before '<', but got '"+tokens[0].text+"'");
+    }
+
+    var typeParams = tokens.slice(2, tokens.length-1);
+
+    if (tokens[0].text === "int" || tokens[0].text === "float") {
+        //There should be a ":" delimiter.
+        var tokenMinAndMax = splitTokens(typeParams, ":", true);
+        if (tokenMinAndMax.length !== 2) {
+            error("Expected one ':' in parameters for '"+tokens[0].text+"'");
+        }
+        var tokenMin = tokenMinAndMax[0];
+        var tokenMax = tokenMinAndMax[1];
+        if (tokenMin.length === 0) {
+            var min = -9999999999999;
+        } else {
+            if (tokens[0].text === "int") {
+                var min = parseInt(tokenMin.map(x => x.text).join(""));
+            } else {
+                var min = parseFloat(tokenMin.map(x => x.text).join(""));
+            }
+        }
+        if (tokenMax.length === 0) {
+            var max = 9999999999999;
+        } else {
+            if (tokens[0].text === "int") {
+                var max = parseInt(tokenMax.map(x => x.text).join(""));
+            } else {
+                var max = parseFloat(tokenMax.map(x => x.text).join(""));
+            }
+        }
+
+        var result = {};
+        result[tokens[0].text] = {"min": min, "max": max};
+
+        return result;
+    }
     
 }

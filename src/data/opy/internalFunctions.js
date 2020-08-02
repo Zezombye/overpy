@@ -391,7 +391,7 @@ const opyInternalFuncs = {
         "args": [
             {
                 "name": "NUMBER",
-                "type": "NumberLiteral",
+                "type": "FloatLiteral",
                 "default": "0",
             },
         ],

@@ -28,15 +28,6 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 	}
 	debug("Translating keyword '"+keyword+"'");
 	
-	//Check for current array element
-	if (toWorkshop) {
-		for (var i = 0; i < currentArrayElementNames.length; i++) {
-			if (keyword === currentArrayElementNames[i]) {
-				return translate("__currentArrayElement__", true, valueFuncKw);
-			}
-		}
-	}
-
 	if (toWorkshop) {
 		try {
 			//Check number of arguments

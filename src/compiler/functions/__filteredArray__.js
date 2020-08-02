@@ -21,16 +21,16 @@ astParsingFunctions.__filteredArray__ = function(content) {
     
     if (enableOptimization) {
         //filtered array with no constant -> if/else
-        if (!astContainsFunctions(content.args[1], ["__currentArrayElement__"])) {
+        if (!astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
             return new Ast("__ifThenElse__", [content.args[1], content.args[0], getAstForEmptyArray()]);
         }
 
         //filtered array with condition "currentArrayElement != A" -> remove from array(array, A)
         if (content.args[1].name === "__inequals__") {
-            if (content.args[1].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__"])) {
+            if (content.args[1].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
                 return new Ast("__removeFromArray__", [content.args[0], content.args[1].args[1]]);
             }
-            if (content.args[1].args[1].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__"])) {
+            if (content.args[1].args[1].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__", "__currentArrayIndex__"])) {
                 return new Ast("__removeFromArray__", [content.args[0], content.args[1].args[1]]);
             }
         }
