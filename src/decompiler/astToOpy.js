@@ -563,9 +563,28 @@ function astToOpy(content) {
         } else {
             currentArrayElementName = "i";
         }
+
+        if (astContainsFunctions(content.args[1], ["__currentArrayIndex__"]) && !astContainsFunctions(content.args[1], ["__currentArrayElement__"])
+            && !(content.name === "__mappedArray__" && content.args[0].name === "__filteredArray__" && astContainsFunctions(content.args[0].args[1], ["__currentArrayElement__"]))) {
+            currentArrayElementName = "_";
+        }
+
+        if (currentArrayElementName === "i") {
+            currentArrayIndexName = "idx";
+        } else {
+            currentArrayIndexName = "i";
+        }
+
+
         while (isVarName(currentArrayElementName, true)) {
             currentArrayElementName += "_";
         }
+        
+        while (isVarName(currentArrayIndexName, true)) {
+            currentArrayIndexName += "_";
+        }
+
+
 
         var result = "";
         if (content.name === "__all__" || content.name === "__any__") {
@@ -574,7 +593,11 @@ function astToOpy(content) {
                 //If there is just "current array element", no need to explicitly put it
                 result += astToOpy(content.args[0]);
             } else {
-                result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName+" in ";
+                result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName;
+                if (astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
+                    result += ", "+currentArrayIndexName;
+                }
+                result += " in ";
                 var opIn = astToOpy(content.args[0]);
                 if (astContainsFunctions(content.args[0], ["__ifThenElse__"])) {
                     opIn = "("+opIn+")";
@@ -583,7 +606,11 @@ function astToOpy(content) {
             }
             result += ")";
         } else if (content.name === "__mappedArray__") {
-            result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName+" in ";
+            result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName;
+            if (astContainsFunctions(content.args[1], ["__currentArrayIndex__"]) || content.args[0].name === "__filteredArray__" && astContainsFunctions(content.args[0].args[1], ["__currentArrayIndex__"])) {
+                result += ", "+currentArrayIndexName;
+            }
+            result += " in ";
             if (content.args[0].name === "__filteredArray__") {
                 result += astToOpy(content.args[0].args[0])+" if "+astToOpy(content.args[0].args[1]);
             } else {
@@ -591,7 +618,11 @@ function astToOpy(content) {
             }
             result += "]";
         } else if (content.name === "__filteredArray__") {
-            result += "["+currentArrayElementName+" for "+currentArrayElementName+" in ";
+            result += "["+currentArrayElementName+" for "+currentArrayElementName;
+            if (astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
+                result += ", "+currentArrayIndexName;
+            }
+            result += " in ";
             var opArray = astToOpy(content.args[0]);
             if (astContainsFunctions(content.args[0], ["__ifThenElse__"])) {
                 opArray = "("+opArray+")";
@@ -606,7 +637,11 @@ function astToOpy(content) {
             result += "sorted("+astToOpy(content.args[0]);
             //If there is just "current array element", no need to explicitly put it
             if (content.args[1].name !== "__currentArrayElement__") {
-                result += ", lambda "+currentArrayElementName+": "+astToOpy(content.args[1]);
+                result += ", lambda "+currentArrayElementName;
+                if (astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
+                    result += ", "+currentArrayIndexName;
+                }
+                result +=": "+astToOpy(content.args[1]);
             }
             result += ")";
         }
@@ -620,6 +655,13 @@ function astToOpy(content) {
             error("currentArrayElementName is null");
         }
         return currentArrayElementName;
+    }
+    
+    if (content.name === "__currentArrayIndex__") {
+        if (currentArrayIndexName === null) {
+            error("currentArrayIndexName is null");
+        }
+        return currentArrayIndexName;
     }
 
     //Other functions
