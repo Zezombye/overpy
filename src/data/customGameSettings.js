@@ -2505,7 +2505,49 @@ const customGameSettingsSchema =
                         "ru-RU": "Сброс положения игроков после гола",
                         "zh-CN": "进球后重置玩家",
                         "zh-TW": "進球得分後重置玩家狀態"
-                    }
+                    },
+                    "ballCountPeriodIncreaseInSec": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 600,
+                        "default": 0,
+                        "en-US": "Ball Count Increase Period Seconds",
+                    },
+                    "bonusBallSpawningPeriodInSec": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 600,
+                        "default": 0,
+                        "en-US": "Bonus Ball Spawn Period Seconds",
+                    },
+                    "bonusBallValue": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 50,
+                        "default": 3,
+                        "en-US": "Bonus Ball Value",
+                    },
+                    "initialBallCount": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 6,
+                        "default": 1,
+                        "en-US": "Initial Ball Count",
+                    },
+                    "maxBallCount": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 6,
+                        "default": 1,
+                        "en-US": "Max Ball Count",
+                    },
+                    "maxBonusBallCount": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 6,
+                        "default": 1,
+                        "en-US": "Max Bonus Ball Count",
+                    },
                 }
             },
             "yetiHunter": {

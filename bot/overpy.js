@@ -11773,26 +11773,19 @@ const mapKw =
         "ru-RU": "Святилище Пусана Лунный Новый год",
         "zh-CN": "春节釜山寺院",
         "zh-TW": "釜山寺院（春節）"
-    },/*
+    },
+    "busanStadium": {
+        "gamemodes": [
+            "lucioball"
+        ],
+        "en-US": "Busan Stadium",
+    },
     "busanStadiumClassic": {
-        "guid": "000000008A19",
         "gamemodes": [
             "lucioball"
         ],
         "en-US": "Busan Stadium Classic",
-        "de-DE": "Stadion von Busan",
-        "es-ES": "Estadio de Busan",
-        "es-MX": "Estadio de Busan",
-        "fr-FR": "Stade de Busan",
-        "it-IT": "Busan - Stadio",
-        "ja-JP": "BUSAN STADIUM",
-        "ko-KR": "부산 스타디움",
-        "pl-PL": "Stadion Pusan",
-        "pt-BR": "Estádio Busan",
-        "ru-RU": "Стадион Пусана",
-        "zh-CN": "釜山体育场",
-        "zh-TW": "釜山運動場"
-    },*/
+    },
     "castillo": {
         "guid": "000000005C04",
         "gamemodes": [
@@ -12662,23 +12655,19 @@ const mapKw =
         "ru-RU": "Шоссе 66",
         "zh-CN": "66号公路",
         "zh-TW": "66號公路"
-    },/*
+    },
+    "sydneyHarbourArena": {
+        "gamemodes": [
+            "lucioball"
+        ],
+        "en-US": "Sydney Harbour Arena",
+    },
     "sydneyHarbourArenaClassic": {
-        "guid": "0000000063D5",
         "gamemodes": [
             "lucioball"
         ],
         "en-US": "Sydney Harbour Arena Classic",
-        "es-MX": "Arena Sydney Harbour",
-        "fr-FR": "Harbour Arena de Sydney",
-        "ja-JP": "SYDNEY HARBOUR ARENA",
-        "ko-KR": "시드니 하버 아레나",
-        "pl-PL": "Sydney Harbour Park",
-        "pt-BR": "Arena Sydney Harbour",
-        "ru-RU": "«Арена Сидней-Харбор»",
-        "zh-CN": "悉尼海港竞技场",
-        "zh-TW": "雪梨海港運動公園"
-    },*/
+    },
     "templeOfAnubis": {
         "guid": "00000000012E",
         "gamemodes": [
@@ -20360,7 +20349,49 @@ const customGameSettingsSchema =
                         "ru-RU": "Сброс положения игроков после гола",
                         "zh-CN": "进球后重置玩家",
                         "zh-TW": "進球得分後重置玩家狀態"
-                    }
+                    },
+                    "ballCountPeriodIncreaseInSec": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 600,
+                        "default": 0,
+                        "en-US": "Ball Count Increase Period Seconds",
+                    },
+                    "bonusBallSpawningPeriodInSec": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 600,
+                        "default": 0,
+                        "en-US": "Bonus Ball Spawn Period Seconds",
+                    },
+                    "bonusBallValue": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 50,
+                        "default": 3,
+                        "en-US": "Bonus Ball Value",
+                    },
+                    "initialBallCount": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 6,
+                        "default": 1,
+                        "en-US": "Initial Ball Count",
+                    },
+                    "maxBallCount": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 6,
+                        "default": 1,
+                        "en-US": "Max Ball Count",
+                    },
+                    "maxBonusBallCount": {
+                        "values": "__int__",
+                        "min": 0,
+                        "max": 6,
+                        "default": 1,
+                        "en-US": "Max Bonus Ball Count",
+                    },
                 }
             },
             "yetiHunter": {
