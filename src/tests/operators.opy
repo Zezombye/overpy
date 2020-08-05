@@ -107,6 +107,7 @@ rule "assignment":
     eventPlayer.A[0] = B
     A = A #pass
     A += B
+    eventPlayer.A += B
     A += 0 #pass
     A -= B
     A *= B

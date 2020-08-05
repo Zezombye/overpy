@@ -15648,34 +15648,22 @@ const constantValues =
     },
     "TeamLiteral": {
         "1": {
-            "guid": "000000002D71",
+            "guid": "00000000B472",
             "en-US": "Team 1",
-            "es-ES": "Equipo 1",
             "es-MX": "Equipo 1",
-            "fr-FR": "Équipe 1",
-            "it-IT": "Squadra 1",
+            "fr-FR": "Équipe 1",
             "ja-JP": "チーム1",
-            "ko-KR": "1팀",
-            "pl-PL": "Drużyna 1",
             "pt-BR": "Equipe 1",
-            "ru-RU": "Команда 1",
-            "zh-CN": "队伍1",
-            "zh-TW": "隊伍1"
+            "zh-CN": "队伍1"
         },
         "2": {
-            "guid": "000000002D72",
+            "guid": "00000000B471",
             "en-US": "Team 2",
-            "es-ES": "Equipo 2",
             "es-MX": "Equipo 2",
-            "fr-FR": "Équipe 2",
-            "it-IT": "Squadra 2",
+            "fr-FR": "Équipe 2",
             "ja-JP": "チーム2",
-            "ko-KR": "2팀",
-            "pl-PL": "Drużyna 2",
             "pt-BR": "Equipe 2",
-            "ru-RU": "Команда 2",
-            "zh-CN": "队伍2",
-            "zh-TW": "隊伍2"
+            "zh-CN": "队伍2"
         },
         "ALL": {
             "guid": "00000000B470",
@@ -17890,6 +17878,36 @@ const customGameSettingsKw =
         "ru-RU": "Нет",
         "zh-CN": "否",
         "zh-TW": "否"
+    },
+    "__team1__": {
+        "guid": "000000002D71",
+        "en-US": "Team 1",
+        "es-ES": "Equipo 1",
+        "es-MX": "Equipo 1",
+        "fr-FR": "Équipe 1",
+        "it-IT": "Squadra 1",
+        "ja-JP": "チーム1",
+        "ko-KR": "1팀",
+        "pl-PL": "Drużyna 1",
+        "pt-BR": "Equipe 1",
+        "ru-RU": "Команда 1",
+        "zh-CN": "队伍1",
+        "zh-TW": "隊伍1"
+    },
+    "__team2__": {
+        "guid": "000000002D72",
+        "en-US": "Team 2",
+        "es-ES": "Equipo 2",
+        "es-MX": "Equipo 2",
+        "fr-FR": "Équipe 2",
+        "it-IT": "Squadra 2",
+        "ja-JP": "チーム2",
+        "ko-KR": "2팀",
+        "pl-PL": "Drużyna 2",
+        "pt-BR": "Equipe 2",
+        "ru-RU": "Команда 2",
+        "zh-CN": "队伍2",
+        "zh-TW": "隊伍2"
     }
 }
 //end-json
@@ -23153,12 +23171,12 @@ const availableLanguages = ["de-DE", "en-US", "es-ES", "es-MX", "fr-FR", "it-IT"
 //Resolve guids for the max team players
 for (var key of Object.keys(customGameSettingsSchema.lobby.values.team1Slots)) {
     if (availableLanguages.includes(key)) {
-        customGameSettingsSchema.lobby.values.team1Slots[key] = customGameSettingsSchema.lobby.values.team1Slots[key].replace("%1$s", constantValues.TeamLiteral["1"][key])
+        customGameSettingsSchema.lobby.values.team1Slots[key] = customGameSettingsSchema.lobby.values.team1Slots[key].replace("%1$s", customGameSettingsKw["__team1__"][key] || customGameSettingsKw["__team1__"]["en-US"])
     }
 }
 for (var key of Object.keys(customGameSettingsSchema.lobby.values.team2Slots)) {
     if (availableLanguages.includes(key)) {
-        customGameSettingsSchema.lobby.values.team2Slots[key] = customGameSettingsSchema.lobby.values.team2Slots[key].replace("%1$s", constantValues.TeamLiteral["2"][key])
+        customGameSettingsSchema.lobby.values.team2Slots[key] = customGameSettingsSchema.lobby.values.team2Slots[key].replace("%1$s", customGameSettingsKw["__team2__"][key] || customGameSettingsKw["__team2__"]["en-US"])
     }
 }
 
@@ -31544,6 +31562,11 @@ function astToWs(content) {
         return escapeString(tows(content.name, stringKw));
     }
 
+    var result = "";
+    if (content.isDisabled === true) {
+        result += tows("__disabled__", ruleKw)+" ";
+    }
+
     if (content.name === "__valueInArray__" && enableOptimization && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
         content = new Ast("__firstOf__", [content.args[0]]);
     }
@@ -31554,6 +31577,17 @@ function astToWs(content) {
         content.name = "__compare__";
 
     } else if (content.name === "__assignTo__" || content.name === "__modifyVar__") {
+
+        //Workaround for the japanese language bug where "add" and "append" are the same for the modify variable actions.
+        if (content.name === "__modifyVar__" && content.args[1].name === "__add__") {
+            var tmpEnableOptimization = enableOptimization;
+            enableOptimization = false;
+            result += astToWs(content.args[0])+" += ";
+            enableOptimization = tmpEnableOptimization;
+            result += astToWs(content.args[2]);
+            return result;
+        }
+
         var newName = content.name === "__assignTo__" ? "__set" : "__modify";
         if (content.args[0].name === "__globalVar__") {
             //A = 3 -> __setGlobalVariable__(A, 3)
@@ -31712,13 +31746,10 @@ function astToWs(content) {
 
     }
 
-    var result = "";
-    if (content.isDisabled === true) {
-        result += tows("__disabled__", ruleKw)+" ";
-    }
     if (content.type === undefined) {
         error("Type of '"+content.name+"' is undefined");
     }
+
     if (content.type === "void") {
         result += tows(content.name, actionKw);
     } else if (isTypeSuitable(["Object", "Array"], content.type)){

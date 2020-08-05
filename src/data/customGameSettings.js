@@ -4882,12 +4882,12 @@ const availableLanguages = ["de-DE", "en-US", "es-ES", "es-MX", "fr-FR", "it-IT"
 //Resolve guids for the max team players
 for (var key of Object.keys(customGameSettingsSchema.lobby.values.team1Slots)) {
     if (availableLanguages.includes(key)) {
-        customGameSettingsSchema.lobby.values.team1Slots[key] = customGameSettingsSchema.lobby.values.team1Slots[key].replace("%1$s", constantValues.TeamLiteral["1"][key])
+        customGameSettingsSchema.lobby.values.team1Slots[key] = customGameSettingsSchema.lobby.values.team1Slots[key].replace("%1$s", customGameSettingsKw["__team1__"][key] || customGameSettingsKw["__team1__"]["en-US"])
     }
 }
 for (var key of Object.keys(customGameSettingsSchema.lobby.values.team2Slots)) {
     if (availableLanguages.includes(key)) {
-        customGameSettingsSchema.lobby.values.team2Slots[key] = customGameSettingsSchema.lobby.values.team2Slots[key].replace("%1$s", constantValues.TeamLiteral["2"][key])
+        customGameSettingsSchema.lobby.values.team2Slots[key] = customGameSettingsSchema.lobby.values.team2Slots[key].replace("%1$s", customGameSettingsKw["__team2__"][key] || customGameSettingsKw["__team2__"]["en-US"])
     }
 }
 

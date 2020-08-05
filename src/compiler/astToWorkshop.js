@@ -161,6 +161,11 @@ function astToWs(content) {
         return escapeString(tows(content.name, stringKw));
     }
 
+    var result = "";
+    if (content.isDisabled === true) {
+        result += tows("__disabled__", ruleKw)+" ";
+    }
+
     if (content.name === "__valueInArray__" && enableOptimization && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
         content = new Ast("__firstOf__", [content.args[0]]);
     }
@@ -171,6 +176,17 @@ function astToWs(content) {
         content.name = "__compare__";
 
     } else if (content.name === "__assignTo__" || content.name === "__modifyVar__") {
+
+        //Workaround for the japanese language bug where "add" and "append" are the same for the modify variable actions.
+        if (content.name === "__modifyVar__" && content.args[1].name === "__add__") {
+            var tmpEnableOptimization = enableOptimization;
+            enableOptimization = false;
+            result += astToWs(content.args[0])+" += ";
+            enableOptimization = tmpEnableOptimization;
+            result += astToWs(content.args[2]);
+            return result;
+        }
+
         var newName = content.name === "__assignTo__" ? "__set" : "__modify";
         if (content.args[0].name === "__globalVar__") {
             //A = 3 -> __setGlobalVariable__(A, 3)
@@ -329,13 +345,10 @@ function astToWs(content) {
 
     }
 
-    var result = "";
-    if (content.isDisabled === true) {
-        result += tows("__disabled__", ruleKw)+" ";
-    }
     if (content.type === undefined) {
         error("Type of '"+content.name+"' is undefined");
     }
+
     if (content.type === "void") {
         result += tows(content.name, actionKw);
     } else if (isTypeSuitable(["Object", "Array"], content.type)){
