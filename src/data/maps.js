@@ -166,13 +166,39 @@ const mapKw =
         "gamemodes": [
             "lucioball"
         ],
+        "guid": "0000000112AA",
         "en-US": "Busan Stadium",
+        "de-DE": "Stadion von Busan",
+        "es-ES": "Estadio de Busan",
+        "es-MX": "Estadio de Busan",
+        "fr-FR": "Stade de Busan",
+        "it-IT": "Busan - Stadio",
+        "ja-JP": "BUSAN STADIUM",
+        "ko-KR": "부산 스타디움",
+        "pl-PL": "Stadion Pusan",
+        "pt-BR": "Estádio Busan",
+        "ru-RU": "Стадион Пусана",
+        "zh-CN": "釜山体育场",
+        "zh-TW": "釜山運動場"
     },
     "busanStadiumClassic": {
         "gamemodes": [
             "lucioball"
         ],
+        "guid": "000000008A19",
         "en-US": "Busan Stadium Classic",
+        "de-DE": "Klassisches Stadion von Busan",
+        "es-ES": "Estadio de Busan clásico",
+        "es-MX": "Estadio de Busan clásico",
+        "fr-FR": "Stade de Busan classique",
+        "it-IT": "Busan - Stadio classico",
+        "ja-JP": "BUSAN STADIUM CLASSIC",
+        "ko-KR": "부산 스타디움 클래식",
+        "pl-PL": "Klasyczny Stadion Pusan",
+        "pt-BR": "Estádio Busan Clássico",
+        "ru-RU": "Классический стадион Пусана",
+        "zh-CN": "釜山体育场（经典）",
+        "zh-TW": "經典釜山運動場"
     },
     "castillo": {
         "guid": "000000005C04",
@@ -1048,13 +1074,36 @@ const mapKw =
         "gamemodes": [
             "lucioball"
         ],
+        "guid": "0000000112A6",
         "en-US": "Sydney Harbour Arena",
+        "es-MX": "Arena Sydney Harbour",
+        "fr-FR": "Harbour Arena de Sydney",
+        "ja-JP": "SYDNEY HARBOUR ARENA",
+        "ko-KR": "시드니 하버 아레나",
+        "pl-PL": "Sydney Harbour Park",
+        "pt-BR": "Arena Sydney Harbour",
+        "ru-RU": "«Арена Сидней-Харбор»",
+        "zh-CN": "悉尼海港竞技场",
+        "zh-TW": "雪梨海港運動公園"
     },
     "sydneyHarbourArenaClassic": {
         "gamemodes": [
             "lucioball"
         ],
+        "guid": "0000000063D5",
         "en-US": "Sydney Harbour Arena Classic",
+        "de-DE": "Klassische Sydney Harbour Arena",
+        "es-ES": "Sydney Harbour Arena clásico",
+        "es-MX": "Arena Sydney Harbour clásica",
+        "fr-FR": "Harbour Arena de Sydney classique",
+        "it-IT": "Sydney Harbour Arena classica",
+        "ja-JP": "SYDNEY HARBOUR ARENA CLASSIC",
+        "ko-KR": "시드니 하버 아레나 클래식",
+        "pl-PL": "Klasyczny Sydney Harbour Park",
+        "pt-BR": "Arena Sydney Harbour Clássica",
+        "ru-RU": "Классическая «Арена Сидней-Харбор»",
+        "zh-CN": "悉尼海港竞技场（经典）",
+        "zh-TW": "經典雪梨海港運動公園"
     },
     "templeOfAnubis": {
         "guid": "00000000012E",

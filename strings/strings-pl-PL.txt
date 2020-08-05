@@ -1,13 +1,13 @@
-[Core] DataTool v1.50.0.879-git-d61144dfaee4a02dffdf762a46439449a26e1989
+[Core] DataTool v1.51.0.881-git-85a88229e3805c3081c87175e10e6b4840311a17
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(20)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(21)\DataTool.exe.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.50.1.0.71344
+[CASC] Overwatch build 1.51.0.0.71620
 [CASC] Initializing...
-[Manifest] Using TRG procedure 71213 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 71213 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 71213 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 71213 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 71620 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -1981,9 +1981,9 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000001B7A.07C: Podsumowanie
 000000001B7F.07C: Odblokowano
 000000001B80.07C: Podgląd
-000000001BA1.07C: %1$s: Dzięki!
-000000001BA2.07C: %1$s: Rozumiem.
-000000001BA3.07C: %1$s: Witaj!
+000000001BA1.07C: [%1$s (%2$s)] Dzięki!
+000000001BA2.07C: [%1$s (%2$s)] Rozumiem.
+000000001BA3.07C: [%1$s (%2$s)] Witaj!
 000000001BA4.07C: Infrawizja – czas działania
 000000001BA5.07C: Infrawizja – czas działania
 000000001BA6.07C: |Rpl %1$s:wystrzelonych rakiet:wystrzelonych rakiet:wystrzelonych rakiet;
@@ -2052,28 +2052,28 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000001C76.07C: MVP
 000000001C78.07C: Wejdź na obszar, który trzeba zająć.
 000000001C79.07C: Wróć do obszaru, który trzeba zająć
-000000001C80.07C: %1$s do ciebie: Dzięki!
-000000001C82.07C: %1$s do %2$s: Dzięki!
-000000001C83.07C: %1$s do ciebie: Witaj!
-000000001C84.07C: %1$s do %2$s: Witaj!
+000000001C80.07C: [%1$s (%2$s) do ciebie] Dzięki!
+000000001C82.07C: [%1$s (%2$s) do %3$s (%4$s)] Dzięki!
+000000001C83.07C: [%1$s (%2$s) do ciebie] Witaj!
+000000001C84.07C: [%1$s (%2$s) do %3$s (%4$s)] Witaj!
 000000001C85.07C: %1$s (%2$s) do ciebie: Potrzebuję leczenia! %3$s
-000000001C86.07C: %1$s (%3$s) do %2$s: Potrzebuję leczenia! %4$s
+000000001C86.07C: [%1$s (%2$s) do %3$s (%4$s)] Potrzebuję leczenia! %5$s
 000000001C87.07C: %1$s (%2$s) do ciebie: Potrzebuję osłon!
-000000001C88.07C: %1$s (%3$s): Potrzebuję osłon!
+000000001C88.07C: [%1$s (%2$s)] Potrzebuję osłon!
 000000001C89.07C: %1$s (%2$s): Potrzebuję pancerza!
-000000001C8A.07C: %1$s (%3$s) do %2$s: Potrzebuję pancerza!
+000000001C8A.07C: [%1$s (%2$s) do %3$s (%4$s)] Potrzebuję pancerza!
 000000001C8B.07C: %1$s (%2$s) do ciebie: Potrzebuję osłony!
-000000001C8C.07C: %1$s (%3$s) do %2$s: Potrzebuję osłony!
-000000001C8F.07C: %2$s (%1$s) do ciebie: Moja Superzdolność (%4$s) jeszcze się ładuje! %3$s%%
-000000001C90.07C: %2$s (%1$s) do %5$s: Moja Superzdolność %4$s jeszcze się ładuje! %3$s%%
-000000001C91.07C: %2$s (%1$s) do ciebie: Moja Superzdolność %3$s jest gotowa! Do dzieła!
-000000001C92.07C: %2$s (%1$s) do %4$s: Moja Superzdolność %3$s jest gotowa! Do dzieła!
+000000001C8C.07C: [%1$s (%2$s) do %3$s (%4$s)] Potrzebuję osłony!
+000000001C8F.07C: [%1$s (%2$s) do ciebie] Moja superzdolność (%4$s) %5$s jeszcze się ładuje! %3$s%%
+000000001C90.07C: [%1$s (%2$s) do %3$s (%4$s)] Moja superzdolność (%6$s) %7$s jeszcze się ładuje! %5$s%%
+000000001C91.07C: [%1$s (%2$s) do ciebie] Moja superzdolność (%3$s) %4$s jest gotowa! Do dzieła!
+000000001C92.07C: [%1$s (%2$s) do: %3$s (%4$s)] Moja superzdolność (%5$s) %6$s jest gotowa! Do dzieła!
 000000001C93.07C: %1$s (%2$s) do ciebie: Potrzebuję pomocy!
-000000001C94.07C: %1$s (%3$s) do %2$s: Potrzebuję pomocy!
-000000001C95.07C: %1$s do ciebie: Zrozumiano.
-000000001C96.07C: %1$s do %2$s: Zrozumiano.
-000000001C97.07C: %1$s do ciebie: Jestem blisko!
-000000001C98.07C: %1$s (%2$s) do ciebie: Jestem blisko!
+000000001C94.07C: [%1$s (%2$s) do: %3$s (%4$s)] Potrzebuję pomocy!
+000000001C95.07C: [%1$s (%2$s) do ciebie] Zrozumiano.
+000000001C96.07C: [%1$s (%2$s) do: %3$s (%4$s)] Zrozumiano.
+000000001C97.07C: %1$s (%2$s) do ciebie: Jestem blisko!
+000000001C98.07C: [%1$s (%2$s) do ciebie] Zbiórka!
 000000001C99.07C: Nieprawidłowe opcje dla gry dowolnej.
 000000001C9A.07C: Nie można wyciszyć gracza.
 000000001C9B.07C: Nie można wyłączyć wyciszenia gracza.
@@ -3833,8 +3833,8 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000002CA0.07C: ŚREDNIA – NISKI SMAA
 000000002CA1.07C: NISKA – FXAA
 000000002CA2.07C: WYŁ.
-000000002CA6.07C: %2$s (%1$s) do ciebie: Moja superzdolność (%4$s) %5$s jest prawie gotowa! %3$s%%
-000000002CA7.07C: %2$s (%1$s) do gracza %5$s: Moja superzdolność (%4$s) %6$s jest prawie gotowa! %3$s%%
+000000002CA6.07C: [%1$s (%2$s) do ciebie] Moja superzdolność (%4$s) %5$s jest prawie gotowa! %3$s%%
+000000002CA7.07C: [%1$s (%2$s) do: %3$s (%4$s)] Moja superzdolność (%6$s) %7$s jest prawie gotowa! %5$s%%
 000000002CAE.07C: |Rpl %1$s:zabici:zabici:zabici; w pojedynkę – najwięcej w meczu
 000000002CAF.07C: %1$s |Rpl zabity:zabitych:zabitych; w pojedynkę – najwięcej w meczu
 000000002CB2.07C: |Rpl %1$s:zabici:zabici:zabici; w pojedynkę – najwięcej w meczu
@@ -8066,7 +8066,7 @@ w 1. sezonie
 0000000048A1.07C: %1$s |Rpl Bramka:Bramki:Bramek;
 0000000048A7.07C: 21:9
 0000000048A8.07C: NAJLEPSZE ZAGRANIE:
-0000000048AA.07C: %1$s (%3$s) do %2$s: Jestem blisko!
+0000000048AA.07C: [%1$s (%2$s) do: %3$s (%4$s)] Zbiórka!
 0000000048AB.07C: Wyświetl zegar systemowy
 0000000048AC.07C: |Rpl %1$s:Przechwyt:Przechwyty:Przechwyty;
 0000000048AD.07C: %1$s |Rpl Przechwyt:Przechwyty:Przechwytów;
@@ -8163,7 +8163,6 @@ z letnich igrzysk
 000000004942.07C: 5 skrzynek z letnich igrzysk
 000000004943.07C: 11 skrzynek z letnich igrzysk
 000000004944.07C: 24 skrzynki z letnich igrzysk
-000000004945.07C: 50 skrzynek z letnich igrzysk
 000000004946.07C: Mistrzyni
 000000004950.07C: Australia
 000000004951.07C: Egipt
@@ -8307,8 +8306,8 @@ z letnich igrzysk
 000000004A74.07C: %1$s |Rpl Bramka:Bramki:Bramek;
 000000004A75.07C: |Rpl %1$s:Interwencje:Interwencje:Interwencje;
 000000004A76.07C: %1$s |Rpl Interwencja:Interwencje:Interwencji;
-000000004A77.07C: |Rpl %1$s:Przechwycenia:Przechwycenia:Przechwycenia;
-000000004A78.07C: %1$s |Rpl Przechwycenie:Przechwycenia:Przechwyceń;
+000000004A77.07C: |Rpl %1$s:Przechwyty:Przechwyty:Przechwyty;
+000000004A78.07C: %1$s |Rpl Przechwyt:Przechwyty:Przechwytów;
 000000004A7F.07C: |Rpl %1$s:asysty:asysty:asysty;
 000000004A80.07C: %1$s |Rpl asysta:asysty:asyst;
 000000004A82.07C: Taekwondo
@@ -8388,7 +8387,7 @@ z letnich igrzysk
 000000004B03.07C: No to gramy
 000000004B68.07C: Szok-opona
 000000004B69.07C: %1$s (%2$s) do ciebie: Zgłoś się do mnie po leczenie!
-000000004B6A.07C: %1$s (%3$s) do %2$s: Zgłoś się do mnie po leczenie!
+000000004B6A.07C: [%1$s (%2$s) do %3$s (%4$s)] Zgłoś się do mnie po leczenie!
 000000004B78.07C: B
 000000004B7F.07C: Centrum miasta
 000000004B80.07C: Ogrody
@@ -8878,7 +8877,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 0000000050B2.07C: Klucz
 0000000050B3.07C: Agentka
 0000000050B4.07C: Hakerka
-0000000050B5.07C: Inicjatywa
+0000000050B5.07C: hak0wanie
 0000000050B6.07C: Kostka Rubika
 0000000050B7.07C: Za tobą
 0000000050B8.07C: Symbol
@@ -13157,7 +13156,7 @@ Brian Urbina
 0000000063C1.07C: 2016
 0000000063CC.07C: Drakula
 0000000063D0.07C: Jiangshi
-0000000063D5.07C: Sydney Harbour Park
+0000000063D5.07C: Klasyczny Sydney Harbour Park
 0000000063D6.07C: Graj w Futbolúcio
 0000000063D7.07C: Graj w Futbolúcio
 0000000063DB.07C: Zawartość skrzynek halloweenowych
@@ -13199,7 +13198,7 @@ Brian Urbina
 000000006413.07C: Futbolúcio
 000000006414.07C: Mecz 3 na 3 w Futbolúcio. Wygrywa drużyna, która zdobędzie więcej goli!
 000000006415.07C: MAPY: Estádio das Rãs, Sydney Harbour Park, Stadion Pusan
-000000006416.07C: ZWYCIĘSTWO: Zdobądź więcej goli niż drużyna przeciwna na koniec meczu lub 10 goli więcej w dowolnym momencie.
+000000006416.07C: ZWYCIĘSTWO: Zdobądź więcej goli niż drużyna przeciwna
 000000006422.07C: Nagranie najciekawszego momentu – miejsce 1
 000000006423.07C: Nagranie najciekawszego momentu – miejsce 2
 000000006424.07C: Nagranie najciekawszego momentu – miejsce 3
@@ -13847,7 +13846,7 @@ w Copa Futbolúcio.
 0000000068AA.07C: Poruszasz się szybciej.
 0000000068AB.07C: Format pliku
 0000000068AC.07C: Turbowzmocnienie
-0000000068AD.07C: Biegaj szybciej, skacz wyżej i podkręcaj te basy!
+0000000068AD.07C: Poruszasz się szybciej i skaczesz wyżej.
 0000000068AF.07C: Żołnierz
 0000000068BB.07C: %1$s (%2$s)
 0000000068C5.07C: Zemsta dr. Złomensteina
@@ -15125,7 +15124,7 @@ Pozostałe tryby, w tym Szybka gra, Salon gier oraz Wyszukiwarka nadal będą do
 0000000076AE.07C: 100 żetonów ligowych
 0000000076BD.07C: Wypuszczasz korbacz przed siebie i odrzucasz wroga.
 0000000076BE.07C: Trzaśnięcie
-0000000076C1.07C: Leczysz sojusznika. Gdy przekroczy maksimum zdrowia, zapewniasz mu pancerz.
+0000000076C1.07C: Leczy sojusznika przez krótki czas.
 0000000076C2.07C: Pakiet Regeneracyjny
 0000000076C5.07C: Poruszasz się szybciej
 i zapewniasz pancerz pobliskim sojusznikom.
@@ -15244,7 +15243,7 @@ o dużym zasięgu.
 00000000794B.07C: Sztandar Przymierza
 00000000794C.07C: Sherlock
 00000000795B.07C: Uwaga, leci!
-000000007995.07C: https://overwatchleague.com/?utm_source=game-overwatch&utm_campaign=pc
+000000007995.07C: https://overwatchleague.com/
 0000000079A5.07C: Pustkowie
 0000000079A6.07C: Słodka Ana
 0000000079A7.07C: Słodka Orisa
@@ -16935,7 +16934,7 @@ w Copa Futbolúcio.
 000000008A18.07C: – Pokonuj przeciwników i zdobywaj punkty.
 – Mecz kończy się, kiedy jeden z graczy zdobędzie 20 pkt.
 – Wygrywa 4 graczy z najwyższym wynikiem!
-000000008A19.07C: Stadion Pusan
+000000008A19.07C: Klasyczny Stadion Pusan
 000000008A1A.07C: Graj w Futbolúcio
 000000008A1B.07C: Graj w Futbolúcio
 000000008A3C.07C: Oczko
@@ -19780,7 +19779,7 @@ w trybie Eliminacji 6 na 6 w 2019
 00000000B5E4.07C: Czarne Chmury (wszyscy)
 00000000B5F0.07C: Medytacja
 00000000B5F1.07C: Widzialne dla
-00000000B5F6.07C: Nie można przejść do kolejki w ekipie z graczami na poziomie arcymistrzowskim.
+00000000B5F6.07C: Nie można przejść do kolejki w ekipie z 3 i większą liczbą osób z graczami o RU wynoszącej 3900 i więcej.
 00000000B604.07C: Na dobre i na złe
 00000000B605.07C: Wzmocnij 2500 punktów leczenia/obrażeń jako Baptiste, nie ginąc, w Szybkiej grze/Rywalizacji.
 00000000B606.07C: Wygrać ze śmiercią
@@ -20339,7 +20338,7 @@ w trybie Deathmatch 2019
 00000000BC7F.07C: Skala zmian prędkości gracza lub graczy.
 00000000BC80.07C: Określa, czy kierunek ma odniesienie do współrzędnych świata, czy też lokalnych współrzędnych gracza lub graczy.
 00000000BC81.07C: Określa, czy istniejąca prędkość, która jest przeciwna do kierunku, powinna być najpierw anulowana przed zastosowaniem impulsu.
-00000000BC82.07C: Ustawia maksimum zdrowia jednego lub więcej graczy jako procent nieprzetworzonego maksimum zdrowia. To działanie zapewni, że bieżące zdrowie gracza nie przekroczy nowego maksimum zdrowia.
+00000000BC82.07C: Ustawia maksimum zdrowia jednego lub więcej graczy jako procent nieprzetworzonego maksimum zdrowia. To działanie zapewni, że bieżące zdrowie gracza nie przekroczy nowego maksimum zdrowia. Nie wpływa na pule zdrowia dodane przez działania z Warsztatu.
 00000000BC83.07C: Gracz lub gracze, których maksimum zdrowia zostanie przywrócone.
 00000000BC84.07C: Procent nieprzetworzonego maksymalnego zdrowia, do którego zostanie ustawione maksimum zdrowia gracza lub graczy.
 00000000BC85.07C: Wymusza u jednego lub więcej graczy wirtualne naciśnięcie przycisku na jedną klatkę.
@@ -20628,7 +20627,7 @@ w trybie Deathmatch 2019
 00000000BDEF.07C: Bieżące zdrowie gracza, wliczając pancerz i osłony, znormalizowane między 0 a 1 (np.: 0 oznacza brak zdrowia, 0,5 – połowę, a 1 – pełne zdrowie).
 00000000BDF0.07C: Gracz, którego znormalizowane zdrowie należy pozyskać.
 00000000BDF1.07C: Maksimum zdrowia gracza, wliczając pancerz i osłony.
-00000000BDF2.07C: Gracz, którego maksimum zdrowia należy pozyskać.
+00000000BDF2.07C: Gracz, którego zdrowie należy pozyskać.
 00000000BDF3.07C: Bieżący procent naładowania superzdolności gracza.
 00000000BDF4.07C: Gracz, którego procent naładowania superzdolności należy pozyskać.
 00000000BDF5.07C: Stała liczby rzeczywistej.
@@ -22413,9 +22412,9 @@ z letnich igrzysk
 00000000CA0C.07C: Musisz wybrać rolę zanim twoja grupa dołączy do kolejki. Chcesz wybrać teraz?
 00000000CA0D.07C: Sklepy
 00000000CA0E.07C: Sklep
-00000000CA11.07C: Wyzwanie Sigmy: Maestro
-00000000CA13.07C: Tydzień 2: Fleur de Lis (Trupia Wdowa)
-00000000CA14.07C: Tydzień 3. Zamaskowany (McCree)
+00000000CA11.07C: Tydzień 1: Union Jack (Smuga)
+00000000CA13.07C: Tydzień 2: Bastion z Piasku (Bastion)
+00000000CA14.07C: Tydzień 3: Rożek (Orisa)
 00000000CA15.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
 00000000CA16.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
 00000000CA17.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
@@ -26893,6 +26892,7 @@ flagi 2020
 00000000FB46.07C: „Control Variable” (Zmienna kontrolna) jest ustawiona na tę wartość, kiedy rozpoczyna się pętla.
 00000000FB47.07C: Range Start
 00000000FB62.07C: OBSERWACJA W PROSTYM WIDOKU 3 OS. – STRONA KAMERY
+00000000FB63.07C: Ratowniczka
 00000000FB64.07C: Bahrajn
 00000000FB67.07C: Huitzilopochtli
 00000000FB69.07C: Samul Nori
@@ -27042,6 +27042,8 @@ w sezonie 21.
 000000010057.07C: Sezon 22
 000000010058.07C: Sezon 23
 000000010059.07C: Sezon 23
+00000001005A.07C: Sezon 24
+00000001005B.07C: Sezon 24
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Importuj ustawienia ze schowka
@@ -27296,8 +27298,13 @@ w trybie Eliminacji 6 na 6 w 2020
 00000001038F.07C: Ta powtórka nie jest obsługiwana przez twoją platformę.
 0000000103A8.07C: INFORMACJE O AKTUALIZACJI
 0000000103BF.07C: Wczytywanie nieudane: niekompatybilna wersja.
+0000000103C0.07C: Feskarn
+0000000103C2.07C: Żar Tropików
 0000000103CC.07C: Zgłoś kod z odnośnikiem do udostępnionej powtórki
 0000000103D7.07C: Dziękujemy za zgłoszenie kodu z odnośnikiem do powtórki %1$s. Zgłoszenia takie jak twoje pomagają nam uczynić z Overwatch lepsze i przyjaźniejsze środowisko do gry.
+00000001040D.07C: Copa Futbolúcio 2020
+00000001040E.07C: Copa Futbolúcio
+00000001040F.07C: Rywalizuj z najlepszymi graczami w Futbolúcio na świecie i pnij się w tabeli wyników!
 000000010410.07C: Duplikacja
 000000010411.07C: s
 000000010412.07C: Ta powtórka już istnieje na twojej liście.
@@ -27309,6 +27316,9 @@ w trybie Eliminacji 6 na 6 w 2020
 w sezonie 22.
 00000001041F.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 22.
 00000001043B.07C: Zgłoś
+000000010473.07C: Remix Futbolúcio
+000000010476.07C: Remix Futbolúcio
+000000010477.07C: Mecz 3 na 3 w Futbolúcio. Wiele piłek i chaotyczna akcja non-stop.
 000000010479.07C: Punkty potrzebne do wygranej
 0000000104F0.07C: Dygnięcie
 0000000104F2.07C: Klasyczna
@@ -27383,6 +27393,7 @@ w sezonie 22.
 000000010647.07C: Misje z Archiwów Overwatch.
 000000010648.07C: Czarne Chmury
 000000010649.07C: Misje z Archiwów Overwatch.
+0000000106F2.07C: Karateka
 0000000106F4.07C: Ćma
 000000010719.07C: Włókno węglowe
 000000010778.07C: LOSOWA
@@ -27545,7 +27556,7 @@ w sezonie 22.
 0000000109C6.07C: Kamuflaż
 0000000109CA.07C: Set Ability Cooldown
 0000000109CB.07C: Cancel Primary Action
-0000000109CC.07C: Ustawia czas odnowienia zdolności dla jednego lub więcej graczy.
+0000000109CC.07C: Ustawia czas odnowienia zdolności dla jednego lub więcej graczy, jeśli opcja jest wspierana.
 0000000109CD.07C: Anuluje aktywne zdolności dla jednego lub więcej graczy.
 0000000109CE.07C: Gracz lub gracze, dla których należy anulować aktywne zdolności.
 0000000109CF.07C: Event Ability
@@ -27576,14 +27587,16 @@ w sezonie 22.
 – O wygranej decyduje przewaga punktowa!
 0000000109FF.07C: Zdolność dla zdarzenia aktualnie przetwarzanego przez tę regułę powiązaną z przyciskiem.
 000000010A0A.07C: Nieprawidłowe ustawienia poczekalni. Zmień lub odrzuć swoje zmiany.
-000000010A0B.07C: Uczestnik 1. sezonu Otwartej Rywalizacji
+000000010A0B.07C: Uczestnik
+1. sezonu Otwartej Rywalizacji
 000000010A0C.07C: Nagroda
 za mecze klasyfikacyjne
 w 1. sezonie Otwartej Rywalizacji
 000000010A0D.07C: Bohater 1. sezonu Otwartej Rywalizacji
 000000010A0E.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec 1. sezonu Otwartej Rywalizacji.
 000000010A0F.07C: Uczestnik 1. sezonu Otwartej Rywalizacji
-000000010A11.07C: Bohater 1. sezonu Otwartej Rywalizacji
+000000010A11.07C: Bohater
+1. sezonu Otwartej Rywalizacji
 000000010A16.07C: Szybowanie
 000000010A17.07C: %1$s: %2$s
 000000010A1C.07C: Szybko skupiaj ataki na Echo, kiedy użyje ona Duplikacji, aby uniemożliwić jej użycie niszczycielskiej superzdolności.
@@ -27698,67 +27711,68 @@ w 1. sezonie Otwartej Rywalizacji
 000000010ABB.07C: POMOCY
 000000010ABE.07C: WYBACZ
 000000010AC0.07C: ODLICZANIE
-000000010AC7.07C: (%1$s do ciebie) Atakujmy dalej!
-000000010AC8.07C: (%1$s do: %2$s) Atakujmy dalej!
-000000010AC9.07C: (%1$s do ciebie) Nie.
-000000010ACA.07C: (%1$s do: %2$s) Nie.
-000000010ACB.07C: (%1$s do ciebie) Tak.
-000000010ACC.07C: (%1$s do: %2$s) Tak.
-000000010ACD.07C: (%1$s do ciebie) Proszę bardzo.
-000000010ACE.07C: (%1$s do: %2$s) Proszę bardzo.
-000000010ACF.07C: (%1$s do ciebie) Wycofać się!
-000000010AD0.07C: (%1$s do: %2$s) Wycofać się!
-000000010AD1.07C: (%1$s do ciebie) Naprzód!
-000000010AD2.07C: (%1$s do: %2$s) Naprzód!
-000000010AD3.07C: (%1$s do ciebie) Uwaga!
-000000010AD4.07C: (%1$s do: %2$s) Uwaga!
-000000010AD5.07C: (%1$s do ciebie) W gotowości.
-000000010AD6.07C: (%1$s do: %2$s) W gotowości.
-000000010AD7.07C: (%1$s do ciebie) Ruszać!
-000000010AD8.07C: (%1$s do: %2$s) Ruszać!
-000000010AD9.07C: (%1$s do ciebie) Na razie.
-000000010ADA.07C: (%1$s do: %2$s) Na razie.
-000000010ADB.07C: (%1$s do ciebie) Jestem blisko.
-000000010ADC.07C: (%1$s do: %2$s) Jestem blisko.
-000000010ADD.07C: (%1$s do ciebie) Za mną, do ataku!
-000000010ADE.07C: (%1$s do: %2$s) Za mną, do ataku!
-000000010ADF.07C: (%1$s do ciebie) Już idę!
-000000010AE0.07C: (%1$s do: %2$s) Już idę!
-000000010AE1.07C: (%1$s do ciebie) Wkraczam!
-000000010AE2.07C: (%1$s do: %2$s) Wkraczam!
-000000010AE3.07C: (%1$s do ciebie) Za mną, do obrony!
-000000010AE4.07C: (%1$s do: %2$s) Za mną, do obrony!
-000000010AE5.07C: (%1$s do ciebie) Potrzebuję pomocy!
-000000010AE6.07C: (%1$s do: %2$s) Potrzebuję pomocy!
-000000010AEB.07C: (%1$s do ciebie) Bardzo przepraszam.
-000000010AEC.07C: (%1$s do: %2$s) Bardzo przepraszam.
-000000010AF0.07C: (%1$s do ciebie) Odliczanie: 3... 2... 1...
-000000010AF1.07C: (%1$s do: %2$s) Odliczanie: 3... 2... 1...
-000000010AF3.07C: (%1$s) Atakujmy dalej!
-000000010AF4.07C: (%1$s) Proszę bardzo.
-000000010AF5.07C: (%1$s) Tak.
-000000010AF6.07C: (%1$s) Nie.
-000000010AF7.07C: (%1$s) Na razie.
-000000010AF8.07C: (%1$s) Ruszać!
-000000010AF9.07C: (%1$s) W gotowości.
-000000010AFA.07C: (%1$s) Wycofać się!
-000000010AFB.07C: (%1$s) Naprzód!
-000000010AFC.07C: (%1$s) Uwaga!
-000000010AFD.07C: (%1$s) Jestem blisko!
-000000010AFE.07C: (%1$s) Wkraczam!
-000000010AFF.07C: (%1$s) Już idę.
-000000010B00.07C: (%1$s) Za mną, do ataku!
-000000010B03.07C: (%1$s) Za mną, do obrony!
-000000010B04.07C: (%1$s) Potrzebuję pomocy!
-000000010B07.07C: (%1$s) Bardzo przepraszam.
+000000010AC7.07C: [%1$s (%2$s) do ciebie] Atakujmy dalej!
+000000010AC8.07C: [%1$s (%2$s) do: %3$s (%4$s)] Atakujmy dalej!
+000000010AC9.07C: [%1$s (%2$s) do ciebie] Nie.
+000000010ACA.07C: [%1$s (%2$s) do: %3$s (%4$s)] Nie.
+000000010ACB.07C: [%1$s (%2$s) do ciebie] Tak.
+000000010ACC.07C: [%1$s (%2$s) do: %3$s (%4$s)] Tak.
+000000010ACD.07C: [%1$s (%2$s) do ciebie] Proszę bardzo.
+000000010ACE.07C: [%1$s (%2$s) do: %3$s (%4$s)] Proszę bardzo.
+000000010ACF.07C: [%1$s (%2$s) do ciebie] Wycofać się!
+000000010AD0.07C: [%1$s (%2$s) do: %3$s (%4$s)] Wycofać się!
+000000010AD1.07C: [%1$s (%2$s) do ciebie] Naprzód!
+000000010AD2.07C: [%1$s (%2$s) do: %3$s (%4$s)] Naprzód!
+000000010AD3.07C: [%1$s (%2$s) do ciebie] Uwaga!
+000000010AD4.07C: [%1$s (%2$s) do: %3$s (%4$s)] Uwaga!
+000000010AD5.07C: [%1$s (%2$s) do ciebie] W gotowości.
+000000010AD6.07C: [%1$s (%2$s) do: %3$s (%4$s)] W gotowości.
+000000010AD7.07C: [%1$s (%2$s) do ciebie] Ruszać!
+000000010AD8.07C: [%1$s (%2$s) do: %3$s (%4$s)] Ruszać!
+000000010AD9.07C: [%1$s (%2$s) do ciebie] Na razie.
+000000010ADA.07C: [%1$s (%2$s) do: %3$s (%4$s)] Na razie.
+000000010ADB.07C: [%1$s (%2$s) do ciebie] Jestem blisko!
+000000010ADC.07C: [%1$s (%2$s) do: %3$s (%4$s)] Jestem blisko!
+000000010ADD.07C: [%1$s (%2$s) do ciebie] Za mną, do ataku!
+000000010ADE.07C: [%1$s (%2$s) do: %3$s (%4$s)] Za mną, do ataku!
+000000010ADF.07C: [%1$s (%2$s) do ciebie] Już idę!
+000000010AE0.07C: [%1$s (%2$s) do: %3$s (%4$s)] Już idę!
+000000010AE1.07C: [%1$s (%2$s) do ciebie] Wkraczam!
+000000010AE2.07C: [%1$s (%2$s) do: %3$s (%4$s)] Wkraczam!
+000000010AE3.07C: [%1$s (%2$s) do ciebie] Za mną, do obrony!
+000000010AE4.07C: [%1$s (%2$s) do: %3$s (%4$s)] Za mną, do obrony!
+000000010AE5.07C: [%1$s (%2$s) do ciebie] Potrzebuję pomocy!
+000000010AE6.07C: [%1$s (%2$s) do: %3$s (%4$s)] Potrzebuję pomocy!
+000000010AEB.07C: [%1$s (%2$s) do ciebie] Bardzo przepraszam.
+000000010AEC.07C: [%1$s (%2$s) do: %3$s (%4$s)] Bardzo przepraszam.
+000000010AF0.07C: [%1$s (%2$s) do ciebie] Odliczanie: 3... 2... 1...
+000000010AF1.07C: [%1$s (%2$s) do: %3$s (%4$s)] Odliczanie: 3... 2... 1...
+000000010AF3.07C: [%1$s (%2$s)] Atakujmy dalej!
+000000010AF4.07C: [%1$s (%2$s)] Proszę bardzo.
+000000010AF5.07C: [%1$s (%2$s)] Tak.
+000000010AF6.07C: [%1$s (%2$s)] Nie.
+000000010AF7.07C: [%1$s (%2$s)] Na razie.
+000000010AF8.07C: [%1$s (%2$s)] Ruszać!
+000000010AF9.07C: [%1$s (%2$s)] W gotowości.
+000000010AFA.07C: [%1$s (%2$s)] Wycofać się!
+000000010AFB.07C: [%1$s (%2$s)] Naprzód!
+000000010AFC.07C: [%1$s (%2$s)] Uwaga!
+000000010AFD.07C: [%1$s (%2$s)] Jestem blisko!
+000000010AFE.07C: [%1$s (%2$s)] Wkraczam!
+000000010AFF.07C: [%1$s (%2$s)] Już idę.
+000000010B00.07C: [%1$s (%2$s)] Za mną, do ataku!
+000000010B03.07C: [%1$s (%2$s)] Za mną, do obrony!
+000000010B04.07C: [%1$s (%2$s)] Potrzebuję pomocy!
+000000010B07.07C: [%1$s (%2$s)] Bardzo przepraszam.
 000000010B14.07C: Komentarz twórców
 000000010B15.07C: Nagroda za udział w wyzwaniu 3. tygodnia Rocznicy 2020
 000000010B16.07C: Zamaskowany
+000000010B19.07C: Na fali
 000000010B1A.07C: Salut
 000000010B1B.07C: Granat Błyskowy
 000000010B1C.07C: Wycisk
 000000010B1D.07C: Nieważkość
-000000010B1F.07C: (%1$s) Odliczanie: 3... 2... 1...
+000000010B1F.07C: [%2$s (%1$s] Odliczanie: 3... 2... 1...
 000000010B2A.07C: Rocznica 2020
 000000010B2B.07C: Zawartość rocznicowych skrzynek
 000000010B2C.07C: Złoty Sigma
@@ -27912,6 +27926,9 @@ w Wyzwaniu Sigmy: Maestro
 000000010DC7.07C: Uczestnik 23. sezonu
 000000010DC8.07C: Nagroda za mecze klasyfikacyjne
 w sezonie 23.
+000000010DD1.07C: Bastion z Piasku
+000000010DDA.07C: Strzał w dziesiątkę
+000000010DDB.07C: Stadion Pusan
 000000010DEF.07C: Maestro
 000000010DF0.07C: Nagroda za oglądanie transmisji biorących udział w promocji podczas Wyzwania Sigmy: Maestro.
 000000010DF1.07C: Skrzypce
@@ -27919,6 +27936,7 @@ w sezonie 23.
 000000010DF5.07C: Bossa Nova
 000000010DF7.07C: Guzheng
 000000010DF9.07C: Djembe
+000000010E25.07C: Rozgrzewka
 000000010E2A.07C: Otwarta Rywalizacja – sezon 2.
 000000010E2B.07C: Otwarta Rywalizacja
 000000010E2C.07C: Rywalizuj z najlepszymi graczami na świecie i pnij się w tabeli wyników bez ograniczeń ról przy wyborze bohaterów.
@@ -27932,9 +27950,11 @@ w sezonie 23.
 000000010E52.07C: Detach Players
 000000010E53.07C: Potomne
 000000010E55.07C: Wyrównanie
-000000010E5A.07C: Bohater 2. sezonu Otwartej Rywalizacji
+000000010E5A.07C: Bohater
+2. sezonu Otwartej Rywalizacji
 000000010E5B.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec 2. sezonu Otwartej Rywalizacji.
-000000010E5C.07C: Uczestnik 2. sezonu Otwartej Rywalizacji
+000000010E5C.07C: Uczestnik
+2. sezonu Otwartej Rywalizacji
 000000010E5D.07C: Nagroda
 za mecze klasyfikacyjne
 w 2. sezonie Otwartej Rywalizacji.
@@ -27989,6 +28009,7 @@ w 1. sezonie Otwartej Rywalizacji
 000000010EA5.07C: Otwarta Rywalizacja
 000000010EA6.07C: Ograniczenia ról przy wyborze bohaterów.
 000000010EA7.07C: Brak ograniczeń ról przy wyborze bohaterów.
+000000010EA8.07C: Sydney Harbour Park
 000000010EAF.07C: TRYB RYWALIZACJI
 000000010EB4.07C: %1$s/%2$s
 000000010EB5.07C: Zdobyto %1$s/%2$s
@@ -28014,17 +28035,44 @@ w 1. sezonie Otwartej Rywalizacji
 – Określenie rangi umiejętności (1-5000)
 – Ranga zmienia się po każdej wygranej lub przegranej
 000000010F5F.07C: Filtry
-000000010F60.07C: Słuchaj
 000000010FC3.07C: Zamknij
 000000010FC4.07C: Otwórz
-000000010FC7.07C: https://playoverwatch.com/media#music
+000000010FC6.07C: Medal
 000000010FCE.07C: Zeskanuj urządzeniem mobilnym
 000000010FCF.07C: Otwórz w nowym oknie przeglądarki
 000000010FD0.07C: Lub
-000000010FDA.07C: Ścieżka dźwiękowa Overwatch: Cities & Countries
+000000010FD1.07C: Medal
 000000010FDB.07C: Zewnętrzny odnośnik
+000000010FDC.07C: Plażing
 000000010FDD.07C: Najwyższa możliwa ranga umiejętności po ukończeniu meczów klasyfikacyjnych to 3900.
 000000010FE0.07C: Udało ci się ukończyć mecze klasyfikacyjne i osiągnąć najwyższą możliwą rangę umiejętności!
+000000010FE5.07C: W dziesiątkę
+000000010FE6.07C: Zawartość skrzynek
+z letnich igrzysk
+000000010FE7.07C: Najlepszy sposób na wygraną
+000000010FE8.07C: Zawartość skrzynek
+z letnich igrzysk
+000000010FE9.07C: Naśladujmy najlepszych
+000000010FEA.07C: Zawartość skrzynek
+z letnich igrzysk
+000000010FEB.07C: Uczymy się czegoś nowego
+000000010FEC.07C: Zawartość skrzynek
+z letnich igrzysk
+000000010FED.07C: Obejrzę sobie replaya
+000000010FEE.07C: Zawartość skrzynek
+z letnich igrzysk
+000000010FF2.07C: Rożek
+000000010FF3.07C: Union Jack
+000000010FF4.07C: Nagroda za udział
+w wyzwaniu pierwszego tygodnia
+letnich igrzysk 2020
+000000010FF5.07C: Nagroda za udział
+w wyzwaniu drugiego tygodnia
+letnich igrzysk 2020
+000000010FF6.07C: Nagroda za udział
+w wyzwaniu trzeciego tygodnia
+letnich igrzysk 2020
+000000010FF7.07C: Medal
 000000010FF8.07C: Połączone
 000000010FF9.07C: Tank
 000000010FFA.07C: Natarcie
@@ -28059,17 +28107,114 @@ w 1. sezonie Otwartej Rywalizacji
 000000011044.07C: - Legendarny element można znaleźć średnio w jednej na 13,5 skrzynek z łupami.
 000000011048.07C: - Wszystkie elementy ze skrzynek z łupami w Overwatch są wyłącznie kosmetyczne i nie zapewniają przewagi podczas gry.
 00000001104A.07C: Ta kolejka nie jest już dostępna.
+00000001104B.07C: Wielka Brytania
+00000001104D.07C: Bastion z Piasku
+00000001104E.07C: Rożek
+00000001104F.07C: Na fali!
+000000011050.07C: Zawartość skrzynek
+z letnich igrzysk
+000000011051.07C: Pływak
+000000011052.07C: Zawartość skrzynek
+z letnich igrzysk
+000000011053.07C: Główka
+000000011055.07C: Bramkarz
+000000011059.07C: Weapon
+00000001105A.07C: Bieżąca broń gracza.
+00000001105B.07C: Gracz, którego broń należy pozyskać.
+00000001105C.07C: Set Weapon
+00000001105D.07C: Ustawia broń jednego lub więcej graczy.
+00000001105E.07C: Gracz lub gracze, których broń zostanie ustawiona.
+00000001105F.07C: Broń
+000000011060.07C: Liczba broni, w które zostanie wyposażona postać. 1 to pierwsza broń, a 2 to druga. Jeśli określona broń nie istnieje, gracze użyją swojej domyślnej.
 000000011061.07C: Standardowe częstotliwości występowania elementów w skrzynkach z łupami
-000000011063.07C: Nowa ścieżka dźwiękowa
-000000011064.07C: Overwatch: Cities & Countries
+000000011065.07C: Is Reloading
+000000011066.07C: Czy określony gracz przeładowuje.
+000000011067.07C: Gracz, u którego przeładowanie zostanie sprawdzone.
+000000011068.07C: Set Reload Enabled
+000000011069.07C: Włącza lub wyłącza przeładowanie dla jednego lub więcej graczy.
+00000001106A.07C: Gracz lub gracze, których dostęp do przeładowania jest zmodyfikowany.
+00000001106B.07C: Określa czy gracz lub gracze mogą użyć przeładowania. Oczekiwany jest logiczny typ danych taki jak „True” (Prawda), „False” (Fałsz) lub „Compare” (Porównaj).
+00000001107C.07C: Event Was Environment
+00000001107D.07C: Czy likwidacja nastąpiła z powodu środowiska dla zdarzenia aktualnie przetwarzanego przez tę regułę.
 00000001107E.07C: Rywalizacja
+000000011080.07C: Bohater 24. sezonu
+000000011081.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 24.
+000000011082.07C: Uczestnik 24. sezonu
+000000011083.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 24.
+000000011084.07C: Bohater 24. sezonu
+000000011085.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 24.
+000000011086.07C: Uczestnik 24. sezonu
+000000011087.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 24.
+000000011088.07C: Uczestnik Copa Futbolúcio 2020
+000000011089.07C: Nagroda za mecze klasyfikacyjne
+w Copa Futbolúcio 2020.
+00000001108A.07C: Bohater Copa Futbolúcio 2020
+00000001108B.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Copa Futbolúcio 2020.
+00000001108C.07C: Uczestnik Copa Futbolúcio 2020
+00000001108D.07C: Nagroda za mecze klasyfikacyjne
+w Copa Futbolúcio 2020.
+00000001108E.07C: Bohater Copa Futbolúcio 2020
+00000001108F.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Copa Futbolúcio 2020.
+000000011090.07C: Wyłącza informacje o śmierciach dla jednego lub więcej graczy do czasu ponownego włączenia.
+000000011091.07C: Cofa efekt działania „Disable Kill Feed” (Wyłącz informacje o śmierci) dla jednego lub więcej graczy.
+000000011092.07C: Enable Kill Feed
+000000011093.07C: Disable Kill Feed
+000000011094.07C: Gracz lub gracze, dla których informacje o śmierciach zostaną włączone.
+000000011095.07C: Gracz lub gracze, dla których informacje o śmierciach zostaną wyłączone.
+000000011096.07C: Opis zbiorczy Futbolúcio
+000000011097.07C: Tryby Futbolúcio
+00000001109B.07C: Enable Hero HUD
+00000001109C.07C: Cofa efekt działania „Disable Hero HUD” (Wyłącz HUD bohatera) dla jednego lub więcej graczy.
+00000001109D.07C: Gracz lub gracze, których HUD bohatera zostanie włączony.
+00000001109E.07C: Disable Hero HUD
+00000001109F.07C: Wyłącza HUD bohatera dla jednego lub więcej graczy do czasu ponownego włączenia.
+0000000110A0.07C: Gracz lub gracze, których HUD bohatera zostanie wyłączony.
+0000000110A1.07C: Enable Scoreboard
+0000000110A2.07C: Cofa efekt działania „Disable Scoreboard” (Wyłącz tabelę wyników) dla jednego lub więcej graczy.
+0000000110A3.07C: Gracz lub gracze, których tabela wyników zostanie włączona.
+0000000110A4.07C: Gracz lub gracze, których tabela wyników zostanie wyłączona.
+0000000110A5.07C: Disable Scoreboard
+0000000110A6.07C: Wyłącza tablicę wyników dla jednego lub więcej graczy do czasu ponownego włączenia.
+0000000110A7.07C: Enable Game Mode HUD
+0000000110A8.07C: Disable Game Mode HUD
+0000000110A9.07C: Wyłącza HUD trybu gry dla jednego lub więcej graczy do czasu ponownego włączenia.
+0000000110AA.07C: Cofa efekt działania „Disable Game Mode HUD” (Wyłącz HUD trybu gry) dla jednego lub więcej graczy.
+0000000110AB.07C: Gracz lub gracze, dla których HUD trybu gry zostanie włączony.
+0000000110AC.07C: Gracz lub gracze, których HUD trybu gry zostanie wyłączony.
+0000000110AD.07C: Enable Messages
+0000000110AE.07C: Disable Messages
+0000000110AF.07C: Wyłącza wiadomości dla jednego lub więcej graczy do czasu ich ponownego włączenia.
+0000000110B0.07C: Cofa efekt działania „Disable Messages” (Wyłącz wiadomości) dla jednego lub więcej graczy.
+0000000110B1.07C: Gracz lub gracze, dla których wiadomości zostaną włączone.
+0000000110B2.07C: Gracz lub gracze, dla których wiadomości zostaną wyłączone.
 0000000110B3.07C: Eksperymenty
 0000000110B4.07C: Szybka gra
 0000000110B5.07C: Salon gier
 0000000110B6.07C: Rywalizacja
 0000000110B7.07C: Eksperymenty
 0000000110B8.07C: Wyszukiwarka gier
+0000000110BF.07C: Szczęśliwej Nocy Kupały!
+0000000110C0.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000110C3.07C: Poszło!
+0000000110C4.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000110C5.07C: Chyba sobie żartujesz
+0000000110C6.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000110C7.07C: Wybraliście złą stronę
+0000000110C8.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000110C9.07C: Nie ma dużych wyzwań
+0000000110CA.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000110CB.07C: Nie jest tak gorąco
+0000000110CC.07C: Zawartość skrzynek
+z letnich igrzysk
 0000000110CF.07C: Czas rozgrywki
+0000000110D0.07C: EKSTRA PIŁKA
 0000000110D4.07C: Czas przy celu
 0000000110D5.07C: Wyleczone obrażenia
 0000000110DA.07C: Trafienia kończące
@@ -28084,6 +28229,26 @@ w 1. sezonie Otwartej Rywalizacji
 0000000110E5.07C: Przegrane gry
 0000000110E6.07C: Zremisowane gry
 0000000110E7.07C: Najczęściej wybierani bohaterowie
+0000000110E8.07C: Ammo
+0000000110E9.07C: Bieżąca amunicja gracza.
+0000000110EA.07C: Max Ammo
+0000000110EB.07C: Bieżące maksimum amunicji gracza.
+0000000110EC.07C: Gracz, którego maksimum amunicji należy pozyskać.
+0000000110ED.07C: Gracz, którego amunicję należy pozyskać.
+0000000110EE.07C: Magazynek
+0000000110EF.07C: Indeks magazynka, który zostanie pobrany. 0 to pierwszy magazynek, a 1 to drugi. Jeśli określony typ nie istnieje, zostanie zwrócona odpowiedź 0.
+0000000110F1.07C: Set Ammo
+0000000110F2.07C: Set Max Ammo
+0000000110F3.07C: Ustawia amunicję jednego lub więcej graczy.
+0000000110F4.07C: Ustawia maksimum amunicji jednego lub więcej graczy.
+0000000110F5.07C: Gracz lub gracze, których amunicja zostanie ustawiona.
+0000000110F6.07C: Gracz lub gracze, których maksimum amunicji zostanie ustawione.
+0000000110F7.07C: Indeks magazynka, którego amunicja zostanie ustawiona. 0 to pierwszy magazynek, a 1 to drugi. Jeśli określony typ nie istnieje, nic nie nastąpi.
+0000000110F8.07C: Indeks magazynka, którego maksimum amunicji zostanie ustawione. 0 to pierwszy magazynek, a 1 to drugi. Jeśli określony typ nie istnieje, nic nie nastąpi.
+0000000110F9.07C: Amunicja
+0000000110FA.07C: Amunicja, która zostanie ustawiona.
+0000000110FB.07C: Maks. Amunicji
+0000000110FC.07C: Maksimum amunicji, które zostanie ustawione.
 0000000110FE.07C: https://us.forums.blizzard.com/en/overwatch/
 0000000110FF.07C: Odwiedź fora
 00000001110D.07C: Asysty defensywne
@@ -28109,7 +28274,7 @@ w 1. sezonie Otwartej Rywalizacji
 000000011124.07C: Obronione gole
 000000011125.07C: Gole
 000000011126.07C: Asysty
-000000011127.07C: Przechwycenia
+000000011127.07C: Przechwyty
 000000011128.07C: Zdobycia flagi
 000000011129.07C: Zwrócenia flagi
 00000001112B.07C: Trafienia krytyczne
@@ -28175,6 +28340,9 @@ w 1. sezonie Otwartej Rywalizacji
 000000011198.07C: Wyłączono
 000000011199.07C: Modyfikator czasu przejmowania
 00000001119A.07C: |Rfn %1$s:P0;
+00000001119B.07C: Letnie igrzyska 2020
+00000001119C.07C: Zawartość skrzynek
+z letnich igrzysk
 00000001119E.07C: Czas rozgrywki
 0000000111A5.07C: Zabici Zamiecią
 0000000111A6.07C: Zablokowane obrażenia
@@ -28192,6 +28360,13 @@ w 1. sezonie Otwartej Rywalizacji
 0000000111B2.07C: Zabici Rzutem Kamieniem
 0000000111B3.07C: Zablokowane obrażenia
 0000000111B4.07C: Zaabsorbowane obrażenia
+0000000111B5.07C: Current Array Index
+0000000111B6.07C: Aktualnie uwzględniany indeks tabeli. Ma znaczenie tylko podczas oceny wartości takich jak „Filtered Array” (Filtrowana tabela) i „Sorted Array” (Sortowana tabela).
+0000000111B7.07C: Input Binding String
+0000000111B8.07C: Konwertuje parametr „Button” (Przycisk) na ciąg, który pokazuje się w zależności od skrótów klawiszowych gracza. Tej wartości nie można magazynować w zmiennych.
+0000000111B9.07C: Przycisk skrótu, który zostanie przekonwertowany na symbol.
+0000000111BC.07C: Błąd: Wartości „Input Blinding String” nie mogą być przechowywane w zmiennych.
+0000000111BD.07C: Błąd: Nie można użyć „Current Array Index” poza tabelą.
 0000000111BE.07C: Zabici Zdruzgotaniem
 0000000111BF.07C: Zabici Szarżą
 0000000111C0.07C: Zabici Ognistym Uderzeniem
@@ -28256,18 +28431,163 @@ w 1. sezonie Otwartej Rywalizacji
 000000011209.07C: Obrażenia bohaterów (na życie)
 00000001120A.07C: Wszystkie obrażenia (na życie)
 00000001120B.07C: Trafienia krytyczne (na życie)
+00000001120C.07C: Set Ability Charge
+00000001120D.07C: Ustawia liczbę ładunków zdolności dla jednego lub więcej graczy, jeśli opcja jest obsługiwana.
+00000001120E.07C: Ustawia procent zasobu zdolności dla jednego lub więcej graczy, jeśli opcja jest obsługiwana.
+00000001120F.07C: Set Ability Resource
+000000011210.07C: Gracz lub gracze, których liczba ładunków zdolności zostanie zmodyfikowana.
+000000011211.07C: Gracz lub gracze, których procentowy zasób zdolności zostanie zmodyfikowany.
+000000011212.07C: Liczba ładunków, która zostanie ustawiona.
+000000011213.07C: Liczba ładunków
+000000011214.07C: Procent zasobu
+000000011215.07C: Procent zasobu, który zostanie ustawiony z uwzględnieniem pojemności zasobu zdolności każdego gracza.
+000000011216.07C: Ability Charge
+000000011217.07C: Liczba ładunków zdolności dla gracza powiązanego z przyciskiem.
+000000011218.07C: Ability Resource
+000000011219.07C: Procent zasobu zdolności dla gracza powiązanego z przyciskiem.
+000000011223.07C: Wślizg
+000000011224.07C: Rzucasz się na ziemię.
+000000011225.07C: WYGRANA: gra kończy się wcześniej przy prowadzeniu 10-bramkowym
+000000011226.07C: WYGRANA: gra kończy się wcześniej przy prowadzeniu 5-bramkowym
+000000011228.07C: Mapped Array
+000000011229.07C: Tabela, której kopia zostanie zmapowana.
+00000001122A.07C: Kopia określonej tabeli z wartościami posortowanymi według wyrażenia mapowania, które jest oceniane dla każdego elementu.
+00000001122B.07C: Wyrażenie mapowania
+00000001122C.07C: Wyrażenie mapowania, które jest oceniane dla każdego elementu skopiowanej tabeli. Użyj wartości „Current Array Element” (Aktualny element tabeli), aby odnieść się do aktualnie uwzględnianego elementu z tabeli.
+00000001122D.07C: Set Jump Vertical Speed
+00000001122E.07C: Ustawia szybkość wertykalnego skoku jednego lub więcej graczy na procent nieprzetworzonej szybkości wertykalnego skoku.
+00000001122F.07C: Gracz lub gracze, których szybkość wertykalnego skoku zostanie ustawiona.
+000000011230.07C: Procentowa wertykalna szybkość skoku
+000000011231.07C: Procent nieprzetworzonej szybkości wertykalnego skoku, do którego zostanie ustawiona szybkość wertykalnego skoku gracza lub graczy.
+00000001123F.07C: Enable Game Mode In-World UI
+000000011240.07C: Cofa efekt działania „Disable Game Mode In-World UI” (Wyłącz interfejs w świecie gry) dla jednego lub więcej graczy.
+000000011241.07C: Gracz lub gracze, których interfejs w świecie gry zostanie włączony.
+000000011242.07C: Disable Game Mode In-World UI
+000000011243.07C: Wyłącza interfejs w świecie gry dla jednego lub więcej graczy do czasu ponownego włączenia.
+000000011244.07C: Gracz lub gracze, których interfejs w świecie gry zostanie wyłączony.
 00000001124E.07C: Blizzard
 00000001124F.07C: Testowy Szturm
+000000011253.07C: Enable Nameplates
+000000011254.07C: Disable Nameplates
+000000011255.07C: Cofa efekt działania „Disable Nameplates” (Wyłącz pola z nazwą) dla jednego lub więcej obserwowanych graczy z perspektywy jednego lub więcej obserwujących graczy.
+000000011256.07C: Wyłącza „Nameplate” (Pole z nazwą) jednego lub więcej obserwowanych graczy z perspektywy jednego lub więcej obserwujących graczy.
+00000001125A.07C: Obserwujący gracze
+00000001125B.07C: Obserwowany gracz lub gracze, których „Nameplates” (Pola z nazwą) zostaną włączone.
+00000001125C.07C: Obserwowany gracz lub gracze, których „Nameplates” (Pola z nazwą) zostaną wyłączone.
+00000001125D.07C: Obserwowani gracze
+00000001125F.07C: Obserwujący gracz lub gracze, dla których pole z nazwą obserwowanego gracza zostanie wyłączone.
 000000011262.07C: Testowy Szturm
 000000011263.07C: Eksperymentalna wersja Szturmu
+000000011266.07C: %1$s zdobywa GOLA wartego %2$s pkt.!
+000000011268.07C: %1$s zdobywa GOLA wartego %2$s pkt.!
+00000001126A.07C: Zdobyto gola wartego %1$s pkt.!
 00000001126B.07C: Pachimari
 000000011274.07C: Pachimari
 00000001129A.07C: Nie rozegrano żadnej gry
+00000001129E.07C: Krótka piłka
+00000001129F.07C: Zdobądź 2 gole w 5 sekund w meczu Remix Futbolúcio.
+0000000112A0.07C: Zacięta obrona
+0000000112A1.07C: Wykonaj 15 obron w meczu Remix Futbolúcio.
+0000000112A4.07C: Graj w Futbolúcio
+0000000112A5.07C: Graj w Futbolúcio
+0000000112A6.07C: Sydney Harbour Park
+0000000112A8.07C: Graj w Futbolúcio
+0000000112A9.07C: Graj w Futbolúcio
+0000000112AA.07C: Stadion Pusan
+0000000112AE.07C: KONTYNUUJ
+0000000112AF.07C: Letnie igrzyska
+0000000112B0.07C: Powrót na plażę
+0000000112B1.07C: Letnie igrzyska powracają wraz z waszymi ulubionymi elementami z zeszłego roku i wieloma nowymi!
+0000000112B2.07C: Remix Futbolúcio
+0000000112B3.07C: Nowa wersja Futbolúcio!
+0000000112B4.07C: FUTBOLÚCIO WRACA Z NOWYM TRYBEM GRY, ZAKTUALIZOWANYMI ARENAMI I KOLEJNYM TURNIEJEM
+COPA FUTBOLÚCIO!
+0000000112B5.07C: Letnie igrzyska 2020
+0000000112B6.07C: Koniec wydarzenia 25 sierpnia
+0000000112B7.07C: Odblokuj nowe skórki
+0000000112B8.07C: Cotygodniowe wyzwania
+0000000112B9.07C: Tydzień 1
+0000000112BA.07C: Tydzień 2
+0000000112BB.07C: Tydzień 3
+0000000112BC.07C: Bejsbolmari
+0000000112BE.07C: Golfimari
+0000000112BF.07C: Surfimari
+0000000112C0.07C: Na fali
+0000000112C1.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000112C2.07C: Karateka
+0000000112C3.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000112C4.07C: Surferka
+0000000112C5.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000112C6.07C: Pływak
+0000000112C7.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000112C9.07C: Ratowniczka
+0000000112CA.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000112CB.07C: Żar Tropików
+0000000112CC.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000112D3.07C: Feskarn
+0000000112D4.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000112D8.07C: Obserwujący gracz lub gracze, dla których pole z nazwą obserwowanego gracza zostanie włączone.
 0000000112D9.07C: Zwiń wszystko
 0000000112E0.07C: Profil kariery jest pusty
 0000000112E9.07C: Rozwiń wszystkie
+0000000112EC.07C: Start Forcing Player Outlines
+0000000112ED.07C: Stop Forcing Player Outlines
 0000000112EE.07C: <1 min.
+0000000112EF.07C: Anuluje zachowanie „Start Forcing Player Outlines” (Rozpocznij wymuszanie obrysów graczy) dla określonego obserwowanego gracz lub graczy z perspektywy jednego lub więcej obserwujących graczy.
+0000000112F2.07C: Zaczyna wymuszać widoczność i kolorów obrysów graczy dla określonego obserwowanego gracza lub graczy z perspektywy jednego lub więcej obserwujących graczy.
 0000000112F3.07C: Nie odblokowano żadnych osiągnięć
+0000000112F5.07C: Obserwowany gracz lub gracze, których obrysy zostaną zresetowane.
+0000000112F6.07C: Obserwujący gracz lub gracze, dla których zresetowane zostaną obrysy obserwowanych graczy.
+0000000112F7.07C: Disable Movement Collision With Players
+0000000112F8.07C: Enable Movement Collision With Players
+0000000112F9.07C: Disable Movement Collision With Environment
+0000000112FA.07C: Enable Movement Collision With Environment
+0000000112FB.07C: Stop Scaling Barriers
+0000000112FC.07C: Start Scaling Barriers
+0000000112FD.07C: Stop Scaling Player
+0000000112FE.07C: Start Scaling Player
+0000000112FF.07C: Obserwowany gracz lub gracze, których obrysy zostaną zmodyfikowane.
+000000011300.07C: Obserwujący gracz lub gracze, dla których zmodyfikowane zostaną obrysy obserwowanych graczy.
+000000011301.07C: Widoczne
+000000011302.07C: Czy określone obrysy graczy powinny być widoczne.
+000000011303.07C: Kolor
+000000011304.07C: Kolor określonych obrysów graczy, jeśli są widoczne. Jeśli wybrano konkretną drużynę, kolor będzie albo czerwony, albo niebieski, zależnie od tego, czy drużyna jest wroga z perspektywy obserwatora.
+000000011305.07C: Powoduje, że gracz lub gracze przestają wchodzić w kolizje z innymi graczami.
+000000011306.07C: Cofa efekt działania „Disable Movement Collision With Players” (Wyłącz kolizje między graczami w ruchu) dla jednego lub więcej graczy.
+000000011307.07C: Powoduje, że gracz lub gracze przestają wchodzić w kolizje ze środowiskiem (ścianami, sufitami, niektórymi obiektami itd.).
+000000011308.07C: Cofa efekt działania „Disable Movement Collision With Environment” (Wyłącz kolizje z otoczeniem w ruchu) dla jednego lub więcej graczy.
+000000011309.07C: Przestaje ignorować rozmiar barier gracza lub graczy.
+00000001130A.07C: Zaczyna modyfikować rozmiar barier gracza lub graczy.
+00000001130D.07C: Przestaje ignorować rozmiar gracza lub graczy.
+00000001130E.07C: Zaczyna modyfikować rozmiar gracza lub graczy (w tym model, kolizję ruchu, wykrywanie trafień i niektóre zdolności). Uwaga: duże postacie umieszczone w skomplikowanych środowiskach poważnie wpłyną na obciążenie serwów, dlatego zalecane jest zastosowanie działania „Disable Movement Collision With Environment” (Wyłącz kolizje z otoczeniem w ruchu).
+00000001130F.07C: Jeśli ta wartość jest równa „True” (Prawda), wówczas skala zostanie ponownie oszacowana i zastosowana dla każdej klatki gracza lub graczy. Jeżeli ta wartość jest równa „False” (Fałsz), wówczas skala jest oceniana tylko raz, gdy rozpoczyna się działanie.
+000000011310.07C: Skala
+000000011311.07C: Mnożnik zastosowany do rozmiaru gracza lub graczy (0,5 zmniejsza rozmiar o połowę, a 2,0 podwaja rozmiar itd.).
+000000011312.07C: Gracz lub gracze, których rozmiar zostanie zmodyfikowany.
+000000011313.07C: Gracz lub gracze, których rozmiar przestanie być ignorowany.
+000000011314.07C: Gracz lub gracze, których rozmiar barier zostanie zmodyfikowany.
+000000011315.07C: Jeśli ta wartość jest równa „True” (Prawda), wówczas skala zostanie ponownie oszacowana i zastosowana dla każdej klatki bariery. Jeżeli ta wartość jest równa „False” (Fałsz), wówczas skala jest oceniana tylko raz, gdy rozpoczyna się działanie.
+000000011316.07C: Mnożnik zastosowany do rozmiaru barier (0,5 zmniejsza rozmiar o połowę, a 2,0 podwaja rozmiar itd.) Skala ta jest względna dla dowolnej skali, która została już podana w działaniu „Start Scaling Player” (Początek skalowania gracza).
+000000011317.07C: Gracz lub gracze, których rozmiar barier przestanie być ignorowany.
+000000011318.07C: Gracz lub gracze, których kolizje w ruchu są zmodyfikowane.
+00000001131E.07C: Remix Futbolúcio
+000000011320.07C: Wstępna liczba piłek
+000000011321.07C: Maksymalna liczba piłek
+000000011322.07C: Maksymalna liczba ekstra piłek
+000000011323.07C: Interwal zwiększenia liczby piłek (Sekundy)
+000000011324.07C: Wartość ekstra piłki
+000000011325.07C: Interwał ekstra piłek w grze (Sekundy)
+00000001132B.07C: Remix Futbolúcio
+000000011330.07C: Ustawienia Warsztatu
+000000011335.07C: Uwzględnij podłoża
+000000011336.07C: Jeśli zwraca wartość „True” (Prawda), kolizja z podłogami również jest wyłączona.
 000000011350.07C: utm_source
 000000011351.07C: ow-client
 000000011352.07C: pc
@@ -28279,4 +28599,88 @@ w 1. sezonie Otwartej Rywalizacji
 000000011358.07C: qrcode-ps4
 000000011359.07C: qrcode-switch
 00000001135A.07C: utm_medium
-[Core] Execution finished in 00:00:00.4178752 seconds
+00000001136B.07C: Workshop Setting Toggle
+00000001136C.07C: Zapewnia wartość – „True” (Prawda) lub „False” (Fałsz) – nowego ustawienia do przełączania, które pojawi się na karcie ustawień Warsztatu jako pole do zaznaczenia.
+00000001136E.07C: Nazwa kategorii, w której znajdzie się to ustawienie.
+00000001136F.07C: Kategoria
+000000011370.07C: Nazwa tego ustawienia.
+000000011371.07C: Nazwa
+000000011372.07C: Domyślna
+000000011373.07C: Domyślna wartość dla tego ustawienia.
+000000011374.07C: Zapewnia wartość – „True” (Prawda) lub „False” (Fałsz) – ustawienia w postaci liczby całkowitej, które pojawi się na karcie ustawień Warsztatu jako suwak.
+000000011375.07C: Workshop Setting Integer
+000000011376.07C: Najniższa dozwolona wartość dla tego ustawienia.
+000000011377.07C: Minimum
+000000011378.07C: Najwyższa dozwolona wartość dla tego ustawienia.
+000000011379.07C: Maksimum
+00000001137A.07C: Zapewnia wartość – „True” (Prawda) lub „False” (Fałsz) – ustawienia w postaci liczby rzeczywistej, które pojawi się na karcie ustawień Warsztatu jako suwak.
+00000001137B.07C: Workshop Setting Real
+000000011381.07C: Logiczny typ danych
+000000011383.07C: 
+000000011384.07C: 
+0000000113B1.07C: Błąd: Oczekiwano „True” (Prawda) lub „False” (Fałsz) po „%1$s” w linii %2$s
+0000000113B6.07C: Warsztat
+0000000113B7.07C: warsztat
+0000000113B8.07C: Do każdego ustawienia Warsztatu może istnieć tylko jeden odnośnik, a ustawienie musi posiadać unikalny parametr „Name” (Nazwa – ignorujący wielkość liter i spacje).
+0000000113B9.07C: Błąd: zbyt wiele ustawień Warsztatu.
+0000000113BA.07C: Parametry „Category” (Kategoria) i „Name” (Nazwa) w ustawieniach Warsztatu muszą być ustawione na „Custom Strings” (Niestandardowe ciągi) z parameterami „Null”.
+0000000113BD.07C: Kategorie i nazwy ustawień Warsztatu nie mogą być puste ani zawierać symboli '{', '}' lub ':'.
+0000000113C0.07C: Stop Modifying Hero Voice Lines
+0000000113C1.07C: Start Modifying Hero Voice Lines
+0000000113C2.07C: Modyfikuje brzmienie głosu bohatera gracza lub graczy.
+0000000113C3.07C: Gracz lub gracze, dla których zostanie zmodyfikowany głos bohatera.
+0000000113C4.07C: Wartość o jaką podniesiona (maks. do 1,5) lub obniżona (min. do 0,5) zostanie wysokość głosu.
+0000000113C5.07C: Współczynnik skalowania wysokości głosu
+0000000113C6.07C: Cofa efekt działania „Start Modifying Hero Voice Lines” (Zacznij modyfikować głos bohatera) dla jednego lub więcej graczy.
+0000000113C7.07C: Gracz lub gracze, dla których przestanie być modyfikowany głos bohatera.
+0000000113C8.07C: Jeśli zwraca wartość „True” (Prawda), „Pitch Scalar” (Współczynnik skalowania wysokości głosu) jest szacowany i aktualizowany co klatkę. Jeśli zwraca wartość „False” (Fałsz),  „Pitch Scalar” jest szacowany tylko przy wykonywaniu działania.
+0000000113C9.07C: Ponowne oszacowanie
+000000011423.07C: Add Health Pool To Player
+000000011424.07C: Dodaje tymczasową pulę zdrowia graczowi lub graczom. Do tej puli zdrowia będzie istnieć odnośnik stworzony z użyciem wartości „Last Created Health Pool” (Ostatnio stworzona pula zdrowia). Maksymalnie 16 pul zdrowia danego typu – „Health” (Zdrowie), „Armor” (Pancerz) lub „Shields” (Osłony) – może istnieć u jednego gracza (w tym podstawowe pule i pule zapewniane przez zdolności).
+000000011425.07C: Remove Health Pool From Player
+000000011426.07C: Usuwa pulę zdrowia dodaną przez działanie „Add Health Pool” (Dodaj pulę zdrowia).
+000000011427.07C: Armor
+000000011428.07C: Shields
+000000011429.07C: Typ zdrowia
+00000001142A.07C: Określa rodzaj zdrowia – „Armor” (Pancerz) lub „Shields” (Osłony) – w puli zdrowia.
+00000001142B.07C: Gracz
+00000001142C.07C: Gracz lub gracze, którzy otrzymają pulę zdrowia.
+00000001142D.07C: Maksimum zdrowia
+00000001142E.07C: Rozmiar puli zdrowia.
+00000001142F.07C: Regenerowalna
+000000011430.07C: Czy zdrowie w tej puli można przywrócić po jego utracie. Jeśli ta wartość zwraca odpowiedź „False” (Fałsz), wtedy pula zdrowia maleje i znika, gdy następują obrażenia.
+000000011431.07C: Ponowne oszacowanie
+000000011432.07C: Jeśli zwraca wartość „True” (Prawda) podobnie jak wartość „Recoverable” (Regenerowalna), wtedy „Max Health” (Maksimum zdrowia) będzie ponownie szacowane co klatkę. Jeśli zwraca wartość „False” (Fałsz) lub zwraca ją wartość „Recoverable”, wtedy „Max Health” jest ponownie szacowane tylko raz podczas wykonywania działania.
+000000011433.07C: Remove All Health Pools From Player
+000000011434.07C: Usuwa wszystkie pule zdrowia dodane graczowi lub graczom przez działanie „Add Health Pool” (Dodaj pulę zdrowia).
+000000011435.07C: Gracz lub gracze, których dodane pule zdrowia zostaną usunięte.
+000000011436.07C: Określa pulę zdrowia stworzoną przez działanie „Add Health Pool” (Dodaj pulę zdrowia). Identyfikatory pul zdrowia mogą zostać pozyskane poprzez użycie wartości „Last Created Health Pool” (Ostatnio stworzona pula zdrowia).
+000000011437.07C: ID puli zdrowia
+000000011438.07C: Identyfikator reprezentujący ostatnie działanie „Add Health Pool” (Dodaj pulę zdrowia) rozpoczęte przez „Event Player” (Gracz w zdarzeniu), lub na poziomie globalnym.
+000000011439.07C: Last Created Health Pool
+00000001143A.07C: Sezon 24
+00000001143B.07C: Sezon 24
+00000001143E.07C: 24. sezon Rywalizacji – Otwarta Rywalizacja
+000000011440.07C: Set Player Health
+000000011441.07C: Ustawia zdrowie gracza lub graczy bez wpływania na statystyki lub zapewniania obrażeń/leczenia. To działanie ma wpływ tylko na żywych graczy. Dla martwych użyj działania „Resurrect Player” (wskrześ gracza).
+000000011442.07C: Gracz lub gracze, których zdrowie zostanie ustawione.
+000000011443.07C: Określa ile zdrowia będzie mieć gracz lub gracze.
+000000011444.07C: Ilość
+000000011445.07C: Maksimum zdrowia gracza według typu (zdrowie, pancerz lub osłony).
+000000011446.07C: Max Health Of Type
+000000011447.07C: Bieżące zdrowie gracza według typu (zdrowie, pancerz lub osłony).
+000000011448.07C: Health Of Type
+000000011449.07C: Health
+00000001144B.07C: Typ zdrowia
+00000001144C.07C: Typ zdrowia do pozyskania.
+00000001144D.07C: Gracz, którego maksimum zdrowia należy pozyskać.
+00000001144E.07C: Typ maksimum zdrowia do pozyskania.
+00000001144F.07C: 120 kredytów i 60 darmowych skrzynek z letnich igrzysk
+00000001146F.07C: 50 +10 skrzynek z letnich igrzysk
+0000000114DC.07C: Oglądaj teraz
+0000000114DF.07C: Oglądaj Overwatch League
+000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
+00000001165E.07C: Więcej informacji
+000000011677.07C: Celność trafień krytycznych
+000000011679.07C: Twoje konto Overwatch zostało zablokowane.
+[Core] Execution finished in 00:00:00.4688198 seconds

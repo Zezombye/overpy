@@ -35,7 +35,13 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned int",
-        "en-US": "Ability Charge"
+        "guid": "000000011216",
+        "en-US": "Ability Charge",
+        "es-MX": "Carga de habilidad",
+        "fr-FR": "Charge de la capacité",
+        "ja-JP": "アビリティのチャージ",
+        "pt-BR": "Cargas de Habilidade",
+        "zh-CN": "技能充能"
     },
     "_&getAbilityCooldown": {
         "description": "The ability cooldown time in seconds for a player associated by button.",
@@ -104,7 +110,13 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned float",
-        "en-US": "Ability Resource"
+        "guid": "000000011218",
+        "en-US": "Ability Resource",
+        "es-MX": "Recurso de habilidad",
+        "fr-FR": "Ressource de la capacité",
+        "ja-JP": "アビリティのリソース",
+        "pt-BR": "Recurso de Habilidade",
+        "zh-CN": "技能资源"
     },
     "abs": {
         "description": "The absolute value of the specified value.",
@@ -371,15 +383,23 @@ var valueFuncKw =
                 "description": "The player whose ammo to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
-            },{
+            },
+            {
                 "name": "CLIP",
                 "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
-                "default": 0,
+                "default": 0
             }
         ],
         "return": "unsigned float",
-        "en-US": "Ammo"
+        "guid": "0000000110E8",
+        "en-US": "Ammo",
+        "es-ES": "Munición",
+        "es-MX": "Munición",
+        "fr-FR": "Munitions",
+        "ja-JP": "弾薬数",
+        "pt-BR": "Munição",
+        "zh-CN": "弹药"
     },
     "__and__": {
         "description": "Whether both of the two inputs are true (or equivalent to true).",
@@ -626,17 +646,13 @@ var valueFuncKw =
             }
         ],
         "return": "Array",
-        "guid": "000000004FDA",
+        "guid": "00000000B836",
         "en-US": "Array",
-        "es-ES": "Matriz",
         "es-MX": "Matriz",
         "fr-FR": "Tableau",
         "ja-JP": "配列",
-        "pl-PL": "Tabela",
         "pt-BR": "Matriz",
-        "ru-RU": "Массив",
-        "zh-CN": "数组",
-        "zh-TW": "陣列"
+        "zh-CN": "数组"
     },
     "__arrayContains__": {
         "description": "Whether the specified array contains the specified value.",
@@ -944,7 +960,13 @@ var valueFuncKw =
             "Object",
             "Array"
         ],
+        "guid": "0000000111B5",
         "en-US": "Current Array Index",
+        "es-MX": "Índice de matriz actual",
+        "fr-FR": "Index de tableau actuel",
+        "ja-JP": "現在の配列のインデックス",
+        "pt-BR": "Índice da Matriz Atual",
+        "zh-CN": "当前数组索引"
     },
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
@@ -1078,7 +1100,7 @@ var valueFuncKw =
         "en-US": "Distance Between",
         "es-MX": "Distancia entre",
         "fr-FR": "Distance entre",
-        "ja-JP": "2点間の距離",
+        "ja-JP": "二点間の距離",
         "pt-BR": "Distância entre",
         "zh-CN": "相距距离"
     },
@@ -1269,7 +1291,13 @@ var valueFuncKw =
         "description": "Whether the elimination was due to the environment for the event currently being processed by this rule.",
         "args": null,
         "return": "bool",
-        "en-US": "Event Was Environment"
+        "guid": "00000001107C",
+        "en-US": "Event Was Environment",
+        "es-MX": "Evento fue entorno",
+        "fr-FR": "L’évènement était une élimination due à l’environnement",
+        "ja-JP": "イベントは環境だった",
+        "pt-BR": "Evento foi Ambiente",
+        "zh-CN": "事件为环境事件"
     },
     "eventWasHealthPack": {
         "description": "Whether the healing was a health pack for the event currently being processed by this rule.",
@@ -1399,7 +1427,7 @@ var valueFuncKw =
         "en-US": "First Of",
         "es-MX": "Primero de",
         "fr-FR": "Premier de",
-        "ja-JP": "1番目の値",
+        "ja-JP": "最初の値",
         "pt-BR": "Primeiro de",
         "zh-CN": "首个"
     },
@@ -1558,7 +1586,6 @@ var valueFuncKw =
         "zh-CN": "生命值"
     },
     "_&getHealthOfType": {
-        "guid": "0000000081C2",
         "description": "The current health of the specified player, filtered by the given health type.",
         "args": [
             {
@@ -1566,7 +1593,8 @@ var valueFuncKw =
                 "description": "The player whose health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
-            },{
+            },
+            {
                 "name": "HEALTH",
                 "description": "The type of health to acquire.",
                 "type": "Health",
@@ -1574,7 +1602,13 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned float",
-        "en-US": "Health of Type"
+        "guid": "000000011448",
+        "en-US": "Health Of Type",
+        "es-MX": "Salud según tipo",
+        "fr-FR": "Points de vie par type",
+        "ja-JP": "タイプごとのライフ",
+        "pt-BR": "Vida do Tipo",
+        "zh-CN": "类型的生命值"
     },
     "_&getNormalizedHealth": {
         "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
@@ -1878,7 +1912,13 @@ var valueFuncKw =
             }
         ],
         "return": "String",
-        "en-US": "Input Binding String"
+        "guid": "0000000111B7",
+        "en-US": "Input Binding String",
+        "es-MX": "Cadena de teclas de atajo",
+        "fr-FR": "Chaîne de liaison d’entrée",
+        "ja-JP": "入力割り当ての文字列",
+        "pt-BR": "String de Mapeamento de Entrada",
+        "zh-CN": "输入绑定字符串"
     },
     "_&isAlive": {
         "description": "Whether a player is alive.",
@@ -2555,7 +2595,13 @@ var valueFuncKw =
             }
         ],
         "return": "bool",
-        "en-US": "Is Reloading"
+        "guid": "000000011065",
+        "en-US": "Is Reloading",
+        "es-MX": "Está recargando",
+        "fr-FR": "Utilise Recharger",
+        "ja-JP": "リロード中",
+        "pt-BR": "Está Recarregando",
+        "zh-CN": "正在装填"
     },
     "_&isStanding": {
         "description": "Whether a player is standing (defined as both not moving and not in the air).",
@@ -2749,7 +2795,13 @@ var valueFuncKw =
         "description": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level).",
         "args": [],
         "return": "HealthPoolId",
-        "en-US": "Last Created Health Pool"
+        "guid": "000000011439",
+        "en-US": "Last Created Health Pool",
+        "es-MX": "Última cantidad de salud creada",
+        "fr-FR": "Dernière réserve de points de vie créée",
+        "ja-JP": "最新のライフプール",
+        "pt-BR": "Última Reserva de Vida Criada",
+        "zh-CN": "最后创建的生命池"
     },
     "getLastDamageModification": {
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
@@ -2923,7 +2975,13 @@ var valueFuncKw =
             }
         ],
         "return": "Array",
+        "guid": "000000011228",
         "en-US": "Mapped Array",
+        "es-MX": "Matriz mapeada",
+        "fr-FR": "Tableau appliqué",
+        "ja-JP": "マッピングされた配列",
+        "pt-BR": "Matriz Mapeada",
+        "zh-CN": "映射的数组"
     },
     "getMatchRound": {
         "description": "The current round of the match, counting up from 1.",
@@ -2982,15 +3040,22 @@ var valueFuncKw =
                 "description": "The player whose max ammo to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
-            },{
+            },
+            {
                 "name": "CLIP",
                 "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
-                "default": 0,
+                "default": 0
             }
         ],
         "return": "unsigned float",
-        "en-US": "Max Ammo"
+        "guid": "0000000110EA",
+        "en-US": "Max Ammo",
+        "es-MX": "Munición máxima",
+        "fr-FR": "Munitions maximum",
+        "ja-JP": "最大弾薬数",
+        "pt-BR": "Munição Máxima",
+        "zh-CN": "最大弹药量"
     },
     "_&getMaxHealth": {
         "description": "The max health of a player, including armor and shields.",
@@ -3012,7 +3077,6 @@ var valueFuncKw =
         "zh-CN": "最大生命值"
     },
     "_&getMaxHealthOfType": {
-        "guid": "0000000081C2",
         "description": "The max health of the specified player, filtered by the given health type.",
         "args": [
             {
@@ -3020,7 +3084,8 @@ var valueFuncKw =
                 "description": "The player whose max health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
-            },{
+            },
+            {
                 "name": "HEALTH",
                 "description": "The type of max health to acquire.",
                 "type": "Health",
@@ -3028,7 +3093,13 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned float",
-        "en-US": "Max Health of Type"
+        "guid": "000000011446",
+        "en-US": "Max Health Of Type",
+        "es-MX": "Salud máxima según tipo",
+        "fr-FR": "Points de vie maximum par type",
+        "ja-JP": "タイプごとの最大ライフ",
+        "pt-BR": "Vida Máxima do Tipo",
+        "zh-CN": "类型的最大生命值"
     },
     "min": {
         "guid": "00000000C416",
@@ -4631,7 +4702,13 @@ var valueFuncKw =
             }
         ],
         "return": "unsigned int",
-        "en-US": "Weapon"
+        "guid": "000000011059",
+        "en-US": "Weapon",
+        "es-MX": "Arma",
+        "fr-FR": "Arme",
+        "ja-JP": "武器",
+        "pt-BR": "Arma",
+        "zh-CN": "武器"
     },
     "__workshopSettingInteger__": {
         "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
@@ -4640,31 +4717,41 @@ var valueFuncKw =
                 "name": "CATEGORY",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
+                "default": "CUSTOM STRING"
+            },
+            {
                 "name": "NAME",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
+                "default": "CUSTOM STRING"
+            },
+            {
                 "name": "DEFAULT",
                 "description": "",
                 "type": "IntLiteral",
-                "default": 0,
-            },{
+                "default": 0
+            },
+            {
                 "name": "MIN",
                 "description": "",
                 "type": "IntLiteral",
-                "default": 0,
-            },{
+                "default": 0
+            },
+            {
                 "name": "MAX",
                 "description": "",
                 "type": "IntLiteral",
-                "default": 100,
+                "default": 100
             }
         ],
         "return": "int",
+        "guid": "000000011375",
         "en-US": "Workshop Setting Integer",
+        "es-MX": "Número entero de la configuración del Workshop",
+        "fr-FR": "Paramètre entier de la Forge",
+        "ja-JP": "ワークショップの設定（整数）",
+        "pt-BR": "Inteiro de Configuração do Workshop",
+        "zh-CN": "地图工坊设置整数"
     },
     "__workshopSettingReal__": {
         "description": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider.",
@@ -4673,31 +4760,41 @@ var valueFuncKw =
                 "name": "CATEGORY",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
+                "default": "CUSTOM STRING"
+            },
+            {
                 "name": "NAME",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
+                "default": "CUSTOM STRING"
+            },
+            {
                 "name": "DEFAULT",
                 "description": "",
                 "type": "FloatLiteral",
-                "default": 0,
-            },{
+                "default": 0
+            },
+            {
                 "name": "MIN",
                 "description": "",
                 "type": "FloatLiteral",
-                "default": 0,
-            },{
+                "default": 0
+            },
+            {
                 "name": "MAX",
                 "description": "",
                 "type": "FloatLiteral",
-                "default": 100,
+                "default": 100
             }
         ],
         "return": "float",
+        "guid": "00000001137B",
         "en-US": "Workshop Setting Real",
+        "es-MX": "Configuración del Workshop real",
+        "fr-FR": "Paramètre réel de la Forge",
+        "ja-JP": "ワークショップの設定（実数）",
+        "pt-BR": "Real de Configuração do Workshop",
+        "zh-CN": "地图工坊设置实数"
     },
     "__workshopSettingToggle__": {
         "description": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox.",
@@ -4706,21 +4803,29 @@ var valueFuncKw =
                 "name": "CATEGORY",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
+                "default": "CUSTOM STRING"
+            },
+            {
                 "name": "NAME",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
+                "default": "CUSTOM STRING"
+            },
+            {
                 "name": "DEFAULT",
                 "description": "",
                 "type": "BoolLiteral",
-                "default": 0,
-            },
+                "default": 0
+            }
         ],
         "return": "bool",
+        "guid": "00000001136B",
         "en-US": "Workshop Setting Toggle",
+        "es-MX": "Alternado de configuración del Workshop",
+        "fr-FR": "Activerdésactiver le paramètre de la Forge",
+        "ja-JP": "ワークショップの設定の切り替え",
+        "pt-BR": "Alternar Configuração do Workshop",
+        "zh-CN": "地图工坊设置开关"
     },
     "worldVector": {
         "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
