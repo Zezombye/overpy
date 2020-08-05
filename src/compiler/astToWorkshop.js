@@ -261,6 +261,8 @@ function astToWs(content) {
         newName = "__for"+newName+"__";
         content.name = newName;
 
+    } else if (content.name === "__globalVar__") {
+        return tows("__global__", valueKw)+"."+astToWs(content.args[0]);
     } else if (content.name === "__negate__") {
         content.name = "__multiply__";
         content.args = [getAstForMinus1(), content.args[0]];
@@ -268,6 +270,8 @@ function astToWs(content) {
     } else if (content.name === "__number__") {
         return trimNb(content.args[0].name);
 
+    } else if (content.name === "__playerVar__") {
+        return "("+astToWs(content.args[0])+")."+astToWs(content.args[1]);
     } else if (content.name === "__team__") {
         content.name = content.args[0].name;
         content.args = [];
