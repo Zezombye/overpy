@@ -155,12 +155,13 @@ function parseAst(content) {
         error("Annotations must be at the beginning of the rule");
     }
 
-    //Skip if it's a literal or a constant
+    //Skip if it's a literal, a type literal, or a constant
     if (!["Hero", "Map", "Gamemode", "Team", "Button"].includes(content.type)) {
         if ([
             "IntLiteral", "FloatLiteral", 
             "GlobalVariable", "PlayerVariable", "Subroutine", 
             "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral",
+            "Type",
         ].concat(Object.keys(constantValues)).includes(content.type)) {
             return content;
         }
@@ -173,7 +174,7 @@ function parseAst(content) {
 
     //For string literals, check if they are a child of __format__ (or of a string function). If not, wrap them with the __format__ function.
     //Do not use isTypeSuitable as that can return true for "value".
-    if (["StringLiteral", "LocalizedStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral"].includes(content.type)) {
+    if (["StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral"].includes(content.type)) {
         if (["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
             return content;
         } else {

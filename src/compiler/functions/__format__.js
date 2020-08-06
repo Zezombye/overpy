@@ -316,7 +316,7 @@ function parseStringTokens(tokens, args) {
 		error("Custom string parser broke (string args length is "+resultArgs.length+"), please report to Zezombye");
 	}
 
-	return new Ast("__customString__", [new Ast(result, [], [], "StringLiteral")].concat(resultArgs));
+	return new Ast("__customString__", [new Ast(result, [], [], "CustomStringLiteral")].concat(resultArgs));
 }
 
 //Parses localized string

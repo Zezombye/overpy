@@ -998,7 +998,7 @@ var valueFuncKw =
             {
                 "name": "STRING",
                 "description": "",
-                "type": "StringLiteral",
+                "type": "CustomStringLiteral",
                 "default": "HELLO"
             },
             {
@@ -1352,7 +1352,7 @@ var valueFuncKw =
     "false": {
         "description": "The boolean value of false.",
         "args": null,
-        "return": "bool",
+        "return": "BoolLiteral",
         "guid": "00000000AC3A",
         "en-US": "False",
         "es-MX": "Falso",
@@ -1470,14 +1470,12 @@ var valueFuncKw =
     },
     "__global__": {
         "return": "GlobalVariable",
-        "guid": "00000000EAFB",
+        "guid": "00000000EB1F",
         "en-US": "Global",
         "it-IT": "Globale",
         "ja-JP": "グローバル",
         "pl-PL": "Globalnie",
-        "ru-RU": "Глобальные",
-        "zh-CN": "全局",
-        "zh-TW": "全域"
+        "zh-CN": "全局"
     },
     "__globalVar__": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
@@ -4451,7 +4449,7 @@ var valueFuncKw =
     "true": {
         "description": "The boolean value of true.",
         "args": null,
-        "return": "bool",
+        "return": "BoolLiteral",
         "guid": "00000000AC39",
         "en-US": "True",
         "es-MX": "Verdadero",

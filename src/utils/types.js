@@ -157,7 +157,7 @@ function parseType(tokens) {
         error("Expected a type, but got '"+tokens[0].text+"'");
     }
     if (tokens.length === 1) {
-        return tokens[0].text;
+        return new Ast(tokens[0].text, [], [], "Type");
     }
 
     if (tokens[0].text === "unsigned" || tokens[0].text === "signed") {
@@ -167,7 +167,7 @@ function parseType(tokens) {
         if (tokens.length !== 2) {
             error("Expected end of type after '"+tokens[0].text+" "+tokens[1].text+"', but got '"+tokens[2].text+"'");
         }
-        return tokens[0].text+" "+tokens[1].text;
+        return new Ast(tokens[0].text+" "+tokens[1].text, [], [], "Type");
     }
 
     if (tokens[1].text !== "<") {
@@ -210,10 +210,13 @@ function parseType(tokens) {
             }
         }
 
-        var result = {};
-        result[tokens[0].text] = {"min": min, "max": max};
+        if (min > max) {
+            error("Minimum for type '"+tokens[0].text+"' ("+min+") is higher than maximum ("+max+")");
+        }
 
-        return result;
+        return new Ast(tokens[0].text, [getAstForNumber(min), getAstForNumber(max)], [], "Type");
     }
+
+    error("This shouldn't happen");
     
 }

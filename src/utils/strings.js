@@ -64,3 +64,9 @@ function escapeString(content) {
 	return '"'+content.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, "\\n")+'"';
 }
 
+function getUtf8Length(s){
+	//console.log("getting utf8 length of '"+s+"'");
+    var b = 0, i = 0, c;
+    for(;c=s.charCodeAt(i++);b+=c>>11?3:c>>7?2:1);
+    return b;
+}

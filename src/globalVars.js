@@ -23,6 +23,7 @@ var subroutines;
 var currentLanguage;
 
 const ELEMENT_LIMIT = 20000;
+const DEBUG_MODE = true;
 
 //Compilation variables - are reset at each compilation.
 
@@ -373,6 +374,3 @@ reservedNames.push(...Object.keys(typeMatrix));
 
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
 var astParsingFunctions = {};
-
-//If it is in a browser then it is assumed to be in debug mode.
-const DEBUG_MODE = false;//(typeof window !== "undefined");

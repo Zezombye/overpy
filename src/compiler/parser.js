@@ -693,41 +693,7 @@ function parse(content, kwargs={}) {
             error("Function 'createWorkshopSetting' takes 4 arguments, received "+args.length);
         }
 
-        var settingType = parseType(args[0]);
-
-        var settingCategory = parse(args[1]);
-        var settingName = parse(args[2]);
-        var settingDefault = parse(args[3]);
-
-        if (typeof settingType === "string") {
-            if (settingType === "bool") {
-                return new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault]);
-            } else if (settingType === "int") {
-                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
-            } else if (settingType === "unsigned int") {
-                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
-            } else if (settingType === "signed int") {
-                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
-            } else if (settingType === "float") {
-                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
-            } else if (settingType === "unsigned float") {
-                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
-            } else if (settingType === "signed float") {
-                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
-            } else {
-                error("Invalid type '"+settingType+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
-            }
-        } else {
-            var typeName = Object.keys(settingType)[0];
-            var typeOptions = settingType[typeName];
-            if (typeName === "int") {
-                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForNumber(typeOptions.min), getAstForNumber(typeOptions.max)]);
-            } else if (typeName === "float") {
-                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForNumber(typeOptions.min), getAstForNumber(typeOptions.max)]);
-            } else {
-                error("Invalid type '"+typeName+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
-            }
-        }
+        return new Ast("createWorkshopSetting", [parseType(args[0]), parse(args[1]), parse(args[2]), parse(args[3])]);
     }
 		
 	//Check for subroutine call

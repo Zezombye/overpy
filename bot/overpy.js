@@ -41,13 +41,6 @@ function shuffleArray(a) {
     return a;
 }
 
-function getUtf8Length(s){
-	//console.log("getting utf8 length of '"+s+"'");
-    var b = 0, i = 0, c;
-    for(;c=s.charCodeAt(i++);b+=c>>11?3:c>>7?2:1);
-    return b;
-}
-
 function isNumber(x) {
 	if ((""+x).trim() === "" || x === null) {
 		return false;
@@ -8024,7 +8017,7 @@ var valueFuncKw =
             {
                 "name": "STRING",
                 "description": "",
-                "type": "StringLiteral",
+                "type": "CustomStringLiteral",
                 "default": "HELLO"
             },
             {
@@ -8378,7 +8371,7 @@ var valueFuncKw =
     "false": {
         "description": "The boolean value of false.",
         "args": null,
-        "return": "bool",
+        "return": "BoolLiteral",
         "guid": "00000000AC3A",
         "en-US": "False",
         "es-MX": "Falso",
@@ -8496,14 +8489,12 @@ var valueFuncKw =
     },
     "__global__": {
         "return": "GlobalVariable",
-        "guid": "00000000EAFB",
+        "guid": "00000000EB1F",
         "en-US": "Global",
         "it-IT": "Globale",
         "ja-JP": "グローバル",
         "pl-PL": "Globalnie",
-        "ru-RU": "Глобальные",
-        "zh-CN": "全局",
-        "zh-TW": "全域"
+        "zh-CN": "全局"
     },
     "__globalVar__": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
@@ -11477,7 +11468,7 @@ var valueFuncKw =
     "true": {
         "description": "The boolean value of true.",
         "args": null,
-        "return": "bool",
+        "return": "BoolLiteral",
         "guid": "00000000AC39",
         "en-US": "True",
         "es-MX": "Verdadero",
@@ -23356,6 +23347,7 @@ var subroutines;
 var currentLanguage;
 
 const ELEMENT_LIMIT = 20000;
+const DEBUG_MODE = true;
 
 //Compilation variables - are reset at each compilation.
 
@@ -23706,9 +23698,6 @@ reservedNames.push(...Object.keys(typeMatrix));
 
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
 var astParsingFunctions = {};
-
-//If it is in a browser then it is assumed to be in debug mode.
-const DEBUG_MODE = false;//(typeof window !== "undefined");
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -24130,7 +24119,7 @@ function parseType(tokens) {
         error("Expected a type, but got '"+tokens[0].text+"'");
     }
     if (tokens.length === 1) {
-        return tokens[0].text;
+        return new Ast(tokens[0].text, [], [], "Type");
     }
 
     if (tokens[0].text === "unsigned" || tokens[0].text === "signed") {
@@ -24140,7 +24129,7 @@ function parseType(tokens) {
         if (tokens.length !== 2) {
             error("Expected end of type after '"+tokens[0].text+" "+tokens[1].text+"', but got '"+tokens[2].text+"'");
         }
-        return tokens[0].text+" "+tokens[1].text;
+        return new Ast(tokens[0].text+" "+tokens[1].text, [], [], "Type");
     }
 
     if (tokens[1].text !== "<") {
@@ -24183,11 +24172,14 @@ function parseType(tokens) {
             }
         }
 
-        var result = {};
-        result[tokens[0].text] = {"min": min, "max": max};
+        if (min > max) {
+            error("Minimum for type '"+tokens[0].text+"' ("+min+") is higher than maximum ("+max+")");
+        }
 
-        return result;
+        return new Ast(tokens[0].text, [getAstForNumber(min), getAstForNumber(max)], [], "Type");
     }
+
+    error("This shouldn't happen");
     
 }
 /* 
@@ -24928,6 +24920,12 @@ function escapeString(content) {
 	return '"'+content.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, "\\n")+'"';
 }
 
+function getUtf8Length(s){
+	//console.log("getting utf8 length of '"+s+"'");
+    var b = 0, i = 0, c;
+    for(;c=s.charCodeAt(i++);b+=c>>11?3:c>>7?2:1);
+    return b;
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -28632,7 +28630,7 @@ function parseStringTokens(tokens, args) {
 		error("Custom string parser broke (string args length is "+resultArgs.length+"), please report to Zezombye");
 	}
 
-	return new Ast("__customString__", [new Ast(result, [], [], "StringLiteral")].concat(resultArgs));
+	return new Ast("__customString__", [new Ast(result, [], [], "CustomStringLiteral")].concat(resultArgs));
 }
 
 //Parses localized string
@@ -29418,6 +29416,29 @@ astParsingFunctions.__negate__ = function(content) {
         }
     }
 
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__number__ = function(content) {
+    content.type = content.args[0].type;
     return content;
 }
 /* 
@@ -30299,6 +30320,102 @@ astParsingFunctions.createBeam = function(content) {
     }
 
     return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.createWorkshopSetting = function(content) {
+
+    //Types are capital here as a type mismatch won't allow pasting
+    if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[0].type, false)) {
+        error(getTypeCheckFailedMessage(content, 0, funcKw[content.name].args[0].type, content.args[0]));
+    }
+    if (!isTypeSuitable(funcKw[content.name].args[3].type, content.args[3].type, false)) {
+        error(getTypeCheckFailedMessage(content, 3, funcKw[content.name].args[3].type, content.args[3]));
+    }
+
+    var settingType = content.args[0];
+    var settingCategory = content.args[1];
+    var settingName = content.args[2];
+
+    settingCategory = createSuitableWorkshopSettingString(settingCategory);
+    settingName = createSuitableWorkshopSettingString(settingName, settingCategory);
+
+    var settingDefault = content.args[3];
+
+    if (settingType.args.length === 0) {
+        if (settingType.name === "bool") {
+            return new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault]);
+        } else if (settingType.name === "int") {
+            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
+        } else if (settingType.name === "unsigned int") {
+            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
+        } else if (settingType.name === "signed int") {
+            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
+        } else if (settingType.name === "float") {
+            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
+        } else if (settingType.name === "unsigned float") {
+            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
+        } else if (settingType.name === "signed float") {
+            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
+        } else {
+            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
+        }
+    } else {
+        if (settingType.name === "int") {
+            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1]]);
+        } else if (settingType.name === "float") {
+            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1]]);
+        } else {
+            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
+        }
+    }
+
+    error("This shouldn't happen");
+}
+
+function createSuitableWorkshopSettingString(str, settingCategory) {
+
+    fileStack = str.fileStack;
+    if (str.name !== "__customString__") {
+        error("Expected a custom string for workshop setting, but got '"+functionNameToString(str)+"'");
+    }
+    if (str.args[1].name !== "null" || str.args[2].name !== "null" || str.args[3].name !== "null") {
+        error("Workshop setting strings cannot contain formatting arguments or be longer than 128 bytes");
+    }
+
+    /*//Strings have a max of 128 bytes, and must be literals
+    if (getUtf8Length(str.name) > 128) {
+        error("String '"+str.name+"' must be 128 bytes or less for workshop settings, but is "+getUtf8Length(str.name)+" bytes long");
+    }*/
+
+    //Replace "{", "}" and ":"
+    str.args[0].name = str.args[0].name
+        .replace(/\{/g, obfuscationMappings["{"])
+        .replace(/\}/g, obfuscationMappings["}"])
+        .replace(/:/g, obfuscationMappings[":"])
+
+    //If string is blank, add U+2000 EN QUAD.
+    if (!/\S/.test(str.args[0].name)) {
+        str.args[0].name += String.fromCharCode(0x2000);
+    }
+    return str;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -31203,12 +31320,13 @@ function parseAst(content) {
         error("Annotations must be at the beginning of the rule");
     }
 
-    //Skip if it's a literal or a constant
+    //Skip if it's a literal, a type literal, or a constant
     if (!["Hero", "Map", "Gamemode", "Team", "Button"].includes(content.type)) {
         if ([
             "IntLiteral", "FloatLiteral", 
             "GlobalVariable", "PlayerVariable", "Subroutine", 
             "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral",
+            "Type",
         ].concat(Object.keys(constantValues)).includes(content.type)) {
             return content;
         }
@@ -31221,7 +31339,7 @@ function parseAst(content) {
 
     //For string literals, check if they are a child of __format__ (or of a string function). If not, wrap them with the __format__ function.
     //Do not use isTypeSuitable as that can return true for "value".
-    if (["StringLiteral", "LocalizedStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral"].includes(content.type)) {
+    if (["StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral"].includes(content.type)) {
         if (["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
             return content;
         } else {
@@ -31555,7 +31673,7 @@ function astToWs(content) {
     } else if (content.type === "Subroutine") {
         return translateSubroutineToWs(content.name);
 
-    } else if (["StringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
+    } else if (["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
         return escapeString(content.name);
 
     } else if (content.type === "LocalizedStringLiteral") {
@@ -31662,6 +31780,8 @@ function astToWs(content) {
         newName = "__for"+newName+"__";
         content.name = newName;
 
+    } else if (content.name === "__globalVar__") {
+        return tows("__global__", valueKw)+"."+astToWs(content.args[0]);
     } else if (content.name === "__negate__") {
         content.name = "__multiply__";
         content.args = [getAstForMinus1(), content.args[0]];
@@ -31669,6 +31789,8 @@ function astToWs(content) {
     } else if (content.name === "__number__") {
         return trimNb(content.args[0].name);
 
+    } else if (content.name === "__playerVar__") {
+        return "("+astToWs(content.args[0])+")."+astToWs(content.args[1]);
     } else if (content.name === "__team__") {
         content.name = content.args[0].name;
         content.args = [];
@@ -32469,41 +32591,7 @@ function parse(content, kwargs={}) {
             error("Function 'createWorkshopSetting' takes 4 arguments, received "+args.length);
         }
 
-        var settingType = parseType(args[0]);
-
-        var settingCategory = parse(args[1]);
-        var settingName = parse(args[2]);
-        var settingDefault = parse(args[3]);
-
-        if (typeof settingType === "string") {
-            if (settingType === "bool") {
-                return new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault]);
-            } else if (settingType === "int") {
-                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
-            } else if (settingType === "unsigned int") {
-                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
-            } else if (settingType === "signed int") {
-                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
-            } else if (settingType === "float") {
-                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
-            } else if (settingType === "unsigned float") {
-                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
-            } else if (settingType === "signed float") {
-                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
-            } else {
-                error("Invalid type '"+settingType+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
-            }
-        } else {
-            var typeName = Object.keys(settingType)[0];
-            var typeOptions = settingType[typeName];
-            if (typeName === "int") {
-                return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForNumber(typeOptions.min), getAstForNumber(typeOptions.max)]);
-            } else if (typeName === "float") {
-                return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForNumber(typeOptions.min), getAstForNumber(typeOptions.max)]);
-            } else {
-                error("Invalid type '"+typeName+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
-            }
-        }
+        return new Ast("createWorkshopSetting", [parseType(args[0]), parse(args[1]), parse(args[2]), parse(args[3])]);
     }
 		
 	//Check for subroutine call
