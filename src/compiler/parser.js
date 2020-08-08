@@ -689,11 +689,11 @@ function parse(content, kwargs={}) {
     }
 
     if (name === "createWorkshopSetting") {
-        if (args.length !== 4) {
-            error("Function 'createWorkshopSetting' takes 4 arguments, received "+args.length);
+        if (args.length !== 4 && args.length !== 5) {
+            error("Function 'createWorkshopSetting' takes 4 or 5 arguments, received "+args.length);
         }
 
-        return new Ast("createWorkshopSetting", [parseType(args[0]), parse(args[1]), parse(args[2]), parse(args[3])]);
+        return new Ast("createWorkshopSetting", [parseType(args[0]), ...args.slice(1).map(x => parse(x))]);
     }
 		
 	//Check for subroutine call

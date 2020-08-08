@@ -690,6 +690,46 @@ const opyFuncs = {
         ],
         return: "void",
     },
+    "createWorkshopSetting": {
+        "description": "Provides the value of a new setting that will appear in the workshop settings card as a slider or checkbox.",
+        "args": [
+            {
+                "name": "TYPE",
+                "description": "The type of the setting. Can be an integer, float, or boolean.",
+                "type": "Type",
+                "default": "",
+            },{
+                "name": "CATEGORY",
+                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 bytes or less. OverPy will add bytes if a '{', '}' or ':' is in the setting name.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "NAME",
+                "description": "The name of this setting. Must be a custom string literal with 128 bytes or less. OverPy will add bytes if a sort order is requested, or if the same name is used in a different category.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "DEFAULT",
+                "description": "The default value for this setting.",
+                "type": [
+                    "BoolLiteral",
+                    "IntLiteral",
+                    "FloatLiteral",
+                ],
+                "default": 0,
+            },{
+                "name": "SORT ORDER",
+                "description": "An optional sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically. If not specified, defaults to 0. Can be from 0 to 63.",
+                "type": "IntLiteral",
+                "default": 0,
+            }
+        ],
+        "return": [
+            "bool",
+            "int",
+            "float",
+        ],
+    },
     "floor": {
         "description": "The integer that is the floor of the specified value (equivalent to rounding down).",
         "args": [
@@ -1091,41 +1131,6 @@ const opyFuncs = {
             }
         ],
         return: "void",
-    },
-    "createWorkshopSetting": {
-        "description": "Provides the value of a new setting that will appear in the workshop settings card as a slider or checkbox.",
-        "args": [
-            {
-                "name": "TYPE",
-                "description": "The type of the setting. Can be an integer, float, or boolean.",
-                "type": "Type",
-                "default": "",
-            },{
-                "name": "CATEGORY",
-                "description": "The name of the category in which this setting will be found.",
-                "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
-                "name": "NAME",
-                "description": "The name of this setting.",
-                "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
-                "name": "DEFAULT",
-                "description": "The default value for this setting.",
-                "type": [
-                    "BoolLiteral",
-                    "IntLiteral",
-                    "FloatLiteral",
-                ],
-                "default": 0,
-            },
-        ],
-        "return": [
-            "bool",
-            "int",
-            "float",
-        ],
     },
 }
 /* 
@@ -23347,7 +23352,8 @@ var subroutines;
 var currentLanguage;
 
 const ELEMENT_LIMIT = 20000;
-const DEBUG_MODE = true;
+//If it is in a browser then it is assumed to be in debug mode.
+const DEBUG_MODE = (typeof window !== "undefined");
 
 //Compilation variables - are reset at each compilation.
 
@@ -23399,6 +23405,10 @@ var uniqueNumber;
 var globalInitDirectives = [];
 var playerInitDirectives = [];
 
+//Workshop settings category -> names object, to easily check for sort order or duplicates.
+var workshopSettingCategories = {};
+//Workshop setting names, as each name must be unique even if belonging to different categories.
+var workshopSettingNames = [];
 
 //Decompilation variables
 
@@ -23451,6 +23461,8 @@ function resetGlobalVariables(language) {
 	uniqueNumber = 1;
 	globalInitDirectives = [];
 	playerInitDirectives = [];
+	workshopSettingCategories = {};
+	workshopSettingNames = [];
 }
 
 //Other constants
@@ -23596,6 +23608,17 @@ var fullwidthMappings = {
 for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
 	fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
 }
+
+//Combinations of 0x01 through 0x1F (excluding 0x09, 0x0A and 0x0D). Used for workshop settings to prevent duplicates.
+//These characters render as zero-width spaces in Overwatch.
+var workshopSettingWhitespaceChars = [0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x0b,0x0c,0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d]
+var workshopSettingWhitespace = []
+for (var chr of workshopSettingWhitespaceChars) {
+	workshopSettingWhitespace.push(String.fromCodePoint(chr));
+	workshopSettingWhitespace.push(String.fromCodePoint(0x1e, chr));
+	workshopSettingWhitespace.push(String.fromCodePoint(0x1f, chr));
+}
+workshopSettingWhitespace.sort();
 
 
 const typeTree = [
@@ -30343,21 +30366,29 @@ astParsingFunctions.createBeam = function(content) {
 astParsingFunctions.createWorkshopSetting = function(content) {
 
     //Types are capital here as a type mismatch won't allow pasting
-    if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[0].type, false)) {
-        error(getTypeCheckFailedMessage(content, 0, funcKw[content.name].args[0].type, content.args[0]));
-    }
-    if (!isTypeSuitable(funcKw[content.name].args[3].type, content.args[3].type, false)) {
-        error(getTypeCheckFailedMessage(content, 3, funcKw[content.name].args[3].type, content.args[3]));
+    for (var i = 0; i < content.args.length; i++) {
+        if (i !== 1 && i !== 2) { //can't properly check the CustomStringLiteral type yet
+            if (!isTypeSuitable(funcKw[content.name].args[i].type, content.args[i].type, false)) {
+                error(getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+            }
+        }
     }
 
     var settingType = content.args[0];
     var settingCategory = content.args[1];
     var settingName = content.args[2];
-
-    settingCategory = createSuitableWorkshopSettingString(settingCategory);
-    settingName = createSuitableWorkshopSettingString(settingName, settingCategory);
-
     var settingDefault = content.args[3];
+    var sortOrder = content.args[4].args[0].numValue;
+    if (sortOrder === 0) {
+        //0 is the default order, so just don't do anything.
+        sortOrder = undefined;
+    } else if (sortOrder > 63 || sortOrder < 0) {
+        error("Sort order must be from 0 to 63");
+    }
+
+    settingCategory = createSuitableWorkshopSettingString(settingCategory, false);
+    settingName = createSuitableWorkshopSettingString(settingName, true, sortOrder);
+
 
     if (settingType.args.length === 0) {
         if (settingType.name === "bool") {
@@ -30390,20 +30421,15 @@ astParsingFunctions.createWorkshopSetting = function(content) {
     error("This shouldn't happen");
 }
 
-function createSuitableWorkshopSettingString(str, settingCategory) {
+function createSuitableWorkshopSettingString(str, isName, sortOrder) {
 
     fileStack = str.fileStack;
     if (str.name !== "__customString__") {
-        error("Expected a custom string for workshop setting, but got '"+functionNameToString(str)+"'");
+        error("Expected a custom string literal for workshop setting, but got '"+functionNameToString(str)+"'");
     }
     if (str.args[1].name !== "null" || str.args[2].name !== "null" || str.args[3].name !== "null") {
         error("Workshop setting strings cannot contain formatting arguments or be longer than 128 bytes");
     }
-
-    /*//Strings have a max of 128 bytes, and must be literals
-    if (getUtf8Length(str.name) > 128) {
-        error("String '"+str.name+"' must be 128 bytes or less for workshop settings, but is "+getUtf8Length(str.name)+" bytes long");
-    }*/
 
     //Replace "{", "}" and ":"
     str.args[0].name = str.args[0].name
@@ -30415,6 +30441,32 @@ function createSuitableWorkshopSettingString(str, settingCategory) {
     if (!/\S/.test(str.args[0].name)) {
         str.args[0].name += String.fromCharCode(0x2000);
     }
+
+    //If a sort order is specified, add whitespace at the beginning (+ a zero width space U+200B because else a square is showing up)
+    if (sortOrder !== undefined) {
+        str.args[0].name = String.fromCharCode(0x200B) + workshopSettingWhitespace[sortOrder] + str.args[0].name;
+    }
+
+    if (isName) {
+        //Check for a duplicate setting. If there is one, add some useless whitespace to the end.
+        var settingName = str.args[0].name;
+        for (var i = 0; i < workshopSettingWhitespace.length && workshopSettingNames.includes(settingName); i++) {
+            settingName = str.args[0].name + workshopSettingWhitespace[i];
+        }
+        str.args[0].name = settingName;
+        workshopSettingNames.push(str.args[0].name);
+        //workshopSettingCategories[settingCategory.args[0].name].push(str.args[0].name);
+    }
+
+    //Strings have a max of 128 bytes, and must be literals
+    if (getUtf8Length(str.args[0].name) > 128) {
+        error("String '"+str.args[0].name+"' was pushed over the 128 bytes limit due to OverPy modifications (is now "+getUtf8Length(str.args[0].name)+" bytes long)");
+    }
+
+    if (workshopSettingNames.length > 64) {
+        error("Cannot have more than 64 workshop settings");
+    }
+
     return str;
 }
 /* 
@@ -31353,6 +31405,12 @@ function parseAst(content) {
         error("Unknown function '"+content.name+"'");
     }
 
+    if (content.name === "createWorkshopSetting") {
+        if (content.args.length === 4) {
+            content.args.push(getAstFor0());
+        }
+    }
+
     //Parse args
     for (var i = 0; i < content.args.length; i++) {
         content.argIndex = i;
@@ -31409,7 +31467,6 @@ function parseAst(content) {
                 content.args[0].args[0].args[1],
                 content.args[0].args[0].args[2],
             ];
-
         } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
       
             if (content.args.length < 6 || content.args.length > 7) {
@@ -32587,11 +32644,11 @@ function parse(content, kwargs={}) {
     }
 
     if (name === "createWorkshopSetting") {
-        if (args.length !== 4) {
-            error("Function 'createWorkshopSetting' takes 4 arguments, received "+args.length);
+        if (args.length !== 4 && args.length !== 5) {
+            error("Function 'createWorkshopSetting' takes 4 or 5 arguments, received "+args.length);
         }
 
-        return new Ast("createWorkshopSetting", [parseType(args[0]), parse(args[1]), parse(args[2]), parse(args[3])]);
+        return new Ast("createWorkshopSetting", [parseType(args[0]), ...args.slice(1).map(x => parse(x))]);
     }
 		
 	//Check for subroutine call

@@ -23,7 +23,8 @@ var subroutines;
 var currentLanguage;
 
 const ELEMENT_LIMIT = 20000;
-const DEBUG_MODE = true;
+//If it is in a browser then it is assumed to be in debug mode.
+const DEBUG_MODE = (typeof window !== "undefined");
 
 //Compilation variables - are reset at each compilation.
 
@@ -75,6 +76,10 @@ var uniqueNumber;
 var globalInitDirectives = [];
 var playerInitDirectives = [];
 
+//Workshop settings category -> names object, to easily check for sort order or duplicates.
+var workshopSettingCategories = {};
+//Workshop setting names, as each name must be unique even if belonging to different categories.
+var workshopSettingNames = [];
 
 //Decompilation variables
 
@@ -127,6 +132,8 @@ function resetGlobalVariables(language) {
 	uniqueNumber = 1;
 	globalInitDirectives = [];
 	playerInitDirectives = [];
+	workshopSettingCategories = {};
+	workshopSettingNames = [];
 }
 
 //Other constants
@@ -272,6 +279,17 @@ var fullwidthMappings = {
 for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
 	fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
 }
+
+//Combinations of 0x01 through 0x1F (excluding 0x09, 0x0A and 0x0D). Used for workshop settings to prevent duplicates.
+//These characters render as zero-width spaces in Overwatch.
+var workshopSettingWhitespaceChars = [0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x0b,0x0c,0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d]
+var workshopSettingWhitespace = []
+for (var chr of workshopSettingWhitespaceChars) {
+	workshopSettingWhitespace.push(String.fromCodePoint(chr));
+	workshopSettingWhitespace.push(String.fromCodePoint(0x1e, chr));
+	workshopSettingWhitespace.push(String.fromCodePoint(0x1f, chr));
+}
+workshopSettingWhitespace.sort();
 
 
 const typeTree = [

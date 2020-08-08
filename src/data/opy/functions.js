@@ -104,6 +104,46 @@ const opyFuncs = {
         ],
         return: "void",
     },
+    "createWorkshopSetting": {
+        "description": "Provides the value of a new setting that will appear in the workshop settings card as a slider or checkbox.",
+        "args": [
+            {
+                "name": "TYPE",
+                "description": "The type of the setting. Can be an integer, float, or boolean.",
+                "type": "Type",
+                "default": "",
+            },{
+                "name": "CATEGORY",
+                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 bytes or less. OverPy will add bytes if a '{', '}' or ':' is in the setting name.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "NAME",
+                "description": "The name of this setting. Must be a custom string literal with 128 bytes or less. OverPy will add bytes if a sort order is requested, or if the same name is used in a different category.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "DEFAULT",
+                "description": "The default value for this setting.",
+                "type": [
+                    "BoolLiteral",
+                    "IntLiteral",
+                    "FloatLiteral",
+                ],
+                "default": 0,
+            },{
+                "name": "SORT ORDER",
+                "description": "An optional sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically. If not specified, defaults to 0. Can be from 0 to 63.",
+                "type": "IntLiteral",
+                "default": 0,
+            }
+        ],
+        "return": [
+            "bool",
+            "int",
+            "float",
+        ],
+    },
     "floor": {
         "description": "The integer that is the floor of the specified value (equivalent to rounding down).",
         "args": [
@@ -505,40 +545,5 @@ const opyFuncs = {
             }
         ],
         return: "void",
-    },
-    "createWorkshopSetting": {
-        "description": "Provides the value of a new setting that will appear in the workshop settings card as a slider or checkbox.",
-        "args": [
-            {
-                "name": "TYPE",
-                "description": "The type of the setting. Can be an integer, float, or boolean.",
-                "type": "Type",
-                "default": "",
-            },{
-                "name": "CATEGORY",
-                "description": "The name of the category in which this setting will be found.",
-                "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
-                "name": "NAME",
-                "description": "The name of this setting.",
-                "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
-                "name": "DEFAULT",
-                "description": "The default value for this setting.",
-                "type": [
-                    "BoolLiteral",
-                    "IntLiteral",
-                    "FloatLiteral",
-                ],
-                "default": 0,
-            },
-        ],
-        "return": [
-            "bool",
-            "int",
-            "float",
-        ],
     },
 }

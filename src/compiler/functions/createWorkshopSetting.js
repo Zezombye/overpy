@@ -20,21 +20,29 @@
 astParsingFunctions.createWorkshopSetting = function(content) {
 
     //Types are capital here as a type mismatch won't allow pasting
-    if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[0].type, false)) {
-        error(getTypeCheckFailedMessage(content, 0, funcKw[content.name].args[0].type, content.args[0]));
-    }
-    if (!isTypeSuitable(funcKw[content.name].args[3].type, content.args[3].type, false)) {
-        error(getTypeCheckFailedMessage(content, 3, funcKw[content.name].args[3].type, content.args[3]));
+    for (var i = 0; i < content.args.length; i++) {
+        if (i !== 1 && i !== 2) { //can't properly check the CustomStringLiteral type yet
+            if (!isTypeSuitable(funcKw[content.name].args[i].type, content.args[i].type, false)) {
+                error(getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+            }
+        }
     }
 
     var settingType = content.args[0];
     var settingCategory = content.args[1];
     var settingName = content.args[2];
-
-    settingCategory = createSuitableWorkshopSettingString(settingCategory);
-    settingName = createSuitableWorkshopSettingString(settingName, settingCategory);
-
     var settingDefault = content.args[3];
+    var sortOrder = content.args[4].args[0].numValue;
+    if (sortOrder === 0) {
+        //0 is the default order, so just don't do anything.
+        sortOrder = undefined;
+    } else if (sortOrder > 63 || sortOrder < 0) {
+        error("Sort order must be from 0 to 63");
+    }
+
+    settingCategory = createSuitableWorkshopSettingString(settingCategory, false);
+    settingName = createSuitableWorkshopSettingString(settingName, true, sortOrder);
+
 
     if (settingType.args.length === 0) {
         if (settingType.name === "bool") {
@@ -67,20 +75,15 @@ astParsingFunctions.createWorkshopSetting = function(content) {
     error("This shouldn't happen");
 }
 
-function createSuitableWorkshopSettingString(str, settingCategory) {
+function createSuitableWorkshopSettingString(str, isName, sortOrder) {
 
     fileStack = str.fileStack;
     if (str.name !== "__customString__") {
-        error("Expected a custom string for workshop setting, but got '"+functionNameToString(str)+"'");
+        error("Expected a custom string literal for workshop setting, but got '"+functionNameToString(str)+"'");
     }
     if (str.args[1].name !== "null" || str.args[2].name !== "null" || str.args[3].name !== "null") {
         error("Workshop setting strings cannot contain formatting arguments or be longer than 128 bytes");
     }
-
-    /*//Strings have a max of 128 bytes, and must be literals
-    if (getUtf8Length(str.name) > 128) {
-        error("String '"+str.name+"' must be 128 bytes or less for workshop settings, but is "+getUtf8Length(str.name)+" bytes long");
-    }*/
 
     //Replace "{", "}" and ":"
     str.args[0].name = str.args[0].name
@@ -92,5 +95,31 @@ function createSuitableWorkshopSettingString(str, settingCategory) {
     if (!/\S/.test(str.args[0].name)) {
         str.args[0].name += String.fromCharCode(0x2000);
     }
+
+    //If a sort order is specified, add whitespace at the beginning (+ a zero width space U+200B because else a square is showing up)
+    if (sortOrder !== undefined) {
+        str.args[0].name = String.fromCharCode(0x200B) + workshopSettingWhitespace[sortOrder] + str.args[0].name;
+    }
+
+    if (isName) {
+        //Check for a duplicate setting. If there is one, add some useless whitespace to the end.
+        var settingName = str.args[0].name;
+        for (var i = 0; i < workshopSettingWhitespace.length && workshopSettingNames.includes(settingName); i++) {
+            settingName = str.args[0].name + workshopSettingWhitespace[i];
+        }
+        str.args[0].name = settingName;
+        workshopSettingNames.push(str.args[0].name);
+        //workshopSettingCategories[settingCategory.args[0].name].push(str.args[0].name);
+    }
+
+    //Strings have a max of 128 bytes, and must be literals
+    if (getUtf8Length(str.args[0].name) > 128) {
+        error("String '"+str.args[0].name+"' was pushed over the 128 bytes limit due to OverPy modifications (is now "+getUtf8Length(str.args[0].name)+" bytes long)");
+    }
+
+    if (workshopSettingNames.length > 64) {
+        error("Cannot have more than 64 workshop settings");
+    }
+
     return str;
 }

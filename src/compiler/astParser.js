@@ -188,6 +188,12 @@ function parseAst(content) {
         error("Unknown function '"+content.name+"'");
     }
 
+    if (content.name === "createWorkshopSetting") {
+        if (content.args.length === 4) {
+            content.args.push(getAstFor0());
+        }
+    }
+
     //Parse args
     for (var i = 0; i < content.args.length; i++) {
         content.argIndex = i;
@@ -244,7 +250,6 @@ function parseAst(content) {
                 content.args[0].args[0].args[1],
                 content.args[0].args[0].args[2],
             ];
-
         } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
       
             if (content.args.length < 6 || content.args.length > 7) {
