@@ -66,6 +66,26 @@ const opyKeywords = {
 - If a value, an inline "ternary" condition, such as \`A if B else C\`.`,
         "args": null
     },
+    "enum": {
+        "description": `Declares an enum. For example:
+\`\`\`c
+enum GameStatus:
+ GAME_NOT_STARTED,
+ GAME_IN_PROGRESS = 3,
+ GAME_STARTED
+
+enum Team:
+ HUMANS = Team.2,
+ ZOMBIES = Team.1
+\`\`\`
+
+The enum can then be accessed like other enums: \`GameStatus.GAME_STARTED\`.
+
+If no value is specified, the value is the last specified value plus 1 (if the last specified value is a number), or 0 if it is the first enum member.
+`,
+        "args": null,
+        "snippet": "enum $0",
+    },
     "float": {
         "description": "The 'float' type. Denotes any real number.\n\nLimits can be specified: for example, `float<-4.5, 5.5>` denotes all numbers between -4.5 and 5.5, inclusive.",
         "args": null,

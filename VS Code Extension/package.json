@@ -73,12 +73,17 @@
                 "overpy.compileOnSave": {
                     "type": "boolean",
                     "description": "Specifies whether to initiate a compilation on save.",
-                    "default": false
+                    "default": true
                 },
                 "overpy.onlySaveOnMainFile": {
                     "type": "boolean",
                     "description": "If \"Compile on save\" is enabled, only saves if the file is the main file (defined as not having a `#!mainFile` directive).",
                     "default": false
+                },
+                "overpy.addTemplateOnNewFile": {
+                    "type": "boolean",
+                    "description": "Specifies whether to add a template when a new OverPy file is created.",
+                    "default": true
                 }
             }
         },

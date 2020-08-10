@@ -36,7 +36,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.overpy",
-					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool)\\b"
+					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool|enum)\\b"
 				},{
 					"name": "keyword.other.overpy",
 					"match": "\\b(and|or|not|in)\\b|((\\+|\\-|\\*\\*|\\/|\\%|\\*|<|>)=?)|(\\=)|\\.|((min|max|\\!)\\=)"

@@ -17,18 +17,18 @@
 
 "use strict";
 
-astParsingFunctions.__map__ = function(content) {
+astParsingFunctions.lineIntersectsSphere = function(content) {
 
-    if (obfuscationSettings.obfuscateConstants) {
-        var result = new Ast("__valueInArray__", [
-            new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
+    return new Ast("__lessThanOrEquals__", [
+        new Ast("distance", [
             new Ast("__multiply__", [
-                getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.MapLiteral[content.args[0].name]),
+                new Ast("distance", [
+                    content.args[0], content.args[2],
+                ]),
+                content.args[1],
             ]),
-        ]);
-        result.doNotOptimize = true;
-        return result;
-    } else {
-        return content;
-    }
+            content.args[2],
+        ]),
+        content.args[3],
+    ]);
 }

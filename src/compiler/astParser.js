@@ -266,7 +266,13 @@ function parseAst(content) {
             if (content.args.length === 10) {
                 content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
             }
-
+        } else if (content.name === "log") {
+            if (content.args.length < 1 || content.args.length > 2) {
+                error("Function '"+content.name+"' takes 1 or 2 arguments, received "+content.args.length);
+            }
+            if (content.args.length === 1) {
+                content.args.push(getAstForE());
+            }
         } else if (content.name === "range") {
             if (content.args.length < 1 || content.args.length > 3) {
                 error("Function '"+content.name+"' takes 1 to 3 arguments, received "+content.args.length);
@@ -346,7 +352,7 @@ function parseAst(content) {
 
     //Optimize, and re-optimize if the function name changed
     var oldContentName = content.name;
-    while (content.name in astParsingFunctions) {
+    while (!content.doNotOptimize && content.name in astParsingFunctions) {
         content = astParsingFunctions[content.name](content);
         if (content.name !== oldContentName) {
             oldContentName = content.name;

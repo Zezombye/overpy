@@ -101,10 +101,11 @@ function parseLines(lines) {
             }
             result.push(currentLineAst);
 
-        } else if (["rule", "if", "elif", "else", "do", "for", "def", "while", "switch", "case", "default"].includes(lines[i].tokens[0].text)) {
+        } else if (["rule", "enum", "if", "elif", "else", "do", "for", "def", "while", "switch", "case", "default"].includes(lines[i].tokens[0].text)) {
 
             var tokenToFuncMapping = {
                 "rule": "__rule__",
+                "enum": "__enum__",
                 "if": "__if__",
                 "elif": "__elif__",
                 "else": "__else__",
@@ -135,6 +136,13 @@ function parseLines(lines) {
                 instructionRuleAttributes = {};
                 instructionRuleAttributes.name = unescapeString(lineMembers[0][1].text);
 
+            } else if (funcName === "__enum__") {
+                if (lineMembers[0].length !== 2) {
+                    error("Malformatted 'enum' declaration");
+                }
+                args = [new Ast(lineMembers[0][1].text, [], [], "__EnumName__")];
+
+
             } else if (funcName === "__def__") {
                 if (lineMembers[0].length !== 4 || lineMembers[0][2].text !== "(" || lineMembers[0][3].text !== ")") {
                     error("Malformatted 'def' declaration");
@@ -143,7 +151,7 @@ function parseLines(lines) {
                 instructionRuleAttributes.subroutineName = lineMembers[0][1].text;
             }
 
-            if (!["__else__", "__doWhile__", "__rule__", "__def__", "__default__"].includes(funcName)) {
+            if (!["__else__", "__doWhile__", "__rule__", "__enum__", "__def__", "__default__"].includes(funcName)) {
                 args = [parse(lineMembers[0].slice(1))];
             }
             
@@ -193,7 +201,48 @@ function parseLines(lines) {
             }
 
             i += j-i-1;
-            children = parseLines(childrenLines);
+            if (funcName === "__enum__") {
+                //Implement our own mini-parser to not get "function does not exist" errors.
+                enumMembers[args[0].name] = {};
+                var lastIntValue = 0;
+                for (var k = 0; k < childrenLines.length; k++) {
+                    fileStack = childrenLines[k].tokens[0].fileStack;
+                    //console.log(childrenLines[k]);
+                    if (childrenLines[k].tokens[childrenLines[k].tokens.length-1].text !== ",") {
+                        if (k < childrenLines.length-1) {
+                            error("Expected ',' at the end of the line");
+                        }
+                    } else {
+                        childrenLines[k].tokens = childrenLines[k].tokens.slice(0, childrenLines[k].tokens.length-1);
+                    }
+                    var assignOperands = splitTokens(childrenLines[k].tokens, "=", false);
+                    if (assignOperands.length === 1) {
+                        //Enum member was not assigned a value
+                        if (typeof lastIntValue === "number") {
+                            enumMembers[args[0].name][childrenLines[k].tokens[0]] = getAstForNumber(lastIntValue);
+                            lastIntValue++;
+                        } else {
+                            error("Cannot auto-increment enum member, as last value was "+functionNameToString(lastIntValue));
+                        }
+                    } else {
+                        var enumValue = parse(assignOperands[1]);
+                        if (enumValue.name === "__number__") {
+                            lastIntValue = enumValue.args[0].numValue+1;
+                        } else {
+
+                            //Check that there are only constant functions, as to not mislead the programmer; enums are just macros in disguise
+                            astContainsFunctions(enumValue, notConstantFunctions, true);
+
+                            lastIntValue = enumValue;
+                        }
+                        enumMembers[args[0].name][childrenLines[k].tokens[0]] = enumValue;
+                    }
+                }
+                //We do not care about enums in the AST
+                continue;
+            } else {
+                children = parseLines(childrenLines);
+            }
 
             var instruction = new Ast(funcName, args, children);
             if (currentComments !== []) {
@@ -732,6 +781,12 @@ function parseMember(object, member) {
         
         if (object.length === 1) {
 
+            //Check for member of a user-declared enum
+            //Do not throw an error if the name is not in the enum, as it can be in a built-in enum
+            if (object[0].text in enumMembers && name in enumMembers[object[0].text]) {
+                return enumMembers[object[0].text][name];
+            }
+
             //Check enums
             if (Object.keys(constantValues).includes(object[0].text)) {
                 return new Ast(name, [], [], object[0].text);
@@ -755,13 +810,13 @@ function parseMember(object, member) {
             //Check the pseudo-enum "math"
             } else if (object[0].text === "math") {
                 if (name === "pi") {
-                    return getAstForNumber(3.14159265359);
+                    return getAstForNumber(3.141592653589793);
                 } else if (name === "e") {
-                    return getAstForNumber(2.71828182846);
+                    return getAstForE();
                 } else {
                     error("Unhandled member 'math."+name+"'");
                 }
-        
+            
             //Check the pseudo-enum "Vector"
             } else if (object[0].text === "Vector") {
                 return new Ast("Vector."+name);
@@ -772,7 +827,6 @@ function parseMember(object, member) {
                     error("Expected a number after '.' but got '"+name+"'");
                 }
                 return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "FloatLiteral")], [], "unsigned float");
-
             }
         }
 

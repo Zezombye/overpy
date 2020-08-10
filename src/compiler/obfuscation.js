@@ -26,9 +26,38 @@ function addObfuscationRules(rules) {
 	if (!compiledCustomGameSettings) {
 		error("Cannot use obfuscation without custom game settings declared");
 	}
-	var nbEmptyRules = 2500;
-	var nbTotalRules = nbEmptyRules + rules.length;
+	var nbEmptyRules = (obfuscationSettings.ruleFilling ? 2500 : 0);
+	var nbTotalRules = nbEmptyRules + rules.length + 2 /*copy detection rules*/;
 	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+
+	var copyDetectionRule1 = `
+${tows("__rule__", ruleKw)}("") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("__abortIf__", actionKw)}(0.0000001);
+		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
+	}
+}
+	`
+
+	var copyDetectionRule2 = `
+${tows("__rule__", ruleKw)}("") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__conditions__", ruleKw)} {
+		0.00000001 == ${tows("false", valueFuncKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("__wait__", actionKw)}(${tows("random.uniform", valueFuncKw)}(30, 60), ${tows("IGNORE_CONDITION", constantValues.Wait)});
+		${tows("__while__", actionKw)}(${tows("true", valueFuncKw)});
+		${tows("__end__", actionKw)};
+	}
+}
+	`
+
 	var result = "";
 	result += `
 ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!") {
@@ -41,19 +70,19 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 	}
 }
 `;
-	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
+	var putEmptyRuleArray = shuffleArray([3,2].concat(Array(nbEmptyRules).fill(1)).concat(Array(rules.length).fill(0)));
 	var ruleIndex = 0;
-	if (obfuscationSettings.ruleFilling) {
-		for (var i = 0; i < nbTotalRules; i++) {
-			if (putEmptyRuleArray[i]) {
-				result += emptyRule;
-			} else {
-				result += rules[ruleIndex];
-				ruleIndex++;
-			}
+	for (var i = 0; i < nbTotalRules; i++) {
+		if (putEmptyRuleArray[i] === 1) {
+			result += emptyRule;
+		} else if (putEmptyRuleArray[i] === 3) {
+			result += copyDetectionRule1;
+		} else if (putEmptyRuleArray[i] === 2) {
+			result += copyDetectionRule2;
+		} else {
+			result += rules[ruleIndex];
+			ruleIndex++;
 		}
-	} else {
-		result += rules.join("");
 	}
 	return result;
 
@@ -82,7 +111,7 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 
 	for (var constant of Object.keys(constantValues[constantType])) {
 		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
-		obfuscationConstantsMapping[constantType][constant] = constantIndex+(constantIndex > 0 ? (Math.random()*0.8)-0.4 : 0);
+		obfuscationConstantsMapping[constantType][constant] = constantIndex * 0.0000001/*+(constantIndex > 0 ? (Math.random()*0.8)-0.4 : 0)*/;
 		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
 	}
 }

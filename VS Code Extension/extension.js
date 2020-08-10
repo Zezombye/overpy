@@ -131,6 +131,44 @@ const decompilerUI = [`
 
 `];
 
+const overpyTemplate = [`
+#OverPy starting pack
+
+settings {
+    "main": {
+        "description": "Some awesome game mode"
+    },
+    "gamemodes": {
+        "skirmish": {
+            "enabledMaps": [
+                "workshopIsland"
+            ]
+        },
+        "general": {
+            "heroLimit": "off",
+            "respawnTime%": 30
+        }
+    }
+}
+
+#!obfuscate
+
+
+rule "Teleport player on pressing interact":
+    @Event eachPlayer
+    @Condition eventPlayer.isHoldingButton(Button.INTERACT)
+    eventPlayer.teleport(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection()*5)
+    #Hold the player in place, to reset falling velocity
+    eventPlayer.startForcingPosition(eventPlayer.getPosition(), false)
+    wait()
+    eventPlayer.stopForcingPosition()
+
+
+rule "Display position":
+    @Event eachPlayer
+    print("Position of {}: {}".format(eventPlayer, eventPlayer.getPosition()))
+`]
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
@@ -140,19 +178,20 @@ const decompilerUI = [`
 
 const funcDoc = JSON.parse(JSON.stringify(Object.assign({}, overpy.actionKw, overpy.valueFuncKw)));
 
-const constValues = JSON.parse(JSON.stringify(overpy.constantValues));
+const defaultConstValues = JSON.parse(JSON.stringify(overpy.constantValues));
+var constValues = {};
 const heroKw = JSON.parse(JSON.stringify(overpy.heroKw));
-for (var key of Object.keys(constValues)) {
+for (var key of Object.keys(defaultConstValues)) {
     if (key.startsWith("_")) {
-        delete constValues[key];
+        delete defaultConstValues[key];
     }
     if (["GamemodeLiteral", "MapLiteral", "TeamLiteral", "HeroLiteral", "ButtonLiteral"].includes(key)) {
-        constValues[key.substring(0, key.length-"Literal".length)] = constValues[key]
-        delete constValues[key];
+        defaultConstValues[key.substring(0, key.length-"Literal".length)] = defaultConstValues[key]
+        delete defaultConstValues[key];
     }
 }
-for (var key of Object.keys(constValues)) {
-    constValues[key] = makeCompList(constValues[key]);
+for (var key of Object.keys(defaultConstValues)) {
+    defaultConstValues[key] = makeCompList(defaultConstValues[key]);
 }
 const funcList = JSON.parse(JSON.stringify(Object.assign({}, overpy.opyFuncs, overpy.opyKeywords)));
 
@@ -190,7 +229,23 @@ var memberMacros = {};
 var globalVariables = {};
 var playerVariables = {};
 var subroutines = {};
+var userEnums = {};
 function refreshAutoComplete() {
+
+    constValues = Object.assign({}, defaultConstValues);
+    for (var e in userEnums) {
+        if (!(e in constValues)) {
+            constValues[e] = {
+                "description": "A user-defined enum.",
+                "items": [],
+            };
+        }
+        for (var enumMember in userEnums[e]) {
+            constValues[e].items.push(makeCompItem(enumMember, {"description": "A user-defined enum member."}));
+        }
+    }
+
+    console.log(constValues);
 
     defaultCompList = makeCompList(Object.assign({}, funcList, constValues, normalMacros, globalVariables, subroutines));
     allFuncList = Object.assign({}, funcList, memberFuncList, normalMacros, memberMacros);
@@ -268,6 +323,7 @@ function activate(context) {
             fillAutocompletionMacros(compiledText.macros);
             fillAutocompletionVariables(compiledText.globalVariables, compiledText.playerVariables);
             fillAutocompletionSubroutines(compiledText.subroutines);
+            fillAutocompletionEnums(compiledText.enumMembers);
             refreshAutoComplete();
             //console.log(compiledText.macros);
         } catch (e) {
@@ -278,9 +334,6 @@ function activate(context) {
                 console.error(e);
             }
         }
-
-        
-
     });
 
     vscode.languages.registerCompletionItemProvider("overpy", {
@@ -386,6 +439,19 @@ function activate(context) {
             vscode.commands.executeCommand("extension.compile");
         }
     })
+    
+    vscode.workspace.onDidOpenTextDocument((document) => {
+        console.log("opened text document");
+        console.log("add template on new file: "+ vscode.workspace.getConfiguration("overpy").addTemplateOnNewFile);
+        if (document.languageId === "overpy" && vscode.workspace.getConfiguration("overpy").addTemplateOnNewFile && document.getText().length === 0) {
+            
+            vscode.window.showTextDocument(document, vscode.ViewColumn.Active, false).then(editor => {
+                editor.edit(editBuilder => {
+                    editBuilder.insert(new vscode.Position(0, 0), overpyTemplate[0]);
+                });
+            });
+        }
+    })
 }
 exports.activate = activate;
 
@@ -438,11 +504,13 @@ function fillAutocompletionMacros(macros) {
 }
 
 function fillAutocompletionVariables(globalVars, playerVars) {
+    globalVariables = {};
     for (var globalVar of globalVars) {
         globalVariables[globalVar.name] = ({
             description: globalVar.index !== null ? "A global variable. (index: "+globalVar.index+")" : "A global variable.",
         })
     }
+    playerVariables = {};
     for (var playerVar of playerVars) {
         playerVariables[playerVar.name] = ({
             description: playerVar.index !== null ? "A player variable. (index: "+playerVar.index+")" : "A player variable.",
@@ -451,12 +519,17 @@ function fillAutocompletionVariables(globalVars, playerVars) {
 }
 
 function fillAutocompletionSubroutines(subroutineNames) {
+    subroutines = {};
     for (var subroutine of subroutineNames) {
         subroutines[subroutine.name+"()"] = ({
             args: [],
             description: subroutine.index ? "A subroutine. (index: "+subroutine.index+")" : "A subroutine.",
         })
     }
+}
+
+function fillAutocompletionEnums(enums) {
+    userEnums = enums;
 }
 
 function generateDocFromDoc(itemName, item) {
@@ -541,10 +614,6 @@ function generateSnippetFromDoc(itemName, item) {
     if (itemName.startsWith('@')) {
         return new vscode.SnippetString(getSnippetForMetaRuleParam(itemName));
     }
-
-    /*if (itemName === "ARROW_DOWN") {
-        console.log(item);
-    }*/
 
     if (item.snippet !== undefined) {
         return new vscode.SnippetString(item.snippet);

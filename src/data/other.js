@@ -506,6 +506,10 @@ const eventPlayerKw =
 //end-json
 Object.assign(eventPlayerKw, eventSlotKw, heroKw);
 
+//A constant function is defined as a function/constant that will always return the same value throughout the lifetime of a game. (This means "current gamemode" and "current map" are valid, as you cannot change a map without restarting the game.)
+//Here we store the functions that are not constant, as it is easier to check with astContainsFunctions().
+const notConstantFunctions = Object.keys(valueFuncKw).filter(x => !valueFuncKw[x].isConstant);
+
 var constantKw = {};
 for (var constant of Object.keys(constantValues)) {
     for (var value of Object.keys(constantValues[constant])) {
@@ -515,6 +519,7 @@ for (var constant of Object.keys(constantValues)) {
 
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
 const valueKw = Object.assign({}, valueFuncKw, constantKw);
+
 
 const wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
 

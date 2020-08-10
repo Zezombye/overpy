@@ -285,6 +285,7 @@ const opyInternalFuncs = {
                 "type": "DictElem",
             }
         ],
+        "isConstant": true,
         return: ["Object", "Array"],
     },
     "__dictElem__": {
@@ -297,6 +298,7 @@ const opyInternalFuncs = {
                 "type": ["Object", "Array"],
             }
         ],
+        "isConstant": true,
         return: "DictElem",
     },
     "__distanceTo__": {
@@ -318,6 +320,15 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
+    "__enum__": {
+        "args": [
+            {
+                "name": "NAME",
+                "type": "EnumName",
+            }
+        ],
+        return: "void",
+    },
     "__equals__": {
         "args": [
             {
@@ -331,6 +342,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__for__": {
@@ -367,6 +379,7 @@ const opyInternalFuncs = {
                 "default": "NULL"
             }
         ],
+        "isConstant": true,
         return: "String",
     },
     "__getNormal__": {
@@ -427,6 +440,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     
@@ -443,6 +457,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__inequals__": {
@@ -458,6 +473,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__lessThan__": {
@@ -473,6 +489,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__lessThanOrEquals__": {
@@ -488,20 +505,8 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
-    },
-    "__mappedArray__": {
-        "args": [
-            {
-                "name": "ARRAY",
-                "type": "Array",
-            },
-            {
-                "name": "CONDITION",
-                "type": "bool",
-            }
-        ],
-        "return": {"Array": "bool"},
     },
     "__modifyVar__": {
         "args": [
@@ -535,6 +540,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             },
         ],
+        "isConstant": true,
         return: ["float", "Vector"],
     },
     "__number__": {
@@ -545,6 +551,7 @@ const opyInternalFuncs = {
                 "default": "0",
             },
         ],
+        "isConstant": true,
         return: "float",
         "en-US": "Number",
     },
@@ -581,6 +588,7 @@ const opyInternalFuncs = {
                 "default": "ALL",
             }
         ],
+        "isConstant": true,
         return: "Team",
     }
 }
@@ -616,6 +624,7 @@ const opyFuncs = {
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "any": {
@@ -628,6 +637,7 @@ const opyFuncs = {
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "async": {
@@ -658,6 +668,7 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int",
     },
     "chase": {
@@ -724,6 +735,7 @@ const opyFuncs = {
                 "default": 0,
             }
         ],
+        "isConstant": true,
         "return": [
             "bool",
             "int",
@@ -740,6 +752,7 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int",
     },
     "getAllPlayers": {
@@ -973,16 +986,19 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int",
     },
     "math.e": {
         "description": "The number e = 2.71828182846.",
         "args": null,
+        "isConstant": true,
         return: "unsigned float",
     },
     "math.pi": {
         "description": "The number pi = 3.14159265359.",
         "args": null,
+        "isConstant": true,
         return: "unsigned float",
     },
     "pass": {
@@ -1072,6 +1088,7 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int"
     },
     "RULE_CONDITION": {
@@ -1100,6 +1117,7 @@ const opyFuncs = {
                 "default": "CURRENT ARRAY ELEMENT"
             }
         ],
+        "isConstant": true,
         return: {Array: "Object"},
     },
     "stopChasingVariable": {
@@ -1200,6 +1218,26 @@ const opyKeywords = {
 
 - If a value, an inline "ternary" condition, such as \`A if B else C\`.`,
         "args": null
+    },
+    "enum": {
+        "description": `Declares an enum. For example:
+\`\`\`c
+enum GameStatus:
+ GAME_NOT_STARTED,
+ GAME_IN_PROGRESS = 3,
+ GAME_STARTED
+
+enum Team:
+ HUMANS = Team.2,
+ ZOMBIES = Team.1
+\`\`\`
+
+The enum can then be accessed like other enums: \`GameStatus.GAME_STARTED\`.
+
+If no value is specified, the value is the last specified value plus 1 (if the last specified value is a number), or 0 if it is the first enum member.
+`,
+        "args": null,
+        "snippet": "enum $0",
     },
     "float": {
         "description": "The 'float' type. Denotes any real number.\n\nLimits can be specified: for example, `float<-4.5, 5.5>` denotes all numbers between -4.5 and 5.5, inclusive.",
@@ -7108,6 +7146,7 @@ var valueFuncKw =
                 "default": "Button"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "guid": "000000010B52",
         "en-US": "Ability Icon String",
@@ -7152,6 +7191,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "unsigned float",
         "guid": "00000000C358",
         "en-US": "Absolute Value",
@@ -7184,6 +7224,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "float",
             "Vector"
@@ -7219,6 +7260,7 @@ var valueFuncKw =
     "getDamageHeroes": {
         "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        16. Echo  \n",
         "args": [],
+        "isConstant": true,
         "return": {
             "Array": "Hero"
         },
@@ -7235,6 +7277,7 @@ var valueFuncKw =
         "guid": "00000000BF58",
         "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Echo \n        30. Baptiste    \n        31. Sigma    \n",
         "args": [],
+        "isConstant": true,
         "return": {
             "Array": "Hero"
         },
@@ -7353,6 +7396,7 @@ var valueFuncKw =
     "getSupportHeroes": {
         "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
         "args": [],
+        "isConstant": true,
         "return": {
             "Array": "Hero"
         },
@@ -7368,6 +7412,7 @@ var valueFuncKw =
     "getTankHeroes": {
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
         "args": [],
+        "isConstant": true,
         "return": {
             "Array": "Hero"
         },
@@ -7441,6 +7486,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000000B273",
         "en-US": "And",
@@ -7466,6 +7512,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "unsigned float",
         "guid": "00000000C813",
         "en-US": "Angle Between Vectors",
@@ -7491,6 +7538,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000B282",
         "en-US": "Angle Difference",
@@ -7522,6 +7570,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "Array",
         "en-US": "Append To Array",
         "es-MX": "Anexar a la matriz",
@@ -7540,6 +7589,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C809",
         "en-US": "Arccosine In Degrees",
@@ -7559,6 +7609,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C807",
         "en-US": "Arccosine In Radians",
@@ -7578,6 +7629,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C805",
         "en-US": "Arcsine In Degrees",
@@ -7597,6 +7649,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C803",
         "en-US": "Arcsine In Radians",
@@ -7622,6 +7675,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C801",
         "en-US": "Arctangent In Degrees",
@@ -7647,6 +7701,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C7FF",
         "en-US": "Arctangent In Radians",
@@ -7669,6 +7724,7 @@ var valueFuncKw =
                 "default": "NULL"
             }
         ],
+        "isConstant": true,
         "return": "Array",
         "guid": "00000000B836",
         "en-US": "Array",
@@ -7694,6 +7750,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000000C336",
         "en-US": "Array Contains",
@@ -7727,6 +7784,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": {
             "Array": "Object"
         },
@@ -7761,6 +7819,7 @@ var valueFuncKw =
                 "signed int"
             ]
         },
+        "isConstant": true,
         "en-US": "Backward",
         "es-MX": "Atrás",
         "fr-FR": "Arrière",
@@ -7778,6 +7837,7 @@ var valueFuncKw =
                 "default": "PRIMARY FIRE"
             }
         ],
+        "isConstant": true,
         "return": "Button",
         "guid": "000000010B3B",
         "en-US": "Button",
@@ -7840,6 +7900,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000000B276",
         "en-US": "Compare",
@@ -7890,6 +7951,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C33E",
         "en-US": "Cosine From Degrees",
@@ -7909,6 +7971,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C342",
         "en-US": "Cosine From Radians",
@@ -7928,6 +7991,7 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         "return": "unsigned int",
         "guid": "00000000B26E",
         "en-US": "Count Of",
@@ -7953,6 +8017,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "Vector",
         "guid": "00000000C35D",
         "en-US": "Cross Product",
@@ -7965,6 +8030,7 @@ var valueFuncKw =
     "__currentArrayElement__": {
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": [],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -7980,6 +8046,7 @@ var valueFuncKw =
     "__currentArrayIndex__": {
         "description": "The current array index being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": [],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -7995,6 +8062,7 @@ var valueFuncKw =
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
         "args": [],
+        "isConstant": true,
         "return": "Gamemode",
         "guid": "00000000F163",
         "en-US": "Current Game Mode",
@@ -8008,6 +8076,7 @@ var valueFuncKw =
         "guid": "00000000D418",
         "description": "The current map of the custom game.",
         "args": [],
+        "isConstant": true,
         "return": "Map",
         "en-US": "Current Map",
         "es-MX": "Mapa actual",
@@ -8044,6 +8113,7 @@ var valueFuncKw =
                 "default": "NULL"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "guid": "00000000CE3C",
         "en-US": "Custom String",
@@ -8069,6 +8139,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "Direction",
         "guid": "00000000BB2D",
         "en-US": "Direction From Angles",
@@ -8094,6 +8165,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "Direction",
         "guid": "00000000B1EA",
         "en-US": "Direction Towards",
@@ -8119,6 +8191,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "unsigned float",
         "guid": "00000000B1E7",
         "en-US": "Distance Between",
@@ -8151,6 +8224,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "float",
             "Vector"
@@ -8178,6 +8252,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C35A",
         "en-US": "Dot Product",
@@ -8198,6 +8273,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        "isConstant": true,
         "en-US": "Down",
         "es-MX": "Abajo",
         "fr-FR": "Bas",
@@ -8208,6 +8284,7 @@ var valueFuncKw =
     "__emptyArray__": {
         "description": "An array with no elements.",
         "args": [],
+        "isConstant": true,
         "return": "Array",
         "guid": "00000000BF5A",
         "en-US": "Empty Array",
@@ -8376,6 +8453,7 @@ var valueFuncKw =
     "false": {
         "description": "The boolean value of false.",
         "args": null,
+        "isConstant": true,
         "return": "BoolLiteral",
         "guid": "00000000AC3A",
         "en-US": "False",
@@ -8424,6 +8502,7 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
+        "isConstant": true,
         "return": "Array",
         "guid": "00000000B5B7",
         "en-US": "Filtered Array",
@@ -8443,6 +8522,7 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -8478,6 +8558,7 @@ var valueFuncKw =
         "guid": "00000000B11A",
         "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
         "args": null,
+        "isConstant": true,
         "return": {
             "Direction": [
                 "unsigned int",
@@ -8662,6 +8743,7 @@ var valueFuncKw =
                 "default": "ANA"
             }
         ],
+        "isConstant": true,
         "return": "Hero",
         "en-US": "Hero",
         "es-MX": "Héroe",
@@ -8699,6 +8781,7 @@ var valueFuncKw =
                 "default": "HERO"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "guid": "00000000C1FE",
         "en-US": "Hero Icon String",
@@ -8737,6 +8820,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000BB2C",
         "en-US": "Horizontal Angle From Direction",
@@ -8782,6 +8866,7 @@ var valueFuncKw =
                 "default": "ASSAULT"
             }
         ],
+        "isConstant": true,
         "return": "Gamemode",
         "en-US": "Game Mode",
         "es-MX": "Modo de juego",
@@ -8850,6 +8935,7 @@ var valueFuncKw =
                 "default": "ARROW: DOWN"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "guid": "00000000CCDC",
         "en-US": "Icon String",
@@ -8887,6 +8973,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -8914,6 +9001,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "int",
         "guid": "00000000C330",
         "en-US": "Index Of Array Value",
@@ -8933,6 +9021,7 @@ var valueFuncKw =
                 "default": "Button"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "guid": "0000000111B7",
         "en-US": "Input Binding String",
@@ -9698,6 +9787,7 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000000B5BA",
         "en-US": "Is True For All",
@@ -9723,6 +9813,7 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000000B5BB",
         "en-US": "Is True For Any",
@@ -9883,6 +9974,7 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -9911,6 +10003,7 @@ var valueFuncKw =
         "guid": "00000000B116",
         "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
         "args": null,
+        "isConstant": true,
         "return": {
             "Direction": [
                 "unsigned int",
@@ -9967,6 +10060,7 @@ var valueFuncKw =
                 "default": "AYUTTHAYA"
             }
         ],
+        "isConstant": true,
         "return": "Map",
         "en-US": "Map",
         "es-ES": "Mapa",
@@ -9996,6 +10090,7 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
+        "isConstant": true,
         "return": "Array",
         "guid": "000000011228",
         "en-US": "Mapped Array",
@@ -10046,6 +10141,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "en-US": "Max",
         "es-MX": "Máximo",
@@ -10140,6 +10236,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "en-US": "Min",
         "es-MX": "Mínimo",
@@ -10165,6 +10262,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "en-US": "Modulo",
         "es-MX": "Módulo",
@@ -10195,6 +10293,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "float",
             "Vector"
@@ -10235,6 +10334,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "Vector",
         "guid": "00000000C344",
         "en-US": "Normalize",
@@ -10255,6 +10355,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "en-US": "Not",
         "es-MX": "No",
@@ -10266,6 +10367,7 @@ var valueFuncKw =
     "null": {
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
         "args": null,
+        "isConstant": true,
         "return": "Player",
         "guid": "00000000B594",
         "en-US": "Null",
@@ -10455,6 +10557,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "unsigned int",
         "guid": "00000000B355",
         "en-US": "Objective Position",
@@ -10474,6 +10577,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        "isConstant": true,
         "return": "Team",
         "guid": "00000000BB0A",
         "en-US": "Opposite Team Of",
@@ -10500,6 +10604,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "en-US": "Or",
         "es-MX": "O",
@@ -10778,6 +10883,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "unsigned float",
         "en-US": "Raise To Power",
         "es-MX": "Elevar a la potencia",
@@ -11037,6 +11143,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "Array",
         "guid": "00000000C421",
         "en-US": "Remove From Array",
@@ -11050,6 +11157,7 @@ var valueFuncKw =
         "guid": "00000000B117",
         "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
         "args": null,
+        "isConstant": true,
         "return": {
             "Direction": [
                 "signed int",
@@ -11080,6 +11188,7 @@ var valueFuncKw =
                 "default": "UP"
             }
         ],
+        "isConstant": true,
         "return": "int",
         "guid": "00000000C354",
         "en-US": "Round To Integer",
@@ -11154,6 +11263,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C33C",
         "en-US": "Sine From Degrees",
@@ -11173,6 +11283,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C340",
         "en-US": "Sine From Radians",
@@ -11219,6 +11330,7 @@ var valueFuncKw =
                 "default": "CURRENT ARRAY ELEMENT"
             }
         ],
+        "isConstant": true,
         "return": {
             "Array": "Object"
         },
@@ -11284,6 +11396,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "unsigned float",
         "guid": "00000000C356",
         "en-US": "Square Root",
@@ -11322,6 +11435,7 @@ var valueFuncKw =
                 "default": "NULL"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "en-US": "String",
         "es-MX": "Cadena",
@@ -11352,6 +11466,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "float",
             "Vector"
@@ -11373,6 +11488,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C7F8",
         "en-US": "Tangent From Degrees",
@@ -11392,6 +11508,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C7FD",
         "en-US": "Tangent From Radians",
@@ -11473,6 +11590,7 @@ var valueFuncKw =
     "true": {
         "description": "The boolean value of true.",
         "args": null,
+        "isConstant": true,
         "return": "BoolLiteral",
         "guid": "00000000AC39",
         "en-US": "True",
@@ -11503,6 +11621,7 @@ var valueFuncKw =
         "guid": "00000000B118",
         "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
         "args": null,
+        "isConstant": true,
         "return": {
             "Direction": [
                 "unsigned int",
@@ -11533,6 +11652,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -11568,6 +11688,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "Vector",
         "en-US": "Vector",
         "fr-FR": "Vecteur",
@@ -11591,6 +11712,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "Direction",
         "guid": "00000000B1EB",
         "en-US": "Vector Towards",
@@ -11629,6 +11751,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000BB2B",
         "en-US": "Vertical Angle From Direction",
@@ -11766,6 +11889,7 @@ var valueFuncKw =
                 "default": 100
             }
         ],
+        "isConstant": true,
         "return": "int",
         "guid": "000000011375",
         "en-US": "Workshop Setting Integer",
@@ -11809,6 +11933,7 @@ var valueFuncKw =
                 "default": 100
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000001137B",
         "en-US": "Workshop Setting Real",
@@ -11840,6 +11965,7 @@ var valueFuncKw =
                 "default": 0
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000001136B",
         "en-US": "Workshop Setting Toggle",
@@ -11890,6 +12016,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000B26F",
         "en-US": "X Component Of",
@@ -11909,6 +12036,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000B270",
         "en-US": "Y Component Of",
@@ -11928,6 +12056,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000B272",
         "en-US": "Z Component Of",
@@ -18270,6 +18399,10 @@ const eventPlayerKw =
 //end-json
 Object.assign(eventPlayerKw, eventSlotKw, heroKw);
 
+//A constant function is defined as a function/constant that will always return the same value throughout the lifetime of a game. (This means "current gamemode" and "current map" are valid, as you cannot change a map without restarting the game.)
+//Here we store the functions that are not constant, as it is easier to check with astContainsFunctions().
+const notConstantFunctions = Object.keys(valueFuncKw).filter(x => !valueFuncKw[x].isConstant);
+
 var constantKw = {};
 for (var constant of Object.keys(constantValues)) {
     for (var value of Object.keys(constantValues[constant])) {
@@ -18279,6 +18412,7 @@ for (var constant of Object.keys(constantValues)) {
 
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
 const valueKw = Object.assign({}, valueFuncKw, constantKw);
+
 
 const wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
 
@@ -23405,10 +23539,11 @@ var uniqueNumber;
 var globalInitDirectives = [];
 var playerInitDirectives = [];
 
-//Workshop settings category -> names object, to easily check for sort order or duplicates.
-var workshopSettingCategories = {};
 //Workshop setting names, as each name must be unique even if belonging to different categories.
 var workshopSettingNames = [];
+
+//User-declared enums.
+var enumMembers = {};
 
 //Decompilation variables
 
@@ -23461,8 +23596,8 @@ function resetGlobalVariables(language) {
 	uniqueNumber = 1;
 	globalInitDirectives = [];
 	playerInitDirectives = [];
-	workshopSettingCategories = {};
 	workshopSettingNames = [];
+	enumMembers = {};
 }
 
 //Other constants
@@ -23899,18 +24034,27 @@ function areAstsEqual(a, b) {
     return true;
 }
 
-function astContainsFunctions(ast, functionNames) {
+function astContainsFunctions(ast, functionNames, errorOnTrue=false) {
 
     if (functionNames.includes(ast.name)) {
+        if (errorOnTrue) {
+            error("Cannot have the "+functionNameToString(ast)+" in this context");
+        }
         return true;
     }
     for (var arg of ast.args) {
         if (astContainsFunctions(arg, functionNames)) {
+            if (errorOnTrue) {
+                error("Cannot have the "+functionNameToString(ast)+" in this context");
+            }
             return true;
         }
     }
     for (var child of ast.children) {
         if (astContainsFunctions(child, functionNames)) {
+            if (errorOnTrue) {
+                error("Cannot have the "+functionNameToString(ast)+" in this context");
+            }
             return true;
         }
     }
@@ -23937,6 +24081,9 @@ function getAstFor0_016() {
 }
 function getAstFor0_001() {
     return new Ast("__number__", [new Ast("0.001", [], [], "FloatLiteral")], [], "unsigned float");
+}
+function getAstFor10Million() {
+    return new Ast("__number__", [new Ast("10000000", [], [], "IntLiteral")], [], "int");
 }
 function getAstForInfinity() {
     return new Ast("__number__", [new Ast("999999999999", [], [], "IntLiteral")], [], "unsigned int");
@@ -24926,13 +25073,35 @@ function unescapeString(content) {
 				result += "\n";
 			} else if (content[i+1] === "r") {
 				//do nothing. remove those pesky carriage returns
+			} else if (content[i+1] === "x") {
+				if (i >= content.length-1-2) {
+					error("Expected 2 hexadecimal digits after '\\x'");
+				}
+				var hexDigits = content.slice(i+2, i+2+2);
+				if (!hexDigits.match(/[A-Fa-f0-9]{2}/)) {
+					error("Expected 2 hexadecimal digits after '\\x', but found '"+hexDigits+"'");
+				}
+
+				result += String.fromCharCode(parseInt(hexDigits, 16));
+				i += 2;
+
+			} else if (content[i+1] === "u") {
+				if (i >= content.length-1-4) {
+					error("Expected 4 hexadecimal digits after '\\u'");
+				}
+				var hexDigits = content.slice(i+2, i+2+4);
+				if (!hexDigits.match(/[A-Fa-f0-9]{4}/)) {
+					error("Expected 4 hexadecimal digits after '\\u', but found '"+hexDigits+"'");
+				}
+
+				result += String.fromCodePoint(parseInt(hexDigits, 16));
+				i += 4;
+
 			} else {
 				error("Unknown escape sequence '\\"+content[i+1]+"'");
 			}
 			i++;
-		} /*else if (content[i] === "\n") {
-			error("Strings containing newlines cannot be pasted in the workshop");
-		} */else {
+		} else {
 			result += content[i];
 		}
 	}
@@ -27552,9 +27721,38 @@ function addObfuscationRules(rules) {
 	if (!compiledCustomGameSettings) {
 		error("Cannot use obfuscation without custom game settings declared");
 	}
-	var nbEmptyRules = 2500;
-	var nbTotalRules = nbEmptyRules + rules.length;
+	var nbEmptyRules = (obfuscationSettings.ruleFilling ? 2500 : 0);
+	var nbTotalRules = nbEmptyRules + rules.length + 2 /*copy detection rules*/;
 	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+
+	var copyDetectionRule1 = `
+${tows("__rule__", ruleKw)}("") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("__abortIf__", actionKw)}(0.0000001);
+		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
+	}
+}
+	`
+
+	var copyDetectionRule2 = `
+${tows("__rule__", ruleKw)}("") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__conditions__", ruleKw)} {
+		0.00000001 == ${tows("false", valueFuncKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("__wait__", actionKw)}(${tows("random.uniform", valueFuncKw)}(30, 60), ${tows("IGNORE_CONDITION", constantValues.Wait)});
+		${tows("__while__", actionKw)}(${tows("true", valueFuncKw)});
+		${tows("__end__", actionKw)};
+	}
+}
+	`
+
 	var result = "";
 	result += `
 ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!") {
@@ -27567,19 +27765,19 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 	}
 }
 `;
-	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
+	var putEmptyRuleArray = shuffleArray([3,2].concat(Array(nbEmptyRules).fill(1)).concat(Array(rules.length).fill(0)));
 	var ruleIndex = 0;
-	if (obfuscationSettings.ruleFilling) {
-		for (var i = 0; i < nbTotalRules; i++) {
-			if (putEmptyRuleArray[i]) {
-				result += emptyRule;
-			} else {
-				result += rules[ruleIndex];
-				ruleIndex++;
-			}
+	for (var i = 0; i < nbTotalRules; i++) {
+		if (putEmptyRuleArray[i] === 1) {
+			result += emptyRule;
+		} else if (putEmptyRuleArray[i] === 3) {
+			result += copyDetectionRule1;
+		} else if (putEmptyRuleArray[i] === 2) {
+			result += copyDetectionRule2;
+		} else {
+			result += rules[ruleIndex];
+			ruleIndex++;
 		}
-	} else {
-		result += rules.join("");
 	}
 	return result;
 
@@ -27608,7 +27806,7 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 
 	for (var constant of Object.keys(constantValues[constantType])) {
 		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
-		obfuscationConstantsMapping[constantType][constant] = constantIndex+(constantIndex > 0 ? (Math.random()*0.8)-0.4 : 0);
+		obfuscationConstantsMapping[constantType][constant] = constantIndex * 0.0000001/*+(constantIndex > 0 ? (Math.random()*0.8)-0.4 : 0)*/;
 		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
 	}
 }
@@ -27921,10 +28119,14 @@ astParsingFunctions.__button__ = function(content) {
     if (content.expectedType === "ButtonLiteral") {
         return content.args[0];
     } else if (obfuscationSettings.obfuscateConstants) {
-        return new Ast("__valueInArray__", [
+        var result = new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            getAstForNumber(obfuscationConstantsMapping.ButtonLiteral[content.args[0].name]),
+            new Ast("__multiply__", [
+                getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.ButtonLiteral[content.args[0].name]),
+            ]),
         ]);
+        result.doNotOptimize = true;
+        return result;
     } else {
         return content;
     }
@@ -28730,10 +28932,14 @@ astParsingFunctions.__filteredArray__ = function(content) {
 astParsingFunctions.__gamemode__ = function(content) {
 
     if (obfuscationSettings.obfuscateConstants) {
-        return new Ast("__valueInArray__", [
+        var result = new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            getAstForNumber(obfuscationConstantsMapping.GamemodeLiteral[content.args[0].name]),
+            new Ast("__multiply__", [
+                getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.GamemodeLiteral[content.args[0].name]),
+            ]),
         ]);
+        result.doNotOptimize = true;
+        return result;
     } else {
         return content;
     }
@@ -28826,12 +29032,14 @@ astParsingFunctions.__greaterThanOrEquals__ = function(content) {
 astParsingFunctions.__hero__ = function(content) {
 
     if (obfuscationSettings.obfuscateConstants) {
-        //console.log(content);
-        //console.log(content.args[0].name);
-        return new Ast("__valueInArray__", [
+        var result = new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            getAstForNumber(obfuscationConstantsMapping.HeroLiteral[content.args[0].name]),
+            new Ast("__multiply__", [
+                getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.HeroLiteral[content.args[0].name]),
+            ]),
         ]);
+        result.doNotOptimize = true;
+        return result;
     } else {
         return content;
     }
@@ -28981,6 +29189,13 @@ astParsingFunctions.__ifThenElse__ = function(content) {
         //ifThenElse(A, B, B) -> B
         if (areAstsEqual(content.args[1], content.args[2])) {
             return content.args[1];
+        }
+        //ifThenElse(not A, B, C) -> ifThenElse(A, C, B)
+        if (content.args[0].name === "__not__") {
+            var tmp = content.args[1];
+            content.args[1] = content.args[2];
+            content.args[2] = tmp;
+            content.args[0] = content.args[0].args[0];
         }
     }
     return content;
@@ -29187,10 +29402,14 @@ astParsingFunctions.__lessThanOrEquals__ = function(content) {
 astParsingFunctions.__map__ = function(content) {
 
     if (obfuscationSettings.obfuscateConstants) {
-        return new Ast("__valueInArray__", [
+        var result = new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            getAstForNumber(obfuscationConstantsMapping.MapLiteral[content.args[0].name]),
+            new Ast("__multiply__", [
+                getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.MapLiteral[content.args[0].name]),
+            ]),
         ]);
+        result.doNotOptimize = true;
+        return result;
     } else {
         return content;
     }
@@ -31563,7 +31782,7 @@ function parseAst(content) {
 
     //Optimize, and re-optimize if the function name changed
     var oldContentName = content.name;
-    while (content.name in astParsingFunctions) {
+    while (!content.doNotOptimize && content.name in astParsingFunctions) {
         content = astParsingFunctions[content.name](content);
         if (content.name !== oldContentName) {
             oldContentName = content.name;
@@ -32056,10 +32275,11 @@ function parseLines(lines) {
             }
             result.push(currentLineAst);
 
-        } else if (["rule", "if", "elif", "else", "do", "for", "def", "while", "switch", "case", "default"].includes(lines[i].tokens[0].text)) {
+        } else if (["rule", "enum", "if", "elif", "else", "do", "for", "def", "while", "switch", "case", "default"].includes(lines[i].tokens[0].text)) {
 
             var tokenToFuncMapping = {
                 "rule": "__rule__",
+                "enum": "__enum__",
                 "if": "__if__",
                 "elif": "__elif__",
                 "else": "__else__",
@@ -32090,6 +32310,13 @@ function parseLines(lines) {
                 instructionRuleAttributes = {};
                 instructionRuleAttributes.name = unescapeString(lineMembers[0][1].text);
 
+            } else if (funcName === "__enum__") {
+                if (lineMembers[0].length !== 2) {
+                    error("Malformatted 'enum' declaration");
+                }
+                args = [new Ast(lineMembers[0][1].text, [], [], "__EnumName__")];
+
+
             } else if (funcName === "__def__") {
                 if (lineMembers[0].length !== 4 || lineMembers[0][2].text !== "(" || lineMembers[0][3].text !== ")") {
                     error("Malformatted 'def' declaration");
@@ -32098,7 +32325,7 @@ function parseLines(lines) {
                 instructionRuleAttributes.subroutineName = lineMembers[0][1].text;
             }
 
-            if (!["__else__", "__doWhile__", "__rule__", "__def__", "__default__"].includes(funcName)) {
+            if (!["__else__", "__doWhile__", "__rule__", "__enum__", "__def__", "__default__"].includes(funcName)) {
                 args = [parse(lineMembers[0].slice(1))];
             }
             
@@ -32148,7 +32375,48 @@ function parseLines(lines) {
             }
 
             i += j-i-1;
-            children = parseLines(childrenLines);
+            if (funcName === "__enum__") {
+                //Implement our own mini-parser to not get "function does not exist" errors.
+                enumMembers[args[0].name] = {};
+                var lastIntValue = 0;
+                for (var k = 0; k < childrenLines.length; k++) {
+                    fileStack = childrenLines[k].tokens[0].fileStack;
+                    //console.log(childrenLines[k]);
+                    if (childrenLines[k].tokens[childrenLines[k].tokens.length-1].text !== ",") {
+                        if (k < childrenLines.length-1) {
+                            error("Expected ',' at the end of the line");
+                        }
+                    } else {
+                        childrenLines[k].tokens = childrenLines[k].tokens.slice(0, childrenLines[k].tokens.length-1);
+                    }
+                    var assignOperands = splitTokens(childrenLines[k].tokens, "=", false);
+                    if (assignOperands.length === 1) {
+                        //Enum member was not assigned a value
+                        if (typeof lastIntValue === "number") {
+                            enumMembers[args[0].name][childrenLines[k].tokens[0]] = getAstForNumber(lastIntValue);
+                            lastIntValue++;
+                        } else {
+                            error("Cannot auto-increment enum member, as last value was "+functionNameToString(lastIntValue));
+                        }
+                    } else {
+                        var enumValue = parse(assignOperands[1]);
+                        if (enumValue.name === "__number__") {
+                            lastIntValue = enumValue.args[0].numValue+1;
+                        } else {
+
+                            //Check that there are only constant functions, as to not mislead the programmer; enums are just macros in disguise
+                            astContainsFunctions(enumValue, notConstantFunctions, true);
+
+                            lastIntValue = enumValue;
+                        }
+                        enumMembers[args[0].name][childrenLines[k].tokens[0]] = enumValue;
+                    }
+                }
+                //We do not care about enums in the AST
+                continue;
+            } else {
+                children = parseLines(childrenLines);
+            }
 
             var instruction = new Ast(funcName, args, children);
             if (currentComments !== []) {
@@ -32687,6 +32955,12 @@ function parseMember(object, member) {
         
         if (object.length === 1) {
 
+            //Check for member of a user-declared enum
+            //Do not throw an error if the name is not in the enum, as it can be in a built-in enum
+            if (object[0].text in enumMembers && name in enumMembers[object[0].text]) {
+                return enumMembers[object[0].text][name];
+            }
+
             //Check enums
             if (Object.keys(constantValues).includes(object[0].text)) {
                 return new Ast(name, [], [], object[0].text);
@@ -32716,7 +32990,7 @@ function parseMember(object, member) {
                 } else {
                     error("Unhandled member 'math."+name+"'");
                 }
-        
+            
             //Check the pseudo-enum "Vector"
             } else if (object[0].text === "Vector") {
                 return new Ast("Vector."+name);
@@ -32727,7 +33001,6 @@ function parseMember(object, member) {
                     error("Expected a number after '.' but got '"+name+"'");
                 }
                 return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "FloatLiteral")], [], "unsigned float");
-
             }
         }
 
@@ -32995,6 +33268,7 @@ function compile(content, language="en-US", _rootPath="") {
 		playerVariables: playerVariables,
 		subroutines: subroutines,
 		encounteredWarnings: encounteredWarnings,
+		enumMembers: enumMembers,
 	};
 }
 

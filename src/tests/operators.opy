@@ -149,4 +149,5 @@ rule "ternaries":
     A = B if 0 == 0 else D #B
     A = B if 0 != 0 else D #D
     A = B if C else B #B
+    A = B if not C else D #if-then-else(C, D, B)
     A = B if 0 != 0 else C if 0 != 0 else D #D

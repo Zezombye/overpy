@@ -76,10 +76,11 @@ var uniqueNumber;
 var globalInitDirectives = [];
 var playerInitDirectives = [];
 
-//Workshop settings category -> names object, to easily check for sort order or duplicates.
-var workshopSettingCategories = {};
 //Workshop setting names, as each name must be unique even if belonging to different categories.
 var workshopSettingNames = [];
+
+//User-declared enums.
+var enumMembers = {};
 
 //Decompilation variables
 
@@ -132,8 +133,8 @@ function resetGlobalVariables(language) {
 	uniqueNumber = 1;
 	globalInitDirectives = [];
 	playerInitDirectives = [];
-	workshopSettingCategories = {};
 	workshopSettingNames = [];
+	enumMembers = {};
 }
 
 //Other constants

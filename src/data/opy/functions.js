@@ -30,6 +30,7 @@ const opyFuncs = {
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "any": {
@@ -42,6 +43,7 @@ const opyFuncs = {
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "async": {
@@ -72,6 +74,7 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int",
     },
     "chase": {
@@ -138,6 +141,7 @@ const opyFuncs = {
                 "default": 0,
             }
         ],
+        "isConstant": true,
         "return": [
             "bool",
             "int",
@@ -154,6 +158,7 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int",
     },
     "getAllPlayers": {
@@ -387,16 +392,59 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int",
+    },
+    "lineIntersectsSphere": {
+        "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point.\n\nThanks to LazyLion for the formula.\n\nResolves to `distance(distance(lineStart, sphereCenter) * lineDirection, sphereCenter) <= sphereRadius`.",
+        "args": [
+            {
+                "name": "LINE START",
+                "description": "The starting position of the line.",
+                "type": "Position",
+            },{
+                "name": "LINE DIRECTION",
+                "description": "The direction from the starting position to the ending position of the line.",
+                "type": "Direction",
+            },{
+                "name": "SPHERE CENTER",
+                "description": "The center of the sphere.",
+                "type": "Position",
+            },{
+                "name": "SPHERE RADIUS",
+                "description": "The radius of the sphere.",
+                "type": "unsigned float",
+            }
+        ],
+        "isConstant": true,
+        return: "bool",
+    },
+    "log": {
+        "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid for the formula.",
+        "args": [
+            {
+                "name": "NUMBER",
+                "description": "The number to get the logarithm of.",
+                "type": "unsigned float",
+            },{
+                "name": "BASE",
+                "description": "The base of the logarithm. If not specified, defaults to `math.e`.",
+                "type": "unsigned float",
+            }
+        ],
+        "isConstant": true,
+        return: "float",
     },
     "math.e": {
         "description": "The number e = 2.71828182846.",
         "args": null,
+        "isConstant": true,
         return: "unsigned float",
     },
     "math.pi": {
         "description": "The number pi = 3.14159265359.",
         "args": null,
+        "isConstant": true,
         return: "unsigned float",
     },
     "pass": {
@@ -486,6 +534,7 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int"
     },
     "RULE_CONDITION": {
@@ -514,6 +563,7 @@ const opyFuncs = {
                 "default": "CURRENT ARRAY ELEMENT"
             }
         ],
+        "isConstant": true,
         return: {Array: "Object"},
     },
     "stopChasingVariable": {

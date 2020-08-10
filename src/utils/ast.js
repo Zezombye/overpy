@@ -176,18 +176,27 @@ function areAstsEqual(a, b) {
     return true;
 }
 
-function astContainsFunctions(ast, functionNames) {
+function astContainsFunctions(ast, functionNames, errorOnTrue=false) {
 
     if (functionNames.includes(ast.name)) {
+        if (errorOnTrue) {
+            error("Cannot have the "+functionNameToString(ast)+" in this context");
+        }
         return true;
     }
     for (var arg of ast.args) {
         if (astContainsFunctions(arg, functionNames)) {
+            if (errorOnTrue) {
+                error("Cannot have the "+functionNameToString(ast)+" in this context");
+            }
             return true;
         }
     }
     for (var child of ast.children) {
         if (astContainsFunctions(child, functionNames)) {
+            if (errorOnTrue) {
+                error("Cannot have the "+functionNameToString(ast)+" in this context");
+            }
             return true;
         }
     }
@@ -215,11 +224,23 @@ function getAstFor0_016() {
 function getAstFor0_001() {
     return new Ast("__number__", [new Ast("0.001", [], [], "FloatLiteral")], [], "unsigned float");
 }
+function getAstFor0_0001() {
+    return new Ast("__number__", [new Ast("0.0001", [], [], "FloatLiteral")], [], "unsigned float");
+}
+function getAstFor10000() {
+    return new Ast("__number__", [new Ast("10000", [], [], "IntLiteral")], [], "int");
+}
+function getAstFor10Million() {
+    return new Ast("__number__", [new Ast("10000000", [], [], "IntLiteral")], [], "int");
+}
 function getAstForInfinity() {
     return new Ast("__number__", [new Ast("999999999999", [], [], "IntLiteral")], [], "unsigned int");
 }
 function getAstForMinusInfinity() {
     return new Ast("__number__", [new Ast("-999999999999", [], [], "IntLiteral")], [], "signed int");
+}
+function getAstForE() {
+    return new Ast("__number__", [new Ast("2.718281828459045", [], [], "FloatLiteral")], [], "unsigned float");
 }
 function getAstForNumber(nb) {
     if (typeof nb !== "number") {

@@ -84,6 +84,7 @@ function compile(content, language="en-US", _rootPath="") {
 		playerVariables: playerVariables,
 		subroutines: subroutines,
 		encounteredWarnings: encounteredWarnings,
+		enumMembers: enumMembers,
 	};
 }
 

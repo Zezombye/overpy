@@ -26,10 +26,14 @@ astParsingFunctions.__button__ = function(content) {
     if (content.expectedType === "ButtonLiteral") {
         return content.args[0];
     } else if (obfuscationSettings.obfuscateConstants) {
-        return new Ast("__valueInArray__", [
+        var result = new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            getAstForNumber(obfuscationConstantsMapping.ButtonLiteral[content.args[0].name]),
+            new Ast("__multiply__", [
+                getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.ButtonLiteral[content.args[0].name]),
+            ]),
         ]);
+        result.doNotOptimize = true;
+        return result;
     } else {
         return content;
     }

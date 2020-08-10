@@ -20,10 +20,14 @@
 astParsingFunctions.__gamemode__ = function(content) {
 
     if (obfuscationSettings.obfuscateConstants) {
-        return new Ast("__valueInArray__", [
+        var result = new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            getAstForNumber(obfuscationConstantsMapping.GamemodeLiteral[content.args[0].name]),
+            new Ast("__multiply__", [
+                getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.GamemodeLiteral[content.args[0].name]),
+            ]),
         ]);
+        result.doNotOptimize = true;
+        return result;
     } else {
         return content;
     }

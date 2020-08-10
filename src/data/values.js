@@ -84,6 +84,7 @@ var valueFuncKw =
                 "default": "Button"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "guid": "000000010B52",
         "en-US": "Ability Icon String",
@@ -128,6 +129,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "unsigned float",
         "guid": "00000000C358",
         "en-US": "Absolute Value",
@@ -160,6 +162,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "float",
             "Vector"
@@ -195,6 +198,7 @@ var valueFuncKw =
     "getDamageHeroes": {
         "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        16. Echo  \n",
         "args": [],
+        "isConstant": true,
         "return": {
             "Array": "Hero"
         },
@@ -211,6 +215,7 @@ var valueFuncKw =
         "guid": "00000000BF58",
         "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Echo \n        30. Baptiste    \n        31. Sigma    \n",
         "args": [],
+        "isConstant": true,
         "return": {
             "Array": "Hero"
         },
@@ -329,6 +334,7 @@ var valueFuncKw =
     "getSupportHeroes": {
         "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
         "args": [],
+        "isConstant": true,
         "return": {
             "Array": "Hero"
         },
@@ -344,6 +350,7 @@ var valueFuncKw =
     "getTankHeroes": {
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
         "args": [],
+        "isConstant": true,
         "return": {
             "Array": "Hero"
         },
@@ -417,6 +424,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000000B273",
         "en-US": "And",
@@ -442,6 +450,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "unsigned float",
         "guid": "00000000C813",
         "en-US": "Angle Between Vectors",
@@ -467,6 +476,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000B282",
         "en-US": "Angle Difference",
@@ -498,6 +508,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "Array",
         "en-US": "Append To Array",
         "es-MX": "Anexar a la matriz",
@@ -516,6 +527,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C809",
         "en-US": "Arccosine In Degrees",
@@ -535,6 +547,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C807",
         "en-US": "Arccosine In Radians",
@@ -554,6 +567,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C805",
         "en-US": "Arcsine In Degrees",
@@ -573,6 +587,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C803",
         "en-US": "Arcsine In Radians",
@@ -598,6 +613,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C801",
         "en-US": "Arctangent In Degrees",
@@ -623,6 +639,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C7FF",
         "en-US": "Arctangent In Radians",
@@ -645,6 +662,7 @@ var valueFuncKw =
                 "default": "NULL"
             }
         ],
+        "isConstant": true,
         "return": "Array",
         "guid": "00000000B836",
         "en-US": "Array",
@@ -670,6 +688,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000000C336",
         "en-US": "Array Contains",
@@ -703,6 +722,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": {
             "Array": "Object"
         },
@@ -737,6 +757,7 @@ var valueFuncKw =
                 "signed int"
             ]
         },
+        "isConstant": true,
         "en-US": "Backward",
         "es-MX": "Atrás",
         "fr-FR": "Arrière",
@@ -754,6 +775,7 @@ var valueFuncKw =
                 "default": "PRIMARY FIRE"
             }
         ],
+        "isConstant": true,
         "return": "Button",
         "guid": "000000010B3B",
         "en-US": "Button",
@@ -816,6 +838,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000000B276",
         "en-US": "Compare",
@@ -866,6 +889,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C33E",
         "en-US": "Cosine From Degrees",
@@ -885,6 +909,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C342",
         "en-US": "Cosine From Radians",
@@ -904,6 +929,7 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         "return": "unsigned int",
         "guid": "00000000B26E",
         "en-US": "Count Of",
@@ -929,6 +955,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "Vector",
         "guid": "00000000C35D",
         "en-US": "Cross Product",
@@ -941,6 +968,7 @@ var valueFuncKw =
     "__currentArrayElement__": {
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": [],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -956,6 +984,7 @@ var valueFuncKw =
     "__currentArrayIndex__": {
         "description": "The current array index being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
         "args": [],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -971,6 +1000,7 @@ var valueFuncKw =
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
         "args": [],
+        "isConstant": true,
         "return": "Gamemode",
         "guid": "00000000F163",
         "en-US": "Current Game Mode",
@@ -984,6 +1014,7 @@ var valueFuncKw =
         "guid": "00000000D418",
         "description": "The current map of the custom game.",
         "args": [],
+        "isConstant": true,
         "return": "Map",
         "en-US": "Current Map",
         "es-MX": "Mapa actual",
@@ -1020,6 +1051,7 @@ var valueFuncKw =
                 "default": "NULL"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "guid": "00000000CE3C",
         "en-US": "Custom String",
@@ -1045,6 +1077,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "Direction",
         "guid": "00000000BB2D",
         "en-US": "Direction From Angles",
@@ -1070,6 +1103,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "Direction",
         "guid": "00000000B1EA",
         "en-US": "Direction Towards",
@@ -1095,6 +1129,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "unsigned float",
         "guid": "00000000B1E7",
         "en-US": "Distance Between",
@@ -1127,6 +1162,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "float",
             "Vector"
@@ -1154,6 +1190,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C35A",
         "en-US": "Dot Product",
@@ -1174,6 +1211,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        "isConstant": true,
         "en-US": "Down",
         "es-MX": "Abajo",
         "fr-FR": "Bas",
@@ -1184,6 +1222,7 @@ var valueFuncKw =
     "__emptyArray__": {
         "description": "An array with no elements.",
         "args": [],
+        "isConstant": true,
         "return": "Array",
         "guid": "00000000BF5A",
         "en-US": "Empty Array",
@@ -1352,6 +1391,7 @@ var valueFuncKw =
     "false": {
         "description": "The boolean value of false.",
         "args": null,
+        "isConstant": true,
         "return": "BoolLiteral",
         "guid": "00000000AC3A",
         "en-US": "False",
@@ -1400,6 +1440,7 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
+        "isConstant": true,
         "return": "Array",
         "guid": "00000000B5B7",
         "en-US": "Filtered Array",
@@ -1419,6 +1460,7 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -1454,6 +1496,7 @@ var valueFuncKw =
         "guid": "00000000B11A",
         "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
         "args": null,
+        "isConstant": true,
         "return": {
             "Direction": [
                 "unsigned int",
@@ -1638,6 +1681,7 @@ var valueFuncKw =
                 "default": "ANA"
             }
         ],
+        "isConstant": true,
         "return": "Hero",
         "en-US": "Hero",
         "es-MX": "Héroe",
@@ -1675,6 +1719,7 @@ var valueFuncKw =
                 "default": "HERO"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "guid": "00000000C1FE",
         "en-US": "Hero Icon String",
@@ -1713,6 +1758,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000BB2C",
         "en-US": "Horizontal Angle From Direction",
@@ -1758,6 +1804,7 @@ var valueFuncKw =
                 "default": "ASSAULT"
             }
         ],
+        "isConstant": true,
         "return": "Gamemode",
         "en-US": "Game Mode",
         "es-MX": "Modo de juego",
@@ -1826,6 +1873,7 @@ var valueFuncKw =
                 "default": "ARROW: DOWN"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "guid": "00000000CCDC",
         "en-US": "Icon String",
@@ -1863,6 +1911,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -1890,6 +1939,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "int",
         "guid": "00000000C330",
         "en-US": "Index Of Array Value",
@@ -1909,6 +1959,7 @@ var valueFuncKw =
                 "default": "Button"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "guid": "0000000111B7",
         "en-US": "Input Binding String",
@@ -2674,6 +2725,7 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000000B5BA",
         "en-US": "Is True For All",
@@ -2699,6 +2751,7 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000000B5BB",
         "en-US": "Is True For Any",
@@ -2859,6 +2912,7 @@ var valueFuncKw =
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -2887,6 +2941,7 @@ var valueFuncKw =
         "guid": "00000000B116",
         "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
         "args": null,
+        "isConstant": true,
         "return": {
             "Direction": [
                 "unsigned int",
@@ -2943,6 +2998,7 @@ var valueFuncKw =
                 "default": "AYUTTHAYA"
             }
         ],
+        "isConstant": true,
         "return": "Map",
         "en-US": "Map",
         "es-ES": "Mapa",
@@ -2972,6 +3028,7 @@ var valueFuncKw =
                 "default": "COMPARE"
             }
         ],
+        "isConstant": true,
         "return": "Array",
         "guid": "000000011228",
         "en-US": "Mapped Array",
@@ -3022,6 +3079,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "en-US": "Max",
         "es-MX": "Máximo",
@@ -3116,6 +3174,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "en-US": "Min",
         "es-MX": "Mínimo",
@@ -3141,6 +3200,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "en-US": "Modulo",
         "es-MX": "Módulo",
@@ -3171,6 +3231,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "float",
             "Vector"
@@ -3211,6 +3272,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "Vector",
         "guid": "00000000C344",
         "en-US": "Normalize",
@@ -3231,6 +3293,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "en-US": "Not",
         "es-MX": "No",
@@ -3242,6 +3305,7 @@ var valueFuncKw =
     "null": {
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
         "args": null,
+        "isConstant": true,
         "return": "Player",
         "guid": "00000000B594",
         "en-US": "Null",
@@ -3431,6 +3495,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "unsigned int",
         "guid": "00000000B355",
         "en-US": "Objective Position",
@@ -3450,6 +3515,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        "isConstant": true,
         "return": "Team",
         "guid": "00000000BB0A",
         "en-US": "Opposite Team Of",
@@ -3476,6 +3542,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "en-US": "Or",
         "es-MX": "O",
@@ -3754,6 +3821,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "unsigned float",
         "en-US": "Raise To Power",
         "es-MX": "Elevar a la potencia",
@@ -4013,6 +4081,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "Array",
         "guid": "00000000C421",
         "en-US": "Remove From Array",
@@ -4026,6 +4095,7 @@ var valueFuncKw =
         "guid": "00000000B117",
         "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
         "args": null,
+        "isConstant": true,
         "return": {
             "Direction": [
                 "signed int",
@@ -4056,6 +4126,7 @@ var valueFuncKw =
                 "default": "UP"
             }
         ],
+        "isConstant": true,
         "return": "int",
         "guid": "00000000C354",
         "en-US": "Round To Integer",
@@ -4130,6 +4201,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C33C",
         "en-US": "Sine From Degrees",
@@ -4149,6 +4221,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C340",
         "en-US": "Sine From Radians",
@@ -4195,6 +4268,7 @@ var valueFuncKw =
                 "default": "CURRENT ARRAY ELEMENT"
             }
         ],
+        "isConstant": true,
         "return": {
             "Array": "Object"
         },
@@ -4260,6 +4334,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "unsigned float",
         "guid": "00000000C356",
         "en-US": "Square Root",
@@ -4298,6 +4373,7 @@ var valueFuncKw =
                 "default": "NULL"
             }
         ],
+        "isConstant": true,
         "return": "String",
         "en-US": "String",
         "es-MX": "Cadena",
@@ -4328,6 +4404,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "float",
             "Vector"
@@ -4349,6 +4426,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C7F8",
         "en-US": "Tangent From Degrees",
@@ -4368,6 +4446,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000C7FD",
         "en-US": "Tangent From Radians",
@@ -4449,6 +4528,7 @@ var valueFuncKw =
     "true": {
         "description": "The boolean value of true.",
         "args": null,
+        "isConstant": true,
         "return": "BoolLiteral",
         "guid": "00000000AC39",
         "en-US": "True",
@@ -4479,6 +4559,7 @@ var valueFuncKw =
         "guid": "00000000B118",
         "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
         "args": null,
+        "isConstant": true,
         "return": {
             "Direction": [
                 "unsigned int",
@@ -4509,6 +4590,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": [
             "Object",
             "Array"
@@ -4544,6 +4626,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         "return": "Vector",
         "en-US": "Vector",
         "fr-FR": "Vecteur",
@@ -4567,6 +4650,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "Direction",
         "guid": "00000000B1EB",
         "en-US": "Vector Towards",
@@ -4605,6 +4689,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000BB2B",
         "en-US": "Vertical Angle From Direction",
@@ -4742,6 +4827,7 @@ var valueFuncKw =
                 "default": 100
             }
         ],
+        "isConstant": true,
         "return": "int",
         "guid": "000000011375",
         "en-US": "Workshop Setting Integer",
@@ -4785,6 +4871,7 @@ var valueFuncKw =
                 "default": 100
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000001137B",
         "en-US": "Workshop Setting Real",
@@ -4816,6 +4903,7 @@ var valueFuncKw =
                 "default": 0
             }
         ],
+        "isConstant": true,
         "return": "bool",
         "guid": "00000001136B",
         "en-US": "Workshop Setting Toggle",
@@ -4866,6 +4954,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000B26F",
         "en-US": "X Component Of",
@@ -4885,6 +4974,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000B270",
         "en-US": "Y Component Of",
@@ -4904,6 +4994,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        "isConstant": true,
         "return": "float",
         "guid": "00000000B272",
         "en-US": "Z Component Of",

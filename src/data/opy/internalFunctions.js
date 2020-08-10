@@ -135,6 +135,7 @@ const opyInternalFuncs = {
                 "type": "DictElem",
             }
         ],
+        "isConstant": true,
         return: ["Object", "Array"],
     },
     "__dictElem__": {
@@ -147,6 +148,7 @@ const opyInternalFuncs = {
                 "type": ["Object", "Array"],
             }
         ],
+        "isConstant": true,
         return: "DictElem",
     },
     "__distanceTo__": {
@@ -168,6 +170,15 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
+    "__enum__": {
+        "args": [
+            {
+                "name": "NAME",
+                "type": "EnumName",
+            }
+        ],
+        return: "void",
+    },
     "__equals__": {
         "args": [
             {
@@ -181,6 +192,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__for__": {
@@ -217,6 +229,7 @@ const opyInternalFuncs = {
                 "default": "NULL"
             }
         ],
+        "isConstant": true,
         return: "String",
     },
     "__getNormal__": {
@@ -277,6 +290,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     
@@ -293,6 +307,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__inequals__": {
@@ -308,6 +323,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__lessThan__": {
@@ -323,6 +339,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__lessThanOrEquals__": {
@@ -338,20 +355,8 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
-    },
-    "__mappedArray__": {
-        "args": [
-            {
-                "name": "ARRAY",
-                "type": "Array",
-            },
-            {
-                "name": "CONDITION",
-                "type": "bool",
-            }
-        ],
-        "return": {"Array": "bool"},
     },
     "__modifyVar__": {
         "args": [
@@ -385,6 +390,7 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             },
         ],
+        "isConstant": true,
         return: ["float", "Vector"],
     },
     "__number__": {
@@ -395,6 +401,7 @@ const opyInternalFuncs = {
                 "default": "0",
             },
         ],
+        "isConstant": true,
         return: "float",
         "en-US": "Number",
     },
@@ -431,6 +438,7 @@ const opyInternalFuncs = {
                 "default": "ALL",
             }
         ],
+        "isConstant": true,
         return: "Team",
     }
 }
