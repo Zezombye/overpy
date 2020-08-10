@@ -420,7 +420,7 @@ const opyFuncs = {
         return: "bool",
     },
     "log": {
-        "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid for the formula.",
+        "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4.",
         "args": [
             {
                 "name": "NUMBER",
