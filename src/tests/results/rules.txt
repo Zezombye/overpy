@@ -1,0 +1,83 @@
+variables {
+    global:
+        0: A
+        1: B
+        2: C
+        22: W
+        23: X
+        24: Y
+        25: Z
+    player:
+        0: A
+        1: B
+}
+rule ("normal") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Global.A += 1;
+        Global.B += 1;
+    }
+}
+
+rule ("event player") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    actions {
+        (Event Player).A += 1;
+    }
+}
+
+rule ("filter on team+hero") {
+    event {
+        Player Took Damage;
+        Team 1;
+        Ana;
+    }
+    actions {
+        (Victim).A += 1;
+    }
+}
+
+rule ("filter on team+slot") {
+    event {
+        Player Received Healing;
+        All;
+        Slot 3;
+    }
+    actions {
+        (Healer).B += 1;
+    }
+}
+
+rule ("conditions") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.A != False;
+        Global.B != False;
+        Global.X != False;
+        Global.Y != False;
+        Global.Z != False;
+        Global.W != False;
+        Global.C != False;
+    }
+    actions {
+        Global.B += 1;
+    }
+}
+
+rule ("condition that is always true") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Global.B += 1;
+    }
+}
+

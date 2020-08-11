@@ -31,6 +31,14 @@ astParsingFunctions.__not__ = function(content) {
         if (content.args[0].name === "__not__" && isTypeSuitable("bool", content.args[0].args[0].type, false)) {
             return content.args[0].args[0];
         }
+        //not is alive -> is dead
+        if (content.args[0].name === "_&isAlive") {
+            return new Ast("_&isDead", [content.args[0].args[0]]);
+        }
+        //not is dead -> is alive
+        if (content.args[0].name === "_&isDead") {
+            return new Ast("_&isAlive", [content.args[0].args[0]]);
+        }
     }
     return content;
 }

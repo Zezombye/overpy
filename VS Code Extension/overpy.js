@@ -989,6 +989,46 @@ const opyFuncs = {
         "isConstant": true,
         return: "int",
     },
+    "lineIntersectsSphere": {
+        "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point.\n\nThanks to LazyLion for the formula.\n\nResolves to `distance(distance(lineStart, sphereCenter) * lineDirection, sphereCenter) <= sphereRadius`.",
+        "args": [
+            {
+                "name": "LINE START",
+                "description": "The starting position of the line.",
+                "type": "Position",
+            },{
+                "name": "LINE DIRECTION",
+                "description": "The direction from the starting position to the ending position of the line.",
+                "type": "Direction",
+            },{
+                "name": "SPHERE CENTER",
+                "description": "The center of the sphere.",
+                "type": "Position",
+            },{
+                "name": "SPHERE RADIUS",
+                "description": "The radius of the sphere.",
+                "type": "unsigned float",
+            }
+        ],
+        "isConstant": true,
+        return: "bool",
+    },
+    "log": {
+        "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4.",
+        "args": [
+            {
+                "name": "NUMBER",
+                "description": "The number to get the logarithm of.",
+                "type": "unsigned float",
+            },{
+                "name": "BASE",
+                "description": "The base of the logarithm. If not specified, defaults to `math.e`.",
+                "type": "unsigned float",
+            }
+        ],
+        "isConstant": true,
+        return: "float",
+    },
     "math.e": {
         "description": "The number e = 2.71828182846.",
         "args": null,
@@ -24082,6 +24122,12 @@ function getAstFor0_016() {
 function getAstFor0_001() {
     return new Ast("__number__", [new Ast("0.001", [], [], "FloatLiteral")], [], "unsigned float");
 }
+function getAstFor0_0001() {
+    return new Ast("__number__", [new Ast("0.0001", [], [], "FloatLiteral")], [], "unsigned float");
+}
+function getAstFor10000() {
+    return new Ast("__number__", [new Ast("10000", [], [], "IntLiteral")], [], "int");
+}
 function getAstFor10Million() {
     return new Ast("__number__", [new Ast("10000000", [], [], "IntLiteral")], [], "int");
 }
@@ -24090,6 +24136,9 @@ function getAstForInfinity() {
 }
 function getAstForMinusInfinity() {
     return new Ast("__number__", [new Ast("-999999999999", [], [], "IntLiteral")], [], "signed int");
+}
+function getAstForE() {
+    return new Ast("__number__", [new Ast("2.718281828459045", [], [], "FloatLiteral")], [], "unsigned float");
 }
 function getAstForNumber(nb) {
     if (typeof nb !== "number") {
@@ -24129,6 +24178,13 @@ function getAstForEnd() {
 }
 function getAstForEmptyArray() {
     return new Ast("__emptyArray__");
+}
+function getAstForNullVector() {
+    return new Ast("vect", [
+        getAstFor0(),
+        getAstFor0(),
+        getAstFor0(),
+    ])
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -28907,6 +28963,36 @@ astParsingFunctions.__filteredArray__ = function(content) {
                 return new Ast("__removeFromArray__", [content.args[0], content.args[1].args[1]]);
             }
         }
+
+        if (content.args[0].name === "getPlayers") {
+            //filter(getPlayers(A), is on objective(x)) -> getPlayersOnObjective(A)
+            if (content.args[1].name === "_&isOnObjective" && content.args[1].args[0].name === "__currentArrayElement__") {
+                return new Ast("getPlayersOnObjective", [content.args[0].args[0]]);
+            }
+            //filter(getPlayers(A), not is on objective(x)) -> getPlayersNotOnObjective(A)
+            if (content.args[1].name === "__not__" && content.args[1].args[0].name === "_&isOnObjective" && content.args[1].args[0].args[0].name === "__currentArrayElement__") {
+                return new Ast("getPlayersNotOnObjective", [content.args[0].args[0]]);
+            }
+            //filter(getPlayers(A), is alive(x)) -> getLivingPlayers(A)
+            if (content.args[1].name === "_&isAlive" && content.args[1].args[0].name === "__currentArrayElement__") {
+                return new Ast("getLivingPlayers", [content.args[0].args[0]]);
+            }
+            //filter(getPlayers(A), is dead(x)) -> getDeadPlayers(A)
+            if (content.args[1].name === "_&isDead" && content.args[1].args[0].name === "__currentArrayElement__") {
+                return new Ast("getDeadPlayers", [content.args[0].args[0]]);
+            }
+            //filter(getPlayers(A), x.getCurrentHero() == B) -> getPlayersOnHero(B, A)
+            if (content.args[1].name === "__equals__") {
+                if (content.args[1].args[0].name === "_&getCurrentHero" && content.args[1].args[0].args[0].name === "__currentArrayElement__"
+                        && !astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
+                    return new Ast("getPlayersOnHero", [content.args[1].args[1], content.args[0].args[0]]);
+                }
+                if (content.args[1].args[1].name === "_&getCurrentHero" && content.args[1].args[1].args[0].name === "__currentArrayElement__"
+                        && !astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__", "__currentArrayIndex__"])) {
+                    return new Ast("getPlayersOnHero", [content.args[1].args[0], content.args[0].args[0]]);
+                }
+            }
+        }
     }
     return content;
 }
@@ -29716,6 +29802,14 @@ astParsingFunctions.__not__ = function(content) {
         if (content.args[0].name === "__not__" && isTypeSuitable("bool", content.args[0].args[0].type, false)) {
             return content.args[0].args[0];
         }
+        //not is alive -> is dead
+        if (content.args[0].name === "_&isAlive") {
+            return new Ast("_&isDead", [content.args[0].args[0]]);
+        }
+        //not is dead -> is alive
+        if (content.args[0].name === "_&isDead") {
+            return new Ast("_&isAlive", [content.args[0].args[0]]);
+        }
     }
     return content;
 }
@@ -29931,7 +30025,7 @@ astParsingFunctions.__rule__ = function(content) {
                 "__wait__",
                 "__while__",
             ].includes(children[i].name) && children[i].type !== "Label") {
-                console.debug("meaningful instruction :"+children[i].name);
+                debug("meaningful instruction :"+children[i].name);
                 hasMeaningfulInstructionBeenEncountered = true;
             }
 
@@ -30024,7 +30118,7 @@ astParsingFunctions.__rule__ = function(content) {
     if (enableOptimization && content.ruleAttributes.conditions) {
         for (var i = 0; i < content.ruleAttributes.conditions.length; i++) {
             if (isDefinitelyFalsy(content.ruleAttributes.conditions[i])) {
-                console.debug("rule has false condition");
+                debug("rule has false condition");
                 return getAstForUselessInstruction();
             } else if (isDefinitelyTruthy(content.ruleAttributes.conditions[i])) {
                 content.ruleAttributes.conditions.splice(i, 1);
@@ -30406,6 +30500,93 @@ astParsingFunctions.__zComponentOf__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.abs = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.abs(content.args[0].args[0].numValue));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.acos = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.acos(Math.max(-1, Math.min(1, content.args[0].args[0].numValue))));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.acosDeg = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.acos(Math.max(-1, Math.min(1, content.args[0].args[0].numValue)))*(180/Math.PI));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.all = function(content) {
 
     if (content.args[0].name === "__mappedArray__") {
@@ -30440,6 +30621,122 @@ astParsingFunctions.any = function(content) {
     } else {
         return new Ast("__any__", [content.args[0], new Ast("__currentArrayElement__")]);
     }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.asin = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.asin(Math.max(-1, Math.min(1, content.args[0].args[0].numValue))));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.asinDeg = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.asin(Math.max(-1, Math.min(1, content.args[0].args[0].numValue)))*(180/Math.PI));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.atan2 = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForNumber(Math.atan2(content.args[0].args[0].numValue, content.args[1].args[0].numValue));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.atan2Deg = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForNumber(Math.atan2(content.args[0].args[0].numValue, content.args[1].args[0].numValue)*(180/Math.PI));
+        }
+    }
+    
+    return content;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -30508,6 +30805,35 @@ astParsingFunctions.break = function(content) {
 
 "use strict";
 
+astParsingFunctions.ceil = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.ceil(content.args[0].args[0].numValue));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.continue = function(content) {
 
     //Determine the innermost loop or switch
@@ -30530,6 +30856,64 @@ astParsingFunctions.continue = function(content) {
     } else {
         error("Found 'continue' instruction, but not within a loop");
     }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.cos = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.cos(content.args[0].args[0].numValue));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.cosDeg = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.cos(content.args[0].args[0].numValue*(Math.PI/180)));
+        }
+    }
+    
+    return content;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -30707,6 +31091,97 @@ function createSuitableWorkshopSettingString(str, isName, sortOrder) {
 
 "use strict";
 
+astParsingFunctions.crossProduct = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "vect" 
+                && content.args[0].args[0].name === "__number__" 
+                && content.args[0].args[1].name === "__number__" 
+                && content.args[0].args[2].name === "__number__"
+            && content.args[1].name === "vect" 
+                && content.args[1].args[0].name === "__number__" 
+                && content.args[1].args[1].name === "__number__" 
+                && content.args[1].args[2].name === "__number__") {
+                
+            var Ax = content.args[0].args[0].args[0].numValue;
+            var Ay = content.args[0].args[1].args[0].numValue;
+            var Az = content.args[0].args[2].args[0].numValue;
+            var Bx = content.args[1].args[0].args[0].numValue;
+            var By = content.args[1].args[1].args[0].numValue;
+            var Bz = content.args[1].args[2].args[0].numValue;
+
+            return new Ast("vect", [
+                getAstForNumber(Ay*Bz - Az*By),
+                getAstForNumber(Az*Bx - Ax*Bz),
+                getAstForNumber(Ax*By - Ay*Bx),
+            ]);
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.directionTowards = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "vect" 
+                && content.args[0].args[0].name === "__number__" 
+                && content.args[0].args[1].name === "__number__" 
+                && content.args[0].args[2].name === "__number__"
+            && content.args[1].name === "vect" 
+                && content.args[1].args[0].name === "__number__" 
+                && content.args[1].args[1].name === "__number__" 
+                && content.args[1].args[2].name === "__number__") {
+                
+            return new Ast("normalize", [
+                new Ast("vect", [
+                    getAstForNumber(content.args[1].args[0].args[0].numValue - content.args[0].args[0].args[0].numValue),
+                    getAstForNumber(content.args[1].args[1].args[0].numValue - content.args[0].args[1].args[0].numValue),
+                    getAstForNumber(content.args[1].args[2].args[0].numValue - content.args[0].args[2].args[0].numValue),
+                ])
+            ])
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.disableInspector = function(content) {
 
     if (obfuscationSettings.obfuscateInspector) {
@@ -30714,6 +31189,89 @@ astParsingFunctions.disableInspector = function(content) {
     } else {
         return content;
     }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.distance = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "vect" 
+                && content.args[0].args[0].name === "__number__" 
+                && content.args[0].args[1].name === "__number__" 
+                && content.args[0].args[2].name === "__number__"
+            && content.args[1].name === "vect" 
+                && content.args[1].args[0].name === "__number__" 
+                && content.args[1].args[1].name === "__number__" 
+                && content.args[1].args[2].name === "__number__") {
+
+            return getAstForNumber(Math.sqrt(
+                Math.pow(content.args[0].args[0].args[0].numValue - content.args[1].args[0].args[0].numValue, 2) 
+                + Math.pow(content.args[0].args[1].args[0].numValue - content.args[1].args[1].args[0].numValue, 2) 
+                + Math.pow(content.args[0].args[2].args[0].numValue - content.args[1].args[2].args[0].numValue, 2)
+            ));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.dotProduct = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "vect" 
+                && content.args[0].args[0].name === "__number__" 
+                && content.args[0].args[1].name === "__number__" 
+                && content.args[0].args[2].name === "__number__"
+            && content.args[1].name === "vect" 
+                && content.args[1].args[0].name === "__number__" 
+                && content.args[1].args[1].name === "__number__" 
+                && content.args[1].args[2].name === "__number__") {
+                
+            //dot product(A,B) = A.x*B.x + A.y+B.y + A.z+B.z
+            return getAstForNumber(
+                content.args[0].args[0].args[0].numValue * content.args[1].args[0].args[0].numValue
+                + content.args[0].args[1].args[0].numValue * content.args[1].args[1].args[0].numValue
+                + content.args[0].args[2].args[0].numValue * content.args[1].args[2].args[0].numValue
+            );
+        }
+    }
+    
+    return content;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -30761,10 +31319,336 @@ astParsingFunctions.enableInspector = function(content) {
 
 "use strict";
 
+astParsingFunctions.floor = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.floor(content.args[0].args[0].numValue));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.getAllPlayers = function(content) {
+    return new Ast("getPlayers", [getAstForTeamAll()]);
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.getOppositeTeam = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__team__") {
+            if (content.args[0].args[0].name === "1") {
+                content.args[0].args[0].name = "2";
+                return content.args[0];
+            } else if (content.args[0].args[0].name === "2") {
+                content.args[0].args[0].name = "1";
+                return content.args[0];
+            } else if (content.args[0].args[0].name === "ALL") {
+                //content.args[0].args[0].name = "ALL";
+                return content.args[0];
+            } else {
+                error("Unknown team '"+content.args[0].args[0].name+"'");
+            }
+        }
+    }
+
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.len = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__array__") {
+            return getAstForNumber(content.args[0].args.length);
+        }
+        if (content.args[0].name === "__emptyArray__") {
+            return getAstFor0();
+        }
+        //len(getPlayers(A)) -> getNumberOfPlayers(A)
+        if (content.args[0].name === "getPlayers") {
+            return new Ast("getNumberOfPlayers", [content.args[0].args[0]]);
+        }
+        //len(getLivingPlayers(A)) -> getNumberOfLivingPlayers(A)
+        if (content.args[0].name === "getLivingPlayers") {
+            return new Ast("getNumberOfLivingPlayers", [content.args[0].args[0]]);
+        }
+        //len(getDeadPlayers(A)) -> getNumberOfDeadPlayers(A)
+        if (content.args[0].name === "getDeadPlayers") {
+            return new Ast("getNumberOfDeadPlayers", [content.args[0].args[0]]);
+        }
+        //len(getPlayersOnObjective(A)) -> getNumberOfPlayersOnObjective(A)
+        if (content.args[0].name === "getPlayersOnObjective") {
+            return new Ast("getNumberOfPlayersOnObjective", [content.args[0].args[0]]);
+        }
+        //len(getPlayersOnHero(A,B)) -> getNumberOfHeroes(A,B)
+        if (content.args[0].name === "getPlayersOnHero") {
+            return new Ast("getNumberOfHeroes", [content.args[0].args[0], content.args[0].args[1]]);
+        }
+    }
+
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.lineIntersectsSphere = function(content) {
+
+    return new Ast("__lessThanOrEquals__", [
+        new Ast("distance", [
+            new Ast("__multiply__", [
+                new Ast("distance", [
+                    content.args[0], content.args[2],
+                ]),
+                content.args[1],
+            ]),
+            content.args[2],
+        ]),
+        content.args[3],
+    ]);
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.log = function(content) {
+
+    //log(x) = (10000 * (x ** (0.0001) - 1))
+    if (content.args.length === 1) {
+        //log(e) = 1
+        if (enableOptimization && content.args[0].name === "__number__") {
+            return getAstForNumber(Math.log(content.args[0].args[0].numValue));
+        }
+        return new Ast("__multiply__", [
+            getAstFor10000(),
+            new Ast("__subtract__", [
+                new Ast("__raiseToPower__", [
+                    content.args[0],
+                    getAstFor0_0001(),
+                ]),
+                getAstFor1(),
+            ])
+        ]);
+    } else {
+        return new Ast("__divide__", [
+            astParsingFunctions.log(new Ast("log", [content.args[0]])),
+            astParsingFunctions.log(new Ast("log", [content.args[1]])),
+        ]);
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.max = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForNumber(Math.max(content.args[0].args[0].numValue, content.args[1].args[0].numValue));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.min = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForNumber(Math.min(content.args[0].args[0].numValue, content.args[1].args[0].numValue));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.normalize = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "vect" 
+                && content.args[0].args[0].name === "__number__" 
+                && content.args[0].args[1].name === "__number__" 
+                && content.args[0].args[2].name === "__number__") {
+
+            var magnitude = Math.sqrt(Math.pow(content.args[0].args[0].args[0].numValue, 2) + Math.pow(content.args[0].args[1].args[0].numValue, 2) + Math.pow(content.args[0].args[2].args[0].numValue, 2));
+            if (magnitude === 0) {
+                return getAstForNullVector();
+            }
+            return new Ast("vect", [
+                getAstForNumber(content.args[0].args[0].args[0].numValue / magnitude),
+                getAstForNumber(content.args[0].args[1].args[0].numValue / magnitude),
+                getAstForNumber(content.args[0].args[2].args[0].numValue / magnitude),
+            ]);
+
+        } else if (content.args[0].name === "vectorTowards") {
+            return new Ast("directionTowards", [
+                content.args[0].args[0],
+                content.args[0].args[1],
+            ])
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.print = function(content) {
 
     return new Ast("__hudText__", [
-        new Ast("getAllPlayers"),
+        new Ast("getPlayers", [getAstForTeamAll()]),
         content.args[0],
         getAstForNull(),
         getAstForNull(),
@@ -30776,6 +31660,93 @@ astParsingFunctions.print = function(content) {
         new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"),
         new Ast("DEFAULT", [], [], "SpecVisibility"),
     ]);
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.round = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.round(content.args[0].args[0].numValue));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.sin = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.sin(content.args[0].args[0].numValue));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.sinDeg = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.sin(content.args[0].args[0].numValue*(Math.PI/180)));
+        }
+    }
+    
+    return content;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -30821,6 +31792,94 @@ astParsingFunctions.sorted = function(content) {
 
 "use strict";
 
+astParsingFunctions.sqrt = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            //Use ||0 to return 0 in case of NaN (if the number is negative)
+            return getAstForNumber(Math.sqrt(content.args[0].args[0].numValue) || 0);
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.tan = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.tan(content.args[0].args[0].numValue));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.tanDeg = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.tan(content.args[0].args[0].numValue*(Math.PI/180)));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.vect = function(content) {
 
     if (enableOptimization) {
@@ -30844,6 +31903,47 @@ astParsingFunctions.vect = function(content) {
             if (content.args[0].numValue === 0 && content.args[1].numValue === 0 && content.args[2].numValue === -1) {
                 return new Ast("Vector.BACKWARD");
             }
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.vectorTowards = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "vect" 
+                && content.args[0].args[0].name === "__number__" 
+                && content.args[0].args[1].name === "__number__" 
+                && content.args[0].args[2].name === "__number__"
+            && content.args[1].name === "vect" 
+                && content.args[1].args[0].name === "__number__" 
+                && content.args[1].args[1].name === "__number__" 
+                && content.args[1].args[2].name === "__number__") {
+                
+            return new Ast("vect", [
+                getAstForNumber(content.args[1].args[0].args[0].numValue - content.args[0].args[0].args[0].numValue),
+                getAstForNumber(content.args[1].args[1].args[0].numValue - content.args[0].args[1].args[0].numValue),
+                getAstForNumber(content.args[1].args[2].args[0].numValue - content.args[0].args[2].args[0].numValue),
+            ])
         }
     }
     
@@ -31702,7 +32802,13 @@ function parseAst(content) {
             if (content.args.length === 10) {
                 content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
             }
-
+        } else if (content.name === "log") {
+            if (content.args.length < 1 || content.args.length > 2) {
+                error("Function '"+content.name+"' takes 1 or 2 arguments, received "+content.args.length);
+            }
+            if (content.args.length === 1) {
+                content.args.push(getAstForE());
+            }
         } else if (content.name === "range") {
             if (content.args.length < 1 || content.args.length > 3) {
                 error("Function '"+content.name+"' takes 1 to 3 arguments, received "+content.args.length);
@@ -32086,10 +33192,6 @@ function astToWs(content) {
     } else if (content.name === "floor") {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundDown__", [], [], "__Rounding__")];
-
-    } else if (content.name === "getAllPlayers") {
-        content.name = "getPlayers";
-        content.args = [getAstForTeamAll()];
 
     } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
       
@@ -32984,9 +34086,9 @@ function parseMember(object, member) {
             //Check the pseudo-enum "math"
             } else if (object[0].text === "math") {
                 if (name === "pi") {
-                    return getAstForNumber(3.14159265359);
+                    return getAstForNumber(3.141592653589793);
                 } else if (name === "e") {
-                    return getAstForNumber(2.71828182846);
+                    return getAstForE();
                 } else {
                     error("Unhandled member 'math."+name+"'");
                 }

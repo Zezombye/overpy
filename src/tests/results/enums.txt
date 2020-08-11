@@ -1,0 +1,22 @@
+variables {
+    global:
+        0: A
+}
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        "1"
+        Set Global Variable(A, 1);
+        "2"
+        Set Global Variable(A, 2);
+        "7"
+        Set Global Variable(A, 7);
+        "Team 1"
+        Set Global Variable(A, Team 1);
+        "Team 1"
+        Set Global Variable(A, Team 1);
+    }
+}
+

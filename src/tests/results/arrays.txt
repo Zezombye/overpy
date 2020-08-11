@@ -1,0 +1,135 @@
+variables {
+    global:
+        0: A
+        1: B
+        2: C
+        3: D
+    player:
+        0: A
+}
+rule ("array literals") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        "empty array"
+        Set Global Variable(A, Empty Array);
+        Set Global Variable(A, Array(1, 2, 3));
+        Set Global Variable(A, Value In Array(Global.A, Global.B));
+        "first of(B)"
+        Set Global Variable(A, First Of(Global.B));
+        "B"
+        Set Global Variable(A, Global.B);
+        "C"
+        Set Global Variable(A, Global.C);
+        "0"
+        Set Global Variable(A, Null);
+        "C"
+        Set Global Variable(A, Global.C);
+        "D"
+        Set Global Variable(A, Global.D);
+        "D"
+        Set Global Variable(A, Global.D);
+        "0"
+        Set Global Variable(A, Null);
+        Set Global Variable(A, Array(Array(1, 2), Array(3, 4)));
+        Set Global Variable At Index(A, 0, First Of(Global.B));
+    }
+}
+
+rule ("last") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Last Of(Global.B));
+        "D"
+        Set Global Variable(A, Global.D);
+    }
+}
+
+rule ("filtered array") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Filtered Array(All Players(All Teams), Compare((Current Array Element).A, ==, 2)));
+        Set Global Variable(A, Filtered Array(All Players(All Teams), Compare(Current Array Element, !=, Compare(Global.B, ==, Current Array Element))));
+        "getAllPlayers.remove(B)"
+        Set Global Variable(A, Remove From Array(All Players(All Teams), Global.B));
+        "getAllPlayers() if A == B else []"
+        Set Global Variable(A, If-Then-Else(Compare(Global.A, ==, Global.B), All Players(All Teams), Empty Array));
+        "getAllPlayers()"
+        Set Global Variable(A, All Players(All Teams));
+        Set Global Variable(A, Filtered Array(All Players(All Teams), Compare(Current Array Element, !=, Current Array Index)));
+        Set Global Variable(A, Mapped Array(Filtered Array(All Players(All Teams), Compare((Current Array Element).A, ==, 2)), Health(Current Array Element)));
+        "mapped array()"
+        Set Global Variable(A, Mapped Array(All Players(All Teams), Health(Current Array Element)));
+    }
+}
+
+rule ("mapped array") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Mapped Array(All Players(All Teams), Health(Current Array Element)));
+        "getAllPlayers()"
+        Set Global Variable(A, All Players(All Teams));
+    }
+}
+
+rule ("index") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Index Of Array Value(Global.B, 3));
+        "1"
+        Set Global Variable(A, 1);
+        Set Global Variable(A, Index Of Array Value(Array(Global.A, Global.B, Global.C), 3));
+    }
+}
+
+rule ("slice") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Array Slice(Global.B, 1, 3));
+        "[4]"
+        Set Global Variable(A, Array(4));
+        "[4,5]"
+        Set Global Variable(A, Array(4, 5));
+        "[]"
+        Set Global Variable(A, Empty Array);
+        "[]"
+        Set Global Variable(A, Empty Array);
+        "[1]"
+        Set Global Variable(A, Array(1));
+        "[1,2,3]"
+        Set Global Variable(A, Array(1, 2, 3));
+    }
+}
+
+rule ("other array functions") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Is True For All(All Players(All Teams), Compare((Current Array Element).A, ==, 2)));
+        Set Global Variable(A, Is True For Any(All Players(All Teams), Compare((Current Array Element).A, ==, 2)));
+        Set Global Variable(A, Is True For Any(And(Global.A, Global.B), Array Contains(Global.C, Current Array Element)));
+        Set Global Variable(A, Is True For Any(If-Then-Else(Global.B, Global.A, Global.C), Compare(Current Array Element, ==, 2)));
+        Set Global Variable(A, Is True For All(All Players(All Teams), Current Array Element));
+        Set Global Variable(A, Sorted Array(Global.A, Add(Current Array Element, 2)));
+        Set Global Variable(A, Sorted Array(Global.A, Current Array Element));
+        Modify Global Variable(A, Remove From Array By Index, 1);
+        Modify Global Variable(A, Append To Array, 3);
+        Modify Global Variable(A, Remove From Array By Value, 3);
+        Set Global Variable(A, Append To Array(Global.B, 2));
+        Set Global Variable(A, Index Of Array Value(Global.B, 3));
+        Set Global Variable(A, Remove From Array(Global.B, 3));
+    }
+}
+

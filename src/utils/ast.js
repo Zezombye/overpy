@@ -281,3 +281,10 @@ function getAstForEnd() {
 function getAstForEmptyArray() {
     return new Ast("__emptyArray__");
 }
+function getAstForNullVector() {
+    return new Ast("vect", [
+        getAstFor0(),
+        getAstFor0(),
+        getAstFor0(),
+    ])
+}

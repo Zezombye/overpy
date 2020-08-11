@@ -1,0 +1,16 @@
+variables {
+    global:
+        0: A
+        1: B
+}
+rule ("dicts") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Value In Array(Array(2, 3), Index Of Array Value(Array(Hero(Pharah), Hero(Brigitte)), Global.B)));
+        Set Global Variable(A, Value In Array(Array(2, 3), Index Of Array Value(Array(Hero(Pharah), Hero(Brigitte)), 1)));
+        Set Global Variable(A, Value In Array(Array(2, 3), Index Of Array Value(Array(Hero(Pharah), Hero(Brigitte)), 3)));
+    }
+}
+

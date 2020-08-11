@@ -17,19 +17,13 @@
 
 "use strict";
 
-astParsingFunctions.print = function(content) {
+astParsingFunctions.sinDeg = function(content) {
 
-    return new Ast("__hudText__", [
-        new Ast("getPlayers", [getAstForTeamAll()]),
-        content.args[0],
-        getAstForNull(),
-        getAstForNull(),
-        new Ast("LEFT", [], [], "HudPosition"),
-        getAstFor0(),
-        getAstForColorWhite(),
-        getAstForColorWhite(),
-        getAstForColorWhite(),
-        new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"),
-        new Ast("DEFAULT", [], [], "SpecVisibility"),
-    ]);
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.sin(content.args[0].args[0].numValue*(Math.PI/180)));
+        }
+    }
+    
+    return content;
 }

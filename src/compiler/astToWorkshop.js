@@ -292,10 +292,6 @@ function astToWs(content) {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundDown__", [], [], "__Rounding__")];
 
-    } else if (content.name === "getAllPlayers") {
-        content.name = "getPlayers";
-        content.args = [getAstForTeamAll()];
-
     } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
       
 		if (content.name === "hudHeader") {

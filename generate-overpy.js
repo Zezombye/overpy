@@ -85,17 +85,47 @@ overpyFiles = [
 "compiler/functions/__xComponentOf__.js",
 "compiler/functions/__yComponentOf__.js",
 "compiler/functions/__zComponentOf__.js",
+"compiler/functions/abs.js",
+"compiler/functions/acos.js",
+"compiler/functions/acosDeg.js",
 "compiler/functions/all.js",
 "compiler/functions/any.js",
+"compiler/functions/asin.js",
+"compiler/functions/asinDeg.js",
+"compiler/functions/atan2.js",
+"compiler/functions/atan2Deg.js",
 "compiler/functions/break.js",
+"compiler/functions/ceil.js",
 "compiler/functions/continue.js",
+"compiler/functions/cos.js",
+"compiler/functions/cosDeg.js",
 "compiler/functions/createBeam.js",
 "compiler/functions/createWorkshopSetting.js",
+"compiler/functions/crossProduct.js",
+"compiler/functions/directionTowards.js",
 "compiler/functions/disableInspector.js",
+"compiler/functions/distance.js",
+"compiler/functions/dotProduct.js",
 "compiler/functions/enableInspector.js",
+"compiler/functions/floor.js",
+"compiler/functions/getAllPlayers.js",
+"compiler/functions/getOppositeTeam.js",
+"compiler/functions/len.js",
+"compiler/functions/lineIntersectsSphere.js",
+"compiler/functions/log.js",
+"compiler/functions/max.js",
+"compiler/functions/min.js",
+"compiler/functions/normalize.js",
 "compiler/functions/print.js",
+"compiler/functions/round.js",
+"compiler/functions/sin.js",
+"compiler/functions/sinDeg.js",
 "compiler/functions/sorted.js",
+"compiler/functions/sqrt.js",
+"compiler/functions/tan.js",
+"compiler/functions/tanDeg.js",
 "compiler/functions/vect.js",
+"compiler/functions/vectorTowards.js",
 "compiler/tokenizer.js",
 "compiler/astParser.js",
 "compiler/astToWorkshop.js",
@@ -186,3 +216,31 @@ for (var func of playerFunctions) {
 }
 
 fs.writeFileSync("./FUNCTIONS.md", functionsMd);
+
+//Run the unit tests
+var testsDir = process.cwd()+"/src/tests/";
+var unitTestFiles = fs.readdirSync(testsDir);
+
+for (var unitTestFile of unitTestFiles) {
+    if (fs.statSync(testsDir+unitTestFile).isDirectory()) {
+        continue;
+    }
+    console.log("Checking unit test '"+unitTestFile+"'");
+    var unitTestContent = fs.readFileSync(testsDir + unitTestFile).toString();
+    var output = overpy.compile(unitTestContent).result;
+
+    var outputFile = testsDir+"/results/"+unitTestFile.replace(".opy", ".txt");
+
+    if (fs.existsSync(outputFile)) {
+        var outputFileContent = fs.readFileSync(outputFile).toString();
+        if (outputFileContent !== output) {
+            console.error("Error: output for unit test '"+unitTestFile+"' did not match result");
+            console.error("Output gotten:")
+            console.error(output);
+            process.exit();
+        }
+    } else {
+        console.log("Result for unit test '"+unitTestFile+"' does not exist, creating it.");
+        fs.writeFileSync(outputFile, output);
+    }
+}

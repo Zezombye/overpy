@@ -1,0 +1,72 @@
+settings
+{
+    main
+    {
+        Description: "Tower Meifense - BETA do not copy! by Zezombye"
+    }
+    lobby
+    {
+        Map Rotation: Paused
+        Max Spectators: 6
+        Return To Lobby: Never
+        Swap Teams After Match: No
+    }
+    modes
+    {
+        Assault
+        {
+            enabled maps
+            {
+                Hanamura Winter
+            }
+            Capture Speed Modifier: 60%
+        }
+        General
+        {
+            Game Mode Start: Manual
+            Hero Limit: Off
+            Respawn Time Scalar: 50%
+            Spawn Health Packs: Disabled
+        }
+    }
+    heroes
+    {
+        Team 1
+        {
+            enabled heroes
+            {
+                Ashe
+                Bastion
+                Torbjörn
+                Widowmaker
+            }
+        }
+        Team 2
+        {
+            Mei
+            {
+                Cryo-Freeze Cooldown Time: 200%
+                Ice Wall Cooldown Time: 200%
+                Secondary Fire: Off
+                Weapon Freeze Rate Scalar: 50%
+            }
+        }
+        General
+        {
+            Ashe
+            {
+                Ammunition Clip Size Scalar: 200%
+                Ultimate Duration: 300%
+            }
+            Bastion
+            {
+                Ammunition Clip Size Scalar: 200%
+            }
+            Widowmaker
+            {
+                Damage Dealt: 120%
+                Grappling Hook Cooldown Time: 10%
+            }
+        }
+    }
+}

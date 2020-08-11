@@ -1,0 +1,128 @@
+variables {
+    global:
+        0: A
+        1: B
+        2: C
+        3: D
+        8: I
+    player:
+        8: I
+}
+rule ("while loop") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        While(Compare(Global.A, ==, Global.B));
+            While(Compare(Global.B, ==, Global.C));
+                Global.A += 1;
+                If(Global.D);
+                    Break;
+                End;
+            End;
+        End;
+        Global.B += 1;
+    }
+}
+
+rule ("while to the end") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        While(Compare(Global.A, ==, Global.B));
+            Global.A += 1;
+        End;
+    }
+}
+
+rule ("while to the end nested") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        While(Compare(Global.A, ==, Global.B));
+            While(Compare(Global.B, ==, Global.C));
+                Global.A += 1;
+            End;
+        End;
+    }
+}
+
+rule ("while false") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        While(False);
+        End;
+        Global.B += 1;
+    }
+}
+
+rule ("for loop") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        For Global Variable(I, 1, 3, 2);
+            Global.A += 1;
+        End;
+        For Global Variable(I, 1, 3, 1);
+            Global.A += 1;
+        End;
+        For Global Variable(I, 0, 3, 1);
+            Global.A += 1;
+        End;
+        For Player Variable(Event Player, I, 0, 3, 1);
+            Global.A += 1;
+        End;
+    }
+}
+
+rule ("do/while") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Global.A += 1;
+        Skip(1);
+        Loop If(Compare(Global.A, ==, Global.B));
+        //__label_break_2__:
+        Global.B += 1;
+    }
+}
+
+rule ("nested do/while") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Global.A += 1;
+        Skip(1);
+        Loop;
+        //__label_break_3__:
+        Skip(1);
+        Loop If(Compare(Global.A, ==, Global.B));
+        //__label_break_4__:
+        Global.B += 1;
+    }
+}
+
+rule ("do/while rule condition") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.A == Global.B;
+    }
+    actions {
+        Wait(0.016, Ignore Condition);
+        Global.A += 1;
+        If(Compare(Global.A, >, Number of Players(Team 2)));
+            Set Global Variable(A, 0);
+        End;
+        Loop If Condition Is True;
+    }
+}
+

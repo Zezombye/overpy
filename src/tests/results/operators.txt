@@ -1,0 +1,301 @@
+variables {
+    global:
+        0: A
+        1: B
+        2: C
+        3: D
+    player:
+        0: A
+}
+rule ("comparison") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Compare(Global.B, ==, Global.C));
+        "false"
+        Set Global Variable(A, False);
+        "true"
+        Set Global Variable(A, True);
+        "not B"
+        Set Global Variable(A, Compare(Global.B, ==, 0));
+        "isGameInProgress()"
+        Set Global Variable(A, Is Game In Progress);
+        Set Global Variable(A, Compare(Global.B, !=, Global.C));
+        "true"
+        Set Global Variable(A, True);
+        "false"
+        Set Global Variable(A, False);
+        Set Global Variable(A, Compare(Global.B, !=, 0));
+        "not B"
+        Set Global Variable(A, Not(Compare(Global.B, !=, 0)));
+        "not isGameInProgress()"
+        Set Global Variable(A, Not(Is Game In Progress));
+        Set Global Variable(A, Compare(Global.B, >=, Global.C));
+        "true"
+        Set Global Variable(A, True);
+        "true"
+        Set Global Variable(A, True);
+        Set Global Variable(A, Compare(Global.B, <=, Global.C));
+        "false"
+        Set Global Variable(A, False);
+        "true"
+        Set Global Variable(A, True);
+        Set Global Variable(A, Compare(Global.B, >, Global.C));
+        "true"
+        Set Global Variable(A, True);
+        "false"
+        Set Global Variable(A, False);
+        Set Global Variable(A, Compare(Global.B, <, Global.C));
+        "false"
+        Set Global Variable(A, False);
+        "false"
+        Set Global Variable(A, False);
+    }
+}
+
+rule ("add") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Add(Global.B, Global.C));
+        "B"
+        Set Global Variable(A, Global.B);
+        "B*2"
+        Set Global Variable(A, Multiply(2, Global.B));
+        "3"
+        Set Global Variable(A, 3);
+        Set Global Variable(A, Add(Vector(Global.B, Global.C, Global.D), Vector(1, 2, 3)));
+        "vect(5,7,9)"
+        Set Global Variable(A, Vector(5, 7, 9));
+    }
+}
+
+rule ("subtract") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Subtract(Global.B, Global.C));
+        Set Global Variable(A, Subtract(Subtract(Global.B, Global.C), Global.D));
+        "B"
+        Set Global Variable(A, Global.B);
+        "0"
+        Set Global Variable(A, 0);
+        "-1"
+        Set Global Variable(A, -1);
+        Set Global Variable(A, Subtract(Vector(Global.B, Global.C, Global.D), Vector(1, 2, 3)));
+        "vect(-3,-3,-3)"
+        Set Global Variable(A, Vector(-3, -3, -3));
+    }
+}
+
+rule ("negate") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Multiply(-1, Global.B));
+        Set Global Variable(A, Modulo(Multiply(-1, Global.B), Global.C));
+        Set Global Variable(A, Multiply(-1, Vector(1, Global.B, -2)));
+        "vect(-1,-2,3)"
+        Set Global Variable(A, Vector(-1, -2, 3));
+        Set Global Variable(A, -1);
+        Set Global Variable(A, Multiply(-1, Global.B));
+        "1"
+        Set Global Variable(A, 1);
+        "-1"
+        Set Global Variable(A, -1);
+        "-A"
+        Set Global Variable(A, Multiply(-1, Global.A));
+        "0.01"
+        Set Global Variable(A, 0.01);
+    }
+}
+
+rule ("multiply") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Multiply(Global.B, Global.C));
+        "B"
+        Set Global Variable(A, Global.B);
+        "B**2"
+        Set Global Variable(A, Multiply(Global.B, Global.B));
+        "0"
+        Set Global Variable(A, 0);
+        "6"
+        Set Global Variable(A, 6);
+        "vect(6,8,10)"
+        Set Global Variable(A, Vector(6, 8, 10));
+        "vect(6,8,10)"
+        Set Global Variable(A, Vector(6, 8, 10));
+        "vect(4,10,18)"
+        Set Global Variable(A, Vector(4, 10, 18));
+    }
+}
+
+rule ("divide") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Divide(Global.B, Global.C));
+        "B"
+        Set Global Variable(A, Global.B);
+        "0"
+        Set Global Variable(A, 0);
+        "0"
+        Set Global Variable(A, 0);
+        "0.5"
+        Set Global Variable(A, 0.5);
+        Set Global Variable(A, Divide(-3, Global.B));
+        "vect(3,1.5,1)"
+        Set Global Variable(A, Vector(3, 1.5, 1));
+        "vect(0.5,1,1.5)"
+        Set Global Variable(A, Vector(0.5, 1, 1.5));
+    }
+}
+
+rule ("modulo") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Modulo(Global.B, Global.C));
+        "0"
+        Set Global Variable(A, 0);
+        "0"
+        Set Global Variable(A, 0);
+        "0"
+        Set Global Variable(A, 0);
+        "1"
+        Set Global Variable(A, 1);
+        "-1"
+        Set Global Variable(A, -1);
+        "-1"
+        Set Global Variable(A, -1);
+        "1"
+        Set Global Variable(A, 1);
+    }
+}
+
+rule ("power") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Raise To Power(Global.B, Global.C));
+        Set Global Variable(A, Raise To Power(Global.B, Raise To Power(Global.C, Global.D)));
+        "B"
+        Set Global Variable(A, Global.B);
+        "0"
+        Set Global Variable(A, 0);
+        "1"
+        Set Global Variable(A, 1);
+        "0"
+        Set Global Variable(A, Raise To Power(-1, Global.B));
+        "8"
+        Set Global Variable(A, 8);
+        "0"
+        Set Global Variable(A, 0);
+    }
+}
+
+rule ("assignment") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Global.B);
+        Set Global Variable At Index(A, 0, Global.B);
+        Set Player Variable(Event Player, A, Global.B);
+        Set Player Variable At Index(Event Player, A, 0, Global.B);
+        Global.A += Global.B;
+        (Event Player).A += Global.B;
+        Modify Global Variable(A, Subtract, Global.B);
+        Modify Global Variable(A, Multiply, Global.B);
+        Modify Global Variable(A, Divide, Global.B);
+        Modify Global Variable(A, Modulo, Global.B);
+        Modify Global Variable(A, Raise To Power, Global.B);
+        Modify Global Variable(A, Max, Global.B);
+        Modify Global Variable(A, Min, Global.B);
+        Global.A += 1;
+        Modify Global Variable(A, Subtract, 1);
+    }
+}
+
+rule ("and") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, And(Global.A, Global.B));
+        "false"
+        Set Global Variable(A, False);
+        "false"
+        Set Global Variable(A, False);
+    }
+}
+
+rule ("or") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Or(Global.A, Global.B));
+        "true"
+        Set Global Variable(A, True);
+        "true"
+        Set Global Variable(A, True);
+    }
+}
+
+rule ("not") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Not(Global.B));
+        "A"
+        Set Global Variable(A, Not(Not(Global.A)));
+        "false"
+        Set Global Variable(A, False);
+        "true"
+        Set Global Variable(A, True);
+    }
+}
+
+rule ("in") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Array Contains(Global.B, Global.A));
+        "true"
+        Set Global Variable(A, Array Contains(Array(1, Global.A, 3), 3));
+        Set Global Variable(A, Array Contains(Array(Global.A, 5, 6), 3));
+    }
+}
+
+rule ("ternaries") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, If-Then-Else(Global.C, Global.B, Global.D));
+        "B"
+        Set Global Variable(A, Global.B);
+        "D"
+        Set Global Variable(A, Global.D);
+        "B"
+        Set Global Variable(A, Global.B);
+        "if-then-else(C, D, B)"
+        Set Global Variable(A, If-Then-Else(Global.C, Global.D, Global.B));
+        "D"
+        Set Global Variable(A, Global.D);
+    }
+}
+

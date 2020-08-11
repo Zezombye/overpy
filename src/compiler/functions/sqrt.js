@@ -17,19 +17,14 @@
 
 "use strict";
 
-astParsingFunctions.print = function(content) {
+astParsingFunctions.sqrt = function(content) {
 
-    return new Ast("__hudText__", [
-        new Ast("getPlayers", [getAstForTeamAll()]),
-        content.args[0],
-        getAstForNull(),
-        getAstForNull(),
-        new Ast("LEFT", [], [], "HudPosition"),
-        getAstFor0(),
-        getAstForColorWhite(),
-        getAstForColorWhite(),
-        getAstForColorWhite(),
-        new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"),
-        new Ast("DEFAULT", [], [], "SpecVisibility"),
-    ]);
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            //Use ||0 to return 0 in case of NaN (if the number is negative)
+            return getAstForNumber(Math.sqrt(content.args[0].args[0].numValue) || 0);
+        }
+    }
+    
+    return content;
 }
