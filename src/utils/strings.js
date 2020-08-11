@@ -17,8 +17,7 @@
 
 "use strict";
 
-
-function unescapeString(content) {
+function unescapeString(content, parseOpyEscapes=false) {
 	if (content.length < 2) {
 		error("Expected a string, but got '"+content+"'");
 	}
@@ -70,7 +69,27 @@ function unescapeString(content) {
 
 				result += String.fromCodePoint(parseInt(hexDigits, 16));
 				i += 4;
-
+			} else if (content[i+1] === "&") {
+				var j = i+2;
+				var foundEnd = false;
+				for (; j < content.length; j++) {
+					if (content[j] === ";") {
+						foundEnd = true;
+						break;
+					} else if (!content[j].match(/\w/)) {
+						error("Invalid character '"+content[j]+"' in a string entity");
+					}
+				}
+				if (!foundEnd) {
+					error("Expected ';' to terminate the entity, but found end of string");
+				}
+				var entityName = content.slice(i+2, j);
+				if (!(entityName in opyStringEntities)) {
+					error("Unknown string entity '"+entityName+"'");
+				}
+				result += String.fromCodePoint(opyStringEntities[entityName].codepoint);
+				i += entityName.length+1;
+			
 			} else {
 				error("Unknown escape sequence '\\"+content[i+1]+"'");
 			}

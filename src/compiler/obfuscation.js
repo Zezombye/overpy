@@ -76,9 +76,13 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 		if (putEmptyRuleArray[i] === 1) {
 			result += emptyRule;
 		} else if (putEmptyRuleArray[i] === 3) {
-			result += copyDetectionRule1;
+			if (obfuscationSettings.copyProtection) {
+				result += copyDetectionRule1;
+			}
 		} else if (putEmptyRuleArray[i] === 2) {
-			result += copyDetectionRule2;
+			if (obfuscationSettings.copyProtection) {
+				result += copyDetectionRule2;
+			};
 		} else {
 			result += rules[ruleIndex];
 			ruleIndex++;
@@ -111,7 +115,7 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 
 	for (var constant of Object.keys(constantValues[constantType])) {
 		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
-		obfuscationConstantsMapping[constantType][constant] = constantIndex * 0.0000001/*+(constantIndex > 0 ? (Math.random()*0.8)-0.4 : 0)*/;
+		obfuscationConstantsMapping[constantType][constant] = constantIndex/*+(constantIndex > 0 ? (Math.random()*0.8)-0.4 : 0)*/;
 		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
 	}
 }

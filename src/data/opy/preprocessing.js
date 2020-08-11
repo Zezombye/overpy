@@ -39,6 +39,7 @@ The following obfuscation methods are applied:
 - String obfuscation: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
 - Constant obfuscation: some constants, such as heroes or maps, are replaced with other values that compute to the original value.
 - Inspector obfuscation: the inspector is disabled, and all disable/enable inspector actions are removed.
+- Copy protection: the gamemode will break upon copying it via text. It is highly recommended to enable constant obfuscation to greatly strengthen this protection.
 
 To save elements, it is possible to specify methods to disable, by prefixing them with \`no\`. For example, \`#!obfuscate noRuleFilling noConstantObfuscation\` will disable rule filling and constant obfuscation, which is useful if the obfuscation adds too much elements.
 `

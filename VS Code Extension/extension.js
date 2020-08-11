@@ -177,6 +177,7 @@ rule "Display position":
  */
 
 const funcDoc = JSON.parse(JSON.stringify(Object.assign({}, overpy.actionKw, overpy.valueFuncKw)));
+const stringEntities = generateStringEntitiesDescription(JSON.parse(JSON.stringify(overpy.opyStringEntities)));
 
 const defaultConstValues = JSON.parse(JSON.stringify(overpy.constantValues));
 var constValues = {};
@@ -219,6 +220,7 @@ for (var func of Object.keys(funcDoc)) {
 }
 
 
+const stringEntitiesCompList = makeCompList(stringEntities);
 const metaRuleParamsCompList = makeCompList(metaRuleParams);
 
 var defaultCompList;
@@ -351,7 +353,9 @@ function activate(context) {
                         var word = document.getText(range);
                         if (word in constValues) {
                             return constValues[word];
-                        } else {
+
+                        //do not return completion suggestions for number decimals
+                        } else if (isNaN(word)) {
                             return memberCompItem;
                         }
                     }
@@ -363,6 +367,18 @@ function activate(context) {
                     } else {
                         return;
                     }
+                } else if (context.triggerCharacter === "&") {
+                    //delete the '&'
+                    /*vscode.window.showTextDocument(document, vscode.ViewColumn.Active, false).then(editor => {
+                        editor.edit(editBuilder => {
+                            editBuilder.delete(new vscode.Range(position.translate(0, -1), position));
+                        });
+                    });*/
+                    if (document.getText(new vscode.Range(position.translate(0, -2), position.translate(0, -1))) === "\\") {
+                        return stringEntitiesCompList;
+                    } else {
+                        return;
+                    }
                 } else {
                     return defaultCompList;
                 }
@@ -371,7 +387,7 @@ function activate(context) {
             }
             
         }
-    }, '.', '@', '!');
+    }, '.', '@', '!', '&');
 
     vscode.languages.registerSignatureHelpProvider("overpy", {
         provideSignatureHelp(document, position, token, context) {
@@ -441,8 +457,8 @@ function activate(context) {
     })
     
     vscode.workspace.onDidOpenTextDocument((document) => {
-        console.log("opened text document");
-        console.log("add template on new file: "+ vscode.workspace.getConfiguration("overpy").addTemplateOnNewFile);
+        //console.log("opened text document");
+        //console.log("add template on new file: "+ vscode.workspace.getConfiguration("overpy").addTemplateOnNewFile);
         if (document.languageId === "overpy" && vscode.workspace.getConfiguration("overpy").addTemplateOnNewFile && document.getText().length === 0) {
             
             vscode.window.showTextDocument(document, vscode.ViewColumn.Active, false).then(editor => {
@@ -468,6 +484,9 @@ function makeCompItem(itemName, item) {
     compItem.label = itemName.endsWith("()") ? itemName.substring(0, itemName.length-2) : itemName;
     compItem.documentation = generateDocFromDoc(itemName, item);
     compItem.insertText = generateSnippetFromDoc(itemName, item);
+    /*if (itemName.startsWith("&")) {
+        compItem.additionalTextEdits = [vscode.TextEdit.delete(//compItem.range = new vscode.Range(new vscode.Position(0,0), new vscode.Position(0,1));
+    }*/
     return compItem;
 }
 
@@ -726,6 +745,22 @@ function makeSignatureHelp(funcName, func) {
     sigHelp.signatures = [sigInfo];
 
     return sigHelp;
+}
+
+function generateStringEntitiesDescription(strEntities) {
+    for (var entity in strEntities) {
+        strEntities[entity].description = "# "+String.fromCodePoint(strEntities[entity].codepoint)+"  \nU+"+strEntities[entity].codepoint.toString(16).padStart(4, "0").toUpperCase()+" \n\n"+strEntities[entity].description;
+        /*if (entity === "zero_width_space") {
+            //Do not actually insert a zero width space, else it will be impossible to know where it comes from.
+            strEntities[entity].snippet = "\\z";
+        } else {
+            strEntities[entity].snippet = String.fromCodePoint(strEntities[entity].codepoint);
+        }*/
+        strEntities[entity].snippet = entity+";";
+        //strEntities["&"+entity+";"] = strEntities[entity];
+        //delete strEntities[entity];
+    }
+    return strEntities;
 }
 
 module.exports = {

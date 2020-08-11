@@ -114,6 +114,7 @@ function resetGlobalVariables(language) {
 		obfuscateConstants: false,
 		obfuscateInspector: false,
 		ruleFilling: false,
+		copyProtection: false,
 	}
 	macros = [];
 	fileStack = [];

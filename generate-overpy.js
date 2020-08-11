@@ -5,6 +5,7 @@ overpyFiles = [
 
 
 "utils/other.js",
+"data/opy/stringEntities.js",
 "data/opy/constants.js",
 "data/opy/internalFunctions.js",
 "data/opy/functions.js",
@@ -166,6 +167,7 @@ module.exports = {
 	resetGlobalVariables: resetGlobalVariables,
 	preprocessingDirectives: preprocessingDirectives,
 	typeToString: typeToString,
+	opyStringEntities: opyStringEntities,
 };
 `
 

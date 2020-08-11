@@ -22,9 +22,13 @@ astParsingFunctions.__hero__ = function(content) {
     if (obfuscationSettings.obfuscateConstants) {
         var result = new Ast("__valueInArray__", [
             new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            new Ast("__multiply__", [
-                getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.HeroLiteral[content.args[0].name]),
-            ]),
+            (obfuscationSettings.copyProtection ? 
+                new Ast("__multiply__", [
+                    getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.HeroLiteral[content.args[0].name] * 0.0000001),
+                ])
+                :
+                getAstForNumber(obfuscationConstantsMapping.HeroLiteral[content.args[0].name])
+            ),
         ]);
         result.doNotOptimize = true;
         return result;

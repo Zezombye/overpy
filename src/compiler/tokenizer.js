@@ -192,6 +192,7 @@ function tokenize(content) {
 				obfuscateConstants: true,
 				obfuscateInspector: true,
 				ruleFilling: true,
+				copyProtection: true,
 			}
 
 			var disabledObfuscationTechniques = content.substring("#!obfuscate".length).trim().split(" ").map(x => x.trim());
@@ -206,8 +207,10 @@ function tokenize(content) {
 					obfuscationSettings.obfuscateInspector = false;
 				} else if (tech === "noRuleFilling") {
 					obfuscationSettings.ruleFilling = false;
+				} else if (tech === "noCopyProtection") {
+					obfuscationSettings.copyProtection = false;
 				} else if (tech !== "") {
-					error("Unknown obfuscation setting '"+tech+"'");
+					error("Unknown obfuscation setting '"+tech+"', valid ones are: "+Object.keys(obfuscationSettings).map(x => "no"+x[0].toUpperCase()+x.slice(1)).join(", "));
 				}
 			}
 
