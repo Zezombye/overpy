@@ -151,9 +151,6 @@ settings {
     }
 }
 
-#!obfuscate
-
-
 rule "Teleport player on pressing interact":
     @Event eachPlayer
     @Condition eventPlayer.isHoldingButton(Button.INTERACT)
@@ -162,7 +159,6 @@ rule "Teleport player on pressing interact":
     eventPlayer.startForcingPosition(eventPlayer.getPosition(), false)
     wait()
     eventPlayer.stopForcingPosition()
-
 
 rule "Display position":
     @Event eachPlayer

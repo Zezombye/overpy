@@ -24939,7 +24939,7 @@ function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) 
 			i = bracketPos[bracketPosCheckIndex+1];
 			bracketPosCheckIndex += 2;
 			
-		} else if (!currentPositionIsString && (content.charAt(i) == '"'/* || content.charAt(i) == '\''*/)) {
+		} else if (!currentPositionIsString && content.charAt(i) == '"') {
 			currentPositionIsString = !currentPositionIsString;
 			currentStrDelimiter = content.charAt(i);
 		} else if (content.charAt(i) === currentStrDelimiter) {
@@ -24974,6 +24974,60 @@ function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) 
 	return result;
 }
 
+function getOperatorInStr(content, operators, rtlPrecedence=false) {
+    
+    var operatorFound = null;
+    var operatorPosition = -1;
+	var bracketsLevel = 0;
+	var currentPositionIsString = false;
+	
+	if (!rtlPrecedence) {
+		var start = content.length-1;
+		var end = -1;
+		var step = -1;
+	} else {
+		var start = 0;
+		var end = content.length;
+		var step = 1;
+	}
+	
+	//console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
+	
+	outer_loop:
+	for (var i = start; i != end; i+=step) {
+
+		if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
+            bracketsLevel += step;
+            
+		} else if (content[i] === ')' || content[i] === ']' || content[i] === '}') {
+            bracketsLevel -= step;
+            
+		} else if (content[i] == '"') {
+			currentPositionIsString = !currentPositionIsString;
+
+		} else if (content[i] == '\\') {
+			i++;
+
+		} else if (bracketsLevel === 0 && !currentPositionIsString) {
+			for (var operator of operators) {
+				if (content.startsWith(operator, i)) {
+					operatorFound = operator;
+					operatorPosition = i;
+					break outer_loop;
+				}
+			}
+		}
+	}
+	
+	if (bracketsLevel !== 0) {
+		error("Decompiler broke (bracket level is "+bracketsLevel+")");
+    }
+    
+    return {
+        operatorFound,
+        operatorPosition,
+    }
+}
 
 //This function returns the index of each first-level opening and closing brackets/parentheses.
 //Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].
@@ -26658,28 +26712,14 @@ function decompile(content) {
 
 	//Workshop operators, from lowest to highest precedence.
 	const wsOperators = [
-		"+=",
-		"-=",
-		"*=",
-		"/=",
-		"%=",
-		"^=",
-		"=",
-		"?",
-		"||",
-		"&&",
-		"==",
-		"!=",
-		"<=",
-		">=",
-		">",
-		"<",
-		"+",
-		"-",
-		"*",
-		"/",
-		"%",
-        "^",
+		["+=","-=","*=","/=","%=","^=","="],
+		["?"],
+		["||"],
+		["&&"],
+		["==","!=","<=",">=",">","<"],
+		["+","-"],
+		["*","/","%"],
+        ["^"],
 	];
 
 	const binaryOpToFuncMapping = {
@@ -26710,15 +26750,18 @@ function decompile(content) {
 	}
 
 	//Split on operators
-	for (var operator of wsOperators) {
+	for (var operatorGroup of wsOperators) {
 		//The power operator is right to left, so split left to right
-		if (operator === "^") {
-			var operands = splitStrOnDelimiter(content, " "+operator+" ", false, false);
+		if (operatorGroup.includes("^")) {
+			var operatorCheck = getOperatorInStr(content, operatorGroup.map(x => " "+x+" "), true);
 		} else {			
-			var operands = splitStrOnDelimiter(content, " "+operator+" ", false, true);
+			var operatorCheck = getOperatorInStr(content, operatorGroup.map(x => " "+x+" "), false);
 		}
 
-		if (operands.length === 2) {
+		if (operatorCheck.operatorFound !== null) {
+			var operator = operatorCheck.operatorFound.trim();
+			
+			var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition + operatorCheck.operatorFound.length)]
 			if (operator in binaryOpToFuncMapping) {
 				return new Ast(binaryOpToFuncMapping[operator], [decompile(operands[0]), decompile(operands[1])]);
 
@@ -28108,7 +28151,7 @@ ${tows("__rule__", ruleKw)}("") {
 		${tows("global", eventKw)};
 	}
 	${tows("__conditions__", ruleKw)} {
-		0.00000001 == ${tows("false", valueFuncKw)};
+		0.0001 == ${tows("false", valueFuncKw)};
 	}
 	${tows("__actions__", ruleKw)} {
 		${tows("__wait__", actionKw)}(${tows("random.uniform", valueFuncKw)}(30, 60), ${tows("IGNORE_CONDITION", constantValues.Wait)});
@@ -29277,7 +29320,7 @@ astParsingFunctions.__filteredArray__ = function(content) {
                 return new Ast("__removeFromArray__", [content.args[0], content.args[1].args[1]]);
             }
             if (content.args[1].args[1].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__", "__currentArrayIndex__"])) {
-                return new Ast("__removeFromArray__", [content.args[0], content.args[1].args[1]]);
+                return new Ast("__removeFromArray__", [content.args[0], content.args[1].args[0]]);
             }
         }
 

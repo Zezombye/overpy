@@ -198,28 +198,14 @@ function decompile(content) {
 
 	//Workshop operators, from lowest to highest precedence.
 	const wsOperators = [
-		"+=",
-		"-=",
-		"*=",
-		"/=",
-		"%=",
-		"^=",
-		"=",
-		"?",
-		"||",
-		"&&",
-		"==",
-		"!=",
-		"<=",
-		">=",
-		">",
-		"<",
-		"+",
-		"-",
-		"*",
-		"/",
-		"%",
-        "^",
+		["+=","-=","*=","/=","%=","^=","="],
+		["?"],
+		["||"],
+		["&&"],
+		["==","!=","<=",">=",">","<"],
+		["+","-"],
+		["*","/","%"],
+        ["^"],
 	];
 
 	const binaryOpToFuncMapping = {
@@ -250,15 +236,18 @@ function decompile(content) {
 	}
 
 	//Split on operators
-	for (var operator of wsOperators) {
+	for (var operatorGroup of wsOperators) {
 		//The power operator is right to left, so split left to right
-		if (operator === "^") {
-			var operands = splitStrOnDelimiter(content, " "+operator+" ", false, false);
+		if (operatorGroup.includes("^")) {
+			var operatorCheck = getOperatorInStr(content, operatorGroup.map(x => " "+x+" "), true);
 		} else {			
-			var operands = splitStrOnDelimiter(content, " "+operator+" ", false, true);
+			var operatorCheck = getOperatorInStr(content, operatorGroup.map(x => " "+x+" "), false);
 		}
 
-		if (operands.length === 2) {
+		if (operatorCheck.operatorFound !== null) {
+			var operator = operatorCheck.operatorFound.trim();
+			
+			var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition + operatorCheck.operatorFound.length)]
 			if (operator in binaryOpToFuncMapping) {
 				return new Ast(binaryOpToFuncMapping[operator], [decompile(operands[0]), decompile(operands[1])]);
 

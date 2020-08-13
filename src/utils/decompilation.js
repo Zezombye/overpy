@@ -158,7 +158,7 @@ function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) 
 			i = bracketPos[bracketPosCheckIndex+1];
 			bracketPosCheckIndex += 2;
 			
-		} else if (!currentPositionIsString && (content.charAt(i) == '"'/* || content.charAt(i) == '\''*/)) {
+		} else if (!currentPositionIsString && content.charAt(i) == '"') {
 			currentPositionIsString = !currentPositionIsString;
 			currentStrDelimiter = content.charAt(i);
 		} else if (content.charAt(i) === currentStrDelimiter) {
@@ -193,6 +193,60 @@ function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) 
 	return result;
 }
 
+function getOperatorInStr(content, operators, rtlPrecedence=false) {
+    
+    var operatorFound = null;
+    var operatorPosition = -1;
+	var bracketsLevel = 0;
+	var currentPositionIsString = false;
+	
+	if (!rtlPrecedence) {
+		var start = content.length-1;
+		var end = -1;
+		var step = -1;
+	} else {
+		var start = 0;
+		var end = content.length;
+		var step = 1;
+	}
+	
+	//console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
+	
+	outer_loop:
+	for (var i = start; i != end; i+=step) {
+
+		if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
+            bracketsLevel += step;
+            
+		} else if (content[i] === ')' || content[i] === ']' || content[i] === '}') {
+            bracketsLevel -= step;
+            
+		} else if (content[i] == '"') {
+			currentPositionIsString = !currentPositionIsString;
+
+		} else if (content[i] == '\\') {
+			i++;
+
+		} else if (bracketsLevel === 0 && !currentPositionIsString) {
+			for (var operator of operators) {
+				if (content.startsWith(operator, i)) {
+					operatorFound = operator;
+					operatorPosition = i;
+					break outer_loop;
+				}
+			}
+		}
+	}
+	
+	if (bracketsLevel !== 0) {
+		error("Decompiler broke (bracket level is "+bracketsLevel+")");
+    }
+    
+    return {
+        operatorFound,
+        operatorPosition,
+    }
+}
 
 //This function returns the index of each first-level opening and closing brackets/parentheses.
 //Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].

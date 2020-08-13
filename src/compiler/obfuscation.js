@@ -48,7 +48,7 @@ ${tows("__rule__", ruleKw)}("") {
 		${tows("global", eventKw)};
 	}
 	${tows("__conditions__", ruleKw)} {
-		0.00000001 == ${tows("false", valueFuncKw)};
+		0.0001 == ${tows("false", valueFuncKw)};
 	}
 	${tows("__actions__", ruleKw)} {
 		${tows("__wait__", actionKw)}(${tows("random.uniform", valueFuncKw)}(30, 60), ${tows("IGNORE_CONDITION", constantValues.Wait)});
