@@ -225,7 +225,7 @@ function getOperatorInStr(content, operators, rtlPrecedence=false) {
 			currentPositionIsString = !currentPositionIsString;
 
 		} else if (content[i] == '\\') {
-			i++;
+			i += step;
 
 		} else if (bracketsLevel === 0 && !currentPositionIsString) {
 			for (var operator of operators) {

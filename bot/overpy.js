@@ -24076,7 +24076,8 @@ for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\
 
 //Combinations of 0x01 through 0x1F (excluding 0x09, 0x0A and 0x0D). Used for workshop settings to prevent duplicates.
 //These characters render as zero-width spaces in Overwatch.
-var workshopSettingWhitespaceChars = [0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x0b,0x0c,0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d]
+//For some reason, 0x0B and 0x0C aren't sorted according to their ascii value.
+var workshopSettingWhitespaceChars = [0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,/*0x0b,0x0c,*/0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d]
 var workshopSettingWhitespace = []
 for (var chr of workshopSettingWhitespaceChars) {
 	workshopSettingWhitespace.push(String.fromCodePoint(chr));
@@ -25006,7 +25007,7 @@ function getOperatorInStr(content, operators, rtlPrecedence=false) {
 			currentPositionIsString = !currentPositionIsString;
 
 		} else if (content[i] == '\\') {
-			i++;
+			i += step;
 
 		} else if (bracketsLevel === 0 && !currentPositionIsString) {
 			for (var operator of operators) {
@@ -31414,7 +31415,7 @@ function createSuitableWorkshopSettingString(str, isName, sortOrder) {
 
     //If string is blank, add U+2000 EN QUAD.
     if (!/\S/.test(str.args[0].name)) {
-        str.args[0].name += String.fromCharCode(0x2000);
+        str.args[0].name += String.fromCharCode(0x3000);
     }
 
     //If a sort order is specified, add whitespace at the beginning (+ a zero width space U+200B because else a square is showing up)

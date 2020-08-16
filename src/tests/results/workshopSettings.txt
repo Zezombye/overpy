@@ -8,7 +8,7 @@ rule ("workshop settings") {
     }
     actions {
         "bools"
-        Set Global Variable(A, Workshop Setting Toggle(Custom String("boolean", Null, Null, Null), Custom String("boolean", Null, Null, Null), True));
+        Set Global Variable(A, Workshop Setting Toggle(Custom String("　", Null, Null, Null), Custom String("boolean", Null, Null, Null), True));
         "ints"
         Set Global Variable(A, Workshop Setting Integer(Custom String("int", Null, Null, Null), Custom String("int", Null, Null, Null), 3, -999999999999, 999999999999));
         Set Global Variable(A, Workshop Setting Integer(Custom String("int", Null, Null, Null), Custom String("unsigned int", Null, Null, Null), 3, 0, 999999999999));

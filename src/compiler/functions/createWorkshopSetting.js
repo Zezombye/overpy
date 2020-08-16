@@ -93,7 +93,7 @@ function createSuitableWorkshopSettingString(str, isName, sortOrder) {
 
     //If string is blank, add U+2000 EN QUAD.
     if (!/\S/.test(str.args[0].name)) {
-        str.args[0].name += String.fromCharCode(0x2000);
+        str.args[0].name += String.fromCharCode(0x3000);
     }
 
     //If a sort order is specified, add whitespace at the beginning (+ a zero width space U+200B because else a square is showing up)
