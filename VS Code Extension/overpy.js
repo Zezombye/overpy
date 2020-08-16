@@ -29206,7 +29206,7 @@ function parseStringTokens(tokens, args) {
 	
 			//length check
 			if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) > 128-(i === tokens.length-1 ? 0 : "{0}".length)
-					|| tokens[i].type === "arg" && stringLength+3 > 128-(i === tokens.length-1 ? 0 : "{0}".length)) {
+					|| tokens[i].type === "arg" && stringLength+"{0}".length > 128-(i === tokens.length-1 ? 0 : "{0}".length)) {
 	
 				var splitString = false;
 				if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 128 || tokens.length > i)) {
@@ -29242,7 +29242,7 @@ function parseStringTokens(tokens, args) {
 				result += tokens[i].text;
 				stringLength += getUtf8Length(tokens[i].text);
 			} else {
-				if (numbersEncountered.length >= 2 && numbers.length > 3) {
+				if (numbersEncountered.length >= 2 && (numbers.length > 3 || i < tokens.length-1 && stringLength+getUtf8Length(tokens[i+1].text)+"{0}".length > 128)) {
 					//split
 					result += "{2}";
 					resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
