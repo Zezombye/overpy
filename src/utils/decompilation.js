@@ -199,40 +199,36 @@ function getOperatorInStr(content, operators, rtlPrecedence=false) {
     var operatorPosition = -1;
 	var bracketsLevel = 0;
 	var currentPositionIsString = false;
-	
-	if (!rtlPrecedence) {
-		var start = content.length-1;
-		var end = -1;
-		var step = -1;
-	} else {
-		var start = 0;
-		var end = content.length;
-		var step = 1;
-	}
-	
+		
 	//console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
+
+	//console.log("Getting operators '"+operators.join(", ")+"' in '"+content+"'");
 	
 	outer_loop:
-	for (var i = start; i != end; i+=step) {
+	for (var i = 0; i < content.length; i++) {
 
-		if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
-            bracketsLevel += step;
+		if (!currentPositionIsString && (content[i] === '(' || content[i] === '[' || content[i] === '{')) {
+            bracketsLevel++;
             
-		} else if (content[i] === ')' || content[i] === ']' || content[i] === '}') {
-            bracketsLevel -= step;
+		} else if (!currentPositionIsString && (content[i] === ')' || content[i] === ']' || content[i] === '}')) {
+            bracketsLevel--;
             
 		} else if (content[i] == '"') {
 			currentPositionIsString = !currentPositionIsString;
 
 		} else if (content[i] == '\\') {
-			i += step;
+			i++;
 
 		} else if (bracketsLevel === 0 && !currentPositionIsString) {
 			for (var operator of operators) {
 				if (content.startsWith(operator, i)) {
 					operatorFound = operator;
 					operatorPosition = i;
-					break outer_loop;
+					//If right to left, return the first operator (as we need to split left to right)
+					if (rtlPrecedence) {
+						break outer_loop;
+					}
+					break;
 				}
 			}
 		}
@@ -240,7 +236,9 @@ function getOperatorInStr(content, operators, rtlPrecedence=false) {
 	
 	if (bracketsLevel !== 0) {
 		error("Decompiler broke (bracket level is "+bracketsLevel+")");
-    }
+	}
+	
+	//console.log("operator found: "+operatorFound+" at "+operatorPosition);
     
     return {
         operatorFound,

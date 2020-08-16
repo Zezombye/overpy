@@ -447,12 +447,12 @@ function astToOpy(content) {
     }
     if (content.name in funcToOpMapping) {
         var op1 = astToOpy(content.args[0]);
-        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[content.name]))) {
+        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[content.name] + (content.name === "__raiseToPower__" ? 1 : 0)))) {
             op1 = "("+op1+")";
         }
         var op2 = astToOpy(content.args[1]);
         
-        if (astContainsFunctions(content.args[1], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]))) {
+        if (astContainsFunctions(content.args[1], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name] - (content.name === "__raiseToPower__" ? 1 : 0)))) {
             op2 = "("+op2+")";
         }
         return op1+" "+funcToOpMapping[content.name]+" "+op2;
@@ -556,7 +556,10 @@ function astToOpy(content) {
 
     //Array functions that use current array element
     if (["__all__", "__any__", "__filteredArray__", "__sortedArray__", "__mappedArray__"].includes(content.name)) {
-        //Determine the current array element name
+
+        var opyArray = astToOpy(content.args[0]);
+
+        //Determine the current array element / current array index name
         currentArrayElementName = "";
         if (isTypeSuitable({"Array": "Player"}, content.args[0].type)) {
             currentArrayElementName = "player";
@@ -591,14 +594,14 @@ function astToOpy(content) {
             result += content.name.replace(/_/g, "")+"(";
             if (content.args[1].name === "__currentArrayElement__") {
                 //If there is just "current array element", no need to explicitly put it
-                result += astToOpy(content.args[0]);
+                result += opyArray;
             } else {
                 result += "["+astToOpy(content.args[1])+" for "+currentArrayElementName;
                 if (astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
                     result += ", "+currentArrayIndexName;
                 }
                 result += " in ";
-                var opIn = astToOpy(content.args[0]);
+                var opIn = opyArray;
                 if (astContainsFunctions(content.args[0], ["__ifThenElse__"])) {
                     opIn = "("+opIn+")";
                 }
@@ -614,7 +617,7 @@ function astToOpy(content) {
             if (content.args[0].name === "__filteredArray__") {
                 result += astToOpy(content.args[0].args[0])+" if "+astToOpy(content.args[0].args[1]);
             } else {
-                result += astToOpy(content.args[0]);
+                result += opyArray;
             }
             result += "]";
         } else if (content.name === "__filteredArray__") {
@@ -623,7 +626,7 @@ function astToOpy(content) {
                 result += ", "+currentArrayIndexName;
             }
             result += " in ";
-            var opArray = astToOpy(content.args[0]);
+            var opArray = opyArray;
             if (astContainsFunctions(content.args[0], ["__ifThenElse__"])) {
                 opArray = "("+opArray+")";
             }
@@ -634,7 +637,7 @@ function astToOpy(content) {
             }
             result += opIf+"]";
         } else if (content.name === "__sortedArray__") {
-            result += "sorted("+astToOpy(content.args[0]);
+            result += "sorted("+opyArray;
             //If there is just "current array element", no need to explicitly put it
             if (content.args[1].name !== "__currentArrayElement__") {
                 result += ", lambda "+currentArrayElementName;
@@ -647,6 +650,7 @@ function astToOpy(content) {
         }
 
         currentArrayElementName = null;
+        currentArrayIndexName = null;
         return result;
     }
 
