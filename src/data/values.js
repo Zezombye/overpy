@@ -150,6 +150,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -159,6 +160,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -505,6 +507,7 @@ var valueFuncKw =
                         "Array": "Object"
                     }
                 ],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -659,6 +662,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
+                canReplace0ByNull: true,
                 "default": "NULL"
             }
         ],
@@ -685,6 +689,7 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The value for which to search.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -713,12 +718,16 @@ var valueFuncKw =
                 "name": "START INDEX",
                 "description": "The first index of the range.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "COUNT",
                 "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -1036,18 +1045,21 @@ var valueFuncKw =
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             }
         ],
@@ -1150,6 +1162,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -1513,6 +1526,7 @@ var valueFuncKw =
     },
     "__global__": {
         "return": "GlobalVariable",
+        "args": null,
         "guid": "00000000EB1F",
         "en-US": "Global",
         "it-IT": "Globale",
@@ -3070,12 +3084,16 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3165,12 +3183,16 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3191,12 +3213,14 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "unsigned float",
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3837,12 +3861,16 @@ var valueFuncKw =
                 "name": "MIN",
                 "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX",
                 "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -4049,7 +4077,7 @@ var valueFuncKw =
             {
                 "name": "INCLUDE PLAYER OWNED OBJECTS",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -4358,18 +4386,21 @@ var valueFuncKw =
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             }
         ],
@@ -4392,6 +4423,8 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -4401,6 +4434,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -4587,6 +4621,7 @@ var valueFuncKw =
                 "name": "INDEX",
                 "description": "The index of the element to acquire.",
                 "type": "unsigned int",
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -4611,18 +4646,24 @@ var valueFuncKw =
                 "name": "X",
                 "description": "The x value of the vector.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "Y",
                 "description": "The y value of the vector.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "Z",
                 "description": "The z value of the vector.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],

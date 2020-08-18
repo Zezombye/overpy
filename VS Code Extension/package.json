@@ -82,8 +82,8 @@
                 },
                 "overpy.addTemplateOnNewFile": {
                     "type": "boolean",
-                    "description": "Specifies whether to add a template when a new OverPy file is created.",
-                    "default": true
+                    "description": "Specifies whether to add a template when a new OverPy file is created. Warning: due to a bug (#196), the template will be inserted when a new file is saved to disk (as .opy file) for the first time.",
+                    "default": false
                 }
             }
         },

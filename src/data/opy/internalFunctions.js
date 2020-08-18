@@ -41,6 +41,7 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -68,11 +69,15 @@ const opyInternalFuncs = {
                     "float",
                     "Vector"
                 ],
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "RATE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -96,11 +101,15 @@ const opyInternalFuncs = {
                     "float",
                     "Vector"
                 ],
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "DURATION",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -184,11 +193,13 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -203,14 +214,20 @@ const opyInternalFuncs = {
             },
             {
                 "name": "RANGE START",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "type": "float",
             },
             {
                 "name": "RANGE STOP",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "type": "float",
             },
             {
                 "name": "STEP",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "type": "float",
             }
         ],
@@ -282,11 +299,15 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -299,11 +320,15 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -315,11 +340,13 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -331,11 +358,15 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -347,11 +378,15 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],

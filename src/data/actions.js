@@ -248,6 +248,7 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The message to be displayed.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "STRING"
             }
         ],
@@ -641,18 +642,22 @@ const actionKw =
                 "name": "SLOT",
                 "description": "The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "POSITION",
                 "description": "The initial position where the bot will appear.",
                 "type": "Position",
+                canReplaceNullVectorByNull: true,
                 "default": "VECTOR"
             },
             {
                 "name": "FACING",
                 "description": "The initial direction that the bot will face.",
                 "type": "Direction",
+                canReplaceNullVectorByNull: true,
                 "default": "VECTOR"
             }
         ],
@@ -761,6 +766,8 @@ const actionKw =
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -4092,6 +4099,7 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The message to be displayed.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "STRING"
             }
         ],
@@ -5472,6 +5480,7 @@ const actionKw =
                 "name": "TIME",
                 "description": "The duration of the pause.",
                 "type": "unsigned float",
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
