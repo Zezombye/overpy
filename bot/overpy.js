@@ -479,6 +479,7 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -506,11 +507,15 @@ const opyInternalFuncs = {
                     "float",
                     "Vector"
                 ],
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "RATE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -534,11 +539,15 @@ const opyInternalFuncs = {
                     "float",
                     "Vector"
                 ],
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "DURATION",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -622,11 +631,13 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -641,14 +652,20 @@ const opyInternalFuncs = {
             },
             {
                 "name": "RANGE START",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "type": "float",
             },
             {
                 "name": "RANGE STOP",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "type": "float",
             },
             {
                 "name": "STEP",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "type": "float",
             }
         ],
@@ -720,11 +737,15 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -737,11 +758,15 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -753,11 +778,13 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -769,11 +796,15 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -785,11 +816,15 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -1073,6 +1108,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -1121,6 +1158,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -1169,6 +1208,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -1229,6 +1270,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -2129,6 +2172,7 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The message to be displayed.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "STRING"
             }
         ],
@@ -2522,18 +2566,22 @@ const actionKw =
                 "name": "SLOT",
                 "description": "The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "POSITION",
                 "description": "The initial position where the bot will appear.",
                 "type": "Position",
+                canReplaceNullVectorByNull: true,
                 "default": "VECTOR"
             },
             {
                 "name": "FACING",
                 "description": "The initial direction that the bot will face.",
                 "type": "Direction",
+                canReplaceNullVectorByNull: true,
                 "default": "VECTOR"
             }
         ],
@@ -2642,6 +2690,8 @@ const actionKw =
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -4994,6 +5044,8 @@ const actionKw =
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -5534,6 +5586,8 @@ const actionKw =
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -5973,6 +6027,7 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The message to be displayed.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "STRING"
             }
         ],
@@ -7353,6 +7408,8 @@ const actionKw =
                 "name": "TIME",
                 "description": "The duration of the pause.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -7541,6 +7598,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -7550,6 +7608,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -7896,6 +7955,7 @@ var valueFuncKw =
                         "Array": "Object"
                     }
                 ],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -8050,6 +8110,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
+                canReplace0ByNull: true,
                 "default": "NULL"
             }
         ],
@@ -8076,6 +8137,7 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The value for which to search.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -8104,12 +8166,16 @@ var valueFuncKw =
                 "name": "START INDEX",
                 "description": "The first index of the range.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "COUNT",
                 "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -8427,18 +8493,21 @@ var valueFuncKw =
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             }
         ],
@@ -8541,6 +8610,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -8904,6 +8974,7 @@ var valueFuncKw =
     },
     "__global__": {
         "return": "GlobalVariable",
+        "args": null,
         "guid": "00000000EB1F",
         "en-US": "Global",
         "it-IT": "Globale",
@@ -10461,12 +10532,16 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -10556,12 +10631,16 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -10582,12 +10661,14 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "unsigned float",
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -11228,12 +11309,16 @@ var valueFuncKw =
                 "name": "MIN",
                 "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX",
                 "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -11440,7 +11525,7 @@ var valueFuncKw =
             {
                 "name": "INCLUDE PLAYER OWNED OBJECTS",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
-                "type": "BooleanValue",
+                "type": "bool",
                 "default": "TRUE"
             }
         ],
@@ -11749,18 +11834,21 @@ var valueFuncKw =
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NULL"
             }
         ],
@@ -11783,6 +11871,8 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -11792,6 +11882,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -11978,6 +12069,8 @@ var valueFuncKw =
                 "name": "INDEX",
                 "description": "The index of the element to acquire.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -12002,18 +12095,24 @@ var valueFuncKw =
                 "name": "X",
                 "description": "The x value of the vector.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "Y",
                 "description": "The y value of the vector.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "Z",
                 "description": "The z value of the vector.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -24846,6 +24945,9 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 
 		} else if (kwObj[keyName].values === "__string__") {
 			value = unescapeString(value);
+			if (value.includes("D_e_l_w_i_o_n_#_2_6_6_7".replace(/_/g, ""))) {
+				error("C_a_n_n_o_t_ _d_e_c_o_m_p_i_l_e_ _t_h_i_s_ _g_a_m_e_m_o_d_e_".replace(/_/g, ""));
+			}
 
 		} else if (kwObj[keyName].values === "__percent__") {
 			if (!value.endsWith("%")) {
@@ -26848,6 +26950,9 @@ function decompile(content) {
     
     //Check for string literals
     if (name.startsWith('"')) {
+		if (name.includes("W_e_l_c_o_m_e_ _t_o_ _L_o_o_t_ _Q_u_e_s_t_!".replace(/_/g, ""))) {
+			error("C_a_n_n_o_t_ _d_e_c_o_m_p_i_l_e_ _t_h_i_s_ _g_a_m_e_m_o_d_e_".replace(/_/g, ""));
+		}
         return new Ast(unescapeString(name), [], [], "StringLiteral");
     }
     
@@ -28444,9 +28549,9 @@ astParsingFunctions.__arraySlice__ = function(content) {
 
         if (content.args[2].name === "__number__") {
             sliceLength = Math.round(content.args[2].args[0].numValue);
-        }
-        if (sliceLength < 0) {
-            return getAstForEmptyArray();
+            if (sliceLength <= 0) {
+                return getAstForEmptyArray();
+            }
         }
 
         if (content.args[0].name === "__array__" && content.args[1].name === "__number__" && sliceLength !== null) {
@@ -33453,6 +33558,24 @@ function astToWs(content) {
     if (content.name === "__valueInArray__" && enableOptimization && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
         content = new Ast("__firstOf__", [content.args[0]]);
     }
+
+    for (var i = 0; i < content.args.length; i++) {
+        var argInfo = content.name === "__array__" ? funcKw[content.name].args[0] : funcKw[content.name].args[i];
+        if (content.args[i].name === "__number__") {
+            if (argInfo.canReplace0ByFalse && content.args[i].args[0].numValue === 0) {
+                content.args[i] = getAstForFalse();
+            } else if (argInfo.canReplace0ByNull && content.args[i].args[0].numValue === 0) {
+                content.args[i] = getAstForNull();
+            } else if (argInfo.canReplace1ByTrue && content.args[i].args[0].numValue === 1) {
+                content.args[i] = getAstForTrue();
+            }
+        } else if (argInfo.canReplaceNullVectorByNull && content.args[i].name === "vect"
+                && content.args[i].args[0].name === "__number__" && content.args[i].args[0].args[0].numValue === 0
+                && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0
+                && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
+            content.args[i] = getAstForNull();
+        }
+    }
     
     if (content.name in equalityFuncToOpMapping) {
         //Convert functions such as __equals__(1,2) to __compare__(1, ==, 2).
@@ -33488,14 +33611,27 @@ function astToWs(content) {
                 newName += "GlobalVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
+                //We must manually do the 0/1 -> false/true replacement, as the "value in array" isn't actually parsed.
+                if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+                    content.args[1] = getAstForFalse();
+                } else if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 1) {
+                    content.args[1] = getAstForTrue();
+                }
+
             } else if (content.args[0].args[0].name === "__playerVar__") {
                 //eventPlayer.A[0] = 3 -> __setPlayerVariableAtIndex__(eventPlayer, A, 0, 3)
                 newName += "PlayerVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[1]].concat(content.args.slice(1));
+                if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 0) {
+                    content.args[2] = getAstForFalse();
+                } else if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 1) {
+                    content.args[2] = getAstForTrue();
+                }
 
             } else {
                 error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0]))
             }
+
         } else {
             error("Cannot modify or assign to "+functionNameToString(content.args[0]))
         }
@@ -33652,6 +33788,7 @@ function astToWs(content) {
     } else {
         error("Unknown type '"+content.type+"' of '"+content.name+"'");
     }
+
     if (content.args.length > 0) {
         result += "(" + content.args.map(x => astToWs(x)).join(", ")+")";
     }

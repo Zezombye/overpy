@@ -17,28 +17,14 @@
 
 "use strict";
 
-astParsingFunctions.__arraySlice__ = function(content) {
+astParsingFunctions.__wait__ = function(content) {
 
     if (enableOptimization) {
-        var sliceStart = null;
-        var sliceLength = null;
-
-        if (content.args[2].name === "__number__") {
-            sliceLength = Math.round(content.args[2].args[0].numValue);
-            if (sliceLength <= 0) {
-                return getAstForEmptyArray();
-            }
-        }
-
-        if (content.args[0].name === "__array__" && content.args[1].name === "__number__" && sliceLength !== null) {
-            sliceStart = Math.round(content.args[1].args[0].numValue);
-            if (sliceStart < 0) {
-                sliceLength += sliceStart;
-                sliceStart = 0;
-            }
-            return new Ast("__array__", content.args[0].args.slice(sliceStart, sliceStart+sliceLength));
+        if (content.args[0].name === "__number__" && content.args[0].args[0].numValue <= 0.016) {
+            //Change to 0, as it will get casted to 0.016 anyway, but that way the optimizer can then replace it to false for that sweet element.
+            content.args[0] = getAstFor0();
         }
     }
-
+    
     return content;
 }

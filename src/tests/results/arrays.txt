@@ -33,7 +33,7 @@ rule ("array literals") {
         "0"
         Set Global Variable(A, Null);
         Set Global Variable(A, Array(Array(1, 2), Array(3, 4)));
-        Set Global Variable At Index(A, 0, First Of(Global.B));
+        Set Global Variable At Index(A, False, First Of(Global.B));
     }
 }
 
@@ -96,7 +96,7 @@ rule ("slice") {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(A, Array Slice(Global.B, 1, 3));
+        Set Global Variable(A, Array Slice(Global.B, True, 3));
         "[4]"
         Set Global Variable(A, Array(4));
         "[4,5]"

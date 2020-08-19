@@ -191,6 +191,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -239,6 +241,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -287,6 +291,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -347,6 +353,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {

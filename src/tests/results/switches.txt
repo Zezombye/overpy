@@ -10,7 +10,7 @@ rule ("switches") {
         Ongoing - Global;
     }
     actions {
-        Skip(Value In Array(Array(4, 0, 2), Add(1, Index Of Array Value(Array(1, 2), Global.A))));
+        Skip(Value In Array(Array(4, Null, 2), Add(True, Index Of Array Value(Array(1, 2), Global.A))));
         //__label_switch_4_0__:
         Global.B += 1;
         Skip(2);
@@ -20,7 +20,7 @@ rule ("switches") {
         //__label_switch_4_default__:
         //__label_break_3__:
         //__label_break_2__:
-        Skip(Value In Array(Array(2, 0, 1, 1, 2), Add(1, Index Of Array Value(Array(1, 2, 3, Hero(Brigitte)), Global.B))));
+        Skip(Value In Array(Array(2, Null, 1, 1, 2), Add(True, Index Of Array Value(Array(1, 2, 3, Hero(Brigitte)), Global.B))));
         //__label_switch_5_0__:
         Global.B += 1;
         //__label_switch_5_1__:

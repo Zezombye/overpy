@@ -50,13 +50,13 @@ rule ("kings row") {
     }
     actions {
         Set Global Variable(S, Empty Array);
-        Modify Global Variable(S, Append To Array, Vector(0, 6, 15));
-        Modify Global Variable(S, Append To Array, Vector(1, 6, 20));
+        Modify Global Variable(S, Append To Array, Vector(False, 6, 15));
+        Modify Global Variable(S, Append To Array, Vector(True, 6, 20));
         Modify Global Variable(S, Append To Array, Vector(7, 5, 20));
         Modify Global Variable(S, Append To Array, Vector(12, 6, 20));
         Modify Global Variable(S, Append To Array, Vector(18, 5, 15));
         Modify Global Variable(S, Append To Array, Vector(23, 2, 20));
-        Modify Global Variable(S, Append To Array, Vector(25, 0, 10));
+        Modify Global Variable(S, Append To Array, Vector(25, False, 10));
         Set Global Variable(L, Empty Array);
         Modify Global Variable(L, Append To Array, Vector(62.73, 5.86, -55.22));
         Modify Global Variable(L, Append To Array, Vector(32.71, 7.46, -31.96));
@@ -115,13 +115,13 @@ rule ("kings row") {
         Modify Global Variable(W, Append To Array, Vector(-170.521, 1.479, 39.27));
         Modify Global Variable(W, Append To Array, Vector(-171.641, 1.479, 32.51));
         Set Global Variable(B, Empty Array);
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
         Modify Global Variable(B, Append To Array, Vector(42.16, 0.67, 31.96));
         Modify Global Variable(B, Append To Array, Vector(-20.25, 1.26, 27.649));
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
         Modify Global Variable(B, Append To Array, Vector(-19.271, 2.35, -16.34));
         Modify Global Variable(B, Append To Array, Vector(-97.971, -1.141, -47.771));
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
         Set Global Variable(C, Empty Array);
         Modify Global Variable(C, Append To Array, Vector(62.729, 5.859, -55.221));
         Modify Global Variable(C, Append To Array, Vector(3.63, 3.55, 52.29));
@@ -169,14 +169,14 @@ rule ("blizz world") {
         Modify Global Variable(W, Append To Array, Vector(-145.59, 2.15, 115.9));
         Modify Global Variable(W, Append To Array, Vector(-147.46, 2.23, 90.87));
         Set Global Variable(S, Empty Array);
-        Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
-        Modify Global Variable(S, Append To Array, Vector(0, 2, 20));
+        Modify Global Variable(S, Append To Array, Vector(False, False, 15));
+        Modify Global Variable(S, Append To Array, Vector(False, 2, 20));
         Modify Global Variable(S, Append To Array, Vector(2, 5, 15));
         Modify Global Variable(S, Append To Array, Vector(4, 6, 15));
         Modify Global Variable(S, Append To Array, Vector(10, 4, 25));
         Modify Global Variable(S, Append To Array, Vector(12, 6, 20));
         Modify Global Variable(S, Append To Array, Vector(14, 6, 15));
-        Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
+        Modify Global Variable(S, Append To Array, Vector(False, False, False));
         Set Global Variable(L, Empty Array);
         Modify Global Variable(L, Append To Array, Vector(2.97, -4.65, -85.64));
         Modify Global Variable(L, Append To Array, Vector(-12.371, -4.201, -57.627));
@@ -205,14 +205,14 @@ rule ("blizz world") {
         Modify Global Variable(T, Append To Array, Vector(-145.55, 2.1, 103.96));
         Modify Global Variable(T, Append To Array, Vector(-145.55, 2.1, 103.96));
         Set Global Variable(B, Empty Array);
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
         Modify Global Variable(B, Append To Array, Vector(-12.51, -2.65, -33.5));
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
         Modify Global Variable(B, Append To Array, Vector(22.18, 1.52, 96.16));
         Modify Global Variable(B, Append To Array, Vector(-78.4, 1.95, 129.36));
         Modify Global Variable(B, Append To Array, Vector(-113.26, 6.1, 130.81));
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
         Set Global Variable(C, Empty Array);
         Modify Global Variable(C, Append To Array, Vector(2.97, -4.65, -85.64));
         Modify Global Variable(C, Append To Array, Vector(-12.48, -2.72, -32.04));
@@ -267,13 +267,13 @@ rule ("eichenwalde") {
         Modify Global Variable(W, Append To Array, Vector(142.352, 12.09, -16.331));
         Set Global Variable(X, 6);
         Set Global Variable(S, Empty Array);
-        Modify Global Variable(S, Append To Array, Vector(0, 5, 15));
+        Modify Global Variable(S, Append To Array, Vector(False, 5, 15));
         Modify Global Variable(S, Append To Array, Vector(5, 6, 15));
         Modify Global Variable(S, Append To Array, Vector(8, 3, 25));
         Modify Global Variable(S, Append To Array, Vector(11, 6, 15));
         Modify Global Variable(S, Append To Array, Vector(17, 6, 20));
         Modify Global Variable(S, Append To Array, Vector(19, 6, 20));
-        Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
+        Modify Global Variable(S, Append To Array, Vector(False, False, False));
         Set Global Variable(L, Empty Array);
         Modify Global Variable(L, Append To Array, Vector(-11.842, 1.351, -9.35));
         Modify Global Variable(L, Append To Array, Vector(-7.643, 3.377, -28.96));
@@ -299,12 +299,12 @@ rule ("eichenwalde") {
         Modify Global Variable(T, Append To Array, Vector(126.503, 17.516, -15.358));
         Modify Global Variable(T, Append To Array, Vector(111.545, 16.071, -33.741));
         Set Global Variable(B, Empty Array);
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
         Modify Global Variable(B, Append To Array, Vector(21, 11.208, -99));
         Modify Global Variable(B, Append To Array, Vector(26.932, 10.006, -87.287));
         Modify Global Variable(B, Append To Array, Vector(67.503, 6.071, -83.707));
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
         Modify Global Variable(B, Append To Array, Vector(125.858, 16.083, -19.069));
         Set Global Variable(C, Empty Array);
         Modify Global Variable(C, Append To Array, Vector(-12.112, 2.165, -7.337));
@@ -355,14 +355,14 @@ rule ("oasis city center") {
         Modify Global Variable(W, Append To Array, Vector(142.109, 5.352, 226.935));
         Modify Global Variable(W, Append To Array, Vector(137.603, 2, 210.548));
         Set Global Variable(S, Empty Array);
-        Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
-        Modify Global Variable(S, Append To Array, Vector(0, 5, 20));
+        Modify Global Variable(S, Append To Array, Vector(False, False, 15));
+        Modify Global Variable(S, Append To Array, Vector(False, 5, 20));
         Modify Global Variable(S, Append To Array, Vector(4, 7, 15));
         Modify Global Variable(S, Append To Array, Vector(9, 3, 25));
         Modify Global Variable(S, Append To Array, Vector(12, 4, 20));
         Modify Global Variable(S, Append To Array, Vector(16, 5, 15));
-        Modify Global Variable(S, Append To Array, Vector(0, 0, 15));
-        Modify Global Variable(S, Append To Array, Vector(0, 0, 0));
+        Modify Global Variable(S, Append To Array, Vector(False, False, 15));
+        Modify Global Variable(S, Append To Array, Vector(False, False, False));
         Set Global Variable(L, Empty Array);
         Modify Global Variable(L, Append To Array, Vector(220.224, 2.351, 167.747));
         Modify Global Variable(L, Append To Array, Vector(211.228, 2.351, 181.767));
@@ -391,14 +391,14 @@ rule ("oasis city center") {
         Modify Global Variable(T, Append To Array, Vector(16.617, -8.5, 120.524));
         Modify Global Variable(T, Append To Array, Vector(16.617, -8.5, 120.524));
         Set Global Variable(B, Empty Array);
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
         Modify Global Variable(B, Append To Array, Vector(202.897, 2.351, 194.546));
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
         Modify Global Variable(B, Append To Array, Vector(146.278, 12.871, 273.901));
         Modify Global Variable(B, Append To Array, Vector(62.114, 9.21, 309.601));
         Modify Global Variable(B, Append To Array, Vector(113.736, 2.148, 217.728));
-        Modify Global Variable(B, Append To Array, Vector(0, -30, 0));
+        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
         Set Global Variable(C, Empty Array);
         Modify Global Variable(C, Append To Array, Vector(201.216, 2.354, 197.171));
         Modify Global Variable(C, Append To Array, Vector(202.001, 2.349, 195.913));
@@ -418,8 +418,8 @@ rule ("initial zombie hero") {
     }
     actions {
         Set Global Variable(Z, Hero(Torbjörn));
-        Set Global Variable(N, 0);
-        Create HUD Text(All Players(All Teams), Custom String("Waiting 4 Players 2 Start ...", Null, Null, Null), Null, Null, Left, 0, White, White, White, Visible To and String, Default Visibility);
+        Set Global Variable(N, Null);
+        Create HUD Text(All Players(All Teams), Custom String("Waiting 4 Players 2 Start ...", Null, Null, Null), Null, Null, Left, False, White, White, White, Visible To and String, Default Visibility);
     }
 }
 
@@ -472,17 +472,17 @@ rule ("init round") {
     }
     actions {
         Set Global Variable(P, Match Time);
-        Skip If(Compare(Global.R, !=, 0), 1);
+        Skip If(Compare(Global.R, !=, Null), 1);
         Set Global Variable(P, 1200);
         //lbl_0:
-        Set Global Variable(G, 0);
+        Set Global Variable(G, Null);
         Set Global Variable(I, 1);
-        Set Global Variable(N, 0);
-        Set Global Variable(O, 0);
-        Set Global Variable(Q, 0);
-        Set Global Variable(E, 0);
-        Set Player Variable(All Players(All Teams), F, 0);
-        Set Player Variable(All Players(All Teams), Z, 0);
+        Set Global Variable(N, Null);
+        Set Global Variable(O, Null);
+        Set Global Variable(Q, Null);
+        Set Global Variable(E, Null);
+        Set Player Variable(All Players(All Teams), F, Null);
+        Set Player Variable(All Players(All Teams), Z, Null);
         Destroy All HUD Text;
         //lbl_1:
         Resurrect(All Players(All Teams));
@@ -493,17 +493,17 @@ rule ("init round") {
         Stop Forcing Player To Be Hero(All Players(All Teams));
         Disable Built-In Game Mode Completion;
         Wait(9, Ignore Condition);
-        Set Global Variable(I, 0);
+        Set Global Variable(I, Null);
         Set Global Variable(R, 3);
         Set Match Time(Global.P);
-        Skip If(Compare(Match Time, >, 0), 1);
+        Skip If(Compare(Match Time, >, False), 1);
         Set Global Variable(J, 4);
         //lbl_2:
-        Set Global Variable(G, 0);
-        Set Global Variable(N, 0);
-        Set Global Variable(O, 0);
-        Set Global Variable(Q, 0);
-        Set Global Variable(E, 0);
+        Set Global Variable(G, Null);
+        Set Global Variable(N, Null);
+        Set Global Variable(O, Null);
+        Set Global Variable(Q, Null);
+        Set Global Variable(E, Null);
     }
 }
 
@@ -543,7 +543,7 @@ rule ("walls visual effect") {
     }
     actions {
         Create Effect(All Players(All Teams), Sphere, Yellow, Value In Array(Global.A, Global.I), 4, Visible To);
-        Create Effect(All Players(All Teams), Sphere, Yellow, Add(Value In Array(Global.A, Global.I), Vector(0, 4, 0)), 4, Visible To);
+        Create Effect(All Players(All Teams), Sphere, Yellow, Add(Value In Array(Global.A, Global.I), Vector(False, 4, False)), 4, Visible To);
         Global.I += 1;
         Wait(0.05, Ignore Condition);
         Loop If(Compare(Global.I, <, Count Of(Global.A)));
@@ -560,9 +560,9 @@ rule ("walls kb effect") {
     }
     actions {
         Skip If(Compare(Y Component Of(Position Of(Event Player)), <, Subtract(Y Component Of(Value In Array(Global.A, (Event Player).J)), 4)), 5);
-        Skip If(Compare(Distance Between(Vector(X Component Of(Position Of(Event Player)), 0, Z Component Of(Position Of(Event Player))), Vector(X Component Of(Value In Array(Global.A, (Event Player).J)), 0, Z Component Of(Value In Array(Global.A, (Event Player).J)))), >, 4.5), 4);
-        Apply Impulse(Event Player, Vector(0, 1, 0), 1, To Player, Cancel Contrary Motion);
-        Apply Impulse(Event Player, Vector(X Component Of(Vector Towards(Value In Array(Global.A, (Event Player).J), Position Of(Event Player))), 0, Z Component Of(Vector Towards(Value In Array(Global.A, (Event Player).J), Position Of(Event Player)))), Add(2.5, Multiply(Horizontal Speed Of(Event Player), 1.5)), To World, Cancel Contrary Motion);
+        Skip If(Compare(Distance Between(Vector(X Component Of(Position Of(Event Player)), False, Z Component Of(Position Of(Event Player))), Vector(X Component Of(Value In Array(Global.A, (Event Player).J)), False, Z Component Of(Value In Array(Global.A, (Event Player).J)))), >, 4.5), 4);
+        Apply Impulse(Event Player, Vector(False, True, False), 1, To Player, Cancel Contrary Motion);
+        Apply Impulse(Event Player, Vector(X Component Of(Vector Towards(Value In Array(Global.A, (Event Player).J), Position Of(Event Player))), False, Z Component Of(Vector Towards(Value In Array(Global.A, (Event Player).J), Position Of(Event Player)))), Add(2.5, Multiply(Horizontal Speed Of(Event Player), 1.5)), To World, Cancel Contrary Motion);
         Skip(1);
         Apply Impulse(Event Player, Divide(Velocity Of(Event Player), Vector(Absolute Value(X Component Of(Velocity Of(Event Player))), Absolute Value(Y Component Of(Velocity Of(Event Player))), Absolute Value(Z Component Of(Velocity Of(Event Player))))), -10, To World, Cancel Contrary Motion);
         //lbl_0:
@@ -570,7 +570,7 @@ rule ("walls kb effect") {
         //lbl_2:
         (Event Player).J += 1;
         Skip If(Compare((Event Player).J, <, Count Of(Global.A)), 1);
-        Set Player Variable(Event Player, J, 0);
+        Set Player Variable(Event Player, J, Null);
         //lbl_3:
         Wait(0.016, Ignore Condition);
         Loop;
@@ -584,7 +584,7 @@ rule ("use tp") {
         All;
     }
     conditions {
-        Array Contains(Players Within Radius(Subtract(Value In Array(Global.B, Global.N), Vector(0, 1, 0)), 2, All Teams, Off), Event Player) == True;
+        Array Contains(Players Within Radius(Subtract(Value In Array(Global.B, Global.N), Vector(False, True, False)), 2, All Teams, Off), Event Player) == True;
     }
     actions {
         Teleport(Event Player, Value In Array(Global.C, Global.N));
@@ -601,7 +601,7 @@ rule ("trigger") {
     }
     actions {
         Set Global Variable(Q, 1);
-        Skip If(Compare(Count Of(Filtered Array(Players Within Radius(Value In Array(Global.T, Global.N), 5, All Teams, Off), Compare((Current Array Element).Z, ==, 1))), !=, 0), 23);
+        Skip If(Compare(Count Of(Filtered Array(Players Within Radius(Value In Array(Global.T, Global.N), 5, All Teams, Off), Compare((Current Array Element).Z, ==, 1))), !=, Null), 23);
         Skip If(Compare(Global.N, ==, Add(Count Of(Global.S), -1)), 11);
         Big Message(All Players(All Teams), Custom String("Defend: {0} sec", Z Component Of(Value In Array(Global.S, Global.N)), Null, Null));
         Wait(Subtract(Z Component Of(Value In Array(Global.S, Global.N)), 8), Ignore Condition);
@@ -612,7 +612,7 @@ rule ("trigger") {
         Abort If(Compare(Global.R, <=, 2));
         Big Message(All Players(All Teams), Custom String("Defend: 1 sec", Null, Null, Null));
         Set Global Variable(Q, 2);
-        Wait(1, Ignore Condition);
+        Wait(True, Ignore Condition);
         Abort If(Compare(Global.R, <=, 2));
         //lbl_1:
         Set Global Variable(Q, 3);
@@ -622,8 +622,8 @@ rule ("trigger") {
         //lbl_2:
         Destroy All Effects;
         Wait(0.25, Ignore Condition);
-        Set Global Variable(I, 0);
-        Set Global Variable(Q, 0);
+        Set Global Variable(I, Null);
+        Set Global Variable(Q, Null);
         Skip If(Compare(Global.N, !=, Count Of(Global.S)), 3);
         Set Global Variable(E, 2);
         Abort;
@@ -641,20 +641,20 @@ rule ("first infection") {
         Global.R == 3;
     }
     actions {
-        Wait(1, Ignore Condition);
+        Wait(True, Ignore Condition);
         Big Message(All Players(All Teams), Custom String("Initial Dead: {0} sec", Subtract(10, Global.O), Null, Null));
         Global.O += 1;
         Loop If(Compare(Global.O, <, 10));
         Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), <=, 10), 1);
-        Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element), Compare((Current Array Element).L, ==, 0)))), 0, 2), Z, 1);
+        Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element), Compare((Current Array Element).L, ==, Null)))), False, 2), Z, 1);
         //lbl_0:
         Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), >, 10), 1);
-        Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element), Compare((Current Array Element).L, ==, 0)))), 0, 1), Z, 1);
+        Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element), Compare((Current Array Element).L, ==, Null)))), False, True), Z, 1);
         //lbl_1:
         Teleport(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), First Of(Global.L));
         Set Global Variable(G, 1);
         Set Player Variable(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), L, 1);
-        Set Player Variable(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 0)), L, 0);
+        Set Player Variable(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, Null)), L, Null);
     }
 }
 
@@ -669,7 +669,7 @@ rule ("tp players at 1 sec left") {
         Array Contains(Players Within Radius(Value In Array(Global.T, Global.N), Value In Array(Global.M, Global.N), All Teams, Off), Event Player) == False;
     }
     actions {
-        Teleport(Event Player, Value In Array(Global.L, Add(Global.N, 1)));
+        Teleport(Event Player, Value In Array(Global.L, Add(Global.N, True)));
     }
 }
 
@@ -706,8 +706,8 @@ rule ("infect players") {
         Set Player Variable(Victim, Z, 1);
         Modify Player Score(Attacker, 1);
         Set Player Variable(Victim, H, Hero Of(Victim));
-        Create HUD Text(All Players(All Teams), Custom String("{0} {1} -> {2}", Hero Icon String(Hero Of(Attacker)), Attacker, Custom String("{0} {1}", Hero Icon String((Victim).H), Victim, Null)), Null, Null, Right, 0, White, White, White, Visible To and String, Default Visibility);
-        Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare((Current Array Element).Z, ==, 0))), !=, 0), 2);
+        Create HUD Text(All Players(All Teams), Custom String("{0} {1} -> {2}", Hero Icon String(Hero Of(Attacker)), Attacker, Custom String("{0} {1}", Hero Icon String((Victim).H), Victim, Null)), Null, Null, Right, False, White, White, White, Visible To and String, Default Visibility);
+        Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare((Current Array Element).Z, ==, Null))), !=, Null), 2);
         Set Global Variable(E, 1);
         Resurrect(Event Player);
         //lbl_0:
@@ -743,7 +743,7 @@ rule ("humans and zombies cant hurt same") {
         Is Game In Progress == True;
     }
     actions {
-        Start Damage Modification(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 0)), Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 0)), 0, Receivers Damagers and Damage Percent);
+        Start Damage Modification(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, Null)), Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, Null)), 0, Receivers Damagers and Damage Percent);
         Start Damage Modification(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), 0, Receivers Damagers and Damage Percent);
     }
 }
@@ -759,10 +759,10 @@ rule ("humans and zombies can hurt each other + kb") {
         (Victim).Z == 1;
     }
     actions {
-        Skip If(Compare(Random Integer(1, 4), !=, 1), 1);
-        Apply Impulse(Victim, Vector(0, 1, 0), 1.5, To Player, Cancel Contrary Motion);
+        Skip If(Compare(Random Integer(True, 4), !=, 1), 1);
+        Apply Impulse(Victim, Vector(False, True, False), 1.5, To Player, Cancel Contrary Motion);
         //lbl_0:
-        Apply Impulse(Victim, Divide(Vector Towards(Position Of(Attacker), Position Of(Victim)), Vector(Absolute Value(X Component Of(Vector Towards(Position Of(Attacker), Position Of(Victim)))), 0, Absolute Value(Z Component Of(Vector Towards(Position Of(Attacker), Position Of(Victim)))))), Multiply(Event Damage, 1.05), To World, Cancel Contrary Motion);
+        Apply Impulse(Victim, Divide(Vector Towards(Position Of(Attacker), Position Of(Victim)), Vector(Absolute Value(X Component Of(Vector Towards(Position Of(Attacker), Position Of(Victim)))), False, Absolute Value(Z Component Of(Vector Towards(Position Of(Attacker), Position Of(Victim)))))), Multiply(Event Damage, 1.05), To World, Cancel Contrary Motion);
     }
 }
 
@@ -781,7 +781,7 @@ rule ("tp dest") {
         Wait(0.016, Ignore Condition);
         (Event Player).B += 1;
         Loop If(Compare((Event Player).B, <, 105));
-        Set Player Variable(Event Player, B, 0);
+        Set Player Variable(Event Player, B, Null);
     }
 }
 
@@ -801,10 +801,10 @@ rule ("zombie behavior") {
         Stop All Heal Over Time(Event Player);
         Set Status(Event Player, Null, Rooted, 2);
         Big Message(Event Player, Custom String("You Dead", Null, Null, Null));
-        Wait(1, Ignore Condition);
+        Wait(True, Ignore Condition);
         Clear Status(Event Player, Rooted);
         Press Button(Event Player, Ultimate);
-        Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare((Current Array Element).Z, ==, 0))), !=, 0), 1);
+        Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare((Current Array Element).Z, ==, Null))), !=, Null), 1);
         Set Global Variable(E, 1);
         //lbl_0:
     }
@@ -824,7 +824,7 @@ rule ("player selected hero") {
         Disallow Button(Event Player, Crouch);
         Wait(0.1, Ignore Condition);
         Teleport(Event Player, Value In Array(Global.L, Global.N));
-        Skip If(Compare(Global.G, ==, 0), 1);
+        Skip If(Compare(Global.G, ==, Null), 1);
         Set Player Variable(Event Player, Z, 1);
         //lbl_0:
         Start Heal Over Time(Event Player, Null, 9999, 20);
@@ -873,7 +873,7 @@ rule ("red orb") {
         Global.Q == 1.5;
     }
     actions {
-        Create Effect(All Players(All Teams), Orb, Red, Value In Array(Global.L, Add(Global.N, 1)), 1, Visible To Position and Radius);
+        Create Effect(All Players(All Teams), Orb, Red, Value In Array(Global.L, Add(Global.N, True)), 1, Visible To Position and Radius);
     }
 }
 
@@ -939,7 +939,7 @@ rule ("zombies win") {
         Stop All Damage Modifications;
         Big Message(All Players(All Teams), Custom String("Dead Win", Null, Null, Null));
         Wait(5, Ignore Condition);
-        Skip If(Compare(Match Time, >, 0), 1);
+        Skip If(Compare(Match Time, >, False), 1);
         Set Global Variable(J, 4);
         //lbl_0:
         Set Global Variable(R, 1);
@@ -956,15 +956,15 @@ rule ("humans win") {
     actions {
         Stop All Damage Modifications;
         Big Message(All Players(All Teams), Custom String("Heroes Win", Null, Null, Null));
-        Wait(0, Ignore Condition);
+        Wait(False, Ignore Condition);
         Kill(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), Null);
-        Modify Player Score(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 0)), 100);
+        Modify Player Score(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, Null)), 100);
         Wait(1.5, Ignore Condition);
         Global.J += 1;
         Wait(3.5, Ignore Condition);
         Set Match Time(1200);
         Set Global Variable(R, 1);
-        Teleport(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), Vector(0, -500, 0));
+        Teleport(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), Vector(False, -500, False));
     }
 }
 

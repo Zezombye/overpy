@@ -18,7 +18,7 @@ rule ("comparison") {
         "true"
         Set Global Variable(A, True);
         "not B"
-        Set Global Variable(A, Compare(Global.B, ==, 0));
+        Set Global Variable(A, Compare(Global.B, ==, Null));
         "isGameInProgress()"
         Set Global Variable(A, Is Game In Progress);
         Set Global Variable(A, Compare(Global.B, !=, Global.C));
@@ -26,9 +26,9 @@ rule ("comparison") {
         Set Global Variable(A, True);
         "false"
         Set Global Variable(A, False);
-        Set Global Variable(A, Compare(Global.B, !=, 0));
+        Set Global Variable(A, Compare(Global.B, !=, Null));
         "not B"
-        Set Global Variable(A, Not(Compare(Global.B, !=, 0)));
+        Set Global Variable(A, Not(Compare(Global.B, !=, Null)));
         "not isGameInProgress()"
         Set Global Variable(A, Not(Is Game In Progress));
         Set Global Variable(A, Compare(Global.B, >=, Global.C));
@@ -66,7 +66,7 @@ rule ("add") {
         Set Global Variable(A, Multiply(2, Global.B));
         "3"
         Set Global Variable(A, 3);
-        Set Global Variable(A, Add(Vector(Global.B, Global.C, Global.D), Vector(1, 2, 3)));
+        Set Global Variable(A, Add(Vector(Global.B, Global.C, Global.D), Vector(True, 2, 3)));
         "vect(5,7,9)"
         Set Global Variable(A, Vector(5, 7, 9));
     }
@@ -82,10 +82,10 @@ rule ("subtract") {
         "B"
         Set Global Variable(A, Global.B);
         "0"
-        Set Global Variable(A, 0);
+        Set Global Variable(A, Null);
         "-1"
         Set Global Variable(A, -1);
-        Set Global Variable(A, Subtract(Vector(Global.B, Global.C, Global.D), Vector(1, 2, 3)));
+        Set Global Variable(A, Subtract(Vector(Global.B, Global.C, Global.D), Vector(True, 2, 3)));
         "vect(-3,-3,-3)"
         Set Global Variable(A, Vector(-3, -3, -3));
     }
@@ -98,7 +98,7 @@ rule ("negate") {
     actions {
         Set Global Variable(A, Multiply(-1, Global.B));
         Set Global Variable(A, Modulo(Multiply(-1, Global.B), Global.C));
-        Set Global Variable(A, Multiply(-1, Vector(1, Global.B, -2)));
+        Set Global Variable(A, Multiply(-1, Vector(True, Global.B, -2)));
         "vect(-1,-2,3)"
         Set Global Variable(A, Vector(-1, -2, 3));
         Set Global Variable(A, -1);
@@ -125,7 +125,7 @@ rule ("multiply") {
         "B**2"
         Set Global Variable(A, Multiply(Global.B, Global.B));
         "0"
-        Set Global Variable(A, 0);
+        Set Global Variable(A, Null);
         "6"
         Set Global Variable(A, 6);
         "vect(6,8,10)"
@@ -146,16 +146,16 @@ rule ("divide") {
         "B"
         Set Global Variable(A, Global.B);
         "0"
-        Set Global Variable(A, 0);
+        Set Global Variable(A, Null);
         "0"
-        Set Global Variable(A, 0);
+        Set Global Variable(A, Null);
         "0.5"
         Set Global Variable(A, 0.5);
         Set Global Variable(A, Divide(-3, Global.B));
         "vect(3,1.5,1)"
-        Set Global Variable(A, Vector(3, 1.5, 1));
+        Set Global Variable(A, Vector(3, 1.5, True));
         "vect(0.5,1,1.5)"
-        Set Global Variable(A, Vector(0.5, 1, 1.5));
+        Set Global Variable(A, Vector(0.5, True, 1.5));
     }
 }
 
@@ -166,11 +166,11 @@ rule ("modulo") {
     actions {
         Set Global Variable(A, Modulo(Global.B, Global.C));
         "0"
-        Set Global Variable(A, 0);
+        Set Global Variable(A, Null);
         "0"
-        Set Global Variable(A, 0);
+        Set Global Variable(A, Null);
         "0"
-        Set Global Variable(A, 0);
+        Set Global Variable(A, Null);
         "1"
         Set Global Variable(A, 1);
         "-1"
@@ -192,7 +192,7 @@ rule ("power") {
         "B"
         Set Global Variable(A, Global.B);
         "0"
-        Set Global Variable(A, 0);
+        Set Global Variable(A, Null);
         "1"
         Set Global Variable(A, 1);
         "0"
@@ -200,7 +200,7 @@ rule ("power") {
         "8"
         Set Global Variable(A, 8);
         "0"
-        Set Global Variable(A, 0);
+        Set Global Variable(A, Null);
     }
 }
 
@@ -210,9 +210,9 @@ rule ("assignment") {
     }
     actions {
         Set Global Variable(A, Global.B);
-        Set Global Variable At Index(A, 0, Global.B);
+        Set Global Variable At Index(A, False, Global.B);
         Set Player Variable(Event Player, A, Global.B);
-        Set Player Variable At Index(Event Player, A, 0, Global.B);
+        Set Player Variable At Index(Event Player, A, False, Global.B);
         Global.A += Global.B;
         (Event Player).A += Global.B;
         Modify Global Variable(A, Subtract, Global.B);

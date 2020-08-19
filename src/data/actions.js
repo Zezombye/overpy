@@ -3120,6 +3120,8 @@ const actionKw =
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -3660,6 +3662,8 @@ const actionKw =
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -5480,6 +5484,7 @@ const actionKw =
                 "name": "TIME",
                 "description": "The duration of the pause.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
                 canReplace1ByTrue: true,
                 "default": "NUMBER"
             },

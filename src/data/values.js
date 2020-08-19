@@ -4621,6 +4621,7 @@ var valueFuncKw =
                 "name": "INDEX",
                 "description": "The index of the element to acquire.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
                 canReplace1ByTrue: true,
                 "default": "NUMBER"
             }

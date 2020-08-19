@@ -1,0 +1,121 @@
+variables {
+    global:
+        0: A
+        1: B
+        2: C
+    player:
+        0: A
+}
+rule ("0 to null") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Append To Array(Global.B, Null));
+        Set Global Variable(A, Array(Null, 1, Null));
+        Set Global Variable(A, Array Contains(Global.B, Null));
+        Set Global Variable(A, Compare(Global.B, ==, Null));
+        Set Global Variable(A, Compare(Null, ==, Global.B));
+        Set Global Variable(A, Compare(Global.B, !=, Null));
+        Set Global Variable(A, Compare(Null, !=, Global.B));
+        Set Global Variable(A, Custom String("{0}{1}{2}", Null, Null, Null));
+        Set Global Variable(A, String("{0}, {1}, and {2}", Null, Null, Null));
+        Big Message(All Players(All Teams), Null);
+        Set Global Variable(A, Null);
+        Set Global Variable At Index(A, Global.B, Null);
+        Set Player Variable(Global.B, A, Null);
+        Set Player Variable At Index(Global.B, A, Global.C, Null);
+        Small Message(All Players(All Teams), Null);
+    }
+}
+
+rule ("0 to false") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Compare(Global.B, >, False));
+        Set Global Variable(A, Compare(False, >, Global.B));
+        Set Global Variable(A, Compare(Global.B, >=, False));
+        Set Global Variable(A, Compare(False, >=, Global.B));
+        Set Global Variable(A, Compare(Global.B, <, False));
+        Set Global Variable(A, Compare(False, <, Global.B));
+        Set Global Variable(A, Compare(Global.B, <=, False));
+        Set Global Variable(A, Compare(False, <=, Global.B));
+        Set Global Variable(A, Max(False, Global.B));
+        Set Global Variable(A, Max(Global.B, False));
+        Set Global Variable(A, Min(False, Global.B));
+        Set Global Variable(A, Min(Global.B, False));
+        Set Global Variable(A, Random Integer(False, Global.B));
+        Set Global Variable(A, Random Integer(Global.B, False));
+        Set Global Variable(A, Subtract(False, Global.B));
+        Set Global Variable(A, Vector(False, False, False));
+        Chase Global Variable At Rate(A, False, False, None);
+        Chase Global Variable Over Time(A, False, False, None);
+        Chase Player Variable At Rate(Global.B, A, False, False, None);
+        Chase Player Variable Over Time(Global.B, A, False, False, None);
+        Create Dummy Bot(Hero(Ana), Team 2, False, Global.B, Global.C);
+        Create HUD Text(All Players(All Teams), Custom String("", Null, Null, Null), Null, Null, Left, False, White, White, White, Visible To, Visible Always);
+        For Global Variable(A, False, False, False);
+        End;
+        For Player Variable(Global.B, A, False, False, False);
+        End;
+        Set Global Variable At Index(A, False, Global.B);
+        Set Player Variable At Index(Global.B, A, False, Global.C);
+        Wait(False, Ignore Condition);
+        Wait(0.016, Ignore Condition);
+        Wait(0.016, Ignore Condition);
+    }
+}
+
+rule ("1 to true") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Add(Global.B, True));
+        Set Global Variable(A, Add(True, Global.B));
+        Set Global Variable(A, Compare(Global.B, >, True));
+        Set Global Variable(A, Compare(True, >, Global.B));
+        Set Global Variable(A, Compare(Global.B, >=, True));
+        Set Global Variable(A, Compare(True, >=, Global.B));
+        Set Global Variable(A, Compare(Global.B, <, True));
+        Set Global Variable(A, Compare(True, <, Global.B));
+        Set Global Variable(A, Compare(Global.B, <=, True));
+        Set Global Variable(A, Compare(True, <=, Global.B));
+        Set Global Variable(A, Divide(True, Global.B));
+        Set Global Variable(A, Max(True, Global.B));
+        Set Global Variable(A, Max(Global.B, True));
+        Set Global Variable(A, Min(True, Global.B));
+        Set Global Variable(A, Min(Global.B, True));
+        Set Global Variable(A, Random Integer(True, Global.B));
+        Set Global Variable(A, Random Integer(Global.B, True));
+        Set Global Variable(A, Subtract(True, Global.B));
+        Set Global Variable(A, Subtract(Global.B, True));
+        Set Global Variable(A, Value In Array(Global.B, True));
+        Set Global Variable(A, Vector(True, True, True));
+        Chase Global Variable At Rate(A, True, True, None);
+        Chase Global Variable Over Time(A, True, True, None);
+        Chase Player Variable At Rate(Global.B, A, True, True, None);
+        Chase Player Variable Over Time(Global.B, A, True, True, None);
+        Create Dummy Bot(Hero(Ana), Team 2, True, Global.B, Global.C);
+        Create HUD Text(All Players(All Teams), Custom String("", Null, Null, Null), Null, Null, Left, True, White, White, White, Visible To, Visible Always);
+        For Global Variable(A, True, True, True);
+        End;
+        For Player Variable(Global.B, A, True, True, True);
+        End;
+        Set Global Variable At Index(A, True, Global.B);
+        Set Player Variable At Index(Global.B, A, True, Global.C);
+        Wait(True, Ignore Condition);
+    }
+}
+
+rule ("null vector to null") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Create Dummy Bot(Hero(Ana), Team 2, Global.A, Null, Null);
+    }
+}
+

@@ -65,16 +65,16 @@ rule ("for loop") {
         Ongoing - Global;
     }
     actions {
-        For Global Variable(I, 1, 3, 2);
+        For Global Variable(I, True, 3, 2);
             Global.A += 1;
         End;
-        For Global Variable(I, 1, 3, 1);
+        For Global Variable(I, True, 3, True);
             Global.A += 1;
         End;
-        For Global Variable(I, 0, 3, 1);
+        For Global Variable(I, False, 3, True);
             Global.A += 1;
         End;
-        For Player Variable(Event Player, I, 0, 3, 1);
+        For Player Variable(Event Player, I, False, 3, True);
             Global.A += 1;
         End;
     }
@@ -120,7 +120,7 @@ rule ("do/while rule condition") {
         Wait(0.016, Ignore Condition);
         Global.A += 1;
         If(Compare(Global.A, >, Number of Players(Team 2)));
-            Set Global Variable(A, 0);
+            Set Global Variable(A, Null);
         End;
         Loop If Condition Is True;
     }

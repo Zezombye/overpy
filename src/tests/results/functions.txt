@@ -19,11 +19,11 @@ rule ("function") {
         Set Global Variable(A, Ray Cast Hit Player(Global.B, Global.C, Global.D, Global.E, True));
         Set Global Variable(A, Ray Cast Hit Position(Global.B, Global.C, Global.D, Global.E, False));
         Set Global Variable(A, Ray Cast Hit Normal(Global.B, Global.C, Global.D, Global.E, True));
-        Set Global Variable(A, Subtract(Compare(-3, >, 0), Compare(-3, <, 0)));
+        Set Global Variable(A, Subtract(Compare(-3, >, False), Compare(-3, <, False)));
         Chase Player Variable Over Time(Event Player, B, 9999, 3, Destination and Duration);
-        Create HUD Text(All Players(All Teams), Custom String("test", Null, Null, Null), Null, Null, Left, 1, Red, White, White, Visible To and String, Visible Always);
-        Create HUD Text(All Players(All Teams), Null, Null, Custom String("test", Null, Null, Null), Left, 1, White, White, Red, Visible To and String, Visible Always);
-        Create HUD Text(All Players(All Teams), Null, Custom String("test", Null, Null, Null), Null, Left, 1, White, Red, White, Visible To and String, Visible Always);
+        Create HUD Text(All Players(All Teams), Custom String("test", Null, Null, Null), Null, Null, Left, True, Red, White, White, Visible To and String, Visible Always);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("test", Null, Null, Null), Left, True, White, White, Red, Visible To and String, Visible Always);
+        Create HUD Text(All Players(All Teams), Null, Custom String("test", Null, Null, Null), Null, Left, True, White, Red, White, Visible To and String, Visible Always);
         Create HUD Text(Null, Custom String("azer", Null, Null, Null), Custom String("dqsf", Null, Null, Null), Custom String("fdsq", Null, Null, Null), Left, -1, Red, White, Yellow, Visible To Sort Order and String, Visible Never);
         Wait(0.016, Ignore Condition);
     }
@@ -58,7 +58,7 @@ rule ("vectors") {
         "D"
         Set Global Variable(A, Global.D);
         "Vector.UP"
-        Set Global Variable(A, Vector(0, 1, 0));
+        Set Global Variable(A, Vector(False, True, False));
     }
 }
 
