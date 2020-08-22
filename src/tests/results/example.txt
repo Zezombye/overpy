@@ -1,0 +1,22 @@
+settings
+{
+    main
+    {
+        Description: "Some awesome game mode"
+    }
+    modes
+    {
+        Skirmish
+        {
+            enabled maps
+            {
+                Workshop Island
+            }
+        }
+        General
+        {
+            Hero Limit: Off
+            Respawn Time Scalar: 30%
+        }
+    }
+}

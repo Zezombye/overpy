@@ -28331,7 +28331,7 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 
 	for (var constant of Object.keys(constantValues[constantType])) {
 		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
-		obfuscationConstantsMapping[constantType][constant] = constantIndex/*+(constantIndex > 0 ? (Math.random()*0.8)-0.4 : 0)*/;
+		obfuscationConstantsMapping[constantType][constant] = constantIndex;
 		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
 	}
 }
@@ -28341,6 +28341,55 @@ var obfuscationConstantsAst = new Ast("__assignTo__", [
 	new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
 	new Ast("__array__", constantsToObfuscateAsts),
 ]);
+
+function obfuscateConstant(constantType, content) {
+
+	var isEvaluatedClientSide = null; //we don't know yet
+
+	if (obfuscationSettings.copyProtection) {
+		//Client-side calculations (done on hud texts, and on visibility fields) do not have enough precision to handle the anti-copy obfuscation properly.
+		//Therefore, check if the constant is not inside a text or any action with a visibility field.
+
+		console.log("evaluating parent action of "+content.name);
+		var parentAction = content.parent;
+		while (parentAction.type !== "void") {
+			parentAction = parentAction.parent;
+		}
+		console.log("parent action is : "+parentAction.name);
+		if ([
+			"bigMessage",
+			"createBeam",
+			"createEffect",
+			"createIcon",
+			"createInWorldText",
+			"__hudText__",
+			"hudText",
+			"hudHeader",
+			"hudSubheader",
+			"playEffect",
+			"print",
+			"setObjectiveDescription",
+			"smallMessage",
+		].includes(parentAction.name)) {
+			isEvaluatedClientSide = true;
+		}
+	}
+
+	if (obfuscationSettings.copyProtection && !isEvaluatedClientSide) {
+		var obfuscatedNumberAst = new Ast("__multiply__", [
+			getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping[constantType][content.args[0].name] * 0.0000001),
+		]);
+	} else {
+		var obfuscatedNumberAst = getAstForNumber(obfuscationConstantsMapping[constantType][content.args[0].name] + Math.random()*0.8-0.4);
+	}
+
+	var result = new Ast("__valueInArray__", [
+		new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]), 
+		obfuscatedNumberAst,
+	]);
+	result.doNotOptimize = true;
+	return result;
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -28644,18 +28693,7 @@ astParsingFunctions.__button__ = function(content) {
     if (content.expectedType === "ButtonLiteral") {
         return content.args[0];
     } else if (obfuscationSettings.obfuscateConstants) {
-        var result = new Ast("__valueInArray__", [
-            new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            (obfuscationSettings.copyProtection ? 
-                new Ast("__multiply__", [
-                    getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.ButtonLiteral[content.args[0].name] * 0.0000001),
-                ])
-                :
-                getAstForNumber(obfuscationConstantsMapping.ButtonLiteral[content.args[0].name])
-            ),
-        ]);
-        result.doNotOptimize = true;
-        return result;
+        return obfuscateConstant("ButtonLiteral", content);
     } else {
         return content;
     }
@@ -29491,18 +29529,7 @@ astParsingFunctions.__filteredArray__ = function(content) {
 astParsingFunctions.__gamemode__ = function(content) {
 
     if (obfuscationSettings.obfuscateConstants) {
-        var result = new Ast("__valueInArray__", [
-            new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            (obfuscationSettings.copyProtection ? 
-                new Ast("__multiply__", [
-                    getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.GamemodeLiteral[content.args[0].name] * 0.0000001),
-                ])
-                :
-                getAstForNumber(obfuscationConstantsMapping.GamemodeLiteral[content.args[0].name])
-            ),
-        ]);
-        result.doNotOptimize = true;
-        return result;
+        return obfuscateConstant("GamemodeLiteral", content);
     } else {
         return content;
     }
@@ -29595,18 +29622,7 @@ astParsingFunctions.__greaterThanOrEquals__ = function(content) {
 astParsingFunctions.__hero__ = function(content) {
 
     if (obfuscationSettings.obfuscateConstants) {
-        var result = new Ast("__valueInArray__", [
-            new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            (obfuscationSettings.copyProtection ? 
-                new Ast("__multiply__", [
-                    getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.HeroLiteral[content.args[0].name] * 0.0000001),
-                ])
-                :
-                getAstForNumber(obfuscationConstantsMapping.HeroLiteral[content.args[0].name])
-            ),
-        ]);
-        result.doNotOptimize = true;
-        return result;
+        return obfuscateConstant("HeroLiteral", content);
     } else {
         return content;
     }
@@ -29969,18 +29985,7 @@ astParsingFunctions.__lessThanOrEquals__ = function(content) {
 astParsingFunctions.__map__ = function(content) {
 
     if (obfuscationSettings.obfuscateConstants) {
-        var result = new Ast("__valueInArray__", [
-            new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            (obfuscationSettings.copyProtection ? 
-                new Ast("__multiply__", [
-                    getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping.MapLiteral[content.args[0].name] * 0.0000001),
-                ])
-                :
-                getAstForNumber(obfuscationConstantsMapping.MapLiteral[content.args[0].name])
-            ),
-        ]);
-        result.doNotOptimize = true;
-        return result;
+        return obfuscateConstant("MapLiteral", content);
     } else {
         return content;
     }
