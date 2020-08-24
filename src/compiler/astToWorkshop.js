@@ -118,6 +118,9 @@ function astActionToWs(action, nbTabs) {
     if (action.type === "Label") {
         return tabLevel(nbTabs)+"//"+action.name+":\n";
     }
+    if (action.type !== "void") {
+        error("Expected an action, but got "+functionNameToString(action));
+    }
     var result = "";
     if (action.name === "pass" && !action.comment) {
         action.comment = "pass";
@@ -170,24 +173,26 @@ function astToWs(content) {
         content = new Ast("__firstOf__", [content.args[0]]);
     }
 
-    for (var i = 0; i < content.args.length; i++) {
-        var argInfo = content.name === "__array__" ? funcKw[content.name].args[0] : funcKw[content.name].args[i];
-        if (content.args[i].name === "__number__") {
-            if (argInfo.canReplace0ByFalse && content.args[i].args[0].numValue === 0) {
-                content.args[i] = getAstForFalse();
-            } else if (argInfo.canReplace0ByNull && content.args[i].args[0].numValue === 0) {
+    if (enableOptimization) {
+        //Replace 0 by false/null, 1 by true, and null vector by null
+        for (var i = 0; i < content.args.length; i++) {
+            var argInfo = content.name === "__array__" ? funcKw[content.name].args[0] : funcKw[content.name].args[i];
+            if (content.args[i].name === "__number__") {
+                if (argInfo.canReplace0ByFalse && content.args[i].args[0].numValue === 0) {
+                    content.args[i] = getAstForFalse();
+                } else if (argInfo.canReplace0ByNull && content.args[i].args[0].numValue === 0) {
+                    content.args[i] = getAstForNull();
+                } else if (argInfo.canReplace1ByTrue && content.args[i].args[0].numValue === 1) {
+                    content.args[i] = getAstForTrue();
+                }
+            } else if (argInfo.canReplaceNullVectorByNull && content.args[i].name === "vect"
+                    && content.args[i].args[0].name === "__number__" && content.args[i].args[0].args[0].numValue === 0
+                    && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0
+                    && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
                 content.args[i] = getAstForNull();
-            } else if (argInfo.canReplace1ByTrue && content.args[i].args[0].numValue === 1) {
-                content.args[i] = getAstForTrue();
             }
-        } else if (argInfo.canReplaceNullVectorByNull && content.args[i].name === "vect"
-                && content.args[i].args[0].name === "__number__" && content.args[i].args[0].args[0].numValue === 0
-                && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0
-                && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
-            content.args[i] = getAstForNull();
         }
     }
-    
     if (content.name in equalityFuncToOpMapping) {
         //Convert functions such as __equals__(1,2) to __compare__(1, ==, 2).
         content.args.splice(1, 0, new Ast(equalityFuncToOpMapping[content.name], [], [], "__Operator__"));
@@ -222,23 +227,28 @@ function astToWs(content) {
                 newName += "GlobalVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
-                //We must manually do the 0/1 -> false/true replacement, as the "value in array" isn't actually parsed.
-                if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
-                    content.args[1] = getAstForFalse();
-                } else if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 1) {
-                    content.args[1] = getAstForTrue();
+                if (enableOptimization) {
+                    //We must manually do the 0/1 -> false/true replacement, as the "value in array" isn't actually parsed.
+                    if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+                        content.args[1] = getAstForFalse();
+                    } else if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 1) {
+                        content.args[1] = getAstForTrue();
+                    }
                 }
 
             } else if (content.args[0].args[0].name === "__playerVar__") {
                 //eventPlayer.A[0] = 3 -> __setPlayerVariableAtIndex__(eventPlayer, A, 0, 3)
                 newName += "PlayerVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[1]].concat(content.args.slice(1));
-                if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 0) {
-                    content.args[2] = getAstForFalse();
-                } else if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 1) {
-                    content.args[2] = getAstForTrue();
-                }
 
+                if (enableOptimization) {
+                    if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 0) {
+                        content.args[2] = getAstForFalse();
+                    } else if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 1) {
+                        content.args[2] = getAstForTrue();
+                    }
+    
+                }
             } else {
                 error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0]))
             }
@@ -401,7 +411,12 @@ function astToWs(content) {
     }
 
     if (content.args.length > 0) {
-        result += "(" + content.args.map(x => astToWs(x)).join(", ")+")";
+        result += "(" + content.args.map(x => {
+            if (x.type === "void") {
+                error("Expected a value, but got "+functionNameToString(x)+" which is an action");
+            }
+            return astToWs(x);
+        }).join(", ")+")";
     }
     return result;
 }

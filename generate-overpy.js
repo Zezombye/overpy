@@ -81,6 +81,7 @@ overpyFiles = [
 "compiler/functions/__skip__.js",
 "compiler/functions/__subtract__.js",
 "compiler/functions/__switch__.js",
+"compiler/functions/__team__.js",
 "compiler/functions/__valueInArray__.js",
 "compiler/functions/__while__.js",
 "compiler/functions/__xComponentOf__.js",

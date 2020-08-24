@@ -1029,7 +1029,7 @@ const opyFuncs = {
         "args": [
             {
                 "name": "TYPE",
-                "description": "The type of the setting. Can be an integer, float, or boolean.",
+                "description": "The type of the setting. Can be an integer, float, or boolean. To specify a minimum or maximum, use the type option syntax: for example, `int<3:6>` specifies an integer with a minimum of 3 and maximum of 6, included.",
                 "type": "Type",
                 "default": "",
             },{
@@ -25338,7 +25338,7 @@ function error(str, token) {
 
 function warn(warnType, message) {
 	
-	if (!suppressedWarnings.includes(warnType) && warnType !== "w_type_check") {
+	if (!suppressedWarnings.includes(warnType) && !globalSuppressedWarnings.includes(warnType) && warnType !== "w_type_check") {
 		var warning = message+" ("+warnType+")";
 		if (fileStack.length !== 0) {
 			fileStack.reverse();
@@ -28310,7 +28310,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
-for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral"]) {
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral"]) {
 	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
@@ -28325,8 +28325,9 @@ var typeToAstFuncMapping = {
 	"MapLiteral": "__map__",
 	"GamemodeLiteral": "__gamemode__",
 	"ButtonLiteral": "__button__",
+	"TeamLiteral": "__team__",
 }
-for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral"]) {
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral"]) {
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
@@ -30814,6 +30815,33 @@ astParsingFunctions.__switch__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.__team__ = function(content) {
+
+    if (obfuscationSettings.obfuscateConstants) {
+        return obfuscateConstant("TeamLiteral", content);
+    } else {
+        return content;
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__valueInArray__ = function(content) {
 
     if (content.args[0].name === "__dict__") {
@@ -32660,7 +32688,7 @@ function tokenize(content) {
 
 		} else if (content.startsWith("#!suppressWarnings ")) {
 			var firstSpaceIndex = content.indexOf(" ");
-			globalSuppressedWarnings = content.substring(firstSpaceIndex).trim().split(" ").map(x => x.trim());
+			globalSuppressedWarnings.push(...content.substring(firstSpaceIndex).trim().split(" ").map(x => x.trim()));
 
 		} else {
 			error("Unknown preprocessor directive '"+content+"'");
@@ -33512,6 +33540,9 @@ function astActionToWs(action, nbTabs) {
     if (action.type === "Label") {
         return tabLevel(nbTabs)+"//"+action.name+":\n";
     }
+    if (action.type !== "void") {
+        error("Expected an action, but got "+functionNameToString(action));
+    }
     var result = "";
     if (action.name === "pass" && !action.comment) {
         action.comment = "pass";
@@ -33564,24 +33595,26 @@ function astToWs(content) {
         content = new Ast("__firstOf__", [content.args[0]]);
     }
 
-    for (var i = 0; i < content.args.length; i++) {
-        var argInfo = content.name === "__array__" ? funcKw[content.name].args[0] : funcKw[content.name].args[i];
-        if (content.args[i].name === "__number__") {
-            if (argInfo.canReplace0ByFalse && content.args[i].args[0].numValue === 0) {
-                content.args[i] = getAstForFalse();
-            } else if (argInfo.canReplace0ByNull && content.args[i].args[0].numValue === 0) {
+    if (enableOptimization) {
+        //Replace 0 by false/null, 1 by true, and null vector by null
+        for (var i = 0; i < content.args.length; i++) {
+            var argInfo = content.name === "__array__" ? funcKw[content.name].args[0] : funcKw[content.name].args[i];
+            if (content.args[i].name === "__number__") {
+                if (argInfo.canReplace0ByFalse && content.args[i].args[0].numValue === 0) {
+                    content.args[i] = getAstForFalse();
+                } else if (argInfo.canReplace0ByNull && content.args[i].args[0].numValue === 0) {
+                    content.args[i] = getAstForNull();
+                } else if (argInfo.canReplace1ByTrue && content.args[i].args[0].numValue === 1) {
+                    content.args[i] = getAstForTrue();
+                }
+            } else if (argInfo.canReplaceNullVectorByNull && content.args[i].name === "vect"
+                    && content.args[i].args[0].name === "__number__" && content.args[i].args[0].args[0].numValue === 0
+                    && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0
+                    && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
                 content.args[i] = getAstForNull();
-            } else if (argInfo.canReplace1ByTrue && content.args[i].args[0].numValue === 1) {
-                content.args[i] = getAstForTrue();
             }
-        } else if (argInfo.canReplaceNullVectorByNull && content.args[i].name === "vect"
-                && content.args[i].args[0].name === "__number__" && content.args[i].args[0].args[0].numValue === 0
-                && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0
-                && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
-            content.args[i] = getAstForNull();
         }
     }
-    
     if (content.name in equalityFuncToOpMapping) {
         //Convert functions such as __equals__(1,2) to __compare__(1, ==, 2).
         content.args.splice(1, 0, new Ast(equalityFuncToOpMapping[content.name], [], [], "__Operator__"));
@@ -33616,23 +33649,28 @@ function astToWs(content) {
                 newName += "GlobalVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
-                //We must manually do the 0/1 -> false/true replacement, as the "value in array" isn't actually parsed.
-                if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
-                    content.args[1] = getAstForFalse();
-                } else if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 1) {
-                    content.args[1] = getAstForTrue();
+                if (enableOptimization) {
+                    //We must manually do the 0/1 -> false/true replacement, as the "value in array" isn't actually parsed.
+                    if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+                        content.args[1] = getAstForFalse();
+                    } else if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 1) {
+                        content.args[1] = getAstForTrue();
+                    }
                 }
 
             } else if (content.args[0].args[0].name === "__playerVar__") {
                 //eventPlayer.A[0] = 3 -> __setPlayerVariableAtIndex__(eventPlayer, A, 0, 3)
                 newName += "PlayerVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[1]].concat(content.args.slice(1));
-                if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 0) {
-                    content.args[2] = getAstForFalse();
-                } else if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 1) {
-                    content.args[2] = getAstForTrue();
-                }
 
+                if (enableOptimization) {
+                    if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 0) {
+                        content.args[2] = getAstForFalse();
+                    } else if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 1) {
+                        content.args[2] = getAstForTrue();
+                    }
+    
+                }
             } else {
                 error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0]))
             }
@@ -33795,7 +33833,12 @@ function astToWs(content) {
     }
 
     if (content.args.length > 0) {
-        result += "(" + content.args.map(x => astToWs(x)).join(", ")+")";
+        result += "(" + content.args.map(x => {
+            if (x.type === "void") {
+                error("Expected a value, but got "+functionNameToString(x)+" which is an action");
+            }
+            return astToWs(x);
+        }).join(", ")+")";
     }
     return result;
 }

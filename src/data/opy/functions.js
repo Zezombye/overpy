@@ -112,7 +112,7 @@ const opyFuncs = {
         "args": [
             {
                 "name": "TYPE",
-                "description": "The type of the setting. Can be an integer, float, or boolean.",
+                "description": "The type of the setting. Can be an integer, float, or boolean. To specify a minimum or maximum, use the type option syntax: for example, `int<3:6>` specifies an integer with a minimum of 3 and maximum of 6, included.",
                 "type": "Type",
                 "default": "",
             },{

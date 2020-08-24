@@ -397,6 +397,8 @@ var valueFuncKw =
                 "name": "CLIP",
                 "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -1913,6 +1915,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
@@ -1922,6 +1925,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -1950,6 +1954,7 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The value for which to search.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -2559,6 +2564,8 @@ var valueFuncKw =
                 "name": "NUMBER",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3119,6 +3126,8 @@ var valueFuncKw =
                 "name": "CLIP",
                 "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -3516,6 +3525,8 @@ var valueFuncKw =
                 "name": "NUMBER",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3675,6 +3686,8 @@ var valueFuncKw =
                 "name": "SLOT",
                 "description": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -4106,6 +4119,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],

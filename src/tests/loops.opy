@@ -32,7 +32,7 @@ rule "for loop":
         A++
     for I in range(3):
         A++
-    for eventPlayer.I in range(3):
+    for hostPlayer.I in range(3):
         A++
 
 rule "do/while":

@@ -1,4 +1,4 @@
-
+#!disableOptimizations
 rule "comparison":
     A = B == C
     A = 1 == 0 #false
@@ -101,6 +101,7 @@ rule "power":
     A = (-2)**3 #0
     
 rule "assignment":
+    @Event eachPlayer
     A = B
     A[0] = B
     eventPlayer.A = B

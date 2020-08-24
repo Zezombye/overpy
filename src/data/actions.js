@@ -218,6 +218,7 @@ const actionKw =
                 "name": "OFFSET",
                 "description": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head.",
                 "type": "Position",
+                canReplaceNullVectorByNull: true,
                 "default": "VECTOR"
             }
         ],
