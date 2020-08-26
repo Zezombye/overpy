@@ -76,7 +76,7 @@ rule ("optimizations with literals") {
         "3"
         Modify Global Variable(A, Append To Array, 3);
         "5"
-        Modify Global Variable(A, Append To Array, 5);
+        Modify Global Variable(A, Append To Array, Absolute Value(-5));
         "1.012"
         Modify Global Variable(A, Append To Array, 1.012195761452095);
         "3.1415"

@@ -74,7 +74,7 @@ rule ("for loop") {
         For Global Variable(I, False, 3, True);
             Global.A += 1;
         End;
-        For Player Variable(Event Player, I, False, 3, True);
+        For Player Variable(Host Player, I, False, 3, True);
             Global.A += 1;
         End;
     }
@@ -86,7 +86,7 @@ rule ("do/while") {
     }
     actions {
         Global.A += 1;
-        Skip(1);
+        Skip(True);
         Loop If(Compare(Global.A, ==, Global.B));
         //__label_break_2__:
         Global.B += 1;
@@ -99,10 +99,10 @@ rule ("nested do/while") {
     }
     actions {
         Global.A += 1;
-        Skip(1);
+        Skip(True);
         Loop;
         //__label_break_3__:
-        Skip(1);
+        Skip(True);
         Loop If(Compare(Global.A, ==, Global.B));
         //__label_break_4__:
         Global.B += 1;

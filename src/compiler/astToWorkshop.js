@@ -119,6 +119,7 @@ function astActionToWs(action, nbTabs) {
         return tabLevel(nbTabs)+"//"+action.name+":\n";
     }
     if (action.type !== "void") {
+        fileStack = action.fileStack;
         error("Expected an action, but got "+functionNameToString(action));
     }
     var result = "";
@@ -165,10 +166,6 @@ function astToWs(content) {
     }
 
     var result = "";
-    if (content.isDisabled === true) {
-        result += tows("__disabled__", ruleKw)+" ";
-    }
-
     if (content.name === "__valueInArray__" && enableOptimization && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
         content = new Ast("__firstOf__", [content.args[0]]);
     }
@@ -413,10 +410,15 @@ function astToWs(content) {
     if (content.args.length > 0) {
         result += "(" + content.args.map(x => {
             if (x.type === "void") {
+                fileStack = x.fileStack;
                 error("Expected a value, but got "+functionNameToString(x)+" which is an action");
             }
             return astToWs(x);
         }).join(", ")+")";
+    }
+    
+    if (content.isDisabled === true) {
+        result = tows("__disabled__", ruleKw)+" "+result;
     }
     return result;
 }

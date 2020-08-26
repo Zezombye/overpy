@@ -16,7 +16,8 @@ rule ("switches") {
         Skip(2);
         //__label_switch_4_1__:
         Global.C += 1;
-        Skip(0);
+        "pass"
+        disabled Abort;
         //__label_switch_4_default__:
         //__label_break_3__:
         //__label_break_2__:

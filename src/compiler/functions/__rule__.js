@@ -156,6 +156,13 @@ astParsingFunctions.__rule__ = function(content) {
 
 
         } else {
+            //optimize out skip(0)
+            if (enableOptimization) {
+                if (content.name === "__skip__" && content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0
+                        || content.name === "__skipIf__" && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+                    return getAstForUselessInstruction();
+                }
+            }
             return content;
         }
     }

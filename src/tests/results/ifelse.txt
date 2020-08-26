@@ -97,11 +97,11 @@ rule ("abort/loop/skip if") {
         Skip If(Global.A, Global.B);
         Skip(Global.B);
         "pass"
-        Abort;
+        disabled Abort;
         Skip If(Global.A, 14);
         Skip(13);
         "pass"
-        Abort;
+        disabled Abort;
         If(Global.A);
             Loop;
             Global.B += 1;
@@ -109,7 +109,7 @@ rule ("abort/loop/skip if") {
         Loop If(Global.A);
         Loop;
         "pass"
-        Abort;
+        disabled Abort;
         If(Global.A);
             Loop;
         Else;
@@ -119,7 +119,7 @@ rule ("abort/loop/skip if") {
         Abort If(Global.A);
         Abort;
         "pass"
-        Abort;
+        disabled Abort;
     }
 }
 

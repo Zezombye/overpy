@@ -472,7 +472,7 @@ rule ("init round") {
     }
     actions {
         Set Global Variable(P, Match Time);
-        Skip If(Compare(Global.R, !=, Null), 1);
+        Skip If(Compare(Global.R, !=, Null), True);
         Set Global Variable(P, 1200);
         //lbl_0:
         Set Global Variable(G, Null);
@@ -496,7 +496,7 @@ rule ("init round") {
         Set Global Variable(I, Null);
         Set Global Variable(R, 3);
         Set Match Time(Global.P);
-        Skip If(Compare(Match Time, >, False), 1);
+        Skip If(Compare(Match Time, >, False), True);
         Set Global Variable(J, 4);
         //lbl_2:
         Set Global Variable(G, Null);
@@ -547,7 +547,8 @@ rule ("walls visual effect") {
         Global.I += 1;
         Wait(0.05, Ignore Condition);
         Loop If(Compare(Global.I, <, Count Of(Global.A)));
-        Skip(0);
+        "pass"
+        disabled Abort;
         //lbl_0:
     }
 }
@@ -563,13 +564,13 @@ rule ("walls kb effect") {
         Skip If(Compare(Distance Between(Vector(X Component Of(Position Of(Event Player)), False, Z Component Of(Position Of(Event Player))), Vector(X Component Of(Value In Array(Global.A, (Event Player).J)), False, Z Component Of(Value In Array(Global.A, (Event Player).J)))), >, 4.5), 4);
         Apply Impulse(Event Player, Vector(False, True, False), 1, To Player, Cancel Contrary Motion);
         Apply Impulse(Event Player, Vector(X Component Of(Vector Towards(Value In Array(Global.A, (Event Player).J), Position Of(Event Player))), False, Z Component Of(Vector Towards(Value In Array(Global.A, (Event Player).J), Position Of(Event Player)))), Add(2.5, Multiply(Horizontal Speed Of(Event Player), 1.5)), To World, Cancel Contrary Motion);
-        Skip(1);
+        Skip(True);
         Apply Impulse(Event Player, Divide(Velocity Of(Event Player), Vector(Absolute Value(X Component Of(Velocity Of(Event Player))), Absolute Value(Y Component Of(Velocity Of(Event Player))), Absolute Value(Z Component Of(Velocity Of(Event Player))))), -10, To World, Cancel Contrary Motion);
         //lbl_0:
         //lbl_1:
         //lbl_2:
         (Event Player).J += 1;
-        Skip If(Compare((Event Player).J, <, Count Of(Global.A)), 1);
+        Skip If(Compare((Event Player).J, <, Count Of(Global.A)), True);
         Set Player Variable(Event Player, J, Null);
         //lbl_3:
         Wait(0.016, Ignore Condition);
@@ -617,7 +618,7 @@ rule ("trigger") {
         //lbl_1:
         Set Global Variable(Q, 3);
         Global.N += 1;
-        Skip If(Compare(Global.N, ==, Count Of(Global.S)), 1);
+        Skip If(Compare(Global.N, ==, Count Of(Global.S)), True);
         Big Message(All Players(All Teams), Custom String("Run!!!", Null, Null, Null));
         //lbl_2:
         Destroy All Effects;
@@ -645,10 +646,10 @@ rule ("first infection") {
         Big Message(All Players(All Teams), Custom String("Initial Dead: {0} sec", Subtract(10, Global.O), Null, Null));
         Global.O += 1;
         Loop If(Compare(Global.O, <, 10));
-        Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), <=, 10), 1);
+        Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), <=, 10), True);
         Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element), Compare((Current Array Element).L, ==, Null)))), False, 2), Z, 1);
         //lbl_0:
-        Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), >, 10), 1);
+        Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), >, 10), True);
         Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element), Compare((Current Array Element).L, ==, Null)))), False, True), Z, 1);
         //lbl_1:
         Teleport(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), First Of(Global.L));
@@ -704,7 +705,7 @@ rule ("infect players") {
     }
     actions {
         Set Player Variable(Victim, Z, 1);
-        Modify Player Score(Attacker, 1);
+        Modify Player Score(Attacker, True);
         Set Player Variable(Victim, H, Hero Of(Victim));
         Create HUD Text(All Players(All Teams), Custom String("{0} {1} -> {2}", Hero Icon String(Hero Of(Attacker)), Attacker, Custom String("{0} {1}", Hero Icon String((Victim).H), Victim, Null)), Null, Null, Right, False, White, White, White, Visible To and String, Default Visibility);
         Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare((Current Array Element).Z, ==, Null))), !=, Null), 2);
@@ -728,7 +729,7 @@ rule ("player dies = gets tp'd, +10 pts if zombie kill") {
         Resurrect(Victim);
         Teleport(Victim, Value In Array(Global.L, Global.N));
         Skip If(Compare(Victim, ==, Attacker), 2);
-        Skip If(Compare((Attacker).Z, ==, 1), 1);
+        Skip If(Compare((Attacker).Z, ==, 1), True);
         Modify Player Score(Attacker, 9);
         //lbl_0:
         //lbl_1:
@@ -759,7 +760,7 @@ rule ("humans and zombies can hurt each other + kb") {
         (Victim).Z == 1;
     }
     actions {
-        Skip If(Compare(Random Integer(True, 4), !=, 1), 1);
+        Skip If(Compare(Random Integer(True, 4), !=, 1), True);
         Apply Impulse(Victim, Vector(False, True, False), 1.5, To Player, Cancel Contrary Motion);
         //lbl_0:
         Apply Impulse(Victim, Divide(Vector Towards(Position Of(Attacker), Position Of(Victim)), Vector(Absolute Value(X Component Of(Vector Towards(Position Of(Attacker), Position Of(Victim)))), False, Absolute Value(Z Component Of(Vector Towards(Position Of(Attacker), Position Of(Victim)))))), Multiply(Event Damage, 1.05), To World, Cancel Contrary Motion);
@@ -804,7 +805,7 @@ rule ("zombie behavior") {
         Wait(True, Ignore Condition);
         Clear Status(Event Player, Rooted);
         Press Button(Event Player, Ultimate);
-        Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare((Current Array Element).Z, ==, Null))), !=, Null), 1);
+        Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare((Current Array Element).Z, ==, Null))), !=, Null), True);
         Set Global Variable(E, 1);
         //lbl_0:
     }
@@ -824,7 +825,7 @@ rule ("player selected hero") {
         Disallow Button(Event Player, Crouch);
         Wait(0.1, Ignore Condition);
         Teleport(Event Player, Value In Array(Global.L, Global.N));
-        Skip If(Compare(Global.G, ==, Null), 1);
+        Skip If(Compare(Global.G, ==, Null), True);
         Set Player Variable(Event Player, Z, 1);
         //lbl_0:
         Start Heal Over Time(Event Player, Null, 9999, 20);
@@ -873,7 +874,7 @@ rule ("red orb") {
         Global.Q == 1.5;
     }
     actions {
-        Create Effect(All Players(All Teams), Orb, Red, Value In Array(Global.L, Add(Global.N, True)), 1, Visible To Position and Radius);
+        Create Effect(All Players(All Teams), Orb, Red, Value In Array(Global.L, Add(Global.N, True)), True, Visible To Position and Radius);
     }
 }
 
@@ -939,7 +940,7 @@ rule ("zombies win") {
         Stop All Damage Modifications;
         Big Message(All Players(All Teams), Custom String("Dead Win", Null, Null, Null));
         Wait(5, Ignore Condition);
-        Skip If(Compare(Match Time, >, False), 1);
+        Skip If(Compare(Match Time, >, False), True);
         Set Global Variable(J, 4);
         //lbl_0:
         Set Global Variable(R, 1);

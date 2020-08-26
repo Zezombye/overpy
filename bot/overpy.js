@@ -2142,6 +2142,7 @@ const actionKw =
                 "name": "OFFSET",
                 "description": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head.",
                 "type": "Position",
+                canReplaceNullVectorByNull: true,
                 "default": "VECTOR"
             }
         ],
@@ -2630,6 +2631,8 @@ const actionKw =
                 "name": "RADIUS",
                 "description": "The radius of this effect.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -2806,18 +2809,22 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The text to be displayed.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "STRING"
             },
             {
                 "name": "POSITION",
                 "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
                 "type": "Position",
+                canReplaceNullVectorByNull: true,
                 "default": "VECTOR"
             },
             {
                 "name": "SCALE",
                 "description": "The text's scale.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -3044,6 +3051,8 @@ const actionKw =
                 "name": "SLOT",
                 "description": "The slot to remove the dummy bot from.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -4270,6 +4279,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -4391,6 +4402,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -4727,6 +4740,8 @@ const actionKw =
                 "name": "Charge Count",
                 "description": "The charge count that will be set.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -4763,6 +4778,8 @@ const actionKw =
                 "name": "COOLDOWN",
                 "description": "The cooldown time that will be set in seconds. Max of 1000.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -4799,6 +4816,8 @@ const actionKw =
                 "name": "Resource Percent",
                 "description": "The percentage of resource that will be set with respect to each player's ability resource capacity.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -4859,12 +4878,16 @@ const actionKw =
                 "name": "CLIP",
                 "description": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             },
             {
                 "name": "Ammo",
                 "description": "The ammo that will be set.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -5085,6 +5108,8 @@ const actionKw =
                 "name": "GRAVITY PERCENT",
                 "description": "The percentage of regular movement gravity to which the player or players will set their personal movement gravity.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -5254,6 +5279,8 @@ const actionKw =
                 "name": "TIME",
                 "description": "The match time in seconds.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -5284,12 +5311,16 @@ const actionKw =
                 "name": "CLIP",
                 "description": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             },
             {
                 "name": "Ammo",
                 "description": "The max ammo that will be set.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -5380,6 +5411,8 @@ const actionKw =
                 "name": "MOVE SPEED PERCENT",
                 "description": "The percentage of raw move speed to which the player or players will set their move speed.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -5410,6 +5443,7 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The message to be displayed.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "STRING"
             },
             {
@@ -5511,6 +5545,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The score that will be set.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -5657,6 +5693,8 @@ const actionKw =
                 "name": "PROJECTILE GRAVITY PERCENT",
                 "description": "The percentage of regular projectile gravity to which the player or players will set their personal projectile gravity.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -5687,6 +5725,8 @@ const actionKw =
                 "name": "PROJECTILE SPEED PERCENT",
                 "description": "The percentage of regular projectile speed to which the player or players will set their personal projectile speed.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -5747,6 +5787,8 @@ const actionKw =
                 "name": "TIME",
                 "description": "The duration between death and respawn in seconds.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -5838,6 +5880,8 @@ const actionKw =
                 "name": "DURATION",
                 "description": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 9999.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -5863,6 +5907,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The score that will be set.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -5923,6 +5969,8 @@ const actionKw =
                 "name": "CHARGE PERCENT",
                 "description": "The percentage of maximum charge.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -5953,6 +6001,8 @@ const actionKw =
                 "name": "Weapon",
                 "description": "The number of the weapon to be equipped. 1 is the first weapon, and 2 is the second. If the specified weapon does not exist, players will use the default weapon.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -5973,6 +6023,8 @@ const actionKw =
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -5997,6 +6049,8 @@ const actionKw =
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -7845,6 +7899,8 @@ var valueFuncKw =
                 "name": "CLIP",
                 "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -9361,6 +9417,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
@@ -9370,6 +9427,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -9398,6 +9456,7 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The value for which to search.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -10007,6 +10066,8 @@ var valueFuncKw =
                 "name": "NUMBER",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -10567,6 +10628,8 @@ var valueFuncKw =
                 "name": "CLIP",
                 "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -10964,6 +11027,8 @@ var valueFuncKw =
                 "name": "NUMBER",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -11123,6 +11188,8 @@ var valueFuncKw =
                 "name": "SLOT",
                 "description": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -11554,6 +11621,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -30599,6 +30667,13 @@ astParsingFunctions.__rule__ = function(content) {
 
 
         } else {
+            //optimize out skip(0)
+            if (enableOptimization) {
+                if (content.name === "__skip__" && content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0
+                        || content.name === "__skipIf__" && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+                    return getAstForUselessInstruction();
+                }
+            }
             return content;
         }
     }
@@ -31018,11 +31093,40 @@ astParsingFunctions.__zComponentOf__ = function(content) {
 
 "use strict";
 
-astParsingFunctions.abs = function(content) {
+astParsingFunctions["_&addToScore"] = function(content) {
 
     if (enableOptimization) {
-        if (content.args[0].name === "__number__") {
-            return getAstForNumber(Math.abs(content.args[0].args[0].numValue));
+        if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) {
+            return getAstForUselessInstruction();
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions["_&setStatusEffect"] = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[2].name === "__number__" && content.args[0].args[0].numValue === 0) {
+            return getAstForUselessInstruction();
         }
     }
     
@@ -31081,6 +31185,35 @@ astParsingFunctions.acosDeg = function(content) {
     if (enableOptimization) {
         if (content.args[0].name === "__number__") {
             return getAstForNumber(Math.acos(Math.max(-1, Math.min(1, content.args[0].args[0].numValue)))*(180/Math.PI));
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.addToTeamScore = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+            return getAstForUselessInstruction();
         }
     }
     
@@ -33541,6 +33674,7 @@ function astActionToWs(action, nbTabs) {
         return tabLevel(nbTabs)+"//"+action.name+":\n";
     }
     if (action.type !== "void") {
+        fileStack = action.fileStack;
         error("Expected an action, but got "+functionNameToString(action));
     }
     var result = "";
@@ -33587,10 +33721,6 @@ function astToWs(content) {
     }
 
     var result = "";
-    if (content.isDisabled === true) {
-        result += tows("__disabled__", ruleKw)+" ";
-    }
-
     if (content.name === "__valueInArray__" && enableOptimization && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
         content = new Ast("__firstOf__", [content.args[0]]);
     }
@@ -33835,10 +33965,15 @@ function astToWs(content) {
     if (content.args.length > 0) {
         result += "(" + content.args.map(x => {
             if (x.type === "void") {
+                fileStack = x.fileStack;
                 error("Expected a value, but got "+functionNameToString(x)+" which is an action");
             }
             return astToWs(x);
         }).join(", ")+")";
+    }
+    
+    if (content.isDisabled === true) {
+        result = tows("__disabled__", ruleKw)+" "+result;
     }
     return result;
 }

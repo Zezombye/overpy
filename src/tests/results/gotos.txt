@@ -8,7 +8,7 @@ rule ("gotos") {
     }
     actions {
         "skip 3"
-        Skip(1);
+        Skip(True);
         If(False);
             //lbl_0:
             Set Global Variable(A, 2);
@@ -19,8 +19,8 @@ rule ("gotos") {
         Skip(Global.A);
         "skip 3"
         Skip(3);
-        "skip 0"
-        Skip(0);
+        "pass"
+        disabled Abort;
         //lbl_3:
         If(False);
             Set Global Variable(A, 1);

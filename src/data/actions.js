@@ -707,6 +707,8 @@ const actionKw =
                 "name": "RADIUS",
                 "description": "The radius of this effect.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -883,18 +885,22 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The text to be displayed.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "STRING"
             },
             {
                 "name": "POSITION",
                 "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
                 "type": "Position",
+                canReplaceNullVectorByNull: true,
                 "default": "VECTOR"
             },
             {
                 "name": "SCALE",
                 "description": "The text's scale.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -1121,6 +1127,8 @@ const actionKw =
                 "name": "SLOT",
                 "description": "The slot to remove the dummy bot from.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -2347,6 +2355,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -2468,6 +2478,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -2804,6 +2816,8 @@ const actionKw =
                 "name": "Charge Count",
                 "description": "The charge count that will be set.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -2840,6 +2854,8 @@ const actionKw =
                 "name": "COOLDOWN",
                 "description": "The cooldown time that will be set in seconds. Max of 1000.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -2876,6 +2892,8 @@ const actionKw =
                 "name": "Resource Percent",
                 "description": "The percentage of resource that will be set with respect to each player's ability resource capacity.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -2936,12 +2954,16 @@ const actionKw =
                 "name": "CLIP",
                 "description": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             },
             {
                 "name": "Ammo",
                 "description": "The ammo that will be set.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -3162,6 +3184,8 @@ const actionKw =
                 "name": "GRAVITY PERCENT",
                 "description": "The percentage of regular movement gravity to which the player or players will set their personal movement gravity.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3331,6 +3355,8 @@ const actionKw =
                 "name": "TIME",
                 "description": "The match time in seconds.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3361,12 +3387,16 @@ const actionKw =
                 "name": "CLIP",
                 "description": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             },
             {
                 "name": "Ammo",
                 "description": "The max ammo that will be set.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -3457,6 +3487,8 @@ const actionKw =
                 "name": "MOVE SPEED PERCENT",
                 "description": "The percentage of raw move speed to which the player or players will set their move speed.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3487,6 +3519,7 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The message to be displayed.",
                 "type": "Object",
+                canReplace0ByNull: true,
                 "default": "STRING"
             },
             {
@@ -3588,6 +3621,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The score that will be set.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3734,6 +3769,8 @@ const actionKw =
                 "name": "PROJECTILE GRAVITY PERCENT",
                 "description": "The percentage of regular projectile gravity to which the player or players will set their personal projectile gravity.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3764,6 +3801,8 @@ const actionKw =
                 "name": "PROJECTILE SPEED PERCENT",
                 "description": "The percentage of regular projectile speed to which the player or players will set their personal projectile speed.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3824,6 +3863,8 @@ const actionKw =
                 "name": "TIME",
                 "description": "The duration between death and respawn in seconds.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3915,6 +3956,8 @@ const actionKw =
                 "name": "DURATION",
                 "description": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 9999.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -3940,6 +3983,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The score that will be set.",
                 "type": "int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -4000,6 +4045,8 @@ const actionKw =
                 "name": "CHARGE PERCENT",
                 "description": "The percentage of maximum charge.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -4030,6 +4077,8 @@ const actionKw =
                 "name": "Weapon",
                 "description": "The number of the weapon to be equipped. 1 is the first weapon, and 2 is the second. If the specified weapon does not exist, players will use the default weapon.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 0
             }
         ],
@@ -4050,6 +4099,8 @@ const actionKw =
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -4074,6 +4125,8 @@ const actionKw =
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
