@@ -305,7 +305,7 @@ function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMin
 		var step = 1;
 	}
 	
-	//console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
+    //console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
 	
 	for (var i = start; i != end; i+=step) {
 
@@ -317,7 +317,11 @@ function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMin
             
 		} else if (bracketsLevel === 0 && operators.includes(tokens[i].text)) {
             
-            if (allowUnaryPlusOrMinus || (i !== 0 && !Object.keys(operatorPrecedence).includes(tokens[i-1].text))) {
+            if (allowUnaryPlusOrMinus || (i !== 0 && !["+", "-"].includes(tokens[i-1].text))) {
+                //Support "not in" operator
+                if (tokens[i].text === "not" && i < tokens.length-1 && tokens[i+1].text === "in") {
+                    continue;
+                }
                 operatorFound = tokens[i].text;
                 operatorPosition = i;
                 break;
@@ -435,15 +439,24 @@ function parse(content, kwargs={}) {
             return new Ast("__"+operator+"__", [op1, op2]);
 
         } else if (operator === "not") {
-
+            
             var op1 = parse(operands[1]);
             return new Ast("__not__", [op1]);
 
         } else if (operator === "in") {
             
+            var isNotInOperator = false;
+            if (operands[0].length > 1 && operands[0][operands[0].length-1].text === "not") {
+                isNotInOperator = true;
+                operands[0].pop();
+            }
             var value = parse(operands[0]);
             var array = parse(operands[1]);
-            return new Ast("__arrayContains__", [array, value]);
+            if (isNotInOperator) {
+                return new Ast("__not__", [new Ast("__arrayContains__", [array, value])]);
+            } else {
+                return new Ast("__arrayContains__", [array, value]);
+            }
 
         } else if (["==", "!=", "<=", ">=", "<", ">"].includes(operator)) {
 

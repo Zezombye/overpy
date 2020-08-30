@@ -194,6 +194,84 @@ function parseAst(content) {
         }
     }
 
+    //Normalize arguments
+    if (content.name === "__for__") {
+
+        if (content.args.length !== 1) {
+            error("Function '"+content.name+"' takes 1 argument, received "+content.args.length);
+        }
+        //Check for right arguments.
+        if (content.args[0].name !== "__arrayContains__") {
+            error("Expected the 'in' operator within 'for' directive, but got "+functionNameToString(content.args[0]));
+        }
+        if (content.args[0].args.length !== 2) {
+            error("Operator 'in' takes 2 operands, received "+content.args[0].args.length);
+        }
+        if (content.args[0].args[0].name !== "range") {
+            error("Expected the 'range' function for the 2nd operand of the 'in' operator, but got "+functionNameToString(content.args[0].args[1]));
+        }
+        
+        if (content.args[0].args[0].args.length < 1 || content.args[0].args[0].args.length > 3) {
+            error("Function 'range' takes 1 to 3 arguments, received "+content.args[0].args[0].args.length);
+        }
+        if (content.args[0].args[0].args.length === 1) {
+            content.args[0].args[0].args.unshift(getAstFor0());
+        }
+        if (content.args[0].args[0].args.length === 2) {
+            content.args[0].args[0].args.push(getAstFor1());
+        }
+        //for (i in range(1,2,3)) -> for(i, 1, 2, 3)
+        content.args = [
+            content.args[0].args[1],
+            content.args[0].args[0].args[0],
+            content.args[0].args[0].args[1],
+            content.args[0].args[0].args[2],
+        ];
+    } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
+    
+        if (content.args.length < 6 || content.args.length > 7) {
+            error("Function '"+content.name+"' takes 6 or 7 arguments, received "+content.args.length);
+        }
+        if (content.args.length === 6) {
+            content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
+        }
+
+    } else if (content.name === "hudText") {
+        if (content.args.length < 10 || content.args.length > 11) {
+            error("Function '"+content.name+"' takes 10 or 11 arguments, received "+content.args.length);
+        }
+        if (content.args.length === 10) {
+            content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
+        }
+    } else if (content.name === "log") {
+        if (content.args.length < 1 || content.args.length > 2) {
+            error("Function '"+content.name+"' takes 1 or 2 arguments, received "+content.args.length);
+        }
+        if (content.args.length === 1) {
+            content.args.push(getAstForE());
+        }
+    } else if (content.name === "range") {
+
+    } else if (content.name === "wait") {
+        if (content.args.length > 2) {
+            error("Function 'wait' takes 0 to 2 arguments, received "+args.length);
+        }
+        if (content.args.length === 0) {
+            content.args.push(getAstFor0_016());
+        }
+        if (content.args.length === 1) {
+            content.args.push(new Ast("IGNORE_CONDITION", [], [], "Wait"));
+        }
+        content.name = "__wait__";
+    }
+    
+    if (!["__format__", "__array__", "__dict__"].includes(content.name)) {
+        var nbExpectedArgs = (funcKw[content.name].args === null ? 0 : funcKw[content.name].args.length);
+        if (content.args.length !== nbExpectedArgs) {
+            error("Function '"+content.name+"' takes "+nbExpectedArgs+" arguments, received "+content.args.length);
+        }
+    }
+
     //Parse args
     for (var i = 0; i < content.args.length; i++) {
         content.argIndex = i;
@@ -202,8 +280,7 @@ function parseAst(content) {
     }
     content.argIndex = 0;
 
-
-    //Manually check types and arguments for the __format__ or __array__ function, as they are the only functions that can take an infinite number of arguments.
+    //Manually check types and arguments for the __format__, __array__ or __dict__ functions, as they are the only functions that can take an infinite number of arguments.
     if (content.name === "__format__") {
         if (content.args.length < 1) {
             error("Function '__format__' takes at least 1 argument, received "+content.args.length);
@@ -225,87 +302,16 @@ function parseAst(content) {
                 warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[0].type, content.args[i]));
             }
         }
-
     } else {
-
-        //Normalize arguments
-        if (content.name === "__for__") {
-
-            if (content.args.length !== 1) {
-                error("Function '"+content.name+"' takes 1 argument, received "+content.args.length);
-            }
-
-            //Check for right arguments.
-            if (content.args[0].name !== "__arrayContains__") {
-                error("Expected the 'in' operator within 'for' directive, but got "+functionNameToString(content.args[0]));
-            }
-            if (content.args[0].args[0].name !== "range") {
-                error("Expected the 'range' function for the 2nd operand of the 'in' operator, but got "+functionNameToString(content.args[0].args[1]));
-            }
-
-            //for (i in range(1,2,3)) -> for(i, 1, 2, 3)
-            content.args = [
-                content.args[0].args[1],
-                content.args[0].args[0].args[0],
-                content.args[0].args[0].args[1],
-                content.args[0].args[0].args[2],
-            ];
-        } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
-      
-            if (content.args.length < 6 || content.args.length > 7) {
-                error("Function '"+content.name+"' takes 6 or 7 arguments, received "+content.args.length);
-            }
-            if (content.args.length === 6) {
-                content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
-            }
-
-        } else if (content.name === "hudText") {
-            if (content.args.length < 10 || content.args.length > 11) {
-                error("Function '"+content.name+"' takes 10 or 11 arguments, received "+content.args.length);
-            }
-            if (content.args.length === 10) {
-                content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
-            }
-        } else if (content.name === "log") {
-            if (content.args.length < 1 || content.args.length > 2) {
-                error("Function '"+content.name+"' takes 1 or 2 arguments, received "+content.args.length);
-            }
-            if (content.args.length === 1) {
-                content.args.push(getAstForE());
-            }
-        } else if (content.name === "range") {
-            if (content.args.length < 1 || content.args.length > 3) {
-                error("Function '"+content.name+"' takes 1 to 3 arguments, received "+content.args.length);
-            }
-            if (content.args.length === 1) {
-                content.args.unshift(getAstFor0());
-            }
-            if (content.args.length === 2) {
-                content.args.push(getAstFor1());
-            }
-
-        } else if (content.name === "wait") {
-            if (content.args.length > 2) {
-                error("Function 'wait' takes 0 to 2 arguments, received "+args.length);
-            }
-            if (content.args.length === 0) {
-                content.args.push(getAstFor0_016());
-            }
-            if (content.args.length === 1) {
-                content.args.push(new Ast("IGNORE_CONDITION", [], [], "Wait"));
-            }
-            content.name = "__wait__";
-        }
-        
-        var nbExpectedArgs = (funcKw[content.name].args === null ? 0 : funcKw[content.name].args.length);
-        if (content.args.length !== nbExpectedArgs) {
-            error("Function '"+content.name+"' takes "+nbExpectedArgs+" arguments, received "+content.args.length);
-        }
-
-        //Type check
+        //Generic type check
         for (var i = 0; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name].args[i].type, content.args[i].type)) {
-                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+                //Throw an error for when a literal is expected
+                if (Object.keys(constantValues).includes(funcKw[content.name].args[i].type)) {
+                    error(getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+                } else {
+                    //warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+                }
             }
         }
     }

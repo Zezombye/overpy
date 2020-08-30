@@ -58,9 +58,9 @@ astParsingFunctions.__rule__ = function(content) {
                 "__else__",
                 "__elif__",
                 "__end__",
-                "__for__",
-                "__forGlobalVariable__",
-                "__forPlayerVariable__",
+                //"__for__",
+                //"__forGlobalVariable__",
+                //"__forPlayerVariable__",
                 "__if__",
                 "__loop__",
                 "__loopIf__",
@@ -70,9 +70,9 @@ astParsingFunctions.__rule__ = function(content) {
                 "return",
                 "__skip__",
                 "__skipIf__",
-                "__wait__",
+                //"__wait__",
                 "__while__",
-            ].includes(children[i].name) && children[i].type !== "Label") {
+            ].includes(children[i].name) && children[i].type !== "Label" && !(children[i].name === "__wait__" && content.ruleAttributes.event !== "__subroutine__")) {
                 debug("meaningful instruction :"+children[i].name);
                 hasMeaningfulInstructionBeenEncountered = true;
             }

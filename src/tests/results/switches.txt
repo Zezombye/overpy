@@ -4,6 +4,7 @@ variables {
         1: B
         2: C
         3: D
+        4: E
 }
 rule ("switches") {
     event {
@@ -30,6 +31,38 @@ rule ("switches") {
         //__label_switch_5_default__:
         //__label_switch_5_3__:
         Global.D += 1;
+    }
+}
+
+rule ("nested switches") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        If(Global.A);
+            Skip(Value In Array(Array(10, Null, 2, 4), Add(True, Index Of Array Value(Array(1, 2, 3), Global.B))));
+            //__label_switch_10_0__:
+            Global.C += 1;
+            Skip(8);
+            //__label_switch_10_1__:
+            Global.D += 1;
+            Skip(6);
+            //__label_switch_10_2__:
+            Skip(Value In Array(Array(4, Null, 3), Add(True, Index Of Array Value(Array(1, 2), Global.C))));
+            //__label_switch_9_0__:
+            Global.A += 1;
+            Global.B += 1;
+            Skip(2);
+            //__label_switch_9_1__:
+            Global.C += 1;
+            //__label_switch_9_default__:
+            Global.D += 1;
+            //__label_break_8__:
+            //__label_switch_10_default__:
+            //__label_break_7__:
+            //__label_break_6__:
+        Else;
+            Global.E += 1;
     }
 }
 

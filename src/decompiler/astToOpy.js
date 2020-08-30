@@ -62,9 +62,9 @@ function astRulesToOpy(rules) {
                 }
             }
         }
-        if (rule.isDisabled) {
+        /*if (rule.isDisabled) {
             decompiledRuleAttributes += tabLevel(nbTabs)+"@Disabled\n";
-        }
+        }*/
         if (decompiledRuleAttributes) {
             decompiledRuleAttributes += tabLevel(nbTabs)+"\n";
         }
@@ -73,6 +73,9 @@ function astRulesToOpy(rules) {
         //Decompile the rule actions
         decompiledRule += astActionsToOpy(rule.children);
 
+        if (rule.isDisabled) {
+            decompiledRule = "/*\n" + decompiledRule + "*/";
+        }
         decompiledRule += "\n\n";
         result += decompiledRule;
     }

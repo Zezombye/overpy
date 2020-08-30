@@ -562,14 +562,14 @@ rule "init section (slice + draw tp)":
 rule "(debug) section spheres draw":
 	@Event global
 	@Condition I == 0 and false
-    createEffect(getAllPlayers(), Effect.SPHERE, Color.WHITE, T[N], M[N], IconReeval.VISIBILITY)
+    createEffect(getAllPlayers(), Effect.SPHERE, Color.WHITE, T[N], M[N], EffectReeval.VISIBILITY)
 
 
 rule "trigger draw":
 	@Event global
 	@Condition I == 0
     destroyAllIcons()
-    createEffect(getAllPlayers(), Effect.SPHERE, Color.BLUE, T[N], 4, IconReeval.VISIBILITY)
+    createEffect(getAllPlayers(), Effect.SPHERE, Color.BLUE, T[N], 4, EffectReeval.VISIBILITY)
     createIcon(getAllPlayers(), T[N], Icon.ARROW_DOWN, IconReeval.VISIBILITY_AND_POSITION, Color.BLUE, true)
 
 
@@ -577,8 +577,8 @@ rule "walls visual effect":
 	@Event global
 	@Condition I == 0
     do:
-        createEffect(getAllPlayers(), Effect.SPHERE, Color.YELLOW, A[I], 4, IconReeval.VISIBILITY)
-        createEffect(getAllPlayers(), Effect.SPHERE, Color.YELLOW, A[I] + vect(0, 4, 0), 4, IconReeval.VISIBILITY)
+        createEffect(getAllPlayers(), Effect.SPHERE, Color.YELLOW, A[I], 4, EffectReeval.VISIBILITY)
+        createEffect(getAllPlayers(), Effect.SPHERE, Color.YELLOW, A[I] + vect(0, 4, 0), 4, EffectReeval.VISIBILITY)
         I++
         wait(0.05)
     while I < len(A)

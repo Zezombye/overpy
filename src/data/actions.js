@@ -4463,6 +4463,7 @@ const actionKw =
                 "name": "POSITION",
                 "description": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time.",
                 "type": "Position",
+                canReplace0ByNull: true,
                 "default": "VECTOR"
             },
             {
@@ -4524,6 +4525,7 @@ const actionKw =
                 "name": "ROOM",
                 "description": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
                 "default": "NUMBER"
             }
         ],
@@ -4554,36 +4556,48 @@ const actionKw =
                 "name": "MIN FORWARD",
                 "description": "Sets the minimum run forward amount. 0 allows the player or players to stop while 1 forces full forward movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX FORWARD",
                 "description": "Sets the maximum run forward amount. 0 prevents the player or players from moving forward while 1 allows full forward movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MIN BACKWARD",
                 "description": "Sets the minimum run backward amount. 0 allows the player or players to stop while 1 forces full backward movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX BACKWARD",
                 "description": "Sets the maximum run backward amount. 0 prevents the player or players from moving backward while 1 allows full backward movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MIN SIDEWAYS",
                 "description": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX SIDEWAYS",
                 "description": "Sets the maximum run sideways amount. 0 prevents the player or players from moving SIDEWAYS while 1 allows full sideways movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -4732,6 +4746,8 @@ const actionKw =
             {
                 "name": "Pitch Scalar",
                 "description": "The amount that the pitch of the voice will be raised (up to 1.5) or lowered (down to 0.5).",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "type": "unsigned float"
             },
             {
@@ -4768,6 +4784,8 @@ const actionKw =
                 "name": "Scale",
                 "description": "The multiplier applied to the size of the barriers (0.5 halves the size, 2.0 doubles the size, etc.).",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 1
             },
             {
@@ -4804,6 +4822,8 @@ const actionKw =
                 "name": "Scale",
                 "description": "The multiplier applied to the size of the player or players (0.5 halves the size, 2.0 doubles the size, etc.).",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 1
             },
             {
@@ -5507,6 +5527,7 @@ const actionKw =
                 "name": "POSITION",
                 "description": "The position to which the player or players will teleport. If a player is provided, the position of the player is used.",
                 "type": "Position",
+                canReplace0ByNull: true,
                 "default": "VECTOR"
             }
         ],

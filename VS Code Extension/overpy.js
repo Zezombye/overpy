@@ -6387,6 +6387,7 @@ const actionKw =
                 "name": "POSITION",
                 "description": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time.",
                 "type": "Position",
+                canReplace0ByNull: true,
                 "default": "VECTOR"
             },
             {
@@ -6448,6 +6449,7 @@ const actionKw =
                 "name": "ROOM",
                 "description": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room.",
                 "type": "unsigned int",
+                canReplace0ByFalse: true,
                 "default": "NUMBER"
             }
         ],
@@ -6478,36 +6480,48 @@ const actionKw =
                 "name": "MIN FORWARD",
                 "description": "Sets the minimum run forward amount. 0 allows the player or players to stop while 1 forces full forward movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX FORWARD",
                 "description": "Sets the maximum run forward amount. 0 prevents the player or players from moving forward while 1 allows full forward movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MIN BACKWARD",
                 "description": "Sets the minimum run backward amount. 0 allows the player or players to stop while 1 forces full backward movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX BACKWARD",
                 "description": "Sets the maximum run backward amount. 0 prevents the player or players from moving backward while 1 allows full backward movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MIN SIDEWAYS",
                 "description": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX SIDEWAYS",
                 "description": "Sets the maximum run sideways amount. 0 prevents the player or players from moving SIDEWAYS while 1 allows full sideways movement.",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
@@ -6656,6 +6670,8 @@ const actionKw =
             {
                 "name": "Pitch Scalar",
                 "description": "The amount that the pitch of the voice will be raised (up to 1.5) or lowered (down to 0.5).",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "type": "unsigned float"
             },
             {
@@ -6692,6 +6708,8 @@ const actionKw =
                 "name": "Scale",
                 "description": "The multiplier applied to the size of the barriers (0.5 halves the size, 2.0 doubles the size, etc.).",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 1
             },
             {
@@ -6728,6 +6746,8 @@ const actionKw =
                 "name": "Scale",
                 "description": "The multiplier applied to the size of the player or players (0.5 halves the size, 2.0 doubles the size, etc.).",
                 "type": "unsigned float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": 1
             },
             {
@@ -7431,6 +7451,7 @@ const actionKw =
                 "name": "POSITION",
                 "description": "The position to which the player or players will teleport. If a player is provided, the position of the player is used.",
                 "type": "Position",
+                canReplace0ByNull: true,
                 "default": "VECTOR"
             }
         ],
@@ -27246,9 +27267,9 @@ function astRulesToOpy(rules) {
                 }
             }
         }
-        if (rule.isDisabled) {
+        /*if (rule.isDisabled) {
             decompiledRuleAttributes += tabLevel(nbTabs)+"@Disabled\n";
-        }
+        }*/
         if (decompiledRuleAttributes) {
             decompiledRuleAttributes += tabLevel(nbTabs)+"\n";
         }
@@ -27257,6 +27278,9 @@ function astRulesToOpy(rules) {
         //Decompile the rule actions
         decompiledRule += astActionsToOpy(rule.children);
 
+        if (rule.isDisabled) {
+            decompiledRule = "/*\n" + decompiledRule + "*/";
+        }
         decompiledRule += "\n\n";
         result += decompiledRule;
     }
@@ -30569,9 +30593,9 @@ astParsingFunctions.__rule__ = function(content) {
                 "__else__",
                 "__elif__",
                 "__end__",
-                "__for__",
-                "__forGlobalVariable__",
-                "__forPlayerVariable__",
+                //"__for__",
+                //"__forGlobalVariable__",
+                //"__forPlayerVariable__",
                 "__if__",
                 "__loop__",
                 "__loopIf__",
@@ -30581,9 +30605,9 @@ astParsingFunctions.__rule__ = function(content) {
                 "return",
                 "__skip__",
                 "__skipIf__",
-                "__wait__",
+                //"__wait__",
                 "__while__",
-            ].includes(children[i].name) && children[i].type !== "Label") {
+            ].includes(children[i].name) && children[i].type !== "Label" && !(children[i].name === "__wait__" && content.ruleAttributes.event !== "__subroutine__")) {
                 debug("meaningful instruction :"+children[i].name);
                 hasMeaningfulInstructionBeenEncountered = true;
             }
@@ -33384,6 +33408,84 @@ function parseAst(content) {
         }
     }
 
+    //Normalize arguments
+    if (content.name === "__for__") {
+
+        if (content.args.length !== 1) {
+            error("Function '"+content.name+"' takes 1 argument, received "+content.args.length);
+        }
+        //Check for right arguments.
+        if (content.args[0].name !== "__arrayContains__") {
+            error("Expected the 'in' operator within 'for' directive, but got "+functionNameToString(content.args[0]));
+        }
+        if (content.args[0].args.length !== 2) {
+            error("Operator 'in' takes 2 operands, received "+content.args[0].args.length);
+        }
+        if (content.args[0].args[0].name !== "range") {
+            error("Expected the 'range' function for the 2nd operand of the 'in' operator, but got "+functionNameToString(content.args[0].args[1]));
+        }
+        
+        if (content.args[0].args[0].args.length < 1 || content.args[0].args[0].args.length > 3) {
+            error("Function 'range' takes 1 to 3 arguments, received "+content.args[0].args[0].args.length);
+        }
+        if (content.args[0].args[0].args.length === 1) {
+            content.args[0].args[0].args.unshift(getAstFor0());
+        }
+        if (content.args[0].args[0].args.length === 2) {
+            content.args[0].args[0].args.push(getAstFor1());
+        }
+        //for (i in range(1,2,3)) -> for(i, 1, 2, 3)
+        content.args = [
+            content.args[0].args[1],
+            content.args[0].args[0].args[0],
+            content.args[0].args[0].args[1],
+            content.args[0].args[0].args[2],
+        ];
+    } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
+    
+        if (content.args.length < 6 || content.args.length > 7) {
+            error("Function '"+content.name+"' takes 6 or 7 arguments, received "+content.args.length);
+        }
+        if (content.args.length === 6) {
+            content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
+        }
+
+    } else if (content.name === "hudText") {
+        if (content.args.length < 10 || content.args.length > 11) {
+            error("Function '"+content.name+"' takes 10 or 11 arguments, received "+content.args.length);
+        }
+        if (content.args.length === 10) {
+            content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
+        }
+    } else if (content.name === "log") {
+        if (content.args.length < 1 || content.args.length > 2) {
+            error("Function '"+content.name+"' takes 1 or 2 arguments, received "+content.args.length);
+        }
+        if (content.args.length === 1) {
+            content.args.push(getAstForE());
+        }
+    } else if (content.name === "range") {
+
+    } else if (content.name === "wait") {
+        if (content.args.length > 2) {
+            error("Function 'wait' takes 0 to 2 arguments, received "+args.length);
+        }
+        if (content.args.length === 0) {
+            content.args.push(getAstFor0_016());
+        }
+        if (content.args.length === 1) {
+            content.args.push(new Ast("IGNORE_CONDITION", [], [], "Wait"));
+        }
+        content.name = "__wait__";
+    }
+    
+    if (!["__format__", "__array__", "__dict__"].includes(content.name)) {
+        var nbExpectedArgs = (funcKw[content.name].args === null ? 0 : funcKw[content.name].args.length);
+        if (content.args.length !== nbExpectedArgs) {
+            error("Function '"+content.name+"' takes "+nbExpectedArgs+" arguments, received "+content.args.length);
+        }
+    }
+
     //Parse args
     for (var i = 0; i < content.args.length; i++) {
         content.argIndex = i;
@@ -33392,8 +33494,7 @@ function parseAst(content) {
     }
     content.argIndex = 0;
 
-
-    //Manually check types and arguments for the __format__ or __array__ function, as they are the only functions that can take an infinite number of arguments.
+    //Manually check types and arguments for the __format__, __array__ or __dict__ functions, as they are the only functions that can take an infinite number of arguments.
     if (content.name === "__format__") {
         if (content.args.length < 1) {
             error("Function '__format__' takes at least 1 argument, received "+content.args.length);
@@ -33415,87 +33516,16 @@ function parseAst(content) {
                 warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[0].type, content.args[i]));
             }
         }
-
     } else {
-
-        //Normalize arguments
-        if (content.name === "__for__") {
-
-            if (content.args.length !== 1) {
-                error("Function '"+content.name+"' takes 1 argument, received "+content.args.length);
-            }
-
-            //Check for right arguments.
-            if (content.args[0].name !== "__arrayContains__") {
-                error("Expected the 'in' operator within 'for' directive, but got "+functionNameToString(content.args[0]));
-            }
-            if (content.args[0].args[0].name !== "range") {
-                error("Expected the 'range' function for the 2nd operand of the 'in' operator, but got "+functionNameToString(content.args[0].args[1]));
-            }
-
-            //for (i in range(1,2,3)) -> for(i, 1, 2, 3)
-            content.args = [
-                content.args[0].args[1],
-                content.args[0].args[0].args[0],
-                content.args[0].args[0].args[1],
-                content.args[0].args[0].args[2],
-            ];
-        } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
-      
-            if (content.args.length < 6 || content.args.length > 7) {
-                error("Function '"+content.name+"' takes 6 or 7 arguments, received "+content.args.length);
-            }
-            if (content.args.length === 6) {
-                content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
-            }
-
-        } else if (content.name === "hudText") {
-            if (content.args.length < 10 || content.args.length > 11) {
-                error("Function '"+content.name+"' takes 10 or 11 arguments, received "+content.args.length);
-            }
-            if (content.args.length === 10) {
-                content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
-            }
-        } else if (content.name === "log") {
-            if (content.args.length < 1 || content.args.length > 2) {
-                error("Function '"+content.name+"' takes 1 or 2 arguments, received "+content.args.length);
-            }
-            if (content.args.length === 1) {
-                content.args.push(getAstForE());
-            }
-        } else if (content.name === "range") {
-            if (content.args.length < 1 || content.args.length > 3) {
-                error("Function '"+content.name+"' takes 1 to 3 arguments, received "+content.args.length);
-            }
-            if (content.args.length === 1) {
-                content.args.unshift(getAstFor0());
-            }
-            if (content.args.length === 2) {
-                content.args.push(getAstFor1());
-            }
-
-        } else if (content.name === "wait") {
-            if (content.args.length > 2) {
-                error("Function 'wait' takes 0 to 2 arguments, received "+args.length);
-            }
-            if (content.args.length === 0) {
-                content.args.push(getAstFor0_016());
-            }
-            if (content.args.length === 1) {
-                content.args.push(new Ast("IGNORE_CONDITION", [], [], "Wait"));
-            }
-            content.name = "__wait__";
-        }
-        
-        var nbExpectedArgs = (funcKw[content.name].args === null ? 0 : funcKw[content.name].args.length);
-        if (content.args.length !== nbExpectedArgs) {
-            error("Function '"+content.name+"' takes "+nbExpectedArgs+" arguments, received "+content.args.length);
-        }
-
-        //Type check
+        //Generic type check
         for (var i = 0; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name].args[i].type, content.args[i].type)) {
-                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+                //Throw an error for when a literal is expected
+                if (Object.keys(constantValues).includes(funcKw[content.name].args[i].type)) {
+                    error(getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+                } else {
+                    //warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+                }
             }
         }
     }
@@ -34284,7 +34314,7 @@ function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMin
 		var step = 1;
 	}
 	
-	//console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
+    //console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
 	
 	for (var i = start; i != end; i+=step) {
 
@@ -34296,7 +34326,11 @@ function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMin
             
 		} else if (bracketsLevel === 0 && operators.includes(tokens[i].text)) {
             
-            if (allowUnaryPlusOrMinus || (i !== 0 && !Object.keys(operatorPrecedence).includes(tokens[i-1].text))) {
+            if (allowUnaryPlusOrMinus || (i !== 0 && !["+", "-"].includes(tokens[i-1].text))) {
+                //Support "not in" operator
+                if (tokens[i].text === "not" && i < tokens.length-1 && tokens[i+1].text === "in") {
+                    continue;
+                }
                 operatorFound = tokens[i].text;
                 operatorPosition = i;
                 break;
@@ -34414,15 +34448,24 @@ function parse(content, kwargs={}) {
             return new Ast("__"+operator+"__", [op1, op2]);
 
         } else if (operator === "not") {
-
+            
             var op1 = parse(operands[1]);
             return new Ast("__not__", [op1]);
 
         } else if (operator === "in") {
             
+            var isNotInOperator = false;
+            if (operands[0].length > 1 && operands[0][operands[0].length-1].text === "not") {
+                isNotInOperator = true;
+                operands[0].pop();
+            }
             var value = parse(operands[0]);
             var array = parse(operands[1]);
-            return new Ast("__arrayContains__", [array, value]);
+            if (isNotInOperator) {
+                return new Ast("__not__", [new Ast("__arrayContains__", [array, value])]);
+            } else {
+                return new Ast("__arrayContains__", [array, value]);
+            }
 
         } else if (["==", "!=", "<=", ">=", "<", ">"].includes(operator)) {
 
