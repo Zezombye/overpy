@@ -110,7 +110,7 @@ rule ("optimizations with literals") {
         "All Teams"
         Modify Global Variable(A, Append To Array, All Teams);
         "0"
-        Modify Global Variable(A, Append To Array, 0);
+        Modify Global Variable(A, Append To Array, Null);
         "3"
         Modify Global Variable(A, Append To Array, 3);
         "32"
@@ -124,7 +124,7 @@ rule ("optimizations with literals") {
         "-0.218"
         Modify Global Variable(A, Append To Array, -0.218143241396542);
         "0"
-        Modify Global Variable(A, Append To Array, 0);
+        Modify Global Variable(A, Append To Array, Null);
         "9.656"
         Modify Global Variable(A, Append To Array, 9.655568341635826);
         "1.364"

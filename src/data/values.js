@@ -4594,7 +4594,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "return": "unsigned float",
+        "return": "unsigned int",
         "guid": "0000000081C5",
         "en-US": "Ultimate Charge Percent",
         "es-MX": "Porcentaje de carga de la habilidad máxima",

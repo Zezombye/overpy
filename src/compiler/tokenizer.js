@@ -262,7 +262,7 @@ function tokenize(content) {
 					}
 				}
 				//j++;
-				moveCursor(j-i-1);
+				moveCursor(j-i-1 + "\n".length);
 
 			} else if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
 				bracketsLevel++;
@@ -282,7 +282,7 @@ function tokenize(content) {
 				for (; j < content.length; j++) {
 					if (content[j] === "\\") {
 						isBackslashed = true;
-						preprocessingDirectiveContent += content[j];
+						//preprocessingDirectiveContent += content[j];
 					} else if (!isBackslashed && content[j] === "\n") {
 						break;
 					} else if (content[j] !== " " && content[j] !== "\r") {
@@ -400,7 +400,8 @@ function tokenize(content) {
 							} else {
 								//debug("Resolving normal macro "+macros[k].name);
 								text = macros[k].name;
-								replacement = macros[k].replacement;
+								//replacement = macros[k].replacement;
+								replacement = resolveMacro(macros[k], [], currentLine.indentLevel);
 							}
 							
 							content = content.substring(0, i) + replacement + content.substring(i+text.length);

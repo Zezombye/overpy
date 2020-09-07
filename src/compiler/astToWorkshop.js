@@ -190,6 +190,16 @@ function astToWs(content) {
             }
         }
     }
+
+    //Do literal limit bypassing
+    if (content.name in funcKw && funcKw[content.name].hasLiteralLimit) {
+        for (var i = 0; i < content.args.length; i++) {
+            if (funcKw[content.name].args[i].literalMax > 0 && content.args[i].name === "__number__" && content.args[i].args[0].numValue > funcKw[content.name].args[i].literalMax) {
+                content.args[i] = new Ast("abs", [content.args[i]]);
+            }
+        }
+    }
+
     if (content.name in equalityFuncToOpMapping) {
         //Convert functions such as __equals__(1,2) to __compare__(1, ==, 2).
         content.args.splice(1, 0, new Ast(equalityFuncToOpMapping[content.name], [], [], "__Operator__"));
@@ -197,6 +207,22 @@ function astToWs(content) {
 
     } else if (content.name === "__assignTo__" || content.name === "__modifyVar__") {
 
+
+        if (content.name === "__modifyVar__" && enableOptimization && content.args[2].name === "__number__") {
+            //Manually do the 0/1->false/true/null replacements.
+            if (["__add__", "__subtract__", "__modulo__", "__max__", "__min__", "__removeFromArrayByIndex__"].includes(content.args[1].name)) {
+                if (content.args[2].args[0].numValue === 0) {
+                    content.args[2] = getAstForFalse();
+                } else if (content.args[2].args[0].numValue === 1) {
+                    content.args[2] = getAstForTrue();
+                }
+
+            } else if (["__appendToArray__", "__removeFromArrayByValue__"].includes(content.args[1].name)) {
+                if (content.args[2].args[0].numValue === 0) {
+                    content.args[2] = getAstForNull();
+                }
+            }
+        }
         //Workaround for the japanese language bug where "add" and "append" are the same for the modify variable actions.
         if (content.name === "__modifyVar__" && content.args[1].name === "__add__") {
             var tmpEnableOptimization = enableOptimization;

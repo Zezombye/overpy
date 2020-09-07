@@ -317,7 +317,10 @@ function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMin
             
 		} else if (bracketsLevel === 0 && operators.includes(tokens[i].text)) {
             
-            if (allowUnaryPlusOrMinus || (i !== 0 && !["+", "-"].includes(tokens[i-1].text))) {
+            if (allowUnaryPlusOrMinus 
+                    || (i !== 0 && (!Object.keys(operatorPrecedence).includes(tokens[i-1].text) || tokens[i-1].text === "not" && tokens[i].text === "in"))
+                    || i === 0 && tokens[i].text === "not"
+            ) {
                 //Support "not in" operator
                 if (tokens[i].text === "not" && i < tokens.length-1 && tokens[i+1].text === "in") {
                     continue;
@@ -398,7 +401,8 @@ function parse(content, kwargs={}) {
     for (var precedence = kwargs.minOperatorPrecedence; precedence <= operatorPrecedence["**"]; precedence++) {
 
         var operatorsToCheck = Object.keys(operatorPrecedence).filter(x => operatorPrecedence[x] === precedence);
-        var allowUnary = (precedence === operatorPrecedence["not"]);
+        //var allowUnary = (precedence === operatorPrecedence["not"]);
+        var allowUnary = false;
 
         //manually put the unary plus/minus
         if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {

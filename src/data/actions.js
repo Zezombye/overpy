@@ -3024,9 +3024,13 @@ const actionKw =
                 "name": "DAMAGE DEALT PERCENT",
                 "description": "The percentage of raw damage dealt to which the player or players will set their damage dealt.",
                 "type": "unsigned float",
+                min: 0,
+                max: 10000,
+                literalMax: 1000,
                 "default": "NUMBER"
             }
         ],
+        hasLiteralLimit: true,
         "guid": "00000000B995",
         "return": "void",
         "en-US": "Set Damage Dealt",
@@ -3054,9 +3058,13 @@ const actionKw =
                 "name": "DAMAGE RECEIVED PERCENT",
                 "description": "The percentage of raw damage received to which the player or players will set their damage received.",
                 "type": "unsigned float",
+                min: 0,
+                max: 10000,
+                literalMax: 1000,
                 "default": "NUMBER"
             }
         ],
+        hasLiteralLimit: true,
         "guid": "00000000B997",
         "return": "void",
         "en-US": "Set Damage Received",
@@ -3216,9 +3224,13 @@ const actionKw =
                 "name": "HEALING DEALT PERCENT",
                 "description": "",
                 "type": "unsigned float",
+                "min": 0,
+                "max": 10000,
+                "literalMax": 1000,
                 "default": "NUMBER"
             }
         ],
+        hasLiteralLimit: true,
         "guid": "00000000B991",
         "return": "void",
         "en-US": "Set Healing Dealt",
@@ -3427,9 +3439,13 @@ const actionKw =
                 "name": "HEALTH PERCENT",
                 "description": "The percentage of raw max health to which the player or players will set their max health.",
                 "type": "unsigned float",
+                min: 0,
+                max: 10000,
+                literalMax: 1000,
                 "default": "NUMBER"
             }
         ],
+        hasLiteralLimit: true,
         "guid": "0000000078FA",
         "return": "void",
         "en-US": "Set Max Health",

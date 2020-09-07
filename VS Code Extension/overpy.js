@@ -4948,9 +4948,13 @@ const actionKw =
                 "name": "DAMAGE DEALT PERCENT",
                 "description": "The percentage of raw damage dealt to which the player or players will set their damage dealt.",
                 "type": "unsigned float",
+                min: 0,
+                max: 10000,
+                literalMax: 1000,
                 "default": "NUMBER"
             }
         ],
+        hasLiteralLimit: true,
         "guid": "00000000B995",
         "return": "void",
         "en-US": "Set Damage Dealt",
@@ -4978,9 +4982,13 @@ const actionKw =
                 "name": "DAMAGE RECEIVED PERCENT",
                 "description": "The percentage of raw damage received to which the player or players will set their damage received.",
                 "type": "unsigned float",
+                min: 0,
+                max: 10000,
+                literalMax: 1000,
                 "default": "NUMBER"
             }
         ],
+        hasLiteralLimit: true,
         "guid": "00000000B997",
         "return": "void",
         "en-US": "Set Damage Received",
@@ -5140,9 +5148,13 @@ const actionKw =
                 "name": "HEALING DEALT PERCENT",
                 "description": "",
                 "type": "unsigned float",
+                "min": 0,
+                "max": 10000,
+                "literalMax": 1000,
                 "default": "NUMBER"
             }
         ],
+        hasLiteralLimit: true,
         "guid": "00000000B991",
         "return": "void",
         "en-US": "Set Healing Dealt",
@@ -5351,9 +5363,13 @@ const actionKw =
                 "name": "HEALTH PERCENT",
                 "description": "The percentage of raw max health to which the player or players will set their max health.",
                 "type": "unsigned float",
+                min: 0,
+                max: 10000,
+                literalMax: 1000,
                 "default": "NUMBER"
             }
         ],
+        hasLiteralLimit: true,
         "guid": "0000000078FA",
         "return": "void",
         "en-US": "Set Max Health",
@@ -12117,7 +12133,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        "return": "unsigned float",
+        "return": "unsigned int",
         "guid": "0000000081C5",
         "en-US": "Ultimate Charge Percent",
         "es-MX": "Porcentaje de carga de la habilidad máxima",
@@ -31175,6 +31191,34 @@ astParsingFunctions["_&setStatusEffect"] = function(content) {
 
 "use strict";
 
+astParsingFunctions["_&setUltCharge"] = function(content) {
+
+    //Literal limit bypass if the literal is an int
+    if (content.args[1].name === "__number__" && !isTypeSuitable("int", content.args[1].type)) {
+        content.args[1] = new Ast("abs", [content.args[1]]);
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.acos = function(content) {
 
     if (enableOptimization) {
@@ -32888,7 +32932,7 @@ function tokenize(content) {
 					}
 				}
 				//j++;
-				moveCursor(j-i-1);
+				moveCursor(j-i-1 + "\n".length);
 
 			} else if (content[i] === '(' || content[i] === '[' || content[i] === '{') {
 				bracketsLevel++;
@@ -32908,7 +32952,7 @@ function tokenize(content) {
 				for (; j < content.length; j++) {
 					if (content[j] === "\\") {
 						isBackslashed = true;
-						preprocessingDirectiveContent += content[j];
+						//preprocessingDirectiveContent += content[j];
 					} else if (!isBackslashed && content[j] === "\n") {
 						break;
 					} else if (content[j] !== " " && content[j] !== "\r") {
@@ -33026,7 +33070,8 @@ function tokenize(content) {
 							} else {
 								//debug("Resolving normal macro "+macros[k].name);
 								text = macros[k].name;
-								replacement = macros[k].replacement;
+								//replacement = macros[k].replacement;
+								replacement = resolveMacro(macros[k], [], currentLine.indentLevel);
 							}
 							
 							content = content.substring(0, i) + replacement + content.substring(i+text.length);
@@ -33775,6 +33820,16 @@ function astToWs(content) {
             }
         }
     }
+
+    //Do literal limit bypassing
+    if (content.name in funcKw && funcKw[content.name].hasLiteralLimit) {
+        for (var i = 0; i < content.args.length; i++) {
+            if (funcKw[content.name].args[i].literalMax > 0 && content.args[i].name === "__number__" && content.args[i].args[0].numValue > funcKw[content.name].args[i].literalMax) {
+                content.args[i] = new Ast("abs", [content.args[i]]);
+            }
+        }
+    }
+
     if (content.name in equalityFuncToOpMapping) {
         //Convert functions such as __equals__(1,2) to __compare__(1, ==, 2).
         content.args.splice(1, 0, new Ast(equalityFuncToOpMapping[content.name], [], [], "__Operator__"));
@@ -33782,6 +33837,22 @@ function astToWs(content) {
 
     } else if (content.name === "__assignTo__" || content.name === "__modifyVar__") {
 
+
+        if (content.name === "__modifyVar__" && enableOptimization && content.args[2].name === "__number__") {
+            //Manually do the 0/1->false/true/null replacements.
+            if (["__add__", "__subtract__", "__modulo__", "__max__", "__min__", "__removeFromArrayByIndex__"].includes(content.args[1].name)) {
+                if (content.args[2].args[0].numValue === 0) {
+                    content.args[2] = getAstForFalse();
+                } else if (content.args[2].args[0].numValue === 1) {
+                    content.args[2] = getAstForTrue();
+                }
+
+            } else if (["__appendToArray__", "__removeFromArrayByValue__"].includes(content.args[1].name)) {
+                if (content.args[2].args[0].numValue === 0) {
+                    content.args[2] = getAstForNull();
+                }
+            }
+        }
         //Workaround for the japanese language bug where "add" and "append" are the same for the modify variable actions.
         if (content.name === "__modifyVar__" && content.args[1].name === "__add__") {
             var tmpEnableOptimization = enableOptimization;
@@ -34326,7 +34397,10 @@ function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMin
             
 		} else if (bracketsLevel === 0 && operators.includes(tokens[i].text)) {
             
-            if (allowUnaryPlusOrMinus || (i !== 0 && !["+", "-"].includes(tokens[i-1].text))) {
+            if (allowUnaryPlusOrMinus 
+                    || (i !== 0 && (!Object.keys(operatorPrecedence).includes(tokens[i-1].text) || tokens[i-1].text === "not" && tokens[i].text === "in"))
+                    || i === 0 && tokens[i].text === "not"
+            ) {
                 //Support "not in" operator
                 if (tokens[i].text === "not" && i < tokens.length-1 && tokens[i+1].text === "in") {
                     continue;
@@ -34407,7 +34481,8 @@ function parse(content, kwargs={}) {
     for (var precedence = kwargs.minOperatorPrecedence; precedence <= operatorPrecedence["**"]; precedence++) {
 
         var operatorsToCheck = Object.keys(operatorPrecedence).filter(x => operatorPrecedence[x] === precedence);
-        var allowUnary = (precedence === operatorPrecedence["not"]);
+        //var allowUnary = (precedence === operatorPrecedence["not"]);
+        var allowUnary = false;
 
         //manually put the unary plus/minus
         if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {

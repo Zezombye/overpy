@@ -124,7 +124,7 @@ rule ("other array functions") {
         Set Global Variable(A, Is True For All(All Players(All Teams), Current Array Element));
         Set Global Variable(A, Sorted Array(Global.A, Add(Current Array Element, 2)));
         Set Global Variable(A, Sorted Array(Global.A, Current Array Element));
-        Modify Global Variable(A, Remove From Array By Index, 1);
+        Modify Global Variable(A, Remove From Array By Index, True);
         Modify Global Variable(A, Append To Array, 3);
         Modify Global Variable(A, Remove From Array By Value, 3);
         Set Global Variable(A, Append To Array(Global.B, 2));

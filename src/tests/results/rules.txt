@@ -16,8 +16,8 @@ rule ("normal") {
         Ongoing - Global;
     }
     actions {
-        Global.A += 1;
-        Global.B += 1;
+        Global.A += True;
+        Global.B += True;
     }
 }
 
@@ -28,7 +28,7 @@ rule ("event player") {
         All;
     }
     actions {
-        (Event Player).A += 1;
+        (Event Player).A += True;
     }
 }
 
@@ -39,7 +39,7 @@ rule ("filter on team+hero") {
         Ana;
     }
     actions {
-        (Victim).A += 1;
+        (Victim).A += True;
     }
 }
 
@@ -50,7 +50,7 @@ rule ("filter on team+slot") {
         Slot 3;
     }
     actions {
-        (Healer).B += 1;
+        (Healer).B += True;
     }
 }
 
@@ -68,7 +68,7 @@ rule ("conditions") {
         Global.C != False;
     }
     actions {
-        Global.B += 1;
+        Global.B += True;
     }
 }
 
@@ -77,7 +77,7 @@ rule ("condition that is always true") {
         Ongoing - Global;
     }
     actions {
-        Global.B += 1;
+        Global.B += True;
     }
 }
 

@@ -1,4 +1,4 @@
-#!disableOptimizations
+
 rule "comparison":
     A = B == C
     A = 1 == 0 #false
@@ -53,12 +53,15 @@ rule "negate":
     A = -vect(1,2,-3) #vect(-1,-2,3)
     A = -1
     A = -1*B
-    A = -(-A) #A
+    A = -(-B) #B
     A = --1 #1
-    A = --A #A
+    A = --B #B
     A = ---1 #-1
-    A = ---A #-A
+    A = ---B #-B
     A = - - 0.01 #0.01
+    A = B + - C
+    A = not -C
+    A = B * - C
 
 rule "multiply":
     A = B*C
@@ -122,28 +125,30 @@ rule "assignment":
 
 rule "and":
     A = A and B
-    A = A and true #A
-    A = A and false #false
-    A = A and A #A
-    A = A and not A #false
+    A = B and true #B
+    A = B and false #false
+    A = B and B #B
+    A = B and not B #false
 
 rule "or":
     A = A or B
-    A = A or A #A
+    A = B or B #B
     A = A or true #true
-    A = A or false #A
-    A = A or not A #true
+    A = B or false #B
+    A = B or not B #true
 
 rule "not":
     A = not B
-    A = not not A #A
+    A = not not B #B
     A = not true #false
     A = not false #true
+    A = 3 * not B
 
 rule "in":
     A = A in B
     A = 3 in [1,A,3] #true
     A = 3 in [A,5,6]
+    A = B not in C
 
 rule "ternaries":
     A = B if C else D

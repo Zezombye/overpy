@@ -13,10 +13,10 @@ rule ("switches") {
     actions {
         Skip(Value In Array(Array(4, Null, 2), Add(True, Index Of Array Value(Array(1, 2), Global.A))));
         //__label_switch_4_0__:
-        Global.B += 1;
+        Global.B += True;
         Skip(2);
         //__label_switch_4_1__:
-        Global.C += 1;
+        Global.C += True;
         "pass"
         disabled Abort;
         //__label_switch_4_default__:
@@ -24,13 +24,13 @@ rule ("switches") {
         //__label_break_2__:
         Skip(Value In Array(Array(2, Null, 1, 1, 2), Add(True, Index Of Array Value(Array(1, 2, 3, Hero(Brigitte)), Global.B))));
         //__label_switch_5_0__:
-        Global.B += 1;
+        Global.B += True;
         //__label_switch_5_1__:
         //__label_switch_5_2__:
-        Global.C += 1;
+        Global.C += True;
         //__label_switch_5_default__:
         //__label_switch_5_3__:
-        Global.D += 1;
+        Global.D += True;
     }
 }
 
@@ -42,27 +42,27 @@ rule ("nested switches") {
         If(Global.A);
             Skip(Value In Array(Array(10, Null, 2, 4), Add(True, Index Of Array Value(Array(1, 2, 3), Global.B))));
             //__label_switch_10_0__:
-            Global.C += 1;
+            Global.C += True;
             Skip(8);
             //__label_switch_10_1__:
-            Global.D += 1;
+            Global.D += True;
             Skip(6);
             //__label_switch_10_2__:
             Skip(Value In Array(Array(4, Null, 3), Add(True, Index Of Array Value(Array(1, 2), Global.C))));
             //__label_switch_9_0__:
-            Global.A += 1;
-            Global.B += 1;
+            Global.A += True;
+            Global.B += True;
             Skip(2);
             //__label_switch_9_1__:
-            Global.C += 1;
+            Global.C += True;
             //__label_switch_9_default__:
-            Global.D += 1;
+            Global.D += True;
             //__label_break_8__:
             //__label_switch_10_default__:
             //__label_break_7__:
             //__label_break_6__:
         Else;
-            Global.E += 1;
+            Global.E += True;
     }
 }
 

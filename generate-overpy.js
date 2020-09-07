@@ -1,4 +1,5 @@
 const fs = require("fs");
+const JsDiff = require("diff");
  
 //import overpy files
 overpyFiles = [
@@ -89,6 +90,7 @@ overpyFiles = [
 "compiler/functions/__zComponentOf__.js",
 "compiler/functions/_&addToScore.js",
 "compiler/functions/_&setStatusEffect.js",
+"compiler/functions/_&setUltCharge.js",
 "compiler/functions/acos.js",
 "compiler/functions/acosDeg.js",
 "compiler/functions/addToTeamScore.js",
@@ -240,8 +242,23 @@ for (var unitTestFile of unitTestFiles) {
         var outputFileContent = fs.readFileSync(outputFile).toString();
         if (outputFileContent !== output) {
             console.error("Error: output for unit test '"+unitTestFile+"' did not match result");
-            console.error("Output gotten:")
-            console.error(output);
+			console.error("Diff:")
+			
+			var diff = JsDiff.diffLines(outputFileContent, output);
+			for (var part of diff) {
+				if (part.added) {
+
+					console.error("------ADDED--------------");
+					console.error(part.value.split("\n").map(x => "+ "+x).join("\n"));
+				} else if (part.removed) {
+					console.error("------REMOVED--------------");
+					console.error(part.value.split("\n").map(x => "- "+x).join("\n"));
+				} else {
+					/*console.error("------STAYED--------------");
+					console.error(part.value);*/
+				}
+			}
+
             process.exit();
         }
     } else {

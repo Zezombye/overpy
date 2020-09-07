@@ -431,32 +431,32 @@ rule ("list kb for each hero (k)") {
         Set Global Variable(K, Empty Array);
         Modify Global Variable(K, Append To Array, 30);
         Modify Global Variable(K, Append To Array, 15);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
         Modify Global Variable(K, Append To Array, 300);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
         Modify Global Variable(K, Append To Array, 50);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
         Modify Global Variable(K, Append To Array, 15);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
         Modify Global Variable(K, Append To Array, 10);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
-        Modify Global Variable(K, Append To Array, 0);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
+        Modify Global Variable(K, Append To Array, Null);
         Modify Global Variable(K, Append To Array, 25);
         Modify Global Variable(K, Append To Array, 20);
     }
@@ -544,7 +544,7 @@ rule ("walls visual effect") {
     actions {
         Create Effect(All Players(All Teams), Sphere, Yellow, Value In Array(Global.A, Global.I), 4, Visible To);
         Create Effect(All Players(All Teams), Sphere, Yellow, Add(Value In Array(Global.A, Global.I), Vector(False, 4, False)), 4, Visible To);
-        Global.I += 1;
+        Global.I += True;
         Wait(0.05, Ignore Condition);
         Loop If(Compare(Global.I, <, Count Of(Global.A)));
         "pass"
@@ -569,7 +569,7 @@ rule ("walls kb effect") {
         //lbl_0:
         //lbl_1:
         //lbl_2:
-        (Event Player).J += 1;
+        (Event Player).J += True;
         Skip If(Compare((Event Player).J, <, Count Of(Global.A)), True);
         Set Player Variable(Event Player, J, Null);
         //lbl_3:
@@ -617,7 +617,7 @@ rule ("trigger") {
         Abort If(Compare(Global.R, <=, 2));
         //lbl_1:
         Set Global Variable(Q, 3);
-        Global.N += 1;
+        Global.N += True;
         Skip If(Compare(Global.N, ==, Count Of(Global.S)), True);
         Big Message(All Players(All Teams), Custom String("Run!!!", Null, Null, Null));
         //lbl_2:
@@ -644,7 +644,7 @@ rule ("first infection") {
     actions {
         Wait(True, Ignore Condition);
         Big Message(All Players(All Teams), Custom String("Initial Dead: {0} sec", Subtract(10, Global.O), Null, Null));
-        Global.O += 1;
+        Global.O += True;
         Loop If(Compare(Global.O, <, 10));
         Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), <=, 10), True);
         Set Player Variable(Array Slice(Randomized Array(Filtered Array(All Players(All Teams), And(Has Spawned(Current Array Element), Compare((Current Array Element).L, ==, Null)))), False, 2), Z, 1);
@@ -780,7 +780,7 @@ rule ("tp dest") {
     actions {
         Set Projectile Speed(Event Player, 100);
         Wait(0.016, Ignore Condition);
-        (Event Player).B += 1;
+        (Event Player).B += True;
         Loop If(Compare((Event Player).B, <, 105));
         Set Player Variable(Event Player, B, Null);
     }
@@ -961,7 +961,7 @@ rule ("humans win") {
         Kill(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), Null);
         Modify Player Score(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, Null)), 100);
         Wait(1.5, Ignore Condition);
-        Global.J += 1;
+        Global.J += True;
         Wait(3.5, Ignore Condition);
         Set Match Time(1200);
         Set Global Variable(R, 1);
