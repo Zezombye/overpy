@@ -90,16 +90,20 @@ function astActionsToOpy(actions) {
     for (var i = 0; i < actions.length; i++) {
 
         //console.log(actions[i]);
+        debug("Parsing AST of action '"+actions[i].name+"'");
 
         if (actions[i].comment) {
             result += actions[i].comment.split("\n").map(x => tabLevel(nbTabs)+"#"+x+"\n").join("");
         }
         var decompiledAction = "";
-        if (["__elif__", "__else__", "__while__", "__for__"].includes(actions[i].name)) {
+        if (["__elif__", "__else__", "__while__", "__for__"].includes(actions[i].name) && !actions[i].isDisabled) {
             //Check if there is an "end" (or elif/else) and if we must modify the action
             var isEndFound = false;
             var depth = 0;
             for (var j = i+1; j < actions.length; j++) {
+                if (actions[j].isDisabled) {
+                    continue;
+                }
                 if (actions[i].name === "__elif__" && ["__elif__", "__else__"].includes(actions[j].name)) {
                     isEndFound = true;
                     break;
@@ -108,7 +112,7 @@ function astActionsToOpy(actions) {
                 if (["__if__", "__while__", "__for__"].includes(actions[j].name)) {
                     depth++;
                 }
-                if (actions[j].name === "__end__" && !actions[j].isDisabled) {
+                if (actions[j].name === "__end__") {
                     if (depth === 0) {
                         isEndFound = true;
                         break;
@@ -193,7 +197,7 @@ function astActionsToOpy(actions) {
                 "__while__": "while",
                 "__for__": "for",
             }
-            if (actions[i].name === "__elif__" || actions[i].name === "__else__") {
+            if ((actions[i].name === "__elif__" || actions[i].name === "__else__") && !actions[i].isDisabled) {
                 if (nbTabs > 1) {
                     nbTabs--;
                 }
@@ -216,7 +220,9 @@ function astActionsToOpy(actions) {
                 decompiledAction += rangeArgs.join(", ")+")";
             }
             decompiledAction += ":";
-            nbTabs++;
+            if (!actions[i].isDisabled) {
+                nbTabs++;
+            }
         } else if (actions[i].name === "__abortIf__" && !currentRuleHasVariableGoto) {
             decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1)+"return";
             
@@ -393,7 +399,7 @@ function astActionsToOpy(actions) {
 
 function astToOpy(content) {
 
-    //console.log(content);
+    debug("Parsing AST of '"+content.name+"'");
 
     if (content.type === "StringLiteral") {
         return escapeString(content.name);
@@ -693,7 +699,8 @@ function astToOpy(content) {
             result += escapeString(content.args[0].name);
         }
         if (formatArgs.length > 0) {
-            result += ".format("+formatArgs.map(x => astToOpy(x)).join(", ")+")";
+            console.log(formatArgs);
+            result += ".format("+formatArgs.map(x => x === undefined ? "null" : astToOpy(x)).join(", ")+")";
         }
         return result;
     }

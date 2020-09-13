@@ -282,7 +282,9 @@ function tokenize(content) {
 				for (; j < content.length; j++) {
 					if (content[j] === "\\") {
 						isBackslashed = true;
-						//preprocessingDirectiveContent += content[j];
+						if (j < content.length-1 && ![" ", "\r", "\n"].includes(content[j+1])) {
+							preprocessingDirectiveContent += content[j];
+						}
 					} else if (!isBackslashed && content[j] === "\n") {
 						break;
 					} else if (content[j] !== " " && content[j] !== "\r") {
@@ -495,9 +497,10 @@ function resolveMacro(macro, args=[], indentLevel) {
 			scriptContent = builtInJsFunctions + scriptContent;
             try {
 				result = eval(scriptContent);
-				if (!result) {
+				if (!result && result !== 0) {
 					error("Script '"+getFilenameFromPath(macro.scriptPath)+"' yielded no result");
 				}
+				result = result.toString();
             } catch (e) {
                 var stackTrace = e.stack.split('\n').slice(1).reverse();
                 var encounteredEval = false;
