@@ -1,13 +1,13 @@
-[Core] DataTool v1.51.0.881-git-85a88229e3805c3081c87175e10e6b4840311a17
+[Core] DataTool v1.52.0.886-git-f1239676d91666360fbc744efa37e243da4a64fd
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(21)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(22)\DataTool.exe.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.51.0.0.71620
+[CASC] Overwatch build 1.52.0.0.73258
 [CASC] Initializing...
-[Manifest] Using TRG procedure 71620 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 73258 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -361,7 +361,6 @@
 00000000035C.07C: INDIETRO
 00000000035D.07C: INVIA RICHIESTA
 00000000035E.07C: AGGIUNGI UN AMICO
-00000000035F.07C: INSERISCI UN INDIRIZZO E-MAIL O UN BATTLETAG
 000000000360.07C: Il nome dell'invitato non è valido. Usa un ID reale (e-mail) o un BattleTag completo.
 000000000361.07C: Il nome dell'invitato non è un ID reale (e-mail) valido.
 000000000362.07C: Il nome dell'invitato non è un BattleTag valido.
@@ -13663,7 +13662,7 @@ Brian Urbina
 000000006702.07C: Disponibile nei Forzieri dei Giochi Estivi
 000000006703.07C: Giavellotto
 000000006704.07C: Disponibile nei Forzieri dei Giochi Estivi
-000000006707.07C: Modalità Lúcioball competitiva
+000000006707.07C: Modalità Lúcioball (competitiva)
 000000006708.07C: Giochi Estivi 2017
 000000006709.07C: Disponibile nei Forzieri dei Giochi Estivi
 00000000670F.07C: Brindisi
@@ -13672,7 +13671,7 @@ Brian Urbina
 000000006716.07C: Vince la squadra che segna abbastanza gol
 000000006721.07C: Brindisi
 000000006722.07C: Brindisi
-000000006724.07C: Pallone - Intensità di respinta
+000000006724.07C: Intensità di respinta palla
 00000000672B.07C: Civetta delle nevi
 000000006731.07C: Eliminazione Doomfist
 000000006732.07C: EROE: Doomfist
@@ -13767,9 +13766,9 @@ Brian Urbina
 00000000689D.07C: AUTOMATICO
 00000000689E.07C: Tipo da Spiaggia
 0000000068A5.07C: Onda d'Urto
-0000000068A6.07C: Crea un'onda a corta gittata che respinge il pallone.
+0000000068A6.07C: Crea un'onda a corta gittata che respinge la palla.
 0000000068A7.07C: Tira
-0000000068A8.07C: Colpisci il pallone.
+0000000068A8.07C: Colpisci la palla.
 0000000068A9.07C: Volume al Massimo
 0000000068AA.07C: Ti muovi più velocemente.
 0000000068AB.07C: Formato del filmato
@@ -16639,8 +16638,8 @@ Puoi ancora accedere alle altre modalità di Overwatch, incluse le partite rapid
 000000008770.07C: Sposa
 000000008771.07C: Fata Confetto
 00000000877F.07C: Deathmatch
-000000008780.07C: Deathmatch competitivo - Stagione 1
-000000008781.07C: Deathmatch competitivo
+000000008780.07C: Deathmatch (competitivo) - Stagione 1
+000000008781.07C: Deathmatch (competitivo)
 000000008782.07C: Scala la classifica e affronta i migliori giocatori di Deathmatch del mondo!
 000000008783.07C: MAPPE: Château Guillard, Petra
 0000000087A2.07C: POSIZIONA
@@ -17019,7 +17018,7 @@ Vuoi annullare?
 000000008D2D.07C: |Rpl %1$s:Colpo diretto secondario:Colpi diretti secondari; - Media 10 min.
 000000008D2E.07C: %1$s |Rpl colpo diretto secondario:colpi diretti secondari; - Media 10 min.
 000000008D2F.07C: Chat vocale richiesta
-000000008D50.07C: Arcade competitiva
+000000008D50.07C: Arcade (competitiva)
 000000008D52.07C: Interrompi la Ricerca Formazioni
 000000008D54.07C: Nessun ruolo selezionato
 000000008D6C.07C: Pattinatrice
@@ -17331,7 +17330,6 @@ Vuoi annullare?
 0000000091CB.07C: Sintonizzati 
 0000000091CC.07C: Adattamento
 0000000091CD.07C: Assorbi 1500 danni con lo Scudo Adattivo di Wrecking Ball senza morire (Rapida/Competitiva).
-0000000091CE.07C: Domenica 29 settembre, 21:00 CEST
 0000000091D6.07C: Non disponibile finché i membri della formazione non hanno scelto un ruolo
 0000000091EC.07C: Strike
 0000000091ED.07C: Travolgi 4 nemici in 2 secondi con Wrecking Ball (Rapida/Competitiva).
@@ -17553,9 +17551,9 @@ Infligge danni aggiuntivi all'armatura.
 0000000093B4.07C: Sbloccato per aver partecipato all'evento OWL Grand Finals 2018
 0000000093BB.07C: Acquista tutti gli oggetti sbloccabili?
 0000000093BC.07C: Zhang Fei
-0000000093E1.07C: Deathmatch a squadre competitivo - Stagione 1
+0000000093E1.07C: Deathmatch a squadre (competitivo) - Stagione 1
 0000000093E2.07C: Deathmatch a squadre
-0000000093E3.07C: Deathmatch a squadre competitivo
+0000000093E3.07C: Deathmatch a squadre (competitivo)
 0000000093E4.07C: Scala la classifica: la squadra più letale vince
 0000000093F6.07C: Competitiva
 000000009411.07C: Baptiste
@@ -19708,8 +19706,8 @@ Deathmatch competitivo 2019
 00000000B736.07C: Dannazione
 00000000B737.07C: Cosa stai cercando di fare
 00000000B744.07C: Durata
-00000000B752.07C: Deathmatch competitivo - Stagione 2
-00000000B753.07C: Deathmatch competitivo
+00000000B752.07C: Deathmatch (competitivo) - Stagione 2
+00000000B753.07C: Deathmatch (competitivo)
 00000000B754.07C: Scala la classifica e affronta i migliori giocatori di Deathmatch del mondo!
 00000000B765.07C: Medico da campo d'élite ed ex agente operativo di Talon, Baptiste ora sfrutta le sue abilità per aiutare la gente che è stata segnata dalla guerra.
 00000000B775.07C: Rialto
@@ -20671,8 +20669,8 @@ Deathmatch competitivo 2019
 00000000BEE8.07C: Il progresso attuale verso la conquista del punto di controllo attivo (espresso in percentuale).
 00000000BEE9.07C: Il progresso attuale verso la destinazione del carico attivo (espresso in percentuale).
 00000000BEEA.07C: La posizione nel mondo di gioco del carico attivo.
-00000000BEEB.07C: La posizione nel mondo di gioco dell'obiettivo specificato (punto di controllo, checkpoint del carico o destinazione del carico). Valido in Conquista, Conquista/Trasporto, Trasporto e Controllo.
-00000000BEEC.07C: Specifica se l'obiettivo specificato è stato completato. Risulta False se la modalità non è Conquista, Trasporto o Conquista/Trasporto.
+00000000BEEB.07C: La posizione nel mondo di gioco dell'obiettivo specificato (punto di controllo, checkpoint del carico o destinazione del carico). Valido in Conquista, Trasporto, Ibrida e Controllo.
+00000000BEEC.07C: Specifica se l'obiettivo specificato è stato completato. Risulta Falso se la modalità non è Conquista, Trasporto o Ibrida.
 00000000BEED.07C: L'indice dell'obiettivo da considerare, che incrementa a partire da 0. Ogni punto di controllo, checkpoint del carico e destinazione del carico ha il suo indice specifico.
 00000000BEEE.07C: Specifica se la Squadra specificata è attualmente in attacco. Risulta False se la modalità non è Conquista, Trasporto o Conquista/Trasporto.
 00000000BEEF.07C: La Squadra il cui ruolo sarà controllato.
@@ -20690,7 +20688,7 @@ Deathmatch competitivo 2019
 00000000BEFB.07C: Specifica se il Giocatore specificato possiede lo stato definito, sia da parte dell'Azione Set Status che da una meccanica di gioco non scriptata.
 00000000BEFC.07C: Il Giocatore il cui stato sarà controllato.
 00000000BEFD.07C: Lo stato da controllare.
-00000000BEFE.07C: Il punto di controllo, il checkpoint del carico o la destinazione del carico attualmente attiva (0, 1 o 2). Valido in Conquista, Conquista/Trasporto e Controllo.
+00000000BEFE.07C: Il punto di controllo, il checkpoint del carico o la destinazione del carico attualmente attiva (0, 1 o 2). Valido in Conquista, Trasporto, Ibrida e Controllo.
 00000000BEFF.07C: La Squadra che sta attualmente accumulando percentuale di punteggio nella modalità Controllo. Risulta in Tutti se nessuna delle due Squadre sta accumulando punteggio.
 00000000BF00.07C: La Squadra la cui percentuale di punteggio sarà acquisita.
 00000000BF01.07C: La percentuale di punteggio della Squadra specificata nella modalità Controllo.
@@ -22227,7 +22225,7 @@ Deathmatch competitivo 2019
 00000000CA0C.07C: Devi scegliere un ruolo prima di metterti in coda con la tua formazione. Vuoi farlo ora?
 00000000CA0D.07C: Negozi
 00000000CA0E.07C: Negozio
-00000000CA11.07C: Settimana 1: Tracer Union Jack
+00000000CA11.07C: Sfida Fumetto di Tracer
 00000000CA13.07C: Settimana 2: Bastion Castello di Sabbia
 00000000CA14.07C: Settimana 3: Orisa Gelato
 00000000CA15.07C: Vinci 9 partite rapide, Arcade o competitive!
@@ -25962,9 +25960,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D361.07C: Miciomari
 00000000D362.07C: Disponibile nei Forzieri di Halloween
 00000000D363.07C: Halloween da brividi 2019
-00000000D369.07C: Deathmatch a squadre competitivo
+00000000D369.07C: Deathmatch a squadre (competitivo)
 00000000D36A.07C: Scala la classifica: la squadra più letale vince
-00000000D36B.07C: Deathmatch a squadre competitivo - Stagione 2
+00000000D36B.07C: Deathmatch a squadre (competitivo) - Stagione 2
 00000000D387.07C: Concorrente Eliminazione
 3v3 (competitiva) 2019
 00000000D389.07C: Eroe Eliminazione
@@ -26088,7 +26086,7 @@ https://account.blizzard.com/connections/nintendo
 00000000D59B.07C: Vietnam
 00000000D5BD.07C: Angelo della Neve
 00000000DA38.07C: Personalizzato
-00000000DA39.07C: Portatile
+00000000DA39.07C: Modalità portatile
 00000000DA3A.07C: Opzioni preimpostate giroscopio
 00000000DA5C.07C: Disattiva giroscopio durante l'uso dello stick
 00000000EA2F.07C: Dottoressa Ziegler
@@ -26097,7 +26095,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EA59.07C: Inverti asse rollata mira giroscopio
 00000000EA5A.07C: (Possiedi)
 00000000EA97.07C: Pro Controller
-00000000EA98.07C: Joy-Con scollegati
+00000000EA98.07C: Joy-Con scollegato
 00000000EA9B.07C: Ripristina la visuale predefinita.
 00000000EAA8.07C: Giroscopio solo in modalità cecchino
 00000000EAAB.07C: Modifica nomi variabili
@@ -27068,9 +27066,9 @@ che inizi la tua partita:
 00000001031D.07C: Adattabilità
 00000001031E.07C: Archivi 2020
 00000001031F.07C: Disponibile nei Forzieri Archivi
-00000001034E.07C: Deathmatch competitivo
+00000001034E.07C: Deathmatch (competitivo)
 00000001034F.07C: Scala la classifica e affronta i migliori giocatori di Deathmatch del mondo!
-000000010350.07C: Deathmatch competitivo - Stagione 3
+000000010350.07C: Deathmatch (competitivo) - Stagione 3
 000000010351.07C: La vendetta di Junkenstein
 000000010352.07C: Risse invernali
 000000010353.07C: Risse stagionali invernali.
@@ -27251,7 +27249,6 @@ che inizi la tua partita:
 00000001083E.07C: Errore: trovato un valore di tipo incompatibile prima di '%1$s' nella riga %2$s
 000000010847.07C: PREDEFINITA
 000000010848.07C: DORATA
-000000010849.07C: 02/05 e 03/05 (PDT)
 00000001084A.07C: Come una mucca sferica
 00000001084B.07C: Disponibile nei Forzieri Celebrativi
 00000001084C.07C: Riduci le tue aspettative
@@ -27351,16 +27348,16 @@ che inizi la tua partita:
 0000000109D0.07C: Il Giocatore o i Giocatori il cui tempo di recupero delle abilità sarà modificato.
 0000000109D1.07C: Il tasto logico associato all'abilità da modificare.
 0000000109D2.07C: Il tempo di recupero che sarà impostato in secondi.
-0000000109E5.07C: Coda aperta competitiva
+0000000109E5.07C: Coda aperta (competitiva)
 0000000109E6.07C: Scala la classifica e affronta i migliori giocatori del mondo senza limiti di ruolo nella selezione degli eroi.
-0000000109E7.07C: Stagione 1 coda aperta competitiva
+0000000109E7.07C: Stagione 1 coda aperta (competitiva)
 0000000109E8.07C: Conquista - Competitiva
 0000000109E9.07C: Controllo - Competitiva
 0000000109EA.07C: Ibrida - Competitiva
 0000000109EB.07C: Trasporto - Competitiva
 0000000109EC.07C: Tieni premuto per usare Volo
-0000000109F1.07C: Coda aperta competitiva
-0000000109F2.07C: Coda aperta competitiva
+0000000109F1.07C: Coda aperta (competitiva)
+0000000109F2.07C: Coda aperta (competitiva)
 0000000109F5.07C: 40
 0000000109F6.07C: 75
 0000000109F7.07C: 150
@@ -27716,10 +27713,10 @@ Assistenza Blizzard
 000000010DF9.07C: Djembe
 000000010E25.07C: Riscaldamento
 000000010E2A.07C: Stagione 2 coda aperta competitiva
-000000010E2B.07C: Coda aperta competitiva
+000000010E2B.07C: Coda aperta (competitiva)
 000000010E2C.07C: Scala la classifica e affronta i migliori giocatori del mondo senza limiti di ruolo nella selezione degli eroi.
-000000010E46.07C: Coda aperta competitiva
-000000010E47.07C: Coda aperta competitiva
+000000010E46.07C: Coda aperta (competitiva)
+000000010E47.07C: Coda aperta (competitiva)
 000000010E48.07C: Stagione 23
 000000010E49.07C: Stagione 23
 000000010E4F.07C: Attach Players
@@ -27798,6 +27795,7 @@ Assistenza Blizzard
 000000010EFD.07C: Rivolta
 000000010EFE.07C: Magico Inverno
 000000010F14.07C: Completata il
+000000010F4E.07C: Salute
 000000010F57.07C: Tutti gli eroi
 000000010F5B.07C: Coda ruoli
 000000010F5C.07C: Coda aperta
@@ -27843,6 +27841,7 @@ Assistenza Blizzard
 000000011005.07C: Media 10 min.
 000000011006.07C: Totale
 000000011007.07C: Migliore
+000000011008.07C: Salute
 00000001101C.07C: Ritorsione
 00000001101D.07C: Tempesta Imminente
 00000001101E.07C: Sfide Archivi
@@ -28318,12 +28317,12 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000011317.07C: Il Giocatore o i Giocatori le cui barriere cesseranno di essere forzate nelle dimensioni.
 000000011318.07C: Il Giocatore o i Giocatori la cui collisione del movimento sarà interessata.
 00000001131E.07C: Lúcioball Remix
-000000011320.07C: Conteggio Palla Iniziale
-000000011321.07C: Conteggio Palla Massimo
-000000011322.07C: Conteggio Palla Bonus Massimo
-000000011323.07C: Periodo Incremento Conteggio Palla (secondi)
-000000011324.07C: Valore Palla Bonus
-000000011325.07C: Periodo Comparsa Palla Bonus (secondi)
+000000011320.07C: Numero di palle iniziale
+000000011321.07C: Massimo numero di palle
+000000011322.07C: Massimo numero di palle bonus
+000000011323.07C: Periodo di incremento numero palle (secondi)
+000000011324.07C: Valore palla bonus
+000000011325.07C: Periodo di comparsa palla bonus (secondi)
 00000001132B.07C: Lúcioball Remix
 000000011330.07C: Impostazioni Workshop
 000000011335.07C: Includi Pavimenti
@@ -28419,8 +28418,68 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 00000001146F.07C: 50 + 10 Forzieri dei Giochi Estivi
 0000000114DC.07C: Guarda
 0000000114DF.07C: Guarda l'Overwatch League
+000000011605.07C: Eliminazione 3v3 (competitiva) - Stagione 3
+000000011606.07C: Eliminazione (competitiva)
+000000011607.07C: Scala la classifica e affronta i migliori giocatori di Eliminazione del mondo!
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Maggiori informazioni
+000000011676.07C: Tutte le imprese sbloccate
 000000011677.07C: Precisione colpo critico
 000000011679.07C: Il tuo account di Overwatch è stato bloccato.
-[Core] Execution finished in 00:00:00.4194165 seconds
+00000001167D.07C: Tutti
+00000001167E.07C: Coda aperta
+00000001167F.07C: Coda ruoli
+00000001168B.07C: Eroe Eliminazione
+3v3 (competitiva) 2020
+00000001168C.07C: Sbloccato per essere entrato nella Top 500 di Eliminazione 3v3 (competitiva) 2020
+00000001168D.07C: Concorrente Eliminazione
+3v3 (competitiva) 2020
+00000001168E.07C: Sbloccato per aver completato le partite di piazzamento di Eliminazione 3v3 (competitiva) 2020
+00000001168F.07C: Eroe Eliminazione
+3v3 (competitiva) 2020
+000000011690.07C: Sbloccato per essere entrato nella Top 500 di Eliminazione 3v3 (competitiva) 2020
+000000011691.07C: Concorrente Eliminazione
+3v3 (competitiva) 2020
+000000011692.07C: Sbloccato per aver completato le partite di piazzamento di Eliminazione 3v3 (competitiva) 2020
+000000011697.07C: Stagione competitiva attuale
+0000000116A5.07C: Blink!
+0000000116A7.07C: Zap!
+0000000116A8.07C: Pow!
+0000000116A9.07C: Bang!
+0000000116AA.07C: Whack!
+0000000116AB.07C: Pew pew!
+0000000116AC.07C: Sbloccato per aver guardato gli streaming partecipanti durante la Sfida Fumetto di Tracer
+0000000116D7.07C: Disconnesso per coprifuoco CAIS
+0000000116FF.07C: Coppa Lúcioball
+000000011700.07C: Deathmatch (competitivo)
+00000001171D.07C: Uno o più membri della formazione stanno per esaurire il tempo di gioco a disposizione
+000000011744.07C: 1 Forziere Leggendario e 5 Forzieri
+000000011745.07C: 15 crediti più 1 Forziere Leggendario e 5 Forzieri gratuiti
+000000011746.07C: https://playoverwatch.com/media/stories/
+000000011747.07C: Leggi
+00000001174A.07C: Stagione %1$s
+000000011754.07C: Fumetto
+000000011755.07C: Sbloccato per aver partecipato alla Sfida Fumetto di Tracer
+000000011771.07C: Citazione
+000000011789.07C: https://alert.battle.net/overwatch/xbl/live/en-us
+00000001178A.07C: Fumetto
+0000000117A6.07C: Eliminazione 3v3 (competitiva)
+0000000117A7.07C: Eliminazione 6v6 (competitiva)
+0000000117A8.07C: Deathmatch a squadre (competitivo)
+0000000117A9.07C: Cattura la Bandiera (competitiva)
+0000000117AA.07C: Coda aperta (competitiva)
+0000000117B9.07C: Nuovo fumetto
+0000000117BA.07C: Tracer - London Calling
+0000000117FB.07C: https://ow.blizzard.cn/media/stories
+000000011849.07C: Oggetto leggendario garantito!
+00000001184A.07C: Disponibile fino al 28/09/2020
+È possibile solo un acquisto
+000000011859.07C: Offerta
+000000011860.07C: speciale!
+000000011A0D.07C: Forziere Leggendario
+000000011A15.07C: %1$s |Rpl FORZIERE LEGGENDARIO:FORZIERI LEGGENDARI;
+000000011A20.07C: Ogni Forziere Leggendario contiene una combinazione di 4 oggetti cosmetici e/o crediti di gioco, tra cui almeno un oggetto leggendario. 
+000000011B1B.07C: 
+000000011B1C.07C: utm_campaign
+000000011B1D.07C: london_calling_1
+[Core] Execution finished in 00:00:00.4409609 seconds

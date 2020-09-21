@@ -1,13 +1,13 @@
-[Core] DataTool v1.51.0.881-git-85a88229e3805c3081c87175e10e6b4840311a17
+[Core] DataTool v1.52.0.886-git-f1239676d91666360fbc744efa37e243da4a64fd
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(21)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(22)\DataTool.exe.args
 [CASC] Text Language: deDE | Speech Language: deDE
-[CASC] Overwatch build 1.51.0.0.71620
+[CASC] Overwatch build 1.52.0.0.73258
 [CASC] Initializing...
-[Manifest] Using TRG procedure 71620 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using TRG procedure 73258 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -361,7 +361,6 @@
 00000000035C.07C: ZURÜCK
 00000000035D.07C: ANFRAGE SENDEN
 00000000035E.07C: FREUND HINZUFÜGEN
-00000000035F.07C: E-MAIL-ADRESSE ODER BATTLETAG EINGEBEN
 000000000360.07C: Der angegebene Name war nicht korrekt. Bitte benutzen Sie eine E-Mail-Adresse (Real ID) oder ein vollständiges BattleTag.
 000000000361.07C: Die angegebene E-Mail-Adresse (Real ID) war nicht korrekt.
 000000000362.07C: Das angegebene BattleTag war nicht korrekt.
@@ -17486,7 +17485,6 @@ Möchtest du abbrechen?
 0000000091CB.07C: Zur Website
 0000000091CC.07C: Adaption
 0000000091CD.07C: Absorbiere 1500 Schaden im kompetitiven Spiel mit Wrecking Balls Adaptivem Schild, ohne zu sterben.
-0000000091CE.07C: Sonntag, 29. September, 21 Uhr MESZ
 0000000091D6.07C: Erst verfügbar, wenn alle Mitglieder eine Rolle gewählt haben
 0000000091EC.07C: Abgeräumt
 0000000091ED.07C: Stoße mit Wrecking Ball als Kugel im kompetitiven Spiel in 2 Sek. 4 Gegner zurück.
@@ -20870,8 +20868,8 @@ erhaltungs<hy>feld verhindert
 00000000BEE8.07C: Der aktuelle Fortschritt hin zur Einnahme für den aktiven Kontrollpunkt (als Prozentsatz dargestellt).
 00000000BEE9.07C: Der aktuelle Fortschritt zum Zielort für die aktive Fracht (als Prozentsatz dargestellt).
 00000000BEEA.07C: Die Position der aktiven Fracht in der Welt.
-00000000BEEB.07C: Die Position des festgelegten Ziels in der Welt (ein Kontrollpunkt, ein Fracht-Checkpoint oder ein Frachtzielpunkt). Gültig für Angriff, Angriff/Eskorte, Eskorte und Kontrolle.
-00000000BEEC.07C: Ob das festgelegte Ziel erreicht wurde. Ergibt False, wenn der Spielmodus nicht Angriff, Eskorte oder Angriff/Eskorte ist.
+00000000BEEB.07C: Die Position des festgelegten Ziels in der Welt (ein Kontrollpunkt, ein Fracht-Checkpoint oder ein Frachtzielpunkt). Gültig für Angriff, Eskorte, Hybrid und Kontrolle.
+00000000BEEC.07C: Ob das festgelegte Ziel erreicht wurde. Ergibt False, wenn der Spielmodus nicht Angriff, Eskorte oder Hybrid ist.
 00000000BEED.07C: Der Index des zu berücksichtigenden Zielpunkts, ab 0 gezählt. Jeder Kontrollpunkt, Fracht-Checkpoint und Frachtzielpunkt hat seinen eigenen Index.
 00000000BEEE.07C: Ob das festgelegte Team aktuell in der Offensive ist. Ergibt False, wenn der Spielmodus nicht Angriff, Eskorte oder Angriff/Eskorte ist.
 00000000BEEF.07C: Das Team, dessen Rolle geprüft werden soll.
@@ -20889,7 +20887,7 @@ erhaltungs<hy>feld verhindert
 00000000BEFB.07C: Ob der festgelegte Spieler den festgelegten Status hat, entweder über die Aktion [Set Status] oder eine nicht geskriptete Spielmechanik.
 00000000BEFC.07C: Der Spieler, dessen Status geprüft werden soll.
 00000000BEFD.07C: Der Status, auf den geprüft werden soll.
-00000000BEFE.07C: Der aktuell aktive Kontrollpunkt, Fracht-Checkpoint oder Frachtzielpunkt (0, 1 oder 2). Gültig für Angriff, Angriff/Eskorte, Eskorte und Kontrolle.
+00000000BEFE.07C: Der aktuell aktive Kontrollpunkt, Fracht-Checkpoint oder Frachtzielpunkt (0, 1 oder 2). Gültig für Angriff, Eskorte, Hybrid und Kontrolle.
 00000000BEFF.07C: Das Team, das aktuell einen Punkteprozentsatz im Kontrollmodus sammelt. Das Ergebnis lautet [All], wenn kein Team Punkte sammelt.
 00000000BF00.07C: Das Team, dessen Punkteprozentsatz abgerufen werden soll.
 00000000BF01.07C: Der Punkteprozentsatz des festgelegten Teams im Kontrollmodus.
@@ -22430,7 +22428,7 @@ Hinweis: Variablen und Programmiersprache sind in Englisch gehalten. Die Benutze
 00000000CA0C.07C: Du musst eine Rolle wählen, bevor deine Gruppe ein Spiel suchen kann. Jetzt wählen?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Woche 1: Tracer-Skin Union Jack
+00000000CA11.07C: Tracers Comic-Herausforderung
 00000000CA13.07C: Woche 2: Bastion-Skin Sandburg
 00000000CA14.07C: Woche 3: Orisa-Skin Eiscreme
 00000000CA15.07C: Gewinne 9 Spiele in den Modi Schnellsuche, Arcade oder Rangliste!
@@ -26345,7 +26343,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EA59.07C: Bewegungssensor-Zielfunktion: Roll-Achse umkehren
 00000000EA5A.07C: (freigeschaltet)
 00000000EA97.07C: Pro Controller
-00000000EA98.07C: Joy-Cons entfernt
+00000000EA98.07C: Joy-Con entfernt
 00000000EA9B.07C: Setzt die Kamera auf die Standardsicht zurück.
 00000000EAA8.07C: Bewegungssensor nur im Scharfschützenmodus
 00000000EAAB.07C: Variablennamen ändern
@@ -27496,7 +27494,6 @@ https://account.blizzard.com/connections/nintendo
 00000001083E.07C: Fehler: Wert von inkompatiblem Typ vor [%1$s] in Zeile %2$s gefunden
 000000010847.07C: STANDARD
 000000010848.07C: GOLDEN
-000000010849.07C: 02.05. & 03.05.
 00000001084A.07C: Punktförmige Kuh
 00000001084B.07C: In Jubiläums-Lootboxen erhältlich
 00000001084C.07C: Reduzier deine Erwartungen
@@ -28047,6 +28044,7 @@ Der Blizzard-Kundendienst
 000000010EFD.07C: Aufstand
 000000010EFE.07C: Winterwunderland
 000000010F14.07C: Freigeschaltet
+000000010F4E.07C: Trefferpunkte
 000000010F57.07C: Alle Helden
 000000010F5B.07C: Rollenwahl
 000000010F5C.07C: Freie Rollenwahl
@@ -28092,6 +28090,7 @@ Der Blizzard-Kundendienst
 000000011005.07C: Ø pro 10 Min.
 000000011006.07C: Gesamt
 000000011007.07C: Bestleistung
+000000011008.07C: Trefferpunkte
 00000001101C.07C: Vergeltung
 00000001101D.07C: Sturmzeichen
 00000001101E.07C: Archiv-Herausforderungen
@@ -28666,8 +28665,64 @@ Der Blizzard-Kundendienst
 00000001146F.07C: 50 + 10 Sommerspiele-Lootboxen
 0000000114DC.07C: Jetzt ansehen
 0000000114DF.07C: Overwatch League ansehen
+000000011605.07C: Kompetitive Eliminierung (3v3): Saison 3
+000000011606.07C: Kompetitive Eliminierung
+000000011607.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Eliminierungs<hy>spieler der Welt an!
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Mehr Infos
+000000011676.07C: Alle Erfolge freigeschaltet
 000000011677.07C: Quote kritischer Treffer
 000000011679.07C: Dein Overwatch-Account wurde gesperrt.
-[Core] Execution finished in 00:00:00.4676896 seconds
+00000001167D.07C: Alle
+00000001167E.07C: Freie Rollenwahl
+00000001167F.07C: Rollenwahl
+00000001168B.07C: Held der 3v3-Eliminierung 2020
+00000001168C.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der kompe<hy>titiven Eliminierung 2020 (3v3)
+00000001168D.07C: Teilnehmer der 3v3-Eliminierung 2020
+00000001168E.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches der kompe<hy>titiven Eliminierung 2020 (3v3)
+00000001168F.07C: Held der 3v3-Eliminierung 2020
+000000011690.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der kompe<hy>titiven Eliminierung 2020 (3v3)
+000000011691.07C: Teilnehmer der 3v3-Eliminierung 2020
+000000011692.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches der kompe<hy>titiven Eliminierung 2020 (3v3)
+000000011697.07C: Laufende Ranglistensaison
+0000000116A5.07C: Warp!
+0000000116A7.07C: Bzzzt!
+0000000116A8.07C: BÄMM!
+0000000116A9.07C: Peng!
+0000000116AA.07C: Wamm!
+0000000116AB.07C: Pew Pew!
+0000000116AC.07C: Freigeschaltet durch das Einschalten bei ausgewählten Streams während Tracers Comic-Herausforderung
+0000000116D7.07C: Sie wurden wegen CAIS-Beschränkungen vom Spielserver getrennt.
+0000000116FF.07C: Copa Lúcioball
+000000011700.07C: Kompetitives Deathmatch
+00000001171D.07C: Ein oder mehrere Gruppenmitglieder haben bald keine Spielzeit mehr.
+000000011744.07C: 1 legendäres Extra und 5 Lootboxen
+000000011745.07C: 15 Credits und dazu 1 legendäres Extra sowie 5 Lootboxen geschenkt
+000000011746.07C: https://playoverwatch.com/media/stories/
+000000011747.07C: Jetzt lesen
+00000001174A.07C: Saison %1$s
+000000011754.07C: Comicbuch
+000000011755.07C: Freigeschaltet durch die Teilnahme an Tracers Comic-Herausforderung
+000000011771.07C: Zitiert mich
+000000011789.07C: https://alert.battle.net/overwatch/xbl/live/de-de
+00000001178A.07C: Comicbuch
+0000000117A6.07C: Kompetitive Eliminierung (3v3)
+0000000117A7.07C: Kompetitive Eliminierung (6v6)
+0000000117A8.07C: Kompetitives Team-Deathmatch
+0000000117A9.07C: Kompetitive Flaggeneroberung
+0000000117AA.07C: Kompetitiv – Freie Rollenwahl
+0000000117B9.07C: Neuer Comic
+0000000117BA.07C: Tracer – London ruft
+0000000117FB.07C: https://ow.blizzard.cn/media/stories
+000000011849.07C: Ein legendäres Extra garantiert!
+00000001184A.07C: Bis zum 28.09.2020 verfügbar
+Kann nur einmal erworben werden
+000000011859.07C: Sonderangebot!
+000000011860.07C: 
+000000011A0D.07C: Legendäre Lootbox
+000000011A15.07C: %1$s LEGENDÄRE LOOT|RplBOX:BOXEN;
+000000011A20.07C: Jede legendäre Lootbox enthält bis zu 4 kosmetische Extras und/oder Credits im Spiel, darunter mindestens ein legendäres Extra. 
+000000011B1B.07C: 
+000000011B1C.07C: utm_campaign
+000000011B1D.07C: london_calling_1
+[Core] Execution finished in 00:00:00.4196234 seconds

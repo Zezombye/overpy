@@ -1,13 +1,13 @@
-[Core] DataTool v1.51.0.881-git-85a88229e3805c3081c87175e10e6b4840311a17
+[Core] DataTool v1.52.0.886-git-f1239676d91666360fbc744efa37e243da4a64fd
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=esMX", "-T=esMX"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(21)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(22)\DataTool.exe.args
 [CASC] Text Language: esMX | Speech Language: esMX
-[CASC] Overwatch build 1.51.0.0.71620
+[CASC] Overwatch build 1.52.0.0.73258
 [CASC] Initializing...
-[Manifest] Using TRG procedure 71620 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 73258 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -361,7 +361,6 @@
 00000000035C.07C: ATRÁS
 00000000035D.07C: ENVIAR SOLICITUD
 00000000035E.07C: AGREGAR UN AMIGO
-00000000035F.07C: INTRODUCE UNA DIRECCIÓN DE EMAIL O UN BATTLETAG
 000000000360.07C: El nombre del invitado no es válido. Usa un ID Real (correo electrónico) o un BattleTag completo.
 000000000361.07C: El nombre del invitado no es un ID Real (correo electrónico) válido.
 000000000362.07C: El nombre del invitado no es un BattleTag completo válido.
@@ -17330,7 +17329,6 @@ competitivo 2018
 0000000091CB.07C: Sintonízate 
 0000000091CC.07C: Adaptación
 0000000091CD.07C: Absorbe 1500 de daño con Escudo adaptable de Wrecking Ball sin morir en partida ráp. o comp.
-0000000091CE.07C: Domingo, 29 de septiembre a las 19:00 h PDT
 0000000091D6.07C: No disponible mientras miembros del grupo no hayan seleccionado un rol
 0000000091EC.07C: Chuza
 0000000091ED.07C: Rueda sobre 4 enemigos en un lapso de 2 segundos con Wrecking Ball en partida rápida o competitiva.
@@ -20662,8 +20660,8 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000BEE8.07C: El progreso actual hacia la captura del punto de control activo (expresado como porcentaje).
 00000000BEE9.07C: El progreso actual hacia el destino de la carga activa (expresado como porcentaje).
 00000000BEEA.07C: La posición en el mundo de la carga activa.
-00000000BEEB.07C: La posición en el mundo del objetivo especificado (ya sea un punto de captura, un punto de control de la carga o un destino de la carga). Válido en Asalto, Asalto/Escolta, Escolta y Control.
-00000000BEEC.07C: Verifica si el objetivo especificado ha sido completado. El resultado será falso si el modo de juego no es Asalto, Escolta o Asalto/Escolta.
+00000000BEEB.07C: La posición en el mundo del objetivo especificado (ya sea un punto de captura, un punto de control de la carga o un destino de la carga). Válido en Asalto, Escolta, Híbrido y Control.
+00000000BEEC.07C: Verifica si el objetivo especificado ha sido completado. El resultado será falso si el modo de juego no es Asalto, Escolta o Híbrido.
 00000000BEED.07C: El índice del objetivo que se considerará (la cuenta comienza de 0 en adelante). Cada punto de captura, punto de control de la carga y destino de la carga tiene su propio índice.
 00000000BEEE.07C: Verifica si el equipo especificado está actualmente al ataque. El resultado será falso si el modo de juego no es Asalto, Escolta o Asalto/Escolta.
 00000000BEEF.07C: El equipo cuyo rol se verificará.
@@ -20681,7 +20679,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000BEFB.07C: Verifica si el jugador especificado tiene el estado especificado, ya sea por la acción Establecer estado o por una mecánica de juego no secuenciada.
 00000000BEFC.07C: El jugador cuyo estado se verificará.
 00000000BEFD.07C: El estado que se verificará.
-00000000BEFE.07C: El punto de captura, el punto de control de la carga o el destino de la carga activo actualmente (0, 1 o 2). Válido en Asalto, Asalto/Escolta, Escolta y Control.
+00000000BEFE.07C: El punto de captura, el punto de control de la carga o el destino de la carga activo actualmente (0, 1 o 2). Válido en Asalto, Escolta, Híbrido y Control.
 00000000BEFF.07C: El equipo que está acumulando porcentaje de puntuación actualmente en el modo Control. El resultado será todos si ninguno de los equipos está acumulando puntuación.
 00000000BF00.07C: El equipo cuyo porcentaje de puntuación se adquirirá.
 00000000BF01.07C: El porcentaje de puntuación del equipo especificado en el modo Control.
@@ -22218,7 +22216,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000CA0C.07C: Debes seleccionar un rol antes de que tu grupo pueda ponerse en cola. ¿Seleccionar ahora?
 00000000CA0D.07C: Tiendas
 00000000CA0E.07C: Tienda
-00000000CA11.07C: Semana 1: Tracer Union Jack
+00000000CA11.07C: Desafío Cómic de Tracer
 00000000CA13.07C: Semana 2: Bastion Castillo de arena
 00000000CA14.07C: Semana 3: Orisa Helado
 00000000CA15.07C: ¡Gana 9 partidas en arcade, partida rápida o competitiva!
@@ -26075,7 +26073,7 @@ https://account.blizzard.com/connections/nintendo
 00000000D59B.07C: Vietnam
 00000000D5BD.07C: Ángel de nieve
 00000000DA38.07C: Personalizado
-00000000DA39.07C: Portátil
+00000000DA39.07C: Modo Portátil
 00000000DA3A.07C: Predeterminados de giroscopio
 00000000DA5C.07C: Deshabilitar puntería giroscópica al usar la palanca
 00000000EA2F.07C: Dra. Ziegler
@@ -26084,7 +26082,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EA59.07C: Invertir eje longitudinal de puntería giroscópica
 00000000EA5A.07C: (Adquiridos)
 00000000EA97.07C: Control Pro
-00000000EA98.07C: Joy-Con desencajados
+00000000EA98.07C: Joy-Con desencajado
 00000000EA9B.07C: Restablece la cámara a la vista predeterminada.
 00000000EAA8.07C: Giroscopio solo con mira
 00000000EAAB.07C: Editar nombres de variables
@@ -27235,7 +27233,6 @@ https://account.blizzard.com/connections/nintendo
 00000001083E.07C: Error: Se encontró un valor de tipo incompatible antes de '%1$s' en la línea %2$s
 000000010847.07C: PREDETERMINADO
 000000010848.07C: DORADO
-000000010849.07C: 2/5 - 3/5 (UTC)
 00000001084A.07C: Como una vaca esférica.
 00000001084B.07C: Disponible en cajas de botín de aniversario
 00000001084C.07C: Reduce tus expectativas.
@@ -27782,6 +27779,7 @@ El equipo de soporte de Blizzard
 000000010EFD.07C: Insurrección
 000000010EFE.07C: Paraíso Invernal
 000000010F14.07C: Obtenido
+000000010F4E.07C: Salud
 000000010F57.07C: Todos los héroes
 000000010F5B.07C: Cola de roles
 000000010F5C.07C: Cola abierta
@@ -27827,6 +27825,7 @@ El equipo de soporte de Blizzard
 000000011005.07C: Promedio/10 min.
 000000011006.07C: Total
 000000011007.07C: Mejor
+000000011008.07C: Salud
 00000001101C.07C: Venganza
 00000001101D.07C: Tormenta inminente
 00000001101E.07C: Desafíos de Archivos
@@ -28401,8 +28400,64 @@ El equipo de soporte de Blizzard
 00000001146F.07C: 50 + 10 cajas de botín de los Juegos de Verano
 0000000114DC.07C: Ver ahora
 0000000114DF.07C: Mira la Liga Overwatch
+000000011605.07C: Temporada 3 de Eliminación 3 vs. 3 competitiva
+000000011606.07C: Eliminación competitiva
+000000011607.07C: ¡Sube de rango y compite con los mejores jugadores de Eliminación del mundo!
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Más información
+000000011676.07C: Todos los logros desbloqueados
 000000011677.07C: Precisión de golpes críticos
 000000011679.07C: Tu cuenta de Overwatch ha sido bloqueada.
-[Core] Execution finished in 00:00:00.4590066 seconds
+00000001167D.07C: Todos
+00000001167E.07C: Cola abierta
+00000001167F.07C: Cola de roles
+00000001168B.07C: Héroe de Eliminación 3 vs. 3 competitiva 2020
+00000001168C.07C: Se desbloquea al estar entre los 500 mejores al final de Eliminación 3 vs. 3 competitiva 2020
+00000001168D.07C: Competidor de Eliminación 3 vs. 3 competitiva 2020
+00000001168E.07C: Se desbloquea al completar las partidas de colocación de Eliminación 3 vs. 3 competitiva 2020
+00000001168F.07C: Héroe de Eliminación 3 vs. 3 competitiva 2020
+000000011690.07C: Se desbloquea al estar entre los 500 mejores al final de Eliminación 3 vs. 3 competitiva 2020
+000000011691.07C: Competidor de Eliminación 3 vs. 3 competitiva 2020
+000000011692.07C: Se desbloquea al completar las partidas de colocación de Eliminación 3 vs. 3 competitiva 2020
+000000011697.07C: Temporada competitiva actual
+0000000116A5.07C: Blink!
+0000000116A7.07C: Zap!
+0000000116A8.07C: Pow!
+0000000116A9.07C: Bang!
+0000000116AA.07C: Whack!
+0000000116AB.07C: Pew Pew!
+0000000116AC.07C: Se desbloquea al ver transmisiones participantes durante el Desafío Cómic de Tracer
+0000000116D7.07C: Se desconectó debido al horario límite de CAIS
+0000000116FF.07C: Copa Lúciobol
+000000011700.07C: Combate a muerte competitivo
+00000001171D.07C: A uno o más miembros del grupo les queda poco tiempo de juego.
+000000011744.07C: 1 legendario + 5 cajas de botín clásicas
+000000011745.07C: 15 créditos y un regalo de 1 caja legendaria y 5 cajas de botín
+000000011746.07C: https://playoverwatch.com/media/stories/
+000000011747.07C: Leer ahora
+00000001174A.07C: Temporada %1$s
+000000011754.07C: Cómic
+000000011755.07C: Se desbloquea al participar en el Desafío Cómic de Tracer
+000000011771.07C: Cítame
+000000011789.07C: https://alert.battle.net/overwatch/xbl/live/en-us
+00000001178A.07C: Cómic
+0000000117A6.07C: Eliminación 3 vs. 3 competitiva
+0000000117A7.07C: Eliminación 6 vs. 6 competitiva
+0000000117A8.07C: Combate a muerte por equipos competitivo
+0000000117A9.07C: CLB competitivo
+0000000117AA.07C: Cola competitiva abierta
+0000000117B9.07C: Cómic nuevo
+0000000117BA.07C: Tracer - El llamado de Londres
+0000000117FB.07C: https://ow.blizzard.cn/media/stories
+000000011849.07C: ¡Un objeto legendario garantizado!
+00000001184A.07C: Disponible hasta el 28/9/2020
+Compra única
+000000011859.07C: Especial
+000000011860.07C: ¡Oferta!
+000000011A0D.07C: Caja de botín legendaria
+000000011A15.07C: %1$s |Rpl CAJA DE BOTÍN LEGENDARIA:CAJAS DE BOTÍN LEGENDARIAS;
+000000011A20.07C: Cada caja de botín legendaria contiene una mezcla de hasta 4 objetos cosméticos o créditos de juego, entre ellos por lo menos un objeto legendario.
+000000011B1B.07C: 
+000000011B1C.07C: utm_campaign
+000000011B1D.07C: london_calling_1
+[Core] Execution finished in 00:00:00.4488732 seconds

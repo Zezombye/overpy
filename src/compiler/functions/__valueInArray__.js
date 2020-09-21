@@ -25,9 +25,12 @@ astParsingFunctions.__valueInArray__ = function(content) {
         var index = content.args[1];
         return new Ast("__valueInArray__", [
             new Ast("__array__", dictValues),
-            new Ast("__indexOfArrayValue__", [
-                new Ast("__array__", dictKeys),
-                index
+            new Ast("max", [
+                getAstForFalse(),
+                new Ast("__indexOfArrayValue__", [
+                    new Ast("__array__", dictKeys),
+                    index
+                ])
             ])
         ])
     }

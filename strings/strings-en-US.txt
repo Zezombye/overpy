@@ -1,13 +1,13 @@
-[Core] DataTool v1.51.0.881-git-85a88229e3805c3081c87175e10e6b4840311a17
+[Core] DataTool v1.52.0.886-git-f1239676d91666360fbc744efa37e243da4a64fd
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(21)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(22)\DataTool.exe.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.51.0.0.71620
+[CASC] Overwatch build 1.52.0.0.73258
 [CASC] Initializing...
-[Manifest] Using TRG procedure 71620 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 73258 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -360,7 +360,6 @@
 00000000035C.07C: BACK
 00000000035D.07C: SEND REQUEST
 00000000035E.07C: ADD A FRIEND
-00000000035F.07C: ENTER AN EMAIL ADDRESS OR BATTLETAG
 000000000360.07C: The name of the invitee was not valid.  Use either a realID (e-mail) or a full battle-tag.
 000000000361.07C: The name of the invitee was not a valid RealID (e-mail).
 000000000362.07C: The name of the invitee was not a valid full battle tag.
@@ -17320,7 +17319,6 @@ Do you want to cancel?
 0000000091CB.07C: Tune In 
 0000000091CC.07C: Adaptation
 0000000091CD.07C: Absorb 1500 damage with Wrecking Ball's Adaptive Shield without dying in Quick or Competitive Play.
-0000000091CE.07C: Sunday, September 29, 12pm PT
 0000000091D6.07C: Unavailable while group members have not selected a role
 0000000091EC.07C: Strike
 0000000091ED.07C: Roll through 4 enemies within 2 seconds as Wrecking Ball in Quick or Competitive Play.
@@ -20652,8 +20650,8 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000BEE8.07C: The current progress towards capture for the active control point (expressed as a percentage).
 00000000BEE9.07C: The current progress towards the destination for the active payload (expressed as a percentage).
 00000000BEEA.07C: The position in the world of the active payload.
-00000000BEEB.07C: The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in Assault, Assault/Escort, Escort, and Control.
-00000000BEEC.07C: Whether the specified objective has been completed. Results in False if the game mode is not Assault, Escort, or Assault/Escort.
+00000000BEEB.07C: The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in Assault, Escort, Hybrid, and Control.
+00000000BEEC.07C: Whether the specified objective has been completed. Results in False if the game mode is not Assault, Escort, or Hybrid.
 00000000BEED.07C: The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.
 00000000BEEE.07C: Whether the specified Team is currently on offense. Results in False if the game mode is not Assault, Escort, or Assault/Escort.
 00000000BEEF.07C: The Team whose role to check.
@@ -20671,7 +20669,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000BEFB.07C: Whether the specified Player has the specified status, either from the Set Status Action or from a non-scripted game mechanic.
 00000000BEFC.07C: The Player whose status to check.
 00000000BEFD.07C: The status to check for.
-00000000BEFE.07C: The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in Assault, Assault/Escort, Escort, and Control.
+00000000BEFE.07C: The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in Assault, Escort, Hybrid, and Control.
 00000000BEFF.07C: The Team that is currently accumulating score percentage in Control mode. Results in All if neither Team is accumulating score.
 00000000BF00.07C: The Team whose score percentage to acquire.
 00000000BF01.07C: The score percentage for the specified Team in Control mode.
@@ -22208,7 +22206,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CA0C.07C: You must select a role before your group can queue. Select now?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Week 1: Union Jack Tracer
+00000000CA11.07C: Tracer's Comic Challenge
 00000000CA13.07C: Week 2: Sand Castle Bastion
 00000000CA14.07C: Week 3: Ice Cream Orisa
 00000000CA15.07C: Win 9 games in quick play, arcade, or competitive play!
@@ -26065,7 +26063,7 @@ https://account.blizzard.com/connections/nintendo
 00000000D59B.07C: Vietnam
 00000000D5BD.07C: Snow Angel
 00000000DA38.07C: Custom
-00000000DA39.07C: Handheld
+00000000DA39.07C: Handheld Mode
 00000000DA3A.07C: Gyro Option Presets
 00000000DA5C.07C: Disable Gyro While Using Stick
 00000000EA2F.07C: Dr. Ziegler
@@ -26074,7 +26072,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EA59.07C: Invert Gyro-Aiming Roll Axis
 00000000EA5A.07C: (Owned)
 00000000EA97.07C: Pro Controller
-00000000EA98.07C: Detached Joy-Cons
+00000000EA98.07C: Detached Joy-Con
 00000000EA9B.07C: Restores the camera to the default view.
 00000000EAA8.07C: Gyro Only In Ironsights
 00000000EAAB.07C: Edit Variable Names
@@ -27225,7 +27223,6 @@ https://account.blizzard.com/connections/nintendo
 00000001083E.07C: Error: Encountered a value of an incompatible type before '%1$s' on line %2$s
 000000010847.07C: DEFAULT
 000000010848.07C: GOLDEN
-000000010849.07C: 5/2 & 5/3 (PDT)
 00000001084A.07C: Like a spherical cow
 00000001084B.07C: Available in Anniversary Loot Boxes
 00000001084C.07C: Reduce your expectations
@@ -27772,6 +27769,7 @@ Blizzard Support
 000000010EFD.07C: Uprising
 000000010EFE.07C: Winter Wonderland
 000000010F14.07C: Earned
+000000010F4E.07C: Health
 000000010F57.07C: All Heroes
 000000010F5B.07C: Role Queue
 000000010F5C.07C: Open Queue
@@ -27817,6 +27815,7 @@ Blizzard Support
 000000011005.07C: Avg/10 Min
 000000011006.07C: Total
 000000011007.07C: Best
+000000011008.07C: Health
 00000001101C.07C: Retribution
 00000001101D.07C: Storm Rising
 00000001101E.07C: Archives Challenges
@@ -27859,7 +27858,7 @@ Blizzard Support
 000000011060.07C: The number of the weapon to be equipped. 1 is the first weapon, and 2 is the second. If the specified weapon does not exist, Players will use the default weapon.
 000000011061.07C: Standard Loot Box Drop Rates
 000000011065.07C: Is Reloading
-000000011066.07C: Whether the specified Player is Reloading
+000000011066.07C: Whether the specified Player is Reloading.
 000000011067.07C: The Player whose Reload usage to check.
 000000011068.07C: Set Reload Enabled
 000000011069.07C: Enables or disables Reload for one or more Players.
@@ -28391,8 +28390,64 @@ Blizzard Support
 00000001146F.07C: 50 + 10 Summer Games Loot Boxes
 0000000114DC.07C: Watch Now
 0000000114DF.07C: Watch Overwatch League
+000000011605.07C: Competitive 3v3 Elimination Season 3
+000000011606.07C: Competitive Elimination
+000000011607.07C: Rise up the ranks and compete with the best Elimination players in the world!
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: More Info
+000000011676.07C: All Achievements Unlocked
 000000011677.07C: Critical Hit Accuracy
 000000011679.07C: Your Overwatch account has been locked.
-[Core] Execution finished in 00:00:00.4790720 seconds
+00000001167D.07C: All
+00000001167E.07C: Open Queue
+00000001167F.07C: Role Queue
+00000001168B.07C: Competitive 3v3 Elimination Hero 2020
+00000001168C.07C: Unlocked by achieving top 500 ranking at the end of Competitive 3v3 Elimination 2020
+00000001168D.07C: Competitive 3v3 Elimination Competitor 2020
+00000001168E.07C: Unlocked by completing Competitive 3v3 Elimination 2020 placement matches
+00000001168F.07C: Competitive 3v3 Elimination Hero 2020
+000000011690.07C: Unlocked by achieving top 500 ranking at the end of Competitive 3v3 Elimination 2020
+000000011691.07C: Competitive 3v3 Elimination Competitor 2020
+000000011692.07C: Unlocked by completing Competitive 3v3 Elimination 2020 placement matches
+000000011697.07C: Current Competitive Season
+0000000116A5.07C: Blink!
+0000000116A7.07C: Zap!
+0000000116A8.07C: Pow!
+0000000116A9.07C: Bang!
+0000000116AA.07C: Whack!
+0000000116AB.07C: Pew Pew!
+0000000116AC.07C: Unlocked by watching participating streams during Tracer's Comic Challenge
+0000000116D7.07C: Disconnected due to CAIS curfew
+0000000116FF.07C: Copa Lúcioball
+000000011700.07C: Competitive Deathmatch
+00000001171D.07C: One or more party members is about to run out of game time
+000000011744.07C: 1 Legendary and 5 Loot Boxes
+000000011745.07C: 15 credits and a free gift of 1 Legendary and 5 Loot Boxes
+000000011746.07C: https://playoverwatch.com/media/stories/
+000000011747.07C: Read Now
+00000001174A.07C: Season %1$s
+000000011754.07C: Comic Book
+000000011755.07C: Unlocked by participating in Tracer's Comic Challenge
+000000011771.07C: Quote Me
+000000011789.07C: https://alert.battle.net/overwatch/xbl/live/en-us
+00000001178A.07C: Comic Book
+0000000117A6.07C: Competitive 3v3 Elimination
+0000000117A7.07C: Competitive 6v6 Elimination
+0000000117A8.07C: Competitive Team Deathmatch
+0000000117A9.07C: Competitive CTF
+0000000117AA.07C: Competitive Open Queue
+0000000117B9.07C: New Comic
+0000000117BA.07C: Tracer - London Calling
+0000000117FB.07C: https://ow.blizzard.cn/media/stories
+000000011849.07C: Guaranteed Legendary Item!
+00000001184A.07C: Available through 9/28/2020
+One-time purchase only
+000000011859.07C: Special
+000000011860.07C: Offer!
+000000011A0D.07C: Legendary Loot Box
+000000011A15.07C: %1$s LEGENDARY LOOT |Rpl BOX:BOXES;
+000000011A20.07C: Each Legendary loot box contains a combination of up to 4 cosmetic items and/or in-game credits, including a minimum of one Legendary item among those items. 
+000000011B1B.07C: 
+000000011B1C.07C: utm_campaign
+000000011B1D.07C: london_calling_1
+[Core] Execution finished in 00:00:00.6008056 seconds

@@ -30972,9 +30972,12 @@ astParsingFunctions.__valueInArray__ = function(content) {
         var index = content.args[1];
         return new Ast("__valueInArray__", [
             new Ast("__array__", dictValues),
-            new Ast("__indexOfArrayValue__", [
-                new Ast("__array__", dictKeys),
-                index
+            new Ast("max", [
+                getAstForFalse(),
+                new Ast("__indexOfArrayValue__", [
+                    new Ast("__array__", dictKeys),
+                    index
+                ])
             ])
         ])
     }
@@ -33174,9 +33177,10 @@ function resolveMacro(macro, args=[], indentLevel) {
 			scriptContent = builtInJsFunctions + scriptContent;
             try {
 				result = eval(scriptContent);
-				if (!result) {
+				if (!result && result !== 0) {
 					error("Script '"+getFilenameFromPath(macro.scriptPath)+"' yielded no result");
 				}
+				result = result.toString();
             } catch (e) {
                 var stackTrace = e.stack.split('\n').slice(1).reverse();
                 var encounteredEval = false;

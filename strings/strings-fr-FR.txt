@@ -1,13 +1,13 @@
-[Core] DataTool v1.51.0.881-git-85a88229e3805c3081c87175e10e6b4840311a17
+[Core] DataTool v1.52.0.886-git-f1239676d91666360fbc744efa37e243da4a64fd
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(21)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(22)\DataTool.exe.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.51.0.0.71620
+[CASC] Overwatch build 1.52.0.0.73258
 [CASC] Initializing...
-[Manifest] Using TRG procedure 71620 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 73258 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -361,7 +361,6 @@
 00000000035C.07C: RETOUR
 00000000035D.07C: ENVOYER
 00000000035E.07C: AJOUTER UN CONTACT
-00000000035F.07C: SAISIR UNE ADRESSE E-MAIL OU UN BATTLETAG
 000000000360.07C: Le nom de l’invité n’est pas valide. Veuillez utiliser un nom réel (e-mail) ou un BattleTag complet. 
 000000000361.07C: Le nom de l’invité n’est pas un nom réel (e-mail) valide.
 000000000362.07C: Le nom de l’invité n’est pas un BattleTag complet valide.
@@ -17426,7 +17425,6 @@ Lúcioball 2018
 0000000091CB.07C: Actualités
 0000000091CC.07C: Adaptation
 0000000091CD.07C: Absorber 1500 points de dégâts sans mourir avec le bouclier de Bouldozer en partie rapide ou comp.
-0000000091CE.07C: Dimanche 29 septembre à 21 h, heure de Paris
 0000000091D6.07C: Non disponible tant que les membres du groupe n'ont pas sélectionné de rôle.
 0000000091EC.07C: Strike
 0000000091ED.07C: Rouler sur 4 adversaires en 2 secondes avec Bouldozer en partie rapide ou compétitive.
@@ -20758,8 +20756,8 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000BEE8.07C: La progression actuelle de la capture du point de contrôle actif (exprimée en pourcentage).
 00000000BEE9.07C: La progression actuelle du convoi actif vers sa destination (exprimée en pourcentage).
 00000000BEEA.07C: La position dans le monde du convoi actif.
-00000000BEEB.07C: La position dans le monde de l’objectif spécifié (point de contrôle, point de contrôle de convoi ou destination de convoi). Valide en mode Attaque, Attaque/Escorte, Escorte et Contrôle.
-00000000BEEC.07C: Si l’objectif spécifié a été accompli. Renvoie un résultat « Faux » si le mode de jeu n’est pas Attaque, Escorte ou Attaque/Escorte.
+00000000BEEB.07C: La position dans le monde de l’objectif spécifié (point de contrôle, point de contrôle de convoi ou destination de convoi). Valide en mode Attaque, Escorte, Hybride et Contrôle.
+00000000BEEC.07C: Si l’objectif spécifié a été accompli. Renvoie un résultat « Faux » si le mode de jeu n’est pas Attaque, Escorte ou Hybride.
 00000000BEED.07C: L’index de l’objectif à prendre en compte, débutant à 0 et progressant. Chaque point de contrôle, point de contrôle de convoi et destination de convoi possède son propre index.
 00000000BEEE.07C: Si l’équipe spécifiée est actuellement en attaque. Renvoie un résultat « Faux » si le mode de jeu n’est pas Attaque, Escorte ou Attaque/Escorte.
 00000000BEEF.07C: L’équipe dont il faut vérifier le rôle.
@@ -20777,7 +20775,7 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000BEFB.07C: Si le joueur spécifié possède le statut spécifié, soit via l’action Définir un statut soit via un mécanisme de jeu non scripté.
 00000000BEFC.07C: Le joueur dont il faut vérifier le statut.
 00000000BEFD.07C: Le statut à vérifier.
-00000000BEFE.07C: Le point de contrôle, point de contrôle de convoi ou destination de convoi actuellement actif (0, 1 ou 2). Valide en modes Attaque, Attaque/Escorte, Escorte et Contrôle.
+00000000BEFE.07C: Le point de contrôle, point de contrôle de convoi ou destination de convoi actuellement actif (0, 1 ou 2). Valide en modes Attaque, Escorte, Hybride et Contrôle.
 00000000BEFF.07C: L’équipe qui accumule actuellement du pourcentage de score en mode Contrôle. Le résultat affichera « Tous » si aucune équipe n’accumule de score.
 00000000BF00.07C: L’équipe dont il faut acquérir le pourcentage de score.
 00000000BF01.07C: Le pourcentage de score de l’équipe spécifiée en mode Contrôle.
@@ -22318,7 +22316,7 @@ Copa Lúcioball
 00000000CA0C.07C: Vous devez choisir un rôle pour que votre escouade accède à la file d’attente. Choisir maintenant ?
 00000000CA0D.07C: Boutiques
 00000000CA0E.07C: Boutique
-00000000CA11.07C: Semaine 1 : Tracer Union Jack
+00000000CA11.07C: Défi Bande dessinée de Tracer
 00000000CA13.07C: Semaine 2 : Bastion château de sable
 00000000CA14.07C: Semaine 3 : Orisa crème glacée
 00000000CA15.07C: Obtenez 9 victoires en arcade,
@@ -26177,7 +26175,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000D59B.07C: Vietnam
 00000000D5BD.07C: Ange de neige
 00000000DA38.07C: Personnalisé
-00000000DA39.07C: Portable
+00000000DA39.07C: Mode portable
 00000000DA3A.07C: Paramètres prédéfinis du gyroscope
 00000000DA5C.07C: Gyroscope désactivé lors de l’utilisation du stick
 00000000EA2F.07C: Dr Ziegler
@@ -26186,7 +26184,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000EA59.07C: Inverser l’axe de roulis pour la visée gyroscopique
 00000000EA5A.07C: (débloqué)
 00000000EA97.07C: Manette pro
-00000000EA98.07C: Joy-Con détachés
+00000000EA98.07C: Joy-Con détaché
 00000000EA9B.07C: Renvoie la caméra sur la vue par défaut.
 00000000EAA8.07C: Gyroscope uniquement avec la lunette active
 00000000EAAB.07C: Modifier les noms de variables
@@ -27337,7 +27335,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000001083E.07C: Erreur : type de valeur incompatible avant « %1$s » sur la ligne %2$s
 000000010847.07C: PAR DÉFAUT
 000000010848.07C: OR
-000000010849.07C: 2 et 3 mai (CET)
 00000001084A.07C: Comme une sphère sinusoïdale
 00000001084B.07C: Disponible dans les coffres anniversaire
 00000001084C.07C: Réduisez vos attentes
@@ -27884,6 +27881,7 @@ L’assistance Blizzard
 000000010EFD.07C: Insurrection
 000000010EFE.07C: Féerie hivernale
 000000010F14.07C: Obtenu
+000000010F4E.07C: Points de vie
 000000010F57.07C: Tous les héros
 000000010F5B.07C: File d’attente par rôle
 000000010F5C.07C: Sélection libre
@@ -27929,6 +27927,7 @@ L’assistance Blizzard
 000000011005.07C: Moy/10 min
 000000011006.07C: Total
 000000011007.07C: Record
+000000011008.07C: Points de vie
 00000001101C.07C: Représailles
 00000001101D.07C: Avis de tempête
 00000001101E.07C: Défis des archives
@@ -27971,7 +27970,7 @@ L’assistance Blizzard
 000000011060.07C: Le nombre des armes à équiper. 1 correspond à la première arme, et 2 à la deuxième. Si l’arme spécifiée n’existe pas, les joueurs utiliseront leur arme par défaut.
 000000011061.07C: Taux d’obtention des coffres standards
 000000011065.07C: Utilise Recharger
-000000011066.07C: Si le joueur spécifié utilise Recharger
+000000011066.07C: Si le joueur spécifié utilise Recharger.
 000000011067.07C: Le joueur dont il faut vérifier l’utilisation de Recharger.
 000000011068.07C: Définir l’activation de Recharger
 000000011069.07C: Active ou désactive Recharger pour un ou plusieurs joueurs.
@@ -28503,8 +28502,64 @@ L’assistance Blizzard
 00000001146F.07C: 50 + 10 coffres des jeux d’été
 0000000114DC.07C: Regarder maintenant
 0000000114DF.07C: Regarder l’Overwatch League
+000000011605.07C: Élimination en 3c3 en compétitif - Saison 3
+000000011606.07C: Élimination en mode compétitif
+000000011607.07C: Gravissez les échelons et affrontez les meilleurs joueurs d’élimination au monde !
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Plus d’infos
+000000011676.07C: Tous les hauts faits débloqués
 000000011677.07C: Précision des coups critiques
 000000011679.07C: Votre compte Overwatch a été verrouillé.
-[Core] Execution finished in 00:00:00.4401636 seconds
+00000001167D.07C: Tous
+00000001167E.07C: Sélection libre
+00000001167F.07C: File d’attente par rôle
+00000001168B.07C: Héros Élimination 3c3 2020
+00000001168C.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Élimination en 3c3 en 2020
+00000001168D.07C: Compétiteur Élimination 3c3 2020
+00000001168E.07C: Obtenu en effectuant toutes les parties de placement du mode Élimination en 3c3 en 2020
+00000001168F.07C: Héros Élimination 3c3 2020
+000000011690.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Élimination en 3c3 en 2020
+000000011691.07C: Compétiteur Élimination 3c3 2020
+000000011692.07C: Obtenu en effectuant toutes les parties de placement du mode Élimination en 3c3 en 2020
+000000011697.07C: Saison de compétition actuelle
+0000000116A5.07C: Transfert !
+0000000116A7.07C: Zap !
+0000000116A8.07C: Et bim !
+0000000116A9.07C: Pan !
+0000000116AA.07C: Vlan !
+0000000116AB.07C: Piou piou !
+0000000116AC.07C: Obtenu en regardant les streams participant à l’opération pendant le défi Bande dessinée de Tracer
+0000000116D7.07C: Déconnecté en raison du couvre-feu du système de restriction
+0000000116FF.07C: Copa Lúcioball
+000000011700.07C: Combat à mort compétitif
+00000001171D.07C: Un ou plusieurs membres du groupe vont bientôt être à court de temps de jeu
+000000011744.07C: 1 coffre légendaire et 5 coffres classiques
+000000011745.07C: 15 crédits, plus 1 coffre légendaire et 5 coffres classiques offerts
+000000011746.07C: https://playoverwatch.com/media/stories/
+000000011747.07C: Lire
+00000001174A.07C: Saison %1$s
+000000011754.07C: Bande dessinée
+000000011755.07C: Obtenu en participant au défi Bande dessinée de Tracer
+000000011771.07C: Prenez note
+000000011789.07C: https://alert.battle.net/overwatch/xbl/live/en-us
+00000001178A.07C: Bande dessinée
+0000000117A6.07C: Élimination en 3c3 en compétitif
+0000000117A7.07C: Élimination en 6c6 en compétitif
+0000000117A8.07C: Combat à mort par équipe compétitif
+0000000117A9.07C: Capture du drapeau en compétitif
+0000000117AA.07C: Compétitif en sélection libre
+0000000117B9.07C: Nouvelle bande dessinée
+0000000117BA.07C: Tracer - London Calling
+0000000117FB.07C: https://ow.blizzard.cn/media/stories
+000000011849.07C: Objet légendaire garanti !
+00000001184A.07C: Disponible jusqu’au 28/09/2020
+Achat unique
+000000011859.07C: Offre
+000000011860.07C: spéciale !
+000000011A0D.07C: Coffre légendaire
+000000011A15.07C: %1$s |Rpl COFFRE LÉGENDAIRE:COFFRES LÉGENDAIRES;
+000000011A20.07C: Chaque coffre légendaire contient une combinaison de 4 récompenses au maximum composée d’objets ornementaux et/ou de crédits en jeu, dont au moins un objet légendaire. 
+000000011B1B.07C: 
+000000011B1C.07C: utm_campaign
+000000011B1D.07C: london_calling_1
+[Core] Execution finished in 00:00:00.4348807 seconds

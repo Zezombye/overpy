@@ -8,9 +8,9 @@ rule ("dicts") {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(A, Value In Array(Array(2, 3), Index Of Array Value(Array(Hero(Pharah), Hero(Brigitte)), Global.B)));
-        Set Global Variable(A, Value In Array(Array(2, 3), Index Of Array Value(Array(Hero(Pharah), Hero(Brigitte)), 1)));
-        Set Global Variable(A, Value In Array(Array(2, 3), Index Of Array Value(Array(Hero(Pharah), Hero(Brigitte)), 3)));
+        Set Global Variable(A, Value In Array(Array(2, 3), Max(False, Index Of Array Value(Array(Hero(Pharah), Hero(Brigitte)), Global.B))));
+        Set Global Variable(A, Value In Array(Array(2, 3), Max(False, Index Of Array Value(Array(Hero(Pharah), Hero(Brigitte)), 1))));
+        Set Global Variable(A, Value In Array(Array(2, 3), Max(False, Index Of Array Value(Array(Hero(Pharah), Hero(Brigitte)), 3))));
     }
 }
 

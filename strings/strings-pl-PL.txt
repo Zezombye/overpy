@@ -1,13 +1,13 @@
-[Core] DataTool v1.51.0.881-git-85a88229e3805c3081c87175e10e6b4840311a17
+[Core] DataTool v1.52.0.886-git-f1239676d91666360fbc744efa37e243da4a64fd
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(21)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(22)\DataTool.exe.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.51.0.0.71620
+[CASC] Overwatch build 1.52.0.0.73258
 [CASC] Initializing...
-[Manifest] Using TRG procedure 71620 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 73258 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -361,7 +361,6 @@
 00000000035C.07C: WSTECZ
 00000000035D.07C: WYŚLIJ PROŚBĘ
 00000000035E.07C: DODAJ ZNAJOMEGO
-00000000035F.07C: PODAJ ADRES E-MAIL LUB BATTLETAG
 000000000360.07C: Nieprawidłowa nazwa zaproszonego użytkownika. Użyj Rzeczywistego ID (adresu e-mail) lub pełnego BattleTagu.
 000000000361.07C: Nazwa zaproszonego użytkownika nie jest prawidłowym Rzeczywistym ID (adresem e-mail).
 000000000362.07C: Nazwa zaproszonego użytkownika nie jest prawidłowym pełnym BattleTagiem.
@@ -2053,26 +2052,26 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000001C78.07C: Wejdź na obszar, który trzeba zająć.
 000000001C79.07C: Wróć do obszaru, który trzeba zająć
 000000001C80.07C: [%1$s (%2$s) do ciebie] Dzięki!
-000000001C82.07C: [%1$s (%2$s) do %3$s (%4$s)] Dzięki!
+000000001C82.07C: [%1$s (%2$s) do: %3$s (%4$s)] Dzięki!
 000000001C83.07C: [%1$s (%2$s) do ciebie] Witaj!
-000000001C84.07C: [%1$s (%2$s) do %3$s (%4$s)] Witaj!
+000000001C84.07C: [%1$s (%2$s) do: %3$s (%4$s)] Witaj!
 000000001C85.07C: %1$s (%2$s) do ciebie: Potrzebuję leczenia! %3$s
-000000001C86.07C: [%1$s (%2$s) do %3$s (%4$s)] Potrzebuję leczenia! %5$s
+000000001C86.07C: [%1$s (%2$s) do: %3$s (%4$s)] Potrzebuję leczenia! %5$s
 000000001C87.07C: %1$s (%2$s) do ciebie: Potrzebuję osłon!
-000000001C88.07C: [%1$s (%2$s)] Potrzebuję osłon!
+000000001C88.07C: [%1$s (%2$s) do: %3$s (%4$s)] Potrzebuję osłon!
 000000001C89.07C: %1$s (%2$s): Potrzebuję pancerza!
-000000001C8A.07C: [%1$s (%2$s) do %3$s (%4$s)] Potrzebuję pancerza!
+000000001C8A.07C: [%1$s (%2$s) do: %3$s (%4$s)] Potrzebuję pancerza!
 000000001C8B.07C: %1$s (%2$s) do ciebie: Potrzebuję osłony!
-000000001C8C.07C: [%1$s (%2$s) do %3$s (%4$s)] Potrzebuję osłony!
+000000001C8C.07C: [%1$s (%2$s) do: %3$s (%4$s)] Potrzebuję osłony!
 000000001C8F.07C: [%1$s (%2$s) do ciebie] Moja superzdolność (%4$s) %5$s jeszcze się ładuje! %3$s%%
-000000001C90.07C: [%1$s (%2$s) do %3$s (%4$s)] Moja superzdolność (%6$s) %7$s jeszcze się ładuje! %5$s%%
+000000001C90.07C: [%1$s (%2$s) do: %3$s (%4$s)] Moja superzdolność (%6$s) %7$s jeszcze się ładuje! %5$s%%
 000000001C91.07C: [%1$s (%2$s) do ciebie] Moja superzdolność (%3$s) %4$s jest gotowa! Do dzieła!
 000000001C92.07C: [%1$s (%2$s) do: %3$s (%4$s)] Moja superzdolność (%5$s) %6$s jest gotowa! Do dzieła!
-000000001C93.07C: %1$s (%2$s) do ciebie: Potrzebuję pomocy!
+000000001C93.07C: [%1$s (%2$s) do ciebie] Potrzebuję pomocy!
 000000001C94.07C: [%1$s (%2$s) do: %3$s (%4$s)] Potrzebuję pomocy!
 000000001C95.07C: [%1$s (%2$s) do ciebie] Zrozumiano.
 000000001C96.07C: [%1$s (%2$s) do: %3$s (%4$s)] Zrozumiano.
-000000001C97.07C: %1$s (%2$s) do ciebie: Jestem blisko!
+000000001C97.07C: [%1$s (%2$s) do ciebie] Jestem blisko!
 000000001C98.07C: [%1$s (%2$s) do ciebie] Zbiórka!
 000000001C99.07C: Nieprawidłowe opcje dla gry dowolnej.
 000000001C9A.07C: Nie można wyciszyć gracza.
@@ -8387,7 +8386,7 @@ z letnich igrzysk
 000000004B03.07C: No to gramy
 000000004B68.07C: Szok-opona
 000000004B69.07C: %1$s (%2$s) do ciebie: Zgłoś się do mnie po leczenie!
-000000004B6A.07C: [%1$s (%2$s) do %3$s (%4$s)] Zgłoś się do mnie po leczenie!
+000000004B6A.07C: [%1$s (%2$s) do: %3$s (%4$s)] Zgłoś się do mnie po leczenie!
 000000004B78.07C: B
 000000004B7F.07C: Centrum miasta
 000000004B80.07C: Ogrody
@@ -17461,7 +17460,6 @@ w Copa Futbolúcio 2018.
 0000000091CB.07C: Oglądaj
 0000000091CC.07C: Adaptacja
 0000000091CD.07C: Zablokuj 1500 pkt. obrażeń Osłonami Burzyciela w Szybkiej grze/Rywalizacji, nie umierając.
-0000000091CE.07C: Niedziela, 29 września, 21:00
 0000000091D6.07C: Niedostępne, jeżeli członkowie ekipy nie wybrali ról.
 0000000091EC.07C: Kręgle
 0000000091ED.07C: Przetocz się po 4 wrogach w 2 sekundy jako Burzyciel w Szybkiej grze/Rywalizacji.
@@ -20841,8 +20839,8 @@ w trybie Deathmatch 2019
 00000000BEE8.07C: Bieżący postęp zajmowania aktywnego punktu kontrolnego (wyrażony w procentach).
 00000000BEE9.07C: Bieżący postęp dotarcia aktywnego ładunku do miejsca docelowego (wyrażony w procentach).
 00000000BEEA.07C: Pozycja aktywnego ładunku w świecie.
-00000000BEEB.07C: Pozycja określonego celu w świecie (punkt kontrolny, punkt kontrolny ładunku lub miejsce docelowe ładunku). Działa dla trybów Szturm, Szturm/Eskorta, Eskorta i Kontrola.
-00000000BEEC.07C: Czy określone zadanie zostało wykonane. Wynik to „False” (Fałsz), jeśli trybem gry nie jest Szturm, Eskorta ani Szturm/Eskorta.
+00000000BEEB.07C: Pozycja określonego celu w świecie (punkt kontrolny, punkt kontrolny ładunku lub miejsce docelowe ładunku). Działa dla trybów Szturm, Eskorta, Hybryda i Kontrola.
+00000000BEEC.07C: Czy określone zadanie zostało wykonane. Wynik to „False” (Fałsz), jeśli trybem gry nie jest Szturm, Eskorta ani Hybryda.
 00000000BEED.07C: Indeks zadania do uwzględnienia, zaczynając od 0 i licząc w górę. Każdy punkt kontrolny, punkt kontrolny ładunku i miejsce docelowe ładunku posiadają własny indeks.
 00000000BEEE.07C: Czy określona drużyna jest aktualnie w ofensywie. Wynik to „False” (Fałsz), jeśli trybem gry nie jest Szturm, Eskorta ani Szturm/Eskorta.
 00000000BEEF.07C: Drużyna, której rola zostanie sprawdzona.
@@ -20860,7 +20858,7 @@ w trybie Deathmatch 2019
 00000000BEFB.07C: Czy określony gracz ma określony status, albo z działania „Set Status” (Ustaw status), albo z nieoskryptowanej mechaniki gry.
 00000000BEFC.07C: Gracz, którego status zostanie sprawdzony.
 00000000BEFD.07C: Status do sprawdzenia.
-00000000BEFE.07C: Punkt kontrolny, punkt kontrolny ładunku lub miejsce docelowe ładunku, które są aktualnie aktywne (0, 1 lub 2). Działa dla trybów Szturm, Szturm/Eskorta, Eskorta i Kontrola.
+00000000BEFE.07C: Punkt kontrolny, punkt kontrolny ładunku lub miejsce docelowe ładunku, które są aktualnie aktywne (0, 1 lub 2). Działa dla trybów Szturm, Eskorta, Hybryda i Kontrola.
 00000000BEFF.07C: Drużyna, która aktualnie gromadzi wynik procentowy w trybie Kontrola. Wynikiem są „All” (Wszystkie), jeśli żadna drużyna nie gromadzi wyniku.
 00000000BF00.07C: Drużyna, której wynik procentowy należy pozyskać.
 00000000BF01.07C: Wynik procentowy określonej drużyny w trybie Kontrola.
@@ -22412,7 +22410,7 @@ z letnich igrzysk
 00000000CA0C.07C: Musisz wybrać rolę zanim twoja grupa dołączy do kolejki. Chcesz wybrać teraz?
 00000000CA0D.07C: Sklepy
 00000000CA0E.07C: Sklep
-00000000CA11.07C: Tydzień 1: Union Jack (Smuga)
+00000000CA11.07C: Wyzwanie Smugi: Komiks
 00000000CA13.07C: Tydzień 2: Bastion z Piasku (Bastion)
 00000000CA14.07C: Tydzień 3: Rożek (Orisa)
 00000000CA15.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
@@ -26284,7 +26282,7 @@ https://account.blizzard.com/connections/nintendo
 00000000D59B.07C: Wietnam
 00000000D5BD.07C: Lodowy anioł
 00000000DA38.07C: Własne
-00000000DA39.07C: Przenośne
+00000000DA39.07C: Tryb przenośny
 00000000DA3A.07C: Wstępne ustawienia żyroskopu
 00000000DA5C.07C: Wyłącz żyroskop podczas użycia drążka
 00000000EA2F.07C: Doktor Ziegler
@@ -26293,7 +26291,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EA59.07C: Odwróć oś X celowania żyroskopem
 00000000EA5A.07C: (posiadasz)
 00000000EA97.07C: Kontroler Pro
-00000000EA98.07C: Odłączone Joy-cony
+00000000EA98.07C: Odłączony Joy-Con
 00000000EA9B.07C: Przywraca domyślny widok kamery.
 00000000EAA8.07C: Żyroskop tylko dla celownika mechanicznego
 00000000EAAB.07C: Edytuj nazwy zmiennych
@@ -27463,7 +27461,6 @@ w sezonie 22.
 00000001083E.07C: Błąd: Napotkano wartość nieprawidłowego typu przed „%1$s” w linii %2$s
 000000010847.07C: DOMYŚLNA
 000000010848.07C: ZŁOTA
-000000010849.07C: 2.05 i 3.05 (czasy pacyficznego)
 00000001084A.07C: Niczym sferyczna krowa
 00000001084B.07C: Zawartość rocznicowych skrzynek
 00000001084C.07C: Obniżcie swoje oczekiwania
@@ -28028,6 +28025,7 @@ w 1. sezonie Otwartej Rywalizacji
 000000010EFD.07C: Insurekcja
 000000010EFE.07C: Zimowa Kraina Czarów
 000000010F14.07C: Zdobyte
+000000010F4E.07C: Zdrowie
 000000010F57.07C: Wszyscy bohaterowie
 000000010F5B.07C: Dobieranie ról
 000000010F5C.07C: Otwarta Rywalizacja
@@ -28084,6 +28082,7 @@ letnich igrzysk 2020
 000000011005.07C: Średnio/10 min
 000000011006.07C: Suma
 000000011007.07C: Top
+000000011008.07C: Zdrowie
 00000001101C.07C: Odwet
 00000001101D.07C: Czarne Chmury
 00000001101E.07C: Wyzwania archiwalne
@@ -28679,8 +28678,70 @@ z letnich igrzysk
 00000001146F.07C: 50 +10 skrzynek z letnich igrzysk
 0000000114DC.07C: Oglądaj teraz
 0000000114DF.07C: Oglądaj Overwatch League
+000000011605.07C: Rywalizacja w trybie Eliminacji 3 na 3 – Sezon 3
+000000011606.07C: Rywalizacja w trybie Eliminacji
+000000011607.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Eliminacji i pnij się w tabeli wyników!
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Więcej informacji
+000000011676.07C: Wszystkie osiągnięcia odblokowane
 000000011677.07C: Celność trafień krytycznych
 000000011679.07C: Twoje konto Overwatch zostało zablokowane.
-[Core] Execution finished in 00:00:00.4688198 seconds
+00000001167D.07C: Wszystkie
+00000001167E.07C: Otwarta Rywalizacja
+00000001167F.07C: Dobieranie ról
+00000001168B.07C: Bohater Rywalizacji w trybie Eliminacji 3 na 3 w 2020
+00000001168C.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w trybie eliminacji 3 na 3 w 2020
+00000001168D.07C: Uczestnik Rywalizacji w trybie Eliminacji 3 na 3 w 2020
+00000001168E.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+w trybie Eliminacji 3 na 3 w 2020
+00000001168F.07C: Bohater Rywalizacji w trybie Eliminacji 3 na 3 w 2020
+000000011690.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w trybie eliminacji 3 na 3 w 2020
+000000011691.07C: Uczestnik Rywalizacji w trybie Eliminacji 3 na 3 w 2020
+000000011692.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+w trybie Eliminacji 3 na 3 w 2020
+000000011697.07C: Rywalizacja – bieżący sezon
+0000000116A5.07C: Zium!
+0000000116A7.07C: Zap!
+0000000116A8.07C: Łup!
+0000000116A9.07C: Bang!
+0000000116AA.07C: Bach!
+0000000116AB.07C: Pif! Paf!
+0000000116AC.07C: Nagroda za oglądanie transmisji biorących udział w promocji podczas wyzwania Smugi: Komiks
+0000000116D7.07C: Rozłączono z powodu limitu czasu gry (system CAIS).
+0000000116FF.07C: Copa Futbolúcio
+000000011700.07C: Deathmatch w trybie Rywalizacji
+00000001171D.07C: Jednemu lub kilku członkom ekipy kończy się czas gry
+000000011744.07C: 1 legendarna i 5 zwykłych skrzynek z łupami
+000000011745.07C: 15 kredytów oraz darmowa 1 legendarna i 5 zwykłych skrzynek z łupami
+000000011746.07C: https://playoverwatch.com/media/stories/
+000000011747.07C: Przeczytaj
+00000001174A.07C: Sezon %1$s
+000000011754.07C: Komiks
+000000011755.07C: Nagroda za udział w wyzwaniu Smugi: Komiks
+000000011771.07C: Cytat
+000000011789.07C: https://alert.battle.net/overwatch/xbl/live/en-us
+00000001178A.07C: Komiks
+0000000117A6.07C: Rywalizacja w trybie Eliminacji 3 na 3
+0000000117A7.07C: Rywalizacja w trybie Eliminacji 6 na 6
+0000000117A8.07C: Rywalizacja w Drużynowym Deathmatchu
+0000000117A9.07C: Rywalizacja w Zdobywaniu flagi
+0000000117AA.07C: Otwarta Rywalizacja
+0000000117B9.07C: Nowy komiks
+0000000117BA.07C: Smuga: Londyn wzywa
+0000000117FB.07C: https://ow.blizzard.cn/media/stories
+000000011849.07C: Gwarantowany element legendarny!
+00000001184A.07C: Do 29.09.2020
+Tylko jednorazowy zakup
+000000011859.07C: Oferta
+000000011860.07C: specjalna!
+000000011A0D.07C: Legendarna skrzynka z łupami
+000000011A15.07C: %1$s |Rpl LEGENDARNA SKRZYNKA:LEGENDARNE SKRZYNKI:LEGENDARNYCH SKRZYNEK; Z ŁUPAMI
+000000011A20.07C: Każda legendarna skrzynka z łupami zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze, w tym przynajmniej jeden element z kolekcji legendarnej.
+000000011B1B.07C: 
+000000011B1C.07C: utm_campaign
+000000011B1D.07C: london_calling_1
+[Core] Execution finished in 00:00:00.4550325 seconds

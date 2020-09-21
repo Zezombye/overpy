@@ -1,13 +1,13 @@
-[Core] DataTool v1.51.0.881-git-85a88229e3805c3081c87175e10e6b4840311a17
+[Core] DataTool v1.52.0.886-git-f1239676d91666360fbc744efa37e243da4a64fd
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(21)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(22)\DataTool.exe.args
 [CASC] Text Language: zhTW | Speech Language: zhTW
-[CASC] Overwatch build 1.51.0.0.71620
+[CASC] Overwatch build 1.52.0.0.73258
 [CASC] Initializing...
-[Manifest] Using TRG procedure 71620 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 71620 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
+[Manifest] Using TRG procedure 73258 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -361,7 +361,6 @@
 00000000035C.07C: 返回
 00000000035D.07C: 發送邀請
 00000000035E.07C: 新增好友
-00000000035F.07C: 輸入電子郵件地址或BattleTag
 000000000360.07C: 邀請失敗，請使用Real ID(電子郵件)或完整的Battle Tag名稱
 000000000361.07C: 請輸入正確的Real ID(電子郵件)
 000000000362.07C: 請輸入正確的完整BattleTag
@@ -17320,7 +17319,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000091CB.07C: 準時收看
 0000000091CC.07C: 適應能力
 0000000091CD.07C: 在快速對戰或競技對戰中一直未死亡的狀態下，以火爆鋼球的自動調整型護盾吸收1500點傷害
-0000000091CE.07C: 9月30日星期一凌晨3點
 0000000091D6.07C: 團隊成員尚未選取角色類型，因此無法使用
 0000000091EC.07C: 全倒
 0000000091ED.07C: 在快速對戰或競技對戰中，在2秒內以火爆鋼球輾過4名敵人
@@ -20651,8 +20649,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BEE8.07C: The current progress towards capture for the active control point (expressed as a percentage).
 00000000BEE9.07C: The current progress towards the destination for the active payload (expressed as a percentage).
 00000000BEEA.07C: The position in the world of the active payload.
-00000000BEEB.07C: The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in Assault, Assault/Escort, Escort, and Control.
-00000000BEEC.07C: Whether the specified objective has been completed. Results in False if the game mode is not Assault, Escort, or Assault/Escort.
+00000000BEEB.07C: The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in Assault, Escort, Hybrid, and Control.
+00000000BEEC.07C: Whether the specified objective has been completed. Results in False if the game mode is not Assault, Escort, or Hybrid.
 00000000BEED.07C: The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.
 00000000BEEE.07C: Whether the specified Team is currently on offense. Results in False if the game mode is not Assault, Escort, or Assault/Escort.
 00000000BEEF.07C: The Team whose role to check.
@@ -20670,7 +20668,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BEFB.07C: Whether the specified Player has the specified status, either from the Set Status Action or from a non-scripted game mechanic.
 00000000BEFC.07C: The Player whose status to check.
 00000000BEFD.07C: The status to check for.
-00000000BEFE.07C: The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in Assault, Assault/Escort, Escort, and Control.
+00000000BEFE.07C: The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in Assault, Escort, Hybrid, and Control.
 00000000BEFF.07C: The Team that is currently accumulating score percentage in Control mode. Results in All if neither Team is accumulating score.
 00000000BF00.07C: The Team whose score percentage to acquire.
 00000000BF01.07C: The score percentage for the specified Team in Control mode.
@@ -22207,7 +22205,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA0C.07C: 你必須先選擇角色類型，團隊才能加入佇列。要現在選擇嗎？
 00000000CA0D.07C: 商店
 00000000CA0E.07C: 商店
-00000000CA11.07C: 第1週：英國國旗閃光
+00000000CA11.07C: 閃光的漫畫大挑戰
 00000000CA13.07C: 第2週：沙堡壁壘機兵
 00000000CA14.07C: 第3週：冰淇淋歐瑞莎
 00000000CA15.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
@@ -26065,7 +26063,7 @@ https://account.blizzard.com/connections/nintendo
 00000000D59B.07C: 越南
 00000000D5BD.07C: 雪天使
 00000000DA38.07C: 自訂
-00000000DA39.07C: 手持
+00000000DA39.07C: 手提模式
 00000000DA3A.07C: 陀螺儀選項預載規則
 00000000DA5C.07C: 使用搖桿時停用陀螺儀
 00000000EA2F.07C: 齊格勒醫生
@@ -27225,7 +27223,6 @@ https://account.blizzard.com/connections/nintendo
 00000001083E.07C: 錯誤：第%2$s行的'%1$s'之前出現不相容類型的數值
 000000010847.07C: 預設
 000000010848.07C: 尊爵金
-000000010849.07C: 5/2和5/3（美西時間）
 00000001084A.07C: 球形乳牛
 00000001084B.07C: 經由週年戰利品解鎖
 00000001084C.07C: 期望值
@@ -27771,6 +27768,7 @@ https://account.blizzard.com/connections/nintendo
 000000010EFD.07C: 零度叛亂
 000000010EFE.07C: 冬境樂園
 000000010F14.07C: 獲得
+000000010F4E.07C: 生命值
 000000010F57.07C: 所有英雄
 000000010F5B.07C: 角色類型佇列
 000000010F5C.07C: 自由佇列
@@ -27816,6 +27814,7 @@ https://account.blizzard.com/connections/nintendo
 000000011005.07C: 平均/10分鐘
 000000011006.07C: 總計
 000000011007.07C: 最佳
+000000011008.07C: 生命值
 00000001101C.07C: 制裁行動
 00000001101D.07C: 失控倒數
 00000001101E.07C: 捍衛密令大挑戰
@@ -27858,7 +27857,7 @@ https://account.blizzard.com/connections/nintendo
 000000011060.07C: The number of the weapon to be equipped. 1 is the first weapon, and 2 is the second. If the specified weapon does not exist, Players will use the default weapon.
 000000011061.07C: 標準戰利品掉落率
 000000011065.07C: Is Reloading
-000000011066.07C: Whether the specified Player is Reloading
+000000011066.07C: Whether the specified Player is Reloading.
 000000011067.07C: The Player whose Reload usage to check.
 000000011068.07C: Set Reload Enabled
 000000011069.07C: Enables or disables Reload for one or more Players.
@@ -28184,7 +28183,7 @@ https://account.blizzard.com/connections/nintendo
 000000011242.07C: Disable Game Mode In-World UI
 000000011243.07C: Disables the Game Mode In-World UI for one or more Players until reenabled.
 000000011244.07C: The Player or Players who will have their Game Mode In-World UI disabled.
-00000001124E.07C: 暴風雪
+00000001124E.07C: 暴雪
 00000001124F.07C: 佔領測試
 000000011253.07C: Enable Nameplates
 000000011254.07C: Disable Nameplates
@@ -28390,8 +28389,64 @@ https://account.blizzard.com/connections/nintendo
 00000001146F.07C: 50箱與額外10箱夏季運動會戰利品
 0000000114DC.07C: 立即觀賞
 0000000114DF.07C: 觀賞《鬥陣特攻》職業電競聯賽
+000000011605.07C: 3v3鎖定對決競技模式第3賽季
+000000011606.07C: 鎖定對決競技模式
+000000011607.07C: 提高排名，和全世界頂尖的鎖定對決好手一同競賽吧！
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: 詳細資訊
+000000011676.07C: 已解鎖所有成就
 000000011677.07C: 爆擊命中率
 000000011679.07C: 你的《鬥陣特攻》帳號被鎖定了。
-[Core] Execution finished in 00:00:00.4528290 seconds
+00000001167D.07C: 所有
+00000001167E.07C: 自由佇列
+00000001167F.07C: 角色類型佇列
+00000001168B.07C: 2020年3v3鎖定對決競技模式精英
+00000001168C.07C: 在2020年3v3鎖定對決競技模式進入前500名即可解鎖
+00000001168D.07C: 2020年3v3鎖定對決競技模式選手
+00000001168E.07C: 完成2020年3v3鎖定對決競技模式預選賽即可解鎖
+00000001168F.07C: 2020年3v3鎖定對決競技模式精英
+000000011690.07C: 在2020年3v3鎖定對決競技模式進入前500名即可解鎖
+000000011691.07C: 2020年3v3鎖定對決競技模式選手
+000000011692.07C: 完成2020年3v3鎖定對決競技模式預選賽即可解鎖
+000000011697.07C: 這個賽季
+0000000116A5.07C: 叮！
+0000000116A7.07C: 唰！
+0000000116A8.07C: 碰！
+0000000116A9.07C: 砰！
+0000000116AA.07C: 砰！
+0000000116AB.07C: 咻！咻！
+0000000116AC.07C: 於閃光的漫畫大挑戰期間觀看相關直播即可解鎖
+0000000116D7.07C: 由於CAIS時限而中斷連線。
+0000000116FF.07C: 路西歐競球盃
+000000011700.07C: 死鬥競技模式
+00000001171D.07C: 團隊中至少有一名成員的遊戲時間即將不足。
+000000011744.07C: 1箱傳奇戰利品和5箱戰利品
+000000011745.07C: 15枚鬥陣幣，以及免費1箱傳奇戰利品和5箱戰利品
+000000011746.07C: https://playoverwatch.com/media/stories/
+000000011747.07C: 開始閱讀
+00000001174A.07C: 第%1$s賽季
+000000011754.07C: 漫畫書
+000000011755.07C: 參與閃光的漫畫大挑戰即可解鎖
+000000011771.07C: 聽我說
+000000011789.07C: https://alert.battle.net/overwatch/xbl/live/en-us
+00000001178A.07C: 漫畫書
+0000000117A6.07C: 3v3鎖定對決競技模式
+0000000117A7.07C: 6v6鎖定對決競技模式
+0000000117A8.07C: 團隊死鬥競技模式
+0000000117A9.07C: 搶旗競技
+0000000117AA.07C: 自由佇列競技對戰
+0000000117B9.07C: 全新漫畫
+0000000117BA.07C: 閃光 - 倫敦崛起
+0000000117FB.07C: https://ow.blizzard.cn/media/stories
+000000011849.07C: 必出傳奇物品！
+00000001184A.07C: 開放至2020/9/29
+限購一次
+000000011859.07C: 特殊
+000000011860.07C: 優惠
+000000011A0D.07C: 傳奇戰利品
+000000011A15.07C: %1$s箱傳奇戰利品
+000000011A20.07C: 每箱傳奇戰利品內最多含四件物品，與/或者能用來解鎖許多客製化選項的鬥陣幣，其中至少含有一件傳奇物品。
+000000011B1B.07C: 
+000000011B1C.07C: utm_campaign
+000000011B1D.07C: london_calling_1
+[Core] Execution finished in 00:00:00.4265986 seconds
