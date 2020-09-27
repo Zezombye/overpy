@@ -652,8 +652,6 @@ const opyInternalFuncs = {
             },
             {
                 "name": "RANGE START",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
                 "type": "float",
             },
             {
