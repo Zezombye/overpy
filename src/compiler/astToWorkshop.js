@@ -97,6 +97,12 @@ function astRuleConditionToWs(condition) {
     }
 
     if (condition.name in funcToOpMapping) {
+        /*if (condition.args[0].length > 0 && condition.args[0].args[0].numValue === 1) {
+            condition.args[0] = new Ast("getMatchRound");
+        }
+        if (condition.args[1].length > 0 && condition.args[1].args[0].numValue === 1) {
+            condition.args[1] = new Ast("getMatchRound");
+        }*/
         result += tabLevel(2)+astToWs(condition.args[0])+" "+funcToOpMapping[condition.name]+" "+astToWs(condition.args[1])+";\n";
 
     } else {
@@ -181,7 +187,9 @@ function astToWs(content) {
                     content.args[i] = getAstForNull();
                 } else if (argInfo.canReplace1ByTrue && content.args[i].args[0].numValue === 1) {
                     content.args[i] = getAstForTrue();
-                }
+                }/* else if (content.name !== "__workshopSettingInteger__" && content.name !== "__workshopSettingReal__" && content.name !== "__workshopSettingToggle__" && content.args[i].args[0].numValue === 1) {
+                    content.args[i] = new Ast("getMatchRound");
+                }*/
             } else if (argInfo.canReplaceNullVectorByNull && content.args[i].name === "vect"
                     && content.args[i].args[0].name === "__number__" && content.args[i].args[0].args[0].numValue === 0
                     && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0

@@ -63,8 +63,8 @@ rule ("0 to false") {
         Set Global Variable At Index(A, False, Global.B);
         Set Player Variable At Index(Global.B, A, False, Global.C);
         Wait(False, Ignore Condition);
-        Wait(0.016, Ignore Condition);
-        Wait(0.016, Ignore Condition);
+        Wait(False, Ignore Condition);
+        Wait(False, Ignore Condition);
     }
 }
 

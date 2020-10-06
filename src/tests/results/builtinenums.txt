@@ -13,7 +13,9 @@ variables {
 }
 rule ("enums") {
     event {
-        Ongoing - Global;
+        Ongoing - Each Player;
+        All;
+        All;
     }
     conditions {
         Is Button Held(Event Player, Interact) == True;
@@ -28,7 +30,7 @@ rule ("enums") {
         Set Global Variable(F, Is Button Held(Event Player, Interact));
         Start Holding Button(Event Player, Melee);
         Start Forcing Player To Be Hero(Event Player, Hero(Ana));
-        Wait(0.016, Abort When False);
+        Wait(False, Abort When False);
         Set Global Variable(G, Backward);
         Set Global Variable(H, Random Integer(True, 2));
         Set Global Variable(I, 2.718281828459045);

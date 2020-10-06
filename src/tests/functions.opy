@@ -1,5 +1,6 @@
 
 rule "function":
+    @Event eachPlayer
     A = raycast(B, C, D, E, true).getPlayerHit()
     A = raycast(B, C, D, E, false).getHitPosition()
     A = raycast(B, C, D, E, true).getNormal()

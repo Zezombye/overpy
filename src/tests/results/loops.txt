@@ -117,7 +117,7 @@ rule ("do/while rule condition") {
         Global.A == Global.B;
     }
     actions {
-        Wait(0.016, Ignore Condition);
+        Wait(False, Ignore Condition);
         Global.A += True;
         If(Compare(Global.A, >, Number of Players(Team 2)));
             Set Global Variable(A, Null);

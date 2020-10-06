@@ -65,11 +65,15 @@ function reverseOperator(content) {
 	}
 }
 
-//Returns 4 spaces per tab level.
-function tabLevel(nbTabs) {
+//Returns 4 spaces (or a tab) per tab level.
+function tabLevel(nbTabs, useTabs=false) {
 	var result = "";
 	for (var i = 0; i < nbTabs; i++) {
-		result += "    ";
+		if (useTabs) {
+			result += "\t";
+		} else {
+			result += "    ";
+		}
 	}
 	return result;
 }

@@ -573,7 +573,7 @@ rule ("walls kb effect") {
         Skip If(Compare((Event Player).J, <, Count Of(Global.A)), True);
         Set Player Variable(Event Player, J, Null);
         //lbl_3:
-        Wait(0.016, Ignore Condition);
+        Wait(False, Ignore Condition);
         Loop;
     }
 }
@@ -779,7 +779,7 @@ rule ("tp dest") {
     }
     actions {
         Set Projectile Speed(Event Player, 100);
-        Wait(0.016, Ignore Condition);
+        Wait(False, Ignore Condition);
         (Event Player).B += True;
         Loop If(Compare((Event Player).B, <, 105));
         Set Player Variable(Event Player, B, Null);

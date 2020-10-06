@@ -13,7 +13,9 @@ variables {
 }
 rule ("function") {
     event {
-        Ongoing - Global;
+        Ongoing - Each Player;
+        All;
+        All;
     }
     actions {
         Set Global Variable(A, Ray Cast Hit Player(Global.B, Global.C, Global.D, Global.E, True));
@@ -25,7 +27,7 @@ rule ("function") {
         Create HUD Text(All Players(All Teams), Null, Null, Custom String("test", Null, Null, Null), Left, True, White, White, Red, Visible To and String, Visible Always);
         Create HUD Text(All Players(All Teams), Null, Custom String("test", Null, Null, Null), Null, Left, True, White, Red, White, Visible To and String, Visible Always);
         Create HUD Text(Null, Custom String("azer", Null, Null, Null), Custom String("dqsf", Null, Null, Null), Custom String("fdsq", Null, Null, Null), Left, -1, Red, White, Yellow, Visible To Sort Order and String, Visible Never);
-        Wait(0.016, Ignore Condition);
+        Wait(False, Ignore Condition);
     }
 }
 
@@ -76,7 +78,7 @@ rule ("optimizations with literals") {
         "3"
         Modify Global Variable(A, Append To Array, 3);
         "5"
-        Modify Global Variable(A, Append To Array, Absolute Value(-5));
+        Modify Global Variable(A, Append To Array, 5);
         "1.012"
         Modify Global Variable(A, Append To Array, 1.012195761452095);
         "3.1415"

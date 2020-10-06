@@ -1,5 +1,6 @@
 
 rule "enums":
+    @Event eachPlayer
     @Condition eventPlayer.isHoldingButton(Button.INTERACT)
     @Condition A
     A = Team.ALL

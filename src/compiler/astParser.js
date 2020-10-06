@@ -74,8 +74,11 @@ function parseAstRules(rules) {
                 if (!("conditions" in rule.ruleAttributes)) {
                     rule.ruleAttributes.conditions = [];
                 }
-                rule.ruleAttributes.conditions.push(parseAst(rule.children[i].args[0]));
-                rule.ruleAttributes.conditions[rule.ruleAttributes.conditions.length-1].comment = rule.children[i].comment;
+                if (!("conditionComments" in rule.ruleAttributes)) {
+                    rule.ruleAttributes.conditionComments = [];
+                }
+                rule.ruleAttributes.conditions.push(rule.children[i].args[0]);
+                rule.ruleAttributes.conditionComments.push(rule.children[i].comment);
 
             } else {
                 error("Unknown annotation '"+rule.children[i].name+"'");
@@ -128,6 +131,14 @@ function parseAstRules(rules) {
         currentRuleLabels = [];
         currentRuleLabelAccess = {};
         currentRuleHasVariableGoto = false;
+        
+        //Parse conditions now that we extracted the event (so we yield a proper error with event-related values)
+        if (rule.ruleAttributes.conditions !== undefined) {
+            for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
+                rule.ruleAttributes.conditions[i] = parseAst(rule.ruleAttributes.conditions[i]);
+                rule.ruleAttributes.conditions[i].comment = rule.ruleAttributes.conditionComments[i]
+            }
+        }
         
         rulesResult.push(parseAst(rule));
     }

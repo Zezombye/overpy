@@ -65,11 +65,15 @@ function reverseOperator(content) {
 	}
 }
 
-//Returns 4 spaces per tab level.
-function tabLevel(nbTabs) {
+//Returns 4 spaces (or a tab) per tab level.
+function tabLevel(nbTabs, useTabs=false) {
 	var result = "";
 	for (var i = 0; i < nbTabs; i++) {
-		result += "    ";
+		if (useTabs) {
+			result += "\t";
+		} else {
+			result += "    ";
+		}
 	}
 	return result;
 }
@@ -27611,6 +27615,7 @@ function astActionsToOpy(actions) {
     for (var j = 0; j < decompilerGotos.length; j++) {
         result += tabLevel(nbTabs)+decompilerGotos[j].label+":\n";
     }
+    decompilerGotos = [];
 
     return result;
 
@@ -28326,6 +28331,183 @@ function decompileSubroutines(content) {
 		}
 		addSubroutine(subName, index);
 	}
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+var obfuscationMappings = {};
+for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
+	obfuscationMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xE0000);
+}
+
+var obfuscatedVarNames = shuffleArray(Array(4096).fill().map((e,i)=>i).map(x => x.toString(2).padStart(12, "0").replace(/0/g, "I").replace(/1/g, "l"))).slice(0,128);
+
+function addObfuscationRules(rules) {
+	if (!compiledCustomGameSettings) {
+		error("Cannot use obfuscation without custom game settings declared");
+	}
+	var nbEmptyRules = (obfuscationSettings.ruleFilling ? 2500 : 0);
+	var nbTotalRules = nbEmptyRules + rules.length + 2 /*copy detection rules*/;
+	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+
+	var copyDetectionRule1 = `
+${tows("__rule__", ruleKw)}("") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("__abortIf__", actionKw)}(0.0000001);
+		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
+	}
+}
+	`
+
+	var copyDetectionRule2 = `
+${tows("__rule__", ruleKw)}("") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__conditions__", ruleKw)} {
+		0.0001 == ${tows("false", valueFuncKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("__wait__", actionKw)}(${tows("random.uniform", valueFuncKw)}(30, 60), ${tows("IGNORE_CONDITION", constantValues.Wait)});
+		${tows("__while__", actionKw)}(${tows("true", valueFuncKw)});
+		${tows("__end__", actionKw)};
+	}
+}
+	`
+
+	var result = "";
+	result += `
+${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${obfuscationSettings.obfuscateInspector ? tows("disableInspector", actionKw)+";" : ""}
+		${obfuscationSettings.obfuscateConstants ? astActionToWs(obfuscationConstantsAst, 0) : ""}
+	}
+}
+`;
+	var putEmptyRuleArray = shuffleArray([3,2].concat(Array(nbEmptyRules).fill(1)).concat(Array(rules.length).fill(0)));
+	var ruleIndex = 0;
+	for (var i = 0; i < nbTotalRules; i++) {
+		if (putEmptyRuleArray[i] === 1) {
+			result += emptyRule;
+		} else if (putEmptyRuleArray[i] === 3) {
+			if (obfuscationSettings.copyProtection) {
+				result += copyDetectionRule1;
+			}
+		} else if (putEmptyRuleArray[i] === 2) {
+			if (obfuscationSettings.copyProtection) {
+				result += copyDetectionRule2;
+			};
+		} else {
+			result += rules[ruleIndex];
+			ruleIndex++;
+		}
+	}
+	return result;
+
+}
+
+//Gather all constants to obfuscate and shuffle them
+var constantsToObfuscate = [];
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral"]) {
+	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x));
+}
+constantsToObfuscate = shuffleArray(constantsToObfuscate);
+//console.log(constantsToObfuscate);
+
+//Create the asts and map them to the index
+var constantsToObfuscateAsts = Array(constantsToObfuscate.length);
+var obfuscationConstantsMapping = {}
+
+var typeToAstFuncMapping = {
+	"HeroLiteral": "__hero__",
+	"MapLiteral": "__map__",
+	"GamemodeLiteral": "__gamemode__",
+	"ButtonLiteral": "__button__",
+	"TeamLiteral": "__team__",
+}
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral"]) {
+	obfuscationConstantsMapping[constantType] = {};
+
+	for (var constant of Object.keys(constantValues[constantType])) {
+		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
+		obfuscationConstantsMapping[constantType][constant] = constantIndex;
+		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
+	}
+}
+
+//console.log(constantsToObfuscateAsts);
+var obfuscationConstantsAst = new Ast("__assignTo__", [
+	new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
+	new Ast("__array__", constantsToObfuscateAsts),
+]);
+
+function obfuscateConstant(constantType, content) {
+
+	var isEvaluatedClientSide = null; //we don't know yet
+
+	if (obfuscationSettings.copyProtection) {
+		//Client-side calculations (done on hud texts, and on visibility fields) do not have enough precision to handle the anti-copy obfuscation properly.
+		//Therefore, check if the constant is not inside a text or any action with a visibility field.
+
+		console.log("evaluating parent action of "+content.name);
+		var parentAction = content.parent;
+		while (parentAction.type !== "void") {
+			parentAction = parentAction.parent;
+		}
+		console.log("parent action is : "+parentAction.name);
+		if ([
+			"bigMessage",
+			"createBeam",
+			"createEffect",
+			"createIcon",
+			"createInWorldText",
+			"__hudText__",
+			"hudText",
+			"hudHeader",
+			"hudSubheader",
+			"playEffect",
+			"print",
+			"setObjectiveDescription",
+			"smallMessage",
+		].includes(parentAction.name)) {
+			isEvaluatedClientSide = true;
+		}
+	}
+
+	if (obfuscationSettings.copyProtection && !isEvaluatedClientSide) {
+		var obfuscatedNumberAst = new Ast("__multiply__", [
+			getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping[constantType][content.args[0].name] * 0.0000001),
+		]);
+	} else {
+		var obfuscatedNumberAst = getAstForNumber(obfuscationConstantsMapping[constantType][content.args[0].name] + Math.random()*0.8-0.4);
+	}
+
+	var result = new Ast("__valueInArray__", [
+		new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]), 
+		obfuscatedNumberAst,
+	]);
+	result.doNotOptimize = true;
+	return result;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -31019,6 +31201,36 @@ astParsingFunctions.__valueInArray__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.__wait__ = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__" && content.args[0].args[0].numValue <= 0.016) {
+            //Change to 0, as it will get casted to 0.016 anyway, but that way the optimizer can then replace it to false for that sweet element.
+            content.args[0] = getAstFor0();
+        }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__while__ = function(content) {
 
     //Add the "end" function.
@@ -31204,6 +31416,35 @@ astParsingFunctions["_&setUltCharge"] = function(content) {
     //Literal limit bypass if the literal is an int
     if (content.args[1].name === "__number__" && !isTypeSuitable("int", content.args[1].type)) {
         content.args[1] = new Ast("abs", [content.args[1]]);
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.abs = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__number__") {
+            return getAstForNumber(Math.abs(content.args[0].args[0].numValue));
+        }
     }
     
     return content;
@@ -32026,6 +32267,33 @@ astParsingFunctions.enableInspector = function(content) {
     } else {
         return content;
     }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.eventPlayer = function(content) {
+
+    if (currentRuleEvent === "global") {
+        error("Cannot use 'eventPlayer' with rule event 'global'");
+    }
+
+    return content;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -33344,8 +33612,11 @@ function parseAstRules(rules) {
                 if (!("conditions" in rule.ruleAttributes)) {
                     rule.ruleAttributes.conditions = [];
                 }
-                rule.ruleAttributes.conditions.push(parseAst(rule.children[i].args[0]));
-                rule.ruleAttributes.conditions[rule.ruleAttributes.conditions.length-1].comment = rule.children[i].comment;
+                if (!("conditionComments" in rule.ruleAttributes)) {
+                    rule.ruleAttributes.conditionComments = [];
+                }
+                rule.ruleAttributes.conditions.push(rule.children[i].args[0]);
+                rule.ruleAttributes.conditionComments.push(rule.children[i].comment);
 
             } else {
                 error("Unknown annotation '"+rule.children[i].name+"'");
@@ -33398,6 +33669,14 @@ function parseAstRules(rules) {
         currentRuleLabels = [];
         currentRuleLabelAccess = {};
         currentRuleHasVariableGoto = false;
+        
+        //Parse conditions now that we extracted the event (so we yield a proper error with event-related values)
+        if (rule.ruleAttributes.conditions !== undefined) {
+            for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
+                rule.ruleAttributes.conditions[i] = parseAst(rule.ruleAttributes.conditions[i]);
+                rule.ruleAttributes.conditions[i].comment = rule.ruleAttributes.conditionComments[i]
+            }
+        }
         
         rulesResult.push(parseAst(rule));
     }
@@ -33738,6 +34017,12 @@ function astRuleConditionToWs(condition) {
     }
 
     if (condition.name in funcToOpMapping) {
+        /*if (condition.args[0].length > 0 && condition.args[0].args[0].numValue === 1) {
+            condition.args[0] = new Ast("getMatchRound");
+        }
+        if (condition.args[1].length > 0 && condition.args[1].args[0].numValue === 1) {
+            condition.args[1] = new Ast("getMatchRound");
+        }*/
         result += tabLevel(2)+astToWs(condition.args[0])+" "+funcToOpMapping[condition.name]+" "+astToWs(condition.args[1])+";\n";
 
     } else {
@@ -33822,7 +34107,9 @@ function astToWs(content) {
                     content.args[i] = getAstForNull();
                 } else if (argInfo.canReplace1ByTrue && content.args[i].args[0].numValue === 1) {
                     content.args[i] = getAstForTrue();
-                }
+                }/* else if (content.name !== "__workshopSettingInteger__" && content.name !== "__workshopSettingReal__" && content.name !== "__workshopSettingToggle__" && content.args[i].args[0].numValue === 1) {
+                    content.args[i] = new Ast("getMatchRound");
+                }*/
             } else if (argInfo.canReplaceNullVectorByNull && content.args[i].name === "vect"
                     && content.args[i].args[0].name === "__number__" && content.args[i].args[0].args[0].numValue === 0
                     && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0
@@ -35383,6 +35670,11 @@ function compileCustomGameSettings(customGameSettings) {
 	if (typeof customGameSettings !== "object" || customGameSettings === null) {
 		error("Expected an object for custom game settings");
 	}
+
+	if (compiledCustomGameSettings !== "") {
+		error("Custom game settings have already been declared");
+	}
+	
 	var result = {};
 	for (var key of Object.keys(customGameSettings)) {
 		if (key === "main" || key === "lobby") {
@@ -35471,20 +35763,20 @@ function compileCustomGameSettings(customGameSettings) {
 
 	nbTabs = 0;
 	function deserializeObject(obj) {
-		var result = "\n"+tabLevel(nbTabs)+"{\n";
+		var result = "\n"+tabLevel(nbTabs, true)+"{\n";
 		nbTabs++;
 		for (var key of Object.keys(obj)) {
 			if (obj[key].constructor === Array) {
-				result += tabLevel(nbTabs)+key+"\n"+tabLevel(nbTabs)+"{\n"+obj[key].map(x => tabLevel(nbTabs+1)+x+"\n").join("");
-				result += tabLevel(nbTabs)+"}\n";
+				result += tabLevel(nbTabs, true)+key+"\n"+tabLevel(nbTabs, true)+"{\n"+obj[key].map(x => tabLevel(nbTabs+1, true)+x+"\n").join("");
+				result += tabLevel(nbTabs, true)+"}\n";
 			} else if (typeof obj[key] === "object" && obj[key] !== null) {
-				result += tabLevel(nbTabs)+key+deserializeObject(obj[key])+"\n";
+				result += tabLevel(nbTabs, true)+key+deserializeObject(obj[key])+"\n";
 			} else {
-				result += tabLevel(nbTabs)+key+": "+obj[key]+"\n";
+				result += tabLevel(nbTabs, true)+key+": "+obj[key]+"\n";
 			}
 		}
 		nbTabs--;
-		result += tabLevel(nbTabs)+"}";
+		result += tabLevel(nbTabs, true)+"}";
 		return result;
 	}
 

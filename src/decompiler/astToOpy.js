@@ -392,6 +392,7 @@ function astActionsToOpy(actions) {
     for (var j = 0; j < decompilerGotos.length; j++) {
         result += tabLevel(nbTabs)+decompilerGotos[j].label+":\n";
     }
+    decompilerGotos = [];
 
     return result;
 
