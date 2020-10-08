@@ -82,7 +82,7 @@ function createSuitableWorkshopSettingString(str, isName, sortOrder) {
         error("Expected a custom string literal for workshop setting, but got '"+functionNameToString(str)+"'");
     }
     if (str.args[1].name !== "null" || str.args[2].name !== "null" || str.args[3].name !== "null") {
-        error("Workshop setting strings cannot contain formatting arguments or be longer than 128 bytes");
+        error("Workshop setting strings cannot contain formatting arguments or be longer than 128 characters");
     }
 
     //Replace "{", "}" and ":"
@@ -112,7 +112,7 @@ function createSuitableWorkshopSettingString(str, isName, sortOrder) {
         //workshopSettingCategories[settingCategory.args[0].name].push(str.args[0].name);
     }
 
-    //Strings have a max of 128 bytes, and must be literals
+    //Strings have a max of 128 chars, and must be literals
     if (getUtf8Length(str.args[0].name) > 128) {
         error("String '"+str.args[0].name+"' was pushed over the 128 bytes limit due to OverPy modifications (is now "+getUtf8Length(str.args[0].name)+" bytes long)");
     }

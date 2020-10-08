@@ -25,7 +25,7 @@ const customGameSettingsSchema =
             "description": {
                 "guid": "00000001007F",
                 "values": "__string__",
-                "maxBytes": 512,
+                "maxChars": 512,
                 "en-US": "Description",
                 "de-DE": "Beschreibung",
                 "es-ES": "Descripción",

@@ -82,6 +82,10 @@ var workshopSettingNames = [];
 //User-declared enums.
 var enumMembers = {};
 
+//Replacements for 0 and 1. Those are functions that give exactly 0 and 1, and are able to be applied to all number inputs. As such, they are not function dependent.
+var replacementFor0;
+var replacementFor1;
+
 //Decompilation variables
 
 
@@ -136,6 +140,8 @@ function resetGlobalVariables(language) {
 	playerInitDirectives = [];
 	workshopSettingNames = [];
 	enumMembers = {};
+	replacementFor0 = null;
+	replacementFor1 = null;
 }
 
 //Other constants

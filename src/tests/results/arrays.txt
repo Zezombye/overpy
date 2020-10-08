@@ -85,8 +85,9 @@ rule ("index") {
     }
     actions {
         Set Global Variable(A, Index Of Array Value(Global.B, 3));
-        "1"
-        Set Global Variable(A, 1);
+        Set Global Variable(A, Index Of Array Value(Array(Global.A, Global.B, Global.C), Global.B));
+        "2"
+        Set Global Variable(A, Index Of Array Value(Array(1, 2, 3), 3));
         Set Global Variable(A, Index Of Array Value(Array(Global.A, Global.B, Global.C), 3));
     }
 }

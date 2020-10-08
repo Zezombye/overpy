@@ -182,11 +182,11 @@ module.exports = {
 `
 
 fs.writeFileSync("./VS Code Extension/overpy.js", overpyCode);
-fs.writeFileSync("./bot/overpy.js", overpyCode);
+//fs.writeFileSync("./bot/overpy.js", overpyCode);
 
 //Generate functions.md
 
-const overpy = require("./bot/overpy.js");
+const overpy = require("./VS Code Extension/overpy.js");
 
 var functionsMd = `
 

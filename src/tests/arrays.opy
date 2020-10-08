@@ -34,7 +34,8 @@ rule "mapped array":
 
 rule "index":
     A = B.index(3)
-    A = [A,B,C].index(B) #1
+    A = [A,B,C].index(B)
+    A = [1,2,3].index(3) #2
     A = [A,B,C].index(3)
 
 rule "slice":

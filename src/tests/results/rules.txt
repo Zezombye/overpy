@@ -54,6 +54,14 @@ rule ("filter on team+slot") {
     }
 }
 
+disabled rule ("other directives") {
+    event {
+        Player Died;
+        All;
+        All;
+    }
+}
+
 rule ("conditions") {
     event {
         Ongoing - Global;

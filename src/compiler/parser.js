@@ -273,15 +273,15 @@ function commentArrayToString(comments) {
         return "";
     }
     var result = comments[comments.length-1];
-    var nbBytes = getUtf8Length(result);
-    if (nbBytes > 256) {
+    var nbChars = getUtf8Length(result);
+    if (nbChars > 256) {
         return result;
     }
     for (var i = comments.length-2; i >= 0; i--) {
-        var addedBytes = getUtf8Length(comments[i]);
-        if (nbBytes + addedBytes + 1 <= 256) {
+        var addedChars = getUtf8Length(comments[i]);
+        if (nbChars + addedChars + 1 <= 256) {
             result = comments[i]+"\n"+result;
-            nbBytes += addedBytes+1;
+            nbChars += addedChars+1;
         } else {
             break;
         }

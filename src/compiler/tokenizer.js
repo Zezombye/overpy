@@ -217,6 +217,38 @@ function tokenize(content) {
 		} else if (content.startsWith("#!disableOptimizations")) {
 			enableOptimization = false;
 
+		} else if (content.startsWith("#!replace0ByCapturePercentage")) {
+			if (replacementFor0 !== null) {
+				error("A replacement for 0 has already been defined");
+			}
+			replacementFor0 = "getCapturePercentage";
+
+		} else if (content.startsWith("#!replace0ByIsMatchComplete")) {
+			if (replacementFor0 !== null) {
+				error("A replacement for 0 has already been defined");
+			}
+			replacementFor0 = "isMatchComplete";
+
+		} else if (content.startsWith("#!replace0ByPayloadProgressPercentage")) {
+			if (replacementFor0 !== null) {
+				error("A replacement for 0 has already been defined");
+			}
+			replacementFor0 = "getPayloadProgressPercentage";
+
+			/* Could also use:
+			- isAssemblingHeroes()
+			- isInSetup()
+			- isWaitingForPlayers()
+			- isGameInProgress()
+			but they are not really reliable compared to the other functions as players may decide to start the game or change gamemode.
+			*/
+
+		} else if (content.startsWith("#!replace1ByMatchRound")) {
+			if (replacementFor1 !== null) {
+				error("A replacement for 1 has already been defined");
+			}
+			replacementFor1 = "getMatchRound";
+
 		} else if (content.startsWith("#!suppressWarnings ")) {
 			var firstSpaceIndex = content.indexOf(" ");
 			globalSuppressedWarnings.push(...content.substring(firstSpaceIndex).trim().split(" ").map(x => x.trim()));
@@ -561,7 +593,10 @@ function parseMacro(macro) {
 		macro.text = macro.content.substring(0, macro.content.indexOf(" ")).trim();
 		macro.name = macro.text;
         macro.replacement = macro.content.substring(macro.content.indexOf(" ")).trim();
-        macro.startingCol += macro.content.indexOf(" ")+macro.content.substring(macro.content.indexOf(" ")).search(/\S/)+1;
+		macro.startingCol += macro.content.indexOf(" ")+macro.content.substring(macro.content.indexOf(" ")).search(/\S/)+1;
+		if (reservedNames.includes(macro.name)) {
+			warn("w_redefining_keyword", "The macro name '"+macro.name+"' is a keyword");
+		}
 		
 	} else {
 		//Function macro

@@ -58,5 +58,57 @@ To save elements, it is possible to specify methods to disable, by prefixing the
     },
     "disableOptimizations": {
         "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
-    }
+    },
+    "replace0ByCapturePercentage": {
+        "description": `
+Replaces all instances of 0 by \`getCapturePercentage()\`, if replacement by \`null\` or \`false\` is impossible.
+
+This directive should only be used if the gamemode cannot be played in Assault, Hybrid, or Elimination.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getCapturePercentage()
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+    "replace0ByPayloadProgressPercentage": {
+        "description": `
+Replaces all instances of 0 by \`getPayloadProgressPercentage()\`, if replacement by \`null\` or \`false\` is impossible.
+
+This directive should only be used if the gamemode cannot be played in Hybrid or Escort.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getPayloadProgressPercentage()
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+    "replace0ByIsMatchComplete": {
+        "description": `
+Replaces all instances of 0 by \`isMatchComplete()\`, if replacement by \`null\` or \`false\` is impossible.
+
+This directive should only be used if the gamemode is endless, or if you do not care about the integrity of the gamemode once victory/defeat is declared.
+`
+    },
+    "replace1ByMatchRound": {
+        "description": `
+Replaces all instances of 1 by \`getMatchRound()\`, if replacement by \`true\` is impossible.
+
+This directive should only be used if the gamemode cannot be played in Assault, Hybrid, Escort (with the competitive ruleset) or Control.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getMatchRound() > 1
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
 }

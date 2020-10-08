@@ -127,6 +127,11 @@ If no value is specified, the value is the last specified value plus 1 (if the l
         "args": null,
         "snippet": "lambda $0",
     },
+    "loc": {
+        "description": "Used to define a dynamic goto (see `goto`).",
+        "args": null,
+        "snippet": "loc+$0",
+    },
     "not": {
         "description": "Whether the given operand is false (or equivalent to false).",
         "args": null,

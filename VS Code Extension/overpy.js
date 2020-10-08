@@ -1323,7 +1323,7 @@ const opyFuncs = {
         return: "int",
     },
     "lineIntersectsSphere": {
-        "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point.\n\nThanks to LazyLion for the formula.\n\nResolves to `distance(distance(lineStart, sphereCenter) * lineDirection, sphereCenter) <= sphereRadius`.",
+        "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point. Note that this function is inaccurate around the edges of a sphere if `lineStart` is too close to `sphereCenter`.\n\nThanks to LazyLion for the formula.\n\nResolves to `distance(distance(lineStart, sphereCenter) * lineDirection + lineStart, sphereCenter) <= sphereRadius`.",
         "args": [
             {
                 "name": "LINE START",
@@ -1347,7 +1347,7 @@ const opyFuncs = {
         return: "bool",
     },
     "log": {
-        "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4.",
+        "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid and LazyLion for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4.",
         "args": [
             {
                 "name": "NUMBER",
@@ -1653,6 +1653,11 @@ If no value is specified, the value is the last specified value plus 1 (if the l
         "args": null,
         "snippet": "lambda $0",
     },
+    "loc": {
+        "description": "Used to define a dynamic goto (see `goto`).",
+        "args": null,
+        "snippet": "loc+$0",
+    },
     "not": {
         "description": "Whether the given operand is false (or equivalent to false).",
         "args": null,
@@ -1922,7 +1927,59 @@ To save elements, it is possible to specify methods to disable, by prefixing the
     },
     "disableOptimizations": {
         "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
-    }
+    },
+    "replace0ByCapturePercentage": {
+        "description": `
+Replaces all instances of 0 by \`getCapturePercentage()\`, if replacement by \`null\` or \`false\` is impossible.
+
+This directive should only be used if the gamemode cannot be played in Assault, Hybrid, or Elimination.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getCapturePercentage()
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+    "replace0ByPayloadProgressPercentage": {
+        "description": `
+Replaces all instances of 0 by \`getPayloadProgressPercentage()\`, if replacement by \`null\` or \`false\` is impossible.
+
+This directive should only be used if the gamemode cannot be played in Hybrid or Escort.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getPayloadProgressPercentage()
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+    "replace0ByIsMatchComplete": {
+        "description": `
+Replaces all instances of 0 by \`isMatchComplete()\`, if replacement by \`null\` or \`false\` is impossible.
+
+This directive should only be used if the gamemode is endless, or if you do not care about the integrity of the gamemode once victory/defeat is declared.
+`
+    },
+    "replace1ByMatchRound": {
+        "description": `
+Replaces all instances of 1 by \`getMatchRound()\`, if replacement by \`true\` is impossible.
+
+This directive should only be used if the gamemode cannot be played in Assault, Hybrid, Escort (with the competitive ruleset) or Control.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getMatchRound() > 1
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
 }
 /*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -18979,7 +19036,7 @@ const customGameSettingsSchema =
             "description": {
                 "guid": "00000001007F",
                 "values": "__string__",
-                "maxBytes": 512,
+                "maxChars": 512,
                 "en-US": "Description",
                 "de-DE": "Beschreibung",
                 "es-ES": "Descripción",
@@ -23995,6 +24052,10 @@ const opyAnnotations = {
     "@Disabled": {
         "description": "Generates the rule as disabled.",
         args: [],
+    },
+    "@Delimiter": {
+        "description": "Specifies that the rule is a delimiter for use in the workshop UI. As such, it will not be optimized out.",
+        args: [],
     }
 }/* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -24080,6 +24141,10 @@ var workshopSettingNames = [];
 //User-declared enums.
 var enumMembers = {};
 
+//Replacements for 0 and 1. Those are functions that give exactly 0 and 1, and are able to be applied to all number inputs. As such, they are not function dependent.
+var replacementFor0;
+var replacementFor1;
+
 //Decompilation variables
 
 
@@ -24134,6 +24199,8 @@ function resetGlobalVariables(language) {
 	playerInitDirectives = [];
 	workshopSettingNames = [];
 	enumMembers = {};
+	replacementFor0 = null;
+	replacementFor1 = null;
 }
 
 //Other constants
@@ -24933,8 +25000,8 @@ function compileCustomGameSettingsDict(dict, refDict) {
 			result[wsKey] = tows(dict[key], refDict[key].values);
 
 		} else if (refDict[key].values === "__string__") {
-			if (getUtf8Length(dict[key]) > refDict[key].maxBytes) {
-				error("String for '"+key+"' must not have more than "+refDict[key].maxBytes+" bytes");
+			if (getUtf8Length(dict[key]) > refDict[key].maxChars) {
+				error("String for '"+key+"' must not have more than "+refDict[key].maxChars+" chars");
 			}
 			result[wsKey] = escapeString(dict[key]);
 
@@ -25740,15 +25807,17 @@ function escapeString(content) {
 }
 
 function getUtf8Length(str){
-	// returns the byte length of an utf8 string
-	var s = str.length;
-	for (var i=str.length-1; i>=0; i--) {
+	//returns the char length of an utf8 string
+	var result = 0;
+	for (var i = 0; i < str.length; i++) {
 		var code = str.charCodeAt(i);
-		if (code > 0x7f && code <= 0x7ff) s++;
-		else if (code > 0x7ff && code <= 0xffff) s+=2;
-		if (code >= 0xDC00 && code <= 0xDFFF) i--; //trail surrogate
+		if (code >= 0xDC00 && code <= 0xDFFF) {
+			//skip as it is a surrogate pair
+			continue;
+		}
+		result++;
 	}
-	return s;
+	return result;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -30100,7 +30169,8 @@ astParsingFunctions.__ifThenElse__ = function(content) {
 
 astParsingFunctions.__indexOfArrayValue__ = function(content) {
 
-    if (enableOptimization) {
+    //TODO: only do that for constants
+    /*if (enableOptimization) {
         if (content.args[0].name === "__array__") {
             for (var i = 0; i < content.args[0].args.length; i++) {
                 if (areAstsEqual(content.args[0].args[i], content.args[1])) {
@@ -30108,7 +30178,7 @@ astParsingFunctions.__indexOfArrayValue__ = function(content) {
                 }
             }
         }
-    }
+    }*/
 
     return content;
 }
@@ -30828,7 +30898,7 @@ astParsingFunctions.__rule__ = function(content) {
         iterateOnRuleActions(content.children);
     }
 
-    if (enableOptimization && !hasMeaningfulInstructionBeenEncountered) {
+    if (enableOptimization && !hasMeaningfulInstructionBeenEncountered && !content.ruleAttributes.isDelimiter) {
         return getAstForUselessInstruction();
     }
 
@@ -30912,7 +30982,9 @@ astParsingFunctions.__rule__ = function(content) {
         for (var i = 0; i < content.ruleAttributes.conditions.length; i++) {
             if (isDefinitelyFalsy(content.ruleAttributes.conditions[i])) {
                 debug("rule has false condition");
-                return getAstForUselessInstruction();
+                if (!content.ruleAttributes.isDelimiter) {
+                    return getAstForUselessInstruction();
+                }
             } else if (isDefinitelyTruthy(content.ruleAttributes.conditions[i])) {
                 content.ruleAttributes.conditions.splice(i, 1);
                 i--;
@@ -31999,7 +32071,7 @@ function createSuitableWorkshopSettingString(str, isName, sortOrder) {
         error("Expected a custom string literal for workshop setting, but got '"+functionNameToString(str)+"'");
     }
     if (str.args[1].name !== "null" || str.args[2].name !== "null" || str.args[3].name !== "null") {
-        error("Workshop setting strings cannot contain formatting arguments or be longer than 128 bytes");
+        error("Workshop setting strings cannot contain formatting arguments or be longer than 128 characters");
     }
 
     //Replace "{", "}" and ":"
@@ -32029,7 +32101,7 @@ function createSuitableWorkshopSettingString(str, isName, sortOrder) {
         //workshopSettingCategories[settingCategory.args[0].name].push(str.args[0].name);
     }
 
-    //Strings have a max of 128 bytes, and must be literals
+    //Strings have a max of 128 chars, and must be literals
     if (getUtf8Length(str.args[0].name) > 128) {
         error("String '"+str.args[0].name+"' was pushed over the 128 bytes limit due to OverPy modifications (is now "+getUtf8Length(str.args[0].name)+" bytes long)");
     }
@@ -32461,11 +32533,14 @@ astParsingFunctions.lineIntersectsSphere = function(content) {
 
     return new Ast("__lessThanOrEquals__", [
         new Ast("distance", [
-            new Ast("__multiply__", [
-                new Ast("distance", [
-                    content.args[0], content.args[2],
+            new Ast("__add__", [
+                new Ast("__multiply__", [
+                    new Ast("distance", [
+                        content.args[0], content.args[2],
+                    ]),
+                    content.args[1],
                 ]),
-                content.args[1],
+                content.args[0],
             ]),
             content.args[2],
         ]),
@@ -33163,6 +33238,38 @@ function tokenize(content) {
 		} else if (content.startsWith("#!disableOptimizations")) {
 			enableOptimization = false;
 
+		} else if (content.startsWith("#!replace0ByCapturePercentage")) {
+			if (replacementFor0 !== null) {
+				error("A replacement for 0 has already been defined");
+			}
+			replacementFor0 = "getCapturePercentage";
+
+		} else if (content.startsWith("#!replace0ByIsMatchComplete")) {
+			if (replacementFor0 !== null) {
+				error("A replacement for 0 has already been defined");
+			}
+			replacementFor0 = "isMatchComplete";
+
+		} else if (content.startsWith("#!replace0ByPayloadProgressPercentage")) {
+			if (replacementFor0 !== null) {
+				error("A replacement for 0 has already been defined");
+			}
+			replacementFor0 = "getPayloadProgressPercentage";
+
+			/* Could also use:
+			- isAssemblingHeroes()
+			- isInSetup()
+			- isWaitingForPlayers()
+			- isGameInProgress()
+			but they are not really reliable compared to the other functions as players may decide to start the game or change gamemode.
+			*/
+
+		} else if (content.startsWith("#!replace1ByMatchRound")) {
+			if (replacementFor1 !== null) {
+				error("A replacement for 1 has already been defined");
+			}
+			replacementFor1 = "getMatchRound";
+
 		} else if (content.startsWith("#!suppressWarnings ")) {
 			var firstSpaceIndex = content.indexOf(" ");
 			globalSuppressedWarnings.push(...content.substring(firstSpaceIndex).trim().split(" ").map(x => x.trim()));
@@ -33507,7 +33614,10 @@ function parseMacro(macro) {
 		macro.text = macro.content.substring(0, macro.content.indexOf(" ")).trim();
 		macro.name = macro.text;
         macro.replacement = macro.content.substring(macro.content.indexOf(" ")).trim();
-        macro.startingCol += macro.content.indexOf(" ")+macro.content.substring(macro.content.indexOf(" ")).search(/\S/)+1;
+		macro.startingCol += macro.content.indexOf(" ")+macro.content.substring(macro.content.indexOf(" ")).search(/\S/)+1;
+		if (reservedNames.includes(macro.name)) {
+			warn("w_redefining_keyword", "The macro name '"+macro.name+"' is a keyword");
+		}
 		
 	} else {
 		//Function macro
@@ -33607,6 +33717,9 @@ function parseAstRules(rules) {
 
             } else if (rule.children[i].name === "@Disabled") {
                 rule.ruleAttributes.isDisabled = true;
+
+            } else if (rule.children[i].name === "@Delimiter") {
+                rule.ruleAttributes.isDelimiter = true;
 
             } else if (rule.children[i].name === "@Condition") {
                 if (!("conditions" in rule.ruleAttributes)) {
@@ -34017,12 +34130,27 @@ function astRuleConditionToWs(condition) {
     }
 
     if (condition.name in funcToOpMapping) {
-        /*if (condition.args[0].length > 0 && condition.args[0].args[0].numValue === 1) {
-            condition.args[0] = new Ast("getMatchRound");
+
+        //Check for replacements
+        if (enableOptimization) {
+            for (var i = 0; i <= 1; i++) {
+                /*console.log(condition);
+                console.log(i);
+                console.log(condition.args[i].name);*/
+                if (condition.args[i].args.length > 0 && condition.args[i].name === "__number__") {
+                    if (condition.args[i].args[0].numValue === 0) {
+                        condition.args[i] = getAstForNull();
+        
+                    } else if (condition.args[i].args[0].numValue === 1) {
+                        if (["__lessThanOrEquals__", "__greaterThanOrEquals__", "__lessThan__", "__greaterThan__"].includes(condition.name)) {
+                            condition.args[i] = getAstForTrue();
+                        } else if (replacementFor1 !== null) {
+                            condition.args[i] = new Ast(replacementFor1);
+                        }
+                    }
+                }
+            }
         }
-        if (condition.args[1].length > 0 && condition.args[1].args[0].numValue === 1) {
-            condition.args[1] = new Ast("getMatchRound");
-        }*/
         result += tabLevel(2)+astToWs(condition.args[0])+" "+funcToOpMapping[condition.name]+" "+astToWs(condition.args[1])+";\n";
 
     } else {
@@ -34107,9 +34235,17 @@ function astToWs(content) {
                     content.args[i] = getAstForNull();
                 } else if (argInfo.canReplace1ByTrue && content.args[i].args[0].numValue === 1) {
                     content.args[i] = getAstForTrue();
-                }/* else if (content.name !== "__workshopSettingInteger__" && content.name !== "__workshopSettingReal__" && content.name !== "__workshopSettingToggle__" && content.args[i].args[0].numValue === 1) {
-                    content.args[i] = new Ast("getMatchRound");
-                }*/
+                } else {
+                    //console.log(content.args[i].expectedType);
+                    //if (!isTypeSuitable("FloatLiteral", content.args[i].expectedType)) {
+                    if (content.name !== "__workshopSettingReal__" && content.name !== "__workshopSettingInteger__") {
+                        if (content.args[i].args[0].numValue === 0 && replacementFor0 !== null) {
+                            content.args[i] = new Ast(replacementFor0);
+                        } else if (content.args[i].args[0].numValue === 1 && replacementFor1 !== null) {
+                            content.args[i] = new Ast(replacementFor1);
+                        }
+                    }
+                }
             } else if (argInfo.canReplaceNullVectorByNull && content.args[i].name === "vect"
                     && content.args[i].args[0].name === "__number__" && content.args[i].args[0].args[0].numValue === 0
                     && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0
@@ -34651,15 +34787,15 @@ function commentArrayToString(comments) {
         return "";
     }
     var result = comments[comments.length-1];
-    var nbBytes = getUtf8Length(result);
-    if (nbBytes > 256) {
+    var nbChars = getUtf8Length(result);
+    if (nbChars > 256) {
         return result;
     }
     for (var i = comments.length-2; i >= 0; i--) {
-        var addedBytes = getUtf8Length(comments[i]);
-        if (nbBytes + addedBytes + 1 <= 256) {
+        var addedChars = getUtf8Length(comments[i]);
+        if (nbChars + addedChars + 1 <= 256) {
             result = comments[i]+"\n"+result;
-            nbBytes += addedBytes+1;
+            nbChars += addedChars+1;
         } else {
             break;
         }

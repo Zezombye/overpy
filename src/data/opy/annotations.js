@@ -71,5 +71,9 @@ const opyAnnotations = {
     "@Disabled": {
         "description": "Generates the rule as disabled.",
         args: [],
+    },
+    "@Delimiter": {
+        "description": "Specifies that the rule is a delimiter for use in the workshop UI. As such, it will not be optimized out.",
+        args: [],
     }
 }

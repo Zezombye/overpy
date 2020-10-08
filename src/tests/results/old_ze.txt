@@ -467,8 +467,8 @@ rule ("init round") {
         Ongoing - Global;
     }
     conditions {
-        Global.R <= 1;
-        Match Time != 0;
+        Global.R <= True;
+        Match Time != Null;
     }
     actions {
         Set Global Variable(P, Match Time);
@@ -512,7 +512,7 @@ rule ("init section (slice + draw tp)") {
         Ongoing - Global;
     }
     conditions {
-        Global.I == 0;
+        Global.I == Null;
     }
     actions {
         Set Global Variable(A, Array Slice(Global.W, X Component Of(Value In Array(Global.S, Global.N)), Y Component Of(Value In Array(Global.S, Global.N))));
@@ -525,7 +525,7 @@ rule ("trigger draw") {
         Ongoing - Global;
     }
     conditions {
-        Global.I == 0;
+        Global.I == Null;
     }
     actions {
         Destroy All Icons;
@@ -539,7 +539,7 @@ rule ("walls visual effect") {
         Ongoing - Global;
     }
     conditions {
-        Global.I == 0;
+        Global.I == Null;
     }
     actions {
         Create Effect(All Players(All Teams), Sphere, Yellow, Value In Array(Global.A, Global.I), 4, Visible To);
@@ -597,8 +597,8 @@ rule ("trigger") {
         Ongoing - Global;
     }
     conditions {
-        Count Of(Players Within Radius(Value In Array(Global.T, Global.N), 5, All Teams, Off)) > 0;
-        Global.Q == 0;
+        Count Of(Players Within Radius(Value In Array(Global.T, Global.N), 5, All Teams, Off)) > Null;
+        Global.Q == Null;
     }
     actions {
         Set Global Variable(Q, 1);
@@ -682,8 +682,8 @@ rule ("deathplane tp") {
     }
     conditions {
         Y Component Of(Position Of(Event Player)) < Global.D;
-        Global.R != 0;
-        Global.E == 0;
+        Global.R != Null;
+        Global.E == Null;
     }
     actions {
         Teleport(Event Player, Value In Array(Global.L, Global.N));
@@ -699,8 +699,8 @@ rule ("infect players") {
     }
     conditions {
         (Attacker).Z == 1;
-        (Victim).Z == 0;
-        Global.E == 0;
+        (Victim).Z == Null;
+        Global.E == Null;
         Distance Between(Position Of(Attacker), Position Of(Victim)) <= 5.5;
     }
     actions {
@@ -722,8 +722,8 @@ rule ("player dies = gets tp'd, +10 pts if zombie kill") {
         All;
     }
     conditions {
-        Global.E == 0;
-        Global.R != 0;
+        Global.E == Null;
+        Global.R != Null;
     }
     actions {
         Resurrect(Victim);
@@ -859,7 +859,7 @@ rule ("no stun for humans") {
     }
     conditions {
         Has Status(Event Player, Stunned) == True;
-        (Event Player).Z == 0;
+        (Event Player).Z == Null;
     }
     actions {
         Clear Status(Event Player, Stunned);
@@ -976,8 +976,8 @@ rule ("skirmish rez") {
         All;
     }
     conditions {
-        Match Time == 0;
-        Global.R == 0;
+        Match Time == Null;
+        Global.R == Null;
     }
     actions {
         Wait(4, Ignore Condition);

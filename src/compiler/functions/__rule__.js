@@ -90,7 +90,7 @@ astParsingFunctions.__rule__ = function(content) {
         iterateOnRuleActions(content.children);
     }
 
-    if (enableOptimization && !hasMeaningfulInstructionBeenEncountered) {
+    if (enableOptimization && !hasMeaningfulInstructionBeenEncountered && !content.ruleAttributes.isDelimiter) {
         return getAstForUselessInstruction();
     }
 
@@ -174,7 +174,9 @@ astParsingFunctions.__rule__ = function(content) {
         for (var i = 0; i < content.ruleAttributes.conditions.length; i++) {
             if (isDefinitelyFalsy(content.ruleAttributes.conditions[i])) {
                 debug("rule has false condition");
-                return getAstForUselessInstruction();
+                if (!content.ruleAttributes.isDelimiter) {
+                    return getAstForUselessInstruction();
+                }
             } else if (isDefinitelyTruthy(content.ruleAttributes.conditions[i])) {
                 content.ruleAttributes.conditions.splice(i, 1);
                 i--;

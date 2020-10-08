@@ -404,7 +404,7 @@ const opyFuncs = {
         return: "int",
     },
     "lineIntersectsSphere": {
-        "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point.\n\nThanks to LazyLion for the formula.\n\nResolves to `distance(distance(lineStart, sphereCenter) * lineDirection, sphereCenter) <= sphereRadius`.",
+        "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point. Note that this function is inaccurate around the edges of a sphere if `lineStart` is too close to `sphereCenter`.\n\nThanks to LazyLion for the formula.\n\nResolves to `distance(distance(lineStart, sphereCenter) * lineDirection + lineStart, sphereCenter) <= sphereRadius`.",
         "args": [
             {
                 "name": "LINE START",
@@ -428,7 +428,7 @@ const opyFuncs = {
         return: "bool",
     },
     "log": {
-        "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4.",
+        "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid and LazyLion for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4.",
         "args": [
             {
                 "name": "NUMBER",

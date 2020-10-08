@@ -70,6 +70,9 @@ function parseAstRules(rules) {
             } else if (rule.children[i].name === "@Disabled") {
                 rule.ruleAttributes.isDisabled = true;
 
+            } else if (rule.children[i].name === "@Delimiter") {
+                rule.ruleAttributes.isDelimiter = true;
+
             } else if (rule.children[i].name === "@Condition") {
                 if (!("conditions" in rule.ruleAttributes)) {
                     rule.ruleAttributes.conditions = [];
