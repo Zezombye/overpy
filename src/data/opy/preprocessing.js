@@ -111,9 +111,9 @@ rule "Integrity check":
 \`\`\`
 `
     },
-    "replaceTeamAllByControlScoringTeam": {
+    "replaceTeam1ByControlScoringTeam": {
         "description": `
-Replaces all instances of \`Team.ALL\` by \`getControlScoringTeam()\`.
+Replaces all instances of \`Team.1\` by \`getControlScoringTeam()\`.
 
 This directive should only be used if the gamemode cannot be played in Control.
 
@@ -121,7 +121,7 @@ If you want to make sure this gamemode is not mistakenly played, you can add the
 
 \`\`\`python
 rule "Integrity check":
-    @Condition getCurrentGamemode() == Gamemode.CONTROL
+    @Condition getControlScoringTeam() != Team.1
     print("This gamemode cannot be played!")
 \`\`\`
 `

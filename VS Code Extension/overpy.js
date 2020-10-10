@@ -1980,9 +1980,9 @@ rule "Integrity check":
 \`\`\`
 `
     },
-    "replaceTeamAllByControlScoringTeam": {
+    "replaceTeam1ByControlScoringTeam": {
         "description": `
-Replaces all instances of \`Team.ALL\` by \`getControlScoringTeam()\`.
+Replaces all instances of \`Team.1\` by \`getControlScoringTeam()\`.
 
 This directive should only be used if the gamemode cannot be played in Control.
 
@@ -1990,7 +1990,7 @@ If you want to make sure this gamemode is not mistakenly played, you can add the
 
 \`\`\`python
 rule "Integrity check":
-    @Condition getCurrentGamemode() == Gamemode.CONTROL
+    @Condition getControlScoringTeam() != Team.1
     print("This gamemode cannot be played!")
 \`\`\`
 `
@@ -24156,10 +24156,10 @@ var workshopSettingNames = [];
 //User-declared enums.
 var enumMembers = {};
 
-//Replacements for 0, 1, and Team.ALL. Those are functions that give exactly those values, and are able to be applied to all inputs. As such, they are not function dependent.
+//Replacements for 0, 1, and Team.1. Those are functions that give exactly those values, and are able to be applied to all inputs. As such, they are not function dependent.
 var replacementFor0;
 var replacementFor1;
-var replacementForTeamAll;
+var replacementForTeam1;
 
 //Decompilation variables
 
@@ -24217,7 +24217,7 @@ function resetGlobalVariables(language) {
 	enumMembers = {};
 	replacementFor0 = null;
 	replacementFor1 = null;
-	replacementForTeamAll = null;
+	replacementForTeam1 = null;
 }
 
 //Other constants
@@ -33287,11 +33287,11 @@ function tokenize(content) {
 			}
 			replacementFor1 = "getMatchRound";
 
-		} else if (content.startsWith("#!replaceTeamAllByControlScoringTeam")) {
-			if (replacementForTeamAll !== null) {
-				error("A replacement for Team.ALL has already been defined");
+		} else if (content.startsWith("#!replaceTeam1ByControlScoringTeam")) {
+			if (replacementForTeam1 !== null) {
+				error("A replacement for Team.1 has already been defined");
 			}
-			replacementForTeamAll = "getControlScoringTeam";
+			replacementForTeam1 = "getControlScoringTeam";
 
 		} else if (content.startsWith("#!suppressWarnings ")) {
 			var firstSpaceIndex = content.indexOf(" ");
@@ -34171,8 +34171,8 @@ function astRuleConditionToWs(condition) {
                             condition.args[i] = new Ast(replacementFor1);
                         }
                     }
-                } else if (replacementForTeamAll !== null && content.args[i].name === "__team__" && content.args[i].args[0].name === "ALL") {
-                    content.args[i] = new Ast(replacementForTeamAll)
+                } else if (replacementForTeam1 !== null && condition.args[i].name === "__team__" && condition.args[i].args[0].name === "1") {
+                    condition.args[i] = new Ast(replacementForTeam1)
                 }
             }
         }
@@ -34276,8 +34276,8 @@ function astToWs(content) {
                     && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0
                     && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
                 content.args[i] = getAstForNull();
-            } else if (replacementForTeamAll !== null && content.args[i].name === "__team__" && content.args[i].args[0].name === "ALL") {
-                content.args[i] = new Ast(replacementForTeamAll)
+            } else if (replacementForTeam1 !== null && content.args[i].name === "__team__" && content.args[i].args[0].name === "1") {
+                content.args[i] = new Ast(replacementForTeam1)
             }
         }
     }

@@ -82,10 +82,10 @@ var workshopSettingNames = [];
 //User-declared enums.
 var enumMembers = {};
 
-//Replacements for 0, 1, and Team.ALL. Those are functions that give exactly those values, and are able to be applied to all inputs. As such, they are not function dependent.
+//Replacements for 0, 1, and Team.1. Those are functions that give exactly those values, and are able to be applied to all inputs. As such, they are not function dependent.
 var replacementFor0;
 var replacementFor1;
-var replacementForTeamAll;
+var replacementForTeam1;
 
 //Decompilation variables
 
@@ -143,7 +143,7 @@ function resetGlobalVariables(language) {
 	enumMembers = {};
 	replacementFor0 = null;
 	replacementFor1 = null;
-	replacementForTeamAll = null;
+	replacementForTeam1 = null;
 }
 
 //Other constants

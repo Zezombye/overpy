@@ -115,8 +115,8 @@ function astRuleConditionToWs(condition) {
                             condition.args[i] = new Ast(replacementFor1);
                         }
                     }
-                } else if (replacementForTeamAll !== null && content.args[i].name === "__team__" && content.args[i].args[0].name === "ALL") {
-                    content.args[i] = new Ast(replacementForTeamAll)
+                } else if (replacementForTeam1 !== null && condition.args[i].name === "__team__" && condition.args[i].args[0].name === "1") {
+                    condition.args[i] = new Ast(replacementForTeam1)
                 }
             }
         }
@@ -220,8 +220,8 @@ function astToWs(content) {
                     && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0
                     && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
                 content.args[i] = getAstForNull();
-            } else if (replacementForTeamAll !== null && content.args[i].name === "__team__" && content.args[i].args[0].name === "ALL") {
-                content.args[i] = new Ast(replacementForTeamAll)
+            } else if (replacementForTeam1 !== null && content.args[i].name === "__team__" && content.args[i].args[0].name === "1") {
+                content.args[i] = new Ast(replacementForTeam1)
             }
         }
     }
