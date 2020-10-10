@@ -1980,6 +1980,21 @@ rule "Integrity check":
 \`\`\`
 `
     },
+    "replaceTeamAllByControlScoringTeam": {
+        "description": `
+Replaces all instances of \`Team.ALL\` by \`getControlScoringTeam()\`.
+
+This directive should only be used if the gamemode cannot be played in Control.
+
+If you want to make sure this gamemode is not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getCurrentGamemode() == Gamemode.CONTROL
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
 }
 /*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -24141,9 +24156,10 @@ var workshopSettingNames = [];
 //User-declared enums.
 var enumMembers = {};
 
-//Replacements for 0 and 1. Those are functions that give exactly 0 and 1, and are able to be applied to all number inputs. As such, they are not function dependent.
+//Replacements for 0, 1, and Team.ALL. Those are functions that give exactly those values, and are able to be applied to all inputs. As such, they are not function dependent.
 var replacementFor0;
 var replacementFor1;
+var replacementForTeamAll;
 
 //Decompilation variables
 
@@ -24201,6 +24217,7 @@ function resetGlobalVariables(language) {
 	enumMembers = {};
 	replacementFor0 = null;
 	replacementFor1 = null;
+	replacementForTeamAll = null;
 }
 
 //Other constants
@@ -33270,6 +33287,12 @@ function tokenize(content) {
 			}
 			replacementFor1 = "getMatchRound";
 
+		} else if (content.startsWith("#!replaceTeamAllByControlScoringTeam")) {
+			if (replacementForTeamAll !== null) {
+				error("A replacement for Team.ALL has already been defined");
+			}
+			replacementForTeamAll = "getControlScoringTeam";
+
 		} else if (content.startsWith("#!suppressWarnings ")) {
 			var firstSpaceIndex = content.indexOf(" ");
 			globalSuppressedWarnings.push(...content.substring(firstSpaceIndex).trim().split(" ").map(x => x.trim()));
@@ -34148,6 +34171,8 @@ function astRuleConditionToWs(condition) {
                             condition.args[i] = new Ast(replacementFor1);
                         }
                     }
+                } else if (replacementForTeamAll !== null && content.args[i].name === "__team__" && content.args[i].args[0].name === "ALL") {
+                    content.args[i] = new Ast(replacementForTeamAll)
                 }
             }
         }
@@ -34251,6 +34276,8 @@ function astToWs(content) {
                     && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0
                     && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
                 content.args[i] = getAstForNull();
+            } else if (replacementForTeamAll !== null && content.args[i].name === "__team__" && content.args[i].args[0].name === "ALL") {
+                content.args[i] = new Ast(replacementForTeamAll)
             }
         }
     }
@@ -34595,7 +34622,7 @@ function parseLines(lines) {
         } else if (lines[i].tokens[0].text === "settings") {
 
             try {
-                var customGameSettings = eval("("+dispTokens(lines[i].tokens.slice(1))+")");
+                var customGameSettings = eval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
             } catch (e) {
                 error(e);
             }

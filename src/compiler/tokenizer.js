@@ -249,6 +249,12 @@ function tokenize(content) {
 			}
 			replacementFor1 = "getMatchRound";
 
+		} else if (content.startsWith("#!replaceTeamAllByControlScoringTeam")) {
+			if (replacementForTeamAll !== null) {
+				error("A replacement for Team.ALL has already been defined");
+			}
+			replacementForTeamAll = "getControlScoringTeam";
+
 		} else if (content.startsWith("#!suppressWarnings ")) {
 			var firstSpaceIndex = content.indexOf(" ");
 			globalSuppressedWarnings.push(...content.substring(firstSpaceIndex).trim().split(" ").map(x => x.trim()));

@@ -81,7 +81,7 @@ function parseLines(lines) {
         } else if (lines[i].tokens[0].text === "settings") {
 
             try {
-                var customGameSettings = eval("("+dispTokens(lines[i].tokens.slice(1))+")");
+                var customGameSettings = eval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
             } catch (e) {
                 error(e);
             }
