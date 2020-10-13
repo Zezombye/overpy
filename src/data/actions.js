@@ -1385,7 +1385,7 @@ const actionKw =
         "pt-BR": "Desabilitar Mensagens",
         "zh-CN": "隐藏信息"
     },
-    "disableEnvironmentCollision": {
+    "_&disableEnvironmentCollision": {
         "description": "Causes a player or players to stop colliding with the environment (walls, ceilings, certain objects, etc.)",
         "args": [
             {
@@ -1415,7 +1415,7 @@ const actionKw =
         "pt-BR": "Desabilitar Colisão de Movimento com Ambiente",
         "zh-CN": "取消与环境的移动碰撞"
     },
-    "disablePlayerCollision": {
+    "_&disablePlayerCollision": {
         "description": "Causes a player or players to stop colliding with other Players.",
         "args": [
             {

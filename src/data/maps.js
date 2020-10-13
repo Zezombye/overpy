@@ -59,7 +59,9 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ffa",
-            "tdm"
+            "tdm",
+            "meisSnowballOffensive",
+            "snowballFfa",
         ],
         "en-US": "Black Forest Winter",
         "de-DE": "Schwarzwald Winter",
@@ -285,7 +287,9 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ffa",
-            "tdm"
+            "tdm",
+            "meisSnowballOffensive",
+            "snowballFfa",
         ],
         "en-US": "Ecopoint: Antarctica Winter",
         "de-DE": "Ecopoint: Antarktis Winter",

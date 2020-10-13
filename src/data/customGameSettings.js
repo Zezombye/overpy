@@ -357,6 +357,7 @@ const customGameSettingsSchema =
                 "values": "__boolYesNo__",
                 "default": "no",
                 "guid": "00000000F25B",
+                "description": "Whether to allow players in 'While you wait'.",
                 "en-US": "Allow Players Who Are In Queue",
                 "de-DE": "Spieler in der Spielsuche zulassen",
                 "es-ES": "Permitir jugadores que estén en cola",

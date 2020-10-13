@@ -169,6 +169,7 @@ module.exports = {
 	ruleKw: ruleKw,
 	stringKw: stringKw,
 	heroKw: heroKw,
+	mapKw: mapKw,
 	opyFuncs: opyFuncs,
 	opyMemberFuncs: opyMemberFuncs,
 	opyKeywords: opyKeywords,
@@ -178,6 +179,7 @@ module.exports = {
 	preprocessingDirectives: preprocessingDirectives,
 	typeToString: typeToString,
 	opyStringEntities: opyStringEntities,
+	customGameSettingsSchema: customGameSettingsSchema,
 };
 `
 
@@ -188,7 +190,7 @@ fs.writeFileSync("./VS Code Extension/overpy.js", overpyCode);
 
 const overpy = require("./VS Code Extension/overpy.js");
 
-var functionsMd = `
+/*var functionsMd = `
 
 Some functions (such as operators) have transformations applied to them. If you cannot find the function here, then it is in the [special functions page](https://github.com/Zezombye/overpy/wiki/Functions).
 
@@ -258,9 +260,6 @@ for (var unitTestFile of unitTestFiles) {
 				} else if (part.removed) {
 					console.error("------REMOVED--------------");
 					console.error(part.value.split("\n").map(x => "- "+x).join("\n"));
-				} else {
-					/*console.error("------STAYED--------------");
-					console.error(part.value);*/
 				}
 			}
 
@@ -271,3 +270,178 @@ for (var unitTestFile of unitTestFiles) {
         fs.writeFileSync(outputFile, output);
     }
 }
+*/
+
+//Generate json schema
+var jsonSchema = {
+	"$schema": "http://json-schema.org/schema#",
+	"$id": "overpy/customGameSettingsSchema.json",
+	"type": "object",
+	"properties": {},
+	"additionalProperties": false,
+}
+
+function generateJsonSchema(json, settings) {
+	if (typeof settings === "object") {
+		if (!("values" in settings)) {
+			throw new Error("Object '"+settings["en-US"]+"' has no values");
+		}
+		if (typeof settings.values === "object") {
+			//It is an enum if none of the objects have a "values" field.
+			var isEnum = true;
+			for (var key in settings.values) {
+				//console.log("testing "+key);
+				//console.log(settings);
+				//console.log(settings.values[key])
+				//console.log(settings.values[key].values)
+				if (settings.values[key].values) {
+					isEnum = false;
+					break;
+				}
+			}
+			if (!isEnum) {
+				json.type = "object";
+				json.additionalProperties = false;
+				json.properties = {}
+				for (var key in settings.values) {
+					console.log("generating "+key);
+					json.properties[key] = {}
+					generateJsonSchema(json.properties[key], settings.values[key]);
+				}
+			} else {
+				json.type = "string";
+				json.oneOf = [];
+				for (var key in settings.values) {
+					console.log("generating "+key);
+					json.oneOf.push({
+						"const": key,
+						"description": settings.values[key].description,
+					})
+				}
+			}
+		} else if (settings.values === "__string__") {
+			json.type = "string";
+			if ("maxChars" in settings) {
+				json.maxLength = settings.maxChars;
+			}
+		} else if (settings.values === "__boolYesNo__" || settings.values === "__boolEnabled__" || settings.values === "__boolOnOff__" || settings.values === "__boolReverseOnOff__") {
+			json.type = "boolean";
+		} else if (settings.values === "__int__") {
+			json.type = "integer";
+			if ("min" in settings) {
+				json.minimum = settings.min;
+			}
+			if ("max" in settings) {
+				json.maximum = settings.max;
+			}
+		} else if (settings.values === "__percent__" || settings.values === "__float__") {
+			json.type = "number";
+			if ("min" in settings) {
+				json.minimum = settings.min;
+			}
+			if ("max" in settings) {
+				json.maximum = settings.max;
+			}
+		} else {
+			throw new Error("Unhandled type: "+settings.values)
+		}
+		if (settings.description) {
+			json.description = settings.description;
+		}
+	} else {
+		throw new Error("Unhandled value : "+settings)
+	}
+}
+
+for (var key in overpy.customGameSettingsSchema) {
+	console.log("generating "+key);
+	if (key === "main" || key === "lobby") {
+		jsonSchema.properties[key] = {};
+		generateJsonSchema(jsonSchema.properties[key], overpy.customGameSettingsSchema[key]);
+
+	} else if (key === "gamemodes") {
+		jsonSchema.properties[key] = {
+			type: "object",
+			additionalProperties: false,
+			properties: {},
+		};
+
+		for (var gamemode in overpy.customGameSettingsSchema[key].values) {
+			//console.log("generating gamemode "+gamemode);
+			jsonSchema.properties[key].properties[gamemode] = {
+				type: "object",
+				additionalProperties: false,
+				properties: {},
+			}
+			if (gamemode === "general") {
+				var validMaps = Object.keys(overpy.mapKw);
+			} else {
+				var validMaps = Object.keys(overpy.mapKw).filter(x => overpy.mapKw[x].gamemodes.includes(gamemode));
+			}
+			for (var key2 in overpy.customGameSettingsSchema[key].values[gamemode].values) {
+				if (key2 === "disabledMaps" || key2 === "enabledMaps") {
+					jsonSchema.properties[key].properties[gamemode].properties[key2] = {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": validMaps,
+						}
+					};
+				} else {
+					jsonSchema.properties[key].properties[gamemode].properties[key2] = {};
+					generateJsonSchema(jsonSchema.properties[key].properties[gamemode].properties[key2], overpy.customGameSettingsSchema[key].values[gamemode].values[key2]);
+				}
+			}
+		}
+	} else if (key === "heroes") {
+		jsonSchema.definitions = {
+			"heroes": {
+				type: "object",
+				additionalProperties: false,
+				properties: {},
+			},
+		}
+		for (var hero in overpy.customGameSettingsSchema[key].values) {
+			//console.log("generating hero "+hero);
+			jsonSchema.definitions.heroes.properties[hero] = {}
+			if (hero === "disabledHeroes" || hero === "enabledHeroes") {
+				jsonSchema.definitions.heroes.properties[hero] = {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"enum": Object.keys(overpy.heroKw),
+					}
+				}
+			} else if (hero === "general") {
+				overpy.customGameSettingsSchema[key].values[hero] = {"values": overpy.customGameSettingsSchema[key].values[hero]}
+				generateJsonSchema(jsonSchema.definitions.heroes.properties[hero], overpy.customGameSettingsSchema[key].values[hero])
+			} else {
+				generateJsonSchema(jsonSchema.definitions.heroes.properties[hero], overpy.customGameSettingsSchema[key].values[hero])
+			}
+		}
+		jsonSchema.properties[key] = {
+			type: "object",
+			additionalProperties: false,
+			properties: {},
+		}
+		for (var team in overpy.customGameSettingsSchema[key].teams) {
+			jsonSchema.properties[key].properties[team] = {
+				"$ref": "#/definitions/heroes",
+			}
+		}
+	} else if (key === "workshop") {
+		jsonSchema.properties[key] = {
+			type: "object",
+			"patternProperties": {
+				".*": {
+					"type": ["number", "boolean"],
+				},
+			},
+		}
+
+	} else {
+		throw new Error("unknown key "+key);
+	}
+}
+
+fs.writeFileSync("./VS Code Extension/customGameSettingsSchema.json", JSON.stringify(jsonSchema, null, 4));

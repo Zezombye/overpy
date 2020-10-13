@@ -3383,7 +3383,7 @@ const actionKw =
         "pt-BR": "Desabilitar Mensagens",
         "zh-CN": "隐藏信息"
     },
-    "disableEnvironmentCollision": {
+    "_&disableEnvironmentCollision": {
         "description": "Causes a player or players to stop colliding with the environment (walls, ceilings, certain objects, etc.)",
         "args": [
             {
@@ -3413,7 +3413,7 @@ const actionKw =
         "pt-BR": "Desabilitar Colisão de Movimento com Ambiente",
         "zh-CN": "取消与环境的移动碰撞"
     },
-    "disablePlayerCollision": {
+    "_&disablePlayerCollision": {
         "description": "Causes a player or players to stop colliding with other Players.",
         "args": [
             {
@@ -12736,7 +12736,9 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ffa",
-            "tdm"
+            "tdm",
+            "meisSnowballOffensive",
+            "snowballFfa",
         ],
         "en-US": "Black Forest Winter",
         "de-DE": "Schwarzwald Winter",
@@ -12962,7 +12964,9 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ffa",
-            "tdm"
+            "tdm",
+            "meisSnowballOffensive",
+            "snowballFfa",
         ],
         "en-US": "Ecopoint: Antarctica Winter",
         "de-DE": "Ecopoint: Antarktis Winter",
@@ -16103,22 +16107,6 @@ const gamemodeKw =
         "ru-RU": "Захват точек",
         "zh-CN": "攻防作战",
         "zh-TW": "佔領"
-    },
-    "assaultTest": {
-        "guid": "000000011262",
-        "en-US": "Assault Test",
-        "de-DE": "Angriff – Test",
-        "es-ES": "Prueba de asalto",
-        "es-MX": "Prueba de Asalto",
-        "fr-FR": "Test d’Attaque",
-        "it-IT": "Test Conquista",
-        "ja-JP": "アサルト・テスト",
-        "ko-KR": "점령 테스트",
-        "pl-PL": "Testowy Szturm",
-        "pt-BR": "Ataque - Teste",
-        "ru-RU": "Захват точек тест",
-        "zh-CN": "攻防测试",
-        "zh-TW": "佔領測試"
     },
     "ctf": {
         "guid": "000000005A56",
@@ -19383,6 +19371,7 @@ const customGameSettingsSchema =
                 "values": "__boolYesNo__",
                 "default": "no",
                 "guid": "00000000F25B",
+                "description": "Whether to allow players in 'While you wait'.",
                 "en-US": "Allow Players Who Are In Queue",
                 "de-DE": "Spieler in der Spielsuche zulassen",
                 "es-ES": "Permitir jugadores que estén en cola",
@@ -46236,6 +46225,7 @@ module.exports = {
 	ruleKw: ruleKw,
 	stringKw: stringKw,
 	heroKw: heroKw,
+	mapKw: mapKw,
 	opyFuncs: opyFuncs,
 	opyMemberFuncs: opyMemberFuncs,
 	opyKeywords: opyKeywords,
@@ -46245,4 +46235,5 @@ module.exports = {
 	preprocessingDirectives: preprocessingDirectives,
 	typeToString: typeToString,
 	opyStringEntities: opyStringEntities,
+	customGameSettingsSchema: customGameSettingsSchema,
 };

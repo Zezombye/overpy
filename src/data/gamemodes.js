@@ -36,22 +36,6 @@ const gamemodeKw =
         "zh-CN": "攻防作战",
         "zh-TW": "佔領"
     },
-    "assaultTest": {
-        "guid": "000000011262",
-        "en-US": "Assault Test",
-        "de-DE": "Angriff – Test",
-        "es-ES": "Prueba de asalto",
-        "es-MX": "Prueba de Asalto",
-        "fr-FR": "Test d’Attaque",
-        "it-IT": "Test Conquista",
-        "ja-JP": "アサルト・テスト",
-        "ko-KR": "점령 테스트",
-        "pl-PL": "Testowy Szturm",
-        "pt-BR": "Ataque - Teste",
-        "ru-RU": "Захват точек тест",
-        "zh-CN": "攻防测试",
-        "zh-TW": "佔領測試"
-    },
     "ctf": {
         "guid": "000000005A56",
         "en-US": "Capture The Flag",
