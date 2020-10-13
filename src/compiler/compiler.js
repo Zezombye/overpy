@@ -55,6 +55,7 @@ function compile(content, language="en-US", _rootPath="") {
 		}
 		console.log(astRules);
 	}
+
     var parsedAstRules = parseAstRules(astRules);
 
 	if (DEBUG_MODE) {
@@ -85,6 +86,7 @@ function compile(content, language="en-US", _rootPath="") {
 		subroutines: subroutines,
 		encounteredWarnings: encounteredWarnings,
 		enumMembers: enumMembers,
+		nbElements: nbElements,
 	};
 }
 

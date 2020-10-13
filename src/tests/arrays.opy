@@ -61,3 +61,5 @@ rule "other array functions":
     A = B.concat(2)
     A = B.index(3)
     A = B.exclude(3)
+    A = [X,Y,Z].reverse() #Z,Y,X
+    A = B.reverse()

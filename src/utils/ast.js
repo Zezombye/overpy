@@ -288,3 +288,6 @@ function getAstForNullVector() {
         getAstFor0(),
     ])
 }
+function getAstForCurrentArrayIndex() {
+    return new Ast("__currentArrayIndex__");
+}

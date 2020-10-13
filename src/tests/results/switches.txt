@@ -11,26 +11,27 @@ rule ("switches") {
         Ongoing - Global;
     }
     actions {
+        If(True);
         Skip(Value In Array(Array(4, Null, 2), Add(True, Index Of Array Value(Array(1, 2), Global.A))));
-        //__label_switch_4_0__:
-        Global.B += True;
-        Skip(2);
-        //__label_switch_4_1__:
-        Global.C += True;
-        "pass"
-        disabled Abort;
-        //__label_switch_4_default__:
-        //__label_break_3__:
-        //__label_break_2__:
+        //__label_switch_2_0__:
+        Modify Global Variable(B, Add, True);
+        Else;
+        //__label_switch_2_1__:
+        Modify Global Variable(C, Add, True);
+        Else;
+        //__label_switch_2_default__:
+        End;
+        If(True);
         Skip(Value In Array(Array(2, Null, 1, 1, 2), Add(True, Index Of Array Value(Array(1, 2, 3, Hero(Brigitte)), Global.B))));
-        //__label_switch_5_0__:
-        Global.B += True;
-        //__label_switch_5_1__:
-        //__label_switch_5_2__:
-        Global.C += True;
-        //__label_switch_5_default__:
-        //__label_switch_5_3__:
-        Global.D += True;
+        //__label_switch_3_0__:
+        Modify Global Variable(B, Add, True);
+        //__label_switch_3_1__:
+        //__label_switch_3_2__:
+        Modify Global Variable(C, Add, True);
+        //__label_switch_3_default__:
+        //__label_switch_3_3__:
+        Modify Global Variable(D, Add, True);
+        End;
     }
 }
 
@@ -40,29 +41,30 @@ rule ("nested switches") {
     }
     actions {
         If(Global.A);
-            Skip(Value In Array(Array(10, Null, 2, 4), Add(True, Index Of Array Value(Array(1, 2, 3), Global.B))));
-            //__label_switch_10_0__:
-            Global.C += True;
-            Skip(8);
-            //__label_switch_10_1__:
-            Global.D += True;
-            Skip(6);
-            //__label_switch_10_2__:
+            If(True);
+            Skip(Value In Array(Array(12, Null, 2, 4), Add(True, Index Of Array Value(Array(1, 2, 3), Global.B))));
+            //__label_switch_5_0__:
+            Modify Global Variable(C, Add, True);
+            Else;
+            //__label_switch_5_1__:
+            Modify Global Variable(D, Add, True);
+            Else;
+            //__label_switch_5_2__:
+            If(True);
             Skip(Value In Array(Array(4, Null, 3), Add(True, Index Of Array Value(Array(1, 2), Global.C))));
-            //__label_switch_9_0__:
-            Global.A += True;
-            Global.B += True;
-            Skip(2);
-            //__label_switch_9_1__:
-            Global.C += True;
-            //__label_switch_9_default__:
-            Global.D += True;
-            //__label_break_8__:
-            //__label_switch_10_default__:
-            //__label_break_7__:
-            //__label_break_6__:
+            //__label_switch_4_0__:
+            Modify Global Variable(A, Add, True);
+            Modify Global Variable(B, Add, True);
+            Else;
+            //__label_switch_4_1__:
+            Modify Global Variable(C, Add, True);
+            //__label_switch_4_default__:
+            Modify Global Variable(D, Add, True);
+            End;
+            //__label_switch_5_default__:
+            End;
         Else;
-            Global.E += True;
+            Modify Global Variable(E, Add, True);
     }
 }
 

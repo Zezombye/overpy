@@ -29,7 +29,7 @@ astParsingFunctions.break = function(content) {
         }
     }
 
-    if (innermostStructure.name === "__switch__" || innermostStructure.name === "__doWhile__") {
+    if (innermostStructure.name === "__doWhile__") {
         //Place a label at the end
         var labelName = "__label_break_"+getUniqueNumber()+"__";
         var label = new Ast(labelName, [], [], "Label");
@@ -38,6 +38,11 @@ astParsingFunctions.break = function(content) {
 
         //Convert the switch to a goto
         return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
+
+    } else if (innermostStructure.name === "__switch__") {
+        var result = new Ast("__else__");
+        result.doNotOptimize = true;
+        return result;
 
     } else if (innermostStructure.name === "__while__" || innermostStructure.name === "__for__") {
         return content;

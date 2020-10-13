@@ -47,7 +47,7 @@ function getFileContent(path) {
 		fs = require("fs");
 		//glob = require("glob");
 	} catch (e) {
-		error("Cannot use multiple files in browsers");
+		error("Cannot import files in browsers");
 	}
 	if (path.endsWith(".opy") && importedFiles.includes(path)) {
 		warn("w_already_imported", "The file '"+path+"' was already imported and will not be imported again.");

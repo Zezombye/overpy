@@ -222,8 +222,8 @@ rule ("assignment") {
         Set Global Variable At Index(A, False, Global.B);
         Set Player Variable(Event Player, A, Global.B);
         Set Player Variable At Index(Event Player, A, False, Global.B);
-        Global.A += Global.B;
-        (Event Player).A += Global.B;
+        Modify Global Variable(A, Add, Global.B);
+        Modify Player Variable(Event Player, A, Add, Global.B);
         Modify Global Variable(A, Subtract, Global.B);
         Modify Global Variable(A, Multiply, Global.B);
         Modify Global Variable(A, Divide, Global.B);
@@ -231,7 +231,7 @@ rule ("assignment") {
         Modify Global Variable(A, Raise To Power, Global.B);
         Modify Global Variable(A, Max, Global.B);
         Modify Global Variable(A, Min, Global.B);
-        Global.A += True;
+        Modify Global Variable(A, Add, True);
         Modify Global Variable(A, Subtract, True);
     }
 }

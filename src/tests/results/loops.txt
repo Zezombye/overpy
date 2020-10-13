@@ -15,13 +15,13 @@ rule ("while loop") {
     actions {
         While(Compare(Global.A, ==, Global.B));
             While(Compare(Global.B, ==, Global.C));
-                Global.A += True;
+                Modify Global Variable(A, Add, True);
                 If(Global.D);
                     Break;
                 End;
             End;
         End;
-        Global.B += True;
+        Modify Global Variable(B, Add, True);
     }
 }
 
@@ -31,7 +31,7 @@ rule ("while to the end") {
     }
     actions {
         While(Compare(Global.A, ==, Global.B));
-            Global.A += True;
+            Modify Global Variable(A, Add, True);
         End;
     }
 }
@@ -43,7 +43,7 @@ rule ("while to the end nested") {
     actions {
         While(Compare(Global.A, ==, Global.B));
             While(Compare(Global.B, ==, Global.C));
-                Global.A += True;
+                Modify Global Variable(A, Add, True);
             End;
         End;
     }
@@ -56,7 +56,7 @@ rule ("while false") {
     actions {
         While(False);
         End;
-        Global.B += True;
+        Modify Global Variable(B, Add, True);
     }
 }
 
@@ -66,16 +66,16 @@ rule ("for loop") {
     }
     actions {
         For Global Variable(I, 1, 3, 2);
-            Global.A += True;
+            Modify Global Variable(A, Add, True);
         End;
         For Global Variable(I, 1, 3, True);
-            Global.A += True;
+            Modify Global Variable(A, Add, True);
         End;
         For Global Variable(I, 0, 3, True);
-            Global.A += True;
+            Modify Global Variable(A, Add, True);
         End;
         For Player Variable(Host Player, I, 0, 3, True);
-            Global.A += True;
+            Modify Global Variable(A, Add, True);
         End;
     }
 }
@@ -85,11 +85,11 @@ rule ("do/while") {
         Ongoing - Global;
     }
     actions {
-        Global.A += True;
+        Modify Global Variable(A, Add, True);
         Skip(True);
         Loop If(Compare(Global.A, ==, Global.B));
         //__label_break_2__:
-        Global.B += True;
+        Modify Global Variable(B, Add, True);
     }
 }
 
@@ -98,14 +98,14 @@ rule ("nested do/while") {
         Ongoing - Global;
     }
     actions {
-        Global.A += True;
+        Modify Global Variable(A, Add, True);
         Skip(True);
         Loop;
         //__label_break_3__:
         Skip(True);
         Loop If(Compare(Global.A, ==, Global.B));
         //__label_break_4__:
-        Global.B += True;
+        Modify Global Variable(B, Add, True);
     }
 }
 
@@ -118,7 +118,7 @@ rule ("do/while rule condition") {
     }
     actions {
         Wait(False, Ignore Condition);
-        Global.A += True;
+        Modify Global Variable(A, Add, True);
         If(Compare(Global.A, >, Number of Players(Team 2)));
             Set Global Variable(A, Null);
         End;

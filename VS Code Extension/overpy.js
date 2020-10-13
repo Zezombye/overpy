@@ -892,6 +892,19 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
+    "__reverse__": {
+        "description": "Reverses the array. Built-in macro for `sorted(x, lambda _, idx: -idx)`.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array to reverse.",
+                "type": "Array",
+                "default": "ARRAY"
+            }
+        ],
+        class: "Array",
+        return: "Array",
+    },
     "__rule__": {
         "args": null,
         return: "void",
@@ -1828,6 +1841,12 @@ const opyMemberFuncs = {
         ],
         class: "Array",
         return: "void",
+    },
+    "reverse": {
+        "description": "Reverses the array. Built-in macro for `sorted(x, lambda _, idx: -idx)`.",
+        "args": [],
+        class: "Array",
+        return: "Array",
     },
     "slice": {
         "description": "A copy of the specified array containing only values from a specified index range. Does not support nested arrays.",
@@ -24150,6 +24169,9 @@ var replacementFor0;
 var replacementFor1;
 var replacementForTeam1;
 
+//The number of elements the gamemode takes.
+var nbElements;
+
 //Decompilation variables
 
 
@@ -24207,6 +24229,7 @@ function resetGlobalVariables(language) {
 	replacementFor0 = null;
 	replacementFor1 = null;
 	replacementForTeam1 = null;
+	nbElements = 0;
 }
 
 //Other constants
@@ -24755,6 +24778,9 @@ function getAstForNullVector() {
         getAstFor0(),
         getAstFor0(),
     ])
+}
+function getAstForCurrentArrayIndex() {
+    return new Ast("__currentArrayIndex__");
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -25441,7 +25467,7 @@ function getFileContent(path) {
 		fs = require("fs");
 		//glob = require("glob");
 	} catch (e) {
-		error("Cannot use multiple files in browsers");
+		error("Cannot import files in browsers");
 	}
 	if (path.endsWith(".opy") && importedFiles.includes(path)) {
 		warn("w_already_imported", "The file '"+path+"' was already imported and will not be imported again.");
@@ -28544,12 +28570,12 @@ function obfuscateConstant(constantType, content) {
 		//Client-side calculations (done on hud texts, and on visibility fields) do not have enough precision to handle the anti-copy obfuscation properly.
 		//Therefore, check if the constant is not inside a text or any action with a visibility field.
 
-		console.log("evaluating parent action of "+content.name);
+		//console.log("evaluating parent action of "+content.name);
 		var parentAction = content.parent;
 		while (parentAction.type !== "void") {
 			parentAction = parentAction.parent;
 		}
-		console.log("parent action is : "+parentAction.name);
+		//console.log("parent action is : "+parentAction.name);
 		if ([
 			"bigMessage",
 			"createBeam",
@@ -28721,12 +28747,12 @@ function obfuscateConstant(constantType, content) {
 		//Client-side calculations (done on hud texts, and on visibility fields) do not have enough precision to handle the anti-copy obfuscation properly.
 		//Therefore, check if the constant is not inside a text or any action with a visibility field.
 
-		console.log("evaluating parent action of "+content.name);
+		//console.log("evaluating parent action of "+content.name);
 		var parentAction = content.parent;
 		while (parentAction.type !== "void") {
 			parentAction = parentAction.parent;
 		}
-		console.log("parent action is : "+parentAction.name);
+		//console.log("parent action is : "+parentAction.name);
 		if ([
 			"bigMessage",
 			"createBeam",
@@ -29312,9 +29338,12 @@ astParsingFunctions.__doWhile__ = function(content) {
 
 astParsingFunctions.__elif__ = function(content) {
 
-    //Check if the elif is directly preceded by an if.
-    if (content.parent.childIndex === 0 || !["__elif__", "__if__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
-        error("Found 'elif', but no 'if'");
+    //Check if the elif is directly preceded by an elif/if/else.
+    if (content.parent.childIndex === 0 || !["__elif__", "__if__", "__else__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
+        error("Found 'elif', but no 'if' or 'elif' before it");
+    }
+    if (["__else__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
+        warn("w_lone_elif", "Found 'elif' directly after an 'else'");
     }
 
     //Add the "end" function.
@@ -29366,32 +29395,37 @@ astParsingFunctions.__elif__ = function(content) {
 
 astParsingFunctions.__else__ = function(content) {
 
-    //Check if the else is directly preceded by an elif/if.
-    if (content.parent.childIndex === 0 || !["__elif__", "__if__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
-        error("Found 'else', but no 'if'");
+    //Check if the else is directly preceded by an elif/if/else.
+    if (content.parent.childIndex === 0 || !["__if__", "__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
+        error("Found 'else', but no 'if' or 'elif' before it");
+    }
+    if (["__else__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
+        warn("w_lone_else", "Found 'else' directly after another 'else'");
     }
 
     //Add the "end" function.
-    //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent.
-    var includeEnd = true;
-    if (enableOptimization && content.parent.childIndex === content.parent.children.length-1) {
+    if (content.parent.childIndex === content.parent.children.length-1 || content.parent.childIndex < content.parent.children.length-1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex+1].name)) {
+        //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent.
+        var includeEnd = true;
+        if (enableOptimization && content.parent.childIndex === content.parent.children.length-1) {
 
-        var root = content;
-        includeEnd = false;
-    
-        while (root.name !== "__rule__") {
-            root = root.parent;
-            if (root.name === "__while__" || root.name === "__for__" || root.name === "__doWhile__") {
-                includeEnd = true;
-                break;
-            } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent.childIndex !== root.parent.children.length-1) {
-                includeEnd = true;
-                break;
+            var root = content;
+            includeEnd = false;
+        
+            while (root.name !== "__rule__") {
+                root = root.parent;
+                if (root.name === "__while__" || root.name === "__for__" || root.name === "__doWhile__") {
+                    includeEnd = true;
+                    break;
+                } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent.childIndex !== root.parent.children.length-1) {
+                    includeEnd = true;
+                    break;
+                }
             }
         }
-    }
-    if (includeEnd) {
-        content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
+        if (includeEnd) {
+            content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
+        }
     }
     
     return content;
@@ -30831,6 +30865,42 @@ astParsingFunctions.__remove__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.__reverse__ = function(content) {
+
+    if (enableOptimization) {
+        if (content.args[0].name === "__array__") {
+            content.args[0].args.reverse();
+            return content.args[0];
+        }
+    }
+
+    return new Ast("__sortedArray__", [
+        content.args[0],
+        new Ast("__multiply__", [
+            getAstForMinus1(),
+            getAstForCurrentArrayIndex(),
+        ])
+    ])
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__rule__ = function(content) {
 
 
@@ -31149,6 +31219,8 @@ astParsingFunctions.__switch__ = function(content) {
         casesChildren.push(new Ast("__label_switch_"+switchNb+"_default__", [], [], "Label"));
     }
 
+    casesChildren.push(getAstForEnd());
+
     //Build the cases arg array
     //[caseOffsets][[caseValues].index(switchValue)+1]
     var caseOffsets = [];
@@ -31157,13 +31229,7 @@ astParsingFunctions.__switch__ = function(content) {
         caseOffsets.push(new Ast("__distanceTo__", [new Ast("__label_switch_"+switchNb+"_"+i+"__", [], [], "Label")]));
     }
 
-    //Insert the children of the cases in the parent
-    for (var child of casesChildren) {
-        child.parent = content.parent;
-    }
-    content.parent.children.splice(content.parent.childIndex+1, 0, ...casesChildren);
-
-    return new Ast("__skip__", [
+    casesChildren.unshift(new Ast("__skip__", [
         new Ast("__valueInArray__", [
             new Ast("__array__", caseOffsets),
             new Ast("__add__", [
@@ -31174,7 +31240,17 @@ astParsingFunctions.__switch__ = function(content) {
                 ])
             ])
         ])
-    ]);
+    ]));
+
+    //Insert the children of the cases in the parent
+    for (var child of casesChildren) {
+        child.parent = content.parent;
+    }
+    content.parent.children.splice(content.parent.childIndex+1, 0, ...casesChildren);
+
+    var result = new Ast("__if__", [getAstForTrue()]);
+    result.doNotOptimize = true;
+    return result;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -31815,7 +31891,7 @@ astParsingFunctions.break = function(content) {
         }
     }
 
-    if (innermostStructure.name === "__switch__" || innermostStructure.name === "__doWhile__") {
+    if (innermostStructure.name === "__doWhile__") {
         //Place a label at the end
         var labelName = "__label_break_"+getUniqueNumber()+"__";
         var label = new Ast(labelName, [], [], "Label");
@@ -31824,6 +31900,11 @@ astParsingFunctions.break = function(content) {
 
         //Convert the switch to a goto
         return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
+
+    } else if (innermostStructure.name === "__switch__") {
+        var result = new Ast("__else__");
+        result.doNotOptimize = true;
+        return result;
 
     } else if (innermostStructure.name === "__while__" || innermostStructure.name === "__for__") {
         return content;
@@ -34118,6 +34199,7 @@ function astRulesToWs(rules) {
         }
 
         result += "}\n\n";
+        nbElements++;
         compiledRules.push(result);
     }
 
@@ -34169,15 +34251,19 @@ function astRuleConditionToWs(condition) {
 
     } else {
         if (condition.name === "__not__") {
+            nbElements++;
             result += tabLevel(2)+astToWs(condition.args[0])+" == "+tows("false", valueFuncKw)+";\n";
             
         } else if (condition.type === "bool") {
+            nbElements++;
             result += tabLevel(2)+astToWs(condition)+" == "+tows("true", valueFuncKw)+";\n";
 
         } else {
+            nbElements++;
             result += tabLevel(2)+astToWs(condition)+" != "+tows("false", valueFuncKw)+";\n";
         }
     }
+    nbElements += 1 - 2;
     return result;
 }
 
@@ -34218,18 +34304,23 @@ function astToWs(content) {
     fileStack = content.fileStack;
 
     if (content.type === "GlobalVariable") {
+        nbElements++;
         return translateVarToWs(content.name, true);
 
     } else if (content.type === "PlayerVariable") {
+        nbElements++;
         return translateVarToWs(content.name, false);
 
     } else if (content.type === "Subroutine") {
+        nbElements++;
         return translateSubroutineToWs(content.name);
 
     } else if (["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
+        nbElements++;
         return escapeString(content.name);
 
     } else if (content.type === "LocalizedStringLiteral") {
+        nbElements += 2;
         return escapeString(tows(content.name, stringKw));
     }
 
@@ -34304,12 +34395,13 @@ function astToWs(content) {
             }
         }
         //Workaround for the japanese language bug where "add" and "append" are the same for the modify variable actions.
-        if (content.name === "__modifyVar__" && content.args[1].name === "__add__") {
+        if (content.name === "__modifyVar__" && content.args[1].name === "__add__" && currentLanguage === "ja-JP") {
             var tmpEnableOptimization = enableOptimization;
             enableOptimization = false;
             result += astToWs(content.args[0])+" += ";
             enableOptimization = tmpEnableOptimization;
             result += astToWs(content.args[2]);
+            nbElements += 1 - 3;
             return result;
         }
 
@@ -34406,15 +34498,18 @@ function astToWs(content) {
         content.name = newName;
 
     } else if (content.name === "__globalVar__") {
+        nbElements++;
         return tows("__global__", valueKw)+"."+astToWs(content.args[0]);
     } else if (content.name === "__negate__") {
         content.name = "__multiply__";
         content.args = [getAstForMinus1(), content.args[0]];
 
     } else if (content.name === "__number__") {
+        nbElements += 2;
         return trimNb(content.args[0].name);
 
     } else if (content.name === "__playerVar__") {
+        nbElements++;
         return "("+astToWs(content.args[0])+")."+astToWs(content.args[1]);
     } else if (content.name === "__team__") {
         content.name = content.args[0].name;
@@ -34526,6 +34621,16 @@ function astToWs(content) {
     if (content.isDisabled === true) {
         result = tows("__disabled__", ruleKw)+" "+result;
     }
+
+    nbElements++;
+    //Actions remove elements for top-level values
+    if (content.type === "void" && content.args !== null) {
+        nbElements -= content.args.length;
+    } else if (content.name === "__array__") {
+        nbElements++;
+    } else if (content.type === "TeamLiteral") {
+        nbElements++;
+    }
     return result;
 }
 /* 
@@ -34611,7 +34716,13 @@ function parseLines(lines) {
         } else if (lines[i].tokens[0].text === "settings") {
 
             try {
-                var customGameSettings = eval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
+                if (lines[i].tokens.length === 2) {
+                    var path = getFilePath(lines[i].tokens[1].text);
+                    var customGameSettings = eval("("+getFileContent(path)+")");
+                } else {
+                    var customGameSettings = eval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
+
+                }
             } catch (e) {
                 error(e);
             }
@@ -35431,7 +35542,13 @@ function parseMember(object, member) {
 				error("Unhandled member 'random."+name+"'");
 			}
 			
-		} else if (name === "slice") {
+		} else if (name === "reverse") {
+            if (args.length !== 0) {
+                error("Function '"+name+"' takes 1 argument, received "+args.length);
+            }
+            return new Ast("__reverse__", [parse(object)]);
+        
+        } else if (name === "slice") {
             if (args.length !== 2) {
                 error("Function 'slice' takes 2 arguments, received "+args.length);
             }
@@ -35612,6 +35729,7 @@ function compile(content, language="en-US", _rootPath="") {
 		}
 		console.log(astRules);
 	}
+
     var parsedAstRules = parseAstRules(astRules);
 
 	if (DEBUG_MODE) {
@@ -35642,6 +35760,7 @@ function compile(content, language="en-US", _rootPath="") {
 		subroutines: subroutines,
 		encounteredWarnings: encounteredWarnings,
 		enumMembers: enumMembers,
+		nbElements: nbElements,
 	};
 }
 

@@ -73,6 +73,7 @@ function astRulesToWs(rules) {
         }
 
         result += "}\n\n";
+        nbElements++;
         compiledRules.push(result);
     }
 
@@ -124,15 +125,19 @@ function astRuleConditionToWs(condition) {
 
     } else {
         if (condition.name === "__not__") {
+            nbElements++;
             result += tabLevel(2)+astToWs(condition.args[0])+" == "+tows("false", valueFuncKw)+";\n";
             
         } else if (condition.type === "bool") {
+            nbElements++;
             result += tabLevel(2)+astToWs(condition)+" == "+tows("true", valueFuncKw)+";\n";
 
         } else {
+            nbElements++;
             result += tabLevel(2)+astToWs(condition)+" != "+tows("false", valueFuncKw)+";\n";
         }
     }
+    nbElements += 1 - 2;
     return result;
 }
 
@@ -173,18 +178,23 @@ function astToWs(content) {
     fileStack = content.fileStack;
 
     if (content.type === "GlobalVariable") {
+        nbElements++;
         return translateVarToWs(content.name, true);
 
     } else if (content.type === "PlayerVariable") {
+        nbElements++;
         return translateVarToWs(content.name, false);
 
     } else if (content.type === "Subroutine") {
+        nbElements++;
         return translateSubroutineToWs(content.name);
 
     } else if (["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
+        nbElements++;
         return escapeString(content.name);
 
     } else if (content.type === "LocalizedStringLiteral") {
+        nbElements += 2;
         return escapeString(tows(content.name, stringKw));
     }
 
@@ -259,12 +269,13 @@ function astToWs(content) {
             }
         }
         //Workaround for the japanese language bug where "add" and "append" are the same for the modify variable actions.
-        if (content.name === "__modifyVar__" && content.args[1].name === "__add__") {
+        if (content.name === "__modifyVar__" && content.args[1].name === "__add__" && currentLanguage === "ja-JP") {
             var tmpEnableOptimization = enableOptimization;
             enableOptimization = false;
             result += astToWs(content.args[0])+" += ";
             enableOptimization = tmpEnableOptimization;
             result += astToWs(content.args[2]);
+            nbElements += 1 - 3;
             return result;
         }
 
@@ -361,15 +372,18 @@ function astToWs(content) {
         content.name = newName;
 
     } else if (content.name === "__globalVar__") {
+        nbElements++;
         return tows("__global__", valueKw)+"."+astToWs(content.args[0]);
     } else if (content.name === "__negate__") {
         content.name = "__multiply__";
         content.args = [getAstForMinus1(), content.args[0]];
 
     } else if (content.name === "__number__") {
+        nbElements += 2;
         return trimNb(content.args[0].name);
 
     } else if (content.name === "__playerVar__") {
+        nbElements++;
         return "("+astToWs(content.args[0])+")."+astToWs(content.args[1]);
     } else if (content.name === "__team__") {
         content.name = content.args[0].name;
@@ -480,6 +494,16 @@ function astToWs(content) {
     
     if (content.isDisabled === true) {
         result = tows("__disabled__", ruleKw)+" "+result;
+    }
+
+    nbElements++;
+    //Actions remove elements for top-level values
+    if (content.type === "void" && content.args !== null) {
+        nbElements -= content.args.length;
+    } else if (content.name === "__array__") {
+        nbElements++;
+    } else if (content.type === "TeamLiteral") {
+        nbElements++;
     }
     return result;
 }

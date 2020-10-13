@@ -14,7 +14,7 @@ rule ("my subroutine") {
         foo;
     }
     actions {
-        Global.A += True;
+        Modify Global Variable(A, Add, True);
         Call Subroutine(bar);
         Start Rule(Sub0, Do Nothing);
     }
@@ -26,7 +26,7 @@ rule ("Subroutine Sub0") {
         Sub0;
     }
     actions {
-        Global.B += True;
+        Modify Global Variable(B, Add, True);
     }
 }
 

@@ -450,6 +450,19 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
+    "__reverse__": {
+        "description": "Reverses the array. Built-in macro for `sorted(x, lambda _, idx: -idx)`.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array to reverse.",
+                "type": "Array",
+                "default": "ARRAY"
+            }
+        ],
+        class: "Array",
+        return: "Array",
+    },
     "__rule__": {
         "args": null,
         return: "void",

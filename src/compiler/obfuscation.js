@@ -135,12 +135,12 @@ function obfuscateConstant(constantType, content) {
 		//Client-side calculations (done on hud texts, and on visibility fields) do not have enough precision to handle the anti-copy obfuscation properly.
 		//Therefore, check if the constant is not inside a text or any action with a visibility field.
 
-		console.log("evaluating parent action of "+content.name);
+		//console.log("evaluating parent action of "+content.name);
 		var parentAction = content.parent;
 		while (parentAction.type !== "void") {
 			parentAction = parentAction.parent;
 		}
-		console.log("parent action is : "+parentAction.name);
+		//console.log("parent action is : "+parentAction.name);
 		if ([
 			"bigMessage",
 			"createBeam",

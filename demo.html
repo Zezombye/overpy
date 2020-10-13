@@ -160,6 +160,7 @@ a {
 <script src="src/compiler/functions/__or__.js"></script>
 <script src="src/compiler/functions/__raiseToPower__.js"></script>
 <script src="src/compiler/functions/__remove__.js"></script>
+<script src="src/compiler/functions/__reverse__.js"></script>
 <script src="src/compiler/functions/__rule__.js"></script>
 <script src="src/compiler/functions/__skip__.js"></script>
 <script src="src/compiler/functions/__subtract__.js"></script>
@@ -252,7 +253,8 @@ function demoCompile() {
     var language = document.getElementById("languageInput").value;
 	try {
 		compilationResult = compile(document.getElementById("overpy-textarea").value, language);
-		str = compilationResult.result;
+		//str += "//Elements: "+compilationResult.nbElements+"\n";
+		str += compilationResult.result;
 		if (compilationResult.encounteredWarnings.length > 0) {
 			var strWarn = "/* Warnings were encountered:\n\n"
 			for (var warning of compilationResult.encounteredWarnings) {

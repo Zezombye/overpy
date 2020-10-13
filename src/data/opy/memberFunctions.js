@@ -120,6 +120,12 @@ const opyMemberFuncs = {
         class: "Array",
         return: "void",
     },
+    "reverse": {
+        "description": "Reverses the array. Built-in macro for `sorted(x, lambda _, idx: -idx)`.",
+        "args": [],
+        class: "Array",
+        return: "Array",
+    },
     "slice": {
         "description": "A copy of the specified array containing only values from a specified index range. Does not support nested arrays.",
         "args": [

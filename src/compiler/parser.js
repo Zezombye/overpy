@@ -81,7 +81,13 @@ function parseLines(lines) {
         } else if (lines[i].tokens[0].text === "settings") {
 
             try {
-                var customGameSettings = eval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
+                if (lines[i].tokens.length === 2) {
+                    var path = getFilePath(lines[i].tokens[1].text);
+                    var customGameSettings = eval("("+getFileContent(path)+")");
+                } else {
+                    var customGameSettings = eval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
+
+                }
             } catch (e) {
                 error(e);
             }
@@ -901,7 +907,13 @@ function parseMember(object, member) {
 				error("Unhandled member 'random."+name+"'");
 			}
 			
-		} else if (name === "slice") {
+		} else if (name === "reverse") {
+            if (args.length !== 0) {
+                error("Function '"+name+"' takes 1 argument, received "+args.length);
+            }
+            return new Ast("__reverse__", [parse(object)]);
+        
+        } else if (name === "slice") {
             if (args.length !== 2) {
                 error("Function 'slice' takes 2 arguments, received "+args.length);
             }

@@ -80,6 +80,7 @@ overpyFiles = [
 "compiler/functions/__or__.js",
 "compiler/functions/__raiseToPower__.js",
 "compiler/functions/__remove__.js",
+"compiler/functions/__reverse__.js",
 "compiler/functions/__rule__.js",
 "compiler/functions/__skip__.js",
 "compiler/functions/__subtract__.js",
@@ -190,7 +191,7 @@ fs.writeFileSync("./VS Code Extension/overpy.js", overpyCode);
 
 const overpy = require("./VS Code Extension/overpy.js");
 
-/*var functionsMd = `
+var functionsMd = `
 
 Some functions (such as operators) have transformations applied to them. If you cannot find the function here, then it is in the [special functions page](https://github.com/Zezombye/overpy/wiki/Functions).
 
@@ -270,7 +271,7 @@ for (var unitTestFile of unitTestFiles) {
         fs.writeFileSync(outputFile, output);
     }
 }
-*/
+
 
 //Generate json schema
 var jsonSchema = {
@@ -304,7 +305,7 @@ function generateJsonSchema(json, settings) {
 				json.additionalProperties = false;
 				json.properties = {}
 				for (var key in settings.values) {
-					console.log("generating "+key);
+					//console.log("generating "+key);
 					json.properties[key] = {}
 					generateJsonSchema(json.properties[key], settings.values[key]);
 				}
@@ -312,7 +313,7 @@ function generateJsonSchema(json, settings) {
 				json.type = "string";
 				json.oneOf = [];
 				for (var key in settings.values) {
-					console.log("generating "+key);
+					//console.log("generating "+key);
 					json.oneOf.push({
 						"const": key,
 						"description": settings.values[key].description,
@@ -354,7 +355,7 @@ function generateJsonSchema(json, settings) {
 }
 
 for (var key in overpy.customGameSettingsSchema) {
-	console.log("generating "+key);
+	//console.log("generating "+key);
 	if (key === "main" || key === "lobby") {
 		jsonSchema.properties[key] = {};
 		generateJsonSchema(jsonSchema.properties[key], overpy.customGameSettingsSchema[key]);

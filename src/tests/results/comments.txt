@@ -17,9 +17,9 @@ rule ("comments") {
     }
     actions {
         "C++"
-        Global.C += True;
+        Modify Global Variable(C, Add, True);
         "D++"
-        Global.D += True;
+        Modify Global Variable(D, Add, True);
         "nothing\nsome array"
         Set Global Variable(A, Array(1, 2, 3));
     }

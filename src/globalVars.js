@@ -87,6 +87,9 @@ var replacementFor0;
 var replacementFor1;
 var replacementForTeam1;
 
+//The number of elements the gamemode takes.
+var nbElements;
+
 //Decompilation variables
 
 
@@ -144,6 +147,7 @@ function resetGlobalVariables(language) {
 	replacementFor0 = null;
 	replacementFor1 = null;
 	replacementForTeam1 = null;
+	nbElements = 0;
 }
 
 //Other constants

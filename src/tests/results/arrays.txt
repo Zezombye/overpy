@@ -4,6 +4,9 @@ variables {
         1: B
         2: C
         3: D
+        23: X
+        24: Y
+        25: Z
     player:
         0: A
 }
@@ -131,6 +134,9 @@ rule ("other array functions") {
         Set Global Variable(A, Append To Array(Global.B, 2));
         Set Global Variable(A, Index Of Array Value(Global.B, 3));
         Set Global Variable(A, Remove From Array(Global.B, 3));
+        "Z,Y,X"
+        Set Global Variable(A, Array(Global.Z, Global.Y, Global.X));
+        Set Global Variable(A, Sorted Array(Global.B, Multiply(-1, Current Array Index)));
     }
 }
 
