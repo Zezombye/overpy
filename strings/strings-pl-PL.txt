@@ -1,13 +1,13 @@
-[Core] DataTool v1.52.0.886-git-f1239676d91666360fbc744efa37e243da4a64fd
+[Core] DataTool v1.53.0.895-git-b450d888e5dde06093d0beb4f8d63d663751d084
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(22)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(23)\DataTool.exe.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.52.0.0.73258
+[CASC] Overwatch build 1.53.0.0.74102
 [CASC] Initializing...
-[Manifest] Using TRG procedure 73258 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 74102 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -2425,7 +2425,6 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 00000000231F.07C: Serwer matchmakingu jest wyłączony.
 000000002320.07C: Pochwal
 000000002323.07C: Ustawienia Overwatch
-000000002328.07C: FILTR WULGARYZMÓW
 00000000232D.07C: <tx0C000000000044B1>
 000000002353.07C: PERSONALIZUJ
 000000002354.07C: WYŚWIETLACZ
@@ -8758,6 +8757,7 @@ w 4. sezonie
 000000004FB0.07C: Upuszczone strzelby: %1$s
 000000004FB1.07C: Wróg u wrót
 000000004FB2.07C: Ukończ rozróbę „Zemsta dr. Złomensteina” na legendarnym poziomie trudności.
+000000004FB4.07C: Elita Halloween
 000000004FC6.07C: PREMIA ZA STAN WRÓT +%1$s pkt.
 000000004FC7.07C: PREMIA ZA LIKWIDACJĘ ELITARNEGO WROGA + %1$s pkt.
 000000004FC8.07C: PREMIA ZA PRZEŻYCIE + %1$s pkt.
@@ -14148,10 +14148,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006D3F.07C: Gracze są natychmiast degradowani z tej kategorii, jeżeli ich ranga umiejętności nie jest dostatecznie wysoka.
 000000006D4A.07C: Zwycięstwa w wiecznym Halloween
 000000006D4B.07C: Zjedzone cukierki: %1$s
-000000006D4C.07C: Najlepszy wynik w wiecznym Halloween
-000000006D4D.07C: Najlepszy wynik w wiecznym Halloween: %1$s
-000000006D4E.07C: Najlepszy wynik w wiecznym Halloween
-000000006D4F.07C: Najlepszy wynik w wiecznym Halloween: %1$s
+000000006D4C.07C: Najlepszy wynik w Wiecznej Zemście
+000000006D4D.07C: Najlepszy wynik w Wiecznej Zemście: %1$s
+000000006D4E.07C: Najlepszy wynik w Wiecznej Zemście
+000000006D4F.07C: Najlepszy wynik w Wiecznej Zemście: %1$s
 000000006D5F.07C: Zamień na FFA
 000000006D60.07C: Zapisywanie najciekawszych momentów jest niemożliwe, ponieważ prowadzona jest transmisja.
 000000006D61.07C: Zapisywanie najciekawszych momentów jest niemożliwe, ponieważ zostało wyłączone na twoim systemie.
@@ -16842,8 +16842,8 @@ BCRF 2018.
 00000000891B.07C: Cybjörn
 000000008927.07C: Time Played Since 2.23
 000000008928.07C: %1$s Time Played Since 2.23
-000000008929.07C: All-Star dywizja atlantycka 2018
-00000000892A.07C: All-Star dywizja pacyficzna 2018
+000000008929.07C: All-Stars dywizja atlantycka 2018
+00000000892A.07C: All-Stars dywizja pacyficzna 2018
 00000000892B.07C: Legendarna skrzynka rocznicowa
 00000000892C.07C: Rocznica 2018
 00000000892F.07C: Przydałoby ci się odprężyć
@@ -17302,6 +17302,7 @@ z letnich igrzysk
 0000000090E1.07C: Pilotem Burzyciela jest inteligentny, zmodyfikowany genetycznie chomik o imieniu Hammond, który przemierza świat w poszukiwaniu przygód.
 0000000090E2.07C: Ashe to przywódczyni Gangu Zadymiarzy, grupy bandytów, którzy sieją postrach na południowym zachodzie Ameryki.
 0000000090E7.07C: Sklep
+0000000090E8.07C: Skórki konferencji!
 0000000090F2.07C: Japonia (Goście)
 0000000090F3.07C: Tajwan (Goście)
 0000000090F4.07C: Rosja (Goście)
@@ -17601,8 +17602,8 @@ z letnich igrzysk
 0000000092B8.07C: Dodatek 05 (Gospodarze)
 0000000092BD.07C: Dodatek 09 (Gospodarze)
 0000000092BE.07C: Orzeźwienie!
-0000000092BF.07C: All-Star dywizja pacyficzna 2018
-0000000092C1.07C: All-Star dywizja atlantycka 2018
+0000000092BF.07C: All-Stars dywizja pacyficzna 2018
+0000000092C1.07C: All-Stars dywizja atlantycka 2018
 0000000092C2.07C: Dodatek 10 (Gospodarze)
 0000000092C3.07C: Dodatek 11 (Gospodarze)
 0000000092C4.07C: Dodatek 12 (Gospodarze)
@@ -17682,8 +17683,8 @@ z letnich igrzysk
 00000000939C.07C: %1$s scored for %2$s!
 0000000093A0.07C: Filtrowane
 0000000093A3.07C: *
-0000000093AF.07C: Odblokowane przy zakupie skórki All-Star dywizja pacyficzna 2018.
-0000000093B0.07C: Odblokowane przy zakupie skórki All-Star dywizja atlantycka 2018.
+0000000093AF.07C: Odblokowane przy zakupie skórki All-Stars dywizja pacyficzna 2018
+0000000093B0.07C: Odblokowane przy zakupie skórki All-Stars dywizja atlantycka 2018
 0000000093B1.07C: Nagroda za udział
 w wielkich finałach
 Overwatch League 2018.
@@ -17698,6 +17699,8 @@ w wielkich finałach
 Overwatch League 2018.
 0000000093BB.07C: Kupić wszystkie elementy?
 0000000093BC.07C: Zhang Fei
+0000000093DE.07C: Contenders (Gospodarze)
+0000000093DF.07C: Contenders (Goście)
 0000000093E1.07C: Rywalizacja w Drużynowym Deathmatchu – Sezon 1
 0000000093E2.07C: Drużynowy Deathmatch
 0000000093E3.07C: Rywalizacja w Drużynowym Deathmatchu
@@ -17705,6 +17708,8 @@ Overwatch League 2018.
 0000000093F6.07C: Rywalizacja
 000000009411.07C: Baptiste
 000000009413.07C: All-Star
+000000009414.07C: Dywizja pacyficzna
+000000009415.07C: Dywizja atlantycka
 000000009419.07C: PH Text
 00000000941A.07C: Kupić wszystkie elementy %1$s?
 00000000941B.07C: Nagroda za udział w wyzwaniu Nano Cola D.Vy.
@@ -18222,12 +18227,12 @@ Prosimy o przesyłanie komentarzy i opinii, które pomogą nam usprawnić dział
 00000000A404.07C: VS
 00000000A40F.07C: Najlepszy wynik w Halloween
 00000000A410.07C: Najlepszy wynik w Halloween: %1$s
-00000000A411.07C: Najlepszy wynik w wiecznym Halloween
-00000000A412.07C: Najlepszy wynik w wiecznym Halloween: %1$s
+00000000A411.07C: Najlepszy wynik w Wiecznej Zemście
+00000000A412.07C: Najlepszy wynik w Wiecznej Zemście: %1$s
 00000000A417.07C: Najlepszy wynik w Halloween
 00000000A418.07C: Najlepszy wynik w Halloween: %1$s
-00000000A419.07C: Najlepszy wynik w wiecznym Halloween
-00000000A41A.07C: Najlepszy wynik w wiecznym Halloween: %1$s
+00000000A419.07C: Najlepszy wynik w Wiecznej Zemście
+00000000A41A.07C: Najlepszy wynik w Wiecznej Zemście: %1$s
 00000000A422.07C: OSIĄGNIĘTO DZIENNY LIMIT DOŚWIADCZENIA W GRACH DOWOLNYCH
 00000000A423.07C: Obserwuj gracza
 00000000A424.07C: Swobodna kamera
@@ -19409,7 +19414,7 @@ w sezonie 19.
 00000000B281.07C: Facing Direction Of
 00000000B282.07C: Angle Difference
 00000000B283.07C: Kąt
-00000000B286.07C: All-Star dywizja atlantycka 2019
+00000000B286.07C: All-Stars dywizja atlantycka 2019
 00000000B287.07C: Is Standing
 00000000B288.07C: Is Moving
 00000000B289.07C: Is Crouching
@@ -19500,7 +19505,7 @@ w sezonie 19.
 00000000B36E.07C: Status
 00000000B36F.07C: Podstawowa
 00000000B375.07C: Match Round
-00000000B377.07C: All-Star dywizja pacyficzna 2019
+00000000B377.07C: All-Stars dywizja pacyficzna 2019
 00000000B378.07C: Is Objective Complete
 00000000B37A.07C: Chomiczy taniec
 00000000B37B.07C: Is Control Mode Point Locked
@@ -19793,8 +19798,8 @@ w trybie Eliminacji 6 na 6 w 2019
 00000000B628.07C: Atak alternatywny
 00000000B629.07C: Wł.
 00000000B62A.07C: Wył.
-00000000B655.07C: Odblokowane przy zakupie skórki All-Star dywizja pacyficzna 2019
-00000000B656.07C: Odblokowane przy zakupie skórki All-Star dywizja atlantycka 2019
+00000000B655.07C: Odblokowane przy zakupie skórki All-Stars dywizja pacyficzna 2019
+00000000B656.07C: Odblokowane przy zakupie skórki All-Stars dywizja atlantycka 2019
 00000000B65B.07C: Bohater 18. sezonu
 00000000B65C.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 18.
 00000000B65D.07C: Bohater 19. sezonu
@@ -19919,7 +19924,7 @@ w trybie Deathmatch 2019
 00000000B834.07C: Niedostępne, kiedy twoje ekipa ma oczekujące zaproszenia.
 00000000B836.07C: Array
 00000000B83B.07C: OWL All Stars 2019 – Dywizja pacyficzna
-00000000B83C.07C: All-Star dywizji atlantyckiej OWL 2019
+00000000B83C.07C: All-Stars dywizji atlantyckiej OWL 2019
 00000000B83D.07C: Stop Chasing Player Variable
 00000000B83E.07C: Stop Chasing Global Variable
 00000000B83F.07C: Chase Player Variable At Rate
@@ -19928,6 +19933,8 @@ w trybie Deathmatch 2019
 00000000B842.07C: Chase Global Variable Over Time
 00000000B843.07C: Czas trwania
 00000000B844.07C: Tempo
+00000000B861.07C: Pacyficzna D.Va
+00000000B862.07C: Atlantycki Reinhardt
 00000000B878.07C: Enable Built-In Game Mode Respawning
 00000000B879.07C: Gracze
 00000000B87A.07C: Disable Built-In Game Mode Respawning
@@ -20240,8 +20247,8 @@ w trybie Deathmatch 2019
 00000000BB7F.07C: Slot Of
 00000000BB84.07C: Ustawienia
 00000000BB85.07C: Podsumowanie
-00000000BB8A.07C: All-Star dywizja pacyficzna 2019
-00000000BB8B.07C: All-Star dywizja atlantycka 2019
+00000000BB8A.07C: All-Stars dywizja pacyficzna 2019
+00000000BB8B.07C: All-Stars dywizja atlantycka 2019
 00000000BBA4.07C: Nierozstrzygnięty
 00000000BBA8.07C: Allowed Heroes
 00000000BBA9.07C: Set Player Variable At Index
@@ -22410,9 +22417,9 @@ z letnich igrzysk
 00000000CA0C.07C: Musisz wybrać rolę zanim twoja grupa dołączy do kolejki. Chcesz wybrać teraz?
 00000000CA0D.07C: Sklepy
 00000000CA0E.07C: Sklep
-00000000CA11.07C: Wyzwanie Smugi: Komiks
-00000000CA13.07C: Tydzień 2: Bastion z Piasku (Bastion)
-00000000CA14.07C: Tydzień 3: Rożek (Orisa)
+00000000CA11.07C: Tydzień 1: Fantasma (Sombra)
+00000000CA13.07C: Tydzień 2: Kamień (Brigitte)
+00000000CA14.07C: Tydzień 3: Szmacianka (Echo)
 00000000CA15.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
 00000000CA16.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
 00000000CA17.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
@@ -22824,14 +22831,14 @@ Overwatch League 2019.
 00000000CF2B.07C: Matt Wyble
 00000000CF2C.07C: Dyrektor udźwiękowienia projektu
 00000000CF2D.07C: Scott Lawlor
-00000000CF44.07C: Najlepszy wynik w Halloween
-00000000CF45.07C: Najlepszy wynik w Halloween: %1$s
-00000000CF46.07C: Najlepszy wynik w wiecznym Halloween
-00000000CF47.07C: Najlepszy wynik w wiecznym Halloween: %1$s
+00000000CF44.07C: Best Halloween Score
+00000000CF45.07C: %1$s Best Halloween Score
+00000000CF46.07C: Najlepszy wynik w Wiecznej Zemście
+00000000CF47.07C: Najlepszy wynik w Wiecznej Zemście: %1$s
 00000000CF48.07C: Najlepszy wynik w Halloween
 00000000CF49.07C: Najlepszy wynik w Halloween: %1$s
-00000000CF4A.07C: Najlepszy wynik w wiecznym Halloween
-00000000CF4B.07C: Najlepszy wynik w wiecznym Halloween: %1$s
+00000000CF4A.07C: Najlepszy wynik w Wiecznej Zemście
+00000000CF4B.07C: Najlepszy wynik w Wiecznej Zemście: %1$s
 00000000CF4C.07C: Gorgon
 00000000CF4D.07C: Zastępca dyrektora ds. technicznych
 00000000CF4E.07C: Timothy Ford
@@ -26156,6 +26163,9 @@ w wyzwaniu Klockowy Bastion.
 00000000D361.07C: Kicimari
 00000000D362.07C: Zawartość skrzynek halloweenowych
 00000000D363.07C: Halloweenowa Groza 2019
+00000000D365.07C: Klaunomari
+00000000D366.07C: Zawartość skrzynek halloweenowych
+00000000D367.07C: Halloweenowa Groza 2020
 00000000D369.07C: Rywalizacja w Drużynowym Deathmatchu
 00000000D36A.07C: Wywalczcie miejsce na szczycie tabeli wyników. Wygrywa najbardziej zabójcza drużyna.
 00000000D36B.07C: Rywalizacja w Drużynowym Deathmatchu – Sezon 2
@@ -26301,6 +26311,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EB0A.07C: Wycinanka
 00000000EB0E.07C: Przywróć domyślne
 00000000EB14.07C: Król Jamison
+00000000EB16.07C: All-Stars dywizja atlantycka 2020
 00000000EB17.07C: Włącz precyzyjne dane wejściowe myszy
 00000000EB1E.07C: Błąd: Zmienna gracza (%1$s) wymaga nazwy
 00000000EB1F.07C: Globalnie
@@ -26550,6 +26561,7 @@ w Drużynowym Deathmatchu 2019
 00000000F39D.07C: Puszczanie latawca
 00000000F3A2.07C: Wybór postaci zablokowany przez Echo
 00000000F3A3.07C: Kiedy znajdziemy mecz z danej kolejki, włączymy cię do gry.
+00000000F3A9.07C: All-Stars dywizja pacyficzna 2020
 00000000F3AE.07C: Dołączanie do meczu
 00000000F3C9.07C: Snajper
 00000000F3CD.07C: Piękno i harmonia
@@ -26976,6 +26988,7 @@ flagi 2020
 00000000FEDB.07C: Błąd: Podprogram „%1$s” zawiera zbyt długą nazwę
 00000000FEDC.07C: Błąd: Podprogram „%1$s” zawiera nieprawidłową nazwę
 00000000FEDD.07C: Błąd: Konflikt podprogramu „%1$s” z innym podprogramem
+00000000FEE0.07C: Karasu-Tengu
 00000000FEE1.07C: For Player Variable
 00000000FEE2.07C: For Global Variable
 00000000FFB4.07C: Mecze
@@ -27042,6 +27055,8 @@ w sezonie 21.
 000000010059.07C: Sezon 23
 00000001005A.07C: Sezon 24
 00000001005B.07C: Sezon 24
+00000001005C.07C: Sezon 25
+00000001005D.07C: Sezon 25
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Importuj ustawienia ze schowka
@@ -27067,6 +27082,8 @@ w sezonie 21.
 0000000100AE.07C: Błąd: oczekiwano ustawień po „%1$s” w linii %2$s.
 0000000100AF.07C: Błąd: oczekiwano opcji ustawień po „%1$s” w linii %2$s.
 0000000100B0.07C: Błąd: napotkano duplikat trybu gry po „%1$s” w linii %2$s.
+0000000100B2.07C: All-Stars dywizji atlantyckiej OWL 2020
+0000000100B3.07C: All-Stars dywizji pacyficznej OWL 2020
 0000000100B6.07C: Błąd: napotkano duplikat po „%1$s” w linii %2$s.
 0000000100B7.07C: Błąd: oczekiwano ustawień drużyny po „%1$s” w linii %2$s.
 0000000100BB.07C: Błąd: oczekiwano opcji centrum danych po „%1$s” w linii %2$s.
@@ -27271,6 +27288,7 @@ w trybie Eliminacji 6 na 6 w 2020
 000000010309.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w trybie Eliminacji 6 na 6 w 2020
 000000010311.07C: Grupa szturmowa
 000000010312.07C: Zawartość archiwalnych skrzynek
+000000010316.07C: Odblokowane przy zakupie skórki All-Stars dywizja pacyficzna 2020
 00000001031A.07C: Zalicz 2 trafienia kończące jedną Skupioną Wiązką Echo w Szybkiej grze/Rywalizacji.
 00000001031B.07C: Skupienie
 00000001031C.07C: Użyj superzdolności 2 innych bohaterów jako Echo, nie ginąc, w Szybkiej grze/Rywalizacji.
@@ -27280,7 +27298,7 @@ w trybie Eliminacji 6 na 6 w 2020
 00000001034E.07C: Deathmatch w trybie Rywalizacji
 00000001034F.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Deathmatch i pnij się w tabeli wyników!
 000000010350.07C: Deathmatch w trybie Rywalizacji – sezon 3
-000000010351.07C: Zemsta dr. Złomensteina
+000000010351.07C: Tryby Złomensteina
 000000010352.07C: Zimowe Rozróby
 000000010353.07C: Sezonowe Zimowe Rozróby.
 000000010369.07C: Duplikacja wymaga potwierdzenia celu
@@ -27325,6 +27343,7 @@ w sezonie 22.
 0000000104F6.07C: Analiza
 0000000104F7.07C: Usadowienie
 0000000104F9.07C: Usadowienie
+0000000104FA.07C: Odblokowane przy zakupie skórki All-Stars dywizja atlantycka 2020
 0000000104FC.07C: Śmiech
 000000010500.07C: Przebudzenie
 00000001058B.07C: Unik
@@ -27531,6 +27550,8 @@ w sezonie 22.
 0000000108F8.07C: Droga 66
 0000000108FD.07C: Maestro
 0000000108FE.07C: Plan lotu
+00000001090A.07C: All-Stars dywizja atlantycka 2020
+00000001090B.07C: All-Stars dywizja pacyficzna 2020
 00000001094D.07C: Facetka w Czerni
 000000010950.07C: Nagroda za oglądanie transmisji biorących udział w promocji podczas wydarzenia z okazji wprowadzenia postaci Echo do gry.
 000000010951.07C: W chmurach
@@ -27805,6 +27826,7 @@ Zespół obsługi klienta
 000000010BA0.07C: Bez ograniczeń
 000000010BA1.07C: Totalna Masakra
 000000010BA4.07C: Fleur de Lis
+000000010BA5.07C: Wilkołak
 000000010BAE.07C: Nagroda za udział w wyzwaniu 2. tygodnia Rocznicy 2020
 000000010BB3.07C: Wielki Zły B.O.B.
 000000010BB4.07C: Zawartość rocznicowych skrzynek
@@ -27894,6 +27916,7 @@ w trybie Deathmatch 2020
 000000010C58.07C: Zawartość rocznicowych skrzynek
 000000010C59.07C: Uczta
 000000010C5A.07C: Zawartość rocznicowych skrzynek
+000000010C69.07C: Latający Holender
 000000010C6D.07C: Warsztat: Przestwór (noc)
 000000010C71.07C: Warsztat: Wyspa (noc)
 000000010C7E.07C: https://support.blizzard.com/help/product/services/1702/1711/solution
@@ -27901,6 +27924,7 @@ w trybie Deathmatch 2020
 000000010C80.07C: https://support.blizzard.com/article/%1$s
 000000010CAF.07C: Łączna liczba: %1$s
 000000010CBC.07C:  
+000000010CBF.07C: Shin-Ryeong
 000000010CC8.07C: <fg%1$s>%2$s</fg><tx%3$s> used <tx%4$s> on <fg%7$s>%5$s</fg><tx%6$s>
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: WSTECZ
@@ -28033,6 +28057,68 @@ w 1. sezonie Otwartej Rywalizacji
 – Określenie rangi umiejętności (1-5000)
 – Ranga zmienia się po każdej wygranej lub przegranej
 000000010F5F.07C: Filtry
+000000010F6E.07C: Contenders (Goście)
+000000010F6F.07C: Contenders (Goście)
+000000010F70.07C: Contenders (Goście)
+000000010F71.07C: Contenders (Goście)
+000000010F72.07C: Contenders (Goście)
+000000010F73.07C: Contenders (Goście)
+000000010F74.07C: Contenders (Goście)
+000000010F75.07C: Contenders (Goście)
+000000010F76.07C: Contenders (Goście)
+000000010F77.07C: Contenders (Goście)
+000000010F78.07C: Contenders (Goście)
+000000010F79.07C: Contenders (Goście)
+000000010F7A.07C: Contenders (Goście)
+000000010F7B.07C: Contenders (Goście)
+000000010F7C.07C: Contenders (Goście)
+000000010F7D.07C: Contenders (Goście)
+000000010F7E.07C: Contenders (Goście)
+000000010F7F.07C: Contenders (Goście)
+000000010F80.07C: Contenders (Goście)
+000000010F81.07C: Contenders (Goście)
+000000010F82.07C: Contenders (Goście)
+000000010F83.07C: Contenders (Goście)
+000000010F84.07C: Contenders (Goście)
+000000010F85.07C: Contenders (Goście)
+000000010F86.07C: Contenders (Goście)
+000000010F87.07C: Contenders (Goście)
+000000010F88.07C: Contenders (Goście)
+000000010F89.07C: Contenders (Goście)
+000000010F8A.07C: Contenders (Goście)
+000000010F8B.07C: Contenders (Goście)
+000000010F8C.07C: Contenders (Goście)
+000000010F8D.07C: Contenders (Gospodarze)
+000000010F8E.07C: Contenders (Gospodarze)
+000000010F8F.07C: Contenders (Gospodarze)
+000000010F90.07C: Contenders (Gospodarze)
+000000010F91.07C: Contenders (Gospodarze)
+000000010F92.07C: Contenders (Gospodarze)
+000000010F93.07C: Contenders (Gospodarze)
+000000010F94.07C: Contenders (Gospodarze)
+000000010F95.07C: Contenders (Gospodarze)
+000000010F96.07C: Contenders (Gospodarze)
+000000010F97.07C: Contenders (Gospodarze)
+000000010F98.07C: Contenders (Gospodarze)
+000000010F99.07C: Contenders (Gospodarze)
+000000010F9A.07C: Contenders (Gospodarze)
+000000010F9B.07C: Contenders (Gospodarze)
+000000010F9C.07C: Contenders (Gospodarze)
+000000010F9D.07C: Contenders (Gospodarze)
+000000010F9E.07C: Contenders (Gospodarze)
+000000010F9F.07C: Contenders (Gospodarze)
+000000010FA0.07C: Contenders (Gospodarze)
+000000010FA1.07C: Contenders (Gospodarze)
+000000010FA2.07C: Contenders (Gospodarze)
+000000010FA3.07C: Contenders (Gospodarze)
+000000010FA4.07C: Contenders (Gospodarze)
+000000010FA5.07C: Contenders (Gospodarze)
+000000010FA6.07C: Contenders (Gospodarze)
+000000010FA7.07C: Contenders (Gospodarze)
+000000010FA8.07C: Contenders (Gospodarze)
+000000010FA9.07C: Contenders (Gospodarze)
+000000010FAA.07C: Contenders (Gospodarze)
+000000010FAB.07C: Contenders (Gospodarze)
 000000010FC3.07C: Zamknij
 000000010FC4.07C: Otwórz
 000000010FC6.07C: Medal
@@ -28535,6 +28621,7 @@ z letnich igrzysk
 0000000112D8.07C: Obserwujący gracz lub gracze, dla których pole z nazwą obserwowanego gracza zostanie włączone.
 0000000112D9.07C: Zwiń wszystko
 0000000112E0.07C: Profil kariery jest pusty
+0000000112E1.07C: E-sport Overwatch
 0000000112E9.07C: Rozwiń wszystkie
 0000000112EC.07C: Start Forcing Player Outlines
 0000000112ED.07C: Stop Forcing Player Outlines
@@ -28659,7 +28746,10 @@ z letnich igrzysk
 000000011439.07C: Last Created Health Pool
 00000001143A.07C: Sezon 24
 00000001143B.07C: Sezon 24
+00000001143C.07C: Sezon 25
+00000001143D.07C: Sezon 25
 00000001143E.07C: 24. sezon Rywalizacji – Otwarta Rywalizacja
+00000001143F.07C: 25. sezon Rywalizacji – Otwarta Rywalizacja
 000000011440.07C: Set Player Health
 000000011441.07C: Ustawia zdrowie gracza lub graczy bez wpływania na statystyki lub zapewniania obrażeń/leczenia. To działanie ma wpływ tylko na żywych graczy. Dla martwych użyj działania „Resurrect Player” (wskrześ gracza).
 000000011442.07C: Gracz lub gracze, których zdrowie zostanie ustawione.
@@ -28681,6 +28771,7 @@ z letnich igrzysk
 000000011605.07C: Rywalizacja w trybie Eliminacji 3 na 3 – Sezon 3
 000000011606.07C: Rywalizacja w trybie Eliminacji
 000000011607.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Eliminacji i pnij się w tabeli wyników!
+000000011654.07C: Szmacianka
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Więcej informacji
 000000011676.07C: Wszystkie osiągnięcia odblokowane
@@ -28703,7 +28794,15 @@ w trybie Eliminacji 3 na 3 w 2020
 za mecze klasyfikacyjne
 w Rywalizacji
 w trybie Eliminacji 3 na 3 w 2020
+000000011696.07C: Zombie
 000000011697.07C: Rywalizacja – bieżący sezon
+00000001169D.07C: POKAŻ MENU OPCJI OBSERWATORA
+00000001169F.07C: Opcje
+0000000116A0.07C: Opcje obserwatora
+0000000116A3.07C: Wielkie finały 2020
+0000000116A4.07C: Nagroda za udział
+w wielkich finałach
+Overwatch League 2020.
 0000000116A5.07C: Zium!
 0000000116A7.07C: Zap!
 0000000116A8.07C: Łup!
@@ -28712,13 +28811,28 @@ w trybie Eliminacji 3 na 3 w 2020
 0000000116AB.07C: Pif! Paf!
 0000000116AC.07C: Nagroda za oglądanie transmisji biorących udział w promocji podczas wyzwania Smugi: Komiks
 0000000116D7.07C: Rozłączono z powodu limitu czasu gry (system CAIS).
+0000000116D8.07C: Wiadomości o stanie
+0000000116D9.07C: HUD trybu gry
+0000000116DA.07C: Informacje o śmierci
+0000000116DB.07C: Pierwszoosobowy wskaźnik superzdolności
+0000000116DC.07C: Pierwszoosobowe informacje o zdrowiu
+0000000116DD.07C: Pierwszoosobowe informacje o zdolności i broni
+0000000116DE.07C: Pierwszoosobowy celownik
+0000000116DF.07C: Pierwszoosobowe informacje o aktywności
+0000000116E0.07C: Nazwy graczy
+0000000116E1.07C: Paski zdrowia graczy
+0000000116E2.07C: Wskaźniki odtwarzania
+0000000116E3.07C: Intensywność obrysu gracza
+0000000116E6.07C: Dźwięki zdobywania celów
+0000000116E7.07C: Sztandar drużyny 1
+0000000116E8.07C: Sztandar drużyny 2
+0000000116E9.07C: Bohaterowie drużyny 1
+0000000116EA.07C: Bohaterowie drużyny 2
 0000000116FF.07C: Copa Futbolúcio
 000000011700.07C: Deathmatch w trybie Rywalizacji
 00000001171D.07C: Jednemu lub kilku członkom ekipy kończy się czas gry
 000000011744.07C: 1 legendarna i 5 zwykłych skrzynek z łupami
 000000011745.07C: 15 kredytów oraz darmowa 1 legendarna i 5 zwykłych skrzynek z łupami
-000000011746.07C: https://playoverwatch.com/media/stories/
-000000011747.07C: Przeczytaj
 00000001174A.07C: Sezon %1$s
 000000011754.07C: Komiks
 000000011755.07C: Nagroda za udział w wyzwaniu Smugi: Komiks
@@ -28730,18 +28844,302 @@ w trybie Eliminacji 3 na 3 w 2020
 0000000117A8.07C: Rywalizacja w Drużynowym Deathmatchu
 0000000117A9.07C: Rywalizacja w Zdobywaniu flagi
 0000000117AA.07C: Otwarta Rywalizacja
-0000000117B9.07C: Nowy komiks
-0000000117BA.07C: Smuga: Londyn wzywa
-0000000117FB.07C: https://ow.blizzard.cn/media/stories
+0000000117FC.07C: Kamień
+00000001180C.07C: Zemsta dr. Złomensteina – Mściwy Duch
+00000001180D.07C: Zemsta dr. Złomensteina – Szalony Spęd
+00000001180E.07C: Best Halloween Score
+00000001180F.07C: %1$s Best Halloween Score
+000000011811.07C: Mściwy Duch
+000000011812.07C: Zabójczy duch ściga graczy.
+000000011813.07C: Zabójczy duch ściga graczy.
+000000011814.07C: Szalony Spęd
+000000011815.07C: Złomniki poruszają się szybciej.
+000000011816.07C: Złomniki poruszają się szybciej.
+000000011817.07C: Misje-wyzwania
+000000011818.07C: Zmodyfikowane wersje Zemsty dr. Złomensteina.
+00000001181A.07C: Fatasma
+00000001181B.07C: Nagroda za udział w wyzwaniu 3. tygodnia Halloweenowej Grozy 2020
+00000001181C.07C: Nagroda za udział w wyzwaniu 1. tygodnia Halloweenowej Grozy 2020
+00000001181D.07C: Nagroda za udział w wyzwaniu 2. tygodnia Halloweenowej Grozy 2020
+00000001182A.07C: Zemsta dr. Złomensteina – Wybuchowe Złomniki
+00000001182B.07C: Zemsta dr. Złomensteina – Ich Troje
+00000001182C.07C: Zemsta dr. Złomensteina – Tajemnicza Zamiana
+00000001182D.07C: Zemsta dr. Złomensteina – Szokująca Niespodzianka
+00000001182E.07C: Best Halloween Score
+00000001182F.07C: %1$s Best Halloween Score
+000000011830.07C: Best Halloween Score
+000000011831.07C: %1$s Best Halloween Score
+000000011832.07C: Best Halloween Score
+000000011833.07C: %1$s Best Halloween Score
+000000011834.07C: Best Halloween Score
+000000011835.07C: %1$s Best Halloween Score
+00000001183B.07C: Wybuchowe Złomniki
+00000001183C.07C: Złomniki wybuchają w pobliżu graczy.
+00000001183D.07C: Złomniki wybuchają w pobliżu graczy.
+00000001183E.07C: Ich Troje
+00000001183F.07C: Tylko troje graczy, ale zadają więcej obrażeń.
+000000011840.07C: Tylko troje graczy, ale zadają więcej obrażeń.
+000000011841.07C: Tajemnicza Zamiana
+000000011842.07C: Bohaterowie dobierani są losowo co jakiś czas.
+000000011843.07C: Bohaterowie dobierani są losowo co jakiś czas.
+000000011844.07C: Szokująca Niespodzianka
+000000011845.07C: Niektórzy wrogowie pozostawiają po śmierci Szok-Opony.
+000000011846.07C: Niektórzy wrogowie pozostawiają po śmierci Szok-Opony.
+000000011847.07C: WŁ.
+000000011848.07C: WYŁ.
 000000011849.07C: Gwarantowany element legendarny!
 00000001184A.07C: Do 29.09.2020
 Tylko jednorazowy zakup
 000000011859.07C: Oferta
 000000011860.07C: specjalna!
+000000011879.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 25.
+00000001187A.07C: Uczestnik 25. sezonu
+00000001187B.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 25.
+00000001187C.07C: Bohater 25. sezonu
+000000011886.07C: Rywalizacja w Drużynowym Deathmatchu – Sezon 3
+000000011887.07C: Rywalizacja w Drużynowym Deathmatchu
+000000011888.07C: Wywalczcie miejsce na szczycie tabeli wyników. Wygrywa najbardziej zabójcza drużyna.
+000000011889.07C: Pajączek
+000000011938.07C: Czat ogólny
+000000011939.07C: Czat meczowy
+00000001193A.07C: Czat drużynowy
+00000001193B.07C: Czat ekipy
+00000001193C.07C: Szepty
+00000001193E.07C: Za tobą!
+00000001193F.07C: Zawartość skrzynek halloweenowych
+000000011940.07C: Dawno temu...
+000000011941.07C: Zawartość skrzynek halloweenowych
+000000011942.07C: Żyje we mnie duch
+000000011943.07C: Zawartość skrzynek halloweenowych
+000000011944.07C: Wierzysz w duchy?
+000000011945.07C: Zawartość skrzynek halloweenowych
+00000001194A.07C: Słuchać się mamy
+00000001194B.07C: Zawartość skrzynek halloweenowych
+00000001194C.07C: Masz stracha?
+00000001194D.07C: Zawartość skrzynek halloweenowych
+00000001194E.07C: To kostium?
+00000001194F.07C: Zawartość skrzynek halloweenowych
+000000011950.07C: Duch Banitki
+000000011951.07C: Zawartość skrzynek halloweenowych
+000000011952.07C: Jestem mieczem
+000000011953.07C: Zawartość skrzynek halloweenowych
+000000011954.07C: Imperium Shimada powstanie
+000000011955.07C: Zawartość skrzynek halloweenowych
+000000011956.07C: Duchy nie istnieją
+000000011957.07C: Zawartość skrzynek halloweenowych
+000000011958.07C: Exterminacja!
+000000011959.07C: Zawartość skrzynek halloweenowych
+00000001195A.07C: Co jest, boisz się?
+00000001195B.07C: Zawartość skrzynek halloweenowych
+00000001195C.07C: Koniec bitwy dla wikinga
+00000001195D.07C: Zawartość skrzynek halloweenowych
+00000001195E.07C: Wszyscy bali się
+00000001195F.07C: Zawartość skrzynek halloweenowych
+000000011960.07C: Dynia
+000000011966.07C: SILNY
+000000011967.07C: UMIARKOWANY
+000000011968.07C: BRAK
+00000001196A.07C: Strzał w dziesiątkę
+000000011997.07C: Dynia
+000000011998.07C: GRACZE: 3
+000000011999.07C: Best Halloween Score
+00000001199A.07C: %1$s Best Halloween Score
+00000001199B.07C: Best Halloween Score
+00000001199C.07C: %1$s Best Halloween Score
+00000001199D.07C: Best Halloween Score
+00000001199E.07C: %1$s Best Halloween Score
+00000001199F.07C: Best Halloween Score
+0000000119A0.07C: %1$s Best Halloween Score
+0000000119A1.07C: Best Halloween Score
+0000000119A2.07C: %1$s Best Halloween Score
+0000000119A3.07C: Best Halloween Score
+0000000119A4.07C: %1$s Best Halloween Score
+0000000119A5.07C: Mściwy Duch
+0000000119A6.07C: Ukończ misję-wyzwanie Mściwy Duch w Zemście Złomensteina.
+0000000119B1.07C: Wyzwania Złomensteina
+0000000119B2.07C: Szalony Spęd
+0000000119B3.07C: Ukończ misję-wyzwanie Szalony Spęd w Zemście Złomensteina.
+0000000119B4.07C: Ich Troje
+0000000119B5.07C: Ukończ misję-wyzwanie Ich Troje w Zemście Złomensteina.
+0000000119B6.07C: Wybuchowe Złomniki
+0000000119B7.07C: Ukończ misję-wyzwanie Wybuchowe Złomniki w Zemście Złomensteina.
+0000000119B8.07C: Tajemnicza Zamiana
+0000000119B9.07C: Ukończ misję-wyzwanie Tajemnicza Zamiana w Zemście Złomensteina.
+0000000119BA.07C: Szokująca Niespodzianka
+0000000119BB.07C: Ukończ misję-wyzwanie Szokująca Niespodzianka w Zemście Złomensteina.
+0000000119BD.07C: KONTYNUUJ
+0000000119C0.07C: Halloweenowi ulubieńcy z poprzednich lat
+oraz budzące strach skórki, prezentacje zagrań
+i inne nowości!
+0000000119C1.07C: Nowe misje-wyzwania!
+0000000119C3.07C: Doktor Złomenstein powraca, a wraz z nim nowe sposoby na walkę z jego diabolicznymi legionami: Misje-wyzwania!
+0000000119C4.07C: Halloween 2020
+0000000119C5.07C: Koniec wydarzenia 3 listopada
+0000000119C6.07C: Odblokuj nowe skórki
+0000000119C7.07C: Cotygodniowe wyzwania
+0000000119C8.07C: Tydzień 1
+0000000119C9.07C: Tydzień 2
+0000000119CA.07C: Tydzień 3
+0000000119CB.07C: Najlepszy wynik w Halloween
+0000000119CC.07C: Najlepszy wynik w Halloween: %1$s
+0000000119CD.07C: Najlepszy wynik w Wiecznej Zemście
+0000000119CE.07C: Najlepszy wynik w Wiecznej Zemście: %1$s
+0000000119CF.07C: Najlepszy wynik w Halloween
+0000000119D0.07C: Najlepszy wynik w Halloween: %1$s
+0000000119D1.07C: Najlepszy wynik w Wiecznej Zemście
+0000000119D2.07C: Najlepszy wynik w Wiecznej Zemście: %1$s
+0000000119EC.07C: Filtry wulgaryzmów
+000000011A0A.07C: Dynia
 000000011A0D.07C: Legendarna skrzynka z łupami
+000000011A0F.07C: Ty i każdy, kto zobaczy twój ekran, może zetknąć się z wysoce obraźliwym słownictwem. To ustawienie nie jest zalecane.
+
+000000011A10.07C: Nieważne
+000000011A11.07C: Wyłącz
 000000011A15.07C: %1$s |Rpl LEGENDARNA SKRZYNKA:LEGENDARNE SKRZYNKI:LEGENDARNYCH SKRZYNEK; Z ŁUPAMI
 000000011A20.07C: Każda legendarna skrzynka z łupami zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze, w tym przynajmniej jeden element z kolekcji legendarnej.
+000000011A24.07C: Overwatch Contenders
+000000011A25.07C: Overwatch Contenders
+000000011A53.07C: CZY NA PEWNO CHCESZ WYŁĄCZYĆ FILTR WULGARYZMÓW?
+000000011AB0.07C: Maksimum pola widzenia swobodnej kamery
+000000011AB1.07C: Długość przeskoku
+000000011AB3.07C: Siła filtra wulgaryzmów
+000000011AB4.07C: Zrobimy wszystko, co w naszej mocy, aby filtrować wszystkie słowa, które obecnie są identyfikowane przez naszą stale aktualizowaną listę jako nieprzyzwoite, wulgarne lub obraźliwe. Jest to ustawienie najbardziej nadające się do gry rodzinnej.
+000000011AB5.07C: Przy tym ustawieniu możesz zetknąć się z pewnym nieprzyzwoitym lub wulgarnym słownictwem, ale będziemy filtrować język uznawany za wyjątkowo obraźliwy.
+000000011AB6.07C: Nic nie będzie filtrowane. Przy tym ustawieniu możesz zetknąć się z wysoce obraźliwym słownictwem. Nie jest ono zalecane.
+000000011AB7.07C: UWAGA: Użycie KTÓREJKOLWIEK z opcji filtra wulgaryzmów nie oznacza, że używanie obraźliwego języka jest w porządku. Zachęcamy do zgłaszania takich sytuacji, jeśli się z nimi spotkasz.
+000000011AB8.07C: Więcej informacji na temat dopuszczalnego zachowania można znaleźć w Kodeksie Postępowania Blizzard Entertainment. Używanie języka zgłoszonego przez społeczność i uznanego za obraźliwy przez Blizzard będzie skutkowało poważnymi ograniczeniami konta.
+000000011AEC.07C: Szczegółowe sterowanie szybkością odtwarzania
+000000011B16.07C: Resetuj
+000000011B17.07C: Gratulacje! Udało ci się odblokować Pakiet Contenders Genjiego, zawierający dwie skórki, portret i graffiti. Oglądaj zawody Overwatch Contenders, aby zdobyć więcej skórek gości i gospodarzy!
+000000011B18.07C: KONTYNUUJ
+000000011B1A.07C: Więcej informacji
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
-000000011B1D.07C: london_calling_1
-[Core] Execution finished in 00:00:00.4550325 seconds
+000000011B21.07C: https://overwatchleague.com/news/watch-contenders-and-get-in-game-skins
+000000011B22.07C: Oglądaj zawody Contenders, zdobywaj skórki!
+000000011B47.07C: Osiągnięta fala:
+000000011B5A.07C: Oglądaj zawody Contenders!
+000000011BB5.07C: https://us.battle.net/support/en/article/42673
+000000011BB7.07C: Pokaż Kodeks Postępowania
+000000011C10.07C: Pierwszoosobowy HUD bohatera
+000000011C63.07C: Fatasma
+000000011C65.07C: Fatasma
+000000011C67.07C: Kamień
+000000011C69.07C: Szmacianka
+000000011C6B.07C: Kamień
+000000011C6D.07C: Szmacianka
+000000011C6F.07C: Wilkołak
+000000011C70.07C: Zawartość skrzynek halloweenowych
+000000011C71.07C: Karasu-Tengu
+000000011C72.07C: Zawartość skrzynek halloweenowych
+000000011C73.07C: Dai-Tengu
+000000011C74.07C: Zawartość skrzynek halloweenowych
+000000011C75.07C: Shin-Ryeong
+000000011C76.07C: Zawartość skrzynek halloweenowych
+000000011C77.07C: Latający Holender
+000000011C78.07C: Zawartość skrzynek halloweenowych
+000000011C79.07C: Latający Holender
+000000011C7A.07C: Zawartość skrzynek halloweenowych
+000000011C7B.07C: Shin-Ryeong
+000000011C7C.07C: Zawartość skrzynek halloweenowych
+000000011C7D.07C: Karasu-Tengu
+000000011C7E.07C: Zawartość skrzynek halloweenowych
+000000011C7F.07C: Dai-Tengu
+000000011C80.07C: Zawartość skrzynek halloweenowych
+000000011C81.07C: Wilkołak
+000000011C82.07C: Zawartość skrzynek halloweenowych
+000000011C83.07C: Cukierek albo psikus
+000000011C84.07C: Zawartość skrzynek halloweenowych
+000000011C88.07C: Krwistoczerwony Kapturek
+000000011C8A.07C: Szalony Spęd
+000000011C8B.07C: Niezwykła szybkość
+000000011C8C.07C: Złombardowanie
+000000011C8D.07C: Szybki strzał
+000000011C8E.07C: Furia wikinga
+000000011CBA.07C: Anuluj
+000000011CBB.07C: Czy chcesz zresetować wszystkie ustawienia obserwatora?
+000000011CCB.07C: Dai-Tengu
+000000011D9C.07C: 
+000000011D9D.07C: 
+000000011D9E.07C: 
+000000011DA9.07C: 
+000000011DAA.07C: 
+000000011DAB.07C: 
+000000011E36.07C: Uczestnik Rywalizacji w Drużynowym Deathmatchu 2020
+000000011E37.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+w Drużynowym Deathmatchu 2020
+000000011E38.07C: Bohater Rywalizacji w Drużynowym Deathmatchu 2020
+000000011E39.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w Drużynowym Deathmatchu 2020.
+000000011E3A.07C: Uczestnik Rywalizacji w Drużynowym Deathmatchu 2020
+000000011E3C.07C: Bohater Rywalizacji w Drużynowym Deathmatchu 2020
+000000011F68.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F69.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F6A.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F6B.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F6C.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F6D.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F6E.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F6F.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F70.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F71.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F72.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F73.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F74.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F75.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F76.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F77.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F78.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F79.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F7A.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F7B.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F7C.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F7D.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F7E.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F7F.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F80.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F81.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F82.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F83.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F84.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F85.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F86.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F87.07C: Overwatch All-Stars – dywizja atlantycka
+000000011F88.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F89.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F8A.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F8B.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F8C.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F8D.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F8E.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F8F.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F90.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F91.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F92.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F93.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F94.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F95.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F96.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F97.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F98.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F99.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F9A.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F9B.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F9C.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F9D.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F9E.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011F9F.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011FA0.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011FA1.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011FA2.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011FA3.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011FA4.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011FA5.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011FA6.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011FA7.07C: Overwatch All-Stars – dywizja pacyficzna
+000000011FE1.07C: Mściwy Duch
+000000011FE2.07C: Zawartość skrzynek halloweenowych
+000000012294.07C: Mściwy Duch
+[Core] Execution finished in 00:00:00.4585039 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.52.0.886-git-f1239676d91666360fbc744efa37e243da4a64fd
+[Core] DataTool v1.53.0.895-git-b450d888e5dde06093d0beb4f8d63d663751d084
 [Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(22)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(23)\DataTool.exe.args
 [CASC] Text Language: ptBR | Speech Language: ptBR
-[CASC] Overwatch build 1.52.0.0.73258
+[CASC] Overwatch build 1.53.0.0.74102
 [CASC] Initializing...
-[Manifest] Using TRG procedure 73258 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 73258 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 74102 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -2403,7 +2403,6 @@ Experimente novas maneiras de jogar com uma variada seleção de modos de jogo q
 00000000231F.07C: O servidor do pareamento está fora do ar
 000000002320.07C: Condecorar
 000000002323.07C: Configurações de Overwatch
-000000002328.07C: FILTRO DE LINGUAGEM OFENSIVA
 00000000232D.07C: <tx0C000000000044B1>
 000000002353.07C: PERSONALIZADO
 000000002354.07C: BASEADO NA EXIBIÇÃO
@@ -8731,6 +8730,7 @@ Andrew Wang
 000000004FB0.07C: %1$s Espingardas derrubadas
 000000004FB1.07C: Segurou a porta
 000000004FB2.07C: Vença a Vingança de Junkenstein no modo Lendário.
+000000004FB4.07C: Elite de Halloween
 000000004FC6.07C: BÔNUS DE VIDA DA PORTA +%1$s pts
 000000004FC7.07C: BÔNUS DE ELIMINAÇÃO DE ELITE +%1$s pts
 000000004FC8.07C: BÔNUS DE SOBREVIVÊNCIA + %1$s pts
@@ -17188,6 +17188,7 @@ Competitiva 2018
 0000000090E1.07C: Wrecking Ball é pilotado por um hamster inteligente geneticamente modificado chamado Hammond, que explora o mundo em busca de aventuras.
 0000000090E2.07C: Ashe é a líder da gangue Deadlock, um grupo de bandoleiros e criminosos que aterroriza o sudoeste americano.
 0000000090E7.07C: Loja
+0000000090E8.07C: Visuais de conferência!
 0000000090F2.07C: Japão (Visitante)
 0000000090F3.07C: Taipé (Visitante)
 0000000090F4.07C: Rússia (Visitante)
@@ -17542,6 +17543,8 @@ Competitiva 2018
 0000000093B4.07C: Desbloqueado ao participar do evento Grande Final da OWL 2018
 0000000093BB.07C: Comprar todos os desbloqueios?
 0000000093BC.07C: Zhang Fei
+0000000093DE.07C: Contenders (Casa)
+0000000093DF.07C: Contenders (Visitante)
 0000000093E1.07C: Temporada 1 do Combate até a Morte em Equipe Competitivo
 0000000093E2.07C: Combate até a Morte em Equipe
 0000000093E3.07C: Combate até a Morte em Equipe Competitivo
@@ -17549,6 +17552,8 @@ Competitiva 2018
 0000000093F6.07C: Competitivo
 000000009411.07C: Baptiste
 000000009413.07C: All-Star
+000000009414.07C: Pacífico
+000000009415.07C: Atlântico
 000000009419.07C: PH Text
 00000000941A.07C: Comprar todos os %1$s desbloqueios?
 00000000941B.07C: Desbloqueado ao participar do Desafio Nano-cola da D.Va
@@ -19743,6 +19748,8 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000B842.07C: Acompanhar Variável Global ao Longo do Tempo
 00000000B843.07C: Duração
 00000000B844.07C: Taxa
+00000000B861.07C: D.Va do Pacífico
+00000000B862.07C: Reinhardt do Atlântico
 00000000B878.07C: Ativar Ressurgimento Integrado ao Modo de Jogo
 00000000B879.07C: Jogadores
 00000000B87A.07C: Desativar Ressurgimento Integrado ao Modo de Jogo
@@ -22210,9 +22217,9 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000CA0C.07C: Você precisa escolher uma função para o seu grupo poder entrar na fila. Selecionar agora?
 00000000CA0D.07C: Lojas
 00000000CA0E.07C: Loja
-00000000CA11.07C: Desafio Quadrinho da Tracer
-00000000CA13.07C: 2ª Semana: Bastion Castelinho de Areia
-00000000CA14.07C: 3ª Semana: Orisa Sorvete
+00000000CA11.07C: 1ª Semana: Sombra Fantasma
+00000000CA13.07C: 2ª Semana: Brigitte Pura Rocha
+00000000CA14.07C: 3ª Semana: Echo Boneca de Trapos
 00000000CA15.07C: Vença 9 partidas no Jogo Rápido, no Arcade ou no Competitivo!
 00000000CA16.07C: Vença 9 partidas no Jogo Rápido, no Arcade ou no Competitivo!
 00000000CA17.07C: Vença 9 partidas no Jogo Rápido, no Arcade ou no Competitivo!
@@ -22615,8 +22622,8 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000CF2B.07C: Matt Wyble
 00000000CF2C.07C: Diretor de Áudio de Projeto
 00000000CF2D.07C: Scott Lawlor
-00000000CF44.07C: Melhor pontuação de Halloween
-00000000CF45.07C: %1$s Melhor pontuação de Halloween
+00000000CF44.07C: Best Halloween Score
+00000000CF45.07C: %1$s Best Halloween Score
 00000000CF46.07C: Melhor pontuação de Halloween Sem Fim
 00000000CF47.07C: %1$s Melhor pontuação de Halloween Sem Fim
 00000000CF48.07C: Melhor pontuação de Halloween
@@ -25945,6 +25952,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D361.07C: Gatinhomari
 00000000D362.07C: Disponível em Caixas de Itens de Halloween
 00000000D363.07C: Terror de Halloween 2019
+00000000D365.07C: Palhaçomari
+00000000D366.07C: Disponível em Caixas de Itens de Halloween
+00000000D367.07C: Terror de Halloween 2020
 00000000D369.07C: Combate até a Morte em Equipe Competitivo
 00000000D36A.07C: Chegue ao topo do placar. Vence a equipe mais mortal.
 00000000D36B.07C: Temporada 2 do Combate até a Morte em Equipe Competitivo
@@ -26086,6 +26096,7 @@ https://account.blizzard.com/connections/nintendo
 00000000EB0A.07C: Arte em Papel
 00000000EB0E.07C: Restaurar Predefinições
 00000000EB14.07C: Rei Jamison
+00000000EB16.07C: All-Stars 2020 Atlântico
 00000000EB17.07C: Habilitar mouse de alta precisão
 00000000EB1E.07C: Erro: A variável de jogador '%1$s' requer um nome
 00000000EB1F.07C: Global
@@ -26329,6 +26340,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F39D.07C: Soltando Pipa
 00000000F3A2.07C: Seleção de herói desativada por Echo
 00000000F3A3.07C: Quando uma partida for encontrada, você irá para o jogo na sua fila.
+00000000F3A9.07C: All-Stars 2020 Pacífico
 00000000F3AE.07C: Entrando no jogo
 00000000F3C9.07C: Franco-atiradora
 00000000F3CD.07C: A beleza floresce
@@ -26747,6 +26759,7 @@ https://account.blizzard.com/connections/nintendo
 00000000FEDB.07C: Erro: Sub-rotina '%1$s' contém um nome muito longo
 00000000FEDC.07C: Erro: Sub-rotina '%1$s' contém nome inválido
 00000000FEDD.07C: Erro: Sub-rotina '%1$s' está em conflito com outra
+00000000FEE0.07C: Karasu-Tengu
 00000000FEE1.07C: For variável de jogador
 00000000FEE2.07C: For variável global
 00000000FFB4.07C: Confrontos
@@ -26812,6 +26825,8 @@ https://account.blizzard.com/connections/nintendo
 000000010059.07C: Temporada 23
 00000001005A.07C: Temporada 24
 00000001005B.07C: Temporada 24
+00000001005C.07C: Temporada 25
+00000001005D.07C: Temporada 25
 00000001005E.07C: %1$s
 00000001005F.07C: %1$s KB
 00000001006B.07C: Importar Configurações da Área de Transferência
@@ -26837,6 +26852,8 @@ https://account.blizzard.com/connections/nintendo
 0000000100AE.07C: Erro: Configuração esperada após '%1$s' na linha %2$s
 0000000100AF.07C: Erro: Opção de configuração esperada após '%1$s' na linha %2$s
 0000000100B0.07C: Erro: Modo de jogo duplicado encontrado após '%1$s' na linha %2$s
+0000000100B2.07C: OWL All-Stars 2020 Atlântico
+0000000100B3.07C: OWL All-Stars 2020 Pacífico
 0000000100B6.07C: Erro: Equipe duplicada encontrada após '%1$s' na linha %2$s
 0000000100B7.07C: Erro: Configuração de equipe esperada após '%1$s' na linha %2$s
 0000000100BB.07C: Erro: Opção de base de dados esperada após '%1$s' na linha %2$s
@@ -27038,6 +27055,7 @@ https://account.blizzard.com/connections/nintendo
 000000010309.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Eliminação 6v6 Competitiva em 2020
 000000010311.07C: Ataque
 000000010312.07C: Disponível em Caixas de Itens de Arquivos
+000000010316.07C: Desbloqueado ao comprar o visual All-Stars 2020 Pacífico
 00000001031A.07C: Consiga 2 golpes finais usando um único Feixe Concentrado da Echo em Jogo Rápido ou Competitivo.
 00000001031B.07C: Concentração
 00000001031C.07C: Use 2 supremos de outros heróis sem morrer com Echo em Jogo Rápido ou Competitivo.
@@ -27047,7 +27065,7 @@ https://account.blizzard.com/connections/nintendo
 00000001034E.07C: Combate até a Morte Competitivo
 00000001034F.07C: Suba na tabela e enfrente os melhores jogadores de Combate até a Morte do mundo!
 000000010350.07C: 3ª Temporada do Combate até a Morte Competitivo
-000000010351.07C: A Vingança de Junkenstein
+000000010351.07C: Modos de Junkenstein
 000000010352.07C: Contendas Congeladas
 000000010353.07C: Contendas do Paraíso Congelado
 000000010369.07C: Duplicar requer confirmação de alvo
@@ -27091,6 +27109,7 @@ https://account.blizzard.com/connections/nintendo
 0000000104F6.07C: Análise
 0000000104F7.07C: Sentar
 0000000104F9.07C: Ostentar
+0000000104FA.07C: Desbloqueado ao comprar o visual All-Stars 2020 Atlântico
 0000000104FC.07C: Risada
 000000010500.07C: Despertar
 00000001058B.07C: Evasão
@@ -27297,6 +27316,8 @@ https://account.blizzard.com/connections/nintendo
 0000000108F8.07C: Rota 66
 0000000108FD.07C: Maestro
 0000000108FE.07C: Plano de voo
+00000001090A.07C: All-Stars 2020 Atlântico
+00000001090B.07C: All-Stars 2020 Pacífico
 00000001094D.07C: Alienígena
 000000010950.07C: Desbloqueado ao assistir a transmissões durante o evento de lançamento da Echo
 000000010951.07C: Decolar
@@ -27567,6 +27588,7 @@ Suporte da Blizzard
 000000010BA0.07C: Sem Limites
 000000010BA1.07C: Caos Total
 000000010BA4.07C: Fleur de Lis
+000000010BA5.07C: Lobisgorila
 000000010BAE.07C: Desbloqueado ao participar do desafio da 2ª semana do Aniversário de 2020
 000000010BB3.07C: LoBOB Mau
 000000010BB4.07C: Disponível em Caixas de Itens de Aniversário
@@ -27652,6 +27674,7 @@ Suporte da Blizzard
 000000010C58.07C: Disponível em Caixas de Itens de Aniversário
 000000010C59.07C: Banquete
 000000010C5A.07C: Disponível em Caixas de Itens de Aniversário
+000000010C69.07C: Holandês Voador
 000000010C6D.07C: Expansão do Workshop (Noite)
 000000010C71.07C: Ilha do Workshop (Noite)
 000000010C7E.07C: https://support.blizzard.com/help/product/services/1702/1711/solution
@@ -27659,6 +27682,7 @@ Suporte da Blizzard
 000000010C80.07C: https://support.blizzard.com/article/%1$s
 000000010CAF.07C: Total: %1$s
 000000010CBC.07C:  
+000000010CBF.07C: Shin-Ryeong
 000000010CC8.07C: <fg%1$s>%2$s</fg><tx%3$s> used <tx%4$s> on <fg%7$s>%5$s</fg><tx%6$s>
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: VOLTAR
@@ -27781,6 +27805,68 @@ Suporte da Blizzard
 - Classificação de Habilidade determinada (1-5000)
 - A Classificação de Habilidade é ajustada após cada vitória ou derrota
 000000010F5F.07C: Filtros
+000000010F6E.07C: Contenders (Visitante)
+000000010F6F.07C: Contenders (Visitante)
+000000010F70.07C: Contenders (Visitante)
+000000010F71.07C: Contenders (Visitante)
+000000010F72.07C: Contenders (Visitante)
+000000010F73.07C: Contenders (Visitante)
+000000010F74.07C: Contenders (Visitante)
+000000010F75.07C: Contenders (Visitante)
+000000010F76.07C: Contenders (Visitante)
+000000010F77.07C: Contenders (Visitante)
+000000010F78.07C: Contenders (Visitante)
+000000010F79.07C: Contenders (Visitante)
+000000010F7A.07C: Contenders (Visitante)
+000000010F7B.07C: Contenders (Visitante)
+000000010F7C.07C: Contenders (Visitante)
+000000010F7D.07C: Contenders (Visitante)
+000000010F7E.07C: Contenders (Visitante)
+000000010F7F.07C: Contenders (Visitante)
+000000010F80.07C: Contenders (Visitante)
+000000010F81.07C: Contenders (Visitante)
+000000010F82.07C: Contenders (Visitante)
+000000010F83.07C: Contenders (Visitante)
+000000010F84.07C: Contenders (Visitante)
+000000010F85.07C: Contenders (Visitante)
+000000010F86.07C: Contenders (Visitante)
+000000010F87.07C: Contenders (Visitante)
+000000010F88.07C: Contenders (Visitante)
+000000010F89.07C: Contenders (Visitante)
+000000010F8A.07C: Contenders (Visitante)
+000000010F8B.07C: Contenders (Visitante)
+000000010F8C.07C: Contenders (Visitante)
+000000010F8D.07C: Contenders (Casa)
+000000010F8E.07C: Contenders (Casa)
+000000010F8F.07C: Contenders (Casa)
+000000010F90.07C: Contenders (Casa)
+000000010F91.07C: Contenders (Casa)
+000000010F92.07C: Contenders (Casa)
+000000010F93.07C: Contenders (Casa)
+000000010F94.07C: Contenders (Casa)
+000000010F95.07C: Contenders (Casa)
+000000010F96.07C: Contenders (Casa)
+000000010F97.07C: Contenders (Casa)
+000000010F98.07C: Contenders (Casa)
+000000010F99.07C: Contenders (Casa)
+000000010F9A.07C: Contenders (Casa)
+000000010F9B.07C: Contenders (Casa)
+000000010F9C.07C: Contenders (Casa)
+000000010F9D.07C: Contenders (Casa)
+000000010F9E.07C: Contenders (Casa)
+000000010F9F.07C: Contenders (Casa)
+000000010FA0.07C: Contenders (Casa)
+000000010FA1.07C: Contenders (Casa)
+000000010FA2.07C: Contenders (Casa)
+000000010FA3.07C: Contenders (Casa)
+000000010FA4.07C: Contenders (Casa)
+000000010FA5.07C: Contenders (Casa)
+000000010FA6.07C: Contenders (Casa)
+000000010FA7.07C: Contenders (Casa)
+000000010FA8.07C: Contenders (Casa)
+000000010FA9.07C: Contenders (Casa)
+000000010FAA.07C: Contenders (Casa)
+000000010FAB.07C: Contenders (Casa)
 000000010FC3.07C: Fechar
 000000010FC4.07C: Abrir
 000000010FC6.07C: Medalha
@@ -27862,7 +27948,7 @@ Suporte da Blizzard
 000000011060.07C: O número da arma a ser equipada. 1 é a primeira arma e 2, a segunda. Se a arma especificada não existir, os Jogadores usarão a arma padrão.
 000000011061.07C: Frequência-padrão para Caixas de Itens
 000000011065.07C: Está Recarregando
-000000011066.07C: Se o Jogador especificado está Recarregando.
+000000011066.07C: Se o Jogador especificado está Recarregando
 000000011067.07C: O Jogador cujo uso de Recarregar será verificado.
 000000011068.07C: Definir Recarregar Ativado
 000000011069.07C: Ativa ou desativa Recarregar para um ou mais Jogadores.
@@ -27938,7 +28024,7 @@ Suporte da Blizzard
 0000000110CB.07C: Não está tão quente
 0000000110CC.07C: Disponível nas Caixas de Itens dos Jogos de Verão
 0000000110CF.07C: Tempo de jogo
-0000000110D0.07C: BOLA BÔNUS
+0000000110D0.07C: BÔNUS
 0000000110D4.07C: Tempo de objetivo
 0000000110D5.07C: Cura realizada
 0000000110DA.07C: Golpes finais
@@ -28251,6 +28337,7 @@ Suporte da Blizzard
 0000000112D8.07C: O(s) Jogador(es) Observador(es) para quem o Nome do Jogador Observado será habilitado.
 0000000112D9.07C: Recolher todos
 0000000112E0.07C: Perfil de carreira
+0000000112E1.07C: e-sports de Overwatch
 0000000112E9.07C: Expandir tudo
 0000000112EC.07C: Começar a Forçar Contornos de Jogador
 0000000112ED.07C: Parar de Forçar Contornos de Jogador
@@ -28375,7 +28462,10 @@ Suporte da Blizzard
 000000011439.07C: Última Reserva de Vida Criada
 00000001143A.07C: Temporada 24
 00000001143B.07C: Temporada 24
+00000001143C.07C: Temporada 25
+00000001143D.07C: Temporada 25
 00000001143E.07C: Temporada 24 do Competitivo - Fila Aberta
+00000001143F.07C: Temporada 25 do Competitivo - Fila Aberta
 000000011440.07C: Definir Vida do Jogador
 000000011441.07C: Define a vida de um Jogador ou Jogadores sem afetar os atributos ou conceder crédito de dano/cura. Esta ação só tem efeito em jogadores vivos. (No caso dos mortos, use a ação Ressuscitar Jogador.)
 000000011442.07C: O(s) Jogador(es) cuja vida será definida.
@@ -28397,13 +28487,14 @@ Suporte da Blizzard
 000000011605.07C: Eliminação Competitiva 3v3 - Temporada 3
 000000011606.07C: Eliminação Competitiva
 000000011607.07C: Suba na tabela e enfrente os melhores jogadores de Eliminação do mundo!
+000000011654.07C: Boneca de Trapos
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Mais informações
 000000011676.07C: Todas as conquistas desbloqueadas
 000000011677.07C: Precisão de golpes críticos
 000000011679.07C: Sua conta do Overwatch foi bloqueada.
-00000001167D.07C: Tudo
-00000001167E.07C: Fila aberta
+00000001167D.07C: Todos
+00000001167E.07C: Fila Aberta
 00000001167F.07C: Fila por função
 00000001168B.07C: Herói da Eliminação 3v3
 Competitiva 2020
@@ -28417,22 +28508,43 @@ Competitiva 2020
 000000011691.07C: Competidor da Eliminação 3v3
 Competitiva 2020
 000000011692.07C: Desbloqueado ao concluir as partidas de posicionamento da Eliminação 3v3 Competitiva em 2020
+000000011696.07C: Marcha do Zumbi
 000000011697.07C: Temporada Competitiva Atual
+00000001169D.07C: VER MENU DE OPÇÕES DE ESPECTADOR
+00000001169F.07C: Opções
+0000000116A0.07C: Opções de espectador
+0000000116A3.07C: Grande Final 2020
+0000000116A4.07C: Desbloqueado ao participar do evento Grande Final da Liga Overwatch 2020
 0000000116A5.07C: Fui!
-0000000116A7.07C: Zap!
+0000000116A7.07C: PH
 0000000116A8.07C: Pou!
-0000000116A9.07C: Bang!
+0000000116A9.07C: PH
 0000000116AA.07C: Poft!
 0000000116AB.07C: Zum Zum!
 0000000116AC.07C: Desbloqueado ao assistir a transmissões participantes durante o Desafio Quadrinho da Tracer
 0000000116D7.07C: Desconectado por chegar ao limite de tempo da CAIS
+0000000116D8.07C: Mensagens de status
+0000000116D9.07C: HUD do modo de jogo
+0000000116DA.07C: Feed de abates
+0000000116DB.07C: Medidor de suprema em primeira pessoa
+0000000116DC.07C: Vida em primeira pessoa
+0000000116DD.07C: Informações de arma e habilidade em primeira pessoa
+0000000116DE.07C: Retículo de mira em primeira pessoa
+0000000116DF.07C: Notificações de atividade em primeira pessoa
+0000000116E0.07C: Nomes dos jogadores
+0000000116E1.07C: Barras de vida dos jogadores
+0000000116E2.07C: Indicadores de reprodução
+0000000116E3.07C: Intensidade do contorno do jogador
+0000000116E6.07C: Sons de captura de objetivo
+0000000116E7.07C: Estandarte da Equipe 1
+0000000116E8.07C: Estandarte da Equipe 2
+0000000116E9.07C: Heróis da Equipe 1
+0000000116EA.07C: Heróis da Equipe 2
 0000000116FF.07C: Copa Lúciobol
 000000011700.07C: Combate até a Morte Competitivo
 00000001171D.07C: O tempo de jogo de um ou mais membros da equipe está prestes a acabar
 000000011744.07C: 1 Caixa Lendária e 5 Caixas de Itens
 000000011745.07C: 15 créditos e um brinde de 1 Caixa Lendária e 5 Caixas de Itens
-000000011746.07C: https://playoverwatch.com/media/stories/
-000000011747.07C: Ler agora
 00000001174A.07C: Temporada %1$s
 000000011754.07C: Quadrinho
 000000011755.07C: Desbloqueado ao participar do Desafio Quadrinho da Tracer
@@ -28443,19 +28555,297 @@ Competitiva 2020
 0000000117A7.07C: Eliminação 6v6 Competitiva
 0000000117A8.07C: Combate até a Morte em Equipe Competitivo
 0000000117A9.07C: CaB Competitivo
-0000000117AA.07C: Fila Aberta do Competitivo
-0000000117B9.07C: Quadrinho Novo
-0000000117BA.07C: Tracer - Londres Chamando
-0000000117FB.07C: https://ow.blizzard.cn/media/stories
+0000000117AA.07C: Competitivo - Fila Aberta
+0000000117FC.07C: Gigante de Pedra
+00000001180C.07C: Fantasma Vingativo de A Vingança de Junkenstein
+00000001180D.07C: Debandada Frenética de A Vingança de Junkenstein
+00000001180E.07C: Best Halloween Score
+00000001180F.07C: %1$s Best Halloween Score
+000000011811.07C: Fantasma Vingativo
+000000011812.07C: Uma presença fantasmagórica mortal persegue os jogadores.
+000000011813.07C: Uma presença fantasmagórica mortal persegue os jogadores.
+000000011814.07C: Debandada Frenética
+000000011815.07C: Os Zômnicos são mais rápidos.
+000000011816.07C: Os Zômnicos são mais rápidos.
+000000011817.07C: Missões de Desafio
+000000011818.07C: A Vingança de Junkenstein, mas com uma surpresa.
+00000001181A.07C: Fantasma
+00000001181B.07C: Desbloqueado ao participar do desafio da 3ª semana do Terror de Halloween 2020
+00000001181C.07C: Desbloqueado ao participar do desafio da 1ª semana do Terror de Halloween 2020
+00000001181D.07C: Desbloqueado ao participar do desafio da 2ª semana do Terror de Halloween 2020
+00000001182A.07C: Zômnicos Voláteis de A Vingança de Junkenstein
+00000001182B.07C: Trio Parada Dura de A Vingança de Junkenstein
+00000001182C.07C: Troca Misteriosa de A Vingança de Junkenstein
+00000001182D.07C: Surpresa Chocante de A Vingança de Junkenstein
+00000001182E.07C: Best Halloween Score
+00000001182F.07C: %1$s Best Halloween Score
+000000011830.07C: Best Halloween Score
+000000011831.07C: %1$s Best Halloween Score
+000000011832.07C: Best Halloween Score
+000000011833.07C: %1$s Best Halloween Score
+000000011834.07C: Best Halloween Score
+000000011835.07C: %1$s Best Halloween Score
+00000001183B.07C: Zômnicos Voláteis
+00000001183C.07C: Zômnicos explodem perto dos jogadores.
+00000001183D.07C: Zômnicos explodem perto dos jogadores.
+00000001183E.07C: Trio Parada Dura
+00000001183F.07C: Apenas 3 jogadores, mas eles causam mais dano.
+000000011840.07C: Apenas 3 jogadores, mas eles causam mais dano.
+000000011841.07C: Troca Misteriosa
+000000011842.07C: Heróis aleatórios periodicamente.
+000000011843.07C: Heróis aleatórios periodicamente.
+000000011844.07C: Surpresa Chocante
+000000011845.07C: Alguns inimigos geram Pneus Elétricos ao morrer.
+000000011846.07C: Alguns inimigos geram Pneus Elétricos ao morrer.
+000000011847.07C: SIM
+000000011848.07C: NÃO
 000000011849.07C: Item lendário garantido!
 00000001184A.07C: Disponível até 28/09/2020
 Limite de uma compra
 000000011859.07C: Oferta
 000000011860.07C: especial!
+000000011879.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Temporada 25
+00000001187A.07C: Competidor da Temporada 25
+00000001187B.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 25
+00000001187C.07C: Herói da Temporada 25
+000000011886.07C: Temporada 3 do Combate até a Morte em Equipe Competitivo
+000000011887.07C: Combate até a Morte em Equipe Competitivo
+000000011888.07C: Chegue ao topo do placar. Vence a equipe mais mortal.
+000000011889.07C: Dona Aranha
+000000011938.07C: Bate-papo geral
+000000011939.07C: Bate-papo da partida
+00000001193A.07C: Bate-papo de equipe
+00000001193B.07C: Bate-papo da equipe
+00000001193C.07C: Privado
+00000001193E.07C: Atrás de você!
+00000001193F.07C: Disponível em Caixas de Itens de Halloween
+000000011940.07C: Tempos atrás...
+000000011941.07C: Disponível em Caixas de Itens de Halloween
+000000011942.07C: Espíritos vivem em mim
+000000011943.07C: Disponível em Caixas de Itens de Halloween
+000000011944.07C: Você acredita em fantasma?
+000000011945.07C: Disponível em Caixas de Itens de Halloween
+00000001194A.07C: Ouça a sua "mãmia"
+00000001194B.07C: Disponível em Caixas de Itens de Halloween
+00000001194C.07C: Tá com medo?
+00000001194D.07C: Disponível em Caixas de Itens de Halloween
+00000001194E.07C: Isso é fantasia?
+00000001194F.07C: Disponível em Caixas de Itens de Halloween
+000000011950.07C: Fantasma da Fora da Lei
+000000011951.07C: Disponível em Caixas de Itens de Halloween
+000000011952.07C: Lâmina nas sombras
+000000011953.07C: Disponível em Caixas de Itens de Halloween
+000000011954.07C: Os Shimada se erguerão novamente
+000000011955.07C: Disponível em Caixas de Itens de Halloween
+000000011956.07C: Fantasma não existe
+000000011957.07C: Disponível em Caixas de Itens de Halloween
+000000011958.07C: Exterminar!
+000000011959.07C: Disponível em Caixas de Itens de Halloween
+00000001195A.07C: Que foi, está com medo?
+00000001195B.07C: Disponível em Caixas de Itens de Halloween
+00000001195C.07C: A missão do viking
+00000001195D.07C: Disponível em Caixas de Itens de Halloween
+00000001195E.07C: Temida por todos
+00000001195F.07C: Disponível em Caixas de Itens de Halloween
+000000011960.07C: Abóbora
+000000011966.07C: Amigável
+000000011967.07C: Adulto
+000000011968.07C: Sem filtro
+00000001196A.07C: Treino de Pontaria
+000000011997.07C: Abóbora
+000000011998.07C: JOGADORES: 3
+000000011999.07C: Best Halloween Score
+00000001199A.07C: %1$s Best Halloween Score
+00000001199B.07C: Best Halloween Score
+00000001199C.07C: %1$s Best Halloween Score
+00000001199D.07C: Best Halloween Score
+00000001199E.07C: %1$s Best Halloween Score
+00000001199F.07C: Best Halloween Score
+0000000119A0.07C: %1$s Best Halloween Score
+0000000119A1.07C: Best Halloween Score
+0000000119A2.07C: %1$s Best Halloween Score
+0000000119A3.07C: Best Halloween Score
+0000000119A4.07C: %1$s Best Halloween Score
+0000000119A5.07C: Fantasma Vingativo
+0000000119A6.07C: Complete a missão de desafio Junkenstein Fantasma Vingativo.
+0000000119B1.07C: Desafios de Junkenstein
+0000000119B2.07C: Debandada Frenética
+0000000119B3.07C: Complete a missão de desafio Junkenstein Debandada Frenética.
+0000000119B4.07C: Trio Parada Dura
+0000000119B5.07C: Complete a missão de desafio Junkenstein Trio Parada Dura.
+0000000119B6.07C: Zômnicos Voláteis
+0000000119B7.07C: Complete a missão de desafio Junkenstein Zômnicos Voláteis.
+0000000119B8.07C: Troca Misteriosa
+0000000119B9.07C: Complete a missão de desafio Junkenstein Troca Misteriosa.
+0000000119BA.07C: Surpresa Chocante
+0000000119BB.07C: Complete a missão de desafio Junkenstein Surpresa Chocante.
+0000000119BD.07C: CONTINUAR
+0000000119C0.07C: Os maiores sucessos do Halloween de anos anteriores com novos visuais assustadores, animações de destaque e mais!
+0000000119C1.07C: Novas Missões de Desafio
+0000000119C3.07C: O Dr. Junkenstein está de volta e há uma nova forma de enfrentar suas legiões diabólicas: as Missões de Desafio!
+0000000119C4.07C: Halloween 2020
+0000000119C5.07C: O evento termina em 3 de novembro
+0000000119C6.07C: Desbloqueie novos visuais
+0000000119C7.07C: Desafios semanais
+0000000119C8.07C: 1ª Semana
+0000000119C9.07C: 2ª Semana
+0000000119CA.07C: 3ª Semana
+0000000119CB.07C: Melhor pontuação de Halloween
+0000000119CC.07C: %1$s Melhor Pontuação de Halloween
+0000000119CD.07C: Melhor Pontuação de Halloween Sem Fim
+0000000119CE.07C: %1$s Melhor Pontuação de Halloween Sem Fim
+0000000119CF.07C: Melhor pontuação de Halloween
+0000000119D0.07C: %1$s Melhor Pontuação de Halloween
+0000000119D1.07C: Melhor Pontuação de Halloween Sem Fim
+0000000119D2.07C: %1$s Melhor Pontuação de Halloween Sem Fim
+0000000119EC.07C: Filtros de texto com linguagem ofensiva
+000000011A0A.07C: Abóbora
 000000011A0D.07C: Caixa de Itens Lendária
+000000011A0F.07C: Você e qualquer pessoa vendo a sua tela podem se deparar com textos altamente ofensivos. Esta configuração não é recomendada.
+
+000000011A10.07C: Deixa para lá
+000000011A11.07C: Desativar
 000000011A15.07C: %1$s |Rpl CAIXA DE ITENS LENDÁRIA:CAIXAS DE ITENS LENDÁRIAS;
 000000011A20.07C: Cada caixa de itens lendária contém uma combinação de até quatro itens cosméticos e/ou créditos no jogo, incluindo um mínimo de um item Lendário entre os itens.
+000000011A24.07C: Overwatch Contenders
+000000011A25.07C: Overwatch Contenders
+000000011A53.07C: TEM CERTEZA DE QUE DESEJA DESATIVAR O FILTRO DE LINGUAGEM OFENSIVA?
+000000011AB0.07C: Campo de visão máximo da câmera livre
+000000011AB1.07C: Duração do intervalo de avanço de tempo
+000000011AB3.07C: Abrangência do filtro de texto com linguagem ofensiva
+000000011AB4.07C: Faremos o possível parar filtrar todas as palavras identificadas pela nossa lista em constante atualização como obscenas, vulgares ou ofensivas. Esta é a configuração mais adequada para famílias.
+000000011AB5.07C: Você pode ser deparar com palavras de baixo calão usando esta configuração, mas nós filtraremos termos identificados como extremamente ofensivos.
+000000011AB6.07C: Nada será filtrado. Saiba que você pode se deparar com linguagem extremamente ofensiva. Esta configuração não é recomendada.
+000000011AB7.07C: ATENÇÃO: Usar QUALQUER filtro de linguagem ofensiva não permite aos jogadores usar linguagem ofensiva. Caso se depare com isso, incentivamos você a denunciar.
+000000011AB8.07C: Consulte o Código de Conduta em Jogo da Blizzard Entertainment para saber mais sobre quais comportamentos são aceitáveis. Usar linguagem denunciada pela comunidade e considerada ofensiva pela Blizzard resultará em restrições severas à conta
+000000011AEC.07C: Controles de velocidade de reprodução detalhados
+000000011B16.07C: Redefinir
+000000011B17.07C: Parabéns! Você desbloqueou o Pacote Genji Contenders, que contém dois visuais, um ícone de jogador e um spray. Assista ao Overwatch Contenders para ganhar mais visuais do time da Casa e do Visitante!
+000000011B18.07C: CONTINUAR
+000000011B1A.07C: Saiba mais
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
-000000011B1D.07C: london_calling_1
-[Core] Execution finished in 00:00:00.4459724 seconds
+000000011B21.07C: https://overwatchleague.com/news/watch-contenders-and-get-in-game-skins
+000000011B22.07C: Assista ao Contenders, ganhe visuais!
+000000011B47.07C: Onda alcançada:
+000000011B5A.07C: Assista aos Contenders!
+000000011BB5.07C: https://us.battle.net/support/pt/article/42673
+000000011BB7.07C: Ver o Código de Conduta
+000000011C10.07C: HUD de herói em primeira pessoa
+000000011C63.07C: Fantasma
+000000011C65.07C: Fantasma
+000000011C67.07C: Gigante de Pedra
+000000011C69.07C: Boneca de Trapos
+000000011C6B.07C: Gigante de Pedra
+000000011C6D.07C: Boneca de Trapos
+000000011C6F.07C: Lobisgorila
+000000011C70.07C: Disponível em Caixas de Itens de Halloween
+000000011C71.07C: Karasu-Tengu
+000000011C72.07C: Disponível em Caixas de Itens de Halloween
+000000011C73.07C: Dai-Tengu
+000000011C74.07C: Disponível em Caixas de Itens de Halloween
+000000011C75.07C: Shin-Ryeong
+000000011C76.07C: Disponível em Caixas de Itens de Halloween
+000000011C77.07C: Holandês Voador
+000000011C78.07C: Disponível em Caixas de Itens de Halloween
+000000011C79.07C: Holandês Voador
+000000011C7A.07C: Disponível em Caixas de Itens de Halloween
+000000011C7B.07C: Shin-Ryeong
+000000011C7C.07C: Disponível em Caixas de Itens de Halloween
+000000011C7D.07C: Karasu-Tengu
+000000011C7E.07C: Disponível em Caixas de Itens de Halloween
+000000011C7F.07C: Dai-Tengu
+000000011C80.07C: Disponível em Caixas de Itens de Halloween
+000000011C81.07C: Lobisgorila
+000000011C82.07C: Disponível em Caixas de Itens de Halloween
+000000011C83.07C: Doces ou Travessuras
+000000011C84.07C: Disponível em Caixas de Itens de Halloween
+000000011C88.07C: Chapeuzinho à Caça
+000000011C8A.07C: Debandada Frenética
+000000011C8B.07C: Velocidade de Outro Mundo
+000000011C8C.07C: Zumbardeio
+000000011C8D.07C: Saque Rápido
+000000011C8E.07C: Fúria Viking
+000000011CBA.07C: Cancelar
+000000011CBB.07C: Tem certeza de que deseja redefinir todas as opções de espectador?
+000000011CCB.07C: Dai-Tengu
+000000011D9C.07C: 
+000000011D9D.07C: 
+000000011D9E.07C: 
+000000011DA9.07C: 
+000000011DAA.07C: 
+000000011DAB.07C: 
+000000011E36.07C: Competidor do Combate até a Morte em Equipe Competitivo de 2020
+000000011E37.07C: Desbloqueado ao concluir as partidas de posicionamento do Combate até a Morte em Equipe Competitivo de 2020
+000000011E38.07C: Herói do Combate até a Morte em Equipe Competitivo de 2020
+000000011E39.07C: Desbloqueado ao ficar entre os 500 melhores no fim do Combate até a Morte em Equipe Competitivo de 2020
+000000011E3A.07C: Competidor do Combate até a Morte em Equipe Competitivo de 2020
+000000011E3C.07C: Herói do Combate até a Morte em Equipe Competitivo de 2020
+000000011F68.07C: Overwatch All-Stars Atlântico
+000000011F69.07C: Overwatch All-Stars Atlântico
+000000011F6A.07C: Overwatch All-Stars Atlântico
+000000011F6B.07C: Overwatch All-Stars Atlântico
+000000011F6C.07C: Overwatch All-Stars Atlântico
+000000011F6D.07C: Overwatch All-Stars Atlântico
+000000011F6E.07C: Overwatch All-Stars Atlântico
+000000011F6F.07C: Overwatch All-Stars Atlântico
+000000011F70.07C: Overwatch All-Stars Atlântico
+000000011F71.07C: Overwatch All-Stars Atlântico
+000000011F72.07C: Overwatch All-Stars Atlântico
+000000011F73.07C: Overwatch All-Stars Atlântico
+000000011F74.07C: Overwatch All-Stars Atlântico
+000000011F75.07C: Overwatch All-Stars Atlântico
+000000011F76.07C: Overwatch All-Stars Atlântico
+000000011F77.07C: Overwatch All-Stars Atlântico
+000000011F78.07C: Overwatch All-Stars Atlântico
+000000011F79.07C: Overwatch All-Stars Atlântico
+000000011F7A.07C: Overwatch All-Stars Atlântico
+000000011F7B.07C: Overwatch All-Stars Atlântico
+000000011F7C.07C: Overwatch All-Stars Atlântico
+000000011F7D.07C: Overwatch All-Stars Atlântico
+000000011F7E.07C: Overwatch All-Stars Atlântico
+000000011F7F.07C: Overwatch All-Stars Atlântico
+000000011F80.07C: Overwatch All-Stars Atlântico
+000000011F81.07C: Overwatch All-Stars Atlântico
+000000011F82.07C: Overwatch All-Stars Atlântico
+000000011F83.07C: Overwatch All-Stars Atlântico
+000000011F84.07C: Overwatch All-Stars Atlântico
+000000011F85.07C: Overwatch All-Stars Atlântico
+000000011F86.07C: Overwatch All-Stars Atlântico
+000000011F87.07C: Overwatch All-Stars Atlântico
+000000011F88.07C: Overwatch All-Stars Pacífico
+000000011F89.07C: Overwatch All-Stars Pacífico
+000000011F8A.07C: Overwatch All-Stars Pacífico
+000000011F8B.07C: Overwatch All-Stars Pacífico
+000000011F8C.07C: Overwatch All-Stars Pacífico
+000000011F8D.07C: Overwatch All-Stars Pacífico
+000000011F8E.07C: Overwatch All-Stars Pacífico
+000000011F8F.07C: Overwatch All-Stars Pacífico
+000000011F90.07C: Overwatch All-Stars Pacífico
+000000011F91.07C: Overwatch All-Stars Pacífico
+000000011F92.07C: Overwatch All-Stars Pacífico
+000000011F93.07C: Overwatch All-Stars Pacífico
+000000011F94.07C: Overwatch All-Stars Pacífico
+000000011F95.07C: Overwatch All-Stars Pacífico
+000000011F96.07C: Overwatch All-Stars Pacífico
+000000011F97.07C: Overwatch All-Stars Pacífico
+000000011F98.07C: Overwatch All-Stars Pacífico
+000000011F99.07C: Overwatch All-Stars Pacífico
+000000011F9A.07C: Overwatch All-Stars Pacífico
+000000011F9B.07C: Overwatch All-Stars Pacífico
+000000011F9C.07C: Overwatch All-Stars Pacífico
+000000011F9D.07C: Overwatch All-Stars Pacífico
+000000011F9E.07C: Overwatch All-Stars Pacífico
+000000011F9F.07C: Overwatch All-Stars Pacífico
+000000011FA0.07C: Overwatch All-Stars Pacífico
+000000011FA1.07C: Overwatch All-Stars Pacífico
+000000011FA2.07C: Overwatch All-Stars Pacífico
+000000011FA3.07C: Overwatch All-Stars Pacífico
+000000011FA4.07C: Overwatch All-Stars Pacífico
+000000011FA5.07C: Overwatch All-Stars Pacífico
+000000011FA6.07C: Overwatch All-Stars Pacífico
+000000011FA7.07C: Overwatch All-Stars Pacífico
+000000011FE1.07C: Fantasma Vingativo
+000000011FE2.07C: Disponível em Caixas de Itens de Halloween
+000000012294.07C: Fantasma Vingativo
+[Core] Execution finished in 00:00:00.4632275 seconds

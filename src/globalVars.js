@@ -90,6 +90,9 @@ var replacementForTeam1;
 //The number of elements the gamemode takes.
 var nbElements;
 
+//For the weird behavior where element count goes up by 1 for every 2 hero literals in the parameters of an action argument.
+var nbHeroesInValue;
+
 //Decompilation variables
 
 

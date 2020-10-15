@@ -2964,6 +2964,7 @@ const customGameSettingsSchema =
                     "default": 100,
                     "include": [
                         "ashe",
+                        "baptiste",
                         "bastion",
                         "doomfist",
                         "genji",
@@ -2995,6 +2996,7 @@ const customGameSettingsSchema =
                     "default": "off",
                     "include": [
                         "ashe",
+                        "baptiste",
                         "bastion",
                         "doomfist",
                         "genji",

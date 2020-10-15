@@ -253,7 +253,7 @@ function demoCompile() {
     var language = document.getElementById("languageInput").value;
 	try {
 		compilationResult = compile(document.getElementById("overpy-textarea").value, language);
-		//str += "//Elements: "+compilationResult.nbElements+"\n";
+		str += "//Elements: "+compilationResult.nbElements+"\n";
 		str += compilationResult.result;
 		if (compilationResult.encounteredWarnings.length > 0) {
 			var strWarn = "/* Warnings were encountered:\n\n"

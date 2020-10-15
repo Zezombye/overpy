@@ -121,9 +121,18 @@ function astRuleConditionToWs(condition) {
                 }
             }
         }
-        result += tabLevel(2)+astToWs(condition.args[0])+" "+funcToOpMapping[condition.name]+" "+astToWs(condition.args[1])+";\n";
+        nbHeroesInValue = 0;
+        result += tabLevel(2)+astToWs(condition.args[0]);
+        nbElements += Math.floor(nbHeroesInValue/2);
+
+        result += " "+funcToOpMapping[condition.name]+" ";
+
+        nbHeroesInValue = 0;
+        result += astToWs(condition.args[1])+";\n";
+        nbElements += Math.floor(nbHeroesInValue/2);
 
     } else {
+        nbHeroesInValue = 0;
         if (condition.name === "__not__") {
             nbElements++;
             result += tabLevel(2)+astToWs(condition.args[0])+" == "+tows("false", valueFuncKw)+";\n";
@@ -136,6 +145,7 @@ function astRuleConditionToWs(condition) {
             nbElements++;
             result += tabLevel(2)+astToWs(condition)+" != "+tows("false", valueFuncKw)+";\n";
         }
+        nbElements += Math.floor(nbHeroesInValue/2);
     }
     nbElements += 1 - 2;
     return result;
@@ -467,29 +477,33 @@ function astToWs(content) {
     } else if (isTypeSuitable(["Object", "Array"], content.type)){
         result += tows(content.name, valueKw);
     } else if (content.type in constantValues) {
+        if (content.type === "HeroLiteral") {
+            nbHeroesInValue++;
+        }
         result += tows(content.name, constantValues[content.type]);
-    } else if (content.type === "HeroLiteral") {
-        result += tows(content.name, constantValues["Hero"]);
-    } else if (content.type === "MapLiteral") {
-        result += tows(content.name, constantValues["Map"]);
-    } else if (content.type === "TeamLiteral") {
-        result += tows(content.name, constantValues["Team"]);
-    } else if (content.type === "GamemodeLiteral") {
-        result += tows(content.name, constantValues["Gamemode"]);
-    } else if (content.type === "ButtonLiteral") {
-        result += tows(content.name, constantValues["Button"]);
     } else {
         error("Unknown type '"+content.type+"' of '"+content.name+"'");
     }
 
     if (content.args.length > 0) {
-        result += "(" + content.args.map(x => {
-            if (x.type === "void") {
-                fileStack = x.fileStack;
-                error("Expected a value, but got "+functionNameToString(x)+" which is an action");
+        result += "(";
+        for (var i = 0; i < content.args.length; i++) {
+            if (content.type === "void") {
+                nbHeroesInValue = 0;
             }
-            return astToWs(x);
-        }).join(", ")+")";
+            if (i > 0) {
+                result += ", ";
+            }
+            if (content.args[i].type === "void") {
+                fileStack = content.args[i].fileStack;
+                error("Expected a value, but got "+functionNameToString(content.args[i])+" which is an action");
+            }
+            result += astToWs(content.args[i]);
+            if (content.type === "void") {
+                nbElements += Math.floor(nbHeroesInValue/2);
+            }
+        }
+        result += ")";
     }
     
     if (content.isDisabled === true) {
@@ -500,8 +514,10 @@ function astToWs(content) {
     //Actions remove elements for top-level values
     if (content.type === "void" && content.args !== null) {
         nbElements -= content.args.length;
-    } else if (content.name === "__array__") {
+    } else if (["__array__","__workshopSettingToggle__"].includes(content.name)) {
         nbElements++;
+    } else if (["__workshopSettingInteger__", "__workshopSettingReal__"].includes(content.name)) {
+        nbElements += 1 - 3; //remove elements because of number literals
     } else if (content.type === "TeamLiteral") {
         nbElements++;
     }
