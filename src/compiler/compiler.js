@@ -191,6 +191,10 @@ function generateVariablesField() {
 		result = tows("__variables__", ruleKw)+" {\n"+result+"}\n";
 	}
 
+	if (nbElements > ELEMENT_LIMIT) {
+		warn("w_element_limit", "The gamemode is over the element limit ("+nbElements+" > "+ELEMENT_LIMIT+" elements)");
+	}
+
 	return result;
 }
 

@@ -132,7 +132,7 @@ const decompilerUI = [`
 `];
 
 const overpyTemplate = [`
-#OverPy starting pack
+#OverPy starter pack
 
 settings {
     "main": {
@@ -254,8 +254,24 @@ function refreshAutoComplete() {
 }
 refreshAutoComplete();
 
-
 function activate(context) {
+
+    vscode.commands.registerCommand('extension.insertTemplate', () => {
+        try {
+
+            var editor = vscode.window.activeTextEditor;
+            const position = editor.selection.active;
+            vscode.window.activeTextEditor.edit(editBuilder => {
+                editBuilder.insert(position, overpyTemplate[0]);
+            });
+
+            vscode.window.showInformationMessage("Template successfully inserted!");
+
+        } catch (e) {
+            console.error(e);
+            vscode.window.showErrorMessage("Error: "+e.message);
+        }
+    });
 
     vscode.commands.registerCommand("extension.decompile", () => {
         var panel = vscode.window.createWebviewPanel("overpyDecompilerWebview", "OverPy Decompiler", vscode.ViewColumn.Active, {
@@ -293,7 +309,6 @@ function activate(context) {
                 });
 
                 panel.dispose();
-                
 
             } catch (e) {
                 if (e instanceof Error) {
@@ -317,7 +332,7 @@ function activate(context) {
                 vscode.window.showWarningMessage("Warning: "+warning);
             }
             clipboard.copy(compiledText.result);
-            vscode.window.showInformationMessage("Successfully compiled! (copied into clipboard)");
+            vscode.window.showInformationMessage("Successfully compiled! (copied into clipboard" + (vscode.workspace.getConfiguration("overpy").showElementCountOnCompile ? "; "+compiledText.nbElements+" elements" : "")+")");
             fillAutocompletionMacros(compiledText.macros);
             fillAutocompletionVariables(compiledText.globalVariables, compiledText.playerVariables);
             fillAutocompletionSubroutines(compiledText.subroutines);

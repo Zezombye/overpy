@@ -151,6 +151,7 @@ function obfuscateConstant(constantType, content) {
 			"hudText",
 			"hudHeader",
 			"hudSubheader",
+			"hudSubtext",
 			"playEffect",
 			"print",
 			"setObjectiveDescription",

@@ -153,7 +153,7 @@ If no value is specified, the value is the last specified value plus 1 (if the l
         "snippet": "rule \"$0\"",
     },
     "settings": {
-        "description": "Declares custom game settings. Must be followed by an object containing the settings.",
+        "description": "Declares custom game settings. Must be followed by an object containing the settings, or by a string containing the path to a JSON file (it must be named 'settings.opy.json' to get the autocompletion).",
         "args": null,
         "snippet": "settings $0",
     },

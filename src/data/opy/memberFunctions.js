@@ -71,7 +71,7 @@ const opyMemberFuncs = {
         return: "String",
     },
     "index": {
-        "description": "The index of a value within the array or -1 if no such value can be found. Does not support nested arrays.",
+        "description": "The index of a value within the array or -1 if no such value can be found. Does not support nested arrays.\nWarning: if the array contains `true`, it will match against any truthy value, and `true` will match against any truthy value in the array.",
         "args": [
             {
                 "name": "VALUE",

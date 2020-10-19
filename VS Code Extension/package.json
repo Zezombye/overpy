@@ -7,7 +7,7 @@
         "url": "https://github.com/Zezombye/overpy"
     },
     "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
-    "version": "6.4.0",
+    "version": "6.5.0",
     "readme": "README.md",
     "engines": {
         "vscode": "^1.36.0"
@@ -84,6 +84,11 @@
                     "type": "boolean",
                     "description": "Specifies whether to add a template when a new OverPy file is created. Warning: due to a bug (#196), the template will be inserted when a new file is saved to disk (as .opy file) for the first time.",
                     "default": false
+                },
+                "overpy.showElementCountOnCompile": {
+                    "type": "boolean",
+                    "description": "Specifies whether to show the element count when a compilation is successful.",
+                    "default": true
                 }
             }
         },
@@ -124,6 +129,10 @@
                     "light": "/img/index.svg",
                     "dark": "/img/index.svg"
                 }
+            },{
+                "command": "extension.insertTemplate",
+                "title": "Insert Template",
+                "category": "OverPy"
             }
         ],
         "menus": {

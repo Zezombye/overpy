@@ -1692,7 +1692,7 @@ If no value is specified, the value is the last specified value plus 1 (if the l
         "snippet": "rule \"$0\"",
     },
     "settings": {
-        "description": "Declares custom game settings. Must be followed by an object containing the settings.",
+        "description": "Declares custom game settings. Must be followed by an object containing the settings, or by a string containing the path to a JSON file (it must be named 'settings.opy.json' to get the autocompletion).",
         "args": null,
         "snippet": "settings $0",
     },
@@ -1793,7 +1793,7 @@ const opyMemberFuncs = {
         return: "String",
     },
     "index": {
-        "description": "The index of a value within the array or -1 if no such value can be found. Does not support nested arrays.",
+        "description": "The index of a value within the array or -1 if no such value can be found. Does not support nested arrays.\nWarning: if the array contains `true`, it will match against any truthy value, and `true` will match against any truthy value in the array.",
         "args": [
             {
                 "name": "VALUE",
@@ -21997,6 +21997,7 @@ const customGameSettingsSchema =
                     "default": 100,
                     "include": [
                         "ashe",
+                        "baptiste",
                         "bastion",
                         "doomfist",
                         "genji",
@@ -22028,6 +22029,7 @@ const customGameSettingsSchema =
                     "default": "off",
                     "include": [
                         "ashe",
+                        "baptiste",
                         "bastion",
                         "doomfist",
                         "genji",
@@ -24171,6 +24173,9 @@ var replacementForTeam1;
 
 //The number of elements the gamemode takes.
 var nbElements;
+
+//For the weird behavior where element count goes up by 1 for every 2 hero literals in the parameters of an action argument.
+var nbHeroesInValue;
 
 //Decompilation variables
 
@@ -28586,6 +28591,7 @@ function obfuscateConstant(constantType, content) {
 			"hudText",
 			"hudHeader",
 			"hudSubheader",
+			"hudSubtext",
 			"playEffect",
 			"print",
 			"setObjectiveDescription",
@@ -28763,6 +28769,7 @@ function obfuscateConstant(constantType, content) {
 			"hudText",
 			"hudHeader",
 			"hudSubheader",
+			"hudSubtext",
 			"playEffect",
 			"print",
 			"setObjectiveDescription",
@@ -34247,9 +34254,18 @@ function astRuleConditionToWs(condition) {
                 }
             }
         }
-        result += tabLevel(2)+astToWs(condition.args[0])+" "+funcToOpMapping[condition.name]+" "+astToWs(condition.args[1])+";\n";
+        nbHeroesInValue = 0;
+        result += tabLevel(2)+astToWs(condition.args[0]);
+        nbElements += Math.floor(nbHeroesInValue/2);
+
+        result += " "+funcToOpMapping[condition.name]+" ";
+
+        nbHeroesInValue = 0;
+        result += astToWs(condition.args[1])+";\n";
+        nbElements += Math.floor(nbHeroesInValue/2);
 
     } else {
+        nbHeroesInValue = 0;
         if (condition.name === "__not__") {
             nbElements++;
             result += tabLevel(2)+astToWs(condition.args[0])+" == "+tows("false", valueFuncKw)+";\n";
@@ -34262,6 +34278,7 @@ function astRuleConditionToWs(condition) {
             nbElements++;
             result += tabLevel(2)+astToWs(condition)+" != "+tows("false", valueFuncKw)+";\n";
         }
+        nbElements += Math.floor(nbHeroesInValue/2);
     }
     nbElements += 1 - 2;
     return result;
@@ -34593,29 +34610,33 @@ function astToWs(content) {
     } else if (isTypeSuitable(["Object", "Array"], content.type)){
         result += tows(content.name, valueKw);
     } else if (content.type in constantValues) {
+        if (content.type === "HeroLiteral") {
+            nbHeroesInValue++;
+        }
         result += tows(content.name, constantValues[content.type]);
-    } else if (content.type === "HeroLiteral") {
-        result += tows(content.name, constantValues["Hero"]);
-    } else if (content.type === "MapLiteral") {
-        result += tows(content.name, constantValues["Map"]);
-    } else if (content.type === "TeamLiteral") {
-        result += tows(content.name, constantValues["Team"]);
-    } else if (content.type === "GamemodeLiteral") {
-        result += tows(content.name, constantValues["Gamemode"]);
-    } else if (content.type === "ButtonLiteral") {
-        result += tows(content.name, constantValues["Button"]);
     } else {
         error("Unknown type '"+content.type+"' of '"+content.name+"'");
     }
 
     if (content.args.length > 0) {
-        result += "(" + content.args.map(x => {
-            if (x.type === "void") {
-                fileStack = x.fileStack;
-                error("Expected a value, but got "+functionNameToString(x)+" which is an action");
+        result += "(";
+        for (var i = 0; i < content.args.length; i++) {
+            if (content.type === "void") {
+                nbHeroesInValue = 0;
             }
-            return astToWs(x);
-        }).join(", ")+")";
+            if (i > 0) {
+                result += ", ";
+            }
+            if (content.args[i].type === "void") {
+                fileStack = content.args[i].fileStack;
+                error("Expected a value, but got "+functionNameToString(content.args[i])+" which is an action");
+            }
+            result += astToWs(content.args[i]);
+            if (content.type === "void") {
+                nbElements += Math.floor(nbHeroesInValue/2);
+            }
+        }
+        result += ")";
     }
     
     if (content.isDisabled === true) {
@@ -34626,8 +34647,10 @@ function astToWs(content) {
     //Actions remove elements for top-level values
     if (content.type === "void" && content.args !== null) {
         nbElements -= content.args.length;
-    } else if (content.name === "__array__") {
+    } else if (["__array__","__workshopSettingToggle__"].includes(content.name)) {
         nbElements++;
+    } else if (["__workshopSettingInteger__", "__workshopSettingReal__"].includes(content.name)) {
+        nbElements += 1 - 3; //remove elements because of number literals
     } else if (content.type === "TeamLiteral") {
         nbElements++;
     }
@@ -35863,6 +35886,10 @@ function generateVariablesField() {
 
 	if (result) {
 		result = tows("__variables__", ruleKw)+" {\n"+result+"}\n";
+	}
+
+	if (nbElements > ELEMENT_LIMIT) {
+		warn("w_element_limit", "The gamemode is over the element limit ("+nbElements+" > "+ELEMENT_LIMIT+" elements)");
 	}
 
 	return result;
