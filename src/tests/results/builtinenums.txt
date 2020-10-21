@@ -10,6 +10,7 @@ variables {
         7: H
         8: I
         9: J
+        10: K
 }
 rule ("enums") {
     event {
@@ -18,7 +19,7 @@ rule ("enums") {
         All;
     }
     conditions {
-        Is Button Held(Event Player, Interact) == True;
+        Is Button Held(Event Player, Button(Interact)) == True;
         Global.A != False;
     }
     actions {
@@ -27,14 +28,15 @@ rule ("enums") {
         Set Global Variable(C, Map(Black Forest Winter));
         Set Global Variable(D, Compare(Current Game Mode, ==, Game Mode(Assault)));
         Set Global Variable(E, Button(Interact));
-        Set Global Variable(F, Is Button Held(Event Player, Interact));
-        Start Holding Button(Event Player, Melee);
+        Set Global Variable(F, Is Button Held(Event Player, Button(Interact)));
+        Start Holding Button(Event Player, Button(Melee));
         Start Forcing Player To Be Hero(Event Player, Hero(Ana));
         Wait(False, Abort When False);
         Set Global Variable(G, Backward);
         Set Global Variable(H, Random Integer(True, 2));
         Set Global Variable(I, 2.718281828459045);
         Set Global Variable(J, 3.141592653589793);
+        Set Global Variable(K, Color(Blue));
     }
 }
 

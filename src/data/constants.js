@@ -97,7 +97,7 @@ const constantValues =
             "zh-CN": "全部禁用"
         }
     },
-    "Color": {
+    "ColorLiteral": {
         "AQUA": {
             "guid": "00000000CDB3",
             "en-US": "Aqua",
@@ -107,6 +107,9 @@ const constantValues =
             "pt-BR": "Azul-piscina",
             "zh-CN": "水绿色"
         },
+        "BLACK": {
+            "en-US": "Black",
+        },
         "BLUE": {
             "guid": "00000000B939",
             "en-US": "Blue",
@@ -115,6 +118,9 @@ const constantValues =
             "ja-JP": "青",
             "pt-BR": "Azul",
             "zh-CN": "蓝色"
+        },
+        "Gray": {
+            "en-US": "Gray",
         },
         "GREEN": {
             "guid": "00000000B93A",
@@ -160,6 +166,9 @@ const constantValues =
             "pt-BR": "Vermelho",
             "zh-CN": "红色"
         },
+        "ROSE": {
+            "en-US": "Rose",
+        },
         "SKY_BLUE": {
             "guid": "00000000CDB5",
             "en-US": "Sky Blue",
@@ -194,6 +203,9 @@ const constantValues =
             "ja-JP": "ターコイズ",
             "pt-BR": "Turquesa",
             "zh-CN": "青绿色"
+        },
+        "VIOLET": {
+            "en-US": "Violet",
         },
         "WHITE": {
             "guid": "00000000B93C",
@@ -851,6 +863,18 @@ const constantValues =
             "pt-BR": "Desculpe",
             "zh-CN": "抱歉"
         },
+        "SPRAY_DOWN": {
+            "en-US": "Spray Down",
+        },
+        "SPRAY_LEFT": {
+            "en-US": "Spray Left",
+        },
+        "SPRAY_RIGHT": {
+            "en-US": "Spray Right",
+        },
+        "SPRAY_UP": {
+            "en-US": "Spray Up",
+        },
         "THANKS": {
             "guid": "00000000B9D6",
             "en-US": "Thanks",
@@ -1310,7 +1334,17 @@ const constantValues =
     "Impulse": {
         "CANCEL_CONTRARY_MOTION": {
             "guid": "00000000B520",
-            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied.",
+            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal velocity (XZ) and vertical velocity (Y) are processed separately.",
+            "en-US": "Cancel Contrary Motion",
+            "es-MX": "Cancelar movimiento contrario",
+            "fr-FR": "Annuler le mouvement contraire",
+            "ja-JP": "逆モーションをキャンセル",
+            "pt-BR": "Cancelar Deslocamento Contrário",
+            "zh-CN": "取消相反运动"
+        },
+        "CANCEL_CONTRARY_MOTION_XYZ": {
+            "guid": "00000000B520",
+            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together.",
             "en-US": "Cancel Contrary Motion",
             "es-MX": "Cancelar movimiento contrario",
             "fr-FR": "Annuler le mouvement contraire",
@@ -1451,13 +1485,8 @@ const constantValues =
         }
     },
     "IconReeval": {
-        "POSITION": {
-            "guid": "00000000B8D8",
-            "en-US": "Position",
-            "es-MX": "Posición",
-            "ja-JP": "位置",
-            "pt-BR": "Posição",
-            "zh-CN": "位置"
+        "COLOR": {
+            "en-US": "Color",
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -1468,6 +1497,17 @@ const constantValues =
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
+        "POSITION": {
+            "guid": "00000000B8D8",
+            "en-US": "Position",
+            "es-MX": "Posición",
+            "ja-JP": "位置",
+            "pt-BR": "Posição",
+            "zh-CN": "位置"
+        },
+        "POSITION_AND_COLOR": {
+            "en-US": "Position and Color",
+        },
         "VISIBILITY": {
             "guid": "00000000B8C4",
             "en-US": "Visible To",
@@ -1476,6 +1516,9 @@ const constantValues =
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
             "zh-CN": "可见"
+        },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To and Color",
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -1485,17 +1528,14 @@ const constantValues =
             "ja-JP": "表示される相手、位置",
             "pt-BR": "Visível para e Posição",
             "zh-CN": "可见和位置"
-        }
+        },
+        "VISIBILITY_POSITION_AND_COLOR": {
+            "en-US": "Visible To Position and Color",
+        },
     },
     "EffectReeval": {
-        "POSITION_AND_RADIUS": {
-            "guid": "00000000B8C5",
-            "en-US": "Position and Radius",
-            "es-MX": "Posición y radio",
-            "fr-FR": "Position et Rayon",
-            "ja-JP": "位置と範囲",
-            "pt-BR": "Posição e Raio",
-            "zh-CN": "位置和半径"
+        "COLOR": {
+            "en-US": "Color",
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -1506,6 +1546,18 @@ const constantValues =
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
+        "POSITION_AND_RADIUS": {
+            "guid": "00000000B8C5",
+            "en-US": "Position and Radius",
+            "es-MX": "Posición y radio",
+            "fr-FR": "Position et Rayon",
+            "ja-JP": "位置と範囲",
+            "pt-BR": "Posição e Raio",
+            "zh-CN": "位置和半径"
+        },
+        "POSITION_RADIUS_AND_COLOR": {
+            "en-US": "Position Radius and Color",
+        },
         "VISIBILITY": {
             "guid": "00000000B8C4",
             "en-US": "Visible To",
@@ -1515,6 +1567,9 @@ const constantValues =
             "pt-BR": "Visível para",
             "zh-CN": "可见"
         },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To and Color",
+        },
         "VISIBILITY_POSITION_AND_RADIUS": {
             "guid": "00000000B8C6",
             "en-US": "Visible To Position and Radius",
@@ -1523,9 +1578,15 @@ const constantValues =
             "ja-JP": "表示される相手、位置、範囲",
             "pt-BR": "Visível para Posição e Raio",
             "zh-CN": "可见，位置和半径"
-        }
+        },
+        "VISIBILITY_POSITION_RADIUS_AND_COLOR": {
+            "en-US": "Visible To Position Radius and Color",
+        },
     },
     "HudReeval": {
+        "COLOR": {
+            "en-US": "Color",
+        },
         "NONE": {
             "guid": "00000000B8C3",
             "en-US": "None",
@@ -1544,6 +1605,9 @@ const constantValues =
             "pt-BR": "Ordem de Classificação",
             "zh-CN": "排序"
         },
+        "SORT_ORDER_AND_COLOR": {
+            "en-US": "Sort Order and Color",
+        },
         "SORT_ORDER_AND_STRING": {
             "guid": "00000000FCA6",
             "en-US": "Sort Order and String",
@@ -1553,6 +1617,9 @@ const constantValues =
             "pt-BR": "Ordem de classificação e string",
             "zh-CN": "排序规则与字符串"
         },
+        "SORT_ORDER_STRING_AND_COLOR": {
+            "en-US": "Sort Order String and Color",
+        },
         "STRING": {
             "guid": "00000000BB31",
             "en-US": "String",
@@ -1560,6 +1627,9 @@ const constantValues =
             "fr-FR": "Chaîne de texte",
             "ja-JP": "文字列",
             "zh-CN": "字符串"
+        },
+        "STRING_AND_COLOR": {
+            "en-US": "String and Color",
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -1569,6 +1639,9 @@ const constantValues =
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
             "zh-CN": "可见"
+        },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To and Color",
         },
         "VISIBILITY_AND_SORT_ORDER": {
             "guid": "00000001095E",
@@ -1588,6 +1661,9 @@ const constantValues =
             "pt-BR": "Visível para e String",
             "zh-CN": "可见和字符串"
         },
+        "VISIBILITY_SORT_ORDER_AND_COLOR": {
+            "en-US": "Visible To Sort Order and Color",
+        },
         "VISIBILITY_SORT_ORDER_AND_STRING": {
             "guid": "00000000FCA5",
             "en-US": "Visible To Sort Order and String",
@@ -1598,9 +1674,18 @@ const constantValues =
             "ko-KR": "Visible To Sort Order String",
             "pt-BR": "Visível para ordem de classificação e string",
             "zh-CN": "可见性，排序规则，以及字符串"
-        }
+        },
+        "VISIBILITY_SORT_ORDER_STRING_AND_COLOR": {
+            "en-US": "Visible To Sort Order String and Color",
+        },
+        "VISIBILITY_STRING_AND_COLOR": {
+            "en-US": "Visible To String and Color",
+        },
     },
     "WorldTextReeval": {
+        "COLOR": {
+            "en-US": "Color",
+        },
         "NONE": {
             "guid": "00000000B8C3",
             "en-US": "None",
@@ -1618,6 +1703,9 @@ const constantValues =
             "ja-JP": "文字列",
             "zh-CN": "字符串"
         },
+        "STRING_AND_COLOR": {
+            "en-US": "String and Color",
+        },
         "VISIBILITY": {
             "guid": "00000000B8C4",
             "en-US": "Visible To",
@@ -1626,6 +1714,9 @@ const constantValues =
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
             "zh-CN": "可见"
+        },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To Position String and Color",
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -1645,6 +1736,9 @@ const constantValues =
             "pt-BR": "Visível para e String",
             "zh-CN": "可见和字符串"
         },
+        "VISIBILITY_POSITION_AND_COLOR": {
+            "en-US": "Visible To Position and Color",
+        },
         "VISIBILITY_POSITION_AND_STRING": {
             "guid": "00000000BAD4",
             "en-US": "Visible To Position and String",
@@ -1653,7 +1747,13 @@ const constantValues =
             "ja-JP": "表示される相手、位置、文字列",
             "pt-BR": "Visível para Posição e String",
             "zh-CN": "可见，位置和字符串"
-        }
+        },
+        "VISIBILITY_STRING_AND_COLOR": {
+            "en-US": "Visible To String and Color",
+        },
+        "VISIBILITY_POSITION_STRING_AND_COLOR": {
+            "en-US": "Visible To Position String and Color",
+        },
     },
     "ChaseReeval": {},
     "__ChaseRateReeval__": {
@@ -2141,6 +2241,22 @@ const constantValues =
             "pt-BR": "Escudos",
             "zh-CN": "护盾"
         }
+    },
+    "OutlineVisibility": {
+        "DEFAULT": {
+            "en-US": "Default",
+            "description": "Outlines are visible based on the default game settings.",
+        },
+        "OCCLUDED": {
+            "en-US": "Occluded",
+            "description": "Outlines are visible when occluded by the environment.",
+        },
+        "ALWAYS": {
+            "en-US": "Always",
+            "description": "Outlines are always visible.",
+        },
+    },
+    "Stat": {
     }
 }
 //end-json

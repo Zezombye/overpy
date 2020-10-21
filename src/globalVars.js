@@ -22,7 +22,7 @@ var playerVariables;
 var subroutines;
 var currentLanguage;
 
-const ELEMENT_LIMIT = 20000;
+const ELEMENT_LIMIT = 32768;
 //If it is in a browser then it is assumed to be in debug mode.
 const DEBUG_MODE = (typeof window !== "undefined");
 
@@ -337,6 +337,7 @@ const typeTree = [
 		"EntityId",
 		"TextId",
 		"HealthPoolId",
+		"AssistId",
 		"String",
 		{"Direction": ["Vector"]},
 		{"Position": ["Vector"]},
@@ -346,6 +347,7 @@ const typeTree = [
 		"Team",
 		"Gamemode",
 		"Button",
+		"Color",
 	]},
 	"Array",
 	"void",
@@ -365,6 +367,7 @@ const typeTree = [
 	"GamemodeLiteral",
 	"TeamLiteral",
 	"ButtonLiteral",
+	"ColorLiteral",
 	
 	{"StringLiteral": [
 		"LocalizedStringLiteral",

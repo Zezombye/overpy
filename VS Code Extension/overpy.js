@@ -2155,7 +2155,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being reenabled.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -2831,7 +2831,7 @@ const actionKw =
         "zh-CN": "创建HUD文本"
     },
     "createIcon": {
-        "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
+        "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the getLastCreatedEntity() value. This action will fail if too many entities have been created.",
         "args": [
             {
                 "name": "VISIBLE TO",
@@ -2885,7 +2885,7 @@ const actionKw =
         "zh-CN": "创建图标"
     },
     "createInWorldText": {
-        "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
+        "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created.",
         "args": [
             {
                 "name": "VISIBLE TO",
@@ -2954,6 +2954,144 @@ const actionKw =
         "pt-BR": "Criar Texto no Mundo",
         "zh-CN": "创建地图文本"
     },
+    "createProgressBarInWorldText": {
+		"description": "Creates a progress bar in-world text visible to the specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() Value. This action will fail if too many text elements have been created.",
+		"args": [
+			{
+				"name": "Visible To",
+				"description": "One or more players who will see the progress bar HUD text.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "ALL PLAYERS"
+			},
+			{
+				"name": "Value",
+				"description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
+				"type": "unsigned float",
+				"default": 0
+			},
+			{
+				"name": "Text",
+				"description": "The text to be displayed (can be blank)",
+				"type": "Object",
+				"default": "Custom String"
+			},
+			{
+				"name": "Position",
+				"description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+				"type": "Position",
+				"default": "Event Player"
+			},
+			{
+				"name": "Scale",
+				"description": "The text's scale.",
+				"type": "float",
+				"default": "NUMBER"
+			},
+			{
+				"name": "Clipping",
+				"description": "Specifies whether the text can be seen through walls or is instead clipped.",
+				"type": "Clip",
+				"default": "CLIP AGAINST SURFACES"
+			},
+			{
+				"name": "Progress Bar Color",
+				"description": "The color of the progress bar text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+				"type": "Color",
+				"default": "White"
+			},
+			{
+				"name": "Text Color",
+				"description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+				"type": "Color",
+				"default": "White"
+			},
+			{
+				"name": "Reevaluation",
+				"description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+				"type": "HudReeval",
+				"default": "Visible To, Values, and Color"
+			},
+			{
+				"name": "Non-Team Spectators",
+				"description": "Whether non-team spectators can see the text or not.",
+				"type": "SpecVisibility",
+				"default": "Default Visibility"
+			}
+        ],
+        return: "void",
+		"en-US": "Create Progress Bar In-World Text"
+	},
+	"progressBarHud": {
+		"description": "Creates a progress bar HUD text visible to specified players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created.",
+		"args": [
+			{
+				"name": "Visible To",
+				"description": "One or more players who will see the Progress Bar HUD text.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "ALL PLAYERS"
+			},
+			{
+				"name": "Value",
+				"description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
+				"type": "unsigned float",
+				"default": 0
+			},
+			{
+				"name": "Text",
+				"description": "The text to be displayed (can be blank)",
+				"type": "Object",
+				"default": "Custom String"
+			},
+			{
+				"name": "Location",
+				"description": "The location on the screen where the text will appear.",
+				"type": "HudPosition",
+				"default": "Left"
+			},
+			{
+				"name": "Sort Order",
+				"description": "The sort order of the text relative to other text in the same location. Text with a higher sort order will come after the text with a lower sort order.",
+				"type": "float",
+				"default": 0
+			},
+			{
+				"name": "Progress Bar Color",
+				"description": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+				"type": "Color",
+				"default": "White"
+			},
+			{
+				"name": "Text Color",
+				"description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+				"type": "Color",
+				"default": "White"
+			},
+			{
+				"name": "Reevaluation",
+				"description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+				"type": "HudReeval",
+				"default": "Visible To, Values, and Color"
+			},
+			{
+				"name": "Non-Team Spectators",
+				"description": "Whether non-team spectators can see the text or not.",
+				"type": "SpecVisibility",
+				"default": "Default Visibility"
+			}
+        ],
+        return: "void",
+		"en-US": "Create Progress Bar HUD Text"
+	},
     "damage": {
         "guid": "000000007876",
         "description": "Applies instantaneous damage to one or more players, possibly killing the players.",
@@ -3119,7 +3257,7 @@ const actionKw =
         "pt-BR": "Destruir Todos os Ícones",
         "zh-CN": "消除所有图标"
     },
-    "destroyAllInWorldText": {
+    "destroyAllInWorldTexts": {
         "description": "Destroys all in-world text created by create in-world text.",
         "args": [],
         "guid": "00000000B8AB",
@@ -3131,6 +3269,18 @@ const actionKw =
         "pt-BR": "Destruir Todo o Texto no Mundo",
         "zh-CN": "消除所有地图文本"
     },
+	"destroyAllProgressBarInWorldTexts": {
+        "description": "Destroys all progress bar in-world texts that were created by the createProgressBarInWorldText() Action.",
+        args: [],
+        return: "void",
+		"en-US": "Destroy All Progress Bar In-World Text"
+	},
+	"destroyAllProgressBarHuds": {
+        "description": "Destroys all Progress Bar HUD text that were created by the Create Progress Bar HUD Text Action.",
+        args: [],
+        return: "void",
+		"en-US": "Destroy All Progress Bar HUD Text"
+	},
     "destroyDummy": {
         "description": "Removes the specified dummy bot from the match.",
         "args": [
@@ -3234,6 +3384,31 @@ const actionKw =
         "pt-BR": "Destruir Texto no Mundo",
         "zh-CN": "消除地图文本"
     },
+	"destroyProgressBarInWorldText": {
+		"description": "Destroys the progress bar in-world text that was created by createProgressBarInWorldText().",
+		"args": [
+			{
+				"name": "Text ID",
+				"description": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored.",
+				"type": "TextId",
+				"default": "Last Text ID"
+			}
+		],
+		"en-US": "Destroy Progress Bar In-World Text"
+	},
+	"destroyProgressBarHud": {
+		"description": "Destroys the progress bar HUD text that was created by progressBarHud().",
+		"args": [
+			{
+				"name": "Text ID",
+				"description": "Specifies which progress bar HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.",
+				"type": "TextId",
+				"default": "Last Text ID"
+			}
+        ],
+        return: "void",
+		"en-US": "Destroy Progress Bar HUD Text"
+	},
     "_&detach": {
         "description": "Undoes the attachment caused by the 'attachTo' action for one or more players. These players will resume normal movement from their current position.",
         "args": [
@@ -3640,7 +3815,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being disabled.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -4225,6 +4400,19 @@ const actionKw =
         "pt-BR": "Abater",
         "zh-CN": "击杀"
     },
+    "log": {
+        "description": "Causes the workshop inspector to record a log entry.",
+        "args": [
+            {
+                "name": "TEXT",
+                "description": "The string to be logged to the workshop inspector.",
+                "type": "Object",
+                "default": "CUSTOM STRING",
+            }
+        ],
+        "return": "void",
+        "en-US": "Log To Inspector",
+    },
     "__loop__": {
         "guid": "0000000078F5",
         "description": "Restarts the action list from the beginning. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
@@ -4621,7 +4809,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The button to be pressed.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -5091,6 +5279,30 @@ const actionKw =
         "pt-BR": "Definir Dano Recebido",
         "zh-CN": "设置受到伤害"
     },
+    "_&setEnvironmentalKillCreditor": {
+		"description": "Sets the player who will received credit if the specified target player or players die to the environment before landing on the ground.",
+		"args": [
+			{
+				"name": "Target",
+				"description": "The target player or players whose death is being considered.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "EVENT PLAYER"
+			},
+			{
+				"name": "Environment Credit Player",
+				"description": "The Player who will receive credit if the target player or players die to the environment before landing on the ground. An environment credit player of null indicates no player will receive credit.",
+				"type": "Player",
+				"default": "NULL"
+			}
+        ],
+        return: "void",
+		"en-US": "Set Environment Credit Player"
+	},
     "_&setFacing": {
         "description": "Sets the facing of one or more players to the specified direction.",
         "args": [
@@ -5377,6 +5589,54 @@ const actionKw =
         "pt-BR": "Definir Velocidade Vertical do Salto",
         "zh-CN": "设置跳跃垂直速度"
     },
+    "_&setKnockbackDealt": {
+		"description": "Sets the knockback dealt of one or more players to a percentage of their raw knockback dealt.",
+		"args": [
+			{
+				"name": "Player",
+				"description": "The player or players whose knockback dealt will be set.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "EVENT PLAYER"
+			},
+			{
+				"name": "Knockback Dealt Percent",
+				"description": "The percentage of raw knockback dealt to which the player or players will set their knockback dealt.",
+				"type": "unsigned float",
+				"default": 100
+			}
+        ],
+        return: "void",
+		"en-US": "Set Knockback Dealt"
+	},
+    "_&setKnockbackReceived": {
+		"description": "Sets the knockback received of one or more players to a percentage of their raw knockback received.",
+		"args": [
+			{
+				"name": "Player",
+				"description": "The player or players whose knockback received will be set.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "EVENT PLAYER"
+			},
+			{
+				"name": "Knockback Received Percent",
+				"description": "The percentage of raw knockback received to which the player or players will set their knockback received.",
+				"type": "unsigned float",
+				"default": 100
+			}
+        ],
+        return: "void",
+		"en-US": "Set Knockback Received"
+	},
     "setMatchTime": {
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
         "args": [
@@ -6472,6 +6732,12 @@ const actionKw =
                 "description": "The color of the specified player outlines, if they are visible.",
                 "type": "Color",
                 "default": "White"
+            },
+            {
+                "name": "Visibility",
+                "description": "The visibility type of the specified player outlines, if they are visible.",
+                "type": "OutlineVisibility",
+                "default": "DEFAULT",
             }
         ],
         "return": "void",
@@ -6643,6 +6909,41 @@ const actionKw =
         "pt-BR": "Começar a Forçar Aceleração",
         "zh-CN": "开始限制阈值"
     },
+	"_&startGrantingAssistFor": {
+		"description": "Starts granting assist credit toward to one or more assisters when one or more targets are eliminated. A reference to this damage modification can be obtained from the getLastAssistId() value. This action will fail if too many assists have been started.",
+		"args": [
+			{
+				"name": "Assisters",
+				"description": "The target Player or Players who will receive assist credit.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "EVENT PLAYER"
+			},
+			{
+				"name": "Targets",
+				"description": "The Player or Players whose eliminations will grant assist credit to the Assisters. If the Target or Targets are allied to the Assister, this will be a defensive assist. Otherwise, this will be an offensive assist.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "ALL PLAYERS"
+			},
+			{
+				"name": "Reevaluation",
+				"description": "Specifies which of this Action's Inputs will be continously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+				"type": "__ChaseRateReeval__",
+				"default": "Assisters and Targets"
+			}
+        ],
+        return: "void",
+		"en-US": "Start Assist"
+	},
     "_&startHoT": {
         "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
         "args": [
@@ -6749,7 +7050,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being held virtually.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -7020,6 +7321,12 @@ const actionKw =
         "pt-BR": "Parar de Acelerar",
         "zh-CN": "停止加速"
     },
+	"stopAllAssists": {
+        "description": "Stops all assists that were started using the Start Assist Action.",
+        args: [],
+        return: "void",
+		"en-US": "Stop All Assists"
+	},
     "stopAllDamageModifications": {
         "description": "Stops all damage modifications that were started using the start damage modification action.",
         "args": [],
@@ -7092,6 +7399,19 @@ const actionKw =
         "pt-BR": "Parar Toda a Cura ao Longo do Tempo",
         "zh-CN": "停止所有持续治疗"
     },
+	"stopAssist": {
+		"description": "Stops an assist that was started by the Start Assist Action.",
+		"args": [
+			{
+				"name": "Assist ID",
+				"description": "Specifies which assist instance to stop. This ID may be Last Assist ID or a Variable into which Last Assist ID was earlier stored.",
+				"type": "AssistId",
+				"default": "Last Assist ID"
+			}
+        ],
+        return: "void",
+		"en-US": "Stop Assist"
+	},
     "_&stopCamera": {
         "description": "Restores the camera to the default view.",
         "args": [
@@ -7408,7 +7728,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is no longer being held virtually.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -7610,6 +7930,24 @@ const actionKw =
         "ja-JP": "待機",
         "pt-BR": "Esperar",
         "zh-CN": "等待"
+    },
+    "waitUntil": {
+        "description": "Waits until the Continue Condition is true or Timeout seconds elapse. The rule conditions are ignored during this wait.",
+        "args": [
+            {
+                "name": "CONTINUE CONDITION",
+                "description": "If this value becomes true, the wait concludes, and the next action in the action list begins executing.",
+                "type": "bool",
+                "default": "false",
+            },{
+                "name": "TIMEOUT",
+                "description": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing.",
+                "type": "unsigned float",
+                "default": "99999",
+            }
+        ],
+        return: "void",
+        "en-US": "Wait Until",
     },
     "__while__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action.",
@@ -8453,6 +8791,19 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo a",
         "zh-CN": "距离最近的玩家"
     },
+	"__color__": {
+		"description": "A Color Constant",
+		"args": [
+			{
+				"name": "Color",
+				"description": "A Color Constant",
+				"type": "ColorLiteral",
+				"default": "White"
+			}
+		],
+		"return": "Color",
+		"en-US": "Color"
+	},
     "__compare__": {
         "description": "Whether the comparison of the two inputs is true.",
         "args": [
@@ -8666,6 +9017,37 @@ var valueFuncKw =
         "pt-BR": "Mapa Atual",
         "zh-CN": "当前地图"
     },
+	"rgba": {
+		"description": "A custom color with the specified red, green, blue and alpha values.",
+		"args": [
+			{
+				"name": "Red",
+				"description": "The red component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Green",
+				"description": "The green component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Blue",
+				"description": "The blue component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Alpha",
+				"description": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible.",
+				"type": "unsigned int",
+				"default": 255
+			}
+		],
+		"return": "Color",
+		"en-US": "Custom Color"
+	},
     "__customString__": {
         "description": "ty magzie for adding that",
         "args": [
@@ -8901,6 +9283,21 @@ var valueFuncKw =
         "pt-BR": "Entidade Existe",
         "zh-CN": "实体存在"
     },
+	"evalOnce": {
+		"description": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop.",
+		"args": [
+			{
+				"name": "Input Value",
+				"description": "The value that will be only evaluated once.",
+				"default": 0
+			}
+		],
+		"return": [
+            "Object",
+            "Array",
+        ],
+		"en-US": "Evaluate Once"
+	},
     "eventAbility": {
         "description": "The ability for the event currently being processed by this rule associated by button.",
         "args": null,
@@ -9675,7 +10072,7 @@ var valueFuncKw =
             {
                 "name": "BUTTON",
                 "description": "The button to check.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -9751,6 +10148,19 @@ var valueFuncKw =
         "pt-BR": "É Comunicando Qualquer Emote",
         "zh-CN": "正在使用表情交流"
     },
+	"_&isCommunicatingSpray": {
+		"description": "Whether a Player is using a spray.",
+		"args": [
+			{
+				"name": "Player",
+				"description": "The Player whose spray status to check.",
+				"type": "Player",
+				"default": "Event Player"
+			}
+		],
+		"return": "bool",
+		"en-US": "Is Communicating Any Spray"
+	},
     "_&isCommunicatingVoiceline": {
         "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
         "args": [
@@ -10483,6 +10893,12 @@ var valueFuncKw =
         "pt-BR": "É Aguardando Jogadores",
         "zh-CN": "正在等待玩家"
     },
+	"getLastAssistID": {
+        "description": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level).",
+        args: [],
+		"return": "AssistId",
+		"en-US": "Last Assist ID"
+	},
     "getLastCreatedEntity": {
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": [],
@@ -10640,6 +11056,19 @@ var valueFuncKw =
         "pt-BR": "Vetor Local de",
         "zh-CN": "本地矢量"
     },
+	"magnitude": {
+		"description": "The magnitude (length) of the specified vector",
+		"args": [
+			{
+				"name": "vector",
+                "description": "The vector to calculate the magnitude of.",
+                "type": "Vector",
+				"default": "Vector"
+			}
+		],
+		"return": "unsigned float",
+		"en-US": "Magnitude Of"
+	},
     "__map__": {
         "guid": "00000000D411",
         "description": "A map constant.",
@@ -11138,6 +11567,19 @@ var valueFuncKw =
         "pt-BR": "Número de Jogadores no Objetivo",
         "zh-CN": "目标点上玩家数量"
     },
+	"getNumberOfSlots": {
+		"description": "The number of slots on a team or in the match.",
+		"args": [
+			{
+				"name": "Team",
+				"description": "The team or teams on which to count slots.",
+				"type": "Team",
+				"default": "Team"
+			}
+		],
+		"return": "unsigned int",
+		"en-US": "Number of Slots"
+	},
     "getCurrentObjective": {
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
         "args": [],
@@ -11286,6 +11728,50 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo da Mira",
         "zh-CN": "距离准星最近的玩家"
     },
+	"_&getHeroStatistic": {
+		"description": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
+		"args": [
+			{
+				"name": "Player",
+				"description": "The Player whose statistic to acquire.",
+				"type": "Player",
+				"default": "Event Player"
+			},
+			{
+				"name": "Hero",
+				"description": "The hero whose statistic to acquire",
+				"type": "Hero",
+				"default": "Hero"
+			},
+			{
+				"name": "Stat",
+				"description": "The statistic to acquire.",
+				"type": "Stat",
+				"default": "All Damage Dealt"
+			}
+		],
+		"return": "unsigned float",
+		"en-US": "Player Hero Stat"
+	},
+	"_&getStatistic": {
+		"description": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
+		"args": [
+			{
+				"name": "Player",
+				"description": "The Player whose statistic to acquire.",
+				"type": "Player",
+				"default": "Event Player"
+			},
+			{
+				"name": "Statistic",
+				"description": "The statistic to acquire.",
+				"type": "Stat",
+				"default": "All Damage Dealt"
+			}
+		],
+		"return": "unsigned float",
+		"en-US": "Player Stat"
+	},
     "__playerVar__": {
         "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
@@ -11954,6 +12440,21 @@ var valueFuncKw =
         "pt-BR": "Matriz Ordenada",
         "zh-CN": "已排序的数组"
     },
+	"getSpawnPoints": {
+		"description": "The active spawn points for a team or for the match, provided as an array of position vectors.",
+		"args": [
+			{
+				"name": "Team",
+				"description": "The team whose spawn points to acquire.",
+				"type": "Team",
+				"default": "Team"
+			}
+		],
+		"return": {
+            "Array": "Position",
+        },
+		"en-US": "Spawn Points"
+	},
     "_&getSpeed": {
         "description": "The current speed of a player in meters per second.",
         "args": [
@@ -12058,6 +12559,63 @@ var valueFuncKw =
         "ja-JP": "文字列",
         "zh-CN": "字符串"
     },
+	"strContains": {
+		"description": "Whether the specified string contains the specified substring.",
+		"args": [
+			{
+				"name": "String",
+				"description": "The string in which to search for the specified substring.",
+				"type": "String",
+				"default": "Custom String"
+			},
+			{
+				"name": "Substring",
+				"description": "The substring for which to search.",
+				"type": "String",
+				"default": "Custom String"
+			}
+		],
+		"return": "bool",
+		"en-US": "String Contains"
+	},
+	"strLen": {
+		"description": "The length in characters of the provided string.",
+		"args": [
+			{
+				"name": "String",
+				"description": "The string whose characters to count.",
+				"type": "String",
+				"default": "Global Variable"
+			}
+		],
+		"return": "unsigned int",
+		"en-US": "String Length"
+	},
+	"substring": {
+		"description": "The substring of the provided string.",
+		"args": [
+			{
+				"name": "String",
+				"description": "The string value from which to build the substring.",
+				"type": "String",
+				"default": "Global Variable"
+			},
+			{
+				"name": "Substring Start Index",
+				"description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
+				"type": "unsigned int",
+				"default": 0
+			},
+			{
+				"name": "Substring Length",
+				"description": "Specifies the number of characters in the substring.",
+				"type": "unsigned int",
+				"default": 0
+			}
+		],
+		"return": "String",
+		"en-US": "String Slice"
+	},
     "__subtract__": {
         "guid": "00000000C40A",
         "description": "The difference between two numbers or vectors.",
@@ -12235,6 +12793,21 @@ var valueFuncKw =
         "pt-BR": "Percentual de Carga da Suprema",
         "zh-CN": "终极技能充能百分比"
     },
+	"updateEveryTick": {
+		"description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. May increase server load and/or lower frame rate.",
+		"args": [
+			{
+				"name": "Value",
+				"description": "The value that will be updated once per tick.",
+				"default": "Position Of"
+			}
+		],
+		"return": [
+            "Object",
+            "Array",
+        ],
+		"en-US": "Update Every Frame"
+	},
     "Vector.UP": {
         "guid": "00000000B118",
         "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
@@ -12481,6 +13054,76 @@ var valueFuncKw =
         "pt-BR": "Arma",
         "zh-CN": "武器"
     },
+	"__workshopSettingCombo__": {
+		"description": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice.",
+		"args": [
+			{
+				"name": "Category",
+				"description": "The name of the category in which this setting will be found.",
+				"type": "CustomStringLiteral",
+				"default": "Custom String"
+			},
+			{
+				"name": "Name",
+				"description": "The name of this setting.",
+				"type": "CustomStringLiteral",
+				"default": "Custom String"
+			},
+			{
+				"name": "Default",
+				"description": "The default value for this setting.",
+				"type": "UnsignedIntLiteral",
+				"default": 0
+			},
+			{
+				"name": "Options",
+				"description": "The options for this setting.",
+				"type": {
+                    "Array": "CustomStringLiteral",
+                },
+				"default": "Array"
+			},
+			{
+				"name": "Sort Order",
+				"description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
+				"type": "IntLiteral",
+				"default": 0
+			}
+		],
+		"return": "unsigned int",
+		"en-US": "Workshop Setting Combo"
+	},
+	"__workshopSettingHero__": {
+		"description": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list.",
+		"args": [
+			{
+				"name": "Category",
+				"description": "The name of the category in which this setting will be found.",
+				"type": "CustomStringLiteral",
+				"default": "Custom String"
+			},
+			{
+				"name": "Name",
+				"description": "The name of this setting.",
+				"type": "CustomStringLiteral",
+				"default": "Custom String"
+			},
+			{
+				"name": "Default",
+				"description": "The default value for this setting.",
+				"type": "HeroLiteral",
+				"default": "Ana"
+			},
+			{
+				"name": "Sort Order",
+				"description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
+				"type": "IntLiteral",
+				"default": 0
+			}
+		],
+		"return": "Hero",
+		"en-US": "Workshop Setting Hero"
+	},
     "__workshopSettingInteger__": {
         "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
         "args": [
@@ -12513,6 +13156,12 @@ var valueFuncKw =
                 "description": "",
                 "type": "IntLiteral",
                 "default": 100
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "",
+                "type": "IntLiteral",
+                "default": 0
             }
         ],
         "isConstant": true,
@@ -12557,6 +13206,12 @@ var valueFuncKw =
                 "description": "",
                 "type": "FloatLiteral",
                 "default": 100
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "",
+                "type": "IntLiteral",
+                "default": 0
             }
         ],
         "isConstant": true,
@@ -12588,6 +13243,12 @@ var valueFuncKw =
                 "name": "DEFAULT",
                 "description": "",
                 "type": "BoolLiteral",
+                "default": 0
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "",
+                "type": "IntLiteral",
                 "default": 0
             }
         ],
@@ -13932,6 +14593,15 @@ const mapKw =
         "ru-RU": "Мастерская: поле ночь",
         "zh-CN": "地图工坊空地（夜间）",
         "zh-TW": "工作坊延伸區域（夜晚）"
+    },
+    "workshopGreenScreen": {
+        "gamemodes": [
+            "skirmish",
+            "elimination",
+            "ffa",
+            "tdm"
+        ],
+        "en-US": "Workshop Green Screen",
     },
     "workshopIsland": {
         "gamemodes": [
@@ -16443,7 +17113,7 @@ const constantValues =
             "zh-CN": "全部禁用"
         }
     },
-    "Color": {
+    "ColorLiteral": {
         "AQUA": {
             "guid": "00000000CDB3",
             "en-US": "Aqua",
@@ -16453,6 +17123,9 @@ const constantValues =
             "pt-BR": "Azul-piscina",
             "zh-CN": "水绿色"
         },
+        "BLACK": {
+            "en-US": "Black",
+        },
         "BLUE": {
             "guid": "00000000B939",
             "en-US": "Blue",
@@ -16461,6 +17134,9 @@ const constantValues =
             "ja-JP": "青",
             "pt-BR": "Azul",
             "zh-CN": "蓝色"
+        },
+        "Gray": {
+            "en-US": "Gray",
         },
         "GREEN": {
             "guid": "00000000B93A",
@@ -16506,6 +17182,9 @@ const constantValues =
             "pt-BR": "Vermelho",
             "zh-CN": "红色"
         },
+        "ROSE": {
+            "en-US": "Rose",
+        },
         "SKY_BLUE": {
             "guid": "00000000CDB5",
             "en-US": "Sky Blue",
@@ -16540,6 +17219,9 @@ const constantValues =
             "ja-JP": "ターコイズ",
             "pt-BR": "Turquesa",
             "zh-CN": "青绿色"
+        },
+        "VIOLET": {
+            "en-US": "Violet",
         },
         "WHITE": {
             "guid": "00000000B93C",
@@ -17197,6 +17879,18 @@ const constantValues =
             "pt-BR": "Desculpe",
             "zh-CN": "抱歉"
         },
+        "SPRAY_DOWN": {
+            "en-US": "Spray Down",
+        },
+        "SPRAY_LEFT": {
+            "en-US": "Spray Left",
+        },
+        "SPRAY_RIGHT": {
+            "en-US": "Spray Right",
+        },
+        "SPRAY_UP": {
+            "en-US": "Spray Up",
+        },
         "THANKS": {
             "guid": "00000000B9D6",
             "en-US": "Thanks",
@@ -17656,7 +18350,17 @@ const constantValues =
     "Impulse": {
         "CANCEL_CONTRARY_MOTION": {
             "guid": "00000000B520",
-            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied.",
+            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal velocity (XZ) and vertical velocity (Y) are processed separately.",
+            "en-US": "Cancel Contrary Motion",
+            "es-MX": "Cancelar movimiento contrario",
+            "fr-FR": "Annuler le mouvement contraire",
+            "ja-JP": "逆モーションをキャンセル",
+            "pt-BR": "Cancelar Deslocamento Contrário",
+            "zh-CN": "取消相反运动"
+        },
+        "CANCEL_CONTRARY_MOTION_XYZ": {
+            "guid": "00000000B520",
+            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together.",
             "en-US": "Cancel Contrary Motion",
             "es-MX": "Cancelar movimiento contrario",
             "fr-FR": "Annuler le mouvement contraire",
@@ -17797,13 +18501,8 @@ const constantValues =
         }
     },
     "IconReeval": {
-        "POSITION": {
-            "guid": "00000000B8D8",
-            "en-US": "Position",
-            "es-MX": "Posición",
-            "ja-JP": "位置",
-            "pt-BR": "Posição",
-            "zh-CN": "位置"
+        "COLOR": {
+            "en-US": "Color",
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -17814,6 +18513,17 @@ const constantValues =
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
+        "POSITION": {
+            "guid": "00000000B8D8",
+            "en-US": "Position",
+            "es-MX": "Posición",
+            "ja-JP": "位置",
+            "pt-BR": "Posição",
+            "zh-CN": "位置"
+        },
+        "POSITION_AND_COLOR": {
+            "en-US": "Position and Color",
+        },
         "VISIBILITY": {
             "guid": "00000000B8C4",
             "en-US": "Visible To",
@@ -17822,6 +18532,9 @@ const constantValues =
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
             "zh-CN": "可见"
+        },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To and Color",
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -17831,17 +18544,14 @@ const constantValues =
             "ja-JP": "表示される相手、位置",
             "pt-BR": "Visível para e Posição",
             "zh-CN": "可见和位置"
-        }
+        },
+        "VISIBILITY_POSITION_AND_COLOR": {
+            "en-US": "Visible To Position and Color",
+        },
     },
     "EffectReeval": {
-        "POSITION_AND_RADIUS": {
-            "guid": "00000000B8C5",
-            "en-US": "Position and Radius",
-            "es-MX": "Posición y radio",
-            "fr-FR": "Position et Rayon",
-            "ja-JP": "位置と範囲",
-            "pt-BR": "Posição e Raio",
-            "zh-CN": "位置和半径"
+        "COLOR": {
+            "en-US": "Color",
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -17852,6 +18562,18 @@ const constantValues =
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
+        "POSITION_AND_RADIUS": {
+            "guid": "00000000B8C5",
+            "en-US": "Position and Radius",
+            "es-MX": "Posición y radio",
+            "fr-FR": "Position et Rayon",
+            "ja-JP": "位置と範囲",
+            "pt-BR": "Posição e Raio",
+            "zh-CN": "位置和半径"
+        },
+        "POSITION_RADIUS_AND_COLOR": {
+            "en-US": "Position Radius and Color",
+        },
         "VISIBILITY": {
             "guid": "00000000B8C4",
             "en-US": "Visible To",
@@ -17861,6 +18583,9 @@ const constantValues =
             "pt-BR": "Visível para",
             "zh-CN": "可见"
         },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To and Color",
+        },
         "VISIBILITY_POSITION_AND_RADIUS": {
             "guid": "00000000B8C6",
             "en-US": "Visible To Position and Radius",
@@ -17869,9 +18594,15 @@ const constantValues =
             "ja-JP": "表示される相手、位置、範囲",
             "pt-BR": "Visível para Posição e Raio",
             "zh-CN": "可见，位置和半径"
-        }
+        },
+        "VISIBILITY_POSITION_RADIUS_AND_COLOR": {
+            "en-US": "Visible To Position Radius and Color",
+        },
     },
     "HudReeval": {
+        "COLOR": {
+            "en-US": "Color",
+        },
         "NONE": {
             "guid": "00000000B8C3",
             "en-US": "None",
@@ -17890,6 +18621,9 @@ const constantValues =
             "pt-BR": "Ordem de Classificação",
             "zh-CN": "排序"
         },
+        "SORT_ORDER_AND_COLOR": {
+            "en-US": "Sort Order and Color",
+        },
         "SORT_ORDER_AND_STRING": {
             "guid": "00000000FCA6",
             "en-US": "Sort Order and String",
@@ -17899,6 +18633,9 @@ const constantValues =
             "pt-BR": "Ordem de classificação e string",
             "zh-CN": "排序规则与字符串"
         },
+        "SORT_ORDER_STRING_AND_COLOR": {
+            "en-US": "Sort Order String and Color",
+        },
         "STRING": {
             "guid": "00000000BB31",
             "en-US": "String",
@@ -17906,6 +18643,9 @@ const constantValues =
             "fr-FR": "Chaîne de texte",
             "ja-JP": "文字列",
             "zh-CN": "字符串"
+        },
+        "STRING_AND_COLOR": {
+            "en-US": "String and Color",
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -17915,6 +18655,9 @@ const constantValues =
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
             "zh-CN": "可见"
+        },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To and Color",
         },
         "VISIBILITY_AND_SORT_ORDER": {
             "guid": "00000001095E",
@@ -17934,6 +18677,9 @@ const constantValues =
             "pt-BR": "Visível para e String",
             "zh-CN": "可见和字符串"
         },
+        "VISIBILITY_SORT_ORDER_AND_COLOR": {
+            "en-US": "Visible To Sort Order and Color",
+        },
         "VISIBILITY_SORT_ORDER_AND_STRING": {
             "guid": "00000000FCA5",
             "en-US": "Visible To Sort Order and String",
@@ -17944,9 +18690,18 @@ const constantValues =
             "ko-KR": "Visible To Sort Order String",
             "pt-BR": "Visível para ordem de classificação e string",
             "zh-CN": "可见性，排序规则，以及字符串"
-        }
+        },
+        "VISIBILITY_SORT_ORDER_STRING_AND_COLOR": {
+            "en-US": "Visible To Sort Order String and Color",
+        },
+        "VISIBILITY_STRING_AND_COLOR": {
+            "en-US": "Visible To String and Color",
+        },
     },
     "WorldTextReeval": {
+        "COLOR": {
+            "en-US": "Color",
+        },
         "NONE": {
             "guid": "00000000B8C3",
             "en-US": "None",
@@ -17964,6 +18719,9 @@ const constantValues =
             "ja-JP": "文字列",
             "zh-CN": "字符串"
         },
+        "STRING_AND_COLOR": {
+            "en-US": "String and Color",
+        },
         "VISIBILITY": {
             "guid": "00000000B8C4",
             "en-US": "Visible To",
@@ -17972,6 +18730,9 @@ const constantValues =
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
             "zh-CN": "可见"
+        },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To Position String and Color",
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -17991,6 +18752,9 @@ const constantValues =
             "pt-BR": "Visível para e String",
             "zh-CN": "可见和字符串"
         },
+        "VISIBILITY_POSITION_AND_COLOR": {
+            "en-US": "Visible To Position and Color",
+        },
         "VISIBILITY_POSITION_AND_STRING": {
             "guid": "00000000BAD4",
             "en-US": "Visible To Position and String",
@@ -17999,7 +18763,13 @@ const constantValues =
             "ja-JP": "表示される相手、位置、文字列",
             "pt-BR": "Visível para Posição e String",
             "zh-CN": "可见，位置和字符串"
-        }
+        },
+        "VISIBILITY_STRING_AND_COLOR": {
+            "en-US": "Visible To String and Color",
+        },
+        "VISIBILITY_POSITION_STRING_AND_COLOR": {
+            "en-US": "Visible To Position String and Color",
+        },
     },
     "ChaseReeval": {},
     "__ChaseRateReeval__": {
@@ -18487,6 +19257,22 @@ const constantValues =
             "pt-BR": "Escudos",
             "zh-CN": "护盾"
         }
+    },
+    "OutlineVisibility": {
+        "DEFAULT": {
+            "en-US": "Default",
+            "description": "Outlines are visible based on the default game settings.",
+        },
+        "OCCLUDED": {
+            "en-US": "Occluded",
+            "description": "Outlines are visible when occluded by the environment.",
+        },
+        "ALWAYS": {
+            "en-US": "Always",
+            "description": "Outlines are always visible.",
+        },
+    },
+    "Stat": {
     }
 }
 //end-json
@@ -24106,7 +24892,7 @@ var playerVariables;
 var subroutines;
 var currentLanguage;
 
-const ELEMENT_LIMIT = 20000;
+const ELEMENT_LIMIT = 32768;
 //If it is in a browser then it is assumed to be in debug mode.
 const DEBUG_MODE = (typeof window !== "undefined");
 
@@ -24421,6 +25207,7 @@ const typeTree = [
 		"EntityId",
 		"TextId",
 		"HealthPoolId",
+		"AssistId",
 		"String",
 		{"Direction": ["Vector"]},
 		{"Position": ["Vector"]},
@@ -24430,6 +25217,7 @@ const typeTree = [
 		"Team",
 		"Gamemode",
 		"Button",
+		"Color",
 	]},
 	"Array",
 	"void",
@@ -24449,6 +25237,7 @@ const typeTree = [
 	"GamemodeLiteral",
 	"TeamLiteral",
 	"ButtonLiteral",
+	"ColorLiteral",
 	
 	{"StringLiteral": [
 		"LocalizedStringLiteral",
@@ -24763,7 +25552,7 @@ function getAstForTrue() {
     return new Ast("true", [], [], "bool");
 }
 function getAstForColorWhite() {
-    return new Ast("WHITE", [], [], "Color");
+    return new Ast("__color__", [new Ast("WHITE", [], [], "ColorLiteral")], [], "Color");
 }
 function getAstForTeamAll() {
     return new Ast("__team__", [new Ast("ALL", [], [], "TeamLiteral")], [], "Team");
@@ -27744,7 +28533,7 @@ function astToOpy(content) {
 
     if ([
         "__globalVar__",
-        "__hero__", "__gamemode__", "__map__", "__button__",
+        "__hero__", "__gamemode__", "__map__", "__button__", "__color__",
     ].includes(content.name)) {
         return astToOpy(content.args[0]);
     }
@@ -27757,7 +28546,7 @@ function astToOpy(content) {
     }
     
     if (content.type in constantValues) {
-        if (["GamemodeLiteral", "TeamLiteral", "HeroLiteral", "MapLiteral", "ButtonLiteral"].includes(content.type)) {
+        if (["GamemodeLiteral", "TeamLiteral", "HeroLiteral", "MapLiteral", "ButtonLiteral", "ColorLiteral"].includes(content.type)) {
             return content.type.replace(/Literal$/, "")+"."+content.name;
         } else if (["__ChaseTimeReeval__", "__ChaseRateReeval__"].includes(content.type)) {
             return "ChaseReeval."+content.name;
@@ -28550,8 +29339,9 @@ var typeToAstFuncMapping = {
 	"GamemodeLiteral": "__gamemode__",
 	"ButtonLiteral": "__button__",
 	"TeamLiteral": "__team__",
+	"ColorLiteral": "__color__",
 }
-for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral"]) {
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
@@ -28587,9 +29377,11 @@ function obfuscateConstant(constantType, content) {
 			"createEffect",
 			"createIcon",
 			"createInWorldText",
+			"createProgressBarInWorldText",
 			"__hudText__",
 			"hudText",
 			"hudHeader",
+			"hudProgressBar",
 			"hudSubheader",
 			"hudSubtext",
 			"playEffect",
@@ -28728,8 +29520,9 @@ var typeToAstFuncMapping = {
 	"GamemodeLiteral": "__gamemode__",
 	"ButtonLiteral": "__button__",
 	"TeamLiteral": "__team__",
+	"ColorLiteral": "__color__",
 }
-for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral"]) {
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
@@ -28765,9 +29558,11 @@ function obfuscateConstant(constantType, content) {
 			"createEffect",
 			"createIcon",
 			"createInWorldText",
+			"createProgressBarInWorldText",
 			"__hudText__",
 			"hudText",
 			"hudHeader",
+			"hudProgressBar",
 			"hudSubheader",
 			"hudSubtext",
 			"playEffect",
@@ -29090,14 +29885,35 @@ astParsingFunctions.__assignTo__ = function(content) {
 
 astParsingFunctions.__button__ = function(content) {
 
-    //Check the expected type to check if we need to remove the wrapper "button" function
-    //console.log("parent name: '"+content.parent.name+"', parent arg index: "+content.parent.argIndex);
-    //console.log(funcKw[content.parent.name].args[content.parent.argIndex].type);
-    //console.log(content);
-    if (content.expectedType === "ButtonLiteral") {
-        return content.args[0];
-    } else if (obfuscationSettings.obfuscateConstants) {
+    if (obfuscationSettings.obfuscateConstants) {
         return obfuscateConstant("ButtonLiteral", content);
+    } else {
+        return content;
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__color__ = function(content) {
+
+    if (obfuscationSettings.obfuscateConstants) {
+        return obfuscateConstant("ColorLiteral", content);
     } else {
         return content;
     }
@@ -30032,8 +30848,9 @@ astParsingFunctions.__greaterThanOrEquals__ = function(content) {
 "use strict";
 
 astParsingFunctions.__hero__ = function(content) {
-
-    if (obfuscationSettings.obfuscateConstants) {
+    if (content.expectedType === "HeroLiteral") {
+        return content.args[0];
+    } else if (obfuscationSettings.obfuscateConstants) {
         return obfuscateConstant("HeroLiteral", content);
     } else {
         return content;
@@ -32115,33 +32932,33 @@ astParsingFunctions.createWorkshopSetting = function(content) {
     var settingCategory = content.args[1];
     var settingName = content.args[2];
     var settingDefault = content.args[3];
-    var sortOrder = content.args[4].args[0].numValue;
-    if (sortOrder === 0) {
+    var sortOrder = content.args[4];
+    /*if (sortOrder === 0) {
         //0 is the default order, so just don't do anything.
         sortOrder = undefined;
     } else if (sortOrder > 63 || sortOrder < 0) {
         error("Sort order must be from 0 to 63");
-    }
+    }*/
 
     settingCategory = createSuitableWorkshopSettingString(settingCategory, false);
-    settingName = createSuitableWorkshopSettingString(settingName, true, sortOrder);
+    settingName = createSuitableWorkshopSettingString(settingName, true);
 
 
     if (settingType.args.length === 0) {
         if (settingType.name === "bool") {
-            return new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault]);
+            return new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault, sortOrder]);
         } else if (settingType.name === "int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
+            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "unsigned int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
+            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "signed int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
+            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
         } else if (settingType.name === "float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
+            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "unsigned float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
+            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "signed float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
+            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
         } else {
             error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
         }
@@ -32158,7 +32975,7 @@ astParsingFunctions.createWorkshopSetting = function(content) {
     error("This shouldn't happen");
 }
 
-function createSuitableWorkshopSettingString(str, isName, sortOrder) {
+function createSuitableWorkshopSettingString(str, isName) {
 
     fileStack = str.fileStack;
     if (str.name !== "__customString__") {
@@ -32178,12 +32995,12 @@ function createSuitableWorkshopSettingString(str, isName, sortOrder) {
     if (!/\S/.test(str.args[0].name)) {
         str.args[0].name += String.fromCharCode(0x3000);
     }
-
+/*
     //If a sort order is specified, add whitespace at the beginning (+ a zero width space U+200B because else a square is showing up)
     if (sortOrder !== undefined) {
         str.args[0].name = String.fromCharCode(0x200B) + workshopSettingWhitespace[sortOrder] + str.args[0].name;
     }
-
+*/
     if (isName) {
         //Check for a duplicate setting. If there is one, add some useless whitespace to the end.
         var settingName = str.args[0].name;
@@ -32197,11 +33014,11 @@ function createSuitableWorkshopSettingString(str, isName, sortOrder) {
 
     //Strings have a max of 128 chars, and must be literals
     if (getUtf8Length(str.args[0].name) > 128) {
-        error("String '"+str.args[0].name+"' was pushed over the 128 bytes limit due to OverPy modifications (is now "+getUtf8Length(str.args[0].name)+" bytes long)");
+        error("String '"+str.args[0].name+"' was pushed over the 128 characters limit due to OverPy modifications (is now "+getUtf8Length(str.args[0].name)+" characters long)");
     }
 
-    if (workshopSettingNames.length > 64) {
-        error("Cannot have more than 64 workshop settings");
+    if (workshopSettingNames.length > 128) {
+        error("Cannot have more than 128 workshop settings");
     }
 
     return str;
@@ -32819,8 +33636,8 @@ astParsingFunctions.print = function(content) {
         new Ast("LEFT", [], [], "HudPosition"),
         getAstFor0(),
         getAstForColorWhite(),
-        getAstForColorWhite(),
-        getAstForColorWhite(),
+        getAstForNull(),
+        getAstForNull(),
         new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"),
         new Ast("DEFAULT", [], [], "SpecVisibility"),
     ]);
@@ -33918,7 +34735,7 @@ function parseAst(content) {
     }
 
     //Skip if it's a literal, a type literal, or a constant
-    if (!["Hero", "Map", "Gamemode", "Team", "Button"].includes(content.type)) {
+    if (!["Hero", "Map", "Gamemode", "Team", "Button", "Color"].includes(content.type)) {
         if ([
             "IntLiteral", "FloatLiteral", 
             "GlobalVariable", "PlayerVariable", "Subroutine", 
@@ -34553,18 +35370,18 @@ function astToWs(content) {
 		if (content.name === "hudHeader") {
 			content.args.splice(2, 0, getAstForNull());
 			content.args.splice(3, 0, getAstForNull());
-			content.args.splice(7, 0, getAstForColorWhite());
-			content.args.splice(8, 0, getAstForColorWhite());
+			content.args.splice(7, 0, getAstForNull());
+			content.args.splice(8, 0, getAstForNull());
 		} else if (content.name === "hudSubheader") {
 			content.args.splice(1, 0, getAstForNull());
 			content.args.splice(3, 0, getAstForNull());
-			content.args.splice(6, 0, getAstForColorWhite());
-			content.args.splice(8, 0, getAstForColorWhite());
+			content.args.splice(6, 0, getAstForNull());
+			content.args.splice(8, 0, getAstForNull());
 		} else {
 			content.args.splice(1, 0, getAstForNull());
 			content.args.splice(2, 0, getAstForNull());
-			content.args.splice(6, 0, getAstForColorWhite());
-			content.args.splice(7, 0, getAstForColorWhite());
+			content.args.splice(6, 0, getAstForNull());
+			content.args.splice(7, 0, getAstForNull());
 		}
         content.name = "__hudText__";
         
@@ -35425,12 +36242,21 @@ function parse(content, kwargs={}) {
 
         return new Ast("createWorkshopSetting", [parseType(args[0]), ...args.slice(1).map(x => parse(x))]);
     }
+
 		
 	//Check for subroutine call
 	if (args.length === 0) {
         if (isSubroutineName(name)) {
             return new Ast("__callSubroutine__", [new Ast(name, [], [], "Subroutine")]);
         }
+    }
+
+    //Old functions
+    if (name === "_&setCamera") {
+        name = "_&startCamera";
+    }
+    if (name === "destroyAllInWorldText") {
+        name = "destroyAllInWorldTexts";
     }
     
     return new Ast(name, args.map(x => parse(x)));
@@ -35486,6 +36312,9 @@ function parseMember(object, member) {
 
             } else if (object[0].text === "Button") {
                 return new Ast("__button__", [new Ast(name, [], [], "ButtonLiteral")])
+
+            } else if (object[0].text === "Color") {
+                return new Ast("__color__", [new Ast(name, [], [], "ColorLiteral")])
 
 
             //Check the pseudo-enum "math"

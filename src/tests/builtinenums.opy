@@ -18,4 +18,5 @@ rule "enums":
     H = random.randint(1, 2)
     I = math.e
     J = math.pi
+    K = Color.BLUE
     

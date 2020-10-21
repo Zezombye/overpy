@@ -1237,6 +1237,15 @@ const mapKw =
         "zh-CN": "地图工坊空地（夜间）",
         "zh-TW": "工作坊延伸區域（夜晚）"
     },
+    "workshopGreenScreen": {
+        "gamemodes": [
+            "skirmish",
+            "elimination",
+            "ffa",
+            "tdm"
+        ],
+        "en-US": "Workshop Green Screen",
+    },
     "workshopIsland": {
         "gamemodes": [
             "skirmish",

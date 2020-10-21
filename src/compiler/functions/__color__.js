@@ -17,11 +17,10 @@
 
 "use strict";
 
-astParsingFunctions.__hero__ = function(content) {
-    if (content.expectedType === "HeroLiteral") {
-        return content.args[0];
-    } else if (obfuscationSettings.obfuscateConstants) {
-        return obfuscateConstant("HeroLiteral", content);
+astParsingFunctions.__color__ = function(content) {
+
+    if (obfuscationSettings.obfuscateConstants) {
+        return obfuscateConstant("ColorLiteral", content);
     } else {
         return content;
     }

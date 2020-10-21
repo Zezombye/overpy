@@ -267,7 +267,7 @@ function getAstForTrue() {
     return new Ast("true", [], [], "bool");
 }
 function getAstForColorWhite() {
-    return new Ast("WHITE", [], [], "Color");
+    return new Ast("__color__", [new Ast("WHITE", [], [], "ColorLiteral")], [], "Color");
 }
 function getAstForTeamAll() {
     return new Ast("__team__", [new Ast("ALL", [], [], "TeamLiteral")], [], "Team");

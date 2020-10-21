@@ -415,7 +415,7 @@ function astToOpy(content) {
 
     if ([
         "__globalVar__",
-        "__hero__", "__gamemode__", "__map__", "__button__",
+        "__hero__", "__gamemode__", "__map__", "__button__", "__color__",
     ].includes(content.name)) {
         return astToOpy(content.args[0]);
     }
@@ -428,7 +428,7 @@ function astToOpy(content) {
     }
     
     if (content.type in constantValues) {
-        if (["GamemodeLiteral", "TeamLiteral", "HeroLiteral", "MapLiteral", "ButtonLiteral"].includes(content.type)) {
+        if (["GamemodeLiteral", "TeamLiteral", "HeroLiteral", "MapLiteral", "ButtonLiteral", "ColorLiteral"].includes(content.type)) {
             return content.type.replace(/Literal$/, "")+"."+content.name;
         } else if (["__ChaseTimeReeval__", "__ChaseRateReeval__"].includes(content.type)) {
             return "ChaseReeval."+content.name;

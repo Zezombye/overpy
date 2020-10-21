@@ -8,18 +8,18 @@ rule ("workshop settings") {
     }
     actions {
         "bools"
-        Set Global Variable(A, Workshop Setting Toggle(Custom String("　", Null, Null, Null), Custom String("boolean", Null, Null, Null), True));
+        Set Global Variable(A, Workshop Setting Toggle(Custom String("　", Null, Null, Null), Custom String("boolean", Null, Null, Null), True, 0));
         "ints"
-        Set Global Variable(A, Workshop Setting Integer(Custom String("int", Null, Null, Null), Custom String("int", Null, Null, Null), 3, -999999999999, 999999999999));
-        Set Global Variable(A, Workshop Setting Integer(Custom String("int", Null, Null, Null), Custom String("unsigned int", Null, Null, Null), 3, 0, 999999999999));
-        Set Global Variable(A, Workshop Setting Integer(Custom String("int", Null, Null, Null), Custom String("signed int", Null, Null, Null), 3, -999999999999, 0));
+        Set Global Variable(A, Workshop Setting Integer(Custom String("int", Null, Null, Null), Custom String("int", Null, Null, Null), 3, -999999999999, 999999999999, 0));
+        Set Global Variable(A, Workshop Setting Integer(Custom String("int", Null, Null, Null), Custom String("unsigned int", Null, Null, Null), 3, 0, 999999999999, 0));
+        Set Global Variable(A, Workshop Setting Integer(Custom String("int", Null, Null, Null), Custom String("signed int", Null, Null, Null), 3, -999999999999, 0, 0));
         Set Global Variable(A, Workshop Setting Integer(Custom String("int", Null, Null, Null), Custom String("int<2;19>", Null, Null, Null), 3, 2, 19));
         Set Global Variable(A, Workshop Setting Integer(Custom String("int", Null, Null, Null), Custom String("int<6;>", Null, Null, Null), 3, 6, 9999999999999));
         Set Global Variable(A, Workshop Setting Integer(Custom String("int", Null, Null, Null), Custom String("int<;6>", Null, Null, Null), 3, -9999999999999, 6));
         "floats"
-        Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("float", Null, Null, Null), 3.5, -999999999999, 999999999999));
-        Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("unsigned float", Null, Null, Null), 3.5, 0, 999999999999));
-        Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("signed float", Null, Null, Null), 3.5, -999999999999, 0));
+        Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("float", Null, Null, Null), 3.5, -999999999999, 999999999999, 0));
+        Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("unsigned float", Null, Null, Null), 3.5, 0, 999999999999, 0));
+        Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("signed float", Null, Null, Null), 3.5, -999999999999, 0, 0));
         Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("float<2.5;19>", Null, Null, Null), 3.5, 2.5, 19));
         Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("float<6;>", Null, Null, Null), 3.5, 6, 9999999999999));
         Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("float<;6>", Null, Null, Null), 3.5, -9999999999999, 6));

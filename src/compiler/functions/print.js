@@ -27,8 +27,8 @@ astParsingFunctions.print = function(content) {
         new Ast("LEFT", [], [], "HudPosition"),
         getAstFor0(),
         getAstForColorWhite(),
-        getAstForColorWhite(),
-        getAstForColorWhite(),
+        getAstForNull(),
+        getAstForNull(),
         new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"),
         new Ast("DEFAULT", [], [], "SpecVisibility"),
     ]);

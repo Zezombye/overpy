@@ -138,7 +138,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being reenabled.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -814,7 +814,7 @@ const actionKw =
         "zh-CN": "创建HUD文本"
     },
     "createIcon": {
-        "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
+        "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the getLastCreatedEntity() value. This action will fail if too many entities have been created.",
         "args": [
             {
                 "name": "VISIBLE TO",
@@ -868,7 +868,7 @@ const actionKw =
         "zh-CN": "创建图标"
     },
     "createInWorldText": {
-        "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
+        "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created.",
         "args": [
             {
                 "name": "VISIBLE TO",
@@ -937,6 +937,144 @@ const actionKw =
         "pt-BR": "Criar Texto no Mundo",
         "zh-CN": "创建地图文本"
     },
+    "createProgressBarInWorldText": {
+		"description": "Creates a progress bar in-world text visible to the specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() Value. This action will fail if too many text elements have been created.",
+		"args": [
+			{
+				"name": "Visible To",
+				"description": "One or more players who will see the progress bar HUD text.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "ALL PLAYERS"
+			},
+			{
+				"name": "Value",
+				"description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
+				"type": "unsigned float",
+				"default": 0
+			},
+			{
+				"name": "Text",
+				"description": "The text to be displayed (can be blank)",
+				"type": "Object",
+				"default": "Custom String"
+			},
+			{
+				"name": "Position",
+				"description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+				"type": "Position",
+				"default": "Event Player"
+			},
+			{
+				"name": "Scale",
+				"description": "The text's scale.",
+				"type": "float",
+				"default": "NUMBER"
+			},
+			{
+				"name": "Clipping",
+				"description": "Specifies whether the text can be seen through walls or is instead clipped.",
+				"type": "Clip",
+				"default": "CLIP AGAINST SURFACES"
+			},
+			{
+				"name": "Progress Bar Color",
+				"description": "The color of the progress bar text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+				"type": "Color",
+				"default": "White"
+			},
+			{
+				"name": "Text Color",
+				"description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+				"type": "Color",
+				"default": "White"
+			},
+			{
+				"name": "Reevaluation",
+				"description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+				"type": "HudReeval",
+				"default": "Visible To, Values, and Color"
+			},
+			{
+				"name": "Non-Team Spectators",
+				"description": "Whether non-team spectators can see the text or not.",
+				"type": "SpecVisibility",
+				"default": "Default Visibility"
+			}
+        ],
+        return: "void",
+		"en-US": "Create Progress Bar In-World Text"
+	},
+	"progressBarHud": {
+		"description": "Creates a progress bar HUD text visible to specified players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created.",
+		"args": [
+			{
+				"name": "Visible To",
+				"description": "One or more players who will see the Progress Bar HUD text.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "ALL PLAYERS"
+			},
+			{
+				"name": "Value",
+				"description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
+				"type": "unsigned float",
+				"default": 0
+			},
+			{
+				"name": "Text",
+				"description": "The text to be displayed (can be blank)",
+				"type": "Object",
+				"default": "Custom String"
+			},
+			{
+				"name": "Location",
+				"description": "The location on the screen where the text will appear.",
+				"type": "HudPosition",
+				"default": "Left"
+			},
+			{
+				"name": "Sort Order",
+				"description": "The sort order of the text relative to other text in the same location. Text with a higher sort order will come after the text with a lower sort order.",
+				"type": "float",
+				"default": 0
+			},
+			{
+				"name": "Progress Bar Color",
+				"description": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+				"type": "Color",
+				"default": "White"
+			},
+			{
+				"name": "Text Color",
+				"description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+				"type": "Color",
+				"default": "White"
+			},
+			{
+				"name": "Reevaluation",
+				"description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+				"type": "HudReeval",
+				"default": "Visible To, Values, and Color"
+			},
+			{
+				"name": "Non-Team Spectators",
+				"description": "Whether non-team spectators can see the text or not.",
+				"type": "SpecVisibility",
+				"default": "Default Visibility"
+			}
+        ],
+        return: "void",
+		"en-US": "Create Progress Bar HUD Text"
+	},
     "damage": {
         "guid": "000000007876",
         "description": "Applies instantaneous damage to one or more players, possibly killing the players.",
@@ -1102,7 +1240,7 @@ const actionKw =
         "pt-BR": "Destruir Todos os Ícones",
         "zh-CN": "消除所有图标"
     },
-    "destroyAllInWorldText": {
+    "destroyAllInWorldTexts": {
         "description": "Destroys all in-world text created by create in-world text.",
         "args": [],
         "guid": "00000000B8AB",
@@ -1114,6 +1252,18 @@ const actionKw =
         "pt-BR": "Destruir Todo o Texto no Mundo",
         "zh-CN": "消除所有地图文本"
     },
+	"destroyAllProgressBarInWorldTexts": {
+        "description": "Destroys all progress bar in-world texts that were created by the createProgressBarInWorldText() Action.",
+        args: [],
+        return: "void",
+		"en-US": "Destroy All Progress Bar In-World Text"
+	},
+	"destroyAllProgressBarHuds": {
+        "description": "Destroys all Progress Bar HUD text that were created by the Create Progress Bar HUD Text Action.",
+        args: [],
+        return: "void",
+		"en-US": "Destroy All Progress Bar HUD Text"
+	},
     "destroyDummy": {
         "description": "Removes the specified dummy bot from the match.",
         "args": [
@@ -1217,6 +1367,31 @@ const actionKw =
         "pt-BR": "Destruir Texto no Mundo",
         "zh-CN": "消除地图文本"
     },
+	"destroyProgressBarInWorldText": {
+		"description": "Destroys the progress bar in-world text that was created by createProgressBarInWorldText().",
+		"args": [
+			{
+				"name": "Text ID",
+				"description": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored.",
+				"type": "TextId",
+				"default": "Last Text ID"
+			}
+		],
+		"en-US": "Destroy Progress Bar In-World Text"
+	},
+	"destroyProgressBarHud": {
+		"description": "Destroys the progress bar HUD text that was created by progressBarHud().",
+		"args": [
+			{
+				"name": "Text ID",
+				"description": "Specifies which progress bar HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.",
+				"type": "TextId",
+				"default": "Last Text ID"
+			}
+        ],
+        return: "void",
+		"en-US": "Destroy Progress Bar HUD Text"
+	},
     "_&detach": {
         "description": "Undoes the attachment caused by the 'attachTo' action for one or more players. These players will resume normal movement from their current position.",
         "args": [
@@ -1623,7 +1798,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being disabled.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -2208,6 +2383,19 @@ const actionKw =
         "pt-BR": "Abater",
         "zh-CN": "击杀"
     },
+    "log": {
+        "description": "Causes the workshop inspector to record a log entry.",
+        "args": [
+            {
+                "name": "TEXT",
+                "description": "The string to be logged to the workshop inspector.",
+                "type": "Object",
+                "default": "CUSTOM STRING",
+            }
+        ],
+        "return": "void",
+        "en-US": "Log To Inspector",
+    },
     "__loop__": {
         "guid": "0000000078F5",
         "description": "Restarts the action list from the beginning. To prevent an infinite loop, a wait action must execute between the start of the action list and this action.",
@@ -2604,7 +2792,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The button to be pressed.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -3074,6 +3262,30 @@ const actionKw =
         "pt-BR": "Definir Dano Recebido",
         "zh-CN": "设置受到伤害"
     },
+    "_&setEnvironmentalKillCreditor": {
+		"description": "Sets the player who will received credit if the specified target player or players die to the environment before landing on the ground.",
+		"args": [
+			{
+				"name": "Target",
+				"description": "The target player or players whose death is being considered.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "EVENT PLAYER"
+			},
+			{
+				"name": "Environment Credit Player",
+				"description": "The Player who will receive credit if the target player or players die to the environment before landing on the ground. An environment credit player of null indicates no player will receive credit.",
+				"type": "Player",
+				"default": "NULL"
+			}
+        ],
+        return: "void",
+		"en-US": "Set Environment Credit Player"
+	},
     "_&setFacing": {
         "description": "Sets the facing of one or more players to the specified direction.",
         "args": [
@@ -3360,6 +3572,54 @@ const actionKw =
         "pt-BR": "Definir Velocidade Vertical do Salto",
         "zh-CN": "设置跳跃垂直速度"
     },
+    "_&setKnockbackDealt": {
+		"description": "Sets the knockback dealt of one or more players to a percentage of their raw knockback dealt.",
+		"args": [
+			{
+				"name": "Player",
+				"description": "The player or players whose knockback dealt will be set.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "EVENT PLAYER"
+			},
+			{
+				"name": "Knockback Dealt Percent",
+				"description": "The percentage of raw knockback dealt to which the player or players will set their knockback dealt.",
+				"type": "unsigned float",
+				"default": 100
+			}
+        ],
+        return: "void",
+		"en-US": "Set Knockback Dealt"
+	},
+    "_&setKnockbackReceived": {
+		"description": "Sets the knockback received of one or more players to a percentage of their raw knockback received.",
+		"args": [
+			{
+				"name": "Player",
+				"description": "The player or players whose knockback received will be set.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "EVENT PLAYER"
+			},
+			{
+				"name": "Knockback Received Percent",
+				"description": "The percentage of raw knockback received to which the player or players will set their knockback received.",
+				"type": "unsigned float",
+				"default": 100
+			}
+        ],
+        return: "void",
+		"en-US": "Set Knockback Received"
+	},
     "setMatchTime": {
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
         "args": [
@@ -4455,6 +4715,12 @@ const actionKw =
                 "description": "The color of the specified player outlines, if they are visible.",
                 "type": "Color",
                 "default": "White"
+            },
+            {
+                "name": "Visibility",
+                "description": "The visibility type of the specified player outlines, if they are visible.",
+                "type": "OutlineVisibility",
+                "default": "DEFAULT",
             }
         ],
         "return": "void",
@@ -4626,6 +4892,41 @@ const actionKw =
         "pt-BR": "Começar a Forçar Aceleração",
         "zh-CN": "开始限制阈值"
     },
+	"_&startGrantingAssistFor": {
+		"description": "Starts granting assist credit toward to one or more assisters when one or more targets are eliminated. A reference to this damage modification can be obtained from the getLastAssistId() value. This action will fail if too many assists have been started.",
+		"args": [
+			{
+				"name": "Assisters",
+				"description": "The target Player or Players who will receive assist credit.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "EVENT PLAYER"
+			},
+			{
+				"name": "Targets",
+				"description": "The Player or Players whose eliminations will grant assist credit to the Assisters. If the Target or Targets are allied to the Assister, this will be a defensive assist. Otherwise, this will be an offensive assist.",
+				"type": [
+					"Player",
+					{
+						"Array": "Player"
+					}
+				],
+				"default": "ALL PLAYERS"
+			},
+			{
+				"name": "Reevaluation",
+				"description": "Specifies which of this Action's Inputs will be continously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+				"type": "__ChaseRateReeval__",
+				"default": "Assisters and Targets"
+			}
+        ],
+        return: "void",
+		"en-US": "Start Assist"
+	},
     "_&startHoT": {
         "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
         "args": [
@@ -4732,7 +5033,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is being held virtually.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -5003,6 +5304,12 @@ const actionKw =
         "pt-BR": "Parar de Acelerar",
         "zh-CN": "停止加速"
     },
+	"stopAllAssists": {
+        "description": "Stops all assists that were started using the Start Assist Action.",
+        args: [],
+        return: "void",
+		"en-US": "Stop All Assists"
+	},
     "stopAllDamageModifications": {
         "description": "Stops all damage modifications that were started using the start damage modification action.",
         "args": [],
@@ -5075,6 +5382,19 @@ const actionKw =
         "pt-BR": "Parar Toda a Cura ao Longo do Tempo",
         "zh-CN": "停止所有持续治疗"
     },
+	"stopAssist": {
+		"description": "Stops an assist that was started by the Start Assist Action.",
+		"args": [
+			{
+				"name": "Assist ID",
+				"description": "Specifies which assist instance to stop. This ID may be Last Assist ID or a Variable into which Last Assist ID was earlier stored.",
+				"type": "AssistId",
+				"default": "Last Assist ID"
+			}
+        ],
+        return: "void",
+		"en-US": "Stop Assist"
+	},
     "_&stopCamera": {
         "description": "Restores the camera to the default view.",
         "args": [
@@ -5391,7 +5711,7 @@ const actionKw =
             {
                 "name": "BUTTON",
                 "description": "The logical button that is no longer being held virtually.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -5593,6 +5913,24 @@ const actionKw =
         "ja-JP": "待機",
         "pt-BR": "Esperar",
         "zh-CN": "等待"
+    },
+    "waitUntil": {
+        "description": "Waits until the Continue Condition is true or Timeout seconds elapse. The rule conditions are ignored during this wait.",
+        "args": [
+            {
+                "name": "CONTINUE CONDITION",
+                "description": "If this value becomes true, the wait concludes, and the next action in the action list begins executing.",
+                "type": "bool",
+                "default": "false",
+            },{
+                "name": "TIMEOUT",
+                "description": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing.",
+                "type": "unsigned float",
+                "default": "99999",
+            }
+        ],
+        return: "void",
+        "en-US": "Wait Until",
     },
     "__while__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action.",

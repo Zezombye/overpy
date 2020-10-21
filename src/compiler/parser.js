@@ -767,12 +767,21 @@ function parse(content, kwargs={}) {
 
         return new Ast("createWorkshopSetting", [parseType(args[0]), ...args.slice(1).map(x => parse(x))]);
     }
+
 		
 	//Check for subroutine call
 	if (args.length === 0) {
         if (isSubroutineName(name)) {
             return new Ast("__callSubroutine__", [new Ast(name, [], [], "Subroutine")]);
         }
+    }
+
+    //Old functions
+    if (name === "_&setCamera") {
+        name = "_&startCamera";
+    }
+    if (name === "destroyAllInWorldText") {
+        name = "destroyAllInWorldTexts";
     }
     
     return new Ast(name, args.map(x => parse(x)));
@@ -828,6 +837,9 @@ function parseMember(object, member) {
 
             } else if (object[0].text === "Button") {
                 return new Ast("__button__", [new Ast(name, [], [], "ButtonLiteral")])
+
+            } else if (object[0].text === "Color") {
+                return new Ast("__color__", [new Ast(name, [], [], "ColorLiteral")])
 
 
             //Check the pseudo-enum "math"

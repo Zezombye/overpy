@@ -332,7 +332,7 @@ function activate(context) {
                 vscode.window.showWarningMessage("Warning: "+warning);
             }
             clipboard.copy(compiledText.result);
-            vscode.window.showInformationMessage("Successfully compiled! (copied into clipboard" + (vscode.workspace.getConfiguration("overpy").showElementCountOnCompile ? "; "+compiledText.nbElements+" elements" : "")+")");
+            vscode.window.showInformationMessage("Successfully compiled for PTR! (copied into clipboard" + (vscode.workspace.getConfiguration("overpy").showElementCountOnCompile ? "; "+compiledText.nbElements+" elements" : "")+")");
             fillAutocompletionMacros(compiledText.macros);
             fillAutocompletionVariables(compiledText.globalVariables, compiledText.playerVariables);
             fillAutocompletionSubroutines(compiledText.subroutines);

@@ -110,8 +110,9 @@ var typeToAstFuncMapping = {
 	"GamemodeLiteral": "__gamemode__",
 	"ButtonLiteral": "__button__",
 	"TeamLiteral": "__team__",
+	"ColorLiteral": "__color__",
 }
-for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral"]) {
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
@@ -147,9 +148,11 @@ function obfuscateConstant(constantType, content) {
 			"createEffect",
 			"createIcon",
 			"createInWorldText",
+			"createProgressBarInWorldText",
 			"__hudText__",
 			"hudText",
 			"hudHeader",
+			"hudProgressBar",
 			"hudSubheader",
 			"hudSubtext",
 			"playEffect",

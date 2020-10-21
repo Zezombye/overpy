@@ -420,18 +420,18 @@ function astToWs(content) {
 		if (content.name === "hudHeader") {
 			content.args.splice(2, 0, getAstForNull());
 			content.args.splice(3, 0, getAstForNull());
-			content.args.splice(7, 0, getAstForColorWhite());
-			content.args.splice(8, 0, getAstForColorWhite());
+			content.args.splice(7, 0, getAstForNull());
+			content.args.splice(8, 0, getAstForNull());
 		} else if (content.name === "hudSubheader") {
 			content.args.splice(1, 0, getAstForNull());
 			content.args.splice(3, 0, getAstForNull());
-			content.args.splice(6, 0, getAstForColorWhite());
-			content.args.splice(8, 0, getAstForColorWhite());
+			content.args.splice(6, 0, getAstForNull());
+			content.args.splice(8, 0, getAstForNull());
 		} else {
 			content.args.splice(1, 0, getAstForNull());
 			content.args.splice(2, 0, getAstForNull());
-			content.args.splice(6, 0, getAstForColorWhite());
-			content.args.splice(7, 0, getAstForColorWhite());
+			content.args.splice(6, 0, getAstForNull());
+			content.args.splice(7, 0, getAstForNull());
 		}
         content.name = "__hudText__";
         

@@ -32,33 +32,33 @@ astParsingFunctions.createWorkshopSetting = function(content) {
     var settingCategory = content.args[1];
     var settingName = content.args[2];
     var settingDefault = content.args[3];
-    var sortOrder = content.args[4].args[0].numValue;
-    if (sortOrder === 0) {
+    var sortOrder = content.args[4];
+    /*if (sortOrder === 0) {
         //0 is the default order, so just don't do anything.
         sortOrder = undefined;
     } else if (sortOrder > 63 || sortOrder < 0) {
         error("Sort order must be from 0 to 63");
-    }
+    }*/
 
     settingCategory = createSuitableWorkshopSettingString(settingCategory, false);
-    settingName = createSuitableWorkshopSettingString(settingName, true, sortOrder);
+    settingName = createSuitableWorkshopSettingString(settingName, true);
 
 
     if (settingType.args.length === 0) {
         if (settingType.name === "bool") {
-            return new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault]);
+            return new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault, sortOrder]);
         } else if (settingType.name === "int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
+            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "unsigned int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
+            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "signed int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
+            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
         } else if (settingType.name === "float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity()]);
+            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "unsigned float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity()]);
+            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "signed float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0()]);
+            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
         } else {
             error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
         }
@@ -75,7 +75,7 @@ astParsingFunctions.createWorkshopSetting = function(content) {
     error("This shouldn't happen");
 }
 
-function createSuitableWorkshopSettingString(str, isName, sortOrder) {
+function createSuitableWorkshopSettingString(str, isName) {
 
     fileStack = str.fileStack;
     if (str.name !== "__customString__") {
@@ -95,12 +95,12 @@ function createSuitableWorkshopSettingString(str, isName, sortOrder) {
     if (!/\S/.test(str.args[0].name)) {
         str.args[0].name += String.fromCharCode(0x3000);
     }
-
+/*
     //If a sort order is specified, add whitespace at the beginning (+ a zero width space U+200B because else a square is showing up)
     if (sortOrder !== undefined) {
         str.args[0].name = String.fromCharCode(0x200B) + workshopSettingWhitespace[sortOrder] + str.args[0].name;
     }
-
+*/
     if (isName) {
         //Check for a duplicate setting. If there is one, add some useless whitespace to the end.
         var settingName = str.args[0].name;
@@ -114,11 +114,11 @@ function createSuitableWorkshopSettingString(str, isName, sortOrder) {
 
     //Strings have a max of 128 chars, and must be literals
     if (getUtf8Length(str.args[0].name) > 128) {
-        error("String '"+str.args[0].name+"' was pushed over the 128 bytes limit due to OverPy modifications (is now "+getUtf8Length(str.args[0].name)+" bytes long)");
+        error("String '"+str.args[0].name+"' was pushed over the 128 characters limit due to OverPy modifications (is now "+getUtf8Length(str.args[0].name)+" characters long)");
     }
 
-    if (workshopSettingNames.length > 64) {
-        error("Cannot have more than 64 workshop settings");
+    if (workshopSettingNames.length > 128) {
+        error("Cannot have more than 128 workshop settings");
     }
 
     return str;

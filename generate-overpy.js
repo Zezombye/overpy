@@ -48,6 +48,7 @@ overpyFiles = [
 "compiler/functions/__arraySlice__.js",
 "compiler/functions/__assignTo__.js",
 "compiler/functions/__button__.js",
+"compiler/functions/__color__.js",
 "compiler/functions/__del__.js",
 "compiler/functions/__dict__.js",
 "compiler/functions/__distanceTo__.js",

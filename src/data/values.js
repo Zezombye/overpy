@@ -821,6 +821,19 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo a",
         "zh-CN": "距离最近的玩家"
     },
+	"__color__": {
+		"description": "A Color Constant",
+		"args": [
+			{
+				"name": "Color",
+				"description": "A Color Constant",
+				"type": "ColorLiteral",
+				"default": "White"
+			}
+		],
+		"return": "Color",
+		"en-US": "Color"
+	},
     "__compare__": {
         "description": "Whether the comparison of the two inputs is true.",
         "args": [
@@ -1034,6 +1047,37 @@ var valueFuncKw =
         "pt-BR": "Mapa Atual",
         "zh-CN": "当前地图"
     },
+	"rgba": {
+		"description": "A custom color with the specified red, green, blue and alpha values.",
+		"args": [
+			{
+				"name": "Red",
+				"description": "The red component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Green",
+				"description": "The green component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Blue",
+				"description": "The blue component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Alpha",
+				"description": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible.",
+				"type": "unsigned int",
+				"default": 255
+			}
+		],
+		"return": "Color",
+		"en-US": "Custom Color"
+	},
     "__customString__": {
         "description": "ty magzie for adding that",
         "args": [
@@ -1269,6 +1313,21 @@ var valueFuncKw =
         "pt-BR": "Entidade Existe",
         "zh-CN": "实体存在"
     },
+	"evalOnce": {
+		"description": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop.",
+		"args": [
+			{
+				"name": "Input Value",
+				"description": "The value that will be only evaluated once.",
+				"default": 0
+			}
+		],
+		"return": [
+            "Object",
+            "Array",
+        ],
+		"en-US": "Evaluate Once"
+	},
     "eventAbility": {
         "description": "The ability for the event currently being processed by this rule associated by button.",
         "args": null,
@@ -2043,7 +2102,7 @@ var valueFuncKw =
             {
                 "name": "BUTTON",
                 "description": "The button to check.",
-                "type": "ButtonLiteral",
+                "type": "Button",
                 "default": "PRIMARY FIRE"
             }
         ],
@@ -2119,6 +2178,19 @@ var valueFuncKw =
         "pt-BR": "É Comunicando Qualquer Emote",
         "zh-CN": "正在使用表情交流"
     },
+	"_&isCommunicatingSpray": {
+		"description": "Whether a Player is using a spray.",
+		"args": [
+			{
+				"name": "Player",
+				"description": "The Player whose spray status to check.",
+				"type": "Player",
+				"default": "Event Player"
+			}
+		],
+		"return": "bool",
+		"en-US": "Is Communicating Any Spray"
+	},
     "_&isCommunicatingVoiceline": {
         "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
         "args": [
@@ -2851,6 +2923,12 @@ var valueFuncKw =
         "pt-BR": "É Aguardando Jogadores",
         "zh-CN": "正在等待玩家"
     },
+	"getLastAssistID": {
+        "description": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level).",
+        args: [],
+		"return": "AssistId",
+		"en-US": "Last Assist ID"
+	},
     "getLastCreatedEntity": {
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": [],
@@ -3008,6 +3086,19 @@ var valueFuncKw =
         "pt-BR": "Vetor Local de",
         "zh-CN": "本地矢量"
     },
+	"magnitude": {
+		"description": "The magnitude (length) of the specified vector",
+		"args": [
+			{
+				"name": "vector",
+                "description": "The vector to calculate the magnitude of.",
+                "type": "Vector",
+				"default": "Vector"
+			}
+		],
+		"return": "unsigned float",
+		"en-US": "Magnitude Of"
+	},
     "__map__": {
         "guid": "00000000D411",
         "description": "A map constant.",
@@ -3506,6 +3597,19 @@ var valueFuncKw =
         "pt-BR": "Número de Jogadores no Objetivo",
         "zh-CN": "目标点上玩家数量"
     },
+	"getNumberOfSlots": {
+		"description": "The number of slots on a team or in the match.",
+		"args": [
+			{
+				"name": "Team",
+				"description": "The team or teams on which to count slots.",
+				"type": "Team",
+				"default": "Team"
+			}
+		],
+		"return": "unsigned int",
+		"en-US": "Number of Slots"
+	},
     "getCurrentObjective": {
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
         "args": [],
@@ -3654,6 +3758,50 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo da Mira",
         "zh-CN": "距离准星最近的玩家"
     },
+	"_&getHeroStatistic": {
+		"description": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
+		"args": [
+			{
+				"name": "Player",
+				"description": "The Player whose statistic to acquire.",
+				"type": "Player",
+				"default": "Event Player"
+			},
+			{
+				"name": "Hero",
+				"description": "The hero whose statistic to acquire",
+				"type": "Hero",
+				"default": "Hero"
+			},
+			{
+				"name": "Stat",
+				"description": "The statistic to acquire.",
+				"type": "Stat",
+				"default": "All Damage Dealt"
+			}
+		],
+		"return": "unsigned float",
+		"en-US": "Player Hero Stat"
+	},
+	"_&getStatistic": {
+		"description": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
+		"args": [
+			{
+				"name": "Player",
+				"description": "The Player whose statistic to acquire.",
+				"type": "Player",
+				"default": "Event Player"
+			},
+			{
+				"name": "Statistic",
+				"description": "The statistic to acquire.",
+				"type": "Stat",
+				"default": "All Damage Dealt"
+			}
+		],
+		"return": "unsigned float",
+		"en-US": "Player Stat"
+	},
     "__playerVar__": {
         "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
@@ -4322,6 +4470,21 @@ var valueFuncKw =
         "pt-BR": "Matriz Ordenada",
         "zh-CN": "已排序的数组"
     },
+	"getSpawnPoints": {
+		"description": "The active spawn points for a team or for the match, provided as an array of position vectors.",
+		"args": [
+			{
+				"name": "Team",
+				"description": "The team whose spawn points to acquire.",
+				"type": "Team",
+				"default": "Team"
+			}
+		],
+		"return": {
+            "Array": "Position",
+        },
+		"en-US": "Spawn Points"
+	},
     "_&getSpeed": {
         "description": "The current speed of a player in meters per second.",
         "args": [
@@ -4426,6 +4589,63 @@ var valueFuncKw =
         "ja-JP": "文字列",
         "zh-CN": "字符串"
     },
+	"strContains": {
+		"description": "Whether the specified string contains the specified substring.",
+		"args": [
+			{
+				"name": "String",
+				"description": "The string in which to search for the specified substring.",
+				"type": "String",
+				"default": "Custom String"
+			},
+			{
+				"name": "Substring",
+				"description": "The substring for which to search.",
+				"type": "String",
+				"default": "Custom String"
+			}
+		],
+		"return": "bool",
+		"en-US": "String Contains"
+	},
+	"strLen": {
+		"description": "The length in characters of the provided string.",
+		"args": [
+			{
+				"name": "String",
+				"description": "The string whose characters to count.",
+				"type": "String",
+				"default": "Global Variable"
+			}
+		],
+		"return": "unsigned int",
+		"en-US": "String Length"
+	},
+	"substring": {
+		"description": "The substring of the provided string.",
+		"args": [
+			{
+				"name": "String",
+				"description": "The string value from which to build the substring.",
+				"type": "String",
+				"default": "Global Variable"
+			},
+			{
+				"name": "Substring Start Index",
+				"description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
+				"type": "unsigned int",
+				"default": 0
+			},
+			{
+				"name": "Substring Length",
+				"description": "Specifies the number of characters in the substring.",
+				"type": "unsigned int",
+				"default": 0
+			}
+		],
+		"return": "String",
+		"en-US": "String Slice"
+	},
     "__subtract__": {
         "guid": "00000000C40A",
         "description": "The difference between two numbers or vectors.",
@@ -4603,6 +4823,21 @@ var valueFuncKw =
         "pt-BR": "Percentual de Carga da Suprema",
         "zh-CN": "终极技能充能百分比"
     },
+	"updateEveryTick": {
+		"description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. May increase server load and/or lower frame rate.",
+		"args": [
+			{
+				"name": "Value",
+				"description": "The value that will be updated once per tick.",
+				"default": "Position Of"
+			}
+		],
+		"return": [
+            "Object",
+            "Array",
+        ],
+		"en-US": "Update Every Frame"
+	},
     "Vector.UP": {
         "guid": "00000000B118",
         "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
@@ -4849,6 +5084,76 @@ var valueFuncKw =
         "pt-BR": "Arma",
         "zh-CN": "武器"
     },
+	"__workshopSettingCombo__": {
+		"description": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice.",
+		"args": [
+			{
+				"name": "Category",
+				"description": "The name of the category in which this setting will be found.",
+				"type": "CustomStringLiteral",
+				"default": "Custom String"
+			},
+			{
+				"name": "Name",
+				"description": "The name of this setting.",
+				"type": "CustomStringLiteral",
+				"default": "Custom String"
+			},
+			{
+				"name": "Default",
+				"description": "The default value for this setting.",
+				"type": "UnsignedIntLiteral",
+				"default": 0
+			},
+			{
+				"name": "Options",
+				"description": "The options for this setting.",
+				"type": {
+                    "Array": "CustomStringLiteral",
+                },
+				"default": "Array"
+			},
+			{
+				"name": "Sort Order",
+				"description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
+				"type": "IntLiteral",
+				"default": 0
+			}
+		],
+		"return": "unsigned int",
+		"en-US": "Workshop Setting Combo"
+	},
+	"__workshopSettingHero__": {
+		"description": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list.",
+		"args": [
+			{
+				"name": "Category",
+				"description": "The name of the category in which this setting will be found.",
+				"type": "CustomStringLiteral",
+				"default": "Custom String"
+			},
+			{
+				"name": "Name",
+				"description": "The name of this setting.",
+				"type": "CustomStringLiteral",
+				"default": "Custom String"
+			},
+			{
+				"name": "Default",
+				"description": "The default value for this setting.",
+				"type": "HeroLiteral",
+				"default": "Ana"
+			},
+			{
+				"name": "Sort Order",
+				"description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
+				"type": "IntLiteral",
+				"default": 0
+			}
+		],
+		"return": "Hero",
+		"en-US": "Workshop Setting Hero"
+	},
     "__workshopSettingInteger__": {
         "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
         "args": [
@@ -4881,6 +5186,12 @@ var valueFuncKw =
                 "description": "",
                 "type": "IntLiteral",
                 "default": 100
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "",
+                "type": "IntLiteral",
+                "default": 0
             }
         ],
         "isConstant": true,
@@ -4925,6 +5236,12 @@ var valueFuncKw =
                 "description": "",
                 "type": "FloatLiteral",
                 "default": 100
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "",
+                "type": "IntLiteral",
+                "default": 0
             }
         ],
         "isConstant": true,
@@ -4956,6 +5273,12 @@ var valueFuncKw =
                 "name": "DEFAULT",
                 "description": "",
                 "type": "BoolLiteral",
+                "default": 0
+            },
+            {
+                "name": "SORT ORDER",
+                "description": "",
+                "type": "IntLiteral",
                 "default": 0
             }
         ],
