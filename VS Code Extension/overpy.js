@@ -3393,7 +3393,8 @@ const actionKw =
 				"type": "TextId",
 				"default": "Last Text ID"
 			}
-		],
+        ],
+        return: "void",
 		"en-US": "Destroy Progress Bar In-World Text"
 	},
 	"destroyProgressBarHud": {
@@ -9288,14 +9289,12 @@ var valueFuncKw =
 		"args": [
 			{
 				"name": "Input Value",
-				"description": "The value that will be only evaluated once.",
+                "description": "The value that will be only evaluated once.",
+                "type": ["Object", "Array"],
 				"default": 0
 			}
 		],
-		"return": [
-            "Object",
-            "Array",
-        ],
+        return: ["Object", "Array"],
 		"en-US": "Evaluate Once"
 	},
     "eventAbility": {
@@ -12799,6 +12798,7 @@ var valueFuncKw =
 			{
 				"name": "Value",
 				"description": "The value that will be updated once per tick.",
+                "type": ["Object", "Array"],
 				"default": "Position Of"
 			}
 		],
@@ -17135,7 +17135,7 @@ const constantValues =
             "pt-BR": "Azul",
             "zh-CN": "蓝色"
         },
-        "Gray": {
+        "GRAY": {
             "en-US": "Gray",
         },
         "GREEN": {

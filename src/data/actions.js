@@ -1376,7 +1376,8 @@ const actionKw =
 				"type": "TextId",
 				"default": "Last Text ID"
 			}
-		],
+        ],
+        return: "void",
 		"en-US": "Destroy Progress Bar In-World Text"
 	},
 	"destroyProgressBarHud": {

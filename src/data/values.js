@@ -1318,14 +1318,12 @@ var valueFuncKw =
 		"args": [
 			{
 				"name": "Input Value",
-				"description": "The value that will be only evaluated once.",
+                "description": "The value that will be only evaluated once.",
+                "type": ["Object", "Array"],
 				"default": 0
 			}
 		],
-		"return": [
-            "Object",
-            "Array",
-        ],
+        return: ["Object", "Array"],
 		"en-US": "Evaluate Once"
 	},
     "eventAbility": {
@@ -4829,6 +4827,7 @@ var valueFuncKw =
 			{
 				"name": "Value",
 				"description": "The value that will be updated once per tick.",
+                "type": ["Object", "Array"],
 				"default": "Position Of"
 			}
 		],

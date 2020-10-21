@@ -119,7 +119,7 @@ const constantValues =
             "pt-BR": "Azul",
             "zh-CN": "蓝色"
         },
-        "Gray": {
+        "GRAY": {
             "en-US": "Gray",
         },
         "GREEN": {
@@ -2256,7 +2256,67 @@ const constantValues =
             "description": "Outlines are always visible.",
         },
     },
-    "Stat": {
+    "Stat": {    
+        "DAMAGE_DEALT": {
+            "en-US": "All Damage Dealt"
+        },
+        "BARRIER_DAMAGE_DEALT": {
+            "en-US": "Barrier Damage Dealt"
+        },
+        "DAMAGE_BLOCKED": {
+            "en-US": "Damage Blocked"
+        },
+        "DAMAGE_TAKEN": {
+            "en-US": "Damage Taken"
+        },
+        "DEATHS": {
+            "en-US": "Deaths"
+        },
+        "ELIMINATIONS": {
+            "en-US": "Eliminations"
+        },
+        "DEFENSIVE_ASSISTS": {
+            "en-US": "Defensive Assists"
+        },
+        "FINAL_BLOWS": {
+            "en-US": "Final Blows"
+        },
+        "ENVIRONMENTAL_DEATHS": {
+            "en-US": "Environmental Deaths"
+        },
+        "ENVIRONMENTAL_KILLS": {
+            "en-US": "Environmental Kills"
+        },
+        "HERO_DAMAGE_DEALT": {
+            "en-US": "Hero Damage Dealt"
+        },
+        "HEALING_DEALT": {
+            "en-US": "Healing Dealt"
+        },
+        "MULTIKILL_BEST": {
+            "en-US": "Multikill Best"
+        },
+        "MULTIKILLS": {
+            "en-US": "Multikills"
+        },
+        "OBJECTIVE_KILLS": {
+            "en-US": "Objective Kills"
+        },
+        "OFFENSIVE_ASSISTS": {
+            "en-US": "Offensive Assists"
+        },
+        "SOLO_KILLS": {
+            "en-US": "Solo Kills"
+        },
+        "ULTIMATES_EARNED": {
+            "en-US": "Ultimates Earned"
+        },
+        "ULTIMATES_USED": {
+            "en-US": "Ultimates Used"
+        },
+        "WEAPON_ACCURACY": {
+            "en-US": "Weapon Accuracy"
+        }
     }
 }
 //end-json
