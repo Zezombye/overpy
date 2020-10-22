@@ -182,7 +182,7 @@ for (var key of Object.keys(defaultConstValues)) {
     if (key.startsWith("_")) {
         delete defaultConstValues[key];
     }
-    if (["GamemodeLiteral", "MapLiteral", "TeamLiteral", "HeroLiteral", "ButtonLiteral"].includes(key)) {
+    if (["GamemodeLiteral", "MapLiteral", "TeamLiteral", "HeroLiteral", "ButtonLiteral", "ColorLiteral"].includes(key)) {
         defaultConstValues[key.substring(0, key.length-"Literal".length)] = defaultConstValues[key]
         delete defaultConstValues[key];
     }

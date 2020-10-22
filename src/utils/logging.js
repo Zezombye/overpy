@@ -116,6 +116,8 @@ function functionNameToString(content) {
 		funcDisplayName = "function '"+funcToDisplayMapping[content.name]+"'";
 	} else if (isTypeSuitable("StringLiteral", content.type)) {
 		funcDisplayName = "string "+escapeString(content.name);
+	} else if (content.name === "__number__") {
+		funcDisplayName = "number '"+content.args[0].numValue+"'";
 	} else {
 		funcDisplayName = "function '"+content.name+"'";
 	}

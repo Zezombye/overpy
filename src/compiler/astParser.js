@@ -172,13 +172,17 @@ function parseAst(content) {
     //Skip if it's a literal, a type literal, or a constant
     if (!["Hero", "Map", "Gamemode", "Team", "Button", "Color"].includes(content.type)) {
         if ([
-            "IntLiteral", "FloatLiteral", 
+            "IntLiteral", "UnsignedIntLiteral", "SignedIntLiteral", "FloatLiteral", "UnsignedFloatLiteral", "SignedFloatLiteral",
             "GlobalVariable", "PlayerVariable", "Subroutine", 
             "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral",
-            "Type",
         ].concat(Object.keys(constantValues)).includes(content.type)) {
             return content;
         }
+    }
+
+    //Skip if it's a type (but not an enum as we need to parse those ASTs)
+    if (content.type === "Type" && content.name !== "__enumType__") {
+        return content;
     }
 
     //For labels, do nothing.
@@ -264,7 +268,10 @@ function parseAst(content) {
         if (content.args.length === 1) {
             content.args.push(getAstForE());
         }
-    } else if (content.name === "range") {
+    } else if (content.name === "_&startForcingOutlineFor") {
+        if (content.args.length === 4) {
+            content.args.push(new Ast("DEFAULT", [], [], "OutlineVisibility"));
+        }
 
     } else if (content.name === "wait") {
         if (content.args.length > 2) {
@@ -279,7 +286,7 @@ function parseAst(content) {
         content.name = "__wait__";
     }
     
-    if (!["__format__", "__array__", "__dict__"].includes(content.name)) {
+    if (!["__format__", "__array__", "__dict__", "__enumType__"].includes(content.name)) {
         var nbExpectedArgs = (funcKw[content.name].args === null ? 0 : funcKw[content.name].args.length);
         if (content.args.length !== nbExpectedArgs) {
             error("Function '"+content.name+"' takes "+nbExpectedArgs+" arguments, received "+content.args.length);
@@ -294,7 +301,7 @@ function parseAst(content) {
     }
     content.argIndex = 0;
 
-    //Manually check types and arguments for the __format__, __array__ or __dict__ functions, as they are the only functions that can take an infinite number of arguments.
+    //Manually check types and arguments for the __format__, __array__, __enumType__ or __dict__ functions, as they are the only functions that can take an infinite number of arguments.
     if (content.name === "__format__") {
         if (content.args.length < 1) {
             error("Function '__format__' takes at least 1 argument, received "+content.args.length);
@@ -309,7 +316,7 @@ function parseAst(content) {
             }
         }
 
-    } else if (content.name === "__array__" || content.name === "__dict__") {
+    } else if (content.name === "__array__" || content.name === "__dict__" || content.name === "__enumType__") {
         //Check types
         for (var i = 0; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[i].type)) {
@@ -337,7 +344,7 @@ function parseAst(content) {
     if (content.name !== "__rule__" && content.parent.argIndex !== null) {
         if (content.parent.name === "__format__" && content.parent.argIndex > 0) {
             content.expectedType = funcKw[content.parent.name].args[1].type;
-        } else if (content.parent.name === "__array__" || content.parent.name === "__dict__") {
+        } else if (content.parent.name === "__array__" || content.parent.name === "__dict__" || content.parent.name === "__enumType__") {
             content.expectedType = funcKw[content.parent.name].args[0].type;
         } else if (content.parent.name === "@Condition") {
             content.expectedType = "bool";

@@ -640,7 +640,7 @@ function parse(content, kwargs={}) {
         if (isNumber(name)) {
             //It is an int, else it would have a dot, and wouldn't be processed here.
             //It is also an unsigned int, as the negative sign is not part of the name.
-            return new Ast("__number__", [new Ast(name, [], [], "IntLiteral")], [], "unsigned int");
+            return new Ast("__number__", [new Ast(name, [], [], "UnsignedIntLiteral")], [], "unsigned int");
         }
 
 		return new Ast(name);
@@ -706,8 +706,8 @@ function parse(content, kwargs={}) {
         } else {
 			error("Function 'raycast' takes 5 arguments, received "+args.length);
         }
-	}
-	
+    }
+    	
 	if (name === "sorted") {
 
         //Lazy & dirty way of properly parsing "sorted(x, lambda a,b: z)" as the parser also splits on the comma on "lambda a,b".
@@ -779,9 +779,14 @@ function parse(content, kwargs={}) {
     //Old functions
     if (name === "_&setCamera") {
         name = "_&startCamera";
-    }
-    if (name === "destroyAllInWorldText") {
+    } else if (name === "destroyAllInWorldText") {
         name = "destroyAllInWorldTexts";
+    } else if (name === "disableEnvironmentCollision") {
+        name = "_&disableEnvironmentCollision";
+    } else if (name === "enableEnvironmentCollision") {
+        name = "_&enableEnvironmentCollision";
+    } else if (name === "enablePlayerCollision") {
+        name = "_&enablePlayerCollision";
     }
     
     return new Ast(name, args.map(x => parse(x)));
@@ -861,7 +866,7 @@ function parseMember(object, member) {
                 if (!isNumber(name)) {
                     error("Expected a number after '.' but got '"+name+"'");
                 }
-                return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "FloatLiteral")], [], "unsigned float");
+                return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "UnsignedFloatLiteral")], [], "unsigned float");
             }
         }
 

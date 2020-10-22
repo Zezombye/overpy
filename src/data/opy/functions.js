@@ -112,17 +112,29 @@ const opyFuncs = {
         "args": [
             {
                 "name": "TYPE",
-                "description": "The type of the setting. Can be an integer, float, or boolean. To specify a minimum or maximum, use the type option syntax: for example, `int<3:6>` specifies an integer with a minimum of 3 and maximum of 6, included.",
+                "description": 
+`The type of the setting. Can be an integer, float, hero, enum, or boolean. 
+
+To specify a minimum or maximum, use the type option syntax: for example, \`int[3:6]\` specifies an integer with a minimum of 3 and maximum of 6, included.
+
+Examples of valid types:
+
+- \`int[-2:7]\`
+- \`float[-3.5:3]\`
+- \`bool\`
+- \`Hero\`
+- \`enum["First option", "Second option"]\`
+`,
                 "type": "Type",
                 "default": "",
             },{
                 "name": "CATEGORY",
-                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 bytes or less. OverPy will add bytes if a '{', '}' or ':' is in the setting name.",
+                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
             },{
                 "name": "NAME",
-                "description": "The name of this setting. Must be a custom string literal with 128 bytes or less. OverPy will add bytes if a sort order is requested, or if the same name is used in a different category.",
+                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
             },{
@@ -132,6 +144,7 @@ const opyFuncs = {
                     "BoolLiteral",
                     "IntLiteral",
                     "FloatLiteral",
+                    "HeroLiteral",
                 ],
                 "default": 0,
             },{

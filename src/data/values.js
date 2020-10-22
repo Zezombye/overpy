@@ -831,6 +831,7 @@ var valueFuncKw =
 				"default": "White"
 			}
 		],
+        "isConstant": true,
 		"return": "Color",
 		"en-US": "Color"
 	},
@@ -1075,6 +1076,7 @@ var valueFuncKw =
 				"default": 255
 			}
 		],
+        "isConstant": true,
 		"return": "Color",
 		"en-US": "Custom Color"
 	},
@@ -1323,6 +1325,7 @@ var valueFuncKw =
 				"default": 0
 			}
 		],
+        "isConstant": true,
         return: ["Object", "Array"],
 		"en-US": "Evaluate Once"
 	},
@@ -3094,6 +3097,7 @@ var valueFuncKw =
 				"default": "Vector"
 			}
 		],
+        "isConstant": true,
 		"return": "unsigned float",
 		"en-US": "Magnitude Of"
 	},
@@ -3605,6 +3609,7 @@ var valueFuncKw =
 				"default": "Team"
 			}
 		],
+        "isConstant": true,
 		"return": "unsigned int",
 		"en-US": "Number of Slots"
 	},
@@ -4603,6 +4608,7 @@ var valueFuncKw =
 				"default": "Custom String"
 			}
 		],
+        "isConstant": true,
 		"return": "bool",
 		"en-US": "String Contains"
 	},
@@ -4616,6 +4622,7 @@ var valueFuncKw =
 				"default": "Global Variable"
 			}
 		],
+        "isConstant": true,
 		"return": "unsigned int",
 		"en-US": "String Length"
 	},
@@ -4641,6 +4648,7 @@ var valueFuncKw =
 				"default": 0
 			}
 		],
+        "isConstant": true,
 		"return": "String",
 		"en-US": "String Slice"
 	},
@@ -4831,6 +4839,7 @@ var valueFuncKw =
 				"default": "Position Of"
 			}
 		],
+        "isConstant": true,
 		"return": [
             "Object",
             "Array",

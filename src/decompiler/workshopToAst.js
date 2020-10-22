@@ -448,6 +448,9 @@ function decompile(content) {
     if (name === "__localizedString__" && args.length === 0) {
         return new Ast("STRING", [], [], "HudReeval");
 	}
+	if (name === "_&startForcingOutlineFor" && args.length === 4) {
+		content.args.push(new Ast("DEFAULT", [], [], "OutlineVisibility"))
+	}
 	
 	if (!(name in wsFuncKw)) {
 		error("Function '"+name+"' is not in the function list");

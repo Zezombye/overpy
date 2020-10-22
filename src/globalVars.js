@@ -315,7 +315,16 @@ const typeTree = [
 		"Player",
 		{"float": [
 			{"FloatLiteral": [
-				"IntLiteral",
+				{"IntLiteral": [
+					"UnsignedIntLiteral",
+					"SignedIntLiteral",
+				]},
+				{"UnsignedFloatLiteral": [
+					"UnsignedIntLiteral",
+				]},
+				{"SignedFloatLiteral": [
+					"SignedIntLiteral",
+				]},
 			]},
 			{"unsigned float": [
 				"unsigned int",
@@ -324,7 +333,10 @@ const typeTree = [
 				"signed int",
 			]},
 			{"int": [
-				"IntLiteral",
+				{"IntLiteral": [
+					"UnsignedIntLiteral",
+					"SignedIntLiteral",
+				]},
 				"unsigned int",
 				"signed int",
 			]}

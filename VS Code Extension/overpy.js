@@ -630,6 +630,15 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
+    "__enumType__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": ["Array", "Object"],
+            }
+        ],
+        return: "Type",
+    },
     "__equals__": {
         "args": [
             {
@@ -877,7 +886,7 @@ const opyInternalFuncs = {
             },
         ],
         "isConstant": true,
-        return: "float",
+        return: "FloatLiteral",
         "en-US": "Number",
     },
     "__remove__": {
@@ -1044,17 +1053,29 @@ const opyFuncs = {
         "args": [
             {
                 "name": "TYPE",
-                "description": "The type of the setting. Can be an integer, float, or boolean. To specify a minimum or maximum, use the type option syntax: for example, `int<3:6>` specifies an integer with a minimum of 3 and maximum of 6, included.",
+                "description": 
+`The type of the setting. Can be an integer, float, hero, enum, or boolean. 
+
+To specify a minimum or maximum, use the type option syntax: for example, \`int[3:6]\` specifies an integer with a minimum of 3 and maximum of 6, included.
+
+Examples of valid types:
+
+- \`int[-2:7]\`
+- \`float[-3.5:3]\`
+- \`bool\`
+- \`Hero\`
+- \`enum["First option", "Second option"]\`
+`,
                 "type": "Type",
                 "default": "",
             },{
                 "name": "CATEGORY",
-                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 bytes or less. OverPy will add bytes if a '{', '}' or ':' is in the setting name.",
+                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
             },{
                 "name": "NAME",
-                "description": "The name of this setting. Must be a custom string literal with 128 bytes or less. OverPy will add bytes if a sort order is requested, or if the same name is used in a different category.",
+                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
             },{
@@ -1064,6 +1085,7 @@ const opyFuncs = {
                     "BoolLiteral",
                     "IntLiteral",
                     "FloatLiteral",
+                    "HeroLiteral",
                 ],
                 "default": 0,
             },{
@@ -1609,18 +1631,20 @@ const opyKeywords = {
         "description": `Declares an enum. For example:
 \`\`\`c
 enum GameStatus:
- GAME_NOT_STARTED,
- GAME_IN_PROGRESS = 3,
- GAME_STARTED
+    GAME_NOT_STARTED,
+    GAME_IN_PROGRESS = 3,
+    GAME_STARTED
 
 enum Team:
- HUMANS = Team.2,
- ZOMBIES = Team.1
+    HUMANS = Team.2,
+    ZOMBIES = Team.1
 \`\`\`
 
 The enum can then be accessed like other enums: \`GameStatus.GAME_STARTED\`.
 
 If no value is specified, the value is the last specified value plus 1 (if the last specified value is a number), or 0 if it is the first enum member.
+
+An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
 `,
         "args": null,
         "snippet": "enum $0",
@@ -4000,7 +4024,7 @@ const actionKw =
         "pt-BR": "Habilitar Mensagens",
         "zh-CN": "显示信息"
     },
-    "enableEnvironmentCollision": {
+    "_&enableEnvironmentCollision": {
         "description": "Undoes the effect of the Disable Movement Collision With Enviroment action for one or more players.",
         "args": [
             {
@@ -8802,6 +8826,7 @@ var valueFuncKw =
 				"default": "White"
 			}
 		],
+        "isConstant": true,
 		"return": "Color",
 		"en-US": "Color"
 	},
@@ -9046,6 +9071,7 @@ var valueFuncKw =
 				"default": 255
 			}
 		],
+        "isConstant": true,
 		"return": "Color",
 		"en-US": "Custom Color"
 	},
@@ -9294,6 +9320,7 @@ var valueFuncKw =
 				"default": 0
 			}
 		],
+        "isConstant": true,
         return: ["Object", "Array"],
 		"en-US": "Evaluate Once"
 	},
@@ -11065,6 +11092,7 @@ var valueFuncKw =
 				"default": "Vector"
 			}
 		],
+        "isConstant": true,
 		"return": "unsigned float",
 		"en-US": "Magnitude Of"
 	},
@@ -11576,6 +11604,7 @@ var valueFuncKw =
 				"default": "Team"
 			}
 		],
+        "isConstant": true,
 		"return": "unsigned int",
 		"en-US": "Number of Slots"
 	},
@@ -12574,6 +12603,7 @@ var valueFuncKw =
 				"default": "Custom String"
 			}
 		],
+        "isConstant": true,
 		"return": "bool",
 		"en-US": "String Contains"
 	},
@@ -12587,6 +12617,7 @@ var valueFuncKw =
 				"default": "Global Variable"
 			}
 		],
+        "isConstant": true,
 		"return": "unsigned int",
 		"en-US": "String Length"
 	},
@@ -12612,6 +12643,7 @@ var valueFuncKw =
 				"default": 0
 			}
 		],
+        "isConstant": true,
 		"return": "String",
 		"en-US": "String Slice"
 	},
@@ -12802,6 +12834,7 @@ var valueFuncKw =
 				"default": "Position Of"
 			}
 		],
+        "isConstant": true,
 		"return": [
             "Object",
             "Array",
@@ -19272,7 +19305,67 @@ const constantValues =
             "description": "Outlines are always visible.",
         },
     },
-    "Stat": {
+    "Stat": {    
+        "DAMAGE_DEALT": {
+            "en-US": "All Damage Dealt"
+        },
+        "BARRIER_DAMAGE_DEALT": {
+            "en-US": "Barrier Damage Dealt"
+        },
+        "DAMAGE_BLOCKED": {
+            "en-US": "Damage Blocked"
+        },
+        "DAMAGE_TAKEN": {
+            "en-US": "Damage Taken"
+        },
+        "DEATHS": {
+            "en-US": "Deaths"
+        },
+        "ELIMINATIONS": {
+            "en-US": "Eliminations"
+        },
+        "DEFENSIVE_ASSISTS": {
+            "en-US": "Defensive Assists"
+        },
+        "FINAL_BLOWS": {
+            "en-US": "Final Blows"
+        },
+        "ENVIRONMENTAL_DEATHS": {
+            "en-US": "Environmental Deaths"
+        },
+        "ENVIRONMENTAL_KILLS": {
+            "en-US": "Environmental Kills"
+        },
+        "HERO_DAMAGE_DEALT": {
+            "en-US": "Hero Damage Dealt"
+        },
+        "HEALING_DEALT": {
+            "en-US": "Healing Dealt"
+        },
+        "MULTIKILL_BEST": {
+            "en-US": "Multikill Best"
+        },
+        "MULTIKILLS": {
+            "en-US": "Multikills"
+        },
+        "OBJECTIVE_KILLS": {
+            "en-US": "Objective Kills"
+        },
+        "OFFENSIVE_ASSISTS": {
+            "en-US": "Offensive Assists"
+        },
+        "SOLO_KILLS": {
+            "en-US": "Solo Kills"
+        },
+        "ULTIMATES_EARNED": {
+            "en-US": "Ultimates Earned"
+        },
+        "ULTIMATES_USED": {
+            "en-US": "Ultimates Used"
+        },
+        "WEAPON_ACCURACY": {
+            "en-US": "Weapon Accuracy"
+        }
     }
 }
 //end-json
@@ -25185,7 +25278,16 @@ const typeTree = [
 		"Player",
 		{"float": [
 			{"FloatLiteral": [
-				"IntLiteral",
+				{"IntLiteral": [
+					"UnsignedIntLiteral",
+					"SignedIntLiteral",
+				]},
+				{"UnsignedFloatLiteral": [
+					"UnsignedIntLiteral",
+				]},
+				{"SignedFloatLiteral": [
+					"SignedIntLiteral",
+				]},
 			]},
 			{"unsigned float": [
 				"unsigned int",
@@ -25194,7 +25296,10 @@ const typeTree = [
 				"signed int",
 			]},
 			{"int": [
-				"IntLiteral",
+				{"IntLiteral": [
+					"UnsignedIntLiteral",
+					"SignedIntLiteral",
+				]},
 				"unsigned int",
 				"signed int",
 			]}
@@ -25311,9 +25416,6 @@ class Ast {
         if (typeof name !== "string") {
             error("Expected a string for AST name, but got '"+name+"' of type '"+typeof name+"'");
         }
-        if (type === "IntLiteral" || type === "FloatLiteral") {
-            this.numValue = Number(name);
-        }
         this.name = name;
         this.args = args ? args : [];
         this.children = children ? children : [];
@@ -25326,6 +25428,9 @@ class Ast {
             }
         } else {
             this.type = type;
+        }
+        if (isTypeSuitable("FloatLiteral", this.type, false)) {
+            this.numValue = Number(name);
         }
 
         for (var arg of this.args) {
@@ -25492,40 +25597,40 @@ function astContainsFunctions(ast, functionNames, errorOnTrue=false) {
 
 //Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
 function getAstFor0() {
-    return new Ast("__number__", [new Ast("0", [], [], "IntLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("0", [], [], "UnsignedIntLiteral")], [], "int");
 }
 function getAstFor1() {
-    return new Ast("__number__", [new Ast("1", [], [], "IntLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("1", [], [], "UnsignedIntLiteral")], [], "int");
 }
 function getAstForMinus1() {
-    return new Ast("__number__", [new Ast("-1", [], [], "IntLiteral")], [], "signed int");
+    return new Ast("__number__", [new Ast("-1", [], [], "SignedIntLiteral")], [], "signed int");
 }
 function getAstFor2() {
-    return new Ast("__number__", [new Ast("2", [], [], "IntLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("2", [], [], "UnsignedIntLiteral")], [], "int");
 }
 function getAstFor0_016() {
-    return new Ast("__number__", [new Ast("0.016", [], [], "FloatLiteral")], [], "unsigned float");
+    return new Ast("__number__", [new Ast("0.016", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
 function getAstFor0_001() {
-    return new Ast("__number__", [new Ast("0.001", [], [], "FloatLiteral")], [], "unsigned float");
+    return new Ast("__number__", [new Ast("0.001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
 function getAstFor0_0001() {
-    return new Ast("__number__", [new Ast("0.0001", [], [], "FloatLiteral")], [], "unsigned float");
+    return new Ast("__number__", [new Ast("0.0001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
 function getAstFor10000() {
-    return new Ast("__number__", [new Ast("10000", [], [], "IntLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("10000", [], [], "UnsignedIntLiteral")], [], "int");
 }
 function getAstFor10Million() {
-    return new Ast("__number__", [new Ast("10000000", [], [], "IntLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("10000000", [], [], "UnsignedIntLiteral")], [], "int");
 }
 function getAstForInfinity() {
-    return new Ast("__number__", [new Ast("999999999999", [], [], "IntLiteral")], [], "unsigned int");
+    return new Ast("__number__", [new Ast("999999999999", [], [], "UnsignedIntLiteral")], [], "unsigned int");
 }
 function getAstForMinusInfinity() {
-    return new Ast("__number__", [new Ast("-999999999999", [], [], "IntLiteral")], [], "signed int");
+    return new Ast("__number__", [new Ast("-999999999999", [], [], "SignedIntLiteral")], [], "signed int");
 }
 function getAstForE() {
-    return new Ast("__number__", [new Ast("2.718281828459045", [], [], "FloatLiteral")], [], "unsigned float");
+    return new Ast("__number__", [new Ast("2.718281828459045", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
 function getAstForNumber(nb) {
     if (typeof nb !== "number") {
@@ -25533,7 +25638,7 @@ function getAstForNumber(nb) {
     }
     var type = nb >= 0 ? "unsigned" : "signed";
     type += " "+(Number.isInteger(nb) ? "int" : "float");
-    return new Ast("__number__", [new Ast(nb.toString(), [], [], (Number.isInteger(nb) ? "IntLiteral" : "FloatLiteral"))], [], type);
+    return new Ast("__number__", [new Ast(nb.toString(), [], [], (nb >= 0 ? "Unsigned" : "Signed")+(Number.isInteger(nb) ? "IntLiteral" : "FloatLiteral"))], [], type);
 }
 function getAstForBool(bool) {
     if (bool) {
@@ -25738,6 +25843,10 @@ function parseType(tokens) {
         return new Ast(tokens[0].text, [], [], "Type");
     }
 
+    if (tokens.length >= 3 && tokens[tokens.length-2].text === "[" && tokens[tokens.length-1].text === "]") {
+        return new Ast("Array", [parseType(tokens.slice(0, tokens.length-2))], [], "Type");
+    }
+
     if (tokens[0].text === "unsigned" || tokens[0].text === "signed") {
         if (tokens[1].text !== "int" && tokens[1].text !== "float") {
             error("Expected 'int' or 'float' after '"+tokens[0].text+"', but got '"+tokens[1].text+"'");
@@ -25748,15 +25857,15 @@ function parseType(tokens) {
         return new Ast(tokens[0].text+" "+tokens[1].text, [], [], "Type");
     }
 
-    if (tokens[1].text !== "<") {
-        error("Expected '<' after '"+tokens[0].text+"', but got '"+tokens[1].text+"'");
+    if (tokens[1].text !== "<" && tokens[1].text !== "[") {
+        error("Expected '[' after '"+tokens[0].text+"', but got '"+tokens[1].text+"'");
     }
-    if (tokens[tokens.length-1].text !== ">") {
-        error("Expected '>' at end of type, but got '"+tokens[tokens.length-1].text+"'");
+    if (tokens[tokens.length-1].text !== ">" && tokens[tokens.length-1].text !== "]") {
+        error("Expected ']' at end of type, but got '"+tokens[tokens.length-1].text+"'");
     }
 
-    if (tokens[0].text !== "int" && tokens[0].text !== "float") {
-        error("Expected 'int' or 'float' before '<', but got '"+tokens[0].text+"'");
+    if (tokens[0].text !== "int" && tokens[0].text !== "float" && tokens[0].text !== "enum") {
+        error("Expected 'int', 'float' or 'enum' before '[', but got '"+tokens[0].text+"'");
     }
 
     var typeParams = tokens.slice(2, tokens.length-1);
@@ -25793,6 +25902,16 @@ function parseType(tokens) {
         }
 
         return new Ast(tokens[0].text, [getAstForNumber(min), getAstForNumber(max)], [], "Type");
+    } else if (tokens[0].text === "enum") {
+        var enumMembers = splitTokens(typeParams, ",", true);
+        
+        if (enumMembers[enumMembers.length-1].length === 0) {
+            enumMembers.pop()
+        }
+        if (enumMembers.length === 0) {
+            error("Cannot declare an enum without specifying values");
+        }
+        return new Ast("__enumType__", enumMembers.map(x => parse(x)), [], "Type");
     }
 
     error("This shouldn't happen");
@@ -26408,6 +26527,8 @@ function functionNameToString(content) {
 		funcDisplayName = "function '"+funcToDisplayMapping[content.name]+"'";
 	} else if (isTypeSuitable("StringLiteral", content.type)) {
 		funcDisplayName = "string "+escapeString(content.name);
+	} else if (content.name === "__number__") {
+		funcDisplayName = "number '"+content.args[0].numValue+"'";
 	} else {
 		funcDisplayName = "function '"+content.name+"'";
 	}
@@ -28070,6 +28191,9 @@ function decompile(content) {
     if (name === "__localizedString__" && args.length === 0) {
         return new Ast("STRING", [], [], "HudReeval");
 	}
+	if (name === "_&startForcingOutlineFor" && args.length === 4) {
+		content.args.push(new Ast("DEFAULT", [], [], "OutlineVisibility"))
+	}
 	
 	if (!(name in wsFuncKw)) {
 		error("Function '"+name+"' is not in the function list");
@@ -28845,14 +28969,20 @@ function astToOpy(content) {
         return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getPlayerHit()";
     }
 
+    if (content.name === "__workshopSettingCombo__") {
+        return "createWorkshopSetting(enum"+astToOpy(content.args[3])+", "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+", "+astToOpy(content.args[4])+")";
+    }
+    if (content.name === "__workshopSettingHero__") {
+        return "createWorkshopSetting(Hero, "+content.args.map(x => astToOpy(x)).join(", ")+")";
+    }
     if (content.name === "__workshopSettingToggle__") {
         return "createWorkshopSetting(bool, "+content.args.map(x => astToOpy(x)).join(", ")+")";
     }
     if (content.name === "__workshopSettingInteger__") {
-        return "createWorkshopSetting(int<"+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+">, "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+")";
+        return "createWorkshopSetting(int["+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+"], "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+", "+astToOpy(content.args[5])+")";
     }
     if (content.name === "__workshopSettingReal__") {
-        return "createWorkshopSetting(float<"+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+">, "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+")";
+        return "createWorkshopSetting(float["+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+"], "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+", "+astToOpy(content.args[5])+")";
     }
 
 
@@ -29266,7 +29396,7 @@ ${tows("__rule__", ruleKw)}("") {
 	}
 	${tows("__actions__", ruleKw)} {
 		${tows("__abortIf__", actionKw)}(0.0000001);
-		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
+		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
 	}
 }
 	`
@@ -29323,7 +29453,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
-for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral"]) {
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
 	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
@@ -29447,7 +29577,7 @@ ${tows("__rule__", ruleKw)}("") {
 	}
 	${tows("__actions__", ruleKw)} {
 		${tows("__abortIf__", actionKw)}(0.0000001);
-		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
+		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
 	}
 }
 	`
@@ -29504,7 +29634,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
-for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral"]) {
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
 	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
@@ -30848,7 +30978,7 @@ astParsingFunctions.__greaterThanOrEquals__ = function(content) {
 "use strict";
 
 astParsingFunctions.__hero__ = function(content) {
-    if (content.expectedType === "HeroLiteral") {
+    if (content.expectedType === "HeroLiteral" || content.parent.name === "createWorkshopSetting") {
         return content.args[0];
     } else if (obfuscationSettings.obfuscateConstants) {
         return obfuscateConstant("HeroLiteral", content);
@@ -32933,12 +33063,7 @@ astParsingFunctions.createWorkshopSetting = function(content) {
     var settingName = content.args[2];
     var settingDefault = content.args[3];
     var sortOrder = content.args[4];
-    /*if (sortOrder === 0) {
-        //0 is the default order, so just don't do anything.
-        sortOrder = undefined;
-    } else if (sortOrder > 63 || sortOrder < 0) {
-        error("Sort order must be from 0 to 63");
-    }*/
+    var result = null;
 
     settingCategory = createSuitableWorkshopSettingString(settingCategory, false);
     settingName = createSuitableWorkshopSettingString(settingName, true);
@@ -32946,33 +33071,41 @@ astParsingFunctions.createWorkshopSetting = function(content) {
 
     if (settingType.args.length === 0) {
         if (settingType.name === "bool") {
-            return new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault, sortOrder]);
+            result = new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault, sortOrder]);
         } else if (settingType.name === "int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
+            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "unsigned int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
+            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "signed int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
+            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
         } else if (settingType.name === "float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
+            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "unsigned float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
+            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "signed float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
+            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
+        } else if (settingType.name === "Hero") {
+            result = new Ast("__workshopSettingHero__", [settingCategory, settingName, settingDefault, sortOrder]);
         } else {
-            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
+            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
         }
     } else {
         if (settingType.name === "int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1]]);
+            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1], sortOrder]);
         } else if (settingType.name === "float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1]]);
+            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1], sortOrder]);
+        } else if (settingType.name === "__enumType__") {
+            result = new Ast("__workshopSettingCombo__", [settingCategory, settingName, settingDefault, new Ast("__array__", settingType.args.map(x => createSuitableWorkshopSettingString(x, false))), sortOrder]);
         } else {
-            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
+            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
         }
     }
 
-    error("This shouldn't happen");
+    //Typecheck the default
+    if (!isTypeSuitable(funcKw[result.name].args[2].type, result.args[2].type, false)) {
+        error(getTypeCheckFailedMessage(result, i, funcKw[result.name].args[2].type, result.args[2]));
+    }
+    return result;
 }
 
 function createSuitableWorkshopSettingString(str, isName) {
@@ -32995,12 +33128,7 @@ function createSuitableWorkshopSettingString(str, isName) {
     if (!/\S/.test(str.args[0].name)) {
         str.args[0].name += String.fromCharCode(0x3000);
     }
-/*
-    //If a sort order is specified, add whitespace at the beginning (+ a zero width space U+200B because else a square is showing up)
-    if (sortOrder !== undefined) {
-        str.args[0].name = String.fromCharCode(0x200B) + workshopSettingWhitespace[sortOrder] + str.args[0].name;
-    }
-*/
+
     if (isName) {
         //Check for a duplicate setting. If there is one, add some useless whitespace to the end.
         var settingName = str.args[0].name;
@@ -33009,7 +33137,6 @@ function createSuitableWorkshopSettingString(str, isName) {
         }
         str.args[0].name = settingName;
         workshopSettingNames.push(str.args[0].name);
-        //workshopSettingCategories[settingCategory.args[0].name].push(str.args[0].name);
     }
 
     //Strings have a max of 128 chars, and must be literals
@@ -34737,13 +34864,17 @@ function parseAst(content) {
     //Skip if it's a literal, a type literal, or a constant
     if (!["Hero", "Map", "Gamemode", "Team", "Button", "Color"].includes(content.type)) {
         if ([
-            "IntLiteral", "FloatLiteral", 
+            "IntLiteral", "UnsignedIntLiteral", "SignedIntLiteral", "FloatLiteral", "UnsignedFloatLiteral", "SignedFloatLiteral",
             "GlobalVariable", "PlayerVariable", "Subroutine", 
             "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral",
-            "Type",
         ].concat(Object.keys(constantValues)).includes(content.type)) {
             return content;
         }
+    }
+
+    //Skip if it's a type (but not an enum as we need to parse those ASTs)
+    if (content.type === "Type" && content.name !== "__enumType__") {
+        return content;
     }
 
     //For labels, do nothing.
@@ -34829,7 +34960,10 @@ function parseAst(content) {
         if (content.args.length === 1) {
             content.args.push(getAstForE());
         }
-    } else if (content.name === "range") {
+    } else if (content.name === "_&startForcingOutlineFor") {
+        if (content.args.length === 4) {
+            content.args.push(new Ast("DEFAULT", [], [], "OutlineVisibility"));
+        }
 
     } else if (content.name === "wait") {
         if (content.args.length > 2) {
@@ -34844,7 +34978,7 @@ function parseAst(content) {
         content.name = "__wait__";
     }
     
-    if (!["__format__", "__array__", "__dict__"].includes(content.name)) {
+    if (!["__format__", "__array__", "__dict__", "__enumType__"].includes(content.name)) {
         var nbExpectedArgs = (funcKw[content.name].args === null ? 0 : funcKw[content.name].args.length);
         if (content.args.length !== nbExpectedArgs) {
             error("Function '"+content.name+"' takes "+nbExpectedArgs+" arguments, received "+content.args.length);
@@ -34859,7 +34993,7 @@ function parseAst(content) {
     }
     content.argIndex = 0;
 
-    //Manually check types and arguments for the __format__, __array__ or __dict__ functions, as they are the only functions that can take an infinite number of arguments.
+    //Manually check types and arguments for the __format__, __array__, __enumType__ or __dict__ functions, as they are the only functions that can take an infinite number of arguments.
     if (content.name === "__format__") {
         if (content.args.length < 1) {
             error("Function '__format__' takes at least 1 argument, received "+content.args.length);
@@ -34874,7 +35008,7 @@ function parseAst(content) {
             }
         }
 
-    } else if (content.name === "__array__" || content.name === "__dict__") {
+    } else if (content.name === "__array__" || content.name === "__dict__" || content.name === "__enumType__") {
         //Check types
         for (var i = 0; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[i].type)) {
@@ -34902,7 +35036,7 @@ function parseAst(content) {
     if (content.name !== "__rule__" && content.parent.argIndex !== null) {
         if (content.parent.name === "__format__" && content.parent.argIndex > 0) {
             content.expectedType = funcKw[content.parent.name].args[1].type;
-        } else if (content.parent.name === "__array__" || content.parent.name === "__dict__") {
+        } else if (content.parent.name === "__array__" || content.parent.name === "__dict__" || content.parent.name === "__enumType__") {
             content.expectedType = funcKw[content.parent.name].args[0].type;
         } else if (content.parent.name === "@Condition") {
             content.expectedType = "bool";
@@ -35177,7 +35311,13 @@ function astToWs(content) {
                 } else {
                     //console.log(content.args[i].expectedType);
                     //if (!isTypeSuitable("FloatLiteral", content.args[i].expectedType)) {
-                    if (content.name !== "__workshopSettingReal__" && content.name !== "__workshopSettingInteger__") {
+                    if (![
+                        "__workshopSettingReal__",
+                        "__workshopSettingInteger__",
+                        "__workshopSettingToggle__",
+                        "__workshopSettingHero__",
+                        "__workshopSettingCombo__"
+                    ].includes(content.name)) {
                         if (content.args[i].args[0].numValue === 0 && replacementFor0 !== null) {
                             content.args[i] = new Ast(replacementFor0);
                         } else if (content.args[i].args[0].numValue === 1 && replacementFor1 !== null) {
@@ -36115,7 +36255,7 @@ function parse(content, kwargs={}) {
         if (isNumber(name)) {
             //It is an int, else it would have a dot, and wouldn't be processed here.
             //It is also an unsigned int, as the negative sign is not part of the name.
-            return new Ast("__number__", [new Ast(name, [], [], "IntLiteral")], [], "unsigned int");
+            return new Ast("__number__", [new Ast(name, [], [], "UnsignedIntLiteral")], [], "unsigned int");
         }
 
 		return new Ast(name);
@@ -36181,8 +36321,8 @@ function parse(content, kwargs={}) {
         } else {
 			error("Function 'raycast' takes 5 arguments, received "+args.length);
         }
-	}
-	
+    }
+    	
 	if (name === "sorted") {
 
         //Lazy & dirty way of properly parsing "sorted(x, lambda a,b: z)" as the parser also splits on the comma on "lambda a,b".
@@ -36254,9 +36394,12 @@ function parse(content, kwargs={}) {
     //Old functions
     if (name === "_&setCamera") {
         name = "_&startCamera";
-    }
-    if (name === "destroyAllInWorldText") {
+    } else if (name === "destroyAllInWorldText") {
         name = "destroyAllInWorldTexts";
+    } else if (name === "disableEnvironmentCollision") {
+        name = "_&disableEnvironmentCollision";
+    } else if (name === "enableEnvironmentCollision") {
+        name = "_&enableEnvironmentCollision";
     }
     
     return new Ast(name, args.map(x => parse(x)));
@@ -36336,7 +36479,7 @@ function parseMember(object, member) {
                 if (!isNumber(name)) {
                     error("Expected a number after '.' but got '"+name+"'");
                 }
-                return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "FloatLiteral")], [], "unsigned float");
+                return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "UnsignedFloatLiteral")], [], "unsigned float");
             }
         }
 

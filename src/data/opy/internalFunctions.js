@@ -188,6 +188,15 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
+    "__enumType__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": ["Array", "Object"],
+            }
+        ],
+        return: "Type",
+    },
     "__equals__": {
         "args": [
             {
@@ -435,7 +444,7 @@ const opyInternalFuncs = {
             },
         ],
         "isConstant": true,
-        return: "float",
+        return: "FloatLiteral",
         "en-US": "Number",
     },
     "__remove__": {

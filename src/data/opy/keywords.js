@@ -70,18 +70,20 @@ const opyKeywords = {
         "description": `Declares an enum. For example:
 \`\`\`c
 enum GameStatus:
- GAME_NOT_STARTED,
- GAME_IN_PROGRESS = 3,
- GAME_STARTED
+    GAME_NOT_STARTED,
+    GAME_IN_PROGRESS = 3,
+    GAME_STARTED
 
 enum Team:
- HUMANS = Team.2,
- ZOMBIES = Team.1
+    HUMANS = Team.2,
+    ZOMBIES = Team.1
 \`\`\`
 
 The enum can then be accessed like other enums: \`GameStatus.GAME_STARTED\`.
 
 If no value is specified, the value is the last specified value plus 1 (if the last specified value is a number), or 0 if it is the first enum member.
+
+An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
 `,
         "args": null,
         "snippet": "enum $0",

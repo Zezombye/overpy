@@ -33,12 +33,7 @@ astParsingFunctions.createWorkshopSetting = function(content) {
     var settingName = content.args[2];
     var settingDefault = content.args[3];
     var sortOrder = content.args[4];
-    /*if (sortOrder === 0) {
-        //0 is the default order, so just don't do anything.
-        sortOrder = undefined;
-    } else if (sortOrder > 63 || sortOrder < 0) {
-        error("Sort order must be from 0 to 63");
-    }*/
+    var result = null;
 
     settingCategory = createSuitableWorkshopSettingString(settingCategory, false);
     settingName = createSuitableWorkshopSettingString(settingName, true);
@@ -46,33 +41,41 @@ astParsingFunctions.createWorkshopSetting = function(content) {
 
     if (settingType.args.length === 0) {
         if (settingType.name === "bool") {
-            return new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault, sortOrder]);
+            result = new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault, sortOrder]);
         } else if (settingType.name === "int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
+            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "unsigned int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
+            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "signed int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
+            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
         } else if (settingType.name === "float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
+            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "unsigned float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
+            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "signed float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
+            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
+        } else if (settingType.name === "Hero") {
+            result = new Ast("__workshopSettingHero__", [settingCategory, settingName, settingDefault, sortOrder]);
         } else {
-            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
+            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
         }
     } else {
         if (settingType.name === "int") {
-            return new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1]]);
+            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1], sortOrder]);
         } else if (settingType.name === "float") {
-            return new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1]]);
+            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1], sortOrder]);
+        } else if (settingType.name === "__enumType__") {
+            result = new Ast("__workshopSettingCombo__", [settingCategory, settingName, settingDefault, new Ast("__array__", settingType.args.map(x => createSuitableWorkshopSettingString(x, false))), sortOrder]);
         } else {
-            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float' or 'bool'");
+            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
         }
     }
 
-    error("This shouldn't happen");
+    //Typecheck the default
+    if (!isTypeSuitable(funcKw[result.name].args[2].type, result.args[2].type, false)) {
+        error(getTypeCheckFailedMessage(result, i, funcKw[result.name].args[2].type, result.args[2]));
+    }
+    return result;
 }
 
 function createSuitableWorkshopSettingString(str, isName) {
@@ -95,12 +98,7 @@ function createSuitableWorkshopSettingString(str, isName) {
     if (!/\S/.test(str.args[0].name)) {
         str.args[0].name += String.fromCharCode(0x3000);
     }
-/*
-    //If a sort order is specified, add whitespace at the beginning (+ a zero width space U+200B because else a square is showing up)
-    if (sortOrder !== undefined) {
-        str.args[0].name = String.fromCharCode(0x200B) + workshopSettingWhitespace[sortOrder] + str.args[0].name;
-    }
-*/
+
     if (isName) {
         //Check for a duplicate setting. If there is one, add some useless whitespace to the end.
         var settingName = str.args[0].name;
@@ -109,7 +107,6 @@ function createSuitableWorkshopSettingString(str, isName) {
         }
         str.args[0].name = settingName;
         workshopSettingNames.push(str.args[0].name);
-        //workshopSettingCategories[settingCategory.args[0].name].push(str.args[0].name);
     }
 
     //Strings have a max of 128 chars, and must be literals

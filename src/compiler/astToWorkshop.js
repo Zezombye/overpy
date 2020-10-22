@@ -227,7 +227,13 @@ function astToWs(content) {
                 } else {
                     //console.log(content.args[i].expectedType);
                     //if (!isTypeSuitable("FloatLiteral", content.args[i].expectedType)) {
-                    if (content.name !== "__workshopSettingReal__" && content.name !== "__workshopSettingInteger__") {
+                    if (![
+                        "__workshopSettingReal__",
+                        "__workshopSettingInteger__",
+                        "__workshopSettingToggle__",
+                        "__workshopSettingHero__",
+                        "__workshopSettingCombo__"
+                    ].includes(content.name)) {
                         if (content.args[i].args[0].numValue === 0 && replacementFor0 !== null) {
                             content.args[i] = new Ast(replacementFor0);
                         } else if (content.args[i].args[0].numValue === 1 && replacementFor1 !== null) {

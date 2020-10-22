@@ -18,7 +18,7 @@
 "use strict";
 
 astParsingFunctions.__hero__ = function(content) {
-    if (content.expectedType === "HeroLiteral") {
+    if (content.expectedType === "HeroLiteral" || content.parent.name === "createWorkshopSetting") {
         return content.args[0];
     } else if (obfuscationSettings.obfuscateConstants) {
         return obfuscateConstant("HeroLiteral", content);

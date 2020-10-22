@@ -727,14 +727,20 @@ function astToOpy(content) {
         return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getPlayerHit()";
     }
 
+    if (content.name === "__workshopSettingCombo__") {
+        return "createWorkshopSetting(enum"+astToOpy(content.args[3])+", "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+", "+astToOpy(content.args[4])+")";
+    }
+    if (content.name === "__workshopSettingHero__") {
+        return "createWorkshopSetting(Hero, "+content.args.map(x => astToOpy(x)).join(", ")+")";
+    }
     if (content.name === "__workshopSettingToggle__") {
         return "createWorkshopSetting(bool, "+content.args.map(x => astToOpy(x)).join(", ")+")";
     }
     if (content.name === "__workshopSettingInteger__") {
-        return "createWorkshopSetting(int<"+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+">, "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+")";
+        return "createWorkshopSetting(int["+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+"], "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+", "+astToOpy(content.args[5])+")";
     }
     if (content.name === "__workshopSettingReal__") {
-        return "createWorkshopSetting(float<"+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+">, "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+")";
+        return "createWorkshopSetting(float["+astToOpy(content.args[3])+":"+astToOpy(content.args[4])+"], "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+", "+astToOpy(content.args[5])+")";
     }
 
 

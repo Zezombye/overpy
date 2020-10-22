@@ -37,7 +37,7 @@ ${tows("__rule__", ruleKw)}("") {
 	}
 	${tows("__actions__", ruleKw)} {
 		${tows("__abortIf__", actionKw)}(0.0000001);
-		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("RED", constantValues.Color)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
+		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
 	}
 }
 	`
@@ -94,7 +94,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
-for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral"]) {
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
 	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);

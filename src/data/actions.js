@@ -1983,7 +1983,7 @@ const actionKw =
         "pt-BR": "Habilitar Mensagens",
         "zh-CN": "显示信息"
     },
-    "enableEnvironmentCollision": {
+    "_&enableEnvironmentCollision": {
         "description": "Undoes the effect of the Disable Movement Collision With Enviroment action for one or more players.",
         "args": [
             {
@@ -2007,7 +2007,7 @@ const actionKw =
         "pt-BR": "Habilitar Colisão de Movimento com Ambiente",
         "zh-CN": "开启与环境的移动碰撞"
     },
-    "enablePlayerCollision": {
+    "_&enablePlayerCollision": {
         "description": "Undoes the effect of the Disable Movement Collision With Players action for one or more players.",
         "args": [
             {
