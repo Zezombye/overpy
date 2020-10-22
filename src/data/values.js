@@ -1824,7 +1824,7 @@ var valueFuncKw =
         "pt-BR": "Herói de",
         "zh-CN": "所用英雄"
     },
-    "horizontalAngleFromDirection": {
+    "horizontalAngleOfDirection": {
         "description": "The horizontal angle in degrees corresponding to the specified direction vector.",
         "args": [
             {

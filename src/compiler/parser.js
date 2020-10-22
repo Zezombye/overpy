@@ -787,7 +787,10 @@ function parse(content, kwargs={}) {
         name = "_&enableEnvironmentCollision";
     } else if (name === "enablePlayerCollision") {
         name = "_&enablePlayerCollision";
+    } else if (name === "horizontalAngleFromDirection") {
+        name = "horizontalAngleOfDirection";
     }
+    
     
     return new Ast(name, args.map(x => parse(x)));
 }
