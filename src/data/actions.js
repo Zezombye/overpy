@@ -2384,7 +2384,7 @@ const actionKw =
         "pt-BR": "Abater",
         "zh-CN": "击杀"
     },
-    "log": {
+    "printLog": {
         "description": "Causes the workshop inspector to record a log entry.",
         "args": [
             {

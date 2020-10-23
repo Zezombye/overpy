@@ -308,6 +308,7 @@ function decompileVarNames(content) {
 				if (elems.length !== 2) {
 					error("Could not parse variables field: too many elements on '"+content[i]+"'");
 				}
+				
 				addVariable(elems[0], isInGlobalVars, currentVarIndex);
 				if (!isNaN(elems[1])) {
 					currentVarIndex = +elems[1];

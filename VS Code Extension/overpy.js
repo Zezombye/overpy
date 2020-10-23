@@ -4048,7 +4048,7 @@ const actionKw =
         "pt-BR": "Habilitar Colisão de Movimento com Ambiente",
         "zh-CN": "开启与环境的移动碰撞"
     },
-    "enablePlayerCollision": {
+    "_&enablePlayerCollision": {
         "description": "Undoes the effect of the Disable Movement Collision With Players action for one or more players.",
         "args": [
             {
@@ -4425,7 +4425,7 @@ const actionKw =
         "pt-BR": "Abater",
         "zh-CN": "击杀"
     },
-    "log": {
+    "printLog": {
         "description": "Causes the workshop inspector to record a log entry.",
         "args": [
             {
@@ -9819,7 +9819,7 @@ var valueFuncKw =
         "pt-BR": "Herói de",
         "zh-CN": "所用英雄"
     },
-    "horizontalAngleFromDirection": {
+    "horizontalAngleOfDirection": {
         "description": "The horizontal angle in degrees corresponding to the specified direction vector.",
         "args": [
             {
@@ -28192,7 +28192,16 @@ function decompile(content) {
         return new Ast("STRING", [], [], "HudReeval");
 	}
 	if (name === "_&startForcingOutlineFor" && args.length === 4) {
-		content.args.push(new Ast("DEFAULT", [], [], "OutlineVisibility"))
+		args.push("DEFAULT");
+	}
+	if (name === "__workshopSettingToggle__" && args.length === 3) {
+		args.push("0");
+	}
+	if (name === "__workshopSettingInteger__" && args.length === 5) {
+		args.push("0");
+	}
+	if (name === "__workshopSettingReal__" && args.length === 5) {
+		args.push("0");
 	}
 	
 	if (!(name in wsFuncKw)) {
@@ -29311,6 +29320,7 @@ function decompileVarNames(content) {
 				if (elems.length !== 2) {
 					error("Could not parse variables field: too many elements on '"+content[i]+"'");
 				}
+				
 				addVariable(elems[0], isInGlobalVars, currentVarIndex);
 				if (!isNaN(elems[1])) {
 					currentVarIndex = +elems[1];
@@ -36400,7 +36410,12 @@ function parse(content, kwargs={}) {
         name = "_&disableEnvironmentCollision";
     } else if (name === "enableEnvironmentCollision") {
         name = "_&enableEnvironmentCollision";
+    } else if (name === "enablePlayerCollision") {
+        name = "_&enablePlayerCollision";
+    } else if (name === "horizontalAngleFromDirection") {
+        name = "horizontalAngleOfDirection";
     }
+    
     
     return new Ast(name, args.map(x => parse(x)));
 }

@@ -449,7 +449,16 @@ function decompile(content) {
         return new Ast("STRING", [], [], "HudReeval");
 	}
 	if (name === "_&startForcingOutlineFor" && args.length === 4) {
-		content.args.push(new Ast("DEFAULT", [], [], "OutlineVisibility"))
+		args.push("DEFAULT");
+	}
+	if (name === "__workshopSettingToggle__" && args.length === 3) {
+		args.push("0");
+	}
+	if (name === "__workshopSettingInteger__" && args.length === 5) {
+		args.push("0");
+	}
+	if (name === "__workshopSettingReal__" && args.length === 5) {
+		args.push("0");
 	}
 	
 	if (!(name in wsFuncKw)) {
