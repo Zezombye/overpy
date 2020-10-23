@@ -1,134 +1,92 @@
-[
-    {
-      "Id": "0000000050AD.01C",
-      "DisplayName": "White",
-      "hex": "#FFFFFF",
-      "rgb": "255 255 255 255",
-      "RawColor": {
-        "R": "1",
-        "G": "1",
-        "B": "1",
-        "A": "1"
-      }
+const colorKw = {
+    "white": {
+        "red": 255,
+        "green": 255,
+        "blue": 255,
+        "alpha": 255
     },
-    {
-      "Id": "0000000050AB.01C",
-      "DisplayName": "Yellow",
-      "hex": "#FFFF00",
-      "rgb": "255 255 0 255",
-      "RawColor": {
-        "R": "1",
-        "G": "1",
-        "B": "0",
-        "A": "1"
-      }
+    "yellow": {
+        "red": 255,
+        "green": 255,
+        "blue": 0,
+        "alpha": 255
     },
-    {
-      "Id": "0000000050AC.01C",
-      "DisplayName": "Green",
-      "hex": "#45FF57",
-      "rgb": "69 255 87 255",
-      "RawColor": {
-        "R": "0.2705882",
-        "G": "1",
-        "B": "0.3411765",
-        "A": "1"
-      }
+    "green": {
+        "red": 69,
+        "green": 255,
+        "blue": 87,
+        "alpha": 255
     },
-    {
-      "Id": "00000000534F.01C",
-      "DisplayName": "Purple",
-      "hex": "#A149C5",
-      "rgb": "161 73 197 255",
-      "RawColor": {
-        "R": "0.6313726",
-        "G": "0.2862745",
-        "B": "0.7725491",
-        "A": "1"
-      }
+    "purple": {
+        "red": 161,
+        "green": 73,
+        "blue": 197,
+        "alpha": 255
     },
-    {
-      "Id": "0000000050A7.01C",
-      "DisplayName": "Red",
-      "hex": "#C80013",
-      "rgb": "200 0 19 255",
-      "RawColor": {
-        "R": "0.7843138",
-        "G": "0",
-        "B": "0.07450981",
-        "A": "1"
-      }
+    "red": {
+        "red": 200,
+        "green": 0,
+        "blue": 19,
+        "alpha": 255
     },
-    {
-      "Id": "0000000050A8.01C",
-      "DisplayName": "Blue",
-      "hex": "#27AAFF",
-      "rgb": "39 170 255 255",
-      "RawColor": {
-        "R": "0.1529412",
-        "G": "0.6666667",
-        "B": "1",
-        "A": "1"
-      }
+    "blue": {
+        "red": 39,
+        "green": 170,
+        "blue": 255,
+        "alpha": 255
     },
-    {
-      "Id": "000000005B37.01C",
-      "DisplayName": "Aqua",
-      "hex": "#00EAEA",
-      "rgb": "0 234 234 255",
-      "RawColor": {
-        "R": "0",
-        "G": "0.9176471",
-        "B": "0.9176471",
-        "A": "1"
-      }
+    "aqua": {
+        "red": 0,
+        "green": 234,
+        "blue": 234,
+        "alpha": 255
     },
-    {
-      "Id": "000000005B38.01C",
-      "DisplayName": "Orange",
-      "hex": "#EC9900",
-      "rgb": "236 153 0 255",
-      "RawColor": {
-        "R": "0.9254903",
-        "G": "0.6",
-        "B": "0",
-        "A": "1"
-      }
+    "orange": {
+        "red": 236,
+        "green": 153,
+        "blue": 0,
+        "alpha": 255
     },
-    {
-      "Id": "000000005B39.01C",
-      "DisplayName": "Sky Blue",
-      "hex": "#6CBEF4",
-      "rgb": "108 190 244 255",
-      "RawColor": {
-        "R": "0.4235294",
-        "G": "0.7450981",
-        "B": "0.9568628",
-        "A": "1"
-      }
+    "skyBlue": {
+        "red": 108,
+        "green": 190,
+        "blue": 244,
+        "alpha": 255
     },
-    {
-      "Id": "000000005B3A.01C",
-      "DisplayName": "Turquoise",
-      "hex": "#00E697",
-      "rgb": "0 230 151 255",
-      "RawColor": {
-        "R": "0",
-        "G": "0.9019608",
-        "B": "0.5921569",
-        "A": "1"
-      }
+    "turquoise": {
+        "red": 0,
+        "green": 230,
+        "blue": 151,
+        "alpha": 255
     },
-    {
-      "Id": "000000005B3B.01C",
-      "DisplayName": "Lime Green",
-      "hex": "#A0E81B",
-      "rgb": "160 232 27 255",
-      "RawColor": {
-        "R": "0.627451",
-        "G": "0.909804",
-        "B": "0.1058824",
-        "A": "1"
-      }
-    }
-  ]
+    "limeGreen": {
+        "red": 160,
+        "green": 232,
+        "blue": 27,
+        "alpha": 255
+    },
+    "gray": {
+        "red": 127,
+        "green": 127,
+        "blue": 127,
+        "alpha": 255,
+    },
+    "violet": {
+        "red": 100,
+        "green": 50,
+        "blue": 255,
+        "alpha": 255,
+    },
+    "rose": {
+        "red": 255,
+        "green": 50,
+        "blue": 145,
+        "alpha": 255,
+    },
+    "black": {
+        "red": 0,
+        "green": 0,
+        "blue": 0,
+        "alpha": 255,
+    },
+}
