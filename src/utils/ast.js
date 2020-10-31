@@ -227,6 +227,9 @@ function getAstFor0_001() {
 function getAstFor0_0001() {
     return new Ast("__number__", [new Ast("0.0001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
+function getAstFor255() {
+    return new Ast("__number__", [new Ast("255", [], [], "UnsignedIntLiteral")], [], "int");
+}
 function getAstFor10000() {
     return new Ast("__number__", [new Ast("10000", [], [], "UnsignedIntLiteral")], [], "int");
 }

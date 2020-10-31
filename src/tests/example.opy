@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 #OverPy starting pack
 

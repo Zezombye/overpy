@@ -100,7 +100,7 @@ function astRuleConditionToWs(condition) {
     if (condition.name in funcToOpMapping) {
 
         //Check for replacements
-        if (enableOptimization) {
+        if (enableOptimization && optimizeForSize) {
             for (var i = 0; i <= 1; i++) {
                 /*console.log(condition);
                 console.log(i);
@@ -213,7 +213,7 @@ function astToWs(content) {
         content = new Ast("__firstOf__", [content.args[0]]);
     }
 
-    if (enableOptimization) {
+    if (enableOptimization && optimizeForSize) {
         //Replace 0 by false/null, 1 by true, and null vector by null
         for (var i = 0; i < content.args.length; i++) {
             var argInfo = content.name === "__array__" ? funcKw[content.name].args[0] : funcKw[content.name].args[i];
@@ -269,7 +269,7 @@ function astToWs(content) {
     } else if (content.name === "__assignTo__" || content.name === "__modifyVar__") {
 
 
-        if (content.name === "__modifyVar__" && enableOptimization && content.args[2].name === "__number__") {
+        if (content.name === "__modifyVar__" && enableOptimization && optimizeForSize && content.args[2].name === "__number__") {
             //Manually do the 0/1->false/true/null replacements.
             if (["__add__", "__subtract__", "__modulo__", "__max__", "__min__", "__removeFromArrayByIndex__"].includes(content.args[1].name)) {
                 if (content.args[2].args[0].numValue === 0) {
@@ -312,7 +312,7 @@ function astToWs(content) {
                 newName += "GlobalVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
-                if (enableOptimization) {
+                if (enableOptimization && optimizeForSize) {
                     //We must manually do the 0/1 -> false/true replacement, as the "value in array" isn't actually parsed.
                     if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
                         content.args[1] = getAstForFalse();
@@ -326,7 +326,7 @@ function astToWs(content) {
                 newName += "PlayerVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[1]].concat(content.args.slice(1));
 
-                if (enableOptimization) {
+                if (enableOptimization && optimizeForSize) {
                     if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 0) {
                         content.args[2] = getAstForFalse();
                     } else if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 1) {
@@ -517,6 +517,14 @@ function astToWs(content) {
     }
 
     nbElements++;
+
+    //Apply workaround for booleans not accepting all functions such as Vector.UP
+    //"First Of" keeps the truthyness of all functions (even those which return an array, as it takes the first element anyway)
+    if (content.expectedType === "bool" && funcKw[content.name].canBePutInBoolean === false) {
+        result = tows("__firstOf__", valueFuncKw)+"("+result+")";
+        nbElements++;
+    }
+
     //Actions remove elements for top-level values
     if (content.type === "void" && content.args !== null) {
         nbElements -= content.args.length;
@@ -527,5 +535,7 @@ function astToWs(content) {
     } else if (content.type === "TeamLiteral") {
         nbElements++;
     }
+
+
     return result;
 }

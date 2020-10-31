@@ -413,34 +413,190 @@ const opyConstants = {
     
     "Vector": {
         "UP": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
+            "args": null,
+            "isConstant": true,
+            "return": {
+                "Direction": [
+                    "unsigned int",
+                    "unsigned int",
+                    "unsigned int"
+                ]
+            },
         },
         "DOWN": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
+            "args": null,
+            "return": {
+                "Direction": [
+                    "unsigned int",
+                    "signed int",
+                    "unsigned int"
+                ]
+            },
         },
         "LEFT": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
+            "args": null,
+            "isConstant": true,
+            "return": {
+                "Direction": [
+                    "unsigned int",
+                    "unsigned int",
+                    "unsigned int"
+                ]
+            },
         },
         "RIGHT": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
+            "args": null,
+            "isConstant": true,
+            "return": {
+                "Direction": [
+                    "signed int",
+                    "unsigned int",
+                    "unsigned int"
+                ]
+            },
         },
         "FORWARD": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
+            "args": null,
+            "isConstant": true,
+            "return": {
+                "Direction": [
+                    "unsigned int",
+                    "unsigned int",
+                    "unsigned int"
+                ]
+            },
         },
         "BACKWARD": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
+            "args": null,
+            "return": {
+                "Direction": [
+                    "unsigned int",
+                    "unsigned int",
+                    "signed int"
+                ]
+            },
         },
     },
     "Math": {
         "PI": {
+            "description": "The number pi = 3.14159265359.",
+            "args": null,
+            "isConstant": true,
             return: "unsigned float",
         },
         "E": {
+            "description": "The number e = 2.71828182846.",
+            "args": null,
+            "isConstant": true,
             return: "unsigned float",
         }
     },
 }
+
+for (var key in opyConstants) {
+    opyConstants[key]["description"] = "The `"+key+"` enum.";
+}
 /* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+const opyModules = {
+    
+    "random": {
+        "randint": {
+            "description": "A random integer between the specified min and max, inclusive.",
+            "args": [
+                {
+                    "name": "MIN",
+                    "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+                    "type": "int",
+                    canReplace0ByFalse: true,
+                    canReplace1ByTrue: true,
+                    "default": "NUMBER"
+                },
+                {
+                    "name": "MAX",
+                    "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+                    "type": "int",
+                    canReplace0ByFalse: true,
+                    canReplace1ByTrue: true,
+                    "default": "NUMBER"
+                }
+            ],
+            "return": "int",
+        },
+        "uniform": {
+            "description": "A random real number between the specified min and max.",
+            "args": [
+                {
+                    "name": "MIN",
+                    "description": "The smallest real number allowed.",
+                    "type": "float",
+                    "default": "NUMBER"
+                },
+                {
+                    "name": "MAX",
+                    "description": "The largest real number allowed.",
+                    "type": "float",
+                    "default": "NUMBER"
+                }
+            ],
+            "return": "float",
+        },
+        "choice": {
+            "description": "A random value from the specified array.",
+            "args": [
+                {
+                    "name": "ARRAY",
+                    "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
+                    "type": "Array",
+                    "default": "GLOBAL VARIABLE"
+                }
+            ],
+            "return": [
+                "Object",
+                "Array"
+            ],
+        },
+        "shuffle": {
+            "description": "A copy of the specified array with the values in a random order.",
+            "args": [
+                {
+                    "name": "ARRAY",
+                    "description": "The array whose copy will be randomized.",
+                    "type": "Array",
+                    "default": "GLOBAL VARIABLE"
+                }
+            ],
+            "return": "Array",
+        },
+    }
+}
+
+for (var key in opyModules) {
+    opyModules[key]["description"] = "The `"+key+"` module.";
+}/* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
  * 
@@ -1397,18 +1553,6 @@ Examples of valid types:
         "isConstant": true,
         return: "float",
     },
-    "math.e": {
-        "description": "The number e = 2.71828182846.",
-        "args": null,
-        "isConstant": true,
-        return: "unsigned float",
-    },
-    "math.pi": {
-        "description": "The number pi = 3.14159265359.",
-        "args": null,
-        "isConstant": true,
-        return: "unsigned float",
-    },
     "pass": {
         "description": "Does nothing. Used when OverPy's grammar requires an instruction, such as having an empty block. Is parsed as an action for the purposes of runtime `goto`s.",
         "args": null,
@@ -1486,6 +1630,31 @@ Examples of valid types:
         ],
         return: "Raycast",
     },
+	"rgb": {
+		"description": "A custom color with the specified red, green, and blue values.",
+		"args": [
+			{
+				"name": "Red",
+				"description": "The red component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Green",
+				"description": "The green component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Blue",
+				"description": "The blue component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			}
+		],
+        "isConstant": true,
+		"return": "Color",
+	},
     "round": {
         "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
         "args": [
@@ -1950,7 +2119,7 @@ The following obfuscation methods are applied:
 - Name obfuscation: all rule titles and comments are removed, and all variable/subroutine names are replaced with a combination of capital i and lowercase L.
 - String obfuscation: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
 - Constant obfuscation: some constants, such as heroes or maps, are replaced with other values that compute to the original value.
-- Inspector obfuscation: the inspector is disabled, and all disable/enable inspector actions are removed.
+- Inspector obfuscation: the inspector is disabled, and all inspector-related actions are removed.
 - Copy protection: the gamemode will break upon copying it via text. It is highly recommended to enable constant obfuscation to greatly strengthen this protection.
 
 To save elements, it is possible to specify methods to disable, by prefixing them with \`no\`. For example, \`#!obfuscate noRuleFilling noConstantObfuscation\` will disable rule filling and constant obfuscation, which is useful if the obfuscation adds too much elements.
@@ -1971,9 +2140,12 @@ To save elements, it is possible to specify methods to disable, by prefixing the
     "disableOptimizations": {
         "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
     },
+    "optimizeForSize": {
+        "description": "Prioritizes lowering the number of elements over optimizing the runtime."
+    },
     "replace0ByCapturePercentage": {
         "description": `
-Replaces all instances of 0 by \`getCapturePercentage()\`, if replacement by \`null\` or \`false\` is impossible.
+Replaces all instances of 0 by \`getCapturePercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Assault, Hybrid, or Elimination.
 
@@ -1988,7 +2160,7 @@ rule "Integrity check":
     },
     "replace0ByPayloadProgressPercentage": {
         "description": `
-Replaces all instances of 0 by \`getPayloadProgressPercentage()\`, if replacement by \`null\` or \`false\` is impossible.
+Replaces all instances of 0 by \`getPayloadProgressPercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Hybrid or Escort.
 
@@ -2003,14 +2175,14 @@ rule "Integrity check":
     },
     "replace0ByIsMatchComplete": {
         "description": `
-Replaces all instances of 0 by \`isMatchComplete()\`, if replacement by \`null\` or \`false\` is impossible.
+Replaces all instances of 0 by \`isMatchComplete()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode is endless, or if you do not care about the integrity of the gamemode once victory/defeat is declared.
 `
     },
     "replace1ByMatchRound": {
         "description": `
-Replaces all instances of 1 by \`getMatchRound()\`, if replacement by \`true\` is impossible.
+Replaces all instances of 1 by \`getMatchRound()\`, if replacement by \`true\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Assault, Hybrid, Escort (with the competitive ruleset) or Control.
 
@@ -2025,7 +2197,7 @@ rule "Integrity check":
     },
     "replaceTeam1ByControlScoringTeam": {
         "description": `
-Replaces all instances of \`Team.1\` by \`getControlScoringTeam()\`.
+Replaces all instances of \`Team.1\` by \`getControlScoringTeam()\`. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Control.
 
@@ -3037,7 +3209,7 @@ const actionKw =
 			{
 				"name": "Reevaluation",
 				"description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
-				"type": "HudReeval",
+				"type": "ProgressWorldTextReeval",
 				"default": "Visible To, Values, and Color"
 			},
 			{
@@ -3103,7 +3275,7 @@ const actionKw =
 			{
 				"name": "Reevaluation",
 				"description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
-				"type": "HudReeval",
+				"type": "ProgressHudReeval",
 				"default": "Visible To, Values, and Color"
 			},
 			{
@@ -6542,7 +6714,7 @@ const actionKw =
         "pt-BR": "Começar a Acelerar",
         "zh-CN": "开始加速"
     },
-    "_&setCamera": {
+    "_&startCamera": {
         "description": "Places your camera at a location, facing a direction.",
         "args": [
             {
@@ -6935,7 +7107,7 @@ const actionKw =
         "zh-CN": "开始限制阈值"
     },
 	"_&startGrantingAssistFor": {
-		"description": "Starts granting assist credit toward to one or more assisters when one or more targets are eliminated. A reference to this damage modification can be obtained from the getLastAssistId() value. This action will fail if too many assists have been started.",
+		"description": "Starts granting assist credit toward to one or more assisters when one or more targets are eliminated. A reference to this assist modification can be obtained from the getLastAssistId() value. This action will fail if too many assists have been started.",
 		"args": [
 			{
 				"name": "Assisters",
@@ -8080,6 +8252,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "String",
         "guid": "000000010B52",
         "en-US": "Ability Icon String",
@@ -8184,6 +8357,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
+        canBePutInBoolean: false,
         "guid": "00000000B265",
         "en-US": "All Dead Players",
         "es-MX": "Todos los jugadores muertos",
@@ -8199,6 +8373,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
+        canBePutInBoolean: false,
         "guid": "00000000D40A",
         "en-US": "All Damage Heroes",
         "de-DE": "Alle Schadenshelden",
@@ -8216,6 +8391,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
+        canBePutInBoolean: false,
         "en-US": "All Heroes",
         "es-MX": "Todos los héroes",
         "fr-FR": "Tous les héros",
@@ -8236,6 +8412,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
+        canBePutInBoolean: false,
         "guid": "00000000B264",
         "en-US": "All Living Players",
         "es-MX": "Todos los jugadores vivos",
@@ -8257,6 +8434,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
+        canBePutInBoolean: false,
         "guid": "00000000B261",
         "en-US": "All Players",
         "es-MX": "Todos los jugadores",
@@ -8278,6 +8456,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
+        canBePutInBoolean: false,
         "guid": "00000000B267",
         "en-US": "All Players Not On Objective",
         "es-MX": "Todos los jugadores que no están en el objetivo",
@@ -8299,6 +8478,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
+        canBePutInBoolean: false,
         "guid": "00000000B266",
         "en-US": "All Players On Objective",
         "es-MX": "Todos los jugadores que están en el objetivo",
@@ -8320,6 +8500,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
+        canBePutInBoolean: false,
         "guid": "00000000BBA8",
         "en-US": "Allowed Heroes",
         "es-MX": "Héroes permitidos",
@@ -8335,6 +8516,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
+        canBePutInBoolean: false,
         "guid": "00000000D40B",
         "en-US": "All Support Heroes",
         "de-DE": "Alle Unterstützungshelden",
@@ -8351,6 +8533,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
+        canBePutInBoolean: false,
         "guid": "00000000D40C",
         "en-US": "All Tank Heroes",
         "de-DE": "Alle Tankhelden",
@@ -8744,6 +8927,7 @@ var valueFuncKw =
         "guid": "00000000B32F",
         "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
         "args": null,
+        canBePutInBoolean: false,
         "return": "Player",
         "en-US": "Attacker",
         "es-MX": "Atacante",
@@ -8763,6 +8947,7 @@ var valueFuncKw =
                 "signed int"
             ]
         },
+        canBePutInBoolean: false,
         "isConstant": true,
         "en-US": "Backward",
         "es-MX": "Atrás",
@@ -8782,6 +8967,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Button",
         "guid": "000000010B3B",
         "en-US": "Button",
@@ -8807,6 +8993,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000B1DE",
         "en-US": "Closest Player To",
@@ -8826,6 +9013,7 @@ var valueFuncKw =
 				"default": "White"
 			}
 		],
+        canBePutInBoolean: false,
         "isConstant": true,
 		"return": "Color",
 		"en-US": "Color"
@@ -8890,6 +9078,7 @@ var valueFuncKw =
     "getControlScoringTeam": {
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
         "args": [],
+        canBePutInBoolean: false,
         "return": "Team",
         "guid": "00000000B39A",
         "en-US": "Control Mode Scoring Team",
@@ -8940,7 +9129,7 @@ var valueFuncKw =
         "zh-CN": "弧度的余弦值"
     },
     "len": {
-        "description": "The number of elements in the specified array.",
+        "description": "The number of elements in the specified array. For strings, use `strLen`.",
         "args": [
             {
                 "name": "ARRAY",
@@ -8976,6 +9165,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Vector",
         "guid": "00000000C35D",
         "en-US": "Cross Product",
@@ -9021,6 +9211,7 @@ var valueFuncKw =
         "description": "The current game mode of the custom game.",
         "args": [],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Gamemode",
         "guid": "00000000F163",
         "en-US": "Current Game Mode",
@@ -9035,6 +9226,7 @@ var valueFuncKw =
         "description": "The current map of the custom game.",
         "args": [],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Map",
         "en-US": "Current Map",
         "es-MX": "Mapa actual",
@@ -9071,6 +9263,7 @@ var valueFuncKw =
 				"default": 255
 			}
 		],
+        canBePutInBoolean: false,
         "isConstant": true,
 		"return": "Color",
 		"en-US": "Custom Color"
@@ -9107,6 +9300,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "String",
         "guid": "00000000CE3C",
         "en-US": "Custom String",
@@ -9133,6 +9327,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "00000000BB2D",
         "en-US": "Direction From Angles",
@@ -9158,6 +9353,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Direction",
         "guid": "00000000B1EA",
@@ -9267,6 +9463,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        canBePutInBoolean: false,
         "isConstant": true,
         "en-US": "Down",
         "es-MX": "Abajo",
@@ -9327,6 +9524,7 @@ var valueFuncKw =
     "eventAbility": {
         "description": "The ability for the event currently being processed by this rule associated by button.",
         "args": null,
+        canBePutInBoolean: false,
         "return": "Button",
         "guid": "0000000109CF",
         "en-US": "Event Ability",
@@ -9351,6 +9549,7 @@ var valueFuncKw =
     "eventDirection": {
         "description": "The incoming direction for the event currently being processed by this rule.",
         "args": null,
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "0000000107D5",
         "en-US": "Event Direction",
@@ -9375,6 +9574,7 @@ var valueFuncKw =
     "eventPlayer": {
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
         "args": null,
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000B331",
         "en-US": "Event Player",
@@ -9432,6 +9632,7 @@ var valueFuncKw =
             }
         ],
         "return": "Position",
+        canBePutInBoolean: false,
         "en-US": "Eye Position",
         "es-MX": "Posición de la vista",
         "fr-FR": "Position des yeux",
@@ -9449,6 +9650,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "00000000B281",
         "en-US": "Facing Direction Of",
@@ -9485,6 +9687,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000B1DF",
         "en-US": "Farthest Player From",
@@ -9553,6 +9756,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Position",
         "guid": "00000000B3A0",
         "en-US": "Flag Position",
@@ -9574,6 +9778,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        canBePutInBoolean: false,
         "en-US": "Forward",
         "es-MX": "Adelante",
         "fr-FR": "Avant",
@@ -9752,6 +9957,7 @@ var valueFuncKw =
                 "default": "ANA"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Hero",
         "en-US": "Hero",
@@ -9771,6 +9977,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Hero",
         "guid": "000000010E6A",
         "en-US": "Hero Being Duplicated",
@@ -9790,6 +9997,7 @@ var valueFuncKw =
                 "default": "HERO"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "String",
         "guid": "00000000C1FE",
@@ -9810,6 +10018,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Hero",
         "guid": "00000000ACA9",
         "en-US": "Hero Of",
@@ -9876,6 +10085,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Gamemode",
         "en-US": "Game Mode",
         "es-MX": "Modo de juego",
@@ -9945,6 +10155,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "String",
         "guid": "00000000CCDC",
         "en-US": "Icon String",
@@ -10033,6 +10244,7 @@ var valueFuncKw =
                 "default": "Button"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "String",
         "guid": "0000000111B7",
@@ -10928,6 +11140,7 @@ var valueFuncKw =
     "getLastCreatedEntity": {
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": [],
+        canBePutInBoolean: false,
         "return": "EntityId",
         "guid": "00000000B362",
         "en-US": "Last Created Entity",
@@ -11044,6 +11257,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        canBePutInBoolean: false,
         "en-US": "Left",
         "es-MX": "Izquierda",
         "fr-FR": "Gauche",
@@ -11073,6 +11287,7 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Vector",
         "guid": "00000000B342",
         "en-US": "Local Vector Of",
@@ -11107,6 +11322,7 @@ var valueFuncKw =
                 "default": "AYUTTHAYA"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Map",
         "en-US": "Map",
@@ -11374,6 +11590,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Position",
         "guid": "00000000C324",
         "en-US": "Nearest Walkable Position",
@@ -11393,6 +11610,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Vector",
         "guid": "00000000C344",
@@ -11427,6 +11645,7 @@ var valueFuncKw =
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
         "args": null,
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000B594",
         "en-US": "Null",
@@ -11652,6 +11871,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Team",
         "guid": "00000000BB0A",
@@ -11691,6 +11911,7 @@ var valueFuncKw =
     "getPayloadPosition": {
         "description": "The position in the world of the active payload.",
         "args": [],
+        canBePutInBoolean: false,
         "return": "Position",
         "guid": "00000000B356",
         "en-US": "Payload Position",
@@ -11722,6 +11943,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000B3A3",
         "en-US": "Player Carrying Flag",
@@ -11849,6 +12071,7 @@ var valueFuncKw =
                 "Array": "Player"
             }
         ],
+        canBePutInBoolean: false,
         "guid": "00000000B334",
         "en-US": "Players In Slot",
         "es-MX": "Jugadores en la posición",
@@ -11906,6 +12129,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "return": {
             "Array": "Player"
         },
@@ -11945,6 +12169,7 @@ var valueFuncKw =
                 "default": "OFF"
             }
         ],
+        canBePutInBoolean: false,
         "return": {
             "Array": "Player"
         },
@@ -11978,6 +12203,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Position",
         "guid": "00000000B11C",
         "en-US": "Position Of",
@@ -12146,6 +12372,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "00000000C613",
         "en-US": "Ray Cast Hit Normal",
@@ -12193,6 +12420,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000C611",
         "en-US": "Ray Cast Hit Player",
@@ -12240,6 +12468,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Position",
         "guid": "00000000C597",
         "en-US": "Ray Cast Hit Position",
@@ -12291,6 +12520,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        canBePutInBoolean: false,
         "en-US": "Right",
         "es-MX": "Derecha",
         "fr-FR": "Droite",
@@ -12579,6 +12809,7 @@ var valueFuncKw =
                 "default": "NULL"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "String",
         "en-US": "String",
@@ -12621,7 +12852,7 @@ var valueFuncKw =
 		"return": "unsigned int",
 		"en-US": "String Length"
 	},
-	"substring": {
+	"__substring__": {
 		"description": "The substring of the provided string.",
 		"args": [
 			{
@@ -12735,6 +12966,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Team",
         "guid": "00000000B279",
         "en-US": "Team Of",
@@ -12773,6 +13005,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "00000000B2F5",
         "en-US": "Throttle Of",
@@ -12825,7 +13058,7 @@ var valueFuncKw =
         "zh-CN": "终极技能充能百分比"
     },
 	"updateEveryTick": {
-		"description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. May increase server load and/or lower frame rate.",
+		"description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate.",
 		"args": [
 			{
 				"name": "Value",
@@ -12853,6 +13086,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        canBePutInBoolean: false,
         "en-US": "Up",
         "es-MX": "Arriba",
         "fr-FR": "Haut",
@@ -12920,6 +13154,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Vector",
         "en-US": "Vector",
@@ -12945,6 +13180,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "00000000B1EB",
         "en-US": "Vector Towards",
@@ -12964,6 +13200,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Velocity",
         "guid": "00000000B25C",
         "en-US": "Velocity Of",
@@ -13060,6 +13297,7 @@ var valueFuncKw =
         "guid": "00000000B330",
         "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
         "args": null,
+        canBePutInBoolean: false,
         "return": "Player",
         "en-US": "Victim",
         "es-MX": "Víctima",
@@ -13317,6 +13555,7 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Vector",
         "guid": "00000000B33A",
         "en-US": "World Vector Of",
@@ -18744,13 +18983,20 @@ const constantValues =
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
+        "POSITION": {
+            "en-US": "Position",
+        },
+        "POSITION_AND_COLOR": {
+            "en-US": "Position and Color",
+        },
+        "POSITION_AND_STRING": {
+            "en-US": "Position and String",
+        },
+        "POSITION_STRING_AND_COLOR": {
+            "en-US": "Position String and Color",
+        },
         "STRING": {
-            "guid": "00000000BB31",
             "en-US": "String",
-            "es-MX": "Cadena",
-            "fr-FR": "Chaîne de texte",
-            "ja-JP": "文字列",
-            "zh-CN": "字符串"
         },
         "STRING_AND_COLOR": {
             "en-US": "String and Color",
@@ -18765,7 +19011,7 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
-            "en-US": "Visible To Position String and Color",
+            "en-US": "Visible To and Color",
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -19366,7 +19612,113 @@ const constantValues =
         "WEAPON_ACCURACY": {
             "en-US": "Weapon Accuracy"
         }
-    }
+    },
+    "ProgressWorldTextReeval": {
+        "COLOR": {
+            "en-US": "Color",
+        },
+        "NONE": {
+            "guid": "00000000B8C3",
+            "en-US": "None",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "ja-JP": "なし",
+            "pt-BR": "Ninguém",
+            "zh-CN": "无"
+        },
+        "POSITION": {
+            "en-US": "Position",
+        },
+        "POSITION_AND_COLOR": {
+            "en-US": "Position and Color",
+        },
+        "POSITION_AND_VALUES": {
+            "en-US": "Position and Values",
+        },
+        "POSITION_VALUES_AND_COLOR": {
+            "en-US": "Position Values and Color",
+        },
+        "VALUES": {
+            "en-US": "Values",
+        },
+        "VALUES_AND_COLOR": {
+            "en-US": "Values and Color",
+        },
+        "VISIBILITY": {
+            "guid": "00000000B8C4",
+            "en-US": "Visible To",
+            "es-MX": "Visible para",
+            "fr-FR": "Visible pour",
+            "ja-JP": "目視可能: ",
+            "pt-BR": "Visível para",
+            "zh-CN": "可见"
+        },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To and Color",
+        },
+        "VISIBILITY_AND_POSITION": {
+            "guid": "00000000B8D9",
+            "en-US": "Visible To and Position",
+            "es-MX": "Visible para y posición",
+            "fr-FR": "Visible pour et Position",
+            "ja-JP": "表示される相手、位置",
+            "pt-BR": "Visível para e Posição",
+            "zh-CN": "可见和位置"
+        },
+        "VISIBILITY_AND_VALUES": {
+            "en-US": "Visible To and Values",
+        },
+        "VISIBILITY_POSITION_AND_COLOR": {
+            "en-US": "Visible To Position and Color",
+        },
+        "VISIBILITY_POSITION_AND_VALUES": {
+            "en-US": "Visible To Position and Values",
+        },
+        "VISIBILITY_VALUES_AND_COLOR": {
+            "en-US": "Visible To Values and Color",
+        },
+        "VISIBILITY_POSITION_VALUES_AND_COLOR": {
+            "en-US": "Visible To Position Values and Color",
+        },
+    },
+    "ProgressHudReeval": {
+        "COLOR": {
+            "en-US": "Color",
+        },
+        "NONE": {
+            "guid": "00000000B8C3",
+            "en-US": "None",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "ja-JP": "なし",
+            "pt-BR": "Ninguém",
+            "zh-CN": "无"
+        },
+        "VALUES": {
+            "en-US": "Values",
+        },
+        "VALUES_AND_COLOR": {
+            "en-US": "Values and Color",
+        },
+        "VISIBILITY": {
+            "guid": "00000000B8C4",
+            "en-US": "Visible To",
+            "es-MX": "Visible para",
+            "fr-FR": "Visible pour",
+            "ja-JP": "目視可能: ",
+            "pt-BR": "Visível para",
+            "zh-CN": "可见"
+        },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To and Color",
+        },
+        "VISIBILITY_AND_VALUES": {
+            "en-US": "Visible To and Values",
+        },
+        "VISIBILITY_VALUES_AND_COLOR": {
+            "en-US": "Visible To Values and Color",
+        },
+    },
 }
 //end-json
 
@@ -19384,6 +19736,14 @@ for (var key of Object.keys(gamemodeKw)) {
 }
 
 constantValues["ChaseReeval"] = Object.assign({}, constantValues["__ChaseRateReeval__"], constantValues["__ChaseTimeReeval__"])
+
+for (var key in constantValues) {
+    if (key.endsWith("Literal")) {
+        constantValues[key]["description"] = "The built-in `"+key.substring(0, key.length-"Literal".length)+"` enum.";
+    } else {
+        constantValues[key]["description"] = "The built-in `"+key+"` enum.";
+    }
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -24792,7 +25152,7 @@ const customGameSettingsSchema =
 }
 //end-json
 
-const availableLanguages = ["de-DE", "en-US", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW"];
+const availableLanguages = ["de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW", "en-US"];
 
 //Resolve guids for the max team players
 for (var key of Object.keys(customGameSettingsSchema.lobby.values.team1Slots)) {
@@ -24856,23 +25216,22 @@ for (var hero of Object.keys(heroKw)) {
                 "enablePassive", 
                 "enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"
             ].includes(key)) {
-                for (var key2 of Object.keys(heroValue)) {
-                    if (availableLanguages.includes(key2)) {
+                for (var lang of availableLanguages) {
+                    var key2 = (lang in heroValue ? lang : "en-US")
+    
+                    if (["secondaryFireCooldown%", "enableSecondaryFire", "secondaryFireMaximumTime%", "secondaryFireRechargeRate%"].includes(key)) {
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].secondaryFire[lang] || heroKw[hero].secondaryFire["en-US"])
 
-                        if (["secondaryFireCooldown%", "enableSecondaryFire", "secondaryFireMaximumTime%", "secondaryFireRechargeRate%"].includes(key)) {
-                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].secondaryFire[key2])
-
-                        } else if (["ability3Cooldown%", "enableAbility3"].includes(key)) {
-                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].ability3[key2])
-                        } else if (["ability2Cooldown%", "enableAbility2"].includes(key)) {
-                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].ability2[key2])
-                        } else if (["ability1Cooldown%", "enableAbility1"].includes(key)) {
-                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].ability1[key2])
-                        } else if (["enablePassive"].includes(key)) {
-                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].passive[key2])
-                        } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
-                            heroValue[key2] = heroValue[key2]+" "+heroKw[hero].ultimate[key2]
-                        }
+                    } else if (["ability3Cooldown%", "enableAbility3"].includes(key)) {
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].ability3[lang] || heroKw[hero].ability3["en-US"])
+                    } else if (["ability2Cooldown%", "enableAbility2"].includes(key)) {
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].ability2[lang] || heroKw[hero].ability2["en-US"])
+                    } else if (["ability1Cooldown%", "enableAbility1"].includes(key)) {
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].ability1[lang] || heroKw[hero].ability1["en-US"])
+                    } else if (["enablePassive"].includes(key)) {
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].passive[lang] || heroKw[hero].passive["en-US"])
+                    } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
+                        heroValue[lang] = heroValue[key2]+" "+(heroKw[hero].ultimate[lang] || heroKw[hero].ultimate["en-US"])
                     }
                 }
             }
@@ -25013,7 +25372,9 @@ var currentRuleHasVariableGoto;
 //Settings for whether to enable obfuscation techniques.
 var obfuscationSettings;
 
+//Optimization settings.
 var enableOptimization;
+var optimizeForSize;
 
 //Contains all macros.
 var macros;
@@ -25105,6 +25466,7 @@ function resetGlobalVariables(language) {
 	disableUnusedVars = false;
 	compiledCustomGameSettings = "";
 	enableOptimization = true;
+	optimizeForSize = false;
 	uniqueNumber = 1;
 	globalInitDirectives = [];
 	playerInitDirectives = [];
@@ -25386,6 +25748,8 @@ typeMatrix["Vector"].push("Direction", "Position", "Velocity");
 
 reservedNames.push(...Object.keys(typeMatrix));
 
+const reservedMemberNames = ["x", "y", "z"];
+
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
 var astParsingFunctions = {};
 /* 
@@ -25616,6 +25980,9 @@ function getAstFor0_001() {
 }
 function getAstFor0_0001() {
     return new Ast("__number__", [new Ast("0.0001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
+}
+function getAstFor255() {
+    return new Ast("__number__", [new Ast("255", [], [], "UnsignedIntLiteral")], [], "int");
 }
 function getAstFor10000() {
     return new Ast("__number__", [new Ast("10000", [], [], "UnsignedIntLiteral")], [], "int");
@@ -26942,18 +27309,25 @@ function addSubroutine(content, index) {
 	})
 }
 
+function translateVarToAvoidKeywords(content, isGlobalVariable) {
+	//modify the name
+	if (content.endsWith("_") || isGlobalVariable && reservedNames.includes(content) || !isGlobalVariable && reservedMemberNames.includes(content)) {
+		content += "_";
+	}
+	if (!/[A-Za-z_]\w*/.test(content)) {
+		error("Unauthorized name for variable: '"+content+"'");
+	}
+	return content;
+}
+
 function translateVarToPy(content, isGlobalVariable) {
 	content = content.trim();
+	content = translateVarToAvoidKeywords(content, isGlobalVariable)
+
 	var varArray = isGlobalVariable ? globalVariables : playerVariables;
 	if (varArray.map(x => x.name).includes(content)) {
-		//modify the name
-		if (content.startsWith("_") || reservedNames.includes(content)) {
-			content = "_"+content;
-		}
-		if (!/[A-Za-z_]\w*/.test(content)) {
-			error("Unauthorized name for variable: '"+content+"'");
-		}
 		return content;
+
 	} else if (defaultVarNames.includes(content)) {
 		//Add the variable as it doesn't already exist (else it would've been caught by the first if)
 		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
@@ -28780,6 +29154,7 @@ function astToOpy(content) {
     //Functions with a dot/index
     if ([
         "__arraySlice__",
+        "__substring__",
         "__firstOf__",
         "__lastOf__",
         "__valueInArray__",
@@ -28794,6 +29169,9 @@ function astToOpy(content) {
         }
         if (content.name === "__arraySlice__") {
             return result+".slice("+astToOpy(content.args[1])+", "+astToOpy(content.args[2])+")";
+        }
+        if (content.name === "__substring__") {
+            return result+".substring("+astToOpy(content.args[1])+", "+astToOpy(content.args[2])+")";
         }
         if (content.name === "__firstOf__") {
             return result+"[0]";
@@ -28956,6 +29334,11 @@ function astToOpy(content) {
         }
         return result;
     }
+    if (content.name === "rgba") {
+        if (content.args[3].args[0].numValue === 255) {
+            return "rgb("+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+")";
+        }
+    }
     if (content.name === "__round__") {
         if (content.args[1].name === "__roundUp__") {
             return "ceil("+astToOpy(content.args[0])+")";
@@ -28977,6 +29360,7 @@ function astToOpy(content) {
     if (content.name === "__raycastHitPlayer__") {
         return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getPlayerHit()";
     }
+
 
     if (content.name === "__workshopSettingCombo__") {
         return "createWorkshopSetting(enum"+astToOpy(content.args[3])+", "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+", "+astToOpy(content.args[4])+")";
@@ -29065,10 +29449,19 @@ function decompileAllRules(content, language="en-US") {
 
 	}
 
+	content = content.trim();
 	bracketPos = getBracketPositions(content);
 	debug("global vars: "+globalVariables);
 	debug("player vars: "+playerVariables);
 	debug("subroutines: "+subroutines);
+	
+	//Check if we are decompiling actions or conditions
+	if (content.startsWith(tows("__actions__", ruleKw))) {
+		return astActionsToOpy(decompileActions(content.substring(bracketPos[0], bracketPos[1]+1)));
+	}
+	if (content.startsWith(tows("__conditions__", ruleKw))) {
+		return decompileConditions(content.substring(bracketPos[0], bracketPos[1]+1)).map(x => "@Condition "+astToOpy(x)).join("\n");
+	}
 	
 	bracketPos.unshift(-1);
 	//A rule looks like this:
@@ -29091,7 +29484,7 @@ function decompileAllRules(content, language="en-US") {
 		var globalVariableDeclarations = "";
 		for (var variable of globalVariables) {
 			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-				globalVariableDeclarations += "globalvar "+translateVarToPy(variable.name, true)+" "+variable.index+"\n";
+				globalVariableDeclarations += "globalvar "+variable.name+" "+variable.index+"\n";
 			}
 		}
 		if (globalVariableDeclarations !== "") {
@@ -29103,7 +29496,7 @@ function decompileAllRules(content, language="en-US") {
 		var playerVariableDeclarations = "";
 		for (var variable of playerVariables) {
 			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-				playerVariableDeclarations += "playervar "+translateVarToPy(variable.name, false)+" "+variable.index+"\n";
+				playerVariableDeclarations += "playervar "+variable.name+" "+variable.index+"\n";
 			}
 		}
 		if (playerVariableDeclarations !== "") {
@@ -29320,8 +29713,7 @@ function decompileVarNames(content) {
 				if (elems.length !== 2) {
 					error("Could not parse variables field: too many elements on '"+content[i]+"'");
 				}
-				
-				addVariable(elems[0], isInGlobalVars, currentVarIndex);
+				addVariable(translateVarToAvoidKeywords(elems[0], isInGlobalVars), isInGlobalVars, currentVarIndex);
 				if (!isNaN(elems[1])) {
 					currentVarIndex = +elems[1];
 				} else {
@@ -29337,7 +29729,7 @@ function decompileVarNames(content) {
 				if (!isNaN(content[i])) {
 					currentVarIndex = +content[i];
 				} else if (i === content.length-1) {
-					addVariable(content[i], isInGlobalVars, currentVarIndex);
+					addVariable(translateVarToAvoidKeywords(content[i], isInGlobalVars), isInGlobalVars, currentVarIndex);
 				} else {
 					error("Could not parse variables field");
 				}
@@ -29406,7 +29798,29 @@ ${tows("__rule__", ruleKw)}("") {
 	}
 	${tows("__actions__", ruleKw)} {
 		${tows("__abortIf__", actionKw)}(0.0000001);
-		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
+		${tows("__hudText__", actionKw)}(
+			${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), 
+			${tows("__valueInArray__", valueFuncKw)}(
+				${tows("__array__", valueFuncKw)}(
+					${tows("__customString__", valueFuncKw)}(" \n\n\n\n\n\n\n\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\n\nThe server will now crash.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")),
+					${tows("__customString__", valueFuncKw)}(" \n\n\n\n\n\n\n\n此工坊模式已被篡改!\n如需修改或反馈请联系工坊作者.                                 \n\n此工坊游戏即将退出.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+				),
+				${tows("__compare__", valueFuncKw)}(
+					${tows("__customString__", valueFuncKw)}("黑森林"),
+					==,
+					${tows("__customString__", valueFuncKw)}("{0}", ${tows("__map__", valueFuncKw)}(${tows("BLACK_FOREST", constantValues.MapLiteral)}))
+				)
+			), 
+			${tows("null", valueFuncKw)}, 
+			${tows("null", valueFuncKw)}, 
+			${tows("TOP", constantValues.HudPosition)}, 
+			-99999999, 
+			${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}), 
+			${tows("null", valueFuncKw)}, 
+			${tows("null", valueFuncKw)}, 
+			${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, 
+			${tows("ALWAYS", constantValues.SpecVisibility)}
+		);
 	}
 }
 	`
@@ -29587,7 +30001,29 @@ ${tows("__rule__", ruleKw)}("") {
 	}
 	${tows("__actions__", ruleKw)} {
 		${tows("__abortIf__", actionKw)}(0.0000001);
-		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
+		${tows("__hudText__", actionKw)}(
+			${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), 
+			${tows("__valueInArray__", valueFuncKw)}(
+				${tows("__array__", valueFuncKw)}(
+					${tows("__customString__", valueFuncKw)}(" \n\n\n\n\n\n\n\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\n\nThe server will now crash.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")),
+					${tows("__customString__", valueFuncKw)}(" \n\n\n\n\n\n\n\n此工坊模式已被篡改!\n如需修改或反馈请联系工坊作者.                                 \n\n此工坊游戏即将退出.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+				),
+				${tows("__compare__", valueFuncKw)}(
+					${tows("__customString__", valueFuncKw)}("黑森林"),
+					==,
+					${tows("__customString__", valueFuncKw)}("{0}", ${tows("__map__", valueFuncKw)}(${tows("BLACK_FOREST", constantValues.MapLiteral)}))
+				)
+			), 
+			${tows("null", valueFuncKw)}, 
+			${tows("null", valueFuncKw)}, 
+			${tows("TOP", constantValues.HudPosition)}, 
+			-99999999, 
+			${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}), 
+			${tows("null", valueFuncKw)}, 
+			${tows("null", valueFuncKw)}, 
+			${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, 
+			${tows("ALWAYS", constantValues.SpecVisibility)}
+		);
 	}
 }
 	`
@@ -30829,8 +31265,10 @@ astParsingFunctions.__filteredArray__ = function(content) {
     
     if (enableOptimization) {
         //filtered array with no constant -> if/else
-        if (!astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
-            return new Ast("__ifThenElse__", [content.args[1], content.args[0], getAstForEmptyArray()]);
+        if (!optimizeForSize) {
+            if (!astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
+                return new Ast("__ifThenElse__", [content.args[1], content.args[0], getAstForEmptyArray()]);
+            }
         }
 
         //filtered array with condition "currentArrayElement != A" -> remove from array(array, A)
@@ -32321,7 +32759,7 @@ astParsingFunctions.__valueInArray__ = function(content) {
 
 astParsingFunctions.__wait__ = function(content) {
 
-    if (enableOptimization) {
+    if (enableOptimization && optimizeForSize) {
         if (content.args[0].name === "__number__" && content.args[0].args[0].numValue <= 0.016) {
             //Change to 0, as it will get casted to 0.016 anyway, but that way the optimizer can then replace it to false for that sweet element.
             content.args[0] = getAstFor0();
@@ -33798,6 +34236,33 @@ astParsingFunctions.print = function(content) {
 
 "use strict";
 
+astParsingFunctions.printLog = function(content) {
+
+    if (obfuscationSettings.obfuscateInspector) {
+        return getAstForUselessInstruction();
+    } else {
+        return content;
+    }
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.round = function(content) {
 
     if (enableOptimization) {
@@ -34285,6 +34750,9 @@ function tokenize(content) {
 
 		} else if (content.startsWith("#!disableOptimizations")) {
 			enableOptimization = false;
+
+		} else if (content.startsWith("#!optimizeForSize")) {
+			optimizeForSize = true;
 
 		} else if (content.startsWith("#!replace0ByCapturePercentage")) {
 			if (replacementFor0 !== null) {
@@ -34970,6 +35438,13 @@ function parseAst(content) {
         if (content.args.length === 1) {
             content.args.push(getAstForE());
         }
+    } else if (content.name === "rgb") {
+        if (content.args.length !== 3) {
+            error("Function 'rgb' takes 3 arguments, received "+args.length);
+        }
+        content.args.push(getAstFor255());
+        content.name = "rgba";
+
     } else if (content.name === "_&startForcingOutlineFor") {
         if (content.args.length === 4) {
             content.args.push(new Ast("DEFAULT", [], [], "OutlineVisibility"));
@@ -35194,7 +35669,7 @@ function astRuleConditionToWs(condition) {
     if (condition.name in funcToOpMapping) {
 
         //Check for replacements
-        if (enableOptimization) {
+        if (enableOptimization && optimizeForSize) {
             for (var i = 0; i <= 1; i++) {
                 /*console.log(condition);
                 console.log(i);
@@ -35307,7 +35782,7 @@ function astToWs(content) {
         content = new Ast("__firstOf__", [content.args[0]]);
     }
 
-    if (enableOptimization) {
+    if (enableOptimization && optimizeForSize) {
         //Replace 0 by false/null, 1 by true, and null vector by null
         for (var i = 0; i < content.args.length; i++) {
             var argInfo = content.name === "__array__" ? funcKw[content.name].args[0] : funcKw[content.name].args[i];
@@ -35363,7 +35838,7 @@ function astToWs(content) {
     } else if (content.name === "__assignTo__" || content.name === "__modifyVar__") {
 
 
-        if (content.name === "__modifyVar__" && enableOptimization && content.args[2].name === "__number__") {
+        if (content.name === "__modifyVar__" && enableOptimization && optimizeForSize && content.args[2].name === "__number__") {
             //Manually do the 0/1->false/true/null replacements.
             if (["__add__", "__subtract__", "__modulo__", "__max__", "__min__", "__removeFromArrayByIndex__"].includes(content.args[1].name)) {
                 if (content.args[2].args[0].numValue === 0) {
@@ -35406,7 +35881,7 @@ function astToWs(content) {
                 newName += "GlobalVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
-                if (enableOptimization) {
+                if (enableOptimization && optimizeForSize) {
                     //We must manually do the 0/1 -> false/true replacement, as the "value in array" isn't actually parsed.
                     if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
                         content.args[1] = getAstForFalse();
@@ -35420,7 +35895,7 @@ function astToWs(content) {
                 newName += "PlayerVariableAtIndex__";
                 content.args = [content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[1]].concat(content.args.slice(1));
 
-                if (enableOptimization) {
+                if (enableOptimization && optimizeForSize) {
                     if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 0) {
                         content.args[2] = getAstForFalse();
                     } else if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 1) {
@@ -35611,6 +36086,14 @@ function astToWs(content) {
     }
 
     nbElements++;
+
+    //Apply workaround for booleans not accepting all functions such as Vector.UP
+    //"First Of" keeps the truthyness of all functions (even those which return an array, as it takes the first element anyway)
+    if (content.expectedType === "bool" && funcKw[content.name].canBePutInBoolean === false) {
+        result = tows("__firstOf__", valueFuncKw)+"("+result+")";
+        nbElements++;
+    }
+
     //Actions remove elements for top-level values
     if (content.type === "void" && content.args !== null) {
         nbElements -= content.args.length;
@@ -35621,6 +36104,8 @@ function astToWs(content) {
     } else if (content.type === "TeamLiteral") {
         nbElements++;
     }
+
+
     return result;
 }
 /* 
@@ -36476,10 +36961,10 @@ function parseMember(object, member) {
 
 
             //Check the pseudo-enum "math"
-            } else if (object[0].text === "math") {
-                if (name === "pi") {
+            } else if (object[0].text === "Math") {
+                if (name === "PI") {
                     return getAstForNumber(3.141592653589793);
-                } else if (name === "e") {
+                } else if (name === "E") {
                     return getAstForE();
                 } else {
                     error("Unhandled member 'math."+name+"'");
@@ -36563,6 +37048,12 @@ function parseMember(object, member) {
                 error("Function 'slice' takes 2 arguments, received "+args.length);
             }
 			return new Ast("__arraySlice__", [parse(object), parse(args[0]), parse(args[1])]);
+			
+		} else if (name === "substring") {
+            if (args.length !== 2) {
+                error("Function 'substring' takes 2 arguments, received "+args.length);
+            }
+			return new Ast("__substring__", [parse(object), parse(args[0]), parse(args[1])]);
 			
 		} else {
             //Assume it is a player function
@@ -47362,6 +47853,8 @@ module.exports = {
 	opyFuncs: opyFuncs,
 	opyMemberFuncs: opyMemberFuncs,
 	opyKeywords: opyKeywords,
+	opyConstants: opyConstants,
+	opyModules: opyModules,
 	currentLanguage: currentLanguage,
 	macros: macros,
 	resetGlobalVariables: resetGlobalVariables,

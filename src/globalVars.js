@@ -50,7 +50,9 @@ var currentRuleHasVariableGoto;
 //Settings for whether to enable obfuscation techniques.
 var obfuscationSettings;
 
+//Optimization settings.
 var enableOptimization;
+var optimizeForSize;
 
 //Contains all macros.
 var macros;
@@ -142,6 +144,7 @@ function resetGlobalVariables(language) {
 	disableUnusedVars = false;
 	compiledCustomGameSettings = "";
 	enableOptimization = true;
+	optimizeForSize = false;
 	uniqueNumber = 1;
 	globalInitDirectives = [];
 	playerInitDirectives = [];
@@ -422,6 +425,8 @@ for (var elem of typeTree) {
 typeMatrix["Vector"].push("Direction", "Position", "Velocity");
 
 reservedNames.push(...Object.keys(typeMatrix));
+
+const reservedMemberNames = ["x", "y", "z"];
 
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
 var astParsingFunctions = {};

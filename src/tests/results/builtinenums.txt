@@ -33,7 +33,7 @@ rule ("enums") {
         Start Forcing Player To Be Hero(Event Player, Hero(Ana));
         Wait(False, Abort When False);
         Set Global Variable(G, Backward);
-        Set Global Variable(H, Random Integer(True, 2));
+        Set Global Variable(H, Add(Add(Add(Random Integer(True, 2), Random Value In Array(Global.A)), Random Real(1.2, 3.4)), Randomized Array(Global.A)));
         Set Global Variable(I, 2.718281828459045);
         Set Global Variable(J, 3.141592653589793);
         Set Global Variable(K, Color(Blue));

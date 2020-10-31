@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "dicts":
     A = {

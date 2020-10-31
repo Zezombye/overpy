@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "cs:s zombie escape - made by /u/zezombye - discord in description":
 	@Event global

@@ -175,25 +175,44 @@ rule "Display position":
 const funcDoc = JSON.parse(JSON.stringify(Object.assign({}, overpy.actionKw, overpy.valueFuncKw)));
 const stringEntities = generateStringEntitiesDescription(JSON.parse(JSON.stringify(overpy.opyStringEntities)));
 
-const defaultConstValues = JSON.parse(JSON.stringify(overpy.constantValues));
+const defaultConstValues = JSON.parse(JSON.stringify(Object.assign({}, overpy.constantValues, overpy.opyConstants, overpy.opyModules)));
 var constValues = {};
 const heroKw = JSON.parse(JSON.stringify(overpy.heroKw));
 for (var key of Object.keys(defaultConstValues)) {
     if (key.startsWith("_")) {
         delete defaultConstValues[key];
     }
-    if (["GamemodeLiteral", "MapLiteral", "TeamLiteral", "HeroLiteral", "ButtonLiteral", "ColorLiteral"].includes(key)) {
+    if (key.endsWith("Literal")) {
         defaultConstValues[key.substring(0, key.length-"Literal".length)] = defaultConstValues[key]
         delete defaultConstValues[key];
     }
 }
 for (var key of Object.keys(defaultConstValues)) {
+    var tmpDescription = defaultConstValues[key].description;
     defaultConstValues[key] = makeCompList(defaultConstValues[key]);
+    defaultConstValues[key].description = tmpDescription;
 }
+
 const funcList = JSON.parse(JSON.stringify(Object.assign({}, overpy.opyFuncs, overpy.opyKeywords)));
 
+const moduleFuncList = {}
+for (let module in overpy.opyModules) {
+    console.log(overpy.opyModules[module])
+    var moduleFuncs = JSON.parse(JSON.stringify(overpy.opyModules[module]));
+    for (let func in moduleFuncs) {
+        if (typeof moduleFuncs[func] === "string") {
+            delete moduleFuncs[func];
+            continue;
+        }
+        moduleFuncs[func]["class"] = module;
+    }
+    Object.assign(moduleFuncList, moduleFuncs);
+}
+console.log("module func list");
+console.log(moduleFuncList);
+
 for (var func of Object.keys(funcDoc)) {
-    if (!func.startsWith("_")) {
+    if (!func.startsWith("_") && !func.includes(".")) {
         funcList[func] = funcDoc[func];
     }
 }
@@ -214,7 +233,6 @@ for (var func of Object.keys(funcDoc)) {
         memberFuncList[funcName] = funcDoc[funcName];
     }
 }
-
 
 const stringEntitiesCompList = makeCompList(stringEntities);
 const metaRuleParamsCompList = makeCompList(metaRuleParams);
@@ -243,10 +261,10 @@ function refreshAutoComplete() {
         }
     }
 
-    console.log(constValues);
+    //console.log(constValues);
 
     defaultCompList = makeCompList(Object.assign({}, funcList, constValues, normalMacros, globalVariables, subroutines));
-    allFuncList = Object.assign({}, funcList, memberFuncList, normalMacros, memberMacros);
+    allFuncList = Object.assign({}, funcList, memberFuncList, moduleFuncList, normalMacros, memberMacros);
     for (var func of Object.keys(allFuncList)) {
         allFuncList[func].sigHelp = makeSignatureHelp(func, allFuncList[func]);
     }
@@ -446,9 +464,10 @@ function activate(context) {
                     return;
                 }
 
+                console.log(funcName);
                 if (funcName in allFuncList) {
-                    //console.log(func);
-                    //console.log("current arg for func "+funcName+" is "+currentArgNb)
+                    console.log(func);
+                    console.log("current arg for func "+funcName+" is "+currentArgNb)
                     if ("sigHelp" in allFuncList[funcName] && allFuncList[funcName].sigHelp !== null) {
                         allFuncList[funcName].sigHelp.activeParameter = currentArgNb;
                         return allFuncList[funcName].sigHelp;
@@ -486,7 +505,11 @@ exports.activate = activate;
 function deactivate() {}
 
 function makeCompList(obj) {
-    return new vscode.CompletionList(Object.keys(obj).map(x => makeCompItem(x, obj[x])));
+    var result = new vscode.CompletionList(Object.keys(obj).filter(x => typeof obj[x] === "object").map(x => makeCompItem(x, obj[x])));
+    if ("description" in obj) {
+        result.description = obj.description;
+    }
+    return result;
 }
 
 function makeCompItem(itemName, item) {
@@ -565,6 +588,7 @@ function fillAutocompletionEnums(enums) {
 function generateDocFromDoc(itemName, item) {
 
     var isMemberFunction = false;
+    //console.log(item)
     if ("isMember" in item) {
         isMemberFunction = item.isMember;
     }
@@ -577,10 +601,6 @@ function generateDocFromDoc(itemName, item) {
     if (doc === "__iconDescription__") {
         return new vscode.MarkdownString("![](file:///"+overpyExtensionPath+"/img/icons/"+itemName.toLowerCase()+".png) \n\n \n\n \n\n \n\n ")
     }
-
-    /*if (itemName === "abilityIconString") {
-        doc = getAbilityIconsDoc();
-    }*/
     
     var result = "";
     var infoStr = "";

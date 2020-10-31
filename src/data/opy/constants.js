@@ -21,30 +21,92 @@ const opyConstants = {
     
     "Vector": {
         "UP": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
+            "args": null,
+            "isConstant": true,
+            "return": {
+                "Direction": [
+                    "unsigned int",
+                    "unsigned int",
+                    "unsigned int"
+                ]
+            },
         },
         "DOWN": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
+            "args": null,
+            "return": {
+                "Direction": [
+                    "unsigned int",
+                    "signed int",
+                    "unsigned int"
+                ]
+            },
         },
         "LEFT": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
+            "args": null,
+            "isConstant": true,
+            "return": {
+                "Direction": [
+                    "unsigned int",
+                    "unsigned int",
+                    "unsigned int"
+                ]
+            },
         },
         "RIGHT": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
+            "args": null,
+            "isConstant": true,
+            "return": {
+                "Direction": [
+                    "signed int",
+                    "unsigned int",
+                    "unsigned int"
+                ]
+            },
         },
         "FORWARD": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
+            "args": null,
+            "isConstant": true,
+            "return": {
+                "Direction": [
+                    "unsigned int",
+                    "unsigned int",
+                    "unsigned int"
+                ]
+            },
         },
         "BACKWARD": {
-            return: "Direction",
+            "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
+            "args": null,
+            "return": {
+                "Direction": [
+                    "unsigned int",
+                    "unsigned int",
+                    "signed int"
+                ]
+            },
         },
     },
     "Math": {
         "PI": {
+            "description": "The number pi = 3.14159265359.",
+            "args": null,
+            "isConstant": true,
             return: "unsigned float",
         },
         "E": {
+            "description": "The number e = 2.71828182846.",
+            "args": null,
+            "isConstant": true,
             return: "unsigned float",
         }
     },
+}
+
+for (var key in opyConstants) {
+    opyConstants[key]["description"] = "The `"+key+"` enum.";
 }

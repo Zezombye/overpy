@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "strings":
     print("custom 'string'")

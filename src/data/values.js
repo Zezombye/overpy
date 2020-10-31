@@ -85,6 +85,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "String",
         "guid": "000000010B52",
         "en-US": "Ability Icon String",
@@ -189,6 +190,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
+        canBePutInBoolean: false,
         "guid": "00000000B265",
         "en-US": "All Dead Players",
         "es-MX": "Todos los jugadores muertos",
@@ -204,6 +206,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
+        canBePutInBoolean: false,
         "guid": "00000000D40A",
         "en-US": "All Damage Heroes",
         "de-DE": "Alle Schadenshelden",
@@ -221,6 +224,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
+        canBePutInBoolean: false,
         "en-US": "All Heroes",
         "es-MX": "Todos los héroes",
         "fr-FR": "Tous les héros",
@@ -241,6 +245,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
+        canBePutInBoolean: false,
         "guid": "00000000B264",
         "en-US": "All Living Players",
         "es-MX": "Todos los jugadores vivos",
@@ -262,6 +267,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
+        canBePutInBoolean: false,
         "guid": "00000000B261",
         "en-US": "All Players",
         "es-MX": "Todos los jugadores",
@@ -283,6 +289,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
+        canBePutInBoolean: false,
         "guid": "00000000B267",
         "en-US": "All Players Not On Objective",
         "es-MX": "Todos los jugadores que no están en el objetivo",
@@ -304,6 +311,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
+        canBePutInBoolean: false,
         "guid": "00000000B266",
         "en-US": "All Players On Objective",
         "es-MX": "Todos los jugadores que están en el objetivo",
@@ -325,6 +333,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
+        canBePutInBoolean: false,
         "guid": "00000000BBA8",
         "en-US": "Allowed Heroes",
         "es-MX": "Héroes permitidos",
@@ -340,6 +349,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
+        canBePutInBoolean: false,
         "guid": "00000000D40B",
         "en-US": "All Support Heroes",
         "de-DE": "Alle Unterstützungshelden",
@@ -356,6 +366,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
+        canBePutInBoolean: false,
         "guid": "00000000D40C",
         "en-US": "All Tank Heroes",
         "de-DE": "Alle Tankhelden",
@@ -749,6 +760,7 @@ var valueFuncKw =
         "guid": "00000000B32F",
         "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
         "args": null,
+        canBePutInBoolean: false,
         "return": "Player",
         "en-US": "Attacker",
         "es-MX": "Atacante",
@@ -768,6 +780,7 @@ var valueFuncKw =
                 "signed int"
             ]
         },
+        canBePutInBoolean: false,
         "isConstant": true,
         "en-US": "Backward",
         "es-MX": "Atrás",
@@ -787,6 +800,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Button",
         "guid": "000000010B3B",
         "en-US": "Button",
@@ -812,6 +826,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000B1DE",
         "en-US": "Closest Player To",
@@ -831,6 +846,7 @@ var valueFuncKw =
 				"default": "White"
 			}
 		],
+        canBePutInBoolean: false,
         "isConstant": true,
 		"return": "Color",
 		"en-US": "Color"
@@ -895,6 +911,7 @@ var valueFuncKw =
     "getControlScoringTeam": {
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
         "args": [],
+        canBePutInBoolean: false,
         "return": "Team",
         "guid": "00000000B39A",
         "en-US": "Control Mode Scoring Team",
@@ -945,7 +962,7 @@ var valueFuncKw =
         "zh-CN": "弧度的余弦值"
     },
     "len": {
-        "description": "The number of elements in the specified array.",
+        "description": "The number of elements in the specified array. For strings, use `strLen`.",
         "args": [
             {
                 "name": "ARRAY",
@@ -981,6 +998,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Vector",
         "guid": "00000000C35D",
         "en-US": "Cross Product",
@@ -1026,6 +1044,7 @@ var valueFuncKw =
         "description": "The current game mode of the custom game.",
         "args": [],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Gamemode",
         "guid": "00000000F163",
         "en-US": "Current Game Mode",
@@ -1040,6 +1059,7 @@ var valueFuncKw =
         "description": "The current map of the custom game.",
         "args": [],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Map",
         "en-US": "Current Map",
         "es-MX": "Mapa actual",
@@ -1076,6 +1096,7 @@ var valueFuncKw =
 				"default": 255
 			}
 		],
+        canBePutInBoolean: false,
         "isConstant": true,
 		"return": "Color",
 		"en-US": "Custom Color"
@@ -1112,6 +1133,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "String",
         "guid": "00000000CE3C",
         "en-US": "Custom String",
@@ -1138,6 +1160,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "00000000BB2D",
         "en-US": "Direction From Angles",
@@ -1163,6 +1186,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Direction",
         "guid": "00000000B1EA",
@@ -1272,6 +1296,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        canBePutInBoolean: false,
         "isConstant": true,
         "en-US": "Down",
         "es-MX": "Abajo",
@@ -1332,6 +1357,7 @@ var valueFuncKw =
     "eventAbility": {
         "description": "The ability for the event currently being processed by this rule associated by button.",
         "args": null,
+        canBePutInBoolean: false,
         "return": "Button",
         "guid": "0000000109CF",
         "en-US": "Event Ability",
@@ -1356,6 +1382,7 @@ var valueFuncKw =
     "eventDirection": {
         "description": "The incoming direction for the event currently being processed by this rule.",
         "args": null,
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "0000000107D5",
         "en-US": "Event Direction",
@@ -1380,6 +1407,7 @@ var valueFuncKw =
     "eventPlayer": {
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
         "args": null,
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000B331",
         "en-US": "Event Player",
@@ -1437,6 +1465,7 @@ var valueFuncKw =
             }
         ],
         "return": "Position",
+        canBePutInBoolean: false,
         "en-US": "Eye Position",
         "es-MX": "Posición de la vista",
         "fr-FR": "Position des yeux",
@@ -1454,6 +1483,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "00000000B281",
         "en-US": "Facing Direction Of",
@@ -1490,6 +1520,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000B1DF",
         "en-US": "Farthest Player From",
@@ -1558,6 +1589,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Position",
         "guid": "00000000B3A0",
         "en-US": "Flag Position",
@@ -1579,6 +1611,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        canBePutInBoolean: false,
         "en-US": "Forward",
         "es-MX": "Adelante",
         "fr-FR": "Avant",
@@ -1757,6 +1790,7 @@ var valueFuncKw =
                 "default": "ANA"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Hero",
         "en-US": "Hero",
@@ -1776,6 +1810,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Hero",
         "guid": "000000010E6A",
         "en-US": "Hero Being Duplicated",
@@ -1795,6 +1830,7 @@ var valueFuncKw =
                 "default": "HERO"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "String",
         "guid": "00000000C1FE",
@@ -1815,6 +1851,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Hero",
         "guid": "00000000ACA9",
         "en-US": "Hero Of",
@@ -1881,6 +1918,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Gamemode",
         "en-US": "Game Mode",
         "es-MX": "Modo de juego",
@@ -1950,6 +1988,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "String",
         "guid": "00000000CCDC",
         "en-US": "Icon String",
@@ -2038,6 +2077,7 @@ var valueFuncKw =
                 "default": "Button"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "String",
         "guid": "0000000111B7",
@@ -2933,6 +2973,7 @@ var valueFuncKw =
     "getLastCreatedEntity": {
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": [],
+        canBePutInBoolean: false,
         "return": "EntityId",
         "guid": "00000000B362",
         "en-US": "Last Created Entity",
@@ -3049,6 +3090,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        canBePutInBoolean: false,
         "en-US": "Left",
         "es-MX": "Izquierda",
         "fr-FR": "Gauche",
@@ -3078,6 +3120,7 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Vector",
         "guid": "00000000B342",
         "en-US": "Local Vector Of",
@@ -3112,6 +3155,7 @@ var valueFuncKw =
                 "default": "AYUTTHAYA"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Map",
         "en-US": "Map",
@@ -3379,6 +3423,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Position",
         "guid": "00000000C324",
         "en-US": "Nearest Walkable Position",
@@ -3398,6 +3443,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Vector",
         "guid": "00000000C344",
@@ -3432,6 +3478,7 @@ var valueFuncKw =
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
         "args": null,
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000B594",
         "en-US": "Null",
@@ -3657,6 +3704,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Team",
         "guid": "00000000BB0A",
@@ -3696,6 +3744,7 @@ var valueFuncKw =
     "getPayloadPosition": {
         "description": "The position in the world of the active payload.",
         "args": [],
+        canBePutInBoolean: false,
         "return": "Position",
         "guid": "00000000B356",
         "en-US": "Payload Position",
@@ -3727,6 +3776,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000B3A3",
         "en-US": "Player Carrying Flag",
@@ -3854,6 +3904,7 @@ var valueFuncKw =
                 "Array": "Player"
             }
         ],
+        canBePutInBoolean: false,
         "guid": "00000000B334",
         "en-US": "Players In Slot",
         "es-MX": "Jugadores en la posición",
@@ -3911,6 +3962,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
+        canBePutInBoolean: false,
         "return": {
             "Array": "Player"
         },
@@ -3950,6 +4002,7 @@ var valueFuncKw =
                 "default": "OFF"
             }
         ],
+        canBePutInBoolean: false,
         "return": {
             "Array": "Player"
         },
@@ -3983,6 +4036,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Position",
         "guid": "00000000B11C",
         "en-US": "Position Of",
@@ -4151,6 +4205,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "00000000C613",
         "en-US": "Ray Cast Hit Normal",
@@ -4198,6 +4253,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Player",
         "guid": "00000000C611",
         "en-US": "Ray Cast Hit Player",
@@ -4245,6 +4301,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Position",
         "guid": "00000000C597",
         "en-US": "Ray Cast Hit Position",
@@ -4296,6 +4353,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        canBePutInBoolean: false,
         "en-US": "Right",
         "es-MX": "Derecha",
         "fr-FR": "Droite",
@@ -4584,6 +4642,7 @@ var valueFuncKw =
                 "default": "NULL"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "String",
         "en-US": "String",
@@ -4626,7 +4685,7 @@ var valueFuncKw =
 		"return": "unsigned int",
 		"en-US": "String Length"
 	},
-	"substring": {
+	"__substring__": {
 		"description": "The substring of the provided string.",
 		"args": [
 			{
@@ -4740,6 +4799,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Team",
         "guid": "00000000B279",
         "en-US": "Team Of",
@@ -4778,6 +4838,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "00000000B2F5",
         "en-US": "Throttle Of",
@@ -4830,7 +4891,7 @@ var valueFuncKw =
         "zh-CN": "终极技能充能百分比"
     },
 	"updateEveryTick": {
-		"description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. May increase server load and/or lower frame rate.",
+		"description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate.",
 		"args": [
 			{
 				"name": "Value",
@@ -4858,6 +4919,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
+        canBePutInBoolean: false,
         "en-US": "Up",
         "es-MX": "Arriba",
         "fr-FR": "Haut",
@@ -4925,6 +4987,7 @@ var valueFuncKw =
                 "default": "NUMBER"
             }
         ],
+        canBePutInBoolean: false,
         "isConstant": true,
         "return": "Vector",
         "en-US": "Vector",
@@ -4950,6 +5013,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
+        canBePutInBoolean: false,
         "return": "Direction",
         "guid": "00000000B1EB",
         "en-US": "Vector Towards",
@@ -4969,6 +5033,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Velocity",
         "guid": "00000000B25C",
         "en-US": "Velocity Of",
@@ -5065,6 +5130,7 @@ var valueFuncKw =
         "guid": "00000000B330",
         "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
         "args": null,
+        canBePutInBoolean: false,
         "return": "Player",
         "en-US": "Victim",
         "es-MX": "Víctima",
@@ -5322,6 +5388,7 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
+        canBePutInBoolean: false,
         "return": "Vector",
         "guid": "00000000B33A",
         "en-US": "World Vector Of",

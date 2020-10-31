@@ -1,3 +1,5 @@
+#!optimizeForSize
+
 globalvar foo 
 globalvar bar 2
 playervar foo #comment

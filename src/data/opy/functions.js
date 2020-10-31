@@ -456,18 +456,6 @@ Examples of valid types:
         "isConstant": true,
         return: "float",
     },
-    "math.e": {
-        "description": "The number e = 2.71828182846.",
-        "args": null,
-        "isConstant": true,
-        return: "unsigned float",
-    },
-    "math.pi": {
-        "description": "The number pi = 3.14159265359.",
-        "args": null,
-        "isConstant": true,
-        return: "unsigned float",
-    },
     "pass": {
         "description": "Does nothing. Used when OverPy's grammar requires an instruction, such as having an empty block. Is parsed as an action for the purposes of runtime `goto`s.",
         "args": null,
@@ -545,6 +533,31 @@ Examples of valid types:
         ],
         return: "Raycast",
     },
+	"rgb": {
+		"description": "A custom color with the specified red, green, and blue values.",
+		"args": [
+			{
+				"name": "Red",
+				"description": "The red component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Green",
+				"description": "The green component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Blue",
+				"description": "The blue component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			}
+		],
+        "isConstant": true,
+		"return": "Color",
+	},
     "round": {
         "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
         "args": [

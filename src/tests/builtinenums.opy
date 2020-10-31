@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "enums":
     @Event eachPlayer
@@ -15,8 +16,7 @@ rule "enums":
     wait(0.016, Wait.ABORT_WHEN_FALSE)
 
     G = Vector.BACKWARD
-    H = random.randint(1, 2)
-    I = math.e
-    J = math.pi
+    H = random.randint(1, 2) + random.choice(A) + random.uniform(1.2, 3.4) + random.shuffle(A)
+    I = Math.E
+    J = Math.PI
     K = Color.BLUE
-    

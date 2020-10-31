@@ -21,8 +21,10 @@ astParsingFunctions.__filteredArray__ = function(content) {
     
     if (enableOptimization) {
         //filtered array with no constant -> if/else
-        if (!astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
-            return new Ast("__ifThenElse__", [content.args[1], content.args[0], getAstForEmptyArray()]);
+        if (!optimizeForSize) {
+            if (!astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
+                return new Ast("__ifThenElse__", [content.args[1], content.args[0], getAstForEmptyArray()]);
+            }
         }
 
         //filtered array with condition "currentArrayElement != A" -> remove from array(array, A)

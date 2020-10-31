@@ -851,10 +851,10 @@ function parseMember(object, member) {
 
 
             //Check the pseudo-enum "math"
-            } else if (object[0].text === "math") {
-                if (name === "pi") {
+            } else if (object[0].text === "Math") {
+                if (name === "PI") {
                     return getAstForNumber(3.141592653589793);
-                } else if (name === "e") {
+                } else if (name === "E") {
                     return getAstForE();
                 } else {
                     error("Unhandled member 'math."+name+"'");
@@ -938,6 +938,12 @@ function parseMember(object, member) {
                 error("Function 'slice' takes 2 arguments, received "+args.length);
             }
 			return new Ast("__arraySlice__", [parse(object), parse(args[0]), parse(args[1])]);
+			
+		} else if (name === "substring") {
+            if (args.length !== 2) {
+                error("Function 'substring' takes 2 arguments, received "+args.length);
+            }
+			return new Ast("__substring__", [parse(object), parse(args[0]), parse(args[1])]);
 			
 		} else {
             //Assume it is a player function

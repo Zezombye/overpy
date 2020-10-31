@@ -17,14 +17,11 @@
 
 "use strict";
 
-astParsingFunctions.__wait__ = function(content) {
+astParsingFunctions.printLog = function(content) {
 
-    if (enableOptimization && optimizeForSize) {
-        if (content.args[0].name === "__number__" && content.args[0].args[0].numValue <= 0.016) {
-            //Change to 0, as it will get casted to 0.016 anyway, but that way the optimizer can then replace it to false for that sweet element.
-            content.args[0] = getAstFor0();
-        }
+    if (obfuscationSettings.obfuscateInspector) {
+        return getAstForUselessInstruction();
+    } else {
+        return content;
     }
-    
-    return content;
 }

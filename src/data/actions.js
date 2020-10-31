@@ -996,7 +996,7 @@ const actionKw =
 			{
 				"name": "Reevaluation",
 				"description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
-				"type": "HudReeval",
+				"type": "ProgressWorldTextReeval",
 				"default": "Visible To, Values, and Color"
 			},
 			{
@@ -1062,7 +1062,7 @@ const actionKw =
 			{
 				"name": "Reevaluation",
 				"description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
-				"type": "HudReeval",
+				"type": "ProgressHudReeval",
 				"default": "Visible To, Values, and Color"
 			},
 			{
@@ -4501,7 +4501,7 @@ const actionKw =
         "pt-BR": "Começar a Acelerar",
         "zh-CN": "开始加速"
     },
-    "_&setCamera": {
+    "_&startCamera": {
         "description": "Places your camera at a location, facing a direction.",
         "args": [
             {
@@ -4894,7 +4894,7 @@ const actionKw =
         "zh-CN": "开始限制阈值"
     },
 	"_&startGrantingAssistFor": {
-		"description": "Starts granting assist credit toward to one or more assisters when one or more targets are eliminated. A reference to this damage modification can be obtained from the getLastAssistId() value. This action will fail if too many assists have been started.",
+		"description": "Starts granting assist credit toward to one or more assisters when one or more targets are eliminated. A reference to this assist modification can be obtained from the getLastAssistId() value. This action will fail if too many assists have been started.",
 		"args": [
 			{
 				"name": "Assisters",

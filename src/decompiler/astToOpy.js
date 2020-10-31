@@ -529,6 +529,7 @@ function astToOpy(content) {
     //Functions with a dot/index
     if ([
         "__arraySlice__",
+        "__substring__",
         "__firstOf__",
         "__lastOf__",
         "__valueInArray__",
@@ -543,6 +544,9 @@ function astToOpy(content) {
         }
         if (content.name === "__arraySlice__") {
             return result+".slice("+astToOpy(content.args[1])+", "+astToOpy(content.args[2])+")";
+        }
+        if (content.name === "__substring__") {
+            return result+".substring("+astToOpy(content.args[1])+", "+astToOpy(content.args[2])+")";
         }
         if (content.name === "__firstOf__") {
             return result+"[0]";
@@ -705,6 +709,11 @@ function astToOpy(content) {
         }
         return result;
     }
+    if (content.name === "rgba") {
+        if (content.args[3].args[0].numValue === 255) {
+            return "rgb("+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+")";
+        }
+    }
     if (content.name === "__round__") {
         if (content.args[1].name === "__roundUp__") {
             return "ceil("+astToOpy(content.args[0])+")";
@@ -726,6 +735,7 @@ function astToOpy(content) {
     if (content.name === "__raycastHitPlayer__") {
         return "raycast("+content.args.map(x => astToOpy(x)).join(", ")+").getPlayerHit()";
     }
+
 
     if (content.name === "__workshopSettingCombo__") {
         return "createWorkshopSetting(enum"+astToOpy(content.args[3])+", "+content.args.slice(0, 3).map(x => astToOpy(x)).join(", ")+", "+astToOpy(content.args[4])+")";

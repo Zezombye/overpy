@@ -37,7 +37,29 @@ ${tows("__rule__", ruleKw)}("") {
 	}
 	${tows("__actions__", ruleKw)} {
 		${tows("__abortIf__", actionKw)}(0.0000001);
-		${tows("__hudText__", actionKw)}(${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), ${tows("__customString__", valueFuncKw)}(" \\n\\n\\n\\n\\n\\n\\n\\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\\n\\nThe server will now crash.\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n")), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("TOP", constantValues.HudPosition)}, -99999999, ${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, ${tows("ALWAYS", constantValues.SpecVisibility)});
+		${tows("__hudText__", actionKw)}(
+			${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), 
+			${tows("__valueInArray__", valueFuncKw)}(
+				${tows("__array__", valueFuncKw)}(
+					${tows("__customString__", valueFuncKw)}(" \n\n\n\n\n\n\n\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\n\nThe server will now crash.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")),
+					${tows("__customString__", valueFuncKw)}(" \n\n\n\n\n\n\n\n此工坊模式已被篡改!\n如需修改或反馈请联系工坊作者.                                 \n\n此工坊游戏即将退出.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+				),
+				${tows("__compare__", valueFuncKw)}(
+					${tows("__customString__", valueFuncKw)}("黑森林"),
+					==,
+					${tows("__customString__", valueFuncKw)}("{0}", ${tows("__map__", valueFuncKw)}(${tows("BLACK_FOREST", constantValues.MapLiteral)}))
+				)
+			), 
+			${tows("null", valueFuncKw)}, 
+			${tows("null", valueFuncKw)}, 
+			${tows("TOP", constantValues.HudPosition)}, 
+			-99999999, 
+			${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}), 
+			${tows("null", valueFuncKw)}, 
+			${tows("null", valueFuncKw)}, 
+			${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, 
+			${tows("ALWAYS", constantValues.SpecVisibility)}
+		);
 	}
 }
 	`

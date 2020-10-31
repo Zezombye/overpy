@@ -82,18 +82,25 @@ function addSubroutine(content, index) {
 	})
 }
 
+function translateVarToAvoidKeywords(content, isGlobalVariable) {
+	//modify the name
+	if (content.endsWith("_") || isGlobalVariable && reservedNames.includes(content) || !isGlobalVariable && reservedMemberNames.includes(content)) {
+		content += "_";
+	}
+	if (!/[A-Za-z_]\w*/.test(content)) {
+		error("Unauthorized name for variable: '"+content+"'");
+	}
+	return content;
+}
+
 function translateVarToPy(content, isGlobalVariable) {
 	content = content.trim();
+	content = translateVarToAvoidKeywords(content, isGlobalVariable)
+
 	var varArray = isGlobalVariable ? globalVariables : playerVariables;
 	if (varArray.map(x => x.name).includes(content)) {
-		//modify the name
-		if (content.startsWith("_") || reservedNames.includes(content)) {
-			content = "_"+content;
-		}
-		if (!/[A-Za-z_]\w*/.test(content)) {
-			error("Unauthorized name for variable: '"+content+"'");
-		}
 		return content;
+
 	} else if (defaultVarNames.includes(content)) {
 		//Add the variable as it doesn't already exist (else it would've been caught by the first if)
 		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));

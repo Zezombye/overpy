@@ -4880,7 +4880,7 @@ const customGameSettingsSchema =
 }
 //end-json
 
-const availableLanguages = ["de-DE", "en-US", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW"];
+const availableLanguages = ["de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW", "en-US"];
 
 //Resolve guids for the max team players
 for (var key of Object.keys(customGameSettingsSchema.lobby.values.team1Slots)) {
@@ -4944,23 +4944,22 @@ for (var hero of Object.keys(heroKw)) {
                 "enablePassive", 
                 "enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"
             ].includes(key)) {
-                for (var key2 of Object.keys(heroValue)) {
-                    if (availableLanguages.includes(key2)) {
+                for (var lang of availableLanguages) {
+                    var key2 = (lang in heroValue ? lang : "en-US")
+    
+                    if (["secondaryFireCooldown%", "enableSecondaryFire", "secondaryFireMaximumTime%", "secondaryFireRechargeRate%"].includes(key)) {
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].secondaryFire[lang] || heroKw[hero].secondaryFire["en-US"])
 
-                        if (["secondaryFireCooldown%", "enableSecondaryFire", "secondaryFireMaximumTime%", "secondaryFireRechargeRate%"].includes(key)) {
-                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].secondaryFire[key2])
-
-                        } else if (["ability3Cooldown%", "enableAbility3"].includes(key)) {
-                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].ability3[key2])
-                        } else if (["ability2Cooldown%", "enableAbility2"].includes(key)) {
-                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].ability2[key2])
-                        } else if (["ability1Cooldown%", "enableAbility1"].includes(key)) {
-                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].ability1[key2])
-                        } else if (["enablePassive"].includes(key)) {
-                            heroValue[key2] = heroValue[key2].replace("%1$s", heroKw[hero].passive[key2])
-                        } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
-                            heroValue[key2] = heroValue[key2]+" "+heroKw[hero].ultimate[key2]
-                        }
+                    } else if (["ability3Cooldown%", "enableAbility3"].includes(key)) {
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].ability3[lang] || heroKw[hero].ability3["en-US"])
+                    } else if (["ability2Cooldown%", "enableAbility2"].includes(key)) {
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].ability2[lang] || heroKw[hero].ability2["en-US"])
+                    } else if (["ability1Cooldown%", "enableAbility1"].includes(key)) {
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].ability1[lang] || heroKw[hero].ability1["en-US"])
+                    } else if (["enablePassive"].includes(key)) {
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].passive[lang] || heroKw[hero].passive["en-US"])
+                    } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
+                        heroValue[lang] = heroValue[key2]+" "+(heroKw[hero].ultimate[lang] || heroKw[hero].ultimate["en-US"])
                     }
                 }
             }

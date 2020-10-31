@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "0 to null":
     A = B.concat(0)

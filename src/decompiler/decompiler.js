@@ -53,10 +53,19 @@ function decompileAllRules(content, language="en-US") {
 
 	}
 
+	content = content.trim();
 	bracketPos = getBracketPositions(content);
 	debug("global vars: "+globalVariables);
 	debug("player vars: "+playerVariables);
 	debug("subroutines: "+subroutines);
+	
+	//Check if we are decompiling actions or conditions
+	if (content.startsWith(tows("__actions__", ruleKw))) {
+		return astActionsToOpy(decompileActions(content.substring(bracketPos[0], bracketPos[1]+1)));
+	}
+	if (content.startsWith(tows("__conditions__", ruleKw))) {
+		return decompileConditions(content.substring(bracketPos[0], bracketPos[1]+1)).map(x => "@Condition "+astToOpy(x)).join("\n");
+	}
 	
 	bracketPos.unshift(-1);
 	//A rule looks like this:
@@ -79,7 +88,7 @@ function decompileAllRules(content, language="en-US") {
 		var globalVariableDeclarations = "";
 		for (var variable of globalVariables) {
 			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-				globalVariableDeclarations += "globalvar "+translateVarToPy(variable.name, true)+" "+variable.index+"\n";
+				globalVariableDeclarations += "globalvar "+variable.name+" "+variable.index+"\n";
 			}
 		}
 		if (globalVariableDeclarations !== "") {
@@ -91,7 +100,7 @@ function decompileAllRules(content, language="en-US") {
 		var playerVariableDeclarations = "";
 		for (var variable of playerVariables) {
 			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-				playerVariableDeclarations += "playervar "+translateVarToPy(variable.name, false)+" "+variable.index+"\n";
+				playerVariableDeclarations += "playervar "+variable.name+" "+variable.index+"\n";
 			}
 		}
 		if (playerVariableDeclarations !== "") {
@@ -308,8 +317,7 @@ function decompileVarNames(content) {
 				if (elems.length !== 2) {
 					error("Could not parse variables field: too many elements on '"+content[i]+"'");
 				}
-				
-				addVariable(elems[0], isInGlobalVars, currentVarIndex);
+				addVariable(translateVarToAvoidKeywords(elems[0], isInGlobalVars), isInGlobalVars, currentVarIndex);
 				if (!isNaN(elems[1])) {
 					currentVarIndex = +elems[1];
 				} else {
@@ -325,7 +333,7 @@ function decompileVarNames(content) {
 				if (!isNaN(content[i])) {
 					currentVarIndex = +content[i];
 				} else if (i === content.length-1) {
-					addVariable(content[i], isInGlobalVars, currentVarIndex);
+					addVariable(translateVarToAvoidKeywords(content[i], isInGlobalVars), isInGlobalVars, currentVarIndex);
 				} else {
 					error("Could not parse variables field");
 				}

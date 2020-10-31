@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 enum GameStatus:
     AA = 1,

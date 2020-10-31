@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "gotos":
     goto lbl_0 #skip 3

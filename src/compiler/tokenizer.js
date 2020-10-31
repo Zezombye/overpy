@@ -217,6 +217,9 @@ function tokenize(content) {
 		} else if (content.startsWith("#!disableOptimizations")) {
 			enableOptimization = false;
 
+		} else if (content.startsWith("#!optimizeForSize")) {
+			optimizeForSize = true;
+
 		} else if (content.startsWith("#!replace0ByCapturePercentage")) {
 			if (replacementFor0 !== null) {
 				error("A replacement for 0 has already been defined");

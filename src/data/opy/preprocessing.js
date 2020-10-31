@@ -38,7 +38,7 @@ The following obfuscation methods are applied:
 - Name obfuscation: all rule titles and comments are removed, and all variable/subroutine names are replaced with a combination of capital i and lowercase L.
 - String obfuscation: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
 - Constant obfuscation: some constants, such as heroes or maps, are replaced with other values that compute to the original value.
-- Inspector obfuscation: the inspector is disabled, and all disable/enable inspector actions are removed.
+- Inspector obfuscation: the inspector is disabled, and all inspector-related actions are removed.
 - Copy protection: the gamemode will break upon copying it via text. It is highly recommended to enable constant obfuscation to greatly strengthen this protection.
 
 To save elements, it is possible to specify methods to disable, by prefixing them with \`no\`. For example, \`#!obfuscate noRuleFilling noConstantObfuscation\` will disable rule filling and constant obfuscation, which is useful if the obfuscation adds too much elements.
@@ -59,9 +59,12 @@ To save elements, it is possible to specify methods to disable, by prefixing the
     "disableOptimizations": {
         "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
     },
+    "optimizeForSize": {
+        "description": "Prioritizes lowering the number of elements over optimizing the runtime."
+    },
     "replace0ByCapturePercentage": {
         "description": `
-Replaces all instances of 0 by \`getCapturePercentage()\`, if replacement by \`null\` or \`false\` is impossible.
+Replaces all instances of 0 by \`getCapturePercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Assault, Hybrid, or Elimination.
 
@@ -76,7 +79,7 @@ rule "Integrity check":
     },
     "replace0ByPayloadProgressPercentage": {
         "description": `
-Replaces all instances of 0 by \`getPayloadProgressPercentage()\`, if replacement by \`null\` or \`false\` is impossible.
+Replaces all instances of 0 by \`getPayloadProgressPercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Hybrid or Escort.
 
@@ -91,14 +94,14 @@ rule "Integrity check":
     },
     "replace0ByIsMatchComplete": {
         "description": `
-Replaces all instances of 0 by \`isMatchComplete()\`, if replacement by \`null\` or \`false\` is impossible.
+Replaces all instances of 0 by \`isMatchComplete()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode is endless, or if you do not care about the integrity of the gamemode once victory/defeat is declared.
 `
     },
     "replace1ByMatchRound": {
         "description": `
-Replaces all instances of 1 by \`getMatchRound()\`, if replacement by \`true\` is impossible.
+Replaces all instances of 1 by \`getMatchRound()\`, if replacement by \`true\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Assault, Hybrid, Escort (with the competitive ruleset) or Control.
 
@@ -113,7 +116,7 @@ rule "Integrity check":
     },
     "replaceTeam1ByControlScoringTeam": {
         "description": `
-Replaces all instances of \`Team.1\` by \`getControlScoringTeam()\`.
+Replaces all instances of \`Team.1\` by \`getControlScoringTeam()\`. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Control.
 

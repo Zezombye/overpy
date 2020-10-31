@@ -1695,13 +1695,20 @@ const constantValues =
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
+        "POSITION": {
+            "en-US": "Position",
+        },
+        "POSITION_AND_COLOR": {
+            "en-US": "Position and Color",
+        },
+        "POSITION_AND_STRING": {
+            "en-US": "Position and String",
+        },
+        "POSITION_STRING_AND_COLOR": {
+            "en-US": "Position String and Color",
+        },
         "STRING": {
-            "guid": "00000000BB31",
             "en-US": "String",
-            "es-MX": "Cadena",
-            "fr-FR": "Chaîne de texte",
-            "ja-JP": "文字列",
-            "zh-CN": "字符串"
         },
         "STRING_AND_COLOR": {
             "en-US": "String and Color",
@@ -1716,7 +1723,7 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
-            "en-US": "Visible To Position String and Color",
+            "en-US": "Visible To and Color",
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -2317,7 +2324,113 @@ const constantValues =
         "WEAPON_ACCURACY": {
             "en-US": "Weapon Accuracy"
         }
-    }
+    },
+    "ProgressWorldTextReeval": {
+        "COLOR": {
+            "en-US": "Color",
+        },
+        "NONE": {
+            "guid": "00000000B8C3",
+            "en-US": "None",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "ja-JP": "なし",
+            "pt-BR": "Ninguém",
+            "zh-CN": "无"
+        },
+        "POSITION": {
+            "en-US": "Position",
+        },
+        "POSITION_AND_COLOR": {
+            "en-US": "Position and Color",
+        },
+        "POSITION_AND_VALUES": {
+            "en-US": "Position and Values",
+        },
+        "POSITION_VALUES_AND_COLOR": {
+            "en-US": "Position Values and Color",
+        },
+        "VALUES": {
+            "en-US": "Values",
+        },
+        "VALUES_AND_COLOR": {
+            "en-US": "Values and Color",
+        },
+        "VISIBILITY": {
+            "guid": "00000000B8C4",
+            "en-US": "Visible To",
+            "es-MX": "Visible para",
+            "fr-FR": "Visible pour",
+            "ja-JP": "目視可能: ",
+            "pt-BR": "Visível para",
+            "zh-CN": "可见"
+        },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To and Color",
+        },
+        "VISIBILITY_AND_POSITION": {
+            "guid": "00000000B8D9",
+            "en-US": "Visible To and Position",
+            "es-MX": "Visible para y posición",
+            "fr-FR": "Visible pour et Position",
+            "ja-JP": "表示される相手、位置",
+            "pt-BR": "Visível para e Posição",
+            "zh-CN": "可见和位置"
+        },
+        "VISIBILITY_AND_VALUES": {
+            "en-US": "Visible To and Values",
+        },
+        "VISIBILITY_POSITION_AND_COLOR": {
+            "en-US": "Visible To Position and Color",
+        },
+        "VISIBILITY_POSITION_AND_VALUES": {
+            "en-US": "Visible To Position and Values",
+        },
+        "VISIBILITY_VALUES_AND_COLOR": {
+            "en-US": "Visible To Values and Color",
+        },
+        "VISIBILITY_POSITION_VALUES_AND_COLOR": {
+            "en-US": "Visible To Position Values and Color",
+        },
+    },
+    "ProgressHudReeval": {
+        "COLOR": {
+            "en-US": "Color",
+        },
+        "NONE": {
+            "guid": "00000000B8C3",
+            "en-US": "None",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "ja-JP": "なし",
+            "pt-BR": "Ninguém",
+            "zh-CN": "无"
+        },
+        "VALUES": {
+            "en-US": "Values",
+        },
+        "VALUES_AND_COLOR": {
+            "en-US": "Values and Color",
+        },
+        "VISIBILITY": {
+            "guid": "00000000B8C4",
+            "en-US": "Visible To",
+            "es-MX": "Visible para",
+            "fr-FR": "Visible pour",
+            "ja-JP": "目視可能: ",
+            "pt-BR": "Visível para",
+            "zh-CN": "可见"
+        },
+        "VISIBILITY_AND_COLOR": {
+            "en-US": "Visible To and Color",
+        },
+        "VISIBILITY_AND_VALUES": {
+            "en-US": "Visible To and Values",
+        },
+        "VISIBILITY_VALUES_AND_COLOR": {
+            "en-US": "Visible To Values and Color",
+        },
+    },
 }
 //end-json
 
@@ -2335,3 +2448,11 @@ for (var key of Object.keys(gamemodeKw)) {
 }
 
 constantValues["ChaseReeval"] = Object.assign({}, constantValues["__ChaseRateReeval__"], constantValues["__ChaseTimeReeval__"])
+
+for (var key in constantValues) {
+    if (key.endsWith("Literal")) {
+        constantValues[key]["description"] = "The built-in `"+key.substring(0, key.length-"Literal".length)+"` enum.";
+    } else {
+        constantValues[key]["description"] = "The built-in `"+key+"` enum.";
+    }
+}

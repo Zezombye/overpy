@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "workshop settings":
     #bools

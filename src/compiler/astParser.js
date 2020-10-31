@@ -268,6 +268,13 @@ function parseAst(content) {
         if (content.args.length === 1) {
             content.args.push(getAstForE());
         }
+    } else if (content.name === "rgb") {
+        if (content.args.length !== 3) {
+            error("Function 'rgb' takes 3 arguments, received "+args.length);
+        }
+        content.args.push(getAstFor255());
+        content.name = "rgba";
+
     } else if (content.name === "_&startForcingOutlineFor") {
         if (content.args.length === 4) {
             content.args.push(new Ast("DEFAULT", [], [], "OutlineVisibility"));

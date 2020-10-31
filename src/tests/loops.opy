@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "while loop":
     while A == B:

@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "comparison":
     A = B == C

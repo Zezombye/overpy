@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "normal":
     A++

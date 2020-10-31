@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "function":
     @Event eachPlayer
@@ -5,6 +6,7 @@ rule "function":
     A = raycast(B, C, D, E, false).getHitPosition()
     A = raycast(B, C, D, E, true).getNormal()
     A = getSign(-3)
+    A = B.substring(2, 4)
     chase(eventPlayer.B, 9999, duration=3, ChaseReeval.DESTINATION_AND_DURATION)
     hudHeader(getAllPlayers(), "test", HudPosition.LEFT, 1, Color.RED, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.ALWAYS)
     hudSubtext(getAllPlayers(), "test", HudPosition.LEFT, 1, Color.RED, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.ALWAYS)
