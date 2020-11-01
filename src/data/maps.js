@@ -18,6 +18,7 @@
 "use strict";
 
 //Symmetry axes are denoted with z = a*x+b. If x is specified that means a formula such as x = 4.
+//Ilios Ruins and Busan Downtown have several "centers" which make me believe the map could have a very slight deviation from the axis. The difference is measured in cm though.
 
 const mapKw = 
 //begin-json
@@ -148,6 +149,10 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            x: 51.9,
+        },
         "en-US": "Busan Downtown Lunar New Year",
         "de-DE": "Stadtzentrum von Busan Neujahr",
         "es-ES": "Centro de Busan Año Nuevo Lunar",
@@ -167,6 +172,10 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            x: -328.565,
+        },
         "en-US": "Busan Sanctuary Lunar New Year",
         "de-DE": "Tempel von Busan Neujahr",
         "es-ES": "Santuario de Busan Año Nuevo Lunar",
