@@ -89,7 +89,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
         "snippet": "enum $0",
     },
     "float": {
-        "description": "The 'float' type. Denotes any real number.\n\nLimits can be specified: for example, `float<-4.5, 5.5>` denotes all numbers between -4.5 and 5.5, inclusive.",
+        "description": "The 'float' type. Denotes any real number.\n\nLimits can be specified: for example, `float[-4.5:5.5]` denotes all numbers between -4.5 and 5.5, inclusive.",
         "args": null,
     },
     "for": {
@@ -110,8 +110,11 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
         "args": null,
         "snippet": "if $0",
     },
+    "in": {
+        "description": "Whether comparing the first operand with any of the elements in the second operand returns true.\n\nFor example, `3 in [1,2,3]` will return true.\n\nBe aware that `3 in [1, true]` will return `true`, as 3 is truthy.\n\nTo check the presence of a string within another string, use `strContains`."
+    },
     "int": {
-        "description": "The 'integer' type. A subset of the 'float' type. Denotes all numbers without decimals.\n\nLimits can be specified: for example, `int<-4, 5>` denotes all integers between -4 and 5, inclusive.",
+        "description": "The 'integer' type. A subset of the 'float' type. Denotes all numbers without decimals.\n\nLimits can be specified: for example, `int[-4:5]` denotes all integers between -4 and 5, inclusive.",
         "args": null,
     },
     "globalvar": {
