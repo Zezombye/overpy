@@ -17,8 +17,21 @@
 
 "use strict";
 
-//Symmetry axes are denoted with z = a*x+b. If x is specified that means a formula such as x = 4.
-//Ilios Ruins and Busan Downtown have several "centers" which make me believe the map could have a very slight deviation from the axis. The difference is measured in cm though.
+/*
+Symmetry axes are denoted with z = a*x+b. If x is specified that means a formula such as x = 4.
+
+Ilios Ruins and Busan Downtown have several "centers" which make me believe the map could have a very slight deviation from the axis. The difference is measured in cm though.
+
+Maps that are symmetrical but whose line equation has not been found (not axis-aligned):
+
+- Castillo
+- Ilios Lighthouse
+- Ilios Well
+- Oasis City Center
+- Oasis Gardens
+- Busan Meka Base
+
+*/
 
 const mapKw = 
 //begin-json
