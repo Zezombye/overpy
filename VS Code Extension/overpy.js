@@ -1819,7 +1819,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
         "snippet": "enum $0",
     },
     "float": {
-        "description": "The 'float' type. Denotes any real number.\n\nLimits can be specified: for example, `float<-4.5, 5.5>` denotes all numbers between -4.5 and 5.5, inclusive.",
+        "description": "The 'float' type. Denotes any real number.\n\nLimits can be specified: for example, `float[-4.5:5.5]` denotes all numbers between -4.5 and 5.5, inclusive.",
         "args": null,
     },
     "for": {
@@ -1840,8 +1840,11 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
         "args": null,
         "snippet": "if $0",
     },
+    "in": {
+        "description": "Whether comparing the first operand with any of the elements in the second operand returns true.\n\nFor example, `3 in [1,2,3]` will return true.\n\nBe aware that `3 in [1, true]` will return `true`, as 3 is truthy.\n\nTo check the presence of a string within another string, use `strContains`."
+    },
     "int": {
-        "description": "The 'integer' type. A subset of the 'float' type. Denotes all numbers without decimals.\n\nLimits can be specified: for example, `int<-4, 5>` denotes all integers between -4 and 5, inclusive.",
+        "description": "The 'integer' type. A subset of the 'float' type. Denotes all numbers without decimals.\n\nLimits can be specified: for example, `int[-4:5]` denotes all integers between -4 and 5, inclusive.",
         "args": null,
     },
     "globalvar": {
@@ -13646,6 +13649,22 @@ var valueFuncKw =
 
 "use strict";
 
+/*
+Symmetry axes are denoted with z = a*x+b. If x is specified that means a formula such as x = 4.
+
+Ilios Ruins and Busan Downtown have several "centers" which make me believe the map could have a very slight deviation from the axis. The difference is measured in cm though.
+
+Maps that are symmetrical but whose line equation has not been found (not axis-aligned):
+
+- Castillo
+- Ilios Lighthouse
+- Ilios Well
+- Oasis City Center
+- Oasis Gardens
+- Busan Meka Base
+
+*/
+
 const mapKw = 
 //begin-json
 {
@@ -13655,6 +13674,11 @@ const mapKw =
             "ctf",
             "elimination"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: -7,
+        },
         "en-US": "Ayutthaya",
         "ja-JP": "AYUTTHAYA",
         "ko-KR": "아유타야",
@@ -13669,6 +13693,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 5,
+        },
         "en-US": "Black Forest",
         "de-DE": "Schwarzwald",
         "es-ES": "Selva Negra",
@@ -13692,6 +13721,11 @@ const mapKw =
             "meisSnowballOffensive",
             "snowballFfa",
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 5,
+        },
         "en-US": "Black Forest Winter",
         "de-DE": "Schwarzwald Winter",
         "es-ES": "Selva Negra invierno",
@@ -13760,6 +13794,10 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            x: 51.9,
+        },
         "en-US": "Busan Downtown Lunar New Year",
         "de-DE": "Stadtzentrum von Busan Neujahr",
         "es-ES": "Centro de Busan Año Nuevo Lunar",
@@ -13779,6 +13817,10 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            x: -328.565,
+        },
         "en-US": "Busan Sanctuary Lunar New Year",
         "de-DE": "Tempel von Busan Neujahr",
         "es-ES": "Santuario de Busan Año Nuevo Lunar",
@@ -13897,6 +13939,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "en-US": "Ecopoint: Antarctica",
         "de-DE": "Ecopoint: Antarktis",
         "es-ES": "Ecobase: Antártida",
@@ -13920,6 +13967,11 @@ const mapKw =
             "meisSnowballOffensive",
             "snowballFfa",
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "en-US": "Ecopoint: Antarctica Winter",
         "de-DE": "Ecopoint: Antarktis Winter",
         "es-ES": "Ecobase: Antártida invierno",
@@ -14132,6 +14184,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            x: 28.6,
+        },
         "en-US": "Ilios Ruins",
         "de-DE": "Ilios – Ruinen",
         "es-ES": "Ruinas de Ilios",
@@ -14245,6 +14301,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            x: 0,
+        },
         "en-US": "Lijiang Control Center",
         "de-DE": "Lijiang Tower – Kontrollzentrum",
         "es-ES": "Centro de control de Torre Lijiang",
@@ -14267,6 +14327,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            x: 0,
+        },
         "en-US": "Lijiang Control Center Lunar New Year",
         "de-DE": "Lijiang Tower – Kontrollzentrum Neujahr",
         "es-ES": "Centro de control de Lijiang Año Nuevo Lunar",
@@ -14289,6 +14353,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            x: 0,
+        },
         "en-US": "Lijiang Garden",
         "de-DE": "Lijiang Tower – Garten",
         "es-ES": "Lijiang: Jardín",
@@ -14311,6 +14379,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            x: 0,
+        },
         "en-US": "Lijiang Garden Lunar New Year",
         "de-DE": "Lijiang Tower – Garten Neujahr",
         "es-ES": "Lijiang: Jardín Año Nuevo Lunar",
@@ -14333,6 +14405,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            x: 1,
+        },
         "en-US": "Lijiang Night Market",
         "de-DE": "Nachtmarkt von Lijiang",
         "es-ES": "Lijiang: Mercado nocturno",
@@ -14355,6 +14431,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            x: 1,
+        },
         "en-US": "Lijiang Night Market Lunar New Year",
         "de-DE": "Lijiang Tower – Nachtmarkt Neujahr",
         "es-ES": "Mercado nocturno de Lijiang Año Nuevo Lunar",
@@ -14415,6 +14495,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "en-US": "Necropolis",
         "de-DE": "Nekropole",
         "es-ES": "Necrópolis",
@@ -14451,6 +14536,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "en-US": "Nepal Sanctum",
         "de-DE": "Nepal – Sanktum",
         "es-ES": "Sagrario de Nepal",
@@ -14473,6 +14563,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "en-US": "Nepal Shrine",
         "de-DE": "Nepal – Schrein",
         "es-ES": "Santuario de Nepal",
@@ -14495,6 +14590,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "en-US": "Nepal Village",
         "de-DE": "Nepal – Dorf",
         "es-ES": "Aldea de Nepal",
@@ -14608,6 +14708,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "en-US": "Oasis University",
         "de-DE": "Oasis – Universität",
         "es-ES": "Universidad de Oasis",
@@ -14807,6 +14912,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "guid": "00000000FFF0",
         "en-US": "Workshop Chamber",
         "de-DE": "Workshop-Raum",
@@ -14829,6 +14939,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "guid": "00000000FFF2",
         "en-US": "Workshop Expanse",
         "de-DE": "Workshop-Gebiet",
@@ -14851,6 +14966,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "guid": "000000010C6D",
         "en-US": "Workshop Expanse Night",
         "de-DE": "Workshop-Gebiet Nacht",
@@ -14882,6 +15002,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "guid": "00000000FFF1",
         "en-US": "Workshop Island",
         "de-DE": "Workshop-Insel",
@@ -14904,6 +15029,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 0,
+            b: 0,
+        },
         "guid": "000000010C71",
         "en-US": "Workshop Island Night",
         "de-DE": "Workshop-Insel Nacht",
@@ -26913,7 +27043,7 @@ function typeToString(type) {
 			return typeToString(type["Array"])+"[]";
 
 		} else if ("Vector" in type || "Direction" in type || "Position" in type || "Velocity" in type) {
-			return Object.keys(type)[0]+"<"+type[Object.keys(type)[0]].map(x => typeToString(x)).join(", ")+">";
+			return Object.keys(type)[0]+"["+type[Object.keys(type)[0]].map(x => typeToString(x)).join(", ")+"]";
 
 		} else {
 			error("Could not display type '"+JSON.stringify(type)+"'");
@@ -27185,6 +27315,10 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 	} else {
 
 		for (var key of Object.keys(keywordObj)) {
+
+			if (typeof keywordObj[key] !== "object") {
+				continue;
+			}
 			
 			if (currentLanguage in keywordObj[key]) {
 				var keywordComparing = keywordObj[key][currentLanguage];
@@ -29878,7 +30012,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
 for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
-	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x));
+	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x).filter(x => typeof constantValues[constantType][x] === "object"));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
 //console.log(constantsToObfuscate);
@@ -29899,6 +30033,9 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
+		if (typeof constantValues[constantType][constant] !== "object") {
+			continue;
+		}
 		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
 		obfuscationConstantsMapping[constantType][constant] = constantIndex;
 		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
@@ -30081,7 +30218,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
 for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
-	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x));
+	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x).filter(x => typeof constantValues[constantType][x] === "object"));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
 //console.log(constantsToObfuscate);
@@ -30102,6 +30239,9 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
+		if (typeof constantValues[constantType][constant] !== "object") {
+			continue;
+		}
 		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
 		obfuscationConstantsMapping[constantType][constant] = constantIndex;
 		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
@@ -36887,9 +37027,7 @@ function parse(content, kwargs={}) {
     }
 
     //Old functions
-    if (name === "_&setCamera") {
-        name = "_&startCamera";
-    } else if (name === "destroyAllInWorldText") {
+    if (name === "destroyAllInWorldText") {
         name = "destroyAllInWorldTexts";
     } else if (name === "disableEnvironmentCollision") {
         name = "_&disableEnvironmentCollision";
@@ -37057,6 +37195,11 @@ function parseMember(object, member) {
 			
 		} else {
             //Assume it is a player function
+
+            //old functions
+            if (name === "setCamera") {
+                name = "startCamera";
+            }
             return new Ast("_&"+name, [parse(object)].concat(args.map(x => parse(x))));
 		}
 	}

@@ -777,9 +777,7 @@ function parse(content, kwargs={}) {
     }
 
     //Old functions
-    if (name === "_&setCamera") {
-        name = "_&startCamera";
-    } else if (name === "destroyAllInWorldText") {
+    if (name === "destroyAllInWorldText") {
         name = "destroyAllInWorldTexts";
     } else if (name === "disableEnvironmentCollision") {
         name = "_&disableEnvironmentCollision";
@@ -947,6 +945,11 @@ function parseMember(object, member) {
 			
 		} else {
             //Assume it is a player function
+
+            //old functions
+            if (name === "setCamera") {
+                name = "startCamera";
+            }
             return new Ast("_&"+name, [parse(object)].concat(args.map(x => parse(x))));
 		}
 	}

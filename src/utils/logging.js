@@ -135,7 +135,7 @@ function typeToString(type) {
 			return typeToString(type["Array"])+"[]";
 
 		} else if ("Vector" in type || "Direction" in type || "Position" in type || "Velocity" in type) {
-			return Object.keys(type)[0]+"<"+type[Object.keys(type)[0]].map(x => typeToString(x)).join(", ")+">";
+			return Object.keys(type)[0]+"["+type[Object.keys(type)[0]].map(x => typeToString(x)).join(", ")+"]";
 
 		} else {
 			error("Could not display type '"+JSON.stringify(type)+"'");

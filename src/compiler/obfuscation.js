@@ -117,7 +117,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
 for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
-	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x));
+	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x).filter(x => typeof constantValues[constantType][x] === "object"));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
 //console.log(constantsToObfuscate);
@@ -138,6 +138,9 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
+		if (typeof constantValues[constantType][constant] !== "object") {
+			continue;
+		}
 		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
 		obfuscationConstantsMapping[constantType][constant] = constantIndex;
 		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);

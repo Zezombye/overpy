@@ -50,6 +50,10 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 	} else {
 
 		for (var key of Object.keys(keywordObj)) {
+
+			if (typeof keywordObj[key] !== "object") {
+				continue;
+			}
 			
 			if (currentLanguage in keywordObj[key]) {
 				var keywordComparing = keywordObj[key][currentLanguage];
