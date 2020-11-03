@@ -145,6 +145,25 @@ const opyMemberFuncs = {
         class: "Array",
         return: "Array",
     },
+	"substring": {
+		"description": "The substring of the provided string.",
+		"args": [
+			{
+				"name": "Substring Start Index",
+				"description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
+				"type": "unsigned int",
+				"default": 0
+			},
+			{
+				"name": "Substring Length",
+				"description": "Specifies the number of characters in the substring.",
+				"type": "unsigned int",
+				"default": 0
+			}
+        ],
+        class: "String",
+		"return": "String",
+	},
     "x": {
         description: "The x component of the specified vector, usually representing a leftward amount.",
         args: null,
