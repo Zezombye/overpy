@@ -19,7 +19,7 @@
 
 astParsingFunctions["_&setUltCharge"] = function(content) {
 
-    //Literal limit bypass if the literal is an int
+    //Literal limit bypass if the literal is a float
     if (content.args[1].name === "__number__" && !isTypeSuitable("int", content.args[1].type)) {
         content.args[1] = new Ast("abs", [content.args[1]]);
     }
