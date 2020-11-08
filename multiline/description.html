@@ -29,7 +29,7 @@ a {
 }
 
 #para, #txt {
-    font-family: "Arial";
+    font-family: "BlizzardGlobal";
     font-size: 15.085px;
     display: inline-block;
     text-align: left !important;
@@ -71,9 +71,22 @@ a {
         }
         return result;
     }
+    
+    function getUtf8ByteLength(str){
+        // returns the byte length of an utf8 string
+        var s = str.length;
+        for (var i=str.length-1; i>=0; i--) {
+            var code = str.charCodeAt(i);
+            if (code > 0x7f && code <= 0x7ff) s++;
+            else if (code > 0x7ff && code <= 0xffff) s+=2;
+            if (code >= 0xDC00 && code <= 0xDFFF) i--; //trail surrogate
+        }
+        return s;
+    }
 
     function updateNbChars(textarea) {
-        document.getElementById("nbchars").innerText = getUtf8Length(textarea.innerText.trim())+"/512 characters";
+        document.getElementById("nbchars").innerText = getUtf8ByteLength(textarea.innerText.trim())+"/511 bytes";
+        document.getElementById("output").value = textarea.innerText.trim().replace(/ㆍ/g, "ㅤ").replace(/\n/g, "")
     }
 </script>
 
@@ -88,21 +101,28 @@ a {
 -->
 <ul>
     <li>
-        You CANNOT use any spaces other than normal spaces (they will be converted).
+        You MUST install the "Blizzard Global" font on your PC.
     </li>
     <li>
-        You CANNOT use whitespace at the beginning or the end of a line.
+        You CANNOT use any spaces other than normal spaces (they will be converted), including no-breaking spaces.
+    </li>
+    <li>
+        You CANNOT use whitespace at the beginning or the end of a line. However you can use a zero-width space to prevent trimming.
     </li>
     <li>
         You CANNOT use newlines. You will have to use spaces, or fullwidth characters, to make a newline.
     </li>
     <li>
-        No-Break spaces could be used to get to the next line early. I didn't test.
-    </li>
-    <li>
         The word wrap is a little buggy and may not reflect what actually happens. The width should be good however.
     </li>
+    <li>
+        The 'ㆍ' characters will be replaced by a not-quite-fullwidth space.
+    </li>
 </ul>
+
+<p>Output:</p>
+
+<textarea readonly id="output"></textarea>
 
 <script>
     updateNbChars(document.getElementById("txt"));

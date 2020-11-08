@@ -4921,7 +4921,7 @@ const actionKw =
 			{
 				"name": "Reevaluation",
 				"description": "Specifies which of this Action's Inputs will be continously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
-				"type": "__ChaseRateReeval__",
+				"type": "AssistReeval",
 				"default": "Assisters and Targets"
 			}
         ],

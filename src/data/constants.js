@@ -1695,18 +1695,6 @@ const constantValues =
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
-        "POSITION": {
-            "en-US": "Position",
-        },
-        "POSITION_AND_COLOR": {
-            "en-US": "Position and Color",
-        },
-        "POSITION_AND_STRING": {
-            "en-US": "Position and String",
-        },
-        "POSITION_STRING_AND_COLOR": {
-            "en-US": "Position String and Color",
-        },
         "STRING": {
             "en-US": "String",
         },
@@ -2431,6 +2419,15 @@ const constantValues =
             "en-US": "Visible To Values and Color",
         },
     },
+    "AssistReeval": {
+        "ASSISTERS_AND_TARGETS": {
+            "en-US": "Assisters and Targets",
+        },
+        "NONE": {
+            "en-US": "None",
+            "guid": "00000000B8C3",
+        },
+    }
 }
 //end-json
 

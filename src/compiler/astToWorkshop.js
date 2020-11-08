@@ -528,10 +528,16 @@ function astToWs(content) {
     //Actions remove elements for top-level values
     if (content.type === "void" && content.args !== null) {
         nbElements -= content.args.length;
-    } else if (["__array__","__workshopSettingToggle__"].includes(content.name)) {
+    } else if (["__array__","evalOnce"].includes(content.name)) {
         nbElements++;
     } else if (["__workshopSettingInteger__", "__workshopSettingReal__"].includes(content.name)) {
-        nbElements += 1 - 3; //remove elements because of number literals
+        nbElements += 1 - 4; //remove elements because of number literals
+    } else if (["__workshopSettingToggle__", "__workshopSettingHero__"].includes(content.name)) {
+        nbElements++;
+        nbElements -= 1; //remove elements because of number literals
+    } else if (["__workshopSettingCombo__"].includes(content.name)) {
+        nbElements++;
+        nbElements -= 2; //remove elements because of number literals
     } else if (content.type === "TeamLiteral") {
         nbElements++;
     }

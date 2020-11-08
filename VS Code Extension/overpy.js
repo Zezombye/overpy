@@ -7156,7 +7156,7 @@ const actionKw =
 			{
 				"name": "Reevaluation",
 				"description": "Specifies which of this Action's Inputs will be continously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
-				"type": "__ChaseRateReeval__",
+				"type": "AssistReeval",
 				"default": "Assisters and Targets"
 			}
         ],
@@ -19132,18 +19132,6 @@ const constantValues =
             "pt-BR": "Ninguém",
             "zh-CN": "无"
         },
-        "POSITION": {
-            "en-US": "Position",
-        },
-        "POSITION_AND_COLOR": {
-            "en-US": "Position and Color",
-        },
-        "POSITION_AND_STRING": {
-            "en-US": "Position and String",
-        },
-        "POSITION_STRING_AND_COLOR": {
-            "en-US": "Position String and Color",
-        },
         "STRING": {
             "en-US": "String",
         },
@@ -19868,6 +19856,15 @@ const constantValues =
             "en-US": "Visible To Values and Color",
         },
     },
+    "AssistReeval": {
+        "ASSISTERS_AND_TARGETS": {
+            "en-US": "Assisters and Targets",
+        },
+        "NONE": {
+            "en-US": "None",
+            "guid": "00000000B8C3",
+        },
+    }
 }
 //end-json
 
@@ -27282,6 +27279,18 @@ function getUtf8Length(str){
 	}
 	return result;
 }
+
+function getUtf8ByteLength(str){
+	// returns the byte length of an utf8 string
+	var s = str.length;
+	for (var i=str.length-1; i>=0; i--) {
+		var code = str.charCodeAt(i);
+		if (code > 0x7f && code <= 0x7ff) s++;
+		else if (code > 0x7ff && code <= 0xffff) s+=2;
+		if (code >= 0xDC00 && code <= 0xDFFF) i--; //trail surrogate
+	}
+	return s;
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -30031,7 +30040,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
 for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
-	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x).filter(x => typeof constantValues[constantType][x] === "object"));
+	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).filter(x => typeof constantValues[constantType][x] === "object").map(x => constantType+x));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
 //console.log(constantsToObfuscate);
@@ -30052,9 +30061,9 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
-		if (typeof constantValues[constantType][constant] !== "object") {
+		/*if (typeof constantValues[constantType][constant] !== "object") {
 			continue;
-		}
+		}*/
 		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
 		obfuscationConstantsMapping[constantType][constant] = constantIndex;
 		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
@@ -30237,7 +30246,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
 for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
-	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x).filter(x => typeof constantValues[constantType][x] === "object"));
+	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).filter(x => typeof constantValues[constantType][x] === "object").map(x => constantType+x));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
 //console.log(constantsToObfuscate);
@@ -30258,9 +30267,9 @@ for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "Butto
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
-		if (typeof constantValues[constantType][constant] !== "object") {
+		/*if (typeof constantValues[constantType][constant] !== "object") {
 			continue;
-		}
+		}*/
 		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
 		obfuscationConstantsMapping[constantType][constant] = constantIndex;
 		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
@@ -36256,10 +36265,16 @@ function astToWs(content) {
     //Actions remove elements for top-level values
     if (content.type === "void" && content.args !== null) {
         nbElements -= content.args.length;
-    } else if (["__array__","__workshopSettingToggle__"].includes(content.name)) {
+    } else if (["__array__","evalOnce"].includes(content.name)) {
         nbElements++;
     } else if (["__workshopSettingInteger__", "__workshopSettingReal__"].includes(content.name)) {
-        nbElements += 1 - 3; //remove elements because of number literals
+        nbElements += 1 - 4; //remove elements because of number literals
+    } else if (["__workshopSettingToggle__", "__workshopSettingHero__"].includes(content.name)) {
+        nbElements++;
+        nbElements -= 1; //remove elements because of number literals
+    } else if (["__workshopSettingCombo__"].includes(content.name)) {
+        nbElements++;
+        nbElements -= 2; //remove elements because of number literals
     } else if (content.type === "TeamLiteral") {
         nbElements++;
     }
