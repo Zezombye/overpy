@@ -700,7 +700,7 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Position",
+                "type": ["Position", "Player"],
                 "default": "VECTOR"
             },
             {
@@ -830,7 +830,7 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The icon's position. If this value is a player, then the icon will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Position",
+                "type": ["Position", "Player"],
                 "default": "VECTOR"
             },
             {
@@ -891,7 +891,7 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Position",
+                "type": ["Position", "Player"],
                 canReplaceNullVectorByNull: true,
                 "default": "VECTOR"
             },
@@ -966,7 +966,7 @@ const actionKw =
 			{
 				"name": "Position",
 				"description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-				"type": "Position",
+                "type": ["Position", "Player"],
 				"default": "Event Player"
 			},
 			{
@@ -5108,7 +5108,7 @@ const actionKw =
             },
             {
                 "name": "REEVALUATION",
-                "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only avaluated once when the action begins.",
+                "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
                 "type": "bool",
                 "default": "true"
             }
@@ -5146,7 +5146,7 @@ const actionKw =
             },
             {
                 "name": "REEVALUATION",
-                "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only avaluated once when the action begins.",
+                "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
                 "type": "bool",
                 "default": "true"
             }

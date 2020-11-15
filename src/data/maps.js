@@ -22,14 +22,7 @@ Symmetry axes are denoted with z = a*x+b. If x is specified that means a formula
 
 Ilios Ruins and Busan Downtown have several "centers" which make me believe the map could have a very slight deviation from the axis. The difference is measured in cm though.
 
-Maps that are symmetrical but whose line equation has not been found (not axis-aligned):
-
-- Castillo
-- Ilios Lighthouse
-- Ilios Well
-- Oasis City Center
-- Oasis Gardens
-- Busan Meka Base
+Busan Meka Base: 2.32074 * x - 274.76433
 
 */
 
@@ -248,6 +241,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: -0.19009,
+            b: 38.79879,
+        },
         "en-US": "Castillo",
         "ja-JP": "CASTILLO",
         "ko-KR": "카스티요",
@@ -530,6 +528,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: -0.41437,
+            b: 96.86593,
+        },
         "en-US": "Ilios Lighthouse",
         "de-DE": "Ilios – Leuchtturm",
         "es-ES": "Faro de Ilios",
@@ -578,6 +581,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 1.00409,
+            b: 192.85907,
+        },
         "en-US": "Ilios Well",
         "de-DE": "Ilios – Brunnen",
         "es-ES": "Pozo de Ilios",
@@ -1032,6 +1040,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 1.00002,
+            b: 103.99783,
+        },
         "en-US": "Oasis City Center",
         "de-DE": "Oasis – Stadtzentrum",
         "es-ES": "Centro urbano de Oasis",
@@ -1054,6 +1067,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: -1.00042,
+            b: -106.16370,
+        },
         "en-US": "Oasis Gardens",
         "de-DE": "Oasis – Gärten",
         "es-ES": "Jardines de Oasis",
