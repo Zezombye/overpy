@@ -123,6 +123,11 @@
                             "const": "Australia3"
                         }
                     ]
+                },
+                "minimumLatencyInNs": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 150000000
                 }
             }
         },

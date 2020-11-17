@@ -2935,7 +2935,7 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Position",
+                "type": ["Position", "Player"],
                 "default": "VECTOR"
             },
             {
@@ -3065,7 +3065,7 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The icon's position. If this value is a player, then the icon will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Position",
+                "type": ["Position", "Player"],
                 "default": "VECTOR"
             },
             {
@@ -3126,7 +3126,7 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": "Position",
+                "type": ["Position", "Player"],
                 canReplaceNullVectorByNull: true,
                 "default": "VECTOR"
             },
@@ -3201,7 +3201,7 @@ const actionKw =
 			{
 				"name": "Position",
 				"description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-				"type": "Position",
+                "type": ["Position", "Player"],
 				"default": "Event Player"
 			},
 			{
@@ -7343,7 +7343,7 @@ const actionKw =
             },
             {
                 "name": "REEVALUATION",
-                "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only avaluated once when the action begins.",
+                "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
                 "type": "bool",
                 "default": "true"
             }
@@ -7381,7 +7381,7 @@ const actionKw =
             },
             {
                 "name": "REEVALUATION",
-                "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only avaluated once when the action begins.",
+                "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
                 "type": "bool",
                 "default": "true"
             }
@@ -13673,14 +13673,7 @@ Symmetry axes are denoted with z = a*x+b. If x is specified that means a formula
 
 Ilios Ruins and Busan Downtown have several "centers" which make me believe the map could have a very slight deviation from the axis. The difference is measured in cm though.
 
-Maps that are symmetrical but whose line equation has not been found (not axis-aligned):
-
-- Castillo
-- Ilios Lighthouse
-- Ilios Well
-- Oasis City Center
-- Oasis Gardens
-- Busan Meka Base
+Busan Meka Base: 2.32074 * x - 274.76433
 
 */
 
@@ -13899,6 +13892,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: -0.19009,
+            b: 38.79879,
+        },
         "en-US": "Castillo",
         "ja-JP": "CASTILLO",
         "ko-KR": "카스티요",
@@ -14181,6 +14179,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: -0.41437,
+            b: 96.86593,
+        },
         "en-US": "Ilios Lighthouse",
         "de-DE": "Ilios – Leuchtturm",
         "es-ES": "Faro de Ilios",
@@ -14229,6 +14232,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 1.00409,
+            b: 192.85907,
+        },
         "en-US": "Ilios Well",
         "de-DE": "Ilios – Brunnen",
         "es-ES": "Pozo de Ilios",
@@ -14683,6 +14691,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: 1.00002,
+            b: 103.99783,
+        },
         "en-US": "Oasis City Center",
         "de-DE": "Oasis – Stadtzentrum",
         "es-ES": "Centro urbano de Oasis",
@@ -14705,6 +14718,11 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        isSymmetrical: true,
+        symmetryAxis: {
+            a: -1.00042,
+            b: -106.16370,
+        },
         "en-US": "Oasis Gardens",
         "de-DE": "Oasis – Gärten",
         "es-ES": "Jardines de Oasis",
@@ -20983,6 +21001,13 @@ const customGameSettingsSchema =
                 "ru-RU": "Выбор дата-центра",
                 "zh-CN": "数据中心设置",
                 "zh-TW": "資料中心設定"
+            },
+            "minimumLatencyInNs": {
+                "values": "__int__",
+                "min": 0,
+                "max": 150000000,
+                "default": 0,
+                "en-US": "Minimum Latency milliseconds",
             }
         },
         "guid": "000000010031",
@@ -33137,7 +33162,7 @@ astParsingFunctions["_&setStatusEffect"] = function(content) {
 
 astParsingFunctions["_&setUltCharge"] = function(content) {
 
-    //Literal limit bypass if the literal is an int
+    //Literal limit bypass if the literal is a float
     if (content.args[1].name === "__number__" && !isTypeSuitable("int", content.args[1].type)) {
         content.args[1] = new Ast("abs", [content.args[1]]);
     }

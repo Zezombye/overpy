@@ -565,6 +565,13 @@ const customGameSettingsSchema =
                 "ru-RU": "Выбор дата-центра",
                 "zh-CN": "数据中心设置",
                 "zh-TW": "資料中心設定"
+            },
+            "minimumLatencyInNs": {
+                "values": "__int__",
+                "min": 0,
+                "max": 150000000,
+                "default": 0,
+                "en-US": "Minimum Latency milliseconds",
             }
         },
         "guid": "000000010031",
