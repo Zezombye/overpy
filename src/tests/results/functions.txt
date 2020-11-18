@@ -161,15 +161,15 @@ rule ("optimizations for function combinations") {
         "getDeadPlayers(B)"
         Set Global Variable(A, All Dead Players(Global.B));
         "getNumberOfPlayers(B)"
-        Set Global Variable(A, Number of Players(Global.B));
+        Set Global Variable(A, Number Of Players(Global.B));
         "getNumberOfPlayersOnObjective(B)"
-        Set Global Variable(A, Number of Players On Objective(Global.B));
+        Set Global Variable(A, Number Of Players On Objective(Global.B));
         "getNumberOfHeroes(B, C)"
-        Set Global Variable(A, Number of Heroes(Global.B, Global.C));
+        Set Global Variable(A, Number Of Heroes(Global.B, Global.C));
         "getNumberOfLivingPlayers(B)"
-        Set Global Variable(A, Number of Living Players(Global.B));
+        Set Global Variable(A, Number Of Living Players(Global.B));
         "getNumberOfDeadPlayers(B)"
-        Set Global Variable(A, Number of Dead Players(Global.B));
+        Set Global Variable(A, Number Of Dead Players(Global.B));
     }
 }
 

@@ -2453,7 +2453,7 @@ const actionKw =
                 "name": "OFFSET",
                 "description": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head.",
                 "type": "Position",
-                canReplaceNullVectorByNull: true,
+                "canReplaceNullVectorByNull": true,
                 "default": "VECTOR"
             }
         ],
@@ -2484,7 +2484,7 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The message to be displayed.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "STRING"
             }
         ],
@@ -2878,22 +2878,22 @@ const actionKw =
                 "name": "SLOT",
                 "description": "The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings.",
                 "type": "int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "POSITION",
                 "description": "The initial position where the bot will appear.",
                 "type": "Position",
-                canReplaceNullVectorByNull: true,
+                "canReplaceNullVectorByNull": true,
                 "default": "VECTOR"
             },
             {
                 "name": "FACING",
                 "description": "The initial direction that the bot will face.",
                 "type": "Direction",
-                canReplaceNullVectorByNull: true,
+                "canReplaceNullVectorByNull": true,
                 "default": "VECTOR"
             }
         ],
@@ -2935,15 +2935,18 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
-                "type": ["Position", "Player"],
+                "type": [
+                    "Position",
+                    "Player"
+                ],
                 "default": "VECTOR"
             },
             {
                 "name": "RADIUS",
                 "description": "The radius of this effect.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
@@ -3004,8 +3007,8 @@ const actionKw =
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
@@ -3065,7 +3068,10 @@ const actionKw =
             {
                 "name": "POSITION",
                 "description": "The icon's position. If this value is a player, then the icon will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": ["Position", "Player"],
+                "type": [
+                    "Position",
+                    "Player"
+                ],
                 "default": "VECTOR"
             },
             {
@@ -3120,22 +3126,25 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The text to be displayed.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "STRING"
             },
             {
                 "name": "POSITION",
                 "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": ["Position", "Player"],
-                canReplaceNullVectorByNull: true,
+                "type": [
+                    "Position",
+                    "Player"
+                ],
+                "canReplaceNullVectorByNull": true,
                 "default": "VECTOR"
             },
             {
                 "name": "SCALE",
                 "description": "The text's scale.",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
@@ -3173,143 +3182,158 @@ const actionKw =
         "zh-CN": "创建地图文本"
     },
     "createProgressBarInWorldText": {
-		"description": "Creates a progress bar in-world text visible to the specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() Value. This action will fail if too many text elements have been created.",
-		"args": [
-			{
-				"name": "Visible To",
-				"description": "One or more players who will see the progress bar HUD text.",
-				"type": [
-					"Player",
-					{
-						"Array": "Player"
-					}
-				],
-				"default": "ALL PLAYERS"
-			},
-			{
-				"name": "Value",
-				"description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
-				"type": "unsigned float",
-				"default": 0
-			},
-			{
-				"name": "Text",
-				"description": "The text to be displayed (can be blank)",
-				"type": "Object",
-				"default": "Custom String"
-			},
-			{
-				"name": "Position",
-				"description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
-                "type": ["Position", "Player"],
-				"default": "Event Player"
-			},
-			{
-				"name": "Scale",
-				"description": "The text's scale.",
-				"type": "float",
-				"default": "NUMBER"
-			},
-			{
-				"name": "Clipping",
-				"description": "Specifies whether the text can be seen through walls or is instead clipped.",
-				"type": "Clip",
-				"default": "CLIP AGAINST SURFACES"
-			},
-			{
-				"name": "Progress Bar Color",
-				"description": "The color of the progress bar text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
-				"type": "Color",
-				"default": "White"
-			},
-			{
-				"name": "Text Color",
-				"description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
-				"type": "Color",
-				"default": "White"
-			},
-			{
-				"name": "Reevaluation",
-				"description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
-				"type": "ProgressWorldTextReeval",
-				"default": "Visible To, Values, and Color"
-			},
-			{
-				"name": "Non-Team Spectators",
-				"description": "Whether non-team spectators can see the text or not.",
-				"type": "SpecVisibility",
-				"default": "Default Visibility"
-			}
+        "description": "Creates a progress bar in-world text visible to the specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() Value. This action will fail if too many text elements have been created.",
+        "args": [
+            {
+                "name": "Visible To",
+                "description": "One or more players who will see the progress bar HUD text.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "Value",
+                "description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
+                "type": "unsigned float",
+                "default": 0
+            },
+            {
+                "name": "Text",
+                "description": "The text to be displayed (can be blank)",
+                "type": "Object",
+                "default": "Custom String"
+            },
+            {
+                "name": "Position",
+                "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+                "type": [
+                    "Position",
+                    "Player"
+                ],
+                "default": "Event Player"
+            },
+            {
+                "name": "Scale",
+                "description": "The text's scale.",
+                "type": "float",
+                "default": "NUMBER"
+            },
+            {
+                "name": "Clipping",
+                "description": "Specifies whether the text can be seen through walls or is instead clipped.",
+                "type": "Clip",
+                "default": "CLIP AGAINST SURFACES"
+            },
+            {
+                "name": "Progress Bar Color",
+                "description": "The color of the progress bar text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+                "type": "Color",
+                "default": "White"
+            },
+            {
+                "name": "Text Color",
+                "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+                "type": "Color",
+                "default": "White"
+            },
+            {
+                "name": "Reevaluation",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+                "type": "ProgressWorldTextReeval",
+                "default": "Visible To, Values, and Color"
+            },
+            {
+                "name": "Non-Team Spectators",
+                "description": "Whether non-team spectators can see the text or not.",
+                "type": "SpecVisibility",
+                "default": "Default Visibility"
+            }
         ],
-        return: "void",
-		"en-US": "Create Progress Bar In-World Text"
-	},
-	"progressBarHud": {
-		"description": "Creates a progress bar HUD text visible to specified players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created.",
-		"args": [
-			{
-				"name": "Visible To",
-				"description": "One or more players who will see the Progress Bar HUD text.",
-				"type": [
-					"Player",
-					{
-						"Array": "Player"
-					}
-				],
-				"default": "ALL PLAYERS"
-			},
-			{
-				"name": "Value",
-				"description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
-				"type": "unsigned float",
-				"default": 0
-			},
-			{
-				"name": "Text",
-				"description": "The text to be displayed (can be blank)",
-				"type": "Object",
-				"default": "Custom String"
-			},
-			{
-				"name": "Location",
-				"description": "The location on the screen where the text will appear.",
-				"type": "HudPosition",
-				"default": "Left"
-			},
-			{
-				"name": "Sort Order",
-				"description": "The sort order of the text relative to other text in the same location. Text with a higher sort order will come after the text with a lower sort order.",
-				"type": "float",
-				"default": 0
-			},
-			{
-				"name": "Progress Bar Color",
-				"description": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
-				"type": "Color",
-				"default": "White"
-			},
-			{
-				"name": "Text Color",
-				"description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
-				"type": "Color",
-				"default": "White"
-			},
-			{
-				"name": "Reevaluation",
-				"description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
-				"type": "ProgressHudReeval",
-				"default": "Visible To, Values, and Color"
-			},
-			{
-				"name": "Non-Team Spectators",
-				"description": "Whether non-team spectators can see the text or not.",
-				"type": "SpecVisibility",
-				"default": "Default Visibility"
-			}
+        "return": "void",
+        "guid": "00000001233A",
+        "en-US": "Create Progress Bar In-World Text",
+        "es-MX": "Crear texto dentro del mundo en la barra de progreso",
+        "fr-FR": "Créer du texte de barre de progression en jeu",
+        "ja-JP": "進行バーのワールド内テキストを作成",
+        "pt-BR": "Criar Texto de Barra de Progresso no Mundo",
+        "zh-CN": "创建进度条地图文本"
+    },
+    "progressBarHud": {
+        "description": "Creates a progress bar HUD text visible to specified players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created.",
+        "args": [
+            {
+                "name": "Visible To",
+                "description": "One or more players who will see the Progress Bar HUD text.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "Value",
+                "description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
+                "type": "unsigned float",
+                "default": 0
+            },
+            {
+                "name": "Text",
+                "description": "The text to be displayed (can be blank)",
+                "type": "Object",
+                "default": "Custom String"
+            },
+            {
+                "name": "Location",
+                "description": "The location on the screen where the text will appear.",
+                "type": "HudPosition",
+                "default": "Left"
+            },
+            {
+                "name": "Sort Order",
+                "description": "The sort order of the text relative to other text in the same location. Text with a higher sort order will come after the text with a lower sort order.",
+                "type": "float",
+                "default": 0
+            },
+            {
+                "name": "Progress Bar Color",
+                "description": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+                "type": "Color",
+                "default": "White"
+            },
+            {
+                "name": "Text Color",
+                "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+                "type": "Color",
+                "default": "White"
+            },
+            {
+                "name": "Reevaluation",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+                "type": "ProgressHudReeval",
+                "default": "Visible To, Values, and Color"
+            },
+            {
+                "name": "Non-Team Spectators",
+                "description": "Whether non-team spectators can see the text or not.",
+                "type": "SpecVisibility",
+                "default": "Default Visibility"
+            }
         ],
-        return: "void",
-		"en-US": "Create Progress Bar HUD Text"
-	},
+        "return": "void",
+        "guid": "0000000122F3",
+        "en-US": "Create Progress Bar HUD Text",
+        "es-MX": "Crear texto del HUD en la barra de progreso",
+        "fr-FR": "Créer du texte d’interface de barre de progression",
+        "ja-JP": "進行バーHUDテキストを作成",
+        "pt-BR": "Criar Texto de HUD da Barra de Progresso",
+        "zh-CN": "创建进度条HUD文本"
+    },
     "damage": {
         "guid": "000000007876",
         "description": "Applies instantaneous damage to one or more players, possibly killing the players.",
@@ -3487,18 +3511,30 @@ const actionKw =
         "pt-BR": "Destruir Todo o Texto no Mundo",
         "zh-CN": "消除所有地图文本"
     },
-	"destroyAllProgressBarInWorldTexts": {
+    "destroyAllProgressBarInWorldTexts": {
         "description": "Destroys all progress bar in-world texts that were created by the createProgressBarInWorldText() Action.",
-        args: [],
-        return: "void",
-		"en-US": "Destroy All Progress Bar In-World Text"
-	},
-	"destroyAllProgressBarHuds": {
+        "args": [],
+        "return": "void",
+        "guid": "000000012334",
+        "en-US": "Destroy All Progress Bar In-World Text",
+        "es-MX": "Destruir todo el texto dentro del mundo en la barra de progreso",
+        "fr-FR": "Détruire tous les textes de barre de progression en jeu",
+        "ja-JP": "すべての進行バーのワールド内テキストを破棄",
+        "pt-BR": "Destruir Todos os Textos de Barra de Progresso no Mundo",
+        "zh-CN": "消除所有进度条地图文本"
+    },
+    "destroyAllProgressBarHuds": {
         "description": "Destroys all Progress Bar HUD text that were created by the Create Progress Bar HUD Text Action.",
-        args: [],
-        return: "void",
-		"en-US": "Destroy All Progress Bar HUD Text"
-	},
+        "args": [],
+        "return": "void",
+        "guid": "0000000122E2",
+        "en-US": "Destroy All Progress Bar HUD Text",
+        "es-MX": "Destruir todo el texto del HUD en la barra de progreso",
+        "fr-FR": "Détruire tous les textes d’interface de barre de progression",
+        "ja-JP": "すべての進行バーHUDテキストを破棄",
+        "pt-BR": "Destruir Todos os Textos de HUD da Barra de Progresso",
+        "zh-CN": "消除所有进度条HUD文本"
+    },
     "destroyDummy": {
         "description": "Removes the specified dummy bot from the match.",
         "args": [
@@ -3512,8 +3548,8 @@ const actionKw =
                 "name": "SLOT",
                 "description": "The slot to remove the dummy bot from.",
                 "type": "int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -3602,32 +3638,44 @@ const actionKw =
         "pt-BR": "Destruir Texto no Mundo",
         "zh-CN": "消除地图文本"
     },
-	"destroyProgressBarInWorldText": {
-		"description": "Destroys the progress bar in-world text that was created by createProgressBarInWorldText().",
-		"args": [
-			{
-				"name": "Text ID",
-				"description": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored.",
-				"type": "TextId",
-				"default": "Last Text ID"
-			}
+    "destroyProgressBarInWorldText": {
+        "description": "Destroys the progress bar in-world text that was created by createProgressBarInWorldText().",
+        "args": [
+            {
+                "name": "Text ID",
+                "description": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored.",
+                "type": "TextId",
+                "default": "Last Text ID"
+            }
         ],
-        return: "void",
-		"en-US": "Destroy Progress Bar In-World Text"
-	},
-	"destroyProgressBarHud": {
-		"description": "Destroys the progress bar HUD text that was created by progressBarHud().",
-		"args": [
-			{
-				"name": "Text ID",
-				"description": "Specifies which progress bar HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.",
-				"type": "TextId",
-				"default": "Last Text ID"
-			}
+        "return": "void",
+        "guid": "000000012336",
+        "en-US": "Destroy Progress Bar In-World Text",
+        "es-MX": "Destruir texto dentro del mundo en la barra de progreso",
+        "fr-FR": "Détruire du texte de barre de progression en jeu",
+        "ja-JP": "進行バーのワールド内テキストを破棄",
+        "pt-BR": "Destruir Texto de Barra de Progresso no Mundo",
+        "zh-CN": "消除进度条地图文本"
+    },
+    "destroyProgressBarHud": {
+        "description": "Destroys the progress bar HUD text that was created by progressBarHud().",
+        "args": [
+            {
+                "name": "Text ID",
+                "description": "Specifies which progress bar HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.",
+                "type": "TextId",
+                "default": "Last Text ID"
+            }
         ],
-        return: "void",
-		"en-US": "Destroy Progress Bar HUD Text"
-	},
+        "return": "void",
+        "guid": "0000000122E4",
+        "en-US": "Destroy Progress Bar HUD Text",
+        "es-MX": "Destruir texto del HUD en la barra de progreso",
+        "fr-FR": "Détruire le texte d’interface de barre de progression",
+        "ja-JP": "進行バーHUDテキストを破棄",
+        "pt-BR": "Destruir Texto de HUD da Barra de Progresso",
+        "zh-CN": "消除进度条HUD文本"
+    },
     "_&detach": {
         "description": "Undoes the attachment caused by the 'attachTo' action for one or more players. These players will resume normal movement from their current position.",
         "args": [
@@ -3722,7 +3770,7 @@ const actionKw =
         "fr-FR": "Désactiver l’interface en jeu du mode de jeu",
         "ja-JP": "ゲーム・モードのワールド内UIを無効化",
         "pt-BR": "Desabilitar IU no Mundo do Modo de Jogo",
-        "zh-CN": "隐藏游戏模式世界UI"
+        "zh-CN": "隐藏游戏模式地图UI"
     },
     "_&disableHeroHUD": {
         "description": "Disables the Hero HUD for one or more players until reenabled.",
@@ -4144,7 +4192,7 @@ const actionKw =
         "fr-FR": "Activer l’interface en jeu du mode de jeu",
         "ja-JP": "ゲーム・モードのワールド内UIを有効化",
         "pt-BR": "Habilitar IU no Mundo do Modo de Jogo",
-        "zh-CN": "显示游戏模式世界UI"
+        "zh-CN": "显示游戏模式地图UI"
     },
     "_&enableHeroHud": {
         "description": "Undoes the effect of the Disable Hero HUD Action for one or more players.",
@@ -4626,11 +4674,18 @@ const actionKw =
                 "name": "TEXT",
                 "description": "The string to be logged to the workshop inspector.",
                 "type": "Object",
-                "default": "CUSTOM STRING",
+                "default": "CUSTOM STRING"
             }
         ],
         "return": "void",
+        "guid": "000000012449",
         "en-US": "Log To Inspector",
+        "es-MX": "Registro para Inspector",
+        "fr-FR": "Enregistrer une entrée avec le contrôleur",
+        "it-IT": "Log to Inspector",
+        "ja-JP": "インスペクターに記録",
+        "pt-BR": "Registrar no Inspetor",
+        "zh-CN": "记入查看器"
     },
     "__loop__": {
         "guid": "0000000078F5",
@@ -4779,8 +4834,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
                 "type": "int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -4902,8 +4957,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
                 "type": "int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -5240,8 +5295,8 @@ const actionKw =
                 "name": "Charge Count",
                 "description": "The charge count that will be set.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": 0
             }
         ],
@@ -5278,8 +5333,8 @@ const actionKw =
                 "name": "COOLDOWN",
                 "description": "The cooldown time that will be set in seconds. Max of 1000.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -5316,8 +5371,8 @@ const actionKw =
                 "name": "Resource Percent",
                 "description": "The percentage of resource that will be set with respect to each player's ability resource capacity.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": 0
             }
         ],
@@ -5378,16 +5433,16 @@ const actionKw =
                 "name": "CLIP",
                 "description": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": 0
             },
             {
                 "name": "Ammo",
                 "description": "The ammo that will be set.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": 0
             }
         ],
@@ -5448,13 +5503,13 @@ const actionKw =
                 "name": "DAMAGE DEALT PERCENT",
                 "description": "The percentage of raw damage dealt to which the player or players will set their damage dealt.",
                 "type": "unsigned float",
-                min: 0,
-                max: 10000,
-                literalMax: 1000,
+                "min": 0,
+                "max": 10000,
+                "literalMax": 1000,
                 "default": "NUMBER"
             }
         ],
-        hasLiteralLimit: true,
+        "hasLiteralLimit": true,
         "guid": "00000000B995",
         "return": "void",
         "en-US": "Set Damage Dealt",
@@ -5482,13 +5537,13 @@ const actionKw =
                 "name": "DAMAGE RECEIVED PERCENT",
                 "description": "The percentage of raw damage received to which the player or players will set their damage received.",
                 "type": "unsigned float",
-                min: 0,
-                max: 10000,
-                literalMax: 1000,
+                "min": 0,
+                "max": 10000,
+                "literalMax": 1000,
                 "default": "NUMBER"
             }
         ],
-        hasLiteralLimit: true,
+        "hasLiteralLimit": true,
         "guid": "00000000B997",
         "return": "void",
         "en-US": "Set Damage Received",
@@ -5499,29 +5554,35 @@ const actionKw =
         "zh-CN": "设置受到伤害"
     },
     "_&setEnvironmentalKillCreditor": {
-		"description": "Sets the player who will received credit if the specified target player or players die to the environment before landing on the ground.",
-		"args": [
-			{
-				"name": "Target",
-				"description": "The target player or players whose death is being considered.",
-				"type": [
-					"Player",
-					{
-						"Array": "Player"
-					}
-				],
-				"default": "EVENT PLAYER"
-			},
-			{
-				"name": "Environment Credit Player",
-				"description": "The Player who will receive credit if the target player or players die to the environment before landing on the ground. An environment credit player of null indicates no player will receive credit.",
-				"type": "Player",
-				"default": "NULL"
-			}
+        "description": "Sets the player who will received credit if the specified target player or players die to the environment before landing on the ground.",
+        "args": [
+            {
+                "name": "Target",
+                "description": "The target player or players whose death is being considered.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "Environment Credit Player",
+                "description": "The Player who will receive credit if the target player or players die to the environment before landing on the ground. An environment credit player of null indicates no player will receive credit.",
+                "type": "Player",
+                "default": "NULL"
+            }
         ],
-        return: "void",
-		"en-US": "Set Environment Credit Player"
-	},
+        "return": "void",
+        "guid": "000000011C08",
+        "en-US": "Set Environment Credit Player",
+        "es-MX": "Establecer jugador de crédito por entorno",
+        "fr-FR": "Définir l’auteur en cas de mort due à l’environnement",
+        "ja-JP": "環境要因プレイヤーを設定",
+        "pt-BR": "Definir Jogador de Crédito de Ambiente",
+        "zh-CN": "设置地形消灭者玩家"
+    },
     "_&setFacing": {
         "description": "Sets the facing of one or more players to the specified direction.",
         "args": [
@@ -5599,8 +5660,8 @@ const actionKw =
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
@@ -5640,8 +5701,8 @@ const actionKw =
                 "name": "GRAVITY PERCENT",
                 "description": "The percentage of regular movement gravity to which the player or players will set their personal movement gravity.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -5678,7 +5739,7 @@ const actionKw =
                 "default": "NUMBER"
             }
         ],
-        hasLiteralLimit: true,
+        "hasLiteralLimit": true,
         "guid": "00000000B991",
         "return": "void",
         "en-US": "Set Healing Dealt",
@@ -5809,53 +5870,65 @@ const actionKw =
         "zh-CN": "设置跳跃垂直速度"
     },
     "_&setKnockbackDealt": {
-		"description": "Sets the knockback dealt of one or more players to a percentage of their raw knockback dealt.",
-		"args": [
-			{
-				"name": "Player",
-				"description": "The player or players whose knockback dealt will be set.",
-				"type": [
-					"Player",
-					{
-						"Array": "Player"
-					}
-				],
-				"default": "EVENT PLAYER"
-			},
-			{
-				"name": "Knockback Dealt Percent",
-				"description": "The percentage of raw knockback dealt to which the player or players will set their knockback dealt.",
-				"type": "unsigned float",
-				"default": 100
-			}
+        "description": "Sets the knockback dealt of one or more players to a percentage of their raw knockback dealt.",
+        "args": [
+            {
+                "name": "Player",
+                "description": "The player or players whose knockback dealt will be set.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "Knockback Dealt Percent",
+                "description": "The percentage of raw knockback dealt to which the player or players will set their knockback dealt.",
+                "type": "unsigned float",
+                "default": 100
+            }
         ],
-        return: "void",
-		"en-US": "Set Knockback Dealt"
-	},
+        "return": "void",
+        "guid": "000000011FA9",
+        "en-US": "Set Knockback Dealt",
+        "es-MX": "Establecer derribos infligidos",
+        "fr-FR": "Définir le recul infligé",
+        "ja-JP": "与えるノックバックを設定",
+        "pt-BR": "Definir Repulsão Causada",
+        "zh-CN": "设置造成的击退"
+    },
     "_&setKnockbackReceived": {
-		"description": "Sets the knockback received of one or more players to a percentage of their raw knockback received.",
-		"args": [
-			{
-				"name": "Player",
-				"description": "The player or players whose knockback received will be set.",
-				"type": [
-					"Player",
-					{
-						"Array": "Player"
-					}
-				],
-				"default": "EVENT PLAYER"
-			},
-			{
-				"name": "Knockback Received Percent",
-				"description": "The percentage of raw knockback received to which the player or players will set their knockback received.",
-				"type": "unsigned float",
-				"default": 100
-			}
+        "description": "Sets the knockback received of one or more players to a percentage of their raw knockback received.",
+        "args": [
+            {
+                "name": "Player",
+                "description": "The player or players whose knockback received will be set.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "Knockback Received Percent",
+                "description": "The percentage of raw knockback received to which the player or players will set their knockback received.",
+                "type": "unsigned float",
+                "default": 100
+            }
         ],
-        return: "void",
-		"en-US": "Set Knockback Received"
-	},
+        "return": "void",
+        "guid": "000000011FAA",
+        "en-US": "Set Knockback Received",
+        "es-MX": "Establecer derribos recibidos",
+        "fr-FR": "Définir le recul subi",
+        "ja-JP": "受けるノックバックを設定",
+        "pt-BR": "Definir Repulsão Recebida",
+        "zh-CN": "设置受到的击退"
+    },
     "setMatchTime": {
         "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
         "args": [
@@ -5863,8 +5936,8 @@ const actionKw =
                 "name": "TIME",
                 "description": "The match time in seconds.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -5895,16 +5968,16 @@ const actionKw =
                 "name": "CLIP",
                 "description": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": 0
             },
             {
                 "name": "Ammo",
                 "description": "The max ammo that will be set.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": 0
             }
         ],
@@ -5935,13 +6008,13 @@ const actionKw =
                 "name": "HEALTH PERCENT",
                 "description": "The percentage of raw max health to which the player or players will set their max health.",
                 "type": "unsigned float",
-                min: 0,
-                max: 10000,
-                literalMax: 1000,
+                "min": 0,
+                "max": 10000,
+                "literalMax": 1000,
                 "default": "NUMBER"
             }
         ],
-        hasLiteralLimit: true,
+        "hasLiteralLimit": true,
         "guid": "0000000078FA",
         "return": "void",
         "en-US": "Set Max Health",
@@ -5999,8 +6072,8 @@ const actionKw =
                 "name": "MOVE SPEED PERCENT",
                 "description": "The percentage of raw move speed to which the player or players will set their move speed.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -6031,7 +6104,7 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The message to be displayed.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "STRING"
             },
             {
@@ -6133,8 +6206,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The score that will be set.",
                 "type": "int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -6210,8 +6283,8 @@ const actionKw =
                 "name": "INDEX",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
@@ -6281,8 +6354,8 @@ const actionKw =
                 "name": "PROJECTILE GRAVITY PERCENT",
                 "description": "The percentage of regular projectile gravity to which the player or players will set their personal projectile gravity.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -6313,8 +6386,8 @@ const actionKw =
                 "name": "PROJECTILE SPEED PERCENT",
                 "description": "The percentage of regular projectile speed to which the player or players will set their personal projectile speed.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -6375,8 +6448,8 @@ const actionKw =
                 "name": "TIME",
                 "description": "The duration between death and respawn in seconds.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -6468,8 +6541,8 @@ const actionKw =
                 "name": "DURATION",
                 "description": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 9999.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -6495,8 +6568,8 @@ const actionKw =
                 "name": "SCORE",
                 "description": "The score that will be set.",
                 "type": "int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -6557,8 +6630,8 @@ const actionKw =
                 "name": "CHARGE PERCENT",
                 "description": "The percentage of maximum charge.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -6589,8 +6662,8 @@ const actionKw =
                 "name": "Weapon",
                 "description": "The number of the weapon to be equipped. 1 is the first weapon, and 2 is the second. If the specified weapon does not exist, players will use the default weapon.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": 0
             }
         ],
@@ -6611,8 +6684,8 @@ const actionKw =
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -6637,8 +6710,8 @@ const actionKw =
                 "name": "NUMBER OF ACTIONS",
                 "description": "The number of actions to skip, not including this action.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -6669,7 +6742,7 @@ const actionKw =
                 "name": "HEADER",
                 "description": "The message to be displayed.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "STRING"
             }
         ],
@@ -6956,7 +7029,7 @@ const actionKw =
                 "name": "Visibility",
                 "description": "The visibility type of the specified player outlines, if they are visible.",
                 "type": "OutlineVisibility",
-                "default": "DEFAULT",
+                "default": "DEFAULT"
             }
         ],
         "return": "void",
@@ -6981,7 +7054,7 @@ const actionKw =
                 "name": "POSITION",
                 "description": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time.",
                 "type": "Position",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "VECTOR"
             },
             {
@@ -7043,7 +7116,7 @@ const actionKw =
                 "name": "ROOM",
                 "description": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
+                "canReplace0ByFalse": true,
                 "default": "NUMBER"
             }
         ],
@@ -7074,48 +7147,48 @@ const actionKw =
                 "name": "MIN FORWARD",
                 "description": "Sets the minimum run forward amount. 0 allows the player or players to stop while 1 forces full forward movement.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX FORWARD",
                 "description": "Sets the maximum run forward amount. 0 prevents the player or players from moving forward while 1 allows full forward movement.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "MIN BACKWARD",
                 "description": "Sets the minimum run backward amount. 0 allows the player or players to stop while 1 forces full backward movement.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX BACKWARD",
                 "description": "Sets the maximum run backward amount. 0 prevents the player or players from moving backward while 1 allows full backward movement.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "MIN SIDEWAYS",
                 "description": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX SIDEWAYS",
                 "description": "Sets the maximum run sideways amount. 0 prevents the player or players from moving SIDEWAYS while 1 allows full sideways movement.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -7128,41 +7201,47 @@ const actionKw =
         "pt-BR": "Começar a Forçar Aceleração",
         "zh-CN": "开始限制阈值"
     },
-	"_&startGrantingAssistFor": {
-		"description": "Starts granting assist credit toward to one or more assisters when one or more targets are eliminated. A reference to this assist modification can be obtained from the getLastAssistId() value. This action will fail if too many assists have been started.",
-		"args": [
-			{
-				"name": "Assisters",
-				"description": "The target Player or Players who will receive assist credit.",
-				"type": [
-					"Player",
-					{
-						"Array": "Player"
-					}
-				],
-				"default": "EVENT PLAYER"
-			},
-			{
-				"name": "Targets",
-				"description": "The Player or Players whose eliminations will grant assist credit to the Assisters. If the Target or Targets are allied to the Assister, this will be a defensive assist. Otherwise, this will be an offensive assist.",
-				"type": [
-					"Player",
-					{
-						"Array": "Player"
-					}
-				],
-				"default": "ALL PLAYERS"
-			},
-			{
-				"name": "Reevaluation",
-				"description": "Specifies which of this Action's Inputs will be continously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
-				"type": "AssistReeval",
-				"default": "Assisters and Targets"
-			}
+    "_&startGrantingAssistFor": {
+        "description": "Starts granting assist credit toward to one or more assisters when one or more targets are eliminated. A reference to this assist modification can be obtained from the getLastAssistId() value. This action will fail if too many assists have been started.",
+        "args": [
+            {
+                "name": "Assisters",
+                "description": "The target Player or Players who will receive assist credit.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "EVENT PLAYER"
+            },
+            {
+                "name": "Targets",
+                "description": "The Player or Players whose eliminations will grant assist credit to the Assisters. If the Target or Targets are allied to the Assister, this will be a defensive assist. Otherwise, this will be an offensive assist.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "ALL PLAYERS"
+            },
+            {
+                "name": "Reevaluation",
+                "description": "Specifies which of this Action's Inputs will be continously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+                "type": "AssistReeval",
+                "default": "Assisters and Targets"
+            }
         ],
-        return: "void",
-		"en-US": "Start Assist"
-	},
+        "return": "void",
+        "guid": "000000012200",
+        "en-US": "Start Assist",
+        "es-MX": "Comenzar asistencia",
+        "fr-FR": "Lancer le soutien",
+        "ja-JP": "アシストを開始",
+        "pt-BR": "Iniciar Assistência",
+        "zh-CN": "开始助攻"
+    },
     "_&startHoT": {
         "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
         "args": [
@@ -7299,8 +7378,8 @@ const actionKw =
             {
                 "name": "Pitch Scalar",
                 "description": "The amount that the pitch of the voice will be raised (up to 1.5) or lowered (down to 0.5).",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "type": "unsigned float"
             },
             {
@@ -7337,8 +7416,8 @@ const actionKw =
                 "name": "Scale",
                 "description": "The multiplier applied to the size of the barriers (0.5 halves the size, 2.0 doubles the size, etc.).",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": 1
             },
             {
@@ -7375,8 +7454,8 @@ const actionKw =
                 "name": "Scale",
                 "description": "The multiplier applied to the size of the player or players (0.5 halves the size, 2.0 doubles the size, etc.).",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": 1
             },
             {
@@ -7540,12 +7619,18 @@ const actionKw =
         "pt-BR": "Parar de Acelerar",
         "zh-CN": "停止加速"
     },
-	"stopAllAssists": {
+    "stopAllAssists": {
         "description": "Stops all assists that were started using the Start Assist Action.",
-        args: [],
-        return: "void",
-		"en-US": "Stop All Assists"
-	},
+        "args": [],
+        "return": "void",
+        "guid": "0000000121FA",
+        "en-US": "Stop All Assists",
+        "es-MX": "Detener todas las asistencias",
+        "fr-FR": "Arrêter tous les soutiens",
+        "ja-JP": "すべてのアシストを停止",
+        "pt-BR": "Interromper Todas as Assistências",
+        "zh-CN": "停止所有助攻"
+    },
     "stopAllDamageModifications": {
         "description": "Stops all damage modifications that were started using the start damage modification action.",
         "args": [],
@@ -7618,19 +7703,25 @@ const actionKw =
         "pt-BR": "Parar Toda a Cura ao Longo do Tempo",
         "zh-CN": "停止所有持续治疗"
     },
-	"stopAssist": {
-		"description": "Stops an assist that was started by the Start Assist Action.",
-		"args": [
-			{
-				"name": "Assist ID",
-				"description": "Specifies which assist instance to stop. This ID may be Last Assist ID or a Variable into which Last Assist ID was earlier stored.",
-				"type": "AssistId",
-				"default": "Last Assist ID"
-			}
+    "stopAssist": {
+        "description": "Stops an assist that was started by the Start Assist Action.",
+        "args": [
+            {
+                "name": "Assist ID",
+                "description": "Specifies which assist instance to stop. This ID may be Last Assist ID or a Variable into which Last Assist ID was earlier stored.",
+                "type": "AssistId",
+                "default": "Last Assist ID"
+            }
         ],
-        return: "void",
-		"en-US": "Stop Assist"
-	},
+        "return": "void",
+        "guid": "0000000121FC",
+        "en-US": "Stop Assist",
+        "es-MX": "Detener asistencia",
+        "fr-FR": "Arrêter le soutien",
+        "ja-JP": "アシストを停止",
+        "pt-BR": "Interromper Assistência",
+        "zh-CN": "停止助攻"
+    },
     "_&stopCamera": {
         "description": "Restores the camera to the default view.",
         "args": [
@@ -8099,7 +8190,7 @@ const actionKw =
                 "name": "POSITION",
                 "description": "The position to which the player or players will teleport. If a player is provided, the position of the player is used.",
                 "type": "Position",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "VECTOR"
             }
         ],
@@ -8131,8 +8222,8 @@ const actionKw =
                 "name": "TIME",
                 "description": "The duration of the pause.",
                 "type": "unsigned float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
@@ -8157,16 +8248,23 @@ const actionKw =
                 "name": "CONTINUE CONDITION",
                 "description": "If this value becomes true, the wait concludes, and the next action in the action list begins executing.",
                 "type": "bool",
-                "default": "false",
-            },{
+                "default": "false"
+            },
+            {
                 "name": "TIMEOUT",
                 "description": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing.",
                 "type": "unsigned float",
-                "default": "99999",
+                "default": "99999"
             }
         ],
-        return: "void",
+        "return": "void",
+        "guid": "0000000121C2",
         "en-US": "Wait Until",
+        "es-MX": "Esperar hasta",
+        "fr-FR": "Attendre jusqu’à",
+        "ja-JP": "条件待機",
+        "pt-BR": "Esperar até",
+        "zh-CN": "等待直到 "
     },
     "__while__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action.",
@@ -8274,7 +8372,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "String",
         "guid": "000000010B52",
         "en-US": "Ability Icon String",
@@ -8340,7 +8438,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
-                canReplace1ByTrue: true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
@@ -8350,7 +8448,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
-                canReplace1ByTrue: true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -8379,7 +8477,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "guid": "00000000B265",
         "en-US": "All Dead Players",
         "es-MX": "Todos los jugadores muertos",
@@ -8395,7 +8493,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "guid": "00000000D40A",
         "en-US": "All Damage Heroes",
         "de-DE": "Alle Schadenshelden",
@@ -8413,7 +8511,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "en-US": "All Heroes",
         "es-MX": "Todos los héroes",
         "fr-FR": "Tous les héros",
@@ -8434,7 +8532,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "guid": "00000000B264",
         "en-US": "All Living Players",
         "es-MX": "Todos los jugadores vivos",
@@ -8456,7 +8554,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "guid": "00000000B261",
         "en-US": "All Players",
         "es-MX": "Todos los jugadores",
@@ -8478,7 +8576,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "guid": "00000000B267",
         "en-US": "All Players Not On Objective",
         "es-MX": "Todos los jugadores que no están en el objetivo",
@@ -8500,7 +8598,7 @@ var valueFuncKw =
         "return": {
             "Array": "Player"
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "guid": "00000000B266",
         "en-US": "All Players On Objective",
         "es-MX": "Todos los jugadores que están en el objetivo",
@@ -8522,7 +8620,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "guid": "00000000BBA8",
         "en-US": "Allowed Heroes",
         "es-MX": "Héroes permitidos",
@@ -8538,7 +8636,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "guid": "00000000D40B",
         "en-US": "All Support Heroes",
         "de-DE": "Alle Unterstützungshelden",
@@ -8555,7 +8653,7 @@ var valueFuncKw =
         "return": {
             "Array": "Hero"
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "guid": "00000000D40C",
         "en-US": "All Tank Heroes",
         "de-DE": "Alle Tankhelden",
@@ -8597,8 +8695,8 @@ var valueFuncKw =
                 "name": "CLIP",
                 "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": 0
             }
         ],
@@ -8709,7 +8807,7 @@ var valueFuncKw =
                         "Array": "Object"
                     }
                 ],
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
@@ -8864,7 +8962,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NULL"
             }
         ],
@@ -8891,7 +8989,7 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The value for which to search.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
@@ -8920,16 +9018,16 @@ var valueFuncKw =
                 "name": "START INDEX",
                 "description": "The first index of the range.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "COUNT",
                 "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -8949,7 +9047,7 @@ var valueFuncKw =
         "guid": "00000000B32F",
         "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
         "args": null,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Player",
         "en-US": "Attacker",
         "es-MX": "Atacante",
@@ -8969,7 +9067,7 @@ var valueFuncKw =
                 "signed int"
             ]
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "isConstant": true,
         "en-US": "Backward",
         "es-MX": "Atrás",
@@ -8989,7 +9087,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Button",
         "guid": "000000010B3B",
         "en-US": "Button",
@@ -9015,7 +9113,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Player",
         "guid": "00000000B1DE",
         "en-US": "Closest Player To",
@@ -9025,21 +9123,26 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo a",
         "zh-CN": "距离最近的玩家"
     },
-	"__color__": {
-		"description": "A Color Constant",
-		"args": [
-			{
-				"name": "Color",
-				"description": "A Color Constant",
-				"type": "ColorLiteral",
-				"default": "White"
-			}
-		],
-        canBePutInBoolean: false,
+    "__color__": {
+        "description": "A Color Constant",
+        "args": [
+            {
+                "name": "Color",
+                "description": "A Color Constant",
+                "type": "ColorLiteral",
+                "default": "White"
+            }
+        ],
+        "canBePutInBoolean": false,
         "isConstant": true,
-		"return": "Color",
-		"en-US": "Color"
-	},
+        "return": "Color",
+        "guid": "000000011D42",
+        "en-US": "Color",
+        "fr-FR": "Couleur",
+        "ja-JP": "色",
+        "pt-BR": "Cor",
+        "zh-CN": "颜色"
+    },
     "__compare__": {
         "description": "Whether the comparison of the two inputs is true.",
         "args": [
@@ -9100,7 +9203,7 @@ var valueFuncKw =
     "getControlScoringTeam": {
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
         "args": [],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Team",
         "guid": "00000000B39A",
         "en-US": "Control Mode Scoring Team",
@@ -9187,7 +9290,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Vector",
         "guid": "00000000C35D",
         "en-US": "Cross Product",
@@ -9233,7 +9336,7 @@ var valueFuncKw =
         "description": "The current game mode of the custom game.",
         "args": [],
         "isConstant": true,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Gamemode",
         "guid": "00000000F163",
         "en-US": "Current Game Mode",
@@ -9248,7 +9351,7 @@ var valueFuncKw =
         "description": "The current map of the custom game.",
         "args": [],
         "isConstant": true,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Map",
         "en-US": "Current Map",
         "es-MX": "Mapa actual",
@@ -9257,39 +9360,45 @@ var valueFuncKw =
         "pt-BR": "Mapa Atual",
         "zh-CN": "当前地图"
     },
-	"rgba": {
-		"description": "A custom color with the specified red, green, blue and alpha values.",
-		"args": [
-			{
-				"name": "Red",
-				"description": "The red component of a color, from 0 to 255.",
-				"type": "unsigned int",
-				"default": 255
-			},
-			{
-				"name": "Green",
-				"description": "The green component of a color, from 0 to 255.",
-				"type": "unsigned int",
-				"default": 255
-			},
-			{
-				"name": "Blue",
-				"description": "The blue component of a color, from 0 to 255.",
-				"type": "unsigned int",
-				"default": 255
-			},
-			{
-				"name": "Alpha",
-				"description": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible.",
-				"type": "unsigned int",
-				"default": 255
-			}
-		],
-        canBePutInBoolean: false,
+    "rgba": {
+        "description": "A custom color with the specified red, green, blue and alpha values.",
+        "args": [
+            {
+                "name": "Red",
+                "description": "The red component of a color, from 0 to 255.",
+                "type": "unsigned int",
+                "default": 255
+            },
+            {
+                "name": "Green",
+                "description": "The green component of a color, from 0 to 255.",
+                "type": "unsigned int",
+                "default": 255
+            },
+            {
+                "name": "Blue",
+                "description": "The blue component of a color, from 0 to 255.",
+                "type": "unsigned int",
+                "default": 255
+            },
+            {
+                "name": "Alpha",
+                "description": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible.",
+                "type": "unsigned int",
+                "default": 255
+            }
+        ],
+        "canBePutInBoolean": false,
         "isConstant": true,
-		"return": "Color",
-		"en-US": "Custom Color"
-	},
+        "return": "Color",
+        "guid": "000000011DA2",
+        "en-US": "Custom Color",
+        "es-MX": "Color personalizado",
+        "fr-FR": "Couleur personnalisée",
+        "ja-JP": "カスタム・カラー",
+        "pt-BR": "Cor Personalizada",
+        "zh-CN": "自定义颜色"
+    },
     "__customString__": {
         "description": "ty magzie for adding that",
         "args": [
@@ -9303,26 +9412,26 @@ var valueFuncKw =
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NULL"
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NULL"
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NULL"
             }
         ],
         "isConstant": true,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "String",
         "guid": "00000000CE3C",
         "en-US": "Custom String",
@@ -9349,7 +9458,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Direction",
         "guid": "00000000BB2D",
         "en-US": "Direction From Angles",
@@ -9375,7 +9484,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "isConstant": true,
         "return": "Direction",
         "guid": "00000000B1EA",
@@ -9423,7 +9532,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
-                canReplace1ByTrue: true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
@@ -9485,7 +9594,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "isConstant": true,
         "en-US": "Down",
         "es-MX": "Abajo",
@@ -9529,24 +9638,36 @@ var valueFuncKw =
         "pt-BR": "Entidade Existe",
         "zh-CN": "实体存在"
     },
-	"evalOnce": {
-		"description": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop.",
-		"args": [
-			{
-				"name": "Input Value",
+    "evalOnce": {
+        "description": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop.",
+        "args": [
+            {
+                "name": "Input Value",
                 "description": "The value that will be only evaluated once.",
-                "type": ["Object", "Array"],
-				"default": 0
-			}
-		],
+                "type": [
+                    "Object",
+                    "Array"
+                ],
+                "default": 0
+            }
+        ],
         "isConstant": true,
-        return: ["Object", "Array"],
-		"en-US": "Evaluate Once"
-	},
+        "return": [
+            "Object",
+            "Array"
+        ],
+        "guid": "000000012214",
+        "en-US": "Evaluate Once",
+        "es-MX": "Evaluar una vez",
+        "fr-FR": "Évaluer une fois",
+        "ja-JP": "一度だけ評価",
+        "pt-BR": "Avaliar Uma Vez",
+        "zh-CN": "单次赋值"
+    },
     "eventAbility": {
         "description": "The ability for the event currently being processed by this rule associated by button.",
         "args": null,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Button",
         "guid": "0000000109CF",
         "en-US": "Event Ability",
@@ -9571,7 +9692,7 @@ var valueFuncKw =
     "eventDirection": {
         "description": "The incoming direction for the event currently being processed by this rule.",
         "args": null,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Direction",
         "guid": "0000000107D5",
         "en-US": "Event Direction",
@@ -9596,7 +9717,7 @@ var valueFuncKw =
     "eventPlayer": {
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
         "args": null,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Player",
         "guid": "00000000B331",
         "en-US": "Event Player",
@@ -9654,7 +9775,7 @@ var valueFuncKw =
             }
         ],
         "return": "Position",
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "en-US": "Eye Position",
         "es-MX": "Posición de la vista",
         "fr-FR": "Position des yeux",
@@ -9672,7 +9793,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Direction",
         "guid": "00000000B281",
         "en-US": "Facing Direction Of",
@@ -9709,7 +9830,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Player",
         "guid": "00000000B1DF",
         "en-US": "Farthest Player From",
@@ -9778,7 +9899,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Position",
         "guid": "00000000B3A0",
         "en-US": "Flag Position",
@@ -9800,7 +9921,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "en-US": "Forward",
         "es-MX": "Adelante",
         "fr-FR": "Avant",
@@ -9979,7 +10100,7 @@ var valueFuncKw =
                 "default": "ANA"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "isConstant": true,
         "return": "Hero",
         "en-US": "Hero",
@@ -9999,7 +10120,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Hero",
         "guid": "000000010E6A",
         "en-US": "Hero Being Duplicated",
@@ -10019,7 +10140,7 @@ var valueFuncKw =
                 "default": "HERO"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "isConstant": true,
         "return": "String",
         "guid": "00000000C1FE",
@@ -10040,7 +10161,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Hero",
         "guid": "00000000ACA9",
         "en-US": "Hero Of",
@@ -10107,7 +10228,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Gamemode",
         "en-US": "Game Mode",
         "es-MX": "Modo de juego",
@@ -10177,7 +10298,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "String",
         "guid": "00000000CCDC",
         "en-US": "Icon String",
@@ -10203,7 +10324,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             },
             {
@@ -10213,7 +10334,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
@@ -10242,7 +10363,7 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The value for which to search.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
@@ -10266,7 +10387,7 @@ var valueFuncKw =
                 "default": "Button"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "isConstant": true,
         "return": "String",
         "guid": "0000000111B7",
@@ -10408,19 +10529,25 @@ var valueFuncKw =
         "pt-BR": "É Comunicando Qualquer Emote",
         "zh-CN": "正在使用表情交流"
     },
-	"_&isCommunicatingSpray": {
-		"description": "Whether a Player is using a spray.",
-		"args": [
-			{
-				"name": "Player",
-				"description": "The Player whose spray status to check.",
-				"type": "Player",
-				"default": "Event Player"
-			}
-		],
-		"return": "bool",
-		"en-US": "Is Communicating Any Spray"
-	},
+    "_&isCommunicatingSpray": {
+        "description": "Whether a Player is using a spray.",
+        "args": [
+            {
+                "name": "Player",
+                "description": "The Player whose spray status to check.",
+                "type": "Player",
+                "default": "Event Player"
+            }
+        ],
+        "return": "bool",
+        "guid": "000000012290",
+        "en-US": "Is Communicating Any Spray",
+        "es-MX": "Comunica un spray",
+        "fr-FR": "Communication par tag",
+        "ja-JP": "スプレーでコミュニケーションしている",
+        "pt-BR": "É Comunicando Qualquer Spray",
+        "zh-CN": "正在使用喷漆交流"
+    },
     "_&isCommunicatingVoiceline": {
         "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
         "args": [
@@ -10866,8 +10993,8 @@ var valueFuncKw =
                 "name": "NUMBER",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -11153,16 +11280,22 @@ var valueFuncKw =
         "pt-BR": "É Aguardando Jogadores",
         "zh-CN": "正在等待玩家"
     },
-	"getLastAssistID": {
+    "getLastAssistID": {
         "description": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level).",
-        args: [],
-		"return": "AssistId",
-		"en-US": "Last Assist ID"
-	},
+        "args": [],
+        "return": "AssistId",
+        "guid": "0000000121F2",
+        "en-US": "Last Assist ID",
+        "es-MX": "ID de asistencia anterior",
+        "fr-FR": "Dernier identifiant de soutien",
+        "ja-JP": "最新のアシストID",
+        "pt-BR": "ID da Última Assistência",
+        "zh-CN": "上一个助攻ID"
+    },
     "getLastCreatedEntity": {
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
         "args": [],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "EntityId",
         "guid": "00000000B362",
         "en-US": "Last Created Entity",
@@ -11279,7 +11412,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "en-US": "Left",
         "es-MX": "Izquierda",
         "fr-FR": "Gauche",
@@ -11309,7 +11442,7 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Vector",
         "guid": "00000000B342",
         "en-US": "Local Vector Of",
@@ -11319,20 +11452,26 @@ var valueFuncKw =
         "pt-BR": "Vetor Local de",
         "zh-CN": "本地矢量"
     },
-	"magnitude": {
-		"description": "The magnitude (length) of the specified vector",
-		"args": [
-			{
-				"name": "vector",
+    "magnitude": {
+        "description": "The magnitude (length) of the specified vector",
+        "args": [
+            {
+                "name": "vector",
                 "description": "The vector to calculate the magnitude of.",
                 "type": "Vector",
-				"default": "Vector"
-			}
-		],
+                "default": "Vector"
+            }
+        ],
         "isConstant": true,
-		"return": "unsigned float",
-		"en-US": "Magnitude Of"
-	},
+        "return": "unsigned float",
+        "guid": "000000011F55",
+        "en-US": "Magnitude Of",
+        "es-MX": "Magnitud de",
+        "fr-FR": "Ampleur de",
+        "ja-JP": "変化の大きさ:",
+        "pt-BR": "Magnitude de",
+        "zh-CN": "幅值"
+    },
     "__map__": {
         "guid": "00000000D411",
         "description": "A map constant.",
@@ -11344,7 +11483,7 @@ var valueFuncKw =
                 "default": "AYUTTHAYA"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "isConstant": true,
         "return": "Map",
         "en-US": "Map",
@@ -11417,16 +11556,16 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -11452,8 +11591,8 @@ var valueFuncKw =
                 "name": "CLIP",
                 "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": 0
             }
         ],
@@ -11518,16 +11657,16 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -11548,14 +11687,14 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
-                canReplace1ByTrue: true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "unsigned float",
-                canReplace1ByTrue: true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -11612,7 +11751,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Position",
         "guid": "00000000C324",
         "en-US": "Nearest Walkable Position",
@@ -11632,7 +11771,7 @@ var valueFuncKw =
                 "default": "VECTOR"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "isConstant": true,
         "return": "Vector",
         "guid": "00000000C344",
@@ -11667,7 +11806,7 @@ var valueFuncKw =
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
         "args": null,
         "isConstant": true,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Player",
         "guid": "00000000B594",
         "en-US": "Null",
@@ -11689,9 +11828,10 @@ var valueFuncKw =
         ],
         "return": "unsigned int",
         "guid": "00000000B29A",
-        "en-US": "Number of Dead Players",
+        "en-US": "Number Of Dead Players",
         "es-MX": "Cantidad de jugadores muertos",
         "fr-FR": "Nombre de joueurs morts",
+        "it-IT": "Number of Dead Players",
         "ja-JP": "倒れたプレイヤーの数",
         "pt-BR": "Número de Jogadores Mortos",
         "zh-CN": "死亡玩家数量"
@@ -11708,9 +11848,10 @@ var valueFuncKw =
         ],
         "return": "unsigned int",
         "guid": "00000000B103",
-        "en-US": "Number of Deaths",
+        "en-US": "Number Of Deaths",
         "es-MX": "Cantidad de muertes",
         "fr-FR": "Nombre de morts",
+        "it-IT": "Number of Deaths",
         "ja-JP": "デス数",
         "pt-BR": "Número de Mortes",
         "zh-CN": "死亡数"
@@ -11727,9 +11868,10 @@ var valueFuncKw =
         ],
         "return": "unsigned int",
         "guid": "00000000B101",
-        "en-US": "Number of Eliminations",
+        "en-US": "Number Of Eliminations",
         "es-MX": "Cantidad de eliminaciones",
         "fr-FR": "Nombre d’éliminations",
+        "it-IT": "Number of Eliminations",
         "ja-JP": "キル数",
         "pt-BR": "Número de Eliminações",
         "zh-CN": "消灭数"
@@ -11746,9 +11888,10 @@ var valueFuncKw =
         ],
         "return": "unsigned int",
         "guid": "00000000B102",
-        "en-US": "Number of Final Blows",
+        "en-US": "Number Of Final Blows",
         "es-MX": "Cantidad de golpes de gracia",
         "fr-FR": "Nombre de coups de grâce",
+        "it-IT": "Number of Final Blows",
         "ja-JP": "ファイナル・ブロウ数",
         "pt-BR": "Número de Golpes Finais",
         "zh-CN": "最后一击数"
@@ -11771,9 +11914,10 @@ var valueFuncKw =
         ],
         "return": "unsigned int",
         "guid": "00000000B296",
-        "en-US": "Number of Heroes",
+        "en-US": "Number Of Heroes",
         "es-MX": "Cantidad de héroes",
         "fr-FR": "Nombre de héros",
+        "it-IT": "Number of Heroes",
         "ja-JP": "ヒーローの数",
         "pt-BR": "Número de Heróis",
         "zh-CN": "英雄数量"
@@ -11790,9 +11934,10 @@ var valueFuncKw =
         ],
         "return": "unsigned int",
         "guid": "00000000B297",
-        "en-US": "Number of Living Players",
+        "en-US": "Number Of Living Players",
         "es-MX": "Cantidad de jugadores vivos",
         "fr-FR": "Nombre de joueurs en vie",
+        "it-IT": "Number of Living Players",
         "ja-JP": "生存プレイヤーの数",
         "pt-BR": "Número de Jogadores Vivos",
         "zh-CN": "存活玩家数量"
@@ -11809,9 +11954,10 @@ var valueFuncKw =
         ],
         "return": "unsigned int",
         "guid": "00000000B295",
-        "en-US": "Number of Players",
+        "en-US": "Number Of Players",
         "es-MX": "Cantidad de jugadores",
         "fr-FR": "Nombre de joueurs",
+        "it-IT": "Number of Players",
         "ja-JP": "プレイヤーの数",
         "pt-BR": "Número de Jogadores",
         "zh-CN": "玩家数量"
@@ -11828,27 +11974,35 @@ var valueFuncKw =
         ],
         "return": "unsigned int",
         "guid": "00000000B29B",
-        "en-US": "Number of Players On Objective",
+        "en-US": "Number Of Players On Objective",
         "es-MX": "Cantidad de jugadores en el objetivo",
         "fr-FR": "Nombre de joueurs sur l’objectif",
+        "it-IT": "Number of Players On Objective",
         "ja-JP": "目標を確保中のプレイヤーの数",
         "pt-BR": "Número de Jogadores no Objetivo",
         "zh-CN": "目标点上玩家数量"
     },
-	"getNumberOfSlots": {
-		"description": "The number of slots on a team or in the match.",
-		"args": [
-			{
-				"name": "Team",
-				"description": "The team or teams on which to count slots.",
-				"type": "Team",
-				"default": "Team"
-			}
-		],
+    "getNumberOfSlots": {
+        "description": "The number of slots on a team or in the match.",
+        "args": [
+            {
+                "name": "Team",
+                "description": "The team or teams on which to count slots.",
+                "type": "Team",
+                "default": "Team"
+            }
+        ],
         "isConstant": true,
-		"return": "unsigned int",
-		"en-US": "Number of Slots"
-	},
+        "return": "unsigned int",
+        "guid": "000000011CB7",
+        "en-US": "Number Of Slots",
+        "es-MX": "Cantidad de espacios",
+        "fr-FR": "Nombre d’emplacements",
+        "it-IT": "Number of Slots",
+        "ja-JP": "スロットの数",
+        "pt-BR": "Número de Espaços",
+        "zh-CN": "栏位数量"
+    },
     "getCurrentObjective": {
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
         "args": [],
@@ -11868,8 +12022,8 @@ var valueFuncKw =
                 "name": "NUMBER",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -11893,7 +12047,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "isConstant": true,
         "return": "Team",
         "guid": "00000000BB0A",
@@ -11933,7 +12087,7 @@ var valueFuncKw =
     "getPayloadPosition": {
         "description": "The position in the world of the active payload.",
         "args": [],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Position",
         "guid": "00000000B356",
         "en-US": "Payload Position",
@@ -11965,7 +12119,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Player",
         "guid": "00000000B3A3",
         "en-US": "Player Carrying Flag",
@@ -12000,50 +12154,62 @@ var valueFuncKw =
         "pt-BR": "Jogador Mais Próximo da Mira",
         "zh-CN": "距离准星最近的玩家"
     },
-	"_&getHeroStatistic": {
-		"description": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
-		"args": [
-			{
-				"name": "Player",
-				"description": "The Player whose statistic to acquire.",
-				"type": "Player",
-				"default": "Event Player"
-			},
-			{
-				"name": "Hero",
-				"description": "The hero whose statistic to acquire",
-				"type": "Hero",
-				"default": "Hero"
-			},
-			{
-				"name": "Stat",
-				"description": "The statistic to acquire.",
-				"type": "Stat",
-				"default": "All Damage Dealt"
-			}
-		],
-		"return": "unsigned float",
-		"en-US": "Player Hero Stat"
-	},
-	"_&getStatistic": {
-		"description": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
-		"args": [
-			{
-				"name": "Player",
-				"description": "The Player whose statistic to acquire.",
-				"type": "Player",
-				"default": "Event Player"
-			},
-			{
-				"name": "Statistic",
-				"description": "The statistic to acquire.",
-				"type": "Stat",
-				"default": "All Damage Dealt"
-			}
-		],
-		"return": "unsigned float",
-		"en-US": "Player Stat"
-	},
+    "_&getHeroStatistic": {
+        "description": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
+        "args": [
+            {
+                "name": "Player",
+                "description": "The Player whose statistic to acquire.",
+                "type": "Player",
+                "default": "Event Player"
+            },
+            {
+                "name": "Hero",
+                "description": "The hero whose statistic to acquire",
+                "type": "Hero",
+                "default": "Hero"
+            },
+            {
+                "name": "Stat",
+                "description": "The statistic to acquire.",
+                "type": "Stat",
+                "default": "All Damage Dealt"
+            }
+        ],
+        "return": "unsigned float",
+        "guid": "000000012505",
+        "en-US": "Player Hero Stat",
+        "es-MX": "Estadística de héroe del jugador",
+        "fr-FR": "Stats de héros de joueur",
+        "ja-JP": "プレイヤー・ヒーロー統計",
+        "pt-BR": "Estatística de Herói do Jogador",
+        "zh-CN": "玩家英雄数据"
+    },
+    "_&getStatistic": {
+        "description": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
+        "args": [
+            {
+                "name": "Player",
+                "description": "The Player whose statistic to acquire.",
+                "type": "Player",
+                "default": "Event Player"
+            },
+            {
+                "name": "Statistic",
+                "description": "The statistic to acquire.",
+                "type": "Stat",
+                "default": "All Damage Dealt"
+            }
+        ],
+        "return": "unsigned float",
+        "guid": "000000012507",
+        "en-US": "Player Stat",
+        "es-MX": "Estadística de jugador",
+        "fr-FR": "Stats de joueur",
+        "ja-JP": "プレイヤーの統計",
+        "pt-BR": "Estatística de Jogador",
+        "zh-CN": "玩家数据"
+    },
     "__playerVar__": {
         "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
@@ -12076,8 +12242,8 @@ var valueFuncKw =
                 "name": "SLOT",
                 "description": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
@@ -12093,7 +12259,7 @@ var valueFuncKw =
                 "Array": "Player"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "guid": "00000000B334",
         "en-US": "Players In Slot",
         "es-MX": "Jugadores en la posición",
@@ -12151,7 +12317,7 @@ var valueFuncKw =
                 "default": "TEAM"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": {
             "Array": "Player"
         },
@@ -12191,7 +12357,7 @@ var valueFuncKw =
                 "default": "OFF"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": {
             "Array": "Player"
         },
@@ -12225,7 +12391,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Position",
         "guid": "00000000B11C",
         "en-US": "Position Of",
@@ -12268,16 +12434,16 @@ var valueFuncKw =
                 "name": "MIN",
                 "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
                 "type": "int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "MAX",
                 "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
                 "type": "int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -12394,7 +12560,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Direction",
         "guid": "00000000C613",
         "en-US": "Ray Cast Hit Normal",
@@ -12442,7 +12608,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Player",
         "guid": "00000000C611",
         "en-US": "Ray Cast Hit Player",
@@ -12490,7 +12656,7 @@ var valueFuncKw =
                 "default": "TRUE"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Position",
         "guid": "00000000C597",
         "en-US": "Ray Cast Hit Position",
@@ -12516,7 +12682,7 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
@@ -12542,7 +12708,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "en-US": "Right",
         "es-MX": "Derecha",
         "fr-FR": "Droite",
@@ -12720,21 +12886,27 @@ var valueFuncKw =
         "pt-BR": "Matriz Ordenada",
         "zh-CN": "已排序的数组"
     },
-	"getSpawnPoints": {
-		"description": "The active spawn points for a team or for the match, provided as an array of position vectors.",
-		"args": [
-			{
-				"name": "Team",
-				"description": "The team whose spawn points to acquire.",
-				"type": "Team",
-				"default": "Team"
-			}
-		],
-		"return": {
-            "Array": "Position",
+    "getSpawnPoints": {
+        "description": "The active spawn points for a team or for the match, provided as an array of position vectors.",
+        "args": [
+            {
+                "name": "Team",
+                "description": "The team whose spawn points to acquire.",
+                "type": "Team",
+                "default": "Team"
+            }
+        ],
+        "return": {
+            "Array": "Position"
         },
-		"en-US": "Spawn Points"
-	},
+        "guid": "000000011FE7",
+        "en-US": "Spawn Points",
+        "es-MX": "Puntos de aparición",
+        "fr-FR": "Points d’apparition",
+        "ja-JP": "リスポーン地点",
+        "pt-BR": "Pontos de Ressurgimento",
+        "zh-CN": "重生点"
+    },
     "_&getSpeed": {
         "description": "The current speed of a player in meters per second.",
         "args": [
@@ -12813,25 +12985,25 @@ var valueFuncKw =
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NULL"
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NULL"
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
                 "type": "Object",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NULL"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "isConstant": true,
         "return": "String",
         "en-US": "String",
@@ -12840,66 +13012,84 @@ var valueFuncKw =
         "ja-JP": "文字列",
         "zh-CN": "字符串"
     },
-	"strContains": {
-		"description": "Whether the specified string contains the specified substring.",
-		"args": [
-			{
-				"name": "String",
-				"description": "The string in which to search for the specified substring.",
-				"type": "String",
-				"default": "Custom String"
-			},
-			{
-				"name": "Substring",
-				"description": "The substring for which to search.",
-				"type": "String",
-				"default": "Custom String"
-			}
-		],
+    "strContains": {
+        "description": "Whether the specified string contains the specified substring.",
+        "args": [
+            {
+                "name": "String",
+                "description": "The string in which to search for the specified substring.",
+                "type": "String",
+                "default": "Custom String"
+            },
+            {
+                "name": "Substring",
+                "description": "The substring for which to search.",
+                "type": "String",
+                "default": "Custom String"
+            }
+        ],
         "isConstant": true,
-		"return": "bool",
-		"en-US": "String Contains"
-	},
-	"strLen": {
-		"description": "The length in characters of the provided string.",
-		"args": [
-			{
-				"name": "String",
-				"description": "The string whose characters to count.",
-				"type": "String",
-				"default": "Global Variable"
-			}
-		],
+        "return": "bool",
+        "guid": "000000012070",
+        "en-US": "String Contains",
+        "es-MX": "La cadena contiene",
+        "fr-FR": "Contenu de la chaîne",
+        "ja-JP": "含む文字列",
+        "pt-BR": "String Contém",
+        "zh-CN": "字符串包含"
+    },
+    "strLen": {
+        "description": "The length in characters of the provided string.",
+        "args": [
+            {
+                "name": "String",
+                "description": "The string whose characters to count.",
+                "type": "String",
+                "default": "Global Variable"
+            }
+        ],
         "isConstant": true,
-		"return": "unsigned int",
-		"en-US": "String Length"
-	},
-	"__substring__": {
-		"description": "The substring of the provided string.",
-		"args": [
-			{
-				"name": "String",
-				"description": "The string value from which to build the substring.",
-				"type": "String",
-				"default": "Global Variable"
-			},
-			{
-				"name": "Substring Start Index",
-				"description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
-				"type": "unsigned int",
-				"default": 0
-			},
-			{
-				"name": "Substring Length",
-				"description": "Specifies the number of characters in the substring.",
-				"type": "unsigned int",
-				"default": 0
-			}
-		],
+        "return": "unsigned int",
+        "guid": "0000000124A2",
+        "en-US": "String Length",
+        "es-MX": "Longitud de la cadena",
+        "fr-FR": "Longueur de la chaîne",
+        "ja-JP": "文字列の長さ",
+        "pt-BR": "Tamanho da String",
+        "zh-CN": "字符串长度"
+    },
+    "__substring__": {
+        "description": "The substring of the provided string.",
+        "args": [
+            {
+                "name": "String",
+                "description": "The string value from which to build the substring.",
+                "type": "String",
+                "default": "Global Variable"
+            },
+            {
+                "name": "Substring Start Index",
+                "description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
+                "type": "unsigned int",
+                "default": 0
+            },
+            {
+                "name": "Substring Length",
+                "description": "Specifies the number of characters in the substring.",
+                "type": "unsigned int",
+                "default": 0
+            }
+        ],
         "isConstant": true,
-		"return": "String",
-		"en-US": "String Slice"
-	},
+        "return": "String",
+        "guid": "0000000124A6",
+        "en-US": "String Slice",
+        "es-MX": "Extracción de cadena",
+        "fr-FR": "Section de la chaîne",
+        "ja-JP": "文字列の切り取り",
+        "pt-BR": "Fatia da String",
+        "zh-CN": "截取字符串"
+    },
     "__subtract__": {
         "guid": "00000000C40A",
         "description": "The difference between two numbers or vectors.",
@@ -12911,8 +13101,8 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
@@ -12922,7 +13112,7 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
-                canReplace1ByTrue: true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -12988,7 +13178,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Team",
         "guid": "00000000B279",
         "en-US": "Team Of",
@@ -13027,7 +13217,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Direction",
         "guid": "00000000B2F5",
         "en-US": "Throttle Of",
@@ -13079,23 +13269,32 @@ var valueFuncKw =
         "pt-BR": "Percentual de Carga da Suprema",
         "zh-CN": "终极技能充能百分比"
     },
-	"updateEveryTick": {
-		"description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate.",
-		"args": [
-			{
-				"name": "Value",
-				"description": "The value that will be updated once per tick.",
-                "type": ["Object", "Array"],
-				"default": "Position Of"
-			}
-		],
-        "isConstant": true,
-		"return": [
-            "Object",
-            "Array",
+    "updateEveryTick": {
+        "description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate.",
+        "args": [
+            {
+                "name": "Value",
+                "description": "The value that will be updated once per tick.",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
+                "default": "Position Of"
+            }
         ],
-		"en-US": "Update Every Frame"
-	},
+        "isConstant": true,
+        "return": [
+            "Object",
+            "Array"
+        ],
+        "guid": "00000001232B",
+        "en-US": "Update Every Frame",
+        "es-MX": "Actualizar todos los cuadros",
+        "fr-FR": "Actualiser à chaque image",
+        "ja-JP": "フレームごとに更新",
+        "pt-BR": "Atualizar a Cada Quadro",
+        "zh-CN": "逐帧更新"
+    },
     "Vector.UP": {
         "guid": "00000000B118",
         "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
@@ -13108,7 +13307,7 @@ var valueFuncKw =
                 "unsigned int"
             ]
         },
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "en-US": "Up",
         "es-MX": "Arriba",
         "fr-FR": "Haut",
@@ -13129,8 +13328,8 @@ var valueFuncKw =
                 "name": "INDEX",
                 "description": "The index of the element to acquire.",
                 "type": "unsigned int",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
@@ -13155,28 +13354,28 @@ var valueFuncKw =
                 "name": "X",
                 "description": "The x value of the vector.",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "Y",
                 "description": "The y value of the vector.",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
                 "name": "Z",
                 "description": "The z value of the vector.",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "isConstant": true,
         "return": "Vector",
         "en-US": "Vector",
@@ -13202,7 +13401,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Direction",
         "guid": "00000000B1EB",
         "en-US": "Vector Towards",
@@ -13222,7 +13421,7 @@ var valueFuncKw =
                 "default": "EVENT PLAYER"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Velocity",
         "guid": "00000000B25C",
         "en-US": "Velocity Of",
@@ -13319,7 +13518,7 @@ var valueFuncKw =
         "guid": "00000000B330",
         "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
         "args": null,
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Player",
         "en-US": "Victim",
         "es-MX": "Víctima",
@@ -13347,76 +13546,88 @@ var valueFuncKw =
         "pt-BR": "Arma",
         "zh-CN": "武器"
     },
-	"__workshopSettingCombo__": {
-		"description": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice.",
-		"args": [
-			{
-				"name": "Category",
-				"description": "The name of the category in which this setting will be found.",
-				"type": "CustomStringLiteral",
-				"default": "Custom String"
-			},
-			{
-				"name": "Name",
-				"description": "The name of this setting.",
-				"type": "CustomStringLiteral",
-				"default": "Custom String"
-			},
-			{
-				"name": "Default",
-				"description": "The default value for this setting.",
-				"type": "UnsignedIntLiteral",
-				"default": 0
-			},
-			{
-				"name": "Options",
-				"description": "The options for this setting.",
-				"type": {
-                    "Array": "CustomStringLiteral",
+    "__workshopSettingCombo__": {
+        "description": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice.",
+        "args": [
+            {
+                "name": "Category",
+                "description": "The name of the category in which this setting will be found.",
+                "type": "CustomStringLiteral",
+                "default": "Custom String"
+            },
+            {
+                "name": "Name",
+                "description": "The name of this setting.",
+                "type": "CustomStringLiteral",
+                "default": "Custom String"
+            },
+            {
+                "name": "Default",
+                "description": "The default value for this setting.",
+                "type": "UnsignedIntLiteral",
+                "default": 0
+            },
+            {
+                "name": "Options",
+                "description": "The options for this setting.",
+                "type": {
+                    "Array": "CustomStringLiteral"
                 },
-				"default": "Array"
-			},
-			{
-				"name": "Sort Order",
-				"description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
-				"type": "IntLiteral",
-				"default": 0
-			}
-		],
-		"return": "unsigned int",
-		"en-US": "Workshop Setting Combo"
-	},
-	"__workshopSettingHero__": {
-		"description": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list.",
-		"args": [
-			{
-				"name": "Category",
-				"description": "The name of the category in which this setting will be found.",
-				"type": "CustomStringLiteral",
-				"default": "Custom String"
-			},
-			{
-				"name": "Name",
-				"description": "The name of this setting.",
-				"type": "CustomStringLiteral",
-				"default": "Custom String"
-			},
-			{
-				"name": "Default",
-				"description": "The default value for this setting.",
-				"type": "HeroLiteral",
-				"default": "Ana"
-			},
-			{
-				"name": "Sort Order",
-				"description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
-				"type": "IntLiteral",
-				"default": 0
-			}
-		],
-		"return": "Hero",
-		"en-US": "Workshop Setting Hero"
-	},
+                "default": "Array"
+            },
+            {
+                "name": "Sort Order",
+                "description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
+                "type": "IntLiteral",
+                "default": 0
+            }
+        ],
+        "return": "unsigned int",
+        "guid": "000000011CC0",
+        "en-US": "Workshop Setting Combo",
+        "es-MX": "Combinado de la configuración del Workshop",
+        "fr-FR": "Paramètre combo de la Forge",
+        "ja-JP": "ワークショップ設定コンボ",
+        "pt-BR": "Caixa de Combinação de Configurações do Workshop",
+        "zh-CN": "地图工坊设置组合"
+    },
+    "__workshopSettingHero__": {
+        "description": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list.",
+        "args": [
+            {
+                "name": "Category",
+                "description": "The name of the category in which this setting will be found.",
+                "type": "CustomStringLiteral",
+                "default": "Custom String"
+            },
+            {
+                "name": "Name",
+                "description": "The name of this setting.",
+                "type": "CustomStringLiteral",
+                "default": "Custom String"
+            },
+            {
+                "name": "Default",
+                "description": "The default value for this setting.",
+                "type": "HeroLiteral",
+                "default": "Ana"
+            },
+            {
+                "name": "Sort Order",
+                "description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
+                "type": "IntLiteral",
+                "default": 0
+            }
+        ],
+        "return": "Hero",
+        "guid": "000000011CBC",
+        "en-US": "Workshop Setting Hero",
+        "es-MX": "Configuración de héroe del Workshop",
+        "fr-FR": "Paramètre héros de la Forge",
+        "ja-JP": "ワークショップ設定ヒーロー",
+        "pt-BR": "Herói de Configuração do Workshop",
+        "zh-CN": "地图工坊设置英雄"
+    },
     "__workshopSettingInteger__": {
         "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
         "args": [
@@ -13577,7 +13788,7 @@ var valueFuncKw =
                 "default": "ROTATION"
             }
         ],
-        canBePutInBoolean: false,
+        "canBePutInBoolean": false,
         "return": "Vector",
         "guid": "00000000B33A",
         "en-US": "World Vector Of",
@@ -13686,10 +13897,10 @@ const mapKw =
             "ctf",
             "elimination"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: -7,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": -7
         },
         "en-US": "Ayutthaya",
         "ja-JP": "AYUTTHAYA",
@@ -13705,10 +13916,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 5,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 5
         },
         "en-US": "Black Forest",
         "de-DE": "Schwarzwald",
@@ -13731,12 +13942,12 @@ const mapKw =
             "ffa",
             "tdm",
             "meisSnowballOffensive",
-            "snowballFfa",
+            "snowballFfa"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 5,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 5
         },
         "en-US": "Black Forest Winter",
         "de-DE": "Schwarzwald Winter",
@@ -13806,9 +14017,9 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 51.9,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 51.9
         },
         "en-US": "Busan Downtown Lunar New Year",
         "de-DE": "Stadtzentrum von Busan Neujahr",
@@ -13829,9 +14040,9 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: -328.565,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": -328.565
         },
         "en-US": "Busan Sanctuary Lunar New Year",
         "de-DE": "Tempel von Busan Neujahr",
@@ -13892,10 +14103,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: -0.19009,
-            b: 38.79879,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": -0.19009,
+            "b": 38.79879
         },
         "en-US": "Castillo",
         "ja-JP": "CASTILLO",
@@ -13956,10 +14167,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Ecopoint: Antarctica",
         "de-DE": "Ecopoint: Antarktis",
@@ -13982,12 +14193,12 @@ const mapKw =
             "ffa",
             "tdm",
             "meisSnowballOffensive",
-            "snowballFfa",
+            "snowballFfa"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Ecopoint: Antarctica Winter",
         "de-DE": "Ecopoint: Antarktis Winter",
@@ -14179,10 +14390,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: -0.41437,
-            b: 96.86593,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": -0.41437,
+            "b": 96.86593
         },
         "en-US": "Ilios Lighthouse",
         "de-DE": "Ilios – Leuchtturm",
@@ -14206,9 +14417,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 28.6,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 28.6
         },
         "en-US": "Ilios Ruins",
         "de-DE": "Ilios – Ruinen",
@@ -14232,10 +14443,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 1.00409,
-            b: 192.85907,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 1.00409,
+            "b": 192.85907
         },
         "en-US": "Ilios Well",
         "de-DE": "Ilios – Brunnen",
@@ -14328,9 +14539,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
         },
         "en-US": "Lijiang Control Center",
         "de-DE": "Lijiang Tower – Kontrollzentrum",
@@ -14354,9 +14565,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
         },
         "en-US": "Lijiang Control Center Lunar New Year",
         "de-DE": "Lijiang Tower – Kontrollzentrum Neujahr",
@@ -14380,9 +14591,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
         },
         "en-US": "Lijiang Garden",
         "de-DE": "Lijiang Tower – Garten",
@@ -14406,9 +14617,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
         },
         "en-US": "Lijiang Garden Lunar New Year",
         "de-DE": "Lijiang Tower – Garten Neujahr",
@@ -14432,9 +14643,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 1,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 1
         },
         "en-US": "Lijiang Night Market",
         "de-DE": "Nachtmarkt von Lijiang",
@@ -14458,9 +14669,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 1,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 1
         },
         "en-US": "Lijiang Night Market Lunar New Year",
         "de-DE": "Lijiang Tower – Nachtmarkt Neujahr",
@@ -14522,10 +14733,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Necropolis",
         "de-DE": "Nekropole",
@@ -14563,10 +14774,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Nepal Sanctum",
         "de-DE": "Nepal – Sanktum",
@@ -14590,10 +14801,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Nepal Shrine",
         "de-DE": "Nepal – Schrein",
@@ -14617,10 +14828,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Nepal Village",
         "de-DE": "Nepal – Dorf",
@@ -14691,10 +14902,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 1.00002,
-            b: 103.99783,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 1.00002,
+            "b": 103.99783
         },
         "en-US": "Oasis City Center",
         "de-DE": "Oasis – Stadtzentrum",
@@ -14718,10 +14929,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: -1.00042,
-            b: -106.16370,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": -1.00042,
+            "b": -106.1637
         },
         "en-US": "Oasis Gardens",
         "de-DE": "Oasis – Gärten",
@@ -14745,10 +14956,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Oasis University",
         "de-DE": "Oasis – Universität",
@@ -14949,10 +15160,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "guid": "00000000FFF0",
         "en-US": "Workshop Chamber",
@@ -14976,10 +15187,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "guid": "00000000FFF2",
         "en-US": "Workshop Expanse",
@@ -15003,10 +15214,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "guid": "000000010C6D",
         "en-US": "Workshop Expanse Night",
@@ -15030,7 +15241,20 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        "guid": "000000011F44",
         "en-US": "Workshop Green Screen",
+        "de-DE": "Workshop-Greenscreen",
+        "es-ES": "Pantalla verde del Taller",
+        "es-MX": "Pantalla verde del Workshop",
+        "fr-FR": "Écran vert de la Forge",
+        "it-IT": "Schermo verde Workshop",
+        "ja-JP": "WORKSHOP GREEN SCREEN",
+        "ko-KR": "워크샵 그린 스크린",
+        "pl-PL": "Zielony ekran Warsztatu",
+        "pt-BR": "Tela Verde do Workshop",
+        "ru-RU": "Зеленый экран «Мастерской»",
+        "zh-CN": "地图工坊绿幕",
+        "zh-TW": "工作坊綠幕島"
     },
     "workshopIsland": {
         "gamemodes": [
@@ -15039,10 +15263,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "guid": "00000000FFF1",
         "en-US": "Workshop Island",
@@ -15066,10 +15290,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "guid": "000000010C71",
         "en-US": "Workshop Island Night",
@@ -15388,7 +15612,7 @@ const heroKw =
             "es-MX": "Azote de escudo",
             "fr-FR": "Charge de bouclier",
             "it-IT": "Colpo di Scudo",
-            "ja-JP": "シールド･バッシュ",
+            "ja-JP": "シールド・バッシュ",
             "ko-KR": "방패 밀쳐내기",
             "pl-PL": "Rąbnięcie Tarczą",
             "pt-BR": "Golpe de Escudo",
@@ -17563,7 +17787,13 @@ const constantValues =
             "zh-CN": "水绿色"
         },
         "BLACK": {
+            "guid": "000000012551",
             "en-US": "Black",
+            "es-MX": "Negro",
+            "fr-FR": "Noir",
+            "ja-JP": "ブラック",
+            "pt-BR": "Preto",
+            "zh-CN": "黑色"
         },
         "BLUE": {
             "guid": "00000000B939",
@@ -17575,7 +17805,13 @@ const constantValues =
             "zh-CN": "蓝色"
         },
         "GRAY": {
+            "guid": "00000001254E",
             "en-US": "Gray",
+            "es-MX": "Gris",
+            "fr-FR": "Gris",
+            "ja-JP": "グレー",
+            "pt-BR": "Cinza",
+            "zh-CN": "灰色"
         },
         "GREEN": {
             "guid": "00000000B93A",
@@ -17622,7 +17858,12 @@ const constantValues =
             "zh-CN": "红色"
         },
         "ROSE": {
+            "guid": "000000012550",
             "en-US": "Rose",
+            "es-MX": "Rosa",
+            "ja-JP": "ローズ",
+            "pt-BR": "Rosa",
+            "zh-CN": "玫红"
         },
         "SKY_BLUE": {
             "guid": "00000000CDB5",
@@ -17660,7 +17901,13 @@ const constantValues =
             "zh-CN": "青绿色"
         },
         "VIOLET": {
+            "guid": "00000001254F",
             "en-US": "Violet",
+            "es-MX": "Violeta",
+            "fr-FR": "Mauve",
+            "ja-JP": "バイオレット",
+            "pt-BR": "Violeta",
+            "zh-CN": "紫色"
         },
         "WHITE": {
             "guid": "00000000B93C",
@@ -18319,16 +18566,40 @@ const constantValues =
             "zh-CN": "抱歉"
         },
         "SPRAY_DOWN": {
+            "guid": "00000001228C",
             "en-US": "Spray Down",
+            "es-MX": "Spray hacia abajo",
+            "fr-FR": "Tag bas",
+            "ja-JP": "スプレー下",
+            "pt-BR": "Spray - Baixo",
+            "zh-CN": "喷漆下"
         },
         "SPRAY_LEFT": {
+            "guid": "00000001228A",
             "en-US": "Spray Left",
+            "es-MX": "Spray a la izquierda",
+            "fr-FR": "Tag gauche",
+            "ja-JP": "スプレー左",
+            "pt-BR": "Spray - Esquerda",
+            "zh-CN": "喷漆左"
         },
         "SPRAY_RIGHT": {
+            "guid": "00000001228B",
             "en-US": "Spray Right",
+            "es-MX": "Spray a la derecha",
+            "fr-FR": "Tag droite",
+            "ja-JP": "スプレー右",
+            "pt-BR": "Spray - Direita",
+            "zh-CN": "喷漆右"
         },
         "SPRAY_UP": {
+            "guid": "00000001221C",
             "en-US": "Spray Up",
+            "es-MX": "Spray hacia arriba",
+            "fr-FR": "Tag haut",
+            "ja-JP": "スプレー上",
+            "pt-BR": "Spray - Cima",
+            "zh-CN": "喷漆上"
         },
         "THANKS": {
             "guid": "00000000B9D6",
@@ -18941,7 +19212,12 @@ const constantValues =
     },
     "IconReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -18961,7 +19237,13 @@ const constantValues =
             "zh-CN": "位置"
         },
         "POSITION_AND_COLOR": {
+            "guid": "000000011E48",
             "en-US": "Position and Color",
+            "es-MX": "Posición y color",
+            "fr-FR": "Position et Couleur",
+            "ja-JP": "位置、色",
+            "pt-BR": "Posição e Cor",
+            "zh-CN": "位置和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -18973,7 +19255,13 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -18985,12 +19273,23 @@ const constantValues =
             "zh-CN": "可见和位置"
         },
         "VISIBILITY_POSITION_AND_COLOR": {
+            "guid": "000000011E47",
             "en-US": "Visible To Position and Color",
-        },
+            "es-MX": "Visible para posición y color",
+            "fr-FR": "Visible pour Position et Couleur",
+            "ja-JP": "表示される相手、位置、色",
+            "pt-BR": "Visível para Posição e Cor",
+            "zh-CN": "可见，位置和颜色"
+        }
     },
     "EffectReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -19011,7 +19310,13 @@ const constantValues =
             "zh-CN": "位置和半径"
         },
         "POSITION_RADIUS_AND_COLOR": {
+            "guid": "000000011E66",
             "en-US": "Position Radius and Color",
+            "es-MX": "Posición radio y color",
+            "fr-FR": "Position Rayon et Couleur",
+            "ja-JP": "位置、半径、色",
+            "pt-BR": "Posição Raio e Cor",
+            "zh-CN": "位置，半径和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -19023,7 +19328,13 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_POSITION_AND_RADIUS": {
             "guid": "00000000B8C6",
@@ -19035,12 +19346,23 @@ const constantValues =
             "zh-CN": "可见，位置和半径"
         },
         "VISIBILITY_POSITION_RADIUS_AND_COLOR": {
+            "guid": "000000011E65",
             "en-US": "Visible To Position Radius and Color",
-        },
+            "es-MX": "Visible para posición radio y color",
+            "fr-FR": "Visible pour Position Rayon et Couleur",
+            "ja-JP": "表示される相手、位置、半径、色",
+            "pt-BR": "Visível para Posição Raio e Cor",
+            "zh-CN": "可见，位置，半径和颜色"
+        }
     },
     "HudReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -19061,7 +19383,13 @@ const constantValues =
             "zh-CN": "排序"
         },
         "SORT_ORDER_AND_COLOR": {
+            "guid": "000000011E75",
             "en-US": "Sort Order and Color",
+            "es-MX": "Clasificar orden y color",
+            "fr-FR": "Tri et Couleur",
+            "ja-JP": "ソート順、色",
+            "pt-BR": "Ordem de Classificação e Cor",
+            "zh-CN": "排序规则和颜色"
         },
         "SORT_ORDER_AND_STRING": {
             "guid": "00000000FCA6",
@@ -19070,10 +19398,16 @@ const constantValues =
             "fr-FR": "Tri et Chaîne de texte",
             "ja-JP": "ソート順、文字列",
             "pt-BR": "Ordem de classificação e string",
-            "zh-CN": "排序规则与字符串"
+            "zh-CN": "排序规则和字符串"
         },
         "SORT_ORDER_STRING_AND_COLOR": {
+            "guid": "000000011E73",
             "en-US": "Sort Order String and Color",
+            "es-MX": "Clasificar orden cadena y color",
+            "fr-FR": "Tri Chaîne de texte et Couleur",
+            "ja-JP": "ソート順、文字列、色",
+            "pt-BR": "Ordem de Classificação String e Cor",
+            "zh-CN": "排序规则，字符串和颜色"
         },
         "STRING": {
             "guid": "00000000BB31",
@@ -19084,7 +19418,14 @@ const constantValues =
             "zh-CN": "字符串"
         },
         "STRING_AND_COLOR": {
+            "guid": "000000011E71",
             "en-US": "String and Color",
+            "es-MX": "Cadena y color",
+            "fr-FR": "Chaîne de texte et Couleur",
+            "it-IT": " String and Color",
+            "ja-JP": "文字列、色",
+            "pt-BR": "String e Cor",
+            "zh-CN": "字符串和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -19096,7 +19437,13 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_SORT_ORDER": {
             "guid": "00000001095E",
@@ -19117,7 +19464,13 @@ const constantValues =
             "zh-CN": "可见和字符串"
         },
         "VISIBILITY_SORT_ORDER_AND_COLOR": {
+            "guid": "000000011E74",
             "en-US": "Visible To Sort Order and Color",
+            "es-MX": "Visible para clasificar orden y color",
+            "fr-FR": "Visible pour Tri et Couleur",
+            "ja-JP": "表示される相手、ソート順、色",
+            "pt-BR": "Visível para Ordem de Classificação e Cor",
+            "zh-CN": "可见，排序规则和颜色"
         },
         "VISIBILITY_SORT_ORDER_AND_STRING": {
             "guid": "00000000FCA5",
@@ -19128,18 +19481,35 @@ const constantValues =
             "ja-JP": "表示される相手、ソート順、文字列",
             "ko-KR": "Visible To Sort Order String",
             "pt-BR": "Visível para ordem de classificação e string",
-            "zh-CN": "可见性，排序规则，以及字符串"
+            "zh-CN": "可见性，排序规则和字符串"
         },
         "VISIBILITY_SORT_ORDER_STRING_AND_COLOR": {
+            "guid": "000000011E72",
             "en-US": "Visible To Sort Order String and Color",
+            "es-MX": "Visible para clasificar orden cadena y color",
+            "fr-FR": "Visible pour Tri Chaîne de texte et Couleur",
+            "ja-JP": "表示される相手、ソート順、文字列、色",
+            "pt-BR": "Visível para Ordem de Classificação String e Cor",
+            "zh-CN": "可见，排序规则，字符串和颜色"
         },
         "VISIBILITY_STRING_AND_COLOR": {
+            "guid": "000000011E70",
             "en-US": "Visible To String and Color",
-        },
+            "es-MX": "Visible para cadena y color",
+            "fr-FR": "Visible pour Chaîne de texte et Couleur",
+            "ja-JP": "表示される相手、文字列、色",
+            "pt-BR": "Visível para String e Cor",
+            "zh-CN": "可见，字符串和颜色"
+        }
     },
     "WorldTextReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -19151,10 +19521,22 @@ const constantValues =
             "zh-CN": "无"
         },
         "STRING": {
+            "guid": "00000000BB31",
             "en-US": "String",
+            "es-MX": "Cadena",
+            "fr-FR": "Chaîne de texte",
+            "ja-JP": "文字列",
+            "zh-CN": "字符串"
         },
         "STRING_AND_COLOR": {
+            "guid": "000000011E71",
             "en-US": "String and Color",
+            "es-MX": "Cadena y color",
+            "fr-FR": "Chaîne de texte et Couleur",
+            "it-IT": " String and Color",
+            "ja-JP": "文字列、色",
+            "pt-BR": "String e Cor",
+            "zh-CN": "字符串和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -19166,7 +19548,13 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -19187,7 +19575,13 @@ const constantValues =
             "zh-CN": "可见和字符串"
         },
         "VISIBILITY_POSITION_AND_COLOR": {
+            "guid": "000000011E47",
             "en-US": "Visible To Position and Color",
+            "es-MX": "Visible para posición y color",
+            "fr-FR": "Visible pour Position et Couleur",
+            "ja-JP": "表示される相手、位置、色",
+            "pt-BR": "Visível para Posição e Cor",
+            "zh-CN": "可见，位置和颜色"
         },
         "VISIBILITY_POSITION_AND_STRING": {
             "guid": "00000000BAD4",
@@ -19199,11 +19593,23 @@ const constantValues =
             "zh-CN": "可见，位置和字符串"
         },
         "VISIBILITY_STRING_AND_COLOR": {
+            "guid": "000000011E70",
             "en-US": "Visible To String and Color",
+            "es-MX": "Visible para cadena y color",
+            "fr-FR": "Visible pour Chaîne de texte et Couleur",
+            "ja-JP": "表示される相手、文字列、色",
+            "pt-BR": "Visível para String e Cor",
+            "zh-CN": "可见，字符串和颜色"
         },
         "VISIBILITY_POSITION_STRING_AND_COLOR": {
+            "guid": "000000011E76",
             "en-US": "Visible To Position String and Color",
-        },
+            "es-MX": "Visible para posición cadena y color",
+            "fr-FR": "Visible pour Position Chaîne de texte et Couleur",
+            "ja-JP": "表示される相手、位置、文字列、色",
+            "pt-BR": "Visível para Posição String e Cor",
+            "zh-CN": "可见，位置，字符串和颜色"
+        }
     },
     "ChaseReeval": {},
     "__ChaseRateReeval__": {
@@ -19694,83 +20100,227 @@ const constantValues =
     },
     "OutlineVisibility": {
         "DEFAULT": {
-            "en-US": "Default",
             "description": "Outlines are visible based on the default game settings.",
+            "guid": "000000011C50",
+            "en-US": "Default",
+            "es-MX": "Predeterminado",
+            "fr-FR": "Par défaut",
+            "ja-JP": "デフォルト",
+            "pt-BR": "Padrão",
+            "zh-CN": "默认"
         },
         "OCCLUDED": {
-            "en-US": "Occluded",
             "description": "Outlines are visible when occluded by the environment.",
+            "guid": "000000011C51",
+            "en-US": "Occluded",
+            "es-MX": "Ocluido",
+            "fr-FR": "Obstrué",
+            "ja-JP": "オクルード",
+            "pt-BR": "Ocultado",
+            "zh-CN": "遮蔽"
         },
         "ALWAYS": {
-            "en-US": "Always",
             "description": "Outlines are always visible.",
-        },
+            "guid": "000000011C52",
+            "en-US": "Always",
+            "es-MX": "Siempre",
+            "fr-FR": "Toujours",
+            "ja-JP": "常時",
+            "pt-BR": "Sempre",
+            "zh-CN": "总是"
+        }
     },
-    "Stat": {    
+    "Stat": {
         "DAMAGE_DEALT": {
-            "en-US": "All Damage Dealt"
+            "guid": "0000000124B7",
+            "en-US": "All Damage Dealt",
+            "es-MX": "Todo el daño infligido",
+            "fr-FR": "Dégâts infligés tous",
+            "ja-JP": "与ダメージ（全体）",
+            "pt-BR": "Todo o dano causado",
+            "zh-CN": "所有造成伤害量"
         },
         "BARRIER_DAMAGE_DEALT": {
-            "en-US": "Barrier Damage Dealt"
+            "guid": "0000000124B8",
+            "en-US": "Barrier Damage Dealt",
+            "es-MX": "Daño infligido a barreras",
+            "fr-FR": "Dégâts infligés aux écrans",
+            "ja-JP": "バリア与ダメージ",
+            "pt-BR": "Dano causado a barreiras",
+            "zh-CN": "对屏障造成伤害量"
         },
         "DAMAGE_BLOCKED": {
-            "en-US": "Damage Blocked"
+            "guid": "0000000124E1",
+            "en-US": "Damage Blocked",
+            "es-MX": "Daño bloqueado",
+            "fr-FR": "Dégâts bloqués",
+            "ja-JP": "ブロックしたダメージ",
+            "pt-BR": "Dano bloqueado",
+            "zh-CN": "阻挡伤害量"
         },
         "DAMAGE_TAKEN": {
-            "en-US": "Damage Taken"
+            "guid": "0000000124E0",
+            "en-US": "Damage Taken",
+            "es-MX": "Daño recibido",
+            "fr-FR": "Dégâts subis",
+            "ja-JP": "受けたダメージ",
+            "pt-BR": "Dano recebido",
+            "zh-CN": "承受伤害量"
         },
         "DEATHS": {
-            "en-US": "Deaths"
+            "guid": "0000000124DF",
+            "en-US": "Deaths",
+            "es-MX": "Muertes",
+            "fr-FR": "Morts",
+            "ja-JP": "デス",
+            "pt-BR": "Mortes",
+            "zh-CN": "阵亡"
         },
         "ELIMINATIONS": {
-            "en-US": "Eliminations"
+            "guid": "0000000124DE",
+            "en-US": "Eliminations",
+            "es-MX": "Eliminaciones",
+            "fr-FR": "Éliminations",
+            "ja-JP": "キル",
+            "pt-BR": "Eliminações",
+            "zh-CN": "消灭"
         },
         "DEFENSIVE_ASSISTS": {
-            "en-US": "Defensive Assists"
+            "guid": "0000000124DA",
+            "en-US": "Defensive Assists",
+            "es-MX": "Asistencias defensivas",
+            "fr-FR": "Soutiens défensifs",
+            "ja-JP": "防衛アシスト",
+            "pt-BR": "Assistências defensivas",
+            "zh-CN": "协助防守"
         },
         "FINAL_BLOWS": {
-            "en-US": "Final Blows"
+            "guid": "0000000124DC",
+            "en-US": "Final Blows",
+            "es-MX": "Golpes de gracia",
+            "fr-FR": "Coups de grâce",
+            "ja-JP": "ファイナル・ブロウ",
+            "pt-BR": "Golpes finais",
+            "zh-CN": "最后一击"
         },
         "ENVIRONMENTAL_DEATHS": {
-            "en-US": "Environmental Deaths"
+            "guid": "0000000124D8",
+            "en-US": "Environmental Deaths",
+            "es-MX": "Muertes sufridas por el entorno",
+            "fr-FR": "Morts dues à l’environnement",
+            "ja-JP": "環境デス",
+            "pt-BR": "Mortes no ambiente",
+            "zh-CN": "地形阵亡"
         },
         "ENVIRONMENTAL_KILLS": {
-            "en-US": "Environmental Kills"
+            "guid": "0000000124D7",
+            "en-US": "Environmental Kills",
+            "es-MX": "Derribos con el entorno",
+            "fr-FR": "Victimes dues à l’environnement",
+            "ja-JP": "環境キル",
+            "pt-BR": "Abates no ambiente",
+            "zh-CN": "地形消灭"
         },
         "HERO_DAMAGE_DEALT": {
-            "en-US": "Hero Damage Dealt"
+            "guid": "0000000124D5",
+            "en-US": "Hero Damage Dealt",
+            "es-MX": "Daño infligido a héroes",
+            "fr-FR": "Dégâts infligés aux héros",
+            "ja-JP": "ヒーロー与ダメージ",
+            "pt-BR": "Dano causado a heróis",
+            "zh-CN": "对英雄造成伤害量"
         },
         "HEALING_DEALT": {
-            "en-US": "Healing Dealt"
+            "guid": "0000000124D1",
+            "en-US": "Healing Dealt",
+            "es-MX": "Sanación realizada",
+            "fr-FR": "Soins prodigués",
+            "ja-JP": "回復（相手）",
+            "pt-BR": "Cura concedida",
+            "zh-CN": "治疗量"
         },
         "MULTIKILL_BEST": {
-            "en-US": "Multikill Best"
+            "guid": "0000000124CD",
+            "en-US": "Multikill Best",
+            "es-MX": "Mejor derribo múltiple",
+            "fr-FR": "Victimes simultanées maximum",
+            "it-IT": "Multikill - Best",
+            "ja-JP": "最高マルチキル",
+            "pt-BR": "Abates múltiplos - melhor",
+            "zh-CN": "最佳瞬间消灭"
         },
         "MULTIKILLS": {
-            "en-US": "Multikills"
+            "guid": "0000000124CB",
+            "en-US": "Multikills",
+            "es-MX": "Derribos múltiples",
+            "fr-FR": "Victimes simultanées",
+            "ja-JP": "マルチキル",
+            "pt-BR": "Abates múltiplos",
+            "zh-CN": "瞬间消灭"
         },
         "OBJECTIVE_KILLS": {
-            "en-US": "Objective Kills"
+            "guid": "0000000124C9",
+            "en-US": "Objective Kills",
+            "es-MX": "Derribos en objetivo",
+            "fr-FR": "Victimes sur objectif",
+            "ja-JP": "目標キル",
+            "pt-BR": "Abates de objetivo",
+            "zh-CN": "目标攻防消灭"
         },
         "OFFENSIVE_ASSISTS": {
-            "en-US": "Offensive Assists"
+            "guid": "0000000124C7",
+            "en-US": "Offensive Assists",
+            "es-MX": "Asistencias ofensivas",
+            "fr-FR": "Soutiens offensifs",
+            "ja-JP": "攻撃アシスト",
+            "pt-BR": "Assistências ofensivas",
+            "zh-CN": "协助进攻"
         },
         "SOLO_KILLS": {
-            "en-US": "Solo Kills"
+            "guid": "0000000124C3",
+            "en-US": "Solo Kills",
+            "es-MX": "Derribos a solas",
+            "fr-FR": "Victimes en solo",
+            "ja-JP": "単独キル",
+            "pt-BR": "Abates individuais",
+            "zh-CN": "单独消灭"
         },
         "ULTIMATES_EARNED": {
-            "en-US": "Ultimates Earned"
+            "guid": "0000000124C1",
+            "en-US": "Ultimates Earned",
+            "es-MX": "Habilidades máximas obtenidas",
+            "fr-FR": "Capacités ultimes obtenues",
+            "ja-JP": "アルティメット獲得",
+            "pt-BR": "Supremas recebidas",
+            "zh-CN": "获得终极技能"
         },
         "ULTIMATES_USED": {
-            "en-US": "Ultimates Used"
+            "guid": "0000000124BF",
+            "en-US": "Ultimates Used",
+            "es-MX": "Habilidades máximas utilizadas",
+            "fr-FR": "Capacités ultimes utilisées",
+            "ja-JP": "アルティメット使用",
+            "pt-BR": "Supremas lançadas",
+            "zh-CN": "使用终极技能"
         },
         "WEAPON_ACCURACY": {
-            "en-US": "Weapon Accuracy"
+            "guid": "0000000124BD",
+            "en-US": "Weapon Accuracy",
+            "es-MX": "Precisión con armas",
+            "fr-FR": "Précision",
+            "ja-JP": "武器命中率",
+            "pt-BR": "Precisão da arma",
+            "zh-CN": "武器命中率"
         }
     },
     "ProgressWorldTextReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -19782,22 +20332,57 @@ const constantValues =
             "zh-CN": "无"
         },
         "POSITION": {
+            "guid": "00000000B8D8",
             "en-US": "Position",
+            "es-MX": "Posición",
+            "ja-JP": "位置",
+            "pt-BR": "Posição",
+            "zh-CN": "位置"
         },
         "POSITION_AND_COLOR": {
+            "guid": "000000011E48",
             "en-US": "Position and Color",
+            "es-MX": "Posición y color",
+            "fr-FR": "Position et Couleur",
+            "ja-JP": "位置、色",
+            "pt-BR": "Posição e Cor",
+            "zh-CN": "位置和颜色"
         },
         "POSITION_AND_VALUES": {
+            "guid": "000000012340",
             "en-US": "Position and Values",
+            "es-MX": "Posición y valores",
+            "fr-FR": "Position et Valeurs",
+            "ja-JP": "位置、値",
+            "pt-BR": "Posição e Valores",
+            "zh-CN": "位置和颜色"
         },
         "POSITION_VALUES_AND_COLOR": {
+            "guid": "00000001233F",
             "en-US": "Position Values and Color",
+            "es-MX": "Posición valores y color",
+            "fr-FR": "Position Valeurs et Couleur",
+            "ja-JP": "位置、値、色",
+            "pt-BR": "Posição Valores e Cor",
+            "zh-CN": "位置，值和颜色"
         },
         "VALUES": {
+            "guid": "0000000122F1",
             "en-US": "Values",
+            "es-MX": "Valores",
+            "fr-FR": "Valeurs",
+            "ja-JP": "値",
+            "pt-BR": "Valores",
+            "zh-CN": "值"
         },
         "VALUES_AND_COLOR": {
+            "guid": "0000000122F0",
             "en-US": "Values and Color",
+            "es-MX": "Valores y color",
+            "fr-FR": "Valeurs et Couleur",
+            "ja-JP": "値、色",
+            "pt-BR": "Valores e Cor",
+            "zh-CN": "值和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -19809,7 +20394,13 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -19821,24 +20412,59 @@ const constantValues =
             "zh-CN": "可见和位置"
         },
         "VISIBILITY_AND_VALUES": {
+            "guid": "0000000122EF",
             "en-US": "Visible To and Values",
+            "es-MX": "Visible para y valores",
+            "fr-FR": "Visible pour et Valeurs",
+            "ja-JP": "表示される相手、値",
+            "pt-BR": "Visível para e Valores",
+            "zh-CN": "可见和值"
         },
         "VISIBILITY_POSITION_AND_COLOR": {
+            "guid": "000000011E47",
             "en-US": "Visible To Position and Color",
+            "es-MX": "Visible para posición y color",
+            "fr-FR": "Visible pour Position et Couleur",
+            "ja-JP": "表示される相手、位置、色",
+            "pt-BR": "Visível para Posição e Cor",
+            "zh-CN": "可见，位置和颜色"
         },
         "VISIBILITY_POSITION_AND_VALUES": {
+            "guid": "00000001233E",
             "en-US": "Visible To Position and Values",
+            "es-MX": "Visible para posición y valores",
+            "fr-FR": "Visible pour Position et Valeurs",
+            "ja-JP": "表示される相手、位置、値",
+            "pt-BR": "Visível para Posição e Valores",
+            "zh-CN": "可见，位置和值"
         },
         "VISIBILITY_VALUES_AND_COLOR": {
+            "guid": "0000000122EE",
             "en-US": "Visible To Values and Color",
+            "es-MX": "Visible para valores y color",
+            "fr-FR": "Visible pour Valeurs et Couleur",
+            "ja-JP": "表示される相手、値、色",
+            "pt-BR": "Visível para Valores e Cor",
+            "zh-CN": "可见，值和颜色"
         },
         "VISIBILITY_POSITION_VALUES_AND_COLOR": {
+            "guid": "00000001233D",
             "en-US": "Visible To Position Values and Color",
-        },
+            "es-MX": "Visible para posición valores y color",
+            "fr-FR": "Visible pour Position Valeurs et Couleur",
+            "ja-JP": "表示される相手、位置、値、色",
+            "pt-BR": "Visível para Posição Valores e Cor",
+            "zh-CN": "可见，位置，值和颜色"
+        }
     },
     "ProgressHudReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -19850,10 +20476,22 @@ const constantValues =
             "zh-CN": "无"
         },
         "VALUES": {
+            "guid": "0000000122F1",
             "en-US": "Values",
+            "es-MX": "Valores",
+            "fr-FR": "Valeurs",
+            "ja-JP": "値",
+            "pt-BR": "Valores",
+            "zh-CN": "值"
         },
         "VALUES_AND_COLOR": {
+            "guid": "0000000122F0",
             "en-US": "Values and Color",
+            "es-MX": "Valores y color",
+            "fr-FR": "Valeurs et Couleur",
+            "ja-JP": "値、色",
+            "pt-BR": "Valores e Cor",
+            "zh-CN": "值和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -19865,23 +20503,52 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_VALUES": {
+            "guid": "0000000122EF",
             "en-US": "Visible To and Values",
+            "es-MX": "Visible para y valores",
+            "fr-FR": "Visible pour et Valeurs",
+            "ja-JP": "表示される相手、値",
+            "pt-BR": "Visível para e Valores",
+            "zh-CN": "可见和值"
         },
         "VISIBILITY_VALUES_AND_COLOR": {
+            "guid": "0000000122EE",
             "en-US": "Visible To Values and Color",
-        },
+            "es-MX": "Visible para valores y color",
+            "fr-FR": "Visible pour Valeurs et Couleur",
+            "ja-JP": "表示される相手、値、色",
+            "pt-BR": "Visível para Valores e Cor",
+            "zh-CN": "可见，值和颜色"
+        }
     },
     "AssistReeval": {
         "ASSISTERS_AND_TARGETS": {
+            "guid": "000000012206",
             "en-US": "Assisters and Targets",
+            "es-MX": "Asistentes y objetivos",
+            "fr-FR": "Soutiens et cibles",
+            "ja-JP": "アシスターとターゲット",
+            "pt-BR": "Assistentes e Alvos",
+            "zh-CN": "助攻者和目标"
         },
         "NONE": {
-            "en-US": "None",
             "guid": "00000000B8C3",
-        },
+            "en-US": "None",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "ja-JP": "なし",
+            "pt-BR": "Ninguém",
+            "zh-CN": "无"
+        }
     }
 }
 //end-json
@@ -21007,7 +21674,19 @@ const customGameSettingsSchema =
                 "min": 0,
                 "max": 150000000,
                 "default": 0,
+                "guid": "00000001249D",
                 "en-US": "Minimum Latency milliseconds",
+                "de-DE": "Minimale Latenz Millisekunden",
+                "es-ES": "Latencia mínima milisegundos",
+                "es-MX": "Latencia mínima milisegundos",
+                "fr-FR": "Latence minimum millisecondes",
+                "it-IT": "Latenza minima millisecondi",
+                "ja-JP": "最小遅延（ミリ秒）",
+                "ko-KR": "최소 지연 시간 milliseconds",
+                "pl-PL": "Minimalne opóźnienie millisekundy",
+                "pt-BR": "Latência mínima ms",
+                "ru-RU": "Минимальная задержка в миллисекундах",
+                "zh-CN": "最低延迟（毫秒）"
             }
         },
         "guid": "000000010031",
@@ -22887,7 +23566,7 @@ const customGameSettingsSchema =
                         "es-ES": "Repulsión del balón de fútbol",
                         "es-MX": "Escala de derribos del balón de fútbol",
                         "fr-FR": "Recul du ballon de football",
-                        "it-IT": "Pallone - Intensità di respinta",
+                        "it-IT": "Intensità di respinta palla",
                         "ja-JP": "サッカーボール ノックバック・スカラー",
                         "ko-KR": "축구공 밀쳐내는 힘 조정",
                         "pl-PL": "Skalowanie odrzucenia piłki nożnej",
@@ -22961,7 +23640,7 @@ const customGameSettingsSchema =
                         "es-ES": "Tiempo de aumento de la cantidad de balones segundos",
                         "es-MX": "Periodo de aumento de la cantidad de balones segundos",
                         "fr-FR": "Période d’augmentation du nombre de ballons secondes",
-                        "it-IT": "Periodo Incremento Conteggio Palla secondi",
+                        "it-IT": "Periodo di incremento numero palle secondi",
                         "ja-JP": "ボール数の増加時間（秒）",
                         "ko-KR": "공 개수 증가 주기 초",
                         "pl-PL": "Interwal zwiększenia liczby piłek Sekundy",
@@ -22981,13 +23660,13 @@ const customGameSettingsSchema =
                         "es-ES": "Tiempo de aparición de balón adicional segundos",
                         "es-MX": "Periodo de aparición del balón segundos",
                         "fr-FR": "Période d’apparition du ballon supplémentaire secondes",
-                        "it-IT": "Periodo Comparsa Palla Bonus secondi",
+                        "it-IT": "Periodo di comparsa palla bonus secondi",
                         "ja-JP": "ボーナスボールの発生時間（秒）",
                         "ko-KR": "보너스 공 생성 주기 초",
                         "pl-PL": "Interwał ekstra piłek w grze Sekundy",
                         "pt-BR": "Período de Ressurgimento da Bola Extra Segundos",
                         "ru-RU": "Частота появления бонусных мячей в секундах",
-                        "zh-CN": "奖分球刷新间隔（秒）",
+                        "zh-CN": "奖励球刷新间隔（秒）",
                         "zh-TW": "獎勵球重生間隔（秒）"
                     },
                     "bonusBallValue": {
@@ -23001,13 +23680,13 @@ const customGameSettingsSchema =
                         "es-ES": "Valor del balón adicional",
                         "es-MX": "Valor del balón adicional",
                         "fr-FR": "Valeur du ballon supplémentaire",
-                        "it-IT": "Valore Palla Bonus",
+                        "it-IT": "Valore palla bonus",
                         "ja-JP": "ボーナスボールの値",
                         "ko-KR": "보너스 공 점수",
                         "pl-PL": "Wartość ekstra piłki",
                         "pt-BR": "Valor da Bola Extra",
                         "ru-RU": "Количество очков за бонусный мяч",
-                        "zh-CN": "奖分球分值",
+                        "zh-CN": "奖励球分值",
                         "zh-TW": "獎勵球分數"
                     },
                     "initialBallCount": {
@@ -23021,7 +23700,7 @@ const customGameSettingsSchema =
                         "es-ES": "Cantidad inicial de balones",
                         "es-MX": "Cantidad inicial de balones",
                         "fr-FR": "Nombre de ballons initial",
-                        "it-IT": "Conteggio Palla Iniziale",
+                        "it-IT": "Numero di palle iniziale",
                         "ja-JP": "ボールの初期値",
                         "ko-KR": "최초 공 개수",
                         "pl-PL": "Wstępna liczba piłek",
@@ -23041,7 +23720,7 @@ const customGameSettingsSchema =
                         "es-ES": "Cantidad máxima de balones",
                         "es-MX": "Cantidad máxima de balones",
                         "fr-FR": "Nombre de ballons maximum",
-                        "it-IT": "Conteggio Palla Massimo",
+                        "it-IT": "Massimo numero di palle",
                         "ja-JP": "ボールの最大数",
                         "ko-KR": "최대 공 개수",
                         "pl-PL": "Maksymalna liczba piłek",
@@ -23061,13 +23740,13 @@ const customGameSettingsSchema =
                         "es-ES": "Cantidad máxima de balones adicionales",
                         "es-MX": "Cantidad máxima de balones adicionales",
                         "fr-FR": "Nombre de ballons supplémentaires maximum",
-                        "it-IT": "Conteggio Palla Bonus Massimo",
+                        "it-IT": "Massimo numero di palle bonus",
                         "ja-JP": "ボーナスボールの最大数",
                         "ko-KR": "최대 보너스 공 개수",
                         "pl-PL": "Maksymalna liczba ekstra piłek",
                         "pt-BR": "Número Máximo de Bolas Extras",
                         "ru-RU": "Максимальное число бонусных мячей",
-                        "zh-CN": "最大奖分球数量",
+                        "zh-CN": "最大奖励球数量",
                         "zh-TW": "最大獎勵球數"
                     }
                 }

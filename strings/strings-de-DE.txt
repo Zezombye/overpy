@@ -1,13 +1,13 @@
-[Core] DataTool v1.53.0.895-git-b450d888e5dde06093d0beb4f8d63d663751d084
-[Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(23)\DataTool.exe.args
+[Core] DataTool v1.54.0.902-git-4601bd8eed2234be56e4faaf7ae7d49e0bfdc545
+[Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(24)\DataTool.exe.args
 [CASC] Text Language: deDE | Speech Language: deDE
-[CASC] Overwatch build 1.53.0.0.74102
+[CASC] Overwatch build 1.54.0.0.75788
 [CASC] Initializing...
-[Manifest] Using TRG procedure 74102 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
-[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 75428 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -7899,7 +7899,7 @@ Endet in %1$s.
 0000000047A6.07C: Anzeigerand
 0000000047A7.07C: Dr. Junkenstein
 0000000047AC.07C: - 10 Platzierungsmatches
-- Dienen zur Festlegung des Spielniveaus (1–5000)
+- Dienen zur Festlegung des Spielniveaus (1–3900)
 - Spielniveau wird nach jedem Match angepasst
 0000000047B0.07C: - Matches dauern mehrere Runden
 - Erreiche Ziele, um Punkte zu holen
@@ -19312,9 +19312,9 @@ von Saison 18
 00000000B0F8.07C: Team
 00000000B0F9.07C: Global Variable
 00000000B0FD.07C: Player Variable
-00000000B101.07C: Number of Eliminations
-00000000B102.07C: Number of Final Blows
-00000000B103.07C: Number of Deaths
+00000000B101.07C: Number Of Eliminations
+00000000B102.07C: Number Of Final Blows
+00000000B103.07C: Number Of Deaths
 00000000B115.07C: Hexenmeisterin
 00000000B116.07C: Left
 00000000B117.07C: Right
@@ -19453,12 +19453,12 @@ von Saison 18
 00000000B292.07C: Is Hero Being Played
 00000000B293.07C: Hero
 00000000B294.07C: Team
-00000000B295.07C: Number of Players
-00000000B296.07C: Number of Heroes
-00000000B297.07C: Number of Living Players
+00000000B295.07C: Number Of Players
+00000000B296.07C: Number Of Heroes
+00000000B297.07C: Number Of Living Players
 00000000B298.07C: Hero
-00000000B29A.07C: Number of Dead Players
-00000000B29B.07C: Number of Players On Objective
+00000000B29A.07C: Number Of Dead Players
+00000000B29B.07C: Number Of Players On Objective
 00000000B2C7.07C: Zum Besitzer machen
 00000000B2CB.07C: X
 00000000B2CC.07C: Y
@@ -20444,7 +20444,7 @@ erhaltungs<hy>feld verhindert
 00000000BCCD.07C: Erstellt eine Effektentität in der Welt. Diese Effektentität bleibt bestehen, bis sie zerstört wird. Zum Abrufen einer Referenz zu dieser Entität wird der Wert [Last Created Entity] verwendet. Diese Aktion schlägt fehl, wenn zu viele Entitäten erstellt wurden.
 00000000BCCE.07C: Ein oder mehrere Spieler, die den Effekt sehen können.
 00000000BCCF.07C: Der Typ des zu erstellenden Effekts.
-00000000BCD0.07C: Die Farbe des zu erstellenden Effekts. Wenn ein bestimmtes Team ausgewählt wird, ist der Effekt entweder rot oder blau, je nachdem, ob es ein feindliches Team des Zuschauers ist. Gilt nicht für Soundeffekte.
+00000000BCD0.07C: Die Farbe des zu erstellenden Effekts. Wenn ein bestimmtes Team ausgewählt wird, ist der Effekt entweder rot oder blau, je nachdem, ob es ein feindliches Team des Zuschauers ist. Gilt nicht für Soundeffekte. [Custom Color] wird nicht unterstützt.
 00000000BCD1.07C: Die Endposition des Effekts. Wenn dieser Wert ein Spieler ist, bewegt sich der Effekt zusammen mit dem Spieler. Ansonsten wird der Wert als Position in der Welt interpretiert.
 00000000BCD2.07C: Der Radius des Effekts in Metern. Bei Soundeffekten wird stattdessen die Lautstärke beeinflusst.
 00000000BCD3.07C: Legt fest, welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Der Effekt fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.
@@ -20638,7 +20638,7 @@ erhaltungs<hy>feld verhindert
 00000000BD90.07C: Der Typ des zu erstellenden Effekts.
 00000000BD91.07C: Gibt einen Effekt an einer Position in der Welt wieder. Die Lebensdauer dieses Effekts ist kurz, deshalb muss er nicht aktualisiert oder zerstört werden.
 00000000BD92.07C: Ein oder mehrere Spieler, die den Effekt sehen können.
-00000000BD93.07C: Die Farbe des zu erstellenden Effekts. Wenn ein bestimmtes Team ausgewählt wird, ist der Effekt entweder rot oder blau, je nachdem, ob es ein feindliches Team des Zuschauers ist.
+00000000BD93.07C: Die Farbe des zu erstellenden Effekts. Wenn ein bestimmtes Team ausgewählt wird, ist der Effekt entweder rot oder blau, je nachdem, ob es ein feindliches Team des Zuschauers ist. [Custom Color] wird nicht unterstützt.
 00000000BD94.07C: Legt fest, ob [Direction] relativ zu den Weltkoordinaten oder zu den lokalen Koordinaten des Spielers oder der Spieler ist.
 00000000BD95.07C: Die normierte Richtung, in die der oder die Spieler blicken. Dieser Wert wird intern normiert.
 00000000BD96.07C: Der oder die Spieler, deren Blickrichtung festgelegt wird.
@@ -20781,7 +20781,7 @@ erhaltungs<hy>feld verhindert
 Ø pro 10 Min.
 00000000BE74.07C: Kills mit Gravitations<hy>fluss – Ø pro 10 Min.: %1$s
 00000000BE75.07C: Ein Array, das alle Spieler enthält, die weder eine Fracht noch einen Kontrollpunkt besetzen (entweder in einem Team oder im Match).
-00000000BE76.07C: Ob ein Spieler einen bestimmten Kommunikationstyp verwendet (z. B. Emotes, Sprüche usw.).
+00000000BE76.07C: Ob ein Spieler einen bestimmten Kommunikationstyp verwendet (z. B. Emotes, Sprüche, Sprays usw.).
 00000000BE77.07C: Der Spieler, dessen Kommunikationsstatus geprüft werden soll.
 00000000BE78.07C: Der Typ der zu berücksichtigenden Kommunikation. Die Dauer von Emotes ist genau, als Dauer von Sprüchen werden 4 Sekunden angenommen. Für jede andere Dauer werden 2 Sekunden angenommen.
 00000000BE8D.07C:  
@@ -20951,7 +20951,7 @@ erhaltungs<hy>feld verhindert
 00000000BF34.07C: Der Wert, der im Array bei Index [%1$s] gespeichert wird.
 00000000BF35.07C: Ob ein Spieler eine ultimative Fähigkeit einsetzt.
 00000000BF36.07C: Der Spieler, dessen Einsatz seiner ultimativen Fähigkeit geprüft werden soll.
-00000000BF37.07C: Ob ein Spieler einen beliebigen Kommunikationstyp verwendet (z. B. Emotes, Sprüche usw.).
+00000000BF37.07C: Ob ein Spieler einen beliebigen Kommunikationstyp verwendet (z. B. Emotes, Sprüche, Sprays usw.).
 00000000BF38.07C: Der Spieler, dessen Kommunikationsstatus geprüft werden soll.
 00000000BF39.07C: Der Spieler, dessen Spruch-Status geprüft werden soll.
 00000000BF3A.07C: Ob ein Spieler einen Spruch verwendet. (Als Dauer von Sprüchen werden 4 Sekunden angenommen.)
@@ -20960,7 +20960,7 @@ erhaltungs<hy>feld verhindert
 00000000BF3D.07C: Text, der aus einer Auswahl von Strings und festgelegten Werten entsteht.
 00000000BF3E.07C:  
 00000000BF3F.07C: Der resultierende Text. Zahlen in geschweiften Klammern werden durch die entsprechenden Werte ersetzt.
-00000000BF40.07C: Eine Referenz zum letzten Textstück, das über die Aktion [Create HUD Text] oder [Create In-World Text] durch [Event Player] (oder auf globaler Ebene) erstellt wurde.
+00000000BF40.07C: Eine Referenz zum letzten Textstück, das über die Aktion [Create HUD Text], [Create In-World Text], [Create Progress Bar HUD Text] oder [Create Progress Bar In-World Text] durch [Event Player] (oder auf globaler Ebene) erstellt wurde.
 00000000BF41.07C: Das Team, dessen Gegenüberstellung abgerufen werden soll. Falls [All], lautet das Ergebnis [All].
 00000000BF42.07C: Das dem festgelegten Team gegenüberstehende Team. 
 00000000BF43.07C: Ob sich ein Spieler an einer Wand befindet (Klettern oder Entlanggleiten).
@@ -21923,7 +21923,7 @@ Deathmatch
 00000000C472.07C: Der Spieler kann keine Fähigkeiten oder ultimativen Fähigkeiten einsetzen. Angriffe mit Waffen sind hiervon nicht betroffen. Dieser Status kann beispielsweise von Sombra verursacht werden.
 00000000C473.07C: Das Team links in der Lobby. Auf den Kartentypen Angriff, Hybrid und Eskorte verteidigt dieses Team zuerst.
 00000000C474.07C: Das Team rechts in der Lobby. Auf den Kartentypen Angriff, Hybrid und Eskorte greift dieses Team zuerst an.
-00000000C475.07C: Wenn sich das Ziel entgegen der Impulsrichtung bewegt, wird der relative Geschwindigkeitsvektor negiert, bevor der Impuls angewendet wird.
+00000000C475.07C: Wenn sich das Ziel entgegen der Impulsrichtung bewegt, wird der relative Geschwindigkeitsvektor negiert, bevor der Impuls angewendet wird. Horizontale Vektoren (XZ) und vertikale Vektoren (Y) werden getrennt verarbeitet.
 00000000C476.07C: Der Impuls wird direkt dem Geschwindigkeitsvektor des Ziels hinzugefügt – wenn sich das Ziel also entgegen der Impulsrichtung bewegt, kann es wirken, als hätte der Impuls einen geringeren Effekt.
 00000000C477.07C: Der Text kann ganz oder teilweise durch Wände, Böden, Decken, Spieler oder andere undurchsichtige Objekte verdeckt werden.
 00000000C478.07C: Der Text wird immer vollständig sichtbar sein, auch hinter einer Wand oder einem undurchsichtigen Objekt.
@@ -22435,7 +22435,7 @@ Hinweis: Variablen und Programmiersprache sind in Englisch gehalten. Die Benutze
 00000000CA0C.07C: Du musst eine Rolle wählen, bevor deine Gruppe ein Spiel suchen kann. Jetzt wählen?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Woche 1: Sombra-Skin Fantasma
+00000000CA11.07C: Symmetras Wiederaufbau-Herausforderung
 00000000CA13.07C: Woche 2: Brigitte-Skin Versteinert
 00000000CA14.07C: Woche 3: Echo-Skin Stoffpuppe
 00000000CA15.07C: Gewinne 9 Spiele in den Modi Schnellsuche, Arcade oder Rangliste!
@@ -22729,7 +22729,7 @@ punkte
 00000000CCDD.07C: Ermöglicht die Verwendung eines Icons innerhalb eines Strings (bis zu 4 pro String).
 00000000CCDE.07C: Das anzuzeigende Icon.
 00000000CD3B.07C: - 5 Platzierungsmatches pro Rolle
-- Dienen zur Festlegung des Spielniveaus (1–5000)
+- Dienen zur Festlegung des Spielniveaus (1–3900)
 - Spielniveau wird nach jedem Match angepasst
 00000000CD47.07C: 25 Credits
 00000000CD48.07C: 10 Credits
@@ -22811,7 +22811,7 @@ punkte
 00000000CE84.07C: Good Beam
 00000000CE85.07C: Bad Beam
 00000000CE88.07C: Beam Type
-00000000CE9C.07C: Die Farbe des zu erstellenden Strahleffekts. Wenn ein bestimmtes Team ausgewählt wird, ist der Effekt entweder rot oder blau, je nachdem, ob es ein feindliches Team des Zuschauers ist. Gilt nicht für Soundeffekte. Nur die Strahleffekte [Good Beam] und [Bad Beam] können farbig angezeigt werden.
+00000000CE9C.07C: Die Farbe des zu erstellenden Strahleffekts. Wenn ein bestimmtes Team ausgewählt wird, ist der Effekt entweder rot oder blau, je nachdem, ob es ein feindliches Team des Zuschauers ist. Gilt nicht für Soundeffekte. Nur die Strahleffekte [Good Beam] und [Bad Beam] können farbig angezeigt werden. [Custom Color] wird nicht unterstützt.
 00000000CE9D.07C: Grapple Beam
 00000000CEA2.07C: Position
 00000000CEA3.07C: Stop Throttle In Direction
@@ -28074,7 +28074,7 @@ Der Blizzard-Kundendienst
 000000010F5B.07C: Rollenwahl
 000000010F5C.07C: Freie Rollenwahl
 000000010F5D.07C: - 10 Platzierungsmatches
-- Dienen zur Festlegung des Spielniveaus (1–5000)
+- Dienen zur Festlegung des Spielniveaus (1–3900)
 - Spielniveau wird nach jedem Match angepasst
 000000010F5F.07C: Filter
 000000010F6E.07C: Contenders (auswärts)
@@ -28813,6 +28813,8 @@ Der Blizzard-Kundendienst
 00000001171D.07C: Ein oder mehrere Gruppenmitglieder haben bald keine Spielzeit mehr.
 000000011744.07C: 1 legendäres Extra und 5 Lootboxen
 000000011745.07C: 15 Credits und dazu 1 legendäres Extra sowie 5 Lootboxen geschenkt
+000000011746.07C: http://playoverwatch.com/media/stories/stone-by-stone
+000000011747.07C: Jetzt lesen
 00000001174A.07C: Saison %1$s
 000000011754.07C: Comicbuch
 000000011755.07C: Freigeschaltet durch die Teilnahme an Tracers Comic-Herausforderung
@@ -28824,6 +28826,9 @@ Der Blizzard-Kundendienst
 0000000117A8.07C: Kompetitives Team-Deathmatch
 0000000117A9.07C: Kompetitive Flaggeneroberung
 0000000117AA.07C: Kompetitiv – Freie Rollenwahl
+0000000117B9.07C: Neue Kurzgeschichte
+0000000117BA.07C: Stein für Stein
+0000000117FB.07C: https://ow.blizzard.cn/media/stories
 0000000117FC.07C: Versteinert
 00000001180C.07C: Junkensteins Rache – Rachsüchtiger Geist
 00000001180D.07C: Junkensteins Rache – Wilder Ansturm
@@ -28962,6 +28967,7 @@ Lootboxen erhältlich
 0000000119B9.07C: Schließ die Junkenstein-Herausforderungsmission Überraschungswechsel ab.
 0000000119BA.07C: Schockierende Überraschung
 0000000119BB.07C: Schließ die Junkenstein-Herausforderungsmission Schockierende Überraschung ab.
+0000000119BC.07C: Marammat
 0000000119BD.07C: WEITER
 0000000119C0.07C: Die schauerhaften Halloween-Extras aus dem letzten Jahr sowie gruselige neue Skins, Highlight-Intros und mehr!
 0000000119C1.07C: Neue Herausforderungsmissionen!
@@ -28993,7 +28999,6 @@ Lootboxen erhältlich
 000000011A24.07C: Overwatch Contenders
 000000011A25.07C: Overwatch Contenders
 000000011A53.07C: BIST DU SICHER, DASS DU DEN SCHIMPFWORTFILTER DEAKTIVIEREN MÖCHTEST?
-000000011AB0.07C: Maximales Sichtfeld mit freier Kamera
 000000011AB1.07C: Intervall für Zeitsprünge
 000000011AB3.07C: Stärke des Schimpfwortfilters
 000000011AB4.07C: Wir tun unser Bestes, um alle Wörter herauszufiltern, die derzeit als obszön, vulgär oder anstößig eingestuft werden, und aktualisieren diese Liste ständig. Diese Einstellung ist am besten geeignet für Familien.
@@ -29001,6 +29006,9 @@ Lootboxen erhältlich
 000000011AB6.07C: Es wird nichts gefiltert. Du könntest extrem anstößige Nachrichten sehen. Diese Einstellung wird nicht empfohlen.
 000000011AB7.07C: WICHTIGER HINWEIS: Der Schimpfwortfilter ist KEINE Erlaubnis für Spieler, anstößige Sprache zu verwenden. Bitte verwende die Meldefunktion, wenn du solche Nachrichten siehst.
 000000011AB8.07C: In den Spielverhaltensrichtlinien von Blizzard Entertainment findest du mehr Informationen zu akzeptablem Verhalten. Wenn deine Nachrichten von der Community gemeldet und von Blizzard als anstößig eingestuft werden, kommt es zu schweren Accountstrafen.
+000000011AE0.07C: Freigeschaltet durch die Teilnahme an Symmetras Wiederaufbau-Herausforderung
+000000011AE7.07C: Marammat
+000000011AE9.07C: Marammat
 000000011AEC.07C: Präzise Steuerung der Wiedergabegeschwindigkeit
 000000011B16.07C: Zurücksetzen
 000000011B17.07C: Glückwunsch! Du hast Genjis Contenders-Paket mit zwei Skins, einem Spieler-Icon und einem Spray freigeschaltet. Du kannst weitere Heim- und Auswärtsskins sammeln, indem du weiter bei den Overwatch Contenders zuschaust!
@@ -29014,7 +29022,22 @@ Lootboxen erhältlich
 000000011B5A.07C: Schau bei den Contenders zu!
 000000011BB5.07C: https://eu.battle.net/support/de/article/42673
 000000011BB7.07C: Verhaltensrichtlinien lesen
+000000011C08.07C: Set Environment Credit Player
+000000011C09.07C: Der oder die Spieler, deren Tod berücksichtigt wird.
+000000011C0A.07C: Debug - Unified Enabled
+000000011C0B.07C: Environment Credit Player
+000000011C0C.07C: Der Spieler, dem der Kill angerechnet wird, wenn der oder die Zielspieler aufgrund der Umgebung sterben, bevor sie auf dem Boden landen. Beträgt [Environment Credit Player] Null, wird der Kill keinem Spieler angerechnet.
+000000011C0D.07C: Legt den Spieler fest, dem der Kill angerechnet wird, wenn der festgelegte Zielspieler oder die festgelegten Zielspieler aufgrund der Umgebung sterben, bevor sie auf dem Boden landen.
+000000011C0F.07C: Target
 000000011C10.07C: Egoperspektive – Helden-HUD
+000000011C50.07C: Default
+000000011C51.07C: Occluded
+000000011C52.07C: Always
+000000011C53.07C: Der Typ der festgelegten Spielerumrandungen, falls sie sichtbar sind.
+000000011C54.07C: Type
+000000011C60.07C: Umrandungen sind basierend auf den Standardeinstellungen des Spiels sichtbar.
+000000011C61.07C: Umrandungen sind sichtbar, wenn sie von der Umgebung verdeckt werden.
+000000011C62.07C: Umrandungen sind immer sichtbar.
 000000011C63.07C: Fantasma
 000000011C65.07C: Fantasma
 000000011C67.07C: Versteinert
@@ -29060,12 +29083,35 @@ Lootboxen erhältlich
 000000011C8C.07C: Zombardement
 000000011C8D.07C: Schneller als der Tod
 000000011C8E.07C: Wikingerwut
+000000011C93.07C: Normale Häufigkeit von Extras in Lootboxen
+000000011C94.07C: Sort Order
+000000011C95.07C: Die Sortierreihenfolge der Einstellung relativ zu sonstigen Einstellungen an derselben Stelle. Einstellungen mit höherer Sortierreihenfolge erscheinen nach Einstellungen mit niedrigerer Sortierreihenfolge.
+000000011CB7.07C: Number Of Slots
+000000011CB8.07C: Die Anzahl der Plätze in einem Team oder im Match.
+000000011CB9.07C: Das Team oder die Teams, in denen die Plätze gezählt werden sollen.
 000000011CBA.07C: Abbrechen
 000000011CBB.07C: Bist du sicher, dass du alle Zuschauereinstellungen zurücksetzen möchtest?
+000000011CBC.07C: Workshop Setting Hero
+000000011CBD.07C: Gibt den Wert einer neuen Heldeneinstellung an, die in den Workshop-Einstellungen als Auswahlbox angezeigt wird.
+000000011CC0.07C: Workshop Setting Combo
+000000011CC1.07C: Gibt den Wert (eine Auswahl benutzerdefinierter Strings) einer neuen Einstellung an, die in den Workshop-Einstellungen als Auswahlbox angezeigt wird. Dieser Wert gibt den Index der gewählten Option an.
+000000011CC2.07C: Options
+000000011CC3.07C: Die Optionen für diese Einstellung.
 000000011CCB.07C: Dai-Tengu
+000000011D3F.07C: Der Optionsparameter des Wertes von [Workshop Setting Combo] muss auf ein Array von benutzerdefinierten Strings gesetzt werden, das nicht leer ist.
+000000011D40.07C: Jede Option einer Workshop-Einstellung darf nur einmal innerhalb einer Einstellung referenziert werden und muss einen einzigartigen Namen haben (unabhängig von Groß- und Kleinschreibung oder Leerzeichen).
+000000011D41.07C: Strings in den Workshop-Einstellungen dürfen nicht leer sein und dürfen nicht '{', '}' oder ':' enthalten.
+000000011D42.07C: Color
+000000011D43.07C: Eine Farbkonstante.
 000000011D9C.07C: 
 000000011D9D.07C: 
 000000011D9E.07C: 
+000000011DA2.07C: Custom Color
+000000011DA3.07C: Benutzerdefinierte Farbe mit festgelegten Werten für rot, grün, blau und Alpha.
+000000011DA4.07C: Der Rot-Anteil einer Farbe.
+000000011DA5.07C: Der Alpha-Anteil einer Farbe.
+000000011DA6.07C: Alpha
+000000011DA7.07C: Red
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
@@ -29075,6 +29121,27 @@ Lootboxen erhältlich
 000000011E39.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende des kompe<hy>titiven Team-Deathmatches 2020
 000000011E3A.07C: Team-Deathmatch-Teilnehmer 2020
 000000011E3C.07C: Team-Deathmatch-Held 2020
+000000011E3E.07C: Green
+000000011E3F.07C: Der Grün-Anteil einer Farbe.
+000000011E40.07C: Der Blau-Anteil einer Farbe.
+000000011E41.07C: Blue
+000000011E47.07C: Visible To, Position, and Color
+000000011E48.07C: Position and Color
+000000011E49.07C: Visible To and Color
+000000011E4A.07C: Color
+000000011E65.07C: Visible To, Position, Radius, and Color
+000000011E66.07C: Position, Radius, and Color
+000000011E70.07C: Visible To, String, and Color
+000000011E71.07C: String and Color
+000000011E72.07C: Visible To, Sort Order, String, and Color
+000000011E73.07C: Sort Order, String, and Color
+000000011E74.07C: Visible To, Sort Order, and Color
+000000011E75.07C: Sort Order and Color
+000000011E76.07C: Visible To, Position, String, and Color
+000000011F44.07C: Workshop-Greenscreen
+000000011F55.07C: Magnitude Of
+000000011F56.07C: Die Größe des festgelegten Werts.
+000000011F59.07C: Der Vektoroperand der Größenoperation.
 000000011F68.07C: Overwatch All-Stars Atlantic
 000000011F69.07C: Overwatch All-Stars Atlantic
 000000011F6A.07C: Overwatch All-Stars Atlantic
@@ -29139,7 +29206,228 @@ Lootboxen erhältlich
 000000011FA5.07C: Overwatch All-Stars Pacific
 000000011FA6.07C: Overwatch All-Stars Pacific
 000000011FA7.07C: Overwatch All-Stars Pacific
+000000011FA9.07C: Set Knockback Dealt
+000000011FAA.07C: Set Knockback Received
+000000011FAB.07C: Legt den von einem oder mehreren Spielern verursachten Rückstoß auf einen Prozentsatz ihres absoluten verursachten Rückstoßes fest.
+000000011FAC.07C: Legt den von einem oder mehreren Spielern verursachten Rückstoß auf einen Prozentsatz ihres absoluten erlittenen Rückstoßes fest.
+000000011FAD.07C: Der oder die Spieler, deren verursachter Rückstoß festgelegt wird.
+000000011FAE.07C: Knockback Dealt Percent
+000000011FAF.07C: Der Prozentsatz des absoluten verursachten Rückstoßes, auf den der verursachte Rückstoß des Spielers oder der Spieler festgelegt wird.
+000000011FB0.07C: Der oder die Spieler, deren erlittener Rückstoß festgelegt wird.
+000000011FB1.07C: Knockback Received Percent
+000000011FB2.07C: Der Prozentsatz des absoluten erlittenen Rückstoßes, auf den der erlittene Rückstoß des Spielers oder der Spieler festgelegt wird.
 000000011FE1.07C: Rachsüchtiger Geist
 000000011FE2.07C: In Halloween-Lootboxen erhältlich
+000000011FE7.07C: Spawn Points
+000000011FE8.07C: Die aktiven Startbereiche eines Teams oder des ganzen Matches. Wird als Array von Positionsvektoren ausgegeben.
+00000001205E.07C: Das Team, dessen Startbereiche abgerufen werden sollen.
+000000012070.07C: String Contains
+000000012071.07C: Ob der festgelegte String den festgelegten Wert enthält.
+000000012073.07C: Der nach dem festgelegten Wert abzusuchende String.
+0000000121C2.07C: Wait Until
+0000000121C3.07C: Wartet, bis [Continue Condition] True wird oder die festgelegten Sekunden von [Timeout] verstrichen sind. Die Bedingung dieser Regel wird während dieser Wartephase ignoriert.
+0000000121C4.07C: Continue Condition
+0000000121C5.07C: Wenn dieser Wert True wird, wird die Wartephase beendet und die nächste Aktion in der Aktionsliste ausgeführt.
+0000000121CA.07C: Wenn diese Anzahl von Sekunden verstreicht, wird die Wartephase beendet und die nächste Aktion in der Aktionsliste ausgeführt.
+0000000121CB.07C: Timeout
+0000000121F2.07C: Last Assist ID
+0000000121F3.07C: Eine ID, die die aktuellste [Start Assist]-Aktion darstellt, die durch [Event Player] (oder auf globaler Ebene) ausgeführt wurde.
+0000000121FA.07C: Stop All Assists
+0000000121FB.07C: Beendet alle Assists, die durch die Aktion [Start Assist] gestartet wurden.
+0000000121FC.07C: Stop Assist
+0000000121FD.07C: Beendet einen Assist, der durch die Aktion [Start Assist] gestartet wurde.
+0000000121FE.07C: Assist ID
+0000000121FF.07C: Legt fest, welche Assist-Instanz beendet werden soll. Diese ID kann [Last Assist ID] oder eine Variable sein, in der [Last Assist ID] zuvor gespeichert wurde.
+000000012200.07C: Start Assist
+000000012201.07C: Beginnt, einem oder mehreren Assisters Assists anzurechnen, wenn ein Ziel oder mehrere Ziele eliminiert werden. Eine Referenz zu dieser Schadensmodifikation kann durch den Wert [Last Assist ID] erhalten werden. Diese Aktion schlägt fehl, wenn zu viele Assists gestartet wurden.
+000000012202.07C: Assisters
+000000012203.07C: Der oder die Spieler, denen Assists angerechnet werden.
+000000012204.07C: Targets
+000000012205.07C: Der oder die Spieler, deren Eliminierungen den Assisters als Assists angerechnet werden. Wenn das Ziel oder die Ziele Verbündete des Assisters sind, werden defensive Assists angerechnet. Andernfalls werden offensive Assists angerechnet.
+000000012206.07C: Assisters and Targets
+000000012214.07C: Evaluate Once
+000000012215.07C: Ergibt den ersten Wert, der dem Parameter [Input Value] für die bestimmte Aktion oder Bedingung gegeben wurde. Nützlich, um bestimmte Teile eines Wertes von einer Neubewertung auszuschließen, wenn es in Verbindung mit einer Aktion genutzt wird, die neu bewerten kann.
+000000012216.07C: Dieser Wert wird nur einmal pro Aktion oder Bedingung bewertet.
+000000012217.07C: Input Value
+00000001221A.07C: Keine Modi aktiviert. Bitte Auswahl modifizieren oder verwerfen.
+00000001221B.07C: Wandsprung beim Loslassen
+00000001221C.07C: Spray Up
+00000001228A.07C: Spray Left
+00000001228B.07C: Spray Right
+00000001228C.07C: Spray Down
+000000012290.07C: Is Communicating Any Spray
+000000012291.07C: Ob ein Spieler ein Spray verwendet.
+000000012292.07C: Der Spieler, dessen Spray-Status geprüft werden soll.
 000000012294.07C: Rachsüchtiger Geist
-[Core] Execution finished in 00:00:00.4875627 seconds
+0000000122E2.07C: Destroy All Progress Bar HUD Text
+0000000122E3.07C: Zerstört sämtlichen HUD-Text der Fortschrittsleiste, der durch die Aktion [Create Progress Bar HUD Text] erstellt wurde.
+0000000122E4.07C: Destroy Progress Bar HUD Text
+0000000122E5.07C: Zerstört HUD-Text der Fortschrittsleiste, der durch die Aktion [Create Progress Bar HUD Text] erstellt wurde.
+0000000122E6.07C: Legt fest, welcher HUD-Text der Fortschrittsleiste zerstört werden soll. Diese ID kann [Last Text ID] oder eine Variable sein, in der [Last Text ID] zuvor gespeichert wurde.
+0000000122E7.07C: Ein oder mehrere Spieler, die den HUD-Text der Fortschrittsleiste sehen werden.
+0000000122E8.07C: Value
+0000000122E9.07C: Der Wert der anzuzeigenden Fortschrittsleiste als Prozentzahl zwischen 0 und 100.
+0000000122EA.07C: Progress Bar Color
+0000000122EB.07C: Die Farbe des zu erstellenden Texts der Fortschrittsleiste. Wenn ein bestimmtes Team ausgewählt wird, ist der Effekt entweder rot oder blau, je nachdem, ob es ein feindliches Team des Zuschauers ist.
+0000000122EE.07C: Visible To, Values, and Color
+0000000122EF.07C: Visible To and Values
+0000000122F0.07C: Values and Color
+0000000122F1.07C: Values
+0000000122F3.07C: Create Progress Bar HUD Text
+0000000122F4.07C: Erstellt HUD-Text der Fortschrittsleiste, der für bestimmte Spieler an einer bestimmten Stelle auf dem Bildschirm angezeigt wird. Dieser Text bleibt sichtbar, bis er zerstört wird. Zum Abrufen einer Referenz zu diesem Text wird der Wert [Last Text ID] verwendet. Diese Aktion schlägt fehl, wenn zu viele Textelemente erstellt wurden.
+000000012320.07C: Geschwindigkeit der Sichtfeldänderung
+000000012321.07C: Stärke der Sichtfeldänderung pro Zoom
+000000012322.07C: Maximales Sichtfeld mit freier Kamera
+00000001232B.07C: Update Every Frame
+00000001232C.07C: Ergibt den Wert, der dem Parameter [Input Value] gegeben wird, und erhöht die Aktualisierungsrate des Werts auf einmal pro Frame. Nützlich, um das Erscheinen bestimmter Werte wie [Position Of] flüssiger zu gestalten, die sonst nur einmal während mehrerer Frames aktualisiert werden. Wird auf Parameter von Bedingungen und Aktionen angewandt, die neu bewertet werden. Kann die Serverauslastung erhöhen und/oder die Bildrate senken.
+00000001232E.07C: Input Value
+00000001232F.07C: Die Aktualisierungsrate dieses Werts wird von einmal während mehrerer Frames zu einmal pro Frame erhöht.
+000000012334.07C: Destroy All Progress Bar In-World Text
+000000012335.07C: Zerstört sämtlichen Text der Fortschrittsleiste in der Welt, der durch die Aktion [Create Progress Bar In-World Text] erstellt wurde.
+000000012336.07C: Destroy Progress Bar In-World Text
+000000012337.07C: Zerstört Text der Fortschrittsleiste in der Welt, der durch die Aktion [Create Progress Bar In-World Text] erstellt wurde.
+000000012338.07C: Legt fest, welcher Text der Fortschrittsleiste in der Welt zerstört werden soll. Diese ID kann [Last Text ID] oder eine Variable sein, in der [Last Text ID] zuvor gespeichert wurde.
+00000001233A.07C: Create Progress Bar In-World Text
+00000001233B.07C: Erstellt HUD-Text der Fortschrittsleiste in der Welt, der für bestimmte Spieler an einer bestimmten Position in der Welt sichtbar ist. Dieser Text bleibt sichtbar, bis er zerstört wird. Zum Abrufen einer Referenz zu diesem Text wird der Wert [Last Text ID] verwendet. Diese Aktion schlägt fehl, wenn zu viele Textelemente erstellt wurden.
+00000001233C.07C: Ein oder mehrere Spieler, die den Text der Fortschrittsleiste in der Welt sehen werden.
+00000001233D.07C: Visible To, Position, Values, and Color
+00000001233E.07C: Visible To, Position, and Values
+00000001233F.07C: Position, Values, and Color
+000000012340.07C: Position and Values
+00000001235A.07C: Der Standardparameter des Wertes von [Workshop Setting Hero] muss auf ein Array von benutzerdefinierten Helden gesetzt werden, das nicht leer ist.
+000000012439.07C: Fehler: Zu viele Workshop-Einstellungsoptionen.
+000000012449.07C: Log To Inspector
+00000001244A.07C: Text
+00000001244B.07C: Der String, der vom Workshop Inspector als Logeintrag erstellt werden soll.
+00000001244C.07C: Veranlasst den Workshop Inspector dazu, einen Logeintrag zu erstellen.
+000000012469.07C: Log
+00000001246A.07C: Aktuelles Log in Zwischenablage kopieren
+00000001246B.07C: Alle Logs in Zwischenablage kopieren
+00000001246F.07C: <fg#FFEAA239>[|Rfd %1$s:HH:mm:ss;]</fg>
+000000012472.07C: |Rfd %1$s:HH:mm:ss;
+00000001249D.07C: Minimale Latenz (Millisekunden)
+0000000124A2.07C: String Length
+0000000124A3.07C: Ergibt die Zeichenanzahl des String-Werts (oder 0, wenn der Wert kein String ist).
+0000000124A4.07C: String
+0000000124A5.07C: Der Stringwert, dessen Zeichen gezählt werden.
+0000000124A6.07C: String Slice
+0000000124A7.07C: Ergibt den festgelegten Substring des Stringwerts.
+0000000124A8.07C: Der Stringwert, von dem der Substring erstellt werden soll.
+0000000124A9.07C: Start Character Index
+0000000124AA.07C: Legt das Zeichen fest, bei dem der Substring beginnt (0 für das erste Zeichen, 1 für das zweite Zeichen usw.).
+0000000124AB.07C: Character Count
+0000000124AC.07C: Legt die Anzahl der Zeichen im Substring fest.
+0000000124AD.07C: Teilnehmer von Keine Beschränkungen 2020
+0000000124AE.07C: Freigeschaltet durch das Abschließen der Platzierungsmatches im kompetitiven Keine Beschränkungen 2020
+0000000124AF.07C: Held von Keine Beschränkungen 2020
+0000000124B0.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende des kompetitiven Keine Beschränkungen 2020
+0000000124B1.07C: Teilnehmer von Keine Beschränkungen 2020
+0000000124B2.07C: Freigeschaltet durch das Abschließen der Platzierungsmatches im kompetitiven Keine Beschränkungen 2020
+0000000124B3.07C: Held von Keine Beschränkungen 2020
+0000000124B4.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende des kompetitiven Keine Beschränkungen 2020
+0000000124B7.07C: All Damage Dealt
+0000000124B8.07C: Barrier Damage Dealt
+0000000124BD.07C: Weapon Accuracy
+0000000124BF.07C: Ultimates Used
+0000000124C1.07C: Ultimates Earned
+0000000124C3.07C: Solo Kills
+0000000124C7.07C: Offensive Assists
+0000000124C9.07C: Objective Kills
+0000000124CB.07C: Multikills
+0000000124CD.07C: Multikill Best
+0000000124D1.07C: Healing Dealt
+0000000124D5.07C: Hero Damage Dealt
+0000000124D7.07C: Environmental Kills
+0000000124D8.07C: Environmental Deaths
+0000000124DA.07C: Defensive Assists
+0000000124DC.07C: Final Blows
+0000000124DE.07C: Eliminations
+0000000124DF.07C: Deaths
+0000000124E0.07C: Damage Taken
+0000000124E1.07C: Damage Blocked
+0000000124E2.07C: All Damage Dealt
+0000000124E3.07C: Barrier Damage Dealt
+0000000124E4.07C: Damage Blocked
+0000000124E5.07C: Deaths
+0000000124E6.07C: Eliminations
+0000000124E7.07C: Environmental Kills
+0000000124E8.07C: Critical Hit Accuracy
+0000000124E9.07C: Critical Hits
+0000000124EA.07C: Damage Taken
+0000000124EB.07C: Defensive Assists
+0000000124EC.07C: Environmental Deaths
+0000000124ED.07C: Final Blows
+0000000124EE.07C: Healing Dealt
+0000000124EF.07C: Healing Received
+0000000124F0.07C: Hero Damage Dealt
+0000000124F2.07C: Multikill Best
+0000000124F3.07C: Multikills
+0000000124F4.07C: Objective Kills
+0000000124F5.07C: Offensive Assists
+0000000124F6.07C: Scoped Accuracy
+0000000124F7.07C: Scoped Critical Hit Accuracy
+0000000124F8.07C: Scoped Critical Hit Kills
+0000000124F9.07C: Scoped Critical Hits
+0000000124FA.07C: Scoped Hits
+0000000124FB.07C: Scoped Shots
+0000000124FC.07C: Self Healing
+0000000124FD.07C: Shots Fired
+0000000124FE.07C: Shots Hit
+0000000124FF.07C: Shots Missed
+000000012500.07C: Solo Kills
+000000012501.07C: Ultimates Earned
+000000012502.07C: Ultimates Used
+000000012503.07C: Weapon Accuracy
+000000012504.07C: Gibt aus, wie lange der festgelegte Spieler einen festgelegten Helden gespielt hat (auf das aktuelle Match beschränkt). Statistikwerte werden nur erfasst, während das Spiel im Gange ist. Für Bots werden keine Statistikwerte erfasst.
+000000012505.07C: Player Hero Stat
+000000012506.07C: Gibt einen Statistikwert des festgelegten Spielers aus (auf das aktuelle Match beschränkt). Statistikwerte werden nur erfasst, während das Spiel im Gange ist. Für Bots werden keine Statistikwerte erfasst.
+000000012507.07C: Player Stat
+000000012508.07C: Der Spieler, dessen Statistikwert abgerufen werden soll.
+000000012509.07C: Player
+00000001250A.07C: Stat
+00000001250B.07C: Der Statistikwert, der abgerufen werden soll.
+00000001250C.07C: Hero
+00000001250D.07C: Der Held, dessen Statistikwert abgerufen werden soll.
+00000001251E.07C: Angriff – Keine Beschränkungen
+00000001251F.07C: Kontrolle – Keine Beschränkungen
+000000012520.07C: Hybrid – Keine Beschränkungen
+000000012521.07C: Eskorte – Keine Beschränkungen
+000000012522.07C: Kompetitiv – Keine Beschränkungen: Saison 1
+000000012523.07C: Kompetitiv – Keine Beschränkungen
+000000012524.07C: Kompetitiv – Keine Beschränkungen
+000000012525.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Spieler der Welt an! Bei der Heldenauswahl bestehen keine Einschränkungen.
+00000001253A.07C: MIN LAT: %1$s MS
+00000001253E.07C: Rangliste
+00000001253F.07C: MACH MIT, UM DIR BELOHNUNGEN ZU VERDIENEN:
+000000012540.07C: Keine Beschränkungen
+000000012541.07C: 40
+000000012542.07C: 75
+000000012543.07C: 150
+000000012544.07C: 300
+000000012545.07C: 450
+000000012546.07C: 750
+000000012547.07C: 1000
+000000012548.07C: Mach mit, um dir Belohnungen zu verdienen:
+000000012549.07C: Vielen Dank fürs Spielen!
+00000001254B.07C: Das höchstmögliche anfängliche Spielniveau nach dem Abschluss der Platzierungsmatches beträgt 3900.
+00000001254E.07C: Gray
+00000001254F.07C: Violet
+000000012550.07C: Rose
+000000012551.07C: Black
+000000012555.07C: Pilgerin
+000000012558.07C: Sanjay
+000000012559.07C: Weihrauch
+00000001255A.07C: Wahrnehmung
+00000001255B.07C: Lichtgeflecht
+00000001255C.07C: Essenszeit
+00000001255D.07C: Freigeschaltet durch das Einschalten bei ausgewählten Streams während Symmetras Wiederaufbau-Herausforderung
+0000000125A4.07C: Wenn sich das Ziel entgegen der Impulsrichtung bewegt, wird der relative Geschwindigkeitsvektor negiert, bevor der Impuls angewendet wird. Horizontale und vertikale Vektoren (XYZ) werden zusammen verarbeitet.
+0000000125A5.07C: Cancel Contrary Motion XYZ
+0000000125DC.07C: Brasilien 2
+0000000125DD.07C: Singapur 2
+0000000125DE.07C: Japan 2
+0000000125DF.07C: USA – Westen 2
+0000000125E0.07C: Deutschland 2
+0000000125E1.07C: Finnland 2
+0000000125E2.07C: Taiwan 2
+[Core] Execution finished in 00:00:00.4410421 seconds

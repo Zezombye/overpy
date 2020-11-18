@@ -35,10 +35,10 @@ const mapKw =
             "ctf",
             "elimination"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: -7,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": -7
         },
         "en-US": "Ayutthaya",
         "ja-JP": "AYUTTHAYA",
@@ -54,10 +54,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 5,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 5
         },
         "en-US": "Black Forest",
         "de-DE": "Schwarzwald",
@@ -80,12 +80,12 @@ const mapKw =
             "ffa",
             "tdm",
             "meisSnowballOffensive",
-            "snowballFfa",
+            "snowballFfa"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 5,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 5
         },
         "en-US": "Black Forest Winter",
         "de-DE": "Schwarzwald Winter",
@@ -155,9 +155,9 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 51.9,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 51.9
         },
         "en-US": "Busan Downtown Lunar New Year",
         "de-DE": "Stadtzentrum von Busan Neujahr",
@@ -178,9 +178,9 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: -328.565,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": -328.565
         },
         "en-US": "Busan Sanctuary Lunar New Year",
         "de-DE": "Tempel von Busan Neujahr",
@@ -241,10 +241,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: -0.19009,
-            b: 38.79879,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": -0.19009,
+            "b": 38.79879
         },
         "en-US": "Castillo",
         "ja-JP": "CASTILLO",
@@ -305,10 +305,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Ecopoint: Antarctica",
         "de-DE": "Ecopoint: Antarktis",
@@ -331,12 +331,12 @@ const mapKw =
             "ffa",
             "tdm",
             "meisSnowballOffensive",
-            "snowballFfa",
+            "snowballFfa"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Ecopoint: Antarctica Winter",
         "de-DE": "Ecopoint: Antarktis Winter",
@@ -528,10 +528,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: -0.41437,
-            b: 96.86593,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": -0.41437,
+            "b": 96.86593
         },
         "en-US": "Ilios Lighthouse",
         "de-DE": "Ilios – Leuchtturm",
@@ -555,9 +555,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 28.6,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 28.6
         },
         "en-US": "Ilios Ruins",
         "de-DE": "Ilios – Ruinen",
@@ -581,10 +581,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 1.00409,
-            b: 192.85907,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 1.00409,
+            "b": 192.85907
         },
         "en-US": "Ilios Well",
         "de-DE": "Ilios – Brunnen",
@@ -677,9 +677,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
         },
         "en-US": "Lijiang Control Center",
         "de-DE": "Lijiang Tower – Kontrollzentrum",
@@ -703,9 +703,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
         },
         "en-US": "Lijiang Control Center Lunar New Year",
         "de-DE": "Lijiang Tower – Kontrollzentrum Neujahr",
@@ -729,9 +729,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
         },
         "en-US": "Lijiang Garden",
         "de-DE": "Lijiang Tower – Garten",
@@ -755,9 +755,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
         },
         "en-US": "Lijiang Garden Lunar New Year",
         "de-DE": "Lijiang Tower – Garten Neujahr",
@@ -781,9 +781,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 1,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 1
         },
         "en-US": "Lijiang Night Market",
         "de-DE": "Nachtmarkt von Lijiang",
@@ -807,9 +807,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            x: 1,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 1
         },
         "en-US": "Lijiang Night Market Lunar New Year",
         "de-DE": "Lijiang Tower – Nachtmarkt Neujahr",
@@ -871,10 +871,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Necropolis",
         "de-DE": "Nekropole",
@@ -912,10 +912,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Nepal Sanctum",
         "de-DE": "Nepal – Sanktum",
@@ -939,10 +939,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Nepal Shrine",
         "de-DE": "Nepal – Schrein",
@@ -966,10 +966,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Nepal Village",
         "de-DE": "Nepal – Dorf",
@@ -1040,10 +1040,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 1.00002,
-            b: 103.99783,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 1.00002,
+            "b": 103.99783
         },
         "en-US": "Oasis City Center",
         "de-DE": "Oasis – Stadtzentrum",
@@ -1067,10 +1067,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: -1.00042,
-            b: -106.16370,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": -1.00042,
+            "b": -106.1637
         },
         "en-US": "Oasis Gardens",
         "de-DE": "Oasis – Gärten",
@@ -1094,10 +1094,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "en-US": "Oasis University",
         "de-DE": "Oasis – Universität",
@@ -1298,10 +1298,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "guid": "00000000FFF0",
         "en-US": "Workshop Chamber",
@@ -1325,10 +1325,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "guid": "00000000FFF2",
         "en-US": "Workshop Expanse",
@@ -1352,10 +1352,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "guid": "000000010C6D",
         "en-US": "Workshop Expanse Night",
@@ -1379,7 +1379,20 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        "guid": "000000011F44",
         "en-US": "Workshop Green Screen",
+        "de-DE": "Workshop-Greenscreen",
+        "es-ES": "Pantalla verde del Taller",
+        "es-MX": "Pantalla verde del Workshop",
+        "fr-FR": "Écran vert de la Forge",
+        "it-IT": "Schermo verde Workshop",
+        "ja-JP": "WORKSHOP GREEN SCREEN",
+        "ko-KR": "워크샵 그린 스크린",
+        "pl-PL": "Zielony ekran Warsztatu",
+        "pt-BR": "Tela Verde do Workshop",
+        "ru-RU": "Зеленый экран «Мастерской»",
+        "zh-CN": "地图工坊绿幕",
+        "zh-TW": "工作坊綠幕島"
     },
     "workshopIsland": {
         "gamemodes": [
@@ -1388,10 +1401,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "guid": "00000000FFF1",
         "en-US": "Workshop Island",
@@ -1415,10 +1428,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        isSymmetrical: true,
-        symmetryAxis: {
-            a: 0,
-            b: 0,
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
         },
         "guid": "000000010C71",
         "en-US": "Workshop Island Night",

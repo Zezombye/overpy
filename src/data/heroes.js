@@ -298,7 +298,7 @@ const heroKw =
             "es-MX": "Azote de escudo",
             "fr-FR": "Charge de bouclier",
             "it-IT": "Colpo di Scudo",
-            "ja-JP": "シールド･バッシュ",
+            "ja-JP": "シールド・バッシュ",
             "ko-KR": "방패 밀쳐내기",
             "pl-PL": "Rąbnięcie Tarczą",
             "pt-BR": "Golpe de Escudo",

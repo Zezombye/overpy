@@ -1,13 +1,13 @@
-[Core] DataTool v1.53.0.895-git-b450d888e5dde06093d0beb4f8d63d663751d084
-[Core] CommandLine: ["D:\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(23)\DataTool.exe.args
+[Core] DataTool v1.54.0.902-git-4601bd8eed2234be56e4faaf7ae7d49e0bfdc545
+[Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(24)\DataTool.exe.args
 [CASC] Text Language: koKR | Speech Language: koKR
-[CASC] Overwatch build 1.53.0.0.74102
+[CASC] Overwatch build 1.54.0.0.75788
 [CASC] Initializing...
-[Manifest] Using TRG procedure 74102 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 74102 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 75428 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -7895,7 +7895,7 @@ Andrew Wang
 0000000047A6.07C: 테두리 여백 표시
 0000000047A7.07C: 박사 정켄슈타인
 0000000047AC.07C: - 배치 경기 10회 
-- 실력 평점 결정 (1~5000)
+- 실력 평점 결정 (1~3900)
 - 실력 평점은 승패에 따라 조정
 0000000047B0.07C: - 여러 라운드로 경기 진행
 - 전장 목표를 달성하여 점수 획득
@@ -19103,9 +19103,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B0F8.07C: Team
 00000000B0F9.07C: Global Variable
 00000000B0FD.07C: Player Variable
-00000000B101.07C: Number of Eliminations
-00000000B102.07C: Number of Final Blows
-00000000B103.07C: Number of Deaths
+00000000B101.07C: Number Of Eliminations
+00000000B102.07C: Number Of Final Blows
+00000000B103.07C: Number Of Deaths
 00000000B115.07C: 흑마법사
 00000000B116.07C: Left
 00000000B117.07C: Right
@@ -19244,12 +19244,12 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B292.07C: Is Hero Being Played
 00000000B293.07C: Hero
 00000000B294.07C: Team
-00000000B295.07C: Number of Players
-00000000B296.07C: Number of Heroes
-00000000B297.07C: Number of Living Players
+00000000B295.07C: Number Of Players
+00000000B296.07C: Number Of Heroes
+00000000B297.07C: Number Of Living Players
 00000000B298.07C: Hero
-00000000B29A.07C: Number of Dead Players
-00000000B29B.07C: Number of Players On Objective
+00000000B29A.07C: Number Of Dead Players
+00000000B29B.07C: Number Of Players On Objective
 00000000B2C7.07C: 방장 위임
 00000000B2CB.07C: X
 00000000B2CC.07C: Y
@@ -20227,7 +20227,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BCCD.07C: 월드 내에 효과 개체를 생성합니다. 이 효과 개체는 제거하기 전까지 지속됩니다. 이 효과를 참조하려면 Last Created Entity 값을 사용하면 됩니다. 개체가 너무 많이 생성될 경우 이 액션이 실패할 수 있습니다.
 00000000BCCE.07C: 해당 효과를 보게 될 플레이어입니다.
 00000000BCCF.07C: 생성할 효과의 형태입니다.
-00000000BCD0.07C: 생성될 효과의 색상입니다. 특정 팀을 선택한 경우, 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다. 효과음에는 적용되지 않습니다.
+00000000BCD0.07C: 생성될 효과의 색상입니다. 특정 팀을 선택한 경우, 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다. 효과음에는 적용되지 않습니다. 사용자 지정 색깔을 지원하지 않습니다.
 00000000BCD1.07C: 효과의 종료 위치입니다. 이 값이 플레이어인 경우 해당 효과는 플레이어를 따라다니고, 그 이외의 경우 이 값은 월드 내의 위치로 해석됩니다.
 00000000BCD2.07C: 효과 반경(미터)입니다. 효과음은 음량이 대신 영향을 받습니다.
 00000000BCD3.07C: 이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 효과는 입력 정보의 새로운 값을 계속 묻게 되며, 재확인한 값을 사용합니다.
@@ -20421,7 +20421,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BD90.07C: 생성할 효과의 유형입니다.
 00000000BD91.07C: 월드의 한 위치에 효과를 발생시킵니다. 이 효과는 갱신되거나 제거할 필요 없도록 짧게 유지되었다가 사라집니다.
 00000000BD92.07C: 해당 효과를 보게 될 플레이어입니다.
-00000000BD93.07C: 생성될 효과의 색상입니다. 특정 팀을 선택한 경우, 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다.
+00000000BD93.07C: 생성될 효과의 색상입니다. 특정 팀을 선택한 경우, 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다. 사용자 지정 색깔을 지원하지 않습니다.
 00000000BD94.07C: 방향이 플레이어의 월드 좌표 또는 로컬 좌표 중 어느 쪽에 대해 상대적인지 여부를 지정합니다.
 00000000BD95.07C: 플레이어가 바라보게 되는 단위 방향입니다. 이 값은 내부적으로 정규화됩니다.
 00000000BD96.07C: 바라보는 방향을 설정할 플레이어입니다.
@@ -20561,7 +20561,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BE73.07C: 중력 붕괴로 처치 - 10분당 평균
 00000000BE74.07C: 중력 붕괴로 처치 %1$s회 - 10분당 평균
 00000000BE75.07C: 팀 또는 경기 내에서 화물을 확보하지도, 점령 중이지도 않은 모든 플레이어가 있는 배열입니다.
-00000000BE76.07C: 플레이어가 지정한 의사소통 유형(감정 표현, 음성 대사 등)을 사용하는지 여부입니다.
+00000000BE76.07C: 플레이어가 지정한 의사소통 유형(감정 표현, 음성 대사, 스프레이 등)을 사용하는지 여부입니다.
 00000000BE77.07C: 의사소통 상태를 확인할 대상 플레이어입니다.
 00000000BE78.07C: 고려할 의사소통 유형입니다. 감정 표현의 지속 시간은 정확하게 적용되며, 음성 대사의 지속 시간은 4초로 간주합니다. 그 이외의 지속 시간은 2초로 간주합니다.
 00000000BE8D.07C:  
@@ -20731,7 +20731,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BF34.07C: 배열 내 인덱스 [%1$s]에 저장할 값입니다.
 00000000BF35.07C: 플레이어가 궁극기를 사용하는지 여부입니다.
 00000000BF36.07C: 궁극기 사용 여부를 확인할 플레이어입니다.
-00000000BF37.07C: 플레이어가 아무 것이든 의사소통 유형(감정 표현, 음성 대사 등)을 사용하는지 여부입니다.
+00000000BF37.07C: 플레이어가 아무 것이든 의사소통 유형(감정 표현, 음성 대사, 스프레이 등)을 사용하는지 여부입니다.
 00000000BF38.07C: 의사소통 상태를 확인할 대상 플레이어입니다.
 00000000BF39.07C: 음성 대사 상태를 확인할 대상 플레이어입니다.
 00000000BF3A.07C: 플레이어가 음성 대사를 사용하는지 여부입니다(음성 대사의 지속 시간은 4초로 추정).
@@ -20740,7 +20740,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BF3D.07C: 선택한 텍스트와 지정된 값으로 구성된 텍스트입니다.
 00000000BF3E.07C:  
 00000000BF3F.07C: 결과로 표시되는 텍스트입니다. 중괄호 안의 숫자는 대응값으로 교체됩니다.
-00000000BF40.07C: Event Player 또는 전역 레벨에서 Create HUD Text 액션 또는 Create In-World Text 액션으로 생성한 텍스트의 마지막 부분에 대한 참조입니다.
+00000000BF40.07C: Event Player 또는 전역 레벨에서 Create HUD Text, Create In-World Text, Create Progress Bar HUD Text, Create Progress Bar In-World 액션으로 생성한 텍스트의 마지막 부분에 대한 참조입니다.
 00000000BF41.07C: 상대 팀 정보를 가져올 팀입니다. All인 경우, 결과는 All입니다.
 00000000BF42.07C: 지정된 팀의 상대 팀입니다. 
 00000000BF43.07C: 플레이어가 벽에 있는 상태(오르거나 타는 상태)인지 여부입니다.
@@ -21702,7 +21702,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C472.07C: 플레이어가 능력이나 궁극기를 사용할 수 없습니다. 무기 공격에는 영향을 미치지 않습니다. 예를 들면, 솜브라가 이 상태를 유발할 수 있습니다.
 00000000C473.07C: 대기실에서 좌측 팀입니다. 점령, 혼합, 호위 전장에서는 이 팀이 먼저 방어합니다.
 00000000C474.07C: 대기실에서 우측의 팀입니다. 점령, 혼합, 호위 전장에서는 이 팀이 먼저 공격합니다.
-00000000C475.07C: 대상이 충격량이 가해진 방향의 반대로 움직이는 경우, 상대 속도를 상쇄한 후 충격량을 적용합니다.
+00000000C475.07C: 대상이 충격량이 가해진 방향의 반대로 움직이는 경우, 상대 속도를 상쇄한 후 충격량을 적용합니다. 수평 속도(XZ)와 수직 속도(Y)는 별개로 처리됩니다.
 00000000C476.07C: 대상의 속도에 직접 충격량이 더해지므로 대상이 충격량이 가해진 방향의 반대로 움직이는 경우 충격 효과가 별로 없는 것처럼 보일 수 있습니다.
 00000000C477.07C: 텍스트가 벽, 바닥, 천정, 플레이어, 또는 다른 솔리드 오브젝트에 의해 일부가 가려지거나 완전히 가려질 수 있습니다.
 00000000C478.07C: 텍스트가 벽 뒤에 있거나 솔리드 오브젝트 뒤에 있어도 항상 완전하게 표시됩니다.
@@ -22212,7 +22212,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA0C.07C: 그룹으로 대기열에 등록하기 전에 역할을 선택해야 합니다. 지금 선택하시겠습니까?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: 1주차: 환영 솜브라
+00000000CA11.07C: 시메트라의 복원 챌린지
 00000000CA13.07C: 2주 차: 바위 브리기테
 00000000CA14.07C: 3주 차: 헝겊 인형 에코
 00000000CA15.07C: 빠른 대전, 아케이드 또는 경쟁전에서 9승을 달성하세요!
@@ -22491,7 +22491,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CCDD.07C: 스트링 안에 아이콘을 사용할 수 있습니다. (스트링당 최대 4개)
 00000000CCDE.07C: 표시할 아이콘입니다.
 00000000CD3B.07C: - 역할당 배치 경기 5회 
-- 실력 평점 결정 (1~5000)
+- 실력 평점 결정 (1~3900)
 - 실력 평점은 승패에 따라 조정
 00000000CD47.07C: 25 크레딧
 00000000CD48.07C: 10 크레딧
@@ -22572,7 +22572,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CE84.07C: Good Beam
 00000000CE85.07C: Bad Beam
 00000000CE88.07C: Beam Type
-00000000CE9C.07C: 생성될 광선 효과의 색상입니다. 특정 팀을 선택한 경우, 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다. 효과음에는 적용되지 않습니다. 오직 "Good", 그리고 "Bad" 광선 효과에만 색상이 적용됩니다.
+00000000CE9C.07C: 생성될 광선 효과의 색상입니다. 특정 팀을 선택한 경우, 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다. 효과음에는 적용되지 않습니다. 오직 "Good", 그리고 "Bad" 광선 효과에만 색상이 적용됩니다. 사용자 지정 색깔을 지원하지 않습니다.
 00000000CE9D.07C: Grapple Beam
 00000000CEA2.07C: Position
 00000000CEA3.07C: Stop Throttle In Direction
@@ -27794,7 +27794,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010F5B.07C: 역할 고정
 000000010F5C.07C: 자유
 000000010F5D.07C: - 배치 경기 10회 
-- 실력 평점 결정 (1~5000)
+- 실력 평점 결정 (1~3900)
 - 실력 평점은 승패에 따라 조정
 000000010F5F.07C: 필터
 000000010F6E.07C: 컨텐더즈 어웨이
@@ -28535,6 +28535,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011744.07C: 전설 전리품 상자 1개와 
 전리품 상자 5개 (소모성 아이템)
 000000011745.07C: 15 크레딧, 무료 전설 전리품 상자 1개와 전리품 상자 5개
+000000011746.07C: http://playoverwatch.com/media/stories/stone-by-stone
+000000011747.07C: 지금 읽어보기
 00000001174A.07C: %1$s시즌
 000000011754.07C: 만화책
 000000011755.07C: 트레이서의 만화 챌린지에 참여하여 획득
@@ -28546,6 +28548,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000117A8.07C: 팀 데스매치 경쟁전
 0000000117A9.07C: 깃발 뺏기 경쟁전
 0000000117AA.07C: 자유 경쟁전
+0000000117B9.07C: 새로운 단편 소설
+0000000117BA.07C: 한 돌 한 돌
+0000000117FB.07C: https://ow.blizzard.cn/media/stories
 0000000117FC.07C: 바위
 00000001180C.07C: 정켄슈타인의 복수 앙심 품은 유령
 00000001180D.07C: 정켄슈타인의 복수 광란의 밤
@@ -28669,6 +28674,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000119B9.07C: 수수께끼의 생존자 정켄슈타인 도전 임무 완료
 0000000119BA.07C: 짜릿한 최후
 0000000119BB.07C: 짜릿한 최후 정켄슈타인 도전 임무 완료
+0000000119BC.07C: 마람마트
 0000000119BD.07C: 확인
 0000000119C0.07C: 공포의 할로윈이 돌아왔습니다!
 작년의 아이템과 더불어 새롭게 추가된 아이템을 확인하세요!
@@ -28700,7 +28706,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011A24.07C: 오버워치 컨텐더스
 000000011A25.07C: 오버워치 컨텐더스
 000000011A53.07C: 정말로 비속어 필터를 해제하시겠습니까?
-000000011AB0.07C: 자유 카메라 최대 시야
 000000011AB1.07C: 구간 건너뛰기 시간 길이
 000000011AB3.07C: 비속어 표현 필터 강도
 000000011AB4.07C: 지속적으로 갱신되는 비속어 목록에 따라 확인되는 외설적이거나 저속하거나, 불쾌한 표현을 모두 걸러냅니다. 가장 건전한 설정입니다.
@@ -28710,6 +28715,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 비속어 필터 사용과는 별개로, 불쾌한 표현을 사용하는 플레이어들은 신고하는 것을 권장합니다.
 000000011AB8.07C: 블리자드 엔터테인먼트의 게임 내 운영 정책에서 허용되는 행동에 대한 정보를 알아보세요. 
 커뮤니티에서 신고된 표현이 블리자드의 기준으로 불쾌할 것이라 여겨지면 계정이 제한될 수 있습니다.
+000000011AE0.07C: 시메트라의 복원 챌린지에 참여하여 획득
+000000011AE7.07C: 마람마트
+000000011AE9.07C: 마람마트
 000000011AEC.07C: 개별 재생 속도 설정
 000000011B16.07C: 초기화
 000000011B17.07C: 축하합니다! 겐지의 컨텐더스 팩을 잠금 해제했습니다. 이 팩에는 스킨 2개, 플레이어 아이콘, 그리고 스프레이가 포함되어 있습니다. 오버워치 컨텐더스를 시청하고 더 많은 홈과 어웨이 스킨을 획득하세요!
@@ -28723,7 +28731,22 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011B5A.07C: 컨텐더스 시청!
 000000011BB5.07C: https://kr.battle.net/support/ko/article/42673
 000000011BB7.07C: 운영 정책 보기
+000000011C08.07C: Set Environment Credit Player
+000000011C09.07C: 죽음을 판단 중인 플레이어 대상입니다.
+000000011C0A.07C: Debug - Unified Enabled
+000000011C0B.07C: Environment Credit Player
+000000011C0C.07C: 대상 플레이어가 지면에 착지하기 전에 환경 요소로 죽을 경우 기록이 집계될 플레이어입니다. Environment Credit Player가 Null이면 아무 플레이어도 집계되지 않습니다.
+000000011C0D.07C: 지정된 대상 플레이어가 지면에 착지하기 전에 환경 요소로 죽을 경우 기록이 집계될 플레이어를 설정합니다.
+000000011C0F.07C: Target
 000000011C10.07C: 1인칭 영웅 HUD
+000000011C50.07C: Default
+000000011C51.07C: Occluded
+000000011C52.07C: Always
+000000011C53.07C: 플레이어가 보일 때, 지정된 플레이어의 외곽선의 종류입니다.
+000000011C54.07C: Type
+000000011C60.07C: 기본 게임 설정으로 외곽선이 보입니다.
+000000011C61.07C: 환경에 가려 있을 때 외곽선이 보입니다.
+000000011C62.07C: 외곽선이 항상 보입니다.
 000000011C63.07C: 환영
 000000011C65.07C: 환영
 000000011C67.07C: 바위
@@ -28734,7 +28757,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011C70.07C: 할로윈 전리품 상자에서 획득
 000000011C71.07C: 카라스 텐구
 000000011C72.07C: 할로윈 전리품 상자에서 획득
-000000011C73.07C: 다이텐구
+000000011C73.07C: 다이 텐구
 000000011C74.07C: 할로윈 전리품 상자에서 획득
 000000011C75.07C: 여우 신령
 000000011C76.07C: 할로윈 전리품 상자에서 획득
@@ -28746,7 +28769,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011C7C.07C: 할로윈 전리품 상자에서 획득
 000000011C7D.07C: 카라스 텐구
 000000011C7E.07C: 할로윈 전리품 상자에서 획득
-000000011C7F.07C: 다이텐구
+000000011C7F.07C: 다이 텐구
 000000011C80.07C: 할로윈 전리품 상자에서 획득
 000000011C81.07C: 늑대인간
 000000011C82.07C: 할로윈 전리품 상자에서 획득
@@ -28758,12 +28781,35 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011C8C.07C: 폭격 개시
 000000011C8D.07C: 속사
 000000011C8E.07C: 바이킹의 분노
+000000011C93.07C: 일반 전리품 상자 획득률
+000000011C94.07C: Sort Order
+000000011C95.07C: 동일한 위치에 있는 다른 설정과의 정렬 순서입니다. 정렬 순서 상 우선순위가 높은 설정 낮은 우선순위의 설정 다음에 위치하게 됩니다.
+000000011CB7.07C: Number Of Slots
+000000011CB8.07C: 팀 또는 경기의 슬롯 수입니다.
+000000011CB9.07C: 슬롯 수를 확인할 팀입니다.
 000000011CBA.07C: 취소
 000000011CBB.07C: 정말로 모든 관전 설정을 초기화하시겠습니까?
-000000011CCB.07C: 다이텐구
+000000011CBC.07C: Workshop Setting Hero
+000000011CBD.07C: 워크샵 설정 카드에 콤보 박스로 표시할 새로운 영웅 설정값을 제공합니다.
+000000011CC0.07C: Workshop Setting Combo
+000000011CC1.07C: 워크샵 설정 카드에서 콤보 박스로 나타날 새로운 옵션의 값을 사용자 지정 스트링 중에서 제공합니다. 이 값은 선택한 스트링의 인덱스를 되돌립니다.
+000000011CC2.07C: Options
+000000011CC3.07C: 이 설정의 옵션입니다.
+000000011CCB.07C: 다이 텐구
+000000011D3F.07C: Workshop Setting Combo 값의 옵션 매개변수는 사용자 지정 스트링의 비지 않은 배열에 배정되어야 합니다.
+000000011D40.07C: 각 워크샵 설정 옵션은 설정 당 한 번만 참조할 수 있고 고유한 이름이 필요합니다. (대소문자 및 띄어쓰기 무시)
+000000011D41.07C: 워크샵 설정의 스트링은 비워둘 수 없으며 '{', '}' 또는 ':'을 포함할 수 없습니다.
+000000011D42.07C: Color
+000000011D43.07C: 색깔 상수입니다.
 000000011D9C.07C: 
 000000011D9D.07C: 
 000000011D9E.07C: 
+000000011DA2.07C: Custom Color
+000000011DA3.07C: 특정 rgb와 알파 값을 가진 사용자 지정 색깔입니다.
+000000011DA4.07C: 색깔의 빨강 구성요소입니다.
+000000011DA5.07C: 색깔의 알파 구성요소입니다.
+000000011DA6.07C: Alpha
+000000011DA7.07C: Red
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
@@ -28773,6 +28819,27 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011E39.07C: 2020 팀 데스매치 경쟁전에서 상위 500위를 달성하여 획득
 000000011E3A.07C: 2020 팀 데스매치 경쟁전 참가자
 000000011E3C.07C: 2020 팀 데스매치 경쟁전 영웅
+000000011E3E.07C: Green
+000000011E3F.07C: 색깔의 초록 구성요소입니다.
+000000011E40.07C: 색깔의 파랑 구성요소입니다.
+000000011E41.07C: Blue
+000000011E47.07C: Visible To, Position, and Color
+000000011E48.07C: Position and Color
+000000011E49.07C: Visible To and Color
+000000011E4A.07C: Color
+000000011E65.07C: Visible To, Position, Radius, and Color
+000000011E66.07C: Position, Radius, and Color
+000000011E70.07C: Visible To, String, and Color
+000000011E71.07C: String and Color
+000000011E72.07C: Visible To, Sort Order, String, and Color
+000000011E73.07C: Sort Order, String, and Color
+000000011E74.07C: Visible To, Sort Order, and Color
+000000011E75.07C: Sort Order and Color
+000000011E76.07C: Visible To, Position, String, and Color
+000000011F44.07C: 워크샵 그린 스크린
+000000011F55.07C: Magnitude Of
+000000011F56.07C: 지정된 값의 크기입니다.
+000000011F59.07C: 크기연산의 벡터 피연산자입니다.
 000000011F68.07C: 오버워치 올스타 대서양
 000000011F69.07C: 오버워치 올스타 대서양
 000000011F6A.07C: 오버워치 올스타 대서양
@@ -28837,7 +28904,228 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011FA5.07C: 오버워치 올스타 태평양
 000000011FA6.07C: 오버워치 올스타 태평양
 000000011FA7.07C: 오버워치 올스타 태평양
+000000011FA9.07C: Set Knockback Dealt
+000000011FAA.07C: Set Knockback Received
+000000011FAB.07C: 플레이어가 주는 밀쳐내기를 순수 밀쳐내기량 대비 %% 비율로 설정합니다.
+000000011FAC.07C: 플레이어가 받는 밀쳐내기를 순수 밀쳐내기량 대비 %% 비율로 설정합니다.
+000000011FAD.07C: 주는 밀쳐내기를 설정할 플레이어입니다.
+000000011FAE.07C: Knockback Dealt Percent
+000000011FAF.07C: 순수 밀쳐내기량에 비례하도록 설정할 플레이어의 주는 밀쳐내기량 비율입니다.
+000000011FB0.07C: 받는 밀쳐내기를 설정할 플레이어입니다.
+000000011FB1.07C: Knockback Received Percent
+000000011FB2.07C: 순수 밀쳐내기량에 비례하도록 설정할 플레이어의 받는 밀쳐내기량 비율입니다.
 000000011FE1.07C: 앙심 품은 유령
 000000011FE2.07C: 할로윈 전리품 상자에서 획득
+000000011FE7.07C: Spawn Points
+000000011FE8.07C: 팀 또는 경기의 활성화된 생성 지점으로, 위치 벡터의 배열로 제공됩니다.
+00000001205E.07C: 생성 지점 정보를 가져올 팀입니다.
+000000012070.07C: String Contains
+000000012071.07C: 지정된 스트링에 지정된 값이 있는지 여부입니다.
+000000012073.07C: 지정된 값을 검색할 스트링입니다.
+0000000121C2.07C: Wait Until
+0000000121C3.07C: Continue Condition이 참이거나 Timeout 기한이 지날 때까지 대기합니다. (대기하는 동안 규칙의 조건은 무시됩니다.)
+0000000121C4.07C: Continue Condition
+0000000121C5.07C: 이 값이 참이 되면, 대기가 종료되고 액션 목록의 다음 액션이 시행됩니다.
+0000000121CA.07C: 수 초가 지나면, 대기가 종료되고 액션 목록의 다음 액션이 시행됩니다.
+0000000121CB.07C: Timeout
+0000000121F2.07C: Last Assist ID
+0000000121F3.07C: Event Player 또는 전역 레벨에서 가장 최근에 실행된 Last Assist 액션의 ID입니다.
+0000000121FA.07C: Stop All Assists
+0000000121FB.07C: Start Assist 액션으로 시작된 모든 도움을 중지합니다.
+0000000121FC.07C: Stop Assist
+0000000121FD.07C: Start Assist 액션으로 시작된 도움 하나를 중지합니다.
+0000000121FE.07C: Assist ID
+0000000121FF.07C: 중지할 도움 인스턴스를 지정합니다. 여기에 사용되는 ID는 Last assist ID 또는 예전에 Last assist ID가 담긴 변수입니다.
+000000012200.07C: Start Assist
+000000012201.07C: 대상이 죽을 때마다 Assister가 도움 행동을 한 것으로 집계되기 시작합니다. 이 Damage Modification을 참조하려면 Last Assist ID 값을 사용하십시오. 시작된 도움이 너무 많은 경우 이 액션은 실패할 수 있습니다.
+000000012202.07C: Assisters
+000000012203.07C: 도움 행동을 한 것으로 집계될 플레이어입니다.
+000000012204.07C: Targets
+000000012205.07C: 처치할 때 Assister가 도움 행동을 한 것으로 집계될 플레이어입니다. 대상이 Assister의 아군이면, 방어형 도움입니다. 그 외에는, 공격형 도움입니다.
+000000012206.07C: Assisters and Targets
+000000012214.07C: Evaluate Once
+000000012215.07C: 주어진 액션 또는 조건(재확인이 가능한 액션과 병행해서 사용할 때 선택적으로 값의 일부를 재확인하지 않을 때 유용합니다.)의 입력값 매개변수에 제공된 첫 번째 값의 결과입니다. 
+000000012216.07C: 이 값은 액션 또는 조건 당 한 번만 확인됩니다.
+000000012217.07C: Input Value
+00000001221A.07C: 모드를 선택하지 않았습니다. 변경 사항을 수정하거나 취소해야 합니다.
+00000001221B.07C: 뗄 때 벽에서 점프
+00000001221C.07C: Spray Up
+00000001228A.07C: Spray Left
+00000001228B.07C: Spray Right
+00000001228C.07C: Spray Down
+000000012290.07C: Is Communicating Any Spray
+000000012291.07C: 플레이어가 스프레이를 사용하는지 여부입니다.
+000000012292.07C: 스프레이 상태를 확인할 플레이어입니다.
 000000012294.07C: 앙심 품은 유령
-[Core] Execution finished in 00:00:00.4511878 seconds
+0000000122E2.07C: Destroy All Progress Bar HUD Text
+0000000122E3.07C: Create Progress Bar HUD Text 액션에 의해 생성된 모든 진행도 막대 HUD 텍스트를 제거합니다.
+0000000122E4.07C: Destroy Progress Bar HUD Text
+0000000122E5.07C: Create Progress Bar HUD Text 액션에 의해 생성된 진행도 막대 HUD 텍스트를 제거합니다.
+0000000122E6.07C: 제거할 진행도 막대 HUD 텍스트를 지정합니다. 여기에 사용되는 ID는 Last Text ID 또는 예전에 Last Text ID가 담긴 변수입니다.
+0000000122E7.07C: 해당 진행도 막대 HUD 텍스트를 보게 될 플레이어입니다.
+0000000122E8.07C: Value
+0000000122E9.07C: 진행도 막대의 값이 0에서 100까지 백분율로 표시됩니다.
+0000000122EA.07C: Progress Bar Color
+0000000122EB.07C: 생성될 진행도 막대 텍스트의 색상입니다. 특정 팀을 선택한 경우, 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다.
+0000000122EE.07C: Visible To, Values, and Color
+0000000122EF.07C: Visible To and Values
+0000000122F0.07C: Values and Color
+0000000122F1.07C: Values
+0000000122F3.07C: Create Progress Bar HUD Text
+0000000122F4.07C: 화면 내 지정된 위치에 있는 지정된 플레이어에 표시할 진행도 막대 HUD 텍스트를 생성합니다. 이 텍스트는 제거하기 전까지 지속됩니다. 이 텍스트를 참조하려면 Last Text ID 값을 사용하면 됩니다. 텍스트 요소가 너무 많이 생성될 경우 이 액션은 실패할 수 있습니다.
+000000012320.07C: 자유 카메라 보간율
+000000012321.07C: 자유 카메라 줌 별 변화
+000000012322.07C: 자유 카메라 최대 시야
+00000001232B.07C: Update Every Frame
+00000001232C.07C: 입력값 매개변수에 제공된 값으로 나타나며 업데이트 빈도의 값을 프레임 당 한 번으로 증가시킵니다. Position Of 등 여러 프레임 당 한 번 업데이트하는 일부 값의 등장을 부드럽게 할 때 유용합니다. 조건과 재확인하는 액션 매개변수에 적용됩니다. 서버 부하가 증가하거나 프레임률이 저하될 수 있습니다.
+00000001232E.07C: Input Value
+00000001232F.07C: 이 값의 업데이트 속도가 여러 프레임 당 한 번에서 프레임 당 한 번으로 증가합니다.
+000000012334.07C: Destroy All Progress Bar In-World Text
+000000012335.07C: Create Progress Bar In-World Text 액션에 의해 생성된 모든 진행도 막대 월드 내 텍스트를 제거합니다.
+000000012336.07C: Destroy Progress Bar In-World Text
+000000012337.07C: Create Progress Bar In-World Text으로 생성된 진행도 막대 월드 내 텍스트를 제거합니다.
+000000012338.07C: 제거할 진행도 막대 월드 내 텍스트를 지정합니다. 여기에 사용되는 ID는 Last Text ID 또는 예전에 Last Text ID가 담긴 변수입니다.
+00000001233A.07C: Create Progress Bar In-World Text
+00000001233B.07C: 월드 내 지정된 위치에 있는 지정된 플레이어에 표시할 진행도 막대 HUD 텍스트를 생성합니다. 이 텍스트는 제거하기 전까지 지속됩니다. 이 텍스트를 참조하려면 Last Text ID 값을 사용하면 됩니다. 텍스트 요소가 너무 많이 생성될 경우 이 액션은 실패할 수 있습니다.
+00000001233C.07C: 해당 진행도 막대 월드 내 텍스트를 보게 될 플레이어입니다.
+00000001233D.07C: Visible To, Position, Values, and Color
+00000001233E.07C: Visible To, Position, and Values
+00000001233F.07C: Position, Values, and Color
+000000012340.07C: Position and Values
+00000001235A.07C: Workshop Setting Hero 값의 기본 매개변수는 영웅의 비지 않은 배열에 배정되어야 합니다.
+000000012439.07C: 오류: 워크샵 설정 옵션이 너무 많습니다.
+000000012449.07C: Log To Inspector
+00000001244A.07C: Text
+00000001244B.07C: 워크샵 인스펙터에 기록될 스트링입니다.
+00000001244C.07C: 워크샵 인스펙터가 로그 항목을 기록하게 합니다.
+000000012469.07C: Log
+00000001246A.07C: 현재 로그를 클립보드에 복사
+00000001246B.07C: 모든 로그를 클립보드에 복사
+00000001246F.07C: <fg#FFEAA239>[|Rfd %1$s:HH:mm:ss;]</fg>
+000000012472.07C: |Rfd %1$s:HH:mm:ss;
+00000001249D.07C: 최소 지연 시간 (milliseconds)
+0000000124A2.07C: String Length
+0000000124A3.07C: 스트링 값의 문자 수를 나타냅니다. (값이 스트링이 아니면 0으로 나타납니다.)
+0000000124A4.07C: String
+0000000124A5.07C: 문자 수를 확인할 스트링 값입니다.
+0000000124A6.07C: String Slice
+0000000124A7.07C: 스트링 값의 지정된 하위 스트링을 나타냅니다.
+0000000124A8.07C: 하위 스트링을 만들 스트링 값입니다.
+0000000124A9.07C: Start Character Index
+0000000124AA.07C: 하위 스트링을 시작할 문자를 지정합니다. (0이 첫 번째 문자, 1이 두 번째 문자 등)
+0000000124AB.07C: Character Count
+0000000124AC.07C: 하위 스트링 내의 문자 수를 지정합니다.
+0000000124AD.07C: 2020 똑같은 영웅도 환영 경쟁전 참가자
+0000000124AE.07C: 2020 똑같은 영웅도 환영 경쟁전 배치 경기를 완료하여 획득
+0000000124AF.07C: 2020 똑같은 영웅도 환영 경쟁전 영웅
+0000000124B0.07C: 2020 똑같은 영웅도 환영 경쟁전에서 상위 500위를 달성하여 획득
+0000000124B1.07C: 2020 똑같은 영웅도 환영 경쟁전 참가자
+0000000124B2.07C: 2020 똑같은 영웅도 환영 경쟁전 배치 경기를 완료하여 획득
+0000000124B3.07C: 2020 똑같은 영웅도 환영 경쟁전 영웅
+0000000124B4.07C: 2020 똑같은 영웅도 환영 경쟁전에서 상위 500위를 달성하여 획득
+0000000124B7.07C: All Damage Dealt
+0000000124B8.07C: Barrier Damage Dealt
+0000000124BD.07C: Weapon Accuracy
+0000000124BF.07C: Ultimates Used
+0000000124C1.07C: Ultimates Earned
+0000000124C3.07C: Solo Kills
+0000000124C7.07C: Offensive Assists
+0000000124C9.07C: Objective Kills
+0000000124CB.07C: Multikills
+0000000124CD.07C: Multikill Best
+0000000124D1.07C: Healing Dealt
+0000000124D5.07C: Hero Damage Dealt
+0000000124D7.07C: Environmental Kills
+0000000124D8.07C: Environmental Deaths
+0000000124DA.07C: Defensive Assists
+0000000124DC.07C: Final Blows
+0000000124DE.07C: Eliminations
+0000000124DF.07C: Deaths
+0000000124E0.07C: Damage Taken
+0000000124E1.07C: Damage Blocked
+0000000124E2.07C: All Damage Dealt
+0000000124E3.07C: Barrier Damage Dealt
+0000000124E4.07C: Damage Blocked
+0000000124E5.07C: Deaths
+0000000124E6.07C: Eliminations
+0000000124E7.07C: Environmental Kills
+0000000124E8.07C: Critical Hit Accuracy
+0000000124E9.07C: Critical Hits
+0000000124EA.07C: Damage Taken
+0000000124EB.07C: Defensive Assists
+0000000124EC.07C: Environmental Deaths
+0000000124ED.07C: Final Blows
+0000000124EE.07C: Healing Dealt
+0000000124EF.07C: Healing Received
+0000000124F0.07C: Hero Damage Dealt
+0000000124F2.07C: Multikill Best
+0000000124F3.07C: Multikills
+0000000124F4.07C: Objective Kills
+0000000124F5.07C: Offensive Assists
+0000000124F6.07C: Scoped Accuracy
+0000000124F7.07C: Scoped Critical Hit Accuracy
+0000000124F8.07C: Scoped Critical Hit Kills
+0000000124F9.07C: Scoped Critical Hits
+0000000124FA.07C: Scoped Hits
+0000000124FB.07C: Scoped Shots
+0000000124FC.07C: Self Healing
+0000000124FD.07C: Shots Fired
+0000000124FE.07C: Shots Hit
+0000000124FF.07C: Shots Missed
+000000012500.07C: Solo Kills
+000000012501.07C: Ultimates Earned
+000000012502.07C: Ultimates Used
+000000012503.07C: Weapon Accuracy
+000000012504.07C: 특정 플레이어가 특정 영웅을 플레이한 시간의 통계치를 제공합니다. (현재 경기 한정) 통계치는 게임이 진행 중인 동안에만 수집됩니다. 더미 봇은 통계치를 수집하지 않습니다.
+000000012505.07C: Player Hero Stat
+000000012506.07C: 특정 플레이어의 통계치를 제공합니다. (현재 경기 한정) 통계치는 게임이 진행 중인 동안에만 수집됩니다. 더미 봇은 통계치를 수집하지 않습니다.
+000000012507.07C: Player Stat
+000000012508.07C: 통계치를 가져올 플레이어입니다.
+000000012509.07C: Player
+00000001250A.07C: Stat
+00000001250B.07C: 가져올 통계치입니다.
+00000001250C.07C: Hero
+00000001250D.07C: 통계치를 가져올 영웅입니다.
+00000001251E.07C: 점령 - 똑같은 영웅도 환영
+00000001251F.07C: 쟁탈 - 똑같은 영웅도 환영
+000000012520.07C: 혼합 - 똑같은 영웅도 환영
+000000012521.07C: 호위 - 똑같은 영웅도 환영
+000000012522.07C: 똑같은 영웅도 환영 경쟁전 1시즌
+000000012523.07C: 똑같은 영웅도 환영 경쟁전
+000000012524.07C: 똑같은 영웅도 환영 경쟁전
+000000012525.07C: 다른 플레이어와 경쟁하고 등급을 올리세요. 아무 제약 없이 영웅을 선택할 수 있습니다.
+00000001253A.07C: MIN LAT: %1$s MS
+00000001253E.07C: 경쟁전
+00000001253F.07C: 참여하여 다음 보상을 획득하세요
+000000012540.07C: 똑같은 영웅도 환영
+000000012541.07C: 40
+000000012542.07C: 75
+000000012543.07C: 150
+000000012544.07C: 300
+000000012545.07C: 450
+000000012546.07C: 750
+000000012547.07C: 1000
+000000012548.07C: 참여하여 다음 보상을 획득하세요
+000000012549.07C: 플레이해 주셔서 감사합니다!
+00000001254B.07C: 배치 경기로 달성할 수 있는 등급 점수의 상한선은 3900점입니다.
+00000001254E.07C: Gray
+00000001254F.07C: Violet
+000000012550.07C: Rose
+000000012551.07C: Black
+000000012555.07C: 순례자
+000000012558.07C: 산제이
+000000012559.07C: 향
+00000001255A.07C: 자각
+00000001255B.07C: 가벼운 손놀림
+00000001255C.07C: 식사 시간
+00000001255D.07C: 시메트라의 복원 챌린지 중 이벤트 스트림을 시청하여 획득
+0000000125A4.07C: 대상이 충격량이 가해진 방향의 반대로 움직이는 경우, 상대 속도를 상쇄한 후 충격량을 적용합니다. 수평과 수직 속도(XYZ)가 함께 처리됩니다.
+0000000125A5.07C: Cancel Contrary Motion XYZ
+0000000125DC.07C: 브라질 2
+0000000125DD.07C: 싱가폴 2
+0000000125DE.07C: 일본 2
+0000000125DF.07C: 미국 - 서부 2
+0000000125E0.07C: 독일 2
+0000000125E1.07C: 핀란드 2
+0000000125E2.07C: 대만 2
+[Core] Execution finished in 00:00:00.4738867 seconds

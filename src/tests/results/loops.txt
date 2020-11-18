@@ -119,7 +119,7 @@ rule ("do/while rule condition") {
     actions {
         Wait(False, Ignore Condition);
         Modify Global Variable(A, Add, True);
-        If(Compare(Global.A, >, Number of Players(Team 2)));
+        If(Compare(Global.A, >, Number Of Players(Team 2)));
             Set Global Variable(A, Null);
         End;
         Loop If Condition Is True;

@@ -108,7 +108,13 @@ const constantValues =
             "zh-CN": "水绿色"
         },
         "BLACK": {
+            "guid": "000000012551",
             "en-US": "Black",
+            "es-MX": "Negro",
+            "fr-FR": "Noir",
+            "ja-JP": "ブラック",
+            "pt-BR": "Preto",
+            "zh-CN": "黑色"
         },
         "BLUE": {
             "guid": "00000000B939",
@@ -120,7 +126,13 @@ const constantValues =
             "zh-CN": "蓝色"
         },
         "GRAY": {
+            "guid": "00000001254E",
             "en-US": "Gray",
+            "es-MX": "Gris",
+            "fr-FR": "Gris",
+            "ja-JP": "グレー",
+            "pt-BR": "Cinza",
+            "zh-CN": "灰色"
         },
         "GREEN": {
             "guid": "00000000B93A",
@@ -167,7 +179,12 @@ const constantValues =
             "zh-CN": "红色"
         },
         "ROSE": {
+            "guid": "000000012550",
             "en-US": "Rose",
+            "es-MX": "Rosa",
+            "ja-JP": "ローズ",
+            "pt-BR": "Rosa",
+            "zh-CN": "玫红"
         },
         "SKY_BLUE": {
             "guid": "00000000CDB5",
@@ -205,7 +222,13 @@ const constantValues =
             "zh-CN": "青绿色"
         },
         "VIOLET": {
+            "guid": "00000001254F",
             "en-US": "Violet",
+            "es-MX": "Violeta",
+            "fr-FR": "Mauve",
+            "ja-JP": "バイオレット",
+            "pt-BR": "Violeta",
+            "zh-CN": "紫色"
         },
         "WHITE": {
             "guid": "00000000B93C",
@@ -864,16 +887,40 @@ const constantValues =
             "zh-CN": "抱歉"
         },
         "SPRAY_DOWN": {
+            "guid": "00000001228C",
             "en-US": "Spray Down",
+            "es-MX": "Spray hacia abajo",
+            "fr-FR": "Tag bas",
+            "ja-JP": "スプレー下",
+            "pt-BR": "Spray - Baixo",
+            "zh-CN": "喷漆下"
         },
         "SPRAY_LEFT": {
+            "guid": "00000001228A",
             "en-US": "Spray Left",
+            "es-MX": "Spray a la izquierda",
+            "fr-FR": "Tag gauche",
+            "ja-JP": "スプレー左",
+            "pt-BR": "Spray - Esquerda",
+            "zh-CN": "喷漆左"
         },
         "SPRAY_RIGHT": {
+            "guid": "00000001228B",
             "en-US": "Spray Right",
+            "es-MX": "Spray a la derecha",
+            "fr-FR": "Tag droite",
+            "ja-JP": "スプレー右",
+            "pt-BR": "Spray - Direita",
+            "zh-CN": "喷漆右"
         },
         "SPRAY_UP": {
+            "guid": "00000001221C",
             "en-US": "Spray Up",
+            "es-MX": "Spray hacia arriba",
+            "fr-FR": "Tag haut",
+            "ja-JP": "スプレー上",
+            "pt-BR": "Spray - Cima",
+            "zh-CN": "喷漆上"
         },
         "THANKS": {
             "guid": "00000000B9D6",
@@ -1486,7 +1533,12 @@ const constantValues =
     },
     "IconReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -1506,7 +1558,13 @@ const constantValues =
             "zh-CN": "位置"
         },
         "POSITION_AND_COLOR": {
+            "guid": "000000011E48",
             "en-US": "Position and Color",
+            "es-MX": "Posición y color",
+            "fr-FR": "Position et Couleur",
+            "ja-JP": "位置、色",
+            "pt-BR": "Posição e Cor",
+            "zh-CN": "位置和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -1518,7 +1576,13 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -1530,12 +1594,23 @@ const constantValues =
             "zh-CN": "可见和位置"
         },
         "VISIBILITY_POSITION_AND_COLOR": {
+            "guid": "000000011E47",
             "en-US": "Visible To Position and Color",
-        },
+            "es-MX": "Visible para posición y color",
+            "fr-FR": "Visible pour Position et Couleur",
+            "ja-JP": "表示される相手、位置、色",
+            "pt-BR": "Visível para Posição e Cor",
+            "zh-CN": "可见，位置和颜色"
+        }
     },
     "EffectReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -1556,7 +1631,13 @@ const constantValues =
             "zh-CN": "位置和半径"
         },
         "POSITION_RADIUS_AND_COLOR": {
+            "guid": "000000011E66",
             "en-US": "Position Radius and Color",
+            "es-MX": "Posición radio y color",
+            "fr-FR": "Position Rayon et Couleur",
+            "ja-JP": "位置、半径、色",
+            "pt-BR": "Posição Raio e Cor",
+            "zh-CN": "位置，半径和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -1568,7 +1649,13 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_POSITION_AND_RADIUS": {
             "guid": "00000000B8C6",
@@ -1580,12 +1667,23 @@ const constantValues =
             "zh-CN": "可见，位置和半径"
         },
         "VISIBILITY_POSITION_RADIUS_AND_COLOR": {
+            "guid": "000000011E65",
             "en-US": "Visible To Position Radius and Color",
-        },
+            "es-MX": "Visible para posición radio y color",
+            "fr-FR": "Visible pour Position Rayon et Couleur",
+            "ja-JP": "表示される相手、位置、半径、色",
+            "pt-BR": "Visível para Posição Raio e Cor",
+            "zh-CN": "可见，位置，半径和颜色"
+        }
     },
     "HudReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -1606,7 +1704,13 @@ const constantValues =
             "zh-CN": "排序"
         },
         "SORT_ORDER_AND_COLOR": {
+            "guid": "000000011E75",
             "en-US": "Sort Order and Color",
+            "es-MX": "Clasificar orden y color",
+            "fr-FR": "Tri et Couleur",
+            "ja-JP": "ソート順、色",
+            "pt-BR": "Ordem de Classificação e Cor",
+            "zh-CN": "排序规则和颜色"
         },
         "SORT_ORDER_AND_STRING": {
             "guid": "00000000FCA6",
@@ -1615,10 +1719,16 @@ const constantValues =
             "fr-FR": "Tri et Chaîne de texte",
             "ja-JP": "ソート順、文字列",
             "pt-BR": "Ordem de classificação e string",
-            "zh-CN": "排序规则与字符串"
+            "zh-CN": "排序规则和字符串"
         },
         "SORT_ORDER_STRING_AND_COLOR": {
+            "guid": "000000011E73",
             "en-US": "Sort Order String and Color",
+            "es-MX": "Clasificar orden cadena y color",
+            "fr-FR": "Tri Chaîne de texte et Couleur",
+            "ja-JP": "ソート順、文字列、色",
+            "pt-BR": "Ordem de Classificação String e Cor",
+            "zh-CN": "排序规则，字符串和颜色"
         },
         "STRING": {
             "guid": "00000000BB31",
@@ -1629,7 +1739,14 @@ const constantValues =
             "zh-CN": "字符串"
         },
         "STRING_AND_COLOR": {
+            "guid": "000000011E71",
             "en-US": "String and Color",
+            "es-MX": "Cadena y color",
+            "fr-FR": "Chaîne de texte et Couleur",
+            "it-IT": " String and Color",
+            "ja-JP": "文字列、色",
+            "pt-BR": "String e Cor",
+            "zh-CN": "字符串和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -1641,7 +1758,13 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_SORT_ORDER": {
             "guid": "00000001095E",
@@ -1662,7 +1785,13 @@ const constantValues =
             "zh-CN": "可见和字符串"
         },
         "VISIBILITY_SORT_ORDER_AND_COLOR": {
+            "guid": "000000011E74",
             "en-US": "Visible To Sort Order and Color",
+            "es-MX": "Visible para clasificar orden y color",
+            "fr-FR": "Visible pour Tri et Couleur",
+            "ja-JP": "表示される相手、ソート順、色",
+            "pt-BR": "Visível para Ordem de Classificação e Cor",
+            "zh-CN": "可见，排序规则和颜色"
         },
         "VISIBILITY_SORT_ORDER_AND_STRING": {
             "guid": "00000000FCA5",
@@ -1673,18 +1802,35 @@ const constantValues =
             "ja-JP": "表示される相手、ソート順、文字列",
             "ko-KR": "Visible To Sort Order String",
             "pt-BR": "Visível para ordem de classificação e string",
-            "zh-CN": "可见性，排序规则，以及字符串"
+            "zh-CN": "可见性，排序规则和字符串"
         },
         "VISIBILITY_SORT_ORDER_STRING_AND_COLOR": {
+            "guid": "000000011E72",
             "en-US": "Visible To Sort Order String and Color",
+            "es-MX": "Visible para clasificar orden cadena y color",
+            "fr-FR": "Visible pour Tri Chaîne de texte et Couleur",
+            "ja-JP": "表示される相手、ソート順、文字列、色",
+            "pt-BR": "Visível para Ordem de Classificação String e Cor",
+            "zh-CN": "可见，排序规则，字符串和颜色"
         },
         "VISIBILITY_STRING_AND_COLOR": {
+            "guid": "000000011E70",
             "en-US": "Visible To String and Color",
-        },
+            "es-MX": "Visible para cadena y color",
+            "fr-FR": "Visible pour Chaîne de texte et Couleur",
+            "ja-JP": "表示される相手、文字列、色",
+            "pt-BR": "Visível para String e Cor",
+            "zh-CN": "可见，字符串和颜色"
+        }
     },
     "WorldTextReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -1696,10 +1842,22 @@ const constantValues =
             "zh-CN": "无"
         },
         "STRING": {
+            "guid": "00000000BB31",
             "en-US": "String",
+            "es-MX": "Cadena",
+            "fr-FR": "Chaîne de texte",
+            "ja-JP": "文字列",
+            "zh-CN": "字符串"
         },
         "STRING_AND_COLOR": {
+            "guid": "000000011E71",
             "en-US": "String and Color",
+            "es-MX": "Cadena y color",
+            "fr-FR": "Chaîne de texte et Couleur",
+            "it-IT": " String and Color",
+            "ja-JP": "文字列、色",
+            "pt-BR": "String e Cor",
+            "zh-CN": "字符串和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -1711,7 +1869,13 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -1732,7 +1896,13 @@ const constantValues =
             "zh-CN": "可见和字符串"
         },
         "VISIBILITY_POSITION_AND_COLOR": {
+            "guid": "000000011E47",
             "en-US": "Visible To Position and Color",
+            "es-MX": "Visible para posición y color",
+            "fr-FR": "Visible pour Position et Couleur",
+            "ja-JP": "表示される相手、位置、色",
+            "pt-BR": "Visível para Posição e Cor",
+            "zh-CN": "可见，位置和颜色"
         },
         "VISIBILITY_POSITION_AND_STRING": {
             "guid": "00000000BAD4",
@@ -1744,11 +1914,23 @@ const constantValues =
             "zh-CN": "可见，位置和字符串"
         },
         "VISIBILITY_STRING_AND_COLOR": {
+            "guid": "000000011E70",
             "en-US": "Visible To String and Color",
+            "es-MX": "Visible para cadena y color",
+            "fr-FR": "Visible pour Chaîne de texte et Couleur",
+            "ja-JP": "表示される相手、文字列、色",
+            "pt-BR": "Visível para String e Cor",
+            "zh-CN": "可见，字符串和颜色"
         },
         "VISIBILITY_POSITION_STRING_AND_COLOR": {
+            "guid": "000000011E76",
             "en-US": "Visible To Position String and Color",
-        },
+            "es-MX": "Visible para posición cadena y color",
+            "fr-FR": "Visible pour Position Chaîne de texte et Couleur",
+            "ja-JP": "表示される相手、位置、文字列、色",
+            "pt-BR": "Visível para Posição String e Cor",
+            "zh-CN": "可见，位置，字符串和颜色"
+        }
     },
     "ChaseReeval": {},
     "__ChaseRateReeval__": {
@@ -2239,83 +2421,227 @@ const constantValues =
     },
     "OutlineVisibility": {
         "DEFAULT": {
-            "en-US": "Default",
             "description": "Outlines are visible based on the default game settings.",
+            "guid": "000000011C50",
+            "en-US": "Default",
+            "es-MX": "Predeterminado",
+            "fr-FR": "Par défaut",
+            "ja-JP": "デフォルト",
+            "pt-BR": "Padrão",
+            "zh-CN": "默认"
         },
         "OCCLUDED": {
-            "en-US": "Occluded",
             "description": "Outlines are visible when occluded by the environment.",
+            "guid": "000000011C51",
+            "en-US": "Occluded",
+            "es-MX": "Ocluido",
+            "fr-FR": "Obstrué",
+            "ja-JP": "オクルード",
+            "pt-BR": "Ocultado",
+            "zh-CN": "遮蔽"
         },
         "ALWAYS": {
-            "en-US": "Always",
             "description": "Outlines are always visible.",
-        },
+            "guid": "000000011C52",
+            "en-US": "Always",
+            "es-MX": "Siempre",
+            "fr-FR": "Toujours",
+            "ja-JP": "常時",
+            "pt-BR": "Sempre",
+            "zh-CN": "总是"
+        }
     },
-    "Stat": {    
+    "Stat": {
         "DAMAGE_DEALT": {
-            "en-US": "All Damage Dealt"
+            "guid": "0000000124B7",
+            "en-US": "All Damage Dealt",
+            "es-MX": "Todo el daño infligido",
+            "fr-FR": "Dégâts infligés tous",
+            "ja-JP": "与ダメージ（全体）",
+            "pt-BR": "Todo o dano causado",
+            "zh-CN": "所有造成伤害量"
         },
         "BARRIER_DAMAGE_DEALT": {
-            "en-US": "Barrier Damage Dealt"
+            "guid": "0000000124B8",
+            "en-US": "Barrier Damage Dealt",
+            "es-MX": "Daño infligido a barreras",
+            "fr-FR": "Dégâts infligés aux écrans",
+            "ja-JP": "バリア与ダメージ",
+            "pt-BR": "Dano causado a barreiras",
+            "zh-CN": "对屏障造成伤害量"
         },
         "DAMAGE_BLOCKED": {
-            "en-US": "Damage Blocked"
+            "guid": "0000000124E1",
+            "en-US": "Damage Blocked",
+            "es-MX": "Daño bloqueado",
+            "fr-FR": "Dégâts bloqués",
+            "ja-JP": "ブロックしたダメージ",
+            "pt-BR": "Dano bloqueado",
+            "zh-CN": "阻挡伤害量"
         },
         "DAMAGE_TAKEN": {
-            "en-US": "Damage Taken"
+            "guid": "0000000124E0",
+            "en-US": "Damage Taken",
+            "es-MX": "Daño recibido",
+            "fr-FR": "Dégâts subis",
+            "ja-JP": "受けたダメージ",
+            "pt-BR": "Dano recebido",
+            "zh-CN": "承受伤害量"
         },
         "DEATHS": {
-            "en-US": "Deaths"
+            "guid": "0000000124DF",
+            "en-US": "Deaths",
+            "es-MX": "Muertes",
+            "fr-FR": "Morts",
+            "ja-JP": "デス",
+            "pt-BR": "Mortes",
+            "zh-CN": "阵亡"
         },
         "ELIMINATIONS": {
-            "en-US": "Eliminations"
+            "guid": "0000000124DE",
+            "en-US": "Eliminations",
+            "es-MX": "Eliminaciones",
+            "fr-FR": "Éliminations",
+            "ja-JP": "キル",
+            "pt-BR": "Eliminações",
+            "zh-CN": "消灭"
         },
         "DEFENSIVE_ASSISTS": {
-            "en-US": "Defensive Assists"
+            "guid": "0000000124DA",
+            "en-US": "Defensive Assists",
+            "es-MX": "Asistencias defensivas",
+            "fr-FR": "Soutiens défensifs",
+            "ja-JP": "防衛アシスト",
+            "pt-BR": "Assistências defensivas",
+            "zh-CN": "协助防守"
         },
         "FINAL_BLOWS": {
-            "en-US": "Final Blows"
+            "guid": "0000000124DC",
+            "en-US": "Final Blows",
+            "es-MX": "Golpes de gracia",
+            "fr-FR": "Coups de grâce",
+            "ja-JP": "ファイナル・ブロウ",
+            "pt-BR": "Golpes finais",
+            "zh-CN": "最后一击"
         },
         "ENVIRONMENTAL_DEATHS": {
-            "en-US": "Environmental Deaths"
+            "guid": "0000000124D8",
+            "en-US": "Environmental Deaths",
+            "es-MX": "Muertes sufridas por el entorno",
+            "fr-FR": "Morts dues à l’environnement",
+            "ja-JP": "環境デス",
+            "pt-BR": "Mortes no ambiente",
+            "zh-CN": "地形阵亡"
         },
         "ENVIRONMENTAL_KILLS": {
-            "en-US": "Environmental Kills"
+            "guid": "0000000124D7",
+            "en-US": "Environmental Kills",
+            "es-MX": "Derribos con el entorno",
+            "fr-FR": "Victimes dues à l’environnement",
+            "ja-JP": "環境キル",
+            "pt-BR": "Abates no ambiente",
+            "zh-CN": "地形消灭"
         },
         "HERO_DAMAGE_DEALT": {
-            "en-US": "Hero Damage Dealt"
+            "guid": "0000000124D5",
+            "en-US": "Hero Damage Dealt",
+            "es-MX": "Daño infligido a héroes",
+            "fr-FR": "Dégâts infligés aux héros",
+            "ja-JP": "ヒーロー与ダメージ",
+            "pt-BR": "Dano causado a heróis",
+            "zh-CN": "对英雄造成伤害量"
         },
         "HEALING_DEALT": {
-            "en-US": "Healing Dealt"
+            "guid": "0000000124D1",
+            "en-US": "Healing Dealt",
+            "es-MX": "Sanación realizada",
+            "fr-FR": "Soins prodigués",
+            "ja-JP": "回復（相手）",
+            "pt-BR": "Cura concedida",
+            "zh-CN": "治疗量"
         },
         "MULTIKILL_BEST": {
-            "en-US": "Multikill Best"
+            "guid": "0000000124CD",
+            "en-US": "Multikill Best",
+            "es-MX": "Mejor derribo múltiple",
+            "fr-FR": "Victimes simultanées maximum",
+            "it-IT": "Multikill - Best",
+            "ja-JP": "最高マルチキル",
+            "pt-BR": "Abates múltiplos - melhor",
+            "zh-CN": "最佳瞬间消灭"
         },
         "MULTIKILLS": {
-            "en-US": "Multikills"
+            "guid": "0000000124CB",
+            "en-US": "Multikills",
+            "es-MX": "Derribos múltiples",
+            "fr-FR": "Victimes simultanées",
+            "ja-JP": "マルチキル",
+            "pt-BR": "Abates múltiplos",
+            "zh-CN": "瞬间消灭"
         },
         "OBJECTIVE_KILLS": {
-            "en-US": "Objective Kills"
+            "guid": "0000000124C9",
+            "en-US": "Objective Kills",
+            "es-MX": "Derribos en objetivo",
+            "fr-FR": "Victimes sur objectif",
+            "ja-JP": "目標キル",
+            "pt-BR": "Abates de objetivo",
+            "zh-CN": "目标攻防消灭"
         },
         "OFFENSIVE_ASSISTS": {
-            "en-US": "Offensive Assists"
+            "guid": "0000000124C7",
+            "en-US": "Offensive Assists",
+            "es-MX": "Asistencias ofensivas",
+            "fr-FR": "Soutiens offensifs",
+            "ja-JP": "攻撃アシスト",
+            "pt-BR": "Assistências ofensivas",
+            "zh-CN": "协助进攻"
         },
         "SOLO_KILLS": {
-            "en-US": "Solo Kills"
+            "guid": "0000000124C3",
+            "en-US": "Solo Kills",
+            "es-MX": "Derribos a solas",
+            "fr-FR": "Victimes en solo",
+            "ja-JP": "単独キル",
+            "pt-BR": "Abates individuais",
+            "zh-CN": "单独消灭"
         },
         "ULTIMATES_EARNED": {
-            "en-US": "Ultimates Earned"
+            "guid": "0000000124C1",
+            "en-US": "Ultimates Earned",
+            "es-MX": "Habilidades máximas obtenidas",
+            "fr-FR": "Capacités ultimes obtenues",
+            "ja-JP": "アルティメット獲得",
+            "pt-BR": "Supremas recebidas",
+            "zh-CN": "获得终极技能"
         },
         "ULTIMATES_USED": {
-            "en-US": "Ultimates Used"
+            "guid": "0000000124BF",
+            "en-US": "Ultimates Used",
+            "es-MX": "Habilidades máximas utilizadas",
+            "fr-FR": "Capacités ultimes utilisées",
+            "ja-JP": "アルティメット使用",
+            "pt-BR": "Supremas lançadas",
+            "zh-CN": "使用终极技能"
         },
         "WEAPON_ACCURACY": {
-            "en-US": "Weapon Accuracy"
+            "guid": "0000000124BD",
+            "en-US": "Weapon Accuracy",
+            "es-MX": "Precisión con armas",
+            "fr-FR": "Précision",
+            "ja-JP": "武器命中率",
+            "pt-BR": "Precisão da arma",
+            "zh-CN": "武器命中率"
         }
     },
     "ProgressWorldTextReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -2327,22 +2653,57 @@ const constantValues =
             "zh-CN": "无"
         },
         "POSITION": {
+            "guid": "00000000B8D8",
             "en-US": "Position",
+            "es-MX": "Posición",
+            "ja-JP": "位置",
+            "pt-BR": "Posição",
+            "zh-CN": "位置"
         },
         "POSITION_AND_COLOR": {
+            "guid": "000000011E48",
             "en-US": "Position and Color",
+            "es-MX": "Posición y color",
+            "fr-FR": "Position et Couleur",
+            "ja-JP": "位置、色",
+            "pt-BR": "Posição e Cor",
+            "zh-CN": "位置和颜色"
         },
         "POSITION_AND_VALUES": {
+            "guid": "000000012340",
             "en-US": "Position and Values",
+            "es-MX": "Posición y valores",
+            "fr-FR": "Position et Valeurs",
+            "ja-JP": "位置、値",
+            "pt-BR": "Posição e Valores",
+            "zh-CN": "位置和颜色"
         },
         "POSITION_VALUES_AND_COLOR": {
+            "guid": "00000001233F",
             "en-US": "Position Values and Color",
+            "es-MX": "Posición valores y color",
+            "fr-FR": "Position Valeurs et Couleur",
+            "ja-JP": "位置、値、色",
+            "pt-BR": "Posição Valores e Cor",
+            "zh-CN": "位置，值和颜色"
         },
         "VALUES": {
+            "guid": "0000000122F1",
             "en-US": "Values",
+            "es-MX": "Valores",
+            "fr-FR": "Valeurs",
+            "ja-JP": "値",
+            "pt-BR": "Valores",
+            "zh-CN": "值"
         },
         "VALUES_AND_COLOR": {
+            "guid": "0000000122F0",
             "en-US": "Values and Color",
+            "es-MX": "Valores y color",
+            "fr-FR": "Valeurs et Couleur",
+            "ja-JP": "値、色",
+            "pt-BR": "Valores e Cor",
+            "zh-CN": "值和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -2354,7 +2715,13 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_POSITION": {
             "guid": "00000000B8D9",
@@ -2366,24 +2733,59 @@ const constantValues =
             "zh-CN": "可见和位置"
         },
         "VISIBILITY_AND_VALUES": {
+            "guid": "0000000122EF",
             "en-US": "Visible To and Values",
+            "es-MX": "Visible para y valores",
+            "fr-FR": "Visible pour et Valeurs",
+            "ja-JP": "表示される相手、値",
+            "pt-BR": "Visível para e Valores",
+            "zh-CN": "可见和值"
         },
         "VISIBILITY_POSITION_AND_COLOR": {
+            "guid": "000000011E47",
             "en-US": "Visible To Position and Color",
+            "es-MX": "Visible para posición y color",
+            "fr-FR": "Visible pour Position et Couleur",
+            "ja-JP": "表示される相手、位置、色",
+            "pt-BR": "Visível para Posição e Cor",
+            "zh-CN": "可见，位置和颜色"
         },
         "VISIBILITY_POSITION_AND_VALUES": {
+            "guid": "00000001233E",
             "en-US": "Visible To Position and Values",
+            "es-MX": "Visible para posición y valores",
+            "fr-FR": "Visible pour Position et Valeurs",
+            "ja-JP": "表示される相手、位置、値",
+            "pt-BR": "Visível para Posição e Valores",
+            "zh-CN": "可见，位置和值"
         },
         "VISIBILITY_VALUES_AND_COLOR": {
+            "guid": "0000000122EE",
             "en-US": "Visible To Values and Color",
+            "es-MX": "Visible para valores y color",
+            "fr-FR": "Visible pour Valeurs et Couleur",
+            "ja-JP": "表示される相手、値、色",
+            "pt-BR": "Visível para Valores e Cor",
+            "zh-CN": "可见，值和颜色"
         },
         "VISIBILITY_POSITION_VALUES_AND_COLOR": {
+            "guid": "00000001233D",
             "en-US": "Visible To Position Values and Color",
-        },
+            "es-MX": "Visible para posición valores y color",
+            "fr-FR": "Visible pour Position Valeurs et Couleur",
+            "ja-JP": "表示される相手、位置、値、色",
+            "pt-BR": "Visível para Posição Valores e Cor",
+            "zh-CN": "可见，位置，值和颜色"
+        }
     },
     "ProgressHudReeval": {
         "COLOR": {
+            "guid": "000000011E4A",
             "en-US": "Color",
+            "fr-FR": "Couleur",
+            "ja-JP": "色",
+            "pt-BR": "Cor",
+            "zh-CN": "颜色"
         },
         "NONE": {
             "guid": "00000000B8C3",
@@ -2395,10 +2797,22 @@ const constantValues =
             "zh-CN": "无"
         },
         "VALUES": {
+            "guid": "0000000122F1",
             "en-US": "Values",
+            "es-MX": "Valores",
+            "fr-FR": "Valeurs",
+            "ja-JP": "値",
+            "pt-BR": "Valores",
+            "zh-CN": "值"
         },
         "VALUES_AND_COLOR": {
+            "guid": "0000000122F0",
             "en-US": "Values and Color",
+            "es-MX": "Valores y color",
+            "fr-FR": "Valeurs et Couleur",
+            "ja-JP": "値、色",
+            "pt-BR": "Valores e Cor",
+            "zh-CN": "值和颜色"
         },
         "VISIBILITY": {
             "guid": "00000000B8C4",
@@ -2410,23 +2824,52 @@ const constantValues =
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
+            "guid": "000000011E49",
             "en-US": "Visible To and Color",
+            "es-MX": "Visible para y color",
+            "fr-FR": "Visible pour et Couleur",
+            "ja-JP": "表示される相手、色",
+            "pt-BR": "Visível para e Cor",
+            "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_VALUES": {
+            "guid": "0000000122EF",
             "en-US": "Visible To and Values",
+            "es-MX": "Visible para y valores",
+            "fr-FR": "Visible pour et Valeurs",
+            "ja-JP": "表示される相手、値",
+            "pt-BR": "Visível para e Valores",
+            "zh-CN": "可见和值"
         },
         "VISIBILITY_VALUES_AND_COLOR": {
+            "guid": "0000000122EE",
             "en-US": "Visible To Values and Color",
-        },
+            "es-MX": "Visible para valores y color",
+            "fr-FR": "Visible pour Valeurs et Couleur",
+            "ja-JP": "表示される相手、値、色",
+            "pt-BR": "Visível para Valores e Cor",
+            "zh-CN": "可见，值和颜色"
+        }
     },
     "AssistReeval": {
         "ASSISTERS_AND_TARGETS": {
+            "guid": "000000012206",
             "en-US": "Assisters and Targets",
+            "es-MX": "Asistentes y objetivos",
+            "fr-FR": "Soutiens et cibles",
+            "ja-JP": "アシスターとターゲット",
+            "pt-BR": "Assistentes e Alvos",
+            "zh-CN": "助攻者和目标"
         },
         "NONE": {
-            "en-US": "None",
             "guid": "00000000B8C3",
-        },
+            "en-US": "None",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "ja-JP": "なし",
+            "pt-BR": "Ninguém",
+            "zh-CN": "无"
+        }
     }
 }
 //end-json
