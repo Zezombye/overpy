@@ -102,25 +102,100 @@
                             "const": "bestAvailable"
                         },
                         {
-                            "const": "USCentral"
+                            "const": "argentina"
                         },
                         {
-                            "const": "France"
+                            "const": "australia"
                         },
                         {
-                            "const": "SouthKorea"
+                            "const": "australia2"
                         },
                         {
-                            "const": "Bahrain"
+                            "const": "australia3"
                         },
                         {
-                            "const": "Netherlands"
+                            "const": "bahrain"
                         },
                         {
-                            "const": "USWest"
+                            "const": "brazil"
                         },
                         {
-                            "const": "Australia3"
+                            "const": "brazil2"
+                        },
+                        {
+                            "const": "chile"
+                        },
+                        {
+                            "const": "chinaBeijing"
+                        },
+                        {
+                            "const": "chinaHangzhou"
+                        },
+                        {
+                            "const": "chinaHangzhou2"
+                        },
+                        {
+                            "const": "finland2"
+                        },
+                        {
+                            "const": "france"
+                        },
+                        {
+                            "const": "germany"
+                        },
+                        {
+                            "const": "germany2"
+                        },
+                        {
+                            "const": "ireland"
+                        },
+                        {
+                            "const": "japan"
+                        },
+                        {
+                            "const": "japan2"
+                        },
+                        {
+                            "const": "netherlands"
+                        },
+                        {
+                            "const": "peru"
+                        },
+                        {
+                            "const": "singapore"
+                        },
+                        {
+                            "const": "singapore2"
+                        },
+                        {
+                            "const": "southKorea"
+                        },
+                        {
+                            "const": "southKorea2"
+                        },
+                        {
+                            "const": "taiwan"
+                        },
+                        {
+                            "const": "taiwan2"
+                        },
+                        {
+                            "const": "usCentral"
+                        },
+                        {
+                            "const": "usEast"
+                        },
+                        {
+                            "const": "usNorthwest"
+                        },
+                        {
+                            "const": "usSouthwest"
+                        },
+                        {
+                            "const": "usWest"
+                        },
+                        {
+                            "const": "usWest2"
                         }
                     ]
                 },

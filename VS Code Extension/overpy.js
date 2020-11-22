@@ -20133,6 +20133,7 @@ const constantValues =
     "Stat": {
         "DAMAGE_DEALT": {
             "guid": "0000000124B7",
+            "description": "Specifies all damage dealt (to heroes, barriers, and pets).",
             "en-US": "All Damage Dealt",
             "es-MX": "Todo el daño infligido",
             "fr-FR": "Dégâts infligés tous",
@@ -20223,6 +20224,7 @@ const constantValues =
         },
         "HERO_DAMAGE_DEALT": {
             "guid": "0000000124D5",
+            "description": "Specifies damage dealt to heroes, but not barriers or pets.",
             "en-US": "Hero Damage Dealt",
             "es-MX": "Daño infligido a héroes",
             "fr-FR": "Dégâts infligés aux héros",
@@ -20275,6 +20277,308 @@ const constantValues =
             "ja-JP": "攻撃アシスト",
             "pt-BR": "Assistências ofensivas",
             "zh-CN": "协助进攻"
+        },
+        "SOLO_KILLS": {
+            "guid": "0000000124C3",
+            "en-US": "Solo Kills",
+            "es-MX": "Derribos a solas",
+            "fr-FR": "Victimes en solo",
+            "ja-JP": "単独キル",
+            "pt-BR": "Abates individuais",
+            "zh-CN": "单独消灭"
+        },
+        "ULTIMATES_EARNED": {
+            "guid": "0000000124C1",
+            "en-US": "Ultimates Earned",
+            "es-MX": "Habilidades máximas obtenidas",
+            "fr-FR": "Capacités ultimes obtenues",
+            "ja-JP": "アルティメット獲得",
+            "pt-BR": "Supremas recebidas",
+            "zh-CN": "获得终极技能"
+        },
+        "ULTIMATES_USED": {
+            "guid": "0000000124BF",
+            "en-US": "Ultimates Used",
+            "es-MX": "Habilidades máximas utilizadas",
+            "fr-FR": "Capacités ultimes utilisées",
+            "ja-JP": "アルティメット使用",
+            "pt-BR": "Supremas lançadas",
+            "zh-CN": "使用终极技能"
+        },
+        "WEAPON_ACCURACY": {
+            "guid": "0000000124BD",
+            "en-US": "Weapon Accuracy",
+            "es-MX": "Precisión con armas",
+            "fr-FR": "Précision",
+            "ja-JP": "武器命中率",
+            "pt-BR": "Precisão da arma",
+            "zh-CN": "武器命中率"
+        }
+    },
+    "HeroStat": {
+        "DAMAGE_DEALT": {
+            "guid": "0000000124B7",
+            "description": "Specifies all damage dealt (to heroes, barriers, and pets).",
+            "en-US": "All Damage Dealt",
+            "es-MX": "Todo el daño infligido",
+            "fr-FR": "Dégâts infligés tous",
+            "ja-JP": "与ダメージ（全体）",
+            "pt-BR": "Todo o dano causado",
+            "zh-CN": "所有造成伤害量"
+        },
+        "BARRIER_DAMAGE_DEALT": {
+            "guid": "0000000124B8",
+            "en-US": "Barrier Damage Dealt",
+            "es-MX": "Daño infligido a barreras",
+            "fr-FR": "Dégâts infligés aux écrans",
+            "ja-JP": "バリア与ダメージ",
+            "pt-BR": "Dano causado a barreiras",
+            "zh-CN": "对屏障造成伤害量"
+        },
+        "CRITICAL_HIT_ACCURACY": {
+            "guid": "0000000124E8",
+            "en-US": "Critical Hit Accuracy",
+            "es-MX": "Precisión de golpes críticos",
+            "fr-FR": "Précision des coups critiques",
+            "ja-JP": "クリティカル・ヒット命中率",
+            "pt-BR": "Precisão de golpes críticos",
+            "zh-CN": "暴击命中率"
+        },
+        "CRITICAL_HITS": {
+            "guid": "0000000124E9",
+            "en-US": "Critical Hits",
+            "es-MX": "Golpes críticos",
+            "fr-FR": "Coups critiques",
+            "ja-JP": "クリティカル・ヒット",
+            "pt-BR": "Golpes críticos",
+            "zh-CN": "暴击"
+        },
+        "DAMAGE_BLOCKED": {
+            "guid": "0000000124E1",
+            "en-US": "Damage Blocked",
+            "es-MX": "Daño bloqueado",
+            "fr-FR": "Dégâts bloqués",
+            "ja-JP": "ブロックしたダメージ",
+            "pt-BR": "Dano bloqueado",
+            "zh-CN": "阻挡伤害量"
+        },
+        "DAMAGE_TAKEN": {
+            "guid": "0000000124E0",
+            "en-US": "Damage Taken",
+            "es-MX": "Daño recibido",
+            "fr-FR": "Dégâts subis",
+            "ja-JP": "受けたダメージ",
+            "pt-BR": "Dano recebido",
+            "zh-CN": "承受伤害量"
+        },
+        "DEATHS": {
+            "guid": "0000000124DF",
+            "en-US": "Deaths",
+            "es-MX": "Muertes",
+            "fr-FR": "Morts",
+            "ja-JP": "デス",
+            "pt-BR": "Mortes",
+            "zh-CN": "阵亡"
+        },
+        "DEFENSIVE_ASSISTS": {
+            "guid": "0000000124DA",
+            "en-US": "Defensive Assists",
+            "es-MX": "Asistencias defensivas",
+            "fr-FR": "Soutiens défensifs",
+            "ja-JP": "防衛アシスト",
+            "pt-BR": "Assistências defensivas",
+            "zh-CN": "协助防守"
+        },
+        "ELIMINATIONS": {
+            "guid": "0000000124DE",
+            "en-US": "Eliminations",
+            "es-MX": "Eliminaciones",
+            "fr-FR": "Éliminations",
+            "ja-JP": "キル",
+            "pt-BR": "Eliminações",
+            "zh-CN": "消灭"
+        },
+        "ENVIRONMENTAL_DEATHS": {
+            "guid": "0000000124D8",
+            "en-US": "Environmental Deaths",
+            "es-MX": "Muertes sufridas por el entorno",
+            "fr-FR": "Morts dues à l’environnement",
+            "ja-JP": "環境デス",
+            "pt-BR": "Mortes no ambiente",
+            "zh-CN": "地形阵亡"
+        },
+        "ENVIRONMENTAL_KILLS": {
+            "guid": "0000000124D7",
+            "en-US": "Environmental Kills",
+            "es-MX": "Derribos con el entorno",
+            "fr-FR": "Victimes dues à l’environnement",
+            "ja-JP": "環境キル",
+            "pt-BR": "Abates no ambiente",
+            "zh-CN": "地形消灭"
+        },
+        "FINAL_BLOWS": {
+            "guid": "0000000124DC",
+            "en-US": "Final Blows",
+            "es-MX": "Golpes de gracia",
+            "fr-FR": "Coups de grâce",
+            "ja-JP": "ファイナル・ブロウ",
+            "pt-BR": "Golpes finais",
+            "zh-CN": "最后一击"
+        },
+        "HEALING_DEALT": {
+            "guid": "0000000124D1",
+            "en-US": "Healing Dealt",
+            "es-MX": "Sanación realizada",
+            "fr-FR": "Soins prodigués",
+            "ja-JP": "回復（相手）",
+            "pt-BR": "Cura concedida",
+            "zh-CN": "治疗量"
+        },
+        "HEALING_RECEIVED": {
+            "guid": "0000000124EF",
+            "en-US": "Healing Received",
+            "es-MX": "Sanación recibida",
+            "fr-FR": "Soins reçus",
+            "ja-JP": "回復（自分）",
+            "pt-BR": "Cura recebida",
+            "zh-CN": "受到治疗量"
+        },
+        "HERO_DAMAGE_DEALT": {
+            "guid": "0000000124D5",
+            "description": "Specifies damage dealt to heroes, but not barriers or pets.",
+            "en-US": "Hero Damage Dealt",
+            "es-MX": "Daño infligido a héroes",
+            "fr-FR": "Dégâts infligés aux héros",
+            "ja-JP": "ヒーロー与ダメージ",
+            "pt-BR": "Dano causado a heróis",
+            "zh-CN": "对英雄造成伤害量"
+        },
+        "MULTIKILL_BEST": {
+            "guid": "0000000124CD",
+            "en-US": "Multikill Best",
+            "es-MX": "Mejor derribo múltiple",
+            "fr-FR": "Victimes simultanées maximum",
+            "it-IT": "Multikill - Best",
+            "ja-JP": "最高マルチキル",
+            "pt-BR": "Abates múltiplos - melhor",
+            "zh-CN": "最佳瞬间消灭"
+        },
+        "MULTIKILLS": {
+            "guid": "0000000124CB",
+            "en-US": "Multikills",
+            "es-MX": "Derribos múltiples",
+            "fr-FR": "Victimes simultanées",
+            "ja-JP": "マルチキル",
+            "pt-BR": "Abates múltiplos",
+            "zh-CN": "瞬间消灭"
+        },
+        "OBJECTIVE_KILLS": {
+            "guid": "0000000124C9",
+            "en-US": "Objective Kills",
+            "es-MX": "Derribos en objetivo",
+            "fr-FR": "Victimes sur objectif",
+            "ja-JP": "目標キル",
+            "pt-BR": "Abates de objetivo",
+            "zh-CN": "目标攻防消灭"
+        },
+        "OFFENSIVE_ASSISTS": {
+            "guid": "0000000124C7",
+            "en-US": "Offensive Assists",
+            "es-MX": "Asistencias ofensivas",
+            "fr-FR": "Soutiens offensifs",
+            "ja-JP": "攻撃アシスト",
+            "pt-BR": "Assistências ofensivas",
+            "zh-CN": "协助进攻"
+        },
+        "SCOPED_ACCURACY": {
+            "guid": "0000000124F6",
+            "en-US": "Scoped Accuracy",
+            "es-MX": "Precisión con la mira",
+            "fr-FR": "Précision à la lunette",
+            "ja-JP": "命中率（スコープ）",
+            "pt-BR": "Precisão com mira telescópica",
+            "zh-CN": "开镜命中率"
+        },
+        "SCOPED_CRITICAL_HIT_ACCURACY": {
+            "guid": "0000000124F7",
+            "en-US": "Scoped Critical Hit Accuracy",
+            "es-MX": "Precisión de golpes críticos con la mira",
+            "fr-FR": "Précision des coups critiques à la lunette",
+            "ja-JP": "クリティカル・ヒット命中率（スコープ）",
+            "pt-BR": "Precisão de golpes críticos com mira",
+            "zh-CN": "开镜暴击率"
+        },
+        "SCOPED_CRITICAL_HIT_KILLS": {
+            "guid": "0000000124F8",
+            "en-US": "Scoped Critical Hit Kills",
+            "es-MX": "Derribos por golpes críticos con la mira",
+            "fr-FR": "Victimes de coups critiques à la lunette",
+            "ja-JP": "クリティカル・ヒット・キル（スコープ）",
+            "pt-BR": "Abates por golpes críticos com mira telescópica",
+            "zh-CN": "开镜暴击消灭"
+        },
+        "SCOPED_CRITICAL_HITS": {
+            "guid": "0000000124F9",
+            "en-US": "Scoped Critical Hits",
+            "es-MX": "Golpes críticos con la mira",
+            "fr-FR": "Coups critiques à la lunette",
+            "ja-JP": "クリティカル・ヒット（スコープ）",
+            "pt-BR": "Golpes críticos com mira telescópica",
+            "zh-CN": "开镜暴击"
+        },
+        "SCOPED_HITS": {
+            "guid": "0000000124FA",
+            "en-US": "Scoped Hits",
+            "es-MX": "Golpes con la mira",
+            "fr-FR": "Tirs à la lunette réussis",
+            "ja-JP": "命中（スコープ）",
+            "pt-BR": "Acertos com mira telescópica",
+            "zh-CN": "开镜命中"
+        },
+        "SCOPED_SHOTS": {
+            "guid": "0000000124FB",
+            "en-US": "Scoped Shots",
+            "es-MX": "Disparos con la mira",
+            "fr-FR": "Tirs à la lunette",
+            "ja-JP": "ショット（スコープ）",
+            "pt-BR": "Tiros com mira telescópica",
+            "zh-CN": "开镜射击"
+        },
+        "SELF_HEALING": {
+            "guid": "0000000124FC",
+            "en-US": "Self Healing",
+            "es-MX": "Autosanación",
+            "fr-FR": "Soins personnels",
+            "ja-JP": "自己回復",
+            "pt-BR": "Autocura",
+            "zh-CN": "自我治疗量"
+        },
+        "SHOTS_FIRED": {
+            "guid": "0000000124FD",
+            "en-US": "Shots Fired",
+            "es-MX": "Disparos realizados",
+            "fr-FR": "Tirs",
+            "ja-JP": "発射したショット",
+            "pt-BR": "Tiros disparados",
+            "zh-CN": "射击次数"
+        },
+        "SHOTS_HIT": {
+            "guid": "0000000124FE",
+            "en-US": "Shots Hit",
+            "es-MX": "Disparos acertados",
+            "fr-FR": "Tirs réussis",
+            "ja-JP": "命中したショット",
+            "pt-BR": "Tiros acertados",
+            "zh-CN": "射击命中"
+        },
+        "SHOTS_MISSED": {
+            "guid": "0000000124FF",
+            "en-US": "Shots Missed",
+            "es-MX": "Disparos fallados",
+            "fr-FR": "Tirs manqués",
+            "ja-JP": "外したショット",
+            "pt-BR": "Tiros errados",
+            "zh-CN": "射击未命中"
         },
         "SOLO_KILLS": {
             "guid": "0000000124C3",
@@ -21548,23 +21852,169 @@ const customGameSettingsSchema =
                         "zh-CN": "最佳设置",
                         "zh-TW": "最佳設定"
                     },
-                    "USCentral": {
-                        "guid": "00000000AA75",
-                        "en-US": "USA - Central",
-                        "de-DE": "USA – Mitte",
-                        "es-ES": "EE. UU. - Central",
-                        "es-MX": "Estados Unidos - Central",
-                        "fr-FR": "États-Unis - Centre",
-                        "it-IT": "Stati Uniti - Centro",
-                        "ja-JP": "アメリカ合衆国 - 中央",
-                        "ko-KR": "미국 - 중부",
-                        "pl-PL": "Stany Zjednoczone – Środkowe",
-                        "pt-BR": "EUA - Central",
-                        "ru-RU": "США – Центр",
-                        "zh-CN": "美国中部",
-                        "zh-TW": "美國中部"
+                    "argentina": {
+                        "guid": "00000000AA71",
+                        "en-US": "Argentina",
+                        "de-DE": "Argentinien",
+                        "fr-FR": "Argentine",
+                        "ja-JP": "アルゼンチン",
+                        "ko-KR": "아르헨티나",
+                        "pl-PL": "Argentyna",
+                        "ru-RU": "Аргентина",
+                        "zh-CN": "阿根廷",
+                        "zh-TW": "阿根廷"
                     },
-                    "France": {
+                    "australia": {
+                        "guid": "00000000AA69",
+                        "en-US": "Australia",
+                        "de-DE": "Australien",
+                        "fr-FR": "Australie",
+                        "ja-JP": "オーストラリア",
+                        "ko-KR": "호주",
+                        "pt-BR": "Austrália",
+                        "ru-RU": "Австралия",
+                        "zh-CN": "澳大利亚",
+                        "zh-TW": "澳洲"
+                    },
+                    "australia2": {
+                        "guid": "00000000AA64",
+                        "en-US": "Australia 2",
+                        "de-DE": "Australien 2",
+                        "fr-FR": "Australie 2",
+                        "ja-JP": "オーストラリア2",
+                        "ko-KR": "호주 2",
+                        "pt-BR": "Austrália 2",
+                        "ru-RU": "Австралия 2",
+                        "zh-CN": "澳大利亚 2",
+                        "zh-TW": "澳洲2"
+                    },
+                    "australia3": {
+                        "guid": "00000000AA65",
+                        "en-US": "Australia 3",
+                        "de-DE": "Australien 3",
+                        "fr-FR": "Australie 3",
+                        "ja-JP": "オーストラリア3",
+                        "ko-KR": "호주 3",
+                        "pt-BR": "Austrália 3",
+                        "ru-RU": "Австралия 3",
+                        "zh-CN": "澳大利亚 3",
+                        "zh-TW": "澳洲3"
+                    },
+                    "bahrain": {
+                        "guid": "00000000FB64",
+                        "en-US": "Bahrain",
+                        "es-ES": "Baréin",
+                        "es-MX": "Baréin",
+                        "fr-FR": "Bahreïn",
+                        "it-IT": "Bahrein",
+                        "ja-JP": "バーレーン",
+                        "ko-KR": "바레인",
+                        "pl-PL": "Bahrajn",
+                        "ru-RU": "Бахрейн",
+                        "zh-CN": "巴林",
+                        "zh-TW": "巴林"
+                    },
+                    "brazil": {
+                        "guid": "00000000AA6A",
+                        "en-US": "Brazil",
+                        "de-DE": "Brasilien",
+                        "es-ES": "Brasil",
+                        "es-MX": "Brasil",
+                        "fr-FR": "Brésil",
+                        "it-IT": "Brasile",
+                        "ja-JP": "ブラジル",
+                        "ko-KR": "브라질",
+                        "pl-PL": "Brazylia",
+                        "pt-BR": "Brasil",
+                        "ru-RU": "Бразилия",
+                        "zh-CN": "巴西",
+                        "zh-TW": "巴西"
+                    },
+                    "brazil2": {
+                        "guid": "00000000AA73",
+                        "en-US": "Brazil 2",
+                        "de-DE": "Brasilien 2",
+                        "es-ES": "Brasil 2",
+                        "es-MX": "Brasil 2",
+                        "fr-FR": "Brésil 2",
+                        "it-IT": "Brasile 2",
+                        "ja-JP": "ブラジル2",
+                        "ko-KR": "브라질 2",
+                        "pl-PL": "Brazylia 2",
+                        "pt-BR": "Brasil 2",
+                        "ru-RU": "Бразилия 2",
+                        "zh-CN": "巴西 2",
+                        "zh-TW": "巴西2"
+                    },
+                    "chile": {
+                        "guid": "00000000AA72",
+                        "en-US": "Chile",
+                        "fr-FR": "Chili",
+                        "it-IT": "Cile",
+                        "ja-JP": "チリ",
+                        "ko-KR": "칠레",
+                        "ru-RU": "Чили",
+                        "zh-CN": "智利",
+                        "zh-TW": "智利"
+                    },
+                    "chinaBeijing": {
+                        "guid": "00000000AA70",
+                        "en-US": "China - Beijing",
+                        "de-DE": "China – Peking",
+                        "es-ES": "China - Pekín",
+                        "fr-FR": "Chine - Pékin",
+                        "it-IT": "Cina - Pechino",
+                        "ja-JP": "中国 - 北京",
+                        "ko-KR": "중국 - 베이징",
+                        "pl-PL": "Chiny – Pekin",
+                        "pt-BR": "China - Pequim",
+                        "ru-RU": "Китай – Пекин",
+                        "zh-CN": "中国北京",
+                        "zh-TW": "北京"
+                    },
+                    "chinaHangzhou": {
+                        "guid": "00000000AA5F",
+                        "en-US": "China - Hangzhou",
+                        "de-DE": "China – Hangzhou",
+                        "fr-FR": " Chine - Hangzhou",
+                        "it-IT": "Cina - Hangzhou",
+                        "ja-JP": "中国 - 杭州",
+                        "ko-KR": "중국 - 항저우",
+                        "pl-PL": "Chiny – Hangzhou",
+                        "ru-RU": "Китай – Ханчжоу",
+                        "zh-CN": "中国杭州",
+                        "zh-TW": "杭州"
+                    },
+                    "chinaHangzhou2": {
+                        "guid": "00000000AA60",
+                        "en-US": "China - Hangzhou 2",
+                        "de-DE": "China – Hangzhou 2",
+                        "fr-FR": "Chine - Hangzhou 2",
+                        "it-IT": "Cina - Hangzhou 2",
+                        "ja-JP": "中国 - 杭州2",
+                        "ko-KR": "중국 - 항저우 2",
+                        "pl-PL": "Chiny – Hangzhou 2",
+                        "ru-RU": "Китай – Ханчжоу 2",
+                        "zh-CN": "中国杭州 2",
+                        "zh-TW": "杭州2"
+                    },
+                    "finland2": {
+                        "guid": "0000000125E1",
+                        "en-US": "Finland 2",
+                        "de-DE": "Finnland 2",
+                        "es-ES": "Finlandia 2",
+                        "es-MX": "Finlandia 2",
+                        "fr-FR": "Finlande 2",
+                        "it-IT": "Finlandia  2",
+                        "ja-JP": "フィンランド2",
+                        "ko-KR": "핀란드 2",
+                        "pl-PL": "Finlandia 2",
+                        "pt-BR": "Finlândia 2",
+                        "ru-RU": "Финляндия 2",
+                        "zh-CN": "芬兰 2",
+                        "zh-TW": "芬蘭2"
+                    },
+                    "france": {
                         "guid": "00000000AA5E",
                         "en-US": "France",
                         "de-DE": "Frankreich",
@@ -21579,37 +22029,85 @@ const customGameSettingsSchema =
                         "zh-CN": "法国",
                         "zh-TW": "法國"
                     },
-                    "SouthKorea": {
-                        "guid": "00000000AA61",
-                        "en-US": "South Korea",
-                        "de-DE": "Südkorea",
-                        "es-ES": "Corea del Sur",
-                        "es-MX": "Corea del Sur",
-                        "fr-FR": "Corée du Sud",
-                        "it-IT": "Corea del Sud",
-                        "ja-JP": "韓国",
-                        "ko-KR": "대한민국",
-                        "pl-PL": "Korea Południowa",
-                        "pt-BR": "Coreia do Sul",
-                        "ru-RU": "Южная Корея",
-                        "zh-CN": "韩国",
-                        "zh-TW": "韓國"
+                    "germany": {
+                        "guid": "00000000AA6C",
+                        "en-US": "Germany",
+                        "de-DE": "Deutschland",
+                        "es-ES": "Alemania",
+                        "es-MX": "Alemania",
+                        "fr-FR": "Allemagne",
+                        "it-IT": "Germania",
+                        "ja-JP": "ドイツ",
+                        "ko-KR": "독일",
+                        "pl-PL": "Niemcy",
+                        "pt-BR": "Alemanha",
+                        "ru-RU": "Германия",
+                        "zh-CN": "德国",
+                        "zh-TW": "德國"
                     },
-                    "Bahrain": {
-                        "guid": "00000000FB64",
-                        "en-US": "Bahrain",
-                        "es-ES": "Baréin",
-                        "es-MX": "Baréin",
-                        "fr-FR": "Bahreïn",
-                        "it-IT": "Bahrein",
-                        "ja-JP": "バーレーン",
-                        "ko-KR": "바레인",
-                        "pl-PL": "Bahrajn",
-                        "ru-RU": "Бахрейн",
-                        "zh-CN": "巴林",
-                        "zh-TW": "巴林"
+                    "germany2": {
+                        "guid": "0000000125E0",
+                        "en-US": "Germany 2",
+                        "de-DE": "Deutschland 2",
+                        "es-ES": "Alemania 2",
+                        "es-MX": "Alemania 2",
+                        "fr-FR": "Allemagne 2",
+                        "it-IT": "Germania 2",
+                        "ja-JP": "ドイツ2",
+                        "ko-KR": "독일 2",
+                        "pl-PL": "Niemcy 2",
+                        "pt-BR": "Alemanha 2",
+                        "ru-RU": "Германия 2",
+                        "zh-CN": "德国 2",
+                        "zh-TW": "德國2"
                     },
-                    "Netherlands": {
+                    "ireland": {
+                        "guid": "00000000AA6D",
+                        "en-US": "Ireland",
+                        "de-DE": "Irland",
+                        "es-ES": "Irlanda",
+                        "es-MX": "Irlanda",
+                        "fr-FR": "Irlande",
+                        "it-IT": "Irlanda",
+                        "ja-JP": "アイルランド",
+                        "ko-KR": "아일랜드",
+                        "pl-PL": "Irlandia",
+                        "pt-BR": "Irlanda",
+                        "ru-RU": "Ирландия",
+                        "zh-CN": "爱尔兰",
+                        "zh-TW": "愛爾蘭"
+                    },
+                    "japan": {
+                        "guid": "00000000AA67",
+                        "en-US": "Japan",
+                        "es-ES": "Japón",
+                        "es-MX": "Japón",
+                        "fr-FR": "Japon",
+                        "it-IT": "Giappone",
+                        "ja-JP": "日本",
+                        "ko-KR": "일본",
+                        "pl-PL": "Japonia",
+                        "pt-BR": "Japão",
+                        "ru-RU": "Япония",
+                        "zh-CN": "日本",
+                        "zh-TW": "日本"
+                    },
+                    "japan2": {
+                        "guid": "0000000125DE",
+                        "en-US": "Japan 2",
+                        "es-ES": "Japón 2",
+                        "es-MX": "Japón 2",
+                        "fr-FR": "Japon 2",
+                        "it-IT": "Giappone 2",
+                        "ja-JP": "日本2",
+                        "ko-KR": "일본 2",
+                        "pl-PL": "Japonia 2",
+                        "pt-BR": "Japão 2",
+                        "ru-RU": "Япония 2",
+                        "zh-CN": "日本 2",
+                        "zh-TW": "日本2"
+                    },
+                    "netherlands": {
                         "guid": "00000000AA5D",
                         "en-US": "Netherlands",
                         "de-DE": "Niederlande",
@@ -21625,7 +22123,172 @@ const customGameSettingsSchema =
                         "zh-CN": "荷兰",
                         "zh-TW": "荷蘭"
                     },
-                    "USWest": {
+                    "peru": {
+                        "guid": "00000000AA74",
+                        "en-US": "Peru",
+                        "es-ES": "Perú",
+                        "es-MX": "Perú",
+                        "fr-FR": "Pérou",
+                        "it-IT": "Perù",
+                        "ja-JP": "ペルー",
+                        "ko-KR": "페루",
+                        "ru-RU": "Перу",
+                        "zh-CN": "秘鲁",
+                        "zh-TW": "祕魯"
+                    },
+                    "singapore": {
+                        "guid": "00000000AA68",
+                        "en-US": "Singapore",
+                        "de-DE": "Singapur",
+                        "es-ES": "Singapur",
+                        "es-MX": "Singapur",
+                        "fr-FR": "Singapour",
+                        "ja-JP": "シンガポール",
+                        "ko-KR": "싱가포르",
+                        "pl-PL": "Singapur",
+                        "pt-BR": "Cingapura",
+                        "ru-RU": "Сингапур",
+                        "zh-CN": "新加坡",
+                        "zh-TW": "新加坡"
+                    },
+                    "singapore2": {
+                        "guid": "0000000125DD",
+                        "en-US": "Singapore 2",
+                        "de-DE": "Singapur 2",
+                        "es-ES": "Singapur 2",
+                        "es-MX": "Singapur 2",
+                        "fr-FR": "Singapour 2",
+                        "ja-JP": "シンガポール2",
+                        "ko-KR": "싱가폴 2",
+                        "pl-PL": "Singapur 2",
+                        "pt-BR": "Cingapura 2",
+                        "ru-RU": "Сингапур 2",
+                        "zh-CN": "新加坡 2",
+                        "zh-TW": "新加坡2"
+                    },
+                    "southKorea": {
+                        "guid": "00000000AA61",
+                        "en-US": "South Korea",
+                        "de-DE": "Südkorea",
+                        "es-ES": "Corea del Sur",
+                        "es-MX": "Corea del Sur",
+                        "fr-FR": "Corée du Sud",
+                        "it-IT": "Corea del Sud",
+                        "ja-JP": "韓国",
+                        "ko-KR": "대한민국",
+                        "pl-PL": "Korea Południowa",
+                        "pt-BR": "Coreia do Sul",
+                        "ru-RU": "Южная Корея",
+                        "zh-CN": "韩国",
+                        "zh-TW": "韓國"
+                    },
+                    "southKorea2": {
+                        "guid": "00000000AA6B",
+                        "en-US": "South Korea 2",
+                        "de-DE": "Südkorea 2",
+                        "es-ES": "Corea del Sur 2",
+                        "es-MX": "Corea del Sur 2",
+                        "fr-FR": "Corée du Sud 2",
+                        "it-IT": "Corea del Sud 2",
+                        "ja-JP": "韓国2",
+                        "ko-KR": "대한민국 2",
+                        "pl-PL": "Korea Południowa 2",
+                        "pt-BR": "Coreia do Sul 2",
+                        "ru-RU": "Южная Корея 2",
+                        "zh-CN": "韩国 2",
+                        "zh-TW": "韓國2"
+                    },
+                    "taiwan": {
+                        "guid": "00000000AA66",
+                        "en-US": "Taiwan",
+                        "es-ES": "Taiwán",
+                        "es-MX": "Taiwán",
+                        "fr-FR": "Taïwan",
+                        "ja-JP": "台湾",
+                        "ko-KR": "대만",
+                        "pl-PL": "Tajwan",
+                        "ru-RU": "Тайвань",
+                        "zh-CN": "中国台湾",
+                        "zh-TW": "台灣"
+                    },
+                    "taiwan2": {
+                        "guid": "0000000125E2",
+                        "en-US": "Taiwan 2",
+                        "es-ES": "Taiwán 2",
+                        "es-MX": "Taiwán 2",
+                        "fr-FR": "Taïwan 2",
+                        "ja-JP": "台湾2",
+                        "ko-KR": "대만 2",
+                        "pl-PL": "Tajwan 2",
+                        "ru-RU": "Тайвань 2",
+                        "zh-CN": "中国台湾 2",
+                        "zh-TW": "台灣2"
+                    },
+                    "usCentral": {
+                        "guid": "00000000AA75",
+                        "en-US": "USA - Central",
+                        "de-DE": "USA – Mitte",
+                        "es-ES": "EE. UU. - Central",
+                        "es-MX": "Estados Unidos - Central",
+                        "fr-FR": "États-Unis - Centre",
+                        "it-IT": "Stati Uniti - Centro",
+                        "ja-JP": "アメリカ合衆国 - 中央",
+                        "ko-KR": "미국 - 중부",
+                        "pl-PL": "Stany Zjednoczone – Środkowe",
+                        "pt-BR": "EUA - Central",
+                        "ru-RU": "США – Центр",
+                        "zh-CN": "美国中部",
+                        "zh-TW": "美國中部"
+                    },
+                    "usEast": {
+                        "guid": "00000000AA6E",
+                        "en-US": "USA - East",
+                        "de-DE": "USA – Osten",
+                        "es-ES": "EE. UU. - Este",
+                        "es-MX": "Estados Unidos - Este",
+                        "fr-FR": "États-Unis - Est",
+                        "it-IT": "Stati Uniti - Est",
+                        "ja-JP": "アメリカ合衆国 - 東",
+                        "ko-KR": "미국 - 동부",
+                        "pl-PL": "Stany Zjednoczone – Północny wschód",
+                        "pt-BR": "EUA - Leste",
+                        "ru-RU": "США – Восток",
+                        "zh-CN": "美国东部",
+                        "zh-TW": "美國東部"
+                    },
+                    "usNorthwest": {
+                        "guid": "00000000AA6F",
+                        "en-US": "USA - Northwest",
+                        "de-DE": "USA – Nordwesten",
+                        "es-ES": "EE. UU. - Noroeste",
+                        "es-MX": "Estados Unidos - Noroeste",
+                        "fr-FR": "États-Unis - Nord-ouest",
+                        "it-IT": "Stati Uniti - Nord-ovest",
+                        "ja-JP": "アメリカ合衆国 - 北西",
+                        "ko-KR": "미국 - 북서부",
+                        "pl-PL": "Stany Zjednoczone – Północny zachód",
+                        "pt-BR": "EUA - Noroeste",
+                        "ru-RU": "США – Северо-Запад",
+                        "zh-CN": "美国西北",
+                        "zh-TW": "美國東北"
+                    },
+                    "usSouthwest": {
+                        "guid": "00000000AA62",
+                        "en-US": "USA - Southwest",
+                        "de-DE": "USA – Südwesten",
+                        "es-ES": "EE. UU. - Suroeste",
+                        "es-MX": "Estados Unidos - Sudoeste",
+                        "fr-FR": "États-Unis - Sud-ouest",
+                        "it-IT": "Stati Uniti - Sud-ovest",
+                        "ja-JP": "アメリカ合衆国 - 南西",
+                        "ko-KR": "미국 - 남서부",
+                        "pl-PL": "Stany Zjednoczone – Południowy zachód",
+                        "pt-BR": "EUA - Sudeste",
+                        "ru-RU": "США – Юго-Запад",
+                        "zh-CN": "美国西南",
+                        "zh-TW": "美國西南"
+                    },
+                    "usWest": {
                         "guid": "00000000AA63",
                         "en-US": "USA - West",
                         "de-DE": "USA – Westen",
@@ -21641,17 +22304,21 @@ const customGameSettingsSchema =
                         "zh-CN": "美国西部",
                         "zh-TW": "美國西部"
                     },
-                    "Australia3": {
-                        "guid": "00000000AA65",
-                        "en-US": "Australia 3",
-                        "de-DE": "Australien 3",
-                        "fr-FR": "Australie 3",
-                        "ja-JP": "オーストラリア3",
-                        "ko-KR": "호주 3",
-                        "pt-BR": "Austrália 3",
-                        "ru-RU": "Австралия 3",
-                        "zh-CN": "澳大利亚 3",
-                        "zh-TW": "澳洲3"
+                    "usWest2": {
+                        "guid": "0000000125DF",
+                        "en-US": "USA - West 2",
+                        "de-DE": "USA – Westen 2",
+                        "es-ES": "EE. UU. - Oeste 2",
+                        "es-MX": "Estados Unidos - Oeste 2",
+                        "fr-FR": "États-Unis - Ouest 2",
+                        "it-IT": "Stati Uniti - Ovest 2",
+                        "ja-JP": "アメリカ合衆国 - 西2",
+                        "ko-KR": "미국 - 서부 2",
+                        "pl-PL": "Stany Zjednoczone – Zachód 2",
+                        "pt-BR": "EUA - Oeste 2",
+                        "ru-RU": "США – Запад 2",
+                        "zh-CN": "美国西部 2",
+                        "zh-TW": "美國西部2"
                     }
                 },
                 "guid": "00000000AADE",
@@ -26081,7 +26748,11 @@ for (var hero of Object.keys(heroKw)) {
                     } else if (["enablePassive"].includes(key)) {
                         heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].passive[lang] || heroKw[hero].passive["en-US"])
                     } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
-                        heroValue[lang] = heroValue[key2]+" "+(heroKw[hero].ultimate[lang] || heroKw[hero].ultimate["en-US"])
+                        if (["zh-CN", "zh-TW"].includes(lang)) {
+                            heroValue[lang] = heroValue[key2]+"（"+(heroKw[hero].ultimate[lang] || heroKw[hero].ultimate["en-US"])+"）";
+                        } else {
+                            heroValue[lang] = heroValue[key2]+" "+(heroKw[hero].ultimate[lang] || heroKw[hero].ultimate["en-US"]);
+                        }
                     }
                 }
             }

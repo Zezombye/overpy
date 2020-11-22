@@ -2454,6 +2454,7 @@ const constantValues =
     "Stat": {
         "DAMAGE_DEALT": {
             "guid": "0000000124B7",
+            "description": "Specifies all damage dealt (to heroes, barriers, and pets).",
             "en-US": "All Damage Dealt",
             "es-MX": "Todo el daño infligido",
             "fr-FR": "Dégâts infligés tous",
@@ -2544,6 +2545,7 @@ const constantValues =
         },
         "HERO_DAMAGE_DEALT": {
             "guid": "0000000124D5",
+            "description": "Specifies damage dealt to heroes, but not barriers or pets.",
             "en-US": "Hero Damage Dealt",
             "es-MX": "Daño infligido a héroes",
             "fr-FR": "Dégâts infligés aux héros",
@@ -2596,6 +2598,308 @@ const constantValues =
             "ja-JP": "攻撃アシスト",
             "pt-BR": "Assistências ofensivas",
             "zh-CN": "协助进攻"
+        },
+        "SOLO_KILLS": {
+            "guid": "0000000124C3",
+            "en-US": "Solo Kills",
+            "es-MX": "Derribos a solas",
+            "fr-FR": "Victimes en solo",
+            "ja-JP": "単独キル",
+            "pt-BR": "Abates individuais",
+            "zh-CN": "单独消灭"
+        },
+        "ULTIMATES_EARNED": {
+            "guid": "0000000124C1",
+            "en-US": "Ultimates Earned",
+            "es-MX": "Habilidades máximas obtenidas",
+            "fr-FR": "Capacités ultimes obtenues",
+            "ja-JP": "アルティメット獲得",
+            "pt-BR": "Supremas recebidas",
+            "zh-CN": "获得终极技能"
+        },
+        "ULTIMATES_USED": {
+            "guid": "0000000124BF",
+            "en-US": "Ultimates Used",
+            "es-MX": "Habilidades máximas utilizadas",
+            "fr-FR": "Capacités ultimes utilisées",
+            "ja-JP": "アルティメット使用",
+            "pt-BR": "Supremas lançadas",
+            "zh-CN": "使用终极技能"
+        },
+        "WEAPON_ACCURACY": {
+            "guid": "0000000124BD",
+            "en-US": "Weapon Accuracy",
+            "es-MX": "Precisión con armas",
+            "fr-FR": "Précision",
+            "ja-JP": "武器命中率",
+            "pt-BR": "Precisão da arma",
+            "zh-CN": "武器命中率"
+        }
+    },
+    "HeroStat": {
+        "DAMAGE_DEALT": {
+            "guid": "0000000124B7",
+            "description": "Specifies all damage dealt (to heroes, barriers, and pets).",
+            "en-US": "All Damage Dealt",
+            "es-MX": "Todo el daño infligido",
+            "fr-FR": "Dégâts infligés tous",
+            "ja-JP": "与ダメージ（全体）",
+            "pt-BR": "Todo o dano causado",
+            "zh-CN": "所有造成伤害量"
+        },
+        "BARRIER_DAMAGE_DEALT": {
+            "guid": "0000000124B8",
+            "en-US": "Barrier Damage Dealt",
+            "es-MX": "Daño infligido a barreras",
+            "fr-FR": "Dégâts infligés aux écrans",
+            "ja-JP": "バリア与ダメージ",
+            "pt-BR": "Dano causado a barreiras",
+            "zh-CN": "对屏障造成伤害量"
+        },
+        "CRITICAL_HIT_ACCURACY": {
+            "guid": "0000000124E8",
+            "en-US": "Critical Hit Accuracy",
+            "es-MX": "Precisión de golpes críticos",
+            "fr-FR": "Précision des coups critiques",
+            "ja-JP": "クリティカル・ヒット命中率",
+            "pt-BR": "Precisão de golpes críticos",
+            "zh-CN": "暴击命中率"
+        },
+        "CRITICAL_HITS": {
+            "guid": "0000000124E9",
+            "en-US": "Critical Hits",
+            "es-MX": "Golpes críticos",
+            "fr-FR": "Coups critiques",
+            "ja-JP": "クリティカル・ヒット",
+            "pt-BR": "Golpes críticos",
+            "zh-CN": "暴击"
+        },
+        "DAMAGE_BLOCKED": {
+            "guid": "0000000124E1",
+            "en-US": "Damage Blocked",
+            "es-MX": "Daño bloqueado",
+            "fr-FR": "Dégâts bloqués",
+            "ja-JP": "ブロックしたダメージ",
+            "pt-BR": "Dano bloqueado",
+            "zh-CN": "阻挡伤害量"
+        },
+        "DAMAGE_TAKEN": {
+            "guid": "0000000124E0",
+            "en-US": "Damage Taken",
+            "es-MX": "Daño recibido",
+            "fr-FR": "Dégâts subis",
+            "ja-JP": "受けたダメージ",
+            "pt-BR": "Dano recebido",
+            "zh-CN": "承受伤害量"
+        },
+        "DEATHS": {
+            "guid": "0000000124DF",
+            "en-US": "Deaths",
+            "es-MX": "Muertes",
+            "fr-FR": "Morts",
+            "ja-JP": "デス",
+            "pt-BR": "Mortes",
+            "zh-CN": "阵亡"
+        },
+        "DEFENSIVE_ASSISTS": {
+            "guid": "0000000124DA",
+            "en-US": "Defensive Assists",
+            "es-MX": "Asistencias defensivas",
+            "fr-FR": "Soutiens défensifs",
+            "ja-JP": "防衛アシスト",
+            "pt-BR": "Assistências defensivas",
+            "zh-CN": "协助防守"
+        },
+        "ELIMINATIONS": {
+            "guid": "0000000124DE",
+            "en-US": "Eliminations",
+            "es-MX": "Eliminaciones",
+            "fr-FR": "Éliminations",
+            "ja-JP": "キル",
+            "pt-BR": "Eliminações",
+            "zh-CN": "消灭"
+        },
+        "ENVIRONMENTAL_DEATHS": {
+            "guid": "0000000124D8",
+            "en-US": "Environmental Deaths",
+            "es-MX": "Muertes sufridas por el entorno",
+            "fr-FR": "Morts dues à l’environnement",
+            "ja-JP": "環境デス",
+            "pt-BR": "Mortes no ambiente",
+            "zh-CN": "地形阵亡"
+        },
+        "ENVIRONMENTAL_KILLS": {
+            "guid": "0000000124D7",
+            "en-US": "Environmental Kills",
+            "es-MX": "Derribos con el entorno",
+            "fr-FR": "Victimes dues à l’environnement",
+            "ja-JP": "環境キル",
+            "pt-BR": "Abates no ambiente",
+            "zh-CN": "地形消灭"
+        },
+        "FINAL_BLOWS": {
+            "guid": "0000000124DC",
+            "en-US": "Final Blows",
+            "es-MX": "Golpes de gracia",
+            "fr-FR": "Coups de grâce",
+            "ja-JP": "ファイナル・ブロウ",
+            "pt-BR": "Golpes finais",
+            "zh-CN": "最后一击"
+        },
+        "HEALING_DEALT": {
+            "guid": "0000000124D1",
+            "en-US": "Healing Dealt",
+            "es-MX": "Sanación realizada",
+            "fr-FR": "Soins prodigués",
+            "ja-JP": "回復（相手）",
+            "pt-BR": "Cura concedida",
+            "zh-CN": "治疗量"
+        },
+        "HEALING_RECEIVED": {
+            "guid": "0000000124EF",
+            "en-US": "Healing Received",
+            "es-MX": "Sanación recibida",
+            "fr-FR": "Soins reçus",
+            "ja-JP": "回復（自分）",
+            "pt-BR": "Cura recebida",
+            "zh-CN": "受到治疗量"
+        },
+        "HERO_DAMAGE_DEALT": {
+            "guid": "0000000124D5",
+            "description": "Specifies damage dealt to heroes, but not barriers or pets.",
+            "en-US": "Hero Damage Dealt",
+            "es-MX": "Daño infligido a héroes",
+            "fr-FR": "Dégâts infligés aux héros",
+            "ja-JP": "ヒーロー与ダメージ",
+            "pt-BR": "Dano causado a heróis",
+            "zh-CN": "对英雄造成伤害量"
+        },
+        "MULTIKILL_BEST": {
+            "guid": "0000000124CD",
+            "en-US": "Multikill Best",
+            "es-MX": "Mejor derribo múltiple",
+            "fr-FR": "Victimes simultanées maximum",
+            "it-IT": "Multikill - Best",
+            "ja-JP": "最高マルチキル",
+            "pt-BR": "Abates múltiplos - melhor",
+            "zh-CN": "最佳瞬间消灭"
+        },
+        "MULTIKILLS": {
+            "guid": "0000000124CB",
+            "en-US": "Multikills",
+            "es-MX": "Derribos múltiples",
+            "fr-FR": "Victimes simultanées",
+            "ja-JP": "マルチキル",
+            "pt-BR": "Abates múltiplos",
+            "zh-CN": "瞬间消灭"
+        },
+        "OBJECTIVE_KILLS": {
+            "guid": "0000000124C9",
+            "en-US": "Objective Kills",
+            "es-MX": "Derribos en objetivo",
+            "fr-FR": "Victimes sur objectif",
+            "ja-JP": "目標キル",
+            "pt-BR": "Abates de objetivo",
+            "zh-CN": "目标攻防消灭"
+        },
+        "OFFENSIVE_ASSISTS": {
+            "guid": "0000000124C7",
+            "en-US": "Offensive Assists",
+            "es-MX": "Asistencias ofensivas",
+            "fr-FR": "Soutiens offensifs",
+            "ja-JP": "攻撃アシスト",
+            "pt-BR": "Assistências ofensivas",
+            "zh-CN": "协助进攻"
+        },
+        "SCOPED_ACCURACY": {
+            "guid": "0000000124F6",
+            "en-US": "Scoped Accuracy",
+            "es-MX": "Precisión con la mira",
+            "fr-FR": "Précision à la lunette",
+            "ja-JP": "命中率（スコープ）",
+            "pt-BR": "Precisão com mira telescópica",
+            "zh-CN": "开镜命中率"
+        },
+        "SCOPED_CRITICAL_HIT_ACCURACY": {
+            "guid": "0000000124F7",
+            "en-US": "Scoped Critical Hit Accuracy",
+            "es-MX": "Precisión de golpes críticos con la mira",
+            "fr-FR": "Précision des coups critiques à la lunette",
+            "ja-JP": "クリティカル・ヒット命中率（スコープ）",
+            "pt-BR": "Precisão de golpes críticos com mira",
+            "zh-CN": "开镜暴击率"
+        },
+        "SCOPED_CRITICAL_HIT_KILLS": {
+            "guid": "0000000124F8",
+            "en-US": "Scoped Critical Hit Kills",
+            "es-MX": "Derribos por golpes críticos con la mira",
+            "fr-FR": "Victimes de coups critiques à la lunette",
+            "ja-JP": "クリティカル・ヒット・キル（スコープ）",
+            "pt-BR": "Abates por golpes críticos com mira telescópica",
+            "zh-CN": "开镜暴击消灭"
+        },
+        "SCOPED_CRITICAL_HITS": {
+            "guid": "0000000124F9",
+            "en-US": "Scoped Critical Hits",
+            "es-MX": "Golpes críticos con la mira",
+            "fr-FR": "Coups critiques à la lunette",
+            "ja-JP": "クリティカル・ヒット（スコープ）",
+            "pt-BR": "Golpes críticos com mira telescópica",
+            "zh-CN": "开镜暴击"
+        },
+        "SCOPED_HITS": {
+            "guid": "0000000124FA",
+            "en-US": "Scoped Hits",
+            "es-MX": "Golpes con la mira",
+            "fr-FR": "Tirs à la lunette réussis",
+            "ja-JP": "命中（スコープ）",
+            "pt-BR": "Acertos com mira telescópica",
+            "zh-CN": "开镜命中"
+        },
+        "SCOPED_SHOTS": {
+            "guid": "0000000124FB",
+            "en-US": "Scoped Shots",
+            "es-MX": "Disparos con la mira",
+            "fr-FR": "Tirs à la lunette",
+            "ja-JP": "ショット（スコープ）",
+            "pt-BR": "Tiros com mira telescópica",
+            "zh-CN": "开镜射击"
+        },
+        "SELF_HEALING": {
+            "guid": "0000000124FC",
+            "en-US": "Self Healing",
+            "es-MX": "Autosanación",
+            "fr-FR": "Soins personnels",
+            "ja-JP": "自己回復",
+            "pt-BR": "Autocura",
+            "zh-CN": "自我治疗量"
+        },
+        "SHOTS_FIRED": {
+            "guid": "0000000124FD",
+            "en-US": "Shots Fired",
+            "es-MX": "Disparos realizados",
+            "fr-FR": "Tirs",
+            "ja-JP": "発射したショット",
+            "pt-BR": "Tiros disparados",
+            "zh-CN": "射击次数"
+        },
+        "SHOTS_HIT": {
+            "guid": "0000000124FE",
+            "en-US": "Shots Hit",
+            "es-MX": "Disparos acertados",
+            "fr-FR": "Tirs réussis",
+            "ja-JP": "命中したショット",
+            "pt-BR": "Tiros acertados",
+            "zh-CN": "射击命中"
+        },
+        "SHOTS_MISSED": {
+            "guid": "0000000124FF",
+            "en-US": "Shots Missed",
+            "es-MX": "Disparos fallados",
+            "fr-FR": "Tirs manqués",
+            "ja-JP": "外したショット",
+            "pt-BR": "Tiros errados",
+            "zh-CN": "射击未命中"
         },
         "SOLO_KILLS": {
             "guid": "0000000124C3",
