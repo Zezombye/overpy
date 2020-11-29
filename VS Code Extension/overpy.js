@@ -8051,7 +8051,7 @@ const actionKw =
         "pt-BR": "Parar de Segurar Botão",
         "zh-CN": "停止按下按钮"
     },
-    "stopModifyingVoicelinePitch": {
+    "_&stopModifyingVoicelinePitch": {
         "description": "Undoes the effect of the Starting Modifying Hero Voice Lines action for one or more players.",
         "args": [
             {
