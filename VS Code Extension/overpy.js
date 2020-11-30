@@ -19069,14 +19069,14 @@ const constantValues =
             "zh-CN": "取消相反运动"
         },
         "CANCEL_CONTRARY_MOTION_XYZ": {
-            "guid": "00000000B520",
             "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together.",
-            "en-US": "Cancel Contrary Motion",
-            "es-MX": "Cancelar movimiento contrario",
-            "fr-FR": "Annuler le mouvement contraire",
-            "ja-JP": "逆モーションをキャンセル",
-            "pt-BR": "Cancelar Deslocamento Contrário",
-            "zh-CN": "取消相反运动"
+            "guid": "0000000125A5",
+            "en-US": "Cancel Contrary Motion XYZ",
+            "es-MX": "Cancelar movimiento contrario XYZ",
+            "fr-FR": "Annuler le mouvement contraire XYZ",
+            "ja-JP": "逆モーションXYZをキャンセル",
+            "pt-BR": "Cancelar Deslocamento Contrário XYZ",
+            "zh-CN": "取消相反运动XYZ"
         },
         "INCORPORATE_CONTRARY_MOTION": {
             "guid": "00000000B521",
