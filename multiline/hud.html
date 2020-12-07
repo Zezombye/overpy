@@ -1,0 +1,150 @@
+<html>
+<head>
+    <title>
+        Zez's HUD Text Generator
+    </title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<style>
+
+@font-face {
+    font-family: "FuturaNo2D";
+    src: url("fonts/Futura_No_2D_Demi_Bold.otf");
+}
+
+@font-face {
+    font-family: "Industry";
+    src: url("fonts/Industry_Demi.otf");
+}
+
+html, body, textarea {
+	color: #CCCCCC;
+	background-color: #222222;
+	scrollbar-color: #CCCCCC #222222;
+    text-align: center;
+    margin: 0px;
+}
+
+a {
+	color: lightblue;
+}
+
+
+#background-img {
+    width: 1920px;
+    height: 1080px;
+    background-image: url("img/background.png");
+    position: relative;
+}
+
+#left-hud {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.hud-text {
+    display: flex;
+    white-space: nowrap;
+    /*border: 1px solid green;*/
+}
+
+.hud-header-border {
+    color: rgb(255, 0, 0, 0.7);
+    /*height: 95px;
+    width: 380px;*/
+    border: 3px solid rgb(255, 0, 0, 0.7);
+    border-radius: 7px;
+}
+
+.hud-header {
+    color: rgb(255, 0, 0, 0.7);
+    text-transform: uppercase;
+    text-align: left;
+    font-family: "Industry";
+    font-size: 28.15px;
+    font-weight: 1000;
+    line-height: 1.18;
+    margin-top: -2px;
+    margin-left: 2px;
+    margin-bottom: -3px;
+    margin-right: 2.5px;
+    white-space: pre;
+}
+
+.hud-inter-padding {
+    height: 100%;
+    width: 9px;
+}
+
+.hud-header-border, .hud-subheader-subtext {
+    display: inline-block;
+}
+
+.hud-subheader {
+    color: rgb(255, 0, 0, 0.7);
+    text-transform: uppercase;
+    text-align: left;
+    font-family: "FuturaNo2D";
+    font-size: 14px;
+    white-space: pre;
+}
+
+.hud-subtext {
+    color: rgb(255, 0, 0, 0.7);
+    text-transform: uppercase;
+    text-align: left;
+    font-family: "FuturaNo2D";
+    font-size: 20px;
+    white-space: pre;
+    line-height: 1.34;
+}
+
+</style>
+
+
+<h1>Zez's HUD text generator</h1>
+<br>
+
+<div id="background-img">
+    <div id="left-hud">
+        <div class="hud-text" v-for="hudText in hudTexts">
+            <div class="hud-header-border" v-if="hudText.header">
+                <div class="hud-header">{{ hudText.header }}</div>
+            </div>
+            <div class="hud-inter-padding"></div>
+            <div class="hud-subheader-subtext">
+                <div class="hud-subheader" v-if="hudText.subheader">{{ hudText.subheader }}</div>
+                <div class="hud-subtext" v-if="hudText.subtext">{{ hudText.subtext }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="vuejs/vue.js"></script>
+
+<script defer>
+    "use strict";
+
+    var app = new Vue({
+        el: "#background-img",
+        data: {
+            hudTexts: [
+                {
+                    header: "test",
+                },
+                {
+                    header: "This is some random text\nwith multiple\nlines.",
+                    subheader: "This is some random text\nwith multiple lines.",
+                    subtext: "This is some random text\nwith multiple lines.",
+                }
+            ]
+        }
+    })
+
+</script>
+
+</body>
+</html>
