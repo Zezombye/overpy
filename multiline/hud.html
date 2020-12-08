@@ -11,12 +11,12 @@
 
 @font-face {
     font-family: "FuturaNo2D";
-    src: url("fonts/Futura_No_2D_Demi_Bold.otf");
+    src: url("fonts/futura_no2_d_demi_bold.ttf");
 }
 
 @font-face {
     font-family: "Industry";
-    src: url("fonts/Industry_Demi.otf");
+    src: url("fonts/industry_black.otf");
 }
 
 html, body, textarea {
@@ -52,26 +52,41 @@ a {
 }
 
 .hud-header-border {
-    color: rgb(255, 0, 0, 0.7);
     /*height: 95px;
     width: 380px;*/
     border: 3px solid rgb(255, 0, 0, 0.7);
     border-radius: 7px;
+    background-color: rgb(0,0,0,0.75);
 }
 
 .hud-header {
-    color: rgb(255, 0, 0, 0.7);
+    color:white;
     text-transform: uppercase;
     text-align: left;
     font-family: "Industry";
-    font-size: 28.15px;
-    font-weight: 1000;
-    line-height: 1.18;
-    margin-top: -2px;
+    font-size: 28px;
+    /*font-weight: 1000;*/
+    line-height: 1.2;
+    margin-top: -0.5px;
     margin-left: 2px;
-    margin-bottom: -3px;
+    margin-bottom: -5px;
     margin-right: 2.5px;
     white-space: pre;
+    align-content: center;
+    display: grid;
+    height: 100%;
+
+    
+    --outline-color: #000000;
+  text-shadow:
+    -1px -1px 0 var(--outline-color),
+     0   -1px 0 var(--outline-color),
+     1px -1px 0 var(--outline-color),
+     1px  0   0 var(--outline-color),
+     1px  1px 0 var(--outline-color),
+     0    1px 0 var(--outline-color),
+    -1px  1px 0 var(--outline-color),
+    -1px  0   0 var(--outline-color);
 }
 
 .hud-inter-padding {
@@ -83,24 +98,33 @@ a {
     display: inline-block;
 }
 
-.hud-subheader {
-    color: rgb(255, 0, 0, 0.7);
+
+.hud-subheader, .hud-subtext {
+    color: white;
     text-transform: uppercase;
     text-align: left;
     font-family: "FuturaNo2D";
-    font-size: 14px;
     white-space: pre;
-    margin-top: -1px;
-    margin-bottom: 1px;
+    --outline-color: #333333;
+  text-shadow:
+    -1px -1px 0 var(--outline-color),
+     0   -1px 0 var(--outline-color),
+     1px -1px 0 var(--outline-color),
+     1px  0   0 var(--outline-color),
+     1px  1px 0 var(--outline-color),
+     0    1px 0 var(--outline-color),
+    -1px  1px 0 var(--outline-color),
+    -1px  0   0 var(--outline-color);
+}
+
+.hud-subheader {
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .hud-subtext {
-    color: rgb(255, 0, 0, 0.7);
-    text-transform: uppercase;
-    text-align: left;
-    font-family: "FuturaNo2D";
     font-size: 18px;
-    white-space: pre;
     line-height: 1.34;
 }
 
@@ -114,12 +138,12 @@ a {
     <div id="left-hud">
         <div class="hud-text" v-for="hudText in hudTexts">
             <div class="hud-header-border" v-if="hudText.header">
-                <div class="hud-header">{{ hudText.header }}</div>
+                <div class="hud-header" contenteditable="true">{{ hudText.header }}</div>
             </div>
             <div class="hud-inter-padding"></div>
             <div class="hud-subheader-subtext">
-                <div class="hud-subheader" v-if="hudText.subheader">{{ hudText.subheader }}</div>
-                <div class="hud-subtext" v-if="hudText.subtext">{{ hudText.subtext }}</div>
+                <div class="hud-subheader" contenteditable="true" v-if="hudText.subheader">{{ hudText.subheader }}</div>
+                <div class="hud-subtext" contenteditable="true" v-if="hudText.subtext">{{ hudText.subtext }}</div>
             </div>
         </div>
     </div>
@@ -135,7 +159,7 @@ a {
         data: {
             hudTexts: [
                 {
-                    header: "test",
+                    header: "test\n\n\n\n",
                 },
                 {
                     header: "This is some random text\nwith multiple\nlines.",
