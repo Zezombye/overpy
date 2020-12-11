@@ -76,7 +76,8 @@ function parseCustomString(str, formatArgs) {
     var isFullwidth = (str.type === "FullwidthStringLiteral");
     var isPlaintext = (str.type === "PlaintextStringLiteral");
 
-    var content = str.name;
+	var content = str.name;
+	//console.log(content);
 	var tokens = [];
 	var numberIndex = 0;
 	var args = [];
@@ -279,7 +280,7 @@ function parseStringTokens(tokens, args) {
 				result += tokens[i].text;
 				stringLength += getUtf8Length(tokens[i].text);
 			} else {
-				if (numbersEncountered.length >= 2 && (numbers.length > 3 || i < tokens.length-1 && stringLength+getUtf8Length(tokens[i+1].text)+"{0}".length > 128)) {
+				if (numbersEncountered.length >= 2 && (numbers.length > 3 || i < tokens.length-1 && stringLength+(tokens[i+1].type === "string" ? getUtf8Length(tokens[i+1].text)+"{0}".length : "{0}".length) > 128)) {
 					//split
 					result += "{2}";
 					resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
