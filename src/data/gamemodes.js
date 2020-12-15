@@ -111,6 +111,9 @@ const gamemodeKw =
         "zh-CN": "运载目标",
         "zh-TW": "護送"
     },
+    "freezethawElimination": {
+        "en-US": "Freezethaw Elimination",
+    },
     "hybrid": {
         "guid": "00000000CD5A",
         "en-US": "Hybrid",

@@ -1963,6 +1963,213 @@
                         }
                     }
                 },
+                "freezethawElimination": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "heroSelectionTime": {
+                            "type": "integer",
+                            "minimum": 20,
+                            "maximum": 60
+                        },
+                        "scoreToWin": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 9
+                        },
+                        "restrictPreviouslyPlayedHeroes": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "afterRoundWon"
+                                },
+                                {
+                                    "const": "afterRoundPlayed"
+                                }
+                            ]
+                        },
+                        "heroesAvailable": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "any"
+                                },
+                                {
+                                    "const": "limited"
+                                },
+                                {
+                                    "const": "random"
+                                },
+                                {
+                                    "const": "mirroredRandom"
+                                }
+                            ]
+                        },
+                        "heroPoolSize": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "teamSize"
+                                },
+                                {
+                                    "const": "teamSize+1"
+                                },
+                                {
+                                    "const": "teamSize+2"
+                                },
+                                {
+                                    "const": "teamSize+3"
+                                }
+                            ]
+                        },
+                        "enableTiebreaker": {
+                            "type": "boolean"
+                        },
+                        "tiebreakerTime": {
+                            "type": "integer",
+                            "minimum": 30,
+                            "maximum": 300
+                        },
+                        "tiebreakerCaptureTime": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 7
+                        },
+                        "drawTime": {
+                            "type": "integer",
+                            "minimum": 60,
+                            "maximum": 300
+                        },
+                        "enableWallhack": {
+                            "type": "boolean"
+                        },
+                        "wallhackEnabledTime": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 180
+                        },
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "allSlotsFilled"
+                                },
+                                {
+                                    "const": "immediately"
+                                },
+                                {
+                                    "const": "manual"
+                                }
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "modeDependent"
+                                },
+                                {
+                                    "const": "enabled"
+                                },
+                                {
+                                    "const": "disabled"
+                                }
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "1PerTeam"
+                                },
+                                {
+                                    "const": "2PerTeam"
+                                },
+                                {
+                                    "const": "1PerGame"
+                                },
+                                {
+                                    "const": "2PerGame"
+                                }
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "2OfEachRolePerTeam"
+                                }
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ayutthaya",
+                                    "blackForest",
+                                    "blackForestWinter",
+                                    "castillo",
+                                    "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
+                                    "necropolis"
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ayutthaya",
+                                    "blackForest",
+                                    "blackForestWinter",
+                                    "castillo",
+                                    "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
+                                    "necropolis"
+                                ]
+                            }
+                        }
+                    }
+                },
                 "tdm": {
                     "type": "object",
                     "additionalProperties": false,

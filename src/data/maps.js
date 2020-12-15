@@ -33,7 +33,8 @@ const mapKw =
         "guid": "00000000676E",
         "gamemodes": [
             "ctf",
-            "elimination"
+            "elimination",
+            "freezethawElimination",
         ],
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -51,6 +52,7 @@ const mapKw =
         "guid": "0000000059C3",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
             "tdm"
         ],
@@ -77,6 +79,7 @@ const mapKw =
         "guid": "0000000070F4",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
             "tdm",
             "meisSnowballOffensive",
@@ -238,6 +241,7 @@ const mapKw =
         "guid": "000000005C04",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
             "tdm"
         ],
@@ -302,6 +306,7 @@ const mapKw =
         "guid": "0000000047D3",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
             "tdm"
         ],
@@ -328,6 +333,7 @@ const mapKw =
         "guid": "0000000075A7",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
             "tdm",
             "meisSnowballOffensive",
@@ -868,6 +874,7 @@ const mapKw =
         "guid": "0000000053FB",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
             "tdm"
         ],
