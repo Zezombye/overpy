@@ -14500,6 +14500,13 @@ const mapKw =
         "zh-CN": "渣客镇",
         "zh-TW": "垃圾鎮"
     },
+    "kanezaka": {
+        gamemodes: [
+            "ffa",
+            "tdm",
+        ],
+        "en-US": "Kanezaka",
+    },
     "kingsRow": {
         "guid": "000000000133",
         "gamemodes": [
