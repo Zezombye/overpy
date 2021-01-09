@@ -1,13 +1,13 @@
-[Core] DataTool v1.54.0.902-git-4601bd8eed2234be56e4faaf7ae7d49e0bfdc545
+[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(24)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.54.0.0.75788
+[CASC] Overwatch build 1.55.0.0.76333
 [CASC] Initializing...
-[Manifest] Using TRG procedure 75428 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
-[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -14555,6 +14555,14 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000729C.07C: %1$s Secondary Fire Accuracy
 00000000729D.07C: Secondary Fire Accuracy - Best in Game
 00000000729E.07C: %1$s Secondary Fire Accuracy - Best in Game
+0000000072A0.07C: Attack Objective A
+0000000072A1.07C: Escort The Payload
+0000000072A2.07C: Defend Objective A
+0000000072A3.07C: Stop The Payload
+0000000072A4.07C: Objective Lost
+0000000072A5.07C: Objective Captured
+0000000072A6.07C: Prepare To Attack
+0000000072A7.07C: Prepare your defenses
 0000000072AA.07C: Yeti Trap
 0000000072AE.07C: Place a Yeti Trap with a short arming time.
 0000000072AF.07C: Spawn Without Mech
@@ -14727,6 +14735,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000073D8.07C: tournament.createMatch %1$s %2$s
 0000000073E6.07C: Biotic Orb Max Healing Scalar
 0000000073E7.07C: Biotic Orb Max Damage Scalar
+0000000073EE.07C: DEFEND
+0000000073EF.07C: ATTACK
+0000000073F0.07C: falling
 000000007403.07C: Clear Tournament
 000000007426.07C: Forest Spirit
 00000000742E.07C: Thanks to her brilliance and their shared desire to achieve scientific advancement at any cost, the founders of Oasis invited her to join them as their Minister of Genetics.
@@ -18396,31 +18407,31 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000AA54.07C: Seismic Slam
 00000000AA55.07C: General
 00000000AA5A.07C: Best Available
-00000000AA71.07C: Argentina
-00000000AA69.07C: Australia
-00000000AA64.07C: Australia 2
-00000000AA65.07C: Australia 3
-00000000AA6A.07C: Brazil
-00000000AA73.07C: Brazil 2
-00000000AA72.07C: Chile
-00000000AA70.07C: China - Beijing
+00000000AA5D.07C: Netherlands
+00000000AA5E.07C: France
 00000000AA5F.07C: China - Hangzhou
 00000000AA60.07C: China - Hangzhou 2
-00000000AA5E.07C: France
-00000000AA6C.07C: Germany
-00000000AA6D.07C: Ireland
-00000000AA67.07C: Japan
-00000000AA5D.07C: Netherlands
-00000000AA74.07C: Peru
-00000000AA68.07C: Singapore
 00000000AA61.07C: South Korea
-00000000AA6B.07C: South Korea 2
-00000000AA66.07C: Taiwan
-00000000AA75.07C: USA - Central
-00000000AA6E.07C: USA - East
-00000000AA6F.07C: USA - Northwest
 00000000AA62.07C: USA - Southwest
 00000000AA63.07C: USA - West
+00000000AA64.07C: Australia 2
+00000000AA65.07C: Australia 3
+00000000AA66.07C: Taiwan
+00000000AA67.07C: Japan
+00000000AA68.07C: Singapore
+00000000AA69.07C: Australia
+00000000AA6A.07C: Brazil
+00000000AA6B.07C: South Korea 2
+00000000AA6C.07C: Germany
+00000000AA6D.07C: Ireland
+00000000AA6E.07C: USA - East
+00000000AA6F.07C: USA - Northwest
+00000000AA70.07C: China - Beijing
+00000000AA71.07C: Argentina
+00000000AA72.07C: Chile
+00000000AA73.07C: Brazil 2
+00000000AA74.07C: Peru
+00000000AA75.07C: USA - Central
 00000000AA76.07C: TEST - Default
 00000000AA77.07C: TEST - Other
 00000000AA91.07C: Barrier Field
@@ -18472,6 +18483,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000AB33.07C: %1$s wants to defend the payload!
 00000000AB34.07C: With a new map and competitive play!
 00000000AB35.07C: RESPAWN ICON OPACITY
+00000000AB50.07C: 4v4 Freeze
 00000000AB55.07C: Orbital
 00000000AB56.07C: Interrupted Delivery
 00000000AB57.07C: 
@@ -19697,6 +19709,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000B754.07C: Rise up the ranks and compete with the best Deathmatch players in the world!
 00000000B765.07C: An elite combat medic and ex-Talon operative, Baptiste now uses his skills to help those whose lives have been impacted by war.
 00000000B775.07C: Rialto
+00000000B776.07C: Blizzard World
 00000000B777.07C: Paris
 00000000B778.07C: Havana
 00000000B780.07C: Survival Tip
@@ -22213,9 +22226,9 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CA0C.07C: You must select a role before your group can queue. Select now?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Symmetra's Restoration Challenge
-00000000CA13.07C: Week 2: Stone Brigitte
-00000000CA14.07C: Week 3: Ragdoll Echo
+00000000CA11.07C: Week 1: Elf Junkrat
+00000000CA13.07C: Week 2: Gingerbread Ana
+00000000CA14.07C: Week 3: Frosty Roadhog
 00000000CA15.07C: Win 9 games in quick play, arcade, or competitive play!
 00000000CA16.07C: Win 9 games in quick play, arcade, or competitive play!
 00000000CA17.07C: Win 9 games in quick play, arcade, or competitive play!
@@ -27130,6 +27143,7 @@ https://account.blizzard.com/connections/nintendo
 0000000105A8.07C: The Player or Players whose access to Jump is affected.
 0000000105A9.07C: Specifies whether the Player or Players are able to use Crouch. Expects a Boolean Value such as True, False, or Compare.
 0000000105AA.07C: Specifies whether the Player or Players are able to use Jump. Expects a Boolean Value such as True, False, or Compare.
+0000000105B4.07C: Conductor
 0000000105B6.07C: Break
 0000000105B7.07C: Continue
 0000000105B8.07C: Denotes an action that will jump back to the top of the current While or For loop.
@@ -27310,6 +27324,7 @@ https://account.blizzard.com/connections/nintendo
 0000000108E8.07C: Unlocked by attending a 2020 Homestand Event
 0000000108E9.07C: Atlanta Reign Homestand 2020
 0000000108F8.07C: Route 66
+0000000108FA.07C: Penguin
 0000000108FD.07C: Maestro
 0000000108FE.07C: Flight Plan
 00000001090A.07C: 2020 Atlantic All-Stars
@@ -27322,7 +27337,7 @@ https://account.blizzard.com/connections/nintendo
 000000010954.07C: My Legacy
 000000010955.07C: Echo Online
 000000010956.07C: Duplicate
-00000001095C.07C: <Icon String>
+00000001095C.07C: <Icon>
 00000001095E.07C: Visible To and Sort Order
 00000001095F.07C: Sort Order
 00000001098F.07C: Declare Round Draw
@@ -28019,6 +28034,7 @@ Blizzard Support
 0000000110CA.07C: Available in Summer Games Loot Boxes
 0000000110CB.07C: It's not that hot
 0000000110CC.07C: Available in Summer Games Loot Boxes
+0000000110CE.07C: Toybot
 0000000110CF.07C: Time Played
 0000000110D0.07C: BONUS BALL
 0000000110D4.07C: Objective Time
@@ -28480,9 +28496,12 @@ Blizzard Support
 00000001146F.07C: 50 + 10 Summer Games Loot Boxes
 0000000114DC.07C: Watch Now
 0000000114DF.07C: Watch Overwatch League
+0000000114E4.07C: Gingerbread
+00000001152E.07C: Lumberjack
 000000011605.07C: Competitive 3v3 Elimination Season 3
 000000011606.07C: Competitive Elimination
 000000011607.07C: Rise up the ranks and compete with the best Elimination players in the world!
+000000011624.07C: Frosty
 000000011654.07C: Ragdoll
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: More Info
@@ -28537,8 +28556,6 @@ Blizzard Support
 00000001171D.07C: One or more party members is about to run out of game time
 000000011744.07C: 1 Legendary and 5 Loot Boxes
 000000011745.07C: 15 credits and a free gift of 1 Legendary and 5 Loot Boxes
-000000011746.07C: http://playoverwatch.com/media/stories/stone-by-stone
-000000011747.07C: Read Now
 00000001174A.07C: Season %1$s
 000000011754.07C: Comic Book
 000000011755.07C: Unlocked by participating in Tracer's Comic Challenge
@@ -28550,9 +28567,6 @@ Blizzard Support
 0000000117A8.07C: Competitive Team Deathmatch
 0000000117A9.07C: Competitive CTF
 0000000117AA.07C: Competitive Open Queue
-0000000117B9.07C: New Short Story
-0000000117BA.07C: Stone by Stone
-0000000117FB.07C: https://ow.blizzard.cn/media/stories
 0000000117FC.07C: Stone
 00000001180C.07C: Junkenstein's Revenge Vengeful Ghost
 00000001180D.07C: Junkenstein's Revenge Frenzied Stampede
@@ -28609,6 +28623,8 @@ One-time purchase only
 000000011887.07C: Competitive Team Deathmatch
 000000011888.07C: Climb to the top of the scoreboard. The deadliest team wins.
 000000011889.07C: Itsy Bitsy Spider
+00000001188A.07C: Elf
+0000000118B9.07C: Ice Empress
 000000011938.07C: General Chat
 000000011939.07C: Match Chat
 00000001193A.07C: Team Chat
@@ -28725,8 +28741,6 @@ One-time purchase only
 000000011B1A.07C: Learn More
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
-000000011B21.07C: https://overwatchleague.com/news/watch-contenders-and-get-in-game-skins
-000000011B22.07C: Watch Contenders, Earn Skins!
 000000011B47.07C: Wave Reached:
 000000011B5A.07C: Watch Contenders!
 000000011BB5.07C: https://us.battle.net/support/en/article/42673
@@ -28813,6 +28827,7 @@ One-time purchase only
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
+000000011DC8.07C: Flurry
 000000011E36.07C: Competitive Team Deathmatch Competitor 2020
 000000011E37.07C: Unlocked by completing Competitive Team Deathmatch 2020 placement matches
 000000011E38.07C: Competitive Team Deathmatch Hero 2020
@@ -28957,6 +28972,47 @@ One-time purchase only
 000000012291.07C: Whether a Player is using a spray.
 000000012292.07C: The Player whose spray status to check.
 000000012294.07C: Vengeful Ghost
+0000000122B8.07C: Hero Selection Time
+0000000122B9.07C: |Rfn %1$s:N0;
+0000000122BA.07C: Score To Win
+0000000122BB.07C: Hero Limit
+0000000122BC.07C: Off
+0000000122BD.07C: 1 Per Team
+0000000122BE.07C: 2 Per Team
+0000000122BF.07C: 1 Per Game
+0000000122C0.07C: 2 Per Game
+0000000122C1.07C: Limit Roles
+0000000122C2.07C: 2 Of Each Role Per Team
+0000000122C3.07C: Respawn As Random Hero
+0000000122C4.07C: Enabled
+0000000122C5.07C: Disabled
+0000000122C6.07C: Respawn Time Scalar
+0000000122C7.07C: |Rfn %1$s:P0;
+0000000122C8.07C: Allow Hero Switching
+0000000122C9.07C: Enabled
+0000000122CA.07C: Disabled
+0000000122CB.07C: Restrict Previously Used Heroes
+0000000122CC.07C: Off
+0000000122CD.07C: After Round Won
+0000000122CE.07C: After Round Played
+0000000122CF.07C: Hero Selection
+0000000122D0.07C: Any
+0000000122D1.07C: Limited
+0000000122D2.07C: Random
+0000000122D3.07C: Random (Mirrored)
+0000000122D4.07C: Limited Choice Pool
+0000000122D5.07C: Team Size
+0000000122D6.07C: Team Size +1
+0000000122D7.07C: Team Size +2
+0000000122D8.07C: Team Size +3
+0000000122D9.07C: Capture Objective Tiebreaker
+0000000122DA.07C: Tiebreaker After Match Time Elapsed
+0000000122DB.07C: Time To Capture
+0000000122DC.07C: Draw After Match Time Elapsed With No Tiebreaker
+0000000122DD.07C: Reveal Heroes
+0000000122DE.07C: Reveal Heroes After Match Time Elapsed
+0000000122DF.07C: Freezethaw Elimination
+0000000122E0.07C: 
 0000000122E2.07C: Destroy All Progress Bar HUD Text
 0000000122E3.07C: Destroys all Progress Bar HUD text that were created by the Create Progress Bar HUD Text Action.
 0000000122E4.07C: Destroy Progress Bar HUD Text
@@ -28973,6 +29029,7 @@ One-time purchase only
 0000000122F1.07C: Values
 0000000122F3.07C: Create Progress Bar HUD Text
 0000000122F4.07C: Creates Progress Bar HUD text visible to specific Players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the Last Text ID Value. This Action will fail if too many text elements have been created.
+0000000122F8.07C: Eliminated heroes are frozen and may be thawed by allies. Freeze all enemies to win the round. Successful heroes are removed from later rounds.
 000000012320.07C: FOV Interpolation Rate
 000000012321.07C: FOV Change Per Zoom
 000000012322.07C: Maximum Free Camera FOV
@@ -28994,16 +29051,32 @@ One-time purchase only
 000000012340.07C: Position and Values
 00000001235A.07C: The Default parameter of Workshop Setting Heroes value must be set to a non-empty Array of Heroes.
 000000012439.07C: Error: Too many Workshop Setting Options.
+00000001243A.07C: Unwrap
 000000012449.07C: Log To Inspector
 00000001244A.07C: Text
 00000001244B.07C: The String to be logged to the Workshop Inspector.
 00000001244C.07C: Causes the Workshop Inspector to record a log entry.
+000000012458.07C: Earn %%1 Priority Passes
 000000012469.07C: Log
 00000001246A.07C: Copy to clipboard current log
 00000001246B.07C: Copy to clipboard all log
 00000001246F.07C: <fg#FFEAA239>[|Rfd %1$s:HH:mm:ss;]</fg>
 000000012472.07C: |Rfd %1$s:HH:mm:ss;
+00000001248B.07C: Enemies Frozen
+00000001248C.07C: %1$s Enemies Frozen
+00000001248D.07C: Thaws Interrupted
+00000001248E.07C: %1$s Thaws Interrupted
+00000001248F.07C: Teammates Thawed
+000000012490.07C: %1$s Teammates Thawed
+000000012492.07C: <fg%1$s>ROUND LOST</fg>
+000000012493.07C: <fg%1$s>ROUND WON</fg>
+000000012494.07C: <fg%1$s>DRAW</fg>
+000000012495.07C: Capture area unlocks in
+000000012496.07C: Game will be a draw in
+000000012497.07C: Thawing Teammate...
 00000001249D.07C: Minimum Latency (milliseconds)
+00000001249E.07C: Thawing Teammate...
+0000000124A1.07C: HOLD %1$s TO THAW TEAMMATE
 0000000124A2.07C: String Length
 0000000124A3.07C: Results in the number of characters in the String value (or 0 if the value is not a string).
 0000000124A4.07C: String
@@ -29025,6 +29098,7 @@ One-time purchase only
 0000000124B4.07C: Unlocked by achieving top 500 ranking at the end of Competitive No Limits 2020
 0000000124B7.07C: All Damage Dealt
 0000000124B8.07C: Barrier Damage Dealt
+0000000124B9.07C: 
 0000000124BD.07C: Weapon Accuracy
 0000000124BF.07C: Ultimates Used
 0000000124C1.07C: Ultimates Earned
@@ -29086,6 +29160,9 @@ One-time purchase only
 00000001250B.07C: The statistic to acquire.
 00000001250C.07C: Hero
 00000001250D.07C: The Hero whose statistic to acquire.
+00000001250F.07C: Unlocked by participating in the Winter Wonderland 2020 week 1 challenge
+000000012510.07C: Unlocked by participating in the Winter Wonderland 2020 week 3 challenge
+000000012511.07C: Unlocked by participating in the Winter Wonderland 2020 week 2 challenge
 00000001251E.07C: Assault - No Limits
 00000001251F.07C: Control - No Limits
 000000012520.07C: Hybrid - No Limits
@@ -29094,6 +29171,13 @@ One-time purchase only
 000000012523.07C: Competitive No Limits
 000000012524.07C: Competitive No Limits
 000000012525.07C: Rise up the ranks and compete with the best players in the world with no limits on hero selection.
+000000012529.07C: Toast
+000000012531.07C: Thaw-Stopper
+000000012532.07C: Interrupt 3 enemy thaws in a round of Freezethaw Elimination.
+000000012535.07C: Relentless Cold
+000000012536.07C: Interrupt an enemy ultimate ability by freezing them in Freezethaw Elimination.
+000000012537.07C: Snow Trouble, Friend
+000000012538.07C: Thaw a player who previously thawed you in a round of Freezethaw Elimination.
 00000001253A.07C: MIN LAT: %1$s MS
 00000001253E.07C: Competitive
 00000001253F.07C: EARN THESE REWARDS BY PARTICIPATING
@@ -29119,8 +29203,36 @@ One-time purchase only
 00000001255B.07C: Light Weave
 00000001255C.07C: Mealtime
 00000001255D.07C: Unlocked by watching participating streams during Symmetra's Restoration Challenge
+000000012586.07C: Wind down a mountain pass
+000000012587.07C: Available in Winter Loot Boxes
+000000012588.07C: Hotteok weather
+000000012589.07C: Available in Winter Loot Boxes
+000000012590.07C: Swap these out for ice skates
+000000012591.07C: Available in Winter Loot Boxes
+000000012592.07C: Let's have some hot cocoa
+000000012593.07C: Available in Winter Loot Boxes
+000000012594.07C: Cold? Me? Hah!
+000000012595.07C: Available in Winter Loot Boxes
+000000012596.07C: Who wants to buy me a present
+000000012597.07C: Available in Winter Loot Boxes
+000000012598.07C: Give me a warm fire...
+000000012599.07C: Available in Winter Loot Boxes
+00000001259A.07C: Ready for some pudding
+00000001259B.07C: Available in Winter Loot Boxes
+00000001259C.07C: Mountain Gorilla, Moon Gorilla
+00000001259D.07C: Available in Winter Loot Boxes
+00000001259E.07C: Blessings of the season
+00000001259F.07C: Available in Winter Loot Boxes
+0000000125A0.07C: This experience is a gift
+0000000125A1.07C: Available in Winter Loot Boxes
+0000000125A2.07C: Happy holidays
+0000000125A3.07C: Available in Winter Loot Boxes
 0000000125A4.07C: If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together.
 0000000125A5.07C: Cancel Contrary Motion XYZ
+0000000125D5.07C: <fg%1$s>FROZEN</fg>
+0000000125D7.07C: Freeze Elimination
+0000000125D9.07C: Freeze Thaw
+0000000125DB.07C: Use Priority Pass
 0000000125DC.07C: Brazil 2
 0000000125DD.07C: Singapore 2
 0000000125DE.07C: Japan 2
@@ -29128,4 +29240,120 @@ One-time purchase only
 0000000125E0.07C: Germany 2
 0000000125E1.07C: Finland 2
 0000000125E2.07C: Taiwan 2
-[Core] Execution finished in 00:00:00.4588971 seconds
+000000012629.07C: Reward
+00000001262B.07C: OK
+00000001262C.07C: Earn Priority Passes
+00000001262D.07C: Spend Priority Passes
+00000001262E.07C: Use Passes in Groups
+00000001262F.07C: Eliminated heroes are frozen. Hold INTERACT to thaw frozen allies.
+000000012633.07C: RESURRECTION
+000000012634.07C: Revive %1$s
+000000012636.07C: Thawing...
+00000001263A.07C: You are not in priority queue with the current team composition.
+00000001263B.07C: You are in priority queue with the current team composition.
+00000001264A.07C: Toast
+000000012651.07C: Toggle Use Priority Pass
+000000012659.07C: TEAMMATE IS BEING THAWED ALREADY
+00000001265A.07C: TEAMMATE IS BEING THAWED ALREADY
+00000001266E.07C: Queue for Flex in Role Queue to earn Priority Passes, with more passes earned for wins than for losses.
+00000001266F.07C: Use a Priority Pass to decrease the queue time for your upcoming game with the selected role. Only roles experiencing high traffic will be eligible.
+000000012670.07C: If all group members queuing for high-traffic roles use a pass, the group’s queue time will be decreased. 
+000000012673.07C: Toast
+0000000126E2.07C: CONTINUE
+0000000126E3.07C: The Winter Wonderland event returns, with favorites from previous years back alongside 50+ new items!
+0000000126E4.07C: Freezethaw Elimination
+0000000126E5.07C: A brand-new mode is here! Eliminate enemies to freeze them. Thaw your allies to stay in the game!
+0000000126E6.07C: Halloween 2020
+0000000126E7.07C: Event Ends Jan 5
+0000000126E8.07C: Unlock New Skins
+0000000126E9.07C: Weekly Challenges
+0000000126EA.07C: Week 1
+0000000126EB.07C: Week 2
+0000000126EC.07C: Week 3
+0000000126EF.07C: The Wait is Snow-ver
+0000000126F0.07C: 4v4 Freeze Tag
+0000000126F2.07C: |Rfd %1$s:yyyy-MM-dd-HH-mm-ss;
+00000001270F.07C: Freezethaw Elimination
+000000012712.07C: Enable Log File
+00000001272C.07C: Thaw
+00000001272D.07C: Thaw a dead teammate.
+00000001272E.07C: %1$s
+000000012733.07C: 50 Winter Loot Boxes
+and 10 Free Winter Loot Boxes
+000000012735.07C: 120 credits, and a free gift of 60 Winter Loot Boxes
+00000001277F.07C: Toybot
+000000012780.07C: Available in Winter Loot Boxes
+000000012781.07C: Penguin
+000000012782.07C: Available in Winter Loot Boxes
+000000012783.07C: Ice Empress
+000000012784.07C: Available in Winter Loot Boxes
+000000012785.07C: Conductor
+000000012786.07C: Available in Winter Loot Boxes
+000000012787.07C: Lumberjack
+000000012788.07C: Available in Winter Loot Boxes
+000000012789.07C: Elf
+00000001278B.07C: Gingerbread
+00000001278C.07C: Frosty
+00000001278D.07C: Snowman
+00000001278E.07C: Available in Winter Loot Boxes
+00000001278F.07C: Ornament
+000000012790.07C: Available in Winter Loot Boxes
+000000012791.07C: Ice Empress
+000000012792.07C: Available in Winter Loot Boxes
+000000012793.07C: Lumberjack
+000000012794.07C: Available in Winter Loot Boxes
+000000012795.07C: Toybot
+000000012796.07C: Available in Winter Loot Boxes
+000000012797.07C: Penguin
+000000012798.07C: Available in Winter Loot Boxes
+000000012799.07C: Alle Einsteigen
+00000001279A.07C: Available in Winter Loot Boxes
+00000001279B.07C: Elf
+00000001279D.07C: Gingerbread
+00000001279E.07C: Frosty
+00000001279F.07C: /%1$s
+0000000127A4.07C: Flex
+0000000127C0.07C: Mistletoe
+0000000127C2.07C: Enable Workshop Inspector Log File
+0000000127C5.07C: 1.75x
+0000000127CD.07C: |Rfn %1$s:F2;x
+0000000127D0.07C: Use a priority pass to decrease queue times.
+0000000127D1.07C: Priority pass will not affect queue times with current team composition.
+0000000127D2.07C: Winter Wonderland 2020
+0000000127D3.07C: 2021
+0000000127D4.07C: Available in Winter Loot Boxes
+0000000127D5.07C: End of 2020
+0000000127D6.07C: Available in Winter Loot Boxes
+0000000127D9.07C: Season 26 Competitor
+0000000127DA.07C: Unlocked by completing Season 26 placement matches
+0000000127DB.07C: Season 26 Hero
+0000000127DC.07C: Unlocked by achieving top 500 ranking at the end of Season 26
+0000000127DD.07C: Season 26 Competitor
+0000000127DE.07C: Unlocked by completing Season 26 placement matches
+0000000127DF.07C: Season 26 Hero
+0000000127E0.07C: Unlocked by achieving top 500 ranking at the end of Season 26
+0000000127E3.07C: Season 26
+0000000127E4.07C: Season 26
+0000000127EF.07C: Season 26
+0000000127F0.07C: Season 26
+0000000127FC.07C: Competitive Season 26 - Open Queue
+000000012804.07C: Placement Matches
+000000012805.07C: Frozen Elf
+000000012807.07C: Mutual Thaw
+000000012808.07C: Cookie Throw
+000000012832.07C: 
+000000012833.07C: 
+000000012834.07C: 
+00000001287A.07C: Unable to view replay of an undecided match.
+00000001287B.07C: Ok
+0000000128DC.07C: you were blocked by the custom game owner
+0000000128DD.07C: you were unblocked by the custom game owner
+0000000128E0.07C: Determining priority pass eligibility...
+0000000128E1.07C: 
+0000000128E2.07C: Priority pass will not affect queue times with current team size.
+0000000128E3.07C: No roles are currently eligible for using a priority pass.
+0000000128E5.07C: Your priority pass has been refunded.
+000000012965.07C: Your priority pass will not be used because your queue time was longer than expected.
+000000012ADC.07C: < 5 |Rpl min:mins;
+000000012ADD.07C: > 10 |Rpl min:mins;
+[Core] Execution finished in 00:00:00.5114446 seconds

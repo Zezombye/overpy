@@ -1,13 +1,13 @@
-[Core] DataTool v1.54.0.902-git-4601bd8eed2234be56e4faaf7ae7d49e0bfdc545
+[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(24)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: zhTW | Speech Language: zhTW
-[CASC] Overwatch build 1.54.0.0.75788
+[CASC] Overwatch build 1.55.0.0.76333
 [CASC] Initializing...
-[Manifest] Using TRG procedure 75428 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
-[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
-[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
+[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -14557,6 +14557,14 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000729C.07C: 次要攻擊命中率%1$s
 00000000729D.07C: 次要攻擊單場最佳命中率
 00000000729E.07C: 次要攻擊單場最佳命中率%1$s
+0000000072A0.07C: 攻擊目標Ａ
+0000000072A1.07C: 護送目標前進
+0000000072A2.07C: 防守目標A
+0000000072A3.07C: 阻止目標前進
+0000000072A4.07C: 失去防禦目標
+0000000072A5.07C: 成功佔領目標
+0000000072A6.07C: 準備進攻
+0000000072A7.07C: 做好防禦準備
 0000000072AA.07C: 雪怪陷阱
 0000000072AE.07C: 在短時間內設置雪怪陷阱
 0000000072AF.07C: 重生時不搭乘機甲
@@ -14729,6 +14737,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000073D8.07C: tournament.createMatch %1$s %2$s
 0000000073E6.07C: 生化球最大治療值
 0000000073E7.07C: 生化球最大傷害值
+0000000073EE.07C: 防守方
+0000000073EF.07C: 攻擊方
+0000000073F0.07C: 墜落
 000000007403.07C: Clear Tournament
 000000007426.07C: 森林之魂
 00000000742E.07C: 由於莫伊拉的傑出表現，加上綠洲城的幾位創始人不計代價地期盼能在科學上獲得長足進步，因此邀請莫伊拉加入並讓她擔任遺傳部門的部長。
@@ -18471,6 +18482,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000AB33.07C: %1$s想要防禦這個護送目標！
 00000000AB34.07C: 競技對戰模式多了不同的地圖！
 00000000AB35.07C: 重生頭像透明度
+00000000AB50.07C: 4v4凍凍大作戰
 00000000AB55.07C: 星際
 00000000AB56.07C: 攔截高手
 00000000AB57.07C: 
@@ -19696,6 +19708,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B754.07C: 提高排名，和全世界頂尖的死鬥好手一同競賽吧！
 00000000B765.07C: 巴帝斯特是一位菁英戰地醫護兵與前利爪組織成員，現在他運用自身的能力來幫助那些受戰火波及的人。
 00000000B775.07C: 里亞爾托
+00000000B776.07C: 暴雪樂園
 00000000B777.07C: 巴黎
 00000000B778.07C: 哈瓦那
 00000000B780.07C: 活命
@@ -21745,7 +21758,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C4DA.07C: Bad Aura Sound
 00000000C4DB.07C: 碳纖黑
 00000000C4DC.07C: 午夜黑
-00000000C4E0.07C: 這個模式是在工作坊創造的。
+00000000C4E0.07C: 這個模式是在工作坊創造的
 00000000C4E7.07C: 殭屍
 00000000C4F4.07C: 人生就是要尋找刺激
 00000000C4F5.07C: 經由週年戰利品解鎖
@@ -22212,9 +22225,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA0C.07C: 你必須先選擇角色類型，團隊才能加入佇列。要現在選擇嗎？
 00000000CA0D.07C: 商店
 00000000CA0E.07C: 商店
-00000000CA11.07C: 辛梅塔的修復大挑戰
-00000000CA13.07C: 第2週：石衛碧姬
-00000000CA14.07C: 第3週：破布偶迴音
+00000000CA11.07C: 第1週：小妖精炸彈鼠
+00000000CA13.07C: 第2週：薑餅人安娜
+00000000CA14.07C: 第3週：壞雪人攔路豬
 00000000CA15.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
 00000000CA16.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
 00000000CA17.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
@@ -27130,6 +27143,7 @@ https://account.blizzard.com/connections/nintendo
 0000000105A8.07C: The Player or Players whose access to Jump is affected.
 0000000105A9.07C: Specifies whether the Player or Players are able to use Crouch. Expects a Boolean Value such as True, False, or Compare.
 0000000105AA.07C: Specifies whether the Player or Players are able to use Jump. Expects a Boolean Value such as True, False, or Compare.
+0000000105B4.07C: 車掌
 0000000105B6.07C: Break
 0000000105B7.07C: Continue
 0000000105B8.07C: Denotes an action that will jump back to the top of the current While or For loop.
@@ -27310,6 +27324,7 @@ https://account.blizzard.com/connections/nintendo
 0000000108E8.07C: 參與一場2020主場賽活動即可解鎖
 0000000108E9.07C: Atlanta Reign 2020年主場賽
 0000000108F8.07C: 66號公路
+0000000108FA.07C: 企鵝
 0000000108FD.07C: 首席指揮家
 0000000108FE.07C: 飛行計畫
 00000001090A.07C: 2020年全明星賽大西洋隊
@@ -27322,7 +27337,7 @@ https://account.blizzard.com/connections/nintendo
 000000010954.07C: 傳承
 000000010955.07C: 迴音啟動
 000000010956.07C: 複製
-00000001095C.07C: <Icon String>
+00000001095C.07C: <Icon>
 00000001095E.07C: Visible To and Sort Order
 00000001095F.07C: Sort Order
 00000001098F.07C: Declare Round Draw
@@ -28018,6 +28033,7 @@ https://account.blizzard.com/connections/nintendo
 0000000110CA.07C: 經由夏季運動會戰利品解鎖
 0000000110CB.07C: 沒那麼熱吧
 0000000110CC.07C: 經由夏季運動會戰利品解鎖
+0000000110CE.07C: 玩具機器人
 0000000110CF.07C: 遊戲總時間
 0000000110D0.07C: 獎勵球
 0000000110D4.07C: 目標攻防時間
@@ -28479,9 +28495,12 @@ https://account.blizzard.com/connections/nintendo
 00000001146F.07C: 50箱與額外10箱夏季運動會戰利品
 0000000114DC.07C: 立即觀賞
 0000000114DF.07C: 觀賞《鬥陣特攻》職業電競聯賽
+0000000114E4.07C: 薑餅人
+00000001152E.07C: 伐木工
 000000011605.07C: 3v3鎖定對決競技模式第3賽季
 000000011606.07C: 鎖定對決競技模式
 000000011607.07C: 提高排名，和全世界頂尖的鎖定對決好手一同競賽吧！
+000000011624.07C: 壞雪人
 000000011654.07C: 破布偶
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: 詳細資訊
@@ -28536,8 +28555,6 @@ https://account.blizzard.com/connections/nintendo
 00000001171D.07C: 團隊中至少有一名成員的遊戲時間即將不足。
 000000011744.07C: 1箱傳奇戰利品和5箱戰利品
 000000011745.07C: 15枚鬥陣幣，以及免費1箱傳奇戰利品和5箱戰利品
-000000011746.07C: http://playoverwatch.com/media/stories/stone-by-stone
-000000011747.07C: 開始閱讀
 00000001174A.07C: 第%1$s賽季
 000000011754.07C: 漫畫書
 000000011755.07C: 參與閃光的漫畫大挑戰即可解鎖
@@ -28549,9 +28566,6 @@ https://account.blizzard.com/connections/nintendo
 0000000117A8.07C: 團隊死鬥競技模式
 0000000117A9.07C: 搶旗競技
 0000000117AA.07C: 自由佇列競技對戰
-0000000117B9.07C: 全新短篇故事
-0000000117BA.07C: 一磚一瓦
-0000000117FB.07C: https://ow.blizzard.cn/media/stories
 0000000117FC.07C: 石衛
 00000001180C.07C: 鼠肯斯坦復仇記復仇之鬼
 00000001180D.07C: 鼠肯斯坦復仇記高速湧竄
@@ -28608,6 +28622,8 @@ https://account.blizzard.com/connections/nintendo
 000000011887.07C: 團隊死鬥競技模式
 000000011888.07C: 在排行榜一路晉升，只有又強又猛又殺的那方能成為贏家。
 000000011889.07C: 小小蜘蛛
+00000001188A.07C: 小妖精
+0000000118B9.07C: 冰后
 000000011938.07C: 一般聊天頻道
 000000011939.07C: 對戰聊天頻道
 00000001193A.07C: 對戰團隊聊天
@@ -28723,8 +28739,6 @@ https://account.blizzard.com/connections/nintendo
 000000011B1A.07C: 深入了解
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
-000000011B21.07C: https://overwatchleague.com/news/watch-contenders-and-get-in-game-skins
-000000011B22.07C: 看職業競技賽，取得特殊造型！
 000000011B47.07C: 目前波數：
 000000011B5A.07C: 觀看職業競技賽！
 000000011BB5.07C: https://tw.battle.net/support/zh/article/42673
@@ -28811,6 +28825,7 @@ https://account.blizzard.com/connections/nintendo
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
+000000011DC8.07C: 雪花飄落
 000000011E36.07C: 2020年團隊死鬥競技選手
 000000011E37.07C: 完成2020年團隊死鬥競技模式預選賽即可解鎖
 000000011E38.07C: 2020年團隊死鬥競技精英
@@ -28955,6 +28970,47 @@ https://account.blizzard.com/connections/nintendo
 000000012291.07C: Whether a Player is using a spray.
 000000012292.07C: The Player whose spray status to check.
 000000012294.07C: 復仇之鬼
+0000000122B8.07C: 選擇英雄的時間限制
+0000000122B9.07C: |Rfn %1$s:N0;
+0000000122BA.07C: 獲勝分數
+0000000122BB.07C: 相同英雄限制
+0000000122BC.07C: 關閉
+0000000122BD.07C: 每隊最多1名
+0000000122BE.07C: 每隊最多2名
+0000000122BF.07C: 每場遊戲最多1名
+0000000122C0.07C: 每場遊戲最多2名
+0000000122C1.07C: 角色類型限制
+0000000122C2.07C: 每隊同一角色類型最多2名
+0000000122C3.07C: 重生時隨機更換英雄
+0000000122C4.07C: 啟用
+0000000122C5.07C: 停用
+0000000122C6.07C: 重生時間
+0000000122C7.07C: |Rfn %1$s:P0;
+0000000122C8.07C: 允許更換英雄
+0000000122C9.07C: 啟用
+0000000122CA.07C: 停用
+0000000122CB.07C: 禁用先前用過的英雄
+0000000122CC.07C: 關閉
+0000000122CD.07C: 上回合獲勝的英雄
+0000000122CE.07C: 上回合使用的英雄
+0000000122CF.07C: 選擇英雄
+0000000122D0.07C: 任意
+0000000122D1.07C: 有限制
+0000000122D2.07C: 隨機
+0000000122D3.07C: 隨機的相同英雄
+0000000122D4.07C: 限定選擇人數
+0000000122D5.07C: 隊伍人數
+0000000122D6.07C: 隊伍人數+1
+0000000122D7.07C: 隊伍人數+2
+0000000122D8.07C: 隊伍人數+3
+0000000122D9.07C: 以佔領區分出勝負
+0000000122DA.07C: 決勝局時對戰倒數計時
+0000000122DB.07C: 佔領所需的時間
+0000000122DC.07C: 非決勝局時平手對戰倒數計時
+0000000122DD.07C: 顯示英雄位置
+0000000122DE.07C: 經過多久之後顯示英雄位置
+0000000122DF.07C: 凍凍大作戰
+0000000122E0.07C: 
 0000000122E2.07C: Destroy All Progress Bar HUD Text
 0000000122E3.07C: Destroys all Progress Bar HUD text that were created by the Create Progress Bar HUD Text Action.
 0000000122E4.07C: Destroy Progress Bar HUD Text
@@ -28971,6 +29027,7 @@ https://account.blizzard.com/connections/nintendo
 0000000122F1.07C: Values
 0000000122F3.07C: Create Progress Bar HUD Text
 0000000122F4.07C: Creates Progress Bar HUD text visible to specific Players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the Last Text ID Value. This Action will fail if too many text elements have been created.
+0000000122F8.07C: 遭到擊殺的英雄會陷入凍結狀態，不過隊友可以幫忙解凍，讓敵方隊伍全員凍結即可獲勝，打贏的英雄無法在之後的回合使用。
 000000012320.07C: 視野範圍變動率
 000000012321.07C: 每次放大縮小的視野範圍變動比例
 000000012322.07C: 最大自由鏡頭視野範圍
@@ -28992,16 +29049,32 @@ https://account.blizzard.com/connections/nintendo
 000000012340.07C: Position and Values
 00000001235A.07C: 工作坊設定英雄數值的預設參數必須設置為非空白的自訂英雄組合。
 000000012439.07C: 錯誤：工作坊設定選項過多。
+00000001243A.07C: 拆禮物
 000000012449.07C: Log To Inspector
 00000001244A.07C: Text
 00000001244B.07C: The String to be logged to the Workshop Inspector.
 00000001244C.07C: Causes the Workshop Inspector to record a log entry.
+000000012458.07C: 獲得%%1張優先入場券
 000000012469.07C: 紀錄
 00000001246A.07C: 將當前紀錄複製至剪貼簿
 00000001246B.07C: 將所有紀錄複製至剪貼簿
 00000001246F.07C: <fg#FFEAA239>[|Rfd %1$s:HH:mm:ss;]</fg>
 000000012472.07C: |Rfd %1$s:HH:mm:ss;
+00000001248B.07C: 凍結的敵人數
+00000001248C.07C: 凍結的敵人數%1$s
+00000001248D.07C: 中斷解凍次數
+00000001248E.07C: 中斷解凍次數%1$s
+00000001248F.07C: 解凍的隊友數
+000000012490.07C: 解凍隊友數%1$s
+000000012492.07C: <fg%1$s>此回合失敗</fg>
+000000012493.07C: <fg%1$s>此回合勝利</fg>
+000000012494.07C: <fg%1$s>平手</fg>
+000000012495.07C: 距離佔領區開放還有：
+000000012496.07C: 和局判定倒數
+000000012497.07C: 正在解凍隊友...
 00000001249D.07C: Minimum Latency (milliseconds)
+00000001249E.07C: 正在解凍隊友...
+0000000124A1.07C: 按住%1$s來解凍隊友
 0000000124A2.07C: String Length
 0000000124A3.07C: Results in the number of characters in the String value (or 0 if the value is not a string).
 0000000124A4.07C: String
@@ -29023,6 +29096,7 @@ https://account.blizzard.com/connections/nintendo
 0000000124B4.07C: 在2020年無限制競技進入前500名即可解鎖
 0000000124B7.07C: All Damage Dealt
 0000000124B8.07C: Barrier Damage Dealt
+0000000124B9.07C: 
 0000000124BD.07C: Weapon Accuracy
 0000000124BF.07C: Ultimates Used
 0000000124C1.07C: Ultimates Earned
@@ -29084,6 +29158,9 @@ https://account.blizzard.com/connections/nintendo
 00000001250B.07C: The statistic to acquire.
 00000001250C.07C: Hero
 00000001250D.07C: The Hero whose statistic to acquire.
+00000001250F.07C: 參與2020年冬境樂園第1週挑戰即可解鎖
+000000012510.07C: 參與2020年冬境樂園第3週挑戰即可解鎖
+000000012511.07C: 參與2020年冬境樂園第2週挑戰即可解鎖
 00000001251E.07C: 佔領類型（無限制）
 00000001251F.07C: 控制類型（無限制）
 000000012520.07C: 混合類型（無限制）
@@ -29092,6 +29169,13 @@ https://account.blizzard.com/connections/nintendo
 000000012523.07C: 無限制競技
 000000012524.07C: 無限制競技
 000000012525.07C: 提高排名，和全世界頂尖的好手一同競賽，選擇英雄時沒有角色類型限制。
+000000012529.07C: 舉杯
+000000012531.07C: 凍住不許解！
+000000012532.07C: 在凍凍大作戰同一回合內中斷敵方的解凍動作3次。
+000000012535.07C: 深惡凍絕
+000000012536.07C: 在凍凍大作戰中，冰凍敵人來中斷對方的絕招。
+000000012537.07C: 解凍見真情
+000000012538.07C: 在凍凍大作戰同一回合中，解凍一名解凍過你的隊友。
 00000001253A.07C: 最低延遲：%1$s毫秒
 00000001253E.07C: 競技對戰
 00000001253F.07C: 加入對戰，贏得獎勵！
@@ -29117,8 +29201,36 @@ https://account.blizzard.com/connections/nintendo
 00000001255B.07C: 舞光
 00000001255C.07C: 開飯
 00000001255D.07C: 於辛梅塔的修復大挑戰期間觀看相關直播即可解鎖
+000000012586.07C: 凍寒刺骨
+000000012587.07C: 經由冬境戰利品解鎖
+000000012588.07C: 這種天氣剛好適合吃糖餅
+000000012589.07C: 經由冬境戰利品解鎖
+000000012590.07C: 我先換成溜冰鞋
+000000012591.07C: 經由冬境戰利品解鎖
+000000012592.07C: 喝點熱可可
+000000012593.07C: 經由冬境戰利品解鎖
+000000012594.07C: 你問我冷嗎？
+000000012595.07C: 經由冬境戰利品解鎖
+000000012596.07C: 有人要送我禮物嗎？
+000000012597.07C: 經由冬境戰利品解鎖
+000000012598.07C: 幫我生個火...
+000000012599.07C: 經由冬境戰利品解鎖
+00000001259A.07C: 我要來吃點布丁
+00000001259B.07C: 經由冬境戰利品解鎖
+00000001259C.07C: 月亮上的猩猩
+00000001259D.07C: 經由冬境戰利品解鎖
+00000001259E.07C: 願節慶的喜悅眷顧各位
+00000001259F.07C: 經由冬境戰利品解鎖
+0000000125A0.07C: 這個經驗十分寶貴
+0000000125A1.07C: 經由冬境戰利品解鎖
+0000000125A2.07C: 佳節愉快！
+0000000125A3.07C: 經由冬境戰利品解鎖
 0000000125A4.07C: If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together.
 0000000125A5.07C: Cancel Contrary Motion XYZ
+0000000125D5.07C: <fg%1$s>凍結</fg>
+0000000125D7.07C: 凍凍大作戰
+0000000125D9.07C: 凍融
+0000000125DB.07C: 使用優先入場券
 0000000125DC.07C: 巴西2
 0000000125DD.07C: 新加坡2
 0000000125DE.07C: 日本2
@@ -29126,4 +29238,119 @@ https://account.blizzard.com/connections/nintendo
 0000000125E0.07C: 德國2
 0000000125E1.07C: 芬蘭2
 0000000125E2.07C: 台灣2
-[Core] Execution finished in 00:00:00.4296660 seconds
+000000012629.07C: 獎勵
+00000001262B.07C: 確定
+00000001262C.07C: 獲得優先入場券
+00000001262D.07C: 消耗優先入場券
+00000001262E.07C: 在團隊中使用快速入場券
+00000001262F.07C: 擊殺敵人使其陷入凍結，按住互動鍵來為隊友解凍。
+000000012633.07C: RESURRECTION
+000000012634.07C: 復活%1$s
+000000012636.07C: 正在解凍...
+00000001263A.07C: 你目前隊伍的角色類型不符合快速入場佇列的要求。
+00000001263B.07C: 你目前隊伍的角色類型符合快速入場佇列的要求。
+00000001264A.07C: 舉杯
+000000012651.07C: 切換使用優先入場券與否
+000000012659.07C: 隊友已經解凍了
+00000001265A.07C: 隊友已經解凍了
+00000001266E.07C: 加入彈性角色類型佇列可獲得優先入場券，勝場獲得的入場券會比較多。
+00000001266F.07C: 使用優先入場券來縮短指定角色類型在下一場遊戲的佇列排隊時間。只能指定處於排隊高峰期的角色類型。
+000000012670.07C: 如果一起加入佇列的全體隊友都使用快速入場券，會縮短該隊伍的排隊時間。
+000000012673.07C: 舉杯
+0000000126E2.07C: 繼續
+0000000126E3.07C: 冬境樂園活動再次展開，前幾年深受大家歡迎的內容重新開放，此外還有50項以上的全新物品！
+0000000126E4.07C: 凍凍大作戰
+0000000126E5.07C: 全新模式來了！擊殺敵人，讓對方陷入凍結狀態，隊友凍結的話記得幫他們解凍！
+0000000126E6.07C: 2020年萬聖節驚魂
+0000000126E7.07C: 活動於1月6號結束
+0000000126E8.07C: 解鎖全新造型
+0000000126E9.07C: 每週挑戰
+0000000126EA.07C: 第1週
+0000000126EB.07C: 第2週
+0000000126EC.07C: 第3週
+0000000126EF.07C: 猶如漫長雪季的等待
+0000000126F0.07C: 鬼凍人
+0000000126F2.07C: |Rfd %1$s:yyyy-MM-dd-HH-mm-ss;
+00000001270F.07C: 凍凍大作戰
+000000012712.07C: 啟用記錄檔
+00000001272C.07C: 解凍
+00000001272D.07C: 解凍陣亡的隊友。
+00000001272E.07C: %1$s
+000000012733.07C: 50箱加上10箱免費冬境戰利品
+000000012735.07C: 120枚鬥陣幣，以及免費60箱戰利品
+00000001277F.07C: 玩具機器人
+000000012780.07C: 經由冬境戰利品解鎖
+000000012781.07C: 企鵝
+000000012782.07C: 經由冬境戰利品解鎖
+000000012783.07C: 冰后
+000000012784.07C: 經由冬境戰利品解鎖
+000000012785.07C: 車掌
+000000012786.07C: 經由冬境戰利品解鎖
+000000012787.07C: 伐木工
+000000012788.07C: 經由冬境戰利品解鎖
+000000012789.07C: 小妖精
+00000001278B.07C: 薑餅人
+00000001278C.07C: 壞雪人
+00000001278D.07C: 雪人
+00000001278E.07C: 經由冬境戰利品解鎖
+00000001278F.07C: 掛飾
+000000012790.07C: 經由冬境戰利品解鎖
+000000012791.07C: 冰后
+000000012792.07C: 經由冬境戰利品解鎖
+000000012793.07C: 伐木工
+000000012794.07C: 經由冬境戰利品解鎖
+000000012795.07C: 玩具機器人
+000000012796.07C: 經由冬境戰利品解鎖
+000000012797.07C: 企鵝
+000000012798.07C: 經由冬境戰利品解鎖
+000000012799.07C: 全部上車
+00000001279A.07C: 經由冬境戰利品解鎖
+00000001279B.07C: 小妖精
+00000001279D.07C: 薑餅人
+00000001279E.07C: 壞雪人
+00000001279F.07C: /%1$s
+0000000127A4.07C: 彈性
+0000000127C0.07C: 槲寄生
+0000000127C2.07C: 啟動工作坊檢視器記錄檔
+0000000127C5.07C: 1.75x
+0000000127CD.07C: |Rfn %1$s:F2;x
+0000000127D0.07C: 使用優先入場券來縮短排隊時間。
+0000000127D1.07C: 優先入場券不會縮短目前隊伍組合的排隊時間。
+0000000127D2.07C: 2020年冬境樂園
+0000000127D3.07C: 2021
+0000000127D4.07C: 經由冬境戰利品解鎖
+0000000127D5.07C: 2020年的結尾
+0000000127D6.07C: 經由冬境戰利品解鎖
+0000000127D9.07C: 第26賽季選手
+0000000127DA.07C: 完成第26賽季預選賽即可解鎖
+0000000127DB.07C: 第26賽季精英
+0000000127DC.07C: 在第26賽季進入前500名即可解鎖
+0000000127DD.07C: 第26賽季選手
+0000000127DE.07C: 完成第26賽季預選賽即可解鎖
+0000000127DF.07C: 第26賽季精英
+0000000127E0.07C: 在第26賽季進入前500名即可解鎖
+0000000127E3.07C: 第26賽季
+0000000127E4.07C: 第26賽季
+0000000127EF.07C: 第26賽季
+0000000127F0.07C: 第26賽季
+0000000127FC.07C: 競技對戰第26賽季 - 自由佇列
+000000012804.07C: 預選賽
+000000012805.07C: 冰凍小妖精
+000000012807.07C: 互相解凍
+000000012808.07C: 丟餅乾
+000000012832.07C: 
+000000012833.07C: 
+000000012834.07C: 
+00000001287A.07C: 無法觀看尚未結束的戰鬥錄影。
+00000001287B.07C: 確認
+0000000128DC.07C: 自訂遊戲主持人封鎖你
+0000000128DD.07C: 自訂遊戲主持人解除你的封鎖
+0000000128E0.07C: 正在確認優先入場券資格...
+0000000128E1.07C: 
+0000000128E2.07C: 由於目前隊伍人數，優先入場劵不會影響派對時間。
+0000000128E3.07C: 目前沒有適用於優先入場劵的角色類型。
+0000000128E5.07C: 已經將優先入場券退還給你。
+000000012965.07C: 由於你的排隊時間超過預期，因此並未消耗優先入場券。
+000000012ADC.07C: 少於5分鐘
+000000012ADD.07C: 大於10分鐘
+[Core] Execution finished in 00:00:00.5436957 seconds

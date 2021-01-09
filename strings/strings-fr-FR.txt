@@ -1,13 +1,13 @@
-[Core] DataTool v1.54.0.902-git-4601bd8eed2234be56e4faaf7ae7d49e0bfdc545
+[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(24)\DataTool.exe.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.54.0.0.75788
+[CASC] Overwatch build 1.55.0.0.76333
 [CASC] Initializing...
-[Manifest] Using TRG procedure 75428 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
-[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 75428 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -14638,6 +14638,14 @@ c’est tuer
 00000000729C.07C: Précision du tir secondaire : %1$s
 00000000729D.07C: Précision du tir secondaire - Maximum en une partie
 00000000729E.07C: Précision du tir secondaire - Maximum en une partie : %1$s
+0000000072A0.07C: Attaquez l’objectif A
+0000000072A1.07C: Escortez le convoi
+0000000072A2.07C: Défendez l’objectif A
+0000000072A3.07C: Arrêtez le convoi
+0000000072A4.07C: Objectif perdu
+0000000072A5.07C: Objectif capturé
+0000000072A6.07C: Préparez-vous à attaquer
+0000000072A7.07C: Préparez vos défenses
 0000000072AA.07C: Piège de yéti
 0000000072AE.07C: Vous placez un piège à yéti avec un court délai d’armement.
 0000000072AF.07C: Apparaître hors du méca
@@ -14810,6 +14818,9 @@ c’est tuer
 0000000073D8.07C: tournament.createMatch %1$s %2$s
 0000000073E6.07C: Maximum de soins d’Orbe biotique
 0000000073E7.07C: Maximum de dégâts d’Orbe biotique
+0000000073EE.07C: DÉFENSE
+0000000073EF.07C: ATTAQUE
+0000000073F0.07C: une chute
 000000007403.07C: Clear Tournament
 000000007426.07C: Esprit de la forêt
 00000000742E.07C: Son intelligence supérieure et son farouche désir de faire progresser la recherche scientifique coûte que coûte, lui ont valu une invitation des fondateurs d’Oasis à les rejoindre en tant que ministre de la génétique.
@@ -18578,6 +18589,7 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000AB33.07C: %1$s veut défendre le convoi !
 00000000AB34.07C: Avec de nouvelles cartes et un mode compétitif !
 00000000AB35.07C: OPACITÉ DE L’ICÔNE DE RÉAPPARITION
+00000000AB50.07C: Chat gelé en 4c4
 00000000AB55.07C: Orbite
 00000000AB56.07C: Livraison annulée
 00000000AB57.07C: 
@@ -19803,6 +19815,7 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000B754.07C: Gravissez les échelons et affrontez les meilleurs joueurs de combat à mort au monde !
 00000000B765.07C: Secouriste militaire d’élite et ancien agent de la Griffe, Baptiste utilise désormais ses compétences pour aider ceux que la guerre a le plus durement touchés.
 00000000B775.07C: Rialto
+00000000B776.07C: Blizzard World
 00000000B777.07C: Paris
 00000000B778.07C: La Havane
 00000000B780.07C: Venez avec moi
@@ -22323,9 +22336,9 @@ Copa Lúcioball
 00000000CA0C.07C: Vous devez choisir un rôle pour que votre escouade accède à la file d’attente. Choisir maintenant ?
 00000000CA0D.07C: Boutiques
 00000000CA0E.07C: Boutique
-00000000CA11.07C: Défi Restauration de Symmetra
-00000000CA13.07C: Semaine 2 : Brigitte pierre
-00000000CA14.07C: Semaine 3 : Écho poupée de chiffon
+00000000CA11.07C: Semaine 1 : Chacal lutin
+00000000CA13.07C: Semaine 2 : Ana pain d’épice
+00000000CA14.07C: Semaine 3 : Chopper givré
 00000000CA15.07C: Obtenez 9 victoires en arcade,
 partie rapide ou compétitive !
 00000000CA16.07C: Obtenez 9 victoires en arcade,
@@ -27242,6 +27255,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000105A8.07C: Le ou les joueurs dont l’accès à Sauter est affecté.
 0000000105A9.07C: Spécifie si le ou les joueurs sont capables d’utiliser S’accroupir. Suppose une valeur booléenne comme « Vrai », « Faux » ou « Comparer ».
 0000000105AA.07C: Spécifie si le ou les joueurs sont capables d’utiliser Sauter. Suppose une valeur booléenne comme « Vrai », « Faux » ou « Comparer ».
+0000000105B4.07C: Chef de train
 0000000105B6.07C: Arrêter
 0000000105B7.07C: Continuer
 0000000105B8.07C: Désigne une action qui va revenir au début de la boucle « Tant que » ou « Pour » actuelle.
@@ -27422,6 +27436,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000108E8.07C: Obtenu en participant à un évènement à domicile en 2020
 0000000108E9.07C: Atlanta Reign à domicile 2020
 0000000108F8.07C: Route 66
+0000000108FA.07C: Pingouin
 0000000108FD.07C: Maestro
 0000000108FE.07C: Plan de vol
 00000001090A.07C: All-Star Atlantique 2020
@@ -27434,7 +27449,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010954.07C: Mon héritage
 000000010955.07C: Écho en ligne
 000000010956.07C: Duplication
-00000001095C.07C: <Chaîne d’icône>
+00000001095C.07C: <Icône>
 00000001095E.07C: Visible pour et Tri
 00000001095F.07C: Tri
 00000001098F.07C: Déclarer la manche nulle
@@ -28131,6 +28146,7 @@ L’assistance Blizzard
 0000000110CA.07C: Disponible dans les coffres des jeux d’été
 0000000110CB.07C: Il ne fait pas si chaud
 0000000110CC.07C: Disponible dans les coffres des jeux d’été
+0000000110CE.07C: Rétrobot
 0000000110CF.07C: Temps de jeu
 0000000110D0.07C: BALLON SUPPLÉMENTAIRE
 0000000110D4.07C: Temps sur objectif
@@ -28592,9 +28608,12 @@ L’assistance Blizzard
 00000001146F.07C: 50 + 10 coffres des jeux d’été
 0000000114DC.07C: Regarder maintenant
 0000000114DF.07C: Regarder l’Overwatch League
+0000000114E4.07C: Pain d’épice
+00000001152E.07C: Bûcheron
 000000011605.07C: Élimination en 3c3 en compétitif - Saison 3
 000000011606.07C: Élimination en mode compétitif
 000000011607.07C: Gravissez les échelons et affrontez les meilleurs joueurs d’élimination au monde !
+000000011624.07C: Givré
 000000011654.07C: Poupée de chiffon
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Plus d’infos
@@ -28649,8 +28668,6 @@ L’assistance Blizzard
 00000001171D.07C: Un ou plusieurs membres du groupe vont bientôt être à court de temps de jeu
 000000011744.07C: 1 coffre légendaire et 5 coffres classiques
 000000011745.07C: 15 crédits, plus 1 coffre légendaire et 5 coffres classiques offerts
-000000011746.07C: http://playoverwatch.com/media/stories/stone-by-stone
-000000011747.07C: Lire
 00000001174A.07C: Saison %1$s
 000000011754.07C: Bande dessinée
 000000011755.07C: Obtenu en participant au défi Bande dessinée de Tracer
@@ -28662,9 +28679,6 @@ L’assistance Blizzard
 0000000117A8.07C: Combat à mort par équipe compétitif
 0000000117A9.07C: Capture du drapeau en compétitif
 0000000117AA.07C: Compétitif en sélection libre
-0000000117B9.07C: Nouveau récit
-0000000117BA.07C: Pierre après pierre
-0000000117FB.07C: https://ow.blizzard.cn/media/stories
 0000000117FC.07C: Pierre
 00000001180C.07C: La vengeance du Dr Schakalstein : Fantôme vengeur
 00000001180D.07C: La vengeance du Dr Schakalstein : Ruée sauvage
@@ -28721,6 +28735,8 @@ Achat unique
 000000011887.07C: Combat à mort par équipe compétitif
 000000011888.07C: Atteignez le sommet du tableau des scores. L’équipe la plus meurtrière remportera la victoire.
 000000011889.07C: Petite araignée
+00000001188A.07C: Lutin
+0000000118B9.07C: Impératrice des glaces
 000000011938.07C: Discussion générale
 000000011939.07C: Discussion de partie
 00000001193A.07C: Discussion d’équipe
@@ -28837,8 +28853,6 @@ Achat unique
 000000011B1A.07C: En savoir plus
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
-000000011B21.07C: https://overwatchleague.com/news/watch-contenders-and-get-in-game-skins
-000000011B22.07C: Regardez les Contenders et gagnez des modèles !
 000000011B47.07C: Vague atteinte :
 000000011B5A.07C: Regardez les Contenders !
 000000011BB5.07C: https://us.battle.net/support/article/42673
@@ -28925,6 +28939,7 @@ Achat unique
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
+000000011DC8.07C: Rafale
 000000011E36.07C: Compétiteur Combat à mort par équipe 2020
 000000011E37.07C: Obtenu en effectuant toutes les parties de placement du mode Combat à mort par équipe 2020
 000000011E38.07C: Héros Combat à mort par équipe 2020
@@ -29049,7 +29064,7 @@ Achat unique
 0000000121FE.07C: Identifiant de soutien
 0000000121FF.07C: Spécifie quelle instance de soutien arrêter. Cet identifiant peut correspondre à « Dernier identifiant de soutien » ou à une variable ayant auparavant enregistré le dernier identifiant de soutien.
 000000012200.07C: Lancer le soutien
-000000012201.07C: Commence à considérer comme soutiens un ou plusieurs joueurs quand une ou plusieurs cibles sont éliminées. Une référence de cette modification des dégâts peut être obtenue par la valeur « Dernier identifiant de soutien ». Cette action échouera si trop de soutiens ont été commencés.
+000000012201.07C: Commence à considérer comme Soutiens un ou plusieurs joueurs quand une ou plusieurs Cibles sont éliminées. Une référence à cette modification des dégâts peut être obtenue par la valeur « Dernier identifiant de soutien ». Cette action échouera si trop de soutiens ont été commencés.
 000000012202.07C: Soutiens
 000000012203.07C: Le ou les joueurs qui seront considérés comme soutiens.
 000000012204.07C: Cibles
@@ -29069,6 +29084,47 @@ Achat unique
 000000012291.07C: Si un joueur utilise un tag.
 000000012292.07C: Le joueur dont il faut vérifier le statut d’utilisation de tags.
 000000012294.07C: Fantôme vengeur
+0000000122B8.07C: Durée de la sélection de héros
+0000000122B9.07C: |Rfn %1$s:N0;
+0000000122BA.07C: Score à atteindre pour gagner
+0000000122BB.07C: Limite de héros
+0000000122BC.07C: Désactivé
+0000000122BD.07C: 1 par équipe
+0000000122BE.07C: 2 par équipe
+0000000122BF.07C: 1 par partie
+0000000122C0.07C: 2 par partie
+0000000122C1.07C: Limite de rôles
+0000000122C2.07C: 2 de chaque par équipe
+0000000122C3.07C: Réapparition en héros aléatoire
+0000000122C4.07C: Activé
+0000000122C5.07C: Désactivé
+0000000122C6.07C: Temps de réapparition
+0000000122C7.07C: |Rfn %1$s:P0;
+0000000122C8.07C: Changement de héros
+0000000122C9.07C: Activé
+0000000122CA.07C: Désactivé
+0000000122CB.07C: Exclusion des héros déjà utilisés
+0000000122CC.07C: Désactivé
+0000000122CD.07C: Après une manche gagnée
+0000000122CE.07C: Après une manche jouée
+0000000122CF.07C: Sélection de héros
+0000000122D0.07C: Tous
+0000000122D1.07C: Limitée
+0000000122D2.07C: Aléatoire
+0000000122D3.07C: Aléatoire (miroir)
+0000000122D4.07C: Catalogue limité de héros
+0000000122D5.07C: Taille de l’équipe
+0000000122D6.07C: Taille de l’équipe +1
+0000000122D7.07C: Taille de l’équipe +2
+0000000122D8.07C: Taille de l’équipe +3
+0000000122D9.07C: Objectif décisif à capturer
+0000000122DA.07C: Durée avant activation de l’objectif décisif
+0000000122DB.07C: Durée de capture
+0000000122DC.07C: Durée avant match nul sans capture de l’objectif décisif
+0000000122DD.07C: Détection des héros
+0000000122DE.07C: Durée avant la détection des héros
+0000000122DF.07C: Congélimination
+0000000122E0.07C: 
 0000000122E2.07C: Détruire tous les textes d’interface de barre de progression
 0000000122E3.07C: Détruit tout le texte d’interface de barre de progression créé par l’action « Créer du texte d’interface de barre de progression ».
 0000000122E4.07C: Détruire le texte d’interface de barre de progression
@@ -29085,6 +29141,7 @@ Achat unique
 0000000122F1.07C: Valeurs
 0000000122F3.07C: Créer du texte d’interface de barre de progression
 0000000122F4.07C: Crée un texte d’interface de barre de progression visible pour des joueurs spécifiques à un emplacement spécifique de l’écran. Ce texte persiste jusqu’à sa destruction. Pour obtenir une référence vers ce texte, utilisez la valeur « Dernier identifiant de texte ». Cette action échouera si trop d’éléments textuels ont été créés.
+0000000122F8.07C: Les héros éliminés sont gelés et peuvent être dégelés par des alliés. Gelez tous les ennemis pour gagner la manche. Les héros vainqueurs sont exclus des manches suivantes.
 000000012320.07C: Fréquence d’interpolation du champ de vision
 000000012321.07C: Changement de champ de vision par zoom
 000000012322.07C: Champ de vision max caméra libre
@@ -29106,16 +29163,32 @@ Achat unique
 000000012340.07C: Position et Valeurs
 00000001235A.07C: Le paramètre par défaut de la valeur Paramètre héros de la Forge doit être réglé sur un tableau de Héros non vide.
 000000012439.07C: Erreur : trop d’options de paramétrage de la Forge.
+00000001243A.07C: Déballage
 000000012449.07C: Enregistrer une entrée avec le contrôleur
 00000001244A.07C: Texte
 00000001244B.07C: La chaîne qui doit être enregistrée auprès du contrôleur de la Forge.
 00000001244C.07C: Force le contrôleur de la Forge à enregistrer une entrée de journal.
+000000012458.07C: Gagner %%1 coupe-files
 000000012469.07C: Journal
 00000001246A.07C: Copier le journal actuel dans le presse-papiers
 00000001246B.07C: Copier tous les journaux dans le presse-papiers
 00000001246F.07C: <fg#FFEAA239>[|Rfd %1$s:HH:mm:ss;]</fg>
 000000012472.07C: |Rfd %1$s:HH:mm:ss;
+00000001248B.07C: Ennemis gelés
+00000001248C.07C: %1$s |Rpl Ennemi gelé:Ennemis gelés;
+00000001248D.07C: Dégels interrompus
+00000001248E.07C: %1$s |Rpl Dégel interrompu:Dégels interrompus;
+00000001248F.07C: Équipiers dégelés
+000000012490.07C: %1$s |Rpl Équipier dégelé:Équipiers dégelés;
+000000012492.07C: <fg%1$s>MANCHE PERDUE</fg>
+000000012493.07C: <fg%1$s>MANCHE GAGNÉE</fg>
+000000012494.07C: <fg%1$s>ÉGALITÉ</fg>
+000000012495.07C: Zone de capture débloquée dans
+000000012496.07C: La partie sera déclarée nulle dans
+000000012497.07C: Dégel d’un équipier…
 00000001249D.07C: Latence minimum (millisecondes)
+00000001249E.07C: Dégel d’un équipier…
+0000000124A1.07C: MAINTENEZ %1$s ENFONCÉ POUR DÉGELER UN ÉQUIPIER
 0000000124A2.07C: Longueur de la chaîne
 0000000124A3.07C: Renvoie le nombre de caractères dans la valeur de la chaîne (ou 0 si la valeur n’est pas une chaîne).
 0000000124A4.07C: Chaîne de texte
@@ -29137,6 +29210,7 @@ Achat unique
 0000000124B4.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Compétitif Sans limites 2020
 0000000124B7.07C: Dégâts infligés (tous)
 0000000124B8.07C: Dégâts infligés aux écrans
+0000000124B9.07C: 
 0000000124BD.07C: Précision
 0000000124BF.07C: Capacités ultimes utilisées
 0000000124C1.07C: Capacités ultimes obtenues
@@ -29198,6 +29272,9 @@ Achat unique
 00000001250B.07C: Les statistiques à acquérir.
 00000001250C.07C: Héros
 00000001250D.07C: Le héros dont il faut acquérir les statistiques.
+00000001250F.07C: Obtenu en participant au défi de la semaine 1 de la Féerie hivernale 2020
+000000012510.07C: Obtenu en participant au défi de la semaine 3 de la Féerie hivernale 2020
+000000012511.07C: Obtenu en participant au défi de la semaine 2 de la Féerie hivernale 2020
 00000001251E.07C: Attaque - Sans limites
 00000001251F.07C: Contrôle - Sans limites
 000000012520.07C: Hybride - Sans limites
@@ -29206,6 +29283,13 @@ Achat unique
 000000012523.07C: Sans limites compétitif
 000000012524.07C: Sans limites compétitif
 000000012525.07C: Gravissez les échelons et affrontez les meilleurs joueurs au monde sans limites pour la sélection des héros.
+000000012529.07C: Santé
+000000012531.07C: Stop-dégel
+000000012532.07C: Interrompez 3 dégels d’ennemis dans une manche de Congélimination.
+000000012535.07C: Froid impitoyable
+000000012536.07C: Interrompez la capacité ultime d’un ennemi en le gelant dans une partie de Congélimination.
+000000012537.07C: Problème de neige, mon ami
+000000012538.07C: Dégelez un joueur qui vous a précédemment dégelé dans une manche de Congélimination.
 00000001253A.07C: LATENCE MIN : %1$s MS
 00000001253E.07C: Partie compétitive
 00000001253F.07C: GAGNEZ CES RÉCOMPENSES EN PARTICIPANT
@@ -29231,8 +29315,36 @@ Achat unique
 00000001255B.07C: Voile de lumière
 00000001255C.07C: Heure du repas
 00000001255D.07C: Obtenu en regardant les streams participant à l’opération pendant le défi Restauration de Symmetra
+000000012586.07C: Le vent au col d’une montagne
+000000012587.07C: Disponible dans les coffres hivernaux
+000000012588.07C: Temps parfait pour un hotteok
+000000012589.07C: Disponible dans les coffres hivernaux
+000000012590.07C: Patins à glace
+000000012591.07C: Disponible dans les coffres hivernaux
+000000012592.07C: Un chocolat chaud
+000000012593.07C: Disponible dans les coffres hivernaux
+000000012594.07C: Froid
+000000012595.07C: Disponible dans les coffres hivernaux
+000000012596.07C: M’acheter un cadeau
+000000012597.07C: Disponible dans les coffres hivernaux
+000000012598.07C: Un feu bien chaud
+000000012599.07C: Disponible dans les coffres hivernaux
+00000001259A.07C: Pudding
+00000001259B.07C: Disponible dans les coffres hivernaux
+00000001259C.07C: Gorille de la lune
+00000001259D.07C: Disponible dans les coffres hivernaux
+00000001259E.07C: Bénédiction des fêtes
+00000001259F.07C: Disponible dans les coffres hivernaux
+0000000125A0.07C: Une expérience bénie
+0000000125A1.07C: Disponible dans les coffres hivernaux
+0000000125A2.07C: Joyeuses fêtes
+0000000125A3.07C: Disponible dans les coffres hivernaux
 0000000125A4.07C: Si la cible se déplace dans la direction opposée à celle de l’impulsion, sa vélocité sera annulée avant application de l’impulsion. La vitesse horizontale et la vitesse verticale (XYZ) sont traitées ensemble.
 0000000125A5.07C: Annuler le mouvement contraire XYZ
+0000000125D5.07C: <fg%1$s>|RcgGELÉ:GELÉE;</fg>
+0000000125D7.07C: Élimination par gel
+0000000125D9.07C: Dégel
+0000000125DB.07C: Utiliser un coupe-file
 0000000125DC.07C: Brésil 2
 0000000125DD.07C: Singapour 2
 0000000125DE.07C: Japon 2
@@ -29240,4 +29352,120 @@ Achat unique
 0000000125E0.07C: Allemagne 2
 0000000125E1.07C: Finlande 2
 0000000125E2.07C: Taïwan 2
-[Core] Execution finished in 00:00:00.4357459 seconds
+000000012629.07C: Récompense
+00000001262B.07C: OK
+00000001262C.07C: Gagner des coupe-files
+00000001262D.07C: Dépenser des coupe-files
+00000001262E.07C: Utiliser les coupe-files en escouades
+00000001262F.07C: Les héros éliminés sont gelés. Maintenez INTERAGIR pour dégeler les alliés gelés.
+000000012633.07C: RESURRECTION
+000000012634.07C: Réanimer %1$s
+000000012636.07C: Dégel...
+00000001263A.07C: Vous n’êtes pas en file d’attente prioritaire avec la composition d’équipe actuelle.
+00000001263B.07C: Vous êtes en file d’attente prioritaire avec la composition d’équipe actuelle.
+00000001264A.07C: Santé
+000000012651.07C: Activer/désactiver l’utilisation de coupe-files
+000000012659.07C: CET ÉQUIPIER EST DÉJÀ EN TRAIN D’ÊTRE DÉGELÉ
+00000001265A.07C: CET ÉQUIPIER EST DÉJÀ EN TRAIN D’ÊTRE DÉGELÉ
+00000001266E.07C: Inscrivez-vous comme flexible dans la file d’attente par rôle pour gagner des coupe-files, les victoires octroyant plus de coupe-files que les défaites.
+00000001266F.07C: Utilisez un coupe-file pour diminuer le temps d’attente de votre prochaine partie avec le rôle sélectionné. Seuls les rôles très demandés sont éligibles.
+000000012670.07C: Si tous les membres de l’escouade inscrits pour les rôles très demandés utilisent un coupe-file, le temps d’attente sera diminué. 
+000000012673.07C: Santé
+0000000126E2.07C: CONTINUER
+0000000126E3.07C: La Féerie hivernale est de retour ! Vos coups de cœur des années précédentes reviennent avec plus de 50 nouveautés !
+0000000126E4.07C: Congélimination
+0000000126E5.07C: Un tout nouveau mode est disponible ! Éliminez vos ennemis pour les geler. Dégelez vos équipiers pour rester dans la partie !
+0000000126E6.07C: Halloween 2020
+0000000126E7.07C: Fin de l’évènement le 5 janvier
+0000000126E8.07C: Obtenez de nouveaux modèles
+0000000126E9.07C: Défis hebdomadaires
+0000000126EA.07C: Semaine 1
+0000000126EB.07C: Semaine 2
+0000000126EC.07C: Semaine 3
+0000000126EF.07C: L’hiver est enfin là
+0000000126F0.07C: Chat gelé en 4c4
+0000000126F2.07C: |Rfd %1$s:yyyy-MM-dd-HH-mm-ss;
+00000001270F.07C: Congélimination
+000000012712.07C: Activer le fichier journal
+00000001272C.07C: Dégel
+00000001272D.07C: Vous dégelez vos équipiers.
+00000001272E.07C: %1$s
+000000012733.07C: 50 coffres hivernaux
+et 10 coffres hivernaux offerts
+000000012735.07C: 120 crédits, plus 60 coffres hivernaux offerts
+00000001277F.07C: Rétrobot
+000000012780.07C: Disponible dans les coffres hivernaux
+000000012781.07C: Pingouin
+000000012782.07C: Disponible dans les coffres hivernaux
+000000012783.07C: Impératrice des glaces
+000000012784.07C: Disponible dans les coffres hivernaux
+000000012785.07C: Chef de train
+000000012786.07C: Disponible dans les coffres hivernaux
+000000012787.07C: Bûcheron
+000000012788.07C: Disponible dans les coffres hivernaux
+000000012789.07C: Lutin
+00000001278B.07C: Pain d’épice
+00000001278C.07C: Givré
+00000001278D.07C: Bonhomme de neige
+00000001278E.07C: Disponible dans les coffres hivernaux
+00000001278F.07C: Décoration
+000000012790.07C: Disponible dans les coffres hivernaux
+000000012791.07C: Impératrice des glaces
+000000012792.07C: Disponible dans les coffres hivernaux
+000000012793.07C: Bûcheron
+000000012794.07C: Disponible dans les coffres hivernaux
+000000012795.07C: Rétrobot
+000000012796.07C: Disponible dans les coffres hivernaux
+000000012797.07C: Pingouin
+000000012798.07C: Disponible dans les coffres hivernaux
+000000012799.07C: Alle Einsteigen
+00000001279A.07C: Disponible dans les coffres hivernaux
+00000001279B.07C: Lutin
+00000001279D.07C: Pain d’épice
+00000001279E.07C: Givré
+00000001279F.07C: /%1$s
+0000000127A4.07C: Flexible
+0000000127C0.07C: Gui
+0000000127C2.07C: Activer le fichier journal du contrôleur de la Forge
+0000000127C5.07C: 1,75x
+0000000127CD.07C: |Rfn %1$s:F2;x
+0000000127D0.07C: Utilisez un coupe-file pour réduire la longueur des files d’attente.
+0000000127D1.07C: Le coupe-file n’affectera pas la longueur de la file d’attente avec la composition d’équipe actuelle.
+0000000127D2.07C: Féerie hivernale 2020
+0000000127D3.07C: 2021
+0000000127D4.07C: Disponible dans les coffres hivernaux
+0000000127D5.07C: Fin de 2020
+0000000127D6.07C: Disponible dans les coffres hivernaux
+0000000127D9.07C: Compétiteur Saison 26
+0000000127DA.07C: Obtenu en effectuant toutes les parties de placement de la saison 26
+0000000127DB.07C: Héros Saison 26
+0000000127DC.07C: Obtenu en se classant parmi les 500 meilleurs joueurs lors de la saison 26
+0000000127DD.07C: Compétiteur Saison 26
+0000000127DE.07C: Obtenu en effectuant toutes les parties de placement de la saison 26
+0000000127DF.07C: Héros Saison 26
+0000000127E0.07C: Obtenu en se classant parmi les 500 meilleurs joueurs lors de la saison 26
+0000000127E3.07C: Saison 26
+0000000127E4.07C: Saison 26
+0000000127EF.07C: Saison 26
+0000000127F0.07C: Saison 26
+0000000127FC.07C: Saison de compétition 26 - Sélection libre
+000000012804.07C: Parties de placement
+000000012805.07C: Lutin gelé
+000000012807.07C: Dégel mutuel
+000000012808.07C: Lancer de cookie
+000000012832.07C: 
+000000012833.07C: 
+000000012834.07C: 
+00000001287A.07C: Impossible de visionner l’enregistrement d’une partie au résultat indéterminé.
+00000001287B.07C: OK
+0000000128DC.07C: vous avez été bloqué par l’hôte de la partie personnalisée
+0000000128DD.07C: vous avez été débloqué par l’hôte de la partie personnalisée
+0000000128E0.07C: Évaluation de l’éligibilité au coupe-file...
+0000000128E1.07C: 
+0000000128E2.07C: Le coupe-file n’affectera pas la longueur de la file d’attente avec la taille de l’équipe actuelle.
+0000000128E3.07C: Aucun rôle n’est actuellement éligible à l’utilisation d’un coupe-file.
+0000000128E5.07C: Votre coupe-file a été remboursé.
+000000012965.07C: Votre coupe-file ne sera pas utilisé parce que votre temps d’attente a duré plus longtemps que prévu.
+000000012ADC.07C: < 5 |Rpl min:min;
+000000012ADD.07C: > 10 min
+[Core] Execution finished in 00:00:00.5010276 seconds

@@ -3885,7 +3885,7 @@ var valueFuncKw =
             {
                 "name": "Stat",
                 "description": "The statistic to acquire.",
-                "type": "Stat",
+                "type": "HeroStat",
                 "default": "All Damage Dealt"
             }
         ],
