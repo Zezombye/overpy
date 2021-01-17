@@ -1,13 +1,13 @@
-[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
+[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ruRU", "-T=ruRU"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: ruRU | Speech Language: ruRU
-[CASC] Overwatch build 1.55.0.0.76333
+[CASC] Overwatch build 1.56.0.0.77262
 [CASC] Initializing...
-[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LruRU_speech_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LruRU_text_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LruRU_speech_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LruRU_text_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -16651,7 +16651,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008780.07C: 1-й сезон соревновательной схватки
 000000008781.07C: Соревновательная схватка
 000000008782.07C: Поднимайте свой ранг и соревнуйтесь с лучшими игроками режима «Схватка» в мире!
-000000008783.07C: Поля боя: Петра, Шато-Гийяр
+000000008783.07C: Поля боя: Канедзака, Петра, Шато-Гийяр
 0000000087A2.07C: УСТАНОВИТЬ
 0000000087A3.07C: ОТМЕНА
 0000000087A5.07C: <fg%1$s>%2$s</fg> СОЗДАЕТ <fg%1$s>ТЕЛЕПОРТ</fg>
@@ -22231,7 +22231,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA0C.07C: Чтобы ваша группа встала в очередь, вам нужно выбрать роль. Сделать это сейчас?
 00000000CA0D.07C: Магазины
 00000000CA0E.07C: Магазин
-00000000CA11.07C: 1-я неделя: «Эльф» (Крысавчик)
+00000000CA11.07C: Испытание «Канедзака»
 00000000CA13.07C: 2-я неделя: «Кондитер» (Ана)
 00000000CA14.07C: 3-я неделя: «Снеговик» (Турбосвин)
 00000000CA15.07C: Победите 9 раз в «Быстрой игре», «Аркаде» или «Соревновательной игре»!
@@ -27703,6 +27703,7 @@ https://account.blizzard.com/connections/nintendo
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: НАЗАД
 000000010D17.07C: ОПИСАНИЕ ОБНОВЛЕНИЯ (+)
+000000010D1A.07C: Канедзака
 000000010D24.07C: Награда за участие в испытании «Маэстро» от Сигмы
 000000010D2B.07C: ЭМОЦИЯ
 000000010D2C.07C: РЕПЛИКА
@@ -28510,6 +28511,9 @@ https://account.blizzard.com/connections/nintendo
 000000011654.07C: Тряпичная кукла
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Подробнее
+000000011672.07C: Схватка в Канедзаке
+000000011673.07C: Поднимитесь на вершину рейтинговой таблицы. Победит самый смертоносный герой.
+000000011674.07C: Поле боя: Канедзака
 000000011676.07C: Открыты все достижения
 000000011677.07C: Меткость (крит.)
 000000011679.07C: Ваша учетная запись Overwatch заблокирована.
@@ -28572,6 +28576,7 @@ https://account.blizzard.com/connections/nintendo
 0000000117A8.07C: Соревновательная командная схватка
 0000000117A9.07C: Соревновательный захват флага
 0000000117AA.07C: Открытый соревновательный режим
+0000000117BA.07C: Испытание «Канедзака»
 0000000117FC.07C: Базальт
 00000001180C.07C: Месть Крысенштейна – Мстительный дух
 00000001180D.07C: Месть Крысенштейна – Бешеный натиск
@@ -28616,8 +28621,7 @@ https://account.blizzard.com/connections/nintendo
 000000011847.07C: ВКЛ.
 000000011848.07C: ОТКЛ.
 000000011849.07C: Легендарный предмет гарантирован!
-00000001184A.07C: Только до 28 сентября 2020 г.
-Не более 1 на учетную запись.
+00000001184A.07C: Не более 1 на учетную запись.
 000000011859.07C: Специальное
 000000011860.07C: предложение!
 000000011879.07C: Награда за вхождение в список 500 лучших игроков 25-го сезона
@@ -29177,6 +29181,8 @@ https://account.blizzard.com/connections/nintendo
 000000012524.07C: Соревновательный режим без ограничений
 000000012525.07C: Поднимайте свой ранг и соревнуйтесь с лучшими игроками в мире в матчах без ограничений при выборе героя.
 000000012529.07C: Тост!
+00000001252D.07C: Ёкай
+00000001252F.07C: Пагода
 000000012531.07C: Как снег на голову
 000000012532.07C: Прервите 3 попытки врага разморозить союзников в «Ледяной ликвидации».
 000000012535.07C: Безжалостная стужа
@@ -29349,8 +29355,18 @@ https://account.blizzard.com/connections/nintendo
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012850.07C: Кёгися
+00000001286D.07C: Канедзака
 00000001287A.07C: Просмотр невозможен: исход матча не решен.
 00000001287B.07C: ОК
+0000000128AB.07C: Награда за участие в испытании «Канедзака»
+0000000128AF.07C: Награда за участие в испытании «Канедзака»
+0000000128B0.07C: Храмовый комплекс
+0000000128B1.07C: Собачарное мастерство
+0000000128B3.07C: Тейто отправляется в путь
+0000000128B5.07C: Прожорливый дракон
+0000000128B7.07C: Умяувание
+0000000128B9.07C: Гасямари
 0000000128DC.07C: владелец матча «Своя игра» заблокировал вас
 0000000128DD.07C: владелец матча «Своя игра» разблокировал вас
 0000000128E0.07C: Проверка соответствия условиям пропуска...
@@ -29358,7 +29374,8 @@ https://account.blizzard.com/connections/nintendo
 0000000128E2.07C: При таком размере команды приоритетный пропуск не повлияет на время ожидания.
 0000000128E3.07C: В данный момент приоритетный пропуск не подействует ни для одной роли.
 0000000128E5.07C: Вам вернули приоритетный пропуск.
+0000000128E6.07C: Отдельный индикатор времени в повторах
 000000012965.07C: Приоритетный пропуск не будет потрачен: время поиска оказалось дольше ожидаемого.
 000000012ADC.07C: < 5 мин.
 000000012ADD.07C: > 10 мин.
-[Core] Execution finished in 00:00:00.5591523 seconds
+[Core] Execution finished in 00:00:00.4507782 seconds

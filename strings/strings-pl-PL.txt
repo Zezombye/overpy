@@ -1,13 +1,13 @@
-[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
+[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.55.0.0.76333
+[CASC] Overwatch build 1.56.0.0.77262
 [CASC] Initializing...
-[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -16743,7 +16743,7 @@ w trybie Eliminacji 6 na 6 w 2018
 000000008780.07C: Deathmatch w trybie Rywalizacji – sezon 1
 000000008781.07C: Deathmatch w trybie Rywalizacji
 000000008782.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Deathmatch i pnij się w tabeli wyników!
-000000008783.07C: MAPY: Château Guillard, Petra
+000000008783.07C: MAPY: Château Guillard, Kanezaka, Petra
 0000000087A2.07C: ROZSTAW
 0000000087A3.07C: ANULUJ
 0000000087A5.07C: <fg%1$s>%2$s</fg> TWORZY <fg%1$s>TELEPORTER</fg>
@@ -22430,7 +22430,7 @@ z letnich igrzysk
 00000000CA0C.07C: Musisz wybrać rolę zanim twoja grupa dołączy do kolejki. Chcesz wybrać teraz?
 00000000CA0D.07C: Sklepy
 00000000CA0E.07C: Sklep
-00000000CA11.07C: Tydzień 1: Elf (Złomiarz)
+00000000CA11.07C: Wyzwanie Kanezaka
 00000000CA13.07C: Tydzień 2: Piernikarka (Ana)
 00000000CA14.07C: Tydzień 3: Bałwan (Wieprzu)
 00000000CA15.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
@@ -27944,6 +27944,7 @@ w trybie Deathmatch 2020
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: WSTECZ
 000000010D17.07C: INFORMACJE O AKTUALIZACJI (NOWOŚĆ)
+000000010D1A.07C: Kanezaka
 000000010D24.07C: Nagroda za udział
 w Wyzwaniu Sigmy: Maestro
 000000010D2B.07C: EMOTKA
@@ -28793,6 +28794,9 @@ z letnich igrzysk
 000000011654.07C: Szmacianka
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Więcej informacji
+000000011672.07C: Kanezaka – Deathmatch
+000000011673.07C: Wywalcz miejsce na szczycie tabeli wyników. Wygrywa najbardziej zabójczy bohater.
+000000011674.07C: MAPA: Kanezaka
 000000011676.07C: Wszystkie osiągnięcia odblokowane
 000000011677.07C: Celność trafień krytycznych
 000000011679.07C: Twoje konto Overwatch zostało zablokowane.
@@ -28863,6 +28867,7 @@ Overwatch League 2020.
 0000000117A8.07C: Rywalizacja w Drużynowym Deathmatchu
 0000000117A9.07C: Rywalizacja w Zdobywaniu flagi
 0000000117AA.07C: Otwarta Rywalizacja
+0000000117BA.07C: Wyzwanie Kanezaka
 0000000117FC.07C: Kamień
 00000001180C.07C: Zemsta dr. Złomensteina – Mściwy Duch
 00000001180D.07C: Zemsta dr. Złomensteina – Szalony Spęd
@@ -28907,8 +28912,7 @@ Overwatch League 2020.
 000000011847.07C: WŁ.
 000000011848.07C: WYŁ.
 000000011849.07C: Gwarantowany element legendarny!
-00000001184A.07C: Do 29.09.2020
-Tylko jednorazowy zakup
+00000001184A.07C: Tylko jednorazowy zakup
 000000011859.07C: Oferta
 000000011860.07C: specjalna!
 000000011879.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 25.
@@ -29480,6 +29484,8 @@ bez ograniczeń 2020
 000000012524.07C: Rywalizacja bez ograniczeń
 000000012525.07C: Rywalizuj z najlepszymi graczami na świecie i pnij się w tabeli wyników bez ograniczeń przy wyborze bohaterów.
 000000012529.07C: Toast
+00000001252D.07C: Yōkai
+00000001252F.07C: Pagoda
 000000012531.07C: Antyrozmrażacz
 000000012532.07C: Przerwij 3 razy rozmrażanie wroga w jednej rundzie Mroźnej Eliminacji.
 000000012535.07C: Nieustępliwe zimno
@@ -29655,8 +29661,20 @@ w sezonie 26.
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012850.07C: Kyōgisha
+00000001286D.07C: Kanezaka
 00000001287A.07C: Nie można obejrzeć powtórki nierozstrzygniętego meczu.
 00000001287B.07C: Ok
+0000000128AB.07C: Nagroda za udział
+w wyzwaniu Kanezaka
+0000000128AF.07C: Nagroda za udział
+w wyzwaniu Kanezaka
+0000000128B0.07C: Dzielnica Świątynna
+0000000128B1.07C: Psieramika
+0000000128B3.07C: Tato rusza w drogę
+0000000128B5.07C: Smok się pożywił
+0000000128B7.07C: Czas na kąpiel
+0000000128B9.07C: Chwytomari
 0000000128DC.07C: zablokował cię właściciel gry dowolnej
 0000000128DD.07C: odblokował cię właściciel gry dowolnej
 0000000128E0.07C: Określanie dostępności przepustki priorytetowej...
@@ -29664,7 +29682,8 @@ w sezonie 26.
 0000000128E2.07C: Przepustka priorytetowa nie wpłynie na czas stania w kolejce przy bieżącej wielkości drużyny.
 0000000128E3.07C: Obecnie nie można użyć przepustki priorytetowej dla żadnej z ról.
 0000000128E5.07C: Otrzymujesz zwrot przepustki priorytetowej.
+0000000128E6.07C: Pokaż oddzielny kod czasowy odtwarzania
 000000012965.07C: Twoja przepustka priorytetowa nie została wykorzystana, ponieważ czas oczekiwania był zbyt długi.
 000000012ADC.07C: < 5 min.
 000000012ADD.07C: > 10 min.
-[Core] Execution finished in 00:00:00.4953950 seconds
+[Core] Execution finished in 00:00:00.4280328 seconds

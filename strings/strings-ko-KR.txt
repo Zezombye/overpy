@@ -1,13 +1,13 @@
-[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
+[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: koKR | Speech Language: koKR
-[CASC] Overwatch build 1.55.0.0.76333
+[CASC] Overwatch build 1.56.0.0.77262
 [CASC] Initializing...
-[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -16645,7 +16645,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008780.07C: 데스매치 경쟁전 1시즌
 000000008781.07C: 데스매치 경쟁전
 000000008782.07C: 전 세계 최고의 데스매치 플레이어들과 경쟁하고 등급을 올리세요!
-000000008783.07C: 전장: 샤토 기야르, 페트라
+000000008783.07C: 전장: 샤토 기야르, 카네자카, 페트라
 0000000087A2.07C: 배치
 0000000087A3.07C: 취소
 0000000087A5.07C: <fg%1$s>%2$s</fg>|Rjs이;가; <fg%1$s>순간이동기</fg> 생성
@@ -22225,7 +22225,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA0C.07C: 그룹으로 대기열에 등록하기 전에 역할을 선택해야 합니다. 지금 선택하시겠습니까?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: 1주차: 엘프 정크랫
+00000000CA11.07C: 카네자카 챌린지
 00000000CA13.07C: 2주 차: 생강 쿠키 아나
 00000000CA14.07C: 3주 차: 눈사람 로드호그
 00000000CA15.07C: 빠른 대전, 아케이드 또는 경쟁전에서 9승을 달성하세요!
@@ -27694,6 +27694,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: 뒤로
 000000010D17.07C: 패치 노트 (신규)
+000000010D1A.07C: 카네자카
 000000010D24.07C: 시그마의 지휘자 챌린지에 참여하여 획득
 000000010D2B.07C: 감정 표현
 000000010D2C.07C: 음성 대사
@@ -28502,6 +28503,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011654.07C: 헝겊 인형
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: 추가 정보
+000000011672.07C: 카네자카 데스매치
+000000011673.07C: 점수판의 정상을 노리십시오. 가장 노련한 영웅이 승리합니다.
+000000011674.07C: 전장: 카네자카
 000000011676.07C: 모든 업적 달성
 000000011677.07C: 치명타 명중률
 000000011679.07C: 당신의 오버워치 계정은 잠겼습니다.
@@ -28565,6 +28569,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000117A8.07C: 팀 데스매치 경쟁전
 0000000117A9.07C: 깃발 뺏기 경쟁전
 0000000117AA.07C: 자유 경쟁전
+0000000117BA.07C: 카네자카 챌린지
 0000000117FC.07C: 바위
 00000001180C.07C: 정켄슈타인의 복수 앙심 품은 유령
 00000001180D.07C: 정켄슈타인의 복수 광란의 밤
@@ -28609,8 +28614,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011847.07C: 활성화
 000000011848.07C: 비활성화
 000000011849.07C: 전설 아이템 획득 가능!
-00000001184A.07C: 2020년 9월 28일까지
-1회만 구매 가능
+00000001184A.07C: 1회만 구매 가능
 000000011859.07C: 특별한 기회!
 000000011860.07C: 
 000000011879.07C: 25시즌에서 상위 500위를 달성하여 획득
@@ -29172,6 +29176,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012524.07C: 똑같은 영웅도 환영 경쟁전
 000000012525.07C: 다른 플레이어와 경쟁하고 등급을 올리세요. 아무 제약 없이 영웅을 선택할 수 있습니다.
 000000012529.07C: 건배
+00000001252D.07C: 요괴
+00000001252F.07C: 불탑
 000000012531.07C: 땡처리
 000000012532.07C: 얼음땡 섬멸전 한 라운드에서 적을 해동하려는 다른 적을 3회 방해하기
 000000012535.07C: 가혹한 한파
@@ -29344,8 +29350,18 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012850.07C: 경쟁자
+00000001286D.07C: 카네자카
 00000001287A.07C: 미결 경기의 리플레이는 재생할 수 없습니다.
 00000001287B.07C: 확인
+0000000128AB.07C: 카네자카 챌린지에 참여하여 획득
+0000000128AF.07C: 카네자카 챌린지에 참여하여 획득
+0000000128B0.07C: 사당 지구
+0000000128B1.07C: 댕예
+0000000128B3.07C: 타토의 여행
+0000000128B5.07C: 용이 삼킨다
+0000000128B7.07C: 목욕 시간
+0000000128B9.07C: 뽑기마리
 0000000128DC.07C: 사용자 지정 게임 방장이 당신을 차단했습니다.
 0000000128DD.07C: 사용자 지정 게임 방장이 당신을 차단 해제했습니다.
 0000000128E0.07C: 대기열 우선권 유효성 확인 중...
@@ -29353,8 +29369,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000128E2.07C: 현재 팀 규모로는 대기열 우선권이 대기 시간에 영향을 주지 않습니다.
 0000000128E3.07C: 현재 역할들로는 대기열 우선권을 사용할 수 없습니다.
 0000000128E5.07C: 대기열 우선권이 환불되었습니다.
+0000000128E6.07C: 분리된 재생 타임코드 표시
 000000012965.07C: 대기 시간이 예상보다 길어져 대기열 우선권이 사용되지 않습니다.
 
 000000012ADC.07C: < 5분
 000000012ADD.07C: > 10분
-[Core] Execution finished in 00:00:00.5192262 seconds
+[Core] Execution finished in 00:00:00.4293008 seconds

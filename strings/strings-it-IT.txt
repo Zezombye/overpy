@@ -1,13 +1,13 @@
-[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
+[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.55.0.0.76333
+[CASC] Overwatch build 1.56.0.0.77262
 [CASC] Initializing...
-[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -16652,7 +16652,7 @@ Puoi ancora accedere alle altre modalità di Overwatch, incluse le partite rapid
 000000008780.07C: Deathmatch (competitivo) - Stagione 1
 000000008781.07C: Deathmatch (competitivo)
 000000008782.07C: Scala la classifica e affronta i migliori giocatori di Deathmatch del mondo!
-000000008783.07C: MAPPE: Château Guillard, Petra
+000000008783.07C: MAPPE: Château Guillard, Kanezaka, Petra
 0000000087A2.07C: POSIZIONA
 0000000087A3.07C: ANNULLA
 0000000087A5.07C: <fg%1$s>TELEVARCO</fg> CREATO DA <fg%1$s>%2$s</fg>
@@ -22245,7 +22245,7 @@ Deathmatch competitivo 2019
 00000000CA0C.07C: Devi scegliere un ruolo prima di metterti in coda con la tua formazione. Vuoi farlo ora?
 00000000CA0D.07C: Negozi
 00000000CA0E.07C: Negozio
-00000000CA11.07C: Settimana 1: Junkrat Elfo
+00000000CA11.07C: Sfida Kanezaka
 00000000CA13.07C: Settimana 2: Ana Pan di Zenzero
 00000000CA14.07C: Settimana 3: Roadhog Pupazzo di Neve
 00000000CA15.07C: Vinci 9 partite rapide, Arcade o competitive!
@@ -27724,6 +27724,7 @@ Assistenza Blizzard
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: INDIETRO
 000000010D17.07C: NOTE DELLA PATCH (NOVITÀ)
+000000010D1A.07C: Kanezaka
 000000010D24.07C: Sbloccato per aver partecipato alla Sfida Maestro di Sigma
 000000010D2B.07C: EMOTE
 000000010D2C.07C: AUDIO
@@ -28533,6 +28534,9 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000011654.07C: Bambola di Pezza
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Maggiori informazioni
+000000011672.07C: Deathmatch Kanezaka
+000000011673.07C: Scala la classifica: l'eroe più letale vince
+000000011674.07C: MAPPA: Kanezaka
 000000011676.07C: Tutte le imprese sbloccate
 000000011677.07C: Precisione colpo critico
 000000011679.07C: Il tuo account di Overwatch è stato bloccato.
@@ -28599,6 +28603,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000117A8.07C: Deathmatch a squadre (competitivo)
 0000000117A9.07C: Cattura la Bandiera (competitiva)
 0000000117AA.07C: Coda aperta (competitiva)
+0000000117BA.07C: Sfida Kanezaka
 0000000117FC.07C: Pietra
 00000001180C.07C: La Vendetta di Junkenstein - Fantasma Vendicativo
 00000001180D.07C: La Vendetta di Junkenstein - Carica Frenetica
@@ -28643,8 +28648,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000011847.07C: ON
 000000011848.07C: OFF
 000000011849.07C: Oggetto leggendario garantito!
-00000001184A.07C: Disponibile fino al 28/09/2020
-È possibile solo un acquisto
+00000001184A.07C: Acquisto valido una sola volta
 000000011859.07C: Offerta
 000000011860.07C: speciale!
 000000011879.07C: Sbloccato per essere entrato nella Top 500 della Stagione 25
@@ -29204,6 +29208,8 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012524.07C: Nessun limite (competitiva)
 000000012525.07C: Scala la classifica e affronta i migliori giocatori del mondo senza limiti nella selezione degli eroi.
 000000012529.07C: Brindisi
+00000001252D.07C: Yōkai
+00000001252F.07C: Pagoda
 000000012531.07C: Scongelamenti interrotti
 000000012532.07C: Interrompi 3 scongelamenti nemici in un round di Eliminazione Congelata.
 000000012535.07C: Freddo boia
@@ -29376,8 +29382,18 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012850.07C: Kyōgisha
+00000001286D.07C: Kanezaka
 00000001287A.07C: Impossibile guardare il replay di una partita incerta.
 00000001287B.07C: OK
+0000000128AB.07C: Sbloccato per aver partecipato alla Sfida Kanezaka
+0000000128AF.07C: Sbloccato per aver partecipato alla Sfida Kanezaka
+0000000128B0.07C: Distretto del Santuario
+0000000128B1.07C: Cucciocotta
+0000000128B3.07C: Ciao Tato
+0000000128B5.07C: Il Drago Divora
+0000000128B7.07C: Ora del Bagno
+0000000128B9.07C: Acchiappamari
 0000000128DC.07C: sei stato bloccato dal proprietario della partita personalizzata
 0000000128DD.07C: sei stato sbloccato dal proprietario della partita personalizzata
 0000000128E0.07C: Determinazione dell'idoneità al Pass Priorità...
@@ -29385,7 +29401,8 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000128E2.07C: Il Pass Priorità non influenzerà i tempi di coda con la dimensione di squadra attuale.
 0000000128E3.07C: Attualmente non ci sono ruoli idonei all'uso di un Pass Priorità.
 0000000128E5.07C: Abbiamo rimborsato il tuo Pass Priorità.
+0000000128E6.07C: Mostra tempo di riproduzione separatamente
 000000012965.07C: Il tuo Pass Priorità non sarà utilizzato perché il tuo tempo di coda è stato maggiore del previsto.
 000000012ADC.07C: < 5 |Rpl min.
 000000012ADD.07C: > 10 |Rpl min.
-[Core] Execution finished in 00:00:00.4859180 seconds
+[Core] Execution finished in 00:00:00.4386909 seconds

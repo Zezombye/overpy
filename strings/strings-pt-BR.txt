@@ -1,13 +1,13 @@
-[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
+[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: ptBR | Speech Language: ptBR
-[CASC] Overwatch build 1.55.0.0.76333
+[CASC] Overwatch build 1.56.0.0.77262
 [CASC] Initializing...
-[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -16649,7 +16649,7 @@ Outros modos de jogo de Overwatch, como Jogo Rápido, o Modo Arcade e o Navegado
 000000008780.07C: 1ª Temporada do Combate até a Morte Competitivo
 000000008781.07C: Combate até a Morte Competitivo
 000000008782.07C: Suba na tabela e enfrente os melhores jogadores de Combate até a Morte do mundo!
-000000008783.07C: MAPAS: Château Guillard, Petra
+000000008783.07C: MAPAS: Château Guillard, Kanezaka, Petra
 0000000087A2.07C: IMPLANTAR
 0000000087A3.07C: CANCELAR
 0000000087A5.07C: <fg%1$s>TELETRANSPORTADOR</fg> CRIADO POR <fg%1$s>%2$s</fg>
@@ -22230,7 +22230,7 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000CA0C.07C: Você precisa escolher uma função para o seu grupo poder entrar na fila. Selecionar agora?
 00000000CA0D.07C: Lojas
 00000000CA0E.07C: Loja
-00000000CA11.07C: Semana 1: Junkrat Duende
+00000000CA11.07C: Desafio de Kanezaka
 00000000CA13.07C: Semana 2: Ana Biscoito
 00000000CA14.07C: Semana 3: Roadhog Nevado
 00000000CA15.07C: Vença 9 partidas no Jogo Rápido, no Arcade ou no Competitivo!
@@ -27702,6 +27702,7 @@ Suporte da Blizzard
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: VOLTAR
 000000010D17.07C: NOTAS DO PATCH (NOVO)
+000000010D1A.07C: Kanezaka
 000000010D24.07C: Desbloqueado ao participar do Desafio Maestro do Sigma
 000000010D2B.07C: EMOTE
 000000010D2C.07C: FALA
@@ -28509,6 +28510,9 @@ Suporte da Blizzard
 000000011654.07C: Boneca de Trapos
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Mais informações
+000000011672.07C: Combate até a Morte em Kanezaka
+000000011673.07C: Seja o melhor de todos, apenas o herói mais mortal será vitorioso.
+000000011674.07C: MAPA: Kanezaka
 000000011676.07C: Todas as conquistas desbloqueadas
 000000011677.07C: Precisão de golpes críticos
 000000011679.07C: Sua conta do Overwatch foi bloqueada.
@@ -28575,6 +28579,7 @@ Competitiva 2020
 0000000117A8.07C: Combate até a Morte em Equipe Competitivo
 0000000117A9.07C: CaB Competitivo
 0000000117AA.07C: Competitivo - Fila Aberta
+0000000117BA.07C: Desafio de Kanezaka
 0000000117FC.07C: Gigante de Pedra
 00000001180C.07C: Fantasma Vingativo de A Vingança de Junkenstein
 00000001180D.07C: Debandada Frenética de A Vingança de Junkenstein
@@ -28619,8 +28624,7 @@ Competitiva 2020
 000000011847.07C: SIM
 000000011848.07C: NÃO
 000000011849.07C: Item lendário garantido!
-00000001184A.07C: Disponível até 28/09/2020
-Limite de uma compra
+00000001184A.07C: Limite de uma compra
 000000011859.07C: Oferta
 000000011860.07C: especial!
 000000011879.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Temporada 25
@@ -29180,6 +29184,8 @@ Limite de uma compra
 000000012524.07C: Competitivo Sem Limites
 000000012525.07C: Suba na tabela e enfrente os melhores jogadores do mundo sem restrições na seleção de heróis.
 000000012529.07C: Brinde
+00000001252D.07C: Yōkai
+00000001252F.07C: Pagoda
 000000012531.07C: Cancelamento do descongelamento
 000000012532.07C: Interrompa 3 descongelamentos inimigos em uma rodada de Eliminação Descongelante.
 000000012535.07C: Frio impiedoso
@@ -29352,8 +29358,18 @@ e 10 Caixas de Itens Congelados grátis
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012850.07C: Kyōgisha
+00000001286D.07C: Kanezaka
 00000001287A.07C: Não é possível ver o replay de uma partida indefinida.
 00000001287B.07C: Ok
+0000000128AB.07C: Desbloqueado ao participar do Desafio de Kanezaka
+0000000128AF.07C: Desbloqueado ao participar do Desafio de Kanezaka
+0000000128B0.07C: Distrito do santuário
+0000000128B1.07C: Artesaunato
+0000000128B3.07C: Voo de Tato
+0000000128B5.07C: O dragão consome
+0000000128B7.07C: Hora do banho
+0000000128B9.07C: Gatchamari
 0000000128DC.07C: você foi bloqueado pelo proprietário do jogo personalizado
 0000000128DD.07C: você foi desbloqueado pelo proprietário do jogo personalizado
 0000000128E0.07C: Determinando possibilidade de uso do passe prioritário...
@@ -29361,7 +29377,8 @@ e 10 Caixas de Itens Congelados grátis
 0000000128E2.07C: O passe prioritário não afeta os tempos de espera com o tamanho da equipe atual.
 0000000128E3.07C: Não há nenhuma função disponível para o passe prioritário.
 0000000128E5.07C: Seu passe prioritário foi restituído.
+0000000128E6.07C: Exibir Código de Tempo de Reprodução Separado
 000000012965.07C: Seu passe prioritário não será usado porque o tempo de espera foi maior que o esperado.
 000000012ADC.07C: < 5 min
 000000012ADD.07C: > 10 min
-[Core] Execution finished in 00:00:00.4711300 seconds
+[Core] Execution finished in 00:00:00.4461018 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
+[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: deDE | Speech Language: deDE
-[CASC] Overwatch build 1.55.0.0.76333
+[CASC] Overwatch build 1.56.0.0.77262
 [CASC] Initializing...
-[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -16806,7 +16806,7 @@ Teamkommunikation
 000000008780.07C: Kompetitives Deathmatch: Saison 1
 000000008781.07C: Kompetitives Deathmatch
 000000008782.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Deathmatch-Spieler der Welt an!
-000000008783.07C: KARTEN: Château Guillard, Petra
+000000008783.07C: KARTEN: Château Guillard, Kanezaka, Petra
 0000000087A2.07C: AUFSTELLEN
 0000000087A3.07C: ABBRECHEN
 0000000087A5.07C: <fg%1$s>TELEPORTER</fg> VON <fg%1$s>%2$s</fg> PLATZIERT
@@ -22448,7 +22448,7 @@ Hinweis: Variablen und Programmiersprache sind in Englisch gehalten. Die Benutze
 00000000CA0C.07C: Du musst eine Rolle wählen, bevor deine Gruppe ein Spiel suchen kann. Jetzt wählen?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Woche 1: Junkrat-Skin Elf
+00000000CA11.07C: Kanezaka-Herausforderung
 00000000CA13.07C: Woche 2: Ana-Skin Lebkuchen
 00000000CA14.07C: Woche 3: Roadhog-Skin Frosty
 00000000CA15.07C: Gewinne 9 Spiele in den Modi Schnellsuche, Arcade oder Rangliste!
@@ -27974,6 +27974,7 @@ Der Blizzard-Kundendienst
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: ZURÜCK
 000000010D17.07C: PATCHNOTES (NEU)
+000000010D1A.07C: Kanezaka
 000000010D24.07C: Freigeschaltet durch die Teilnahme an Sigmas Maestro-Herausforderung
 000000010D2B.07C: EMOTE
 000000010D2C.07C: SPRUCH
@@ -28781,6 +28782,9 @@ Der Blizzard-Kundendienst
 000000011654.07C: Stoffpuppe
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Mehr Infos
+000000011672.07C: Deathmatch: Kanezaka
+000000011673.07C: Kämpf dich in der Bestenliste hoch. Möge der tödlichste Held gewinnen.
+000000011674.07C: KARTE: Kanezaka
 000000011676.07C: Alle Erfolge freigeschaltet
 000000011677.07C: Quote kritischer Treffer
 000000011679.07C: Dein Overwatch-Account wurde gesperrt.
@@ -28843,6 +28847,7 @@ Der Blizzard-Kundendienst
 0000000117A8.07C: Kompetitives Team-Deathmatch
 0000000117A9.07C: Kompetitive Flaggeneroberung
 0000000117AA.07C: Kompetitiv – Freie Rollenwahl
+0000000117BA.07C: Kanezaka-Herausforderung
 0000000117FC.07C: Versteinert
 00000001180C.07C: Junkensteins Rache – Rachsüchtiger Geist
 00000001180D.07C: Junkensteins Rache – Wilder Ansturm
@@ -28887,8 +28892,7 @@ Der Blizzard-Kundendienst
 000000011847.07C: EIN
 000000011848.07C: AUS
 000000011849.07C: Ein legendäres Extra garantiert!
-00000001184A.07C: Bis zum 28.09.2020 verfügbar
-Kann nur einmal erworben werden
+00000001184A.07C: Kann nur einmal erworben werden.
 000000011859.07C: Sonderangebot!
 000000011860.07C: 
 000000011879.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 25
@@ -29474,6 +29478,8 @@ Lootboxen erhältlich
 000000012524.07C: Kompetitiv – Keine Beschränkungen
 000000012525.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Spieler der Welt an! Bei der Heldenauswahl bestehen keine Einschränkungen.
 000000012529.07C: Proost
+00000001252D.07C: Yōkai
+00000001252F.07C: Pagode
 000000012531.07C: Auftauziehen
 000000012532.07C: Unterbrich in einer Runde Frosttau-Eliminierung 3-mal das Auftauen eines Gegners.
 000000012535.07C: Eiskalt unterbrochen
@@ -29646,8 +29652,18 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012850.07C: Kyōgisha
+00000001286D.07C: Kanezaka
 00000001287A.07C: Replay eines nicht entschiedenen Matches kann nicht abgespielt werden.
 00000001287B.07C: OK
+0000000128AB.07C: Freigeschaltet durch die Teilnahme an der Kanezaka-Herausforderung
+0000000128AF.07C: Freigeschaltet durch die Teilnahme an der Kanezaka-Herausforderung
+0000000128B0.07C: Schreindistrikt
+0000000128B1.07C: Töpfoterei
+0000000128B3.07C: Tatos Abschied
+0000000128B5.07C: Der Drache verschlingt
+0000000128B7.07C: Katzenwäsche
+0000000128B9.07C: Greifmari
 0000000128DC.07C: Du wurdest vom Besitzer dieses benutzerdefinierten Spiels blockiert.
 0000000128DD.07C: Du wirst vom Besitzer dieses benutzerdefinierten Spiels nicht mehr blockiert.
 0000000128E0.07C: Überprüfe Einsatzmöglichkeit für VIP-Tickets ...
@@ -29655,7 +29671,8 @@ und dazu 10 Winter-Lootboxen geschenkt
 0000000128E2.07C: Ein VIP-Ticket hat keine Auswirkungen auf die Wartezeit mit deiner aktuellen Teamgröße.
 0000000128E3.07C: Aktuell kann für keine Rolle ein VIP-Ticket verwendet werden.
 0000000128E5.07C: Dein VIP-Ticket wurde zurückerstattet.
+0000000128E6.07C: Abgelösten Wiedergabe-Timecode anzeigen
 000000012965.07C: Dein VIP-Ticket wird nicht verwendet, weil du länger als erwartet in der Warteschlange warst.
 000000012ADC.07C: < 5 Min.
 000000012ADD.07C: > 10 Min.
-[Core] Execution finished in 00:00:00.5103165 seconds
+[Core] Execution finished in 00:00:00.4272131 seconds

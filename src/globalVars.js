@@ -221,7 +221,10 @@ function vect(x,y,z) {
             return "vect("+this.x+","+this.y+","+this.z+")";
         }
     });
-}`;
+}
+
+var Map = {${Object.keys(mapKw).map(x => camelCaseToUpperCase(x) + ":'Map."+camelCaseToUpperCase(x)+"'").join(",")}}
+`;
 
 const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length;
 

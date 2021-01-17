@@ -1,13 +1,13 @@
-[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
+[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: zhTW | Speech Language: zhTW
-[CASC] Overwatch build 1.55.0.0.76333
+[CASC] Overwatch build 1.56.0.0.77262
 [CASC] Initializing...
-[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
+[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -16647,7 +16647,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008780.07C: 死鬥競技模式第1賽季
 000000008781.07C: 死鬥競技模式
 000000008782.07C: 提高排名，和全世界頂尖的死鬥好手一同競賽吧！
-000000008783.07C: 地圖：蓋亞爾城堡和佩特拉
+000000008783.07C: 地圖：蓋亞爾城堡、鐵坂和佩特拉
 0000000087A2.07C: 架設
 0000000087A3.07C: 取消
 0000000087A5.07C: <fg%1$s>%2$s</fg>架設了<fg%1$s>傳送器</fg>
@@ -22225,7 +22225,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA0C.07C: 你必須先選擇角色類型，團隊才能加入佇列。要現在選擇嗎？
 00000000CA0D.07C: 商店
 00000000CA0E.07C: 商店
-00000000CA11.07C: 第1週：小妖精炸彈鼠
+00000000CA11.07C: 鐵坂大挑戰
 00000000CA13.07C: 第2週：薑餅人安娜
 00000000CA14.07C: 第3週：壞雪人攔路豬
 00000000CA15.07C: 在快速對戰、遊樂場或競技對戰中，贏得9場對戰！
@@ -27697,6 +27697,7 @@ https://account.blizzard.com/connections/nintendo
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: 返回
 000000010D17.07C: 更新說明（新）
+000000010D1A.07C: 鐵坂
 000000010D24.07C: 參與席格馬的首席指揮家大挑戰即可解鎖
 000000010D2B.07C: 表情
 000000010D2C.07C: 語音
@@ -28504,6 +28505,9 @@ https://account.blizzard.com/connections/nintendo
 000000011654.07C: 破布偶
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: 詳細資訊
+000000011672.07C: 鐵坂死鬥
+000000011673.07C: 在排行榜一路晉升，只有又強又猛又殺的人能成為贏家。
+000000011674.07C: 地圖：鐵坂
 000000011676.07C: 已解鎖所有成就
 000000011677.07C: 爆擊命中率
 000000011679.07C: 你的《鬥陣特攻》帳號被鎖定了。
@@ -28566,6 +28570,7 @@ https://account.blizzard.com/connections/nintendo
 0000000117A8.07C: 團隊死鬥競技模式
 0000000117A9.07C: 搶旗競技
 0000000117AA.07C: 自由佇列競技對戰
+0000000117BA.07C: 鐵坂大挑戰
 0000000117FC.07C: 石衛
 00000001180C.07C: 鼠肯斯坦復仇記復仇之鬼
 00000001180D.07C: 鼠肯斯坦復仇記高速湧竄
@@ -28610,8 +28615,7 @@ https://account.blizzard.com/connections/nintendo
 000000011847.07C: 開啟
 000000011848.07C: 關閉
 000000011849.07C: 必出傳奇物品！
-00000001184A.07C: 開放至2020/9/29
-限購一次
+00000001184A.07C: 限購一次
 000000011859.07C: 特殊
 000000011860.07C: 優惠
 000000011879.07C: 在第25賽季進入前500名即可解鎖
@@ -29170,6 +29174,8 @@ https://account.blizzard.com/connections/nintendo
 000000012524.07C: 無限制競技
 000000012525.07C: 提高排名，和全世界頂尖的好手一同競賽，選擇英雄時沒有角色類型限制。
 000000012529.07C: 舉杯
+00000001252D.07C: 妖怪
+00000001252F.07C: 寶塔
 000000012531.07C: 凍住不許解！
 000000012532.07C: 在凍凍大作戰同一回合內中斷敵方的解凍動作3次。
 000000012535.07C: 深惡凍絕
@@ -29251,8 +29257,8 @@ https://account.blizzard.com/connections/nintendo
 00000001263B.07C: 你目前隊伍的角色類型符合快速入場佇列的要求。
 00000001264A.07C: 舉杯
 000000012651.07C: 切換使用優先入場券與否
-000000012659.07C: 隊友已經解凍了
-00000001265A.07C: 隊友已經解凍了
+000000012659.07C: 隊友正在解凍中
+00000001265A.07C: 隊友正在解凍中
 00000001266E.07C: 加入彈性角色類型佇列可獲得優先入場券，勝場獲得的入場券會比較多。
 00000001266F.07C: 使用優先入場券來縮短指定角色類型在下一場遊戲的佇列排隊時間。只能指定處於排隊高峰期的角色類型。
 000000012670.07C: 如果一起加入佇列的全體隊友都使用快速入場券，會縮短該隊伍的排隊時間。
@@ -29341,8 +29347,18 @@ https://account.blizzard.com/connections/nintendo
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012850.07C: 競技者
+00000001286D.07C: 鐵坂
 00000001287A.07C: 無法觀看尚未結束的戰鬥錄影。
 00000001287B.07C: 確認
+0000000128AB.07C: 參與鐵坂大挑戰即可解鎖
+0000000128AF.07C: 參與鐵坂大挑戰即可解鎖
+0000000128B0.07C: 神社區
+0000000128B1.07C: 陶藝狗
+0000000128B3.07C: 鈴薯離家
+0000000128B5.07C: 龍魂大口吞
+0000000128B7.07C: 洗澡時間
+0000000128B9.07C: 夾娃娃桃子
 0000000128DC.07C: 自訂遊戲主持人封鎖你
 0000000128DD.07C: 自訂遊戲主持人解除你的封鎖
 0000000128E0.07C: 正在確認優先入場券資格...
@@ -29350,7 +29366,8 @@ https://account.blizzard.com/connections/nintendo
 0000000128E2.07C: 由於目前隊伍人數，優先入場劵不會影響派對時間。
 0000000128E3.07C: 目前沒有適用於優先入場劵的角色類型。
 0000000128E5.07C: 已經將優先入場券退還給你。
+0000000128E6.07C: 顯示重播附加時間碼
 000000012965.07C: 由於你的排隊時間超過預期，因此並未消耗優先入場券。
 000000012ADC.07C: 少於5分鐘
 000000012ADD.07C: 大於10分鐘
-[Core] Execution finished in 00:00:00.5436957 seconds
+[Core] Execution finished in 00:00:00.4140868 seconds

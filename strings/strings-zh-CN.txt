@@ -1,13 +1,13 @@
-[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
+[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhCN", "-T=zhCN"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: zhCN | Speech Language: zhCN
-[CASC] Overwatch build 1.55.0.0.76333
+[CASC] Overwatch build 1.56.0.0.77262
 [CASC] Initializing...
-[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -16745,7 +16745,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008780.07C: 竞技死斗第1赛季
 000000008781.07C: 竞技死斗
 000000008782.07C: 与最出色的死斗模式玩家相互切磋，跻身排行榜！
-000000008783.07C: 地图限制：吉拉德堡，佩特拉
+000000008783.07C: 地图限制：吉拉德堡，铁坂，佩特拉
 0000000087A2.07C: 部署
 0000000087A3.07C: 取消
 0000000087A5.07C: <fg%1$s>%2$s</fg>部署了<fg%1$s>传送面板</fg>
@@ -22347,7 +22347,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA0C.07C: 在你选择职责后，你的小队将加入队列。现在选择吗？
 00000000CA0D.07C: 商店
 00000000CA0E.07C: 商店
-00000000CA11.07C: 第一周：“狂鼠”，炸弹精灵
+00000000CA11.07C: 铁坂大挑战
 00000000CA13.07C: 第二周：安娜，美味姜饼
 00000000CA14.07C: 第三周：“路霸”，大雪魔
 00000000CA15.07C: 在快速游戏、街机先锋或竞技比赛中获得9场胜利！
@@ -27852,6 +27852,7 @@ https://account.blizzard.com/connections/nintendo
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: 返回
 000000010D17.07C: 补丁说明（更新）
+000000010D1A.07C: 铁坂
 000000010D24.07C: 参加“西格玛的音乐家大挑战”活动可解锁
 000000010D2B.07C: 表情
 000000010D2C.07C: 语音
@@ -28661,6 +28662,9 @@ https://account.blizzard.com/connections/nintendo
 000000011654.07C: 碎布娃娃
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: 更多信息
+000000011672.07C: 铁坂死斗
+000000011673.07C: 在排行榜上不断攀升，最强大的英雄才能获得胜利。
+000000011674.07C: 地图：铁坂
 000000011676.07C: 所有成就均已解锁
 000000011677.07C: 暴击命中率
 000000011679.07C: 您的《守望先锋》账号已被锁定。
@@ -28724,6 +28728,7 @@ https://account.blizzard.com/connections/nintendo
 0000000117A8.07C: 团队死斗竞技模式
 0000000117A9.07C: 竞技夺旗
 0000000117AA.07C: 开放排位竞技比赛
+0000000117BA.07C: 铁坂大挑战
 0000000117FC.07C: 石武士
 00000001180C.07C: 怪鼠复仇（复仇之魂模式）
 00000001180D.07C: 怪鼠复仇（夺命狂奔模式）
@@ -28768,8 +28773,7 @@ https://account.blizzard.com/connections/nintendo
 000000011847.07C: 开启
 000000011848.07C: 关闭
 000000011849.07C: 必定包含传奇物品！
-00000001184A.07C: 2020年9月29日前可购买
-仅限购买一次
+00000001184A.07C: 仅限购买一次
 000000011859.07C: 特殊
 000000011860.07C: 优惠
 000000011879.07C: 在第25赛季达到天梯前500名后解锁
@@ -29328,6 +29332,8 @@ https://account.blizzard.com/connections/nintendo
 000000012524.07C: 竞技自由乱斗
 000000012525.07C: 与最出色的玩家相互切磋，跻身排行榜！选择英雄时没有限制。
 000000012529.07C: 干杯
+00000001252D.07C: 妖怪
+00000001252F.07C: 宝塔
 000000012531.07C: 不许解冻
 000000012532.07C: 在融冰决斗的一个回合中打断三名敌人的解冻过程
 000000012535.07C: 无情寒冰
@@ -29502,8 +29508,18 @@ https://account.blizzard.com/connections/nintendo
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012850.07C: 飞矢健将
+00000001286D.07C: 铁坂
 00000001287A.07C: 该比赛的结果尚未决定，无法查看录像。
 00000001287B.07C: 确定
+0000000128AB.07C: 参加“铁坂大挑战”活动可解锁
+0000000128AF.07C: 参加“铁坂大挑战”活动可解锁
+0000000128B0.07C: 寺庙区
+0000000128B1.07C: 萌爪陶艺
+0000000128B3.07C: 豆豆启程
+0000000128B5.07C: 巨龙饿了
+0000000128B7.07C: 舔毛时间
+0000000128B9.07C: 小鱿抓自己
 0000000128DC.07C: 你已被自定比赛所有者屏蔽
 0000000128DD.07C: 你已被自定比赛所有者解除屏蔽
 0000000128E0.07C: 正在查验优先卡是否可用……
@@ -29511,7 +29527,8 @@ https://account.blizzard.com/connections/nintendo
 0000000128E2.07C: 优先卡不会影响当前队伍规模的排队时间。
 0000000128E3.07C: 当前没有可用优先卡的职责。
 0000000128E5.07C: 你的优先卡已退还。
+0000000128E6.07C: 显示分离的回放时间戳
 000000012965.07C: 由于你的排队时间长于预计时间，优先卡不会消耗。
 000000012ADC.07C: < 5 分钟
 000000012ADD.07C: > 10 分钟
-[Core] Execution finished in 00:00:00.4752857 seconds
+[Core] Execution finished in 00:00:00.4200608 seconds

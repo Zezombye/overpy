@@ -1,13 +1,13 @@
-[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
+[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=jaJP", "-T=jaJP"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: jaJP | Speech Language: jaJP
-[CASC] Overwatch build 1.55.0.0.76333
+[CASC] Overwatch build 1.56.0.0.77262
 [CASC] Initializing...
-[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -16645,7 +16645,7 @@ Blizzard Support
 000000008780.07C: ライバル・デスマッチ シーズン1
 000000008781.07C: ライバル・デスマッチ
 000000008782.07C: デスマッチでランクインを目指そう！
-000000008783.07C: マップ限定: CHATEAU GUILLARD、<br>PETRA
+000000008783.07C: マップ限定: CHATEAU GUILLARD、<br>KANEZAKA、<br>PETRA
 0000000087A2.07C: 設置
 0000000087A3.07C: キャンセル
 0000000087A5.07C: <fg%1$s>%2$s</fg>が<fg%1$s>〈テレポーター〉</fg>を設置
@@ -22224,7 +22224,7 @@ Blizzard Support
 00000000CA0C.07C: ロールを選択するまでグループはマッチに参加できません。選択しますか？
 00000000CA0D.07C: ショップ
 00000000CA0E.07C: ショップ
-00000000CA11.07C: 第1週: ジャンクラット「エルフ」
+00000000CA11.07C: カネザカ・チャレンジ
 00000000CA13.07C: 第2週: アナ「ジンジャーブレッド」
 00000000CA14.07C: 第3週: ロードホッグ「フロスティ」
 00000000CA15.07C: アーケード、クイックまたはライバル・プレイで9回勝利しよう！
@@ -27696,6 +27696,7 @@ Blizzardサポート
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: 戻る
 000000010D17.07C: パッチノート（NEW）
+000000010D1A.07C: KANEZAKA
 000000010D24.07C: シグマのマエストロ・チャレンジに参加してアンロック
 000000010D2B.07C: エモート
 000000010D2C.07C: ボイス・ライン
@@ -28503,6 +28504,9 @@ Blizzardサポート
 000000011654.07C: 布人形
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: 詳細
+000000011672.07C: KANEZAKA デスマッチ
+000000011673.07C: トップを目指せ！一番強いやつが勝つ！
+000000011674.07C: マップ限定: KANEZAKA
 000000011676.07C: すべての実績をアンロック
 000000011677.07C: クリティカル・ヒット命中率
 000000011679.07C: あなたの「オーバーウォッチ」アカウントはロックされました
@@ -28552,7 +28556,8 @@ Blizzardサポート
 0000000116FF.07C: ルシオボール
 000000011700.07C: ライバル・デスマッチ
 00000001171D.07C: 1人以上のパーティーメンバーのゲームプレイ時間がなくなりそうです
-000000011744.07C: レジェンダリー トレジャー・ボックス1個 + 通常トレジャー・ボックス5個
+000000011744.07C: レジェンダリー トレジャー・ボックス1個
++ 通常トレジャー・ボックス5個
 000000011745.07C: 15 ヒーロー・ダスト + レジェンダリー トレジャー・ボックス1個（ボーナス）+ 通常トレジャー・ボックス5個
 00000001174A.07C: シーズン%1$s
 000000011754.07C: コミック
@@ -28565,6 +28570,7 @@ Blizzardサポート
 0000000117A8.07C: ライバル チーム・デスマッチ
 0000000117A9.07C: ライバル CTF
 0000000117AA.07C: ライバル・プレイ オープンキュー
+0000000117BA.07C: カネザカ・チャレンジ
 0000000117FC.07C: 石像
 00000001180C.07C: ジャンケンシュタインの復讐 怨霊の恨み
 00000001180D.07C: ジャンケンシュタインの復讐 怒れる群衆の襲撃
@@ -28609,8 +28615,7 @@ Blizzardサポート
 000000011847.07C: ON
 000000011848.07C: OFF
 000000011849.07C: 確定レジェンダリー・アイテム！
-00000001184A.07C: 2020年9月29日まで入手可能
-1回のみ購入可能
+00000001184A.07C: 1回のみ購入可能
 000000011859.07C: 今だけの
 000000011860.07C: チャンス！
 000000011879.07C: シーズン25<br>終了時に<br>トップ<br>500に<br>ランク<br>イン<br>して<br>アン<br>ロック
@@ -29170,6 +29175,8 @@ Blizzardサポート
 000000012524.07C: ライバル・ノーリミット
 000000012525.07C: 制限なしでヒーローを選び、世界のトッププレイヤーたちと競い合ってランク上位を目指そう
 000000012529.07C: 乾杯
+00000001252D.07C: 妖怪
+00000001252F.07C: 仏塔
 000000012531.07C: 解凍阻止
 000000012532.07C: フリーズソー・エリミネーションのラウンド中に敵の解凍を3回妨害する
 000000012535.07C: 容赦なき冷気
@@ -29342,8 +29349,18 @@ Blizzardサポート
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012850.07C: 競技者
+00000001286D.07C: KANEZAKA
 00000001287A.07C: 決着がついていないマッチのリプレイを視聴することはできません
 00000001287B.07C: OK
+0000000128AB.07C: カネザカ・チャレンジに参加してアンロック
+0000000128AF.07C: カネザカ・チャレンジに参加してアンロック
+0000000128B0.07C: 門前町
+0000000128B1.07C: もちのろくろ回し
+0000000128B3.07C: いってらっしゃい、テト
+0000000128B5.07C: 龍よ、喰らい尽くせ
+0000000128B7.07C: 身だしなみ
+0000000128B9.07C: キャッチャマリ
 0000000128DC.07C: カスタム・ゲームのオーナーがあなたをブロックしました
 0000000128DD.07C: カスタム・ゲームのオーナーがあなたのブロックを解除しました
 0000000128E0.07C: 優先パスの有効性を確認中…
@@ -29351,7 +29368,8 @@ Blizzardサポート
 0000000128E2.07C: 現在のチームの規模では優先パスは待機時間に影響しません
 0000000128E3.07C: 現在優先パスが有効なロールはありません
 0000000128E5.07C: 優先パスが戻されました
+0000000128E6.07C: プレイバックのタイムコードを別途表示
 000000012965.07C: 待機時間が想定以上に長いため、優先パスは使用されません
 000000012ADC.07C: 5 分未満
 000000012ADD.07C: 10 分以上
-[Core] Execution finished in 00:00:00.6558463 seconds
+[Core] Execution finished in 00:00:00.4472071 seconds

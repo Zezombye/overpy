@@ -1,13 +1,13 @@
-[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
+[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.55.0.0.76333
+[CASC] Overwatch build 1.56.0.0.77262
 [CASC] Initializing...
-[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -16647,7 +16647,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 000000008780.07C: Competitive Deathmatch Season 1
 000000008781.07C: Competitive Deathmatch
 000000008782.07C: Rise up the ranks and compete with the best Deathmatch players in the world!
-000000008783.07C: MAPS: Château Guillard, Petra
+000000008783.07C: MAPS: Château Guillard, Kanezaka, Petra
 0000000087A2.07C: DEPLOY
 0000000087A3.07C: CANCEL
 0000000087A5.07C: <fg%1$s>TELEPORTER</fg> CREATED BY <fg%1$s>%2$s</fg>
@@ -22226,7 +22226,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CA0C.07C: You must select a role before your group can queue. Select now?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Week 1: Elf Junkrat
+00000000CA11.07C: Kanezaka Challenge
 00000000CA13.07C: Week 2: Gingerbread Ana
 00000000CA14.07C: Week 3: Frosty Roadhog
 00000000CA15.07C: Win 9 games in quick play, arcade, or competitive play!
@@ -27698,6 +27698,7 @@ Blizzard Support
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: BACK
 000000010D17.07C: PATCH NOTES (NEW)
+000000010D1A.07C: Kanezaka
 000000010D24.07C: Unlocked by participating in the Sigma's Maestro Challenge
 000000010D2B.07C: EMOTE
 000000010D2C.07C: VOICE LINE
@@ -28505,6 +28506,9 @@ Blizzard Support
 000000011654.07C: Ragdoll
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: More Info
+000000011672.07C: Kanezaka Deathmatch
+000000011673.07C: Climb to the top of the scoreboard. The deadliest hero wins.
+000000011674.07C: MAP: Kanezaka
 000000011676.07C: All Achievements Unlocked
 000000011677.07C: Critical Hit Accuracy
 000000011679.07C: Your Overwatch account has been locked.
@@ -28567,6 +28571,7 @@ Blizzard Support
 0000000117A8.07C: Competitive Team Deathmatch
 0000000117A9.07C: Competitive CTF
 0000000117AA.07C: Competitive Open Queue
+0000000117BA.07C: Kanezaka Challenge
 0000000117FC.07C: Stone
 00000001180C.07C: Junkenstein's Revenge Vengeful Ghost
 00000001180D.07C: Junkenstein's Revenge Frenzied Stampede
@@ -28611,8 +28616,7 @@ Blizzard Support
 000000011847.07C: ON
 000000011848.07C: OFF
 000000011849.07C: Guaranteed Legendary Item!
-00000001184A.07C: Available through 9/28/2020
-One-time purchase only
+00000001184A.07C: One-time purchase only
 000000011859.07C: Special
 000000011860.07C: Offer!
 000000011879.07C: Unlocked by achieving top 500 ranking at the end of Season 25
@@ -29172,6 +29176,8 @@ One-time purchase only
 000000012524.07C: Competitive No Limits
 000000012525.07C: Rise up the ranks and compete with the best players in the world with no limits on hero selection.
 000000012529.07C: Toast
+00000001252D.07C: Yōkai
+00000001252F.07C: Pagoda
 000000012531.07C: Thaw-Stopper
 000000012532.07C: Interrupt 3 enemy thaws in a round of Freezethaw Elimination.
 000000012535.07C: Relentless Cold
@@ -29344,8 +29350,18 @@ and 10 Free Winter Loot Boxes
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012850.07C: Kyōgisha
+00000001286D.07C: Kanezaka
 00000001287A.07C: Unable to view replay of an undecided match.
 00000001287B.07C: Ok
+0000000128AB.07C: Unlocked by participating in the Kanezaka Challenge
+0000000128AF.07C: Unlocked by participating in the Kanezaka Challenge
+0000000128B0.07C: Shrine District
+0000000128B1.07C: Pawttery
+0000000128B3.07C: Tato Takes Off
+0000000128B5.07C: The Dragon Consumes
+0000000128B7.07C: Bath Time
+0000000128B9.07C: Catchamari
 0000000128DC.07C: you were blocked by the custom game owner
 0000000128DD.07C: you were unblocked by the custom game owner
 0000000128E0.07C: Determining priority pass eligibility...
@@ -29353,7 +29369,8 @@ and 10 Free Winter Loot Boxes
 0000000128E2.07C: Priority pass will not affect queue times with current team size.
 0000000128E3.07C: No roles are currently eligible for using a priority pass.
 0000000128E5.07C: Your priority pass has been refunded.
+0000000128E6.07C: Show Detached Playback Timecode
 000000012965.07C: Your priority pass will not be used because your queue time was longer than expected.
 000000012ADC.07C: < 5 |Rpl min:mins;
 000000012ADD.07C: > 10 |Rpl min:mins;
-[Core] Execution finished in 00:00:00.5114446 seconds
+[Core] Execution finished in 00:00:00.4200371 seconds

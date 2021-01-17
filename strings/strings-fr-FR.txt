@@ -1,13 +1,13 @@
-[Core] DataTool v1.55.0.935-git-ec99210aaab7775c044ccc7be60d9ba0a5f14d22
+[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.55.0.0.76333
+[CASC] Overwatch build 1.56.0.0.77262
 [CASC] Initializing...
-[Manifest] Using TRG procedure 76333 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 76333 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -16748,7 +16748,7 @@ chats
 000000008780.07C: Combat à mort saison 1
 000000008781.07C: Combat à mort compétitif
 000000008782.07C: Gravissez les échelons et affrontez les meilleurs joueurs de combat à mort au monde !
-000000008783.07C: CARTES : Château Guillard, Petra
+000000008783.07C: CARTES : Château Guillard, Kanezaka, Petra
 0000000087A2.07C: DÉPLOYER
 0000000087A3.07C: ANNULER
 0000000087A5.07C: <fg%1$s>TÉLÉPORTEUR</fg> CRÉÉ PAR <fg%1$s>%2$s</fg>
@@ -22336,7 +22336,7 @@ Copa Lúcioball
 00000000CA0C.07C: Vous devez choisir un rôle pour que votre escouade accède à la file d’attente. Choisir maintenant ?
 00000000CA0D.07C: Boutiques
 00000000CA0E.07C: Boutique
-00000000CA11.07C: Semaine 1 : Chacal lutin
+00000000CA11.07C: Défi Kanezaka
 00000000CA13.07C: Semaine 2 : Ana pain d’épice
 00000000CA14.07C: Semaine 3 : Chopper givré
 00000000CA15.07C: Obtenez 9 victoires en arcade,
@@ -27436,7 +27436,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000108E8.07C: Obtenu en participant à un évènement à domicile en 2020
 0000000108E9.07C: Atlanta Reign à domicile 2020
 0000000108F8.07C: Route 66
-0000000108FA.07C: Pingouin
+0000000108FA.07C: Manchot
 0000000108FD.07C: Maestro
 0000000108FE.07C: Plan de vol
 00000001090A.07C: All-Star Atlantique 2020
@@ -27810,6 +27810,7 @@ L’assistance Blizzard
 000000010CCD.07C: https://account.blizzard.com/details/sms/setup/update
 000000010CD0.07C: RETOUR
 000000010D17.07C: NOTES DE MISE À JOUR (NOUVEAU)
+000000010D1A.07C: Kanezaka
 000000010D24.07C: Obtenu en participant au défi Maestro de Sigma
 000000010D2B.07C: EMOTE
 000000010D2C.07C: RÉPLIQUE
@@ -28617,6 +28618,9 @@ L’assistance Blizzard
 000000011654.07C: Poupée de chiffon
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Plus d’infos
+000000011672.07C: Combat à mort à Kanezaka
+000000011673.07C: Atteignez le sommet du tableau des scores. Le héros le plus meurtrier sortira vainqueur.
+000000011674.07C: CARTE : Kanezaka
 000000011676.07C: Tous les hauts faits débloqués
 000000011677.07C: Précision des coups critiques
 000000011679.07C: Votre compte Overwatch a été verrouillé.
@@ -28679,6 +28683,7 @@ L’assistance Blizzard
 0000000117A8.07C: Combat à mort par équipe compétitif
 0000000117A9.07C: Capture du drapeau en compétitif
 0000000117AA.07C: Compétitif en sélection libre
+0000000117BA.07C: Défi Kanezaka
 0000000117FC.07C: Pierre
 00000001180C.07C: La vengeance du Dr Schakalstein : Fantôme vengeur
 00000001180D.07C: La vengeance du Dr Schakalstein : Ruée sauvage
@@ -28723,8 +28728,7 @@ L’assistance Blizzard
 000000011847.07C: ACTIVÉ
 000000011848.07C: DÉSACTIVÉ
 000000011849.07C: Objet légendaire garanti !
-00000001184A.07C: Disponible jusqu’au 28/09/2020
-Achat unique
+00000001184A.07C: Un achat maximum par compte
 000000011859.07C: Offre
 000000011860.07C: spéciale !
 000000011879.07C: Obtenu en se classant parmi les 500 meilleurs joueurs lors de la saison 25
@@ -29284,6 +29288,8 @@ Achat unique
 000000012524.07C: Sans limites compétitif
 000000012525.07C: Gravissez les échelons et affrontez les meilleurs joueurs au monde sans limites pour la sélection des héros.
 000000012529.07C: Santé
+00000001252D.07C: Yōkai
+00000001252F.07C: Pagode
 000000012531.07C: Stop-dégel
 000000012532.07C: Interrompez 3 dégels d’ennemis dans une manche de Congélimination.
 000000012535.07C: Froid impitoyable
@@ -29395,7 +29401,7 @@ et 10 coffres hivernaux offerts
 000000012735.07C: 120 crédits, plus 60 coffres hivernaux offerts
 00000001277F.07C: Rétrobot
 000000012780.07C: Disponible dans les coffres hivernaux
-000000012781.07C: Pingouin
+000000012781.07C: Manchot
 000000012782.07C: Disponible dans les coffres hivernaux
 000000012783.07C: Impératrice des glaces
 000000012784.07C: Disponible dans les coffres hivernaux
@@ -29416,7 +29422,7 @@ et 10 coffres hivernaux offerts
 000000012794.07C: Disponible dans les coffres hivernaux
 000000012795.07C: Rétrobot
 000000012796.07C: Disponible dans les coffres hivernaux
-000000012797.07C: Pingouin
+000000012797.07C: Manchot
 000000012798.07C: Disponible dans les coffres hivernaux
 000000012799.07C: Alle Einsteigen
 00000001279A.07C: Disponible dans les coffres hivernaux
@@ -29456,8 +29462,18 @@ et 10 coffres hivernaux offerts
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012850.07C: Kyōgisha
+00000001286D.07C: Kanezaka
 00000001287A.07C: Impossible de visionner l’enregistrement d’une partie au résultat indéterminé.
 00000001287B.07C: OK
+0000000128AB.07C: Obtenu en participant au défi Kanezaka
+0000000128AF.07C: Obtenu en participant au défi Kanezaka
+0000000128B0.07C: Quartier du sanctuaire
+0000000128B1.07C: Le chien potier
+0000000128B3.07C: Tato décolle
+0000000128B5.07C: Le dragon engloutit tout
+0000000128B7.07C: L’heure de la toilette
+0000000128B9.07C: Pinçamari
 0000000128DC.07C: vous avez été bloqué par l’hôte de la partie personnalisée
 0000000128DD.07C: vous avez été débloqué par l’hôte de la partie personnalisée
 0000000128E0.07C: Évaluation de l’éligibilité au coupe-file...
@@ -29465,7 +29481,8 @@ et 10 coffres hivernaux offerts
 0000000128E2.07C: Le coupe-file n’affectera pas la longueur de la file d’attente avec la taille de l’équipe actuelle.
 0000000128E3.07C: Aucun rôle n’est actuellement éligible à l’utilisation d’un coupe-file.
 0000000128E5.07C: Votre coupe-file a été remboursé.
+0000000128E6.07C: Afficher le timecode de lecture détachée
 000000012965.07C: Votre coupe-file ne sera pas utilisé parce que votre temps d’attente a duré plus longtemps que prévu.
 000000012ADC.07C: < 5 |Rpl min:min;
-000000012ADD.07C: > 10 min
-[Core] Execution finished in 00:00:00.5010276 seconds
+000000012ADD.07C: > 10 |Rpl min:min;
+[Core] Execution finished in 00:00:00.4595218 seconds
