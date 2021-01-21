@@ -1,0 +1,278 @@
+
+<head>
+    <title>
+        Zez's Compressed Pathmap Generator
+    </title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<style>
+
+html, body, textarea {
+	color: #CCCCCC;
+	background-color: #222222;
+	scrollbar-color: #CCCCCC #222222;
+}
+
+html, body {
+    text-align: center;
+}
+
+textarea {
+    width: 500px;
+    height: 200px;
+}
+
+a {
+	color: lightblue;
+}
+
+</style>
+
+<script>
+
+    function vect(x,y,z) {
+        return ({
+            x:x,
+            y:y,
+            z:z,
+            toString: function() {
+                return "vect("+this.x+","+this.y+","+this.z+")";
+            }
+        });
+    }
+    
+    function distance(a, b) {
+        return Math.sqrt(Math.pow(a.x-b.x, 2) + Math.pow(a.y-b.y, 2) + Math.pow(a.z-b.z, 2));
+    }
+
+    
+    var Graph = (function (undefined) {
+
+        var extractKeys = function (obj) {
+            var keys = [], key;
+            for (key in obj) {
+                Object.prototype.hasOwnProperty.call(obj,key) && keys.push(key);
+            }
+            return keys;
+        }
+        var sorter = function (a, b) {
+            return parseFloat (a) - parseFloat (b);
+        }
+        var findPaths = function (map, start, end, infinity) {
+            infinity = infinity || Infinity;
+
+            var costs = {},
+                open = {'0': [start]},
+                predecessors = {},
+                keys;
+
+            var addToOpen = function (cost, vertex) {
+                var key = "" + cost;
+                if (!open[key]) open[key] = [];
+                open[key].push(vertex);
+            }
+
+            costs[start] = 0;
+
+            while (open) {
+                if(!(keys = extractKeys(open)).length) break;
+
+                keys.sort(sorter);
+
+                var key = keys[0],
+                    bucket = open[key],
+                    node = bucket.shift(),
+                    currentCost = parseFloat(key),
+                    adjacentNodes = map[node] || {};
+
+                if (!bucket.length) delete open[key];
+
+                for (var vertex in adjacentNodes) {
+                    if (Object.prototype.hasOwnProperty.call(adjacentNodes, vertex)) {
+                        var cost = adjacentNodes[vertex],
+                            totalCost = cost + currentCost,
+                            vertexCost = costs[vertex];
+
+                        if ((vertexCost === undefined) || (vertexCost > totalCost)) {
+                            costs[vertex] = totalCost;
+                            addToOpen(totalCost, vertex);
+                            predecessors[vertex] = node;
+                        }
+                    }
+                }
+            }
+            if (costs[end] === undefined) {
+                return null;
+            } else {
+                return predecessors;
+            }
+
+        }
+        var extractShortest = function (predecessors, end) {
+            var nodes = [],
+                u = end;
+
+            while (u !== undefined) {
+                nodes.push(u);
+                u = predecessors[u];
+            }
+
+            nodes.reverse();
+            return nodes;
+        }
+        var findShortestPath = function (map, nodes) {
+            var start = nodes.shift(),
+                end,
+                predecessors,
+                path = [],
+                shortest;
+
+            while (nodes.length) {
+                end = nodes.shift();
+                predecessors = findPaths(map, start, end);
+
+                if (predecessors) {
+                    shortest = extractShortest(predecessors, end);
+                    if (nodes.length) {
+                        path.push.apply(path, shortest.slice(0, -1));
+                    } else {
+                        return path.concat(shortest);
+                    }
+                } else {
+                    return null;
+                }
+
+                start = end;
+            }
+        }
+        var toArray = function (list, offset) {
+            try {
+                return Array.prototype.slice.call(list, offset);
+            } catch (e) {
+                var a = [];
+                for (var i = offset || 0, l = list.length; i < l; ++i) {
+                    a.push(list[i]);
+                }
+                return a;
+            }
+        }
+        var Graph = function (map) {
+            this.map = map;
+        }
+        Graph.prototype.findShortestPath = function (start, end) {
+            if (Object.prototype.toString.call(start) === '[object Array]') {
+                return findShortestPath(this.map, start);
+            } else if (arguments.length === 2) {
+                return findShortestPath(this.map, [start, end]);
+            } else {
+                return findShortestPath(this.map, toArray(arguments));
+            }
+        }
+        Graph.findShortestPath = function (map, start, end) {
+            if (Object.prototype.toString.call(start) === '[object Array]') {
+                return findShortestPath(map, start);
+            } else if (arguments.length === 3) {
+                return findShortestPath(map, [start, end]);
+            } else {
+                return findShortestPath(map, toArray(arguments, 1));
+            }
+        }
+        return Graph;
+    })();
+
+
+    function generate() {
+        try {
+            var nodePositions = eval(document.getElementById("nodePositions").value);
+            var nodeConnections = eval(document.getElementById("nodeConnections").value);
+
+            var map = {}
+            for (var i = 0; i < nodePositions.length; i++) {
+                map[i] = {};
+                for (var j = 0; j < nodeConnections[i].length; j++) {
+                    map[i][nodeConnections[i][j]] = distance(nodePositions[i], nodePositions[nodeConnections[i][j]]);
+                }
+            }
+
+            var alphabet = [];
+            for (var i = 0; alphabet.length < nodePositions.length; i++) {
+                if (i === 0) {
+                    continue;
+                }
+                if (String.fromCharCode(i) == "{") {
+                    continue;
+                }
+                if (String.fromCharCode(i) == "\r") {
+                    continue;
+                }
+                alphabet.push(String.fromCharCode(i));
+            }
+
+            
+            var graph = new Graph(map);
+
+            var data = [];
+            for (var i = 0; i < nodePositions.length; i++) {
+                nodeData = []
+                for (var j = 0; j < nodePositions.length; j++) {
+                    var nodeToTake = parseInt(graph.findShortestPath(i, j)[1]);
+                    if (isNaN(nodeToTake)) {
+                        nodeToTake = i;
+                    }
+                    nodeData.push(nodeToTake);
+                }
+                data.push(nodeData);
+            }
+
+            var strData = [];
+            var currentStr = "";
+            for (var i = 0; i < nodePositions.length; i++) {
+                for (var j = 0; j < nodePositions.length; j++) {
+                    currentStr += alphabet[data[i][j]];
+                    if (currentStr.length >= 128) {
+                        strData.push(currentStr);
+                        currentStr = "";
+                    }
+                }
+            }
+            if (currentStr.length > 0) {
+                strData.push(currentStr)
+            }
+
+            result = `
+alphabet = [${alphabet.map(x => JSON.stringify(x).replace(/\\t/g, "\\u0009").replace(/\\b/g, "\\u0008").replace(/\\f/g, "\\u000c"))}]
+data = ${JSON.stringify(strData).replace(/\\t/g, "\\u0009").replace(/\\b/g, "\\u0008").replace(/\\f/g, "\\u000c")}
+`
+
+            document.getElementById("output").value = result;
+
+
+        } catch (e) {
+            document.getElementById("output").value = e;
+            throw e;
+        }
+    }
+
+    function updateNbChars(textarea) {
+        document.getElementById("nbchars").innerText = getUtf8ByteLength(textarea.innerText.trim())+"/511 bytes";
+        document.getElementById("output").value = textarea.innerText.trim().replace(/ㆍ/g, "ㅤ").replace(/\n/g, "")
+    }
+</script>
+
+<h1>Zez's Compressed Pathmap generator</h1>
+<br>
+<p>Use the pathmap generator, decompile the output, then paste the contents of <code>nodePositions</code> here:</p>
+<textarea id="nodePositions" placeholder="[vect(-13.791, 0, 14.018), vect(-10.428, 0, 5.54), vect(-9.136, 0, 10.537)]"></textarea>
+<p>Paste the contents of <code>nodeConnections</code> here:</p>
+<textarea id="nodeConnections" placeholder="[[1], [0, 2], [0, 1]]"></textarea>
+<br>
+<button onclick="generate()">Generate (might take a while)</button>
+
+
+<p>Output:</p>
+
+<textarea readonly id="output"></textarea>
+
+</body>

@@ -26,7 +26,7 @@ function distance(a, b) {
     return Math.sqrt(Math.pow(a.x-b.x, 2) + Math.pow(a.y-b.y, 2) + Math.pow(a.z-b.z, 2));
 }
 
-var nodeData = mapNodeData["necropolis"];
+var nodeData = mapNodeData["workshopIsland"];
 const MAX_NODES = nodeData.nodePositions.length
 
 var map = {}
@@ -177,7 +177,7 @@ var Graph = (function (undefined) {
 
 var alphabet = [];
 
-for (var i = 0; i < MAX_NODES+3; i++) {
+for (var i = 0; i < 1000+3; i++) {
     if (i === 0) {
         continue;
     }
@@ -207,18 +207,37 @@ for (var i = 0; i < MAX_NODES; i++) {
 console.log(data);
 
 var strData = [];
+var currentStr = "";
 for (var i = 0; i < MAX_NODES; i++) {
-    strData[2*i] = "";
-    strData[2*i+1] = "";
-    for (var j = 0; j < 75; j++) {
-        strData[2*i] += alphabet[data[i][j]];
-        strData[2*i+1] += alphabet[data[i][j+75]];
+    for (var j = 0; j < MAX_NODES; j++) {
+        currentStr += alphabet[data[i][j]];
+        if (currentStr.length >= 128) {
+            strData.push(currentStr);
+            currentStr = "";
+        }
     }
 }
+if (currentStr.length > 0) {
+    strData.push(currentStr)
+}
+
+var testStrs = [];
+var testStr = "";
+for (var i = 0; i < alphabet.length; i++) {
+	testStr += alphabet[i];
+	if (i % 128 == 0) {
+		testStrs.push(testStr);
+		testStr = "";
+	}
+}
+testStrs.push(testStr);
 
 result = `
 globalvar alphabet = [${alphabet.map(x => JSON.stringify(x).replace(/\\t/g, "\\u0009").replace(/\\b/g, "\\u0008").replace(/\\f/g, "\\u000c"))}]
-globalvar testStr = ${JSON.stringify(alphabet.join("")).replace(/\\t/g, "\\u0009").replace(/\\b/g, "\\u0008").replace(/\\f/g, "\\u000c")}
+globalvar testStrs = ${JSON.stringify(testStrs).replace(/\\t/g, "\\u0009").replace(/\\b/g, "\\u0008").replace(/\\f/g, "\\u000c")}
 
 globalvar data = ${JSON.stringify(strData).replace(/\\t/g, "\\u0009").replace(/\\b/g, "\\u0008").replace(/\\f/g, "\\u000c")}
 `
+
+console.log(result);
+result;
