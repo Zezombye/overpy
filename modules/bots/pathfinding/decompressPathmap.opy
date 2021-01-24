@@ -32,15 +32,6 @@ globalvar timer
 globalvar currentNodeArray
 globalvar currentCharIdx
 
-enum SpectatorButton:
-    Q = Button.ABILITY_1,
-    E = Button.INTERACT,
-    Shift = Button.SecondaryFire,
-    Ctrl = Button.PrimaryFire,
-    M1 = Button.Ability2,
-    B = Button.Jump,
-    Z = Button.Ultimate
-
 rule "":
     print("load: {}".format(getServerLoad()))
     print("avg: {}".format(getAverageServerLoad()))

@@ -207,6 +207,24 @@ a {
                 if (String.fromCharCode(i) == "\r") {
                     continue;
                 }
+                //Skip the alphabet to avoid potential censors.
+                if (String.fromCharCode(i) == "A") {
+                    i = "Z".charCodeAt(0);
+                    continue;
+                }
+                if (String.fromCharCode(i) == "a") {
+                    i = "z".charCodeAt(0);
+                    continue;
+                }
+                if (String.fromCharCode(i) == "À") {
+                    i = "ÿ".charCodeAt(0);
+                    continue;
+                }
+                if (String.fromCharCode(i) == "Ͱ") {
+                    i = "ԯ".charCodeAt(0);
+                    continue;
+                }
+
                 alphabet.push(String.fromCharCode(i));
             }
 

@@ -2990,6 +2990,94 @@ const customGameSettingsSchema =
                     }
                 }
             },
+            "skirmish": {
+                "values": {
+
+                    "setValidControlPoints": {
+                        "values": {
+                            "all": {
+                                "guid": "0000000058EE",
+                                "default": true,
+                                "en-US": "All",
+                                "de-DE": "Alle",
+                                "es-ES": "Todos",
+                                "es-MX": "Todos",
+                                "fr-FR": "Tous",
+                                "it-IT": "Tutti",
+                                "ja-JP": "すべて",
+                                "ko-KR": "전부",
+                                "pl-PL": "Wszystkie",
+                                "pt-BR": "Todos",
+                                "ru-RU": "Все",
+                                "zh-CN": "全部",
+                                "zh-TW": "全部"
+                            },
+                            "first": {
+                                "guid": "0000000058EF",
+                                "en-US": "First",
+                                "de-DE": "Erster",
+                                "es-ES": "Primero",
+                                "es-MX": "Primero",
+                                "fr-FR": "Premier",
+                                "it-IT": "Primo",
+                                "ja-JP": "1",
+                                "ko-KR": "첫 번째",
+                                "pl-PL": "Pierwszy",
+                                "pt-BR": "Primeiro",
+                                "ru-RU": "Первая",
+                                "zh-CN": "第一",
+                                "zh-TW": "第一個區域"
+                            },
+                            "second": {
+                                "guid": "0000000058F0",
+                                "en-US": "Second",
+                                "de-DE": "Zweiter",
+                                "es-ES": "Segundo",
+                                "es-MX": "Segundo",
+                                "fr-FR": "Deuxième",
+                                "it-IT": "Secondo",
+                                "ja-JP": "2",
+                                "ko-KR": "두 번째",
+                                "pl-PL": "Drugi",
+                                "pt-BR": "Segundo",
+                                "ru-RU": "Вторая",
+                                "zh-CN": "第二",
+                                "zh-TW": "第二個區域"
+                            },
+                            "third": {
+                                "guid": "0000000058F1",
+                                "en-US": "Third",
+                                "de-DE": "Dritter",
+                                "es-ES": "Tercero",
+                                "es-MX": "Tercero",
+                                "fr-FR": "Troisième",
+                                "it-IT": "Terzo",
+                                "ja-JP": "3",
+                                "ko-KR": "세 번째",
+                                "pl-PL": "Trzeci",
+                                "pt-BR": "Terceiro",
+                                "ru-RU": "Третья",
+                                "zh-CN": "第三",
+                                "zh-TW": "第三個區域"
+                            }
+                        },
+                        "guid": "0000000058ED",
+                        "en-US": "Limit Valid Control Points",
+                        "de-DE": "Kontrollpunkte",
+                        "es-ES": "Limitar puntos de control válidos",
+                        "es-MX": "Limitar puntos de control válidos",
+                        "fr-FR": "Limite de points de contrôle valides",
+                        "it-IT": "Punti di controllo attivi",
+                        "ja-JP": "コントロール・ポイント制限",
+                        "ko-KR": "점령 가능한 거점 제한",
+                        "pl-PL": "Ogranicz prawidłowe punkty kontrolne",
+                        "pt-BR": "Limitar pontos de controle válidos",
+                        "ru-RU": "Ограничение контрольных точек",
+                        "zh-CN": "有效控制点选择",
+                        "zh-TW": "限制地圖控制點"
+                    },
+                }
+            },
             "practiceRange": {
                 "values": {
                     "spawnTrainingBots": {

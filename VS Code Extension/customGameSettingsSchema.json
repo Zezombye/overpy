@@ -2406,6 +2406,198 @@
                         }
                     }
                 },
+                "skirmish": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "setValidControlPoints": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "all"
+                                },
+                                {
+                                    "const": "first"
+                                },
+                                {
+                                    "const": "second"
+                                },
+                                {
+                                    "const": "third"
+                                }
+                            ]
+                        },
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "allSlotsFilled"
+                                },
+                                {
+                                    "const": "immediately"
+                                },
+                                {
+                                    "const": "manual"
+                                }
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "modeDependent"
+                                },
+                                {
+                                    "const": "enabled"
+                                },
+                                {
+                                    "const": "disabled"
+                                }
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "1PerTeam"
+                                },
+                                {
+                                    "const": "2PerTeam"
+                                },
+                                {
+                                    "const": "1PerGame"
+                                },
+                                {
+                                    "const": "2PerGame"
+                                }
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "2OfEachRolePerTeam"
+                                }
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "blizzWorld",
+                                    "blizzWorldWinter",
+                                    "busan",
+                                    "dorado",
+                                    "eichenwalde",
+                                    "eichenwaldeHalloween",
+                                    "hanamura",
+                                    "hanamuraWinter",
+                                    "havana",
+                                    "hollywood",
+                                    "hollywoodHalloween",
+                                    "horizonLunarColony",
+                                    "ilios",
+                                    "junkertown",
+                                    "kingsRow",
+                                    "kingsRowWinter",
+                                    "lijiangTower",
+                                    "lijiangTowerLny",
+                                    "nepal",
+                                    "numbani",
+                                    "oasis",
+                                    "paris",
+                                    "rialto",
+                                    "route66",
+                                    "templeOfAnubis",
+                                    "volskaya",
+                                    "watchpointGibraltar",
+                                    "workshopChamber",
+                                    "workshopExpanse",
+                                    "workshopExpanseNight",
+                                    "workshopGreenScreen",
+                                    "workshopIsland",
+                                    "workshopIslandNight"
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "blizzWorld",
+                                    "blizzWorldWinter",
+                                    "busan",
+                                    "dorado",
+                                    "eichenwalde",
+                                    "eichenwaldeHalloween",
+                                    "hanamura",
+                                    "hanamuraWinter",
+                                    "havana",
+                                    "hollywood",
+                                    "hollywoodHalloween",
+                                    "horizonLunarColony",
+                                    "ilios",
+                                    "junkertown",
+                                    "kingsRow",
+                                    "kingsRowWinter",
+                                    "lijiangTower",
+                                    "lijiangTowerLny",
+                                    "nepal",
+                                    "numbani",
+                                    "oasis",
+                                    "paris",
+                                    "rialto",
+                                    "route66",
+                                    "templeOfAnubis",
+                                    "volskaya",
+                                    "watchpointGibraltar",
+                                    "workshopChamber",
+                                    "workshopExpanse",
+                                    "workshopExpanseNight",
+                                    "workshopGreenScreen",
+                                    "workshopIsland",
+                                    "workshopIslandNight"
+                                ]
+                            }
+                        }
+                    }
+                },
                 "practiceRange": {
                     "type": "object",
                     "additionalProperties": false,
@@ -3199,181 +3391,6 @@
                                 "enum": [
                                     "blackForestWinter",
                                     "ecopointAntarcticaWinter"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "skirmish": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableEnemyHealthBars": {
-                            "type": "boolean"
-                        },
-                        "gamemodeStartTrigger": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "allSlotsFilled"
-                                },
-                                {
-                                    "const": "immediately"
-                                },
-                                {
-                                    "const": "manual"
-                                }
-                            ]
-                        },
-                        "healthPackRespawnTime%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "enableKillCam": {
-                            "type": "boolean"
-                        },
-                        "enableKillFeed": {
-                            "type": "boolean"
-                        },
-                        "enableSkins": {
-                            "type": "boolean"
-                        },
-                        "spawnHealthPacks": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "modeDependent"
-                                },
-                                {
-                                    "const": "enabled"
-                                },
-                                {
-                                    "const": "disabled"
-                                }
-                            ]
-                        },
-                        "enableHeroSwitching": {
-                            "type": "boolean"
-                        },
-                        "heroLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "1PerTeam"
-                                },
-                                {
-                                    "const": "2PerTeam"
-                                },
-                                {
-                                    "const": "1PerGame"
-                                },
-                                {
-                                    "const": "2PerGame"
-                                }
-                            ]
-                        },
-                        "roleLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "2OfEachRolePerTeam"
-                                }
-                            ]
-                        },
-                        "enableRandomHeroes": {
-                            "type": "boolean"
-                        },
-                        "respawnTime%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 100
-                        },
-                        "disabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "blizzWorld",
-                                    "blizzWorldWinter",
-                                    "busan",
-                                    "dorado",
-                                    "eichenwalde",
-                                    "eichenwaldeHalloween",
-                                    "hanamura",
-                                    "hanamuraWinter",
-                                    "havana",
-                                    "hollywood",
-                                    "hollywoodHalloween",
-                                    "horizonLunarColony",
-                                    "ilios",
-                                    "junkertown",
-                                    "kingsRow",
-                                    "kingsRowWinter",
-                                    "lijiangTower",
-                                    "lijiangTowerLny",
-                                    "nepal",
-                                    "numbani",
-                                    "oasis",
-                                    "paris",
-                                    "rialto",
-                                    "route66",
-                                    "templeOfAnubis",
-                                    "volskaya",
-                                    "watchpointGibraltar",
-                                    "workshopChamber",
-                                    "workshopExpanse",
-                                    "workshopExpanseNight",
-                                    "workshopGreenScreen",
-                                    "workshopIsland",
-                                    "workshopIslandNight"
-                                ]
-                            }
-                        },
-                        "enabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "blizzWorld",
-                                    "blizzWorldWinter",
-                                    "busan",
-                                    "dorado",
-                                    "eichenwalde",
-                                    "eichenwaldeHalloween",
-                                    "hanamura",
-                                    "hanamuraWinter",
-                                    "havana",
-                                    "hollywood",
-                                    "hollywoodHalloween",
-                                    "horizonLunarColony",
-                                    "ilios",
-                                    "junkertown",
-                                    "kingsRow",
-                                    "kingsRowWinter",
-                                    "lijiangTower",
-                                    "lijiangTowerLny",
-                                    "nepal",
-                                    "numbani",
-                                    "oasis",
-                                    "paris",
-                                    "rialto",
-                                    "route66",
-                                    "templeOfAnubis",
-                                    "volskaya",
-                                    "watchpointGibraltar",
-                                    "workshopChamber",
-                                    "workshopExpanse",
-                                    "workshopExpanseNight",
-                                    "workshopGreenScreen",
-                                    "workshopIsland",
-                                    "workshopIslandNight"
                                 ]
                             }
                         }
