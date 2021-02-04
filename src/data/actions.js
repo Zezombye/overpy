@@ -2885,7 +2885,7 @@ const actionKw =
         "pt-BR": "Remover Todas as Reservas de Vida de Jogador",
         "zh-CN": "移除玩家的所有生命值。"
     },
-    "_&removeHealthPool": {
+    "removeHealthPool": {
         "description": "Removes a health pool that was added via the Add Health Pool action.",
         "args": [
             {

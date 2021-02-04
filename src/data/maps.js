@@ -53,7 +53,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "freezethawElimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -80,7 +80,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "freezethawElimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm",
             "meisSnowballOffensive",
             "snowballFfa"
@@ -109,7 +109,7 @@ const mapKw =
         "gamemodes": [
             "hybrid",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Blizzard World",
@@ -123,7 +123,7 @@ const mapKw =
         "gamemodes": [
             "hybrid",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Blizzard World Winter",
@@ -242,7 +242,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "freezethawElimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -260,7 +260,7 @@ const mapKw =
     "chateauGuillard": {
         "guid": "0000000069CA",
         "gamemodes": [
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Château Guillard",
@@ -274,7 +274,7 @@ const mapKw =
     "chateauGuillardHalloween": {
         "guid": "000000009FA4",
         "gamemodes": [
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Château Guillard Halloween",
@@ -291,7 +291,7 @@ const mapKw =
         "gamemodes": [
             "escort",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Dorado",
@@ -307,7 +307,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "freezethawElimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -334,7 +334,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "freezethawElimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm",
             "meisSnowballOffensive",
             "snowballFfa"
@@ -363,7 +363,7 @@ const mapKw =
         "gamemodes": [
             "hybrid",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Eichenwalde",
@@ -378,7 +378,7 @@ const mapKw =
         "gamemodes": [
             "hybrid",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Eichenwalde Halloween",
@@ -407,7 +407,7 @@ const mapKw =
         "gamemodes": [
             "assault",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Hanamura",
@@ -422,7 +422,7 @@ const mapKw =
         "gamemodes": [
             "assault",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Hanamura Winter",
@@ -443,7 +443,7 @@ const mapKw =
         "gamemodes": [
             "escort",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Havana",
@@ -464,7 +464,7 @@ const mapKw =
         "gamemodes": [
             "hybrid",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Hollywood",
@@ -480,7 +480,7 @@ const mapKw =
         "gamemodes": [
             "hybrid",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Hollywood Halloween",
@@ -495,7 +495,7 @@ const mapKw =
         "gamemodes": [
             "assault",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Horizon Lunar Colony",
@@ -531,7 +531,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -558,7 +558,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -584,7 +584,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -640,7 +640,7 @@ const mapKw =
     },
     "kanezaka": {
         gamemodes: [
-            "ffa",
+            "ffa","bountyHunter",
             "tdm",
         ],
         "en-US": "Kanezaka",
@@ -650,7 +650,7 @@ const mapKw =
         "gamemodes": [
             "hybrid",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "King's Row",
@@ -666,7 +666,7 @@ const mapKw =
         "gamemodes": [
             "hybrid",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "King's Row Winter",
@@ -687,7 +687,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -713,7 +713,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -739,7 +739,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -765,7 +765,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -791,7 +791,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -817,7 +817,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -882,7 +882,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "freezethawElimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -923,7 +923,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -950,7 +950,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -977,7 +977,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -1051,7 +1051,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -1078,7 +1078,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -1105,7 +1105,7 @@ const mapKw =
         "gamemodes": [
             "elimination",
             "ctf",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -1132,7 +1132,7 @@ const mapKw =
         "gamemodes": [
             "assault",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Paris",
@@ -1148,7 +1148,7 @@ const mapKw =
     "petra": {
         "guid": "0000000081CB",
         "gamemodes": [
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Petra",
@@ -1248,7 +1248,7 @@ const mapKw =
         "gamemodes": [
             "assault",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Temple of Anubis",
@@ -1270,7 +1270,7 @@ const mapKw =
         "gamemodes": [
             "assault",
             "skirmish",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "en-US": "Volskaya Industries",
@@ -1309,7 +1309,7 @@ const mapKw =
         "gamemodes": [
             "skirmish",
             "elimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -1336,7 +1336,7 @@ const mapKw =
         "gamemodes": [
             "skirmish",
             "elimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -1363,7 +1363,7 @@ const mapKw =
         "gamemodes": [
             "skirmish",
             "elimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -1390,7 +1390,7 @@ const mapKw =
         "gamemodes": [
             "skirmish",
             "elimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "guid": "000000011F44",
@@ -1412,7 +1412,7 @@ const mapKw =
         "gamemodes": [
             "skirmish",
             "elimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
@@ -1439,7 +1439,7 @@ const mapKw =
         "gamemodes": [
             "skirmish",
             "elimination",
-            "ffa",
+            "ffa","bountyHunter",
             "tdm"
         ],
         "isSymmetrical": true,
