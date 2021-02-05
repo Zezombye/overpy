@@ -2445,11 +2445,13 @@ const actionKw =
         "return": "void",
         "guid": "000000012449",
         "en-US": "Log To Inspector",
+        "de-DE": "Log to Inspector",
         "es-MX": "Registro para Inspector",
         "fr-FR": "Enregistrer une entrée avec le contrôleur",
         "it-IT": "Log to Inspector",
         "ja-JP": "インスペクターに記録",
         "pt-BR": "Registrar no Inspetor",
+        "ru-RU": "Log to Inspector",
         "zh-CN": "记入查看器"
     },
     "__loop__": {

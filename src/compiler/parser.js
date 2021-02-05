@@ -227,7 +227,12 @@ function parseLines(lines) {
                         if (typeof lastIntValue === "number") {
                             enumMembers[args[0].name][childrenLines[k].tokens[0]] = getAstForNumber(lastIntValue);
                             lastIntValue++;
+                        } else if (lastIntValue.name === "__negate__" && lastIntValue.args[0].name === "__number__") {
+                            lastIntValue = -lastIntValue.args[0].args[0].numValue+1;
+                            enumMembers[args[0].name][childrenLines[k].tokens[0]] = getAstForNumber(lastIntValue);
+                            lastIntValue++;
                         } else {
+                            console.log(lastIntValue)
                             error("Cannot auto-increment enum member, as last value was "+functionNameToString(lastIntValue));
                         }
                     } else {
@@ -237,7 +242,9 @@ function parseLines(lines) {
                         } else {
 
                             //Check that there are only constant functions, as to not mislead the programmer; enums are just macros in disguise
-                            astContainsFunctions(enumValue, notConstantFunctions, true);
+                            if (astContainsFunctions(enumValue, notConstantFunctions, false)) {
+                                warn("w_enum_constant", "The value of "+args[0].name+"."+childrenLines[k].tokens[0]+" seems to not be constant; it will be inlined and not stored.")
+                            }
 
                             lastIntValue = enumValue;
                         }

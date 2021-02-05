@@ -112,7 +112,20 @@ const gamemodeKw =
         "zh-TW": "護送"
     },
     "freezethawElimination": {
+        "guid": "0000000122DF",
         "en-US": "Freezethaw Elimination",
+        "de-DE": "Frosttau-Eliminierung",
+        "es-ES": "Congelación fatal",
+        "es-MX": "Eliminación por congelamiento",
+        "fr-FR": "Congélimination",
+        "it-IT": "Eliminazione Congelata",
+        "ja-JP": "フリーズソー・エリミネーション",
+        "ko-KR": "얼음땡 섬멸전",
+        "pl-PL": "Mroźna Eliminacja",
+        "pt-BR": "Eliminação Descongelante",
+        "ru-RU": "Ледяная ликвидация",
+        "zh-CN": "融冰决斗",
+        "zh-TW": "凍凍大作戰"
     },
     "hybrid": {
         "guid": "00000000CD5A",
