@@ -88,13 +88,13 @@ const constantValues =
             "zh-CN": "敌人"
         },
         "NONE": {
-            "guid": "00000000B9EC",
+            "guid": "00000000B8C3",
             "en-US": "None",
             "es-MX": "Ninguno",
-            "fr-FR": "Personne",
+            "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
-            "zh-CN": "全部禁用"
+            "zh-CN": "无"
         }
     },
     "ColorLiteral": {

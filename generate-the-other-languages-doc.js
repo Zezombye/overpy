@@ -4,7 +4,7 @@ var languages = ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", 
 var docFolder = "./src/data/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
 
-var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(1)\\DataTool.exe"
+var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(2)\\DataTool.exe"
 var overwatchPath = "C:\\Program Files\\Overwatch"
 var outputFolder = "strings"
 var guids = {};
@@ -152,7 +152,7 @@ replaceJsonObjectsInFile(docFolder+"constants.js");
 replaceJsonObjectsInFile(docFolder+"heroes.js");
 replaceJsonObjectsInFile(docFolder+"maps.js");
 replaceJsonObjectsInFile(docFolder+"gamemodes.js");
-//replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
+replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
 removeParentheses = false;
 replaceJsonObjectsInFile(docFolder+"localizedStrings.js");
 replaceJsonObjectsInFile(docFolder+"other.js");

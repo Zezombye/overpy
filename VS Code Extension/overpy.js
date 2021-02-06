@@ -17860,13 +17860,13 @@ const constantValues =
             "zh-CN": "敌人"
         },
         "NONE": {
-            "guid": "00000000B9EC",
+            "guid": "00000000B8C3",
             "en-US": "None",
             "es-MX": "Ninguno",
-            "fr-FR": "Personne",
+            "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
-            "zh-CN": "全部禁用"
+            "zh-CN": "无"
         }
     },
     "ColorLiteral": {
@@ -22834,7 +22834,7 @@ const customGameSettingsSchema =
                                 "pl-PL": "2 z każdej roli na drużynę",
                                 "pt-BR": "2 de cada função por equipe",
                                 "ru-RU": "2 героя каждой роли на команду",
-                                "zh-CN": "每队同一角色类型最多2名",
+                                "zh-CN": "每队同一职责最多2名",
                                 "zh-TW": "每隊同一角色類型最多2名"
                             }
                         },
@@ -22850,7 +22850,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Ograniczenie ról",
                         "pt-BR": "Limite de função",
                         "ru-RU": "Ограничение ролей",
-                        "zh-CN": "定位限制",
+                        "zh-CN": "职责限制",
                         "zh-TW": "角色類型限制"
                     },
                     "enableRandomHeroes": {
@@ -23250,35 +23250,100 @@ const customGameSettingsSchema =
                         "min": 0,
                         "max": 1000,
                         "default": 300,
-                        "en-US": "Base Score For Killing A Bounty Target",
+                        "guid": "000000012847",
+                        "en-US": "Base Score for Killing a Bounty Target",
+                        "de-DE": "Grundpunktzahl für das Töten eines Kopfgeldziels",
+                        "es-ES": "Puntuación base por asesinar a un objetivo de la recompensa",
+                        "es-MX": "Puntuación básica por eliminar a un objetivo de recompensa",
+                        "fr-FR": "Score de base obtenu en tuant une cible",
+                        "it-IT": "Punteggio base per l'uccisione di un Ricercato",
+                        "ja-JP": "賞金首をキルした際の基本スコア",
+                        "ko-KR": "무법자를 처치하여 얻는 기본 점수",
+                        "pl-PL": "Podstawowy wynik za likwidację celu",
+                        "pt-BR": "Pontuação Básica por Abater o Alvo",
+                        "ru-RU": "Базовые очки за убийство цели охоты",
+                        "zh-CN": "消灭狩猎目标基础得分",
+                        "zh-TW": "擊殺懸賞目標的基礎得分"
                     },
                     "bountyIncreasePerKillAsBountyTarget": {
                         "values": "__int__",
                         "min": 0,
                         "max": 1000,
                         "default": 0,
-                        "en-US": "Base Score For Killing A Bounty Target",
+                        "guid": "000000012AED",
+                        "en-US": "Bounty Increase per Kill as Bounty Target",
+                        "de-DE": "Anstieg des Kopfgelds pro Kill als Kopfgeldziel",
+                        "es-ES": "Aumenta la recompensa por cada asesinato siendo objetivo de la recompensa",
+                        "es-MX": "Incremento de recompensa por eliminación como objetivo de recompensa",
+                        "fr-FR": "La prime augmente à chaque élimination effectuée par la cible",
+                        "it-IT": "Incremento della taglia per uccisione come Ricercato",
+                        "ja-JP": "賞金首としてのキルごとに増加する懸賞金",
+                        "ko-KR": "무법자일 때 적을 처치하면 증가하는 현상금",
+                        "pl-PL": "Przyrost nagród za każdą likwidację jako cel",
+                        "pt-BR": "Aumento da Recompensa por Abate como Alvo",
+                        "ru-RU": "Бонус к награде за убийство в роли цели охоты",
+                        "zh-CN": "狩猎目标每次消灭赏金加值",
+                        "zh-TW": "成為懸賞目標時每次擊殺提高的賞金"
                     },
                     "nbBountyTargets": {
                         "values": "__int__",
                         "min": 1,
-                        "max": 1, //wut
+                        "max": 1,
                         "default": 1,
+                        "guid": "00000001284F",
                         "en-US": "Bounty Target Count",
+                        "de-DE": "Anzahl an Kopfgeldern",
+                        "es-ES": "Contador de objetivos de la recompensa",
+                        "es-MX": "Conteo de objetivos de recompensa",
+                        "fr-FR": "Nombre de fois la cible",
+                        "it-IT": "Conteggio Ricercato",
+                        "ja-JP": "賞金首の数",
+                        "ko-KR": "무법자 수",
+                        "pl-PL": "Liczba celów",
+                        "pt-BR": "Vezes como Alvo",
+                        "ru-RU": "Число целей",
+                        "zh-CN": "狩猎目标数量",
+                        "zh-TW": "成為懸賞目標的次數"
                     },
                     "scorePerKill": {
                         "values": "__int__",
                         "min": 0,
                         "max": 1000,
                         "default": 100,
-                        "en-US": "Score Per Kill",
+                        "guid": "000000012843",
+                        "en-US": "Score per Kill",
+                        "de-DE": "Punktzahl pro Kill",
+                        "es-ES": "Puntuación por asesinato",
+                        "es-MX": "Puntuación por eliminación",
+                        "fr-FR": "Points par élimination",
+                        "it-IT": "Punteggio per uccisione",
+                        "ja-JP": "キルごとのスコア",
+                        "ko-KR": "처치당 점수",
+                        "pl-PL": "Punkty za likwidację",
+                        "pt-BR": "Pontuação por Abate",
+                        "ru-RU": "Очков за убийство",
+                        "zh-CN": "每次消灭得分",
+                        "zh-TW": "每次擊殺得分"
                     },
                     "scorePerKillAsBountyTarget": {
                         "values": "__int__",
                         "min": 0,
                         "max": 1000,
                         "default": 300,
-                        "en-US": "Score Per Kill As Bounty Target",
+                        "guid": "000000012846",
+                        "en-US": "Score per Kill as Bounty Target",
+                        "de-DE": "Punktzahl pro Kill als Kopfgeldziel",
+                        "es-ES": "Puntuación por cada asesinato siendo objetivo de la recompensa",
+                        "es-MX": "Puntuación por eliminación como objetivo de recompensa",
+                        "fr-FR": "Points par élimination en tant que cible",
+                        "it-IT": "Punteggio per uccisione come Ricercato",
+                        "ja-JP": "賞金首としてのキルごとのスコア",
+                        "ko-KR": "무법자로 처치당 점수",
+                        "pl-PL": "Punkty za likwidację jako cel",
+                        "pt-BR": "Pontuação por Abate como Alvo",
+                        "ru-RU": "Очки за убийство в роли цели охоты",
+                        "zh-CN": "狩猎目标每次消灭得分",
+                        "zh-TW": "成為懸賞目標時每次擊殺得分"
                     },
                     "gameLengthInMn": {
                         "guid": "00000000632C",
@@ -23872,7 +23937,7 @@ const customGameSettingsSchema =
                                 "ko-KR": "팀 규모",
                                 "pl-PL": "Wielkość drużyn",
                                 "pt-BR": "Tamanho da equipe",
-                                "ru-RU": "Величина команды",
+                                "ru-RU": "По размеру команды",
                                 "zh-CN": "队伍人数",
                                 "zh-TW": "隊伍人數"
                             },
@@ -23888,7 +23953,7 @@ const customGameSettingsSchema =
                                 "ko-KR": "팀 규모 +1",
                                 "pl-PL": "Wielkość drużyn: +1",
                                 "pt-BR": "Tamanho da equipe +1",
-                                "ru-RU": "Величина команды +1",
+                                "ru-RU": "По размеру команды +1",
                                 "zh-CN": "队伍人数+1",
                                 "zh-TW": "隊伍人數+1"
                             },
@@ -23904,7 +23969,7 @@ const customGameSettingsSchema =
                                 "ko-KR": "팀 규모 +2",
                                 "pl-PL": "Wielkość drużyn: +2",
                                 "pt-BR": "Tamanho da equipe +2",
-                                "ru-RU": "Величина команды +2",
+                                "ru-RU": "По размеру команды +2",
                                 "zh-CN": "队伍人数+2",
                                 "zh-TW": "隊伍人數+2"
                             },
@@ -23920,7 +23985,7 @@ const customGameSettingsSchema =
                                 "ko-KR": "팀 규모 +3",
                                 "pl-PL": "Wielkość drużyn: +3",
                                 "pt-BR": "Tamanho da equipe +3",
-                                "ru-RU": "Величина команды +3",
+                                "ru-RU": "По размеру команды +3",
                                 "zh-CN": "队伍人数+3",
                                 "zh-TW": "隊伍人數+3"
                             }
@@ -23994,7 +24059,7 @@ const customGameSettingsSchema =
                         "ko-KR": "점령할 시간",
                         "pl-PL": "Czas na zajęcia",
                         "pt-BR": "Tempo para captura",
-                        "ru-RU": "Время для захвата",
+                        "ru-RU": "Время на захват",
                         "zh-CN": "占领时间",
                         "zh-TW": "佔領所需的時間"
                     },
@@ -24263,7 +24328,7 @@ const customGameSettingsSchema =
                                 "ko-KR": "팀 규모",
                                 "pl-PL": "Wielkość drużyn",
                                 "pt-BR": "Tamanho da equipe",
-                                "ru-RU": "Величина команды",
+                                "ru-RU": "По размеру команды",
                                 "zh-CN": "队伍人数",
                                 "zh-TW": "隊伍人數"
                             },
@@ -24279,7 +24344,7 @@ const customGameSettingsSchema =
                                 "ko-KR": "팀 규모 +1",
                                 "pl-PL": "Wielkość drużyn: +1",
                                 "pt-BR": "Tamanho da equipe +1",
-                                "ru-RU": "Величина команды +1",
+                                "ru-RU": "По размеру команды +1",
                                 "zh-CN": "队伍人数+1",
                                 "zh-TW": "隊伍人數+1"
                             },
@@ -24295,7 +24360,7 @@ const customGameSettingsSchema =
                                 "ko-KR": "팀 규모 +2",
                                 "pl-PL": "Wielkość drużyn: +2",
                                 "pt-BR": "Tamanho da equipe +2",
-                                "ru-RU": "Величина команды +2",
+                                "ru-RU": "По размеру команды +2",
                                 "zh-CN": "队伍人数+2",
                                 "zh-TW": "隊伍人數+2"
                             },
@@ -24311,7 +24376,7 @@ const customGameSettingsSchema =
                                 "ko-KR": "팀 규모 +3",
                                 "pl-PL": "Wielkość drużyn: +3",
                                 "pt-BR": "Tamanho da equipe +3",
-                                "ru-RU": "Величина команды +3",
+                                "ru-RU": "По размеру команды +3",
                                 "zh-CN": "队伍人数+3",
                                 "zh-TW": "隊伍人數+3"
                             }
@@ -24385,7 +24450,7 @@ const customGameSettingsSchema =
                         "ko-KR": "점령할 시간",
                         "pl-PL": "Czas na zajęcia",
                         "pt-BR": "Tempo para captura",
-                        "ru-RU": "Время для захвата",
+                        "ru-RU": "Время на захват",
                         "zh-CN": "占领时间",
                         "zh-TW": "佔領所需的時間"
                     },
@@ -24589,7 +24654,6 @@ const customGameSettingsSchema =
             },
             "skirmish": {
                 "values": {
-
                     "setValidControlPoints": {
                         "values": {
                             "all": {
@@ -24672,7 +24736,7 @@ const customGameSettingsSchema =
                         "ru-RU": "Ограничение контрольных точек",
                         "zh-CN": "有效控制点选择",
                         "zh-TW": "限制地圖控制點"
-                    },
+                    }
                 }
             },
             "practiceRange": {

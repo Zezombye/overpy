@@ -1,13 +1,13 @@
-[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
+[Core] DataTool v1.57.0.939-git-445d31f8d7165448a046432b61363fce36a53d85
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.56.0.0.77262
+[CASC] Overwatch build 1.57.0.0.78040
 [CASC] Initializing...
-[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 78040 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -9232,7 +9232,7 @@ THIS SOFTWARE.
 00000000548E.07C: <fg%1$s>PAREGGIO</fg>
 00000000548F.07C: PALLE DI NEVE
 000000005490.07C: 50 Forzieri Invernali
-000000005491.07C: Ogni Forziere contiene una combinazione di 4 oggetti cosmetici e/o crediti di gioco, tra cui almeno un oggetto di Magico Inverno. I Forzieri si ottengono attraverso i sistemi di gioco.
+000000005491.07C: Ogni Forziere contiene una combinazione di 4 oggetti cosmetici e/o crediti di gioco, tra cui almeno un oggetto del Capodanno Lunare. I Forzieri si ottengono attraverso i sistemi di gioco.
 000000005492.07C: 24 Forzieri Invernali
 000000005493.07C: 2 Forzieri Invernali
 000000005494.07C: 5 Forzieri Invernali
@@ -10632,7 +10632,7 @@ un nome di giocatore o BattleTag in una lingua diversa dalla tua.
 000000006147.07C: Dimensioni squadra: +1
 000000006148.07C: Dimensioni squadra: +2
 000000006149.07C: Dimensioni squadra: +3
-00000000615A.07C: Ogni Forziere Celebrativo contiene una combinazione di 4 oggetti cosmetici e/o crediti di gioco, tra cui almeno un oggetto Celebrativo. I Forzieri Celebrativi si ottengono attraverso i sistemi di gioco.
+00000000615A.07C: Ogni Forziere contiene una combinazione di 4 oggetti cosmetici e/o crediti di gioco, tra cui almeno un oggetto del Capodanno Lunare. I Forzieri si ottengono attraverso i sistemi di gioco.
 00000000615B.07C: Rivelazione eroi dopo lo scadere del tempo
 00000000615C.07C: Pareggio dopo lo scadere del tempo (senza spareggio)
 00000000615D.07C: Spareggio dopo lo scadere del tempo
@@ -22245,9 +22245,6 @@ Deathmatch competitivo 2019
 00000000CA0C.07C: Devi scegliere un ruolo prima di metterti in coda con la tua formazione. Vuoi farlo ora?
 00000000CA0D.07C: Negozi
 00000000CA0E.07C: Negozio
-00000000CA11.07C: Sfida Kanezaka
-00000000CA13.07C: Settimana 2: Ana Pan di Zenzero
-00000000CA14.07C: Settimana 3: Roadhog Pupazzo di Neve
 00000000CA15.07C: Vinci 9 partite rapide, Arcade o competitive!
 00000000CA16.07C: Vinci 9 partite rapide, Arcade o competitive!
 00000000CA17.07C: Vinci 9 partite rapide, Arcade o competitive!
@@ -26438,7 +26435,7 @@ che inizi la tua partita:
 00000000F4DF.07C: Osservazione
 00000000F4E0.07C: Disponibile nei Forzieri Archivi
 00000000F523.07C: Sbloccato per essersi connessi al gioco durante l'evento Magico Inverno 2019
-00000000F528.07C: Anno del Topo 2020
+00000000F528.07C: Anno del Topo
 00000000F529.07C: Anno del Topo
 00000000F52A.07C: Disponibile nei Forzieri Lunari
 00000000F52E.07C: Palestra
@@ -27132,6 +27129,7 @@ che inizi la tua partita:
 00000001041C.07C: Eroe Stagione 22
 00000001041E.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 22
 00000001041F.07C: Sbloccato per essere entrato nella Top 500 della Stagione 22
+000000010427.07C: Raynhardt
 00000001043B.07C: Segnala
 000000010473.07C: Lúcioball Remix
 000000010476.07C: Lúcioball Remix
@@ -28326,6 +28324,7 @@ Assistenza Blizzard
 00000001125F.07C: Il Giocatore o i Giocatori Osservatori per i quali gli Indicatori Nome dei Giocatori Osservati saranno disattivati.
 000000011262.07C: Test Conquista
 000000011263.07C: Una versione sperimentale di Conquista
+000000011265.07C: Tigre Cacciatrice
 000000011266.07C: %1$s ha segnato un GOL da %2$s pt!
 000000011268.07C: %1$s ha segnato un GOL da %2$s pt!
 00000001126A.07C: %1$s - Gol da 1 pt segnato!
@@ -28527,10 +28526,12 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000114DF.07C: Guarda l'Overwatch League
 0000000114E4.07C: Pan di Zenzero
 00000001152E.07C: Taglialegna
+0000000115E4.07C: Kkachi
 000000011605.07C: Eliminazione 3v3 (competitiva) - Stagione 3
 000000011606.07C: Eliminazione (competitiva)
 000000011607.07C: Scala la classifica e affronta i migliori giocatori di Eliminazione del mondo!
 000000011624.07C: Pupazzo di Neve
+000000011627.07C: Serpe Bianca
 000000011654.07C: Bambola di Pezza
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Maggiori informazioni
@@ -28589,6 +28590,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000116EA.07C: Eroi squadra 2
 0000000116FF.07C: Coppa Lúcioball
 000000011700.07C: Deathmatch (competitivo)
+000000011711.07C: Demone Toro
 00000001171D.07C: Uno o più membri della formazione stanno per esaurire il tempo di gioco a disposizione
 000000011744.07C: 1 Forziere Leggendario e 5 Forzieri
 000000011745.07C: 15 crediti più 1 Forziere Leggendario e 5 Forzieri gratuiti
@@ -28603,7 +28605,6 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000117A8.07C: Deathmatch a squadre (competitivo)
 0000000117A9.07C: Cattura la Bandiera (competitiva)
 0000000117AA.07C: Coda aperta (competitiva)
-0000000117BA.07C: Sfida Kanezaka
 0000000117FC.07C: Pietra
 00000001180C.07C: La Vendetta di Junkenstein - Fantasma Vendicativo
 00000001180D.07C: La Vendetta di Junkenstein - Carica Frenetica
@@ -28777,6 +28778,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000011B1A.07C: Maggiori informazioni
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
+000000011B45.07C: Ruggito del Leone
 000000011B47.07C: Ondata raggiunta:
 000000011B5A.07C: Guarda i Contenders!
 000000011BB5.07C: https://eu.battle.net/support/it/article/42673
@@ -28789,6 +28791,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000011C0D.07C: Imposta il Giocatore che riceverà il credito se il Giocatore o i Giocatori bersaglio specificati muoiono a causa dell'ambientazione prima di toccare terra.
 000000011C0F.07C: Bersaglio
 000000011C10.07C: HUD eroe prima persona
+000000011C4B.07C: Drago di Fuoco
 000000011C50.07C: Default
 000000011C51.07C: Occluded
 000000011C52.07C: Always
@@ -28863,6 +28866,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
+000000011DAC.07C: Xiake
 000000011DC8.07C: Bufera di Neve
 000000011E36.07C: Concorrente Deathmatch a squadre (competitivo) 2020
 000000011E37.07C: Sbloccato per aver completato le partite di piazzamento di Deathmatch a squadre (competitivo) 2020
@@ -29216,6 +29220,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012536.07C: Interrompi la Ultra di un nemico congelandolo in Eliminazione Congelata.
 000000012537.07C: Una mano sgela l'altra
 000000012538.07C: Scongela un eroe che ti aveva scongelato in precedenza in un round di Eliminazione Congelata.
+000000012539.07C: Gran Finale
 00000001253A.07C: LAT MIN: %1$s MS
 00000001253E.07C: Competitiva
 00000001253F.07C: PARTECIPANDO, OTTIENI QUESTE RICOMPENSE
@@ -29293,6 +29298,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012651.07C: Attiva/Disattiva Pass Priorità
 000000012659.07C: COMPAGNO DI SQUADRA GIÀ IN FASE DI SCONGELAMENTO
 00000001265A.07C: COMPAGNO DI SQUADRA GIÀ IN FASE DI SCONGELAMENTO
+00000001266A.07C: Medico di Terracotta
 00000001266E.07C: Mettiti in coda come multiruolo nella Coda Ruoli per ottenere Pass Priorità. Vincendo partite ne guadagnerai di più!
 00000001266F.07C: Usa un Pass Priorità per ridurre il tempo di coda per iniziare una partita con il ruolo selezionato. Saranno disponibili solo i ruoli più richiesti in quel momento.
 000000012670.07C: Se tutti i membri della formazione in coda per ruoli molto richiesti usano un Pass, verrà ridotto il tempo di coda dell'intera formazione. 
@@ -29351,6 +29357,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 00000001279E.07C: Pupazzo di Neve
 00000001279F.07C: /%1$s
 0000000127A4.07C: Multiruolo
+0000000127A5.07C: Hongbao
 0000000127C0.07C: Vischio
 0000000127C2.07C: Abilita file di registro del Workshop Inspector
 0000000127C5.07C: 1,75x
@@ -29375,17 +29382,31 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000127EF.07C: Stagione 26
 0000000127F0.07C: Stagione 26
 0000000127FC.07C: Stagione competitiva 26 - Coda aperta
+000000012802.07C: Toro Luminoso
 000000012804.07C: Partite di piazzamento
 000000012805.07C: Elfo Congelato
 000000012807.07C: Scongelamento Reciproco
 000000012808.07C: Lancio del Biscotto
+000000012809.07C: 30° Anniversario di Blizzard
+00000001280B.07C: 30° Anniversario di Blizzard
+000000012825.07C: Guardia Imperiale
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+00000001283A.07C: Sbloccato acquistando la Celebration Collection
+00000001283B.07C: Sbloccato acquistando la Celebration Collection
+00000001283D.07C: Sbloccato acquistando la Celebration Collection
+000000012841.07C: Cacciatori di Taglie
+000000012842.07C: Ottieni punti uccidendo il Ricercato per acquisire la sua taglia e diventare Ricercato a tua volta con salute aumentata e la Ultra caricata al massimo. Ottieni punti bonus uccidendo eroi non Ricercati come Ricercato. 
+000000012843.07C: Punteggio per uccisione
+000000012846.07C: Punteggio per uccisione come Ricercato
+000000012847.07C: Punteggio base per l'uccisione di un Ricercato
+00000001284F.07C: Conteggio Ricercato
 000000012850.07C: Kyōgisha
 00000001286D.07C: Kanezaka
 00000001287A.07C: Impossibile guardare il replay di una partita incerta.
 00000001287B.07C: OK
+00000001287C.07C: <fg%1$s>HAI UNA TAGLIA</fg>
 0000000128AB.07C: Sbloccato per aver partecipato alla Sfida Kanezaka
 0000000128AF.07C: Sbloccato per aver partecipato alla Sfida Kanezaka
 0000000128B0.07C: Distretto del Santuario
@@ -29403,6 +29424,141 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000128E5.07C: Abbiamo rimborsato il tuo Pass Priorità.
 0000000128E6.07C: Mostra tempo di riproduzione separatamente
 000000012965.07C: Il tuo Pass Priorità non sarà utilizzato perché il tuo tempo di coda è stato maggiore del previsto.
+000000012A82.07C: Anno del Bue 2021
+000000012A83.07C: Viso di Pietra
+000000012A84.07C: Sbloccato per aver partecipato alla sfida dell'Anno del Bue 2021, Settimana 1
+000000012A85.07C: Squadra di Terracotta
+000000012A87.07C: Pistola Fumante
+000000012A88.07C: Sbloccato per aver partecipato alla sfida dell'Anno del Bue 2021, Settimana 2
+000000012A89.07C: Viandante
+000000012A8E.07C: Imperiale
+000000012A8F.07C: Sbloccato per aver partecipato alla sfida dell'Anno del Bue 2021, Settimana 3
+000000012A90.07C: Siwang
+000000012A91.07C: Sbloccato per aver partecipato alla sfida dell'Anno del Bue 2021, Settimana 3
 000000012ADC.07C: < 5 |Rpl min.
 000000012ADD.07C: > 10 |Rpl min.
-[Core] Execution finished in 00:00:00.4386909 seconds
+000000012AED.07C: Incremento della taglia per uccisione come Ricercato
+000000012AF0.07C: Metti in pausa la partita
+000000012AF1.07C: Riprendi la partita
+000000012B32.07C: Non disponibile per ragioni sconosciute
+000000012B34.07C: Modalità CLB
+000000012B35.07C: Modalità di gioco CLB
+000000012B56.07C: Cacciatori di Taglie
+000000012B57.07C: Danza dei Ventagli
+000000012B58.07C: Uccidi il Ricercato per ottenere la sua taglia e diventare il nuovo Ricercato. I Ricercati ottengono punti aggiuntivi per le uccisioni.
+000000012B6E.07C: Path to Pro 2021
+000000012B6F.07C: Path to Pro 2021
+000000012B70.07C: 6 giocatori TCT
+000000012B71.07C: VITTORIA: il primo giocatore che raggiunge 4000 punti
+000000012B8B.07C: Nuovo
+000000012B8E.07C: Tempismo perfetto
+000000012B8F.07C: Uccidi 3 nemici come Ricercato senza morire in Cacciatori di Taglie
+000000012B90.07C: Arma a doppia taglia
+000000012B91.07C: Ottieni 8 taglie in una partita di Cacciatori di Taglie
+000000012B92.07C: Caccia grossa
+000000012B93.07C: Uccidi il Ricercato mentre sta utilizzando una Ultra in Cacciatori di Taglie
+000000012B95.07C: Uccisione di un Ricercato
+000000012B96.07C: Uccisione di un giocatore come Ricercato
+000000012B97.07C: Punteggio
+000000012BD4.07C: Concorrente CLB (competitiva) 2021
+000000012BD5.07C: Sbloccato per aver completato le partite di piazzamento di Cattura la Bandiera (competitiva) 2021
+000000012BD6.07C: Eroe CLB (competitiva) 2021
+000000012BD7.07C: Sbloccato per essere entrato nella Top 500 di Cattura la Bandiera (competitiva) 2021
+000000012BD8.07C: Eroe CLB (competitiva) 2021
+000000012BD9.07C: Sbloccato per essere entrato nella Top 500 di Cattura la Bandiera (competitiva) 2021
+000000012BDA.07C: Concorrente CLB (competitiva) 2021
+000000012BDC.07C: Cattura la Bandiera (competitiva)
+000000012BDD.07C: Scala la classifica e affronta i migliori giocatori di Cattura la Bandiera del mondo!
+000000012BDE.07C: CLB (competitiva) - Stagione 4
+000000012C16.07C: P
+000000012C17.07C: Compagnia Brillante
+000000012C37.07C: Settimana 1: modello Medico di Terracotta
+000000012C38.07C: Furia del Toro
+000000012C39.07C: Disponibile nei Forzieri Lunari
+000000012C3A.07C: Aglio
+000000012C3B.07C: Disponibile nei Forzieri Lunari
+000000012C3C.07C: Tuono
+000000012C3D.07C: Disponibile nei Forzieri Lunari
+000000012C3E.07C: Gratitudine
+000000012C3F.07C: Disponibile nei Forzieri Lunari
+000000012C40.07C: Volo del Drago
+000000012C41.07C: Disponibile nei Forzieri Lunari
+000000012C42.07C: Tra le Lanterne
+000000012C43.07C: Disponibile nei Forzieri Lunari
+000000012C44.07C: Faccia a Faccia
+000000012C45.07C: Disponibile nei Forzieri Lunari
+000000012C46.07C: Fuorilegge
+000000012C47.07C: Disponibile nei Forzieri Lunari
+000000012C48.07C: Tigre
+000000012C49.07C: Disponibile nei Forzieri Lunari
+000000012C4A.07C: Toro
+000000012C4B.07C: Disponibile nei Forzieri Lunari
+000000012C4C.07C: Serpe
+000000012C4D.07C: Disponibile nei Forzieri Lunari
+000000012C4E.07C: Gazza
+000000012C4F.07C: Disponibile nei Forzieri Lunari
+000000012C50.07C: Settimana 2: modello Xiake
+000000012C51.07C: Testa di Drago
+000000012C52.07C: Disponibile nei Forzieri Lunari
+000000012C53.07C: Settimana 3: modello Guardia Imperiale
+000000012C5B.07C: 50 Forzieri Lunari e 10 Forzieri Lunari gratuiti
+000000012C60.07C: Eroe Stagione 27
+000000012C61.07C: Sbloccato per essere entrato nella Top 500 della Stagione 27
+000000012C64.07C: Eroe Stagione 27
+000000012C65.07C: Sbloccato per essere entrato nella Top 500 della Stagione 27
+000000012C66.07C: Concorrente Stagione 27
+000000012C67.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 27
+000000012C68.07C: Concorrente Stagione 27
+000000012C69.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 27
+000000012C6B.07C: Disponibile nei Forzieri Lunari
+000000012C6D.07C: Quanto vorrei poter mangiare...
+000000012C6E.07C: Lunga vita e prosperità
+000000012C6F.07C: Disponibile nei Forzieri Lunari
+000000012C70.07C: Buon Anno del Bue
+000000012C71.07C: Disponibile nei Forzieri Lunari
+000000012C72.07C: Prova il bario!
+000000012C73.07C: Disponibile nei Forzieri Lunari
+000000012C74.07C: Muu!
+000000012C75.07C: Disponibile nei Forzieri Lunari
+000000012C76.07C: Forte come un bue
+000000012C77.07C: Disponibile nei Forzieri Lunari
+000000012C78.07C: La vita è un rodeo
+000000012C79.07C: Disponibile nei Forzieri Lunari
+000000012C7A.07C: Non c'è bue senza tre
+000000012C7B.07C: Disponibile nei Forzieri Lunari
+000000012C7E.07C: Disgustoso
+000000012C7F.07C: Disponibile nei Forzieri Lunari
+000000012C80.07C: Caos
+000000012C81.07C: Disponibile nei Forzieri Lunari
+000000012C82.07C: Lavori troppo
+000000012C83.07C: Disponibile nei Forzieri Lunari
+000000012C84.07C: Perseveranza
+000000012C85.07C: Disponibile nei Forzieri Lunari
+000000012C8A.07C: Caccia Grossa
+000000012C8D.07C: Arma a Doppia Taglia
+000000012C90.07C: Tempismo Perfetto
+000000012C92.07C: CONTINUA
+000000012C93.07C: Festeggia l'Anno del Bue con Forzieri Lunari! Ottieni nuovi modelli, highlight e molto altro!
+000000012C94.07C: Cacciatori di Taglie
+000000012C95.07C: È in arrivo una nuova modalità Deathmatch! Riscuoti taglie e uccidi altri cacciatori di taglie!
+000000012C97.07C: L'evento termina il 25 febbraio
+000000012C99.07C: Sfide Settimanali
+000000012C9A.07C: Settimana 1
+000000012C9B.07C: Settimana 2
+000000012C9C.07C: Settimana 3
+000000012C9D.07C: Celebrazione della Luna
+000000012C9E.07C: Anno del Bue
+000000012C9F.07C: Deathmatch a 6 giocatori
+000000012CA0.07C: Sblocca nuovi modelli
+000000012CA2.07C: Sbloccato per aver partecipato alla sfida dell'Anno del Bue 2021, Settimana 3
+000000012CA8.07C: 
+000000012CA9.07C: 
+000000012CAA.07C: 
+000000012CB5.07C: |Rfn %1$s:N0;
+000000012CB6.07C: |Rfn %1$s:N0;
+000000012CB7.07C: |Rfn %1$s:N0;
+000000012CB8.07C: |Rfn %1$s:N0;
+000000012CB9.07C: |Rfn %1$s:N0;
+000000012D10.07C: 120 crediti e 60 Forzieri Lunari gratuiti
+000000012D46.07C: Anno del Bue
+[Core] Execution finished in 00:00:00.4055489 seconds

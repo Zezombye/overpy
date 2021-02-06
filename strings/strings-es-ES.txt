@@ -1,13 +1,13 @@
-[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
+[Core] DataTool v1.57.0.939-git-445d31f8d7165448a046432b61363fce36a53d85
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: esES | Speech Language: esES
-[CASC] Overwatch build 1.56.0.0.77262
+[CASC] Overwatch build 1.57.0.0.78040
 [CASC] Initializing...
-[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LesES_text_EExt.cmf
+[Manifest] Using TRG procedure 78040 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LesES_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -9265,7 +9265,7 @@ THIS SOFTWARE.
 00000000548E.07C: <fg%1$s>EMPATE</fg>
 00000000548F.07C: PELEA DE BOLAS DE NIEVE
 000000005490.07C: 50 cajas de botín de Inverlandia
-000000005491.07C: Cada caja de botín contiene una combinación de hasta 4 objetos cosméticos, entre los que se incluye al menos uno de Inverlandia o créditos para el juego. Las cajas de botín se pueden obtener jugando. 
+000000005491.07C: Cada caja de botín contiene una combinación de hasta 4 objetos cosméticos, entre los que se incluye al menos uno del Año Nuevo Lunar o créditos para el juego. Las cajas de botín se pueden obtener jugando.
 000000005492.07C: 24 cajas de botín de Inverlandia
 000000005493.07C: 2 cajas de botín de Inverlandia
 000000005494.07C: 5 cajas de botín de Inverlandia
@@ -10376,7 +10376,7 @@ Un nombre de jugador o BattleTag que esté en un idioma distinto.
 000000005E5B.07C: Explicación científica
 000000005E5D.07C: Tener más cuidado
 000000005E5F.07C: Por qué me molesto
-000000005E64.07C: Error: El divisor es 0.
+000000005E64.07C: Error: El divisor es 0
 000000005E66.07C: Fase beta
 000000005E68.07C: No es nada personal
 000000005E6A.07C: Reina de los cohetes
@@ -10665,7 +10665,7 @@ Un nombre de jugador o BattleTag que esté en un idioma distinto.
 000000006147.07C: Tamaño de equipo +1
 000000006148.07C: Tamaño de equipo +2
 000000006149.07C: Tamaño de equipo +3
-00000000615A.07C: Cada caja de botín del aniversario contiene una combinación de hasta 4 objetos cosméticos, entre los que se incluye al menos uno del aniversario o créditos para el juego. Las cajas de botín del aniversario se pueden obtener jugando. 
+00000000615A.07C: Cada caja de botín contiene una combinación de hasta 4 objetos cosméticos, entre los que se incluye al menos uno del Año Nuevo Lunar o créditos para el juego. Las cajas de botín se pueden obtener jugando.
 00000000615B.07C: Revelar a héroes una vez transcurrido el tiempo de la partida
 00000000615C.07C: Empate una vez transcurrido el tiempo de la partida sin desempate
 00000000615D.07C: Desempate una vez transcurrido el tiempo de la partida
@@ -22274,9 +22274,6 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000CA0C.07C: Selecciona una función para poner en cola a tu equipo. ¿Seleccionarla ahora?
 00000000CA0D.07C: Tiendas
 00000000CA0E.07C: Tienda
-00000000CA11.07C: Desafío Kanezaka
-00000000CA13.07C: Semana 2: Ana de jengibre
-00000000CA14.07C: Semana 3: Roadhog fresquito
 00000000CA15.07C: ¡Gana 9 partidas rápidas, de Arcade o competitivas!
 00000000CA16.07C: ¡Gana 9 partidas rápidas, de Arcade o competitivas!
 00000000CA17.07C: ¡Gana 9 partidas rápidas, de Arcade o competitivas!
@@ -26462,7 +26459,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F4DF.07C: Observación
 00000000F4E0.07C: Disponible en las cajas de botín de los Archivos
 00000000F523.07C: Se desbloquea al entrar en el juego durante el evento de Inverlandia de 2019
-00000000F528.07C: Año de la Rata 2020
+00000000F528.07C: Año de la Rata
 00000000F529.07C: Año de la Rata
 00000000F52A.07C: Disponible en las cajas de botín del Año Nuevo Lunar
 00000000F52E.07C: Entrenamiento
@@ -27154,6 +27151,7 @@ https://account.blizzard.com/connections/nintendo
 00000001041C.07C: Héroe de la temporada 22
 00000001041E.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 22
 00000001041F.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 22
+000000010427.07C: Raynhardt
 00000001043B.07C: Informar
 000000010473.07C: Lúciobol Remix
 000000010476.07C: Lúciobol Remix
@@ -28348,6 +28346,7 @@ Asistencia de Blizzard
 00000001125F.07C: Jugador o jugadores observadores para los que se deshabilitará el nombre de los jugadores observados.
 000000011262.07C: Prueba de asalto
 000000011263.07C: Una versión experimental de asalto
+000000011265.07C: Cazadora de tigres
 000000011266.07C: ¡%1$s ha marcado un gol de %2$s p.!
 000000011268.07C: ¡%1$s ha marcado un gol de %2$s p.!
 00000001126A.07C: ¡Gol de %1$s p.!
@@ -28547,10 +28546,12 @@ Asistencia de Blizzard
 0000000114DF.07C: Disfruta de la Overwatch League
 0000000114E4.07C: Jengibre
 00000001152E.07C: Leñador
+0000000115E4.07C: Kkachi
 000000011605.07C: Temporada 3 del modo competitivo de Eliminación 3c3
 000000011606.07C: Modo competitivo de Eliminación
 000000011607.07C: ¡Salta al campo de batalla y compite con los mejores jugadores de Eliminación del mundo!
 000000011624.07C: Fresquito
+000000011627.07C: Áspid pálida
 000000011654.07C: Muñeca de trapo
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Más información
@@ -28605,6 +28606,7 @@ Asistencia de Blizzard
 0000000116EA.07C: Equipo 2: héroes
 0000000116FF.07C: Copa de Lúciobol
 000000011700.07C: Combate a muerte competitivo
+000000011711.07C: Demonio buey
 00000001171D.07C: Uno o más miembros del grupo están a punto de quedarse sin tiempo de juego
 000000011744.07C: 1 caja de botín legendaria y 5 cajas de botín clásicas
 000000011745.07C: 15 créditos y, de regalo, 1 caja legendaria y 5 cajas de botín
@@ -28619,7 +28621,6 @@ Asistencia de Blizzard
 0000000117A8.07C: Combate a muerte por equipos competitivo
 0000000117A9.07C: CLB competitivo
 0000000117AA.07C: Cola abierta competitiva
-0000000117BA.07C: Desafío Kanezaka
 0000000117FC.07C: Piedra
 00000001180C.07C: Fantasma vengativo en La venganza de Junkenstein
 00000001180D.07C: Estampida frenética en La venganza de Junkenstein
@@ -28793,6 +28794,7 @@ Asistencia de Blizzard
 000000011B1A.07C: Más información
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
+000000011B45.07C: El león ruge
 000000011B47.07C: Oleada alcanzada:
 000000011B5A.07C: ¡Sigue Contenders!
 000000011BB5.07C: https://eu.battle.net/support/es/article/42673
@@ -28805,6 +28807,7 @@ Asistencia de Blizzard
 000000011C0D.07C: Establece el jugador que recibirá la atribución si el jugador o jugadores objetivo especificados sufren la muerte por el entorno antes de caer al suelo.
 000000011C0F.07C: Objetivo
 000000011C10.07C: 1.ª persona: HUD de héroe
+000000011C4B.07C: Aliento del dragón
 000000011C50.07C: Default
 000000011C51.07C: Occluded
 000000011C52.07C: Always
@@ -28879,6 +28882,7 @@ Asistencia de Blizzard
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
+000000011DAC.07C: Xiake
 000000011DC8.07C: Nevisca
 000000011E36.07C: Competidor de Combate a muerte por equipos competitivo 2020
 000000011E37.07C: Se desbloquea al completar las partidas de posicionamiento del modo competitivo de Combate a muerte por equipos de 2020
@@ -29232,6 +29236,7 @@ Asistencia de Blizzard
 000000012536.07C: Interrumpe la definitiva de un enemigo congelándolo en Congelación fatal.
 000000012537.07C: ¿Quién dijo frío?
 000000012538.07C: Derrite a un jugador que te haya derretido a ti en una ronda de Congelación fatal.
+000000012539.07C: Gran final
 00000001253A.07C: LAT. MÍN.: %1$s MS
 00000001253E.07C: Competitiva
 00000001253F.07C: PARTICIPA PARA OBTENER ESTAS RECOMPENSAS
@@ -29257,13 +29262,13 @@ Asistencia de Blizzard
 00000001255B.07C: Tejido ligero
 00000001255C.07C: Hora de comer
 00000001255D.07C: Se desbloquea al ver retransmisiones participantes durante el desafío Reconstrucción de Symmetra
-000000012586.07C: Como el viento de un paso montañoso.
+000000012586.07C: Como el viento de un paso montañoso
 000000012587.07C: Disponible en las cajas de botín de Inverlandia
-000000012588.07C: Hora de un bollo.
+000000012588.07C: Hora de un bollo
 000000012589.07C: Disponible en las cajas de botín de Inverlandia
-000000012590.07C: Voy a ponerme patines de hielo.
+000000012590.07C: Voy a ponerme patines de hielo
 000000012591.07C: Disponible en las cajas de botín de Inverlandia
-000000012592.07C: Vamos a tomar chocolate caliente.
+000000012592.07C: Vamos a tomar chocolate caliente
 000000012593.07C: Disponible en las cajas de botín de Inverlandia
 000000012594.07C: ¿Frío? ¿Yo? ¡Ja!
 000000012595.07C: Disponible en las cajas de botín de Inverlandia
@@ -29271,13 +29276,13 @@ Asistencia de Blizzard
 000000012597.07C: Disponible en las cajas de botín de Inverlandia
 000000012598.07C: A mí dame una chimenea...
 000000012599.07C: Disponible en las cajas de botín de Inverlandia
-00000001259A.07C: Me apetece un pudin.
+00000001259A.07C: Me apetece un pudin
 00000001259B.07C: Disponible en las cajas de botín de Inverlandia
-00000001259C.07C: Gorila de montaña, gorila lunar.
+00000001259C.07C: Gorila de montaña, gorila lunar
 00000001259D.07C: Disponible en las cajas de botín de Inverlandia
-00000001259E.07C: Bendiciones festivas.
+00000001259E.07C: Bendiciones festivas
 00000001259F.07C: Disponible en las cajas de botín de Inverlandia
-0000000125A0.07C: Esta experiencia es un regalo.
+0000000125A0.07C: Esta experiencia es un regalo
 0000000125A1.07C: Disponible en las cajas de botín de Inverlandia
 0000000125A2.07C: Felices fiestas
 0000000125A3.07C: Disponible en las cajas de botín de Inverlandia
@@ -29309,6 +29314,7 @@ Asistencia de Blizzard
 000000012651.07C: Alternar uso de pases de prioridad
 000000012659.07C: YA ESTÁN DERRITIENDO A ESTE COMPAÑERO
 00000001265A.07C: YA ESTÁN DERRITIENDO A ESTE COMPAÑERO
+00000001266A.07C: Médico de terracota
 00000001266E.07C: Elige una función polivalente en la cola por función para obtener pases de prioridad. Obtendrás más pases con las victorias que con las derrotas.
 00000001266F.07C: Usa un pase de prioridad para disminuir el tiempo de cola de tu próxima partida en la función seleccionada. Solo es válido para funciones muy demandadas.
 000000012670.07C: Si todos los miembros del grupo están haciendo cola para una función muy demandada y usan un pase, disminuirá el tiempo de espera de todo el grupo.
@@ -29367,6 +29373,7 @@ de regalo, 10 cajas de botín de Inverlandia
 00000001279E.07C: Fresquito
 00000001279F.07C: /%1$s
 0000000127A4.07C: Polivalente
+0000000127A5.07C: Hongbao
 0000000127C0.07C: Muérdago
 0000000127C2.07C: Habilitar registro de archivos del inspector del Taller
 0000000127C5.07C: x1,75
@@ -29391,17 +29398,31 @@ de regalo, 10 cajas de botín de Inverlandia
 0000000127EF.07C: Temporada 26
 0000000127F0.07C: Temporada 26
 0000000127FC.07C: Temporada competitiva 26: cola abierta
+000000012802.07C: Buey resplandeciente
 000000012804.07C: Partidas de posicionamiento
 000000012805.07C: Elfo helado
 000000012807.07C: Derretimiento mutuo
 000000012808.07C: Lanzagalletas
+000000012809.07C: 30.º aniversario de Blizzard
+00000001280B.07C: 30.º aniversario de Blizzard
+000000012825.07C: Guardia imperial
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+00000001283A.07C: Se desbloquea con la compra de la Colección de Celebración
+00000001283B.07C: Se desbloquea con la compra de la Colección de Celebración
+00000001283D.07C: Se desbloquea con la compra de la Colección de Celebración
+000000012841.07C: Cazarrecompensas
+000000012842.07C: Gana puntos asesinando al objetivo para obtener su recompensa. Esta acción te convierte a ti en el objetivo, pero te devuelve la salud y rellena el medidor de tu habilidad definitiva. Mientras tú seas el objetivo, obtendrás puntos por eliminar a héroes que no lo sean.
+000000012843.07C: Puntuación por asesinato
+000000012846.07C: Puntuación por cada asesinato siendo objetivo de la recompensa
+000000012847.07C: Puntuación base por asesinar a un objetivo de la recompensa
+00000001284F.07C: Contador de objetivos de la recompensa
 000000012850.07C: Kyōgisha
 00000001286D.07C: Kanezaka
 00000001287A.07C: No se puede ver la repetición de un encuentro sin decidir.
 00000001287B.07C: Aceptar
+00000001287C.07C: <fg%1$s>ERES EL OBJETIVO</fg>
 0000000128AB.07C: Se desbloquea al participar en el desafío Kanezaka.
 0000000128AF.07C: Se desbloquea al participar en el desafío Kanezaka.
 0000000128B0.07C: Santuario
@@ -29419,6 +29440,142 @@ de regalo, 10 cajas de botín de Inverlandia
 0000000128E5.07C: Has recuperado el pase de prioridad.
 0000000128E6.07C: Mostrar código de tiempo de reproducción independiente
 000000012965.07C: Puedes conservar tu pase de prioridad porque el tiempo de cola ha sido superior al esperado.
+000000012A82.07C: Año del Buey 2021
+000000012A83.07C: De piedra
+000000012A84.07C: Se desbloquea al participar en el desafío de la semana 1 del Año del Buey de 2021
+000000012A85.07C: Escuadrón de terracota
+000000012A87.07C: Nube de humo
+000000012A88.07C: Se desbloquea al participar en el desafío de la semana 2 del Año del Buey de 2021
+000000012A89.07C: Viajero
+000000012A8E.07C: Imperial
+000000012A8F.07C: Se desbloquea al participar en el desafío de la semana 3 del Año del Buey de 2021
+000000012A90.07C: Siwang
+000000012A91.07C: Se desbloquea al participar en el desafío de la semana 3 del Año del Buey de 2021
 000000012ADC.07C: < 5 min.
 000000012ADD.07C: > 10 min.
-[Core] Execution finished in 00:00:00.4181173 seconds
+000000012AED.07C: Aumenta la recompensa por cada asesinato siendo objetivo de la recompensa
+000000012AF0.07C: Pausar partida
+000000012AF1.07C: Reanudar partida
+000000012B32.07C: No está disponible por alguna razón desconocida
+000000012B34.07C: Modos de CLB
+000000012B35.07C: Modos de juego de CLB
+000000012B56.07C: Cazarrecompensas
+000000012B57.07C: Danza con abanicos
+000000012B58.07C: Mata al objetivo para obtener su recompensa y convertirte en el próximo objetivo. Los objetivos reciben más puntos por los asesinatos.
+000000012B6E.07C: Camino a la gloria de 2021
+000000012B6F.07C: Camino a la gloria de 2021
+000000012B70.07C: TcT: 6 jugadores
+000000012B71.07C: VICTORIA: El primer jugador que consiga 4000 puntos
+000000012B8B.07C: Nuevo
+000000012B8E.07C: ¡Desenfunda!
+000000012B8F.07C: Mata a 3 enemigos sin morir siendo el objetivo de la recompensa en Cazarrecompensas.
+000000012B90.07C: A pagar
+000000012B91.07C: Consigue 8 recompensas en una partida de Cazarrecompensas.
+000000012B92.07C: No tan rápido, forajido
+000000012B93.07C: Mata al objetivo de la recompensa mientras usa una definitiva en Cazarrecompensas.
+000000012B95.07C: Has asesinado a un objetivo de la recompensa
+000000012B96.07C: Has asesinado a un jugador siendo el objetivo de la recompensa
+000000012B97.07C: Puntuación
+000000012BD4.07C: Competidor de CLB competitivo 2021
+000000012BD5.07C: Se desbloquea al completar las partidas de posicionamiento de 2021 del modo competitivo de Captura la bandera
+000000012BD6.07C: Héroe de CLB competitivo 2021
+000000012BD7.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo de Captura la bandera de 2021
+000000012BD8.07C: Héroe de CLB competitivo 2021
+000000012BD9.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo de Captura la bandera de 2021
+000000012BDA.07C: Competidor de CLB competitivo 2021
+000000012BDC.07C: CLB competitivo
+000000012BDD.07C: ¡Salta al campo de batalla y compite con los mejores jugadores de Captura la bandera del mundo!
+000000012BDE.07C: Temporada 4 de CLB competitivo
+000000012C16.07C: S
+000000012C17.07C: Compañía chispeante
+000000012C37.07C: Semana 1: aspecto médico de terracota
+000000012C38.07C: Furia del buey
+000000012C39.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C3A.07C: Ajo
+000000012C3B.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C3C.07C: Trueno
+000000012C3D.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C3E.07C: Gratitud
+000000012C3F.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C40.07C: Vuelo del dragón
+000000012C41.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C42.07C: Entre farolillos
+000000012C43.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C44.07C: En sintonía
+000000012C45.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C46.07C: Bandida
+000000012C47.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C48.07C: Tigre
+000000012C49.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C4A.07C: Buey
+000000012C4B.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C4C.07C: Áspid
+000000012C4D.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C4E.07C: Urraca
+000000012C4F.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C50.07C: Semana 2: aspecto Xiake
+000000012C51.07C: Cabeza de dragón
+000000012C52.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C53.07C: Semana 3: aspecto guardia imperial
+000000012C5B.07C: 50 cajas de botín del Año Nuevo Lunar
+y 10 cajas iguales de regalo
+000000012C60.07C: Héroe de la temporada 27
+000000012C61.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 27
+000000012C64.07C: Héroe de la temporada 27
+000000012C65.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 27
+000000012C66.07C: Competidor de la temporada 27
+000000012C67.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 27
+000000012C68.07C: Competidor de la temporada 27
+000000012C69.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 27
+000000012C6B.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C6D.07C: Ojalá pudiese comer
+000000012C6E.07C: ¡Enhorabuena!
+000000012C6F.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C70.07C: Feliz Año del Buey
+000000012C71.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C72.07C: Rojo y verde
+000000012C73.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C74.07C: ¡Muuu!
+000000012C75.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C76.07C: Fuerte como buey
+000000012C77.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C78.07C: La vida es un rodeo
+000000012C79.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C7A.07C: Tenaz como un buey
+000000012C7B.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C7E.07C: Qué desagradable
+000000012C7F.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C80.07C: Caos
+000000012C81.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C82.07C: Trabajas demasiado
+000000012C83.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C84.07C: Perseverancia
+000000012C85.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C8A.07C: No tan rápido, forajido
+000000012C8D.07C: A pagar
+000000012C90.07C: ¡Desenfunda!
+000000012C92.07C: CONTINUAR
+000000012C93.07C: ¡Celebra el Año del Buey con cajas de botín del Año Nuevo Lunar! ¡Consigue nuevos aspectos, jugadas y mucho más!
+000000012C94.07C: Cazarrecompensas
+000000012C95.07C: ¡Se acerca un nuevo modo de combate a muerte! ¡Consigue recompensas y acaba con los cazarrecompensas!
+000000012C97.07C: El evento termina el 25 de febrero
+000000012C99.07C: Desafíos semanales
+000000012C9A.07C: Semana 1
+000000012C9B.07C: Semana 2
+000000012C9C.07C: Semana 3
+000000012C9D.07C: Festival Lunar
+000000012C9E.07C: Año del Buey
+000000012C9F.07C: Combate a muerte de 6 jugadores
+000000012CA0.07C: Desbloquea nuevos aspectos
+000000012CA2.07C: Se desbloquea al participar en el desafío de la semana 3 del Año del Buey de 2021
+000000012CA8.07C: 
+000000012CA9.07C: 
+000000012CAA.07C: 
+000000012CB5.07C: |Rfn %1$s:N0;
+000000012CB6.07C: |Rfn %1$s:N0;
+000000012CB7.07C: |Rfn %1$s:N0;
+000000012CB8.07C: |Rfn %1$s:N0;
+000000012CB9.07C: |Rfn %1$s:N0;
+000000012D10.07C: 120 créditos y, de regalo, 60 cajas de botín del Año Nuevo Lunar
+000000012D46.07C: Año del Buey
+[Core] Execution finished in 00:00:00.4030088 seconds

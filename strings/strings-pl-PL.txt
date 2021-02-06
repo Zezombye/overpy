@@ -1,13 +1,13 @@
-[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
+[Core] DataTool v1.57.0.939-git-445d31f8d7165448a046432b61363fce36a53d85
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.56.0.0.77262
+[CASC] Overwatch build 1.57.0.0.78040
 [CASC] Initializing...
-[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 78040 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -9259,7 +9259,7 @@ THIS SOFTWARE.
 00000000548E.07C: <fg%1$s>REMIS</fg>
 00000000548F.07C: BITWA NA ŚNIEŻKI
 000000005490.07C: 50 zimowych skrzynek z łupami
-000000005491.07C: Każda skrzynka z łupami zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze, w tym przynajmniej jeden element z kolekcji zimowej. Skrzynki można zdobywać dzięki systemom w grze.
+000000005491.07C: Każda skrzynka z łupami zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze, w tym przynajmniej jeden element z księżycowej noworocznej kolekcji. Skrzynki z łupami można zdobywać dzięki systemom w grze.
 000000005492.07C: 24 zimowe skrzynki z łupami
 000000005493.07C: 2 zimowe skrzynki z łupami
 000000005494.07C: 5 zimowych skrzynek z łupami
@@ -10662,7 +10662,7 @@ Nazwa gracza lub BattleTag w języku innym niż twój.
 000000006147.07C: Wielkość drużyn: +1
 000000006148.07C: Wielkość drużyn: +2
 000000006149.07C: Wielkość drużyn: +3
-00000000615A.07C: Każda rocznicowa skrzynka z łupami zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze, w tym przynajmniej jeden element z kolekcji rocznicowej. Skrzynki z łupami można zdobywać dzięki systemom w grze.
+00000000615A.07C: Każda skrzynka z łupami zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze, w tym przynajmniej jeden element z księżycowej noworocznej kolekcji. Skrzynki z łupami można zdobywać dzięki systemom w grze.
 00000000615B.07C: Ujawnienie bohaterów po upływie czasu gry
 00000000615C.07C: Remis po upływie czasu gry bez rozstrzygnięcia
 00000000615D.07C: Rozstrzygnięcie po upływie czasu gry
@@ -22430,9 +22430,6 @@ z letnich igrzysk
 00000000CA0C.07C: Musisz wybrać rolę zanim twoja grupa dołączy do kolejki. Chcesz wybrać teraz?
 00000000CA0D.07C: Sklepy
 00000000CA0E.07C: Sklep
-00000000CA11.07C: Wyzwanie Kanezaka
-00000000CA13.07C: Tydzień 2: Piernikarka (Ana)
-00000000CA14.07C: Tydzień 3: Bałwan (Wieprzu)
 00000000CA15.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
 00000000CA16.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
 00000000CA17.07C: Wygraj 9 meczów w Szybkiej grze, Salonie gier lub Rywalizacji!
@@ -26642,7 +26639,7 @@ aby zdobyć flagę wrogiej drużyny!
 00000000F4DF.07C: Obserwacja
 00000000F4E0.07C: Zawartość archiwalnych skrzynek
 00000000F523.07C: Odblokowanie poprzez zalogowanie się do gry podczas wydarzenia Zimowa Kraina Czarów 2019
-00000000F528.07C: Rok Szczura 2020
+00000000F528.07C: Rok Szczura
 00000000F529.07C: Rok Szczura
 00000000F52A.07C: Zawartość księżycowych skrzynek
 00000000F52E.07C: Trening
@@ -27344,6 +27341,7 @@ w trybie Eliminacji 6 na 6 w 2020
 00000001041E.07C: Nagroda za mecze klasyfikacyjne
 w sezonie 22.
 00000001041F.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 22.
+000000010427.07C: Raynhardt
 00000001043B.07C: Zgłoś
 000000010473.07C: Remix Futbolúcio
 000000010476.07C: Remix Futbolúcio
@@ -28580,6 +28578,7 @@ z letnich igrzysk
 00000001125F.07C: Obserwujący gracz lub gracze, dla których pole z nazwą obserwowanego gracza zostanie wyłączone.
 000000011262.07C: Testowy Szturm
 000000011263.07C: Eksperymentalna wersja Szturmu
+000000011265.07C: Łowczyni tygrysów
 000000011266.07C: %1$s zdobywa GOLA wartego %2$s pkt.!
 000000011268.07C: %1$s zdobywa GOLA wartego %2$s pkt.!
 00000001126A.07C: Zdobyto gola wartego %1$s pkt.!
@@ -28787,10 +28786,12 @@ z letnich igrzysk
 0000000114DF.07C: Oglądaj Overwatch League
 0000000114E4.07C: Piernikarka
 00000001152E.07C: Drwal
+0000000115E4.07C: Kkachi
 000000011605.07C: Rywalizacja w trybie Eliminacji 3 na 3 – Sezon 3
 000000011606.07C: Rywalizacja w trybie Eliminacji
 000000011607.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Eliminacji i pnij się w tabeli wyników!
 000000011624.07C: Bałwan
+000000011627.07C: Blada Żmija
 000000011654.07C: Szmacianka
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Więcej informacji
@@ -28853,6 +28854,7 @@ Overwatch League 2020.
 0000000116EA.07C: Bohaterowie drużyny 2
 0000000116FF.07C: Copa Futbolúcio
 000000011700.07C: Deathmatch w trybie Rywalizacji
+000000011711.07C: Byczy Demon
 00000001171D.07C: Jednemu lub kilku członkom ekipy kończy się czas gry
 000000011744.07C: 1 legendarna i 5 zwykłych skrzynek z łupami
 000000011745.07C: 15 kredytów oraz darmowa 1 legendarna i 5 zwykłych skrzynek z łupami
@@ -28867,7 +28869,6 @@ Overwatch League 2020.
 0000000117A8.07C: Rywalizacja w Drużynowym Deathmatchu
 0000000117A9.07C: Rywalizacja w Zdobywaniu flagi
 0000000117AA.07C: Otwarta Rywalizacja
-0000000117BA.07C: Wyzwanie Kanezaka
 0000000117FC.07C: Kamień
 00000001180C.07C: Zemsta dr. Złomensteina – Mściwy Duch
 00000001180D.07C: Zemsta dr. Złomensteina – Szalony Spęd
@@ -29044,6 +29045,7 @@ i inne nowości!
 000000011B1A.07C: Więcej informacji
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
+000000011B45.07C: Lwi ryk
 000000011B47.07C: Osiągnięta fala:
 000000011B5A.07C: Oglądaj zawody Contenders!
 000000011BB5.07C: https://us.battle.net/support/en/article/42673
@@ -29056,6 +29058,7 @@ i inne nowości!
 000000011C0D.07C: Ustawia gracza, któremu przypisana zostanie zasługa, jeśli określony docelowy gracz lub gracze zginą zabici elementem otoczenia przed wylądowaniem na ziemi.
 000000011C0F.07C: Cel
 000000011C10.07C: Pierwszoosobowy HUD bohatera
+000000011C4B.07C: Smoczy Ogień
 000000011C50.07C: Default
 000000011C51.07C: Occluded
 000000011C52.07C: Always
@@ -29130,6 +29133,7 @@ i inne nowości!
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
+000000011DAC.07C: Xiake
 000000011DC8.07C: Odśnieżenie
 000000011E36.07C: Uczestnik Rywalizacji w Drużynowym Deathmatchu 2020
 000000011E37.07C: Nagroda
@@ -29492,6 +29496,7 @@ bez ograniczeń 2020
 000000012536.07C: Przerwij superzdolność wroga zamrażając go w Mroźnej Eliminacji.
 000000012537.07C: Ogrzeję cię, przyjacielu
 000000012538.07C: Rozmroź gracza, który wcześniej odmroził ciebie w rundzie Mroźnej Eliminacji.
+000000012539.07C: Wielki finał
 00000001253A.07C: MIN OPÓŹ: %1$s MS
 00000001253E.07C: Rywalizacja
 00000001253F.07C: ZDOBĘDZIESZ NASTĘPUJĄCE NAGRODY ZA UDZIAŁ:
@@ -29569,6 +29574,7 @@ bez ograniczeń 2020
 000000012651.07C: Przełącz użycie przepustek priorytetowych
 000000012659.07C: SOJUSZNIK JEST JUŻ ROZMRAŻANY
 00000001265A.07C: SOJUSZNIK JEST JUŻ ROZMRAŻANY
+00000001266A.07C: Terrakotowy medyk
 00000001266E.07C: Stawaj w kolejce do roli Flex w Dobieraniu ról, aby zdobywać przepustki priorytetowe – wygrane zapewniają ich więcej niż przegrane.
 00000001266F.07C: Użyj przepustki priorytetowej, aby skrócić czasu oczekiwania w kolejce do nadchodzącej gry z wybraną rolą. Tylko często wybierane role będą się kwalifikowały.
 000000012670.07C: Jeśli wszyscy członkowie grupy oczekujący w kolejce do roli o dużej popularności skorzystają z przepustki, czas kolejki dla grupy zostanie skrócony.
@@ -29628,6 +29634,7 @@ Likwiduj wrogów, aby ich zamrażać. Rozmrażaj sojuszników, aby pozostali w g
 00000001279E.07C: Bałwan
 00000001279F.07C: /%1$s
 0000000127A4.07C: Flex
+0000000127A5.07C: Hongbao
 0000000127C0.07C: Jemioła
 0000000127C2.07C: Włącz plik dziennika Inspektora Warsztatu
 0000000127C5.07C: 1,75x
@@ -29654,17 +29661,31 @@ w sezonie 26.
 0000000127EF.07C: Sezon 26
 0000000127F0.07C: Sezon 26
 0000000127FC.07C: 26. sezon Rywalizacji – Otwarta Rywalizacja
+000000012802.07C: Lśniący byk
 000000012804.07C: Mecze klasyfikacyjne
 000000012805.07C: Zamrożony elf
 000000012807.07C: Wzajemne rozmrożenie
 000000012808.07C: Rzut ciastkiem
+000000012809.07C: 30. urodziny Blizzarda
+00000001280B.07C: 30. urodziny Blizzarda
+000000012825.07C: Cesarski strażnik
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+00000001283A.07C: Nagroda za zakup Kolekcji Jubileuszowej.
+00000001283B.07C: Nagroda za zakup Kolekcji Jubileuszowej.
+00000001283D.07C: Nagroda za zakup Kolekcji Jubileuszowej.
+000000012841.07C: Łowca nagród
+000000012842.07C: Zdobądź punkty, zabijając cel, aby odebrać nagrodę i stać się kolejnym celem, co zwiększy poziom twojego zdrowia i napełni wskaźnik superzdolności. Zdobywaj dodatkowe punkty jako cel, zabijając bohaterów, którzy nie są celami.
+000000012843.07C: Punkty za likwidację
+000000012846.07C: Punkty za likwidację jako cel
+000000012847.07C: Podstawowy wynik za likwidację celu
+00000001284F.07C: Liczba celów
 000000012850.07C: Kyōgisha
 00000001286D.07C: Kanezaka
 00000001287A.07C: Nie można obejrzeć powtórki nierozstrzygniętego meczu.
 00000001287B.07C: Ok
+00000001287C.07C: <fg%1$s>WYZNACZONO ZA CIEBIE NAGRODĘ</fg>
 0000000128AB.07C: Nagroda za udział
 w wyzwaniu Kanezaka
 0000000128AF.07C: Nagroda za udział
@@ -29684,6 +29705,150 @@ w wyzwaniu Kanezaka
 0000000128E5.07C: Otrzymujesz zwrot przepustki priorytetowej.
 0000000128E6.07C: Pokaż oddzielny kod czasowy odtwarzania
 000000012965.07C: Twoja przepustka priorytetowa nie została wykorzystana, ponieważ czas oczekiwania był zbyt długi.
+000000012A82.07C: Rok Bawołu 2021
+000000012A83.07C: Kamienna twarz
+000000012A84.07C: Nagroda za udział w wyzwaniu 1. tygodnia Roku Szczura 2021
+000000012A85.07C: Terrakotowy oddział
+000000012A87.07C: Dym z lufy
+000000012A88.07C: Nagroda za udział w wyzwaniu 2. tygodnia Roku Szczura 2021
+000000012A89.07C: Obieżyświat
+000000012A8E.07C: Cesarski
+000000012A8F.07C: Nagroda za udział w wyzwaniu 3. tygodnia Roku Szczura 2021
+000000012A90.07C: Siwang
+000000012A91.07C: Nagroda za udział w wyzwaniu 3. tygodnia Roku Szczura 2021
 000000012ADC.07C: < 5 min.
 000000012ADD.07C: > 10 min.
-[Core] Execution finished in 00:00:00.4280328 seconds
+000000012AED.07C: Przyrost nagród za każdą likwidację jako cel
+000000012AF0.07C: Zatrzymaj mecz
+000000012AF1.07C: Wznów mecz
+000000012B32.07C: Niedostępna z nieznanego powodu
+000000012B34.07C: Tryby Zdobywania flagi
+000000012B35.07C: Tryby gry – Zdobywanie flagi
+000000012B56.07C: Łowca nagród
+000000012B57.07C: Taniec z wachlarzami
+000000012B58.07C: Zlikwiduj cel, aby zdobyć za niego nagrodę i stać się kolejnym celem. Cel otrzymuje dodatkowe punkty za likwidacje.
+000000012B6E.07C: Droga do zawodowstwa 2021
+000000012B6F.07C: Droga do zawodowstwa 2021
+000000012B70.07C: FFA dla 6 graczy
+000000012B71.07C: ZWYCIĘSTWO: Pierwszy gracz z 4000 pkt.
+000000012B8B.07C: Nowość
+000000012B8E.07C: Szybki i martwi
+000000012B8F.07C: Zabij 3 wrogów jako cel w trybie Łowca nagród, nie umierając.
+000000012B90.07C: Wypłata nagrody
+000000012B91.07C: Zdobądź 8 nagród w meczu w trybie Łowca nagród.
+000000012B92.07C: Nie tak szybko, bandyto
+000000012B93.07C: W trybie Łowca nagród zabij cel, kiedy ten korzysta z superzdolności
+000000012B95.07C: Zabito cel łowcy nagród
+000000012B96.07C: Zabito gracza jako cel łowcy nagród
+000000012B97.07C: Wynik
+000000012BD4.07C: Uczestnik Rywalizacji w Zdobywanie flagi 2021
+000000012BD5.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+w Zdobywanie flagi 2021
+000000012BD6.07C: Bohater Rywalizacji w Zdobywanie flagi 2021
+000000012BD7.07C: Nagroda za miejsce wśród
+500 najlepszych pod koniec Rywalizacji w Zdobywanie
+flagi 2021
+000000012BD8.07C: Bohater Rywalizacji w Zdobywanie flagi 2021
+000000012BD9.07C: Nagroda za miejsce wśród
+500 najlepszych pod koniec Rywalizacji w Zdobywanie
+flagi 2021
+000000012BDA.07C: Uczestnik Rywalizacji w Zdobywanie flagi 2021
+000000012BDC.07C: Rywalizacja w Zdobywanie flagi
+000000012BDD.07C: Rywalizuj z najlepszymi graczami w Zdobywanie flagi na świecie i pnij się w tabeli wyników!
+000000012BDE.07C: Rywalizacja w Zdobywanie flagi – Sezon 4
+000000012C16.07C: S
+000000012C17.07C: Błyskotliwe towarzystwo
+000000012C37.07C: Tydzień 1: Skórka Terrakotowy medyk
+000000012C38.07C: Bycza Furia
+000000012C39.07C: Zawartość księżycowych skrzynek
+000000012C3A.07C: Czosnek
+000000012C3B.07C: Zawartość księżycowych skrzynek
+000000012C3C.07C: Grom
+000000012C3D.07C: Zawartość księżycowych skrzynek
+000000012C3E.07C: Wdzięczność
+000000012C3F.07C: Zawartość księżycowych skrzynek
+000000012C40.07C: Smoczy Lot
+000000012C41.07C: Zawartość księżycowych skrzynek
+000000012C42.07C: Wśród lampionów
+000000012C43.07C: Zawartość księżycowych skrzynek
+000000012C44.07C: Oko w oko
+000000012C45.07C: Zawartość księżycowych skrzynek
+000000012C46.07C: Bandytka
+000000012C47.07C: Zawartość księżycowych skrzynek
+000000012C48.07C: Tygrys
+000000012C49.07C: Zawartość księżycowych skrzynek
+000000012C4A.07C: Byk
+000000012C4B.07C: Zawartość księżycowych skrzynek
+000000012C4C.07C: Wąż
+000000012C4D.07C: Zawartość księżycowych skrzynek
+000000012C4E.07C: Sroka
+000000012C4F.07C: Zawartość księżycowych skrzynek
+000000012C50.07C: Tydzień 2: Skórka Xiake
+000000012C51.07C: Smoczy Łeb
+000000012C52.07C: Zawartość księżycowych skrzynek
+000000012C53.07C: Tydzień 3: Skórka Cesarski strażnik
+000000012C5B.07C: 50 księżycowych skrzynek z łupami i 10 darmowych skrzynek księżycowych
+000000012C60.07C: Bohater 27. sezonu
+000000012C61.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 27.
+000000012C64.07C: Bohater 27. sezonu
+000000012C65.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 27.
+000000012C66.07C: Uczestnik 27. sezonu
+000000012C67.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 27.
+000000012C68.07C: Uczestnik 27. sezonu
+000000012C69.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 27.
+000000012C6B.07C: Zawartość księżycowych skrzynek
+000000012C6D.07C: Szkoda, że nie mogę jeść
+000000012C6E.07C: Bogatego roku!
+000000012C6F.07C: Zawartość księżycowych skrzynek
+000000012C70.07C: Wesołego Roku Bawołu
+000000012C71.07C: Zawartość księżycowych skrzynek
+000000012C72.07C: Czerwony i zielony
+000000012C73.07C: Zawartość księżycowych skrzynek
+000000012C74.07C: Muuu!
+000000012C75.07C: Zawartość księżycowych skrzynek
+000000012C76.07C: Silny jak wół
+000000012C77.07C: Zawartość księżycowych skrzynek
+000000012C78.07C: Życie to rodeo
+000000012C79.07C: Zawartość księżycowych skrzynek
+000000012C7A.07C: Uparty jak wół
+000000012C7B.07C: Zawartość księżycowych skrzynek
+000000012C7E.07C: To było niesmaczne
+000000012C7F.07C: Zawartość księżycowych skrzynek
+000000012C80.07C: Chaos
+000000012C81.07C: Zawartość księżycowych skrzynek
+000000012C82.07C: Za ciężko pracujesz
+000000012C83.07C: Zawartość księżycowych skrzynek
+000000012C84.07C: Wytrwałość
+000000012C85.07C: Zawartość księżycowych skrzynek
+000000012C8A.07C: Nie tak szybko, bandyto
+000000012C8D.07C: Wypłata nagrody
+000000012C90.07C: Szybki i martwi
+000000012C92.07C: KONTYNUUJ
+000000012C93.07C: Świętuj Rok Bawołu dzięki księżycowym skrzynkom z łupami! Zdobądź nowe skórki, prezentacje zagrań i inne nowości!
+000000012C94.07C: Łowca nagród
+000000012C95.07C: Nadchodzi nowy tryb deathmatch! Zdobywaj nagrody i zabijaj łowców!
+000000012C97.07C: Koniec wydarzenia 25 lutego
+000000012C99.07C: Cotygodniowe wyzwania
+000000012C9A.07C: Tydzień 1
+000000012C9B.07C: Tydzień 2
+000000012C9C.07C: Tydzień 3
+000000012C9D.07C: Festiwal Księżycowy
+000000012C9E.07C: Rok Bawołu
+000000012C9F.07C: Deathmatch dla 6 graczy
+000000012CA0.07C: Odblokuj nowe skórki
+000000012CA2.07C: Nagroda za udział w wyzwaniu 3. tygodnia Roku Szczura 2021
+000000012CA8.07C: 
+000000012CA9.07C: 
+000000012CAA.07C: 
+000000012CB5.07C: |Rfn %1$s:N0;
+000000012CB6.07C: |Rfn %1$s:N0;
+000000012CB7.07C: |Rfn %1$s:N0;
+000000012CB8.07C: |Rfn %1$s:N0;
+000000012CB9.07C: |Rfn %1$s:N0;
+000000012D10.07C: 120 kredytów i 60 darmowych, księżycowych skrzynek z łupami
+000000012D46.07C: Rok Bawołu
+[Core] Execution finished in 00:00:00.4031589 seconds

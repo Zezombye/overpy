@@ -1,13 +1,13 @@
-[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
+[Core] DataTool v1.57.0.939-git-445d31f8d7165448a046432b61363fce36a53d85
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: ptBR | Speech Language: ptBR
-[CASC] Overwatch build 1.56.0.0.77262
+[CASC] Overwatch build 1.57.0.0.78040
 [CASC] Initializing...
-[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 78040 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -9232,7 +9232,7 @@ THIS SOFTWARE.
 00000000548E.07C: <fg%1$s>EMPATE</fg>
 00000000548F.07C: GUERRA DE NEVE
 000000005490.07C: 50 Caixas de Itens Congelados
-000000005491.07C: Cada Caixa de Itens contém uma combinação de até 4 itens cosméticos e/ou créditos de jogo, incluindo no mínimo um Item Congelado entre eles. Caixas de Itens podem ser conquistadas no jogo.
+000000005491.07C: Cada Caixa de Itens contém uma combinação de até 4 itens cosméticos e/ou créditos de jogo, incluindo no mínimo um item do Ano Novo Lunar entre eles. Caixas de Itens podem ser conquistadas no jogo.
 000000005492.07C: 24 Caixas de Itens Congelados
 000000005493.07C: 2 Caixas de Itens Congelados
 000000005494.07C: 5 Caixas de Itens Congelados
@@ -10631,7 +10631,7 @@ Um nome de jogador ou BattleTag que usa um idioma diferente do seu.
 000000006147.07C: Tamanho da equipe +1
 000000006148.07C: Tamanho da equipe +2
 000000006149.07C: Tamanho da equipe +3
-00000000615A.07C: Cada Caixa de Itens de Aniversário contém uma combinação de até 4 itens cosméticos e/ou créditos de jogo, incluindo no mínimo um item de Aniversário. Caixas de Itens de Aniversário podem ser conquistadas no jogo.
+00000000615A.07C: Cada Caixa de Itens contém uma combinação de até 4 itens cosméticos e/ou créditos de jogo, incluindo no mínimo um item do Ano Novo Lunar entre eles. Caixas de Itens podem ser conquistadas no jogo.
 00000000615B.07C: Revelar heróis após o tempo decorrido da partida
 00000000615C.07C: Empate após o tempo decorrido da partida, sem desempate
 00000000615D.07C: Desempate após o tempo decorrido da partida
@@ -22230,9 +22230,6 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000CA0C.07C: Você precisa escolher uma função para o seu grupo poder entrar na fila. Selecionar agora?
 00000000CA0D.07C: Lojas
 00000000CA0E.07C: Loja
-00000000CA11.07C: Desafio de Kanezaka
-00000000CA13.07C: Semana 2: Ana Biscoito
-00000000CA14.07C: Semana 3: Roadhog Nevado
 00000000CA15.07C: Vença 9 partidas no Jogo Rápido, no Arcade ou no Competitivo!
 00000000CA16.07C: Vença 9 partidas no Jogo Rápido, no Arcade ou no Competitivo!
 00000000CA17.07C: Vença 9 partidas no Jogo Rápido, no Arcade ou no Competitivo!
@@ -26418,7 +26415,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F4DF.07C: Observação
 00000000F4E0.07C: Disponível em Caixas de Itens de Arquivos
 00000000F523.07C: Desbloqueado ao fazer login no jogo durante o evento Paraíso Congelado 2019
-00000000F528.07C: Ano do Rato 2020
+00000000F528.07C: Ano do Rato
 00000000F529.07C: Ano do Rato
 00000000F52A.07C: Disponível em Caixas de Itens Lunares
 00000000F52E.07C: Malhação
@@ -27110,6 +27107,7 @@ https://account.blizzard.com/connections/nintendo
 00000001041C.07C: Herói da Temporada 22
 00000001041E.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 22
 00000001041F.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Temporada 22
+000000010427.07C: Raynhardt
 00000001043B.07C: Denunciar
 000000010473.07C: Lúciobol Remix
 000000010476.07C: Lúciobol Remix
@@ -28304,6 +28302,7 @@ Suporte da Blizzard
 00000001125F.07C: O(s) Jogador(es) Observador(es) para quem o Nome do Jogador Observado será desabilitado.
 000000011262.07C: Ataque - Teste
 000000011263.07C: Variante experimental do modo Ataque
+000000011265.07C: Caçadora de Tigre
 000000011266.07C: %1$s fez um GOL de %2$s pontos!
 000000011268.07C: %1$s fez um GOL de %2$s pontos!
 00000001126A.07C: Gol de %1$s pontos!
@@ -28503,10 +28502,12 @@ Suporte da Blizzard
 0000000114DF.07C: Assista à Liga Overwatch
 0000000114E4.07C: Biscoito de gengibre
 00000001152E.07C: Lenhador
+0000000115E4.07C: Kkachi
 000000011605.07C: Eliminação Competitiva 3v3 - Temporada 3
 000000011606.07C: Eliminação Competitiva
 000000011607.07C: Suba na tabela e enfrente os melhores jogadores de Eliminação do mundo!
 000000011624.07C: Nevado
+000000011627.07C: Serpente Branca
 000000011654.07C: Boneca de Trapos
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Mais informações
@@ -28565,6 +28566,7 @@ Competitiva 2020
 0000000116EA.07C: Heróis da Equipe 2
 0000000116FF.07C: Copa Lúciobol
 000000011700.07C: Combate até a Morte Competitivo
+000000011711.07C: Touro Demoníaco
 00000001171D.07C: O tempo de jogo de um ou mais membros da equipe está prestes a acabar
 000000011744.07C: 1 Caixa Lendária e 5 Caixas de Itens
 000000011745.07C: 15 créditos e um brinde de 1 Caixa Lendária e 5 Caixas de Itens
@@ -28579,7 +28581,6 @@ Competitiva 2020
 0000000117A8.07C: Combate até a Morte em Equipe Competitivo
 0000000117A9.07C: CaB Competitivo
 0000000117AA.07C: Competitivo - Fila Aberta
-0000000117BA.07C: Desafio de Kanezaka
 0000000117FC.07C: Gigante de Pedra
 00000001180C.07C: Fantasma Vingativo de A Vingança de Junkenstein
 00000001180D.07C: Debandada Frenética de A Vingança de Junkenstein
@@ -28753,6 +28754,7 @@ Competitiva 2020
 000000011B1A.07C: Saiba mais
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
+000000011B45.07C: Rugido do Leão
 000000011B47.07C: Onda alcançada:
 000000011B5A.07C: Assista aos Contenders!
 000000011BB5.07C: https://us.battle.net/support/pt/article/42673
@@ -28765,6 +28767,7 @@ Competitiva 2020
 000000011C0D.07C: Define o jogador que receberá crédito se o(s) Jogador(es) especificado(s) morrer(em) para o ambiente antes de tocar o chão.
 000000011C0F.07C: Alvo
 000000011C10.07C: HUD de herói em primeira pessoa
+000000011C4B.07C: Fogo do Dragão
 000000011C50.07C: Padrão
 000000011C51.07C: Ocultado
 000000011C52.07C: Sempre
@@ -28839,6 +28842,7 @@ Competitiva 2020
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
+000000011DAC.07C: Xiake
 000000011DC8.07C: Neve
 000000011E36.07C: Competidor do Combate até a Morte em Equipe Competitivo de 2020
 000000011E37.07C: Desbloqueado ao concluir as partidas de posicionamento do Combate até a Morte em Equipe Competitivo de 2020
@@ -29192,6 +29196,7 @@ Competitiva 2020
 000000012536.07C: Interrompa a habilidade suprema de um inimigo congelando-o com a Eliminação Descongelante
 000000012537.07C: Um aliado numa fria
 000000012538.07C: Descongele um aliado que descongelou você em uma rodada de Eliminação Descongelante.
+000000012539.07C: Gran Finale
 00000001253A.07C: LAT. MÍN.: %1$s MS
 00000001253E.07C: Competitivo
 00000001253F.07C: PARTICIPE PARA GANHAR ESTES PRÊMIOS
@@ -29269,6 +29274,7 @@ Competitiva 2020
 000000012651.07C: Alternar Usar Passe Prioritário
 000000012659.07C: ALIADO JÁ ESTÁ SENDO DESCONGELADO
 00000001265A.07C: ALIADO JÁ ESTÁ SENDO DESCONGELADO
+00000001266A.07C: Médico de Terracota
 00000001266E.07C: Entre como flexível na fila por função para ganhar Passes Prioritários. Vitórias concedem mais passes do que derrotas.
 00000001266F.07C: Use o Passe Prioritário para reduzir a espera na fila para a função selecionada. Só vale para funções disputadas.
 000000012670.07C: Se todos os membros do grupo na fila para funções disputadas usarem o passe, a espera do grupo na fila será reduzida. 
@@ -29327,6 +29333,7 @@ e 10 Caixas de Itens Congelados grátis
 00000001279E.07C: Nevado
 00000001279F.07C: /%1$s
 0000000127A4.07C: Flexível
+0000000127A5.07C: Hongbao
 0000000127C0.07C: Ramo de visco
 0000000127C2.07C: Habilitar Arquivo de Registro do Inspetor da Oficina
 0000000127C5.07C: 1,75x
@@ -29351,17 +29358,31 @@ e 10 Caixas de Itens Congelados grátis
 0000000127EF.07C: Temporada 26
 0000000127F0.07C: Temporada 26
 0000000127FC.07C: Temporada 26 do Competitivo - Fila Aberta
+000000012802.07C: Touro Brilhante
 000000012804.07C: Partidas de posicionamento
 000000012805.07C: Duende congelado
 000000012807.07C: Descongelamento mútuo
 000000012808.07C: Arremesso de biscoito
+000000012809.07C: 30 Anos de Blizzard
+00000001280B.07C: 30 Anos de Blizzard
+000000012825.07C: Guarda Imperial
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+00000001283A.07C: Desbloqueado na compra da Coleção Comemorativa.
+00000001283B.07C: Desbloqueado na compra da Coleção Comemorativa.
+00000001283D.07C: Desbloqueado na compra da Coleção Comemorativa.
+000000012841.07C: Caçador de Recompensas
+000000012842.07C: Ganhe pontos por abater o alvo para receber a recompensa e se tornar o alvo, enchendo totalmente sua vida e sua suprema. Você ganha mais pontos por abater outros heróis quando é o alvo. 
+000000012843.07C: Pontuação por Abate
+000000012846.07C: Pontuação por Abate como Alvo
+000000012847.07C: Pontuação Básica por Abater o Alvo
+00000001284F.07C: Vezes como Alvo
 000000012850.07C: Kyōgisha
 00000001286D.07C: Kanezaka
 00000001287A.07C: Não é possível ver o replay de uma partida indefinida.
 00000001287B.07C: Ok
+00000001287C.07C: <fg%1$s>VOCÊ É O ALVO DA CAÇADA</fg>
 0000000128AB.07C: Desbloqueado ao participar do Desafio de Kanezaka
 0000000128AF.07C: Desbloqueado ao participar do Desafio de Kanezaka
 0000000128B0.07C: Distrito do santuário
@@ -29379,6 +29400,141 @@ e 10 Caixas de Itens Congelados grátis
 0000000128E5.07C: Seu passe prioritário foi restituído.
 0000000128E6.07C: Exibir Código de Tempo de Reprodução Separado
 000000012965.07C: Seu passe prioritário não será usado porque o tempo de espera foi maior que o esperado.
+000000012A82.07C: Ano do Boi 2021
+000000012A83.07C: Cara de Pedra
+000000012A84.07C: Desbloqueado ao participar do desafio da 1ª semana do Ano do Boi 2021
+000000012A85.07C: Esquadrão de Terracota
+000000012A87.07C: Cano Fumegante
+000000012A88.07C: Desbloqueado ao participar do desafio da 2ª semana do Ano do Boi 2021
+000000012A89.07C: Andarilho
+000000012A8E.07C: Imperial
+000000012A8F.07C: Desbloqueado ao participar do desafio da 3ª semana do Ano do Boi 2021
+000000012A90.07C: Siwang
+000000012A91.07C: Desbloqueado ao participar do desafio da 3ª semana do Ano do Boi 2021
 000000012ADC.07C: < 5 min
 000000012ADD.07C: > 10 min
-[Core] Execution finished in 00:00:00.4461018 seconds
+000000012AED.07C: Aumento da Recompensa por Abate como Alvo
+000000012AF0.07C: Pausar Partida
+000000012AF1.07C: Retomar Partida
+000000012B32.07C: Indisponível por alguma razão desconhecida
+000000012B34.07C: Modos CaB
+000000012B35.07C: Modos de Jogo CaB
+000000012B56.07C: Caçador de Recompensas
+000000012B57.07C: Dança de Leques
+000000012B58.07C: Abata o alvo para receber a recompensa e se tornar o próximo alvo.
+000000012B6E.07C: Trajetória Profissional 2021
+000000012B6F.07C: Trajetória Profissional 2021
+000000012B70.07C: TcT de 6 jogadores
+000000012B71.07C: VITÓRIA: Primeiro jogador a obter 4000 pontos
+000000012B8B.07C: Novo
+000000012B8E.07C: Saque rápido
+000000012B8F.07C: Mate 3 inimigos sem morrer como alvo da caçada em Caçador de Recompensas.
+000000012B90.07C: Não vai ser tão fácil
+000000012B91.07C: Ganhe 8 recompensas em uma partida de Caçador de Recompensas.
+000000012B92.07C: Alto lá, fora da lei
+000000012B93.07C: Mate o Alvo da Caçada quando ele estiver usando a habilidade suprema em Caçador de Recompensas.
+000000012B95.07C: Abateu um Alvo da Caçada
+000000012B96.07C: Abateu um Jogador como Alvo da Caçada
+000000012B97.07C: Pontuação
+000000012BD4.07C: Competidor do CaB Competitivo 2021
+000000012BD5.07C: Desbloqueado ao concluir as partidas de posicionamento do Capture a Bandeira Competitivo 2021
+000000012BD6.07C: Herói do CaB Competitivo 2021
+000000012BD7.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim do Capture a Bandeira Competitivo 2021
+000000012BD8.07C: Herói do CaB Competitivo 2021
+000000012BD9.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim do Capture a Bandeira Competitivo 2021
+000000012BDA.07C: Competidor do CaB Competitivo 2021
+000000012BDC.07C: CaB Competitivo
+000000012BDD.07C: Suba na tabela e enfrente os melhores jogadores de Capture a Bandeira do mundo!
+000000012BDE.07C: Temporada 4 do CaB Competitivo
+000000012C16.07C: S
+000000012C17.07C: Mãe de gato
+000000012C37.07C: Semana 1: Visual Médico de Terracota
+000000012C38.07C: Fúria do touro
+000000012C39.07C: Disponível em Caixas de Itens Lunares
+000000012C3A.07C: Alho de Hwanung
+000000012C3B.07C: Disponível em Caixas de Itens Lunares
+000000012C3C.07C: Trovão
+000000012C3D.07C: Disponível em Caixas de Itens Lunares
+000000012C3E.07C: Gratidão
+000000012C3F.07C: Disponível em Caixas de Itens Lunares
+000000012C40.07C: Voo do dragão
+000000012C41.07C: Disponível em Caixas de Itens Lunares
+000000012C42.07C: Entre lanternas
+000000012C43.07C: Disponível em Caixas de Itens Lunares
+000000012C44.07C: Olho no olho
+000000012C45.07C: Disponível em Caixas de Itens Lunares
+000000012C46.07C: Bandida
+000000012C47.07C: Disponível em Caixas de Itens Lunares
+000000012C48.07C: Tigre
+000000012C49.07C: Disponível em Caixas de Itens Lunares
+000000012C4A.07C: Touro
+000000012C4B.07C: Disponível em Caixas de Itens Lunares
+000000012C4C.07C: Serpente
+000000012C4D.07C: Disponível em Caixas de Itens Lunares
+000000012C4E.07C: Gralha
+000000012C4F.07C: Disponível em Caixas de Itens Lunares
+000000012C50.07C: Semana 2: Visual Xiake
+000000012C51.07C: Cabeça de Dragão
+000000012C52.07C: Disponível em Caixas de Itens Lunares
+000000012C53.07C: Semana 3: Visual Guarda Imperial
+000000012C5B.07C: 50 Caixas de Itens Lunares e<br>10 Caixas de Itens Lunares de brinde
+000000012C60.07C: Herói da Temporada 27
+000000012C61.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Temporada 27
+000000012C64.07C: Herói da Temporada 27
+000000012C65.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Temporada 27
+000000012C66.07C: Competidor da Temporada 27
+000000012C67.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 27
+000000012C68.07C: Competidor da Temporada 27
+000000012C69.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 27
+000000012C6B.07C: Disponível em Caixas de Itens Lunares
+000000012C6D.07C: Eu queria conseguir comer
+000000012C6E.07C: Parabéns!
+000000012C6F.07C: Disponível em Caixas de Itens Lunares
+000000012C70.07C: Feliz Ano do Boi
+000000012C71.07C: Disponível em Caixas de Itens Lunares
+000000012C72.07C: Vermelho e verde
+000000012C73.07C: Disponível em Caixas de Itens Lunares
+000000012C74.07C: Muu!
+000000012C75.07C: Disponível em Caixas de Itens Lunares
+000000012C76.07C: Forte como um touro
+000000012C77.07C: Disponível em Caixas de Itens Lunares
+000000012C78.07C: A vida é um rodeio
+000000012C79.07C: Disponível em Caixas de Itens Lunares
+000000012C7A.07C: Teima feito boi
+000000012C7B.07C: Disponível em Caixas de Itens Lunares
+000000012C7E.07C: Desnecessário
+000000012C7F.07C: Disponível em Caixas de Itens Lunares
+000000012C80.07C: Caos
+000000012C81.07C: Disponível em Caixas de Itens Lunares
+000000012C82.07C: Você trabalha demais
+000000012C83.07C: Disponível em Caixas de Itens Lunares
+000000012C84.07C: Persistência
+000000012C85.07C: Disponível em Caixas de Itens Lunares
+000000012C8A.07C: Alto lá, fora da lei
+000000012C8D.07C: Merecida recompensa
+000000012C90.07C: Saque rápido
+000000012C92.07C: CONTINUAR
+000000012C93.07C: Celebre o Ano do Boi com Caixas de Itens Lunares! Ganhe novos visuais, animações de destaque e mais!
+000000012C94.07C: Caçador de Recompensas
+000000012C95.07C: Novo modo de Combate até a Morte na área! Ganhe recompensas e mate caçadores de recompensas!
+000000012C97.07C: Evento termina em 25/2
+000000012C99.07C: Desafios Semanais
+000000012C9A.07C: 1ª Semana
+000000012C9B.07C: 2ª Semana
+000000012C9C.07C: 3ª Semana
+000000012C9D.07C: Festival Lunar
+000000012C9E.07C: Ano do Boi
+000000012C9F.07C: Combate até a Morte de 6 jogadores
+000000012CA0.07C: Desbloqueie novos visuais
+000000012CA2.07C: Desbloqueado ao participar do desafio da 3ª semana do Ano do Boi 2021
+000000012CA8.07C: 
+000000012CA9.07C: 
+000000012CAA.07C: 
+000000012CB5.07C: |Rfn %1$s:N0;
+000000012CB6.07C: |Rfn %1$s:N0;
+000000012CB7.07C: |Rfn %1$s:N0;
+000000012CB8.07C: |Rfn %1$s:N0;
+000000012CB9.07C: |Rfn %1$s:N0;
+000000012D10.07C: 120 créditos e um presente gratuito de 60 Caixas de Itens
+000000012D46.07C: Ano do Boi
+[Core] Execution finished in 00:00:00.4053900 seconds

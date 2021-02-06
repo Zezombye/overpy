@@ -1,13 +1,13 @@
-[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
+[Core] DataTool v1.57.0.939-git-445d31f8d7165448a046432b61363fce36a53d85
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.56.0.0.77262
+[CASC] Overwatch build 1.57.0.0.78040
 [CASC] Initializing...
-[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 78040 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -9291,7 +9291,7 @@ avec exclusion
 00000000548E.07C: <fg%1$s>ÉGALITÉ</fg>
 00000000548F.07C: BATAILLE DE BOULES DE NEIGE
 000000005490.07C: 50 coffres hivernaux
-000000005491.07C: Chaque coffre contient une combinaison de 4 récompenses au maximum composée d’objets ornementaux et/ou de crédits en jeu, dont au moins un objet hivernal. Les coffres peuvent être obtenus en jeu.
+000000005491.07C: Chaque coffre contient une combinaison de 4 récompenses au maximum composée d’objets ornementaux et/ou de crédits en jeu, dont au moins un objet lunaire. Les coffres peuvent être obtenus en jeu.
 000000005492.07C: 24 coffres hivernaux
 000000005493.07C: 2 coffres hivernaux
 000000005494.07C: 5 coffres hivernaux
@@ -10694,7 +10694,7 @@ portable
 000000006147.07C: Taille de l’équipe +1
 000000006148.07C: Taille de l’équipe +2
 000000006149.07C: Taille de l’équipe +3
-00000000615A.07C: Chaque coffre anniversaire contient une combinaison de 4 récompenses au maximum composée d’objets ornementaux et/ou de crédits en jeu, dont au moins un objet anniversaire. Les coffres anniversaire peuvent être obtenus en jeu.
+00000000615A.07C: Chaque coffre contient une combinaison de 4 récompenses au maximum composée d’objets ornementaux et/ou de crédits en jeu, dont au moins un objet lunaire. Les coffres peuvent être obtenus en jeu.
 00000000615B.07C: Durée avant la détection des héros
 00000000615C.07C: Durée avant match nul sans capture de l’objectif décisif
 00000000615D.07C: Durée avant activation de l’objectif décisif
@@ -22336,9 +22336,6 @@ Copa Lúcioball
 00000000CA0C.07C: Vous devez choisir un rôle pour que votre escouade accède à la file d’attente. Choisir maintenant ?
 00000000CA0D.07C: Boutiques
 00000000CA0E.07C: Boutique
-00000000CA11.07C: Défi Kanezaka
-00000000CA13.07C: Semaine 2 : Ana pain d’épice
-00000000CA14.07C: Semaine 3 : Chopper givré
 00000000CA15.07C: Obtenez 9 victoires en arcade,
 partie rapide ou compétitive !
 00000000CA16.07C: Obtenez 9 victoires en arcade,
@@ -26526,7 +26523,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F4DF.07C: Observation
 00000000F4E0.07C: Disponible dans les coffres des archives
 00000000F523.07C: Obtenu en se connectant au jeu pendant la Féerie hivernale 2019
-00000000F528.07C: Année du rat 2020
+00000000F528.07C: Année du rat
 00000000F529.07C: Année du rat
 00000000F52A.07C: Disponible dans les coffres lunaires
 00000000F52E.07C: Exercice
@@ -27218,6 +27215,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000001041C.07C: Héros Saison 22
 00000001041E.07C: Obtenu en effectuant toutes les parties de placement de la saison 22
 00000001041F.07C: Obtenu en se classant parmi les 500 meilleurs joueurs lors de la saison 22
+000000010427.07C: Raynhardt
 00000001043B.07C: Signaler
 000000010473.07C: Lúcioball Remix
 000000010476.07C: Lúcioball Remix
@@ -28412,6 +28410,7 @@ L’assistance Blizzard
 00000001125F.07C: Le ou les joueurs spectateurs pour qui les noms des joueurs observés seront désactivés.
 000000011262.07C: Test d’Attaque
 000000011263.07C: Une version expérimentale d’Attaque
+000000011265.07C: Chasseuse de tigres
 000000011266.07C: %1$s a marqué un BUT à %2$s |Rplpoint:points; !
 000000011268.07C: %1$s a marqué un BUT à %2$s |Rplpoint:points; !
 00000001126A.07C: But à %1$s |Rplpoint:points; marqué !
@@ -28611,10 +28610,12 @@ L’assistance Blizzard
 0000000114DF.07C: Regarder l’Overwatch League
 0000000114E4.07C: Pain d’épice
 00000001152E.07C: Bûcheron
+0000000115E4.07C: Kkachi
 000000011605.07C: Élimination en 3c3 en compétitif - Saison 3
 000000011606.07C: Élimination en mode compétitif
 000000011607.07C: Gravissez les échelons et affrontez les meilleurs joueurs d’élimination au monde !
 000000011624.07C: Givré
+000000011627.07C: Serpent pâle
 000000011654.07C: Poupée de chiffon
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Plus d’infos
@@ -28669,6 +28670,7 @@ L’assistance Blizzard
 0000000116EA.07C: Héros de l’équipe 2
 0000000116FF.07C: Copa Lúcioball
 000000011700.07C: Combat à mort compétitif
+000000011711.07C: Démon taureau
 00000001171D.07C: Un ou plusieurs membres du groupe vont bientôt être à court de temps de jeu
 000000011744.07C: 1 coffre légendaire et 5 coffres classiques
 000000011745.07C: 15 crédits, plus 1 coffre légendaire et 5 coffres classiques offerts
@@ -28683,7 +28685,6 @@ L’assistance Blizzard
 0000000117A8.07C: Combat à mort par équipe compétitif
 0000000117A9.07C: Capture du drapeau en compétitif
 0000000117AA.07C: Compétitif en sélection libre
-0000000117BA.07C: Défi Kanezaka
 0000000117FC.07C: Pierre
 00000001180C.07C: La vengeance du Dr Schakalstein : Fantôme vengeur
 00000001180D.07C: La vengeance du Dr Schakalstein : Ruée sauvage
@@ -28796,18 +28797,18 @@ L’assistance Blizzard
 0000000119A3.07C: Best Halloween Score
 0000000119A4.07C: %1$s Best Halloween Score
 0000000119A5.07C: Fantôme vengeur
-0000000119A6.07C: Terminer la mission défi du Dr Schakalstein Fantôme vengeur
+0000000119A6.07C: Terminer la mission défi du Dr Schakalstein Fantôme vengeur.
 0000000119B1.07C: Défi du Dr Schakalstein
 0000000119B2.07C: Ruée sauvage
-0000000119B3.07C: Terminer la mission défi du Dr Schakalstein Ruée sauvage
+0000000119B3.07C: Terminer la mission défi du Dr Schakalstein Ruée sauvage.
 0000000119B4.07C: Ils étaient trois
-0000000119B5.07C: Terminer la mission défi du Dr Schakalstein Ils étaient trois
+0000000119B5.07C: Terminer la mission défi du Dr Schakalstein Ils étaient trois.
 0000000119B6.07C: Zomniaques explosifs
-0000000119B7.07C: Terminer la mission défi du Dr Schakalstein Zomniaques explosifs
+0000000119B7.07C: Terminer la mission défi du Dr Schakalstein Zomniaques explosifs.
 0000000119B8.07C: Roulement mystère
-0000000119B9.07C: Terminer la mission défi du Dr Schakalstein Roulement mystère
+0000000119B9.07C: Terminer la mission défi du Dr Schakalstein Roulement mystère.
 0000000119BA.07C: Pneu surprise
-0000000119BB.07C: Terminer la mission défi du Dr Schakalstein Pneu surprise
+0000000119BB.07C: Terminer la mission défi du Dr Schakalstein Pneu surprise.
 0000000119BC.07C: Marammat
 0000000119BD.07C: CONTINUER
 0000000119C0.07C: Les incontournables d’Halloween des années passées, plus de nouveaux modèles, des entrées en scène et plus encore !
@@ -28857,6 +28858,7 @@ L’assistance Blizzard
 000000011B1A.07C: En savoir plus
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
+000000011B45.07C: Rugissement du lion
 000000011B47.07C: Vague atteinte :
 000000011B5A.07C: Regardez les Contenders !
 000000011BB5.07C: https://us.battle.net/support/article/42673
@@ -28869,6 +28871,7 @@ L’assistance Blizzard
 000000011C0D.07C: Définit le joueur qui sera considéré comme l’auteur de l’élimination si le ou les joueurs cibles spécifiés meurent à cause de l’environnement avant de toucher le sol.
 000000011C0F.07C: Cible
 000000011C10.07C: Interface du héros en première personne
+000000011C4B.07C: Feu du dragon
 000000011C50.07C: Par défaut
 000000011C51.07C: Obstrué
 000000011C52.07C: Toujours
@@ -28943,6 +28946,7 @@ L’assistance Blizzard
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
+000000011DAC.07C: Xiake
 000000011DC8.07C: Rafale
 000000011E36.07C: Compétiteur Combat à mort par équipe 2020
 000000011E37.07C: Obtenu en effectuant toutes les parties de placement du mode Combat à mort par équipe 2020
@@ -29296,6 +29300,7 @@ L’assistance Blizzard
 000000012536.07C: Interrompez la capacité ultime d’un ennemi en le gelant dans une partie de Congélimination.
 000000012537.07C: Problème de neige, mon ami
 000000012538.07C: Dégelez un joueur qui vous a précédemment dégelé dans une manche de Congélimination.
+000000012539.07C: Bouquet final
 00000001253A.07C: LATENCE MIN : %1$s MS
 00000001253E.07C: Partie compétitive
 00000001253F.07C: GAGNEZ CES RÉCOMPENSES EN PARTICIPANT
@@ -29373,6 +29378,7 @@ L’assistance Blizzard
 000000012651.07C: Activer/désactiver l’utilisation de coupe-files
 000000012659.07C: CET ÉQUIPIER EST DÉJÀ EN TRAIN D’ÊTRE DÉGELÉ
 00000001265A.07C: CET ÉQUIPIER EST DÉJÀ EN TRAIN D’ÊTRE DÉGELÉ
+00000001266A.07C: Secouriste de terre cuite
 00000001266E.07C: Inscrivez-vous comme flexible dans la file d’attente par rôle pour gagner des coupe-files, les victoires octroyant plus de coupe-files que les défaites.
 00000001266F.07C: Utilisez un coupe-file pour diminuer le temps d’attente de votre prochaine partie avec le rôle sélectionné. Seuls les rôles très demandés sont éligibles.
 000000012670.07C: Si tous les membres de l’escouade inscrits pour les rôles très demandés utilisent un coupe-file, le temps d’attente sera diminué. 
@@ -29431,6 +29437,7 @@ et 10 coffres hivernaux offerts
 00000001279E.07C: Givré
 00000001279F.07C: /%1$s
 0000000127A4.07C: Flexible
+0000000127A5.07C: Hongbao
 0000000127C0.07C: Gui
 0000000127C2.07C: Activer le fichier journal du contrôleur de la Forge
 0000000127C5.07C: 1,75x
@@ -29455,17 +29462,31 @@ et 10 coffres hivernaux offerts
 0000000127EF.07C: Saison 26
 0000000127F0.07C: Saison 26
 0000000127FC.07C: Saison de compétition 26 - Sélection libre
+000000012802.07C: Taureau étincelant
 000000012804.07C: Parties de placement
 000000012805.07C: Lutin gelé
 000000012807.07C: Dégel mutuel
 000000012808.07C: Lancer de cookie
+000000012809.07C: 30e anniversaire de Blizzard
+00000001280B.07C: 30e anniversaire de Blizzard
+000000012825.07C: Garde impérial
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+00000001283A.07C: Obtenu en achetant la collection Célébration
+00000001283B.07C: Obtenu en achetant la collection Célébration
+00000001283D.07C: Obtenu en achetant la collection Célébration
+000000012841.07C: Chasseur de primes
+000000012842.07C: Gagnez des points en éliminant la cible pour empocher sa prime et devenez vous-même la cible, ce qui vous soigne et remplit entièrement votre jauge de capacité ultime. Lorsque vous êtes la cible, gagnez des points bonus en éliminant des héros qui ne sont pas des cibles. 
+000000012843.07C: Points par élimination
+000000012846.07C: Points par élimination en tant que cible
+000000012847.07C: Score de base obtenu en tuant une cible
+00000001284F.07C: Nombre de fois la cible
 000000012850.07C: Kyōgisha
 00000001286D.07C: Kanezaka
 00000001287A.07C: Impossible de visionner l’enregistrement d’une partie au résultat indéterminé.
 00000001287B.07C: OK
+00000001287C.07C: <fg%1$s>UNE PRIME EST SUR VOTRE TÊTE</fg>
 0000000128AB.07C: Obtenu en participant au défi Kanezaka
 0000000128AF.07C: Obtenu en participant au défi Kanezaka
 0000000128B0.07C: Quartier du sanctuaire
@@ -29483,6 +29504,141 @@ et 10 coffres hivernaux offerts
 0000000128E5.07C: Votre coupe-file a été remboursé.
 0000000128E6.07C: Afficher le timecode de lecture détachée
 000000012965.07C: Votre coupe-file ne sera pas utilisé parce que votre temps d’attente a duré plus longtemps que prévu.
+000000012A82.07C: Année du bœuf 2021
+000000012A83.07C: Terre cuite
+000000012A84.07C: Obtenu en participant au défi de la semaine 1 de l’année du bœuf 2021
+000000012A85.07C: Escouade de terre cuite
+000000012A87.07C: Fumée de tir
+000000012A88.07C: Obtenu en participant au défi de la semaine 2 de l’année du bœuf 2021
+000000012A89.07C: Vagabond
+000000012A8E.07C: Impérial
+000000012A8F.07C: Obtenu en participant au défi de la semaine 3 de l’année du bœuf 2021
+000000012A90.07C: Siwang
+000000012A91.07C: Obtenu en participant au défi de la semaine 3 de l’année du bœuf 2021
 000000012ADC.07C: < 5 |Rpl min:min;
 000000012ADD.07C: > 10 |Rpl min:min;
-[Core] Execution finished in 00:00:00.4595218 seconds
+000000012AED.07C: La prime augmente à chaque élimination effectuée par la cible
+000000012AF0.07C: Mettre en pause la partie
+000000012AF1.07C: Reprendre la partie
+000000012B32.07C: Non disponible pour une raison inconnue.
+000000012B34.07C: Modes capture du drapeau
+000000012B35.07C: Modes de jeu capture du drapeau
+000000012B56.07C: Chasseur de primes
+000000012B57.07C: Éventails
+000000012B58.07C: Tuez la cible pour empocher sa prime et devenir la nouvelle cible. Le cible gagne des points bonus pour chaque élimination qu’elle effectue.
+000000012B6E.07C: La voie des pros 2021
+000000012B6F.07C: La voie des pros 2021
+000000012B70.07C: Chacun pour soi à 6 joueurs
+000000012B71.07C: VICTOIRE : le premier joueur qui atteint 4 000 points l’emporte
+000000012B8B.07C: Nouveau
+000000012B8E.07C: Plus vite que son ombre
+000000012B8F.07C: Tuer 3 ennemis sans mourir en tant que cible dans une partie de Chasseur de primes.
+000000012B90.07C: Passage en caisse
+000000012B91.07C: Obtenir 8 primes dans une partie de Chasseur de primes.
+000000012B92.07C: Halte-là, hors-la-loi
+000000012B93.07C: Tuer la cible pendant qu’elle utilise sa capacité ultime dans une partie de Chasseur de primes.
+000000012B95.07C: A éliminé une cible
+000000012B96.07C: A éliminé un joueur en tant que cible
+000000012B97.07C: Score
+000000012BD4.07C: Compétiteur Capture du drapeau 2021
+000000012BD5.07C: Obtenu en effectuant toutes les parties de placement du mode Capture du drapeau en 2021
+000000012BD6.07C: Héros Capture du drapeau 2021
+000000012BD7.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Capture du drapeau en 2021
+000000012BD8.07C: Héros Capture du drapeau 2021
+000000012BD9.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Capture du drapeau en 2021
+000000012BDA.07C: Compétiteur Capture du drapeau 2021
+000000012BDC.07C: Capture du drapeau en compétitif
+000000012BDD.07C: Grimpez les échelons et affrontez les meilleurs joueurs de capture du drapeau au monde !
+000000012BDE.07C: Capture du drapeau en compétitif - Saison 4
+000000012C16.07C: S
+000000012C17.07C: Compagnon étincelant
+000000012C37.07C: Semaine 1 : Secouriste de terre cuite
+000000012C38.07C: Fureur du taureau
+000000012C39.07C: Disponible dans les coffres lunaires
+000000012C3A.07C: Ail
+000000012C3B.07C: Disponible dans les coffres lunaires
+000000012C3C.07C: Tonnerre
+000000012C3D.07C: Disponible dans les coffres lunaires
+000000012C3E.07C: Gratitude
+000000012C3F.07C: Disponible dans les coffres lunaires
+000000012C40.07C: Vol du dragon
+000000012C41.07C: Disponible dans les coffres lunaires
+000000012C42.07C: Au milieu des lanternes
+000000012C43.07C: Disponible dans les coffres lunaires
+000000012C44.07C: Face à face
+000000012C45.07C: Disponible dans les coffres lunaires
+000000012C46.07C: Criminelle
+000000012C47.07C: Disponible dans les coffres lunaires
+000000012C48.07C: Tigre
+000000012C49.07C: Disponible dans les coffres lunaires
+000000012C4A.07C: Taureau
+000000012C4B.07C: Disponible dans les coffres lunaires
+000000012C4C.07C: Serpent
+000000012C4D.07C: Disponible dans les coffres lunaires
+000000012C4E.07C: Pie
+000000012C4F.07C: Disponible dans les coffres lunaires
+000000012C50.07C: Semaine 2 : Xiake
+000000012C51.07C: Tête de dragon
+000000012C52.07C: Disponible dans les coffres lunaires
+000000012C53.07C: Semaine 3 : Garde impérial
+000000012C5B.07C: 50 coffres lunaires et 10 coffres lunaires offerts
+000000012C60.07C: Héros Saison 27
+000000012C61.07C: Obtenu en se classant parmi les 500 meilleurs joueurs lors de la saison 27
+000000012C64.07C: Héros Saison 27
+000000012C65.07C: Obtenu en se classant parmi les 500 meilleurs joueurs lors de la saison 27
+000000012C66.07C: Compétiteur Saison 27
+000000012C67.07C: Obtenu en effectuant toutes les parties de placement de la saison 27
+000000012C68.07C: Compétiteur Saison 27
+000000012C69.07C: Obtenu en effectuant toutes les parties de placement de la saison 27
+000000012C6B.07C: Disponible dans les coffres lunaires
+000000012C6D.07C: J’aimerais pouvoir manger
+000000012C6E.07C: Année prospère
+000000012C6F.07C: Disponible dans les coffres lunaires
+000000012C70.07C: Bonne année du bœuf
+000000012C71.07C: Disponible dans les coffres lunaires
+000000012C72.07C: Rouge et vert
+000000012C73.07C: Disponible dans les coffres lunaires
+000000012C74.07C: Meuh
+000000012C75.07C: Disponible dans les coffres lunaires
+000000012C76.07C: Fort comme un buffle
+000000012C77.07C: Disponible dans les coffres lunaires
+000000012C78.07C: La vie est un rodéo
+000000012C79.07C: Disponible dans les coffres lunaires
+000000012C7A.07C: Fort comme un bœuf
+000000012C7B.07C: Disponible dans les coffres lunaires
+000000012C7E.07C: Déplaisant
+000000012C7F.07C: Disponible dans les coffres lunaires
+000000012C80.07C: Chaos
+000000012C81.07C: Disponible dans les coffres lunaires
+000000012C82.07C: Tu travailles trop
+000000012C83.07C: Disponible dans les coffres lunaires
+000000012C84.07C: Persévérant
+000000012C85.07C: Disponible dans les coffres lunaires
+000000012C8A.07C: Halte-là, hors-la-loi
+000000012C8D.07C: Passage en caisse
+000000012C90.07C: Plus vite que son ombre
+000000012C92.07C: CONTINUER
+000000012C93.07C: Célébrez l’année du bœuf avec les coffres lunaires ! Gagnez de nouveaux modèles, entrées en scène et bien plus !
+000000012C94.07C: Chasseur de primes
+000000012C95.07C: Un nouveau mode de combat à mort arrive ! Collectez des primes et éliminez les chasseurs de primes !
+000000012C97.07C: Fin de l’évènement le 25 février
+000000012C99.07C: Défis hebdomadaires
+000000012C9A.07C: Semaine 1
+000000012C9B.07C: Semaine 2
+000000012C9C.07C: Semaine 3
+000000012C9D.07C: Fête lunaire
+000000012C9E.07C: Année du bœuf
+000000012C9F.07C: Combat à mort à 6 joueurs
+000000012CA0.07C: Obtenez de nouveaux modèles
+000000012CA2.07C: Obtenu en participant au défi de la semaine 3 de l’année du bœuf 2021
+000000012CA8.07C: 
+000000012CA9.07C: 
+000000012CAA.07C: 
+000000012CB5.07C: |Rfn %1$s:N0;
+000000012CB6.07C: |Rfn %1$s:N0;
+000000012CB7.07C: |Rfn %1$s:N0;
+000000012CB8.07C: |Rfn %1$s:N0;
+000000012CB9.07C: |Rfn %1$s:N0;
+000000012D10.07C: 120 crédits, plus 60 coffres lunaires offerts
+000000012D46.07C: Année du bœuf
+[Core] Execution finished in 00:00:00.4056659 seconds

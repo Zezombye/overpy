@@ -1,13 +1,13 @@
-[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
+[Core] DataTool v1.57.0.939-git-445d31f8d7165448a046432b61363fce36a53d85
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: deDE | Speech Language: deDE
-[CASC] Overwatch build 1.56.0.0.77262
+[CASC] Overwatch build 1.57.0.0.78040
 [CASC] Initializing...
-[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using TRG procedure 78040 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -9261,7 +9261,7 @@ Eliminierung (3v3)
 00000000548E.07C: <fg%1$s>UNENTSCHIEDEN</fg>
 00000000548F.07C: SCHNEEBALLSCHLACHT
 000000005490.07C: 50 Winter-Lootboxen
-000000005491.07C: Jede Lootbox enthält bis zu 4 kosmetische Extras und/oder Credits im Spiel, darunter mindestens ein Winter-Extra. Lootboxen können im Spiel auf verschiedene Arten verdient werden.
+000000005491.07C: Jede Lootbox enthält bis zu 4 kosmetische Extras und/oder Credits im Spiel, darunter mindestens ein Neujahr-Extra. Lootboxen können im Spiel auf verschiedene Arten verdient werden.
 000000005492.07C: 24 Winter-Lootboxen
 000000005493.07C: 2 Winter-Lootboxen
 000000005494.07C: 5 Winter-Lootboxen
@@ -10664,7 +10664,7 @@ Ordnung
 000000006147.07C: Teamgröße +1
 000000006148.07C: Teamgröße +2
 000000006149.07C: Teamgröße +3
-00000000615A.07C: Jede Jubiläums-Lootbox enthält bis zu 4 kosmetische Extras und/oder Credits im Spiel, darunter mindestens ein Jubiläums-Extra. Jubiläums-Lootboxen können im Spiel auf verschiedene Arten verdient werden.
+00000000615A.07C: Jede Lootbox enthält bis zu 4 kosmetische Extras und/oder Credits im Spiel, darunter mindestens ein Neujahr-Extra. Lootboxen können im Spiel auf verschiedene Arten verdient werden.
 00000000615B.07C: Spielzeit, bis Helden aufgedeckt werden
 00000000615C.07C: Zeit bis zum Unentschieden ohne zusätzlichen Zielpunkt
 00000000615D.07C: Zeit, bis zusätzlicher Zielpunkt aktiviert wird
@@ -22448,9 +22448,6 @@ Hinweis: Variablen und Programmiersprache sind in Englisch gehalten. Die Benutze
 00000000CA0C.07C: Du musst eine Rolle wählen, bevor deine Gruppe ein Spiel suchen kann. Jetzt wählen?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Kanezaka-Herausforderung
-00000000CA13.07C: Woche 2: Ana-Skin Lebkuchen
-00000000CA14.07C: Woche 3: Roadhog-Skin Frosty
 00000000CA15.07C: Gewinne 9 Spiele in den Modi Schnellsuche, Arcade oder Rangliste!
 00000000CA16.07C: Gewinne 9 Spiele in den Modi Schnellsuche, Arcade oder Rangliste!
 00000000CA17.07C: Gewinne 9 Spiele in den Modi Schnellsuche, Arcade oder Rangliste!
@@ -26686,7 +26683,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F4DF.07C: Beobachtung
 00000000F4E0.07C: In Archiv-Lootboxen erhältlich
 00000000F523.07C: Freigeschaltet durch das Einloggen während des Winterwunderlands 2019.
-00000000F528.07C: 2020 – Jahr der Ratte
+00000000F528.07C: Jahr der Ratte
 00000000F529.07C: Jahr der Ratte
 00000000F52A.07C: In Neujahr-Lootboxen erhältlich
 00000000F52E.07C: Training
@@ -27378,6 +27375,7 @@ https://account.blizzard.com/connections/nintendo
 00000001041C.07C: Held von Saison 22
 00000001041E.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 22
 00000001041F.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 22
+000000010427.07C: Raynhardt
 00000001043B.07C: Melden
 000000010473.07C: Lúcioball Remix
 000000010476.07C: Lúcioball: Remix
@@ -28576,6 +28574,7 @@ Der Blizzard-Kundendienst
 00000001125F.07C: Der oder die Betrachter, für die die Namensplakette des betrachteten Spielers deaktiviert wird.
 000000011262.07C: Angriff – Test
 000000011263.07C: Eine experimentelle Variante von Angriff
+000000011265.07C: Tigerjägerin
 000000011266.07C: %1$s hat ein %2$s-Punkte-TOR geschossen!
 000000011268.07C: %1$s hat ein %2$s-Punkte-TOR geschossen!
 00000001126A.07C: %1$s-Punkte-Tor!
@@ -28775,10 +28774,12 @@ Der Blizzard-Kundendienst
 0000000114DF.07C: Overwatch League ansehen
 0000000114E4.07C: Lebkuchen
 00000001152E.07C: Holzfäller
+0000000115E4.07C: Kkachi
 000000011605.07C: Kompetitive Eliminierung (3v3): Saison 3
 000000011606.07C: Kompetitive Eliminierung
 000000011607.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Eliminierungs<hy>spieler der Welt an!
 000000011624.07C: Frosty
+000000011627.07C: Blasse Schlange
 000000011654.07C: Stoffpuppe
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Mehr Infos
@@ -28833,6 +28834,7 @@ Der Blizzard-Kundendienst
 0000000116EA.07C: Helden von Team 2
 0000000116FF.07C: Copa Lúcioball
 000000011700.07C: Kompetitives Deathmatch
+000000011711.07C: Stierdämon
 00000001171D.07C: Ein oder mehrere Gruppenmitglieder haben bald keine Spielzeit mehr.
 000000011744.07C: 1 legendäres Extra und 5 Lootboxen
 000000011745.07C: 15 Credits und dazu 1 legendäres Extra sowie 5 Lootboxen geschenkt
@@ -28847,7 +28849,6 @@ Der Blizzard-Kundendienst
 0000000117A8.07C: Kompetitives Team-Deathmatch
 0000000117A9.07C: Kompetitive Flaggeneroberung
 0000000117AA.07C: Kompetitiv – Freie Rollenwahl
-0000000117BA.07C: Kanezaka-Herausforderung
 0000000117FC.07C: Versteinert
 00000001180C.07C: Junkensteins Rache – Rachsüchtiger Geist
 00000001180D.07C: Junkensteins Rache – Wilder Ansturm
@@ -29036,6 +29037,7 @@ Lootboxen erhältlich
 000000011B1A.07C: Mehr erfahren
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
+000000011B45.07C: Der Löwe brüllt
 000000011B47.07C: Welle erreicht:
 000000011B5A.07C: Schau bei den Contenders zu!
 000000011BB5.07C: https://eu.battle.net/support/de/article/42673
@@ -29048,6 +29050,7 @@ Lootboxen erhältlich
 000000011C0D.07C: Legt den Spieler fest, dem der Kill angerechnet wird, wenn der festgelegte Zielspieler oder die festgelegten Zielspieler aufgrund der Umgebung sterben, bevor sie auf dem Boden landen.
 000000011C0F.07C: Target
 000000011C10.07C: Egoperspektive – Helden-HUD
+000000011C4B.07C: Drachenfeuer
 000000011C50.07C: Default
 000000011C51.07C: Occluded
 000000011C52.07C: Always
@@ -29133,6 +29136,7 @@ Lootboxen erhältlich
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
+000000011DAC.07C: Xiake
 000000011DC8.07C: Schnee
 000000011E36.07C: Team-Deathmatch-Teilnehmer 2020
 000000011E37.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches im kompe<hy>titiven Team-Deathmatch 2020
@@ -29486,6 +29490,7 @@ Lootboxen erhältlich
 000000012536.07C: Unterbrich das Ultimate eines Gegners, indem du ihn bei der Frosttau-Eliminierung einfrierst.
 000000012537.07C: Eine Hand wärmt die andere
 000000012538.07C: Tau einen Spieler in einer Runde Frosttau-Eliminierung auf, der dich vorher aufgetaut hat.
+000000012539.07C: Finale
 00000001253A.07C: MIN LAT: %1$s MS
 00000001253E.07C: Rangliste
 00000001253F.07C: MACH MIT, UM DIR BELOHNUNGEN ZU VERDIENEN:
@@ -29563,6 +29568,7 @@ Lootboxen erhältlich
 000000012651.07C: VIP-Ticket ein/aus
 000000012659.07C: TEAMMITGLIED WIRD BEREITS AUFGETAUT
 00000001265A.07C: TEAMMITGLIED WIRD BEREITS AUFGETAUT
+00000001266A.07C: Terrakottasanitäter
 00000001266E.07C: Reihe dich in der Rollenwahl als Flexibel ein, um VIP-Tickets zu verdienen. Durch Siege erhältst du mehr Tickets als durch Niederlagen.
 00000001266F.07C: Verwende ein VIP-Ticket, um die Wartezeit mit der ausgewählten Rolle für das nächste Match zu verringern. Diese Funktion ist nur für Rollen mit hoher Wartezeit verfügbar.
 000000012670.07C: Wenn alle Gruppenmitglieder, die sich für Rollen mit hoher Wartezeit einreihen, ein VIP-Ticket benutzen, wird die Wartezeit der Gruppe verringert. 
@@ -29621,6 +29627,7 @@ und dazu 10 Winter-Lootboxen geschenkt
 00000001279E.07C: Frosty
 00000001279F.07C: /%1$s
 0000000127A4.07C: Flexibel
+0000000127A5.07C: Hongbao
 0000000127C0.07C: Mistelzweig
 0000000127C2.07C: Logdatei des Workshop Inspectors aktivieren
 0000000127C5.07C: 1,75x
@@ -29645,17 +29652,31 @@ und dazu 10 Winter-Lootboxen geschenkt
 0000000127EF.07C: Saison 26
 0000000127F0.07C: Saison 26
 0000000127FC.07C: Ranglistensaison 26 – Freie Rollenwahl
+000000012802.07C: Strahlender Stier
 000000012804.07C: Platzierungsmatches
 000000012805.07C: Frostiger Elf
 000000012807.07C: Gegenseitiges Auftauen
 000000012808.07C: Kekswurf
+000000012809.07C: 30. Jubiläum von Blizzard
+00000001280B.07C: 30. Jubiläum von Blizzard
+000000012825.07C: Kaiserliche Garde
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+00000001283A.07C: Freigeschaltet durch den Erwerb der Celebration Collection
+00000001283B.07C: Freigeschaltet durch den Erwerb der Celebration Collection
+00000001283D.07C: Freigeschaltet durch den Erwerb der Celebration Collection
+000000012841.07C: Kopfgeldjäger
+000000012842.07C: Sammle Punkte, indem du das Ziel tötest und das Kopfgeld einstreichst. So wirst du selbst zum Ziel, wodurch deine Trefferpunkte aufgefüllt und deine ultimative Fähigkeit vollständig aufgeladen werden. Du erhältst Bonuspunkte, wenn du als Ziel andere Helden tötest. 
+000000012843.07C: Punktzahl pro Kill
+000000012846.07C: Punktzahl pro Kill als Kopfgeldziel
+000000012847.07C: Grundpunktzahl für das Töten eines Kopfgeldziels
+00000001284F.07C: Anzahl an Kopfgeldern
 000000012850.07C: Kyōgisha
 00000001286D.07C: Kanezaka
 00000001287A.07C: Replay eines nicht entschiedenen Matches kann nicht abgespielt werden.
 00000001287B.07C: OK
+00000001287C.07C: <fg%1$s>DU HAST EIN KOPFGELD</fg>
 0000000128AB.07C: Freigeschaltet durch die Teilnahme an der Kanezaka-Herausforderung
 0000000128AF.07C: Freigeschaltet durch die Teilnahme an der Kanezaka-Herausforderung
 0000000128B0.07C: Schreindistrikt
@@ -29673,6 +29694,142 @@ und dazu 10 Winter-Lootboxen geschenkt
 0000000128E5.07C: Dein VIP-Ticket wurde zurückerstattet.
 0000000128E6.07C: Abgelösten Wiedergabe-Timecode anzeigen
 000000012965.07C: Dein VIP-Ticket wird nicht verwendet, weil du länger als erwartet in der Warteschlange warst.
+000000012A82.07C: 2021 – Jahr des Ochsen
+000000012A83.07C: Steingesicht
+000000012A84.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Ochsen 2021, Woche 1
+000000012A85.07C: Terrakottatrupp
+000000012A87.07C: Pulverdampf
+000000012A88.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Ochsen 2021, Woche 2
+000000012A89.07C: Wanderer
+000000012A8E.07C: Kaiserlich
+000000012A8F.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Ochsen 2021, Woche 3
+000000012A90.07C: Siwang
+000000012A91.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Ochsen 2021, Woche 3
 000000012ADC.07C: < 5 Min.
 000000012ADD.07C: > 10 Min.
-[Core] Execution finished in 00:00:00.4272131 seconds
+000000012AED.07C: Anstieg des Kopfgelds pro Kill als Kopfgeldziel
+000000012AF0.07C: Match pausieren
+000000012AF1.07C: Match fortsetzen
+000000012B32.07C: Aus unbekanntem Grund nicht verfügbar
+000000012B34.07C: Flaggen<hy>eroberungsmodi
+000000012B35.07C: Flaggen<hy>eroberungs<hy>spielmodi
+000000012B56.07C: Kopfgeldjäger
+000000012B57.07C: Fächertanz
+000000012B58.07C: Töte das Ziel, um das Kopfgeld einzustreichen und zum nächsten Ziel zu werden. Ziele erhalten Bonuspunkte für Kills.
+000000012B6E.07C: Der Weg zum Profi 2021
+000000012B6F.07C: Der Weg zum Profi 2021
+000000012B70.07C: FFA – 6 Spieler
+000000012B71.07C: SIEG: Erziele als erster Spieler 4000 Punkte
+000000012B8B.07C: Neu
+000000012B8E.07C: Schnell am Abzug
+000000012B8F.07C: Töte in Kopfgeldjäger als Ziel 3 Gegner, ohne zu sterben.
+000000012B90.07C: Zahltag
+000000012B91.07C: Streich in einem Spiel Kopfgeldjäger 8 Kopfgelder ein.
+000000012B92.07C: Nicht so schnell, Gesetzloser
+000000012B93.07C: Töte in Kopfgeldjäger das Ziel, während es eine ultimative Fähigkeit einsetzt.
+000000012B95.07C: Ein Kopfgeldziel getötet
+000000012B96.07C: Als Kopfgeldziel einen Gegner getötet
+000000012B97.07C: Punkte
+000000012BD4.07C: Teilnehmer der Flaggeneroberung 2021
+000000012BD5.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches der kompe<hy>titiven Flaggen<hy>eroberung 2021
+000000012BD6.07C: Held der Flaggeneroberung 2021
+000000012BD7.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der kompe<hy>titiven Flaggen<hy>eroberung 2021
+000000012BD8.07C: Held der Flaggeneroberung 2021
+000000012BD9.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der kompe<hy>titiven Flaggen<hy>eroberung 2021
+000000012BDA.07C: Teilnehmer der Flaggeneroberung 2021
+000000012BDC.07C: Kompetitive Flaggeneroberung
+000000012BDD.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Flaggeneroberer der Welt an!
+000000012BDE.07C: Kompetitive Flaggeneroberung: Saison 4
+000000012C16.07C: P
+000000012C17.07C: Funkelnde Gesellschaft
+000000012C37.07C: Woche 1: Skin Terrakottasanitäter
+000000012C38.07C: Zorn des Stiers
+000000012C39.07C: In Neujahr-Lootboxen erhältlich
+000000012C3A.07C: Knoblauch
+000000012C3B.07C: In Neujahr-Lootboxen erhältlich
+000000012C3C.07C: Donner
+000000012C3D.07C: In Neujahr-Lootboxen erhältlich
+000000012C3E.07C: Dankbarkeit
+000000012C3F.07C: In Neujahr-Lootboxen erhältlich
+000000012C40.07C: Drachenflug
+000000012C41.07C: In Neujahr-Lootboxen erhältlich
+000000012C42.07C: Zwischen den Laternen
+000000012C43.07C: In Neujahr-Lootboxen erhältlich
+000000012C44.07C: Auge in Auge
+000000012C45.07C: In Neujahr-Lootboxen erhältlich
+000000012C46.07C: Banditin
+000000012C47.07C: In Neujahr-Lootboxen erhältlich
+000000012C48.07C: Tiger
+000000012C49.07C: In Neujahr-Lootboxen erhältlich
+000000012C4A.07C: Stier
+000000012C4B.07C: In Neujahr-Lootboxen erhältlich
+000000012C4C.07C: Schlange
+000000012C4D.07C: In Neujahr-Lootboxen erhältlich
+000000012C4E.07C: Elster
+000000012C4F.07C: In Neujahr-Lootboxen erhältlich
+000000012C50.07C: Woche 2: Skin Xiake
+000000012C51.07C: Drachenkopf
+000000012C52.07C: In Neujahr-Lootboxen erhältlich
+000000012C53.07C: Woche 3: Skin Kaiserliche Garde
+000000012C5B.07C: 50 Neujahr-Lootboxen und dazu
+10 Neujahr-Lootboxen geschenkt
+000000012C60.07C: Held von Saison 27
+000000012C61.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 27
+000000012C64.07C: Held von Saison 27
+000000012C65.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 27
+000000012C66.07C: Teilnehmer von Saison 27
+000000012C67.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 27
+000000012C68.07C: Teilnehmer von Saison 27
+000000012C69.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 27
+000000012C6B.07C: In Neujahr-Lootboxen erhältlich
+000000012C6D.07C: Ich wünschte, ich könnte essen
+000000012C6E.07C: Glück und Erfolg
+000000012C6F.07C: In Neujahr-Lootboxen erhältlich
+000000012C70.07C: Frohes Jahr des Ochsen
+000000012C71.07C: In Neujahr-Lootboxen erhältlich
+000000012C72.07C: Rot und grün
+000000012C73.07C: In Neujahr-Lootboxen erhältlich
+000000012C74.07C: Muh!
+000000012C75.07C: In Neujahr-Lootboxen erhältlich
+000000012C76.07C: Stark wie ein Ochse
+000000012C77.07C: In Neujahr-Lootboxen erhältlich
+000000012C78.07C: Das Leben ist ein Rodeoritt
+000000012C79.07C: In Neujahr-Lootboxen erhältlich
+000000012C7A.07C: Stur wie ein Ochse
+000000012C7B.07C: In Neujahr-Lootboxen erhältlich
+000000012C7E.07C: Geschmacklos
+000000012C7F.07C: In Neujahr-Lootboxen erhältlich
+000000012C80.07C: Chaos
+000000012C81.07C: In Neujahr-Lootboxen erhältlich
+000000012C82.07C: Du arbeitest zu hart
+000000012C83.07C: In Neujahr-Lootboxen erhältlich
+000000012C84.07C: Beharrlichkeit
+000000012C85.07C: In Neujahr-Lootboxen erhältlich
+000000012C8A.07C: Nicht so schnell, Gesetzloser
+000000012C8D.07C: Zahltag
+000000012C90.07C: Schnell am Abzug
+000000012C92.07C: WEITER
+000000012C93.07C: Feier das Jahr des Ochsen mit Neujahr-Lootboxen und sicher dir neue Skins, Highlight-Intros und mehr!
+000000012C94.07C: Kopfgeldjäger
+000000012C95.07C: Neuer Deathmatch-Modus! Sammle Kopfgelder und erledige Kopfgeldjäger.
+000000012C97.07C: Event endet am 25.02.
+000000012C99.07C: Wöchentliche Herausforderungen
+000000012C9A.07C: Woche 1
+000000012C9B.07C: Woche 2
+000000012C9C.07C: Woche 3
+000000012C9D.07C: Mondneujahr
+000000012C9E.07C: Jahr des Ochsen
+000000012C9F.07C: Deathmatch (6 Spieler)
+000000012CA0.07C: Schalte neue Skins frei
+000000012CA2.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Ochsen 2021, Woche 3
+000000012CA8.07C: 
+000000012CA9.07C: 
+000000012CAA.07C: 
+000000012CB5.07C: |Rfn %1$s:N0;
+000000012CB6.07C: |Rfn %1$s:N0;
+000000012CB7.07C: |Rfn %1$s:N0;
+000000012CB8.07C: |Rfn %1$s:N0;
+000000012CB9.07C: |Rfn %1$s:N0;
+000000012D10.07C: 120 Credits und dazu 60 Neujahr-Lootboxen geschenkt
+000000012D46.07C: Jahr des Ochsen
+[Core] Execution finished in 00:00:00.4040509 seconds

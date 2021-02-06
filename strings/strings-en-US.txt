@@ -1,13 +1,13 @@
-[Core] DataTool v1.56.0.938-git-a410cb0609e5f0a6b5e76372c047fca509562151
+[Core] DataTool v1.57.0.939-git-445d31f8d7165448a046432b61363fce36a53d85
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.56.0.0.77262
+[CASC] Overwatch build 1.57.0.0.78040
 [CASC] Initializing...
-[Manifest] Using TRG procedure 77262 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 77262 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 78040 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -9231,7 +9231,7 @@ THIS SOFTWARE.
 00000000548E.07C: <fg%1$s>DRAW</fg>
 00000000548F.07C: SNOWBALL FIGHT
 000000005490.07C: 50 Winter Loot Boxes
-000000005491.07C: Each loot box contains a combination of up to 4 cosmetic items and/or in-game credits, including a minimum of one Winter item among those items. Loot Boxes can be earned through in-game systems.
+000000005491.07C: Each loot box contains a combination of up to 4 cosmetic items and/or in-game credits, including a minimum of one Lunar New Year item among those items. Loot Boxes can be earned through in-game systems.
 000000005492.07C: 24 Winter Loot Boxes
 000000005493.07C: 2 Winter Loot Boxes
 000000005494.07C: 5 Winter Loot Boxes
@@ -10631,7 +10631,7 @@ A player name or BattleTag using a language different than your own.
 000000006147.07C: Team Size +1
 000000006148.07C: Team Size +2
 000000006149.07C: Team Size +3
-00000000615A.07C: Each Anniversary loot box contains a combination of up to 4 cosmetic items and/or in-game credits, including a minimum of one Anniversary item among those items. Anniversary Loot Boxes can be earned through in-game systems.
+00000000615A.07C: Each loot box contains a combination of up to 4 cosmetic items and/or in-game credits, including a minimum of one Lunar New Year item among those items. Loot Boxes can be earned through in-game systems.
 00000000615B.07C: Reveal Heroes After Match Time Elapsed
 00000000615C.07C: Draw After Match Time Elapsed With No Tiebreaker
 00000000615D.07C: Tiebreaker After Match Time Elapsed
@@ -22226,9 +22226,6 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CA0C.07C: You must select a role before your group can queue. Select now?
 00000000CA0D.07C: Shops
 00000000CA0E.07C: Shop
-00000000CA11.07C: Kanezaka Challenge
-00000000CA13.07C: Week 2: Gingerbread Ana
-00000000CA14.07C: Week 3: Frosty Roadhog
 00000000CA15.07C: Win 9 games in quick play, arcade, or competitive play!
 00000000CA16.07C: Win 9 games in quick play, arcade, or competitive play!
 00000000CA17.07C: Win 9 games in quick play, arcade, or competitive play!
@@ -26414,7 +26411,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F4DF.07C: Observation
 00000000F4E0.07C: Available in Archives Loot Boxes
 00000000F523.07C: Unlocked by logging into the game during the Winter Wonderland 2019 event
-00000000F528.07C: Year of the Rat 2020
+00000000F528.07C: Year of the Rat
 00000000F529.07C: Year of the Rat
 00000000F52A.07C: Available in Lunar Loot Boxes
 00000000F52E.07C: Workout
@@ -27106,6 +27103,7 @@ https://account.blizzard.com/connections/nintendo
 00000001041C.07C: Season 22 Hero
 00000001041E.07C: Unlocked by completing Season 22 placement matches
 00000001041F.07C: Unlocked by achieving top 500 ranking at the end of Season 22
+000000010427.07C: Raynhardt
 00000001043B.07C: Report
 000000010473.07C: Lúcioball Remix
 000000010476.07C: Lúcioball Remix
@@ -28300,6 +28298,7 @@ Blizzard Support
 00000001125F.07C: The Viewing Player or Players for whom the Viewed Player's Nameplate will be disabled.
 000000011262.07C: Assault Test
 000000011263.07C: An experimental version of Assault
+000000011265.07C: Tiger Huntress
 000000011266.07C: %1$s scored a %2$s-point GOAL!
 000000011268.07C: %1$s scored a %2$s-point GOAL!
 00000001126A.07C: %1$s-Point Goal Scored!
@@ -28499,10 +28498,12 @@ Blizzard Support
 0000000114DF.07C: Watch Overwatch League
 0000000114E4.07C: Gingerbread
 00000001152E.07C: Lumberjack
+0000000115E4.07C: Kkachi
 000000011605.07C: Competitive 3v3 Elimination Season 3
 000000011606.07C: Competitive Elimination
 000000011607.07C: Rise up the ranks and compete with the best Elimination players in the world!
 000000011624.07C: Frosty
+000000011627.07C: Pale Serpent
 000000011654.07C: Ragdoll
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: More Info
@@ -28557,6 +28558,7 @@ Blizzard Support
 0000000116EA.07C: Team 2 Heroes
 0000000116FF.07C: Copa Lúcioball
 000000011700.07C: Competitive Deathmatch
+000000011711.07C: Bull Demon
 00000001171D.07C: One or more party members is about to run out of game time
 000000011744.07C: 1 Legendary and 5 Loot Boxes
 000000011745.07C: 15 credits and a free gift of 1 Legendary and 5 Loot Boxes
@@ -28571,7 +28573,6 @@ Blizzard Support
 0000000117A8.07C: Competitive Team Deathmatch
 0000000117A9.07C: Competitive CTF
 0000000117AA.07C: Competitive Open Queue
-0000000117BA.07C: Kanezaka Challenge
 0000000117FC.07C: Stone
 00000001180C.07C: Junkenstein's Revenge Vengeful Ghost
 00000001180D.07C: Junkenstein's Revenge Frenzied Stampede
@@ -28745,6 +28746,7 @@ Blizzard Support
 000000011B1A.07C: Learn More
 000000011B1B.07C: 
 000000011B1C.07C: utm_campaign
+000000011B45.07C: The Lion Roars
 000000011B47.07C: Wave Reached:
 000000011B5A.07C: Watch Contenders!
 000000011BB5.07C: https://us.battle.net/support/en/article/42673
@@ -28757,6 +28759,7 @@ Blizzard Support
 000000011C0D.07C: Sets the Player who will receive credit if the specified target Player or Players die to the environment before landing on the ground.
 000000011C0F.07C: Target
 000000011C10.07C: First-Person Hero HUD
+000000011C4B.07C: Dragonfire
 000000011C50.07C: Default
 000000011C51.07C: Occluded
 000000011C52.07C: Always
@@ -28831,6 +28834,7 @@ Blizzard Support
 000000011DA9.07C: 
 000000011DAA.07C: 
 000000011DAB.07C: 
+000000011DAC.07C: Xiake
 000000011DC8.07C: Flurry
 000000011E36.07C: Competitive Team Deathmatch Competitor 2020
 000000011E37.07C: Unlocked by completing Competitive Team Deathmatch 2020 placement matches
@@ -29184,6 +29188,7 @@ Blizzard Support
 000000012536.07C: Interrupt an enemy ultimate ability by freezing them in Freezethaw Elimination.
 000000012537.07C: Snow Trouble, Friend
 000000012538.07C: Thaw a player who previously thawed you in a round of Freezethaw Elimination.
+000000012539.07C: Finale
 00000001253A.07C: MIN LAT: %1$s MS
 00000001253E.07C: Competitive
 00000001253F.07C: EARN THESE REWARDS BY PARTICIPATING
@@ -29261,6 +29266,7 @@ Blizzard Support
 000000012651.07C: Toggle Use Priority Pass
 000000012659.07C: TEAMMATE IS BEING THAWED ALREADY
 00000001265A.07C: TEAMMATE IS BEING THAWED ALREADY
+00000001266A.07C: Terracotta Medic
 00000001266E.07C: Queue for Flex in Role Queue to earn Priority Passes, with more passes earned for wins than for losses.
 00000001266F.07C: Use a Priority Pass to decrease the queue time for your upcoming game with the selected role. Only roles experiencing high traffic will be eligible.
 000000012670.07C: If all group members queuing for high-traffic roles use a pass, the group’s queue time will be decreased. 
@@ -29319,6 +29325,7 @@ and 10 Free Winter Loot Boxes
 00000001279E.07C: Frosty
 00000001279F.07C: /%1$s
 0000000127A4.07C: Flex
+0000000127A5.07C: Hongbao
 0000000127C0.07C: Mistletoe
 0000000127C2.07C: Enable Workshop Inspector Log File
 0000000127C5.07C: 1.75x
@@ -29343,17 +29350,31 @@ and 10 Free Winter Loot Boxes
 0000000127EF.07C: Season 26
 0000000127F0.07C: Season 26
 0000000127FC.07C: Competitive Season 26 - Open Queue
+000000012802.07C: Shining Bull
 000000012804.07C: Placement Matches
 000000012805.07C: Frozen Elf
 000000012807.07C: Mutual Thaw
 000000012808.07C: Cookie Throw
+000000012809.07C: Blizzard's 30th Anniversary
+00000001280B.07C: Blizzard's 30th Anniversary
+000000012825.07C: Imperial Guard
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+00000001283A.07C: Unlocked by purchasing the Celebration Collection
+00000001283B.07C: Unlocked by purchasing the Celebration Collection
+00000001283D.07C: Unlocked by purchasing the Celebration Collection
+000000012841.07C: Bounty Hunter
+000000012842.07C: Gain points by killing the Target to claim their bounty and become the Target yourself, raising your health and ultimate meter to full. Earn bonus points by killing non-Target heroes as the Target. 
+000000012843.07C: Score per Kill
+000000012846.07C: Score per Kill as Bounty Target
+000000012847.07C: Base Score for Killing a Bounty Target
+00000001284F.07C: Bounty Target Count
 000000012850.07C: Kyōgisha
 00000001286D.07C: Kanezaka
 00000001287A.07C: Unable to view replay of an undecided match.
 00000001287B.07C: Ok
+00000001287C.07C: <fg%1$s>YOU HAVE A BOUNTY</fg>
 0000000128AB.07C: Unlocked by participating in the Kanezaka Challenge
 0000000128AF.07C: Unlocked by participating in the Kanezaka Challenge
 0000000128B0.07C: Shrine District
@@ -29371,6 +29392,141 @@ and 10 Free Winter Loot Boxes
 0000000128E5.07C: Your priority pass has been refunded.
 0000000128E6.07C: Show Detached Playback Timecode
 000000012965.07C: Your priority pass will not be used because your queue time was longer than expected.
+000000012A82.07C: Year of the Ox 2021
+000000012A83.07C: Stonefaced
+000000012A84.07C: Unlocked by participating in the Year of the Ox 2021 Week 1 challenge
+000000012A85.07C: Terracotta Squad
+000000012A87.07C: Gunsmoke
+000000012A88.07C: Unlocked by participating in the Year of the Ox 2021 Week 2 challenge
+000000012A89.07C: Wanderer
+000000012A8E.07C: Imperial
+000000012A8F.07C: Unlocked by participating in the Year of the Ox 2021 Week 3 challenge
+000000012A90.07C: Siwang
+000000012A91.07C: Unlocked by participating in the Year of the Ox 2021 Week 3 challenge
 000000012ADC.07C: < 5 |Rpl min:mins;
 000000012ADD.07C: > 10 |Rpl min:mins;
-[Core] Execution finished in 00:00:00.4200371 seconds
+000000012AED.07C: Bounty Increase per Kill as Bounty Target
+000000012AF0.07C: Pause Match
+000000012AF1.07C: Unpause Match
+000000012B32.07C: Unavailable for some unknown reason
+000000012B34.07C: CTF Modes
+000000012B35.07C: CTF Game Modes
+000000012B56.07C: Bounty Hunter
+000000012B57.07C: Fan Dance
+000000012B58.07C: Kill the Target to claim their Bounty and become the next Target. Targets receive bonus points for kills.
+000000012B6E.07C: Path to Pro 2021
+000000012B6F.07C: Path to Pro 2021
+000000012B70.07C: 6 Player FFA
+000000012B71.07C: VICTORY: First player to earn 4000 points
+000000012B8B.07C: New
+000000012B8E.07C: Quick on the Draw
+000000012B8F.07C: Kill 3 enemies without dying as the bounty target in Bounty Hunter.
+000000012B90.07C: Pay Up
+000000012B91.07C: Earn 8 bounties in a game of Bounty Hunter.
+000000012B92.07C: Not So Fast, Outlaw
+000000012B93.07C: Kill the Bounty Target while they are using an ultimate ability in Bounty Hunter
+000000012B95.07C: Killed a Bounty Target
+000000012B96.07C: Killed a Player as the Bounty Target
+000000012B97.07C: Score
+000000012BD4.07C: Competitive CTF Competitor 2021
+000000012BD5.07C: Unlocked by completing Competitive Capture the Flag 2021 placement matches
+000000012BD6.07C: Competitive CTF Hero 2021
+000000012BD7.07C: Unlocked by achieving top 500 ranking at the end of Competitive Capture the Flag 2021
+000000012BD8.07C: Competitive CTF Hero 2021
+000000012BD9.07C: Unlocked by achieving top 500 ranking at the end of Competitive Capture the Flag 2021
+000000012BDA.07C: Competitive CTF Competitor 2021
+000000012BDC.07C: Competitive CTF
+000000012BDD.07C: Rise up the ranks and compete with the best Capture The Flag players in the world!
+000000012BDE.07C: Competitive CTF Season 4
+000000012C16.07C: S
+000000012C17.07C: Sparkling Company
+000000012C37.07C: Week 1: Terracotta Medic Skin
+000000012C38.07C: Bull's Fury
+000000012C39.07C: Available in Lunar Loot Boxes
+000000012C3A.07C: Garlic
+000000012C3B.07C: Available in Lunar Loot Boxes
+000000012C3C.07C: Thunder
+000000012C3D.07C: Available in Lunar Loot Boxes
+000000012C3E.07C: Gratitude
+000000012C3F.07C: Available in Lunar Loot Boxes
+000000012C40.07C: Dragonflight
+000000012C41.07C: Available in Lunar Loot Boxes
+000000012C42.07C: Among the Lanterns
+000000012C43.07C: Available in Lunar Loot Boxes
+000000012C44.07C: Eye to Eye
+000000012C45.07C: Available in Lunar Loot Boxes
+000000012C46.07C: Bandit
+000000012C47.07C: Available in Lunar Loot Boxes
+000000012C48.07C: Tiger
+000000012C49.07C: Available in Lunar Loot Boxes
+000000012C4A.07C: Bull
+000000012C4B.07C: Available in Lunar Loot Boxes
+000000012C4C.07C: Serpent
+000000012C4D.07C: Available in Lunar Loot Boxes
+000000012C4E.07C: Magpie
+000000012C4F.07C: Available in Lunar Loot Boxes
+000000012C50.07C: Week 2: Xiake Skin
+000000012C51.07C: Dragonhead
+000000012C52.07C: Available in Lunar Loot Boxes
+000000012C53.07C: Week 3: Imperial Guard Skin
+000000012C5B.07C: 50 Lunar Loot Boxes and 10 Free Lunar Loot Boxes
+000000012C60.07C: Season 27 Hero
+000000012C61.07C: Unlocked by achieving top 500 ranking at the end of Season 27
+000000012C64.07C: Season 27 Hero
+000000012C65.07C: Unlocked by achieving top 500 ranking at the end of Season 27
+000000012C66.07C: Season 27 Competitor
+000000012C67.07C: Unlocked by completing Season 27 placement matches
+000000012C68.07C: Season 27 Competitor
+000000012C69.07C: Unlocked by completing Season 27 placement matches
+000000012C6B.07C: Available in Lunar Loot Boxes
+000000012C6D.07C: I wish I could eat
+000000012C6E.07C: Congratulations!
+000000012C6F.07C: Available in Lunar Loot Boxes
+000000012C70.07C: Happy Year of the Ox
+000000012C71.07C: Available in Lunar Loot Boxes
+000000012C72.07C: Red and Green
+000000012C73.07C: Available in Lunar Loot Boxes
+000000012C74.07C: Moo!
+000000012C75.07C: Available in Lunar Loot Boxes
+000000012C76.07C: Strong as oxen
+000000012C77.07C: Available in Lunar Loot Boxes
+000000012C78.07C: Life's a rodeo
+000000012C79.07C: Available in Lunar Loot Boxes
+000000012C7A.07C: Stubborn as an ox
+000000012C7B.07C: Available in Lunar Loot Boxes
+000000012C7E.07C: Unsavory
+000000012C7F.07C: Available in Lunar Loot Boxes
+000000012C80.07C: Chaos
+000000012C81.07C: Available in Lunar Loot Boxes
+000000012C82.07C: You work too hard
+000000012C83.07C: Available in Lunar Loot Boxes
+000000012C84.07C: Persistence
+000000012C85.07C: Available in Lunar Loot Boxes
+000000012C8A.07C: Not So Fast, Outlaw
+000000012C8D.07C: Pay Up
+000000012C90.07C: Quick On The Draw
+000000012C92.07C: CONTINUE
+000000012C93.07C: Celebrate the Year of the Ox with Lunar Loot Boxes! Earn new skins, highlight intros, and more!
+000000012C94.07C: Bounty Hunter
+000000012C95.07C: New deathmatch mode incoming! Collect bounties and kill bounty hunters!
+000000012C97.07C: Event Ends Feb 25
+000000012C99.07C: Weekly Challenges
+000000012C9A.07C: Week 1
+000000012C9B.07C: Week 2
+000000012C9C.07C: Week 3
+000000012C9D.07C: Lunar Festival
+000000012C9E.07C: Year of the Ox
+000000012C9F.07C: 6 player deathmatch
+000000012CA0.07C: Unlock new skins
+000000012CA2.07C: Unlocked by participating in the Year of the Ox 2021 Week 3 challenge
+000000012CA8.07C: 
+000000012CA9.07C: 
+000000012CAA.07C: 
+000000012CB5.07C: |Rfn %1$s:N0;
+000000012CB6.07C: |Rfn %1$s:N0;
+000000012CB7.07C: |Rfn %1$s:N0;
+000000012CB8.07C: |Rfn %1$s:N0;
+000000012CB9.07C: |Rfn %1$s:N0;
+000000012D10.07C: 120 credits, and a free gift of 60 Lunar Loot Boxes
+000000012D46.07C: Year of the Ox
+[Core] Execution finished in 00:00:00.4224967 seconds
