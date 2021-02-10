@@ -5578,6 +5578,141 @@ var valueFuncKw =
         "ja-JP": "Z成分: ",
         "pt-BR": "Componente Z de",
         "zh-CN": "Z方向分量"
-    }
+    },
+
+
+    
+  "getNumberOfDoTIds": {
+    "description": "The current number of Damage Over Time instances started from the Damage Over Time action.",
+    args: [],
+    "en-US": "Damage Over Time Count",
+    return: "unsigned int",
+  },
+  "getNumberOfHoTIds": {
+    "description": "The current number of Heal Over Time instances started from the Heal Over Time action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Heal Over Time Count"
+  },
+  "getNumberOfTextIds": {
+    "description": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Text Count"
+  },
+  "getNumberOfDamageModificationIds": {
+    "description": "The current number of Damage Modification instances started from the Start Damage Modification Action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Damage Modification Count"
+  },
+  "getNumberOfHealingModificationIds": {
+    "description": "The current number of Healing Modification instances started from the Start Healing Modification Action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Healing Modification Count"
+  },
+  "getNumberOfAssistIds": {
+    "description": "The current number of Assist instances started from the Start Assist Action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Assist Count"
+  },
+  "getNumberOfEntityIds": {
+    "description": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Entity Count"
+  },
+  "localPlayer": {
+    "description": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables.",
+    args: null,
+    return: "Player",
+    "en-US": "Local Player"
+  },
+  "__strCharAt__": {
+    "description": "The character found at a specified index of a String.",
+    "args": [
+      {
+        "name": "String",
+        "description": "The String value whose character to acquire.",
+        "type": "String",
+        "default": "Global Variable"
+      },
+      {
+        "name": "Index",
+        "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
+        "type": "unsigned int",
+        "default": 0
+      }
+    ],
+    return: "String",
+    "en-US": "Char In String"
+  },
+  "__strIndex__": {
+    "description": "The index of a character within a String or -1 if no such character can be found.",
+    "args": [
+      {
+        "name": "String",
+        "description": "The String Value from which to search for the character.",
+        "type": "String",
+        "default": "Global Variable"
+      },
+      {
+        "name": "Character",
+        "description": "The character for which to search",
+        "type": "String",
+        "default": "Global Variable"
+      }
+    ],
+    return: "int",
+    "en-US": "Index Of String Char"
+  },
+  "__strSplit__": {
+    "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
+    "args": [
+      {
+        "name": "String",
+        "description": "The String Value to split.",
+        "type": "String",
+        "default": "Global Variable"
+      },
+      {
+        "name": "Separator",
+        "description": "The separator String with which to split the String Value.",
+        "type": "String",
+        "default": "Global Variable"
+      }
+    ],
+    return: {
+        "Array": "String"
+    },
+    "en-US": "String Split"
+  },
+  "__strReplace__": {
+    "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
+    "args": [
+      {
+        "name": "String",
+        "description": "The String Value with which to search for replacements.",
+        "type": "String",
+        "default": "Global Variable"
+      },
+      {
+        "name": "Pattern",
+        "description": "The String pattern to be replaced.",
+        "type": "String",
+        "default": "Global Variable"
+      },
+      {
+        "name": "Replacement",
+        "description": "The String Value with which to replace the pattern String",
+        "type": "String",
+        "default": "Global Variable"
+      }
+    ],
+    return: "String",
+    "en-US": "String Replace"
+  }
 }
 //end-json

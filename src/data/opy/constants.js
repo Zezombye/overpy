@@ -103,6 +103,42 @@ const opyConstants = {
             "args": null,
             "isConstant": true,
             return: "unsigned float",
+        },
+        "INFINITY": {
+            "description": "The number infinity = 9999999999999999999.",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned int",
+        },
+        "SPHERE_HORIZONTAL_RADIUS_MULT": {
+            "description": "The visual horizontal radius of a sphere = 0.984724 of the radius.",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned float",
+        },
+        "SPHERE_VERTICAL_RADIUS_MULT": {
+            "description": "The visual vertical radius of a sphere = 0.998959 of the radius.",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned float",
+        },
+        "INNER_RING_RADIUS_MULT": {
+            "description": "The visual inner radius of a ring or light shaft = 0.9415 of the radius.",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned float",
+        },
+        "OUTER_RING_RADIUS_MULT": {
+            "description": "The visual outer radius of a ring or light shaft = 0.94965 of the radius.",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned float",
+        },
+        "RING_EXPLOSION_RADIUS_MULT": {
+            "description": "The visual radius of a ring explosion = 0.48 of the radius (approximately).",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned float",
         }
     },
 }

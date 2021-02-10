@@ -495,6 +495,42 @@ const opyConstants = {
             "args": null,
             "isConstant": true,
             return: "unsigned float",
+        },
+        "INFINITY": {
+            "description": "The number infinity = 9999999999999999999.",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned int",
+        },
+        "SPHERE_HORIZONTAL_RADIUS_MULT": {
+            "description": "The visual horizontal radius of a sphere = 0.984724 of the radius.",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned float",
+        },
+        "SPHERE_VERTICAL_RADIUS_MULT": {
+            "description": "The visual vertical radius of a sphere = 0.998959 of the radius.",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned float",
+        },
+        "INNER_RING_RADIUS_MULT": {
+            "description": "The visual inner radius of a ring or light shaft = 0.9415 of the radius.",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned float",
+        },
+        "OUTER_RING_RADIUS_MULT": {
+            "description": "The visual outer radius of a ring or light shaft = 0.94965 of the radius.",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned float",
+        },
+        "RING_EXPLOSION_RADIUS_MULT": {
+            "description": "The visual radius of a ring explosion = 0.48 of the radius (approximately).",
+            "args": null,
+            "isConstant": true,
+            return: "unsigned float",
         }
     },
 }
@@ -1949,6 +1985,19 @@ const opyMemberFuncs = {
         class: "Array",
         return: "void",
     },
+    "charAt": {
+        "description": "The character found at a specified index of a string.",
+        args: [
+            {
+                "name": "Index",
+                "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
+                "type": "unsigned int",
+                "default": 0
+            }
+        ],
+        class: "String",
+        return: "String",
+    },
     "concat": {
         "description": "A copy of the array with the specified value appended to it.",
         "args": [
@@ -2038,6 +2087,25 @@ const opyMemberFuncs = {
         class: "Array",
         return: "void",
     },
+    "replace": {
+        "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
+        "args": [
+          {
+            "name": "Pattern",
+            "description": "The String pattern to be replaced.",
+            "type": "String",
+            "default": "Global Variable"
+          },
+          {
+            "name": "Replacement",
+            "description": "The String Value with which to replace the pattern String",
+            "type": "String",
+            "default": "Global Variable"
+          }
+        ],
+        class: "String",
+        return: "String",
+    },
     "reverse": {
         "description": "Reverses the array. Built-in macro for `sorted(x, lambda _, idx: -idx)`.",
         "args": [],
@@ -2062,6 +2130,34 @@ const opyMemberFuncs = {
         ],
         class: "Array",
         return: "Array",
+    },
+    "split": {
+        "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
+        "args": [
+        {
+            "name": "Separator",
+            "description": "The separator String with which to split the String Value.",
+            "type": "String",
+            "default": "Global Variable"
+        }
+        ],
+        class: "String",
+        return: {
+            "Array": "String"
+        },
+    },
+    "strIndex": {
+        "description": "The index of a character within a String or -1 if no such character can be found.",
+        "args": [
+        {
+            "name": "Character",
+            "description": "The character for which to search",
+            "type": "String",
+            "default": "Global Variable"
+        }
+        ],
+        class: "String",
+        return: "int",
     },
 	"substring": {
 		"description": "The substring of the provided string.",
@@ -4065,6 +4161,58 @@ const actionKw =
         "pt-BR": "Desativar gravação do Inspetor",
         "zh-CN": "禁用查看器录制"
     },
+    "_&disableTextChat": {
+      "description": "Disables Text Chat for one or more Players until reenabled",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The player or players who will have their text chat disabled.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        }
+      ],
+      "en-US": "Disable Text Chat"
+    },
+    "_&disableVoiceChat": {
+      "description": "Disables voice chat for one or more players until reenabled",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The player or players who will have their text chat disabled.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        },
+        {
+          "name": "disable Team Voice Chat",
+          "description": "Whether or not team voice chat will be disabled.",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "disable Match Voice Chat",
+          "description": "Whether or not match voice chat will be disabled.",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "disable Group Voice Chat",
+          "description": "Whether or not group voice chat will be disabled.",
+          "type": "bool",
+          "default": true
+        }
+      ],
+      "en-US": "Disable Voice Chat"
+    },
     "_&disallowButton": {
         "description": "Disables a logical button for one or more players such that pressing it has no effect.",
         "args": [
@@ -4480,6 +4628,40 @@ const actionKw =
         "ja-JP": "インスペクターでの記録を有効化",
         "pt-BR": "Ativar gravação do Inspetor",
         "zh-CN": "启用查看器录制"
+    },
+    "_&enableTextChat": {
+        "description": "Undoes the effect of the Disable Text Chat Action for one or more players.",
+        "args": [
+            {
+                "name": "Player",
+                "description": "The Player or Players who will have their Text Chat enabled.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "Event Player"
+            }
+        ],
+        "en-US": "Enable Text Chat"
+    },
+    "_&enableVoiceChat": {
+      "description": "Undoes the effect of the Disable Voice Chat Action for one or more players.",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The Player or Players who will have their Voice Chat enabled.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        }
+      ],
+      "en-US": "Enable Voice Chat"
     },
     "__end__": {
         "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
@@ -4973,6 +5155,35 @@ const actionKw =
         "pt-BR": "Modificar Pontuação da Equipe",
         "zh-CN": "修改队伍分数"
     },
+    "moveToTeam": {
+        "description": "Move one or more players to the specified team and slot. This action can fail if the specified slot is not available. This action doesn't work on dummy bots.",
+        "args": [
+        {
+            "name": "Player",
+            "description": "The player or players to move.",
+            "type": [
+                "Player",
+                {
+                    "Array": "Player"
+                }
+            ],
+            "default": "Event Player"
+        },
+        {
+            "name": "Team",
+            "description": "The team on which to move the Player. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
+            "type": "Team",
+            "default": "All"
+        },
+        {
+            "name": "SLOT",
+            "description": "The player slot which will receive the player (-1 for first available slot).",
+            "type": "int",
+            "default": -1
+        }
+        ],
+        "en-US": "Move Player To Team"
+    },
     "pauseMatchTime": {
         "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
         "args": [],
@@ -5141,6 +5352,46 @@ const actionKw =
         "pt-BR": "Remover Reserva de Vida de Jogador",
         "zh-CN": "移除玩家的生命池"
     },
+    "removeFromGame": {
+      "description": "Removes one or more players from the custom game. This action doesn't work on dummy bots.",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The player or players to remove.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        }
+      ],
+      "en-US": "Remove Player"
+    },
+    "_&startForcingName": {
+      "description": "Starts forcing the name for the specified player or players (only works with AI and dummy bots).",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The player whose name will be forced.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        },
+        {
+          "name": "Name",
+          "description": "The name to be forced.",
+          "type": "String",
+          "default": "Custom String"
+        }
+      ],
+      "en-US": "Start Forcing Dummy Bot Name"
+    },
     "_&resetHeroAvailability": {
         "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
         "args": [
@@ -5189,6 +5440,11 @@ const actionKw =
         "pt-BR": "Ressurgir",
         "zh-CN": "重生"
     },
+    "restartMatch": {
+      "description": "Restarts the match. This action only has an effect after the match has existed for 30 seconds.",
+      args: [],
+      "en-US": "Restart Match"
+    },
     "_&resurrect": {
         "guid": "000000007878",
         "description": "Instantly resurrects one or more players at the location they died with no transition.",
@@ -5212,6 +5468,11 @@ const actionKw =
         "ja-JP": "蘇生",
         "pt-BR": "Ressuscitar",
         "zh-CN": "重生"
+    },
+    "returnToLobby": {
+        "description": "Returns the gamemode back to the custom game lobby.",
+        args: [],
+        "en-US": "Return To Lobby"
     },
     "_&setAbility1Enabled": {
         "description": "Enables or disables ability 1 for one or more players.",
@@ -6990,6 +7251,29 @@ const actionKw =
         "pt-BR": "Começar a Encarar",
         "zh-CN": "开始朝向"
     },
+    "_&startForcingName": {
+      "description": "Starts forcing the name for the specified player or players. Only works for dummy and AI bots.",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The player whose name will be forced.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        },
+        {
+          "name": "Name",
+          "description": "The name to be forced.",
+          "type": "String",
+          "default": "Custom String"
+        }
+      ],
+      "en-US": "Start Forcing Dummy Bot Name"
+    },
     "_&startForcingOutlineFor": {
         "description": "Starts forcing the visibility and color of the outlines of the specified viewed player or players from the perspective of one or more viewing players.",
         "args": [
@@ -7362,6 +7646,11 @@ const actionKw =
         "ja-JP": "ボタン長押し開始",
         "pt-BR": "Começar a Segurar Botão",
         "zh-CN": "开始按下按钮"
+    },
+    "startGamemode": {
+        "description": "Starts the gamemode. This action doesn't have an effect if the game is already in progress.",
+        "args": [],
+        "en-US": "Start Game Mode"
     },
     "_&startModifyingVoicelinePitch": {
         "description": "Modifies the way hero voice lines sound for a player or players.",
@@ -7858,6 +8147,23 @@ const actionKw =
         "ja-JP": "向き変更を停止",
         "pt-BR": "Parar de Encarar",
         "zh-CN": "停止朝向"
+    },
+    "_&stopForcingName": {
+      "description": "Cancels the behavior of `startForcingName` for the specified player or players.",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The Player or Players whose names will stop being forced",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        }
+      ],
+      "en-US": "Stop Forcing Dummy Bot Name"
     },
     "_&stopForcingOutlineFor": {
         "description": "Cancels the behavior of Start Forcing Player Outlines for the specified viewed player or players from the perspective of one or more viewing players.",
@@ -13867,7 +14173,142 @@ var valueFuncKw =
         "ja-JP": "Z成分: ",
         "pt-BR": "Componente Z de",
         "zh-CN": "Z方向分量"
-    }
+    },
+
+
+    
+  "getNumberOfDoTIds": {
+    "description": "The current number of Damage Over Time instances started from the Damage Over Time action.",
+    args: [],
+    "en-US": "Damage Over Time Count",
+    return: "unsigned int",
+  },
+  "getNumberOfHoTIds": {
+    "description": "The current number of Heal Over Time instances started from the Heal Over Time action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Heal Over Time Count"
+  },
+  "getNumberOfTextIds": {
+    "description": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Text Count"
+  },
+  "getNumberOfDamageModificationIds": {
+    "description": "The current number of Damage Modification instances started from the Start Damage Modification Action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Damage Modification Count"
+  },
+  "getNumberOfHealingModificationIds": {
+    "description": "The current number of Healing Modification instances started from the Start Healing Modification Action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Healing Modification Count"
+  },
+  "getNumberOfAssistIds": {
+    "description": "The current number of Assist instances started from the Start Assist Action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Assist Count"
+  },
+  "getNumberOfEntityIds": {
+    "description": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action.",
+    args: [],
+    return: "unsigned int",
+    "en-US": "Entity Count"
+  },
+  "localPlayer": {
+    "description": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables.",
+    args: null,
+    return: "Player",
+    "en-US": "Local Player"
+  },
+  "__strCharAt__": {
+    "description": "The character found at a specified index of a String.",
+    "args": [
+      {
+        "name": "String",
+        "description": "The String value whose character to acquire.",
+        "type": "String",
+        "default": "Global Variable"
+      },
+      {
+        "name": "Index",
+        "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
+        "type": "unsigned int",
+        "default": 0
+      }
+    ],
+    return: "String",
+    "en-US": "Char In String"
+  },
+  "__strIndex__": {
+    "description": "The index of a character within a String or -1 if no such character can be found.",
+    "args": [
+      {
+        "name": "String",
+        "description": "The String Value from which to search for the character.",
+        "type": "String",
+        "default": "Global Variable"
+      },
+      {
+        "name": "Character",
+        "description": "The character for which to search",
+        "type": "String",
+        "default": "Global Variable"
+      }
+    ],
+    return: "int",
+    "en-US": "Index Of String Char"
+  },
+  "__strSplit__": {
+    "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
+    "args": [
+      {
+        "name": "String",
+        "description": "The String Value to split.",
+        "type": "String",
+        "default": "Global Variable"
+      },
+      {
+        "name": "Separator",
+        "description": "The separator String with which to split the String Value.",
+        "type": "String",
+        "default": "Global Variable"
+      }
+    ],
+    return: {
+        "Array": "String"
+    },
+    "en-US": "String Split"
+  },
+  "__strReplace__": {
+    "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
+    "args": [
+      {
+        "name": "String",
+        "description": "The String Value with which to search for replacements.",
+        "type": "String",
+        "default": "Global Variable"
+      },
+      {
+        "name": "Pattern",
+        "description": "The String pattern to be replaced.",
+        "type": "String",
+        "default": "Global Variable"
+      },
+      {
+        "name": "Replacement",
+        "description": "The String Value with which to replace the pattern String",
+        "type": "String",
+        "default": "Global Variable"
+      }
+    ],
+    return: "String",
+    "en-US": "String Replace"
+  }
 }
 //end-json
 /* 
@@ -17536,6 +17977,22 @@ const gamemodeKw =
         "ru-RU": "Захват точек",
         "zh-CN": "攻防作战",
         "zh-TW": "佔領"
+    },
+    "bountyHunter": {
+        "guid": "000000012841",
+        "en-US": "Bounty Hunter",
+        "de-DE": "Kopfgeldjäger",
+        "es-ES": "Cazarrecompensas",
+        "es-MX": "Cazarrecompensas",
+        "fr-FR": "Chasseur de primes",
+        "it-IT": "Cacciatori di Taglie",
+        "ja-JP": "バウンティ・ハンター",
+        "ko-KR": "현상금 사냥꾼",
+        "pl-PL": "Łowca nagród",
+        "pt-BR": "Caçador de Recompensas",
+        "ru-RU": "Охота за головами",
+        "zh-CN": "赏金猎手",
+        "zh-TW": "賞金獵人"
     },
     "ctf": {
         "guid": "000000005A56",
@@ -35743,38 +36200,6 @@ astParsingFunctions.cosDeg = function(content) {
 
 "use strict";
 
-astParsingFunctions.createBeam = function(content) {
-
-    //Mitigation for the vertical beam bug.
-    if (content.args[1].name === "GRAPPLE" || content.args[1].name === "BAD") {
-        if (content.args[2].name === "vect" && content.args[3].name === "vect") {
-            if (areAstsEqual(content.args[2].args[0], content.args[3].args[0]) && areAstsEqual(content.args[2].args[2], content.args[3].args[2])) {
-                content.args[2].args[0] = new Ast("__add__", [getAstFor0_001(), content.args[2].args[0]]);
-            }
-        }
-    }
-
-    return content;
-}
-/* 
- * This file is part of OverPy (https://github.com/Zezombye/overpy).
- * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
- * the Free Software Foundation, version 3.
- *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License 
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
-"use strict";
-
 astParsingFunctions.createWorkshopSetting = function(content) {
 
     //Types are capital here as a type mismatch won't allow pasting
@@ -39200,6 +39625,10 @@ function parseMember(object, member) {
 
 	debug("Parsing member '"+dispTokens(member)+"' of object '"+dispTokens(object)+"'");
 	
+    if (member.length === 0) {
+        error("Expected tokens after '.'");
+    }
+
 	var name = member[0].text;
 	//debug("name = "+name);
 	var args = null;
@@ -39257,6 +39686,18 @@ function parseMember(object, member) {
                     return getAstForNumber(3.141592653589793);
                 } else if (name === "E") {
                     return getAstForE();
+                } else if (name === "INFINITY") {
+                    return getAstForNumber(9999999999999999999);
+                } else if (name === "SPHERE_HORIZONTAL_RADIUS_MULT") {
+                    return getAstForNumber(0.984724);
+                } else if (name === "SPHERE_VERTICAL_RADIUS_MULT") {
+                    return getAstForNumber(0.998959);
+                } else if (name === "INNER_RING_RADIUS_MULT") {
+                    return getAstForNumber(0.9415);
+                } else if (name === "OUTER_RING_RADIUS_MULT") {
+                    return getAstForNumber(0.94965);
+                } else if (name === "RING_EXPLOSION_RADIUS_MULT") {
+                    return getAstForNumber(0.48);
                 } else {
                     error("Unhandled member 'math."+name+"'");
                 }
@@ -39282,7 +39723,7 @@ function parseMember(object, member) {
 
 	} else {
 	
-		if (["append", "concat", "exclude", "index", "remove"].includes(name)) {
+		if (["append", "concat", "exclude", "index", "remove", "split", "strIndex", "charAt"].includes(name)) {
             if (args.length !== 1) {
                 error("Function '"+name+"' takes 1 argument, received "+args.length);
             }
@@ -39292,6 +39733,9 @@ function parseMember(object, member) {
                 "exclude": "__removeFromArray__",
                 "index": "__indexOfArrayValue__",
                 "remove": "__remove__",
+                "split": "__strSplit__",
+                "strIndex": "__strIndex__",
+                "charAt": "__strCharAt__",
             };
 
             return new Ast(funcToInternalFuncMap[name], [parse(object), parse(args[0])])
@@ -39327,6 +39771,12 @@ function parseMember(object, member) {
 			} else {
 				error("Unhandled member 'random."+name+"'");
 			}
+			
+		} else if (name === "replace") {
+            if (args.length !== 2) {
+                error("Function 'replace' takes 2 arguments, received "+args.length);
+            }
+			return new Ast("__strReplace__", [parse(object), parse(args[0]), parse(args[1])]);
 			
 		} else if (name === "reverse") {
             if (args.length !== 0) {

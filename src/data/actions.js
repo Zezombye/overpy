@@ -1830,6 +1830,58 @@ const actionKw =
         "pt-BR": "Desativar gravação do Inspetor",
         "zh-CN": "禁用查看器录制"
     },
+    "_&disableTextChat": {
+      "description": "Disables Text Chat for one or more Players until reenabled",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The player or players who will have their text chat disabled.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        }
+      ],
+      "en-US": "Disable Text Chat"
+    },
+    "_&disableVoiceChat": {
+      "description": "Disables voice chat for one or more players until reenabled",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The player or players who will have their text chat disabled.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        },
+        {
+          "name": "disable Team Voice Chat",
+          "description": "Whether or not team voice chat will be disabled.",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "disable Match Voice Chat",
+          "description": "Whether or not match voice chat will be disabled.",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "disable Group Voice Chat",
+          "description": "Whether or not group voice chat will be disabled.",
+          "type": "bool",
+          "default": true
+        }
+      ],
+      "en-US": "Disable Voice Chat"
+    },
     "_&disallowButton": {
         "description": "Disables a logical button for one or more players such that pressing it has no effect.",
         "args": [
@@ -2245,6 +2297,40 @@ const actionKw =
         "ja-JP": "インスペクターでの記録を有効化",
         "pt-BR": "Ativar gravação do Inspetor",
         "zh-CN": "启用查看器录制"
+    },
+    "_&enableTextChat": {
+        "description": "Undoes the effect of the Disable Text Chat Action for one or more players.",
+        "args": [
+            {
+                "name": "Player",
+                "description": "The Player or Players who will have their Text Chat enabled.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "Event Player"
+            }
+        ],
+        "en-US": "Enable Text Chat"
+    },
+    "_&enableVoiceChat": {
+      "description": "Undoes the effect of the Disable Voice Chat Action for one or more players.",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The Player or Players who will have their Voice Chat enabled.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        }
+      ],
+      "en-US": "Enable Voice Chat"
     },
     "__end__": {
         "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
@@ -2738,6 +2824,35 @@ const actionKw =
         "pt-BR": "Modificar Pontuação da Equipe",
         "zh-CN": "修改队伍分数"
     },
+    "moveToTeam": {
+        "description": "Move one or more players to the specified team and slot. This action can fail if the specified slot is not available. This action doesn't work on dummy bots.",
+        "args": [
+        {
+            "name": "Player",
+            "description": "The player or players to move.",
+            "type": [
+                "Player",
+                {
+                    "Array": "Player"
+                }
+            ],
+            "default": "Event Player"
+        },
+        {
+            "name": "Team",
+            "description": "The team on which to move the Player. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
+            "type": "Team",
+            "default": "All"
+        },
+        {
+            "name": "SLOT",
+            "description": "The player slot which will receive the player (-1 for first available slot).",
+            "type": "int",
+            "default": -1
+        }
+        ],
+        "en-US": "Move Player To Team"
+    },
     "pauseMatchTime": {
         "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
         "args": [],
@@ -2906,6 +3021,46 @@ const actionKw =
         "pt-BR": "Remover Reserva de Vida de Jogador",
         "zh-CN": "移除玩家的生命池"
     },
+    "removeFromGame": {
+      "description": "Removes one or more players from the custom game. This action doesn't work on dummy bots.",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The player or players to remove.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        }
+      ],
+      "en-US": "Remove Player"
+    },
+    "_&startForcingName": {
+      "description": "Starts forcing the name for the specified player or players (only works with AI and dummy bots).",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The player whose name will be forced.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        },
+        {
+          "name": "Name",
+          "description": "The name to be forced.",
+          "type": "String",
+          "default": "Custom String"
+        }
+      ],
+      "en-US": "Start Forcing Dummy Bot Name"
+    },
     "_&resetHeroAvailability": {
         "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
         "args": [
@@ -2954,6 +3109,11 @@ const actionKw =
         "pt-BR": "Ressurgir",
         "zh-CN": "重生"
     },
+    "restartMatch": {
+      "description": "Restarts the match. This action only has an effect after the match has existed for 30 seconds.",
+      args: [],
+      "en-US": "Restart Match"
+    },
     "_&resurrect": {
         "guid": "000000007878",
         "description": "Instantly resurrects one or more players at the location they died with no transition.",
@@ -2977,6 +3137,11 @@ const actionKw =
         "ja-JP": "蘇生",
         "pt-BR": "Ressuscitar",
         "zh-CN": "重生"
+    },
+    "returnToLobby": {
+        "description": "Returns the gamemode back to the custom game lobby.",
+        args: [],
+        "en-US": "Return To Lobby"
     },
     "_&setAbility1Enabled": {
         "description": "Enables or disables ability 1 for one or more players.",
@@ -4755,6 +4920,29 @@ const actionKw =
         "pt-BR": "Começar a Encarar",
         "zh-CN": "开始朝向"
     },
+    "_&startForcingName": {
+      "description": "Starts forcing the name for the specified player or players. Only works for dummy and AI bots.",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The player whose name will be forced.",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        },
+        {
+          "name": "Name",
+          "description": "The name to be forced.",
+          "type": "String",
+          "default": "Custom String"
+        }
+      ],
+      "en-US": "Start Forcing Dummy Bot Name"
+    },
     "_&startForcingOutlineFor": {
         "description": "Starts forcing the visibility and color of the outlines of the specified viewed player or players from the perspective of one or more viewing players.",
         "args": [
@@ -5127,6 +5315,11 @@ const actionKw =
         "ja-JP": "ボタン長押し開始",
         "pt-BR": "Começar a Segurar Botão",
         "zh-CN": "开始按下按钮"
+    },
+    "startGamemode": {
+        "description": "Starts the gamemode. This action doesn't have an effect if the game is already in progress.",
+        "args": [],
+        "en-US": "Start Game Mode"
     },
     "_&startModifyingVoicelinePitch": {
         "description": "Modifies the way hero voice lines sound for a player or players.",
@@ -5623,6 +5816,23 @@ const actionKw =
         "ja-JP": "向き変更を停止",
         "pt-BR": "Parar de Encarar",
         "zh-CN": "停止朝向"
+    },
+    "_&stopForcingName": {
+      "description": "Cancels the behavior of `startForcingName` for the specified player or players.",
+      "args": [
+        {
+          "name": "Player",
+          "description": "The Player or Players whose names will stop being forced",
+          "type": [
+              "Player",
+              {
+                  "Array": "Player"
+              }
+          ],
+          "default": "Event Player"
+        }
+      ],
+      "en-US": "Stop Forcing Dummy Bot Name"
     },
     "_&stopForcingOutlineFor": {
         "description": "Cancels the behavior of Start Forcing Player Outlines for the specified viewed player or players from the perspective of one or more viewing players.",

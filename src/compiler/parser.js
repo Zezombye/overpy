@@ -804,6 +804,10 @@ function parseMember(object, member) {
 
 	debug("Parsing member '"+dispTokens(member)+"' of object '"+dispTokens(object)+"'");
 	
+    if (member.length === 0) {
+        error("Expected tokens after '.'");
+    }
+
 	var name = member[0].text;
 	//debug("name = "+name);
 	var args = null;
@@ -861,6 +865,18 @@ function parseMember(object, member) {
                     return getAstForNumber(3.141592653589793);
                 } else if (name === "E") {
                     return getAstForE();
+                } else if (name === "INFINITY") {
+                    return getAstForNumber(9999999999999999999);
+                } else if (name === "SPHERE_HORIZONTAL_RADIUS_MULT") {
+                    return getAstForNumber(0.984724);
+                } else if (name === "SPHERE_VERTICAL_RADIUS_MULT") {
+                    return getAstForNumber(0.998959);
+                } else if (name === "INNER_RING_RADIUS_MULT") {
+                    return getAstForNumber(0.9415);
+                } else if (name === "OUTER_RING_RADIUS_MULT") {
+                    return getAstForNumber(0.94965);
+                } else if (name === "RING_EXPLOSION_RADIUS_MULT") {
+                    return getAstForNumber(0.48);
                 } else {
                     error("Unhandled member 'math."+name+"'");
                 }
@@ -886,7 +902,7 @@ function parseMember(object, member) {
 
 	} else {
 	
-		if (["append", "concat", "exclude", "index", "remove"].includes(name)) {
+		if (["append", "concat", "exclude", "index", "remove", "split", "strIndex", "charAt"].includes(name)) {
             if (args.length !== 1) {
                 error("Function '"+name+"' takes 1 argument, received "+args.length);
             }
@@ -896,6 +912,9 @@ function parseMember(object, member) {
                 "exclude": "__removeFromArray__",
                 "index": "__indexOfArrayValue__",
                 "remove": "__remove__",
+                "split": "__strSplit__",
+                "strIndex": "__strIndex__",
+                "charAt": "__strCharAt__",
             };
 
             return new Ast(funcToInternalFuncMap[name], [parse(object), parse(args[0])])
@@ -931,6 +950,12 @@ function parseMember(object, member) {
 			} else {
 				error("Unhandled member 'random."+name+"'");
 			}
+			
+		} else if (name === "replace") {
+            if (args.length !== 2) {
+                error("Function 'replace' takes 2 arguments, received "+args.length);
+            }
+			return new Ast("__strReplace__", [parse(object), parse(args[0]), parse(args[1])]);
 			
 		} else if (name === "reverse") {
             if (args.length !== 0) {

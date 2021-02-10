@@ -38,11 +38,11 @@ rule ("beams") {
     }
     actions {
         Create Beam Effect(Global.A, Grapple Beam, Global.B, Global.C, Color(White), Visible To Position and Radius);
-        Create Beam Effect(Global.A, Grapple Beam, Vector(Add(0.001, Global.A), Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);
+        Create Beam Effect(Global.A, Grapple Beam, Vector(Global.A, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);
         Create Beam Effect(Global.A, Grapple Beam, Vector(Global.Z, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);
         Create Beam Effect(Global.A, Good Beam, Vector(Global.A, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);
         Create Beam Effect(Global.A, Good Beam, Vector(Global.A, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);
-        Create Beam Effect(Global.A, Bad Beam, Vector(Add(0.001, Global.A), Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);
+        Create Beam Effect(Global.A, Bad Beam, Vector(Global.A, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);
         Create Beam Effect(Global.A, Bad Beam, Vector(Global.A, Global.B, Global.C), Vector(Global.A, Global.D, Global.Z), Color(White), Visible To Position and Radius);
     }
 }

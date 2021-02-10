@@ -112,7 +112,6 @@ overpyFiles = [
 "compiler/functions/continue.js",
 "compiler/functions/cos.js",
 "compiler/functions/cosDeg.js",
-"compiler/functions/createBeam.js",
 "compiler/functions/createWorkshopSetting.js",
 "compiler/functions/crossProduct.js",
 "compiler/functions/directionTowards.js",

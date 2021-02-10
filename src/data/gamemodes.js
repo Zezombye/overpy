@@ -36,6 +36,22 @@ const gamemodeKw =
         "zh-CN": "攻防作战",
         "zh-TW": "佔領"
     },
+    "bountyHunter": {
+        "guid": "000000012841",
+        "en-US": "Bounty Hunter",
+        "de-DE": "Kopfgeldjäger",
+        "es-ES": "Cazarrecompensas",
+        "es-MX": "Cazarrecompensas",
+        "fr-FR": "Chasseur de primes",
+        "it-IT": "Cacciatori di Taglie",
+        "ja-JP": "バウンティ・ハンター",
+        "ko-KR": "현상금 사냥꾼",
+        "pl-PL": "Łowca nagród",
+        "pt-BR": "Caçador de Recompensas",
+        "ru-RU": "Охота за головами",
+        "zh-CN": "赏金猎手",
+        "zh-TW": "賞金獵人"
+    },
     "ctf": {
         "guid": "000000005A56",
         "en-US": "Capture The Flag",

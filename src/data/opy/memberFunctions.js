@@ -31,6 +31,19 @@ const opyMemberFuncs = {
         class: "Array",
         return: "void",
     },
+    "charAt": {
+        "description": "The character found at a specified index of a string.",
+        args: [
+            {
+                "name": "Index",
+                "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
+                "type": "unsigned int",
+                "default": 0
+            }
+        ],
+        class: "String",
+        return: "String",
+    },
     "concat": {
         "description": "A copy of the array with the specified value appended to it.",
         "args": [
@@ -120,6 +133,25 @@ const opyMemberFuncs = {
         class: "Array",
         return: "void",
     },
+    "replace": {
+        "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
+        "args": [
+          {
+            "name": "Pattern",
+            "description": "The String pattern to be replaced.",
+            "type": "String",
+            "default": "Global Variable"
+          },
+          {
+            "name": "Replacement",
+            "description": "The String Value with which to replace the pattern String",
+            "type": "String",
+            "default": "Global Variable"
+          }
+        ],
+        class: "String",
+        return: "String",
+    },
     "reverse": {
         "description": "Reverses the array. Built-in macro for `sorted(x, lambda _, idx: -idx)`.",
         "args": [],
@@ -144,6 +176,34 @@ const opyMemberFuncs = {
         ],
         class: "Array",
         return: "Array",
+    },
+    "split": {
+        "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
+        "args": [
+        {
+            "name": "Separator",
+            "description": "The separator String with which to split the String Value.",
+            "type": "String",
+            "default": "Global Variable"
+        }
+        ],
+        class: "String",
+        return: {
+            "Array": "String"
+        },
+    },
+    "strIndex": {
+        "description": "The index of a character within a String or -1 if no such character can be found.",
+        "args": [
+        {
+            "name": "Character",
+            "description": "The character for which to search",
+            "type": "String",
+            "default": "Global Variable"
+        }
+        ],
+        class: "String",
+        return: "int",
     },
 	"substring": {
 		"description": "The substring of the provided string.",

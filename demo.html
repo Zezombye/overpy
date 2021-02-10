@@ -192,7 +192,6 @@ a {
 <script src="src/compiler/functions/continue.js"></script>
 <script src="src/compiler/functions/cos.js"></script>
 <script src="src/compiler/functions/cosDeg.js"></script>
-<script src="src/compiler/functions/createBeam.js"></script>
 <script src="src/compiler/functions/createWorkshopSetting.js"></script>
 <script src="src/compiler/functions/crossProduct.js"></script>
 <script src="src/compiler/functions/directionTowards.js"></script>
@@ -227,6 +226,41 @@ a {
 <script src="src/compiler/parser.js"></script>
 <script src="src/compiler/compiler.js"></script>
 <script src="src/data/localizedStrings.js"></script>
+
+
+<script>
+
+var languages = ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW"]
+var result = "";
+function testForDupes(obj) {
+	for (var language of languages) {
+		var seenStrs = {};
+		for (var key in obj) {
+			if (key === "description") {
+				continue
+			}
+			if (language in obj[key]) {
+				if (Object.keys(seenStrs).includes(obj[key][language])) {
+					result += "duplicate translation '"+obj[key][language]+"' in "+language+" for strings '"+seenStrs[obj[key][language]]+"' and '"+obj[key]["en-US"]+"'\n"
+				} else {
+					seenStrs[obj[key][language]] = obj[key]["en-US"]
+				}
+			} else {
+				if (Object.values(seenStrs).includes(obj[key]["en-US"])) {
+					result += "duplicate translation '"+obj[key]["en-US"]+"' in "+language+" for strings '"+seenStrs[obj[key]["en-US"]]+"' and '"+obj[key]["en-US"]+"'\n"
+				} else {
+					seenStrs[obj[key]["en-US"]] = obj[key]["en-US"]
+				}
+			}
+		}
+	}
+}
+
+testForDupes(normalStrKw);
+console.log(result);
+
+</script>
+
 
 <script>
 
