@@ -17,9 +17,12 @@
 
 "use strict";
 
-function unescapeString(content, parseOpyEscapes=false) {
+function unescapeString(content, tows) {
 	if (content.length < 2) {
 		error("Expected a string, but got '"+content+"'");
+	}
+	if (tows === undefined) {
+		error("tows must be defined, please report to Zezombye");
 	}
 	if (content.startsWith("'") && content.endsWith("'")) {
 		content = content.substring(1, content.length-1).replace(/\\'/g, "'");
@@ -45,7 +48,15 @@ function unescapeString(content, parseOpyEscapes=false) {
 			} else if (content[i+1] === "n") {
 				result += "\n";
 			} else if (content[i+1] === "r") {
-				//do nothing. remove those pesky carriage returns
+				result += "\r";
+			} else if (content[i+1] === "b") {
+				result += "\b";
+			} else if (content[i+1] === "f") {
+				result += "\f";
+			} else if (content[i+1] === "t") {
+				result += "\t";
+			} else if (content[i+1] === "z") {
+				result += "\u200B"; //zero width space
 			} else if (content[i+1] === "x") {
 				if (i >= content.length-1-2) {
 					error("Expected 2 hexadecimal digits after '\\x'");
@@ -94,6 +105,8 @@ function unescapeString(content, parseOpyEscapes=false) {
 				error("Unknown escape sequence '\\"+content[i+1]+"'");
 			}
 			i++;
+		} else if (tows && content[i] === "\r") {
+			//remove the literal \rs, but not the escaped ones
 		} else {
 			result += content[i];
 		}
@@ -101,8 +114,15 @@ function unescapeString(content, parseOpyEscapes=false) {
 	return result;
 }
 
-function escapeString(content) {
-	return '"'+content.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, "\\n")+'"';
+function escapeString(content, tows) {
+	if (tows === undefined) {
+		error("tows must be defined, please report to Zezombye");
+	}
+	var result = '"'+content.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, "\\n").replace(/\r/g, "\\r")+'"';
+	if (!tows) {
+		result = result.replace(/\u200B/g, "\\z");
+	}
+	return result;
 }
 
 function getUtf8Length(str){

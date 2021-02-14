@@ -38,7 +38,7 @@ function decompileRuleToAst(content) {
 	var ruleAttributes = {};
 	
 	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
-	ruleAttributes.name = unescapeString(ruleName);
+	ruleAttributes.name = unescapeString(ruleName, false);
 	
 	var currentRuleIsDisabled = false;
 	if (content.trim().startsWith(tows("__disabled__", ruleKw))) {
@@ -130,7 +130,7 @@ function decompileConditions(content) {
 		if (condition.startsWith('"')) {
 			var conditionComment = getPrefixString(condition);
 			condition = condition.substring(conditionComment.length).trim();
-			currentConditionComment = unescapeString(conditionComment);
+			currentConditionComment = unescapeString(conditionComment, false);
 		}
 
 		//Check if the condition is disabled
@@ -171,7 +171,7 @@ function decompileAction(content) {
 	if (content.startsWith('"')) {
 		var actionComment = getPrefixString(content);
 		content = content.substring(actionComment.length).trim();
-		currentActionComment = unescapeString(actionComment);
+		currentActionComment = unescapeString(actionComment, false);
 	}
 	if (content.startsWith(tows("__disabled__", ruleKw)+" ")) {
 		isCurrentActionDisabled = true;
@@ -333,7 +333,7 @@ function decompile(content) {
 		if (name.includes("W_e_l_c_o_m_e_ _t_o_ _L_o_o_t_ _Q_u_e_s_t_!".replace(/_/g, ""))) {
 			error("C_a_n_n_o_t_ _d_e_c_o_m_p_i_l_e_ _t_h_i_s_ _g_a_m_e_m_o_d_e_".replace(/_/g, ""));
 		}
-        return new Ast(unescapeString(name), [], [], "StringLiteral");
+        return new Ast(unescapeString(name, false), [], [], "StringLiteral");
     }
     
     //Check for numbers

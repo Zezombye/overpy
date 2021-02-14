@@ -1845,6 +1845,7 @@ const actionKw =
           "default": "Event Player"
         }
       ],
+      return: "void",
       "en-US": "Disable Text Chat"
     },
     "_&disableVoiceChat": {
@@ -1880,6 +1881,7 @@ const actionKw =
           "default": true
         }
       ],
+      return: "void",
       "en-US": "Disable Voice Chat"
     },
     "_&disallowButton": {
@@ -2313,6 +2315,7 @@ const actionKw =
                 "default": "Event Player"
             }
         ],
+        return: "void",
         "en-US": "Enable Text Chat"
     },
     "_&enableVoiceChat": {
@@ -2330,6 +2333,7 @@ const actionKw =
           "default": "Event Player"
         }
       ],
+      return: "void",
       "en-US": "Enable Voice Chat"
     },
     "__end__": {
@@ -2851,6 +2855,7 @@ const actionKw =
             "default": -1
         }
         ],
+        return: "void",
         "en-US": "Move Player To Team"
     },
     "pauseMatchTime": {
@@ -3036,7 +3041,8 @@ const actionKw =
           "default": "Event Player"
         }
       ],
-      "en-US": "Remove Player"
+      "en-US": "Remove Player",
+      return: "void",
     },
     "_&startForcingName": {
       "description": "Starts forcing the name for the specified player or players (only works with AI and dummy bots).",
@@ -3059,6 +3065,7 @@ const actionKw =
           "default": "Custom String"
         }
       ],
+      return: "void",
       "en-US": "Start Forcing Dummy Bot Name"
     },
     "_&resetHeroAvailability": {
@@ -3112,6 +3119,7 @@ const actionKw =
     "restartMatch": {
       "description": "Restarts the match. This action only has an effect after the match has existed for 30 seconds.",
       args: [],
+      return: "void",
       "en-US": "Restart Match"
     },
     "_&resurrect": {
@@ -3141,6 +3149,7 @@ const actionKw =
     "returnToLobby": {
         "description": "Returns the gamemode back to the custom game lobby.",
         args: [],
+        return: "void",
         "en-US": "Return To Lobby"
     },
     "_&setAbility1Enabled": {
@@ -5319,6 +5328,7 @@ const actionKw =
     "startGamemode": {
         "description": "Starts the gamemode. This action doesn't have an effect if the game is already in progress.",
         "args": [],
+        return: "void",
         "en-US": "Start Game Mode"
     },
     "_&startModifyingVoicelinePitch": {
@@ -5832,6 +5842,7 @@ const actionKw =
           "default": "Event Player"
         }
       ],
+      return: "void",
       "en-US": "Stop Forcing Dummy Bot Name"
     },
     "_&stopForcingOutlineFor": {

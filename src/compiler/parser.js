@@ -140,7 +140,7 @@ function parseLines(lines) {
                     error("Malformatted 'rule' declaration");
                 }
                 instructionRuleAttributes = {};
-                instructionRuleAttributes.name = unescapeString(lineMembers[0][1].text);
+                instructionRuleAttributes.name = unescapeString(lineMembers[0][1].text, true);
 
             } else if (funcName === "__enum__") {
                 if (lineMembers[0].length !== 2) {
@@ -586,7 +586,7 @@ function parse(content, kwargs={}) {
 		var string = "";
 		for (var i = content.length-1; i >= 0; i--) {
 			if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
-				string = unescapeString(content[i].text)+string;
+				string = unescapeString(content[i].text, true)+string;
 
 			} else {
 				if (i === 0) {

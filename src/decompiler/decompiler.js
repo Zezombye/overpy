@@ -288,15 +288,26 @@ function decompileCustomGameSettings(content) {
 				var value = workshopSettings.substring(i, nextNewlineIndex).trim();
 				if (isNumber(value)) {
 					value = parseFloat(value);
+				} else if (value.startsWith("[") && value.endsWith("]")) {
+					//workshop enum
+					value = [parseFloat(value.substring(1), value.substring(value.length-1))]
+				} else if (/e[\+\-]\d+:F3/.test(value)) {
+					//Copy bug for too high/low numbers
+					value = parseFloat("1"+value.substring(0, value.indexOf(":")));
 				} else {
 					//It should be a boolean: translate On/Off.
-					value = topy(value, customGameSettingsKw);
-					if (value === "__on__") {
-						value = true;
-					} else if (value === "__off__") {
-						value = false;
-					} else {
-						error("Unhandled value '"+value+"'");
+					try {
+						value = topy(value, customGameSettingsKw);
+						if (value === "__on__") {
+							value = true;
+						} else if (value === "__off__") {
+							value = false;
+						} else {
+							error("Unhandled value '"+value+"'");
+						}
+					} catch (e) {
+						//Maybe a hero?
+						value = topy(value, heroKw);
 					}
 				}
 				i = nextNewlineIndex+1;

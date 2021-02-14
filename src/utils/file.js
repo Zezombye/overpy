@@ -24,7 +24,7 @@ function getFilenameFromPath(path) {
 function getFilePath(pathStr) {
 	pathStr = pathStr.trim();
 	debug("path str = "+pathStr);
-	pathStr = unescapeString(pathStr);
+	pathStr = unescapeString(pathStr, false);
 	
 	//convert backslashes to normal slashes
 	pathStr = pathStr.replace(/\\/g, "/");

@@ -4044,6 +4044,7 @@ const actionKw =
           "default": "Event Player"
         }
       ],
+      return: "void",
       "en-US": "Disable Text Chat"
     },
     "_&disableVoiceChat": {
@@ -4079,6 +4080,7 @@ const actionKw =
           "default": true
         }
       ],
+      return: "void",
       "en-US": "Disable Voice Chat"
     },
     "_&disallowButton": {
@@ -4512,6 +4514,7 @@ const actionKw =
                 "default": "Event Player"
             }
         ],
+        return: "void",
         "en-US": "Enable Text Chat"
     },
     "_&enableVoiceChat": {
@@ -4529,6 +4532,7 @@ const actionKw =
           "default": "Event Player"
         }
       ],
+      return: "void",
       "en-US": "Enable Voice Chat"
     },
     "__end__": {
@@ -5050,6 +5054,7 @@ const actionKw =
             "default": -1
         }
         ],
+        return: "void",
         "en-US": "Move Player To Team"
     },
     "pauseMatchTime": {
@@ -5235,7 +5240,8 @@ const actionKw =
           "default": "Event Player"
         }
       ],
-      "en-US": "Remove Player"
+      "en-US": "Remove Player",
+      return: "void",
     },
     "_&startForcingName": {
       "description": "Starts forcing the name for the specified player or players (only works with AI and dummy bots).",
@@ -5258,6 +5264,7 @@ const actionKw =
           "default": "Custom String"
         }
       ],
+      return: "void",
       "en-US": "Start Forcing Dummy Bot Name"
     },
     "_&resetHeroAvailability": {
@@ -5311,6 +5318,7 @@ const actionKw =
     "restartMatch": {
       "description": "Restarts the match. This action only has an effect after the match has existed for 30 seconds.",
       args: [],
+      return: "void",
       "en-US": "Restart Match"
     },
     "_&resurrect": {
@@ -5340,6 +5348,7 @@ const actionKw =
     "returnToLobby": {
         "description": "Returns the gamemode back to the custom game lobby.",
         args: [],
+        return: "void",
         "en-US": "Return To Lobby"
     },
     "_&setAbility1Enabled": {
@@ -7518,6 +7527,7 @@ const actionKw =
     "startGamemode": {
         "description": "Starts the gamemode. This action doesn't have an effect if the game is already in progress.",
         "args": [],
+        return: "void",
         "en-US": "Start Game Mode"
     },
     "_&startModifyingVoicelinePitch": {
@@ -8031,6 +8041,7 @@ const actionKw =
           "default": "Event Player"
         }
       ],
+      return: "void",
       "en-US": "Stop Forcing Dummy Bot Name"
     },
     "_&stopForcingOutlineFor": {
@@ -29762,7 +29773,7 @@ function compileCustomGameSettingsDict(dict, refDict) {
 			if (getUtf8Length(dict[key]) > refDict[key].maxChars) {
 				error("String for '"+key+"' must not have more than "+refDict[key].maxChars+" chars");
 			}
-			result[wsKey] = escapeString(dict[key]);
+			result[wsKey] = escapeString(dict[key], true);
 
 		} else if (refDict[key].values === "__percent__" || refDict[key].values === "__int__" || refDict[key].values === "__float__") {
 			if (dict[key] > refDict[key].max) {
@@ -29877,7 +29888,7 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 			value = topy(value, kwObj[keyName].values);
 
 		} else if (kwObj[keyName].values === "__string__") {
-			value = unescapeString(value);
+			value = unescapeString(value, false);
 			if (value.includes("D_e_l_w_i_o_n_#_2_6_6_7".replace(/_/g, ""))) {
 				error("C_a_n_n_o_t_ _d_e_c_o_m_p_i_l_e_ _t_h_i_s_ _g_a_m_e_m_o_d_e_".replace(/_/g, ""));
 			}
@@ -30171,7 +30182,7 @@ function getFilenameFromPath(path) {
 function getFilePath(pathStr) {
 	pathStr = pathStr.trim();
 	debug("path str = "+pathStr);
-	pathStr = unescapeString(pathStr);
+	pathStr = unescapeString(pathStr, false);
 	
 	//convert backslashes to normal slashes
 	pathStr = pathStr.replace(/\\/g, "/");
@@ -30340,7 +30351,7 @@ function functionNameToString(content) {
 	} else if (content.name in funcToDisplayMapping) {
 		funcDisplayName = "function '"+funcToDisplayMapping[content.name]+"'";
 	} else if (isTypeSuitable("StringLiteral", content.type)) {
-		funcDisplayName = "string "+escapeString(content.name);
+		funcDisplayName = "string "+escapeString(content.name, false);
 	} else if (content.name === "__number__") {
 		funcDisplayName = "number '"+content.args[0].numValue+"'";
 	} else {
@@ -30479,9 +30490,12 @@ function isWs0(x) {
 
 "use strict";
 
-function unescapeString(content, parseOpyEscapes=false) {
+function unescapeString(content, tows) {
 	if (content.length < 2) {
 		error("Expected a string, but got '"+content+"'");
+	}
+	if (tows === undefined) {
+		error("tows must be defined, please report to Zezombye");
 	}
 	if (content.startsWith("'") && content.endsWith("'")) {
 		content = content.substring(1, content.length-1).replace(/\\'/g, "'");
@@ -30507,7 +30521,15 @@ function unescapeString(content, parseOpyEscapes=false) {
 			} else if (content[i+1] === "n") {
 				result += "\n";
 			} else if (content[i+1] === "r") {
-				//do nothing. remove those pesky carriage returns
+				result += "\r";
+			} else if (content[i+1] === "b") {
+				result += "\b";
+			} else if (content[i+1] === "f") {
+				result += "\f";
+			} else if (content[i+1] === "t") {
+				result += "\t";
+			} else if (content[i+1] === "z") {
+				result += "\u200B"; //zero width space
 			} else if (content[i+1] === "x") {
 				if (i >= content.length-1-2) {
 					error("Expected 2 hexadecimal digits after '\\x'");
@@ -30556,6 +30578,8 @@ function unescapeString(content, parseOpyEscapes=false) {
 				error("Unknown escape sequence '\\"+content[i+1]+"'");
 			}
 			i++;
+		} else if (tows && content[i] === "\r") {
+			//remove the literal \rs, but not the escaped ones
 		} else {
 			result += content[i];
 		}
@@ -30563,8 +30587,15 @@ function unescapeString(content, parseOpyEscapes=false) {
 	return result;
 }
 
-function escapeString(content) {
-	return '"'+content.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, "\\n")+'"';
+function escapeString(content, tows) {
+	if (tows === undefined) {
+		error("tows must be defined, please report to Zezombye");
+	}
+	var result = '"'+content.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, "\\n").replace(/\r/g, "\\r")+'"';
+	if (!tows) {
+		result = result.replace(/\u200B/g, "\\z");
+	}
+	return result;
 }
 
 function getUtf8Length(str){
@@ -31618,7 +31649,7 @@ function decompileRuleToAst(content) {
 	var ruleAttributes = {};
 	
 	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
-	ruleAttributes.name = unescapeString(ruleName);
+	ruleAttributes.name = unescapeString(ruleName, false);
 	
 	var currentRuleIsDisabled = false;
 	if (content.trim().startsWith(tows("__disabled__", ruleKw))) {
@@ -31710,7 +31741,7 @@ function decompileConditions(content) {
 		if (condition.startsWith('"')) {
 			var conditionComment = getPrefixString(condition);
 			condition = condition.substring(conditionComment.length).trim();
-			currentConditionComment = unescapeString(conditionComment);
+			currentConditionComment = unescapeString(conditionComment, false);
 		}
 
 		//Check if the condition is disabled
@@ -31751,7 +31782,7 @@ function decompileAction(content) {
 	if (content.startsWith('"')) {
 		var actionComment = getPrefixString(content);
 		content = content.substring(actionComment.length).trim();
-		currentActionComment = unescapeString(actionComment);
+		currentActionComment = unescapeString(actionComment, false);
 	}
 	if (content.startsWith(tows("__disabled__", ruleKw)+" ")) {
 		isCurrentActionDisabled = true;
@@ -31913,7 +31944,7 @@ function decompile(content) {
 		if (name.includes("W_e_l_c_o_m_e_ _t_o_ _L_o_o_t_ _Q_u_e_s_t_!".replace(/_/g, ""))) {
 			error("C_a_n_n_o_t_ _d_e_c_o_m_p_i_l_e_ _t_h_i_s_ _g_a_m_e_m_o_d_e_".replace(/_/g, ""));
 		}
-        return new Ast(unescapeString(name), [], [], "StringLiteral");
+        return new Ast(unescapeString(name, false), [], [], "StringLiteral");
     }
     
     //Check for numbers
@@ -32118,10 +32149,10 @@ function astRulesToOpy(rules) {
 
         if (rule.ruleAttributes.event === "__subroutine__") {
             decompiledRule += "def "+rule.ruleAttributes.subroutineName+"():\n";
-            decompiledRuleAttributes += tabLevel(nbTabs)+"@Name "+escapeString(rule.ruleAttributes.name)+"\n";
+            decompiledRuleAttributes += tabLevel(nbTabs)+"@Name "+escapeString(rule.ruleAttributes.name, false)+"\n";
         } else {
                 
-            decompiledRule += "rule "+escapeString(rule.ruleAttributes.name)+":\n";
+            decompiledRule += "rule "+escapeString(rule.ruleAttributes.name, false)+":\n";
             
             //Decompile the rule attributes
             if (rule.ruleAttributes.event !== "global") {
@@ -32496,7 +32527,7 @@ function astToOpy(content) {
     debug("Parsing AST of '"+content.name+"'");
 
     if (content.type === "StringLiteral") {
-        return escapeString(content.name);
+        return escapeString(content.name, false);
     }
 
     if (content.type === "GlobalVariable" || content.type === "PlayerVariable" || content.type === "Subroutine") {
@@ -32623,6 +32654,10 @@ function astToOpy(content) {
     if ([
         "__arraySlice__",
         "__substring__",
+        "__strSplit__",
+        "__strReplace__",
+        "__strIndex__",
+        "__strCharAt__",
         "__firstOf__",
         "__lastOf__",
         "__valueInArray__",
@@ -32640,6 +32675,18 @@ function astToOpy(content) {
         }
         if (content.name === "__substring__") {
             return result+".substring("+astToOpy(content.args[1])+", "+astToOpy(content.args[2])+")";
+        }
+        if (content.name === "__strSplit__") {
+            return result+".split("+astToOpy(content.args[1])+")";
+        }
+        if (content.name === "__strIndex__") {
+            return result+".strIndex("+astToOpy(content.args[1])+")";
+        }
+        if (content.name === "__strReplace__") {
+            return result+".replace("+astToOpy(content.args[1])+", "+astToOpy(content.args[2])+")";
+        }
+        if (content.name === "__strCharAt__") {
+            return result+".charAt("+astToOpy(content.args[1])+")";
         }
         if (content.name === "__firstOf__") {
             return result+"[0]";
@@ -32792,9 +32839,9 @@ function astToOpy(content) {
         var result = "";
         if (content.name === "__localizedString__") {
             result += "l";
-            result += escapeString(topy(content.args[0].name, stringKw))
+            result += escapeString(topy(content.args[0].name, stringKw), false)
         } else {
-            result += escapeString(content.args[0].name);
+            result += escapeString(content.args[0].name, false);
         }
         if (formatArgs.length > 0) {
             console.log(formatArgs);
@@ -33152,15 +33199,26 @@ function decompileCustomGameSettings(content) {
 				var value = workshopSettings.substring(i, nextNewlineIndex).trim();
 				if (isNumber(value)) {
 					value = parseFloat(value);
+				} else if (value.startsWith("[") && value.endsWith("]")) {
+					//workshop enum
+					value = [parseFloat(value.substring(1), value.substring(value.length-1))]
+				} else if (/e[\+\-]\d+:F3/.test(value)) {
+					//Copy bug for too high/low numbers
+					value = parseFloat("1"+value.substring(0, value.indexOf(":")));
 				} else {
 					//It should be a boolean: translate On/Off.
-					value = topy(value, customGameSettingsKw);
-					if (value === "__on__") {
-						value = true;
-					} else if (value === "__off__") {
-						value = false;
-					} else {
-						error("Unhandled value '"+value+"'");
+					try {
+						value = topy(value, customGameSettingsKw);
+						if (value === "__on__") {
+							value = true;
+						} else if (value === "__off__") {
+							value = false;
+						} else {
+							error("Unhandled value '"+value+"'");
+						}
+					} catch (e) {
+						//Maybe a hero?
+						value = topy(value, heroKw);
 					}
 				}
 				i = nextNewlineIndex+1;
@@ -39149,7 +39207,7 @@ function astRulesToWs(rules) {
         if (obfuscationSettings.obfuscateNames) {
             result += '""';
         } else {
-            result += escapeString(rule.ruleAttributes.name);
+            result += escapeString(rule.ruleAttributes.name, true);
         }
         result += ") {\n";
 
@@ -39207,7 +39265,7 @@ function astRuleConditionToWs(condition) {
     }
     var result = "";
     if (!obfuscationSettings.obfuscateNames && condition.comment) {
-        result += tabLevel(2)+escapeString(condition.comment.trim())+"\n";
+        result += tabLevel(2)+escapeString(condition.comment.trim(), true)+"\n";
     }
 
     if (condition.name in funcToOpMapping) {
@@ -39278,7 +39336,7 @@ function astActionToWs(action, nbTabs) {
         action.comment = "pass";
     }
     if (!obfuscationSettings.obfuscateNames && action.comment) {
-        result += tabLevel(nbTabs)+escapeString(action.comment.trim())+"\n";
+        result += tabLevel(nbTabs)+escapeString(action.comment.trim(), true)+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"
     for (var child of action.children) {
@@ -39314,11 +39372,11 @@ function astToWs(content) {
 
     } else if (["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
         nbElements++;
-        return escapeString(content.name);
+        return escapeString(content.name, true);
 
     } else if (content.type === "LocalizedStringLiteral") {
         nbElements += 2;
-        return escapeString(tows(content.name, stringKw));
+        return escapeString(tows(content.name, stringKw), true);
     }
 
     var result = "";
@@ -39800,7 +39858,7 @@ function parseLines(lines) {
                     error("Malformatted 'rule' declaration");
                 }
                 instructionRuleAttributes = {};
-                instructionRuleAttributes.name = unescapeString(lineMembers[0][1].text);
+                instructionRuleAttributes.name = unescapeString(lineMembers[0][1].text, true);
 
             } else if (funcName === "__enum__") {
                 if (lineMembers[0].length !== 2) {
@@ -40246,7 +40304,7 @@ function parse(content, kwargs={}) {
 		var string = "";
 		for (var i = content.length-1; i >= 0; i--) {
 			if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
-				string = unescapeString(content[i].text)+string;
+				string = unescapeString(content[i].text, true)+string;
 
 			} else {
 				if (i === 0) {
@@ -41206,8 +41264,16 @@ function compileCustomGameSettings(customGameSettings) {
 					result[wsWorkshop][workshopSetting] = tows("__on__", customGameSettingsKw);
 				} else if (customGameSettings.workshop[workshopSetting] === false) {
 					result[wsWorkshop][workshopSetting] = tows("__off__", customGameSettingsKw);
+				} else if (Array.isArray(customGameSettings.workshop[workshopSetting])) {
+					//Enum value
+					if (customGameSettings.workshop[workshopSetting].length != 1) {
+						error("Invalid value '"+customGameSettings.workshop[workshopSetting]+"' for workshop setting '"+workshopSetting+"', must be of length 1");
+					}
+					result[wsWorkshop][workshopSetting] = "["+customGameSettings.workshop[workshopSetting]+"]";
 				} else if (isNumber(customGameSettings.workshop[workshopSetting])) {
 					result[wsWorkshop][workshopSetting] = customGameSettings.workshop[workshopSetting];
+				} else if (customGameSettings.workshop[workshopSetting] in heroKw) {
+					result[wsWorkshop][workshopSetting] = tows(customGameSettings.workshop[workshopSetting], heroKw)
 				} else {
 					error("Invalid value '"+customGameSettings.workshop[workshopSetting]+"' for workshop setting '"+workshopSetting+"'");
 				}

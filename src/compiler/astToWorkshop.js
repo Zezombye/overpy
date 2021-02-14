@@ -36,7 +36,7 @@ function astRulesToWs(rules) {
         if (obfuscationSettings.obfuscateNames) {
             result += '""';
         } else {
-            result += escapeString(rule.ruleAttributes.name);
+            result += escapeString(rule.ruleAttributes.name, true);
         }
         result += ") {\n";
 
@@ -94,7 +94,7 @@ function astRuleConditionToWs(condition) {
     }
     var result = "";
     if (!obfuscationSettings.obfuscateNames && condition.comment) {
-        result += tabLevel(2)+escapeString(condition.comment.trim())+"\n";
+        result += tabLevel(2)+escapeString(condition.comment.trim(), true)+"\n";
     }
 
     if (condition.name in funcToOpMapping) {
@@ -165,7 +165,7 @@ function astActionToWs(action, nbTabs) {
         action.comment = "pass";
     }
     if (!obfuscationSettings.obfuscateNames && action.comment) {
-        result += tabLevel(nbTabs)+escapeString(action.comment.trim())+"\n";
+        result += tabLevel(nbTabs)+escapeString(action.comment.trim(), true)+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"
     for (var child of action.children) {
@@ -201,11 +201,11 @@ function astToWs(content) {
 
     } else if (["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
         nbElements++;
-        return escapeString(content.name);
+        return escapeString(content.name, true);
 
     } else if (content.type === "LocalizedStringLiteral") {
         nbElements += 2;
-        return escapeString(tows(content.name, stringKw));
+        return escapeString(tows(content.name, stringKw), true);
     }
 
     var result = "";

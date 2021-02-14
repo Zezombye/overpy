@@ -446,8 +446,16 @@ function compileCustomGameSettings(customGameSettings) {
 					result[wsWorkshop][workshopSetting] = tows("__on__", customGameSettingsKw);
 				} else if (customGameSettings.workshop[workshopSetting] === false) {
 					result[wsWorkshop][workshopSetting] = tows("__off__", customGameSettingsKw);
+				} else if (Array.isArray(customGameSettings.workshop[workshopSetting])) {
+					//Enum value
+					if (customGameSettings.workshop[workshopSetting].length != 1) {
+						error("Invalid value '"+customGameSettings.workshop[workshopSetting]+"' for workshop setting '"+workshopSetting+"', must be of length 1");
+					}
+					result[wsWorkshop][workshopSetting] = "["+customGameSettings.workshop[workshopSetting]+"]";
 				} else if (isNumber(customGameSettings.workshop[workshopSetting])) {
 					result[wsWorkshop][workshopSetting] = customGameSettings.workshop[workshopSetting];
+				} else if (customGameSettings.workshop[workshopSetting] in heroKw) {
+					result[wsWorkshop][workshopSetting] = tows(customGameSettings.workshop[workshopSetting], heroKw)
 				} else {
 					error("Invalid value '"+customGameSettings.workshop[workshopSetting]+"' for workshop setting '"+workshopSetting+"'");
 				}

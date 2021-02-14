@@ -25,5 +25,5 @@ rule "workshop settings":
     A = createWorkshopSetting(Hero, "hero", "hero", Hero.HAMMOND, 3)
 
     #enums
-    A = createWorkshopSetting(enum["a", "b"], "enum", "enum", 0)
+    A = createWorkshopSetting(enum["a", "b\nc\nd"], "enum", "enum", 0)
     A = createWorkshopSetting(enum[p"a", b"b", w"c"], "enum", "enum", 2)

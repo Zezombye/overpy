@@ -29,7 +29,7 @@ function compileCustomGameSettingsDict(dict, refDict) {
 			if (getUtf8Length(dict[key]) > refDict[key].maxChars) {
 				error("String for '"+key+"' must not have more than "+refDict[key].maxChars+" chars");
 			}
-			result[wsKey] = escapeString(dict[key]);
+			result[wsKey] = escapeString(dict[key], true);
 
 		} else if (refDict[key].values === "__percent__" || refDict[key].values === "__int__" || refDict[key].values === "__float__") {
 			if (dict[key] > refDict[key].max) {
