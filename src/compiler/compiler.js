@@ -73,6 +73,24 @@ function compile(content, language="en-US", _rootPath="") {
 	}
 
 	var result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
+
+	if (nbElements > ELEMENT_LIMIT) {
+		warn("w_element_limit", "The gamemode is over the element limit ("+nbElements+" > "+ELEMENT_LIMIT+" elements)");
+	}
+
+	//Check for extension points
+	var spentExtensionPoints = 0;
+	for (var ext of activatedExtensions) {
+		spentExtensionPoints += customGameSettingsSchema.extensions.values[ext].points;
+	}
+	if (compiledCustomGameSettings !== "") {
+		if (spentExtensionPoints > availableExtensionPoints) {
+			warn("w_extension_points", "The extension points spent ("+spentExtensionPoints+") are over the available points ("+availableExtensionPoints+")");
+		}
+	} else {
+		availableExtensionPoints = -1;
+	}
+	
     
 	if (DEBUG_MODE) {
 		var t1 = performance.now();
@@ -87,6 +105,9 @@ function compile(content, language="en-US", _rootPath="") {
 		encounteredWarnings: encounteredWarnings,
 		enumMembers: enumMembers,
 		nbElements: nbElements,
+		activatedExtensions: activatedExtensions,
+		spentExtensionPoints: spentExtensionPoints,
+		availableExtensionPoints: availableExtensionPoints,
 	};
 }
 
@@ -191,13 +212,8 @@ function generateVariablesField() {
 		result = tows("__variables__", ruleKw)+" {\n"+result+"}\n";
 	}
 
-	if (nbElements > ELEMENT_LIMIT) {
-		warn("w_element_limit", "The gamemode is over the element limit ("+nbElements+" > "+ELEMENT_LIMIT+" elements)");
-	}
-
 	return result;
 }
-
 
 function generateSubroutinesField() {
 
@@ -277,17 +293,82 @@ function compileCustomGameSettings(customGameSettings) {
 	}
 	
 	var result = {};
+	if (!("gamemodes" in customGameSettings)) {
+		error("Custom game settings must specify a gamemode");
+	}
+
+	var areOnlyWorkshopMapsEnabled = true;
+
 	for (var key of Object.keys(customGameSettings)) {
 		if (key === "main" || key === "lobby") {
 			result[tows(key, customGameSettingsSchema)] = compileCustomGameSettingsDict(customGameSettings[key], customGameSettingsSchema[key].values);
+			if (key === "lobby") {
+				//Figure out the amount of available slots
+				var maxTeam1Slots = 0;
+				var maxTeam2Slots = 0;
+				var maxFfaSlots = 0;
+				if ("team1Slots" in customGameSettings["lobby"]) {
+					maxTeam1Slots = customGameSettings["lobby"]["team1Slots"]
+				} else {
+					for (var gamemode in customGameSettings.gamemodes) {
+						if (!(gamemode in gamemodeKw)) {
+							continue;
+						}
+						if ("defaultTeam1Slots" in gamemodeKw[gamemode]) {
+							maxTeam1Slots = Math.max(maxTeam1Slots, gamemodeKw[gamemode].defaultTeam1Slots)
+						} else {
+							maxTeam1Slots = Math.max(maxTeam1Slots, 6)
+						}
+					}
+				}
+				
+				if ("team2Slots" in customGameSettings["lobby"]) {
+					maxTeam2Slots = customGameSettings["lobby"]["team2Slots"]
+				} else {
+					for (var gamemode in customGameSettings.gamemodes) {
+						if (!(gamemode in gamemodeKw)) {
+							continue;
+						}
+						if ("defaultTeam2Slots" in gamemodeKw[gamemode]) {
+							maxTeam2Slots = Math.max(maxTeam2Slots, gamemodeKw[gamemode].defaultTeam2Slots)
+						} else {
+							maxTeam2Slots = Math.max(maxTeam2Slots, 6)
+						}
+					}
+				}
+				
+				if ("ffaSlots" in customGameSettings["lobby"]) {
+					maxFfaSlots = customGameSettings["lobby"]["ffaSlots"]
+				} else {
+					for (var gamemode in customGameSettings.gamemodes) {
+						if (!(gamemode in gamemodeKw)) {
+							continue;
+						}
+						if ("defaultFfaSlots" in gamemodeKw[gamemode]) {
+							maxFfaSlots = Math.max(maxFfaSlots, gamemodeKw[gamemode].defaultFfaSlots)
+						}
+					}
+				}
+
+				var maxSlots = Math.max(maxTeam1Slots + maxTeam2Slots, maxFfaSlots)
+				if (maxSlots > 12) {
+					error("The maximum number of slots cannot be over 12 (currently "+maxSlots+")");
+				}
+				/*console.log(maxTeam1Slots)
+				console.log(maxTeam2Slots)
+				console.log(maxFfaSlots)*/
+				availableExtensionPoints += 4*(12-maxSlots);
+			}
 
 		} else if (key === "gamemodes") {
 			var wsGamemodes = tows("gamemodes", customGameSettingsSchema);
 			result[wsGamemodes] = {};
 			for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
 				var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
+				var isGamemodeEnabled = true;
 				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
 					wsGamemode = tows("__disabled__", ruleKw)+" "+wsGamemode;
+					isGamemodeEnabled = false;
 					delete customGameSettings.gamemodes[gamemode].enabled;
 				}
 				result[wsGamemodes][wsGamemode] = {};
@@ -296,6 +377,21 @@ function compileCustomGameSettings(customGameSettings) {
 						error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '"+gamemode+"'");
 					}
 					var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
+
+					//Test if there are only workshop maps (for extension points)
+					if (isGamemodeEnabled && areOnlyWorkshopMapsEnabled) {
+						if (mapsKey === "disabledMaps") {
+							//If only workshop maps are enabled in a gamemode, then it is less than 50%, so it will be "enabled maps".
+							areOnlyWorkshopMapsEnabled = false;
+						} else {
+							for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
+								if (!mapKw[map].isWorkshopMap) {
+									areOnlyWorkshopMapsEnabled = false;
+									break;
+								}
+							}
+						}
+					}
 					var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
 					result[wsGamemodes][wsGamemode][wsMapsKey] = [];
 					for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
@@ -359,6 +455,14 @@ function compileCustomGameSettings(customGameSettings) {
 		} else {
 			error("Unknown key '"+key+"'");
 		}
+	}
+	
+	if (activatedExtensions.length > 0) {
+		activatedExtensions = [...new Set(activatedExtensions)];
+		result[tows("extensions", customGameSettingsSchema)] = activatedExtensions.map(x => tows(x, customGameSettingsSchema.extensions.values));
+	}
+	if (areOnlyWorkshopMapsEnabled) {
+		availableExtensionPoints += 16;
 	}
 
 

@@ -121,13 +121,23 @@ function decompileAllRules(content, language="en-US") {
 		}
 	}
 	result += variableDeclarations + subroutineDeclarations;
+
+	
+
 	
 	for (var rule of astRules) {
 		console.log(astToString(rule));
 	}
 	console.log(astRules);
 
-	result += astRulesToOpy(astRules);
+	var opyRules = astRulesToOpy(astRules)
+	if (activatedExtensions.length > 0) {
+		activatedExtensions = [...new Set(activatedExtensions)]
+		result += "#Activated extensions\n\n" + activatedExtensions.map(x => "#!extension "+x+"\n").join("")+"\n\n";
+	}
+
+	result += opyRules;
+	
 		
 	return result;
 	
@@ -187,8 +197,12 @@ function decompileCustomGameSettings(content) {
 		var opyCategory = topy(category, customGameSettingsSchema);
 		result[opyCategory] = {};
 		if (opyCategory === "main" || opyCategory === "lobby") {
-			result[opyCategory] = decompileCustomGameSettingsDict(Object.keys(serialized[category]), customGameSettingsSchema[opyCategory].values)
+			result[opyCategory] = decompileCustomGameSettingsDict(Object.keys(serialized[category]), customGameSettingsSchema[opyCategory].values);
 
+		} else if (opyCategory === "extensions") {
+			activatedExtensions = Object.keys(serialized[opyCategory]).map(ext => topy(ext, customGameSettingsSchema.extensions.values));
+			delete result[opyCategory];
+		
 		} else if (opyCategory === "gamemodes") {
 			for (var gamemode of Object.keys(serialized[category])) {
 				var isCurrentGamemodeDisabled = false;

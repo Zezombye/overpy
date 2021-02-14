@@ -197,7 +197,7 @@ const funcList = JSON.parse(JSON.stringify(Object.assign({}, overpy.opyFuncs, ov
 
 const moduleFuncList = {}
 for (let module in overpy.opyModules) {
-    console.log(overpy.opyModules[module])
+    //console.log(overpy.opyModules[module])
     var moduleFuncs = JSON.parse(JSON.stringify(overpy.opyModules[module]));
     for (let func in moduleFuncs) {
         if (typeof moduleFuncs[func] === "string") {
@@ -208,8 +208,8 @@ for (let module in overpy.opyModules) {
     }
     Object.assign(moduleFuncList, moduleFuncs);
 }
-console.log("module func list");
-console.log(moduleFuncList);
+/*console.log("module func list");
+console.log(moduleFuncList);*/
 
 for (var func of Object.keys(funcDoc)) {
     if (!func.startsWith("_") && !func.includes(".")) {
@@ -237,6 +237,8 @@ for (var func of Object.keys(funcDoc)) {
 const stringEntitiesCompList = makeCompList(stringEntities);
 const metaRuleParamsCompList = makeCompList(metaRuleParams);
 
+var extensionDescription = "";
+
 var defaultCompList;
 var allFuncList;
 var memberCompItem;
@@ -246,6 +248,9 @@ var globalVariables = {};
 var playerVariables = {};
 var subroutines = {};
 var userEnums = {};
+var activatedExtensions = [];
+var spentExtensionPoints = -1;
+var availableExtensionPoints = -1;
 function refreshAutoComplete() {
 
     constValues = Object.assign({}, defaultConstValues);
@@ -261,7 +266,16 @@ function refreshAutoComplete() {
         }
     }
 
+    for (var type of ["Beam", "Effect", "DynamicEffect"]) {
+        constValues[type] = Object.assign({}, constValues[type]) //prevent modifying defaultConstValues
+        constValues[type].items = constValues[type].items.filter(x => {
+            return !("extension" in overpy.constantValues[type][x.label]) || activatedExtensions.includes(overpy.constantValues[type][x.label].extension)
+        })
+    }
+
     //console.log(constValues);
+    var extensionDoc = preprocessingDirectivesCompList.items.filter(x => x.label === "extension")[0]
+    extensionDoc.documentation = new vscode.MarkdownString(overpy.preprocessingDirectives.extension.description.replace("__extensionDescription__", spentExtensionPoints < 0 ? "Compile to get a breakdown of extension points and to show values in the autocompletion." : "As of latest compilation, you are using **"+spentExtensionPoints+(availableExtensionPoints < 0 ? "" : "/"+availableExtensionPoints)+"** points."))
 
     defaultCompList = makeCompList(Object.assign({}, funcList, constValues, normalMacros, globalVariables, subroutines));
     allFuncList = Object.assign({}, funcList, memberFuncList, moduleFuncList, normalMacros, memberMacros);
@@ -355,6 +369,9 @@ function activate(context) {
             fillAutocompletionVariables(compiledText.globalVariables, compiledText.playerVariables);
             fillAutocompletionSubroutines(compiledText.subroutines);
             fillAutocompletionEnums(compiledText.enumMembers);
+            activatedExtensions = compiledText.activatedExtensions;
+            spentExtensionPoints = compiledText.spentExtensionPoints;
+            availableExtensionPoints = compiledText.availableExtensionPoints;
             refreshAutoComplete();
             //console.log(compiledText.macros);
         } catch (e) {
@@ -624,6 +641,10 @@ function generateDocFromDoc(itemName, item) {
 
     if ("return" in item) {
         infoStr += "Returns: `"+overpy.typeToString(item.return)+"`  \n";
+    }
+
+    if ("extension" in item) {
+        infoStr += "Part of extension `"+item.extension+"`.\n";
     }
 
     if (infoStr) {

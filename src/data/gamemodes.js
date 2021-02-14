@@ -38,6 +38,7 @@ const gamemodeKw =
     },
     "bountyHunter": {
         "guid": "000000012841",
+        defaultFfaPlayers: 6,
         "en-US": "Bounty Hunter",
         "de-DE": "Kopfgeldjäger",
         "es-ES": "Cazarrecompensas",
@@ -84,6 +85,7 @@ const gamemodeKw =
     },
     "ffa": {
         "guid": "000000006853",
+        defaultFfaPlayers: 12,
         "en-US": "Deathmatch",
         "es-ES": "Combate a muerte",
         "es-MX": "Combate a muerte",
@@ -97,6 +99,8 @@ const gamemodeKw =
     },
     "elimination": {
         "guid": "000000005887",
+        defaultTeam1Players: 1,
+        defaultTeam2Players: 1,
         "en-US": "Elimination",
         "de-DE": "Eliminierung",
         "es-ES": "Eliminación",
@@ -205,6 +209,7 @@ const gamemodeKw =
     },
     "practiceRange": {
         "guid": "0000000040BE",
+        defaultTeam2Players: 0,
         "en-US": "Practice Range",
         "de-DE": "Trainingsbereich",
         "es-ES": "Práctica de combate",

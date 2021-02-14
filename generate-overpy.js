@@ -13,7 +13,6 @@ overpyFiles = [
 "data/opy/functions.js",
 "data/opy/keywords.js",
 "data/opy/memberFunctions.js",
-"data/opy/preprocessing.js",
 "data/actions.js",
 "data/values.js",
 "data/maps.js",
@@ -22,6 +21,7 @@ overpyFiles = [
 "data/constants.js",
 "data/other.js",
 "data/customGameSettings.js",
+"data/opy/preprocessing.js",
 "data/opy/annotations.js",
 "globalVars.js",
 "utils/ast.js",
@@ -112,6 +112,8 @@ overpyFiles = [
 "compiler/functions/continue.js",
 "compiler/functions/cos.js",
 "compiler/functions/cosDeg.js",
+"compiler/functions/createBeam.js",
+"compiler/functions/createEffect.js",
 "compiler/functions/createWorkshopSetting.js",
 "compiler/functions/crossProduct.js",
 "compiler/functions/directionTowards.js",
@@ -129,6 +131,7 @@ overpyFiles = [
 "compiler/functions/max.js",
 "compiler/functions/min.js",
 "compiler/functions/normalize.js",
+"compiler/functions/playEffect.js",
 "compiler/functions/print.js",
 "compiler/functions/printLog.js",
 "compiler/functions/round.js",
@@ -444,6 +447,8 @@ for (var key in overpy.customGameSettingsSchema) {
 			},
 		}
 
+	} else if (key === "extensions") {
+		//do not put this key into the schema
 	} else {
 		throw new Error("unknown key "+key);
 	}

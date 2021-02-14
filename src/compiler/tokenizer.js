@@ -217,6 +217,12 @@ function tokenize(content) {
 		} else if (content.startsWith("#!disableOptimizations")) {
 			enableOptimization = false;
 
+		} else if (content.startsWith("#!extension")) {
+			var addedExtension = content.substring("#!extension".length).trim()
+			if (!(addedExtension in customGameSettingsSchema.extensions.values)) {
+				error("Unknown extension '"+addedExtension+"', valid ones are: "+Object.keys(customGameSettingsSchema.extensions.values).join(", "))
+			}
+			activatedExtensions.push(addedExtension);
 		} else if (content.startsWith("#!optimizeForSize")) {
 			optimizeForSize = true;
 

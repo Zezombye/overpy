@@ -5898,6 +5898,51 @@ const customGameSettingsSchema =
         "ja-JP": "ワークショップ",
         "pl-PL": "warsztat",
         "zh-CN": "地图工坊"
+    },
+    "extensions": {
+        "en-US": "extensions",
+        "values": {
+            "beamEffects": {
+                "en-US": "Beam Effects",
+                "points": 2
+            },
+            "beamSounds": {
+                "en-US": "Beam Sounds",
+                "points": 1
+            },
+            "buffAndDebuffSounds": {
+                "en-US": "Buff and Debuff Sounds",
+                "points": 2
+            },
+            "buffStatusEffects": {
+                "en-US": "Buff Status Effects",
+                "points": 2
+            },
+            "debuffStatusEffects": {
+                "en-US": "Debuff Status Effects",
+                "points": 2
+            },
+            "energyExplosionEffects": {
+                "en-US": "Energy Explosion Effects",
+                "points": 4
+            },
+            "explosionSounds": {
+                "en-US": "Explosion Sounds",
+                "points": 2
+            },
+            "kineticExplosionEffects": {
+                "en-US": "Kinetic Explosion Effects",
+                "points": 4
+            },
+            "playMoreEffects": {
+                "en-US": "Play More Effects",
+                "points": 1
+            },
+            "spawnMoreDummyBots": {
+                "en-US": "Spawn More Dummy Bots",
+                "points": 2
+            }
+        }
     }
 }
 //end-json
@@ -5992,6 +6037,8 @@ for (var hero of Object.keys(heroKw)) {
         }
     }
 }
+
+//Apply extension
 
 delete customGameSettingsSchema.heroes.values.__generalAndEachHero__
 delete customGameSettingsSchema.heroes.values.__eachHero__

@@ -1365,6 +1365,7 @@ const mapKw =
             "a": 0,
             "b": 0
         },
+        "isWorkshopMap": true,
         "guid": "00000000FFF0",
         "en-US": "Workshop Chamber",
         "de-DE": "Workshop-Raum",
@@ -1393,6 +1394,7 @@ const mapKw =
             "a": 0,
             "b": 0
         },
+        "isWorkshopMap": true,
         "guid": "00000000FFF2",
         "en-US": "Workshop Expanse",
         "de-DE": "Workshop-Gebiet",
@@ -1421,6 +1423,7 @@ const mapKw =
             "a": 0,
             "b": 0
         },
+        "isWorkshopMap": true,
         "guid": "000000010C6D",
         "en-US": "Workshop Expanse Night",
         "de-DE": "Workshop-Gebiet Nacht",
@@ -1444,6 +1447,7 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        "isWorkshopMap": true,
         "guid": "000000011F44",
         "en-US": "Workshop Green Screen",
         "de-DE": "Workshop-Greenscreen",
@@ -1472,6 +1476,7 @@ const mapKw =
             "a": 0,
             "b": 0
         },
+        "isWorkshopMap": true,
         "guid": "00000000FFF1",
         "en-US": "Workshop Island",
         "de-DE": "Workshop-Insel",
@@ -1500,6 +1505,7 @@ const mapKw =
             "a": 0,
             "b": 0
         },
+        "isWorkshopMap": true,
         "guid": "000000010C71",
         "en-US": "Workshop Island Night",
         "de-DE": "Workshop-Insel Nacht",

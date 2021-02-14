@@ -91,7 +91,6 @@ a {
 <script src="src/data/opy/functions.js"></script>
 <script src="src/data/opy/keywords.js"></script>
 <script src="src/data/opy/memberFunctions.js"></script>
-<script src="src/data/opy/preprocessing.js"></script>
 <script src="src/data/actions.js"></script>
 <script src="src/data/values.js"></script>
 <script src="src/data/maps.js"></script>
@@ -100,6 +99,7 @@ a {
 <script src="src/data/constants.js"></script>
 <script src="src/data/other.js"></script>
 <script src="src/data/customGameSettings.js"></script>
+<script src="src/data/opy/preprocessing.js"></script>
 <script src="src/data/opy/annotations.js"></script>
 
 <script src="src/globalVars.js"></script>
@@ -192,6 +192,8 @@ a {
 <script src="src/compiler/functions/continue.js"></script>
 <script src="src/compiler/functions/cos.js"></script>
 <script src="src/compiler/functions/cosDeg.js"></script>
+<script src="src/compiler/functions/createBeam.js"></script>
+<script src="src/compiler/functions/createEffect.js"></script>
 <script src="src/compiler/functions/createWorkshopSetting.js"></script>
 <script src="src/compiler/functions/crossProduct.js"></script>
 <script src="src/compiler/functions/directionTowards.js"></script>
@@ -209,6 +211,7 @@ a {
 <script src="src/compiler/functions/max.js"></script>
 <script src="src/compiler/functions/min.js"></script>
 <script src="src/compiler/functions/normalize.js"></script>
+<script src="src/compiler/functions/playEffect.js"></script>
 <script src="src/compiler/functions/print.js"></script>
 <script src="src/compiler/functions/printLog.js"></script>
 <script src="src/compiler/functions/round.js"></script>
@@ -229,35 +232,6 @@ a {
 
 
 <script>
-
-var languages = ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW"]
-var result = "";
-function testForDupes(obj) {
-	for (var language of languages) {
-		var seenStrs = {};
-		for (var key in obj) {
-			if (key === "description") {
-				continue
-			}
-			if (language in obj[key]) {
-				if (Object.keys(seenStrs).includes(obj[key][language])) {
-					result += "duplicate translation '"+obj[key][language]+"' in "+language+" for strings '"+seenStrs[obj[key][language]]+"' and '"+obj[key]["en-US"]+"'\n"
-				} else {
-					seenStrs[obj[key][language]] = obj[key]["en-US"]
-				}
-			} else {
-				if (Object.values(seenStrs).includes(obj[key]["en-US"])) {
-					result += "duplicate translation '"+obj[key]["en-US"]+"' in "+language+" for strings '"+seenStrs[obj[key]["en-US"]]+"' and '"+obj[key]["en-US"]+"'\n"
-				} else {
-					seenStrs[obj[key]["en-US"]] = obj[key]["en-US"]
-				}
-			}
-		}
-	}
-}
-
-testForDupes(normalStrKw);
-console.log(result);
 
 </script>
 
@@ -291,6 +265,9 @@ function demoCompile() {
 	try {
 		compilationResult = compile(document.getElementById("overpy-textarea").value, language);
 		str += "//Elements: "+compilationResult.nbElements+"\n";
+		if (compilationResult.activatedExtensions.length > 0) {
+			str += "//Extension points: "+compilationResult.spentExtensionPoints+"/"+(compilationResult.availableExtensionPoints < 0 ? "unknown" : compilationResult.availableExtensionPoints)+"\n"
+		}
 		str += compilationResult.result;
 		if (compilationResult.encounteredWarnings.length > 0) {
 			var strWarn = "/* Warnings were encountered:\n\n"

@@ -531,6 +531,372 @@ const constantValues =
             "ja-JP": "爆発音（リング）",
             "pt-BR": "Som de Explosão para Anel",
             "zh-CN": "环状爆炸声音"
+        },
+        
+        "ANA_BIOTIC_GRENADE_INCREASED_HEALING_SOUND": {
+            "en-US": "Ana Biotic Grenade Increased Healing Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "ANA_BIOTIC_GRENAGE_NO_HEALING_SOUND": {
+            "en-US": "Ana Biotic Grenage No Healing Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "ANA_SLEEPING_SOUND": {
+            "en-US": "Ana Sleeping Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "REAPER_WRAITH_FORM_SOUND": {
+            "en-US": "Reaper Wraith Form Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "SOMBRA_TRANSLOCATING_SOUND": {
+            "en-US": "Sombra Translocating Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "SOLDIER_SPRINT_START_SOUND": {
+            "en-US": "Soldier: 76 Sprint Start Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        
+        "HEAL_TARGET_ACTIVE": {
+            "en-US": "Heal Target Active Effect",
+            "extension": "buffStatusEffects"
+        },
+        "SOMBRA_TRANSLOCATING_MATERIAL": {
+            "en-US": "Sombra Translocating Material Effect",
+            "extension": "buffStatusEffects"
+        },
+        
+        "MCCREE_FLASHBANG_STUNNED": {
+            "en-US": "McCree Flashbang Stunned Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "SOMBRA_HACKED_STARTING": {
+            "en-US": "Sombra Hacked Starting Effect",
+            "extension": "debuffStatusEffects"
+        },
+        
+        "BRIGITTE_REPAIR_PACK_IMPACT": {
+            "en-US": "Brigitte Repair Pack Impact Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "BRIGITTE_REPAIR_PACK_ARMOR": {
+            "en-US": "Brigitte Repair Pack Armor Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "BRIGITTE_WHIP_SHOT_HEAL_AREA": {
+            "en-US": "Brigitte Whip Shot Heal Area Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "DVA_MICRO_MISSILES_EXPLOSION": {
+            "en-US": "Dva Micro Missiles Explosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "DVA_SELF_DESTRUCT_EXPLOSION": {
+            "en-US": "Dva Self Destruct Explosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "ECHO_STICKY_BOMB_EXPLOSION": {
+            "en-US": "Echo Sticky Bomb Explosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "HANZO_SONIC_ARROW_INITIAL_PULSE": {
+            "en-US": "Hanzo Sonic Arrow Initial Pulse Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "LUCIO_SOUND_BARRIER_CAST": {
+            "en-US": "Lúcio Sound Barrier Cast Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "MOIRA_FADE_DISAPPEAR": {
+            "en-US": "Moira Fade Disappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "MOIRA_FADE_REAPPEAR": {
+            "en-US": "Moira Fade Reappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "ORISA_HALT_IMPLOSION": {
+            "en-US": "Orisa Halt Implosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SIGMA_HYPERSPHERE_IMPLOSION": {
+            "en-US": "Sigma Hypersphere Implosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SOMBRA_LOGO": {
+            "en-US": "Sombra Logo Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SOMBRA_TRANSLOCATOR_DISAPPEAR": {
+            "en-US": "Sombra Translocator Disappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SOMBRA_TRANSLOCATOR_REAPPEAR": {
+            "en-US": "Sombra Translocator Reappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SOMBRA_EMP_EXPLOSION_EFFECT": {
+            "en-US": "Sombra Emp Explosion effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SYMMETRA_TELEPORTER_REAPPEAR": {
+            "en-US": "Symmetra Teleporter Reappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "TRACER_RECALL_DISAPPEAR": {
+            "en-US": "Tracer Recall Disappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "TRACER_RECALL_REAPPEAR": {
+            "en-US": "Tracer Recall Reappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "ZARYA_PARTICLE_CANNON_EXPLOSION": {
+            "en-US": "Zarya Particle Cannon Explosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        
+        "ANA_BIOTIC_GRENADE_EXPLOSION_SOUND": {
+            "en-US": "Ana Biotic Grenade Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "ASHE_DYNAMITE_EXPLOSION_SOUND": {
+            "en-US": "Ashe Dynamite Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "BAPTISTE_BIOTIC_LAUNCHER_EXPLOSION_SOUND": {
+            "en-US": "Baptiste Biotic Launcher Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "BASTION_TANK_CANNON_EXPLOSION_SOUND": {
+            "en-US": "Bastion Tank Cannon Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "BRIGITTE_WHIP_SHOT_HEAL_AREA_SOUND": {
+            "en-US": "Brigitte Whip Shot Heal Area Sound",
+            "extension": "explosionSounds"
+        },
+        "BRIGITTE_REPAIR_PACK_IMPACT_SOUND": {
+            "en-US": "Brigitte Repair Pack Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "BRIGITTE_REPAIR_PACK_ARMOR_SOUND": {
+            "en-US": "Brigitte Repair Pack Armor Sound",
+            "extension": "explosionSounds"
+        },
+        "DVA_MICRO_MISSILES_EXPLOSION_SOUND": {
+            "en-US": "Dva Micro Missiles Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "DVA_SELF_DESTRUCT_EXPLOSION_SOUND": {
+            "en-US": "Dva Self Destruct Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "DOOMFIST_RISING_UPPERCUT_LEAP_SOUND": {
+            "en-US": "Doomfist Rising Uppercut Leap Sound",
+            "extension": "explosionSounds"
+        },
+        "DOOMFIST_RISING_UPPERCUT_IMPACT_SOUND": {
+            "en-US": "Doomfist Rising Uppercut Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "DOOMFIST_METEOR_STRIKE_IMPACT_SOUND": {
+            "en-US": "Doomfist Meteor Strike Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "ECHO_STICKY_BOMB_EXPLOSION_SOUND": {
+            "en-US": "Echo Sticky Bomb Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "JUNKRAT_FRAG_LAUNCHER_EXPLOSION_SOUND": {
+            "en-US": "Junkrat Frag Launcher Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "JUNKRAT_CONCUSSION_MINE_EXPLOSION_SOUND": {
+            "en-US": "Junkrat Concussion Mine Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "JUNKRAT_RIP_TIRE_EXPLOSION_SOUND": {
+            "en-US": "Junkrat Rip Tire Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "HANZO_SONIC_ARROW_INITIAL_PULSE_SOUND": {
+            "en-US": "Hanzo Sonic Arrow Initial Pulse Sound",
+            "extension": "explosionSounds"
+        },
+        "LUCIO_SOUND_BARRIER_CAST_SOUND": {
+            "en-US": "Lúcio Sound Barrier Cast Sound",
+            "extension": "explosionSounds"
+        },
+        "MCCREE_FLASHBANG_EXPLOSION_SOUND": {
+            "en-US": "McCree Flashbang Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "MOIRA_FADE_DISAPPEAR_SOUND": {
+            "en-US": "Moira Fade Disappear Sound",
+            "extension": "explosionSounds"
+        },
+        "MOIRA_FADE_REAPPEAR_SOUND": {
+            "en-US": "Moira Fade Reappear Sound",
+            "extension": "explosionSounds"
+        },
+        "ORISA_HALT_IMPLOSION_SOUND": {
+            "en-US": "Orisa Halt Implosion Sound",
+            "extension": "explosionSounds"
+        },
+        "PHARAH_ROCKET_LAUNCHER_EXPLOSION_SOUND": {
+            "en-US": "Pharah Rocket Launcher Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "PHARAH_CONCUSSIVE_BLAST_SOUND": {
+            "en-US": "Pharah Concussive Blast Sound",
+            "extension": "explosionSounds"
+        },
+        "PHARAH_BARRAGE_EXPLOSION_SOUND": {
+            "en-US": "Pharah Barrage Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "REINHARDT_FIRE_STRIKE_TARGET_IMPACT_SOUND": {
+            "en-US": "Reinhardt Fire Strike Target Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "SIGMA_HYPERSPHERE_IMPLOSION_SOUND": {
+            "en-US": "Sigma Hypersphere Implosion Sound",
+            "extension": "explosionSounds"
+        },
+        "SIGMA_ACCRETION_IMPACT_SOUND": {
+            "en-US": "Sigma Accretion Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "SOMBRA_LOGO_SOUND": {
+            "en-US": "Sombra Logo Sound",
+            "extension": "explosionSounds"
+        },
+        "SOMBRA_TRANSLOCATOR_DISAPPEAR_SOUND": {
+            "en-US": "Sombra Translocator Disappear Sound",
+            "extension": "explosionSounds"
+        },
+        "SOMBRA_TRANSLOCATOR_REAPPEAR_SOUND": {
+            "en-US": "Sombra Translocator Reappear Sound",
+            "extension": "explosionSounds"
+        },
+        "SOMBRA_EMP_EXPLOSION_SOUND": {
+            "en-US": "Sombra Emp Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "SYMMETRA_TELEPORTER_REAPPEAR_SOUND": {
+            "en-US": "Symmetra Teleporter Reappear Sound",
+            "extension": "explosionSounds"
+        },
+        "TRACER_RECALL_DISAPPEAR_SOUND": {
+            "en-US": "Tracer Recall Disappear Sound",
+            "extension": "explosionSounds"
+        },
+        "TRACER_RECALL_REAPPEAR_SOUND": {
+            "en-US": "Tracer Recall Reappear Sound",
+            "extension": "explosionSounds"
+        },
+        "WIDOWMAKER_VENOM_MINE_EXPLOSION_SOUND": {
+            "en-US": "Widowmaker Venom Mine Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "WINSTON_JUMP_PACK_LANDING_SOUND": {
+            "en-US": "Winston Jump Pack Landing Sound",
+            "extension": "explosionSounds"
+        },
+        "WRECKING_BALL_PILEDRIVER_IMPACT_SOUND": {
+            "en-US": "Wrecking Ball Piledriver Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "WRECKING_BALL_MINEFIELD_EXPLOSION_SOUND": {
+            "en-US": "Wrecking Ball Minefield Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "ZARYA_PARTICLE_CANNON_EXPLOSION_SOUND": {
+            "en-US": "Zarya Particle Cannon Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        
+        "ANA_BIOTIC_GRENADE_EXPLOSION": {
+            "en-US": "Ana Biotic Grenade Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "ASHE_DYNAMITE_EXPLOSION": {
+            "en-US": "Ashe Dynamite Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "BAPTISTE_BIOTIC_LAUNCHER_EXPLOSION": {
+            "en-US": "Baptiste Biotic Launcher Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "BASTION_TANK_CANNON_EXPLOSION": {
+            "en-US": "Bastion Tank Cannon Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "DOOMFIST_RISING_UPPERCUT_LEAP": {
+            "en-US": "Doomfist Rising Uppercut Leap Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "DOOMFIST_RISING_UPPERCUT_IMPACT": {
+            "en-US": "Doomfist Rising Uppercut Impact Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "DOOMFIST_METEOR_STRIKE_IMPACT": {
+            "en-US": "Doomfist Meteor Strike Impact Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "JUNKRAT_FRAG_LAUNCHER_EXPLOSION": {
+            "en-US": "Junkrat Frag Launcher Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "JUNKRAT_CONCUSSION_MINE_EXPLOSION": {
+            "en-US": "Junkrat Concussion Mine Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "JUNKRAT_RIP_TIRE_EXPLOSION": {
+            "en-US": "Junkrat Rip Tire Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "MCCREE_FLASHBANG_EXPLOSION": {
+            "en-US": "McCree Flashbang Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "PHARAH_ROCKET_LAUNCHER_EXPLOSION": {
+            "en-US": "Pharah Rocket Launcher Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "PHARAH_CONCUSSIVE_BLAST": {
+            "en-US": "Pharah Concussive Blast Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "PHARAH_BARRAGE_EXPLOSION": {
+            "en-US": "Pharah Barrage Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "REINHARDT_FIRE_STRIKE_TARGET_IMPACT": {
+            "en-US": "Reinhardt Fire Strike Target Impact Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "SIGMA_ACCRETION_IMPACT": {
+            "en-US": "Sigma Accretion Impact Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "WIDOWMAKER_VENOM_MINE_EXPLOSION": {
+            "en-US": "Widowmaker Venom Mine Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "WINSTON_JUMP_PACK_LANDING": {
+            "en-US": "Winston Jump Pack Landing Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "WRECKING_BALL_PILEDRIVER_IMPACT": {
+            "en-US": "Wrecking Ball Piledriver Impact Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "WRECKING_BALL_MINEFIELD_EXPLOSION": {
+            "en-US": "Wrecking Ball Minefield Explosion Effect",
+            "extension": "kineticExplosionEffects"
         }
     },
     "Effect": {
@@ -677,7 +1043,230 @@ const constantValues =
             "ja-JP": "球体",
             "pt-BR": "Esfera",
             "zh-CN": "球体"
-        }
+        },
+        "ECHO_FOCUSING_BEAM_SOUND": {
+            "en-US": "Echo Focusing Beam Sound",
+            "extension": "beamSounds"
+        },
+        "JUNKRAT_TRAP_CHAIN_SOUND": {
+            "en-US": "Junkrat Trap Chain Sound",
+            "extension": "beamSounds"
+        },
+        "MERCY_HEAL_BEAM_SOUND": {
+            "en-US": "Mercy Heal Beam Sound",
+            "extension": "beamSounds"
+        },
+        "MERCY_BOOST_BEAM_SOUND": {
+            "en-US": "Mercy Boost Beam Sound",
+            "extension": "beamSounds"
+        },
+        "MOIRA_GRASP_CONNECTED_SOUND": {
+            "en-US": "Moira Grasp Connected Sound",
+            "extension": "beamSounds"
+        },
+        "MOIRA_ORB_DAMAGE_SOUND": {
+            "en-US": "Moira Orb Damage Sound",
+            "extension": "beamSounds"
+        },
+        "MOIRA_ORB_HEAL_SOUND": {
+            "en-US": "Moira Orb Heal Sound",
+            "extension": "beamSounds"
+        },
+        "MOIRA_COALESCENCE_SOUND": {
+            "en-US": "Moira Coalescence Sound",
+            "extension": "beamSounds"
+        },
+        "ORISA_AMPLIFIER_SOUND": {
+            "en-US": "Orisa Amplifier Sound",
+            "extension": "beamSounds"
+        },
+        "ORISA_HALT_TENDRIL_SOUND": {
+            "en-US": "Orisa Halt Tendril Sound",
+            "extension": "beamSounds"
+        },
+        "SYMMETRA_PROJECTOR_SOUND": {
+            "en-US": "Symmetra Projector Sound",
+            "extension": "beamSounds"
+        },
+        "WINSTON_TESLA_CANNON_SOUND": {
+            "en-US": "Winston Tesla Cannon Sound",
+            "extension": "beamSounds"
+        },
+        "ZARYA_PARTICLE_BEAM_SOUND": {
+            "en-US": "Zarya Particle Beam Sound",
+            "extension": "beamSounds"
+        },
+        "OMNIC_SLICER_BEAM_SOUND": {
+            "en-US": "Omnic Slicer Beam Sound",
+            "extension": "beamSounds"
+        },
+        
+        "ANA_NANO_BOOSTED_SOUND": {
+            "en-US": "Ana Nano Boosted Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "BAPTISTE_IMMORTALITY_FIELD_PROTECTED_SOUND": {
+            "en-US": "Baptiste Immortality Field Protected Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "ECHO_CLONING_SOUND": {
+            "en-US": "Echo Cloning Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "LUCIO_SOUND_BARRIER_PROTECTED_SOUND": {
+            "en-US": "Lúcio Sound Barrier Protected Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "MEI_FROZEN_SOUND": {
+            "en-US": "Mei Frozen Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "MERCY_DAMAGE_BOOSTED_SOUND": {
+            "en-US": "Mercy Damage Boosted Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "SIGMA_GRAVITIC_FLUX_TARGET_SOUND": {
+            "en-US": "Sigma Gravitic Flux Target Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "SOMBRA_HACKING_SOUND": {
+            "en-US": "Sombra Hacking Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "SOMBRA_HACKED_SOUND": {
+            "en-US": "Sombra Hacked Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "TORBJORN_OVERLOADING_SOUND": {
+            "en-US": "Torbjörn Overloading Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "WIDOWMAKER_VENOM_MINE_TARGET_SOUND": {
+            "en-US": "Widowmaker Venom Mine Target Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "WINSTON_TESLA_CANNON_TARGET_SOUND": {
+            "en-US": "Winston Tesla Cannon Target Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "WINSTON_PRIMAL_RAGE_SOUND": {
+            "en-US": "Winston Primal Rage Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "WRECKING_BALL_ADAPTIVE_SHIELD_TARGET_SOUND": {
+            "en-US": "Wrecking Ball Adaptive Shield Target Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "WRECKING_BALL_PILEDRIVER_FIRE_SOUND": {
+            "en-US": "Wrecking Ball Piledriver Fire Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "ZENYATTA_ORB_OF_DISCORD_TARGET_SOUND": {
+            "en-US": "Zenyatta Orb Of Discord Target Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        
+        "HEAL_TARGET_ACTIVE": {
+            "en-US": "Heal Target Active Effect",
+            "extension": "buffStatusEffects"
+        },
+        "HEAL_TARGET": {
+            "en-US": "Heal Target Effect",
+            "extension": "buffStatusEffects"
+        },
+        "ANA_BIOTIC_GRENADE_INCREASED_HEALING": {
+            "en-US": "Ana Biotic Grenade Increased Healing Effect",
+            "extension": "buffStatusEffects"
+        },
+        "ANA_NANO_BOOSTED": {
+            "en-US": "Ana Nano Boosted Effect",
+            "extension": "buffStatusEffects"
+        },
+        "BAPTISTE_IMMORTALITY_FIELD_PROTECTED": {
+            "en-US": "Baptiste Immortality Field Protected Effect",
+            "extension": "buffStatusEffects"
+        },
+        "ECHO_CLONING": {
+            "en-US": "Echo Cloning Effect",
+            "extension": "buffStatusEffects"
+        },
+        "LUCIO_SOUND_BARRIER_PROTECTED": {
+            "en-US": "Lúcio Sound Barrier Protected Effect",
+            "extension": "buffStatusEffects"
+        },
+        "MERCY_DAMAGE_BOOSTED": {
+            "en-US": "Mercy Damage Boosted Effect",
+            "extension": "buffStatusEffects"
+        },
+        "REAPER_WRAITH_FORM": {
+            "en-US": "Reaper Wraith Form Effect",
+            "extension": "buffStatusEffects"
+        },
+        "SOLDIER_SPRINTING": {
+            "en-US": "Soldier: 76 Sprinting Effect",
+            "extension": "buffStatusEffects"
+        },
+        "TORBJORN_OVERLOADING": {
+            "en-US": "Torbjörn Overloading Effect",
+            "extension": "buffStatusEffects"
+        },
+        "WINSTON_PRIMAL_RAGE": {
+            "en-US": "Winston Primal Rage Effect",
+            "extension": "buffStatusEffects"
+        },
+        "WRECKING_BALL_ADAPTIVE_SHIELD_TARGET": {
+            "en-US": "Wrecking Ball Adaptive Shield Target Effect",
+            "extension": "buffStatusEffects"
+        },
+        "WRECKING_BALL_PILEDRIVER_FIRE": {
+            "en-US": "Wrecking Ball Piledriver Fire Effect",
+            "extension": "buffStatusEffects"
+        },
+        
+        "ANA_BIOTIC_GRENADE_NO_HEALING": {
+            "en-US": "Ana Biotic Grenade No Healing Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "ANA_SLEEPING": {
+            "en-US": "Ana Sleeping Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "ASHE_DYNAMITE_BURNING_PARTICLE": {
+            "en-US": "Ashe Dynamite Burning Particle Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "ASHE_DYNAMITE_BURNING_MATERIAL": {
+            "en-US": "Ashe Dynamite Burning Material Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "MCCREE_FLASHBANG_STUNNED": {
+            "en-US": "McCree Flashbang Stunned Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "MEI_FROZEN": {
+            "en-US": "Mei Frozen Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "SIGMA_GRAVITIC_FLUX_TARGET": {
+            "en-US": "Sigma Gravitic Flux Target Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "SOMBRA_HACKED_LOOPING": {
+            "en-US": "Sombra Hacked Looping Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "WIDOWMAKER_VENOM_MINE_TARGET": {
+            "en-US": "Widowmaker Venom Mine Target Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "WINSTON_TESLA_CANNON_TARGET": {
+            "en-US": "Winston Tesla Cannon Target Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "ZENYATTA_ORB_OF_DISCORD_TARGET": {
+            "en-US": "Zenyatta Orb Of Discord Target Effect",
+            "extension": "debuffStatusEffects"
+        },
     },
     "Comms": {
         "ACKNOWLEDGE": {
@@ -2284,6 +2873,75 @@ const constantValues =
             "ja-JP": "グラップリング・ビーム",
             "pt-BR": "Feixe de Arpéu",
             "zh-CN": "抓钩光束"
+        },
+        
+        "BRIGITTE_FLAIL_CHAIN": {
+            "en-US": "Brigitte Flail Chain Beam",
+            "extension": "beamEffects"
+        },
+        "ECHO_FOCUSING": {
+            "en-US": "Echo Focusing Beam",
+            "extension": "beamEffects"
+        },
+        "JUNKRAT_TRAP_CHAIN": {
+            "en-US": "Junkrat Trap Chain Beam",
+            "extension": "beamEffects"
+        },
+        "MERCY_HEAL": {
+            "en-US": "Mercy Heal Beam",
+            "extension": "beamEffects"
+        },
+        "MERCY_BOOST": {
+            "en-US": "Mercy Boost Beam",
+            "extension": "beamEffects"
+        },
+        "MOIRA_ORB_HEAL": {
+            "en-US": "Moira Orb Heal Beam",
+            "extension": "beamEffects"
+        },
+        "MOIRA_ORB_DAMAGE": {
+            "en-US": "Moira Orb Damage Beam",
+            "extension": "beamEffects"
+        },
+        "MOIRA_GRASP_CONNECTED": {
+            "en-US": "Moira Grasp Connected Beam",
+            "extension": "beamEffects"
+        },
+        "MOIRA_COALESCENCE": {
+            "en-US": "Moira Coalescence Beam",
+            "extension": "beamEffects"
+        },
+        "ORISA_HALT_TENDRIL": {
+            "en-US": "Orisa Halt Tendril Beam",
+            "extension": "beamEffects"
+        },
+        "ORISA_AMPLIFIER": {
+            "en-US": "Orisa Amplifier Beam",
+            "extension": "beamEffects"
+        },
+        "SYMMETRA_PROJECTOR": {
+            "en-US": "Symmetra Projector Beam",
+            "extension": "beamEffects"
+        },
+        "SYMMETRA_TURRET": {
+            "en-US": "Symmetra Turret Beam",
+            "extension": "beamEffects"
+        },
+        "TORBJORN_TURRET_SIGHT": {
+            "en-US": "Torbjörn Turret Sight Beam",
+            "extension": "beamEffects"
+        },
+        "WINSTON_TESLA_CANNON": {
+            "en-US": "Winston Tesla Cannon Beam",
+            "extension": "beamEffects"
+        },
+        "ZARYA_PARTICLE": {
+            "en-US": "Zarya Particle Beam",
+            "extension": "beamEffects"
+        },
+        "OMNIC_SLICER": {
+            "en-US": "Omnic Slicer Beam",
+            "extension": "beamEffects"
         }
     },
     "Throttle": {

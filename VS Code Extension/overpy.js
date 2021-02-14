@@ -2197,138 +2197,6 @@ const opyMemberFuncs = {
         return: "float",
     }
 }
-/* 
- * This file is part of OverPy (https://github.com/Zezombye/overpy).
- * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
- * the Free Software Foundation, version 3.
- *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License 
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
-"use strict";
-
-const preprocessingDirectives = {
-    "define": {
-        "description": "Creates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n",
-        "snippet": "define $0",
-    },
-    "defineMember": {
-        "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion.",
-        "snippet": "defineMember $0",
-    },
-    "obfuscate": {
-        "description": 
-`Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.
-
-Usage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)
-
-The following obfuscation methods are applied:
-
-- Rule filling: 2500 empty rules are inserted, making it impossible to view the gamemode within the workshop UI. It must be copy-pasted to be able to be edited (you can then apply various anti copy-paste integrity checks).
-- Name obfuscation: all rule titles and comments are removed, and all variable/subroutine names are replaced with a combination of capital i and lowercase L.
-- String obfuscation: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
-- Constant obfuscation: some constants, such as heroes or maps, are replaced with other values that compute to the original value.
-- Inspector obfuscation: the inspector is disabled, and all inspector-related actions are removed.
-- Copy protection: the gamemode will break upon copying it via text. It is highly recommended to enable constant obfuscation to greatly strengthen this protection.
-
-To save elements, it is possible to specify methods to disable, by prefixing them with \`no\`. For example, \`#!obfuscate noRuleFilling noConstantObfuscation\` will disable rule filling and constant obfuscation, which is useful if the obfuscation adds too much elements.
-`
-    },
-    "suppressWarnings": {
-        "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space.",
-        "snippet": "suppressWarnings $0",
-    },
-    "mainFile": {
-        "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file.",
-        "snippet": "mainFile \"$0\"",
-    },
-    "include": {
-        "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file.",
-        "snippet": "include \"$0\"",
-    },
-    "disableOptimizations": {
-        "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
-    },
-    "optimizeForSize": {
-        "description": "Prioritizes lowering the number of elements over optimizing the runtime."
-    },
-    "replace0ByCapturePercentage": {
-        "description": `
-Replaces all instances of 0 by \`getCapturePercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
-
-This directive should only be used if the gamemode cannot be played in Assault, Hybrid, or Elimination.
-
-If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
-
-\`\`\`python
-rule "Integrity check":
-    @Condition getCapturePercentage()
-    print("This gamemode cannot be played!")
-\`\`\`
-`
-    },
-    "replace0ByPayloadProgressPercentage": {
-        "description": `
-Replaces all instances of 0 by \`getPayloadProgressPercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
-
-This directive should only be used if the gamemode cannot be played in Hybrid or Escort.
-
-If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
-
-\`\`\`python
-rule "Integrity check":
-    @Condition getPayloadProgressPercentage()
-    print("This gamemode cannot be played!")
-\`\`\`
-`
-    },
-    "replace0ByIsMatchComplete": {
-        "description": `
-Replaces all instances of 0 by \`isMatchComplete()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
-
-This directive should only be used if the gamemode is endless, or if you do not care about the integrity of the gamemode once victory/defeat is declared.
-`
-    },
-    "replace1ByMatchRound": {
-        "description": `
-Replaces all instances of 1 by \`getMatchRound()\`, if replacement by \`true\` is impossible. Size optimizations must be enabled.
-
-This directive should only be used if the gamemode cannot be played in Assault, Hybrid, Escort (with the competitive ruleset) or Control.
-
-If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
-
-\`\`\`python
-rule "Integrity check":
-    @Condition getMatchRound() > 1
-    print("This gamemode cannot be played!")
-\`\`\`
-`
-    },
-    "replaceTeam1ByControlScoringTeam": {
-        "description": `
-Replaces all instances of \`Team.1\` by \`getControlScoringTeam()\`. Size optimizations must be enabled.
-
-This directive should only be used if the gamemode cannot be played in Control.
-
-If you want to make sure this gamemode is not mistakenly played, you can add the following rule:
-
-\`\`\`python
-rule "Integrity check":
-    @Condition getControlScoringTeam() != Team.1
-    print("This gamemode cannot be played!")
-\`\`\`
-`
-    },
-}
 /*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -15678,6 +15546,7 @@ const mapKw =
             "a": 0,
             "b": 0
         },
+        "isWorkshopMap": true,
         "guid": "00000000FFF0",
         "en-US": "Workshop Chamber",
         "de-DE": "Workshop-Raum",
@@ -15706,6 +15575,7 @@ const mapKw =
             "a": 0,
             "b": 0
         },
+        "isWorkshopMap": true,
         "guid": "00000000FFF2",
         "en-US": "Workshop Expanse",
         "de-DE": "Workshop-Gebiet",
@@ -15734,6 +15604,7 @@ const mapKw =
             "a": 0,
             "b": 0
         },
+        "isWorkshopMap": true,
         "guid": "000000010C6D",
         "en-US": "Workshop Expanse Night",
         "de-DE": "Workshop-Gebiet Nacht",
@@ -15757,6 +15628,7 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        "isWorkshopMap": true,
         "guid": "000000011F44",
         "en-US": "Workshop Green Screen",
         "de-DE": "Workshop-Greenscreen",
@@ -15785,6 +15657,7 @@ const mapKw =
             "a": 0,
             "b": 0
         },
+        "isWorkshopMap": true,
         "guid": "00000000FFF1",
         "en-US": "Workshop Island",
         "de-DE": "Workshop-Insel",
@@ -15813,6 +15686,7 @@ const mapKw =
             "a": 0,
             "b": 0
         },
+        "isWorkshopMap": true,
         "guid": "000000010C71",
         "en-US": "Workshop Island Night",
         "de-DE": "Workshop-Insel Nacht",
@@ -17980,6 +17854,7 @@ const gamemodeKw =
     },
     "bountyHunter": {
         "guid": "000000012841",
+        defaultFfaPlayers: 6,
         "en-US": "Bounty Hunter",
         "de-DE": "Kopfgeldjäger",
         "es-ES": "Cazarrecompensas",
@@ -18026,6 +17901,7 @@ const gamemodeKw =
     },
     "ffa": {
         "guid": "000000006853",
+        defaultFfaPlayers: 12,
         "en-US": "Deathmatch",
         "es-ES": "Combate a muerte",
         "es-MX": "Combate a muerte",
@@ -18039,6 +17915,8 @@ const gamemodeKw =
     },
     "elimination": {
         "guid": "000000005887",
+        defaultTeam1Players: 1,
+        defaultTeam2Players: 1,
         "en-US": "Elimination",
         "de-DE": "Eliminierung",
         "es-ES": "Eliminación",
@@ -18147,6 +18025,7 @@ const gamemodeKw =
     },
     "practiceRange": {
         "guid": "0000000040BE",
+        defaultTeam2Players: 0,
         "en-US": "Practice Range",
         "de-DE": "Trainingsbereich",
         "es-ES": "Práctica de combate",
@@ -18760,6 +18639,372 @@ const constantValues =
             "ja-JP": "爆発音（リング）",
             "pt-BR": "Som de Explosão para Anel",
             "zh-CN": "环状爆炸声音"
+        },
+        
+        "ANA_BIOTIC_GRENADE_INCREASED_HEALING_SOUND": {
+            "en-US": "Ana Biotic Grenade Increased Healing Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "ANA_BIOTIC_GRENAGE_NO_HEALING_SOUND": {
+            "en-US": "Ana Biotic Grenage No Healing Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "ANA_SLEEPING_SOUND": {
+            "en-US": "Ana Sleeping Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "REAPER_WRAITH_FORM_SOUND": {
+            "en-US": "Reaper Wraith Form Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "SOMBRA_TRANSLOCATING_SOUND": {
+            "en-US": "Sombra Translocating Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "SOLDIER_SPRINT_START_SOUND": {
+            "en-US": "Soldier: 76 Sprint Start Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        
+        "HEAL_TARGET_ACTIVE": {
+            "en-US": "Heal Target Active Effect",
+            "extension": "buffStatusEffects"
+        },
+        "SOMBRA_TRANSLOCATING_MATERIAL": {
+            "en-US": "Sombra Translocating Material Effect",
+            "extension": "buffStatusEffects"
+        },
+        
+        "MCCREE_FLASHBANG_STUNNED": {
+            "en-US": "McCree Flashbang Stunned Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "SOMBRA_HACKED_STARTING": {
+            "en-US": "Sombra Hacked Starting Effect",
+            "extension": "debuffStatusEffects"
+        },
+        
+        "BRIGITTE_REPAIR_PACK_IMPACT": {
+            "en-US": "Brigitte Repair Pack Impact Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "BRIGITTE_REPAIR_PACK_ARMOR": {
+            "en-US": "Brigitte Repair Pack Armor Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "BRIGITTE_WHIP_SHOT_HEAL_AREA": {
+            "en-US": "Brigitte Whip Shot Heal Area Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "DVA_MICRO_MISSILES_EXPLOSION": {
+            "en-US": "Dva Micro Missiles Explosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "DVA_SELF_DESTRUCT_EXPLOSION": {
+            "en-US": "Dva Self Destruct Explosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "ECHO_STICKY_BOMB_EXPLOSION": {
+            "en-US": "Echo Sticky Bomb Explosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "HANZO_SONIC_ARROW_INITIAL_PULSE": {
+            "en-US": "Hanzo Sonic Arrow Initial Pulse Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "LUCIO_SOUND_BARRIER_CAST": {
+            "en-US": "Lúcio Sound Barrier Cast Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "MOIRA_FADE_DISAPPEAR": {
+            "en-US": "Moira Fade Disappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "MOIRA_FADE_REAPPEAR": {
+            "en-US": "Moira Fade Reappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "ORISA_HALT_IMPLOSION": {
+            "en-US": "Orisa Halt Implosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SIGMA_HYPERSPHERE_IMPLOSION": {
+            "en-US": "Sigma Hypersphere Implosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SOMBRA_LOGO": {
+            "en-US": "Sombra Logo Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SOMBRA_TRANSLOCATOR_DISAPPEAR": {
+            "en-US": "Sombra Translocator Disappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SOMBRA_TRANSLOCATOR_REAPPEAR": {
+            "en-US": "Sombra Translocator Reappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SOMBRA_EMP_EXPLOSION_EFFECT": {
+            "en-US": "Sombra Emp Explosion effect",
+            "extension": "energyExplosionEffects"
+        },
+        "SYMMETRA_TELEPORTER_REAPPEAR": {
+            "en-US": "Symmetra Teleporter Reappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "TRACER_RECALL_DISAPPEAR": {
+            "en-US": "Tracer Recall Disappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "TRACER_RECALL_REAPPEAR": {
+            "en-US": "Tracer Recall Reappear Effect",
+            "extension": "energyExplosionEffects"
+        },
+        "ZARYA_PARTICLE_CANNON_EXPLOSION": {
+            "en-US": "Zarya Particle Cannon Explosion Effect",
+            "extension": "energyExplosionEffects"
+        },
+        
+        "ANA_BIOTIC_GRENADE_EXPLOSION_SOUND": {
+            "en-US": "Ana Biotic Grenade Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "ASHE_DYNAMITE_EXPLOSION_SOUND": {
+            "en-US": "Ashe Dynamite Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "BAPTISTE_BIOTIC_LAUNCHER_EXPLOSION_SOUND": {
+            "en-US": "Baptiste Biotic Launcher Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "BASTION_TANK_CANNON_EXPLOSION_SOUND": {
+            "en-US": "Bastion Tank Cannon Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "BRIGITTE_WHIP_SHOT_HEAL_AREA_SOUND": {
+            "en-US": "Brigitte Whip Shot Heal Area Sound",
+            "extension": "explosionSounds"
+        },
+        "BRIGITTE_REPAIR_PACK_IMPACT_SOUND": {
+            "en-US": "Brigitte Repair Pack Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "BRIGITTE_REPAIR_PACK_ARMOR_SOUND": {
+            "en-US": "Brigitte Repair Pack Armor Sound",
+            "extension": "explosionSounds"
+        },
+        "DVA_MICRO_MISSILES_EXPLOSION_SOUND": {
+            "en-US": "Dva Micro Missiles Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "DVA_SELF_DESTRUCT_EXPLOSION_SOUND": {
+            "en-US": "Dva Self Destruct Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "DOOMFIST_RISING_UPPERCUT_LEAP_SOUND": {
+            "en-US": "Doomfist Rising Uppercut Leap Sound",
+            "extension": "explosionSounds"
+        },
+        "DOOMFIST_RISING_UPPERCUT_IMPACT_SOUND": {
+            "en-US": "Doomfist Rising Uppercut Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "DOOMFIST_METEOR_STRIKE_IMPACT_SOUND": {
+            "en-US": "Doomfist Meteor Strike Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "ECHO_STICKY_BOMB_EXPLOSION_SOUND": {
+            "en-US": "Echo Sticky Bomb Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "JUNKRAT_FRAG_LAUNCHER_EXPLOSION_SOUND": {
+            "en-US": "Junkrat Frag Launcher Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "JUNKRAT_CONCUSSION_MINE_EXPLOSION_SOUND": {
+            "en-US": "Junkrat Concussion Mine Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "JUNKRAT_RIP_TIRE_EXPLOSION_SOUND": {
+            "en-US": "Junkrat Rip Tire Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "HANZO_SONIC_ARROW_INITIAL_PULSE_SOUND": {
+            "en-US": "Hanzo Sonic Arrow Initial Pulse Sound",
+            "extension": "explosionSounds"
+        },
+        "LUCIO_SOUND_BARRIER_CAST_SOUND": {
+            "en-US": "Lúcio Sound Barrier Cast Sound",
+            "extension": "explosionSounds"
+        },
+        "MCCREE_FLASHBANG_EXPLOSION_SOUND": {
+            "en-US": "McCree Flashbang Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "MOIRA_FADE_DISAPPEAR_SOUND": {
+            "en-US": "Moira Fade Disappear Sound",
+            "extension": "explosionSounds"
+        },
+        "MOIRA_FADE_REAPPEAR_SOUND": {
+            "en-US": "Moira Fade Reappear Sound",
+            "extension": "explosionSounds"
+        },
+        "ORISA_HALT_IMPLOSION_SOUND": {
+            "en-US": "Orisa Halt Implosion Sound",
+            "extension": "explosionSounds"
+        },
+        "PHARAH_ROCKET_LAUNCHER_EXPLOSION_SOUND": {
+            "en-US": "Pharah Rocket Launcher Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "PHARAH_CONCUSSIVE_BLAST_SOUND": {
+            "en-US": "Pharah Concussive Blast Sound",
+            "extension": "explosionSounds"
+        },
+        "PHARAH_BARRAGE_EXPLOSION_SOUND": {
+            "en-US": "Pharah Barrage Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "REINHARDT_FIRE_STRIKE_TARGET_IMPACT_SOUND": {
+            "en-US": "Reinhardt Fire Strike Target Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "SIGMA_HYPERSPHERE_IMPLOSION_SOUND": {
+            "en-US": "Sigma Hypersphere Implosion Sound",
+            "extension": "explosionSounds"
+        },
+        "SIGMA_ACCRETION_IMPACT_SOUND": {
+            "en-US": "Sigma Accretion Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "SOMBRA_LOGO_SOUND": {
+            "en-US": "Sombra Logo Sound",
+            "extension": "explosionSounds"
+        },
+        "SOMBRA_TRANSLOCATOR_DISAPPEAR_SOUND": {
+            "en-US": "Sombra Translocator Disappear Sound",
+            "extension": "explosionSounds"
+        },
+        "SOMBRA_TRANSLOCATOR_REAPPEAR_SOUND": {
+            "en-US": "Sombra Translocator Reappear Sound",
+            "extension": "explosionSounds"
+        },
+        "SOMBRA_EMP_EXPLOSION_SOUND": {
+            "en-US": "Sombra Emp Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "SYMMETRA_TELEPORTER_REAPPEAR_SOUND": {
+            "en-US": "Symmetra Teleporter Reappear Sound",
+            "extension": "explosionSounds"
+        },
+        "TRACER_RECALL_DISAPPEAR_SOUND": {
+            "en-US": "Tracer Recall Disappear Sound",
+            "extension": "explosionSounds"
+        },
+        "TRACER_RECALL_REAPPEAR_SOUND": {
+            "en-US": "Tracer Recall Reappear Sound",
+            "extension": "explosionSounds"
+        },
+        "WIDOWMAKER_VENOM_MINE_EXPLOSION_SOUND": {
+            "en-US": "Widowmaker Venom Mine Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "WINSTON_JUMP_PACK_LANDING_SOUND": {
+            "en-US": "Winston Jump Pack Landing Sound",
+            "extension": "explosionSounds"
+        },
+        "WRECKING_BALL_PILEDRIVER_IMPACT_SOUND": {
+            "en-US": "Wrecking Ball Piledriver Impact Sound",
+            "extension": "explosionSounds"
+        },
+        "WRECKING_BALL_MINEFIELD_EXPLOSION_SOUND": {
+            "en-US": "Wrecking Ball Minefield Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        "ZARYA_PARTICLE_CANNON_EXPLOSION_SOUND": {
+            "en-US": "Zarya Particle Cannon Explosion Sound",
+            "extension": "explosionSounds"
+        },
+        
+        "ANA_BIOTIC_GRENADE_EXPLOSION": {
+            "en-US": "Ana Biotic Grenade Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "ASHE_DYNAMITE_EXPLOSION": {
+            "en-US": "Ashe Dynamite Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "BAPTISTE_BIOTIC_LAUNCHER_EXPLOSION": {
+            "en-US": "Baptiste Biotic Launcher Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "BASTION_TANK_CANNON_EXPLOSION": {
+            "en-US": "Bastion Tank Cannon Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "DOOMFIST_RISING_UPPERCUT_LEAP": {
+            "en-US": "Doomfist Rising Uppercut Leap Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "DOOMFIST_RISING_UPPERCUT_IMPACT": {
+            "en-US": "Doomfist Rising Uppercut Impact Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "DOOMFIST_METEOR_STRIKE_IMPACT": {
+            "en-US": "Doomfist Meteor Strike Impact Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "JUNKRAT_FRAG_LAUNCHER_EXPLOSION": {
+            "en-US": "Junkrat Frag Launcher Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "JUNKRAT_CONCUSSION_MINE_EXPLOSION": {
+            "en-US": "Junkrat Concussion Mine Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "JUNKRAT_RIP_TIRE_EXPLOSION": {
+            "en-US": "Junkrat Rip Tire Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "MCCREE_FLASHBANG_EXPLOSION": {
+            "en-US": "McCree Flashbang Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "PHARAH_ROCKET_LAUNCHER_EXPLOSION": {
+            "en-US": "Pharah Rocket Launcher Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "PHARAH_CONCUSSIVE_BLAST": {
+            "en-US": "Pharah Concussive Blast Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "PHARAH_BARRAGE_EXPLOSION": {
+            "en-US": "Pharah Barrage Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "REINHARDT_FIRE_STRIKE_TARGET_IMPACT": {
+            "en-US": "Reinhardt Fire Strike Target Impact Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "SIGMA_ACCRETION_IMPACT": {
+            "en-US": "Sigma Accretion Impact Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "WIDOWMAKER_VENOM_MINE_EXPLOSION": {
+            "en-US": "Widowmaker Venom Mine Explosion Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "WINSTON_JUMP_PACK_LANDING": {
+            "en-US": "Winston Jump Pack Landing Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "WRECKING_BALL_PILEDRIVER_IMPACT": {
+            "en-US": "Wrecking Ball Piledriver Impact Effect",
+            "extension": "kineticExplosionEffects"
+        },
+        "WRECKING_BALL_MINEFIELD_EXPLOSION": {
+            "en-US": "Wrecking Ball Minefield Explosion Effect",
+            "extension": "kineticExplosionEffects"
         }
     },
     "Effect": {
@@ -18906,7 +19151,230 @@ const constantValues =
             "ja-JP": "球体",
             "pt-BR": "Esfera",
             "zh-CN": "球体"
-        }
+        },
+        "ECHO_FOCUSING_BEAM_SOUND": {
+            "en-US": "Echo Focusing Beam Sound",
+            "extension": "beamSounds"
+        },
+        "JUNKRAT_TRAP_CHAIN_SOUND": {
+            "en-US": "Junkrat Trap Chain Sound",
+            "extension": "beamSounds"
+        },
+        "MERCY_HEAL_BEAM_SOUND": {
+            "en-US": "Mercy Heal Beam Sound",
+            "extension": "beamSounds"
+        },
+        "MERCY_BOOST_BEAM_SOUND": {
+            "en-US": "Mercy Boost Beam Sound",
+            "extension": "beamSounds"
+        },
+        "MOIRA_GRASP_CONNECTED_SOUND": {
+            "en-US": "Moira Grasp Connected Sound",
+            "extension": "beamSounds"
+        },
+        "MOIRA_ORB_DAMAGE_SOUND": {
+            "en-US": "Moira Orb Damage Sound",
+            "extension": "beamSounds"
+        },
+        "MOIRA_ORB_HEAL_SOUND": {
+            "en-US": "Moira Orb Heal Sound",
+            "extension": "beamSounds"
+        },
+        "MOIRA_COALESCENCE_SOUND": {
+            "en-US": "Moira Coalescence Sound",
+            "extension": "beamSounds"
+        },
+        "ORISA_AMPLIFIER_SOUND": {
+            "en-US": "Orisa Amplifier Sound",
+            "extension": "beamSounds"
+        },
+        "ORISA_HALT_TENDRIL_SOUND": {
+            "en-US": "Orisa Halt Tendril Sound",
+            "extension": "beamSounds"
+        },
+        "SYMMETRA_PROJECTOR_SOUND": {
+            "en-US": "Symmetra Projector Sound",
+            "extension": "beamSounds"
+        },
+        "WINSTON_TESLA_CANNON_SOUND": {
+            "en-US": "Winston Tesla Cannon Sound",
+            "extension": "beamSounds"
+        },
+        "ZARYA_PARTICLE_BEAM_SOUND": {
+            "en-US": "Zarya Particle Beam Sound",
+            "extension": "beamSounds"
+        },
+        "OMNIC_SLICER_BEAM_SOUND": {
+            "en-US": "Omnic Slicer Beam Sound",
+            "extension": "beamSounds"
+        },
+        
+        "ANA_NANO_BOOSTED_SOUND": {
+            "en-US": "Ana Nano Boosted Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "BAPTISTE_IMMORTALITY_FIELD_PROTECTED_SOUND": {
+            "en-US": "Baptiste Immortality Field Protected Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "ECHO_CLONING_SOUND": {
+            "en-US": "Echo Cloning Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "LUCIO_SOUND_BARRIER_PROTECTED_SOUND": {
+            "en-US": "Lúcio Sound Barrier Protected Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "MEI_FROZEN_SOUND": {
+            "en-US": "Mei Frozen Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "MERCY_DAMAGE_BOOSTED_SOUND": {
+            "en-US": "Mercy Damage Boosted Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "SIGMA_GRAVITIC_FLUX_TARGET_SOUND": {
+            "en-US": "Sigma Gravitic Flux Target Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "SOMBRA_HACKING_SOUND": {
+            "en-US": "Sombra Hacking Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "SOMBRA_HACKED_SOUND": {
+            "en-US": "Sombra Hacked Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "TORBJORN_OVERLOADING_SOUND": {
+            "en-US": "Torbjörn Overloading Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "WIDOWMAKER_VENOM_MINE_TARGET_SOUND": {
+            "en-US": "Widowmaker Venom Mine Target Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "WINSTON_TESLA_CANNON_TARGET_SOUND": {
+            "en-US": "Winston Tesla Cannon Target Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "WINSTON_PRIMAL_RAGE_SOUND": {
+            "en-US": "Winston Primal Rage Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "WRECKING_BALL_ADAPTIVE_SHIELD_TARGET_SOUND": {
+            "en-US": "Wrecking Ball Adaptive Shield Target Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "WRECKING_BALL_PILEDRIVER_FIRE_SOUND": {
+            "en-US": "Wrecking Ball Piledriver Fire Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        "ZENYATTA_ORB_OF_DISCORD_TARGET_SOUND": {
+            "en-US": "Zenyatta Orb Of Discord Target Sound",
+            "extension": "buffAndDebuffSounds"
+        },
+        
+        "HEAL_TARGET_ACTIVE": {
+            "en-US": "Heal Target Active Effect",
+            "extension": "buffStatusEffects"
+        },
+        "HEAL_TARGET": {
+            "en-US": "Heal Target Effect",
+            "extension": "buffStatusEffects"
+        },
+        "ANA_BIOTIC_GRENADE_INCREASED_HEALING": {
+            "en-US": "Ana Biotic Grenade Increased Healing Effect",
+            "extension": "buffStatusEffects"
+        },
+        "ANA_NANO_BOOSTED": {
+            "en-US": "Ana Nano Boosted Effect",
+            "extension": "buffStatusEffects"
+        },
+        "BAPTISTE_IMMORTALITY_FIELD_PROTECTED": {
+            "en-US": "Baptiste Immortality Field Protected Effect",
+            "extension": "buffStatusEffects"
+        },
+        "ECHO_CLONING": {
+            "en-US": "Echo Cloning Effect",
+            "extension": "buffStatusEffects"
+        },
+        "LUCIO_SOUND_BARRIER_PROTECTED": {
+            "en-US": "Lúcio Sound Barrier Protected Effect",
+            "extension": "buffStatusEffects"
+        },
+        "MERCY_DAMAGE_BOOSTED": {
+            "en-US": "Mercy Damage Boosted Effect",
+            "extension": "buffStatusEffects"
+        },
+        "REAPER_WRAITH_FORM": {
+            "en-US": "Reaper Wraith Form Effect",
+            "extension": "buffStatusEffects"
+        },
+        "SOLDIER_SPRINTING": {
+            "en-US": "Soldier: 76 Sprinting Effect",
+            "extension": "buffStatusEffects"
+        },
+        "TORBJORN_OVERLOADING": {
+            "en-US": "Torbjörn Overloading Effect",
+            "extension": "buffStatusEffects"
+        },
+        "WINSTON_PRIMAL_RAGE": {
+            "en-US": "Winston Primal Rage Effect",
+            "extension": "buffStatusEffects"
+        },
+        "WRECKING_BALL_ADAPTIVE_SHIELD_TARGET": {
+            "en-US": "Wrecking Ball Adaptive Shield Target Effect",
+            "extension": "buffStatusEffects"
+        },
+        "WRECKING_BALL_PILEDRIVER_FIRE": {
+            "en-US": "Wrecking Ball Piledriver Fire Effect",
+            "extension": "buffStatusEffects"
+        },
+        
+        "ANA_BIOTIC_GRENADE_NO_HEALING": {
+            "en-US": "Ana Biotic Grenade No Healing Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "ANA_SLEEPING": {
+            "en-US": "Ana Sleeping Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "ASHE_DYNAMITE_BURNING_PARTICLE": {
+            "en-US": "Ashe Dynamite Burning Particle Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "ASHE_DYNAMITE_BURNING_MATERIAL": {
+            "en-US": "Ashe Dynamite Burning Material Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "MCCREE_FLASHBANG_STUNNED": {
+            "en-US": "McCree Flashbang Stunned Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "MEI_FROZEN": {
+            "en-US": "Mei Frozen Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "SIGMA_GRAVITIC_FLUX_TARGET": {
+            "en-US": "Sigma Gravitic Flux Target Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "SOMBRA_HACKED_LOOPING": {
+            "en-US": "Sombra Hacked Looping Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "WIDOWMAKER_VENOM_MINE_TARGET": {
+            "en-US": "Widowmaker Venom Mine Target Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "WINSTON_TESLA_CANNON_TARGET": {
+            "en-US": "Winston Tesla Cannon Target Effect",
+            "extension": "debuffStatusEffects"
+        },
+        "ZENYATTA_ORB_OF_DISCORD_TARGET": {
+            "en-US": "Zenyatta Orb Of Discord Target Effect",
+            "extension": "debuffStatusEffects"
+        },
     },
     "Comms": {
         "ACKNOWLEDGE": {
@@ -20513,6 +20981,75 @@ const constantValues =
             "ja-JP": "グラップリング・ビーム",
             "pt-BR": "Feixe de Arpéu",
             "zh-CN": "抓钩光束"
+        },
+        
+        "BRIGITTE_FLAIL_CHAIN": {
+            "en-US": "Brigitte Flail Chain Beam",
+            "extension": "beamEffects"
+        },
+        "ECHO_FOCUSING": {
+            "en-US": "Echo Focusing Beam",
+            "extension": "beamEffects"
+        },
+        "JUNKRAT_TRAP_CHAIN": {
+            "en-US": "Junkrat Trap Chain Beam",
+            "extension": "beamEffects"
+        },
+        "MERCY_HEAL": {
+            "en-US": "Mercy Heal Beam",
+            "extension": "beamEffects"
+        },
+        "MERCY_BOOST": {
+            "en-US": "Mercy Boost Beam",
+            "extension": "beamEffects"
+        },
+        "MOIRA_ORB_HEAL": {
+            "en-US": "Moira Orb Heal Beam",
+            "extension": "beamEffects"
+        },
+        "MOIRA_ORB_DAMAGE": {
+            "en-US": "Moira Orb Damage Beam",
+            "extension": "beamEffects"
+        },
+        "MOIRA_GRASP_CONNECTED": {
+            "en-US": "Moira Grasp Connected Beam",
+            "extension": "beamEffects"
+        },
+        "MOIRA_COALESCENCE": {
+            "en-US": "Moira Coalescence Beam",
+            "extension": "beamEffects"
+        },
+        "ORISA_HALT_TENDRIL": {
+            "en-US": "Orisa Halt Tendril Beam",
+            "extension": "beamEffects"
+        },
+        "ORISA_AMPLIFIER": {
+            "en-US": "Orisa Amplifier Beam",
+            "extension": "beamEffects"
+        },
+        "SYMMETRA_PROJECTOR": {
+            "en-US": "Symmetra Projector Beam",
+            "extension": "beamEffects"
+        },
+        "SYMMETRA_TURRET": {
+            "en-US": "Symmetra Turret Beam",
+            "extension": "beamEffects"
+        },
+        "TORBJORN_TURRET_SIGHT": {
+            "en-US": "Torbjörn Turret Sight Beam",
+            "extension": "beamEffects"
+        },
+        "WINSTON_TESLA_CANNON": {
+            "en-US": "Winston Tesla Cannon Beam",
+            "extension": "beamEffects"
+        },
+        "ZARYA_PARTICLE": {
+            "en-US": "Zarya Particle Beam",
+            "extension": "beamEffects"
+        },
+        "OMNIC_SLICER": {
+            "en-US": "Omnic Slicer Beam",
+            "extension": "beamEffects"
         }
     },
     "Throttle": {
@@ -27855,6 +28392,51 @@ const customGameSettingsSchema =
         "ja-JP": "ワークショップ",
         "pl-PL": "warsztat",
         "zh-CN": "地图工坊"
+    },
+    "extensions": {
+        "en-US": "extensions",
+        "values": {
+            "beamEffects": {
+                "en-US": "Beam Effects",
+                "points": 2
+            },
+            "beamSounds": {
+                "en-US": "Beam Sounds",
+                "points": 1
+            },
+            "buffAndDebuffSounds": {
+                "en-US": "Buff and Debuff Sounds",
+                "points": 2
+            },
+            "buffStatusEffects": {
+                "en-US": "Buff Status Effects",
+                "points": 2
+            },
+            "debuffStatusEffects": {
+                "en-US": "Debuff Status Effects",
+                "points": 2
+            },
+            "energyExplosionEffects": {
+                "en-US": "Energy Explosion Effects",
+                "points": 4
+            },
+            "explosionSounds": {
+                "en-US": "Explosion Sounds",
+                "points": 2
+            },
+            "kineticExplosionEffects": {
+                "en-US": "Kinetic Explosion Effects",
+                "points": 4
+            },
+            "playMoreEffects": {
+                "en-US": "Play More Effects",
+                "points": 1
+            },
+            "spawnMoreDummyBots": {
+                "en-US": "Spawn More Dummy Bots",
+                "points": 2
+            }
+        }
     }
 }
 //end-json
@@ -27950,9 +28532,153 @@ for (var hero of Object.keys(heroKw)) {
     }
 }
 
+//Apply extension
+
 delete customGameSettingsSchema.heroes.values.__generalAndEachHero__
 delete customGameSettingsSchema.heroes.values.__eachHero__
 delete customGameSettingsSchema.heroes.values.__generalButNotEachHero__
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+const preprocessingDirectives = {
+    "define": {
+        "description": "Creates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n",
+        "snippet": "define $0",
+    },
+    "defineMember": {
+        "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion.",
+        "snippet": "defineMember $0",
+    },
+    "obfuscate": {
+        "description": 
+`Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.
+
+Usage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)
+
+The following obfuscation methods are applied:
+
+- Rule filling: 2500 empty rules are inserted, making it impossible to view the gamemode within the workshop UI. It must be copy-pasted to be able to be edited (you can then apply various anti copy-paste integrity checks).
+- Name obfuscation: all rule titles and comments are removed, and all variable/subroutine names are replaced with a combination of capital i and lowercase L.
+- String obfuscation: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
+- Constant obfuscation: some constants, such as heroes or maps, are replaced with other values that compute to the original value.
+- Inspector obfuscation: the inspector is disabled, and all inspector-related actions are removed.
+- Copy protection: the gamemode will break upon copying it via text. It is highly recommended to enable constant obfuscation to greatly strengthen this protection.
+
+To save elements, it is possible to specify methods to disable, by prefixing them with \`no\`. For example, \`#!obfuscate noRuleFilling noConstantObfuscation\` will disable rule filling and constant obfuscation, which is useful if the obfuscation adds too much elements.
+`
+    },
+    "suppressWarnings": {
+        "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space.",
+        "snippet": "suppressWarnings $0",
+    },
+    "mainFile": {
+        "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file.",
+        "snippet": "mainFile \"$0\"",
+    },
+    "include": {
+        "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file.",
+        "snippet": "include \"$0\"",
+    },
+    "disableOptimizations": {
+        "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
+    },
+    "optimizeForSize": {
+        "description": "Prioritizes lowering the number of elements over optimizing the runtime."
+    },
+    "replace0ByCapturePercentage": {
+        "description": `
+Replaces all instances of 0 by \`getCapturePercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
+
+This directive should only be used if the gamemode cannot be played in Assault, Hybrid, or Elimination.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getCapturePercentage()
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+    "replace0ByPayloadProgressPercentage": {
+        "description": `
+Replaces all instances of 0 by \`getPayloadProgressPercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
+
+This directive should only be used if the gamemode cannot be played in Hybrid or Escort.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getPayloadProgressPercentage()
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+    "replace0ByIsMatchComplete": {
+        "description": `
+Replaces all instances of 0 by \`isMatchComplete()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
+
+This directive should only be used if the gamemode is endless, or if you do not care about the integrity of the gamemode once victory/defeat is declared.
+`
+    },
+    "replace1ByMatchRound": {
+        "description": `
+Replaces all instances of 1 by \`getMatchRound()\`, if replacement by \`true\` is impossible. Size optimizations must be enabled.
+
+This directive should only be used if the gamemode cannot be played in Assault, Hybrid, Escort (with the competitive ruleset) or Control.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getMatchRound() > 1
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+    "replaceTeam1ByControlScoringTeam": {
+        "description": `
+Replaces all instances of \`Team.1\` by \`getControlScoringTeam()\`. Size optimizations must be enabled.
+
+This directive should only be used if the gamemode cannot be played in Control.
+
+If you want to make sure this gamemode is not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getControlScoringTeam() != Team.1
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+
+    "extension": {
+        "description": `
+Activates a workshop extension. The following extensions are available:
+
+${Object.keys(customGameSettingsSchema.extensions.values).map(x => "- `"+x+"` ("+customGameSettingsSchema.extensions.values[x].points+" point" + (customGameSettingsSchema.extensions.values[x].points > 1 ? "s" : "")+")").join("\n")}
+
+__extensionDescription__`,
+        "snippet": "extension ${1|"+Object.keys(customGameSettingsSchema.extensions.values).join(",")+"|}",
+    }
+}
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -28128,6 +28854,11 @@ var nbElements;
 //For the weird behavior where element count goes up by 1 for every 2 hero literals in the parameters of an action argument.
 var nbHeroesInValue;
 
+//The extensions that are activated in the current gamemode.
+var activatedExtensions;
+//The amount of available extension points.
+var availableExtensionPoints;
+
 //Decompilation variables
 
 
@@ -28187,6 +28918,8 @@ function resetGlobalVariables(language) {
 	replacementFor1 = null;
 	replacementForTeam1 = null;
 	nbElements = 0;
+	activatedExtensions = [];
+	availableExtensionPoints = 0;
 }
 
 //Other constants
@@ -31712,6 +32445,11 @@ function astActionsToOpy(actions) {
             if (!(actions[i].name in funcKw)) {
                 error("Unregistered function '"+actions[i].name+"'");
             }
+
+            if (["createEffect", "createBeam", "playEffect"].includes(actions[i].name)) {
+                activatedExtensions.push(constantValues[actions[i].args[1].type][actions[i].args[1].name].extension)
+                console.log(activatedExtensions);
+            }
             
             if (actions[i].name.startsWith("_&")) {
                 var op1 = astToOpy(actions[i].args[0]);
@@ -32247,13 +32985,23 @@ function decompileAllRules(content, language="en-US") {
 		}
 	}
 	result += variableDeclarations + subroutineDeclarations;
+
+	
+
 	
 	for (var rule of astRules) {
 		console.log(astToString(rule));
 	}
 	console.log(astRules);
 
-	result += astRulesToOpy(astRules);
+	var opyRules = astRulesToOpy(astRules)
+	if (activatedExtensions.length > 0) {
+		activatedExtensions = [...new Set(activatedExtensions)]
+		result += "#Activated extensions\n\n" + activatedExtensions.map(x => "#!extension "+x+"\n").join("")+"\n\n";
+	}
+
+	result += opyRules;
+	
 		
 	return result;
 	
@@ -32313,8 +33061,12 @@ function decompileCustomGameSettings(content) {
 		var opyCategory = topy(category, customGameSettingsSchema);
 		result[opyCategory] = {};
 		if (opyCategory === "main" || opyCategory === "lobby") {
-			result[opyCategory] = decompileCustomGameSettingsDict(Object.keys(serialized[category]), customGameSettingsSchema[opyCategory].values)
+			result[opyCategory] = decompileCustomGameSettingsDict(Object.keys(serialized[category]), customGameSettingsSchema[opyCategory].values);
 
+		} else if (opyCategory === "extensions") {
+			activatedExtensions = Object.keys(serialized[opyCategory]).map(ext => topy(ext, customGameSettingsSchema.extensions.values));
+			delete result[opyCategory];
+		
 		} else if (opyCategory === "gamemodes") {
 			for (var gamemode of Object.keys(serialized[category])) {
 				var isCurrentGamemodeDisabled = false;
@@ -36200,6 +36952,60 @@ astParsingFunctions.cosDeg = function(content) {
 
 "use strict";
 
+astParsingFunctions.createBeam = function(content) {
+
+    if (constantValues[content.args[1].type][content.args[1].name].extension && !activatedExtensions.includes(constantValues[content.args[1].type][content.args[1].name].extension)) {
+        error("You must activate the extension '"+constantValues[content.args[1].type][content.args[1].name].extension+"' to use '"+content.args[1].type+"."+content.args[1].name+"'");
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.createEffect = function(content) {
+
+    if (constantValues[content.args[1].type][content.args[1].name].extension && !activatedExtensions.includes(constantValues[content.args[1].type][content.args[1].name].extension)) {
+        error("You must activate the extension '"+constantValues[content.args[1].type][content.args[1].name].extension+"' to use '"+content.args[1].type+"."+content.args[1].name+"'");
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.createWorkshopSetting = function(content) {
 
     //Types are capital here as a type mismatch won't allow pasting
@@ -36906,6 +37712,33 @@ astParsingFunctions.normalize = function(content) {
 
 "use strict";
 
+astParsingFunctions.playEffect = function(content) {
+
+    if (constantValues[content.args[1].type][content.args[1].name].extension && !activatedExtensions.includes(constantValues[content.args[1].type][content.args[1].name].extension)) {
+        error("You must activate the extension '"+constantValues[content.args[1].type][content.args[1].name].extension+"' to use '"+content.args[1].type+"."+content.args[1].name+"'");
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.print = function(content) {
 
     return new Ast("__hudText__", [
@@ -37456,6 +38289,12 @@ function tokenize(content) {
 		} else if (content.startsWith("#!disableOptimizations")) {
 			enableOptimization = false;
 
+		} else if (content.startsWith("#!extension")) {
+			var addedExtension = content.substring("#!extension".length).trim()
+			if (!(addedExtension in customGameSettingsSchema.extensions.values)) {
+				error("Unknown extension '"+addedExtension+"', valid ones are: "+Object.keys(customGameSettingsSchema.extensions.values).join(", "))
+			}
+			activatedExtensions.push(addedExtension);
 		} else if (content.startsWith("#!optimizeForSize")) {
 			optimizeForSize = true;
 
@@ -39994,6 +40833,24 @@ function compile(content, language="en-US", _rootPath="") {
 	}
 
 	var result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
+
+	if (nbElements > ELEMENT_LIMIT) {
+		warn("w_element_limit", "The gamemode is over the element limit ("+nbElements+" > "+ELEMENT_LIMIT+" elements)");
+	}
+
+	//Check for extension points
+	var spentExtensionPoints = 0;
+	for (var ext of activatedExtensions) {
+		spentExtensionPoints += customGameSettingsSchema.extensions.values[ext].points;
+	}
+	if (compiledCustomGameSettings !== "") {
+		if (spentExtensionPoints > availableExtensionPoints) {
+			warn("w_extension_points", "The extension points spent ("+spentExtensionPoints+") are over the available points ("+availableExtensionPoints+")");
+		}
+	} else {
+		availableExtensionPoints = -1;
+	}
+	
     
 	if (DEBUG_MODE) {
 		var t1 = performance.now();
@@ -40008,6 +40865,9 @@ function compile(content, language="en-US", _rootPath="") {
 		encounteredWarnings: encounteredWarnings,
 		enumMembers: enumMembers,
 		nbElements: nbElements,
+		activatedExtensions: activatedExtensions,
+		spentExtensionPoints: spentExtensionPoints,
+		availableExtensionPoints: availableExtensionPoints,
 	};
 }
 
@@ -40112,13 +40972,8 @@ function generateVariablesField() {
 		result = tows("__variables__", ruleKw)+" {\n"+result+"}\n";
 	}
 
-	if (nbElements > ELEMENT_LIMIT) {
-		warn("w_element_limit", "The gamemode is over the element limit ("+nbElements+" > "+ELEMENT_LIMIT+" elements)");
-	}
-
 	return result;
 }
-
 
 function generateSubroutinesField() {
 
@@ -40198,17 +41053,82 @@ function compileCustomGameSettings(customGameSettings) {
 	}
 	
 	var result = {};
+	if (!("gamemodes" in customGameSettings)) {
+		error("Custom game settings must specify a gamemode");
+	}
+
+	var areOnlyWorkshopMapsEnabled = true;
+
 	for (var key of Object.keys(customGameSettings)) {
 		if (key === "main" || key === "lobby") {
 			result[tows(key, customGameSettingsSchema)] = compileCustomGameSettingsDict(customGameSettings[key], customGameSettingsSchema[key].values);
+			if (key === "lobby") {
+				//Figure out the amount of available slots
+				var maxTeam1Slots = 0;
+				var maxTeam2Slots = 0;
+				var maxFfaSlots = 0;
+				if ("team1Slots" in customGameSettings["lobby"]) {
+					maxTeam1Slots = customGameSettings["lobby"]["team1Slots"]
+				} else {
+					for (var gamemode in customGameSettings.gamemodes) {
+						if (!(gamemode in gamemodeKw)) {
+							continue;
+						}
+						if ("defaultTeam1Slots" in gamemodeKw[gamemode]) {
+							maxTeam1Slots = Math.max(maxTeam1Slots, gamemodeKw[gamemode].defaultTeam1Slots)
+						} else {
+							maxTeam1Slots = Math.max(maxTeam1Slots, 6)
+						}
+					}
+				}
+				
+				if ("team2Slots" in customGameSettings["lobby"]) {
+					maxTeam2Slots = customGameSettings["lobby"]["team2Slots"]
+				} else {
+					for (var gamemode in customGameSettings.gamemodes) {
+						if (!(gamemode in gamemodeKw)) {
+							continue;
+						}
+						if ("defaultTeam2Slots" in gamemodeKw[gamemode]) {
+							maxTeam2Slots = Math.max(maxTeam2Slots, gamemodeKw[gamemode].defaultTeam2Slots)
+						} else {
+							maxTeam2Slots = Math.max(maxTeam2Slots, 6)
+						}
+					}
+				}
+				
+				if ("ffaSlots" in customGameSettings["lobby"]) {
+					maxFfaSlots = customGameSettings["lobby"]["ffaSlots"]
+				} else {
+					for (var gamemode in customGameSettings.gamemodes) {
+						if (!(gamemode in gamemodeKw)) {
+							continue;
+						}
+						if ("defaultFfaSlots" in gamemodeKw[gamemode]) {
+							maxFfaSlots = Math.max(maxFfaSlots, gamemodeKw[gamemode].defaultFfaSlots)
+						}
+					}
+				}
+
+				var maxSlots = Math.max(maxTeam1Slots + maxTeam2Slots, maxFfaSlots)
+				if (maxSlots > 12) {
+					error("The maximum number of slots cannot be over 12 (currently "+maxSlots+")");
+				}
+				/*console.log(maxTeam1Slots)
+				console.log(maxTeam2Slots)
+				console.log(maxFfaSlots)*/
+				availableExtensionPoints += 4*(12-maxSlots);
+			}
 
 		} else if (key === "gamemodes") {
 			var wsGamemodes = tows("gamemodes", customGameSettingsSchema);
 			result[wsGamemodes] = {};
 			for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
 				var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
+				var isGamemodeEnabled = true;
 				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
 					wsGamemode = tows("__disabled__", ruleKw)+" "+wsGamemode;
+					isGamemodeEnabled = false;
 					delete customGameSettings.gamemodes[gamemode].enabled;
 				}
 				result[wsGamemodes][wsGamemode] = {};
@@ -40217,6 +41137,21 @@ function compileCustomGameSettings(customGameSettings) {
 						error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '"+gamemode+"'");
 					}
 					var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
+
+					//Test if there are only workshop maps (for extension points)
+					if (isGamemodeEnabled && areOnlyWorkshopMapsEnabled) {
+						if (mapsKey === "disabledMaps") {
+							//If only workshop maps are enabled in a gamemode, then it is less than 50%, so it will be "enabled maps".
+							areOnlyWorkshopMapsEnabled = false;
+						} else {
+							for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
+								if (!mapKw[map].isWorkshopMap) {
+									areOnlyWorkshopMapsEnabled = false;
+									break;
+								}
+							}
+						}
+					}
 					var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
 					result[wsGamemodes][wsGamemode][wsMapsKey] = [];
 					for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
@@ -40280,6 +41215,14 @@ function compileCustomGameSettings(customGameSettings) {
 		} else {
 			error("Unknown key '"+key+"'");
 		}
+	}
+	
+	if (activatedExtensions.length > 0) {
+		activatedExtensions = [...new Set(activatedExtensions)];
+		result[tows("extensions", customGameSettingsSchema)] = activatedExtensions.map(x => tows(x, customGameSettingsSchema.extensions.values));
+	}
+	if (areOnlyWorkshopMapsEnabled) {
+		availableExtensionPoints += 16;
 	}
 
 

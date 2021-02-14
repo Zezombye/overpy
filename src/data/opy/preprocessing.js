@@ -129,4 +129,14 @@ rule "Integrity check":
 \`\`\`
 `
     },
+
+    "extension": {
+        "description": `
+Activates a workshop extension. The following extensions are available:
+
+${Object.keys(customGameSettingsSchema.extensions.values).map(x => "- `"+x+"` ("+customGameSettingsSchema.extensions.values[x].points+" point" + (customGameSettingsSchema.extensions.values[x].points > 1 ? "s" : "")+")").join("\n")}
+
+__extensionDescription__`,
+        "snippet": "extension ${1|"+Object.keys(customGameSettingsSchema.extensions.values).join(",")+"|}",
+    }
 }

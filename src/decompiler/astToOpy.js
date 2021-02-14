@@ -357,6 +357,11 @@ function astActionsToOpy(actions) {
             if (!(actions[i].name in funcKw)) {
                 error("Unregistered function '"+actions[i].name+"'");
             }
+
+            if (["createEffect", "createBeam", "playEffect"].includes(actions[i].name)) {
+                activatedExtensions.push(constantValues[actions[i].args[1].type][actions[i].args[1].name].extension)
+                console.log(activatedExtensions);
+            }
             
             if (actions[i].name.startsWith("_&")) {
                 var op1 = astToOpy(actions[i].args[0]);
