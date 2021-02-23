@@ -4929,29 +4929,6 @@ const actionKw =
         "pt-BR": "Começar a Encarar",
         "zh-CN": "开始朝向"
     },
-    "_&startForcingName": {
-      "description": "Starts forcing the name for the specified player or players. Only works for dummy and AI bots.",
-      "args": [
-        {
-          "name": "Player",
-          "description": "The player whose name will be forced.",
-          "type": [
-              "Player",
-              {
-                  "Array": "Player"
-              }
-          ],
-          "default": "Event Player"
-        },
-        {
-          "name": "Name",
-          "description": "The name to be forced.",
-          "type": "String",
-          "default": "Custom String"
-        }
-      ],
-      "en-US": "Start Forcing Dummy Bot Name"
-    },
     "_&startForcingOutlineFor": {
         "description": "Starts forcing the visibility and color of the outlines of the specified viewed player or players from the perspective of one or more viewing players.",
         "args": [

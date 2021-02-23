@@ -1,13 +1,13 @@
-[Core] DataTool v1.57.0.939-git-445d31f8d7165448a046432b61363fce36a53d85
+[Core] DataTool v1.57.0.940-git-84b5688ac154638389b2cfb13fe654883f692cd1
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.57.0.0.78040
+[CASC] Overwatch build 1.57.1.0.78777
 [CASC] Initializing...
-[Manifest] Using TRG procedure 78040 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 78777 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -29399,7 +29399,7 @@ and 10 Free Winter Loot Boxes
 000000012A87.07C: Gunsmoke
 000000012A88.07C: Unlocked by participating in the Year of the Ox 2021 Week 2 challenge
 000000012A89.07C: Wanderer
-000000012A8E.07C: Imperial
+000000012A8E.07C: Imperial Guard
 000000012A8F.07C: Unlocked by participating in the Year of the Ox 2021 Week 3 challenge
 000000012A90.07C: Siwang
 000000012A91.07C: Unlocked by participating in the Year of the Ox 2021 Week 3 challenge
@@ -29529,4 +29529,4 @@ and 10 Free Winter Loot Boxes
 000000012CB9.07C: |Rfn %1$s:N0;
 000000012D10.07C: 120 credits, and a free gift of 60 Lunar Loot Boxes
 000000012D46.07C: Year of the Ox
-[Core] Execution finished in 00:00:00.4224967 seconds
+[Core] Execution finished in 00:00:00.4329455 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.57.0.939-git-445d31f8d7165448a046432b61363fce36a53d85
+[Core] DataTool v1.57.0.940-git-84b5688ac154638389b2cfb13fe654883f692cd1
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
 [CASC] Text Language: koKR | Speech Language: koKR
-[CASC] Overwatch build 1.57.0.0.78040
+[CASC] Overwatch build 1.57.1.0.78777
 [CASC] Initializing...
-[Manifest] Using TRG procedure 78040 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 78777 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29531,4 +29531,4 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012CB9.07C: |Rfn %1$s:N0;
 000000012D10.07C: 120 크레딧, 무료 설날 전리품 상자 60개
 000000012D46.07C: 햐얀 소의 해
-[Core] Execution finished in 00:00:00.4195458 seconds
+[Core] Execution finished in 00:00:00.4566605 seconds

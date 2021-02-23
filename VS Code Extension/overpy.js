@@ -7128,29 +7128,6 @@ const actionKw =
         "pt-BR": "Começar a Encarar",
         "zh-CN": "开始朝向"
     },
-    "_&startForcingName": {
-      "description": "Starts forcing the name for the specified player or players. Only works for dummy and AI bots.",
-      "args": [
-        {
-          "name": "Player",
-          "description": "The player whose name will be forced.",
-          "type": [
-              "Player",
-              {
-                  "Array": "Player"
-              }
-          ],
-          "default": "Event Player"
-        },
-        {
-          "name": "Name",
-          "description": "The name to be forced.",
-          "type": "String",
-          "default": "Custom String"
-        }
-      ],
-      "en-US": "Start Forcing Dummy Bot Name"
-    },
     "_&startForcingOutlineFor": {
         "description": "Starts forcing the visibility and color of the outlines of the specified viewed player or players from the perspective of one or more viewing players.",
         "args": [
@@ -32477,9 +32454,9 @@ function astActionsToOpy(actions) {
                 error("Unregistered function '"+actions[i].name+"'");
             }
 
-            if (["createEffect", "createBeam", "playEffect"].includes(actions[i].name)) {
+            if (["createEffect", "createBeam", "playEffect"].includes(actions[i].name) && constantValues[actions[i].args[1].type][actions[i].args[1].name].extension) {
                 activatedExtensions.push(constantValues[actions[i].args[1].type][actions[i].args[1].name].extension)
-                console.log(activatedExtensions);
+                //console.log(activatedExtensions);
             }
             
             if (actions[i].name.startsWith("_&")) {

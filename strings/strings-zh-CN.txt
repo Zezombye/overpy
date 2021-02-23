@@ -1,13 +1,13 @@
-[Core] DataTool v1.57.0.939-git-445d31f8d7165448a046432b61363fce36a53d85
+[Core] DataTool v1.57.0.940-git-84b5688ac154638389b2cfb13fe654883f692cd1
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhCN", "-T=zhCN"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
 [CASC] Text Language: zhCN | Speech Language: zhCN
-[CASC] Overwatch build 1.57.0.0.78040
+[CASC] Overwatch build 1.57.1.0.78777
 [CASC] Initializing...
-[Manifest] Using TRG procedure 78040 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
-[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
-[Manifest] Using CMF procedure 78040 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 78777 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
+[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
+[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29689,4 +29689,4 @@ https://account.blizzard.com/connections/nintendo
 000000012D10.07C: 120游戏货币
 （赠送60份春节补给）
 000000012D46.07C: 勤牛耕春
-[Core] Execution finished in 00:00:00.4137801 seconds
+[Core] Execution finished in 00:00:00.4275213 seconds

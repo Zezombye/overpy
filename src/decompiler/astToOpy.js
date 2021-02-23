@@ -358,9 +358,9 @@ function astActionsToOpy(actions) {
                 error("Unregistered function '"+actions[i].name+"'");
             }
 
-            if (["createEffect", "createBeam", "playEffect"].includes(actions[i].name)) {
+            if (["createEffect", "createBeam", "playEffect"].includes(actions[i].name) && constantValues[actions[i].args[1].type][actions[i].args[1].name].extension) {
                 activatedExtensions.push(constantValues[actions[i].args[1].type][actions[i].args[1].name].extension)
-                console.log(activatedExtensions);
+                //console.log(activatedExtensions);
             }
             
             if (actions[i].name.startsWith("_&")) {
