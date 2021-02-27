@@ -3862,44 +3862,6 @@ const customGameSettingsSchema =
                     "ru-RU": "Восстановление способностей",
                     "zh-CN": "技能冷却时间",
                     "zh-TW": "技能冷卻時間"
-                }
-            },
-            "__generalAndEachHero__": {
-                "enableMelee": {
-                    "values": "__boolOnOff__",
-                    "default": "on",
-                    "guid": "000000005B4C",
-                    "en-US": "Quick Melee",
-                    "de-DE": "Nahkampfangriff",
-                    "es-ES": "Ataques rápidos cuerpo a cuerpo",
-                    "es-MX": "Cuerpo a cuerpo rápido",
-                    "fr-FR": "Coup en mêlée",
-                    "it-IT": "Attacchi corpo a corpo",
-                    "ja-JP": "クイック近接攻撃",
-                    "ko-KR": "빠른 근접 공격",
-                    "pl-PL": "Szybki atak wręcz",
-                    "pt-BR": "Corpo a corpo rápido",
-                    "ru-RU": "Быстрый удар",
-                    "zh-CN": "近身攻击",
-                    "zh-TW": "快速近戰攻擊"
-                },
-                "enableUlt": {
-                    "guid": "0000000058A9",
-                    "values": "__boolOnOff__",
-                    "default": "on",
-                    "en-US": "Ultimate Ability",
-                    "de-DE": "Ultimative Fähigkeit",
-                    "es-ES": "Habilidad definitiva",
-                    "es-MX": "Habilidad máxima",
-                    "fr-FR": "Capacité ultime",
-                    "it-IT": "Abilità Ultra",
-                    "ja-JP": "アルティメット・アビリティ",
-                    "ko-KR": "궁극기",
-                    "pl-PL": "Superzdolność",
-                    "pt-BR": "Habilidade Suprema",
-                    "ru-RU": "Суперспособности",
-                    "zh-CN": "终极技能",
-                    "zh-TW": "絕招"
                 },
                 "ultGen%": {
                     "values": "__percent__",
@@ -3960,6 +3922,44 @@ const customGameSettingsSchema =
                     "ru-RU": "Зарядка суперспособности пассивная",
                     "zh-CN": "终极技能自动充能速度",
                     "zh-TW": "絕招自動蓄力速度"
+                }
+            },
+            "__generalAndEachHero__": {
+                "enableMelee": {
+                    "values": "__boolOnOff__",
+                    "default": "on",
+                    "guid": "000000005B4C",
+                    "en-US": "Quick Melee",
+                    "de-DE": "Nahkampfangriff",
+                    "es-ES": "Ataques rápidos cuerpo a cuerpo",
+                    "es-MX": "Cuerpo a cuerpo rápido",
+                    "fr-FR": "Coup en mêlée",
+                    "it-IT": "Attacchi corpo a corpo",
+                    "ja-JP": "クイック近接攻撃",
+                    "ko-KR": "빠른 근접 공격",
+                    "pl-PL": "Szybki atak wręcz",
+                    "pt-BR": "Corpo a corpo rápido",
+                    "ru-RU": "Быстрый удар",
+                    "zh-CN": "近身攻击",
+                    "zh-TW": "快速近戰攻擊"
+                },
+                "enableUlt": {
+                    "guid": "0000000058A9",
+                    "values": "__boolOnOff__",
+                    "default": "on",
+                    "en-US": "Ultimate Ability",
+                    "de-DE": "Ultimative Fähigkeit",
+                    "es-ES": "Habilidad definitiva",
+                    "es-MX": "Habilidad máxima",
+                    "fr-FR": "Capacité ultime",
+                    "it-IT": "Abilità Ultra",
+                    "ja-JP": "アルティメット・アビリティ",
+                    "ko-KR": "궁극기",
+                    "pl-PL": "Superzdolność",
+                    "pt-BR": "Habilidade Suprema",
+                    "ru-RU": "Суперспособности",
+                    "zh-CN": "终极技能",
+                    "zh-TW": "絕招"
                 },
                 "enableSpawningWithUlt": {
                     "values": "__boolOnOff__",
@@ -4464,6 +4464,66 @@ const customGameSettingsSchema =
                     "ru-RU": "Время восстановления: %1$s",
                     "zh-CN": "%1$s 冷却时间",
                     "zh-TW": "%1$s的冷卻時間"
+                },
+                "ultGen%": {
+                    "values": "__percent__",
+                    "min": 10,
+                    "max": 500,
+                    "default": 100,
+                    "guid": "000000005B86",
+                    "en-US": "Ultimate Generation %1$s",
+                    "de-DE": "Ultimeteraufladung %1$s",
+                    "es-ES": "Carga de habilidad definitiva %1$s",
+                    "es-MX": "Generación de la habilidad máxima %1$s",
+                    "fr-FR": "Génération de capacité ultime %1$s",
+                    "it-IT": "%1$s - Generazione Ultra",
+                    "ja-JP": "アルティメット・チャージ（%1$s）",
+                    "ko-KR": "궁극기 충전율 %1$s",
+                    "pl-PL": "Ładowanie Superzdolności %1$s",
+                    "pt-BR": "Geração de Supremo %1$s",
+                    "ru-RU": "Зарядка суперспособности %1$s",
+                    "zh-CN": "终极技能充能速度（%1$s）",
+                    "zh-TW": "%1$s的絕招蓄力速度"
+                },
+                "combatUltGen%": {
+                    "values": "__percent__",
+                    "min": 0,
+                    "max": 500,
+                    "default": 100,
+                    "guid": "00000000765D",
+                    "en-US": "Ultimate Generation - Combat %1$s",
+                    "de-DE": "Ultimeteraufladung – Kampf %1$s",
+                    "es-ES": "Carga de habilidad definitiva en combate %1$s",
+                    "es-MX": "Generación de la habilidad máxima - Combate %1$s",
+                    "fr-FR": "Génération de capacité ultime - Combat %1$s",
+                    "it-IT": "Generazione Ultra - Combattimento %1$s",
+                    "ja-JP": "アルティメット・チャージ - コンバット（%1$s）",
+                    "ko-KR": "궁극기 충전율 - 전투 참여 %1$s",
+                    "pl-PL": "Bojowe Ładowanie Superzdolności %1$s",
+                    "pt-BR": "Geração de Supremo - Combate %1$s",
+                    "ru-RU": "Зарядка суперспособности в бою %1$s",
+                    "zh-CN": "战斗时终极技能充能速度 %1$s",
+                    "zh-TW": "%1$s在戰鬥時的絕招蓄力速度"
+                },
+                "passiveUltGen%": {
+                    "values": "__percent__",
+                    "min": 0,
+                    "max": 500,
+                    "default": 100,
+                    "guid": "00000000765E",
+                    "en-US": "Ultimate Generation - Passive %1$s",
+                    "de-DE": "Ultimeteraufladung – Passiv %1$s",
+                    "es-ES": "Carga pasiva de habilidad definitiva %1$s",
+                    "es-MX": "Generación de la habilidad máxima - Pasiva %1$s",
+                    "fr-FR": "Génération de capacité ultime - Passif %1$s",
+                    "it-IT": "Generazione Ultra - Passiva %1$s",
+                    "ja-JP": "アルティメット・チャージ - パッシブ（%1$s）",
+                    "ko-KR": "궁극기 충전율 - 자동 충전 %1$s",
+                    "pl-PL": "Pasywne Ładowanie Superzdolności %1$s",
+                    "pt-BR": "Geração de Supremo - Passiva %1$s",
+                    "ru-RU": "Пассивная зарядка суперспособности %1$s",
+                    "zh-CN": "终极技能自动充能速度 %1$s",
+                    "zh-TW": "%1$s的絕招自動蓄力速度"
                 },
                 "enablePassive": {
                     "guid": "00000001005E",
@@ -6026,11 +6086,7 @@ for (var hero of Object.keys(heroKw)) {
                     } else if (["enablePassive"].includes(key)) {
                         heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].passive[lang] || heroKw[hero].passive["en-US"])
                     } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
-                        if (["zh-CN", "zh-TW"].includes(lang)) {
-                            heroValue[lang] = heroValue[key2]+"（"+(heroKw[hero].ultimate[lang] || heroKw[hero].ultimate["en-US"])+"）";
-                        } else {
-                            heroValue[lang] = heroValue[key2]+" "+(heroKw[hero].ultimate[lang] || heroKw[hero].ultimate["en-US"]);
-                        }
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].ultimate[lang] || heroKw[hero].ultimate["en-US"]);
                     }
                 }
             }

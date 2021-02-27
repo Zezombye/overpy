@@ -3805,21 +3805,6 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
                         },
@@ -3911,6 +3896,21 @@
                             "minimum": 0,
                             "maximum": 500
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableAutomaticFire": {
                             "type": "boolean"
                         },
@@ -3933,21 +3933,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -4022,6 +4007,21 @@
                         "enableAbility1": {
                             "type": "boolean"
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableSecondaryFire": {
                             "type": "boolean"
                         },
@@ -4066,21 +4066,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -4150,6 +4135,21 @@
                         "enableAbility3": {
                             "type": "boolean"
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableSecondaryFire": {
                             "type": "boolean"
                         },
@@ -4192,21 +4192,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -4274,6 +4259,21 @@
                             "type": "boolean"
                         },
                         "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
@@ -4323,21 +4323,6 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
                         },
@@ -4424,6 +4409,21 @@
                             "minimum": 0,
                             "maximum": 500
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableSecondaryFire": {
                             "type": "boolean"
                         },
@@ -4458,21 +4458,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -4551,6 +4536,21 @@
                         },
                         "enableAbility3": {
                             "type": "boolean"
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
                         }
                     }
                 },
@@ -4573,21 +4573,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -4679,6 +4664,21 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
                         }
                     }
                 },
@@ -4696,21 +4696,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -4781,6 +4766,21 @@
                             "type": "boolean"
                         },
                         "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
@@ -4833,21 +4833,6 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
                         },
@@ -4931,6 +4916,21 @@
                             "minimum": 0,
                             "maximum": 500
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableSecondaryFire": {
                             "type": "boolean"
                         }
@@ -4959,21 +4959,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -5049,6 +5034,21 @@
                             "type": "boolean"
                         },
                         "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
@@ -5091,21 +5091,6 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
                         },
@@ -5189,6 +5174,21 @@
                             "minimum": 0,
                             "maximum": 500
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableSecondaryFire": {
                             "type": "boolean"
                         }
@@ -5226,21 +5226,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -5316,6 +5301,21 @@
                             "type": "boolean"
                         },
                         "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
@@ -5355,21 +5355,6 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
                         },
@@ -5440,6 +5425,21 @@
                             "minimum": 0,
                             "maximum": 500
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableSecondaryFire": {
                             "type": "boolean"
                         },
@@ -5469,21 +5469,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -5563,6 +5548,21 @@
                             "minimum": 0,
                             "maximum": 500
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableSecondaryFire": {
                             "type": "boolean"
                         }
@@ -5582,21 +5582,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -5673,6 +5658,21 @@
                             "minimum": 0,
                             "maximum": 500
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableSecondaryFire": {
                             "type": "boolean"
                         },
@@ -5702,21 +5702,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -5795,6 +5780,21 @@
                             "type": "boolean"
                         },
                         "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
@@ -5838,21 +5838,6 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
                         },
@@ -5944,6 +5929,21 @@
                             "minimum": 0,
                             "maximum": 500
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableSecondaryFire": {
                             "type": "boolean"
                         }
@@ -5973,21 +5973,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -6069,6 +6054,21 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
                         }
                     }
                 },
@@ -6094,21 +6094,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -6204,6 +6189,21 @@
                             "minimum": 0,
                             "maximum": 500
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableSecondaryFire": {
                             "type": "boolean"
                         },
@@ -6228,21 +6228,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -6327,21 +6312,6 @@
                             "minimum": 0,
                             "maximum": 500
                         },
-                        "enableSecondaryFire": {
-                            "type": "boolean"
-                        }
-                    }
-                },
-                "general": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableMelee": {
-                            "type": "boolean"
-                        },
-                        "enableUlt": {
-                            "type": "boolean"
-                        },
                         "ultGen%": {
                             "type": "number",
                             "minimum": 10,
@@ -6356,6 +6326,21 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        },
+                        "enableSecondaryFire": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "general": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -6436,18 +6421,6 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
-                        }
-                    }
-                },
-                "ana": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableMelee": {
-                            "type": "boolean"
-                        },
-                        "enableUlt": {
-                            "type": "boolean"
                         },
                         "ultGen%": {
                             "type": "number",
@@ -6463,6 +6436,18 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        }
+                    }
+                },
+                "ana": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -6542,6 +6527,21 @@
                             "minimum": 0,
                             "maximum": 500
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableAutomaticFire": {
                             "type": "boolean"
                         },
@@ -6559,21 +6559,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -6666,21 +6651,6 @@
                             "minimum": 0,
                             "maximum": 500
                         },
-                        "enableSecondaryFire": {
-                            "type": "boolean"
-                        }
-                    }
-                },
-                "echo": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableMelee": {
-                            "type": "boolean"
-                        },
-                        "enableUlt": {
-                            "type": "boolean"
-                        },
                         "ultGen%": {
                             "type": "number",
                             "minimum": 10,
@@ -6695,6 +6665,21 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        },
+                        "enableSecondaryFire": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "echo": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -6770,6 +6755,21 @@
                             "type": "boolean"
                         },
                         "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
@@ -6797,21 +6797,6 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
                         },
@@ -6898,21 +6883,6 @@
                             "minimum": 0,
                             "maximum": 500
                         },
-                        "enableSecondaryFire": {
-                            "type": "boolean"
-                        }
-                    }
-                },
-                "mccree": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableMelee": {
-                            "type": "boolean"
-                        },
-                        "enableUlt": {
-                            "type": "boolean"
-                        },
                         "ultGen%": {
                             "type": "number",
                             "minimum": 10,
@@ -6927,6 +6897,21 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        },
+                        "enableSecondaryFire": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "mccree": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -7006,21 +6991,6 @@
                             "minimum": 0,
                             "maximum": 500
                         },
-                        "enableSecondaryFire": {
-                            "type": "boolean"
-                        }
-                    }
-                },
-                "orisa": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableMelee": {
-                            "type": "boolean"
-                        },
-                        "enableUlt": {
-                            "type": "boolean"
-                        },
                         "ultGen%": {
                             "type": "number",
                             "minimum": 10,
@@ -7035,6 +7005,21 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        },
+                        "enableSecondaryFire": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "orisa": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -7115,6 +7100,21 @@
                             "type": "boolean"
                         },
                         "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
@@ -7139,21 +7139,6 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
                         },
@@ -7226,18 +7211,6 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
-                        }
-                    }
-                },
-                "sombra": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableMelee": {
-                            "type": "boolean"
-                        },
-                        "enableUlt": {
-                            "type": "boolean"
                         },
                         "ultGen%": {
                             "type": "number",
@@ -7253,6 +7226,18 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        }
+                    }
+                },
+                "sombra": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -7333,6 +7318,21 @@
                             "type": "boolean"
                         },
                         "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
@@ -7357,21 +7357,6 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
                         },
@@ -7450,21 +7435,6 @@
                             "minimum": 0,
                             "maximum": 500
                         },
-                        "enableSecondaryFire": {
-                            "type": "boolean"
-                        }
-                    }
-                },
-                "tracer": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableMelee": {
-                            "type": "boolean"
-                        },
-                        "enableUlt": {
-                            "type": "boolean"
-                        },
                         "ultGen%": {
                             "type": "number",
                             "minimum": 10,
@@ -7479,6 +7449,21 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        },
+                        "enableSecondaryFire": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "tracer": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -7562,18 +7547,6 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
-                        }
-                    }
-                },
-                "widowmaker": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableMelee": {
-                            "type": "boolean"
-                        },
-                        "enableUlt": {
-                            "type": "boolean"
                         },
                         "ultGen%": {
                             "type": "number",
@@ -7589,6 +7562,18 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        }
+                    }
+                },
+                "widowmaker": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -7681,6 +7666,21 @@
                             "minimum": 0,
                             "maximum": 500
                         },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "enableAutomaticFire": {
                             "type": "boolean"
                         },
@@ -7698,21 +7698,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         },
                         "enableSpawningWithUlt": {
                             "type": "boolean"
@@ -7781,6 +7766,21 @@
                         },
                         "enableAbility2": {
                             "type": "boolean"
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
                         },
                         "enableSecondaryFire": {
                             "type": "boolean"
