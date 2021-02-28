@@ -81,7 +81,15 @@ function replaceJsonObjectsInFile(path) {
     for (var line of content.split("\n")) {
         if (line === "//end-json") {
             isInJsonObject = false;
-            result += JSON.stringify(iterateOnObject(eval("("+currentJsonStr+")")), null, 4)+"\n";
+            tmp = eval("("+currentJsonStr+")");
+            for (var key in tmp) {
+                console.log(key);
+                if ("descriptionLocalized" in tmp[key]) {
+                    tmp[key].descriptionLocalized = addTranslations(tmp[key].descriptionLocalized)
+                }
+            }
+            result += JSON.stringify(tmp, null, 4)+"\n";
+
             currentJsonStr = "";
         }
         if (!isInJsonObject) {
@@ -119,12 +127,14 @@ function addTranslations(content) {
     if (!("guid" in content)) {
         var matchingGuids = [];
         for (var elem of guids["en-US"]) {
-            if (elem.string === content["en-US"]) {
+            if (elem.string.toLowerCase() === content["en-US"].toLowerCase()) {
                 matchingGuids.push(elem.guid);
             }
         }
         if (matchingGuids.length === 0) {
-            throw new Error("No guid found for string '"+content["en-US"]+"'");
+            //throw new Error("No guid found for string '"+content["en-US"]+"'");
+            content.guid = "<unknown guid>";
+            return content;
         } else if (matchingGuids.length > 1) {
             throw new Error("Multiple guids found for string '"+content["en-US"]+"': "+JSON.stringify(matchingGuids));
         }
@@ -170,7 +180,7 @@ function normalizeName(content) {
 
 //generateStringFiles();
 getGuids();
-replaceJsonObjectsInFile(docFolder+"actions.js");
+//replaceJsonObjectsInFile(docFolder+"actions.js");
 replaceJsonObjectsInFile(docFolder+"values.js");
 //replaceJsonObjectsInFile(docFolder+"constants.js");
 //replaceJsonObjectsInFile(docFolder+"heroes.js");
