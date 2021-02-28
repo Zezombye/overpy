@@ -233,6 +233,13 @@ a {
 
 <script>
 
+for (var action in valueFuncKw) {
+	valueFuncKw[action]["descriptionLocalized"] = {};
+	valueFuncKw[action]["descriptionLocalized"]["en-US"] = valueFuncKw[action]["description"];
+}
+
+console.log(JSON.stringify(valueFuncKw, null, 4));
+
 </script>
 
 

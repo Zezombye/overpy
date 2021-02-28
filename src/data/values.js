@@ -41,7 +41,10 @@ var valueFuncKw =
         "fr-FR": "Charge de la capacité",
         "ja-JP": "アビリティのチャージ",
         "pt-BR": "Cargas de Habilidade",
-        "zh-CN": "技能充能"
+        "zh-CN": "技能充能",
+        "descriptionLocalized": {
+            "en-US": "The ability charge count for a player associated by button."
+        }
     },
     "_&getAbilityCooldown": {
         "description": "The ability cooldown time in seconds for a player associated by button.",
@@ -66,7 +69,10 @@ var valueFuncKw =
         "fr-FR": "Temps de recharge de la capacité",
         "ja-JP": "アビリティのクールダウン",
         "pt-BR": "Tempo de Recarga da Habilidade",
-        "zh-CN": "技能冷却时间"
+        "zh-CN": "技能冷却时间",
+        "descriptionLocalized": {
+            "en-US": "The ability cooldown time in seconds for a player associated by button."
+        }
     },
     "abilityIconString": {
         "description": "Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string).",
@@ -93,7 +99,10 @@ var valueFuncKw =
         "fr-FR": "Chaîne d’icône de la capacité",
         "ja-JP": "アビリティアイコンストリング",
         "pt-BR": "String de Ícone de Habilidade",
-        "zh-CN": "技能图标字符串"
+        "zh-CN": "技能图标字符串",
+        "descriptionLocalized": {
+            "en-US": "Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string)."
+        }
     },
     "_&getAbilityResource": {
         "description": "The ability resource percent for a player associated by button.",
@@ -118,7 +127,10 @@ var valueFuncKw =
         "fr-FR": "Ressource de la capacité",
         "ja-JP": "アビリティのリソース",
         "pt-BR": "Recurso de Habilidade",
-        "zh-CN": "技能资源"
+        "zh-CN": "技能资源",
+        "descriptionLocalized": {
+            "en-US": "The ability resource percent for a player associated by button."
+        }
     },
     "abs": {
         "description": "The absolute value of the specified value.",
@@ -138,7 +150,10 @@ var valueFuncKw =
         "fr-FR": "Valeur absolue",
         "ja-JP": "絶対値",
         "pt-BR": "Valor Absoluto",
-        "zh-CN": "绝对值"
+        "zh-CN": "绝对值",
+        "descriptionLocalized": {
+            "en-US": "The absolute value of the specified value."
+        }
     },
     "__add__": {
         "guid": "00000000C408",
@@ -175,7 +190,10 @@ var valueFuncKw =
         "fr-FR": "Addition",
         "ja-JP": "追加",
         "pt-BR": "Somar",
-        "zh-CN": "加"
+        "zh-CN": "加",
+        "descriptionLocalized": {
+            "en-US": "The sum of two numbers or vectors."
+        }
     },
     "getDeadPlayers": {
         "description": "An array containing all dead players on a team or in the match.",
@@ -197,7 +215,10 @@ var valueFuncKw =
         "fr-FR": "Tous les joueurs morts",
         "ja-JP": "倒れたプレイヤー全員",
         "pt-BR": "Todos os Jogadores Mortos",
-        "zh-CN": "所有死亡玩家"
+        "zh-CN": "所有死亡玩家",
+        "descriptionLocalized": {
+            "en-US": "An array containing all dead players on a team or in the match."
+        }
     },
     "getDamageHeroes": {
         "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        16. Echo  \n",
@@ -214,7 +235,10 @@ var valueFuncKw =
         "fr-FR": "Tous les héros de dégâts",
         "ja-JP": "全ダメージヒーロー",
         "pt-BR": "Todos os Heróis de Dano",
-        "zh-CN": "所有输出英雄"
+        "zh-CN": "所有输出英雄",
+        "descriptionLocalized": {
+            "en-US": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        16. Echo  \n"
+        }
     },
     "getAllHeroes": {
         "guid": "00000000BF58",
@@ -230,7 +254,10 @@ var valueFuncKw =
         "fr-FR": "Tous les héros",
         "ja-JP": "全ヒーロー",
         "pt-BR": "Todos os Heróis",
-        "zh-CN": "全部英雄"
+        "zh-CN": "全部英雄",
+        "descriptionLocalized": {
+            "en-US": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Echo \n        30. Baptiste    \n        31. Sigma    \n"
+        }
     },
     "getLivingPlayers": {
         "description": "An array containing all living players on a team or in the match.",
@@ -252,7 +279,10 @@ var valueFuncKw =
         "fr-FR": "Tous les joueurs en vie",
         "ja-JP": "生存プレイヤー全員",
         "pt-BR": "Todos os Jogadores Vivos",
-        "zh-CN": "所有存活玩家"
+        "zh-CN": "所有存活玩家",
+        "descriptionLocalized": {
+            "en-US": "An array containing all living players on a team or in the match."
+        }
     },
     "getPlayers": {
         "description": "An array containing all players on a team or in the match.",
@@ -274,7 +304,10 @@ var valueFuncKw =
         "fr-FR": "Tous les joueurs",
         "ja-JP": "すべてのプレイヤー",
         "pt-BR": "Todos os Jogadores",
-        "zh-CN": "所有玩家"
+        "zh-CN": "所有玩家",
+        "descriptionLocalized": {
+            "en-US": "An array containing all players on a team or in the match."
+        }
     },
     "getPlayersNotOnObjective": {
         "description": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match).",
@@ -296,7 +329,10 @@ var valueFuncKw =
         "fr-FR": "Tous les joueurs éloignés de l’objectif",
         "ja-JP": "プレイヤー全員が目標を確保中ではない",
         "pt-BR": "Todos os Jogadores Fora do Objetivo",
-        "zh-CN": "所有目标点外玩家"
+        "zh-CN": "所有目标点外玩家",
+        "descriptionLocalized": {
+            "en-US": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match)."
+        }
     },
     "getPlayersOnObjective": {
         "description": "An array containing all players occupying a payload or control point (either on a team or in the match).",
@@ -318,7 +354,10 @@ var valueFuncKw =
         "fr-FR": "Tous les joueurs sur l’objectif",
         "ja-JP": "プレイヤー全員が目標を確保中",
         "pt-BR": "Todos os Jogadores no Objetivo",
-        "zh-CN": "所有目标点内玩家"
+        "zh-CN": "所有目标点内玩家",
+        "descriptionLocalized": {
+            "en-US": "An array containing all players occupying a payload or control point (either on a team or in the match)."
+        }
     },
     "_&getAllowedHeroes": {
         "description": "The array of heroes from which the specified player is currently allowed to select.",
@@ -340,7 +379,10 @@ var valueFuncKw =
         "fr-FR": "Héros autorisés",
         "ja-JP": "許可されたヒーロー",
         "pt-BR": "Heróis Permitidos",
-        "zh-CN": "可用英雄"
+        "zh-CN": "可用英雄",
+        "descriptionLocalized": {
+            "en-US": "The array of heroes from which the specified player is currently allowed to select."
+        }
     },
     "getSupportHeroes": {
         "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
@@ -357,7 +399,10 @@ var valueFuncKw =
         "fr-FR": "Tous les héros de soutien",
         "ja-JP": "全サポートヒーロー",
         "pt-BR": "Todos os Heróis de Suporte",
-        "zh-CN": "所有支援英雄"
+        "zh-CN": "所有支援英雄",
+        "descriptionLocalized": {
+            "en-US": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        "
+        }
     },
     "getTankHeroes": {
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
@@ -374,7 +419,10 @@ var valueFuncKw =
         "fr-FR": "Tous les héros tanks",
         "ja-JP": "全タンクヒーロー",
         "pt-BR": "Todos os Heróis de Tanque",
-        "zh-CN": "所有重装英雄"
+        "zh-CN": "所有重装英雄",
+        "descriptionLocalized": {
+            "en-US": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        "
+        }
     },
     "_&getAltitude": {
         "description": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface.",
@@ -393,7 +441,10 @@ var valueFuncKw =
         "fr-FR": "Altitude de",
         "ja-JP": "高度: ",
         "pt-BR": "Altitude de",
-        "zh-CN": "高度"
+        "zh-CN": "高度",
+        "descriptionLocalized": {
+            "en-US": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface."
+        }
     },
     "_&getAmmo": {
         "description": "The current ammo of a player.",
@@ -421,7 +472,10 @@ var valueFuncKw =
         "fr-FR": "Munitions",
         "ja-JP": "弾薬数",
         "pt-BR": "Munição",
-        "zh-CN": "弹药"
+        "zh-CN": "弹药",
+        "descriptionLocalized": {
+            "en-US": "The current ammo of a player."
+        }
     },
     "__and__": {
         "description": "Whether both of the two inputs are true (or equivalent to true).",
@@ -447,7 +501,10 @@ var valueFuncKw =
         "fr-FR": "Et",
         "ja-JP": "AND",
         "pt-BR": "E",
-        "zh-CN": "与"
+        "zh-CN": "与",
+        "descriptionLocalized": {
+            "en-US": "Whether both of the two inputs are true (or equivalent to true)."
+        }
     },
     "angleBetweenVectors": {
         "description": "The angle in degrees between two directional vectors (no normalization required).",
@@ -473,7 +530,10 @@ var valueFuncKw =
         "fr-FR": "Angle entre deux vecteurs",
         "ja-JP": "ベクトル間角度",
         "pt-BR": "Ângulo entre Vetores",
-        "zh-CN": "矢量间夹角"
+        "zh-CN": "矢量间夹角",
+        "descriptionLocalized": {
+            "en-US": "The angle in degrees between two directional vectors (no normalization required)."
+        }
     },
     "angleDifference": {
         "description": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative.",
@@ -499,7 +559,10 @@ var valueFuncKw =
         "fr-FR": "Différence entre angles",
         "ja-JP": "角度差",
         "pt-BR": "Diferença de Ângulo",
-        "zh-CN": "角度差"
+        "zh-CN": "角度差",
+        "descriptionLocalized": {
+            "en-US": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative."
+        }
     },
     "__concat__": {
         "guid": "00000000C41A",
@@ -531,7 +594,10 @@ var valueFuncKw =
         "fr-FR": "Ajouter au tableau",
         "ja-JP": "配列に追加",
         "pt-BR": "Juntar à Matriz",
-        "zh-CN": "添加至数组"
+        "zh-CN": "添加至数组",
+        "descriptionLocalized": {
+            "en-US": "A copy of an array with one or more values appended to the end."
+        }
     },
     "acosDeg": {
         "description": "Arccosine in degrees of the specified value.",
@@ -551,7 +617,10 @@ var valueFuncKw =
         "fr-FR": "Arc cosinus en degrés",
         "ja-JP": "度単位のアークコサイン",
         "pt-BR": "Arco Cosseno em Graus",
-        "zh-CN": "以角度为单位的反余弦值"
+        "zh-CN": "以角度为单位的反余弦值",
+        "descriptionLocalized": {
+            "en-US": "Arccosine in degrees of the specified value."
+        }
     },
     "acos": {
         "description": "Arccosine in radians of the specified value.",
@@ -571,7 +640,10 @@ var valueFuncKw =
         "fr-FR": "Arc cosinus en radians",
         "ja-JP": "ラジアンのアークコサイン",
         "pt-BR": "Arco Cosseno em Radianos",
-        "zh-CN": "以弧度为单位的反余弦值"
+        "zh-CN": "以弧度为单位的反余弦值",
+        "descriptionLocalized": {
+            "en-US": "Arccosine in radians of the specified value."
+        }
     },
     "asinDeg": {
         "description": "Arcsine in degrees of the specified value.",
@@ -591,7 +663,10 @@ var valueFuncKw =
         "fr-FR": "Arc sinus en degrés",
         "ja-JP": "度単位のアークサイン",
         "pt-BR": "Arco Seno em Graus",
-        "zh-CN": "以角度为单位的反正弦值"
+        "zh-CN": "以角度为单位的反正弦值",
+        "descriptionLocalized": {
+            "en-US": "Arcsine in degrees of the specified value."
+        }
     },
     "asin": {
         "description": "Arcsine in radians of the specified value.",
@@ -611,7 +686,10 @@ var valueFuncKw =
         "fr-FR": "Arc sinus en radians",
         "ja-JP": "ラジアンのアークサイン",
         "pt-BR": "Arco Seno em Radianos",
-        "zh-CN": "以弧度为单位的反正弦值"
+        "zh-CN": "以弧度为单位的反正弦值",
+        "descriptionLocalized": {
+            "en-US": "Arcsine in radians of the specified value."
+        }
     },
     "atan2Deg": {
         "description": "Arctangent in degrees of the specified numerator and denominator (often referred to as atan2).",
@@ -637,7 +715,10 @@ var valueFuncKw =
         "fr-FR": "Arc tangente en degrés",
         "ja-JP": "度単位のアークタンジェント",
         "pt-BR": "Arco Tangente em Graus",
-        "zh-CN": "以角度为单位的反正切值"
+        "zh-CN": "以角度为单位的反正切值",
+        "descriptionLocalized": {
+            "en-US": "Arctangent in degrees of the specified numerator and denominator (often referred to as atan2)."
+        }
     },
     "atan2": {
         "description": "Arctangent in radians of the specified numerator and denominator (often referred to as atan2).",
@@ -663,7 +744,10 @@ var valueFuncKw =
         "fr-FR": "Arc tangente en radians",
         "ja-JP": "ラジアンのアークタンジェント",
         "pt-BR": "Arco Tangente em Radianos",
-        "zh-CN": "以弧度为单位的反正切值"
+        "zh-CN": "以弧度为单位的反正切值",
+        "descriptionLocalized": {
+            "en-US": "Arctangent in radians of the specified numerator and denominator (often referred to as atan2)."
+        }
     },
     "__array__": {
         "description": "An array constructed from the listed values.",
@@ -687,7 +771,10 @@ var valueFuncKw =
         "fr-FR": "Tableau",
         "ja-JP": "配列",
         "pt-BR": "Matriz",
-        "zh-CN": "数组"
+        "zh-CN": "数组",
+        "descriptionLocalized": {
+            "en-US": "An array constructed from the listed values."
+        }
     },
     "__arrayContains__": {
         "description": "Whether the specified array contains the specified value.",
@@ -714,7 +801,10 @@ var valueFuncKw =
         "fr-FR": "Contenu du tableau",
         "ja-JP": "含む配列",
         "pt-BR": "Matriz Contém",
-        "zh-CN": "数组包含"
+        "zh-CN": "数组包含",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified array contains the specified value."
+        }
     },
     "__arraySlice__": {
         "description": "A copy of the specified array containing only values from a specified index range.",
@@ -754,7 +844,10 @@ var valueFuncKw =
         "fr-FR": "Section de tableau",
         "ja-JP": "配列のスライス",
         "pt-BR": "Fatia da Matriz",
-        "zh-CN": "数组分割"
+        "zh-CN": "数组分割",
+        "descriptionLocalized": {
+            "en-US": "A copy of the specified array containing only values from a specified index range."
+        }
     },
     "attacker": {
         "guid": "00000000B32F",
@@ -767,7 +860,10 @@ var valueFuncKw =
         "fr-FR": "Attaquant",
         "ja-JP": "攻撃者",
         "pt-BR": "Atacante",
-        "zh-CN": "攻击方"
+        "zh-CN": "攻击方",
+        "descriptionLocalized": {
+            "en-US": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player."
+        }
     },
     "Vector.BACKWARD": {
         "guid": "00000000B11B",
@@ -787,7 +883,10 @@ var valueFuncKw =
         "fr-FR": "Arrière",
         "ja-JP": "後方",
         "pt-BR": "Para Trás",
-        "zh-CN": "后"
+        "zh-CN": "后",
+        "descriptionLocalized": {
+            "en-US": "Shorthand for the directional vector(0, 0, -1), which points backward."
+        }
     },
     "__button__": {
         "description": "A button constant.",
@@ -808,7 +907,10 @@ var valueFuncKw =
         "fr-FR": "Bouton",
         "ja-JP": "ボタン",
         "pt-BR": "Botão",
-        "zh-CN": "按钮"
+        "zh-CN": "按钮",
+        "descriptionLocalized": {
+            "en-US": "A button constant."
+        }
     },
     "getClosestPlayer": {
         "description": "The player closest to a position, optionally restricted by team.",
@@ -834,7 +936,10 @@ var valueFuncKw =
         "fr-FR": "Joueur le plus proche de",
         "ja-JP": "最も近いプレイヤー。基準: ",
         "pt-BR": "Jogador Mais Próximo a",
-        "zh-CN": "距离最近的玩家"
+        "zh-CN": "距离最近的玩家",
+        "descriptionLocalized": {
+            "en-US": "The player closest to a position, optionally restricted by team."
+        }
     },
     "__color__": {
         "description": "A Color Constant",
@@ -854,7 +959,10 @@ var valueFuncKw =
         "fr-FR": "Couleur",
         "ja-JP": "色",
         "pt-BR": "Cor",
-        "zh-CN": "颜色"
+        "zh-CN": "颜色",
+        "descriptionLocalized": {
+            "en-US": "A Color Constant"
+        }
     },
     "__compare__": {
         "description": "Whether the comparison of the two inputs is true.",
@@ -892,7 +1000,10 @@ var valueFuncKw =
         "fr-FR": "Comparer",
         "ja-JP": "COMPARE",
         "pt-BR": "Comparar",
-        "zh-CN": "比较"
+        "zh-CN": "比较",
+        "descriptionLocalized": {
+            "en-US": "Whether the comparison of the two inputs is true."
+        }
     },
     "getControlScorePercentage": {
         "description": "The score percentage for the specified team in control mode.",
@@ -911,7 +1022,10 @@ var valueFuncKw =
         "fr-FR": "Pourcentage du score en mode Contrôle",
         "ja-JP": "コントロール・モードのスコア・パーセンテージ",
         "pt-BR": "Percentual de Pontuação no Modo de Controle",
-        "zh-CN": "占领要点模式得分百分比"
+        "zh-CN": "占领要点模式得分百分比",
+        "descriptionLocalized": {
+            "en-US": "The score percentage for the specified team in control mode."
+        }
     },
     "getControlScoringTeam": {
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
@@ -924,7 +1038,10 @@ var valueFuncKw =
         "fr-FR": "Équipe contrôlant le point en mode Contrôle",
         "ja-JP": "コントロール・モードの得点チーム",
         "pt-BR": "Equipe Pontuando no Modo de Controle",
-        "zh-CN": "占领要点模式正在得分的队伍"
+        "zh-CN": "占领要点模式正在得分的队伍",
+        "descriptionLocalized": {
+            "en-US": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score."
+        }
     },
     "cosDeg": {
         "description": "Cosine of the specified angle in degrees.",
@@ -944,7 +1061,10 @@ var valueFuncKw =
         "fr-FR": "Cosinus en degrés",
         "ja-JP": "度のコサイン",
         "pt-BR": "Cosseno de Graus",
-        "zh-CN": "角度的余弦值"
+        "zh-CN": "角度的余弦值",
+        "descriptionLocalized": {
+            "en-US": "Cosine of the specified angle in degrees."
+        }
     },
     "cos": {
         "description": "Cosine of the specified angle in radians.",
@@ -964,7 +1084,10 @@ var valueFuncKw =
         "fr-FR": "Cosinus en radians",
         "ja-JP": "ラジアンのコサイン",
         "pt-BR": "Cosseno de Radianos",
-        "zh-CN": "弧度的余弦值"
+        "zh-CN": "弧度的余弦值",
+        "descriptionLocalized": {
+            "en-US": "Cosine of the specified angle in radians."
+        }
     },
     "len": {
         "description": "The number of elements in the specified array. For strings, use `strLen`.",
@@ -984,7 +1107,10 @@ var valueFuncKw =
         "fr-FR": "Décompte de",
         "ja-JP": "カウント: ",
         "pt-BR": "Contagem de",
-        "zh-CN": "数量"
+        "zh-CN": "数量",
+        "descriptionLocalized": {
+            "en-US": "The number of elements in the specified array. For strings, use `strLen`."
+        }
     },
     "crossProduct": {
         "description": "The cross product of the specified values. (Left cross up equals forward.)",
@@ -1011,7 +1137,10 @@ var valueFuncKw =
         "fr-FR": "Produit croisé",
         "ja-JP": "クロス積",
         "pt-BR": "Produto Vetorial",
-        "zh-CN": "矢量积"
+        "zh-CN": "矢量积",
+        "descriptionLocalized": {
+            "en-US": "The cross product of the specified values. (Left cross up equals forward.)"
+        }
     },
     "__currentArrayElement__": {
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
@@ -1027,7 +1156,10 @@ var valueFuncKw =
         "fr-FR": "Élément de tableau actuel",
         "ja-JP": "現在の配列の要素",
         "pt-BR": "Elemento da Matriz Atual",
-        "zh-CN": "当前数组元素"
+        "zh-CN": "当前数组元素",
+        "descriptionLocalized": {
+            "en-US": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array."
+        }
     },
     "__currentArrayIndex__": {
         "description": "The current array index being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
@@ -1043,7 +1175,10 @@ var valueFuncKw =
         "fr-FR": "Index de tableau actuel",
         "ja-JP": "現在の配列のインデックス",
         "pt-BR": "Índice da Matriz Atual",
-        "zh-CN": "当前数组索引"
+        "zh-CN": "当前数组索引",
+        "descriptionLocalized": {
+            "en-US": "The current array index being considered. Only meaningful during the evaluation of values such as filtered array and sorted array."
+        }
     },
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
@@ -1057,7 +1192,10 @@ var valueFuncKw =
         "fr-FR": "Mode de jeu actuel",
         "ja-JP": "現在のゲーム・モード",
         "pt-BR": "Modo de jogo atual",
-        "zh-CN": "当前比赛模式"
+        "zh-CN": "当前比赛模式",
+        "descriptionLocalized": {
+            "en-US": "The current game mode of the custom game."
+        }
     },
     "getCurrentMap": {
         "guid": "00000000D418",
@@ -1071,7 +1209,10 @@ var valueFuncKw =
         "fr-FR": "Carte actuelle",
         "ja-JP": "現在のマップ",
         "pt-BR": "Mapa Atual",
-        "zh-CN": "当前地图"
+        "zh-CN": "当前地图",
+        "descriptionLocalized": {
+            "en-US": "The current map of the custom game."
+        }
     },
     "rgba": {
         "description": "A custom color with the specified red, green, blue and alpha values.",
@@ -1110,7 +1251,10 @@ var valueFuncKw =
         "fr-FR": "Couleur personnalisée",
         "ja-JP": "カスタム・カラー",
         "pt-BR": "Cor Personalizada",
-        "zh-CN": "自定义颜色"
+        "zh-CN": "自定义颜色",
+        "descriptionLocalized": {
+            "en-US": "A custom color with the specified red, green, blue and alpha values."
+        }
     },
     "__customString__": {
         "description": "ty magzie for adding that",
@@ -1152,7 +1296,10 @@ var valueFuncKw =
         "fr-FR": "Chaîne personnalisée",
         "ja-JP": "カスタムストリング",
         "pt-BR": "String Personalizada",
-        "zh-CN": "自定义字符串"
+        "zh-CN": "自定义字符串",
+        "descriptionLocalized": {
+            "en-US": "ty magzie for adding that"
+        }
     },
     "angleToDirection": {
         "description": "The unit-length direction vector corresponding to the specified angles.",
@@ -1179,7 +1326,10 @@ var valueFuncKw =
         "fr-FR": "Direction depuis des angles",
         "ja-JP": "角度による方向",
         "pt-BR": "Direção a partir dos Ângulos",
-        "zh-CN": "与此角度的相对方向"
+        "zh-CN": "与此角度的相对方向",
+        "descriptionLocalized": {
+            "en-US": "The unit-length direction vector corresponding to the specified angles."
+        }
     },
     "directionTowards": {
         "description": "The unit-length direction vector from one position to another.",
@@ -1206,7 +1356,10 @@ var valueFuncKw =
         "fr-FR": "Direction",
         "ja-JP": "指す方向: ",
         "pt-BR": "Direção Rumo a",
-        "zh-CN": "方向"
+        "zh-CN": "方向",
+        "descriptionLocalized": {
+            "en-US": "The unit-length direction vector from one position to another."
+        }
     },
     "distance": {
         "description": "The distance between two positions in meters.",
@@ -1232,7 +1385,10 @@ var valueFuncKw =
         "fr-FR": "Distance entre",
         "ja-JP": "二点間の距離",
         "pt-BR": "Distância entre",
-        "zh-CN": "相距距离"
+        "zh-CN": "相距距离",
+        "descriptionLocalized": {
+            "en-US": "The distance between two positions in meters."
+        }
     },
     "__divide__": {
         "guid": "00000000C40F",
@@ -1268,7 +1424,10 @@ var valueFuncKw =
         "fr-FR": "Division",
         "ja-JP": "除算",
         "pt-BR": "Dividir",
-        "zh-CN": "除"
+        "zh-CN": "除",
+        "descriptionLocalized": {
+            "en-US": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero."
+        }
     },
     "dotProduct": {
         "description": "The dot product of the specified values.",
@@ -1294,7 +1453,10 @@ var valueFuncKw =
         "fr-FR": "Produit scalaire",
         "ja-JP": "ドット積",
         "pt-BR": "Produto Escalar",
-        "zh-CN": "标量积"
+        "zh-CN": "标量积",
+        "descriptionLocalized": {
+            "en-US": "The dot product of the specified values."
+        }
     },
     "Vector.DOWN": {
         "guid": "00000000B119",
@@ -1314,7 +1476,10 @@ var valueFuncKw =
         "fr-FR": "Bas",
         "ja-JP": "下",
         "pt-BR": "Baixo",
-        "zh-CN": "下"
+        "zh-CN": "下",
+        "descriptionLocalized": {
+            "en-US": "Shorthand for the directional vector(0, -1, 0), which points downward."
+        }
     },
     "__emptyArray__": {
         "description": "An array with no elements.",
@@ -1327,7 +1492,10 @@ var valueFuncKw =
         "fr-FR": "Tableau vide",
         "ja-JP": "空の配列",
         "pt-BR": "Matriz Vazia",
-        "zh-CN": "空数组"
+        "zh-CN": "空数组",
+        "descriptionLocalized": {
+            "en-US": "An array with no elements."
+        }
     },
     "entityExists": {
         "description": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed.",
@@ -1349,7 +1517,10 @@ var valueFuncKw =
         "fr-FR": "Existence de l’entité",
         "ja-JP": "エンティティが存在している",
         "pt-BR": "Entidade Existe",
-        "zh-CN": "实体存在"
+        "zh-CN": "实体存在",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed."
+        }
     },
     "evalOnce": {
         "description": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop.",
@@ -1375,7 +1546,10 @@ var valueFuncKw =
         "fr-FR": "Évaluer une fois",
         "ja-JP": "一度だけ評価",
         "pt-BR": "Avaliar Uma Vez",
-        "zh-CN": "单次赋值"
+        "zh-CN": "单次赋值",
+        "descriptionLocalized": {
+            "en-US": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop."
+        }
     },
     "eventAbility": {
         "description": "The ability for the event currently being processed by this rule associated by button.",
@@ -1388,7 +1562,10 @@ var valueFuncKw =
         "fr-FR": "Capacité d’évènement",
         "ja-JP": "イベントアビリティ",
         "pt-BR": "Habilidade do Evento",
-        "zh-CN": "事件技能"
+        "zh-CN": "事件技能",
+        "descriptionLocalized": {
+            "en-US": "The ability for the event currently being processed by this rule associated by button."
+        }
     },
     "eventDamage": {
         "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
@@ -1400,7 +1577,10 @@ var valueFuncKw =
         "fr-FR": "Dégâts d’évènement",
         "ja-JP": "イベント・ダメージ",
         "pt-BR": "Dano do Evento",
-        "zh-CN": "事件伤害"
+        "zh-CN": "事件伤害",
+        "descriptionLocalized": {
+            "en-US": "The amount of damage received by the victim for the event currently being processed by this rule."
+        }
     },
     "eventDirection": {
         "description": "The incoming direction for the event currently being processed by this rule.",
@@ -1413,7 +1593,10 @@ var valueFuncKw =
         "fr-FR": "Direction de l’évènement",
         "ja-JP": "イベント方向",
         "pt-BR": "Direção do Evento",
-        "zh-CN": "事件方向"
+        "zh-CN": "事件方向",
+        "descriptionLocalized": {
+            "en-US": "The incoming direction for the event currently being processed by this rule."
+        }
     },
     "eventHealing": {
         "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
@@ -1425,7 +1608,10 @@ var valueFuncKw =
         "fr-FR": "Évènement soin",
         "ja-JP": "イベント回復",
         "pt-BR": "Cura no Evento",
-        "zh-CN": "事件治疗"
+        "zh-CN": "事件治疗",
+        "descriptionLocalized": {
+            "en-US": "The amount of healing received by the healee for the event currently being processed by this rule."
+        }
     },
     "eventPlayer": {
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
@@ -1438,7 +1624,10 @@ var valueFuncKw =
         "fr-FR": "Joueur exécutant",
         "ja-JP": "イベント・プレイヤー",
         "pt-BR": "Jogador do Evento",
-        "zh-CN": "事件玩家"
+        "zh-CN": "事件玩家",
+        "descriptionLocalized": {
+            "en-US": "The player executing this rule, as specified by the event. May be the same as the attacker or victim."
+        }
     },
     "eventWasCriticalHit": {
         "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
@@ -1450,7 +1639,10 @@ var valueFuncKw =
         "fr-FR": "L’évènement était un coup critique",
         "ja-JP": "イベントがクリティカル・ヒットだった",
         "pt-BR": "Evento foi Golpe Crítico",
-        "zh-CN": "事件暴击"
+        "zh-CN": "事件暴击",
+        "descriptionLocalized": {
+            "en-US": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule."
+        }
     },
     "eventWasEnvironment": {
         "description": "Whether the elimination was due to the environment for the event currently being processed by this rule.",
@@ -1462,7 +1654,10 @@ var valueFuncKw =
         "fr-FR": "L’évènement était une élimination due à l’environnement",
         "ja-JP": "イベントは環境だった",
         "pt-BR": "Evento foi Ambiente",
-        "zh-CN": "事件为环境事件"
+        "zh-CN": "事件为环境事件",
+        "descriptionLocalized": {
+            "en-US": "Whether the elimination was due to the environment for the event currently being processed by this rule."
+        }
     },
     "eventWasHealthPack": {
         "description": "Whether the healing was a health pack for the event currently being processed by this rule.",
@@ -1474,7 +1669,10 @@ var valueFuncKw =
         "fr-FR": "L’évènement était un kit de soins",
         "ja-JP": "ライフ・パックのイベントだった",
         "pt-BR": "Evento foi kit Médico",
-        "zh-CN": "事件为急救包"
+        "zh-CN": "事件为急救包",
+        "descriptionLocalized": {
+            "en-US": "Whether the healing was a health pack for the event currently being processed by this rule."
+        }
     },
     "_&getEyePosition": {
         "guid": "00000000C595",
@@ -1494,7 +1692,10 @@ var valueFuncKw =
         "fr-FR": "Position des yeux",
         "ja-JP": "目の位置",
         "pt-BR": "Posição do Olho",
-        "zh-CN": "眼睛位置"
+        "zh-CN": "眼睛位置",
+        "descriptionLocalized": {
+            "en-US": "The position of a player's first person view (used for aiming)"
+        }
     },
     "_&getFacingDirection": {
         "description": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing.",
@@ -1514,7 +1715,10 @@ var valueFuncKw =
         "fr-FR": "Regard en direction de",
         "ja-JP": "プレイヤーが向いている方向: ",
         "pt-BR": "Direção Frontal de",
-        "zh-CN": "面朝方向"
+        "zh-CN": "面朝方向",
+        "descriptionLocalized": {
+            "en-US": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing."
+        }
     },
     "false": {
         "description": "The boolean value of false.",
@@ -1525,7 +1729,10 @@ var valueFuncKw =
         "en-US": "False",
         "es-MX": "Falso",
         "fr-FR": "Faux",
-        "zh-CN": "假"
+        "zh-CN": "假",
+        "descriptionLocalized": {
+            "en-US": "The boolean value of false."
+        }
     },
     "getFarthestPlayer": {
         "description": "The player farthest from a position, optionally restricted by team.",
@@ -1551,7 +1758,10 @@ var valueFuncKw =
         "fr-FR": "Joueur le plus éloigné de",
         "ja-JP": "最も遠いプレイヤー。基準: ",
         "pt-BR": "Jogador Mais Distante de",
-        "zh-CN": "距离最远的玩家"
+        "zh-CN": "距离最远的玩家",
+        "descriptionLocalized": {
+            "en-US": "The player farthest from a position, optionally restricted by team."
+        }
     },
     "__filteredArray__": {
         "description": "A copy of the specified array with any values that do not match the specified condition removed.",
@@ -1577,7 +1787,10 @@ var valueFuncKw =
         "fr-FR": "Tableau filtré",
         "ja-JP": "フィルタリングされた配列",
         "pt-BR": "Matriz Filtrada",
-        "zh-CN": "已过滤的数组"
+        "zh-CN": "已过滤的数组",
+        "descriptionLocalized": {
+            "en-US": "A copy of the specified array with any values that do not match the specified condition removed."
+        }
     },
     "__firstOf__": {
         "description": "The value at the start of the specified array. Results in 0 if the specified array is empty.",
@@ -1600,7 +1813,10 @@ var valueFuncKw =
         "fr-FR": "Premier de",
         "ja-JP": "最初の値",
         "pt-BR": "Primeiro de",
-        "zh-CN": "首个"
+        "zh-CN": "首个",
+        "descriptionLocalized": {
+            "en-US": "The value at the start of the specified array. Results in 0 if the specified array is empty."
+        }
     },
     "getFlagPosition": {
         "description": "The position of a specific team's flag in capture the flag.",
@@ -1620,7 +1836,10 @@ var valueFuncKw =
         "fr-FR": "Position du drapeau",
         "ja-JP": "フラッグの位置",
         "pt-BR": "Posição da Bandeira",
-        "zh-CN": "旗帜位置"
+        "zh-CN": "旗帜位置",
+        "descriptionLocalized": {
+            "en-US": "The position of a specific team's flag in capture the flag."
+        }
     },
     "Vector.FORWARD": {
         "guid": "00000000B11A",
@@ -1640,7 +1859,10 @@ var valueFuncKw =
         "fr-FR": "Avant",
         "ja-JP": "前方向",
         "pt-BR": "Para a Frente",
-        "zh-CN": "前"
+        "zh-CN": "前",
+        "descriptionLocalized": {
+            "en-US": "Shorthand for the directional vector(0, 0, 1), which points forward."
+        }
     },
     "__global__": {
         "return": "GlobalVariable",
@@ -1650,7 +1872,8 @@ var valueFuncKw =
         "it-IT": "Globale",
         "ja-JP": "グローバル",
         "pl-PL": "Globalnie",
-        "zh-CN": "全局"
+        "zh-CN": "全局",
+        "descriptionLocalized": {}
     },
     "__globalVar__": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
@@ -1669,7 +1892,10 @@ var valueFuncKw =
         "fr-FR": "Variable globale",
         "ja-JP": "グローバル変数",
         "pt-BR": "Variável Global",
-        "zh-CN": "全局变量"
+        "zh-CN": "全局变量",
+        "descriptionLocalized": {
+            "en-US": "The current value of a global variable, which is a variable that belongs to the game itself."
+        }
     },
     "_&hasSpawned": {
         "description": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet.",
@@ -1688,7 +1914,10 @@ var valueFuncKw =
         "fr-FR": "Apparition",
         "ja-JP": "スポーンした",
         "pt-BR": "Surgiu",
-        "zh-CN": "已重生"
+        "zh-CN": "已重生",
+        "descriptionLocalized": {
+            "en-US": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet."
+        }
     },
     "_&hasStatusEffect": {
         "description": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic.",
@@ -1713,7 +1942,10 @@ var valueFuncKw =
         "fr-FR": "Statut",
         "ja-JP": "ステータスがある",
         "pt-BR": "Tem Status",
-        "zh-CN": "具有状态"
+        "zh-CN": "具有状态",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic."
+        }
     },
     "healee": {
         "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
@@ -1725,7 +1957,10 @@ var valueFuncKw =
         "fr-FR": "Soigné",
         "ja-JP": "回復対象",
         "pt-BR": "Curado",
-        "zh-CN": "受治疗者"
+        "zh-CN": "受治疗者",
+        "descriptionLocalized": {
+            "en-US": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player."
+        }
     },
     "healer": {
         "guid": "00000000CC1A",
@@ -1737,7 +1972,10 @@ var valueFuncKw =
         "fr-FR": "Soigneur",
         "ja-JP": "ヒーラー",
         "pt-BR": "Curandeiro",
-        "zh-CN": "治疗者"
+        "zh-CN": "治疗者",
+        "descriptionLocalized": {
+            "en-US": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player."
+        }
     },
     "_&getHealth": {
         "guid": "0000000081C2",
@@ -1756,7 +1994,10 @@ var valueFuncKw =
         "fr-FR": "Points de vie",
         "ja-JP": "ライフ",
         "pt-BR": "Vida",
-        "zh-CN": "生命值"
+        "zh-CN": "生命值",
+        "descriptionLocalized": {
+            "en-US": "The current health of a player, including armor and shields."
+        }
     },
     "_&getHealthOfType": {
         "description": "The current health of the specified player, filtered by the given health type.",
@@ -1781,7 +2022,10 @@ var valueFuncKw =
         "fr-FR": "Points de vie par type",
         "ja-JP": "タイプごとのライフ",
         "pt-BR": "Vida do Tipo",
-        "zh-CN": "类型的生命值"
+        "zh-CN": "类型的生命值",
+        "descriptionLocalized": {
+            "en-US": "The current health of the specified player, filtered by the given health type."
+        }
     },
     "_&getNormalizedHealth": {
         "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
@@ -1800,7 +2044,10 @@ var valueFuncKw =
         "fr-FR": "Points de vie normalisés",
         "ja-JP": "正規化ライフ",
         "pt-BR": "Vida Normalizada",
-        "zh-CN": "标准化生命值"
+        "zh-CN": "标准化生命值",
+        "descriptionLocalized": {
+            "en-US": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)"
+        }
     },
     "__hero__": {
         "guid": "00000000ACAA",
@@ -1821,7 +2068,10 @@ var valueFuncKw =
         "fr-FR": "Héros",
         "ja-JP": "ヒーロー",
         "pt-BR": "Herói",
-        "zh-CN": "英雄"
+        "zh-CN": "英雄",
+        "descriptionLocalized": {
+            "en-US": "A hero constant."
+        }
     },
     "_&getHeroOfDuplication": {
         "description": "The hero currently being duplicated by the specified player. If no hero is being duplicated, the resulting value is 0.",
@@ -1841,7 +2091,10 @@ var valueFuncKw =
         "fr-FR": "Héros dupliqué",
         "ja-JP": "コピーされているヒーロー",
         "pt-BR": "Herói Sendo Duplicado",
-        "zh-CN": "正在复制的英雄"
+        "zh-CN": "正在复制的英雄",
+        "descriptionLocalized": {
+            "en-US": "The hero currently being duplicated by the specified player. If no hero is being duplicated, the resulting value is 0."
+        }
     },
     "heroIcon": {
         "description": "Converts a hero parameter into a string that shows up as an icon.",
@@ -1862,7 +2115,10 @@ var valueFuncKw =
         "fr-FR": "Chaîne d’icône du héros",
         "ja-JP": "ヒーローアイコン文字列",
         "pt-BR": "String de Ícone de Herói",
-        "zh-CN": "英雄图标字符串"
+        "zh-CN": "英雄图标字符串",
+        "descriptionLocalized": {
+            "en-US": "Converts a hero parameter into a string that shows up as an icon."
+        }
     },
     "_&getCurrentHero": {
         "description": "The current hero of a player.",
@@ -1882,7 +2138,10 @@ var valueFuncKw =
         "fr-FR": "Héros de",
         "ja-JP": "ヒーロー: ",
         "pt-BR": "Herói de",
-        "zh-CN": "所用英雄"
+        "zh-CN": "所用英雄",
+        "descriptionLocalized": {
+            "en-US": "The current hero of a player."
+        }
     },
     "horizontalAngleOfDirection": {
         "description": "The horizontal angle in degrees corresponding to the specified direction vector.",
@@ -1902,7 +2161,10 @@ var valueFuncKw =
         "fr-FR": "Angle horizontal depuis une direction",
         "ja-JP": "方向からの水平角",
         "pt-BR": "Ângulo Horizontal a partir da Direção",
-        "zh-CN": "与此方向的水平角度"
+        "zh-CN": "与此方向的水平角度",
+        "descriptionLocalized": {
+            "en-US": "The horizontal angle in degrees corresponding to the specified direction vector."
+        }
     },
     "horizontalAngleTowards": {
         "description": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative.",
@@ -1927,7 +2189,10 @@ var valueFuncKw =
         "fr-FR": "Angle horizontal vers",
         "ja-JP": "水平角の方向: ",
         "pt-BR": "Ângulo Horizontal Rumo a",
-        "zh-CN": "水平方向夹角"
+        "zh-CN": "水平方向夹角",
+        "descriptionLocalized": {
+            "en-US": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative."
+        }
     },
     "__gamemode__": {
         "guid": "00000000F161",
@@ -1948,7 +2213,10 @@ var valueFuncKw =
         "fr-FR": "Mode de jeu",
         "ja-JP": "ゲーム・モード",
         "pt-BR": "Modo de jogo",
-        "zh-CN": "比赛模式"
+        "zh-CN": "比赛模式",
+        "descriptionLocalized": {
+            "en-US": "A game mode constant."
+        }
     },
     "_&getHorizontalFacingAngle": {
         "description": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180).",
@@ -1967,7 +2235,10 @@ var valueFuncKw =
         "fr-FR": "Angle horizontal du regard de",
         "ja-JP": "対面水平角: ",
         "pt-BR": "Ângulo Horizontal Frontal de",
-        "zh-CN": "水平朝向角度"
+        "zh-CN": "水平朝向角度",
+        "descriptionLocalized": {
+            "en-US": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180)."
+        }
     },
     "_&getHorizontalSpeed": {
         "description": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion.",
@@ -1986,7 +2257,10 @@ var valueFuncKw =
         "fr-FR": "Vitesse horizontale de",
         "ja-JP": "水平速度: ",
         "pt-BR": "Velocidade Horizontal de",
-        "zh-CN": "水平速度"
+        "zh-CN": "水平速度",
+        "descriptionLocalized": {
+            "en-US": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion."
+        }
     },
     "hostPlayer": {
         "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
@@ -1998,7 +2272,10 @@ var valueFuncKw =
         "fr-FR": "Joueur hôte",
         "ja-JP": "ホスト・プレイヤー",
         "pt-BR": "Jogador Anfitrião",
-        "zh-CN": "主机玩家"
+        "zh-CN": "主机玩家",
+        "descriptionLocalized": {
+            "en-US": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match."
+        }
     },
     "iconString": {
         "description": "Allows you to use an icon inside of a string.",
@@ -2019,7 +2296,10 @@ var valueFuncKw =
         "fr-FR": "Chaîne d’icône",
         "ja-JP": "アイコンストリング",
         "pt-BR": "String de Ícone",
-        "zh-CN": "图标字符串"
+        "zh-CN": "图标字符串",
+        "descriptionLocalized": {
+            "en-US": "Allows you to use an icon inside of a string."
+        }
     },
     "__ifThenElse__": {
         "description": "Results in the Then value when the If condition is true; otherwise, results in the Else value.",
@@ -2059,7 +2339,10 @@ var valueFuncKw =
         "guid": "000000010BC7",
         "en-US": "If-Then-Else",
         "fr-FR": "Si-Alors-Sinon",
-        "ja-JP": "IF-THEN-ELSE"
+        "ja-JP": "IF-THEN-ELSE",
+        "descriptionLocalized": {
+            "en-US": "Results in the Then value when the If condition is true; otherwise, results in the Else value."
+        }
     },
     "__indexOfArrayValue__": {
         "description": "The index of a value within an array or -1 if no such value can be found.",
@@ -2088,7 +2371,10 @@ var valueFuncKw =
         "fr-FR": "Index de la valeur de tableau",
         "ja-JP": "配列値のインデックス",
         "pt-BR": "Índice do Valor da Matriz",
-        "zh-CN": "数组值的索引"
+        "zh-CN": "数组值的索引",
+        "descriptionLocalized": {
+            "en-US": "The index of a value within an array or -1 if no such value can be found."
+        }
     },
     "buttonString": {
         "description": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables.",
@@ -2109,7 +2395,10 @@ var valueFuncKw =
         "fr-FR": "Chaîne de liaison d’entrée",
         "ja-JP": "入力割り当ての文字列",
         "pt-BR": "String de Mapeamento de Entrada",
-        "zh-CN": "输入绑定字符串"
+        "zh-CN": "输入绑定字符串",
+        "descriptionLocalized": {
+            "en-US": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables."
+        }
     },
     "_&isAlive": {
         "description": "Whether a player is alive.",
@@ -2128,7 +2417,10 @@ var valueFuncKw =
         "fr-FR": "En vie",
         "ja-JP": "生存している",
         "pt-BR": "É Vivo",
-        "zh-CN": "存活"
+        "zh-CN": "存活",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is alive."
+        }
     },
     "isAssemblingHeroes": {
         "description": "Whether the match is currently in its assemble heroes phase.",
@@ -2140,7 +2432,10 @@ var valueFuncKw =
         "fr-FR": "Phase de choix de héros",
         "ja-JP": "ヒーローを編成中",
         "pt-BR": "É Escolher Heróis",
-        "zh-CN": "正在集结英雄"
+        "zh-CN": "正在集结英雄",
+        "descriptionLocalized": {
+            "en-US": "Whether the match is currently in its assemble heroes phase."
+        }
     },
     "isMatchBetweenRounds": {
         "description": "Whether the match is between rounds.",
@@ -2152,7 +2447,10 @@ var valueFuncKw =
         "fr-FR": "Entre deux manches",
         "ja-JP": "ラウンドの間",
         "pt-BR": "É Entre Rodadas",
-        "zh-CN": "处于回合之间"
+        "zh-CN": "处于回合之间",
+        "descriptionLocalized": {
+            "en-US": "Whether the match is between rounds."
+        }
     },
     "_&isHoldingButton": {
         "description": "Whether a player is holding a specific button.",
@@ -2177,7 +2475,10 @@ var valueFuncKw =
         "fr-FR": "Bouton maintenu enfoncé",
         "ja-JP": "ボタンが長押しされている",
         "pt-BR": "É Botão Segurado",
-        "zh-CN": "按钮被按下"
+        "zh-CN": "按钮被按下",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is holding a specific button."
+        }
     },
     "_&isCommunicating": {
         "description": "Whether a player is using a specific communication type (such as emoting, using a voice line, etc.).",
@@ -2202,7 +2503,10 @@ var valueFuncKw =
         "fr-FR": "Communication",
         "ja-JP": "コミュニケーションしている",
         "pt-BR": "É Comunicando",
-        "zh-CN": "正在交流"
+        "zh-CN": "正在交流",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is using a specific communication type (such as emoting, using a voice line, etc.)."
+        }
     },
     "_&isCommunicatingAnything": {
         "description": "Whether a player is using any communication type (such as emoting, using a voice line, etc.).",
@@ -2221,7 +2525,10 @@ var valueFuncKw =
         "fr-FR": "N’importe quelle communication",
         "ja-JP": "任意の方法でコミュニケーションしている",
         "pt-BR": "É Comunicando Qualquer",
-        "zh-CN": "正在与人交流"
+        "zh-CN": "正在与人交流",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is using any communication type (such as emoting, using a voice line, etc.)."
+        }
     },
     "_&isCommunicatingEmote": {
         "description": "Whether a player is using an emote.",
@@ -2240,7 +2547,10 @@ var valueFuncKw =
         "fr-FR": "Communication par emote",
         "ja-JP": "エモートでコミュニケーションしている",
         "pt-BR": "É Comunicando Qualquer Emote",
-        "zh-CN": "正在使用表情交流"
+        "zh-CN": "正在使用表情交流",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is using an emote."
+        }
     },
     "_&isCommunicatingSpray": {
         "description": "Whether a Player is using a spray.",
@@ -2259,7 +2569,10 @@ var valueFuncKw =
         "fr-FR": "Communication par tag",
         "ja-JP": "スプレーでコミュニケーションしている",
         "pt-BR": "É Comunicando Qualquer Spray",
-        "zh-CN": "正在使用喷漆交流"
+        "zh-CN": "正在使用喷漆交流",
+        "descriptionLocalized": {
+            "en-US": "Whether a Player is using a spray."
+        }
     },
     "_&isCommunicatingVoiceline": {
         "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
@@ -2278,7 +2591,10 @@ var valueFuncKw =
         "fr-FR": "Communication par réplique",
         "ja-JP": "ボイス・ラインでコミュニケーションしている",
         "pt-BR": "É Comunicando Qualquer Fala",
-        "zh-CN": "正在使用语音交流"
+        "zh-CN": "正在使用语音交流",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)"
+        }
     },
     "isControlPointLocked": {
         "description": "Whether the point is locked in control mode.",
@@ -2290,7 +2606,10 @@ var valueFuncKw =
         "fr-FR": "Point de contrôle verrouillé",
         "ja-JP": "コントロール・モードでポイントがロックされている",
         "pt-BR": "É Ponto Bloqueado do Modo de Controle",
-        "zh-CN": "占领要点模式占领点解锁"
+        "zh-CN": "占领要点模式占领点解锁",
+        "descriptionLocalized": {
+            "en-US": "Whether the point is locked in control mode."
+        }
     },
     "_&isCrouching": {
         "description": "Whether a player is crouching.",
@@ -2309,7 +2628,10 @@ var valueFuncKw =
         "fr-FR": "Accroupi",
         "ja-JP": "しゃがんでいる",
         "pt-BR": "É Agachado",
-        "zh-CN": "正在蹲下"
+        "zh-CN": "正在蹲下",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is crouching."
+        }
     },
     "_&isInAlternateForm": {
         "description": "Whether the specified player is currently in an alternate form:\n        \n- Hammond's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead.",
@@ -2328,7 +2650,10 @@ var valueFuncKw =
         "fr-FR": "Est dans une forme alternative",
         "ja-JP": "異なる形態である",
         "pt-BR": "Está em uma Forma Alternativa",
-        "zh-CN": "处于非初始状态"
+        "zh-CN": "处于非初始状态",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified player is currently in an alternate form:\n        \n- Hammond's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead."
+        }
     },
     "isInSuddenDeath": {
         "description": "Whether the current game of capture the flag is in sudden death.",
@@ -2340,7 +2665,10 @@ var valueFuncKw =
         "fr-FR": "Capture du drapeau en mort subite",
         "ja-JP": "キャプチャー・ザ・フラッグ・モードがサドンデス中",
         "pt-BR": "É Modo CaB em Morte Súbita",
-        "zh-CN": "在夺旗模式中开始绝杀局"
+        "zh-CN": "在夺旗模式中开始绝杀局",
+        "descriptionLocalized": {
+            "en-US": "Whether the current game of capture the flag is in sudden death."
+        }
     },
     "_&isDead": {
         "description": "Whether a player is dead.",
@@ -2359,7 +2687,10 @@ var valueFuncKw =
         "fr-FR": "Mort",
         "ja-JP": "倒れている",
         "pt-BR": "É Morto",
-        "zh-CN": "死亡"
+        "zh-CN": "死亡",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is dead."
+        }
     },
     "_&isDummy": {
         "description": "Whether a player is a dummy bot.",
@@ -2378,7 +2709,10 @@ var valueFuncKw =
         "fr-FR": "Est une I.A.",
         "ja-JP": "ダミーボットである",
         "pt-BR": "É Bot",
-        "zh-CN": "是否是机器人"
+        "zh-CN": "是否是机器人",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is a dummy bot."
+        }
     },
     "_&isDuplicatingAHero": {
         "description": "Whether the specified player is duplicating another hero. To check which hero, use the Hero Being Duplicated value.",
@@ -2397,7 +2731,10 @@ var valueFuncKw =
         "fr-FR": "Effectue une duplication",
         "ja-JP": "コピー中",
         "pt-BR": "Está Duplicando",
-        "zh-CN": "正在人格复制"
+        "zh-CN": "正在人格复制",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified player is duplicating another hero. To check which hero, use the Hero Being Duplicated value."
+        }
     },
     "_&isFiringPrimaryFire": {
         "description": "Whether the specified player's primary weapon attack is being used.",
@@ -2416,7 +2753,10 @@ var valueFuncKw =
         "fr-FR": "Tir principal",
         "ja-JP": "メイン攻撃を使用中",
         "pt-BR": "É Disparo Primário",
-        "zh-CN": "正在使用主要武器"
+        "zh-CN": "正在使用主要武器",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified player's primary weapon attack is being used."
+        }
     },
     "_&isFiringSecondaryFire": {
         "description": "Whether the specified player's secondary weapon attack is being used.",
@@ -2435,7 +2775,10 @@ var valueFuncKw =
         "fr-FR": "Tir secondaire",
         "ja-JP": "サブ攻撃を使用中",
         "pt-BR": "É Disparo Secundário",
-        "zh-CN": "正在使用辅助武器"
+        "zh-CN": "正在使用辅助武器",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified player's secondary weapon attack is being used."
+        }
     },
     "isFlagAtBase": {
         "description": "Whether a specific team's flag is at its base in capture the flag.",
@@ -2454,7 +2797,10 @@ var valueFuncKw =
         "fr-FR": "Drapeau à la base",
         "ja-JP": "フラッグが陣地にある",
         "pt-BR": "É Bandeira na Base",
-        "zh-CN": "旗帜是否在基地中"
+        "zh-CN": "旗帜是否在基地中",
+        "descriptionLocalized": {
+            "en-US": "Whether a specific team's flag is at its base in capture the flag."
+        }
     },
     "isFlagBeingCarried": {
         "description": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag.",
@@ -2473,7 +2819,10 @@ var valueFuncKw =
         "fr-FR": "Drapeau transporté",
         "ja-JP": "フラッグが運ばれている",
         "pt-BR": "É Bandeira Sendo Carregada",
-        "zh-CN": "是否有人携带旗帜"
+        "zh-CN": "是否有人携带旗帜",
+        "descriptionLocalized": {
+            "en-US": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag."
+        }
     },
     "isGameInProgress": {
         "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
@@ -2485,7 +2834,10 @@ var valueFuncKw =
         "fr-FR": "Partie en cours",
         "ja-JP": "進行中のゲーム",
         "pt-BR": "É Jogo em Andamento",
-        "zh-CN": "游戏正在进行中"
+        "zh-CN": "游戏正在进行中",
+        "descriptionLocalized": {
+            "en-US": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed)."
+        }
     },
     "teamHasHero": {
         "description": "Whether a specific hero is being played (either on a team or in the match).",
@@ -2510,7 +2862,10 @@ var valueFuncKw =
         "fr-FR": "Héros joué",
         "ja-JP": "ヒーローがプレイされているか",
         "pt-BR": "É o Herói em Jogo",
-        "zh-CN": "正在使用英雄"
+        "zh-CN": "正在使用英雄",
+        "descriptionLocalized": {
+            "en-US": "Whether a specific hero is being played (either on a team or in the match)."
+        }
     },
     "_&isInAir": {
         "description": "Whether a player is airborne.",
@@ -2529,7 +2884,10 @@ var valueFuncKw =
         "fr-FR": "Dans les airs",
         "ja-JP": "空中にいる",
         "pt-BR": "É no Ar",
-        "zh-CN": "正在空中"
+        "zh-CN": "正在空中",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is airborne."
+        }
     },
     "isInLoS": {
         "description": "Whether two positions have line of sight with each other.",
@@ -2566,7 +2924,10 @@ var valueFuncKw =
         "fr-FR": "Dans la ligne de vue",
         "ja-JP": "射線が通っている",
         "pt-BR": "É Na Linha de Visão",
-        "zh-CN": "在视线内"
+        "zh-CN": "在视线内",
+        "descriptionLocalized": {
+            "en-US": "Whether two positions have line of sight with each other."
+        }
     },
     "isInSetup": {
         "description": "Whether the match is currently in its setup phase.",
@@ -2578,7 +2939,10 @@ var valueFuncKw =
         "fr-FR": "Dans les paramètres",
         "ja-JP": "セットアップ中",
         "pt-BR": "É em Organização",
-        "zh-CN": "正在设置"
+        "zh-CN": "正在设置",
+        "descriptionLocalized": {
+            "en-US": "Whether the match is currently in its setup phase."
+        }
     },
     "_&isInSpawnRoom": {
         "description": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes).",
@@ -2597,7 +2961,10 @@ var valueFuncKw =
         "fr-FR": "Dans la salle d’apparition",
         "ja-JP": "リスポーンエリアにいる",
         "pt-BR": "É Na Sala de Ressurgimento",
-        "zh-CN": "在重生室中"
+        "zh-CN": "在重生室中",
+        "descriptionLocalized": {
+            "en-US": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes)."
+        }
     },
     "_&isInViewAngle": {
         "description": "Whether a location is within view of a player.",
@@ -2628,7 +2995,10 @@ var valueFuncKw =
         "fr-FR": "Dans le champ de vision",
         "ja-JP": "視角範囲内",
         "pt-BR": "É No Ângulo de Visão",
-        "zh-CN": "在视野内"
+        "zh-CN": "在视野内",
+        "descriptionLocalized": {
+            "en-US": "Whether a location is within view of a player."
+        }
     },
     "_&isJumping": {
         "description": "Whether the specified player is jumping.",
@@ -2647,7 +3017,10 @@ var valueFuncKw =
         "fr-FR": "Utilise Saut",
         "ja-JP": "ジャンプ中",
         "pt-BR": "Está Pulando",
-        "zh-CN": "正在跳跃"
+        "zh-CN": "正在跳跃",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified player is jumping."
+        }
     },
     "isMatchComplete": {
         "description": "Whether the match has finished.",
@@ -2659,7 +3032,10 @@ var valueFuncKw =
         "fr-FR": "Partie terminée",
         "ja-JP": "マッチが完了している",
         "pt-BR": "É Partida Concluída",
-        "zh-CN": "比赛结束"
+        "zh-CN": "比赛结束",
+        "descriptionLocalized": {
+            "en-US": "Whether the match has finished."
+        }
     },
     "_&isMeleeing": {
         "description": "Whether the specified player is meleeing.",
@@ -2678,7 +3054,10 @@ var valueFuncKw =
         "fr-FR": "Utilise Mêlée",
         "ja-JP": "近接攻撃中",
         "pt-BR": "Está Usando Corpo a Corpo",
-        "zh-CN": "正在近战攻击"
+        "zh-CN": "正在近战攻击",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified player is meleeing."
+        }
     },
     "_&isMoving": {
         "description": "Whether a player is moving (defined as having a nonzero current speed).",
@@ -2697,7 +3076,10 @@ var valueFuncKw =
         "fr-FR": "Se déplace",
         "ja-JP": "移動している",
         "pt-BR": "É Movimentando-se",
-        "zh-CN": "正在移动"
+        "zh-CN": "正在移动",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is moving (defined as having a nonzero current speed)."
+        }
     },
     "isObjectiveComplete": {
         "description": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or assault/escort.",
@@ -2718,7 +3100,10 @@ var valueFuncKw =
         "fr-FR": "Objectif accompli",
         "ja-JP": "目標をクリアした",
         "pt-BR": "É Objetivo Concluído",
-        "zh-CN": "目标是否完成"
+        "zh-CN": "目标是否完成",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or assault/escort."
+        }
     },
     "_&isOnGround": {
         "description": "Whether a player is on the ground (or other walkable surface).",
@@ -2737,7 +3122,10 @@ var valueFuncKw =
         "fr-FR": "Au sol",
         "ja-JP": "地上にいる",
         "pt-BR": "É No Chão",
-        "zh-CN": "在地面上"
+        "zh-CN": "在地面上",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is on the ground (or other walkable surface)."
+        }
     },
     "_&isOnObjective": {
         "description": "Whether a specific player is currently occupying a payload or capture point.",
@@ -2756,7 +3144,10 @@ var valueFuncKw =
         "fr-FR": "Sur l’objectif",
         "ja-JP": "目標にいる",
         "pt-BR": "É No Objetivo",
-        "zh-CN": "在目标点上"
+        "zh-CN": "在目标点上",
+        "descriptionLocalized": {
+            "en-US": "Whether a specific player is currently occupying a payload or capture point."
+        }
     },
     "_&isOnWall": {
         "description": "Whether a player is on a wall (climbing or riding).",
@@ -2775,7 +3166,10 @@ var valueFuncKw =
         "fr-FR": "Sur le mur",
         "ja-JP": "壁の上にいる",
         "pt-BR": "É Na Parede",
-        "zh-CN": "在墙上"
+        "zh-CN": "在墙上",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is on a wall (climbing or riding)."
+        }
     },
     "_&isOnFire": {
         "description": "Whether a specific player's portrait is on fire.",
@@ -2791,10 +3185,13 @@ var valueFuncKw =
         "guid": "00000000B3B3",
         "en-US": "Is Portrait On Fire",
         "es-MX": "Retrato en llamas",
-        "fr-FR": "Portrait « en feu »",
+        "fr-FR": "Portrait « en feu »",
         "ja-JP": "ポートレートに炎エフェクトがついている",
         "pt-BR": "É Retrato Em Chamas",
-        "zh-CN": "头像火力全开"
+        "zh-CN": "头像火力全开",
+        "descriptionLocalized": {
+            "en-US": "Whether a specific player's portrait is on fire."
+        }
     },
     "_&isReloading": {
         "description": "Whether the specified player is reloading.",
@@ -2813,7 +3210,10 @@ var valueFuncKw =
         "fr-FR": "Utilise Recharger",
         "ja-JP": "リロード中",
         "pt-BR": "Está Recarregando",
-        "zh-CN": "正在装填"
+        "zh-CN": "正在装填",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified player is reloading."
+        }
     },
     "_&isStanding": {
         "description": "Whether a player is standing (defined as both not moving and not in the air).",
@@ -2832,7 +3232,10 @@ var valueFuncKw =
         "fr-FR": "Debout",
         "ja-JP": "立っている",
         "pt-BR": "É Parado",
-        "zh-CN": "正在站立"
+        "zh-CN": "正在站立",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is standing (defined as both not moving and not in the air)."
+        }
     },
     "isTeamOnDefense": {
         "description": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or assault/escort.",
@@ -2851,7 +3254,10 @@ var valueFuncKw =
         "fr-FR": "Équipe en défense",
         "ja-JP": "防衛側のチーム",
         "pt-BR": "É Equipe na Defensa",
-        "zh-CN": "正在防守"
+        "zh-CN": "正在防守",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or assault/escort."
+        }
     },
     "isTeamOnOffense": {
         "description": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or assault/escort.",
@@ -2870,7 +3276,10 @@ var valueFuncKw =
         "fr-FR": "Équipe en attaque",
         "ja-JP": "攻撃側のチーム",
         "pt-BR": "É Equipe no Ataque",
-        "zh-CN": "作为进攻队伍"
+        "zh-CN": "作为进攻队伍",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or assault/escort."
+        }
     },
     "__all__": {
         "description": "Whether the specified condition evaluates to true for every value in the specified array.",
@@ -2896,7 +3305,10 @@ var valueFuncKw =
         "fr-FR": "Vrai pour tous",
         "ja-JP": "すべてに対して「TRUE」",
         "pt-BR": "É Verdadeiro para Todos",
-        "zh-CN": "对全部为”真“"
+        "zh-CN": "对全部为”真“",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified condition evaluates to true for every value in the specified array."
+        }
     },
     "__any__": {
         "description": "Whether the specified condition evaluates to true for any value in the specified array.",
@@ -2922,7 +3334,10 @@ var valueFuncKw =
         "fr-FR": "Vrai pour n’importe qui",
         "ja-JP": "いずれに対しても「TRUE」",
         "pt-BR": "É Verdadeiro para Qualquer",
-        "zh-CN": "对任意为”真“"
+        "zh-CN": "对任意为”真“",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified condition evaluates to true for any value in the specified array."
+        }
     },
     "_&isUsingAbility1": {
         "description": "Whether the specified player is using ability 1.",
@@ -2941,7 +3356,10 @@ var valueFuncKw =
         "fr-FR": "Capacité 1 utilisée",
         "ja-JP": "アビリティ1を使用",
         "pt-BR": "É Usando Habilidade 1",
-        "zh-CN": "正在使用技能 1"
+        "zh-CN": "正在使用技能 1",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified player is using ability 1."
+        }
     },
     "_&isUsingAbility2": {
         "description": "Whether the specified player is using ability 2.",
@@ -2960,7 +3378,10 @@ var valueFuncKw =
         "fr-FR": "Capacité 2 utilisée",
         "ja-JP": "アビリティ2を使用",
         "pt-BR": "É Usando Habilidade 2",
-        "zh-CN": "正在使用技能 2"
+        "zh-CN": "正在使用技能 2",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified player is using ability 2."
+        }
     },
     "_&isUsingUltimate": {
         "description": "Whether a player is using an ultimate ability.",
@@ -2979,7 +3400,10 @@ var valueFuncKw =
         "fr-FR": "Capacité ultime utilisée",
         "ja-JP": "アルティメットを使用している",
         "pt-BR": "É Usando Suprema",
-        "zh-CN": "正在使用终极技能"
+        "zh-CN": "正在使用终极技能",
+        "descriptionLocalized": {
+            "en-US": "Whether a player is using an ultimate ability."
+        }
     },
     "isWaitingForPlayers": {
         "description": "Whether the match is waiting for players to join before starting.",
@@ -2991,7 +3415,10 @@ var valueFuncKw =
         "fr-FR": "En attente de joueurs",
         "ja-JP": "ほかのプレイヤーを待っている",
         "pt-BR": "É Aguardando Jogadores",
-        "zh-CN": "正在等待玩家"
+        "zh-CN": "正在等待玩家",
+        "descriptionLocalized": {
+            "en-US": "Whether the match is waiting for players to join before starting."
+        }
     },
     "getLastAssistID": {
         "description": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level).",
@@ -3003,7 +3430,10 @@ var valueFuncKw =
         "fr-FR": "Dernier identifiant de soutien",
         "ja-JP": "最新のアシストID",
         "pt-BR": "ID da Última Assistência",
-        "zh-CN": "上一个助攻ID"
+        "zh-CN": "上一个助攻ID",
+        "descriptionLocalized": {
+            "en-US": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level)."
+        }
     },
     "getLastCreatedEntity": {
         "description": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
@@ -3016,7 +3446,10 @@ var valueFuncKw =
         "fr-FR": "Dernière entité créée",
         "ja-JP": "最新のエンティティ",
         "pt-BR": "Entidade Criada por Último",
-        "zh-CN": "最后创建的实体"
+        "zh-CN": "最后创建的实体",
+        "descriptionLocalized": {
+            "en-US": "A reference to the last effect or icon entity created by the event player (or created at the global level)."
+        }
     },
     "getLastCreatedHealthPool": {
         "description": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level).",
@@ -3028,7 +3461,10 @@ var valueFuncKw =
         "fr-FR": "Dernière réserve de points de vie créée",
         "ja-JP": "最新のライフプール",
         "pt-BR": "Última Reserva de Vida Criada",
-        "zh-CN": "最后创建的生命池"
+        "zh-CN": "最后创建的生命池",
+        "descriptionLocalized": {
+            "en-US": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level)."
+        }
     },
     "getLastDamageModification": {
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
@@ -3040,7 +3476,10 @@ var valueFuncKw =
         "fr-FR": "Dernier identifiant de modification de dégâts",
         "ja-JP": "最新のダメージ変更ID",
         "pt-BR": "ID de Modificação de Dano Mais Recente",
-        "zh-CN": "上一个伤害调整ID"
+        "zh-CN": "上一个伤害调整ID",
+        "descriptionLocalized": {
+            "en-US": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level)."
+        }
     },
     "getLastDoT": {
         "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
@@ -3052,7 +3491,10 @@ var valueFuncKw =
         "fr-FR": "Dernier identifiant de dégâts sur la durée",
         "ja-JP": "最新の継続ダメージID",
         "pt-BR": "ID de Dano ao Longo do Tempo Mais Recente",
-        "zh-CN": "上一个持续伤害效果ID"
+        "zh-CN": "上一个持续伤害效果ID",
+        "descriptionLocalized": {
+            "en-US": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level)."
+        }
     },
     "getLastHoT": {
         "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
@@ -3064,7 +3506,10 @@ var valueFuncKw =
         "fr-FR": "Dernier identifiant de soins sur la durée",
         "ja-JP": "最新の継続回復ID",
         "pt-BR": "ID de Cura ao Longo do Tempo Mais Recente",
-        "zh-CN": "上一个持续治疗效果ID"
+        "zh-CN": "上一个持续治疗效果ID",
+        "descriptionLocalized": {
+            "en-US": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level)."
+        }
     },
     "getLastHealingModification": {
         "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
@@ -3076,7 +3521,10 @@ var valueFuncKw =
         "fr-FR": "Dernier identifiant de modification de soins",
         "ja-JP": "最新回復変更ID",
         "pt-BR": "ID da última modificação de cura",
-        "zh-CN": "上一个治疗调整ID"
+        "zh-CN": "上一个治疗调整ID",
+        "descriptionLocalized": {
+            "en-US": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level)."
+        }
     },
     "__lastOf__": {
         "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
@@ -3099,7 +3547,10 @@ var valueFuncKw =
         "fr-FR": "Dernier",
         "ja-JP": "最後の値",
         "pt-BR": "Último de",
-        "zh-CN": "最后"
+        "zh-CN": "最后",
+        "descriptionLocalized": {
+            "en-US": "The value at the end of the specified array. Results in 0 if the specified array is empty."
+        }
     },
     "getLastCreatedText": {
         "description": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action.",
@@ -3111,7 +3562,10 @@ var valueFuncKw =
         "fr-FR": "Dernier identifiant de texte",
         "ja-JP": "最新のテキストID",
         "pt-BR": "ID de Texto Mais Recente",
-        "zh-CN": "上一个文本ID"
+        "zh-CN": "上一个文本ID",
+        "descriptionLocalized": {
+            "en-US": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action."
+        }
     },
     "Vector.LEFT": {
         "guid": "00000000B116",
@@ -3131,7 +3585,10 @@ var valueFuncKw =
         "fr-FR": "Gauche",
         "ja-JP": "左",
         "pt-BR": "Esquerda",
-        "zh-CN": "左"
+        "zh-CN": "左",
+        "descriptionLocalized": {
+            "en-US": "Shorthand for the directional vector(1, 0, 0), which points to the left."
+        }
     },
     "localVector": {
         "description": "The vector in local coordinates corresponding to the provided vector in world coordinates.",
@@ -3163,7 +3620,10 @@ var valueFuncKw =
         "fr-FR": "Vecteur local de",
         "ja-JP": "ローカルのベクトル: ",
         "pt-BR": "Vetor Local de",
-        "zh-CN": "本地矢量"
+        "zh-CN": "本地矢量",
+        "descriptionLocalized": {
+            "en-US": "The vector in local coordinates corresponding to the provided vector in world coordinates."
+        }
     },
     "magnitude": {
         "description": "The magnitude (length) of the specified vector",
@@ -3183,7 +3643,10 @@ var valueFuncKw =
         "fr-FR": "Ampleur de",
         "ja-JP": "変化の大きさ:",
         "pt-BR": "Magnitude de",
-        "zh-CN": "幅值"
+        "zh-CN": "幅值",
+        "descriptionLocalized": {
+            "en-US": "The magnitude (length) of the specified vector"
+        }
     },
     "__map__": {
         "guid": "00000000D411",
@@ -3209,7 +3672,10 @@ var valueFuncKw =
         "pt-BR": "Mapa",
         "ru-RU": "Поле боя",
         "zh-CN": "地图",
-        "zh-TW": "地圖"
+        "zh-TW": "地圖",
+        "descriptionLocalized": {
+            "en-US": "A map constant."
+        }
     },
     "__mappedArray__": {
         "description": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element.",
@@ -3235,7 +3701,10 @@ var valueFuncKw =
         "fr-FR": "Tableau appliqué",
         "ja-JP": "マッピングされた配列",
         "pt-BR": "Matriz Mapeada",
-        "zh-CN": "映射的数组"
+        "zh-CN": "映射的数组",
+        "descriptionLocalized": {
+            "en-US": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element."
+        }
     },
     "getMatchRound": {
         "description": "The current round of the match, counting up from 1.",
@@ -3247,7 +3716,10 @@ var valueFuncKw =
         "fr-FR": "Manche de la partie",
         "ja-JP": "マッチのラウンド",
         "pt-BR": "Rodada da Partida",
-        "zh-CN": "比赛回合"
+        "zh-CN": "比赛回合",
+        "descriptionLocalized": {
+            "en-US": "The current round of the match, counting up from 1."
+        }
     },
     "getMatchTime": {
         "description": "The amount of time in seconds remaining in the current game mode phase.",
@@ -3259,7 +3731,10 @@ var valueFuncKw =
         "fr-FR": "Temps de jeu",
         "ja-JP": "マッチ時間",
         "pt-BR": "Tempo da Partida",
-        "zh-CN": "比赛时间"
+        "zh-CN": "比赛时间",
+        "descriptionLocalized": {
+            "en-US": "The amount of time in seconds remaining in the current game mode phase."
+        }
     },
     "max": {
         "guid": "00000000C418",
@@ -3289,7 +3764,10 @@ var valueFuncKw =
         "fr-FR": "Maximum",
         "ja-JP": "最大",
         "pt-BR": "Máx.",
-        "zh-CN": "较大"
+        "zh-CN": "较大",
+        "descriptionLocalized": {
+            "en-US": "The greater of two numbers."
+        }
     },
     "_&getMaxAmmo": {
         "description": "The current max ammo of a player.",
@@ -3316,7 +3794,10 @@ var valueFuncKw =
         "fr-FR": "Munitions maximum",
         "ja-JP": "最大弾薬数",
         "pt-BR": "Munição Máxima",
-        "zh-CN": "最大弹药量"
+        "zh-CN": "最大弹药量",
+        "descriptionLocalized": {
+            "en-US": "The current max ammo of a player."
+        }
     },
     "_&getMaxHealth": {
         "description": "The max health of a player, including armor and shields.",
@@ -3335,7 +3816,10 @@ var valueFuncKw =
         "fr-FR": "Points de vie maximum",
         "ja-JP": "最大ライフ",
         "pt-BR": "Vida Máxima",
-        "zh-CN": "最大生命值"
+        "zh-CN": "最大生命值",
+        "descriptionLocalized": {
+            "en-US": "The max health of a player, including armor and shields."
+        }
     },
     "_&getMaxHealthOfType": {
         "description": "The max health of the specified player, filtered by the given health type.",
@@ -3360,7 +3844,10 @@ var valueFuncKw =
         "fr-FR": "Points de vie maximum par type",
         "ja-JP": "タイプごとの最大ライフ",
         "pt-BR": "Vida Máxima do Tipo",
-        "zh-CN": "类型的最大生命值"
+        "zh-CN": "类型的最大生命值",
+        "descriptionLocalized": {
+            "en-US": "The max health of the specified player, filtered by the given health type."
+        }
     },
     "min": {
         "guid": "00000000C416",
@@ -3390,7 +3877,10 @@ var valueFuncKw =
         "fr-FR": "Minimum",
         "ja-JP": "分",
         "pt-BR": "Mín.",
-        "zh-CN": "较小"
+        "zh-CN": "较小",
+        "descriptionLocalized": {
+            "en-US": "The lesser of two numbers."
+        }
     },
     "__modulo__": {
         "guid": "00000000C410",
@@ -3417,7 +3907,10 @@ var valueFuncKw =
         "es-MX": "Módulo",
         "ja-JP": "剰余",
         "pt-BR": "Modular",
-        "zh-CN": "余数"
+        "zh-CN": "余数",
+        "descriptionLocalized": {
+            "en-US": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero."
+        }
     },
     "__multiply__": {
         "guid": "00000000C40D",
@@ -3452,7 +3945,10 @@ var valueFuncKw =
         "fr-FR": "Multiplication",
         "ja-JP": "乗算",
         "pt-BR": "Multiplicar",
-        "zh-CN": "乘"
+        "zh-CN": "乘",
+        "descriptionLocalized": {
+            "en-US": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector."
+        }
     },
     "nearestWalkablePosition": {
         "description": "The position closest to the specified position that can be stood on and is accessible from a spawn point.",
@@ -3472,7 +3968,10 @@ var valueFuncKw =
         "fr-FR": "Position la plus proche en marchant",
         "ja-JP": "最も近い歩行可能な位置",
         "pt-BR": "Posição Transitável Mais Próxima",
-        "zh-CN": "最近的可行走位置"
+        "zh-CN": "最近的可行走位置",
+        "descriptionLocalized": {
+            "en-US": "The position closest to the specified position that can be stood on and is accessible from a spawn point."
+        }
     },
     "normalize": {
         "description": "The unit-length normalization of a vector.",
@@ -3493,7 +3992,10 @@ var valueFuncKw =
         "fr-FR": "Normalisation",
         "ja-JP": "正規化",
         "pt-BR": "Normalizar",
-        "zh-CN": "归一化"
+        "zh-CN": "归一化",
+        "descriptionLocalized": {
+            "en-US": "The unit-length normalization of a vector."
+        }
     },
     "__not__": {
         "guid": "00000000B275",
@@ -3513,7 +4015,10 @@ var valueFuncKw =
         "fr-FR": "Pas",
         "ja-JP": "NOT",
         "pt-BR": "Não",
-        "zh-CN": "非"
+        "zh-CN": "非",
+        "descriptionLocalized": {
+            "en-US": "Whether the input is false (or equivalent to false)."
+        }
     },
     "null": {
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
@@ -3527,7 +4032,10 @@ var valueFuncKw =
         "fr-FR": "Non applicable",
         "ja-JP": "NULL",
         "pt-BR": "Nulo",
-        "zh-CN": "无"
+        "zh-CN": "无",
+        "descriptionLocalized": {
+            "en-US": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging."
+        }
     },
     "getNumberOfDeadPlayers": {
         "description": "The number of dead players on a team or in the match.",
@@ -3548,7 +4056,10 @@ var valueFuncKw =
         "it-IT": "Number of Dead Players",
         "ja-JP": "倒れたプレイヤーの数",
         "pt-BR": "Número de Jogadores Mortos",
-        "zh-CN": "死亡玩家数量"
+        "zh-CN": "死亡玩家数量",
+        "descriptionLocalized": {
+            "en-US": "The number of dead players on a team or in the match."
+        }
     },
     "_&getNumberOfDeaths": {
         "description": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress.",
@@ -3569,7 +4080,10 @@ var valueFuncKw =
         "it-IT": "Number of Deaths",
         "ja-JP": "デス数",
         "pt-BR": "Número de Mortes",
-        "zh-CN": "死亡数"
+        "zh-CN": "死亡数",
+        "descriptionLocalized": {
+            "en-US": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress."
+        }
     },
     "_&getNumberOfElims": {
         "description": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress.",
@@ -3590,7 +4104,10 @@ var valueFuncKw =
         "it-IT": "Number of Eliminations",
         "ja-JP": "キル数",
         "pt-BR": "Número de Eliminações",
-        "zh-CN": "消灭数"
+        "zh-CN": "消灭数",
+        "descriptionLocalized": {
+            "en-US": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress."
+        }
     },
     "_&getNumberOfFinalBlows": {
         "description": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress.",
@@ -3611,7 +4128,10 @@ var valueFuncKw =
         "it-IT": "Number of Final Blows",
         "ja-JP": "ファイナル・ブロウ数",
         "pt-BR": "Número de Golpes Finais",
-        "zh-CN": "最后一击数"
+        "zh-CN": "最后一击数",
+        "descriptionLocalized": {
+            "en-US": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress."
+        }
     },
     "getNumberOfHeroes": {
         "description": "The number of players playing a specific hero on a team or in the match.",
@@ -3638,7 +4158,10 @@ var valueFuncKw =
         "it-IT": "Number of Heroes",
         "ja-JP": "ヒーローの数",
         "pt-BR": "Número de Heróis",
-        "zh-CN": "英雄数量"
+        "zh-CN": "英雄数量",
+        "descriptionLocalized": {
+            "en-US": "The number of players playing a specific hero on a team or in the match."
+        }
     },
     "getNumberOfLivingPlayers": {
         "description": "The number of living players on a team or in the match.",
@@ -3659,7 +4182,10 @@ var valueFuncKw =
         "it-IT": "Number of Living Players",
         "ja-JP": "生存プレイヤーの数",
         "pt-BR": "Número de Jogadores Vivos",
-        "zh-CN": "存活玩家数量"
+        "zh-CN": "存活玩家数量",
+        "descriptionLocalized": {
+            "en-US": "The number of living players on a team or in the match."
+        }
     },
     "getNumberOfPlayers": {
         "description": "The number of players on a team or in the match.",
@@ -3680,7 +4206,10 @@ var valueFuncKw =
         "it-IT": "Number of Players",
         "ja-JP": "プレイヤーの数",
         "pt-BR": "Número de Jogadores",
-        "zh-CN": "玩家数量"
+        "zh-CN": "玩家数量",
+        "descriptionLocalized": {
+            "en-US": "The number of players on a team or in the match."
+        }
     },
     "getNumberOfPlayersOnObjective": {
         "description": "The number of players occupying a payload or control point (either on a team or in the match).",
@@ -3701,7 +4230,10 @@ var valueFuncKw =
         "it-IT": "Number of Players On Objective",
         "ja-JP": "目標を確保中のプレイヤーの数",
         "pt-BR": "Número de Jogadores no Objetivo",
-        "zh-CN": "目标点上玩家数量"
+        "zh-CN": "目标点上玩家数量",
+        "descriptionLocalized": {
+            "en-US": "The number of players occupying a payload or control point (either on a team or in the match)."
+        }
     },
     "getNumberOfSlots": {
         "description": "The number of slots on a team or in the match.",
@@ -3722,7 +4254,10 @@ var valueFuncKw =
         "it-IT": "Number of Slots",
         "ja-JP": "スロットの数",
         "pt-BR": "Número de Espaços",
-        "zh-CN": "栏位数量"
+        "zh-CN": "栏位数量",
+        "descriptionLocalized": {
+            "en-US": "The number of slots on a team or in the match."
+        }
     },
     "getCurrentObjective": {
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
@@ -3734,7 +4269,10 @@ var valueFuncKw =
         "fr-FR": "Index de l’objectif",
         "ja-JP": "コントロール・モードのサブマップ番号",
         "pt-BR": "Índice do Objetivo",
-        "zh-CN": "对象索引"
+        "zh-CN": "对象索引",
+        "descriptionLocalized": {
+            "en-US": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control."
+        }
     },
     "getObjectivePosition": {
         "description": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, assault/escort, escort, and control.",
@@ -3756,7 +4294,10 @@ var valueFuncKw =
         "fr-FR": "Position de l’objectif",
         "ja-JP": "目標の位置",
         "pt-BR": "Posição do Objetivo",
-        "zh-CN": "目标位置"
+        "zh-CN": "目标位置",
+        "descriptionLocalized": {
+            "en-US": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, assault/escort, escort, and control."
+        }
     },
     "getOppositeTeam": {
         "description": "The team opposite the specified team.",
@@ -3777,7 +4318,10 @@ var valueFuncKw =
         "fr-FR": "Équipe opposée à",
         "ja-JP": "相手チーム: ",
         "pt-BR": "Equipe Adversária de",
-        "zh-CN": "对方队伍"
+        "zh-CN": "对方队伍",
+        "descriptionLocalized": {
+            "en-US": "The team opposite the specified team."
+        }
     },
     "__or__": {
         "guid": "00000000B274",
@@ -3803,7 +4347,10 @@ var valueFuncKw =
         "fr-FR": "Ou",
         "ja-JP": "OR",
         "pt-BR": "Ou",
-        "zh-CN": "或"
+        "zh-CN": "或",
+        "descriptionLocalized": {
+            "en-US": "Whether either of the two inputs are true (or equivalent to true)."
+        }
     },
     "getPayloadPosition": {
         "description": "The position in the world of the active payload.",
@@ -3816,7 +4363,10 @@ var valueFuncKw =
         "fr-FR": "Position du convoi",
         "ja-JP": "ペイロードの位置",
         "pt-BR": "Posição da Carga",
-        "zh-CN": "运载目标位置"
+        "zh-CN": "运载目标位置",
+        "descriptionLocalized": {
+            "en-US": "The position in the world of the active payload."
+        }
     },
     "getPayloadProgressPercentage": {
         "description": "The current progress towards the destination for the active payload (expressed as a percentage).",
@@ -3828,7 +4378,10 @@ var valueFuncKw =
         "fr-FR": "Pourcentage de progression du convoi",
         "ja-JP": "ペイロード進行のパーセンテージ",
         "pt-BR": "Percentual de Progresso da Carga",
-        "zh-CN": "运载目标进度百分比"
+        "zh-CN": "运载目标进度百分比",
+        "descriptionLocalized": {
+            "en-US": "The current progress towards the destination for the active payload (expressed as a percentage)."
+        }
     },
     "getFlagCarrier": {
         "description": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag.",
@@ -3848,7 +4401,10 @@ var valueFuncKw =
         "fr-FR": "Joueur portant le drapeau",
         "ja-JP": "フラッグを運んでいる",
         "pt-BR": "Jogador Carregando a Bandeira",
-        "zh-CN": "携带旗帜的玩家"
+        "zh-CN": "携带旗帜的玩家",
+        "descriptionLocalized": {
+            "en-US": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag."
+        }
     },
     "_&getPlayerClosestToReticle": {
         "description": "The player closest to the reticle of the specified player, optionally restricted by team.",
@@ -3873,7 +4429,10 @@ var valueFuncKw =
         "fr-FR": "Joueur le plus proche du réticule",
         "ja-JP": "照準に最も近いプレイヤー",
         "pt-BR": "Jogador Mais Próximo da Mira",
-        "zh-CN": "距离准星最近的玩家"
+        "zh-CN": "距离准星最近的玩家",
+        "descriptionLocalized": {
+            "en-US": "The player closest to the reticle of the specified player, optionally restricted by team."
+        }
     },
     "_&getHeroStatistic": {
         "description": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
@@ -3904,7 +4463,10 @@ var valueFuncKw =
         "fr-FR": "Stats de héros de joueur",
         "ja-JP": "プレイヤー・ヒーロー統計",
         "pt-BR": "Estatística de Herói do Jogador",
-        "zh-CN": "玩家英雄数据"
+        "zh-CN": "玩家英雄数据",
+        "descriptionLocalized": {
+            "en-US": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics."
+        }
     },
     "_&getStatistic": {
         "description": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
@@ -3929,7 +4491,10 @@ var valueFuncKw =
         "fr-FR": "Stats de joueur",
         "ja-JP": "プレイヤーの統計",
         "pt-BR": "Estatística de Jogador",
-        "zh-CN": "玩家数据"
+        "zh-CN": "玩家数据",
+        "descriptionLocalized": {
+            "en-US": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics."
+        }
     },
     "__playerVar__": {
         "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
@@ -3954,7 +4519,10 @@ var valueFuncKw =
         "fr-FR": "Variable de joueur",
         "ja-JP": "プレイヤー変数",
         "pt-BR": "Variável de Jogador",
-        "zh-CN": "玩家变量"
+        "zh-CN": "玩家变量",
+        "descriptionLocalized": {
+            "en-US": "The current value of a player variable, which is a variable that belongs to a specific player."
+        }
     },
     "getPlayersInSlot": {
         "description": "The player or array of players who occupy a specific slot in the game.",
@@ -3987,7 +4555,10 @@ var valueFuncKw =
         "fr-FR": "Joueurs dans l’emplacement",
         "ja-JP": "スロットに入ったプレイヤー",
         "pt-BR": "Jogadores no Espaço",
-        "zh-CN": "此位置的玩家"
+        "zh-CN": "此位置的玩家",
+        "descriptionLocalized": {
+            "en-US": "The player or array of players who occupy a specific slot in the game."
+        }
     },
     "_&getPlayersInViewAngle": {
         "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.",
@@ -4020,7 +4591,10 @@ var valueFuncKw =
         "fr-FR": "Joueurs dans le champ de vision",
         "ja-JP": "視角範囲内のプレイヤー",
         "pt-BR": "Jogadores no Ângulo de Visão",
-        "zh-CN": "视角中的玩家"
+        "zh-CN": "视角中的玩家",
+        "descriptionLocalized": {
+            "en-US": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team."
+        }
     },
     "getPlayersOnHero": {
         "description": "The array of players playing a specific hero on a team or in the match.",
@@ -4048,7 +4622,10 @@ var valueFuncKw =
         "fr-FR": "Joueurs sur le héros",
         "ja-JP": "ヒーローを使用中のプレイヤー",
         "pt-BR": "Jogadores Usando o Herói",
-        "zh-CN": "选择英雄的玩家"
+        "zh-CN": "选择英雄的玩家",
+        "descriptionLocalized": {
+            "en-US": "The array of players playing a specific hero on a team or in the match."
+        }
     },
     "getPlayersInRadius": {
         "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.",
@@ -4088,7 +4665,10 @@ var valueFuncKw =
         "fr-FR": "Joueurs dans un rayon",
         "ja-JP": "範囲内のプレイヤー",
         "pt-BR": "Jogadores no Raio",
-        "zh-CN": "范围内玩家"
+        "zh-CN": "范围内玩家",
+        "descriptionLocalized": {
+            "en-US": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight."
+        }
     },
     "getCapturePercentage": {
         "description": "The current progress towards capture for the active control point (expressed as a percentage).",
@@ -4100,7 +4680,10 @@ var valueFuncKw =
         "fr-FR": "Pourcentage de capture du point",
         "ja-JP": "ポイント・キャプチャーのパーセンテージ",
         "pt-BR": "Percentual de Captura do Ponto",
-        "zh-CN": "目标点占领百分比"
+        "zh-CN": "目标点占领百分比",
+        "descriptionLocalized": {
+            "en-US": "The current progress towards capture for the active control point (expressed as a percentage)."
+        }
     },
     "_&getPosition": {
         "description": "The current position of a player as a vector.",
@@ -4120,7 +4703,10 @@ var valueFuncKw =
         "fr-FR": "Position de",
         "ja-JP": "位置: ",
         "pt-BR": "Posição de",
-        "zh-CN": "所选位置"
+        "zh-CN": "所选位置",
+        "descriptionLocalized": {
+            "en-US": "The current position of a player as a vector."
+        }
     },
     "__raiseToPower__": {
         "guid": "00000000C414",
@@ -4146,7 +4732,10 @@ var valueFuncKw =
         "fr-FR": "Élévation à une puissance ",
         "ja-JP": "累乗",
         "pt-BR": "Elevar à Potência",
-        "zh-CN": "乘方"
+        "zh-CN": "乘方",
+        "descriptionLocalized": {
+            "en-US": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero."
+        }
     },
     "random.randint": {
         "description": "A random integer between the specified min and max, inclusive.",
@@ -4175,7 +4764,10 @@ var valueFuncKw =
         "fr-FR": "Nombre entier aléatoire",
         "ja-JP": "ランダムな整数",
         "pt-BR": "Inteiro Aleatório",
-        "zh-CN": "随机整数"
+        "zh-CN": "随机整数",
+        "descriptionLocalized": {
+            "en-US": "A random integer between the specified min and max, inclusive."
+        }
     },
     "random.uniform": {
         "description": "A random real number between the specified min and max.",
@@ -4200,7 +4792,10 @@ var valueFuncKw =
         "fr-FR": "Nombre réel aléatoire",
         "ja-JP": "ランダムな実数",
         "pt-BR": "Real Aleatório",
-        "zh-CN": "随机实数"
+        "zh-CN": "随机实数",
+        "descriptionLocalized": {
+            "en-US": "A random real number between the specified min and max."
+        }
     },
     "random.choice": {
         "description": "A random value from the specified array.",
@@ -4222,7 +4817,10 @@ var valueFuncKw =
         "fr-FR": "Valeur aléatoire dans le tableau",
         "ja-JP": "配列内のランダムな値",
         "pt-BR": "Valor Aleatório na Matriz",
-        "zh-CN": "数组随机取值"
+        "zh-CN": "数组随机取值",
+        "descriptionLocalized": {
+            "en-US": "A random value from the specified array."
+        }
     },
     "random.shuffle": {
         "description": "A copy of the specified array with the values in a random order.",
@@ -4241,7 +4839,10 @@ var valueFuncKw =
         "fr-FR": "Tableau aléatoire",
         "ja-JP": "ランダム化された配列",
         "pt-BR": "Matriz Randomizada",
-        "zh-CN": "随机数组"
+        "zh-CN": "随机数组",
+        "descriptionLocalized": {
+            "en-US": "A copy of the specified array with the values in a random order."
+        }
     },
     "__raycastHitNormal__": {
         "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
@@ -4289,7 +4890,10 @@ var valueFuncKw =
         "fr-FR": "Surface intersectée par le rayon émis",
         "ja-JP": "レイ・キャストが当たった法線",
         "pt-BR": "Normal de Acerto do Lançamento de Raio",
-        "zh-CN": "射线命中法线"
+        "zh-CN": "射线命中法线",
+        "descriptionLocalized": {
+            "en-US": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs)."
+        }
     },
     "__raycastHitPlayer__": {
         "description": "The player hit by the ray cast (or null if no player is hit).",
@@ -4337,7 +4941,10 @@ var valueFuncKw =
         "fr-FR": "Joueur intersecté par le rayon émis",
         "ja-JP": "レイ・キャストが当たったプレイヤー",
         "pt-BR": "Jogador Atingido pelo Lançamento de Raio",
-        "zh-CN": "射线命中玩家"
+        "zh-CN": "射线命中玩家",
+        "descriptionLocalized": {
+            "en-US": "The player hit by the ray cast (or null if no player is hit)."
+        }
     },
     "__raycastHitPosition__": {
         "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
@@ -4385,7 +4992,10 @@ var valueFuncKw =
         "fr-FR": "Position d’impact du rayon émis",
         "ja-JP": "レイ・キャストのヒット位置",
         "pt-BR": "Posição de Acerto do Lançamento de Raio",
-        "zh-CN": "射线命中位置"
+        "zh-CN": "射线命中位置",
+        "descriptionLocalized": {
+            "en-US": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs)."
+        }
     },
     "__removeFromArray__": {
         "description": "A copy of an array with one or more values removed (if found).",
@@ -4415,7 +5025,10 @@ var valueFuncKw =
         "fr-FR": "Supprimer du tableau",
         "ja-JP": "配列から削除",
         "pt-BR": "Remover da Matriz",
-        "zh-CN": "从数组中移除"
+        "zh-CN": "从数组中移除",
+        "descriptionLocalized": {
+            "en-US": "A copy of an array with one or more values removed (if found)."
+        }
     },
     "Vector.RIGHT": {
         "guid": "00000000B117",
@@ -4435,7 +5048,10 @@ var valueFuncKw =
         "fr-FR": "Droite",
         "ja-JP": "右",
         "pt-BR": "Direita",
-        "zh-CN": "右"
+        "zh-CN": "右",
+        "descriptionLocalized": {
+            "en-US": "Shorthand for the directional vector(-1, 0, 0), which points to the right."
+        }
     },
     "__round__": {
         "description": "The integer to which the specified value rounds.",
@@ -4461,7 +5077,10 @@ var valueFuncKw =
         "fr-FR": "Arrondir à l’entier",
         "ja-JP": "整数への四捨五入",
         "pt-BR": "Arredondar para Inteiro",
-        "zh-CN": "取整"
+        "zh-CN": "取整",
+        "descriptionLocalized": {
+            "en-US": "The integer to which the specified value rounds."
+        }
     },
     "_&getScore": {
         "description": "The current score of a player. Results in 0 if the game mode is not free-for-all.",
@@ -4480,7 +5099,10 @@ var valueFuncKw =
         "fr-FR": "Score de",
         "ja-JP": "スコア: ",
         "pt-BR": "Pontuação de",
-        "zh-CN": "分数"
+        "zh-CN": "分数",
+        "descriptionLocalized": {
+            "en-US": "The current score of a player. Results in 0 if the game mode is not free-for-all."
+        }
     },
     "getServerLoad": {
         "guid": "00000000C961",
@@ -4492,7 +5114,10 @@ var valueFuncKw =
         "fr-FR": "Charge du serveur",
         "ja-JP": "サーバー負荷",
         "pt-BR": "Uso do Servidor",
-        "zh-CN": "服务器负载"
+        "zh-CN": "服务器负载",
+        "descriptionLocalized": {
+            "en-US": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources."
+        }
     },
     "getAverageServerLoad": {
         "guid": "00000000C997",
@@ -4504,7 +5129,10 @@ var valueFuncKw =
         "fr-FR": "Charge moyenne du serveur",
         "ja-JP": "サーバー負荷平均",
         "pt-BR": "Média de Uso do Servidor",
-        "zh-CN": "服务器负载平均值"
+        "zh-CN": "服务器负载平均值",
+        "descriptionLocalized": {
+            "en-US": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources."
+        }
     },
     "getPeakServerLoad": {
         "guid": "00000000C996",
@@ -4516,7 +5144,10 @@ var valueFuncKw =
         "fr-FR": "Pic de charge du serveur",
         "ja-JP": "サーバー負荷ピーク",
         "pt-BR": "Pico de Uso do Servidor",
-        "zh-CN": "服务器负载峰值"
+        "zh-CN": "服务器负载峰值",
+        "descriptionLocalized": {
+            "en-US": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources."
+        }
     },
     "sinDeg": {
         "description": "Sine of the specified angle in degrees.",
@@ -4536,7 +5167,10 @@ var valueFuncKw =
         "fr-FR": "Sinus en degrés",
         "ja-JP": "度のサイン",
         "pt-BR": "Seno de Graus",
-        "zh-CN": "角度的正弦值"
+        "zh-CN": "角度的正弦值",
+        "descriptionLocalized": {
+            "en-US": "Sine of the specified angle in degrees."
+        }
     },
     "sin": {
         "description": "Sine of the specified angle in radians.",
@@ -4556,7 +5190,10 @@ var valueFuncKw =
         "fr-FR": "Sinus en radians",
         "ja-JP": "ラジアンのサイン",
         "pt-BR": "Seno de Radianos",
-        "zh-CN": "弧度的正弦值"
+        "zh-CN": "弧度的正弦值",
+        "descriptionLocalized": {
+            "en-US": "Sine of the specified angle in radians."
+        }
     },
     "_&getSlot": {
         "description": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
@@ -4575,7 +5212,10 @@ var valueFuncKw =
         "fr-FR": "Emplacement de",
         "ja-JP": "スロット: ",
         "pt-BR": "Espaço de",
-        "zh-CN": "位置"
+        "zh-CN": "位置",
+        "descriptionLocalized": {
+            "en-US": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11."
+        }
     },
     "__sortedArray__": {
         "description": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element.",
@@ -4605,7 +5245,10 @@ var valueFuncKw =
         "fr-FR": "Tableau trié",
         "ja-JP": "ソートされた配列",
         "pt-BR": "Matriz Ordenada",
-        "zh-CN": "已排序的数组"
+        "zh-CN": "已排序的数组",
+        "descriptionLocalized": {
+            "en-US": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element."
+        }
     },
     "getSpawnPoints": {
         "description": "The active spawn points for a team or for the match, provided as an array of position vectors.",
@@ -4626,7 +5269,10 @@ var valueFuncKw =
         "fr-FR": "Points d’apparition",
         "ja-JP": "リスポーン地点",
         "pt-BR": "Pontos de Ressurgimento",
-        "zh-CN": "重生点"
+        "zh-CN": "重生点",
+        "descriptionLocalized": {
+            "en-US": "The active spawn points for a team or for the match, provided as an array of position vectors."
+        }
     },
     "_&getSpeed": {
         "description": "The current speed of a player in meters per second.",
@@ -4645,7 +5291,10 @@ var valueFuncKw =
         "fr-FR": "Vitesse de",
         "ja-JP": "速さ: ",
         "pt-BR": "Velocidade de",
-        "zh-CN": "速度"
+        "zh-CN": "速度",
+        "descriptionLocalized": {
+            "en-US": "The current speed of a player in meters per second."
+        }
     },
     "_&getSpeedInDirection": {
         "description": "The current speed of a player in a specific direction in meters per second.",
@@ -4670,7 +5319,10 @@ var valueFuncKw =
         "fr-FR": "Vitesse dans la direction donnée de",
         "ja-JP": "速さと方向: ",
         "pt-BR": "Velocidade de na Direção",
-        "zh-CN": "指定方向速度"
+        "zh-CN": "指定方向速度",
+        "descriptionLocalized": {
+            "en-US": "The current speed of a player in a specific direction in meters per second."
+        }
     },
     "sqrt": {
         "description": "The square root of the specified value.",
@@ -4690,7 +5342,10 @@ var valueFuncKw =
         "fr-FR": "Racine carrée",
         "ja-JP": "平方根",
         "pt-BR": "Raiz Quadrada",
-        "zh-CN": "平方根"
+        "zh-CN": "平方根",
+        "descriptionLocalized": {
+            "en-US": "The square root of the specified value."
+        }
     },
     "__localizedString__": {
         "guid": "00000000BA60",
@@ -4731,7 +5386,10 @@ var valueFuncKw =
         "es-MX": "Cadena",
         "fr-FR": "Chaîne de texte",
         "ja-JP": "文字列",
-        "zh-CN": "字符串"
+        "zh-CN": "字符串",
+        "descriptionLocalized": {
+            "en-US": "Text formed from a selection of strings and specified values."
+        }
     },
     "strContains": {
         "description": "Whether the specified string contains the specified substring.",
@@ -4757,7 +5415,10 @@ var valueFuncKw =
         "fr-FR": "Contenu de la chaîne",
         "ja-JP": "含む文字列",
         "pt-BR": "String Contém",
-        "zh-CN": "字符串包含"
+        "zh-CN": "字符串包含",
+        "descriptionLocalized": {
+            "en-US": "Whether the specified string contains the specified substring."
+        }
     },
     "strLen": {
         "description": "The length in characters of the provided string.",
@@ -4777,7 +5438,10 @@ var valueFuncKw =
         "fr-FR": "Longueur de la chaîne",
         "ja-JP": "文字列の長さ",
         "pt-BR": "Tamanho da String",
-        "zh-CN": "字符串长度"
+        "zh-CN": "字符串长度",
+        "descriptionLocalized": {
+            "en-US": "The length in characters of the provided string."
+        }
     },
     "__substring__": {
         "description": "The substring of the provided string.",
@@ -4809,7 +5473,10 @@ var valueFuncKw =
         "fr-FR": "Section de la chaîne",
         "ja-JP": "文字列の切り取り",
         "pt-BR": "Fatia da String",
-        "zh-CN": "截取字符串"
+        "zh-CN": "截取字符串",
+        "descriptionLocalized": {
+            "en-US": "The substring of the provided string."
+        }
     },
     "__subtract__": {
         "guid": "00000000C40A",
@@ -4847,7 +5514,10 @@ var valueFuncKw =
         "fr-FR": "Soustraction",
         "ja-JP": "減算",
         "pt-BR": "Subtrair",
-        "zh-CN": "减"
+        "zh-CN": "减",
+        "descriptionLocalized": {
+            "en-US": "The difference between two numbers or vectors."
+        }
     },
     "tanDeg": {
         "description": "Tangent of the specified angle in degrees.",
@@ -4867,7 +5537,10 @@ var valueFuncKw =
         "fr-FR": "Tangente en degrés",
         "ja-JP": "度のタンジェント",
         "pt-BR": "Tangente de Graus",
-        "zh-CN": "角度的正切值"
+        "zh-CN": "角度的正切值",
+        "descriptionLocalized": {
+            "en-US": "Tangent of the specified angle in degrees."
+        }
     },
     "tan": {
         "description": "Tangent of the specified angle in radians.",
@@ -4887,7 +5560,10 @@ var valueFuncKw =
         "fr-FR": "Tangente en radians",
         "ja-JP": "ラジアンのタンジェント",
         "pt-BR": "Tangente de Radianos",
-        "zh-CN": "弧度的正切值"
+        "zh-CN": "弧度的正切值",
+        "descriptionLocalized": {
+            "en-US": "Tangent of the specified angle in radians."
+        }
     },
     "_&getTeam": {
         "description": "The team of a player. If the game mode is free-for-all, the team is considered to be all.",
@@ -4907,7 +5583,10 @@ var valueFuncKw =
         "fr-FR": "Équipe de",
         "ja-JP": "チーム: ",
         "pt-BR": "Equipe de",
-        "zh-CN": "所在队伍"
+        "zh-CN": "所在队伍",
+        "descriptionLocalized": {
+            "en-US": "The team of a player. If the game mode is free-for-all, the team is considered to be all."
+        }
     },
     "teamScore": {
         "guid": "00000000B353",
@@ -4926,7 +5605,10 @@ var valueFuncKw =
         "fr-FR": "Score de l’équipe",
         "ja-JP": "チーム・スコア",
         "pt-BR": "Pontuação da Equipe",
-        "zh-CN": "团队得分"
+        "zh-CN": "团队得分",
+        "descriptionLocalized": {
+            "en-US": "The current score for the specified team. Results in 0 in free-for-all game modes."
+        }
     },
     "_&getThrottle": {
         "description": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward).",
@@ -4946,7 +5628,10 @@ var valueFuncKw =
         "fr-FR": "Accélération de",
         "ja-JP": "スロットル: ",
         "pt-BR": "Aceleração de",
-        "zh-CN": "阈值"
+        "zh-CN": "阈值",
+        "descriptionLocalized": {
+            "en-US": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward)."
+        }
     },
     "getTotalTimeElapsed": {
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
@@ -4958,7 +5643,10 @@ var valueFuncKw =
         "fr-FR": "Temps total écoulé",
         "ja-JP": "合計経過時間",
         "pt-BR": "Tempo Total Decorrido",
-        "zh-CN": "总计消耗时间"
+        "zh-CN": "总计消耗时间",
+        "descriptionLocalized": {
+            "en-US": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions)."
+        }
     },
     "true": {
         "description": "The boolean value of true.",
@@ -4969,7 +5657,10 @@ var valueFuncKw =
         "en-US": "True",
         "es-MX": "Verdadero",
         "fr-FR": "Vrai",
-        "zh-CN": "真"
+        "zh-CN": "真",
+        "descriptionLocalized": {
+            "en-US": "The boolean value of true."
+        }
     },
     "_&getUltCharge": {
         "description": "The current ultimate ability charge percentage of a player.",
@@ -4988,7 +5679,10 @@ var valueFuncKw =
         "fr-FR": "Pourcentage de charge de la capacité ultime",
         "ja-JP": "アルティメット・チャージのパーセンテージ",
         "pt-BR": "Percentual de Carga da Suprema",
-        "zh-CN": "终极技能充能百分比"
+        "zh-CN": "终极技能充能百分比",
+        "descriptionLocalized": {
+            "en-US": "The current ultimate ability charge percentage of a player."
+        }
     },
     "updateEveryTick": {
         "description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate.",
@@ -5014,7 +5708,10 @@ var valueFuncKw =
         "fr-FR": "Actualiser à chaque image",
         "ja-JP": "フレームごとに更新",
         "pt-BR": "Atualizar a Cada Quadro",
-        "zh-CN": "逐帧更新"
+        "zh-CN": "逐帧更新",
+        "descriptionLocalized": {
+            "en-US": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate."
+        }
     },
     "Vector.UP": {
         "guid": "00000000B118",
@@ -5034,7 +5731,10 @@ var valueFuncKw =
         "fr-FR": "Haut",
         "ja-JP": "上",
         "pt-BR": "Cima",
-        "zh-CN": "上"
+        "zh-CN": "上",
+        "descriptionLocalized": {
+            "en-US": "Shorthand for the directional vector(0, 1, 0), which points upward."
+        }
     },
     "__valueInArray__": {
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
@@ -5065,7 +5765,10 @@ var valueFuncKw =
         "fr-FR": "Valeur dans le tableau",
         "ja-JP": "配列内の値",
         "pt-BR": "Valor na Matriz",
-        "zh-CN": "数组中的值"
+        "zh-CN": "数组中的值",
+        "descriptionLocalized": {
+            "en-US": "The value found at a specific element of an array. Results in 0 if the element does not exist."
+        }
     },
     "vect": {
         "guid": "00000000B0F1",
@@ -5103,7 +5806,10 @@ var valueFuncKw =
         "fr-FR": "Vecteur",
         "ja-JP": "ベクトル",
         "pt-BR": "Vetor",
-        "zh-CN": "矢量"
+        "zh-CN": "矢量",
+        "descriptionLocalized": {
+            "en-US": "A vector composed of three real numbers (x, y, z) where x is left, y is up, and z is forward. Vectors are used for position, direction, and velocity."
+        }
     },
     "vectorTowards": {
         "description": "The displacement vector from one position to another.",
@@ -5130,7 +5836,10 @@ var valueFuncKw =
         "fr-FR": "Vecteur vers",
         "ja-JP": "ベクトルの方向: ",
         "pt-BR": "Vetor Rumo a",
-        "zh-CN": "向量"
+        "zh-CN": "向量",
+        "descriptionLocalized": {
+            "en-US": "The displacement vector from one position to another."
+        }
     },
     "_&getVelocity": {
         "description": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope.",
@@ -5150,7 +5859,10 @@ var valueFuncKw =
         "fr-FR": "Vélocité de",
         "ja-JP": "速度: ",
         "pt-BR": "Rapidez de",
-        "zh-CN": "速率"
+        "zh-CN": "速率",
+        "descriptionLocalized": {
+            "en-US": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope."
+        }
     },
     "verticalAngleOfDirection": {
         "description": "The vertical angle in degrees corresponding to the specified direction vector.",
@@ -5170,7 +5882,10 @@ var valueFuncKw =
         "fr-FR": "Angle vertical depuis une direction",
         "ja-JP": "方向からの頂角",
         "pt-BR": "Ângulo Vertical a partir da Direção",
-        "zh-CN": "与此方向的垂直角度"
+        "zh-CN": "与此方向的垂直角度",
+        "descriptionLocalized": {
+            "en-US": "The vertical angle in degrees corresponding to the specified direction vector."
+        }
     },
     "verticalAngleTowards": {
         "description": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative.",
@@ -5195,7 +5910,10 @@ var valueFuncKw =
         "fr-FR": "Angle vertical vers",
         "ja-JP": "頂角の方向: ",
         "pt-BR": "Ângulo Vertical Rumo a",
-        "zh-CN": "垂直方向夹角"
+        "zh-CN": "垂直方向夹角",
+        "descriptionLocalized": {
+            "en-US": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative."
+        }
     },
     "_&getVerticalFacingAngle": {
         "description": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down.",
@@ -5214,7 +5932,10 @@ var valueFuncKw =
         "fr-FR": "Angle vertical du regard de",
         "ja-JP": "対面頂角: ",
         "pt-BR": "Ângulo Vertical Frontal de",
-        "zh-CN": "垂直朝向角度"
+        "zh-CN": "垂直朝向角度",
+        "descriptionLocalized": {
+            "en-US": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down."
+        }
     },
     "_&getVerticalSpeed": {
         "description": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes.",
@@ -5233,7 +5954,10 @@ var valueFuncKw =
         "fr-FR": "Vitesse verticale de",
         "ja-JP": "垂直速度: ",
         "pt-BR": "Velocidade Vertical de",
-        "zh-CN": "垂直速度"
+        "zh-CN": "垂直速度",
+        "descriptionLocalized": {
+            "en-US": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes."
+        }
     },
     "victim": {
         "guid": "00000000B330",
@@ -5246,7 +5970,10 @@ var valueFuncKw =
         "fr-FR": "Victime",
         "ja-JP": "犠牲者",
         "pt-BR": "Vítima",
-        "zh-CN": "被攻击方"
+        "zh-CN": "被攻击方",
+        "descriptionLocalized": {
+            "en-US": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player."
+        }
     },
     "_&getCurrentWeapon": {
         "description": "The currently held weapon of a player. Returns 2 for Baby Dva's gun, Torbjorn's hammer, and Mercy's pistol; 1 otherwise.",
@@ -5265,7 +5992,10 @@ var valueFuncKw =
         "fr-FR": "Arme",
         "ja-JP": "武器",
         "pt-BR": "Arma",
-        "zh-CN": "武器"
+        "zh-CN": "武器",
+        "descriptionLocalized": {
+            "en-US": "The currently held weapon of a player. Returns 2 for Baby Dva's gun, Torbjorn's hammer, and Mercy's pistol; 1 otherwise."
+        }
     },
     "__workshopSettingCombo__": {
         "description": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice.",
@@ -5310,7 +6040,10 @@ var valueFuncKw =
         "fr-FR": "Paramètre combo de la Forge",
         "ja-JP": "ワークショップ設定コンボ",
         "pt-BR": "Caixa de Combinação de Configurações do Workshop",
-        "zh-CN": "地图工坊设置组合"
+        "zh-CN": "地图工坊设置组合",
+        "descriptionLocalized": {
+            "en-US": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice."
+        }
     },
     "__workshopSettingHero__": {
         "description": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list.",
@@ -5347,7 +6080,10 @@ var valueFuncKw =
         "fr-FR": "Paramètre héros de la Forge",
         "ja-JP": "ワークショップ設定ヒーロー",
         "pt-BR": "Herói de Configuração do Workshop",
-        "zh-CN": "地图工坊设置英雄"
+        "zh-CN": "地图工坊设置英雄",
+        "descriptionLocalized": {
+            "en-US": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list."
+        }
     },
     "__workshopSettingInteger__": {
         "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
@@ -5397,7 +6133,10 @@ var valueFuncKw =
         "fr-FR": "Paramètre entier de la Forge",
         "ja-JP": "ワークショップの設定（整数）",
         "pt-BR": "Inteiro de Configuração do Workshop",
-        "zh-CN": "地图工坊设置整数"
+        "zh-CN": "地图工坊设置整数",
+        "descriptionLocalized": {
+            "en-US": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider."
+        }
     },
     "__workshopSettingReal__": {
         "description": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider.",
@@ -5447,7 +6186,10 @@ var valueFuncKw =
         "fr-FR": "Paramètre réel de la Forge",
         "ja-JP": "ワークショップの設定（実数）",
         "pt-BR": "Real de Configuração do Workshop",
-        "zh-CN": "地图工坊设置实数"
+        "zh-CN": "地图工坊设置实数",
+        "descriptionLocalized": {
+            "en-US": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider."
+        }
     },
     "__workshopSettingToggle__": {
         "description": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox.",
@@ -5485,7 +6227,10 @@ var valueFuncKw =
         "fr-FR": "Activerdésactiver le paramètre de la Forge",
         "ja-JP": "ワークショップの設定の切り替え",
         "pt-BR": "Alternar Configuração do Workshop",
-        "zh-CN": "地图工坊设置开关"
+        "zh-CN": "地图工坊设置开关",
+        "descriptionLocalized": {
+            "en-US": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox."
+        }
     },
     "worldVector": {
         "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
@@ -5517,7 +6262,10 @@ var valueFuncKw =
         "fr-FR": "Vecteur mondial de",
         "ja-JP": "ワールド座標のベクトル: ",
         "pt-BR": "Vetor do Mundo de",
-        "zh-CN": "地图矢量"
+        "zh-CN": "地图矢量",
+        "descriptionLocalized": {
+            "en-US": "The vector in world coordinates corresponding to the provided vector in local coordinates."
+        }
     },
     "__xComponentOf__": {
         "description": "The x component of the specified vector, usually representing a leftward amount.",
@@ -5537,7 +6285,10 @@ var valueFuncKw =
         "fr-FR": "Composante X de",
         "ja-JP": "X成分: ",
         "pt-BR": "Componente X de",
-        "zh-CN": "X方向分量"
+        "zh-CN": "X方向分量",
+        "descriptionLocalized": {
+            "en-US": "The x component of the specified vector, usually representing a leftward amount."
+        }
     },
     "__yComponentOf__": {
         "description": "The y component of the specified vector, usually representing an upward amount.",
@@ -5557,7 +6308,10 @@ var valueFuncKw =
         "fr-FR": "Composante Y de",
         "ja-JP": "Y成分: ",
         "pt-BR": "Componente Y de",
-        "zh-CN": "Y方向分量"
+        "zh-CN": "Y方向分量",
+        "descriptionLocalized": {
+            "en-US": "The y component of the specified vector, usually representing an upward amount."
+        }
     },
     "__zComponentOf__": {
         "description": "The z component of the specified vector, usually representing a forward amount.",
@@ -5577,142 +6331,178 @@ var valueFuncKw =
         "fr-FR": "Composante Z de",
         "ja-JP": "Z成分: ",
         "pt-BR": "Componente Z de",
-        "zh-CN": "Z方向分量"
+        "zh-CN": "Z方向分量",
+        "descriptionLocalized": {
+            "en-US": "The z component of the specified vector, usually representing a forward amount."
+        }
     },
-
-
-    
-  "getNumberOfDoTIds": {
-    "description": "The current number of Damage Over Time instances started from the Damage Over Time action.",
-    args: [],
-    "en-US": "Damage Over Time Count",
-    return: "unsigned int",
-  },
-  "getNumberOfHoTIds": {
-    "description": "The current number of Heal Over Time instances started from the Heal Over Time action.",
-    args: [],
-    return: "unsigned int",
-    "en-US": "Heal Over Time Count"
-  },
-  "getNumberOfTextIds": {
-    "description": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action.",
-    args: [],
-    return: "unsigned int",
-    "en-US": "Text Count"
-  },
-  "getNumberOfDamageModificationIds": {
-    "description": "The current number of Damage Modification instances started from the Start Damage Modification Action.",
-    args: [],
-    return: "unsigned int",
-    "en-US": "Damage Modification Count"
-  },
-  "getNumberOfHealingModificationIds": {
-    "description": "The current number of Healing Modification instances started from the Start Healing Modification Action.",
-    args: [],
-    return: "unsigned int",
-    "en-US": "Healing Modification Count"
-  },
-  "getNumberOfAssistIds": {
-    "description": "The current number of Assist instances started from the Start Assist Action.",
-    args: [],
-    return: "unsigned int",
-    "en-US": "Assist Count"
-  },
-  "getNumberOfEntityIds": {
-    "description": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action.",
-    args: [],
-    return: "unsigned int",
-    "en-US": "Entity Count"
-  },
-  "localPlayer": {
-    "description": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables.",
-    args: null,
-    return: "Player",
-    "en-US": "Local Player"
-  },
-  "__strCharAt__": {
-    "description": "The character found at a specified index of a String.",
-    "args": [
-      {
-        "name": "String",
-        "description": "The String value whose character to acquire.",
-        "type": "String",
-        "default": "Global Variable"
-      },
-      {
-        "name": "Index",
-        "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
-        "type": "unsigned int",
-        "default": 0
-      }
-    ],
-    return: "String",
-    "en-US": "Char In String"
-  },
-  "__strIndex__": {
-    "description": "The index of a character within a String or -1 if no such character can be found.",
-    "args": [
-      {
-        "name": "String",
-        "description": "The String Value from which to search for the character.",
-        "type": "String",
-        "default": "Global Variable"
-      },
-      {
-        "name": "Character",
-        "description": "The character for which to search",
-        "type": "String",
-        "default": "Global Variable"
-      }
-    ],
-    return: "int",
-    "en-US": "Index Of String Char"
-  },
-  "__strSplit__": {
-    "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
-    "args": [
-      {
-        "name": "String",
-        "description": "The String Value to split.",
-        "type": "String",
-        "default": "Global Variable"
-      },
-      {
-        "name": "Separator",
-        "description": "The separator String with which to split the String Value.",
-        "type": "String",
-        "default": "Global Variable"
-      }
-    ],
-    return: {
-        "Array": "String"
+    "getNumberOfDoTIds": {
+        "description": "The current number of Damage Over Time instances started from the Damage Over Time action.",
+        "args": [],
+        "en-US": "Damage Over Time Count",
+        "return": "unsigned int",
+        "descriptionLocalized": {
+            "en-US": "The current number of Damage Over Time instances started from the Damage Over Time action."
+        }
     },
-    "en-US": "String Split"
-  },
-  "__strReplace__": {
-    "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
-    "args": [
-      {
-        "name": "String",
-        "description": "The String Value with which to search for replacements.",
-        "type": "String",
-        "default": "Global Variable"
-      },
-      {
-        "name": "Pattern",
-        "description": "The String pattern to be replaced.",
-        "type": "String",
-        "default": "Global Variable"
-      },
-      {
-        "name": "Replacement",
-        "description": "The String Value with which to replace the pattern String",
-        "type": "String",
-        "default": "Global Variable"
-      }
-    ],
-    return: "String",
-    "en-US": "String Replace"
-  }
+    "getNumberOfHoTIds": {
+        "description": "The current number of Heal Over Time instances started from the Heal Over Time action.",
+        "args": [],
+        "return": "unsigned int",
+        "en-US": "Heal Over Time Count",
+        "descriptionLocalized": {
+            "en-US": "The current number of Heal Over Time instances started from the Heal Over Time action."
+        }
+    },
+    "getNumberOfTextIds": {
+        "description": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action.",
+        "args": [],
+        "return": "unsigned int",
+        "en-US": "Text Count",
+        "descriptionLocalized": {
+            "en-US": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action."
+        }
+    },
+    "getNumberOfDamageModificationIds": {
+        "description": "The current number of Damage Modification instances started from the Start Damage Modification Action.",
+        "args": [],
+        "return": "unsigned int",
+        "en-US": "Damage Modification Count",
+        "descriptionLocalized": {
+            "en-US": "The current number of Damage Modification instances started from the Start Damage Modification Action."
+        }
+    },
+    "getNumberOfHealingModificationIds": {
+        "description": "The current number of Healing Modification instances started from the Start Healing Modification Action.",
+        "args": [],
+        "return": "unsigned int",
+        "en-US": "Healing Modification Count",
+        "descriptionLocalized": {
+            "en-US": "The current number of Healing Modification instances started from the Start Healing Modification Action."
+        }
+    },
+    "getNumberOfAssistIds": {
+        "description": "The current number of Assist instances started from the Start Assist Action.",
+        "args": [],
+        "return": "unsigned int",
+        "en-US": "Assist Count",
+        "descriptionLocalized": {
+            "en-US": "The current number of Assist instances started from the Start Assist Action."
+        }
+    },
+    "getNumberOfEntityIds": {
+        "description": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action.",
+        "args": [],
+        "return": "unsigned int",
+        "en-US": "Entity Count",
+        "descriptionLocalized": {
+            "en-US": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action."
+        }
+    },
+    "localPlayer": {
+        "description": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables.",
+        "args": null,
+        "return": "Player",
+        "en-US": "Local Player",
+        "descriptionLocalized": {
+            "en-US": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables."
+        }
+    },
+    "__strCharAt__": {
+        "description": "The character found at a specified index of a String.",
+        "args": [
+            {
+                "name": "String",
+                "description": "The String value whose character to acquire.",
+                "type": "String",
+                "default": "Global Variable"
+            },
+            {
+                "name": "Index",
+                "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
+                "type": "unsigned int",
+                "default": 0
+            }
+        ],
+        "return": "String",
+        "en-US": "Char In String",
+        "descriptionLocalized": {
+            "en-US": "The character found at a specified index of a String."
+        }
+    },
+    "__strIndex__": {
+        "description": "The index of a character within a String or -1 if no such character can be found.",
+        "args": [
+            {
+                "name": "String",
+                "description": "The String Value from which to search for the character.",
+                "type": "String",
+                "default": "Global Variable"
+            },
+            {
+                "name": "Character",
+                "description": "The character for which to search",
+                "type": "String",
+                "default": "Global Variable"
+            }
+        ],
+        "return": "int",
+        "en-US": "Index Of String Char",
+        "descriptionLocalized": {
+            "en-US": "The index of a character within a String or -1 if no such character can be found."
+        }
+    },
+    "__strSplit__": {
+        "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
+        "args": [
+            {
+                "name": "String",
+                "description": "The String Value to split.",
+                "type": "String",
+                "default": "Global Variable"
+            },
+            {
+                "name": "Separator",
+                "description": "The separator String with which to split the String Value.",
+                "type": "String",
+                "default": "Global Variable"
+            }
+        ],
+        "return": {
+            "Array": "String"
+        },
+        "en-US": "String Split",
+        "descriptionLocalized": {
+            "en-US": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String."
+        }
+    },
+    "__strReplace__": {
+        "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
+        "args": [
+            {
+                "name": "String",
+                "description": "The String Value with which to search for replacements.",
+                "type": "String",
+                "default": "Global Variable"
+            },
+            {
+                "name": "Pattern",
+                "description": "The String pattern to be replaced.",
+                "type": "String",
+                "default": "Global Variable"
+            },
+            {
+                "name": "Replacement",
+                "description": "The String Value with which to replace the pattern String",
+                "type": "String",
+                "default": "Global Variable"
+            }
+        ],
+        "return": "String",
+        "en-US": "String Replace",
+        "descriptionLocalized": {
+            "en-US": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String."
+        }
+    }
 }
 //end-json

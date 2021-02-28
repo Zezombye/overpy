@@ -48,6 +48,30 @@ function getGuids() {
     //console.log(guids["en-US"]);
 }
 
+/*function replaceJsonObjectsInFile(path) {
+    console.log("Processing "+path)
+    var content = ""+fs.readFileSync(path);
+    var result = "";
+    var currentJsonStr = "";
+    var isInJsonObject = false;
+    for (var line of content.split("\n")) {
+        if (line === "//end-json") {
+            isInJsonObject = false;
+            result += JSON.stringify(iterateOnObject(eval("("+currentJsonStr+")")), null, 4)+"\n";
+            currentJsonStr = "";
+        }
+        if (!isInJsonObject) {
+            result += line+"\n";
+        } else {
+            currentJsonStr += line+"\n";
+        }
+        if (line === "//begin-json") {
+            isInJsonObject = true;
+        }
+    }
+    fs.writeFileSync(path, result.substring(0, result.length-1));
+}*/
+
 function replaceJsonObjectsInFile(path) {
     console.log("Processing "+path)
     var content = ""+fs.readFileSync(path);
@@ -146,13 +170,13 @@ function normalizeName(content) {
 
 //generateStringFiles();
 getGuids();
-//replaceJsonObjectsInFile(docFolder+"actions.js");
-//replaceJsonObjectsInFile(docFolder+"values.js");
+replaceJsonObjectsInFile(docFolder+"actions.js");
+replaceJsonObjectsInFile(docFolder+"values.js");
 //replaceJsonObjectsInFile(docFolder+"constants.js");
 //replaceJsonObjectsInFile(docFolder+"heroes.js");
 //replaceJsonObjectsInFile(docFolder+"maps.js");
 //replaceJsonObjectsInFile(docFolder+"gamemodes.js");
-replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
+//replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
 //removeParentheses = false;
 //replaceJsonObjectsInFile(docFolder+"localizedStrings.js");
 //replaceJsonObjectsInFile(docFolder+"other.js");
