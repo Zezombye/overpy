@@ -26,7 +26,7 @@ var valueFuncKw =
                 "description": "The player whose ability to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose ability to check."
                 }
             },
@@ -35,7 +35,7 @@ var valueFuncKw =
                 "description": "The ability to check associated by button.",
                 "type": "Button",
                 "default": "BUTTON",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The ability to check associated by button."
                 }
             }
@@ -72,7 +72,7 @@ var valueFuncKw =
                 "description": "The player whose ability to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose ability to check."
                 }
             },
@@ -81,7 +81,7 @@ var valueFuncKw =
                 "description": "The ability to check associated by button.",
                 "type": "Button",
                 "default": "BUTTON",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The ability to check associated by button."
                 }
             }
@@ -118,7 +118,7 @@ var valueFuncKw =
                 "description": "The hero for the ability that will be converted to an icon.",
                 "type": "Hero",
                 "default": "HERO",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The hero for the ability that will be converted to an icon."
                 }
             },
@@ -127,7 +127,7 @@ var valueFuncKw =
                 "description": "The button for the ability that will be converted to an icon.",
                 "type": "Button",
                 "default": "Button",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The button for the ability that will be converted to an icon."
                 }
             }
@@ -166,7 +166,7 @@ var valueFuncKw =
                 "description": "The player whose ability to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose ability to check."
                 }
             },
@@ -175,7 +175,7 @@ var valueFuncKw =
                 "description": "The ability to check associated by button.",
                 "type": "Button",
                 "default": "BUTTON",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The ability to check associated by button."
                 }
             }
@@ -212,7 +212,7 @@ var valueFuncKw =
                 "description": "The real number value whose absolute value will be computed.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The real number value whose absolute value will be computed."
                 }
             }
@@ -255,7 +255,7 @@ var valueFuncKw =
                 ],
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The left-hand operand. May be any value that results in a number or a vector."
                 }
             },
@@ -268,7 +268,7 @@ var valueFuncKw =
                 ],
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The right-hand operand. May be any value that results in a number or a vector."
                 }
             }
@@ -308,7 +308,7 @@ var valueFuncKw =
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams from which players may come."
                 }
             }
@@ -381,7 +381,7 @@ var valueFuncKw =
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams from which players may come."
                 }
             }
@@ -421,7 +421,7 @@ var valueFuncKw =
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams from which players may come."
                 }
             }
@@ -461,7 +461,7 @@ var valueFuncKw =
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams from which players may come."
                 }
             }
@@ -501,7 +501,7 @@ var valueFuncKw =
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams from which players may come."
                 }
             }
@@ -541,7 +541,7 @@ var valueFuncKw =
                 "description": "The player whose allowed heroes to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose allowed heroes to acquire."
                 }
             }
@@ -615,7 +615,7 @@ var valueFuncKw =
                 "description": "The player whose altitude to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose altitude to acquire."
                 }
             }
@@ -652,7 +652,7 @@ var valueFuncKw =
                 "description": "The player whose ammo to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose ammo to acquire."
                 }
             },
@@ -663,7 +663,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)."
                 }
             }
@@ -701,7 +701,7 @@ var valueFuncKw =
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true."
                 }
             },
@@ -710,7 +710,7 @@ var valueFuncKw =
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true."
                 }
             }
@@ -748,7 +748,7 @@ var valueFuncKw =
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
                 "type": "Direction",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized."
                 }
             },
@@ -757,7 +757,7 @@ var valueFuncKw =
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
                 "type": "Direction",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized."
                 }
             }
@@ -795,7 +795,7 @@ var valueFuncKw =
                 "description": "One of the two angles between which to measure the resulting angle.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of the two angles between which to measure the resulting angle."
                 }
             },
@@ -804,7 +804,7 @@ var valueFuncKw =
                 "description": "One of the two angles between which to measure the resulting angle.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of the two angles between which to measure the resulting angle."
                 }
             }
@@ -843,7 +843,7 @@ var valueFuncKw =
                 "description": "The array to which to append.",
                 "type": "Array",
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array to which to append."
                 }
             },
@@ -858,7 +858,7 @@ var valueFuncKw =
                 ],
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value to append to the end of the array. If this value is itself an array, each element is appended."
                 }
             }
@@ -895,7 +895,7 @@ var valueFuncKw =
                 "description": "Input value for the function.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Input value for the function."
                 }
             }
@@ -933,7 +933,7 @@ var valueFuncKw =
                 "description": "Input value for the function.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Input value for the function."
                 }
             }
@@ -971,7 +971,7 @@ var valueFuncKw =
                 "description": "Input value for the function.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Input value for the function."
                 }
             }
@@ -1009,7 +1009,7 @@ var valueFuncKw =
                 "description": "Input value for the function.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Input value for the function."
                 }
             }
@@ -1047,7 +1047,7 @@ var valueFuncKw =
                 "description": "Numerator input for the function.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Numerator input for the function."
                 }
             },
@@ -1056,7 +1056,7 @@ var valueFuncKw =
                 "description": "Denominator input for the function.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Denominator input for the function."
                 }
             }
@@ -1094,7 +1094,7 @@ var valueFuncKw =
                 "description": "Numerator input for the function.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Numerator input for the function."
                 }
             },
@@ -1103,7 +1103,7 @@ var valueFuncKw =
                 "description": "Denominator input for the function.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Denominator input for the function."
                 }
             }
@@ -1145,7 +1145,7 @@ var valueFuncKw =
                 ],
                 "canReplace0ByNull": true,
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be stored in the array at index [0]."
                 }
             }
@@ -1183,7 +1183,7 @@ var valueFuncKw =
                 "description": "The array in which to search for the specified value.",
                 "type": "Array",
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array in which to search for the specified value."
                 }
             },
@@ -1193,7 +1193,7 @@ var valueFuncKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value for which to search."
                 }
             }
@@ -1233,7 +1233,7 @@ var valueFuncKw =
                     "Array": "Object"
                 },
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array from which to make a copy."
                 }
             },
@@ -1244,7 +1244,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The first index of the range."
                 }
             },
@@ -1255,7 +1255,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array."
                 }
             }
@@ -1358,7 +1358,7 @@ var valueFuncKw =
                 "description": "A button constant.",
                 "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "A button constant."
                 }
             }
@@ -1397,7 +1397,7 @@ var valueFuncKw =
                 "description": "The position from which to measure proximity.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position from which to measure proximity."
                 }
             },
@@ -1406,7 +1406,7 @@ var valueFuncKw =
                 "description": "The team or teams from which the closest player will come.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams from which the closest player will come."
                 }
             }
@@ -1444,7 +1444,7 @@ var valueFuncKw =
                 "description": "A Color Constant",
                 "type": "ColorLiteral",
                 "default": "White",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "A Color Constant"
                 }
             }
@@ -1470,7 +1470,7 @@ var valueFuncKw =
                     "Array"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected."
                 }
             },
@@ -1479,7 +1479,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "__Operator__",
                 "default": "==",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             },
@@ -1491,7 +1491,7 @@ var valueFuncKw =
                     "Array"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected."
                 }
             }
@@ -1529,7 +1529,7 @@ var valueFuncKw =
                 "description": "The team whose score percentage to acquire.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team whose score percentage to acquire."
                 }
             }
@@ -1594,7 +1594,7 @@ var valueFuncKw =
                 "description": "Angle in degrees.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Angle in degrees."
                 }
             }
@@ -1632,7 +1632,7 @@ var valueFuncKw =
                 "description": "Angle in radians.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Angle in radians."
                 }
             }
@@ -1670,7 +1670,7 @@ var valueFuncKw =
                 "description": "The array whose elements will be counted.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array whose elements will be counted."
                 }
             }
@@ -1693,7 +1693,7 @@ var valueFuncKw =
                 "description": "The left-hand-side vector operand of the cross product.",
                 "type": "Vector",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The left-hand-side vector operand of the cross product."
                 }
             },
@@ -1702,7 +1702,7 @@ var valueFuncKw =
                 "description": "The right-hand-side vector operand of the cross product.",
                 "type": "Vector",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The right-hand-side vector operand of the cross product."
                 }
             }
@@ -1861,7 +1861,7 @@ var valueFuncKw =
                 "description": "The red component of a color, from 0 to 255.",
                 "type": "unsigned int",
                 "default": 255,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The red component of a color, from 0 to 255."
                 }
             },
@@ -1870,7 +1870,7 @@ var valueFuncKw =
                 "description": "The green component of a color, from 0 to 255.",
                 "type": "unsigned int",
                 "default": 255,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The green component of a color, from 0 to 255."
                 }
             },
@@ -1879,7 +1879,7 @@ var valueFuncKw =
                 "description": "The blue component of a color, from 0 to 255.",
                 "type": "unsigned int",
                 "default": 255,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The blue component of a color, from 0 to 255."
                 }
             },
@@ -1888,7 +1888,7 @@ var valueFuncKw =
                 "description": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible.",
                 "type": "unsigned int",
                 "default": 255,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible."
                 }
             }
@@ -1912,7 +1912,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "CustomStringLiteral",
                 "default": "HELLO",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             },
@@ -1922,7 +1922,7 @@ var valueFuncKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be converted to text and used to replace {0}."
                 }
             },
@@ -1932,7 +1932,7 @@ var valueFuncKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be converted to text and used to replace {1}."
                 }
             },
@@ -1942,7 +1942,7 @@ var valueFuncKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be converted to text and used to replace {2}."
                 }
             }
@@ -1966,7 +1966,7 @@ var valueFuncKw =
                 "description": "The horizontal angle in degrees used to construct the resulting vector.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The horizontal angle in degrees used to construct the resulting vector."
                 }
             },
@@ -1975,7 +1975,7 @@ var valueFuncKw =
                 "description": "The vertical angle in degrees used to construct the resulting vector.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The vertical angle in degrees used to construct the resulting vector."
                 }
             }
@@ -2014,7 +2014,7 @@ var valueFuncKw =
                 "description": "The position from which the resulting direction vector will point.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position from which the resulting direction vector will point."
                 }
             },
@@ -2023,7 +2023,7 @@ var valueFuncKw =
                 "description": "The position to which the resulting direction vector will point.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position to which the resulting direction vector will point."
                 }
             }
@@ -2062,7 +2062,7 @@ var valueFuncKw =
                 "description": "One of the two positions used in the distance measurement.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of the two positions used in the distance measurement."
                 }
             },
@@ -2071,7 +2071,7 @@ var valueFuncKw =
                 "description": "One of the two positions used in the distance measurement.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of the two positions used in the distance measurement."
                 }
             }
@@ -2114,7 +2114,7 @@ var valueFuncKw =
                 ],
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The left-hand operand. May be any value that results in a number or a vector."
                 }
             },
@@ -2126,7 +2126,7 @@ var valueFuncKw =
                     "Vector"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The right-hand operand. May be any value that results in a number or a vector."
                 }
             }
@@ -2166,7 +2166,7 @@ var valueFuncKw =
                 "description": "One of two vector operands of the dot product.",
                 "type": "Vector",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of two vector operands of the dot product."
                 }
             },
@@ -2175,7 +2175,7 @@ var valueFuncKw =
                 "description": "One of two vector operands of the dot product.",
                 "type": "Vector",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of two vector operands of the dot product."
                 }
             }
@@ -2279,7 +2279,7 @@ var valueFuncKw =
                     "EntityId"
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player, icon entity, or effect entity whose existence to check."
                 }
             }
@@ -2319,7 +2319,7 @@ var valueFuncKw =
                     "Array"
                 ],
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be only evaluated once."
                 }
             }
@@ -2550,7 +2550,7 @@ var valueFuncKw =
                 "description": "The position of a player's first person view (used for aiming)",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position of a player's first person view (used for aiming)"
                 }
             }
@@ -2587,7 +2587,7 @@ var valueFuncKw =
                 "description": "The player whose facing direction to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose facing direction to acquire."
                 }
             }
@@ -2651,7 +2651,7 @@ var valueFuncKw =
                 "description": "The position from which to measure distance.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position from which to measure distance."
                 }
             },
@@ -2660,7 +2660,7 @@ var valueFuncKw =
                 "description": "The team or teams from which the farthest player will come.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams from which the farthest player will come."
                 }
             }
@@ -2698,7 +2698,7 @@ var valueFuncKw =
                 "description": "The array whose copy will be filtered.",
                 "type": "Array",
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array whose copy will be filtered."
                 }
             },
@@ -2707,7 +2707,7 @@ var valueFuncKw =
                 "description": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
                 "default": "COMPARE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered."
                 }
             }
@@ -2745,7 +2745,7 @@ var valueFuncKw =
                 "description": "The array from which the value is acquired.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array from which the value is acquired."
                 }
             }
@@ -2786,7 +2786,7 @@ var valueFuncKw =
                 "description": "The team whose flag position to acquire.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team whose flag position to acquire."
                 }
             }
@@ -2869,7 +2869,7 @@ var valueFuncKw =
                 "description": "The variable whose value to acquire.",
                 "type": "GlobalVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The variable whose value to acquire."
                 }
             }
@@ -2906,7 +2906,7 @@ var valueFuncKw =
                 "description": "The player, icon entity, or effect entity whose presence in world to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player, icon entity, or effect entity whose presence in world to check."
                 }
             }
@@ -2943,7 +2943,7 @@ var valueFuncKw =
                 "description": "The player whose status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose status to check."
                 }
             },
@@ -2952,7 +2952,7 @@ var valueFuncKw =
                 "description": "The status to check for.",
                 "type": "Status",
                 "default": "HACKED",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The status to check for."
                 }
             }
@@ -3044,7 +3044,7 @@ var valueFuncKw =
                 "description": "The player whose health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose health to acquire."
                 }
             }
@@ -3080,7 +3080,7 @@ var valueFuncKw =
                 "description": "The player whose health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose health to acquire."
                 }
             },
@@ -3089,7 +3089,7 @@ var valueFuncKw =
                 "description": "The type of health to acquire.",
                 "type": "Health",
                 "default": "HEALTH",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The type of health to acquire."
                 }
             }
@@ -3111,7 +3111,7 @@ var valueFuncKw =
                 "description": "The player whose normalized health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose normalized health to acquire."
                 }
             }
@@ -3149,7 +3149,7 @@ var valueFuncKw =
                 "description": "A hero constant.",
                 "type": "HeroLiteral",
                 "default": "ANA",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "A hero constant."
                 }
             }
@@ -3187,7 +3187,7 @@ var valueFuncKw =
                 "description": "The player performing the duplication.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player performing the duplication."
                 }
             }
@@ -3225,7 +3225,7 @@ var valueFuncKw =
                 "description": "The hero that will be converted to an icon.",
                 "type": "Hero",
                 "default": "HERO",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The hero that will be converted to an icon."
                 }
             }
@@ -3249,7 +3249,7 @@ var valueFuncKw =
                 "description": "The player whose hero to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose hero to acquire."
                 }
             }
@@ -3287,7 +3287,7 @@ var valueFuncKw =
                 "description": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins.",
                 "type": "Direction",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins."
                 }
             }
@@ -3325,7 +3325,7 @@ var valueFuncKw =
                 "description": "The player from whose current facing the angle begins.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player from whose current facing the angle begins."
                 }
             },
@@ -3334,7 +3334,7 @@ var valueFuncKw =
                 "description": "The position in the world where the angle ends.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position in the world where the angle ends."
                 }
             }
@@ -3357,7 +3357,7 @@ var valueFuncKw =
                 "description": "A game mode constant.",
                 "type": "GamemodeLiteral",
                 "default": "ASSAULT",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "A game mode constant."
                 }
             }
@@ -3395,7 +3395,7 @@ var valueFuncKw =
                 "description": "The player whose horizontal facing angle to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose horizontal facing angle to acquire."
                 }
             }
@@ -3432,7 +3432,7 @@ var valueFuncKw =
                 "description": "The player whose horizontal speed to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose horizontal speed to acquire."
                 }
             }
@@ -3496,7 +3496,7 @@ var valueFuncKw =
                 "description": "The icon to display.",
                 "type": "Icon",
                 "default": "ARROW: DOWN",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The icon to display."
                 }
             }
@@ -3520,7 +3520,7 @@ var valueFuncKw =
                 "description": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else."
                 }
             },
@@ -3533,7 +3533,7 @@ var valueFuncKw =
                 ],
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The result of the value when the if condition evaluates to true."
                 }
             },
@@ -3546,7 +3546,7 @@ var valueFuncKw =
                 ],
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The result of the value when the if condition evaluates to false."
                 }
             }
@@ -3586,7 +3586,7 @@ var valueFuncKw =
                     "Array": "Object"
                 },
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array in which to search for the specified value."
                 }
             },
@@ -3596,7 +3596,7 @@ var valueFuncKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value for which to search."
                 }
             }
@@ -3634,7 +3634,7 @@ var valueFuncKw =
                 "description": "The button for the input binding that will be converted to a string.",
                 "type": "Button",
                 "default": "Button",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The button for the input binding that will be converted to a string."
                 }
             }
@@ -3673,7 +3673,7 @@ var valueFuncKw =
                 "description": "The player whose life to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose life to check."
                 }
             }
@@ -3764,7 +3764,7 @@ var valueFuncKw =
                 "description": "The player whose button to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose button to check."
                 }
             },
@@ -3773,7 +3773,7 @@ var valueFuncKw =
                 "description": "The button to check.",
                 "type": "Button",
                 "default": "PRIMARY FIRE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The button to check."
                 }
             }
@@ -3810,7 +3810,7 @@ var valueFuncKw =
                 "description": "The player whose communication status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose communication status to check."
                 }
             },
@@ -3819,7 +3819,7 @@ var valueFuncKw =
                 "description": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds.",
                 "type": "Comms",
                 "default": "VOICE LINE UP",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds."
                 }
             }
@@ -3841,7 +3841,7 @@ var valueFuncKw =
                 "description": "The player whose communication status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose communication status to check."
                 }
             }
@@ -3863,7 +3863,7 @@ var valueFuncKw =
                 "description": "The player whose emoting status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose emoting status to check."
                 }
             }
@@ -3900,7 +3900,7 @@ var valueFuncKw =
                 "description": "The Player whose spray status to check.",
                 "type": "Player",
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The Player whose spray status to check."
                 }
             }
@@ -3937,7 +3937,7 @@ var valueFuncKw =
                 "description": "The player whose voice line status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose voice line status to check."
                 }
             }
@@ -4001,7 +4001,7 @@ var valueFuncKw =
                 "description": "The player whose crouching status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose crouching status to check."
                 }
             }
@@ -4038,7 +4038,7 @@ var valueFuncKw =
                 "description": "The player whose form to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose form to check."
                 }
             }
@@ -4087,7 +4087,7 @@ var valueFuncKw =
                 "description": "The player whose death to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose death to check."
                 }
             }
@@ -4124,7 +4124,7 @@ var valueFuncKw =
                 "description": "Player to consider.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Player to consider."
                 }
             }
@@ -4161,7 +4161,7 @@ var valueFuncKw =
                 "description": "The player whose duplication status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose duplication status to check."
                 }
             }
@@ -4183,7 +4183,7 @@ var valueFuncKw =
                 "description": "The player whose primary weapon attack usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose primary weapon attack usage to check."
                 }
             }
@@ -4220,7 +4220,7 @@ var valueFuncKw =
                 "description": "The player whose secondary weapon attack usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose secondary weapon attack usage to check."
                 }
             }
@@ -4257,7 +4257,7 @@ var valueFuncKw =
                 "description": "The team whose flag to check.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team whose flag to check."
                 }
             }
@@ -4294,7 +4294,7 @@ var valueFuncKw =
                 "description": "The team whose flag to check.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team whose flag to check."
                 }
             }
@@ -4358,7 +4358,7 @@ var valueFuncKw =
                 "description": "The hero to check for play.",
                 "type": "Hero",
                 "default": "HERO",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The hero to check for play."
                 }
             },
@@ -4367,7 +4367,7 @@ var valueFuncKw =
                 "description": "The team or teams on which to check for the hero being played.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams on which to check for the hero being played."
                 }
             }
@@ -4404,7 +4404,7 @@ var valueFuncKw =
                 "description": "The player whose airborne status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose airborne status to check."
                 }
             }
@@ -4444,7 +4444,7 @@ var valueFuncKw =
                     "Player"
                 ],
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used."
                 }
             },
@@ -4456,7 +4456,7 @@ var valueFuncKw =
                     "Player"
                 ],
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used."
                 }
             },
@@ -4465,7 +4465,7 @@ var valueFuncKw =
                 "description": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used.",
                 "type": "BarrierLos",
                 "default": "BARRIERS DO NOT BLOCK LOS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used."
                 }
             }
@@ -4529,7 +4529,7 @@ var valueFuncKw =
                 "description": "The player whose spawn room status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose spawn room status to check."
                 }
             }
@@ -4566,7 +4566,7 @@ var valueFuncKw =
                 "description": "The player whose view to use for the check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose view to use for the check."
                 }
             },
@@ -4575,7 +4575,7 @@ var valueFuncKw =
                 "description": "The location to test if it's within view.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The location to test if it's within view."
                 }
             },
@@ -4584,7 +4584,7 @@ var valueFuncKw =
                 "description": "The view angle to compare against in degrees.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The view angle to compare against in degrees."
                 }
             }
@@ -4621,7 +4621,7 @@ var valueFuncKw =
                 "description": "The player whose jump usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose jump usage to check."
                 }
             }
@@ -4670,7 +4670,7 @@ var valueFuncKw =
                 "description": "The player whose melee usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose melee usage to check."
                 }
             }
@@ -4692,7 +4692,7 @@ var valueFuncKw =
                 "description": "The player whose moving status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose moving status to check."
                 }
             }
@@ -4716,7 +4716,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index."
                 }
             }
@@ -4738,7 +4738,7 @@ var valueFuncKw =
                 "description": "The player whose ground status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose ground status to check."
                 }
             }
@@ -4775,7 +4775,7 @@ var valueFuncKw =
                 "description": "The player whose objective status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose objective status to check."
                 }
             }
@@ -4812,7 +4812,7 @@ var valueFuncKw =
                 "description": "The player whose wall status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose wall status to check."
                 }
             }
@@ -4849,7 +4849,7 @@ var valueFuncKw =
                 "description": "The player whose portrait to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose portrait to check."
                 }
             }
@@ -4886,7 +4886,7 @@ var valueFuncKw =
                 "description": "The player whose reload usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose reload usage to check."
                 }
             }
@@ -4923,7 +4923,7 @@ var valueFuncKw =
                 "description": "The player whose standing status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose standing status to check."
                 }
             }
@@ -4960,7 +4960,7 @@ var valueFuncKw =
                 "description": "The team whose role to check.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team whose role to check."
                 }
             }
@@ -4997,7 +4997,7 @@ var valueFuncKw =
                 "description": "The team whose role to check.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team whose role to check."
                 }
             }
@@ -5034,7 +5034,7 @@ var valueFuncKw =
                 "description": "The array whose values will be considered.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array whose values will be considered."
                 }
             },
@@ -5043,7 +5043,7 @@ var valueFuncKw =
                 "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
                 "default": "COMPARE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered."
                 }
             }
@@ -5081,7 +5081,7 @@ var valueFuncKw =
                 "description": "The array whose values will be considered.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array whose values will be considered."
                 }
             },
@@ -5090,7 +5090,7 @@ var valueFuncKw =
                 "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
                 "default": "COMPARE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered."
                 }
             }
@@ -5128,7 +5128,7 @@ var valueFuncKw =
                 "description": "The player whose ability 1 usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose ability 1 usage to check."
                 }
             }
@@ -5165,7 +5165,7 @@ var valueFuncKw =
                 "description": "The player whose ability 2 usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose ability 2 usage to check."
                 }
             }
@@ -5202,7 +5202,7 @@ var valueFuncKw =
                 "description": "The player whose ultimate ability usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose ultimate ability usage to check."
                 }
             }
@@ -5441,7 +5441,7 @@ var valueFuncKw =
                 "description": "The array from which the value is acquired.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array from which the value is acquired."
                 }
             }
@@ -5529,7 +5529,7 @@ var valueFuncKw =
                 "description": "The vector in world coordinates that will be converted to local coordinates.",
                 "type": "Vector",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The vector in world coordinates that will be converted to local coordinates."
                 }
             },
@@ -5538,7 +5538,7 @@ var valueFuncKw =
                 "description": "The player to whom the resulting vector will be relative.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player to whom the resulting vector will be relative."
                 }
             },
@@ -5547,7 +5547,7 @@ var valueFuncKw =
                 "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
                 "type": "Transform",
                 "default": "ROTATION",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities)."
                 }
             }
@@ -5585,7 +5585,7 @@ var valueFuncKw =
                 "description": "The vector to calculate the magnitude of.",
                 "type": "Vector",
                 "default": "Vector",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The vector to calculate the magnitude of."
                 }
             }
@@ -5609,7 +5609,7 @@ var valueFuncKw =
                 "description": "A map constant.",
                 "type": "MapLiteral",
                 "default": "AYUTTHAYA",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "A map constant."
                 }
             }
@@ -5652,7 +5652,7 @@ var valueFuncKw =
                 "description": "The array whose copy will be mapped.",
                 "type": "Array",
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array whose copy will be mapped."
                 }
             },
@@ -5661,7 +5661,7 @@ var valueFuncKw =
                 "description": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
                 "default": "COMPARE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered."
                 }
             }
@@ -5756,7 +5756,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The left-hand operand. May be any value that results in a number."
                 }
             },
@@ -5767,7 +5767,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The right-hand operand. May be any value that results in a number."
                 }
             }
@@ -5804,7 +5804,7 @@ var valueFuncKw =
                 "description": "The player whose max ammo to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose max ammo to acquire."
                 }
             },
@@ -5815,7 +5815,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)."
                 }
             }
@@ -5852,7 +5852,7 @@ var valueFuncKw =
                 "description": "The player whose max health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose max health to acquire."
                 }
             }
@@ -5889,7 +5889,7 @@ var valueFuncKw =
                 "description": "The player whose max health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose max health to acquire."
                 }
             },
@@ -5898,7 +5898,7 @@ var valueFuncKw =
                 "description": "The type of max health to acquire.",
                 "type": "Health",
                 "default": "HEALTH",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The type of max health to acquire."
                 }
             }
@@ -5923,7 +5923,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The left-hand operand. May be any value that results in a number."
                 }
             },
@@ -5934,7 +5934,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The right-hand operand. May be any value that results in a number."
                 }
             }
@@ -5973,7 +5973,7 @@ var valueFuncKw =
                 "type": "float",
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The left-hand operand. May be any value that results in a number."
                 }
             },
@@ -5983,7 +5983,7 @@ var valueFuncKw =
                 "type": "unsigned float",
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The right-hand operand. May be any value that results in a number."
                 }
             }
@@ -6023,7 +6023,7 @@ var valueFuncKw =
                     "Vector"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The left-hand operand. May be any value that results in a number or a vector."
                 }
             },
@@ -6035,7 +6035,7 @@ var valueFuncKw =
                     "Vector"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The right-hand operand. May be any value that results in a number or a vector."
                 }
             }
@@ -6075,7 +6075,7 @@ var valueFuncKw =
                 "description": "The position from which to search for the nearest walkable position.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position from which to search for the nearest walkable position."
                 }
             }
@@ -6113,7 +6113,7 @@ var valueFuncKw =
                 "description": "The vector to normalize.",
                 "type": "Vector",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The vector to normalize."
                 }
             }
@@ -6153,7 +6153,7 @@ var valueFuncKw =
                 "description": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false."
                 }
             }
@@ -6219,7 +6219,7 @@ var valueFuncKw =
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams on which to count players."
                 }
             }
@@ -6258,7 +6258,7 @@ var valueFuncKw =
                 "description": "The player whose death count to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose death count to acquire."
                 }
             }
@@ -6297,7 +6297,7 @@ var valueFuncKw =
                 "description": "The player whose elimination count to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose elimination count to acquire."
                 }
             }
@@ -6336,7 +6336,7 @@ var valueFuncKw =
                 "description": "The player whose final blow count to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose final blow count to acquire."
                 }
             }
@@ -6375,7 +6375,7 @@ var valueFuncKw =
                 "description": "The hero to check for play.",
                 "type": "Hero",
                 "default": "HERO",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The hero to check for play."
                 }
             },
@@ -6384,7 +6384,7 @@ var valueFuncKw =
                 "description": "The team or teams on which to check for the hero being played.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams on which to check for the hero being played."
                 }
             }
@@ -6423,7 +6423,7 @@ var valueFuncKw =
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams on which to count players."
                 }
             }
@@ -6462,7 +6462,7 @@ var valueFuncKw =
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams on which to count players."
                 }
             }
@@ -6501,7 +6501,7 @@ var valueFuncKw =
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams on which to count players."
                 }
             }
@@ -6540,7 +6540,7 @@ var valueFuncKw =
                 "description": "The team or teams on which to count slots.",
                 "type": "Team",
                 "default": "Team",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams on which to count slots."
                 }
             }
@@ -6593,7 +6593,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index."
                 }
             }
@@ -6616,7 +6616,7 @@ var valueFuncKw =
                 "description": "The team whose opposite to acquire. If all, the result will be all.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team whose opposite to acquire. If all, the result will be all."
                 }
             }
@@ -6641,7 +6641,7 @@ var valueFuncKw =
                 "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true."
                 }
             },
@@ -6650,7 +6650,7 @@ var valueFuncKw =
                 "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true."
                 }
             }
@@ -6742,7 +6742,7 @@ var valueFuncKw =
                 "description": "The team whose flag to check.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team whose flag to check."
                 }
             }
@@ -6780,7 +6780,7 @@ var valueFuncKw =
                 "description": "The player from whose reticle to search for the closest player.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player from whose reticle to search for the closest player."
                 }
             },
@@ -6789,7 +6789,7 @@ var valueFuncKw =
                 "description": "The team or teams on which to search for the closest player.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams on which to search for the closest player."
                 }
             }
@@ -6826,7 +6826,7 @@ var valueFuncKw =
                 "description": "The Player whose statistic to acquire.",
                 "type": "Player",
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The Player whose statistic to acquire."
                 }
             },
@@ -6835,7 +6835,7 @@ var valueFuncKw =
                 "description": "The hero whose statistic to acquire",
                 "type": "Hero",
                 "default": "Hero",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The hero whose statistic to acquire"
                 }
             },
@@ -6844,7 +6844,7 @@ var valueFuncKw =
                 "description": "The statistic to acquire.",
                 "type": "HeroStat",
                 "default": "All Damage Dealt",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The statistic to acquire."
                 }
             }
@@ -6881,7 +6881,7 @@ var valueFuncKw =
                 "description": "The Player whose statistic to acquire.",
                 "type": "Player",
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The Player whose statistic to acquire."
                 }
             },
@@ -6890,7 +6890,7 @@ var valueFuncKw =
                 "description": "The statistic to acquire.",
                 "type": "Stat",
                 "default": "All Damage Dealt",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The statistic to acquire."
                 }
             }
@@ -6927,7 +6927,7 @@ var valueFuncKw =
                 "description": "The player whose variable value to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose variable value to acquire."
                 }
             },
@@ -6936,7 +6936,7 @@ var valueFuncKw =
                 "description": "The variable whose value to acquire.",
                 "type": "PlayerVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The variable whose value to acquire."
                 }
             }
@@ -6975,7 +6975,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11."
                 }
             },
@@ -6984,7 +6984,7 @@ var valueFuncKw =
                 "description": "The team or teams from which to acquire a player or players.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams from which to acquire a player or players."
                 }
             }
@@ -7027,7 +7027,7 @@ var valueFuncKw =
                 "description": "The player whose view to use for the check.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose view to use for the check."
                 }
             },
@@ -7036,7 +7036,7 @@ var valueFuncKw =
                 "description": "The team or teams on which to consider players.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams on which to consider players."
                 }
             },
@@ -7045,7 +7045,7 @@ var valueFuncKw =
                 "description": "The view angle to compare against in degrees.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The view angle to compare against in degrees."
                 }
             }
@@ -7084,7 +7084,7 @@ var valueFuncKw =
                 "description": "The hero to check for play.",
                 "type": "Hero",
                 "default": "HERO",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The hero to check for play."
                 }
             },
@@ -7093,7 +7093,7 @@ var valueFuncKw =
                 "description": "The team or teams on which to check for the hero being played.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams on which to check for the hero being played."
                 }
             }
@@ -7133,7 +7133,7 @@ var valueFuncKw =
                 "description": "The center position from which to measure distance.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The center position from which to measure distance."
                 }
             },
@@ -7142,7 +7142,7 @@ var valueFuncKw =
                 "description": "The radius in meters inside which players must be in order to be included in the resulting array.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The radius in meters inside which players must be in order to be included in the resulting array."
                 }
             },
@@ -7151,7 +7151,7 @@ var valueFuncKw =
                 "description": "The team or teams to which a player must belong to be included in the resulting array.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams to which a player must belong to be included in the resulting array."
                 }
             },
@@ -7160,7 +7160,7 @@ var valueFuncKw =
                 "description": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array.",
                 "type": "LosCheck",
                 "default": "OFF",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array."
                 }
             }
@@ -7227,7 +7227,7 @@ var valueFuncKw =
                 "description": "The player whose position to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose position to acquire."
                 }
             }
@@ -7266,7 +7266,7 @@ var valueFuncKw =
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The left-hand operand. May be any value that results in a number."
                 }
             },
@@ -7275,7 +7275,7 @@ var valueFuncKw =
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The right-hand operand. May be any value that results in a number."
                 }
             }
@@ -7314,7 +7314,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer."
                 }
             },
@@ -7325,7 +7325,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer."
                 }
             }
@@ -7362,7 +7362,7 @@ var valueFuncKw =
                 "description": "The smallest real number allowed.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The smallest real number allowed."
                 }
             },
@@ -7371,7 +7371,7 @@ var valueFuncKw =
                 "description": "The largest real number allowed.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The largest real number allowed."
                 }
             }
@@ -7408,7 +7408,7 @@ var valueFuncKw =
                 "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value."
                 }
             }
@@ -7448,7 +7448,7 @@ var valueFuncKw =
                 "description": "The array whose copy will be randomized.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array whose copy will be randomized."
                 }
             }
@@ -7485,7 +7485,7 @@ var valueFuncKw =
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
                 }
             },
@@ -7494,7 +7494,7 @@ var valueFuncKw =
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
                 }
             },
@@ -7505,7 +7505,7 @@ var valueFuncKw =
                     "Array": "Player"
                 },
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Which players can be hit by this ray cast."
                 }
             },
@@ -7516,7 +7516,7 @@ var valueFuncKw =
                     "Array": "Player"
                 },
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include."
                 }
             },
@@ -7525,7 +7525,7 @@ var valueFuncKw =
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast."
                 }
             }
@@ -7563,7 +7563,7 @@ var valueFuncKw =
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
                 }
             },
@@ -7572,7 +7572,7 @@ var valueFuncKw =
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
                 }
             },
@@ -7583,7 +7583,7 @@ var valueFuncKw =
                     "Array": "Player"
                 },
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Which players can be hit by this ray cast."
                 }
             },
@@ -7594,7 +7594,7 @@ var valueFuncKw =
                     "Array": "Player"
                 },
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include."
                 }
             },
@@ -7603,7 +7603,7 @@ var valueFuncKw =
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast."
                 }
             }
@@ -7641,7 +7641,7 @@ var valueFuncKw =
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
                 }
             },
@@ -7650,7 +7650,7 @@ var valueFuncKw =
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
                 }
             },
@@ -7661,7 +7661,7 @@ var valueFuncKw =
                     "Array": "Player"
                 },
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Which players can be hit by this ray cast."
                 }
             },
@@ -7672,7 +7672,7 @@ var valueFuncKw =
                     "Array": "Player"
                 },
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include."
                 }
             },
@@ -7681,7 +7681,7 @@ var valueFuncKw =
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast."
                 }
             }
@@ -7719,7 +7719,7 @@ var valueFuncKw =
                 "description": "The array from which to remove values.",
                 "type": "Array",
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array from which to remove values."
                 }
             },
@@ -7732,7 +7732,7 @@ var valueFuncKw =
                 ],
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed."
                 }
             }
@@ -7805,7 +7805,7 @@ var valueFuncKw =
                 "description": "The real number to round.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The real number to round."
                 }
             },
@@ -7814,7 +7814,7 @@ var valueFuncKw =
                 "description": "Determines the direction in which the value will be rounded.",
                 "type": "__Rounding__",
                 "default": "UP",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Determines the direction in which the value will be rounded."
                 }
             }
@@ -7852,7 +7852,7 @@ var valueFuncKw =
                 "description": "The player whose score to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose score to acquire."
                 }
             }
@@ -7973,7 +7973,7 @@ var valueFuncKw =
                 "description": "Angle in degrees.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Angle in degrees."
                 }
             }
@@ -8011,7 +8011,7 @@ var valueFuncKw =
                 "description": "Angle in radians.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Angle in radians."
                 }
             }
@@ -8049,7 +8049,7 @@ var valueFuncKw =
                 "description": "The player whose slot number to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose slot number to acquire."
                 }
             }
@@ -8088,7 +8088,7 @@ var valueFuncKw =
                     "Array": "Object"
                 },
                 "default": "GLOBAL VARIABLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array whose copy will be sorted."
                 }
             },
@@ -8097,7 +8097,7 @@ var valueFuncKw =
                 "description": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "Object",
                 "default": "CURRENT ARRAY ELEMENT",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered."
                 }
             }
@@ -8137,7 +8137,7 @@ var valueFuncKw =
                 "description": "The team whose spawn points to acquire.",
                 "type": "Team",
                 "default": "Team",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team whose spawn points to acquire."
                 }
             }
@@ -8176,7 +8176,7 @@ var valueFuncKw =
                 "description": "The player whose speed to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose speed to acquire."
                 }
             }
@@ -8213,7 +8213,7 @@ var valueFuncKw =
                 "description": "The player whose speed to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose speed to acquire."
                 }
             },
@@ -8222,7 +8222,7 @@ var valueFuncKw =
                 "description": "The direction of travel in which to measure the player's speed.",
                 "type": "Direction",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The direction of travel in which to measure the player's speed."
                 }
             }
@@ -8259,7 +8259,7 @@ var valueFuncKw =
                 "description": "The real number value whose square root will be computed. Negative values result in zero.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The real number value whose square root will be computed. Negative values result in zero."
                 }
             }
@@ -8298,7 +8298,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "LocalizedStringLiteral",
                 "default": "HELLO",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             },
@@ -8308,7 +8308,7 @@ var valueFuncKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be converted to text and used to replace {0}."
                 }
             },
@@ -8318,7 +8318,7 @@ var valueFuncKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be converted to text and used to replace {1}."
                 }
             },
@@ -8328,7 +8328,7 @@ var valueFuncKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be converted to text and used to replace {2}."
                 }
             }
@@ -8365,7 +8365,7 @@ var valueFuncKw =
                 "description": "The string in which to search for the specified substring.",
                 "type": "String",
                 "default": "Custom String",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The string in which to search for the specified substring."
                 }
             },
@@ -8374,7 +8374,7 @@ var valueFuncKw =
                 "description": "The substring for which to search.",
                 "type": "String",
                 "default": "Custom String",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The substring for which to search."
                 }
             }
@@ -8397,7 +8397,7 @@ var valueFuncKw =
                 "description": "The string whose characters to count.",
                 "type": "String",
                 "default": "Global Variable",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The string whose characters to count."
                 }
             }
@@ -8420,7 +8420,7 @@ var valueFuncKw =
                 "description": "The string value from which to build the substring.",
                 "type": "String",
                 "default": "Global Variable",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The string value from which to build the substring."
                 }
             },
@@ -8429,7 +8429,7 @@ var valueFuncKw =
                 "description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
                 "type": "unsigned int",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.)."
                 }
             },
@@ -8438,7 +8438,7 @@ var valueFuncKw =
                 "description": "Specifies the number of characters in the substring.",
                 "type": "unsigned int",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies the number of characters in the substring."
                 }
             }
@@ -8467,7 +8467,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The left-hand operand. May be any value that results in a number or a vector."
                 }
             },
@@ -8480,7 +8480,7 @@ var valueFuncKw =
                 ],
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The right-hand operand. May be any value that results in a number or a vector."
                 }
             }
@@ -8520,7 +8520,7 @@ var valueFuncKw =
                 "description": "Angle in degrees.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Angle in degrees."
                 }
             }
@@ -8558,7 +8558,7 @@ var valueFuncKw =
                 "description": "Angle in radians.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Angle in radians."
                 }
             }
@@ -8596,7 +8596,7 @@ var valueFuncKw =
                 "description": "The player whose team to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose team to acquire."
                 }
             }
@@ -8635,7 +8635,7 @@ var valueFuncKw =
                 "description": "The team whose score to acquire.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team whose score to acquire."
                 }
             }
@@ -8671,7 +8671,7 @@ var valueFuncKw =
                 "description": "The player whose directional input to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose directional input to acquire."
                 }
             }
@@ -8762,7 +8762,7 @@ var valueFuncKw =
                 "description": "The player whose ultimate charge percentage to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose ultimate charge percentage to acquire."
                 }
             }
@@ -8802,7 +8802,7 @@ var valueFuncKw =
                     "Array"
                 ],
                 "default": "Position Of",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be updated once per tick."
                 }
             }
@@ -8863,7 +8863,7 @@ var valueFuncKw =
                 "description": "The array whose element to acquire.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The array whose element to acquire."
                 }
             },
@@ -8874,7 +8874,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the element to acquire."
                 }
             }
@@ -8918,7 +8918,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The x value of the vector."
                 }
             },
@@ -8929,7 +8929,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The y value of the vector."
                 }
             },
@@ -8940,7 +8940,7 @@ var valueFuncKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The z value of the vector."
                 }
             }
@@ -8977,7 +8977,7 @@ var valueFuncKw =
                 "description": "The position from which the resulting displacement vector begins.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position from which the resulting displacement vector begins."
                 }
             },
@@ -8986,7 +8986,7 @@ var valueFuncKw =
                 "description": "The position at which the resulting displacement vector ends.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position at which the resulting displacement vector ends."
                 }
             }
@@ -9025,7 +9025,7 @@ var valueFuncKw =
                 "description": "The player whose velocity to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose velocity to acquire."
                 }
             }
@@ -9063,7 +9063,7 @@ var valueFuncKw =
                 "description": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins.",
                 "type": "Direction",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins."
                 }
             }
@@ -9101,7 +9101,7 @@ var valueFuncKw =
                 "description": "The player from whose current facing the angle begins.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player from whose current facing the angle begins."
                 }
             },
@@ -9110,7 +9110,7 @@ var valueFuncKw =
                 "description": "The position in the world where the angle ends.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position in the world where the angle ends."
                 }
             }
@@ -9132,7 +9132,7 @@ var valueFuncKw =
                 "description": "The player whose vertical facing angle to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose vertical facing angle to acquire."
                 }
             }
@@ -9169,7 +9169,7 @@ var valueFuncKw =
                 "description": "The player whose vertical speed to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose vertical speed to acquire."
                 }
             }
@@ -9234,7 +9234,7 @@ var valueFuncKw =
                 "description": "The player whose weapon to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose weapon to acquire."
                 }
             }
@@ -9256,7 +9256,7 @@ var valueFuncKw =
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
                 "default": "Custom String",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The name of the category in which this setting will be found."
                 }
             },
@@ -9265,7 +9265,7 @@ var valueFuncKw =
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
                 "default": "Custom String",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The name of this setting."
                 }
             },
@@ -9274,7 +9274,7 @@ var valueFuncKw =
                 "description": "The default value for this setting.",
                 "type": "UnsignedIntLiteral",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The default value for this setting."
                 }
             },
@@ -9285,7 +9285,7 @@ var valueFuncKw =
                     "Array": "CustomStringLiteral"
                 },
                 "default": "Array",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The options for this setting."
                 }
             },
@@ -9294,7 +9294,7 @@ var valueFuncKw =
                 "description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
                 "type": "IntLiteral",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order."
                 }
             }
@@ -9331,7 +9331,7 @@ var valueFuncKw =
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
                 "default": "Custom String",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The name of the category in which this setting will be found."
                 }
             },
@@ -9340,7 +9340,7 @@ var valueFuncKw =
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
                 "default": "Custom String",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The name of this setting."
                 }
             },
@@ -9349,7 +9349,7 @@ var valueFuncKw =
                 "description": "The default value for this setting.",
                 "type": "HeroLiteral",
                 "default": "Ana",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The default value for this setting."
                 }
             },
@@ -9358,7 +9358,7 @@ var valueFuncKw =
                 "description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
                 "type": "IntLiteral",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order."
                 }
             }
@@ -9380,7 +9380,7 @@ var valueFuncKw =
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The name of the category in which this setting will be found."
                 }
             },
@@ -9389,7 +9389,7 @@ var valueFuncKw =
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The name of this setting."
                 }
             },
@@ -9398,7 +9398,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "IntLiteral",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             },
@@ -9407,7 +9407,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "IntLiteral",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             },
@@ -9416,7 +9416,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "IntLiteral",
                 "default": 100,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             },
@@ -9425,7 +9425,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "IntLiteral",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             }
@@ -9463,7 +9463,7 @@ var valueFuncKw =
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The name of the category in which this setting will be found."
                 }
             },
@@ -9472,7 +9472,7 @@ var valueFuncKw =
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The name of this setting."
                 }
             },
@@ -9481,7 +9481,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "FloatLiteral",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             },
@@ -9490,7 +9490,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "FloatLiteral",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             },
@@ -9499,7 +9499,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "FloatLiteral",
                 "default": 100,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             },
@@ -9508,7 +9508,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "IntLiteral",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             }
@@ -9546,7 +9546,7 @@ var valueFuncKw =
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The name of the category in which this setting will be found."
                 }
             },
@@ -9555,7 +9555,7 @@ var valueFuncKw =
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The name of this setting."
                 }
             },
@@ -9564,7 +9564,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "BoolLiteral",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             },
@@ -9573,7 +9573,7 @@ var valueFuncKw =
                 "description": "",
                 "type": "IntLiteral",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             }
@@ -9611,7 +9611,7 @@ var valueFuncKw =
                 "description": "The vector in local coordinates that will be converted to world coordinates.",
                 "type": "Vector",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The vector in local coordinates that will be converted to world coordinates."
                 }
             },
@@ -9620,7 +9620,7 @@ var valueFuncKw =
                 "description": "The player to whom the local vector is relative.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player to whom the local vector is relative."
                 }
             },
@@ -9629,7 +9629,7 @@ var valueFuncKw =
                 "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
                 "type": "Transform",
                 "default": "ROTATION",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities)."
                 }
             }
@@ -9667,7 +9667,7 @@ var valueFuncKw =
                 "description": "The vector from which to acquire the x component.",
                 "type": "Vector",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The vector from which to acquire the x component."
                 }
             }
@@ -9705,7 +9705,7 @@ var valueFuncKw =
                 "description": "The vector from which to acquire the y component.",
                 "type": "Vector",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The vector from which to acquire the y component."
                 }
             }
@@ -9743,7 +9743,7 @@ var valueFuncKw =
                 "description": "The vector from which to acquire the z component.",
                 "type": "Vector",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The vector from which to acquire the z component."
                 }
             }
@@ -9829,7 +9829,7 @@ var valueFuncKw =
                 "description": "The String value whose character to acquire.",
                 "type": "String",
                 "default": "Global Variable",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The String value whose character to acquire."
                 }
             },
@@ -9838,7 +9838,7 @@ var valueFuncKw =
                 "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
                 "type": "unsigned int",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.)."
                 }
             }
@@ -9854,7 +9854,7 @@ var valueFuncKw =
                 "description": "The String Value from which to search for the character.",
                 "type": "String",
                 "default": "Global Variable",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The String Value from which to search for the character."
                 }
             },
@@ -9863,7 +9863,7 @@ var valueFuncKw =
                 "description": "The character for which to search",
                 "type": "String",
                 "default": "Global Variable",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The character for which to search"
                 }
             }
@@ -9879,7 +9879,7 @@ var valueFuncKw =
                 "description": "The String Value to split.",
                 "type": "String",
                 "default": "Global Variable",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The String Value to split."
                 }
             },
@@ -9888,7 +9888,7 @@ var valueFuncKw =
                 "description": "The separator String with which to split the String Value.",
                 "type": "String",
                 "default": "Global Variable",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The separator String with which to split the String Value."
                 }
             }
@@ -9906,7 +9906,7 @@ var valueFuncKw =
                 "description": "The String Value with which to search for replacements.",
                 "type": "String",
                 "default": "Global Variable",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The String Value with which to search for replacements."
                 }
             },
@@ -9915,7 +9915,7 @@ var valueFuncKw =
                 "description": "The String pattern to be replaced.",
                 "type": "String",
                 "default": "Global Variable",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The String pattern to be replaced."
                 }
             },
@@ -9924,7 +9924,7 @@ var valueFuncKw =
                 "description": "The String Value with which to replace the pattern String",
                 "type": "String",
                 "default": "Global Variable",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The String Value with which to replace the pattern String"
                 }
             }

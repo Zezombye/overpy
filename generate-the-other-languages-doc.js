@@ -86,6 +86,7 @@ function replaceJsonObjectsInFile(path) {
                 console.log(key);
                 if (tmp[key]["args"]) {
                     for (var arg of tmp[key]["args"]) {
+                        console.log(JSON.stringify(arg));
                         addTranslations(arg.descriptionLocalized)
                     }
                 }

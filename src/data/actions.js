@@ -53,7 +53,7 @@ const actionKw =
                 "description": "Specifies whether the execution is stopped.",
                 "type": "bool",
                 "default": "COMPARE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the execution is stopped."
                 }
             }
@@ -149,7 +149,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose movement collision is affected."
                 }
             },
@@ -158,7 +158,7 @@ const actionKw =
                 "description": "Specifies the type of health (Armor or shields) contained in the Health Pool.",
                 "type": "Health",
                 "default": "Armor",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies the type of health (Armor or shields) contained in the Health Pool."
                 }
             },
@@ -167,7 +167,7 @@ const actionKw =
                 "description": "The size of the health pool",
                 "type": "unsigned float",
                 "default": 100,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The size of the health pool"
                 }
             },
@@ -176,7 +176,7 @@ const actionKw =
                 "description": "Whether health in this pool can be healed once it is lost. If this is value is false, then the health pool will shrink and disappear as it is damaged.",
                 "type": "bool",
                 "default": "true",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether health in this pool can be healed once it is lost. If this is value is false, then the health pool will shrink and disappear as it is damaged."
                 }
             },
@@ -185,7 +185,7 @@ const actionKw =
                 "description": "If set to true and Recoverable is also true, then Max Health will be reevaluated every frame. Else, Max Health is only evaluated once when this action executes.",
                 "type": "bool",
                 "default": "true",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If set to true and Recoverable is also true, then Max Health will be reevaluated every frame. Else, Max Health is only evaluated once when this action executes."
                 }
             }
@@ -212,7 +212,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose button is being reenabled."
                 }
             },
@@ -221,7 +221,7 @@ const actionKw =
                 "description": "The logical button that is being reenabled.",
                 "type": "Button",
                 "default": "PRIMARY FIRE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The logical button that is being reenabled."
                 }
             }
@@ -263,7 +263,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose velocity will be changed."
                 }
             },
@@ -272,7 +272,7 @@ const actionKw =
                 "description": "The unit direction in which the impulse will be applied. This value is normalized internally.",
                 "type": "Direction",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The unit direction in which the impulse will be applied. This value is normalized internally."
                 }
             },
@@ -281,7 +281,7 @@ const actionKw =
                 "description": "The magnitude of the change to the velocities of the player or players.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The magnitude of the change to the velocities of the player or players."
                 }
             },
@@ -290,7 +290,7 @@ const actionKw =
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
                 "type": "Relativity",
                 "default": "TO WORLD",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players."
                 }
             },
@@ -299,7 +299,7 @@ const actionKw =
                 "description": "Specifies whether existing velocity that is counter to direction should first be cancelled out before applying the impulse.",
                 "type": "Impulse",
                 "default": "CANCEL CONTRARY MOTION",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether existing velocity that is counter to direction should first be cancelled out before applying the impulse."
                 }
             }
@@ -336,7 +336,7 @@ const actionKw =
                 "description": "The player that will attach to the parent. This player will be unable to move freely until detached or teleported away.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player that will attach to the parent. This player will be unable to move freely until detached or teleported away."
                 }
             },
@@ -345,7 +345,7 @@ const actionKw =
                 "description": "The player to whom the child will attach. This player's movement will be unaffected and will determine the child's position.",
                 "type": "Player",
                 "default": "LAST CREATED ENTITY",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player to whom the child will attach. This player's movement will be unaffected and will determine the child's position."
                 }
             },
@@ -355,7 +355,7 @@ const actionKw =
                 "type": "Position",
                 "canReplaceNullVectorByNull": true,
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head."
                 }
             }
@@ -382,7 +382,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will see the message."
                 }
             },
@@ -392,7 +392,7 @@ const actionKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The message to be displayed."
                 }
             }
@@ -440,7 +440,7 @@ const actionKw =
                 "description": "Specifies which subroutine to call. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
                 "type": "Subroutine",
                 "default": "Sub0",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which subroutine to call. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored."
                 }
             }
@@ -482,7 +482,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players to cancel active abilities for."
                 }
             }
@@ -504,7 +504,7 @@ const actionKw =
                 "description": "Specifies which global variable to modify gradually.",
                 "type": "GlobalVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which global variable to modify gradually."
                 }
             },
@@ -516,7 +516,7 @@ const actionKw =
                     "Vector"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins."
                 }
             },
@@ -525,7 +525,7 @@ const actionKw =
                 "description": "The amount of change that will happen to the variable's value each second.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The amount of change that will happen to the variable's value each second."
                 }
             },
@@ -534,7 +534,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "__ChaseRateReeval__",
                 "default": "DESTINATION AND RATE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
                 }
             }
@@ -571,7 +571,7 @@ const actionKw =
                 "description": "Specifies which global variable to modify gradually.",
                 "type": "GlobalVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which global variable to modify gradually."
                 }
             },
@@ -583,7 +583,7 @@ const actionKw =
                     "Vector"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins."
                 }
             },
@@ -592,7 +592,7 @@ const actionKw =
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The amount of time, in seconds, over which the variable's value will approach the destination."
                 }
             },
@@ -601,7 +601,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "__ChaseTimeReeval__",
                 "default": "DESTINATION AND DURATION",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
                 }
             }
@@ -643,7 +643,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently."
                 }
             },
@@ -652,7 +652,7 @@ const actionKw =
                 "description": "Specifies which of the player's variables to modify gradually.",
                 "type": "PlayerVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of the player's variables to modify gradually."
                 }
             },
@@ -664,7 +664,7 @@ const actionKw =
                     "Vector"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins."
                 }
             },
@@ -673,7 +673,7 @@ const actionKw =
                 "description": "The amount of change that will happen to the variable's value each second.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The amount of change that will happen to the variable's value each second."
                 }
             },
@@ -682,7 +682,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "__ChaseRateReeval__",
                 "default": "DESTINATION AND RATE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
                 }
             }
@@ -724,7 +724,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently."
                 }
             },
@@ -733,7 +733,7 @@ const actionKw =
                 "description": "Specifies which of the player's variables to modify gradually.",
                 "type": "PlayerVariable",
                 "default": "VARIABLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of the player's variables to modify gradually."
                 }
             },
@@ -745,7 +745,7 @@ const actionKw =
                     "Vector"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins."
                 }
             },
@@ -754,7 +754,7 @@ const actionKw =
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The amount of time, in seconds, over which the variable's value will approach the destination."
                 }
             },
@@ -763,7 +763,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "__ChaseTimeReeval__",
                 "default": "DESTINATION AND DURATION",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
                 }
             }
@@ -805,7 +805,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players from whom the status will be removed."
                 }
             },
@@ -814,7 +814,7 @@ const actionKw =
                 "description": "The status to be removed from the player or players.",
                 "type": "Status",
                 "default": "HACKED",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The status to be removed from the player or players."
                 }
             }
@@ -856,7 +856,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players to perform the communication."
                 }
             },
@@ -865,7 +865,7 @@ const actionKw =
                 "description": "The type of communication.",
                 "type": "Comms",
                 "default": "VOICE LINE UP",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The type of communication."
                 }
             }
@@ -919,7 +919,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will be able to see the effect."
                 }
             },
@@ -928,7 +928,7 @@ const actionKw =
                 "description": "The type of effect to be created.",
                 "type": "Beam",
                 "default": "GOOD BEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The type of effect to be created."
                 }
             },
@@ -937,7 +937,7 @@ const actionKw =
                 "description": "The effect's start position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
                 "type": "Position",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The effect's start position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world."
                 }
             },
@@ -946,7 +946,7 @@ const actionKw =
                 "description": "The effect's end position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
                 "type": "Position",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The effect's end position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world."
                 }
             },
@@ -955,7 +955,7 @@ const actionKw =
                 "description": "The color of the beam to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Only the \"good\" and \"bad\" beam effects can have color applied.",
                 "type": "Color",
                 "default": "WHITE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the beam to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Only the \"good\" and \"bad\" beam effects can have color applied."
                 }
             },
@@ -964,7 +964,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs.",
                 "type": "EffectReeval",
                 "default": "VISIBLE TO, POSITION, AND RADIUS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs."
                 }
             }
@@ -1001,7 +1001,7 @@ const actionKw =
                 "description": "The hero that the bot will be. If more than one hero is provided, one will be chosen at random.",
                 "type": "Hero",
                 "default": "HERO",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The hero that the bot will be. If more than one hero is provided, one will be chosen at random."
                 }
             },
@@ -1010,7 +1010,7 @@ const actionKw =
                 "description": "The team on which to create the bot. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team on which to create the bot. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes."
                 }
             },
@@ -1021,7 +1021,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings."
                 }
             },
@@ -1031,7 +1031,7 @@ const actionKw =
                 "type": "Position",
                 "canReplaceNullVectorByNull": true,
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The initial position where the bot will appear."
                 }
             },
@@ -1041,7 +1041,7 @@ const actionKw =
                 "type": "Direction",
                 "canReplaceNullVectorByNull": true,
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The initial direction that the bot will face."
                 }
             }
@@ -1083,7 +1083,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will be able to see the effect."
                 }
             },
@@ -1092,7 +1092,7 @@ const actionKw =
                 "description": "The type of effect to be created.",
                 "type": "Effect",
                 "default": "SPHERE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The type of effect to be created."
                 }
             },
@@ -1101,7 +1101,7 @@ const actionKw =
                 "description": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects.",
                 "type": "Color",
                 "default": "WHITE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects."
                 }
             },
@@ -1113,7 +1113,7 @@ const actionKw =
                     "Player"
                 ],
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world."
                 }
             },
@@ -1124,7 +1124,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The radius of this effect."
                 }
             },
@@ -1133,7 +1133,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated.",
                 "type": "EffectReeval",
                 "default": "VISIBLE TO, POSITION, AND RADIUS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated."
                 }
             }
@@ -1175,7 +1175,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will see the hud text."
                 }
             },
@@ -1184,7 +1184,7 @@ const actionKw =
                 "description": "The text to be displayed (can be blank)",
                 "type": "Object",
                 "default": "STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The text to be displayed (can be blank)"
                 }
             },
@@ -1193,7 +1193,7 @@ const actionKw =
                 "description": "The subheader text to be displayed (can be blank)",
                 "type": "Object",
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The subheader text to be displayed (can be blank)"
                 }
             },
@@ -1202,7 +1202,7 @@ const actionKw =
                 "description": "The body text to be displayed (can be blank)",
                 "type": "Object",
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The body text to be displayed (can be blank)"
                 }
             },
@@ -1211,7 +1211,7 @@ const actionKw =
                 "description": "The location on the screen where the text will appear.",
                 "type": "HudPosition",
                 "default": "LEFT",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The location on the screen where the text will appear."
                 }
             },
@@ -1222,7 +1222,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order."
                 }
             },
@@ -1231,7 +1231,7 @@ const actionKw =
                 "description": "The color of the header.",
                 "type": "Color",
                 "default": "WHITE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the header."
                 }
             },
@@ -1240,7 +1240,7 @@ const actionKw =
                 "description": "The color of the subheader.",
                 "type": "Color",
                 "default": "WHITE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the subheader."
                 }
             },
@@ -1249,7 +1249,7 @@ const actionKw =
                 "description": "The color of the text.",
                 "type": "Color",
                 "default": "WHITE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the text."
                 }
             },
@@ -1258,7 +1258,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated.",
                 "type": "HudReeval",
                 "default": "VISIBLE TO AND STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated."
                 }
             },
@@ -1267,7 +1267,7 @@ const actionKw =
                 "description": "Whether spectators can see the text or not.",
                 "type": "SpecVisibility",
                 "default": "DEFAULT VISIBILITY",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether spectators can see the text or not."
                 }
             }
@@ -1309,7 +1309,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will be able to see the icon."
                 }
             },
@@ -1321,7 +1321,7 @@ const actionKw =
                     "Player"
                 ],
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The icon's position. If this value is a player, then the icon will appear above the player's head. Otherwise, the value is interpreted as a position in the world."
                 }
             },
@@ -1330,7 +1330,7 @@ const actionKw =
                 "description": "The icon to be created.",
                 "type": "Icon",
                 "default": "ARROW: DOWN",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The icon to be created."
                 }
             },
@@ -1339,7 +1339,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The icon will keep asking for and using new values from reevaluated inputs.",
                 "type": "IconReeval",
                 "default": "VISIBLE TO AND POSITION",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The icon will keep asking for and using new values from reevaluated inputs."
                 }
             },
@@ -1348,7 +1348,7 @@ const actionKw =
                 "description": "The color of the icon to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
                 "default": "WHITE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the icon to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
                 }
             },
@@ -1357,7 +1357,7 @@ const actionKw =
                 "description": "Should this icon appear even when it is behind you?",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Should this icon appear even when it is behind you?"
                 }
             }
@@ -1384,7 +1384,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will see the in-world text."
                 }
             },
@@ -1394,7 +1394,7 @@ const actionKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The text to be displayed."
                 }
             },
@@ -1407,7 +1407,7 @@ const actionKw =
                 ],
                 "canReplaceNullVectorByNull": true,
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world."
                 }
             },
@@ -1418,7 +1418,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The text's scale."
                 }
             },
@@ -1427,7 +1427,7 @@ const actionKw =
                 "description": "Specifies whether the text can be seen through walls or is instead clipped.",
                 "type": "Clip",
                 "default": "CLIP AGAINST SURFACES",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the text can be seen through walls or is instead clipped."
                 }
             },
@@ -1436,7 +1436,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
                 "type": "WorldTextReeval",
                 "default": "VISIBLE TO, POSITION, AND STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs."
                 }
             },
@@ -1445,7 +1445,7 @@ const actionKw =
                 "description": "Specifies the color of the in-world text to use.",
                 "type": "Color",
                 "default": "WHITE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies the color of the in-world text to use."
                 }
             },
@@ -1454,7 +1454,7 @@ const actionKw =
                 "description": "Whether spectators can see the text or not.",
                 "type": "SpecVisibility",
                 "default": "DEFAULT VISIBILITY",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether spectators can see the text or not."
                 }
             }
@@ -1481,7 +1481,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will see the progress bar HUD text."
                 }
             },
@@ -1490,7 +1490,7 @@ const actionKw =
                 "description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
                 "type": "unsigned float",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value of the progress bar to be displayed as a percentage from 0 to 100."
                 }
             },
@@ -1499,7 +1499,7 @@ const actionKw =
                 "description": "The text to be displayed (can be blank)",
                 "type": "Object",
                 "default": "Custom String",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The text to be displayed (can be blank)"
                 }
             },
@@ -1511,7 +1511,7 @@ const actionKw =
                     "Player"
                 ],
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world."
                 }
             },
@@ -1520,7 +1520,7 @@ const actionKw =
                 "description": "The text's scale.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The text's scale."
                 }
             },
@@ -1529,7 +1529,7 @@ const actionKw =
                 "description": "Specifies whether the text can be seen through walls or is instead clipped.",
                 "type": "Clip",
                 "default": "CLIP AGAINST SURFACES",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the text can be seen through walls or is instead clipped."
                 }
             },
@@ -1538,7 +1538,7 @@ const actionKw =
                 "description": "The color of the progress bar text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
                 "default": "White",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the progress bar text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
                 }
             },
@@ -1547,7 +1547,7 @@ const actionKw =
                 "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
                 "default": "White",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
                 }
             },
@@ -1556,7 +1556,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
                 "type": "ProgressWorldTextReeval",
                 "default": "Visible To, Values, and Color",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs."
                 }
             },
@@ -1565,7 +1565,7 @@ const actionKw =
                 "description": "Whether non-team spectators can see the text or not.",
                 "type": "SpecVisibility",
                 "default": "Default Visibility",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether non-team spectators can see the text or not."
                 }
             }
@@ -1592,7 +1592,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will see the Progress Bar HUD text."
                 }
             },
@@ -1601,7 +1601,7 @@ const actionKw =
                 "description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
                 "type": "unsigned float",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value of the progress bar to be displayed as a percentage from 0 to 100."
                 }
             },
@@ -1610,7 +1610,7 @@ const actionKw =
                 "description": "The text to be displayed (can be blank)",
                 "type": "Object",
                 "default": "Custom String",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The text to be displayed (can be blank)"
                 }
             },
@@ -1619,7 +1619,7 @@ const actionKw =
                 "description": "The location on the screen where the text will appear.",
                 "type": "HudPosition",
                 "default": "Left",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The location on the screen where the text will appear."
                 }
             },
@@ -1628,7 +1628,7 @@ const actionKw =
                 "description": "The sort order of the text relative to other text in the same location. Text with a higher sort order will come after the text with a lower sort order.",
                 "type": "float",
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The sort order of the text relative to other text in the same location. Text with a higher sort order will come after the text with a lower sort order."
                 }
             },
@@ -1637,7 +1637,7 @@ const actionKw =
                 "description": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
                 "default": "White",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
                 }
             },
@@ -1646,7 +1646,7 @@ const actionKw =
                 "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
                 "default": "White",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
                 }
             },
@@ -1655,7 +1655,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
                 "type": "ProgressHudReeval",
                 "default": "Visible To, Values, and Color",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs."
                 }
             },
@@ -1664,7 +1664,7 @@ const actionKw =
                 "description": "Whether non-team spectators can see the text or not.",
                 "type": "SpecVisibility",
                 "default": "Default Visibility",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether non-team spectators can see the text or not."
                 }
             }
@@ -1692,7 +1692,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will receive damage."
                 }
             },
@@ -1701,7 +1701,7 @@ const actionKw =
                 "description": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit.",
                 "type": "Player",
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit."
                 }
             },
@@ -1710,7 +1710,7 @@ const actionKw =
                 "description": "The amount of damage to apply. This amount may be modified by buffs, debuffs, or armor.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The amount of damage to apply. This amount may be modified by buffs, debuffs, or armor."
                 }
             }
@@ -1773,7 +1773,7 @@ const actionKw =
                 "description": "The winning player.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The winning player."
                 }
             }
@@ -1837,7 +1837,7 @@ const actionKw =
                 "description": "Round winning team",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Round winning team"
                 }
             }
@@ -1859,7 +1859,7 @@ const actionKw =
                 "description": "The winning team.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The winning team."
                 }
             }
@@ -2040,7 +2040,7 @@ const actionKw =
                 "description": "The team to remove the dummy bot from. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team to remove the dummy bot from. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes."
                 }
             },
@@ -2051,7 +2051,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The slot to remove the dummy bot from."
                 }
             }
@@ -2088,7 +2088,7 @@ const actionKw =
                 "description": "Specifies which effect entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
                 "type": "EntityId",
                 "default": "LAST CREATED ENTITY",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which effect entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored."
                 }
             }
@@ -2110,7 +2110,7 @@ const actionKw =
                 "description": "Specifies which hud text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
                 "type": "TextId",
                 "default": "LAST TEXT ID",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which hud text to destroy. This id may be last text id or a variable into which last text id was earlier stored."
                 }
             }
@@ -2147,7 +2147,7 @@ const actionKw =
                 "description": "Specifies which icon entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
                 "type": "EntityId",
                 "default": "LAST CREATED ENTITY",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which icon entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored."
                 }
             }
@@ -2184,7 +2184,7 @@ const actionKw =
                 "description": "Specifies which in-world text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
                 "type": "TextId",
                 "default": "LAST TEXT ID",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which in-world text to destroy. This id may be last text id or a variable into which last text id was earlier stored."
                 }
             }
@@ -2221,7 +2221,7 @@ const actionKw =
                 "description": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored.",
                 "type": "TextId",
                 "default": "Last Text ID",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored."
                 }
             }
@@ -2243,7 +2243,7 @@ const actionKw =
                 "description": "Specifies which progress bar HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.",
                 "type": "TextId",
                 "default": "Last Text ID",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which progress bar HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored."
                 }
             }
@@ -2270,7 +2270,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players that will become detached from their parent."
                 }
             }
@@ -2351,7 +2351,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their game mode HUD disabled."
                 }
             }
@@ -2393,7 +2393,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their game mode in-world UI disabled."
                 }
             }
@@ -2435,7 +2435,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their hero HUD disabled."
                 }
             }
@@ -2477,7 +2477,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their kill feed disabled."
                 }
             }
@@ -2519,7 +2519,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their messages disabled."
                 }
             }
@@ -2561,7 +2561,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose movement collision is affected."
                 }
             },
@@ -2570,7 +2570,7 @@ const actionKw =
                 "description": "If true, collision with the floors is also disabled.",
                 "type": "bool",
                 "default": "false",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If true, collision with the floors is also disabled."
                 }
             }
@@ -2597,7 +2597,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose movement collision is affected."
                 }
             }
@@ -2666,7 +2666,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their nameplates disabled."
                 }
             },
@@ -2680,7 +2680,7 @@ const actionKw =
                     }
                 ],
                 "default": "All Players",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The viewing player or players for whom the viewed player's nameplate will be disabled."
                 }
             }
@@ -2722,7 +2722,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose respawning is affected."
                 }
             }
@@ -2764,7 +2764,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their scoreboard disabled."
                 }
             }
@@ -2833,7 +2833,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose default death spectate behavior is restored."
                 }
             }
@@ -2860,7 +2860,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will revert to seeing their own hud while death spectating."
                 }
             }
@@ -2914,7 +2914,7 @@ const actionKw =
                     }
                 ],
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their text chat disabled."
                 }
             }
@@ -2935,7 +2935,7 @@ const actionKw =
                     }
                 ],
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their text chat disabled."
                 }
             },
@@ -2944,7 +2944,7 @@ const actionKw =
                 "description": "Whether or not team voice chat will be disabled.",
                 "type": "bool",
                 "default": true,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether or not team voice chat will be disabled."
                 }
             },
@@ -2953,7 +2953,7 @@ const actionKw =
                 "description": "Whether or not match voice chat will be disabled.",
                 "type": "bool",
                 "default": true,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether or not match voice chat will be disabled."
                 }
             },
@@ -2962,7 +2962,7 @@ const actionKw =
                 "description": "Whether or not group voice chat will be disabled.",
                 "type": "bool",
                 "default": true,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether or not group voice chat will be disabled."
                 }
             }
@@ -2983,7 +2983,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose button is being disabled."
                 }
             },
@@ -2992,7 +2992,7 @@ const actionKw =
                 "description": "The logical button that is being disabled.",
                 "type": "Button",
                 "default": "PRIMARY FIRE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The logical button that is being disabled."
                 }
             }
@@ -3054,7 +3054,7 @@ const actionKw =
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
                 "type": "bool",
                 "default": "COMPARE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level."
                 }
             }
@@ -3148,7 +3148,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their game mode HUD enabled."
                 }
             }
@@ -3190,7 +3190,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their game mode in-world UI enabled."
                 }
             }
@@ -3232,7 +3232,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their hero HUD enabled."
                 }
             }
@@ -3274,7 +3274,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their kill feed enabled."
                 }
             }
@@ -3316,7 +3316,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their messages enabled."
                 }
             }
@@ -3358,7 +3358,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose movement collision is affected."
                 }
             }
@@ -3385,7 +3385,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose movement collision is affected."
                 }
             }
@@ -3454,7 +3454,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their nameplates enabled."
                 }
             },
@@ -3468,7 +3468,7 @@ const actionKw =
                     }
                 ],
                 "default": "All Players",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The viewing player or players for whom the viewed player's nameplate will be enabled."
                 }
             }
@@ -3510,7 +3510,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose respawning is affected."
                 }
             }
@@ -3552,7 +3552,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their scoreboard enabled."
                 }
             }
@@ -3621,7 +3621,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will be allowed to spectate all players."
                 }
             }
@@ -3663,7 +3663,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will begin seeing their spectate targets hud while death spectating."
                 }
             }
@@ -3732,7 +3732,7 @@ const actionKw =
                     }
                 ],
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The Player or Players who will have their Text Chat enabled."
                 }
             }
@@ -3753,7 +3753,7 @@ const actionKw =
                     }
                 ],
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The Player or Players who will have their Voice Chat enabled."
                 }
             }
@@ -3795,7 +3795,7 @@ const actionKw =
                 "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
                 "type": "GlobalVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value."
                 }
             },
@@ -3804,7 +3804,7 @@ const actionKw =
                 "description": "The control variable is set to this value when the loop begins.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The control variable is set to this value when the loop begins."
                 }
             },
@@ -3813,7 +3813,7 @@ const actionKw =
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
                 "type": "float",
                 "default": "COUNT OF",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits."
                 }
             },
@@ -3822,7 +3822,7 @@ const actionKw =
                 "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action."
                 }
             }
@@ -3859,7 +3859,7 @@ const actionKw =
                 "description": "The player whose variable is being modified in this loop. If multiple players are specified, the first player is used.",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose variable is being modified in this loop. If multiple players are specified, the first player is used."
                 }
             },
@@ -3868,7 +3868,7 @@ const actionKw =
                 "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
                 "type": "PlayerVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value."
                 }
             },
@@ -3877,7 +3877,7 @@ const actionKw =
                 "description": "The control variable is set to this value when the loop begins.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The control variable is set to this value when the loop begins."
                 }
             },
@@ -3886,7 +3886,7 @@ const actionKw =
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
                 "type": "float",
                 "default": "COUNT OF",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits."
                 }
             },
@@ -3895,7 +3895,7 @@ const actionKw =
                 "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action."
                 }
             }
@@ -3950,7 +3950,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose health will be restored."
                 }
             },
@@ -3959,7 +3959,7 @@ const actionKw =
                 "description": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit.",
                 "type": "Player",
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit."
                 }
             },
@@ -3968,7 +3968,7 @@ const actionKw =
                 "description": "The amount of healing to apply. This amount may be modified by buff or debuffs. Healing is capped by each player's max health.",
                 "type": "float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The amount of healing to apply. This amount may be modified by buff or debuffs. Healing is capped by each player's max health."
                 }
             }
@@ -4004,7 +4004,7 @@ const actionKw =
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
                 "type": "bool",
                 "default": "COMPARE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level."
                 }
             }
@@ -4045,7 +4045,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will be killed."
                 }
             },
@@ -4054,7 +4054,7 @@ const actionKw =
                 "description": "The player who will receive credit for the kill. A killer of null indicates no player will receive credit.",
                 "type": "Player",
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player who will receive credit for the kill. A killer of null indicates no player will receive credit."
                 }
             }
@@ -4090,7 +4090,7 @@ const actionKw =
                 "description": "The string to be logged to the workshop inspector.",
                 "type": "Object",
                 "default": "CUSTOM STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The string to be logged to the workshop inspector."
                 }
             }
@@ -4142,7 +4142,7 @@ const actionKw =
                 "description": "Specifies whether the loop will occur.",
                 "type": "bool",
                 "default": "COMPARE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the loop will occur."
                 }
             }
@@ -4188,7 +4188,7 @@ const actionKw =
                 "description": "The global variable to modify.",
                 "type": "GlobalVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The global variable to modify."
                 }
             },
@@ -4197,7 +4197,7 @@ const actionKw =
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
                 "type": "__Operation__",
                 "default": "ADD",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values."
                 }
             },
@@ -4209,7 +4209,7 @@ const actionKw =
                     "Array"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove."
                 }
             }
@@ -4246,7 +4246,7 @@ const actionKw =
                 "description": "The global variable to modify.",
                 "type": "GlobalVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The global variable to modify."
                 }
             },
@@ -4255,7 +4255,7 @@ const actionKw =
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "unsigned int",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero."
                 }
             },
@@ -4264,7 +4264,7 @@ const actionKw =
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
                 "type": "__Operation__",
                 "default": "ADD",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values."
                 }
             },
@@ -4276,7 +4276,7 @@ const actionKw =
                     "Array"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove."
                 }
             }
@@ -4318,7 +4318,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose score will change."
                 }
             },
@@ -4329,7 +4329,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease."
                 }
             }
@@ -4371,7 +4371,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set."
                 }
             },
@@ -4380,7 +4380,7 @@ const actionKw =
                 "description": "Specifies which of the player's variables to modify.",
                 "type": "PlayerVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of the player's variables to modify."
                 }
             },
@@ -4389,7 +4389,7 @@ const actionKw =
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
                 "type": "__Operation__",
                 "default": "ADD",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values."
                 }
             },
@@ -4401,7 +4401,7 @@ const actionKw =
                     "Array"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove."
                 }
             }
@@ -4443,7 +4443,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set."
                 }
             },
@@ -4452,7 +4452,7 @@ const actionKw =
                 "description": "Specifies which of the player's variables to modify.",
                 "type": "PlayerVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of the player's variables to modify."
                 }
             },
@@ -4461,7 +4461,7 @@ const actionKw =
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "unsigned int",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero."
                 }
             },
@@ -4470,7 +4470,7 @@ const actionKw =
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
                 "type": "__Operation__",
                 "default": "ADD",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values."
                 }
             },
@@ -4482,7 +4482,7 @@ const actionKw =
                     "Array"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove."
                 }
             }
@@ -4519,7 +4519,7 @@ const actionKw =
                 "description": "The team or teams whose score will be changed.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams whose score will be changed."
                 }
             },
@@ -4530,7 +4530,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease."
                 }
             }
@@ -4572,7 +4572,7 @@ const actionKw =
                     }
                 ],
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players to move."
                 }
             },
@@ -4581,7 +4581,7 @@ const actionKw =
                 "description": "The team on which to move the Player. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
                 "type": "Team",
                 "default": "All",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team on which to move the Player. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes."
                 }
             },
@@ -4590,7 +4590,7 @@ const actionKw =
                 "description": "The player slot which will receive the player (-1 for first available slot).",
                 "type": "int",
                 "default": -1,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player slot which will receive the player (-1 for first available slot)."
                 }
             }
@@ -4638,7 +4638,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will be able to see the effect."
                 }
             },
@@ -4647,7 +4647,7 @@ const actionKw =
                 "description": "The type of effect to be created.",
                 "type": "DynamicEffect",
                 "default": "GOOD EXPLOSION",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The type of effect to be created."
                 }
             },
@@ -4656,7 +4656,7 @@ const actionKw =
                 "description": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
                 "default": "WHITE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
                 }
             },
@@ -4665,7 +4665,7 @@ const actionKw =
                 "description": "The effect's position. If this value is a player, then the effect will play at the player's position. Otherwise, the value is interpreted as a position in the world.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The effect's position. If this value is a player, then the effect will play at the player's position. Otherwise, the value is interpreted as a position in the world."
                 }
             },
@@ -4674,7 +4674,7 @@ const actionKw =
                 "description": "The effect's radius in meters.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The effect's radius in meters."
                 }
             }
@@ -4716,7 +4716,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will begin preloading a hero or heroes. Only one preload hero action will be active at a time for a given player."
                 }
             },
@@ -4730,7 +4730,7 @@ const actionKw =
                     }
                 ],
                 "default": "HERO",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The hero or heroes to begin preloading for the specified player or players. When multiple heroes are specified in an array, the heroes towards the beginning of the array are prioritized."
                 }
             }
@@ -4772,7 +4772,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players for whom the virtual button input will be forced."
                 }
             },
@@ -4781,7 +4781,7 @@ const actionKw =
                 "description": "The button to be pressed.",
                 "type": "Button",
                 "default": "PRIMARY FIRE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The button to be pressed."
                 }
             }
@@ -4823,7 +4823,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose added health pools will be removed."
                 }
             }
@@ -4860,7 +4860,7 @@ const actionKw =
                 "description": "Specifies a health pool created by the Add Health Pool action. (Health pool IDs may be obtained using the Last Created Health Pool Value.)",
                 "type": "HealthPoolId",
                 "default": "Last Created Health Pool",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies a health pool created by the Add Health Pool action. (Health pool IDs may be obtained using the Last Created Health Pool Value.)"
                 }
             }
@@ -4902,7 +4902,7 @@ const actionKw =
                     }
                 ],
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players to remove."
                 }
             }
@@ -4923,7 +4923,7 @@ const actionKw =
                     }
                 ],
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose name will be forced."
                 }
             },
@@ -4932,7 +4932,7 @@ const actionKw =
                 "description": "The name to be forced.",
                 "type": "String",
                 "default": "Custom String",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The name to be forced."
                 }
             }
@@ -4953,7 +4953,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose hero list is being reset."
                 }
             }
@@ -4995,7 +4995,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players to respawn."
                 }
             }
@@ -5044,7 +5044,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will be resurrected."
                 }
             }
@@ -5091,7 +5091,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose access to ability 1 is affected."
                 }
             },
@@ -5100,7 +5100,7 @@ const actionKw =
                 "description": "Specifies whether the player or players are able to use ability 1. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the player or players are able to use ability 1. Expects a boolean value such as true, false, or compare."
                 }
             }
@@ -5142,7 +5142,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose access to ability 2 is affected."
                 }
             },
@@ -5151,7 +5151,7 @@ const actionKw =
                 "description": "Specifies whether the player or players are able to use ability 2. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the player or players are able to use ability 2. Expects a boolean value such as true, false, or compare."
                 }
             }
@@ -5193,7 +5193,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose ability charge count will be modified."
                 }
             },
@@ -5202,7 +5202,7 @@ const actionKw =
                 "description": "The logical button associated with the ability to be modified.",
                 "type": "Button",
                 "default": "PRIMARY FIRE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The logical button associated with the ability to be modified."
                 }
             },
@@ -5213,7 +5213,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The charge count that will be set."
                 }
             }
@@ -5240,7 +5240,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose ability cooldown time will be modified."
                 }
             },
@@ -5249,7 +5249,7 @@ const actionKw =
                 "description": "The logical button associated with the ability to be modified.",
                 "type": "Button",
                 "default": "PRIMARY FIRE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The logical button associated with the ability to be modified."
                 }
             },
@@ -5260,7 +5260,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The cooldown time that will be set in seconds. Max of 1000."
                 }
             }
@@ -5287,7 +5287,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose ability resource percentage will be modified."
                 }
             },
@@ -5296,7 +5296,7 @@ const actionKw =
                 "description": "The logical button associated with the ability to be modified.",
                 "type": "Button",
                 "default": "PRIMARY FIRE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The logical button associated with the ability to be modified."
                 }
             },
@@ -5307,7 +5307,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of resource that will be set with respect to each player's ability resource capacity."
                 }
             }
@@ -5334,7 +5334,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose aim speed will be set."
                 }
             },
@@ -5343,7 +5343,7 @@ const actionKw =
                 "description": "The percentage of normal aim speed to which the player or players will set their aim speed.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of normal aim speed to which the player or players will set their aim speed."
                 }
             }
@@ -5385,7 +5385,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose ammo will be set."
                 }
             },
@@ -5396,7 +5396,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)."
                 }
             },
@@ -5407,7 +5407,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The ammo that will be set."
                 }
             }
@@ -5434,7 +5434,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose access to crouch is affected."
                 }
             },
@@ -5443,7 +5443,7 @@ const actionKw =
                 "description": "Specifies whether the player or players are able to use crouch. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the player or players are able to use crouch. Expects a boolean value such as true, false, or compare."
                 }
             }
@@ -5485,7 +5485,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose damage dealt will be set."
                 }
             },
@@ -5497,7 +5497,7 @@ const actionKw =
                 "max": 10000,
                 "literalMax": 1000,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of raw damage dealt to which the player or players will set their damage dealt."
                 }
             }
@@ -5540,7 +5540,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose damage received will be set."
                 }
             },
@@ -5552,7 +5552,7 @@ const actionKw =
                 "max": 10000,
                 "literalMax": 1000,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of raw damage received to which the player or players will set their damage received."
                 }
             }
@@ -5595,7 +5595,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The target player or players whose death is being considered."
                 }
             },
@@ -5604,7 +5604,7 @@ const actionKw =
                 "description": "The Player who will receive credit if the target player or players die to the environment before landing on the ground. An environment credit player of null indicates no player will receive credit.",
                 "type": "Player",
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The Player who will receive credit if the target player or players die to the environment before landing on the ground. An environment credit player of null indicates no player will receive credit."
                 }
             }
@@ -5631,7 +5631,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose facing will be set."
                 }
             },
@@ -5640,7 +5640,7 @@ const actionKw =
                 "description": "The unit direction in which the player or players will face. This value is normalized internally.",
                 "type": "Direction",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The unit direction in which the player or players will face. This value is normalized internally."
                 }
             },
@@ -5649,7 +5649,7 @@ const actionKw =
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
                 "type": "Relativity",
                 "default": "TO WORLD",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players."
                 }
             }
@@ -5686,7 +5686,7 @@ const actionKw =
                 "description": "Specifies which global variable to store the value into.",
                 "type": "GlobalVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which global variable to store the value into."
                 }
             },
@@ -5698,7 +5698,7 @@ const actionKw =
                     "Array"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be stored."
                 }
             }
@@ -5735,7 +5735,7 @@ const actionKw =
                 "description": "Specifies which global variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
                 "type": "GlobalVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which global variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array."
                 }
             },
@@ -5746,7 +5746,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero."
                 }
             },
@@ -5758,7 +5758,7 @@ const actionKw =
                     "Array"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be stored into the array."
                 }
             }
@@ -5800,7 +5800,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose movement gravity will be set."
                 }
             },
@@ -5811,7 +5811,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of regular movement gravity to which the player or players will set their personal movement gravity."
                 }
             }
@@ -5838,7 +5838,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose healing dealt will be set."
                 }
             },
@@ -5850,7 +5850,7 @@ const actionKw =
                 "max": 10000,
                 "literalMax": 1000,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": ""
                 }
             }
@@ -5893,7 +5893,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose healing received will be set."
                 }
             },
@@ -5902,7 +5902,7 @@ const actionKw =
                 "description": "The percentage of raw healing received to which the player or players will set their healing received.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of raw healing received to which the player or players will set their healing received."
                 }
             }
@@ -5944,7 +5944,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will become invisible."
                 }
             },
@@ -5953,7 +5953,7 @@ const actionKw =
                 "description": "Specifies for whom the player or players will be invisible.",
                 "type": "Invis",
                 "default": "ALL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies for whom the player or players will be invisible."
                 }
             }
@@ -5995,7 +5995,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose access to jump is affected."
                 }
             },
@@ -6004,7 +6004,7 @@ const actionKw =
                 "description": "Specifies whether the player or players are able to use jump. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the player or players are able to use jump. Expects a boolean value such as true, false, or compare."
                 }
             }
@@ -6046,7 +6046,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose jump vertical speed will be set."
                 }
             },
@@ -6055,7 +6055,7 @@ const actionKw =
                 "description": "The percentage of raw jump vertical speed to which the player or players will set their jump vertical speed.",
                 "type": "unsigned float",
                 "default": 100,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of raw jump vertical speed to which the player or players will set their jump vertical speed."
                 }
             }
@@ -6097,7 +6097,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose knockback dealt will be set."
                 }
             },
@@ -6106,7 +6106,7 @@ const actionKw =
                 "description": "The percentage of raw knockback dealt to which the player or players will set their knockback dealt.",
                 "type": "unsigned float",
                 "default": 100,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of raw knockback dealt to which the player or players will set their knockback dealt."
                 }
             }
@@ -6148,7 +6148,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose knockback received will be set."
                 }
             },
@@ -6157,7 +6157,7 @@ const actionKw =
                 "description": "The percentage of raw knockback received to which the player or players will set their knockback received.",
                 "type": "unsigned float",
                 "default": 100,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of raw knockback received to which the player or players will set their knockback received."
                 }
             }
@@ -6196,7 +6196,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The match time in seconds."
                 }
             }
@@ -6238,7 +6238,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose max ammo will be set."
                 }
             },
@@ -6249,7 +6249,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)."
                 }
             },
@@ -6260,7 +6260,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The max ammo that will be set."
                 }
             }
@@ -6287,7 +6287,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose max health will be set."
                 }
             },
@@ -6299,7 +6299,7 @@ const actionKw =
                 "max": 10000,
                 "literalMax": 1000,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of raw max health to which the player or players will set their max health."
                 }
             }
@@ -6327,7 +6327,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose access to melee is affected."
                 }
             },
@@ -6336,7 +6336,7 @@ const actionKw =
                 "description": "Specifies whether the player or players are able to use melee. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the player or players are able to use melee. Expects a boolean value such as true, false, or compare."
                 }
             }
@@ -6378,7 +6378,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose move speed will be set."
                 }
             },
@@ -6389,7 +6389,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of raw move speed to which the player or players will set their move speed."
                 }
             }
@@ -6431,7 +6431,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will see the message."
                 }
             },
@@ -6441,7 +6441,7 @@ const actionKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The message to be displayed."
                 }
             },
@@ -6450,7 +6450,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The message will keep asking for and using new values from reevaluated inputs.",
                 "type": "HudReeval",
                 "default": "VISIBLE TO AND STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The message will keep asking for and using new values from reevaluated inputs."
                 }
             }
@@ -6492,7 +6492,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose hero list is being set."
                 }
             },
@@ -6506,7 +6506,7 @@ const actionKw =
                     }
                 ],
                 "default": "HERO",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The hero or heroes that will be available. If no heroes are provided, the action has no effect."
                 }
             }
@@ -6548,7 +6548,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose health will be set."
                 }
             },
@@ -6557,7 +6557,7 @@ const actionKw =
                 "description": "How much health the player or players will have.",
                 "type": "unsigned float",
                 "default": 1,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "How much health the player or players will have."
                 }
             }
@@ -6599,7 +6599,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose score will be set."
                 }
             },
@@ -6610,7 +6610,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The score that will be set."
                 }
             }
@@ -6652,7 +6652,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose variable will be set. If multiple players are provided, each of their variables will be set."
                 }
             },
@@ -6661,7 +6661,7 @@ const actionKw =
                 "description": "Specifies which of the player's variables to store the value into.",
                 "type": "PlayerVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of the player's variables to store the value into."
                 }
             },
@@ -6673,7 +6673,7 @@ const actionKw =
                     "Array"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be stored."
                 }
             }
@@ -6715,7 +6715,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set."
                 }
             },
@@ -6724,7 +6724,7 @@ const actionKw =
                 "description": "Specifies which player variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
                 "type": "PlayerVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which player variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array."
                 }
             },
@@ -6735,7 +6735,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero."
                 }
             },
@@ -6747,7 +6747,7 @@ const actionKw =
                     "Array"
                 ],
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The value that will be stored into the array."
                 }
             }
@@ -6789,7 +6789,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose access to primary fire is affected."
                 }
             },
@@ -6798,7 +6798,7 @@ const actionKw =
                 "description": "Specifies whether the player or players are able to use primary fire. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the player or players are able to use primary fire. Expects a boolean value such as true, false, or compare."
                 }
             }
@@ -6840,7 +6840,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose projectile gravity will be set."
                 }
             },
@@ -6851,7 +6851,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of regular projectile gravity to which the player or players will set their personal projectile gravity."
                 }
             }
@@ -6893,7 +6893,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose projectile speed will be set."
                 }
             },
@@ -6904,7 +6904,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of regular projectile speed to which the player or players will set their personal projectile speed."
                 }
             }
@@ -6931,7 +6931,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose access to reload is affected."
                 }
             },
@@ -6940,7 +6940,7 @@ const actionKw =
                 "description": "Specifies whether the player or players are able to use reload. Expects a boolean value such as True, False, or Compare.",
                 "type": "bool",
                 "default": "true",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the player or players are able to use reload. Expects a boolean value such as True, False, or Compare."
                 }
             }
@@ -6982,7 +6982,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose respawn max time is being defined."
                 }
             },
@@ -6993,7 +6993,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The duration between death and respawn in seconds."
                 }
             }
@@ -7035,7 +7035,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose access to secondary fire is affected."
                 }
             },
@@ -7044,7 +7044,7 @@ const actionKw =
                 "description": "Specifies whether the player or players are able to use secondary fire. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the player or players are able to use secondary fire. Expects a boolean value such as true, false, or compare."
                 }
             }
@@ -7081,7 +7081,7 @@ const actionKw =
                 "description": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed."
                 }
             }
@@ -7123,7 +7123,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players to whom the status will be applied."
                 }
             },
@@ -7132,7 +7132,7 @@ const actionKw =
                 "description": "Specifies a player to be awarded assist credit should the affected player or players be killed while the status is in effect. An assister of null indicates no player will receive credit.",
                 "type": "Player",
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies a player to be awarded assist credit should the affected player or players be killed while the status is in effect. An assister of null indicates no player will receive credit."
                 }
             },
@@ -7141,7 +7141,7 @@ const actionKw =
                 "description": "The status to be applied to the player or players. These behave similarly to statuses applied from hero abilities.",
                 "type": "Status",
                 "default": "HACKED",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The status to be applied to the player or players. These behave similarly to statuses applied from hero abilities."
                 }
             },
@@ -7152,7 +7152,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 9999."
                 }
             }
@@ -7189,7 +7189,7 @@ const actionKw =
                 "description": "The team or teams whose score will be set.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team or teams whose score will be set."
                 }
             },
@@ -7200,7 +7200,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The score that will be set."
                 }
             }
@@ -7242,7 +7242,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose access to their ultimate ability is affected."
                 }
             },
@@ -7251,7 +7251,7 @@ const actionKw =
                 "description": "Specifies whether the player or players are able to use their ultimate ability. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the player or players are able to use their ultimate ability. Expects a boolean value such as true, false, or compare."
                 }
             }
@@ -7293,7 +7293,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose ultimate charge will be set."
                 }
             },
@@ -7304,7 +7304,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of maximum charge."
                 }
             }
@@ -7346,7 +7346,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose weapon will be set."
                 }
             },
@@ -7357,7 +7357,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": 0,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The number of the weapon to be equipped. 1 is the first weapon, and 2 is the second. If the specified weapon does not exist, players will use the default weapon."
                 }
             }
@@ -7397,7 +7397,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The number of actions to skip, not including this action."
                 }
             }
@@ -7433,7 +7433,7 @@ const actionKw =
                 "description": "Specifies whether the skip occurs.",
                 "type": "bool",
                 "default": "COMPARE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether the skip occurs."
                 }
             },
@@ -7444,7 +7444,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The number of actions to skip, not including this action."
                 }
             }
@@ -7486,7 +7486,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will see the message."
                 }
             },
@@ -7496,7 +7496,7 @@ const actionKw =
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "STRING",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The message to be displayed."
                 }
             }
@@ -7538,7 +7538,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players that will begin accelerating."
                 }
             },
@@ -7547,7 +7547,7 @@ const actionKw =
                 "description": "The unit direction in which the acceleration will be applied. This value is normalized internally.",
                 "type": "Direction",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The unit direction in which the acceleration will be applied. This value is normalized internally."
                 }
             },
@@ -7556,7 +7556,7 @@ const actionKw =
                 "description": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity and/or surface friction.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity and/or surface friction."
                 }
             },
@@ -7565,7 +7565,7 @@ const actionKw =
                 "description": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction."
                 }
             },
@@ -7574,7 +7574,7 @@ const actionKw =
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
                 "type": "Relativity",
                 "default": "TO WORLD",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players."
                 }
             },
@@ -7583,7 +7583,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "AccelReeval",
                 "default": "DIRECTION, RATE, AND MAX SPEED",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
                 }
             }
@@ -7625,7 +7625,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose cameras will be placed at the location."
                 }
             },
@@ -7634,7 +7634,7 @@ const actionKw =
                 "description": "The position of the camera. Reevaluates continuously.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position of the camera. Reevaluates continuously."
                 }
             },
@@ -7643,7 +7643,7 @@ const actionKw =
                 "description": "Where the camera looks at. Reevaluates continuously.",
                 "type": "Position",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Where the camera looks at. Reevaluates continuously."
                 }
             },
@@ -7652,7 +7652,7 @@ const actionKw =
                 "description": "How fast to blend the camera speed as positions change. 0 means do not blend at all, and just change positions instantly.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "How fast to blend the camera speed as positions change. 0 means do not blend at all, and just change positions instantly."
                 }
             }
@@ -7694,7 +7694,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose incoming damage will be modified (when attacked by the damagers)."
                 }
             },
@@ -7708,7 +7708,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose outgoing damage will be modified (when attacking the receivers)."
                 }
             },
@@ -7717,7 +7717,7 @@ const actionKw =
                 "description": "The percentage of damage that will apply to receivers when attacked by damagers.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of damage that will apply to receivers when attacked by damagers."
                 }
             },
@@ -7726,7 +7726,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "DamageReeval",
                 "default": "RECEIVERS, DAMAGERS, AND DAMAGE PERCENT",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
                 }
             }
@@ -7768,7 +7768,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will receive the damage over time."
                 }
             },
@@ -7777,7 +7777,7 @@ const actionKw =
                 "description": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit.",
                 "type": "Player",
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit."
                 }
             },
@@ -7786,7 +7786,7 @@ const actionKw =
                 "description": "The duration of the damage over time in seconds. To have a dot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The duration of the damage over time in seconds. To have a dot that lasts until stopped by script, provide an arbitrarily long duration such as 9999."
                 }
             },
@@ -7795,7 +7795,7 @@ const actionKw =
                 "description": "The damage per second for the damage over time.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The damage per second for the damage over time."
                 }
             }
@@ -7837,7 +7837,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will start turning."
                 }
             },
@@ -7846,7 +7846,7 @@ const actionKw =
                 "description": "The unit direction in which the player or players will eventually face. This value is normalized internally.",
                 "type": "Direction",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The unit direction in which the player or players will eventually face. This value is normalized internally."
                 }
             },
@@ -7855,7 +7855,7 @@ const actionKw =
                 "description": "The turn rate in degrees per second.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The turn rate in degrees per second."
                 }
             },
@@ -7864,7 +7864,7 @@ const actionKw =
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
                 "type": "Relativity",
                 "default": "TO WORLD",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players."
                 }
             },
@@ -7873,7 +7873,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "FacingReeval",
                 "default": "DIRECTION AND TURN RATE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
                 }
             }
@@ -7915,7 +7915,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their outline modified."
                 }
             },
@@ -7929,7 +7929,7 @@ const actionKw =
                     }
                 ],
                 "default": "All Players",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The viewing player or players for whom the viewed player's outline will be modified."
                 }
             },
@@ -7938,7 +7938,7 @@ const actionKw =
                 "description": "Whether or not the specified player outlines should be visible.",
                 "type": "bool",
                 "default": "true",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Whether or not the specified player outlines should be visible."
                 }
             },
@@ -7947,7 +7947,7 @@ const actionKw =
                 "description": "The color of the specified player outlines, if they are visible.",
                 "type": "Color",
                 "default": "White",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The color of the specified player outlines, if they are visible."
                 }
             },
@@ -7956,7 +7956,7 @@ const actionKw =
                 "description": "The visibility type of the specified player outlines, if they are visible.",
                 "type": "OutlineVisibility",
                 "default": "DEFAULT",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The visibility type of the specified player outlines, if they are visible."
                 }
             }
@@ -7978,7 +7978,7 @@ const actionKw =
                 "description": "The player whose position will be forced. (The reevaluation option does not apply to this value.)",
                 "type": "Player",
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose position will be forced. (The reevaluation option does not apply to this value.)"
                 }
             },
@@ -7988,7 +7988,7 @@ const actionKw =
                 "type": "Position",
                 "canReplace0ByNull": true,
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time."
                 }
             },
@@ -7997,7 +7997,7 @@ const actionKw =
                 "description": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the posiiton is only evaluated once when the action begins.",
                 "type": "bool",
                 "default": "TRUE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the posiiton is only evaluated once when the action begins."
                 }
             }
@@ -8039,7 +8039,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will be forced to be a specific hero."
                 }
             },
@@ -8048,7 +8048,7 @@ const actionKw =
                 "description": "The hero that the player or players will be forced to be.",
                 "type": "Hero",
                 "default": "HERO",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The hero that the player or players will be forced to be."
                 }
             }
@@ -8085,7 +8085,7 @@ const actionKw =
                 "description": "The team whose spawn room will be forced.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team whose spawn room will be forced."
                 }
             },
@@ -8095,7 +8095,7 @@ const actionKw =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room."
                 }
             }
@@ -8137,7 +8137,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose movement will be forced or limited."
                 }
             },
@@ -8148,7 +8148,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Sets the minimum run forward amount. 0 allows the player or players to stop while 1 forces full forward movement."
                 }
             },
@@ -8159,7 +8159,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Sets the maximum run forward amount. 0 prevents the player or players from moving forward while 1 allows full forward movement."
                 }
             },
@@ -8170,7 +8170,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Sets the minimum run backward amount. 0 allows the player or players to stop while 1 forces full backward movement."
                 }
             },
@@ -8181,7 +8181,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Sets the maximum run backward amount. 0 prevents the player or players from moving backward while 1 allows full backward movement."
                 }
             },
@@ -8192,7 +8192,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement."
                 }
             },
@@ -8203,7 +8203,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Sets the maximum run sideways amount. 0 prevents the player or players from moving SIDEWAYS while 1 allows full sideways movement."
                 }
             }
@@ -8245,7 +8245,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The target Player or Players who will receive assist credit."
                 }
             },
@@ -8259,7 +8259,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The Player or Players whose eliminations will grant assist credit to the Assisters. If the Target or Targets are allied to the Assister, this will be a defensive assist. Otherwise, this will be an offensive assist."
                 }
             },
@@ -8268,7 +8268,7 @@ const actionKw =
                 "description": "Specifies which of this Action's Inputs will be continously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
                 "type": "AssistReeval",
                 "default": "Assisters and Targets",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this Action's Inputs will be continously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs."
                 }
             }
@@ -8295,7 +8295,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "One or more players who will receive the heal over time."
                 }
             },
@@ -8304,7 +8304,7 @@ const actionKw =
                 "description": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit.",
                 "type": "Player",
                 "default": "NULL",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit."
                 }
             },
@@ -8313,7 +8313,7 @@ const actionKw =
                 "description": "The duration of the heal over time in seconds. To have a hot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The duration of the heal over time in seconds. To have a hot that lasts until stopped by script, provide an arbitrarily long duration such as 9999."
                 }
             },
@@ -8322,7 +8322,7 @@ const actionKw =
                 "description": "The healing per second for the heal over time.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The healing per second for the heal over time."
                 }
             }
@@ -8364,7 +8364,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose incoming healing will be modified (when healed by the healers)."
                 }
             },
@@ -8378,7 +8378,7 @@ const actionKw =
                     }
                 ],
                 "default": "ALL PLAYERS",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose outgoing healing will be modified (when healing the receivers)."
                 }
             },
@@ -8387,7 +8387,7 @@ const actionKw =
                 "description": "The percentage of healing that will apply to receivers when healed by healers.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The percentage of healing that will apply to receivers when healed by healers."
                 }
             },
@@ -8396,7 +8396,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "HealingReeval",
                 "default": "RECEIVERS, HEALERS, AND HEALING PERCENT",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
                 }
             }
@@ -8438,7 +8438,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who are holding a button virtually."
                 }
             },
@@ -8447,7 +8447,7 @@ const actionKw =
                 "description": "The logical button that is being held virtually.",
                 "type": "Button",
                 "default": "PRIMARY FIRE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The logical button that is being held virtually."
                 }
             }
@@ -8495,7 +8495,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose voice line sound will be modified."
                 }
             },
@@ -8505,7 +8505,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "type": "unsigned float",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The amount that the pitch of the voice will be raised (up to 1.5) or lowered (down to 0.5)."
                 }
             },
@@ -8514,7 +8514,7 @@ const actionKw =
                 "description": "If true, Pitch Scalar is evaluated and updated every frame. If false, Pitch Scalar is evaluated once when the actions executes.",
                 "type": "bool",
                 "default": "true",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If true, Pitch Scalar is evaluated and updated every frame. If false, Pitch Scalar is evaluated once when the actions executes."
                 }
             }
@@ -8556,7 +8556,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose barriers will have their size modified."
                 }
             },
@@ -8567,7 +8567,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": 1,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The multiplier applied to the size of the barriers (0.5 halves the size, 2.0 doubles the size, etc.)."
                 }
             },
@@ -8576,7 +8576,7 @@ const actionKw =
                 "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
                 "type": "bool",
                 "default": "true",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins."
                 }
             }
@@ -8603,7 +8603,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose size will be modified."
                 }
             },
@@ -8614,7 +8614,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": 1,
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The multiplier applied to the size of the player or players (0.5 halves the size, 2.0 doubles the size, etc.)."
                 }
             },
@@ -8623,7 +8623,7 @@ const actionKw =
                 "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
                 "type": "bool",
                 "default": "true",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins."
                 }
             }
@@ -8645,7 +8645,7 @@ const actionKw =
                 "description": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
                 "type": "Subroutine",
                 "default": "Sub0",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored."
                 }
             },
@@ -8654,7 +8654,7 @@ const actionKw =
                 "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
                 "type": "AsyncBehavior",
                 "default": "RESTART RULE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity."
                 }
             }
@@ -8696,7 +8696,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose throttle will be set or added to."
                 }
             },
@@ -8705,7 +8705,7 @@ const actionKw =
                 "description": "The unit direction in which the throttle will be set or added to. This value is normalized internally.",
                 "type": "Direction",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The unit direction in which the throttle will be set or added to. This value is normalized internally."
                 }
             },
@@ -8714,7 +8714,7 @@ const actionKw =
                 "description": "The amount of throttle (or change to throttle). A value of 1 denotes full throttle.",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The amount of throttle (or change to throttle). A value of 1 denotes full throttle."
                 }
             },
@@ -8723,7 +8723,7 @@ const actionKw =
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
                 "type": "Relativity",
                 "default": "TO WORLD",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players."
                 }
             },
@@ -8732,7 +8732,7 @@ const actionKw =
                 "description": "Specifies whether preexisting throttle is replaced or added to.",
                 "type": "Throttle",
                 "default": "REPLACE EXISTING THROTTLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies whether preexisting throttle is replaced or added to."
                 }
             },
@@ -8741,7 +8741,7 @@ const actionKw =
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This aciton will keep asking for and using new values from reevaluated inputs.",
                 "type": "ThrottleReeval",
                 "default": "DIRECTION AND MAGNITUDE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This aciton will keep asking for and using new values from reevaluated inputs."
                 }
             }
@@ -8783,7 +8783,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose throttle will be transformed."
                 }
             },
@@ -8792,7 +8792,7 @@ const actionKw =
                 "description": "The player or players will have their throttle X axis (left to right) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players will have their throttle X axis (left to right) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame)."
                 }
             },
@@ -8801,7 +8801,7 @@ const actionKw =
                 "description": "The player or players will have their throttle Y axis (front to back) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
                 "type": "unsigned float",
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players will have their throttle Y axis (front to back) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame)."
                 }
             },
@@ -8810,7 +8810,7 @@ const actionKw =
                 "description": "After the axis scalars are applied, the player or players will have their throttle transformed so that it is relative to this unit direction vector. For example, to make the throttle camera relative, provide the direction that the camera is facing. This value is evaluated continuously (meaning it updates every frame) and normalized internally.",
                 "type": "Direction",
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "After the axis scalars are applied, the player or players will have their throttle transformed so that it is relative to this unit direction vector. For example, to make the throttle camera relative, provide the direction that the camera is facing. This value is evaluated continuously (meaning it updates every frame) and normalized internally."
                 }
             }
@@ -8852,7 +8852,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will stop accelerating."
                 }
             }
@@ -8975,7 +8975,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose scripted damage over time will stop."
                 }
             }
@@ -9017,7 +9017,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose scripted heal over time will stop."
                 }
             }
@@ -9054,7 +9054,7 @@ const actionKw =
                 "description": "Specifies which assist instance to stop. This ID may be Last Assist ID or a Variable into which Last Assist ID was earlier stored.",
                 "type": "AssistId",
                 "default": "Last Assist ID",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which assist instance to stop. This ID may be Last Assist ID or a Variable into which Last Assist ID was earlier stored."
                 }
             }
@@ -9096,7 +9096,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose cameras will be put back to the default view."
                 }
             }
@@ -9133,7 +9133,7 @@ const actionKw =
                 "description": "Specifies which global variable to stop modifying.",
                 "type": "GlobalVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which global variable to stop modifying."
                 }
             }
@@ -9175,7 +9175,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player whose variable will stop changing. If multiple players are provided, each of their variables will stop changing."
                 }
             },
@@ -9184,7 +9184,7 @@ const actionKw =
                 "description": "Specifies which of the player's variables to stop modifying.",
                 "type": "PlayerVariable",
                 "default": "A",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which of the player's variables to stop modifying."
                 }
             }
@@ -9221,7 +9221,7 @@ const actionKw =
                 "description": "Specifies which damage modification instance to stop. This id may be last damage modification id or a variable into which last damage modification id was earlier stored.",
                 "type": "DamageModificationId",
                 "default": "LAST DAMAGE MODIFICATION ID",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which damage modification instance to stop. This id may be last damage modification id or a variable into which last damage modification id was earlier stored."
                 }
             }
@@ -9258,7 +9258,7 @@ const actionKw =
                 "description": "Specifies which damage over time instance to stop. This id may be last damage over time id or a variable into which last damage over time id was earlier stored.",
                 "type": "DotId",
                 "default": "LAST DAMAGE OVER TIME ID",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which damage over time instance to stop. This id may be last damage over time id or a variable into which last damage over time id was earlier stored."
                 }
             }
@@ -9300,7 +9300,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will stop turning."
                 }
             }
@@ -9342,7 +9342,7 @@ const actionKw =
                     }
                 ],
                 "default": "Event Player",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The Player or Players whose names will stop being forced"
                 }
             }
@@ -9363,7 +9363,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will have their outlines reset."
                 }
             },
@@ -9377,7 +9377,7 @@ const actionKw =
                     }
                 ],
                 "default": "All Players",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The viewing player or players for whom the viewed player's outlines will be reset."
                 }
             }
@@ -9419,7 +9419,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose positions will stop being forced."
                 }
             }
@@ -9446,7 +9446,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who will no longer be forced to be a specific hero."
                 }
             }
@@ -9483,7 +9483,7 @@ const actionKw =
                 "description": "The team that will resume using their normal spawn room.",
                 "type": "Team",
                 "default": "TEAM",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The team that will resume using their normal spawn room."
                 }
             }
@@ -9525,7 +9525,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose movement input will be restored."
                 }
             }
@@ -9562,7 +9562,7 @@ const actionKw =
                 "description": "Specifies which heal over time instance to stop. This id may be last heal over time id or a variable into which last heal over time id was earlier stored.",
                 "type": "HotId",
                 "default": "PLAYER VARIABLE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which heal over time instance to stop. This id may be last heal over time id or a variable into which last heal over time id was earlier stored."
                 }
             }
@@ -9599,7 +9599,7 @@ const actionKw =
                 "description": "Specifies which healing modification instance to stop. This id may be last healing modification id or a variable into which last healing modification id was earlier stored.",
                 "type": "HealingModificationId",
                 "default": "LAST HEALING MODIFICATION ID",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies which healing modification instance to stop. This id may be last healing modification id or a variable into which last healing modification id was earlier stored."
                 }
             }
@@ -9641,7 +9641,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players who are no longer holding a button virtually."
                 }
             },
@@ -9650,7 +9650,7 @@ const actionKw =
                 "description": "The logical button that is no longer being held virtually.",
                 "type": "Button",
                 "default": "PRIMARY FIRE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The logical button that is no longer being held virtually."
                 }
             }
@@ -9692,7 +9692,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose hero voice line sounds will stop being modified."
                 }
             }
@@ -9719,7 +9719,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose barriers will stop having their size being overridden."
                 }
             }
@@ -9746,7 +9746,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose size will stop being overridden."
                 }
             }
@@ -9773,7 +9773,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose default throttle control will be restored."
                 }
             }
@@ -9815,7 +9815,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players whose throttle will stop being transformed."
                 }
             }
@@ -9858,7 +9858,7 @@ const actionKw =
                     }
                 ],
                 "default": "EVENT PLAYER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The player or players to teleport."
                 }
             },
@@ -9868,7 +9868,7 @@ const actionKw =
                 "type": "Position",
                 "canReplace0ByNull": true,
                 "default": "VECTOR",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The position to which the player or players will teleport. If a player is provided, the position of the player is used."
                 }
             }
@@ -9934,7 +9934,7 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "The duration of the pause."
                 }
             },
@@ -9943,7 +9943,7 @@ const actionKw =
                 "description": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart.",
                 "type": "Wait",
                 "default": "IGNORE CONDITION",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart."
                 }
             }
@@ -9979,7 +9979,7 @@ const actionKw =
                 "description": "If this value becomes true, the wait concludes, and the next action in the action list begins executing.",
                 "type": "bool",
                 "default": "false",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If this value becomes true, the wait concludes, and the next action in the action list begins executing."
                 }
             },
@@ -9988,7 +9988,7 @@ const actionKw =
                 "description": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing.",
                 "type": "unsigned float",
                 "default": "99999",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing."
                 }
             }
@@ -10010,7 +10010,7 @@ const actionKw =
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next end action at the current level.",
                 "type": "bool",
                 "default": "COMPARE",
-                "decriptionLocalized": {
+                "descriptionLocalized": {
                     "en-US": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next end action at the current level."
                 }
             }
