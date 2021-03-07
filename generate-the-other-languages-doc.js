@@ -48,7 +48,7 @@ function getGuids() {
     //console.log(guids["en-US"]);
 }
 
-/*function replaceJsonObjectsInFile(path) {
+function replaceJsonObjectsInFile(path) {
     console.log("Processing "+path)
     var content = ""+fs.readFileSync(path);
     var result = "";
@@ -57,7 +57,15 @@ function getGuids() {
     for (var line of content.split("\n")) {
         if (line === "//end-json") {
             isInJsonObject = false;
-            result += JSON.stringify(iterateOnObject(eval("("+currentJsonStr+")")), null, 4)+"\n";
+            tmpObj = iterateOnObject(eval("("+currentJsonStr+")"))
+            tmpObj = Object.keys(tmpObj).sort().reduce(
+                (obj, key) => { 
+                    obj[key] = tmpObj[key]; 
+                    return obj;
+                }, 
+                {}
+            );
+            result += JSON.stringify(tmpObj, null, 4)+"\n";
             currentJsonStr = "";
         }
         if (!isInJsonObject) {
@@ -70,8 +78,8 @@ function getGuids() {
         }
     }
     fs.writeFileSync(path, result.substring(0, result.length-1));
-}*/
-
+}
+/*
 function replaceJsonObjectsInFile(path) {
     console.log("Processing "+path)
     var content = ""+fs.readFileSync(path);
@@ -91,6 +99,7 @@ function replaceJsonObjectsInFile(path) {
                     }
                 }
             }
+            
             result += JSON.stringify(tmp, null, 4)+"\n";
 
             currentJsonStr = "";
@@ -105,18 +114,17 @@ function replaceJsonObjectsInFile(path) {
         }
     }
     fs.writeFileSync(path, result.substring(0, result.length-1));
-}
+}*/
 
 function iterateOnObject(content) {
     if ("guid" in content || "en-US" in content) {
         content = addTranslations(content);
     }
 
-
     for (var key of Object.keys(content)) {
         if (typeof content[key] === "object" && content[key] !== null) {
             //Skip the comparison operators as they must not be translated.
-            if (key !== "__Operator__") {
+            if (key !== "__Operator__" && key !== "descriptionLocalized") {
                 content[key] = iterateOnObject(content[key]);
             }
         }
@@ -131,16 +139,14 @@ function addTranslations(content) {
     if (!("guid" in content)) {
         var matchingGuids = [];
         for (var elem of guids["en-US"]) {
-            if (elem.string.toLowerCase() === content["en-US"].toLowerCase()) {
+            if (elem.string === content["en-US"]) {
                 matchingGuids.push(elem.guid);
             }
         }
         if (matchingGuids.length === 0) {
-            //throw new Error("No guid found for string '"+content["en-US"]+"'");
-            content.guid = "<unknown guid>";
-            return content;
+            throw new Error("No guid found for string '"+content["en-US"]+"'");
         } else if (matchingGuids.length > 1) {
-            //throw new Error("Multiple guids found for string '"+content["en-US"]+"': "+JSON.stringify(matchingGuids));
+            throw new Error("Multiple guids found for string '"+content["en-US"]+"': "+JSON.stringify(matchingGuids));
         }
         content.guid = matchingGuids[0];
     }
@@ -184,13 +190,13 @@ function normalizeName(content) {
 
 //generateStringFiles();
 getGuids();
-replaceJsonObjectsInFile(docFolder+"actions.js");
-replaceJsonObjectsInFile(docFolder+"values.js");
+//replaceJsonObjectsInFile(docFolder+"actions.js");
+//replaceJsonObjectsInFile(docFolder+"values.js");
 //replaceJsonObjectsInFile(docFolder+"constants.js");
 //replaceJsonObjectsInFile(docFolder+"heroes.js");
 //replaceJsonObjectsInFile(docFolder+"maps.js");
 //replaceJsonObjectsInFile(docFolder+"gamemodes.js");
-//replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
+replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
 //removeParentheses = false;
 //replaceJsonObjectsInFile(docFolder+"localizedStrings.js");
 //replaceJsonObjectsInFile(docFolder+"other.js");
